@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-31"
+lastupdated: "2017-06-08"
 
 ---
 
@@ -105,9 +105,8 @@ A continuous replication can never have a `completed` state.
 
 ### Status checking by using the replication scheduler
 
-### Replication state
+The replication scheduler enables you to determine the status of replication.
 
-Transition between states is managed by the replication scheduler.
 At any moment in time,
 a replication can be in one of the following seven states.
 
@@ -137,6 +136,75 @@ a replication can be in one of the following seven states.
   This state means that no further attempt is made to replicate by using this replication task.
   The failure might be caused in several different ways,
   for example if the source or target URLs are not valid.
+
+#### Using the replication scheduler
+
+To determine the current status of replication using the replication scheduler,
+send a `GET` request to the `/_scheduler/jobs` endpoint.
+
+_Example of using HTTP to get the replication status from the replication scheduler:_
+
+```http
+GET /$DATABASE/_scheduler/jobs HTTP/1.1
+HOST: $ACCOUNT.cloudant.com
+```
+{:codeblock}
+
+_Example of using the command line to create a database:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_scheduler/jobs
+```
+{:codeblock}
+
+_Example response (abbreviated) from the replication scheduler:_
+
+```json
+{
+  "total": 1,
+  "offset": 0,
+  "jobs": [
+    {
+      "database": "_replicator",
+      "id": "88b...get",
+      "pid": null,
+      "source": "$source_db/",
+      "target": "$target_db/",
+      "user": null,
+      "doc_id": "myrep",
+      "history": [
+        {
+          "timestamp": "2016-11-10T06-51-19Z",
+          "type": "crashed",
+          "reason": "db_not_found: could not open $source_db"
+        },
+        {
+          "timestamp": "2016-11-10T06-51-19Z",
+          "type": "started"
+        },
+        {
+          "timestamp": "2016-11-10T06-50-35Z",
+          "type": "crashed",
+          "reason": "db_not_found: could not open $source_db"
+        },
+        {
+          "timestamp": "2016-11-10T06-50-35Z",
+          "type": "started"
+        },
+        {
+          "timestamp": "2016-11-10T06-50-35Z",
+          "type": "added"
+        }
+      ],
+      "node": "node1@127.0.0.1",
+      "start_time": "2016-11-10T06-50-34Z"
+    }
+  ]
+}
+```
+{:codeblock}
+
+The response received from the replication scheduler shows the history and current status of all replications.
 
 ## Authentication
 
