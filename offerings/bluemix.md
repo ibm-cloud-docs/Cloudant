@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-17"
+lastupdated: "2017-06-09"
 
 ---
 
@@ -32,6 +32,14 @@ at the [home page ![External link icon](../images/launch-glyph.svg "External lin
 
 {{site.data.keyword.cloudantfull}} is available as a free [Lite plan](#lite-plan),
 and as several configurations within the paid [Standard plan](#standard-plan).
+A [Dedicated plan](#dedicated-plan) is also available.
+This plan offers the same configurability as the Standard plan,
+but is provided on dedicated hardware.
+Dedicated hardware is not shared with any other accounts,
+meaning that it is exclusively for your use.
+If a Dedicated plan instance is provisioned within a [US location](#locations),
+you can optionally select a
+[HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} compliant configuration.
 
 The following table summarizes the performance measures for each of the plans.
 
@@ -44,7 +52,7 @@ The following table summarizes the performance measures for each of the plans.
 <table border='1'>
 
 <tr>
-<th>Plans</th><th>Lite</th><th colspan='4'>Standard</th>
+<th>Plans</th><th>Lite</th><th colspan='4'>Standard <i>and</i> Dedicated</th>
 </tr>
 <tr>
 <td>Base Price (per hour)</td>
@@ -93,6 +101,13 @@ The following table summarizes the performance measures for each of the plans.
 
 </table>
 
+You can select which plan to use when you
+[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-instance-on-bluemix).
+By default,
+the [Lite plan](#lite-plan) is selected.
+
+![Cloudant service instance plan selection](../images/fb87416a.png)
+
 ### Lite plan
 
 The Lite plan is free,
@@ -116,7 +131,14 @@ you can also change the amount of provisioned throughput capacity for lookups,
 writes,
 and queries.
 
+### Dedicated plan
+
+{{site.data.keyword.cloudant_short_notm}} is available on single tenant dedicated hardware as part of a
+[{{site.data.keyword.Bluemix_notm}} Dedicated ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/cloud-computing/bluemix/dedicated/){:new_window} configuration.
+
 <div id="servicetier"></div>
+
+## Service tiers
 
 You can see details of the throughput capacity within the plans available for your account.
 You can select the level of provisioning that you want to use,
@@ -134,7 +156,7 @@ and reminded that the provisioning change can take up to 24 hours to complete.
 
 <div id="throughput"></div>
 
-#### Provisioned throughput capacity
+### Provisioned throughput capacity
 
 Throughput provision is identified and measured as one of three kinds of events:
 
@@ -198,19 +220,19 @@ for moving to a different plan configuration.
 In summary,
 you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
 
-#### Maximum individual document size
+### Maximum individual document size
 
 Data is stored within {{site.data.keyword.cloudant_short_notm}} as [JSON documents](../api/document.html).
 For documents in a {{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.Bluemix_notm}},
 the maximum size for an individual document is 1 MB.
 Exceeding this limit causes a [`413` error](../api/http.html#413).
 
-#### Disk Space Included
+### Disk Space Included
 
 This value is the storage capacity included in the plan.
 It is used for both data and index storage.
 
-#### Disk Overage
+### Disk Overage
 
 All Standard and Lite plan service instances are monitored for disk space used.
 If the account uses more than the amount of storage that is provided in your plan configuration,
@@ -230,7 +252,7 @@ you would be billed an overage charge based on 87 GB x 12 hours = 1044 GB hours 
 
 Overage is calculated by using the maximum number of GB more than the plan allocation during a particular hour within the billing cycle.
 
-#### A worked overage example
+### A worked overage example
 
 Assume that you start a month of 30 days with a Standard plan service instance that uses 9 GB of storage.
 Next,
@@ -257,10 +279,10 @@ you would be billed an overage based on 8 GB x 24 hours x 27 days = 5184 GB hour
 
 The total overage bill for the month would be based on a total of 88 + 168 + 5184 = 5440 GB hours.
 
-#### Locations
+## Locations
 
 By default,
-all plans are based on multi-tenant clusters.
+all plans except Dedicated are based on multi-tenant clusters.
 As part of your plan selection,
 you can choose from the following {{site.data.keyword.Bluemix_notm}} Public regions:
 
@@ -269,8 +291,7 @@ you can choose from the following {{site.data.keyword.Bluemix_notm}} Public regi
 -   Sydney
 -   Germany
 
-
-#### Security, Encryption, and Compliance
+## Security, Encryption, and Compliance
 
 All plans are provided on servers with
 [at-rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window} disk encryption.
@@ -281,10 +302,10 @@ see [DBaaS Security ![External link icon](../images/launch-glyph.svg "External l
 The plans also offer
 [Security Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/cloudant-compliance/){:new_window}.
 [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}
-compliance requires a [single-tenant environment](#locations),
-so request this environment before provisioning.
+compliance requires a [Dedicated environment](#dedicated-plan),
+so request this environment as part of the [provisioning process](#provisioning-a-cloudant-instance-on-bluemix).
 
-#### High Availability, Disaster Recovery, and Backup
+## High Availability, Disaster Recovery, and Backup
 
 To provide High Availability (HA) and Disaster Recovery (DR) within a data center,
 all data is stored in triplicate across three separate physical servers in a cluster.
@@ -296,7 +317,7 @@ You can request enablement of an [incremental backup feature](../guides/backup-g
 or alternatively implement your own solution by using one of several possible techniques that are described
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/){:new_window}.  
 
-### Monitoring usage
+## Monitoring usage
 
 Information about your usage is available in the Usage pane of the Activity tab within your {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
@@ -311,15 +332,15 @@ For example,
 if you frequently approach the maximum number of database lookups,
 then you can modify the provisioning through the [Service pane](#servicetier) on the Account tab of the Dashboard.
 
-### Hardware specification
+## Hardware specification
 
-All plans are implemented on multi-tenant clusters.
+All plans except Dedicated are implemented on multi-tenant clusters.
 All data is stored in triplicate,
 across three separate physical nodes for High Availability and Data Recovery.
 
-### Support
+## Support
 
-Support for Standard plan service instances is optional.
+Support for Standard and Dedicated plan service instances is optional.
 It is provided by purchasing "{{site.data.keyword.Bluemix_notm}} Standard Support".
 Support is not available for the Lite plan.
 
@@ -334,8 +355,3 @@ You can provision a {{site.data.keyword.cloudant_short_notm}} instance on {{site
 
 -	Using the Dashboard. A tutorial describing the process is available [here](../tutorials/create_service.html).
 -	Using the Cloud Foundry command tool. A tutorial describing the process is available [here](../tutorials/create_service_cli.html).
-
-## Bluemix Dedicated
-
-{{site.data.keyword.cloudant_short_notm}} for Enterprises is available on single tenant dedicated hardware as part of a
-[{{site.data.keyword.Bluemix_notm}} Dedicated ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/cloud-computing/bluemix/dedicated/){:new_window} configuration.

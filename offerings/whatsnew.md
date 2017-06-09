@@ -17,7 +17,11 @@ lastupdated: "2017-05-24"
 # What's new in Cloudant
 
 Keep up to date with changes and updates for Cloudant.
-{:shortdesc} 
+{:shortdesc}
+
+## Dedicated hardware
+
+A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 
 ## Build 5638
 
