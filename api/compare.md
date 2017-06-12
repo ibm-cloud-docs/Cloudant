@@ -224,7 +224,7 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>HEAD&nbsp;/{db}</code><p>
-<a href='database.html#checking-if-a-database-exists' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/common.html#head--db' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/common.html#head--db' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Return the HTTP Headers containing a minimal amount of information about the specified database.</td>
@@ -238,7 +238,7 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>POST&nbsp;/{db}</code><p>
-<a href='document.html#create' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/common.html#post--db' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/common.html#post--db' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Create a new document in the specified database, using the supplied JSON document structure.</td>
@@ -312,14 +312,14 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>HEAD&nbsp;/{db}/\_design/{ddoc}</code><p>
-<a href='design_documents.html' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/common.html#head--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/common.html#head--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Return the HTTP Headers containing a minimal amount of information about the specified design document.</td>
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_design/{ddoc}</code><p>
-<a href='design_documents.html' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/common.html#get--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/common.html#get--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Get the contents of the design document specified with the name of the design document and from the specified database from the URL.</td>
@@ -364,14 +364,14 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_design/{ddoc}/\_list/{func}/{other-ddoc}/{view}</code><p>
-<a href='design_documents.html' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/render.html#get--db-\_design-ddoc-\_list-func-other-ddoc-view' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#get--db-\_design-ddoc-\_list-func-other-ddoc-view' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Apply the list function for the view function from the other design document.</td>
 </tr>
 <tr>
 <td><code>POST&nbsp;/{db}/\_design/{ddoc}/\_list/{func}/{other-ddoc}/{view}</code><p>
-<a href='design_documents.html' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/render.html#post--db-\_design-ddoc-\_list-func-other-ddoc-view' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#post--db-\_design-ddoc-\_list-func-other-ddoc-view' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Apply the list function for the view function from the other design document.</td>
@@ -385,7 +385,7 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>POST&nbsp;/{db}/\_design/{ddoc}/\_list/{func}/{view}</code><p>
-<a href='design_documents.html' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/render.html#post--db-\_design-ddoc-\_list-func-view' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#post--db-\_design-ddoc-\_list-func-view' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Apply the list function for the view function from the same design document.</td>
@@ -414,14 +414,14 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_design/{ddoc}/\_show/{func}</code><p>
-<a href='design_documents.html' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/render.html#get--db-\_design-ddoc-\_show-func' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#get--db-\_design-ddoc-\_show-func' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Apply the show function for null document.</td>
 </tr>
 <tr>
 <td><code>POST&nbsp;/{db}/\_design/{ddoc}/\_show/{func}</code><p>
-<a href='design_documents.html' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/render.html#post--db-\_design-ddoc-\_show-func' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#post--db-\_design-ddoc-\_show-func' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Apply the show function for null document.</td>
@@ -435,7 +435,7 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>POST&nbsp;/{db}/\_design/{ddoc}/\_show/{func}/{docid}</code><p>
-<a href='design_documents.html' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/render.html#post--db-\_design-ddoc-\_show-func-docid' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#post--db-\_design-ddoc-\_show-func-docid' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Apply the show function for the specified document.</td>
@@ -470,7 +470,7 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>HEAD&nbsp;/{db}/\_design/{ddoc}/{attname}</code><p>
-<a href='design_documents.html' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/common.html#head--db-\_design-ddoc-attname' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/common.html#head--db-\_design-ddoc-attname' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Return the HTTP headers containing a minimal amount of information about the specified attachment.</td>
@@ -498,7 +498,7 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>POST&nbsp;/{db}/\_ensure\_full\_commit</code><p>
-<!-- <a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a> -->
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/compact.html#post--db-\_ensure\_full\_commit' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/compact.html#post--db-\_ensure\_full\_commit' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Commit any recent changes to the specified database to disk.</td>
@@ -535,28 +535,28 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_local/{docid}</code><p>
-<a href='document.html#read' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/local.html#get--db-\_local-docid' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/local.html#get--db-\_local-docid' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Get the specified local document.</td>
 </tr>
 <tr>
 <td><code>PUT&nbsp;/{db}/\_local/{docid}</code><p>
-<!-- <a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a> -->
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/local.html#put--db-\_local-docid' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/local.html#put--db-\_local-docid' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Store the specified local document.<p>Local documents are not replicated to other databases.</p></td>
 </tr>
 <tr>
 <td><code>DELETE&nbsp;/{db}/\_local/{docid}</code><p>
-<a href='document.html#delete target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/local.html#delete--db-\_local-docid' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/local.html#delete--db-\_local-docid' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Delete the specified local document.</td>
 </tr>
 <tr>
 <td><code>COPY&nbsp;/{db}/\_local/{docid}</code><p>
-<!-- <a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a> -->
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/local.html#copy--db-\_local-docid' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/local.html#copy--db-\_local-docid' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Copy the specified local document.</td>
@@ -621,7 +621,7 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>HEAD&nbsp;/{db}/{docid}</code><p>
-<!-- <a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a> -->
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/document/common.html#head--db-docid' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/document/common.html#head--db-docid' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Return the HTTP Headers containing a minimal amount of information about the specified document.</td>
@@ -649,14 +649,14 @@ click the corresponding icon.
 </tr>
 <tr>
 <td><code>COPY&nbsp;/{db}/{docid}</code><p>
-<!-- <a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a> -->
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/document/common.html#copy--db-docid' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/document/common.html#copy--db-docid' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Copy an existing document to a new or existing document.</td>
 </tr>
 <tr>
 <td><code>HEAD&nbsp;/{db}/{docid}/{attname}</code><p>
-<!-- <a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a> -->
+<a href='https://docs.cloudant.com/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/document/attachments.html#head--db-docid-attname' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/document/attachments.html#head--db-docid-attname' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Return the HTTP headers containing a minimal amount of information about the specified attachment.</td>

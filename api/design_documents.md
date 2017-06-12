@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-09"
+lastupdated: "2017-01-06"
 
 ---
 
@@ -30,7 +30,7 @@ Design documents are used to [build indexes](#indexes), [validate updates](#upda
 -	**Method**: `PUT /$DATABASE/_design/design-doc`
 -	**Request**: JSON of the design document information
 -	**Response**: JSON status
--	**Roles permitted**: `_design`
+-	**Roles permitted**: `_admin`
 
 To create a design document, upload it to the specified database.
 
@@ -125,7 +125,7 @@ _Example response to the copy request:_
 -	**Method**: `COPY /$DATABASE/_design/design-doc`
 -	**Request**: None
 -	**Response**: JSON describing the new document and revision.
--	**Roles permitted**: `_design`
+-	**Roles permitted**: `_writer`
 -	**Query Arguments**:
 	-	**Argument**: `rev`
 		-	**Description**:  Revision to copy from.
@@ -242,7 +242,7 @@ _Example response, containing the deleted document ID and revision:_
 -	**Method**: `DELETE /db/_design/design-doc`
 -	**Request**: None
 -	**Response**: JSON of deleted design document.
--	**Roles permitted**: `_design`
+-	**Roles permitted**: `_writer`
 -	**Query Arguments**:
 	-	**Argument**: `rev`
 		-	**Description**: Current revision of the document for validation.

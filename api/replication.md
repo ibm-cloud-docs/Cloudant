@@ -261,8 +261,7 @@ If you are sure that the replication stalled,
 contact Cloudant support for assistance.
 
 For more information,
-see [Active tasks](active_tasks.html)
-and [Replication status](advanced_replication.html#replication-status).
+see [Active tasks](active_tasks.html).
 
 _Example instructions for using HTTP to monitor a replication:_
 
