@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-16"
+lastupdated: "2017-06-29"
 
 ---
 
@@ -18,6 +18,10 @@ lastupdated: "2017-06-16"
 
 Keep up to date with changes and updates for Cloudant.
 {:shortdesc}
+
+## Dedicated hardware
+
+A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 
 ## Build 6069
 
