@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-03-20"
+lastupdated: "2017-06-15"
 
 ---
 
@@ -1982,10 +1982,12 @@ unless you specify an index at query time.
 When you specify an index to use,
 Cloudant Query uses the following logic:
 
--	If two or more `json` type indexes exist for the same fields,
+-	The query planner looks at the selector section,
+	and finds the index with the closest match to operators and fields used in the query.
+	If there are two or more JSON type indexes that match,
 	the index with the smallest number of fields in the index is preferred.
-	If the refinement still leaves two or more candidate indexes,
-	the index with the first alphabetical name is chosen.
+  If there are still two or more candidate indexes,
+  the index with the first alphabetical name is chosen. 
 -	If a `json` type index _and_ a `text` type index might both satisfy a selector,
 	the `json` index is chosen by default.
 -	If a `json` type index _and_ a `text` type index the same field (for example `fieldone`),
