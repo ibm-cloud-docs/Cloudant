@@ -518,7 +518,7 @@ Fields containing other data such as numbers, objects, or arrays cannot be used.
 <tr>
 <td><code>group_limit</code></td>
 <td>Maximum group count.
-This field can be used only if <code>group_field<code> is specified.</td>
+This field can be used only if <code>group_field</code> is specified.</td>
 <td>yes</td>
 <td>Numeric</td>
 <td></td>
