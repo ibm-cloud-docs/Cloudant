@@ -30,8 +30,8 @@ The response is a JSON object containing a welcome message and the version of th
 The `version` field contains the CouchDB version the server is compatible with.
 The `vendor.version` field contains the build number of Cloudant's CouchDB implementation.
 
-> **Note:** Depending on the Cloudant version,
-you might see a `vendor.cloudant_build` field in the response,
+> **Note:** For Cloudant versions prior to 2.0.0,
+you might see a `cloudant_build` field in the response,
 rather than a `vendor.version` field.
 In each case,
 the field contains the build number of Cloudant's CouchDB implementation.
@@ -70,7 +70,7 @@ account.request({
 
 -->
 
-_Example JSON response:_
+_Example JSON response for Cloudant version 2.0.0:_
 
 ```json
 {
@@ -88,8 +88,16 @@ _Example JSON response:_
 ```
 {:codeblock}
 
-For more general information about the fields,
-see the [CouchDB 2.0.0 documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/api.html#server){:new_window}.
+_Example JSON response for an older Cloudant version 1.0.2:_
+
+```json
+{
+	"couchdb": "Welcome",
+	"version": "1.0.2",
+	"cloudant_build": "2660"
+}
+```
+{:codeblock}
 
 ## `GET /_db_updates`
 
