@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-06-19"
 
 ---
 
@@ -28,7 +28,7 @@ and other miscellaneous tasks.
 Accessing the root endpoint `/` returns meta information about the cluster.
 The response is a JSON object containing a welcome message and the version of the server.
 The `version` field contains the CouchDB version the server is compatible with.
-The `vendor.cloudant_build` field contains the build number of Cloudant's CouchDb implementation.
+The `vendor.version` field contains the build number of Cloudant's CouchDB implementation.
 
 _Example request to get server meta information, using HTTP:_
 
@@ -81,6 +81,9 @@ _Example JSON response:_
 }
 ```
 {:codeblock}
+
+For more general information about the fields,
+see the [CouchDB 2.0.0 documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/api.html#server){:new_window}.
 
 ## `GET /_db_updates`
 
