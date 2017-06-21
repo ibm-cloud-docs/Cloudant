@@ -42,10 +42,10 @@ deleted from the destination database (if they existed there).
 
 Replication has two forms: push or pull replication:
 
--	*Push replication* is where the source is a local database,
-	and the destination is a remote database.
--	*Pull replication* is where the source is a remote database instance,
-	and the destination is the local database.
+- *Push replication* is where the source is a local database,
+  and the destination is a remote database.
+- *Pull replication* is where the source is a remote database instance,
+  and the destination is the local database.
 
 Pull replication is helpful if your source database has a permanent IP address,
 and your destination database is local and has a dynamically assigned IP address,
@@ -66,8 +66,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-	"source" : "http://$USERNAME1:$PASSWORD1@example.com/db",
-	"target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/db",
+  "source" : "http://$USERNAME1:$PASSWORD1@example.com/db",
+  "target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/db",
 }
 ```
 {:codeblock}
@@ -76,8 +76,8 @@ _Example error response if one of the requested databases for a replication does
 
 ```json
 {
-	"error" : "db_not_found",
-	"reason" : "could not open http://$ACCOUNT.cloudant.com/ol1ka/"
+  "error" : "db_not_found",
+  "reason" : "could not open http://$ACCOUNT.cloudant.com/ol1ka/"
 }
 ```
 {:codeblock}
@@ -86,22 +86,25 @@ _Example error response if one of the requested databases for a replication does
 
 ## Important notes
 
-*	Replications can severely impact the performance of a Cloudant instance.
-	Performance testing helps you understand the impact on your environment
-	under an increasing number of concurrent replications.
-*	[Continuous replication](#continuous-replication) can result in many internal calls.
-	Requiring many calls might affect the costs for multi-tenant users of Cloudant systems.
-	By default,
-	continuous replication is not enabled.
-*	The target database must exist.
-	It is not automatically created if it does not exist.
-	Add `"create_target":true` to the JSON document that describes the replication
-	if the target database does not exist before replication.
-	More information about creating the target database is available [here](#creating-a-target-database-during-replication).
-*	Replicator databases must be maintained and looked after,
-	just like any other valuable data store.
-	For more information,
-	see [replication database maintenance](advanced_replication.html#replication-database-maintenance).
+* A new and more powerful [replication scheduler](advanced_replication.html#the-replication-scheduler)
+  changes the previous behavior of the Cloudant replication mechanisms.
+  Ensure your applications are updated accordingly.
+* Replications can severely impact the performance of a Cloudant instance.
+  Performance testing helps you understand the impact on your environment
+  under an increasing number of concurrent replications.
+* [Continuous replication](#continuous-replication) can result in many internal calls.
+  Requiring many calls might affect the costs for multi-tenant users of Cloudant systems.
+  By default,
+  continuous replication is not enabled.
+* The target database must exist.
+  It is not automatically created if it does not exist.
+  Add `"create_target":true` to the JSON document that describes the replication
+  if the target database does not exist before replication.
+  More information about creating the target database is available [here](#creating-a-target-database-during-replication).
+* Replicator databases must be maintained and looked after,
+  just like any other valuable data store.
+  For more information,
+  see [replication database maintenance](advanced_replication.html#replication-database-maintenance).
 
 <div id="replicator-database"></div>
 
@@ -114,12 +117,12 @@ you `DELETE` the replication document.
 The fields that are supplied in the replication document are
 described in the [Replication document format](#replication-document-format).
 
->	**Note**: All design documents and `_local` documents added to the `/_replicator` database are ignored.
+> **Note**: All design documents and `_local` documents added to the `/_replicator` database are ignored.
 
 ## Replication document format
 
->	**Note**: You must use the *full* URL
-	when you specify the source and target databases in a replication document.
+> **Note**: You must use the *full* URL
+  when you specify the source and target databases in a replication document.
 
 The format of the document that is used to describe a replication is as follows:
 
@@ -140,7 +143,7 @@ Field Name | Required | Description
 `use_checkpoints` | no | Indicate whether to create checkpoints. Checkpoints greatly reduce the time and resources that are needed for repeated replications. Setting this field to `false` removes the requirement for write access to the `source` database. Defaults to `true`.
 `user_ctx` | no | An object that contains the user name and optionally an array of roles, for example: `"user_ctx": {"name": "jane", "roles": ["admin"]} `. This object is needed for the replication to show up in the output of `/_active_tasks`.
 
->	**Note:** Optionally,
+> **Note:** Optionally,
 replication documents can have a user-defined `_id`.
 
 <div id="selector-field"></div>
@@ -165,14 +168,14 @@ _Example `selector` object in a replication document:_
 
 ```json
 {
-	"source": "https://$ACCOUNT1.cloudant.com/$DATABASE1",
-	"target": "https://$ACCOUNT2.cloudant.com/$DATABASE2",
-	"selector": {
-		"_id": {
-			"$gte": "d2"
-		}
-	},
-	"continuous": true
+  "source": "https://$ACCOUNT1.cloudant.com/$DATABASE1",
+  "target": "https://$ACCOUNT2.cloudant.com/$DATABASE2",
+  "selector": {
+    "_id": {
+      "$gte": "d2"
+    }
+  },
+  "continuous": true
 }
 ```
 {:codeblock}
@@ -182,9 +185,9 @@ an HTTP [`400`](http.html#400) error is returned.
 The error includes more details about the problem in the `"reason"` field of the response.
 The reason might be one of:
 
--	The Cloudant Query selector object is missing.
--	The selector object is not valid JSON.
--	The selector object does not describe a valid Cloudant Query.
+- The Cloudant Query selector object is missing.
+- The selector object is not valid JSON.
+- The selector object does not describe a valid Cloudant Query.
 
 More information about using a `selector` object is available in the
 [Apache CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/api/database/changes.html#selector){:new_window}.
@@ -193,8 +196,8 @@ _Example error response if the selector is not valid:_
 
 ```json
 {
-	"error": "bad request",
-	"reason": "<details of the problem>"
+  "error": "bad request",
+  "reason": "<details of the problem>"
 }
 ```
 {:codeblock}
@@ -213,13 +216,18 @@ rather than from the very beginning.
 
 This field might be used for creating incremental copies of databases. To do this:
 
-1.	Find the ID of the checkpoint document for the last replication. It is stored in the `_replication_id` field of the replication document in the [`_replicator` database](#replicator-database).
-2.	Open the checkpoint document at `/$DATABASE/_local/$REPLICATION_ID`, where `$REPLICATION_ID` is the ID you found in the previous step, and `$DATABASE` is the name of the source or the target database. The document usually exists on both databases but might only exist on one.
-3.	Search for the `recorded_seq` field of the first element in the history array.
-4.	Set the `since_seq` field in the replication document to the value of the `recorded_seq` field.
-5.	Replicate to a new database.
+1.  Find the ID of the checkpoint document for the last replication.
+  It is stored in the `_replication_id` field of the replication document in the [`_replicator` database](#replicator-database).
+2.  Open the checkpoint document at `/$DATABASE/_local/$REPLICATION_ID`,
+  where `$REPLICATION_ID` is the ID you found in the previous step,
+  and `$DATABASE` is the name of the source or the target database.
+  The document usually exists on both databases but might only exist on one.
+3.  Search for the `recorded_seq` field of the first element in the history array.
+4.  Set the `since_seq` field in the replication document to the value of the `recorded_seq` field.
+5.  Replicate to a new database.
 
->	**Note**: By definition, using `since_seq` disables the normal replication checkpointing facility, so use `since_seq` with caution.
+> **Note**: By definition, using `since_seq` disables the normal replication checkpointing facility,
+so use `since_seq` with caution.
 
 <div id="creating-replications"></div>
 
@@ -227,20 +235,20 @@ This field might be used for creating incremental copies of databases. To do thi
 
 Replications are created in one of two ways:
 
-1.	A replication can be created by using a [replication document](#replication-document-format)
-	in the `_replicator` database.
-	Creating and modifying replications in this way enables control of a replication
-	in the same as working with other documents.
-	Replication jobs created this way are resumed automatically after a node restart.
-2.	A replication can be started by `POST`ing a JSON document that describes the wanted replication
-	directly to the `/_replicate` endpoint.
-	Replication jobs created this way are _not_ resumed if the node they run on is restarted.
-	The JSON document has the same format as the JSON documents you store in the
-	[`/_replicator`](#the-_replicator-database) database.
+1.  A replication can be created by using a [replication document](#replication-document-format)
+  in the `_replicator` database.
+  Creating and modifying replications in this way enables control of a replication
+  in the same as working with other documents.
+  Replication jobs created this way are resumed automatically after a node restart.
+2.  A replication can be started by `POST`ing a JSON document that describes the wanted replication
+  directly to the `/_replicate` endpoint.
+  Replication jobs created this way are _not_ resumed if the node they run on is restarted.
+  The JSON document has the same format as the JSON documents you store in the
+  [`/_replicator`](#the-_replicator-database) database.
 
->	**Note**: The first method,
-	where you store a replication document in the `_replicator` database,
-	is the preferred approach.
+> **Note**: The first method,
+where you store a replication document in the `_replicator` database,
+is the preferred approach.
 
 To start a replication,
 add a [replication document](#replication-document-format) to the `_replicator` database.
@@ -265,10 +273,10 @@ _Example replication document:_
 
 ```json
 {
-	"source": "https://$ACCOUNT1:$PASSWORD1@$ACCOUNT1.cloudant.com/$DATABASE1",
-	"target": "https://$ACCOUNT2:$PASSWORD2@$ACCOUNT2.cloudant.com/$DATABASE2",
-	"create_target": true,
-	"continuous": true
+  "source": "https://$ACCOUNT1:$PASSWORD1@$ACCOUNT1.cloudant.com/$DATABASE1",
+  "target": "https://$ACCOUNT2:$PASSWORD2@$ACCOUNT2.cloudant.com/$DATABASE2",
+  "create_target": true,
+  "continuous": true
 }
 ```
 {:codeblock}
@@ -290,9 +298,9 @@ Content-Type: application/json
 Accept: application/json
 
 {
-	"create_target" : true
-	"source" : "http://$USERNAME:$PASSWORD@example.com/db",
-	"target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT.cloudant.com/db",
+  "create_target" : true
+  "source" : "http://$USERNAME:$PASSWORD@example.com/db",
+  "target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT.cloudant.com/db",
 }
 ```
 {:codeblock}
@@ -327,7 +335,7 @@ you can cancel the replication by sending a revised JSON document to the `/_repl
 The revised document should be identical to the orginal replication request,
 but have an additional `"cancel":true` field.
 For more details,
-see the [The `/_replicate` endpointd](advanced_replication.html#the-_replicate-endpoint).
+see the [The `/_replicate` endpoint](advanced_replication.html#the-_replicate-endpoint).
 
 If the replication is in an [`error` state](advanced_replication.html#replication-status),
 the replicator makes repeated attempts to achieve a successful replication.
@@ -414,27 +422,27 @@ _Example response (abbreviated) after an active task request, including continuo
 
 ```json
 [
-	{
-		"user": null,
-		"updated_on": 1363274088,
-		"type": "replication",
-		"target": "https://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/user-3dg...imy/",
-		"docs_read": 0,
-		"doc_write_failures": 0,
-		"doc_id": "tsm-admin__to__user-3dg...imy",
-		"continuous": true,
-		"checkpointed_source_seq": "403-g1AAA...SStc",
-		"changes_pending": 134,
-		"pid": "<0.1781.4101>",
-		"node": "dbcore@db11.julep.cloudant.net",
-		"docs_written": 0,
-		"missing_revisions_found": 0,
-		"replication_id": "d0cdbfee50a80fd43e83a9f62ea650ad+continuous",
-		"revisions_checked": 0,
-		"source": "https://$USERNAME1:$PASSWORD1@$ACCOUNT1.cloudant.com/tsm-admin/",
-		"source_seq": "537-g1A...LVQ",
-		"started_on": 1363274083
-	}
+  {
+    "user": null,
+    "updated_on": 1363274088,
+    "type": "replication",
+    "target": "https://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/user-3dg...imy/",
+    "docs_read": 0,
+    "doc_write_failures": 0,
+    "doc_id": "tsm-admin__to__user-3dg...imy",
+    "continuous": true,
+    "checkpointed_source_seq": "403-g1AAA...SStc",
+    "changes_pending": 134,
+    "pid": "<0.1781.4101>",
+    "node": "dbcore@db11.julep.cloudant.net",
+    "docs_written": 0,
+    "missing_revisions_found": 0,
+    "replication_id": "d0cdbfee50a80fd43e83a9f62ea650ad+continuous",
+    "revisions_checked": 0,
+    "source": "https://$USERNAME1:$PASSWORD1@$ACCOUNT1.cloudant.com/tsm-admin/",
+    "source_seq": "537-g1A...LVQ",
+    "started_on": 1363274083
+  }
 ]
 ```
 {:codeblock}
@@ -443,24 +451,24 @@ _Example response after an active task request, including single replication:_
 
 ```json
 [
-	{
-		"pid": "<0.1303.0>",
-		"replication_id": "e42a443f5d08375c8c7a1c3af60518fb+create_target",
-		"checkpointed_source_seq": 17333,
-		"continuous": false,
-		"doc_write_failures": 0,
-		"docs_read": 17833,
-		"docs_written": 17833,
-		"missing_revisions_found": 17833,
-		"progress": 3,
-		"revisions_checked": 17833,
-		"source": "http://$ACCOUNT.cloudant.com/$DATABASE/",
-		"source_seq": 551202,
-		"started_on": 1316229471,
-		"target": "test_db",
-		"type": "replication",
-		"updated_on": 1316230082
-	}
+  {
+    "pid": "<0.1303.0>",
+    "replication_id": "e42a443f5d08375c8c7a1c3af60518fb+create_target",
+    "checkpointed_source_seq": 17333,
+    "continuous": false,
+    "doc_write_failures": 0,
+    "docs_read": 17833,
+    "docs_written": 17833,
+    "missing_revisions_found": 17833,
+    "progress": 3,
+    "revisions_checked": 17833,
+    "source": "http://$ACCOUNT.cloudant.com/$DATABASE/",
+    "source_seq": 551202,
+    "started_on": 1316229471,
+    "target": "test_db",
+    "type": "replication",
+    "updated_on": 1316230082
+  }
 ]
 ```
 {:codeblock}
