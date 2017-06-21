@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-24"
+lastupdated: "2017-06-21"
 
 ---
 
@@ -95,8 +95,6 @@ Everyone and everything else,
 including users you share databases with,
 and API keys you create,
 must be given a role explicitly to do corresponding tasks.
-
->   **Note:** The `_admin` role aggregates the permissions of the `_reader`, `_writer`, `_design`, `_replicator`, and `_security` roles.
 
 The special `nobody` user name applies for anyone or any application that tries to do tasks,
 but that did not authenticate with the system.
