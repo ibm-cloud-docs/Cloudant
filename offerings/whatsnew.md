@@ -12,7 +12,7 @@ lastupdated: "2017-06-21"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-05-04 -->
+<!-- Acrolinx: 2017-05-05 -->
 
 # What's new in Cloudant
 
