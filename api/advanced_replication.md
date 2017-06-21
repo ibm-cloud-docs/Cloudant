@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-15"
+lastupdated: "2017-06-21"
 
 ---
 
@@ -36,6 +36,72 @@ This can be done by determining the age of documents,
 and [deleting them](document.html#delete) if they are no longer needed.
 
 ## The replication scheduler
+
+The new Cloudant Replication Scheduler provides a number of improvements and enhancements when compared
+with the previous Cloudant replication mechanism.
+
+In particular,
+network usage during replication is more efficient,
+and the scheduler takes into account the current load for individual database nodes within a cluster
+when determining the allocation of replication tasks.
+
+Finally,
+the state of a replication is now more detailed,
+and consists of seven distinct states:
+
+1.  `initializing`:
+  The replication was added to the scheduler,
+  but is not yet initialized or scheduled to run.
+  The status occurs when a new or updated replication document is stored within
+  the [`_replicator` database](replication.html#the-_replicator-database). 
+2.  `error`:
+  The replication cannot be turned into a job.
+  This error might be caused in several different ways.
+  For example,
+  the replication must be [filtered](design_documents.html#filter-functions),
+  but it was not possible to fetch the filter code from the source database.
+3.  `pending`:
+  The replication job is scheduled to run,
+  but is not yet running.
+4.  `running`:
+  The replication job is running.
+5.  `crashing`:
+  A temporary error occurred that affects the replication job.
+  The job is automatically retried later.
+6.  `completed`:
+  The replication job completed.
+  This state does not apply to [continuous replications](replication.html#continuous-replication).
+7.  `failed`:
+  The replication job failed.
+  The failure is permanent.
+  This state means that no further attempt is made to replicate by using this replication task.
+  The failure might be caused in several different ways,
+  for example if the source or target URLs are not valid.
+  
+The transition between these states is illustrated in the following diagram:
+
+![Replication Scheduler states](../images/fb85704.png "Replication Scheduler states")
+
+The scheduler introduces two new endpoints:
+
+- `/_scheduler/docs`
+- `/_scheduler/jobs`
+
+These endpoints enable you to manage and determine replication status more quickly and easily.
+
+## Replication Status
+
+You can determine replication status by checking
+the [replication scheduler](#status-checking-by-using-the-replication-scheduler)
+
+> **Note:* The previous technique of checking replication status by inspecting
+the [replication document](#status-checking-by-using-the-replication-document) is still available.
+
+<div id="status-checking-using-the-replication-scheduler"></div>
+
+### Status checking by using the replication scheduler
+
+The replication scheduler enables you to determine the status of replication.
 
 To determine the current status of replication using the replication scheduler,
 send a `GET` request to the `/_scheduler/jobs` endpoint.
@@ -104,19 +170,14 @@ _Example response (abbreviated) from the replication scheduler:_
 
 The response received from the replication scheduler shows the history and current status of all replications.
 
-## Replication Status
-
-You can determine replication status in two ways:
-
-* Inspecting the [replication document](#status-checking-by-using-the-replication-document).
-* Checking the [replication scheduler](#status-checking-by-using-the-replication-scheduler).
-
 <div id="status-checking-using-the-replication-document"></div>
 
 ### Status checking by using the replication document
 
 When replication is managed by storing a document in the `_replicator` database,
 the contents of the document are updated as the replication status changes.
+
+> **Note:** The preferred method of checking replication status is to use the [replication scheduler](#the-replication-scheduler).
 
 In particular, after replication starts,
 three new fields are added automatically to the replication document.
@@ -182,43 +243,9 @@ _Example of automatic update to replication document, which is updated after rep
 
 A continuous replication can never have a `completed` state.
 
-<div id="status-checking-using-the-replication-scheduler"></div>
+<div id="authentication"></div>
 
-### Status checking by using the replication scheduler
-
-The replication scheduler enables you to determine the status of replication.
-
-At any moment in time,
-a replication can be in one of the following seven states.
-
-1.  `initializing`:
-  The replication was added to the scheduler,
-  but is not yet initialized or scheduled to run.
-2.  `error`:
-  The replication cannot be turned into a job.
-  This error might be caused in several different ways.
-  For example,
-  the replication must be [filtered](design_documents.html#filter-functions),
-  but it was not possible to fetch the filter code from the source database.
-3.  `pending`:
-  The replication was scheduled to run,
-  but is not yet running.
-4.  `running`:
-  The replication is running.
-5.  `crashing`:
-  A temporary error occurred that affects the job.
-  The job is automatically retried later.
-6.  `completed`:
-  The job completed.
-  This state does not apply to [continuous replications](replication.html#continuous-replication).
-7.  `failed`:
-  The job failed.
-  The failure was permanent.
-  This state means that no further attempt is made to replicate by using this replication task.
-  The failure might be caused in several different ways,
-  for example if the source or target URLs are not valid.
-
-## Authentication
+## Authentication during replication
 
 In any production application, security of the source and target databases is essential.
 In order for replication to proceed, authentication is necessary to access the databases.
@@ -477,7 +504,7 @@ see [here](attachments.html#performance-considerations).
 
 ## The `/_replicate` endpoint
 
->	**Note**: It is preferable to use the [Replicator database](replication.html#the-_replicator-database) to manage replication.
+>	**Note**: It is preferable to use the [Replicator scheduler](#the-replication-scheduler) to manage replication.
 	Details of why are provided [here](#avoiding-the-_replicate-endpoint).
 
 You can use this endpoint to request,
@@ -591,7 +618,7 @@ _Example JSON document that describes the replication to be canceled:_
 
 ### Avoiding the `/_replicate` endpoint
 
->   **Note**: Use the [`_replicator` database](replication.html#replicator-database) in preference to the `/_replicate` endpoint.
+>   **Note**: Use the [`_replicator` scheduler](#the-replication-scheduler) in preference to the `/_replicate` endpoint.
 
 A significant reason is that if there was a problem during replication,
 such as a stall,
