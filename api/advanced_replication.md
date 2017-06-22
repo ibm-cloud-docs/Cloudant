@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-21"
+lastupdated: "2017-06-22"
 
 ---
 
@@ -92,9 +92,9 @@ These endpoints enable you to manage and determine replication status more quick
 ## Replication Status
 
 You can determine replication status by checking
-the [replication scheduler](#status-checking-by-using-the-replication-scheduler)
+the [replication scheduler](#status-checking-by-using-the-replication-scheduler).
 
-> **Note:* The previous technique of checking replication status by inspecting
+> **Note:** The previous technique of checking replication status by inspecting
 the [replication document](#status-checking-by-using-the-replication-document) is still available.
 
 <div id="status-checking-using-the-replication-scheduler"></div>
