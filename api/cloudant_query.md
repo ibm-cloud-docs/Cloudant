@@ -320,7 +320,7 @@ and to query data by using these indexes.
 
 The list of available methods and endpoints is as follows:
 
-Method   | Path                | Description
+Methods  | Path                | Description
 ---------|---------------------|------------
 `DELETE` | `/$DATABASE/_index` | Delete an index.
 `GET`    | `/$DATABASE/_index` | List all Cloudant Query indexes.
