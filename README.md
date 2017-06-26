@@ -1,1 +1,1 @@
-# Cloudant test
+# Cloudant
