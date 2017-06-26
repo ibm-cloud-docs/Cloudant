@@ -53,7 +53,7 @@ is the database that we use in this tutorial.
   acurl https://$ACCOUNT.cloudant.com/query-demo -X PUT
   ```
   {:codeblock}
-2.  See the results:
+2.  Review the results:
   ```json
   {
     "ok": true
@@ -131,7 +131,7 @@ that you create in this exercise contain the data that you use to query the `que
   
   **Note:** Notice that the '`@`' symbol, used to indicate that the data
   is included in a file, is identified by the supplied name.
-3.  See the results:
+3.  Review the results:
   ```json
   [
     {
@@ -250,26 +250,23 @@ in the following list:
 *	[Cloudant Geospatial](../api/cloudant-geo.html#cloudant-geospatial) – search for documents based on a spatial relationship. 
 *	[Cloudant Query](../api/cloudant_query.html#query) – use Mongo-style query syntax to search for documents by using logical operators. Cloudant Query is a combination of a view and a search index. We use Cloudant Query in this tutorial. 
 
-Since the queries you create in this tutorial search for both `lastname` and `firstname`, you must
-create two indexes. The field you search for must be the first field listed in the index. If an 
-index is not specified in the query, Cloudant chooses the best index to use. 
+> **Note:** If there is no available defined index that matches the specified query, then Cloudant 
+> uses the `_all_docs` index.
+
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
-To create the first index: 
-
-1.  Copy the following sample JSON data into a file named `query-index1.dat`.
+1.  Copy the following sample JSON data into a file named `query-index.dat`.
   ```json
   {
     "index": {
       "fields": [
-        "lastname",
-        "firstname",  
+        "lastname", 
         "location", 
         "age"
       ]
     },
-    "name": "query-index1",
+    "name": "query-index",
     "type": "json"
   }
   ```
@@ -277,58 +274,23 @@ To create the first index:
   
 2.  Run the following command to create an index:
   ```sh
-  acurl https://$ACCOUNT.cloudant.com/query-demo/_index -X POST -H "Content-Type: application/json" -d \@query-index1.dat
+  acurl https://$ACCOUNT.cloudant.com/query-demo/_index -X POST -H "Content-Type: application/json" -d \@query-index.dat
   ```
   {:codeblock}
   
-3.  See the results:
+3.  Review the results:
   ```json
   {
     "result":"created",
     "id":"_design/752c7031f3eaee0f907d18e1424ad387459bfc1d",
-    "name":"query-index1"
+    "name":"query-index"
   }
   ```
   {:codeblock}
 
-To create the second index: 
 
-1.  Copy the following sample JSON data into a file named `query-index2.dat`.
-  ```json
-  {
-    "index": {
-      "fields": [
-        "firstname",
-        "lastname",  
-        "location", 
-        "age"
-      ]
-    },
-    "name": "query-index2",
-    "type": "json"
-  }
-  ```
-  {:codeblock}
-  
-2.  Run the following command to create an index:
-  ```sh
-  acurl https://$ACCOUNT.cloudant.com/query-demo/_index -X POST -H "Content-Type: application/json" -d \@query-index2.dat
-  ```
-  {:codeblock}
-  
-3.  See the results:
-  ```json
-  {
-    "result":"created",
-    "id":"_design/752c7031f3eaee0f907d18e1424ad387459bfc1d",
-    "name":"query-index2"
-  }
-  ```
-  {:codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
-
-To create the first index:
 
 1.  Click **`+` > Query Indexes** on either the **All Documents** or **Design Documents** tab.
 2.  Paste the following sample JSON data into the **Index** field:
@@ -336,53 +298,22 @@ To create the first index:
   {
     "index": {
       "fields": [
-        "lastname",
-        "firstname",  
-        "location", 
-        "age"
-      ]
-    },
-    "name": "query-index1",
-    "type": "json"
-  }
-  ```
-  {:codeblock}
-  
-  The index was created. You can see the it in the right pane.
-  
-  ![Query index 1](../images/query-index1.png)
-
-To create the second index:
-
-1.  Click **`+` > Query Indexes**.
-2.  Paste the sample JSON into the Index field:
-  ```json
-  {
-    "index": {
-      "fields": [
-        "firstname",
         "lastname",  
         "location", 
         "age"
       ]
     },
-    "name": "query-index2",
+    "name": "query-index",
     "type": "json"
   }
   ```
   {:codeblock}
   
-  The index was created. You can see the it in the right pane.
+  The index was created. You can see it in the right pane.
   
-  ![Query index 2](../images/query-index2.png)
+  ![Query index](../images/query-index1.png)
 
-> **Note:** The first entry in the first index is `lastname`, and the first entry 
-  in the second index is `firstname`. When you create a query, the field you search
-  for must be listed first in the index.
 
-In the following three queries we run,
-one query searches for first name,
-and two queries search for last name.
 
 ## Creating a query
 
@@ -399,17 +330,19 @@ For anything but the most simple query, add the JSON to a data file and run it f
 
 ### Running a simple query
 
-This query searches for any documents whose `firstname` field contains the value `Sally`. 
+This example demonstrates how Cloudant Query uses the `query-index` to find the 
+`lastname` and filters the results in memory to find the `firstaname`.   
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
 1.  Copy the following sample JSON into a data file named `query1.dat`.
   ```json
-  {
-    "selector": {
-      "firstname" : "Sally"            
-    }        
-  }        
+    {
+      "selector": {
+            "lastname" : "Greene",
+            "firstname" : "Anna"            
+         }        
+    }       
   ```    
   {:codeblock}
   
@@ -419,17 +352,17 @@ This query searches for any documents whose `firstname` field contains the value
   ```
   {:codeblock}
   
-3.  See the query results:
+3.  Review the query results:
   ```json
   {
     "docs": [
       {
         "_id":"doc1",
         "_rev":"3-751ab049e8b5dd1ba045cea010a33a72",
-        "firstname":"Sally",
-        "lastname":"Brown",
-        "age":16,
-        "location":"New York City, NY"
+            "firstname":"Anna",
+            "lastname":"Greene",
+            "age":44,
+            "location":"Baton Rouge, LA"
       }
     ]
   }
@@ -441,11 +374,12 @@ This query searches for any documents whose `firstname` field contains the value
 1.  Click the **Query** tab.
 2.  Copy and paste the following sample JSON into the Cloudant Query window:
   ```json
-  {
-    "selector": {
-      "firstname" : "Sally"            
-    }        
-  }
+   {
+      "selector": {
+            "lastname" : "Greene",
+            "firstname" : "Anna"            
+         }        
+   }
   ```
   {:codeblock}
   
@@ -529,7 +463,7 @@ The extra details look like the following example:
   ```
   {:codeblock}
   
-3.  See the query results:
+3.  Review the query results:
   ```json
   {
     "docs": [
@@ -637,7 +571,7 @@ We use a selector expression like the following example:
   ```
   {:codeblock}
   
-3.  See the query results.
+3.  Review the query results:
   ```json
   {
     "docs": [
