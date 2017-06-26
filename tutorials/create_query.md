@@ -232,8 +232,16 @@ that you create in this exercise contain the data that you use to query the `que
   
   The `query-demo` database was created. You can see the documents in the right pane.
   
-  ![Sample documents](../images/sample_documents.png)
-
+  ![Sample documents 1](../images/docs1.png)
+  
+  ![Sample documents 2](../images/docs2.png)
+  
+  ![Sample documents 3](../images/docs3.png)
+  
+  ![Sample documents 4](../images/docs4.png)
+  
+  ![Sample documents 5](../images/docs5.png)      
+  
 ## Creating an index
 
 Cloudant provides views and indexes to query the database. A view runs a query that is saved to the database, and 
