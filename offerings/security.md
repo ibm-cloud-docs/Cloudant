@@ -34,12 +34,7 @@ Therefore,
 your data is protected by the network and physical security measures that are employed by those providers,
 including (but not limited to):
 
--   Certifications: Compliance with SSAE16,
-    SOC2 Type 1,
-    ISAE 3402,
-    ISO 27001,
-    CSA,
-    and other standards.
+-   Certifications: Compliance with SSAE16, SOC2 Type 1, ISAE 3402, ISO 27001, CSA, and other standards.
 -   Access and identity management.
 -   General physical security of data centers and network operations center monitoring.
 -   Server hardening.
