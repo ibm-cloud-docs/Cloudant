@@ -35,7 +35,7 @@ your data is protected by the network and physical security measures that are em
 including (but not limited to):
 
 -   Certifications: Compliance with SSAE16,
-    SOC1,
+    SOC2 Type 1,
     ISAE 3402,
     ISO 27001,
     CSA,
