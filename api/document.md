@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-16"
+lastupdated: "2017-06-23"
 
 ---
 
@@ -837,7 +837,7 @@ Conflicts and validation errors that occur when you update documents in bulk mus
 For more information,
 see [Bulk Document Validation and Conflict Errors](#bulk-document-validation-and-conflict-errors).
 
-_Example response content after successful bulk insert of three documents:_
+_Example response content after successful bulk insert of two documents:_
 
 ```json
 [
