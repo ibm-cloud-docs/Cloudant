@@ -16,6 +16,8 @@ Cloudant NoSQL DB
 	{: .navgroup-end}
 
 	{: .navgroup id="local"}
+	{: .topicgroup}
+	Cloudant Local
 		local/clinstall_cloudant_local_overview.md	
 		local/whats_new.md
 		local/clinstall_installing.md
