@@ -15,8 +15,19 @@ Cloudant NoSQL DB
 		offerings/whatsnew.md
 	{: .navgroup-end}
 
+	{: .navgroup id="local"}
+		local/clinstall_cloudant_local_overview.md	
+		local/whats_new.md
+		local/clinstall_installing.md
+		local/clinstall_install_reqs.md
+		local/clinstall_hardware_reqs.md
+		local/clinstall_software_reqs.md
+		local/clinstall_architecture_ports.md
+		local/clinstall_single_node_reqs.md	
+	{: .navgroup-end}
+
 	{: .navgroup id="reference"}
-	basics/index.md
+	basics/index.md	
 
 	{: .topicgroup}
 	API Reference
