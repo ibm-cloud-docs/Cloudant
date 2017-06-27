@@ -366,7 +366,7 @@ This example demonstrates how Cloudant Query uses the `query-index` to find the
   {
     "docs": [
       {
-        "_id":"doc1",
+        "_id":"doc4",
         "_rev":"3-751ab049e8b5dd1ba045cea010a33a72",
             "firstname":"Anna",
             "lastname":"Greene",
