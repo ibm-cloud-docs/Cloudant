@@ -16,10 +16,15 @@ Cloudant NoSQL DB
 	{: .navgroup-end}
 
 	{: .navgroup id="local"}
-	Cloudant Local
-		local/toc
 		local/clinstall_cloudant_local_overview.md	
 		local/whats_new.md
+		local/clinstall_installing.md
+		local/clinstall_install_reqs.md
+		local/clinstall_hardware_reqs.md
+		local/clinstall_software_reqs.md
+		local/clinstall_architecture_ports.md
+		local/clinstall_single_node_reqs.md	
+	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
 	basics/index.md	
