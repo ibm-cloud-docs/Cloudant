@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-04-28"
+lastupdated: "2017-06-28"
 
 ---
 
@@ -31,7 +31,7 @@ your data is protected by the network and physical security measures that are em
 
 ## HIPAA
 
->   **Note**: HIPAA compliance is not applicable for a {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} instance.
+> **Note:** HIPAA compliance is not applicable for a {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} instance.
 
 {{site.data.keyword.cloudant_short_notm}} Enterprise,
 when hosted on IBM SoftLayer,
