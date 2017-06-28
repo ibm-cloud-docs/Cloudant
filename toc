@@ -26,7 +26,9 @@ Cloudant NoSQL DB
 		local/clinstall_install_single_node.md
 		local/appendix_offline_install.md
 		local/clinstall_start_cl_dashboard.md
-		local/clinstall_uninstalling_cloudant_local.md		
+		local/clinstall_uninstalling_cloudant_local.md
+		local/clinstall_configure_ssl.md
+		local/clinstall_ldap.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
@@ -75,6 +77,7 @@ Cloudant NoSQL DB
 	{: .topicgroup}
 	Tutorials
 		tutorials/create_service.md
+		tutorials/create_service_cli.md
 		tutorials/create_database.md
 		tutorials/create_query.md
 		tutorials/create_bmxapp.md
@@ -85,10 +88,14 @@ Cloudant NoSQL DB
 		tutorials/create_bmxapp_maintain.md
 
 	{: .topicgroup}
+	Recovery and backup
+		guides/disaster-recovery-and-backup.md
+		guides/active-active.md
+		guides/backup-cookbook.md
+
+	{: .topicgroup}
 	Guides
 		guides/acurl.md
-		guides/backup-guide.md
-		guides/backup-guide-using-replication.md
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/warehousing.md
@@ -96,9 +103,16 @@ Cloudant NoSQL DB
 		guides/mvcc.md
 		guides/transactions.md
 		guides/sharding.md
+		guides/iam.md
 		guides/json.md
 		guides/managing_tasks.md
 		guides/model_data.md
 		guides/replication_guide.md
+
+	{: .topicgroup}
+	Security
+		offerings/security.md
+		offerings/compliance.md
+		offerings/dataprivacygovernance.md
 	{: .navgroup-end}
 
