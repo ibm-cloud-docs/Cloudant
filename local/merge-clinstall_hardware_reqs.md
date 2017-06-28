@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-02-08"
+lastupdated: "2017-02-17"
 
 ---
 
@@ -12,26 +12,18 @@ lastupdated: "2017-02-08"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Requirements
-
-Before you install Cloudant&reg; Local, confirm that your system
-meets the installation requirements. The requirements include
-cluster server requirements, supported platforms, hardware
-requirements, single node requirements, and user requirements for
-installing the product.
-
-## Hardware requirements
+# Hardware requirements
 
 Cloudant&reg; Local hardware requirements vary based on different
 factors for the database and load balancers.
 {:shortdesc}
 
-### _x86_64 hardware requirements
+## x86_64 hardware requirements
 
 The following hardware requirements apply to the x86_64
 architecture.
 
-#### Database Nodes
+### Database Nodes
 
 *  The minimum requirements include four cores and eight threads,
    such as Xeon E3-1270 V2, 8 GB of RAM and 1-GB network.
@@ -61,7 +53,7 @@ setup is as follows.
 For the operating system and Cloudant binaries, the disk that is
 allocated must be 10 GB in RAID 1.
 
-#### Load Balancer Nodes
+### Load Balancer Nodes
 
 *  The minimum requirements are dual-core processor and 4 GB RAM,
    1 TB local hard disk drive with enough disk space for the OS
@@ -71,18 +63,18 @@ allocated must be 10 GB in RAID 1.
    quad-core processor and 8 GB RAM, 1 TB local hard disk drive,
    and a 1-gigabit network.
 
-### Linux on IBM System z
+## Linux on IBM System z
 
 Confirm that your environment meets the following hardware
 requirements.
 
-#### Models
+### Models
 
 *  z13&trade;
 *  zEnterprise&reg; - zBC12 and zEC12
 *  zEnterprise - z114 and z196
 
-#### Processors and Memory
+### Processors and Memory
 
 *  Database Nodes
    *  2 IFLs in SMT mode
@@ -90,63 +82,3 @@ requirements.
 *  Load Balancer Nodes
    *  2 IFLs
    *  4 GB memory for each node
-
-## Software requirements
-
-The following tasks can help you maintain your Cloudant&reg; Local
-cluster.
-{:shortdesc}
-
-### Cluster server requirements
-
-A minimum of five servers are recommended to create a fully
-functional Cloudant cluster that ensures 24 x 7 availability.
-
-#### Database Nodes
-
-*  Cloudant Local must be installed on at least three database
-   nodes for replication purposes.
-*  (Optional) Cloudant Local can be installed on as many other
-   nodes as needed to scale for your business requirements.
-
-#### Load Balancers
-
-*  One load balancer must be installed on a server that is
-   separate from the servers that are used in the Cloudant
-   cluster.
-*  It is a good practice to install two load balancers in case
-   the primary load balancer fails. If a second load balancer is
-   installed, you must install it on a separate server to ensure
-   uninterrupted service.
-
-## Supported architecture and platforms
-
-You can install Cloudant Local on the following platforms.
-
-### x86_64 architecture
-
-#### Debian-derived Linux distributions
-
-*  Ubuntu Server 12.04 (precise)
-*  Ubuntu Server 14.04 (trusty)
-
-#### Red Hat-derived Linux distributions
-
-*  Red Hat Enterprise Linux Server 6.x
-*  Red Hat Enterprise Linux Server 7.x
-*  Community ENTerprise Operating System (CentOS) 6.x
-*  Community ENTerprise Operating System (CentOS) 7.x
-*  Oracle Enterprise Linux Operating System (OEL) 6.x
-*  Oracle Enterprise Linux Operating System (OEL) 7.x
-
-#### SUSE Linux distributions
-
-*  SUSE Linux Enterprise Server (SLES) 12
-
-### IBM System z s390x architecture
-
-#### Linux on IBM&reg; System z&reg;
-
-*  Linux on IBM System z - Red Hat Enterprise Linux 7.x
-*  SUSE Linux Enterprise Server (SLES) 12
-
