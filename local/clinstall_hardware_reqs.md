@@ -12,18 +12,18 @@ lastupdated: "2017-02-17"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Hardware requirements
+## Hardware requirements
 
 Cloudant&reg; Local hardware requirements vary based on different
 factors for the database and load balancers.
 {:shortdesc}
 
-## x86_64 hardware requirements
+### x86_64 hardware requirements
 
 The following hardware requirements apply to the x86_64
 architecture.
 
-### Database Nodes
+#### Database Nodes
 
 *  The minimum requirements include four cores and eight threads,
    such as Xeon E3-1270 V2, 8 GB of RAM and 1-GB network.
@@ -53,7 +53,7 @@ setup is as follows.
 For the operating system and Cloudant binaries, the disk that is
 allocated must be 10 GB in RAID 1.
 
-### Load Balancer Nodes
+#### Load Balancer Nodes
 
 *  The minimum requirements are dual-core processor and 4 GB RAM,
    1 TB local hard disk drive with enough disk space for the OS
@@ -63,18 +63,18 @@ allocated must be 10 GB in RAID 1.
    quad-core processor and 8 GB RAM, 1 TB local hard disk drive,
    and a 1-gigabit network.
 
-## Linux on IBM System z
+### Linux on IBM System z
 
 Confirm that your environment meets the following hardware
 requirements.
 
-### Models
+#### Models
 
 *  z13&trade;
 *  zEnterprise&reg; - zBC12 and zEC12
 *  zEnterprise - z114 and z196
 
-### Processors and Memory
+#### Processors and Memory
 
 *  Database Nodes
    *  2 IFLs in SMT mode
