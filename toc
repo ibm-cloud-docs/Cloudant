@@ -26,7 +26,9 @@ Cloudant NoSQL DB
 		local/clinstall_install_single_node.md
 		local/appendix_offline_install.md
 		local/clinstall_start_cl_dashboard.md
-		local/clinstall_uninstalling_cloudant_local.md		
+		local/clinstall_uninstalling_cloudant_local.md
+		local/clinstall_configure_ssl.md
+		local/clinstall_ldap.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
