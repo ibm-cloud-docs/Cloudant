@@ -1236,11 +1236,11 @@ security, the following example illustrates how it works.
 In the sample commands,
 replace the following variables:
 
-<p><ul><li>Replace `admin:password` with the user ID and password for your admin user.</li>
+<ul><li>Replace `admin:password` with the user ID and password for your admin user.</li>
 <li>Replace `loadbalancer.example.com` with the host name of your configured cluster load balancer.</li>
-<li>Replace `db1` with the name of your database.</li></ul></p>
+<li>Replace `db1` with the name of your database.</li></ul>
 
-<code></code>
+
 
 <ol>
 <li>Confirm that the <code>admin</code> user is specified in the <code>local.ini</code> file in the <code>[admins]</code> section.</li>
@@ -1262,7 +1262,7 @@ $ curl -X PUT -u admin:password https://loadbalancer.example.com/db2</pre></p>
     created, and the message includes the document ID and revision
     number for the document.</p>
 
-<p>`{"ok":true,"id":"171806ad7968475970bf5450e91a5259","rev":"1-e6accc814683c1cadf6c74b492570c42"}`</p>
+<p><code>{"ok":true,"id":"171806ad7968475970bf5450e91a5259","rev":"1-e6accc814683c1cadf6c74b492570c42"}</code></p>
    
 <p>The unauthorized user was allowed to add the test document
     because no database-level security is in place for db2. By
@@ -1279,14 +1279,13 @@ $ curl -X PUT -u admin:password https://loadbalancer.example.com/db2</pre></p>
 
 <p>After the database is created, you receive an `{"ok":true}`
         message.</p></li>
-<li>Create the `member` user.
-<p>`$ curl -X PUT http://loadbalancer.example.com/_users/org.couchdb.user:member \`<br>
-        `> -H "Accept: application/json" \`<br>
-        `> -H "Content-Type: application/json" \`<br>
-        `> -d '{"name": "member", "password": "f1wu8tvp5gGe", "type": "user"}' \`<br>
-        `> -u admin:password`
-        
-        <p>The password for the `member` user is specified on the
+<li>Create the <code>member</code> user.
+<p><pre>$ curl -X PUT http://loadbalancer.example.com/_users/org.couchdb.user:member \
+		> -H "Accept: application/json" \
+		> -H "Content-Type: application/json" \
+        > -d '{"name": "member", "password": "f1wu8tvp5gGe", "type": "user"}' \
+		> -u admin:password</pre></p>       
+<p>The password for the `member` user is specified on the
         fourth line.</p>
 
         <p>After the document is created, you receive an `{"ok":true}`
@@ -1349,7 +1348,7 @@ $ curl -X PUT -u admin:password https://loadbalancer.example.com/db2</pre></p>
 </li>
 <li>Run this command to access the `db1` database as the
         `outsider` user.
-<p>`$ curl http://loadbalancer.example.com/db1 -u outsider:ncGfv9bcDBn0`</p>
+<p>`$ curl http://loadbalancer.example.com/db1 -u outsider:ncGfv9bcDBn0`</p></li></ol></li></ol>
 
 
 ## Configuring IOQ

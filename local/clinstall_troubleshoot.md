@@ -18,3 +18,4 @@ Troubleshoot and resolve problems on your own by using the tools
 that are provided with Cloudant&reg; Local. Identify the source of a
 problem, gather diagnostic information, and download fixes.
 {:shortdesc}
+
