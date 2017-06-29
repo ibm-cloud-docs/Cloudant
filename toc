@@ -16,19 +16,12 @@ Cloudant NoSQL DB
 		
 	{: .topicgroup}
 	Cloudant Local
-		local/clinstall_cloudant_local_overview.md	
-		local/whats_new.md
-		local/clinstall_install_reqs.md
-		local/clinstall_architecture_ports.md
-		local/clinstall_single_node_reqs.md	
-		local/clinstall_planning_install_location.md
-		local/clinstall_install_a_cluster.md
-		local/clinstall_install_single_node.md
-		local/appendix_offline_install.md
-		local/clinstall_start_cl_dashboard.md
-		local/clinstall_uninstalling_cloudant_local.md
-		local/clinstall_configure_ssl.md
-		local/clinstall_ldap.md
+		local/clinstall_overview.md	
+		local/clinstall_install.md	
+		local/clinstall_configure.md
+		local/clinstall_maintenance.md
+		local/clinstall_troubleshoot.md
+		local/clinstall_upgrade.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
