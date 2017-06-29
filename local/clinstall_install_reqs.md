@@ -19,12 +19,12 @@ meets the installation requirements. The requirements include
 cluster server requirements, supported platforms, hardware
 requirements, single node requirements, and user requirements for
 installing the product.
+{:shortdesc}
 
 ## Hardware requirements
 
 Cloudant&reg; Local hardware requirements vary based on different
 factors for the database and load balancers.
-{:shortdesc}
 
 ### _x86_64 hardware requirements
 
@@ -95,7 +95,6 @@ requirements.
 
 The following tasks can help you maintain your Cloudant&reg; Local
 cluster.
-{:shortdesc}
 
 ### Cluster server requirements
 
@@ -150,6 +149,20 @@ You can install Cloudant Local on the following platforms.
 *  Linux on IBM System z - Red Hat Enterprise Linux 7.x
 *  SUSE Linux Enterprise Server (SLES) 12
 
+## Cloudant Local architecture and ports
+
+The components of Cloudant&reg; Local use these communication paths
+and ports.
+
+The following diagram shows the architecture of a Cloudant Local
+implementation.
+
+*  Three database nodes that are identified as DB1, DB2, and DB3.
+*  Two load balancers that are identified as LB1 and LB2.
+
+![Example illustrates the communication paths and ports that are
+  used by the components of Cloudant Local.](images/cloudant_architecture.jpg)
+  
 ## Single-node implementation requirements
 
 In a single-node implementation, a database node and a load
@@ -164,3 +177,4 @@ A single-node implementation is not recommended in a production
 environment. However, if you use a single-node implementation in
 a production environment, the requirements are the same as for a
 database node.
+
