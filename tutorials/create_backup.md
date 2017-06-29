@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-21"
+lastupdated: "2017-06-29"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2017-06-21"
 # Creating a backup
 
 This tutorial demonstrates how to use the 
-[CouchBackup](https://www.npmjs.com/package/couchbackup) command-line 
+[CouchBackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/couchbackup){:new_window} command-line 
 utility to back up and restore a CouchDB or Cloudant instance. CouchBackup backs up 
 the database to a file. If the database fails, you can use the backup file to 
 restore the information to an existing database. 
@@ -25,76 +25,122 @@ restore the information to an existing database.
 
 Install CouchBackup by running the `install` command. 
 
-`npm install -g couchbackup`
- 
+```sh
+npm install -g couchbackup
+```
+{:codeblock}
 
 ## Creating a database
 
-Create the sample `couchbackup-demo` database. This database is the one
-that we use in this tutorial.
- 
-<ol><li>Create a database by running this command.
-<p><code>curl https://username:password@myhost.cloudant.com/couchbackup-demo -X PUT</code></p></li>
-<li>Review the results. 
-<p><code>{"ok":true}</code></p></li></ol>
+Create a sample `couchbackup-demo` database
+for use in this tutorial.
+
+1.  Create a database by running this command:
+    
+    ```sh
+    curl https://username:password@myhost.cloudant.com/couchbackup-demo -X PUT
+    ```
+    {:codeblock}
+    
+2.  Review the results.
+    
+    ```json
+    {
+      "ok": true
+    }
+    ```
+    {:codeblock}
 
 ## Creating documents in the database
 
 The documents that you create in this exercise contain the data that you 
 back up and restore in later exercises. 
 
-<ol><li>Copy the sample text to a data file named <code>bulkcreate.dat</code> to create all five documents.
-<p><pre>{
-"docs": 
-   [
-	{ 
-		"_id": "doc1",
-		"firstname": "Sally",
-		"lastname": "Brown",
-		"age": 16,
-		"location": "New York City, NY"
-    },
-     { 
-		"_id": "doc2",
-        "firstname": "John",
-	    "lastname": "Brown",
-	    "age": 21,
-        "location": "New York City, NY"
-    },
-     {
-		"_id": "doc3",
-		"firstname": "Greg",
-		"lastname": "Greene",
-		"age": 35,
-		"location": "San Diego, CA"
-    },
-     {
-		"_id": "doc4",
-		"firstname": "Anna",
-		"lastname": "Greene",
-		"age": 44,
-		"location": "Baton Rouge, LA"
-    },
-     {
-		"_id": "doc5",
-		"firstname": "Lois",
-		"lastname": "Brown",
-		"age": 33,
-		"location": "Syracuse, NY"
+1.  Copy the sample text to a data file named `bulkcreate.dat` to create all five documents.
+    
+    ```json
+    {
+        "docs": 
+        [
+            { 
+                "_id": "doc1",
+                "firstname": "Sally",
+                "lastname": "Brown",
+                "age": 16,
+                "location": "New York City, NY"
+            },
+            { 
+                "_id": "doc2",
+                "firstname": "John",
+                "lastname": "Brown",
+                "age": 21,
+                "location": "New York City, NY"
+            },
+            {
+                "_id": "doc3",
+                "firstname": "Greg",
+                "lastname": "Greene",
+                "age": 35,
+                "location": "San Diego, CA"
+            },
+            {
+                "_id": "doc4",
+                "firstname": "Anna",
+                "lastname": "Greene",
+                "age": 44,
+                "location": "Baton Rouge, LA"
+            },
+            {
+                "_id": "doc5",
+                "firstname": "Lois",
+                "lastname": "Brown",
+                "age": 33,
+                "location": "Syracuse, NY"
+            }
+        ]
     }
-  ]
-}</pre></p></li>
-<li>Run this command to create the documents. 
-<p><code>curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat</code></p>
-</li>
-<li>Review the results. 
-<p><pre>[{"ok":true,
-"id":"doc1","rev":"1-57a08e644ca8c1bb8d8931240427162e"},
-{"ok":true,"id":"doc2","rev":"1-bf51eef712165a9999a52a97e2209ac0"},
-{"ok":true,"id":"doc3","rev":"1-9c9f9b893fcdd1cbe09420bc4e62cc71"},
-{"ok":true,"id":"doc4","rev":"1-6aa4873443ddce569b27ab35d7bf78a2"},
-{"ok":true,"id":"doc5","rev":"1-d881d863052cd9681650773206c0d65a"}]</pre></p>
-</li></ol>
+    ```
+    {:codeblock}
+    
+2.  Run this command to create the documents:
+    
+    ```sh
+    curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
+    ```
+    {:codeblock}
+    
+3.  Review the results.
+    
+    ```json
+    [
+      {
+        "ok": true,
+        "id": "doc1",
+        "rev": "1-57a08e644ca8c1bb8d8931240427162e"
+      },
+      {
+        "ok": true,
+        "id": "doc2",
+        "rev": "1-bf51eef712165a9999a52a97e2209ac0"
+      },
+      {
+        "ok": true,
+        "id": "doc3",
+        "rev": "1-9c9f9b893fcdd1cbe09420bc4e62cc71"
+      },
+      {
+        "ok": true,
+        "id": "doc4",
+        "rev": "1-6aa4873443ddce569b27ab35d7bf78a2"
+      },
+      {
+        "ok": true,
+        "id": "doc5",
+        "rev": "1-d881d863052cd9681650773206c0d65a"
+      }
+    ]
+    ```
+    {:codeblock}
 
 ## Setting the environment variables
 
@@ -103,13 +149,18 @@ URL and database for the CouchDB or Cloudant instance that you want to work
 with CouchBackup. 
 
 1.  Set the `COUCH_URL` environment variable to specify the URL for the CouchDB or Cloudant instance.
-  
-    `export COUCH_URL=https://username:password@myhost.cloudant.com`
+    
+    ```sh
+    export COUCH_URL=https://username:password@myhost.cloudant.com
+    ```
+    {:codeblock}
     
 2.  Set the `COUCH_DATABASE` environment variable to specify the name of the database to back up and restore. 
  
-    `export COUCH_DATABASE=couchbackup-demo`
-
+    ```sh
+    export COUCH_DATABASE=couchbackup-demo
+    ```
+    {:codeblock}
 
 ## Backing up a database
 
@@ -118,11 +169,16 @@ your data and make it easier to restore.
 
 1.  Run the `couchbackup` command to direct the contents of your database to a text file. 
  
-    `couchbackup > couchbackup-demo-backup.txt`
+    ```sh
+    couchbackup > couchbackup-demo-backup.txt
+    ```
+    {:codeblock}
 
 2.  Review the results. 
-
-    <pre>================================================================================
+    
+    ```sh
+    
+    ================================================================================
     Performing backup on https://****:****@myhost.cloudant.com/couchbackup-demo using configuration:
     {
         "bufferSize": 500,
@@ -135,33 +191,87 @@ your data and make it easier to restore.
      batch 0
         couchbackup:backup written 0  docs:  5 Time 0.604 +0ms
         couchbackup:backup finished { total: 5 } +4ms
-    </pre>
+    ```
+    {:codeblock}
     
 3.  Check the directory to verify that the `couchbackup-demo-backup.txt` file was created. 
 4.  Open the file and review the list of documents backed up from the database.  
     
-    <pre>[   {"_id":"doc2","_rev":"1-2c5ee70689bb75af6f65b0335d1c92f4",
-            "firstname":"John","lastname":"Brown","age":21,
-            "location":"New York City, NY",
-            "_revisions":{"start":1,"ids":["2c5ee70689bb75af6f65b0335d1c92f4"]}},
-        {"_id":"doc3","_rev":"1-f6055e3e09f215c522d45189208a1bdf",
-            "firstname":"Greg","lastname":"Greene","age":35,
-            "location":"San Diego, CA",
-            "_revisions":{"start":1,"ids":["f6055e3e09f215c522d45189208a1bdf"]}},
-        {"_id":"doc1","_rev":"1-cce7796c7113c5498b07d8e11d7e0c12",
-            "firstname":"Sally","lastname":"Brown","age":16,
-            "location":"New York City, NY",
-            "_revisions":{"start":1,"ids":["cce7796c7113c5498b07d8e11d7e0c12"]}},
-        {"_id":"doc4","_rev":"1-0923b723c62fe5c15531e0c33e015148",
-            "firstname":"Anna","lastname":"Greene","age":44,
-            "location":"Baton Rouge, LA",
-            "_revisions":{"start":1,"ids":["0923b723c62fe5c15531e0c33e015148"]}},
-        {"_id":"doc5","_rev":"1-19f7ecbc68090bc7b3aa4e289e363576",
-            "firstname":"Lois","lastname":"Brown","age":33,
-            "location":"Syracuse, NY",
-            "_revisions":{"start":1,"ids":["19f7ecbc68090bc7b3aa4e289e363576"]}
-     }   ]
-       </pre>
+    ```json
+    [
+        {
+          "_id": "doc2",
+          "_rev": "1-2c5ee70689bb75af6f65b0335d1c92f4",
+          "firstname": "John",
+          "lastname": "Brown",
+          "age": 21,
+          "location": "New York City, NY",
+          "_revisions": {
+            "start": 1,
+            "ids": [
+              "2c5ee70689bb75af6f65b0335d1c92f4"
+            ]
+          }
+        },
+        {
+          "_id": "doc3",
+          "_rev": "1-f6055e3e09f215c522d45189208a1bdf",
+          "firstname": "Greg",
+          "lastname": "Greene",
+          "age": 35,
+          "location": "San Diego, CA",
+          "_revisions": {
+            "start": 1,
+            "ids": [
+              "f6055e3e09f215c522d45189208a1bdf"
+            ]
+          }
+        },
+        {
+          "_id": "doc1",
+          "_rev": "1-cce7796c7113c5498b07d8e11d7e0c12",
+          "firstname": "Sally",
+          "lastname": "Brown",
+          "age": 16,
+          "location": "New York City, NY",
+          "_revisions": {
+            "start": 1,
+            "ids": [
+              "cce7796c7113c5498b07d8e11d7e0c12"
+            ]
+          }
+        },
+        {
+          "_id": "doc4",
+          "_rev": "1-0923b723c62fe5c15531e0c33e015148",
+          "firstname": "Anna",
+          "lastname": "Greene",
+          "age":44,
+          "location": "Baton Rouge, LA",
+          "_revisions": {
+            "start": 1,
+            "ids": [
+              "0923b723c62fe5c15531e0c33e015148"
+            ]
+          }
+        },
+        {
+            "_id": "doc5",
+            "_rev": "1-19f7ecbc68090bc7b3aa4e289e363576",
+            "firstname": "Lois",
+            "lastname": "Brown",
+            "age": 33,
+            "location": "Syracuse, NY",
+            "_revisions": {
+                "start": 1,
+                "ids": [
+                  "19f7ecbc68090bc7b3aa4e289e363576"
+                ]
+            }
+        }
+    ]
+    ```
+    {:codeblock}
 
 ## Creating a log file
 
@@ -178,12 +288,17 @@ log file, and resume option.
 
 
 1.  Run the `couchbackup` command to create a log file. 
- 
-    `couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log`
+    
+    ```sh
+    couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log
+    ```
+    {:codeblock}
     
 2.  Review the results.
+        
+    ```sh
     
-    <pre>================================================================================
+    ================================================================================
     Performing backup on https://****:****@myhost.cloudant.com/couchbackup-demo using configuration:
         {
           "bufferSize": 500,
@@ -216,12 +331,14 @@ log file, and resume option.
             "_revisions":{"start":1,"ids":["f6055e3e09f215c522d45189208a1bdf"]}}]
                 couchbackup:backup written 0  docs:  5 Time 0.621 +0ms
                 couchbackup:backup finished { total: 5 } +4ms
-    </pre>
+    ```
+    {:codeblock}
 
 3.  Open the log file, `couchbackup-demo-backup.log`, and review the actions taken
     during the backup or restore.  
     
-    <pre>:t batch0 [
+    ```sh
+    :t batch0 [
         {"id":"doc1"},
         {"id":"doc5"},
         {"id":"doc3"},
@@ -240,7 +357,8 @@ log file, and resume option.
         ghEdCSWib_J1fz2dZcdxcpAh2lpiW1zGheXM3XMsBY
         CcHonxO68GjenPxeyopyrXW86mg-HFz9NZiQh1FUhUefOhzMIg
     :d batch0
-    </pre>
+    ```
+    {:codeblock}
     
 ##  Restoring from a backup text file
 
@@ -248,12 +366,17 @@ From the `couchbackup-demo-backup.txt` file, you can restore your data to an
 existing database using the `couchrestore` command. 
 
 1.  Run the `couchrestore` command.
-
-    `cat couchbackup-demo-backup.txt | couchrestore --db couchbackup-demo`
+    
+    ```sh
+    cat couchbackup-demo-backup.txt | couchrestore --db couchbackup-demo
+    ```
+    {:codeblock}
     
 2.  Review the results. 
-
-    <pre>================================================================================
+    
+    ```sh
+    
+    ================================================================================
     Performing restore on https://****:****@myhost.cloudant.com/couchbackup-demo using configuration:
     {
       "bufferSize": 500,
@@ -262,8 +385,10 @@ existing database using the `couchrestore` command.
     ================================================================================
       couchbackup:restore restored 5 +0ms
       couchbackup:restore finished { total: 5 } +1ms
-    </pre>
+    ```
+    {:codeblock}
 
-    Now, you have backed up and restored a database and created a log file. See the Cloudant Documentation 
-    for more information about [disaster recovery and backup](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup), [configuring Cloudant for cross region disaster recovery](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery), and [Cloudant backup and recovery](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  
-
+Now, you have backed up and restored a database and created a log file. See the Cloudant Documentation 
+for more information about [disaster recovery and backup](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
+[configuring Cloudant for cross region disaster recovery](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery),
+and [Cloudant backup and recovery](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  
