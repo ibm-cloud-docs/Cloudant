@@ -64,6 +64,7 @@ Cloudant NoSQL DB
 		tutorials/create_service_cli.md
 		tutorials/create_database.md
 		tutorials/create_query.md
+		tutorials/create_backup.md
 		tutorials/create_bmxapp.md
 		tutorials/create_bmxapp_prereq.md
 		tutorials/create_bmxapp_appenv.md
