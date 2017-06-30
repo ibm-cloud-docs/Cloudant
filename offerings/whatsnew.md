@@ -23,6 +23,14 @@ Keep up to date with changes and updates for Cloudant.
 
 A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 
+## Build 
+
+The error message that occurs when you attempt to put an attachment document with a non-existent revision has changed to a 409 error with the following information:
+
+```
+{"error":"not_found","reason":"missing_rev"}
+``` 
+
 ## Build 6069
 
 - Previously, a replication job which crashed for some reason resulted in an update to the replication document,
