@@ -1263,7 +1263,7 @@ data as described here.
 
 
 <ol>
-<li> Discard metrics data.
+<li>Discard metrics data.
 <p><b>Note:</b> If you discard metrics data, you lose the performance data that has been collected to date. You will no longer be able to view the performance data from the Metrics dashboard. After this operation, disk space in the database will be available again, and new data will be collected as usual.</p>
 <ol type=a>
 <li>Stop the Metrics service on all database nodes.
