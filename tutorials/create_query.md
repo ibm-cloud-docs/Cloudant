@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-23"
+lastupdated: "2017-07-03"
 
 ---
 {:new_window: target="_blank"}
@@ -45,6 +45,15 @@ Before you begin, follow these steps to prepare for the tutorial:
 
 In this section, you create the `query-demo` [database](../api/database.html#create) that
 is the database that we use in this tutorial.
+
+> **Note:** In this tutorial,
+  we use the `acurl` alias rather than the `curl` command.
+  The `acurl` alias is created using steps described [here](../guides/acurl.html#authorized-curl-acurl-).
+  If you prefer to use the `curl` command,
+  or another method for invoking API endpoints,
+  substitute your command in the tutorial,
+  along with the parameters required by your command,
+  such as username and password.
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
