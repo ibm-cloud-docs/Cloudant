@@ -187,7 +187,7 @@ by using an existing version of the index.
 	overhead, you can stop the search index from building by setting `"autoupdate":
 	{"indexes": false}`, or stop views from auto-updating by adding one of the 
 	following options to a design document.
-	```
+	<code><pre>
 	{
 	    "_id": "_design/lookup",
 	    "autoupdate": false,
@@ -197,9 +197,8 @@ by using an existing version of the index.
 	        }
 	    }
 	}
-	```
-	
-	```
+	</code></pre>
+	<code><pre>
 	{
 	    "_id": "_design/lookup",
 	    "autoupdate": {"views": false},
@@ -209,7 +208,7 @@ by using an existing version of the index.
 	        }
 	    }
 	}
-	```
+	</code></pre>
 
 <div id="accessing-a-stale-view"></div>
 
