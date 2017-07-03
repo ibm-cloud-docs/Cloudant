@@ -74,12 +74,14 @@ A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 
 ### Breaking/behavior changes
 
-X-Frame-Options
+Revised error message
 
-The `X-Frame-Options` setting is a response header that controls whether an HTTP response can be embedded in a `<frame>`, `<iframe>`, or `<object>`. This security feature helps prevent clickjacking.
+-	The error message that occurs when you attempt to put a document attachment with a non-existent revision has changed to a 409 error with the following information:
 
-You can configure this option based on your CORS settings. If CORS is enabled, `X-Frame-Options` are automatically enabled and send the response header, `X-Frame-Options: DENY`, by default. If a request HOST header matches the URL listed in the origins section of CORS, an `X-Frame-Options: ALLOW-FROM URL` response header is returned. 
-
+	```
+	{"error":"not_found","reason":"missing_rev"}
+	``` 
+	
 Active tasks
 
 -   Indexer entries in the `_active_tasks` response no longer report the `user` field.
