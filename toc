@@ -13,6 +13,11 @@ Cloudant NoSQL DB
 		offerings/index.md
 		offerings/bluemix.md
 		offerings/whatsnew.md
+
+	{: .topicgroup}		
+	Release information
+		release_info/release_notes.md
+		release_info/differences_major_releases.md
 		
 	{: .topicgroup}
 	Cloudant Local
@@ -21,7 +26,7 @@ Cloudant NoSQL DB
 		local/clinstall_configure.md
 		local/clinstall_maintenance.md
 		local/clinstall_troubleshoot.md
-		local/clinstall_upgrade.md
+		local/clinstall_upgrade.md	
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
