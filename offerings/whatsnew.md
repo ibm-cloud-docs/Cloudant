@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-29"
+lastupdated: "2017-07-07"
 
 ---
 
@@ -34,6 +34,7 @@ A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
   results in an [HTTP `404`](http.html#404) response.
+- Added support for the [`$allmatch`](../api/cloudant_query.html#the-allmatch-operator) operator.
 
 ## Build 5834
 
