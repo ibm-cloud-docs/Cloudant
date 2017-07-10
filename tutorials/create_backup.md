@@ -15,7 +15,7 @@ lastupdated: "2017-06-29"
 # Creating a backup
 
 This tutorial demonstrates how to use the 
-[CouchBackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/couchbackup){:new_window} command-line 
+[CouchBackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} command-line 
 utility to back up and restore a CouchDB or Cloudant instance. CouchBackup backs up 
 the database to a file. If the database fails, you can use the backup file to 
 restore the information to an existing database. 
@@ -26,7 +26,7 @@ restore the information to an existing database.
 Install CouchBackup by running the `install` command. 
 
 ```sh
-npm install -g couchbackup
+npm install -g @cloudant/couchbackup
 ```
 {:codeblock}
 
@@ -141,26 +141,22 @@ back up and restore in later exercises.
     ]
     ```
     {:codeblock}
-
-## Setting the environment variables
+    
+## Setting an environment variable
 
 You can use environment variables or command-line options to specify the 
 URL and database for the CouchDB or Cloudant instance that you want to work 
 with CouchBackup. 
 
-1.  Set the `COUCH_URL` environment variable to specify the URL for the CouchDB or Cloudant instance.
+In this tutorial, we set the `COUCH_URL` and specify the database using the `--db` parameter. 
+
+Set the `COUCH_URL` environment variable to specify the URL for the CouchDB or Cloudant instance.
     
     ```sh
     export COUCH_URL=https://username:password@myhost.cloudant.com
     ```
     {:codeblock}
     
-2.  Set the `COUCH_DATABASE` environment variable to specify the name of the database to back up and restore. 
- 
-    ```sh
-    export COUCH_DATABASE=couchbackup-demo
-    ```
-    {:codeblock}
 
 ## Backing up a database
 
@@ -170,7 +166,7 @@ your data and make it easier to restore.
 1.  Run the `couchbackup` command to direct the contents of your database to a text file. 
  
     ```sh
-    couchbackup > couchbackup-demo-backup.txt
+    couchbackup --db couchbackup-demo > couchbackup-demo-backup.txt
     ```
     {:codeblock}
 
@@ -290,7 +286,7 @@ log file, and resume option.
 1.  Run the `couchbackup` command to create a log file. 
     
     ```sh
-    couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log
+    couchbackup --db couchbackup-demo > --log couchbackup-demo-backup.log
     ```
     {:codeblock}
     
@@ -362,22 +358,28 @@ log file, and resume option.
     
 ##  Restoring from a backup text file
 
-From the `couchbackup-demo-backup.txt` file, you can restore your data to an 
-existing database using the `couchrestore` command. 
+From the `couchbackup-demo-backup.txt` file, you can restore your data to a new, empty database using the `couchrestore` command. 
 
-1.  Run the `couchrestore` command.
+1.  (Prerequisite) Create a new, empty database where you can restore your data.
     
     ```sh
-    cat couchbackup-demo-backup.txt | couchrestore --db couchbackup-demo
+    curl https://username:password@myhost.cloudant.com/couchbackup-demo-restore -X PUT
+    ```
+    {:codeblock}
+
+2.  Run the `couchrestore` command.
+    
+    ```sh
+    cat couchbackup-demo-backup.txt | couchrestore --db couchbackup-demo-restore
     ```
     {:codeblock}
     
-2.  Review the results. 
+3.  Review the results. 
     
     ```sh
     
     ================================================================================
-    Performing restore on https://****:****@myhost.cloudant.com/couchbackup-demo using configuration:
+    Performing restore on https://****:****@myhost.cloudant.com/couchbackup-demo-restore using configuration:
     {
       "bufferSize": 500,
       "parallelism": 5
