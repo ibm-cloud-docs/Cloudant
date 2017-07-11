@@ -61,7 +61,7 @@ A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 -	Design document metadata contains an `update pending` field.
 -	Cloudant Query no longer returns an error if no valid index exists.
 
-### Breaking/behavior changes
+## Breaking/behavior changes
 
 Active tasks
 
