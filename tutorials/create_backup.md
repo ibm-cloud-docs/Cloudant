@@ -286,7 +286,7 @@ log file, and resume option.
 1.  Run the `couchbackup` command to create a log file. 
     
     ```sh
-    couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log > couchbackup-demo-backup.txt
+    couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log > couchbackup-demo-backup-log.txt
     ```
     {:codeblock}
     
