@@ -217,7 +217,7 @@ you must provide the following details:
     However,
     the topic applies equally if you are using an instance of DB2.
     A tutorial is also available describing how to
-    [load JSON data from Cloudant into dashDB ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices../dashdb/get/load-json-from-cloudant-database-in-to-dashdb/){:new_window},
+    [load JSON data from Cloudant into dashDB ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices/docs/dashdb/load/load-json-data-from-cloudant-into-dashdb/){:new_window},
     and includes examples of using DB2 as the warehouse database.
 
 ## Warehouse schema
