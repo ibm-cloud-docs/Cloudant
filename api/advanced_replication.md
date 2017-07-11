@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-22"
+lastupdated: "2017-07-11"
 
 ---
 
@@ -84,10 +84,40 @@ The transition between these states is illustrated in the following diagram:
 
 The scheduler introduces two new endpoints:
 
-- `/_scheduler/docs`
-- `/_scheduler/jobs`
+- [`/_scheduler/docs`](#the-_scheduler-docs-endpoint)
+- [`/_scheduler/jobs`](#the-_scheduler-jobs-endpoint)
 
 These endpoints enable you to manage and determine replication status more quickly and easily.
+
+The typical process for using the replication scheduler to manage and monitor replications is as follows:
+
+1.  Create a [replication document](replication.html#replication-document-format) that describes the needed replication,
+    and store the document in the [replicator database](replication.html#the-_replicator-database).
+2.  Monitor the status of the replication using the `/_scheduler/docs` endpoint.
+
+### The `/_scheduler/docs` endpoint
+
+The `/_scheduler/docs` endpoint provides a monitoring capability.
+Use it to determine the status of a replication described by a replication document.
+The status of a replication can be one of seven possible states,
+as described [previously](#the-replication-scheduler).
+
+The endpoint uses document IDs as the primary identifier.
+This characteristic means that if you know the document ID,
+you can directly query that one particular document by using a `/_scheduler/docs/_replicator/<DocID>` query.
+
+### The `/_scheduler/jobs` endpoint
+
+The `/_scheduler/jobs` endpoint provides more details about the specific tasks performed during replication.
+The endpoint also provides more detailed information for the current replication.
+
+For example,
+the `/_scheduler/jobs` endpoint describes when the replication last started, stopped, or crashed.
+
+However,
+the endpoint does not include results for replications that are in the `completed` or `failed` state;
+the reason is that such replications are considered to have finished,
+and therefore are no longer a current job.
 
 ## Replication Status
 
@@ -104,12 +134,12 @@ the [replication document](#status-checking-by-using-the-replication-document) i
 The replication scheduler enables you to determine the status of replication.
 
 To determine the current status of replication using the replication scheduler,
-send a `GET` request to the `/_scheduler/jobs` endpoint.
+send a `GET` request to the `/_scheduler/docs` endpoint.
 
 _Example of using HTTP to get the replication status from the replication scheduler:_
 
 ```http
-GET /$DATABASE/_scheduler/jobs HTTP/1.1
+GET /$DATABASE/_scheduler/docs HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
@@ -117,7 +147,7 @@ HOST: $ACCOUNT.cloudant.com
 _Example of using the command line to get the replication status from the replication scheduler:_
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_scheduler/jobs
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_scheduler/docs
 ```
 {:codeblock}
 
