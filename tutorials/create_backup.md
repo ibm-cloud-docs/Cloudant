@@ -286,7 +286,7 @@ log file, and resume option.
 1.  Run the `couchbackup` command to create a log file. 
     
     ```sh
-    couchbackup --db couchbackup-demo > --log couchbackup-demo-backup.log
+    couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log > couchbackup-demo-backup.txt
     ```
     {:codeblock}
     
@@ -358,7 +358,13 @@ log file, and resume option.
     
 ##  Restoring from a backup text file
 
-From the `couchbackup-demo-backup.txt` file, you can restore your data to a new, empty database using the `couchrestore` command. 
+From the `couchbackup-demo-backup.txt` file, you can restore your data to a new, empty database using 
+the `couchrestore` command. 
+
+> **Note**: Restoring a backup is only supported when restoring into an empty database. If you delete all 
+documents from a database, document deletion records are still present for replication consistency purposes. 
+This means that a database containing only deleted documents is not considered empty, and so cannot be used 
+as the target when restoring a backup.
 
 1.  (Prerequisite) Create a new, empty database where you can restore your data.
     
