@@ -12,11 +12,13 @@ lastupdated: "2017-07-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-05-04 -->
+<!-- Acrolinx: 2017-07-12 -->
 
 # Differences between major Cloudant releases
 
-This document summarizes the changes in behavior between the most recent version of Cloudant and CouchDB 1.6 based codebase. This document is updated as newer Cloudant versions are released.
+This document summarizes the changes in behavior between the most recent version of 
+Cloudant and CouchDB 1.6 based codebase. This document is updated as newer Cloudant 
+versions are released.
 {:shortdesc}
 
 ## New features
