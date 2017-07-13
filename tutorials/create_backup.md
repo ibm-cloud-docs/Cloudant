@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-29"
+lastupdated: "2017-07-13"
 
 ---
 
@@ -151,12 +151,11 @@ with CouchBackup.
 In this tutorial, we set the `COUCH_URL` and specify the database using the `--db` parameter. 
 
 Set the `COUCH_URL` environment variable to specify the URL for the CouchDB or Cloudant instance.
-    
-    ```sh
-    export COUCH_URL=https://username:password@myhost.cloudant.com
-    ```
-    {:codeblock}
-    
+
+```sh
+export COUCH_URL=https://username:password@myhost.cloudant.com
+```
+{:codeblock}
 
 ## Backing up a database
 
