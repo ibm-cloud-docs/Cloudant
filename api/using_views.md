@@ -188,8 +188,7 @@ by using an existing version of the index.
 	{"indexes": false}`, or stop views from auto-updating by adding one of the 
 	following options to a design document. If you set `"autoupdate": false`, it 
 	stops all index types from indexing. 
-	 
-	<code><pre>
+```json
 	{
 	    "_id": "_design/lookup",
 	    "autoupdate": false,
@@ -199,8 +198,8 @@ by using an existing version of the index.
 	        }
 	    }
 	}
-	</code></pre>
-	<code><pre>
+```
+```json
 	{
 	    "_id": "_design/lookup",
 	    "autoupdate": {"views": false},
@@ -210,11 +209,7 @@ by using an existing version of the index.
 	        }
 	    }
 	}
-	</code></pre>
-	
-
-
-
+```
 
 <div id="accessing-a-stale-view"></div>
 
