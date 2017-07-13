@@ -19,6 +19,13 @@ lastupdated: "2017-07-12"
 This document summarizes the changes in behavior for the Cloudant releases. 
 {:shortdesc}
 
+## Incompatibility between CouchDB version 1.6 and Cloudant version 2.0.0
+
+-   An incompatibility exists between CouchDB version 1.6 and Cloudant version 2.0.0. In CouchDB version 1.6, if you 
+    add a query parameter ("reduce=false") to the request body, the parameter in the request body is ignored while the 
+    parameter in the request URL is respected. In Cloudant version 2.0.0, the query parameter ("reduce=false") in the 
+    request body is not ignored. 
+
 ## Revised error message
 
 -	The error message that occurs when you attempt to put a document attachment with a non-existent revision has changed to a 409 error with the following information:
@@ -26,6 +33,12 @@ This document summarizes the changes in behavior for the Cloudant releases.
 	```
 	{"error":"not_found","reason":"missing_rev"}
 	``` 
+## X-Frame-Options
+
+The `X-Frame-Options` setting is a response header that controls whether an HTTP response can be embedded in a `<frame>`, `<iframe>`, or `<object>`. This security feature helps prevent clickjacking.
+
+You can configure this option based on your CORS settings. If CORS is enabled, `X-Frame-Options` are automatically enabled and send the response header, `X-Frame-Options: DENY`, by default. If a request HOST header matches the URL listed in the origins section of CORS, an `X-Frame-Options: ALLOW-FROM URL` response header is returned. 
+
 
 ## Active tasks
 
