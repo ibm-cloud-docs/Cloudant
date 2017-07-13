@@ -64,6 +64,13 @@ A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 
 ### Breaking/behavior changes
 
+Incompatibility between CouchDB version 1.6 and Cloudant version 2.0.0
+
+-   An incompatibility exists between CouchDB version 1.6 and Cloudant version 2.0.0. In CouchDB version 1.6, if you 
+    add a query parameter ("reduce=false") to the request body, the parameter in the request body is ignored while the 
+    parameter in the request URL is respected. In Cloudant version 2.0.0, the query parameter ("reduce=false") in the 
+    request body is not ignored. 
+
 Active tasks
 
 -   Indexer entries in the `_active_tasks` response no longer report the `user` field.
