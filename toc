@@ -12,7 +12,12 @@ Cloudant NoSQL DB
 	Offerings
 		offerings/index.md
 		offerings/bluemix.md
-		offerings/whatsnew.md
+	
+	{: .topicgroup}
+	Release information
+		release_info/release_notes.md
+		release_info/breaking_behavior_changes.md
+		release_info/differences_major_releases.md	
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
