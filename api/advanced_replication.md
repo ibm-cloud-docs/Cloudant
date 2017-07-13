@@ -163,11 +163,12 @@ _Example response (abbreviated) from the replication scheduler:_
       "id": "88b..get",
       "info": null,
       "last_updated": "2016-11-10T06-51-19Z",
-      "node": "node2@127.0.0.1",
+      "node": "node1@127.0.0.1",
       "proxy": null,
-      "source": "http://adm:*****@localhost:15984/cdyno-0000001/",
-      "start_time": "2016-11-10T06-50-35Z",     "state": "running",
-      "target": "http://adm:*****@localhost:15984/cdyno-0000002/"
+      "start_time": "2016-11-10T06-50-35Z",
+      "state": "running",
+      "source": "$source_db/",
+      "target": "$target_db/"
     }
   ],
   "offset": 0,
