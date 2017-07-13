@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-07-11"
+lastupdated: "2017-07-13"
 
 ---
 
@@ -155,45 +155,23 @@ _Example response (abbreviated) from the replication scheduler:_
 
 ```json
 {
-  "total_rows": 1,
-  "offset": 0,
-  "jobs": [
+  "docs": [
     {
       "database": "_replicator",
-      "id": "88b...get",
-      "pid": null,
-      "source": "$source_db/",
-      "target": "$target_db/",
-      "user": null,
       "doc_id": "myrep",
-      "history": [
-        {
-          "timestamp": "2016-11-10T06-51-19Z",
-          "type": "crashed",
-          "reason": "db_not_found: could not open $source_db"
-        },
-        {
-          "timestamp": "2016-11-10T06-51-19Z",
-          "type": "started"
-        },
-        {
-          "timestamp": "2016-11-10T06-50-35Z",
-          "type": "crashed",
-          "reason": "db_not_found: could not open $source_db"
-        },
-        {
-          "timestamp": "2016-11-10T06-50-35Z",
-          "type": "started"
-        },
-        {
-          "timestamp": "2016-11-10T06-50-35Z",
-          "type": "added"
-        }
-      ],
-      "node": "node1@127.0.0.1",
-      "start_time": "2016-11-10T06-50-34Z"
+      "error_count": 0,
+      "id": "88b..get",
+      "info": null,
+      "last_updated": "2016-11-10T06-51-19Z",
+      "node": "node2@127.0.0.1",
+      "proxy": null,
+      "source": "http://adm:*****@localhost:15984/cdyno-0000001/",
+      "start_time": "2016-11-10T06-50-35Z",     "state": "running",
+      "target": "http://adm:*****@localhost:15984/cdyno-0000002/"
     }
-  ]
+  ],
+  "offset": 0,
+  "total_rows": 1
 }
 ```
 {:codeblock}
