@@ -43,29 +43,13 @@ and technical safeguards required of Business Associates in 45 CFR Part 160 and 
 
 ## International Organization for Standardization (ISO)
 
-![BV certification logo](../images/BV_Certification_ISO27001.jpg)
-{{site.data.keyword.cloudant_short_notm}} is certified under
-the International Organization for Standardization (ISO) 27001 standard,
-which defines the expectations for information security management processes.
-The ISO 27001 standard specifies the requirements for establishing,
-implementing,
-and documenting "Information Security Management Systems" (ISMS)
-and the requirements for implementing security controls,
-according to the needs of individual organizations.
-The ISO 27000 family of standards incorporates a process of scaling risk and valuation of assets,
-with the goal of safeguarding the confidentiality,
-integrity,
-and availability of the written,
-oral,
-and electronic information.
-
 {{site.data.keyword.cloudant_short_notm}} is audited by a third-party security firm
 and meets all of the requirements for ISO 27001:
-[Bluemix ISO 27001:2013 Certificate of Registration ![External link icon](../images/launch-glyph.svg "External link icon")](ftp://public.dhe.ibm.com/cloud/bluemix/compliance/Bluemix_ISO27K1_WWCert_2016.pdf){:new_window}.
+* [Bluemix ISO 27001:2013 Certificate of Registration ![External link icon](../images/launch-glyph.svg "External link icon")](ftp://public.dhe.ibm.com/cloud/bluemix/compliance/Bluemix_ISO27K1_WWCert_2016.pdf){:new_window}
+* [Bluemix SaaS Certificate ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?subtype=ST&infotype=SA&htmlfid=KUJ12445USEN&attachment=KUJ12445USEN.PDF){:new_window}
 
 ## SOC 2 Certification
 
-![SOC 2 certification](../images/SOC-Service-Org_B_Marks_2c_Web.jpg)
 IBM provides SOC 2 reports for {{site.data.keyword.cloudant_short_notm}}.
 These reports evaluate IBM's operational controls according to criteria
 set by the American Institute of Certified Public Accountants (AICPA) Trust Services Principles.
