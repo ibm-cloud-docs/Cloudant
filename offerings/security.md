@@ -42,6 +42,8 @@ including (but not limited to):
   choose or switch among the different providers
   as your SLA and cost requirements change.
 
+> **Note:** More details about the certifications are available in the [Compliance information](compliance.html).
+
 ## Secure Access Control
 
 A multitude of security features is built into
