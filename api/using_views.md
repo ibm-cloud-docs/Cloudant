@@ -186,7 +186,8 @@ by using an existing version of the index.
 >   **Note**: If you want to save old index versions without incurring indexing
 	overhead, you can stop the search index from building by setting `"autoupdate":
 	{"indexes": false}`, or stop views from auto-updating by adding one of the 
-	following options to a design document. If you set `"autoupdate": false`, all index types are stopped from indexing. 
+	following options to a design document. If you set `"autoupdate": false`, it 
+	stops all index types from indexing. 
 	 
 	<code><pre>
 	{
