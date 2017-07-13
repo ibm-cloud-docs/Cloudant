@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-06-16"
+lastupdated: "2017-07-07"
 
 ---
 
@@ -19,6 +19,10 @@ lastupdated: "2017-06-16"
 Keep up to date with changes and updates for Cloudant.
 {:shortdesc}
 
+## Dedicated hardware
+
+A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
+
 ## Build 6069
 
 - Previously, a replication job which crashed for some reason resulted in an update to the replication document,
@@ -30,6 +34,7 @@ Keep up to date with changes and updates for Cloudant.
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
   results in an [HTTP `404`](http.html#404) response.
+- Added support for the [`$allmatch`](../api/cloudant_query.html#the-allmatch-operator) operator.
 
 ## Build 5834
 
