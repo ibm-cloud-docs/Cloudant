@@ -19,6 +19,13 @@ lastupdated: "2017-07-12"
 This document summarizes the changes in behavior for the Cloudant releases. 
 {:shortdesc}
 
+## Revised error message
+
+-	The error message that occurs when you attempt to put a document attachment with a non-existent revision has changed to a 409 error with the following information:
+
+	```
+	{"error":"not_found","reason":"missing_rev"}
+	``` 
 
 ## Active tasks
 
