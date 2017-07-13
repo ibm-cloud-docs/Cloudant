@@ -19,6 +19,13 @@ lastupdated: "2017-07-12"
 This document summarizes the changes in behavior for the Cloudant releases. 
 {:shortdesc}
 
+## Incompatibility between CouchDB version 1.6 and Cloudant version 2.0.0
+
+-   An incompatibility exists between CouchDB version 1.6 and Cloudant version 2.0.0. In CouchDB version 1.6, if you 
+    add a query parameter ("reduce=false") to the request body, the parameter in the request body is ignored while the 
+    parameter in the request URL is respected. In Cloudant version 2.0.0, the query parameter ("reduce=false") in the 
+    request body is not ignored. 
+
 ## Revised error message
 
 -	The error message that occurs when you attempt to put a document attachment with a non-existent revision has changed to a 409 error with the following information:
