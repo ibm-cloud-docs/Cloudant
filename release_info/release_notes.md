@@ -21,7 +21,7 @@ This document describes the changes and updates to Cloudant grouped by build num
 
 ## Dedicated hardware
 
-A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
+A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
 ## Build XXXX
 
@@ -38,7 +38,7 @@ A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 - If the design document that is intended to specify a geospatial index is invalid,
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
-  results in an [HTTP `404`](http.html#404) response.
+  results in an [HTTP `404`](../http.html#404) response.
 
 ## Build 5834
 
