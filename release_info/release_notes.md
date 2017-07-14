@@ -25,7 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build XXXX
 
--   Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame Options](../release_info/breaking_behavior_changes.html#x-frame-options). 
+-   Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame Options](breaking_behavior_changes.html#x-frame-options). 
 
 
 ## Build 6069
@@ -38,7 +38,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - If the design document that is intended to specify a geospatial index is invalid,
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
-  results in an [HTTP `404`](../http.html#404) response.
+  results in an [HTTP `404`](../api/http.html#404) response.
 
 ## Build 5834
 
