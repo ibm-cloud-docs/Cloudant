@@ -183,6 +183,33 @@ a stale view might not return the most recent information.
 Nevertheless, a stale view returns the results of the view query quickly,
 by using an existing version of the index.
 
+>   **Note**: If you want to save old index versions without incurring indexing
+	overhead, you can stop the search index from building by setting `"autoupdate":
+	{"indexes": false}`, or stop views from auto-updating by adding one of the 
+	following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`.
+```json
+	{
+	    "_id": "_design/lookup",
+	    "autoupdate": false,
+	    "views": {
+	        "view": {
+	            "map": "function(doc)..."
+	        }
+	    }
+	}
+```
+```json
+	{
+	    "_id": "_design/lookup",
+	    "autoupdate": {"views": false},
+	    "views": {
+	        "view": {
+	            "map": "function(doc)..."
+	        }
+	    }
+	}
+```
+
 <div id="accessing-a-stale-view"></div>
 
 ## View freshness

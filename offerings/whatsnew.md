@@ -20,4 +20,3 @@ lastupdated: "2017-07-07"
 The content from What's new in Cloudant has been moved to [Release Notes](../release_info/release_notes.html). 
 {:shortdesc}
 
-
