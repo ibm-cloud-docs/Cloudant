@@ -25,7 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build XXXX
 
--   Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame Options](../release_info/breaking_behavior_changes.html#x-frame-options). 
+-   Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](breaking_behavior_changes.html#x-frame-options). 
 
 ## Build 6069
 
