@@ -114,7 +114,10 @@ The Lite plan is free,
 but limits you to a maximum of 1 GB of data storage.
 Limits also apply to the provisioned throughput capacity for lookups,
 writes,
-and queries.
+and queries. During a daily check, if you exceed the data storage limit, an alert 
+banner and a 402 message display. You can still read and delete data. However, to write 
+new data, you must either upgrade to a paid account or delete data and wait until the next 
+check runs for your account to be reactivated. 
 
 If you would like to store more than one GB of data,
 or to have a greater throughput capacity,

@@ -264,6 +264,7 @@ Code                                    | Meaning
 `304 - Not Modified`                    | The content requested has not been modified. This is used with the [ETag](#etag) system to identify the version of information returned.
 `400 - Bad Request`                     | Bad request structure. The error can indicate an error with the request URL, path or headers. Differences in the supplied MD5 hash and content also trigger this error, as this may indicate message corruption.
 `401 - Unauthorized`                    | The item requested was not available using the supplied authorization, or authorization was not supplied.
+`402 - Over Quota`                      | Account has exceeded its data usage quota. An upgrade to a paid plan is required.
 `403 - Forbidden`                       | The requested item or operation is forbidden.
 `404 - Not Found`                       | The requested resource could not be found. The content includes further information as a JSON object, if available. The structure contains two keys, `error` and `reason`, similar to the following example: `{ "error":"not_found", "reason":"no_db_file" }`
 `405 - Resource Not Allowed`            | A request was made using an invalid HTTP request type for the URL requested. For example, you have requested a `PUT` when a `POST` is required. Errors of this type can also be triggered by invalid URL strings.
