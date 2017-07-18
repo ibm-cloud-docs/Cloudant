@@ -16,7 +16,7 @@ Cloudant NoSQL DB
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
-	basics/index.md
+    basics/index.md
 
 	{: .topicgroup}
 	API Reference
@@ -94,5 +94,11 @@ Cloudant NoSQL DB
 		guides/managing_tasks.md
 		guides/model_data.md
 		guides/replication_guide.md
+
+	{: .topicgroup}
+    Security
+    	offerings/security.md
+    	offerings/compliance.md
+    	offerings/dataprivacygovernance.md
 	{: .navgroup-end}
 

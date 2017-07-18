@@ -23,6 +23,17 @@ Keep up to date with changes and updates for Cloudant.
 
 A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 
+## Build 6233
+
+- Introduces a new Replication Scheduler.
+  In addition to performance benefits and additional endpoints,
+  the scheduler changes the way that replication status is monitored and reported.
+  In particular,
+  recording status updates in a replication document is no longer supported.
+  For more information about this important change,
+  see details about the [replication scheduler](../api/advanced_replication.html#the_replication_scheduler).
+  Contact Cloudant Support by opening a ticket using your Cloudant Dashboard if you have any questions or concerns.
+
 ## Build 6069
 
 - Previously, a replication job which crashed for some reason resulted in an update to the replication document,
