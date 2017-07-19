@@ -113,7 +113,14 @@ the [Lite plan](#lite-plan) is selected.
 The Lite plan is free,
 but limits you to a maximum of 1 GB of data storage.
 Limits also apply to the provisioned throughput capacity for lookups,
-writes, and queries. During a daily check, if you exceed the data storage limit, the following message appears, "402 Over 
+writes, and queries. 
+
+Storage usage is checked daily. If you have exceeded your storage limit, HTTP requests to the account receive a 
+402 status code with the error message, "Account has exceeded its data usage quota. An upgrade to a paid plan is required."
+A banner also appears in the dashboard to inform you. You can still read and delete data. However, to write new data, 
+you must either upgrade to a paid account or delete data and wait until the next check runs for your account to be reactivated. 
+
+During a daily check, if you exceed the data storage limit, the following message appears, "402 Over 
 Quota: Account has exceeded its data usage quota. An upgrade to a paid plan is required." In addition, a
 banner alert appears in the Cloudant Dashboard. You can still read and delete 
 data. However, to write new data, you must either upgrade to a paid account or delete data and wait until the next 
