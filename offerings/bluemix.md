@@ -120,12 +120,6 @@ Storage usage is checked daily. If you have exceeded your storage limit, HTTP re
 A banner also appears in the dashboard to inform you. You can still read and delete data. However, to write new data, 
 you must either upgrade to a paid account or delete data and wait until the next check runs for your account to be reactivated. 
 
-During a daily check, if you exceed the data storage limit, the following message appears, "402 Over 
-Quota: Account has exceeded its data usage quota. An upgrade to a paid plan is required." In addition, a
-banner alert appears in the Cloudant Dashboard. You can still read and delete 
-data. However, to write new data, you must either upgrade to a paid account or delete data and wait until the next 
-check runs for your account to be reactivated. 
-
 If you would like to store more than one GB of data,
 or to have a greater throughput capacity,
 move to the [Standard plan](#standard-plan).
