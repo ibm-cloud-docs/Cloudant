@@ -25,7 +25,7 @@ This document summarizes the changes in behavior for the Cloudant releases.
 
 	```
 	{"error":"not_found","reason":"missing_rev"}
-	``` 
+	```
 
 ## X-Frame-Options
 
