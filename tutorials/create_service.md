@@ -49,10 +49,9 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
     ![{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)
 
 5.  In the service configuration window,
-    enter a service name and a credential name.
+    enter a service name.
     In this example,
-    the service name is `Cloudant Service 2017`,
-    and the credential name is `Credentials-2017`:<br/>
+    the service name is `Cloudant Service 2017`:<br/>
     ![{{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0005.png)
 
 6.  By default,
