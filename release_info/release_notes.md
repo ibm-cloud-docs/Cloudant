@@ -23,7 +23,7 @@ This document describes the changes and updates to Cloudant grouped by build num
 
 A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 
-## Build XXXX
+## Build 6334
 
 -   Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](breaking_behavior_changes.html#x-frame-options). 
 
