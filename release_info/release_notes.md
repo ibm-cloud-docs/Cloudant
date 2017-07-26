@@ -23,9 +23,11 @@ This document describes the changes and updates to Cloudant grouped by build num
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build XXXX
 
--   Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](breaking_behavior_changes.html#x-frame-options). 
+## Build 6334
+
+- Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](breaking_behavior_changes.html#x-frame-options). 
+
 
 ## Build 6069
 
@@ -39,9 +41,11 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
   the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
   results in an [HTTP `404`](../api/http.html#404) response.
 
+
 ## Build 5834
 
 - The maximum length of a document `id` is now 7168 characters (7k).
+
 
 ## Build 5728
 
@@ -49,10 +53,12 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
   User documents should be structured and populated to comply with
   [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
 
+
 ## Build 5638
 
 -   Introduces new "stable" and "update" query parameters for views.
 -   Replicator no longer retries forever if it cannot write checkpoints to the source database.
+
 
 ## Build 5421
 

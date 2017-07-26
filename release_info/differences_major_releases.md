@@ -23,9 +23,9 @@ versions are released.
 
 ## New features
 
-## Bug fixes
+## Enhancements
 
-## Incompatibilities
+## Bug fixes
 
 ## Deprecations
 
