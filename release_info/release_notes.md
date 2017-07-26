@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-12"
+lastupdated: "2017-07-26"
 
 ---
 
@@ -29,7 +29,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](/docs/services/Cloudant/release_info/breaking_behavior_changes.html#x-frame-options). 
 
 
-## Build 6069
+## Build 6069, May 11, 2017
 
 - Previously, a replication job which crashed for some reason resulted in an update to the replication document,
   followed by a fresh attempt to start a new replication.
@@ -42,25 +42,25 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
   results in an [HTTP `404`](../api/http.html#404) response.
 
 
-## Build 5834
+## Build 5834, February 13, 2017
 
 - The maximum length of a document `id` is now 7168 characters (7k).
 
 
-## Build 5728
+## Build 5728, November 25, 2016
 
 - Cloudant is more tolerant of malformed user documents stored within the `_users` database.
   User documents should be structured and populated to comply with
   [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
 
 
-## Build 5638
+## Build 5638, October 11, 2016
 
 -   Introduces new "stable" and "update" query parameters for views.
 -   Replicator no longer retries forever if it cannot write checkpoints to the source database.
 
 
-## Build 5421
+## Build 5421, June 14, 2016
 
 -	Changes feeds support view-based filters.
 -	Changes feeds support the `_doc_ids` filter.
