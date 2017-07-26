@@ -14,7 +14,7 @@ lastupdated: "2017-07-12"
 
 <!-- Acrolinx: 2017-07-12 -->
 
-# Breaking and behavior changes
+# Deprecations
 
 This document summarizes the changes in behavior for the Cloudant releases. 
 {:shortdesc}
