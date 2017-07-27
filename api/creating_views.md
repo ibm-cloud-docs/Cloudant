@@ -239,6 +239,12 @@ MapReduce is able to split up the analysis of huge data sets into discrete,
 parallel tasks,
 which can be completed much faster.
 
+> **Note**: When you use the built in reduce function, if input is invalid, the builtin_reduce_error error 
+is returned, "The _sum function requires that map values be numbers, arrays of numbers, or objects. 
+Objects cannot be mixed with other data structures. Objects can be arbitrarily nested, provided that the 
+values for all fields are themselves numbers, arrays of numbers, or objects." The possible cause of the error is
+included in the error message. 
+
 ## Storing the view definition
 
 Each view is a Javascript function.
