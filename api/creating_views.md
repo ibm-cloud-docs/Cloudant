@@ -239,8 +239,8 @@ MapReduce is able to split up the analysis of huge data sets into discrete,
 parallel tasks,
 which can be completed much faster.
 
-> **Note**: When you use the built-in reduce function, if input is invalid, the `builtin_reduce_error` error is 
-            returned. The more detailed information about the failure is in the `reason` field. The 
+> **Note**: When you use the built-in reduce function, if the input is invalid, the `builtin_reduce_error` error is 
+            returned. More detailed information about the failure is provided in the `reason` field. The 
             original data that caused the error is returned in the `caused_by` field.
             
             _Example of the reply:_
