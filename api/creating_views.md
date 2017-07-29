@@ -239,12 +239,11 @@ MapReduce is able to split up the analysis of huge data sets into discrete,
 parallel tasks,
 which can be completed much faster.
 
-<<<<<<< HEAD
-When you use the built in reduce function, if input is invalid, the builtin_reduce_error error is
-returned. The more detailed information about the failure can be found in the `reason` field. The
-original data that caused the error is returned in `caused_by` field.
-
-_Example of the reply_
+When you use the built-in reduce function, if the input is invalid, the `builtin_reduce_error` error is 
+returned. More detailed information about the failure is provided in the `reason` field. The 
+original data that caused the error is returned in the `caused_by` field.
+            
+_Example of the reply:_
 
 ```json
 {
@@ -273,43 +272,7 @@ _Example of the reply_
     ]
 }
 ```
-
-
-=======
-> **Note**: When you use the built-in reduce function, if the input is invalid, the `builtin_reduce_error` error is 
-            returned. More detailed information about the failure is provided in the `reason` field. The 
-            original data that caused the error is returned in the `caused_by` field.
             
-            _Example of the reply:_
-            
-            ```json
-            {
-                "rows": [
-                    {
-                        "key": null,
-                        "value": {
-                            "error": "builtin_reduce_error",
-                            "reason": "The _sum function requires that map values be numbers, arrays of numbers, or objects. Objects cannot be mixed with other data structures. Objects can be arbitrarily nested, provided that the values for all fields are themselves numbers, arrays of numbers, or objects.",
-                            "caused_by": [
-                                {
-                                    "a": 1
-                                },
-                                {
-                                    "a": 2
-                                },
-                                {
-                                    "a": 3
-                                },
-                                {
-                                    "a": 4
-                                }
-                            ]
-                        }
-                    }
-                ]
-            }
-            ```
->>>>>>> fb89406
 
 ## Storing the view definition
 
