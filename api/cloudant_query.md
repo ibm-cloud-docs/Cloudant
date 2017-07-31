@@ -410,6 +410,8 @@ _Example of a response body with two indexes:_
 -	**Response Body**: JSON object that describes the query results.
 -	**Roles**: `_reader`
 
+> **Note**: Design documents are not returned by `_find`.
+
 ### Request body
 
 -	**selector**: JSON object that describes the criteria that are used to select documents.
