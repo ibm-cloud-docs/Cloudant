@@ -110,7 +110,7 @@ that enable you to perform a range of basic analytical tasks.
 
 For more advanced warehousing tasks,
 you can leverage the full capabilities provided by the
-IBM cloud-based warehousing service [IBM dashDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/software/data/dashdb/){:new_window}.
+IBM cloud-based warehousing service [{{site.data.keyword.dashdblong}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/analytics/us/en/data-management/data-warehouse/){:new_window}.
 
 When you use IBM Cloudant,
 you have integrated and easy access to advanced warehousing capabilities,
@@ -120,7 +120,7 @@ such as:
 -   Performing SQL-based queries on your data.
 -   Building analytics from your data.
 
-These advanced warehousing capabilities are enabled through services such as IBM dashDB,
+These advanced warehousing capabilities are enabled through services such as {{site.data.keyword.dashdblong_notm}},
 which is a natural complement to Cloudant.
 
 Alternatively,
@@ -128,16 +128,16 @@ if you only need a relational data store for your documents,
 without the warehousing capabilities,
 you can load your Cloudant documents into the [IBM DB2 on Cloud](#ibm-db2-on-cloud) service.
 
-## IBM dashDB
+## {{site.data.keyword.dashdblong_notm}}
 
-IBM dashDB is a cloud-based data warehouse service,
+{{site.data.keyword.dashdblong_notm}} is a cloud-based data warehouse service,
 purpose-built for analytic work.
 While especially suited for Cloudant JSON data,
-dashDB can accept data from a variety of sources by
+{{site.data.keyword.dashdbshort_notm}} can accept data from a variety of sources by
 examining the structure of data when it is loaded.
 
 For more information,
-see the [IBM dashDB Cloud Data Warehouse documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
+see the [{{site.data.keyword.dashdblong_notm}} documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
 
 ## IBM DB2 on Cloud
 
@@ -154,52 +154,54 @@ For more information, see the [IBM DB2 on Cloud documentation ![External link ic
 
 There are two ways you can create a warehouse:
 
-1.  [Use Cloudant to create a dashDB warehouse](#use-cloudant-to-create-a-dashdb-warehouse)
+1.  [Use Cloudant to create a {{site.data.keyword.dashdbshort_notm}} warehouse](#use-cloudant-to-create-a-Db2-Warehouse-on-Cloud)
 2.  [Connect Cloudant to an existing warehouse](#connect-cloudant-to-an-existing-warehouse)
 
-### Use Cloudant to create a dashDB warehouse
+<div id="use-cloudant-to-create-a-dashdb-warehouse"></div>
 
-The simplest method for creating a warehouse is for Cloudant to create a dashDB warehouse instance within Bluemix,
+### Use Cloudant to create a {{site.data.keyword.dashdbshort_notm}} warehouse
+
+The simplest method for creating a warehouse is for Cloudant to create a {{site.data.keyword.dashdbshort_notm}} warehouse instance within Bluemix,
 on your behalf.
 Do this by clicking the `Create Warehouse` button on the `Warehouse` task
 within the `Integrations` tab of your Cloudant dashboard.
 
-![Screenshot of the "Create a dashDB warehouse" task within the Cloudant dashboard](../images/createDashDBWH.png)
+![Screenshot of the "Create a {{site.data.keyword.dashdbshort_notm}} warehouse" task within the Cloudant dashboard](../images/createDashDBWH.png)
 
 If you are not already logged in to Bluemix,
 you are asked to do so.
 
 >   **Note**: By default,
-    Cloudant creates a dashDB instance on Bluemix for your warehouse.
+    Cloudant creates a {{site.data.keyword.dashdbshort_notm}} instance on Bluemix for your warehouse.
 
 ![Screenshot of the "Authenticate to Bluemix" task within the Cloudant dashboard](../images/authenticateToBluemix.png)
 
 When you have authenticated,
-you can request that a new dashDB instance is created using your Bluemix account.
+you can request that a new {{site.data.keyword.dashdbshort_notm}} instance is created using your Bluemix account.
 To do this:
 
 1.  Provide the name you would like to use for the Warehouse in the `Warehouse Name` field.
 2.  Provide the name of your existing database within Cloudant, in the `Data Sources` field.
-3.  Ensure that the `Create new dashDB instance` option is selected on the form.
+3.  Ensure that the `Create new {{site.data.keyword.dashdbshort_notm}} instance` option is selected on the form.
 4.  Click the `Create Warehouse` button.
 
 ![Screenshot of the "Create Warehouse" task within the Cloudant dashboard](../images/createWarehouse.png)
 
 ### Connect Cloudant to an existing warehouse
 
-Instead of using Cloudant to create the dashDB warehouse database,
-you can connect to an existing dashDB instance.
+Instead of using Cloudant to create the {{site.data.keyword.dashdbshort_notm}} warehouse database,
+you can connect to an existing {{site.data.keyword.dashdbshort_notm}} instance.
 
-The process is similar to [using Cloudant to create a dashDB warehouse](#use-cloudant-to-create-a-dashdb-warehouse),
-however instead of selecting the `Create new dashDB instance` option,
-select the `dashDB service instance` and choose the dashDB warehouse that already exists within Bluemix.
+The process is similar to [using Cloudant to create a {{site.data.keyword.dashdbshort_notm}} warehouse](#use-cloudant-to-create-a-dashdb-warehouse),
+however instead of selecting the `Create new {{site.data.keyword.dashdbshort_notm}} instance` option,
+select the `{{site.data.keyword.dashdbshort_notm}} service instance` and choose the {{site.data.keyword.dashdbshort_notm}} warehouse that already exists within Bluemix.
 
-![Screenshot of the "Connect to existing dashDB instance" task within the Cloudant dashboard](../images/existingDashDBInstance.png)
+![Screenshot of the "Connect to existing {{site.data.keyword.dashdbshort_notm}} instance" task within the Cloudant dashboard](../images/existingDashDBInstance.png)
 
 ### Using a DB2 warehouse instance
 
 If you prefer,
-you can connect to an existing DB2 warehouse instance instead of dashDB.
+you can connect to an existing DB2 warehouse instance instead of {{site.data.keyword.dashdbshort_notm}}.
 Do this by selecting the `DB2` option within your Cloudant dashboard to connect to an existing DB2 instance.
 
 ![Screenshot of the Create a DB2 warehouse" task within the Cloudant dashboard](../images/createDB2WH.png)
@@ -213,17 +215,17 @@ you must provide the following details:
 -   User ID for the database.
 -   Password for the User ID.
 
->   **Note**: The remainder of this topic refers to dashDB as the warehouse instance.
+>   **Note**: The remainder of this topic refers to {{site.data.keyword.dashdbshort_notm}} as the warehouse instance.
     However,
     the topic applies equally if you are using an instance of DB2.
     A tutorial is also available describing how to
-    [load JSON data from Cloudant into dashDB ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices/docs/dashdb/load/load-json-data-from-cloudant-into-dashdb/){:new_window},
+    [load JSON data from Cloudant into {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.doc/learn_how/loaddata_cloudant.html/){:new_window},
     and includes examples of using DB2 as the warehouse database.
 
 ## Warehouse schema
 
 When you first create a warehouse from within Cloudant,
-dashDB creates the best possible schema for the data within the database,
+{{site.data.keyword.dashdbshort_notm}} creates the best possible schema for the data within the database,
 helping ensure that each of the fields within your JSON documents has a corresponding entry within the new schema.
 Optionally,
 when creating the warehouse,
@@ -233,7 +235,7 @@ Once the schema is created,
 the warehouse is able to hold your data in a relational format.
 Cloudant then [replicates](../api/replication.html) to perform
 an 'initial load' of the database documents into the warehouse,
-giving you a working collection of your data in the dashDB relational database.
+giving you a working collection of your data in the {{site.data.keyword.dashdbshort_notm}} relational database.
 
 Over time,
 your Cloudant database content might change.
@@ -249,55 +251,55 @@ You can modify the schema of an existing warehouse.
 With Cloudant warehousing,
 you can run 'traditional' SQL queries,
 and view the results,
-all from within the dashDB console.
+all from within the {{site.data.keyword.dashdbshort_notm}} console.
 
 ![Screenshot of the "dashDB dashboard" within Bluemix](../images/useDashDBdashboard.png)
 
 External applications can interact with the data in the same way as with any other relational database.
 
-The advantage of dashDB is that you can perform other warehousing tasks,
+The advantage of {{site.data.keyword.dashdbshort_notm}} is that you can perform other warehousing tasks,
 such as loading more data from other sources,
 and analyzing the data using built-in analytic tools.
-DashDB supports the
+{{site.data.keyword.dashdbshort_notm}} supports the
 [`'R'` programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/R_%28programming_language%29){:new_window}
 and software environment for statistical computing and graphics.
 This means you have access to algorithms that let you perform database analytic tasks such as linear regression,
 'k-means' clustering,
 and geospatial analysis.
 
-The `RStudio` tool allows you to create `'R'` scripts which are then uploaded into dashDB,
+The `RStudio` tool allows you to create `'R'` scripts which are then uploaded into {{site.data.keyword.dashdbshort_notm}},
 then run using your data.
 
-For more information about working with dashDB,
-see the [IBM dashDB Cloud Data Warehouse documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
+For more information about working with {{site.data.keyword.dashdbshort_notm}},
+see the [{{site.data.keyword.dashdblong_notm}} documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
 
 ## Keeping the data and structure fresh
 
-Data is loaded from Cloudant into dashDB using a [replication](../api/replication.html) process.
+Data is loaded from Cloudant into {{site.data.keyword.dashdbshort_notm}} using a [replication](../api/replication.html) process.
 This means that if your Cloudant data is updated or modified in some way,
-replication of the documents into dashDB must take place again
+replication of the documents into {{site.data.keyword.dashdbshort_notm}} must take place again
 to ensure your analytic tasks continue to work using the most up-to-date information.
 
 As with normal Cloudant replication,
 data is transferred one-way only:
-for a warehouse the transfer is from Cloudant to dashDB.
+for a warehouse the transfer is from Cloudant to {{site.data.keyword.dashdbshort_notm}}.
 After the initial load of data,
 the warehouse subscribes to data content changes in the Cloudant database.
-Any changes are replicated from the Cloudant source to the dashDB target.
-This means that warehousing is a form of continuous replication from Cloudant to dashDB.
+Any changes are replicated from the Cloudant source to the {{site.data.keyword.dashdbshort_notm}} target.
+This means that warehousing is a form of continuous replication from Cloudant to {{site.data.keyword.dashdbshort_notm}}.
 
 Over time,
 your Cloudant database might also have structural changes.
 This might include the addition or removal of fields from the JSON documents.
 When this happens,
 the schema used by the warehouse might become invalid,
-resulting in errors reported when fresh data is replicated from Cloudant to dashDB.
+resulting in errors reported when fresh data is replicated from Cloudant to {{site.data.keyword.dashdbshort_notm}}.
 
 To solve this problem,
 Cloudant warehousing has a 'rescan' facility.
 This rescans the structure of the Cloudant database,
-and determines the new schema required in dashDB.
-The old tables within dashDB that were created during the previous scan are then dropped,
+and determines the new schema required in {{site.data.keyword.dashdbshort_notm}}.
+The old tables within {{site.data.keyword.dashdbshort_notm}} that were created during the previous scan are then dropped,
 new tables created using the new schema,
 and finally the current Cloudant data is loaded as a fresh 'initial load'.
 
@@ -388,7 +390,7 @@ ensure that you check the `Customize Schema` option during the creation process:
 
 ![Screen shot of warehouse creation panel, showing the 'Customize Schema' option enabled.](../images/customizeSchema01.png)
 
-The warehouse is created in dashDB as normal,
+The warehouse is created in {{site.data.keyword.dashdbshort_notm}} as normal,
 however it is not started immediately.
 Instead,
 you have the opportunity to customize the schema before proceeding.
@@ -396,7 +398,7 @@ you have the opportunity to customize the schema before proceeding.
 To do this,
 click the link for your warehouse:
 
-![Screen shot of `Open in dashDB` button.](../images/openInDashDB.png)
+![Screen shot of `Open in {{site.data.keyword.dashdbshort_notm}}` button.](../images/openInDashDB.png)
 
 The resulting display gives you a button to customize the schema used for your source database.
 Hovering over the Status indicator confirms that the schema is ready for customization:
