@@ -23,8 +23,12 @@ This document describes the changes and updates to Cloudant grouped by build num
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build XXXX
 
-## Build 6334
+- Introduce a more robust replication ID generation algorithm. Learn more about [Replication ID generation algorithm](../release_info/differences_major_releases.html#replication-id-generation-algorithm). 
+
+
+## Build 6334, July 28, 2017
 
 - Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](../release_info/deprecations.html#x-frame-options). 
 
