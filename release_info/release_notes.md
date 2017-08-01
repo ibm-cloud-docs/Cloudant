@@ -24,6 +24,7 @@ This document describes the changes and updates to Cloudant grouped by build num
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
 ## Build XXXX
+
 - Introduce a more robust replication ID generation algorithm. Learn more about [Replication ID generation algorithm](../release_info/differences_major_releases.html#replication-id-generation-algorithm). 
 
 
