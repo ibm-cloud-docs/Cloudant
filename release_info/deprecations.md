@@ -16,7 +16,7 @@ lastupdated: "2017-07-12"
 
 # Deprecations
 
-This document summarizes the changes in behavior for the Cloudant releases. 
+Summary of the changes in behavior for Cloudant releases. 
 {:shortdesc}
 
 ## Incompatibility between CouchDB version 1.6 and Cloudant version 2.0.0
