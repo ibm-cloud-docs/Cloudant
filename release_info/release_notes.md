@@ -25,7 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build XXXX
 
-- Introduce a more robust replication ID generation algorithm. Learn more about [Replication ID generation algorithm](../release_info/differences_major_releases.html#replication-id-generation-algorithm). 
+- Improved the replication ID generation algorithm. 
 
 
 ## Build 6334, July 28, 2017
