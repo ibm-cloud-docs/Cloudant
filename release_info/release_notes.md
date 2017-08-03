@@ -16,7 +16,7 @@ lastupdated: "2017-07-26"
 
 # Release Notes
 
-This document describes the changes and updates to Cloudant grouped by build number. 
+Changes and updates to Cloudant grouped by build number. 
 {:shortdesc}
 
 ## Dedicated hardware
