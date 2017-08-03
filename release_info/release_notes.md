@@ -25,7 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build XXXX
 
-- Introduces a more robust replication ID generation algorithm. 
+- Password changes no longer cause your replications to rewind.  
 
 
 ## Build 6334, July 28, 2017
