@@ -23,8 +23,12 @@ This document describes the changes and updates to Cloudant grouped by build num
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build XXXX
 
-## Build 6334, July 24, 2017
+- Introduces a more robust replication ID generation algorithm. 
+
+
+## Build 6334, July 28, 2017
 
 - Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](../release_info/deprecations.html#x-frame-options). 
 
@@ -46,7 +50,7 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
   results in an [HTTP `404`](../api/http.html#404) response.
-
+- Added support for the `$allmatch` operator.
 
 ## Build 5834, February 13, 2017
 
