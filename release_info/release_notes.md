@@ -25,12 +25,18 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build XXXX
 
-- Introduce a more robust replication ID generation algorithm. Learn more about [Replication ID generation algorithm](../release_info/differences_major_releases.html#replication-id-generation-algorithm). 
+- Introduces a more robust replication ID generation algorithm. 
 
 
 ## Build 6334, July 28, 2017
 
 - Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](../release_info/deprecations.html#x-frame-options). 
+
+
+## Build 6276
+
+- An error message that occurs when you attempt to put a document attachment with a non-existent revision has changed 
+to a 409 error with the following information: `{"error":"not_found","reason":"missing_rev"}`.
 
 
 ## Build 6069, May 11, 2017
@@ -44,7 +50,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
   results in an [HTTP `404`](../api/http.html#404) response.
-
+- Added support for the `$allmatch` operator.
 
 ## Build 5834, February 13, 2017
 
