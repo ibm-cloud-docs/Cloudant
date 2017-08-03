@@ -25,7 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build XXXX
 
-- Introduces a more robust replication ID generation algorithm. 
+- Password changes no longer cause your replications to rewind.  
 
 
 ## Build 6334, July 28, 2017
@@ -33,7 +33,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](../release_info/deprecations.html#x-frame-options). 
 
 
-## Build 6276
+## Build 6276, July 4, 2017
 
 - An error message that occurs when you attempt to put a document attachment with a non-existent revision has changed 
 to a 409 error with the following information: `{"error":"not_found","reason":"missing_rev"}`.
