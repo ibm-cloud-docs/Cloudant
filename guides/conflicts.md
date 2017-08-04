@@ -1,4 +1,4 @@
-## Conflicts
+# Conflicts
 
 In a distributed databases,
 where copies of data might be stored in more than one location,
