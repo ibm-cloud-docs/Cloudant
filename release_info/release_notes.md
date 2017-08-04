@@ -19,27 +19,29 @@ lastupdated: "2017-07-26"
 Changes and updates to Cloudant grouped by build number. 
 {:shortdesc}
 
+
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build XXXX
+
+## Build 6336 (August 4, 2017)
 
 - Password changes no longer cause your replications to rewind.  
 
 
-## Build 6334, July 28, 2017
+## Build 6334 (July 28, 2017)
 
 - Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](../release_info/deprecations.html#x-frame-options). 
 
 
-## Build 6276, July 4, 2017
+## Build 6276 (July 4, 2017)
 
 - An error message that occurs when you attempt to put a document attachment with a non-existent revision has changed 
 to a 409 error with the following information: `{"error":"not_found","reason":"missing_rev"}`.
 
 
-## Build 6069, May 11, 2017
+## Build 6069 (May 11, 2017)
 
 - Previously, a replication job which crashed for some reason resulted in an update to the replication document,
   followed by a fresh attempt to start a new replication.
@@ -52,25 +54,26 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
   results in an [HTTP `404`](../api/http.html#404) response.
 - Added support for the `$allmatch` operator.
 
-## Build 5834, February 13, 2017
+
+## Build 5834 (February 13, 2017)
 
 - The maximum length of a document `id` is now 7168 characters (7k).
 
 
-## Build 5728, November 25, 2016
+## Build 5728 (November 25, 2016)
 
 - Cloudant is more tolerant of malformed user documents stored within the `_users` database.
   User documents should be structured and populated to comply with
   [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
 
 
-## Build 5638, October 11, 2016
+## Build 5638 (October 11, 2016)
 
 -   Introduces new "stable" and "update" query parameters for views.
 -   Replicator no longer retries forever if it cannot write checkpoints to the source database.
 
 
-## Build 5421, June 14, 2016
+## Build 5421 (June 14, 2016)
 
 -	Changes feeds support view-based filters.
 -	Changes feeds support the `_doc_ids` filter.
