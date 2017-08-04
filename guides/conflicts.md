@@ -1,6 +1,6 @@
 # Conflicts
 
-In a distributed databases,
+In distributed databases,
 where copies of data might be stored in more than one location,
 natural network and system characteristics might mean that changes made to a
 document stored in one location cannot instantly update or replicate to other parts of the database.
@@ -80,7 +80,7 @@ conflicts:
 </tr>
 </table>
 
-### Finding conflicts
+## Finding conflicts
 
 To find any conflicts that might be affecting a document,
 add the query parameter `conflicts=true` when retrieving a document.
@@ -110,7 +110,7 @@ you can use it to find and resolve conflicts as needed.
 Alternatively,
 you might query the view after each replication to identify and resolve conflicts immediately.
 
-### How to resolve conflicts
+## How to resolve conflicts
 
 Once you've found a conflict, you can resolve it by following 4 steps:
 
@@ -178,14 +178,14 @@ when the two databases are replicated,
 it might not be clear which of the two alternative versions of the document is correct.
 This is a conflict scenario.
 
-### Get conflicting revisions
+## Get conflicting revisions
 
 To find any conflicting revisions for a document,
 retrieve that document as normal,
 but include the `conflicts=true` parameter,
 similar to the following example:
 
-`http://$USERNAME.cloudant.com/products/$_ID?conflicts=true`
+`http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
 <div></div>
 
@@ -219,7 +219,7 @@ you might find that the array has only one element,
 but it is possible for there to be many conflicting revisions,
 each of which is listed in the array.
 
-### Merge the changes
+## Merge the changes
 
 Your application must identify all the potential changes,
 and reconcile them,
@@ -233,7 +233,7 @@ we begin by retrieving a document and details of any conflicting versions.
 We do this using a command similar to the following,
 which also requests the `_conflicts` array:
 
-`http://$USERNAME.cloudant.com/products/$_ID?conflicts=true`
+`http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
 This retrieval gives us a current version of the document which we store,
 _and_ a list of all the other conflicting documents that must also be retrieved,
@@ -241,8 +241,8 @@ for example `...rev=2-61ae00e029d4f5edd2981841243ded13` and `...rev=1-7438df87b6
 Each of these other conflicting versions is also retrieved and stored,
 for example:
 
-  `http://$USERNAME.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13`
-  `http://$USERNAME.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299`
+  `http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13`
+  `http://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299`
 
 Once you have all of the conflicting revisions of a document available,
 you can proceed to resolve the conflicts.
@@ -262,7 +262,7 @@ such as:
 
 For a practical example of how to implement these changes, see [this project with sample code](https://github.com/glynnbird/deconflict).
 
-### Upload the new revision
+## Upload the new revision
 
 > Final revision, after resolving and merging changes from the previous conflicting revisions.
 
@@ -280,14 +280,14 @@ After assessing and resolving the conflicts,
 you create a document containing the current and definitive data.
 This fresh document is uploaded into the database.
 
-### Delete old revisions
+## Delete old revisions
 
 > Example requests to delete the old revisions.
 
 ```http
-DELETE http://$USERNAME.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
+DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 
-DELETE http://$USERNAME.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121
+DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121
 ```
 
 The final step is where you delete the old revisions.
