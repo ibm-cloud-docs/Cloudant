@@ -92,7 +92,7 @@ Cloudant NoSQL DB
 		guides/sharding.md
 		guides/json.md
 		guides/managing_tasks.md
-		guides/conflict.md
+		guides/conflicts.md
 		guides/model_data.md
 		guides/replication_guide.md
 
