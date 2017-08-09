@@ -1,3 +1,17 @@
+---
+
+copyright:
+  years: 2015, 2017
+lastupdated: "2017-08-09"
+
+---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
+
 # Conflicts
 
 In distributed databases,
