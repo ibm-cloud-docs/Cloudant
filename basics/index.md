@@ -20,7 +20,7 @@ scan this section before you scroll further.
 
 The sections on [Client Libraries](../libraries/index.html#-client-libraries),
 [API Reference](../api/index.html#-api-reference),
-and [Guides](../guides/index.html#-guides) assume you know some basic things about Cloudant.
+and [Guides](../guides/acurl.html#authorized-curl-acurl-) assume you know some basic things about Cloudant.
 
 ## Connecting to Cloudant
 
