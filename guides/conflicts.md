@@ -115,7 +115,7 @@ function (doc) {
 ```
 
 To find conflicts for multiple documents in a database,
-write a [view](../creating_views.html).
+write a [view](../api/creating_views.html).
 Using a map function such as the example provided,
 you can find all the revisions for every document with a conflict.
 
