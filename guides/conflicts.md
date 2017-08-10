@@ -1,3 +1,17 @@
+---
+
+copyright:
+  years: 2015, 2017
+lastupdated: "2017-08-09"
+
+---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
+
 # Conflicts
 
 In distributed databases,
@@ -101,7 +115,7 @@ function (doc) {
 ```
 
 To find conflicts for multiple documents in a database,
-write a [view](creating_views.html).
+write a [view](../api/creating_views.html).
 Using a map function such as the example provided,
 you can find all the revisions for every document with a conflict.
 
