@@ -24,6 +24,9 @@ Changes and updates to Cloudant grouped by build number.
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build XXXX
+- Remove `Non-essential` or `All headers` from the response to improve performance.
+
 
 ## Build 6336 (August 4, 2017)
 
