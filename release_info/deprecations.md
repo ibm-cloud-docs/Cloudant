@@ -35,6 +35,7 @@ Summary of the changes in behavior for Cloudant releases.
 	```
 
 ## X-Frame-Options
+<a href="x-frame-options"></a>
 
 The `X-Frame-Options` setting is a response header that controls whether an HTTP response can be embedded in a `<frame>`, `<iframe>`, or `<object>`. This security feature helps prevent clickjacking.
 
