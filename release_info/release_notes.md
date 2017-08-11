@@ -41,6 +41,11 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 to a 409 error with the following information: `{"error":"not_found","reason":"missing_rev"}`.
 
 
+## Build 6233 (June 26, 2017) 
+
+- Update Cloudant Query to choose which index to use for responding to a query, unless you specify an index at query time.
+
+
 ## Build 6069 (May 11, 2017)
 
 - Previously, a replication job which crashed for some reason resulted in an update to the replication document,
