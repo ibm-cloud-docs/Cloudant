@@ -36,13 +36,20 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6334 (July 28, 2017)
 
-- Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about <a href="deprecations.html#x-frame-options">X-Frame-Options</a>. 
+
+- Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](deprecations.html#x-frame-options). 
+
 
 
 ## Build 6276 (July 4, 2017)
 
 - An error message that occurs when you attempt to put a document attachment with a non-existent revision has changed 
 to a 409 error with the following information: `{"error":"not_found","reason":"missing_rev"}`.
+
+
+## Build 6233 (June 26, 2017) 
+
+- Update to Cloudant Query. Cloudant Query now chooses which index to use for responding to a query, unless you specify an index at query time.
 
 
 ## Build 6069 (May 11, 2017)
