@@ -84,5 +84,5 @@ to the list of allowed `origins`.
 ## `dbcopy`
 
 - The `dbcopy` feature can cause problems under some circumstances.
-  Information about this feature has been removed from the documentation.
+  Information about the feature has been removed from the documentation.
   Use of `dbcopy` is strongly discouraged.
