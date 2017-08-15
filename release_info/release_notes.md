@@ -36,7 +36,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6334 (July 28, 2017)
 
-- Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](https://console.stage1.bluemix.net/docs/services/Cloudant/release_info/deprecations.html#x-frame-options){:new_window: target="_blank"}. 
+- Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about <a href="deprecations.html#xframeoptions">X-Frame-Options</a>. 
 
 
 ## Build 6276 (July 4, 2017)
