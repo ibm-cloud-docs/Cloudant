@@ -74,6 +74,7 @@ Cloudant NoSQL DB
 	{: .topicgroup}
 	Guides
 		guides/acurl.md
+		guides/iam.md
 		guides/backup-guide.md
 		guides/backup-guide-using-replication.md
 		guides/cap_theorem.md
