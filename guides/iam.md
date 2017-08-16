@@ -54,15 +54,15 @@ using the following policies:
 - For a specific instance, set the service name to cloudantnosqldb, the service instance to be the instance you want to grant access to, and set the subject as above.
 
 Once a policy is set up, IAM credentials can be used to access Cloudant resources. To do this, IAM credentials need to be exchanged 
-for an IAM access token -- a time limited authentication 
-token -- which is sent with HTTP requests. To help with this, the Cloudant client libraries can be used, which will automatically 
+for an IAM access token – a time limited authentication 
+token – which is sent with HTTP requests. To help with this, the Cloudant client libraries can be used, which will automatically 
 pick up IAM credentials from an application binding, or can be manually initialised with an IAM-issued API key. Whether the client 
 libraries are used or not, the access token sent with the request is used to authenticate the request to the Cloudant service, which 
 will then use the defined access policies to permit or deny access to the service instance.
 
 ## Assigning roles 
 
-If you are already familiar with IAM, this summary should let you start assigning roles to users in the context of your Cloudant instances:
+If you are already familiar with IAM, you can start assigning roles to users in the context of your Cloudant instances:
 
 - Assign `Administrator` role to allow a user to both view and manipulate Cloudant data, as well as change another user's permissions on the Cloudant instances.
 - Assign `Editor` role to allow a user to just view and manipulate data.
@@ -77,7 +77,7 @@ Cloudant currently has a single action:
 
 - `cloudant.any.any` — this action allows a user to take any action within a Cloudant service instance. For example, create and delete databases, read and write documents.
 
-IAM has predefined `Viewer`, `Editor` and `Administrator` roles. When used with Cloudant service instances, `Editor` and `Administrator` x
+IAM has predefined `Viewer`, `Editor` and `Administrator` roles. When used with Cloudant service instances, `Editor` and `Administrator`
 are granted permission to the action `cloudant.any.any`. Therefore, a user must be granted one of these roles before they can access data – 
 even to read it – within a Cloudant service instance. Being assigned the `Viewer` role does not grant access.
 
