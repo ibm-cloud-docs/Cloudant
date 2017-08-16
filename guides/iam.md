@@ -14,8 +14,124 @@ lastupdated: "2017-07-06"
 
 <!-- Acrolinx: 2017-MM-DD -->
 
-# IBM Cloud Identity and Access Management
+# IBM Identity and Access Management
 
-This page is a placeholder.
+IBM Identity and Access Management (IAM) provides a unified approach to managing
+user identities,
+services,
+and access control.
 {:shortdesc}
 
+
+## Using IAM with Cloudant in Bluemix
+
+Access to Cloudant within Bluemix service instances can be managed with IAM. It can also be managed using Cloudant's legacy security mechanisms. 
+This document deals with managing access using IAM. Using Cloudant's legacy mechanisms, such as `_security` documents, is covered in 
+[Cloudant authorization](../api/authorization.html) documentation.
+
+To help debug access problems, this document also gives an overview of how Cloudant determines whether a request needs to be authorized 
+using IAM policies or Cloudant's legacy mechanisms.
+
+When using IAM to manage access to a Cloudant service instance, by default, your Cloudant instance and its databases are private, 
+meaning that only the Bluemix account owner can access them. Using IAM, access can be granted to other Bluemix account holders or 
+applications.
+
+Using IAM, different access policies can be set up. Currently, Cloudant supports user-based access policies, where a given user or
+service is granted access to Cloudant resources. While there are a wide variety of policies that can be set up, two common 
+examples are:
+
+- Allow a Bluemix account holder access to all Cloudant instances on your Bluemix account.
+- Instead, allow access to just one or more specific instances.
+
+Once a policy is set up, the Cloudant client libraries automatically pick up IAM credentials from an application binding, or can be manually 
+initialized with an IAM-issued API key. These credentials will be used to authenticate to the Cloudant service, which will then use the 
+defined access policies to permit or deny access to the accessed service instance. 
+
+For more information about how to set up and manage access policies, see the IAM documentation. The above examples can be enabled 
+using the following policies:
+
+- For all instances, set the service name to be `cloudantnosqldb` and the subject to be the user you want to grant access to.
+- For a specific instance, set the service name to cloudantnosqldb, the service instance to be the instance you want to grant access to, and set the subject as above.
+
+Once a policy is set up, IAM credentials can be used to access Cloudant resources. To do this, IAM credentials need to be exchanged 
+for an IAM access token -- a time limited authentication 
+token -- which is sent with HTTP requests. To help with this, the Cloudant client libraries can be used, which will automatically 
+pick up IAM credentials from an application binding, or can be manually initialised with an IAM-issued API key. Whether the client 
+libraries are used or not, the access token sent with the request is used to authenticate the request to the Cloudant service, which 
+will then use the defined access policies to permit or deny access to the service instance.
+
+## Assigning roles 
+
+If you are already familiar with IAM, this summary should let you start assigning roles to users in the context of your Cloudant instances:
+
+- Assign `Administrator` role to allow a user to both view and manipulate Cloudant data, as well as change another user's permissions on the Cloudant instances.
+- Assign `Editor` role to allow a user to just view and manipulate data.
+- The `Viewer` role currently has no effect within Cloudant, assigning it will not let users view data within the Cloudant instances.
+
+# Cloudant's IAM roles and actions
+
+The core of IAM is a mapping of actions to roles. Roles are then assigned to users. When a user makes a request to Cloudant, IAM looks 
+for the roles that the user has and whether those roles allow the user to make the request.
+
+Cloudant currently has a single action:
+
+- `cloudant.any.any` — this action allows a user to take any action within a Cloudant service instance. For example, create and delete databases, read and write documents.
+
+IAM has predefined `Viewer`, `Editor` and `Administrator` roles. When used with Cloudant service instances, `Editor` and `Administrator` x
+are granted permission to the action `cloudant.any.any`. Therefore, a user must be granted one of these roles before they can access data – 
+even to read it – within a Cloudant service instance. Being assigned the `Viewer` role does not grant access.
+
+In future, we plan to expand our access control to allow for `Viewer` users.
+
+For more information about the actions and the core IAM roles, see [Users roles and permissions](https://console.bluemix.net/docs/iam/users_roles.html#userroles) in the IAM documentation.
+
+## Confirming your account is IAM-enabled
+
+Only IAM-enabled accounts will have IAM policies applied to requests. As we are gradually rolling IAM support out to Bluemix accounts, the 
+following process will tell 
+you whether your account is already enabled:
+
+TODO
+
+If your account isn't enabled and you'd like it to be bumped to the head of the queue, write a short note to [Cloudant support](support@cloudant.com) with some 
+details and we'll see what we can do.
+
+## How Cloudant authenticates a request
+
+When Cloudant receives a request, it must decide whether that request is providing an IAM credential or a legacy Cloudant credential. These 
+credentials are used 
+to authenticate the user to identify the subject of a request.
+
+An IAM request is identified by either the request carrying:
+
+- An IAM access token in the Authorization header.
+- A cookie obtained from Cloudant's `_iam_session` endpoint.
+
+A legacy Cloudant credential request is identified by the request carrying:
+
+- BasicAuth credentials in the Authorization header.
+- A cookie obtained from Cloudant's `_session` endpoint.
+- No identifiable credentials.
+
+Capturing request content will allow you to be sure that appropriate authentication material to activate IAM or internal Cloudant security 
+policies is present on the request.
+
+Once the subject is identified, authorization proceeds.
+
+- In the case of an IAM user, Cloudant then uses the IAM access policies defined for the user to permit or deny a request.
+- In the case of legacy Cloudant credentials, Cloudant uses its internal access policies to authorize the request (e.g., `_security` documents within databases).
+
+## Using IAM with Cloudant's client libraries
+
+The following Cloudant client libraries have been updated to optionally use IAM-provided credentials:
+
+- [Java](../libraries/supported.html#java)
+- [Python](../libraries/supported.html#python)
+- [Node.js](../libraries/supported.html#node-js)
+- [CDTDatastore ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/CDTDatastore)
+- [Sync-Android](https://github.com/cloudant/sync-android)
+- [couchbackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
+
+Each of these libraries contains data in its README.md on how to use it with either a bound application with access to the `VCAP_SERVICES` environment 
+variable or to manually initialize the library with an API key generated within IAM. The libraries will automatically handle retrieving IAM access 
+tokens as required using the API keys they are initialized with.
