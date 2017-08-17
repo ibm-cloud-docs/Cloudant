@@ -26,10 +26,10 @@ and access control.
 ## Using IAM with Cloudant in Bluemix
 
 Access to Cloudant within Bluemix service instances can be managed with IAM. It can also be managed using Cloudant's legacy security mechanisms. 
-This document deals with managing access using IAM. Using Cloudant's legacy mechanisms, such as `_security` documents, is covered in 
-[Cloudant authorization](../api/authorization.html) documentation.
+This document deals with managing access using IAM. Using Cloudant's legacy mechanisms, such as `_security` documents, is covered in the
+[Cloudant documentation](../api/authorization.html).
 
-To help debug access problems, this document also gives an overview of how Cloudant determines whether a request needs to be authorized 
+To help with debugging access problems, this document also gives an overview of how Cloudant determines whether a request needs to be authorized 
 using IAM policies or Cloudant's legacy mechanisms.
 
 When using IAM to manage access to a Cloudant service instance, by default, your Cloudant instance and its databases are private, 
@@ -43,24 +43,22 @@ examples are:
 - Allow a Bluemix account holder access to all Cloudant instances on your Bluemix account.
 - Instead, allow access to just one or more specific instances.
 
-Once a policy is set up, the Cloudant client libraries automatically pick up IAM credentials from an application binding, or can be manually 
-initialized with an IAM-issued API key. These credentials will be used to authenticate to the Cloudant service, which will then use the 
-defined access policies to permit or deny access to the accessed service instance. 
+For more information about how to set up and manage access policies, see the 
+[IAM documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/iam/iamusermanage.html#iamusermanage). 
+You can enable the above examples using the following policies:
 
-For more information about how to set up and manage access policies, see the IAM documentation. The above examples can be enabled 
-using the following policies:
-
-- For all instances, set the service name to be `cloudantnosqldb` and the subject to be the user you want to grant access to.
-- For a specific instance, set the service name to cloudantnosqldb, the service instance to be the instance you want to grant access to, and set the subject as above.
+- For all instances, set the service name to `cloudantnosqldb` and the subject to be the user you want to grant access to.
+- For a specific instance, set the service name to `cloudantnosqldb`, set the service instance to be the instance you want to 
+grant access to, and set the subject to be the user you want to grant access to.
 
 Once a policy is set up, IAM credentials can be used to access Cloudant resources. To do this, IAM credentials need to be exchanged 
 for an IAM access token – a time limited authentication 
-token – which is sent with HTTP requests. To help with this, the Cloudant client libraries can be used, which will automatically 
-pick up IAM credentials from an application binding, or can be manually initialised with an IAM-issued API key. Whether the client 
+token – which is sent with HTTP requests. To help with this, the Cloudant client libraries can be configured to use IAM credentials from 
+an application binding, or initialized with an IAM-issued API key. Whether the client 
 libraries are used or not, the access token sent with the request is used to authenticate the request to the Cloudant service, which 
 will then use the defined access policies to permit or deny access to the service instance.
 
-## Assigning roles 
+## Quick start  
 
 If you are already familiar with IAM, you can start assigning roles to users in the context of your Cloudant instances:
 
@@ -70,7 +68,7 @@ If you are already familiar with IAM, you can start assigning roles to users in 
 
 ## Cloudant's IAM roles and actions
 
-The core of IAM is a mapping of actions to roles. Roles are then assigned to users. When a user makes a request to Cloudant, IAM looks 
+The core of IAM is a mapping of *actions* to *roles*. Roles are assigned to users. When a user makes a request to Cloudant, IAM looks 
 for the roles that the user has and whether those roles allow the user to make the request.
 
 Cloudant currently has a single action:
@@ -113,8 +111,8 @@ A legacy Cloudant credential request is identified by the request carrying:
 - A cookie obtained from Cloudant's `_session` endpoint.
 - No identifiable credentials.
 
-Capturing request content will allow you to be sure that appropriate authentication material to activate IAM or internal Cloudant security 
-policies is present on the request.
+Capturing request content ensures that appropriate authentication material to activate IAM or internal Cloudant security 
+policies are present on the request.
 
 Once the subject is identified, authorization proceeds.
 
@@ -125,13 +123,17 @@ Once the subject is identified, authorization proceeds.
 
 The following Cloudant client libraries have been updated to optionally use IAM-provided credentials:
 
-- [Java](../libraries/supported.html#java)
-- [Python](../libraries/supported.html#python)
-- [Node.js](../libraries/supported.html#node-js)
-- [CDTDatastore ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/CDTDatastore)
-- [Sync-Android](https://github.com/cloudant/sync-android)
-- [couchbackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
+- [Java ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant/)
+- [Python ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/python-cloudant/)
+- [Node.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant/)
+- [CDTDatastore ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/CDTDatastore/)
+- [Sync-Android ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/sync-android/)
+- [couchbackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/couchbackup/)
 
 Each of these libraries contains data in its README.md on how to use it with either a bound application with access to the `VCAP_SERVICES` environment 
+<<<<<<< HEAD
 variable or to manually initialize the library with an API key generated within IAM. The libraries will automatically handle retrieving IAM access 
+=======
+variable or an API key generated within IAM to manually initialize the library. The libraries will automatically handle retrieving IAM access 
+>>>>>>> fb87039
 tokens as required using the API keys they are initialized with.
