@@ -24,9 +24,10 @@ Changes and updates to Cloudant grouped by build number.
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build XXXX
 
-- Remove `Non-essential` or `All headers` from the response to improve performance.
+## Build 6379
+- Adding the header `Prefer: return=minimal` will return only the essential headers. This reduces the size of the 
+- request which gives a performance improvement to non-browser clients. 
 
 
 ## Build 6336 (August 4, 2017)
