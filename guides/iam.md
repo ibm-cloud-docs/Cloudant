@@ -68,7 +68,7 @@ If you are already familiar with IAM, you can start assigning roles to users in 
 - Assign `Editor` role to allow a user to just view and manipulate data.
 - The `Viewer` role currently has no effect within Cloudant, assigning it will not let users view data within the Cloudant instances.
 
-# Cloudant's IAM roles and actions
+## Cloudant's IAM roles and actions
 
 The core of IAM is a mapping of actions to roles. Roles are then assigned to users. When a user makes a request to Cloudant, IAM looks 
 for the roles that the user has and whether those roles allow the user to make the request.
