@@ -36,7 +36,7 @@ When using IAM to manage access to a Cloudant service instance, by default, your
 meaning that only the Bluemix account owner can access them. Using IAM, access can be granted to other Bluemix account holders or 
 applications.
 
-Using IAM, different access policies can be set up. Currently, Cloudant supports user-based access policies, where a given user or
+You can set up different access policies using IAM. Currently, Cloudant supports user-based access policies, where a given user or
 service is granted access to Cloudant resources. While there are a wide variety of policies that can be set up, two common 
 examples are:
 
