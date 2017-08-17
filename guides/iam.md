@@ -131,9 +131,5 @@ The following Cloudant client libraries have been updated to optionally use IAM-
 - [couchbackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/couchbackup/)
 
 Each of these libraries contains data in its README.md on how to use it with either a bound application with access to the `VCAP_SERVICES` environment 
-<<<<<<< HEAD
-variable or to manually initialize the library with an API key generated within IAM. The libraries will automatically handle retrieving IAM access 
-=======
 variable or an API key generated within IAM to manually initialize the library. The libraries will automatically handle retrieving IAM access 
->>>>>>> fb87039
 tokens as required using the API keys they are initialized with.
