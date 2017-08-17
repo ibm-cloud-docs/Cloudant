@@ -26,8 +26,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 
 ## Build 6379
-- Adding the header `Prefer: return=minimal` will return only the essential headers. This reduces the size of the 
-- request which gives a performance improvement to non-browser clients. 
+- Add the header `Prefer: return=minimal` to return only essential headers. This reduces the size of the request which gives a performance improvement to non-browser clients.
 
 
 ## Build 6336 (August 4, 2017)
