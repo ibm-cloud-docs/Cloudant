@@ -14,7 +14,7 @@ lastupdated: "2017-08-17"
 
 <!-- Acrolinx: 2017-MM-DD -->
 
-# IBM Identity and Access Management
+# Identity and Access Management
 
 IBM Identity and Access Management (IAM) provides a unified approach to managing
 user identities,
@@ -37,19 +37,19 @@ meaning that only the Bluemix account owner can access them. Using IAM, access c
 applications.
 
 You can set up different access policies using IAM. Currently, Cloudant supports user-based access policies, where a given user or
-service is granted access to Cloudant resources. While there are a wide variety of policies that can be set up, two common 
-examples are:
+service is granted access to Cloudant resources. While there are a wide variety of policies that can be set up, here are two common 
+examples:
 
 - Allow a Bluemix account holder access to all Cloudant instances on your Bluemix account.
-- Instead, allow access to just one or more specific instances.
+- Allow access to just one or more specific instances.
 
 For more information about how to set up and manage access policies, see the 
 [IAM documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/iam/iamusermanage.html#iamusermanage). 
 You can enable the above examples using the following policies:
 
-- For all instances, set the service name to `cloudantnosqldb` and the subject to be the user you want to grant access to.
-- For a specific instance, set the service name to `cloudantnosqldb`, set the service instance to be the instance you want to 
-grant access to, and set the subject to be the user you want to grant access to.
+- For all instances, set the service name to `cloudantnosqldb` and the subject to the user you want to grant access to.
+- For a specific instance, set the service name to `cloudantnosqldb`, set the service instance to the instance you want to 
+grant access to, and set the subject to the user you want to grant access to.
 
 Once a policy is set up, IAM credentials can be used to access Cloudant resources. To do this, IAM credentials need to be exchanged 
 for an IAM access token – a time limited authentication 
@@ -73,7 +73,7 @@ for the roles that the user has and whether those roles allow the user to make t
 
 Cloudant currently has a single action:
 
-- `cloudant.any.any` — this action allows a user to take any action within a Cloudant service instance. For example, create and delete databases, read and write documents.
+- `cloudant.any.any` - this action allows a user to take any action within a Cloudant service instance. For example, create and delete databases, read and write documents.
 
 IAM has predefined `Viewer`, `Editor` and `Administrator` roles. When used with Cloudant service instances, `Editor` and `Administrator`
 are granted permission to the action `cloudant.any.any`. Therefore, a user must be granted one of these roles before they can access data – 
@@ -81,7 +81,7 @@ even to read it – within a Cloudant service instance. Being assigned the `View
 
 In future, we plan to expand our access control to allow for `Viewer` users.
 
-For more information about the actions and the core IAM roles, see [Users roles and permissions](https://console.bluemix.net/docs/iam/users_roles.html#userroles) in the IAM documentation.
+For more information about the actions and the core IAM roles, see [User roles and permissions](https://console.bluemix.net/docs/iam/users_roles.html#userroles) in the IAM documentation.
 
 ## Confirming your account is IAM-enabled
 
@@ -91,7 +91,7 @@ you whether your account is already enabled:
 
 TODO
 
-If your account isn't enabled and you'd like it to be bumped to the head of the queue, write a short note to [Cloudant support](support@cloudant.com) with some 
+If your account isn't enabled and you'd like it to be bumped to the head of the queue, write a short note to <support@cloudant.com> with some 
 details and we'll see what we can do.
 
 ## How Cloudant authenticates a request
