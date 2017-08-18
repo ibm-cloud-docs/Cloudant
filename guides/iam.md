@@ -48,19 +48,18 @@ For more information about how to set up and manage access policies, see the
 You can enable the above examples using the following policies:
 
 - For all instances, set the service name to `cloudantnosqldb` and the subject to the user you want to grant access to.
-- For a specific instance, set the service name to `cloudantnosqldb`, set the service instance to the instance you want to 
-grant access to, and set the subject to the user you want to grant access to.
+- For a specific instance, set the service name to `cloudantnosqldb`, set the service instance to the instance you want to grant access to, and set the subject to the user you want to grant access to.
 
 Once a policy is set up, IAM credentials can be used to access Cloudant resources. To do this, IAM credentials need to be exchanged 
 for an IAM access token – a time limited authentication 
 token – which is sent with HTTP requests. To help with this, the Cloudant client libraries can be configured to use IAM credentials from 
-an application binding, or initialized with an IAM-issued API key. Whether the client 
+an application binding or initialized with an IAM-issued API key. Whether the client 
 libraries are used or not, the access token sent with the request is used to authenticate the request to the Cloudant service, which 
 will then use the defined access policies to permit or deny access to the service instance.
 
 ## Quick start  
 
-If you are already familiar with IAM, you can start assigning roles to users in the context of your Cloudant instances:
+If you are already familiar with IAM, this summary should let you start assigning roles to users in the context of your Cloudant instances:
 
 - Assign `Administrator` role to allow a user to both view and manipulate Cloudant data, as well as change another user's permissions on the Cloudant instances.
 - Assign `Editor` role to allow a user to just view and manipulate data.
