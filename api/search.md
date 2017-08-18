@@ -46,6 +46,14 @@ _Example design document that defines a search index:_
 To avoid this problem,
 use an appropriate [guard clause](#index-guard-clauses).
 
+<p><b>Note</b>:  Within a search index, do not index the same field name with more than one data type. <br>
+If the same field name is indexed with different data types in the same search index function, you might get 
+an error when you query the search index that says the field, "was indexed without position data". <br>
+For example, do not include both these lines in the same search index function because they index the same 
+field <code>"myfield"</code>, both as a string <code>"this is a string"</code> and as a number <code>123</code>.
+<code>index("myfield", "this is a string");
+index("myfield", 123);</code></p>
+
 The function that is contained in the index field is a JavaScript function
 that is called for each document in the database.
 The function takes the document as a parameter,
