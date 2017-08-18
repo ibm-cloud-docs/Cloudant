@@ -26,7 +26,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 
 ## Build 6379
-- Add the header `Prefer: return=minimal` to return only essential headers. This reduces the size of the request which gives a performance improvement to non-browser clients.
+- Added the header `Prefer: return=minimal` to return only essential headers. This reduces the size of the request which gives a performance improvement to non-browser clients.
 
 
 ## Build 6336 (August 4, 2017)
@@ -36,7 +36,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6334 (July 28, 2017)
 
-- Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options).
+- Added the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](../release_info/deprecations.html#x-frame-options). 
 
 
 ## Build 6276 (July 4, 2017)
