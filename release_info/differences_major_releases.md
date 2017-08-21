@@ -25,15 +25,8 @@ versions are released.
 
 - [Replication scheduler](/docs/Cloudant/release_info/release_notes.html#build-6069-may-11-2017)
 
-<<<<<<< HEAD
-
 ## Bug fixes
 
-
-=======
-## Bug fixes
-
->>>>>>> fb93420
 ## Incompatibilites
 
 - Active tasks
@@ -42,15 +35,8 @@ versions are released.
 - Views
     - Unicode normalization of key values is consistent between reduced and non-reduced view results. If raw collation is specified in a design document, result order might change as the result of this fix.
 
-<<<<<<< HEAD
-
-=======
->>>>>>> fb93420
 ## Deprecations
 
      The `dbcopy` feature is deprecated
 
-<<<<<<< HEAD
 
-=======
->>>>>>> fb93420
