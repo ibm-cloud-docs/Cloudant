@@ -23,7 +23,7 @@ versions are released.
 
 ## New features
 
-- [Scheduling replicator](/docs/Cloudant/release_info/release_notes.html#build-6069-may-11-2017)
+- [Replication scheduler](/docs/Cloudant/release_info/release_notes.html#build-6069-may-11-2017)
 
 <<<<<<< HEAD
 
