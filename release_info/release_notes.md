@@ -1,4 +1,4 @@
-c---
+---
 
 copyright:
   years: 2017
@@ -18,7 +18,6 @@ lastupdated: "2017-07-26"
 
 Changes and updates to Cloudant grouped by build number. 
 {:shortdesc}
-
 
 ## Dedicated hardware
 
