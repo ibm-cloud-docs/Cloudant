@@ -24,31 +24,24 @@ Changes and updates to Cloudant grouped by build number.
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 6365 (August 17, 2017)
 
-## Build 6379
-- Added the header `Prefer: return=minimal` to return only essential headers. This reduces the size of the request which gives a performance improvement to non-browser clients.
-
+- `POST` requests to the `_revs_diff` endpoint now require either the `_reader` or `_replicator` role.
+- Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options).
+- Add the replication scheduler. Learn more about [replication scheduler](../api/advanced_replication.html#the-replication-scheduler). 
 
 ## Build 6336 (August 4, 2017)
 
 - Password changes no longer cause your replications to rewind.  
-
-
-## Build 6334 (July 28, 2017)
-
-- Added the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options](../release_info/deprecations.html#x-frame-options). 
-
 
 ## Build 6276 (July 4, 2017)
 
 - An error message that occurs when you attempt to put a document attachment with a non-existent revision has changed 
 to a 409 error with the following information: `{"error":"not_found","reason":"missing_rev"}`.
 
-
 ## Build 6233 (June 26, 2017) 
 
 - Cloudant Query now chooses which index to use when responding to a query, unless you specify an index at query time.
-
 
 ## Build 6069 (May 11, 2017)
 
@@ -63,11 +56,9 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
   results in an [HTTP `404`](../api/http.html#404) response.
 - Added support for the `$allmatch` operator.
 
-
 ## Build 5834 (February 13, 2017)
 
 - The maximum length of a document `id` is now 7168 characters (7k).
-
 
 ## Build 5728 (November 25, 2016)
 
@@ -75,12 +66,10 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
   User documents should be structured and populated to comply with
   [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
 
-
 ## Build 5638 (October 11, 2016)
 
 -   Introduces new "stable" and "update" query parameters for views.
 -   Replicator no longer retries forever if it cannot write checkpoints to the source database.
-
 
 ## Build 5421 (June 14, 2016)
 
