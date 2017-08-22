@@ -12,18 +12,17 @@ Cloudant NoSQL DB
 	Offerings
 		offerings/index.md
 		offerings/bluemix.md
-
-	{: .topicgroup}		
+	
+	{: .topicgroup}
 	Release information
 		release_info/whatsnew.md
 		release_info/release_notes.md
 		release_info/differences_major_releases.md
 		release_info/deprecations.md	
-
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
-	basics/index.md	
+    basics/index.md
 
 	{: .topicgroup}
 	API Reference
@@ -88,7 +87,6 @@ Cloudant NoSQL DB
 	{: .topicgroup}
 	Guides
 		guides/acurl.md
-		guides/iam.md
 		guides/backup-guide.md
 		guides/backup-guide-using-replication.md
 		guides/cap_theorem.md
@@ -105,9 +103,9 @@ Cloudant NoSQL DB
 		guides/replication_guide.md
 
 	{: .topicgroup}
-	Security
-		offerings/security.md
-		offerings/compliance.md
-		offerings/dataprivacygovernance.md
+    Security
+    	offerings/security.md
+    	offerings/compliance.md
+    	offerings/dataprivacygovernance.md
 	{: .navgroup-end}
 
