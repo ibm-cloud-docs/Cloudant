@@ -24,10 +24,6 @@ Changes and updates to Cloudant grouped by build number.
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build XXXX
-
-- Remove `Non-essential` or `All headers` from the response to improve performance.
-
 
 ## Build 6336 (August 4, 2017)
 
@@ -36,9 +32,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6334 (July 28, 2017)
 
-
-- Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options-setting).
-
+- Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options).
 
 
 ## Build 6276 (July 4, 2017)
@@ -49,7 +43,7 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
 
 ## Build 6233 (June 26, 2017) 
 
-- Update to Cloudant Query. Cloudant Query now chooses which index to use for responding to a query, unless you specify an index at query time.
+- Cloudant Query now chooses which index to use when responding to a query, unless you specify an index at query time.
 
 
 ## Build 6069 (May 11, 2017)
