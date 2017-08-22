@@ -49,9 +49,9 @@ use an appropriate [guard clause](#index-guard-clauses).
 
 > **Note**: Within a search index, do not index the same field name with more than one data type. If 
 the same field name is indexed with different data types in the same search index function, you might 
-get the following error when you query the search index, "The `field` was indexed without position data." 
+get an error that says the field "was indexed without position data" when querying the search index.
 For example, do not include both of these lines in the same search index function, as they index the `myfield` 
-field as two different data types: a string "this is a string" and a number 123.
+field as two different data types: a string `"this is a string"` and a number `123`.
 ```json
 index("myfield", "this is a string");
 index("myfield", 123);
