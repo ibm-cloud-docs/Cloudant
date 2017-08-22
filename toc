@@ -28,6 +28,7 @@ Cloudant NoSQL DB
 		local/clinstall_maintenance.md
 		local/clinstall_troubleshoot.md
 		local/clinstall_upgrade.md
+
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
