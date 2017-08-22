@@ -19,15 +19,6 @@ Cloudant NoSQL DB
 		release_info/release_notes.md
 		release_info/differences_major_releases.md
 		release_info/deprecations.md	
-		
-	{: .topicgroup}
-	Cloudant Local
-		local/clinstall_overview.md	
-		local/clinstall_install.md	
-		local/clinstall_configure.md
-		local/clinstall_maintenance.md
-		local/clinstall_troubleshoot.md
-		local/clinstall_upgrade.md
 
 	{: .navgroup-end}
 
