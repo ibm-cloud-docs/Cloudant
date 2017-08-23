@@ -11,6 +11,7 @@ Cloudant NoSQL DB
 	{: .topicgroup}
 	Offerings
 		offerings/index.md
+		offerings/cloudant_local.md
 		offerings/bluemix.md
 	
 	{: .topicgroup}
@@ -104,9 +105,9 @@ Cloudant NoSQL DB
 		guides/replication_guide.md
 
 	{: .topicgroup}
-    Security
-    	offerings/security.md
-    	offerings/compliance.md
-    	offerings/dataprivacygovernance.md
+    	Security
+    		offerings/security.md
+    		offerings/compliance.md
+    		offerings/dataprivacygovernance.md
 	{: .navgroup-end}
 
