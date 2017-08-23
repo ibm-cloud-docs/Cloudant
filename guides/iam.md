@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-08-17"
+lastupdated: "2017-08-23"
 
 ---
 
@@ -25,7 +25,7 @@ and access control.
 
 ## Using IAM with Cloudant in Bluemix
 
-Access to Cloudant within Bluemix service instances can be managed with IAM. It can also be managed using Cloudant's legacy security mechanisms. 
+Access to Cloudant within Bluemix service instances can be managed with IAM. It can also be managed by using Cloudant's legacy security mechanisms. 
 This document deals with managing access using IAM. Using Cloudant's legacy mechanisms, such as `_security` documents, is covered in the
 [Cloudant documentation](../api/authorization.html).
 
@@ -45,7 +45,7 @@ examples:
 
 For more information about how to set up and manage access policies, see the 
 [IAM documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/iam/iamusermanage.html#iamusermanage). 
-You can enable the above examples using the following policies:
+You can enable the above examples using the following policies: 
 
 - For all instances, set the service name to `cloudantnosqldb` and the subject to the user you want to grant access to.
 - For a specific instance, set the service name to `cloudantnosqldb`, set the service instance to the instance you want to grant access to, and set the subject to the user you want to grant access to.
