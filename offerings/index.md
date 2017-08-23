@@ -14,9 +14,7 @@ lastupdated: "2017-04-25"
 
 <!-- Acrolinx: 2017-03-16 -->
 
-# Cloudant Offerings
-
-## Database as a Service
+# Database as a Service
 
 Cloudant is a hosted and fully managed database-as-a-service (DBaaS).
 It is built from the ground up to scale globally,
@@ -44,7 +42,7 @@ Cloudant is also available as an [IBM Bluemix service](bluemix.html).
 
 >	**Note:** The Cloudant [Shared Plan](#shared-plan) and [Enterprise (Dedicated) Plan](#enterprise-plan) offerings are not available on the [IBM Bluemix service](bluemix.html).
 
-### Shared Plan
+## Shared Plan
 
 With the Cloudant Shared Plan,
 you have access to all the Cloudant DBaaS capabilities,
@@ -57,7 +55,7 @@ No charge applies if your monthly usage is under $50.00 (as at August 2016).
 For more information,
 see the [pricing details ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/pricing/){:new_window}.
 
-### Enterprise Plan
+## Enterprise Plan
 
 With the Cloudant DBaaS Enterprise Plan,
 you have access to all the Cloudant DBaaS capabilities,
@@ -68,42 +66,3 @@ by using dedicated DBaaS clusters or hardware available at various hosting locat
 
 For more information,
 see the [pricing details ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/pricing/){:new_window}.
-
-## Cloudant Local
-
-[IBM Cloudant Data Layer Local Edition (Cloudant Local) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}
-is a locally installed version of the Cloudant Database-as-a-Service (DBaaS) offering.
-
-Cloudant Local provides you with the same basic capabilities as the full Cloudant single-tenant offering,
-but hosted within your own data center.
-
-A more detailed overview of Cloudant Local is
-[available ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_cloudant_local_overview.html?lang=en-us){:new_window}.
-The
-[IBM Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html?lang=en){:new_window}
-provides information on many aspects of Cloudant Local,
-including:
-
--   [Installation and Configuration ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_extract_install_cloudant_local.html?lang=en){:new_window}.
--   [Maintenance Tasks ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_maintenance_tasks_overview.html?lang=en){:new_window}.
--   [Tuning replication parameters ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_tuning_parameters_replication_cases.html?lang=en){:new_window}.
-
-## [Security](security.html)
-
-Data access control,
-encryption,
-and data backup features enable customers in financial services,
-government,
-e-commerce,
-telecommunications,
-healthcare,
-and other security-minded industries to benefit from {{site.data.keyword.cloudantfull}}.
-
-## [Compliance](compliance.html)
-
-{{site.data.keyword.cloudant_short_notm}} provides a trustworthy and secure cloud database system.
-The service is built on best-in-industry standards,
-including ISO 27001:2013.
-
-More details on {{site.data.keyword.cloudant_short_notm}} Data Privacy and
-Governance [are available](dataprivacygovernance.html).

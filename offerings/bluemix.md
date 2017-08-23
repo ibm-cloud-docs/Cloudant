@@ -135,11 +135,6 @@ you can also change the amount of provisioned throughput capacity for lookups,
 writes,
 and queries.
 
-### Dedicated plan
-
-{{site.data.keyword.cloudant_short_notm}} is available on single tenant dedicated hardware as part of a
-[{{site.data.keyword.Bluemix_notm}} Dedicated ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/cloud-computing/bluemix/dedicated/){:new_window} configuration.
-
 <div id="servicetier"></div>
 
 ## Service tiers
@@ -359,3 +354,10 @@ You can provision a {{site.data.keyword.cloudant_short_notm}} instance on {{site
 
 -	Using the Dashboard. A tutorial describing the process is available [here](../tutorials/create_service.html).
 -	Using the Cloud Foundry command tool. A tutorial describing the process is available [here](../tutorials/create_service_cli.html).
+
+## Bluemix Dedicated
+
+### Dedicated hardware plan
+
+{{site.data.keyword.cloudant_short_notm}} is available on single tenant dedicated hardware as part of a
+[{{site.data.keyword.Bluemix_notm}} Dedicated ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/cloud-computing/bluemix/dedicated/){:new_window} configuration.

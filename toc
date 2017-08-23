@@ -11,8 +11,10 @@ Cloudant NoSQL DB
 	{: .topicgroup}
 	Offerings
 		offerings/index.md
+		offerings/cloudant_local.md
 		offerings/bluemix.md
-		offerings/whatsnew.md
+
+    	offerings/whatsnew.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
