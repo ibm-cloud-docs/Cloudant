@@ -23,7 +23,7 @@ versions are released.
 
 ## New features
 
-- [Scheduling replicator](/docs/Cloudant/release_info/release_notes.html#build-6069-may-11-2017)
+- The new replication scheduler has several improvements and enhancements. Learn more about the [replication scheduler](../api/advanced_replication.html#the-replication-scheduler).
 
 ## Bug fixes
 
