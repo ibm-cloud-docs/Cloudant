@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="cloudant" audience="services" href="/docs/services/Cloudant/getting-started.html"}
+{: .toc subcollection="cloudant" audience="service" href="/docs/services/Cloudant/getting-started.html"}
 Cloudant NoSQL DB
 
 	{: .navgroup id="learn"}
