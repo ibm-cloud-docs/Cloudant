@@ -709,3 +709,7 @@ _Example results (abbreviated) from a `wps` monitoring request:_
 }
 ```
 {:codeblock}
+
+## Monitoring traffic
+
+
