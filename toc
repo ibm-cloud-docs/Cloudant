@@ -11,7 +11,7 @@ Cloudant NoSQL DB
 	{: .topicgroup}
 	Offerings
 		offerings/index.md
-		offerings/cloudant_local.md
+		offerings/cloudant_local.md
 		offerings/bluemix.md
 	
 	{: .topicgroup}
