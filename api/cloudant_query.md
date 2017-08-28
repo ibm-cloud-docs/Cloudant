@@ -432,7 +432,6 @@ _Example of a response body with two indexes:_
 	each document is read from at least that many replicas before it is returned in the results.
 	The request is likely to take more time than using only the document that is stored locally with the index.
 -	**bookmark (optional, default: null)**: A string that is used to specify which page of results you require.
-	*Only for indexes of type `text`.*
 -	**use_index (optional)**: Use this option to identify a specific index for query to run against,
 	rather than by using the Cloudant Query algorithm to find the best index.
 	For more information, see [Explain Plans](#explain-plans).
@@ -1997,6 +1996,18 @@ _Example of selective retrieval of fields from matching documents:_
 }
 ```
 {:codeblock}
+
+## Pagination
+
+Cloudant uses Mango queries to support pagination via the bookmark field. Every `_find` response contains a bookmark - a token that 
+Cloudant uses to determine where to resume from when subsequent queries are made. To get the next set of query 
+results, add the bookmark that was received in the previous response to your next request. Remember to keep the 
+selector the same, otherwise you will receive unexpected results. To paginate backwards, you can use a previous 
+bookmark to return the previous set of results.
+
+Note that the presence of a bookmark doesn’t guarantee that there are more results. You can test whether you 
+have reached the end of the result set by comparing the number of results returned with the page size requested - if 
+`results returned < limit`, there are no more results.
 
 ## Explain Plans
 
