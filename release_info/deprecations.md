@@ -21,10 +21,10 @@ Summary of the changes in behavior for Cloudant releases.
 
 ## Incompatibility between CouchDB version 1.6 and Cloudant version 2.0.0
 
--   An incompatibility exists between CouchDB version 1.6 and Cloudant version 2.0.0. In CouchDB version 1.6, if you 
-    add a query parameter ("reduce=false") to the request body, the parameter in the request body is ignored while the 
-    parameter in the request URL is respected. In Cloudant version 2.0.0, the query parameter ("reduce=false") in the 
-    request body is not ignored. 
+-   An incompatibility exists between the most recent version of Cloudant and CouchDB 1.6-based codebase. In the  
+    older version of Cloudant, if you add a query parameter ("reduce=false") to the request body, the parameter 
+    in the request body is ignored while the parameter in the request URL is respected. In recent versions of 
+    Cloudant, the query parameter ("reduce=false") in the request body is not ignored.
 
 ## Revised error message
 
