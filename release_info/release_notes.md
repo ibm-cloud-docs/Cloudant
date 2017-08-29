@@ -40,7 +40,7 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
 
 ## Build 6233 (June 26, 2017) 
 
-- Cloudant Query now chooses which index to use when responding to a query, unless you specify an index at query time.
+- Introduces a fix to Cloudant Query whereby indexes, excluding potentially matching documents, were selected by the query planner.
 
 ## Build 6069 (May 11, 2017)
 
