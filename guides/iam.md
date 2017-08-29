@@ -14,7 +14,7 @@ lastupdated: "2017-07-06"
 
 <!-- Acrolinx: 2017-MM-DD -->
 
-# IBM Cloud Identity and Access Management
+# 
 
 This page is a placeholder.
 {:shortdesc}
