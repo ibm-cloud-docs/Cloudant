@@ -55,7 +55,7 @@ for an IAM access token – a time limited authentication
 token – which is sent with HTTP requests. To help with this, the Cloudant client libraries can be configured to use IAM credentials from 
 an application binding or initialized with an IAM-issued API key. Whether the client 
 libraries are used or not, the access token sent with the request is used to authenticate the request to the Cloudant service, which 
-will then use the defined access policies to permit or deny access to the service instance.
+then uses the defined access policies to permit or deny access to the service instance.
 
 ## Quick start  
 
@@ -63,11 +63,11 @@ If you are already familiar with IAM, this summary should let you start assignin
 
 - Assign `Administrator` role to allow a user to both view and manipulate Cloudant data, as well as change another user's permissions on the Cloudant instances.
 - Assign `Editor` role to allow a user to just view and manipulate data.
-- The `Viewer` role currently has no effect within Cloudant, assigning it will not let users view data within the Cloudant instances.
+- The `Viewer` role currently has no effect within Cloudant, assigning it does not let users view data within the Cloudant instances.
 
 ## Cloudant's IAM roles and actions
 
-The core of IAM is a mapping of *actions* to *roles*. Roles are assigned to users. When a user makes a request to Cloudant, IAM looks 
+The core feature of IAM is a mapping of _actions_ to _roles_. Roles are then assigned to users. When a user makes a request to Cloudant, IAM looks 
 for the roles that the user has and whether those roles allow the user to make the request.
 
 Cloudant currently has a single action:
@@ -85,7 +85,7 @@ For more information about the actions and the core IAM roles, see [User roles a
 ## Confirming your account is IAM-enabled
 
 Only IAM-enabled accounts will have IAM policies applied to requests. As we are gradually rolling IAM support out to Bluemix accounts, the 
-following process will tell 
+following process tells 
 you whether your account is already enabled:
 
 TODO
@@ -130,5 +130,5 @@ The following Cloudant client libraries have been updated to optionally use IAM-
 - [couchbackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/couchbackup/)
 
 Each of these libraries contains data in its README.md on how to use it with either a bound application with access to the `VCAP_SERVICES` environment 
-variable or an API key generated within IAM to manually initialize the library. The libraries will automatically handle retrieving IAM access 
+variable or an API key generated within IAM to manually initialize the library. The libraries automatically handle retrieving IAM access 
 tokens as required using the API keys they are initialized with.
