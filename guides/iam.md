@@ -155,7 +155,7 @@ IAM-provided credentials:
 
 Each of these libraries contains data in its README.md on how to use it with
 either a bound application with access to the `VCAP_SERVICES` environment
-variable or to manually initialise the library with an API key generated
+variable or to manually initialize the library with an API key generated
 within IAM. The libraries automatically handle retrieving IAM access
 tokens as required using the API keys they are initialized with.
 
