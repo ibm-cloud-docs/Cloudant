@@ -433,6 +433,7 @@ _Example of a response body with two indexes:_
 	The request is likely to take more time than using only the document that is stored locally with the index.
 -	**bookmark (optional, default: null)**: A string that is used to specify which page of results you require.
 	Pagination is discussed in more detail [here](cloudant_query.html#pagination).
+
 -	**use_index (optional)**: Use this option to identify a specific index for query to run against,
 	rather than by using the Cloudant Query algorithm to find the best index.
 	For more information, see [Explain Plans](#explain-plans).

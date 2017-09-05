@@ -279,7 +279,7 @@ However,
 if you decide that you do need an ability to manage fail over,
 some possible options include:
 
-* Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/green-man-gaming-cross-cloud-nginx-config/){:new_window}.
+* Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/greenmangaming/cloudant-nginx){:new_window}.
   Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance.
   This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}}
   instances that are used by applications can be handled through a modification to the proxy configuration
