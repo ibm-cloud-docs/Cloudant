@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-12"
+lastupdated: "2017-09-05"
 
 ---
 
@@ -24,8 +24,6 @@ versions are released.
 ## New features
 
 - The new replication scheduler has several improvements and enhancements. Learn more about the [replication scheduler](../api/advanced_replication.html#the-replication-scheduler).
-
-## Bug fixes
 
 ## Incompatibilites
 
