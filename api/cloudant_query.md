@@ -865,9 +865,6 @@ _Example of using the `$all` operator with a primary database index:_
 ```json
 {
 	"selector": {
-		"_id": {
-			"$gt": null
-		},
 		"genre": {
 			"$all": ["Comedy","Short"]
 		}
@@ -891,8 +888,6 @@ _Example of using the `$allMatch` operator with the primary index (`_all_docs`):
 ```json
 {
     "_id": {
-      "$gt": null
-    },
     "genre": {
         "$allMatch": {
           "$eq": "Horror"
@@ -937,9 +932,6 @@ _Example of using the `$and` operator with a primary index:_
 {
 	"selector": {
 		"$and": [
-			{
-				"_id": { "$gt": null }
-			},
 			{
 				"year": {
 					"$in": [2014, 2015]
@@ -986,7 +978,6 @@ _Example of using the `$elemMatch` operator with a primary database index:_
 ```json
 {
 	"selector": {
-		"_id": { "$gt": null },
 		"genre": {
 			"$elemMatch": {
 				"$eq": "Horror"
@@ -1345,10 +1336,7 @@ _Example of using the `$ne` operator with a primary index:_
 ```json
 {
 	"selector": {
-		"_id": {
-			"$gt": null
-		},
-		"year": {
+	"year": {
 			"$ne": 1892
 		}
 	},
@@ -1518,8 +1506,7 @@ _Example of using the `$type` operator with a primary index:_
 ```json
 {
 	"selector": {
-		"_id": { "$gt": null },
-		"year": {
+		  "year": {
 			"$type": "number"
 		}
 	},
@@ -1562,8 +1549,7 @@ _Example of using the `$in` operator with a primary index:_
 ```json
 {
 	"selector": {
-		"_id": { "$gt": null },
-		"year": {
+		  "year": {
 			"$in": [2010, 2015]
 		}
 	},
@@ -1608,8 +1594,7 @@ _Example of using the `$nin` operator with a primary index:_
 ```json
 {
 	"selector": {
-		"_id": { "$gt": null },
-		"year": {
+		  "year": {
 			"$nin": [2010, 2015]
 		}
 	},
@@ -1650,10 +1635,7 @@ _Example of using the `$size` operator with a primary index:_
 ```json
 {
 	"selector": {
-		"_id": {
-			"$gt": null
-		},
-		"genre": {
+		  "genre": {
 			"$size": 4
 		}
 	},
@@ -1703,10 +1685,7 @@ _Example of using the `$mod` operator with a primary index:_
 ```json
 {
 	"selector": {
-		"_id": {
-			"$gt": null
-		},
-		"year": {
+          "year": {
 			"$mod": [100,0]
 		}
 	},
@@ -1748,10 +1727,7 @@ _Example of using the `$regex` operator with a primary index:_
 ```json
 {
 	"selector": {
-		"_id": {
-			"$gt": null
-		},
-		"cast": {
+		   "cast": {
 			"$elemMatch": {
 				"$regex": "^Robert"
 			}
