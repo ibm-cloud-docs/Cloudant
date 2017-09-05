@@ -27,7 +27,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 - `POST` requests to the `_revs_diff` endpoint now require either the `_reader` or `_replicator` role.
 - Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options-setting).
-- Add the replication scheduler. Learn more about [replication scheduler](../api/advanced_replication.html#the-replication-scheduler). 
+- Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler). 
 
 ## Build 6336 (August 4, 2017)
 
