@@ -888,7 +888,6 @@ _Example of using the `$allMatch` operator with the primary index (`_all_docs`):
 
 ```json
 {
-    "_id": {
     "genre": {
         "$allMatch": {
           "$eq": "Horror"
