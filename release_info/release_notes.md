@@ -29,7 +29,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options-setting).
 - Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler). 
 
-## Build 6336 (August 4, 2017)
+## Build 6366 (August 4, 2017)
 
 - Password changes no longer cause your replications to rewind.  
 
