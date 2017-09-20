@@ -53,7 +53,9 @@ You can enable the above examples by using the following policies:
 
 * For all instances, set the service name to `cloudantnosqldb` and
     the subject to the user you want to grant access to.
-* For a specific instance, set the service name to `cloudantnosqldb`, set the service instance to the instance you want to grant access to, and set the subject to the user you want to grant access to.
+* For a specific instance, set the service name to `cloudantnosqldb`, set the 
+service instance to the instance you want to grant access to, and set the 
+subject to the user you want to grant access to.
 
 Once a policy is set up, IAM credentials can be used to access Cloudant
 resources. To do this, IAM credentials must be exchanged for an IAM
@@ -162,5 +164,6 @@ variable or to manually initialize the library with an API key generated
 within IAM. The libraries automatically handle retrieving IAM access
 tokens as required using the API keys they are initialized with.
 
-[iam-docs]: http://todo
-[cloudant-sec]: http://todo
+> **Note**: Using IAM with the VCAP initializers is not supported 
+in the client libraries.
+
