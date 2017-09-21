@@ -272,7 +272,11 @@ in the following list:
 > uses the `_all_docs` index.
 
 For this exercise, we create two indexes so we can run 
-the queries in later exercises.
+the queries in later exercises. When you run a query, Cloudant 
+looks for an index that can 
+execute the `sort` you defined in your query. If it doesn't find an index, it returns an 
+error that says no suitable index was found. The indexes we create in this exercise will 
+work with the queries we run in later exercises.
 
 To create an index to use when running a simple query:
 
@@ -446,8 +450,8 @@ This example demonstrates how Cloudant Query uses the `query-index` to find the
             "lastname":"Greene",
             "age":44,
             "location":"Baton Rouge, LA"
-      }
-    ]
+        }
+     ]
   }
   ```
   {:codeblock}
@@ -494,13 +498,6 @@ The `fields` parameter specifies the fields to include with the results. In our 
 results include the first name, last name, and location. The results are sorted by first
 name in ascending order based on the values in the `sort` parameter. 
 
-When you define 
-the `sort` parameter to display the results in a particular order, an index that 
-accepts those
-definitions must exist. When you run your query, Cloudant looks for an index that can 
-execute the `sort` you defined. If it doesn't find an index, it returns that no 
-suitable index is found. We created the indexes in the previous exercise to avoid this.
-
 The extra details look like the following example:
 ```json
 {
@@ -510,14 +507,14 @@ The extra details look like the following example:
     "firstname",
     "location"
   ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
-  ]
+    "sort" : [
+      {
+        "lastname": "asc"
+      },
+      {
+       "firstname": "asc"
+      }
+   ]
 }
 ```  
 {:codeblock}
@@ -537,16 +534,16 @@ The extra details look like the following example:
       "location"
     ],
     "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }, 
-    {
-        "location": "asc"
-    }        
-    ]
+        {
+          "lastname": "asc"
+        },
+        {
+          "firstname": "asc"
+        }, 
+        {
+          "location": "asc"
+        }        
+     ]
   }
   ```
   {:codeblock}
@@ -586,19 +583,19 @@ The extra details look like the following example:
       "lastname": "Brown",
       "location": "New York City, NY"
     },
-    "fields": [
-      "firstname",
-      "lastname",
-      "location"
+      "fields": [
+         "firstname",
+         "lastname",
+         "location"
     ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+      "sort": [
+       {
+         "lastname": "asc"
+       },
+       {
+         "firstname": "asc"
+       }
+     ]  
   }
   ```
   {:codeblock}
@@ -637,24 +634,24 @@ We use a selector expression like the following example:
     "selector": {
       "lastname": {
         "$eq": "Greene"
-      },
+    },
       "age": {
         "$gt": 30
       }
     },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
+      "fields" : [
+        "firstname",
+        "lastname",
+        "age"
     ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+      "sort": [
+        {
+           "lastname": "asc"
+        },
+        {
+           "firstname": "asc"
+        }
+     ]  
   }
   ```
   {:codeblock}
@@ -698,19 +695,19 @@ We use a selector expression like the following example:
         "$gt": 30
       }
     },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
+     "fields" : [
+        "firstname",
+        "lastname",
+        "age"
     ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]   
+     "sort": [
+       {
+         "lastname": "asc"
+       },
+       {
+         "firstname": "asc"
+       }
+     ]   
   }
   ```
   {:codeblock}
