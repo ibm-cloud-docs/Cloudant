@@ -369,7 +369,7 @@ _JSON document that describes the restore:_
     "_id": "restore-monday",
     "source": "${url}/backup-monday",
     "target": "${url}/restore",
-    "create-target": true  
+    "create_target": true  
 }
 ```
 {:codeblock}
@@ -409,7 +409,7 @@ _JSON document that requests restoration of the Tuesday backup:_
     "_id": "restore-tuesday",
     "source": "${url}/backup-tuesday",
     "target": "${url}/restore",
-    "create-target": true  
+    "create_target": true  
 }
 ```
 {:codeblock}
