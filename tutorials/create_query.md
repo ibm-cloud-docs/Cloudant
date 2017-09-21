@@ -271,6 +271,69 @@ in the following list:
 > **Note:** If there is no available defined index that matches the specified query, then Cloudant
 > uses the `_all_docs` index.
 
+For this exercise, we will create two indexes so we run 
+the queries in later exercises.
+
+To create an index to use when running a simple query:
+
+![Command Line icon](../images/CommandLineIcon.png) _Command line_
+
+1.  Copy the following sample JSON data into a file named `query-index-simple.dat`.
+  ```json
+  {
+    "index": {
+      "fields": [
+        "lastname",
+        "firstname"
+      ]
+    },
+    "name": "query-index-simple",
+    "type": "json"
+  }
+  ```
+  {:codeblock}
+
+2.  Run the following command to create an index:
+  ```sh
+  acurl https://$ACCOUNT.cloudant.com/query-demo/_index -X POST -H "Content-Type: application/json" -d \@query-index-simple.dat
+  ```
+  {:codeblock}
+
+3.  Review the results:
+  ```json
+  {
+    "result":"created",
+    "id":"_design/650c9841d2degg1g645c23d5621fc247697cae3f",
+    "name":"query-index-simple"
+  }
+  ```
+  {:codeblock}
+
+
+
+![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
+
+1.  Click **`+` > Query Indexes** on either the **All Documents** or **Design Documents** tab.
+2.  Paste the following sample JSON data into the **Index** field:
+  ```json
+  {
+    "index": {
+      "fields": [
+        "lastname",  
+        "firstname"
+      ]
+    },
+    "name": "query-index-simple",
+    "type": "json"
+  }
+  ```
+  {:codeblock}
+3. Click the **Create Index** button.
+   The index was created. You can see it in the right pane.
+  ![Simple query index](../images/query-index-simple.png)
+  
+
+To create an index to use when running a query with two fields: 
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -326,8 +389,8 @@ in the following list:
   }
   ```
   {:codeblock}
-
-  The index was created. You can see it in the right pane.
+3. Click the **Create Index** button.
+   The index was created. You can see it in the right pane.
 
   ![Query index](../images/query-index1.png)
 
@@ -427,7 +490,15 @@ We can tailor the results to meet our needs
 by adding more details within the selector expression.
 The `fields` parameter specifies the fields to include with the results. In our example, the
 results include the first name, last name, and location. The results are sorted by first
-name in ascending order based on the values in the `sort` parameter.
+name in ascending order based on the values in the `sort` parameter. 
+
+When you define 
+the `sort` parameter to display the results in a particular order, an index that 
+accepts those
+definitions must exist. When you run your query, Cloudant looks for an index that can 
+execute the `sort` you defined. If it doesn't find an index, it returns that no 
+suitable index is found. We created the indexes in the previous exercise to avoid this.
+
 The extra details look like the following example:
 ```json
 {
