@@ -329,11 +329,14 @@ To create an index to use when running a simple query:
   ```
   {:codeblock}
 3. Click the **Create Index** button.
+
    The index was created. You can see it in the right pane.
+   
   ![Simple query index](../images/query-index-simple.png)
   
 
-To create an index to use when running a query with two fields: 
+
+To create an index to use when running a query with multiple fields: 
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -380,8 +383,7 @@ To create an index to use when running a query with two fields:
     "index": {
       "fields": [
         "lastname",  
-        "location",
-        "age"
+        "location"
       ]
     },
     "name": "query-index",
@@ -470,9 +472,9 @@ This example demonstrates how Cloudant Query uses the `query-index` to find the
 
   ![Query 1 results](../images/dashboard_query1_results.png)
 
-### Running a query with two fields
+### Running a query with multiple fields
 
-This example uses two fields to find everyone that is named `Brown` who lives in `New York City, NY`.
+This example uses two fields to find everyone with the last name `Brown` who lives in `New York City, NY`.
 
 We describe the search by using a ['selector' expression](../api/cloudant_query.html#selector-syntax)
 that looks like the following example:
@@ -540,7 +542,10 @@ The extra details look like the following example:
       },
       {
         "firstname": "asc"
-      }
+      }, 
+    {
+        "location": "asc"
+    }        
     ]
   }
   ```
@@ -557,13 +562,13 @@ The extra details look like the following example:
   {
     "docs": [
       {
-        "firstname": "John",
         "lastname": "Brown",
+        "firstname": "John",
         "location": "New York City, NY"
       },
       {
-        "firstname": "Sally",
         "lastname": "Brown",
+        "firstname": "Sally",
         "location": "New York City, NY"
       }
     ]
