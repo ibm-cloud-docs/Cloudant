@@ -271,6 +271,76 @@ in the following list:
 > **Note:** If there is no available defined index that matches the specified query, then Cloudant
 > uses the `_all_docs` index.
 
+For this exercise, we create two indexes so we can run 
+the queries in later exercises. When you run a query, Cloudant 
+looks for an index that can 
+execute the `sort` you defined in your query. If it doesn't find an index, it returns an 
+error that says no suitable index was found. The indexes we create in this exercise will 
+work with the queries we run in later exercises.
+
+To create an index to use when running a simple query:
+
+![Command Line icon](../images/CommandLineIcon.png) _Command line_
+
+1.  Copy the following sample JSON data into a file named `query-index-simple.dat`.
+  ```json
+  {
+    "index": {
+      "fields": [
+        "lastname",
+        "firstname"
+      ]
+    },
+    "name": "query-index-simple",
+    "type": "json"
+  }
+  ```
+  {:codeblock}
+
+2.  Run the following command to create an index:
+  ```sh
+  acurl https://$ACCOUNT.cloudant.com/query-demo/_index -X POST -H "Content-Type: application/json" -d \@query-index-simple.dat
+  ```
+  {:codeblock}
+
+3.  Review the results:
+  ```json
+  {
+    "result":"created",
+    "id":"_design/650c9841d2degg1g645c23d5621fc247697cae3f",
+    "name":"query-index-simple"
+  }
+  ```
+  {:codeblock}
+
+
+
+![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
+
+1.  Click **`+` > Query Indexes** on either the **All Documents** or **Design Documents** tab.
+2.  Paste the following sample JSON data into the **Index** field:
+  ```json
+  {
+    "index": {
+      "fields": [
+        "lastname",  
+        "firstname"
+      ]
+    },
+    "name": "query-index-simple",
+    "type": "json"
+  }
+  ```
+  {:codeblock}
+3. Click the **Create Index** button.
+
+   The index was created. You can see it in the right pane.
+   
+  ![Simple query index](../images/query-index-simple.png)
+  
+
+
+To create an index to use when running a query with multiple fields: 
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -317,8 +387,7 @@ in the following list:
     "index": {
       "fields": [
         "lastname",  
-        "location",
-        "age"
+        "location"
       ]
     },
     "name": "query-index",
@@ -326,8 +395,8 @@ in the following list:
   }
   ```
   {:codeblock}
-
-  The index was created. You can see it in the right pane.
+3. Click the **Create Index** button.
+   The index was created. You can see it in the right pane.
 
   ![Query index](../images/query-index1.png)
 
@@ -381,8 +450,8 @@ This example demonstrates how Cloudant Query uses the `query-index` to find the
             "lastname":"Greene",
             "age":44,
             "location":"Baton Rouge, LA"
-      }
-    ]
+        }
+     ]
   }
   ```
   {:codeblock}
@@ -407,9 +476,9 @@ This example demonstrates how Cloudant Query uses the `query-index` to find the
 
   ![Query 1 results](../images/dashboard_query1_results.png)
 
-### Running a query with two fields
+### Running a query with multiple fields
 
-This example uses two fields to find everyone that is named `Brown` who lives in `New York City, NY`.
+This example uses two fields to find everyone with the last name `Brown` who lives in `New York City, NY`.
 
 We describe the search by using a ['selector' expression](../api/cloudant_query.html#selector-syntax)
 that looks like the following example:
@@ -427,7 +496,8 @@ We can tailor the results to meet our needs
 by adding more details within the selector expression.
 The `fields` parameter specifies the fields to include with the results. In our example, the
 results include the first name, last name, and location. The results are sorted by first
-name in ascending order based on the values in the `sort` parameter.
+name in ascending order based on the values in the `sort` parameter. 
+
 The extra details look like the following example:
 ```json
 {
@@ -437,14 +507,14 @@ The extra details look like the following example:
     "firstname",
     "location"
   ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
-  ]
+    "sort" : [
+      {
+        "lastname": "asc"
+      },
+      {
+       "firstname": "asc"
+      }
+   ]
 }
 ```  
 {:codeblock}
@@ -464,13 +534,16 @@ The extra details look like the following example:
       "location"
     ],
     "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]
+        {
+          "lastname": "asc"
+        },
+        {
+          "firstname": "asc"
+        }, 
+        {
+          "location": "asc"
+        }        
+     ]
   }
   ```
   {:codeblock}
@@ -486,13 +559,13 @@ The extra details look like the following example:
   {
     "docs": [
       {
-        "firstname": "John",
         "lastname": "Brown",
+        "firstname": "John",
         "location": "New York City, NY"
       },
       {
-        "firstname": "Sally",
         "lastname": "Brown",
+        "firstname": "Sally",
         "location": "New York City, NY"
       }
     ]
@@ -510,19 +583,19 @@ The extra details look like the following example:
       "lastname": "Brown",
       "location": "New York City, NY"
     },
-    "fields": [
-      "firstname",
-      "lastname",
-      "location"
+      "fields": [
+         "firstname",
+         "lastname",
+         "location"
     ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+      "sort": [
+       {
+         "lastname": "asc"
+       },
+       {
+         "firstname": "asc"
+       }
+     ]  
   }
   ```
   {:codeblock}
@@ -561,24 +634,24 @@ We use a selector expression like the following example:
     "selector": {
       "lastname": {
         "$eq": "Greene"
-      },
+    },
       "age": {
         "$gt": 30
       }
     },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
+      "fields" : [
+        "firstname",
+        "lastname",
+        "age"
     ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+      "sort": [
+        {
+           "lastname": "asc"
+        },
+        {
+           "firstname": "asc"
+        }
+     ]  
   }
   ```
   {:codeblock}
@@ -622,19 +695,19 @@ We use a selector expression like the following example:
         "$gt": 30
       }
     },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
+     "fields" : [
+        "firstname",
+        "lastname",
+        "age"
     ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]   
+     "sort": [
+       {
+         "lastname": "asc"
+       },
+       {
+         "firstname": "asc"
+       }
+     ]   
   }
   ```
   {:codeblock}
