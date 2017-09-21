@@ -271,7 +271,7 @@ in the following list:
 > **Note:** If there is no available defined index that matches the specified query, then Cloudant
 > uses the `_all_docs` index.
 
-For this exercise, we will create two indexes so we run 
+For this exercise, we create two indexes so we can run 
 the queries in later exercises.
 
 To create an index to use when running a simple query:
