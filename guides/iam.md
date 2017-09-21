@@ -164,5 +164,5 @@ variable or to manually initialize the library with an API key generated
 within IAM. The libraries automatically handle retrieving IAM access
 tokens as required using the API keys they are initialized with.
 
-> **Note**: Using IAM with the VCAP initializers is not supported 
+> **Note**: Using IAM with the VCAP initializers is currently not supported 
 in the client libraries.
