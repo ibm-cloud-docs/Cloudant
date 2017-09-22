@@ -270,13 +270,12 @@ in the following list:
 
 > **Note:** If there is no available defined index that matches the specified query, then Cloudant
 > uses the `_all_docs` index.
-
 For this exercise, we create two indexes. An index defines the fields that can be used in a query. 
 If you create a query and Cloudant Query cannot find an index with matching fields, it returns an error that 
 says no suitable index was found. The indexes we create here contain the fields that the queries we run in 
 later exercises use.
 
-To create an index to use when running a simple query:
+To create an index for a simple query:
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -338,7 +337,7 @@ To create an index to use when running a simple query:
   
 
 
-To create an index to use when running a query with multiple fields: 
+To create an index for a query with multiple fields: 
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -399,8 +398,6 @@ To create an index to use when running a query with multiple fields:
 
   ![Query index](../images/query-index1.png)
 
-
-
 ## Creating a query
 
 Queries allow you to extract your data from Cloudant. A well-written
@@ -449,8 +446,8 @@ This example demonstrates how Cloudant Query uses the `query-index` to find the
             "lastname":"Greene",
             "age":44,
             "location":"Baton Rouge, LA"
-        }
-     ]
+      }
+    ]
   }
   ```
   {:codeblock}
@@ -475,9 +472,9 @@ This example demonstrates how Cloudant Query uses the `query-index` to find the
 
   ![Query 1 results](../images/dashboard_query1_results.png)
 
-### Running a query with multiple fields
+### Running a query with two fields
 
-This example uses two fields to find everyone with the last name `Brown` who lives in `New York City, NY`.
+This example uses two fields to find everyone that is named `Brown` who lives in `New York City, NY`.
 
 We describe the search by using a ['selector' expression](../api/cloudant_query.html#selector-syntax)
 that looks like the following example:
@@ -495,8 +492,7 @@ We can tailor the results to meet our needs
 by adding more details within the selector expression.
 The `fields` parameter specifies the fields to include with the results. In our example, the
 results include the first name, last name, and location. The results are sorted by first
-name in ascending order based on the values in the `sort` parameter. 
-
+name in ascending order based on the values in the `sort` parameter.
 The extra details look like the following example:
 ```json
 {
@@ -506,17 +502,14 @@ The extra details look like the following example:
     "firstname",
     "location"
   ],
-    "sort" : [
-      {
-        "lastname": "asc"
-      },
-      {
-       "firstname": "asc"
-      },
-      {
-       "location": "asc"
-      }      
-   ]
+  "sort" : [
+    {
+      "lastname": "asc"
+    },
+    {
+      "firstname": "asc"
+    }
+  ]
 }
 ```  
 {:codeblock}
@@ -536,16 +529,13 @@ The extra details look like the following example:
       "location"
     ],
     "sort": [
-        {
-          "lastname": "asc"
-        },
-        {
-          "firstname": "asc"
-        }, 
-        {
-          "location": "asc"
-        }        
-     ]
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
+    ]
   }
   ```
   {:codeblock}
@@ -561,13 +551,13 @@ The extra details look like the following example:
   {
     "docs": [
       {
-        "lastname": "Brown",
         "firstname": "John",
+        "lastname": "Brown",
         "location": "New York City, NY"
       },
       {
-        "lastname": "Brown",
         "firstname": "Sally",
+        "lastname": "Brown",
         "location": "New York City, NY"
       }
     ]
@@ -585,22 +575,19 @@ The extra details look like the following example:
       "lastname": "Brown",
       "location": "New York City, NY"
     },
-      "fields": [
-         "firstname",
-         "lastname",
-         "location"
+    "fields": [
+      "firstname",
+      "lastname",
+      "location"
     ],
-      "sort": [
-       {
-         "lastname": "asc"
-       },
-       {
-         "firstname": "asc"
-       },
-       {
-          "location": "asc"
-       }        
-     ]  
+    "sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
+    ]  
   }
   ```
   {:codeblock}
@@ -639,27 +626,24 @@ We use a selector expression like the following example:
     "selector": {
       "lastname": {
         "$eq": "Greene"
-    },
+      },
       "age": {
         "$gt": 30
       }
     },
-      "fields" : [
-        "firstname",
-        "lastname",
-        "age"
+    "fields" : [
+      "firstname",
+      "lastname",
+      "age"
     ],
-      "sort": [
-        {
-           "lastname": "asc"
-        },
-        {
-           "firstname": "asc"
-        },
-        {
-           "age": "asc"
-        }        
-     ]  
+    "sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
+    ]  
   }
   ```
   {:codeblock}
@@ -675,13 +659,13 @@ We use a selector expression like the following example:
   {
     "docs": [
       {
-        "lastname": "Greene",
         "firstname": "Anna",
+        "lastname": "Greene",
         "age": 44
       },
       {
-        "lastname": "Greene",
         "firstname": "Greg",
+        "lastname": "Greene",
         "age": 35
       }
     ]
@@ -703,22 +687,19 @@ We use a selector expression like the following example:
         "$gt": 30
       }
     },
-     "fields" : [
-        "firstname",
-        "lastname",
-        "age"
+    "fields" : [
+      "firstname",
+      "lastname",
+      "age"
     ],
-     "sort": [
-       {
-         "lastname": "asc"
-       },
-       {
-         "firstname": "asc"
-       },
-       {
-           "age": "asc"
-       }        
-     ]   
+    "sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
+    ]   
   }
   ```
   {:codeblock}
