@@ -271,12 +271,10 @@ in the following list:
 > **Note:** If there is no available defined index that matches the specified query, then Cloudant
 > uses the `_all_docs` index.
 
-For this exercise, we create two indexes so we can run 
-the queries in later exercises. When you run a query, Cloudant 
-looks for an index that can 
-execute the `sort` you defined in your query. If it doesn't find an index, it returns an 
-error that says no suitable index was found. The indexes we create in this exercise will 
-work with the queries we run in later exercises.
+For this exercise, we create two indexes. An index defines the fields that can be used in a query. 
+If you create a query and Cloudant Query cannot find an index with matching fields, it returns an error that 
+says no suitable index was found. The indexes we create here contain the fields that the queries we run in 
+later exercises use.
 
 To create an index to use when running a simple query:
 
@@ -396,6 +394,7 @@ To create an index to use when running a query with multiple fields:
   ```
   {:codeblock}
 3. Click the **Create Index** button.
+
    The index was created. You can see it in the right pane.
 
   ![Query index](../images/query-index1.png)
@@ -513,7 +512,10 @@ The extra details look like the following example:
       },
       {
        "firstname": "asc"
-      }
+      },
+      {
+       "location": "asc"
+      }      
    ]
 }
 ```  
@@ -594,7 +596,10 @@ The extra details look like the following example:
        },
        {
          "firstname": "asc"
-       }
+       },
+       {
+          "location": "asc"
+       }        
      ]  
   }
   ```
@@ -650,7 +655,10 @@ We use a selector expression like the following example:
         },
         {
            "firstname": "asc"
-        }
+        },
+        {
+           "age": "asc"
+        }        
      ]  
   }
   ```
@@ -667,13 +675,13 @@ We use a selector expression like the following example:
   {
     "docs": [
       {
-        "firstname": "Anna",
         "lastname": "Greene",
+        "firstname": "Anna",
         "age": 44
       },
       {
-        "firstname": "Greg",
         "lastname": "Greene",
+        "firstname": "Greg",
         "age": 35
       }
     ]
@@ -706,7 +714,10 @@ We use a selector expression like the following example:
        },
        {
          "firstname": "asc"
-       }
+       },
+       {
+           "age": "asc"
+       }        
      ]   
   }
   ```
