@@ -158,8 +158,10 @@ IAM-provided credentials:
 * [Sync-Android](https://github.com/cloudant/sync-android/)
 * [couchbackup](https://github.com/cloudant/couchbackup/)
 
-The libraries automatically handle retrieving IAM access
-tokens as required using the API keys they are initialized with.
+Each of these libraries contains instructions in its README.md about how to
+initialize using an API key generated within IAM. The libraries automatically
+handle retrieving IAM access tokens as required using the API keys they are 
+initialized with.
 
 > **Note**: Using IAM with the VCAP initializers is currently not supported 
 in the client libraries.
