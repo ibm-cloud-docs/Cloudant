@@ -1777,58 +1777,12 @@ However,
 not all operators can be used as the base or starting point of the selector expression
 when you use indexes of type `json`.
 
->	**Note**: You cannot use combination or array logical operators such as `$regex` as the _basis_ of a query
-when you use indexes of type `json`.
-Only equality operators such as `$eq`, `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`)
-can be used as the basis of a query for `json` indexes.
-
-For example,
-if you try to run a query that attempts to match all documents that have a field that is called `afieldname`,
-where the field contains a value beginning with the letter `A`,
-you get an `error: "no_usable_index"` error message.
-
-_Example of an unsupported selector expression:_
-
-```json
-	{
-	"selector": {
-		"afieldname": {
-			"$regex": "^A"
-		}
-	}
-}
-```
-{:codeblock}
-
-_Example response to an unsupported selector expression:_
-
-```json
-{
-	"error": "no_usable_index",
-	"reason": "There is no operator in this selector can used with an index."
-}
-```
-{:codeblock}
-
-A solution is to use an equality operator as the basis of the query.
-You can add a 'null' or 'always true' expression as the basis of the query.
-For example,
-you might first test that the document has an `_id` value:
-
-```json
-{
-	"_id": {
-		"$gt": null
-	}
-}
-```
-{:codeblock}
-
-This expression is always true,
-enabling the remainder of the selector expression to be applied.
-
->	**Note**: The use of `{"_id": { "$gt":null } }` forces a full table scan of the database,
-and is not efficient for large databases.
+>   **Note**: Combination or array logical operators such as `$regex` might
+> result in a full database scan when using indexes of type JSON, 
+> resulting in poor performance. Only equality operators such as `$eq`, 
+> `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`) enable index lookups to be 
+> performed. To ensure indexes are used effectively, analyze the explain plan for each query. 
+> See more information about [explain plans](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans). 
 
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently _based_ on
