@@ -270,6 +270,7 @@ in the following list:
 
 > **Note:** If there is no available defined index that matches the specified query, then Cloudant
 > uses the `_all_docs` index.
+
 For this exercise, we create two indexes. An index defines the fields that can be used in a query. 
 If you create a query and Cloudant Query cannot find an index with matching fields, it returns an error that 
 says no suitable index was found. The indexes we create here contain the fields that the queries we run in 
