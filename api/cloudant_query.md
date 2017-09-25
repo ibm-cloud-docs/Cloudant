@@ -1337,7 +1337,7 @@ _Example of using the $exists operator:_
 
 The `$type` operator requires that the specified document field is of the correct type.
 
-_Example of using the `$type` operator with a primary index:_
+_Example of using the `$type` operator:_
 
 ```json
 {
