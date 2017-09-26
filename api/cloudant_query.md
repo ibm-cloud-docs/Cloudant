@@ -1491,12 +1491,12 @@ However,
 not all operators can be used as the base or starting point of the selector expression
 when you use indexes of type `json`.
 
->   **Note**: Combination or array logical operators such as `$regex` might
+>   **Note**: Combination or array logical operators, such as `$regex`, can
 > result in a full database scan when using indexes of type JSON, 
-> resulting in poor performance. Only equality operators such as `$eq`, 
-> `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`) enable index lookups to be 
-> performed. To ensure indexes are used effectively, analyze the explain plan for each query. 
-> See more information about [explain plans](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans). 
+> resulting in poor performance. Only equality operators, such as `$eq`, 
+> `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups to be 
+> performed. To ensure indexes are used effectively, analyze the 
+> [explain plan](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans) for each query.  
 
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently _based_ on
