@@ -271,10 +271,10 @@ in the following list:
 > **Note:** If there is no available defined index that matches the specified query, then Cloudant
 > uses the `_all_docs` index.
 
-For this exercise, we create two indexes. An index defines the fields that can be used in a query. 
-If you create a query and Cloudant Query cannot find an index with matching fields, it returns an error that 
-says no suitable index was found. The indexes we create here contain the fields that the queries we run in 
-later exercises use.
+An index is not mandatory if your query does not define the `sort` parameter. However, if you have a usable index, 
+it makes your query run faster. If you do use the `sort` parameter in your query, you must either have a JSON index
+with that field defined or a text index that contains that field. In this exercise, we create two indexes for 
+the queries define in later exercises. 
 
 To create an index for a simple query:
 
