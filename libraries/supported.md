@@ -113,7 +113,7 @@ npm install cloudant
 A supported library for working with {{site.data.keyword.cloudant_short_notm}} by using Python is
 available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/python-cloudant){:new_window}.
 
->   **Note:** Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, and an example, see [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/python-cloudant/blob/master/requirements.txt){:new_window}.
+>   **Note:** Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://pip.readthedocs.io/en/1.1/requirements.html){:new_window}.
 
 Download the current library release [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://pypi.python.org/pypi/cloudant/){:new_window}.
 Learn more information about the Python language at [python.org ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/about/){:new_window}. 
