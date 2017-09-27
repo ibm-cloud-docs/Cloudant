@@ -133,6 +133,30 @@ the [replication document](#status-checking-by-using-the-replication-document) i
 
 The replication scheduler enables you to determine the status of replication.
 
+You can get more information from the `_scheduler/jobs` and `_scheduler/docs` endpoints.
+
+The `_scheduler/jobs` endpoint field, `<job_id>`, shows the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
+
+`_scheduler/jobs/<job_id>` - This field shows the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
+
+Parameter | Detail
+----------|-------
+`limit`=<LIMIT> | Default limit is 25. 
+                | Regular users cannot exceed that limit. 
+                | Operators with administrator privileges do not have a maximum limit. For example, an administrator user can use `limit`=999999999.
+`skip`=<OFFSET> |                 
+ 
+
+
+
+
+For `_scheduler/docs` endpoint:
+
+*   `limit`=<LIMIT> - The maximum limit is 268435456. This limit is the same as the maximum views limit.
+*   Filter the `_scheduler/docs` endpoint tasks by their state by specifying `states=<state1>,<state2>`. For example, 
+    `_scheduler/docs/?states=running,pending` returns all the replications tasks that are either 
+    running or pending.     
+
 To determine the current status of replication using the replication scheduler,
 send a `GET` request to the `/_scheduler/docs` endpoint.
 
