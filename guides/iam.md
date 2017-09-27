@@ -97,7 +97,7 @@ to the action `cloudant.any.any`. Therefore a user must be granted one of
 these roles before they can access data – even to read it – within a Cloudant
 service instance. Being assigned the `Viewer` role does not grant access.
 
-In future we plan to expand our access control to allow for `Viewer` users.
+In future, we plan to expand our access control to allow for `Viewer` users.
 
 For more information about the actions and the core IAM roles, see the
 [User roles and permissions](https://console.bluemix.net/docs/iam/users_roles.html#userroles) in the IAM documentation.
