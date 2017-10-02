@@ -274,7 +274,7 @@ in the following list:
 An index is not mandatory if your query does not define the `sort` parameter. However, if you have a usable index, 
 it makes your query run faster. If you do use the `sort` parameter in your query, you must either have a JSON index
 with that field defined or a text index that contains that field. In this exercise, we create two indexes for 
-the queries define in later exercises. 
+the queries defined in later exercises. 
 
 To create an index for a simple query:
 
