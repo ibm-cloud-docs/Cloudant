@@ -129,8 +129,8 @@ the [replication document](#status-checking-by-using-the-replication-document) i
 
 ### Filter replication status
 
-You can make more sense of the replication status information for `_scheduler/jobs` and `_scheduler/docs` endpoints
-by using additional parameters to filter results. 
+You can filter the information that is returned with the replication status for `_scheduler/jobs` 
+and `_scheduler/docs` endpoints by using additional parameters to filter the results. 
 
 *For the `_scheduler/jobs` endpoint:*
 
@@ -146,8 +146,11 @@ Parameter | Detail
 
 Parameter | Detail
 ----------|-------
-`limit`=`<LIMIT>`            | The maximum limit is 268435456. This limit is the same as the maximum views limit.
-`states`=`<state1>,<state2>` | Specify the states to filter the `_scheduler/docs` endpoint tasks. For example, If you specify `_scheduler/docs/?states=running,pending`, it returns all the replication tasks that are either running or pending. 
+`limit`=`<LIMIT>`            | The maximum limit is 268435456. This limit is the same as the maximum views limit. 
+`skip`=`<OFFSET>` |
+`states`=`<state1>,<state2>` | Specify the states to filter the `_scheduler/docs` endpoint tasks. For example, 
+if you specify `_scheduler/docs/?states=running,pending`, it returns all the replication tasks that are either 
+running or pending.
 
 <div id="status-checking-using-the-replication-scheduler"></div>
 
