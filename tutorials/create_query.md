@@ -274,71 +274,9 @@ in the following list:
 An index is not mandatory if your query does not define the `sort` parameter. However, if you have a usable index, 
 it makes your query run faster. If you do use the `sort` parameter in your query, you must either have a JSON index
 with that field defined or a text index that contains that field. In this exercise, we create two indexes for 
-the queries define in later exercises. 
+the queries defined in later exercises. 
 
-To create an index for a simple query:
-
-![Command Line icon](../images/CommandLineIcon.png) _Command line_
-
-1.  Copy the following sample JSON data into a file named `query-index-simple.dat`.
-  ```json
-  {
-    "index": {
-      "fields": [
-        "lastname",
-        "firstname"
-      ]
-    },
-    "name": "query-index-simple",
-    "type": "json"
-  }
-  ```
-  {:codeblock}
-
-2.  Run the following command to create an index:
-  ```sh
-  acurl https://$ACCOUNT.cloudant.com/query-demo/_index -X POST -H "Content-Type: application/json" -d \@query-index-simple.dat
-  ```
-  {:codeblock}
-
-3.  Review the results:
-  ```json
-  {
-    "result":"created",
-    "id":"_design/650c9841d2degg1g645c23d5621fc247697cae3f",
-    "name":"query-index-simple"
-  }
-  ```
-  {:codeblock}
-
-
-
-![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
-
-1.  Click **`+` > Query Indexes** on either the **All Documents** or **Design Documents** tab.
-2.  Paste the following sample JSON data into the **Index** field:
-  ```json
-  {
-    "index": {
-      "fields": [
-        "lastname",  
-        "firstname"
-      ]
-    },
-    "name": "query-index-simple",
-    "type": "json"
-  }
-  ```
-  {:codeblock}
-3. Click the **Create Index** button.
-
-   The index was created. You can see it in the right pane.
-   
-  ![Simple query index](../images/query-index-simple.png)
-  
-
-
-To create an index for a query with multiple fields: 
+To create an index:
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -347,9 +285,9 @@ To create an index for a query with multiple fields:
   {
     "index": {
       "fields": [
+        "firstname",
         "lastname",
-        "location",
-        "age"
+        "age"        
       ]
     },
     "name": "query-index",
@@ -366,14 +304,12 @@ To create an index for a query with multiple fields:
 
 3.  Review the results:
   ```json
-  {
-    "result":"created",
-    "id":"_design/752c7031f3eaee0f907d18e1424ad387459bfc1d",
-    "name":"query-index"
-  }
+  {   "result":"created",
+        "id":"_design/b49192e296762d45a841ee7bade3ae7c0e33427c",
+        "name":"query-index"
+     }  
   ```
   {:codeblock}
-
 
 
 ![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
@@ -384,8 +320,9 @@ To create an index for a query with multiple fields:
   {
     "index": {
       "fields": [
-        "lastname",  
-        "location"
+        "firstname",
+        "lastname",
+        "age"
       ]
     },
     "name": "query-index",
@@ -396,8 +333,9 @@ To create an index for a query with multiple fields:
 3. Click the **Create Index** button.
 
    The index was created. You can see it in the right pane.
+   
+  ![Simple query index](../images/query-index.png)
 
-  ![Query index](../images/query-index1.png)
 
 ## Creating a query
 
@@ -492,9 +430,7 @@ that looks like the following example:
 We can tailor the results to meet our needs
 by adding more details within the selector expression.
 The `fields` parameter specifies the fields to include with the results. In our example, the
-results include the first name, last name, and location. The results are sorted by first
-name in ascending order based on the values in the `sort` parameter.
-The extra details look like the following example:
+results include the first name, last name, and location. The extra details look like the following example:
 ```json
 {
   ...
@@ -502,14 +438,6 @@ The extra details look like the following example:
     "lastname",
     "firstname",
     "location"
-  ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
   ]
 }
 ```  
@@ -528,14 +456,6 @@ The extra details look like the following example:
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
     ]
   }
   ```
@@ -550,18 +470,23 @@ The extra details look like the following example:
 3.  Review the query results:
   ```json
   {
-    "docs": [
-      {
-        "firstname": "John",
-        "lastname": "Brown",
-        "location": "New York City, NY"
-      },
-      {
-        "firstname": "Sally",
-        "lastname": "Brown",
-        "location": "New York City, NY"
-      }
-    ]
+    "docs":  [
+        { 
+            "firstname":"John",
+            "lastname":"Brown",
+            "location":"New York City, NY"
+        },
+        {   
+            "firstname":"Lois",
+            "lastname":"Brown",
+            "location":"New York City, NY"
+        },
+        {
+            "firstname":"Sally",
+            "lastname":"Brown",
+            "location":"New York City, NY"
+         }
+     ]
   }
   ```
   {:codeblock}
@@ -580,14 +505,6 @@ The extra details look like the following example:
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
     ]  
   }
   ```
@@ -618,6 +535,19 @@ We use a selector expression like the following example:
 }
 ```   
 {:codeblock}
+The results are sorted by last name in ascending order based on the 
+values in the `sort` parameter.
+
+```json
+    "sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
+    ] 
+```    
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -639,11 +569,14 @@ We use a selector expression like the following example:
     ],
     "sort": [
       {
+        "firstname": "asc"
+      },
+      {
         "lastname": "asc"
       },
       {
-        "firstname": "asc"
-      }
+        "age": "asc"
+      } 
     ]  
   }
   ```
@@ -695,11 +628,14 @@ We use a selector expression like the following example:
     ],
     "sort": [
       {
+        "firstname": "asc"
+      },
+      {
         "lastname": "asc"
       },
       {
-        "firstname": "asc"
-      }
+        "age": "asc"
+      }      
     ]   
   }
   ```
