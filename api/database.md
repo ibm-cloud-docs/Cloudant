@@ -222,7 +222,7 @@ curl https://$ACCOUNT.cloudant.com/_all_dbs \
 {:codeblock}
 
 <!--
-
+--
 _Example of using JavaScript to list all databases:_
 
 ```javascript
