@@ -23,6 +23,12 @@ Changes and updates to Cloudant grouped by build number.
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 6462
+
+-   Add cluster information to database information with values for the database 
+fields q, n, and default w and r. This update helps with debugging, 
+operations, and performance analysis.
+
 ## Build 6366 (August 4, 2017)
 
 - Password changes no longer cause your replications to rewind.
