@@ -169,12 +169,8 @@ Field                 | Description
 `instance_start_time` | Always 0.
 `other`               | JSON object that contains a `data_size` field.
 `purge_seq`           | The number of purge operations on the database.
-`read quorum`         | The number of consistent copies of a document that must be read before a successful reply.
-`replicas`            | The number of copies of each document.
 `sizes`               | A JSON object, containing `file`, `external`, and `active` sizes. `active` is the size in bytes of data that are stored internally (excluding old revisions). `external` is the size in bytes of decompressed user data. This value is the billable data size. The `other/data_size` field is an alias for the `external` field. `file` is the size in bytes of data that are stored on the disk. Indexes are not included in the calculation. The `disk_size` field is an alias for the `file` field. This size includes data that are waiting for compaction.
-`shards`              | The number of range partitions.
 `update_seq`          | An opaque string that describes the state of the database. Do not rely on this string for counting the number of updates.
-`write quorum`        | The number of copies of a document that must be written before a successful reply.
 
 _Example (abbreviated) response that contains database details:_
 
