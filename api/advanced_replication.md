@@ -129,8 +129,8 @@ the [replication document](#status-checking-by-using-the-replication-document) i
 
 ### Filter replication status
 
-You can filter the information that is returned with the replication status for `_scheduler/jobs` 
-and `_scheduler/docs` endpoints by using additional parameters to filter the results. 
+You can filter the replication status information that is returned for the `_scheduler/jobs` 
+and `_scheduler/docs` endpoints by using the following parameters. 
 
 *For the `_scheduler/jobs` endpoint:*
 
@@ -139,7 +139,7 @@ Parameter | Detail
 `<job_id>`| The `_scheduler/jobs/<job_id>` field shows the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
 `limit`=`<LIMIT>` | * Default limit is 25. 
                 | * Regular users cannot exceed that limit. 
-                | * Operators with administrator privileges do not have a maximum limit. For example, an administrator user can use `limit`=999999999.
+                | * Operators with administrator privileges do not have a maximum limit. For example, an administrator can use `limit`=999999999.
 `skip`=`<OFFSET>` |                 
  
 *For the `_scheduler/docs` endpoint:*
