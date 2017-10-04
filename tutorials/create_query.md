@@ -285,9 +285,9 @@ To create an index:
   {
     "index": {
       "fields": [
+        "age",
         "firstname",
-        "lastname",
-        "age"        
+        "lastname"
       ]
     },
     "name": "query-index",
@@ -320,9 +320,9 @@ To create an index:
   {
     "index": {
       "fields": [
+        "age",
         "firstname",
-        "lastname",
-        "age"
+        "lastname"
       ]
     },
     "name": "query-index",
@@ -541,10 +541,13 @@ values in the `sort` parameter.
 ```json
     "sort": [
       {
-        "lastname": "asc"
-      },
+        "age": "asc"   
+      },        
       {
         "firstname": "asc"
+      },
+      {
+        "lastname": "asc"
       }
     ] 
 ```    
@@ -569,14 +572,14 @@ values in the `sort` parameter.
     ],
     "sort": [
       {
+        "age": "asc"   
+      },        
+      {
         "firstname": "asc"
       },
       {
         "lastname": "asc"
-      },
-      {
-        "age": "asc"
-      } 
+      }
     ]  
   }
   ```
@@ -592,16 +595,17 @@ values in the `sort` parameter.
   ```json
   {
     "docs": [
-      {
-        "firstname": "Anna",
-        "lastname": "Greene",
-        "age": 44
-      },
-      {
+     {
+        "age": 35,
         "firstname": "Greg",
-        "lastname": "Greene",
-        "age": 35
+        "lastname": "Greene"
       }
+    {
+        "age": 44,
+        "firstname": "Anna",
+        "lastname": "Greene"
+      },
+
     ]
   }
   ```
@@ -628,13 +632,13 @@ values in the `sort` parameter.
     ],
     "sort": [
       {
+        "age": "asc"   
+      },        
+      {
         "firstname": "asc"
       },
       {
         "lastname": "asc"
-      },
-      {
-        "age": "asc"
       }      
     ]   
   }
