@@ -107,6 +107,6 @@ Cloudant NoSQL DB
     Security
     	offerings/security.md
     	offerings/compliance.md
-    	offerings/dataprivacygovernance.md
+    	offerings/dataprivacygovernance.
 	{: .navgroup-end}
 
