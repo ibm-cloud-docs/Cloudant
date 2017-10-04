@@ -104,7 +104,7 @@ Cloudant NoSQL DB
 		guides/replication_guide.md
 
 	{: .topicgroup}
-    Security
+    	Security
     	offerings/security.md
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
