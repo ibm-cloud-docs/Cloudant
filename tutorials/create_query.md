@@ -535,6 +535,7 @@ We use a selector expression like the following example:
 }
 ```   
 {:codeblock}
+
 The results are sorted by last name in ascending order based on the 
 values in the `sort` parameter.
 
