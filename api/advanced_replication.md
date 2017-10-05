@@ -115,11 +115,11 @@ All parameters are optional.
 Use the `$doc_id` parameter to search for a specific document. The `_scheduler/docs/$doc_id` parameter finds the state of a single replication task 
 based on its replication ID. Note that the ID must be URL encoded. You can also use the following parameters to narrow your search results:
 
-Name | Type | Description | Default
------------------------------------
-`states` | comma-delimited strings | Only include replication documents in the specified states. | Return all states
-`limit` | integer | Number of documents included in the search results. Maximum limit is 200. | Return all
-`skip` | integer | Number of results to skip before returning search results. | 0
+Name      | Type                    | Description                                                               | Default
+----------|-------------------------|---------------------------------------------------------------------------|-------------------
+`states`  | comma-delimited strings | Only include replication documents in the specified states.               | Return all states
+`limit`   | integer                 | Number of documents included in the search results. Maximum limit is 200. | Return all
+`skip`    | integer                 | Number of results to skip before returning search results.                | 0
 
 ### The `/_scheduler/jobs` endpoint
 
@@ -144,10 +144,10 @@ Use the `$job_id` parameter to search for a specific job. The `_scheduler/jobs/$
 replication task based on its replication ID. Note that the ID must be URL encoded. You can also use the following parameters 
 to narrow your search results:
 
-Name | Type | Description | Default
--------------------------------------
-`limit` | integer | Number of jobs included in the search results. Maximum limit is 200. | 25
-`skip` | integer | Number of results to skip before returning search results. | 0
+Name     | Type    | Description                                                          | Default
+---------|---------|----------------------------------------------------------------------|-------------
+`limit`  | integer | Number of jobs included in the search results. Maximum limit is 200. | 25
+`skip`   | integer | Number of results to skip before returning search results.           | 0
 
 ## Replication Status
 
