@@ -25,9 +25,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6462
 
--   Add cluster information to database information with values for the database 
-fields q, n, and default w and r. This update helps with debugging, 
-operations, and performance analysis.
+-   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
+read quorum, and write quorum. This update helps with debugging, operations, and performance analysis.
 
 ## Build 6366 (August 4, 2017)
 
