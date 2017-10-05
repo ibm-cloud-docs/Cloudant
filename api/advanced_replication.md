@@ -116,12 +116,11 @@ Use the `$doc_id` to search for a specific document:
 
 `$doc_id`| The `_scheduler/docs/$doc_id` parameter finds the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
 
-Name | Description
-----------|-------
-`states`=`$state1,$state2` | Specify the states to filter the `_scheduler/docs` endpoint tasks. For example, if you specify `_scheduler/docs/?states=running,pending`, it returns all the replication tasks that are either running or pending.
-`limit`=`$LIMIT` | Default limit is 25. 
-                 | **Note**: Regular users cannot exceed that limit. Operators with administrator privileges do not have a maximum limit. For example, an administrator can use `limit`=999999999.
-`skip`=`$OFFSET` | Skip `n` number of documents. 
+Name | Type | Description | Default
+----------|--------------------------
+`states`=`$state1,$state2` | comma-delimited strings | Only include replication documents in the specified states.  | Return all states
+`limit`=`$LIMIT` | integer | Number of jobs included in the search results. Maximum limit is 200. | Return all
+`skip`=`$OFFSET` | integer | Number of results to skip before returning search results. | 0
 
 ### The `/_scheduler/jobs` endpoint
 
@@ -146,11 +145,10 @@ Use the `$job_id` to search for a specific job:
 
 `$job_id` - The `_scheduler/jobs/$job_id` parameter shows the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
 
-
-Name | Description
-----------|-------
-`limit`=`$LIMIT` | Default limit is 25. **Note**: Regular users cannot exceed that limit. Operators with administrator privileges do not have a maximum limit. For example, an administrator can use `limit`=999999999.
-`skip`=`$OFFSET` | Skip `n` number of documents. 
+Name | Type | Description | Default
+-------------------------------------
+`limit`=`$LIMIT` | integer | Number of jobs included in the search results. Maximum limit is 200. | 25
+`skip`=`$OFFSET` | integer | Number of results to skip before returning search results. | 0
 
 ## Replication Status
 
@@ -216,7 +214,7 @@ The response received from the replication scheduler shows the history and curre
 _Example of using the command line to get the replication status using the `limit` and `skip` parameters:_
 
 ```sh
-curl -s 'https://***:***@testy017-user1.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1' | jq '.'
+curl `https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1`
 ```
 {:codeblock}
 
@@ -249,7 +247,7 @@ _Example response from using the `limit` and `skip` parameters:_
 _Example of using the command line to get the replication status using the `states` parameter:_
 
 ```sh
-curl -s 'https://***:***@testy017-user1.cloudant.com/_scheduler/docs/_replicator?states=crashing' | jq '.'
+curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?states=crashing
 ```
 {:codeblock}
 
@@ -282,7 +280,7 @@ _Example response from using the `states` parameter:_
 _Example of using the command line to get the replication status using the `_doc_id` parameter:_
 
 ```sh
-curl -s https://***:***@testy017-user1.cloudant.com/_scheduler/docs/_replicator/myrep | jq '.'
+curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep
 ```
 {:codeblock}
 
@@ -309,7 +307,7 @@ _Exammple response from using `doc_id` parameter:_
 _Example of using the command line to get the replication status using the `_job_id` parameter:_
 
 ```sh
-curl -s https://***:***@testy017-user1.cloudant.com/_scheduler/docs/_replicator/myrep2 | jq '.'
+curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep2
 ```
 {:codeblock}
 
