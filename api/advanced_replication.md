@@ -106,20 +106,17 @@ The endpoint uses document IDs as the primary identifier.
 This characteristic means that if you know the document ID,
 you can directly query that one particular document by using a `/_scheduler/docs/_replicator/<DocID>` query.
 
-#### Query parameters 
-
 You can add query parameters to the URL to narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1' | jq '.'`. 
 
 All parameters are optional. 
 
-Use the `$doc_id` to search for a specific document:
-
-`$doc_id`| The `_scheduler/docs/$doc_id` parameter finds the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
+Use the `$doc_id` parameter to search for a specific document. The `_scheduler/docs/$doc_id` parameter finds the state of a single replication task 
+based on its replication ID. Note that the ID must be URL encoded. You can also use the following parameters to narrow your search results:
 
 Name | Type | Description | Default
 ----------|--------------------------
-`states`=`$state1,$state2` | comma-delimited strings | Only include replication documents in the specified states.  | Return all states
-`limit`=`$LIMIT` | integer | Number of jobs included in the search results. Maximum limit is 200. | Return all
+`states`=`$state1,$state2` | comma-delimited strings | Only include replication documents in the specified states. | Return all states
+`limit`=`$LIMIT` | integer | Number of documents included in the search results. Maximum limit is 200. | Return all
 `skip`=`$OFFSET` | integer | Number of results to skip before returning search results. | 0
 
 ### The `/_scheduler/jobs` endpoint
@@ -134,16 +131,14 @@ However,
 the endpoint does not include results for replications that are in the `completed` or `failed` state;
 the reason is that such replications are considered to have finished,
 and therefore are no longer a current job.
-
-#### Query parameters
   
 You can add query parameters to the URL to narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1' | jq '.'`. 
 
 All parameters are optional. 
 
-Use the `$job_id` to search for a specific job: 
-
-`$job_id` - The `_scheduler/jobs/$job_id` parameter shows the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
+Use the `$job_id` parameter to search for a specific job. The `_scheduler/jobs/$job_id` parameter shows the state of a single 
+replication task based on its replication ID. Note that the ID must be URL encoded. You can also use the following parameters 
+to narrow your search results:
 
 Name | Type | Description | Default
 -------------------------------------
@@ -171,7 +166,7 @@ send a `GET` request to the `/_scheduler/docs` endpoint. See the example below.
 _Example of using HTTP to get the replication status from the replication scheduler:_
 
 ```http
-GET /$DATABASE/_scheduler/docs HTTP/1.1
+GET /_scheduler/docs HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
@@ -179,7 +174,7 @@ HOST: $ACCOUNT.cloudant.com
 _Example of using the command line to get the replication status from the replication scheduler:_
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_scheduler/docs
+curl https://$ACCOUNT.cloudant.com/_scheduler/docs
 ```
 {:codeblock}
 
@@ -211,7 +206,7 @@ _Example response (abbreviated) from the replication scheduler:_
 
 The response received from the replication scheduler shows the history and current status of all replications.
 
-_Example of using the command line to get the replication status using the `limit` and `skip` parameters:_
+_Example of using the command line to find jobs with the `limit` and `skip` parameters:_
 
 ```sh
 curl `https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1`
@@ -244,7 +239,7 @@ _Example response from using the `limit` and `skip` parameters:_
 ```
 {:codeblock}
 
-_Example of using the command line to get the replication status using the `states` parameter:_
+_Example of using the command line to find jobs with the `states` parameter:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?states=crashing
@@ -277,7 +272,7 @@ _Example response from using the `states` parameter:_
 ```
 {:codeblock}
 
-_Example of using the command line to get the replication status using the `_doc_id` parameter:_
+_Example of using the command line to find jobs with the `_doc_id` parameter:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep
@@ -304,7 +299,7 @@ _Exammple response from using `doc_id` parameter:_
 ```
 {:codeblock}
 
-_Example of using the command line to get the replication status using the `_job_id` parameter:_
+_Example of using the command line to find jobs with the `_job_id` parameter:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep2
