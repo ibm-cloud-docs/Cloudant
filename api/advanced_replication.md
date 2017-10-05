@@ -106,6 +106,8 @@ The endpoint uses document IDs as the primary identifier.
 This characteristic means that if you know the document ID,
 you can directly query that one particular document by using a `/_scheduler/docs/_replicator/<DocID>` query.
 
+#### Query parameters 
+
 You can add query parameters to the URL to narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1' | jq '.'`. 
 
 All parameters are optional. 
@@ -113,11 +115,11 @@ All parameters are optional.
 Use the `$doc_id` parameter to search for a specific document. The `_scheduler/docs/$doc_id` parameter finds the state of a single replication task 
 based on its replication ID. Note that the ID must be URL encoded. You can also use the following parameters to narrow your search results:
 
-Name | Type | Description | Default
-----------|--------------------------
-`states`=`$state1,$state2` | comma-delimited strings | Only include replication documents in the specified states. | Return all states
-`limit`=`$LIMIT` | integer | Number of documents included in the search results. Maximum limit is 200. | Return all
-`skip`=`$OFFSET` | integer | Number of results to skip before returning search results. | 0
+Name      | Type                    | Description                                                               | Default
+----------|-------------------------|---------------------------------------------------------------------------|-------------------
+`states`  | comma-delimited strings | Only include replication documents in the specified states.               | Return all states
+`limit`   | integer                 | Number of documents included in the search results. Maximum limit is 200. | Return all
+`skip`    | integer                 | Number of results to skip before returning search results.                | 0
 
 ### The `/_scheduler/jobs` endpoint
 
@@ -131,7 +133,9 @@ However,
 the endpoint does not include results for replications that are in the `completed` or `failed` state;
 the reason is that such replications are considered to have finished,
 and therefore are no longer a current job.
-  
+
+#### Query parameters 
+
 You can add query parameters to the URL to narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1' | jq '.'`. 
 
 All parameters are optional. 
@@ -140,10 +144,10 @@ Use the `$job_id` parameter to search for a specific job. The `_scheduler/jobs/$
 replication task based on its replication ID. Note that the ID must be URL encoded. You can also use the following parameters 
 to narrow your search results:
 
-Name | Type | Description | Default
--------------------------------------
-`limit`=`$LIMIT` | integer | Number of jobs included in the search results. Maximum limit is 200. | 25
-`skip`=`$OFFSET` | integer | Number of results to skip before returning search results. | 0
+Name     | Type    | Description                                                          | Default
+---------|---------|----------------------------------------------------------------------|-------------
+`limit`  | integer | Number of jobs included in the search results. Maximum limit is 200. | 25
+`skip`   | integer | Number of results to skip before returning search results.           | 0
 
 ## Replication Status
 
