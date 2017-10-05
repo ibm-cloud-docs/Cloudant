@@ -108,7 +108,7 @@ you can directly query that one particular document by using a `/_scheduler/docs
 
 #### Query parameters 
 
-You can add query parameters to the URL and narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1' | jq '.'`. 
+You can add query parameters to the URL and narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1'`. 
 
 All parameters are optional. 
 
@@ -136,7 +136,7 @@ and therefore are no longer a current job.
 
 #### Query parameters 
 
-You can add query parameters to the URL and narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1' | jq '.'`. 
+You can add query parameters to the URL and narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1'`. 
 
 All parameters are optional. 
 
