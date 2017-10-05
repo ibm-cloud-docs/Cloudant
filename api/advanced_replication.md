@@ -106,6 +106,23 @@ The endpoint uses document IDs as the primary identifier.
 This characteristic means that if you know the document ID,
 you can directly query that one particular document by using a `/_scheduler/docs/_replicator/<DocID>` query.
 
+#### Query parameters 
+
+You can add query parameters to the URL to narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1' | jq '.'`. 
+
+All parameters are optional. 
+
+Use the `$doc_id` to search for a specific document:
+
+`$doc_id`| The `_scheduler/docs/$doc_id` parameter finds the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
+
+Name | Description
+----------|-------
+`states`=`$state1,$state2` | Specify the states to filter the `_scheduler/docs` endpoint tasks. For example, if you specify `_scheduler/docs/?states=running,pending`, it returns all the replication tasks that are either running or pending.
+`limit`=`$LIMIT` | Default limit is 25. 
+                 | **Note**: Regular users cannot exceed that limit. Operators with administrator privileges do not have a maximum limit. For example, an administrator can use `limit`=999999999.
+`skip`=`$OFFSET` | Skip `n` number of documents. 
+
 ### The `/_scheduler/jobs` endpoint
 
 The `/_scheduler/jobs` endpoint provides more details about the specific tasks performed during replication.
@@ -119,6 +136,22 @@ the endpoint does not include results for replications that are in the `complete
 the reason is that such replications are considered to have finished,
 and therefore are no longer a current job.
 
+#### Query parameters
+  
+You can add query parameters to the URL to narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1' | jq '.'`. 
+
+All parameters are optional. 
+
+Use the `$job_id` to search for a specific job: 
+
+`$job_id` - The `_scheduler/jobs/$job_id` parameter shows the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
+
+
+Name | Description
+----------|-------
+`limit`=`$LIMIT` | Default limit is 25. **Note**: Regular users cannot exceed that limit. Operators with administrator privileges do not have a maximum limit. For example, an administrator can use `limit`=999999999.
+`skip`=`$OFFSET` | Skip `n` number of documents. 
+
 ## Replication Status
 
 You can determine replication status by checking
@@ -127,14 +160,15 @@ the [replication scheduler](#status-checking-by-using-the-replication-scheduler)
 > **Note:** The previous technique of checking replication status by inspecting
 the [replication document](#status-checking-by-using-the-replication-document) is still available.
 
+
 <div id="status-checking-using-the-replication-scheduler"></div>
 
 ### Status checking by using the replication scheduler
 
-The replication scheduler enables you to determine the status of replication.
+The replication scheduler enables you to determine the status of replication. 
 
 To determine the current status of replication using the replication scheduler,
-send a `GET` request to the `/_scheduler/docs` endpoint.
+send a `GET` request to the `/_scheduler/docs` endpoint. See the example below. 
 
 _Example of using HTTP to get the replication status from the replication scheduler:_
 
@@ -173,6 +207,128 @@ _Example response (abbreviated) from the replication scheduler:_
   ],
   "offset": 0,
   "total_rows": 1
+}
+```
+{:codeblock}
+
+The response received from the replication scheduler shows the history and current status of all replications.
+
+_Example of using the command line to get the replication status using the `limit` and `skip` parameters:_
+
+```sh
+curl -s 'https://***:***@testy017-user1.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1' | jq '.'
+```
+{:codeblock}
+
+_Example response from using the `limit` and `skip` parameters:_
+
+```json
+{
+  "total_rows": 2,
+  "offset": 1,
+  "docs": [
+    {
+      "database": "testy017-user1/_replicator",
+      "doc_id": "myrep2",
+      "id": "5a4..ous",
+      "node": "dbcore@db1.testy017.cloudant.net",
+      "source": "https://testy017-user1:*****@testy017-user1.cloudant.com/s/",
+      "target": "https://testy017-user1:*****@testy017-user1.cloudant.com/t/",
+      "state": "running",
+      "info": null,
+      "error_count": 0,
+      "last_updated": "2017-10-05T14:46:28Z",
+      "start_time": "2017-10-05T14:46:28Z",
+      "proxy": null
+    }
+  ]
+}
+```
+{:codeblock}
+
+_Example of using the command line to get the replication status using the `states` parameter:_
+
+```sh
+curl -s 'https://***:***@testy017-user1.cloudant.com/_scheduler/docs/_replicator?states=crashing' | jq '.'
+```
+{:codeblock}
+
+_Example response from using the `states` parameter:_
+
+```json
+{
+  "total_rows": 2,
+  "offset": 0,
+  "docs": [
+    {
+      "database": "testy017-user1/_replicator",
+      "doc_id": "myrep",
+      "id": "88b..get",
+      "node": "dbcore@db3.testy017.cloudant.net",
+      "source": "https://testy017-user1.cloudant.com/s/",
+      "target": "https://testy017-user1.cloudant.com/t/",
+      "state": "crashing",
+      "info": "unauthorized: unauthorized to access or create database https://testy017-user1.cloudant.com/s/",
+      "error_count": 4,
+      "last_updated": "2017-10-05T14:50:01Z",
+      "start_time": "2017-10-05T14:43:53Z",
+      "proxy": null
+    }
+  ]
+}
+```
+{:codeblock}
+
+_Example of using the command line to get the replication status using the `_doc_id` parameter:_
+
+```sh
+curl -s https://***:***@testy017-user1.cloudant.com/_scheduler/docs/_replicator/myrep | jq '.'
+```
+{:codeblock}
+
+_Exammple response from using `doc_id` parameter:_
+
+```json
+{
+  "database": "_replicator",
+  "doc_id": "myrep",
+  "id": "88b..get",
+  "node": "dbcore@db3.testy017.cloudant.net",
+  "source": "https://testy017-user1.cloudant.com/s/",
+  "target": "https://testy017-user1.cloudant.com/t/",
+  "state": "crashing",
+  "info": "unauthorized: unauthorized to access or create database https://testy017-user1.cloudant.com/s/",
+  "error_count": 3,
+  "last_updated": "2017-10-05T14:47:01Z",
+  "start_time": "2017-10-05T14:43:53Z",
+  "proxy": null
+}
+```
+{:codeblock}
+
+_Example of using the command line to get the replication status using the `_job_id` parameter:_
+
+```sh
+curl -s https://***:***@testy017-user1.cloudant.com/_scheduler/docs/_replicator/myrep2 | jq '.'
+```
+{:codeblock}
+
+_Example response from using the `_job_id` parameter:_
+
+```json
+{
+  "database": "_replicator",
+  "doc_id": "myrep2",
+  "id": "5a4..ous",
+  "node": "dbcore@db1.testy017.cloudant.net",
+  "source": "https://testy017-user1:*****@testy017-user1.cloudant.com/s/",
+  "target": "https://testy017-user1:*****@testy017-user1.cloudant.com/t/",
+  "state": "running",
+  "info": null,
+  "error_count": 0,
+  "last_updated": "2017-10-05T14:46:28Z",
+  "start_time": "2017-10-05T14:46:28Z",
+  "proxy": null
 }
 ```
 {:codeblock}
