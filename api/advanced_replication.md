@@ -102,24 +102,28 @@ Use it to determine the status of a replication described by a replication docum
 The status of a replication can be one of seven possible states,
 as described [previously](#the-replication-scheduler).
 
-The endpoint uses document IDs as the primary identifier.
-This characteristic means that if you know the document ID,
-you can directly query that one particular document by using a `/_scheduler/docs/_replicator/<DocID>` query.
-
 #### Query parameters 
 
 You can add query parameters to the URL and narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1'`. 
 
 All parameters are optional. 
 
-Use the `$doc_id` parameter to search for a specific document. The `_scheduler/docs/$doc_id` parameter finds the state of a single replication task 
-based on its replication ID. Note that the ID must be URL encoded. You can also use the following parameters to narrow your search results:
+You can use the following parameters to narrow your search results:
 
 Name      | Type                    | Description                                                               | Default
 ----------|-------------------------|---------------------------------------------------------------------------|-------------------
 `states`  | comma-delimited strings | Only include replication documents in the specified states.               | Return all states
 `limit`   | integer                 | Number of documents included in the search results. Maximum limit is 200. | Return all
 `skip`    | integer                 | Number of results to skip before returning search results.                | 0
+
+### The `/_scheduler/docs/_replicator/$doc_id` endpoint
+
+The endpoint uses document IDs as the primary identifier.
+This characteristic means that if you know the document ID,
+you can directly query that one particular document by using a `/_scheduler/docs/_replicator/$doc_id` query.
+
+Use the `$doc_id` parameter to search for a specific document. The `_scheduler/docs/_replicator/$doc_id` parameter finds the state of a single replication task 
+based on its replication ID. Note that the ID must be URL encoded. 
 
 ### The `/_scheduler/jobs` endpoint
 
@@ -140,14 +144,17 @@ You can add query parameters to the URL and narrow your search results, for exam
 
 All parameters are optional. 
 
-Use the `$job_id` parameter to search for a specific job. The `_scheduler/jobs/$job_id` parameter shows the state of a single 
-replication task based on its replication ID. Note that the ID must be URL encoded. You can also use the following parameters 
-to narrow your search results:
+You can use the following parameters to narrow your search results:
 
 Name     | Type    | Description                                                          | Default
 ---------|---------|----------------------------------------------------------------------|-------------
 `limit`  | integer | Number of jobs included in the search results. Maximum limit is 200. | 25
 `skip`   | integer | Number of results to skip before returning search results.           | 0
+
+### The `/_scheduler/docs/_replicator/$job_id` endpoint
+
+Use the `$job_id` parameter to search for a specific job. The `_scheduler/jobs/$job_id` parameter shows the state of a single 
+replication task based on its replication ID. Note that the ID must be URL encoded. 
 
 ## Replication Status
 
