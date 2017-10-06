@@ -791,8 +791,7 @@ _Example JSON document that describes the replication to be canceled:_
 
 A significant reason is that if there was a problem during replication,
 such as a stall,
-timeout,
-or application crash,
+timeout, or application crash,
 then a replication that is defined within the `_replicator` database is automatically restarted by the system.
 
 If you defined a replication by sending a request to the `/_replicate` endpoint,
