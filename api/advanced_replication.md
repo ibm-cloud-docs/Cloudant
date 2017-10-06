@@ -140,7 +140,7 @@ and therefore are no longer a current job.
 
 #### Query parameters 
 
-You can add query parameters to the URL and narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1'`. 
+You can add query parameters to the URL and narrow your search results, for example, `_scheduler/jobs/_replicator?limit=1&skip=1'`. 
 
 All parameters are optional. 
 
@@ -151,7 +151,7 @@ Name     | Type    | Description                                                
 `limit`  | integer | Number of jobs included in the search results. Maximum limit is 200. | 25
 `skip`   | integer | Number of results to skip before returning search results.           | 0
 
-### The `/_scheduler/jobs/_replicator/$job_id` endpoint
+#### The `/_scheduler/jobs/_replicator/$job_id` endpoint
 
 Use the `$job_id` parameter to search for a specific job. The `_scheduler/jobs/_replicator/$job_id` parameter shows the state of a single 
 replication task based on its replication ID. Note that the ID must be URL encoded. 
