@@ -116,7 +116,7 @@ Name      | Type                    | Description                               
 `limit`   | integer                 | Number of documents included in the search results. Maximum limit is 200. | Return all
 `skip`    | integer                 | Number of results to skip before returning search results.                | 0
 
-### The `/_scheduler/docs/_replicator/$doc_id` endpoint
+#### The `/_scheduler/docs/_replicator/$doc_id` endpoint
 
 The endpoint uses document IDs as the primary identifier.
 This characteristic means that if you know the document ID,
@@ -151,9 +151,9 @@ Name     | Type    | Description                                                
 `limit`  | integer | Number of jobs included in the search results. Maximum limit is 200. | 25
 `skip`   | integer | Number of results to skip before returning search results.           | 0
 
-### The `/_scheduler/docs/_replicator/$job_id` endpoint
+### The `/_scheduler/jobs/_replicator/$job_id` endpoint
 
-Use the `$job_id` parameter to search for a specific job. The `_scheduler/jobs/$job_id` parameter shows the state of a single 
+Use the `$job_id` parameter to search for a specific job. The `_scheduler/jobs/_replicator/$job_id` parameter shows the state of a single 
 replication task based on its replication ID. Note that the ID must be URL encoded. 
 
 ## Replication Status
