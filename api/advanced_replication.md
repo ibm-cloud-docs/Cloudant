@@ -120,15 +120,11 @@ Name      | Type                    | Description                               
 
 The endpoint uses document IDs as the primary identifier.
 This characteristic means that if you know the document ID,
-you can directly query that one particular document by using a `/_scheduler/docs/_replicator/$doc_id` query.
-
-Use the `$doc_id` parameter to search for a specific document. The `_scheduler/docs/_replicator/$doc_id` parameter finds the state of a single replication task 
-based on its replication ID. Note that the ID must be URL encoded. 
+you can directly query that one particular document by using a `/_scheduler/docs/_replicator/$doc_id` query. Note that the ID must be URL encoded. 
 
 ### The `/_scheduler/jobs` endpoint
 
-The `/_scheduler/jobs` endpoint provides more details about the specific tasks performed during replication.
-The endpoint also provides more detailed information for the current replication.
+The `/_scheduler/jobs` endpoint provides more details about active replication tasks that are performed during replication.
 
 For example,
 the `/_scheduler/jobs` endpoint describes when the replication last started, stopped, or crashed.
@@ -136,11 +132,11 @@ the `/_scheduler/jobs` endpoint describes when the replication last started, sto
 However,
 the endpoint does not include results for replications that are in the `completed` or `failed` state;
 the reason is that such replications are considered to have finished,
-and therefore are no longer a current job.
+and therefore are no longer a active job.
 
 #### Query parameters 
 
-You can add query parameters to the URL and narrow your search results, for example, `_scheduler/jobs/_replicator?limit=1&skip=1'`. 
+You can add query parameters to the URL and narrow your search results, for example, `'_scheduler/jobs/_replicator?limit=1&skip=1'`. 
 
 All parameters are optional. 
 
@@ -153,8 +149,7 @@ Name     | Type    | Description                                                
 
 #### The `/_scheduler/jobs/_replicator/$job_id` endpoint
 
-Use the `$job_id` parameter to search for a specific job. The `_scheduler/jobs/_replicator/$job_id` parameter shows the state of a single 
-replication task based on its replication ID. Note that the ID must be URL encoded. 
+The `/_scheduler/jobs/_replicator/$job_id` endpoint shows the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
 
 ## Replication Status
 
@@ -195,7 +190,7 @@ _Example response (abbreviated) from the replication scheduler:_
 {
   "docs": [
     {
-      "database": "_replicator",
+      "database": "$account/_replicator",
       "doc_id": "myrep",
       "error_count": 0,
       "id": "88b..get",
@@ -232,12 +227,12 @@ _Example response from using the `limit` and `skip` parameters:_
   "offset": 1,
   "docs": [
     {
-      "database": "testy017-user1/_replicator",
+      "database": "$account/_replicator",
       "doc_id": "myrep2",
       "id": "5a4..ous",
-      "node": "dbcore@db1.testy017.cloudant.net",
-      "source": "https://testy017-user1:*****@testy017-user1.cloudant.com/s/",
-      "target": "https://testy017-user1:*****@testy017-user1.cloudant.com/t/",
+      "node": "node1@127.0.0.1.cloudant.net",
+      "source": "$source_db/",
+      "target": "$target_db/",
       "state": "running",
       "info": null,
       "error_count": 0,
@@ -265,14 +260,14 @@ _Example response from using the `states` parameter:_
   "offset": 0,
   "docs": [
     {
-      "database": "testy017-user1/_replicator",
+      "database": "$account/_replicator",
       "doc_id": "myrep",
       "id": "88b..get",
-      "node": "dbcore@db3.testy017.cloudant.net",
-      "source": "https://testy017-user1.cloudant.com/s/",
-      "target": "https://testy017-user1.cloudant.com/t/",
+      "node": "node1@127.0.0.1",
+      "source": "$source_db/",
+      "target": "$target_db/",
       "state": "crashing",
-      "info": "unauthorized: unauthorized to access or create database https://testy017-user1.cloudant.com/s/",
+      "info": "unauthorized: unauthorized to access or create database $source_db/",
       "error_count": 4,
       "last_updated": "2017-10-05T14:50:01Z",
       "start_time": "2017-10-05T14:43:53Z",
@@ -294,14 +289,14 @@ _Exammple response from using `doc_id` parameter:_
 
 ```json
 {
-  "database": "_replicator",
+  "database": "$account/_replicator",
   "doc_id": "myrep",
   "id": "88b..get",
-  "node": "dbcore@db3.testy017.cloudant.net",
-  "source": "https://testy017-user1.cloudant.com/s/",
-  "target": "https://testy017-user1.cloudant.com/t/",
+  "node": "node1@127.0.0.1",
+  "source": "$source_db/",
+  "target": "$target_db/",
   "state": "crashing",
-  "info": "unauthorized: unauthorized to access or create database https://testy017-user1.cloudant.com/s/",
+  "info": "unauthorized: unauthorized to access or create database $source_db/",
   "error_count": 3,
   "last_updated": "2017-10-05T14:47:01Z",
   "start_time": "2017-10-05T14:43:53Z",
@@ -321,12 +316,12 @@ _Example response from using the `_job_id` parameter:_
 
 ```json
 {
-  "database": "_replicator",
+  "database": "$account/_replicator",
   "doc_id": "myrep2",
   "id": "5a4..ous",
-  "node": "dbcore@db1.testy017.cloudant.net",
-  "source": "https://testy017-user1:*****@testy017-user1.cloudant.com/s/",
-  "target": "https://testy017-user1:*****@testy017-user1.cloudant.com/t/",
+  "node": "node1@127.0.0.1",
+  "source": "$source_db/",
+  "target": "$target_db/",
   "state": "running",
   "info": null,
   "error_count": 0,
