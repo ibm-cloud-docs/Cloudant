@@ -104,7 +104,7 @@ as described [previously](#the-replication-scheduler).
 
 #### Query parameters 
 
-You can add query parameters to the URL and narrow your search results, for example, `_scheduler/docs/_replicator?limit=1&skip=1'`. 
+You can add query parameters to the URL and narrow your search results, for example, `'_scheduler/docs/_replicator?limit=1&skip=1'`. 
 
 All parameters are optional. 
 
@@ -112,7 +112,7 @@ You can use the following parameters to narrow your search results:
 
 Name      | Type                    | Description                                                               | Default
 ----------|-------------------------|---------------------------------------------------------------------------|-------------------
-`states`  | comma-delimited strings | Only include replication documents in the specified states.               | Return all states
+`states`  | comma-delimited strings | Only includes replication documents in the specified states.               | Return all states
 `limit`   | integer                 | Number of documents included in the search results. Maximum limit is 200. | Return all
 `skip`    | integer                 | Number of results to skip before returning search results.                | 0
 
@@ -132,7 +132,7 @@ the `/_scheduler/jobs` endpoint describes when the replication last started, sto
 However,
 the endpoint does not include results for replications that are in the `completed` or `failed` state;
 the reason is that such replications are considered to have finished,
-and therefore are no longer a active job.
+and therefore are no longer active jobs.
 
 #### Query parameters 
 
