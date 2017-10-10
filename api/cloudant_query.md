@@ -1487,10 +1487,6 @@ whenever you have an operator that takes an argument,
 that argument can itself be another operator with arguments of its own.
 This expansion enables more complex selector expressions.
 
-However,
-not all operators can be used as the base or starting point of the selector expression
-when you use indexes of type `json`.
-
 >   **Note**: Combination or array logical operators, such as `$regex`, can
 > result in a full database scan when using indexes of type JSON, 
 > resulting in poor performance. Only equality operators, such as `$eq`, 
@@ -1507,22 +1503,6 @@ Additionally,
 some parts of the `$regex` operator go beyond what PCRE offers.
 For more information about what is implemented,
 see the [Erlang Regular Expression ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/man/re.html){:new_window} information.
-
-_Example use of an equality operator to enable a selector expression:_
-
-```json
-{
-	"selector": {
-		"_id": {
-			"$gt": null
-		},
-		"afieldname": {
-			"$regex": "^A"
-		}
-	}
-}
-```
-{:codeblock}
 
 ## Sort Syntax
 
