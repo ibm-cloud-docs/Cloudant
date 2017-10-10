@@ -285,7 +285,7 @@ curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep
 ```
 {:codeblock}
 
-_Exammple response from using `doc_id` parameter:_
+_Example response from using `doc_id` parameter:_
 
 ```json
 {
@@ -308,7 +308,7 @@ _Exammple response from using `doc_id` parameter:_
 _Example of using the command line to find jobs with the `_job_id` parameter:_
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep2
+curl 'https://$ACCOUNT.cloudant.com/_scheduler/jobs/68245f5954fa122e7768a4bfbfbd0d15+2bcontinuous'
 ```
 {:codeblock}
 
@@ -316,18 +316,25 @@ _Example response from using the `_job_id` parameter:_
 
 ```json
 {
-  "database": "$account/_replicator",
-  "doc_id": "myrep2",
-  "id": "5a4..ous",
-  "node": "node1@127.0.0.1",
+  "database": "_replicator",
+  "id": "68245f5954fa122e7768a4bfbfbd0d15+continuous",
+  "pid": "<0.12885.49>",
   "source": "$source_db/",
   "target": "$target_db/",
-  "state": "running",
-  "info": null,
-  "error_count": 0,
-  "last_updated": "2017-10-05T14:46:28Z",
-  "start_time": "2017-10-05T14:46:28Z",
-  "proxy": null
+  "user": null,
+  "doc_id": "myrep3",
+  "history": [
+    {
+      "timestamp": "2017-10-10T15:00:39Z",
+      "type": "started"
+    },
+    {
+      "timestamp": "2017-10-10T15:00:39Z",
+      "type": "added"
+    }
+  ],
+  "node": "node1@127.0.0.1",
+  "start_time": "2017-10-10T15:00:39Z"
 }
 ```
 {:codeblock}
