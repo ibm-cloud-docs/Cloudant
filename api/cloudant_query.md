@@ -536,25 +536,6 @@ _An example of a simple selector for a full text index:_
 ```
 {:codeblock}
 
-In the following example,
-the full text index is inspected to find any document that includes the word "Bond".
-In the response, the fields `title` or `cast` are returned for every matching object.
-
-_Example of a simple selector, inspecting specific fields:_
-
-```json
-{
-	"selector": {
-		"$text": "Bond",
-		"fields": [
-			"title",
-			"cast"
-		]
-	}
-}
-```
-{:codeblock}
-
 You can create more complex selector expressions by combining operators.
 However,
 for Cloudant Query indexes of type `json`,
