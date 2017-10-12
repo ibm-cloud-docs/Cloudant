@@ -102,14 +102,29 @@ Use it to determine the status of a replication described by a replication docum
 The status of a replication can be one of seven possible states,
 as described [previously](#the-replication-scheduler).
 
+#### Query parameters 
+
+You can add query parameters to the URL and narrow your search results, for example, `'_scheduler/docs/_replicator?limit=1&skip=1'`. 
+
+All parameters are optional. 
+
+You can use the following parameters to narrow your search results:
+
+Name      | Type                    | Description                                                               | Default
+----------|-------------------------|---------------------------------------------------------------------------|-------------------
+`states`  | comma-delimited strings | Only includes replication documents in the specified states.               | Return all states
+`limit`   | integer                 | Number of documents included in the search results. Maximum limit is 200. | Return all
+`skip`    | integer                 | Number of results to skip before returning search results.                | 0
+
+#### The `/_scheduler/docs/_replicator/$doc_id` endpoint
+
 The endpoint uses document IDs as the primary identifier.
 This characteristic means that if you know the document ID,
-you can directly query that one particular document by using a `/_scheduler/docs/_replicator/<DocID>` query.
+you can directly query that one particular document by using a `/_scheduler/docs/_replicator/$doc_id` query. Note that the ID must be URL encoded. 
 
 ### The `/_scheduler/jobs` endpoint
 
-The `/_scheduler/jobs` endpoint provides more details about the specific tasks performed during replication.
-The endpoint also provides more detailed information for the current replication.
+The `/_scheduler/jobs` endpoint provides more details about active replication tasks that are performed during replication.
 
 For example,
 the `/_scheduler/jobs` endpoint describes when the replication last started, stopped, or crashed.
@@ -117,7 +132,24 @@ the `/_scheduler/jobs` endpoint describes when the replication last started, sto
 However,
 the endpoint does not include results for replications that are in the `completed` or `failed` state;
 the reason is that such replications are considered to have finished,
-and therefore are no longer a current job.
+and therefore are no longer active jobs.
+
+#### Query parameters 
+
+You can add query parameters to the URL and narrow your search results, for example, `'_scheduler/jobs/_replicator?limit=1&skip=1'`. 
+
+All parameters are optional. 
+
+You can use the following parameters to narrow your search results:
+
+Name     | Type    | Description                                                          | Default
+---------|---------|----------------------------------------------------------------------|-------------
+`limit`  | integer | Number of jobs included in the search results. Maximum limit is 200. | 25
+`skip`   | integer | Number of results to skip before returning search results.           | 0
+
+#### The `/_scheduler/jobs/_replicator/$job_id` endpoint
+
+The `/_scheduler/jobs/_replicator/$job_id` endpoint shows the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
 
 ## Replication Status
 
@@ -127,19 +159,20 @@ the [replication scheduler](#status-checking-by-using-the-replication-scheduler)
 > **Note:** The previous technique of checking replication status by inspecting
 the [replication document](#status-checking-by-using-the-replication-document) is still available.
 
+
 <div id="status-checking-using-the-replication-scheduler"></div>
 
 ### Status checking by using the replication scheduler
 
-The replication scheduler enables you to determine the status of replication.
+The replication scheduler enables you to determine the status of replication. 
 
 To determine the current status of replication using the replication scheduler,
-send a `GET` request to the `/_scheduler/docs` endpoint.
+send a `GET` request to the `/_scheduler/docs` endpoint. See the example below. 
 
 _Example of using HTTP to get the replication status from the replication scheduler:_
 
 ```http
-GET /$DATABASE/_scheduler/docs HTTP/1.1
+GET /_scheduler/docs HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
@@ -147,7 +180,7 @@ HOST: $ACCOUNT.cloudant.com
 _Example of using the command line to get the replication status from the replication scheduler:_
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_scheduler/docs
+curl https://$ACCOUNT.cloudant.com/_scheduler/docs
 ```
 {:codeblock}
 
@@ -157,7 +190,7 @@ _Example response (abbreviated) from the replication scheduler:_
 {
   "docs": [
     {
-      "database": "_replicator",
+      "database": "$account/_replicator",
       "doc_id": "myrep",
       "error_count": 0,
       "id": "88b..get",
@@ -173,6 +206,135 @@ _Example response (abbreviated) from the replication scheduler:_
   ],
   "offset": 0,
   "total_rows": 1
+}
+```
+{:codeblock}
+
+The response received from the replication scheduler shows the history and current status of all replications.
+
+_Example of using the command line to find jobs with the `limit` and `skip` parameters:_
+
+```sh
+curl `https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1`
+```
+{:codeblock}
+
+_Example response from using the `limit` and `skip` parameters:_
+
+```json
+{
+  "total_rows": 2,
+  "offset": 1,
+  "docs": [
+    {
+      "database": "$account/_replicator",
+      "doc_id": "myrep2",
+      "id": "5a4..ous",
+      "node": "node1@127.0.0.1.cloudant.net",
+      "source": "$source_db/",
+      "target": "$target_db/",
+      "state": "running",
+      "info": null,
+      "error_count": 0,
+      "last_updated": "2017-10-05T14:46:28Z",
+      "start_time": "2017-10-05T14:46:28Z",
+      "proxy": null
+    }
+  ]
+}
+```
+{:codeblock}
+
+_Example of using the command line to find jobs with the `states` parameter:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?states=crashing
+```
+{:codeblock}
+
+_Example response from using the `states` parameter:_
+
+```json
+{
+  "total_rows": 2,
+  "offset": 0,
+  "docs": [
+    {
+      "database": "$account/_replicator",
+      "doc_id": "myrep",
+      "id": "88b..get",
+      "node": "node1@127.0.0.1",
+      "source": "$source_db/",
+      "target": "$target_db/",
+      "state": "crashing",
+      "info": "unauthorized: unauthorized to access or create database $source_db/",
+      "error_count": 4,
+      "last_updated": "2017-10-05T14:50:01Z",
+      "start_time": "2017-10-05T14:43:53Z",
+      "proxy": null
+    }
+  ]
+}
+```
+{:codeblock}
+
+_Example of using the command line to find jobs with the `_doc_id` parameter:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep
+```
+{:codeblock}
+
+_Example response from using `doc_id` parameter:_
+
+```json
+{
+  "database": "$account/_replicator",
+  "doc_id": "myrep",
+  "id": "88b..get",
+  "node": "node1@127.0.0.1",
+  "source": "$source_db/",
+  "target": "$target_db/",
+  "state": "crashing",
+  "info": "unauthorized: unauthorized to access or create database $source_db/",
+  "error_count": 3,
+  "last_updated": "2017-10-05T14:47:01Z",
+  "start_time": "2017-10-05T14:43:53Z",
+  "proxy": null
+}
+```
+{:codeblock}
+
+_Example of using the command line to find jobs with the `_job_id` parameter:_
+
+```sh
+curl 'https://$ACCOUNT.cloudant.com/_scheduler/jobs/68245f5954fa122e7768a4bfbfbd0d15+2bcontinuous'
+```
+{:codeblock}
+
+_Example response from using the `_job_id` parameter:_
+
+```json
+{
+  "database": "_replicator",
+  "id": "68245f5954fa122e7768a4bfbfbd0d15+continuous",
+  "pid": "<0.12885.49>",
+  "source": "$source_db/",
+  "target": "$target_db/",
+  "user": null,
+  "doc_id": "myrep3",
+  "history": [
+    {
+      "timestamp": "2017-10-10T15:00:39Z",
+      "type": "started"
+    },
+    {
+      "timestamp": "2017-10-10T15:00:39Z",
+      "type": "added"
+    }
+  ],
+  "node": "node1@127.0.0.1",
+  "start_time": "2017-10-10T15:00:39Z"
 }
 ```
 {:codeblock}
@@ -631,8 +793,7 @@ _Example JSON document that describes the replication to be canceled:_
 
 A significant reason is that if there was a problem during replication,
 such as a stall,
-timeout,
-or application crash,
+timeout, or application crash,
 then a replication that is defined within the `_replicator` database is automatically restarted by the system.
 
 If you defined a replication by sending a request to the `/_replicate` endpoint,
