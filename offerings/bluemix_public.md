@@ -256,15 +256,18 @@ Exceeding this limit causes a [`413` error](../api/http.html#413).
 
 ## Locations and tenancy
 
-By default,
-all plans except Dedicated are based on multi-tenant clusters.
-As part of your plan selection,
-you can choose from the following {{site.data.keyword.Bluemix_notm}} Public regions:
+By default, all Lite and Standard plans are deployed on multi-tenant 
+environments. As part of your plan selection, you can choose from the 
+following IBM Cloud Public regions:
 
 -   US South
 -   United Kingdom
 -   Sydney
 -   Germany
+
+Dedicated Hardware plan instances can be deployed in most 
+[IBM data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
+See the drop-down menu in the Bluemix catalog for an up-to-date list of available locations.
 
 ## Security, Encryption, and Compliance
 
