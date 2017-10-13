@@ -14,45 +14,27 @@ lastupdated: "2017-06-09"
 
 <!-- Acrolinx: 2017-02-23 -->
 
-# IBM Bluemix
+# IBM Bluemix Public
 
-{{site.data.keyword.cloudant}} is also available as an
-[{{site.data.keyword.Bluemix}} service ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
-{:shortdesc}
+{{site.data.keyword.cloudantfull}} is priced based on provisioned throughput 
+capacity and data usage. There is a free [Lite plan](#lite-plan) with a fixed amount of 
+throughput capacity and data for development and evaluation purposes. There 
+is also a paid [Standard plan](#standard-plan) which offers configurable provisioned throughput 
+capacity and data storage pricing that scales as your application requirements 
+change.  An optional [Dedicated Hardware plan](#dedicated-plan) is also available for an 
+additional monthly fee to run one or more of your Standard plan instances 
+on a dedicated hardware environment. The dedicated hardware environment 
+is for your sole use, and if a Dedicated Hardware plan instance is provisioned 
+within a US location, you can optionally select a [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
+compliant configuration.
 
-{{site.data.keyword.Bluemix_short}} is an open-standard,
-cloud platform for building,
-running,
-and managing applications.
-Find out more about {{site.data.keyword.Bluemix_notm}},
-and start to use it,
-at the [home page ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/){:new_window}.
-
-## Bluemix Public
-
-{{site.data.keyword.cloudantfull}} is available as a free [Lite plan](#lite-plan),
-and as several configurations within the paid [Standard plan](#standard-plan).
-A [Dedicated plan](#dedicated-plan) is also available.
-This plan offers the same configurability as the Standard plan,
-but is provided on dedicated hardware.
-Dedicated hardware is not shared with any other accounts,
-meaning that it is exclusively for your use.
-If a Dedicated plan instance is provisioned within a [US location](#locations),
-you can optionally select a
-[HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} compliant configuration.
-
-The following table summarizes the performance measures for each of the plans.
-
->   **Note**: The details in the table are indicative as at September 2016.
-    For current values,
-    contact [{{site.data.keyword.cloudant_short_notm}} Support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
-
->   **Note**: All currency values in this document are in US dollars ($).
+The following table summarizes the provisioned throughput capacity and disk 
+space configuration for the plans:
 
 <table border='1'>
 
 <tr>
-<th>Plans</th><th>Lite</th><th colspan='4'>Standard <i>and</i> Dedicated</th>
+<th>Plans</th><th>Lite</th><th colspan='4'>Standard</th>
 </tr>
 <tr>
 <td>Base Price (per hour)</td>
@@ -108,54 +90,11 @@ the [Lite plan](#lite-plan) is selected.
 
 ![Cloudant service instance plan selection](../images/fb87416a.png)
 
-### Lite plan
+##Dedicated hardware
 
-The Lite plan is free,
-but limits you to a maximum of 1 GB of data storage.
-Limits also apply to the provisioned throughput capacity for lookups,
-writes, and queries. 
+You can optionally run your Standard plan instance on a Dedicated Hardware instance in any [IBM global data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) for an additional $5000 per month. This plan is necessary for HIPAA compliance.
 
-Storage usage is checked daily. If you exceed your storage limit, HTTP requests to the account receive a 
-402 status code with the error message, "Account has exceeded its data usage quota. An upgrade to a paid plan is required."
-A banner also appears on the Cloudant dashboard to inform you. You can still read and delete data. However, to write new data, 
-you must either upgrade to a paid account or delete data and wait until the next check runs for your account to be reactivated. 
-
-If you would like to store more than one GB of data,
-or to have a greater throughput capacity,
-move to the [Standard plan](#standard-plan).
-
-### Standard plan
-
-The Standard plan includes 20 GB of data storage.
-If you store more than 20 GB,
-you are charged a defined cost per GB per hour.
-See the [Pricing ![External link icon](../images/launch-glyph.svg "External link icon")](http://cloudant.com/bluemix){:new_window} information for the current cost.
-On the Standard plan,
-you can also change the amount of provisioned throughput capacity for lookups,
-writes,
-and queries.
-
-<div id="servicetier"></div>
-
-## Service tiers
-
-You can see details of the throughput capacity within the plans available for your account.
-You can select the level of provisioning that you want to use,
-through the Account tab of your {{site.data.keyword.cloudant_short_notm}} account Dashboard.
-
-![Account Dashboard](../images/cloudant_capacity.png)
-
-To move to a different throughput capacity,
-select the provisioning you want,
-then click the `Change Capacity` option button.
-You are asked to confirm the change,
-and reminded that the provisioning change can take up to 24 hours to complete.
-
-![Account Dashboard](../images/cloudant_capacity_change.png)
-
-<div id="throughput"></div>
-
-### Provisioned throughput capacity
+## Provisioned throughput capacity
 
 Throughput provision is identified and measured as one of three kinds of events:
 
@@ -219,19 +158,49 @@ for moving to a different plan configuration.
 In summary,
 you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
 
-### Maximum individual document size
+<div id="servicetier"></div>
 
-Data is stored within {{site.data.keyword.cloudant_short_notm}} as [JSON documents](../api/document.html).
-For documents in a {{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.Bluemix_notm}},
-the maximum size for an individual document is 1 MB.
-Exceeding this limit causes a [`413` error](../api/http.html#413).
+### View and changing capacity
 
-### Disk Space Included
+You can see details of the throughput capacity within the plans available for your account.
+You can select the level of provisioning that you want to use,
+through the Account tab of your {{site.data.keyword.cloudant_short_notm}} account Dashboard.
+
+![Account Dashboard](../images/cloudant_capacity.png)
+
+To move to a different throughput capacity,
+select the provisioning you want,
+then click the `Change Capacity` option button.
+You are asked to confirm the change,
+and reminded that the provisioning change can take up to 24 hours to complete.
+
+![Account Dashboard](../images/cloudant_capacity_change.png)
+
+<div id="throughput"></div>
+
+### Monitoring usage 
+
+Information about your usage is available in the Usage pane of the Activity tab within your {{site.data.keyword.cloudant_short_notm}} Dashboard.
+
+![Monitoring usage on the dashboard](../images/cloudant_usage.png).
+
+Details are provided there,
+illustrating your current [throughput](#throughput),
+and quantity of [stored data](#disk-space-included).
+
+Monitoring helps you recognize that a change to the provisioning in your plan might be advisable.
+For example,
+if you frequently approach the maximum number of database lookups,
+then you can modify the provisioning through the [Service pane](#servicetier) on the Account tab of the Dashboard.
+
+## Data usage
+
+### Disk space included
 
 This value is the storage capacity included in the plan.
 It is used for both data and index storage.
 
-### Disk Overage
+### Disk overage
 
 All Standard and Lite plan service instances are monitored for disk space used.
 If the account uses more than the amount of storage that is provided in your plan configuration,
@@ -251,7 +220,7 @@ you would be billed an overage charge based on 87 GB x 12 hours = 1044 GB hours 
 
 Overage is calculated by using the maximum number of GB more than the plan allocation during a particular hour within the billing cycle.
 
-### A worked overage example
+### Disk overage example
 
 Assume that you start a month of 30 days with a Standard plan service instance that uses 9 GB of storage.
 Next,
@@ -278,7 +247,14 @@ you would be billed an overage based on 8 GB x 24 hours x 27 days = 5184 GB hour
 
 The total overage bill for the month would be based on a total of 88 + 168 + 5184 = 5440 GB hours.
 
-## Locations
+### Maximum individual document size
+
+Data is stored within {{site.data.keyword.cloudant_short_notm}} as [JSON documents](../api/document.html).
+For documents in a {{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.Bluemix_notm}},
+the maximum size for an individual document is 1 MB.
+Exceeding this limit causes a [`413` error](../api/http.html#413).
+
+## Locations and tenancy
 
 By default,
 all plans except Dedicated are based on multi-tenant clusters.
@@ -296,7 +272,7 @@ All plans are provided on servers with
 [at-rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window} disk encryption.
 Access is encrypted over a network connection by using HTTPS.
 For more detail,
-see [DBaaS Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/dbaas-security/){:new_window}.
+see [Bluemix Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}.
 
 The plans also offer
 [Security Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/cloudant-compliance/){:new_window}.
@@ -304,7 +280,7 @@ The plans also offer
 compliance requires a [Dedicated environment](#dedicated-plan),
 so request this environment as part of the [provisioning process](#provisioning-a-cloudant-instance-on-bluemix).
 
-## High Availability, Disaster Recovery, and Backup
+## High availability, disaster recovery, and backup
 
 To provide High Availability (HA) and Disaster Recovery (DR) within a data center,
 all data is stored in triplicate across three separate physical servers in a cluster.
@@ -317,25 +293,7 @@ or alternatively implement your own solution by using one of several possible te
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/){:new_window}.  
 
 ## Monitoring usage
-
-Information about your usage is available in the Usage pane of the Activity tab within your {{site.data.keyword.cloudant_short_notm}} Dashboard.
-
-![Monitoring usage on the dashboard](../images/cloudant_usage.png).
-
-Details are provided there,
-illustrating your current [throughput](#throughput),
-and quantity of [stored data](#disk-space-included).
-
-Monitoring helps you recognize that a change to the provisioning in your plan might be advisable.
-For example,
-if you frequently approach the maximum number of database lookups,
-then you can modify the provisioning through the [Service pane](#servicetier) on the Account tab of the Dashboard.
-
-## Hardware specification
-
-All plans except Dedicated are implemented on multi-tenant clusters.
-All data is stored in triplicate,
-across three separate physical nodes for High Availability and Data Recovery.
+Duplicate
 
 ## Support
 
@@ -355,9 +313,8 @@ You can provision a {{site.data.keyword.cloudant_short_notm}} instance on {{site
 -	Using the Dashboard. A tutorial describing the process is available [here](../tutorials/create_service.html).
 -	Using the Cloud Foundry command tool. A tutorial describing the process is available [here](../tutorials/create_service_cli.html).
 
-## Bluemix Dedicated
 
-### Dedicated hardware plan
 
-{{site.data.keyword.cloudant_short_notm}} is available on single tenant dedicated hardware as part of a
-[{{site.data.keyword.Bluemix_notm}} Dedicated ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/cloud-computing/bluemix/dedicated/){:new_window} configuration.
+
+
+
