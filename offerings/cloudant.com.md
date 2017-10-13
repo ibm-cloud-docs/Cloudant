@@ -14,14 +14,17 @@ lastupdated: "2017-04-25"
 
 <!-- Acrolinx: 2017-03-16 -->
 
-# Database as a Service
+# Cloudant.com
 
+> **Note**: As of July 24th, 2017, no new Shared Plan accounts can be created on cloudant.com.
+  
 Cloudant is a hosted and fully managed database-as-a-service (DBaaS).
 It is built from the ground up to scale globally,
 run non-stop,
 and handle a wide variety of data types like [JSON](../basics/index.html#json),
 [full-text](../api/cloudant_query.html#creating-an-index),
 and [geospatial](../api/cloudant-geo.html).
+
 Cloudant is an operational data store optimized to handle concurrent reads and writes,
 and enables high availability and data durability.
 

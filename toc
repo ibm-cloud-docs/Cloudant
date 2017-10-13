@@ -10,9 +10,10 @@ Cloudant NoSQL DB
 
 	{: .topicgroup}
 	Offerings
-		offerings/index.md
+		offerings/bluemix_public.md
+		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
-		offerings/bluemix.md
+		offerings/cloudant.com.md
 	
 	{: .topicgroup}
 	Release information
