@@ -237,13 +237,13 @@ your instance was 8 GB more than the plan allocation.
 
 Therefore,
 for hour 02:00 of day 3,
-you would be billed an overage based on 88 GB x 1 hour = 88 GB hours.
+you will be billed an overage based on 88 GB x 1 hour = 88 GB hours.
 
 For hour 03:00 of day 3 to the end of day 3,
-you would be billed an overage based on 8 GB x 21 hours = 168 GB hours.
+you will be billed an overage based on 8 GB x 21 hours = 168 GB hours.
 
 For hour 00:00 of day 4 to the end of the month (of 30 days),
-you would be billed an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours.
+you will be billed an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours.
 
 The total overage bill for the month would be based on a total of 88 + 168 + 5184 = 5440 GB hours.
 
