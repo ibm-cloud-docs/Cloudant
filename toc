@@ -56,7 +56,7 @@ Cloudant NoSQL DB
 	Sample apps
 		[Feedback Mobile App using Ionic and Cloudant](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
 		[Open Fridge](https://github.com/krook/openfridge)
-		[Online Catalog Store](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
+		[Online Catalog Stores](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
 
 	{: .topicgroup}
 	Libraries
