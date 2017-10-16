@@ -14,7 +14,7 @@ lastupdated: "2017-09-15"
 
 <!-- Acrolinx: 2017-02-23 -->
 
-# IBM Bluemix Public
+# Bluemix Public
 
 {{site.data.keyword.cloudantfull}} is priced based on provisioned throughput 
 capacity and data usage. There is a free [Lite plan](#lite-plan) with a fixed amount of 
