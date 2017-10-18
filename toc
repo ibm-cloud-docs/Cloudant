@@ -13,6 +13,7 @@ Cloudant NoSQL DB
 		offerings/bluemix_public.md
 		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
+		offerings/plans.md
 		offerings/cloudant.com.md
 	
 	{: .topicgroup}
