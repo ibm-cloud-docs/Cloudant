@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-20"
+lastupdated: "2017-09-15"
 
 ---
 
@@ -90,7 +90,7 @@ the [Lite plan](#lite-plan) is selected.
 
 ![Cloudant service instance plan selection](../images/fb87416a.png)
 
-##Dedicated hardware
+## Dedicated hardware
 
 You can optionally run your Standard plan instance on a Dedicated Hardware instance in any [IBM global data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) for an additional $5000 per month. This plan is necessary for HIPAA compliance.
 
@@ -293,9 +293,6 @@ then use continuous data replication to provide HA/DR across data centers.
 You can request enablement of an [incremental backup feature](../guides/backup-guide.html),
 or alternatively implement your own solution by using one of several possible techniques that are described
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/){:new_window}.  
-
-## Monitoring usage
-Duplicate
 
 ## Support
 
