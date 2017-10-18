@@ -416,8 +416,7 @@ _Example of a response body with two indexes:_
 
 -	**selector**: JSON object that describes the criteria that are used to select documents.
 	More information is provided in the section on [selectors](#selector-syntax).
--	**limit (optional, default: 25)**: Maximum number of results returned.
-    **Note**: The `type: text` indexes are limited to 200 results.
+-	**limit (optional, default: 25)**: Maximum number of results returned. Note that `type: text` indexes are limited to 200 results when queried.
 -	**skip (optional, default: 0)**: Skip the first 'n' results, where 'n' is the value that is specified.
 -	**sort (optional, default: [])**: JSON array,
 	ordered according to the [sort syntax](#sort-syntax).
