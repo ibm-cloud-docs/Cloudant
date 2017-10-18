@@ -180,7 +180,6 @@ Throughput provision is identified and measured as one of three kinds of events:
 	-	Search Index ([`_search`](../api/search.html#queries))
 	-	Geospatial Index ([`_geo`](../api/cloudant-geo.html#querying-a-cloudant-geo-index))
 	-	Cloudant Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
-	-	Changes ([`_changes`](../api/database.html#get-changes))
 
 The measurement of throughput is a simple count of the number of events of each type,
 per second,
