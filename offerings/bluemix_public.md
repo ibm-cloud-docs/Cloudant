@@ -83,17 +83,6 @@ space configuration for the plans:
 
 </table>
 
-You can select which plan to use when you
-[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-instance-on-bluemix).
-By default,
-the [Lite plan](#lite-plan) is selected.
-
-![Cloudant service instance plan selection](../images/fb87416a.png)
-
-## Dedicated hardware
-
-You can optionally run your Standard plan instance on a Dedicated Hardware instance in any [IBM global data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) for an additional $5000 per month. This plan is necessary for HIPAA compliance.
-
 ## Provisioned throughput capacity
 
 Throughput provision is identified and measured as one of three kinds of events:
