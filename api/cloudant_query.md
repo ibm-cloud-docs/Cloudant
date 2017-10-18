@@ -417,6 +417,7 @@ _Example of a response body with two indexes:_
 -	**selector**: JSON object that describes the criteria that are used to select documents.
 	More information is provided in the section on [selectors](#selector-syntax).
 -	**limit (optional, default: 25)**: Maximum number of results returned.
+    > **Note**: `type: text` indexes are limited to 200 results.
 -	**skip (optional, default: 0)**: Skip the first 'n' results, where 'n' is the value that is specified.
 -	**sort (optional, default: [])**: JSON array,
 	ordered according to the [sort syntax](#sort-syntax).
@@ -444,7 +445,7 @@ be passed back in a query to get the next page of results.
 If any part of the query other than `bookmark` changes between requests,
 the results are undefined.
 
-The `limit` and `skip` values are exactly as you would expect.
+The `limit` and `skip` values are exactly as you would expect.   
 Although `skip` is available,
 it is not intended to be used for paging.
 The reason is that the `bookmark` feature is more efficient.
@@ -1813,6 +1814,8 @@ In other words,
 if a match was found as a result of searching for either an individual element,
 or an element from an array,
 then the match is considered a success.
+
+> **Note**: Like Cloudant Search indexes, Cloudant Query indexes of `type: text` are limited to 200 results when queried.
 
 <div id="selector-translation"></div>
 
