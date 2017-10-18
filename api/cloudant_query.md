@@ -417,7 +417,7 @@ _Example of a response body with two indexes:_
 -	**selector**: JSON object that describes the criteria that are used to select documents.
 	More information is provided in the section on [selectors](#selector-syntax).
 -	**limit (optional, default: 25)**: Maximum number of results returned.
-    > **Note**: `type: text` indexes are limited to 200 results.
+    **Note**: The `type: text` indexes are limited to 200 results.
 -	**skip (optional, default: 0)**: Skip the first 'n' results, where 'n' is the value that is specified.
 -	**sort (optional, default: [])**: JSON array,
 	ordered according to the [sort syntax](#sort-syntax).
@@ -434,8 +434,7 @@ _Example of a response body with two indexes:_
 	The request is likely to take more time than using only the document that is stored locally with the index.
 -	**bookmark (optional, default: null)**: A string that is used to specify which page of results you require.
 	Pagination is discussed in more detail [here](cloudant_query.html#pagination).
-
--	**use_index (optional)**: Use this option to identify a specific index for query to run against,
+-   **use_index (optional)**: Use this option to identify a specific index for query to run against,
 	rather than by using the Cloudant Query algorithm to find the best index.
 	For more information, see [Explain Plans](#explain-plans).
 -   **execution_stats (optional, default: false)**: Use this option to find information about the query 
