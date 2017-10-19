@@ -21,7 +21,7 @@ capacity and data usage. There is a free [Lite plan](#lite-plan) with a fixed am
 throughput capacity and data for development and evaluation purposes. There 
 is also a paid [Standard plan](#standard-plan) which offers configurable provisioned throughput 
 capacity and data storage pricing that scales as your application requirements 
-change.  An optional [Dedicated Hardware plan](#dedicated-plan) is also available for an 
+change.  An optional [Dedicated Hardware plan](#dedicated-hardware-plan) is also available for an 
 additional monthly fee to run one or more of your Standard plan instances 
 on a dedicated hardware environment. The dedicated hardware environment 
 is for your sole use, and if a Dedicated Hardware plan instance is provisioned 
@@ -82,6 +82,52 @@ space configuration for the plans:
 </tr>
 
 </table>
+
+## Plans
+
+You can select which plan to use when you
+[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-instance-on-bluemix).
+By default,
+the [Lite plan](#lite-plan) is selected.
+
+![Cloudant service instance plan selection](../images/fb87416a.png)
+
+### Lite plan
+
+The Lite plan is free,
+but limits you to a maximum of 1 GB of data storage.
+Limits also apply to the provisioned throughput capacity for lookups,
+writes, and queries. 
+
+Storage usage is checked daily. If you exceed your storage limit, HTTP requests to the account receive a 
+402 status code with the error message, "Account has exceeded its data usage quota. An upgrade to a paid plan is required."
+A banner also appears on the Cloudant dashboard to inform you. You can still read and delete data. However, to write new data, 
+you must either upgrade to a paid account or delete data and wait until the next check runs for your account to be reactivated. 
+
+If you would like to store more than one GB of data,
+or to have a greater throughput capacity,
+move to the [Standard plan](#standard-plan).
+
+### Standard plan
+
+The Standard plan includes 20 GB of data storage.
+If you store more than 20 GB,
+you are charged a defined cost per GB per hour.
+See the [Pricing ![External link icon](../images/launch-glyph.svg "External link icon")](http://cloudant.com/bluemix){:new_window} information for the current cost.
+On the Standard plan,
+you can also change the amount of provisioned throughput capacity for lookups,
+writes,
+and queries.
+
+### Dedicated hardware plan
+
+You can optionally run your Standard plan instances on a dedicated hardware environment in 
+any [IBM data centers ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 
+for an a monthly fee. You purchase a single dedicated hardware plan for a given location 
+and can provision one or more Standard plan instances on it. This plan is necessary for 
+HIPAA compliance and must be selected at provisioning time. Note that the Dedicated 
+Hardware plan is not available to Bluemix Dedicated customers and is only available for Bluemix 
+Public customers.
 
 ## Provisioned throughput capacity
 
@@ -168,12 +214,12 @@ and reminded that the provisioning change can take up to 24 hours to complete.
 
 ### Monitoring usage 
 
-Information about your usage is available in the Usage pane of the Activity tab within your {{site.data.keyword.cloudant_short_notm}} Dashboard.
+Information about your usage is available in the Current Operations pane of the Monitoring tab within your {{site.data.keyword.cloudant_short_notm}} Dashboard. 
 
 ![Monitoring usage on the dashboard](../images/cloudant_usage.png).
 
 Details are provided there,
-illustrating your current [throughput](#throughput),
+illustrating your current [throughput](#provisioned-throughput-capacity),
 and quantity of [stored data](#disk-space-included).
 
 Monitoring helps you recognize that a change to the provisioning in your plan might be advisable.
@@ -268,7 +314,7 @@ see [Bluemix Security ![External link icon](../images/launch-glyph.svg "External
 The plans also offer
 [Security Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/cloudant-compliance/){:new_window}.
 [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}
-compliance requires a [Dedicated environment](#dedicated-plan),
+compliance requires a [Dedicated environment](#dedicated-hardware-plan),
 so request this environment as part of the [provisioning process](#provisioning-a-cloudant-instance-on-bluemix).
 
 ## High availability, disaster recovery, and backup
