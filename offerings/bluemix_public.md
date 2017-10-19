@@ -273,15 +273,13 @@ so request this environment as part of the [provisioning process](#provisioning-
 
 ## High availability, disaster recovery, and backup
 
-To provide High Availability (HA) and Disaster Recovery (DR) within a data center,
-all data is stored in triplicate across three separate physical servers in a cluster.
-You can provision accounts in multiple data centers,
-then use continuous data replication to provide HA/DR across data centers.
-
-{{site.data.keyword.cloudant_short_notm}} data is not automatically backed up.
-You can request enablement of an [incremental backup feature](../guides/backup-guide.html),
-or alternatively implement your own solution by using one of several possible techniques that are described
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/){:new_window}.  
+To provide high availability (HA) and disaster recovery (DR) within a data center, all data is 
+stored in triplicate across three separate physical servers in a cluster. You can provision 
+accounts in multiple data centers, then use continuous data replication to provide HA/DR across 
+data centers. Cloudant NoSQL DB data is not automatically backed up, but supported tooling is 
+provided to handle backups. Review the 
+[Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) 
+to explore all HA, DR, and backup considerations to meet your application requirements. 
 
 ## Support
 
