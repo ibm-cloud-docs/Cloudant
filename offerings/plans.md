@@ -52,5 +52,10 @@ and queries.
 
 ## Dedicated hardware plan
 
-You can optionally run your Standard plan instance on a Dedicated Hardware instance in any [IBM global data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) for an additional $5000 per month. This plan is necessary for HIPAA compliance.
-
+You can optionally run your Standard plan instances on a dedicated hardware environment in 
+any [IBM data centers ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 
+for an a monthly fee. You purchase a single dedicated hardware plan for a given location 
+and can provision one or more Standard plan instances on it. This plan is necessary for 
+HIPAA compliance and must be selected at provisioning time. Note that the Dedicated 
+Hardware plan is not available to Bluemix Dedicated customers and is only available for Bluemix 
+Public customers.
