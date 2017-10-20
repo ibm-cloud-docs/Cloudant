@@ -14,7 +14,7 @@ lastupdated: "2017-07-14"
 
 <!-- Acrolinx: 2017-04-28 -->
 
-# Cloudant
+# Compliance
 
 ## Security Compliance Certifications
 
