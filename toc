@@ -12,11 +12,17 @@ Cloudant NoSQL DB
 	Offerings
 		offerings/index.md
 		offerings/bluemix.md
-		offerings/whatsnew.md
+	
+	{: .topicgroup}
+	Release information
+		release_info/whatsnew.md
+		release_info/release_notes.md
+		release_info/differences_major_releases.md
+		release_info/deprecations.md	
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
-	basics/index.md
+    basics/index.md
 
 	{: .topicgroup}
 	API Reference
@@ -64,6 +70,7 @@ Cloudant NoSQL DB
 		tutorials/create_service_cli.md
 		tutorials/create_database.md
 		tutorials/create_query.md
+		tutorials/create_backup.md
 		tutorials/create_bmxapp.md
 		tutorials/create_bmxapp_prereq.md
 		tutorials/create_bmxapp_appenv.md
@@ -91,7 +98,14 @@ Cloudant NoSQL DB
 		guides/sharding.md
 		guides/json.md
 		guides/managing_tasks.md
+		guides/conflicts.md
 		guides/model_data.md
 		guides/replication_guide.md
+
+	{: .topicgroup}
+    Security
+    	offerings/security.md
+    	offerings/compliance.md
+    	offerings/dataprivacygovernance.md
 	{: .navgroup-end}
 

@@ -20,11 +20,11 @@ scan this section before you scroll further.
 
 The sections on [Client Libraries](../libraries/index.html#-client-libraries),
 [API Reference](../api/index.html#-api-reference),
-and [Guides](../guides/index.html#-guides) assume you know some basic things about Cloudant.
+and [Guides](../guides/acurl.html#authorized-curl-acurl-) assume you know some basic things about Cloudant.
 
 ## Connecting to Cloudant
 
-To access {{site.data.keyword.cloudant}},
+To access {{site.data.keyword.cloudant_short_notm}},
 you must have either a [{{site.data.keyword.cloudant}} account](../api/account.html),
 or an [{{site.data.keyword.Bluemix}} account](../offerings/bluemix.html).
 

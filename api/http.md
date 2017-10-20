@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-07-20"
 
 ---
 
@@ -264,6 +264,7 @@ Code                                    | Meaning
 `304 - Not Modified`                    | The content requested has not been modified. This is used with the [ETag](#etag) system to identify the version of information returned.
 `400 - Bad Request`                     | Bad request structure. The error can indicate an error with the request URL, path or headers. Differences in the supplied MD5 hash and content also trigger this error, as this may indicate message corruption.
 `401 - Unauthorized`                    | The item requested was not available using the supplied authorization, or authorization was not supplied.
+`402 - Payment required`                | Either the data quota on the Lite plan was exceeded, or the account is in arrears. You can delete data or upgrade to the standard plan, or bring the account up to date.
 `403 - Forbidden`                       | The requested item or operation is forbidden.
 `404 - Not Found`                       | The requested resource could not be found. The content includes further information as a JSON object, if available. The structure contains two keys, `error` and `reason`, similar to the following example: `{ "error":"not_found", "reason":"no_db_file" }`
 `405 - Resource Not Allowed`            | A request was made using an invalid HTTP request type for the URL requested. For example, you have requested a `PUT` when a `POST` is required. Errors of this type can also be triggered by invalid URL strings.
@@ -277,3 +278,4 @@ Code                                    | Meaning
 `429 - Too Many Requests`               | The user has sent too many requests in a given amount of time. More information is available in the corresponding [RFC 6585 ![External link icon](../images/launch-glyph.svg "External link icon")](https://tools.ietf.org/html/rfc6585#page-3){:new_window}.
 `500 - Internal Server Error`           | The request was invalid, either because the supplied JSON was invalid, or invalid information was supplied as part of the request. Alternatively, a replication was canceled while in progress.
 `503 - Service Unavailable`             | The request could not be processed. Seeing this response following a Cloudant request might indicate an misspelled Cloudant account name.
+
