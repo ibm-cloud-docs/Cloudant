@@ -438,7 +438,7 @@ is available in [Stack Overflow ![External link icon](../images/launch-glyph.svg
 
 If you need further help,
 and can't find solutions in Stack Overflow,
-please contact [Cloudant support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+please contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
 
 ### Exceptions visible in the dashboard
 
@@ -490,7 +490,7 @@ you see more details about the warning:
 
 In this example,
 the warning makes it clear that a truncation has occurred,
-affecting the `Movie_earnings_rank` field of the Cloudant document having an `_ID` of  `70f6284d2a395396dbb3a60b4cf1cac2`.
+affecting the `Movie_earnings_rank` field of the {{site.data.keyword.cloudant_short_notm}} document having an `_ID` of  `70f6284d2a395396dbb3a60b4cf1cac2`.
 
 There are two possible solution options:
 
