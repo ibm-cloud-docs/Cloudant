@@ -121,18 +121,18 @@ such as:
 -   Building analytics from your data.
 
 These advanced warehousing capabilities are enabled through services such as Db2 Warehouse on Cloud,
-which is a natural complement to Cloudant.
+which is a natural complement to {{site.data.keyword.cloudant_short_notm}}.
 
 Alternatively,
 if you only need a relational data store for your documents,
 without the warehousing capabilities,
-you can load your Cloudant documents into the [IBM DB2 on Cloud](#ibm-db2-on-cloud) service.
+you can load your {{site.data.keyword.cloudant_short_notm}} documents into the [IBM DB2 on Cloud](#ibm-db2-on-cloud) service.
 
 ## IBM Db2 Warehouse on Cloud
 
 Db2 Warehouse on Cloud is a cloud-based data warehouse service,
 purpose-built for analytic work.
-While especially suited for Cloudant JSON data,
+While especially suited for {{site.data.keyword.cloudant_short_notm}} JSON data,
 Db2 Warehouse on Cloud can accept data from a variety of sources by
 examining the structure of data when it is loaded.
 
@@ -154,55 +154,55 @@ For more information, see the [IBM DB2 on Cloud documentation ![External link ic
 
 There are two ways you can create a warehouse:
 
-1.  [Use Cloudant to create a Db2 Warehouse on Cloud warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse)
-2.  [Connect Cloudant to an existing warehouse](#connect-cloudant-to-an-existing-warehouse)
+1.  [Use {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse)
+2.  [Connect {{site.data.keyword.cloudant_short_notm}} to an existing warehouse](#connect-cloudant-to-an-existing-warehouse)
 
-### Use Cloudant to create a Db2 Warehouse on Cloud warehouse
+### Use {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse
 
-The simplest method for creating a warehouse is for Cloudant to create a Db2 Warehouse on Cloud warehouse instance within Bluemix,
+The simplest method for creating a warehouse is for {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse instance within Bluemix,
 on your behalf.
 Do this by clicking the `Create Warehouse` button on the `Warehouse` task
-within the `Integrations` tab of your Cloudant dashboard.
+within the `Integrations` tab of your {{site.data.keyword.cloudant_short_notm}} dashboard.
 
-![Screenshot of the "Create a Db2 Warehouse on Cloud warehouse" task within the Cloudant dashboard](../images/createDashDBWH.png)
+![Screenshot of the "Create a Db2 Warehouse on Cloud warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createDashDBWH.png)
 
 If you are not already logged in to Bluemix,
 you are asked to do so.
 
 >   **Note**: By default,
-    Cloudant creates a Db2 Warehouse on Cloud instance on Bluemix for your warehouse.
+    {{site.data.keyword.cloudant_short_notm}} creates a Db2 Warehouse on Cloud instance on Bluemix for your warehouse.
 
-![Screenshot of the "Authenticate to Bluemix" task within the Cloudant dashboard](../images/authenticateToBluemix.png)
+![Screenshot of the "Authenticate to Bluemix" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/authenticateToBluemix.png)
 
 When you have authenticated,
 you can request that a new Db2 Warehouse on Cloud instance is created using your Bluemix account.
 To do this:
 
 1.  Provide the name you would like to use for the Warehouse in the `Warehouse Name` field.
-2.  Provide the name of your existing database within Cloudant, in the `Data Sources` field.
+2.  Provide the name of your existing database within {{site.data.keyword.cloudant_short_notm}}, in the `Data Sources` field.
 3.  Ensure that the `Create new Db2 Warehouse on Cloud instance` option is selected on the form.
 4.  Click the `Create Warehouse` button.
 
-![Screenshot of the "Create Warehouse" task within the Cloudant dashboard](../images/createWarehouse.png)
+![Screenshot of the "Create Warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createWarehouse.png)
 
-### Connect Cloudant to an existing warehouse
+### Connect {{site.data.keyword.cloudant_short_notm}} to an existing warehouse
 
-Instead of using Cloudant to create the Db2 Warehouse on Cloud warehouse database,
+Instead of using {{site.data.keyword.cloudant_short_notm}} to create the Db2 Warehouse on Cloud warehouse database,
 you can connect to an existing Db2 Warehouse on Cloud instance.
 
-The process is similar to [using Cloudant to create a Db2 Warehouse on Cloud warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse),
+The process is similar to [using {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse),
 however instead of selecting the `Create new Db2 Warehouse on Cloud instance` option,
 select the `Db2 Warehouse on Cloud service instance` and choose the Db2 Warehouse on Cloud warehouse that already exists within Bluemix.
 
-![Screenshot of the "Connect to existing Db2 Warehouse on Cloud instance" task within the Cloudant dashboard](../images/existingDashDBInstance.png)
+![Screenshot of the "Connect to existing Db2 Warehouse on Cloud instance" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/existingDashDBInstance.png)
 
 ### Using a DB2 warehouse instance
 
 If you prefer,
 you can connect to an existing DB2 warehouse instance instead of Db2 Warehouse on Cloud.
-Do this by selecting the `DB2` option within your Cloudant dashboard to connect to an existing DB2 instance.
+Do this by selecting the `DB2` option within your {{site.data.keyword.cloudant_short_notm}} dashboard to connect to an existing DB2 instance.
 
-![Screenshot of the Create a DB2 warehouse" task within the Cloudant dashboard](../images/createDB2WH.png)
+![Screenshot of the Create a DB2 warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createDB2WH.png)
 
 If you want to connect to a DB2 instance,
 you must provide the following details:
@@ -217,12 +217,12 @@ you must provide the following details:
     However,
     the topic applies equally if you are using an instance of DB2.
     A tutorial is also available describing how to
-    [load JSON data from Cloudant into Db2 Warehouse on Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices../dashdb/get/load-json-from-cloudant-database-in-to-dashdb/){:new_window},
+    [load JSON data from {{site.data.keyword.cloudant_short_notm}} into Db2 Warehouse on Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices../dashdb/get/load-json-from-cloudant-database-in-to-dashdb/){:new_window},
     and includes examples of using DB2 as the warehouse database.
 
 ## Warehouse schema
 
-When you first create a warehouse from within Cloudant,
+When you first create a warehouse from within {{site.data.keyword.cloudant_short_notm}},
 Db2 Warehouse on Cloud creates the best possible schema for the data within the database,
 helping ensure that each of the fields within your JSON documents has a corresponding entry within the new schema.
 Optionally,
@@ -231,22 +231,22 @@ you can choose to [customize the schema](#customizing-the-warehouse-schema) manu
 
 Once the schema is created,
 the warehouse is able to hold your data in a relational format.
-Cloudant then [replicates](../api/replication.html) to perform
+{{site.data.keyword.cloudant_short_notm}} then [replicates](../api/replication.html) to perform
 an 'initial load' of the database documents into the warehouse,
 giving you a working collection of your data in the Db2 Warehouse on Cloud relational database.
 
 Over time,
-your Cloudant database content might change.
+your {{site.data.keyword.cloudant_short_notm}} database content might change.
 You can modify the schema of an existing warehouse.
 
 >   **Note**: If you modify the schema of an existing warehouse,
-    the data from your Cloudant database must be replicated again into the warehouse database.
+    the data from your {{site.data.keyword.cloudant_short_notm}} database must be replicated again into the warehouse database.
     In effect,
     modifying the schema causes a fresh 'initial load' into the warehouse.
 
 ## Working with your warehouse
 
-With Cloudant warehousing,
+With {{site.data.keyword.cloudant_short_notm}} warehousing,
 you can run 'traditional' SQL queries,
 and view the results,
 all from within the Db2 Warehouse on Cloud console.
@@ -273,49 +273,49 @@ see the [IBM Db2 Warehouse on Cloud documentation ![External link icon](../image
 
 ## Keeping the data and structure fresh
 
-Data is loaded from Cloudant into Db2 Warehouse on Cloud using a [replication](../api/replication.html) process.
-This means that if your Cloudant data is updated or modified in some way,
+Data is loaded from {{site.data.keyword.cloudant_short_notm}} into Db2 Warehouse on Cloud using a [replication](../api/replication.html) process.
+This means that if your {{site.data.keyword.cloudant_short_notm}} data is updated or modified in some way,
 replication of the documents into Db2 Warehouse on Cloud must take place again
 to ensure your analytic tasks continue to work using the most up-to-date information.
 
-As with normal Cloudant replication,
+As with normal {{site.data.keyword.cloudant_short_notm}} replication,
 data is transferred one-way only:
-for a warehouse the transfer is from Cloudant to Db2 Warehouse on Cloud.
+for a warehouse the transfer is from {{site.data.keyword.cloudant_short_notm}} to Db2 Warehouse on Cloud.
 After the initial load of data,
-the warehouse subscribes to data content changes in the Cloudant database.
-Any changes are replicated from the Cloudant source to the Db2 Warehouse on Cloud target.
-This means that warehousing is a form of continuous replication from Cloudant to Db2 Warehouse on Cloud.
+the warehouse subscribes to data content changes in the {{site.data.keyword.cloudant_short_notm}} database.
+Any changes are replicated from the {{site.data.keyword.cloudant_short_notm}} source to the Db2 Warehouse on Cloud target.
+This means that warehousing is a form of continuous replication from {{site.data.keyword.cloudant_short_notm}} to Db2 Warehouse on Cloud.
 
 Over time,
-your Cloudant database might also have structural changes.
+your {{site.data.keyword.cloudant_short_notm}} database might also have structural changes.
 This might include the addition or removal of fields from the JSON documents.
 When this happens,
 the schema used by the warehouse might become invalid,
-resulting in errors reported when fresh data is replicated from Cloudant to Db2 Warehouse on Cloud.
+resulting in errors reported when fresh data is replicated from {{site.data.keyword.cloudant_short_notm}} to Db2 Warehouse on Cloud.
 
 To solve this problem,
-Cloudant warehousing has a 'rescan' facility.
-This rescans the structure of the Cloudant database,
+{{site.data.keyword.cloudant_short_notm}} warehousing has a 'rescan' facility.
+This rescans the structure of the {{site.data.keyword.cloudant_short_notm}} database,
 and determines the new schema required in Db2 Warehouse on Cloud.
 The old tables within Db2 Warehouse on Cloud that were created during the previous scan are then dropped,
 new tables created using the new schema,
-and finally the current Cloudant data is loaded as a fresh 'initial load'.
+and finally the current {{site.data.keyword.cloudant_short_notm}} data is loaded as a fresh 'initial load'.
 
 To use the rescan facility,
 first ensure that your warehouse is not running.
 Do this as follows:
 
-1.  Select the `Integrations` tab within the Cloudant dashboard.
-2.  Find the name of the Warehouse you want to rescan on the `Warehouse` task:<br/>![Screenshot of the "warehouse" tab within the Cloudant dashboard](../images/selectWarehouse.png)
+1.  Select the `Integrations` tab within the {{site.data.keyword.cloudant_short_notm}} dashboard.
+2.  Find the name of the Warehouse you want to rescan on the `Warehouse` task:<br/>![Screenshot of the "warehouse" tab within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/selectWarehouse.png)
 3.  Click on the name of the Warehouse.
     It is a link,
-    and when clicked it opens the warehouse detail view:<br/>![Screenshot of the detailed warehouse view within the Cloudant dashboard](../images/viewWarehouseDetail.png)
+    and when clicked it opens the warehouse detail view:<br/>![Screenshot of the detailed warehouse view within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/viewWarehouseDetail.png)
 4.  Check the current status of the warehouse.
     A rotating green circle indicates that the warehouse is running.
     To stop the warehouse,
-    click the `Stop Database` icon in the Actions column:<br/>![Screenshot of the "stop warehouse database" icon within the Cloudant dashboard](../images/stopWarehouseDatabase.png)
+    click the `Stop Database` icon in the Actions column:<br/>![Screenshot of the "stop warehouse database" icon within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/stopWarehouseDatabase.png)
 5.  When the warehouse database is not running,
-    the `Rescan` icon in the Action column is enabled:<br/>![Screenshot of the rescan icon within the Cloudant dashboard](../images/rescanIcon.png)
+    the `Rescan` icon in the Action column is enabled:<br/>![Screenshot of the rescan icon within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/rescanIcon.png)
 
 ### Rescanning the source database
 
@@ -348,23 +348,23 @@ The `Customize Schema` checkbox enables two options.
 ### The discovery algorithm
 
 The default option for rescanning is the `Union` algorithm.
-This uses all the attributes in all the sampled Cloudant database documents
+This uses all the attributes in all the sampled {{site.data.keyword.cloudant_short_notm}} database documents
 to create a single set of tables in the warehouse database.
-The result is that all the Cloudant database documents can be stored in the warehouse database,
+The result is that all the {{site.data.keyword.cloudant_short_notm}} database documents can be stored in the warehouse database,
 but some rows in the database might not have content in some of the fields.
 
 The alternative option for rescanning is the `Cluster` algorithm.
-This identifies documents within the Cloudant database that have the same set of attributes,
+This identifies documents within the {{site.data.keyword.cloudant_short_notm}} database that have the same set of attributes,
 then creates corresponding warehouse database table schemas.
 
 ### The sample size
 
-This option determines how many documents within the Cloudant database
+This option determines how many documents within the {{site.data.keyword.cloudant_short_notm}} database
 are inspected as part of the schema determination.
 
 The default value is 10,000 documents.
 
-Setting the value too low introduces the risk that some Cloudant documents have attributes that are not detected,
+Setting the value too low introduces the risk that some {{site.data.keyword.cloudant_short_notm}} documents have attributes that are not detected,
 and are therefore omitted from the warehouse database structure.
 
 Setting the value too high means that the scanning process
@@ -372,7 +372,7 @@ to determine the warehouse database structure takes longer to complete.
 
 ### After the rescan
 
-Once the Cloudant database rescan has finished,
+Once the {{site.data.keyword.cloudant_short_notm}} database rescan has finished,
 the warehouse is not automatically started.
 Instead,
 it remains in a halted state,
@@ -469,14 +469,14 @@ the host details entered for the DB2 connection were not valid:
 
 ### Warnings and Errors
 
-Changes in the Cloudant database are replicated across into the warehouse database.
+Changes in the {{site.data.keyword.cloudant_short_notm}} database are replicated across into the warehouse database.
 It is possible that a change might not fit into the warehouse or its schema.
 Problems of this kind are detected and logged in the `OVERFLOW` table of the warehouse database.
 
 For example,
 if the warehouse schema has a `Movie_earnings_rank` field of type `VARCHAR`,
 and can hold up to 32 characters,
-but a change in the Cloudant database requires storage of 40 characters,
+but a change in the {{site.data.keyword.cloudant_short_notm}} database requires storage of 40 characters,
 then the field 'overflows'.
 This would produce a 'warning' condtion,
 which is indicated in the status icon of the warehouse dashboard:
@@ -494,7 +494,7 @@ affecting the `Movie_earnings_rank` field of the Cloudant document having an `_I
 
 There are two possible solution options:
 
--   Correct the overflowing field within the Cloudant document.
+-   Correct the overflowing field within the {{site.data.keyword.cloudant_short_notm}} document.
 -   [Update the warehouse schema](#customizing-the-warehouse-schema).
 
 The option you choose depends on whether the extra content in the field is intentional or not.
@@ -502,12 +502,12 @@ If you do require the extra content for your application,
 then it is necessary to
 [update the warehouse schema](#customizing-the-warehouse-schema) to remove the warning condition.
 
-A more significant problem is if an entirely new field is introduced into a document in the Cloudant database,
+A more significant problem is if an entirely new field is introduced into a document in the {{site.data.keyword.cloudant_short_notm}} database,
 but the field does not have a counterpart in the warehouse database schema.
 This causes an 'error' condition.
 
 For example,
-a document in the Cloudant database might 'gain' an extra field called `my key`
+a document in the {{site.data.keyword.cloudant_short_notm}} database might 'gain' an extra field called `my key`
 that does not exist within the warehouse database schema:
 
 ![Screen shot showing additional 'my key' field in a document.](../images/extraField.png)
@@ -525,11 +525,11 @@ you see more details about the error:
 In this example,
 the error makes it clear that a field has been encountered
 that was not present when the warehouse database schema was created.
-The field itself was detected in the Cloudant document having an `_ID` of  `70f6284d2a395396dbb3a60b4cf1cac2`.
+The field itself was detected in the {{site.data.keyword.cloudant_short_notm}} document having an `_ID` of  `70f6284d2a395396dbb3a60b4cf1cac2`.
 
 There are two possible solution options:
 
--   Remove the extra field from the Cloudant document.
+-   Remove the extra field from the {{site.data.keyword.cloudant_short_notm}} document.
 -   [Update the warehouse schema](#customizing-the-warehouse-schema).
 
 The option you choose depends on whether the extra field is intentional or not.
