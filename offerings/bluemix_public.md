@@ -342,12 +342,12 @@ Information about the details of the Support Service Level Agreement (SLA) is av
 
 ## Provisioning a Cloudant instance on Bluemix
 
-You can provision a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}} in two ways:
+You can provision a Cloudant NoSQL DB Lite or Standard plan instance on IBM Cloud in two ways:
 
--	Using the Dashboard. A tutorial describing the process is available [here](../tutorials/create_service.html).
--	Using the Cloud Foundry command tool. A tutorial describing the process is available [here](../tutorials/create_service_cli.html).
-
-
+- Using the Dashboard. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
+- Using the Cloud Foundry command tool. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
+ 
+To create and leverage a Cloudant Dedicated Hardware plan instance, the process is outlined <here (link will be to new tutorial outlined in next case comment)>
 
 
 
