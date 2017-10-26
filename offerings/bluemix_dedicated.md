@@ -54,7 +54,7 @@ share the underlying hardware resources that make up the Cloudant environment.
 
 ## Security, Encryption, and Compliance 
 
-All plans are provided on servers with [at risk ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest) 
+All plans are provided on servers with [at rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest) 
 disk encryption. Access is over the public network connection and encrypted by 
 using HTTPS. For more detail, see [Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}. 
 IP whitelisting is available on request to Cloudant Support and will apply to 
