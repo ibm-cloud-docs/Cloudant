@@ -21,7 +21,7 @@ an optional purchase add-on to a Bluemix Dedicated environment. The optional add
 {{site.data.keyword.cloudant_short_notm}} Dedicated in Bluemix Dedicated is priced based on the hardware capacity 
 allocated to the environment and can be purchased by contacting your IBM sales representative.  
 
-Bluemix Dedicated customers can also choose to use the {{site.data.keyword.cloudant_short_notm}} in Bluemix Public 
+Bluemix Dedicated customers can also choose to use {{site.data.keyword.cloudant_short_notm}} in Bluemix Public 
 via the syndicated catalog, including the Lite and Standard plan instances. Note that 
 Bluemix Dedicated users are not eligible to purchase the Dedicated Hardware plan from the 
 Bluemix Public catalog and should leverage the {{site.data.keyword.cloudant_short_notm}} Dedicated on 
