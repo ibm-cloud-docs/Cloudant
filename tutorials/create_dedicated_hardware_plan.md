@@ -50,24 +50,22 @@ instances on it.
     ![{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)<br/>
     The page for creating a service appears. 
 
-5.  At the bottom of the page, select the `Dedicated Hardware` hardware plan from the list of pricing plans:<br/>
-    ![Pricing plans](../tutorials/images/pricing_plan.png)<br/>
-    You select the pricing plan, create your service, and provision it on the same page. 
-
-6.  At the top of the page, fill out the parameters section as follows: <br/>
+5.  Select the `Dedicated Hardware` hardware plan from the list of pricing plans at the bottom of the page:<br/>
+    ![Pricing plans](../tutorials/images/pricing_plan.png)
+    
+6.  Fill out the following parameters from the top of the page: <br/>
     a.   Enter a Service name.<br/>
     b.   Specify the region and space to deploy.<br/>
     c.   Select a location for deployment.<br/>
     d.   Answer yes or no to the question about whether HIPAA is required. Note that HIPAA is only valid for U.S. locations.<br/>    
-    **Note**: You deploy and provision Standard plan instances in the same region and space. <br/>   
+    **Note**: You deploy and provision Standard plan instances in the same region and space.    
     ![Configure dedicated hardware](../tutorials/images/select_deployment_location.png)<br/>
     Start the provisioning process. 
     
-7.  At the bottom of the page, click the `Create` button to begin provisioning. <br/>
+7.  Click the `Create` button to begin provisioning from the bottom of the page. <br/>
     **Note**: Billing is prorated daily so make sure that you want to provision and 
     pay for an environment before clicking the **Create** button.<br/>
     ![Provision dedicated hardware](../tutorials/images/create_button_provision.png)
-
     A request is sent to provision a Dedicated Hardware plan instance on bare 
     metal servers. Provisioning time is asynchronous and can take up to 5 days. 
     During provisioning, a spinning wheel appears next to the instance in 
@@ -95,17 +93,16 @@ instances on it.
     ![{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)<br/>
     The page for creating a service appears.  
 
-5.  At the bottom of the page, select `Standard` from the pricing plans. <br/>
+5.  Select `Standard` from the pricing plans at the bottom of the page. <br/>
     **Note**: You cannot provision a Lite plan instance on a Dedicated Hardware environment.<br/>
-    ![Standard pricing plan](../tutorials/images/standard_pricing_plan.png)<br/>
-    You select the pricing plan, create your service, and provision it on the same page.
+    ![Standard pricing plan](../tutorials/images/standard_pricing_plan.png)
     
-6.  At the top of the page, fill out the parameters section by entering a Service name, Credential name, and so on 
+6.  Fill out the parameters at the top of the page by entering a Service name, Credential name, and so on 
     as you would for a Standard plan instance. Decide whether to provision on the default regional multi-tenant 
     environment or the Dedicated Hardware environment you have provisioned by using the `Select Environment` drop-down.<br/>
     ![Configure standard instance](../tutorials/images/select_environment.png)
     
-7.  At the bottom of the page, click the `Create` button.<br/>
+7.  Click the `Create` button at the bottom of the page.<br/>
     After a few seconds, the instance is provisioned on the environment you selected.<br/>
     ![Provision standard instance](../tutorials/images/create_button_provision_standard.png)
     
