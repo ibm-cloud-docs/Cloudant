@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-25"
+lastupdated: "2017-10-26"
 
 ---
 
@@ -35,10 +35,10 @@ syndicated version of Cloudant (left) and the Cloudant Dedicated environment (ri
 ## Hardware capacity 
 
 Cloudant within Bluemix Dedicated is purchased via an 'IBM Bluemix Dedicated 
-Cloudant 1.6TB Capacity' part, which includes a clustered Cloudant environment 
+Cloudant 1.6 TB Capacity' part, which includes a clustered Cloudant environment 
 consisting of three database nodes and two load balancers. Each database node 
-contains 1.6TB on SSD's, and since all data is stored in triplicate this 
-equates to 1.6TB of unique disk space across the cluster. Expansion of an 
+contains 1.6 TB on SSDs, and since all data is stored in triplicate this 
+equates to 1.6 TB of unique disk space across the cluster. Expansion of an 
 environment can be accomplished by purchasing additional 'IBM Bluemix 
 Dedicated Cloudant 1.6TB Capacity' parts, which can be used to expand the 
 Cloudant cluster in multiples of three database nodes. Customers can also 
@@ -49,8 +49,8 @@ expanding a single environment.
 
 The Cloudant NoSQL Dedicated environment within a Bluemix Dedicated environment is on hardware 
 that is designated for sole use by the Bluemix Dedicated customer. The customer can provision 
-one or more instances of Cloudant on the given environment, and each instance of Cloudant will 
-share the underlying hardware resources that make up the Cloudant environment. 
+one or more instances of Cloudant on the given environment, and each instance of Cloudant 
+shares the underlying hardware resources that make up the Cloudant environment. 
 
 ## Security, Encryption, and Compliance 
 
@@ -62,7 +62,7 @@ the whole Cloudant environment, and not at the instance level.
 
 The plan also offers [Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
 [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
-compliance is available upon request, so request this during the purchase process with IBM sales representative. 
+compliance is available upon request, so request this during the purchase process with an IBM sales representative. 
 
 ## High availability, disaster recovery, and backup 
 
