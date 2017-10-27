@@ -53,16 +53,16 @@ instances on it.
 5.  Select the `Dedicated Hardware` hardware plan from the list of pricing plans at the bottom of the page:<br/>
     ![Pricing plans](../tutorials/images/pricing_plan.png)
     
-6.  Fill out the following parameters from the top of the page: <br/>
-    a.   Enter a Service name.<br/>
-    b.   Specify the region and space to deploy.<br/>
-    c.   Select a location for deployment.<br/>
-    d.   Answer yes or no to the question about whether HIPAA is required. Note that HIPAA is only valid for U.S. locations.<br/>    
+6.  Fill out the following parameters at the top of the page: <br/>
+    -   Enter a Service name.<br/>
+    -   Specify the region and space to deploy.<br/>
+    -   Select a location for deployment.<br/>
+    -   Answer yes or no to the question about whether HIPAA is required. Note that HIPAA is only valid for U.S. locations.<br/>    
     **Note**: You deploy and provision Standard plan instances in the same region and space.    
     ![Configure dedicated hardware](../tutorials/images/select_deployment_location.png)<br/>
     Start the provisioning process. 
     
-7.  Click the `Create` button to begin provisioning from the bottom of the page. <br/>
+7.  Click the `Create` button to begin provisioning from the bottom of the page: <br/>
     **Note**: Billing is prorated daily so make sure that you want to provision and 
     pay for an environment before clicking the **Create** button.<br/>
     ![Provision dedicated hardware](../tutorials/images/create_button_provision.png)<br/>
@@ -93,7 +93,7 @@ instances on it.
     ![{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)<br/>
     The page for creating a service appears.  
 
-5.  Select `Standard` from the pricing plans at the bottom of the page. <br/>
+5.  Click `Standard` from the pricing plans at the bottom of the page. <br/>
     **Note**: You cannot provision a Lite plan instance on a Dedicated Hardware environment.<br/>
     ![Standard pricing plan](../tutorials/images/standard_pricing_plan.png)
     
