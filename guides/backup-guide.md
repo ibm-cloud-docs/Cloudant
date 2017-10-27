@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2015, 2017
 lastupdated: "2017-10-27"
 
 ---
@@ -11,8 +11,6 @@ lastupdated: "2017-10-27"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
-
-<!-- Acrolinx: 2017-05-23 -->
 
 # Cloudant backup and recovery
 
