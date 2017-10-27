@@ -12,6 +12,8 @@ lastupdated: "2017-10-27"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
+<!-- Keep up-to-date with changes in backup-cookbook.md -->
+
 # Cloudant backup and recovery
 
 This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](disaster-recovery-and-backup.html).
