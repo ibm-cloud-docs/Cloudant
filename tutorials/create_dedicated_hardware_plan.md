@@ -57,7 +57,8 @@ instances on it.
     -   Enter a Service name.<br/>
     -   Specify the region and space to deploy.<br/>
     -   Select a location for deployment.<br/>
-    -   Answer yes or no to the question about whether HIPAA is required. Note that HIPAA is only valid for U.S. locations.<br/>    
+    -   Answer yes or no to the question about whether HIPAA is required. Note that HIPAA is only valid for U.S. locations.<br/> 
+     
     **Note**: You deploy and provision Standard plan instances in the same region and space.    
     ![Configure dedicated hardware](../tutorials/images/select_deployment_location.png)<br/>
     Start the provisioning process. 
