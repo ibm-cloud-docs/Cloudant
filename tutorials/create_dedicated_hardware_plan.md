@@ -65,7 +65,7 @@ instances on it.
 7.  Click the `Create` button to begin provisioning from the bottom of the page. <br/>
     **Note**: Billing is prorated daily so make sure that you want to provision and 
     pay for an environment before clicking the **Create** button.<br/>
-    ![Provision dedicated hardware](../tutorials/images/create_button_provision.png)
+    ![Provision dedicated hardware](../tutorials/images/create_button_provision.png)<br/>
     A request is sent to provision a Dedicated Hardware plan instance on bare 
     metal servers. Provisioning time is asynchronous and can take up to 5 days. 
     During provisioning, a spinning wheel appears next to the instance in 
