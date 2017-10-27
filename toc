@@ -14,7 +14,7 @@ Cloudant NoSQL DB
 		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
 		offerings/cloudant.com.md
-    		offerings/compliance.md
+		offerings/compliance.md
 
 	{: .topicgroup}
 	Release information
