@@ -63,7 +63,7 @@ instances on it.
     ![Configure dedicated hardware](../tutorials/images/select_deployment_location.png)<br/>
     Start the provisioning process. 
     
-7.  Click the `Create` button to begin provisioning from the bottom of the page: <br/>
+7.  Click the `Create` button to begin provisioning from the bottom of the page. <br/>
     **Note**: Billing is prorated daily so make sure that you want to provision and 
     pay for an environment before clicking the **Create** button.<br/>
     ![Provision dedicated hardware](../tutorials/images/create_button_provision.png)<br/>
