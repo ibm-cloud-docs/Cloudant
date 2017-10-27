@@ -13,6 +13,7 @@ lastupdated: "2017-10-27"
 {:pre: .pre}
 
 <!-- Acrolinx: 2017-05-23 -->
+<!-- Update backup-guide.md with with any changes. -->
 
 # Cloudant backup and recovery
 
