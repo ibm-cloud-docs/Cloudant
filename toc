@@ -10,8 +10,10 @@ Cloudant NoSQL DB
 
 	{: .topicgroup}
 	Offerings
-		offerings/index.md
 		offerings/bluemix.md
+		offerings/bluemix_dedicated.md
+		offerings/cloudant_local.md
+		offerings/cloudant.com.md
 	
 	{: .topicgroup}
 	Release information
@@ -68,6 +70,7 @@ Cloudant NoSQL DB
 	Tutorials
 		tutorials/create_service.md
 		tutorials/create_service_cli.md
+		tutorials/create_dedicated_hardware_plan.md
 		tutorials/create_database.md
 		tutorials/create_query.md
 		tutorials/create_backup.md
