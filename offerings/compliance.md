@@ -14,13 +14,13 @@ lastupdated: "2017-10-24"
 
 <!-- Acrolinx: 2017-04-28 -->
 
-# Compliance
+# Security and Compliance
 
 {{site.data.keyword.cloudantfull}} provides a trustworthy and secure cloud database system.
 The service is built on best-in-industry standards,
 including ISO 27001:2013.
 
-## Top-Tier Physical systems
+## Top-tier Physical systems
 
 The {{site.data.keyword.cloudant_short_notm}} DBaaS is physically hosted
 on Tier-1 cloud infrastructure providers such as {{site.data.keyword.BluSoftlayer_full}} and Amazon.
@@ -30,8 +30,7 @@ your data is protected by the network and physical security measures that are em
 ## HIPAA
 
 {{site.data.keyword.cloudant_short_notm}}, when deployed on dedicated hardware on {{site.data.keyword.BluSoftlayer_notm}}, 
-meets the required {{site.data.keyword.IBM_notm}} controls that are commensurate with the Health Insurance Portability and 
-Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. These requirements 
+meets the required {{site.data.keyword.IBM_notm}} controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. These requirements 
 include the appropriate administrative, physical, and technical safeguards required of Business 
 Associates in 45 CFR Part 160 and Subparts A and C of Part 164. HIPAA must be requested at the 
 time of provisioning and applies to the {{site.data.keyword.cloudant_short_notm}} Enterprise plan, 
@@ -50,7 +49,7 @@ and meets all of the requirements for ISO 27001:
 
 ## SOC 2 Type 1 Certification
 
-{{site.data.keyword.IBM_notm}} provides an SOC 2 Type 1 report for {{site.data.keyword.cloudant_short_notm}}. The report evaluates {{site.data.keyword.IBM_notm}}'s operational 
+{{site.data.keyword.IBM_notm}} provides an Service Organization Controls (SOC)  2 Type 1 report for {{site.data.keyword.cloudant_short_notm}}. The report evaluates {{site.data.keyword.IBM_notm}}'s operational 
 controls according to the criteria set by the American Institute of Certified Public Accountants (AICPA) 
 Trust Services Principles. The Trust Services Principles define adequate control systems and 
 establish industry standards for service providers such as {{site.data.keyword.BluSoftlayer_notm}} to safeguard their customers' 
@@ -59,9 +58,9 @@ data and information.
 Customers can request an SOC 2 Type 1 report from the customer portal or 
 [contact the sales team ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/history/contact-us/){:new_window}.
 
-## General Data Protection Regulation 
+## General Data Protection Regulation (GDPR) 
 
-The General Data Protection Regulation (GDPR) seeks to create a harmonized data protection law 
+The GDPR seeks to create a harmonized data protection law 
 framework across the EU and aims to give citizens back the control of their personal data, whilst 
 imposing strict rules on those hosting and ‘processing’ this data, anywhere in the world. The 
 Regulation also introduces rules relating to the free movement of personal data within and outside 
