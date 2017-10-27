@@ -16,7 +16,7 @@ lastupdated: "2017-05-04"
 
 <div id="back-up-your-data-using-replication"></div>
 
-# Back up your data by using replication
+# Replication incrementals
 
 >	**Note**: This guide contains older or 'deprecated' guidance on Cloudant backup.
 	For current backup guidance,
