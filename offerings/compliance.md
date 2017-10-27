@@ -37,7 +37,7 @@ Associates in 45 CFR Part 160 and Subparts A and C of Part 164. HIPAA must be re
 time of provisioning and applies to the {{site.data.keyword.cloudant_short_notm}} Enterprise plan, 
 {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}} Dedicated, 
 and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.data.keyword.Bluemix_notm}} Public. Customers 
-should contact their sales 
+must contact their sales 
 representative to sign a Business Associate Addendum (BAA) agreement with {{site.data.keyword.IBM_notm}}.
 
 ## International Organization for Standardization (ISO)
