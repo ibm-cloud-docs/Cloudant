@@ -324,7 +324,7 @@ so request this environment as part of the [provisioning process](#provisioning-
 To provide high availability (HA) and disaster recovery (DR) within a data center, all data is 
 stored in triplicate across three separate physical servers in a cluster. You can provision 
 accounts in multiple data centers, then use continuous data replication to provide HA/DR across 
-data centers. Cloudant NoSQL DB data is not automatically backed up, but supported tooling is 
+data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically backed up, but supported tooling is 
 provided to handle backups. Review the 
 [Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) 
 to explore all HA, DR, and backup considerations to meet your application requirements. 
@@ -340,14 +340,14 @@ A pricing calculator for {{site.data.keyword.Bluemix_notm}} Standard Support is 
 Information about the details of the Support Service Level Agreement (SLA) is available
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-03.ibm.com/software/sla/sladb.nsf/pdf/6606-08/$file/i126-6606-08_05-2016_en_US.pdf){:new_window}.
 
-## Provisioning a Cloudant instance on Bluemix
+## Provisioning a {{site.data.keyword.cloudant_short_notm}} instance on Bluemix
 
 You can provision a Cloudant NoSQL DB Lite or Standard plan instance on IBM Cloud in two ways:
 
 - Using the Dashboard. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
 - Using the Cloud Foundry command tool. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
  
-To create and leverage a Cloudant Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
+To create and leverage a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
 
 
 

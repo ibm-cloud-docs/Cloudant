@@ -13,10 +13,10 @@ lastupdated: "2017-01-06"
 
 # Account
 
-Your account is your entry point for the {{site.data.keyword.cloudant}} API.
+Your account is your entry point for the {{site.data.keyword.cloudantfull}} API.
 You access your account using the address prefix
 `https://$ACCOUNT.cloudant.com`.
-Your Cloudant dashboard is always
+Your {{site.data.keyword.cloudant_short_notm}} dashboard is always
 `https://$ACCOUNT.cloudant.com/dashboard.html`.
 {:shortdesc}
 
@@ -24,12 +24,12 @@ If you don't yet have an account, [sign up ![External link icon](../images/launc
 
 ## Ping
 
-To see if your Cloudant account is accessible,
+To see if your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspelled your account name,
 you might get a [503 'service unavailable' error](http.html#503).
 
-_Example of connecting to your Cloudant account, using HTTP:_
+_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, using HTTP:_
 
 ```HTTP
 GET / HTTP/1.1
@@ -37,7 +37,7 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
 
-_Example of connecting to your Cloudant account, using the command line:_
+_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, using the command line:_
 
 ```sh
 curl -u $ACCOUNT https://$ACCOUNT.cloudant.com
@@ -46,7 +46,7 @@ curl -u $ACCOUNT https://$ACCOUNT.cloudant.com
 
 <!--
 
-_Example of connecting to your Cloudant account, using Javascript:_
+_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, using Javascript:_
 
 ```javascript
 var nano = require('nano');
@@ -61,7 +61,7 @@ account.request(function (err, body) {
 
 -->
 
-_Example of connecting to your Cloudant account, using Python:_
+_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, using Python:_
 
 ```python
 import cloudant
@@ -76,6 +76,6 @@ print ping.status_code
 
 [Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){:new_window} is a
 mechanism that allows Javascript from another domain to interact with data in
-your Cloudant account.
+your {{site.data.keyword.cloudant_short_notm}} account.
 
-More information about CORS and Cloudant is available [here](cors.html).
+More information about CORS and {{site.data.keyword.cloudant_short_notm}} is available [here](cors.html).
