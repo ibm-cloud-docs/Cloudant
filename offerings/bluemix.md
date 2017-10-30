@@ -19,7 +19,9 @@ lastupdated: "2017-10-26"
 {{site.data.keyword.cloudantfull}} Public is {{site.data.keyword.cloudant_short_notm}}'s most 
 feature-rich offering, receiving updates and new features first. Pricing is based on 
 your throughput and storage requirements, making it suitable for any 
-required load. There is a free [Lite plan](#lite-plan) with a fixed amount of 
+required load. 
+
+There is a free [Lite plan](#lite-plan) with a fixed amount of 
 throughput capacity and data for development and evaluation purposes. There 
 is also a paid [Standard plan](#standard-plan) which offers configurable provisioned throughput 
 capacity and data storage pricing that scales as your application requirements 
