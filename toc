@@ -16,8 +16,7 @@ Cloudant NoSQL DB
 		offerings/cloudant.com.md
 
 	{: .topicgroup}
-	Security and Compliance
-		offerings/compliance.md
+    offerings/compliance.md
 
 	{: .topicgroup}
 	Release information
