@@ -10,13 +10,16 @@ Cloudant NoSQL DB
 
 	{: .topicgroup}
 	Offerings
-		offerings/bluemix.md
+		offerings/bluemix_public.md
 		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
 		offerings/cloudant.com.md
 
 	{: .topicgroup}
-    offerings/compliance.md
+	Security and Compliance
+	    	offerings/security.md
+    		offerings/compliance.md
+    		offerings/dataprivacygovernance.md
 
 	{: .topicgroup}
 	Release information
@@ -73,7 +76,6 @@ Cloudant NoSQL DB
 	Tutorials
 		tutorials/create_service.md
 		tutorials/create_service_cli.md
-		tutorials/create_dedicated_hardware_plan.md
 		tutorials/create_database.md
 		tutorials/create_query.md
 		tutorials/create_backup.md
@@ -93,7 +95,7 @@ Cloudant NoSQL DB
 	{: .topicgroup}
 	Guides
 		guides/acurl.md
-		guides/backup-guide-using-replication.md
+		guides/backup-guide.md
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/warehousing.md
@@ -106,9 +108,5 @@ Cloudant NoSQL DB
 		guides/conflicts.md
 		guides/model_data.md
 		guides/replication_guide.md
-
-	{: .topicgroup}
-    Security
-    	offerings/security.md
-    	offerings/dataprivacygovernance.md
+		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
