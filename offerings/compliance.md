@@ -29,7 +29,7 @@ on Tier-1 cloud infrastructure providers such as {{site.data.keyword.BluSoftlaye
 Therefore,
 your data is protected by the network and physical security measures that are employed by these providers.
 
-## HIPAA
+### HIPAA
 
 {{site.data.keyword.cloudant_short_notm}}, when deployed on dedicated hardware on {{site.data.keyword.BluSoftlayer_notm}}, 
 meets the required {{site.data.keyword.IBM_notm}} controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. These requirements 
