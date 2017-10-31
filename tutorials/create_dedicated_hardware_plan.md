@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-26"
+lastupdated: "2017-10-31"
 
 ---
 
@@ -14,21 +14,21 @@ lastupdated: "2017-10-26"
 
 <!-- Acrolinx: 2017-02-23 -->
 
-# Creating and leveraging a Cloudant Dedicated Hardware plan instance on Bluemix
+# Creating and leveraging a {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance on Bluemix
 
-This tutorial shows you how to create a Cloudant Dedicated Hardware plan instance 
+This tutorial shows you how to create a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance 
 using the IBM Cloud dashboard, and shows you how to subsequently provision one or 
 more Standard plan instances to run on it. 
 
-Creating a Cloudant Dedicated Hardware plan instance results in the provisioning 
-of a Cloudant environment on dedicated hardware for your sole use. A service 
+Creating a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance results in the provisioning 
+of a {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware for your sole use. A service 
 instance is created in the IBM Cloud dashboard, but note that you cannot 
 access the Dedicated Hardware plan instance directly and will not have 
-any Service Credentials for it. You can use a Cloudant Dedicated Hardware 
+any Service Credentials for it. You can use a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware 
 plan instance after it is created by provisioning one or more Standard plan 
 instances on it.
 
-## Creating a Cloudant Dedicated Hardware plan instance
+## Creating a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance
 
 1.  Log in to your {{site.data.keyword.Bluemix_notm}} account.<br/>
     The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
