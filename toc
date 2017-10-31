@@ -16,7 +16,10 @@ Cloudant NoSQL DB
 		offerings/cloudant.com.md
 
 	{: .topicgroup}
-    offerings/compliance.md
+    Security and Compliance
+    	offerings/security.md
+    	offerings/compliance.md
+    	offerings/dataprivacygovernance.md
 
 	{: .topicgroup}
 	Release information
@@ -93,7 +96,6 @@ Cloudant NoSQL DB
 	Guides
 		guides/acurl.md
 		guides/backup-guide.md
-
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/warehousing.md
@@ -107,9 +109,4 @@ Cloudant NoSQL DB
 		guides/model_data.md
 		guides/replication_guide.md
 		guides/backup-guide-using-replication.md
-
-	{: .topicgroup}
-    Security
-    	offerings/security.md
-    	offerings/dataprivacygovernance.md
 	{: .navgroup-end}
