@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-09-15"
+lastupdated: "2017-10-26"
 
 ---
 
@@ -16,8 +16,12 @@ lastupdated: "2017-09-15"
 
 # Bluemix Public
 
-{{site.data.keyword.cloudantfull}} is priced based on provisioned throughput 
-capacity and data usage. There is a free [Lite plan](#lite-plan) with a fixed amount of 
+{{site.data.keyword.cloudantfull}} Public is {{site.data.keyword.cloudant_short_notm}}'s most 
+feature-rich offering, receiving updates and new features first. Pricing is based on 
+your throughput and storage requirements, making it suitable for any 
+required load. 
+
+There is a free [Lite plan](#lite-plan) with a fixed amount of 
 throughput capacity and data for development and evaluation purposes. There 
 is also a paid [Standard plan](#standard-plan) which offers configurable provisioned throughput 
 capacity and data storage pricing that scales as your application requirements 
@@ -122,8 +126,8 @@ and queries.
 ### Dedicated hardware plan
 
 You can optionally run your Standard plan instances on a dedicated hardware environment in 
-any [IBM data centers ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 
-for an a monthly fee. You purchase a single dedicated hardware plan for a given location 
+any [IBM data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 
+for a monthly fee. You purchase a single dedicated hardware plan for a given location 
 and can provision one or more Standard plan instances on it. This plan is necessary for 
 HIPAA compliance and must be selected at provisioning time. Note that the Dedicated 
 Hardware plan is not available to Bluemix Dedicated customers and is only available for Bluemix 
@@ -165,7 +169,7 @@ Subsequent lookup requests made during the sliding 1,000-millisecond period
 are rejected until the number of lookup requests in that period drops to less than 200 again.
 
 When a request is rejected because the number of events is exceeded,
-applications receive a [`429` Too Many Requests](../api/http.html#429).
+applications receive a [`429` Too Many Requests](../api/http.html#429)
 response.
 
 Recent versions of the supported client libraries (for [Java](../libraries/supported.html#java),
@@ -194,7 +198,7 @@ you must ensure that your application is able to handle a [`429`](../api/http.ht
 
 <div id="servicetier"></div>
 
-### View and changing capacity
+### Viewing and changing capacity
 
 You can see details of the throughput capacity within the plans available for your account.
 You can select the level of provisioning that you want to use,
@@ -262,7 +266,7 @@ your storage increases to 21.5 GB for 15 minutes during the hour beginning at 02
 The instance drops back to 9.5 GB for the next 10 minutes of hour 02:00,
 then increases to 108 GB for the next 25 minutes of hour 02:00.
 Finally,
-your instance finishes the hour and indeed the rest of month by dropping down to 28 GB.
+your instance finishes the hour and indeed the rest of the month by dropping down to 28 GB.
 
 This pattern means the maximum number of GB more than the plan allocation was 88 GB during hour 2 of day 3.
 For hour 03:00 of day 3,
@@ -340,12 +344,12 @@ Information about the details of the Support Service Level Agreement (SLA) is av
 
 ## Provisioning a Cloudant instance on Bluemix
 
-You can provision a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}} in two ways:
+You can provision a Cloudant NoSQL DB Lite or Standard plan instance on IBM Cloud in two ways:
 
--	Using the Dashboard. A tutorial describing the process is available [here](../tutorials/create_service.html).
--	Using the Cloud Foundry command tool. A tutorial describing the process is available [here](../tutorials/create_service_cli.html).
-
-
+- Using the Dashboard. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
+- Using the Cloud Foundry command tool. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
+ 
+To create and leverage a Cloudant Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
 
 
 
