@@ -14,7 +14,7 @@ lastupdated: "2017-10-24"
 
 <!-- Acrolinx: 2017-04-28 -->
 
-# Security and Compliance
+# Compliance
 
 {{site.data.keyword.cloudantfull}} provides a trustworthy and secure cloud database system.
 The service is built on best-in-industry standards,
