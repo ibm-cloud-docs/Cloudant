@@ -20,16 +20,14 @@ lastupdated: "2017-10-24"
 The service is built on best-in-industry standards,
 including ISO 27001:2013.
 
-## Security
-
-### Top-tier Physical systems
+## Top-tier Physical systems
 
 The {{site.data.keyword.cloudant_short_notm}} DBaaS is physically hosted
 on Tier-1 cloud infrastructure providers such as {{site.data.keyword.BluSoftlayer_full}} and Amazon.
 Therefore,
 your data is protected by the network and physical security measures that are employed by these providers.
 
-### HIPAA
+## HIPAA
 
 {{site.data.keyword.cloudant_short_notm}}, when deployed on dedicated hardware on {{site.data.keyword.BluSoftlayer_notm}}, 
 meets the required {{site.data.keyword.IBM_notm}} controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. These requirements 
@@ -41,8 +39,6 @@ and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.
 must contact their sales 
 representative to sign a Business Associate Addendum (BAA) agreement with {{site.data.keyword.IBM_notm}}.
 
-##Compliance
-
 ### International Organization for Standardization (ISO)
 
 {{site.data.keyword.cloudant_short_notm}} is audited by a third-party security firm
@@ -53,7 +49,7 @@ and meets all of the requirements for ISO 27001:
 
 ### SOC 2 Type 1 Certification
 
-{{site.data.keyword.IBM_notm}} provides an Service Organization Controls (SOC)  2 Type 1 report for {{site.data.keyword.cloudant_short_notm}}. The report evaluates {{site.data.keyword.IBM_notm}}'s operational 
+{{site.data.keyword.IBM_notm}} provides a Service Organization Controls (SOC) 2 Type 1 report for {{site.data.keyword.cloudant_short_notm}}. The report evaluates {{site.data.keyword.IBM_notm}}'s operational 
 controls according to the criteria set by the American Institute of Certified Public Accountants (AICPA) 
 Trust Services Principles. The Trust Services Principles define adequate control systems and 
 establish industry standards for service providers such as {{site.data.keyword.BluSoftlayer_notm}} to safeguard their customers' 
@@ -62,9 +58,7 @@ data and information.
 Customers can request an SOC 2 Type 1 report from the customer portal or 
 [contact the sales team ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/history/contact-us/){:new_window}.
 
-## Data Privacy and Governance
-
-### General Data Protection Regulation (GDPR) 
+## General Data Protection Regulation (GDPR) 
 
 The GDPR seeks to create a harmonized data protection law 
 framework across the EU and aims to give citizens back the control of their personal data, whilst 
