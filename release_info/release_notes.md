@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-05"
+lastupdated: "2017-09-22"
 
 ---
 
@@ -22,6 +22,11 @@ Changes and updates to Cloudant grouped by build number.
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6462
+
+-   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
+read quorum, and write quorum. This update helps with debugging, operations, and performance analysis.
 
 ## Build 6366 (August 4, 2017)
 

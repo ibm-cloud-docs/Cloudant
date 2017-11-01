@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-04-24"
+lastupdated: "2017-10-11"
 
 ---
 
@@ -416,7 +416,7 @@ _Example of a response body with two indexes:_
 
 -	**selector**: JSON object that describes the criteria that are used to select documents.
 	More information is provided in the section on [selectors](#selector-syntax).
--	**limit (optional, default: 25)**: Maximum number of results returned.
+-	**limit (optional, default: 25)**: Maximum number of results returned. Note that `type: text` indexes are limited to 200 results when queried.
 -	**skip (optional, default: 0)**: Skip the first 'n' results, where 'n' is the value that is specified.
 -	**sort (optional, default: [])**: JSON array,
 	ordered according to the [sort syntax](#sort-syntax).
@@ -433,7 +433,7 @@ _Example of a response body with two indexes:_
 	The request is likely to take more time than using only the document that is stored locally with the index.
 -	**bookmark (optional, default: null)**: A string that is used to specify which page of results you require.
 	Pagination is discussed in more detail [here](cloudant_query.html#pagination).
--	**use_index (optional)**: Use this option to identify a specific index for query to run against,
+-   **use_index (optional)**: Use this option to identify a specific index for query to run against,
 	rather than by using the Cloudant Query algorithm to find the best index.
 	For more information, see [Explain Plans](#explain-plans).
 -   **execution_stats (optional, default: false)**: Use this option to find information about the query 
@@ -446,7 +446,7 @@ be passed back in a query to get the next page of results.
 If any part of the query other than `bookmark` changes between requests,
 the results are undefined.
 
-The `limit` and `skip` values are exactly as you would expect.
+The `limit` and `skip` values are exactly as you would expect.   
 Although `skip` is available,
 it is not intended to be used for paging.
 The reason is that the `bookmark` feature is more efficient.
@@ -534,25 +534,6 @@ _An example of a simple selector for a full text index:_
 {
 	"selector": {
 		"$text": "Bond"
-	}
-}
-```
-{:codeblock}
-
-In the following example,
-the full text index is inspected to find any document that includes the word "Bond".
-In the response, the fields `title` or `cast` are returned for every matching object.
-
-_Example of a simple selector, inspecting specific fields:_
-
-```json
-{
-	"selector": {
-		"$text": "Bond",
-		"fields": [
-			"title",
-			"cast"
-		]
 	}
 }
 ```
@@ -1489,62 +1470,12 @@ whenever you have an operator that takes an argument,
 that argument can itself be another operator with arguments of its own.
 This expansion enables more complex selector expressions.
 
-However,
-not all operators can be used as the base or starting point of the selector expression
-when you use indexes of type `json`.
-
->	**Note**: You cannot use combination or array logical operators such as `$regex` as the _basis_ of a query
-when you use indexes of type `json`.
-Only equality operators such as `$eq`, `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`)
-can be used as the basis of a query for `json` indexes.
-
-For example,
-if you try to run a query that attempts to match all documents that have a field that is called `afieldname`,
-where the field contains a value beginning with the letter `A`,
-you get an `error: "no_usable_index"` error message.
-
-_Example of an unsupported selector expression:_
-
-```json
-	{
-	"selector": {
-		"afieldname": {
-			"$regex": "^A"
-		}
-	}
-}
-```
-{:codeblock}
-
-_Example response to an unsupported selector expression:_
-
-```json
-{
-	"error": "no_usable_index",
-	"reason": "There is no operator in this selector can used with an index."
-}
-```
-{:codeblock}
-
-A solution is to use an equality operator as the basis of the query.
-You can add a 'null' or 'always true' expression as the basis of the query.
-For example,
-you might first test that the document has an `_id` value:
-
-```json
-{
-	"_id": {
-		"$gt": null
-	}
-}
-```
-{:codeblock}
-
-This expression is always true,
-enabling the remainder of the selector expression to be applied.
-
->	**Note**: The use of `{"_id": { "$gt":null } }` forces a full table scan of the database,
-and is not efficient for large databases.
+>   **Note**: Combination or array logical operators, such as `$regex`, can
+> result in a full database scan when using indexes of type JSON, 
+> resulting in poor performance. Only equality operators, such as `$eq`, 
+> `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups to be 
+> performed. To ensure indexes are used effectively, analyze the 
+> [explain plan](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans) for each query.  
 
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently _based_ on
@@ -1555,22 +1486,6 @@ Additionally,
 some parts of the `$regex` operator go beyond what PCRE offers.
 For more information about what is implemented,
 see the [Erlang Regular Expression ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/man/re.html){:new_window} information.
-
-_Example use of an equality operator to enable a selector expression:_
-
-```json
-{
-	"selector": {
-		"_id": {
-			"$gt": null
-		},
-		"afieldname": {
-			"$regex": "^A"
-		}
-	}
-}
-```
-{:codeblock}
 
 ## Sort Syntax
 
@@ -1734,10 +1649,12 @@ unless you specify an index at query time.
 When you specify an index to use,
 Cloudant Query uses the following logic:
 
--	If two or more `json` type indexes exist for the same fields,
+-	The query planner looks at the selector section,
+	and finds the index with the closest match to operators and fields used in the query.
+	If there are two or more JSON type indexes that match,
 	the index with the smallest number of fields in the index is preferred.
-	If the refinement still leaves two or more candidate indexes,
-	the index with the first alphabetical name is chosen.
+  If there are still two or more candidate indexes,
+  the index with the first alphabetical name is chosen. 
 -	If a `json` type index _and_ a `text` type index might both satisfy a selector,
 	the `json` index is chosen by default.
 -	If a `json` type index _and_ a `text` type index the same field (for example `fieldone`),
@@ -1898,6 +1815,8 @@ In other words,
 if a match was found as a result of searching for either an individual element,
 or an element from an array,
 then the match is considered a success.
+
+> **Note**: Like Cloudant Search indexes, Cloudant Query indexes of `type: text` are limited to 200 results when queried.
 
 <div id="selector-translation"></div>
 

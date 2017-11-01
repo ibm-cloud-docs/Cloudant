@@ -4,6 +4,7 @@ copyright:
   years: 2015, 2017
 lastupdated: "2017-07-20"
 
+
 ---
 
 {:new_window: target="_blank"}
@@ -230,6 +231,8 @@ and corresponding data in the body of the response data.
 
 A list of the error codes returned by Cloudant and generic descriptions of the related errors are as follows.
 The meaning of different status codes for specific request types are provided in the corresponding API call reference.
+
+<div id="200"></div>
 
 <div id="201"></div>
 

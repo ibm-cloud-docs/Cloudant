@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-05"
+lastupdated: "2017-09-22"
 
 ---
 
@@ -63,6 +63,7 @@ versions are released.
 
 -   The `_db_updates` endpoint returns a result set containing a key that is named  `db_name`. Previously, it returned a result set with a key named `dbname`.
 -   Set the maximum length of the document ID. Previously, it was not possibly to define a maximum document ID length.
+
 
 
 
