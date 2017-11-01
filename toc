@@ -14,9 +14,6 @@ Cloudant NoSQL DB
 		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
 		offerings/cloudant.com.md
-<<<<<<< HEAD
-	
-=======
 
 	{: .topicgroup}
     Security and Compliance
@@ -24,7 +21,6 @@ Cloudant NoSQL DB
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
 
->>>>>>> fb95421
 	{: .topicgroup}
 	Release information
 		release_info/whatsnew.md
