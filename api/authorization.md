@@ -21,7 +21,7 @@ the next test is to decide whether you are allowed to do certain tasks.
 This decision is called authorization.
 {:shortdesc}
 
-When you authenticate with the {{site.data.keyword.cloudant}} system,
+When you authenticate with the {{site.data.keyword.cloudantfull}} system,
 it 'knows' who you are.
 The next question is: what tasks are you allowed to do?
 
@@ -324,7 +324,7 @@ _Example of an incorrect authorization modification request document:_
 ## API keys
 
 Use API keys to enable database access for a person or application,
-but without creating a new {{site.data.keyword.cloudantfull}} account for that person or application.
+but without creating a new {{site.data.keyword.cloudant_short_notm}} account for that person or application.
 An API key is a randomly generated user name and password.
 The key is given the wanted access permissions for a database.
 
@@ -355,11 +355,11 @@ remember to record the key name and password.
 These values are both randomly generated,
 and cannot be retrieved if lost or forgotten.
 
->	**Note**: [IBM {{site.data.keyword.cloudantfull}} Data Layer Local Edition ("Cloudant Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}
+>	**Note**: [{{site.data.keyword.IBM}} {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("{{site.data.keyword.cloudant_short_notm}} Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}
 does not support API Keys.
 For a similar capability,
 create "CouchDB" style users,
-as described in the [IBM Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_db_security.html){:new_window}.
+as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_db_security.html){:new_window}.
 
 _Example of using an HTTP request to create an API key:_
 
