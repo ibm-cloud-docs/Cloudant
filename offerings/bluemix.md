@@ -220,7 +220,7 @@ and reminded that the provisioning change can take up to 24 hours to complete.
 
 Information about your usage is available in the Current Operations pane of the Monitoring tab within your {{site.data.keyword.cloudant_short_notm}} Dashboard. 
 
-![Monitoring usage on the dashboard](../images/cloudant_usage.png).
+![Monitoring usage on the dashboard](../images/cloudant_usage.png)
 
 Details are provided there,
 illustrating your current [throughput](#provisioned-throughput-capacity),
