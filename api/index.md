@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-19"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -14,8 +14,8 @@ lastupdated: "2017-05-19"
 
 # API reference overview
 
-The Cloudant API reference is intended to be a comprehensive and living catalog of Cloudant's capabilities.
-Contributions are welcome through [Cloudant Labs on GitHub ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){:new_window}.
+The {{site.data.keyword.cloudantfull}} API reference is intended to be a comprehensive and living catalog of {{site.data.keyword.cloudant_short_notm}}'s capabilities.
+Contributions are welcome through [{{site.data.keyword.cloudant_short_notm}} Labs on GitHub ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){:new_window}.
 {:shortdesc}
 
 ## For the cURL samples
@@ -24,7 +24,7 @@ There are three ways you can supply the username and password data for a request
 
 1.	The `-u $ACCOUNT` parameter on its own causes
 	cURL to ask you to enter your password interactively on the command line before performing the request.
-	This option is used for the cURL examples in the Cloudant API reference.
+	This option is used for the cURL examples in the {{site.data.keyword.cloudant_short_notm}} API reference.
 
 2.	**[Caution: This option is not secure]** Entering the combination parameter `-u $ACCOUNT:$PASSWORD`
 	as part of your command means that you are not asked to enter your password interactively.

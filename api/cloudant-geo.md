@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-16"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -12,15 +12,15 @@ lastupdated: "2017-06-16"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Cloudant Geospatial
+# {{site.data.keyword.cloudant_short_notm}} Geospatial
 
-Cloudant Geospatial,
-or 'Cloudant Geo',
+{{site.data.keyword.cloudantfull}} Geospatial,
+or '{{site.data.keyword.cloudant_short_notm}} Geo',
 combines the advanced geospatial queries of a Geographic Information System (GIS)
-with the flexibility and scalability of Cloudant's database-as-a-service (DBaaS) capabilities.
+with the flexibility and scalability of {{site.data.keyword.cloudant_short_notm}}'s database-as-a-service (DBaaS) capabilities.
 {:shortdesc}
 
-Cloudant Geo:
+{{site.data.keyword.cloudant_short_notm}} Geo:
 
 -   Enables web and mobile developers to enhance their applications using geospatial operations that go beyond simple bounding boxes.
 -   Integrates with existing GIS applications,
@@ -35,16 +35,16 @@ Cloudant Geo:
 	processed,
 	and syndicated across other web applications.
 
-## Cloudant Geo overview
+## {{site.data.keyword.cloudant_short_notm}} Geo overview
 
-Cloudant Geo lets you structure your data using GeoJSON format.
+{{site.data.keyword.cloudant_short_notm}} Geo lets you structure your data using GeoJSON format.
 Design documents are used to index the data.
-Just like working with other Cloudant documents,
+Just like working with other {{site.data.keyword.cloudant_short_notm}} documents,
 an initial scan works through all the documents in the database,
 giving you the first index.
 Subsequent updates to the documents result in incremental updates to the index.
 
-The key advantage of Cloudant Geo is to enable you to identify,
+The key advantage of {{site.data.keyword.cloudant_short_notm}} Geo is to enable you to identify,
 specify,
 or search for documents based on a spatial relationship;
 in effect using geometry to provide an additional way of expressing the relationship between and within documents.
@@ -60,14 +60,14 @@ relation=contains&g=POLYGON ((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0
 ```
 {:codeblock}
 
-The basic steps for working with geospatial data in Cloudant Geo are as follows:
+The basic steps for working with geospatial data in {{site.data.keyword.cloudant_short_notm}} Geo are as follows:
 
 1.  Include a GeoJSON geometry object in your JSON document.
 	The geometry object can be of any type defined by the [GeoJSON specification ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){:new_window}.
-2.  Index the geometry object using Cloudant Geo defined `st_index` function.
+2.  Index the geometry object using {{site.data.keyword.cloudant_short_notm}} Geo defined `st_index` function.
 3.  Search the indexed geometry object by using various geometries and geometric relationships.
 
-## Using Cloudant Geospatial through the Dashboard
+## Using {{site.data.keyword.cloudant_short_notm}} Geospatial through the Dashboard
 
 The Dashboard lets you perform several geospatial tasks:
 
@@ -107,7 +107,7 @@ up to a maximum of 200 at a time.
 To see the other results from your geospatial query,
 page through them by clicking the left or right arrow buttons.
 
-More information on using Cloudant Geospatial is available through
+More information on using {{site.data.keyword.cloudant_short_notm}} Geospatial is available through
 the [Learning Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.cloudant.com/learning-center#geo){:new_window}.
 
 ## GeoJSON
@@ -169,24 +169,24 @@ More information about GeoJSON,
 including the full specification,
 is available at [http://geojson.org/ ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/){:new_window}.
 
-## Creating a Cloudant Geo Index
+## Creating a {{site.data.keyword.cloudant_short_notm}} Geo Index
 
-To make it easier to work with Cloudant Geo documents,
+To make it easier to work with {{site.data.keyword.cloudant_short_notm}} Geo documents,
 it is best practice to create a separate design document,
-specifically for Cloudant Geo.
+specifically for {{site.data.keyword.cloudant_short_notm}} Geo.
 
 When you create a geospatial index,
-you must use the Cloudant Geo defined keyword `st_indexes` to hold one or more Cloudant Geo index definitions,
-where each index must be defined by the Cloudant Geo `st_index` function.
+you must use the {{site.data.keyword.cloudant_short_notm}} Geo defined keyword `st_indexes` to hold one or more {{site.data.keyword.cloudant_short_notm}} Geo index definitions,
+where each index must be defined by the {{site.data.keyword.cloudant_short_notm}} Geo `st_index` function.
 
-### `geoidx`: An example Cloudant Geo index
+### `geoidx`: An example {{site.data.keyword.cloudant_short_notm}} Geo index
 
 For example,
 you could create a design document with the `_id` value `"_design/geodd"` which contains an index called `"geoidx"`.
 The index is a simple JavaScript function that checks for the presence of a valid geometry object in the document,
-and if found ensures that the document is included in the `st_index` Cloudant Geo index function.
+and if found ensures that the document is included in the `st_index` {{site.data.keyword.cloudant_short_notm}} Geo index function.
 
-_An example Cloudant Geo design document, containing an index:_
+_An example {{site.data.keyword.cloudant_short_notm}} Geo design document, containing an index:_
 
 ```json
 {
@@ -206,12 +206,12 @@ There are a number of different algorithms for indexing geospatial data.
 Some algorithms are simple to understand and implement,
 but do not produce fast results.
 
-The basic algorithm used by Cloudant Geo
+The basic algorithm used by {{site.data.keyword.cloudant_short_notm}} Geo
 is [R\*\_tree ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/R*_tree){:new_window}.
 Although it has a slightly higher resource requirement for building the index,
 the resulting index offers much better performance in responding to geospatial queries.
 
-## Obtaining information about a Cloudant geo index
+## Obtaining information about a {{site.data.keyword.cloudant_short_notm}} geo index
 
 You can obtain information about a geospatial index within a database.
 Do this by using the `_geo_info` endpoint.
@@ -262,16 +262,16 @@ _Example response in JSON format:_
 	an attempt to retrieve information about the index by using the `_geo_info` endpoint
 	results in an [HTTP `404`](http.html#404) response.
 
-## Querying a Cloudant Geo index
+## Querying a {{site.data.keyword.cloudant_short_notm}} Geo index
 
-The fundamental API call for utilizing Cloudant Geo has a simple format,
+The fundamental API call for utilizing {{site.data.keyword.cloudant_short_notm}} Geo has a simple format,
 where the query parameters field `<query-parameters>` includes three different types of parameters:
 
 -	Query geometry.
 -	Geometric relation.
 _	Result set.
 
-_Example format for a Cloudant Geo API call:_
+_Example format for a {{site.data.keyword.cloudant_short_notm}} Geo API call:_
 
 ```http
 /$DATABASE/_design/$DDOCS/_geo/$INDEX_NAME?$QUERY_PARAMS
@@ -280,7 +280,7 @@ _Example format for a Cloudant Geo API call:_
 
 ### Query Geometry
 
-A query geometry parameter must be provided for a Cloudant Geo search.
+A query geometry parameter must be provided for a {{site.data.keyword.cloudant_short_notm}} Geo search.
 There are four types of query geometries that are defined as follows:
 
 Parameter | Description
@@ -325,12 +325,12 @@ _Example of a `polygon` query:_
 ```
 {:codeblock}
 
->	**Note**: Cloudant Geo uses `intersects` as the default geometric relation
+>	**Note**: {{site.data.keyword.cloudant_short_notm}} Geo uses `intersects` as the default geometric relation
 when executing a query with query geometry only.
 
 ### Geometric Relation
 
-Cloudant Geo works with geospatial relationships and follows
+{{site.data.keyword.cloudant_short_notm}} Geo works with geospatial relationships and follows
 the [DE-9IM specification ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/DE-9IM){:new_window} for geometric relations.
 These define the different ways in which two geospatial objects are related to each other,
 if indeed they are related at all.
@@ -371,7 +371,7 @@ _An example of returning all geometries which are contained by a `polygon`:_
 
 ### Nearest neighbor search
 
-Cloudant Geo supports Nearest Neighbor search,
+{{site.data.keyword.cloudant_short_notm}} Geo supports Nearest Neighbor search,
 known as NN search.
 If provided,
 the `nearest=true` search returns all results by sorting their distances to the center of the query geometry.
@@ -389,7 +389,7 @@ https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POINT(-71.0537
 ```
 {:codeblock}
 
->	**Note**: The `nearest=true` search can change the semantics of a Cloudant Geo search.
+>	**Note**: The `nearest=true` search can change the semantics of a {{site.data.keyword.cloudant_short_notm}} Geo search.
 For example,
 without `nearest=true` in the example query,
 the results only include GeoJSON documents that have coordinates equal to the given query point `(-71.0537124 42.3681995)`
@@ -497,11 +497,11 @@ _Example response to the query:_
 ```
 {:codeblock}
 
-## Example: Querying a Cloudant Geo index
+## Example: Querying a {{site.data.keyword.cloudant_short_notm}} Geo index
 
 ### Simple Circle
 
-This simple example demonstrates how Cloudant Geo can find documents that are considered to have a geospatial
+This simple example demonstrates how {{site.data.keyword.cloudant_short_notm}} Geo can find documents that are considered to have a geospatial
 position within a given geographic circle.
 The function might be useful to determine insurance customers who live close to a known flood plain.
 

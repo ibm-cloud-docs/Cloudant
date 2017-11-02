@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-03-21"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -12,18 +12,18 @@ lastupdated: "2017-03-21"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Comparison of Cloudant and CouchDB API endpoints
+# Comparison of {{site.data.keyword.cloudant_short_notm}} and CouchDB API endpoints
 
-This section provides a simple list of the Cloudant (![Cloudant Logo](../images/verySmallCloudant.png)),
+This section provides a simple list of the {{site.data.keyword.cloudantfull}} (![{{site.data.keyword.cloudant_short_notm}} Logo](../images/verySmallCloudant.png)),
 CouchDB 2.0 (![CouchDB 2.0 Logo](../images/verySmallCouchDB2.png)),
 and CouchDB 1.6 (![CouchDB 1.6 Logo](../images/verySmallCouchDB1.png)) API endpoints and the methods for accessing them,
 showing you which endpoints are present in each service.
 {:shortdesc}
 
-Some CouchDB endpoints do not have Cloudant equivalents,
+Some CouchDB endpoints do not have {{site.data.keyword.cloudant_short_notm}} equivalents,
 because it would not be meaningful.
 Similarly,
-some Cloudant endpoints do not have CouchDB equivalents.
+some {{site.data.keyword.cloudant_short_notm}} endpoints do not have CouchDB equivalents.
 
 For more information about a given endpoint on a service,
 click the corresponding icon.
@@ -126,7 +126,7 @@ click the corresponding icon.
 <a href='advanced.html#get-/\_db\_updates' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/common.html#get--\_db\_updates' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/common.html#get--\_db\_updates' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td>List all database events in the instance.<p>In Cloudant the endpoint is only available to dedicated customers. Its documentation references additional query params (limit, since, descending) and an additional feed type value (normal) For CouchDB, its documentation references an additional feed type value (eventsource)</p></td>
+</p></td><td>List all database events in the instance.<p>In {{site.data.keyword.cloudant_short_notm}} the endpoint is only available to dedicated customers. Its documentation references additional query params (limit, since, descending) and an additional feed type value (normal) For CouchDB, its documentation references an additional feed type value (eventsource)</p></td>
 </tr>
 <tr>
 <td><code>GET&nbsp;/\_log</code><p>
@@ -144,28 +144,28 @@ click the corresponding icon.
 <a href='replication.html#the-/\_replicate-endpoint' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/common.html#post--\_replicate' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/common.html#post--\_replicate' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td>Request, configure, or stop, a replication operation.<p>Cloudant documentation references additional request body fields (selector, since\_seq).</p></td>
+</p></td><td>Request, configure, or stop, a replication operation.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (selector, since\_seq).</p></td>
 </tr>
 <tr>
 <td><code>POST&nbsp;/\_replicator</code><p>
 <a href='replication.html#the-/\_replicator-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td>Trigger a replication.<p>Cloudant documentation references additional request body fields (selector, since\_seq).</p></td>
+</p></td><td>Trigger a replication.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (selector, since\_seq).</p></td>
 </tr>
 <tr>
 <td><code>PUT&nbsp;/\_replicator</code><p>
 <a href='replication.html#the-/\_replicator-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td>Trigger a replication.<p>Cloudant documentation references additional request body fields (selector, since\_seq).</p></td>
+</p></td><td>Trigger a replication.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (selector, since\_seq).</p></td>
 </tr>
 <tr>
 <td><code>DELETE&nbsp;/\_replicator</code><p>
 <a href='replication.html#the-/\_replicator-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td>Cancel an ongoing replication<p>Cloudant documentation references additional request body fields (selector, since\_seq).</p></td>
+</p></td><td>Cancel an ongoing replication<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (selector, since\_seq).</p></td>
 </tr>
 <tr>
 <td><code>POST&nbsp;/\_restart</code><p>
@@ -329,7 +329,7 @@ click the corresponding icon.
 <a href='design_documents.html#creating-or-updating-a-design-document' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/common.html#put--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/common.html#put--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td>Create a new named design document or create a new revision of the existing design document.<p>Cloudant documentation references an additional request body field (indexes) CouchDB documentation references additional request body fields (language, options).</p></td>
+</p></td><td>Create a new named design document or create a new revision of the existing design document.<p>{{site.data.keyword.cloudant_short_notm}} documentation references an additional request body field (indexes) CouchDB documentation references additional request body fields (language, options).</p></td>
 </tr>
 <tr>
 <td><code>DELETE&nbsp;/{db}/\_design/{ddoc}</code><p>
@@ -513,7 +513,7 @@ click the corresponding icon.
 <td><code>POST&nbsp;/{db}/\_find</code><p>
 <a href='cloudant_query.html#finding-documents-using-an-index' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/find.html#post--db-\_find' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
-</p></td><td>Find documents using a declarative JSON querying syntax.<p>Cloudant documentation references additional request body fields (r, bookmark)</p></td>
+</p></td><td>Find documents using a declarative JSON querying syntax.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (r, bookmark)</p></td>
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_index</code><p>
