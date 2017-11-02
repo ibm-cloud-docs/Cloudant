@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2017-10-27"
 
 ---
 
@@ -12,604 +12,292 @@ lastupdated: "2017-05-04"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Back up your data
+<!-- Keep up-to-date with changes in backup-cookbook.md -->
 
->   **Note**: This guide refers to a *deprecated* daily incremental backup capability,
-    previously available only on request to Enterprise customers.
-    For current backup guidance,
-    see the [Disaster Recovery and Backup](disaster-recovery-and-backup.html) guide.
+# Cloudant backup and recovery
 
-This capability:
--   Is not enabled by default.
--   Is only available to Enterprise customers, who must specifically request it.
--   Must be explicitly configured before it is operational.
--   Is subject to [known limitations](#known-limitations).
--   Is not applicable to [Cloudant Local ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}.
+This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](disaster-recovery-and-backup.html).
+It's worth starting there if you are new to the subject and want to understand where backup fits in
+with the other capabilities that {{site.data.keyword.cloudant_short_notm}} offers
+to support Disaster Recovery (DR) and High Availability (HA) requirements.
+
+Although data is stored redundantly within a {{site.data.keyword.cloudant_short_notm}} cluster,
+it's important to consider extra backup measures.
+For example,
+redundant data storage does not protect against mistakes when data is changed.
+
+## Introducing CouchBackup
+
+{{site.data.keyword.cloudant_short_notm}} provides a supported tool for snapshot backup and restore.
+The tool is called CouchBackup,
+and is open source.
+It is a `node.js` library,
+and is [available to install on npm ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{:new_window}.
+
+In addition to the library,
+the CouchBackup package contains two command line tools:
+
+1. `couchbackup`, which dumps the JSON data from a database to a backup text file.
+2. `couchrestore`, which restores data from a backup text file to a database.
+
+<strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
+
+## Backing up your Cloudant data
+
+You can do a simple backup by using the `couchbackup` tool.
+To back up the `animaldb` database to a text file called `backup.txt`,
+you might use a command similar to the following example:
+
+```sh
+couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
+```
+{:codeblock}
+
+The [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{:new_window} details other options,
+including:
+
+* Environment variables to set the names of the database and URL.
+* Using a log file to record the progress of a backup.
+* The ability to resume an interrupted backup.
+  **Note**: This option is only available with the log file for the interrupted backup.
+* Sending the backup text file to a named output file,
+  rather than redirecting the `stdout` output.
+
+<strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
+
+## Restoring your Cloudant data
+
+To restore your data,
+use the `couchrestore` tool.
+Use `couchrestore` to import the backup file
+into a new {{site.data.keyword.cloudant_short_notm}} database.
+Then,
+ensure that you build all indexes before any application attempts to use the restored data.
+
+For example,
+to restore the data that was backed up in the earlier example:
+
+```sh
+couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
+```
+{:codeblock}
+
+The [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{:new_window} provides details of other restore options.
+
+<strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
+
+## Limitations
+
+<strong style="color:red;">Warning!</strong> The CouchBackup tools have the following limitations: 
+
+* `_security` settings are not backed up by the tools.
+* Attachments are not backed up by the tools.
+* Backups are not precisely accurate "point-in-time" snapshots.
+  The reason is that the documents in the database are retrieved in batches,
+  but other applications might be updating documents at the same time.
+  Therefore,
+  the data in the database can change between the times when the first and last batches are read.
+* Index definitions that are held in design documents are backed up,
+  but the content of indexes is not backed up.
+  This limitation means that when data is restored,
+  the indexes must be rebuilt.
+  The rebuilding might take a considerable amount of time,
+  depending on how much data is restored.
+
+## Using the tools
+
+The [npm page ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{:new_window}
+details the basics of using the command line tools for backup and restore of data.
+The following examples show how to put those details into practice
+by describing the use of the tools for specific tasks.
+
+The CouchBackup package provides two ways of using its core functions.
+
+* The command line tools can be embedded into standard UNIX command pipelines.
+  For many scenarios,
+  a combination of `cron` and simple shell scripting of the `couchbackup` application is sufficient.
+* A library usable from node.js.
+  The library allows more complicated backup processes to be created and deployed,
+  such as determining dynamically which databases must be backed up.
+
+Use either the command line backup tool,
+or the library with application code,
+to enable backup from {{site.data.keyword.cloudant_short_notm}} databases as part of more complicated situations.
+A useful scenario is scheduling backups by using `cron`,
+and automatically uploading data to
+[Cloud Object Storage ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window}
+for long-term retention.
+
+## Command line scripting examples
+
+Two requirements are frequently encountered:
+
+* Saving disk space,
+  by ['zipping' the backup](#zipping-a-backup-file) file as it is created.
+* Creating a backup of a database automatically, [at regular intervals](#hourly-or-daily-backups-using-cron).
+
+### Compressing a backup file
+
+The `couchbackup` tool can write a backup file to disk directly,
+or stream the backup to `stdout`.
+Streaming to `stdout` enables data to be transformed before it is written to disk.
+This capability is used to compress data within the stream.
+
+```sh
+couchbackup --url "https://examples.cloudant.com" \
+  --db "animaldb" | gzip > backup.gz
+```
+{:codeblock}
+
+In this example,
+the `gzip` tool accepts the backup data directly through its `stdin`,
+compresses the data,
+and emits it through `stdout`.
+The resulting compressed data stream is then redirected and written to a file called `backup.gz`.
+
+If the database requires you to supply access credentials,
+use a URL of the form `https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com`,
+for example:
+
+```sh
+couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
+  --db "animaldb" | gzip > backup.gz
+```
+{:codeblock}
+
+It is straightforward to extend the pipeline if you want to transform the data in other ways.
+For example,
+you might want to encrypt the data before it is written to disk.
+Alternatively,
+you might want to write the data directly to an object store service,
+by using their command line tools.
+
+### Hourly or daily backups that use `cron`
+
+The `cron` scheduling tool can be set up to take snapshots of data at regular intervals
+
+A useful starting point is to get `couchbackup` to write a single backup to a file,
+where the file name includes the current date and time,
+as shown in the following example:
+
+```sh
+couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
+  --db "animaldb" > animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
+```
+{:codeblock}
+
+After you check the command to ensure it works correctly,
+it can be entered into a 'cron job':
+
+1.  Install the CouchBackup tools on the server that you want to do the backups.
+2.  Create a folder to store the backups.
+3.  Create a 'cron entry' that describes the frequency of the backup.
+
+You can create a cron entry by using the `crontab -e` command.
+Consult your system documentation for specific details on the 'cron' options.
+
+A cron entry to do a daily backup is similar to the following example:
+
+```sh
+0 5 * * * couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" --db "animaldb" > /path/to/folder/animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
+```
+{:codeblock}
+
+This cron entry creates a daily backup at 05:00.
+You can modify the cron pattern to do hourly, daily, weekly, or monthly backups as needed.
+
+## Using CouchBackup as a library
+
+The `couchbackup` and `couchrestore` command line tools are wrappers around a library
+that can be used in your own node.js applications.
+
+The library is useful for more complicated scenarios,
+for example:
+
+* Backing up several databases in one task.
+  You might do this backup by identifying all the databases by using the [`_all_dbs`](../api/database.html#get-databases) call,
+  then doing a backup of each database individually.
+* Longer pipelines increase the risk of errors.
+  By using the CouchBackup library,
+  your application can detect and address any error at the earliest opportunity.
+
 For more information,
-please contact the [IBM Cloudant support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
-
->   **Note**: The daily incremental backup capability is not applicable for
-    [Cloudant Local ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}.
-    To back up data in Cloudant Local,
-    use [replication](../api/replication.html) to make a copy of your database.
-
-To ensure high availability,
-{{site.data.keyword.cloudant}} creates three copies of each document,
-and stores it on three different servers in a cluster.
-This practice is the default for all Cloudant users.
-Even when your data is replicated in triplicate,
-it is still  important to back it up.
-
-Why is backing up important?
-In general,
-you could lose access to data in many ways.
-For example,
-if a hurricane destroys your data center and all three nodes are in that location,
-you lose your data.
-You can prevent the loss of your data in a disaster by replicating your data to a
-cluster (dedicated or multi-tenant) in a different geographic location.
-However,
-if a faulty application deletes or overwrites the data in your database,
-duplicate data is not helpful.
-
-Having a comprehensive,
-tested backup enables you to answer the following question with confidence:
-"How can we restore data in case of loss or corruption?"
-
-With Cloudant,
-Enterprise customers can have daily incremental backups.
-
-If you are not an Enterprise customer,
-or you wish to create your own backup mechanism,
-consider [using Replication to perform backups](disaster-recovery-and-backup.html).
-
->   **Note**: Daily incremental backup for Enterprise customers is currently a *Beta* capability.
-    It is not enabled by default.
-
-Daily incremental backups or 'deltas' enable document comparison,
-and easier single document restoration.
-At regular intervals,
-which can be configured,
-the smaller daily deltas are rolled up into weekly deltas.
-Similarly,
-weekly deltas are rolled up into monthly deltas,
-and monthly deltas into yearly ones.
-This process of rolling up deltas is a pragmatic compromise between
-being able to restore exactly the correct version of a document,
-and requiring a lot of storage space.
-
-The backup facility allows you to restore individual documents manually.
-Should you wish to restore and entire database,
-for example as part of a disaster recovery scenario,
-you can contact the support team and have your data restored to a specific day,
-week,
-month or year,
-subject to the deltas you have available.
-
-More information about how Cloudant backs up data is provided in the rest of this topic.
-For further assistance,
-or to request that data backup is enabled,
-contact the Cloudant support team:
-[support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
-
->   **Note**: The Cloudant backup facility is available only to Enterprise customers.
-
->   **Note**: By default,
-    `_design` documents are not backed up,
-    so that indexes are _not_ built on the incremental backup databases.
-    If you require backups of the `_design` documents,
-    you must maintain them in your preferred source control tool.
-
-## Concepts
-
-It is helpful to understand the following terms when referring to backup concepts:
-
-Term                 | Meaning
----------------------|--------
-Backup cleanup       | When a delta database has been rolled up, the delta database is removed after a configurable time period. This allows you to balance data retention at a high granularity against the cost of storage.
-Backup rollup        | Daily backups are combined into weekly rolled up databases. These combine the daily deltas into a coarser (less granular) backup. Similarly, weekly databases are rolled up into monthly databases, and monthly databases into yearly databases.
-Backup run           | For a backup period, the source database is replicated using sequence values to determine the documents that changed during the backup period. On completion, this replication is called the daily backup.
-Baseline backup      | A collection of documents, against which a delta database can be compared.
-Daily backup         | See Backup run.
-Daily delta          | Another name for a daily backup.
-Delta database       | The collection of documents that have changed over a period of time (the 'delta').
-High/low granularity | This indicates how precisely you can specify the period of change for a document. A high granularity rollup has a short timescale for the period of change, for example a day in the case of a daily backup. A low granularity rollup has a long timescale for the period of change, for example a year in the case of a yearly backup.
-Incremental backup   | The collection of documents that have changed in the database since the last backup.
-Roll up              | Aggregate a collection of incremental backups into a lower granularity backup, for example to aggregate the daily backups for a week into a single 'weekly' backup.
-
-## Incremental backups
-
-The first step in enabling incremental backups is to take a full backup of your entire database.
-This provides a 'baseline' for the subsequent incremental backups.
-
-Every day,
-after the first 'baseline' backup,
-a daily,
-incremental backup is taken.
-This daily incremental backup contains only the data that has changed in the database since the last backup.
-The daily backup is the 'daily delta'.
-
-As part of the request to enable data backups,
-you can specific a time of day for the backup to run.
-The daily delta is created each day,
-at the time you specified.
-
-## Roll ups
-
-A roll up combines daily backups into weekly,
-rolled up databases.
-These roll up databases combine the daily deltas into a coarser,
-or 'less granular',
-time slice.
-Weekly databases roll up into monthly databases,
-and monthly databases roll up into yearly databases.
-
-![Illustration of roll up hierarchy](../images/rollups.png)
-
-When requesting that backups are enabled,
-you should specify how many daily deltas to keep.
-Once that number is reached,
-the oldest daily delta is rolled up into the most recent weekly database.
-Thereafter,
-the weekly databases are rolled up to create the monthly databases,
-and so on.
-
-Once the delta databases have been rolled up,
-they are removed to free up storage space.
-
-## Restores
-
-When you have backups for a database,
-you can view individual documents within that database,
-and also see changes made to that document.
-You can also restore the document to the version that was current on a particular date,
-if it is available within the granularity of the delta.
-
->   **Note**: Documents must be static before restoring from backup.
-    In other words,
-    the document should not be constantly receiving changes and updates.
-
-For more complex restores,
-such as a full database restore,
-request assistance from [Cloudant support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
-
-## Using the Dashboard
-
-Enterprise customers can review the status and history of backups using the Cloudant Dashboard.
-
-Tasks you can perform include:
-
--   View the status of the last backup,
-    including its date and time.
--   View a list of backup document versions by date and time.
--   View a current document and the difference between it and any backed up version.
--   Restore a document from a backed up version.
-
-### Viewing database backup status
-
-![Dashboard view of database backup status](../images/dashboarddatabasesbackup.png)
-
-When you select the Database tab within the Cloudant Dashboard,
-you can see a backup status column for each of your databases.
-
-### Viewing document backup status
-
-![Dashboard view of backup status for all documents](../images/dashboarddatabasesbackupbutton.png)
-
-Within a database,
-you can view the backup status of a specific document.
-To do this,
-first check to see if there is a backup icon
-(![Dashboard backup icon](../images/dashboarddatabasesbackupicon.png))
-for your document.
-This shows whether the specific document is included within the backup task.
-
-When you select the document,
-you can see a backup tab.
-
-![Dashboard view of document backup status](../images/dashboarddatabasesbackupdocument.png)
-
-### Viewing differences between document backup versions, and restoring
-
-![Dashboard view of document backup status](../images/dashboarddatabasesbackupdocumentdiff.png)
-
-When you click the backup tab for a document,
-you can see the differences between the current version of the document,
-and any other backed-up version.
-
-If you decide that you would like to restore a specific backup version of that document,
-simply select the date of the backup to restore,
-then click the 'Restore' button.
-
->   **Note**: Documents must be in a stable state before restoring from backup.
-    In other words,
-    the document should not be constantly receiving changes and updates.
-
-## Using the API
-
-A number of REST API calls are available for working with the Cloudant backup facility.
-
-### Task configuration
-
-The `task` call gets the backup task configuration for the user.
-
-You can specify the format used in the response by using the `format` parameter.
-
-_Example of requesting the backup task configuration for the user,
-returning results in a list format (default), using HTTP:_
-
-```http
-GET /_api/v2/backup/task HTTP/1.1
-```
-{:codeblock}
-
-_Example of requesting the backup task configuration for the user,
-returning results in a list format (default), using the command line:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/task \
-    -X GET
-```
-{:codeblock}
-
-_Example of requesting the backup task configuration for the user,
-returning results in a mapping format, using HTTP:_
-
-```http
-GET /_api/v2/backup/task?format=mapping HTTP/1.1
-```
-{:codeblock}
-
-_Example of requesting the backup task configuration for the user,
-returning results in a mapping format, using the command line:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/task?format=mapping \
-     -X GET
-```
-{:codeblock}
-
-The default response format is a list.
-You can request this format directly by using the `...backup/task?format=list` parameter.
-The response contains a simple list of the backup tasks defined for the user.
-
-For example,
-you might request a list format response using either of the following commands:
-
-```http
-https://$ACCOUNT.cloudant.com/_api/v2/backup/task
-
-https://$ACCOUNT.cloudant.com/_api/v2/backup/task?format=list
-```
-{:codeblock}
-
-_Example response following a list format request:_
-
-```json
-{
-    "rows": [
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-0d0b0cf1b0ea42179f9c082ddc5e07cb",
-            "source_db": "backmeup",
-            "latest_completion": null
-        },
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-d0ea6e8218074699a562af543db66615",
-            "source_db": "backuptest",
-            "latest_completion": "2016-01-17T05:57:44+00:00"
-        },
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-24cd8359b94640be85b7d4071921e781",
-            "source_db": "taskdb",
-            "latest_completion": "2016-01-17T00:01:04+00:00"
+see the [npm page ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{:new_window}.
+
+The following script sample shows how to combine the `couchbackup` library
+with use of {{site.data.keyword.IBM}} Cloud Object Storage.
+This code illustrates how you might use Cross Region S3 API to back up a database to an object store.
+
+> **Note**: A prerequisite for the code is that you initialize the S3 client object for
+  {{site.data.keyword.IBM_notm}} Cloud Object Storage by following
+[these instructions ![External link icon](../images/launch-glyph.svg "External link icon")][cosclient]{:new_window}.
+
+```javascript
+/*
+  Backup directly from Cloudant to an S3 bucket via a stream.
+  @param {string} couchHost - URL of database root
+  @param {string} couchDatabase - backup source database
+  @param {object} s3Client - S3 client object
+  @param {string} s3Bucket - Destination S3 bucket (must exist)
+  @param {string} s3Key - Destination object's key (shouldn't exist)
+  @param {boolean} shallow - Whether to use couchbackup's shallow mode
+  @returns {Promise}
+*/
+function backupToS3(sourceUrl, s3Client, s3Bucket, s3Key, shallow) {
+  return new Promise((resolve, reject) => {
+    debug('Setting up S3 upload to ${s3Bucket}/${s3Key}');
+
+    // A pass through stream that has couchbackup's output
+    // written to it and it then read by the S3 upload client.
+    // It has a 10MB internal buffer.
+    const streamToUpload = new stream.PassThrough({highWaterMark: 10485760});
+
+    // Set up S3 upload.
+    const params = {
+      Bucket: s3Bucket,
+      Key: s3Key,
+      Body: streamToUpload
+    };
+    s3Client.upload(params, function(err, data) {
+      debug('S3 upload done');
+      if (err) {
+        debug(err);
+        reject(new Error('S3 upload failed'));
+        return;
+      }
+      debug('S3 upload succeeded');
+      debug(data);
+      resolve();
+    }).httpUploadProgress = (progress) => {
+      debug('S3 upload progress: ${progress}');
+    };
+
+    debug('Starting streaming data from ${sourceUrl}');
+    couchbackup.backup(
+      sourceUrl,
+      streamToUpload,
+      (err, obj) => {
+        if (err) {
+          debug(err);
+          reject(new Error('CouchBackup failed with an error'));
+          return;
         }
-    ]
+        debug('Download from ${sourceUrl} complete.');
+        streamToUpload.end();  // must call end() to complete S3 upload.
+        // resolve() is called by the S3 upload
+      }
+    );
+  });
 }
 ```
 {:codeblock}
 
-A more comprehensive response is available in the mapping format.
-You can request this format directly by using the `...backup/task?format=mapping` parameter.
+## Other disaster recovery options
 
-For example, you might request a mapping format response using the following command:
+Return to the [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](disaster-recovery-and-backup.html)
+to find out about the other features {{site.data.keyword.cloudant_short_notm}}
+offers for a full disaster recovery setup.
 
-```http
-https://$ACCOUNT.cloudant.com/_api/v2/backup/task?format=mapping
-```
-{:codeblock}
-
-_Example response following a mapping format request:_
-
-```json
-{
-    "backmeup": {
-        "username": "$ACCOUNT",
-        "task": "backup-0d0b0cf1b0ea42179f9c082ddc5e07cb",
-        "source_db": "backmeup",
-        "latest_completion": null
-    },
-    "backuptest": {
-        "username": "$ACCOUNT",
-        "task": "backup-d0ea6e8218074699a562af543db66615",
-        "source_db": "backuptest",
-        "latest_completion": "2016-01-17T05:57:44+00:00"
-    },
-    "taskdb": {
-        "username": "$ACCOUNT",
-        "task": "backup-24cd8359b94640be85b7d4071921e781",
-        "source_db": "taskdb",
-        "latest_completion": "2016-01-17T00:01:04+00:00"
-    }
-}
-```
-{:codeblock}
-
-### Determining backup tasks for specific databases
-
-The `databases` parameter for the `task` request is used
-to find what backup tasks are associated with a specified database.
-
-The response lists the backup task details for the database identified in the `source_db` field.
-The `task` identified can be used in other backup API calls,
-such as the [database listing](#list-of-databases).
-
-_Example command to find backup tasks for the `backuptest` and `taskdb` database, using HTTP:_
-
-```http
-GET /_api/v2/backup/task?databases=backuptest,taskdb HTTP/1.1
-```
-{:codeblock}
-
-_Example command to find backup tasks for the `backuptest` and `taskdb` database, using the command line:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/task?databases=backuptest,taskdb \
-    -X GET
-```
-{:codeblock}
-
-_Example response to finding backup tasks for specific databases:_
-
-```json
-{
-    "rows": [
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-d0ea6e8218074699a562af543db66615",
-            "source_db": "backuptest",
-            "latest_completion": "2016-01-17T05:57:44+00:00"
-        },
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-24cd8359b94640be85b7d4071921e781",
-            "source_db": "taskdb",
-            "latest_completion": "2016-01-17T00:01:04+00:00"
-        }
-    ]
-}
-```
-{:codeblock}
-
-### List of databases
-
-The `monitor` request gets a list of the databases created by the backup task `$TASKNAME`,
-that also contain the document `$DOCID`.
-
-The request supports an optional argument: `include_docs`.
-The default value is `false`.
-If set to `true`,
-the `monitor` request returns the full document content for each backup database containing `$DOCID`.
-
-_Retrieving the list of databases created by a backup task, that contain a specific document, using HTTP:_
-
-```http
-GET /_api/v2/backup/monitor/$TASKNAME/$DOCID?include_docs=true HTTP/1.1
-```
-{:codeblock}
-
-_Retrieving the list of databases created by a backup task, that contain a specific document, using the command line:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/monitor/$TASKNAME/$DOCID?include_docs=true \
-    -X GET
-```
-{:codeblock}
-
-### Restore a document
-
-The `restore` call replaces a document,
-identified by `$DOCID`,
-from a source database.
-The source database is identified by the `$TASKNAME`.
-The `$TASKDATE` is the timestamp of the specific backup,
-and specifies when the backup was performed.
-The `$FREQUENCY` is one of the following four values:
--   `"daily"`
--   `"weekly"`
--    `"monthly"`
--   `"yearly"`
-
->   **Note**: Documents must be in a stable state before restoring from backup.
-    In other words,
-    the document should not be receiving any changes and updates while the restore is in progress.
-
-_Example of request to restore a document, using HTTP:_
-
-```http
-POST /_api/v2/backup/restore/document --data=@RESTORE.json HTTP/1.1
-Content-Type: application/json
-```
-{:codeblock}
-
-_Example of request to restore a document from the most recent version held in a specific backup database, using the command line:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/restore/document --data=@RESTORE.json \
-    -X POS \
-    -H "Content-Type: application/json" \
-    -d "$JSON"
-```
-{:codeblock}
-
-_Example of a JSON document requesting that a document be restored
-from the most recent version held in a specific backup database:_
-
-```json
-{
-    "doc_id": $DOCID,
-    "task_name": $TASKNAME,
-    "task_date": $TASKDATE,
-    "frequency": $FREQUENCY
-}
-```
-{:codeblock}
-
-## How backup using incremental replication works
-
-A very simple form of backup is to [replicate](../api/replication.html) the database to a dated backup database.
-
-This method works and is easy to do.
-But if the database is big and you need backups for multiple points in time,
-for example seven daily backups and four weekly ones,
-you end up storing a complete copy of all the documents in each new backup database.
-This is likely to require a lot of storage space.
-
-Incremental backups are a good solution for storing only the documents that have changed since the last backup.
-
-Initially,
-you perform a backup of the entire database.
-After the first backup,
-you run regular,
-incremental backups,
-backing up only what has changed in the database since the last backup.
-Typically these incremental backups take place once a day,
-so this replication is a daily backup.
-
-Incremental backups save only the delta between backups.
-At regular intervals,
-the source database is replicated to a target database.
-Replication uses sequence values to identify the documents changed during the interval period.
-
-The backup operation uses replication to get and store a checkpoint.
-This checkpoint is another database with an internal name.
-
-The replication process for a database starts by finding the value of the `since_seq` parameter.
-The parameter indicates where the last replication finished.
-
->   **Note**: By definition, using the `since_seq` option disables the normal replication checkpointing facility. Only use `since_seq` with caution. 
-
-The following steps outline how incremental backups are created:
-
-1.  [Find the ID of the checkpoint document for the last replication.](#find-the-id-of-the-checkpoint-document-for-the-last-replication)
-2.  [Get the `recorded_seq` value.](#get-the-recorded_seq-value)
-3.  [Run an incremental backup.](#run-an-incremental-backup)
-
-### Find the ID of the checkpoint document for the last replication
-
-The checkpoint ID value is stored in the `_replication_id` field
-of the replication document in the `_replicator` database.
-
-_Example request to get the checkpoint ID of the last incremental backup,
-for a database called `original`, using HTTP:_
-
-```http
-GET /_replicator/original HTTP/1.1
-```
-{:codeblock}
-
-_Example request to get the checkpoint ID of the last incremental backup,
-for a database called `original`, using the command line:_
-
-```sh
-replication_id=$(curl "${url}/_replicator/original" | jq -r '._replication_id')
-```
-{:pre}
-
-### Get the `recorded_seq` value
-
-After you get the checkpoint ID,
-you use it to get the `recorded_seq` value from
-the first element of the history array in the `/_local/${replication_id}` document in the original database.
-
-_Example of getting the `recorded_seq` value from a database called `original`, using HTTP:_
-
-```http
-GET /original/_local/${replication_id} HTTP/1.1
-```
-{:codeblock}
-
-_Example of getting the `recorded_seq` value from a database called `original`, using the command line:_
-
-```sh
-recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history[0].recorded_seq')
-```
-{:pre}
-
-### Run an incremental backup
-
-Now that you have the checkpoint ID and `recorded_seq`,
-you can start the new incremental backup.
-
-_Example of starting a new incremental backup, to an incremental database called `newbackup`, using HTTP:_
-
-```http
-PUT /_replicator/newbackup HTTP/1.1
-Content-Type: application/json
-```
-{:codeblock}
-
-_Example of starting a new incremental backup, to an incremental database called `newbackup`, using the command line:_
-
-```sh
-curl -X PUT "${url}/_replicator/newbackup" -H "${ct}" -d @newbackup.json
-```
-{:codeblock}
-
-_Example of JSON file specifyin an incremental backup:_
-
-```json
-{
-    "_id": "newbackup",
-    "source": "${url}/original",
-    "target": "${url}/newbackup",
-    "since_seq": "${recorded_seq}"
-}
-```
-{:codeblock}
-
-## Known limitations
-
->   **Note**: Daily incremental backup for Enterprise customers is currently a Beta capability.
-    It is not enabled by default.
-
--   IBM Cloudant Backup,
-    and the associated restore capabilities,
-    are based on the underlying replication technology.
-    Factors affecting,
-    or even interrupting,
-    the replication will affect or even stall backup or restore processes.
--   Backup and restore processes could take a significant amount of time for large databases,
-    for example over 100GB in size.
-    This applies to the initial backup,
-    which could take a few days to complete for a large database.
-    Similarly,
-    the restore process could take from a few hours to several days,
-    again depending on the size of the database.
--   For large daily backups,
-    it is possible that the backup process cannot complete in one day (24 hours).
-    The backup process normally runs to completion,
-    therefore it would include incremental changes for more than a day.
--   There is currently no support for backing up a full user account.
-    Instead,
-    you must specify each of the databases within a user account that you want enabled for backup or restore.
-    Currently,
-    there is a limit of 50 databases enabled for backup within any one user account.
--   The IBM Cloudant Backup facility does not currently support
-    backup or restore for [design documents](../api/design_documents.html).
-    If you require backups of design documents,
-    you must maintain them in your preferred source control tool.
--   Currently,
-    the target database for performing a database restore must be different from the original source database.
+[npmpackage]: https://www.npmjs.com/package/@cloudant/couchbackup
+[npmreadme]: https://github.com/cloudant/couchbackup/blob/master/README.md
+[cosclient]: https://developer.ibm.com/recipes/tutorials/cloud-object-storage-s3-api-intro/
