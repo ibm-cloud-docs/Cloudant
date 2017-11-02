@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-11"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -29,7 +29,7 @@ A replication database must be looked after like any other database.
 Without regular database maintenance,
 you might accumulate invalid documents that were caused by interruptions to the replication process.
 Having many invalid documents can result in an excess load on your cluster
-when the replicator process is restarted by Cloudant operations.
+when the replicator process is restarted by {{site.data.keyword.cloudantfull}} operations.
 
 The main action that you can do to maintain a replication database is to remove old documents.
 This can be done by determining the age of documents,
@@ -37,8 +37,8 @@ and [deleting them](document.html#delete) if they are no longer needed.
 
 ## The replication scheduler
 
-The new Cloudant Replication Scheduler provides a number of improvements and enhancements when compared
-with the previous Cloudant replication mechanism.
+The new {{site.data.keyword.cloudant_short_notm}} Replication Scheduler provides a number of improvements and enhancements when compared
+with the previous {{site.data.keyword.cloudant_short_notm}} replication mechanism.
 
 In particular,
 network usage during replication is more efficient,

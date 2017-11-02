@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-21"
+lastupdated: "2017-11-01"
 
 ---
 
@@ -21,7 +21,7 @@ the next test is to decide whether you are allowed to do certain tasks.
 This decision is called authorization.
 {:shortdesc}
 
-When you authenticate with the {{site.data.keyword.cloudant}} system,
+When you authenticate with the {{site.data.keyword.cloudantfull}} system,
 it 'knows' who you are.
 The next question is: what tasks are you allowed to do?
 
@@ -324,7 +324,7 @@ _Example of an incorrect authorization modification request document:_
 ## API keys
 
 Use API keys to enable database access for a person or application,
-but without creating a new {{site.data.keyword.cloudantfull}} account for that person or application.
+but without creating a new {{site.data.keyword.cloudant_short_notm}} account for that person or application.
 An API key is a randomly generated user name and password.
 The key is given the wanted access permissions for a database.
 
@@ -355,11 +355,11 @@ remember to record the key name and password.
 These values are both randomly generated,
 and cannot be retrieved if lost or forgotten.
 
->	**Note**: [IBM Cloudant Data Layer Local Edition ("Cloudant Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}
+>	**Note**: [{{site.data.keyword.IBM}} {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("{{site.data.keyword.cloudant_short_notm}} Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}
 does not support API Keys.
 For a similar capability,
 create "CouchDB" style users,
-as described in the [IBM Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_db_security.html){:new_window}.
+as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_db_security.html){:new_window}.
 
 _Example of using an HTTP request to create an API key:_
 
@@ -437,7 +437,7 @@ do the following steps:
 
 For an example of this process,
 see the blog article:
-[Using a Cloudant API Key with Multiple Cloudant Databases and Accounts ![External link icon](../images/launch-glyph.svg "External link icon")](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){:new_window}.
+[Using a {{site.data.keyword.cloudant_short_notm}} API Key with Multiple {{site.data.keyword.cloudant_short_notm}} Databases and Accounts ![External link icon](../images/launch-glyph.svg "External link icon")](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){:new_window}.
 
 ## Deleting API keys
 
@@ -459,7 +459,7 @@ All the permissions that were previously assigned to the API key for it to work 
 2.	Hover over the API key you would like to delete.
 3.	Click the '`X`' that appears when you hover over the API key.
 
-### To remove an API key by using the Cloudant API
+### To remove an API key by using the {{site.data.keyword.cloudant_short_notm}} API
 
 Use the [modifying permissions](#modifying-permissions) technique to remove the API key from the list of users with access permission.
 
@@ -475,7 +475,7 @@ The updated list _must omit_ the API key.
 
 <div id="enabling-the-_users-database-with-cloudant"></div>
 
-## Using the `_users` database with Cloudant
+## Using the `_users` database with {{site.data.keyword.cloudant_short_notm}}
 
 You can use the
 [`_users` database ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#authentication-database){:new_window}
@@ -484,7 +484,7 @@ to manage roles in {{site.data.keyword.cloudant_short_notm}}.
 User documents stored in the `_users` database should be structured and populated to comply with
 [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
 
-In addition, you can disable the Cloudant authorization checks by setting the `couchdb_auth_only:true` parameter. 
+In addition, you can disable the {{site.data.keyword.cloudant_short_notm}} authorization checks by setting the `couchdb_auth_only:true` parameter. 
 To disable {{site.data.keyword.cloudant_short_notm}} security,
 `PUT` a JSON document to the `_security` endpoint of the database.
 For example, `https://$ACCOUNT.cloudant.com/$DATABASE/_security`.
