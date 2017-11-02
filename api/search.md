@@ -238,7 +238,7 @@ if (typeof(doc.min_length) !== 'undefined') {
 Analyzers are settings that define how to recognize terms within text.
 Analyzers can be helpful if you need to [index multiple languages](#language-specific-analyzers).
 
-Here's the list of generic analyzers that are supported by Cloudant search:
+Here's the list of generic analyzers that are supported by {{site.data.keyword.cloudantfull}} search:
 
 Analyzer     | Description
 -------------|------------
@@ -741,7 +741,7 @@ _Example JSON document that contains a search request:_
 
 ## Query Syntax
 
-The Cloudant search query syntax is based on the
+The {{site.data.keyword.cloudant_short_notm}} search query syntax is based on the
 [Lucene syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
 Search queries take the form of `name:value` unless the name is omitted,
 in which case they use the default field,
@@ -865,7 +865,7 @@ The distance is measured by using either kilometers or miles.
 
 ## Faceting
 
-Cloudant Search also supports faceted searching,
+{{site.data.keyword.cloudant_short_notm}} Search also supports faceted searching,
 enabling discovery of aggregate information about matches quickly and easily.
 You can match all documents by using the special `?q=*:*` query syntax,
 and use the returned facets to refine your query.

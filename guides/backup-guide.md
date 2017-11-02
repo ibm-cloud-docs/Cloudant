@@ -26,17 +26,17 @@ This capability:
 -   Is subject to [known limitations](#known-limitations).
 -   Is not applicable to [Cloudant Local ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}.
 For more information,
-please contact the [IBM Cloudant support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+please contact the [{{site.data.keyword.cloudantfull}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
 
 >   **Note**: The daily incremental backup capability is not applicable for
     [Cloudant Local ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}.
-    To back up data in Cloudant Local,
+    To back up data in {{site.data.keyword.cloudant_short_notm}} Local,
     use [replication](../api/replication.html) to make a copy of your database.
 
 To ensure high availability,
 {{site.data.keyword.cloudant}} creates three copies of each document,
 and stores it on three different servers in a cluster.
-This practice is the default for all Cloudant users.
+This practice is the default for all {{site.data.keyword.cloudant_short_notm}} users.
 Even when your data is replicated in triplicate,
 it is still  important to back it up.
 
@@ -56,7 +56,7 @@ Having a comprehensive,
 tested backup enables you to answer the following question with confidence:
 "How can we restore data in case of loss or corruption?"
 
-With Cloudant,
+With {{site.data.keyword.cloudant_short_notm}},
 Enterprise customers can have daily incremental backups.
 
 If you are not an Enterprise customer,
@@ -86,13 +86,13 @@ week,
 month or year,
 subject to the deltas you have available.
 
-More information about how Cloudant backs up data is provided in the rest of this topic.
+More information about how {{site.data.keyword.cloudant_short_notm}} backs up data is provided in the rest of this topic.
 For further assistance,
 or to request that data backup is enabled,
-contact the Cloudant support team:
+contact the {{site.data.keyword.cloudant_short_notm}} support team:
 [support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
 
->   **Note**: The Cloudant backup facility is available only to Enterprise customers.
+>   **Note**: The {{site.data.keyword.cloudant_short_notm}} backup facility is available only to Enterprise customers.
 
 >   **Note**: By default,
     `_design` documents are not backed up,
@@ -171,11 +171,11 @@ if it is available within the granularity of the delta.
 
 For more complex restores,
 such as a full database restore,
-request assistance from [Cloudant support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+request assistance from [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
 
 ## Using the Dashboard
 
-Enterprise customers can review the status and history of backups using the Cloudant Dashboard.
+Enterprise customers can review the status and history of backups using the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 Tasks you can perform include:
 
@@ -189,7 +189,7 @@ Tasks you can perform include:
 
 ![Dashboard view of database backup status](../images/dashboarddatabasesbackup.png)
 
-When you select the Database tab within the Cloudant Dashboard,
+When you select the Database tab within the {{site.data.keyword.cloudant_short_notm}} Dashboard,
 you can see a backup status column for each of your databases.
 
 ### Viewing document backup status
@@ -227,7 +227,7 @@ then click the 'Restore' button.
 
 ## Using the API
 
-A number of REST API calls are available for working with the Cloudant backup facility.
+A number of REST API calls are available for working with the {{site.data.keyword.cloudant_short_notm}} backup facility.
 
 ### Task configuration
 
@@ -585,7 +585,7 @@ _Example of JSON file specifyin an incremental backup:_
 >   **Note**: Daily incremental backup for Enterprise customers is currently a Beta capability.
     It is not enabled by default.
 
--   IBM Cloudant Backup,
+-   IBM {{site.data.keyword.cloudant_short_notm}} Backup,
     and the associated restore capabilities,
     are based on the underlying replication technology.
     Factors affecting,
@@ -607,7 +607,7 @@ _Example of JSON file specifyin an incremental backup:_
     you must specify each of the databases within a user account that you want enabled for backup or restore.
     Currently,
     there is a limit of 50 databases enabled for backup within any one user account.
--   The IBM Cloudant Backup facility does not currently support
+-   The {{site.data.keyword.cloudant_short_notm}} Backup facility does not currently support
     backup or restore for [design documents](../api/design_documents.html).
     If you require backups of design documents,
     you must maintain them in your preferred source control tool.

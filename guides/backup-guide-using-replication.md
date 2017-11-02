@@ -18,21 +18,21 @@ lastupdated: "2017-05-04"
 
 # Back up your data by using replication
 
->	**Note**: This guide contains older or 'deprecated' guidance on Cloudant backup.
+>	**Note**: This guide contains older or 'deprecated' guidance on {{site.data.keyword.cloudantfull}} backup.
 	For current backup guidance,
     see the [Disaster Recovery and Backup](disaster-recovery-and-backup.html) guide.
 
 Database backups protect your data against potential loss or corruption.
 {:shortdesc}
 
-You can use the Cloudant replication facility to create a database backup,
-and store it on a Cloudant cluster.
+You can use the {{site.data.keyword.cloudant_short_notm}} replication facility to create a database backup,
+and store it on a {{site.data.keyword.cloudant_short_notm}} cluster.
 You can then restore data,
 entire databases,
 or specific JSON documents,
 from these backups to your production cluster.
 
-Using Cloudant replication,
+Using {{site.data.keyword.cloudant_short_notm}} replication,
 a database backup stores your database content to a checkpoint.
 It is possible to 'roll back' to a specific checkpoint.
 The checkpoint is not specific to a precise time.
@@ -48,7 +48,7 @@ a daily incremental backup capability is [available](disaster-recovery-and-backu
 
 If you are not an Enterprise customer,
 or you prefer to create your own backups,
-you can use the Cloudant replication facility to create a database backup.
+you can use the {{site.data.keyword.cloudant_short_notm}} replication facility to create a database backup.
 
 A simple approach is to replicate the entire database to a dated backup database.
 This method works and is easy to do.
@@ -506,4 +506,4 @@ Replication and backups can be tricky.
 If you get stuck,
 check out the [replication guide](replication_guide.html),
 or contact the
-[IBM Cloudant support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+[IBM {{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.

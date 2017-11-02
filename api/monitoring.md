@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Monitoring a Cloudant cluster
+# Monitoring a {{site.data.keyword.cloudantfull}} cluster
 
 A key part of ensuring best performance,
 or troubleshooting any problems,
@@ -32,7 +32,7 @@ For more detailed system information,
 you make use of the cluster monitoring API.
 
 >	**Note**: The cluster monitoring API is not available for
-[IBM Cloudant Data Layer Local Edition (Cloudant Local)](../offerings/index.html#cloudant-local).
+[IBM {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](../offerings/index.html#cloudant-local).
 
 ## Monitoring metrics overview
 
@@ -98,14 +98,14 @@ sumSeries(net.cloudant.mycustomer001.db*.df.srv.used)
 
 The results include cluster-level data.
 
->   **Note**: Cloudant stores the queried data at the following resolutions:
+>   **Note**: {{site.data.keyword.cloudant_short_notm}} stores the queried data at the following resolutions:
 
 -   10 seconds for the past 24 hours.
 -   1 minute for the past 7 days.
 -   1 hour for the past 2 years.
 
 >   As a result,
-    and to ensure that Cloudant always stores the higher resolution interval length,
+    and to ensure that {{site.data.keyword.cloudant_short_notm}} always stores the higher resolution interval length,
     deltas on the boundary of these resolutions are trimmed by one interval's length.
 
 ### With `format=json` (default)

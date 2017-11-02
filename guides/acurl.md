@@ -18,7 +18,7 @@ _(This guide is based on a Blog article by Samantha Scharr: [
 "Authorized curl, a.k.a. acurl" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window},
 originally published November 27, 2013.)_
 
-`acurl` is a handy alias that allows you to `curl` Cloudant commands to URLs
+`acurl` is a handy alias that allows you to `curl` {{site.data.keyword.cloudantfull}} commands to URLs
 without having to enter your username and password for every request.
 That means a simple `GET` to a database no longer needs to be written as
 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`
@@ -38,7 +38,7 @@ All it takes is three simple steps:
 
 ## Encode username and password
 
-First we base64-encode your Cloudant username and password.
+First we base64-encode your {{site.data.keyword.cloudant_short_notm}} username and password.
 This gives us a base64 character sequence as output.
 
 The command to base64-encode some data is similar to the following example:
@@ -85,7 +85,7 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 This alias adds an Authorization header instead of including the
 authorization credentials in the URL you enter on the command line.
 It also forces the use of HTTPS which we strongly recommend over plain HTTP
-as it encrypts your data and credentials in transit and helps you be sure you’re connecting to Cloudant systems.
+as it encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
 
 ## Activate the alias
 
