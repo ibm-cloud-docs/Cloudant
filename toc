@@ -53,10 +53,10 @@ Cloudant NoSQL DB
 		api/replication.md
 		api/advanced_replication.md
 		api/active_tasks.md
+		api/throughput_capacity.md
 		api/vhosts.md
 		api/advanced.md
 		api/monitoring.md
-		api/backup.md
 
 	{: .topicgroup}
 	Sample apps
@@ -97,6 +97,7 @@ Cloudant NoSQL DB
 	Guides
 		guides/acurl.md
 		guides/backup-guide.md
+		guides/backup-guide-using-replication.md
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/warehousing.md
@@ -109,5 +110,5 @@ Cloudant NoSQL DB
 		guides/conflicts.md
 		guides/model_data.md
 		guides/replication_guide.md
-		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
+
