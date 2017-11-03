@@ -196,8 +196,11 @@ for moving to a different plan configuration.
 In summary,
 you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
 
->   **Note**: For more information about provisioned throughput capacity, go 
->   [here](../api/throughput_capacity.html). 
+>   **Note**: Provisioned throughput capacity is an integral part of your {{site.data.keyword.cloudant_short_notm}} 
+>   account. There is an upper limit to the number of lookups, writes, and queries you can make 
+>   per second. You can increase or decrease your provisioned throughput capacity at any time. An adjustment can 
+>   change your monthly bill. You can see your currently provisioned throughput capacity details to check activity. See 
+>   [Provisioned throughput capacity](../api/throughput_capacity.html). 
 
 <div id="servicetier"></div>
 
