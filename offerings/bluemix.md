@@ -196,6 +196,9 @@ for moving to a different plan configuration.
 In summary,
 you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
 
+>   **Note**: For more information about provisioned throughput capacity, go 
+>   [here](../api/throughput_capacity.html). 
+
 <div id="servicetier"></div>
 
 ### Viewing and changing capacity

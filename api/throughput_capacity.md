@@ -14,7 +14,7 @@ lastupdated: "2017-11-03"
 
 <!-- Acrolinx: 2017-03-20 -->
 
-# Provisioning Throughput Capacity
+# Provisioned Throughput Capacity
 
 Your {{site.data.keyword.cloudantfull}} account is capped by the provisioned 
 throughput capacity. This means that there is an upper limit to how many lookups, writes 
