@@ -712,4 +712,40 @@ _Example results (abbreviated) from a `wps` monitoring request:_
 
 ## Monitoring traffic
 
+### Load balancer connection state
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclustername&format=json
+```
+
+The response includes data series for the following connection states:
+
+TIME_WAIT
+SYN_SENT
+SYN_RECV
+LISTEN
+LAST_ACK
+FIN_WAIT2
+FIN_WAIT1
+ESTABLISHED
+CLOSING
+CLOSE_WAIT
+CLOSED
+
+You must explicitly specify the load balancer in the request.
+
+### Network traffic
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustername&format=json
+```
+
+The response includes data series for the following network states:
+
+-   Octets received (rx) per second
+-   Octets transmitted (tx) per second
+
+You must explicitly specify the load balancer in the request. 
+
+
 
