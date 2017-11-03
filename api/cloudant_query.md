@@ -436,6 +436,9 @@ _Example of a response body with two indexes:_
 -	**use_index (optional)**: Use this option to identify a specific index for query to run against,
 	rather than by using the Cloudant Query algorithm to find the best index.
 	For more information, see [Explain Plans](#explain-plans).
+-   **execution_stats (optional, default: false)**: Use this option to find information about the query 
+    that was executed, including total key lookups, total document lookups (when `include_docs=true` 
+    is used), and total quorum document lookups (when Fabric document lookups are used). 	
 
 The `bookmark` field is used for paging through result sets.
 Every query returns an opaque string under the `bookmark` key that can then
