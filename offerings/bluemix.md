@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-26"
+lastupdated: "2017-11-03"
 
 ---
 
@@ -46,7 +46,7 @@ space configuration for the plans:
 <td colspan='4'>See <a href="http://cloudant.com/bluemix" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (Lookups per second)</td>
+<td>Provisioned Throughput Capacity (lookups per second)</td>
 <td>20</td>
 <td>100</td>
 <td>1,000</td>
@@ -54,7 +54,7 @@ space configuration for the plans:
 <td>20,000</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (Writes per second)</td>
+<td>Provisioned Throughput Capacity (writes per second)</td>
 <td>10</td>
 <td>50</td>
 <td>500</td>
@@ -62,7 +62,7 @@ space configuration for the plans:
 <td>10,000</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (Queries per second)</td>
+<td>Provisioned Throughput Capacity (queries per second)</td>
 <td>5</td>
 <td>5</td>
 <td>50</td>
@@ -199,7 +199,7 @@ you must ensure that your application is able to handle a [`429`](../api/http.ht
 >   **Note**: Provisioned throughput capacity is an integral part of your {{site.data.keyword.cloudant_short_notm}} 
 >   account. There is an upper limit to the number of lookups, writes, and queries you can make 
 >   per second. You can increase or decrease your provisioned throughput capacity at any time. An adjustment can 
->   change your monthly bill. You can see your currently provisioned throughput capacity details to check activity. See 
+>   change your monthly bill. You can see your currently provisioned throughput capacity details to monitor activity. See 
 >   [Provisioned throughput capacity](../api/throughput_capacity.html). 
 
 <div id="servicetier"></div>
