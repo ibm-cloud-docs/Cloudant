@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-24"
+lastupdated: "2017-11-03"
 
 ---
 
@@ -159,23 +159,23 @@ There are two ways you can create a warehouse:
 
 ### Use {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse
 
-The simplest method for creating a warehouse is for {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse instance within Bluemix,
+The simplest method for creating a warehouse is for {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse instance within {{site.data.keyword.Bluemix}},
 on your behalf.
 Do this by clicking the `Create Warehouse` button on the `Warehouse` task
 within the `Integrations` tab of your {{site.data.keyword.cloudant_short_notm}} dashboard.
 
 ![Screenshot of the "Create a Db2 Warehouse on Cloud warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createDashDBWH.png)
 
-If you are not already logged in to Bluemix,
+If you are not already logged in to {{site.data.keyword.Bluemix_notm}},
 you are asked to do so.
 
->   **Note**: By default,
-    {{site.data.keyword.cloudant_short_notm}} creates a Db2 Warehouse on Cloud instance on Bluemix for your warehouse.
+>   **Note**: By default, {{site.data.keyword.cloudant_short_notm}} creates a Db2 Warehouse on Cloud instance on {{site.data.keyword.Bluemix_notm}} for your warehouse.
 
-![Screenshot of the "Authenticate to Bluemix" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/authenticateToBluemix.png)
+![Screenshot of the "Authenticate to {{site.data.keyword.Bluemix_notm}}" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/authenticateToBluemix.png)
 
 When you have authenticated,
-you can request that a new Db2 Warehouse on Cloud instance is created using your Bluemix account.
+you can request that a new Db2 Warehouse on Cloud instance is created using your {{site.data.keyword.Bluemix_notm}} account.
+
 To do this:
 
 1.  Provide the name you would like to use for the Warehouse in the `Warehouse Name` field.
@@ -192,7 +192,7 @@ you can connect to an existing Db2 Warehouse on Cloud instance.
 
 The process is similar to [using {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse),
 however instead of selecting the `Create new Db2 Warehouse on Cloud instance` option,
-select the `Db2 Warehouse on Cloud service instance` and choose the Db2 Warehouse on Cloud warehouse that already exists within Bluemix.
+select the `Db2 Warehouse on Cloud service instance` and choose the Db2 Warehouse on Cloud warehouse that already exists within {{site.data.keyword.Bluemix_notm}}.
 
 ![Screenshot of the "Connect to existing Db2 Warehouse on Cloud instance" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/existingDashDBInstance.png)
 
@@ -207,11 +207,11 @@ Do this by selecting the `DB2` option within your {{site.data.keyword.cloudant_s
 If you want to connect to a DB2 instance,
 you must provide the following details:
 
--   Host address.
--   Port number.
--   Database name.
--   User ID for the database.
--   Password for the User ID.
+-   Host address
+-   Port number
+-   Database name
+-   User ID for the database
+-   Password for the User ID
 
 >   **Note**: The remainder of this topic refers to Db2 Warehouse on Cloud as the warehouse instance.
     However,
@@ -251,10 +251,10 @@ you can run 'traditional' SQL queries,
 and view the results,
 all from within the Db2 Warehouse on Cloud console.
 
-![Screenshot of the "Db2 Warehouse on Cloud dashboard" within Bluemix](../images/useDashDBdashboard.png)
+
+![Screenshot of the "Db2 Warehouse on Cloud dashboard" within {{site.data.keyword.Bluemix_notm}}](../images/useDashDBdashboard.png)
 
 External applications can interact with the data in the same way as with any other relational database.
-
 The advantage of Db2 Warehouse on Cloud is that you can perform other warehousing tasks,
 such as loading more data from other sources,
 and analyzing the data using built-in analytic tools.
