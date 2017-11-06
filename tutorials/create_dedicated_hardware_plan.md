@@ -67,11 +67,11 @@ instances on it.
     **Note**: Billing is prorated daily so make sure that you want to provision and 
     pay for an environment before clicking the **Create** button.<br/>
     ![Provision dedicated hardware](../tutorials/images/create_button_provision.png)<br/>
-    A request is sent to provision a Dedicated Hardware plan instance on bare 
+    **Note**: During provisioning, a spinning wheel appears next to the instance in 
+    your IBM Cloud dashboard. A request is sent to provision a Dedicated Hardware plan instance on bare 
     metal servers. Provisioning time is asynchronous and can take up to 5 days. 
-    During provisioning, a spinning wheel appears next to the instance in 
-    your IBM Cloud dashboard. 
-
+    ![Provision dedicated hardware alternate version](../tutorials/images/create_button_provision2.png)<br/>
+    
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment
 
 1.  Log in to your {{site.data.keyword.Bluemix_notm}} account.<br/>

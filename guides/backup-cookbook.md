@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-11"
+lastupdated: "2017-10-27"
 
 ---
 
@@ -13,6 +13,7 @@ lastupdated: "2017-07-11"
 {:pre: .pre}
 
 <!-- Acrolinx: 2017-05-23 -->
+<!-- Update backup-guide.md with with any changes. -->
 
 # {{site.data.keyword.cloudantfull}} backup and recovery
 

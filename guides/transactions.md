@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Grouping related documents together in Cloudant
+# Grouping related documents together in {{site.data.keyword.cloudantfull}}
 
 Traditionally,
 e-commerce systems are built with relational databases.
@@ -26,16 +26,16 @@ including using joins between collections,
 enumerations to record the state of an object,
 and database transactions to guarantee atomic operations.
 
-Cloudant favors availability over consistency.
+{{site.data.keyword.cloudant_short_notm}} favors availability over consistency.
 It is a high-availability,
 fault-tolerant,
 distributed database that is eventually consistent.
 This gives the advantage that the customer's shopping service is always available and scalable enough
 to cope with multiple users making purchases at the same time.
-This means that your application can utilize Cloudant's strengths and not treat it like a relational database.
+This means that your application can utilize {{site.data.keyword.cloudant_short_notm}}'s strengths and not treat it like a relational database.
 
 The discussion in this topic outlines some of the factors
-involved in building an e-commerce system that takes advantage of Cloudant's strengths,
+involved in building an e-commerce system that takes advantage of {{site.data.keyword.cloudant_short_notm}}'s strengths,
 using concepts that are applicable to many other domains,
 such as:
 
@@ -120,7 +120,7 @@ longer UUIDs are used to ensure that documents are stored with their own unique 
 
 To create a unique identifier for use in your application,
 such as an `order_id`,
-call the [`GET _uuids` endpoint](../api/advanced.html#-get-_uuids-) on the Cloudant API.
+call the [`GET _uuids` endpoint](../api/advanced.html#-get-_uuids-) on the {{site.data.keyword.cloudant_short_notm}} API.
 The database generates an identifier for you.
 The same endpoint can be used to generate multiple ids by adding a `count` parameter,
 for example, `/_uuids?count=10`.
@@ -158,7 +158,7 @@ _Example of a payment record:_
 In the previous example,
 the customer paid by supplying a credit card and redeeming a pre-paid voucher.
 The total of the two payments added up to the amount of the order.
-Each payment was written to Cloudant as a separate document.
+Each payment was written to {{site.data.keyword.cloudant_short_notm}} as a separate document.
 
 You could see the status of an order by creating a view of everything you know about an `order_id`.
 The view would enable a ledger containing the following information: 
@@ -233,7 +233,7 @@ the result indicates that the order is fully paid.
 The reason is that the positive purchase order total cancels out the negative payment amounts.
 Recording events as separate documents,
 that is one for the order and one for each payment,
-is good practice in Cloudant,
+is good practice in {{site.data.keyword.cloudant_short_notm}},
 since it avoids the possibility of creating conflicts when multiple processes modify the same document simultaneously.
 
 ## Adding additional documents
@@ -246,13 +246,13 @@ separate documents to the database to record the following state changes as the 
 -   Refund records.
 
 As the data arrives,
-Cloudant writes to each document separately.
+{{site.data.keyword.cloudant_short_notm}} writes to each document separately.
 Therefore,
 it is not necessary to modify the core purchase document.
 
-## Advantages of storing purchase orders in Cloudant
+## Advantages of storing purchase orders in {{site.data.keyword.cloudant_short_notm}}
 
-Using Cloudant to store purchase order information allows an ordering system to be highly available and scalable,
+Using {{site.data.keyword.cloudant_short_notm}} to store purchase order information allows an ordering system to be highly available and scalable,
 enabling you to deal with large volumes of data and high rates of concurrent access.
 By modeling the data in separate documents that are only written once,
 we can ensure that documents never become conflicted,
@@ -264,4 +264,4 @@ to represent - rather than rely on - joining data with a foreign key.
 For example,
 when recording the state of a basket at the time of purchase.
 This allows an order's state to be fetched by a single call
-to a Cloudant's view that groups documents related by `order_id`.
+to a {{site.data.keyword.cloudant_short_notm}}'s view that groups documents related by `order_id`.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-15"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-05-15"
 
 <!-- Acrolinx: 2017-05-15 -->
 
-# How is data stored in Cloudant?
+# How is data stored in {{site.data.keyword.cloudantfull}}?
 
 ## Concepts
 
-Every database in Cloudant is formed of one or more distinct _shards_,
+Every database in {{site.data.keyword.cloudant_short_notm}} is formed of one or more distinct _shards_,
 where the number of shards is referred to as _Q_.
 A shard is a distinct subset of documents from the database.
 All _Q_ shards together contain the data within database.
@@ -52,7 +52,7 @@ The number of replicas (copies of a shard) is also configurable.
 In practice,
 observation and measurement of many systems suggests that three replicas is a pragmatic number in most cases
 to achieve a good balance between performance and data safety.
-It would be exceptional and unusual for a Cloudant system to use a different replica count.
+It would be exceptional and unusual for a {{site.data.keyword.cloudant_short_notm}} system to use a different replica count.
 
 ## How does sharding affect performance?
 
@@ -126,7 +126,7 @@ smaller shards are easier to move over the network during rebalancing.
 
 Given the conflicting requirements to avoid having too many documents and keeping shard size low,
 a single _Q_ value cannot work optimally for all cases.
-Cloudant tunes the defaults for clusters over time as usage patterns change.
+{{site.data.keyword.cloudant_short_notm}} tunes the defaults for clusters over time as usage patterns change.
 
 Nevertheless,
 for a specific database,
@@ -152,7 +152,7 @@ particularly for larger databases:
 *	For even larger databases,
 	consider manually sharding your data into several databases.
 	For such large databases,
-	contact [Cloudant support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} for advice.
+	contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} for advice.
 
 >	**Note:** The numbers in these guidelines are derived from observation and experience
 	rather than precise calculation.
@@ -180,7 +180,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**Note:** Setting _Q_ for databases is not enabled for Cloudant databases on Bluemix.
+>	**Note:** Setting _Q_ for databases is not enabled for {{site.data.keyword.cloudant_short_notm}} databases on Bluemix.
 	The _Q_ value is not available on most `cloudant.com` multi-tenant clusters.
 
 If you attempt to set the _Q_ value where it is not available,
@@ -204,7 +204,7 @@ However,
 you are not allowed to change the replica count value from the default of 3.
 In particular,
 it is not possible to specify a different replica count value when you create a database.
-For further help, contact [Cloudant support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+For further help, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
 
 ### What are the _R_ and _W_ arguments?
 
@@ -231,7 +231,7 @@ from any one of the replicas that host the appropriate shard.
 
 >	**Note:** Reducing the _R_ value increases the likelihood that the response that is
 	returned is not based on the most up-to-date data
-	because of the [eventual consistency](cap_theorem.html) model used by Cloudant.
+	because of the [eventual consistency](cap_theorem.html) model used by {{site.data.keyword.cloudant_short_notm}}.
 	Using the default _R_ value helps mitigate this effect.
 
 The default value for _R_ is _2_.
