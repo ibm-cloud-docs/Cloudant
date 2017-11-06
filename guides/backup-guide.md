@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-27"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -16,12 +16,10 @@ lastupdated: "2017-10-27"
 
 # Cloudant backup and recovery
 
-
 This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](disaster-recovery-and-backup.html).
 It's worth starting there if you are new to the subject and want to understand where backup fits in
 with the other capabilities that {{site.data.keyword.cloudant_short_notm}} offers
 to support Disaster Recovery (DR) and High Availability (HA) requirements.
->>>>>>> production
 
 Although data is stored redundantly within a {{site.data.keyword.cloudant_short_notm}} cluster,
 it's important to consider extra backup measures.
@@ -300,42 +298,6 @@ Return to the [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide
 to find out about the other features {{site.data.keyword.cloudant_short_notm}}
 offers for a full disaster recovery setup.
 
-<<<<<<< HEAD
-## Known limitations
-
->   **Note**: Daily incremental backup for Enterprise customers is currently a Beta capability.
-    It is not enabled by default.
-
--   IBM {{site.data.keyword.cloudant_short_notm}} Backup,
-    and the associated restore capabilities,
-    are based on the underlying replication technology.
-    Factors affecting,
-    or even interrupting,
-    the replication will affect or even stall backup or restore processes.
--   Backup and restore processes could take a significant amount of time for large databases,
-    for example over 100GB in size.
-    This applies to the initial backup,
-    which could take a few days to complete for a large database.
-    Similarly,
-    the restore process could take from a few hours to several days,
-    again depending on the size of the database.
--   For large daily backups,
-    it is possible that the backup process cannot complete in one day (24 hours).
-    The backup process normally runs to completion,
-    therefore it would include incremental changes for more than a day.
--   There is currently no support for backing up a full user account.
-    Instead,
-    you must specify each of the databases within a user account that you want enabled for backup or restore.
-    Currently,
-    there is a limit of 50 databases enabled for backup within any one user account.
--   The {{site.data.keyword.cloudant_short_notm}} Backup facility does not currently support
-    backup or restore for [design documents](../api/design_documents.html).
-    If you require backups of design documents,
-    you must maintain them in your preferred source control tool.
--   Currently,
-    the target database for performing a database restore must be different from the original source database.
-=======
 [npmpackage]: https://www.npmjs.com/package/@cloudant/couchbackup
 [npmreadme]: https://github.com/cloudant/couchbackup/blob/master/README.md
 [cosclient]: https://developer.ibm.com/recipes/tutorials/cloud-object-storage-s3-api-intro/
->>>>>>> production
