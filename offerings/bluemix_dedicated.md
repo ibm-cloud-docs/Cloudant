@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-26"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2017-10-26"
 {{site.data.keyword.cloudantfull}} for ({{site.data.keyword.Bluemix_notm}} Dedicated) is 
 an optional purchase add-on to a {{site.data.keyword.cloudant_short_notm}} Dedicated environment. The optional add-on for 
 {{site.data.keyword.cloudant_short_notm}} Dedicated in {{site.data.keyword.cloudant_short_notm}} Dedicated is priced based on the hardware capacity 
-allocated to the environment and can be purchased by contacting your IBM sales representative.  
+allocated to the environment and can be purchased by contacting your {{site.data.keyword.IBM}} sales representative.  
 
 {{site.data.keyword.cloudant_short_notm}} Dedicated customers can also choose to use {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloudant_short_notm}} Public 
 via the syndicated catalog, including the Lite and Standard plan instances. Note that 
@@ -34,12 +34,12 @@ syndicated version of {{site.data.keyword.cloudant_short_notm}} (left) and the {
 
 ## Hardware capacity 
 
-{{site.data.keyword.cloudant_short_notm}} within {{site.data.keyword.cloudant_short_notm}} Dedicated is purchased via an 'IBM {{site.data.keyword.cloudant_short_notm}} Dedicated 
+{{site.data.keyword.cloudant_short_notm}} within {{site.data.keyword.cloudant_short_notm}} Dedicated is purchased via an '{{site.data.keyword.IBM_notm}} {{site.data.keyword.cloudant_short_notm}} Dedicated 
 {{site.data.keyword.cloudant_short_notm}} 1.6 TB Capacity' part, which includes a clustered {{site.data.keyword.cloudant_short_notm}} environment 
 consisting of three database nodes and two load balancers. Each database node 
 contains 1.6 TB on SSDs, and since all data is stored in triplicate this 
 equates to 1.6 TB of unique disk space across the cluster. Expansion of an 
-environment can be accomplished by purchasing additional 'IBM {{site.data.keyword.cloudant_short_notm}} 
+environment can be accomplished by purchasing additional '{{site.data.keyword.IBM_notm}} {{site.data.keyword.cloudant_short_notm}} 
 Dedicated {{site.data.keyword.cloudant_short_notm}} 1.6TB Capacity' parts, which can be used to expand the 
 {{site.data.keyword.cloudant_short_notm}} cluster in multiples of three database nodes. Customers can also 
 choose to have multiple separate {{site.data.keyword.cloudant_short_notm}} environments rather than 
@@ -62,7 +62,7 @@ the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the 
 
 The plan also offers [Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
 [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
-compliance is available upon request, so request this during the purchase process with an IBM sales representative. 
+compliance is available upon request, so request this during the purchase process with an {{site.data.keyword.IBM_notm}} sales representative. 
 
 ## High availability, disaster recovery, and backup 
 

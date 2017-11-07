@@ -14,10 +14,10 @@ lastupdated: "2017-09-05"
 
 <!-- Acrolinx: 2017-07-12 -->
 
-# Differences between major Cloudant releases
+# Differences between major {{site.data.keyword.cloudant_short_notm}} releases
 
 Summary of the changes in behavior between the most recent version of 
-Cloudant and CouchDB 1.6-based codebase. Information is added as newer Cloudant 
+{{site.data.keyword.cloudantfull}} and CouchDB 1.6-based codebase. Information is added as newer {{site.data.keyword.cloudant_short_notm}} 
 versions are released.
 {:shortdesc}
 
@@ -36,7 +36,7 @@ versions are released.
 
 -   Unicode normalization of key values is consistent between reduced and non-reduced view results. If raw collation is specified in a design document, result order might change as the result of this fix.
 -   When you query a view or `_all_docs` database, it is an error to specify the `keys` parameter and any of the `key`, `startkey`, and `endkey` parameters.
--   It is an error to pass `startkey` and `endkey` parameters to a view if it is impossible for any row to match. For example, when the `startkey` parameter is higher than the `endkey` parameter for `descending=false`, or when the `startkey` parameter is lower than the `endkey` parameter for `descending=true`, Cloudant returns the `400 Bad Request` error.
+-   It is an error to pass `startkey` and `endkey` parameters to a view if it is impossible for any row to match. For example, when the `startkey` parameter is higher than the `endkey` parameter for `descending=false`, or when the `startkey` parameter is lower than the `endkey` parameter for `descending=true`, {{site.data.keyword.cloudant_short_notm}} returns the `400 Bad Request` error.
 -   When `dbcopy` is configured in a view document, it is automatically transformed to the `options` field in a design document. 
 
 ### Design documents
@@ -52,7 +52,7 @@ versions are released.
 
 ### User documents
 
--   Validate the structure of user documents created in the `_users` database. After the DBNext upgrade, the user documents must comply with ASF CouchdDB requirements. Previously, Cloudant did not validate the user documents' structure. 
+-   Validate the structure of user documents created in the `_users` database. After the DBNext upgrade, the user documents must comply with ASF CouchdDB requirements. Previously, {{site.data.keyword.cloudant_short_notm}} did not validate the user documents' structure. 
 
 ### Replication 
 

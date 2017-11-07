@@ -16,10 +16,10 @@ lastupdated: "2017-10-26"
 
 # Cloudant Local
 
-[IBM Cloudant Data Layer Local Edition (Cloudant Local) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){:new_window}
-is a locally installed version of the Cloudant Database-as-a-Service (DBaaS) offering.
+[{{site.data.keyword.cloudantfull}} Data Layer Local Edition (Cloudant Local) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){:new_window}
+is a locally installed version of the {{site.data.keyword.cloudant_short_notm}} Database-as-a-Service (DBaaS) offering.
 
-Cloudant Local provides you with the same basic capabilities as the full Cloudant single-tenant offering,
+{{site.data.keyword.cloudant_short_notm}} Local provides you with the same basic capabilities as the full {{site.data.keyword.cloudant_short_notm}} single-tenant offering,
 but hosted within your own data center.
 
 A more detailed overview of Cloudant Local is

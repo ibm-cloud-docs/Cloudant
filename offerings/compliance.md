@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-10-24"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -44,8 +44,8 @@ representative to sign a Business Associate Addendum (BAA) agreement with {{site
 {{site.data.keyword.cloudant_short_notm}} is audited by a third-party security firm
 and meets all of the requirements for ISO 27001:
 
-* [Bluemix ISO 27001:2013 Certificate of Registration ![External link icon](../images/launch-glyph.svg "External link icon")](ftp://public.dhe.ibm.com/cloud/bluemix/compliance/Bluemix_ISO27K1_WWCert_2016.pdf){:new_window}
-* [IBM SaaS ISO 27001:2013 Certificate ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?subtype=ST&infotype=SA&htmlfid=KUJ12445USEN&attachment=KUJ12445USEN.PDF){:new_window}
+* [{{site.data.keyword.Bluemix_notm}} ISO 27001:2013 Certificate of Registration ![External link icon](../images/launch-glyph.svg "External link icon")](ftp://public.dhe.ibm.com/cloud/bluemix/compliance/Bluemix_ISO27K1_WWCert_2016.pdf){:new_window}
+* [{{site.data.keyword.IBM_notm}} SaaS ISO 27001:2013 Certificate ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?subtype=ST&infotype=SA&htmlfid=KUJ12445USEN&attachment=KUJ12445USEN.PDF){:new_window}
 
 ## SOC 2 Type 1 Certification
 
