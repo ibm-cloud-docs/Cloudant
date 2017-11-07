@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-03"
+lastupdated: "2017-11-07"
 
 ---
 {:new_window: target="_blank"}
@@ -11,14 +11,14 @@ lastupdated: "2017-07-03"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating a Cloudant Query
+# Creating a {{site.data.keyword.cloudant_short_notm}} Query
 
 This tutorial demonstrates how to create a database, populate it
 with documents, create an index, and use the index to query the database.
 
 Exercises for both the ![Command line icon](../images/CommandLineIcon.png) _Command line_
-and ![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_ are provided. The
-Cloudant Dashboard exercises give you a visual example of each task. You can follow the links
+and ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_ are provided. The
+{{site.data.keyword.cloudantfull}} Dashboard exercises give you a visual example of each task. You can follow the links
 throughout the tutorial for more information.
 
 To begin, you create the `query-demo` database and some documents that
@@ -30,10 +30,10 @@ Before you begin, follow these steps to prepare for the tutorial:
 
 1.  [Create a Bluemix account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Log in to the
-  [Cloudant Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Create a Cloudant instance on Bluemix](create_service.html#creating-a-cloudant-instance-on-bluemix).
+  [{{site.data.keyword.cloudant_short_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+3.  [Create a {{site.data.keyword.cloudant_short_notm}} instance on Bluemix](create_service.html#creating-a-cloudant-instance-on-bluemix).
 4.  (Optional) [Create an acurl alias](../guides/acurl.html#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
-5.  Replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to Cloudant Dashboard.
+5.  Replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to {{site.data.keyword.cloudant_short_notm}} Dashboard.
   If you decide not to set up `acurl`,
   use the following URL instead of the one provided in the exercises:
   ``` sh
@@ -70,9 +70,9 @@ is the database that we use in this tutorial.
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
 
-1.  Open the Cloudant service instance that you created.
+1.  Open the {{site.data.keyword.cloudant_short_notm}} service instance that you created.
 2.  Select the Databases tab:
 
   ![Databases tab](../images/tabs.png)
@@ -173,7 +173,7 @@ that you create in this exercise contain the data that you use to query the `que
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
 
 1.  Click **`+`** and select **New Doc**. The 'New Document' window opens.
 2.  To create a document, copy the following sample text and replace the existing text in the new document.
@@ -254,21 +254,21 @@ that you create in this exercise contain the data that you use to query the `que
 
 ## Creating an index
 
-Cloudant provides views and indexes to query the database. A view runs a query that is saved to the database, and
+{{site.data.keyword.cloudant_short_notm}} provides views and indexes to query the database. A view runs a query that is saved to the database, and
 the result is called the result set. When you submit a query to the view, your query searches
 the result set. An index is a way to structure data that improves retrieval time.
 
-You can use the primary index that comes with Cloudant, or secondary indexes like views
-(MapReduce), search indexes, Cloudant Geospatial queries, or Cloudant Query as described
+You can use the primary index that comes with {{site.data.keyword.cloudant_short_notm}}, or secondary indexes like views
+(MapReduce), search indexes, {{site.data.keyword.cloudant_short_notm}} Geospatial queries, or {{site.data.keyword.cloudant_short_notm}} Query as described
 in the following list:
 
 *	Primary index – look up a document or list of documents by ID.  
 *	[View](../api/creating_views.html#views-mapreduce-) – search for information in the database that matches the search criteria that you specify, such as counts, sums, averages, and other mathematical functions. The criteria you can search is specified in the view's definition. Views use the MapReduce paradigm.
 *	[Search index](../api/search.html#search) – search one or more fields, large amounts of text, or use wildcards, fuzzy search, or facets with [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
-*	[Cloudant Geospatial](../api/cloudant-geo.html#cloudant-geospatial) – search for documents based on a spatial relationship.
-*	[Cloudant Query](../api/cloudant_query.html#query) – use Mongo-style query syntax to search for documents by using logical operators. Cloudant Query is a combination of a view and a search index. We use Cloudant Query in this tutorial.
+*	[{{site.data.keyword.cloudant_short_notm}} Geospatial](../api/cloudant-geo.html#cloudant-geospatial) – search for documents based on a spatial relationship.
+*	[{{site.data.keyword.cloudant_short_notm}} Query](../api/cloudant_query.html#query) – use Mongo-style query syntax to search for documents by using logical operators. {{site.data.keyword.cloudant_short_notm}} Query is a combination of a view and a search index. We use {{site.data.keyword.cloudant_short_notm}} Query in this tutorial.
 
-> **Note:** If there is no available defined index that matches the specified query, then Cloudant
+> **Note:** If there is no available defined index that matches the specified query, then {{site.data.keyword.cloudant_short_notm}}
 > uses the `_all_docs` index.
 
 
@@ -308,7 +308,7 @@ in the following list:
 
 
 
-![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
 
 1.  Click **`+` > Query Indexes** on either the **All Documents** or **Design Documents** tab.
 2.  Paste the following sample JSON data into the **Index** field:
@@ -335,7 +335,7 @@ in the following list:
 
 ## Creating a query
 
-Queries allow you to extract your data from Cloudant. A well-written
+Queries allow you to extract your data from {{site.data.keyword.cloudant_short_notm}}. A well-written
 [query](../api/cloudant_query.html#query) can narrow your search and
 its results to include only the data you want.
 
@@ -348,7 +348,7 @@ For anything but the most simple query, add the JSON to a data file and run it f
 
 ### Running a simple query
 
-This example demonstrates how Cloudant Query uses the `query-index` to find the
+This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query uses the `query-index` to find the
 `lastname` and filters the results in memory to find the `firstaname`.   
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
@@ -387,10 +387,10 @@ This example demonstrates how Cloudant Query uses the `query-index` to find the
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
 
 1.  Click the **Query** tab.
-2.  Copy and paste the following sample JSON into the Cloudant Query window:
+2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
   ```json
    {
       "selector": {
@@ -500,10 +500,10 @@ The extra details look like the following example:
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
 
 1.  Click the **Query** tab.
-2.  Copy and paste the following sample JSON into the Cloudant Query window:
+2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
   ```json
   {
     "selector": {
@@ -608,10 +608,10 @@ We use a selector expression like the following example:
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
 
 1.  Click the **Query** tab.
-2.  Copy and paste the following sample JSON into the Cloudant Query window:
+2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
   ```json
   {
     "selector": {
@@ -645,4 +645,4 @@ We use a selector expression like the following example:
 
   ![Query 3 results](../images/dashboard_query3_results.png)
 
-For more information about Cloudant, see the [Cloudant Documentation](../cloudant.html#overview).
+For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} Documentation](../cloudant.html#overview).

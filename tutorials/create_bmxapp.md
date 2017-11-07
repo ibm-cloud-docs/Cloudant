@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-01-10"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-10"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creating a simple Bluemix application to access a Cloudant database
+# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database
 
 This tutorial shows you how to create an {{site.data.keyword.Bluemix}} application that uses the
 [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} to

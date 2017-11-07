@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating and populating a simple Cloudant database on Bluemix
+# Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on Bluemix
 
 This tutorial shows you how to use the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} to
 create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.Bluemix_notm}} service instance,
@@ -44,7 +44,7 @@ Python 2.7.12
 ```
 {:codeblock}
 
-### Python Client Library for Cloudant
+### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
 
 There is an [officially supported library](../libraries/supported.html#python) to enable your Python applications to work with
 {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}}.
@@ -68,7 +68,7 @@ cloudant==2.3.1
 ```
 {:codeblock}
 
-### A Cloudant service instance on Bluemix
+### A {{site.data.keyword.cloudant_short_notm}} service instance on Bluemix
 
 The process for creating a suitable service instance is described in [this tutorial](create_service.html).
 
@@ -113,9 +113,9 @@ to illustrate the techniques,
 but you should apply normal best practices for checking and handling all
 warning or error conditions encountered by your own applications. 
 
-## Connecting to a Cloudant service instance on Bluemix
+## Connecting to a {{site.data.keyword.cloudant_short_notm}} service instance on Bluemix
 
-A Python application requires the Cloudant Client Library components to be able to connect to the service instance.
+A Python application requires the {{site.data.keyword.cloudantfull}} Client Library components to be able to connect to the service instance.
 These components are identified as normal `import` statements:
 
 ```python
@@ -135,10 +135,10 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 {:codeblock}
 
 >   **Note**: The service credentials illustrated here
-    were defined when a demonstration Cloudant service was created on Bluemix.
+    were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on Bluemix.
     The credentials are reproduced here to show how they would be used in a Python application.
     However,
-    the demonstration Cloudant service has been removed now,
+    the demonstration {{site.data.keyword.cloudant_short_notm}} service has been removed now,
     so these credentials will not work;
     you _must_ supply and use your own service credentials.
 
@@ -275,7 +275,7 @@ The result is similar to the following example:
 {:codeblock}
 
 >   **Note**: The nature of NoSQL databases,
-    such as Cloudant,
+    such as {{site.data.keyword.cloudant_short_notm}},
     means that simple notions of the first document stored in a database
     always being the first one returned in a list of results,
     do not necessarily apply.
@@ -323,9 +323,9 @@ The result is similar to the following example:
 ```
 {:codeblock}
 
-## Calling a Cloudant API endpoint directly
+## Calling a {{site.data.keyword.cloudant_short_notm}} API endpoint directly
 
-We can also work with the Cloudant API endpoints directly,
+We can also work with the {{site.data.keyword.cloudant_short_notm}} API endpoints directly,
 from within a Python application.
 
 In this example code,
@@ -333,7 +333,7 @@ we again request a list of all the documents,
 including their content.
 This time,
 however,
-we do so by invoking the Cloudant [`/_all_docs` endpoint](../api/database.html#get-documents).
+we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](../api/database.html#get-documents).
 
 First,
 we identify the endpoint to contact,
@@ -472,7 +472,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the Cloudant library to create a Cloudant client.
+# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -535,7 +535,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a Cloudant API endpoint to retrieve
+# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

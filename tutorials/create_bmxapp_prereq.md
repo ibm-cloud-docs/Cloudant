@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-01-10"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-10"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creating a simple Bluemix application to access a Cloudant database: Prerequisites
+# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: Prerequisites
 
 This section of the tutorial describes the prerequisites
 for creating an {{site.data.keyword.Bluemix}} application.
@@ -49,7 +49,7 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### A Cloudant service instance on Bluemix
+### A {{site.data.keyword.cloudant_short_notm}} service instance on Bluemix
 
 A separate tutorial for creating a {{site.data.keyword.cloudant_short_notm}} service instance called
 '`Cloudant Service 2017`' is available [here](create_service.html).
@@ -57,7 +57,7 @@ A separate tutorial for creating a {{site.data.keyword.cloudant_short_notm}} ser
 This tutorial assumes that you have already created a service instance called
 '`Cloudant Service 2017`'.
 
-### A Cloudant database application
+### A {{site.data.keyword.cloudant_short_notm}} database application
 
 A separate tutorial for creating a stand-alone Python application
 to work with a {{site.data.keyword.cloudant_short_notm}}
