@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -15,23 +15,23 @@ lastupdated: "2017-01-06"
 # Document Versioning and MVCC
 
 [Multi-version concurrency control (MVCC) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window}
-is how Cloudant databases ensure that all of the nodes in a database's cluster contain
+is how {{site.data.keyword.cloudantfull}} databases ensure that all of the nodes in a database's cluster contain
 only the [newest version](../api/document.html) of a document.
 {:shortdesc}
 
-Since Cloudant databases are [eventually consistent](cap_theorem.html),
+Since {{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](cap_theorem.html),
 this is necessary to prevent inconsistencies arising between nodes
 as a result of synchronizing between outdated documents.
 
-Multi-Version Concurrency Control (MVCC) enables concurrent read and write access to a Cloudant database.
+Multi-Version Concurrency Control (MVCC) enables concurrent read and write access to a {{site.data.keyword.cloudant_short_notm}} database.
 MVCC is a form of [optimistic concurrency ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}.
-It makes both read and write operations on Cloudant databases faster because
+It makes both read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because
 there is no need for database locking on either read or write operations.
-MVCC also enables synchronization between Cloudant database nodes.
+MVCC also enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
 
 ## Revisions
 
-Every document in a Cloudant database has a `_rev` field indicating its revision number.
+Every document in a {{site.data.keyword.cloudant_short_notm}} database has a `_rev` field indicating its revision number.
 
 A revision number is added to your documents by the server when you insert or modify them.
 The number is included in the server response when you make changes or read a document.
@@ -63,7 +63,7 @@ a solution is to [create a new document](../api/document.html#documentCreate) fo
 
 ## Distributed Databases and Conflicts
 
-Distributed databases work without a constant connection to the main database on Cloudant,
+Distributed databases work without a constant connection to the main database on {{site.data.keyword.cloudant_short_notm}},
 which is itself distributed,
 so updates based on the same previous version can still be in conflict.
 

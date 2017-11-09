@@ -20,11 +20,11 @@ lastupdated: "2017-01-24"
 
 # CAP Theorem
 
-Cloudant uses an ['Eventually Consistent' ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window} model.
+{{site.data.keyword.cloudantfull}} uses an ['Eventually Consistent' ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window} model.
 {:shortdesc}
 
 To understand how this model works,
-and why it is an essential part of using Cloudant,
+and why it is an essential part of using {{site.data.keyword.cloudant_short_notm}},
 consider what is meant by Consistency.
 
 Consistency is one of the four ['ACID' ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/ACID){:new_window} properties
@@ -36,7 +36,7 @@ consistency is one of the three attributes in the
 theorem.
 The attributes are **C**onsistency,
 **A**vailability, and **P**artition tolerance.
-The theorem states that it is not possible for a distributed computer system such as Cloudant
+The theorem states that it is not possible for a distributed computer system such as {{site.data.keyword.cloudant_short_notm}}
 to guarantee three attributes _simultaneously_:
 
 -   Consistency,
@@ -47,9 +47,9 @@ to guarantee three attributes _simultaneously_:
     where the system continues to operate even if any one part of the system is lost or fails.
 
 The impossibility of guaranteeing all three attributes at the same time
-means that Cloudant does not guarantee the Consistency attribute.
+means that {{site.data.keyword.cloudant_short_notm}} does not guarantee the Consistency attribute.
 In an eventually consistent model,
-like Cloudant,
+like {{site.data.keyword.cloudant_short_notm}},
 an update made to one part of the system is _eventually_ seen by other parts of the system.
 As the update propagates,
 the system is said to 'converge' on complete consistency.
@@ -87,7 +87,7 @@ the remainder elects a new leader.
 This election process differs between systems,
 and can be a source of [significant problems ![External link icon](../images/launch-glyph.svg "External link icon")](http://aphyr.com/posts/284-call-me-maybe-mongodb){:new_window}.
 
-Cloudant prioritizes availability and partition tolerance by employing a master-master setup,
+{{site.data.keyword.cloudant_short_notm}} prioritizes availability and partition tolerance by employing a master-master setup,
 such that every node can accept both writes and reads to its portion of your data.
 Multiple nodes contain copies of each portion of your data.
 Each node copies data with other nodes.
@@ -161,7 +161,7 @@ sometimes it's better to serve answers that are not perfectly correct than to no
 
 Database systems hide the complexities of availability versus consistency in different ways,
 but they are always there.
-The view that is taken by the Cloudant database-as-a-service,
+The view that is taken by the {{site.data.keyword.cloudant_short_notm}} database-as-a-service,
 along with CouchDB and other NoSQL databases,
 is that it's better to require developers to address these complexities early in the design process.
 By doing the hard work up front,

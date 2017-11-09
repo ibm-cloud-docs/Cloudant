@@ -214,13 +214,13 @@ by using an existing version of the index.
 
 ## View freshness
 
-By default, all index results reflect the current state of the database. Cloudant builds its indexes automatically and asynchronously in the background.
+By default, all index results reflect the current state of the database. {{site.data.keyword.cloudantfull}} builds its indexes automatically and asynchronously in the background.
 This usually means the index is fully up-to-date 
 when you query it. If this is not the case, we call the database "stale" and the remaining updates are made when you query the index. 
-The results of your query include these updates. Cloudant builds three copies of every index in 
+The results of your query include these updates. {{site.data.keyword.cloudant_short_notm}} builds three copies of every index in 
 alignment with the three copies of your primary data.
 
-Cloudant supplies better results and
+{{site.data.keyword.cloudant_short_notm}} supplies better results and
 performance with the defaults for these parameters. If the performance of your view and your application can tolerate inconsistent results when queried with the 
 default `stale=false` setting, use `stable=false&update=false`. These settings avoid directing all queries to a single copy of 
 your index, which would, in effect, reduce some aspects of performance to a third of what it should be.
@@ -250,7 +250,7 @@ The results can be different from different nodes in the cluster.
 ### Parameters
 
 The `stable` option indicates whether you would prefer to get results from a single,
-consistent set of shards. The `false` value means that all available shard replicas are queried. Cloudant uses the first response returned. 
+consistent set of shards. The `false` value means that all available shard replicas are queried. {{site.data.keyword.cloudant_short_notm}} uses the first response returned. 
 The benefit is that the response is not delayed when an individual shard replica is slow to respond.
 By contrast, setting `stable=true` forces the database to use a single,
 consistent set of shards to respond to the query.

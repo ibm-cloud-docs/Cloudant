@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-22"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2017-05-22"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating a Cloudant instance on Bluemix using the Cloud Foundry tools
+# Creating a {{site.data.keyword.cloudant_short_notm}} instance on Bluemix using the Cloud Foundry tools
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
-service instance on {{site.data.keyword.Bluemix_notm}}
+service instance on {{site.data.keyword.Bluemix}}
 using the Cloud Foundry tools.
 {:shortdesc}
 
@@ -49,7 +49,7 @@ Not logged in. Use 'bx login' to log in.
 ```
 {:pre}
 
-## Logging in to your Bluemix account
+## Logging in to your {{site.data.keyword.Bluemix_notm}} account
 
 1.  Use the following command to start the login process for
   your {{site.data.keyword.Bluemix_notm}} account:
@@ -109,7 +109,7 @@ Not logged in. Use 'bx login' to log in.
 
 3.  You have now logged in to your {{site.data.keyword.Bluemix_notm}} account.
 
-## Choosing the Cloudant plan for your service
+## Choosing the {{site.data.keyword.cloudant_short_notm}} plan for your service
 
 Obtain a list of all the available service offerings.
 Filter the list to match only {{site.data.keyword.cloudant_short_notm}} services:
@@ -141,13 +141,13 @@ similar to the following section of an example response (details correct as at M
 
 ```
 Lite
-The Lite plan provides access to the full functionality of Cloudant for development and evaluation.
+The Lite plan provides access to the full functionality of {{site.data.keyword.cloudant_short_notm}} for development and evaluation.
 The plan has a set amount of provisioned throughput capacity as shown
 and includes a max of 1GB of encrypted data storage.   free
 ```
 {:pre}
 
-## Creating the Cloudant service
+## Creating the {{site.data.keyword.cloudant_short_notm}} service
 
 The basic command format to create a service instance
 within {{site.data.keyword.Bluemix_notm}} is as follows:
@@ -180,7 +180,7 @@ OK
 ```
 {:pre}
 
-## Creating credentials for your Cloudant service
+## Creating credentials for your {{site.data.keyword.cloudant_short_notm}} service
 
 Applications that require access to your {{site.data.keyword.cloudant_short_notm}} service
 must have the necessary credentials.
@@ -232,7 +232,7 @@ OK
 ```
 {:pre}
 
-## Listing the service credentials for your Cloudant service
+## Listing the service credentials for your {{site.data.keyword.cloudant_short_notm}} service
 
 The basic command format to retrieve the credentials for a service instance
 within {{site.data.keyword.Bluemix_notm}} is as follows:
@@ -271,7 +271,7 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 ```
 {:pre}
 
-## Using your Cloudant service instance
+## Using your {{site.data.keyword.cloudant_short_notm}} service instance
 
 At this point,
 you have:

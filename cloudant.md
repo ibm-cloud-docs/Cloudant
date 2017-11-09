@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-31"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -25,7 +25,7 @@ It's built with scalability,
 high availability,
 and durability in mind.
 It comes with a wide variety of indexing options including map-reduce,
-Cloudant Query,
+{{site.data.keyword.cloudantfull}} Query,
 full-text indexing,
 and geospatial indexing.
 The replication capabilities make it easy to keep data in sync between database clusters,
@@ -81,4 +81,4 @@ We're also open about our documentation.
 If it's not working for you,
 it's not working for us.
 Please make contributions or share suggestions through
-Cloudant Labs on [GitHub ![External link icon](images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){:new_window}.
+{{site.data.keyword.cloudant_short_notm}} Labs on [GitHub ![External link icon](images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){:new_window}.

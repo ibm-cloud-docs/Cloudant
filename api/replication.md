@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-16"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2017-06-16"
 
 # Replication
 
-Cloudant replication is the process that synchronizes ('syncs') the state of two databases.
+{{site.data.keyword.cloudantfull}} replication is the process that synchronizes ('syncs') the state of two databases.
 {:shortdesc}
 
 Any change that occurred in the source database is reproduced in the target database.
@@ -58,7 +58,7 @@ If they do not,
 an error is returned within the JSON object.
 
 _Example request to replicate between a database on the source server `example.com`,
-and a target database on Cloudant:_
+and a target database on {{site.data.keyword.cloudant_short_notm}}:_
 
 ```http
 POST /_replicate
@@ -87,13 +87,13 @@ _Example error response if one of the requested databases for a replication does
 ## Important notes
 
 * A new and more powerful [replication scheduler](advanced_replication.html#the-replication-scheduler)
-  changes the previous behavior of the Cloudant replication mechanisms.
+  changes the previous behavior of the {{site.data.keyword.cloudant_short_notm}} replication mechanisms.
   Ensure your applications are updated accordingly.
-* Replications can severely impact the performance of a Cloudant instance.
+* Replications can severely impact the performance of a {{site.data.keyword.cloudant_short_notm}} instance.
   Performance testing helps you understand the impact on your environment
   under an increasing number of concurrent replications.
 * [Continuous replication](#continuous-replication) can result in many internal calls.
-  Requiring many calls might affect the costs for multi-tenant users of Cloudant systems.
+  Requiring many calls might affect the costs for multi-tenant users of {{site.data.keyword.cloudant_short_notm}} systems.
   By default,
   continuous replication is not enabled.
 * The target database must exist.
@@ -152,7 +152,7 @@ replication documents can have a user-defined `_id`.
 
 If you do not want to replicate the entire contents of a database,
 you can specify a simple filter in the `selector` field.
-The filter takes the form of a [Cloudant Query](cloudant_query.html) selector object.
+The filter takes the form of a [{{site.data.keyword.cloudant_short_notm}} Query](cloudant_query.html) selector object.
 
 Using a selector object provides performance benefits when compared with using a
 [filter function](design_documents.html#filter-functions).
@@ -185,9 +185,9 @@ an HTTP [`400`](http.html#400) error is returned.
 The error includes more details about the problem in the `"reason"` field of the response.
 The reason might be one of:
 
-- The Cloudant Query selector object is missing.
+- The {{site.data.keyword.cloudant_short_notm}} Query selector object is missing.
 - The selector object is not valid JSON.
-- The selector object does not describe a valid Cloudant Query.
+- The selector object does not describe a valid {{site.data.keyword.cloudant_short_notm}} Query.
 
 More information about using a `selector` object is available in the
 [Apache CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/api/database/changes.html#selector){:new_window}.
@@ -309,7 +309,7 @@ Accept: application/json
 
 ### Creating a replication within a Bluemix environment
 
-You can replicate a Cloudant database to one or more Bluemix environments.
+You can replicate a {{site.data.keyword.cloudant_short_notm}} database to one or more Bluemix environments.
 When you set up the replication job for each environment,
 the source database and target database names you provide must use the following format:
 
@@ -375,7 +375,7 @@ More details about using the scheduler are available in the [advanced replicatio
 If you monitor the `_active_tasks` and find that the state of a replication is not changing,
 you might have a 'stalled' replication.
 If you are sure that the replication stalled,
-contact Cloudant support for assistance.
+contact {{site.data.keyword.cloudant_short_notm}} support for assistance.
 
 For more information,
 see [Active tasks](active_tasks.html)

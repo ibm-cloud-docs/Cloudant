@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-26"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,15 +14,15 @@ lastupdated: "2017-10-26"
 
 <!-- Acrolinx: 2017-02-23 -->
 
-# Creating and leveraging a Cloudant Dedicated Hardware plan instance on Bluemix
+# Creating and leveraging a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.Bluemix_notm}}
 
-This tutorial shows you how to create a Cloudant Dedicated Hardware plan instance 
-using the IBM Cloud dashboard, and shows you how to subsequently provision one or 
+This tutorial shows you how to create a {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance 
+using the {{site.data.keyword.Bluemix}} dashboard, and shows you how to subsequently provision one or 
 more Standard plan instances to run on it. 
 
-Creating a Cloudant Dedicated Hardware plan instance results in the provisioning 
-of a Cloudant environment on dedicated hardware for your sole use. A service 
-instance is created in the IBM Cloud dashboard, but note that you cannot 
+Creating a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance results in the provisioning 
+of a {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware for your sole use. A service 
+instance is created in the {{site.data.keyword.Bluemix_notm}} dashboard, but note that you cannot 
 access the Dedicated Hardware plan instance directly and will not have 
 any Service Credentials for it. You can use a Cloudant Dedicated Hardware 
 plan instance after it is created by provisioning one or more Standard plan 
@@ -68,7 +68,7 @@ instances on it.
     pay for an environment before clicking the **Create** button.<br/>
     ![Provision dedicated hardware](../tutorials/images/create_button_provision.png)<br/>
     **Note**: During provisioning, a spinning wheel appears next to the instance in 
-    your IBM Cloud dashboard. A request is sent to provision a Dedicated Hardware plan instance on bare 
+    your {{site.data.keyword.Bluemix_notm}} dashboard. A request is sent to provision a Dedicated Hardware plan instance on bare 
     metal servers. Provisioning time is asynchronous and can take up to 5 days. 
     ![Provision dedicated hardware alternate version](../tutorials/images/create_button_provision2.png)<br/>
     
@@ -107,6 +107,6 @@ instances on it.
     After a few seconds, the instance is provisioned on the environment you selected.<br/>
     ![Provision standard instance](../tutorials/images/create_button_provision_standard.png)
     
-8.  Obtain your Service Credentials and access the Cloudant Dashboard as you do for a multi-tenant Cloudant instance. 
+8.  Obtain your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
     See more information about how to locate your Service Credentials [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials){:new_window}. 
      

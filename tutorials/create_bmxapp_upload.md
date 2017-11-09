@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-01-11"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creating a simple Bluemix application to access a Cloudant database: uploading the application
+# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: uploading the application
 
 This section of the tutorial describes how to upload an
 {{site.data.keyword.Bluemix}} application.
@@ -22,7 +22,7 @@ This section of the tutorial describes how to upload an
 
 <div id="uploading"></div>
 
-## Connecting to Bluemix
+## Connecting to {{site.data.keyword.Bluemix_notm}}
 
 The first task is to connect to {{site.data.keyword.Bluemix_notm}}.
 
@@ -102,7 +102,7 @@ Space:          dev
 
 ## Uploading the application
 
-The Cloudant Foundry toolkit now knows how to connect to the {{site.data.keyword.Bluemix_notm}} environment.
+The {{site.data.keyword.cloudant_short_notm}} Foundry toolkit now knows how to connect to the {{site.data.keyword.Bluemix_notm}} environment.
 
 The next step is to upload the application itself.
 Details of a {{site.data.keyword.Bluemix_notm}} application
@@ -124,7 +124,7 @@ A sequence of result messages is displayed.
 ```
 Using manifest file /..../BMXDemo/manifest.yml
 
-Updating app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -140,7 +140,7 @@ Uploading app files from: /..../BMXDemo
 Uploading 1.5K, 3 files
 Done uploading               
 OK
-Binding service Cloudant Service 2017 to app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -149,7 +149,7 @@ The application was uploaded successfully,
 and a connection made with the {{site.data.keyword.cloudant_short_notm}} database instance.
 
 ```
-Starting app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Starting app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 -----> Downloaded app package (4.0K)
 -----> Downloaded app buildpack cache (29M)
 -------> Buildpack version 1.5.5
@@ -175,7 +175,7 @@ App started
 
 OK
 
-App Cloudant Python was started using this command `python server.py`
+App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
 ```
 {:codeblock}
 
@@ -191,7 +191,7 @@ some simple system checks are run to confirm that the application is running cor
 as far as {{site.data.keyword.Bluemix_notm}} is concerned.
 
 ```
-Showing health and status for app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 
 requested state: started

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-13"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2017-07-13"
 
 This tutorial demonstrates how to use the 
 [CouchBackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} command-line 
-utility to back up and restore a CouchDB or Cloudant instance. CouchBackup backs up 
+utility to back up and restore a CouchDB or {{site.data.keyword.cloudant_short_notm}} instance. CouchBackup backs up 
 the database to a file. If the database fails, you can use the backup file to 
 restore the information to an existing database. 
 {:shortdesc}
@@ -145,12 +145,12 @@ back up and restore in later exercises.
 ## Setting an environment variable
 
 You can use environment variables or command-line options to specify the 
-URL and database for the CouchDB or Cloudant instance that you want to work 
+URL and database for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance that you want to work 
 with CouchBackup. 
 
 In this tutorial, we set the `COUCH_URL` and specify the database using the `--db` parameter. 
 
-Set the `COUCH_URL` environment variable to specify the URL for the CouchDB or Cloudant instance.
+Set the `COUCH_URL` environment variable to specify the URL for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance.
 
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
@@ -395,7 +395,7 @@ as the target when restoring a backup.
     ```
     {:codeblock}
 
-Now, you have backed up and restored a database and created a log file. See the Cloudant Documentation 
+Now, you have backed up and restored a database and created a log file. See the {{site.data.keyword.cloudant_short_notm}} Documentation 
 for more information about [disaster recovery and backup](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
-[configuring Cloudant for cross region disaster recovery](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery),
-and [Cloudant backup and recovery](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  
+[configuring {{site.data.keyword.cloudant_short_notm}} for cross region disaster recovery](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery),
+and [{{site.data.keyword.cloudant_short_notm}} backup and recovery](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  

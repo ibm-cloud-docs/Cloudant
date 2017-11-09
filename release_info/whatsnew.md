@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-22"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,9 +14,9 @@ lastupdated: "2017-09-22"
 
 <!-- Acrolinx: 2017-07-11 -->
 
-# What's new in Cloudant
+# What's new in {{site.data.keyword.cloudant_short_notm}}
 
-See what is new and interesting in Cloudant. 
+See what is new and interesting in {{site.data.keyword.cloudantfull}}. 
 {:shortdesc}
 
 [Build 6069 (May 11, 2017)](/docs/services/Cloudant/release_info/release_notes.html#build-6069-may-11-2017-)

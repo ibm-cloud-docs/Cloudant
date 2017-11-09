@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-09-22"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2017-09-22"
 
 # Release Notes
 
-Changes and updates to Cloudant grouped by build number. 
+Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build number. 
 {:shortdesc}
 
 ## Dedicated hardware
@@ -45,7 +45,7 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
 
 ## Build 6233 (June 26, 2017) 
 
-- Fixes a Cloudant Query issue where indexes excluding potentially matching documents were selected by the query planner.
+- Fixes a {{site.data.keyword.cloudant_short_notm}} Query issue where indexes excluding potentially matching documents were selected by the query planner.
 
 ## Build 6069 (May 11, 2017)
 
@@ -66,7 +66,7 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
 
 ## Build 5728 (November 25, 2016)
 
-- Cloudant is more tolerant of malformed user documents stored within the `_users` database.
+- {{site.data.keyword.cloudant_short_notm}} is more tolerant of malformed user documents stored within the `_users` database.
   User documents should be structured and populated to comply with
   [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
 
@@ -84,6 +84,6 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
 -	Support for the CouchDB 1.6 `_users` database features, including server-side hashing of passwords when documents are created in the `_users` database.
 -	`/_bulk_get` endpoint to reduce the number of requests that are used in replication to mobile clients.
 -	Design document metadata contains an `update pending` field.
--	Cloudant Query no longer returns an error if no valid index exists.
+-	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.
 
 
