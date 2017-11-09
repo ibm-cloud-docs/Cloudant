@@ -100,7 +100,7 @@ refer to [PouchDB ![External link icon](../images/launch-glyph.svg "External lin
 ### Examples and Tutorials
 
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} using jQuery.
--   [CSVto{{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/michellephung/CSVtoCloudant){:new_window} -
+-   [CSVtoCloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/michellephung/CSVtoCloudant){:new_window} -
     UI for importing `.csv` files into {{site.data.keyword.cloudant_short_notm}}.
     The app can also be accessed [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://michellephung.github.io/CSVtoCloudant/){:new_window}.
 -   [csv2couchdb ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/Mango-information-systems/csv2couchdb){:new_window} -

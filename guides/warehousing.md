@@ -110,7 +110,7 @@ that enable you to perform a range of basic analytical tasks.
 
 For more advanced warehousing tasks,
 you can leverage the full capabilities provided by the
-IBM cloud-based warehousing service [IBM Db2 Warehouse on Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/analytics/us/en/data-management/data-warehouse/){:new_window}.
+IBM cloud-based warehousing service [{{site.data.keyword.IBM}} Db2 Warehouse on Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/analytics/us/en/data-management/data-warehouse/){:new_window}.
 
 When you use {{site.data.keyword.cloudant_short_notm}},
 you have integrated and easy access to advanced warehousing capabilities,
@@ -139,16 +139,16 @@ examining the structure of data when it is loaded.
 For more information,
 see the [IBM Db2 Warehouse on Cloud documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
 
-## IBM DB2 on Cloud
+## {{site.data.keyword.DB2OnCloud_short}}
 
-[IBM DB2 on Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/ibm-db2-on-cloud){:new_window}
+[{{site.data.keyword.DB2OnCloud_full}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/ibm-db2-on-cloud){:new_window}
 provides you with a database on IBM's SoftLayer® global cloud infrastructure.
 It offers you the rich features of an on-premise DB2 deployment,
 but without the cost,
 complexity,
 and risk of managing your own infrastructure.
 
-For more information, see the [IBM DB2 on Cloud documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/services/DB2OnCloud/index.html#DB2OnCloud){:new_window}.
+For more information, see the [{{site.data.keyword.DB2OnCloud_short}} documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/services/DB2OnCloud/index.html#DB2OnCloud){:new_window}.
 
 ## Creating a warehouse
 

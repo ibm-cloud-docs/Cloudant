@@ -12,7 +12,7 @@ lastupdated: "2017-11-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# {{site.data.keyword.cloudantfull}} Basics
+# {{site.data.keyword.cloudant_short_notm}} Basics
 
 If it's your first time here,
 scan this section before you scroll further.
@@ -20,7 +20,7 @@ scan this section before you scroll further.
 
 The sections on [Client Libraries](../libraries/index.html#-client-libraries),
 [API Reference](../api/index.html#-api-reference),
-and [Guides](../guides/acurl.html#authorized-curl-acurl-) assume you know some basic things about {{site.data.keyword.cloudant_short_notm}}.
+and [Guides](../guides/acurl.html#authorized-curl-acurl-) assume you know some basic things about {{site.data.keyword.cloudantfull}}.
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 

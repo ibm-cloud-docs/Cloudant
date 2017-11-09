@@ -18,7 +18,7 @@ with documents, create an index, and use the index to query the database.
 
 Exercises for both the ![Command line icon](../images/CommandLineIcon.png) _Command line_
 and ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_ are provided. The
-{{site.data.keyword.cloudantfull}} Dashboard exercises give you a visual example of each task. You can follow the links
+{{site.data.keyword.Bluemix}} Dashboard exercises give you a visual example of each task. You can follow the links
 throughout the tutorial for more information.
 
 To begin, you create the `query-demo` database and some documents that
@@ -28,10 +28,10 @@ contain the data for these exercises.
 
 Before you begin, follow these steps to prepare for the tutorial:
 
-1.  [Create a Bluemix account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
+1.  [Create a {{site.data.keyword.Bluemix}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Log in to the
-  [{{site.data.keyword.cloudant_short_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Create a {{site.data.keyword.cloudant_short_notm}} instance on Bluemix](create_service.html#creating-a-cloudant-instance-on-bluemix).
+  [{{site.data.keyword.Bluemix_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+3.  [Create a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-cloudant-instance-on-bluemix).
 4.  (Optional) [Create an acurl alias](../guides/acurl.html#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
 5.  Replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to {{site.data.keyword.cloudant_short_notm}} Dashboard.
   If you decide not to set up `acurl`,

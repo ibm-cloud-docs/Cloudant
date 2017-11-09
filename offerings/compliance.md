@@ -23,13 +23,13 @@ including ISO 27001:2013.
 ## Top-tier Physical systems
 
 The {{site.data.keyword.cloudant_short_notm}} DBaaS is physically hosted
-on Tier-1 cloud infrastructure providers such as {{site.data.keyword.BluSoftlayer_full}} and Amazon.
+on Tier-1 cloud infrastructure providers such as {{site.data.keyword.Bluemix}} and Amazon.
 Therefore,
 your data is protected by the network and physical security measures that are employed by these providers.
 
 ## HIPAA
 
-{{site.data.keyword.cloudant_short_notm}}, when deployed on dedicated hardware on {{site.data.keyword.BluSoftlayer_notm}}, 
+{{site.data.keyword.cloudant_short_notm}}, when deployed on dedicated hardware on {{site.data.keyword.Bluemix_notm}}, 
 meets the required {{site.data.keyword.IBM_notm}} controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. These requirements 
 include the appropriate administrative, physical, and technical safeguards required of Business 
 Associates in 45 CFR Part 160 and Subparts A and C of Part 164. HIPAA must be requested at the 
@@ -52,7 +52,7 @@ and meets all of the requirements for ISO 27001:
 {{site.data.keyword.IBM_notm}} provides a Service Organization Controls (SOC) 2 Type 1 report for {{site.data.keyword.cloudant_short_notm}}. The report evaluates {{site.data.keyword.IBM_notm}}'s operational 
 controls according to the criteria set by the American Institute of Certified Public Accountants (AICPA) 
 Trust Services Principles. The Trust Services Principles define adequate control systems and 
-establish industry standards for service providers such as {{site.data.keyword.BluSoftlayer_notm}} to safeguard their customers' 
+establish industry standards for service providers such as {{site.data.keyword.Bluemix_notm}} to safeguard their customers' 
 data and information.
 
 Customers can request an SOC 2 Type 1 report from the customer portal or 

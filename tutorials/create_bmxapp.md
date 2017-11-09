@@ -72,7 +72,7 @@ you need to perform the following tasks:
 
 -   [Create a Python application environment on {{site.data.keyword.Bluemix_notm}}.](create_bmxapp_appenv.html#creating)
 -   [Ensure that the Python application environment has a 'connection' to a {{site.data.keyword.cloudant_short_notm}} database instance.](create_bmxapp_appenv.html#connecting)
--   [(One-off task) Download and install the Cloud Foundry and Bluemix command line toolkits.](create_bmxapp_appenv.html#toolkits)
+-   [(One-off task) Download and install the Cloud Foundry and {{site.data.keyword.Bluemix_notm}} command line toolkits.](create_bmxapp_appenv.html#toolkits)
 -   [Download the 'starter' application.](create_bmxapp_appenv.html#starter)
 -   [Customize the starter application to create your own application for accessing the {{site.data.keyword.cloudant_short_notm}} database instance.](create_bmxapp_createapp.html#theApp)
 -   [Upload your application and test that it works.](create_bmxapp_upload.html#uploading)

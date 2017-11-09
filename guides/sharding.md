@@ -14,11 +14,11 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-05-15 -->
 
-# How is data stored in {{site.data.keyword.cloudantfull}}?
+# How is data stored in {{site.data.keyword.cloudant_short_notm}}?
 
 ## Concepts
 
-Every database in {{site.data.keyword.cloudant_short_notm}} is formed of one or more distinct _shards_,
+Every database in {{site.data.keyword.cloudantfull}} is formed of one or more distinct _shards_,
 where the number of shards is referred to as _Q_.
 A shard is a distinct subset of documents from the database.
 All _Q_ shards together contain the data within database.

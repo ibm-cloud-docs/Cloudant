@@ -296,7 +296,7 @@ Exceeding this limit causes a [`413` error](../api/http.html#413).
 
 By default, all Lite and Standard plans are deployed on multi-tenant 
 environments. As part of your plan selection, you can choose from the 
-following {{site.data.keyword.IBM_notm}} Cloud Public regions:
+following {{site.data.keyword.Bluemix_notm}} Public regions:
 
 -   US South
 -   United Kingdom
@@ -334,7 +334,7 @@ to explore all HA, DR, and backup considerations to meet your application requir
 ## Support
 
 Support for Standard and Dedicated plan service instances is optional.
-It is provided by purchasing "{{site.data.keyword.Bluemix_notm}} Standard Support".
+It is provided by purchasing "{{site.data.keyword.Bluemix}} Standard Support".
 Support is not available for the Lite plan.
 
 A pricing calculator for {{site.data.keyword.Bluemix_notm}} Standard Support is available
@@ -344,7 +344,7 @@ Information about the details of the Support Service Level Agreement (SLA) is av
 
 ## Provisioning a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
 
-You can provision a {{site.data.keyword.cloudant_short_notm}}Lite or Standard plan instance on {{site.data.keyword.IBM_notm}} Cloud in two ways:
+You can provision a {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.Bluemix}} in two ways:
 
 - Using the Dashboard. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
 - Using the Cloud Foundry command tool. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.

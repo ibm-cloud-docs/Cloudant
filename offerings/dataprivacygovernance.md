@@ -62,7 +62,7 @@ More information about {{site.data.keyword.cloudant_short_notm}}'s overall stand
 Similar information can be found for these IaaS business partners:
 
 -   [Amazon ![External link icon](../images/launch-glyph.svg "External link icon")](https://aws.amazon.com/compliance/){:new_window}
--   [{{site.data.keyword. BluSoftlayer_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.softlayer.com/compliance){:new_window}
+-   [{{site.data.keyword.BluSoftlayer_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.softlayer.com/compliance){:new_window}
 
 Following the recent vote in favor of new
 [General Data Protection Regulations ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){:new_window},

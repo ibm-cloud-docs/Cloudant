@@ -12,10 +12,10 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on Bluemix
+# Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.Bluemix_notm}}
 
 This tutorial shows you how to use the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} to
-create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.Bluemix_notm}} service instance,
+create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.Bluemix}} service instance,
 and populate the database with a simple collection of data.
 {:shortdesc}
 
@@ -113,9 +113,9 @@ to illustrate the techniques,
 but you should apply normal best practices for checking and handling all
 warning or error conditions encountered by your own applications. 
 
-## Connecting to a {{site.data.keyword.cloudant_short_notm}} service instance on Bluemix
+## Connecting to a {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}
 
-A Python application requires the {{site.data.keyword.cloudantfull}} Client Library components to be able to connect to the service instance.
+A Python application requires the {{site.data.keyword.cloudant_short_notm}} Client Library components to be able to connect to the service instance.
 These components are identified as normal `import` statements:
 
 ```python

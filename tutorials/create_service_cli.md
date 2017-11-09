@@ -15,7 +15,7 @@ lastupdated: "2017-11-07"
 # Creating a {{site.data.keyword.cloudant_short_notm}} instance on Bluemix using the Cloud Foundry tools
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
-service instance on {{site.data.keyword.Bluemix_notm}}
+service instance on {{site.data.keyword.Bluemix}}
 using the Cloud Foundry tools.
 {:shortdesc}
 
@@ -49,7 +49,7 @@ Not logged in. Use 'bx login' to log in.
 ```
 {:pre}
 
-## Logging in to your Bluemix account
+## Logging in to your {{site.data.keyword.Bluemix_notm}} account
 
 1.  Use the following command to start the login process for
   your {{site.data.keyword.Bluemix_notm}} account:

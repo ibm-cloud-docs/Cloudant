@@ -12,10 +12,10 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating a Cloudant instance on Bluemix
+# Creating a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
-service instance using the {{site.data.keyword.Bluemix_notm}} dashboard,
+service instance using the {{site.data.keyword.Bluemix}} dashboard,
 and shows you where to find the essential information to enable your applications
 to work with the database.
 {:shortdesc}
@@ -79,10 +79,10 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
 
 >   **Note**: The service credentials in these examples
-    were defined when a demonstration Cloudant service was created on Bluemix.
+    were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}.
     The credentials are reproduced here to show how they would appear in the dashboard.
     However,
-    the demonstration Cloudant service was removed,
+    the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed,
     so these credentials are no longer valid;
     you _must_ supply and use your own service credentials.
 
@@ -113,7 +113,7 @@ you need these credentials.
 At any time,
 you can find the credentials for a service that is associated with your account.
 
-1.  Begin by logging in to Bluemix.
+1.  Begin by logging in to {{site.data.keyword.cloudant_short_notm}}.
     The {{site.data.keyword.Bluemix}} dashboard can be found at:
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
@@ -122,7 +122,7 @@ you can find the credentials for a service that is associated with your account.
 
 2.  Scroll down the Dashboard,
     until you reach the section that lists all your services:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} service listing](images/img0010.png)
+    ![{{site.data.keyword.Bluemix_notm}}' service listing](images/img0010.png)
 
 3.  In this example,
     we want to find the service credentials for the {{site.data.keyword.cloudant_short_notm}}
@@ -140,9 +140,9 @@ you can find the credentials for a service that is associated with your account.
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
 
 >   **Note**: The service credentials in these examples
-    were defined when a demonstration Cloudant service was created on Bluemix.
+    were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}.
     The credentials are reproduced here to show how they would appear in the dashboard.
     However,
-    the demonstration Cloudant service was removed,
+    the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed,
     so these credentials are no longer valid;
     you _must_ supply and use your own service credentials.

@@ -49,9 +49,9 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### A {{site.data.keyword.cloudant_short_notm}} service instance on Bluemix
+### A {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}
 
-A separate tutorial for creating a {{site.data.keyword.cloudant_short_notm}} service instance called
+A separate tutorial for creating a {{site.data.keyword.cloudantfull}} service instance called
 '`Cloudant Service 2017`' is available [here](create_service.html).
 
 This tutorial assumes that you have already created a service instance called

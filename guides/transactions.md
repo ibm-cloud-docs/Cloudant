@@ -12,7 +12,7 @@ lastupdated: "2017-11-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Grouping related documents together in {{site.data.keyword.cloudantfull}}
+# Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}
 
 Traditionally,
 e-commerce systems are built with relational databases.
@@ -26,7 +26,7 @@ including using joins between collections,
 enumerations to record the state of an object,
 and database transactions to guarantee atomic operations.
 
-{{site.data.keyword.cloudant_short_notm}} favors availability over consistency.
+{{site.data.keyword.cloudantfull}} favors availability over consistency.
 It is a high-availability,
 fault-tolerant,
 distributed database that is eventually consistent.

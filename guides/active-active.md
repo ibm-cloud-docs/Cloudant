@@ -14,7 +14,7 @@ lastupdated: "2017-11-02"
 
 <!-- Acrolinx: 2017-05-22 -->
 
-# Configuring {{site.data.keyword.cloudantfull}} for Cross Region Disaster Recovery
+# Configuring {{site.data.keyword.cloudant_short_notm}} for Cross Region Disaster Recovery
 
 The [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](disaster-recovery-and-backup.html)
 explains that one way to enable disaster recovery is to use

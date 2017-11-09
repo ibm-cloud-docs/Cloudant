@@ -15,7 +15,7 @@ lastupdated: "2017-10-27"
 <!-- Acrolinx: 2017-05-23 -->
 <!-- Update backup-guide.md with with any changes. -->
 
-# {{site.data.keyword.cloudantfull}} backup and recovery
+# {{site.data.keyword.cloudant_short_notm}} backup and recovery
 
 This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](disaster-recovery-and-backup.html).
 It's worth starting there if you are new to the subject and want to understand where backup fits in
