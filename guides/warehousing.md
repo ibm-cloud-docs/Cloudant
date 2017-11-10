@@ -139,7 +139,7 @@ examining the structure of data when it is loaded.
 For more information,
 see the [IBM Db2 Warehouse on Cloud documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
 
-## {{site.data.keyword.DB2OnCloud_short}}
+## DB2 Hosted
 
 [{{site.data.keyword.DB2OnCloud_full}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/ibm-db2-on-cloud){:new_window}
 provides you with a database on IBM's SoftLayer® global cloud infrastructure.
