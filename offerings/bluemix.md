@@ -14,7 +14,7 @@ lastupdated: "2017-10-26"
 
 <!-- Acrolinx: 2017-02-23 -->
 
-# {{site.data.keyword.Bluemix}} Public
+# {{site.data.keyword.Bluemix_notm}} Public
 
 {{site.data.keyword.cloudantfull}} Public is {{site.data.keyword.cloudant_short_notm}}'s most 
 feature-rich offering, receiving updates and new features first. Pricing is based on 
