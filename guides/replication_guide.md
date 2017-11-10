@@ -299,8 +299,7 @@ With continuous replication,
 data flows continuously.
 All subsequent changes to the source database are transmitted to the target database in real time.
 
-Continuous replication is triggered by clicking the
-"`Make this replication continuous`" check box when you define a replication task in the {{site.data.keyword.cloudant_short_notm}} Dashboard,
+Continuous replication is triggered by clicking the "`Make this replication continuous`" check box when you define a replication task in the {{site.data.keyword.cloudant_short_notm}} Dashboard,
 or by setting the ["`continuous`"](../api/replication.html#checkpoints) flag in the {{site.data.keyword.cloudant_short_notm}} API.
 
 Two-way replication can be made continuous in one or both of the directions,
