@@ -14,7 +14,7 @@ lastupdated: "2017-10-26"
 
 <!-- Acrolinx: 2017-02-23 -->
 
-# Bluemix Public
+# {{site.data.keyword.Bluemix_notm}} Public
 
 {{site.data.keyword.cloudantfull}} Public is {{site.data.keyword.cloudant_short_notm}}'s most 
 feature-rich offering, receiving updates and new features first. Pricing is based on 
@@ -94,7 +94,7 @@ You can select which plan to use when you
 By default,
 the [Lite plan](#lite-plan) is selected.
 
-![Cloudant service instance plan selection](../images/fb87416a.png)
+![{{site.data.keyword.cloudant_short_notm}} service instance plan selection](../images/fb87416a.png)
 
 ### Lite plan
 
@@ -105,7 +105,7 @@ writes, and queries.
 
 Storage usage is checked daily. If you exceed your storage limit, HTTP requests to the account receive a 
 402 status code with the error message, "Account has exceeded its data usage quota. An upgrade to a paid plan is required."
-A banner also appears on the Cloudant dashboard to inform you. You can still read and delete data. However, to write new data, 
+A banner also appears on the {{site.data.keyword.cloudant_short_notm}} dashboard to inform you. You can still read and delete data. However, to write new data, 
 you must either upgrade to a paid account or delete data and wait until the next check runs for your account to be reactivated. 
 
 If you would like to store more than one GB of data,
@@ -126,11 +126,11 @@ and queries.
 ### Dedicated hardware plan
 
 You can optionally run your Standard plan instances on a dedicated hardware environment in 
-any [IBM data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 
+any [{{site.data.keyword.IBM}} data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 
 for a monthly fee. You purchase a single dedicated hardware plan for a given location 
 and can provision one or more Standard plan instances on it. This plan is necessary for 
 HIPAA compliance and must be selected at provisioning time. Note that the Dedicated 
-Hardware plan is not available to Bluemix Dedicated customers and is only available for Bluemix 
+Hardware plan is not available to {{site.data.keyword.Bluemix_notm}} Dedicated customers and is only available for {{site.data.keyword.Bluemix_notm}} 
 Public customers.
 
 ## Provisioned throughput capacity
@@ -152,7 +152,7 @@ Throughput provision is identified and measured as one of three kinds of events:
 	-	MapReduce View ([`_view`](../api/creating_views.html#using-views))
 	-	Search Index ([`_search`](../api/search.html#queries))
 	-	Geospatial Index ([`_geo`](../api/cloudant-geo.html#querying-a-cloudant-geo-index))
-	-	Cloudant Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
+	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
 
 The measurement of throughput is a simple count of the number of events of each type,
 per second,
@@ -296,7 +296,7 @@ Exceeding this limit causes a [`413` error](../api/http.html#413).
 
 By default, all Lite and Standard plans are deployed on multi-tenant 
 environments. As part of your plan selection, you can choose from the 
-following IBM Cloud Public regions:
+following {{site.data.keyword.Bluemix_notm}} Public regions:
 
 -   US South
 -   United Kingdom
@@ -304,8 +304,8 @@ following IBM Cloud Public regions:
 -   Germany
 
 Dedicated Hardware plan instances can be deployed in most 
-[IBM data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
-See the drop-down menu in the Bluemix catalog for an up-to-date list of available locations.
+[{{site.data.keyword.IBM_notm}} data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
+See the drop-down menu in the {{site.data.keyword.Bluemix_notm}} catalog for an up-to-date list of available locations.
 
 ## Security, Encryption, and Compliance
 
@@ -313,7 +313,7 @@ All plans are provided on servers with
 [at-rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window} disk encryption.
 Access is encrypted over a network connection by using HTTPS.
 For more detail,
-see [Bluemix Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}.
+see [{{site.data.keyword.Bluemix_notm}} Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}.
 
 The plans also offer
 [Security Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/cloudant-compliance/){:new_window}.
@@ -326,7 +326,7 @@ so request this environment as part of the [provisioning process](#provisioning-
 To provide high availability (HA) and disaster recovery (DR) within a data center, all data is 
 stored in triplicate across three separate physical servers in a cluster. You can provision 
 accounts in multiple data centers, then use continuous data replication to provide HA/DR across 
-data centers. Cloudant NoSQL DB data is not automatically backed up, but supported tooling is 
+data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically backed up, but supported tooling is 
 provided to handle backups. Review the 
 [Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) 
 to explore all HA, DR, and backup considerations to meet your application requirements. 
@@ -334,7 +334,7 @@ to explore all HA, DR, and backup considerations to meet your application requir
 ## Support
 
 Support for Standard and Dedicated plan service instances is optional.
-It is provided by purchasing "{{site.data.keyword.Bluemix_notm}} Standard Support".
+It is provided by purchasing "{{site.data.keyword.Bluemix}} Standard Support".
 Support is not available for the Lite plan.
 
 A pricing calculator for {{site.data.keyword.Bluemix_notm}} Standard Support is available
@@ -342,14 +342,14 @@ A pricing calculator for {{site.data.keyword.Bluemix_notm}} Standard Support is 
 Information about the details of the Support Service Level Agreement (SLA) is available
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-03.ibm.com/software/sla/sladb.nsf/pdf/6606-08/$file/i126-6606-08_05-2016_en_US.pdf){:new_window}.
 
-## Provisioning a Cloudant instance on Bluemix
+## Provisioning a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
 
-You can provision a Cloudant NoSQL DB Lite or Standard plan instance on IBM Cloud in two ways:
+You can provision a {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.Bluemix}} in two ways:
 
 - Using the Dashboard. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
 - Using the Cloud Foundry command tool. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
  
-To create and leverage a Cloudant Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
+To create and leverage a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -22,7 +22,7 @@ _(This guide is based on a Blog article by Mike Rhodes:
 ["My top 5 tips for modelling your data to scale" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window},
 originally published December 17, 2013.)_
 
-The way you model data on Cloudant will significantly impact how your application is able to 
+The way you model data on {{site.data.keyword.cloudantfull}} will significantly impact how your application is able to 
 scale. Our underlying data model differs substantially from a relational model, and ignoring 
 this distinction can be the cause of performance issues down the road.
 
@@ -104,7 +104,7 @@ decreases the time your application spends waiting for the request to complete.
 
 In relational databases, normalising data is often the most efficient way to store data. 
 This makes a lot of sense when you can use JOINs to easily combine data from multiple tables. 
-In Cloudant, you're more likely to need a HTTP GET request for each piece of data, so reducing 
+In {{site.data.keyword.cloudant_short_notm}}, you're more likely to need a HTTP GET request for each piece of data, so reducing 
 the number of requests you need to build up a complete picture of a modeled entity will allow 
 you to present information to your users more quickly.
 
@@ -115,7 +115,7 @@ As an example, in a relational schema you'd normally represent tags in a separat
 a connecting table to join tags with their associated documents, allowing quick look up of all 
 documents with a given tag.
 
-In Cloudant, you'd store tags in a list in each document. You would then use a view to get the 
+In {{site.data.keyword.cloudant_short_notm}}, you'd store tags in a list in each document. You would then use a view to get the 
 documents with a given tag by 
 [emitting each tag as a key in your view's map function](../api/creating_views.html). 
 Querying the view for a given key will then provide all the documents with that tag.
@@ -181,27 +181,27 @@ though we’ve split up the data for a single modeled entity.
 
 ## Why this helps
 
-Avoiding conflicted documents helps speed up many operations on your Cloudant databases. 
+Avoiding conflicted documents helps speed up many operations on your {{site.data.keyword.cloudant_short_notm}} databases. 
 This is because there’s a process which works out the current winning revision used each time 
 the document is read: single document retrievals, calls with `include_docs=true`, view building 
 and so on.
 
 The winning revision is a particular revision from the document’s overall tree. Recall that 
-documents on Cloudant are in fact trees of revisions. An arbitrary but deterministic algorithm 
+documents on {{site.data.keyword.cloudant_short_notm}} are in fact trees of revisions. An arbitrary but deterministic algorithm 
 selects one of the non-deleted leaves of this tree to return when a request is made for the 
 document. Larger trees with a higher branching factor take longer to process than a document 
 tree with no or few branches: each branch needs to be followed to see if it’s a candidate to 
 be the winning revision. Potential victors then need to be compared against each other to make 
 the final choice.
 
-Cloudant obviously handles small numbers of branches well - after all, replication relies on 
+{{site.data.keyword.cloudant_short_notm}} obviously handles small numbers of branches well - after all, replication relies on 
 the fact documents can branch to avoid discarding data - but when pathological levels are 
 reached, particularly if the conflicts are not resolved, it becomes very time-consuming and 
 memory-intensive to walk the document tree.
 
 ## Build In Conflict Resolution
 
-In an eventually consistent system like Cloudant, conflicts will eventually happen. As 
+In an eventually consistent system like {{site.data.keyword.cloudant_short_notm}}, conflicts will eventually happen. As 
 described above, this is a price of our scalability and data resilience.
 
 Structuring your data in such a way that resolving conflicts is quick and need not involve 
@@ -228,7 +228,7 @@ pathologically conflicted documents.
 ## Summary
 
 These tips demonstrate some of the ways modeling data will affect your application’s 
-performance. Cloudant’s data store has some specific characteristics, both to watch out for 
+performance. {{site.data.keyword.cloudant_short_notm}}’s data store has some specific characteristics, both to watch out for 
 and to take advantage of, to make sure the database performance scales as your application 
 grows. We understand the shift can be confusing, so we’re always on-hand to give advice.
 

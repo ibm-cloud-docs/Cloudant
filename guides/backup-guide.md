@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-10-27"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-10-27"
 
 <!-- Keep up-to-date with changes in backup-cookbook.md -->
 
-# Cloudant backup and recovery
+# {{site.data.keyword.cloudant_short_notm}} backup and recovery
 
 This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](disaster-recovery-and-backup.html).
 It's worth starting there if you are new to the subject and want to understand where backup fits in
-with the other capabilities that {{site.data.keyword.cloudant_short_notm}} offers
+with the other capabilities that {{site.data.keyword.cloudantfull}} offers
 to support Disaster Recovery (DR) and High Availability (HA) requirements.
 
 Although data is stored redundantly within a {{site.data.keyword.cloudant_short_notm}} cluster,
@@ -42,7 +42,7 @@ the CouchBackup package contains two command line tools:
 
 <strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
 
-## Backing up your Cloudant data
+## Backing up your {{site.data.keyword.cloudant_short_notm}} data
 
 You can do a simple backup by using the `couchbackup` tool.
 To back up the `animaldb` database to a text file called `backup.txt`,
@@ -65,7 +65,7 @@ including:
 
 <strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
 
-## Restoring your Cloudant data
+## Restoring your {{site.data.keyword.cloudant_short_notm}} data
 
 To restore your data,
 use the `couchrestore` tool.
