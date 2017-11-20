@@ -23,6 +23,14 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build xxxx
+
+- Return 400 (Bad request) on invalid `new_edits` value. 
+  Previously calls to `_bulk_docs` with 
+non-boolean value for `new_edits` parameter crashed and returned 500 with a stack trace. This 
+fix changes the reply to be 400 (Bad request) with the reason "`new_edits` parameter must be a 
+boolean."
+
 ## Build 6366 (August 4, 2017)
 
 - Password changes no longer cause your replications to rewind.
