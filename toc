@@ -96,8 +96,6 @@ Cloudant NoSQL DB
 	{: .topicgroup}
 	Guides
 		guides/acurl.md
-		guides/backup-guide.md
-		guides/backup-guide-using-replication.md
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/warehousing.md
@@ -110,5 +108,6 @@ Cloudant NoSQL DB
 		guides/conflicts.md
 		guides/model_data.md
 		guides/replication_guide.md
+		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
 
