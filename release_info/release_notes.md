@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-11-21"
 
 ---
 
@@ -22,6 +22,12 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build xxxx
+
+- Fixes a problem where calls to `_bulk_docs` with a non-boolean value for the `new_edits` parameter
+crashed and returned a 500 error with a stack trace. This fix changes the reply to a
+400 (Bad request) error with the reason "`new_edits` parameter must contain a boolean value."
 
 ## Build 6462
 
