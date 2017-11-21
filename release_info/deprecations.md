@@ -19,7 +19,7 @@ lastupdated: "2017-11-09"
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {:shortdesc}
 
-## Return 400 response when no index can fulfill a sort for `_find` query
+## Appropriate 400 response lists reason for failure when no index can fulfill a sort for a `_find` query
 
 - If you rely on 500 replies in your application, this fix might cause a failure. Update your 
 application to rely on 400 responses to fix the problem.
