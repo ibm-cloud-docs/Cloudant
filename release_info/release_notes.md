@@ -25,9 +25,16 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build xxxx
 
+Return 400 (Bad request) on invalid new_edits value
+
 - Fixes a problem where calls to `_bulk_docs` with a non-boolean value for the `new_edits` parameter
 crashed and returned a 500 error with a stack trace. This fix changes the reply to a
 400 (Bad request) error with the reason "`new_edits` parameter must contain a boolean value."
+
+Before this change, calls to `_bulk_docs` with a non-boolean value for the `new_edits` parameter 
+crashed and returned a 500 error with a stack trace. This fix changes the reply to a 400 (Bad request) 
+error with the reason "`new_edits` parameter must
+contain a boolean value."
 
 ## Build 6462
 
