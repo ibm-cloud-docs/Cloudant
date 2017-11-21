@@ -25,9 +25,16 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build xxxx
 
-- Fixes a problem where calls to `_bulk_docs` with a non-boolean value for the `new_edits` parameter
-crashed and returned a 500 error with a stack trace. This fix changes the reply to a
-400 (Bad request) error with the reason "`new_edits` parameter must contain a boolean value."
+Return 400 (Bad request) on invalid new_edits value
+
+- Changes the error that is returned when calls to `_bulk_docs` include a non-boolean value for 
+the `new_edits` parameter. The new error is a 400 (Bad request) error with the reason, "`new_edits` 
+parameter must contain a boolean value." 
+
+## Build 6462
+
+-   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
+read quorum, and write quorum. This update helps with debugging, operations, and performance analysis.
 
 
 - When no index can fulfill a sort for a `_find` query, 
