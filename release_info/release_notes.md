@@ -23,6 +23,10 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build XXXX
+
+- 
+
 ## Build 6366 (August 4, 2017)
 
 - Password changes no longer cause your replications to rewind.
