@@ -30,14 +30,9 @@ crashed and returned a 500 error with a stack trace. This fix changes the reply 
 400 (Bad request) error with the reason "`new_edits` parameter must contain a boolean value."
 
 
-- Before this fix, when no index was available to service a `_find` query and the sort 
-order did not match, any available indexes were forced to crash with a bad match and a 
-500 error with a stack trace. This update fixes the crash and returns the appropriate 400 
-response with the exact reasons for the failure. The possible reasons include: 
-
-- No indexes are defined in this database.
-- No index matches the index specified with `use_index`.
-- No index exists for this sort. Try indexing by the sort fields.
+- When no index can fulfill a sort for a `_find` query, 
+{{site.data.keyword.cloudant_short_notm}} returns the appropriate 400 
+response with the reason for the failure. 
 
 ## Build 6462
 
