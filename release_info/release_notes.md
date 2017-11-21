@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-07"
+lastupdated: "2017-11-21"
 
 ---
 
@@ -22,6 +22,17 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build XXXX 
+
+- Before this fix, when no index was available to service a `_find` query and the sort 
+order did not match, any available indexes were forced to crash with a bad match and a 
+500 error with a stack trace. This update fixes the crash and returns the appropriate 400 
+response with the exact reasons for the failure. The possible reasons include: 
+
+- No indexes are defined in this database.
+- No index matches the index specified with `use_index`.
+- No index exists for this sort. Try indexing by the sort fields.
 
 ## Build 6366 (August 4, 2017)
 
