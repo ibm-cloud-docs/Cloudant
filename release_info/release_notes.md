@@ -29,6 +29,18 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 {{site.data.keyword.cloudant_short_notm}} returns the appropriate 400 
 response with the reason for the failure. 
 
+- Return reduce overflow errors to the client on `_view` calls. Do not spend RAM building the view when 
+there is a bad reduce function. The error returned to the client looks similar to the following error: 
+
+```{
+    row": {
+        "key": null,
+        "id": "error",
+        "value": "reduce_overflow_error",
+        "reason": Reason
+    }
+}```
+
 ## Build 6366 (August 4, 2017)
 
 - Password changes no longer cause your replications to rewind.

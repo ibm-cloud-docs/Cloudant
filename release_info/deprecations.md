@@ -24,6 +24,12 @@ Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releas
 - If you rely on 500 replies in your application, this fix might cause a failure. Update your 
 application to rely on 400 responses to fix the problem.
 
+## Return reduce overflow errors to the client on `_view` calls. Do not spend RAM building the view when 
+there is a bad reduce function. 
+
+- Customers who do not handle errors as part of the row in the response body might have a problem. To fix the problem,
+change the application to handle errors from view requests.
+
 ## Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
 
 -   An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter 
