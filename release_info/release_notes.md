@@ -74,7 +74,7 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
 ## Build 5638 (October 11, 2016)
 
 -   Introduces new "stable" and "update" query parameters for views.
--   Replicator no longer retries forever if it cannot write checkpoints to the source database.
+-   Replicator no longer retries indefinitely if it cannot write checkpoints to the source database.
 
 ## Build 5421 (June 14, 2016)
 
