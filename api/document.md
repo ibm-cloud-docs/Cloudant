@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-23"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -19,12 +19,12 @@ lastupdated: "2017-06-23"
 Documents are
 [JSON objects ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example){:new_window}.
 Documents are containers for your data,
-and are the basis of the Cloudant database.
+and are the basis of the {{site.data.keyword.cloudantfull}} database.
 {:shortdesc}
 
 Documents are limited to a maximum size of 64 MB.
 
->   **Note**: If you are using a [Cloudant service on IBM Bluemix](../offerings/bluemix.html),
+>   **Note**: If you are using a [{{site.data.keyword.cloudant_short_notm}} service on IBM Bluemix](../offerings/bluemix.html),
     documents are limited to a maximum size of 1 MB.
     Exceeding this limit causes a [`413` error](http.html#413).
 
@@ -33,17 +33,17 @@ a unique `_id` field, and a `_rev` field.
 
 The `_id` field is either created by you,
 or generated automatically as a
-[UUID ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){:new_window} by Cloudant.
+[UUID ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){:new_window} by {{site.data.keyword.cloudant_short_notm}}.
 
 >	**Note:** If you choose to specify the document `_id` field,
 	it must be limited to no more than 7168 characters (7k).
 
 The `_rev` field is a revision number,
-and is [essential to the Cloudant replication protocol](../guides/mvcc.html).
+and is [essential to the {{site.data.keyword.cloudant_short_notm}} replication protocol](../guides/mvcc.html).
 In addition to these two mandatory fields,
 documents can generally contain any other content that can be described by using JSON.
 
-Field names that begin with the underscore character (`_`) are reserved in Cloudant.
+Field names that begin with the underscore character (`_`) are reserved in {{site.data.keyword.cloudant_short_notm}}.
 This rule means that you cannot normally have your own field names that begin with an underscore.
 For example,
 the field `example` would be accepted,
@@ -95,7 +95,7 @@ _Example success message (abbreviated) returned when a nested field with an unde
 ```
 {:codeblock}
 
-Cloudant uses an [eventually consistent](../guides/cap_theorem.html#consistency) model for data.
+{{site.data.keyword.cloudant_short_notm}} uses an [eventually consistent](../guides/cap_theorem.html#consistency) model for data.
 This model means that under some conditions,
 it is possible that if your application writes or updates a document,
 followed immediately by a read of the same document,
@@ -169,7 +169,7 @@ the revision string,
 and `"ok": true`.
 
 If you did not provide an `_id` field,
-Cloudant generates one automatically as a
+{{site.data.keyword.cloudant_short_notm}} generates one automatically as a
 [UUID ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){:new_window}.
 
 A failure to create the document results in a
@@ -198,7 +198,7 @@ If you do not know the `_id` for a particular document,
 you can [query the database](database.html#get-documents) for all documents.
 
 >	**Note**: Due to the distributed,
-eventually consistent nature of Cloudant,
+eventually consistent nature of {{site.data.keyword.cloudant_short_notm}},
 reads might return stale data.
 In particular,
 data that were written recently,
@@ -300,7 +300,7 @@ You can also use this `PUT` method to create a document,
 in which case you do not need to supply the most recent `_rev` value.
 
 >   **Note**: If you fail to provide the most recent `_rev` when you attempt to update an existing document,
-    Cloudant responds with a [409 error](http.html#409).
+    {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](http.html#409).
     This error prevents you overwriting data that were changed by other processes.
     If the write [quorum](#quorum) cannot be met, a [`202` response](http.html#202) is returned.
 
@@ -392,12 +392,12 @@ The response contains the ID and the new revision of the document,
 or an error message if the delete failed.
 
 >	**Note**: If you fail to provide the most recent `_rev`,
-Cloudant responds with a [409 error](http.html#409).
+{{site.data.keyword.cloudant_short_notm}} responds with a [409 error](http.html#409).
 This error prevents you overwriting data that were changed by other clients.
 If the write [quorum](#quorum) cannot be met,
 a [`202` response](http.html#202) is returned.
 
->	**Note**: Cloudant does not completely delete the specified document.
+>	**Note**: {{site.data.keyword.cloudant_short_notm}} does not completely delete the specified document.
 Instead,
 it leaves a [tombstone](#-tombstone-documents) with basic information about the document.
 The tombstone is required so that the delete action can be replicated to other copies of the database.
@@ -625,8 +625,8 @@ because the database sequence numbers are likely to be different.
 avoid replicating that function to clients.
 This rule is to prevent the possibility of unwanted side effects as a result of having the function present on the client.
 
->	**Note**: [Cloudant Sync](../libraries/supported.html#mobile) libraries do not replicate design documents,
-so replication of `validate_doc_update` functions is not normally a problem for Cloudant.
+>	**Note**: [{{site.data.keyword.cloudant_short_notm}} Sync](../libraries/supported.html#mobile) libraries do not replicate design documents,
+so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
 However,
 other clients might replicate the design documents or `validate_doc_update` functions,
 potentially resulting in unwanted side effects.
@@ -1132,8 +1132,8 @@ A 'quorum' mechanism is used to help determine when a request,
 such as a write or read,
 completes successfully.
 
-For help to understand quorum settings and their implications on dedicated Cloudant systems,
-contact Cloudant support.
+For help to understand quorum settings and their implications on dedicated {{site.data.keyword.cloudant_short_notm}} systems,
+contact {{site.data.keyword.cloudant_short_notm}} support.
 
 ## TTL - Time to Live
 
@@ -1143,14 +1143,14 @@ or at an absolute time,
 the data is deemed to be expired.
 The data itself might be deleted or moved to an alternative (archive) location.
 
-Cloudant does _not_ support Time to Live functions.
+{{site.data.keyword.cloudant_short_notm}} does _not_ support Time to Live functions.
 
-The reason is that Cloudant documents are only 'soft' deleted,
+The reason is that {{site.data.keyword.cloudant_short_notm}} documents are only 'soft' deleted,
 not deleted.
 The soft deletion involves replacing the original document with a [smaller record](#-tombstone-documents).
 This small record or 'tombstone' is required for replication purposes;
 it helps ensure that the correct revision to use can be identified during replication.
 
-If the TTL capability was available in Cloudant,
+If the TTL capability was available in {{site.data.keyword.cloudant_short_notm}},
 the resulting potential increase in short-lived documents and soft deletion records
 would mean that the database size might grow in an unbounded fashion.

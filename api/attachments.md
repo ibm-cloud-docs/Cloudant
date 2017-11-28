@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -247,7 +247,7 @@ if your application requires lots of images to be stored as attachments,
 or has large images,
 a better approach would be to use an alternative [BLOB ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Binary_large_object){:new_window}
 storage mechanism for the images.
-You could then use Cloudant to keep
+You could then use {{site.data.keyword.cloudant_short_notm}} to keep
 the image metadata,
 such as URLs to the BLOB store.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2017-01-06"
 *Article contributed by Glynn Bird, Developer Advocate at IBM Cloudant,
 [glynn@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:glynn@cloudant.com){:new_window}*
 
-Cloudant's scalable JSON data store has several querying mechanisms,
+{{site.data.keyword.cloudantfull}}'s scalable JSON data store has several querying mechanisms,
 all of which generate indices that are created and maintained separately to the core data.
 Indexing is not performed immediately when a document is saved.
 Instead,
@@ -29,7 +29,7 @@ non-blocking write throughput.
 -   Search Indexes are constructed using Apache Lucene to allow free-text search,
     faceting and complex ad-hoc queries
 
-Cloudant's [search indexes](../api/search.html) and [MapReduce views](../api/creating_views.html)
+{{site.data.keyword.cloudant_short_notm}}'s [search indexes](../api/search.html) and [MapReduce views](../api/creating_views.html)
 are configured by adding Design Documents to a database.
 Design Documents are JSON documents which contain the instructions on how the view or index is to be built.
 Let's take a simple example.
@@ -100,7 +100,7 @@ The result is that our map code has been turned into a JSON-compatible string,
 and included in a Design Document.
 
 Once the Design Document is saved,
-Cloudant triggers server-side processes to build the `fetch/by_ts` view.
+{{site.data.keyword.cloudant_short_notm}} triggers server-side processes to build the `fetch/by_ts` view.
 It does this by iterating over every document in the database,
 and sending each one to the Javascript map function.
 The function returns the emitted key/value pair.
@@ -117,9 +117,9 @@ as shown in the following diagram:
 It's worth remembering at this point that:
 
 -   The construction of an index happens asynchronously.
-    Cloudant confirms that our Design Document has been saved,
+    {{site.data.keyword.cloudant_short_notm}} confirms that our Design Document has been saved,
     but to check on the progress on the construction of our index,
-    we have to poll Cloudant's [`_active_tasks`](../api/active_tasks.html) endpoint.
+    we have to poll {{site.data.keyword.cloudant_short_notm}}'s [`_active_tasks`](../api/active_tasks.html) endpoint.
 -   The more data we have,
     the longer it takes before the index is ready.
 -   While the initial index build is in progress,
@@ -181,7 +181,7 @@ _Example design document that uses a reduce function:_
 {:codeblock}
 
 When this design document is saved,
-Cloudant completely invalidates the old index and begins building the new index from scratch,
+{{site.data.keyword.cloudant_short_notm}} completely invalidates the old index and begins building the new index from scratch,
 iterating over every document in turn.
 As with the original build,
 the time taken depends on how many documents are in the database,
@@ -227,7 +227,7 @@ as long as you remember to remove the older versions at a later date!
 
 Another approach,
 documented [here ![External link icon](../images/launch-glyph.svg "External link icon")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window},
-relies on the fact that Cloudant recognises when it has two identical design documents,
+relies on the fact that {{site.data.keyword.cloudant_short_notm}} recognises when it has two identical design documents,
 and won't waste time and resources rebuilding views it already has.
 In other words,
 if we take our design document `_design/fetch` and create an exact duplicate `_design/fetch_OLD`,
@@ -261,9 +261,9 @@ npm install -g couchmigrate
 {:codeblock}
 
 To use the `couchmigrate` script,
-first define the URL of the CouchDB/Cloudant instance by setting an environment variable called `COUCH_URL`.
+first define the URL of the CouchDB/{{site.data.keyword.cloudant_short_notm}} instance by setting an environment variable called `COUCH_URL`.
 
-_Defining the URL of the a Cloudant instance:_
+_Defining the URL of the a {{site.data.keyword.cloudant_short_notm}} instance:_
 
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
@@ -273,7 +273,7 @@ export COUCH_URL=http://127.0.0.1:5984
 The URL can be HTTP or HTTPS,
 and can include authentication credentials.
 
-_Defining the URL of the Cloudant instance with authentication credentials:_
+_Defining the URL of the {{site.data.keyword.cloudant_short_notm}} instance with authentication credentials:_
 
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
@@ -320,27 +320,27 @@ When querying the view, we have three choices:
     with the latest documents in the database,
     before returning the answer.
     When we query the view,
-    Cloudant first indexes the 250 new documents,
+    {{site.data.keyword.cloudant_short_notm}} first indexes the 250 new documents,
     and then returns the answer.
 -   An alternative is adding the "`stale=ok`" parameter to the API call.
     The parameter means "return me the data that is already indexed,
     I don't care about the latest updates".
     In other words,
     when you query the view with "`stale=ok`",
-    Cloudant returns the answer immediately,
+    {{site.data.keyword.cloudant_short_notm}} returns the answer immediately,
     without any additional reindexing.
 -   A second alternative is to add the "`stale=update_after`" parameter to the API call.
     The parameter means "return me the data that is already indexed,
     _and_ then reindex any new documents".
     In other words,
     when you query the view with "`stale=update_after`",
-    Cloudant returns the answer immediately,
+    {{site.data.keyword.cloudant_short_notm}} returns the answer immediately,
     and then schedules a background task to index the new data.
 
 Adding "`stale=ok`" or "`stale=update_after`" can be a good way getting answers more quickly from a view,
 but at the expense of freshness. 
 
->   **Note**: The default behaviour distributes load evenly across nodes in the Cloudant cluster.
+>   **Note**: The default behaviour distributes load evenly across nodes in the {{site.data.keyword.cloudant_short_notm}} cluster.
     If you use the alternative `stale=ok` or `stale=update_after` options,
     this might favor a subset of cluster nodes,
     in order to return consistent results from across the eventually consistent set.
