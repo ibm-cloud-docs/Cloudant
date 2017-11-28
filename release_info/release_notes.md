@@ -42,7 +42,6 @@ parameter must contain a boolean value."
 
 - Return reduce overflow errors to the client on `_view` calls. Do not spend RAM building the view when 
 there is a bad reduce function. The error returned to the client looks similar to the following error: 
-
 ```json
 {
     row": {
@@ -54,12 +53,10 @@ there is a bad reduce function. The error returned to the client looks similar t
 }
 ```
 
-
 ## Build 6462
 
 -   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
 read quorum, and write quorum. This update helps with debugging, operations, and performance analysis.
-
 
 - When no index can fulfill a sort for a `_find` query, {{site.data.keyword.cloudant_short_notm}} returns the appropriate 400 response with the reason for the failure. 
 
