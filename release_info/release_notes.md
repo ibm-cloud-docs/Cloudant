@@ -25,8 +25,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build XXXX
 
-The error changed that is returned when calls to /<db>/`_temp_view` fail. The new response is 
-410 "GONE," "Temporary views are not supported in CouchDB."
+- The error changed that is returned when calls to /<db>/`_temp_view` fail. The new response is 
+410 "GONE. Temporary views are not supported in CouchDB."
 
 ## Build 6366 (August 4, 2017)
 
