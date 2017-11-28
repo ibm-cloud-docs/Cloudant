@@ -34,7 +34,7 @@ parameter must contain a boolean value."
 -   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
 read quorum, and write quorum. This update helps with debugging, operations, and performance analysis.
 
-## Build 6366 (August 4, 2017)
+## Build 6366 (August 4, 2017) 
 
 - Password changes no longer cause your replications to rewind.
 
