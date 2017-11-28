@@ -23,7 +23,21 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build xxxx
+## Build XXXX
+
+The error changed that is returned when calls to /<db>/`_temp_view` fail. The new response is 
+410 "GONE," "Temporary views are not supported in CouchDB."
+
+- Changes the error that is returned when calls to `_bulk_docs` include a non-boolean value for 
+the `new_edits` parameter. The new error is a 400 (Bad request) error with the reason, "`new_edits` 
+parameter must contain a boolean value." 
+
+## Build 6462
+
+-   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
+read quorum, and write quorum. This update helps with debugging, operations, and performance analysis.
+
+## Build 6366 (August 4, 2017)
 
 - Changes the error that is returned when calls to `_bulk_docs` include a non-boolean value for 
 the `new_edits` parameter. The new error is a 400 (Bad request) error with the reason, "`new_edits` 

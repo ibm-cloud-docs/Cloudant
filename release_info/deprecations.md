@@ -37,8 +37,6 @@ there is a bad reduce function. The error returned to the client looks similar t
     }
 }
 ```
-Customers who do not handle errors as part of the row in the response body might have a problem. To fix the problem,
-change the application to handle errors from view requests.
 
 ## Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
 
