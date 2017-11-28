@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-21"
+lastupdated: "2017-11-27"
 
 ---
 
@@ -23,27 +23,34 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build XXXX 
+## Build xxxx
 
-- When no index can fulfill a sort for a `_find` query, 
-{{site.data.keyword.cloudant_short_notm}} returns the appropriate 400 
-response with the reason for the failure. 
+- Changes the error that is returned when calls to `_bulk_docs` include a non-boolean value for 
+the `new_edits` parameter. The new error is a 400 (Bad request) error with the reason, "`new_edits` 
+parameter must contain a boolean value." 
 
 - Return reduce overflow errors to the client on `_view` calls. Do not spend RAM building the view when 
 there is a bad reduce function. The error returned to the client looks similar to the following error: 
 
-```{
+```json
+{
     row": {
         "key": null,
         "id": "error",
         "value": "reduce_overflow_error",
         "reason": Reason
     }
-}```
+}
+```
 
-## Build 6366 (August 4, 2017)
 
-- Password changes no longer cause your replications to rewind.
+## Build 6462
+
+-   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
+read quorum, and write quorum. This update helps with debugging, operations, and performance analysis.
+
+
+- When no index can fulfill a sort for a `_find` query, {{site.data.keyword.cloudant_short_notm}} returns the appropriate 400 response with the reason for the failure. 
 
 ## Build 6365 (August 17, 2017)
 
