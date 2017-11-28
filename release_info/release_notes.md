@@ -29,6 +29,9 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 the `new_edits` parameter. The new error is a 400 (Bad request) error with the reason, "`new_edits` 
 parameter must contain a boolean value." 
 
+- The error changed that is returned when calls to /<db>/`_temp_view` fail. The new response is 
+410 "GONE. Temporary views are not supported in CouchDB."
+
 ## Build 6462
 
 -   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
