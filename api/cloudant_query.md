@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-05"
 
 ---
 
@@ -416,7 +416,7 @@ _Example of a response body with two indexes:_
 
 -	**selector**: JSON object that describes the criteria that are used to select documents.
 	More information is provided in the section on [selectors](#selector-syntax).
--	**limit (optional, default: 25)**: Maximum number of results returned.
+-	**limit (optional, default: 25)**: Maximum number of results returned. Note that `type: text` indexes are limited to 200 results when queried.
 -	**skip (optional, default: 0)**: Skip the first 'n' results, where 'n' is the value that is specified.
 -	**sort (optional, default: [])**: JSON array,
 	ordered according to the [sort syntax](#sort-syntax).
@@ -435,6 +435,7 @@ _Example of a response body with two indexes:_
 	Pagination is discussed in more detail [here](cloudant_query.html#pagination).
 -	**use_index (optional)**: Use this option to identify a specific index for query to run against,
 	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index.
+
 	For more information, see [Explain Plans](#explain-plans).
 -   **execution_stats (optional, default: false)**: Use this option to find information about the query 
     that was executed, including total key lookups, total document lookups (when `include_docs=true` 
@@ -446,7 +447,7 @@ be passed back in a query to get the next page of results.
 If any part of the query other than `bookmark` changes between requests,
 the results are undefined.
 
-The `limit` and `skip` values are exactly as you would expect.
+The `limit` and `skip` values are exactly as you would expect.   
 Although `skip` is available,
 it is not intended to be used for paging.
 The reason is that the `bookmark` feature is more efficient.
@@ -1898,6 +1899,8 @@ In other words,
 if a match was found as a result of searching for either an individual element,
 or an element from an array,
 then the match is considered a success.
+
+> **Note**: Like Cloudant Search indexes, Cloudant Query indexes of `type: text` are limited to 200 results when queried.
 
 <div id="selector-translation"></div>
 
