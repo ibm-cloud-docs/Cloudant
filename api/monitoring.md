@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-03"
+lastupdated: "2017-12-04"
 
 ---
 
@@ -241,6 +241,30 @@ _Example response, listing the available monitoring end points:_
 
 ## Examples of monitoring requests
 
+### connections
+
+_Example of a `connections` monitoring request:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclustername&format=json
+```
+
+The response includes a data series for the following connection states:
+
+TIME_WAIT
+SYN_SENT
+SYN_RECV
+LISTEN
+LAST_ACK
+FIN_WAIT2
+FIN_WAIT1
+ESTABLISHED
+CLOSING
+CLOSE_WAIT
+CLOSED
+
+You must explicitly specify the load balancer in the request.
+
 ### disk_use
 
 _Example of a `disk_use` monitoring request:_
@@ -305,32 +329,6 @@ _Example results (abbreviated) from a `disk_use` monitoring request:_
 }
 ```
 {:codeblock}
-
-### connections
-
-_Example of a `connections` monitoring request:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclustername&format=json
-```
-
-The response includes a data series for the following connection states:
-
-TIME_WAIT
-SYN_SENT
-SYN_RECV
-LISTEN
-LAST_ACK
-FIN_WAIT2
-FIN_WAIT1
-ESTABLISHED
-CLOSING
-CLOSE_WAIT
-CLOSED
-
-You must explicitly specify the load balancer in the request.
-
-
 
 ### kv_emits
 
