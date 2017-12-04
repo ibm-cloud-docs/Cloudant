@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-09"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -22,7 +22,7 @@ The special documents are called "design documents".
 
 Design documents are [documents](document.html) that have an `_id` beginning with `_design/`.
 They can be read and updated in the same way as any other document in the database.
-Cloudant reads specific fields and values of design documents as functions.
+{{site.data.keyword.cloudantfull}} reads specific fields and values of design documents as functions.
 Design documents are used to [build indexes](#indexes), [validate updates](#update-validators), and [format query results](#list-functions).
 
 ## Creating or updating a design document
@@ -41,7 +41,7 @@ standard documents have an `_id` indicated by `$DOCUMENT_ID`,
 while design documents have an `_id` indicated by `$DESIGN_ID`.
 
 >	**Note**: If a design document is updated,
-Cloudant deletes the indexes from the previous version,
+{{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version,
 and recreates the index from scratch.
 If you need to make changes to a design document for a larger database,
 have a look at the [Design Document Management Guide](../guides/design_document_management.html#managing-changes-to-a-design-document).
@@ -88,7 +88,7 @@ The copy is requested using the `COPY` HTTP request.
 Like other views,
 these are recreated the first time the new view is accessed.
 
-The following example requests Cloudant to copy the design document `recipes` to the new design document `recipelist`,
+The following example requests {{site.data.keyword.cloudant_short_notm}} to copy the design document `recipes` to the new design document `recipelist`,
 and produces a response containing the ID and revision of the new document.
 
 _Example command to copy a design document, using HTTP:_
@@ -346,7 +346,7 @@ you should avoid using functions that generate random numbers or return the curr
 
 Use list functions to customize the format of
 [MapReduce](creating_views.html#using-views) query results.
-A good example of their use is when you want to access Cloudant directly from a browser,
+A good example of their use is when you want to access {{site.data.keyword.cloudant_short_notm}} directly from a browser,
 and need data to be returned in a different format,
 such as HTML.
 
@@ -485,7 +485,7 @@ Field            | Description
 
 Show functions are similar to [list functions](#list-functions),
 but are used to format individual documents.
-They are used when you want to access Cloudant directly from a browser,
+They are used when you want to access {{site.data.keyword.cloudant_short_notm}} directly from a browser,
 and need data to be returned in a different format,
 such as HTML.
 

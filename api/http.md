@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-07-20"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -15,12 +15,12 @@ lastupdated: "2017-07-20"
 # HTTP
 
 This section provides details of the [HTTP Headers](#http-headers)
-and [HTTP Status Codes](#http-status-codes) you need to know when using Cloudant.
+and [HTTP Status Codes](#http-status-codes) you need to know when using {{site.data.keyword.cloudantfull}}.
 {:shortdesc}
 
 ## HTTP Headers
 
-Because Cloudant uses HTTP for all external communication,
+Because {{site.data.keyword.cloudant_short_notm}} uses HTTP for all external communication,
 you need to ensure that the correct HTTP request headers are supplied and processed on retrieval.
 This is to ensure that you get the correct format and encoding.
 Different environments and clients are more or less strict on the effect of these HTTP headers,
@@ -78,11 +78,11 @@ Cache-Control: must-revalidate
 ```
 {:codeblock}
 
-The use of `Accept` in queries to Cloudant is not required,
+The use of `Accept` in queries to {{site.data.keyword.cloudant_short_notm}} is not required,
 but is highly recommended as it helps to ensure that the data returned can be processed by the client.
 
 If you specify a data type using the `Accept` header,
-Cloudant honors the specified type in the `Content-type` header field of responses.
+{{site.data.keyword.cloudant_short_notm}} honors the specified type in the `Content-type` header field of responses.
 For example,
 if you explicitly request `application/json` in the `Accept` of a request,
 the returned HTTP headers use this value in the returned `Content-type` field.
@@ -173,8 +173,8 @@ provided the document still exists and no other errors occurred.
 
 Response headers are returned by the server when sending back content.
 They include a number of different fields,
-many of which are standard HTTP response headers and have no significance regarding how Cloudant operates.
-The list of response headers important to Cloudant are as follows.
+many of which are standard HTTP response headers and have no significance regarding how {{site.data.keyword.cloudant_short_notm}} operates.
+The list of response headers important to {{site.data.keyword.cloudant_short_notm}} are as follows.
 
 The supported HTTP response headers include:
 
@@ -183,14 +183,14 @@ The supported HTTP response headers include:
 *	[`Content-Type`](#content-type)
 *	[`Etag`](#etag)
 
-The Cloudant design document API and the functions when returning HTML (for example as part of a show or list)
+The {{site.data.keyword.cloudant_short_notm}} design document API and the functions when returning HTML (for example as part of a show or list)
 enable you to include custom HTTP headers through the `headers` field of the return object.
 
 #### Cache-Control
 
 The `Cache-Control` HTTP response header provides a suggestion for client caching mechanisms
 on how to treat the returned information.
-Cloudant typically returns the `must-revalidate` value,
+{{site.data.keyword.cloudant_short_notm}} typically returns the `must-revalidate` value,
 which indicates that the information should be revalidated if possible.
 This is used to ensure that the dynamic nature of the content is correctly updated.
 
@@ -224,11 +224,11 @@ since the ETags returned from those requests are just random numbers that change
 
 ## HTTP Status Codes
 
-With the interface to Cloudant working through HTTP,
+With the interface to {{site.data.keyword.cloudant_short_notm}} working through HTTP,
 error codes and statuses are reported using a combination of the HTTP status code number,
 and corresponding data in the body of the response data.
 
-A list of the error codes returned by Cloudant and generic descriptions of the related errors are as follows.
+A list of the error codes returned by {{site.data.keyword.cloudant_short_notm}} and generic descriptions of the related errors are as follows.
 The meaning of different status codes for specific request types are provided in the corresponding API call reference.
 
 <div id="201"></div>
@@ -271,11 +271,11 @@ Code                                    | Meaning
 `406 - Not Acceptable`                  | The requested content type is not supported by the server.
 `409 - Conflict`                        | Request resulted in an update conflict.
 `412 - Precondition Failed`             | The request headers from the client and the capabilities of the server do not match.
-`413 - Request Entity Too Large`        | The maximum request body size for an API request sent to Cloudant on IBM Bluemix is 1 MB.
+`413 - Request Entity Too Large`        | The maximum request body size for an API request sent to {{site.data.keyword.cloudant_short_notm}} on IBM Bluemix is 1 MB.
 `415 - Bad Content Type`                | The content types supported, and the content type of the information being requested or submitted indicate that the content type is not supported.
 `416 - Requested Range Not Satisfiable` | The range specified in the request header cannot be satisfied by the server.
 `417 - Expectation Failed`              | When sending documents in bulk, the bulk load operation failed.
 `429 - Too Many Requests`               | The user has sent too many requests in a given amount of time. More information is available in the corresponding [RFC 6585 ![External link icon](../images/launch-glyph.svg "External link icon")](https://tools.ietf.org/html/rfc6585#page-3){:new_window}.
 `500 - Internal Server Error`           | The request was invalid, either because the supplied JSON was invalid, or invalid information was supplied as part of the request. Alternatively, a replication was canceled while in progress.
-`503 - Service Unavailable`             | The request could not be processed. Seeing this response following a Cloudant request might indicate an misspelled Cloudant account name.
+`503 - Service Unavailable`             | The request could not be processed. Seeing this response following a {{site.data.keyword.cloudant_short_notm}} request might indicate an misspelled {{site.data.keyword.cloudant_short_notm}} account name.
 

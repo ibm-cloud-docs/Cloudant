@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-03-02"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -16,20 +16,20 @@ lastupdated: "2017-03-02"
 
 # Databases
 
-Cloudant databases contain JSON objects.
+{{site.data.keyword.cloudantfull}} databases contain JSON objects.
 These JSON objects are called [documents](document.html#documents).
 All documents must be contained in a database.
 {:shortdesc}
 
 A guide is [available](../guides/transactions.html),
-providing an example of how documents for an e-commerce application might be used within a Cloudant database.
+providing an example of how documents for an e-commerce application might be used within a {{site.data.keyword.cloudant_short_notm}} database.
 
 A more complex database application,
 involving extra storage,
 processing,
 and analytics tasks,
 is referred to as a [warehouse](../guides/warehousing.html).  
-Warehouses are also supported by Cloudant.
+Warehouses are also supported by {{site.data.keyword.cloudant_short_notm}}.
 
 ## Create
 
@@ -110,7 +110,7 @@ poor choices for configuration parameters can adversely affect database performa
 
 For more information about modifying database configuration
 in a dedicated database environment,
-contact Cloudant support.
+contact {{site.data.keyword.cloudant_short_notm}} support.
 
 > **Note**: It is not possible to modify the configuration that is used for databases
 on multi-tenant clusters.
@@ -388,7 +388,7 @@ Argument       | Description | Supported Values | Default
 ---------------|-------------|------------------|---------
 `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | boolean | false 
 `descending`   | Return the changes in sequential order. | boolean | false | 
-`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of Cloudant that are compatible with CouchDB 2.0. See [API: GET / documentation](advanced.html#get-/) for more information. | A JSON array of document IDs | |
+`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. See [API: GET / documentation](advanced.html#get-/) for more information. | A JSON array of document IDs | |
 `feed`         | Type of feed required. For details, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
 `filter`       | Name of [filter function](design_documents.html#filter-functions) to use to get updates. The filter is defined in a [design document](design_documents.html). | string | no filter
 `heartbeat`    | If there were no changes during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | any positive number | no heartbeat | 
@@ -436,7 +436,7 @@ account.db.changes($DATABASE, function (err, body, headers) {
 
 ### Changes in a distributed database
 
-Cloudant databases are distributed.
+{{site.data.keyword.cloudant_short_notm}} databases are distributed.
 They have shard and fault-tolerant characteristics.
 These characteristics mean that the responses that are provided by the `_changes` request might be different
 from the behavior you expect.
@@ -463,7 +463,7 @@ is explained in the
 
 ### The `feed` argument
 
-The `feed` argument changes how Cloudant sends the response.
+The `feed` argument changes how {{site.data.keyword.cloudant_short_notm}} sends the response.
 By default,
 `_changes` reports all changes,
 then the connection closes.
@@ -540,12 +540,12 @@ several built-in filters available:
 *   `_design`: The `_design` filter accepts only changes to design documents.
 *   `_doc_ids`: This filter accepts only changes for documents whose ID is specified in the `doc_ids` parameter.
     
-    >   **Note**: The `_docs_ids` parameter works only with versions of Cloudant that are compatible with CouchDB 2.0.
+    >   **Note**: The `_docs_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
 *   `_selector`: Accepts only changes for documents that match a specified selector,
     which is defined by using the same [selector syntax](cloudant_query.html#selector-syntax) that is used
     for [`_find`](cloudant_query.html#finding-documents-using-an-index).
     
-    >   **Note**: The `_selector` parameter works only with versions of Cloudant that are compatible with CouchDB 2.0.
+    >   **Note**: The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
 *   `_view`: Enables use of an existing [map function](creating_views.html#a-simple-view) as the filter.
 
 ### The `since` argument
@@ -557,7 +557,7 @@ the request returns all changes.
 If the `since` identifier is `now`,
 the request asks for changes that are made after the current time.
 
-The distributed nature of Cloudant can affect the results that you get in a response.
+The distributed nature of {{site.data.keyword.cloudant_short_notm}} can affect the results that you get in a response.
 For example,
 if you request a list of changes twice,
 by using the same `since` sequence identifier both times,
@@ -697,7 +697,7 @@ send a `DELETE` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
 
 >	**Note**: No additional check is made to ensure that you really intended to delete the database ("Are you sure?").
 
-_Example of using HTTP to delete a Cloudant database:_
+_Example of using HTTP to delete a {{site.data.keyword.cloudant_short_notm}} database:_
 
 ```http
 DELETE /$DATABASE HTTP/1.1
@@ -705,7 +705,7 @@ Host: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
 
-_Example of using the command line to delete a Cloudant database:_
+_Example of using the command line to delete a {{site.data.keyword.cloudant_short_notm}} database:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE \
@@ -715,7 +715,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE \
 
 <!--
 
-_Example of using JavaScript to delete a Cloudant database:_
+_Example of using JavaScript to delete a {{site.data.keyword.cloudant_short_notm}} database:_
 
 ```javascript
 var nano = require('nano');
@@ -751,8 +751,8 @@ with more detailed information in the [backup guide](../guides/backup-guide.html
 
 ## Using a different domain
 
-Virtual hosts (vhosts) are a way to make Cloudant serve data from a different domain
-than the one normally associated with your Cloudant account.
+Virtual hosts (vhosts) are a way to make {{site.data.keyword.cloudant_short_notm}} serve data from a different domain
+than the one normally associated with your {{site.data.keyword.cloudant_short_notm}} account.
 
 More information is available [here](vhosts.html).
 

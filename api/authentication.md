@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -19,17 +19,17 @@ This is typically done by providing your user credentials for verification.
 {:shortdesc}
 
 There are two ways that clients can provide credentials (authenticate)
-for Cloudant:
+for {{site.data.keyword.cloudantfull}}:
 
 -	[Basic authentication](#basic-authentication).
 -	[Cookie authentication](#cookie-authentication).
 
 Basic authentication is similar to showing an ID at a door, to be checked every time you want to enter.
 Cookie authentication is similar to having a key to the door so that you can let yourself in whenever you want.
-Within Cloudant,
+Within {{site.data.keyword.cloudant_short_notm}},
 the key is a cookie named `AuthSession`.
 
->	**Note**: When creating or using performance-critical Cloudant applications,
+>	**Note**: When creating or using performance-critical {{site.data.keyword.cloudant_short_notm}} applications,
 Cookie authentication has benefits compared with Basic authentication.
 Therefore,
 you should prefer Cookie authentication where possible.

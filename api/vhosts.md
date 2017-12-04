@@ -14,14 +14,14 @@ lastupdated: "2017-01-06"
 
 # Virtual hosts
 
-Virtual hosts (vhosts) are a way to make Cloudant serve data from a different domain
-than the one normally associated with your Cloudant account.
+Virtual hosts (vhosts) are a way to make {{site.data.keyword.cloudantfull}} serve data from a different domain
+than the one normally associated with your {{site.data.keyword.cloudant_short_notm}} account.
 {:shortdesc}
 
 You can create as many vhosts as needed
-and point them to any endpoint in your Cloudant account.
+and point them to any endpoint in your {{site.data.keyword.cloudant_short_notm}} account.
 Vhosts are often used to point to a `_rewrite` endpoint of a design document
-in order to use Cloudant as a web server.
+in order to use {{site.data.keyword.cloudant_short_notm}} as a web server.
 You need to have the admin role in order to use any of the vhost endpoints.
 
 ## Listing virtual hosts
@@ -75,7 +75,7 @@ The JSON document contains these fields:
 Field  | Purpose
 -------|--------
 `host` | The domain name you want to use for the vhost.
-`path` | An (optional) endpoint in your Cloudant account the vhost should point to.
+`path` | An (optional) endpoint in your {{site.data.keyword.cloudant_short_notm}} account the vhost should point to.
 
 _Example request for creating a vhost, using HTTP:_
 

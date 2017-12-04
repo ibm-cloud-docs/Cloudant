@@ -24,7 +24,7 @@ if independent updates are made to different copies of documents,
 the effect might be to introduce disagreement or 'conflicts' as to what is the correct,
 definitive content for the document.
 
-Cloudant tries to help you avoid conflicts by warning you of potential problems.
+{{site.data.keyword.cloudantfull}} tries to help you avoid conflicts by warning you of potential problems.
 It does this by returning a [`409` response](http.html#409) to a problematic update request.
 However,
 a `409` response might not be received if the database update is requested on a
@@ -36,7 +36,7 @@ making it impossible at that moment to check if other potentially conflicting
 updates have been made.
 
 If you request a document that is in a conflict situation,
-Cloudant returns the document as expected.
+{{site.data.keyword.cloudant_short_notm}} returns the document as expected.
 However,
 the version returned is determined by an internal algorithm that considers a
 number of factors;
@@ -45,11 +45,11 @@ for example.
 
 If you do not check for conflicts,
 or fail to address them,
-your Cloudant database begins to exhibit several behaviors:
+your {{site.data.keyword.cloudant_short_notm}} database begins to exhibit several behaviors:
 
 * Increasing inconsistencies in document content, because there are more and more conflicting documents.
 * Increasing database size, because all conflicting documents must be retained until the conflict is resolved.
-* Decreasing performance, because Cloudant must work harder in response to each and every request as it tries to identify the 'best possible' version of a conflicted document.
+* Decreasing performance, because {{site.data.keyword.cloudant_short_notm}} must work harder in response to each and every request as it tries to identify the 'best possible' version of a conflicted document.
 
 The following suggested practices might help you decide when to check for,
 and resolve,

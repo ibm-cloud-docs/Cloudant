@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-03-06"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2017-03-06"
 
 ## Mobile
 
-The Cloudant Sync library is used to store,
+The {{site.data.keyword.cloudantfull}} Sync library is used to store,
 index,
 and query local JSON data on a mobile device.
 It is also used to synchronize data between many devices.
@@ -28,11 +28,11 @@ both in the local device and the remote database.
 
 Two versions are available:
 
--   [Cloudant Sync - Android / JavaSE ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/sync-android){:new_window}.
--   [Cloudant Sync - iOS (CDTDatastore) ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/CDTDatastore){:new_window}.
+-   [{{site.data.keyword.cloudant_short_notm}} Sync - Android / JavaSE ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/sync-android){:new_window}.
+-   [{{site.data.keyword.cloudant_short_notm}} Sync - iOS (CDTDatastore) ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/CDTDatastore){:new_window}.
 
-An [overview ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/sync/){:new_window} of Cloudant Sync is available.
-Details of Cloudant Sync [resources ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/cloudant-sync-resources/){:new_window} are also available.
+An [overview ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/sync/){:new_window} of {{site.data.keyword.cloudant_short_notm}} Sync is available.
+Details of {{site.data.keyword.cloudant_short_notm}} Sync [resources ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/cloudant-sync-resources/){:new_window} are also available.
 
 ## Java
 
@@ -55,15 +55,15 @@ along with details and examples of how to use the library.
 -   [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){:new_window}.
 -   [jrelax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/isterin/jrelax){:new_window}.
 -   [LightCouch ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.lightcouch.org/){:new_window}.
--   [Java Cloudant Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=CloudantJavaBPTemplate&fromCatalog=true){:new_window} boilerplate for Bluemix.
+-   [Java {{site.data.keyword.cloudant_short_notm}} Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=CloudantJavaBPTemplate&fromCatalog=true){:new_window} boilerplate for Bluemix.
 
 ### Examples and Tutorials
 
 -   [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/java){:new_window} with HTTP and JSON libraries.
 -   [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/java/CrudWithEktorp){:new_window} with ektorp library.
--   [Building apps by using Java with Cloudant on IBM Bluemix ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/building-apps-using-java-with-cloudant-on-ibm-bluemix/){:new_window}.
--   [Build a game app with Liberty, Cloudant, and Single Sign On ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/cloud/library/cl-multiservicegame-app/index.html?ca=drs-){:new_window} Bluemix example.
--   [Building a Java EE app on IBM Bluemix by using Watson and Cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/bluemix/2014/10/17/building-java-ee-app-ibm-bluemix-using-watson-cloudant/){:new_window} Bluemix example along with [YouTube video ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?feature=youtu.be&v=9AFMY6m0LIU&app=desktop){:new_window}.
+-   [Building apps by using Java with {{site.data.keyword.cloudant_short_notm}} on IBM Bluemix ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/building-apps-using-java-with-cloudant-on-ibm-bluemix/){:new_window}.
+-   [Build a game app with Liberty, {{site.data.keyword.cloudant_short_notm}}, and Single Sign On ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/cloud/library/cl-multiservicegame-app/index.html?ca=drs-){:new_window} Bluemix example.
+-   [Building a Java EE app on IBM Bluemix by using Watson and {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/bluemix/2014/10/17/building-java-ee-app-ibm-bluemix-using-watson-cloudant/){:new_window} Bluemix example along with [YouTube video ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?feature=youtu.be&v=9AFMY6m0LIU&app=desktop){:new_window}.
 
 
 ## Node.js
@@ -91,22 +91,22 @@ npm install cloudant
 -   [restler ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danwrong/restler){:new_window} delivers the best performance but is really barebones.
 -   [cradle ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/flatiron/cradle){:new_window} is a high-level client that is also available
     if you absolutely need ease of use at the cost of reduced performance.
--   [cane_passport ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/ddemichele/cane_passport){:new_window} - Cloudant Angular Node Express with Bootstrap.
+-   [cane_passport ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/ddemichele/cane_passport){:new_window} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
 -   [express-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/express-cloudant){:new_window} - a template for Node.js Express framework that also uses PouchDB and Grunt.
--   [Node.js Cloudant DB Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=nodejscloudantbp&fromCatalog=true){:new_window} - boilerplate for Bluemix.
--   [Mobile Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=mobileBackendStarter&fromCatalog=true){:new_window} - boiler plate for Bluemix (Node.js, Security, Push, and Mobile Data/Cloudant).
+-   [Node.js {{site.data.keyword.cloudant_short_notm}} DB Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=nodejscloudantbp&fromCatalog=true){:new_window} - boilerplate for Bluemix.
+-   [Mobile Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=mobileBackendStarter&fromCatalog=true){:new_window} - boiler plate for Bluemix (Node.js, Security, Push, and Mobile Data/{{site.data.keyword.cloudant_short_notm}}).
 
 ### Examples and Tutorials
 
 -   [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/nodejs){:new_window}.
--   [Cloudant-Uploader ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/garbados/Cloudant-Uploader){:new_window} - utility to upload `.csv` files to Cloudant.
--   [couchimport ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/couchimport){:new_window} - utility to import `.csv` or `.tsv` files into CouchDB or Cloudant.
--   [Getting started with IBM Bluemix and Node.js ![External link icon](../images/launch-glyph.svg "External link icon")](http://thoughtsoncloud.com/2014/07/getting-started-ibm-bluemix-node-js/){:new_window}.
--   [A Cloud medley with IBM Bluemix, Cloudant DB, and Node.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://gigadom.wordpress.com/2014/08/15/a-cloud-medley-with-ibm-bluemix-cloudant-db-and-node-js/){:new_window}.
--   [Build a simple word game app by using Cloudant on Bluemix ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/cloud/library/cl-guesstheword-app/index.html?ca=drs-){:new_window} - uses Node.js.
--   [Building a Real-time SMS Voting App ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html){:new_window} - six-part series that uses Node.js, Twilio, and Cloudant.
--   [Building a multitier Windows Azure Web application ![External link icon](../images/launch-glyph.svg "External link icon")](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/){:new_window} - uses Cloudant, Node.js, CORS, and Grunt.
--   [Do it yourself: Build a remote surveillance application by using Bluemix, Cloudant, and Raspberry Pi. ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/library/ba-remoteservpi-app/index.html){:new_window}.
+-   [Cloudant-Uploader ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/garbados/Cloudant-Uploader){:new_window} - utility to upload `.csv` files to {{site.data.keyword.cloudant_short_notm}}.
+-   [couchimport ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/couchimport){:new_window} - utility to import `.csv` or `.tsv` files into CouchDB or {{site.data.keyword.cloudant_short_notm}}.
+-   [Getting started with {{site.data.keyword.Bluemix}} and Node.js ![External link icon](../images/launch-glyph.svg "External link icon")](http://thoughtsoncloud.com/2014/07/getting-started-ibm-bluemix-node-js/){:new_window}.
+-   [A Cloud medley with {{site.data.keyword.Bluemix_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Node.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://gigadom.wordpress.com/2014/08/15/a-cloud-medley-with-ibm-bluemix-cloudant-db-and-node-js/){:new_window}.
+-   [Build a simple word game app by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/cloud/library/cl-guesstheword-app/index.html?ca=drs-){:new_window} - uses Node.js.
+-   [Building a Real-time SMS Voting App ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html){:new_window} - six-part series that uses Node.js, Twilio, and {{site.data.keyword.cloudant_short_notm}}.
+-   [Building a multitier Windows Azure Web application ![External link icon](../images/launch-glyph.svg "External link icon")](http://msopentech.com/blog/2013/12/19/tutorial-building-multi-tier-windows-azure-web-application-use-cloudants-couchdb-service-node-js-cors-grunt-2/){:new_window} - uses {{site.data.keyword.cloudant_short_notm}}, Node.js, CORS, and Grunt.
+-   [Do it yourself: Build a remote surveillance application by using {{site.data.keyword.Bluemix_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Raspberry Pi. ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/library/ba-remoteservpi-app/index.html){:new_window}.
 
 ## Python
 
@@ -121,7 +121,7 @@ Learn more information about the Python language at [python.org ![External link 
 ## Swift
 
 A supported library is available for working with {{site.data.keyword.cloudant_short_notm}}.
-The library is called SwiftCloudant,
+The library is called Swift{{site.data.keyword.cloudant_short_notm}},
 and is installed by using `cocoapods`.
 
 The podfile entry is:
