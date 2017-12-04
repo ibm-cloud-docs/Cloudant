@@ -29,7 +29,7 @@ But for maximum flexibility when you search for data, you would typically create
 an index of type `text`. Indexes of type `text` have a simple mechanism for automatically 
 indexing all the fields in the documents.
 
-> Note: While more flexible, `text` indexes might take longer to create and require 
+> **Note**: While more flexible, `text` indexes might take longer to create and require 
 more storage resources than `json` indexes.
 
 ## Creating an index
