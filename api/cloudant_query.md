@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-04"
 
 ---
 
@@ -16,25 +16,21 @@ lastupdated: "2017-11-02"
 
 # Query
 
-{{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for {{site.data.keyword.cloudant_short_notm}} databases.
+{{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for 
+{{site.data.keyword.cloudant_short_notm}} databases. There are two types of 
+{{site.data.keyword.cloudant_short_notm}} Query indexes: `json` and `text`.
 {:shortdesc}
 
-{{site.data.keyword.cloudant_short_notm}} Query wraps several index types, starting with the Primary Index type,
-which is available for immediate use.
-{{site.data.keyword.cloudant_short_notm}} Query indexes can also be built by using MapReduce Views (where the index type is `json`),
-and Search Indexes (where the index type is `text`).
+If you know exactly what data you want to look for, or you want to keep storage and 
+processing requirements to a minimum, you can specify how the index is created, by 
+making it of type `json`.
 
-If you know exactly what data you want to look for,
-or you want to keep storage and processing requirements to a minimum,
-you can specify how the index is created,
-by making it of type `json`.
+But for maximum flexibility when you search for data, you would typically create 
+an index of type `text`. Indexes of type `text` have a simple mechanism for automatically 
+indexing all the fields in the documents.
 
-But for maximum flexibility when you search for data,
-you would typically create an index of type `text`.
-Indexes of type `text` have a simple mechanism for automatically indexing all the fields in the documents.
-
->	**Note**: While more flexible,
-`text` indexes might take longer to create and require more storage resources than `json` indexes.
+> Note: While more flexible, `text` indexes might take longer to create and require 
+more storage resources than `json` indexes.
 
 ## Creating an index
 
