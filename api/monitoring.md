@@ -189,8 +189,10 @@ The following table lists the supported monitoring endpoints provided by the API
 Endpoint                                | Description
 ----------------------------------------|------------
 [`disk_use`](#disk_use)                 | The disk use, as measured by a `df` command.
+[`connections`](#connection)            | The status of multiple load balancer connection states.
 [`kv_emits`](#kv_emits)                 | The number of `key:value` emits per second.
 [`map_doc`](#map_doc)                   | The number of documents processed by a map function, per second.
+[`network`](#network)                   | The octets received and transmitted.   
 [`rate/status_code`](#rate-status_code) | The rate of requests, grouped by status code.
 [`rate/verb`](#rate-verb)               | The rate of requests, grouped by HTTP verb.
 [`response_time`](#response_time)       | The average response time to a request, measured in ms.
@@ -304,6 +306,32 @@ _Example results (abbreviated) from a `disk_use` monitoring request:_
 ```
 {:codeblock}
 
+### connections
+
+_Example of a `connections` monitoring request:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclustername&format=json
+```
+
+The response includes a data series for the following connection states:
+
+TIME_WAIT
+SYN_SENT
+SYN_RECV
+LISTEN
+LAST_ACK
+FIN_WAIT2
+FIN_WAIT1
+ESTABLISHED
+CLOSING
+CLOSE_WAIT
+CLOSED
+
+You must explicitly specify the load balancer in the request.
+
+
+
 ### kv_emits
 
 _Example of a `kv_emits` monitoring request:_
@@ -389,6 +417,19 @@ _Example results (abbreviated) from a `map_doc` monitoring request:_
 }
 ```
 {:codeblock}
+
+### network
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustername&format=json
+```
+
+The response includes data series for the following network states:
+
+-   Octets received (rx) per second
+-   Octets transmitted (tx) per second
+
+You must explicitly specify the load balancer in the request. 
 
 ### rate/status_code
 
@@ -710,46 +751,6 @@ _Example results (abbreviated) from a `wps` monitoring request:_
 ```
 {:codeblock}
 
-## Monitoring traffic
-
-Cloudant provides metrics to monitor your load balancer connection states and network
-traffic. 
-
-
-### Load balancer connection state
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclustername&format=json
-```
-
-The response includes data series for the following connection states:
-
-TIME_WAIT
-SYN_SENT
-SYN_RECV
-LISTEN
-LAST_ACK
-FIN_WAIT2
-FIN_WAIT1
-ESTABLISHED
-CLOSING
-CLOSE_WAIT
-CLOSED
-
-You must explicitly specify the load balancer in the request.
-
-### Network traffic
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustername&format=json
-```
-
-The response includes data series for the following network states:
-
--   Octets received (rx) per second
--   Octets transmitted (tx) per second
-
-You must explicitly specify the load balancer in the request. 
 
 
 
