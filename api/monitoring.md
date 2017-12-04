@@ -712,6 +712,10 @@ _Example results (abbreviated) from a `wps` monitoring request:_
 
 ## Monitoring traffic
 
+Cloudant provides metrics to monitor your load balancer connection states and network
+traffic. 
+
+
 ### Load balancer connection state
 
 ```sh
