@@ -23,7 +23,7 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build XXXX
+## Build 6551
 
 - Return reduce overflow errors to the client on `_view` calls. Do not spend RAM building the view when 
 there is a bad reduce function. The error returned to the client looks similar to the following error: 
