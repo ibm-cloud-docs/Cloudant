@@ -23,7 +23,7 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build XXXX
+## Build 6551
 
 - The error changed that is returned when calls to /<db>/`_temp_view` fail. The new response is 
 410 "GONE. Temporary views are not supported in CouchDB."
