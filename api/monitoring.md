@@ -251,17 +251,17 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclus
 
 The response includes a data series for the following connection states:
 
-TIME_WAIT
-SYN_SENT
-SYN_RECV
-LISTEN
-LAST_ACK
-FIN_WAIT2
-FIN_WAIT1
-ESTABLISHED
-CLOSING
-CLOSE_WAIT
-CLOSED
+TIME_WAIT<br>
+SYN_SENT<br>
+SYN_RECV<br>
+LISTEN<br>
+LAST_ACK<br>
+FIN_WAIT2<br>
+FIN_WAIT1<br>
+ESTABLISHED<br>
+CLOSING<br>
+CLOSE_WAIT<br>
+CLOSED<br>
 
 You must explicitly specify the load balancer in the request.
 
