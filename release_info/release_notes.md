@@ -25,18 +25,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6551
 
-- Return reduce overflow errors to the client on `_view` calls. Do not spend RAM building the view when 
-there is a bad reduce function. The error returned to the client looks similar to the following error: 
-```json
-{
-    row": {
-        "key": null,
-        "id": "error",
-        "value": "reduce_overflow_error",
-        "reason": Reason
-    }
-}
-```
+- A new reduce overflow error is returned on a `_view` call to limit the amount of memory used to 
+build a view that is the result of a bad reduce function.
 
 ## Build 6366 (August 4, 2017)
 
