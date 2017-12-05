@@ -25,9 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 5661
 
-- Changes the error that is returned when calls to `_bulk_docs` include a non-boolean value for 
-the `new_edits` parameter. The new error is a 400 (Bad request) error with the reason, "`new_edits` 
-parameter must contain a boolean value." 
+- A new error is returned when a `new_edits` value is invalid. The error is 400: "Bad request."
 
 ## Build 6366 (August 4, 2017) 
 
