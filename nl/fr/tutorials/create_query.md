@@ -1,0 +1,646 @@
+---
+
+copyright:
+  years: 2017
+lastupdated: "2017-07-03"
+
+---
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
+
+# Création d'une requête Cloudant
+
+Ce tutoriel indique comment créer une base de données, la remplir de documents, créer un index et utiliser ce dernier pour interroger la base de données. 
+
+Des exercices concernant à la fois la _ligne de commande_ ![Icône de ligne de commande](../images/CommandLineIcon.png) et
+le _tableau de bord Cloudant_ ![Icône de tableau de bord](../images/DashboardIcon.png) sont fournis. Les
+exercices du tableau de bord Cloudant vous donnent un exemple visuel de chaque
+tâche. Pour plus d'informations, vous pouvez suivre les liens tout au long du tutoriel. 
+
+Commencez par créer la base de données `query-demo` et certains
+documents qui contiennent les données nécessaires à ces exercices. 
+
+## Hypothèses
+
+Avant de commencer, effectuez les étapes de préparation en vue du tutoriel en procédant comme suit : 
+
+1.  [Créez un compte Bluemix ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
+2.  Connectez-vous au
+  [tableau de bord Cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+3.  [Créez une instance Cloudant sur Bluemix](create_service.html#creating-a-cloudant-instance-on-bluemix).
+4.  (Facultatif) [Créez un alias acurl](../guides/acurl.html#authorized-curl-acurl-) pour faciliter et accélérer l'exécution des commandes à partir de la ligne de commande.
+5.  Remplacez la variable `$ACCOUNT` dans les commandes incluses dans les exercices par le nom d'utilisateur employé pour la connexion au tableau de bord Cloudant.
+  Si vous décidez de ne pas configurer `acurl`, utilisez l'URL suivante au lieu de celle fournie dans les exercices : 
+  ``` sh
+  curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
+  ```
+  {:codeblock}
+
+## Création d'une base de données
+
+Dans cette section, vous allez créer la [base de données](../api/database.html#create)
+`query-demo` qui est la base de données employée dans ce tutoriel. 
+
+> **Remarque :** Dans ce tutoriel, l'alias `acurl` est utilisé plutôt que la commande `curl`.
+  Pour créer l'alias `acurl`, suivez les étapes décrites [ici](../guides/acurl.html#authorized-curl-acurl-).
+  Si vous préférez utiliser la commande `curl` ou une autre méthode pour
+appeler les noeuds finaux d'API, indiquez votre commande dans le tutoriel, ainsi que les
+paramètres qu'elle requiert, comme le nom d'utilisateur et le mot de passe.
+
+![Icône de la ligne de commande](../images/CommandLineIcon.png) _Ligne de commande_
+
+1.  Créez une base de données en exécutant la commande suivante : 
+  ``` sh
+  acurl https://$ACCOUNT.cloudant.com/query-demo -X PUT
+  ```
+  {:codeblock}
+2.  Examinez les résultats :
+  ```json
+  {
+    "ok": true
+  }
+  ```
+  {:codeblock}
+
+![Icône de tableau de bord](../images/DashboardIcon.png) _Tableau de bord Cloudant_
+
+1.  Ouvrez l'instance de service Cloudant que vous avez créée. 
+2.  Sélectionnez l'onglet Databases :
+
+  ![Onlet Databases](../images/tabs.png)
+3.  Cliquez sur **Create Database**.
+4.  Entrez `query-demo` et cliquez sur **Create**.
+
+  La base de données `query-demo` s'ouvre automatiquement. 
+
+## Création de documents dans la base de données
+
+Les [documents](../api/document.html#documents) que vous créez
+dans cet exercice contiennent les données que vous utiliserez pour interroger la base de
+données `query-demo` dans les exercices suivants. 
+
+![Icône de la ligne de commande](../images/CommandLineIcon.png) _Ligne de commande_
+
+1.  Copiez le texte exemple dans un fichier de données nommé `bulkcreate.dat` afin de créer cinq documents :
+  ```json
+  {
+    "docs":
+    [
+      {
+        "_id": "doc1",
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "age": 16,
+        "location": "New York City, NY"
+      },
+      {
+        "_id": "doc2",
+        "firstname": "John",
+        "lastname": "Brown",
+        "age": 21,
+        "location": "New York City, NY"
+      },
+      {
+        "_id": "doc3",
+        "firstname": "Greg",
+        "lastname": "Greene",
+        "age": 35,
+        "location": "San Diego, CA"
+      },
+      {
+        "_id": "doc4",
+        "firstname": "Anna",
+        "lastname": "Greene",
+        "age": 44,
+        "location": "Baton Rouge, LA"
+      },
+      {
+        "_id": "doc5",
+        "firstname": "Lois",
+        "lastname": "Brown",
+        "age": 33,
+        "location": "Syracuse, NY"
+      }
+    ]
+  }
+  ```
+  {:codeblock}
+
+2.  Exécutez cette commande pour créer les documents :
+  ```sh
+  acurl https://$ACCOUNT.cloudant.com/query-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
+  ```
+  {:codeblock}
+
+  **Remarque :** Le symbole '`@`', utilisé
+pour indiquer que les données sont incluses dans un fichier, est identifié par le nom fourni.
+3.  Examinez les résultats :
+  ```json
+  [
+    {
+      "ok":true,
+      "id":"doc1",
+      "rev":"1-57a08e644ca8c1bb8d8931240427162e"
+    },
+    {
+      "ok":true,
+      "id":"doc2",
+      "rev":"1-bf51eef712165a9999a52a97e2209ac0"
+    },
+    {
+      "ok":true,
+      "id":"doc3",
+      "rev":"1-9c9f9b893fcdd1cbe09420bc4e62cc71"
+    },
+    {
+      "ok":true, "id":"doc4",
+      "rev":"1-6aa4873443ddce569b27ab35d7bf78a2"
+    },
+    {
+      "ok":true,
+      "id":"doc5",
+      "rev":"1-d881d863052cd9681650773206c0d65a"
+    }
+  ]
+  ```
+  {:codeblock}
+
+![Icône de tableau de bord](../images/DashboardIcon.png) _Tableau de bord Cloudant_
+
+1.  Cliquez sur **`+`** et sélectionnez **New Doc**. La fenêtre 'New Document' apparaît.
+2.  Pour créer un document, copiez le texte exemple suivant et remplacez le texte existant dans le nouveau document.
+
+  _Premier modèle de document_ :
+  ```json
+  {
+    "firstname": "Sally",
+    "lastname": "Brown",
+    "age": 16,
+    "location": "New York City, NY",
+    "_id": "doc1"
+  }
+  ```
+  {:codeblock}
+
+3.  Répétez l'étape 2 pour ajouter les documents restants à la base de données. 
+
+  _Deuxième modèle de document_ :
+  ```json
+  {
+    "firstname": "John",
+    "lastname": "Brown",
+    "age": 21,
+    "location": "New York City, NY",
+    "_id": "doc2"
+  }
+  ```
+  {:codeblock}
+
+  _Troisième modèle de document_ :
+  ```json
+  {
+    "firstname": "Greg",
+    "lastname": "Greene",
+    "age": 35,
+    "location": "San Diego, CA",
+    "_id": "doc3"
+  }
+  ```
+  {:codeblock}
+
+  _Quatrième modèle de document_ :
+  ```json
+  {
+    "firstname": "Anna",
+    "lastname": "Greene",
+    "age": 44,
+    "location": "Baton Rouge, LA",
+    "_id": "doc4"
+  }
+  ```
+  {:codeblock}
+
+  _Cinquième modèle de document_ :
+  ```json
+  {
+    "firstname": "Lois",
+    "lastname": "Brown",
+    "age": 33,
+    "location": "New York City, NY",
+    "_id": "doc5"
+  }
+  ```
+  {:codeblock}
+
+  La base de données `query-demo` a été créée. Vous pouvez voir les documents dans le panneau de droite.
+
+  ![Modèles de document 1](../images/docs1.png)
+
+  ![Modèles de document 2](../images/docs2.png)
+
+  ![Modèles de document 3](../images/docs3.png)
+
+  ![Modèles de document 4](../images/docs4.png)
+
+  ![Modèles de document 5](../images/docs5.png)      
+
+## Création d'un index
+
+Cloudant fournit des vues et des index permettant d'interroger la base de données. Une
+vue exécute une requête qui est sauvegardée sur la base de données et dont le résultat est appelé ensemble de résultats. Lorsque
+vous soumettez une requête sur la vue, votre requête recherche l'ensemble de
+résultats. Un index permet de structurer les données et d'améliorer ainsi la durée nécessaire à l'extraction. 
+
+Vous pouvez utiliser l'index primaire fourni avec Cloudant, ou les index secondaires comme les vues (MapReduce), les index de recherche, les requêtes Cloudant
+Geospatial ou Cloudant Query comme indiqué dans la liste suivante : 
+
+*	Index primaire : recherchez un document ou une liste de documents par ID.  
+*	[Vue](../api/creating_views.html#views-mapreduce-) : recherchez les informations de la base de données qui correspondent aux critères de recherche que vous indiquez, comme les comptages, les sommes, les moyennes et d'autres fonctions mathématiques. Les critères que vous recherchez sont spécifiés dans la définition de la vue. Les vues utilisent le paradigme MapReduce.
+*	[Index de recherche](../api/search.html#search) : recherchez une ou plusieurs zones, de grandes quantités de texte ou utilisez des caractères
+génériques, des correspondances partielles ou des facettes avec la [syntaxe de Lucene Query Parser ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
+*	[Cloudant Geospatial](../api/cloudant-geo.html#cloudant-geospatial) : recherchez des documents en fonction d'une relation spatiale. 
+*	[Cloudant Query](../api/cloudant_query.html#query) : utilisez la syntaxe de requête de style Mongo pour rechercher des documents à l'aide d'opérateurs logiques. Cloudant Query combine une vue et un index de recherche. Ce
+tutoriel utilise Cloudant Query.
+
+> **Remarque :** Si aucun index défini correspondant à la requête spécifiée n'est disponible, Cloudant
+> utilise l'index `_all_docs`.
+
+
+![Icône de la ligne de commande](../images/CommandLineIcon.png) _Ligne de commande_
+
+1.  Copiez l'exemple de données JSON suivant dans un fichier nommé `query-index.dat`.
+  ```json
+  {
+    "index": {
+      "fields": [
+        "lastname",
+        "location",
+        "age"
+      ]
+    },
+    "name": "query-index",
+    "type": "json"
+  }
+  ```
+  {:codeblock}
+
+2.  Exécutez la commande suivante pour créer un index :
+  ```sh
+  acurl https://$ACCOUNT.cloudant.com/query-demo/_index -X POST -H "Content-Type: application/json" -d \@query-index.dat
+  ```
+  {:codeblock}
+
+3.  Examinez les résultats :
+  ```json
+  {
+    "result":"created",
+    "id":"_design/752c7031f3eaee0f907d18e1424ad387459bfc1d",
+    "name":"query-index"
+  }
+  ```
+  {:codeblock}
+
+
+
+![Icône de tableau de bord](../images/DashboardIcon.png) _Tableau de bord Cloudant_
+
+1.  Cliquez sur **`+` > Query Indexes** sur l'onglet **All Documents** ou **Design Documents**.
+2.  Collez l'exemple de données JSON suivant dans la zone **Index** : 
+  ```json
+  {
+    "index": {
+      "fields": [
+        "lastname",
+        "location",
+        "age"
+      ]
+    },
+    "name": "query-index",
+    "type": "json"
+  }
+  ```
+  {:codeblock}
+
+  L'index a été créé. Vous pouvez le voir dans le panneau de droite. 
+
+  ![Index de requête](../images/query-index1.png)
+
+
+
+## Création d'une requête
+
+Les requêtes vous permettent d'extraire les données de Cloudant. Une [requête](../api/cloudant_query.html#query) bien rédigée peut affiner
+votre recherche et ses résultats et n'y inclure que les données dont vous avez besoin. 
+
+Cet exercice indique comment écrire et exécuter une requête simple, une
+requête avec deux zones et une requête avec un [opérateur](../api/cloudant_query.html#cloudant_query.html#operators).
+Pour procéder à une requête avec un opérateur, spécifiez au moins une zone et sa valeur
+correspondante.
+La requête utilise ensuite cette valeur pour rechercher des correspondances dans la base
+de données. 
+
+Pour obtenir la requête la plus simple possible, ajoutez le code JSON à un fichier de données et exécutez-le à partir de la ligne de commande. 
+
+### Exécution d'une requête simple
+
+Cet exemple indique comment Cloudant Query utilise `query-index` pour rechercher
+`lastname` et filtrer les résultats en mémoire afin de rechercher `firstaname`.   
+
+![Icône de la ligne de commande](../images/CommandLineIcon.png) _Ligne de commande_
+
+1.  Copiez l'exemple JSON suivant dans un fichier de données nommé `query1.dat`.
+  ```json
+    {
+      "selector": {
+            "lastname" : "Greene",
+            "firstname" : "Anna"
+         }
+    }
+  ```    
+  {:codeblock}
+
+2.  Exécutez la commande suivante pour interroger la base de données : 
+  ```sh
+  acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query1.dat
+  ```
+  {:codeblock}
+
+3.  Examinez les résultats de la requête :
+  ```json
+  {
+    "docs": [
+      {
+        "_id":"doc4",
+        "_rev":"3-751ab049e8b5dd1ba045cea010a33a72",
+            "firstname":"Anna",
+            "lastname":"Greene",
+            "age":44,
+            "location":"Baton Rouge, LA"
+      }
+    ]
+  }
+  ```
+  {:codeblock}
+
+![Icône de tableau de bord](../images/DashboardIcon.png) _Tableau de bord Cloudant_
+
+1.  Cliquez sur l'onglet **Query**.
+2.  Copiez et collez l'exemple JSON suivant dans la fenêtre Cloudant Query : 
+  ```json
+   {
+      "selector": {
+            "lastname" : "Greene",
+            "firstname" : "Anna"
+         }
+   }
+  ```
+  {:codeblock}
+
+3.  Cliquez sur **Run Query**.
+
+  Les résultats de la requête apparaissent dans le panneau de droite. 
+
+  ![Résultats de la requête 1](../images/dashboard_query1_results.png)
+
+### Exécution d'une requête avec deux zones
+
+Cet exemple utilise deux zones pour rechercher toutes les personnes nommées `Brown` et habitant à `New York City, NY`.
+
+La recherche est effectuée via une [expression 'selector'](../api/cloudant_query.html#selector-syntax)
+similaire à l'exemple suivant : 
+```json
+  {
+    "selector": {
+      "lastname": "Brown",
+      "location": "New York City, NY"
+    }
+  }
+```
+{:codeblock}
+
+Vous pouvez personnaliser les résultats en fonction de vos besoin en ajoutant plus
+de détails dans l'expression selector.
+Le paramètre `fields` indique les zones à inclure dans les
+résultats. Dans cet exemple, les résultats comprennent le prénom, le nom de famille et
+l'emplacement. Il sont triés par le prénom dans l'ordre croissant des valeurs du paramètre `sort`.
+Les détails supplémentaires sont similaires à l'exemple suivant : 
+```json
+{
+  ...
+  "fields": [
+    "lastname",
+    "firstname",
+    "location"
+  ],
+  "sort" : [
+    {
+      "lastname": "asc"
+    },
+    {
+      "firstname": "asc"
+    }
+  ]
+}
+```  
+{:codeblock}
+
+![Icône de la ligne de commande](../images/CommandLineIcon.png) _Ligne de commande_
+
+1.  Copiez l'exemple JSON dans un fichier de données nommé `query2.dat`.
+  ```json
+  {
+    "selector": {
+      "lastname": "Brown",
+      "location": "New York City, NY"
+    },
+    "fields": [
+      "firstname",
+      "lastname",
+      "location"
+    ],
+    "sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
+    ]
+  }
+  ```
+  {:codeblock}
+
+2.  Exécutez la commande suivante pour interroger la base de données : 
+  ```sh
+  acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query2.dat
+  ```
+  {:codeblock}
+
+3.  Examinez les résultats de la requête :
+  ```json
+  {
+    "docs": [
+      {
+        "firstname": "John",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      },
+      {
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      }
+    ]
+  }
+  ```
+  {:codeblock}
+
+![Icône de tableau de bord](../images/DashboardIcon.png) _Tableau de bord Cloudant_
+
+1.  Cliquez sur l'onglet **Query**.
+2.  Copiez et collez l'exemple JSON suivant dans la fenêtre Cloudant Query : 
+  ```json
+  {
+    "selector": {
+      "lastname": "Brown",
+      "location": "New York City, NY"
+    },
+    "fields": [
+      "firstname",
+      "lastname",
+      "location"
+    ],
+    "sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
+    ]  
+  }
+  ```
+  {:codeblock}
+
+3.  Cliquez sur **Run Query**.
+
+  Les résultats de la requête apparaissent dans le panneau de droite. 
+
+  ![Résultats de la requête 2](../images/dashboard_query2_results.png)
+
+### Exécution d'une requête avec des opérateurs
+
+Dans cet exemple, les opérateurs `$eq` (égal à) et `$gt` (supérieur à) sont employés pour rechercher des documents qui
+contiennent le nom de famille `Greene` et un âge supérieur à `30`.
+
+Utilisez une expression selector similaire à l'exemple suivant : 
+```json
+{
+  "selector": {
+    "lastname": {
+      "$eq": "Greene"
+    },
+    "age": {
+      "$gt": 30
+    }
+  }
+}
+```   
+{:codeblock}
+
+![Icône de la ligne de commande](../images/CommandLineIcon.png) _Ligne de commande_
+
+1.  Copiez l'exemple JSON suivant dans un fichier nommé `query3.dat`.
+  ```json
+  {
+    "selector": {
+      "lastname": {
+        "$eq": "Greene"
+      },
+      "age": {
+        "$gt": 30
+      }
+    },
+    "fields" : [
+      "firstname",
+      "lastname",
+      "age"
+    ],
+    "sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
+    ]  
+  }
+  ```
+  {:codeblock}
+
+2. Exécutez cette requête :
+  ```sh
+  acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query3.dat
+  ```
+  {:codeblock}
+
+3.  Examinez les résultats de la requête :
+  ```json
+  {
+    "docs": [
+      {
+        "firstname": "Anna",
+        "lastname": "Greene",
+        "age": 44
+      },
+      {
+        "firstname": "Greg",
+        "lastname": "Greene",
+        "age": 35
+      }
+    ]
+  }
+  ```
+  {:codeblock}
+
+![Icône de tableau de bord](../images/DashboardIcon.png) _Tableau de bord Cloudant_
+
+1.  Cliquez sur l'onglet **Query**.
+2.  Copiez et collez l'exemple JSON suivant dans la fenêtre Cloudant Query : 
+  ```json
+  {
+    "selector": {
+      "lastname": {
+        "$eq": "Greene"
+      },
+      "age": {
+        "$gt": 30
+      }
+    },
+    "fields" : [
+      "firstname",
+      "lastname",
+      "age"
+    ],
+    "sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
+    ]   
+  }
+  ```
+  {:codeblock}
+
+3.  Cliquez sur **Run Query**.
+
+  Les résultats de la requête apparaissent dans le panneau de droite. 
+
+  ![Résultats de la requête 3](../images/dashboard_query3_results.png)
+
+Pour plus d'informations sur Cloudant, reportez-vous à la [documentation Cloudant](../cloudant.html#overview).
