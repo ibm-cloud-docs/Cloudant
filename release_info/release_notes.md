@@ -29,11 +29,6 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 the `new_edits` parameter. The new error is a 400 (Bad request) error with the reason, "`new_edits` 
 parameter must contain a boolean value." 
 
-## Build 6462
-
--   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
-read quorum, and write quorum. This update helps with debugging, operations, and performance analysis.
-
 ## Build 6366 (August 4, 2017) 
 
 - Password changes no longer cause your replications to rewind.
