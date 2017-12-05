@@ -62,7 +62,7 @@ such as the following examples.
 
 {{site.data.keyword.cloudant_short_notm}}'s warehousing integration is a streamlined process which will
 automatically discover your documents' schemas and import data
-intelligently into Db2 Warehouse on Cloud or {{site.data.keyword.DB2OnCloud_full}}. When you create
+intelligently into Db2 Warehouse on Cloud or DB2 on Cloud. When you create
 a warehouse on {{site.data.keyword.cloudant_short_notm}}, the schema is first auto-discovered, and then data
 is imported into the connected Db2 Warehouse database. 
 
@@ -76,7 +76,7 @@ The integration is suitable when your data has the following characteristics:
 * Warehousing is not required to be strictly real time. Updated documents
     typically appear in a warehouse within a few seconds, but this is not
     guaranteed and will vary based on your database load.
-* {{site.data.keyword.DB2OnCloud_short}} limits schemas to 1,012 fields. JSON documents with a large 
+* DB2 on Cloud limits schemas to 1,012 fields. JSON documents with a large 
     number of fields, including nested objects and large arrays, may exceed this limit.
 
 ## Joining data
