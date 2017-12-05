@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-12-04"
+lastupdated: "2017-12-05"
 
 ---
 
@@ -431,6 +431,7 @@ _Example of a response body with two indexes:_
 	Pagination is discussed in more detail [here](cloudant_query.html#pagination).
 -	**use_index (optional)**: Use this option to identify a specific index for query to run against,
 	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index.
+
 	For more information, see [Explain Plans](#explain-plans).
 -   **execution_stats (optional, default: false)**: Use this option to find information about the query 
     that was executed, including total key lookups, total document lookups (when `include_docs=true` 
