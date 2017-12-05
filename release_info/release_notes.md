@@ -25,7 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## 6551
 
-The error returned when a request is made to the querying /_scheduler has changed. The new error 
+- The error returned when a request is made to the querying `_scheduler` has changed. The new error 
 is 404: "Not found," instead of 405: "Method not allowed."
 
 ## Build 6365 (August 17, 2017)
