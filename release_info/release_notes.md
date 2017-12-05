@@ -25,7 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## 6551
 
-- An error is returned if you specify a value in the `use_index` field that 
+- With this fix, an error is returned if you specify a value in the `use_index` field that 
 cannot be used for the current query selector. 
 
 ## Build 6365 (August 17, 2017)
