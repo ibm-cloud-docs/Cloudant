@@ -23,6 +23,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## 6551
+
+The error returned when a request is made to the querying /_scheduler has changed. The new error 
+is 404: "Not found," instead of 405: "Method not allowed."
+
 ## Build 6365 (August 17, 2017)
 
 - `POST` requests to the `_revs_diff` endpoint now require either the `_reader` or `_replicator` role.
