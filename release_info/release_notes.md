@@ -25,9 +25,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6551 
 
-- When no index can fulfill a sort for a `_find` query, 
-{{site.data.keyword.cloudant_short_notm}} returns the appropriate 400 
-response with the reason for the failure. 
+- With this fix, the appropriate 400 response and the reason for the failure are returned when 
+no index can fulfill a sort for a `_find` query. 
 
 ## Build 6366 (August 4, 2017)
 
