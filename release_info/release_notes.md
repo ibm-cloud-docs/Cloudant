@@ -23,6 +23,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## 6551
+
+- An error is returned if you specify a value in the `use_index` field that 
+cannot be used for the current query selector. 
+
 ## Build 6365 (August 17, 2017)
 
 - `POST` requests to the `_revs_diff` endpoint now require either the `_reader` or `_replicator` role.
