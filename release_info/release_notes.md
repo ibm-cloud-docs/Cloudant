@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-21"
+lastupdated: "2017-12-05"
 
 ---
 
@@ -23,7 +23,7 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build XXXX 
+## Build 6551 
 
 - When no index can fulfill a sort for a `_find` query, 
 {{site.data.keyword.cloudant_short_notm}} returns the appropriate 400 
