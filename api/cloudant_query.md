@@ -16,25 +16,21 @@ lastupdated: "2017-12-05"
 
 # Query
 
-{{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for {{site.data.keyword.cloudant_short_notm}} databases.
+{{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for 
+{{site.data.keyword.cloudant_short_notm}} databases. There are two types of 
+{{site.data.keyword.cloudant_short_notm}} Query indexes: `json` and `text`.
 {:shortdesc}
 
-{{site.data.keyword.cloudant_short_notm}} Query wraps several index types, starting with the Primary Index type,
-which is available for immediate use.
-{{site.data.keyword.cloudant_short_notm}} Query indexes can also be built by using MapReduce Views (where the index type is `json`),
-and Search Indexes (where the index type is `text`).
+If you know exactly what data you want to look for, or you want to keep storage and 
+processing requirements to a minimum, you can specify how the index is created, by 
+making it of type `json`.
 
-If you know exactly what data you want to look for,
-or you want to keep storage and processing requirements to a minimum,
-you can specify how the index is created,
-by making it of type `json`.
+But for maximum flexibility when you search for data, you would typically create 
+an index of type `text`. Indexes of type `text` have a simple mechanism for automatically 
+indexing all the fields in the documents.
 
-But for maximum flexibility when you search for data,
-you would typically create an index of type `text`.
-Indexes of type `text` have a simple mechanism for automatically indexing all the fields in the documents.
-
->	**Note**: While more flexible,
-`text` indexes might take longer to create and require more storage resources than `json` indexes.
+> **Note**: While more flexible, `text` indexes might take longer to create and require 
+more storage resources than `json` indexes.
 
 ## Creating an index
 
@@ -535,25 +531,6 @@ _An example of a simple selector for a full text index:_
 {
 	"selector": {
 		"$text": "Bond"
-	}
-}
-```
-{:codeblock}
-
-In the following example,
-the full text index is inspected to find any document that includes the word "Bond".
-In the response, the fields `title` or `cast` are returned for every matching object.
-
-_Example of a simple selector, inspecting specific fields:_
-
-```json
-{
-	"selector": {
-		"$text": "Bond",
-		"fields": [
-			"title",
-			"cast"
-		]
 	}
 }
 ```
@@ -1490,62 +1467,12 @@ whenever you have an operator that takes an argument,
 that argument can itself be another operator with arguments of its own.
 This expansion enables more complex selector expressions.
 
-However,
-not all operators can be used as the base or starting point of the selector expression
-when you use indexes of type `json`.
-
->	**Note**: You cannot use combination or array logical operators such as `$regex` as the _basis_ of a query
-when you use indexes of type `json`.
-Only equality operators such as `$eq`, `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`)
-can be used as the basis of a query for `json` indexes.
-
-For example,
-if you try to run a query that attempts to match all documents that have a field that is called `afieldname`,
-where the field contains a value beginning with the letter `A`,
-you get an `error: "no_usable_index"` error message.
-
-_Example of an unsupported selector expression:_
-
-```json
-	{
-	"selector": {
-		"afieldname": {
-			"$regex": "^A"
-		}
-	}
-}
-```
-{:codeblock}
-
-_Example response to an unsupported selector expression:_
-
-```json
-{
-	"error": "no_usable_index",
-	"reason": "There is no operator in this selector can used with an index."
-}
-```
-{:codeblock}
-
-A solution is to use an equality operator as the basis of the query.
-You can add a 'null' or 'always true' expression as the basis of the query.
-For example,
-you might first test that the document has an `_id` value:
-
-```json
-{
-	"_id": {
-		"$gt": null
-	}
-}
-```
-{:codeblock}
-
-This expression is always true,
-enabling the remainder of the selector expression to be applied.
-
->	**Note**: The use of `{"_id": { "$gt":null } }` forces a full table scan of the database,
-and is not efficient for large databases.
+>   **Note**: Combination or array logical operators, such as `$regex`, can
+> result in a full database scan when using indexes of type JSON, 
+> resulting in poor performance. Only equality operators, such as `$eq`, 
+> `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups to be 
+> performed. To ensure indexes are used effectively, analyze the 
+> [explain plan](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans) for each query.  
 
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently _based_ on
@@ -1556,22 +1483,6 @@ Additionally,
 some parts of the `$regex` operator go beyond what PCRE offers.
 For more information about what is implemented,
 see the [Erlang Regular Expression ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/man/re.html){:new_window} information.
-
-_Example use of an equality operator to enable a selector expression:_
-
-```json
-{
-	"selector": {
-		"_id": {
-			"$gt": null
-		},
-		"afieldname": {
-			"$regex": "^A"
-		}
-	}
-}
-```
-{:codeblock}
 
 ## Sort Syntax
 
@@ -1735,10 +1646,12 @@ unless you specify an index at query time.
 When you specify an index to use,
 {{site.data.keyword.cloudant_short_notm}} Query uses the following logic:
 
--	If two or more `json` type indexes exist for the same fields,
+-	The query planner looks at the selector section,
+	and finds the index with the closest match to operators and fields used in the query.
+	If there are two or more JSON type indexes that match,
 	the index with the smallest number of fields in the index is preferred.
-	If the refinement still leaves two or more candidate indexes,
-	the index with the first alphabetical name is chosen.
+  If there are still two or more candidate indexes,
+  the index with the first alphabetical name is chosen. 
 -	If a `json` type index _and_ a `text` type index might both satisfy a selector,
 	the `json` index is chosen by default.
 -	If a `json` type index _and_ a `text` type index the same field (for example `fieldone`),
