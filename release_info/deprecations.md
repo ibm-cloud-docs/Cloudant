@@ -19,20 +19,14 @@ lastupdated: "2017-11-09"
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {:shortdesc}
 
-## Return reduce overflow errors to the client on `_view` calls. Do not spend RAM building the view when 
-there is a bad reduce function. The error returned to the client looks similar to the following error: 
-```json
-{
-    row": {
-        "key": null,
-        "id": "error",
-        "value": "reduce_overflow_error",
-        "reason": Reason
-    }
-}
-```
-Customers who do not handle errors as part of the row in the response body might have a problem. To fix the problem,
-change the application to handle errors from view requests.
+## Error handling
+
+- If you do not handle reduce overflow errors as part of a row in the response body, 
+you will have issues. To fix this problem, change the application to handle the errors 
+from view requests. 
+
+- If you rely on 500 replies for your application, you might have issues. To fix the problem, 
+update your application to rely on 400 responses. 
 
 ## Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
 
