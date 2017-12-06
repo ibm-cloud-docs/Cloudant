@@ -23,6 +23,13 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## 6588
+
+- The `_all_docs` scan now populates the warning field in the response that tells
+the user that `use_index` was ignored. The warning message states that "`_design/example` 
+was not used because it does not contain a valid index for this query," where 
+`_design/example` is an actual index name.
+
 ## Build 6551 
 
 - With this fix, the appropriate 400 response and the reason for the failure are returned when 
