@@ -19,16 +19,16 @@ lastupdated: "2017-11-09"
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {:shortdesc}
 
-## Appropriate 400 response lists reason for failure when no index can fulfill a sort for a `_find` query
+## Error handling
 
-- If you rely on 500 replies in your application, this fix might cause a failure. Update your 
-application to rely on 400 responses to fix the problem.
+- If you rely on 500 replies for your application, you might have issues. To fix the problem, 
+update your application to rely on 400 responses.
 
 ## Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
 
--   An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter 
-    in the request body is ignored while the parameter in the request URL is respected. In recent versions of 
-    {{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body is not ignored.
+- An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter 
+in the request body is ignored while the parameter in the request URL is respected. In recent versions of 
+{{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body is not ignored.
 
 ## Revised error message
 
