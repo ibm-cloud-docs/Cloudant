@@ -14,7 +14,6 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-07-11 -->
 
-
 # What's new in {{site.data.keyword.cloudant_short_notm}}
 
 See what is new and interesting in {{site.data.keyword.cloudantfull}}. 
@@ -25,5 +24,4 @@ Release of scheduling replicator.
 
 [Build 6365 (August 17, 2017)](/docs/services/Cloudant/release_info/release_notes.html#build-6365-august-17-2017-)
 Add the X-Frame-Options header settings to prevent clickjacking. Learn more about [X-Frame-Options](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options-setting).
-
 

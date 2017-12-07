@@ -308,7 +308,7 @@ _Example response from using `doc_id` parameter:_
 _Example of using the command line to find jobs with the `_job_id` parameter:_
 
 ```sh
-curl 'https://$ACCOUNT.cloudant.com/_scheduler/jobs/68245f5954fa122e7768a4bfbfbd0d15+2bcontinuous'
+curl 'https://$ACCOUNT.cloudant.com/_scheduler/jobs/68245f5954fa122e7768a4bfbfbd0d15+continuous'
 ```
 {:codeblock}
 

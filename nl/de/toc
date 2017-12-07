@@ -1,0 +1,104 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="cloudant" audience="service" href="/docs/services/Cloudant/getting-started.html"}
+Cloudant NoSQL DB
+
+	{: .navgroup id="learn"}
+	getting-started.md
+	cloudant.md
+
+	{: .topicgroup}
+	Angebote
+		offerings/index.md
+		offerings/bluemix.md
+		offerings/whatsnew.md
+	{: .navgroup-end}
+
+	{: .navgroup id="reference"}
+    basics/index.md
+
+	{: .topicgroup}
+	API-Referenz
+		api/index.md
+		api/http.md
+		api/compare.md
+		api/account.md
+		api/authentication.md
+		api/authorization.md
+		api/cors.md
+		api/database.md
+		api/document.md
+		api/attachments.md
+		api/cloudant_query.md
+		api/design_documents.md
+		api/creating_views.md
+		api/using_views.md
+		api/search.md
+		api/cloudant-geo.md
+		api/replication.md
+		api/advanced_replication.md
+		api/active_tasks.md
+		api/vhosts.md
+		api/advanced.md
+		api/monitoring.md
+		api/backup.md
+
+	{: .topicgroup}
+	Beispielapps
+		[Mobile Feedback-App mit Ionic und Cloudant](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
+		[Open Fridge](https://github.com/krook/openfridge)
+		[Onlinekatalogspeicher](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
+
+	{: .topicgroup}
+	Bibliotheken
+		libraries/index.md
+		libraries/supported.md
+		libraries/thirdparty.md
+	{: .navgroup-end}
+
+	{: .navgroup id="howto"}
+	{: .topicgroup}
+	Lernprogramme
+		tutorials/create_service.md
+		tutorials/create_service_cli.md
+		tutorials/create_database.md
+		tutorials/create_query.md
+		tutorials/create_backup.md
+		tutorials/create_bmxapp.md
+		tutorials/create_bmxapp_prereq.md
+		tutorials/create_bmxapp_appenv.md
+		tutorials/create_bmxapp_createapp.md
+		tutorials/create_bmxapp_upload.md
+		tutorials/create_bmxapp_maintain.md
+
+	{: .topicgroup}
+	Wiederherstellung und Sicherung
+		guides/disaster-recovery-and-backup.md
+		guides/active-active.md
+		guides/backup-cookbook.md
+
+	{: .topicgroup}
+	Leitfäden
+		guides/acurl.md
+		guides/backup-guide.md
+		guides/backup-guide-using-replication.md
+		guides/cap_theorem.md
+		guides/couchapps.md
+		guides/warehousing.md
+		guides/design_document_management.md
+		guides/mvcc.md
+		guides/transactions.md
+		guides/sharding.md
+		guides/json.md
+		guides/managing_tasks.md
+		guides/model_data.md
+		guides/replication_guide.md
+
+	{: .topicgroup}
+    Sicherheit
+    	offerings/security.md
+    	offerings/compliance.md
+    	offerings/dataprivacygovernance.md
+	{: .navgroup-end}
+

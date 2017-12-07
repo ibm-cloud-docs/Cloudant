@@ -12,6 +12,9 @@ lastupdated: "2017-08-09"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
+<!-- Acrolinx: 2017-02-23 -->
+
+
 # Conflicts
 
 In distributed databases,
