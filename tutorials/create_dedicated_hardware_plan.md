@@ -24,11 +24,11 @@ Creating a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan ins
 of a {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware for your sole use. A service 
 instance is created in the {{site.data.keyword.Bluemix_notm}} dashboard, but note that you cannot 
 access the Dedicated Hardware plan instance directly and will not have 
-any Service Credentials for it. You can use a Cloudant Dedicated Hardware 
+any Service Credentials for it. You can use a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware 
 plan instance after it is created by provisioning one or more Standard plan 
 instances on it.
 
-## Creating a Cloudant Dedicated Hardware plan instance
+## Creating a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance
 
 1.  Log in to your {{site.data.keyword.Bluemix_notm}} account.<br/>
     The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:

@@ -23,44 +23,6 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build xxxx
-
-- When no index can fulfill a sort for a `_find` query, 
-{{site.data.keyword.cloudant_short_notm}} returns the appropriate 400 
-response with the reason for the failure. 
-
-- Return reduce overflow errors to the client on `_view` calls. Do not spend RAM building the view when 
-there is a bad reduce function. The error returned to the client looks similar to the following error: 
-```json
-{
-    row": {
-        "key": null,
-        "id": "error",
-        "value": "reduce_overflow_error",
-        "reason": Reason
-    }
-}
-```
-
-- The error changed that is returned when calls to /<db>/`_temp_view` fail. The new response is 
-410 "GONE. Temporary views are not supported in CouchDB."
-
-- Changes the error that is returned when calls to `_bulk_docs` include a non-boolean value for 
-the `new_edits` parameter. The new error is a 400 (Bad request) error with the reason, "`new_edits` 
-parameter must contain a boolean value." 
-
-## Build 6462
-
--   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
-read quorum, and write quorum. This update helps with debugging, operations, and performance analysis.
-
-## Build 6462
-
--   Add cluster configuration to the database information, including parameters for number of replicas, shards, 
-read quorum, and write quorum. This update helps with debugging, operations, and performance analysis.
-
-- When no index can fulfill a sort for a `_find` query, {{site.data.keyword.cloudant_short_notm}} returns the appropriate 400 response with the reason for the failure. 
-
 ## Build 6365 (August 17, 2017)
 
 - `POST` requests to the `_revs_diff` endpoint now require either the `_reader` or `_replicator` role.
@@ -102,7 +64,7 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
 ## Build 5638 (October 11, 2016)
 
 -   Introduces new "stable" and "update" query parameters for views.
--   Replicator no longer retries indefinitely if it cannot write checkpoints to the source database.
+-   Replicator no longer retries forever if it cannot write checkpoints to the source database.
 
 ## Build 5421 (June 14, 2016)
 

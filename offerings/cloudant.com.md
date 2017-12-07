@@ -17,7 +17,7 @@ lastupdated: "2017-11-06"
 # Cloudant.com
 
 > **Note**: As of July 24th, 2017, no new Shared Plan accounts can be created on cloudant.com.
- 
+  
 {{site.data.keyword.cloudantfull}} is a hosted and fully-managed database-as-a-service (DBaaS).
 It is built from the ground up to scale globally,
 run non-stop,
