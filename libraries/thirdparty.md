@@ -178,7 +178,7 @@ See the [API Reference](../api/index.html) for more information about meteor-cou
 The [Apache Bahir extensions for Apache Spark  ![External link icon](../images/launch-glyph.svg "External link icon")](http://bahir.apache.org/#home){:new_window}
 include a `spark-sql-cloudant` connector that is the {{site.data.keyword.cloudant_short_notm}} library for Apache Spark.
 
-The spark-cloudant library is already loaded into the
+The spark-sql-cloudant connector is already loaded into the
 [IBM Bluemix Apache Spark-as-a-Service ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} offering.
 It can be used with any stand-alone Spark cluster.
 
