@@ -145,7 +145,7 @@ Since Apache CouchDB does not ship with Meteor or the couchdb package,
 you must provide a URL for Meteor to connect
 to a running CouchDB or {{site.data.keyword.cloudant_short_notm}} server instance before you install Meteor.
 Add this package to your Meteor application:
-  
+
 ```sh
 meteor add cloudant:couchdb
 ```
