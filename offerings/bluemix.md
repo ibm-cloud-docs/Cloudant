@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-03"
+lastupdated: "2017-10-26"
 
 ---
 
@@ -46,7 +46,7 @@ space configuration for the plans:
 <td colspan='4'>See <a href="http://cloudant.com/bluemix" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (lookups per second)</td>
+<td>Provisioned Throughput Capacity (Lookups per second)</td>
 <td>20</td>
 <td>100</td>
 <td>1,000</td>
@@ -54,7 +54,7 @@ space configuration for the plans:
 <td>20,000</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (writes per second)</td>
+<td>Provisioned Throughput Capacity (Writes per second)</td>
 <td>10</td>
 <td>50</td>
 <td>500</td>
@@ -62,7 +62,7 @@ space configuration for the plans:
 <td>10,000</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (queries per second)</td>
+<td>Provisioned Throughput Capacity (Queries per second)</td>
 <td>5</td>
 <td>5</td>
 <td>50</td>
@@ -196,12 +196,6 @@ for moving to a different plan configuration.
 In summary,
 you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
 
->   **Note**: Provisioned throughput capacity is an integral part of your {{site.data.keyword.cloudant_short_notm}} 
->   account. There is an upper limit to the number of lookups, writes, and queries you can make 
->   per second. You can increase or decrease your provisioned throughput capacity at any time. An adjustment can 
->   change your monthly bill. You can see your currently provisioned throughput capacity details to monitor activity. See 
->   [Provisioned throughput capacity](../api/throughput_capacity.html). 
-
 <div id="servicetier"></div>
 
 ### Viewing and changing capacity
@@ -332,7 +326,7 @@ so request this environment as part of the [provisioning process](#provisioning-
 To provide high availability (HA) and disaster recovery (DR) within a data center, all data is 
 stored in triplicate across three separate physical servers in a cluster. You can provision 
 accounts in multiple data centers, then use continuous data replication to provide HA/DR across 
-data centers. Cloudant NoSQL DB data is not automatically backed up, but supported tooling is 
+data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically backed up, but supported tooling is 
 provided to handle backups. Review the 
 [Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) 
 to explore all HA, DR, and backup considerations to meet your application requirements. 
@@ -355,7 +349,7 @@ You can provision a {{site.data.keyword.cloudant_short_notm}} Lite or Standard p
 - Using the Dashboard. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
 - Using the Cloud Foundry command tool. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
  
-To create and leverage a Cloudant Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
+To create and leverage a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
 
 
 

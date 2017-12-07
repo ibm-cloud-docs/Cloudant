@@ -271,12 +271,6 @@ in the following list:
 > **Note:** If there is no available defined index that matches the specified query, then {{site.data.keyword.cloudant_short_notm}}
 > uses the `_all_docs` index.
 
-An index is not mandatory if your query does not define the `sort` parameter. However, if you have a usable index, 
-it makes your query run faster. If you do use the `sort` parameter in your query, you must either have a JSON index
-with that field defined or a text index that contains that field. In this exercise, we create two indexes for 
-the queries defined in later exercises. 
-
-To create an index:
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -285,9 +279,9 @@ To create an index:
   {
     "index": {
       "fields": [
-        "age",
-        "firstname",
-        "lastname"
+        "lastname",
+        "location",
+        "age"
       ]
     },
     "name": "query-index",
@@ -304,12 +298,15 @@ To create an index:
 
 3.  Review the results:
   ```json
-  {   "result":"created",
-        "id":"_design/b49192e296762d45a841ee7bade3ae7c0e33427c",
-        "name":"query-index"
-     }  
+  {
+    "result":"created",
+    "id":"_design/752c7031f3eaee0f907d18e1424ad387459bfc1d",
+    "name":"query-index"
+  }
   ```
   {:codeblock}
+
+
 
 ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
 
@@ -319,9 +316,9 @@ To create an index:
   {
     "index": {
       "fields": [
-        "age",
-        "firstname",
-        "lastname"
+        "lastname",  
+        "location",
+        "age"
       ]
     },
     "name": "query-index",
@@ -329,11 +326,11 @@ To create an index:
   }
   ```
   {:codeblock}
-3. Click the **Create Index** button.
 
-   The index was created. You can see it in the right pane.
-   
-  ![Simple query index](../images/query-index.png)
+  The index was created. You can see it in the right pane.
+
+  ![Query index](../images/query-index1.png)
+
 
 
 ## Creating a query
@@ -429,7 +426,9 @@ that looks like the following example:
 We can tailor the results to meet our needs
 by adding more details within the selector expression.
 The `fields` parameter specifies the fields to include with the results. In our example, the
-results include the first name, last name, and location. The extra details look like the following example:
+results include the first name, last name, and location. The results are sorted by first
+name in ascending order based on the values in the `sort` parameter.
+The extra details look like the following example:
 ```json
 {
   ...
@@ -437,6 +436,14 @@ results include the first name, last name, and location. The extra details look 
     "lastname",
     "firstname",
     "location"
+  ],
+  "sort" : [
+    {
+      "lastname": "asc"
+    },
+    {
+      "firstname": "asc"
+    }
   ]
 }
 ```  
@@ -455,6 +462,14 @@ results include the first name, last name, and location. The extra details look 
       "firstname",
       "lastname",
       "location"
+    ],
+    "sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
     ]
   }
   ```
@@ -469,23 +484,18 @@ results include the first name, last name, and location. The extra details look 
 3.  Review the query results:
   ```json
   {
-    "docs":  [
-        { 
-            "firstname":"John",
-            "lastname":"Brown",
-            "location":"New York City, NY"
-        },
-        {   
-            "firstname":"Lois",
-            "lastname":"Brown",
-            "location":"New York City, NY"
-        },
-        {
-            "firstname":"Sally",
-            "lastname":"Brown",
-            "location":"New York City, NY"
-         }
-     ]
+    "docs": [
+      {
+        "firstname": "John",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      },
+      {
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      }
+    ]
   }
   ```
   {:codeblock}
@@ -504,6 +514,14 @@ results include the first name, last name, and location. The extra details look 
       "firstname",
       "lastname",
       "location"
+    ],
+    "sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "firstname": "asc"
+      }
     ]  
   }
   ```
@@ -535,23 +553,6 @@ We use a selector expression like the following example:
 ```   
 {:codeblock}
 
-The results are sorted by last name in ascending order based on the 
-values in the `sort` parameter.
-
-```json
-    "sort": [
-      {
-        "age": "asc"   
-      },        
-      {
-        "firstname": "asc"
-      },
-      {
-        "lastname": "asc"
-      }
-    ] 
-```    
-
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
 1.  Copy the following sample JSON to a file named `query3.dat`.
@@ -572,13 +573,10 @@ values in the `sort` parameter.
     ],
     "sort": [
       {
-        "age": "asc"   
-      },        
-      {
-        "firstname": "asc"
+        "lastname": "asc"
       },
       {
-        "lastname": "asc"
+        "firstname": "asc"
       }
     ]  
   }
@@ -595,17 +593,16 @@ values in the `sort` parameter.
   ```json
   {
     "docs": [
-     {
-        "age": 35,
-        "firstname": "Greg",
-        "lastname": "Greene"
-      }
-    {
-        "age": 44,
+      {
         "firstname": "Anna",
-        "lastname": "Greene"
+        "lastname": "Greene",
+        "age": 44
       },
-
+      {
+        "firstname": "Greg",
+        "lastname": "Greene",
+        "age": 35
+      }
     ]
   }
   ```
@@ -632,14 +629,11 @@ values in the `sort` parameter.
     ],
     "sort": [
       {
-        "age": "asc"   
-      },        
-      {
-        "firstname": "asc"
+        "lastname": "asc"
       },
       {
-        "lastname": "asc"
-      }      
+        "firstname": "asc"
+      }
     ]   
   }
   ```

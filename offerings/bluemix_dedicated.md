@@ -14,7 +14,7 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-02-23 -->
 
-# Bluemix Dedicated
+# {{site.data.keyword.Bluemix_notm}} Dedicated
 
 {{site.data.keyword.cloudantfull}} for (Bluemix Dedicated) is 
 an optional purchase add-on to a Bluemix Dedicated environment. The optional add-on for 
@@ -30,7 +30,7 @@ Bluemix Dedicated if dedicated hardware is required.
 The screenshot below shows an example {{site.data.keyword.Bluemix_notm}} catalog highlighting the {{site.data.keyword.Bluemix_notm}} Public 
 syndicated version of {{site.data.keyword.cloudant_short_notm}} (left) and the {{site.data.keyword.cloudant_short_notm}} Dedicated environment (right).  
 
-![{{site.data.keyword.Bluemix_notm}} catalog](../images/bluemix_catalog.png)
+![{{site.data.keyword.cloudant_short_notm}} catalog](../images/bluemix_catalog.png)
 
 ## Hardware capacity 
 
@@ -57,8 +57,8 @@ shares the underlying hardware resources that make up the {{site.data.keyword.cl
 All plans are provided on servers with [at rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest) 
 disk encryption. Access is over the public network connection and encrypted by 
 using HTTPS. For more detail, see [Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}. 
-IP whitelisting is available on request to Cloudant Support and will apply to 
-the whole Cloudant environment, and not at the instance level. 
+IP whitelisting is available on request to {{site.data.keyword.cloudant_short_notm}} Support and will apply to 
+the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level. 
 
 The plan also offers [Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
 [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
