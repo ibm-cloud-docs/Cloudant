@@ -25,8 +25,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## 6588
 
-- The `_all_docs` scan now populates the warning field in the response that tells
-the user that `use_index` was ignored. The warning message states that "`_design/example` 
+- The `_all_docs` scan now populates the warning field in the response to tell
+the user that `use_index` was ignored. The warning message now states that "`_design/example` 
 was not used because it does not contain a valid index for this query," where 
 `_design/example` is an actual index name.
 
