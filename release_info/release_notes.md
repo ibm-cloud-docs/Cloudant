@@ -16,7 +16,7 @@ lastupdated: "2017-12-11"
 
 # Release Notes
 
-Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build number. 
+Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build number.
 {:shortdesc}
 
 ## Dedicated hardware
@@ -26,14 +26,14 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## 6588
 
 - The `_all_docs` scan now populates the warning field in the response to tell
-the user that `use_index` was ignored. The warning message states, "`_design/example` 
-was not used because it does not contain a valid index for this query." In this case, 
-`_design/example` is an actual index name.
+the user that `use_index` was ignored. The warning message states, "`<_design/example>`
+was not used because it does not contain a valid index for this query." In this case,
+`<_design/example>` is an actual index name.
 
-## Build 6551 
+## Build 6551
 
-- With this fix, the appropriate 400 response and the reason for the failure are returned when 
-no index can fulfill a sort for a `_find` query. 
+- With this fix, the appropriate 400 response and the reason for the failure are returned when
+no index can fulfill a sort for a `_find` query.
 
 ## Build 6366 (August 4, 2017)
 
@@ -47,10 +47,10 @@ no index can fulfill a sort for a `_find` query.
 
 ## Build 6276 (July 4, 2017)
 
-- An error message that occurs when you attempt to put a document attachment with a non-existent revision has changed 
+- An error message that occurs when you attempt to put a document attachment with a non-existent revision has changed
 to a 409 error with the following information: `{"error":"not_found","reason":"missing_rev"}`.
 
-## Build 6233 (June 26, 2017) 
+## Build 6233 (June 26, 2017)
 
 - Fixes a {{site.data.keyword.cloudant_short_notm}} Query issue where indexes excluding potentially matching documents were selected by the query planner.
 
@@ -92,5 +92,3 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
 -	`/_bulk_get` endpoint to reduce the number of requests that are used in replication to mobile clients.
 -	Design document metadata contains an `update pending` field.
 -	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.
-
-
