@@ -29,13 +29,16 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
 replicas to create. These values are passed to the JSON object and then to the `/_replicator` end point.
 
+- A new error is returned if you specify a value in the `use_index` field that 
+cannot be used for the current query selector. 
+
 ## Build 6551
+
+- A new reduce overflow error is returned on a `_view` call to limit the amount of memory used to 
+build a view that is the result of a bad reduce function.
 
 - A new error is returned when calls to /`<db>`/`_temp_view` fail. The error is 
 410: "GONE: Temporary views are not supported in CouchDB."
-
-- With this fix, an error is returned if you specify a value in the `use_index` field that 
-cannot be used for the current query selector. 
 
 - A new error is returned when a request is made to the querying `_scheduler`. The error 
 is 404: "Not found."

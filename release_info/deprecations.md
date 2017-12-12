@@ -21,8 +21,13 @@ Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releas
 
 ## Error handling
 
+
 - If you rely on 500 replies for your application, you might have issues. To fix the problem, 
 update your application to rely on 400 responses. 
+
+- If you do not handle reduce overflow errors as part of a row in the response body, 
+you will have issues. To fix this problem, change the application to handle the errors 
+from view requests.  
 
 ## Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
 
