@@ -29,6 +29,11 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
 replicas to create. These values are passed to the JSON object and then to the `/_replicator` end point.
 
+## 6551
+
+- With this fix, an error is returned if you specify a value in the `use_index` field that 
+cannot be used for the current query selector. 
+
 ## Build 6365 (August 17, 2017)
 
 - `POST` requests to the `_revs_diff` endpoint now require either the `_reader` or `_replicator` role.
