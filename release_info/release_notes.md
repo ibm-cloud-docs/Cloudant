@@ -2,11 +2,7 @@
 
 copyright:
   years: 2017
-<<<<<<< HEAD
-lastupdated: "2017-11-27"
-=======
 lastupdated: "2017-12-11"
->>>>>>> fb96540
 
 ---
 
