@@ -25,8 +25,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## 6588
 
-- A new parameter `create_target_params` was added that allows you to customize the target database 
-that is created on a new replication. Now, you can customize the cluster's default values for the number of shards and
+- A new parameter, `create_target_params`, was added that allows you to customize the target database 
+that is created on a new replication. You can now customize the cluster's default values for the number of shards and
 replicas to create. These values are passed to the JSON object and then to the `/_replicator` end point.
 
 ## Build 6365 (August 17, 2017)
