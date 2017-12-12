@@ -34,6 +34,9 @@ replicas to create. These values are passed to the JSON object and then to the `
 - With this fix, an error is returned if you specify a value in the `use_index` field that 
 cannot be used for the current query selector. 
 
+- A new error is returned when a request is made to the querying `_scheduler`. The error 
+is 404: "Not found."
+
 ## Build 6365 (August 17, 2017)
 
 - `POST` requests to the `_revs_diff` endpoint now require either the `_reader` or `_replicator` role.
