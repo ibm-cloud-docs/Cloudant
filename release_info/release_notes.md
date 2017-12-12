@@ -37,9 +37,17 @@ cannot be used for the current query selector.
 - A new error is returned when a request is made to the querying `_scheduler`. The error 
 is 404: "Not found."
 
+## Build 5661
+
+- A new error is returned when a `new_edits` value is invalid. The error is 400: "Bad request."
+
+## Build 6366 (August 4, 2017) 
+
+- Password changes no longer cause your replications to rewind.
+
 ## Build 6365 (August 17, 2017)
 
-- `POST` requests to the `_revs_diff` endpoint now require either the `_reader` or `_replicator` role.
+- `POST` requests to the `_revs_diff` endpoint require either the `_reader` or `_replicator` role.
 - Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options-setting).
 - Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler).   
 
