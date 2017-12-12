@@ -46,8 +46,6 @@ no index can fulfill a sort for a `_find` query.
 - A new error is returned if you specify a value in the `use_index` field that 
 cannot be used for the current query selector. 
 
-## Build 6551
-
 - A new reduce overflow error is returned on a `_view` call to limit the amount of memory used to 
 build a view that is the result of a bad reduce function.
 
