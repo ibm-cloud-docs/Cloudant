@@ -23,18 +23,16 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 6588
+## Build 6588 (December 7, 2017)
 
 - A new parameter, `create_target_params`, was added that allows you to customize the target database 
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
-replicas to create. These values are passed to the JSON object and then to the `/_replicator` end point.
+replicas to create. These values are passed to the JSON object and then to the `/_replicator` endpoint.
 
 - The `_all_docs` scan now populates the warning field in the response to tell
 the user that `use_index` was ignored. The warning message states, "`<_design/example>`
 was not used because it does not contain a valid index for this query." In this case,
 `<_design/example>` is an actual index name.
-
-## Build 6551
 
 - With this fix, the appropriate 400 response and the reason for the failure are returned when
 no index can fulfill a sort for a `_find` query.
@@ -50,8 +48,6 @@ build a view that is the result of a bad reduce function.
 
 - A new error is returned when a request is made to the querying `_scheduler`. The error 
 is 404: "Not found."
-
-## Build 5661
 
 - A new error is returned when a `new_edits` value is invalid. The error is 400: "Bad request."
 
