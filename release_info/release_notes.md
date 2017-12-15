@@ -26,7 +26,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6588 (December 7, 2017)
 
 <ul>
-<li>For security reasons, the use of eval() and Function() constructers is disabled in JavaScript.</li>
+<li>For security reasons, the use of eval() and Function() constructers is disabled in JavaScript by default.</li>
 
 <li>A new parameter, <code>create_target_params</code>, was added that allows you to customize the target database 
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
