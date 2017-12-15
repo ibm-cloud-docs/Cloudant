@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-12-11"
+lastupdated: "2017-12-15"
 
 ---
 
@@ -26,6 +26,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6588 (December 7, 2017)
 
 <ul>
+<li>For security reasons, the use of eval() and Function() constructers is disabled in JavaScript.</li>
+
 <li>A new parameter, <code>create_target_params</code>, was added that allows you to customize the target database 
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
 replicas to create. These values are specified as a JSON object and passed to the <code>/_replicator</code> endpoint.</li>
