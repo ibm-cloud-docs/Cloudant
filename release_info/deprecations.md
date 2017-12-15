@@ -19,11 +19,20 @@ lastupdated: "2017-11-09"
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {:shortdesc}
 
+## Error handling
+
+- If you rely on 500 replies for your application, you might have issues. To fix the problem, 
+update your application to rely on 400 responses. 
+
+- If you do not handle reduce overflow errors as part of a row in the response body, 
+you will have issues. To fix this problem, change the application to handle the errors 
+from view requests.  
+
 ## Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
 
--   An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter 
-    in the request body is ignored while the parameter in the request URL is respected. In recent versions of 
-    {{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body is not ignored.
+- An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter 
+in the request body is ignored while the parameter in the request URL is respected. In recent versions of 
+{{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body is not ignored.
 
 ## Revised error message
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-27"
+lastupdated: "2017-12-11"
 
 ---
 
@@ -16,25 +16,64 @@ lastupdated: "2017-11-27"
 
 # Release Notes
 
-Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build number. 
+Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build number.
 {:shortdesc}
 
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 6588 (December 7, 2017)
+
+<ul>
+<li>A new parameter, <code>create_target_params</code>, was added that allows you to customize the target database 
+that is created on a new replication. You can now customize the cluster's default values for the number of shards and
+replicas to create. These values are specified as a JSON object and passed to the <code>/_replicator</code> endpoint.</li>
+
+<li>The <code>_all_docs</code> scan now populates the warning field in the response to tell
+the user that <code>use_index</code> was ignored. The warning message states, <code>`<_design/example>`
+was not used because it does not contain a valid index for this query.</code> In this case,
+<code><_design/example></code> is an actual index name.</li>
+
+<li>With this fix, the appropriate 400 response and the reason for the failure are returned when
+no index can fulfill a sort for a <code>_find</code> query.</li>
+
+<li>If <code>use_index</code> specifies an index that is not valid for the query provided, Cloudant will fall back 
+to the best valid index or a full database scan if no index is available. In both cases, the response 
+will include a <code>warning</code> field to highlight that an invalid <code>use_index</code> value was specified.
+
+<p>In the case that even a full database scan cannot be used to fulfill a query (for example, the query 
+relies on sorting that must be determined by an index), Cloudant will return with a status code of 400 
+and an error, <code>No index exists for this sort, try indexing by the sort fields.</code> </p></li>
+
+<li>A new reduce overflow error is returned on a <code>_view</code> call to limit the amount of memory used to 
+build a view that is the result of a bad reduce function.
+</li>
+
+<li>A new error is returned when calls to /<code><db></code>/<code>_temp_view</code> fail. The error is 
+<code>410: GONE: Temporary views are not supported in CouchDB.</code></li>
+
+<li>A request to <code>/_scheduler</code> without specifying subsections "docs" or "jobs" now returns a <code>Not found</code> error.</li>
+
+<li>A new error is returned when a <code>new_edits</code> value is invalid in the <code>/db/_bulk_docs</code> URL. The error is <code>400: Bad request.</code></li></ul>
+
+
+## Build 6366 (August 4, 2017) 
+
+- Password changes no longer cause your replications to rewind.
+
 ## Build 6365 (August 17, 2017)
 
-- `POST` requests to the `_revs_diff` endpoint now require either the `_reader` or `_replicator` role.
+- `POST` requests to the `_revs_diff` endpoint require either the `_reader` or `_replicator` role.
 - Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options-setting).
 - Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler).   
 
 ## Build 6276 (July 4, 2017)
 
-- An error message that occurs when you attempt to put a document attachment with a non-existent revision has changed 
+- An error message that occurs when you attempt to put a document attachment with a non-existent revision has changed
 to a 409 error with the following information: `{"error":"not_found","reason":"missing_rev"}`.
 
-## Build 6233 (June 26, 2017) 
+## Build 6233 (June 26, 2017)
 
 - Fixes a {{site.data.keyword.cloudant_short_notm}} Query issue where indexes excluding potentially matching documents were selected by the query planner.
 
@@ -76,5 +115,3 @@ to a 409 error with the following information: `{"error":"not_found","reason":"m
 -	`/_bulk_get` endpoint to reduce the number of requests that are used in replication to mobile clients.
 -	Design document metadata contains an `update pending` field.
 -	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.
-
-
