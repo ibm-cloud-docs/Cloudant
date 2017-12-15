@@ -25,31 +25,38 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6588 (December 7, 2017)
 
-- A new parameter, `create_target_params`, was added that allows you to customize the target database 
+<ul>
+<li>A new parameter, <code>create_target_params</code>, was added that allows you to customize the target database 
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
-replicas to create. These values are specified as a JSON object and passed to the `/_replicator` endpoint.
+replicas to create. These values are specified as a JSON object and passed to the <code>/_replicator</code> endpoint.</li>
 
-- The `_all_docs` scan now populates the warning field in the response to tell
-the user that `use_index` was ignored. The warning message states, "`<_design/example>`
-was not used because it does not contain a valid index for this query." In this case,
-`<_design/example>` is an actual index name.
+<li>The <code>_all_docs</code> scan now populates the warning field in the response to tell
+the user that <code>use_index</code> was ignored. The warning message states, <code>`<_design/example>`
+was not used because it does not contain a valid index for this query.</code> In this case,
+<code><_design/example></code> is an actual index name.</li>
 
-- With this fix, the appropriate 400 response and the reason for the failure are returned when
-no index can fulfill a sort for a `_find` query.
+<li>With this fix, the appropriate 400 response and the reason for the failure are returned when
+no index can fulfill a sort for a <code>_find</code> query.</li>
 
-- If Mango query is forced to perform a full database scan, it now populates the warning field with a 
-new error that is returned if you specify a value in the `use_index` field that 
-cannot be used for the current query selector. 
+<li>If <code>use_index</code> specifies an index that is not valid for the query provided, Cloudant will fall back 
+to the best valid index or a full database scan if no index is available. In both cases, the response 
+will include a <code>warning</code> field to highlight that an invalid <code>use_index</code> value was specified.
 
-- A new reduce overflow error is returned on a `_view` call to limit the amount of memory used to 
+<p>In the case that even a full database scan cannot be used to fulfill a query (for example, the query 
+relies on sorting that must be determined by an index), Cloudant will return with a status code of 400 
+and an error, <code>No index exists for this sort, try indexing by the sort fields.</code> </p></li>
+
+<li>A new reduce overflow error is returned on a <code>_view</code> call to limit the amount of memory used to 
 build a view that is the result of a bad reduce function.
+</li>
 
-- A new error is returned when calls to /`<db>`/`_temp_view` fail. The error is 
-410: "GONE: Temporary views are not supported in CouchDB."
+<li>A new error is returned when calls to /<code><db></code>/<code>_temp_view</code> fail. The error is 
+<code>410: GONE: Temporary views are not supported in CouchDB.</code></li>
 
-- A request to `/_scheduler` without specifying subsections "docs" or "jobs" now returns a "Not found" error.
+<li>A request to <code>/_scheduler</code> without specifying subsections "docs" or "jobs" now returns a <code>Not found</code> error.</li>
 
-- A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is 400: "Bad request."
+<li>A new error is returned when a <code>new_edits</code> value is invalid in the <code>/db/_bulk_docs</code> URL. The error is <code>400: Bad request.</code></li></ul>
+
 
 ## Build 6366 (August 4, 2017) 
 
