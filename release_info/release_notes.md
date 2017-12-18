@@ -33,9 +33,6 @@ replicas to create. </li>
 <li><code>_find</code> now falls back to any valid index if the value specified in the `"use_index"` 
 field is invalid for the current query. When this occurs, the `"warning"` field is populated in the query response.</li> 
 
-<li>A new error is returned when calls to /<code><db></code>/<code>_temp_view</code> fail. The error is 
-<code>410: GONE: Temporary views are not supported in CouchDB.</code></li>
-
 <li>A request to <code>/_scheduler</code> without specifying subsections "docs" or "jobs" now returns a <code>Not found</code> error.</li>
 
 <li>A new error is returned when a <code>new_edits</code> value is invalid in the <code>/db/_bulk_docs</code> URL. The error is <code>400: Bad request.</code></li></ul>
