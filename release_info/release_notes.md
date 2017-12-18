@@ -28,27 +28,14 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 <ul>
 <li>A new parameter, <code>create_target_params</code>, was added that allows you to customize the target database 
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
-replicas to create. These values are specified as a JSON object and passed to the <code>/_replicator</code> endpoint.</li>
+replicas to create. </li>
 
-<li>The <code>_all_docs</code> scan now populates the warning field in the response to tell
-the user that <code>use_index</code> was ignored. The warning message states, <code>`<_design/example>`
-was not used because it does not contain a valid index for this query.</code> In this case,
-<code><_design/example></code> is an actual index name.</li>
-
-<li>With this fix, the appropriate 400 response and the reason for the failure are returned when
-no index can fulfill a sort for a <code>_find</code> query.</li>
-
-<li>If <code>use_index</code> specifies an index that is not valid for the query provided, Cloudant will fall back 
-to the best valid index or a full database scan if no index is available. In both cases, the response 
-will include a <code>warning</code> field to highlight that an invalid <code>use_index</code> value was specified.
+<li><code>_find</code> will now fall back to any valid index if the value specified in the `"use_index"` 
+field is invalid for the current query. When this occurs, the `"warning"` field is populated in the query response.</li> 
 
 <p>In the case that even a full database scan cannot be used to fulfill a query (for example, the query 
 relies on sorting that must be determined by an index), Cloudant will return with a status code of 400 
 and an error, <code>No index exists for this sort, try indexing by the sort fields.</code> </p></li>
-
-<li>A new reduce overflow error is returned on a <code>_view</code> call to limit the amount of memory used to 
-build a view that is the result of a bad reduce function.
-</li>
 
 <li>A new error is returned when calls to /<code><db></code>/<code>_temp_view</code> fail. The error is 
 <code>410: GONE: Temporary views are not supported in CouchDB.</code></li>
