@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-12-11"
+lastupdated: "2017-12-18"
 
 ---
 
@@ -30,12 +30,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
 replicas to create. </li>
 
-<li><code>_find</code> will now fall back to any valid index if the value specified in the `"use_index"` 
+<li><code>_find</code> now falls back to any valid index if the value specified in the `"use_index"` 
 field is invalid for the current query. When this occurs, the `"warning"` field is populated in the query response.</li> 
-
-<p>In the case that even a full database scan cannot be used to fulfill a query (for example, the query 
-relies on sorting that must be determined by an index), Cloudant will return with a status code of 400 
-and an error, <code>No index exists for this sort, try indexing by the sort fields.</code> </p></li>
 
 <li>A new error is returned when calls to /<code><db></code>/<code>_temp_view</code> fail. The error is 
 <code>410: GONE: Temporary views are not supported in CouchDB.</code></li>
