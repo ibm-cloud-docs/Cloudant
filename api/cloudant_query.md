@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-12-05"
+lastupdated: "2017-12-18"
 
 ---
 
@@ -16,20 +16,20 @@ lastupdated: "2017-12-05"
 
 # Query
 
-{{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for 
-{{site.data.keyword.cloudant_short_notm}} databases. There are two types of 
+{{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for
+{{site.data.keyword.cloudant_short_notm}} databases. There are two types of
 {{site.data.keyword.cloudant_short_notm}} Query indexes: `json` and `text`.
 {:shortdesc}
 
-If you know exactly what data you want to look for, or you want to keep storage and 
-processing requirements to a minimum, you can specify how the index is created, by 
+If you know exactly what data you want to look for, or you want to keep storage and
+processing requirements to a minimum, you can specify how the index is created, by
 making it of type `json`.
 
-But for maximum flexibility when you search for data, you would typically create 
-an index of type `text`. Indexes of type `text` have a simple mechanism for automatically 
+But for maximum flexibility when you search for data, you would typically create
+an index of type `text`. Indexes of type `text` have a simple mechanism for automatically
 indexing all the fields in the documents.
 
-> **Note**: While more flexible, `text` indexes might take longer to create and require 
+> **Note**: While more flexible, `text` indexes might take longer to create and require
 more storage resources than `json` indexes.
 
 ## Creating an index
@@ -323,6 +323,44 @@ Methods  | Path                | Description
 `POST`   | `/$DATABASE/_find`  | Find documents by using an index.
 `POST`   | `/$DATABASE/_index` | Create an index.
 
+## Creating an index with a selector
+
+Adding a selector to the index adds fine-grained filtering of which documents will be added to an index. At query time, the index must be specified via the `use_index` field for the query planner to use it.
+
+This example index with a selector only adds documents to the index that contain the `age` and `sport` fields and that match the selector.
+
+```json
+    {
+        "index": {
+            "fields": ["age", "sport"],
+            "selector": {
+                "age": {
+                    "$gte": 10
+                },
+                "sport": "rugby"
+            }
+        },
+        "ddoc" : "selector-index",
+        "type" : "json"
+    }
+```
+
+To use the above index in a `_find` query, `use_index` must
+contain the index name or design document. The selector must also
+contain the fields specified in the index.
+
+```json
+    {
+      "selector": {
+        "age": {
+          "$gt": 20
+        },
+        "sport": "rugby"
+      },
+      "use_index": ["selector-index"]
+    }
+```
+
 ## List all {{site.data.keyword.cloudant_short_notm}} Query indexes
 
 -	**Method**: `GET`
@@ -433,8 +471,8 @@ _Example of a response body with two indexes:_
 	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index.
 
 	For more information, see [Explain Plans](#explain-plans).
--   **execution_stats (optional, default: false)**: Use this option to find information about the query 
-    that was executed, including total key lookups, total document lookups (when `include_docs=true` 
+-   **execution_stats (optional, default: false)**: Use this option to find information about the query
+    that was executed, including total key lookups, total document lookups (when `include_docs=true`
     is used), and total quorum document lookups (when Fabric document lookups are used). 	
 
 The `bookmark` field is used for paging through result sets.
@@ -1025,7 +1063,8 @@ Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are bot
               | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression.
 
 > **Note**: Regular expressions do not work with indexes,
-so they must not be used to filter large data sets.
+so they must not be used to filter large data sets. They can, however, be used to restrict a
+`partial index <find/partial_indexes>`.
 
 ### Examples of condition operators
 
@@ -1468,10 +1507,10 @@ that argument can itself be another operator with arguments of its own.
 This expansion enables more complex selector expressions.
 
 >   **Note**: Combination or array logical operators, such as `$regex`, can
-> result in a full database scan when using indexes of type JSON, 
-> resulting in poor performance. Only equality operators, such as `$eq`, 
-> `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups to be 
-> performed. To ensure indexes are used effectively, analyze the 
+> result in a full database scan when using indexes of type JSON,
+> resulting in poor performance. Only equality operators, such as `$eq`,
+> `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups to be
+> performed. To ensure indexes are used effectively, analyze the
 > [explain plan](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans) for each query.  
 
 Most selector expressions work exactly as you would expect for the operator.
@@ -1628,14 +1667,14 @@ _Example of selective retrieval of fields from matching documents:_
 
 ## Pagination
 
-{{site.data.keyword.cloudant_short_notm}} Query supports pagination via the bookmark field. Every `_find` response contains a bookmark - a token 
-that {{site.data.keyword.cloudant_short_notm}} uses to determine where to resume from when subsequent queries are made. To get the next 
-set of query results, add the bookmark that was received in the previous response to your next request. 
-Remember to keep the selector the same, otherwise you will receive unexpected results. To paginate backwards, 
+{{site.data.keyword.cloudant_short_notm}} Query supports pagination via the bookmark field. Every `_find` response contains a bookmark - a token
+that {{site.data.keyword.cloudant_short_notm}} uses to determine where to resume from when subsequent queries are made. To get the next
+set of query results, add the bookmark that was received in the previous response to your next request.
+Remember to keep the selector the same, otherwise you will receive unexpected results. To paginate backwards,
 you can use a previous bookmark to return the previous set of results.
 
-Note that the presence of a bookmark doesn’t guarantee that there are more results. You can test whether 
-you have reached the end of the result set by comparing the number of results returned with the page size 
+Note that the presence of a bookmark doesn’t guarantee that there are more results. You can test whether
+you have reached the end of the result set by comparing the number of results returned with the page size
 requested - if the results returned < limit, there are no more results.
 
 ## Explain Plans
@@ -1651,7 +1690,7 @@ When you specify an index to use,
 	If there are two or more JSON type indexes that match,
 	the index with the smallest number of fields in the index is preferred.
   If there are still two or more candidate indexes,
-  the index with the first alphabetical name is chosen. 
+  the index with the first alphabetical name is chosen.
 -	If a `json` type index _and_ a `text` type index might both satisfy a selector,
 	the `json` index is chosen by default.
 -	If a `json` type index _and_ a `text` type index the same field (for example `fieldone`),
@@ -1925,7 +1964,7 @@ _Corresponding Lucene query. The '#' comments are not valid Lucene syntax, but h
 	# Search for type = starch
 	(
 		((type_3astring:starch) OR (type_2e_5b_5d_3astring:starch))
-		
+
 		# Search for type = protein
 		((type_3astring:protein) OR (type_2e_5b_5d_3astring:protein))
 	)
