@@ -25,17 +25,16 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6588 (December 7, 2017)
 
-<ul>
-<li>A new parameter, <code>create_target_params</code>, was added that allows you to customize the target database 
+- A new parameter, `create_target_params`, was added that allows you to customize the target database 
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
-replicas to create. </li>
+replicas to create. 
 
-<li><code>_find</code> now falls back to any valid index if the value specified in the `"use_index"` 
-field is invalid for the current query. When this occurs, the `"warning"` field is populated in the query response.</li> 
+- `_find` now falls back to any valid index if the value specified in the `"use_index"` 
+field is invalid for the current query. When this occurs, the `"warning"` field is populated in the query response.
 
-<li>A request to <code>/_scheduler</code> without specifying subsections "docs" or "jobs" now returns a <code>Not found</code> error.</li>
+- A request to `/_scheduler` without specifying subsections "docs" or "jobs" now returns a `Not found` error.
 
-<li>A new error is returned when a <code>new_edits</code> value is invalid in the <code>/db/_bulk_docs</code> URL. The error is <code>400: Bad request.</code></li></ul>
+- A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request.`
 
 
 ## Build 6366 (August 4, 2017) 
