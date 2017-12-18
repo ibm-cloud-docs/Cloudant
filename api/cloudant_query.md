@@ -89,6 +89,7 @@ _Example of returned JSON, confirming that the index was created:_
 -	**type (optional)**: Can be `json` or `text`.
 	Defaults to `json`.
 	Geospatial indexes will be supported in the future.
+- **json selector (optional)**: A selector to filter the documents added to the index.
 -	**name (optional)**: Name of the index.
 	If no name is provided,
 	a name is generated automatically.
