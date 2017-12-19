@@ -38,10 +38,10 @@ field is invalid for the current query. When this occurs, the `"warning"` field 
 
 Changes to Query (_find endpoint):
 
- * The logic for determining whether a given index is valid for a query has changed, addressing a bug that could lead to incorrect results. Please see <this technote> for further details of the change and how it may impact your queries.
+ * The logic for determining whether a given index is valid for a query has changed, addressing a bug that could lead to incorrect results. See <this technote> for further details of the change and how it may impact your queries.
  * Queries using text indexes no longer crash when `$exists: false` is used.
- * Partial Indexes [Bookmarks](/docs/services/Cloudant/api/cloudant_query.html#creating-an-index-with-a-selector) <link to documentation> are now supported for both JSON and text indexes.
- * Execution statistics about a query can now be generated. These are enabled using the `execution_stats=true` parameter. See [finding documents by using an index](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index).
+ * [Partial indexes](/docs/services/Cloudant/api/cloudant_query.html#creating-an-index-with-a-selector) are now supported for both JSON and text indexes.
+ * Execution statistics about a query can now be generated. These are enabled using the `execution_stats=true` parameter. See [finding documents by using an index](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index) for more information.
  * [Bookmarks](/docs/services/Cloudant/api/cloudant_query.html#pagination) are enabled for all index types.
 
 ## Build 6366 (August 4, 2017)
