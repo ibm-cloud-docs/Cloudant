@@ -326,7 +326,7 @@ Methods  | Path                | Description
 
 ## Creating an index with a selector
 
-Adding a selector to the index adds fine-grained filtering of which documents will be added to an index. At query time, the index must be specified via the `use_index` field for the query planner to use it.
+Adding a selector to the index adds fine-grained filtering from which documents will be added to an index. At query time, the index must be specified via the `use_index` field for the query planner to use it.
 
 This example index with a selector only adds documents to the index that contain the `age` and `sport` fields and that match the selector.
 
