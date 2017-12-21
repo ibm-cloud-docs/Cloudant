@@ -31,7 +31,7 @@ replicas to create.
 - A request to `/_scheduler` without specifying subsections `docs` or `jobs` now returns a `Not found` error.
 - A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request.`
 
-Query (<code>_find</code. endpoint):
+Query (<code>_find</code> endpoint):
 
 - The logic for determining whether a given index is valid for a query has changed, addressing a bug that could lead to incorrect results. 
 - Queries using text indexes no longer crash when `$exists`: `false` is used.
