@@ -23,10 +23,15 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 6600
+
+- A Mango JSON index on a compound field can only be selected if the selector ensures that all the fields listed in the index are always present. This adds a special case where all the clauses of an `$or` operator can ensure that a field is present.
+For instance, if I had an index:
+
 ## Build 6588 (December 7, 2017)
 
 <ul>
-<li>A new parameter, <code>create_target_params</code>, was added that allows you to customize the target database 
+<li>A new parameter, <code>create_target_params</code>, was added that allows you to customize the target database
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
 replicas to create. These values are specified as a JSON object and passed to the <code>/_replicator</code> endpoint.</li>
 
@@ -38,19 +43,19 @@ was not used because it does not contain a valid index for this query.</code> In
 <li>With this fix, the appropriate 400 response and the reason for the failure are returned when
 no index can fulfill a sort for a <code>_find</code> query.</li>
 
-<li>If <code>use_index</code> specifies an index that is not valid for the query provided, Cloudant will fall back 
-to the best valid index or a full database scan if no index is available. In both cases, the response 
+<li>If <code>use_index</code> specifies an index that is not valid for the query provided, Cloudant will fall back
+to the best valid index or a full database scan if no index is available. In both cases, the response
 will include a <code>warning</code> field to highlight that an invalid <code>use_index</code> value was specified.
 
-<p>In the case that even a full database scan cannot be used to fulfill a query (for example, the query 
-relies on sorting that must be determined by an index), Cloudant will return with a status code of 400 
+<p>In the case that even a full database scan cannot be used to fulfill a query (for example, the query
+relies on sorting that must be determined by an index), Cloudant will return with a status code of 400
 and an error, <code>No index exists for this sort, try indexing by the sort fields.</code> </p></li>
 
-<li>A new reduce overflow error is returned on a <code>_view</code> call to limit the amount of memory used to 
+<li>A new reduce overflow error is returned on a <code>_view</code> call to limit the amount of memory used to
 build a view that is the result of a bad reduce function.
 </li>
 
-<li>A new error is returned when calls to /<code><db></code>/<code>_temp_view</code> fail. The error is 
+<li>A new error is returned when calls to /<code><db></code>/<code>_temp_view</code> fail. The error is
 <code>410: GONE: Temporary views are not supported in CouchDB.</code></li>
 
 <li>A request to <code>/_scheduler</code> without specifying subsections "docs" or "jobs" now returns a <code>Not found</code> error.</li>
@@ -58,7 +63,7 @@ build a view that is the result of a bad reduce function.
 <li>A new error is returned when a <code>new_edits</code> value is invalid in the <code>/db/_bulk_docs</code> URL. The error is <code>400: Bad request.</code></li></ul>
 
 
-## Build 6366 (August 4, 2017) 
+## Build 6366 (August 4, 2017)
 
 - Password changes no longer cause your replications to rewind.
 
