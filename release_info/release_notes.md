@@ -25,8 +25,9 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6600
 
-- A Mango JSON index on a compound field can only be selected if the selector ensures that all the fields listed in the index are always present. This adds a special case where all the clauses of an `$or` operator can ensure that a field is present.
-For instance, if I had an index:
+- A Mango JSON index on a compound field can only be selected if the selector ensures that all the fields listed 
+in the index are always present. This adds a special case where all the clauses of an `$or` operator can ensure 
+that a field is present.
 
 ## Build 6588 (December 7, 2017)
 
