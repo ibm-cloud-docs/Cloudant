@@ -96,7 +96,7 @@ _Example command to copy a design document, using HTTP:_
 ```http
 COPY /recipes/_design/recipes HTTP/1.1
 Content-Type: application/json
-Destination: /recipes/_design/recipelist
+Destination: _design/recipelist
 ```
 {:codeblock}
 
@@ -106,7 +106,7 @@ _Example command to copy a design document, using the command line:_
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 	-X COPY \
 	-H 'Content-Type: application/json' \
-	-H 'Destination: /recipes/_design/recipelist'
+	-H 'Destination: _design/recipelist'
 ```
 {:codeblock}
 
@@ -114,7 +114,7 @@ _Example response to the copy request:_
 
 ```json
 {
-	"id": "recipes/_design/recipelist",
+	"id": "_design/recipelist",
 	"rev": "1-9c65296036141e575d32ba9c034dd3ee"
 }
 ```
@@ -151,7 +151,7 @@ _Example command to copy a specific revision of the design document, using HTTP:
 ```http
 COPY /recipes/_design/recipes?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5 HTTP/1.1
 Content-Type: application/json
-Destination: recipes/_design/recipelist
+Destination: _design/recipelist
 ```
 {:codeblock}
 
@@ -161,7 +161,7 @@ _Example command to copy a specific revision of the design document, using the c
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5" \
 	-X COPY \
 	-H 'Content-Type: application/json' \
-	-H 'Destination: /recipes/_design/recipelist'
+	-H 'Destination: _design/recipelist'
 ```
 {:codeblock}
 
@@ -176,7 +176,7 @@ _Example command to overwrite an existing copy of the design document, using HTT
 ```http
 COPY /recipes/_design/recipes
 Content-Type: application/json
-Destination: recipes/_design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee
+Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee
 ```
 {:codeblock}
 
@@ -186,7 +186,7 @@ _Example command to overwrite an existing copy of the design document, using the
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 	-X COPY \
 	-H 'Content-Type: application/json' \
-	-H 'Destination: /recipes/_design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee'
+	-H 'Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee'
 ```
 {:codeblock}
 
@@ -196,7 +196,7 @@ _Example response:_
 
 ```json
 {
-	"id" : "recipes/_design/recipes",
+	"id" : "_design/recipes",
 	"rev" : "2-55b6a1b251902a2c249b667dab1c6692"
 }
 ```
