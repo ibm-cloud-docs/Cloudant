@@ -82,7 +82,7 @@ You can copy the latest version of a design document to a new document
 by specifying the base document and target document.
 The copy is requested using the `COPY` HTTP request.
 
->	**Note**:`COPY` is a non-standard HTTP command.
+>	**Note**: `COPY` is a non-standard HTTP command.
 
 >	**Note**: Copying a design document does not automatically reconstruct the view indexes.
 Like other views,
