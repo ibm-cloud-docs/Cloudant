@@ -502,20 +502,20 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustern
   "start": 1512989450,
       "target_responses": [
       {"datapoints": [
-        [
+         [
           20247725.5,
           1512989450
-        ]
+         ]
         ],
-       "target": "myclustername Octets tx Per Second"},
-       {"datapoints": [
-        [
-          17697329.3046875,
-          1512989450
-        ]
-        "target": "myclustername Octets rx Per Second"
-      }
-   ]
+          "target": "myclustername Octets tx Per Second"},
+          {"datapoints": [
+             [
+               17697329.3046875,
+               1512989450
+             ]
+          "target": "myclustername Octets rx Per Second"
+        }
+    ]
 }
 ```
 
