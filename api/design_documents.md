@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-12-21"
+lastupdated: "2017-12-26"
 
 ---
 
@@ -33,7 +33,7 @@ Design documents are used to [build indexes](#indexes), [validate updates](#upda
 -	**Roles permitted**: `_design`
 
 To create a design document, upload it to the specified database.
-
+   
 In these examples,
 `$VARIABLES` might refer to standard or design documents.
 To distinguish between them,
