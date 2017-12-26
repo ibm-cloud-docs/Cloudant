@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-12-04"
+lastupdated: "2017-12-26"
 
 ---
 
@@ -246,22 +246,96 @@ _Example response, listing the available monitoring end points:_
 _Example of a `connections` monitoring request:_
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclustername&format=json
+curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclustername&node=myloadbalancername&format=json
 ```
 
 The response includes a data series for the following connection states:
 
-TIME_WAIT<br>
-SYN_SENT<br>
-SYN_RECV<br>
-LISTEN<br>
-LAST_ACK<br>
-FIN_WAIT2<br>
-FIN_WAIT1<br>
-ESTABLISHED<br>
-CLOSING<br>
-CLOSE_WAIT<br>
-CLOSED<br>
+```json
+{
+  "end": 1512989500,
+  "start": 1512989170,
+  "target_responses": [
+    {"datapoints": [
+        [
+          0,
+          1512989170
+            ]
+           ],
+        "target": "myclustername.myloadbalancername Connections CLOSED"},
+        {"datapoints": [
+          [
+             19,
+             1512989170
+             ]
+           ],
+         "target": "myclustername.myloadbalancername Connections CLOSE_WAIT"},
+         {"datapoints": [
+           [
+              2,
+              1512989170
+              ]
+           ],
+         "target": "myclustername.myloadbalancername Connections CLOSING"},
+         {"datapoints": [
+           [
+              280,
+              1512989170
+              ]
+           ],
+         "target": "myclustername.myloadbalancername Connections ESTABLISHED"},
+         {"datapoints": [
+           [
+              7,
+              1512989170
+              ]
+           ],
+         "target": "myclustername.myloadbalancername Connections FIN_WAIT1"},
+         {"datapoints": [
+            [
+              0,
+              1512989170
+              ]
+            ],
+         "target": "myclustername.myloadbalancername Connections FIN_WAIT2"},
+         {"datapoints": [
+            [
+              0,
+              1512989170
+              ]
+            ],
+         "target": "myclustername.myloadbalancername Connections LAST_ACK"},
+         {"datapoints": [
+            [
+              4,
+              1512989170
+              ]
+            ],
+         "target": "myclustername.myloadbalancername Connections LISTEN"},
+         {"datapoints": [
+            [
+              1,
+              1512989170
+              ]
+            ],
+         "target": "myclustername.myloadbalancername Connections SYN_RECV"},
+         {"datapoints": [
+            [
+              0,
+              1512989170
+              ]
+            ],
+         "target": "myclustername.myloadbalancername Connections SYN_SENT"},
+         {"datapoints": [
+            [
+              28,
+              1512989170
+              ]
+            ],
+       "target": "myclustername.myloadbalancername Connections TIME_WAIT"}
+    ]
+}
+```
 
 You must explicitly specify the load balancer in the request.
 
@@ -419,13 +493,31 @@ _Example results (abbreviated) from a `map_doc` monitoring request:_
 ### network
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustername&format=json
+curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustername&node=myloadbalancername&format=json
 ```
 
-The response includes data series for the following network states:
-
--   Octets received (rx) per second
--   Octets transmitted (tx) per second
+```json
+{
+  "end": 1512989748,
+  "start": 1512989450,
+      "target_responses": [
+      {"datapoints": [
+        [
+          20247725.5,
+          1512989450
+        ]
+        ],
+       "target": "myclustername Octets tx Per Second"},
+       {"datapoints": [
+        [
+          17697329.3046875,
+          1512989450
+        ]
+        "target": "myclustername Octets rx Per Second"
+      }
+   ]
+}
+```
 
 You must explicitly specify the load balancer in the request. 
 
