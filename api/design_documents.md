@@ -94,7 +94,7 @@ and produces a response containing the ID and revision of the new document.
 _Example command to copy a design document, using HTTP:_
 
 ```http
-COPY /recipes/_design/recipes HTTP/1.1
+COPY recipes/_design/recipes HTTP/1.1
 Content-Type: application/json
 Destination: _design/recipelist
 ```
