@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-09"
+lastupdated: "2017-12-27"
 
 ---
 
@@ -26,6 +26,11 @@ versions are released.
 - The new replication scheduler has several improvements and enhancements. Learn more about the [replication scheduler](../api/advanced_replication.html#the-replication-scheduler).
 
 ## Incompatibilites
+
+### Disabled JavaScript constructors
+
+- For security reasons, by default, the use of `eval()` and `Function()` constructers is disabled in 
+JavaScript.
 
 ### Active tasks
 

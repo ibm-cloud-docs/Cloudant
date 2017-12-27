@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-12-15"
+lastupdated: "2017-12-27"
 
 ---
 
@@ -21,9 +21,9 @@ Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releas
 
 ## Disabled JavaScript constructors
 
-- If a user calls the disabled JavaScript constructors, eval() or Function(), an error message
-similar to this is returned, "Call to eval() was blocked by CSP." You can fix the problem 
-by replacing eval() calls with the calls from the 
+- If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message
+similar to this is returned, "Call to `eval()` was blocked by CSP." You can fix the problem 
+by replacing `eval()` calls with the calls from the 
 [expr-eval library](https://github.com/silentmatt/expr-eval).
 For more information, you can also read this 
 [post](https://silentmatt.com/javascript-expression-evaluator/).
