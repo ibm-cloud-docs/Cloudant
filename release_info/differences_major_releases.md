@@ -29,7 +29,7 @@ versions are released.
 
 ### Disabled JavaScript constructors
 
-- For security reasons, by default, the use of `eval()` and `Function()` constructers is disabled in 
+- For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in 
 JavaScript.
 
 ### Active tasks

@@ -26,7 +26,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6588 (December 7, 2017)
 
 <ul>
-<li>For security reasons, by default, the use of `eval()` and `Function()` constructers is disabled in 
+<li>For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in 
 JavaScript.</li>
 
 <li>A new parameter, <code>create_target_params</code>, was added that allows you to customize the target database 
