@@ -33,7 +33,7 @@ replicas to create.
 - For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in 
 JavaScript.
 
-### Query (\_find endpoint):
+### Query (`_find` endpoint):
 
 - The logic for determining whether a given index is valid for a query has changed, addressing a bug that could lead to incorrect results. 
 - Queries using text indexes no longer crash when `$exists`: `false` is used.
