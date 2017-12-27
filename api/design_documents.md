@@ -94,9 +94,9 @@ and produces a response containing the ID and revision of the new document.
 _Example command to copy a design document, using HTTP:_
 
 ```http
-COPY /recipes/_design/recipes HTTP/1.1
+COPY /_design/recipes HTTP/1.1
 Content-Type: application/json
-Destination: /recipes/_design/recipelist
+Destination: _design/recipelist
 ```
 {:codeblock}
 
@@ -106,7 +106,7 @@ _Example command to copy a design document, using the command line:_
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 	-X COPY \
 	-H 'Content-Type: application/json' \
-	-H 'Destination: /recipes/_design/recipelist'
+	-H 'Destination: /_design/recipelist'
 ```
 {:codeblock}
 
@@ -114,7 +114,7 @@ _Example response to the copy request:_
 
 ```json
 {
-	"id": "recipes/_design/recipelist",
+	"id": "_design/recipelist",
 	"rev": "1-9c65296036141e575d32ba9c034dd3ee"
 }
 ```
