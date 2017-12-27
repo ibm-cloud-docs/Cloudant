@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-12-26"
+lastupdated: "2017-12-27"
 
 ---
 
@@ -30,6 +30,8 @@ that is created on a new replication. You can now customize the cluster's defaul
 replicas to create.
 - A request to `/_scheduler` without specifying subsections `docs` or `jobs` now returns a `Not found` error.
 - A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request.`
+- For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in 
+JavaScript.
 
 ### Query (\_find endpoint):
 
