@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-12-26"
+lastupdated: "2017-12-27"
 
 ---
 
@@ -119,6 +119,7 @@ _Example response to the copy request:_
 }
 ```
 {:codeblock}
+
 
 ### The structure of the copy command
 
