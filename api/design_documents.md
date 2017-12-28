@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-12-27"
 
 ---
 
@@ -94,7 +94,7 @@ and produces a response containing the ID and revision of the new document.
 _Example command to copy a design document, using HTTP:_
 
 ```http
-COPY /_design/recipes HTTP/1.1
+COPY /recipes/_design/recipes HTTP/1.1
 Content-Type: application/json
 Destination: _design/recipelist
 ```
@@ -106,7 +106,7 @@ _Example command to copy a design document, using the command line:_
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 	-X COPY \
 	-H 'Content-Type: application/json' \
-	-H 'Destination: /_design/recipelist'
+	-H 'Destination: /recipes/_design/recipelist'
 ```
 {:codeblock}
 
@@ -114,7 +114,7 @@ _Example response to the copy request:_
 
 ```json
 {
-	"id": "_design/recipelist",
+	"id": "recipes_design/recipelist",
 	"rev": "1-9c65296036141e575d32ba9c034dd3ee"
 }
 ```
