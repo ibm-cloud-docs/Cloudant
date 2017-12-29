@@ -43,10 +43,6 @@ JavaScript.
 - `_find` now falls back to any valid index if the value specified in the `use_index`
 field is invalid for the current query. When this occurs, the `warning` field is populated in the query response.
 
-## Build 6366 (August 4, 2017)
-
-- Password changes no longer cause your replications to rewind.
-
 ## Build 6365 (August 17, 2017)
 
 - `POST` requests to the `_revs_diff` endpoint require either the `_reader` or `_replicator` role.
