@@ -749,12 +749,16 @@ You must protect your data by taking good quality backups.
 An overview of backing up your data is [available](backup.html),
 with more detailed information in the [backup guide](../guides/backup-guide.html).
 
+<!--
+Removed for 96973.
 ## Using a different domain
+
 
 Virtual hosts (vhosts) are a way to make {{site.data.keyword.cloudant_short_notm}} serve data from a different domain
 than the one normally associated with your {{site.data.keyword.cloudant_short_notm}} account.
 
 More information is available [here](vhosts.html).
+-->
 
 ## Creating database applications
 
