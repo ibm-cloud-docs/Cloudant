@@ -53,7 +53,6 @@ Cloudant NoSQL DB
 		api/replication.md
 		api/advanced_replication.md
 		api/active_tasks.md
-		api/vhosts.md
 		api/advanced.md
 		api/monitoring.md
 		api/backup.md
