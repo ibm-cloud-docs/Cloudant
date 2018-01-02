@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-12-27"
+lastupdated: "2018-01-02"
 
 ---
 
@@ -22,6 +22,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6600 (December 28, 2017)
+
+- Query: fields referenced within `$or` operations are considered when determining the usable 
+indexes for a given selector.
 
 ## Build 6588 (December 7, 2017)
 
