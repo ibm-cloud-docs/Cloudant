@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-12-18"
+lastupdated: "2017-12-27"
 
 ---
 
@@ -30,8 +30,10 @@ that is created on a new replication. You can now customize the cluster's defaul
 replicas to create.
 - A request to `/_scheduler` without specifying subsections `docs` or `jobs` now returns a `Not found` error.
 - A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request.`
+- For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in 
+JavaScript.
 
-Query (`_find` endpoint):
+### Query (<code>_find</code> endpoint):
 
 - The logic for determining whether a given index is valid for a query has changed, addressing a bug that could lead to incorrect results. 
 - Queries using text indexes no longer crash when `$exists`: `false` is used.
@@ -40,10 +42,6 @@ Query (`_find` endpoint):
 - [Pagination](../api/cloudant_query.html#pagination) is supported using the bookmark field. Bookmarks are enabled for all index types.
 - `_find` now falls back to any valid index if the value specified in the `use_index`
 field is invalid for the current query. When this occurs, the `warning` field is populated in the query response.
-
-## Build 6366 (August 4, 2017)
-
-- Password changes no longer cause your replications to rewind.
 
 ## Build 6365 (August 17, 2017)
 
