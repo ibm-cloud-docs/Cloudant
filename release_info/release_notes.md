@@ -23,7 +23,7 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 6600
+## Build 6600 (December 28, 2017)
 
 - Query: fields referenced within `$or` operations are considered when determining the usable 
 indexes for a given selector.
