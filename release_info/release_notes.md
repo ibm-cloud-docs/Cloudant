@@ -37,6 +37,7 @@ replicas to create.
 - A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request.`
 - For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in 
 JavaScript.
+- Added the header `Prefer: return=minimal` to return only essential headers. This reduces the size of the request which gives a performance improvement to non-browser clients.
 
 ### Query (<code>_find</code> endpoint):
 
