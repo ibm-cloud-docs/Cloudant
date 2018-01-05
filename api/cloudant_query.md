@@ -324,7 +324,7 @@ Methods  | Path                | Description
 `POST`   | `/$DATABASE/_find`  | Find documents by using an index.
 `POST`   | `/$DATABASE/_index` | Create an index.
 
-## Creating an index with a selector
+## Creating a partial index
 
 Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB documentation](https://github.com/apache/couchdb-documentation/pull/163/files).
 
@@ -340,14 +340,14 @@ This example index with a selector only adds documents to the index that contain
     {
         "index": {
             "fields": ["age", "sport"],
-            "selector": {
+            "partial_filter_selector": {
                 "age": {
                     "$gte": 10
                 },
                 "sport": "rugby"
             }
         },
-        "ddoc" : "selector-index",
+        "ddoc" : "partial-index",
         "type" : "json"
     }
 ```
@@ -358,13 +358,13 @@ contain the fields specified in the index.
 
 ```json
     {
-      "selector": {
+      "partial_filter_selector": {
         "age": {
           "$gt": 20
         },
         "sport": "rugby"
       },
-      "use_index": ["selector-index"]
+      "use_index": ["partial-index"]
     }
 ```
 
