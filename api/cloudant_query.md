@@ -324,7 +324,7 @@ Methods  | Path                | Description
 `POST`   | `/$DATABASE/_find`  | Find documents by using an index.
 `POST`   | `/$DATABASE/_index` | Create an index.
 
-## Creating an index with a selector
+## Creating a partial index
 
 Adding a selector to the index adds fine-grained filtering from which documents will be added to an index. At query time, the index must be specified via the `use_index` field for the query planner to use it.
 
@@ -334,14 +334,14 @@ This example index with a selector only adds documents to the index that contain
     {
         "index": {
             "fields": ["age", "sport"],
-            "selector": {
+            "partial_filter_selector": {
                 "age": {
                     "$gte": 10
                 },
                 "sport": "rugby"
             }
         },
-        "ddoc" : "selector-index",
+        "ddoc" : "partial-index",
         "type" : "json"
     }
 ```
@@ -352,13 +352,13 @@ contain the fields specified in the index.
 
 ```json
     {
-      "selector": {
+      "partial_filter_selector": {
         "age": {
           "$gt": 20
         },
         "sport": "rugby"
       },
-      "use_index": ["selector-index"]
+      "use_index": ["partial-index"]
     }
 ```
 
