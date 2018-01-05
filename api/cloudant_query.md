@@ -326,6 +326,12 @@ Methods  | Path                | Description
 
 ## Creating an index with a selector
 
+Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB documentation](https://github.com/apache/couchdb-documentation/pull/163/files).
+
+> **Note**: The `partial_filter_selector` field replaces the `selector` field in text indexes. See [`The selector field`][../api/cloudant_query.html#creating-an-index]. 
+The "selector" field is still supported for 
+backwards compatibility and has the same function as the `partial_filter_selector` field.
+
 Adding a selector to the index adds fine-grained filtering from which documents will be added to an index. At query time, the index must be specified via the `use_index` field for the query planner to use it.
 
 This example index with a selector only adds documents to the index that contain the `age` and `sport` fields and that match the selector.
