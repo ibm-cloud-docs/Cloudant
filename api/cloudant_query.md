@@ -326,15 +326,12 @@ Methods  | Path                | Description
 
 ## Creating a partial index
 
-Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB documentation](https://github.com/apache/couchdb-documentation/pull/163/files).
+Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB](https://github.com/apache/couchdb-documentation/pull/163/files) documentation.
 
-> **Note**: The `partial_filter_selector` field replaces the `selector` field in text indexes. See [`The selector field`][../api/cloudant_query.html#creating-an-index]. 
-The "selector" field is still supported for 
-backwards compatibility and has the same function as the `partial_filter_selector` field.
+> **Note**: The `partial_filter_selector` field replaces the `selector` field in text indexes. The `selector` field is still supported for 
+backwards compatibility and has the same function as the `partial_filter_selector` field. See [`The selector field`](../api/cloudant_query.html#creating-an-index) documentation.
 
-Adding a selector to the index adds fine-grained filtering from which documents will be added to an index. At query time, the index must be specified via the `use_index` field for the query planner to use it.
-
-This example index with a selector only adds documents to the index that contain the `age` and `sport` fields and that match the selector.
+This example index with a `partial_filter_selector` only adds documents to the index that contain the `age` and `sport` fields and that match the `partial_filter_selector`.
 
 ```json
     {
@@ -353,7 +350,7 @@ This example index with a selector only adds documents to the index that contain
 ```
 
 To use the above index in a `_find` query, `use_index` must
-contain the index name or design document. The selector must also
+contain the index name or design document name. The `partial_filter_selector` must also
 contain the fields specified in the index.
 
 ```json
