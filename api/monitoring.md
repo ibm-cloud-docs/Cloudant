@@ -188,7 +188,7 @@ The following table lists the supported monitoring endpoints provided by the API
 
 Endpoint                                | Description
 ----------------------------------------|------------
-[`connections`](#connection)            | The status of multiple load balancer connections.
+[`connections`](#connections)            | The status of multiple load balancer connections.
 [`disk_use`](#disk_use)                 | The disk use, as measured by a `df` command.
 [`kv_emits`](#kv_emits)                 | The number of `key:value` emits per second.
 [`map_doc`](#map_doc)                   | The number of documents processed by a map function, per second.
