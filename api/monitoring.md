@@ -258,47 +258,47 @@ The response includes a data series for the following connection states:
   "target_responses": [
      {
        "datapoints": [
-          [
-            0,
-            1512989170
-             ]
+            [
+              0,
+              1512989170
+            ]
         ],
         "target": "myclustername.myloadbalancername Connections CLOSED"
       },
       { 
         "datapoints": [
-          [
-             19,
-             1512989170
-             ]
-           ],
+            [
+              19,
+              1512989170
+            ]
+        ],
         "target": "myclustername.myloadbalancername Connections CLOSE_WAIT"
       },
       {
         "datapoints": [
-           [
+            [
               2,
               1512989170
-              ]
-           ],
+            ]
+        ],
         "target": "myclustername.myloadbalancername Connections CLOSING"
       },
       {
         "datapoints": [
-           [
+            [
               280,
               1512989170
-              ]
-           ],
+            ]
+        ],
         "target": "myclustername.myloadbalancername Connections ESTABLISHED"
       },
       {
         "datapoints": [
-           [
+            [
               7,
               1512989170
-              ]
-           ],
+            ]
+        ],
         "target": "myclustername.myloadbalancername Connections FIN_WAIT1"
       },
       { 
@@ -306,8 +306,8 @@ The response includes a data series for the following connection states:
             [
               0,
               1512989170
-              ]
-            ],
+            ]
+        ],
         "target": "myclustername.myloadbalancername Connections FIN_WAIT2"
       },
       {
@@ -315,8 +315,8 @@ The response includes a data series for the following connection states:
             [
               0,
               1512989170
-              ]
-            ],
+            ]
+        ],
         "target": "myclustername.myloadbalancername Connections LAST_ACK"
       },
       {
@@ -324,8 +324,8 @@ The response includes a data series for the following connection states:
             [
               4,
               1512989170
-              ]
-            ],
+            ]
+        ],
         "target": "myclustername.myloadbalancername Connections LISTEN"
       },
       {
@@ -333,8 +333,8 @@ The response includes a data series for the following connection states:
             [
               1,
               1512989170
-              ]
-            ],
+            ]
+        ],
         "target": "myclustername.myloadbalancername Connections SYN_RECV"
       },
       {
@@ -342,8 +342,8 @@ The response includes a data series for the following connection states:
             [
               0,
               1512989170
-              ]
-            ],
+            ]
+        ],
         "target": "myclustername.myloadbalancername Connections SYN_SENT"
       },
       {
@@ -530,15 +530,16 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustern
            1512989450
           ]
         ],
-         "target": "myclustername Octets tx Per Second"
-       },
-       {
+        "target": "myclustername Octets tx Per Second"
+      },
+      {
          "datapoints": [
              [
                17697329.3046875,
                1512989450
              ]
-         "target": "myclustername Octets rx Per Second"
+         ],
+         "target": "myclustername Octets rx Per Second" 
        }
     ]
 }
