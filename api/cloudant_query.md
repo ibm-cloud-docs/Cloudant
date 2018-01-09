@@ -89,7 +89,6 @@ _Example of returned JSON, confirming that the index was created:_
 -	**type (optional)**: Can be `json` or `text`.
 	Defaults to `json`.
 	Geospatial indexes will be supported in the future.
-- **json selector (optional)**: A selector to filter the documents added to the index.
 -	**name (optional)**: Name of the index.
 	If no name is provided,
 	a name is generated automatically.
@@ -215,15 +214,6 @@ If the `default_field` is not specified,
 or is supplied with an empty object,
 it defaults to `true` and the `standard` analyzer is used.
 
-#### The `selector` field
-
-The `selector` field can be used to limit the index to a specific set of documents that match a query.
-It uses the same syntax that is used for selectors in queries.
-This field can be used if your application requires different documents to be indexed in different ways,
-or if some documents must not be indexed at all.
-If you need to distinguish documents by type only,
-it is easier to use one index and add the type to the search query.
-
 #### The `fields` array
 
 The `fields` array contains a list of fields that must be indexed for each document.
@@ -326,10 +316,9 @@ Methods  | Path                | Description
 
 ## Creating a partial index
 
-Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB](https://github.com/apache/couchdb-documentation/pull/163/files) documentation.
+Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes) documentation.
 
-> **Note**: The `partial_filter_selector` field replaces the `selector` field in text indexes. The `selector` field is still supported for 
-backwards compatibility and has the same function as the `partial_filter_selector` field. See [`The selector field`](../api/cloudant_query.html#creating-an-index) documentation.
+> **Note**: The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still supported for backwards compatibility for text indexes only.
 
 This example index with a `partial_filter_selector` only adds documents to the index that contain the `age` and `sport` fields and that match the `partial_filter_selector`.
 
