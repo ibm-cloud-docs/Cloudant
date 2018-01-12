@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-30"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -263,7 +263,7 @@ A full retrieval also includes the data _within_ a document.
 ## Step 5: Retrieving data through the {{site.data.keyword.cloudant_short_notm}} API endpoint
 
 You can also request a list of all documents and their contents by
-invoking the Cloudant [`/_all_docs` endpoint](api/database.html#get-documents).
+invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](api/database.html#get-documents).
 
 1. Identify the endpoint to contact, and any parameters to supply along with the call:
   ```python

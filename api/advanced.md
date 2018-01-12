@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-19"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -28,13 +28,13 @@ and other miscellaneous tasks.
 Accessing the root endpoint `/` returns meta information about the cluster.
 The response is a JSON object containing a welcome message and the version of the server.
 The `version` field contains the CouchDB version the server is compatible with.
-The `vendor.version` field contains the build number of Cloudant's CouchDB implementation.
+The `vendor.version` field contains the build number of {{site.data.keyword.cloudantfull}}'s CouchDB implementation.
 
-> **Note:** For Cloudant versions prior to 2.0.0,
+> **Note:** For {{site.data.keyword.cloudant_short_notm}} versions prior to 2.0.0,
 you might see a `cloudant_build` field in the response,
 rather than a `vendor.version` field.
 In each case,
-the field contains the build number of Cloudant's CouchDB implementation.
+the field contains the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
 
 _Example request to get server meta information, using HTTP:_
 
@@ -70,7 +70,7 @@ account.request({
 
 -->
 
-_Example JSON response for Cloudant version 2.0.0:_
+_Example JSON response for {{site.data.keyword.cloudant_short_notm}} version 2.0.0:_
 
 ```json
 {
@@ -88,7 +88,7 @@ _Example JSON response for Cloudant version 2.0.0:_
 ```
 {:codeblock}
 
-_Example JSON response for an older Cloudant version 1.0.2:_
+_Example JSON response for an older {{site.data.keyword.cloudant_short_notm}} version 1.0.2:_
 
 ```json
 {
@@ -397,12 +397,12 @@ _Example response:_
 
 ## `GET /$DATABASE/_revs_limit`
 
-Gets the number of past revisions of a document that Cloudant retains.
+Gets the number of past revisions of a document that {{site.data.keyword.cloudant_short_notm}} retains.
 
 > **Note**: Although the documents associated with past revisions are automatically removed,
 "tombstones" remain with the `_rev` value for that revision.
 If a document has more revisions than the value of `_revs_limit`,
-Cloudant deletes the tombstones of the oldest revisions.
+{{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
 
 _Example request, using HTTP:_
 
@@ -448,12 +448,12 @@ _Example response:_
 
 ## `PUT /$DATABASE/_revs_limit`
 
-Sets the maximum number of past revisions of a document that Cloudant retains.
+Sets the maximum number of past revisions of a document that {{site.data.keyword.cloudant_short_notm}} retains.
 
 >   **Note**: Although the documents associated with past revisions are automatically removed,
 "tombstones" remain with the `_rev` value for that revision.
 If a document has more revisions than the value of `_revs_limit`,
-Cloudant deletes the tombstones of the oldest revisions.
+{{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
 
 _Example request, using HTTP:_
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-22"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-05-22"
 
 <!-- Acrolinx: 2017-05-22 -->
 
-# Configuring Cloudant for Cross Region Disaster Recovery
+# Configuring {{site.data.keyword.cloudant_short_notm}} for Cross Region Disaster Recovery
 
 The [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](disaster-recovery-and-backup.html)
 explains that one way to enable disaster recovery is to use
@@ -218,13 +218,13 @@ This configuration offers several benefits:
   lower latency (not always the geographically closest).
 
 An application can be set up to communicate with the 'nearest'
-Cloudant account.
+{{site.data.keyword.cloudant_short_notm}} account.
 For applications hosted in DC1,
 it is appropriate to set their {{site.data.keyword.cloudant_short_notm}}
 URL to `"https://myaccount-dc1.cloudant.com/mydb"`.
 Similarly,
 for applications that are hosted in DC2,
-you would set their Cloudant URL to `"https://myaccount-dc2.cloudant.com/mydb"`.
+you would set their {{site.data.keyword.cloudant_short_notm}} URL to `"https://myaccount-dc2.cloudant.com/mydb"`.
 
 #### Active-Passive
 
@@ -261,7 +261,7 @@ but the read load is spread among the replicas.
 *	Consider how your design documents and indexes are deployed and updated.
   You might find it more efficient to automate these tasks.
 
-## Failing over between Cloudant regions
+## Failing over between {{site.data.keyword.cloudant_short_notm}} regions
 
 Typically,
 the process of managing a fail over between regions or datacenters is handled higher up within your application stack,
@@ -279,7 +279,7 @@ However,
 if you decide that you do need an ability to manage fail over,
 some possible options include:
 
-* Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/green-man-gaming-cross-cloud-nginx-config/){:new_window}.
+* Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/greenmangaming/cloudant-nginx){:new_window}.
   Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance.
   This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}}
   instances that are used by applications can be handled through a modification to the proxy configuration

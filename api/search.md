@@ -46,6 +46,17 @@ _Example design document that defines a search index:_
 To avoid this problem,
 use an appropriate [guard clause](#index-guard-clauses).
 
+
+> **Note**: Within a search index, do not index the same field name with more than one data type. If the 
+    same field name is indexed with different data types in the same search index function, 
+    you might get an error when querying the search index that says the field "was indexed without 
+    position data." For example, do not include both of these lines in the same search index function, 
+    as they index the `myfield` field as two different data types: a string `"this is a string"` and a number `123`.
+```json
+index("myfield", "this is a string");
+index("myfield", 123);
+```
+
 The function that is contained in the index field is a JavaScript function
 that is called for each document in the database.
 The function takes the document as a parameter,
@@ -227,7 +238,7 @@ if (typeof(doc.min_length) !== 'undefined') {
 Analyzers are settings that define how to recognize terms within text.
 Analyzers can be helpful if you need to [index multiple languages](#language-specific-analyzers).
 
-Here's the list of generic analyzers that are supported by Cloudant search:
+Here's the list of generic analyzers that are supported by {{site.data.keyword.cloudantfull}} search:
 
 Analyzer     | Description
 -------------|------------
@@ -730,7 +741,7 @@ _Example JSON document that contains a search request:_
 
 ## Query Syntax
 
-The Cloudant search query syntax is based on the
+The {{site.data.keyword.cloudant_short_notm}} search query syntax is based on the
 [Lucene syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
 Search queries take the form of `name:value` unless the name is omitted,
 in which case they use the default field,
@@ -854,7 +865,7 @@ The distance is measured by using either kilometers or miles.
 
 ## Faceting
 
-Cloudant Search also supports faceted searching,
+{{site.data.keyword.cloudant_short_notm}} Search also supports faceted searching,
 enabling discovery of aggregate information about matches quickly and easily.
 You can match all documents by using the special `?q=*:*` query syntax,
 and use the returned facets to refine your query.
