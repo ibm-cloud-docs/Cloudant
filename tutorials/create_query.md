@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-07"
+  years: 2017, 2018
+lastupdated: "2018-01-09"
 
 ---
 {:new_window: target="_blank"}
@@ -11,14 +11,18 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating a {{site.data.keyword.cloudant_short_notm}} Query
+# Creating a Cloudant Query
 
-This tutorial demonstrates how to create a database, populate it
-with documents, create an index, and use the index to query the database.
+This tutorial demonstrates how to run Cloudant queries. Before you can run a query, you must
+complete the following tasks: 
+1. Create a database
+2. Populate the database with documents
+3. Create an index
+4. Use the index to query the database
 
 Exercises for both the ![Command line icon](../images/CommandLineIcon.png) _Command line_
-and ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_ are provided. The
-{{site.data.keyword.Bluemix}} Dashboard exercises give you a visual example of each task. You can follow the links
+and ![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_ are provided. The
+Cloudant Dashboard exercises give you a visual example of each task. Follow the links
 throughout the tutorial for more information.
 
 To begin, you create the `query-demo` database and some documents that
@@ -28,13 +32,14 @@ contain the data for these exercises.
 
 Before you begin, follow these steps to prepare for the tutorial:
 
-1.  [Create a {{site.data.keyword.Bluemix}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
+1.  [Create a Bluemix account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Log in to the
-  [{{site.data.keyword.Bluemix_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Create a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-cloudant-instance-on-bluemix).
+  [Cloudant Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+3.  [Create a Cloudant instance on Bluemix](create_service.html#creating-a-cloudant-instance-on-bluemix).
 4.  (Optional) [Create an acurl alias](../guides/acurl.html#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
-5.  Replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to {{site.data.keyword.cloudant_short_notm}} Dashboard.
-  If you decide not to set up `acurl`,
+5.  As you run the commands in the tutorial, replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to Cloudant Dashboard.
+
+> **Note**: If you decide not to set up `acurl`,
   use the following URL instead of the one provided in the exercises:
   ``` sh
   curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
@@ -70,10 +75,10 @@ is the database that we use in this tutorial.
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
 
-1.  Open the {{site.data.keyword.cloudant_short_notm}} service instance that you created.
-2.  Select the Databases tab:
+1.  From the Manage tab in the left navigation, click **Launch** to open the Cloudant service instance you created. 
+2.  Select the **Databases** tab:
 
   ![Databases tab](../images/tabs.png)
 3.  Click **Create Database**.
@@ -127,6 +132,13 @@ that you create in this exercise contain the data that you use to query the `que
         "lastname": "Brown",
         "age": 33,
         "location": "Syracuse, NY"
+      },
+      {
+        "_id": "doc6",
+        "firstname": "Charles",
+        "lastname": "Greene",
+        "age": 22,
+        "location": "Fort Bragg, CA"
       }
     ]
   }
@@ -168,12 +180,17 @@ that you create in this exercise contain the data that you use to query the `que
       "ok":true,
       "id":"doc5",
       "rev":"1-d881d863052cd9681650773206c0d65a"
+    },
+    {
+      "ok":true,
+      "id":"doc6",
+      "rev":"1-6a5b64ea1c7812213752da1a511dcfee"
     }
   ]
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
 
 1.  Click **`+`** and select **New Doc**. The 'New Document' window opens.
 2.  To create a document, copy the following sample text and replace the existing text in the new document.
@@ -240,53 +257,68 @@ that you create in this exercise contain the data that you use to query the `que
   ```
   {:codeblock}
 
+  _Sixth sample document_:
+  ```json
+  {
+     "_id": "doc6",
+     "firstname": "Charles",
+     "lastname": "Greene",
+     "age": 22,
+     "location": "Fort Bragg, CA"
+  }
+  ```
+  {:codeblock}
+  
   The `query-demo` database was created. You can see the documents in the right pane.
 
-  ![Sample documents 1](../images/docs1.png)
-
-  ![Sample documents 2](../images/docs2.png)
-
-  ![Sample documents 3](../images/docs3.png)
-
-  ![Sample documents 4](../images/docs4.png)
-
-  ![Sample documents 5](../images/docs5.png)      
+  ![Documents in the database](../images/docs1.png)     
 
 ## Creating an index
 
-{{site.data.keyword.cloudant_short_notm}} provides views and indexes to query the database. A view runs a query that is saved to the database, and
-the result is called the result set. When you submit a query to the view, your query searches
-the result set. An index is a way to structure data that improves retrieval time.
+You can use Cloudant endpoints to create, list, update, and delete indexes in a database; then you can use 
+use these indexes to query data. An index is a way to structure data that improves retrieval time. You 
+can use the primary index that comes with Cloudant, or a secondary index like the ones described
+below:
 
-You can use the primary index that comes with {{site.data.keyword.cloudant_short_notm}}, or secondary indexes like views
-(MapReduce), search indexes, {{site.data.keyword.cloudant_short_notm}} Geospatial queries, or {{site.data.keyword.cloudant_short_notm}} Query as described
-in the following list:
+-	Primary index – look up a document or list of documents by ID. 
+-   [Partial index](../api/cloudant_query.html#creating-a-partial-index)
+-	[View](../api/creating_views.html#views-mapreduce-)
+-	[Search index](../api/search.html#search) 
+-	[Cloudant Geospatial](../api/cloudant-geo.html#cloudant-geospatial) 
+-	[Cloudant Query](../api/cloudant_query.html#query) 
 
-*	Primary index – look up a document or list of documents by ID.  
-*	[View](../api/creating_views.html#views-mapreduce-) – search for information in the database that matches the search criteria that you specify, such as counts, sums, averages, and other mathematical functions. The criteria you can search is specified in the view's definition. Views use the MapReduce paradigm.
-*	[Search index](../api/search.html#search) – search one or more fields, large amounts of text, or use wildcards, fuzzy search, or facets with [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
-*	[{{site.data.keyword.cloudant_short_notm}} Geospatial](../api/cloudant-geo.html#cloudant-geospatial) – search for documents based on a spatial relationship.
-*	[{{site.data.keyword.cloudant_short_notm}} Query](../api/cloudant_query.html#query) – use Mongo-style query syntax to search for documents by using logical operators. {{site.data.keyword.cloudant_short_notm}} Query is a combination of a view and a search index. We use {{site.data.keyword.cloudant_short_notm}} Query in this tutorial.
-
-> **Note:** If there is no available defined index that matches the specified query, then {{site.data.keyword.cloudant_short_notm}}
+> **Note:** If there is no available defined index that matches the specified query, then Cloudant
 > uses the `_all_docs` index.
 
+An index is not mandatory if your query does not define the `sort` parameter. However, if you have a usable index, 
+it makes your query run faster. If you do use the `sort` parameter in your query, you must either have a JSON index
+with that field defined or a text index that contains that field. In this exercise, we create an index for 
+the final query example that uses operators.  
+
+To create an index:
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
 1.  Copy the following sample JSON data into a file named `query-index.dat`.
   ```json
-  {
-    "index": {
-      "fields": [
-        "lastname",
-        "location",
-        "age"
-      ]
-    },
-    "name": "query-index",
-    "type": "json"
-  }
+{
+	"index": {
+		"fields": [
+			"age",
+			"lastname"
+		],
+		"partial_filter_selector": {
+			"age": {
+				"$gte": 30
+			},
+			"lastname": {
+				"$eq": "Greene"
+			}
+		}
+	},
+  		"ddoc": "partial-index",
+		"type": "json"
+}
   ```
   {:codeblock}
 
@@ -298,49 +330,54 @@ in the following list:
 
 3.  Review the results:
   ```json
-  {
-    "result":"created",
-    "id":"_design/752c7031f3eaee0f907d18e1424ad387459bfc1d",
-    "name":"query-index"
-  }
+{"result":"created",
+   "id":"_design/partial-index",
+   "name":"faa36c8704e0267dd2acf493dff7608a1e99eda0"
+  } 
   ```
   {:codeblock}
 
 
-
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
 
 1.  Click **`+` > Query Indexes** on either the **All Documents** or **Design Documents** tab.
 2.  Paste the following sample JSON data into the **Index** field:
   ```json
-  {
-    "index": {
-      "fields": [
-        "lastname",  
-        "location",
-        "age"
-      ]
-    },
-    "name": "query-index",
-    "type": "json"
-  }
+{
+	"index": {
+		"fields": [
+			"age",
+			"lastname"
+		],
+		"partial_filter_selector": {
+			"age": {
+				"$gte": 30
+			},
+			"lastname": {
+				"$eq": "Greene"
+			}
+		}
+	},
+  		"ddoc": "partial-index",
+		"type": "json"
+}
   ```
   {:codeblock}
+3. Click the **Create Index** button.
 
-  The index was created. You can see it in the right pane.
-
-  ![Query index](../images/query-index1.png)
-
+   The index was created. You can see it in the right pane.
+   
+  ![Simple query index](../images/query-index1.png)
 
 
 ## Creating a query
 
-Queries allow you to extract your data from {{site.data.keyword.cloudant_short_notm}}. A well-written
+Queries allow you to extract your data from Cloudant. A well-written
 [query](../api/cloudant_query.html#query) can narrow your search and
 its results to include only the data you want.
 
-This exercise shows you how to write and run a simple query, query with two fields,
-and query with an [operator](../api/cloudant_query.html#cloudant_query.html#operators).
+This exercise shows you how to write and run a simple query, a query with two fields,
+and a query with an [operator](../api/cloudant_query.html#cloudant_query.html#operators).
 You query with an operator by specifying at least one field and its corresponding value.
 The query then uses this value to search the database for matches.
 
@@ -348,7 +385,7 @@ For anything but the most simple query, add the JSON to a data file and run it f
 
 ### Running a simple query
 
-This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query uses the `query-index` to find the
+This example demonstrates how Cloudant Query uses the `query-index` to find the
 `lastname` and filters the results in memory to find the `firstaname`.   
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
@@ -372,25 +409,28 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
 
 3.  Review the query results:
   ```json
-  {
-    "docs": [
-      {
-        "_id":"doc4",
-        "_rev":"3-751ab049e8b5dd1ba045cea010a33a72",
-            "firstname":"Anna",
-            "lastname":"Greene",
-            "age":44,
-            "location":"Baton Rouge, LA"
-      }
-    ]
-  }
+{"docs": [
+    {
+      "_id":"doc4",
+      "_rev":"1-0923b723c62fe5c15531e0c33e015148",
+      "firstname":"Anna",
+      "lastname":"Greene",
+      "age":44,
+      "location":"Baton Rouge, LA"
+    }
+],
+"bookmark": "g1AAAAA4eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmBxcNAsAq-wPkQ",
+"warning": "no matching index found, create an index to optimize query time"
+}
   ```
   {:codeblock}
+  
+> **Note**: The warning message indicates that your search will run more quickly if you use an index. 
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
 
 1.  Click the **Query** tab.
-2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
+2.  Copy and paste the following sample JSON into the Cloudant Query window:
   ```json
    {
       "selector": {
@@ -412,7 +452,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
 This example uses two fields to find everyone that is named `Brown` who lives in `New York City, NY`.
 
 We describe the search by using a ['selector' expression](../api/cloudant_query.html#selector-syntax)
-that looks like the following example:
+that looks like this:
 ```json
   {
     "selector": {
@@ -426,9 +466,7 @@ that looks like the following example:
 We can tailor the results to meet our needs
 by adding more details within the selector expression.
 The `fields` parameter specifies the fields to include with the results. In our example, the
-results include the first name, last name, and location. The results are sorted by first
-name in ascending order based on the values in the `sort` parameter.
-The extra details look like the following example:
+results will include the first name, last name, and location. 
 ```json
 {
   ...
@@ -436,14 +474,6 @@ The extra details look like the following example:
     "lastname",
     "firstname",
     "location"
-  ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
   ]
 }
 ```  
@@ -462,14 +492,6 @@ The extra details look like the following example:
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
     ]
   }
   ```
@@ -484,26 +506,33 @@ The extra details look like the following example:
 3.  Review the query results:
   ```json
   {
-    "docs": [
-      {
-        "firstname": "John",
-        "lastname": "Brown",
-        "location": "New York City, NY"
-      },
-      {
-        "firstname": "Sally",
-        "lastname": "Brown",
-        "location": "New York City, NY"
-      }
-    ]
+    "docs":  [
+        { 
+            "firstname":"John",
+            "lastname":"Brown",
+            "location":"New York City, NY"
+        },
+        {   
+            "firstname":"Lois",
+            "lastname":"Brown",
+            "location":"New York City, NY"
+        },
+        {
+            "firstname":"Sally",
+            "lastname":"Brown",
+            "location":"New York City, NY"
+         }
+     ],
+"bookmark": "g1AAAAA4eJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFlGIDkOmBxcNAsAq7gPjQ",
+"warning": "no matching index found, create an index to optimize query time"
   }
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
 
 1.  Click the **Query** tab.
-2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
+2.  Copy and paste the following sample JSON into the Cloudant Query window:
   ```json
   {
     "selector": {
@@ -514,14 +543,6 @@ The extra details look like the following example:
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
     ]  
   }
   ```
@@ -536,50 +557,64 @@ The extra details look like the following example:
 ### Running a query with operators
 
 In this example, the `$eq` (equal) and `$gt` (greater than) operators are used to search
-for documents that contain the last name `Greene` and an age that is greater than `30`.
+for documents that contain the last name equal to `Greene` and an age that is greater than `30`.
 
 We use a selector expression like the following example:
 ```json
 {
   "selector": {
-    "lastname": {
-      "$eq": "Greene"
-    },
     "age": {
       "$gt": 30
+    },
+    "lastname": {
+      "$eq": "Greene"
     }
   }
 }
 ```   
 {:codeblock}
 
+The results are sorted by last name in ascending order based on the 
+values in the `sort` parameter.
+
+```json
+    "sort": [
+      {
+        "age": "asc"   
+      },        
+      {
+        "lastname": "asc"
+      }
+    ] 
+```    
+
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
 1.  Copy the following sample JSON to a file named `query3.dat`.
   ```json
-  {
-    "selector": {
-      "lastname": {
-        "$eq": "Greene"
-      },
+{
+   "selector": {
       "age": {
-        "$gt": 30
+         "$gt": 30
+      },
+      "lastname": {
+         "$eq": "Greene"
       }
-    },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
-    ],
-    "sort": [
+   },
+   "fields": [
+      "age",
+      "firstname"
+   ],
+   "sort": [
       {
-        "lastname": "asc"
+         "age": "asc"
       },
       {
-        "firstname": "asc"
+         "lastname": "asc"
       }
-    ]  
-  }
+   ],
+   "use_index": "_design/partial-index"
+}
   ```
   {:codeblock}
 
@@ -591,51 +626,43 @@ We use a selector expression like the following example:
 
 3.  Review the query results:
   ```json
-  {
-    "docs": [
-      {
-        "firstname": "Anna",
-        "lastname": "Greene",
-        "age": 44
-      },
-      {
-        "firstname": "Greg",
-        "lastname": "Greene",
-        "age": 35
-      }
-    ]
-  }
+{"docs":[
+     {"age":35,"firstname":"Greg"},
+     {"age":44,"firstname":"Anna"}
+   ],
+"bookmark": "g1AAAABCeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmFwOSHWiDkiSzb0oNTUvNSsLAEsmEeQ"
+}
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _Cloudant Dashboard_
 
 1.  Click the **Query** tab.
-2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
+2.  Copy and paste the following sample JSON into the Cloudant Query window:
   ```json
-  {
-    "selector": {
-      "lastname": {
-        "$eq": "Greene"
-      },
+{
+   "selector": {
       "age": {
-        "$gt": 30
+         "$gt": 30
+      },
+      "lastname": {
+         "$eq": "Greene"
       }
-    },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
-    ],
-    "sort": [
+   },
+   "fields": [
+      "age",
+      "firstname"
+   ],
+   "sort": [
       {
-        "lastname": "asc"
+         "age": "asc"
       },
       {
-        "firstname": "asc"
+         "lastname": "asc"
       }
-    ]   
-  }
+   ],
+   "use_index": "_design/partial-index"
+}
   ```
   {:codeblock}
 
@@ -645,4 +672,4 @@ We use a selector expression like the following example:
 
   ![Query 3 results](../images/dashboard_query3_results.png)
 
-For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} Documentation](../cloudant.html#overview).
+For more information about Cloudant, see the [Cloudant Documentation](../cloudant.html#overview).
