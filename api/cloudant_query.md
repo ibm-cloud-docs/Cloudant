@@ -320,7 +320,7 @@ Cloudant Query supports partial indexes using the `partial_filter_selector` fiel
 
 > **Note**: The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still supported for backwards compatibility for text indexes only.
 
-Here is an example query:
+Let's look at an example query:
 ```
 {
   "selector": {
@@ -375,8 +375,7 @@ Technically, we don't need to include the filter on the `status` field in the
 query selector - the partial index ensures this is always true - but including 
 it makes the intent of the selector more clear and makes it easier to take 
 advantage of future improvements to query planning (e.g. automatic selection of 
-partial indexes). See the  
-[CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
+partial indexes). See the [CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
 documentation for more information and the original example.  
 
 ## List all {{site.data.keyword.cloudant_short_notm}} Query indexes
