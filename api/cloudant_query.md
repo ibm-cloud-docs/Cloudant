@@ -316,43 +316,68 @@ Methods  | Path                | Description
 
 ## Creating a partial index
 
-Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes) documentation.
+Cloudant Query supports partial indexes using the `partial_filter_selector` field. 
 
 > **Note**: The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still supported for backwards compatibility for text indexes only.
 
-This example index with a `partial_filter_selector` only adds documents to the index that contain the `age` and `sport` fields and that match the `partial_filter_selector`.
-
-```json
-    {
-        "index": {
-            "fields": ["age", "sport"],
-            "partial_filter_selector": {
-                "age": {
-                    "$gte": 10
-                },
-                "sport": "rugby"
-            }
-        },
-        "ddoc" : "partial-index",
-        "type" : "json"
-    }
+Here is an example query:
 ```
-
-To use the above index in a `_find` query, `use_index` must
-contain the index name or design document name. The `partial_filter_selector` must also
-contain the fields specified in the index.
-
-```json
-    {
-      "partial_filter_selector": {
-        "age": {
-          "$gt": 20
-        },
-        "sport": "rugby"
-      },
-      "use_index": ["partial-index"]
-    }
+{
+  "selector": {
+    "status": {
+      "$ne": "archived"
+    },
+    "type": "user"
+  }
+}
 ```
+Without a partial index, this query requires a full index scan to find 
+all the documents of `type`:`user` that do not have a status of `archived`. 
+This occurs because a normal index can only be used to match contiguous rows, 
+and the `$ne` operator cannot guarantee that.
+
+To improve response time, we can create an index which excludes documents 
+where `status`: { `$ne`: `archived` } at index time by using the 
+`partial_filter_selector` field:
+```
+POST /db/_index HTTP/1.1
+Content-Type: application/json
+Content-Length: 144
+Host: localhost:5984
+
+{
+  "index": {
+    "partial_filter_selector": {
+      "status": {
+        "$ne": "archived"
+      }
+    },
+    "fields": ["type"]
+  },
+  "ddoc" : "type-not-archived",
+  "type" : "json"
+}
+```
+Partial indexes are not currently used by the query planner unless specified 
+by a `use_index` field, so we need to modify the original query:
+```
+{
+  "selector": {
+    "status": {
+      "$ne": "archived"
+    },
+    "type": "user"
+  },
+  "use_index": "type-not-archived"
+}
+```
+Technically, we don't need to include the filter on the `status` field in the 
+query selector - the partial index ensures this is always true - but including 
+it makes the intent of the selector more clear and makes it easier to take 
+advantage of future improvements to query planning (e.g. automatic selection of 
+partial indexes). See the  
+[CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
+documentation for more information and the original example.  
 
 ## List all {{site.data.keyword.cloudant_short_notm}} Query indexes
 
