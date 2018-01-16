@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-09"
+lastupdated: "2018-01-15"
 
 ---
 {:new_window: target="_blank"}
@@ -277,23 +277,19 @@ that you create in this exercise contain the data that you use to query the `que
 
 You can use Cloudant endpoints to create, list, update, and delete indexes in a database; then you can use 
 use these indexes to query data. An index is a way to structure data that improves retrieval time. You 
-can use the primary index that comes with Cloudant, or a secondary index like the ones described
-below:
+can use the primary index that comes with Cloudant, or a secondary index like a view, search index, Cloudant Geospatial, 
+or  Cloudant Query. 
 
--	Primary index – look up a document or list of documents by ID. 
--   [Partial index](../api/cloudant_query.html#creating-a-partial-index)
--	[View](../api/creating_views.html#views-mapreduce-)
--	[Search index](../api/search.html#search) 
--	[Cloudant Geospatial](../api/cloudant-geo.html#cloudant-geospatial) 
--	[Cloudant Query](../api/cloudant_query.html#query) 
-
-> **Note:** If there is no available defined index that matches the specified query, then Cloudant
-> uses the `_all_docs` index.
+We use a search index with the `partial_filter_selector` field. A partial index allows documents
+to be filtered at indexing time which offers a significant performance improvement in a production environment. 
 
 An index is not mandatory if your query does not define the `sort` parameter. However, if you have a usable index, 
 it makes your query run faster. If you do use the `sort` parameter in your query, you must either have a JSON index
 with that field defined or a text index that contains that field. In this exercise, we create an index for 
 the final query example that uses operators.  
+
+> **Note:** If there is no available defined index that matches the specified query, then Cloudant
+> uses the `_all_docs` index.
 
 To create an index:
 
