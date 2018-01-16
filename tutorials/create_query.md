@@ -280,8 +280,9 @@ use these indexes to query data. An index is a way to structure data that improv
 can use the primary index that comes with Cloudant, or a secondary index like a view, search index, Cloudant Geospatial, 
 or  Cloudant Query. 
 
-We use a search index with the `partial_filter_selector` field. A partial index allows documents
-to be filtered at indexing time which offers a significant performance improvement in a production environment. 
+In the final query of this tutorial, we use a search index with the `partial_filter_selector` field. A partial index 
+filters documents at indexing time which offers a significant performance improvement in a 
+production environment. 
 
 An index is not mandatory if your query does not define the `sort` parameter. However, if you have a usable index, 
 it makes your query run faster. If you do use the `sort` parameter in your query, you must either have a JSON index
