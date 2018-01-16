@@ -316,7 +316,8 @@ Methods  | Path                | Description
 
 ## Creating a partial index
 
-Cloudant Query supports partial indexes using the `partial_filter_selector` field. 
+Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
+for more information and the original example. 
 
 > **Note**: The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still supported for backwards compatibility for text indexes only.
 
@@ -337,7 +338,7 @@ This occurs because a normal index can only be used to match contiguous rows,
 and the `$ne` operator cannot guarantee that.
 
 To improve response time, we can create an index which excludes documents 
-where `status`: { `$ne`: `archived` } at index time by using the 
+with `status`: { `$ne`: `archived` } at index time by using the 
 `partial_filter_selector` field:
 ```
 POST /db/_index HTTP/1.1
@@ -375,8 +376,7 @@ Technically, we don't need to include the filter on the `status` field in the
 query selector - the partial index ensures this is always true - but including 
 it makes the intent of the selector more clear and makes it easier to take 
 advantage of future improvements to query planning (e.g. automatic selection of 
-partial indexes). See the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
-for more information and the original example.  
+partial indexes).  
 
 ## List all {{site.data.keyword.cloudant_short_notm}} Query indexes
 
