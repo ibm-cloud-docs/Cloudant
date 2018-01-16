@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-06"
+  years: 2017, 2018
+lastupdated: "2018-01-16"
 
 ---
 
@@ -47,15 +47,15 @@ and meets all of the requirements for ISO 27001:
 * [{{site.data.keyword.Bluemix_notm}} ISO 27001:2013 Certificate of Registration ![External link icon](../images/launch-glyph.svg "External link icon")](ftp://public.dhe.ibm.com/cloud/bluemix/compliance/Bluemix_ISO27K1_WWCert_2016.pdf){:new_window}
 * [{{site.data.keyword.IBM_notm}} SaaS ISO 27001:2013 Certificate ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?subtype=ST&infotype=SA&htmlfid=KUJ12445USEN&attachment=KUJ12445USEN.PDF){:new_window}
 
-## SOC 2 Type 1 Certification
+## SOC 2 Type 2 Certification
 
-{{site.data.keyword.IBM_notm}} provides a Service Organization Controls (SOC) 2 Type 1 report for {{site.data.keyword.cloudant_short_notm}}. The report evaluates {{site.data.keyword.IBM_notm}}'s operational 
-controls according to the criteria set by the American Institute of Certified Public Accountants (AICPA) 
-Trust Services Principles. The Trust Services Principles define adequate control systems and 
-establish industry standards for service providers such as {{site.data.keyword.Bluemix_notm}} to safeguard their customers' 
-data and information.
+{{site.data.keyword.IBM_notm}} provides a Service Organization Controls (SOC) 2 Type 2 report 
+for Cloudant. The reports evaluate IBM's operational controls according to the criteria set 
+by the American Institute of Certified Public Accountants (AICPA) Trust Services Principles. 
+The Trust Services Principles define adequate control systems and establish industry standards 
+for service providers such as IBM Cloud to safeguard their customers' data and information.
 
-Customers can request an SOC 2 Type 1 report from the customer portal or 
+Customers can request an SOC 2 Type 2 report from the customer portal or 
 [contact the sales team ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/history/contact-us/){:new_window}.
 
 ## General Data Protection Regulation (GDPR) 
