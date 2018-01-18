@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-09"
+lastupdated: "2017-12-27"
 
 ---
 
@@ -22,7 +22,7 @@ The special documents are called "design documents".
 
 Design documents are [documents](document.html) that have an `_id` beginning with `_design/`.
 They can be read and updated in the same way as any other document in the database.
-Cloudant reads specific fields and values of design documents as functions.
+{{site.data.keyword.cloudantfull}} reads specific fields and values of design documents as functions.
 Design documents are used to [build indexes](#indexes), [validate updates](#update-validators), and [format query results](#list-functions).
 
 ## Creating or updating a design document
@@ -33,7 +33,7 @@ Design documents are used to [build indexes](#indexes), [validate updates](#upda
 -	**Roles permitted**: `_design`
 
 To create a design document, upload it to the specified database.
-
+   
 In these examples,
 `$VARIABLES` might refer to standard or design documents.
 To distinguish between them,
@@ -41,7 +41,7 @@ standard documents have an `_id` indicated by `$DOCUMENT_ID`,
 while design documents have an `_id` indicated by `$DESIGN_ID`.
 
 >	**Note**: If a design document is updated,
-Cloudant deletes the indexes from the previous version,
+{{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version,
 and recreates the index from scratch.
 If you need to make changes to a design document for a larger database,
 have a look at the [Design Document Management Guide](../guides/design_document_management.html#managing-changes-to-a-design-document).
@@ -82,13 +82,13 @@ You can copy the latest version of a design document to a new document
 by specifying the base document and target document.
 The copy is requested using the `COPY` HTTP request.
 
->	**Note**:`COPY` is a non-standard HTTP command.
+>	**Note**: `COPY` is a non-standard HTTP command.
 
 >	**Note**: Copying a design document does not automatically reconstruct the view indexes.
 Like other views,
 these are recreated the first time the new view is accessed.
 
-The following example requests Cloudant to copy the design document `recipes` to the new design document `recipelist`,
+The following example requests {{site.data.keyword.cloudant_short_notm}} to copy the design document `recipes` to the new design document `recipelist`,
 and produces a response containing the ID and revision of the new document.
 
 _Example command to copy a design document, using HTTP:_
@@ -96,7 +96,7 @@ _Example command to copy a design document, using HTTP:_
 ```http
 COPY /recipes/_design/recipes HTTP/1.1
 Content-Type: application/json
-Destination: /recipes/_design/recipelist
+Destination: _design/recipelist
 ```
 {:codeblock}
 
@@ -106,7 +106,7 @@ _Example command to copy a design document, using the command line:_
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 	-X COPY \
 	-H 'Content-Type: application/json' \
-	-H 'Destination: /recipes/_design/recipelist'
+	-H 'Destination: _design/recipelist'
 ```
 {:codeblock}
 
@@ -114,11 +114,12 @@ _Example response to the copy request:_
 
 ```json
 {
-	"id": "recipes/_design/recipelist",
+	"id": "_design/recipelist",
 	"rev": "1-9c65296036141e575d32ba9c034dd3ee"
 }
 ```
 {:codeblock}
+
 
 ### The structure of the copy command
 
@@ -151,7 +152,7 @@ _Example command to copy a specific revision of the design document, using HTTP:
 ```http
 COPY /recipes/_design/recipes?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5 HTTP/1.1
 Content-Type: application/json
-Destination: recipes/_design/recipelist
+Destination: _design/recipelist
 ```
 {:codeblock}
 
@@ -161,7 +162,7 @@ _Example command to copy a specific revision of the design document, using the c
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5" \
 	-X COPY \
 	-H 'Content-Type: application/json' \
-	-H 'Destination: /recipes/_design/recipelist'
+	-H 'Destination: _design/recipelist'
 ```
 {:codeblock}
 
@@ -176,7 +177,7 @@ _Example command to overwrite an existing copy of the design document, using HTT
 ```http
 COPY /recipes/_design/recipes
 Content-Type: application/json
-Destination: recipes/_design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee
+Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee
 ```
 {:codeblock}
 
@@ -186,7 +187,7 @@ _Example command to overwrite an existing copy of the design document, using the
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 	-X COPY \
 	-H 'Content-Type: application/json' \
-	-H 'Destination: /recipes/_design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee'
+	-H 'Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee'
 ```
 {:codeblock}
 
@@ -196,7 +197,7 @@ _Example response:_
 
 ```json
 {
-	"id" : "recipes/_design/recipes",
+	"id" : "_design/recipes",
 	"rev" : "2-55b6a1b251902a2c249b667dab1c6692"
 }
 ```
@@ -346,7 +347,7 @@ you should avoid using functions that generate random numbers or return the curr
 
 Use list functions to customize the format of
 [MapReduce](creating_views.html#using-views) query results.
-A good example of their use is when you want to access Cloudant directly from a browser,
+A good example of their use is when you want to access {{site.data.keyword.cloudant_short_notm}} directly from a browser,
 and need data to be returned in a different format,
 such as HTML.
 
@@ -485,7 +486,7 @@ Field            | Description
 
 Show functions are similar to [list functions](#list-functions),
 but are used to format individual documents.
-They are used when you want to access Cloudant directly from a browser,
+They are used when you want to access {{site.data.keyword.cloudant_short_notm}} directly from a browser,
 and need data to be returned in a different format,
 such as HTML.
 

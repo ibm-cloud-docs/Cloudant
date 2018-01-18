@@ -14,12 +14,12 @@ lastupdated: "2017-01-06"
 
 # JSON
 
-The majority of requests and responses to and from Cloudant
+The majority of requests and responses to and from {{site.data.keyword.cloudantfull}}
 use the [JavaScript Object Notation (JSON) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/JSON){:new_window}
 for formatting the content and structure of the data and responses.
 {:shortdesc}
 
-In Cloudant databases,
+In {{site.data.keyword.cloudant_short_notm}} databases,
 the JSON object is used to represent a variety of structures,
 including all documents in a database.
 
@@ -31,14 +31,14 @@ are available for many major programming languages.
 
 JSON is used because it is the simplest and easiest solution for working with data using a web browser.
 This is because JSON structures can be evaluated and used as JavaScript objects within the web browser environment.
-JSON also integrates with the server-side JavaScript used within Cloudant.
+JSON also integrates with the server-side JavaScript used within {{site.data.keyword.cloudant_short_notm}}.
 JSON documents are always UTF-8 encoded.
 
 >   **Note**: Care should be taken to ensure that:
 
 -   Your JSON structures are valid.
-    Invalid structures cause Cloudant to return an HTTP status code of [400 (bad request)](../api/http.html#400).
--   You normalize strings in JSON documents retrieved from Cloudant,
+    Invalid structures cause {{site.data.keyword.cloudant_short_notm}} to return an HTTP status code of [400 (bad request)](../api/http.html#400).
+-   You normalize strings in JSON documents retrieved from {{site.data.keyword.cloudant_short_notm}},
     before you compare them.
     This is because Unicode normalization might have been applied,
     so that a string stored and then retrieved is not identical on a binary level.

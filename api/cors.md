@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2017-01-06"
 # CORS
 
 [Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){:new_window} is a mechanism that allows resources
-such as JSON documents in a Cloudant database to be requested
+such as JSON documents in a {{site.data.keyword.cloudantfull}} database to be requested
 from Javascript running on a website loaded from another domain.
 {:shortdesc}
 
@@ -23,7 +23,7 @@ These "cross-domain" requests would normally be forbidden by web browsers,
 due to the [same origin security policy ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Same-origin_policy){:new_window}.
 
 CORS defines a way in which the browser and the server interact to determine whether or not to allow the request.
-For Cloudant,
+For {{site.data.keyword.cloudant_short_notm}},
 there are two use cases in which CORS might be a good solution.
 
 1.	You have a website on `https://www.example.com`
@@ -31,7 +31,7 @@ there are two use cases in which CORS might be a good solution.
 	To do this,
 	add `https://www.example.com` to your list of allowed origins.
 	The effect is that scripts loaded from this domain are then
-	allowed to make AJAX requests to your Cloudant databases.
+	allowed to make AJAX requests to your {{site.data.keyword.cloudant_short_notm}} databases.
 	By using HTTP authorization with CORS requests,
 	users of your application are able to access their database only.
 2.	You want to allow third parties access to your database.
@@ -39,7 +39,7 @@ there are two use cases in which CORS might be a good solution.
 	and you want to give sales partners access to the information from Javascript running on their own domain.
 	To do this,
 	add their domain to your list of allowed origins.
-	The effect is that scripts running on their website are able to access your Cloudant database.
+	The effect is that scripts running on their website are able to access your {{site.data.keyword.cloudant_short_notm}} database.
 
 ## Browser support
 
@@ -177,7 +177,7 @@ _Example response:_
 
 ## Dashboard
 
-CORS support is available in the Cloudant dashboard.
+CORS support is available in the {{site.data.keyword.cloudant_short_notm}} dashboard.
 
 You can update your CORS settings using the CORS tab within the dashboard:
 

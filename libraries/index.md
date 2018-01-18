@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -15,10 +15,10 @@ lastupdated: "2017-01-06"
 # Client Libraries
 
 Client libraries are the tools that let you develop your own applications
-to work with Cloudant databases.
+to work with {{site.data.keyword.cloudantfull}} databases.
 {:shortdesc}
 
-The following client libraries are formally [supported](supported.html) by Cloudant.
+The following client libraries are formally [supported](supported.html) by {{site.data.keyword.cloudant_short_notm}}.
 
 -	[Mobile](supported.html#mobile)
 -	[Java](supported.html#java)
@@ -26,13 +26,13 @@ The following client libraries are formally [supported](supported.html) by Cloud
 -	[Python](supported.html#python)
 -	[Swift](supported.html#swift)
 
-A supported library is one where you can contact Cloudant if you encounter a specific,
+A supported library is one where you can contact {{site.data.keyword.cloudant_short_notm}} if you encounter a specific,
 reproducible problem in the latest version of the library.
 
 Other client libraries have been created by
 [third parties](thirdparty.html#third-party-client-libraries) or are no longer officially supported.
 
->   **Note**: Third-party client libraries are not maintained or supported by Cloudant.
+>   **Note**: Third-party client libraries are not maintained or supported by {{site.data.keyword.cloudant_short_notm}}.
     If you encounter a specific,
     reproducible problem with a third-party library,
     you should contact the library maintainer for assistance.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-01-10"
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-10"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creating a simple Bluemix application to access a Cloudant database: the application environment
+# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: the application environment
 
 This section of the tutorial describes how to set up the application environment you must have
 for creating an {{site.data.keyword.Bluemix}} application.
@@ -126,7 +126,7 @@ work with {{site.data.keyword.Bluemix_notm}} applications.
 
 <div id="toolkits"></div>
 
-## The Cloud Foundry and Bluemix command toolkits
+## The Cloud Foundry and {{site.data.keyword.Bluemix_notm}} command toolkits
 
 This section of the tutorial describes the toolkits that must be installed to work with
 your {{site.data.keyword.Bluemix_notm}} environment,

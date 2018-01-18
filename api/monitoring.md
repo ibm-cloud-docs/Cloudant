@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-01-06"
+lastupdated: "2017-12-27"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Monitoring a Cloudant cluster
+# Monitoring a {{site.data.keyword.cloudant_short_notm}} cluster
 
 A key part of ensuring best performance,
 or troubleshooting any problems,
@@ -32,7 +32,7 @@ For more detailed system information,
 you make use of the cluster monitoring API.
 
 >	**Note**: The cluster monitoring API is not available for
-[IBM Cloudant Data Layer Local Edition (Cloudant Local)](../offerings/index.html#cloudant-local).
+[IBM {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](../offerings/index.html#cloudant-local).
 
 ## Monitoring metrics overview
 
@@ -98,14 +98,14 @@ sumSeries(net.cloudant.mycustomer001.db*.df.srv.used)
 
 The results include cluster-level data.
 
->   **Note**: Cloudant stores the queried data at the following resolutions:
+>   **Note**: {{site.data.keyword.cloudant_short_notm}} stores the queried data at the following resolutions:
 
 -   10 seconds for the past 24 hours.
 -   1 minute for the past 7 days.
 -   1 hour for the past 2 years.
 
 >   As a result,
-    and to ensure that Cloudant always stores the higher resolution interval length,
+    and to ensure that {{site.data.keyword.cloudant_short_notm}} always stores the higher resolution interval length,
     deltas on the boundary of these resolutions are trimmed by one interval's length.
 
 ### With `format=json` (default)
@@ -188,9 +188,11 @@ The following table lists the supported monitoring endpoints provided by the API
 
 Endpoint                                | Description
 ----------------------------------------|------------
+[`connections`](#connections)            | The status of multiple load balancer connections.
 [`disk_use`](#disk_use)                 | The disk use, as measured by a `df` command.
 [`kv_emits`](#kv_emits)                 | The number of `key:value` emits per second.
 [`map_doc`](#map_doc)                   | The number of documents processed by a map function, per second.
+[`network`](#network)                   | The octets received and transmitted.   
 [`rate/status_code`](#rate-status_code) | The rate of requests, grouped by status code.
 [`rate/verb`](#rate-verb)               | The rate of requests, grouped by HTTP verb.
 [`response_time`](#response_time)       | The average response time to a request, measured in ms.
@@ -238,6 +240,126 @@ _Example response, listing the available monitoring end points:_
 {:codeblock}
 
 ## Examples of monitoring requests
+
+### connections
+
+_Example of a `connections` monitoring request:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclustername&node=myloadbalancername&format=json
+```
+
+The response includes a data series for the following connection states:
+
+```json
+{
+  "end": 1512989500,
+  "start": 1512989170,
+  "target_responses": [
+     {
+       "datapoints": [
+            [
+              0,
+              1512989170
+            ]
+        ],
+        "target": "myclustername.myloadbalancername Connections CLOSED"
+      },
+      { 
+        "datapoints": [
+            [
+              19,
+              1512989170
+            ]
+        ],
+        "target": "myclustername.myloadbalancername Connections CLOSE_WAIT"
+      },
+      {
+        "datapoints": [
+            [
+              2,
+              1512989170
+            ]
+        ],
+        "target": "myclustername.myloadbalancername Connections CLOSING"
+      },
+      {
+        "datapoints": [
+            [
+              280,
+              1512989170
+            ]
+        ],
+        "target": "myclustername.myloadbalancername Connections ESTABLISHED"
+      },
+      {
+        "datapoints": [
+            [
+              7,
+              1512989170
+            ]
+        ],
+        "target": "myclustername.myloadbalancername Connections FIN_WAIT1"
+      },
+      { 
+        "datapoints": [
+            [
+              0,
+              1512989170
+            ]
+        ],
+        "target": "myclustername.myloadbalancername Connections FIN_WAIT2"
+      },
+      {
+        "datapoints": [
+            [
+              0,
+              1512989170
+            ]
+        ],
+        "target": "myclustername.myloadbalancername Connections LAST_ACK"
+      },
+      {
+        "datapoints": [
+            [
+              4,
+              1512989170
+            ]
+        ],
+        "target": "myclustername.myloadbalancername Connections LISTEN"
+      },
+      {
+        "datapoints": [
+            [
+              1,
+              1512989170
+            ]
+        ],
+        "target": "myclustername.myloadbalancername Connections SYN_RECV"
+      },
+      {
+        "datapoints": [
+            [
+              0,
+              1512989170
+            ]
+        ],
+        "target": "myclustername.myloadbalancername Connections SYN_SENT"
+      },
+      {
+        "datapoints": [
+            [
+              28,
+              1512989170
+              ]
+            ],
+        "target": "myclustername.myloadbalancername Connections TIME_WAIT"
+      }
+   ]
+}
+```
+
+You must explicitly specify the load balancer in the request.
 
 ### disk_use
 
@@ -389,6 +511,41 @@ _Example results (abbreviated) from a `map_doc` monitoring request:_
 }
 ```
 {:codeblock}
+
+### network
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustername&node=myloadbalancername&format=json
+```
+
+```json
+{
+  "end": 1512989748,
+  "start": 1512989450,
+  "target_responses": [
+      {
+        "datapoints": [
+          [
+           20247725.5,
+           1512989450
+          ]
+        ],
+        "target": "myclustername Octets tx Per Second"
+      },
+      {
+         "datapoints": [
+             [
+               17697329.3046875,
+               1512989450
+             ]
+         ],
+         "target": "myclustername Octets rx Per Second" 
+       }
+    ]
+}
+```
+
+You must explicitly specify the load balancer in the request. 
 
 ### rate/status_code
 
@@ -709,3 +866,7 @@ _Example results (abbreviated) from a `wps` monitoring request:_
 }
 ```
 {:codeblock}
+
+
+
+

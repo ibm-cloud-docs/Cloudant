@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-07"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -14,9 +14,9 @@ lastupdated: "2017-07-07"
 
 <!-- Acrolinx: 2017-05-04 -->
 
-# What's new in Cloudant
+# What's new in {{site.data.keyword.cloudant_short_notm}}
 
-Keep up to date with changes and updates for Cloudant.
+Keep up to date with changes and updates for {{site.data.keyword.cloudantfull}}.
 {:shortdesc}
 
 ## Dedicated hardware
@@ -32,7 +32,7 @@ A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
   recording status updates in a replication document is no longer supported.
   For more information about this important change,
   see details about the [replication scheduler](../api/advanced_replication.html#the_replication_scheduler).
-  Contact Cloudant Support by opening a ticket using your Cloudant Dashboard if you have any questions or concerns.
+  Contact {{site.data.keyword.cloudant_short_notm}} Support by opening a ticket using your {{site.data.keyword.cloudant_short_notm}} Dashboard if you have any questions or concerns.
 
 ## Build 6069
 
@@ -53,7 +53,7 @@ A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 
 ## Build 5728
 
-- Cloudant is more tolerant of malformed user documents stored within the `_users` database.
+- {{site.data.keyword.cloudant_short_notm}} is more tolerant of malformed user documents stored within the `_users` database.
   User documents should be structured and populated to comply with
   [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
 
@@ -71,7 +71,7 @@ A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 -	Support for the CouchDB 1.6 `_users` database features, including server-side hashing of passwords when documents are created in the `_users` database.
 -	`/_bulk_get` endpoint to reduce the number of requests that are used in replication to mobile clients.
 -	Design document metadata contains an `update pending` field.
--	Cloudant Query no longer returns an error if no valid index exists.
+-	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.
 
 ### Breaking/behavior changes
 
@@ -84,7 +84,7 @@ Views
 
 -   Unicode normalization of key values is consistent between reduced and non-reduced view results. If raw collation is specified in a design document, result order might change as the result of this fix.
 -   When you query a view or `_all_docs` database, it is an error to specify the `keys` parameter and any of the `key`, `startkey`, and `endkey` parameters.
--   It is an error to pass `startkey` and `endkey` parameters to a view if it is impossible for any row to match. For example, when the `startkey` parameter is higher than the `endkey` parameter for `descending=false`, or when the `startkey` parameter is lower than the `endkey` parameter for `descending=true`, Cloudant returns the `400 Bad Request` error.
+-   It is an error to pass `startkey` and `endkey` parameters to a view if it is impossible for any row to match. For example, when the `startkey` parameter is higher than the `endkey` parameter for `descending=false`, or when the `startkey` parameter is lower than the `endkey` parameter for `descending=true`, {{site.data.keyword.cloudant_short_notm}} returns the `400 Bad Request` error.
 -   When `dbcopy` is configured in a view document, it is automatically transformed to the `options` field in a design document. 
 
 Design documents
@@ -100,7 +100,7 @@ Authentication
 
 User documents
 
--   Validate the structure of user documents created in the `_users` database. After the DBNext upgrade, the user documents must comply with ASF CouchdDB requirements. Previously, Cloudant did not validate the user documents' structure. 
+-   Validate the structure of user documents created in the `_users` database. After the DBNext upgrade, the user documents must comply with ASF CouchdDB requirements. Previously, {{site.data.keyword.cloudant_short_notm}} did not validate the user documents' structure. 
 
 Replication 
 

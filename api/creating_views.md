@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-06-01"
+lastupdated: "2018-01-16"
 
 ---
 
@@ -86,8 +86,8 @@ _Sample data for demonstrating the simple view example:_
         "number":"10278947"
     },
     {
-        "_id":"23598567",
-        "number":"23598567",
+        "_id":"42987103",
+        "number":"42987103",
         "training":"2014/07/30 12:00:00"
     }
 ]
@@ -107,8 +107,8 @@ _Example response from running the simple view query:_
 			"training":"2014/05/21 10:00:00"
 		},
 		{
-			"id":"23598567",
-			"number":"23598567",
+			"id":"42987103",
+			"number":"42987103",
 			"training":"2014/07/30 12:00:00"
 		}
 	]
