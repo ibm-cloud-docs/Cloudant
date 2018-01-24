@@ -299,22 +299,14 @@ To create an index:
 1.  Copy the following sample JSON data into a file named `query-index.dat`.
   ```json
 {
-	"index": {
-		"fields": [
-			"age",
-			"lastname"
-		],
-		"partial_filter_selector": {
-			"age": {
-				"$gte": 30
-			},
-			"lastname": {
-				"$eq": "Greene"
-			}
-		}
-	},
-  		"ddoc": "partial-index",
-		"type": "json"
+"index": {
+    "fields": [
+        "age",
+        "lastname"
+    ]
+},
+    "name": "query-3-index",
+    "type": "json"
 }
   ```
   {:codeblock}
@@ -328,7 +320,7 @@ To create an index:
 3.  Review the results:
   ```json
 {"result":"created",
-   "id":"_design/partial-index",
+   "id":"_design/query-3-index",
    "name":"faa36c8704e0267dd2acf493dff7608a1e99eda0"
   } 
   ```
@@ -341,22 +333,14 @@ To create an index:
 2.  Paste the following sample JSON data into the **Index** field:
   ```json
 {
-	"index": {
-		"fields": [
-			"age",
-			"lastname"
-		],
-		"partial_filter_selector": {
-			"age": {
-				"$gte": 30
-			},
-			"lastname": {
-				"$eq": "Greene"
-			}
-		}
-	},
-  		"ddoc": "partial-index",
-		"type": "json"
+"index": {
+    "fields": [
+        "age",
+        "lastname"
+    ]
+},
+    "name": "query-3-index",
+    "type": "json"
 }
   ```
   {:codeblock}
@@ -609,8 +593,7 @@ values in the `sort` parameter.
       {
          "lastname": "asc"
       }
-   ],
-   "use_index": "_design/partial-index"
+   ]
 }
   ```
   {:codeblock}
@@ -657,8 +640,7 @@ values in the `sort` parameter.
       {
          "lastname": "asc"
       }
-   ],
-   "use_index": "_design/partial-index"
+   ]
 }
   ```
   {:codeblock}
