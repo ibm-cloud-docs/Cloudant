@@ -305,7 +305,6 @@ To create an index:
         "lastname"
     ]
 },
-    "name": "query-3-index",
     "type": "json"
 }
   ```
@@ -319,9 +318,7 @@ To create an index:
 
 3.  Review the results:
   ```json
-{"result":"created",
-   "id":"_design/query-3-index",
-   "name":"faa36c8704e0267dd2acf493dff7608a1e99eda0"
+{"result":"created"
   } 
   ```
   {:codeblock}
@@ -339,7 +336,6 @@ To create an index:
         "lastname"
     ]
 },
-    "name": "query-3-index",
     "type": "json"
 }
   ```
