@@ -43,7 +43,7 @@ JavaScript.
 
 - The logic for determining whether a given index is valid for a query has changed, addressing a bug that could lead to incorrect results. 
 - Queries using text indexes no longer crash when `$exists`: `false` is used.
-- Partial indexes are now supported for both JSON and text indexes. See  [Creating an index with a selector](../api/cloudant_query.html#creating-an-index-with-a-selector) for more information.
+- Partial indexes are now supported for both JSON and text indexes. See  [Creating a partial index](../api/cloudant_query.html#creating-a-partial-index) for more information.
 - Execution statistics about a query can now be generated. These are enabled using the `execution_stats=true` parameter. See [finding documents by using an index](../api/cloudant_query.html#finding-documents-by-using-an-index) for more information.
 - [Pagination](../api/cloudant_query.html#pagination) is supported using the bookmark field. Bookmarks are enabled for all index types.
 - `_find` now falls back to any valid index if the value specified in the `use_index`
