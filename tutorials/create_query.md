@@ -318,7 +318,8 @@ To create an index:
 
 3.  Review the results:
   ```json
-{"result":"created"
+{
+    "result":"created"
   } 
   ```
   {:codeblock}
