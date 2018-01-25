@@ -112,6 +112,15 @@ _Example error response if one of the requested databases for a replication does
 
 The `_replicator` database is a special database within your account,
 where you can `PUT` or `POST` replication documents to specify the replications you want.
+
+Before you start a replication, you must create the `_replicator` database. 
+To create a database, send a `PUT` request to:
+
+```http
+https://$ACCOUNT.cloudant.com/_replicator
+```
+See [Databases](database.html#databases) for more information.
+
 To cancel a replication,
 you `DELETE` the replication document.
 The fields that are supplied in the replication document are
