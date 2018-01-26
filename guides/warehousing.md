@@ -58,6 +58,27 @@ There are many use cases that nicely illustrate the benefits of
 integrating {{site.data.keyword.cloudantfull}} capabilities with a relational data warehouse,
 such as the following examples.
 
+## Is this integration right for my use case?
+
+{{site.data.keyword.cloudant_short_notm}}'s warehousing integration is a streamlined process which will
+automatically discover your documents' schemas and import data
+intelligently into Db2 Warehouse on Cloud or DB2 on Cloud. When you create
+a warehouse on {{site.data.keyword.cloudant_short_notm}}, the schema is first auto-discovered, and then data
+is imported into the connected Db2 Warehouse database. 
+
+The integration is suitable when your data has the following characteristics:
+
+* It has a mostly static set of schemas. A changed schema necessitates
+    restarting the warehouse, which reimports your data from scratch.
+* The schemas can be discovered by scanning relatively few documents -- up to
+    a few tens of thousands. Once the schemas are discovered, millions
+    of documents can be imported into your warehouse, of course.
+* Warehousing is not required to be strictly real time. Updated documents
+    typically appear in a warehouse within a few seconds, but this is not
+    guaranteed and will vary based on your database load.
+* DB2 on Cloud limits schemas to 1,012 fields. JSON documents with a large 
+    number of fields, including nested objects and large arrays, may exceed this limit.
+
 ## Joining data
 
 Joining data from multiple data stores for cross-domain analysis
