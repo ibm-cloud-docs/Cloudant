@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-15"
+lastupdated: "2018-01-29"
 
 ---
 {:new_window: target="_blank"}
@@ -565,6 +565,34 @@ values in the `sort` parameter.
       }
     ] 
 ```    
+The sort fields must match the fields we defined in the index above. When 
+the sort fields match, the query automatically selects the correct index to use. 
+The following example shows what happens if the sort and the index do not match. 
+
+If the fields in the query were listed in the following order: 
+
+```json
+"fields": [
+    "age",
+    "lastname"
+]
+```
+and the sort was written like this: 
+
+```json
+"sort": [
+      {
+        "lastname": "asc"
+      },
+      {
+        "age": "asc"   
+      }        
+     
+    ]
+    ```
+
+The query would not run and would return an error instead. This example underlines
+how important it is that the index and the sort match. 
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
