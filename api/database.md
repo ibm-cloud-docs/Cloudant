@@ -250,7 +250,7 @@ _Example response:_
 ```
 {:codeblock}
 
-## Get database information for multiple databases
+## Post database information for multiple databases
 
 To list database information for multiple databases, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/_dbs_info`.  
@@ -269,9 +269,10 @@ curl https://$ACCOUNT.cloudant.com/_dbs_info \
 ```
 {:codeblock}
 
-The elements of the returned structure are shown in the following table:
+You can use the following keys to specify a smaller subset of all databases on the server that 
+you want to monitor. 
 
-Field                 | Description
+Keys                  | Description
 ----------------------|------------
 `cluster`             |  "q": 8, "n": 3, "w": 2, "r": 2
 `compact_running`     | Set to true if the database compaction routine is operating on this database. 
@@ -319,6 +320,22 @@ _Example (abbreviated) response that contains database details:_
   },
 ```
 {:codeblock}
+
+_Example (abbreviated) response if a database doesn't exist:_
+```json
+  {
+    "key": "unknown_db",
+    "error": "not_found"
+  }
+]
+```
+You can use the follow field to reduce the number of databases included in a request.
+
+> **Note**: Only POST is supported for use with `dbs_info`.   
+
+Field                            | Default | Description
+--------------------------------------------------------
+`max_db_number_for_dbs_info_req` | 100     | Limits maximum number of databases during a request for detailed information using `_dbs_info`.
 
 ## Get Documents
 
