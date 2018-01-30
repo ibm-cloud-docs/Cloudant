@@ -591,7 +591,7 @@ and the sort was written like this:
     ]
     ```
 
-The query does not run and returns an error instead. This example underlines
+The query will not run and returns an error instead. This example underlines
 how important it is that the index and the sort match. 
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
