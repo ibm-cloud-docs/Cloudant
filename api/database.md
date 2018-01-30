@@ -255,9 +255,6 @@ _Example response:_
 To list database information for multiple databases, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/_dbs_info`.  
 
-To list all the databases in an account,
-send a `GET` request to `https://$ACCOUNT.cloudant.com/_dbs_info`.
-
 _Example of using HTTP to list all databases:_
 
 ```http
