@@ -275,7 +275,7 @@ that you create in this exercise contain the data that you use to query the `que
 
 ## Creating an index
 
-You can use Cloudant endpoints to create, list, update, and delete indexes in a database; then you can use 
+You can use {{site.data.keyword.cloudant_short_notm}} endpoints to create, list, update, and delete indexes in a database; then you can use 
 use these indexes to query data. An index is a way to structure data that improves retrieval time. You 
 can use the primary index that comes with Cloudant, or a secondary index like a view, search index, Cloudant Geospatial, 
 or  Cloudant Query. 
@@ -567,7 +567,7 @@ values in the `sort` parameter.
 ```    
 The sort fields must match the fields we defined in the index above. When 
 the sort fields match, the query automatically selects the correct index to use. 
-The following example shows what happens if the sort and the index do not match. 
+The following example demonstrates what happens if the sort and the index do not match. 
 
 If the fields in the query were listed in the following order: 
 
@@ -591,7 +591,7 @@ and the sort was written like this:
     ]
     ```
 
-The query would not run and would return an error instead. This example underlines
+The query does not run and returns an error instead. This example underlines
 how important it is that the index and the sort match. 
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
