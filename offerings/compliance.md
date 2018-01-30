@@ -55,8 +55,12 @@ by the American Institute of Certified Public Accountants (AICPA) Trust Services
 The Trust Services Principles define adequate control systems and establish industry standards 
 for service providers such as IBM Cloud to safeguard their customers' data and information.
 
-Customers can request an SOC 2 Type 2 report from the customer portal or 
-[contact the sales team ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/history/contact-us/){:new_window}.
+You can request an SOC 2 Type 2 report from the customer portal 
+or contact your sales representative. Alternatively, you can open 
+a support ticket with 
+[IBM Cloud support ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/support){:new_window} 
+or email 
+[support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
 
 ## General Data Protection Regulation (GDPR) 
 
