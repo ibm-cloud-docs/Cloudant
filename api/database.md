@@ -250,6 +250,79 @@ _Example response:_
 ```
 {:codeblock}
 
+## Get database information for multiple databases
+
+To list database information for multiple databases, send a `POST` request to 
+`https://$ACCOUNT.cloudant.com/_dbs_info`.  
+
+To list all the databases in an account,
+send a `GET` request to `https://$ACCOUNT.cloudant.com/_dbs_info`.
+
+_Example of using HTTP to list all databases:_
+
+```http
+GET /_dbs_info HTTP/1.1
+```
+{:codeblock}
+
+_Example of using the command line to list all databases:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_dbs_info \
+```
+{:codeblock}
+
+The elements of the returned structure are shown in the following table:
+
+Field                 | Description
+----------------------|------------
+`cluster`             |  "q": 8, "n": 3, "w": 2, "r": 2
+`compact_running`     | Set to true if the database compaction routine is operating on this database. 
+`data size`           | 
+`db_name`             | The name of the database.
+`disk_format_version` | The version of the physical format that is used for the data when it is stored on disk.
+`disk_size`           | Size in bytes of the data as stored on the disk. Views indexes are not included in the calculation.
+`doc_count`           | A count of the documents in the specified database.
+`doc_del_count`       | Number of deleted documents.
+`instance_start_time` | Always 0.
+`other`               | JSON object that contains a `data_size` field.
+`purge_seq`           | The number of purge operations on the database.
+`sizes`               | A JSON object, containing `file`, `external`, and `active` sizes. `active` is the size in bytes of data that are stored internally (excluding old revisions). `external` is the size in bytes of decompressed user data. This value is the billable data size. The `other/data_size` field is an alias for the `external` field. `file` is the size in bytes of data that are stored on the disk. Indexes are not included in the calculation. The `disk_size` field is an alias for the `file` field. This size includes data that are waiting for compaction.
+`update_seq`          | An opaque string that describes the state of the database. Do not rely on this string for counting the number of updates.
+
+_Example (abbreviated) response that contains database details:_
+
+```json
+      "info": {
+      "db_name": "dbname1",
+      "update_seq": "0-g1A...WeA",
+      "sizes": {
+        "file": 33936,
+        "external": 0,
+        "active": 0
+      },
+      "purge_seq": 0,
+      "other": {
+        "data_size": 0
+      },
+      "doc_del_count": 0,
+      "doc_count": 0,
+      "disk_size": 33936,
+      "disk_format_version": 6,
+      "data_size": 0,
+      "compact_running": false,
+      "cluster": {
+        "q": 8,
+        "n": 3,
+        "w": 2,
+        "r": 2
+      },
+      "instance_start_time": "0"
+    }
+  },
+```
+{:codeblock}
+
 ## Get Documents
 
 To list all the documents in a database,
