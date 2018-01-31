@@ -250,6 +250,57 @@ _Example response:_
 ```
 {:codeblock}
 
+## Get all design documents in a specified database 
+
+To list all the design documents in a database,
+send a `POST` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_design_docs`.
+
+_Example of using HTTP to list all design documents:_
+
+```http
+GET /_design_docs HTTP/1.1
+```
+{:codeblock}
+
+_Example of using the command line to list all design documents:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_design_docs \
+```
+{:codeblock}
+
+The `_design_docs` endpoint accepts the following query arguments:
+
+Argument            | Description                                                                                     | Optional | Type            | Default
+--------------------|-------------------------------------------------------------------------------------------------|----------|-----------------|--------                                        | yes      | boolean         | false
+`descending`        | Return the documents in descending key order.                                                   | yes      | boolean         | false
+`endkey`            | Stop returning records when the specified key is reached.                                       | yes      | string          |
+`inclusive_end`     | Include rows whose key equals the '`endkey`' value.                                             | yes      | boolean         | true
+`key`               | Return only documents with IDs that match the specified key.                                    | yes      | string          |
+`skip`              | Skip this number of records before returning the results.                                       | yes      | numeric         | 0
+`startkey`          | Return records, starting with the specified key.
+
+_Example response after a request for all design documents in a database:_
+```json
+{"total_rows":10,"offset":0,"rows":[
+  {"id":"_design/ddoc01","key":"_design/ddoc01","value":{"rev":"1-7407569d54af5bc94c266e70cbf8a180"}},
+  {"id":"_design/ddoc02","key":"_design/ddoc02","value":{"rev":"1-d942f0ce01647aa0f46518b213b5628e"}},
+  {"id":"_design/ddoc03","key":"_design/ddoc03","value":{"rev":"1-721fead6e6c8d811a225d5a62d08dfd0"}},
+  {"id":"_design/ddoc04","key":"_design/ddoc04","value":{"rev":"1-32c76b46ca61351c75a84fbcbceece2f"}},
+  {"id":"_design/ddoc05","key":"_design/ddoc05","value":{"rev":"1-af856babf9cf746b48ae999645f9541e"}}
+ ]
+}
+```
+_Example response after a request for all design documents that uses the `endkey` and `inclusive_end parameter`:_
+```json
+{"total_rows":10,"offset":0,"rows":[
+  {"id":"_design/ddoc01","key":"_design/ddoc01","value":{"rev":"1-7407569d54af5bc94c266e70cbf8a180"}},
+  {"id":"_design/ddoc02","key":"_design/ddoc02","value":{"rev":"1-d942f0ce01647aa0f46518b213b5628e"}},
+  {"id":"_design/ddoc03","key":"_design/ddoc03","value":{"rev":"1-721fead6e6c8d811a225d5a62d08dfd0"}}
+ ]
+}
+```
+
 ## Get Documents
 
 To list all the documents in a database,
