@@ -19,6 +19,32 @@ lastupdated: "2017-12-27"
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {:shortdesc}
 
+## {{site.data.keyword.cloudant_short_notm}}'s Warehouse functionality
+
+{{site.data.keyword.cloudantfull}}'s Warehouse functionality is deprecated and will be withdrawn on the following timeline:
+
+Deprecation date | What is being deprecated
+-----------------|--------------------------
+January 16, 2018 | Users not using the Warehouse functionality cannot start using it.
+March 31, 2018   | New Warehouse jobs cannot be created by clients who started using the Warehouse capability before the 16th of January.
+May 5, 2018       | Existing Warehouse jobs will be stopped. Final status can still be viewed on the dashboard.
+May 31,2018      | User interface to Warehouse feature removed. Status of Warehouse jobs becomes unavailable.
+ 
+Data that has been transferred to {{site.data.keyword.dashdblong}} by April 30, 2018 will remain in {{site.data.keyword.dashdbshort_notm}} and {{site.data.keyword.cloudant_short_notm}} data will also be unaffected.
+ 
+Instead, you can use Apache Spark:
+
+1. [Scala tutorial for saving `animaldb` database to {{site.data.keyword.Db2_on_Cloud_long}} using Spark in DSX ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-scala-load-to-dashdb.md){:new_window}
+
+2. [Python tutorial for saving `animaldb` database to {{site.data.keyword.Db2_on_Cloud_short}} using Spark in DSX ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-python-load-to-dashdb.md){:new_window}
+
+3. [Python tutorial for saving filtered `crimes` Spark DataFrame to {{site.data.keyword.Db2_on_Cloud_short}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-load-to-dashdb-python.md){:new_window}<br>
+[Notebook for above `crimes` to DB2 example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-python-load-to-dashdb.ipynb){:new_window}
+
+4. [Scala tutorial for loading docs and saving filtered `sales` Spark DataFrame to {{site.data.keyword.Db2_on_Cloud_short}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.md){:new_window}<br>
+[Notebook for above `sales` example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.ipynb){:new_window}
+
+
 ## Disabled JavaScript constructors
 
 - If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message
