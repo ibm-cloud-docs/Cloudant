@@ -25,24 +25,26 @@ Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releas
 
 Deprecation date | What is being deprecated
 -----------------|--------------------------
-January 16, 2018 | Users not using the Warehouse functionality cannot start using it.
-March 31, 2018   | New Warehouse jobs cannot be created by clients who started using the Warehouse capability before the 16th of January.
-May 5, 2018       | Existing Warehouse jobs will be stopped. Final status can still be viewed on the dashboard.
-May 31,2018      | User interface to Warehouse feature removed. Status of Warehouse jobs becomes unavailable.
+January 16, 2018 | Users not using the {{site.data.keyword.dashdbshort_notm}} functionality cannot start using it.
+March 31, 2018   | New Warehouse jobs cannot be created by clients who started using the {{site.data.keyword.dashdbshort_notm}} capability before the 16th of January.
+May 5, 2018      | Existing {{site.data.keyword.dashdbshort_notm}} jobs will be stopped. Final status can still be viewed on the dashboard.
+May 31, 2018     | User interface to {{site.data.keyword.dashdbshort_notm}} feature removed. Status of {{site.data.keyword.dashdbshort_notm}} jobs becomes unavailable.
  
-Data that has been transferred to {{site.data.keyword.dashdblong}} by April 30, 2018 will remain in {{site.data.keyword.dashdbshort_notm}} and {{site.data.keyword.cloudant_short_notm}} data will also be unaffected.
- 
-Instead, you can use Apache Spark:
+Data that has been transferred to {{site.data.keyword.dashdbshort_notm}} by April 30, 2018 will remain in {{site.data.keyword.dashdbshort_notm}} and {{site.data.keyword.cloudant_short_notm}} data will also be unaffected.
 
-1. [Scala tutorial for saving `animaldb` database to {{site.data.keyword.Db2_on_Cloud_long}} using Spark in DSX ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-scala-load-to-dashdb.md){:new_window}
+### Alternatives to the {{site.data.keyword.dashdbshort_notm}} feature
 
-2. [Python tutorial for saving `animaldb` database to {{site.data.keyword.Db2_on_Cloud_short}} using Spark in DSX ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-python-load-to-dashdb.md){:new_window}
+Use {{site.data.keyword.sparkl}} in Data Science Experience:
 
-3. [Python tutorial for saving filtered `crimes` Spark DataFrame to {{site.data.keyword.Db2_on_Cloud_short}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-load-to-dashdb-python.md){:new_window}<br>
-[Notebook for above `crimes` to DB2 example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-python-load-to-dashdb.ipynb){:new_window}
+1. [Scala tutorial for saving 'animaldb' database to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-scala-load-to-dashdb.md){:new_window}
 
-4. [Scala tutorial for loading docs and saving filtered `sales` Spark DataFrame to {{site.data.keyword.Db2_on_Cloud_short}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.md){:new_window}<br>
-[Notebook for above `sales` example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.ipynb){:new_window}
+2. [Python tutorial for saving 'animaldb' database to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-python-load-to-dashdb.md){:new_window}
+
+3. [Python tutorial for saving filtered 'crimes' {{site.data.keyword.sparks}} DataFrame to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-load-to-dashdb-python.md){:new_window}<br>
+[Notebook for above 'crimes' to {{site.data.keyword.dashdbshort_notm}} example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-python-load-to-dashdb.ipynb){:new_window}
+
+4. [Scala tutorial for loading docs and saving filtered 'sales' {{site.data.keyword.sparks}} DataFrame to {{site.data.keyword.Db2_on_Cloud_short}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.md){:new_window}<br>
+[Notebook for above 'sales' example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.ipynb){:new_window}
 
 
 ## Disabled JavaScript constructors
