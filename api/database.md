@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017, 2018
-lastupdated: "2018-01-30"
+  years: 2015, 2018
+lastupdated: "2018-02-01"
 
 ---
 
@@ -252,20 +252,33 @@ _Example response:_
 
 ## Get all design documents in a specified database 
 
-To list all the design documents in a database,
+To get all the design documents in a database,
 send a `POST` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_design_docs`.
 
-_Example of using HTTP to list all design documents:_
+_Example of using HTTP to get all design documents:_
 
 ```http
-GET /_design_docs HTTP/1.1
+POST /_design_docs HTTP/1.1
 ```
 {:codeblock}
 
-_Example of using the command line to list all design documents:_
+_Example of using the command line to get all design documents:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design_docs \
+```
+{:codeblock}
+
+_Example response after a request for all design documents in a database:_
+```json
+{"total_rows":10,"offset":0,"rows":[
+  {"id":"_design/ddoc01","key":"_design/ddoc01","value":{"rev":"1-7407569d54af5bc94c266e70cbf8a180"}},
+  {"id":"_design/ddoc02","key":"_design/ddoc02","value":{"rev":"1-d942f0ce01647aa0f46518b213b5628e"}},
+  {"id":"_design/ddoc03","key":"_design/ddoc03","value":{"rev":"1-721fead6e6c8d811a225d5a62d08dfd0"}},
+  {"id":"_design/ddoc04","key":"_design/ddoc04","value":{"rev":"1-32c76b46ca61351c75a84fbcbceece2f"}},
+  {"id":"_design/ddoc05","key":"_design/ddoc05","value":{"rev":"1-af856babf9cf746b48ae999645f9541e"}}
+ ]
+}
 ```
 {:codeblock}
 
@@ -280,7 +293,13 @@ Argument            | Description                                               
 `skip`              | Skip this number of records before returning the results.                                       | yes      | numeric         | 0
 `startkey`          | Return records, starting with the specified key.
 
-_Example response after a request for all design documents in a database:_
+_Example of using the command line to narrow the results by using the `descending` parameter:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_design_docs?descending=false \
+```
+
+_Example response after a request for all design documents in ascending order:_
 ```json
 {"total_rows":10,"offset":0,"rows":[
   {"id":"_design/ddoc01","key":"_design/ddoc01","value":{"rev":"1-7407569d54af5bc94c266e70cbf8a180"}},
@@ -291,7 +310,14 @@ _Example response after a request for all design documents in a database:_
  ]
 }
 ```
-_Example response after a request for all design documents that uses the `endkey` and `inclusive_end parameter`:_
+{:codeblock}
+_Example of using the command line to narrow the results by using the `endkey` and `inclusive_end` parameters:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_design_docs?endkey="_design/ddoc03"&inclusive_end=false \
+```
+
+_Example response after a request for all design documents that include rows that match the `endkey`:_
 ```json
 {"total_rows":10,"offset":0,"rows":[
   {"id":"_design/ddoc01","key":"_design/ddoc01","value":{"rev":"1-7407569d54af5bc94c266e70cbf8a180"}},
@@ -300,6 +326,7 @@ _Example response after a request for all design documents that uses the `endkey
  ]
 }
 ```
+{:codeblock}
 
 ## Get Documents
 
