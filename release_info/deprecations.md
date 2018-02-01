@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-12-27"
+lastupdated: "2018-02-01"
 
 ---
 
@@ -19,13 +19,13 @@ lastupdated: "2017-12-27"
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {:shortdesc}
 
-## Cloudant's {{site.data.keyword.dashdbshort_notm}} functionality
+## {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdbshort_notm}} feature
 
 {{site.data.keyword.cloudant}}'s {{site.data.keyword.dashdblong}} feature is deprecated and will be withdrawn on the following timeline:
 
 Deprecation date | What is being deprecated
 -----------------|--------------------------
-January 16, 2018 | Users not using the {{site.data.keyword.dashdblong}} functionality cannot start using it.
+January 16, 2018 | Users not using the {{site.data.keyword.dashdbshort_notm}} functionality cannot start using it.
 March 31, 2018   | New {{site.data.keyword.dashdbshort_notm}} jobs cannot be created by clients who started using the {{site.data.keyword.dashdbshort_notm}} capability before the 16th of January.
 May 5, 2018      | Existing {{site.data.keyword.dashdbshort_notm}} jobs will be stopped. Final status can still be viewed on the dashboard.
 May 31, 2018     | User interface to {{site.data.keyword.dashdbshort_notm}} feature removed. Status of {{site.data.keyword.dashdbshort_notm}} jobs becomes unavailable.
