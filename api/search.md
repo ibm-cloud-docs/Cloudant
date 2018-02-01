@@ -95,6 +95,9 @@ query=red
 
 The second parameter is the data to be indexed.
 
+- This data must be only a string, number, or boolean. Other types will cause an error to be thrown by the index function call.
+- If an error is thrown when running your function, for this reason or others, the document will not be added to that search index.
+
 The third, optional parameter is a JavaScript object with the following fields:
 
 <table border='1'>
