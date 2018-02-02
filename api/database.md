@@ -272,21 +272,22 @@ curl https://$ACCOUNT.cloudant.com/_dbs_info \
 You can use the following keys to specify a smaller subset of all databases on the server that 
 you want to monitor. 
 
-Keys                  | Description
-----------------------|------------
-`cluster`             |  "q": 8, "n": 3, "w": 2, "r": 2
-`compact_running`     | Set to true if the database compaction routine is operating on this database. 
-`data size`           | 
-`db_name`             | The name of the database.
-`disk_format_version` | The version of the physical format that is used for the data when it is stored on disk.
-`disk_size`           | Size in bytes of the data as stored on the disk. Views indexes are not included in the calculation.
-`doc_count`           | A count of the documents in the specified database.
-`doc_del_count`       | Number of deleted documents.
-`instance_start_time` | Always 0.
-`other`               | JSON object that contains a `data_size` field.
-`purge_seq`           | The number of purge operations on the database.
-`sizes`               | A JSON object, containing `file`, `external`, and `active` sizes. `active` is the size in bytes of data that are stored internally (excluding old revisions). `external` is the size in bytes of decompressed user data. This value is the billable data size. The `other/data_size` field is an alias for the `external` field. `file` is the size in bytes of data that are stored on the disk. Indexes are not included in the calculation. The `disk_size` field is an alias for the `file` field. This size includes data that are waiting for compaction.
-`update_seq`          | An opaque string that describes the state of the database. Do not rely on this string for counting the number of updates.
+Keys                             | Description
+---------------------------------|------------
+`cluster`                        |  
+`compact_running`                | Set to true if the database compaction routine is operating on this database. 
+`data_size`                      | 
+`db_name`                        | The name of the database.
+`disk_format_version`            | The version of the physical format that is used for the data when it is stored on disk.
+`disk_size`                      | Size in bytes of the data as stored on the disk. Views indexes are not included in the calculation.
+`doc_count`                      | A count of the documents in the specified database.
+`doc_del_count`                  | Number of deleted documents.
+`instance_start_time`            | Always 0.
+`max_db_number_for_dbs_info_req` | Limits maximum number of databases during a request for detailed information using `_dbs_info`. Default is 100.
+`other`                          | JSON object that contains a `data_size` field.
+`purge_seq`                      | The number of purge operations on the database.
+`sizes`                          | A JSON object, containing `file`, `external`, and `active` sizes. `active` is the size in bytes of data that are stored internally (excluding old revisions). `external` is the size in bytes of decompressed user data. This value is the billable data size. The `other/data_size` field is an alias for the `external` field. `file` is the size in bytes of data that are stored on the disk. Indexes are not included in the calculation. The `disk_size` field is an alias for the `file` field. This size includes data that are waiting for compaction.
+`update_seq`                     | An opaque string that describes the state of the database. Do not rely on this string for counting the number of updates.
 
 _Example (abbreviated) response that contains database details:_
 
@@ -329,13 +330,7 @@ _Example (abbreviated) response if a database doesn't exist:_
   }
 ]
 ```
-You can use the follow field to reduce the number of databases included in a request.
-
-> **Note**: Only POST is supported for use with `dbs_info`.   
-
-Field                            | Default | Description
---------------------------------------------------------
-`max_db_number_for_dbs_info_req` | 100     | Limits maximum number of databases during a request for detailed information using `_dbs_info`.
+> **Note**: Only POST is supported for use with `dbs_info`. 
 
 ## Get Documents
 
