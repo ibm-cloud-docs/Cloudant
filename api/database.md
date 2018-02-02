@@ -250,9 +250,9 @@ _Example response:_
 ```
 {:codeblock}
 
-## Get all design documents in a specified database 
+## Post all design documents in a specified database 
 
-To get all the design documents in a database,
+To list all the design documents in a database,
 send a `POST` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_design_docs`.
 
 _Example of using HTTP to get all design documents:_
