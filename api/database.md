@@ -284,13 +284,13 @@ _Example response after a request for all design documents in a database:_
 
 The `_design_docs` endpoint accepts the following query arguments:
 
-Argument            | Description                                                                                     | Optional | Type            | Default
---------------------|-------------------------------------------------------------------------------------------------|----------|-----------------|--------                                        | yes      | boolean         | false
-`descending`        | Return the documents in descending key order.                                                   | yes      | boolean         | false
-`endkey`            | Stop returning records when the specified key is reached.                                       | yes      | string          |
-`inclusive_end`     | Include rows whose key equals the '`endkey`' value.                                             | yes      | boolean         | true
-`key`               | Return only documents with IDs that match the specified key.                                    | yes      | string          |
-`skip`              | Skip this number of records before returning the results.                                       | yes      | numeric         | 0
+Argument            | Description                                                  | Optional | Type            | Default
+--------------------|--------------------------------------------------------------|----------|-----------------|--------                                        | yes      | boolean         | false
+`descending`        | Return the documents in descending key order.                | yes      | boolean         | false
+`endkey`            | Stop returning records when the specified key is reached.    | yes      | string          |
+`inclusive_end`     | Include rows whose key equals the '`endkey`' value.          | yes      | boolean         | true
+`key`               | Return only documents with IDs that match the specified key. | yes      | string          |
+`skip`              | Skip this number of records before returning the results.    | yes      | numeric         | 0
 `startkey`          | Return records, starting with the specified key.
 
 _Example of using the command line to narrow the results by using the `descending` parameter:_
