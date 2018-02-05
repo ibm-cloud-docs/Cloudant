@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017
+  years: 2017, 2018
 lastupdated: "2018-01-02"
 
 ---
@@ -22,6 +22,17 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6656
+
+- Introduce new `_dbs_info` endpoint to get information from a list of databases.
+- Update `_design_docs` to respect query parameters.
+- Decode destination header for document copy.
+- Remove information about all headers from replication document returned to non-admin users.
+- Add support for queries in `/{db}/_all_docs` POST.
+- Return null for `update_seq` and `offset` if keys are provided in the call to `/db/_all_docs`.
+- Change the semantics of create database.
+
 
 ## Build 6600 (December 28, 2017)
 
