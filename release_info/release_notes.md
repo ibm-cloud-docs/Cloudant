@@ -26,11 +26,12 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6656
 
 - Introduce new `_dbs_info` endpoint to get information from a list of databases.
-- Update `_design_docs` to respect query parameters.
+- Update `_design_docs` to support the query parameters used by `_all_docs`.
 - Decode destination header for document copy.
 - Remove information about all headers from replication document returned to non-admin users.
-- Add support for queries in `/{db}/_all_docs` POST.
-- Return null for `update_seq` and `offset` if keys are provided in the call to `/db/_all_docs`.
+- Add support for multiple queries in `/{$DATABASE}/_all_docs` POST.
+- Add a new configuration option, `max_db_number_for_dbs_info_req`, for `_dbs_info`. 
+- Return null for `update_seq` and `offset` if keys are provided in the call to `/{$DATABASE}/_all_docs`.
 - Change the semantics of create database.
 
 
