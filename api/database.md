@@ -217,7 +217,7 @@ curl https://$ACCOUNT.cloudant.com/_all_dbs \
 ```
 {:codeblock}
 
-<!--
+<!---
 
 _Example of using JavaScript to list all databases:_
 
@@ -233,7 +233,7 @@ account.db.list(function (err, body, headers) {
 ```
 {:codeblock}
 
--->
+--->
 
 The response is a JSON array with all the database names.
 
