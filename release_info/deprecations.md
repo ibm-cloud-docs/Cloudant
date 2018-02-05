@@ -21,7 +21,8 @@ Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releas
 
 ## {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdbshort_notm}} feature
 
-{{site.data.keyword.cloudant}}'s {{site.data.keyword.dashdblong}} feature is deprecated and will be withdrawn on the following timeline:
+{{site.data.keyword.cloudant}}'s {{site.data.keyword.dashdblong}} feature is deprecated and will be withdrawn according to the timeline below. Data
+will not be removed from either system but synchronization will stop. 
 
 Deprecation date | What is being deprecated
 -----------------|--------------------------
