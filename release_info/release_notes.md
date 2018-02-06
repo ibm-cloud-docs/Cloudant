@@ -26,7 +26,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6656
 
 - Introduce new `_dbs_info` endpoint to get information from a list of databases.
-- Update `_design_docs` to support the query parameters used by `_all_docs`.
+- Update `_design_docs` to respect the query parameters used by `_all_docs`.
 - Decode destination header for document copy.
 - Remove information about all headers from replication document returned to non-admin users. 
 - Return null for `update_seq` and `offset` if keys are provided in the call to `/{$DATABASE}/_all_docs`.
