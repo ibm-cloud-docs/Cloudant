@@ -14,7 +14,7 @@ lastupdated: "2018-02-07"
 
 # Data Warehousing
 
-## Deprecating {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdbshort_notm}} feature
+## Deprecating {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdbshort_notm}} feature (February 7, 2018)
 
 {{site.data.keyword.cloudant}}'s {{site.data.keyword.dashdblong}} feature is deprecated and will be withdrawn according to the timeline below. Data
 will not be removed from either system but synchronization will stop. 
