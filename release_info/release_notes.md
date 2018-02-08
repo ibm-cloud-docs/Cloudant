@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-05"
+lastupdated: "2018-02-08"
 
 ---
 
@@ -23,7 +23,7 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 6656
+## Build 6656 
 
 - Introduce new `_dbs_info` endpoint to get information from a list of databases.
 - Update `_design_docs` to respect the query parameters used by `_all_docs`.
@@ -31,6 +31,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Remove headers from replication document on read. 
 - Return null for `update_seq` and `offset` if keys are provided in the call to `/{$DATABASE}/_all_docs`.
 - Change the semantics of create database.
+- Add a new queueing system that speeds up your cluster and eliminates the need for IOQ bypasses.
 
 
 ## Build 6600 (December 28, 2017)
