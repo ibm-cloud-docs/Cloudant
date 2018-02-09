@@ -27,7 +27,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 - Introduce new `_dbs_info` endpoint to get information from a list of databases.
 - Update `_design_docs` to respect the query parameters used by `_all_docs`.
-- When sending a COPY request, a URL request to Cloudant encodes the user input and sets the Destination header with the encoded value of the new ID. Now, Cloudant decodes the Destination header, and creates the ID without escaped values. 
+- When sending a COPY request, Cloudant now decodes the Destination header and creates a new ID without escaped values. 
 - Remove headers from replication document on read. 
 - If `keys` parameter is set to `_all_docs` endpoint, the `update_seq` and `offset` parameters are not returned in the response, even if the `update_seq` parameter is set to true. 
 - Change the status codes for create database.
