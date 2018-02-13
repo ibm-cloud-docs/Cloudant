@@ -28,6 +28,27 @@ May 31, 2018     | User interface to {{site.data.keyword.dashdbshort_notm}} feat
  
 Data that has been transferred to {{site.data.keyword.dashdbshort_notm}} by April 30, 2018 will remain in {{site.data.keyword.dashdbshort_notm}} and {{site.data.keyword.cloudant_short_notm}} data will also be unaffected.
 
+### Alternatives to the {{site.data.keyword.dashdbshort_notm}} feature
+
+Use Apache Spark&trade; in Data Science Experience:
+
+1. [Scala tutorial for saving 'animaldb' database to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-scala-load-to-dashdb.md){:new_window}
+
+2. [Python tutorial for saving 'animaldb' database to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-python-load-to-dashdb.md){:new_window}
+
+3. [Python tutorial for saving filtered 'crimes' Spark DataFrame to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-load-to-dashdb-python.md){:new_window}<br>
+
+   [Notebook for above 'crimes' to {{site.data.keyword.dashdbshort_notm}} example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-python-load-to-dashdb.ipynb){:new_window}
+
+4. [Scala tutorial for loading docs and saving filtered 'sales' Spark DataFrame to {{site.data.keyword.Db2_on_Cloud_short}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.md){:new_window}<br>
+   
+   [Notebook for above 'sales' example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.ipynb){:new_window}
+
+> **Note**: For the Spark/Bahir sql-cloudant connector solution, customers are responsible for creating and 
+modifying the {{site.data.keyword.Db2_on_Cloud_long}} schema. Although customers lose the automated 
+functionality of SDP, they now have the power to alter the data coming in to Spark (i.e., filter columns) 
+and design the {{site.data.keyword.Db2_on_Cloud_short}} schema.
+
 ## Data warehousing overview
 
 A database is essential for storing data.
