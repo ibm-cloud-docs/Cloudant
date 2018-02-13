@@ -21,7 +21,7 @@ will not be removed from either system but synchronization will stop.
 
 Deprecation date | What is being deprecated
 -----------------|--------------------------
-January 16, 2018 | Users not using the {{site.data.keyword.dashdbshort_notm}} functionality cannot start using it.
+January 16, 2018 | The Warehouse tab is only available to {{site.data.keyword.cloudant_short_notm}} service instances that have already created {{site.data.keyword.dashdbshort_notm}} jobs in the Warehouse tab.  If you have not created a {{site.data.keyword.dashdbshort_notm}} job, you will be unable to access this feature.
 March 31, 2018   | New {{site.data.keyword.dashdbshort_notm}} jobs cannot be created by clients who started using the {{site.data.keyword.dashdbshort_notm}} capability before the 16th of January.
 May 5, 2018      | Existing {{site.data.keyword.dashdbshort_notm}} jobs will be stopped. Final status can still be viewed on the dashboard.
 May 31, 2018     | User interface to {{site.data.keyword.dashdbshort_notm}} feature removed. Status of {{site.data.keyword.dashdbshort_notm}} jobs becomes unavailable.
