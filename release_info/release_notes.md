@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-09"
+lastupdated: "2018-02-12"
 
 ---
 
@@ -27,11 +27,10 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 - Introduce new `_dbs_info` endpoint to get information from a list of databases.
 - Update `_design_docs` to respect the query parameters used by `_all_docs`.
-- When sending a COPY request, Cloudant now decodes the Destination header and creates a new ID without escaped values. 
-- Remove headers from replication document on read. 
-- If `keys` parameter is set to `_all_docs` endpoint, the `update_seq` and `offset` parameters are not returned in the response, even if the `update_seq` parameter is set to true. 
+- When you send a COPY request, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values. This change only applies when you copy with `/{db}/{docid}`.
+- Remove headers from replication document on read. Note that only the admin and owner can still see the header.
+- If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response. 
 - Change the status codes for create database.
-- Add a new queueing system that speeds up your cluster and eliminates the need for IOQ bypasses.
 
 ## Build 6600 (December 28, 2017)
 
