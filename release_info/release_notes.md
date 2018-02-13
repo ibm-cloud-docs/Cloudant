@@ -30,7 +30,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - When you send a COPY request, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values. This change only applies when you copy with `/{db}/{docid}`.
 - Remove headers from replication document on read. Note that only the admin and owner can still see the header.
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response. 
-- Change the status codes for create database.
+- Change semantics of status codes for create database.
 
 ## Build 6600 (December 28, 2017)
 
