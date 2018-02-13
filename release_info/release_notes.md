@@ -27,7 +27,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 - Introduce new `_dbs_info` endpoint to get information from a list of databases.
 - Update `_design_docs` to respect the query parameters used by `_all_docs`.
-- When you send a COPY request, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values. This change only applies when you copy with `/{db}/{docid}`.
+- When sending a `COPY` request to `/db/doc` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
 - Remove headers from replication document on read. Note that only the admin and owner can still see the header.
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response. 
 - Change semantics of status codes for create database.
@@ -110,4 +110,4 @@ to a 409 error with the following information: `{`error`:`not_found`,`reason`:`m
 -	Support for the CouchDB 1.6 `_users` database features, including server-side hashing of passwords when documents are created in the `_users` database.
 -	`/_bulk_get` endpoint to reduce the number of requests that are used in replication to mobile clients.
 -	Design document metadata contains an `update pending` field.
--	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.
+-	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.d
