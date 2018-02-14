@@ -27,7 +27,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 - Introduce new `_dbs_info` endpoint to get information from a list of databases.
 - Update `_design_docs` to respect the query parameters used by `_all_docs`.
-- When sending a `COPY` request to `/db/doc` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
+- When sending a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
 - Remove headers from replication document on read. Note that only the admin and owner can still see the header.
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response. 
 - Change semantics of status codes for create database.
