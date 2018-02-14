@@ -44,9 +44,9 @@ Use Apache Spark&trade; in Data Science Experience:
    
    [Notebook for above 'sales' example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.ipynb){:new_window}
 
-> **Note**: For the Spark/Bahir sql-cloudant connector solution, customers are responsible for creating and 
+> **Note**: For the Apache Spark&trade;/Bahir sql-cloudant connector solution, customers are responsible for creating and 
 modifying the {{site.data.keyword.Db2_on_Cloud_long}} schema. Although customers lose the automated 
-functionality of SDP, they now have the power to alter the data coming in to Spark (i.e., filter columns) 
+functionality of SDP, they now have the power to alter the data coming in to Apache Spark&trade; (i.e., filter columns) 
 and design the {{site.data.keyword.Db2_on_Cloud_short}} schema.
 
 ## Data warehousing overview
