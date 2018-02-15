@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-06"
+  years: 2015, 2018
+lastupdated: "2018-02-13"
 
 ---
 
@@ -13,6 +13,43 @@ lastupdated: "2017-11-06"
 {:pre: .pre}
 
 # Data Warehousing
+
+## Deprecating {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdbshort_notm}} feature (February 7, 2018)
+
+{{site.data.keyword.cloudant}}'s {{site.data.keyword.dashdblong}} feature is deprecated and will be withdrawn according to the timeline below. Data
+will not be removed from either system but synchronization will stop. 
+
+Deprecation date | What is being deprecated
+-----------------|--------------------------
+January 16, 2018 | The Warehouse tab is only available to {{site.data.keyword.cloudant_short_notm}} service instances that have already created {{site.data.keyword.dashdbshort_notm}} jobs in the Warehouse tab.  If you have not created a {{site.data.keyword.dashdbshort_notm}} job, you will be unable to access this feature.
+March 31, 2018   | New {{site.data.keyword.dashdbshort_notm}} jobs cannot be created by clients who started using the {{site.data.keyword.dashdbshort_notm}} capability before the 16th of January.
+May 5, 2018      | Existing {{site.data.keyword.dashdbshort_notm}} jobs will be stopped. Final status can still be viewed on the dashboard.
+May 31, 2018     | User interface to {{site.data.keyword.dashdbshort_notm}} feature removed. Status of {{site.data.keyword.dashdbshort_notm}} jobs becomes unavailable.
+ 
+Data that has been transferred to {{site.data.keyword.dashdbshort_notm}} by April 30, 2018 will remain in {{site.data.keyword.dashdbshort_notm}} and {{site.data.keyword.cloudant_short_notm}} data will also be unaffected.
+
+### Alternatives to the {{site.data.keyword.dashdbshort_notm}} feature
+
+Use Apache Spark&trade; in Data Science Experience:
+
+1. [Scala tutorial for saving 'animaldb' database to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-scala-load-to-dashdb.md){:new_window}
+
+2. [Python tutorial for saving 'animaldb' database to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-python-load-to-dashdb.md){:new_window}
+
+3. [Python tutorial for saving filtered 'crimes' Spark DataFrame to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-load-to-dashdb-python.md){:new_window}<br>
+
+   [Notebook for above 'crimes' to {{site.data.keyword.dashdbshort_notm}} example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-python-load-to-dashdb.ipynb){:new_window}
+
+4. [Scala tutorial for loading docs and saving filtered 'sales' Spark DataFrame to {{site.data.keyword.Db2_on_Cloud_short}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.md){:new_window}<br>
+   
+   [Notebook for above 'sales' example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.ipynb){:new_window}
+
+> **Note**: For the Apache Spark&trade;/Bahir sql-cloudant connector solution, customers are responsible for creating and 
+modifying the {{site.data.keyword.Db2_on_Cloud_long}} schema. Although customers lose the automated 
+functionality of SDP, they now have the power to alter the data coming in to Apache Spark&trade; (i.e., filter columns) 
+and design the {{site.data.keyword.Db2_on_Cloud_short}} schema.
+
+## Data warehousing overview
 
 A database is essential for storing data.
 But being able to apply that data for business purposes is what makes a database valuable:
