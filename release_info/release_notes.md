@@ -23,7 +23,7 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 6656 
+## Build 6656 (February 15, 2018)
 
 - Introduce new `_dbs_info` endpoint to get information from a list of databases. See [Get database information for multiple databases](../api/database.html#get-database-information-for-multiple-databases).
 - Update `_design_docs` to respect the query parameters used by `_all_docs`. See [Get design documents](../api/database.html#get-design-documents).
