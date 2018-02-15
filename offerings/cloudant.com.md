@@ -17,7 +17,7 @@ lastupdated: "2018-02-15"
 # Cloudant.com
 
 > **Note**: The {{site.data.keyword.cloudantfull}} Shared Plan is being retired on March 31, 2018. 
-As of July 24th, 2017, no new Shared Plan accounts can be created on cloudant.com. 
+As of July 24th, 2017, no new Shared Plan accounts can be created on [https://cloudant.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/){:new_window}. 
 
 {{site.data.keyword.cloudant_short_notm}} is a hosted and fully-managed database-as-a-service (DBaaS). 
 It was built from the ground up to scale globally, run non-stop, and handle a wide variety of data types 
@@ -54,9 +54,9 @@ This plan gives you assured database performance and up-time, by using dedicated
 hardware available at various hosting locations.
 
 For users of the Enterprise plan who require a new or additional {{site.data.keyword.cloudant_short_notm}} 
-account on one of their dedicated clusters, go to 
+account on one of their dedicated clusters, sign up at  
 [https://cloudant.com/enterprise-sign-up ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/enterprise-sign-up){:new_window}, 
-create an account using the form, and open a support ticket requesting that your account be moved to one of your 
+create an account using the form, and open a support ticket to request that your account be moved to one of your 
 {{site.data.keyword.cloudant_short_notm}} Enterprise dedicated clusters. 
 
 ## Shared Plan
@@ -70,7 +70,7 @@ With the {{site.data.keyword.cloudant_short_notm}} Shared Plan, you have access 
 {{site.data.keyword.cloudant_short_notm}} DBaaS capabilities, provided through a shared or 'multi-tenant' cluster.
 
 Pricing is metered, based on your monthly usage. No charge applies if your monthly usage is 
-under $50.00 (as of August 2016). For terms, see [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/assets/terms.pdf){:new_window}. 
+under $50.00 (as of August 2016). See terms [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/assets/terms.pdf){:new_window}. 
    
       
          
