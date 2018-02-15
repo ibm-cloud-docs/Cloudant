@@ -20,7 +20,7 @@ lastupdated: "2018-02-15"
 As of July 24th, 2017, no new Shared Plan accounts can be created on cloudant.com. 
 
 {{site.data.keyword.cloudant_short_notm}} is a hosted and fully-managed database-as-a-service (DBaaS). 
-t was built from the ground up to scale globally, run non-stop, and handle a wide variety of data types 
+It was built from the ground up to scale globally, run non-stop, and handle a wide variety of data types 
 like [JSON](../basics/index.html#json),
 [full-text](../api/cloudant_query.html#creating-an-index),
 and [geospatial](../api/cloudant-geo.html).
@@ -37,9 +37,8 @@ and is delivered as various multi-tenant, dedicated, and installed services.
 > **Note**: All currency values in this document are in US dollars ($).
 
 It is offered as either a [Shared Plan](#shared-plan) or an 
-[Enterprise (Dedicated) Plan](#enterprise-plan).
-
-{{site.data.keyword.cloudant_short_notm}} is also available as an [{{site.data.keyword.cloud}} service](https://www.ibm.com/cloud/).
+[Enterprise (Dedicated) Plan](#enterprise-plan). {{site.data.keyword.cloudant_short_notm}} 
+is also available as an [{{site.data.keyword.cloud}} service](https://www.ibm.com/cloud/).
 
 > **Note**: The {{site.data.keyword.cloudant_short_notm}} Shared Plan and Enterprise (Dedicated) Plan 
 offerings are not available on the {{site.data.keyword.cloud_notm}} service.
