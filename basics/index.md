@@ -105,6 +105,7 @@ _Example error message in response to an unsupported request:_
 {:codeblock}
 
 ## JSON
+{: #json}
 
 {{site.data.keyword.cloudant_short_notm}} stores documents using JSON (JavaScript Object Notation) encoding,
 so anything encoded into JSON can be stored as a document.
