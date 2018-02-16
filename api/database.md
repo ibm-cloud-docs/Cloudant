@@ -84,10 +84,11 @@ the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
-201  | Database created successfully
-202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
+201  | Creation if the quorum is met.
+202  | Accepted if at least one node responds OK.
 403  | Invalid database name.
 412  | Database already exists.
+500  | No correct response from any node was returned.
 
 _Example response that is received after a database is created successfully:_
 
