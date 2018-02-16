@@ -56,6 +56,7 @@ in the request body is ignored while the parameter in the request URL is respect
 	```
 
 ## X-Frame-Options setting
+{: #x-frame-options-setting}
 
 The `X-Frame-Options` setting is a response header that controls whether an HTTP response can be embedded in a `<frame>`, `<iframe>`, or `<object>`. This security feature helps prevent clickjacking.
 
