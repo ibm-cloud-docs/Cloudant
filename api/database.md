@@ -250,87 +250,122 @@ _Example response:_
 ```
 {:codeblock}
 
-## Post database information for multiple databases
+## Get database information for multiple databases
+{: #get-database-information-for-multiple-databases}
 
-To list database information for multiple databases, send a `POST` request to 
-`https://$ACCOUNT.cloudant.com/_dbs_info`.  
+To retrieve database information for multiple databases, send a `POST` request to https://$ACCOUNT.cloudant.com/_dbs_info.
 
-_Example of using HTTP to list all databases:_
+_Example of using HTTP to retrieve database information:_
 
 ```http
-GET /_dbs_info HTTP/1.1
+POST /_dbs_info HTTP/1.1
 ```
-{:codeblock}
-
-_Example of using the command line to list all databases:_
+_Example of using the command line to retrieve database information:_
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_dbs_info \
+curl https://$ACCOUNT.cloudant.com/_dbs_info -d @request.json
+```
+
+The `/_dbs_info` endpoint returns information about a list of specified databases in the {{site.data.keyword.cloudant_short_notm}} instance.
+This enables you to request information about multiple databases in a single request, instead of multiple `GET /{$DATABASE}` requests.
+
+The request JSON object should have a `keys` field, as shown in the following example. 
+
+_Example request for database information:_
+
+```json
+POST /_dbs_info HTTP/1.1
+Accept: application/json
+Host: localhost:5984
+Content-Type: application/json
+
+{
+    "keys": [
+        "animals",
+        "plants"
+    ]
+}
 ```
 {:codeblock}
 
-You can use the following keys to specify a smaller subset of all databases on the server that 
-you want to monitor. 
-
-Keys                             | Description
----------------------------------|------------
-`cluster`                        |  
-`compact_running`                | Set to true if the database compaction routine is operating on this database. 
-`data_size`                      | 
-`db_name`                        | The name of the database.
-`disk_format_version`            | The version of the physical format that is used for the data when it is stored on disk.
-`disk_size`                      | Size in bytes of the data as stored on the disk. Views indexes are not included in the calculation.
-`doc_count`                      | A count of the documents in the specified database.
-`doc_del_count`                  | Number of deleted documents.
-`instance_start_time`            | Always 0.
-`max_db_number_for_dbs_info_req` | Limits maximum number of databases during a request for detailed information using `_dbs_info`. Default is 100.
-`other`                          | JSON object that contains a `data_size` field.
-`purge_seq`                      | The number of purge operations on the database.
-`sizes`                          | A JSON object, containing `file`, `external`, and `active` sizes. `active` is the size in bytes of data that are stored internally (excluding old revisions). `external` is the size in bytes of decompressed user data. This value is the billable data size. The `other/data_size` field is an alias for the `external` field. `file` is the size in bytes of data that are stored on the disk. Indexes are not included in the calculation. The `disk_size` field is an alias for the `file` field. This size includes data that are waiting for compaction.
-`update_seq`                     | An opaque string that describes the state of the database. Do not rely on this string for counting the number of updates.
-
-_Example (abbreviated) response that contains database details:_
+_Example response to the request for database information:_
 
 ```json
-      "info": {
-      "db_name": "dbname1",
-      "update_seq": "0-g1A...WeA",
-      "sizes": {
-        "file": 33936,
-        "external": 0,
-        "active": 0
-      },
-      "purge_seq": 0,
-      "other": {
-        "data_size": 0
-      },
-      "doc_del_count": 0,
-      "doc_count": 0,
-      "disk_size": 33936,
-      "disk_format_version": 6,
-      "data_size": 0,
-      "compact_running": false,
-      "cluster": {
-        "q": 8,
-        "n": 3,
-        "w": 2,
-        "r": 2
-      },
-      "instance_start_time": "0"
-    }
-  },
-```
-{:codeblock}
+HTTP/1.1 200 OK
+Cache-Control: must-revalidate
+Content-Type: application/json
+Date: Sat, 20 Dec 2017 06:57:48 GMT
+Server: CouchDB (Erlang/OTP)
 
-_Example (abbreviated) response if a database doesn't exist:_
-```json
-  {
-    "key": "unknown_db",
-    "error": "not_found"
-  }
+[
+  {
+    "key": "animals",
+    "info": {
+      "db_name": "animals",
+      "update_seq": "52232",
+      "sizes": {
+        "file": 1178613587,
+        "external": 1713103872,
+        "active": 1162451555
+      },
+      "purge_seq": 0,
+      "other": {
+        "data_size": 1713103872
+      },
+      "doc_del_count": 0,
+      "doc_count": 52224,
+      "disk_size": 1178613587,
+      "disk_format_version": 6,
+      "data_size": 1162451555,
+      "compact_running": false,
+      "cluster": {
+        "q": 8,
+        "n": 3,
+        "w": 2,
+        "r": 2
+      },
+      "instance_start_time": "0"
+    }
+  },
+  {
+    "key": "plants",
+    "info": {
+      "db_name": "plants",
+      "update_seq": "303",
+      "sizes": {
+        "file": 3872387,
+        "external": 2339,
+        "active": 67475
+      },
+      "purge_seq": 0,
+      "other": {
+        "data_size": 2339
+      },
+      "doc_del_count": 0,
+      "doc_count": 11,
+      "disk_size": 3872387,
+      "disk_format_version": 6,
+      "data_size": 67475,
+      "compact_running": false,
+      "cluster": {
+        "q": 8,
+        "n": 3,
+        "w": 2,
+        "r": 2
+      },
+      "instance_start_time": "0"
+    }
+  }
 ]
 ```
-> **Note**: Only POST is supported for use with `dbs_info`. 
+{:codeblock}
+
+See the following table for status code information:
+
+Code            | Description 
+----------------|------------
+200 OK          | Request completed successfully.
+400 Bad Request | Missing keys or exceeded keys specified in `POST` payload of the request. The default maximum number of specified keys in the request is 100.
 
 ## Get Documents
 
