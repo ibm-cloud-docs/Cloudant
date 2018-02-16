@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-02"
+  years: 2015, 2018
+lastupdated: "2018-02-15"
 
 ---
 
@@ -105,6 +105,7 @@ _Example error message in response to an unsupported request:_
 {:codeblock}
 
 ## JSON
+{: #json}
 
 {{site.data.keyword.cloudant_short_notm}} stores documents using JSON (JavaScript Object Notation) encoding,
 so anything encoded into JSON can be stored as a document.
