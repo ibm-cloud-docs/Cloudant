@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-02"
+lastupdated: "2018-02-16"
 
 ---
 
@@ -22,6 +22,14 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6656 (February 15, 2018)
+
+- Update `_design_docs` to respect the query parameters used by `_all_docs`. See [Get design documents](../api/database.html#get-design-documents).
+- When sending a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
+- Remove headers from replication document on read.
+- If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response. 
+- Change semantics of status codes for create database.
 
 ## Build 6600 (December 28, 2017)
 
@@ -101,4 +109,4 @@ to a 409 error with the following information: `{`error`:`not_found`,`reason`:`m
 -	Support for the CouchDB 1.6 `_users` database features, including server-side hashing of passwords when documents are created in the `_users` database.
 -	`/_bulk_get` endpoint to reduce the number of requests that are used in replication to mobile clients.
 -	Design document metadata contains an `update pending` field.
--	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.
+-	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.d

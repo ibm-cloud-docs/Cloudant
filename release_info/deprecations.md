@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-12-27"
+lastupdated: "2018-02-26"
 
 ---
 
@@ -18,6 +18,10 @@ lastupdated: "2017-12-27"
 
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {:shortdesc}
+
+## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (February 7, 2018)
+
+- You can find a schedule and alternatives to {{site.data.keyword.dashdblong}} [here](../guides/warehousing.html#deprecating-cloudant-nosql-db-s-db2-warehouse-on-cloud-feature-february-7-2018-). 
 
 ## Disabled JavaScript constructors
 

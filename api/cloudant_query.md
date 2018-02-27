@@ -101,7 +101,7 @@ Code | Description
 400  | Bad request: the request body does not have the specified format
 
 ### Creating a "type=text" index
-
+{: #creating-a-type-text-index}
 While it is preferable to use default values when you create a single text index,
 some useful index attributes can be modified.
 

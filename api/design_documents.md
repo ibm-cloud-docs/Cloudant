@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-12-27"
+lastupdated: "2018-02-13"
 
 ---
 
@@ -54,7 +54,6 @@ The structure of design document is as follows:
 	-	**viewname** (one for each view): View Definition.
 		-	**map**: Map Function for the view.
 		-	**reduce (optional)**: Reduce Function for the view.
-		-	**dbcopy (optional)**: Database name for storing view results.
 -	**indexes (optional)**: An object describing search indexes.
 	-	**index name** (one for each index): Index definition.
 		-	**analyzer**: Object describing the analyzer to be used or an object with the following fields:

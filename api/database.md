@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-02-01"
 
 ---
 
@@ -84,10 +84,11 @@ the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
-201  | Database created successfully
-202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
+201  | Creation if the quorum is met.
+202  | Accepted if at least one node responds OK.
 403  | Invalid database name.
 412  | Database already exists.
+500  | No correct response from any node was returned.
 
 _Example response that is received after a database is created successfully:_
 
@@ -247,6 +248,172 @@ _Example response:_
 	"invoices",
 	"locations"
 ]
+```
+{:codeblock}
+
+## Get design documents 
+{: #get-design-documents}
+
+To get design documents in a database, send a GET request to https://$ACCOUNT.cloudant.com/$DATABASE/_design_docs.
+
+_Example of using HTTP to retrieve design documents:_
+
+```http
+GET /{$DATABASE}/_design_docs
+```
+_Example of using the command line to retrieve design documents:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_design_docs 
+```
+
+The `_design_docs` endpoint returns a JSON structure of all the design 
+documents in the database you specify. The 
+information is returned as a JSON structure containing meta information about the 
+return structure, including a list of all the design documents and their basic content, 
+consisting of the ID, revision, and key. The key is taken from the design document’s `_id`. 
+
+> **Note**: You can use both `GET` and `POST` commands with the `_design_docs` endpoint. See the examples that follow. 
+
+The `_design_docs` endpoint accepts the following query parameters:
+
+Query parameters              | Description | Optional | Type | Default
+------------------------------|-------------|----------|------|--------
+`conflicts` | Includes conflict information in the response. Ignored if `include_docs` does not equal `true`. | Yes | Boolean | `false`
+`descending`| Return the design documents in descending order by key order. | Yes | Boolean | `false`
+`endkey` | Stop returning records when the specified key is reached. | Yes | string |
+`end_key` | Alias for `endkey` parameter. | Yes | string |
+`include_docs` | Include the full content of the design documents in the return. | Yes | Boolean | `false`
+`inclusive_end` | Specifies whether the specified end key should be included in the result. | Yes | Boolean | `true`
+`key` | Return only design documents that match the specified key. | Yes | string |
+`keys` | Return only design documents that match the specified keys. | Yes | list of strings |
+`limit` | Limit the number of the returned design documents to the specified number. | Yes | number |
+`skip` | Skip this number of records before starting to return the results. | Yes | number | `0`
+`startkey` | Return records starting with the specified key. | Yes | string |
+`start_key` | Alias for `startkey` parameter. | Yes | string |
+`update_seq` | Response includes an `update_seq` value indicating which sequence ID of the underlying database the view reflects. | Yes | Boolean | `false`
+
+The results are returned by using the following response JSON oject:
+
+Response JSON object    | Description | Type
+------------------------|-------------------
+`offset` | Offset where the design document list started. | number
+`rows` | Array of view row objects. By default, the information returned contains only the design document ID and revision. | array
+`total_rows` | Number of design documents in the database. Note that this is not the number of rows returned in the actual query. | number
+`update_seq` | Current update sequence for the database. | number
+
+If the request completes successfully, the following status code is returned: [200 OK ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1){:new_window} – Request completed successfully.
+
+_Example `GET` request for design documents:_
+```json
+GET /$DATABASE/_design_docs HTTP/1.1
+Accept: application/json
+Host: localhost:5984
+```
+{:codeblock}
+
+_Example response for design documents:_
+```json
+HTTP/1.1 200 OK
+Cache-Control: must-revalidate
+Content-Type: application/json
+Date: Sat, 23 Dec 2017 16:22:56 GMT
+ETag: "1W2DJUZFZSZD9K78UFA3GZWB4"
+Server: CouchDB (Erlang/OTP)
+Transfer-Encoding: chunked
+
+{
+    "offset": 0,
+    "rows": [
+        {
+            "id": "_design/ddoc01",
+            "key": "_design/ddoc01",
+            "value": {
+                "rev": "1-7407569d54af5bc94c266e70cbf8a180"
+            }
+        },
+        {
+            "id": "_design/ddoc02",
+            "key": "_design/ddoc02",
+            "value": {
+                "rev": "1-d942f0ce01647aa0f46518b213b5628e"
+            }
+        },
+        {
+            "id": "_design/ddoc03",
+            "key": "_design/ddoc03",
+            "value": {
+                "rev": "1-721fead6e6c8d811a225d5a62d08dfd0"
+            }
+        },
+        {
+            "id": "_design/ddoc04",
+            "key": "_design/ddoc04",
+            "value": {
+                "rev": "1-32c76b46ca61351c75a84fbcbceece2f"
+            }
+        },
+        {
+            "id": "_design/ddoc05",
+            "key": "_design/ddoc05",
+            "value": {
+                "rev": "1-af856babf9cf746b48ae999645f9541e"
+            }
+        }
+    ],
+    "total_rows": 5
+}
+
+```
+{:codeblock}
+
+`POST`ing to `_design_docs` endpoint allows you to specify multiple keys to be selected 
+from the database. This enables you to request multiple design documents in a 
+single request, in place of multiple `GET /{$DATABASE}/{$DOCID}` requests.
+
+The request JSON object should have a `keys` field, as shown in the following example. 
+
+_Example `POST` request for design documents:_
+```json
+POST /$DATABASE/_all_docs HTTP/1.1
+Accept: application/json
+Content-Length: 70
+Content-Type: application/json
+Host: localhost:5984
+
+{
+    "keys" : [
+        "_design/ddoc02",
+        "_design/ddoc05"
+    ]
+}
+```
+{:codeblock}
+
+The returned JSON is in the all documents structure, but with only the selected keys in the output:
+
+_Example `POST` return for design documents:_
+```json
+{
+    "total_rows" : 5,
+    "rows" : [
+        {
+            "value" : {
+                "rev" : "1-d942f0ce01647aa0f46518b213b5628e"
+            },
+            "id" : "_design/ddoc02",
+            "key" : "_design/ddoc02"
+        },
+        {
+            "value" : {
+                "rev" : "1-af856babf9cf746b48ae999645f9541e"
+            },
+            "id" : "_design/ddoc05",
+            "key" : "_design/ddoc05"
+        }
+    ],
+    "offset" : 0
+}
 ```
 {:codeblock}
 
