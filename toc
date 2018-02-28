@@ -23,7 +23,6 @@ Cloudant NoSQL DB
 
 	{: .topicgroup}
 	Release information
-		release_info/whatsnew.md
 		release_info/release_notes.md
 		release_info/differences_major_releases.md
 		release_info/deprecations.md
