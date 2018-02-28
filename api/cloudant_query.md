@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-18"
+  years: 2015, 2018
+lastupdated: "2018-01-16"
 
 ---
 
@@ -89,7 +89,6 @@ _Example of returned JSON, confirming that the index was created:_
 -	**type (optional)**: Can be `json` or `text`.
 	Defaults to `json`.
 	Geospatial indexes will be supported in the future.
-- **json selector (optional)**: A selector to filter the documents added to the index.
 -	**name (optional)**: Name of the index.
 	If no name is provided,
 	a name is generated automatically.
@@ -102,7 +101,7 @@ Code | Description
 400  | Bad request: the request body does not have the specified format
 
 ### Creating a "type=text" index
-
+{: #creating-a-type-text-index}
 While it is preferable to use default values when you create a single text index,
 some useful index attributes can be modified.
 
@@ -215,15 +214,6 @@ If the `default_field` is not specified,
 or is supplied with an empty object,
 it defaults to `true` and the `standard` analyzer is used.
 
-#### The `selector` field
-
-The `selector` field can be used to limit the index to a specific set of documents that match a query.
-It uses the same syntax that is used for selectors in queries.
-This field can be used if your application requires different documents to be indexed in different ways,
-or if some documents must not be indexed at all.
-If you need to distinguish documents by type only,
-it is easier to use one index and add the type to the search query.
-
 #### The `fields` array
 
 The `fields` array contains a list of fields that must be indexed for each document.
@@ -324,43 +314,69 @@ Methods  | Path                | Description
 `POST`   | `/$DATABASE/_find`  | Find documents by using an index.
 `POST`   | `/$DATABASE/_index` | Create an index.
 
-## Creating an index with a selector
+## Creating a partial index
 
-Adding a selector to the index adds fine-grained filtering from which documents will be added to an index. At query time, the index must be specified via the `use_index` field for the query planner to use it.
+Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
+for more information and the original example. 
 
-This example index with a selector only adds documents to the index that contain the `age` and `sport` fields and that match the selector.
+> **Note**: The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still supported for backwards compatibility for text indexes only.
 
-```json
-    {
-        "index": {
-            "fields": ["age", "sport"],
-            "selector": {
-                "age": {
-                    "$gte": 10
-                },
-                "sport": "rugby"
-            }
-        },
-        "ddoc" : "selector-index",
-        "type" : "json"
-    }
+Let's look at an example query:
 ```
-
-To use the above index in a `_find` query, `use_index` must
-contain the index name or design document. The selector must also
-contain the fields specified in the index.
-
-```json
-    {
-      "selector": {
-        "age": {
-          "$gt": 20
-        },
-        "sport": "rugby"
-      },
-      "use_index": ["selector-index"]
-    }
+{
+  "selector": {
+    "status": {
+      "$ne": "archived"
+    },
+    "type": "user"
+  }
+}
 ```
+Without a partial index, this query requires a full index scan to find 
+all the documents of `type`:`user` that do not have a status of `archived`. 
+This occurs because a normal index can only be used to match contiguous rows, 
+and the `$ne` operator cannot guarantee that.
+
+To improve response time, we can create an index which excludes documents 
+with `status`: { `$ne`: `archived` } at index time by using the 
+`partial_filter_selector` field:
+```
+POST /db/_index HTTP/1.1
+Content-Type: application/json
+Content-Length: 144
+Host: localhost:5984
+
+{
+  "index": {
+    "partial_filter_selector": {
+      "status": {
+        "$ne": "archived"
+      }
+    },
+    "fields": ["type"]
+  },
+  "ddoc" : "type-not-archived",
+  "type" : "json"
+}
+```
+Partial indexes are not currently used by the query planner unless specified 
+by a `use_index` field, so we need to modify the original query:
+```
+{
+  "selector": {
+    "status": {
+      "$ne": "archived"
+    },
+    "type": "user"
+  },
+  "use_index": "type-not-archived"
+}
+```
+Technically, we don't need to include the filter on the `status` field in the 
+query selector - the partial index ensures this is always true - but including 
+it makes the intent of the selector more clear and makes it easier to take 
+advantage of future improvements to query planning (e.g. automatic selection of 
+partial indexes).  
 
 ## List all {{site.data.keyword.cloudant_short_notm}} Query indexes
 
