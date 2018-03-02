@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-10-26"
+  years: 2015, 2018
+lastupdated: "2017-12-11"
 
 ---
 
@@ -43,7 +43,7 @@ space configuration for the plans:
 <tr>
 <td>Base Price (per hour)</td>
 <td>$0.00</td>
-<td colspan='4'>See <a href="http://cloudant.com/bluemix" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
+<td colspan='4'>See <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 <tr>
 <td>Provisioned Throughput Capacity (Lookups per second)</td>
@@ -82,7 +82,7 @@ space configuration for the plans:
 <tr>
 <td>Disk Overage (per GB/hour)</td>
 <td>Not available</td>
-<td colspan='4'>See <a href="http://cloudant.com/bluemix" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
+<td colspan='4'>See <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 
 </table>
@@ -117,7 +117,7 @@ move to the [Standard plan](#standard-plan).
 The Standard plan includes 20 GB of data storage.
 If you store more than 20 GB,
 you are charged a defined cost per GB per hour.
-See the [Pricing ![External link icon](../images/launch-glyph.svg "External link icon")](http://cloudant.com/bluemix){:new_window} information for the current cost.
+See the [Pricing ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant/pricing){:new_window} information for the current cost.
 On the Standard plan,
 you can also change the amount of provisioned throughput capacity for lookups,
 writes,
