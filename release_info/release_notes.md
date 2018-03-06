@@ -31,6 +31,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Avoid unconditional retries in replicator's HTTP client.
 - Update MochiWeb to version 2.17.
 - Fix `_dbs_info` endpoint.
+- Prepare for session support in replicator.
 
 ## Build 6656 (February 15, 2018)
 
