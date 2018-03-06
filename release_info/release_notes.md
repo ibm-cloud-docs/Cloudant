@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-16"
+lastupdated: "2018-03-06"
 
 ---
 
@@ -22,6 +22,15 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6761
+
+- Ensure deterministic revisions for attachments. See [COUCHDB-3255 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-3255){:new_window}.
+- Add a plugable storage engine.
+- Prevent `chttpd` multipart zombie processes.
+- Avoid unconditional retries in replicator's HTTP client.
+- Update MochiWeb to version 2.17.
+- Fix `_dbs_info` endpoint.
 
 ## Build 6656 (February 15, 2018)
 
