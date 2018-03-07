@@ -159,10 +159,7 @@ Keys are not limited to simple values.
 You can use arbitrary JSON values to influence sorting.
 
 When the key is an array,
-view results can be grouped by a sub-section of the key.
-In addition, when you issue a view or `_all_docs` request that specifies the 
-`keys` parameter, the results are returned in the same order as the supplied 
-`keys` array.
+view results can be grouped by a sub-section of the key. 
 For example,
 if keys have the form `[year, month, day]`,
 then results can be reduced to a single value or by year,

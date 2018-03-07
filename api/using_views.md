@@ -270,9 +270,7 @@ but that the view must then be updated anyway.
 The data returned by a view query are in the form of an array.
 Each element within the array is sorted by using standard
 [UTF-8 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/UTF-8){:new_window} sorting.
-The sort is applied to the key defined in the view function.In addition, when you issue 
-a view or `_all_docs` request that specifies the `keys` parameter, 
-the results are returned in the same order as the supplied `keys` array. 
+The sort is applied to the key defined in the view function. 
 
 The basic order of output is as follows:
 
@@ -288,6 +286,9 @@ Arrays (according to the values of each element, by using the order given in thi
 Objects (according to the values of keys, in key order by using the order given in this table)    | Last
 
 You can reverse the order of the returned view information by setting the `descending` query value `true`.
+
+> **Note**: When you issue a view or `_all_docs` request that specifies the `keys` parameter, 
+the results are returned in the same order as the supplied `keys` array. 
 
 _Example of using HTTP to request the last five records in reversed sort order:_
 
