@@ -44,7 +44,7 @@ You can launch the {{site.data.keyword.cloudant_short_notm}} service from the
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
 is [available](index.html),
-along with more detailed [tutorials](tutorials/tutorials.html) that describe tasks in more detail.
+along with [tutorials](tutorials/tutorials.html) that describe tasks in more detail.
 More information about details such as authenticating with database instances,
 and querying data,
 is available in the [API reference](api/index.html).
