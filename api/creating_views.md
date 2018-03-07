@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-16"
+lastupdated: "2018-03-07"
 
 ---
 
@@ -135,12 +135,12 @@ function(doc) {
 ```
 {:codeblock}
 
-### An index for a one to many relationship
+### An index for a one-to-many relationship
 
 If the object passed to `emit` has an `_id` field,
 a view query with `include_docs` set to `true` contains the document with the given ID.
 
-_Example of indexing a one to many relationship:_
+_Example of indexing a one-to-many relationship:_
 
 ```javascript
 function(doc) {
@@ -160,6 +160,9 @@ You can use arbitrary JSON values to influence sorting.
 
 When the key is an array,
 view results can be grouped by a sub-section of the key.
+In addition, when you issue a view or `_all_docs` request that specifies the 
+`keys` parameter, the results are returned in the same order as the supplied 
+`keys` array.
 For example,
 if keys have the form `[year, month, day]`,
 then results can be reduced to a single value or by year,

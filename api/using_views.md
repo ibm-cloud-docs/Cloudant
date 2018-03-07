@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-05-19"
+lastupdated: "2018-03-07"
 
 ---
 
@@ -270,7 +270,9 @@ but that the view must then be updated anyway.
 The data returned by a view query are in the form of an array.
 Each element within the array is sorted by using standard
 [UTF-8 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/UTF-8){:new_window} sorting.
-The sort is applied to the key defined in the view function.
+The sort is applied to the key defined in the view function.In addition, when you issue 
+a view or `_all_docs` request that specifies the `keys` parameter, 
+the results are returned in the same order as the supplied `keys` array. 
 
 The basic order of output is as follows:
 
