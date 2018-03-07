@@ -30,7 +30,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Prevent `chttpd` multipart zombie processes.
 - Avoid unconditional retries in replicator's HTTP client.
 - Update MochiWeb to version 2.17.
-- Fix `_dbs_info` endpoint.
+- Introduce new `_dbs_info` endpoint to get information from a list of databases. See 
+[Get database information for multiple databases](../api/database.html#get-database-information-for-multiple-databases).
 - Prepare for session support in replicator.
 
 ## Build 6656 (February 15, 2018)
