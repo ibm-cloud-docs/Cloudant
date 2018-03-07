@@ -31,9 +31,12 @@ Data that has been transferred to {{site.data.keyword.dashdbshort_notm}} by Apri
 
 ### Alternatives to the {{site.data.keyword.dashdbshort_notm}} feature
 
-See the [data-flow-examples repository](https://github.com/cloudant-labs/data-flow-examples) for 
-tutorials on syncing {{site.data.keyword.cloudant_short_notm}} documents to an 
+See the 
+[data-flow-examples repository ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/data-flow-examples){:new_window} 
+for tutorials on 
+extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to an 
 {{site.data.keyword.Db2_on_Cloud_long}} table.
+
 
 ## Data warehousing overview
 
