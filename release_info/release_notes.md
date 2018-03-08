@@ -31,6 +31,10 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response. 
 - Change semantics of status codes for create database.
 
+## Build 6620 (January 10, 2018)
+
+- Query: fallback to `selector` on an empty `partial_filter_selector` field.
+
 ## Build 6600 (December 28, 2017)
 
 - Query: fields referenced within `$or` operations are considered when determining the usable 
