@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-12"
+lastupdated: "2018-02-16"
 
 ---
 
@@ -25,7 +25,6 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6656 (February 15, 2018)
 
-- Introduce new `_dbs_info` endpoint to get information from a list of databases. See [Get database information for multiple databases](../api/database.html#get-database-information-for-multiple-databases).
 - Update `_design_docs` to respect the query parameters used by `_all_docs`. See [Get design documents](../api/database.html#get-design-documents).
 - When sending a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
 - Remove headers from replication document on read.
