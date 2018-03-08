@@ -65,7 +65,7 @@ This change might impact customers who are accessing the database directly from 
 and it is breaking your service, you must enable CORS, [Setting the CORS configuration](../api/cors.html#setting-the-cors-configuration). After you enable CORS, add the value of the HOST header that you send in the request 
 to the list of allowed `origins`.
 
-## - `dbcopy`
+## `dbcopy` (February 4, 2016)
 
 - The `dbcopy` feature can cause problems under some circumstances.
   Information about the feature has been removed from the documentation.
