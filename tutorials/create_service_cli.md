@@ -19,7 +19,7 @@ service instance on {{site.data.keyword.Bluemix}}
 using the Cloud Foundry tools.
 {:shortdesc}
 
-## Pre-requisites
+## Prerequisites
 
 To follow this tutorial,
 you must first install the {{site.data.keyword.Bluemix_notm}} Cloud Foundry tools.
