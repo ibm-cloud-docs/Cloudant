@@ -443,7 +443,7 @@ Argument            | Description                                               
 
 >	**Note**: Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
 
-If you use the `keys` argument, you need to be aware of two caveats. 
+If you use the `keys` argument, you need to be aware of these two details. 
 First, when you use the `keys` argument,
 it might be easier to send a `POST` request rather than a `GET` request
 if you require many strings to list the keys you want. Second, when you issue an 
