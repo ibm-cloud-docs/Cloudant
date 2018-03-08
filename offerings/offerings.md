@@ -20,4 +20,4 @@ Read more about the available {{site.data.keyword.cloudantfull}} offerings.
 - [{{site.data.keyword.cloud_notm}} Public](../offerings/bluemix.html#ibm-cloud-public)
 - [{{site.data.keyword.cloud_notm}} Dedicated](../offerings/bluemix_dedicated.html#ibm-cloud-dedicated)
 - [{{site.data.keyword.cloudant_short_notm}} Local](../offerings/cloudant_local.html#cloudant-local)
-- [{{site.data.keyword.cloudant_short_notm}}.com](../offerings/cloudant.com.html#cloudant-com)
+- [Cloudant.com](../offerings/cloudant.com.html#cloudant-com)
