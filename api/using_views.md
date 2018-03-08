@@ -287,7 +287,7 @@ Objects (according to the values of keys, in key order by using the order given 
 
 You can reverse the order of the returned view information by setting the `descending` query value `true`.
 
-> **Note**: When you issue a view or `_all_docs` request that specifies the `keys` parameter, 
+> **Note**: When you issue a view request that specifies the `keys` parameter, 
 the results are returned in the same order as the supplied `keys` array. 
 
 _Example of using HTTP to request the last five records in reversed sort order:_
