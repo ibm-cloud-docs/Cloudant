@@ -34,7 +34,7 @@ Data that has been transferred to {{site.data.keyword.dashdbshort_notm}} by Apri
 See the 
 [data-flow-examples repository ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/data-flow-examples){:new_window} 
 for tutorials on 
-extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to an 
+extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
 {{site.data.keyword.dashdbshort_notm}} table.
 
 
