@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-16"
+lastupdated: "2018-03-08"
 
 ---
 
@@ -30,6 +30,10 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Remove headers from replication document on read.
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response. 
 - Change semantics of status codes for create database.
+
+## Build 6620 (January 10, 2018)
+
+- Query: fallback to `selector` on an empty `partial_filter_selector` field.
 
 ## Build 6600 (December 28, 2017)
 
