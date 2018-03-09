@@ -54,8 +54,7 @@ This plan gives you assured database performance and up-time, by using dedicated
 hardware available at various hosting locations.
 
 For users of the Enterprise plan who require a new or additional {{site.data.keyword.cloudant_short_notm}} 
-account on one of their dedicated clusters, sign up at  
-[https://cloudant.com/enterprise-sign-up ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/enterprise-sign-up){:new_window}, 
+account on one of their dedicated clusters, sign up at [https://cloudant.com/enterprise-sign-up ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/enterprise-sign-up){:new_window}, 
 create an account using the form, and open a support ticket to request that your account be moved to one of your 
 {{site.data.keyword.cloudant_short_notm}} Enterprise dedicated clusters. 
 
