@@ -441,11 +441,14 @@ Argument            | Description                                               
 `skip`              | Skip this number of records before returning the results.                                       | yes      | numeric         | 0
 `startkey`          | Return records, starting with the specified key.                                                | yes      | string          |
 
->	**Note**: Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
+> **Note**: Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
+ 
+> **Note**: When you use the `keys` argument, it might be easier to send a `POST` 
+request rather than a `GET` request if you require many strings to list the keys you 
+want. 
 
->	**Note**: When you use the `keys` argument,
-    it might be easier to send a `POST` request rather than a `GET` request
-    if you require many strings to list the keys you want.
+> **Note**: When you issue an `_all_docs` request that specifies the `keys` parameter, 
+the results are returned in the same order as the supplied `keys` array.
 
 _Example of using HTTP to list all documents in a database:_
 
