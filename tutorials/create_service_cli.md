@@ -29,7 +29,7 @@ Details for installing the tools are available in
 > **Note**: Ensure you install both the Cloud Foundry _and_
   the {{site.data.keyword.Bluemix_notm}} toolkits.
 
-## Identifying the  API endpoint
+## Identifying the {{site.data.keyword.Bluemix_notm}} API endpoint
 
 Specify the target API endpoint for your Cloud Foundry commands;
 
