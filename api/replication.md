@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-03-09"
 
 ---
 
@@ -66,8 +66,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "source" : "http://$USERNAME1:$PASSWORD1@example.com/db",
-  "target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/db",
+  "source" : "https://$USERNAME1:$PASSWORD1@$ACCOUNT1.cloudant.com/db",
+  "target" : "https://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/db",
 }
 ```
 {:codeblock}
