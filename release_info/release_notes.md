@@ -23,6 +23,17 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 6761
+
+- Ensure deterministic revisions for attachments. See [COUCHDB-3255 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-3255){:new_window}.
+- Add a plugable storage engine.
+- Prevent `chttpd` multipart zombie processes.
+- Avoid unconditional retries in replicator's HTTP client.
+- Update MochiWeb to version 2.17.
+- Introduce new `_dbs_info` endpoint to get information from a list of databases. See 
+[Get database information for multiple databases](../api/database.html#get-database-information-for-multiple-databases).
+- Prepare for session support in replicator.
+
 ## Build 6656 (February 15, 2018)
 
 - Update `_design_docs` to respect the query parameters used by `_all_docs`. See [Get design documents](../api/database.html#get-design-documents).
