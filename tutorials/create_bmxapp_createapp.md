@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-09"
+lastupdated: "2018-03-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-09"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creating a simple Bluemix application to access a {{site.data.keyword.cloudant_short_notm}} database: the code
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: the code
 
 This section of the tutorial describes the code
 for an {{site.data.keyword.Bluemix}} application.
@@ -208,7 +208,7 @@ a {{site.data.keyword.Bluemix_notm}} application environment.
 Check by testing for the presence of the '`VCAP_SERVICES`' environment variable:
 
 ```python
-# Check that we are running in a Bluemix application environment.
+# Check that we are running in a {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
 ```
 {:codeblock}
