@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017, 2018
-lastupdated: "2018-01-30"
+  years: 2015, 2018
+lastupdated: "2018-03-13"
 
 ---
 
@@ -32,6 +32,7 @@ is referred to as a [warehouse](../guides/warehousing.html).
 Warehouses are also supported by {{site.data.keyword.cloudant_short_notm}}.
 
 ## Create
+{: #create}
 
 To create a database,
 send a `PUT` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
