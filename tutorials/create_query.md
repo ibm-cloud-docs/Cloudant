@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-03-02"
 
 ---
 {:new_window: target="_blank"}
@@ -276,17 +276,24 @@ in the following list:
 
 1.  Copy the following sample JSON data into a file named `query-index.dat`.
   ```json
-  {
-    "index": {
-      "fields": [
-        "lastname",
-        "location",
-        "age"
-      ]
-    },
-    "name": "query-index",
-    "type": "json"
-  }
+{
+	"index": {
+		"fields": [
+			"age",
+			"lastname"
+		],
+		"partial_filter_selector": {
+			"age": {
+				"$gte": 30
+			},
+			"lastname": {
+				"$eq": "Greene"
+			}
+		}
+	},
+  		"ddoc": "partial-index",
+		"type": "json"
+}
   ```
   {:codeblock}
 
@@ -313,17 +320,24 @@ in the following list:
 1.  Click **`+` > Query Indexes** on either the **All Documents** or **Design Documents** tab.
 2.  Paste the following sample JSON data into the **Index** field:
   ```json
-  {
-    "index": {
-      "fields": [
-        "lastname",  
-        "location",
-        "age"
-      ]
-    },
-    "name": "query-index",
-    "type": "json"
-  }
+{
+	"index": {
+		"fields": [
+			"age",
+			"lastname"
+		],
+		"partial_filter_selector": {
+			"age": {
+				"$gte": 30
+			},
+			"lastname": {
+				"$eq": "Greene"
+			}
+		}
+	},
+  		"ddoc": "partial-index",
+		"type": "json"
+}
   ```
   {:codeblock}
 
@@ -542,44 +556,59 @@ We use a selector expression like the following example:
 ```json
 {
   "selector": {
-    "lastname": {
-      "$eq": "Greene"
-    },
     "age": {
       "$gt": 30
+    },
+    "lastname": {
+      "$eq": "Greene"
     }
   }
 }
-```   
+``` 
+{:codeblock}
+
+The results are sorted by last name in ascending order based on the 
+values in the `sort` parameter.
+
+```json
+    "sort": [
+      {
+        "age": "asc"   
+      },        
+      {
+        "lastname": "asc"
+      }
+    ] 
+```  
 {:codeblock}
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
 1.  Copy the following sample JSON to a file named `query3.dat`.
   ```json
-  {
-    "selector": {
-      "lastname": {
-        "$eq": "Greene"
-      },
+{
+   "selector": {
       "age": {
-        "$gt": 30
+         "$gt": 30
+      },
+      "lastname": {
+         "$eq": "Greene"
       }
-    },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
-    ],
-    "sort": [
+   },
+   "fields": [
+      "age",
+      "firstname"
+   ],
+   "sort": [
       {
-        "lastname": "asc"
+         "age": "asc"
       },
       {
-        "firstname": "asc"
+         "lastname": "asc"
       }
-    ]  
-  }
+   ],
+   "use_index": "_design/partial-index"
+}
   ```
   {:codeblock}
 
@@ -591,20 +620,12 @@ We use a selector expression like the following example:
 
 3.  Review the query results:
   ```json
-  {
-    "docs": [
-      {
-        "firstname": "Anna",
-        "lastname": "Greene",
-        "age": 44
-      },
-      {
-        "firstname": "Greg",
-        "lastname": "Greene",
-        "age": 35
-      }
-    ]
-  }
+{"docs":[
+     {"age":35,"firstname":"Greg"},
+     {"age":44,"firstname":"Anna"}
+   ],
+"bookmark": "g1AAAABCeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmFwOSHWiDkiSzb0oNTUvNSsLAEsmEeQ"
+}
   ```
   {:codeblock}
 
@@ -613,29 +634,29 @@ We use a selector expression like the following example:
 1.  Click the **Query** tab.
 2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
   ```json
-  {
-    "selector": {
-      "lastname": {
-        "$eq": "Greene"
-      },
+{
+   "selector": {
       "age": {
-        "$gt": 30
+         "$gt": 30
+      },
+      "lastname": {
+         "$eq": "Greene"
       }
-    },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
-    ],
-    "sort": [
+   },
+   "fields": [
+      "age",
+      "firstname"
+   ],
+   "sort": [
       {
-        "lastname": "asc"
+         "age": "asc"
       },
       {
-        "firstname": "asc"
+         "lastname": "asc"
       }
-    ]   
-  }
+   ],
+   "use_index": "_design/partial-index"
+}
   ```
   {:codeblock}
 
