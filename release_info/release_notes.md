@@ -23,7 +23,7 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 6761
+## Build 6761 (March 13, 2018)
 
 - Ensure deterministic revisions for attachments. See [COUCHDB-3255 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-3255){:new_window}.
 - Add a plugable storage engine.
