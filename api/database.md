@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-01"
+lastupdated: "2018-03-13"
 
 ---
 
@@ -32,6 +32,7 @@ is referred to as a [warehouse](../guides/warehousing.html).
 Warehouses are also supported by {{site.data.keyword.cloudant_short_notm}}.
 
 ## Create
+{: #create}
 
 To create a database,
 send a `PUT` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
@@ -416,6 +417,125 @@ _Example `POST` return for design documents:_
 }
 ```
 {:codeblock}
+
+## Get database information for multiple databases
+{: #get-database-information-for-multiple-databases}
+
+To retrieve database information for multiple databases, send a `POST` request to https://$ACCOUNT.cloudant.com/_dbs_info.
+
+_Example of using HTTP to retrieve database information:_
+
+```http
+POST /_dbs_info HTTP/1.1
+```
+_Example of using the command line to retrieve database information:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/_dbs_info -d @request.json
+```
+
+The `/_dbs_info` endpoint returns information about a list of specified databases in the {{site.data.keyword.cloudant_short_notm}} instance.
+This enables you to request information about multiple databases in a single request, instead of multiple `GET /{$DATABASE}` requests.
+
+The request JSON object should have a `keys` field, as shown in the following example. 
+
+_Example request for database information:_
+
+```json
+POST /_dbs_info HTTP/1.1
+Accept: application/json
+Host: localhost:5984
+Content-Type: application/json
+
+{
+    "keys": [
+        "animals",
+        "plants"
+    ]
+}
+```
+{:codeblock}
+
+_Example response to the request for database information:_
+
+```json
+HTTP/1.1 200 OK
+Cache-Control: must-revalidate
+Content-Type: application/json
+Date: Sat, 20 Dec 2017 06:57:48 GMT
+Server: CouchDB (Erlang/OTP)
+
+[
+  {
+    "key": "animals",
+    "info": {
+      "db_name": "animals",
+      "update_seq": "52232",
+      "sizes": {
+        "file": 1178613587,
+        "external": 1713103872,
+        "active": 1162451555
+      },
+      "purge_seq": 0,
+      "other": {
+        "data_size": 1713103872
+      },
+      "doc_del_count": 0,
+      "doc_count": 52224,
+      "disk_size": 1178613587,
+      "disk_format_version": 6,
+      "data_size": 1162451555,
+      "compact_running": false,
+      "cluster": {
+        "q": 8,
+        "n": 3,
+        "w": 2,
+        "r": 2
+      },
+      "instance_start_time": "0"
+    }
+  },
+  {
+    "key": "plants",
+    "info": {
+      "db_name": "plants",
+      "update_seq": "303",
+      "sizes": {
+        "file": 3872387,
+        "external": 2339,
+        "active": 67475
+      },
+      "purge_seq": 0,
+      "other": {
+        "data_size": 2339
+      },
+      "doc_del_count": 0,
+      "doc_count": 11,
+      "disk_size": 3872387,
+      "disk_format_version": 6,
+      "data_size": 67475,
+      "compact_running": false,
+      "cluster": {
+        "q": 8,
+        "n": 3,
+        "w": 2,
+        "r": 2
+      },
+      "instance_start_time": "0"
+    }
+  }
+]
+```
+{:codeblock}
+
+See the following table for status code information:
+
+Code            | Description 
+----------------|------------
+200 OK          | Request completed successfully.
+400 Bad Request | Missing keys or exceeded keys specified in `POST` payload of the request. The default maximum number of specified keys in the request is 100.
+
+
 
 ## Get Documents
 

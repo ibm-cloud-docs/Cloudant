@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-26"
+lastupdated: "2018-02-28"
 
 ---
 
@@ -23,7 +23,7 @@ Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releas
 
 - You can find a schedule and alternatives to {{site.data.keyword.dashdblong}} [here](../guides/warehousing.html#deprecating-cloudant-nosql-db-s-db2-warehouse-on-cloud-feature-february-7-2018-). 
 
-## Disabled JavaScript constructors
+## Disabled JavaScript constructors (December 7, 2017)
 
 - If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message
 similar to this is returned, "Call to `eval()` was blocked by CSP." You can fix the problem 
@@ -55,7 +55,7 @@ in the request body is ignored while the parameter in the request URL is respect
 	{"error":"not_found","reason":"missing_rev"}
 	```
 
-## X-Frame-Options setting
+## X-Frame-Options setting (August 17, 2017)
 
 The `X-Frame-Options` setting is a response header that controls whether an HTTP response can be embedded in a `<frame>`, `<iframe>`, or `<object>`. This security feature helps prevent clickjacking.
 
@@ -65,7 +65,7 @@ This change might impact customers who are accessing the database directly from 
 and it is breaking your service, you must enable CORS, [Setting the CORS configuration](../api/cors.html#setting-the-cors-configuration). After you enable CORS, add the value of the HOST header that you send in the request 
 to the list of allowed `origins`.
 
-## - `dbcopy`
+## `dbcopy` (February 4, 2016)
 
 - The `dbcopy` feature can cause problems under some circumstances.
   Information about the feature has been removed from the documentation.
