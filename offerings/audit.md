@@ -1,7 +1,7 @@
 # Audit logging
 
-Audit logging shows the {{site.data.keyword.cloudantfull}} users who have accessed personal data from a
-database. The audit logging function records the principal (account credentials or API keys), action, and 
+Audit logging records the {{site.data.keyword.cloudantfull}} users who have accessed personal data from a
+database. The audit logging function tracks the principal (account credentials or API keys), action, and 
 resource for all API accesses to {{site.data.keyword.cloudant_short_notm}}. At the API level, 
 {{site.data.keyword.cloudant_short_notm}} logs who accessed the account, 
 specific databases, and specific documents. Each API access record is a JSON object that contains 
@@ -10,7 +10,7 @@ the following core fields:
 Field | Description
 ------|------------
 `principal` | The authenticated principal for the request.
-`action` | The action carried out, from list below.
+`action` | The action carried out.
 `resource` | CRN for resource accessed (account, database, document).
 `timestamp` | A record of the time and data of the event. 
 
@@ -20,10 +20,10 @@ and constructs a JSON record that is sent via TCP to a local rsyslog. The rsyslo
 forwards the message using TLS.
 {:shortdesc}
 
-## Information available with audit logging
+## Actions logged
 
-{{site.data.keyword.IBM}} {{site.data.keyword.cloudant_short_notm}} Support can query the database and 
-find the date and time when each of the following events occurred: 
+{{site.data.keyword.cloudant_short_notm}} Support can query the database and 
+find the date and time when each of the following actions occurred: 
 
 - Access a document, database, or account.
 - Access a document in a specific account.
