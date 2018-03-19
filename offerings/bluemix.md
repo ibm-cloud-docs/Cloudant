@@ -305,7 +305,8 @@ Exceeding any of these limits results in a [413 response](../api/http.html#413).
 It is recommended that you store large binary attachments, or JSON blobs, in object storage 
 and save a link to the location in a {{site.data.keyword.cloudant_short_notm}} JSON document. 
 
-For more information about what to do when documents fail to replicate, see [replication errors](../api/replication.html#replication-errors).
+If you exceed the specified limits, some of your documents will not replicate. For more information 
+about how to fix this issue, see [replication errors](../api/replication.html#replication-errors).
 
 ## Locations and tenancy
 
