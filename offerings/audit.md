@@ -1,15 +1,16 @@
 # Audit logging
 
 The couch_audit application shows customers who has accessed personal data from a
-database. At the API level, {{site.data.keyword.cloudantfull}} logs who (account credentials or API keys) 
-accessed the account, specific databases and specific
+database. At the API level, {{site.data.keyword.cloudantfull}} logs who, account credentials or API keys, 
+accessed the account, specific databases, and specific
 documents. Each API access record is a JSON object that contains the following core fields:
 
-- principal - the authenticated principal for the request.
-- action - the action carried out, from list below.
-- resource - CRN for resource accessed (account, database, document).
-- Additional standard fields - account, database, and document to allow for easier querying.
-- A timestamp.
+Field | Description
+------|------------
+`principal` | The authenticated principal for the request.
+`action` | The action carried out, from list below.
+`resource` | CRN for resource accessed (account, database, document).
+`timestamp` | A record of the time and data of the event. 
 
 The couch_audit application is a simple audit function that takes a request object, extracts the 
 necessary information from the object, 
