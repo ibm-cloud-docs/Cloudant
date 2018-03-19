@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-12-11"
+lastupdated: "2018-03-19"
 
 ---
 
@@ -291,6 +291,21 @@ Data is stored within {{site.data.keyword.cloudant_short_notm}} as [JSON documen
 For documents in a {{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.Bluemix_notm}},
 the maximum size for an individual document is 1 MB.
 Exceeding this limit causes a [`413` error](../api/http.html#413).
+
+### Request and Document Size Limits
+
+{{site.data.keyword.cloudant_short_notm}} JSON documents and requests have the following maximum size:
+
+* [JSON documents](../api/document.html#documents) - 1 MB
+* [Attachments](../api/attachments.html#attachments) - 10 MB
+* Requests - 11 MB
+
+Exceeding any of these limits results in a [413 response](../api/http.html#413).
+
+It is recommended that you store large binary attachments, or JSON blobs, in object storage 
+and save a link to the location in a {{site.data.keyword.cloudant_short_notm}} JSON document. 
+
+For more information about what to do when documents fail to replicate, see [replication errors](../api/replication.html#replication-errors).
 
 ## Locations and tenancy
 
