@@ -285,13 +285,6 @@ you will be billed an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours
 
 The total overage bill for the month would be based on a total of 88 + 168 + 5184 = 5440 GB hours.
 
-### Maximum individual document size
-
-Data is stored within {{site.data.keyword.cloudant_short_notm}} as [JSON documents](../api/document.html).
-For documents in a {{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.Bluemix_notm}},
-the maximum size for an individual document is 1 MB.
-Exceeding this limit causes a [`413` error](../api/http.html#413).
-
 ### Request and Document Size Limits
 
 {{site.data.keyword.cloudant_short_notm}} JSON documents and requests have the following maximum size:
