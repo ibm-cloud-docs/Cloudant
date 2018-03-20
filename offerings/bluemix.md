@@ -15,6 +15,7 @@ lastupdated: "2018-03-19"
 <!-- Acrolinx: 2017-02-23 -->
 
 # {{site.data.keyword.Bluemix_notm}} Public
+{: #ibm-cloud-public}
 
 {{site.data.keyword.cloudantfull}} Public is {{site.data.keyword.cloudant_short_notm}}'s most 
 feature-rich offering, receiving updates and new features first. Pricing is based on 
@@ -134,7 +135,7 @@ Hardware plan is not available to {{site.data.keyword.Bluemix_notm}} Dedicated c
 Public customers.
 
 ## Provisioned throughput capacity
-
+{: #provisioned-throughput-capacity}
 Throughput provision is identified and measured as one of three kinds of events:
 
 1.	A lookup,
@@ -295,8 +296,9 @@ The total overage bill for the month would be based on a total of 88 + 168 + 518
 
 Exceeding any of these limits results in a [413 response](../api/http.html#413).
 
-It is recommended that you store binary attachments, or large JSON blobs, in object storage 
-and save a link to the location in a {{site.data.keyword.cloudant_short_notm}} JSON document. 
+It is recommended that you store binary attachments, or large JSON blobs, 
+in object storage and save a link to the location in a 
+{{site.data.keyword.cloudant_short_notm}} JSON document.   
 
 When replicating, documents or attachments larger than these limits will not be 
 replicated to the target database. More information about how to detect replication
