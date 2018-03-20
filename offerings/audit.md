@@ -1,3 +1,19 @@
+---
+
+copyright:
+  years: 2015, 2018
+lastupdated: "2018-03-19"
+
+---
+
+{:new_window: target="_blank"}
+{:shortdesc: .shortdesc}
+{:screen: .screen}
+{:codeblock: .codeblock}
+{:pre: .pre}
+
+<!-- Acrolinx: 2018-00-00 -->
+
 # Audit logging
 
 Audit logging records the {{site.data.keyword.cloudantfull}} users who have accessed personal data from a
