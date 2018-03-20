@@ -285,21 +285,22 @@ you will be billed an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours
 
 The total overage bill for the month would be based on a total of 88 + 168 + 5184 = 5440 GB hours.
 
-### Request and Document Size Limits
+### Request and document size limits
 
 {{site.data.keyword.cloudant_short_notm}} JSON documents and requests have the following maximum size:
 
 * [JSON documents](../api/document.html#documents) - 1 MB
 * [Attachments](../api/attachments.html#attachments) - 10 MB
-* Requests - 11 MB
+* Total HTTP request body size - 11 MB
 
 Exceeding any of these limits results in a [413 response](../api/http.html#413).
 
-It is recommended that you store large binary attachments, or JSON blobs, in object storage 
+It is recommended that you store binary attachments, or large JSON blobs, in object storage 
 and save a link to the location in a {{site.data.keyword.cloudant_short_notm}} JSON document. 
 
-If you exceed the specified limits, some of your documents will not replicate. For more information 
-about how to fix this issue, see [replication errors](../api/replication.html#replication-errors).
+When replicating, documents or attachments larger than these limits will not be 
+replicated to the target database. More information about how to detect replication
+errors is available [here](../api/replication.html#replication-errors).
 
 ## Locations and tenancy
 
@@ -316,7 +317,7 @@ Dedicated Hardware plan instances can be deployed in most
 [{{site.data.keyword.IBM_notm}} data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
 See the drop-down menu in the {{site.data.keyword.Bluemix_notm}} catalog for an up-to-date list of available locations.
 
-## Security, Encryption, and Compliance
+## Security, encryption, and compliance
 
 All plans are provided on servers with
 [at-rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window} disk encryption.

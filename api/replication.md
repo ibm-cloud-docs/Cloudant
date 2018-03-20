@@ -665,7 +665,7 @@ _Example request to cancel the replication, providing matching fields to the ori
 
 ## Replication errors
 
-When replicating to a target cluster with these [limits](../offerings/bluemix.html#request-and-document-size-limits), 
+When replicating to a target cluster with these size [limits](../offerings/bluemix.html#request-and-document-size-limits), 
 documents which exceed any of the limits will 
 not be replicated. For continuous replications, monitor the `_active_tasks` endpoint and check 
 the replication task's `doc_write_failures` counter. If the `doc_write_failures` counter is not `0`, 
