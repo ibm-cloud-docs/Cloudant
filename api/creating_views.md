@@ -180,9 +180,11 @@ The latter case is referred to as a 'rereduce'.
 
 Reduce functions are passed three arguments in the following order:
 
--	keys - an array of values.
--	values - an array of values.
--	rereduce - a boolean flag.
+-	keys
+-	values
+-	rereduce
+
+A description of the reduce functions follows. 
 
 _Example of a reduce function:_
 
