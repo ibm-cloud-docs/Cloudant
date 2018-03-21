@@ -184,7 +184,7 @@ Reduce functions are passed three arguments in the following order:
 -	values
 -	rereduce
 
-A description of the reduce functions follows. 
+A description of the reduce functions follows below. 
 
 _Example of a reduce function:_
 
