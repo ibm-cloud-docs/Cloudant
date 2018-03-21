@@ -73,7 +73,7 @@ space configuration for the plans:
 <td>1,000</td>
 </tr>
 <tr>
-<td>Maximum individual document size</td>
+<td>Maximum Individual Document Size</td>
 <td>1 MB</td>
 <td colspan='4'>1 MB</td>
 </tr>
