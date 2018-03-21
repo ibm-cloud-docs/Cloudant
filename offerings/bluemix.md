@@ -36,6 +36,8 @@ compliant configuration.
 The following table summarizes the provisioned throughput capacity and disk 
 space configuration for the plans:
 
+<div id="maxtable"></div>
+
 <table border='1'>
 
 <tr>
@@ -74,6 +76,16 @@ space configuration for the plans:
 <td>Maximum individual document size</td>
 <td>1 MB</td>
 <td colspan='4'>1 MB</td>
+</tr>
+<tr>
+<td>Maximum Single Attachment Size Limit</td>
+<td>10 MB</td>
+<td colspan='4'>10 MB</td>
+</tr>
+<tr>
+<td>Request Body Size Limit</td>
+<td>11 MB</td>
+<td colspan='4'>11 MB</td>
 </tr>
 <tr>
 <td>Disk Space Included</td>
@@ -288,13 +300,9 @@ The total overage bill for the month would be based on a total of 88 + 168 + 518
 
 ### Request and document size limits
 
-{{site.data.keyword.cloudant_short_notm}} JSON documents and requests have the following maximum size:
-
-* [JSON documents](../api/document.html#documents) - 1 MB
-* [Attachments](../api/attachments.html#attachments) - 10 MB
-* Total HTTP request body size - 11 MB
-
-Exceeding any of these limits results in a [413 response](../api/http.html#413).
+{{site.data.keyword.cloudant_short_notm}} JSON documents and requests have 
+[maximum size limits](#maxtable). Exceeding any of these limits results 
+in a [413 response](../api/http.html#413).
 
 It is recommended that you store binary attachments, or large JSON blobs, 
 in object storage and save a link to the location in a 
