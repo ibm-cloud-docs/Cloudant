@@ -288,8 +288,8 @@ The total overage bill for the month would be based on a total of 88 + 168 + 518
 {{site.data.keyword.cloudant_short_notm}} JSON documents and requests have the 
 following maximum size limits: 
 
-Size Limit | Maximum Size
------------|-------------
+Size Limit | Maximum Size Limit
+-----------|-------------------
 Maximum Individual Document Size | 1 MB
 Maximum Single Attachment Size Limit | 10 MB
 Request Body Size Limit | 11 MB
