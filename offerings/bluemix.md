@@ -73,21 +73,6 @@ space configuration for the plans:
 <td>1,000</td>
 </tr>
 <tr>
-<td>Maximum Individual Document Size</td>
-<td>1 MB</td>
-<td colspan='4'>1 MB</td>
-</tr>
-<tr>
-<td>Maximum Single Attachment Size Limit</td>
-<td>10 MB</td>
-<td colspan='4'>10 MB</td>
-</tr>
-<tr>
-<td>Request Body Size Limit</td>
-<td>11 MB</td>
-<td colspan='4'>11 MB</td>
-</tr>
-<tr>
 <td>Disk Space Included</td>
 <td>1 GB</td>
 <td colspan='4'>20 GB</td>
@@ -298,11 +283,18 @@ you will be billed an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours
 
 The total overage bill for the month would be based on a total of 88 + 168 + 5184 = 5440 GB hours.
 
-### Request and document size limits
+## Request and document size limits
 
-{{site.data.keyword.cloudant_short_notm}} JSON documents and requests have 
-[maximum size limits](#maxtable). Exceeding any of these limits results 
-in a [413 response](../api/http.html#413).
+{{site.data.keyword.cloudant_short_notm}} JSON documents and requests have the 
+following maximum size limits: 
+
+Size Limit | Maximum Size
+-----------|-------------
+Maximum Individual Document Size | 1 MB
+Maximum Single Attachment Size Limit | 10 MB
+Request Body Size Limit | 11 MB
+
+Exceeding any of these limits results in a [413 response](../api/http.html#413).
 
 It is recommended that you store binary attachments, or large JSON blobs, 
 in object storage and save a link to the location in a 
