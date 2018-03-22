@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-09"
+lastupdated: "2018-03-22"
 
 ---
 
@@ -661,6 +661,17 @@ _Example request to cancel the replication, providing matching fields to the ori
 }
 ```
 {:codeblock}
+
+
+## Replication errors
+
+When replicating to a target cluster with these size [limits](../offerings/bluemix.html#request-and-document-size-limits), 
+documents which exceed any of the limits will 
+not be replicated. For continuous replications, monitor the `_active_tasks` endpoint and check 
+the replication task's `doc_write_failures` counter. If the `doc_write_failures` counter is not `0`, 
+it means some documents did 
+not replicate. If replication is not continuous, and has already completed, the `doc_write_failures` 
+counter can be found in the replication document's `_replication_stats` object.
 
 ## Example replication sequence
 

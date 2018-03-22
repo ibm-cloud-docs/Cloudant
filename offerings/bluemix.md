@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-12-11"
+lastupdated: "2018-03-22"
 
 ---
 
@@ -15,6 +15,7 @@ lastupdated: "2017-12-11"
 <!-- Acrolinx: 2017-02-23 -->
 
 # {{site.data.keyword.Bluemix_notm}} Public
+{: #ibm-cloud-public}
 
 {{site.data.keyword.cloudantfull}} Public is {{site.data.keyword.cloudant_short_notm}}'s most 
 feature-rich offering, receiving updates and new features first. Pricing is based on 
@@ -34,6 +35,8 @@ compliant configuration.
 
 The following table summarizes the provisioned throughput capacity and disk 
 space configuration for the plans:
+
+<div id="maxtable"></div>
 
 <table border='1'>
 
@@ -68,11 +71,6 @@ space configuration for the plans:
 <td>50</td>
 <td>250</td>
 <td>1,000</td>
-</tr>
-<tr>
-<td>Maximum individual document size</td>
-<td>1 MB</td>
-<td colspan='4'>1 MB</td>
 </tr>
 <tr>
 <td>Disk Space Included</td>
@@ -134,7 +132,7 @@ Hardware plan is not available to {{site.data.keyword.Bluemix_notm}} Dedicated c
 Public customers.
 
 ## Provisioned throughput capacity
-
+{: #provisioned-throughput-capacity}
 Throughput provision is identified and measured as one of three kinds of events:
 
 1.	A lookup,
@@ -285,12 +283,26 @@ you will be billed an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours
 
 The total overage bill for the month would be based on a total of 88 + 168 + 5184 = 5440 GB hours.
 
-### Maximum individual document size
+## Request and document size limits
 
-Data is stored within {{site.data.keyword.cloudant_short_notm}} as [JSON documents](../api/document.html).
-For documents in a {{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.Bluemix_notm}},
-the maximum size for an individual document is 1 MB.
-Exceeding this limit causes a [`413` error](../api/http.html#413).
+{{site.data.keyword.cloudant_short_notm}} JSON documents and requests have the 
+following maximum size limits: 
+
+Limit | Maximum Size
+------|-------------
+Individual Document Size | 1 MB
+Single Attachment Size | 10 MB
+Request Body Size | 11 MB
+
+Exceeding any of these limits results in a [413 response](../api/http.html#413).
+
+It is recommended that you store binary attachments, or large JSON blobs, 
+in object storage and save a link to the location in a 
+{{site.data.keyword.cloudant_short_notm}} JSON document.   
+
+When replicating, documents or attachments larger than these limits will not be 
+replicated to the target database. More information about how to detect replication
+errors is available [here](../api/replication.html#replication-errors).
 
 ## Locations and tenancy
 
@@ -307,7 +319,7 @@ Dedicated Hardware plan instances can be deployed in most
 [{{site.data.keyword.IBM_notm}} data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
 See the drop-down menu in the {{site.data.keyword.Bluemix_notm}} catalog for an up-to-date list of available locations.
 
-## Security, Encryption, and Compliance
+## Security, encryption, and compliance
 
 All plans are provided on servers with
 [at-rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window} disk encryption.
