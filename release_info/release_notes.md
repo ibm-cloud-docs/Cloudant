@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-08"
+lastupdated: "2018-03-22"
 
 ---
 
@@ -22,6 +22,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6843 (March 23, 2018)
+
+- Improve error messages for Mango. 
+- Add audit facility for database API operations.
 
 ## Build 6761 (March 13, 2018)
 
