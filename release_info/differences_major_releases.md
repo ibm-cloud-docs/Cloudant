@@ -27,7 +27,7 @@ versions are released.
 
 ## Incompatibilites
 
-### Workaround for getting attachments inline
+### Attachments
 
 - After the CouchDB 1.2.0 release, the default value for `Content-Type`, chosen when a `GET` request is made to `/$DATABASE/$DOCUMENT` with `?attachments=true`, has changed from `application/json` to `mp/related`. If you experience issues and cannot update the logic of your application to handle multipart, you can use the following workaround: Explicitly set `accept:application/json`.
 
