@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-01"
+lastupdated: "2018-03-22"
 
 ---
 
@@ -339,6 +339,16 @@ an API key does not have access to the dashboard.
 
 An API key is primarily used to enable applications to access a database,
 with a determined level of access control.
+
+> **Note**: All {{site.data.keyword.cloudant_short_notm}} instances deployed 
+from the {{site.data.keyword.Bluemix_notm}} Public Germany 
+region will be deployed in EU-managed environments. Any 
+{{site.data.keyword.cloudant_short_notm}} account or 
+API key generated outside of an EU-managed environment cannot be granted 
+access to an EU-managed {{site.data.keyword.cloudant_short_notm}} instance. 
+For more information on {{site.data.keyword.cloudant_short_notm}} 
+in an EU-managed environment, see 
+[Locations and tenancy](../offerings/bluemix.html#locations-and-tenancy).
 
 ## Creating API Keys
 
