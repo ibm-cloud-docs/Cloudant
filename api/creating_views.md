@@ -98,20 +98,20 @@ _Example response from running the simple view query:_
 
 ```json
 {
-	"total_rows": 2,
-	"offset": 0,
-	"rows": [
-		{
-			"id":"23598567",
-			"number":"23598567",
-			"training":"2014/05/21 10:00:00"
-		},
-		{
-			"id":"42987103",
-			"number":"42987103",
-			"training":"2014/07/30 12:00:00"
-		}
-	]
+  "total_rows": 2,
+  "offset": 0,
+  "rows": [
+    {
+      "id": "23598567",
+      "key": "23598567",
+      "value": "2014/05/21 10:00:00"
+    },
+    {
+      "id": "42987103",
+      "key": "42987103",
+      "value": "2014/07/30 12:00:00"
+    }
+  ]
 }
 ```
 {:codeblock}
