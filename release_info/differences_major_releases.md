@@ -32,7 +32,7 @@ versions are released.
 - The default response content-type has changed from `text/plan` to `application/json`. 
 Previously, in the CouchDB 1.6-base release, the content-type of JSON database 
 responses was `text/plan` unless the client explicitly stated `Accept: application/json`. 
-In newer releases, and for all future releases, the default 
+In newer releases, and for all future releases, the 
 response content-type is `application/json`. 
 
 ### Disabled JavaScript constructors
