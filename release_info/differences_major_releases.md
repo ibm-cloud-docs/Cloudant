@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-23"
+lastupdated: "2018-03-26"
 
 ---
 
@@ -29,7 +29,14 @@ versions are released.
 
 ### Attachments
 
-- After the CouchDB 1.2.0 release, the default value for `Content-Type`, chosen when a `GET` request is made to `/$DATABASE/$DOCUMENT` with `?attachments=true`, has changed from `application/json` to `mp/related`. If you experience issues and cannot update the logic of your application to handle multipart, you can use the following workaround: Explicitly set `accept:application/json`.
+<ul><li>Change in default response format for retrieving documents using attachments=true 
+query string parameter. 
+<p>A call to retrieve a document and its attachment (<code>GET /db/doc?attachments=true</code>) can return data in either a JSON or <code>multipart/related</code> format. An explicit <code>Accept</code> is used to switch between the two.</p>
+
+<p>Previously, a call to retrieve a document and all its attachments would return the <code>application/json</code> format if no <code>Accept</code> header was provided. Now, the default is to provide a <code>multipart/related</code> body. This change was made because the <code>multipart/related</code> format is more efficient to generate.</p>
+
+<p>If your application is expecting an <code>application/json</code> response, the <code>Accept: application/json</code> header now needs to be explicitly set.</p>
+</li></ul>
 
 ### Disabled JavaScript constructors
 
