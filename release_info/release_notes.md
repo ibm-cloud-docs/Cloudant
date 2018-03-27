@@ -26,7 +26,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6843 (March 23, 2018)
 
 - Improve error messages for {{site.data.keyword.cloudant_short_notm}} Query. 
-- Add audit facility for database API operations.
+- New internal audit facility is added to the platform.
 
 ## Build 6761 (March 13, 2018)
 
