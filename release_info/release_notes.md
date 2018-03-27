@@ -12,7 +12,7 @@ lastupdated: "2018-03-28"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-07-13 -->
+<!-- Acrolinx: 2017-07-14 -->
 
 # Release Notes
 
