@@ -274,6 +274,10 @@ _Example of the reply:_
 ```
 {:codeblock}
 
+### Restrictions for map and reduce functions
+
+
+
 ## Storing the view definition
 
 Each view is a Javascript function.
