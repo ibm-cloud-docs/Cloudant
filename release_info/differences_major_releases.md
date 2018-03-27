@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-12-27"
+lastupdated: "2018-03-27"
 
 ---
 
@@ -29,9 +29,9 @@ versions are released.
 
 ### Response Content-Type
 
-- The default response content-type has changed from `text/plan` to `application/json`. 
-Previously, in the CouchDB 1.6-base release, the content-type of JSON database 
-responses was `text/plan` unless the client explicitly stated `Accept: application/json`. 
+- The default response content-type has changed from `text/plain` to `application/json`. 
+Previously, in the CouchDB 1.6-based release, the content-type of JSON database 
+responses was `text/plain` unless the client explicitly stated `Accept: application/json`. 
 In newer releases, and for all future releases, the 
 response content-type is `application/json`. 
 
