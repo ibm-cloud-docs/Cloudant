@@ -274,8 +274,6 @@ _Example of the reply:_
 ```
 {:codeblock}
 
-
-
 ## Storing the view definition
 
 Each view is a Javascript function.
