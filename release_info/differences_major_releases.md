@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-26"
+lastupdated: "2018-03-28"
 
 ---
 
@@ -26,6 +26,14 @@ versions are released.
 - The new replication scheduler has several improvements and enhancements. Learn more about the [replication scheduler](../api/advanced_replication.html#the-replication-scheduler).
 
 ## Incompatibilites
+
+### Response Content-Type
+
+- The default response content-type has changed from `text/plain` to `application/json`. 
+Previously, in the CouchDB 1.6-based release, the content-type of JSON database 
+responses was `text/plain` unless the client explicitly stated `Accept: application/json`. 
+In newer releases, and for all future releases, the 
+response content-type is `application/json`. 
 
 ### Attachments
 

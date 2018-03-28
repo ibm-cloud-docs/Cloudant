@@ -310,14 +310,22 @@ By default, all Lite and Standard plans are deployed on multi-tenant
 environments. As part of your plan selection, you can choose from the 
 following {{site.data.keyword.Bluemix_notm}} Public regions:
 
+-   US East
 -   US South
 -   United Kingdom
 -   Sydney
--   Germany
+-   Germany&Dagger;
 
 Dedicated Hardware plan instances can be deployed in most 
 [{{site.data.keyword.IBM_notm}} data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
 See the drop-down menu in the {{site.data.keyword.Bluemix_notm}} catalog for an up-to-date list of available locations.
+
+&Dagger;All {{site.data.keyword.cloudant_short_notm}} instances deployed from the 
+{{site.data.keyword.Bluemix_notm}} Public Germany region will be 
+deployed in EU-managed environments. Any {{site.data.keyword.cloudant_short_notm}} 
+account or API key generated 
+outside of an EU-managed environment cannot be granted access to an EU-managed 
+{{site.data.keyword.cloudant_short_notm}} instance.
 
 ## Security, encryption, and compliance
 
