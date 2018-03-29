@@ -274,9 +274,67 @@ _Example of the reply:_
 ```
 {:codeblock}
 
-### Restrictions for map and reduce functions
+### Map and reduce function restrictions
+
+This section describes map and reduce function restrictions.
+
+#### Referential transparency
+
+The map function must be referentially transparent. Referential transparency means that 
+an expression can be replaced with the same value without changing the result, in this 
+case, a document and a key/value pair. Because of this, 
+{{site.data.keyword.cloudant_short_notm}} views can be updated 
+incrementally and only reindex the delta since the last update.
+
+#### Commutative and associative properties
+
+In addition to referential transparency, the reduce function must also use commutative 
+and associative properties for the input. This makes it possible for the MapReduce 
+function to reduce its own output and produce the same response, for example:
+
+<code>f(Key, Values) == f(Key, [ f(Key, Values) ] )</code> 
+
+As a result, {{site.data.keyword.cloudant_short_notm}} can store intermediated 
+reductions to the inner nodes of the 
+B-tree indexes. The view index updates and retrievals incur logarithmic cost. This 
+restrictions also makes it possible for indexes to spread across machines and reduce 
+at query time with logarithmic cost. 
+
+#### Document partitioning 
+
+During the reduce and re-reduce phases, document partitioning is out of your control. 
+Documents are randomly presented to the reduce function. This scenario explains the 
+reduce and re-reduce phases. 
+>>>original scenario
+A subset is reduced to R1, and another subset is reduced to R2. Then R1 and R2 are 
+re-reduced together to produce the final reduce value. In the extreme case, each of 
+your documents can be reduced individually, and that reduce output is re-reduced 
+together, which might happen as a single stage or in multiple stages.
+>>>
+
+It is best if you design your reduce and re-reduce function after this example:
+
+<code>f(Key, Values) == f(Key, [ f(Key, Value0), f(Key, Value1), f(Key, Value2), ... ] )</code>
 
 
+#### Reduced value size
+
+{{site.data.keyword.cloudant_short_notm}} computes view indexes and the 
+corresponding reduce values then caches 
+these values inside each of the B-tree node pointers. Now, 
+{{site.data.keyword.cloudant_short_notm}} can reuse 
+educed values when updating the B-tree. You must pay attention to the amount 
+of data that is returned from reduce functions.
+
+It is best that the size of your returned data set stays small and grows no 
+faster than `log(num_rows_processed)`. If you ignore this restriction, 
+{{site.data.keyword.cloudant_short_notm}} does not automatically throw an error, 
+but B-tree performance degrades 
+dramatically. If your view works correctly with small data sets but quits 
+working when more data is added, you might have violated the growth rate 
+characteristic restriction. 
+
+For more information, see the original article in the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://wiki.apache.org/couchdb/Introduction_to_CouchDB_views#Restrictions_on_map_and_reduce_functions){:new_window}.
 
 ## Storing the view definition
 
