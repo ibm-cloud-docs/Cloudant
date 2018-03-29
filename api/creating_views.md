@@ -274,11 +274,11 @@ _Example of the reply:_
 ```
 {:codeblock}
 
-### Map and reduce function restrictions
+## Map and reduce function restrictions
 
 This section describes map and reduce function restrictions.
 
-#### Referential transparency
+### Referential transparency
 
 The map function must be referentially transparent. Referential transparency means that 
 an expression can be replaced with the same value without changing the result, in this 
@@ -286,7 +286,7 @@ case, a document and a key/value pair. Because of this,
 {{site.data.keyword.cloudant_short_notm}} views can be updated 
 incrementally and only reindex the delta since the last update.
 
-#### Commutative and associative properties
+### Commutative and associative properties
 
 In addition to referential transparency, the reduce function must also use commutative 
 and associative properties for the input. This makes it possible for the MapReduce 
@@ -300,7 +300,7 @@ B-tree indexes. The view index updates and retrievals incur logarithmic cost. Th
 restrictions also makes it possible for indexes to spread across machines and reduce 
 at query time with logarithmic cost. 
 
-#### Document partitioning 
+### Document partitioning 
 
 During the reduce and re-reduce phases, document partitioning is out of your control. 
 Documents are randomly presented to the reduce function. This scenario explains the 
@@ -317,7 +317,7 @@ It is best if you design your reduce and re-reduce function after this example:
 <code>f(Key, Values) == f(Key, [ f(Key, Value0), f(Key, Value1), f(Key, Value2), ... ] )</code>
 
 
-#### Reduced value size
+### Reduced value size
 
 {{site.data.keyword.cloudant_short_notm}} computes view indexes and the 
 corresponding reduce values then caches 
