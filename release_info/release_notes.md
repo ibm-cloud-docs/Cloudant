@@ -23,10 +23,17 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 6843 (March 28, 2018)
+## Build 6875 (April 4, 2018)
 
 - Improve error messages for {{site.data.keyword.cloudant_short_notm}} Query. 
 - New internal audit facility is added to the platform.
+
+## Build 6870 (March 28, 2018)
+
+- Fix operating system process killing.
+- Fix how the kill command works when terminating an operating system process. 
+- Fix `_changes` shard substitution.
+- Fix compaction resumption for terminated compactions.
 
 ## Build 6761 (March 13, 2018)
 
