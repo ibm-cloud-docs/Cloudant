@@ -288,29 +288,28 @@ incrementally and only reindex the delta since the last update.
 
 ### Commutative and associative properties
 
-In addition to referential transparency, the reduce function must also use commutative 
+In addition to referential transparency, the reduce function must also have commutative 
 and associative properties for the input. This makes it possible for the MapReduce 
 function to reduce its own output and produce the same response, for example:
 
 <code>f(Key, Values) == f(Key, [ f(Key, Values) ] )</code> 
 
-As a result, {{site.data.keyword.cloudant_short_notm}} can store intermediated 
-reductions to the inner nodes of the 
-B-tree indexes. The view index updates and retrievals incur logarithmic cost. This 
+As a result, {{site.data.keyword.cloudant_short_notm}} can store intermediate 
+results to the inner nodes of the 
+B-tree indexes. These 
 restrictions also makes it possible for indexes to spread across machines and reduce 
-at query time with logarithmic cost. 
+at query time. 
 
 ### Document partitioning 
 
 During the reduce and re-reduce phases, document partitioning is out of your control. 
 Documents are randomly presented to the reduce function. This scenario explains the 
-reduce and re-reduce phases. 
->>>original scenario
-A subset is reduced to R1, and another subset is reduced to R2. Then R1 and R2 are 
+reduce and re-reduce phases. A subset is reduced to R1, and another subset is reduced 
+to R2. Then R1 and R2 are 
 re-reduced together to produce the final reduce value. In the extreme case, each of 
 your documents can be reduced individually, and that reduce output is re-reduced 
 together, which might happen as a single stage or in multiple stages.
->>>
+
 
 It is best if you design your reduce and re-reduce function after this example:
 
@@ -323,7 +322,7 @@ It is best if you design your reduce and re-reduce function after this example:
 corresponding reduce values then caches 
 these values inside each of the B-tree node pointers. Now, 
 {{site.data.keyword.cloudant_short_notm}} can reuse 
-educed values when updating the B-tree. You must pay attention to the amount 
+reduced values when updating the B-tree. You must pay attention to the amount 
 of data that is returned from reduce functions.
 
 It is best that the size of your returned data set stays small and grows no 
