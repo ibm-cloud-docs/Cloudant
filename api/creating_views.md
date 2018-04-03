@@ -301,15 +301,16 @@ restrictions also makes it possible for indexes to spread across machines and re
 at query time. 
 
 ### Document partitioning 
-
-During the reduce and re-reduce phases, document partitioning is out of your control. 
-Documents are randomly presented to the reduce function. This scenario explains the 
-reduce and re-reduce phases. A subset is reduced to R1, and another subset is reduced 
-to R2. Then R1 and R2 are 
-re-reduced together to produce the final reduce value. In the extreme case, each of 
-your documents can be reduced individually, and that reduce output is re-reduced 
-together, which might happen as a single stage or in multiple stages.
-
+ 
+Documents are randomly presented to the reduce function. Due to sharding, there are 
+no guarantees that the output of any two specific map functions will be passed to 
+the same instance of a reduce call, so you should not rely on any ordering. Your 
+reduce function must consider all the values passed to it and return the correct 
+answer irrespective of ordering. Cloudant is also guaranteed to call your reduce 
+function with `rereduce=true` at query time even if it did not need to do so when 
+building the index, so it is essential that your function works correctly in that 
+case (`rereduce=true` means that the keys parameter is `null` and the values array is 
+filled with results from previous reduce function calls).
 
 It is best if you design your reduce and re-reduce function after this example:
 
@@ -333,7 +334,7 @@ dramatically. If your view works correctly with small data sets but quits
 working when more data is added, you might have violated the growth rate 
 characteristic restriction. 
 
-For more information, see the original article in the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://wiki.apache.org/couchdb/Introduction_to_CouchDB_views#Restrictions_on_map_and_reduce_functions){:new_window}.
+*Map and reduce function restrictions* in the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://wiki.apache.org/couchdb/Introduction_to_CouchDB_views#Restrictions_on_map_and_reduce_functions){:new_window}.
 
 ## Storing the view definition
 
