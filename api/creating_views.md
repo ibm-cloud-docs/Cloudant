@@ -302,7 +302,7 @@ at query time.
 
 ### Document partitioning 
  
-Documents are randomly presented to the reduce function. Due to sharding, there are 
+Due to sharding, there are 
 no guarantees that the output of any two specific map functions will be passed to 
 the same instance of a reduce call, so you should not rely on any ordering. Your 
 reduce function must consider all the values passed to it and return the correct 
@@ -311,11 +311,6 @@ function with `rereduce=true` at query time even if it did not need to do so whe
 building the index, so it is essential that your function works correctly in that 
 case (`rereduce=true` means that the keys parameter is `null` and the values array is 
 filled with results from previous reduce function calls).
-
-It is best if you design your reduce and re-reduce function after this example:
-
-<code>f(Key, Values) == f(Key, [ f(Key, Value0), f(Key, Value1), f(Key, Value2), ... ] )</code>
-
 
 ### Reduced value size
 
