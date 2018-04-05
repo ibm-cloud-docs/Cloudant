@@ -329,7 +329,7 @@ dramatically. If your view works correctly with small data sets but quits
 working when more data is added, you might have violated the growth rate 
 characteristic restriction. 
 
-*Map and reduce function restrictions* in the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://wiki.apache.org/couchdb/Introduction_to_CouchDB_views#Restrictions_on_map_and_reduce_functions){:new_window}.
+For more information, see *Map and reduce function restrictions* in the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://wiki.apache.org/couchdb/Introduction_to_CouchDB_views#Restrictions_on_map_and_reduce_functions){:new_window}.
 
 ## Storing the view definition
 
