@@ -135,4 +135,4 @@ to a 409 error with the following information: `{`error`:`not_found`,`reason`:`m
 -	Support for the CouchDB 1.6 `_users` database features, including server-side hashing of passwords when documents are created in the `_users` database.
 -	`/_bulk_get` endpoint to reduce the number of requests that are used in replication to mobile clients.
 -	Design document metadata contains an `update pending` field.
--	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.d
+-	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.
