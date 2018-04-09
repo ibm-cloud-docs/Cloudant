@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-19"
+lastupdated: "2018-04-09"
 
 ---
 
@@ -16,53 +16,36 @@ lastupdated: "2018-03-19"
 
 # Audit logging
 
-Audit logging records the {{site.data.keyword.cloudantfull}} users who have accessed personal data from a
-database. The audit logging function tracks the principal (account credentials or API keys), action, and 
-resource for all API accesses to {{site.data.keyword.cloudant_short_notm}}. At the API level, 
-{{site.data.keyword.cloudant_short_notm}} logs who accessed the account, 
-specific databases, and specific documents. Each API access record is a JSON object that contains 
-the following core fields:
 
-Field | Description
-------|------------
-`principal` | The authenticated principal for the request.
-`action` | The action carried out.
-`resource` | CRN for resource accessed (account, database, document).
-`timestamp` | A record of the time and data of the event. 
+Audit logging records the {{site.data.keyword.cloudantfull}} principals who have 
+accessed data stored in {{site.data.keyword.cloudant_short_notm}}. For all HTTP API 
+access to {{site.data.keyword.cloudant_short_notm}}, the audit logging function 
+records the following information about each HTTP request:
 
-Audit logging is a simple audit function that takes a request object, extracts the 
-necessary information from the object, 
-and constructs a JSON record that is sent via TCP to a local rsyslog. The rsyslog process then
-forwards the message using TLS.
+Information | Description
+------------|------------
+`Principal` | Account credentials, API key, or IBM Cloud IAM credentials.
+`Action` | The action carried out (for example, document read).
+`Resource` | Details about the account, database, and document accessed or query made.
+`Timestamp` | A record of the time and data of the event. 
+
+{{site.data.keyword.cloudant_short_notm}} audit logs can be used to understand:
+
+- What and when databases and documents have been accessed within an account, 
+and by whom.
+- What and when queries have been run, and by whom.
+- What a specific principal or user has accessed, updated or deleted, and when.
+- When and when replication documents were created or deleted.
 {:shortdesc}
 
-## Actions logged
+## How to access Audit Logs for your account
 
-{{site.data.keyword.cloudant_short_notm}} Support can query the database and 
-find the date and time when each of the following actions occurred: 
+To request access to the audit logs for your account, contact 
+{{site.data.keyword.cloudant_short_notm}} support. Support will work with you to 
+get access to the audit logs of interest.
 
-- Access a document, database, or account.
-- Access a document in a specific account.
-- Queries run in this database for a specific account.
-- Databases that this principal accessed in a specific account.
-- Accounts this principal accessed.
-- API keys in this account that this principal created.
-- Database shares in this account that this principal created.
-- Replications in this account that this principal accessed.
-- Dashboard accesses by this principal. 
+When contacting support, be sure to include:
 
-{{site.data.keyword.cloudant_short_notm}} Support can also generate a collection of all the logs for a specific account. 
-
-
- 
- 
-
-
-
-
-
-
-
-
-
-
+- The {{site.data.keyword.cloudant_short_notm}} account the request relates to.
+- The timeframe for audit logs (must not be more than on calendar month).
+- Any specific databases, documents, or principals of interest.
