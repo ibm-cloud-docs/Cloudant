@@ -24,10 +24,13 @@ versions are released.
 ## New features
 
 - The new replication scheduler has several improvements and enhancements. Learn more about the [replication scheduler](../api/advanced_replication.html#the-replication-scheduler).
-- {{site.data.keyword.cloudant_short_notm}} Query uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){:new_window}.
  
 ## Incompatibilites
 
+### Query 
+
+- {{site.data.keyword.cloudant_short_notm}} Query uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){:new_window}.
+ 
 ### Disabled JavaScript constructors
 
 - For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in 
