@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-09"
+lastupdated: "2018-04-10"
 
 ---
 
@@ -47,5 +47,5 @@ get access to the audit logs of interest.
 When contacting support, be sure to include:
 
 - The {{site.data.keyword.cloudant_short_notm}} account the request relates to.
-- The timeframe for audit logs (must not be more than on calendar month).
+- The timeframe for audit logs (must not be more than one calendar month).
 - Any specific databases, documents, or principals of interest.
