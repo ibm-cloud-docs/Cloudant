@@ -60,8 +60,8 @@ using HTTPS. For more detail, see [Security ![External link icon](../images/laun
 IP whitelisting is available on request to {{site.data.keyword.cloudant_short_notm}} Support and will apply to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level. 
 
-If you need bring your own key (BYOK) support, {{site.data.keyword.cloudant_short_notm}} now makes 
-that available for new {{site.data.keyword.cloudant_short_notm}} CCM Dedicated clusters 
+If you require bring your own key (BYOK) support, {{site.data.keyword.cloudant_short_notm}} now makes 
+it available for new {{site.data.keyword.cloudant_short_notm}} CCM Dedicated clusters 
 deployed in the US-South and London regions. To enable BYOK support for your new cluster, 
 submit a ticket to support and support will coordinate with you on the key handoff, and so on. 
 
