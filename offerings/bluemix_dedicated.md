@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-04-10"
 
 ---
 
@@ -59,6 +59,11 @@ disk encryption. Access is over the public network connection and encrypted by
 using HTTPS. For more detail, see [Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}. 
 IP whitelisting is available on request to {{site.data.keyword.cloudant_short_notm}} Support and will apply to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level. 
+
+If you need bring your own key (BYOK) support, {{site.data.keyword.cloudant_short_notm}} now makes 
+that available for new {{site.data.keyword.cloudant_short_notm}} CCM Dedicated clusters 
+deployed in the US-South and London regions. To enable BYOK support for your new cluster, 
+submit a ticket to support and support will coordinate with you on the key handoff, and so on. 
 
 The plan also offers [Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
 [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
