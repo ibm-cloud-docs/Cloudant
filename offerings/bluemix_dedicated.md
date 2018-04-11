@@ -60,10 +60,13 @@ using HTTPS. For more detail, see [Security ![External link icon](../images/laun
 IP whitelisting is available on request to {{site.data.keyword.cloudant_short_notm}} Support and will apply to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level. 
 
-If you require bring your own key (BYOK) support, {{site.data.keyword.cloudant_short_notm}} now makes 
-it available for new {{site.data.keyword.cloudant_short_notm}} CCM Dedicated clusters 
-deployed in the US-South and London regions. To enable BYOK support for your new cluster, 
-submit a ticket to support and support will coordinate with you on the key handoff, and so on. 
+If you require bring-your-own-key (BYOK) for encryption-at-rest, this is enabled via {{site.data.keyword.cloud}} Key 
+Protect. {{site.data.keyword.cloudant_short_notm}} supports this feature for new {{site.data.keyword.cloudant_short_notm}} 
+[Dedicated Hardware plan](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public) 
+instances deployed in all regions. First, create an instance of the Dedicated 
+Hardware plan via the [{{site.data.keyword.cloud_notm}} Catalog](https://console.bluemix.net/catalog/). Then submit a 
+support ticket and our support team will coordinate getting your new Dedicated Hardware instance's 
+encryption-at-rest encryption keys managed via your Key Protect instance. 
 
 The plan also offers [Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
 [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
