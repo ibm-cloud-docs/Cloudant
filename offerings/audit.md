@@ -35,7 +35,7 @@ Information | Description
 and by whom.
 - What and when queries have been run, and by whom.
 - What a specific principal or user has accessed, updated or deleted, and when.
-- When and when replication documents were created or deleted.
+- What and when replication documents were created or deleted.
 {:shortdesc}
 
 ## How to access Audit Logs for your account

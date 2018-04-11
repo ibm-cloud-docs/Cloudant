@@ -14,13 +14,13 @@ Cloudant NoSQL DB
 		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
 		offerings/cloudant.com.md
-		offerings/audit.md
 
 	{: .topicgroup}
     Security and Compliance
     	offerings/security.md
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
+	offerings/audit.md
 
 	{: .topicgroup}
 	Release information
