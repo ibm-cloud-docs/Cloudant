@@ -34,7 +34,7 @@ Information | Description
 - What and when databases and documents have been accessed within an account, 
 and by whom.
 - What and when queries have been run, and by whom.
-- What a specific principal or user has accessed, updated or deleted, and when.
+- What a specific principal or user has accessed, updated, or deleted, and when.
 - What and when replication documents were created or deleted.
 {:shortdesc}
 
