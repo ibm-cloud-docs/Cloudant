@@ -42,11 +42,13 @@ representative to sign a Business Associate Addendum (BAA) agreement with {{site
 ## International Organization for Standardization (ISO)
 
 {{site.data.keyword.cloudant_short_notm}} is audited by a third-party security firm
-and meets all of the requirements for ISO 27001:
+and meets the following ISO requirements:
 
-* [{{site.data.keyword.Bluemix_notm}} ISO 27001:2013 Certificate of Registration ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-935.ibm.com/services/multimedia/saas_27k.pdf ){:new_window}
-* [{{site.data.keyword.IBM_notm}} SaaS ISO 27001:2013 Certificate ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-935.ibm.com/services/us/en/it-services/iso-management-system-certifications.html){:new_window}
-
+* [{{site.data.keyword.Bluemix_notm}} ISO 27001 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/multimedia/saas_27k.pdf){:new_window}
+* [{{site.data.keyword.Bluemix_notm}} ISO 27017 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/us/en/it-services/pdf/ibmcloud_27017.pdf){:new_window}
+* [{{site.data.keyword.Bluemix_notm}} ISO 27018 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/multimedia/ibmcloud_27018.pdf){:new_window}
+* [Search all IBM ISO certificates ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-935.ibm.com/services/us/en/it-services/iso-management-system-certifications.html){:new_window}.
+ 
 ## SOC 2 Type 2 Certification
 
 {{site.data.keyword.IBM_notm}} provides a Service Organization Controls (SOC) 2 Type 2 report 
