@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-10"
+lastupdated: "2018-04-12"
 
 ---
 
@@ -41,11 +41,11 @@ and by whom.
 ## How to access Audit Logs for your account
 
 To request access to the audit logs for your account, contact 
-{{site.data.keyword.cloudant_short_notm}} support. Support will work with you to 
-get access to the audit logs of interest.
+{{site.data.keyword.cloudant_short_notm}} support. Support will provide access to the 
+audit logs of interest.
 
 When contacting support, be sure to include:
 
 - The {{site.data.keyword.cloudant_short_notm}} account the request relates to.
-- The timeframe for audit logs (must not be more than one calendar month).
+- The timeframe for audit logs (must not be more than one month per support request).
 - Any specific databases, documents, or principals of interest.
