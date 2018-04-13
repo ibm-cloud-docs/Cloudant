@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-06"
+lastupdated: "2018-04-12"
 
 ---
 
@@ -204,61 +204,8 @@ There are two ways you can create a warehouse:
 1.  [Use {{site.data.keyword.cloudant_short_notm}} to create a {{site.data.keyword.dashdbshort_notm}} warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse)
 2.  [Connect {{site.data.keyword.cloudant_short_notm}} to an existing warehouse](#connect-cloudant-to-an-existing-warehouse)
 
-### Use {{site.data.keyword.cloudant_short_notm}} to create a {{site.data.keyword.dashdbshort_notm}} warehouse
-
-The simplest method for creating a warehouse is for {{site.data.keyword.cloudant_short_notm}} to create a {{site.data.keyword.dashdbshort_notm}} warehouse instance within {{site.data.keyword.Bluemix}},
-on your behalf.
-Do this by clicking the `Create Warehouse` button on the `Warehouse` task
-within the `Integrations` tab of your {{site.data.keyword.cloudant_short_notm}} dashboard.
-
-![Screenshot of the "Create a {{site.data.keyword.dashdbshort_notm}} warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createDashDBWH.png)
-
-If you are not already logged in to {{site.data.keyword.Bluemix_notm}},
-you are asked to do so.
-
->   **Note**: By default, {{site.data.keyword.cloudant_short_notm}} creates a {{site.data.keyword.dashdbshort_notm}} instance on {{site.data.keyword.Bluemix_notm}} for your warehouse.
-
-![Screenshot of the "Authenticate to {{site.data.keyword.Bluemix_notm}}" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/authenticateToBluemix.png)
-
-When you have authenticated,
-you can request that a new {{site.data.keyword.dashdbshort_notm}} instance is created using your {{site.data.keyword.Bluemix_notm}} account.
-
-To do this:
-
-1.  Provide the name you would like to use for the Warehouse in the `Warehouse Name` field.
-2.  Provide the name of your existing database within {{site.data.keyword.cloudant_short_notm}}, in the `Data Sources` field.
-3.  Ensure that the `Create new {{site.data.keyword.dashdbshort_notm}} instance` option is selected on the form.
-4.  Click the `Create Warehouse` button.
-
-![Screenshot of the "Create Warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createWarehouse.png)
-
-### Connect {{site.data.keyword.cloudant_short_notm}} to an existing warehouse
-
-Instead of using {{site.data.keyword.cloudant_short_notm}} to create the {{site.data.keyword.dashdbshort_notm}} warehouse database,
-you can connect to an existing {{site.data.keyword.dashdbshort_notm}} instance.
-
-The process is similar to [using {{site.data.keyword.cloudant_short_notm}} to create a {{site.data.keyword.dashdbshort_notm}} warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse),
-however instead of selecting the `Create new {{site.data.keyword.dashdbshort_notm}} instance` option,
-select the `{{site.data.keyword.dashdbshort_notm}} service instance` and choose the {{site.data.keyword.dashdbshort_notm}} warehouse that already exists within {{site.data.keyword.Bluemix_notm}}.
-
-![Screenshot of the "Connect to existing {{site.data.keyword.dashdbshort_notm}} instance" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/existingDashDBInstance.png)
-
-### Using a {{site.data.keyword.Db2_on_Cloud_short}} warehouse instance
-
-If you prefer,
-you can connect to an existing {{site.data.keyword.Db2_on_Cloud_short}} warehouse instance instead of {{site.data.keyword.dashdbshort_notm}}.
-Do this by selecting the `DB2` option within your {{site.data.keyword.cloudant_short_notm}} dashboard to connect to an existing {{site.data.keyword.Db2_on_Cloud_short}} instance.
-
-![Screenshot of the Create a {{site.data.keyword.Db2_on_Cloud_short}} warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createDB2WH.png)
-
-If you want to connect to a {{site.data.keyword.Db2_on_Cloud_short}} instance,
-you must provide the following details:
-
--   Host address
--   Port number
--   Database name
--   User ID for the database
--   Password for the User ID
+This feature is being deprecated. As part of the deprecation plan, the ability to 
+create new warehouse jobs was removed March 31, 2018.
 
 >   **Note**: The remainder of this topic refers to {{site.data.keyword.dashdbshort_notm}} as the warehouse instance.
     However,
