@@ -28,7 +28,7 @@ contain the data for these exercises.
 
 Before you begin, follow these steps to prepare for the tutorial:
 
-1.  [Create a {{site.data.keyword.Bluemix}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
+1.  [Create an {{site.data.keyword.Bluemix}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Log in to the
   [{{site.data.keyword.Bluemix_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
 3.  [Create a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-cloudant-instance-on-bluemix).
