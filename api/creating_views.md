@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-16"
+lastupdated: "2018-03-07"
 
 ---
 
@@ -98,20 +98,20 @@ _Example response from running the simple view query:_
 
 ```json
 {
-	"total_rows": 2,
-	"offset": 0,
-	"rows": [
-		{
-			"id":"23598567",
-			"number":"23598567",
-			"training":"2014/05/21 10:00:00"
-		},
-		{
-			"id":"42987103",
-			"number":"42987103",
-			"training":"2014/07/30 12:00:00"
-		}
-	]
+  "total_rows": 2,
+  "offset": 0,
+  "rows": [
+    {
+      "id": "23598567",
+      "key": "23598567",
+      "value": "2014/05/21 10:00:00"
+    },
+    {
+      "id": "42987103",
+      "key": "42987103",
+      "value": "2014/07/30 12:00:00"
+    }
+  ]
 }
 ```
 {:codeblock}
@@ -135,12 +135,12 @@ function(doc) {
 ```
 {:codeblock}
 
-### An index for a one to many relationship
+### An index for a one-to-many relationship
 
 If the object passed to `emit` has an `_id` field,
 a view query with `include_docs` set to `true` contains the document with the given ID.
 
-_Example of indexing a one to many relationship:_
+_Example of indexing a one-to-many relationship:_
 
 ```javascript
 function(doc) {
@@ -159,7 +159,7 @@ Keys are not limited to simple values.
 You can use arbitrary JSON values to influence sorting.
 
 When the key is an array,
-view results can be grouped by a sub-section of the key.
+view results can be grouped by a sub-section of the key. 
 For example,
 if keys have the form `[year, month, day]`,
 then results can be reduced to a single value or by year,
@@ -180,9 +180,11 @@ The latter case is referred to as a 'rereduce'.
 
 Reduce functions are passed three arguments in the following order:
 
--	keys - an array of values.
--	values - an array of values.
--	rereduce - a boolean flag.
+-	keys
+-	values
+-	rereduce
+
+A description of the reduce functions follows below. 
 
 _Example of a reduce function:_
 

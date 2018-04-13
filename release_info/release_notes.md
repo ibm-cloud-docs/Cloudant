@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-16"
+lastupdated: "2018-03-28"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-02-16"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-07-13 -->
+<!-- Acrolinx: 2017-07-14 -->
 
 # Release Notes
 
@@ -23,6 +23,28 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 6875 (April 4, 2018)
+
+- Improve error messages for {{site.data.keyword.cloudant_short_notm}} Query. 
+- New internal audit facility is added to the platform.
+
+## Build 6870 (March 30, 2018)
+
+- Fix how the `kill` command works when terminating an operating system process. 
+- Fix `_changes` endpoint shard substitution.
+- Fix compaction resumption for terminated compactions.
+
+## Build 6761 (March 13, 2018)
+
+- Ensure deterministic revisions for attachments. See [COUCHDB-3255 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-3255){:new_window}.
+- Add a pluggable storage engine.
+- Prevent `chttpd` multipart zombie processes.
+- Avoid unconditional retries in replicator's HTTP client.
+- Update MochiWeb to version 2.17.
+- Introduce new `_dbs_info` endpoint to get information from a list of databases. See 
+[Get database information for multiple databases](../api/database.html#get-database-information-for-multiple-databases).
+- Prepare for session support in replicator.
+
 ## Build 6656 (February 15, 2018)
 
 - Update `_design_docs` to respect the query parameters used by `_all_docs`. See [Get design documents](../api/database.html#get-design-documents).
@@ -30,6 +52,10 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Remove headers from replication document on read.
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response. 
 - Change semantics of status codes for create database.
+
+## Build 6620 (January 10, 2018)
+
+- Query: fallback to `selector` on an empty `partial_filter_selector` field.
 
 ## Build 6600 (December 28, 2017)
 
@@ -110,4 +136,4 @@ to a 409 error with the following information: `{`error`:`not_found`,`reason`:`m
 -	Support for the CouchDB 1.6 `_users` database features, including server-side hashing of passwords when documents are created in the `_users` database.
 -	`/_bulk_get` endpoint to reduce the number of requests that are used in replication to mobile clients.
 -	Design document metadata contains an `update pending` field.
--	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.d
+-	{{site.data.keyword.cloudant_short_notm}} Query no longer returns an error if no valid index exists.
