@@ -75,6 +75,7 @@ JavaScript.
 
 ### Query (<code>_find</code> endpoint):
 
+- {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){:new_window}.
 - The logic for determining whether a given index is valid for a query has changed, addressing a bug that could lead to incorrect results. 
 - Queries using text indexes no longer crash when `$exists`: `false` is used.
 - Partial indexes are now supported for both JSON and text indexes. See  [Creating a partial index](../api/cloudant_query.html#creating-a-partial-index) for more information.
