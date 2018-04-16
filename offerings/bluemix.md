@@ -131,14 +131,6 @@ HIPAA compliance and must be selected at provisioning time. Note that the Dedica
 Hardware plan is not available to {{site.data.keyword.Bluemix_notm}} Dedicated customers and is only available for {{site.data.keyword.Bluemix_notm}} 
 Public customers.
 
-If you require bring-your-own-key (BYOK) for encryption-at-rest, this is enabled via {{site.data.keyword.cloud}} Key 
-Protect. {{site.data.keyword.cloudant_short_notm}} supports this feature for new {{site.data.keyword.cloudant_short_notm}} 
-[Dedicated hardware plan](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public) 
-instances deployed in all regions. First, create an instance of the Dedicated 
-Hardware plan via the [{{site.data.keyword.cloud_notm}} Catalog](https://console.bluemix.net/catalog/). Then submit a 
-support ticket and our support team will coordinate getting your new Dedicated Hardware instance's 
-encryption-at-rest encryption keys managed via your Key Protect instance.
-
 ## Provisioned throughput capacity
 {: #provisioned-throughput-capacity}
 Throughput provision is identified and measured as one of three kinds of events:
