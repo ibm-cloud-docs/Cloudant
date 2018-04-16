@@ -199,11 +199,6 @@ For more information, see the [{{site.data.keyword.Db2Hosted_short}} documentati
 
 ## Creating a warehouse
 
-There are two ways you can create a warehouse:
-
-1.  [Use {{site.data.keyword.cloudant_short_notm}} to create a {{site.data.keyword.dashdbshort_notm}} warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse)
-2.  [Connect {{site.data.keyword.cloudant_short_notm}} to an existing warehouse](#connect-cloudant-to-an-existing-warehouse)
-
 This feature is being deprecated. As part of the deprecation plan, the ability to 
 create new warehouse jobs was removed March 31, 2018.
 
