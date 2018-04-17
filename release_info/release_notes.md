@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-28"
+lastupdated: "2018-04-17"
 
 ---
 
@@ -22,6 +22,10 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6895 (April 17, 2018)
+
+- Fix regression since introduction of PSE
 
 ## Build 6875 (April 4, 2018)
 
