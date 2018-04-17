@@ -25,7 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6895 (April 17, 2018)
 
-- Fix regression since introduction of PSE
+- Fix a regression introduced with pluggable storage engine.
 
 ## Build 6875 (April 4, 2018)
 
