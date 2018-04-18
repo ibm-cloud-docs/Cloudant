@@ -16,12 +16,12 @@ lastupdated: "2018-04-18"
 
 # Pricing
 
-{{site.data.keyword.cloudantfull}} allows you to scale your provisioned throughput 
+{{site.data.keyword.cloudantfull}} gives you a way to scale your provisioned throughput 
 capacity up and down, which is a reserved number of lookups, writes, and 
 queries each second, allocated to an instance. The throughput capacity 
 level is the maximum usage level. If you try to exceed the 
-reserved capacity, an HTTP 429 status code is generated that 
-indicates the application is trying to exceed its provisioned 
+reserved capacity, an HTTP 429 status code occurs indicating that 
+the application is trying to exceed its provisioned 
 throughput capacity allowance.
 
 ## Pricing Examples 
@@ -45,7 +45,7 @@ Standard plan, there are no storage costs. On the {{site.data.keyword.cloudant_s
 **Account** > **Capacity** tab, the provisioned throughput capacity 
 setting looks like this:
 
-Screenshot
+Select your capacity screenshot
 
 The capacity slider shows the hourly cost of the provisioned throughput 
 capacity of 100 lookups/sec, 50 writes/sec, and 5 queries/sec in USD of 
@@ -62,6 +62,8 @@ per second, use the slider to select the capacity that offers 1,000
 lookups/sec, 500 writes/sec, and 50 queries/sec, even if you do not need 
 the corresponding number of writes or queries.
 
+Select your capacity 1,000 screenshot
+
 How is total cost calculated for provisioned throughput capacity? You can see an 
 estimate of your total cost per month on the {{site.data.keyword.cloudant_short_notm}} 
 Dashboard **Account** > **Capacity** tab. Here are two example estimates:
@@ -70,12 +72,12 @@ Your capacity is measured in blocks of lookups, writes, and queries, as shown be
 
 `1 block = 100 lookups/sec, 50 writes/sec, and 5 queries/sec`
 
-You estimate the cost of 100 lookups, 50 writes, and 5 queries by using the 
+To estimate the cost of 100 lookups, 50 writes, and 5 queries, use the 
 following formula: 
 
 `$0.105 per hour * 1 block * 730 hours = $76.65`
 
-You estimate the cost of 1,000 lookups, 500 writes, and 50 queries by using the 
+To estimate the cost of 1,000 lookups, 500 writes, and 50 queries, use the 
 following formula:
 
 `$0.105 per hour * 10 block * 730 hours = $766.50`
@@ -87,7 +89,7 @@ throughput capacity as `$1.050/hour * 730 hours = $766.50`.
 
 ## Data Usage 
 
-Each pricing plan sets a data overage limit, for example:
+How does pricing work with data overages? See the details below: 
 
 - For the Lite plan, 1 GB of storage is included. This is a cap, so if you go 
 over that amount, your account is blocked from writing new data until 
@@ -101,12 +103,14 @@ On the {{site.data.keyword.cloud}} Usage Dashboard, the usage of storage display
 20 GB of storage, the display shows 0 GB since you have not gone over the 
 limit. 
 
-## {{site.data.keyword.cloud_notm}} Usage Dashboard
+What data displays in the {{site.data.keyword.cloud_notm}} Usage Dashboard
 
 In the usage dashboard, you see the number of lookups, queries, and writes used, as 
 well as the cost, for example:
 
-This view calculates the usage accrued for the month, and only shows 
+IBM Cloud Usage dashboard screenshot
+
+This view displays the usage accrued for the month, and only shows 
 the cost for the month to date. The Estimated Total reflects the bill 
 up to this date for this month. At the end of the month, you can see 
 the average capacity for the month, which is your total monthly bill. 
