@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-11"
+lastupdated: "2018-04-18"
 
 ---
 
@@ -33,8 +33,9 @@ is for your sole use, and if a Dedicated Hardware plan instance is provisioned
 within a US location, you can optionally select a [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
 compliant configuration.
 
-The following table summarizes the provisioned throughput capacity and disk 
-space configuration for the plans:
+The following table summarizes the provisioned throughput capacity and 
+disk space configuration for the Lite plan and a few examples for the 
+Standard plan:
 
 <div id="maxtable"></div>
 
@@ -160,8 +161,7 @@ requests are rejected until the number of events within the sliding window
 no longer exceeds the number that is provisioned.
 It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
-For example,
-if you are on the Standard plan with provision for 200 lookups per second,
+For example, if you are on the Standard plan provisioned for 200 lookups per second,
 your account might make a maximum of 200 lookup requests during a consecutive period of 1,000 milliseconds (1 second).
 Subsequent lookup requests made during the sliding 1,000-millisecond period
 are rejected until the number of lookup requests in that period drops to less than 200 again.
@@ -204,11 +204,10 @@ through the Account tab of your {{site.data.keyword.cloudant_short_notm}} accoun
 
 ![Account Dashboard](../images/cloudant_capacity.png)
 
-To move to a different throughput capacity,
-select the provisioning you want,
-then click the `Change Capacity` option button.
-You are asked to confirm the change,
-and reminded that the provisioning change can take up to 24 hours to complete.
+To move to a different throughput capacity, select the provisioning you 
+want, then click the `Update` button. You are asked to confirm the change, 
+and reminded that the provisioning change can take up to 24 hours to 
+complete.
 
 ![Account Dashboard](../images/cloudant_capacity_change.png)
 
