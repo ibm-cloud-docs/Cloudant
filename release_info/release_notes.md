@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-17"
+lastupdated: "2018-04-19"
 
 ---
 
@@ -22,6 +22,12 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6900 (April 19, 2018)
+
+- Improve validation of password schemes. 
+- Update the value of state field in `_scheduler/docs` to `crashing`. Previously, the value was sometimes reported as `pending`.  
+- Disallow `_design`, `_rewrite`, and `_update` endpoints with IAM.
 
 ## Build 6895 (April 17, 2018)
 
