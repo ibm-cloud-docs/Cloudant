@@ -125,9 +125,6 @@ you can find the credentials for a service that is associated with your account.
     you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard:<br/>
 new screenshot    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
 
-2.  See the list of all your services:<br/>
-new screenshot    ![{{site.data.keyword.Bluemix_notm}}' service listing](images/img0010.png)
-
 3.  In this example,
     we want to find the service credentials for the {{site.data.keyword.cloudant_short_notm}}
     service instance that was created earlier in the tutorial,
