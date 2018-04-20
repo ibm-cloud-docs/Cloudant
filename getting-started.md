@@ -92,14 +92,17 @@ an instance of the {{site.data.keyword.cloudant}} service, and the following Pyt
 	```
 	{: codeblock}
 
-2. Identify the {{site.data.keyword.cloudant_short_notm}} service credentials:
+2. Create {{site.data.keyword.cloudant_short_notm}} service credentials:
+    <br>![Create service credentials](images/img0050.png)
   <br>a. In the {{site.data.keyword.Bluemix_notm}} console, open the dashboard for your service instance.
-  <br>b. In the left navigation, click **`Service credentials`**.
-  <br>c. Click the **`New credential`** button.
+  <br>b. In the left navigation, click `Service credentials`.
+  <br>c. Click the `New credential` button.
+  <br>![Add a new service credential](images/img0051.png)
   <br>d. Enter a name for the new credential.
   <br>e. (Optional) Add inline configuration parameters in a valid JSON object.
-  <br>f. Click the **`Add`** button. 
-  <br>g. Click **`View credentials`** under Actions. 
+  <br>f. Click the `Add` button. 
+  <br>g. Click `View credentials` under Actions. 
+  <br>![View all service credentials](images/img0051.png)
 
 3.	Establish a connection to the service instance by running the following command.
 	Replace your service credentials from the previous step:

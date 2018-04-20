@@ -49,7 +49,7 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
     ![{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)
 
 5.  In the service configuration window,
-    enter a service name, and verify that the region/location, organization, and space are what you want.
+    enter a service name. Verify region/location, organization, and space selections are correct.
     In this example,
     the service name is `Cloudant NoSQL DB service`:<br/>
     ![{{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0005.png)
@@ -71,14 +71,14 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
     ![Accessing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0007.png)
 
 8.  Create {{site.data.keyword.cloudant_short_notm}} service credentials:
-    ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0008.png)
-  <br>a. Click the **`New credential`** button.
-  screenshot
-  <br>b. Give your new credential a name.
+    <br>![Create service credentials](images/img0050.png)
+  <br>a. Click the `New credential` button.
+  <br>![Add a new service credential](images/img0051.png)
+  <br>b. Enter a name for the new credential.
   <br>c. (Optional) Add inline configuration parameters in a valid JSON object.
-  <br>e. Click the **`Add`** button. 
-  <br>f. Click **`View credentials`** under Actions. 
-  screenshot
+  <br>d. Click the `Add` button. 
+  <br>e. Click `View credentials` under Actions. 
+  <br>![View all service credentials](images/img0051.png)
 
 9.  The Service Credentials details appear:<br/>
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
