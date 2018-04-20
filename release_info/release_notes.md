@@ -26,7 +26,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6900 (April 19, 2018)
 
 - Improve validation of password schemes. 
-- In `_scheduler/docs`, changed the value of the state field to `crashing` (with the appropriate crash reason) 
+- In `_scheduler/docs`, set the value of the state field to `crashing` (with the appropriate crash reason) 
 when the last event in the history was a crash. 
 - Disallow `_design`, `_rewrite`, and `_update` endpoints with IAM.
 
