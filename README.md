@@ -1,1 +1,1 @@
-# Cloudant README
+# Cloudant
