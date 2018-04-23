@@ -117,7 +117,7 @@ made available, and kept up to date, via the Cumulus/Cloud Transparency tool.
 
 ### Physical And Environmental Security Measures
 
-Physical security of our data centers is handled by our infrastructure providers, SoftLayer, 
+Physical security of our data centers is handled by our infrastructure providers: SoftLayer, 
 AWS, and 21Vianet. All hold externally audited certifications for their physical security. We 
 will not be providing further details of the physical security controls in place at our data 
 centers.
