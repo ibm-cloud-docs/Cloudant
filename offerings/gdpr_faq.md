@@ -16,16 +16,16 @@ lastupdated: "2018-04-23"
 
 # Access control
 
-## How do I audit access to {{site.data.keyword.cloudant_short_notm}}
+## How do I audit access to {{site.data.keyword.cloudant_short_notm}}?
 
 {{site.data.keyword.cloudantfull}} is building an auditing system to capture time, 
-authentication principal, resource and action taken. We plan for this to be a 
+authentication principal, resource, and action taken. We plan for this to be a 
 low-level auditing tool, which captures both 
 API and Operator database activity.
 
-Initially, (2018q2) accessing this data is via a support ticket. During 2018, we will be
+Initially (2018 Q2) accessing this data is via a support ticket. During 2018, we will be
 looking to make this self-service via 
-[Activity Tracker ![External link icon](../images/launch-glyph.svg "External link icon")](https://pages.github.ibm.com/activity-tracker/).
+[Activity Tracker ![External link icon](../images/launch-glyph.svg "External link icon")](https://pages.github.ibm.com/activity-tracker/){:new_window}.
 
 ### Can I use IAM to control access?
 
@@ -35,7 +35,7 @@ allows multiple principals, both human and machine/service/application, to acces
 This means that {{site.data.keyword.cloudant_short_notm}} is able to offer finer-grained, 
 more accurate audit logs.
 
-IAM is only supported on Standard accounts created via site.data.keyword.Bluemix/{{site.data.keyword.cloud}}. 
+IAM is only supported on Standard accounts created via Bluemix/{{site.data.keyword.cloud}}. 
 This support includes the Dedicated Hardware option, as database access uses a Standard account 
 provisioned onto the dedicated hardware.
 
@@ -60,28 +60,28 @@ for GDPR:
  * Location data
  * Connectivity/device data
 
-**Sensitive Personal Data**, restricted to the following data:
+**Sensitive Personal Data**, restricted to:
   * Health data, extra conditions apply to be covered in a Service Description
 
-If you are storing health care data, you *must*:
+If you are storing health care data, you *must* complete the following tasks:
  - Notify {{site.data.keyword.cloudant_short_notm}} before writing any data.
  - Request a HIPAA-compliant dedicated cluster.
 
 ## Data about me
 
 {{site.data.keyword.cloudant_short_notm}} records some data about its users, and is a Data Controller for said 
-Personal Information (PI) data. What we record depends on the type of account you have.
+Personal Information (PI) data. The data we record depends on the type of account you have.
 
 If you have a {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
 Enterprise cluster, we record data 
-about you and are considered a Data Controller for those data within the context of GDPR. 
+about you and are considered a Data Controller for your data within the context of GDPR. 
 If you have a {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
 Enterprise cluster, we have your:
 
  * Name
  * Email
 
-What we hold can be viewed and updated via the {{site.data.keyword.cloudant_short_notm}} dashboard.
+The data we hold can be viewed and updated via the {{site.data.keyword.cloudant_short_notm}} dashboard.
 
 If you have an account provisioned via {{site.data.keyword.cloud_notm}} (including a dedicated instance), 
 {{site.data.keyword.cloudant_short_notm}} _does not_ collect the above personal data. This data is held by {{site.data.keyword.cloud_notm}}.
@@ -104,14 +104,14 @@ via their {{site.data.keyword.cloud_notm}} account details.
 
 All clusters have an encrypted file system (encryption at rest) using LUKS. Data in the database 
 is visible to our operations and support teams (see below). For sensitive data, you must 
-remain invisible to {{site.data.keyword.cloudant_short_notm}}, you must encrypt or otherwise protect (pseudonmise) your 
+remain invisible to {{site.data.keyword.cloudant_short_notm}}, and you must encrypt or otherwise protect (pseudonmise) your 
 data before sending it to us. You must avoid using PI for a document `_id`, as these are 
-always visible and enter access logs.
+always visible and written to the access logs.
 
 ## Data locations
 
 Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data will be 
-made available, and kept up to date, via the Cumulus/Cloud Transparency tool
+made available, and kept up to date, via the Cumulus/Cloud Transparency tool.
 
 ## Service security
 
@@ -134,62 +134,62 @@ Personal Data. We hold externally audited certifications for the controls we emp
 Certification details and attestation reports (i.e., ISO and SOC2) can be provided to the 
 customer upon request.
 
-As a user of {{site.data.keyword.cloudant_short_notm}} you should:
+As a user of {{site.data.keyword.cloudant_short_notm}}, you should:
 
  * Use the default CORS configuration to prevent unexpected access.
  * Use API keys liberally, such that components can have 'least privileged access,' coupled 
-with the audit log, this practice allows you to understand who accessed which data
+with the audit log. This practice allows you to understand who accessed which data
 encrypt or otherwise protect (pseudonymise) any sensitive data before sending it to us.
 
 ### Service access to data
 
 {{site.data.keyword.cloudant_short_notm}} operations and support staff have access to client data 
 and can access it during 
-routine operation. This access is only done as required, in order to operate and support the service. 
-Access is also limited on a *need to know* basis, and is logged, monitored, and audited.
+routine operations. This access is only done as required, in order to operate and support the service. 
+Access is also limited to a *need to know* basis and is logged, monitored, and audited.
 
 ## Deletion of data
 
 ### Deleting a document
 
-When a doc is deleted, the database creates a 'tombstone.' What the tombstone contains depends 
+When a document is deleted, the database creates a 'tombstone.' What the tombstone contains depends 
 on how you delete it:
 
- - If you make a `DELETE` call, it'll just be the `_id`, `_rev` and `_deleted` fields.
+ - If you make a `DELETE` call, the tombstone includes the `_id`, `_rev` and `_deleted` fields.
  - If you delete by updating the document with a `_deleted: true` field and `PUT`ing or `POST`ing it, 
-the tombstone will be whatever you set in the document body. This practice can be useful in some 
+the tombstone includes what you set in the document body. This practice can be useful in some 
 circumstances, for example, when recording why a document was deleted in its tombstone.
 
 ### When is a deleted document removed?
 
 Compaction runs automatically and periodically removes old revisions (deleted or otherwise) 
-from the database, by writing out only "leaf" revisions to a new file. We keep a history of 
+from the database, by writing out only 'leaf' revisions to a new file. We keep a history of 
 `_id` and `_rev` to enable replication, but not old document bodies.
 
 We do not guarantee that a database will be compacted in a specific time. Clusters can host 
 10000+ accounts, each containing many databases. Compaction is done as a background process across 
-the whole cluster, and databases are always being compacted, there's just no guarantee it's the 
+the whole cluster, and databases are always being compacted; there's just no guarantee it's the 
 data you've just deleted/changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting *Right to be forgotten* requests via 
-the [IBM data privacy office ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html). 
-Where a *Right to be forgotten* request is made from the IBM DPO, we explicitly 
+the [IBM data privacy office ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window}. 
+When a *Right to be forgotten* request is made from the IBM DPO, we explicitly 
 trigger a 
-[security incident ![External link icon](../images/launch-glyph.svg "External link icon")](https://pages.github.ibm.com/cloudant/policy-documents/security-incident.html) 
+[security incident ![External link icon](../images/launch-glyph.svg "External link icon")](https://pages.github.ibm.com/cloudant/policy-documents/security-incident.html){:new_window} 
 to initiate and verify the database compaction, to ensure compaction has occurred. At the end 
-of this process, the only version of the document will be its tombstone (`_id`, `_rev`, `_deleted` 
+of this process, the only version of the document is its tombstone (`_id`, `_rev`, `_deleted` 
 and any fields your application includes there).
 
 ### Removal of tombstones
 
 {{site.data.keyword.cloudant_short_notm}} can completely remove all references and data for a 
-document when required. This is 
+document when required. This task is 
 an operator managed process called purging. Before requesting documents be purged, it's 
-important to understand that purged documents **cannot be recovered** by 
+important to understand that purged documents *cannot be recovered* by 
 {{site.data.keyword.cloudant_short_notm}} once the 
 process is complete.
 
-> Note: the CouchDB purge API is not supported by {{site.data.keyword.cloudant_short_notm}}.
+> **Note**: The CouchDB purge API is not supported by {{site.data.keyword.cloudant_short_notm}}.
 
 In the context of GDPR, purging is only required if PI is used in a document ID. It's a bad 
 idea for an `_id` to store PI for lots of reasons, but there are a handful of semi-valid use 
@@ -198,32 +198,32 @@ to {{site.data.keyword.cloudant_short_notm}}.
 
 If a document needs removal via a *Right to be forgotten* request:
 
-1. File a request with the [IBM Data Privacy Office (DPO) ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html) to request purging of specific document `_id` values along with the reason.
-1. On receipt of a formal request by the IBM DPO, {{site.data.keyword.cloudant_short_notm}} will 
-trigger a [security incident ![External link icon](../images/launch-glyph.svg "External link icon")](https://pages.github.ibm.com/cloudant/policy-documents/security-incident.html) 
+1. File a request with the [IBM Data Privacy Office (DPO) ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window} to request purging of specific document `_id` values along with the reason.
+1. On receipt of a formal request by the IBM DPO, {{site.data.keyword.cloudant_short_notm}}  
+triggers a [security incident ![External link icon](../images/launch-glyph.svg "External link icon")](https://pages.github.ibm.com/cloudant/policy-documents/security-incident.html){:new_window} 
 to verify the request. We won't purge data that doesn't have PI in the `_id`.
-1. {{site.data.keyword.cloudant_short_notm}} will then trigger the purging action to permanently remove the requested data.
+1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
 This process is only to be used for emergency deletion requests (for example, *right to be 
 forgotten*) and
 must not be relied upon long-term. If your application is intentionally using PI in document IDs,
 then it must be changed to use PI in document IDs. You cannot rely on regular purging by
-the {{site.data.keyword.cloudant_short_notm}} operations team to avoid this. {{site.data.keyword.cloudant_short_notm}} will therefore reject purge requests where:
+the {{site.data.keyword.cloudant_short_notm}} operations team to avoid this. {{site.data.keyword.cloudant_short_notm}} therefore rejects the following purge requests:
 
 1. The request is for regular purging, for example, *every 30 days*.
 1. The request is for over 100 documents.
 
-Even with purge, PI in the `_id` field will leak into places you don't want it, such as 
-{{site.data.keyword.cloudant_short_notm}}'s logs, so it should be avoided. We have a business reason to retain those logs and 
+Even with purge, PI in the `_id` field leaks into places you don't want it, such as 
+{{site.data.keyword.cloudant_short_notm}} logs, so it should be avoided. We have a business reason to retain those logs and 
 will not remove log lines containing document `_id` values.
 
 ### What about deleting a database?
 
 Deleting a database puts it into a trash can for up to 48h, after which it is removed from the 
-file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases, this is the 
-*responsibility of the customer*, so you must ensure all copies of your 
-database are removed from your system. For more information, see the 
-[backup](../guides/backup-cookbook.html#cloudant-nosql-db-backup-and-recovery) documentation. 
+file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases; this task is the 
+*responsibility of the customer*. You must ensure all copies of your 
+database are removed from your system. For more information, see 
+[Cloudant NoSQL DB backup and recovery](../guides/backup-cookbook.html#cloudant-nosql-db-backup-and-recovery){:new_window}. 
 
 If you need additional help, contact 
 [{{site.data.keyword.cloudant_short_notm}} Support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com).
