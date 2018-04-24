@@ -21,7 +21,7 @@ lastupdated: "2018-04-24"
 {{site.data.keyword.cloudantfull}} has an auditing system to capture time, authentication principal, 
 resource, and action taken. If you need to see the audit log, contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com) with the 
 account URL, databases of interest, and time window (up to 30 days ago) or similar. For more
-information, see [Audit logging](https://console.bluemix.net/docs/services/Cloudant/offerings/audit.html#audit-logging). 
+information, see [Audit logging](../offerings/audit.html#audit-logging). 
 
 Initially (2018 Q2) you access this data via a support ticket. During 2018, we will be
 looking to make this self-service via 
