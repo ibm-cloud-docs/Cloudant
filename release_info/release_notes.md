@@ -23,6 +23,12 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 6909 (April 25, 2018)
+
+* Added support `/v2/authz` endpoint in epep.
+* Support separate credentials for replicator token requests in epep.
+* Fix length of `badarg` error in mp parser.
+
 ## Build 6895 (April 17, 2018)
 
 - Fix a regression introduced with pluggable storage engine.
