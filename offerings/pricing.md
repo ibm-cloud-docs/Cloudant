@@ -74,32 +74,31 @@ of 1000 lookups/sec, 500 writes/sec, and 50 queries/sec costs $1.050/hour * 730 
 * Total = $766.50
 
 
-## Data Usage START HERE
+## Data Usage 
 
-How does pricing work with data overages? See the details below: 
+What about pricing for data overage, how does that work?
 
-- For the Lite plan, 1 GB of storage is included. This is a cap, so if you go 
-over that amount, your account is blocked from writing new data until 
-you delete the data to under the 1 GB limit, or upgrade to a higher plan.
-- For the Standard plan, 20 GB of storage is included. If you go over that 
-amount, additional storage costs are $0.0014 per GB per hour, which is 
-approximately $1/GB per month. 
+Plan | Storage included | Overage limit
+-----|------------------|--------------
+Lite | 1 GB |  Your account is blocked from writing new data until you delete enough data to be under the 1 GB limit, or upgrade to a higher plan.
+Standard | 20 GB | Additional storage costs $0.0014 per GB per hour, which is approximately $1/GB per month.
 
-On the {{site.data.keyword.cloud}} Usage Dashboard, the usage of storage displays above the 
-20 GB limit that is included in the Standard plan, priced per GB/hour. When you are under 
-20 GB of storage, the display shows 0 GB since you have not gone over the 
-limit. 
-
-What data displays in the {{site.data.keyword.cloud_notm}} Usage Dashboard
+How does data display in the {{site.data.keyword.cloud_notm}} Usage Dashboard?
 
 In the usage dashboard, you see the number of lookups, queries, and writes used, as 
 well as the cost, for example:
 
 IBM Cloud Usage dashboard screenshot
 
-This view displays the usage accrued for the month, and only shows 
-the cost for the month to date. The Estimated Total reflects the bill 
-up to this date for this month. At the end of the month, you can see 
+In the screen shots, you can see the usage of storage displays above the 20 GB limit 
+that is included in the Standard plan, priced per GB/hour. When you are under 20 GB of 
+storage, the display shows 0 GB since you have not gone over the limit.
+
+View screenshot
+
+This view totals usage accrued for the month, and so will only show 
+the cost for the month so far. The Estimated Total reflects the bill 
+so far for the month. By the end of the month, you can see 
 the average capacity for the month, which is your total monthly bill. 
 The STORAGE_MANAGED_PER_MONTH field only shows the amount above the 20 GBs 
 that are included. In the example above, there 

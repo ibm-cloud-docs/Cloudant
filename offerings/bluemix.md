@@ -161,7 +161,7 @@ requests are rejected until the number of events within the sliding window
 no longer exceeds the number that is provisioned.
 It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
-For example, if you are on the Standard plan provisioned for 200 lookups per second,
+For example, if you are on the Standard plan with provisioned for 200 lookups per second,
 your account might make a maximum of 200 lookup requests during a consecutive period of 1,000 milliseconds (1 second).
 Subsequent lookup requests made during the sliding 1,000-millisecond period
 are rejected until the number of lookup requests in that period drops to less than 200 again.
