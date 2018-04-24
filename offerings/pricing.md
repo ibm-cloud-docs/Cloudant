@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-20"
+lastupdated: "2018-04-24"
 
 ---
 
@@ -16,78 +16,65 @@ lastupdated: "2018-04-20"
 
 # Pricing
 
-{{site.data.keyword.cloudantfull}} gives you a way to scale your provisioned throughput 
-capacity up and down, which is a reserved number of lookups, writes, and 
-queries each second, allocated to an instance. The throughput capacity 
-level is the maximum usage level. If you try to exceed the 
-reserved capacity, an HTTP 429 status code occurs indicating that 
-the application is trying to exceed its provisioned 
-throughput capacity allowance.
+{{site.data.keyword.cloudantfull}} allows you to scale up and down your provisioned 
+throughput capacity, which is a reserved number of lookups, writes, and queries each 
+second allocated to an instance. The throughput capacity level is the maximum usage 
+level and any attempt to exceed the reserved capacity will be met by a HTTP 429 status 
+code that indicates that the application is trying to exceed its provisioned throughput 
+capacity allowance.
+
 
 ## Pricing Examples 
 
-Let's assume you are building a mobile app with {{site.data.keyword.cloudant_short_notm}} 
-and do not yet 
-know the capacity you need. In this case, we recommend starting with 
-the lowest provisioned throughput capacity and increasing it as required by 
-your application's usage overtime. {{site.data.keyword.cloudant_short_notm}} 
-bills prorated hourly and 
-changing the provisioned throughput capacity does not incur downtime. 
+Let's assume you are building a mobile app with {{site.data.keyword.cloudant_short_notm}} and do not yet know the 
+capacity you need. In this case, we recommend starting with the lowest provisioned 
+throughput capacity and increasing it as required by your application's usage over time. 
+{{site.data.keyword.cloudant_short_notm}} bills pro-rated hourly and changing the provisioned throughput capacity does not 
+incur downtime.  
 
-For the mobile app example, you start with the minimum provisioned 
-throughput capacity for the Standard plan which is 100 lookups/sec, 
-50 writes/sec, and 5 queries/sec. The cost for this capacity is $0.105 
-per hour. The 100 lookups/sec, 50 writes/sec, and 5 queries/sec are a 
-block of provisioned throughput capacity, and when you need to scale up 
-(or down) you can scale in increments of these blocks of capacity. 
-Assuming the instance has less than the 20 GB of storage included in the 
-Standard plan, there are no storage costs. On the {{site.data.keyword.cloudant_short_notm}} Dashboard's 
-**Account** > **Capacity** tab, the provisioned throughput capacity 
-setting looks like this:
+For the mobile app example, you start with the minimum provisioned throughput capacity for the 
+Standard plan which is 100 lookups/sec, 50 writes/sec, and 5 queries/sec. The cost for this 
+capacity is $0.105 per hour. The 100 lookups/sec, 50 writes/sec, and 5 queries/sec are a block 
+of provisioned throughput capacity, and when you need to scale up (or down), you can scale in 
+increments of these blocks of capacity. Assuming the instance has less than the 20GB of storage 
+included in the Standard plan, there are no storage costs. On the 
+{{site.data.keyword.cloudant_short_notm}} Dashboard's > Account > Capacity tab, 
+the provisioned throughput capacity setting looks like this:
 
 Select your capacity screenshot
 
-The capacity slider shows the hourly cost of the provisioned throughput 
-capacity of 100 lookups/sec, 50 writes/sec, and 5 queries/sec in USD of 
-$0.105/hour and gives a rough cost per month of $76.65. The monthly amount 
-is an estimate based on an average of 730 hours per month. The cost in any 
-given month will be slightly different depending on the number of hours in 
-the month.
+The capacity slider shows the hourly cost of the provisioned throughput capacity of 
+100 lookups/sec, 50 writes/sec, and 5 queries/sec in USD of $0.105/hour and gives a rough 
+cost per month of $76.65. The monthly amount is an estimate based on an average of 730 
+hours per month. The cost in any given month will be slightly different depending 
+on the number of hours in the month.
 
-Lookups, writes, and queries cannot be scaled independently. Use the slider 
-to select the number of blocks of provisioned throughput capacity based on 
-the upper limit of either lookups/sec, writes/sec, or queries/sec required 
-for your application. For example, if your application requires 1,000 lookups 
-per second, use the slider to select the capacity that offers 1,000 
-lookups/sec, 500 writes/sec, and 50 queries/sec, even if you do not need 
-the corresponding number of writes or queries.
+Lookups, writes and queries cannot be scaled independently. Use the slider to select the 
+number of blocks of provisioned throughput capacity based on the upper limit of either 
+lookups/sec, writes/sec, or queries/sec required for your application. For example, if your 
+application requires 1,000 lookups per second, use the slider to select the capacity that 
+offers 1,000 lookups/sec, 500 writes/sec, and 50 queries/sec, even if you do not need the 
+corresponding number of writes or queries.
 
 Select your capacity 1,000 screenshot
 
-How is total cost calculated for provisioned throughput capacity? You can see an 
-estimate of your total cost per month on the {{site.data.keyword.cloudant_short_notm}} 
-Dashboard **Account** > **Capacity** tab. Here are two example estimates:
+How do you estimate the total cost for provisioned throughput capacity per month of 
+100 lookups, 50 writes, and 5 queries? Here are the details:
 
-Your capacity is measured in blocks of lookups, writes, and queries, as shown below:
+* $0.105 per hour * 1 block of 100 lookups/sec, 50 writes/sec, and 5 queries/sec 
+provisioned throughput capacity * 730 hours (approximate hours in a month)
+* Total = $76.65
 
-`1 block = 100 lookups/sec, 50 writes/sec, and 5 queries/sec`
+What about 1,000 lookups, 500 writes, and 50 queries? Here are the details:
 
-To estimate the cost of 100 lookups, 50 writes, and 5 queries, use the 
-following formula: 
-
-`$0.105 per hour * 1 block * 730 hours = $76.65`
-
-To estimate the cost of 1,000 lookups, 500 writes, and 50 queries, use the 
-following formula:
-
-`$0.105 per hour * 10 block * 730 hours = $766.50`
- 
-Alternatively, when you look at the slider, it estimates the cost for 
-1000 lookups/sec, 500 writes/sec, and 50 queries/sec of provisioned 
-throughput capacity as `$1.050/hour * 730 hours = $766.50`.
+* $0.105 per hour * 10 blocks of 100 lookups/sec, 50 writes/sec, and 5 queries/sec 
+provisioned throughput capacity * 730 hours (approximate hours in a month)
+* Alternatively the slider will show you that the provisioned throughput capacity 
+of 1000 lookups/sec, 500 writes/sec, and 50 queries/sec costs $1.050/hour * 730 hours
+* Total = $766.50
 
 
-## Data Usage 
+## Data Usage START HERE
 
 How does pricing work with data overages? See the details below: 
 
