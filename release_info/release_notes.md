@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-17"
+lastupdated: "2018-04-24"
 
 ---
 
@@ -25,9 +25,9 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6909 (April 25, 2018)
 
-* Added support `/v2/authz` endpoint in epep.
-* Support separate credentials for replicator token requests in epep.
-* Fix length of `badarg` error in mp parser.
+* Added support `/v2/authz` endpoint in Erlang's policy enforcement point (EPEP).
+* Support separate credentials for replicator token requests in EPEP.
+* Fix length of `badarg` error in multipart parser.
 
 ## Build 6895 (April 17, 2018)
 
