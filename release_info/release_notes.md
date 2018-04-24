@@ -27,7 +27,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 - Improve validation of password schemes. 
 - In `_scheduler/docs`, set the value of the state field to `crashing` when the last event in the history was a crash. 
-- Disallow `_design`, `_rewrite`, and `_update` endpoints with IAM.
+- Support replication with IAM.
+- Disallow `_design/$DDOC/_rewrite` and `_design/$DDOC/_update` endpoints with IAM.
 
 ## Build 6895 (April 17, 2018)
 
