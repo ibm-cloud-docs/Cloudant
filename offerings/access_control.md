@@ -19,7 +19,7 @@ lastupdated: "2018-04-24"
 ## How do I audit access to {{site.data.keyword.cloudant_short_notm}}?
 
 {{site.data.keyword.cloudantfull}} has an auditing system to capture time, authentication principal, 
-resource, and action taken. If you need to see the audit log, contact support with the 
+resource, and action taken. If you need to see the audit log, contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com) with the 
 account URL, databases of interest, and time window (up to 30 days ago) or similar. For more
 information, see [Audit logging](https://console.bluemix.net/docs/services/Cloudant/offerings/audit.html#audit-logging). 
 
@@ -76,7 +76,7 @@ client interactions with the {{site.data.keyword.cloudant_short_notm}} dashboard
 ### Restriction of processing
 
 We send dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict 
-processing of client PI in this way via a [support request](mailto:support@cloudant.com). Upon 
+processing of client PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information associated 
 with the client as sent to Segment, and prevents further data from being sent. We need to retain the 
 ability to contact clients via email and provide an interface for clients to keep this 
