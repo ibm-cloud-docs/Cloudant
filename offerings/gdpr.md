@@ -14,9 +14,14 @@ lastupdated: "2018-04-25"
 
 <!-- Acrolinx: 2017-04-28 -->
 
-# What is General Data Protection Regulation (GDPR)? 
+# General Data Protection Regulation (GDPR)
 
-With the [General Data Protection Regulation (GDPR) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.eugdpr.org/){:new_window},
+The GDPR seeks to create a harmonized data protection law framework across the EU and aims 
+to give citizens back the control of their personal data, whilst imposing strict rules on 
+those hosting and ‘processing’ this data, anywhere in the world. The Regulation also introduces 
+rules relating to the free movement of personal data within and outside the EU. 
+
+With the [General Data Protection Regulation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.eugdpr.org/){:new_window},
 {{site.data.keyword.cloudant_short_notm}} customers can rely on 
 the {{site.data.keyword.cloudant_short_notm}} team's understanding and
 compliance with emerging data privacy standards and legislation and 
