@@ -16,7 +16,7 @@ lastupdated: "2018-04-25"
 
 # What is General Data Protection Regulation (GDPR)? 
 
-With the [General Data Protection Regulation (GDPR) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){:new_window},
+With the [General Data Protection Regulation (GDPR) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.eugdpr.org/){:new_window},
 {{site.data.keyword.cloudant_short_notm}} customers can rely on 
 the {{site.data.keyword.cloudant_short_notm}} team's understanding and
 compliance with emerging data privacy standards and legislation and 
@@ -26,7 +26,7 @@ to assist businesses of all sizes with their own internal data governance requir
 
 ## How do I audit access to {{site.data.keyword.cloudant_short_notm}}?
 
-You can find information about auditing in [Audit logging](../offerings/audit.html#audit-logging). 
+You can find information about auditing in [Audit logging](../offerings/audit.html#audit-logging){:new_window}. 
 
 ## Supported classifications of Personal Data
 
