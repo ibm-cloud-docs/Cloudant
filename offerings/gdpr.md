@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-04-24"
+lastupdated: "2018-04-25"
 
 ---
 
@@ -14,18 +14,19 @@ lastupdated: "2018-04-24"
 
 <!-- Acrolinx: 2017-04-28 -->
 
-# Access control
+# What is General Data Protection Regulation (GDPR)? 
+
+With the [General Data Protection Regulation (GDPR) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){:new_window},
+{{site.data.keyword.cloudant_short_notm}} customers can rely on 
+the {{site.data.keyword.cloudant_short_notm}} team's understanding and
+compliance with emerging data privacy standards and legislation and 
+also in {{site.data.keyword.IBM_notm}}'s wider ability to provide a 
+comprehensive suite of solutions
+to assist businesses of all sizes with their own internal data governance requirements.
 
 ## How do I audit access to {{site.data.keyword.cloudant_short_notm}}?
 
-{{site.data.keyword.cloudantfull}} has an auditing system to capture time, authentication principal, 
-resource, and action taken. If you need to see the audit log, contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com) with the 
-account URL, databases of interest, and time window (up to 30 days ago) or similar. For more
-information, see [Audit logging](../offerings/audit.html#audit-logging). 
-
-Initially (2018 Q2) you access this data via a support ticket. During 2018, we will be
-looking to make this self-service via 
-[Activity Tracker ![External link icon](../images/launch-glyph.svg "External link icon")](https://pages.github.ibm.com/activity-tracker/){:new_window}.
+You can find information about auditing in [Audit logging](../offerings/audit.html#audit-logging). 
 
 ## Supported classifications of Personal Data
 
