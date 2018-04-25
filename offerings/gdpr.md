@@ -85,31 +85,36 @@ We send dashboard interaction data to Segment. It is possible to ask {{site.data
 processing of client PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information associated 
 with the client as sent to Segment, and prevents further data from being sent. We need to retain the 
-ability to contact clients via email and provide an interface for clients to keep this 
+ability to contact dedicated clients via email and provide an interface for clients to keep this 
 information up to date either directly, or via client configuration of their contact details 
 via their {{site.data.keyword.cloud_notm}} account details.
 
 ## Is our {{site.data.keyword.cloudant_short_notm}} database encrypted?
 
-For sensitive data, that you determine must remain invisible to 
-{{site.data.keyword.cloudant_short_notm}} operations, 
-you must encrypt or otherwise protect (pseudonymise) your data before sending it to us. 
-All clusters have an encrypted file system (encryption at rest) using LUKS. Data in the database 
-is visible to our operations and support teams (see below). For sensitive data, you must 
-remain invisible to {{site.data.keyword.cloudant_short_notm}}, and you must encrypt or otherwise protect (pseudonymise) your 
-data before sending it to us. You must avoid using PI for a document `_id`, as these are 
-always visible and written to the access logs.
+All clusters have an encrypted file system (encryption at rest) using Linux Unified Key Setup (LUKS). Data in the database is 
+visible to our operations and support teams (see below).
+
+For sensitive data, that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}, 
+you must encrypt or otherwise protect (pseudonymise) your data before sending it to us. You must avoid 
+using PI for a document `_id`, as these are always visible and written to the access logs.
 
 ## Data locations
 
 Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data will be 
-made available, and kept up to date, via the Cumulus/Cloud Transparency tool.
+made available, and kept up to date, via the Data Sheet Addendum (DPA).
 
 For more information about data locations, see the 
 [{{site.data.keyword.cloudantfull}} detailed system requirements under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
 
-
 ## Service security
+
+### Using {{site.data.keyword.cloudant_short_notm}} securely
+
+As a user of {{site.data.keyword.cloudant_short_notm}}, you should:
+
+ * Use the default CORS configuration to prevent unexpected access.
+ * Use API keys liberally, such that components can have 'least privileged access,' coupled with the audit log. This practice allows you to understand who accessed which data.
+ * Encrypt or otherwise protect (pseudonymise) any sensitive data before sending it to us.
 
 ### Physical And Environmental Security Measures
 
@@ -130,14 +135,6 @@ Personal Data. We hold externally audited certifications for the controls we emp
 Certification details and attestation reports (i.e., ISO and SOC2) can be provided to the 
 customer upon request.
 
-### Using {{site.data.keyword.cloudant_short_notm}} securely
-
-As a user of {{site.data.keyword.cloudant_short_notm}}, you should:
-
- * Use the default CORS configuration to prevent unexpected access.
- * Use API keys liberally, such that components can have 'least privileged access,' coupled with the audit log. This practice allows you to understand who accessed which data.
- * Encrypt or otherwise protect (pseudonymise) any sensitive data before sending it to us.
-
 ### Service access to data
 
 {{site.data.keyword.cloudant_short_notm}} operations and support staff have access to client data 
@@ -157,16 +154,20 @@ on how you delete it:
 the tombstone includes what you set in the document body. This practice can be useful in some 
 circumstances, for example, when recording why a document was deleted in its tombstone.
 
+For more information on deleting tombstones, see []().
+
 ### When is a deleted document removed?
 
 Compaction runs automatically and periodically removes old revisions (deleted or otherwise) 
 from the database, by writing out only 'leaf' revisions to a new file. We keep a history of 
 `_id` and `_rev` to enable replication, but not old document bodies.
 
+> **Note**: {{site.data.keyword.cloudant_short_notm}} does not expose the CouchDB compaction API.
+
 We do not guarantee that a database will be compacted in a specific time. Clusters can host 
 10000+ accounts, each containing many databases. Compaction is done as a background process across 
-the whole cluster, and databases are always being compacted; there's just no guarantee it's the 
-data you've just deleted/changed.
+the whole cluster, and databases are always being compacted; there is just no guarantee it is the 
+data you have just deleted/changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting *Right to be forgotten* requests via 
 the [IBM Data Privacy Office ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window}. 
@@ -179,14 +180,14 @@ At the end of this process, the only version of the document is its tombstone
 
 {{site.data.keyword.cloudant_short_notm}} can completely remove all references and data for a 
 document when required. This task is 
-an operator-managed process called purging. Before requesting documents be purged, it's 
+an operator-managed process called purging. Before requesting documents be purged, it is 
 important to understand that purged documents *cannot be recovered* by 
 {{site.data.keyword.cloudant_short_notm}} once the 
 process is complete.
 
 > **Note**: The CouchDB purge API is not supported by {{site.data.keyword.cloudant_short_notm}}.
 
-In the context of GDPR, purging is only required if PI is used in a document ID. It's a bad 
+In the context of GDPR, purging is only required if PI is used in a document ID. It is a bad 
 idea for an `_id` to store PI for lots of reasons, but there are a handful of semi-valid use 
 cases (for example, a unique email). If possible, encrypt or pseudonymise data so it is opaque 
 to {{site.data.keyword.cloudant_short_notm}}.
@@ -194,13 +195,10 @@ to {{site.data.keyword.cloudant_short_notm}}.
 If a document needs removal via a *Right to be forgotten* request:
 
 1. File a request with the [IBM Data Privacy Office (DPO) ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window} to request purging of specific document `_id` values along with the reason.
-1. On receipt of a formal request by the IBM DPO, {{site.data.keyword.cloudant_short_notm}}  
-triggers a [security incident ![External link icon](../images/launch-glyph.svg "External link icon")](https://pages.github.ibm.com/cloudant/policy-documents/security-incident.html){:new_window} 
-to verify the request. We won't purge data that doesn't have PI in the `_id`.
+1. On receipt of a formal request by the IBM DPO, {{site.data.keyword.cloudant_short_notm}} operations
+verifies the request to confirm the `id` contains PI. We do not purge data that does not have PI in the `_id`. 
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
-On receipt of a formal request by the IBM DPO, {{site.data.keyword.cloudant_short_notm}}
-operations verifies the request; we won't purge data that doesn't have PI in the `_id`.
 This process is only to be used for emergency deletion requests (for example, *right to be 
 forgotten*) and must not be relied upon long-term. If your application is intentionally 
 using PI in document IDs, 
@@ -211,7 +209,7 @@ rely on regular purging by the {{site.data.keyword.cloudant_short_notm}} operati
 1. The request is for regular purging, for example, *every 30 days*.
 1. The request is for over 100 documents.
 
-Even with purge, PI in the `_id` field leaks into places you don't want it, such as 
+Even with purge, PI in the `_id` field leaks into places you do not want it, such as 
 {{site.data.keyword.cloudant_short_notm}} logs, so it should be avoided. We have a business reason to retain those logs and 
 will not remove log lines containing document `_id` values.
 
