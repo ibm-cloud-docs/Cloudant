@@ -33,10 +33,10 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
     The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard:<br/>
+    you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard without any service instances:<br/>
     ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
 
-2.  Click the `Create resources` button:<br/>
+2.  Click the `Create resource` button:<br/>
     ![{{site.data.keyword.Bluemix_notm}} catalog link](images/img0002.png)<br/>
     A list of the services available on {{site.data.keyword.Bluemix_notm}} appears.
 
@@ -49,7 +49,7 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
     ![{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)
 
 5.  In the service configuration window,
-    enter a service name. Verify region/location, organization, and space selections are correct.
+    enter a service name. Verify that the region/location, organization, and space selections are correct.
     In this example,
     the service name is `Cloudant NoSQL DB service`:<br/>
     ![{{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0005.png)
@@ -70,15 +70,16 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
     click the `Service Credentials` tab:<br/>
     ![Accessing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0007.png)
 
-8.  Create {{site.data.keyword.cloudant_short_notm}} service credentials:
-    <br>![Create service credentials](images/img0050.png)
+8.  Create a new {{site.data.keyword.cloudant_short_notm}} service credential:
   <br>a. Click the `New credential` button.
-  <br>![Add a new service credential](images/img0051.png)
-  <br>b. Enter a name for the new credential.
+  <br>![Create new service credentials](images/img0050.png)
+  <br>b. Enter a name for the new credential in the Add new credential window.
+   <br>![Add a new service credential](images/img0051.png)
   <br>c. (Optional) Add inline configuration parameters in a valid JSON object.
   <br>d. Click the `Add` button. 
+  <br>Your credentials are added to the Service credentials table.
   <br>e. Click `View credentials` under Actions. 
-  <br>![View all service credentials](images/img0051.png)
+  <br>![View all service credentials](images/img0052.png)
 
 9.  The Service Credentials details appear:<br/>
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
@@ -123,14 +124,14 @@ you can find the credentials for a service that is associated with your account.
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard:<br/>
-new screenshot    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
+    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0053.png)
 
 3.  In this example,
     we want to find the service credentials for the {{site.data.keyword.cloudant_short_notm}}
     service instance that was created earlier in the tutorial,
-    called `Cloudant NoSQL Db service`.
+    called `Cloudant NoSQL DB service`.
     Click the corresponding row:<br/>
-New screenshot    ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png)
+    ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png)
 
 3.  The Service Credentials window appears.
     To see the credentials that are required to access the service,
