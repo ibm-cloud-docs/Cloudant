@@ -22,10 +22,10 @@ those hosting and ‘processing’ this data, anywhere in the world. The Regulat
 rules relating to the free movement of personal data within and outside the EU. 
 
 With the [General Data Protection Regulation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.eugdpr.org/){:new_window},
-{{site.data.keyword.cloudant_short_notm}} customers can rely on 
+{{site.data.keyword.cloudantfull}} customers can rely on 
 the {{site.data.keyword.cloudant_short_notm}} team's understanding and
 compliance with emerging data privacy standards and legislation and 
-also in {{site.data.keyword.IBM_notm}}'s wider ability to provide a 
+also in {{site.data.keyword.IBM}}'s wider ability to provide a 
 comprehensive suite of solutions
 to assist businesses of all sizes with their own internal data governance requirements.
 
@@ -54,7 +54,7 @@ If you are storing health care data, you *must* complete the following tasks:
  - Request a HIPAA-compliant dedicated cluster.
 
 For more information about supported classifications of Personal Data, see the 
-[{{site.data.keyword.cloudantfull}} detailed system requirements under 2. Personal Data ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
+[{{site.data.keyword.cloudant_short_notm}} detailed system requirements under 2. Personal Data ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
 
 ## Data about me
 
@@ -154,7 +154,7 @@ on how you delete it:
 the tombstone includes what you set in the document body. This practice can be useful in some 
 circumstances, for example, when recording why a document was deleted in its tombstone.
 
-For more information on deleting tombstones, see []().
+For more information on deleting tombstones, see [Simple removal of 'tombstone' documents](../api/document.html#-tombstone-documents){:new_window}.
 
 ### When is a deleted document removed?
 
@@ -170,8 +170,8 @@ the whole cluster, and databases are always being compacted; there is just no gu
 data you have just deleted/changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting *Right to be forgotten* requests via 
-the [IBM Data Privacy Office ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window}. 
-When a *Right to be forgotten* request is made from the IBM DPO, we verify the request, 
+the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO) ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window}. 
+When a *Right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, we verify the request, 
 explicitly trigger database compaction, and verify that compaction has occurred.
 At the end of this process, the only version of the document is its tombstone 
 (`_id`, `_rev`, `_deleted`, and any fields your application includes there).
@@ -194,8 +194,8 @@ to {{site.data.keyword.cloudant_short_notm}}.
 
 If a document needs removal via a *Right to be forgotten* request:
 
-1. File a request with the [IBM Data Privacy Office (DPO) ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window} to request purging of specific document `_id` values along with the reason.
-1. On receipt of a formal request by the IBM DPO, {{site.data.keyword.cloudant_short_notm}} operations
+1. File a request with the [{{site.data.keyword.IBM_notm}} DPO ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window} to request purging of specific document `_id` values along with the reason.
+1. On receipt of a formal request by the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} operations
 verifies the request to confirm the `id` contains PI. We do not purge data that does not have PI in the `_id`. 
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
@@ -219,7 +219,7 @@ Deleting a database puts it into a trash can for up to 48h, after which it is re
 file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases; this task is the 
 *responsibility of the customer*. You must ensure all copies of your 
 database are removed from your system. For more information, see 
-[Cloudant NoSQL DB backup and recovery](../guides/backup-cookbook.html#cloudant-nosql-db-backup-and-recovery){:new_window}. 
+[{{site.data.keyword.cloudant_short_notm}} backup and recovery](../guides/backup-cookbook.html#cloudant-nosql-db-backup-and-recovery){:new_window}. 
 
 If you need additional help, contact 
 [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com).
