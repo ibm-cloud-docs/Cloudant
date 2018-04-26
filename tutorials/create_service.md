@@ -71,14 +71,14 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
     ![Accessing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0007.png)
 
 8.  Create a new {{site.data.keyword.cloudant_short_notm}} service credential:
-  <br>a. Click the `New credential` button.
+  <br>a. Click the `New credential` button.</br>
   <br>![Create new service credentials](images/img0050.png)
   <br>b. Enter a name for the new credential in the Add new credential window, see below.
   <br>c. (Optional) Add inline configuration parameters.
   <br>d. Click the `Add` button. 
-  <br>Your credentials are added to the Service credentials table.
+  <br>Your credentials are added to the Service credentials table.</br>
   <br>![Add a new service credential](images/img0051.png)
-  <br>e. Click `View credentials` under Actions. 
+  <br>e. Click `View credentials` under Actions. </br>
   <br>![View all service credentials](images/img0052.png)
 
 9.  The Service credentials details appear:<br/>
