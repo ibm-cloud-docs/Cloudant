@@ -23,7 +23,7 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 6900 (April 19, 2018)
+## Build 6900 (April 25, 2018)
 
 - Improve validation of password schemes. 
 - In `_scheduler/docs`, set the value of the state field to `crashing` when the last event in the history was a crash. 
