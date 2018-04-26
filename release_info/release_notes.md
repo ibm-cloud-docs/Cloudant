@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-19"
+lastupdated: "2018-04-26"
 
 ---
 
@@ -22,6 +22,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6909 (April 26, 2018)
+
+- Improved compatibility with IAM.
+- Fix `badarg` error in the module that parses `http` multipart requests.
 
 ## Build 6900 (April 25, 2018)
 
