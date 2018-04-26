@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-24"
+lastupdated: "2018-04-26"
 
 ---
 
@@ -23,10 +23,17 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 6909 (April 25, 2018)
+## Build 6909 (April 26, 2018)
 
 - Improved compatibility with IAM.
 - Fix `badarg` error in the module that parses `http` multipart requests.
+
+## Build 6900 (April 25, 2018)
+
+- Improve validation of password schemes. 
+- In `_scheduler/docs`, set the value of the state field to `crashing` when the last event in the history was a crash. 
+- Support replication with IAM.
+- Disallow `_design/$DDOC/_rewrite` and `_design/$DDOC/_update` endpoints with IAM.
 
 ## Build 6895 (April 17, 2018)
 
