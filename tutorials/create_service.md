@@ -31,7 +31,7 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
 
 1.  Log in to your {{site.data.keyword.Bluemix_notm}} account.<br/>
     The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
-    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
+    [http://console.bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard without any service instances:<br/>
     ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
@@ -73,15 +73,15 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
 8.  Create a new {{site.data.keyword.cloudant_short_notm}} service credential:
   <br>a. Click the `New credential` button.
   <br>![Create new service credentials](images/img0050.png)
-  <br>b. Enter a name for the new credential in the Add new credential window.
-   <br>![Add a new service credential](images/img0051.png)
-  <br>c. (Optional) Add inline configuration parameters in a valid JSON object.
+  <br>b. Enter a name for the new credential in the Add new credential window, see below.
+  <br>c. (Optional) Add inline configuration parameters.
   <br>d. Click the `Add` button. 
   <br>Your credentials are added to the Service credentials table.
+  <br>![Add a new service credential](images/img0051.png)
   <br>e. Click `View credentials` under Actions. 
   <br>![View all service credentials](images/img0052.png)
 
-9.  The Service Credentials details appear:<br/>
+9.  The Service credentials details appear:<br/>
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
 
 >   **Note**: The service credentials in these examples
@@ -120,7 +120,7 @@ At any time,
 you can find the credentials for a service that is associated with your account.
 
 1.  Begin by logging in to {{site.data.keyword.cloudant_short_notm}}.
-    The {{site.data.keyword.Bluemix}} dashboard can be found at:
+    The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard:<br/>
