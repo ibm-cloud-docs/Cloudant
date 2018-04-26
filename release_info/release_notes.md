@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-17"
+lastupdated: "2018-04-19"
 
 ---
 
@@ -22,6 +22,13 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6900 (April 19, 2018)
+
+- Improve validation of password schemes. 
+- In `_scheduler/docs`, set the value of the state field to `crashing` when the last event in the history was a crash. 
+- Support replication with IAM.
+- Disallow `_design/$DDOC/_rewrite` and `_design/$DDOC/_update` endpoints with IAM.
 
 ## Build 6895 (April 17, 2018)
 
