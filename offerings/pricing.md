@@ -12,7 +12,7 @@ lastupdated: "2018-04-27"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-02-23 -->
+<!-- Acrolinx: 2017-04-27 -->
 
 # Pricing
 
