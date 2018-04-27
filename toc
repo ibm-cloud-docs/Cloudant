@@ -20,6 +20,7 @@ Cloudant NoSQL DB
     	offerings/security.md
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
+    	offerings/audit.md
     	offerings/gdpr.md
 
 	{: .topicgroup}
