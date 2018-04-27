@@ -39,7 +39,7 @@ the 20 GB of storage that is included in the Standard plan, there are no storage
 {{site.data.keyword.cloudant_short_notm}} Dashboard's > Account > Capacity tab, the 
 provisioned throughput capacity setting looks like this:
 
-![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab](images/cloudant-dashboard.png)
+![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab](../images/cloudant-dashboard.png)
 
 The capacity slider shows the hourly cost of the provisioned throughput capacity of 100 
 lookups/sec, 50 writes/sec, and 5 queries/sec in USD of $0.105/hour. The slider shows a rough cost 
@@ -54,7 +54,7 @@ your application requires 1,000 lookups per second, use the slider to select the
 that offers 1,000 lookups/sec, 500 writes/sec, and 50 queries/sec, even if you do not 
 need the corresponding number of writes or queries.
 
-![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab with more capacity selected](images/cloudant-gran-tuning.png)
+![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab with more capacity selected](../images/cloudant-gran-tuning.png)
 
 How do you estimate the total cost for provisioned throughput capacity per month of 100 
 lookups, 50 writes, and 5 queries? See the following details:
@@ -83,7 +83,7 @@ In the screen capture, you can see that the usage of storage displays above the 
 is included in the Standard plan, which is priced per GB/hour. When you are under 20 GB of storage, the 
 display shows 0 GB since you did not go over the limit.
 
-![{{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics](images/usage-dashboard2.png)
+![{{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics](../images/usage-dashboard2.png)
 
 This view shows the totals for usage that is accrued during this month, and so, only shows costs 
 for the month so far. The Estimated Total reflects the bill so far for the month. By the end 
@@ -91,4 +91,4 @@ of the month, you'll see your average capacity for the month, which is your tota
 bill. The `STORAGE_MANAGED_PER_MONTH` field only shows the amount above the 20 GB included, 
 so in the following example, there are approximately 40 GB of data total in the account.  
 
-![{{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics view with higher STORAGE MANAGED PER MONTH](images/usage-dashboard1.png)
+![{{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics view with higher STORAGE MANAGED PER MONTH](../images/usage-dashboard1.png)
