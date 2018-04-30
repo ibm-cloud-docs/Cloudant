@@ -22,9 +22,10 @@ to work with the database.
 
 To access an {{site.data.keyword.cloudant_short_notm}} service instance,
 you require a set of [Service Credentials](#the-service-credentials).
-The credentials are generated as part of the process when you create a service instance.
+You create credentials when you create a service instance. You can create additional 
+credentials at any time. 
 
-You can also find these credentials at any time,
+You can find these credentials,
 by accessing your {{site.data.keyword.cloudant_short_notm}} account.
 
 ## Creating a service instance
