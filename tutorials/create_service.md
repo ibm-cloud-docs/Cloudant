@@ -25,8 +25,7 @@ you require a set of [Service Credentials](#the-service-credentials).
 You create credentials when you create a service instance. You can create additional 
 credentials at any time. 
 
-You can find these credentials,
-by accessing your {{site.data.keyword.cloudant_short_notm}} account.
+You can find these credentials by accessing your {{site.data.keyword.cloudant_short_notm}} account.
 
 ## Creating a service instance
 
