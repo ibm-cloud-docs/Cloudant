@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-22"
+lastupdated: "2018-04-11"
 
 ---
 
@@ -340,6 +340,16 @@ The plans also offer
 [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}
 compliance requires a [Dedicated environment](#dedicated-hardware-plan),
 so request this environment as part of the [provisioning process](#provisioning-a-cloudant-instance-on-bluemix).
+
+<div id="byok"></div>
+
+If you require bring-your-own-key (BYOK) for encryption-at-rest, this is enabled via {{site.data.keyword.cloud}} Key 
+Protect. {{site.data.keyword.cloudant_short_notm}} supports this feature for new {{site.data.keyword.cloudant_short_notm}} 
+[Dedicated Hardware plan](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public) 
+instances deployed in all regions. First, create an instance of the Dedicated 
+Hardware plan via the [{{site.data.keyword.cloud_notm}} Catalog](https://console.bluemix.net/catalog/). Then submit a 
+support ticket and our support team will coordinate getting your new Dedicated Hardware instance's 
+encryption-at-rest encryption keys managed via your Key Protect instance.
 
 ## High availability, disaster recovery, and backup
 

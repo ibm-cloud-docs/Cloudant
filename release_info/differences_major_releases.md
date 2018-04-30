@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-28"
+lastupdated: "2018-04-10"
 
 ---
 
@@ -24,9 +24,13 @@ versions are released.
 ## New features
 
 - The new replication scheduler has several improvements and enhancements. Learn more about the [replication scheduler](../api/advanced_replication.html#the-replication-scheduler).
-
+ 
 ## Incompatibilites
 
+### Query 
+
+- {{site.data.keyword.cloudant_short_notm}} Query uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){:new_window}.
+ 
 ### Response Content-Type
 
 - The default response content-type has changed from `text/plain` to `application/json`. 

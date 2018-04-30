@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-28"
+lastupdated: "2018-04-26"
 
 ---
 
@@ -22,6 +22,22 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6909 (April 26, 2018)
+
+- Improved compatibility with IAM.
+- Fix `badarg` error in the module that parses `http` multipart requests.
+
+## Build 6900 (April 25, 2018)
+
+- Improve validation of password schemes. 
+- In `_scheduler/docs`, set the value of the state field to `crashing` when the last event in the history was a crash. 
+- Support replication with IAM.
+- Disallow `_design/$DDOC/_rewrite` and `_design/$DDOC/_update` endpoints with IAM.
+
+## Build 6895 (April 17, 2018)
+
+- Fix a regression introduced with pluggable storage engine.
 
 ## Build 6875 (April 4, 2018)
 
@@ -75,6 +91,7 @@ JavaScript.
 
 ### Query (<code>_find</code> endpoint):
 
+- {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){:new_window}.
 - The logic for determining whether a given index is valid for a query has changed, addressing a bug that could lead to incorrect results. 
 - Queries using text indexes no longer crash when `$exists`: `false` is used.
 - Partial indexes are now supported for both JSON and text indexes. See  [Creating a partial index](../api/cloudant_query.html#creating-a-partial-index) for more information.
