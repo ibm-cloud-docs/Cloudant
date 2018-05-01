@@ -332,7 +332,7 @@ The following table describes the meaning of the individual fields:
 
 Field        | Description                                                                         | Type
 -------------|-------------------------------------------------------------------------------------|-----
-`offset`     | Offset where the document list started.                                             | numeric, null (Type can be `null` when `keys` are specified.)
+`offset`     | Offset where the document list started.                                             | numeric
 `rows`       | Array of document objects.                                                          | array
 `total_rows` | Number of documents in the database or view that match the parameters of the query. | numeric
 `update_seq` | Current update sequence for the database.                                           | string
