@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-13"
+lastupdated: "2018-02-01"
 
 ---
 
@@ -32,7 +32,6 @@ is referred to as a [warehouse](../guides/warehousing.html).
 Warehouses are also supported by {{site.data.keyword.cloudant_short_notm}}.
 
 ## Create
-{: #create}
 
 To create a database,
 send a `PUT` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
@@ -85,11 +84,10 @@ the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
-201  | Creation if the quorum is met.
-202  | Accepted if at least one node responds OK.
+201  | Database created successfully
+202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
 403  | Invalid database name.
 412  | Database already exists.
-500  | No correct response from any node was returned.
 
 _Example response that is received after a database is created successfully:_
 
@@ -219,7 +217,7 @@ curl https://$ACCOUNT.cloudant.com/_all_dbs \
 ```
 {:codeblock}
 
-<!---
+<!--
 
 _Example of using JavaScript to list all databases:_
 
@@ -235,7 +233,7 @@ account.db.list(function (err, body, headers) {
 ```
 {:codeblock}
 
---->
+-->
 
 The response is a JSON array with all the database names.
 
@@ -251,291 +249,6 @@ _Example response:_
 ]
 ```
 {:codeblock}
-
-## Get design documents 
-{: #get-design-documents}
-
-To get design documents in a database, send a GET request to https://$ACCOUNT.cloudant.com/$DATABASE/_design_docs.
-
-_Example of using HTTP to retrieve design documents:_
-
-```http
-GET /{$DATABASE}/_design_docs
-```
-_Example of using the command line to retrieve design documents:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_design_docs 
-```
-
-The `_design_docs` endpoint returns a JSON structure of all the design 
-documents in the database you specify. The 
-information is returned as a JSON structure containing meta information about the 
-return structure, including a list of all the design documents and their basic content, 
-consisting of the ID, revision, and key. The key is taken from the design document’s `_id`. 
-
-> **Note**: You can use both `GET` and `POST` commands with the `_design_docs` endpoint. See the examples that follow. 
-
-The `_design_docs` endpoint accepts the following query parameters:
-
-Query parameters              | Description | Optional | Type | Default
-------------------------------|-------------|----------|------|--------
-`conflicts` | Includes conflict information in the response. Ignored if `include_docs` does not equal `true`. | Yes | Boolean | `false`
-`descending`| Return the design documents in descending order by key order. | Yes | Boolean | `false`
-`endkey` | Stop returning records when the specified key is reached. | Yes | string |
-`end_key` | Alias for `endkey` parameter. | Yes | string |
-`include_docs` | Include the full content of the design documents in the return. | Yes | Boolean | `false`
-`inclusive_end` | Specifies whether the specified end key should be included in the result. | Yes | Boolean | `true`
-`key` | Return only design documents that match the specified key. | Yes | string |
-`keys` | Return only design documents that match the specified keys. | Yes | list of strings |
-`limit` | Limit the number of the returned design documents to the specified number. | Yes | number |
-`skip` | Skip this number of records before starting to return the results. | Yes | number | `0`
-`startkey` | Return records starting with the specified key. | Yes | string |
-`start_key` | Alias for `startkey` parameter. | Yes | string |
-`update_seq` | Response includes an `update_seq` value indicating which sequence ID of the underlying database the view reflects. | Yes | Boolean | `false`
-
-The results are returned by using the following response JSON oject:
-
-Response JSON object    | Description | Type
-------------------------|-------------------
-`offset` | Offset where the design document list started. | number
-`rows` | Array of view row objects. By default, the information returned contains only the design document ID and revision. | array
-`total_rows` | Number of design documents in the database. Note that this is not the number of rows returned in the actual query. | number
-`update_seq` | Current update sequence for the database. | number
-
-If the request completes successfully, the following status code is returned: [200 OK ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1){:new_window} – Request completed successfully.
-
-_Example `GET` request for design documents:_
-```json
-GET /$DATABASE/_design_docs HTTP/1.1
-Accept: application/json
-Host: localhost:5984
-```
-{:codeblock}
-
-_Example response for design documents:_
-```json
-HTTP/1.1 200 OK
-Cache-Control: must-revalidate
-Content-Type: application/json
-Date: Sat, 23 Dec 2017 16:22:56 GMT
-ETag: "1W2DJUZFZSZD9K78UFA3GZWB4"
-Server: CouchDB (Erlang/OTP)
-Transfer-Encoding: chunked
-
-{
-    "offset": 0,
-    "rows": [
-        {
-            "id": "_design/ddoc01",
-            "key": "_design/ddoc01",
-            "value": {
-                "rev": "1-7407569d54af5bc94c266e70cbf8a180"
-            }
-        },
-        {
-            "id": "_design/ddoc02",
-            "key": "_design/ddoc02",
-            "value": {
-                "rev": "1-d942f0ce01647aa0f46518b213b5628e"
-            }
-        },
-        {
-            "id": "_design/ddoc03",
-            "key": "_design/ddoc03",
-            "value": {
-                "rev": "1-721fead6e6c8d811a225d5a62d08dfd0"
-            }
-        },
-        {
-            "id": "_design/ddoc04",
-            "key": "_design/ddoc04",
-            "value": {
-                "rev": "1-32c76b46ca61351c75a84fbcbceece2f"
-            }
-        },
-        {
-            "id": "_design/ddoc05",
-            "key": "_design/ddoc05",
-            "value": {
-                "rev": "1-af856babf9cf746b48ae999645f9541e"
-            }
-        }
-    ],
-    "total_rows": 5
-}
-
-```
-{:codeblock}
-
-`POST`ing to `_design_docs` endpoint allows you to specify multiple keys to be selected 
-from the database. This enables you to request multiple design documents in a 
-single request, in place of multiple `GET /{$DATABASE}/{$DOCID}` requests.
-
-The request JSON object should have a `keys` field, as shown in the following example. 
-
-_Example `POST` request for design documents:_
-```json
-POST /$DATABASE/_all_docs HTTP/1.1
-Accept: application/json
-Content-Length: 70
-Content-Type: application/json
-Host: localhost:5984
-
-{
-    "keys" : [
-        "_design/ddoc02",
-        "_design/ddoc05"
-    ]
-}
-```
-{:codeblock}
-
-The returned JSON is in the all documents structure, but with only the selected keys in the output:
-
-_Example `POST` return for design documents:_
-```json
-{
-    "total_rows" : 5,
-    "rows" : [
-        {
-            "value" : {
-                "rev" : "1-d942f0ce01647aa0f46518b213b5628e"
-            },
-            "id" : "_design/ddoc02",
-            "key" : "_design/ddoc02"
-        },
-        {
-            "value" : {
-                "rev" : "1-af856babf9cf746b48ae999645f9541e"
-            },
-            "id" : "_design/ddoc05",
-            "key" : "_design/ddoc05"
-        }
-    ],
-    "offset" : 0
-}
-```
-{:codeblock}
-
-## Get database information for multiple databases
-{: #get-database-information-for-multiple-databases}
-
-To retrieve database information for multiple databases, send a `POST` request to https://$ACCOUNT.cloudant.com/_dbs_info.
-
-_Example of using HTTP to retrieve database information:_
-
-```http
-POST /_dbs_info HTTP/1.1
-```
-_Example of using the command line to retrieve database information:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_dbs_info -d @request.json
-```
-
-The `/_dbs_info` endpoint returns information about a list of specified databases in the {{site.data.keyword.cloudant_short_notm}} instance.
-This enables you to request information about multiple databases in a single request, instead of multiple `GET /{$DATABASE}` requests.
-
-The request JSON object should have a `keys` field, as shown in the following example. 
-
-_Example request for database information:_
-
-```json
-POST /_dbs_info HTTP/1.1
-Accept: application/json
-Host: localhost:5984
-Content-Type: application/json
-
-{
-    "keys": [
-        "animals",
-        "plants"
-    ]
-}
-```
-{:codeblock}
-
-_Example response to the request for database information:_
-
-```json
-HTTP/1.1 200 OK
-Cache-Control: must-revalidate
-Content-Type: application/json
-Date: Sat, 20 Dec 2017 06:57:48 GMT
-Server: CouchDB (Erlang/OTP)
-
-[
-  {
-    "key": "animals",
-    "info": {
-      "db_name": "animals",
-      "update_seq": "52232",
-      "sizes": {
-        "file": 1178613587,
-        "external": 1713103872,
-        "active": 1162451555
-      },
-      "purge_seq": 0,
-      "other": {
-        "data_size": 1713103872
-      },
-      "doc_del_count": 0,
-      "doc_count": 52224,
-      "disk_size": 1178613587,
-      "disk_format_version": 6,
-      "data_size": 1162451555,
-      "compact_running": false,
-      "cluster": {
-        "q": 8,
-        "n": 3,
-        "w": 2,
-        "r": 2
-      },
-      "instance_start_time": "0"
-    }
-  },
-  {
-    "key": "plants",
-    "info": {
-      "db_name": "plants",
-      "update_seq": "303",
-      "sizes": {
-        "file": 3872387,
-        "external": 2339,
-        "active": 67475
-      },
-      "purge_seq": 0,
-      "other": {
-        "data_size": 2339
-      },
-      "doc_del_count": 0,
-      "doc_count": 11,
-      "disk_size": 3872387,
-      "disk_format_version": 6,
-      "data_size": 67475,
-      "compact_running": false,
-      "cluster": {
-        "q": 8,
-        "n": 3,
-        "w": 2,
-        "r": 2
-      },
-      "instance_start_time": "0"
-    }
-  }
-]
-```
-{:codeblock}
-
-See the following table for status code information:
-
-Code            | Description 
-----------------|------------
-200 OK          | Request completed successfully.
-400 Bad Request | Missing keys or exceeded keys specified in `POST` payload of the request. The default maximum number of specified keys in the request is 100.
-
-
 
 ## Get Documents
 
@@ -561,14 +274,11 @@ Argument            | Description                                               
 `skip`              | Skip this number of records before returning the results.                                       | yes      | numeric         | 0
 `startkey`          | Return records, starting with the specified key.                                                | yes      | string          |
 
-> **Note**: Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
- 
-> **Note**: When you use the `keys` argument, it might be easier to send a `POST` 
-request rather than a `GET` request if you require many strings to list the keys you 
-want. 
+>	**Note**: Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
 
-> **Note**: When you issue an `_all_docs` request that specifies the `keys` parameter, 
-the results are returned in the same order as the supplied `keys` array.
+>	**Note**: When you use the `keys` argument,
+    it might be easier to send a `POST` request rather than a `GET` request
+    if you require many strings to list the keys you want.
 
 _Example of using HTTP to list all documents in a database:_
 
@@ -659,6 +369,168 @@ _Example response after a request for all documents in a database:_
 }
 ```
 {:codeblock}
+
+## Send multiple queries to a database
+
+This section describes how to send multiple queries to a database using `_all_docs` and `_view` endpoints. 
+
+### Send multiple queries to a database by using `_all_docs`
+
+To send multiple queries to a specific database, send a `POST` request to 
+`https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries`.
+
+_Example of using HTTP to send multiple queries to a database:_
+
+```http
+POST /_all_docs/queries HTTP/1.1
+```
+{:codeblock}
+
+_Example of using the command line to send multiple queries to a database,_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries
+```
+{:codeblock}
+
+`POST`ing to the `_all_docs/queries` endpoint runs multiple specified built-in view queries of all documents 
+in this database. This endpoint enables you to request multiple queries in a single request, instead 
+of multiple `POST /$DATABASE/_all_docs` requests. 
+
+The request JSON object must have a `queries` field. It represents an array of query 
+objects with fields for the parameters of each individual view query to be run. 
+The field names and their meaning are the same as the query parameters of a regular 
+`_all_docs` request. 
+
+The results are returned by using the following response JSON object:
+
+Response JSON object    | Description | Type
+------------------------|-------------|-----
+`results` | An array of result objects - one for each query. Each result object contains the same fields as the response to a regular `_all_docs` request. | array
+
+
+_Example request with multiple queries:_
+
+```json
+{POST /db/_all_docs/queries HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Host: localhost:5984
+
+{
+    "queries": [
+        {
+            "keys": [
+                "meatballs",
+                "spaghetti"
+            ]
+        },
+        {
+            "limit": 3,
+            "skip": 2
+        }
+    ]
+}
+```
+{:codeblock}
+
+_Example response for multiple queries:_
+```json
+HTTP/1.1 200 OK
+Cache-Control: must-revalidate
+Content-Type: application/json
+Date: Wed, 20 Dec 2017 11:17:07 GMT
+ETag: "1H8RGBCK3ABY6ACDM7ZSC30QK"
+Server: CouchDB (Erlang/OTP)
+Transfer-Encoding: chunked
+
+{
+    "results" : [
+        {
+            "rows": [
+                {
+                    "id": "SpaghettiWithMeatballs",
+                    "key": "meatballs",
+                    "value": 1
+                },
+                {
+                    "id": "SpaghettiWithMeatballs",
+                    "key": "spaghetti",
+                    "value": 1
+                },
+                {
+                    "id": "SpaghettiWithMeatballs",
+                    "key": "tomato sauce",
+                    "value": 1
+                }
+            ],
+            "total_rows": 3
+        },
+        {
+            "offset" : 2,
+            "rows" : [
+                {
+                    "id" : "Adukiandorangecasserole-microwave",
+                    "key" : "Aduki and orange casserole - microwave",
+                    "value" : [
+                        null,
+                        "Aduki and orange casserole - microwave"
+                    ]
+                },
+                {
+                    "id" : "Aioli-garlicmayonnaise",
+                    "key" : "Aioli - garlic mayonnaise",
+                    "value" : [
+                        null,
+                        "Aioli - garlic mayonnaise"
+                    ]
+                },
+                {
+                    "id" : "Alabamapeanutchicken",
+                    "key" : "Alabama peanut chicken",
+                    "value" : [
+                        null,
+                        "Alabama peanut chicken"
+                    ]
+                }
+            ],
+            "total_rows" : 2667
+        }
+    ]
+}
+```
+{:codeblock}
+
+> **Note**: Multiple queries are also supported in `/$DATABASE/_local_docs/queries` and 
+`/$DATABASE/_design_docs/queries`, which is similar to `/$DATABASE/_all_docs/queries`. 
+
+### Send multiple view queries to a database by using `_view`
+
+To send multiple view queries to a specific database, send a `POST` request to 
+`https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
+
+_Example of using HTTP to send multiple queries to a database:_
+
+```http
+POST /_view/$VIEW/queries HTTP/1.1
+```
+{:codeblock}
+
+_Example of using the command line to send multiple view queries to a database,_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_view/$VIEW/queries
+```
+{:codeblock}
+
+Multiple queries are supported with the `_view` endpoint, 
+`/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
+
+The request JSON object must have a `queries` field. It represents an array of query 
+objects with fields for the parameters of each individual view query to be executed. 
+The field names and their meaning are the same as the query parameters of a regular 
+`_view` request. 
+
 
 ## Get Changes
 
