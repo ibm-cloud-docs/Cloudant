@@ -14,9 +14,8 @@ lastupdated: "2018-04-30"
 
 # Monitoring a {{site.data.keyword.cloudant_short_notm}} cluster
 
-> **Important**: The monitoring API is not available to {{site.data.keyword.cloud}} Public accounts. 
-Existing {{site.data.keyword.cloudantfull}} Enterprise cluster accounts can continue to use the monitoring 
-API, but it is not available to new accounts.
+> **Important**: The monitoring API is only available to {{site.data.keyword.cloudantfull}} Enterprise 
+customers with dedicated clusters and not to {{site.data.keyword.cloud}} Public customers.
 
 A key part of ensuring best performance,
 or troubleshooting any problems,
