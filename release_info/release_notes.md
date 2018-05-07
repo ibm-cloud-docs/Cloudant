@@ -26,7 +26,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6919 
 
 - Remove outdated dependencies.
-- Introduce new action, `DELETE`, on the `/_iam_session` endpoint, which invalidates the IAM session cookie. 
+- Introduce new action, `DELETE`, on the `/_iam_session` endpoint which invalidates the IAM session cookie. 
 
 ## Build 6909 (April 26, 2018)
 
