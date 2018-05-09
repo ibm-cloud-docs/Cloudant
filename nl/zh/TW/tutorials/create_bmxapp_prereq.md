@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-10"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,27 +14,33 @@ lastupdated: "2017-01-10"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# 建立簡單的 Bluemix 應用程式以存取 Cloudant 資料庫：必要條件
+# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: Prerequisites
 
-指導教學的這一節說明用於建立 {{site.data.keyword.Bluemix}} 應用程式的必要條件。
+This section of the tutorial describes the prerequisites
+for creating an {{site.data.keyword.Bluemix}} application.
 {:shortdesc}
 
-## 必要條件
+## Prerequisites
 
-請確定您已有下列資源或資訊，再透過指導教學開始運作。
+Ensure that you have the following resources or information ready
+before you start working through the tutorial.
 
 ### Python
 
-針對最簡單的可能開發工作以外的所有開發工作，如果您的系統上有現行 [Python 程式設計語言 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window} 安裝，則會較為簡單。
+For all but the simplest possible development work,
+it is much easier if you have a current installation of the
+[Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window}
+on your system.
 
-若要檢查，請在提示中執行下列指令：
+To check,
+run the following command at a prompt:
 
 ```sh
 python --version
 ```
 {:pre}
 
-預期結果類似下列輸出：
+Expect a result similar to the following output:
 
 ```
 Python 2.7.12
@@ -43,18 +49,24 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### Bluemix 上的 Cloudant 服務實例
+### A {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}
 
-[這裡](create_service.html)提供用於建立 {{site.data.keyword.cloudant_short_notm}} 服務實例（稱為 '`Cloudant Service 2017`'）的不同指導教學。
+A separate tutorial for creating a {{site.data.keyword.cloudantfull}} service instance called
+'`Cloudant Service 2017`' is available [here](create_service.html).
 
-本指導教學假設您已建立稱為 '`Cloudant Service 2017`' 的服務實例。
+This tutorial assumes that you have already created a service instance called
+'`Cloudant Service 2017`'.
 
-### Cloudant 資料庫應用程式
+### A {{site.data.keyword.cloudant_short_notm}} database application
 
-[這裡](create_database.html)提供用於建立獨立式 Python 應用程式來使用 {{site.data.keyword.cloudant_short_notm}} 服務實例的不同指導教學。它會引進有助於瞭解如何建立並將資料移入 {{site.data.keyword.cloudant_short_notm}} 資料庫的一些概念。
+A separate tutorial for creating a stand-alone Python application
+to work with a {{site.data.keyword.cloudant_short_notm}}
+service instance is available [here](create_database.html).
+It introduces a number of concepts that are helpful for understanding how to create and populate a
+{{site.data.keyword.cloudant_short_notm}} database.
 
-本指導教學假設您熟悉這些概念。
+This tutorial assumes that you are familiar with those concepts.
 
-## 下一步
+## The next step
 
-指導教學中的下一步是[建立應用程式環境](create_bmxapp_appenv.html)。
+The next step in the tutorial is to [create the application environment](create_bmxapp_appenv.html).

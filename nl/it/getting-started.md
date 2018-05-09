@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-25"
+  years: 2015, 2018
+lastupdated: "2017-11-02"
 
 ---
 
@@ -263,7 +263,7 @@ Un recupero completo include anche i dati _all'interno_ di un documento.
 ## Passo 5: recupero dei dati attraverso l'endpoint API {{site.data.keyword.cloudant_short_notm}}
 
 Puoi anche richiedere un elenco di tutti i documenti e il loro contenuto
-richiamando l'[endpoint `/_all_docs` ](api/database.html#get-documents) Cloudant.
+richiamando l'[endpoint `/_all_docs`](api/database.html#get-documents) {{site.data.keyword.cloudant_short_notm}}.
 
 1. Identifica l'endpoint da contattare ed eventuali parametri da fornire insieme alla chiamata:
   ```python
@@ -402,7 +402,7 @@ sampleData = [
 
 # Create documents using the sample data.
 # Go through each row in the array
-for document in sampleData:
+  for document in sampleData:
     # Retrieve the fields in each row.
     number = document[0]
     name = document[1]

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-05-22"
+  years: 2017, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2017-05-22"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creazione di una istanza Cloudant su Bluemix utilizzando gli strumenti Cloud Foundry 
+# Creazione di un'istanza {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}} utilizzando gli strumenti Cloud Foundry
 
 Questa esercitazione illustra come creare un'istanza del servizio {{site.data.keyword.cloudantfull}}
-in {{site.data.keyword.Bluemix_notm}}
+in {{site.data.keyword.Bluemix}}
 utilizzando gli strumenti Cloud Foundry.
 {:shortdesc}
 
@@ -29,7 +29,7 @@ I dettagli per l'installazione degli strumenti sono disponibili in
 > **Nota**: assicurati di installare i toolkit Cloud Foundry _e_
   {{site.data.keyword.Bluemix_notm}}.
 
-## Identificazione dell'endpoint API Bluemix 
+## Identificazione dell'endpoint API {{site.data.keyword.Bluemix_notm}}
 
 Specifica l'endpoint API di destinazione per i tuoi comandi Cloud Foundry;
 
@@ -49,7 +49,7 @@ Not logged in. Use 'bx login' to log in.
 ```
 {:pre}
 
-## Accesso al tuo account Bluemix
+## Accesso al tuo account {{site.data.keyword.Bluemix_notm}}
 
 1.  Utilizza il seguente comando per avviare il processo di accesso per il tuo account
   {{site.data.keyword.Bluemix_notm}}:
@@ -60,7 +60,7 @@ Not logged in. Use 'bx login' to log in.
   {:codeblock}
   
   {{site.data.keyword.Bluemix_notm}} risponde ricordandoti l'endpoint API corrente,
-  quindi chiede l'indirizzo email del tuo account: 
+  quindi chiede l'indirizzo email del tuo account:
   
   ```sh
   API endpoint: https://api.ng.bluemix.net
@@ -108,7 +108,7 @@ OK
 
 3.  Hai ora eseguito l'accesso al tuo account {{site.data.keyword.Bluemix_notm}}.
 
-## Scelta del piano Cloudant per il tuo servizio
+## Scelta del piano {{site.data.keyword.cloudant_short_notm}} per il tuo servizio
 
 Ottieni un elenco di tutte le offerte del servizio disponibili.
 Filtra l'elenco in modo che corrisponda solo ai servizi {{site.data.keyword.cloudant_short_notm}}:
@@ -140,13 +140,13 @@ simile alla seguente sezione di una risposta di esempio (dettagli corretti a mag
 
 ```
 Lite
-The Lite plan provides access to the full functionality of Cloudant for development and evaluation.
+The Lite plan provides access to the full functionality of {{site.data.keyword.cloudant_short_notm}} for development and evaluation.
 The plan has a set amount of provisioned throughput capacity as shown
 and includes a max of 1GB of encrypted data storage.   free
 ```
 {:pre}
 
-## Creazione del servizio Cloudant 
+## Creazione del servizio {{site.data.keyword.cloudant_short_notm}}
 
 Il formato del comando di base per creare un'istanza del servizio in
 {{site.data.keyword.Bluemix_notm}} è il seguente:
@@ -179,7 +179,7 @@ OK
 ```
 {:pre}
 
-## Creazione delle credenziali per il tuo servizio Cloudant 
+## Creazione delle credenziali per il tuo servizio {{site.data.keyword.cloudant_short_notm}}
 
 Le applicazioni che devono accedere al tuo servizio {{site.data.keyword.cloudant_short_notm}}
 devono disporre delle credenziali necessarie.
@@ -202,7 +202,7 @@ Campo      | Scopo
 `url`      | Una stringa di aggregazione delle altre informazioni sulle credenziali in un solo URL, appropriata per l'utilizzo da parte delle applicazioni.
 
 Il formato del comando di base per creare le credenziali per un'istanza del servizio in
-{{site.data.keyword.Bluemix_notm}} è il seguente: 
+{{site.data.keyword.Bluemix_notm}} è il seguente:
 
 ```sh
 bx cf create-service-key <instance name> <credentials name>
@@ -231,10 +231,10 @@ OK
 ```
 {:pre}
 
-## Elenco delle credenziali per il tuo servizio Cloudant
+## Elenco delle credenziali per il tuo servizio {{site.data.keyword.cloudant_short_notm}}
 
 Il formato del comando di base per richiamare le credenziali per un'istanza del servizio in
-{{site.data.keyword.Bluemix_notm}} è il seguente: 
+{{site.data.keyword.Bluemix_notm}} è il seguente:
 
 ```sh
 bx cf service-key <instance name> <credentials name>
@@ -243,7 +243,7 @@ bx cf service-key <instance name> <credentials name>
 
 Supponi che vogliamo richiamare le credenziali per l'istanza `cs20170517a` di un servizio
 {{site.data.keyword.cloudant_short_notm}},
-in cui il nome per le credenziali è `creds20170517a`. 
+in cui il nome per le credenziali è `creds20170517a`.
 
 Fai ciò utilizzando un comando simile al seguente esempio:
 
@@ -253,7 +253,7 @@ bx cf service-key cs20170517a creds20170517a
 {:codeblock}
 
 Dopo aver ricevuto la richiesta per richiamare le credenziali per l'istanza del servizio,
-{{site.data.keyword.Bluemix_notm}} risponde con un messaggio simile al seguente esempio (abbreviato): 
+{{site.data.keyword.Bluemix_notm}} risponde con un messaggio simile al seguente esempio (abbreviato):
 
 ```sh
 Invoking 'cf service-key cs20170517a creds20170517a'...
@@ -270,7 +270,7 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 ```
 {:pre}
 
-## Utilizzo della tua istanza del servizio Cloudant
+## Utilizzo della tua istanza del servizio {{site.data.keyword.cloudant_short_notm}}
 
 A questo punto,
 hai:
@@ -288,7 +288,7 @@ Ricorda di sostituire le credenziali che hai creato in questa esercitazione.
 
 Il seguente breve elenco di comandi potrebbe essere utile per riordinare il tuo ambiente di sviluppo.
 
-### Eliminazione delle credenziali del servizio 
+### Eliminazione delle credenziali del servizio
 
 Per eliminare una serie di credenziali del servizio,
 utilizza un comando simile al seguente:

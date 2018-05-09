@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -12,17 +12,17 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Cinq principaux conseils pour la modélisation de vos données
+# Cinq conseils fondamentaux pour la modélisation de vos données
 
 Cet article présente les points principaux de
 modélisation des données d'application pour un fonctionnement efficace à grande échelle.
 {:shortdesc}
 
 _(Ce guide s'inspire d'un article de blogue de Mike Rhodes,
-["My top 5 tips for modelling your data to scale" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window}
+["My top 5 tips for modelling your data to scale" ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window}
 publié le 17 décembre 2013.)_
 
-La façon dont vous modélisez vos données dans Cloudant impacte de manière significative
+La façon dont vous modélisez vos données dans {{site.data.keyword.cloudantfull}} impacte de manière significative
 la possibilité d'évolution de votre application. Notre modèle de données sous-jacent est très différent d'un modèle relationnel et ne pas tenir compte
 de cet état de fait peut avoir des conséquences sur les performances.
 
@@ -47,13 +47,13 @@ aucune conséquence sur les performances de l'application.
 
 ## Intérêt
 
-Derrière notre interface `https://<account>.cloudant.com/` se trouve une base de données répartie.
+Derrière notre interface `https://<account>.cloudant.com/` se trouve une base de données répartie. 
 Dans le cluster, les documents sont placés dans des fragments qui collectivement forment la
 base de données. Ces fragments sont ensuite répartis entre les noeuds du cluster. Ainsi, il est possible
 de prendre en charge des bases de données de plusieurs téraoctets.
 
 Par défaut, en plus de la division d'une base de données en fragments, tous les fragments ont trois
-copies, ou répliques, chacune d'entre elles se trouvant sur un noeud différent du cluster de base de données.
+copies, ou répliques, chacune d'entre elles se trouvant sur un noeud différent du cluster de base de données. 
 Ainsi, la base de données peut continuer à prendre en charge les demandes en cas de défaillance d'un noeud. C'est pourquoi,
 la sauvegarde d'un document implique l'écriture sur trois noeuds. Autrement dit, si deux mises à jour sont effectuées
 simultanément dans le même document, il est possible qu'un sous-ensemble de noeuds accepte la première
@@ -61,7 +61,7 @@ mise à jour et que l'autre sous-ensemble accepte la deuxième mise à jour. Lor
 différence, il associe les documents comme le ferait une réplication normale pour les mises à jour
 simultanées en créant un conflit.
 
-Les documents en conflit ont des conséquences sur les performances. Pour plus d'informations, voir ci-dessous.
+Les documents en conflit ont des conséquences sur les performances. Pour plus d'informations, voir ci-dessous. 
 Un modèle de mise à jour simultanée fréquente augmente également la probabilité que les opérations d'écriture soient
 rejetées car le paramètre `_rev` n'est pas celui attendu. Par conséquent, l'application va
 effectuer de nouvelles tentatives et le traitement va être retardé.
@@ -75,7 +75,7 @@ pour les mises à jour survenant à des fréquences supérieures à dix secondes
 Au lieu d'utiliser systématiquement des vues comme index de recherche ("extraction de tous les documents `person`"), essayez
 de laisser la base de données effectuer le travail pour vous. Par exemple, au lieu d'extraire un grand nombre de
 documents person pour calculer leurs heures de travail, utilisez une vue avec une clé composite pour
-pré-calculer ces données par année, mois, jour, demi-journée et heure en utilisant la réduction intégrée `_sum`.
+pré-calculer ces données par année, mois, jour, demi-journée et heure en utilisant la réduction intégrée `_sum`. 
 Ainsi, le travail que vous devez effectuer dans l'application est réduit et la base de données peut prendre en charge un
 grand nombre de petites demandes au lieu de lire de grandes quantités de données sur le disque pour traiter une seule
 demande de grande taille.
@@ -91,7 +91,7 @@ documents à partir du stockage sur disque.
 A un niveau inférieur, lorsqu'un noeud reçoit une demande de vue, il demande aux noeuds incluant
 les répliques de fragment pour la base de données de la vue de lui fournir les résultats de la demande de vue
 pour les documents de chaque fragment. Dès qu'il reçoit les réponses (utilisant la première d'entre elles concernant chaque réplique de fragment), le noeud
-traitant la demande de vue associe les résultats et transmet le résultat final au client.
+traitant la demande de vue associe les résultats et transmet le résultat final au client. 
 Plus le nombre de documents impliqués est important, plus la transmission des résultats par chaque réplique à partir du
 disque sur le réseau est longue. De plus, le noeud prenant en charge la demande a plus de tâches
 à effectuer lors de l'association des résultats de chaque fragment de base de données.
@@ -103,9 +103,9 @@ l'exécution de la demande est réduite.
 
 ## Dénormalisation de vos données
 
-Dans les bases de données relationnelles, la normalisation des données constitue souvent la meilleure méthode de stockage pour les données.
-Ce choix est d'autant plus judicieux lorsque vous pouvez utiliser des opérations JOIN pour associer facilement des données provenant de plusieurs tables.
-Dans Cloudant, il est fort probable que vous ayez besoin d'une demande HTTP GET pour chaque donnée. Il est donc recommandé de réduire
+Dans les bases de données relationnelles, la normalisation des données constitue souvent la meilleure méthode de stockage pour les données. 
+Ce choix est d'autant plus judicieux lorsque vous pouvez utiliser des opérations JOIN pour associer facilement des données provenant de plusieurs tables. 
+Dans {{site.data.keyword.cloudant_short_notm}}, il est fort probable que vous ayez besoin d'une demande HTTP GET pour chaque donnée. Il est donc recommandé de réduire
 le nombre de demandes dont vous avez besoin pour générer une image complète d'une entité modélisée car ainsi vous pouvez présenter plus rapidement les
 informations à vos utilisateurs.
 
@@ -117,9 +117,9 @@ balises dans une table séparée et utilisez une table de connexion pour joindre
 aux documents liés, ce qui permet d'avoir d'une vue rapide de tous les documents avec une
 balise spécifique.
 
-Dans Cloudant, vous stockez les balises dans une liste pour chaque document. Vous utilisez ensuite une vue pour extraire les
+Dans {{site.data.keyword.cloudant_short_notm}}, vous stockez les balises dans une liste pour chaque document. Vous utilisez ensuite une vue pour extraire les
 documents ayant une balise spécifique en
-[émettant chaque balise en tant que clé dans la fonction de mappe de votre vue](../api/creating_views.html).
+[émettant chaque balise en tant que clé dans la fonction de mappe de votre vue](../api/creating_views.html). 
 Le fait de demander une clé spécifique dans la vue permet d'obtenir tous les documents ayant cette balise.
 
 ## Intérêt
@@ -135,7 +135,7 @@ demande.
 ## Eviter les conflits en utilisant des documents à granularité plus fine
 
 Outre la dénormalisation de vos données, nous vous recommandons d'utiliser
-des documents à granularité fine pour réduire le risque de modifications simultanées créant des conflits.
+des documents à granularité fine pour réduire le risque de modifications simultanées créant des conflits. 
 Cette opération est similaire à la normalisation de vos données. Vous devez trouver un équilibre entre la réduction du
 nombre de demandes HTTP et le fait d'éviter les conflits.
 
@@ -153,7 +153,7 @@ Utilisons par exemple un enregistrement médical contenant une liste d'opératio
 {:codeblock}
 
 Si Joe subit beaucoup d'opérations en même temps, le nombre de mises à jour
-simultanées élevé apportées à un même document peut créer des documents conflictuels, comme cela est décrit ci-dessus.
+simultanées élevé apportées à un même document peut créer des documents conflictuels, comme cela est décrit ci-dessus. 
 Il est préférable de répartir les opérations dans différents documents faisant référence au document personnel de Joe
 et d'utiliser une vue pour connecter les différentes éléments. Pour représenter chaque opération, téléchargez des documents
 similaires aux exemples suivants :
@@ -183,27 +183,27 @@ les données d'une entité modélisée ont été fractionnées.
 
 ## Intérêt
 
-En évitant les documents en conflit, vous accélérez le traitement d'un grand nombre d'opérations sur vos bases de données Cloudant.
+En évitant les documents en conflit, vous accélérez le traitement d'un grand nombre d'opérations sur vos bases de données {{site.data.keyword.cloudant_short_notm}}.
 Cela est dû au fait qu'il existe un processus qui résout la révision gagnante en cours utilisée dès
 que le document est lu : extractions de document, appels avec `include_docs=true`, génération de vue,
 etc.
 
 La révision gagnante est une révision spécifique dans l'arborescence principale du document. N'oubliez
-pas que ces documents de Cloudant sont en fait des arborescences de révisions. Un algorithme arbitraire mais déterministe
+pas que ces documents de {{site.data.keyword.cloudant_short_notm}} sont en fait des arborescences de révisions. Un algorithme arbitraire mais déterministe
 sélectionne une des feuilles non supprimées de cette arborescence afin d'indiquer quand une demande est effectuée
 pour le document. Le traitement des arborescences de plus grande taille avec un facteur de ramification plus important peut
 durer plus longtemps que le traitement d'une arborescence de documents sans branche ou avec peu de branches. En effet, il est
 nécessaire de suivre chaque branche pour voir s'il s'agit potentiellement de la révision gagnante. Les gagnants potentiels doivent ensuite être comparés les uns aux autres afin d'effectuer
 le choix final.
 
-Lorsque le nombre de branches est peu élevé, Cloudant en assure correctement la gestion. Effectivement, la réplication s'appuie sur le
+Lorsque le nombre de branches est peu élevé, {{site.data.keyword.cloudant_short_notm}} en assure correctement la gestion. Effectivement, la réplication s'appuie sur le
 fait qu'il est possible que les documents soient fractionnés, et ce afin d'éviter la suppression des données. Cependant, dès que leur nombre devient
 très élevé, particulièrement si les conflits ne sont pas résolus, le parcours de l'arborescence des documents peut être très long et
 utiliser un grand nombre de ressources.
 
 ## Résolution de conflit
 
-Dans un système cohérent (Cloudant, par exemple) des conflits peuvent survenir. Comme
+Dans un système cohérent ({{site.data.keyword.cloudant_short_notm}}, par exemple) des conflits peuvent survenir. Comme
 décrit ci-dessus, c'est là l'inconvénient de l'évolutivité et de la résilience des données.
 
 Structurer vos données de telle manière que la résolution des conflits soit rapide et ne
@@ -219,7 +219,7 @@ La façon de procéder dépend de vos applications mais voici quelques conseils 
 -   Faites en sorte que les documents puissent être autonomes. Le fait de devoir extraire d'autres documents pour une résolution
     correcte augmente le temps d'attente. Vous risquez également d'obtenir
     une version des autres documents qui est incohérente avec le document en cours de résolution, ce qui complique
-    l'opération, sans parler de la possibilité que les autres documents peuvent être en conflit. 
+    l'opération, sans parler de la possibilité que les autres documents peuvent être en conflit.
 
 ## Intérêt
 
@@ -229,11 +229,11 @@ de résoudre les conflits dès qu'ils apparaissent permet d'éviter d'avoir des 
 ## Récapitulatif
 
 Ces conseils présentent comment la modélisation de données peut avoir des conséquences sur les
-performances de votre application. Le magasin de données de Cloudant a des caractéristiques spécifiques (certaines constituant des
+performances de votre application. Le magasin de données de {{site.data.keyword.cloudant_short_notm}} a des caractéristiques spécifiques (certaines constituant des
 inconvénients, d'autres des avantages) permettant de garantir que les performances de base de données évoluent au fur et à mesure de la
 croissance de votre application. Nous avons conscience que cela peut être déstabilisant mais sommes toujours à votre écoute et prêts à vous donner des conseils.
 
 Pour plus d'informations, voir le site
-présentant le [modèle de données de Foundbite ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){:new_window}
-ou la page [présentant un exemple de Twilio![External link icon](../images/launch-glyph.svg "External link icon")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){:new_window}.
+présentant le [modèle de données de Foundbite ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){:new_window}
+ou la page [présentant un exemple de Twilio![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){:new_window}.
 

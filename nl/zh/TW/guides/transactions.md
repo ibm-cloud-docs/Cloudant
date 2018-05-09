@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -12,21 +12,45 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 在 Cloudant 中將相關文件分組在一起
+# Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}
 
-傳統上，電子商務系統是使用關聯式資料庫所建置。這些資料庫一般會使用結合在一起的數張表格來記錄銷售量、客戶詳細資料、所購買的產品以及交付追蹤資訊。關聯式資料庫提供高度一致性，表示應用程式開發人員可以將其應用程式建置為資料庫的強項，包括在集合之間使用結合、記錄物件狀態的列舉，以及保證原子作業的資料庫交易。
+Traditionally,
+e-commerce systems are built with relational databases.
+These databases typically use a number of tables joined together to record sales,
+customer details,
+purchased products,
+and delivery tracking information.
+Relational databases offer high consistency
+meaning that application developers can build their applications to a database's strengths,
+including using joins between collections,
+enumerations to record the state of an object,
+and database transactions to guarantee atomic operations.
 
-Cloudant 會優先考慮可用性，而非一致性。它是最後會一致的高可用性、容錯、分散式資料庫。這提供的優點是客戶購物服務一律可用，並且可擴充到足以處理多位同時購買的使用者。這表示您的應用程式可以利用 Cloudant 的強項，而不會將它視為關聯式資料庫。
+{{site.data.keyword.cloudantfull}} favors availability over consistency.
+It is a high-availability,
+fault-tolerant,
+distributed database that is eventually consistent.
+This gives the advantage that the customer's shopping service is always available and scalable enough
+to cope with multiple users making purchases at the same time.
+This means that your application can utilize {{site.data.keyword.cloudant_short_notm}}'s strengths and not treat it like a relational database.
 
-本主題中的討論使用許多其他網域適用的概念，概述建置善加利用 Cloudant 強項的電子商務系統所涉及的一些因素，例如：
+The discussion in this topic outlines some of the factors
+involved in building an e-commerce system that takes advantage of {{site.data.keyword.cloudant_short_notm}}'s strengths,
+using concepts that are applicable to many other domains,
+such as:
 
--   使用多份文件來代表購買狀態，而不是經常更新單一文件。
--   依序儲存相關物件的副本，而不是結合為另一個集合。
--   建立視圖，依 `order_id` 來對照文件，以反映購買的現行狀態。
+-   Using multiple documents to represent the state of a purchase,
+    rather than frequently updating a single document.
+-   Storing copies of related objects in order instead of joining to another collection.
+-   Creating views to collate documents by `order_id` to reflect the current state of a purchase.
 
-例如，您可以建立包含詳細資料（例如訂購的項目、客戶資訊、成本及交付資訊）的 `purchase` 文件。
+For example,
+you might create a `purchase` document that contains details such as the items ordered,
+customer information,
+cost,
+and delivery information.
 
-_說明購買的範例文件：_
+_Example document describing a purchase:_
 
 ```json
 {
@@ -68,27 +92,45 @@ _說明購買的範例文件：_
 ```
 {:codeblock}
 
-此文件針對購買記錄提供足夠的資料，以在網頁或電子郵件上呈現訂單摘要，而不需要提取其他記錄。請注意訂單的重要詳細資料，特別是：
+This document provides enough data for a purchase record to render a summary of an order on a web page,
+or an email,
+without fetching additional records.
+Notice key details about the order,
+in particular:
 
--   購物籃包含儲存在其他地方的產品資料庫的參照 ID (`product_id`)。
--   購物籃會在此記錄中複製一些產品資料，足以記錄在銷售點所購買項目的狀態。
--   文件未包含可標示訂單狀態的欄位。稍後會新增其他文件，以記錄付款及交付。
--   將文件插入資料庫時，資料庫會自動產生文件 `_id`。
--   每一筆購買記錄都會隨附唯一 ID (`order_id`)，以便在稍後參照訂單。 
+-   The basket contains reference ids (`product_id`) to a database of products stored elsewhere.
+-   The basket duplicates some of the product data in this record,
+    enough to record the state of the items purchased at the point of sale.
+-   The document does not contain fields that mark the status of the order.
+    Additional documents would be added later to record payments and delivery.
+-   The database automatically generates a document `_id` when it inserts the document into the database.
+-   A unique identifier (`order_id`) is supplied with each purchase record to reference the order later. 
  
-客戶下單時（一般是他們進入網站上的「結帳」階段時），會建立與先前範例類似的採購單記錄。 
+When the customer places an order,
+typically at the point when they enter the "checkout" phase on the website,
+a purchase order record is created similar to the previous example. 
 
-## 產生您自己的唯一 ID (UUID)
+## Generating your own unique identifiers (UUIDs)
 
-在關聯式資料庫中，通常會使用循序「自動增量」數目，但在資料分散到伺服器叢集的分散式資料庫中，會使用較長的 UUID 來確保文件使用其自己的唯一 ID 進行儲存。
+In a relational database,
+sequential "auto incrementing" numbers are often used,
+but in distributed databases,
+where data is spread around of cluster of servers,
+longer UUIDs are used to ensure that documents are stored with their own unique id.
 
-若要建立用於應用程式中的唯一 ID（例如 `order_id`），請在 Cloudant API 上呼叫 [`GET _uuids` 端點](../api/advanced.html#-get-_uuids-)。資料庫會為您產生 ID。新增 `count` 參數（例如，`/_uuids?count=10`），即可使用相同的端點來產生多個 ID。
+To create a unique identifier for use in your application,
+such as an `order_id`,
+call the [`GET _uuids` endpoint](../api/advanced.html#-get-_uuids-) on the {{site.data.keyword.cloudant_short_notm}} API.
+The database generates an identifier for you.
+The same endpoint can be used to generate multiple ids by adding a `count` parameter,
+for example, `/_uuids?count=10`.
 
-## 記錄付款
+## Recording payments
 
-客戶順利支付其項目時，會在資料庫中新增其他記錄來記錄訂單。
+When the customer successfully pays for their items,
+additional records are added to the database to record the order.
 
-_付款記錄範例：_
+_Example of a payment record:_
 
 ```json
 {
@@ -113,16 +155,20 @@ _付款記錄範例：_
 ```
 {:codeblock}
 
-在前一個範例中，客戶的支付方式是提供信用卡並兌換預付憑單。兩個付款的總計加起來就是訂單的金額。每一個付款都會當成不同的文件寫入至 Cloudant。
+In the previous example,
+the customer paid by supplying a credit card and redeeming a pre-paid voucher.
+The total of the two payments added up to the amount of the order.
+Each payment was written to {{site.data.keyword.cloudant_short_notm}} as a separate document.
 
-建立含有已知 `order_id` 一切資訊的視圖，即可查看訂單狀態。視圖會啟用包含下列資訊的分類帳： 
+You could see the status of an order by creating a view of everything you know about an `order_id`.
+The view would enable a ledger containing the following information: 
 
--   正數的購買總計。
--   負數的帳戶付款。
+-   Purchase totals as positive numbers.
+-   Payments against the account as negative numbers.
 
-對映函數可以用來識別必要值。
+A map function could be used to identify the required values.
 
-_尋找購買總計及付款值的範例對映函數：_ 
+_Example map function to find purchase total and payment values:_ 
 
 ```javascript
 function (doc) {
@@ -137,9 +183,10 @@ function (doc) {
 ```
 {:codeblock}
 
-使用內建 [`_sum` 減少器](../api/creating_views.html#built-in-reduce-functions)可讓您產生輸出作為付款事件的分類帳。
+Using the built-in [`_sum` reducer](../api/creating_views.html#built-in-reduce-functions)
+enables you to produce output as a ledger of payment events.
 
-_使用內建 `_sum` 減少器並使用 `?reduce=false` 查詢的範例：
+_Example of using the built-in `_sum` reducer, queried with `?reduce=false`:_
 
 ```json
 {
@@ -164,9 +211,10 @@ _使用內建 `_sum` 減少器並使用 `?reduce=false` 查詢的範例：
 ```
 {:codeblock}
 
-或者，您可以產生依 `order_id` 分組的總計。
+Alternatively,
+you could produce totals grouped by `order_id`.
 
-_依 `order_id` 分組且 `?group_level=1` 的總計範例：_
+_Example of totals grouped by `order_id`, with `?group_level=1`:_
 
 ```json
 {
@@ -180,20 +228,40 @@ _依 `order_id` 分組且 `?group_level=1` 的總計範例：_
 ```
 {:codeblock}
 
-因為前一個範例中的視圖傳回 0 作為訂單值，所以結果指出已完整支付訂單。原因是正數的採購單總計扺消了負數的付款金額。在 Cloudant 中，將事件記錄為不同的文件（一個是用於訂單，一個是用於每個付款）是不錯的作法，因為它可避免在多個處理程序同時修改相同文件時產生衝突的可能性。
+Since the view in previous example returns 0 for the order value,
+the result indicates that the order is fully paid.
+The reason is that the positive purchase order total cancels out the negative payment amounts.
+Recording events as separate documents,
+that is one for the order and one for each payment,
+is good practice in {{site.data.keyword.cloudant_short_notm}},
+since it avoids the possibility of creating conflicts when multiple processes modify the same document simultaneously.
 
-## 新增其他文件
+## Adding additional documents
 
-因為已佈建及分派訂單，所以您可以將其他不同的文件新增至資料庫來記錄下列狀態變更：
+You could add other,
+separate documents to the database to record the following state changes as the order is provisioned and dispatched:
 
--   分派通知。
--   交付收據。
--   退款記錄。
+-   Dispatch notifications.
+-   Delivery receipts.
+-   Refund records.
 
-當資料到達時，Cloudant 會分別寫入至每一份文件。因此，不需要修改核心購買文件。
+As the data arrives,
+{{site.data.keyword.cloudant_short_notm}} writes to each document separately.
+Therefore,
+it is not necessary to modify the core purchase document.
 
-## 將採購單儲存在 Cloudant 中的優點
+## Advantages of storing purchase orders in {{site.data.keyword.cloudant_short_notm}}
 
-使用 Cloudant 來儲存採購單資訊可容許訂購系統高度可用且可擴充，以讓您處理大量資料以及因應高並行存取率。透過在僅寫入一次的不同文件中建立資料模型，即可確定文件絕不會衝突，例如在不同的處理程序並行存取相同文件的期間。
+Using {{site.data.keyword.cloudant_short_notm}} to store purchase order information allows an ordering system to be highly available and scalable,
+enabling you to deal with large volumes of data and high rates of concurrent access.
+By modeling the data in separate documents that are only written once,
+we can ensure that documents never become conflicted,
+such as during concurrent access to the same document by separate processes.
 
-此外，文件可以包含其他集合中現有資料的副本，以代表（而非依賴）使用外部索引鍵來結合資料。例如，記錄購物籃在購買時的狀態。這容許單一呼叫將訂單狀態提取到依 `order_id` 分組相關文件的 Cloudant 視圖。
+Furthermore,
+documents can contain copies of data that exists in other collections
+to represent - rather than rely on - joining data with a foreign key.
+For example,
+when recording the state of a basket at the time of purchase.
+This allows an order's state to be fetched by a single call
+to a {{site.data.keyword.cloudant_short_notm}}'s view that groups documents related by `order_id`.

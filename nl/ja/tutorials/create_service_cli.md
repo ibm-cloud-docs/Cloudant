@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-05-22"
+  years: 2017, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -12,9 +12,9 @@ lastupdated: "2017-05-22"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Cloud Foundry ツールを使用した Bluemix 上の Cloudant インスタンスの作成
+# Cloud Foundry ツールを使用した {{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}} インスタンスの作成
 
-このチュートリアルでは、Cloud Foundry ツールを使用して {{site.data.keyword.Bluemix_notm}} で
+このチュートリアルでは、Cloud Foundry ツールを使用して {{site.data.keyword.Bluemix}} で
 {{site.data.keyword.cloudantfull}} サービス・インスタンスを作成する方法を示します。
 {:shortdesc}
 
@@ -28,7 +28,7 @@ lastupdated: "2017-05-22"
 > **注**: Cloud Foundry _および_
   {{site.data.keyword.Bluemix_notm}} の両方のツールキットを必ずインストールしてください。
 
-## Bluemix API エンドポイントの識別
+## {{site.data.keyword.Bluemix_notm}} API エンドポイントの識別
 
 Cloud Foundry コマンドにターゲットの API エンドポイントを指定します。
 
@@ -43,12 +43,12 @@ bx api https://api.ng.bluemix.net
 Setting api endpoint to https://api.ng.bluemix.net...
 OK
 
-API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)   
+API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
 Not logged in. Use 'bx login' to log in.
 ```
 {:pre}
 
-## Bluemix アカウントへのログイン
+## {{site.data.keyword.Bluemix_notm}} アカウントへのログイン
 
 1.  以下のコマンドを使用して、{{site.data.keyword.Bluemix_notm}} アカウントのログイン・プロセスを開始します。
   
@@ -88,13 +88,13 @@ Not logged in. Use 'bx login' to log in.
   Password>
   Authenticating...
   OK
-
+  
   Targeted account J DOE's Account (707...a32)
-
+  
   Targeted org J.Doe@email.com
-
+  
   Targeted space dev
-
+  
   API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
   Region:         us-south
   User:           j.doe@email.com
@@ -106,7 +106,7 @@ Not logged in. Use 'bx login' to log in.
 
 3.  これで、{{site.data.keyword.Bluemix_notm}} アカウントにログインしました。
 
-## サービスの Cloudant プランの選択
+## サービスの {{site.data.keyword.cloudant_short_notm}} プランの選択
 
 利用可能なすべてのサービス・オファリングのリストを入手します。
 {{site.data.keyword.cloudant_short_notm}} サービスのみに一致するようにリストをフィルタリングします。
@@ -134,13 +134,13 @@ bx cf marketplace -s cloudantNoSQLDB
 
 ```
 Lite
-The Lite plan provides access to the full functionality of Cloudant for development and evaluation.
+The Lite plan provides access to the full functionality of {{site.data.keyword.cloudant_short_notm}} for development and evaluation.
 The plan has a set amount of provisioned throughput capacity as shown
 and includes a max of 1GB of encrypted data storage.   free
 ```
 {:pre}
 
-## Cloudant サービスの作成
+## {{site.data.keyword.cloudant_short_notm}} サービスの作成
 
 {{site.data.keyword.Bluemix_notm}} 内にサービス・インスタンスを作成する基本コマンド・フォーマットは、以下のとおりです。
 
@@ -171,7 +171,7 @@ OK
 ```
 {:pre}
 
-## Cloudant サービスの資格情報の作成
+## {{site.data.keyword.cloudant_short_notm}} サービスの資格情報の作成
 
 {{site.data.keyword.cloudant_short_notm}} サービスへのアクセスを要求するアプリケーションには、必要な資格情報が必要です。
 
@@ -182,12 +182,12 @@ OK
 
 サービス資格情報は、以下の 5 つのフィールドから構成されます。
 
-フィールド| 目的
+フィールド      | 目的
 -----------|--------
 `host`     | アプリケーションがサービス・インスタンスを検索するために使用するホスト名。
 `username` | アプリケーションがサービス・インスタンスにアクセスするために必要なユーザー名。
 `password` | アプリケーションがサービス・インスタンスにアクセスするために必要なパスワード。
-`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。通常、443 で HTTPS アクセスを強制します。
+`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。 通常、443 で HTTPS アクセスを強制します。
 `url`      | その他の資格情報を単一の URL に集約したストリング。アプリケーションによる使用に適しています。
 
 {{site.data.keyword.Bluemix_notm}} 内のサービス・インスタンスの資格情報を作成する基本コマンド・フォーマットは、以下のとおりです。
@@ -219,7 +219,7 @@ OK
 ```
 {:pre}
 
-## Cloudant サービスのサービス資格情報のリスト
+## {{site.data.keyword.cloudant_short_notm}} サービスのサービス資格情報のリスト
 
 {{site.data.keyword.Bluemix_notm}} 内のサービス・インスタンスの資格情報を取得する基本コマンド・フォーマットは、以下のとおりです。
 
@@ -257,7 +257,7 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 ```
 {:pre}
 
-## Cloudant サービス・インスタンスの使用
+## {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスの使用
 
 この時点で、以下が完了しています。
 

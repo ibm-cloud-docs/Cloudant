@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-10"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-10"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# 创建简单 Bluemix 应用程序以访问 Cloudant 数据库
+# 创建简单 {{site.data.keyword.Bluemix_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库
 
 本教程说明了如何创建 {{site.data.keyword.Bluemix}} 应用程序，以使用 [Python 编程语言![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){:new_window} 来访问{{site.data.keyword.Bluemix_notm}} 服务实例中托管的 {{site.data.keyword.cloudantfull}} 数据库。
 {:shortdesc}
@@ -41,7 +41,7 @@ lastupdated: "2017-01-10"
 
 -   [在 {{site.data.keyword.Bluemix_notm}} 上创建 Python 应用程序环境](create_bmxapp_appenv.html#creating)。
 -   [确保 Python 应用程序环境具有与 {{site.data.keyword.cloudant_short_notm}} 数据库实例的“连接”](create_bmxapp_appenv.html#connecting)。
--   [（一次性任务）下载并安装 Cloud Foundry 和 Bluemix 命令行工具箱](create_bmxapp_appenv.html#toolkits)。
+-   [（一次性任务）下载并安装 Cloud Foundry 和 {{site.data.keyword.Bluemix_notm}} 命令行工具箱](create_bmxapp_appenv.html#toolkits)。
 -   [下载“入门模板”应用程序](create_bmxapp_appenv.html#starter)。
 -   [定制入门模板应用程序，以创建自己的应用程序来访问 {{site.data.keyword.cloudant_short_notm}} 数据库实例](create_bmxapp_createapp.html#theApp)。
 -   [上传应用程序并测试其是否正常运行](create_bmxapp_upload.html#uploading)。

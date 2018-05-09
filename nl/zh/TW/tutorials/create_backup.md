@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-07-13"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -12,32 +12,37 @@ lastupdated: "2017-07-13"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 建立備份
+# Creating a backup
 
-本指導教學示範如何使用 [CouchBackup ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} 指令行公用程式來備份及還原 CouchDB 或 Cloudant 實例。CouchBackup 會將資料庫備份至檔案。如果資料庫失敗，則您可以使用備份檔，將資訊還原至現有資料庫。
+This tutorial demonstrates how to use the 
+[CouchBackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} command-line 
+utility to back up and restore a CouchDB or {{site.data.keyword.cloudant_short_notm}} instance. CouchBackup backs up 
+the database to a file. If the database fails, you can use the backup file to 
+restore the information to an existing database. 
 {:shortdesc}
 
-## 開始之前
+## Before you begin
 
-執行 `install` 指令來安裝 CouchBackup。 
+Install CouchBackup by running the `install` command. 
 
 ```sh
 npm install -g @cloudant/couchbackup
 ```
 {:codeblock}
 
-## 建立資料庫
+## Creating a database
 
-建立在本指導教學中使用的範例 `couchbackup-demo` 資料庫。
+Create a sample `couchbackup-demo` database
+for use in this tutorial.
 
-1.  執行此指令，以建立資料庫：
+1.  Create a database by running this command:
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo -X PUT
     ```
     {:codeblock}
     
-2.  檢閱結果。
+2.  Review the results.
     
     ```json
     {
@@ -46,11 +51,12 @@ npm install -g @cloudant/couchbackup
     ```
     {:codeblock}
 
-## 在資料庫中建立文件
+## Creating documents in the database
 
-您在此練習中建立的文件會包含您在稍後練習中備份及還原的資料。 
+The documents that you create in this exercise contain the data that you 
+back up and restore in later exercises. 
 
-1.  將範例文字複製到名為 `bulkcreate.dat` 的資料檔，以建立全部五份文件。
+1.  Copy the sample text to a data file named `bulkcreate.dat` to create all five documents.
     
     ```json
     {
@@ -96,14 +102,14 @@ npm install -g @cloudant/couchbackup
     ```
     {:codeblock}
     
-2.  執行此指令，以建立文件：
+2.  Run this command to create the documents:
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
     ```
     {:codeblock}
     
-3.  檢閱結果。
+3.  Review the results.
     
     ```json
     [
@@ -136,31 +142,34 @@ npm install -g @cloudant/couchbackup
     ```
     {:codeblock}
     
-## 設定環境變數
+## Setting an environment variable
 
-您可以使用環境變數或指令行選項，來指定您要使用 CouchBackup 的 CouchDB 或 Cloudant 實例的 URL 及資料庫。 
+You can use environment variables or command-line options to specify the 
+URL and database for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance that you want to work 
+with CouchBackup. 
 
-在本指導教學中，我們會設定 `COUCH_URL`，並使用 `--db` 參數來指定資料庫。 
+In this tutorial, we set the `COUCH_URL` and specify the database using the `--db` parameter. 
 
-設定 `COUCH_URL` 環境變數，以指定 CouchDB 或 Cloudant 實例的 URL。
+Set the `COUCH_URL` environment variable to specify the URL for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance.
 
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
 ```
 {:codeblock}
 
-## 備份資料庫
+## Backing up a database
 
-CouchBackup 公用程式會將資料庫備份至文字檔來保留資料，並更輕鬆地進行還原。 
+The CouchBackup utility backs up your database to a text file to preserve 
+your data and make it easier to restore. 
 
-1.  執行 `couchbackup` 指令，將資料庫內容導向至文字檔。 
+1.  Run the `couchbackup` command to direct the contents of your database to a text file. 
  
     ```sh
     couchbackup --db couchbackup-demo > couchbackup-demo-backup.txt
     ```
     {:codeblock}
 
-2.  檢閱結果。 
+2.  Review the results. 
     
     ```sh
     
@@ -180,8 +189,8 @@ CouchBackup 公用程式會將資料庫備份至文字檔來保留資料，並�
     ```
     {:codeblock}
     
-3.  檢查目錄，驗證已建立 `couchbackup-demo-backup.txt` 檔案。 
-4.  開啟檔案，並檢閱從資料庫中備份的文件清單。  
+3.  Check the directory to verify that the `couchbackup-demo-backup.txt` file was created. 
+4.  Open the file and review the list of documents backed up from the database.  
     
     ```json
     [
@@ -259,25 +268,28 @@ CouchBackup 公用程式會將資料庫備份至文字檔來保留資料，並�
     ```
     {:codeblock}
 
-## 建立日誌檔
+## Creating a log file
 
-日誌檔會記錄備份的進度。使用 CouchBackup，您可以使用 `--log` 參數來建立日誌檔。您也可以使用它以從停止位置重新啟動備份，並指定輸出檔名稱。 
+A log file records the progress of your backup. With CouchBackup, you use the `--log` parameter 
+to create the log file. You can also use it to restart a backup from where it stopped 
+and specify the output file name. 
 
-`couchbackup` 指令會使用下列參數來指定資料庫、日誌檔及繼續選項。 
+The `couchbackup` command uses these parameters to specify the database, 
+log file, and resume option. 
 
 *   `--db` = `couchbackup-demo`
 *   `--log` = `couchbackup-demo.log`
 *   `--resume` = `true`
 
 
-1.  執行 `couchbackup` 指令，以建立日誌檔。 
+1.  Run the `couchbackup` command to create a log file. 
     
     ```sh
     couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log > couchbackup-demo-backup-log.txt
     ```
     {:codeblock}
     
-2.  檢閱結果。
+2.  Review the results.
         
     ```sh
     
@@ -317,7 +329,8 @@ CouchBackup 公用程式會將資料庫備份至文字檔來保留資料，並�
     ```
     {:codeblock}
 
-3.  開啟日誌檔 `couchbackup-demo-backup.log`，並檢閱在備份或還原期間所採取的動作。  
+3.  Open the log file, `couchbackup-demo-backup.log`, and review the actions taken
+    during the backup or restore.  
     
     ```sh
     :t batch0 [
@@ -342,27 +355,31 @@ CouchBackup 公用程式會將資料庫備份至文字檔來保留資料，並�
     ```
     {:codeblock}
     
-##  從備份文字檔中還原
+##  Restoring from a backup text file
 
-從 `couchbackup-demo-backup.txt` 檔案中，您可以使用 `couchrestore` 指令，將資料還原至新的空白資料庫。 
+From the `couchbackup-demo-backup.txt` file, you can restore your data to a new, empty database using 
+the `couchrestore` command. 
 
-> **附註**：只有在還原至空白資料庫時，才支援還原備份。如果您刪除資料庫中的所有文件，則基於抄寫一致性目的，仍會保留文件刪除記錄。這表示不會將只包含已刪除文件的資料庫視為空白，因此不能用作還原備份時的目標。
+> **Note**: Restoring a backup is only supported when restoring into an empty database. If you delete all 
+documents from a database, document deletion records are still present for replication consistency purposes. 
+This means that a database containing only deleted documents is not considered empty, and so cannot be used 
+as the target when restoring a backup.
 
-1.  （必要條件）建立可還原資料的新空白資料庫。
+1.  (Prerequisite) Create a new, empty database where you can restore your data.
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo-restore -X PUT
     ```
     {:codeblock}
 
-2.  執行 `couchrestore` 指令。
+2.  Run the `couchrestore` command.
     
     ```sh
     cat couchbackup-demo-backup.txt | couchrestore --db couchbackup-demo-restore
     ```
     {:codeblock}
     
-3.  檢閱結果。 
+3.  Review the results. 
     
     ```sh
     
@@ -378,4 +395,7 @@ CouchBackup 公用程式會將資料庫備份至文字檔來保留資料，並�
     ```
     {:codeblock}
 
-現在，您已備份及還原資料庫，以及建立日誌檔。如需[災難回復及備份](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)、[配置 Cloudant 進行跨地區災難回復](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)及 [Cloudant 備份及回復](../guides/backup-cookbook.html#cloudant-backup-and-recovery)的相關資訊，請參閱「Cloudant 文件」。  
+Now, you have backed up and restored a database and created a log file. See the {{site.data.keyword.cloudant_short_notm}} Documentation 
+for more information about [disaster recovery and backup](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
+[configuring {{site.data.keyword.cloudant_short_notm}} for cross region disaster recovery](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery),
+and [{{site.data.keyword.cloudant_short_notm}} backup and recovery](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  

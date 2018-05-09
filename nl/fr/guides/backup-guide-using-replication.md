@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-25"
+lastupdated: "2017-05-04"
 
 ---
 
@@ -16,24 +16,21 @@ lastupdated: "2017-08-25"
 
 <div id="back-up-your-data-using-replication"></div>
 
-# Sauvegarde de vos données à l'aide de la réplication
+# Incrémentiels de réplication 
 
->	**Remarque** : Le présent guide contient des informations anciennes, voire obsolètes, sur les sauvegardes Cloudant.
-	Pour obtenir les dernières recommandations en matière de sauvegarde, consultez le guide [Reprise après incident et sauvegarde](disaster-recovery-and-backup.html).
-
-
+>	**Remarque** : Le présent guide contient des informations anciennes, voire obsolètes, sur les sauvegardes {{site.data.keyword.cloudantfull}}. Pour obtenir les dernières recommandations en matière de sauvegarde, consultez le guide [Reprise après incident et sauvegarde](disaster-recovery-and-backup.html).
 
 Les sauvegardes de base de données protègent vos données contre les risques de perte ou d'altération.
 {:shortdesc}
 
-Vous pouvez utiliser la fonction de réplication Cloudant pour créer une sauvegarde de base de données,
-et la stocker sur un cluster de Cloudant.
+Vous pouvez utiliser la fonction de réplication {{site.data.keyword.cloudant_short_notm}} pour créer une sauvegarde de base de données,
+et la stocker sur un cluster de {{site.data.keyword.cloudant_short_notm}}.
 Vous pouvez ensuite restaurer des données,
 des bases de données entières,
 ou des documents JSON spécifiques,
 à partir de ces sauvegardes vers votre cluster de production.
 
-Lorsque vous utilisez la réplication Cloudant,
+Lorsque vous utilisez la réplication {{site.data.keyword.cloudant_short_notm}},
 une sauvegarde de base de données stocke le contenu de votre base de données vers un point de contrôle.
 Il est possible de procéder à une sauvegarde "cumulative" vers un point de contrôle spécifique.
 Ce point de contrôle n'est pas lié à une heure précise.
@@ -47,7 +44,7 @@ une fonction de sauvegarde incrémentielle quotidienne est [mise à votre dispos
 
 Si vous n'êtes pas un client d'entreprise,
 ou si préférez créer vos propres sauvegardes,
-vous pouvez utiliser la fonction de réplication de Cloudant pour créer une sauvegarde de base de données.
+vous pouvez utiliser la fonction de réplication de {{site.data.keyword.cloudant_short_notm}} pour créer une sauvegarde de base de données.
 
 Une approche simple vise à répliquer la totalité de la base de données vers une base de données horodatée.
 Cette méthode est efficace et facile à utiliser.
@@ -141,7 +138,7 @@ Supposons que vous deviez sauvegarder une base de données.
 Vous voulez créer une sauvegarde intégrale le lundi,
 et une sauvegarde incrémentielle le mardi.
 
-Vous pouvez utiliser les commandes `curl` et [`jq` ![External link icon](../images/launch-glyph.svg "External link icon")](http://stedolan.github.io/jq/){:new_window} pour exécuter ces opérations.
+Vous pouvez utiliser les commandes `curl` et [`jq` ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://stedolan.github.io/jq/){:new_window} pour exécuter ces opérations.
 Dans la pratique, vous pouvez utiliser n'importe quel client HTTP.
 
 <div id="step-1-check-you-have-three-databases"></div>
@@ -355,7 +352,7 @@ _Document JSON décrivant la restauration :_
     "_id": "restore-monday",
     "source": "${url}/backup-monday",
     "target": "${url}/restore",
-    "create-target": true  
+    "create_target": true  
 }
 ```
 {:codeblock}
@@ -395,7 +392,7 @@ _Document JSON demandant une restauration de la sauvegarde du mardi :_
     "_id": "restore-tuesday",
     "source": "${url}/backup-tuesday",
     "target": "${url}/restore",
-    "create-target": true  
+    "create_target": true  
 }
 ```
 {:codeblock}
@@ -484,8 +481,8 @@ ou autorise chaque utilisateur à créer plusieurs bases de données,
 vous devez créer une tâche de sauvegarde pour chaque nouvelle base de données.
 Assurez-vous que les travaux de réplication ne commencent pas en même temps.
 
-## Besoin d'aide ? 
+## Besoin d'aide ?
 
 Les opérations de réplication et de sauvegarde peuvent s'avérer complexes.
 Si vous n'y arrivez pas,
-consultez le [guide de réplication](replication_guide.html) ou contactez l'[équipe de support d'IBM Cloudant![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+consultez le [guide de réplication](replication_guide.html) ou contactez l'[équipe de support d'IBM {{site.data.keyword.cloudant_short_notm}}![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window}.

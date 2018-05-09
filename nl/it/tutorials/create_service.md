@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-05-17"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2017-05-17"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creazione di un'istanza Cloudant su Bluemix
+# Creazione di un'istanza {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}
 
 Questa esercitazione mostra come creare un'istanza del servizio {{site.data.keyword.cloudantfull}}
-utilizzando il dashboard {{site.data.keyword.Bluemix_notm}}
+utilizzando il dashboard {{site.data.keyword.Bluemix}}
 e ti mostra dove trovare le informazioni essenziali per abilitare le tue applicazioni
 ad utilizzare il database.
 {:shortdesc}
@@ -79,14 +79,14 @@ al tuo account {{site.data.keyword.cloudant_short_notm}}.
     ![Le credenziali del servizio {{site.data.keyword.cloudant_short_notm}} ](images/img0009.png)
 
 >   **Nota**: le credenziali del servizio in questi esempi
-    sono state definite come un servizio Cloudant dimostrativo creato in Bluemix.
+    sono state definite quando è stato creato un servizio dimostrativo {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloudant_short_notm}}.
     Le credenziali vengono riprodotte qui per mostrare come dovrebbero essere visualizzate nel dashboard.
     Tuttavia,
-    il servizio Cloudant dimostrativo è stato ora rimosso,
+    il servizio dimostrativo {{site.data.keyword.cloudant_short_notm}} è stato rimosso,
     per cui queste credenziali non sono più valide;
-   _devi_ fornire e utilizzare le tue proprie credenziali del servizio.
+    _devi_ fornire e utilizzare le tue proprie credenziali del servizio.
 
-## Le credenziali del servizio 
+## Le credenziali del servizio
 
 >   **Nota**: e credenziali del servizio sono importanti.
     Chiunque o qualsiasi applicazione abbia accesso alle credenziali,
@@ -95,25 +95,25 @@ al tuo account {{site.data.keyword.cloudant_short_notm}}.
     o eliminare informazioni importanti.
     Proteggi queste credenziali attentamente.
 
-Le credenziali del servizio sono composte da cinque campi: 
+Le credenziali del servizio sono composte da cinque campi:
 
 Campo      | Scopo
 -----------|--------
-`host`     | Il nome host utilizzato dalle applicazioni per individuare l'istanza del servizio. 
-`username` | Il nome utente obbligatorio alle applicazioni per accedere all'istanza del servizio. 
-`password` | La password obbligatoria alle applicazioni per accedere all'istanza del servizio. 
+`host`     | Il nome host utilizzato dalle applicazioni per individuare l'istanza del servizio.
+`username` | Il nome utente obbligatorio alle applicazioni per accedere all'istanza del servizio.
+`password` | La password obbligatoria alle applicazioni per accedere all'istanza del servizio.
 `port`     | Il numero di porta HTTP per l'accesso all'istanza del servizio sull'host. Normalmente 443 per forzare l'accesso HTTPS.
 `url`      | Una stringa di aggregazione delle altre informazioni sulle credenziali in un solo URL, appropriata per l'utilizzo da parte delle applicazioni.
 
 Per creare un'applicazione che possa accedere alla tua istanza del servizio,
 hai bisogno di queste credenziali.
 
-## Individuazione delle tue credenziali del servizio 
+## Individuazione delle tue credenziali del servizio
 
 In qualsiasi momento,
 puoi trovare le credenziali per un servizio associato al tuo account.
 
-1.  Inizia accedendo a Bluemix.
+1.  Inizia accedendo a {{site.data.keyword.cloudant_short_notm}}.
     Il dashboard {{site.data.keyword.Bluemix}} può essere trovato all'indirizzo:
     [http://bluemix.net ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://bluemix.net){:new_window}.
     Dopo l'autenticazione con i tuoi nome utente e password,
@@ -122,7 +122,7 @@ puoi trovare le credenziali per un servizio associato al tuo account.
 
 2.  Scorri nel dashboard,
     finché non raggiungi la sezione che elenca tutti i tuoi servizi:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} elenco servizi](images/img0010.png)
+    ![{{site.data.keyword.Bluemix_notm}} - Elenco dei servizi](images/img0010.png)
 
 3.  In questo esempio,
     vogliamo trovare le credenziali del servizio per l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}
@@ -140,9 +140,9 @@ puoi trovare le credenziali per un servizio associato al tuo account.
     ![Le credenziali del servizio {{site.data.keyword.cloudant_short_notm}} ](images/img0009.png)
 
 >   **Nota**: le credenziali del servizio in questi esempi
-    sono state definite come un servizio Cloudant dimostrativo creato in Bluemix.
+    sono state definite quando è stato creato un servizio dimostrativo {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloudant_short_notm}}.
     Le credenziali vengono riprodotte qui per mostrare come dovrebbero essere visualizzate nel dashboard.
     Tuttavia,
-    il servizio Cloudant dimostrativo è stato ora rimosso,
+    il servizio dimostrativo {{site.data.keyword.cloudant_short_notm}} è stato rimosso,
     per cui queste credenziali non sono più valide;
-   _devi_ fornire e utilizzare le tue proprie credenziali del servizio.
+    _devi_ fornire e utilizzare le tue proprie credenziali del servizio.
