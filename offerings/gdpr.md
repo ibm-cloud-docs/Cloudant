@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-04-25"
+lastupdated: "2018-05-11"
 
 ---
 
@@ -12,12 +12,12 @@ lastupdated: "2018-04-25"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-04-28 -->
+<!-- Acrolinx: 2018-04-28 -->
 
 # General Data Protection Regulation (GDPR)
 
 The GDPR seeks to create a harmonized data protection law framework across the EU and aims 
-to give citizens back the control of their personal data, whilst imposing strict rules on 
+to give citizens back the control of their personal data, while imposing strict rules on 
 those hosting and ‘processing’ this data, anywhere in the world. The Regulation also introduces 
 rules relating to the free movement of personal data within and outside the EU. 
 
@@ -72,8 +72,8 @@ Enterprise cluster, we have your:
 
 The data we hold can be viewed and updated via the {{site.data.keyword.cloudant_short_notm}} dashboard.
 
-If you have an account provisioned via {{site.data.keyword.cloud_notm}} (including a dedicated instance), 
-{{site.data.keyword.cloudant_short_notm}} _does not_ collect the above personal data. This data is held by {{site.data.keyword.cloud_notm}}.
+If you have an account provisioned by {{site.data.keyword.cloud_notm}} (including a dedicated instance), 
+{{site.data.keyword.cloudant_short_notm}} _does not_ collect the personal data previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} processes limited client PI in the course of running the service and optimising 
 the user experience of it. We use email for contacting clients as appropriate. Monitoring 

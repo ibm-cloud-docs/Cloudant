@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-05-11"
 
 ---
 
@@ -14,23 +14,23 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: uploading the application
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: uploading the application
 
 This section of the tutorial describes how to upload an
-{{site.data.keyword.Bluemix}} application.
+{{site.data.keyword.cloud}} application.
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## Connecting to {{site.data.keyword.Bluemix_notm}}
+## Connecting to {{site.data.keyword.cloud_notm}}
 
-The first task is to connect to {{site.data.keyword.Bluemix_notm}}.
+The first task is to connect to {{site.data.keyword.cloud_notm}}.
 
-The [{{site.data.keyword.Bluemix_notm}} toolkit](create_bmxapp_appenv.html#toolkits) helps you to make the connection.
+The [{{site.data.keyword.cloud_notm}} toolkit](create_bmxapp_appenv.html#toolkits) helps you to make the connection.
 
 Cloud Foundry needs to know the URL to use for making API calls,
 for example when you upload an application.
-The {{site.data.keyword.Bluemix_notm}} toolkit uses the '`cf api`' command to manage the API endpoint.
+The {{site.data.keyword.cloud_notm}} toolkit uses the '`cf api`' command to manage the API endpoint.
 More information about the '`cf api`' command is
 [available ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
 
@@ -57,20 +57,20 @@ Not logged in. Use 'bluemix login' to log in.
 
 Cloud Foundry now knows where to send API calls for managing applications.
 
-The next step is to log in to your {{site.data.keyword.Bluemix_notm}} application environment.
+The next step is to log in to your {{site.data.keyword.cloud_notm}} application environment.
 You must supply the following account details:
 
 -   Your user name, which is specified as the '`-u`' parameter.
 -   Your organization name, which is specified as the '`-o`' parameter.
 -   Your space, which is specified as the '`-s`' parameter.
 
->   **Note**: The account details are available on your {{site.data.keyword.Bluemix_notm}} dashboard,
+>   **Note**: The account details are available on your {{site.data.keyword.cloud_notm}} dashboard,
     when you log in through a web browser,
     as shown in the following example:<br/>
-    ![Finding your {{site.data.keyword.Bluemix_notm}} account details](images/img0035.png)
+    ![Finding your {{site.data.keyword.cloud_notm}} account details](images/img0035.png)
 
 Use a command similar to the following example to log in to your
-{{site.data.keyword.Bluemix_notm}} application environment.
+{{site.data.keyword.cloud_notm}} application environment.
 Notice that you are asked to enter your account password.
 
 ```sh
@@ -102,17 +102,17 @@ Space:          dev
 
 ## Uploading the application
 
-The {{site.data.keyword.cloudant_short_notm}} Foundry toolkit now knows how to connect to the {{site.data.keyword.Bluemix_notm}} environment.
+The {{site.data.keyword.cloudant_short_notm}} Foundry toolkit now knows how to connect to the {{site.data.keyword.cloud_notm}} environment.
 
 The next step is to upload the application itself.
-Details of a {{site.data.keyword.Bluemix_notm}} application
+Details of an {{site.data.keyword.cloud_notm}} application
 are provided in the [manifest file](create_bmxapp_appenv.html#manifest).
 
 The manifest file for the tutorial application was updated
 as described [here](create_bmxapp_createapp.html#essential-files)
 
 Use a command similar to the following example to log in to upload your
-{{site.data.keyword.Bluemix_notm}} application.
+{{site.data.keyword.cloud_notm}} application.
 
 ```sh
 cf push "Cloudant Python"
@@ -188,7 +188,7 @@ which was [specified](create_bmxapp_createapp.html#essential-files) when the app
 
 After you upload and start the application,
 some simple system checks are run to confirm that the application is running correctly
-as far as {{site.data.keyword.Bluemix_notm}} is concerned.
+as far as {{site.data.keyword.cloud_notm}} is concerned.
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -209,7 +209,7 @@ buildpack: python 1.5.5
 
 ## Testing the sample application
 
-When the {{site.data.keyword.Bluemix_notm}} Application environment was first created,
+When the {{site.data.keyword.cloud_notm}} Application environment was first created,
 the dashboard included a link in the `Route` column for the application:<br/>
 ![Screenshot showing dashboard for the application](images/img0017.png)
 

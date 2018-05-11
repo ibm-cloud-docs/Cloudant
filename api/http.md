@@ -271,7 +271,7 @@ Code                                    | Meaning
 `406 - Not Acceptable`                  | The requested content type is not supported by the server.
 `409 - Conflict`                        | Request resulted in an update conflict.
 `412 - Precondition Failed`             | The request headers from the client and the capabilities of the server do not match.
-`413 - Request Entity Too Large`        | The maximum request body size for an API request sent to {{site.data.keyword.cloudant_short_notm}} on IBM Bluemix is 1 MB.
+`413 - Request Entity Too Large`        | The maximum request body size for an API request sent to {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud}} is 1 MB.
 `415 - Bad Content Type`                | The content types supported, and the content type of the information being requested or submitted indicate that the content type is not supported.
 `416 - Requested Range Not Satisfiable` | The range specified in the request header cannot be satisfied by the server.
 `417 - Expectation Failed`              | When sending documents in bulk, the bulk load operation failed.
