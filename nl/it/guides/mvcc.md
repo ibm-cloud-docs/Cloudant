@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -15,23 +15,23 @@ lastupdated: "2017-11-06"
 # Controllo della versione del documento e MVCC
 
 Il [Controllo della concorrenza multiversione (in inglese: Multiversion concurrency control o MVCC) ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window}
-è un metodo usato dai database {{site.data.keyword.cloudantfull}} per garantire che tutti i nodi in un cluster del database contengano solo
+è un metodo usato dai database Cloudant per garantire che tutti i nodi in un cluster del database contengano solo
 la [versione più recente](../api/document.html) di un documento.
 {:shortdesc}
 
-Poiché i database {{site.data.keyword.cloudant_short_notm}} hanno una [consistenza eventuale](cap_theorem.html),
+Poiché i database Cloudant hanno una [consistenza eventuale](cap_theorem.html),
 questo è necessario per evitare inconsistenze che si verificano tra i nodi
 in seguito alla sincronizzazione tra documenti obsoleti.
 
-Il controllo della concorrenza multiversione (MVCC) consente l'accesso simultaneo in lettura e scrittura a un database {{site.data.keyword.cloudant_short_notm}}.
+Il controllo della concorrenza multiversione (MVCC) consente l'accesso simultaneo in lettura e scrittura a un database Cloudant.
 MVCC è una forma di [concorrenza ottimistica![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}.
-Rende più veloci le operazioni di lettura e scrittura nei database {{site.data.keyword.cloudant_short_notm}}
+Rende più veloci le operazioni di lettura e scrittura nei database Cloudant
 perché non è necessario bloccare il database in operazioni di lettura o scrittura.
-MVCC abilita inoltre la sincronizzazione tra i nodi del database {{site.data.keyword.cloudant_short_notm}}.
+MVCC abilita inoltre la sincronizzazione tra i nodi del database Cloudant.
 
 ## Revisioni
 
-Ogni documento in un database {{site.data.keyword.cloudant_short_notm}} ha un campo `_rev` che indica il suo numero di revisione.
+Ogni documento in un database Cloudant ha un campo `_rev` che indica il suo numero di revisione.
 
 Quando inserisci o modifichi i documenti, il server aggiunge a questi un numero di revisione.
 Il numero viene incluso nella risposta del server quando apporti modifiche o leggi un documento.
@@ -63,7 +63,7 @@ una soluzione è quella di [creare un nuovo documento](../api/document.html#docu
 
 ## Database distribuiti e conflitti
 
-I database distribuiti funzionano senza una connessione costante al database principale su {{site.data.keyword.cloudant_short_notm}},
+I database distribuiti funzionano senza una connessione costante al database principale su Cloudant,
 che è a sua volta distribuito,
 pertanto gli aggiornamenti basati sulla stessa versione precedente possono ancora essere in conflitto.
 

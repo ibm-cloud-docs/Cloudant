@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -14,10 +14,10 @@ lastupdated: "2017-11-06"
 
 # Bibliotecas de cliente
 
-Las Bibliotecas de cliente son las herramientas que permiten desarrollar aplicaciones propias para trabajar con bases de datos {{site.data.keyword.cloudantfull}}.
-{:shortdesc}
 
-Las siguientes bibliotecas de cliente reciben [soporte](supported.html) formal de {{site.data.keyword.cloudant_short_notm}}.
+Las Bibliotecas de cliente son las herramientas que permiten desarrollar aplicaciones propias para trabajar con bases de datos Cloudant. {:shortdesc}
+
+Las siguientes bibliotecas de cliente reciben [soporte](supported.html) formal de Cloudant.
 
 -	[Móvil](supported.html#mobile)
 -	[Java](supported.html#java)
@@ -25,9 +25,9 @@ Las siguientes bibliotecas de cliente reciben [soporte](supported.html) formal d
 -	[Python](supported.html#python)
 -	[Swift](supported.html#swift)
 
-Una biblioteca admitida es una biblioteca en la que se puede establecer contacto con {{site.data.keyword.cloudant_short_notm}} si se detecta un problema específico y reproducible en la última versión de la biblioteca.
+Una biblioteca admitida es una biblioteca en la que se puede establecer contacto con Cloudant si se detecta un problema específico y reproducible en la última versión de la biblioteca. 
 
-Las otras bibliotecas cliente han sido creadas por [otros proveedores](thirdparty.html#third-party-client-libraries) o no reciben soporte oficialmente.
+Las otras bibliotecas cliente han sido creadas por [otros proveedores](thirdparty.html#third-party-client-libraries) o no reciben soporte oficialmente. 
 
->   **Nota**: {{site.data.keyword.cloudant_short_notm}} no realiza el mantenimiento ni da soporte a las bibliotecas de cliente de otros proveedores.
-    Si detecta algún problema específico y reproducible con una biblioteca de un tercero, póngase en contacto con el responsable del mantenimiento dicha biblioteca para solicitar ayuda.
+>   **Nota**: Cloudant no realiza el mantenimiento ni da soporte a las bibliotecas cliente de otros proveedores. 
+Si detecta algún problema específico y reproducible con una biblioteca de un tercero, póngase en contacto con el responsable del mantenimiento dicha biblioteca para solicitar ayuda. 

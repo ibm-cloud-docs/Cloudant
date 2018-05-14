@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-10-27"
+lastupdated: "2017-07-11"
 
 ---
 
@@ -13,9 +13,8 @@ lastupdated: "2017-10-27"
 {:pre: .pre}
 
 <!-- Acrolinx: 2017-05-23 -->
-<!-- Update backup-guide.md with with any changes. -->
 
-# {{site.data.keyword.cloudant_short_notm}} 备份和恢复
+# Cloudant 备份和恢复
 
 本手册构成了 [{{site.data.keyword.cloudantfull}} 灾难恢复指南](disaster-recovery-and-backup.html)的一部分。如果您是第一次接触本主题，并且希望了解备份在哪些方面可与 {{site.data.keyword.cloudant_short_notm}} 提供的其他功能配合使用，以支持灾难恢复 (DR) 和高可用性 (HA) 需求，那么应该首先阅读此处的内容。
 
@@ -32,7 +31,7 @@ lastupdated: "2017-10-27"
 
 <strong style="color:red;">警告！</strong>CouchBackup 工具存在[限制](#limitations)。
 
-## 备份 {{site.data.keyword.cloudant_short_notm}} 数据
+## 备份 Cloudant 数据
 
 可以使用 `couchbackup` 工具来执行简单备份。要将 `animaldb` 数据库备份到名为 `backup.txt` 的文本文件，可以使用类似于以下示例的命令：
 
@@ -50,7 +49,7 @@ couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 
 <strong style="color:red;">警告！</strong>CouchBackup 工具存在[限制](#limitations)。
 
-## 复原 {{site.data.keyword.cloudant_short_notm}} 数据
+## 复原 Cloudant 数据
 
 要复原数据，请使用 `couchrestore` 工具。使用 `couchrestore` 将备份文件导入到新的 {{site.data.keyword.cloudant_short_notm}} 数据库中。然后，在任何应用程序尝试使用复原的数据之前，请确保构建所有索引。
 
@@ -156,8 +155,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 
 以下脚本样本说明了如何将 `couchbackup` 库与 {{site.data.keyword.IBM}} Cloud Object Storage 组合使用。此代码说明了可以如何使用跨区域 S3 API 将数据库备份到对象存储。
 
-> **注**：此代码的先决条件是通过遵循
-[以下指示信息 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")][cosclient]{:new_window}，初始化 {{site.data.keyword.IBM_notm}} Cloud Object Storage 的 S3 客户机对象。
+> **注**：此代码的先决条件是通过遵循[以下指示信息 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")][cosclient]{:new_window}，初始化 {{site.data.keyword.IBM_notm}} Cloud Object Storage 的 S3 客户机对象。
 
 ```javascript
 /*

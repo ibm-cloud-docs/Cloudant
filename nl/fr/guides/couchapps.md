@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -14,9 +14,10 @@ lastupdated: "2017-11-06"
 
 # Applications Couch
 
-{{site.data.keyword.cloudantfull}} peut héberger des données de fichiers RAW, notamment des images, et les distribuer sur HTTP, ce qui signifie qu'il peut héberger tous les fichiers statiques nécessaires à l'exécution d'un site Web, à l'instar d'un serveur Web. {:shortdesc}
+Cloudant peut héberger des données de fichiers RAW, notamment des images, et les distribuer sur HTTP, ce qui signifie qu'il peut héberger tous les fichiers statiques nécessaires à l'exécution d'un site Web, à l'instar d'un serveur Web.
+{:shortdesc}
 
-Ces fichiers étant hébergés sur {{site.data.keyword.cloudant_short_notm}}, JavaScript côté client peut accéder aux bases de données {{site.data.keyword.cloudant_short_notm}}.
+Ces fichiers étant hébergés sur Cloudant, JavaScript côté client peut accéder aux bases de données Cloudant.
 Une application de ce type est considérée comme une architecture à deux niveaux, composée du client - généralement le navigateur - et de la base de données.
 Dans la communauté CouchDB, cette application est appelée une application Couch (CouchApp).
 
@@ -39,12 +40,12 @@ Dans quels cas ces applications sont-elles le plus approprié ?
 
 ## Une application Couch est appropriée si...
 
--   Votre serveur n'aurait de toute façon fourni qu'une API à {{site.data.keyword.cloudant_short_notm}}.
--   Vous êtes prêt à utiliser l'[authentification basée sur les cookies](../api/authentication.html) de {{site.data.keyword.cloudant_short_notm}}.
--   Vous êtes prêt à utiliser les bases de données [`_users` et `_security`](../api/authorization.html) de {{site.data.keyword.cloudant_short_notm}} pour gérer les utilisateurs et les permissions.
+-   Votre serveur n'aurait de toute façon fourni qu'une API à Cloudant.
+-   Vous êtes prêt à utiliser l'[authentification basée sur les cookies](../api/authentication.html) de Cloudant.
+-   Vous êtes prêt à utiliser les bases de données [`_users` et `_security`](../api/authorization.html) de Cloudant pour gérer les utilisateurs et les permissions.
 -   Vous n'avez pas besoin de planifier des tâches cron ou d'autres tâches régulières.
 
-Pour vous familiariser avec les applications Couch, consultez la rubrique [Gestion des applications sur {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/app-management/){:new_window}.
+Pour vous familiariser avec les applications Couch, consultez la rubrique [Gestion des applications sur Cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/app-management/){:new_window}.
 
 ## Une application à trois niveaux est appropriée si...
 
@@ -53,4 +54,4 @@ Pour vous familiariser avec les applications Couch, consultez la rubrique [Gesti
 -   Vous avez besoin de planifier des tâches en dehors du client dont l'exécution est régulière.
 
 Vous pouvez écrire votre couche serveur à l'aide des technologies qui vous conviennent le mieux.
-La liste des bibliothèques compatibles avec {{site.data.keyword.cloudant_short_notm}} est [disponible ici](../libraries/index.html).
+La liste des bibliothèques compatibles avec Cloudant est [disponible ici](../libraries/index.html).

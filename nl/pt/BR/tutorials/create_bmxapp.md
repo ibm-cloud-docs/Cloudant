@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-01-10"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Criando um aplicativo {{site.data.keyword.Bluemix_notm}} simples para acessar um banco de dados {{site.data.keyword.cloudant_short_notm}}
+# Criando um aplicativo Bluemix simples para acessar um banco de dados Cloudant
 
 Este tutorial mostra como criar um aplicativo {{site.data.keyword.Bluemix}} que usa a
 [linguagem de programação Python ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.python.org/){:new_window} para
@@ -72,7 +72,7 @@ será necessário executar as tarefas a seguir:
 
 -   [Criar um ambiente de aplicativos Python no {{site.data.keyword.Bluemix_notm}}.](create_bmxapp_appenv.html#creating)
 -   [Assegurar-se de que o ambiente de aplicativos Python tenha uma 'conexão' com uma instância de banco de dados do {{site.data.keyword.cloudant_short_notm}}.](create_bmxapp_appenv.html#connecting)
--   [(Tarefa única) Fazer download e instalar o Cloud Foundry e os kits de ferramentas de linha de comandos do {{site.data.keyword.Bluemix_notm}}.](create_bmxapp_appenv.html#toolkits)
+-   [(Tarefa única) Fazer download e instalar os kits de ferramentas de linha de comandos do Cloud Foundry e do Bluemix.](create_bmxapp_appenv.html#toolkits)
 -   [Fazer download do aplicativo 'iniciador'.](create_bmxapp_appenv.html#starter)
 -   [Customizar o aplicativo iniciador para criar seu próprio aplicativo para acessar a instância de banco de dados do {{site.data.keyword.cloudant_short_notm}}.](create_bmxapp_createapp.html#theApp)
 -   [Fazer upload de seu aplicativo e testar se ele funciona.](create_bmxapp_upload.html#uploading)

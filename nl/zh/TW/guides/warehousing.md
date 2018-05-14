@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-03-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -12,573 +12,314 @@ lastupdated: "2018-03-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Data Warehousing
+# 資料倉儲
 
-## Deprecating {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdbshort_notm}} feature (February 7, 2018)
-{: #deprecating-cloudant-nosql-db-s-db2-warehouse-on-cloud-feature-february-7-2018-}
-
-{{site.data.keyword.cloudantfull}}'s {{site.data.keyword.dashdblong}} feature is deprecated and will be withdrawn according to the timeline below. Data
-will not be removed from either system but synchronization will stop. 
-
-Deprecation date | What is being deprecated
------------------|--------------------------
-January 16, 2018 | The Warehouse tab is only available to {{site.data.keyword.cloudant_short_notm}} service instances that have already created {{site.data.keyword.dashdbshort_notm}} jobs in the Warehouse tab.  If you have not created a {{site.data.keyword.dashdbshort_notm}} job, you will be unable to access this feature.
-March 31, 2018   | New {{site.data.keyword.dashdbshort_notm}} jobs cannot be created by clients who started using the {{site.data.keyword.dashdbshort_notm}} capability before the 16th of January.
-May 5, 2018      | Existing {{site.data.keyword.dashdbshort_notm}} jobs will be stopped. Final status can still be viewed on the dashboard.
-May 31, 2018     | User interface to {{site.data.keyword.dashdbshort_notm}} feature removed. Status of {{site.data.keyword.dashdbshort_notm}} jobs becomes unavailable.
- 
-Data that has been transferred to {{site.data.keyword.dashdbshort_notm}} by April 30, 2018 will remain in {{site.data.keyword.dashdbshort_notm}} and {{site.data.keyword.cloudant_short_notm}} data will also be unaffected.
-
-### Alternatives to the {{site.data.keyword.dashdbshort_notm}} feature
-
-See the 
-[data-flow-examples repository ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/data-flow-examples){:new_window} 
-for tutorials on 
-extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
-{{site.data.keyword.dashdbshort_notm}} table.
-
-
-## Data warehousing overview
-
-A database is essential for storing data.
-But being able to apply that data for business purposes is what makes a database valuable:
-being able to retrieve relevant data,
-quickly and easily,
-and putting the data to work within your applications.
+資料庫對於儲存資料十分重要。而可以基於商業用途套用該資料讓資料庫更具價值：可以快速且輕鬆地擷取相關資料，並讓資料在您的應用程式內處理。
 {:shortdesc}
 
-But many of the storage,
-processing,
-and analytics tasks you perform with the data are used again and again in your applications.
-Or they might be good examples of industry best practices.
-
-So,
-it makes sense to extend standard database capabilities with additional features,
-supporting tasks such as reporting,
-or analytics.
-
-For nearly 30 years,
-'Data Warehouses' have been the industry standard for data storage,
-reporting,
-and analytics,
-based on relational database technology.
-In general,
-a [data warehouse is ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_warehouse){:new_window}:
-"... a central repository of integrated data from one or more sources.
-It stores current and historical data.
-It can be used for performing analysis and creating reports for knowledge workers throughout the enterprise."
-
-The technologies that enable data storage,
-reporting,
-and analytics have emerged in recent years as a response to the need
-to process '[Big Data ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Big_data){:new_window}':
-"Big data is a term for data sets that are so large or complex
-that traditional data processing applications are inadequate."
-
-At the same time,
-the properties and characteristics of Data Warehouses and related products mean that
-using relational database technology to enable the Data Warehouses is a popular choice,
-even for big data tasks.
-
-There are many use cases that nicely illustrate the benefits of
-integrating {{site.data.keyword.cloudant_short_notm}} capabilities with a relational data warehouse,
-such as the following examples.
-
-## Is this integration right for my use case?
-
-{{site.data.keyword.cloudant_short_notm}}'s warehousing integration is a streamlined process which will
-automatically discover your documents' schemas and import data
-intelligently into {{site.data.keyword.dashdbshort_notm}} or {{site.data.keyword.Db2_on_Cloud_short}}. When you create
-a warehouse on {{site.data.keyword.cloudant_short_notm}}, the schema is first auto-discovered, and then data
-is imported into the connected {{site.data.keyword.dashdbshort_notm}} database. 
-
-The integration is suitable when your data has the following characteristics:
-
-* It has a mostly static set of schemas. A changed schema necessitates
-    restarting the warehouse, which reimports your data from scratch.
-* The schemas can be discovered by scanning relatively few documents -- up to
-    a few tens of thousands. Once the schemas are discovered, millions
-    of documents can be imported into your warehouse, of course.
-* Warehousing is not required to be strictly real time. Updated documents
-    typically appear in a warehouse within a few seconds, but this is not
-    guaranteed and will vary based on your database load.
-* {{site.data.keyword.Db2_on_Cloud_short}} limits schemas to 1,012 fields. JSON documents with a large 
-    number of fields, including nested objects and large arrays, may exceed this limit.
-
-## Joining data
+但是，使用資料所執行的許多儲存、處理及分析作業會在應用程式中重複使用。或者，它們可能是不錯的產業最佳作法範例。
 
-Joining data from multiple data stores for cross-domain analysis
-is a task that can be performed easily and efficiently using a relational data warehouse.
-
-Data from different sources is prepared and transformed to a common format during the load of a data warehouse.
-Records are stored in tables,
-and operations are available to join those tables to enable combined analysis.
+因此，可以使用其他特性來擴充標準資料庫功能，以支援作業（例如報告或分析）。
 
-Doing the join in a relational data warehouse is especially useful
-if some of the data is already available in relational representation,
-for example master data or reference data.
+近 30 年來，「資料倉儲」已成為根據關聯式資料庫技術之資料儲存、報告及分析的業界標準。一般而言，[資料倉儲是 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/Data_warehouse){:new_window}：「... 一個以上來源的整合資料的中央儲存庫。它會儲存現行及歷程資料。它可以用於執行分析，以及建立整個企業的知識工作者的報告。」
 
-## Flexibility
+最近幾年出現啟用資料儲存、報告及分析的技術，以因應處理[海量資料 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/Big_data){:new_window} 的需求：「海量資料這個術語是指夠大或夠複雜而傳統資料處理應用程式不足以處理的資料集。」
 
-{{site.data.keyword.cloudant_short_notm}} databases are flexible at representing data.
-For example,
-they do not enforce a schema during read or write.
+同時，「資料倉儲」及相關產品的內容及特徵表示使用關聯式資料庫技術來啟用「資料倉儲」是熱門選擇，即使是海量資料作業也一樣。
 
-By contrast,
-a well-defined and rigorously enforced model is required for reporting and analytics tasks.
+有許多使用案例可以妥善地說明整合 Cloudant 功能與關聯式資料倉儲的好處，例如下列範例。
 
-With your documents available in a relational warehouse you can base your model on a fixed set of table definitions.
-Only documents that fit the table schema can get loaded while violations are rejected.
-You can train your models with consistent data using a fixed relational schema.
+## 結合資料
 
-## Data integrity assertion
+結合用於跨網域分析的多個資料儲存庫的資料是一項作業，可以使用關聯式資料倉儲輕鬆且有效率地執行。
 
-Data Warehouses can use constraints to assert data integrity.
-For example:
+在載入資料倉儲期間，會準備不同來源的資料並將其轉換成一般格式。記錄會儲存在表格中，並且提供作業來結合這些表格以啟用結合的分析。
 
--   No two records can have the same primary key.
--   Foreign keys guarantee that records are complete.
--   Functions are available to validate records against business rules.
+如果已經以關聯式呈現提供部分資料（例如主要資料或參照資料），則在關聯式資料倉儲中執行結合特別有用。
 
-Uniqueness,
-correctness,
-and completeness are essential requirements for any enterprise service.
-Loading your {{site.data.keyword.cloudant_short_notm}} documents into a data warehouse helps you meet these requirements.
+## 彈性
 
-## {{site.data.keyword.cloudant_short_notm}} and Data Warehousing
+Cloudant 資料庫在呈現資料時具有彈性。例如，它們不會在讀取或寫入期間強制執行綱目。
 
-Data Warehouses are a mature and important technology.
-{{site.data.keyword.cloudant_short_notm}} provides a tight integration with relational data warehouses,
-giving you the benefit of this technology.
+相反地，報告及分析作業需要明確定義並嚴格強制執行的模型。
 
-{{site.data.keyword.cloudant_short_notm}} has a basic warehousing capability built in,
-in the form of [MapReduce views](../api/using_views.html)
-that enable you to perform a range of basic analytical tasks.
+關聯式倉儲中有了您的文件之後，您就可以將固定一組表格定義作為模型的基礎。拒絕違規時，只能載入符合表格綱目的文件。您可以使用固定關聯式綱目來訓練具有一致資料的模型。
 
-For more advanced warehousing tasks,
-you can leverage the full capabilities provided by the
-IBM cloud-based warehousing service [{{site.data.keyword.IBM}} {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/analytics/us/en/data-management/data-warehouse/){:new_window}.
+## 資料完整性主張
 
-When you use {{site.data.keyword.cloudant_short_notm}},
-you have integrated and easy access to advanced warehousing capabilities,
-such as:
+「資料倉儲」可以使用限制來主張資料完整性。例如：
 
--   Seeing your JSON data in a relational database format.
--   Performing SQL-based queries on your data.
--   Building analytics from your data.
+-   不能有兩筆記錄具有相同的主要索引鍵。
+-   外部索引鍵保證記錄完整。
+-   提供函數，以根據商業規則來驗證記錄。
 
-These advanced warehousing capabilities are enabled through services such as {{site.data.keyword.dashdbshort_notm}},
-which is a natural complement to {{site.data.keyword.cloudant_short_notm}}.
+唯一性、正確性及完整性是任何企業服務的基本需求。將 Cloudant 文件載入資料倉儲可協助您符合這些需求。
 
-Alternatively,
-if you only need a relational data store for your documents,
-without the warehousing capabilities,
-you can load your {{site.data.keyword.cloudant_short_notm}} documents into the [{{site.data.keyword.Db2_on_Cloud_short}}](#ibm-db2-on-cloud) service.
+## Cloudant 及資料倉儲
 
-## {{site.data.keyword.dashdblong_notm}}
+「資料倉儲」是一種成熟且重要的技術。Cloudant 與關聯式資料倉儲緊密整合，可提供此技術的好處。
 
-{{site.data.keyword.dashdbshort_notm}} is a cloud-based data warehouse service,
-purpose-built for analytic work.
-While especially suited for {{site.data.keyword.cloudant_short_notm}} JSON data,
-{{site.data.keyword.dashdbshort_notm}} can accept data from a variety of sources by
-examining the structure of data when it is loaded.
+IBM Cloudant 內建 [MapReduce 視圖](../api/using_views.html)形式的基本倉儲功能，可讓您執行某範圍的基本分析作業。
 
-For more information,
-see the [{{site.data.keyword.dashdblong_notm}} documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
+對於更進階的倉儲作業，您可以利用 IBM Cloud 型倉儲服務 [IBM dashDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www-01.ibm.com/software/data/dashdb/){:new_window} 所提供的完整功能。
 
-## {{site.data.keyword.Db2Hosted_notm}}
+當您使用 IBM Cloudant 時，即可對進階倉儲功能進行整合且輕鬆的存取，例如：
 
-[{{site.data.keyword.Db2Hosted_full}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/ibm-db2-on-cloud){:new_window}
-provides you with a database on IBM SoftLayer® global cloud infrastructure.
-It offers you the rich features of an on-premise Db2 deployment,
-but without the cost,
-complexity,
-and risk of managing your own infrastructure.
+-   查看關聯式資料庫格式的 JSON 資料。
+-   對您的資料執行 SQL 型查詢。
+-   從您的資料建置分析。
 
-For more information, see the [{{site.data.keyword.Db2Hosted_short}} documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/services/DB2OnCloud/index.html#DB2OnCloud){:new_window}.
+這些進階倉儲功能是透過 IBM dashDB（即 Cloudant 的自然補充功能）這類服務啟用。
 
-## Creating a warehouse
+或者，如果您只需要文件的關聯式資料儲存庫，則可以在沒有倉儲功能的情況下將 Cloudant 文件載入至 [IBM Db2 on Cloud](#ibm-db2-on-cloud) 服務。
 
-There are two ways you can create a warehouse:
+## IBM dashDB
 
-1.  [Use {{site.data.keyword.cloudant_short_notm}} to create a {{site.data.keyword.dashdbshort_notm}} warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse)
-2.  [Connect {{site.data.keyword.cloudant_short_notm}} to an existing warehouse](#connect-cloudant-to-an-existing-warehouse)
+IBM dashDB 是一種雲端型資料倉儲服務，專門針對分析工作所建置。特別適合 Cloudant JSON 資料時，透過在載入資料時檢查資料結構，dashDB 即可接受各種來源的資料。
 
-### Use {{site.data.keyword.cloudant_short_notm}} to create a {{site.data.keyword.dashdbshort_notm}} warehouse
+如需相關資訊，請參閱 [IBM dashDB 雲端資料倉儲文件 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}。
 
-The simplest method for creating a warehouse is for {{site.data.keyword.cloudant_short_notm}} to create a {{site.data.keyword.dashdbshort_notm}} warehouse instance within {{site.data.keyword.Bluemix}},
-on your behalf.
-Do this by clicking the `Create Warehouse` button on the `Warehouse` task
-within the `Integrations` tab of your {{site.data.keyword.cloudant_short_notm}} dashboard.
+## IBM Db2 on Cloud
 
-![Screenshot of the "Create a {{site.data.keyword.dashdbshort_notm}} warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createDashDBWH.png)
+[IBM Db2 on Cloud ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/ibm-db2-on-cloud){:new_window} 提供 IBM SoftLayer® 廣域雲端基礎架構的資料庫。它提供內部部署之 Db2 部署的豐富功能，但沒有管理您自己的基礎架構的成本、複雜性及風險。
 
-If you are not already logged in to {{site.data.keyword.Bluemix_notm}},
-you are asked to do so.
+如需相關資訊，請參閱 [IBM Db2 on Cloud 文件 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/docs/services/DB2OnCloud/index.html#DB2OnCloud){:new_window}。
 
->   **Note**: By default, {{site.data.keyword.cloudant_short_notm}} creates a {{site.data.keyword.dashdbshort_notm}} instance on {{site.data.keyword.Bluemix_notm}} for your warehouse.
+## 建立倉儲
 
-![Screenshot of the "Authenticate to {{site.data.keyword.Bluemix_notm}}" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/authenticateToBluemix.png)
+您有兩種方式可以建立倉儲：
 
-When you have authenticated,
-you can request that a new {{site.data.keyword.dashdbshort_notm}} instance is created using your {{site.data.keyword.Bluemix_notm}} account.
+1.  [使用 Cloudant 以建立 dashDB 倉儲](#use-cloudant-to-create-a-dashdb-warehouse)
+2.  [將 Cloudant 連接至現有倉儲](#connect-cloudant-to-an-existing-warehouse)
 
-To do this:
+### 使用 Cloudant 以建立 dashDB 倉儲
 
-1.  Provide the name you would like to use for the Warehouse in the `Warehouse Name` field.
-2.  Provide the name of your existing database within {{site.data.keyword.cloudant_short_notm}}, in the `Data Sources` field.
-3.  Ensure that the `Create new {{site.data.keyword.dashdbshort_notm}} instance` option is selected on the form.
-4.  Click the `Create Warehouse` button.
+建立倉儲的最簡單方法是讓 Cloudant 代表您在 Bluemix 內建立 dashDB 倉儲實例。作法是在 Cloudant 儀表板的`整合`標籤內按一下`倉儲`作業上的`建立倉儲`按鈕。
 
-![Screenshot of the "Create Warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createWarehouse.png)
+![Cloudant 儀表板內「建立 dashDB 倉儲」作業的擷取畫面](../images/createDashDBWH.png)
 
-### Connect {{site.data.keyword.cloudant_short_notm}} to an existing warehouse
+如果您尚未登入 Bluemix，則系統會要求您這麼做。
 
-Instead of using {{site.data.keyword.cloudant_short_notm}} to create the {{site.data.keyword.dashdbshort_notm}} warehouse database,
-you can connect to an existing {{site.data.keyword.dashdbshort_notm}} instance.
+>   **附註**：依預設，
+    Cloudant 會在 Bluemix 上為您的倉儲建立 dashDB 實例。
 
-The process is similar to [using {{site.data.keyword.cloudant_short_notm}} to create a {{site.data.keyword.dashdbshort_notm}} warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse),
-however instead of selecting the `Create new {{site.data.keyword.dashdbshort_notm}} instance` option,
-select the `{{site.data.keyword.dashdbshort_notm}} service instance` and choose the {{site.data.keyword.dashdbshort_notm}} warehouse that already exists within {{site.data.keyword.Bluemix_notm}}.
+![Cloudant 儀表板內「鑑別 Bluemix」作業的擷取畫面](../images/authenticateToBluemix.png)
 
-![Screenshot of the "Connect to existing {{site.data.keyword.dashdbshort_notm}} instance" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/existingDashDBInstance.png)
+當您已進行鑑別時，可以要求使用 Bluemix 帳戶來建立新的 dashDB 實例。若要這麼做，請執行下列動作：
 
-### Using a {{site.data.keyword.Db2_on_Cloud_short}} warehouse instance
+1.  在`倉儲名稱`欄位中，提供您要用於「倉儲」的名稱。
+2.  在`資料來源`欄位中，提供 Cloudant 內現有資料庫的名稱。
+3.  確定在表單上選取`建立新的 dashDB 實例`選項。
+4.  按一下`建立倉儲`按鈕。
 
-If you prefer,
-you can connect to an existing {{site.data.keyword.Db2_on_Cloud_short}} warehouse instance instead of {{site.data.keyword.dashdbshort_notm}}.
-Do this by selecting the `DB2` option within your {{site.data.keyword.cloudant_short_notm}} dashboard to connect to an existing {{site.data.keyword.Db2_on_Cloud_short}} instance.
+![Cloudant 儀表板內「建立倉儲」作業的擷取畫面](../images/createWarehouse.png)
 
-![Screenshot of the Create a {{site.data.keyword.Db2_on_Cloud_short}} warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createDB2WH.png)
+### 將 Cloudant 連接至現有倉儲
 
-If you want to connect to a {{site.data.keyword.Db2_on_Cloud_short}} instance,
-you must provide the following details:
+您可以連接至現有 dashDB 實例，而不是使用 Cloudant 建立 dashDB 倉儲資料庫。
 
--   Host address
--   Port number
--   Database name
--   User ID for the database
--   Password for the User ID
+此處理程序類似[使用 Cloudant 以建立 dashDB 倉儲](#use-cloudant-to-create-a-dashdb-warehouse)，不過是選取 `dashDB 服務實例`，並選擇 Bluemix 內的現有 dashDB 倉儲，而不是選取`建立新的 dashDB 實例`選項。
 
->   **Note**: The remainder of this topic refers to {{site.data.keyword.dashdbshort_notm}} as the warehouse instance.
-    However,
-    the topic applies equally if you are using an instance of {{site.data.keyword.Db2_on_Cloud_short}}.
-    A tutorial is also available describing how to
-    [load JSON data from {{site.data.keyword.cloudant_short_notm}} into {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices../dashdb/get/load-json-from-cloudant-database-in-to-dashdb/){:new_window},
-    and includes examples of using {{site.data.keyword.Db2_on_Cloud_short}} as the warehouse database.
+![Cloudant 儀表板內「連接至現有 dashDB 實例」作業的擷取畫面](../images/existingDashDBInstance.png)
 
-## Warehouse schema
+### 使用 Db2 倉儲實例
 
-When you first create a warehouse from within {{site.data.keyword.cloudant_short_notm}},
-{{site.data.keyword.dashdbshort_notm}} creates the best possible schema for the data within the database,
-helping ensure that each of the fields within your JSON documents has a corresponding entry within the new schema.
-Optionally,
-when creating the warehouse,
-you can choose to [customize the schema](#customizing-the-warehouse-schema) manually.
+如果您喜歡，可以連接至現有 Db2 倉儲實例，而不是 dashDB。作法是選取 Cloudant 儀表板內的 `Db2` 選項以連接至現有 Db2 實例。
 
-Once the schema is created,
-the warehouse is able to hold your data in a relational format.
-{{site.data.keyword.cloudant_short_notm}} then [replicates](../api/replication.html) to perform
-an 'initial load' of the database documents into the warehouse,
-giving you a working collection of your data in the {{site.data.keyword.dashdbshort_notm}} relational database.
+![Cloudant 儀表板內「建立 Db2 倉儲」作業的擷取畫面](../images/createDB2WH.png)
 
-Over time,
-your {{site.data.keyword.cloudant_short_notm}} database content might change.
-You can modify the schema of an existing warehouse.
+如果您要連接至 Db2 實例，則必須提供下列詳細資料：
 
->   **Note**: If you modify the schema of an existing warehouse,
-    the data from your {{site.data.keyword.cloudant_short_notm}} database must be replicated again into the warehouse database.
-    In effect,
-    modifying the schema causes a fresh 'initial load' into the warehouse.
+-   主機位址。
+-   埠號。
+-   資料庫名稱。
+-   資料庫的使用者 ID。
+-   「使用者 ID」的密碼。
 
-## Working with your warehouse
+>   **附註**：本主題的其餘部分是將 dashDB 作為倉儲實例。
+    不過，如果您使用的是 Db2 實例，此主題也同樣適用。也提供指導教學來說明如何[將 JSON 資料從 Cloudant 載入至 dashDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://developer.ibm.com/clouddataservices../dashdb/get/load-json-from-cloudant-database-in-to-dashdb/){:new_window}，並包括使用 Db2 作為倉儲資料庫的範例。
 
-With {{site.data.keyword.cloudant_short_notm}} warehousing,
-you can run 'traditional' SQL queries,
-and view the results,
-all from within the {{site.data.keyword.dashdbshort_notm}} console.
+## 倉儲綱目
 
+當您在 Cloudant 內第一次建立倉儲時，dashDB 會在資料庫內建立資料的最佳可能綱目，協助確保 JSON 文件內的每一個欄位在新綱目內都具有對應項目。在建立倉儲時，您可以選擇性地選擇手動[自訂綱目](#customizing-the-warehouse-schema)。
 
-![Screenshot of the "{{site.data.keyword.dashdbshort_notm}} dashboard" within {{site.data.keyword.Bluemix_notm}}](../images/useDashDBdashboard.png)
+建立綱目之後，倉儲就可以保留關聯式格式的資料。Cloudant 接著會[抄寫](../api/replication.html)以執行將資料庫文件「起始載入」到倉儲的作業，以提供您 dashDB 關聯式資料庫中資料的有效集合。
 
-External applications can interact with the data in the same way as with any other relational database.
-The advantage of {{site.data.keyword.dashdbshort_notm}} is that you can perform other warehousing tasks,
-such as loading more data from other sources,
-and analyzing the data using built-in analytic tools.
-{{site.data.keyword.dashdbshort_notm}} supports the
-[`'R'` programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/R_%28programming_language%29){:new_window}
-and software environment for statistical computing and graphics.
-This means you have access to algorithms that let you perform database analytic tasks such as linear regression,
-'k-means' clustering,
-and geospatial analysis.
+一段時間之後，Cloudant 資料庫內容可能會變更。您可以修改現有倉儲的綱目。
 
-The `RStudio` tool allows you to create `'R'` scripts which are then uploaded into {{site.data.keyword.dashdbshort_notm}},
-then run using your data.
+>   **附註**：如果您修改現有倉儲的綱目，
+    必須再次將 Cloudant 資料庫中的資料抄寫至倉儲資料庫。實際上，修改綱目會導致全新「起始載入」到倉儲。
 
-For more information about working with {{site.data.keyword.dashdbshort_notm}},
-see the [{{site.data.keyword.dashdblong_notm}} documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
+## 使用倉儲
 
-## Keeping the data and structure fresh
+使用 Cloudant 倉儲，您可以執行「傳統」SQL 查詢以及檢視結果，而這些都是透過 dashDB 主控台完成。
 
-Data is loaded from {{site.data.keyword.cloudant_short_notm}} into {{site.data.keyword.dashdbshort_notm}} using a [replication](../api/replication.html) process.
-This means that if your {{site.data.keyword.cloudant_short_notm}} data is updated or modified in some way,
-replication of the documents into {{site.data.keyword.dashdbshort_notm}} must take place again
-to ensure your analytic tasks continue to work using the most up-to-date information.
+![Bluemix 內「dashDB 儀表板」的擷取畫面](../images/useDashDBdashboard.png)
 
-As with normal {{site.data.keyword.cloudant_short_notm}} replication,
-data is transferred one-way only:
-for a warehouse the transfer is from {{site.data.keyword.cloudant_short_notm}} to {{site.data.keyword.dashdbshort_notm}}.
-After the initial load of data,
-the warehouse subscribes to data content changes in the {{site.data.keyword.cloudant_short_notm}} database.
-Any changes are replicated from the {{site.data.keyword.cloudant_short_notm}} source to the {{site.data.keyword.dashdbshort_notm}} target.
-This means that warehousing is a form of continuous replication from {{site.data.keyword.cloudant_short_notm}} to {{site.data.keyword.dashdbshort_notm}}.
+外部應用程式與資料的互動方式，與任何其他關聯式資料庫相同。
 
-Over time,
-your {{site.data.keyword.cloudant_short_notm}} database might also have structural changes.
-This might include the addition or removal of fields from the JSON documents.
-When this happens,
-the schema used by the warehouse might become invalid,
-resulting in errors reported when fresh data is replicated from {{site.data.keyword.cloudant_short_notm}} to {{site.data.keyword.dashdbshort_notm}}.
+dashDB 的優點是您可以執行其他倉儲作業（例如，從其他來源載入更多資料，以及使用內建分析工具來分析資料）。DashDB 支援用於統計計算及圖形的 [`'R'` 程式設計語言 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/R_%28programming_language%29){:new_window} 及軟體環境。這表示您可以存取演算法，以讓您執行資料庫分析作業（例如線性迴歸、「k 平均值」叢集作業及地理空間分析）。
 
-To solve this problem,
-{{site.data.keyword.cloudant_short_notm}} warehousing has a 'rescan' facility.
-This rescans the structure of the {{site.data.keyword.cloudant_short_notm}} database,
-and determines the new schema required in {{site.data.keyword.dashdbshort_notm}}.
-The old tables within {{site.data.keyword.dashdbshort_notm}} that were created during the previous scan are then dropped,
-new tables created using the new schema,
-and finally the current {{site.data.keyword.cloudant_short_notm}} data is loaded as a fresh 'initial load'.
+`RStudio` 工具可讓您建立 `'R'` Script，而此 Script 接著會上傳至 dashDB，然後使用您的資料執行。
 
-To use the rescan facility,
-first ensure that your warehouse is not running.
-Do this as follows:
+如需使用 dashDB 的相關資訊，請參閱 [IBM dashDB 雲端資料倉儲文件 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}。
 
-1.  Select the `Integrations` tab within the {{site.data.keyword.cloudant_short_notm}} dashboard.
-2.  Find the name of the Warehouse you want to rescan on the `Warehouse` task:<br/>![Screenshot of the "warehouse" tab within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/selectWarehouse.png)
-3.  Click on the name of the Warehouse.
-    It is a link,
-    and when clicked it opens the warehouse detail view:<br/>![Screenshot of the detailed warehouse view within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/viewWarehouseDetail.png)
-4.  Check the current status of the warehouse.
-    A rotating green circle indicates that the warehouse is running.
-    To stop the warehouse,
-    click the `Stop Database` icon in the Actions column:<br/>![Screenshot of the "stop warehouse database" icon within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/stopWarehouseDatabase.png)
-5.  When the warehouse database is not running,
-    the `Rescan` icon in the Action column is enabled:<br/>![Screenshot of the rescan icon within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/rescanIcon.png)
+## 保持全新的資料及結構
 
-### Rescanning the source database
+使用[抄寫](../api/replication.html)處理程序，將資料從 Cloudant 載入至 dashDB 。這表示如果使用某種方法更新或修改您的 Cloudant 資料，則必須再次將文件抄寫至 dashDB，以確保分析作業使用最新資訊繼續進行運作。
 
-![Screenshot of the window enabling you to rescan the warehouse source database.](../images/rescanSource.png)
+與一般 Cloudant 抄寫相同，只會單向傳送資料：對於倉儲，傳送是從 Cloudant 到 dashDB。起始載入資料之後，倉儲會訂閱 Cloudant 資料庫中的資料內容變更。任何變更都會從 Cloudant 來源抄寫至 dashDB 目標。這表示倉儲是一種從 Cloudant 至 dashDB 的持續抄寫。
 
-When you click the `Rescan` icon,
-you have two choices:
+一段時間之後，Cloudant 資料庫也可能會有結構變更。這可能包括新增或移除 JSON 文件中的欄位。發生這種情況時，倉儲所使用的綱目可能會變成無效，導致將全新資料從 Cloudant 抄寫至 dashDB 時報告錯誤。
 
--   A straightforward scan of your database.
-    This is the default action,
-    and is very similar to the initial scan of your database performed when the warehouse was first created.
--   Customize the warehouse schema.
+為了解決此問題，Cloudant 倉儲具有「重新掃描」機能。這會重新掃描 Cloudant 資料庫的結構，並判斷 dashDB 中所需的新綱目。接著捨棄 dashDB 內在前一次掃描期間建立的舊表格，並使用新綱目建立新表格，最後載入現行 Cloudant 資料作為全新「起始載入」。
 
-If you choose the default action of a simple rescan,
-your source database is inspected and a fresh warehouse database schema is generated.
-As soon as the rescan completes,
-the warehouse is started.
+若要使用重新掃描機能，請先確定倉儲未執行。具體請執行如下動作：
 
-If you want to customize the warehouse schema,
-enable the `Customize Schema` check box,
-before clicking the `Rescan` button.
+1.  選取 Cloudant 儀表板內的`整合`標籤。
+2.  尋找`倉儲`作業上您要重新掃描的「倉儲」名稱：<br/>![Cloudant 儀表板內「倉儲」標籤的擷取畫面](../images/selectWarehouse.png)
+3.  按一下「倉儲」名稱。它是一個鏈結，而且按一下它時會開啟倉儲詳細資料視圖：<br/>![Cloudant 儀表板內詳細倉儲視圖的擷取畫面](../images/viewWarehouseDetail.png)
+4.  檢查倉儲的現行狀態。旋轉綠色圓圈指出倉儲正在執行中。若要停止倉儲，請按一下「動作」直欄中的`停止資料庫`圖示：<br/>![Cloudant 儀表板內「停止倉儲資料庫」圖示的擷取畫面](../images/stopWarehouseDatabase.png)
+5.  倉儲資料庫未執行時，會啟用「動作」直欄中的`重新掃描`圖示：<br/>![Cloudant 儀表板內重新掃描圖示的擷取畫面](../images/rescanIcon.png)
 
-![Screen shot of 'Rescan Source' panel, showing the 'Customize Schema' option enabled.](../images/rescanSource2.png)
+### 重新掃描來源資料庫
 
-The `Customize Schema` check box enables two options.
+![可讓您重新掃描倉儲來源資料庫的視窗的擷取畫面。](../images/rescanSource.png)
 
-1.  The discovery algorithm used.
-2.  The sample size.
+當您按一下`重新掃描`圖示時，會有兩個選項：
 
-### The discovery algorithm
+-   資料庫的直接明確掃描。這是預設動作，並且極為類似第一次建立倉儲時所執行的資料庫起始掃描。
+-   自訂倉儲綱目。
 
-The default option for rescanning is the `Union` algorithm.
-This uses all the attributes in all the sampled {{site.data.keyword.cloudant_short_notm}} database documents
-to create a single set of tables in the warehouse database.
-The result is that all the {{site.data.keyword.cloudant_short_notm}} database documents can be stored in the warehouse database,
-but some rows in the database might not have content in some of the fields.
+如果您選擇簡單重新掃描的預設動作，則會檢查來源資料庫，並產生全新倉儲資料庫綱目。重新掃描完成後，就會立即啟動倉儲。
 
-The alternative option for rescanning is the `Cluster` algorithm.
-This identifies documents within the {{site.data.keyword.cloudant_short_notm}} database that have the same set of attributes,
-then creates corresponding warehouse database table schemas.
+如果您要自訂倉儲綱目，請先啟用`自訂綱目`勾選框，再按一下`重新掃描`按鈕。
 
-### The sample size
+![顯示啟用「自訂綱目」選項的「重新掃描來源」畫面的擷取畫面。](../images/rescanSource2.png)
 
-This option determines how many documents within the {{site.data.keyword.cloudant_short_notm}} database
-are inspected as part of the schema determination.
+`自訂綱目`勾選框會啟用兩個選項。
 
-The default value is 10,000 documents.
+1.  使用的探索演算法。
+2.  樣本大小。
 
-Setting the value too low introduces the risk that some {{site.data.keyword.cloudant_short_notm}} documents have attributes that are not detected,
-and are therefore omitted from the warehouse database structure.
+### 探索演算法
 
-Setting the value too high means that the scanning process
-to determine the warehouse database structure takes longer to complete.
+重新掃描的預設選項是`聯集`演算法。這使用所有取樣 Cloudant 資料庫文件中的所有屬性，以在倉儲資料庫中建立一組表格。結果是所有 Cloudant 資料庫文件都可以儲存在倉儲資料庫中，但資料庫的某些列中有部分欄位可能沒有內容。
 
-### After the rescan
+重新掃描的替代選項是`叢集`演算法。這可識別 Cloudant 資料庫內具有同一組屬性的文件，然後建立對應的倉儲資料庫表格綱目。
 
-Once the {{site.data.keyword.cloudant_short_notm}} database rescan has finished,
-the warehouse is not automatically started.
-Instead,
-it remains in a halted state,
-so that the warehouse database can be customized.
+### 樣本大小
 
-## Customizing the warehouse schema
+此選項決定在綱目判定期間 Cloudant 資料庫內要檢查多少文件 。
 
-It is possible to modify the database schema that is determined automatically
-during the initial warehouse creation process,
-or after a rescan.
-To do this,
-ensure that you check the `Customize Schema` option during the creation process:
+預設值是 10,000 份文件。
 
-![Screen shot of warehouse creation panel, showing the 'Customize Schema' option enabled.](../images/customizeSchema01.png)
+設定太低的值所造成的風險是部分 Cloudant 文件具有偵測不到的屬性，因此在倉儲資料庫結構中予以省略。
 
-The warehouse is created in {{site.data.keyword.dashdbshort_notm}} as normal,
-however it is not started immediately.
-Instead,
-you have the opportunity to customize the schema before proceeding.
+設定太高的值表示判定倉儲資料庫結構的掃描處理程序需要更長的時間才能完成。
 
-To do this,
-click the link for your warehouse:
+### 重新掃描之後
 
-![Screen shot of `Open in {{site.data.keyword.dashdbshort_notm}}` button.](../images/openInDashDB.png)
+Cloudant 資料庫重新掃描完成之後，不會自動啟動倉儲。相反地，它會保持停止狀態，因此，可以自訂倉儲資料庫。
 
-The resulting display gives you a button to customize the schema used for your source database.
-Hovering over the Status indicator confirms that the schema is ready for customization:
+## 自訂倉儲綱目
 
-![Screen shot of `Customize <source database name>` button.](../images/customizeSchema02.png)
+您可以修改在起始倉儲建立處理程序期間或重新掃描之後自動判定的資料庫綱目。若要這麼做，請確定您在建立處理程序期間勾選`自訂綱目`選項：
 
-Clicking on the 'Customize' button results in a panel where you can modify the fields in the database schema:
+![顯示啟用「自訂綱目」選項的倉儲建立畫面的擷取畫面。](../images/customizeSchema01.png)
 
-![Screen shot of Customize Schema panel.](../images/customizeSchema03.png)
+會如常在 dashDB 中建立倉儲，不過，不會立即啟動它。相反地，您可以先自訂綱目，再繼續進行。
 
-To reset the schema to the default,
-click the `Rescan` button:
+若要這麼做，請按一下倉儲的鏈結：
 
-![Screen shot of `Rescan` button.](../images/customizeSchema04.png)
+![「在 dashDB 中開啟」按鈕的擷取畫面。](../images/openInDashDB.png)
 
-When you are happy with the database schema for the warehouse,
-click the `Run` button:
+產生的顯示畫面會提供一個按鈕，讓您自訂用於來源資料庫的綱目。將滑鼠游標移至「狀態」指示器上方，確認已備妥綱目來進行自訂：
 
-![Screen shot of `Run` button.](../images/customizeSchema05.png)
+![「自訂 <source database name>」按鈕的擷取畫面。](../images/customizeSchema02.png)
 
-The schema is saved,
-and the warehouse is started.
+按一下「自訂」按鈕會產生一個畫面，您可以在其中修改資料庫綱目的欄位：
 
-### Customizing an existing warehouse schema
+![「自訂綱目」畫面的擷取畫面。](../images/customizeSchema03.png)
 
-If the database schema for your warehouse already exists,
-you have the [option to customize it](#keeping-the-data-and-structure-fresh).
+若要將綱目重設為預設值，請按一下`重新掃描`按鈕：
 
-## Troubleshooting
+![「重新掃描」按鈕的擷取畫面。](../images/customizeSchema04.png)
 
-From time-to-time,
-you might encounter problems when using the warehousing facility.
-Information on some of these problems is provided later in this topic.
+當您滿意倉儲的資料庫綱目時，只需要按一下`執行`按鈕：
 
-Additionally,
-discussion of some common errors or problems,
-as well as details of how to troubleshoot them,
-is available in [Stack Overflow ![External link icon](../images/launch-glyph.svg "External link icon")](http://stackoverflow.com/questions/tagged/cloudant+dashdb){:new_window}.
+![「執行」按鈕的擷取畫面。](../images/customizeSchema05.png)
 
-If you need further help,
-and can't find solutions in Stack Overflow,
-contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+即會儲存綱目，並啟動倉儲。
 
-### Exceptions visible in the dashboard
+### 自訂現有倉儲綱目
 
-Sometimes,
-the warehouse encounters an error condition.
-For example,
-if you try to create a warehouse using an existing {{site.data.keyword.Db2_on_Cloud_short}} database,
-but fail to enter the correct database details,
-then warehouse cannot be created successfully.
+如果倉儲的資料庫綱目已存在，您可以[選擇自訂它](#keeping-the-data-and-structure-fresh)。
 
-When an error condition exists,
-the status of the warehouse is changed to a red circle,
-indicating that there is a problem requiring your attention:
+## 疑難排解
 
-![Screen shot of error status indicator.](../images/errorIndicator1.png)
+有時，您可能會在使用倉儲機能時發生問題。本主題稍後會提供其中一些問題的相關資訊。
 
-If you 'hover' over the indicator,
-a little more information is supplied:
+此外，[Stack Overflow ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://stackoverflow.com/questions/tagged/cloudant+dashdb){:new_window} 中也提供一些常見錯誤或問題的討論，以及如何對其進行疑難排解的詳細資料。
 
-![Screen shot showing hover summary of error status.](../images/errorIndicator2.png)
+如果您需要進一步協助，但在 Stack Overflow 中找不到解決方案，請聯絡 [Cloudant 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
 
-When you click on the indicator,
-a window appears giving you more details about exactly what the problem is.
-In this example,
-the host details entered for the {{site.data.keyword.Db2_on_Cloud_short}} connection were not valid:
+### 儀表板中可見的異常狀況
 
-![Screen shot showing hover summary of error status.](../images/errorIndicator3.png)
+有時，倉儲會發生錯誤狀況。例如，如果您嘗試使用現有 Db2 資料庫來建立倉儲，但無法輸入正確的資料庫詳細資料，則無法順利建立倉儲。
 
-### Warnings and Errors
+發生錯誤狀況時，倉儲的狀態會變更為紅色圓圈，指出有需要注意的問題：
 
-Changes in the {{site.data.keyword.cloudant_short_notm}} database are replicated across into the warehouse database.
-It is possible that a change might not fit into the warehouse or its schema.
-Problems of this kind are detected and logged in the `OVERFLOW` table of the warehouse database.
+![錯誤狀態指示器的擷取畫面。](../images/errorIndicator1.png)
 
-For example,
-if the warehouse schema has a `Movie_earnings_rank` field of type `VARCHAR`,
-and can hold up to 32 characters,
-but a change in the {{site.data.keyword.cloudant_short_notm}} database requires storage of 40 characters,
-then the field 'overflows'.
-This would produce a 'warning' condtion,
-which is indicated in the status icon of the warehouse dashboard:
+如果您將滑鼠游標「移至」指示器上方，則會提供多一點資訊：
 
-![Screen shot showing warning message in status icon.](../images/overflowWarning.png)
+![顯示錯誤狀態的浮動摘要的擷取畫面。](../images/errorIndicator2.png)
 
-Looking in the indicated overflow table in the warehouse database,
-you see more details about the warning:
+當您按一下指示器時，會出現一個視窗，讓您取得確切問題的詳細資料。在此範例中，針對 Db2 連線輸入的主機詳細資料無效：
 
-![Screen shot showing warning message detail in the Overflow table of the warehouse database.](../images/overflowWarningDetail.png)
+![顯示錯誤狀態的浮動摘要的擷取畫面。](../images/errorIndicator3.png)
 
-In this example,
-the warning makes it clear that a truncation has occurred,
-affecting the `Movie_earnings_rank` field of the {{site.data.keyword.cloudant_short_notm}} document having an `_ID` of  `70f6284d2a395396dbb3a60b4cf1cac2`.
+### 警告及錯誤
 
-There are two possible solution options:
+Cloudant 資料庫中的變更會抄寫至倉儲資料庫。變更可能不適合倉儲或其綱目。會偵測到這類型的問題，並將其記載至倉儲資料庫的 `OVERFLOW` 表格中。
 
--   Correct the overflowing field within the {{site.data.keyword.cloudant_short_notm}} document.
--   [Update the warehouse schema](#customizing-the-warehouse-schema).
+例如，如果倉儲綱目有類型為 `VARCHAR` 的 `Movie_earnings_rank` 欄位，而且可以保留最多 32 個字元，但 Cloudant 資料庫中的變更需要儲存 40 個字元，欄位就會「溢位」。這將會產生「警告」狀況，而此狀況是以倉儲儀表板的狀態圖示指出：
 
-The option you choose depends on whether the extra content in the field is intentional or not.
-If you do require the extra content for your application,
-then it is necessary to
-[update the warehouse schema](#customizing-the-warehouse-schema) to remove the warning condition.
+![以狀態圖示顯示警告訊息的擷取畫面。](../images/overflowWarning.png)
 
-A more significant problem is if an entirely new field is introduced into a document in the {{site.data.keyword.cloudant_short_notm}} database,
-but the field does not have a counterpart in the warehouse database schema.
-This causes an 'error' condition.
+查看倉儲資料庫中指出的 overflow 表格，您會看到警告的詳細資料：
 
-For example,
-a document in the {{site.data.keyword.cloudant_short_notm}} database might 'gain' an extra field called `my key`
-that does not exist within the warehouse database schema:
+![顯示倉儲資料庫的 Overflow 表格中之警告訊息詳細資料的擷取畫面。](../images/overflowWarningDetail.png)
 
-![Screen shot showing additional 'my key' field in a document.](../images/extraField.png)
+在此範例中，警告清楚指出發生截斷，並影響 `_ID` 為 `70f6284d2a395396dbb3a60b4cf1cac2` 的 Cloudant 文件的 `Movie_earnings_rank` 欄位。
 
-The result is an error condition,
-which is indicated in the status icon of the warehouse dashboard:
+有兩個可能的解決方案選項：
 
-![Screen shot showing error message in status icon.](../images/overflowError.png)
+-   更正 Cloudant 文件內的溢位欄位。
+-   [更新倉儲綱目](#customizing-the-warehouse-schema)。
 
-Looking in the indicated overflow table in the warehouse database,
-you see more details about the error:
+您選擇的選項取決於欄位中的額外內容是否為策劃內容。如果您確實需要應用程式的額外內容，則需要[更新倉儲綱目](#customizing-the-warehouse-schema)才能移除警告狀況。
 
-![Screen shot showing error message detail in the Overflow table of the warehouse database.](../images/overflowErrorDetail.png)
+更重要的問題是將全新欄位引進 Cloudant 資料庫的文件中，但欄位在倉儲資料庫綱目中沒有對應項目。這會導致「錯誤」狀況。
 
-In this example,
-the error makes it clear that a field has been encountered
-that was not present when the warehouse database schema was created.
-The field itself was detected in the {{site.data.keyword.cloudant_short_notm}} document having an `_ID` of  `70f6284d2a395396dbb3a60b4cf1cac2`.
+例如，Cloudant 資料庫中的文件可能會「獲得」稱為 `my key` 且不存在於倉儲資料庫綱目內的額外欄位：
 
-There are two possible solution options:
+![顯示文件中 'my key' 額外欄位的擷取畫面。](../images/extraField.png)
 
--   Remove the extra field from the {{site.data.keyword.cloudant_short_notm}} document.
--   [Update the warehouse schema](#customizing-the-warehouse-schema).
+結果是錯誤狀況，而此狀況是以倉儲儀表板的狀態圖示指出：
 
-The option you choose depends on whether the extra field is intentional or not.
-If you do require the extra field for your application,
-then it is necessary to [update the warehouse schema](#customizing-the-warehouse-schema) to remove the error condition.
+![以狀態圖示顯示錯誤訊息的擷取畫面。](../images/overflowError.png)
+
+查看倉儲資料庫中指出的 overflow 表格，您會看到錯誤的詳細資料：
+
+![顯示倉儲資料庫的 Overflow 表格中之錯誤訊息詳細資料的擷取畫面。](../images/overflowErrorDetail.png)
+
+在此範例中，錯誤清楚指出發現在建立倉儲資料庫綱目時不存在的欄位。在 `_ID` 為 `70f6284d2a395396dbb3a60b4cf1cac2` 的 Cloudant 文件中，偵測到欄位本身。
+
+有兩個可能的解決方案選項：
+
+-   從 Cloudant 文件中移除額外欄位。
+-   [更新倉儲綱目](#customizing-the-warehouse-schema)。
+
+您選擇的選項取決於額外欄位是否為策劃欄位。如果您確實需要應用程式的額外欄位，則需要[更新倉儲綱目](#customizing-the-warehouse-schema)才能移除錯誤狀況。

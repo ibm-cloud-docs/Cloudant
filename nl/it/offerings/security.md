@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-07-13"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2017-11-06"
 
 # Sicurezza
 
-## Sicurezza e protezione dei dati DBaaS {{site.data.keyword.cloudant_short_notm}}
+## Sicurezza e protezione dei dati DBaaS Cloudant
 
 Proteggere i dati dell'applicazione su larga scala per le applicazioni mobili e web può essere complesso,
 specialmente quando distribuiti a database NoSQL.
@@ -29,7 +29,7 @@ per mantenerli in esecuzione e in crescita continua,
 
 DBaaS {{site.data.keyword.cloudant_short_notm}} è
 fisicamente ospitato su provider dell'infrastruttura cloud di livello 1 come
-{{site.data.keyword.Bluemix}} e Amazon.
+{{site.data.keyword.BluSoftlayer_full}} e Amazon.
 Pertanto,
 i tuoi dati sono protetti dalle misure di sicurezza fisiche e di rete utilizzate da questi provider,
 incluse (ma non limitate a):
@@ -62,20 +62,17 @@ per il controllo dell'accesso ai dati:
   {{site.data.keyword.cloudant_short_notm}} è codificato utilizzando HTTPS.
 - Crittografia a riposo: i dati archiviati sul disco in
   {{site.data.keyword.cloudant_short_notm}} possono essere codificati.
-  > **Nota**: i dati archiviati in un'istanza {{site.data.keyword.cloudant_short_notm}} sono sempre codificati.
+  > **Nota**: i dati archiviati in un'istanza {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} sono sempre codificati.
 - Accesso API: è possibile accedere a {{site.data.keyword.cloudant_short_notm}} in modo programmatico
   utilizzando un'API su HTTP sicuro (HTTPS).
   Le chiavi API possono essere generate utilizzando il dashboard
   {{site.data.keyword.cloudant_short_notm}}.
-- Whitelist IP: i clienti {{site.data.keyword.cloudant_short_notm}} negli ambienti dedicati
-  per {{site.data.keyword.cloudant_short_notm}} Enterprise o
-  {{site.data.keyword.Bluemix_notm}} dedicato possono inserire gli indirizzi IP nella whitelist per limitare l'accesso ai soli utenti e server
-  specificati. Nota che la whitelist di IP non è disponibile per tutti i piani {{site.data.keyword.cloudant_short_notm}}
-  in {{site.data.keyword.Bluemix_notm}} pubblico. 
+- Inserimento IP nell'elenco elementi consentiti: i clienti {{site.data.keyword.cloudant_short_notm}} su ambienti dedicati
+  possono inserire gli indirizzi IP nell'elenco elementi consentiti per limitare l'accesso a solo gli utenti e i server specificati.
 - CORS: abilita il supporto CORS per domini specifici utilizzando il dashboard
   {{site.data.keyword.cloudant_short_notm}}.
 
-## Protezione contro la perdita o il danneggiamento dei dati
+## Protezione contro la perdita o il danneggiamento dei dati 
 
 {{site.data.keyword.cloudant_short_notm}} dispone di numerose funzioni
 per aiutarti a mantenere la disponibilità e la qualità dei dati:
@@ -87,8 +84,8 @@ per aiutarti a mantenere la disponibilità e la qualità dei dati:
   sia sempre disponibile, indipendentemente dagli errori.
 - Esportazione e replica dei dati: puoi replicare i tuoi database di continuo
   tra i cluster in diversi data center
-  o in un cluster {{site.data.keyword.cloudant_short_notm}} locale installato in loco
-  o Apache CouchDB.
+  o in un cluster locale Cloudant in loco
+  o in Apache CouchDB.
   Un'altra opzione è di esportare i dati da
   {{site.data.keyword.cloudant_short_notm}} (nel formato JSON)
   in altre ubicazioni o origini (come il tuo proprio data center) per la ridondanza dei dati aggiunti.

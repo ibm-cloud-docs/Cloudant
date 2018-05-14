@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-07-13"
 
 ---
 
@@ -16,7 +16,9 @@ lastupdated: "2017-11-07"
 
 このチュートリアルでは、
 [CouchBackup ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
-コマンド・ライン・ユーティリティーを使用して、CouchDB または {{site.data.keyword.cloudant_short_notm}} インスタンスのバックアップおよびリストアを行う方法を示します。 CouchBackup はデータベースをファイルにバックアップします。 データベースで障害が発生した場合、バックアップ・ファイルを使用して情報を既存データベースにリストアできます。 
+コマンド・ライン・ユーティリティーを使用して、CouchDB または Cloudant インスタンスのバックアップおよびリストアを行う方法を示します。
+CouchBackup はデータベースをファイルにバックアップします。
+データベースで障害が発生した場合、バックアップ・ファイルを使用して情報を既存データベースにリストアできます。
 {:shortdesc}
 
 ## 始める前に
@@ -113,39 +115,39 @@ npm install -g @cloudant/couchbackup
         "ok":true,
       "id":"doc1",
       "rev":"1-57a08e644ca8c1bb8d8931240427162e"
-      },
+    },
       {
         "ok":true,
       "id":"doc2",
       "rev":"1-bf51eef712165a9999a52a97e2209ac0"
-      },
+    },
       {
         "ok":true,
       "id":"doc3",
       "rev":"1-9c9f9b893fcdd1cbe09420bc4e62cc71"
-      },
+    },
       {
         "ok":true,
       "id":"doc4",
       "rev":"1-6aa4873443ddce569b27ab35d7bf78a2"
-      },
+    },
       {
         "ok":true,
       "id":"doc5",
       "rev":"1-d881d863052cd9681650773206c0d65a"
     }
-    ]
+  ]
     ```
     {:codeblock}
     
 ## 環境変数の設定
 
 環境変数またはコマンド・ライン・オプションを使用して、CouchBackup で処理する
-CouchDB または {{site.data.keyword.cloudant_short_notm}} インスタンスの URL とデータベースを指定できます。 
+CouchDB または Cloudant インスタンスの URL とデータベースを指定できます。 
 
 このチュートリアルでは、`COUCH_URL` を設定し、`--db` パラメーターでデータベースを指定します。 
 
-`COUCH_URL` 環境変数を設定し、CouchDB または {{site.data.keyword.cloudant_short_notm}} インスタンスの URL を指定します。
+`COUCH_URL` 環境変数を設定し、CouchDB または Cloudant インスタンスの URL を指定します。
 
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
@@ -254,7 +256,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
             "_revisions": {
                 "start": 1,
             "ids": [
-                  "19f7ecbc68090bc7b3aa4e289e363576"
+              "19f7ecbc68090bc7b3aa4e289e363576"
                 ]
             }
         }
@@ -264,7 +266,8 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
 
 ## ログ・ファイルの作成
 
-バックアップの進行状況は、ログ・ファイルに記録されます。 CouchBackup では、`--log` パラメーターを使用して、ログ・ファイルを作成します。 また、バックアップが前に停止した位置から再開することや、出力ファイル名を指定することもできます。 
+バックアップの進行状況は、ログ・ファイルに記録されます。CouchBackup では、`--log` パラメーターを使用して、ログ・ファイルを作成します。
+また、バックアップが前に停止した位置から再開することや、出力ファイル名を指定することもできます。 
 
 `couchbackup` コマンドでは、以下のパラメーターを使用して、データベース、ログ・ファイル、再開のオプションを指定できます。 
 
@@ -349,8 +352,9 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
 
 `couchbackup-demo-backup.txt` ファイルから、`couchrestore` コマンドを使用して空の新規データベースにデータをリストアできます。 
 
-> **注**: バックアップのリストアは、空のデータベースにリストアする場合にのみサポートされます。 データベースから文書をすべて削除しても、
-複製の整合性の目的で、文書削除レコードが存在します。 
+> **注**: バックアップのリストアは、空のデータベースにリストアする場合にのみサポートされます。
+データベースから文書をすべて削除しても、
+複製の整合性の目的で、文書削除レコードが存在します。
 つまり、削除済み文書のみを含むデータベースは空とは見なされず、バックアップをリストアする際のターゲットとして使用できません。
 
 1.  (前提条件) データをリストア可能な空の新規データベースを作成します。
@@ -383,6 +387,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
     ```
     {:codeblock}
 
-これで、データベースのバックアップとリストアが完了し、ログ・ファイルが作成されました。 [災害復旧およびバックアップ](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)、
-[クロス地域災害復旧のための {{site.data.keyword.cloudant_short_notm}} の構成](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)、
-[{{site.data.keyword.cloudant_short_notm}} バックアップおよびリカバリー](../guides/backup-cookbook.html#cloudant-backup-and-recovery)について詳しくは、{{site.data.keyword.cloudant_short_notm}} の資料を参照してください。  
+これで、データベースのバックアップとリストアが完了し、ログ・ファイルが作成されました。
+[災害復旧およびバックアップ](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)、
+[クロス地域災害復旧のための Cloudant の構成](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)、
+[Cloudant バックアップおよびリカバリー](../guides/backup-cookbook.html#cloudant-backup-and-recovery)について詳しくは、Cloudant の資料を参照してください。  

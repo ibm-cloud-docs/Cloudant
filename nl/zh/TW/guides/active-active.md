@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-05-22"
 
 ---
 
@@ -14,77 +14,54 @@ lastupdated: "2017-11-02"
 
 <!-- Acrolinx: 2017-05-22 -->
 
-# Configuring {{site.data.keyword.cloudant_short_notm}} for Cross Region Disaster Recovery
+# 配置 Cloudant 進行跨區域災難回復
 
-The [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](disaster-recovery-and-backup.html)
-explains that one way to enable disaster recovery is to use
-[{{site.data.keyword.cloudantfull}} replication to create redundancy across regions.
+[{{site.data.keyword.cloudant_short_notm}} 災難回復手冊](disaster-recovery-and-backup.html)說明啟用災難回復的方式，就是使用 {{site.data.keyword.cloudantfull}} 抄寫來建立跨地區的備援。
 
-You can configure replication in {{site.data.keyword.cloudant_short_notm}} using an 'active-active'
-or 'active-passive' topology across data centers.
+您可以跨資料中心使用「主動-主動」或「主動-被動」拓蹼，來配置 {{site.data.keyword.cloudant_short_notm}} 中的抄寫。
 
-The following diagram shows a typical configuration that
-uses two {{site.data.keyword.cloudant_short_notm}} accounts,
-one in each region:
+下圖顯示使用兩個 {{site.data.keyword.cloudant_short_notm}} 帳戶（每一個地區一個帳戶）的一般配置：
 
-![Example active-active architecture](../images/active-active.png)
+![主動-主動架構範例](../images/active-active.png)
 
-It is helpful to remember:
+記住下列情況會很有用：
 
-* Within each datacenter,
-  {{site.data.keyword.cloudant_short_notm}} already offers high availability
-  by storing data in triplicate across three servers.
-* Replication occurs at the database rather than account level
-  and must be explicitly configured.
-* {{site.data.keyword.cloudant_short_notm}} does not provide any Service Level Agreements (SLAs)
-  or certainties about replication latency.
-* {{site.data.keyword.cloudant_short_notm}} does not monitor individual replications.
-  Your own strategy for detecting failed replications and restarting them is advisable.
+* 在每一個資料中心內，{{site.data.keyword.cloudant_short_notm}} 已跨三部伺服器儲存三份資料來提供高可用性。
+* 抄寫發生於資料庫而非帳戶層次，因此必須明確配置。
+* {{site.data.keyword.cloudant_short_notm}} 不會提供任何「服務水準合約 (SLA)」或關於抄寫延遲的確定性。
+* {{site.data.keyword.cloudant_short_notm}} 不會監視個別抄寫。建議使用您自己的策略，來偵測失敗的抄寫並重新啟動它們。
 
-## Before You Begin
+## 開始之前
 
-> **Note**: For an active-active deployment,
-  a strategy for managing conflicts must be in place.
-  Therefore, be sure to understand how [replication](../api/replication.html) and
-  [conflicts](mvcc.html#distributed-databases-and-conflicts) work
-  before you consider this architecture.
+> **附註**：若為主動-主動部署，用於管理衝突的策略必須就緒。因此，在考量此架構之前，務必瞭解[抄寫](../api/replication.html)及[衝突](mvcc.html#distributed-databases-and-conflicts)的運作方式。
 
-Contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}
-if you need help with how to model data to handle conflicts effectively.
+如果您需要有關如何建立資料模型來有效處理衝突的協助，請聯絡 [{{site.data.keyword.cloudant_short_notm}} 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
 
-## Overview
+## 概觀
 
-In the following material,
-a bidirectional replication is created.
-This configuration allows two databases to work in an active-active topology.
+在下列資料中，會建立雙向抄寫。此配置容許兩個資料庫在主動-主動拓蹼中運作。
 
-The configuration assumes that you have two accounts in different regions:
+配置假設您在不同地區有兩個帳戶：
 
 * `myaccount-dc1.cloudant.com`
 * `myaccount-dc2.cloudant.com`
 
-When these accounts are in place,
-the basic steps are as follows:
+當具備這些帳戶時，基本步驟如下：
 
-1. [Create](#step-1-create-your-databases) a pair of peer databases within the accounts.
-2. [Set up](#step-2-create-an-api-key-for-your-replications) API keys
-  to use for the replications between these databases.
-3. Grant appropriate permissions.
-4. Set up replications.
-5. Test replications are working as expected.
-6. Configure application and infrastructure for either active-active
-  or active-passive use of the databases.
+1. 在帳戶內[建立](#step-1-create-your-databases)一對對等節點資料庫。
+2. [設定](#step-2-create-an-api-key-for-your-replications)在這些資料庫之間用於抄寫的 API 金鑰。
+3. 授與適當的許可權。
+4. 設定抄寫。
+5. 測試抄寫如預期般運作。
+6. 配置應用程式及基礎架構，以進行資料庫的主動-主動或主動-被動使用。
 
-## Step 1: Create your databases
+## 步驟 1：建立資料庫
 
-[Create the databases](../api/database.html#create) that you want to replicate between
-within each account.
+在每一個帳戶內，[建立](../api/database.html#create)您要在其間抄寫的資料庫。
 
-In this example,
-a database that is called `mydb` is created.
+在此範中，會建立一個稱為 `mydb` 的資料庫。
 
-The names that are used for the databases in this example are not important,
-but using the same name is clearer.
+在此範例中用於資料庫的名稱並不重要，但要完全使用相同的名稱。
 
 ```sh
 curl https://myaccount-dc1.cloudant.com/mydb -XPUT -u myaccount-dc1
@@ -92,26 +69,20 @@ curl https://myaccount-dc2.cloudant.com/mydb -XPUT -u myaccount-dc2
 ```
 {:codeblock}
 
-## Step 2: Create an API key for your replications
+## 步驟 2：建立 API 金鑰進行抄寫
 
-It is a good idea to use an [API key](../api/authorization.html#api-keys) for continuous replications.
-The advantage is that if your primary account details change,
-for example after a password reset,
-your replications can continue unchanged.
+使用 [API 金鑰](../api/authorization.html#api-keys)進行連續抄寫，是一個好主意。優點是如果您的主要帳戶詳細資料變更，例如，在密碼重設之後，您的抄寫可以繼續保持不變。
 
-API keys are not tied to a single account.
-This characteristic means that a single API key can be created,
-then granted suitable database permissions for both accounts.
+API 金鑰不會關聯於單一帳戶。此特徵表示可以建立單一 API 金鑰，然後為這兩個帳戶授與適當的資料庫許可權。
 
-For example,
-the following command requests an API key for the account `myaccount-dc1`:
+例如，下列指令會要求帳戶 `myaccount-dc1` 的 API 金鑰：
 
 ```sh
 $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-dc1
 ```
 {:codeblock}
 
-A successful response is similar to the following abbreviated example:
+成功回應與下列縮寫範例類似：
 
 ```json
 {
@@ -122,36 +93,23 @@ A successful response is similar to the following abbreviated example:
 ```
 {:codeblock}
 
-> **Note**: Take careful note of the password.
-  It is not possible to retrieve the password later.
+> **附註**：請小心記下密碼，因為之後無法擷取密碼。
 
-### Step 3: Grant access permission
+### 步驟 3：授與存取權
 
-[Give the API Key permission](../api/authorization.html#modifying-permissions)
-to read and to write on both databases.
+[提供 API 金鑰](../api/authorization.html#modifying-permissions)讀取及寫入至這兩個資料庫的許可權。
 
-If you also want to replicate indexes,
-assign admin permissions.
+如果也想要抄寫索引，請指派管理許可權。
 
-Use the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-or alternatively see the [authorization](../api/authorization.html) information
-for details of how to grant permissions programmatically.
+使用「{{site.data.keyword.cloudant_short_notm}} 儀表板」，或者參閱[授權](../api/authorization.html)資訊，以取得如何使用程式授與許可權的詳細資料。
 
-### Step 4: Set up replications
+### 步驟 4：設定抄寫
 
-Replications in {{site.data.keyword.cloudant_short_notm}} are always uni-directional:
-from one database to another database.
-Therefore,
-to replicate both ways between two databases,
-two replications are required,
-one for each direction.
+{{site.data.keyword.cloudant_short_notm}} 中的抄寫一律是單向的：從某個資料庫至另一個資料庫。因此，若要在兩個資料庫之間進行雙向抄寫，需要有兩個抄寫，每一個方向一個。
 
-A replication is created in each account,
-that uses the API Key created [earlier](#step-2-create-an-api-key-for-your-replications).
+在每一個帳戶中建立一個抄寫，使用[先前](#step-2-create-an-api-key-for-your-replications)建立的 API 金鑰。
 
-First,
-create a replication from database `myaccount-dc1.cloudant.com/mydb` to
-database `myaccount-dc2.cloudant.com/mydb`.
+首先，建立從資料庫 `myaccount-dc1.cloudant.com/mydb` 到資料庫 `myaccount-dc2.cloudant.com/mydb` 的抄寫。
 
 ```sh
 curl -XPOST 'https://myaccount-dc1.cloudant.com/_replicator'
@@ -165,9 +123,7 @@ curl -XPOST 'https://myaccount-dc1.cloudant.com/_replicator'
 ```
 {:codeblock}
 
-Next,
-create a replication from database `myaccount-dc2.cloudant.com/mydb` to
-database `myaccount-dc1.cloudant.com/mydb`.
+接下來，建立從資料庫 `myaccount-dc2.cloudant.com/mydb` 到資料庫 `myaccount-dc1.cloudant.com/mydb` 的抄寫。
 
 ```sh
 curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
@@ -181,154 +137,85 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 ```
 {:codeblock}
 
-> **Note:** If this step fails because the `_replicator` database doesn't exist,
-  create it.
+> **附註：**如果此步驟因為 `_replicator` 資料庫不存在而失敗，請建立該資料庫。
 
-### Step 5: Test your replication
+### 步驟 5：測試抄寫
 
-Test the replication processes by creating,
-modifying,
-and deleting documents in either database.
+您可以透過建立、修改及刪除任一個資料庫中的文件，來測試抄寫處理程序。
 
-After each change in one database,
-check that you can also see the change reflected in the other database.
+每一次在某個資料庫中進行變更之後，請確認您也看到此變更反映在另一個資料庫中。
 
-### Step 6: Configure your application
+### 步驟 6：配置應用程式
 
-At this point,
-the databases are set up to remain synchronized with each other.
+此時，資料庫會設為彼此保持同步。
 
-The next decision is whether to use the databases in an
-[active-active](#active-active) or [active-passive](#active-passive) manner.
+下一個決策為是要以[主動-主動](#active-active)還是[主動-被動](#active-passive)方式使用資料庫。
 
-#### Active-Active
+#### 主動-主動
 
-In an active-active configuration,
-different application instances can write to
-different databases.
+在主動-主動配置中，不同的應用程式實例可以寫入至不同的資料庫中。
 
-For example,
-application 'A' might write to database `myaccount-dc1.cloudant.com/mydb`,
-while application 'B' might write to database `myaccount-dc2.cloudant.com/mydb`.
+例如，應用程式 'A' 可能寫入至資料庫 `myaccount-dc1.cloudant.com/mydb` 中，而應用程式 'B' 可能寫入至資料庫 `myaccount-dc2.cloudant.com/mydb` 中。
 
-This configuration offers several benefits:
+此配置提供幾個優點：
 
-- Load can be spread over several accounts.
-- Applications can be configured to access an account with
-  lower latency (not always the geographically closest).
+- 負載可以分散至數個帳戶。
+- 應用程式可以配置為存取延遲較低的帳戶（不一定是地理上最接近的帳戶）。
 
-An application can be set up to communicate with the 'nearest'
-{{site.data.keyword.cloudant_short_notm}} account.
-For applications hosted in DC1,
-it is appropriate to set their {{site.data.keyword.cloudant_short_notm}}
-URL to `"https://myaccount-dc1.cloudant.com/mydb"`.
-Similarly,
-for applications that are hosted in DC2,
-you would set their {{site.data.keyword.cloudant_short_notm}} URL to `"https://myaccount-dc2.cloudant.com/mydb"`.
+應用程式可以設為與「最接近」的 Cloudant 帳戶通訊。若為 DC1 中管理的應用程式，適合將其 {{site.data.keyword.cloudant_short_notm}}  URL 設為 `"https://myaccount-dc1.cloudant.com/mydb"`。同樣地，若為 DC2 中管理的應用程式，將其 Cloudant URL 設為 `"https://myaccount-dc2.cloudant.com/mydb"`。
 
-#### Active-Passive
+#### 主動-被動
 
-In an active-passive configuration,
-all instances of an application are configured to use a primary database.
-However,
-the application can fail over to the other backup database,
-if circumstances make it necessary.
-The fail over might be implemented within the application logic itself,
-or by using a load balancer,
-or by using some other means.
+在主動-被動配置中，應用程式的所有實例都會配置為使用主要資料庫。不過，應用程式可以失效接手另一個備份資料庫（如果情況必須如此的話）。失效接手可在應用程式邏輯本身內、或使用負載平衡器，或使用某些其他方法來實作。
 
-A simple test of whether a fail over is required would be to
-use the main database endpoint as a 'heartbeat.
-For example,
-a simple `GET` request that is sent to the main database endpoint normally returns
-[details about the database](../api/database.html#getting-database-details).
-If no response is received,
-it might indicate that a fail over is necessary.
+是否需要失效接手的簡單測試將是使用主要資料庫端點作為「活動訊號」。例如，傳送至主要資料庫端點的簡單 `GET` 要求一般會傳回[有關資料庫的詳細資料](../api/database.html#getting-database-details)。如果未收到任何回應，則可能指出需要失效接手。
 
-#### Other configurations
+#### 其他配置
 
-You might consider other hybrid approaches for your configuration.
+您可以針對配置考量其他混合式方法。
 
-For example,
-in a 'Write-Primary, Read-Replica' configuration,
-all writes go to one database,
-but the read load is spread among the replicas.
+例如，在 'Write-Primary, Read-Replica' 配置中，所有寫入都會移至某個資料庫，但讀取負載會分散至各抄本。
 
-### Step 7: Next steps
+### 步驟 7：後續步驟
 
-* Consider monitoring the [replications](../api/advanced_replication.html) between the databases.
-  Use the data to determine whether your configuration might be optimized further.
-*	Consider how your design documents and indexes are deployed and updated.
-  You might find it more efficient to automate these tasks.
+* 考量監視資料庫之間的[抄寫](../api/advanced_replication.html)。使用資料來判斷您的配置是否可以進一步最佳化。
+*	考量如何部署及更新您的設計文件及索引。您可以更有效率地找到它，以自動執行這些作業。
 
-## Failing over between {{site.data.keyword.cloudant_short_notm}} regions
+## 在 Cloudant 地區之間失效接手
 
-Typically,
-the process of managing a fail over between regions or datacenters is handled higher up within your application stack,
-for example by configuring application server fail over changes,
-or by balancing the load.
+一般而言，在地區或資料中心之間管理失效接手的過程，會在應用程式堆疊內的較高位置進行處理，例如，透過配置應用程式伺服器失效接手變更，或平衡負載。
 
-{{site.data.keyword.cloudant_short_notm}} does not provide a facility for you
-to manage explicitly any fail over or reroute requests between regions.
-This constraint is partly for technical reasons,
-and partly because the conditions under when it might happen tend to be application-specific.
-For example,
-you might want to force a fail over in response to a custom performance metric.
+{{site.data.keyword.cloudant_short_notm}} 並未提供一種機能，讓您明確地管理任何失效接手，或在在各地區之間重新遞送要求。此限制部分基於技術原因，部分因為可能發生的情況往往是應用程式特定的。例如，您可能想要強制執行失效接手以回應自訂效能度量。
 
-However,
-if you decide that you do need an ability to manage fail over,
-some possible options include:
+不過，如果您決定確實需要管理失效接手的能力，則部分可能選項包括：
 
-* Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/greenmangaming/cloudant-nginx){:new_window}.
-  Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance.
-  This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}}
-  instances that are used by applications can be handled through a modification to the proxy configuration
-  rather than a modification to the application settings.
-  Many proxies have the capability to balance the load,
-  based on user-defined health checks.
-* Use a global load balancer such as [Traffic Director ![External link icon](../images/launch-glyph.svg "External link icon")](http://dyn.com/traffic-director/){:new_window} to route to {{site.data.keyword.cloudant_short_notm}}.
-  This option requires a `CNAME` definition that routes to
-  different {{site.data.keyword.cloudant_short_notm}} accounts,
-  based on a health check or latency rule.
+* 將您自己的 [HTTP Proxy 放在 {{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/green-man-gaming-cross-cloud-nginx-config/){:new_window} 前面。將您的應用程式配置為與 Proxy 而非 {{site.data.keyword.cloudant_short_notm}} 實例交談。此配置表示您可以處理變更應用程式所使用之 {{site.data.keyword.cloudant_short_notm}} 實例的作業，方法為修改 Proxy 配置，而非修改應用程式設定。根據使用者定義的性能檢查，許多 Proxy 具備平衡負載的功能。
+* 使用廣域負載平衡器（例如[資料流量引導器 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://dyn.com/traffic-director/){:new_window}），來遞送至 {{site.data.keyword.cloudant_short_notm}}。此選項需要 `CNAME` 定義，根據性能檢查或延遲規則來遞送至不同的 {{site.data.keyword.cloudant_short_notm}} 帳戶。
 
-## Recovering from fail over
+## 從失效接手中回復
 
-If a single {{site.data.keyword.cloudant_short_notm}} instance is unreachable,
-avoid redirecting traffic back to it as soon as it becomes reachable again.
-The reason is that some time is required for intensive tasks
-such as synchronizing the database state from any peers,
-and ensuring that indexes are up to date.
+如果單一 {{site.data.keyword.cloudant_short_notm}} 實例無法連接，請避免在該實例一可以連接時即將資料流量重新導向回到其中。原因是密集作業（例如，同步化來自任何對等節點的資料庫狀態，以及確保索引是最新的）需要一些時間。
 
-It is helpful to have a mechanism for monitoring these tasks
-to help decide when a database is in a suitable state to service your production traffic.
+具有監視這些作業的機制很有幫助，因為此機制可協助判斷資料庫何時處於適當的狀態，以服務您的正式作業資料流量。
 
-As a guide,
-a typical list of checks to apply include:
+作為指引，要套用的一般檢查清單包括：
 
-* [Replications](#replications)
-* [Indexes](#indexes)
+* [抄寫](#replications)
+* [索引](#indexes)
 
-> **Note:** If you implement request rerouting or fail over based on a health test,
-  you might want to incorporate corresponding checks to avoid premature rerouting back to
-  a service instance that is still recovering.
+> **附註：**如果實作要求重新遞送或根據性能測試來失效接手，您可能想要納入對應檢查，以避免倉促地重新遞送回到仍在回復的服務實例。
 
-### Replications
+### 抄寫
 
-* Are any replications in an error state?
-* Do any replications need restarting?
-* How many pending changes are still waiting for replication into the database?
+* 有任何抄寫處於錯誤狀態嗎？
+* 有任何抄寫需要重新啟動嗎？
+* 多少擱置變更仍在等待抄寫至資料庫？
 
-More information on [monitoring replication status](../api/advanced_replication.html#replication-status)
-is available.
+有[監視抄寫狀態](../api/advanced_replication.html#replication-status)的相關資訊可供使用。
 
-> **Note:** If a database is being changed continuously,
-  the replication status is unlikely to 0.
-  You must decide what status threshold is acceptable,
-  or that represents an error state.
+> **附註：**如果正在連續變更資料庫，則抄寫狀態不可能為 0。您必須決定可接受的狀態臨界值，或代表錯誤狀態的臨界值。
 
-### Indexes
+### 索引
 
-* Are the indexes sufficiently up-to-date?
-  Check this using the [active tasks](../api/active_tasks.html) endpoint.
-* Test the level of 'index readiness' by sending a query to the index,
-  and deciding whether it returns within an acceptable time.
+* 索引是否充分保持最新？請使用[作用中作業](../api/active_tasks.html)端點來檢查此情況。
+* 測試「索引備妥」的層次，方法為傳送查詢至索引，並判斷是否在可接受的時間內傳回索引。

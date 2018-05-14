@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-11-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Regroupement des documents liés dans {{site.data.keyword.cloudant_short_notm}} 
+# Regroupement des documents liés dans Cloudant
 
 Généralement,
 les systèmes de commerce électronique sont générés avec des bases de données relationnelles.
@@ -26,16 +26,16 @@ incluant l'utilisation de jointures entre des collections,
 les énumérations afin d'enregistrer l'état d'un objet et
 les transactions de base de données afin de garantir les opérations atomiques.
 
-{{site.data.keyword.cloudantfull}} favorise la disponibilité par rapport à la cohérence.
+Cloudant favorise la disponibilité par rapport à la cohérence.
 Il s'agit d'une base de données répartie à haute disponibilité,
 insensible aux défaillances... en un mot :
 cohérente.
 Ainsi, le service d'achats du client est toujours disponible et suffisamment évolutif pour
 prendre en charge les achats simultanés par plusieurs utilisateurs.
-Votre application peut ainsi utiliser les points forts de {{site.data.keyword.cloudant_short_notm}} et ne pas considérer ce dernier comme une base de données relationnelle.
+Votre application peut ainsi utiliser les points forts de Cloudant et ne pas considérer ce dernier comme une base de données relationnelle.
 
 Cette rubrique met en avant certains facteurs impliqués lors de la
-génération d'un système de commerce électronique tirant profit des points forts de {{site.data.keyword.cloudant_short_notm}},
+génération d'un système de commerce électronique tirant profit des points forts de Cloudant,
 en utilisant des concepts applicables à bien d'autres domaines, tels :
 
 -   Utilisation de plusieurs documents afin de représenter l'état d'un achat,
@@ -119,7 +119,7 @@ des UUID plus longs permettent de garantir que les documents sont stockés avec 
 
 Pour créer un identificateur unique à utiliser dans votre application,
 tel `order_id`,
-appelez le noeud final [`GET _uuids`](../api/advanced.html#-get-_uuids-) sur l'API {{site.data.keyword.cloudant_short_notm}}.
+appelez le noeud final [`GET _uuids`](../api/advanced.html#-get-_uuids-) sur l'API Cloudant.
 La base de données génère un identificateur pour vous.
 Le même noeud final peut être utilisé pour générer plusieurs ID en ajoutant un paramètre `count`,
 par exemple, `/_uuids?count=10`.
@@ -157,7 +157,7 @@ _Enregistrement de règlement - Exemple :_
 Dans l'exemple précédent,
 le client a payé en fournissant des informations de carte de crédit et en validant un bon prépayé.
 Le total de deux règlements correspond au montant de la commande.
-Chaque règlement a été enregistré dans {{site.data.keyword.cloudant_short_notm}} en tant que document séparé.
+Chaque règlement a été enregistré dans Cloudant en tant que document séparé.
 
 Vous pouvez voir le statut d'une commande en créant une vue incluant tout ce dont vous avez connaissance à propos d'un élément `order_id`.
 La vue active un registre contenant les informations suivantes : 
@@ -230,7 +230,10 @@ _Totaux regroupés par `order_id` avec `?group_level=1` - Exemple :_
 Etant donné que la vue dans l'exemple précédent renvoie 0 pour la valeur de commande,
 le résultat indique que la commande a été entièrement payée.
 Cela est dû au fait que le total de bon de commande positif annule les montants de règlement négatifs.
-L'enregistrement d'événements en tant que documents séparés (un pour la commande et un pour chaque règlement) est une pratique recommandée dans {{site.data.keyword.cloudant_short_notm}} car cela évite la probabilité de création de conflits lorsque plusieurs processus modifient le même document en même temps.
+L'enregistrement d'événements en tant que documents séparés (un
+pour la commande et un pour chaque règlement)
+est une pratique recommandée dans Cloudant
+car cela évite la probabilité de création de conflits lorsque plusieurs processus modifient le même document en même temps.
 
 ## Ajout de documents supplémentaires
 
@@ -241,13 +244,14 @@ documents séparés à la base de données pour enregistrer les modifications d'
 -   Reçus de livraison
 -   Enregistrements de remboursement.
 
-Lorsque les données arrivent, {{site.data.keyword.cloudant_short_notm}} les place séparément dans chaque document.
+Lorsque les données arrivent,
+Cloudant les place séparément dans chaque document.
 C'est pourquoi,
 il n'est pas nécessaire de modifier le document d'achat principal.
 
-## Avantages du stockage des bons de commande dans {{site.data.keyword.cloudant_short_notm}}
+## Avantages du stockage des bons de commande dans Cloudant
 
-En utilisant {{site.data.keyword.cloudant_short_notm}} pour stocker des informations de bon de commande, le système de commande est hautement disponible et évolutif.
+En utilisant Cloudant pour stocker des informations de bon de commande, le système de commande est hautement disponible et évolutif.
 Ainsi, vous pouvez traiter une grande quantité de données et un nombre important d'accès simultanés.
 En modélisant les données dans différents documents à écriture unique,
 vous garantissez le fait que les documents n'entrent jamais en conflit, comme
@@ -259,4 +263,4 @@ pour représenter l'association de données à une clé externe (et non dépendr
 Par exemple,
 lors de l'enregistrement de l'état d'un panier au moment de l'achat.
 Ainsi, il est possible d'extraire un état de commande via un seul
-appel à une vue de {{site.data.keyword.cloudant_short_notm}} qui regroupe les documents liés par `order_id`.
+appel à une vue de Cloudant qui regroupe les documents liés par `order_id`.

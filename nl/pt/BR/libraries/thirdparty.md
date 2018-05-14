@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-04"
 
 ---
 
@@ -14,18 +14,18 @@ lastupdated: "2017-11-06"
 
 # Bibliotecas do cliente de terceiros
 
->   **Nota**: as bibliotecas do cliente de terceiros não são mantidas ou suportadas pelo {{site.data.keyword.cloudantfull}}.
+>   **Nota**: as bibliotecas do cliente de terceiros não são mantidas ou suportadas pelo Cloudant.
 
 ## Bibliotecas móveis de terceiros
 
 Trabalhando com um banco de dados Cloudant:
 
--   [IBM Worklight Powered Native Objective-C iOS Apps ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} com um Adaptador do {{site.data.keyword.cloudant_short_notm}}.
+-   [IBM Worklight Powered Native Objective-C iOS Apps ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} com um Adaptador do Cloudant.
 
 ## C# / .NET
 
 [MyCouch ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/danielwertheim/mycouch){:new_window}
-é um cliente assíncrono CouchDB e {{site.data.keyword.cloudant_short_notm}} para .Net.
+é um cliente assíncrono CouchDB e Cloudant para .Net.
 
 Para instalar a biblioteca, abra o console do gerenciador de pacote e chame:
 
@@ -50,7 +50,7 @@ install-package mycouch.cloudant
 
 ## PHP
 
-[Sag ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/sbisbee/sag){:new_window} é o cliente CouchDB e {{site.data.keyword.cloudant_short_notm}} do PHP.
+[Sag ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/sbisbee/sag){:new_window} é o cliente CouchDB e Cloudant do PHP.
 [Sag.js ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/sbisbee/sag-js){:new_window} é a contraparte JavaScript de Sag.
 
 Para instalar,
@@ -74,8 +74,8 @@ require_once('./src/Sag.php');
 
 ## JavaScript
 
-[PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window} é um banco de dados JavaScript que pode sincronizar com o {{site.data.keyword.cloudant_short_notm}},
-o que significa que é possível tornar seus apps off-ine apenas usando o PouchDB.
+[PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window} é um banco de dados JavaScript que pode ser sincronizado com o Cloudant,
+o que significa que é possível tornar seus apps prontos para uso off-line simplesmente usando o PouchDB.
 Para obter mais informações,
 veja [nossa postagem do blog ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/pouchdb){:new_window} no PouchDB.
 
@@ -99,22 +99,21 @@ com sincronização off-line.
 
 -   [CRUD ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} usando jQuery.
 -   [CSVtoCloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/michellephung/CSVtoCloudant){:new_window} -
-    UI para importar arquivos `.csv` para o {{site.data.keyword.cloudant_short_notm}}.
+UI para importar arquivos `.csv` para o Cloudant.
     O app também pode ser acessado [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://michellephung.github.io/CSVtoCloudant/){:new_window}.
 -   [csv2couchdb ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/Mango-information-systems/csv2couchdb){:new_window} -
-    UI de sistemas Mango para importar arquivos do `.csv` para o CouchDB/{{site.data.keyword.cloudant_short_notm}}.
+UI do Mango Systems para importar arquivos `.csv` para o CouchDB/Cloudant.
 -   [songblog ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/millayr/songblog){:new_window} - app de exemplo usando JQuery.
--   [Guia de introdução do PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/getting-started.html){:new_window} -
-    aplicativo Todo de exemplo que sincroniza do navegador para o {{site.data.keyword.cloudant_short_notm}} ou CouchDB.
+-   [Guia de Introdução do PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/getting-started.html){:new_window} -
+aplicativo Todo de exemplo que sincroniza do navegador para o Cloudant ou CouchDB.
 -   [locationtracker ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/rajrsingh/locationtracker){:new_window} -
-    app de exemplo para registrar e mapear local usando o PouchDB,
-    CouchApp
-    e {{site.data.keyword.cloudant_short_notm}}.
+app de exemplo para registrar e mapear a localização usando PouchDB,
+CouchApp e Cloudant.
 
 ## Ruby
 
-[CouchRest ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/couchrest/couchrest){:new_window} é um cliente CouchDB e {{site.data.keyword.cloudant_short_notm}}
-com extensões para trabalhar com o Rails usando o [Modelo CouchRest ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/couchrest/couchrest_model){:new_window}.
+O [CouchRest ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/couchrest/couchrest){:new_window} é um cliente CouchDB e Cloudant
+com extensões para trabalhar com Rails usando o [Modelo CouchRest ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/couchrest/couchrest_model){:new_window}.
 
 Para instalar o CouchRest, execute o comando:
 
@@ -137,10 +136,10 @@ Há vários clientes CouchDB listados no
 ## Meteor
 
 [cloudant:couchdb ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://atmospherejs.com/cloudant/couchdb){:new_window} é a
-biblioteca do {{site.data.keyword.cloudant_short_notm}} para o pacote `couchdb-meteor`.
-Como o Apache CouchDB não é fornecido com o Meteor ou o pacote couchdb,
-deve-se fornecer uma URL para o Meteor para se conectar
-a uma instância do servidor CouchDB ou {{site.data.keyword.cloudant_short_notm}} em execução antes de instalar o Meteor.
+biblioteca do Cloudant para o pacote `couchdb-meteor`.
+Como o Apache CouchDB não é enviado com o Meteor ou o pacote couchdb,
+deve-se fornecer uma URL para o Meteor se conectar
+a uma instância de servidor do CouchDB ou do Cloudant em execução antes de instalar o Meteor.
 Inclua este pacote em seu aplicativo Meteor:
 
 ```sh
@@ -154,14 +153,15 @@ O pacote couchdb-meteor fornece:
 -   Terminais Distributed Data Protocol (DDP) RPC que atualizam dados de clientes conectados localmente.
 -   Serialização e desserialização de atualizações para o formato DDP.
 
->   **Nota**: a sintaxe de consulta JSON usada pelo {{site.data.keyword.cloudant_short_notm}} Query
-    e desenvolvida inicialmente pelo {{site.data.keyword.cloudant_short_notm}}
-    foi contribuída novamente para o Apache CouchDB para a versão 2.0.
-    Binários pré-construídos para o Apache CouchDB versão 2.0 ainda não
+>   **Nota**: a sintaxe de consulta JSON usada pela consulta do Cloudant
+e inicialmente desenvolvida pelo Cloudant,
+foi fornecida de volta para o Apache CouchDB para a versão 2.0.
+Binários pré-construídos para o Apache CouchDB versão 2.0 ainda não
    estão disponíveis.
-    É possível usar este módulo com o {{site.data.keyword.cloudant_short_notm}} DBaaS ou Cloudant Local até que os binários pré-construídos estejam disponíveis.
+    É possível usar este módulo com o Cloudant DBaaS ou Cloudant
+   Local até que os binários pré-construídos estejam disponíveis.
 
-Para configurar as informações de conexão do servidor Apache CouchDB ou {{site.data.keyword.cloudant_short_notm}},
+Para configurar as informações de conexão do servidor Apache CouchDB ou Cloudant,
 passe sua URL como a variável de ambiente `COUCHDB_URL` para o processo do servidor Meteor:
 
 ```sh
@@ -173,12 +173,12 @@ Veja a [Referência de API](../api/index.html) para obter mais informações sob
 
 ## Apache Spark
 
-As [extensões de Apache Bahir para o Apache Spark ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://bahir.apache.org/#home){:new_window}
-incluem um conector `spark-sql-cloudant` que é a biblioteca do {{site.data.keyword.cloudant_short_notm}} para o Apache Spark.
+[spark-cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant-labs/spark-cloudant){:new_window}
+é a biblioteca do Cloudant para Apache Spark.
 
-O conector spark-sql-cloudant já está carregado na
-oferta [IBM Bluemix Apache Spark-as-a-Service ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window}.
+A biblioteca spark-cloudant já está carregada na oferta
+[IBM Bluemix Apache Spark como um Serviço ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window}.
 Ela pode ser usada com qualquer cluster Spark independente.
 
-Veja as [informações sobre o projeto ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/apache/bahir/tree/master/sql-cloudant){:new_window}
-e a [documentação do Apache Bahir spark-sql-cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://bahir.apache.org/docs/spark/current/spark-sql-cloudant/){:new_window} para obter mais detalhes.
+Veja as [informações do projeto ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant-labs/spark-cloudant){:new_window}
+e os [Pacotes do Spark ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://spark-packages.org/package/cloudant-labs/spark-cloudant){:new_window} para obter mais detalhes.

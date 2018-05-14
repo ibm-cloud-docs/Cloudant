@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-08-25"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creazione di una semplice applicazione {{site.data.keyword.Bluemix_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: l'ambiente dell'applicazione 
+# Creazione di un'applicazione Bluemix di esempio per accedere a un database Cloudant: l'ambiente dell'applicazione 
 
 Questa sezione dell'esercitazione descrive come configurare l'ambiente dell'applicazione di cui devi disporre
 per creare un'applicazione {{site.data.keyword.Bluemix}}.
@@ -22,7 +22,7 @@ per creare un'applicazione {{site.data.keyword.Bluemix}}.
 
 <div id="creating"></div>
 
-## Creazione di un ambiente dell'applicazione Bluemix
+## Creazione di un ambiente dell'applicazione Bluemix 
 
 1.  Accedi al tuo account {{site.data.keyword.Bluemix_notm}}.
     Il dashboard {{site.data.keyword.Bluemix_notm}} può essere trovato all'indirizzo:
@@ -69,7 +69,7 @@ per creare un'applicazione {{site.data.keyword.Bluemix}}.
 8.  Il tuo dashboard ora include l'ambiente dell'applicazione appena creato:<br/>
     ![L'applicazione {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry di base che viene visualizzata nel dashboard](images/img0017.png)
 
-Ora disponi di un ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}} Python, pronto per l'utilizzo.
+Ora disponi di un ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}} Python, pronto per l'utilizzo. 
 
 Per utilizzare un'istanza del servizio {{site.data.keyword.cloudant_short_notm}},
 il passo successivo è di creare un 'collegamento' tra l'ambiente dell'applicazione e l'istanza del database.
@@ -125,10 +125,10 @@ per utilizzare le applicazioni {{site.data.keyword.Bluemix_notm}}.
 
 <div id="toolkits"></div>
 
-## Toolkit dei comandi Cloud Foundry e {{site.data.keyword.Bluemix_notm}}
+## Toolkit comando Cloud Foundry e Bluemix
 
 Questa sezione dell'esercitazione illustra i toolkit che devono essere installati per utilizzare
-i tuoi ambienti, applicazioni e servizi {{site.data.keyword.Bluemix_notm}}.
+i tuoi ambienti, applicazioni e servizi {{site.data.keyword.Bluemix_notm}}.  
 
 Il toolkit [Cloud Foundry ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window}
 è una raccolta di strumenti per utilizzare le applicazioni distribuite
@@ -199,7 +199,7 @@ Utilizza i seguenti passi per scaricare e installare il toolkit {{site.data.keyw
     [pagina di scaricamento ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://clis.ng.bluemix.net/ui/home.html){:new_window}:<br/>
     ![Pagina di scaricamento del toolkit Bluemix](images/img0028.png)
 
-3.  Scarica ed esegui il programma di installazione appropriato per il tuo sistema
+3.  Scarica ed esegui il programma di installazione appropriato per il tuo sistema 
 
     Il programma di installazione esegue una verifica per assicurarsi che disponi di una versione appropriata del toolkit Cloud Foundry installata.
     Se tutto è corretto,

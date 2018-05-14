@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-05-17"
 
 ---
 
@@ -12,9 +12,9 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# {{site.data.keyword.Bluemix_notm}} での {{site.data.keyword.cloudant_short_notm}} インスタンスの作成
+# Bluemix での Cloudant インスタンスの作成
 
-このチュートリアルでは、{{site.data.keyword.Bluemix}} ダッシュボードを使用して {{site.data.keyword.cloudantfull}}
+このチュートリアルでは、{{site.data.keyword.Bluemix_notm}} ダッシュボードを使用して {{site.data.keyword.cloudantfull}}
 サービス・インスタンスを作成する方法を示します。
 また、アプリケーションでデータベースを操作するための重要情報がある場所も示します。
 {:shortdesc}
@@ -69,10 +69,10 @@ lastupdated: "2017-11-07"
     ![{{site.data.keyword.cloudant_short_notm}} のサービス資格情報](images/img0009.png)
 
 >   **注**: これらの例のサービス資格情報は、
-    デモの {{site.data.keyword.cloudant_short_notm}} サービスが {{site.data.keyword.cloudant_short_notm}} で作成されたときに定義されたものです。
+    デモの Cloudant サービスが Bluemix で作成されたときに定義されたものです。
     これらの資格情報は、ダッシュボードでどう表示されるかを示すためにここで再現されています。
     しかし、
-    デモの {{site.data.keyword.cloudant_short_notm}} サービスは削除されたため、
+    デモの Cloudant サービスは削除されたため、
     これらの資格情報はもう有効ではありません。
     _必ず_、ご自分のサービス資格情報を提供して使用してください。
 
@@ -85,12 +85,12 @@ lastupdated: "2017-11-07"
 
 サービス資格情報は、以下の 5 つのフィールドから構成されます。
 
-フィールド      | 目的
+フィールド| 目的
 -----------|--------
 `host`     | アプリケーションがサービス・インスタンスを検索するために使用するホスト名。
 `username` | アプリケーションがサービス・インスタンスにアクセスするために必要なユーザー名。
 `password` | アプリケーションがサービス・インスタンスにアクセスするために必要なパスワード。
-`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。 通常、443 で HTTPS アクセスを強制します。
+`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。通常、443 で HTTPS アクセスを強制します。
 `url`      | その他の資格情報を単一の URL に集約したストリング。アプリケーションによる使用に適しています。
 
 サービス・インスタンスにアクセスできるアプリケーションを作成するには、これらの資格情報が必要です。
@@ -99,7 +99,7 @@ lastupdated: "2017-11-07"
 
 アカウントに関連付けられたサービスの資格情報は、いつでも参照することができます。
 
-1.  まず、{{site.data.keyword.cloudant_short_notm}} にログインします。
+1.  まず、Bluemix にログインします。
     {{site.data.keyword.Bluemix}} ダッシュボードは、
     [http://bluemix.net ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](http://bluemix.net){:new_window} にあります。
     ユーザー名とパスワードで認証すると、
@@ -107,7 +107,7 @@ lastupdated: "2017-11-07"
     ![{{site.data.keyword.Bluemix_notm}} ダッシュボード](images/img0001.png)
 
 2.  ダッシュボードで、すべてのサービスをリストしたセクションが表示されるまでスクロールダウンします。<br/>
-    ![{{site.data.keyword.Bluemix_notm}} のサービス・リスト](images/img0010.png)
+    ![{{site.data.keyword.Bluemix_notm}} サービスのリスト](images/img0010.png)
 
 3.  この例では、チュートリアルで前に作成された {{site.data.keyword.cloudant_short_notm}} サービス・インスタンス
     `Cloudant Service 2017` のサービス資格情報を探します。
@@ -123,9 +123,9 @@ lastupdated: "2017-11-07"
     ![{{site.data.keyword.cloudant_short_notm}} のサービス資格情報](images/img0009.png)
 
 >   **注**: これらの例のサービス資格情報は、
-    デモの {{site.data.keyword.cloudant_short_notm}} サービスが {{site.data.keyword.cloudant_short_notm}} で作成されたときに定義されたものです。
+    デモの Cloudant サービスが Bluemix で作成されたときに定義されたものです。
     これらの資格情報は、ダッシュボードでどう表示されるかを示すためにここで再現されています。
     しかし、
-    デモの {{site.data.keyword.cloudant_short_notm}} サービスは削除されたため、
+    デモの Cloudant サービスは削除されたため、
     これらの資格情報はもう有効ではありません。
     _必ず_、ご自分のサービス資格情報を提供して使用してください。

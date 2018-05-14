@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-05-17"
 
 ---
 
@@ -12,137 +12,84 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
+# 在 Bluemix 上建立 Cloudant 實例
 
-This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
-service instance using the {{site.data.keyword.Bluemix}} dashboard,
-and shows you where to find the essential information to enable your applications
-to work with the database.
+本指導教學顯示如何使用 {{site.data.keyword.Bluemix_notm}} 儀表板來建立 {{site.data.keyword.cloudantfull}} 服務實例，並顯示在哪裏可以找到讓應用程式使用資料庫的必要資訊。
 {:shortdesc}
 
-To access a {{site.data.keyword.cloudant_short_notm}} service instance,
-you require a set of [Service Credentials](#the-service-credentials).
-The credentials are generated as part of the process when you create a service instance.
+若要存取 {{site.data.keyword.cloudant_short_notm}} 服務實例，您需要一組[服務認證](#the-service-credentials)。當您建立服務實例時，會在處理程序期間產生認證。
 
-You can also find these credentials at any time,
-by accessing your {{site.data.keyword.cloudant_short_notm}} account.
+您也可以存取 {{site.data.keyword.cloudant_short_notm}} 帳戶，隨時找到這些認證。
 
-## Creating a service instance
+## 建立服務實例
 
-1.  Log in to your {{site.data.keyword.Bluemix_notm}} account.<br/>
-    The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
-    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
-    After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
+1.  登入 {{site.data.keyword.Bluemix_notm}} 帳戶。<br/>
+    您可以在 [http://bluemix.net ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://bluemix.net){:new_window} 找到 {{site.data.keyword.Bluemix_notm}} 儀表板。利用使用者名稱及密碼進行鑑別之後，會向您呈現 {{site.data.keyword.Bluemix_notm}} 儀表板：<br/>
+    ![{{site.data.keyword.Bluemix_notm}} 儀表板](images/img0001.png)
 
-2.  Click the `Catalog` link:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} catalog link](images/img0002.png)<br/>
-    A list of the services available on {{site.data.keyword.Bluemix_notm}} appears.
+2.  按一下`型錄`鏈結：<br/>
+    ![{{site.data.keyword.Bluemix_notm}} 型錄鏈結](images/img0002.png)<br/>
+    即會出現 {{site.data.keyword.Bluemix_notm}} 上可用的服務清單。
 
-3.  Click the `Data & Analytics` entry under the `Services` heading:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} Data & Analytics services](images/img0003.png)<br/>
-    A list of the Data & Analytics services
-    available on {{site.data.keyword.Bluemix_notm}} appears.
+3.  按一下`服務`標題下方的`資料及分析`項目：<br/>
+    ![{{site.data.keyword.Bluemix_notm}} 資料及分析服務](images/img0003.png)<br/>
+    即會出現 {{site.data.keyword.Bluemix_notm}} 上可用的「資料及分析」服務清單。
 
-4.  Click the {{site.data.keyword.cloudant_short_notm}} service:<br>
-    ![{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)
+4.  按一下 {{site.data.keyword.cloudant_short_notm}} 服務：<br>
+    ![{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} 服務選項](images/img0004.png)
 
-5.  In the service configuration window,
-    enter a service name.
-    In this example,
-    the service name is `Cloudant Service 2017`:<br/>
-    ![{{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0005.png)
+5.  在服務配置視窗中，輸入服務名稱。在此範例中，服務名稱是 `Cloudant Service 2017`：<br/>
+    ![{{site.data.keyword.cloudant_short_notm}} 服務名稱及認證](images/img0005.png)
 
-6.  By default,
-    the service is created by using the 'Lite' pricing plan,
-    which is free but offers limited capacity.
-    Other pricing plans,
-    with greater capacity,
-    [are available](../offerings/bluemix.html).<br/>
-    To create the service,
-    click the `Create` button:<br/>
-    ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0006.png)
+6.  依預設，服務的建立方式是使用「精簡」定價方案，此方案免費但提供的容量有限。[提供](../offerings/bluemix.html)其他定價方案（具有較大的容量）。<br/>
+    若要建立服務，請按一下`建立`按鈕：<br/>
+    ![建立 {{site.data.keyword.cloudant_short_notm}} 服務名稱及認證](images/img0006.png)
 
-7.  A service page appears,
-    confirming that your new {{site.data.keyword.cloudant_short_notm}} service is available.
-    To access the connection information that your application needs to connect to the service,
-    click the `Service Credentials` tab:<br/>
-    ![Accessing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0007.png)
+7.  即會出現服務頁面，以確認您的新 {{site.data.keyword.cloudant_short_notm}} 服務可用。若要存取您的應用程式連接至服務所需的連線資訊，請按一下`服務認證`標籤：<br/>
+    ![存取 {{site.data.keyword.cloudant_short_notm}} 服務認證](images/img0007.png)
 
-8.  The Service Credentials window appears.
-    To see the credentials that are required to access the service,
-    click the `View Credentials` dropdown:<br/>
-    ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0008.png)
+8.  即會出現「服務認證」視窗。若要查看存取服務所需的認證，請按一下`檢視認證`下拉清單：<br/>
+    ![檢視 {{site.data.keyword.cloudant_short_notm}} 服務認證](images/img0008.png)
 
-9.  The Service Credentials details appear:<br/>
-    ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
+9.  即會出現「服務認證」詳細資料：<br/>
+    ![{{site.data.keyword.cloudant_short_notm}} 服務認證](images/img0009.png)
 
->   **Note**: The service credentials in these examples
-    were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}.
-    The credentials are reproduced here to show how they would appear in the dashboard.
-    However,
-    the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed,
-    so these credentials are no longer valid;
-    you _must_ supply and use your own service credentials.
+>   **附註**：這些範例中的服務認證是在 Bluemix 上建立示範 Cloudant 服務時定義。這裡會重新產生認證，以顯示它們在儀表板中的顯示方式。不過，已移除示範 Cloudant 服務，因此這些認證不再有效；您_必須_ 提供及使用您自己的服務認證。
 
-## The service credentials
+## 服務認證
 
->   **Note**: Service credentials are valuable.
-    If anyone or any application has access to the credentials,
-    they can effectively do whatever they want with the service instance,
-    for example they might create spurious data,
-    or delete valuable information.
-    Protect these credentials carefully.
+>   **附註**：服務認證有其價值。
+    如果有任何人或任何應用程式可以存取認證，則可以有效地對服務實例執行想要的作業，例如，它們可能會建立偽造資料，或刪除有價值的資訊。請小心地保護這些認證。
 
-The service credentials consist of five fields:
+服務認證包含五個欄位：
 
-Field      | Purpose
+欄位       | 用途
 -----------|--------
-`host`     | The host name that is used by applications to locate the service instance.
-`username` | The user name that is required for applications to access the service instance.
-`password` | The password that is required for applications to access the service instance.
-`port`     | The HTTP port number for accessing the service instance on the host. Normally 443 to force HTTPS access.
-`url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
+`host`     | 應用程式用來尋找服務實例的主機名稱。
+`username` | 應用程式存取服務實例所需的使用者名稱。
+`password` | 應用程式存取服務實例所需的密碼。
+`port`     | 用來存取主機上服務實例的 HTTP 埠號。一般是 443，可強制執行 HTTPS 存取。
+`url`      | 將其他認證資訊聚集至單一 URL 的字串，適合供應用程式使用。
 
-To create an application that can access your service instance,
-you need these credentials.
+若要建立可存取服務實例的應用程式，您需要這些認證。
 
-## Locating your service credentials
+## 找到服務認證
 
-At any time,
-you can find the credentials for a service that is associated with your account.
+您隨時可以找到與您帳戶相關聯之服務的認證。
 
-1.  Begin by logging in to {{site.data.keyword.cloudant_short_notm}}.
-    The {{site.data.keyword.Bluemix}} dashboard can be found at:
-    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
-    After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
+1.  從登入 Bluemix 開始。您可以在 [http://bluemix.net ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://bluemix.net){:new_window} 找到 {{site.data.keyword.Bluemix}} 儀表板。利用使用者名稱及密碼進行鑑別之後，會向您呈現 {{site.data.keyword.Bluemix_notm}} 儀表板：<br/>
+    ![{{site.data.keyword.Bluemix_notm}} 儀表板](images/img0001.png)
 
-2.  Scroll down the Dashboard,
-    until you reach the section that lists all your services:<br/>
-    ![{{site.data.keyword.Bluemix_notm}}' service listing](images/img0010.png)
+2.  向下捲動「儀表板」，直到到達列出所有服務的區段為止：<br/>
+    ![{{site.data.keyword.Bluemix_notm}} 服務清單](images/img0010.png)
 
-3.  In this example,
-    we want to find the service credentials for the {{site.data.keyword.cloudant_short_notm}}
-    service instance that was created earlier in the tutorial,
-    called `Cloudant Service 2017`.
-    Click the corresponding row:<br/>
-    ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png)
+3.  在此範例中，我們要尋找先前在指導教學中建立的 {{site.data.keyword.cloudant_short_notm}} 服務實例（稱為 `Cloudant Service 2017`）的服務認證。按一下對應的列：<br/>
+    ![選取 {{site.data.keyword.cloudant_short_notm}} 服務](images/img0011.png)
 
-3.  The Service Credentials window appears.
-    To see the credentials that are required to access the service,
-    click the `View Credentials` dropdown:<br/>
-    ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0008.png)
+3.  即會出現「服務認證」視窗。若要查看存取服務所需的認證，請按一下`檢視認證`下拉清單：<br/>
+    ![檢視 {{site.data.keyword.cloudant_short_notm}} 服務認證](images/img0008.png)
 
-4.  The Service Credentials details appear:<br/>
-    ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
+4.  即會出現「服務認證」詳細資料：<br/>
+    ![{{site.data.keyword.cloudant_short_notm}} 服務認證](images/img0009.png)
 
->   **Note**: The service credentials in these examples
-    were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}.
-    The credentials are reproduced here to show how they would appear in the dashboard.
-    However,
-    the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed,
-    so these credentials are no longer valid;
-    you _must_ supply and use your own service credentials.
+>   **附註**：這些範例中的服務認證是在 Bluemix 上建立示範 Cloudant 服務時定義。這裡會重新產生認證，以顯示它們在儀表板中的顯示方式。不過，已移除示範 Cloudant 服務，因此這些認證不再有效；您_必須_ 提供及使用您自己的服務認證。

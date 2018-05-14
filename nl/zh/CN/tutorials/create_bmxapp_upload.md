@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-01-11"
 
 ---
 
@@ -14,14 +14,14 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# 创建简单 {{site.data.keyword.Bluemix_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：上传应用程序
+# 创建简单 Bluemix 应用程序以访问 Cloudant 数据库：上传应用程序
 
 本部分教程描述了如何上传 {{site.data.keyword.Bluemix}} 应用程序。
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## 连接到 {{site.data.keyword.Bluemix_notm}}
+## 连接到 Bluemix
 
 第一个任务是连接到 {{site.data.keyword.Bluemix_notm}}。
 
@@ -93,7 +93,7 @@ Space:          dev
 
 ## 上传应用程序
 
-现在，{{site.data.keyword.cloudant_short_notm}} Foundry 工具箱知道如何连接到 {{site.data.keyword.Bluemix_notm}} 环境。
+现在，Cloudant Foundry 工具箱知道如何连接到 {{site.data.keyword.Bluemix_notm}} 环境。
 
 下一步是上传应用程序本身。{{site.data.keyword.Bluemix_notm}} 应用程序的详细信息在[清单文件](create_bmxapp_appenv.html#manifest)中提供。
 
@@ -111,7 +111,7 @@ cf push "Cloudant Python"
 ```
 Using manifest file /..../BMXDemo/manifest.yml
 
-Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Updating app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -125,7 +125,7 @@ Uploading app files from: /..../BMXDemo
 Uploading 1.5K, 3 files
 Done uploading               
 OK
-Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Binding service Cloudant Service 2017 to app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -133,7 +133,7 @@ OK
 应用程序已成功上传，并已与 {{site.data.keyword.cloudant_short_notm}} 数据库实例建立了连接。
 
 ```
-Starting app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Starting app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 -----> Downloaded app package (4.0K)
 -----> Downloaded app buildpack cache (29M)
 -------> Buildpack version 1.5.5
@@ -159,7 +159,7 @@ App started
 
 OK
 
-App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
+App Cloudant Python was started using this command `python server.py`
 ```
 {:codeblock}
 
@@ -168,7 +168,7 @@ App {{site.data.keyword.cloudant_short_notm}} Python was started using this comm
 上传并启动应用程序后，会运行一些简单的系统检查，以确认对于 {{site.data.keyword.Bluemix_notm}} 而言，应用程序是否运行正常。
 
 ```
-Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Showing health and status for app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 
 requested state: started

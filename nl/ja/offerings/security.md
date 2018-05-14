@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-07-13"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2017-11-06"
 
 # セキュリティー
 
-## {{site.data.keyword.cloudant_short_notm}} DBaaS データの保護とセキュリティー
+## Cloudant DBaaS データの保護とセキュリティー
 
 大規模な Web アプリやモバイル・アプリのアプリケーション・データの保護は、特に分散データベースおよび NoSQL データベースの場合、複雑である可能性があります。
 
@@ -25,9 +25,10 @@ lastupdated: "2017-11-06"
 
 ## 最上位層の物理プラットフォーム
 
-{{site.data.keyword.cloudant_short_notm}} DBaaS は、{{site.data.keyword.Bluemix}} や Amazon などの
+{{site.data.keyword.cloudant_short_notm}} DBaaS は、{{site.data.keyword.BluSoftlayer_full}} や Amazon などの
 Tier-1 クラウド・インフラストラクチャー・プロバイダーで物理的にホスティングされます。
 そのため、そうしたプロバイダーによって使用される、以下を含むネットワーク・セキュリティーおよび物理的セキュリティーの手段 (これに限られません) でデータが保護されます。
+
 
 - 証明書: SSAE16、SOC2 Type 1、ISAE 3402、ISO 27001、CSA、その他の規格の準拠。
 - アクセスおよび ID 管理。
@@ -53,15 +54,13 @@ Tier-1 クラウド・インフラストラクチャー・プロバイダーで�
   アクセスはすべて、HTTPS を使用して暗号化されます。
 - 保存状態での暗号化: {{site.data.keyword.cloudant_short_notm}} 内の
   ディスクに保管されるデータは、暗号化することができます。
-  > **注**: {{site.data.keyword.cloudant_short_notm}} インスタンスに保管されるデータは、常に暗号化されます。
+  > **注**: {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} インスタンスに保管されるデータは、常に暗号化されます。
 - API アクセス: セキュア HTTP (HTTPS) 上で API を使用することによって、
   {{site.data.keyword.cloudant_short_notm}} はプログラムでアクセスされます。
   API キーは、{{site.data.keyword.cloudant_short_notm}} ダッシュボードを使用して
  生成できます。
-- IP ホワイトリスト登録: {{site.data.keyword.cloudant_short_notm}} Enterprise または
-  {{site.data.keyword.Bluemix_notm}} Dedicated 用の専用環境の {{site.data.keyword.cloudant_short_notm}} のお客様は、
-  IP アドレスのホワイトリスト登録により、指定されたサーバーとユーザーにのみアクセスを制限することができます。IP ホワイトリスト登録は、
-  {{site.data.keyword.Bluemix_notm}} Public の {{site.data.keyword.cloudant_short_notm}} プランでは使用できないことに注意してください。 
+- IP ホワイトリスト登録: 専用環境の {{site.data.keyword.cloudant_short_notm}} のお客様は、
+  IP アドレスのホワイトリスト登録により、指定されたサーバーとユーザーにのみ、アクセスを制限することができます。
 - CORS: {{site.data.keyword.cloudant_short_notm}} ダッシュボードを使用して、
   特定ドメインの CORS サポートを有効にします。
 
@@ -73,7 +72,7 @@ Tier-1 クラウド・インフラストラクチャー・プロバイダーで�
   {{site.data.keyword.cloudant_short_notm}} は、全文書をクラスター内の 3 つの異なるノードにコピーしてディスクに保存します。
   これらのコピーを保存することで、障害が発生しても、データの有効なフェイルオーバー・コピーが常に使用可能になります。
 - データ複製とエクスポート: 異なるデータ・センターのクラスター間で、あるいは
-  オンプレミスの {{site.data.keyword.cloudant_short_notm}} Local クラスター、
+  オンプレミスの Cloudant Local クラスター、
   または Apache CouchDB に、
   データベースを継続的に複製することができます。
   もう 1 つのオプションとして、データの冗長性を向上させるために、

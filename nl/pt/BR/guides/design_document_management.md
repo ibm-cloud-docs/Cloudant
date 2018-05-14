@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2017-11-06"
 *Artigo fornecido por Glynn Bird, advogado geral no IBM Cloudant,
 [glynn@cloudant.com ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:glynn@cloudant.com){:new_window}*
 
-O armazenamento de dados escaláveis JSON do {{site.data.keyword.cloudantfull}} tem vários mecanismos de consulta,
+O armazenamento de dados JSON escalável do Cloudant possui vários mecanismos de consulta,
 todos os quais geram índices que são criados e mantidos separadamente para os dados principais.
 A indexação não é executada imediatamente quando um documento é salvo.
 Em vez disso,
@@ -29,8 +29,8 @@ com pares chave-valor armazenados em uma BTree para recuperação eficiente por 
 -   Os índices de procura são construídos usando o Apache Lucene para permitir a procura de texto livre,
 consultas ad hoc complexas e com facetas
 
-Os [índices de procura](../api/search.html) e [visualizações MapReduce](../api/creating_views.html) do {{site.data.keyword.cloudant_short_notm}}
-são configurados incluindo Documentos de design em um banco de dados.
+Os [índices de procura](../api/search.html) e as [visualizações MapReduce](../api/creating_views.html) do Cloudant
+são configurados pela inclusão de Documentos de design em um banco de dados.
 Os Documentos de design são documentos JSON que contêm as instruções sobre como a visualização ou o índice devem ser construídos.
 Vamos observar um exemplo simples.
 Suponha que tenhamos uma coleção simples de documentos de dados,
@@ -100,7 +100,7 @@ O resultado é que nosso código de mapa foi transformado em uma sequência comp
 e incluído em um Documento de design.
 
 Depois que o Documento de design é salvo,
-o {{site.data.keyword.cloudant_short_notm}} aciona os processos do lado do servidor para construir a visualização `fetch/by_ts`.
+o Cloudant aciona os processos do lado do servidor para construir a visualização `fetch/by_ts`.
 Ele faz isso ao iterar sobre cada documento no banco de dados
 e ao enviar cada um para a função de mapa Javascript.
 A função retorna o emitido par chave-valor emitido.
@@ -117,16 +117,16 @@ conforme mostrado no diagrama a seguir:
 Vale a pena lembrar neste momento que:
 
 -   A construção de um índice acontece de forma assíncrona.
-    O {{site.data.keyword.cloudant_short_notm}} confirma que o nosso Documento de design foi salvo,
-    mas para verificar o progresso na construção de nosso índice,
-    temos que pesquisar o terminal [`_active_tasks`](../api/active_tasks.html) do {{site.data.keyword.cloudant_short_notm}}.
+O Cloudant confirma que o nosso Documento de design foi salvo,
+mas para verificar o progresso na construção de nosso índice,
+temos que pesquisar o terminal [`_active_tasks`](../api/active_tasks.html) do Cloudant.
 -   Quanto mais dados tivermos,
 mais tempo levará para o índice ficar pronto.
 -   Enquanto a construção do índice inicial estiver em andamento,
 _as consultas feitas nesse índice serão bloqueadas_.
 -   Consultar uma visualização acionará o 'mapeamento' de quaisquer documentos que ainda não tenham sido indexados incrementalmente.
-    Isso assegura que tenhamos uma visualização atualizada dos dados.
-    Veja a discussão do [parâmetro '`stale`'](#stale) a seguir
+Isso assegura que tenhamos uma visualização atualizada dos dados.
+Veja a discussão do [parâmetro '`stale`'](#stale) a seguir
 para obter exceções a essa regra.
 
 ## Múltiplas visualizações no mesmo documento de design
@@ -143,7 +143,7 @@ Se as visualizações MapReduce tiverem que ser alteradas de forma independente 
 coloque suas definições em documentos de design separados. 
 
 >   **Nota**: esse comportamento não se aplica a índices de procura do Lucene.
-    Eles podem ser alterados no mesmo documento de design
+Eles podem ser alterados no mesmo documento de design
 sem invalidar outros índices inalterados no mesmo documento.
 
 ![Ilustração da mudança de versão do Documento de design](../images/DesDocMan02.png)
@@ -181,8 +181,8 @@ _Exemplo de documento de design que usa uma função de redução:_
 {:codeblock}
 
 Quando esse documento de design é salvo,
-o {{site.data.keyword.cloudant_short_notm}} invalida completamente o índice antigo e começa a construir o novo índice do zero,
-iterando sobre cada documento sucessivamente.
+o Cloudant invalida completamente o índice antigo e começa a construir o novo índice do zero,
+iterando sobre cada documento por vez.
 Como com a construção original,
 o tempo gasto depende de quantos documentos estão no banco de dados
 e dos blocos de consultas recebidas nessa visualização até sua conclusão.
@@ -227,7 +227,7 @@ contanto que você se lembre de remover as versões mais antigas em uma data pos
 
 Outra abordagem,
 documentada [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window},
-conta com o fato de que o {{site.data.keyword.cloudant_short_notm}} reconhece quando ele tem dois documentos de design idênticos
+conta com o fato de que o Cloudant reconhece quando ele tem dois documentos de design idênticos
 e não perderá tempo e recursos reconstruindo visualizações que já tem.
 Ou seja,
 se pegarmos nosso documento de design `_design/fetch` e criarmos uma duplicata exata `_design/fetch_OLD`,
@@ -261,9 +261,9 @@ npm install -g couchmigrate
 {:codeblock}
 
 Para usar o script `couchmigrate`,
-primeiro defina a URL da instância do CouchDB/{{site.data.keyword.cloudant_short_notm}} configurando uma variável de ambiente chamada `COUCH_URL`.
+primeiro defina a URL da instância CouchDB/Cloudant configurando uma variável de ambiente chamada `COUCH_URL`.
 
-_Definindo a URL da instância do {{site.data.keyword.cloudant_short_notm}}:_
+_Definindo a URL de uma instância do Cloudant:_
 
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
@@ -273,7 +273,7 @@ export COUCH_URL=http://127.0.0.1:5984
 A URL pode ser HTTP ou HTTPS
 e pode incluir credenciais de autenticação.
 
-_Definindo a URL da instância do {{site.data.keyword.cloudant_short_notm}} com credenciais de autenticação:_
+_Definindo a URL da instância do Cloudant com credenciais de autenticação:_
 
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
@@ -319,36 +319,36 @@ Ao consultar a visualização, temos três opções:
 -   O comportamento padrão é assegurar que o índice seja atualizado
 com os documentos mais recentes no banco de dados,
 antes de retornar a resposta.
-    Quando consultamos a visualização,
-    o {{site.data.keyword.cloudant_short_notm}} primeiro indexa os 250 documentos novos
-    e, em seguida, retorna a resposta.
+Quando consultamos a visualização,
+o Cloudant primeiro indexa os 250 novos documentos
+e, em seguida, retorna a resposta.
 -   Uma alternativa é incluir o parâmetro "`stale=ok`" na chamada API.
-    O parâmetro significa "retornar-me os dados já indexados,
+O parâmetro significa "retornar-me os dados já indexados,
 não me importo com as atualizações mais recentes".
-    Em outras palavras,
-    quando você consulta a visualização com "`stale=ok`",
-    o {{site.data.keyword.cloudant_short_notm}} retorna a resposta imediatamente,
-    sem qualquer reindexação adicional.
+Ou seja,
+quando você consulta a visualização com "`stale=ok`",
+o Cloudant retorna a resposta imediatamente,
+sem qualquer indexação adicional.
 -   Uma segunda alternativa é incluir o parâmetro "`stale=update_after`" na chamada API.
-    O parâmetro significa "retornar-me os dados já indexados
+O parâmetro significa "retornar-me os dados já indexados
 _e_, em seguida, reindexar quaisquer novos documentos".
-    Ou seja,
+Ou seja,
 quando você consulta a visualização com "`stale=update_after`",
-o {{site.data.keyword.cloudant_short_notm}} retorna a resposta imediatamente
+o Cloudant retorna a resposta imediatamente
 e, em seguida, planeja uma tarefa em segundo plano para indexar os novos dados.
 
 A inclusão de "`stale=ok`" ou "`stale=update_after`" pode ser uma boa maneira de obter respostas mais rapidamente de uma visualização,
 mas às custas de criação recente. 
 
->   **Nota**: o comportamento padrão distribui carga uniformemente entre os nós no cluster do {{site.data.keyword.cloudant_short_notm}}.
-    Se você usar as opções alternativas `stale=ok` ou `stale=update_after`,
+>   **Nota**: o comportamento padrão distribui carga uniformemente entre nós no cluster do Cloudant.
+Se você usar as opções alternativas `stale=ok` ou `stale=update_after`,
 isso poderá favorecer um subconjunto de nós do cluster
 para retornar resultados consistentes de todo o conjunto eventualmente consistente.
-    Isso significa que o parâmetro '`stale`' não é uma solução perfeita para todos os casos de uso.
-    No entanto,
+Isso significa que o parâmetro '`stale`' não é uma solução perfeita para todos os casos de uso.
+No entanto,
 ele poderá ser útil para fornecer respostas adequadas em conjuntos de dados de rápida mudança
 se o seu aplicativo estiver satisfeito em aceitar os resultados antigos.
-    Se a taxa de mudança de seus dados for pequena,
+Se a taxa de mudança de seus dados for pequena,
 incluir "`stale=ok`" ou "`stale=update_after`" não trará um benefício de desempenho
 e poderá distribuir a carga irregularmente em clusters maiores.
 
@@ -361,6 +361,6 @@ o app poderá alternar para `stale=ok` provisoriamente durante esses horários
 e, então, reverter para o comportamento padrão, posteriormente.
 
 >   **Nota**: a opção `stale` ainda está disponível,
-    mas as opções mais úteis `estable` e `update` estão disponíveis e devem ser usadas no lugar.
-    Para obter mais detalhes,
+mas as opções mais úteis `estable` e `update` estão disponíveis e devem ser usadas no lugar.
+Para obter mais detalhes,
 veja [Acessando uma visualização antiga](../api/using_views.html#accessing-a-stale-view).

@@ -18,8 +18,8 @@ _(Este guia se baseia em um artigo do Blog de Samantha Scharr: [
 "Curl autorizado, também conhecido como acurl" ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window},
 publicado originalmente em 27 de novembro de 2013.)_
 
-`acurl` é um alias prático que permite usar `curl` de comandos do {{site.data.keyword.cloudantfull}} para URLs
-sem ter que inserir seu nome do usuário e senha para cada solicitação.
+`acurl` é um alias prático que permite executar `curl` de comandos do Cloudant para URLs
+sem ter que inserir seu nome de usuário e senha para cada solicitação.
 Isso significa que um simples `GET` para um banco de dados não precisa mais ser gravado como
 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`;
 em vez disso, basta usar `https://$ACCOUNT.cloudant.com/foo`.
@@ -38,7 +38,7 @@ São necessárias apenas três etapas simples:
 
 ## Codificar o nome do usuário e a senha
 
-Primeiro, codificamos em base64 seu nome do usuário e senha do {{site.data.keyword.cloudant_short_notm}}.
+Primeiramente, codificaremos seu nome de usuário e senha do Cloudant com base64.
 Isso nos dá uma sequência de caracteres base64 como saída.
 
 O comando para codificar alguns dados com base64 é semelhante ao exemplo a seguir:
@@ -85,7 +85,7 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 Esse alias inclui um cabeçalho de Autorização em vez de incluir as
 credenciais de autorização na URL inserida na linha de comandos.
 Ele também força o uso de HTTPS, que é altamente recomendável sobre HTTP simples,
-uma vez que criptografa seus dados e credenciais em trânsito e o ajuda a ter certeza de que está se conectando a sistemas {{site.data.keyword.cloudant_short_notm}}.
+uma vez que criptografa seus dados e credenciais em trânsito e o ajuda a ter certeza de que está se conectando a sistemas Cloudant.
 
 ## Ativar o alias
 

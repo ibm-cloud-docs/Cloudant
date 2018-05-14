@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-05-15"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-05-15 -->
 
-# Como os dados são armazenados no {{site.data.keyword.cloudant_short_notm}}?
+# Como os dados são armazenados no Cloudant?
 
 ## Conceitos
 
-Cada banco de dados no {{site.data.keyword.cloudantfull}} é formado de um ou mais _shards_ distintos,
+Cada banco de dados no Cloudant é formado de um ou mais _shards_ distintos,
 em que o número de shards é referido como _Q_.
 Um shard é um subconjunto distinto de documentos do banco de dados.
 Todos os shards _Q_ juntos contêm os dados dentro do banco de dados.
@@ -52,7 +52,7 @@ O número de réplicas (cópias de um shard) também é configurável.
 Na prática,
 a observação e a medição de muitos sistemas sugere que três réplicas é um número pragmático na maioria dos casos
 para atingir um bom balanceamento entre o desempenho e a segurança de dados.
-Seria excepcional e incomum para um sistema {{site.data.keyword.cloudant_short_notm}} usar uma contagem de réplicas diferente.
+Seria excepcional e improvável que um sistema Cloudant usasse uma contagem diferente de réplicas.
 
 ## Como a fragmentação afeta o desempenho?
 
@@ -68,18 +68,18 @@ e retorna essa resposta ao cliente.
 O número de shards para um banco de dados pode afetar o desempenho de duas maneiras:
 
 1.	Cada documento no banco de dados é armazenado em um único shard.
-	Portanto,
+Portanto,
 ter muitos shards permite maior paralelismo para qualquer solicitação de documento único.
-	O motivo é que o coordenador envia solicitações apenas para os nós que contêm o documento.
-	Portanto,
+O motivo é que o coordenador envia solicitações apenas para os nós que contêm o documento.
+Portanto,
 se o banco de dados tiver muitos shards,
 é provável que haja muitos outros nós que não precisam responder à solicitação.
-	Esses nós podem continuar a funcionar em outras tarefas sem interrupção da solicitação do coordenador.
+Esses nós podem continuar a funcionar em outras tarefas sem interrupção da solicitação do coordenador.
 2.	Para responder a uma solicitação de consulta,
 um banco de dados deve processar os resultados de todos os shards.
-	Portanto,
+Portanto,
 ter mais shards introduz uma maior demanda de processamento.
-	O motivo é que o coordenador deve fazer uma solicitação por shard e,
+O motivo é que o coordenador deve fazer uma solicitação por shard e,
 em seguida, combinar os resultados antes que ele retorne a resposta para o cliente.
 
 Para ajudar a determinar uma contagem adequada de shards para seu banco de dados,
@@ -126,7 +126,7 @@ shards menores são mais fáceis de mover pela rede durante o rebalanceamento.
 
 Dados os requisitos conflitantes para evitar ter muitos documentos e manter o tamanho do shard baixo,
 um único valor _Q_ não pode funcionar de forma ideal para todos os casos.
-O {{site.data.keyword.cloudant_short_notm}} ajusta os padrões para clusters ao longo do tempo conforme os padrões de uso mudam.
+O Cloudant ajusta os padrões para clusters ao longo do tempo conforme os padrões de uso mudam.
 
 Contudo,
 para um banco de dados específico,
@@ -151,7 +151,8 @@ então há pouca necessidade de mais de um único shard.
 considere configurar seu banco de dados para usar 16 shards.
 *	Para bancos de dados ainda maiores,
 considere fragmentar manualmente seus dados em vários bancos de dados.
-	Para esses bancos de dados grandes, entre em contato com o [suporte do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window} para avisos.
+Para esses bancos de dados grandes,
+entre em contato com o [suporte do Cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window} para avisos.
 
 >	**Nota:** os números nestas diretrizes são derivados de observação e experiência,
 em vez de cálculo preciso.
@@ -179,8 +180,8 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**Nota:** a configuração de _Q_ para bancos de dados não está ativada para bancos de dados {{site.data.keyword.cloudant_short_notm}} no Bluemix.
-	O valor _Q_ não está disponível na maioria dos clusters `cloudant.com` de diversos locatários.
+>	**Nota:** a configuração de _Q_ para bancos de dados não está ativada para bancos de dados Cloudant no Bluemix.
+O valor _Q_ não está disponível na maioria dos clusters `cloudant.com` de diversos locatários.
 
 Se você tentar configurar o valor _Q_ quando ele não estiver disponível,
 o resultado será uma [resposta `403`](../api/http.html#403) com um corpo JSON
@@ -203,7 +204,7 @@ No entanto,
 não tem permissão para mudar o valor da contagem de réplicas do padrão de 3.
 Especificamente,
 não é possível especificar um valor de contagem de réplicas diferente ao criar um banco de dados.
-Para obter ajuda adicional, entre em contato com o [suporte do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.
+Para obter ajuda adicional, entre em contato com o [suporte do Cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.
 
 ### Quais são os argumentos _R_ e _W_?
 
@@ -228,8 +229,10 @@ porque o coordenador pode retornar uma resposta mais rapidamente.
 O motivo é que o coordenador deve aguardar apenas uma única resposta
 de qualquer uma das réplicas que hospedam o shard apropriado.
 
->	**Nota:** reduzindo o valor _R_ aumenta a probabilidade de que a resposta retornada não se baseie nos dados mais atualizados por causa do modelo de [consistência eventual](cap_theorem.html) usado pelo {{site.data.keyword.cloudant_short_notm}}.
-	Usar o valor _R_ padrão ajuda a minimizar esse efeito.
+>	**Nota:** reduzir o valor _R_ aumenta a probabilidade de que a resposta
+retornada não se baseie nos dados mais atualizados
+por causa do modelo de [consistência eventual](cap_theorem.html) usado pelo Cloudant.
+Usar o valor _R_ padrão ajuda a minimizar esse efeito.
 
 O valor padrão para _R_ é _2_.
 Esse valor corresponde à maioria das réplicas para um banco de dados típico que usa três réplicas de shard.

@@ -18,7 +18,7 @@ _(Questa guida si basa su un articolo del blog di Samantha Scharr: [
 "Curl autorizzato, anche noto come acurl" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window},
 originariamente pubblicato il 27 novembre 2013.)_
 
-`acurl` è un pratico alias che ti consente di eseguire il `curl` dei comandi {{site.data.keyword.cloudantfull}} negli URL
+`acurl` è un pratico alias che ti consente di eseguire il `curl` dei comandi Cloudant negli URL
 senza dover immettere il tuo nome utente e la password per ogni richiesta.
 Ciò significa che un semplice `GET` in un database non deve più essere scritto come
 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`
@@ -38,7 +38,7 @@ Servono solo tre semplici passi:
 
 ## Codifica nome utente e password
 
-In primo luogo, codifichiamo in base64 il tuo nome utente e password {{site.data.keyword.cloudant_short_notm}}.
+In primo luogo, codifichiamo in base64 il tuo nome utente e password Cloudant.
 Questo ci dà una sequenza di caratteri in base64 come output.
 
 Il comando per codificare in base64 alcuni dati è simile al seguente esempio:
@@ -85,7 +85,7 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 Questo alias aggiunge un'intestazione di autorizzazione invece di includere le
 credenziali di autorizzazione nell'URL che immetti nella riga di comando.
 Inoltre, forza l'utilizzo di HTTPS che noi consigliamo vivamente rispetto all'HTTP semplice
-in quanto effettua la crittografia dei tuoi dati e delle tue credenziali in transito e ti garantisce di connetterti ai sistemi {{site.data.keyword.cloudant_short_notm}}.
+in quanto effettua la crittografia dei tuoi dati e delle tue credenziali in transito e ti garantisce di connetterti ai sistemi Cloudant.
 
 ## Attiva l'alias
 

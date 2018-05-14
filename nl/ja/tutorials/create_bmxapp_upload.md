@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-01-11"
 
 ---
 
@@ -14,14 +14,14 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.Bluemix_notm}} アプリケーションの作成: アプリケーションのアップロード
+# Cloudant データベースにアクセスする単純な Bluemix アプリケーションの作成: アプリケーションのアップロード
 
 チュートリアルのこのセクションでは、{{site.data.keyword.Bluemix}} アプリケーションのアップロード方法について説明します。
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## {{site.data.keyword.Bluemix_notm}} への接続
+## Bluemix への接続
 
 最初のタスクは、{{site.data.keyword.Bluemix_notm}} への接続です。
 
@@ -80,17 +80,17 @@ bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 Invoking 'cf login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev'...
 
-API endpoint: https://api.ng.bluemix.net
-
-Password>
+  API endpoint: https://api.ng.bluemix.net
+  
+  Password>
     Authenticating...
     OK
 
-Targeted org Adrian.Warman@uk.ibm.com
+    Targeted org Adrian.Warman@uk.ibm.com
 
 Targeted space dev
                 
-API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
+API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)   
 User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
 Space:          dev
@@ -99,7 +99,7 @@ Space:          dev
 
 ## アプリケーションのアップロード
 
-これで、{{site.data.keyword.cloudant_short_notm}} Foundry ツールキットが、{{site.data.keyword.Bluemix_notm}} 環境への接続方法を認識しました。
+これで、Cloudant Foundry ツールキットが、{{site.data.keyword.Bluemix_notm}} 環境への接続方法を認識しました。
 
 次のステップでは、アプリケーションのアップロードそのものを行います。
 {{site.data.keyword.Bluemix_notm}} アプリケーションの詳細は、
@@ -111,6 +111,7 @@ Space:          dev
 次の例のようなコマンドを使用して、
 {{site.data.keyword.Bluemix_notm}} アプリケーションをアップロードするためにログインします。
 
+
 ```sh
 cf push "Cloudant Python"
 ```
@@ -121,7 +122,7 @@ cf push "Cloudant Python"
 ```
 Using manifest file /..../BMXDemo/manifest.yml
 
-Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Updating app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -134,9 +135,9 @@ Using route Cloudant-Python.mybluemix.net
 Uploading Cloudant Python...
 Uploading app files from: /..../BMXDemo
 Uploading 1.5K, 3 files
-Done uploading               
+Done uploading
 OK
-Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Binding service Cloudant Service 2017 to app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -145,7 +146,7 @@ OK
 {{site.data.keyword.cloudant_short_notm}} データベース・インスタンスと接続されました。
 
 ```
-Starting app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Starting app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 -----> Downloaded app package (4.0K)
 -----> Downloaded app buildpack cache (29M)
 -------> Buildpack version 1.5.5
@@ -171,7 +172,7 @@ App started
 
 OK
 
-App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
+App Cloudant Python was started using this command `python server.py`
 ```
 {:codeblock}
 
@@ -186,7 +187,7 @@ App {{site.data.keyword.cloudant_short_notm}} Python was started using this comm
 {{site.data.keyword.Bluemix_notm}} に関してアプリケーションが正しく実行されていることを確認するために、単純なシステム・チェックがいくつか実行されます。
 
 ```
-Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Showing health and status for app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 
 requested state: started
@@ -224,7 +225,8 @@ buildpack: python 1.5.5
 ### データベース詳細の確認
 
 まず、{{site.data.keyword.cloudant_short_notm}} ダッシュボードを開きます。
-{{site.data.keyword.cloudant_short_notm}} サービス・ページの`「管理」`タブで`「起動 (Launch)」`アイコンをクリックします。<br/>
+{{site.data.keyword.cloudant_short_notm}} サービス・ページの`「管理」`タブで`「起動 (Launch)」`アイコンをクリックします。
+<br/>
 ![{{site.data.keyword.cloudant_short_notm}} サービス・ページの「起動 (Launch)」アイコン](images/img0036.png)
 
 > **注**: {{site.data.keyword.cloudant_short_notm}} サービス・ページを探すには、

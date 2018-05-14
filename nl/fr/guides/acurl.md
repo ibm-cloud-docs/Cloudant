@@ -15,9 +15,9 @@ lastupdated: "2017-01-06"
 # Commande curl autorisée : `acurl`
 
 _(Ce guide est basé sur un article de blog rédigé par Samantha Scharr : [
-"Authorized curl, a.k.a. acurl" ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window}, initialement publié le 27 novembre 2013.)_
+"Authorized curl, a.k.a. acurl" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window}, initialement publié le 27 novembre 2013.)_
 
-`acurl` est un alias pratique qui vous permet d'exécuter des commandes `curl` {{site.data.keyword.cloudantfull}} vers des adresses URL sans avoir à saisir votre nom d'utilisateur et votre mot de passe à chaque requête.
+`acurl` est un alias pratique qui vous permet d'exécuter des commandes Cloudant `curl` vers des adresses URL sans avoir à saisir votre nom d'utilisateur et votre mot de passe à chaque requête.
 Cela signifie qu'une simple commande `GET` vers une base de données n'a plus besoin d'être saisie au format `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`, mais seulement au format `https://$ACCOUNT.cloudant.com/foo`.
 
 Cela permet non seulement de raccourcir les interminables adresses URL, mais aussi de sécuriser davantage l'alias `acurl`.
@@ -31,7 +31,7 @@ Il vous suffit pour cela d'exécuter les trois étapes suivantes :
 
 ## Codage de votre nom d'utilisateur et mot de passe
 
-Nous codons tout d'abord votre nom d'utilisateur et mot de passe {{site.data.keyword.cloudant_short_notm}} en base64.
+Nous codons tout d'abord votre nom d'utilisateur et mot de passe Cloudant en base64.
 Nous obtenons ainsi une séquence de caractères en base64.
 
 Pour ce faire, la commande utilisée est similaire à l'exemple suivant :
@@ -72,11 +72,11 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 {:codeblock}
 
 Cet alias ajoute un en-tête d'autorisation au lieu d'inclure les données d'identification de l'autorisation dans l'adresse URL que vous entrez sur la ligne de commande.
-Il force également l'utilisation du protocole HTTPS dont nous recommandons vivement l'utilisation par rapport au simple protocole HTTP, qui va chiffrer vos données et vos informations d'identification en transit et va vous aider à vérifier que vous êtes connecté aux systèmes {{site.data.keyword.cloudant_short_notm}}.
+Il force également l'utilisation du protocole HTTPS dont nous recommandons vivement l'utilisation par rapport au simple protocole HTTP, qui va chiffrer vos données et vos informations d'identification en transit et va vous aider à vérifier que vous êtes connecté aux systèmes Cloudant.
 
 ## Activation de l'alias
 
-Démarrez un nouveau shell ou exécutez `source ~/.bash_profile` (ou `~/.bashrc` si vous l'utilisez) pour rendre l'alias opérationnel.
+Démarrez un nouveau shell ou exécutez `source ~/.bash_profile` (ou `~/.bashrc` si vous l'utilisez) pour rendre l'alias opérationnel. 
 
 ## Test de `acurl`
 
@@ -92,3 +92,4 @@ Si la liste de vos bases de données s'affiche, c'est parfait.
 `acurl` est configuré et prêt à fonctionner.
 
 A vous de jouer maintenant !
+

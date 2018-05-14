@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-07-07"
 
 ---
 
@@ -14,9 +14,9 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-05-04 -->
 
-# Novità in {{site.data.keyword.cloudant_short_notm}}
+# Novità in Cloudant
 
-Rimani aggiornato con le modifiche e gli aggiornamenti di {{site.data.keyword.cloudantfull}}.
+Rimani aggiornato con le modifiche e gli aggiornamenti di Cloudant.
 {:shortdesc}
 
 ## Hardware dedicato
@@ -32,7 +32,7 @@ Rimani aggiornato con le modifiche e gli aggiornamenti di {{site.data.keyword.cl
   la registrazione degli aggiornamenti dello stato in un documento di replica non è più supportata.
   Per ulteriori informazioni su questa importante modifica,
   consulta i dettagli sul [programma di pianificazione della replica](../api/advanced_replication.html#the_replication_scheduler).
-  Per domande o dubbi, contatta il supporto {{site.data.keyword.cloudant_short_notm}} aprendo un ticket utilizzando il tuo dashboard {{site.data.keyword.cloudant_short_notm}}.
+  Contatta il supporto Cloudant aprendo un ticket utilizzando il tuo dashboard Cloudant se hai domande o preoccupazioni.
 
 ## Build 6069
 
@@ -53,7 +53,7 @@ Rimani aggiornato con le modifiche e gli aggiornamenti di {{site.data.keyword.cl
 
 ## Build 5728
 
-- {{site.data.keyword.cloudant_short_notm}} è più tollerante con i documenti utente non formati correttamente memorizzati nel database `_users`.
+- Cloudant è più tollerante con i documenti utente non correttamente formati archiviati nel database `_users`.
   I documenti utente dovrebbero essere strutturati e popolati per rispettare i
   [Apache Software Foundation CouchDB requirements
 ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
@@ -72,7 +72,7 @@ Rimani aggiornato con le modifiche e gli aggiornamenti di {{site.data.keyword.cl
 -	Supporto per le funzioni del database CouchDB 1.6 `_users`, incluso l'hashing delle password lato server quando i documenti sono creati nel database `_users`.
 -	Endpoint `/_bulk_get` per ridurre il numero di richieste utilizzate nella replica dei client mobili.
 -	I metadati del documento di progettazione contengono un campo `update pending`.
--	La query {{site.data.keyword.cloudant_short_notm}} non restituisce più un errore se non esiste un indice valido.
+-	La query Cloudant non restituisce più un errore se non esiste un indice valido.
 
 ### Modifiche interruzione/comportamento
 
@@ -85,7 +85,7 @@ Viste
 
 -   La normalizzazione Unicode dei valori chiave è coerente tra i risultati della vista ridotti e non ridotti. Se l'ordinamento non elaborato viene specificato in un documento di progettazione, l'ordine dei risultati potrebbe venire modificato dal risultato di questa correzione.
 -   Quando esegui la query di una vista o di un database `_all_docs`, è presente un errore quando si specifica il parametro `keys` e i parametri `key`, `startkey` e `endkey`.
--   È presente un errore nel passare i parametri `startkey` e `endkey` a una vista se non esiste alcuna corrispondenza della riga. Ad esempio, quando il parametro `startkey` è superiore al parametro `endkey` per `descending=false` o quando il parametro `startkey` è inferiore al parametro `endkey` per `descending=true`, {{site.data.keyword.cloudant_short_notm}} restituisce l'errore `400 Bad Request`.
+-   È presente un errore nel passare i parametri `startkey` e `endkey` a una vista se non esiste alcuna corrispondenza della riga. Ad esempio, il parametro `startkey` è superiore al parametro `endkey` per `descending=false` o quando il parametro `startkey` è inferiore al parametro `endkey` per `descending=true`, Cloudant restituisce l'errore `400 Bad Request`.
 -   Quando `dbcopy` è configurato in un documento di visualizzazione, viene automaticamente trasformato nel campo `options` in un documento di progettazione. 
 
 Documenti di progettazione
@@ -101,7 +101,7 @@ Autenticazione
 
 Documenti utente
 
--   Convalida la struttura dei documenti utente creati nel database `_users`. Dopo l'aggiornamento DBNext, i documenti utente devono rispettare i requisiti ASF CouchdDB. In precedenza, {{site.data.keyword.cloudant_short_notm}} non convalidava la struttura dei documenti utente. 
+-   Convalida la struttura dei documenti utente creati nel database `_users`. Dopo l'aggiornamento DBNext, i documenti utente devono rispettare i requisiti ASF CouchdDB. In precedenza, Cloudant non convalidava la struttura dei documenti utente. 
 
 Replica 
 

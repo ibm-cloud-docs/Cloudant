@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-05-22"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-02"
 
 <!-- Acrolinx: 2017-05-22 -->
 
-# Configurando o {{site.data.keyword.cloudant_short_notm}} para recuperação de desastre de região cruzada
+# Configurando o Cloudant para recuperação de desastre de região cruzada
 
 O [Guia de recuperação de desastre do {{site.data.keyword.cloudant_short_notm}}](disaster-recovery-and-backup.html)
 explica que uma maneira de ativar a recuperação de desastre é usar
@@ -39,13 +39,13 @@ e deve ser configurada explicitamente.
 * O {{site.data.keyword.cloudant_short_notm}} não fornece nenhum Acordo de Nível de Serviço (SLA)
 ou certezas sobre a latência de replicação.
 * O {{site.data.keyword.cloudant_short_notm}} não monitora as replicações individuais.
-  É aconselhável sua própria estratégia para detectar replicações com falha e reiniciá-las.
+É aconselhável sua própria estratégia para detectar replicações com falha e reiniciá-las.
 
 ## Antes de iniciar
 
 > **Nota**: para uma implementação ativa/ativa,
 uma estratégia para gerenciar conflitos deverá estar em vigor.
-  Portanto, certifique-se de entender como a [replicação](../api/replication.html) e
+Portanto, certifique-se de entender como a [replicação](../api/replication.html) e
 os [conflitos](mvcc.html#distributed-databases-and-conflicts) funcionam
 antes de considerar essa arquitetura.
 
@@ -123,7 +123,7 @@ Uma resposta bem-sucedida será semelhante ao exemplo abreviado a seguir:
 {:codeblock}
 
 > **Nota**: observe atentamente a senha.
-  Não será possível recuperar a senha mais tarde.
+Não será possível recuperar a senha mais tarde.
 
 ### Etapa 3: conceder permissão de acesso
 
@@ -217,14 +217,14 @@ Essa configuração oferece vários benefícios:
 - Os aplicativos podem ser configurados para acessar uma conta com
 latência inferior (nem sempre a mais próxima geograficamente).
 
-Um aplicativo pode ser configurado para se comunicar com a conta 'mais próxima'
-do {{site.data.keyword.cloudant_short_notm}}.
+Um aplicativo pode ser configurado para se comunicar com a conta
+'mais próxima' do Cloudant.
 Para aplicativos hospedados no DC1,
 é apropriado configurar suas URLs do {{site.data.keyword.cloudant_short_notm}}
 como `"https://myaccount-dc1.cloudant.com/mydb"`.
 Da mesma forma,
-para aplicativos que são hospedados no DC2,
-você configuraria sua URL do {{site.data.keyword.cloudant_short_notm}} para `"https://myaccount-dc2.cloudant.com/mydb"`.
+para aplicativos hospedados no DC2,
+você configuraria suas URLs do Cloudant como `"https://myaccount-dc2.cloudant.com/mydb"`.
 
 #### Ativa/Passiva
 
@@ -257,11 +257,11 @@ mas a carga de leitura é difundida entre as réplicas.
 ### Etapa 7: próximas etapas
 
 * Considere monitorar as [replicações](../api/advanced_replication.html) entre os bancos de dados.
-  Use os dados para determinar se a sua configuração pode ser otimizada ainda mais.
+Use os dados para determinar se a sua configuração pode ser otimizada ainda mais.
 *	Considere como seus documentos e índices de design são implementados e atualizados.
-  Talvez você ache mais eficiente automatizar essas tarefas.
+Talvez você ache mais eficiente automatizar essas tarefas.
 
-## Executando failover entre regiões do {{site.data.keyword.cloudant_short_notm}}
+## Executando failover entre regiões do Cloudant
 
 Em geral,
 o processo de gerenciamento de um failover entre regiões ou data centers é manipulado mais alto dentro da pilha de aplicativos,
@@ -279,15 +279,15 @@ No entanto,
 se você decidir que realmente precisa de uma capacidade para gerenciar failover,
 algumas opções possíveis incluirão:
 
-* Coloque seu próprio [proxy HTTP na frente do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/greenmangaming/cloudant-nginx){:new_window}.
-  Configure seu aplicativo para falar com o proxy, em vez de com a instância do {{site.data.keyword.cloudant_short_notm}}.
-  Essa configuração significa que a tarefa de mudar as instâncias do {{site.data.keyword.cloudant_short_notm}}
+* Coloque seu próprio [proxy HTTP na frente do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/green-man-gaming-cross-cloud-nginx-config/){:new_window}.
+Configure seu aplicativo para falar com o proxy, em vez de com a instância do {{site.data.keyword.cloudant_short_notm}}.
+Essa configuração significa que a tarefa de mudar as instâncias do {{site.data.keyword.cloudant_short_notm}}
 usadas pelos aplicativos pode ser manipulada por meio de uma modificação na configuração de proxy,
 em vez de uma modificação nas configurações do aplicativo.
-  Muitos proxies têm a capacidade de balancear a carga,
+Muitos proxies têm a capacidade de balancear a carga,
 com base nas verificações de funcionamento definidas pelo usuário.
 * Use um balanceador de carga global, como o [Diretor de tráfego ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://dyn.com/traffic-director/){:new_window} para rotear para o {{site.data.keyword.cloudant_short_notm}}.
-  Essa opção requer uma definição `CNAME` que roteie para
+Essa opção requer uma definição `CNAME` que roteie para
 diferentes contas do {{site.data.keyword.cloudant_short_notm}},
 com base em uma verificação de funcionamento ou uma regra de latência.
 
@@ -323,12 +323,12 @@ estão disponíveis.
 
 > **Nota:** se um banco de dados estiver sendo mudado continuamente,
 é improvável que o status de replicação seja 0.
-  Deve-se decidir qual limite de status é aceitável
+Deve-se decidir qual limite de status é aceitável
 ou que represente um estado de erro.
 
 ### Índices
 
 * Os índices estão suficientemente atualizados?
-  Verifique isso usando o terminal de [tarefas ativas](../api/active_tasks.html).
+Verifique isso usando o terminal de [tarefas ativas](../api/active_tasks.html).
 * Teste o nível de 'prontidão do índice' enviando uma consulta para o índice
 e decidindo se ele é retornado em um tempo aceitável.

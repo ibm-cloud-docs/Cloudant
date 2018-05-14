@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-10-27"
+lastupdated: "2017-07-11"
 
 ---
 
@@ -13,9 +13,8 @@ lastupdated: "2017-10-27"
 {:pre: .pre}
 
 <!-- Acrolinx: 2017-05-23 -->
-<!-- Update backup-guide.md with with any changes. -->
 
-# Backup e recuperação do {{site.data.keyword.cloudant_short_notm}}
+# Backup e recuperação do Cloudant
 
 Este cookbook é uma parte do [Guia de recuperação de desastre do {{site.data.keyword.cloudantfull}}](disaster-recovery-and-backup.html).
 Valerá a pena começar por aí se você for iniciante no assunto e quiser entender onde o backup se encaixa
@@ -43,7 +42,7 @@ o pacote CouchBackup contém duas ferramentas de linha de comandos:
 
 <strong style="color:red;">Aviso!</strong> As ferramentas CouchBackup têm [limitações](#limitations).
 
-## Fazendo backup de seus dados do {{site.data.keyword.cloudant_short_notm}}
+## Fazendo backup dos dados do Cloudant
 
 É possível fazer um backup simples usando a ferramenta `couchbackup`.
 Para fazer backup do banco de dados `animaldb` para um arquivo de texto chamado `backup.txt`,
@@ -60,13 +59,13 @@ incluindo:
 * Variáveis de ambiente para configurar os nomes do banco de dados e a URL.
 * O uso de um arquivo de log para registrar o progresso de um backup.
 * A capacidade de continuar um backup interrompido.
-  **Nota**: essa opção está disponível apenas com o arquivo de log do backup interrompido.
+**Nota**: essa opção está disponível apenas com o arquivo de log do backup interrompido.
 * O envio do arquivo de texto de backup para um arquivo de saída nomeado,
 em vez de redirecionar a saída `stdout`.
 
 <strong style="color:red;">Aviso!</strong> As ferramentas CouchBackup têm [limitações](#limitations).
 
-## Restaurando os seus dados do {{site.data.keyword.cloudant_short_notm}}
+## Restaurando os dados do Cloudant
 
 Para restaurar seus dados,
 use a ferramenta `couchrestore`.
@@ -94,15 +93,15 @@ O [leia-me do npm ![Ícone de link externo](../images/launch-glyph.svg "Ícone d
 * As configurações `_security` não são submetidas a backup pelas ferramentas.
 * Os anexos não são submetidos a backup pelas ferramentas.
 * Os backups não são capturas instantâneas do "momento" precisamente exatas.
-  O motivo é que os documentos no banco de dados são recuperados em lotes,
+O motivo é que os documentos no banco de dados são recuperados em lotes,
 mas outros aplicativos podem estar atualizando documentos ao mesmo tempo.
-  Portanto,
+Portanto,
 os dados no banco de dados podem mudar entre as vezes em que o primeiro e último lotes são lidos.
 * As definições do índice mantidas em documentos de design são submetidas a backup,
 mas o conteúdo dos índices não é submetido a backup.
-  Essa limitação significa que quando os dados são restaurados,
+Essa limitação significa que quando os dados são restaurados,
 os índices devem ser reconstruídos.
-  A reconstrução pode levar um período de tempo considerável,
+A reconstrução pode levar um período de tempo considerável,
 dependendo da quantidade de dados restaurada.
 
 ## Usando as ferramentas
@@ -115,10 +114,10 @@ descrevendo o uso das ferramentas para tarefas específicas.
 O pacote CouchBackup fornece duas maneiras de usar suas funções principais.
 
 * As ferramentas de linha de comandos podem ser integradas aos pipelines de comando padrão do UNIX.
-  Para muitos cenários,
+Para muitos cenários,
 uma combinação de `cron` e shell script simples do aplicativo `couchbackup` é suficiente.
 * Uma biblioteca utilizável por meio de node.js.
-  A biblioteca permite que os processos de backup mais complicados sejam criados e implementados,
+A biblioteca permite que os processos de backup mais complicados sejam criados e implementados,
 como determinar dinamicamente quais bancos de dados devem ser submetidos a backup.
 
 Use a ferramenta de backup da linha de comandos
@@ -216,10 +215,10 @@ A biblioteca é útil para cenários mais complicados,
 por exemplo:
 
 * Fazer backup de vários bancos de dados em uma tarefa.
-  Você poderia executar esse backup identificando todos os bancos de dados usando a chamada [`_all_dbs`](../api/database.html#get-databases)
+Você poderia executar esse backup identificando todos os bancos de dados usando a chamada [`_all_dbs`](../api/database.html#get-databases)
 e, em seguida, executando um backup de cada banco de dados individualmente.
 * Pipelines mais longos aumentam o risco de erros.
-  Ao usar a biblioteca CouchBackup,
+Ao usar a biblioteca CouchBackup,
 seu aplicativo pode detectar e tratar qualquer erro na primeira oportunidade.
 
 Para obter mais informações,

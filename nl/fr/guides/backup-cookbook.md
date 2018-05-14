@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-10-27"
+lastupdated: "2017-07-11"
 
 ---
 
@@ -13,9 +13,8 @@ lastupdated: "2017-10-27"
 {:pre: .pre}
 
 <!-- Acrolinx: 2017-05-23 -->
-<!-- Update backup-guide.md with with any changes. -->
 
-# Sauvegarde et reprise {{site.data.keyword.cloudant_short_notm}}
+# Sauvegarde et reprise Cloudant
 
 Le présent manuel d'instructions fait partie du [guide de reprise après incident {{site.data.keyword.cloudantfull}}](disaster-recovery-and-backup.html).
 Cela vaut vraiment la peine de commencer par la lecture de celui-ci si vous n'êtes pas familier du sujet et que vous souhaitez comprendre comment fonctionne la sauvegarde avec d'autres fonctionnalités offertes par {{site.data.keyword.cloudant_short_notm}} pour répondre aux exigences de reprise après incident et de haute disponibilité.
@@ -25,9 +24,8 @@ Par exemple, le stockage redondant de données ne protège pas contre les risque
 
 ## Introduction à CouchBackup
 
-{{site.data.keyword.cloudant_short_notm}} fournit un outil pris en charge de sauvegarde et de restauration par image instantanée,
-à savoir CouchBackup, un outil open source.
-Celui-ci contient une bibliothèque `node.js` qui est [disponible pour être installée sur npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{:new_window}.
+{{site.data.keyword.cloudant_short_notm}} fournit un outil pris en charge de sauvegarde et de restauration par image instantanée, à savoir CouchBackup, un outil open source.
+Celui-ci contient une bibliothèque `node.js` qui est [disponible pour être installée sur npm ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{:new_window}.
 
 Outre la bibliothèque, le package CouchBackup contient deux outils de ligne de commande :
 
@@ -36,7 +34,7 @@ Outre la bibliothèque, le package CouchBackup contient deux outils de ligne de 
 
 <strong style="color:red;">Avertissement</strong> : Les outils CouchBackup présentent certaines [limites](#limitations).
 
-## Sauvegarde des données {{site.data.keyword.cloudant_short_notm}} 
+## Sauvegarde de vos données Cloudant
 
 Vous pouvez procéder à une simple sauvegarde à l'aide de l'outil `couchbackup`.
 Pour sauvegarder la base de données `animaldb` vers un fichier texte appelé `backup.txt`, utilisez une commande similaire à l'exemple suivant :
@@ -46,7 +44,7 @@ couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 ```
 {:codeblock}
 
-Le fichier [npm readme ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmreadme]{:new_window} contient des informations sur d'autres options, telles que :
+Le fichier [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{:new_window} contient des informations sur d'autres options, telles que :
 
 * Les variables d'environnement permettant de définir le nom de la base de données et son adresse URL.
 * L'utilisation d'un fichier journal permettant d'enregistrer la progression d'une sauvegarde.
@@ -56,7 +54,7 @@ Le fichier [npm readme ![Icône de lien externe](../images/launch-glyph.svg "Ic�
 
 <strong style="color:red;">Avertissement</strong> : Les outils CouchBackup présentent certaines [limites](#limitations).
 
-## Restauration des données {{site.data.keyword.cloudant_short_notm}}
+## Restauration de vos données Cloudant
 
 Pour restaurer vos données, utilisez l'outil `couchrestore`.
 Exécutez `couchrestore` pour importer le fichier de sauvegarde dans une nouvelle base de données {{site.data.keyword.cloudant_short_notm}}.
@@ -69,7 +67,7 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 ```
 {:codeblock}
 
-Le [fichier readme npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmreadme]{:new_window} fournit des détails sur d'autres options de restauration.
+Le [fichier readme npm ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{:new_window} fournit des détails sur d'autres options de restauration.
 
 <strong style="color:red;">Avertissement</strong> : Les outils CouchBackup présentent certaines [limites](#limitations).
 
@@ -88,7 +86,7 @@ Le [fichier readme npm ![Icône de lien externe](../images/launch-glyph.svg "Ic�
 
 ## Utilisation des outils
 
-La [page npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{:new_window} fournit des informations détaillées sur les bases de l'utilisation des outils de ligne de commande destinés à la sauvegarde et la restauration de données.
+La [page npm ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{:new_window} fournit des informations détaillées sur les bases de l'utilisation des outils de ligne de commande destinés à la sauvegarde et la restauration de données.
 Les exemples suivants illustrent les modalités de mise en pratique en décrivant l'utilisation des outils pour des tâches spécifiques.
 
 Le package CouchBackup fournit deux façons d'utiliser ses fonctions principales.
@@ -99,7 +97,7 @@ Le package CouchBackup fournit deux façons d'utiliser ses fonctions principales
   La bibliothèque permet de créer et de déployer des processus de sauvegarde beaucoup plus complexes, tels que l'identification dynamique des bases de données à sauvegarder.
 
 Utilisez soit l'outil de sauvegarde de ligne de commande, soit la bibliothèque avec le code de l'application, pour activer la sauvegarde depuis les bases de données {{site.data.keyword.cloudant_short_notm}} dans les situations plus complexes.
-Un scénario utile permet de planifier les sauvegardes à l'aide de la tâche `cron`, et de télécharger automatiquement les données vers [Cloud Object Storage ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window} à des fins de conservation à long terme.
+Un scénario utile permet de planifier les sauvegardes à l'aide de la tâche `cron`, et de télécharger automatiquement les données vers [Cloud Object Storage ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window} à des fins de conservation à long terme.
 
 ## Exemples de scripts en ligne de commande
 
@@ -112,7 +110,7 @@ Deux exigences sont souvent rencontrées :
 
 L'outil `couchbackup` peut écrire un fichier de sauvegarde directement sur le disque ou transférer la sauvegarde vers `stdout`.
 Le transfert vers `stdout` permet de transformer les données avant de les écrire sur le disque.
-Cette opération est utilisée pour compresser les données dans le flux.
+Cette opération est utilisée pour compresser les données dans le flux. 
 
 ```sh
 couchbackup --url "https://examples.cloudant.com" \
@@ -177,13 +175,13 @@ La bibliothèque est très utile pour les scénarios plus complexes, par exemple
 * Les pipelines plus longs augmentent le risque d'erreur.
   En utilisant la bibliothèque CouchBackup, votre application peut détecter et corriger les erreurs dans les plus brefs délais.
 
-Pour plus d'informations, consultez la [page npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{:new_window}.
+Pour plus d'informations, consultez la [page npm ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{:new_window}.
 
 L'exemple de script ci-dessous décrit comment combiner la bibliothèque `couchbackup` à une utilisation d'{{site.data.keyword.IBM}} Cloud Object Storage.
 Ce code explique l'utilisation de l'interface de programmation Cross Region S3 à des fins de sauvegarde d'une base de données dans un conteneur d'objets.
 
 > **Remarque** : L'une des conditions préalables à l'utilisation de ce code est l'initialisation de l'objet client S3 pour {{site.data.keyword.IBM_notm}} Cloud Object Storage en suivant
-[ces instructions ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][cosclient]{:new_window}.
+[ces instructions ![External link icon](../images/launch-glyph.svg "External link icon")][cosclient]{:new_window}.
 
 ```javascript
 /*

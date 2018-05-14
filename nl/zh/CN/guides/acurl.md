@@ -16,7 +16,7 @@ lastupdated: "2017-01-06"
 
 _（本指南基于 Samantha Scharr 的博客文章：[“授权 curl，又名 acurl”![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window}，最初发布于 2013 年 11 月 27 日。）_
 
-`acurl` 是一种很有用的别名，允许您对 URL 执行 `curl` {{site.data.keyword.cloudantfull}} 命令，而不必为每个请求输入用户名和密码。这意味着对数据库执行的简单 `GET` 操作不再需要编写为 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`，而可以改为只使用 `https://$ACCOUNT.cloudant.com/foo`。
+`acurl` 是一种很有用的别名，允许您对 URL 执行 `curl` Cloudant 命令，而不必为每个请求输入用户名和密码。这意味着对数据库执行的简单 `GET` 操作不再需要编写为 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`，而可以改为只使用 `https://$ACCOUNT.cloudant.com/foo`。
 
 这不仅使长得烦人的 URL 变短，而且 `acurl` 别名也更安全。它能防止有人在您输入密码时，在您背后偷看，而且很重要的一点是，它通过强制使用 HTTPS 来确保密码不会在网络上以明文形式发送。
 
@@ -28,7 +28,7 @@ _（本指南基于 Samantha Scharr 的博客文章：[“授权 curl，又名 a
 
 ## 对用户名和密码编码
 
-首先，我们会对 {{site.data.keyword.cloudant_short_notm}} 用户名和密码进行基本 64 位编码。这将提供一个基本 64 位编码的字符序列作为输出。
+首先，我们会对 Cloudant 用户名和密码进行基本 64 位编码。这将提供一个基本 64 位编码的字符序列作为输出。
 
 用于对某些数据进行基本 64 位编码的命令类似于以下示例：
 
@@ -37,7 +37,7 @@ python -c 'import base64; print base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD")'
 ```
 {:codeblock}
 
-我们假定输出名为 `<OUTPUT-OF-BASE64>`.
+我们假定输出名为 `<OUTPUT-OF-BASE64>`。
 
 例如，如果使用以下命令：
 
@@ -66,7 +66,7 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 ```
 {:codeblock}
 
-此别名会添加 Authorization 头，而不是在命令行上所输入的 URL 中包含授权凭证。它还会强制使用 HTTPS（我们强烈建议使用 HTTPS，而不要使用明文 HTTP），因为 HTTPS 会对传输中的数据和凭证进行加密，并帮助您确保连接到的是 {{site.data.keyword.cloudant_short_notm}} 系统。
+此别名会添加 Authorization 头，而不是在命令行上所输入的 URL 中包含授权凭证。它还会强制使用 HTTPS（我们强烈建议使用 HTTPS，而不要使用明文 HTTP），因为 HTTPS 会对传输中的数据和凭证进行加密，并帮助您确保连接到的是 Cloudant 系统。
 
 ## 激活别名
 

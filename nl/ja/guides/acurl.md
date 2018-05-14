@@ -16,7 +16,7 @@ lastupdated: "2017-01-06"
 
 _(このガイドは、Samantha Scharr によるブログ記事[『Authorized curl, a.k.a. acurl』 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window} (2013 年 11 月 27 日に初公開) に基づいています。)_
 
-`acurl` は、要求ごとにユーザー名とパスワードを入力することなく、{{site.data.keyword.cloudantfull}} コマンドを URL に `curl` できるようにする便利な別名です。
+`acurl` は、要求ごとにユーザー名とパスワードを入力することなく、Cloudant コマンドを URL に `curl` できるようにする便利な別名です。
 つまり、データベースに対するシンプルな `GET` を `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo` と記述する必要がなくなり、単に `https://$ACCOUNT.cloudant.com/foo` を使用できます。
 
 これにより、面倒な長い URL が短くなるだけでなく、`acurl` の別名ではセキュリティーも向上します。
@@ -30,7 +30,7 @@ _(このガイドは、Samantha Scharr によるブログ記事[『Authorized cu
 
 ## ユーザー名とパスワードをエンコードする
 
-まず、{{site.data.keyword.cloudant_short_notm}} ユーザー名とパスワードを base64 でエンコードします。
+まず、Cloudant ユーザー名とパスワードを base64 でエンコードします。
 これにより、base64 文字シーケンスが出力として得られます。
 
 データを base64 でエンコードするコマンドは、以下の例のようになります。
@@ -56,8 +56,7 @@ bXl1c2VybmFtZTpteXBhc3N3b3Jk
 ```
 {:codeblock}
 
->	**注**: パスワードはこの場合でもコンピューター上に平文で保管されるので注意してください。base64 エンコードは、暗号化_ではありません_。
-	同じ文字シーケンスに対して base64 エンコードを使用すると、常に対応する同じ出力文字シーケンスが得られます。
+>	**注**: パスワードはこの場合でもコンピューター上に平文で保管されるので注意してください。base64 エンコードは、暗号化_ではありません_。同じ文字シーケンスに対して base64 エンコードを使用すると、常に対応する同じ出力文字シーケンスが得られます。
 
 ## 別名を作成する
 
@@ -71,7 +70,7 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 {:codeblock}
 
 この別名では、コマンド・ラインで入力する URL に許可資格情報を含めるのではなく、Authorization ヘッダーを追加します。
-また、HTTPS の使用が強制されます。HTTPS では、転送中のデータおよび資格情報が暗号化され、また確実に {{site.data.keyword.cloudant_short_notm}} システムに接続できるため、平文の HTTP よりも強く推奨されます。
+また、HTTPS の使用が強制されます。HTTPS では、転送中のデータおよび資格情報が暗号化され、また確実に Cloudant システムに接続できるため、平文の HTTP よりも強く推奨されます。
 
 ## 別名をアクティブ化する
 

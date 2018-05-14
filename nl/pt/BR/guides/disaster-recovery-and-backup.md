@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-07-11"
 
 ---
 
@@ -21,15 +21,15 @@ Você deseja proteger seus dados
 para ajudar a assegurar que sejam seguros,
 disponíveis
 e mantenham a integridade.
-O {{site.data.keyword.cloudantfull}} fornece várias maneiras de proteger seus dados e ajudar a manter seus aplicativos operacionais.
+O Cloudant fornece várias maneiras de proteger seus dados e ajudar a manter seus aplicativos operacionais.
 {:shortdesc}
 
 Alguns desses recursos de proteção são automáticos.
 Para outras formas de proteção,
-o {{site.data.keyword.cloudant_short_notm}} fornece a você ferramentas suportadas que
+o Cloudant fornece ferramentas suportadas que
 ajudam a criar seus próprios recursos de alta disponibilidade e recuperação de desastre.
 
-Este documento fornece uma visão geral dos recursos automáticos e das ferramentas suportadas que são oferecidos pelo {{site.data.keyword.cloudant_short_notm}}.
+Este documento fornece uma visão geral dos recursos automáticos e das ferramentas suportadas oferecidas pelo Cloudant.
 
 ## Tipos e níveis de proteção
 
@@ -65,7 +65,7 @@ as ferramentas e os recursos podem então tratar dos requisitos de HA ou DR.
 >	**Nota**: diferentes ferramentas e recursos fornecem diferentes níveis de proteção.
 	Os diferentes recursos podem ser mais ou menos adequados para seu requisito específico de HA ou DR.
 
-O {{site.data.keyword.cloudant_short_notm}} fornece várias ferramentas e recursos que tratam de requisitos gerais:
+O Cloudant fornece várias ferramentas e recursos que tratam de requisitos gerais:
 
 1.	Redundância de dados dentro de uma única região, também conhecida como [Redundância automática de dados na região](#in-region-automatic-data-redundancy).
 2.	Redundância de dados e failover entre as regiões, também conhecida como [Redundância entre regiões para recuperação de desastre](#cross-region-redundancy-for-disaster-recovery).
@@ -73,7 +73,7 @@ O {{site.data.keyword.cloudant_short_notm}} fornece várias ferramentas e recurs
 
 ## Redundância automática de dados na região
 
-Em uma única conta do {{site.data.keyword.cloudant_short_notm}},
+Em uma única conta do Cloudant,
 os dados são armazenados em triplicidade usando processos internos e automáticos.
 Você não precisa fazer nada para ativar esta replicação de dados internos.
 
@@ -82,13 +82,13 @@ Especificamente,
 a redundância de dados na região fornece proteção para seus dados na falha de hardware dentro da região.
 Quando uma unidade de hardware dentro da região falha,
 somente a cópia dos dados armazenados nessa unidade não fica mais disponível.
-Seus aplicativos permanecem utilizáveis porque o {{site.data.keyword.cloudant_short_notm}} roteia automaticamente as solicitações para as cópias de seus dados
+Seus aplicativos permanecem utilizáveis porque o Cloudant roteia automaticamente as solicitações para as cópias de seus dados
 que ainda estão disponíveis em outras unidades de hardware dentro da região.
 Enquanto isso,
 o monitoramento automático de sistemas detecta a falha da unidade de hardware,
 solicitando ação e restauração subsequente de redundância integral.
 
-As contas do {{site.data.keyword.cloudant_short_notm}} estão localizadas em uma única região.
+As contas do Cloudant estão localizadas em uma única região.
 Essa característica significa que todos os dados armazenados em sua conta são armazenados em servidores separados,
 cada um dos quais é hospedado dentro dessa única região.
 
@@ -110,13 +110,13 @@ fornecendo tolerância para falhas que afetam sistemas únicos dentro da região
 
 ## Redundância entre regiões para recuperação de desastre
 
-O recurso de replicação do {{site.data.keyword.cloudant_short_notm}} ajuda a construir um recurso de recuperação de desastre flexível em seus aplicativos.
-A principal maneira de ativar a recuperação de desastre é usar a replicação do {{site.data.keyword.cloudant_short_notm}} para criar redundância entre regiões.
+O recurso de replicação do Cloudant ajuda a construir um recurso de recuperação de desastre flexível em seus aplicativos.
+A principal maneira de ativar a recuperação de desastre é usar a replicação do Cloudant para criar redundância entre regiões.
 O resultado é que seu aplicativo será capaz de tolerar a situação em que um ou mais regiões não está disponível.
 
 As etapas básicas para criar redundância entre regiões são:
 
-1.  Crie contas do {{site.data.keyword.cloudant_short_notm}} em duas ou mais regiões.
+1.  Criar contas do Cloudant em duas ou mais regiões.
 2.  Criar bancos de dados em cada região, conforme necessário.
 3.  Para bancos de dados que devem ser armazenados com redundância entre regiões, configurar replicações contínuas bidirecionais entre os bancos de dados correspondentes em cada conta.
 4.  Projetar e implementar seus aplicativos para que as solicitações de dados sejam roteadas dependendo se seu ambiente for uma configuração Ativa/Passiva ou Ativa/Ativa.
@@ -152,7 +152,7 @@ mas se aplica a falhas que afetam uma região inteira.
 No entanto,
 configurar seus aplicativos para funcionar corretamente com configurações entre redundâncias fornece um verdadeiro recurso de recuperação de desastre.
 O motivo é que os aplicativos poderão continuar funcionando se os dados de uma região não estiverem disponíveis durante um período de tempo.
-A replicação do {{site.data.keyword.cloudant_short_notm}} ajuda a assegurar a sincronização de dados entre as regiões.
+A replicação do Cloudant ajuda a assegurar a sincronização de dados entre as regiões.
 No entanto,
 seus aplicativos deverão ser capazes de 'executar failover' para cópias de seus dados armazenadas em outras regiões.
 
@@ -176,17 +176,17 @@ considere fazer dump dos dados de seu banco de dados em um local separado em int
 regulares periódicos.
 Assegure-se de verificar e testar os backups para ter confiança de que estão completos e corretos.
 
-O {{site.data.keyword.cloudant_short_notm}} suporta ferramentas que ajudam a fazer dump do conteúdo JSON em bancos de dados para um arquivo
-e depois restaurar bancos de dados por meio desses arquivos.
+O Cloudant suporta ferramentas que ajudam a fazer dump do conteúdo JSON de bancos de dados em um arquivo
+e, posteriormente, a restaurar bancos de dados por meio desses arquivos.
 
 Especificamente,
-as ferramentas suportadas pelo {{site.data.keyword.cloudant_short_notm}} ajudam você a:
+as ferramentas suportadas pelo Cloudant ajudam a:
 
 *	Fazer backup de bancos de dados completos em um arquivo,
 adequado para processamento posterior e armazenamento externo.
 *	Restaurar bancos de dados completos de um estado anterior contido em seu arquivo de backup.
 
-<strong style="color:red;">Aviso!</strong> As ferramentas suportadas pelo {{site.data.keyword.cloudant_short_notm}} tem as limitações a seguir: 
+<strong style="color:red;">Aviso!</strong> As ferramentas suportadas pelo Cloudant apresentam as limitações a seguir: 
 
 *	As configurações `_security` não são submetidas a backup pelas ferramentas.
 *	Os anexos não são submetidos a backup pelas ferramentas.
@@ -204,7 +204,7 @@ dependendo da quantidade de dados restaurada.
 
 ## Etapas Seguintes
 
-É possível desenvolver aplicativos que constroem funções básicas do {{site.data.keyword.cloudant_short_notm}} e ferramentas suportadas
+É possível desenvolver aplicativos que se baseiam em funções básicas do Cloudant e nas ferramentas suportadas
 para ativar estratégias mais complexas de proteção de dados.
 
 Os cenários de exemplo incluem:

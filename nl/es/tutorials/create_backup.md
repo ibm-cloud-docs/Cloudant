@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-07-13"
 
 ---
 
@@ -14,12 +14,11 @@ lastupdated: "2017-11-07"
 
 # Creación de una copia de seguridad
 
-En esta guía de aprendizaje se muestra cómo utilizar el programa de utilidad de mandatos [CouchBackup ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} para realizar copias de seguridad y restaurar una instancia de {{site.data.keyword.cloudant_short_notm}} o CouchDB. CouchBackup hace una copia de seguridad de la base de datos en un archivo. Si la base de datos falla, puede utilizar el archivo de copia de seguridad para restaurar la información en una base de datos existente. 
-{:shortdesc}
+En esta guía de aprendizaje se muestra cómo utilizar el programa de utilidad de línea de mandatos [CouchBackup ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} para realizar copias de seguridad y restaurar una instancia de Cloudant o CouchDB. CouchBackup hace una copia de seguridad de la base de datos en un archivo. Si la base de datos falla, puede utilizar el archivo de copia de seguridad para restaurar la información en una base de datos existente. {:shortdesc}
 
 ## Antes de empezar
 
-Instale CouchBackup con el mandato `install`. 
+Instale CouchBackup con el mandato `install`.  
 
 ```sh
 npm install -g @cloudant/couchbackup
@@ -138,12 +137,12 @@ Los documentos que cree en este ejercicio contendrán los datos que copiará y r
     
 ## Establecimiento de una variable de entorno
 
-Puede utilizar variables de entorno u opciones de línea de mandatos para especificar el URL y la base de datos para la instancia de CouchDB o {{site.data.keyword.cloudant_short_notm}} con la que desea trabajar
+Puede utilizar variables de entorno u opciones de línea de mandatos para especificar el URL y la base de datos para la instancia de CouchDB o Cloudant con la que desea trabajar
 con CouchBackup. 
 
-En esta guía de aprendizaje, estableceremos la variable `COUCH_URL` y especificaremos la base de datos utilizando el parámetro `--db`. 
+En esta guía de aprendizaje, estableceremos la variable `COUCH_URL` y especificaremos la base de datos utilizando el parámetro `--db`.  
 
-Establezca la variable de entorno `COUCH_URL` para especificar el URL para la instancia de {{site.data.keyword.cloudant_short_notm}} o CouchDB.
+Establezca la variable de entorno `COUCH_URL` para especificar el URL para la instancia de Cloudant o CouchDB.
 
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
@@ -152,7 +151,7 @@ export COUCH_URL=https://username:password@myhost.cloudant.com
 
 ## Copia de seguridad de una base de datos
 
-El programa de utilidad CouchBackup hace una copia de seguridad de la base de datos en un archivo de texto para conservar los datos y facilitar su restauración. 
+El programa de utilidad CouchBackup hace una copia de seguridad de la base de datos en un archivo de texto para conservar los datos y facilitar su restauración.  
 
 1.  Ejecute el mandato `couchbackup` para dirigir el contenido de la base de datos a un archivo de texto. 
  
@@ -181,7 +180,7 @@ El programa de utilidad CouchBackup hace una copia de seguridad de la base de da
     ```
     {:codeblock}
     
-3.  Compruebe el directorio para verificar que se ha creado el archivo `couchbackup-demo-backup.txt`. 
+3.  Compruebe el directorio para verificar que se ha creado el archivo `couchbackup-demo-backup.txt`.  
 4.  Abra el archivo y revise la lista de documentos que se han copiado de la base de datos.  
     
     ```json
@@ -262,9 +261,9 @@ El programa de utilidad CouchBackup hace una copia de seguridad de la base de da
 
 ## Creación de un archivo de registro
 
-Un archivo de registro registra el progreso de la copia de seguridad. Con CouchBackup, se utiliza el parámetro `--log` para crear el archivo de registro. También puede utilizarlo para reiniciar una copia de seguridad a partir de donde se detuvo y especificar el nombre del archivo de salida. 
+Un archivo de registro registra el progreso de la copia de seguridad. Con CouchBackup, se utiliza el parámetro `--log` para crear el archivo de registro. También puede utilizarlo para reiniciar una copia de seguridad a partir de donde se detuvo y especificar el nombre del archivo de salida.  
 
-El mandato `couchbackup` utiliza estos parámetros para especificar la base de datos, el archivo de registro y la opción resume. 
+El mandato `couchbackup` utiliza estos parámetros para especificar la base de datos, el archivo de registro y la opción resume.  
 
 *   `--db` = `couchbackup-demo`
 *   `--log` = `couchbackup-demo.log`
@@ -285,7 +284,7 @@ El mandato `couchbackup` utiliza estos parámetros para especificar la base de d
     ================================================================================
     Realización de copia de seguridad en https://****:****@myhost.cloudant.com/couchbackup-demo utilizando configuración:
     {
-          "bufferSize": 500,
+         "bufferSize": 500,
           "log": "couchbackup-demo-backup.log",
           "mode": "full",
           "parallelism": 5
@@ -345,20 +344,20 @@ El mandato `couchbackup` utiliza estos parámetros para especificar la base de d
     
 ##  Restauración de un archivo de texto de copia de seguridad
 
-Desde el archivo `couchbackup-demo-backup.txt` puede restaurar los datos en una nueva base de datos vacía mediante el mandato `couchrestore`. 
+Desde el archivo `couchbackup-demo-backup.txt` puede restaurar los datos en una nueva base de datos vacía mediante el mandato `couchrestore`.  
 
 > **Nota**: La restauración de una copia de seguridad solo recibe soporte cuando la restauración se realiza en una base de datos vacía. Si suprime todos los 
-documentos de una base de datos, los registros de supresión de los documentos se mantienen por motivos de coherencia de réplicas. 
+documentos de una base de datos, los registros de supresión de los documentos se mantienen por motivos de coherencia de réplicas.
 Esto significa que una base de datos que solo contiene documentos suprimidos no se considera vacía y no se puede utilizar como destino cuando se restaura una copia de seguridad.
 
-1.  (Requisito previo) Cree una nueva base de datos vacía en la que pueda restaurar sus datos.
+1.  (Requisito previo) Cree una nueva base de datos vacía en la que pueda restaurar sus datos. 
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo-restore -X PUT
     ```
     {:codeblock}
 
-2.  Ejecute el mandato `couchrestore`.
+2.  Ejecute el mandato `couchrestore`. 
     
     ```sh
     cat couchbackup-demo-backup.txt | couchrestore --db couchbackup-demo-restore
@@ -381,5 +380,5 @@ Esto significa que una base de datos que solo contiene documentos suprimidos no 
     ```
     {:codeblock}
 
-Ha hecho una copia de seguridad y ha restaurado una base de datos y ha creado un archivo de registro. Consulte la documentación de {{site.data.keyword.cloudant_short_notm}} para obtener más información sobre la [recuperación en caso de error y copia de seguridad](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup), la
-[configuración de {{site.data.keyword.cloudant_short_notm}} para la recuperación en caso de error entre regiones ](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery), y la [ copia de seguridad y recuperación de {{site.data.keyword.cloudant_short_notm}}](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  
+Ha hecho una copia de seguridad y ha restaurado una base de datos y ha creado un archivo de registro. Consulte la documentación de Cloudant para obtener más información sobre la [recuperación en caso de error y copia de seguridad](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup), la
+[configuración de Cloudant para la recuperación en caso de error entre regiones](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery) y la [copia de seguridad y recuperación de Cloudant](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  

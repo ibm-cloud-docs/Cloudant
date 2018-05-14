@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-03-07"
+  years: 2017
+lastupdated: "2017-05-22"
 
 ---
 
@@ -12,19 +12,17 @@ lastupdated: "2018-03-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creación de una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}} mediante las herramientas de Cloud Foundry
+# Creación de una instancia de Cloudant en Bluemix mediante las herramientas de Cloud Foundry
 
-En esta guía de aprendizaje se muestra cómo crear una instancia de servicio de {{site.data.keyword.cloudantfull}} en {{site.data.keyword.Bluemix}} mediante las herramientas de Cloud Foundry.
-{:shortdesc}
+En esta guía de aprendizaje se muestra cómo crear una instancia de servicio de {{site.data.keyword.cloudantfull}} en {{site.data.keyword.Bluemix_notm}} mediante las herramientas de Cloud Foundry. {:shortdesc}
 
 ## Requisitos previos
 
-Para seguir esta guía de aprendizaje, primero debe instalar las herramientas de {{site.data.keyword.Bluemix_notm}} Cloud Foundry.
-Encontrará los detalles para instalar las herramientas en [esta guía de aprendizaje](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits).
+Para seguir esta guía de aprendizaje, primero debe instalar las herramientas de {{site.data.keyword.Bluemix_notm}} Cloud Foundry. Encontrará los detalles para instalar las herramientas en [esta guía de aprendizaje](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits).
 
-> **Nota**: Asegúrese de instalar los kits de herramientas de Cloud Foundry _y_  de {{site.data.keyword.Bluemix_notm}}.
+> **Nota**: Asegúrese de instalar los kits de herramientas de Cloud Foundry _y_  de {{site.data.keyword.Bluemix_notm}}. 
 
-## Identificación del punto final de API de {{site.data.keyword.Bluemix_notm}}
+## Identificación del punto final de API de Bluemix
 
 Especifique el punto final de API de destino para los mandatos de Cloud Foundry;
 
@@ -33,7 +31,7 @@ bx api https://api.ng.bluemix.net
 ```
 {:codeblock}
 
-El resultado confirma que ha identificado correctamente el punto final:
+El resultado confirma que ha identificado correctamente el punto final: 
 
 ```sh
 Setting api endpoint to https://api.ng.bluemix.net...
@@ -44,7 +42,7 @@ Not logged in. Use 'bx login' to log in.
 ```
 {:pre}
 
-## Inicio de sesión en su cuenta de {{site.data.keyword.Bluemix_notm}}
+## Inicio de sesión en su cuenta de Bluemix
 
 1.  Utilice el mandato siguiente para iniciar el proceso de inicio de sesión para su cuenta de {{site.data.keyword.Bluemix_notm}}:
   
@@ -57,18 +55,17 @@ Not logged in. Use 'bx login' to log in.
   
   ```sh
   API endpoint: https://api.ng.bluemix.net
-  
+
   Email>
   ```
   {:pre}
 
-2.  Especifique la dirección de correo electrónico de su cuenta.
-  Luego {{site.data.keyword.Bluemix_notm}} le solicita la contraseña de su cuenta:
+2.  Especifique la dirección de correo electrónico de su cuenta. Luego {{site.data.keyword.Bluemix_notm}} le solicita la contraseña de su cuenta:
   ```sh
   API endpoint: https://api.ng.bluemix.net
-  
+
   Email> J.Doe@email.com
-  
+
   Password>
   ```
   {:pre}
@@ -76,19 +73,19 @@ Not logged in. Use 'bx login' to log in.
   {{site.data.keyword.Bluemix_notm}} valida los detalles y resume la información sobre su sesión de inicio de sesión:
   ```sh
   API endpoint: https://api.ng.bluemix.net
-  
+
   Email> J.Doe@email.com
-  
+
   Password>
   Authenticating...
   OK
-  
+
   Targeted account J DOE's Account (707...a32)
-  
+
   Targeted org J.Doe@email.com
-  
+
   Targeted space dev
-  
+
   API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
   Region:         us-south
   User:           j.doe@email.com
@@ -100,10 +97,9 @@ Not logged in. Use 'bx login' to log in.
 
 3.  Ha iniciado una sesión en su cuenta de {{site.data.keyword.Bluemix_notm}}.
 
-## Elección del plan de {{site.data.keyword.cloudant_short_notm}} para su servicio
+## Elección del plan de Cloudant para su servicio
 
-Obtenga una lista de todas las ofertas de servicio disponibles.
-Filtre la lista de modo que solo coincida con los servicios de {{site.data.keyword.cloudant_short_notm}}:
+Obtenga una lista de todas las ofertas de servicio disponibles. Filtre la lista de modo que solo coincida con los servicios de {{site.data.keyword.cloudant_short_notm}}:
 
 ```sh
 bx service offerings | grep -i Cloudant
@@ -117,7 +113,7 @@ cloudantNoSQLDB   Lite, Standard*
 ```
 {:pre}
 
-**Opcional**: Para ver más detalles sobre los planes, utilice el siguiente mandato:
+**Opcional**: Para ver más detalles sobre los planes, utilice el siguiente mandato: 
 
 ```sh
 bx cf marketplace -s cloudantNoSQLDB
@@ -128,13 +124,13 @@ El resultado es un resumen de los planes disponibles, similar al de la respuesta
 
 ```
 Lite
-El plan Lite proporciona acceso a todas las funciones de {{site.data.keyword.cloudant_short_notm}} para desarrollo y evaluación.
+El plan Lite proporciona acceso a todas las funciones de Cloudant para desarrollo y evaluación.
 El plan tiene una cantidad establecida de capacidad de rendimiento suministrada e incluye un máximo de
 1 GB de almacenamiento libre de datos cifrados.
 ```
 {:pre}
 
-## Creación del servicio {{site.data.keyword.cloudant_short_notm}}
+## Creación del servicio de Cloudant
 
 El formato básico del mandato para crear una instancia de servicio dentro de {{site.data.keyword.Bluemix_notm}} es el siguiente:
 
@@ -145,7 +141,7 @@ bx service create <service> <plan> <instance name>
 
 Supongamos que queremos crear una instancia de un servicio de {{site.data.keyword.cloudant_short_notm}} utilizando el plan `Lite`, donde el nombre de la instancia es `cs20170517a`.
 
-Para ello, utilice un mandato como el del siguiente ejemplo:
+Para ello, utilice un mandato como el del siguiente ejemplo: 
 
 ```sh
 bx service create cloudantNoSQLDB Lite cs20170517a
@@ -163,13 +159,12 @@ OK
 ```
 {:pre}
 
-## Creación de credenciales para el servicio de {{site.data.keyword.cloudant_short_notm}}
+## Creación de credenciales para el servicio de Cloudant
 
-Las aplicaciones que requieren acceso al servicio de {{site.data.keyword.cloudant_short_notm}} deben tener las credenciales necesarias.
+Las aplicaciones que requieren acceso al servicio de {{site.data.keyword.cloudant_short_notm}} deben tener las credenciales necesarias. 
 
->   **Nota**: Las credenciales de servicio son muy valiosas.
-    Si alguna persona o alguna aplicación tiene acceso a las credenciales, puede hacer lo que quiera con la instancia de servicio; por ejemplo, podría crear datos falsos o suprimir información importante.
-    Proteja bien estas credenciales.
+>   **Nota**: Las credenciales de servicio son muy valiosas. 
+Si alguna persona o alguna aplicación tiene acceso a las credenciales, puede hacer lo que quiera con la instancia de servicio; por ejemplo, podría crear datos falsos o suprimir información importante. Proteja bien estas credenciales.
 
 Las credenciales de servicio constan de cinco campos:
 
@@ -190,7 +185,7 @@ bx cf create-service-key <instance name> <credentials name>
 
 Supongamos que queremos crear credenciales para la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}}, donde el nombre de las credenciales es `creds20170517a`.
 
-Para ello, utilice un mandato como el del siguiente ejemplo:
+Para ello, utilice un mandato como el del siguiente ejemplo: 
 
 ```sh
 bx cf create-service-key cs20170517a creds20170517a
@@ -207,7 +202,7 @@ OK
 ```
 {:pre}
 
-## Listado de las credenciales de servicio para el servicio de {{site.data.keyword.cloudant_short_notm}}
+## Listado de las credenciales de servicio para el servicio de Cloudant
 
 El formato básico del mandato para recuperar credenciales para una instancia de servicio dentro de {{site.data.keyword.Bluemix_notm}} es el siguiente:
 
@@ -218,7 +213,7 @@ bx cf service-key <instance name> <credentials name>
 
 Supongamos que queremos recuperar credenciales para la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}}, donde el nombre de las credenciales es `creds20170517a`.
 
-Para ello, utilice un mandato como el del siguiente ejemplo:
+Para ello, utilice un mandato como el del siguiente ejemplo: 
 
 ```sh
 bx cf service-key cs20170517a creds20170517a
@@ -242,9 +237,9 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 ```
 {:pre}
 
-## Utilización de la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}
+## Utilización de una instancia de servicio de Cloudant
 
-Hasta el memento, ha hecho lo siguiente:
+Hasta el memento, ha hecho lo siguiente: 
 
 1.  Ha creado una instancia de servicio de {{site.data.keyword.cloudant_short_notm}}
 dentro de {{site.data.keyword.Bluemix_notm}}.
@@ -252,7 +247,7 @@ dentro de {{site.data.keyword.Bluemix_notm}}.
 3.  Ha recuperado las credenciales de la instancia de servicio, para que las pueda utilizar la aplicación.
 
 Encontrará una guía de aprendizaje que muestra cómo utilizar una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} [aquí](create_database.html#context).
-No olvide sustituir las credenciales que ha creado en esta guía de aprendizaje.
+No olvide sustituir las credenciales que ha creado en esta guía de aprendizaje. 
 
 ## (Opcional) Ordenación posterior
 
@@ -268,7 +263,7 @@ bx cf delete-service-key <instance name> <credentials name>
 {:pre}
 
 Por ejemplo, para suprimir las credenciales denominadas `creds20170517a`
-de la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}}, puede utilizar un mandato como el siguiente:
+de la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}}, puede utilizar un mandato como el siguiente: 
 
 ```sh
 bx cf delete-service-key cs20170517a creds20170517a

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -12,31 +12,18 @@ lastupdated: "2017-11-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Design Document Management
+# 設計文件管理
 
-*Article contributed by Glynn Bird, Developer Advocate at IBM Cloudant,
-[glynn@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:glynn@cloudant.com){:new_window}*
+*由 Glynn Bird（IBM Cloudant 的開發人員代言人）提供的文章，[glynn@cloudant.com ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:glynn@cloudant.com){:new_window}*
 
-{{site.data.keyword.cloudantfull}}'s scalable JSON data store has several querying mechanisms,
-all of which generate indices that are created and maintained separately to the core data.
-Indexing is not performed immediately when a document is saved.
-Instead,
-it is scheduled to happen later giving a faster,
-non-blocking write throughput.
+Cloudant 的可擴充 JSON 資料儲存庫具有數個查詢機制，全都會對核心資料產生個別建立且維護的索引。儲存文件時，不會立即執行索引。相反地，它會排定在稍後發生，這會提供更快、非封鎖的寫入量。
 
--   MapReduce views are indexes into the dataset
-    with key value pairs stored in a BTree for efficient retrieval by key or range of keys
--   Search Indexes are constructed using Apache Lucene to allow free-text search,
-    faceting and complex ad-hoc queries
+-   MapReduce 視圖是資料集的索引，搭配 BTree 中儲存的索引鍵值組，可依索引鍵或索引鍵範圍進行有效的擷取
+-   「搜尋索引」是使用 Apache Lucene 建構的，容許任意文字搜尋、資料類型作業，以及複雜的特定查詢
 
-{{site.data.keyword.cloudant_short_notm}}'s [search indexes](../api/search.html) and [MapReduce views](../api/creating_views.html)
-are configured by adding Design Documents to a database.
-Design Documents are JSON documents which contain the instructions on how the view or index is to be built.
-Let's take a simple example.
-Assume we have a simple collection of data documents,
-similar to the following example.
+Cloudant 的[搜尋索引](../api/search.html)及 [MapReduce 視圖](../api/creating_views.html)的配置方法為將「設計文件」新增至資料庫。「設計文件」是 JSON 文件，其中包含如何建置視圖或索引的相關資訊。讓我們舉一個簡單範例。假設我們具有資料文件的簡單集合，類似於下列範例：
 
-_Example of a simple data document:_
+_簡單資料文件的範例：_
 
 ```json
 {
@@ -49,15 +36,11 @@ _Example of a simple data document:_
 ```
 {:codeblock}
 
-Each data document includes a name,
-a body,
-and a timestamp.
-We want to create a [MapReduce view](../api/creating_views.html) to sort our documents by timestamp.
+每一個資料文件都包括名稱、內文及時間戳記。我們想要建立 [MapReduce 視圖](../api/creating_views.html)，依時間戳記排序我們的文件。
 
-We can do this by creating a Map function,
-similar to the following example.
+作法為建立 Map 函數，類似於下列範例：
 
-_Example map function returning a document's timestamp field, if present:_
+_傳回文件的時間戳記欄位（如果存在的話）的 map 函數範例：_
 
 ```javascript
 function(doc) {
@@ -68,16 +51,11 @@ function(doc) {
 ```
 {:codeblock}
 
-The function emits the document's timestamp so that we can use it as the key to the index;
-as we are not interested in the value in the index,
-`null` is emitted.
-The effect is to provide a time-ordered index into the document set.
+此函數會發出文件的時間戳記，讓我們可以使用它作為索引的索引鍵；當我們對索引中的值沒有興趣時，會發出 `null`。效果為在文件集中提供時間導向的索引。
 
-We are going to call this view "`by_ts`"
-and put it into a Design Document called "`fetch`",
-like the following example.
+我們會將此視圖稱為 "`by_ts`"，並將它放入稱為 "`fetch`" 的「設計文件」中，如下列範例所示。
 
-_Example design document that defines a view using a map function:_
+_使用 map 函數定義視圖的設計文件範例：_
 
 ```json
 {
@@ -96,70 +74,35 @@ _Example design document that defines a view using a map function:_
 ```
 {:codeblock}
 
-The result is that our map code has been turned into a JSON-compatible string,
-and included in a Design Document.
+結果為我們的對映程式碼已轉換為 JSON 相容字串，並內含在「設計文件」中。
 
-Once the Design Document is saved,
-{{site.data.keyword.cloudant_short_notm}} triggers server-side processes to build the `fetch/by_ts` view.
-It does this by iterating over every document in the database,
-and sending each one to the Javascript map function.
-The function returns the emitted key/value pair.
-As the iteration continues,
-each key/value pair is stored in a B-Tree index.
-After the index is built for the first time,
-subsequent re-indexing is performed only against new and updated documents.
-Deleted documents are de-indexed.
-This time-saving process is known as *incremental MapReduce*,
-as shown in the following diagram:
+一旦儲存了「設計文件」，Cloudant 就會觸發伺服器端處理程序來建置 `fetch/by_ts` 視圖。作法為反覆運算資料庫中的每一份文件，並將每一份文件傳送至 Javascript map 函數。此函數會傳回已發出的鍵值組。當反覆運算繼續時，每一個鍵值組都會儲存在 B-Tree 索引中。在第一次建置索引之後，只會對新的及更新的文件執行後續的重新索引。已刪除的文件會解除索引。此省時的處理程序稱為*增量 MapReduce*，如下圖所示：
 
-![Illustration of Incremental MapReduce](../images/DesDocMan00.png)
+![增量 MapReduce 的圖解](../images/DesDocMan00.png)
 
-It's worth remembering at this point that:
+此時值得記住：
 
--   The construction of an index happens asynchronously.
-    {{site.data.keyword.cloudant_short_notm}} confirms that our Design Document has been saved,
-    but to check on the progress on the construction of our index,
-    we have to poll {{site.data.keyword.cloudant_short_notm}}'s [`_active_tasks`](../api/active_tasks.html) endpoint.
--   The more data we have,
-    the longer it takes before the index is ready.
--   While the initial index build is in progress,
-    _any queries made against that index will block_.
--   Querying a view triggers the 'mapping' of any documents that haven't yet been incrementally indexed.
-    This ensures we get an up-to-date view of the data.
-    See the following ['`stale`' parameter](#stale) discussion,
-    for exceptions to this rule.
+-   索引的建構會非同步發生。Cloudant 確認已儲存我們的「設計文件」，但若要檢查索引的建構進度，必須輪詢 Cloudant 的 [`_active_tasks`](../api/active_tasks.html) 端點。
+-   我們具有的資料越多，則備妥索引所需的時間就越長。
+-   當起始索引建置進行中時，_針對該索引所做的任何查詢都將封鎖_。
+-   查詢視圖會觸發尚未增量索引之任何文件的「對映」。這確保取得最新的資料視圖。如需此規則的例外狀況資訊，請參閱下列 ['`stale`' 參數](#stale)討論。
 
-## Multiple views in the same design document
+## 相同設計文件中的多重視圖
 
-If we define several views in the same design document,
-then they are built efficiently at the same time.
-Each document is only read once,
-and passed through each view's Map function.
-The downside of this approach is that modifying a design document
-_invalidates all of the existing MapReduce views_ defined in that document,
-even if some of the views remain unaltered. 
+如果在相同的設計文件中定義數個視圖，則會同時有效地建置它們。每一份文件只會讀取一次，並透過每一個視圖的 Map 函數傳遞。此方法的缺點為，修改設計文件會讓該文件中定義的_所有現有 MapReduce 視圖失效_，即使部分視圖保持不變也一樣。 
 
-If MapReduce views must be altered independently of each other,
-place their definitions in separate design documents. 
+如果必須彼此獨立變更 MapReduce 視圖，請將其定義放置在個別的設計文件中。 
 
->   **Note**: This behaviour does not apply to Lucene search indexes.
-    They can be altered within the same design document
-    without invalidating other unchanged indexes in the same document.
+>   **附註**：此行為不適用於 Lucene 搜尋索引。
+    您可在相同的設計文件內變更它們，這不會讓相同文件中其他未變更的索引失效。
 
-![Illustration of Design Document version change](../images/DesDocMan02.png)
+![「設計文件」版本變更的圖解](../images/DesDocMan02.png)
 
-## Managing changes to a design document
+## 管理設計文件的變更
 
-Imagine at some point in the future we decide to change the design of our view.
-Now,
-instead of returning the actual timestamp result,
-we are only interested in the count of how many documents match the criteria.
-To achieve this,
-the map function remains the same,
-but we now use a _reduce_ of "`_count`".
-The effect is that our design document looks like the following example.
+想像在未來的某個時刻，我們決定變更視圖的設計。現在，不是傳回實際的時間戳記結果，而是我們只對有多少份文件符合準則感興趣。為了達成此目的，map 函數會保持相同，但我們現在使用 _reduce_（共有 "`_count`"）。效果是我們的設計文件看起來像下列範例。
 
-_Example design document that uses a reduce function:_
+_使用 reduce 函數的設計文件範例：_
 
 ```json
 {
@@ -180,187 +123,111 @@ _Example design document that uses a reduce function:_
 ```
 {:codeblock}
 
-When this design document is saved,
-{{site.data.keyword.cloudant_short_notm}} completely invalidates the old index and begins building the new index from scratch,
-iterating over every document in turn.
-As with the original build,
-the time taken depends on how many documents are in the database,
-and blocks incoming queries on that view until it is complete.
+當儲存此設計文件時，Cloudant 會讓舊索引完全失效，並開始從頭建置新的索引，輸流反覆運算每一份文件。進行原始建置時，所需時間取決於資料庫中有多少文件，並會封鎖該視圖上送入的查詢，直到完成為止。
 
-But there's a problem...
+但發生問題...
 
-If we have an application that is accessing this view _in real-time_,
-then we might well encounter a deployment dilemma:
+如果有一個應用程式正在_即時_ 存取此視圖，則我們很可能會遇到部署困境：
 
--   Version 1 of our code,
-    which relied on the original Design Document,
-    might no longer work because the old view has been invalidated.
--   Version 2 of our code,
-    which uses the new Design Document,
-    can't be released immediately,
-    because the new view will not have finished building yet,
-    especially if there are many documents in the database.
--   A more subtle problem affecting our code is that versions 1 and 2 expect different result data from the view:
-    version 1 expects a list of matching documents,
-    while version 2 expects a 'reduced' count of results.
+-   根據原始「設計文件」的程式碼的第 1 版可能不再運作，因為舊視圖已失效。
+-   使用新「設計文件」的程式碼的第 2 版無法立即釋出，因為新視圖尚未完成建置，尤其是在資料庫中有許多文件時。
+-   影響程式碼的更微妙問題為第 1 版與第 2 版預期來自視圖的結果資料不同：第 1 版預期為相符文件的清單，而第 2 版則預期為結果數「減少」。
 
-## Coordinating changes to Design Documents
+## 協調設計文件的變更
 
-There are two ways of dealing with this change control problem.
+您可以利用下列兩種方式來處理此變更控制問題。
 
-### Versioned design documents 
+### 版本化的設計文件 
 
-One solution is to use versioned design document names:
+一種解決方案為使用版本化的設計文件名稱：
 
--   Our code is initially written to use a view called `_design/fetchv1`.
--   When we come to release a new version,
-    we create a new view called `_design/fetchv2`,
-    and query the view to ensure that it begins to build.
--   We poll `_active_tasks` until the work of building the new index is complete.
--   We are now ready to release the code that depends on the second view.
--   Delete `_design/fetchv1` when we are sure it is no longer needed.
+-   程式碼一開始會寫入至稱為 `_design/fetchv1` 的視圖。
+-   開始釋出新版本時，會建立一個稱為 `_design/fetchv2` 的新視圖，並查詢該視圖以確定它開始建置。
+-   輪詢 `_active_tasks`，直到建置新索引的工作完成。
+-   現在我們已準備好釋出取決於第二個視圖的程式碼。
+-   確定不再需要 `_design/fetchv1` 時，請將它刪除。
 
-Using versioned design documents is a simple way to manage change control in your Design Documents,
-as long as you remember to remove the older versions at a later date!
+使用版本化的設計文件是一種簡單方式，可管理「設計文件」中的變更控制，只要您記住日後要移除較舊的版本！
 
-### 'Move and switch' design documents
+### 「移動及切換」設計文件
 
-Another approach,
-documented [here ![External link icon](../images/launch-glyph.svg "External link icon")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window},
-relies on the fact that {{site.data.keyword.cloudant_short_notm}} recognises when it has two identical design documents,
-and won't waste time and resources rebuilding views it already has.
-In other words,
-if we take our design document `_design/fetch` and create an exact duplicate `_design/fetch_OLD`,
-then both endpoints would work interchangeably without triggering any reindexing.
+[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window} 所記載的另一種方式，係根據 Cloudant 在具有兩份相同的設計文件時可辨識它們的實際情況，因此在重建已有的視圖時不會浪費時間及資源。換言之，如果取得設計文件 `_design/fetch`，並建立完全相同的複本 `_design/fetch_OLD`，則這兩個端點將可交換運作，不會觸發任何重新索引。
 
-The procedure to switch to the new view is this:
+切換至新視圖的程序如下：
 
-1.  Create a duplicate copy of the design document that we want to change,
-    for example by adding `_OLD` to its name:
-    `_design/fetch_OLD`.
-2.  Put the new or 'incoming' design document into the database,
-    using a name with the suffix `_NEW`: `_design/fetch_NEW`.
-3.  Query the `fetch_NEW` view,
-    to ensure that it starts to build.
-4.  Poll the `_active_tasks` endpoint and wait until the index has finished building.
-5.  Put a duplicate copy of the new design document into `_design/fetch`.
-6.  Delete Design Document `_design/fetch_NEW`.
-7.  Delete Design Document `_design/fetch_OLD`.
+1.  建立想要變更之設計文件的副本，例如，方法為將 `_OLD` 新增至其名稱：`_design/fetch_OLD`。
+2.  使用名稱與字尾 `_NEW` 搭配，將新的或「送入的」設計文件放入資料庫中：`_design/fetch_NEW`。
+3.  查詢 `fetch_NEW` 視圖，以確保它開始建置。
+4.  輪詢 `_active_tasks` 端點，並等到索引完成建置。
+5.  將新設計文件的副本放入 `_design/fetch` 中。
+6.  刪除「設計文件」`_design/fetch_NEW`。
+7.  刪除「設計文件」`_design/fetch_OLD`。
 
-## Move and Switch tooling
+## 移動及切換工具
 
-There is a command-line Node.js script that automates the 'move and switch' procedure,
-called '`couchmigrate`'.
-It can be installed as follows.
+您可以利用指令行 Node.js Script，自動執行「移動及切換」程序（稱為 '`couchmigrate`'）。它可以如下所示進行安裝。
 
-_Command to install the Node.js `couchmigrate` script:_
+_安裝 Node.js `couchmigrate` Script 的指令：_
 
 ```sh
 npm install -g couchmigrate
 ```
 {:codeblock}
 
-To use the `couchmigrate` script,
-first define the URL of the CouchDB/{{site.data.keyword.cloudant_short_notm}} instance by setting an environment variable called `COUCH_URL`.
+若要使用 `couchmigrate` Script，首先請透過設定稱為 `COUCH_URL` 的環境變數來定義 CouchDB/Cloudant 實例的 URL。
 
-_Defining the URL of the a {{site.data.keyword.cloudant_short_notm}} instance:_
+_定義 Cloudant 實例的 URL：_
 
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
 ```
 {:codeblock}
 
-The URL can be HTTP or HTTPS,
-and can include authentication credentials.
+URL 可以是 HTTP 或 HTTPS，而且可以包括鑑別認證。
 
-_Defining the URL of the {{site.data.keyword.cloudant_short_notm}} instance with authentication credentials:_
+_定義具有鑑別認證之 Cloudant 實例的 URL：_
 
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
 ```
 {:codeblock}
 
-Assuming we have a design document in JSON format,
-stored in a file,
-we can then run the migrate command.
+假設具有 JSON 格式的設計文件（儲存在檔案中），則可以執行移轉指令。
 
-In this example,
-`db` specifies the name of the database to change,
-and `dd` specifies the path to our Design Document file.
+在此範例中，`db` 指定要變更的資料庫名稱，而 `dd` 指定「設計文件」檔案的路徑。
 
-_Running the `couchmigrate` command:_
+_執行 `couchmigrate` 指令：_
 
 ```sh
 couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
 {:pre}
 
-The script coordinates the 'move and switch' procedure,
-waiting until the view is built before returning.
-If the incoming design document is the same as the incumbent one,
-then the script returns almost immediately.
+Script 會協調「移動及切換」程序，等到視圖完成建置後再返回。如果送入的設計文件與現任的設計文件相同，則 Script 幾乎立即返回。
 
-The source code for the script is available here:
-[https://github.com/glynnbird/couchmigrate ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/couchmigrate){:new_window}.
+這裡提供 Script 的原始碼：[https://github.com/glynnbird/couchmigrate ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/glynnbird/couchmigrate){:new_window}。
 
 <div id="stale"></div>
 
-## The '`stale`' parameter
+## '`stale`' 參數
 
-If an index is complete,
-but new records are added into the database,
-then the index is scheduled to be updated in the background.
-This is the state of the database shown in the following diagram:
+如果索引完成，但有新記錄新增至資料庫中，則索引會排定為在背景中更新。這是資料庫的狀態，如下圖所示：
 
-![Illustration of index scheduled for updating](../images/DesDocMan01.png)
+![排定更新之索引的圖解](../images/DesDocMan01.png)
 
-When querying the view, we have three choices:
+查詢視圖時，有三個選項：
 
--   The default behaviour is to ensure that the index is up-to-date,
-    with the latest documents in the database,
-    before returning the answer.
-    When we query the view,
-    {{site.data.keyword.cloudant_short_notm}} first indexes the 250 new documents,
-    and then returns the answer.
--   An alternative is adding the "`stale=ok`" parameter to the API call.
-    The parameter means "return me the data that is already indexed,
-    I don't care about the latest updates".
-    In other words,
-    when you query the view with "`stale=ok`",
-    {{site.data.keyword.cloudant_short_notm}} returns the answer immediately,
-    without any additional reindexing.
--   A second alternative is to add the "`stale=update_after`" parameter to the API call.
-    The parameter means "return me the data that is already indexed,
-    _and_ then reindex any new documents".
-    In other words,
-    when you query the view with "`stale=update_after`",
-    {{site.data.keyword.cloudant_short_notm}} returns the answer immediately,
-    and then schedules a background task to index the new data.
+-   預設行為是確保在傳回答案之前索引保持最新狀態，而且資料庫中有最新文件。查詢視圖時，Cloudant 首先會對 250 份新文件編製索引，然後傳回答案。
+-   替代方案為將 "`stale=ok`" 參數新增至 API 呼叫。此參數表示「傳給我已編製索引的資料，我不在意最新的更新項目」。換言之，利用 "`stale=ok`" 查詢視圖時，Cloudant 會立即傳回答案，不進行任何其他重新索引。
+-   第二個替代方案為將 "`stale=update_after`" 參數新增至 API 呼叫。此參數表示「傳給我已編製索引的資料，_並且_ 接著對任何新文件重新編製索引」。換言之，利用 "`stale=update_after`" 查詢視圖時，Cloudant 會立即傳回答案，並且接著排定背景作業來對新資料編製索引。
 
-Adding "`stale=ok`" or "`stale=update_after`" can be a good way getting answers more quickly from a view,
-but at the expense of freshness. 
+新增 "`stale=ok`" 或 "`stale=update_after`" 可能是更快從視圖取得答案的好方式，但會以即時性為代價。 
 
->   **Note**: The default behaviour distributes load evenly across nodes in the {{site.data.keyword.cloudant_short_notm}} cluster.
-    If you use the alternative `stale=ok` or `stale=update_after` options,
-    this might favor a subset of cluster nodes,
-    in order to return consistent results from across the eventually consistent set.
-    This means that the '`stale`' parameter isn't a perfect solution for all use-cases.
-    However,
-    it can be useful for providing timely responses on fast-changing data sets
-    if your application is happy to accept stale results.
-    If the rate of change of your data is small,
-    adding "`stale=ok`" or "`stale=update_after`" will not bring a performance benefit,
-    and might unevenly distribute the load on larger clusters.
+>   **附註**：預設行為會將負載平均分配至 Cloudant 叢集的各個節點中。
+    如果使用替代方案 `stale=ok` 或 `stale=update_after` 選項，這可能會優先使用叢集節點的子集，以從最終一致集合傳回一致結果。這表示 '`stale`' 參數不是所有使用案例的完美解決方案。不過，如果您的應用程式樂意接受過時的結果，則對快速變更的資料集提供及時回應，可能會很有用。如果資料的變更率很小，新增 "`stale=ok`" 或 "`stale=update_after`" 將不會帶來效能優勢，而且可能無法在大型叢集上平均分配負載。
 
-Avoid using `stale=ok` or `stale=update_after` whenever possible.
-The reason is that the default behavior provides the freshest data,
-and distributes data within the cluster.
-If it is possible to make a client app aware that there is a large data processing task is in progress
-(during a regular bulk data update, for example),
-then the app could switch to `stale=ok` temporarily during these times,
-then revert to the default behaviour afterwards.
 
->   **Note**: The `stale` option is still available,
-    but the more useful options `stable` and `update` are available and should be used instead.
-    For more details,
-    see [Accessing a stale view](../api/using_views.html#accessing-a-stale-view).
+盡可能避免使用 `stale=ok` 或 `stale=update_after`。原因是預設行為會提供全新資料，並在叢集內分送資料。如果可讓用戶端應用程式意識到有一個大型資料處理作業進行中（例如，定期大量資料更新），則應用程式可在這些時間暫時切換至 `stale=ok`，之後再回復為預設行為。
+
+>   **附註**：`stale` 選項仍然可用，
+    但提供更有用的選項 `stable` 及 `update`，應該改用它們。如需詳細資料，請參閱[存取過時視圖](../api/using_views.html#accessing-a-stale-view)。

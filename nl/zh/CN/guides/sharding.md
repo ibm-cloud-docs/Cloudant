@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-05-15"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-05-15 -->
 
-# 如何在 {{site.data.keyword.cloudant_short_notm}} 中存储数据？
+# 如何在 Cloudant 中存储数据？
 
 ## 概念
 
-{{site.data.keyword.cloudantfull}} 中的每个数据库由一个或多个不同的_分片_组成，其中分片数称为 _Q_。分片是数据库中文档的非重复子集。所有 _Q_ 个分片一起包含数据库中的数据。每个分片存储为三个单独的拷贝。每个分片拷贝称为一个分片_副本_。每个分片副本存储在不同的服务器上。这些服务器在单个位置数据中心内可用。一个数据中心内的服务器集合称为一个集群。
+Cloudant 中的每个数据库由一个或多个不同的_分片_组成，其中分片数称为 _Q_。分片是数据库中文档的非重复子集。所有 _Q_ 个分片一起包含数据库中的数据。每个分片存储为三个单独的拷贝。每个分片拷贝称为一个分片_副本_。每个分片副本存储在不同的服务器上。这些服务器在单个位置数据中心内可用。一个数据中心内的服务器集合称为一个集群。
 
 ![分片](../images/sharding_database.png)
 
@@ -30,7 +30,7 @@ lastupdated: "2017-11-06"
 
 _Q_ 的缺省值因不同集群而异。可以随时间推移而调整此值。
 
-此外，副本（分片的拷贝）的数量是可配置的。在实践中，对许多系统的观察和度量表明，三个副本在大多数情况下是比较实用的数目，能在性能和数据安全之间达到良好的平衡。对于 {{site.data.keyword.cloudant_short_notm}} 系统来说，使用其他副本计数是十分不寻常的。
+此外，副本（分片的拷贝）的数量是可配置的。在实践中，对许多系统的观察和度量表明，三个副本在大多数情况下是比较实用的数目，能在性能和数据安全之间达到良好的平衡。对于 Cloudant 系统来说，使用其他副本计数是十分不寻常的。
 
 ## 分片如何影响性能？
 
@@ -53,7 +53,7 @@ _Q_ 的缺省值因不同集群而异。可以随时间推移而调整此值。
 
 一般来说，请避免每个分片的文档数超过 1000 万个。在总体分片大小方面，出于运行原因，将分片保持在 10 GB 以内会很有用。例如，分片越小，在重新均衡期间通过网络移动就越容易。
 
-鉴于避免文档过多的需求与保持较低分片大小的需求存在冲突，单个 _Q_ 值不可能是适用于所有情况的最佳值。{{site.data.keyword.cloudant_short_notm}} 会随时间推移根据使用模式的更改而调整集群的缺省值。
+鉴于避免文档过多的需求与保持较低分片大小的需求存在冲突，单个 _Q_ 值不可能是适用于所有情况的最佳值。Cloudant 会随时间推移根据使用模式的更改而调整集群的缺省值。
 
 然而，对于特定数据库，花点时间来考虑观察到的请求模式和大小，并使用这些信息指导未来选择合适的分片数，往往会非常有用。使用代表性数据和请求模式进行测试，对于更好地估算合适 _Q_ 值至关重要。请随时准备根据生产体验来改变这些预期值。
 
@@ -64,7 +64,7 @@ _Q_ 的缺省值因不同集群而异。可以随时间推移而调整此值。
 *	如果数据的大小很小（例如几十或几百 MB 或者数千个文档），那么一个分片基本上就足够了。
 *	对于几个 GB 或几百万个文档的数据库，个位数的分片计数（例如 8）可能是合适的。
 *	对于几千万到几亿个文档或几十 GB 的更大型数据库，请考虑将数据库配置为使用 16 个分片。
-*	对于还要大型的数据库，请考虑手动将数据分片为多个数据库。对于此类大型数据库，请联系 [{{site.data.keyword.cloudant_short_notm}} 支持 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window} 以获取建议。
+*	对于还要大型的数据库，请考虑手动将数据分片为多个数据库。对于此类大型数据库，请联系 [Cloudant 支持 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window} 以获取建议。
 
 >	**注：**这些准则中的数字源自观察和经验，而不是精确计算出的。
 
@@ -85,7 +85,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**注：**Bluemix 上的 {{site.data.keyword.cloudant_short_notm}} 数据库不支持为数据库设置 _Q_。_Q_ 值在大多数 `cloudant.com` 多租户集群上不可用。
+>	**注：**Bluemix 上的 Cloudant 数据库不支持为数据库设置 _Q_。_Q_ 值在大多数 `cloudant.com` 多租户集群上不可用。
 
 如果尝试设置不可用的 _Q_ 值，那么结果会生成 [`403` 响应](../api/http.html#403)，其 JSON 主体类似于以下示例：
 
@@ -99,7 +99,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 
 ### 设置副本计数
 
-自 CouchDB V2 开始，创建数据库时，您可以[指定副本计数 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}。但是，不能将副本计数值更改为缺省值 3 之外的值。尤其是，创建数据库时无法指定其他副本计数值。要获取进一步帮助，请联系 [{{site.data.keyword.cloudant_short_notm}} 支持 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。
+自 CouchDB V2 开始，创建数据库时，您可以[指定副本计数 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}。但是，不能将副本计数值更改为缺省值 3 之外的值。尤其是，创建数据库时无法指定其他副本计数值。要获取进一步帮助，请联系 [Cloudant 支持 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。
 
 ### 什么是 _R_ 和 _W_ 自变量？
 
@@ -113,7 +113,7 @@ _R_ 自变量只能在单个文档请求上指定。_R_ 会影响协调程序在
 
 将 _R_ 设置为 _1_ 可能会缩短总体响应时间，因为协调程序可以更快返回响应。原因是协调程序只须等待来自托管相应分片的任一副本的单个响应。
 
->	**注：**由于 {{site.data.keyword.cloudant_short_notm}} 使用的是[最终一致性](cap_theorem.html)模型，因此减小 _R_ 值会增加返回的响应不基于最新数据的可能性。使用缺省 _R_ 值有助于减轻此影响。
+>	**注：**由于 Cloudant 使用的是[最终一致性](cap_theorem.html)模型，因此减小 _R_ 值会增加返回的响应不基于最新数据的可能性。使用缺省 _R_ 值有助于减轻此影响。
 
 _R_ 的缺省值为 _2_。对于使用三个分片副本的典型数据库，此值对应于大部分副本。如果数据库的副本数高于或低于 3，那么 _R_ 的缺省值会相应更改。
 

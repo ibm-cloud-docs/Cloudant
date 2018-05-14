@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-07-11"
 
 ---
 
@@ -21,15 +21,15 @@ Vuoi proteggere i tuoi dati
 per assicurarti che siano sicuri,
 disponibili
 e che mantengano l'integrità.
-{{site.data.keyword.cloudantfull}} fornisce diversi modi per proteggere i tuoi dati e contribuire a mantenere operative le tue applicazioni.
+Cloudant fornisce diversi modi per proteggere i tuoi dati e contribuire a mantenere operative le tue applicazioni.
 {:shortdesc}
 
 Alcune di queste funzioni di protezione sono automatiche.
 Per le altre forme di protezione,
-{{site.data.keyword.cloudant_short_notm}} ti offre degli strumenti supportati che
+Cloudant ti offre degli strumenti supportati che
 ti consentono di creare le tue proprie funzionalità di alta disponibilità e di ripristino di emergenza.
 
-Questo documento fornisce una panoramica delle funzionalità automatiche e degli strumenti supportati offerti da {{site.data.keyword.cloudant_short_notm}}.
+Questo documento fornisce una panoramica delle funzionalità automatiche e degli strumenti supportati offerti da Cloudant.
 
 ## Tipi e livelli di protezione
 
@@ -65,7 +65,7 @@ gli strumenti e le funzioni possono quindi soddisfare i requisiti HA o DR.
 >	**Nota**: strumenti e funzioni differenti forniscono diversi livelli di protezione.
 	Le diverse funzioni potrebbero essere più o meno adatte per il tuo specifico requisito HA o DR.
 
-{{site.data.keyword.cloudant_short_notm}} fornisce una serie di strumenti e funzioni che soddisfano i requisiti generali:
+Cloudant fornisce una serie di strumenti e funzioni che soddisfano i requisiti generali:
 
 1.	Ridondanza dei dati all'interno di una singola regione, nota anche come [Ridondanza automatica dei dati in una regione](#in-region-automatic-data-redundancy).
 2.	Ridondanza dei dati e failover in più regioni, nota anche come [Ridondanza in più regioni per il ripristino di emergenza](#cross-region-redundancy-for-disaster-recovery).
@@ -73,7 +73,7 @@ gli strumenti e le funzioni possono quindi soddisfare i requisiti HA o DR.
 
 ## Ridondanza automatica dei dati in una regione
 
-All'interno di un singolo account {{site.data.keyword.cloudant_short_notm}},
+All'interno di un singolo account Cloudant,
 i dati vengono memorizzati in triplice copia utilizzando processi interni ed automatici.
 Non devi fare nulla per abilitare questa replica interna dei dati.
 
@@ -82,13 +82,13 @@ Nello specifico,
 la ridondanza dei dati in una regione fornisce protezione per i tuoi dati in caso di errori hardware all'interno della regione.
 Quando si verifica un errore in un'unità hardware all'interno della regione,
 non sarà più disponibile solo la copia dei tuoi dati memorizzata in tale unità.
-Le applicazioni restano utilizzabili perché {{site.data.keyword.cloudant_short_notm}} instrada automaticamente le richieste alle copie dei tuoi dati
+Le applicazioni restano utilizzabili perché Cloudant instrada automaticamente le richieste alle copie dei tuoi dati
 che sono ancora disponibili sulle altre unità hardware nella regione.
 Nel frattempo,
 il monitoraggio automatico dei sistemi rileva l'errore dell'unità hardware,
 richiedendo l'azione e il successivo ripristino della ridondanza completa.
 
-Gli account {{site.data.keyword.cloudant_short_notm}} si trovano all'interno di una singola regione.
+Gli account Cloudant si trovano all'interno di una singola regione.
 Questa caratteristica significa che tutti i dati memorizzati all'interno del tuo account vengono memorizzati su server separati,
 ognuno dei quali è ospitato all'interno di quella singola regione.
 
@@ -110,13 +110,13 @@ fornendo la tolleranza agli errori che riguardano singoli sistemi all'interno de
 
 ## Ridondanza in più regioni per il ripristino di emergenza
 
-La funzione di replica di {{site.data.keyword.cloudant_short_notm}} ti aiuta a creare una funzionalità di ripristino di emergenza flessibile nelle tue applicazioni.
-Il modo principale per abilitare il ripristino di emergenza è quello di utilizzare la replica {{site.data.keyword.cloudant_short_notm}} per creare ridondanza in più regioni.
+La funzione di replica di Cloudant ti aiuta a creare una funzionalità di ripristino di emergenza flessibile nelle tue applicazioni.
+Il modo principale per abilitare il ripristino di emergenza è quello di utilizzare la replica Cloudant per creare ridondanza in più regioni.
 Il risultato è che la tua applicazione è in grado di tollerare la situazione in cui una o più regioni non sono disponibili.
 
 I passi di base per creare la ridondanza in più regioni sono:
 
-1.  Crea gli account {{site.data.keyword.cloudant_short_notm}} in due o più regioni.
+1.  Crea gli account Cloudant in due o più regioni.
 2.  Crea i database in ogni regione, come necessario.
 3.  Per i database che devono essere memorizzati con la ridondanza in più regioni, imposta le repliche continue bidirezionali tra i database corrispondenti in ogni account.
 4.  Progetta e implementa le tue applicazioni in modo che le richieste di dati vengano instradate a seconda che il tuo ambiente sia una configurazione Attivo-Passivo o Attivo-Attivo.
@@ -152,7 +152,7 @@ ma si applica agli errori che interessano un'intera regione.
 Tuttavia,
 la configurazione delle tue applicazioni per funzionare correttamente con le configurazioni di ridondanza in più regioni fornisce una vera funzionalità di ripristino di emergenza.
 Il motivo è che le applicazioni possono continuare a funzionare anche se i dati in una regione non sono disponibili per un certo tempo.
-La replica {{site.data.keyword.cloudant_short_notm}} aiuta a garantire la sincronizzazione dei dati tra le regioni.
+La replica Cloudant aiuta a garantire la sincronizzazione dei dati tra le regioni.
 Tuttavia,
 le tue applicazioni devono essere in grado di eseguire il 'failover' sulle copie dei tuoi dati memorizzate nelle altre regioni.
 
@@ -176,17 +176,17 @@ valuta la possibilità di eseguire il dump dei tuoi dati del database in una pos
 periodici e regolari.
 Assicurati di controllare e verificare i backup per essere sicuro che siano completi e corretti.
 
-{{site.data.keyword.cloudant_short_notm}} supporta strumenti che consentono il dump del contenuto JSON nei database a un file
+Cloudant supporta strumenti che consentono il dump del contenuto JSON nei database a un file
 e il successivo ripristino dei database da questi file.
 
 In particolare,
-gli strumenti supportati da {{site.data.keyword.cloudant_short_notm}} ti aiutano a:
+gli strumenti supportati da Cloudant ti aiutano a:
 
 *	Eseguire il backup di database completi in un file,
 	adatto per un'ulteriore elaborazione e archiviazione esterna.
 *	Ripristinare database completi da uno stato precedente contenuto nel tuo file di backup.
 
-<strong style="color:red;">Avvertenza.</strong> Gli strumenti supportati da {{site.data.keyword.cloudant_short_notm}} hanno le seguenti limitazioni: 
+<strong style="color:red;">Avvertenza.</strong> Gli strumenti supportati da Cloudant hanno le seguenti limitazioni: 
 
 *	Gli strumenti non eseguono il backup delle impostazioni `_security`.
 *	Gli strumenti non eseguono il backup degli allegati.
@@ -204,7 +204,7 @@ gli strumenti supportati da {{site.data.keyword.cloudant_short_notm}} ti aiutano
 
 ## Passi successivi
 
-Puoi sviluppare applicazioni che si basano sulle funzioni {{site.data.keyword.cloudant_short_notm}} di base e sugli strumenti supportati
+Puoi sviluppare applicazioni che si basano sulle funzioni Cloudant di base e sugli strumenti supportati
 per abilitare strategie di protezione dei dati più complesse.
 
 Gli scenari di esempio includono:

@@ -9,30 +9,49 @@ Cloudant NoSQL DB
 	cloudant.md
 
 	{: .topicgroup}
-	Offerings
+	供應項目
+		offerings/index.md
 		offerings/bluemix.md
-		offerings/bluemix_dedicated.md
-		offerings/cloudant_local.md
-		offerings/cloudant.com.md
-
-	{: .topicgroup}
-    Security and Compliance
-    	offerings/security.md
-    	offerings/compliance.md
-    	offerings/dataprivacygovernance.md
+		offerings/whatsnew.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
     basics/index.md
 
 	{: .topicgroup}
-	Sample apps
-		[Feedback Mobile App using Ionic and Cloudant](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
-		[Open Fridge](https://github.com/krook/openfridge)
-		[Online Catalog Store](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
+	API 參考資料
+		api/index.md
+		api/http.md
+		api/compare.md
+		api/account.md
+		api/authentication.md
+		api/authorization.md
+		api/cors.md
+		api/database.md
+		api/document.md
+		api/attachments.md
+		api/cloudant_query.md
+		api/design_documents.md
+		api/creating_views.md
+		api/using_views.md
+		api/search.md
+		api/cloudant-geo.md
+		api/replication.md
+		api/advanced_replication.md
+		api/active_tasks.md
+		api/vhosts.md
+		api/advanced.md
+		api/monitoring.md
+		api/backup.md
 
 	{: .topicgroup}
-	Libraries
+	範例應用程式
+		[使用 Ionic 及 Cloudant 的意見行動應用程式](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
+		[Open Fridge](https://github.com/krook/openfridge)
+		[線上型錄商店](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
+
+	{: .topicgroup}
+	程式庫
 		libraries/index.md
 		libraries/supported.md
 		libraries/thirdparty.md
@@ -40,10 +59,9 @@ Cloudant NoSQL DB
 
 	{: .navgroup id="howto"}
 	{: .topicgroup}
-	Tutorials
+	指導教學
 		tutorials/create_service.md
 		tutorials/create_service_cli.md
-		tutorials/create_dedicated_hardware_plan.md
 		tutorials/create_database.md
 		tutorials/create_query.md
 		tutorials/create_backup.md
@@ -55,14 +73,16 @@ Cloudant NoSQL DB
 		tutorials/create_bmxapp_maintain.md
 
 	{: .topicgroup}
-	Recovery and backup
+	回復及備份
 		guides/disaster-recovery-and-backup.md
 		guides/active-active.md
 		guides/backup-cookbook.md
 
 	{: .topicgroup}
-	Guides
+	手冊
 		guides/acurl.md
+		guides/backup-guide.md
+		guides/backup-guide-using-replication.md
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/warehousing.md
@@ -72,8 +92,13 @@ Cloudant NoSQL DB
 		guides/sharding.md
 		guides/json.md
 		guides/managing_tasks.md
-		guides/conflicts.md
 		guides/model_data.md
 		guides/replication_guide.md
-		guides/backup-guide-using-replication.md
+
+	{: .topicgroup}
+    安全
+    	offerings/security.md
+    	offerings/compliance.md
+    	offerings/dataprivacygovernance.md
 	{: .navgroup-end}
+

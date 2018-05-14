@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-07-11"
 
 ---
 
@@ -14,207 +14,106 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Disaster Recovery and Backup
+# 災難回復及備份
 
-Your data is important and valuable.
-You want to protect your data,
-to help ensure it is secure,
-available,
-and maintains integrity.
-{{site.data.keyword.cloudantfull}} provides several ways to protect your data and help keep your applications operational.
+您的資料十分重要並具有價值。您要保護資料、協助確保它是安全、可用的，以及維護完整性。Cloudant 提供數種方式來保護資料，以及協助維持應用程式的運作。
 {:shortdesc}
 
-Some of these protection features are automatic.
-For other forms of protection,
-{{site.data.keyword.cloudant_short_notm}} provides you with supported tools that
-help you to create your own high availability and disaster recovery capabilities.
+其中有部分的保護特性是自動特性。針對其他形式的保護，Cloudant 提供支援的工具來協助您建立自己的高可用性及災難回復功能。
 
-This document provides an overview of the automatic capabilities and supported tools that are offered by {{site.data.keyword.cloudant_short_notm}}.
+本文件概述 Cloudant 所提供的自動功能及支援的工具。
 
-## Types and levels of protection
+## 保護的類型及層次
 
-The type of protection you might want depends on the problem you are trying to solve.
+您可能想要的保護類型取決於您正在嘗試解決的問題。
 
-For example,
-you might want to have a high level of data availability so that you can still access your data,
-even if a limited amount of hardware within the system failed.
-This is a 'High Availability' (HA) requirement.
-It means providing the best possible continuous data availability after a hardware failure.
-Different HA techniques tolerate different levels of failure before operations are affected.
+例如，您可能要有高階資料可用性，讓您仍然可以存取您的資料，即使系統內有限數量的硬體故障也是一樣。這是「高可用性 (HA)」需求。它表示在硬體故障之後仍然會提供最佳的可能持續資料可用性。在影響作業之前，不同的 HA 技術可容忍不同的故障層次。
 
-Alternatively,
-you might want to have easy and quick ways of backing-up and restoring data.
-For example,
-after a severe or extensive hardware failure,
-you want to be able to make all the data available on an alternative system
-as quickly as possible.
-This is a 'Disaster Recovery' (DR) requirement.
-A disaster generally means that a database is no longer available in one or more locations.
-For example,
-a power outage might cause all systems in a database cluster to fail.
-Alternatively,
-a large-scale network failure might mean that systems in a cluster cannot be contacted,
-even though they continue to work correctly.
+或者，您可能要有輕鬆且快速的方式來備份及還原資料。例如，重大或大量硬體故障之後，您想要讓所有資料盡快可以在替代系統上使用。這是「災難回復 (DR)」需求。災難一般表示資料庫無法再於一個以上的位置中使用。例如，停電可能會導致資料庫叢集中的所有系統失敗。或者，大規模網路失敗可能表示無法聯絡叢集中的系統，即使它們持續正確地運作也是一樣。
 
-Addressing your HA or DR requirements often begins by simplifying the problem into more generic requirements.
-When you identify your requirements,
-you can apply the tools and features that help solve the generic needs.
-When put together,
-the tools and features can then address your HA or DR requirements.
+處理 HA 或 DR 需求通常是從將問題簡化為較通用需求開始。當您識別需求時，即可套用協助解決通用需求的工具及特性。工具及特性合併使用時，就可以處理 HA 或 DR 需求。
 
->	**Note**: Different tools and features provide different levels of protection.
-	The different features might be more or less suitable for your specific HA or DR requirement.
+>	**附註**：不同的工具及特性可提供不同層次的保護。不同的特性可能較適合或較不適合您的特定 HA 或 DR 需求。
 
-{{site.data.keyword.cloudant_short_notm}} provides a number of tools and features that address general requirements:
+Cloudant 提供許多工具及特性，以處理一般需求：
 
-1.	Data redundancy within a single region, also known as [In-Region Automatic Data Redundancy](#in-region-automatic-data-redundancy).
-2.	Cross-region data redundancy and failover, also known as [Cross-Region Redundancy for Disaster Recovery](#cross-region-redundancy-for-disaster-recovery).
-3.	Point in time snapshot backup for point-in-time restore, by using 'traditional' [Database Backup and Recovery](#database-backup-and-recovery).
+1.	單一地區內的資料備援，也稱為[地區內自動資料備援](#in-region-automatic-data-redundancy)。
+2.	跨地區資料備援及失效接手，也稱為[災難回復的跨地區備援](#cross-region-redundancy-for-disaster-recovery)。
+3.	使用「傳統」的[資料庫備份及回復](#database-backup-and-recovery)，用於時間點還原的時間點 Snapshot 備份。
 
-## In-Region Automatic Data Redundancy
+## 地區內自動資料備援
 
-Within a single {{site.data.keyword.cloudant_short_notm}} account,
-data is stored in triplicate by using internal and automatic processes.
-You do not need to do anything to enable this internal data replication.
+在單一 Cloudant 帳戶內，使用內部及自動處理程序，將資料儲存成一式三份。您不需要執行任何作業，就能啟用此內部資料抄寫。
 
-In-region data redundancy enables high availability protection.
-Specifically,
-in-region data redundancy provides protection for your data against hardware failure within the region.
-When a hardware unit within the region fails,
-only the copy of your data that is stored on that unit is no longer available.
-Your applications remain usable because {{site.data.keyword.cloudant_short_notm}} automatically routes requests to the copies of your data
-that are still available on other hardware units within the region.
-Meanwhile,
-automatic monitoring of systems detects the hardware unit failure,
-prompting action and subsequent restoration of full redundancy.
+地區內資料備援會啟用高可用性保護。明確地說，地區內資料備援針對地區內的硬體故障提供資料保護。地區內的硬體裝置故障時，只有該裝置上所儲存資料的副本才無法再使用。您的應用程式會保持可用，因為 Cloudant 會自動將要求遞送至地區內其他硬體裝置上仍然可用的資料副本。同時，自動監視系統會偵測到硬體裝置故障，並提示動作以及後續還原完整備援。
 
-{{site.data.keyword.cloudant_short_notm}} accounts are located within a single region.
-This characteristic means that all the data that you store within your account is stored across separate servers,
-each of which is hosted within that single region.
+Cloudant 帳戶位在單一地區內。此特徵表示您儲存在帳戶內的所有資料都會儲存至不同的伺服器，而且每一部伺服器都是在該單一地區內進行管理。
 
-In-region automatic data redundancy is limited to:
+地區內自動資料備援限制為：
 
-1.	Providing protection within a single region only.
-2.	Maintaining current data.
+1.	僅提供單一地區內的保護。
+2.	維護現行資料。
 
-To provide protection across more than the single region associated with your account,
-use [Cross-Region Redundancy for Disaster Recovery](#cross-region-redundancy-for-disaster-recovery).
+若要提供與您帳戶相關聯的多個單一地區的保護，請使用[災難回復的跨地區備援](#cross-region-redundancy-for-disaster-recovery)。
 
-To provide protection for the 'history' of your data,
-for example to enable auditing of changes that are made to data by applications,
-use data snapshots that are created by [Database Backup and Recovery](#database-backup-and-recovery) tools.
+若要提供資料「歷程」的保護（例如，針對應用程式進行的資料變更啟用審核），請使用[資料庫備份及回復](#database-backup-and-recovery)工具所建立的資料 Snapshot。
 
-In summary,
-in-region data redundancy enables a High Availability capability
-by providing tolerance for failures that affect single systems within the region.
+總而言之，地區內資料備援透過提供影響地區內單一系統的失敗容錯，來啟用「高可用性」功能。
 
-## Cross-Region Redundancy for Disaster Recovery
+## 災難回復的跨地區備援
 
-The {{site.data.keyword.cloudant_short_notm}} replication feature helps you build a flexible disaster recovery capability into your applications.
-The main way to enable disaster recovery is to use {{site.data.keyword.cloudant_short_notm}} replication to create redundancy across regions.
-The result is that your application is able to tolerate the situation where one or more region is not available.
+Cloudant 抄寫特性可協助您將彈性的災難回復功能建置到應用程式。啟用災難回復的主要方式是使用 Cloudant 抄寫來建立跨地區的備援。結果是您的應用程式可以容忍一個以上地區無法使用的狀況。
 
-The basic steps in creating cross-region redundancy are:
+建立跨地區備援的基本步驟如下：
 
-1.  Create {{site.data.keyword.cloudant_short_notm}} accounts in two or more regions.
-2.  Create databases in each region as needed.
-3.  For databases that must be stored with cross-region redundancy, set up bidirectional continuous replications between the corresponding databases in each account.
-4.  Design and implement your applications so that data requests are routed depending on whether your environment is an Active-Passive or Active-Active configuration.
-  A detailed guide to setting this up is [available](active-active.html).
+1.  在兩個以上的地區中建立 Cloudant 帳戶。
+2.  視需要，在每一個地區中建立資料庫。
+3.  針對必須使用跨地區備援儲存的資料庫，設定每一個帳戶的對應資料庫之間的雙向持續抄寫。
+4.  設計及實作應用程式，以傳遞資料要求（視環境為「主動-被動」還是「主動-主動」配置而定）。[提供](active-active.html)設定此作業的詳細手冊。
 
-When you design your applications to work with data across multiple regions,
-consider the following points:
+當您設計應用程式使用跨多個地區的資料時，請考量下列各點：
 
-* Applications can send requests to the database hosted nearest to their physical location.
-  This use of proximity can reduce network latency and improve response times.
-  This configuration is referred to as an 'Active-Active' method.
-  It is characterized by the concurrent use of multiple copies of data.
-  Applications that work within an active-active configuration must have
-  a [strategy for handling conflicts](mvcc.html#distributed-databases-and-conflicts) to avoid problems with multiple copies of data.
-* Applications can request data from a single region by default.
-  If the region is not available,
-  the application can switch to requesting data from another region.
-  This configuration is referred to as an 'Active-Passive' method.
-  It is characterized by the active use of one set of data only at a time.
-* An application might use a hybrid configuration,
-  where a single account is used for all data write requests,
-  and other locations as used exclusively for read-only requests.
-  This configuration is considered Active-Active for reads.
-* In a disaster scenario,
-  your application must reroute data requests to access the accounts
-  that are hosted in the regions that are still online.
-  This requirement means that your application must be able to detect the loss of a region,
-  and then reroute data requests.
+* 應用程式可以將要求傳送至在最接近其實體位置處進行管理的資料庫。這項近似性使用可以減少網路延遲，並改善回應時間。此配置就是「主動-主動」方法。它的特徵是並行使用多份資料副本。在主動-主動配置內運作的應用程式必須有[處理衝突策略](mvcc.html#distributed-databases-and-conflicts)，才能避免發生多份資料副本的問題。
+* 依預設，應用程式可以要求單一地區中的資料。如果地區無法使用，則應用程式可以切換為要求另一個地區中的資料。此配置就是「主動-被動」方法。它的特徵是一次只主動使用一組資料。
+* 應用程式可以使用混合式配置，其中，單一帳戶用於所有資料寫入要求，以及專用於唯讀要求的其他位置。此配置視為「主動-主動」以進行讀取。
+* 在災難情境中，您的應用程式必須重新遞送資料要求，以存取仍在線上的地區中進行管理的帳戶。此需求表示您的應用程式必須能夠偵測地區的流失，然後重新遞送資料要求。
 
-In summary,
-cross-region redundancy is similar to a high availability capability,
-but applies to failures that affect an entire region.
-However,
-configuring your applications to work correctly with cross-redundancy configurations provides a true disaster recovery capability.
-The reason is that the applications can continue working if the data in one region is not available for an amount of time.
-{{site.data.keyword.cloudant_short_notm}} replication helps ensure data synchronization between regions.
-However,
-your applications must be able to 'fail over' to copies of your data that are stored in other regions.
+總而言之，跨地區備援類似高可用性功能，但套用至影響整個地區的失敗。不過，配置您的應用程式正確使用跨備援配置，可提供真正的災難回復功能。原因是如果某個地區中的資料在一段時間內無法使用，應用程式仍然可以持續運作。Cloudant 抄寫有助於確保地區之間的資料同步化。不過，您的應用程式必須能夠「失效接手」至其他地區中所儲存的資料副本。
 
-## Database Backup and Recovery
+## 資料庫備份及回復
 
-[In-Region Automatic Data Redundancy](#in-region-automatic-data-redundancy) provides applications with high availability access to data.
-[Cross-Region Redundancy for Disaster Recovery](#cross-region-redundancy-for-disaster-recovery) provides applications with a means of recovering from a disaster.
-However,
-both of these capabilities focus on maintaining access only to the _current_ copy of your data.
+[地區內自動資料備援](#in-region-automatic-data-redundancy)透過高可用性資料存取來提供應用程式。[災難回復的跨地區備援](#cross-region-redundancy-for-disaster-recovery)透過從災難回復的方式來提供應用程式。不過，這兩個功能都著重在維護僅限_現行_ 資料副本的存取。
 
-In practice,
-people and applications can make mistakes and change data in unintended ways.
-The applications themselves can implement some protection,
-but sometimes undesirable changes get through.
-In this case,
-it is useful to be able to restore data from a previous point in time.
-Database backups support this requirement.
+實際上，人員及應用程式可能會出錯，而以不想要的方式變更資料。應用程式本身可以實作某種保護，但有時會通過不想要的變更。在此情況下，可從前一個時間點還原資料十分有用。資料庫備份支援此需求。
 
-In addition to protecting your data with high availability and disaster recovery features,
-consider dumping your database data to a separate location at periodic,
-regular intervals.
-Ensure that you check and test the backups for confidence that they are complete and correct.
+除了使用高可用性及災難回復特性來保護資料之外，也請考量定期將資料庫資料傾出到不同位置。請確定您檢查及測試備份，確認它們已完成且正確。
 
-{{site.data.keyword.cloudant_short_notm}} supports tools that helps you dump the JSON content in databases to a file,
-and later restore databases from those files.
+Cloudant 所支援的工具可協助您將資料庫中的 JSON 內容傾出至檔案，稍後會從那些檔案中還原資料庫。
 
-Specifically,
-the tools supported by {{site.data.keyword.cloudant_short_notm}} help you to:
+具體而言，Cloudant 所支援的工具可協助您：
 
-*	Backup complete databases to a file,
-	suitable for further processing and off-site storage.
-*	Restore complete databases from a previous state that is contained in your backup file.
+*	將完整資料庫備份至檔案，適合進一步處理及離站儲存。
+*	從備份檔中所含的前一個狀態還原完整資料庫。
 
-<strong style="color:red;">Warning!</strong> The tools supported by {{site.data.keyword.cloudant_short_notm}} have the following limitations: 
+<strong style="color:red;">警告！</strong>Cloudant 所支援的工具具有下列限制： 
 
-*	`_security` settings are not backed up by the tools.
-*	Attachments are not backed up by the tools.
-*	Backups are not precisely accurate "point-in-time" snapshots.
-	The reason is that the documents in the database are retrieved in batches,
-	but other applications might be updating documents at the same time.
-	Therefore,
-	the data in the database can change between the times when the first and last batches are read.
-*	Index definitions held design documents are backed up,
-	but when data is restored the indexes must be rebuilt.
-	This rebuilding might take a considerable amount of time,
-	depending on how much data is restored.
+*	工具不會備份 `_security` 設定。
+*	工具不會備份附件。
+*	備份不是完全精確的「時間點」Snapshot。原因是資料庫中的文件將分批擷取，但其他應用程式可能會同時更新文件。因此，在讀取第一個批次與最後一個批次的時間之間，資料庫中的資料可能會變更。
+*	備份已保留設計文件的索引定義，但還原資料時，必須重建索引。這項重建可能需要大量時間（視資料還原方式而定）。
 
 <div id="conclusion"></div>
 
-## Next steps
+## 下一步
 
-You can develop applications that build on basic {{site.data.keyword.cloudant_short_notm}} functions and supported tools
-to enable more complex data protection strategies.
+您可以開發以基本 Cloudant 功能及所支援工具為建置基礎的應用程式，以啟用較複雜的資料保護策略。
 
-Example scenarios include:
+範例情境包括：
 
-*	Restoring single documents from previous states.
-*	Storing multiple previous document states, to allow for restores from long in the past.
-*	Migrating older data to cheaper storage, for more cost-effective retention.
+*	從前一個狀態還原單一文件。
+*	儲存多個先前文件狀態，以容許從過去的較久時間還原。
+*	將較舊的資料移轉至較便宜的儲存空間，以進行較具成本效益的保留。
 
-The backup tools consist of an open source node.js command line application and library.
-It is available [on NPM ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}.
+備份工具包含開放程式碼 node.js 指令行應用程式及程式庫。[NPM ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} 上會提供它。
 
-For ideas and examples that show how to integrate the tools into your data protection strategy,
-see the [Backup Cookbook guide](backup-cookbook.html).
+如需構想以及顯示如何將工具整合至資料保護策略的範例，請參閱[備份錦囊妙計手冊](backup-cookbook.html)。

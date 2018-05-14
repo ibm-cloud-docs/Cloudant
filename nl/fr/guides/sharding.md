@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-05-15"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-05-15 -->
 
-# Comment les données sont-elles stockées dans {{site.data.keyword.cloudant_short_notm}} ?
+# Comment les données sont-elles stockées dans Cloudant ?
 
 ## Concepts
 
-Chaque base de données dans {{site.data.keyword.cloudantfull}} se compose d'un ou de plusieurs _fragments_ distincts,
+Chaque base de données dans Cloudant se compose d'un ou de plusieurs _fragments_ distincts,
 le nombre de fragments est appelé _Q_.
 Un fragment est un sous-ensemble distinct de la base de données.
 Tous les fragments _Q_ rassemblés contiennent l'ensemble des données de la base de données.
@@ -52,7 +52,7 @@ Le nombre de répliques (copies d'un fragment) est également configurable.
 En pratique,
 l'observation et la mesure d'un grand nombre de systèmes indiquent qu'il est judicieux dans la plupart des cas d'utiliser trois répliques
 pour atteindre un équilibre entre les performances et la sécurité des données.
-Il est exceptionnel et inhabituel que le système {{site.data.keyword.cloudant_short_notm}} utilise un autre nombre de répliques.
+Il est exceptionnel et inhabituel que le système Cloudant utilise un autre nombre de répliques.
 
 ## En quoi la fragmentation affecte-t-elle les performances ?
 
@@ -108,7 +108,7 @@ pour estimer un nombre de fragments approprié.
 Lors de l'estimation de la taille des données, il est important
 de prendre en compte le nombre de documents par fragment.
 Les documents de chaque fragment se trouvent dans une
-[arborescence B ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/B-tree){:new_window}
+[arborescence B ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/B-tree){:new_window}
 de grande taille sur disque.
 Les index sont stockés de la même manière.
 Plus le nombre de documents ajoutés à un fragment est important,
@@ -126,7 +126,7 @@ il est plus facile de déplacer des fragments de petite taille pendant le rééq
 
 En prenant en compte les exigences en conflit pour éviter un nombre trop élevé de documents et pour faire en sorte que la taille de fragment soit basse,
 une valeur _Q_ unique ne peut pas fonctionner de manière optimale dans toutes les situations.
-{{site.data.keyword.cloudant_short_notm}} optimise les valeurs par défaut pour les clusters au fur et à mesure que les schémas d'utilisation évoluent.
+Cloudant optimise les valeurs par défaut pour les clusters au fur et à mesure que les schémas d'utilisation évoluent.
 
 Cependant,
 pour une base de données spécifique,
@@ -152,7 +152,7 @@ particulièrement pour les bases de données de grande taille :
 *	Pour les bases de données encore plus importantes,
 	fragmentez manuellement vos données dans plusieurs bases de données.
 	Pour de telles bases de données,
-	contactez le [{{site.data.keyword.cloudant_short_notm}}support ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window} pour obtenir des conseils.
+	contactez le [support Cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} pour obtenir des conseils.
 
 >	**Remarque :** Les chiffres proposés dans ces instructions sont dérivés de l'observation et de l'expérience
 	et non de calculs précis.
@@ -180,7 +180,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**Remarque :** La définition de _Q_ pour les bases de données n'est pas activée pour les bases de données {{site.data.keyword.cloudant_short_notm}} sur Bluemix.
+>	**Remarque :** La définition de _Q_ pour les bases de données n'est pas activée pour les bases de données Cloudant sur Bluemix.
 	La valeur _Q_ n'est pas disponible sur la plupart des clusters à service partagé `cloudant.com`.
 
 Si vous tentez de définir la valeur _Q_ alors qu'elle est indisponible,
@@ -198,13 +198,13 @@ similaire à l'exemple suivant :
 ### Définition du nombre de répliques
 
 Depuis la version 2 de CouchDB,
-vous êtes autorisé à [spécifier le nombre de répliques ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}
+vous êtes autorisé à [spécifier le nombre de répliques ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}
 lorsque vous créez une base de données.
 Toutefois,
 vous n'êtes pas autorisé à changer la valeur par défaut du nombre de répliques qui est égale à 3.
 Plus particulièrement,
 il n'est pas possible d'indiquer un nombre de répliques différent lorsque vous créez une base de données.
-Pour obtenir de l'aide supplémentaire, contactez le [support {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window}.
+Pour obtenir de l'aide supplémentaire, contactez le [support Cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
 
 ### Que sont les arguments _R_ et _W_ ?
 
@@ -231,7 +231,7 @@ répliques qui hébergent le fragment approprié.
 
 >	**Remarque :** Le fait de réduire la valeur _R_ augmente la probabilité que la réponse
 	renvoyée ne s'appuie pas sur les dernières données en raison du
-	modèle de [cohérence finale](cap_theorem.html) utilisé par {{site.data.keyword.cloudant_short_notm}}.
+	modèle de [cohérence finale](cap_theorem.html) utilisé par Cloudant.
 	L'utilisation de la valeur _R_ par défaut permet d'atténuer cet effet.
 
 La valeur par défaut de _R_ est _2_.

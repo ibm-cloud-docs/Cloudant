@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -14,58 +14,28 @@ lastupdated: "2017-11-06"
 
 # CouchApps
 
-{{site.data.keyword.cloudantfull}} can host raw file data,
-like images,
-and serve them over HTTP,
-meaning it can host all the static files necessary to run a website,
-and host them just like a web server.
+Cloudant 可以管理原始檔案資料（如影像），並透過 HTTP 提供，這表示它可以管理執行網站所需的所有靜態檔案，並像 Web 伺服器一般管理它們。
 {:shortdesc}
 
-Because these files would be hosted on {{site.data.keyword.cloudant_short_notm}},
-the client-side JavaScript could access {{site.data.keyword.cloudant_short_notm}} databases.
-An application built this way is said to have a two-tier architecture,
-consisting of the client - typically a browser - and the database.
-In the CouchDB community,
-this is called a CouchApp.
+因為將在 Cloudant 上管理這些檔案，所以用戶端 JavaScript 可以存取 Cloudant 資料庫。以此方式建置的應用程式可說是具有雙層架構，由用戶端（通常是指瀏覽器）與資料庫組成。在 CouchDB 社群中，這稱為 CouchApp。
 
-Most web apps have three tiers:
-the client,
-the server,
-and the database.
-Placing the server inbetween the client and the database can help with authentication,
-authorization,
-asset management,
-leveraging third-party web APIs,
-providing particularly sophisticated endpoints,
-etc.
-This separation allows for added complexity without conflating concerns,
-so your client can worry first and last about data presentation,
-while your database can focus on storing and serving data.
+大部分 Web 應用程式都有三層：用戶端、伺服器及資料庫。將伺服器放在用戶端與資料庫之間，可以協助進行鑑別、授權、資產管理、運用協力廠商 Web API、提供特別精密的端點等等。此分隔容許新增複雜性，而不會合併顧慮，所以您的用戶端可以從頭至尾都擔心資料表示法，而您的資料庫則專注在儲存及提供資料。
 
-CouchApps shine in their simplicity,
-but frequently a web app will need the power of a 3-tier architecture.
-When is each appropriate?
+CouchApps 因其簡易性而出眾，但 Web 應用程式經常需要 3 層架構的能力。各自的適當時機？
 
-## A CouchApp is appropriate if...
+## 若為下列情況，則 CouchApp 適用...
 
--   Your server would have only provided an API to {{site.data.keyword.cloudant_short_notm}} anyway.
--   You're OK using {{site.data.keyword.cloudant_short_notm}}'s
-    [cookie-based authentication](../api/authentication.html).
--   You're OK using {{site.data.keyword.cloudant_short_notm}}'s [`_users` and `_security`](../api/authorization.html)
-    databases to manage users and permissions.
--   You don't need to schedule cronjobs or other regular tasks.
+-   您的伺服器無論如何只提供 API 給 Cloudant。
+-   您可以正常使用 Cloudant 的 [Cookie 型鑑別](../api/authentication.html)。
+-   您可以正常使用 Cloudant 的 [`_users` 及 `_security`](../api/authorization.html) 資料庫，來管理使用者及許可權。
+-   您不需要排定 cronjob 或其他一般作業。
 
-To get started with CouchApps,
-read [Managing applications on {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/app-management/){:new_window}.
+若要開始使用 CouchApps，請閱讀[在 Cloudant 上管理應用程式 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/app-management/){:new_window}。
 
-## A 3-tier application is appropriate if...
+## 若為下列情況，則 3 層適用...
 
--   You need finer-grained permissions than the `_security` database
-    allows.
--   You need an authentication method other than Basic auth or cookie
-    authentication, such as Oauth or a 3rd-party login system.
--   You need to schedule tasks outside the client to run regularly.
+-   您需要的許可權比 `_security` 資料庫容許的許可權更為精細。
+-   您需要「基本」鑑別或 Cookie 鑑別以外的鑑別方法，例如 Oauth 或協力廠商登入系統。
+-   您需要排定要在用戶端外定期執行的作業。
 
-You can write your server layer using whatever technologies work best
-for you.
-A list of libraries for working with {{site.data.keyword.cloudant_short_notm}} is [available](../libraries/index.html).
+您可以使用最適合您的任何技術來撰寫伺服器層。有使用 Cloudant 的程式庫清單[可供使用](../libraries/index.html)。

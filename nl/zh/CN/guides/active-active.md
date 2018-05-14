@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-05-22"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-02"
 
 <!-- Acrolinx: 2017-05-22 -->
 
-# 配置 {{site.data.keyword.cloudant_short_notm}} 用于跨区域灾难恢复
+# 配置 Cloudant 用于跨区域灾难恢复
 
 [{{site.data.keyword.cloudant_short_notm}} 灾难恢复指南](disaster-recovery-and-backup.html)说明了启用灾难恢复的一种方法是使用 {{site.data.keyword.cloudantfull}} 复制来跨区域创建冗余。
 
@@ -162,7 +162,7 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 - 负载可以分布在多个帐户上。
 - 应用程序可以配置为访问等待时间较短的帐户（而不是始终访问在地理位置上最近的帐户）。
 
-应用程序可以设置为与“最靠近的”{{site.data.keyword.cloudant_short_notm}} 帐户进行通信。对于在 DC1 中托管的应用程序，适合将其 {{site.data.keyword.cloudant_short_notm}} URL 设置为 `"https://myaccount-dc1.cloudant.com/mydb"`。同样，对于在 DC2 中托管的应用程序，您会将其 {{site.data.keyword.cloudant_short_notm}} URL 设置为 `"https://myaccount-dc2.cloudant.com/mydb"`。
+应用程序可以设置为与“最近的”Cloudant 帐户进行通信。对于在 DC1 中托管的应用程序，适合将其 {{site.data.keyword.cloudant_short_notm}} URL 设置为 `"https://myaccount-dc1.cloudant.com/mydb"`。同样，对于在 DC2 中托管的应用程序，可以将其 Cloudant URL 设置为 `"https://myaccount-dc2.cloudant.com/mydb"`。
 
 #### 主动/被动
 
@@ -181,7 +181,7 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 * 考虑监视数据库之间的[复制](../api/advanced_replication.html)。使用数据来确定配置是否可以进一步优化。
 *	考虑如何部署和更新设计文档和索引。您可能会发现自动执行这些任务会更高效。
 
-## 在 {{site.data.keyword.cloudant_short_notm}} 区域之间进行故障转移
+## 在 Cloudant 区域之间进行故障转移
 
 通常，用于管理区域或数据中心之间故障转移的过程会在应用程序堆栈内的较高层进行处理，例如通过配置应用程序服务器故障转移更改或通过均衡负载进行处理。
 
@@ -189,7 +189,7 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 
 但是，如果确定不需要故障转移管理能力，那么可以选择的一些选项包括：
 
-* 将自己的 [HTTP 代理放在 {{site.data.keyword.cloudant_short_notm}} ![外部链接图标](../images/launch-glyph.svg "外部链接图标") 前端](https://github.com/greenmangaming/cloudant-nginx){:new_window}。将应用程序配置为与代理（而不是 {{site.data.keyword.cloudant_short_notm}} 实例）通信。此配置意味着更改应用程序所使用 {{site.data.keyword.cloudant_short_notm}} 实例的任务可以通过修改代理配置（而不是修改应用程序设置）来处理。许多代理都能够根据用户定义的运行状况检查来均衡负载。
+* 将自己的 [HTTP 代理放在 {{site.data.keyword.cloudant_short_notm}} ![外部链接图标](../images/launch-glyph.svg "外部链接图标") 前端](https://cloudant.com/blog/green-man-gaming-cross-cloud-nginx-config/){:new_window}。将应用程序配置为与代理（而不是 {{site.data.keyword.cloudant_short_notm}} 实例）通信。此配置意味着更改应用程序所使用 {{site.data.keyword.cloudant_short_notm}} 实例的任务可以通过修改代理配置（而不是修改应用程序设置）来处理。许多代理都能够根据用户定义的运行状况检查来均衡负载。
 * 使用全局负载均衡器（例如，[Traffic Director ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://dyn.com/traffic-director/){:new_window}）路由到 {{site.data.keyword.cloudant_short_notm}}。此选项需要 `CNAME` 定义，以根据运行状况检查或等待时间规则来路由到不同的 {{site.data.keyword.cloudant_short_notm}} 帐户。
 
 ## 从故障转移恢复

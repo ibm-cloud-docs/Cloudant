@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -22,7 +22,7 @@ _(Questa guida si basa su un articolo del blog di  Mike Rhodes:
 ["I miei 5 suggerimenti principali per modellare i tuoi dati in scala" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window},
 originariamente pubblicato il 17 dicembre 2013.)_
 
-Il modo in cui modelli i tuoi dati in {{site.data.keyword.cloudantfull}} influirà in modo significativo sul modo in cui la tua applicazione è in
+Il modo in cui modelli i tuoi dati in Cloudant influirà in modo significativo sul modo in cui la tua applicazione è in
 grado di scalare. Il nostro modello di dati sottostante differisce sostanzialmente da un modello relazionale
 e ignorare questa distinzione può essere la causa di problemi di prestazioni in futuro.
 
@@ -104,7 +104,7 @@ diminuisce il tempo trascorso dall'applicazione in attesa di completare la richi
 
 Nei database relazionali, la normalizzazione dei dati è spesso il modo più efficace per memorizzare i dati. 
 Ciò ha molto senso quando puoi utilizzare JOIN per combinare facilmente i dati da più tabelle. 
-In {{site.data.keyword.cloudant_short_notm}}, è più probabile che tu abbia bisogno di una richiesta HTTP GET per ogni parte dei dati, pertanto la riduzione del
+In Cloudant, è più probabile che tu abbia bisogno di una richiesta HTTP GET per ogni parte dei dati, pertanto la riduzione del
 numero di richieste necessarie per creare un'immagine completa di un'entità modellata ti consentirà
 di presentare più rapidamente le informazioni ai tuoi utenti.
 
@@ -115,7 +115,7 @@ Ad esempio, in uno schema relazionale normalmente rappresenti le tag in un tabel
 una tabella di connessione per unire le tag con i relativi documenti associati, consentendo una rapida ricerca
 di tutti i documenti con una determinata tag.
 
-In {{site.data.keyword.cloudant_short_notm}}, memorizzi le tag in un elenco all'interno di ciascun documento. Utilizzi quindi una vista per ottenere i documenti
+In Cloudant, tu memorizzi le tag in un elenco all'interno di ciascun documento. Utilizzi quindi una vista per ottenere i documenti
 con una determinata tag
 [emettendo ogni tag come chiave nella funzione di mappa della tua vista](../api/creating_views.html). 
 Eseguendo una query nella vista per una determinata chiave verranno forniti tutti i documenti con quella tag.
@@ -181,27 +181,27 @@ anche se abbiamo suddiviso i dati per una singola entità modellata.
 
 ## Perché è utile
 
-Evitare i documenti in conflitto aiuta a velocizzare molte operazioni nei tuoi database {{site.data.keyword.cloudant_short_notm}}.
+Evitare i documenti in conflitto aiuta a velocizzare molte operazioni nei tuoi database Cloudant. 
 Ciò è dovuto al fatto che esiste un processo che esegue l'attuale revisione vincente
 utilizzata ogni volta che il documento viene letto: recuperi singoli di documenti, chiamate con `include_docs=true`, creazione di viste
 e così via.
 
-La revisione vincente è una revisione particolare dalla generale struttura ad albero del documento. Ricorda che
-i documenti su {{site.data.keyword.cloudant_short_notm}} sono in effetti delle strutture ad albero di revisioni. Un algoritmo arbitrario ma al contempo deterministico
+La revisione vincente è una revisione particolare dalla generale struttura ad albero del documento. Ricorda che i
+documenti su Cloudant sono in effetti delle strutture ad albero di revisioni. Un algoritmo arbitrario ma al contempo deterministico
 seleziona una delle foglie non eliminate di questa struttura ad albero da restituire quando viene effettuata una richiesta
 per il documento. Le strutture ad albero più grandi con un fattore di diramazione superiore richiedono più tempo per l'elaborazione rispetto
 a una struttura ad albero di documenti senza o con pochi rami: ogni ramo deve essere seguito per vedere se è un candidato per
 la revisione vincente. I potenziali vincitori devono quindi essere confrontati l'uno con l'altro per fare la
 scelta finale.
 
-{{site.data.keyword.cloudant_short_notm}} ovviamente gestisce bene un piccolo numero di rami - dopotutto, la replica si basa
-sul fatto che i documenti possono diramarsi per evitare di eliminare i dati - ma quando si raggiungono livelli
+Cloudant ovviamente gestisce bene un piccolo numero di rami - dopotutto, la replica si basa
+sul fatto che i documenti possono raggrupparsi per evitare di eliminare i dati - ma quando si raggiungono livelli
 patologici, in particolare se i conflitti non vengono risolti, è richiesto un laborioso procedimento e
 un uso intensivo della memoria per percorrere la struttura ad albero dei documenti.
 
 ## Crea la funzione di risoluzione dei conflitti
 
-In un sistema con consistenza eventuale come {{site.data.keyword.cloudant_short_notm}}, i conflitti alla fine accadono. Come descritto
+In un sistema con consistenza eventuale come Cloudant, i conflitti alla fine accadono. Come descritto
 in precedenza, questo è il prezzo della scalabilità e della resilienza dei dati.
 
 Strutturare i dati in modo tale che la risoluzione dei conflitti sia rapida e non richieda
@@ -228,7 +228,7 @@ documenti patologicamente in conflitto.
 ## Riepilogo
 
 Questi suggerimenti illustrano alcuni modi in cui i dati di modellazione influenzano le prestazioni della tua
-applicazione. L'archivio dati di {{site.data.keyword.cloudant_short_notm}} presenta alcune caratteristiche specifiche,
+applicazione. L'archivio dati di Cloudant presenta alcune caratteristiche specifiche,
 sia da tenere d'occhio sia da sfruttare, per assicurare che le prestazioni del database vengano scalate quando l'applicazione
 cresce. Comprendiamo che il cambiamento può essere confuso, quindi siamo sempre a disposizione per dare consigli.
 

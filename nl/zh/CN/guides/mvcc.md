@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -14,16 +14,16 @@ lastupdated: "2017-11-06"
 
 # 文档版本控制和 MVCC
 
-[多版本并行控制 (MVCC) ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window} 是 {{site.data.keyword.cloudantfull}} 数据库确保数据库集群中的所有节点仅包含文档[最新版本](../api/document.html)的方法。
+[多版本并行控制 (MVCC) ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window} 是 Cloudant 数据库确保数据库集群中的所有节点仅包含文档[最新版本](../api/document.html)的方法。
 {:shortdesc}
 
-由于 {{site.data.keyword.cloudant_short_notm}} 数据库具有[最终一致性](cap_theorem.html)，因此有必要执行此操作，以防止因过期文档之间同步而导致节点之间出现不一致的情况。
+由于 Cloudant 数据库具有[最终一致性](cap_theorem.html)，因此有必要执行此操作，以防止因过期文档之间同步而导致节点之间出现不一致的情况。
 
-多版本并行控制 (MVCC) 支持对 {{site.data.keyword.cloudant_short_notm}} 数据库进行并发读写访问。MVCC 是一种[乐观并发 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window} 形式。通过 MVCC，对 {{site.data.keyword.cloudant_short_notm}} 数据库的读写操作更快，因为无需锁定数据库来进行读或写操作。MVCC 还支持在 {{site.data.keyword.cloudant_short_notm}} 数据库节点之间同步。
+多版本并行控制 (MVCC) 支持对 Cloudant 数据库进行并发读写访问。MVCC 是一种[乐观并发 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window} 形式。通过 MVCC，对 Cloudant 数据库的读写操作更快，因为无需锁定数据库来进行读或写操作。MVCC 还支持在 Cloudant 数据库节点之间同步。
 
 ## 修订版
 
-{{site.data.keyword.cloudant_short_notm}} 数据库中的每个文档都有一个 `_rev` 字段，用于指示其修订版号。
+Cloudant 数据库中的每个文档都有一个 `_rev` 字段，用于指示其修订版号。
 
 在插入或修改文档时，服务器会将修订版号添加到文档中。更改或读取文档时，服务器响应中会包含此编号。`_rev` 值是使用简单计数器与文档散列的组合构造的。
 
@@ -37,13 +37,11 @@ lastupdated: "2017-11-06"
 >   **注**：不应使用 `_rev` 来构建版本控制系统。
 原因是 _rev 是服务器使用的内部值。此外，文档的旧修订版是瞬态的，因此会定期除去。
 
-
-
 可以使用相应的 `_rev` 来查询特定修订版，但是旧修订版会被名为 [compaction ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://en.wikipedia.org/wiki/Data_compaction){:new_window} 的进程定期删除。compaction 的一个结果是，使用相应的 `_rev` 来查询特定文档修订版以获取文档修订版的历史记录时，响应不一定会成功。如果需要文档的版本历史记录，解决方案是对每个修订版[创建新文档](../api/document.html#documentCreate)。
 
 ## 分布式数据库和冲突
 
-分布式数据库在不与 {{site.data.keyword.cloudant_short_notm}} 上的主数据库（本身是分布式的）建立持续连接的情况下运行，因此基于同一个先前版本的更新仍可能存在冲突。
+分布式数据库在不与 Cloudant 上的主数据库（本身是分布式的）建立持续连接的情况下运行，因此基于同一个先前版本的更新仍可能存在冲突。
 
 要查找冲突，请在检索文档时添加查询参数 [`conflicts=true`](../api/database.html#get-changes)。响应会包含带有所有冲突修订版的 `_mlicts` 数组。
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2017-08-25"
 
 ---
 
@@ -16,23 +16,23 @@ lastupdated: "2017-05-04"
 
 <div id="back-up-your-data-using-replication"></div>
 
-# Incrementi di replica
+# Backup dei dati utilizzando la replica
 
->	**Nota**: questa guida contiene istruzioni vecchie o 'obsolete' sul backup {{site.data.keyword.cloudantfull}}.
+>	**Note**: questa guida contiene istruzioni vecchie o 'obsolete' sul backup Cloudant.
 	Per le istruzioni di backup aggiornate,
     consulta la guida [Ripristino di emergenza e backup](disaster-recovery-and-backup.html).
 
 I backup del database proteggono i tuoi dati da eventuali perdite o danneggiamenti.
 {:shortdesc}
 
-Puoi utilizzare la funzione di replica {{site.data.keyword.cloudant_short_notm}} per creare un backup del database
-e memorizzarlo su un cluster {{site.data.keyword.cloudant_short_notm}}.
+Puoi utilizzare la funzione di replica Cloudant per creare un backup del database
+e memorizzarlo su un cluster Cloudant.
 Puoi quindi ripristinare dati,
 interi database
 o specifici documenti JSON,
 da questi backup al tuo cluster di produzione.
 
-Utilizzando la replica {{site.data.keyword.cloudant_short_notm}},
+Utilizzando la replica Cloudant,
 un backup del database memorizza i contenuti del tuo database in un checkpoint.
 È possibile eseguire il 'rollback' a uno specifico checkpoint.
 Il checkpoint non è specifico di un tempo preciso.
@@ -48,7 +48,7 @@ Se sei un cliente aziendale,
 
 Se non sei un cliente aziendale,
 o se preferisci creare i tuoi propri backup,
-puoi utilizzare la funzione di replica {{site.data.keyword.cloudant_short_notm}} per creare un backup del database.
+puoi utilizzare la funzione di replica Cloudant per creare un backup del database.
 
 Un approccio semplice è quello di replicare l'intero database in un database di backup datato.
 Questo metodo funziona ed è facile da usare.
@@ -369,7 +369,7 @@ _Documento JSON che descrive il ripristino:_
     "_id": "restore-monday",
     "source": "${url}/backup-monday",
     "target": "${url}/restore",
-    "create_target": true  
+    "create-target": true  
 }
 ```
 {:codeblock}
@@ -409,7 +409,7 @@ _Documento JSON che richiede il ripristino del backup di martedì:_
     "_id": "restore-tuesday",
     "source": "${url}/backup-tuesday",
     "target": "${url}/restore",
-    "create_target": true  
+    "create-target": true  
 }
 ```
 {:codeblock}
@@ -504,6 +504,6 @@ Assicurati che i tuoi lavori di replica non inizino nello stesso momento.
 
 La replica e i backup possono essere complicati.
 Se non sai come procedere,
-consulta la [guida della replica](replication_guide.html)
+consulta la [guida di replica](replication_guide.html)
 o contatta il
-[team di supporto di IBM {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
+[team di supporto di IBM Cloudant ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.

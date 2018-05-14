@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -12,132 +12,70 @@ lastupdated: "2017-11-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# My top 5 tips for modelling your data to scale
+# 我對資料建模規模的前 5 個提示
 
-This article considers the finer 
-points of modelling your application's data to work efficiently at large scale.
+本文考量建立應用程式資料模型以大規模有效運作的較細微點。
 {:shortdesc}
 
-_(This guide is based on a Blog article by Mike Rhodes:
-["My top 5 tips for modelling your data to scale" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window},
-originally published December 17, 2013.)_
+（本手冊是根據 Mike Rhodes 原先在 2013 年 12 月 17 日發行的部落格文章：[我對資料建模規模的前 5 個提示 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window}。） 
 
-The way you model data on {{site.data.keyword.cloudantfull}} will significantly impact how your application is able to 
-scale. Our underlying data model differs substantially from a relational model, and ignoring 
-this distinction can be the cause of performance issues down the road.
+在 Cloudant 上建立資料模型的方式會大幅影響如何擴充應用程式。我們的基礎資料模型與關聯式模型相當不同，而忽略這項區別可能是未來發生效能問題的原因。
 
-As always, successful modelling involves achieving a balance between ease of use vs. the 
-performance characteristics you're hoping to achieve.
+一如往常，成功建模包含在容易使用與您想要達到的效能特徵之間取得平衡。
 
-Without further ado, let’s jump in.
+不再囉嗦，讓我們開始吧。
 
-## Consider Immutable Data
+## 考量不可變的資料
 
-If you are changing the same piece of state at a rate of once per second or more, consider 
-making your documents immutable. This significantly decreases the chance that you’ll create 
-conflicted documents.
+如果您要以一秒一次以上的速率變更相同狀態部分，請考量將文件設為不可變。這會大幅降低您建立衝突文件的可能性。
 
-Conversely, if you are updating a given document less than once every ten seconds, an 
-update-in-place data model - that is, updating existing documents - will simplify your 
-application code considerably.
+相反地，如果您要以每十秒小於一次的速率來更新給定的文件，則就地更新資料模型（亦即，更新現有文件）可大幅簡化應用程式碼。
 
-Typically, data models based on immutable data require the use of views to summarize 
-the documents which comprise the current state. As views are precomputed, this shouldn’t 
-adversely affect application performance.
+一般而言，根據不可變資料的資料模型需要使用視圖來彙總包含現行狀態的文件。預先計算視圖時，這應該不會對應用程式效能產生不利的影響。
 
-## Why this helps
+## 有所幫助的原因
 
-Behind our `https://<account>.cloudant.com/` interface is a distributed database. 
-Within the cluster, documents are bucketed into a number of shards which collectively form the 
-database. These shards are then distributed across nodes in the cluster. This is what 
-allows us to support databases many terabytes in size.
+`https://<account>.cloudant.com/` 介面的後方是分散式資料庫。在叢集內，會將文件分區為數個共同形成資料庫的 Shard。接著將這些 Shard 分散到叢集中的節點。這可讓我們支援大小有許多 TB 的資料庫。
 
-By default, in addition to the splitting of a database into shards, all shards have three 
-copies, or shard replicas, each of which resides on a different node of the database cluster. 
-This allows the database to continue serving requests if a node should fail. Therefore, 
-saving a document involves writing to three nodes. What this means is that if two updates are 
-made concurrently to the same document, it’s possible for a subset of nodes to accept the first 
-update and another subset to accept the second update. When the cluster discovers this 
-discrepancy, it will combine the documents in the same way as normal replication does for 
-concurrent updates by creating a conflict.
+依預設，除了將資料庫分割為 Shard 之外，所有 Shard 都有三個副本或 Shard 抄本，且每個都位在資料庫叢集的不同節點上。這容許資料庫在節點失敗時繼續負責處理要求。因此，儲存文件包含寫入至三個節點。這表示如果同時對相同的文件進行兩項更新，則某個節點子集可能會接受第一項更新，而另一個子集可能會接受第二項更新。叢集發現這項不相符時，會使用與一般抄寫針對產生衝突之並行更新的相同處理方式，來結合文件。
 
-Conflicted documents harm performance; see below for more details on just why this happens. 
-A highly concurrent update-in-place pattern also increases the likelihood that writes will 
-be rejected because the `_rev` parameter isn’t the expected one, which will force your 
-application to retry and so delay processing.
+衝突文件會損及效能；如需此狀況發生原因的詳細資料，請參閱下方說明。高度並行就地更新模式也會增加拒絕寫入的可能性，因為 `_rev` 不是預期參數，而此參數會強制重試應用程式，因此延遲處理。
 
-We've found that this conflicted-document scenario is significantly more likely to happen 
-for updates more often than once a second, but recommend immutable documents for updates of 
-more than once every ten seconds to be on the safe side.
+我們發現此衝突文件情境的更新頻率極可能高於一秒一次，但建議每十秒更新多次的不可變文件位在安全端。
 
-## Use Views To Pre-Calculate Results Rather Than As Search Indexes
+## 使用視圖來預先計算結果，而不是作為搜尋索引
 
-Rather than using views as glorified search indexes - "get me all `person` documents" - try 
-to get the database to do work for you. For example, rather than retrieving all ten thousand 
-person documents to calculate their combined hours worked, use a view with a composite key to 
-pre-calculate this by year, month, day, half-day and hour using the `_sum` built-in reduce. 
-You'll save work in your application and allow the database to concentrate on serving many 
-small requests rather than reading huge amounts of data from disk to service a single large 
-request.
+嘗試讓資料庫為您執行工作，而不是使用視圖作為美化的搜尋索引（讓我取得所有`人員`文件）。例如，搭配使用視圖與複合金鑰，使用 `_sum` 內建減少函數依年、月、日、半天及小時來預先計算工作時數，而不是擷取全部一萬人的文件來計算其結合的工作時數。您將省去應用程式中的一些工作，並容許資料庫專注於負責處理多個小型要求，而不是從磁碟讀取大量資料來負責處理單一大型要求。
 
-## Why this helps
+## 有所幫助的原因
 
-It's quite straightforward. First, note that both maps and reduces are precomputed. This means 
-that asking for the result of a reduce function is a cheap operation, particularly when 
-compared to the significant amounts of IO required to stream hundreds or even thousands of 
-documents from the on-disk storage.
+這相當直接明確。首先，請注意，會同時預先計算對映及減少。這表示要求減少函數的結果是價廉的作業，特別是相較於從磁碟內存儲存空間串流數百甚至數千份文件所需的大量 IO。
 
-At a lower level, when a node receives a view request, it asks the nodes holding the shard 
-replicas for the view's database for the results of the view request for the documents in 
-each shard. As it receives the answers - taking the first for each shard replica - the node 
-servicing the view request combines the results and streams the final result to the client. 
-As more documents are involved, it takes longer for each replica to stream the results from 
-disk and across the network. In addition, the node servicing the request has much more work to 
-do in combining the results from each database shard.
+在較低的層次，當節點接收到檢視要求時，它會要求節點針對每一個 Shard 中文件的檢視要求結果保留視圖資料庫的 Shard 抄本。在它接收到回答（採用每個 Shard 抄本的第一個回答）時，負責處理檢視要求的節點會結合結果，並將最終結果串流到用戶端。涉及更多文件時，每一個抄本需要較長的時間才能串流磁碟中的結果並串流到網路。此外，在結合每一個資料庫 Shard 的結果時，負責處理要求的節點需要進行較多的處理。
 
-Overall, the goal is for a view request to require the minimum amount of data from each shard, 
-minimizing the time the data is in transit and being combined to form the final result. Using 
-the power of views to precompute aggregate data is one way to achieve this aim. This obviously 
-decreases the time your application spends waiting for the request to complete.
+整體而言，目標是檢視要求需要每個 Shard 的最少量資料，並將資料傳輸時間到降到最低，且結合在一起以形成最終結果。使用視圖的功能來預先計算聚集資料，是達到這個目標的一種方法。這會明顯減少應用程式等待要求完成所需的時間。
 
-## De-Normalise Your Data
+## 將資料去標準化
 
-In relational databases, normalising data is often the most efficient way to store data. 
-This makes a lot of sense when you can use JOINs to easily combine data from multiple tables. 
-In {{site.data.keyword.cloudant_short_notm}}, you're more likely to need a HTTP GET request for each piece of data, so reducing 
-the number of requests you need to build up a complete picture of a modeled entity will allow 
-you to present information to your users more quickly.
+在關聯式資料庫中，將資料標準化通常是儲存資料的最有效方式。當您可以使用 JOIN 來輕鬆結合多張表格的資料時，這十分有意義。在 Cloudant 中，您可能較需要 HTTP GET 要求來取得每一筆資料，因此減少建置整個建模實體所需的要求數目可讓您更快速地向使用者呈現資訊。
 
-Using views allows you to get many of the benefits of normalised data while maintaining the 
-de-normalised version for efficiency.
+使用視圖可讓您獲得將資料標準化的許多好處，同時維護去標準化版本以提高效率。
 
-As an example, in a relational schema you'd normally represent tags in a separate table and use 
-a connecting table to join tags with their associated documents, allowing quick look up of all 
-documents with a given tag.
+例如，在關聯式綱目中，您通常會以不同的表格來呈現標籤，並使用連接表格來結合標籤與其相關聯的文件，以容許快速查閱具有給定標籤的所有文件。
 
-In {{site.data.keyword.cloudant_short_notm}}, you'd store tags in a list in each document. You would then use a view to get the 
-documents with a given tag by 
-[emitting each tag as a key in your view's map function](../api/creating_views.html). 
-Querying the view for a given key will then provide all the documents with that tag.
+在 Cloudant 中，您會將標籤儲存在每一個文件的清單中。接著會使用視圖，透過[在視圖的對映函數中發出每一個標籤作為索引鍵](../api/creating_views.html)，以取得具有給定標籤的文件。查詢視圖以找出給定索引鍵就會提供所有具有該標籤的文件。
 
-## Why this helps
+## 有所幫助的原因
 
-It all comes down to the number of HTTP requests your application makes. There's a cost to 
-opening HTTP connections - particularly HTTPS - and, while re-using connections helps, making 
-fewer requests overall will speed up the rate at which your application can process data.
+這涉及到您應用程式提出的 HTTP 要求數目。開啟 HTTP 連線（特別是 HTTPS) 有其成本，因此，重複使用連線有所幫助時，整體提出較少的要求將加速應用程式可處理資料的速率。
 
-As a side benefit, de-normalised documents and pre-computed views often allow you to have the 
-value your application requires generated ahead of time, rather than being constructed on the 
-fly at query time.
+附帶的好處是，去標準化文件及預先計算的視圖通常可讓您具有應用程式事先產生所需的值，而不是在查詢時即時建構。
 
-## Avoid Conflicts By Using Finer-Grained Documents
+## 使用更精細文件來避免衝突
 
-In tension with the advice to de-normalise your data is this next piece of advice: use 
-fine-grained documents to reduce the chance of concurrent modifications creating conflicts. 
-This is somewhat like normalising your data. There's a balance to strike between reducing the 
-number of HTTP requests and avoiding conflicts.
+與將資料去標準化的建議相對的是接下來這個建議部分：使用精細文件來減少並行修改產生衝突的可能性。這有點像將資料標準化。減少 HTTP 要求數目與避免衝突之間需要達成平衡。
 
-For example, take a medical record containing a list of operations:
+例如，取得包含作業清單的醫療記錄：
 
 ```json
 {
@@ -150,11 +88,7 @@ For example, take a medical record containing a list of operations:
 ```
 {:codeblock}
 
-If Joe is unfortunate enough to be having a lot of operations at the same time, the many 
-concurrent updates to a document is likely to create conflicted documents, as described above. 
-Better to break the operations out into separate documents which refer to Joe's person document 
-and use a view to connect things together. To represent each operation, you’d upload documents 
-like the following two example:
+如果 Joe 不幸同時具有許多作業，則文件的許多並行更新可能會產生衝突文件，如上所述。最好將作業分成個別文件，而這些個別文件參照 Joe 的人員文件並使用視圖將事物連接在一起。為了呈現每一個作業，您將上傳文件，例如下列兩個範例：
 
 ```json
 {
@@ -174,65 +108,34 @@ like the following two example:
 ```
 {:codeblock}
 
-Emitting the `"patient"` field as the key in your view would then allow querying for all 
-operations for a given patient. Again, views are used to help knit together a full picture of 
-a given entity from separate documents, helping to keep the number of HTTP requests low even 
-though we’ve split up the data for a single modeled entity.
+發出 `"patient"` 欄位作為視圖中的索引鍵，接著容許查詢所有作業以找出特定病患。同樣地，使用視圖來協助將個別文件的整個給定實體聯合在一起，有助於保持較低的 HTTP 要求數目，即使我們已分割單一建模實體的資料也一樣。
 
-## Why this helps
+## 有所幫助的原因
 
-Avoiding conflicted documents helps speed up many operations on your {{site.data.keyword.cloudant_short_notm}} databases. 
-This is because there’s a process which works out the current winning revision used each time 
-the document is read: single document retrievals, calls with `include_docs=true`, view building 
-and so on.
+避免衝突文件有助於加速對 Cloudant 資料庫執行的許多作業。這是因為有處理程序可處理每次讀取文件時使用的現行獲勝修訂：單一文件擷取、具有 `include_docs=true` 的呼叫、視圖建置等等。
 
-The winning revision is a particular revision from the document’s overall tree. Recall that 
-documents on {{site.data.keyword.cloudant_short_notm}} are in fact trees of revisions. An arbitrary but deterministic algorithm 
-selects one of the non-deleted leaves of this tree to return when a request is made for the 
-document. Larger trees with a higher branching factor take longer to process than a document 
-tree with no or few branches: each branch needs to be followed to see if it’s a candidate to 
-be the winning revision. Potential victors then need to be compared against each other to make 
-the final choice.
+獲勝修訂是文件整體樹狀結構中的特定修訂。請回想一下，Cloudant 上的文件實際上是修訂的樹狀結構。任意但唯一的演算法會選取這個樹狀結構中要在針對文件提出要求時傳回的其中一個非刪除葉。分支因素較高的大型樹狀結構的處理時間，會比沒有分支或分支較少的文件樹狀結構還要久：需要追蹤每一個分支，以查看它是否為獲勝修訂的候選項目。潛在勝利者接著需要彼此進行比較，才能做出最終選擇。
 
-{{site.data.keyword.cloudant_short_notm}} obviously handles small numbers of branches well - after all, replication relies on 
-the fact documents can branch to avoid discarding data - but when pathological levels are 
-reached, particularly if the conflicts are not resolved, it becomes very time-consuming and 
-memory-intensive to walk the document tree.
+Cloudant 明顯可以妥善處理少量分支（畢竟，抄寫依賴可分支文件以避免捨棄資料的事實），但到達病態層次時（特別是未解決衝突時），瀏覽文件樹狀結構會變得極為耗時並使用大量記憶體。
 
-## Build In Conflict Resolution
+## 內建衝突解決
 
-In an eventually consistent system like {{site.data.keyword.cloudant_short_notm}}, conflicts will eventually happen. As 
-described above, this is a price of our scalability and data resilience.
+在 Cloudant 這類最終一致的系統中，最後一定會發生衝突。如上所述，這是可擴充性及資料備援的代價。
 
-Structuring your data in such a way that resolving conflicts is quick and need not involve 
-operator assistance will help keep your databases humming along smoothly. The ability to 
-automatically resolve conflicts without your users needing to be involved will significantly 
-improve their experience too and hopefully reduce the support burden on your organisation.
+透過快速解決衝突且不需要操作員協助的方式來建構資料，可協助讓資料庫流暢地進行。在不需要使用者參與的情況下自動解決衝突的能力，也會大幅改善其體驗，而且可能會減少組織的支援負擔。
 
-How you do this is very application specific, but here's a few tips:
+作法都是應用程式特有的，但以下有一些提示：
 
--   Avoid invariants across document fields if possible. This makes it more likely that a simple
-    merge operation, taking the changed field from each conflicted document revision, will be
-    suitable. This makes for simpler and more robust application code.
--   Allow documents to stand alone. Needing to retrieve other documents to work out the correct
-    resolution will increase latency in conflict resolution. There's also a chance you'll get a
-    version of the other documents that are not consistent with the document you're resolving,
-    making correct resolution difficult. And what if the other documents are conflicted?
+-   可能的話，避免使用跨文件欄位的不變量。這樣一來，簡單合併作業（取得每一個衝突文件修訂中的已變更欄位）可能較適合。這樣可以取得較簡單且較健全的應用程式碼。
+-   容許文件獨立。擷取其他文件來找出正確解決方式的需要，會延遲解決衝突的時間。您也可能會取得與所解決文件不一致的其他文件版本，因而讓正確解決更為困難。而且其他文件發生衝突時，該怎麼辦？
 
-## Why this helps
+## 有所幫助的原因
 
-As described above, heavily conflicted documents exert a heavy toll on the database. Building 
-in the capability to resolve conflicts from the beginning is a great help in avoiding 
-pathologically conflicted documents.
+如上所述，高度衝突文件會對資料庫造成重大損失。內建從頭解決衝突的功能十分有助於避免病態衝突的文件。
 
-## Summary
+## 摘要
 
-These tips demonstrate some of the ways modeling data will affect your application’s 
-performance. {{site.data.keyword.cloudant_short_notm}}’s data store has some specific characteristics, both to watch out for 
-and to take advantage of, to make sure the database performance scales as your application 
-grows. We understand the shift can be confusing, so we’re always on-hand to give advice.
+這些提示示範資料建模將影響應用程式效能的一些方式。Cloudant 的資料儲存庫有一些可查看且可善加利用的特定特徵，確保資料庫效能會隨著應用程式成長而調整。我們瞭解這項變動可能會混淆，因此，現在一律會提供建議。
 
-For further reading, see this discussion on the
-["data model for Foundbite" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){:new_window},
-or this ["example from our friends at Twilio" ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){:new_window}.
+如需進一步閱讀，請參閱 [Foundbite 的資料模型 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){:new_window} 上的這項討論，或 [Twilio 上我們朋友的範例 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){:new_window}這篇。
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-07-13"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2017-11-06"
 
 # Segurança
 
-## Proteção de dados e segurança do {{site.data.keyword.cloudant_short_notm}} DBaaS
+## Proteção de dados e segurança do Cloudant DBaaS
 
 A proteção de dados do aplicativo para apps da web e móveis de larga escala pode ser complexa,
 especialmente com bancos de dados distribuídos e NoSQL.
@@ -29,7 +29,7 @@ o {{site.data.keyword.cloudantfull}} também assegura que os dados permaneçam s
 
 O {{site.data.keyword.cloudant_short_notm}} DBaaS é
 hospedado fisicamente nos provedores de infraestrutura em nuvem da Camada 1, como o
-{{site.data.keyword.Bluemix}} e a Amazon.
+{{site.data.keyword.BluSoftlayer_full}} e a Amazon.
 Portanto,
 seus dados são protegidos pelas medidas de segurança física e de rede utilizadas por esses provedores,
 incluindo (mas não se limitando a):
@@ -62,16 +62,13 @@ leitura, gravação, a bancos de dados específicos.
 {{site.data.keyword.cloudant_short_notm}} é criptografado usando HTTPS.
 - Criptografia inativa: os dados armazenados em disco no
 {{site.data.keyword.cloudant_short_notm}} podem ser criptografados.
-  > **Nota**: os dados armazenados em uma instância do {{site.data.keyword.cloudant_short_notm}} são sempre criptografados.
+  > **Nota**: os dados armazenados em uma instância do {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} são sempre criptografados.
 - Acesso à API: o {{site.data.keyword.cloudant_short_notm}} é acessado programaticamente
 usando uma API sobre HTTP seguro (HTTPS).
   As chaves API podem ser geradas usando
 o painel do {{site.data.keyword.cloudant_short_notm}}.
-- Lista de desbloqueio de IP: os clientes do {{site.data.keyword.cloudant_short_notm}} em ambientes
-dedicados para o {{site.data.keyword.cloudant_short_notm}} Enterprise ou
-{{site.data.keyword.Bluemix_notm}} Dedicated podem colocar endereços IP na lista de desbloqueio para restringir o acesso somente aos servidores
-e usuários especificados. Observe que a lista de desbloqueio de IP não está disponível para quaisquer planos do {{site.data.keyword.cloudant_short_notm}}
-no {{site.data.keyword.Bluemix_notm}} Public. 
+- Lista de aplicativos confiáveis IP: os clientes do {{site.data.keyword.cloudant_short_notm}} em ambientes dedicados
+podem colocar endereços IP na lista de desbloqueio para restringir o acesso somente aos servidores e usuários especificados.
 - CORS: ativar o suporte CORS para domínios específicos usando o
 painel do {{site.data.keyword.cloudant_short_notm}}.
 
@@ -88,7 +85,7 @@ esteja sempre disponível,
 independentemente de falhas.
 - Replicação de dados e exportação: é possível replicar seus bancos de dados continuamente
 entre os clusters em diferentes data centers
-ou em um cluster no local do {{site.data.keyword.cloudant_short_notm}} Local
+ou em um cluster local do Cloudant Local
 ou Apache CouchDB.
   Outra opção é exportar dados do
 {{site.data.keyword.cloudant_short_notm}} (no formato JSON)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-03-07"
+  years: 2017
+lastupdated: "2017-01-11"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-03-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# 创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：代码
+# 创建简单 Bluemix 应用程序以访问 Cloudant 数据库：代码
 
 本部分教程描述了 {{site.data.keyword.Bluemix}} 应用程序的代码。
 {:shortdesc}
@@ -34,8 +34,6 @@ lastupdated: "2018-03-07"
 
 >   **注**：我们没有尝试为本教程创建_高效_ Python 代码。
 本教程的目的是为了说明简单易懂的有效代码，方便您从中学习并应用于自己的应用程序。此外，我们也未尝试解决所有可能的检查或错误条件。教程中包含一些示例检查，用于说明某些方法。请检查并处理您应用程序中的所有警告或错误条件。
-
-
 
 ### 基本文件
 
@@ -69,8 +67,6 @@ lastupdated: "2018-03-07"
     ```
     {:codeblock}
     >   **注**：确保修改“`domain`”、“`name`”、“`host`”和“`services`”值。这些是您在创建 [{{site.data.keyword.Bluemix_notm}} 应用程序环境](create_bmxapp_appenv.html#creating)和 [{{site.data.keyword.cloudant_short_notm}} 数据库实例](create_bmxapp_prereq.html#csi)时输入的值。
-
-
 3.  编辑“`requirements.txt`”文件，使其包含以下文本：
     ```
     cloudant==2.3.1
@@ -116,7 +112,7 @@ except ImportError:
 因为应用程序连接到 {{site.data.keyword.cloudant_short_notm}} 数据库实例，所以必须导入 {{site.data.keyword.cloudant_short_notm}} Library 组件：
 
 ```python
-# Enable the required Python libraries for working with {{site.data.keyword.cloudant_short_notm}}.
+# Enable the required Python libraries for working with Cloudant.
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
@@ -154,7 +150,7 @@ os.chdir('static')
 filename = "index.html"
 target = open(filename, 'w')
 target.truncate()
-target.write("<html><head><title>{{site.data.keyword.cloudant_short_notm}} Python Demo</title></head><body><p>Log of Cloudant Python steps...</p><pre>")
+target.write("<html><head><title>Cloudant Python Demo</title></head><body><p>Log of Cloudant Python steps...</p><pre>")
 ```
 {:codeblock}
 
@@ -168,22 +164,20 @@ target.write("\n====\n\n")
 ```
 {:codeblock}
 
-#### 使用 {{site.data.keyword.cloudant_short_notm}} 数据库实例
+#### 使用 Cloudant 数据库实例
 
 Python 应用程序在 {{site.data.keyword.Bluemix_notm}} 应用程序环境中运行。该环境提供了应用程序用于访问已连接服务的所有必要信息。这些信息在名为“`VCAP_SERVICES`”的环境变量中提供。此变量可由应用程序访问，并用于确定连接详细信息。
 
 第一个任务是确保应用程序在 {{site.data.keyword.Bluemix_notm}} 应用程序环境中运行。通过测试来检查是否存在“`VCAP_SERVICES`”环境变量：
 
 ```python
-# Check that we are running in a {{site.data.keyword.cloud_notm}} application environment.
+# Check that we are running in a Bluemix application environment.
 if 'VCAP_SERVICES' in os.environ:
 ```
 {:codeblock}
 
 >   **注**：仅当找到该环境变量时，才会运行代码的下一部分。
-在 Python 中，此代码会缩进，以指示其是测试的主体。在本教程中，省略了代码段中的缩进以节省空间。但是，[完整清单](#complete-listing)正确显示了缩进。
-
-假定找到了该变量，将继续使用其中的信息。首先装入变量中存储的 JSON 数据，然后在新的“日志文件”中记录事件：
+在 Python 中，此代码会缩进，以指示其是测试的主体。在本教程中，省略了代码段中的缩进以节省空间。但是，[完整清单](#complete-listing)正确显示了缩进。假定找到了该变量，将继续使用其中的信息。首先装入变量中存储的 JSON 数据，然后在新的“日志文件”中记录事件：
 
 ```python
 # Yes we are, so get the service information.
@@ -196,9 +190,9 @@ target.write("Got vcap_servicesData\n")
 接下来，查找有关已连接 {{site.data.keyword.cloudant_short_notm}} 数据库实例的信息。同样，将该事件记录在“日志文件”中：
 
 ```python
-# Look for the {{site.data.keyword.cloudant_short_notm}} service instance.
+# Look for the Cloudant service instance.
 cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
-# Log the fact that we successfully found some {{site.data.keyword.cloudant_short_notm}} service information.
+# Log the fact that we successfully found some Cloudant service information.
 target.write("Got cloudantNoSQLDBData\n")
 ```
 {:codeblock}
@@ -206,11 +200,11 @@ target.write("Got cloudantNoSQLDBData\n")
 多个 {{site.data.keyword.Bluemix_notm}} 服务可能连接到应用程序环境。每个服务的凭证都将作为数组元素列出。在本教程中，仅创建了一个[服务连接](create_bmxapp_appenv.html#connecting)。因此，应用程序会访问第一个元素（元素“零”）。每个服务元素都包含该服务的凭证，并表示为按访问该服务所需的必需字段名称建立索引的列表。在介绍简单数据库创建任务的[教程](create_database.html#a-cloudant-service-instance-on-bluemix)中，提供了有关字段名称的更多信息。
 
 ```python
-# Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
+# Get a list containing the Cloudant connection information.
 credentials = cloudantNoSQLDBData[0]
 # Get the essential values for our application to talk to the service.
 credentialsData = credentials['credentials']
-# Log the fact that we successfully found the {{site.data.keyword.cloudant_short_notm}} values.
+# Log the fact that we successfully found the Cloudant values.
 target.write("Got credentialsData\n\n")
 ```
 {:codeblock}
@@ -250,7 +244,7 @@ target.write("\n")
 这些任务的代码如下所示：
 
 ```python
-# We now have all the details we need to work with the {{site.data.keyword.cloudant_short_notm}} service instance.
+# We now have all the details we need to work with the Cloudant service instance.
 # Connect to the service instance.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 client.connect()
@@ -338,7 +332,7 @@ except ImportError:
     from http.server import SimpleHTTPRequestHandler as Handler
     from http.server import HTTPServer as Server
 
-# Enable the required Python libraries for working with {{site.data.keyword.cloudant_short_notm}}.
+# Enable the required Python libraries for working with Cloudant.
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
@@ -359,14 +353,14 @@ os.chdir('static')
 filename = "index.html"
 target = open(filename, 'w')
 target.truncate()
-target.write("<html><head><title>Cloudant Python Demo</title></head><body><p>Log of {{site.data.keyword.cloudant_short_notm}} Python steps...</p><pre>")
+target.write("<html><head><title>Cloudant Python Demo</title></head><body><p>Log of Cloudant Python steps...</p><pre>")
 
 # Put a clear indication of the current date and time at the top of the page.
 target.write("====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n\n")
 
-# Start working with the {{site.data.keyword.cloudant_short_notm}} service instance.
+# Start working with the Cloudant service instance.
 
 # Check that we are running in a Bluemix application environment.
 if 'VCAP_SERVICES' in os.environ:
@@ -374,15 +368,15 @@ if 'VCAP_SERVICES' in os.environ:
     vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
     # Log the fact that we successfully found some service information.
     target.write("Got vcap_servicesData\n")
-    # Look for the {{site.data.keyword.cloudant_short_notm}} service instance.
+    # Look for the Cloudant service instance.
     cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
-    # Log the fact that we successfully found some {{site.data.keyword.cloudant_short_notm}} service information.
+    # Log the fact that we successfully found some Cloudant service information.
     target.write("Got cloudantNoSQLDBData\n")
-    # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
+    # Get a list containing the Cloudant connection information.
     credentials = cloudantNoSQLDBData[0]
     # Get the essential values for our application to talk to the service.
     credentialsData = credentials['credentials']
-    # Log the fact that we successfully found the {{site.data.keyword.cloudant_short_notm}} values.
+    # Log the fact that we successfully found the Cloudant values.
     target.write("Got credentialsData\n\n")
     # Get the username ...
     serviceUsername = credentialsData['username']
@@ -400,7 +394,7 @@ if 'VCAP_SERVICES' in os.environ:
     target.write(serviceURL)
     target.write("\n")
 
-    # We now have all the details we need to work with the {{site.data.keyword.cloudant_short_notm}} service instance.
+    # We now have all the details we need to work with the Cloudant service instance.
     # Connect to the service instance.
     client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
     client.connect()

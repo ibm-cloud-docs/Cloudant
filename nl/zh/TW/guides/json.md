@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2015, 2018
+  years: 2015, 2017
 lastupdated: "2017-01-06"
 
 ---
@@ -14,70 +14,55 @@ lastupdated: "2017-01-06"
 
 # JSON
 
-The majority of requests and responses to and from {{site.data.keyword.cloudantfull}}
-use the [JavaScript Object Notation (JSON) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/JSON){:new_window}
-for formatting the content and structure of the data and responses.
+在 Cloudant 之間來回的大部分要求及回應都會使用 [JavaScript 物件表示法 (JSON) ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/JSON){:new_window}，來格式化資料及回應的內容和結構。
 {:shortdesc}
 
-In {{site.data.keyword.cloudant_short_notm}} databases,
-the JSON object is used to represent a variety of structures,
-including all documents in a database.
+在 Cloudant 資料庫中，會使用 JSON 物件來代表各種結構（包括資料庫中的所有文件）。
 
-Parsing JSON into a JavaScript object is supported through the `JSON.parse()` function in JavaScript,
-or through various [libraries](../libraries/index.html)
-that perform the parsing of the content into a JavaScript object for you.
-[Libraries](../libraries/index.html) for parsing and generating JSON
-are available for many major programming languages.
+透過 JavaScript 中的 `JSON.parse()` 函數，或透過執行將內容剖析為 JavaScript 物件的各種[程式庫](../libraries/index.html)，支援將 JSON 剖析成 JavaScript 物件。許多主要程式設計語言都可以使用用來剖析及產生 JSON 的[程式庫](../libraries/index.html)。
 
-JSON is used because it is the simplest and easiest solution for working with data using a web browser.
-This is because JSON structures can be evaluated and used as JavaScript objects within the web browser environment.
-JSON also integrates with the server-side JavaScript used within {{site.data.keyword.cloudant_short_notm}}.
-JSON documents are always UTF-8 encoded.
+使用 JSON 的原因是它是使用 Web 瀏覽器處理資料的最簡單且最輕鬆的解決方案。原因是 JSON 結構可以評估及用作 Web 瀏覽器環境內的 JavaScript 物件。JSON 也會整合 Cloudant 內使用的伺服器端 JavaScript。JSON 文件一律是 UTF-8 編碼。
 
->   **Note**: Care should be taken to ensure that:
+>   **附註**：應該小心確定：
 
--   Your JSON structures are valid.
-    Invalid structures cause {{site.data.keyword.cloudant_short_notm}} to return an HTTP status code of [400 (bad request)](../api/http.html#400).
--   You normalize strings in JSON documents retrieved from {{site.data.keyword.cloudant_short_notm}},
-    before you compare them.
-    This is because Unicode normalization might have been applied,
-    so that a string stored and then retrieved is not identical on a binary level.
+-   您的 JSON 結構有效。無效的結構會導致 Cloudant 傳回 HTTP 狀態碼 [400（不當要求）](../api/http.html#400)。
+-   您先正規化擷取自 Cloudant 的 JSON 文件中的字串，再比較它們。原因是可能已套用 Unicode 正規化，因此，在二進位層次上，儲存後擷取的字串不會相同。
 
-JSON supports the same basic types as supported by JavaScript:
+JSON 支援與 JavaScript 所支援相同的基本類型：
 
--   [Numbers](#numbers)
--   [Strings](#strings)
--   [Booleans](#booleans)
--   [Arrays](#arrays)
--   [Objects](#objects)
+-   [數字](#numbers)
+-   [字串](#strings)
+-   [布林](#booleans)
+-   [陣列](#arrays)
+-   [物件](#objects)
 
-## Numbers
+## 數字
 
-Numbers can be integer or floating point values.
+數字可以是整數或浮點數值。
 
-_Example of a number in JSON format:_
+_JSON 格式的數字範例：_
 
 ```json
 123
 ```
 {:codeblock}
 
-## Strings
+## 字串
 
-String should be enclosed by double-quotes. Strings support Unicode characters and backslash escaping.
+字串應該用雙引號括住。字串支援 Unicode 字元及反斜線跳出。
 
-_Example of a string in JSON format:_
+_JSON 格式的字串範例：_
 
 ```json
 "A String"
 ```
 {:codeblock}
 
-## Booleans
+## 布林
 
-A `true` or `false` value.
+`true` 或 `false` 值。
 
-_Example of a boolean in JSON format:_
+_JSON 格式的布林範例：_
 
 ```json
 {
@@ -86,11 +71,11 @@ _Example of a boolean in JSON format:_
 ```
 {:codeblock}
 
-## Arrays
+## 陣列
 
-A list of values enclosed in brackets. The values enclosed can be any valid JSON.
+以方括弧括住的值清單。括住的值可以是任何有效的 JSON。
 
-_Example of an array in JSON format:_
+_JSON 格式的陣列範例：_
 
 ```json
 [
@@ -107,22 +92,18 @@ _Example of an array in JSON format:_
 ```
 {:codeblock}
 
-_Example of an array in JSON format (linear):_
+_JSON 格式（線性）的陣列範例：_
 
 ```json
 [ "one", 2, "three", [], true, { "foo": "bar" } ]
 ```
 {:codeblock}
 
-## Objects
+## 物件
 
-A set of key/value pairs,
-such as an associative array,
-or a hash.
-The key must be a string,
-but the value can be any of the supported JSON values.
+一組鍵值組（例如關聯式陣列）或雜湊。索引鍵必須是字串，但值可以是任何支援的 JSON 值。
 
-_Example of a JSON object:_
+_JSON 物件的範例：_
 
 ```json
 {

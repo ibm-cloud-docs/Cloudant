@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -12,84 +12,57 @@ lastupdated: "2017-11-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Managing tasks
+# 管理作業
 
-Creating new indexes over lots of data or replicating a large database can take quite a while.
+建立大量資料的新索引或抄寫大型資料庫可能需要一些時間。
 {:shortdesc}
 
-So how can you determine whether your tasks are making progress,
-or if they have completed?
-The [`_active_tasks` endpoint](../api/active_tasks.html) provides information about all ongoing tasks.
-However,
-if you start a lot of tasks,
-some of them might be scheduled to run later and do not show up under `_active_tasks`
-until they have been started.
+因此，如何判定作業是否正在進行中，或它們是否已完成？[`_active_tasks` 端點](../api/active_tasks.html)提供所有進行中作業的相關資訊。不過，如果您啟動大量作業，則其中有部分可能會排定在稍後執行，而且除非已啟動它們，否則不會顯示在 `_active_tasks` 下。
 
-This guide tells you how to use the `_active_tasks` endpoint to monitor long-running tasks.
-The `curl` command is used to access the endpoint.
-The `jq` command-line JSON processor is used to process the JSON response.
+此手冊會告訴您如何使用 `_active_tasks` 端點來監視長時間執行的作業。`curl` 指令是用來存取端點。`jq` 指令行 JSON 處理器是用來處理 JSON 回應。
 
-Since this is a task-focused tutorial,
-it covers only what is essential to accomplish this task.
-Please refer to the [API reference](../api/index.html) for a complete guide to the available options.
+因為這是著重在作業的指導教學，所以只會涵蓋完成此作業的基本項目。如需可用選項的完整手冊，請參閱 [API 參考資料](../api/index.html)。
 
-## curl and jq basics
+## curl 及 jq 基本觀念
 
-To get all active tasks and format the output nicely,
-call your account using `curl`,
-and pipe the output to `jq`.
+若要取得所有作用中作業，並且良好地格式化輸出，請使用 `curl` 來呼叫帳戶，並將輸出以管線傳送至 `jq`。
 
-`jq` lets you filter a list of documents by their field values.
-This makes it easier to get all replication documents,
-or the details of just one particular view indexing task.
-The [API reference](../api/index.html) has more information about the options.
+`jq` 可讓您依欄位值來過濾文件清單。這可以更輕鬆地取得所有抄寫文件，或只是一個特定視圖索引作業的詳細資料。[API 參考資料](../api/index.html)具有選項的相關資訊。
 
-_Example of obtaining and formatting a list of active tasks:_
+_取得及格式化作用中作業清單的範例：_
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 ```
 {:codeblock}
 
-## Monitoring view builds and search indexes
+## 監視視圖建置及搜尋索引
 
-View indexes are rebuilt when a design document is updated.
-An update to any one of the views causes all the views in the document to be rebuilt.
+更新設計文件時，會重建視圖索引。任何一個視圖的更新都導致重建文件中的所有視圖。
 
-Search indexes are rebuilt only when their corresponding index function is changed.
-For each search index that is being built and for each design document with views that are changed,
-a new task is created for each replica of each shard in a cluster.
+只有在搜尋索引的對應索引函數變更時，才會重建搜尋索引。對於每一個正在建置的搜尋索引，以及對於每一個已變更視圖的設計文件，會為叢集中每個 Shard 的每一個抄本建立新作業。
 
-For example,
-if there are 24 shards,
-with three replicas each,
-and you update two search indexes,
-then 24 x 3 x 2 = 144 tasks are run.
+例如，如果有 24 個 Shard（各有三個抄本），而且您更新兩個搜尋索引，則會執行 24 x 3 x 2 = 144 個作業。
 
-To find all the view indexing tasks,
-pipe the `curl` output to `jq`,
-and let it filter the documents in the array by their type field.
-A corresponding command works for search indexing tasks.
+若要尋找所有視圖索引作業，請將 `curl` 輸出以管線傳送至 `jq`，並讓它依類型欄位來過濾陣列中的文件。對應的指令適用於搜尋索引作業。
 
-In each case,
-the results of searching for a list of indexing tasks is a list of JSON objects:
-one for each of the active tasks found.
+在每一種情況下，搜尋索引作業清單的結果都是 JSON 物件清單：每一個找到的作用中作業都有一份清單。
 
-_Example of finding all view indexing tasks by filtering for the `indexer` type:_
+_針對 `indexer` 類型進行過濾來尋找所有視圖索引作業的範例：_
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {:codeblock}
 
-_Example of finding all search indexing tasks by filtering for the `search_indexer` type:_
+_針對 `search_indexer` 類型進行過濾來尋找所有搜尋索引作業的範例：_
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {:codeblock}
 
-_Example results after searching for view indexing tasks:_
+_搜尋視圖索引作業之後的範例結果：_
 
 ```json
 {
@@ -107,68 +80,54 @@ _Example results after searching for view indexing tasks:_
 ```
 {:codeblock}
 
-## Estimating the time to complete a task
+## 預估作業完成時間
 
-To estimate the time needed until the indexing task is complete,
-monitor the number of `changes_done` and compare this value to `total_changes`.
-For example,
-if `changes_done` advances by 250 per second,
-and `total_changes` is 1,000,000,
-the task is expected to take 1,000,000 / 250 = 4,000 seconds,
-or about 66 minutes,to complete.
+若要預估索引作業完成之前所需的時間，請監視 `changes_done` 數目，並比較此值與 `total_changes`。例如，如果 `changes_done` 每秒增加 250，而且 `total_changes` 是 1,000,000，則預期作業需要 1,000,000/250=4,000 秒或大約 66 分鐘才能完成。
 
->   **Note**: Estimates of the time to complete an indexing task cannot be 100% accurate.
-    The actual time to complete the task depends on several factors,
-    including:
+>   **附註**：索引作業完成時間預估值無法 100% 精確。
+    實際作業完成時間取決於數個因素，包括：
 
--   The time it takes to process each document.
-    For instance,
-    a view might check the type of a document first,
-    and only emit new index entries for one type.
--   The size of the documents.
--   The current workload on the cluster.
+-   處理每一份文件所需的時間。例如，視圖可能會先檢查文件類型，並且只會發出一種類型的新索引項目。
+-   文件的大小。
+-   叢集上的現行工作負載。
 
->   You should assume that these factors might combine to produce considerable inaccuracy in your estimate.
+>   您應該假設這些因素可能會結合，而導致預估值相當不精確。
 
-_Example of extracting the `changes_done` field using `jq`:_
+_使用 `jq` 擷取 `changes_done` 欄位的範例：_
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 ```
 {:codeblock}
 
-## Monitoring replication
+## 監視抄寫
 
-To find all replication tasks,
-pipe the `curl` output to `jq`,
-and filter the documents in the array by their type field.
+若要尋找所有抄寫作業，請將 `curl` 輸出以管線傳送至 `jq`，並依其類型欄位來過濾陣列中的文件。
 
-To make it easier to select the information about a replication process from the list of active tasks,
-start the replication process by creating a document in the `_replicator` database,
-and set its `_id` field to a known value.
+為了更輕鬆地從作用中作業清單中選取抄寫處理程序的相關資訊，請在 `_replicator` 資料庫中建立文件來啟動抄寫處理程序，並將其 `_id` 欄位設為已知值。
 
-_Example of finding all replication tasks, by filtering for the `replication` type:_
+_針對 `replication` 類型進行過濾來尋找所有抄寫作業的範例：_
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {:codeblock}
 
-_Example of finding a specific replication task, by filtering for a known document identity:_
+_針對已知文件身分進行過濾來尋找特定抄寫作業的範例：_
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {:codeblock}
 
-_Example of finding a specific replication task, by filtering for a known `replication_id`:_
+_針對已知 `replication_id` 進行過濾來尋找特定抄寫作業的範例：_
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {:codeblock}
 
-_Example result after searching for a replication task:_
+_搜尋抄寫作業之後的範例結果：_
 
 ```json
 {
@@ -195,40 +154,21 @@ _Example result after searching for a replication task:_
 ```
 {:codeblock}
 
-## Troubleshooting
+## 疑難排解
 
-### Is a task stuck?
+### 作業是否停滯？
 
-For a one-off,
-non-continuous replication,
-where the source database is not updated significantly during the replication,
-the `changes_pending` value tells you how many documents remain to be processed.
-This means that the `changes_pending` value is good indicator of when the replication is likely to be finished.
+針對抄寫期間未大幅更新來源資料庫的一次性非持續抄寫，`changes_pending` 值會告訴您仍然需要處理多少文件。這表示 `changes_pending` 值可以有效指出抄寫可能已完成。
 
-For a continuous replication,
-you are more interested in how the number of documents processed changes over time,
-and whether the `changes_pending` value increases.
-If `changes_pending` increases,
-but `revisions_checked` stays constant for a while,
-the replication is probably stalled.
-If `changes_pending` increases,
-and `revisions_checked` also increases,
-this might indicate that the replication cannot keep up with the volume of data added to,
-or updated in,
-the database.
+對於持續抄寫，您比較感興趣所處理文件數目如何隨著時間變更，以及 `changes_pending` 值是否會增加。如果 `changes_pending` 增加，但 `revisions_checked` 維持不變一段時間，則抄寫可能會停滯。如果 `changes_pending` 增加，而且 `revisions_checked` 也增加，這可能指出抄寫無法跟上在資料庫中新增或更新的資料量。
 
-### What to do about a stuck task?
+### 如何處理停滯的作業？
 
-To resolve a stalled replication,
-you might have to [cancel the replication process](../api/replication.html#cancelling-a-replication) and start it again.
+若要解決已停滯的抄寫，您可能需要[取消抄寫處理程序](../api/replication.html#cancelling-a-replication)，並重新予以啟動。
 
-If that does not help,
-the replication might be stalled because the user accessing the source or target databases
-does not have write permissions.
+如果這麼做沒有幫助，則抄寫可能會停滯，因為存取來源或目標資料庫的使用者沒有寫入權。
 
->   **Note**: Replication makes use of [checkpoints](replication_guide.html#checkpoints).
-    This means that content already replicated and unchanged
-    does not have to be replicated again if the replication is restarted.
+>   **附註**：抄寫會利用[檢查點](replication_guide.html#checkpoints)。
+    這表示如果重新啟動抄寫，則不需要重新抄寫已抄寫且未變更的內容。
 
-If you created the replication process by creating a document in the `_replicator` database,
-you can also check the status of the replication there.
+如果您已在 `_replicator` 資料庫中建立文件來建立抄寫處理程序，則也可以在該處檢查抄寫狀態。

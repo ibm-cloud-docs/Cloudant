@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-04-20"
 
 ---
 
@@ -16,18 +16,18 @@ lastupdated: "2017-11-06"
 
 # 复制
 
-将数据从一个数据库复制到另一个数据库可以在同一 {{site.data.keyword.cloudantfull}} 帐户内执行，也可以跨帐户和跨数据中心执行。
+将数据从一个数据库复制到另一个数据库可以在同一 Cloudant 帐户内执行，也可以跨帐户和跨数据中心执行。
 {:shortdesc}
 
-甚至可以使用 [{{site.data.keyword.cloudant_short_notm}} Sync ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/product/cloudant-features/sync/){:new_window} 或 [PouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://pouchdb.com/){:new_window} 在 {{site.data.keyword.cloudant_short_notm}} 帐户和移动设备之间复制数据。复制可以单向或双向运行，作为“单次”或持续操作运行，也可以使用参数进行微调。
+甚至可以使用 [Cloudant Sync ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/product/cloudant-features/sync/){:new_window} 或 [PouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://pouchdb.com/){:new_window} 在 Cloudant 帐户和移动设备之间复制数据。复制可以单向或双向运行，作为“单次”或持续操作运行，也可以使用参数进行微调。
 
-{{site.data.keyword.cloudant_short_notm}} 的复制协议与一系列其他数据库和库相兼容，因此非常适合物联网 (IoT) 和移动应用程序。
+Cloudant 的复制协议与一系列其他数据库和库相兼容，因此非常适合物联网 (IoT) 和移动应用程序。
 
-本指南介绍了 {{site.data.keyword.cloudant_short_notm}} 的复制功能，讨论了常见的用例，并说明了如何使应用程序能够成功复制。
+本指南介绍了 Cloudant 的复制功能，讨论了常见的用例，并说明了如何使应用程序能够成功复制。
 
 ## 什么是复制？
 
-{{site.data.keyword.cloudant_short_notm}} 是一个具有 HTTP API 的分布式 JSON 数据存储。{{site.data.keyword.cloudant_short_notm}} 可以在多种云上或在服务器机架中作为服务运行。文档存储在数据库中，随着 {{site.data.keyword.cloudant_short_notm}} 跨多个节点对数据分片，文档可增大到任意大小。复制是将数据从源数据库复制到目标数据库的过程。源数据库和目标数据库不需要位于同一 {{site.data.keyword.cloudant_short_notm}} 帐户上，甚至不需要位于同一数据中心。
+Cloudant 是一个具有 HTTP API 的分布式 JSON 数据存储。Cloudant 可以在多种云上或在服务器机架中作为服务运行。文档存储在数据库中，随着 Cloudant 跨多个节点对数据分片，文档可增大到任意大小。复制是将数据从源数据库复制到目标数据库的过程。源数据库和目标数据库不需要位于同一 Cloudant 帐户上，甚至不需要位于同一数据中心。
 
 ![复制](../images/replication_guide_1.png)
 
@@ -39,7 +39,7 @@ lastupdated: "2017-11-06"
 
 ## 如何使用仪表板来启动复制
 
-{{site.data.keyword.cloudant_short_notm}}“仪表板”提供了一个用户界面，可方便地触发复制。打开 {{site.data.keyword.cloudant_short_notm}}“仪表板”的“复制”选项卡，然后单击`新建复制`操作按钮。填写简单的表单：
+Cloudant“仪表板”提供了一个用户界面，可方便地触发复制。打开 Cloudant“仪表板”的“复制”选项卡，然后单击`新建复制`操作按钮。填写简单的表单：
 
 ![复制 2](../images/replication_guide_2.png)
 
@@ -53,9 +53,9 @@ lastupdated: "2017-11-06"
 
 <div id="how-do-i-run-replication-across-different-cloudant-accounts-"></div>
 
-## 如何跨不同 {{site.data.keyword.cloudant_short_notm}} 帐户运行复制
+## 如何跨不同 Cloudant 帐户运行复制
 
-复制的源和目标是 {{site.data.keyword.cloudant_short_notm}} 数据库的 URL，如以下示例所示。
+复制的源和目标是 Cloudant 数据库的 URL，如以下示例所示。
 
 _定义复制的源 URL 和目标 URL 的示例：_
 
@@ -77,15 +77,15 @@ _定义复制的源 URL 和目标 URL 的示例：_
 
 <div id="how-do-i-initiate-replication-via-the-cloudant-api-"></div>
 
-## 如何使用 {{site.data.keyword.cloudant_short_notm}} API 启动复制
+## 如何使用 Cloudant API 启动复制
 
-每个 {{site.data.keyword.cloudant_short_notm}} 帐户都有一个名为 `_replicator` 的特殊数据库，可以在其中插入复制作业。将文档添加到 `_replicator` 数据库来启动复制。该文档描述所需的复制，并包含以下字段：
+每个 Cloudant 帐户都有一个名为 `_replicator` 的特殊数据库，可以在其中插入复制作业。将文档添加到 `_replicator` 数据库来启动复制。该文档描述所需的复制，并包含以下字段：
 
 字段            | 用途
 ----------------|--------
-`_id`           | 提供 `_id` 字段是可选的，但它有助于标识复制任务。如果未提供，{{site.data.keyword.cloudant_short_notm}} 会生成一个值。
-`source`        | 源 {{site.data.keyword.cloudant_short_notm}} 数据库的 URL，包含登录凭证。
-`target`        | 目标 {{site.data.keyword.cloudant_short_notm}} 数据库的 URL，包含登录凭证。
+`_id`           | 提供 `_id` 字段是可选的，但它有助于标识复制任务。如果未提供，Cloudant 会生成一个值。
+`source`        | 源 Cloudant 数据库的 URL，包含登录凭证。
+`target`        | 目标 Cloudant 数据库的 URL，包含登录凭证。
 `create_target` | （可选）确定在目标数据库尚不存在时是否加以创建。
 
 _使用 HTTP 启动复制作业的示例：_
@@ -122,9 +122,9 @@ _用于描述所需复制的示例 JSON 文档：_
 
 ## 复制如何影响更改列表？
 
-可以使用 [`_changes` 端点](../api/database.html#get-changes)来获取对文档所做更改的列表。但是，{{site.data.keyword.cloudant_short_notm}} 数据库的分布式性质意味着 `_changes` 订阅源提供的响应不可能是在特定日期和时间之后所发生更改的简单列表。
+可以使用 [`_changes` 端点](../api/database.html#get-changes)来获取对文档所做更改的列表。但是，Cloudant 数据库的分布式性质意味着 `_changes` 订阅源提供的响应不可能是在特定日期和时间之后所发生更改的简单列表。
 
-[CAP 定理](cap_theorem.html)讨论内容明确表明 {{site.data.keyword.cloudant_short_notm}} 使用的是“最终一致性”模型。此模型意味着，如果同时请求一个文档的两个不同数据库副本，那么当其中一个数据库副本仍在等待完成复制时，您可能会获得不同的结果。_最终_，数据库副本会完成其复制，以便对文档的所有更改都反映在每个副本中。
+[CAP 定理](cap_theorem.html)讨论内容明确表明 Cloudant 使用的是“最终一致性”模型。此模型意味着，如果同时请求一个文档的两个不同数据库副本，那么当其中一个数据库副本仍在等待完成复制时，您可能会获得不同的结果。_最终_，数据库副本会完成其复制，以便对文档的所有更改都反映在每个副本中。
 
 此“最终一致性”模型有两个特征会影响更改列表：
 
@@ -133,7 +133,7 @@ _用于描述所需复制的示例 JSON 文档：_
 
 第一个特征的一个结果是，请求更改列表时，请求特定时间点之后的更改列表没有意义。原因是更改列表可能由不同的数据库副本提供，从而产生不同时间的文档更新。但是，请求特定更改（通过使用序列标识来指定）之后的更改列表_是_有意义的。
 
-第一个特征的额外结果是，可能需要“回顾”先前的更改以就更改列表达成一致。换言之，要获取更改列表，您将从数据库副本达成一致的最新更改开始。在 {{site.data.keyword.cloudant_short_notm}} 中，数据库副本之间的一致点使用[检查点](#checkpoints)机制进行确认，该机制支持同步数据库副本之间的复制。
+第一个特征的额外结果是，可能需要“回顾”先前的更改以就更改列表达成一致。换言之，要获取更改列表，您将从数据库副本达成一致的最新更改开始。在 Cloudant 中，数据库副本之间的一致点使用[检查点](#checkpoints)机制进行确认，该机制支持同步数据库副本之间的复制。
 
 最后，第二个特征的一个结果是，在不同数据库副本所应答的后续请求中，更改列表中显示的各个更改可能会以不同顺序显示。换言之，初始更改列表可能按 `A`、`B`、`C` 的顺序报告更改。但后续更改列表可能按 `C`、`A`、`B` 的顺序报告更改。所有更改都会列出，但顺序不同。造成这种差异的原因是，复制期间接收更改的顺序可能在数据库的两个不同副本中不同。
 
@@ -158,16 +158,16 @@ _用于描述所需复制的示例 JSON 文档：_
 -   在目标端写入文档。
 -   在两端写入检查点文档。
 
-{{site.data.keyword.cloudant_short_notm}} 具有特殊的 `_replicator` 用户许可权。此许可权允许创建检查点文档，但不允许在数据库中创建普通文档。通常，[创建符合以下条件的 API 密钥](../api/authorization.html#creating-api-keys)：
+Cloudant 具有特殊的 `_replicator` 用户许可权。此许可权允许创建检查点文档，但不允许在数据库中创建普通文档。通常，[创建符合以下条件的 API 密钥](../api/authorization.html#creating-api-keys)：
 
 -   具有对源端的 `_reader` 和 `_replicator` 访问权。
 -   具有对目标端的 `_reader` 和 `_writer` 访问权。
 
-可以在 {{site.data.keyword.cloudant_short_notm}}“仪表板”中逐个数据库创建和配置 API 密钥。
+可以在 Cloudant“仪表板”中为每个数据库创建和配置 API 密钥。
 
 ![复制](../images/replication_guide_5.png)
 
-也可以使用 {{site.data.keyword.cloudant_short_notm}} API [通过编程方式](../api/authorization.html#creating-api-keys)创建 API 密钥。
+也可以使用 Cloudant API [通过编程方式](../api/authorization.html#creating-api-keys)创建 API 密钥。
 
 ## 双向复制
 
@@ -179,7 +179,7 @@ _用于描述所需复制的示例 JSON 文档：_
 
 到目前为止，讨论仅涉及的是单次复制，它在所有源数据都写入目标数据库之后即完成。通过持续复制，数据可持续流动。对源数据库的所有后续更改都将实时传输到目标数据库。
 
-通过在 {{site.data.keyword.cloudant_short_notm}}“仪表板”中定义复制任务时单击“`使此复制成为持续的`”复选框，或通过在 {{site.data.keyword.cloudant_short_notm}} API 中设置[“`continuous`](../api/replication.html#checkpoints)”标志，可触发持续复制。
+通过在 Cloudant“仪表板”中定义复制任务时单击“`使此复制成为持续的`”复选框，或通过在 Cloudant API 中设置[`“continuous”`](../api/replication.html#checkpoints)标志，可触发持续复制。
 
 通过设置“`continuous`”标志，可使双向复制在一个方向或两个方向持续进行。
 
@@ -217,9 +217,9 @@ _用于定义持续复制的 JSON 文档的示例：_
 
 ## 监视复制
 
-可以使用“仪表板”或 API 随时检查 {{site.data.keyword.cloudant_short_notm}} 的 `_replicator` 数据库的状态。
+可以使用“仪表板”或 API 随时检查 Cloudant 的 `_replicator` 数据库的状态。
 
-如果复制失败（例如，如果认证凭证无效），那么错误状态将记录在 `_replicator` 文档中。此外，可以使用 {{site.data.keyword.cloudant_short_notm}} 帐户的 `/_active_tasks` 端点来查看进行中的复制工作。[此处](../api/active_tasks.html)提供了更多详细信息。
+如果复制失败（例如，如果认证凭证无效），那么错误状态将记录在 `_replicator` 文档中。此外，可以使用 Cloudant 帐户的 `/_active_tasks` 端点来查看进行中的复制工作。[此处](../api/active_tasks.html)提供了更多详细信息。
 
 _使用 HTTP 监视复制过程的示例：_
 
@@ -276,18 +276,18 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 
 ## 其他复制用例
 
-复制不仅仅用于 {{site.data.keyword.cloudant_short_notm}} 到 {{site.data.keyword.cloudant_short_notm}} 的数据传输。{{site.data.keyword.cloudant_short_notm}} 的复制协议与用于各种现实世界应用的其他数据库和库相兼容。
+复制不仅仅用于 Cloudant 到 Cloudant 的数据传输。Cloudant 的复制协议与用于各种现实世界应用的其他数据库和库相兼容。
 
 ### Apache CouchDB
 
-[Apache CouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://couchdb.apache.org/){:new_window} 是一个开放式源代码数据库，可以与 {{site.data.keyword.cloudant_short_notm}} 进行通信，并且需要的设置极少。应用范围包括：
+[Apache CouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://couchdb.apache.org/){:new_window} 是一个开放式源代码数据库，可以与 Cloudant 进行通信，并且需要的设置极少。应用范围包括：
 
--   备份：将数据从 {{site.data.keyword.cloudant_short_notm}} 复制到自己的 CouchDB 数据库，并在夜间生成数据快照以用于归档。将数据发送到 [Amazon Glacier ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://aws.amazon.com/glacier/){:new_window} 之类的备份服务进行保管。
--   本地优先的数据收集：先将数据写入本地 Apache CouchDB，然后将其复制到 {{site.data.keyword.cloudant_short_notm}} 以用于长期存储、聚集和分析。
+-   备份：将数据从 Cloudant 复制到自己的 CouchDB 数据库，并在夜间生成数据快照以用于归档。将数据发送到 [Amazon Glacier ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://aws.amazon.com/glacier/){:new_window} 之类的备份服务进行保管。
+-   本地优先的数据收集：先将数据写入本地 Apache CouchDB，然后将其复制到 Cloudant 以用于长期存储、聚集和分析。
 
 ### PouchDB
 
-[PouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://pouchdb.com/){:new_window} 是一种开放式源代码的浏览器内数据库，支持在浏览器和 {{site.data.keyword.cloudant_short_notm}} 之间双向复制数据。通过在客户端的 Web 浏览器中存储数据，Web 应用程序可以在没有因特网连接的情况下运行。当因特网连接可用时，PouchDB 可以与 {{site.data.keyword.cloudant_short_notm}} 相互同步任何发生更改的数据。从客户端设置复制需要几行 JavaScript 代码。
+[PouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://pouchdb.com/){:new_window} 是一种开放式源代码的浏览器内数据库，支持在浏览器和 Cloudant 之间双向复制数据。通过在客户端的 Web 浏览器中存储数据，Web 应用程序可以在没有因特网连接的情况下运行。当因特网连接可用时，PouchDB 可以与 Cloudant 相互同步任何发生更改的数据。从客户端设置复制需要几行 JavaScript 代码。
 
 _使用 PouchDB 启用复制的示例 JavaScript：_
 
@@ -300,7 +300,7 @@ db.sync(URL, { live: true });
 
 ### CloudantSync
 
-[CloudantSync ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/cloudant-sync-resources/){:new_window} 是一组用于 iOS 和 Android 的库，支持在移动设备本地存储数据，并在移动连接允许时将数据与 {{site.data.keyword.cloudant_short_notm}} 同步。与 [PouchDB](#pouchdb) 一样，设置复制需要几行代码。
+[CloudantSync ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/cloudant-sync-resources/){:new_window} 是一组用于 iOS 和 Android 的库，支持在移动设备本地存储数据，并在移动连接允许时将数据与 Cloudant 同步。与 [PouchDB](#pouchdb) 一样，设置复制需要几行代码。
 
 _使用 CloudantSync 启用复制的示例 JavaScript：_
 
@@ -314,7 +314,7 @@ replicator.start();
 ```
 {:codeblock}
 
-CloudantSync 在移动应用程序（如 iPhone 和 Android 游戏）中广泛使用，其中应用程序的状态通过复制持久存储到 {{site.data.keyword.cloudant_short_notm}}，但在设备上也提供了该数据以供脱机使用。
+CloudantSync 在移动应用程序（如 iPhone 和 Android 游戏）中广泛使用，其中应用程序的状态通过复制持久存储到 Cloudant，但在设备上也提供了该数据以供脱机使用。
 
 ## 过滤复制
 
@@ -327,7 +327,7 @@ CloudantSync 在移动应用程序（如 iPhone 和 Android 游戏）中广泛�
 
 ### 复制过滤函数
 
-{{site.data.keyword.cloudant_short_notm}} 的过滤复制支持定义 JavaScript 函数，该函数使用返回值来确定是否过滤数据库中的每个文档。 [过滤函数](../api/design_documents.html#filter-functions)存储在[设计文档](../api/design_documents.html)中。
+Cloudant 的过滤复制支持定义 JavaScript 函数，该函数使用返回值来确定是否过滤数据库中的每个文档。 [过滤函数](../api/design_documents.html#filter-functions)存储在[设计文档](../api/design_documents.html)中。
 
 以下示例中的过滤函数仅允许复制未删除的文档。
 
@@ -383,7 +383,7 @@ _用于定义过滤复制的 JSON 文档的示例：_
 
 ## 更改订阅源
 
-{{site.data.keyword.cloudant_short_notm}} 通过单个 HTTP 订阅源从 [`_changes` 端点](../api/database.html#get-changes)发布影响数据库的添加、编辑和删除操作。应用程序可以使用此订阅源来触发事件。您可以使用 HTTP 或 `curl`（如示例中所示）来访问订阅源。使用 `feed=continuous` 选项意味着流会提供获取数据库中每个文档最新版本所需的每个更改。
+Cloudant 通过单个 HTTP 订阅源从 [`_changes` 端点](../api/database.html#get-changes)发布影响数据库的添加、编辑和删除操作。应用程序可以使用此订阅源来触发事件。您可以使用 HTTP 或 `curl`（如示例中所示）来访问订阅源。使用 `feed=continuous` 选项意味着流会提供获取数据库中每个文档最新版本所需的每个更改。
 
 _使用 HTTP 查询 changes 订阅源的示例：_
 
@@ -477,7 +477,7 @@ feed.follow();
 ```
 {:codeblock}
 
-通过编程方式访问 `_changes` 数据十分简单。例如，使用 [{{site.data.keyword.cloudant_short_notm}} Node.js 库](../libraries/supported.html#node-js)通过几行代码来跟踪更改。
+通过编程方式访问 `_changes` 数据十分简单。例如，使用 [Cloudant Node.js 库](../libraries/supported.html#node-js)通过几行代码来跟踪更改。
 
 示例用例可能为：
 
@@ -506,7 +506,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 {:codeblock}
 
 >   **注**：`_changes` 订阅源中文档的顺序并不总是相同的。
-换言之，更改可能不会按严格的时间顺序显示。原因是数据是从多个 {{site.data.keyword.cloudant_short_notm}} 节点返回的，并且最终一致性规则适用。
+换言之，更改可能不会按严格的时间顺序显示。原因是数据是从多个 Cloudant 节点返回的，并且最终一致性规则适用。
 
 ## 复制易犯错误
 
@@ -519,7 +519,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 *   对数据库“a”的 `_reader` 和 `_replicator` 权限。
 *   对数据库“b”的 `_writer` 权限。
 
-API 密钥在 {{site.data.keyword.cloudant_short_notm}}“仪表板”中或[通过 API](../api/authorization.html#creating-api-keys) 生成。可以为每个密钥提供与特定 {{site.data.keyword.cloudant_short_notm}} 数据库相关的各个权限。{{site.data.keyword.cloudant_short_notm}} 必须能够在复制的“读取”端写入其检查点文档，否则不会保存任何状态，并且无法从其停止的位置恢复复制。如果未保存状态，那么在恢复大型数据集的复制时，可能会导致性能问题。原因是，在没有检查点的情况下，复制过程每次恢复时都会从头重新开始。
+API 密钥在 Cloudant“仪表板”中或[通过 API](../api/authorization.html#creating-api-keys) 生成。可以为每个密钥提供与特定 Cloudant 数据库相关的各个权限。Cloudant 必须能够在复制的“读取”端写入其检查点文档，否则不会保存任何状态，并且无法从其停止的位置恢复复制。如果未保存状态，那么在恢复大型数据集的复制时，可能会导致性能问题。原因是，在没有检查点的情况下，复制过程每次恢复时都会从头重新开始。
 
 ### 复制文档发生冲突
 
@@ -532,7 +532,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 ```
 {:codeblock}
 
-在返回的 JSON 中，查找 `disk_size` 值。如果该值指示大小超过 1 GB，请联系 [IBM {{site.data.keyword.cloudant_short_notm}} 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window} 以获取进一步的建议。
+在返回的 JSON 中，查找 `disk_size` 值。如果该值指示大小超过 1 GB，请联系 [IBM Cloudant 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window} 以获取进一步的建议。
 
 可以检查单个 `_replicator` 文档是否存在冲突，如以下示例所示：
 
@@ -568,13 +568,13 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 
 ### 多个同时复制
 
-很容易会忘记先前在两个数据库之间设置过复制，因此会错误地创建多余的复制过程。每个复制作业都相互独立，因此 {{site.data.keyword.cloudant_short_notm}} 不会阻止您创建多余的复制过程。但是，每个复制任务都会耗尽系统资源。
+很容易会忘记先前在两个数据库之间设置过复制，因此会错误地创建多余的复制过程。每个复制作业都相互独立，因此 Cloudant 不会阻止您创建多余的复制过程。但是，每个复制任务都会耗尽系统资源。
 
-您可以在 {{site.data.keyword.cloudant_short_notm}}“仪表板”中选中“活动复制”，以确保不会有不需要的复制任务在运行。删除所有不再需要的 `_replicator` 文档。
+您可以在 Cloudant“仪表板”中选中“活动复制”，以确保不会有不需要的复制任务在运行。删除所有不再需要的 `_replicator` 文档。
 
 ## 调整复制速度
 
-缺省情况下，{{site.data.keyword.cloudant_short_notm}} 复制会以适当的速率运行，以将数据从源获取到目标，而不会对性能产生负面影响。在其他任务的复制速率和集群性能之间进行选择是一种权衡。您的用例可能需要更快的复制，但代价是其他 {{site.data.keyword.cloudant_short_notm}} 服务的复制会变慢。或者，您可能需要集群性能优先，而将复制作为后台进程处理。
+缺省情况下，Cloudant 复制会以适当的速率运行，以将数据从源获取到目标，而不会对性能产生负面影响。在其他任务的复制速率和集群性能之间进行选择是一种权衡。您的用例可能需要更快的复制，但代价是其他 Cloudant 服务的复制会变慢。或者，您可能需要集群性能优先，而将复制作为后台进程处理。
 
 [提供了](../api/advanced_replication.html)高级复制 API 选项，支持增大或减小复制期间使用的计算能力。例如：
 
@@ -582,4 +582,4 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 *   如果有许多微型文档，那么可以考虑增大 [`worker_process`](../api/advanced_replication.html#performance-related-options) 和 [`http_connections`](../api/advanced_replication.html#performance-related-options) 值。
 *   如果要在运行复制时尽可能减少影响，将 `worker_processes` 和 `http_connections` 设置为 1 可能比较适合。
 
-要获取有关用例最佳配置的进一步帮助，请联系 [IBM {{site.data.keyword.cloudant_short_notm}} 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。
+要获取有关用例最佳配置的进一步帮助，请联系 [IBM Cloudant 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。

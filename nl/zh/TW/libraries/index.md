@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -12,13 +12,13 @@ lastupdated: "2017-11-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Client Libraries
+# 用戶端程式庫
 
-Client libraries are the tools that let you develop your own applications
-to work with {{site.data.keyword.cloudantfull}} databases.
+
+用戶端程式庫是可讓您自行開發應用程式來處理 Cloudant 資料庫的工具。
 {:shortdesc}
 
-The following client libraries are formally [supported](supported.html) by {{site.data.keyword.cloudant_short_notm}}.
+Cloudant 正式[支援](supported.html)下列用戶端程式庫。
 
 -	[Mobile](supported.html#mobile)
 -	[Java](supported.html#java)
@@ -26,13 +26,9 @@ The following client libraries are formally [supported](supported.html) by {{sit
 -	[Python](supported.html#python)
 -	[Swift](supported.html#swift)
 
-A supported library is one where you can contact {{site.data.keyword.cloudant_short_notm}} if you encounter a specific,
-reproducible problem in the latest version of the library.
+支援的程式庫是您可在最新版本的程式庫中發現特定可重現問題時，與 Cloudant 聯絡的位置。
 
-Other client libraries have been created by
-[third parties](thirdparty.html#third-party-client-libraries) or are no longer officially supported.
+其他用戶端程式庫已由[協力廠商](thirdparty.html#third-party-client-libraries)建立，或不再正式支援。
 
->   **Note**: Third-party client libraries are not maintained or supported by {{site.data.keyword.cloudant_short_notm}}.
-    If you encounter a specific,
-    reproducible problem with a third-party library,
-    you should contact the library maintainer for assistance.
+>   **附註**：Cloudant 不會維護或支援協力廠商用戶端程式庫。
+如果您發現協力廠商程式庫的特定可重現問題，則應該與程式庫維護者聯絡，以尋求協助。

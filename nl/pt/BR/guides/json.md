@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2015, 2018
+  years: 2015, 2017
 lastupdated: "2017-01-06"
 
 ---
@@ -14,12 +14,12 @@ lastupdated: "2017-01-06"
 
 # JSON
 
-A maioria das solicitações e respostas para e do {{site.data.keyword.cloudantfull}}
+A maioria das solicitações e respostas de e para o Cloudant
 usa o [JavaScript Object Notation (JSON) ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/JSON){:new_window}
-para formatar o conteúdo e a estrutura dos dados e respostas.
+para formatar o conteúdo e a estrutura dos dados e das respostas.
 {:shortdesc}
 
-Em bancos de dados {{site.data.keyword.cloudant_short_notm}},
+Em bancos de dados Cloudant,
 o objeto JSON é usado para representar uma variedade de estruturas,
 incluindo todos os documentos em um banco de dados.
 
@@ -31,15 +31,15 @@ disponíveis para muitas linguagens de programação principais.
 
 O JSON é usado porque é a solução mais simples e mais fácil para trabalhar com dados usando um navegador da web.
 Isso é porque as estruturas JSON podem ser avaliadas e usadas como objetos JavaScript dentro do ambiente do navegador da web.
-O JSON também se integra ao JavaScript do lado do servidor usado no {{site.data.keyword.cloudant_short_notm}}.
+O JSON também se integra ao JavaScript do lado do servidor usado no Cloudant.
 Os documentos JSON são sempre codificados em UTF-8.
 
 >   **Nota**: deve-se tomar cuidado para assegurar que:
 
 -   Suas estruturas JSON sejam válidas.
-    Estruturas inválidas fazem com que o {{site.data.keyword.cloudant_short_notm}} retorne um código de status HTTP de [400 (solicitação inválida)](../api/http.html#400).
--   Você normaliza as sequências em documentos JSON recuperados do {{site.data.keyword.cloudant_short_notm}},
-    antes de compará-las.
+    Estruturas inválidas façam com que o Cloudant retorne um código de status HTTP de [400 (solicitação inválida)](../api/http.html#400).
+-   Você normalize sequências em documentos JSON recuperados do Cloudant,
+antes de compará-los.
     Isso é porque a normalização de Unicode pode ter sido aplicada
 para que uma sequência armazenada e, em seguida, recuperada não seja idêntica em um nível binário.
 

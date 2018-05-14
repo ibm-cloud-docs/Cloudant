@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-02"
+  years: 2015, 2017
+lastupdated: "2017-08-25"
 
 ---
 
@@ -49,7 +49,7 @@ lastupdated: "2017-11-02"
 	```
 	{:pre}
 	
-	システムにインストールされているすべての Python モジュールのリストが表示されます。 リストを調べ、以下のような {{site.data.keyword.cloudant_short_notm}} 項目を探します。
+	システムにインストールされているすべての Python モジュールのリストが表示されます。リストを調べ、以下のような {{site.data.keyword.cloudant_short_notm}} 項目を探します。
 
 	```
 	cloudant==2.3.1
@@ -78,8 +78,7 @@ lastupdated: "2017-11-02"
   2. 左ナビゲーションで、**`「サービス資格情報」`**をクリックします。
   3. **`「アクション」`**の下の**`「資格情報の表示」`**をクリックします。
 
-3.	以下のコマンドを実行して、サービス・インスタンスへの接続を確立します。
-	前のステップで確認したサービス資格情報に置き換えてください。
+3.	以下のコマンドを実行して、サービス・インスタンスへの接続を確立します。前のステップで確認したサービス資格情報に置き換えてください。
 	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
 	client.connect()
@@ -94,7 +93,7 @@ lastupdated: "2017-11-02"
   databaseName = "<yourDatabaseName>"
   ```
   {: codeblock}
-  ... ここで、`<yourDatabaseName>` は、データベースに付ける名前です。 
+  ... ここで、`<yourDatabaseName>` は、データベースに付ける名前です。
 
   > **注:** データベース名は、文字で始まる必要があり、小文字 (a から z)、数字 (0 から 9)、記号 `_`、`$`、`(``)`、`+`、`-`、および `/` のみを含むことができます。
 
@@ -125,8 +124,7 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-2. Python コードを使用して、データを順に処理し、JSON 文書に変換します。
-  各文書は、以下のようにデータベースに保管されます。
+2. Python コードを使用して、データを順に処理し、JSON 文書に変換します。各文書は、以下のようにデータベースに保管されます。
 
   ```python
   # Create documents using the sample data.
@@ -226,7 +224,7 @@ lastupdated: "2017-11-02"
   [
     {
       "value": {
-        "rev": "1-7130413a8c7c5f1de5528fe4d373045c
+                "rev": "1-7130413a8c7c5f1de5528fe4d373045c
       },
       "id": "0cfc7d902f613d5fdb7b7818e262353b",
       "key": "0cfc7d902f613d5fdb7b7818e262353b",
@@ -245,7 +243,7 @@ lastupdated: "2017-11-02"
 
 ## ステップ 5: {{site.data.keyword.cloudant_short_notm}} API エンドポイントを介してデータを取得する
 
-{{site.data.keyword.cloudant_short_notm}} [`/_all_docs` エンドポイント](api/database.html#get-documents)を呼び出すことで、すべての文書のリストとその内容を要求することもできます。
+Cloudant [`/_all_docs` エンドポイント](api/database.html#get-documents)を呼び出すことで、すべての文書のリストとその内容を要求することもできます。
 
 1. 以下のように、接続するエンドポイント、および呼び出しで渡すパラメーターを指定します。
   ```python
@@ -323,6 +321,7 @@ except CloudantException:
     print "There was a problem deleting '{0}'.\n".format(databaseName)
 else:
     print "'{0}' successfully deleted.\n".format(databaseName)
+
 ```
 {: codeblock}
 
@@ -334,6 +333,7 @@ else:
 
 ```python
 client.disconnect()
+
 ```
 {: codeblock}
 

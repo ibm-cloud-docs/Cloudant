@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -12,41 +12,41 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Einfache {{site.data.keyword.cloudant_short_notm}}-Datenbank unter {{site.data.keyword.Bluemix_notm}} erstellen und befüllen
+# Einfache Cloudant-Datenbank unter Bluemix erstellen und befüllen
 
 In diesem Lernprogramm erfahren Sie, wie Sie die [Python-Programmiersprache ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.python.org/){:new_window} verwenden, um
-eine {{site.data.keyword.cloudantfull}}-Datenbank in Ihrer {{site.data.keyword.Bluemix}}-Serviceinstanz zu erstellen und die Datenbank mit einer einfachen Sammlung von Daten zu befüllen.
+eine {{site.data.keyword.cloudantfull}}-Datenbank in Ihrer {{site.data.keyword.Bluemix_notm}}-Serviceinstanz zu erstellen und die Datenbank mit einer einfachen Sammlung von Daten zu befüllen.
 {:shortdesc}
 
 ## Voraussetzungen
 
-Stellen Sie sicher, dass Sie die folgenden Ressourcen oder Informationen zur Hand haben, bevor Sie das Lernprogramm durcharbeiten.
+Stellen Sie sicher, dass Sie die folgenden Ressourcen oder Informationen zur Hand haben, bevor Sie das Lernprogramm durcharbeiten. 
 
 ### Python
 
 Sie müssen über eine aktuelle Installation der [Python-Programmiersprache ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.python.org/){:new_window}
-auf Ihrem System verfügen.
+auf Ihrem System verfügen. 
 
-Führen Sie den folgenden Befehl an einer Eingabeaufforderung aus, um dies zu prüfen:
+Führen Sie den folgenden Befehl an einer Eingabeaufforderung aus, um dies zu prüfen: 
 
 ```sh
 python --version
 ```
 {:pre}
 
-Ihr Ergebnis sollte ungefähr wie folgt aussehen:
+Ihr Ergebnis sollte ungefähr wie folgt aussehen: 
 
 ```
 Python 2.7.12
 ```
 {:codeblock}
 
-### Python-Clientbibliothek für {{site.data.keyword.cloudant_short_notm}}
+### Python-Clientbibliothek für Cloudant
 
 Es gibt eine [offiziell unterstützte Bibliothek](../libraries/supported.html#python), um Ihre Python-Anwendungen darin zu unterstützen, mit
-{{site.data.keyword.cloudant_short_notm}} unter {{site.data.keyword.Bluemix_notm}} zu arbeiten.
+{{site.data.keyword.cloudant_short_notm}} unter {{site.data.keyword.Bluemix_notm}} zu arbeiten. 
 
-Sie sollten diese Bibliothek mit den [hier](../libraries/supported.html#python) bereitgestellten Anweisungen installieren.
+Sie sollten diese Bibliothek mit den [hier](../libraries/supported.html#python) bereitgestellten Anweisungen installieren. 
 
 Um sicherzustellen, dass Sie die Clientbibliothek erfolgreich installiert haben, führen Sie den folgenden Befehl an einer Eingabeaufforderung ein:
 
@@ -55,60 +55,59 @@ pip freeze
 ```
 {:pre}
 
-Sie sollten eine Liste aller Python-Module erhalten, die auf Ihrem System installiert sind.
-Suchen Sie in der Liste nach einem {{site.data.keyword.cloudant_short_notm}}-Eintrag ähnlich dem folgenden:
+Sie sollten eine Liste aller Python-Module erhalten, die auf Ihrem System installiert sind. Suchen Sie in der Liste nach einem {{site.data.keyword.cloudant_short_notm}}-Eintrag ähnlich dem folgenden: 
 
 ```
 cloudant==2.3.1
 ```
 {:codeblock}
 
-### {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter Bluemix
+### Cloudant-Serviceinstanz unter Bluemix
 
-Der Prozess der Erstellung einer passenden Serviceinstanz wird in [diesem Lernprogramm](create_service.html) beschrieben.
+Der Prozess der Erstellung einer passenden Serviceinstanz wird in [diesem Lernprogramm](create_service.html) beschrieben. 
 
-Stellen Sie sicher, dass Sie die folgenden Serviceberechtigungsnachweise für Ihre Serviceinstanz zur Hand haben:
+Stellen Sie sicher, dass Sie die folgenden Serviceberechtigungsnachweise für Ihre Serviceinstanz zur Hand haben: 
 
-Feld      | Zweck
+Feld           | Zweck
 -----------|--------
-`host`     | Von Anwendungen verwendeter Hostname zum Suchen der Serviceinstanz.
-`username` | Für Anwendungen erforderlicher Benutzername zum Zugreifen auf die Serviceinstanz.
-`password` | Für Anwendungen erforderliches Kennwort zum Zugreifen auf die Serviceinstanz.
-`port`     | HTTP-Portnummer für den Zugriff auf die Serviceinstanz auf dem Host. In der Regel '443' zum Erzwingen von HTTPS-Zugriff.
+`host`     | Von Anwendungen verwendeter Hostname zum Suchen der Serviceinstanz. 
+`username` | Für Anwendungen erforderlicher Benutzername zum Zugreifen auf die Serviceinstanz. 
+`password` | Für Anwendungen erforderliches Kennwort zum Zugreifen auf die Serviceinstanz. 
+`port`     | HTTP-Portnummer für den Zugriff auf die Serviceinstanz auf dem Host. In der Regel '443' zum Erzwingen von HTTPS-Zugriff. 
 `url`      | Zeichenfolge, die die anderen Berechtigungsnachweise in einer einzigen URL zusammenfasst, bereit für die Verwendung durch Anwendungen.
 
 Informationen zum Suchen nach den Berechtigungsnachweisen für Ihre Serviceinstanz sind
-[hier](create_service.html#locating-your-service-credentials) verfügbar.
+[hier](create_service.html#locating-your-service-credentials) verfügbar. 
 
 ## Kontext
 
-In diesem Lernprogramm wird eine Serie von Python-Sprachanweisungen erstellt, passend für die folgenden Tasks:
+In diesem Lernprogramm wird eine Serie von Python-Sprachanweisungen erstellt, passend für die folgenden Tasks: 
 
-1.  [Verbindung mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.Bluemix_notm}}](#connecting-to-a-cloudant-service-instance-on-bluemix) herstellen.
+1.  [Verbindung mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.Bluemix_notm}}](#connecting-to-a-cloudant-service-instance-on-bluemix) herstellen. 
 2.  [Datenbank in der Serviceinstanz erstellen](#creating-a-database-within-the-service-instance).
-3.  [Kleine Sammlung von Daten in Form von Dokumenten in der Datenbank speichern](#storing-a-small-collection-of-data-as-documents-within-the-database).
+3.  [Kleine Sammlung von Daten in Form von Dokumenten in der Datenbank speichern](#storing-a-small-collection-of-data-as-documents-within-the-database). 
 4.  [Vollständige Liste der Dokumente abrufen](#retrieving-a-complete-list-of-the-documents).
 5.  [Datenbank löschen](#deleting-the-database).
 6.  [Verbindung mit der Serviceinstanz trennen](#closing-the-connection-to-the-service-instance).
 
-Als Teil der Taskbeschreibung in diesem Lernprogramm wird spezifisch für jede Task Python-Code bereitgestellt.
+Als Teil der Taskbeschreibung in diesem Lernprogramm wird spezifisch für jede Task Python-Code bereitgestellt. 
 
 Ein vollständiges Python-Programm zum Ausführen aller Tasks wird am Ende des Lernprogramms bereitgestellt, nämlich
-[hier](#complete-listing).
+[hier](#complete-listing). 
 
 Es wurde nicht versucht, einen _effizienten_ Python-Code für dieses Lernprogramm zu schreiben.
 Unsere Absicht ist, Ihnen einfachen und leicht verständlichen Code zu zeigen,
-den Sie anschließend für Ihre eigenen Anwendungen verwenden können.
+den Sie anschließend für Ihre eigenen Anwendungen verwenden können. 
 
 Es war auch nicht unser Anliegen, alle möglichen Prüfungen oder Fehlerbedingungen zu besprechen.
 Wir zeigen hier zwar einige Beispielprüfungen, um bestimmte Techniken zu erläutern,
 aber Sie sollten Ihre üblichen Best Practices einsetzen, um Warnungen oder Fehlerbedingungen zu prüfen
-und zu verarbeiten, die in Ihren Anwendungen auftreten. 
+und zu verarbeiten, die in Ihren Anwendungen auftreten.  
 
-## Verbindung mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.Bluemix_notm}} herstellen
+## Verbindung mit einer Cloudant-Serviceinstanz unter Bluemix herstellen
 
-Eine Python-Anwendung setzt voraus, dass die {{site.data.keyword.cloudant_short_notm}}-Clientbibliothekskomponenten eine Verbindung zur Serviceinstanz herstellen können.
-Diese Komponenten sind normale `import`-Anweisungen:
+Eine Python-Anwendung setzt voraus, dass die Cloudant-Clientbibliothekskomponenten eine Verbindung zur Serviceinstanz herstellen können.
+Diese Komponenten sind normale `import`-Anweisungen: 
 
 ```python
 from cloudant.client import Cloudant
@@ -117,7 +116,7 @@ from cloudant.result import Result, ResultByKey
 ```
 {:codeblock}
 
-Die Anwendung muss über die [Serviceberechtigungsnachweise](create_service.html#locating-your-service-credentials) für den Service verfügen:
+Die Anwendung muss über die [Serviceberechtigungsnachweise](create_service.html#locating-your-service-credentials) für den Service verfügen: 
 
 ```python
 serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
@@ -127,14 +126,14 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 {:codeblock}
 
 >   **Hinweis**: Die hier dargestellten Serviceberechtigungsnachweise
-    wurden definiert, als ein {{site.data.keyword.cloudant_short_notm}}-Service zu Demonstrationszwecken unter Bluemix erstellt wurde.
-    Die Berechtigungsnachweise werden hier reproduziert, um zu zeigen, wie sie in einer Python-Anwendung verwendet würden.
-    Der {{site.data.keyword.cloudant_short_notm}}-Service zu Demonstrationszwecken wurde inzwischen entfernt,
-    deshalb werden diese Berechtigungsnachweise nicht funktionieren. Sie
-    _müssen_ Ihre eigenen Serviceberechtigungsnachweise angaben und verwenden.
+    wurden definiert, als ein Cloudant-Service zu Demonstrationszwecken unter Bluemix erstellt wurde.
+    Die Berechtigungsnachweise werden hier reproduziert, um zu zeigen, wie sie in einer Python-Anwendung verwendet würden. Der
+    Cloudant-Service zu Demonstrationszwecken wurde inzwischen entfernt,
+    deshalb werden diese Berechtigungsnachweise nicht funktionieren.
+    Sie _müssen_ Ihre eigenen Serviceberechtigungsnachweise angeben und verwenden.
 
 Sobald Sie die Python-Clientbibliothek in Ihrer Anwendung aktiviert
-und die Serviceberechtigungsnachweise angegeben haben, können Sie eine Verbindung mit der Serviceinstanz einrichten:
+und die Serviceberechtigungsnachweise angegeben haben, können Sie eine Verbindung mit der Serviceinstanz einrichten: 
 
 ```python
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
@@ -142,27 +141,27 @@ client.connect()
 ```
 {:codeblock}
 
-Zu diesem Zeitpunkt hat Ihre Python-Anwendung Zugriff auf die Serviceinstanz unter Bluemix.
+Zu diesem Zeitpunkt hat Ihre Python-Anwendung Zugriff auf die Serviceinstanz unter Bluemix. 
 
 ## Datenbank in der Serviceinstanz erstellen
 
-Der nächste Schritt besteht darin, eine Datenbank in der Serviceinstanz namens `databasedemo` zu erstellen.
+Der nächste Schritt besteht darin, eine Datenbank in der Serviceinstanz namens `databasedemo` zu erstellen. 
 
-Dafür definieren Sie eine Variable in der Python-Anwendung:
+Dafür definieren Sie eine Variable in der Python-Anwendung: 
 
 ```python
 databaseName = "databasedemo"
 ```
 {:codeblock}
 
-Dann erstellen Sie die Datenbank:
+Dann erstellen Sie die Datenbank: 
 
 ```python
 myDatabaseDemo = client.create_database(databaseName)
 ```
 {:codeblock}
 
-Es ist nützlich, zu prüfen, dass die Datenbank erfolgreich erstellt wurde:
+Es ist nützlich, zu prüfen, dass die Datenbank erfolgreich erstellt wurde: 
 
 ```python
 if myDatabaseDemo.exists():
@@ -173,9 +172,9 @@ if myDatabaseDemo.exists():
 ## Kleine Datensammlung als Dokumente in der Datenbank speichern
 
 Jetzt speichern Sie eine kleine, einfache
-Datensammlung in der Datenbank.
+Datensammlung in der Datenbank. 
 
-Beginnen Sie mit der Angabe einiger Daten:
+Beginnen Sie mit der Angabe einiger Daten: 
 
 ```python
 sampleData = [
@@ -190,11 +189,11 @@ sampleData = [
 
 Als nächstes folgen ein paar gängige Python-Code-Schritte für die Daten,
 um diese in JSON-Dokumente umzuwandeln.
-Alle Dokumente werden in der Datenbank gespeichert:
+Alle Dokumente werden in der Datenbank gespeichert: 
 
 ```python
-# Erstellen Sie Dokumente mithilfe von Beispieldaten.
-# Gehen Sie jede Zeile im Array
+  # Erstellen Sie Dokumente mithilfe von Beispieldaten.
+  # Gehen Sie jede Zeile im Array
   nach dem Stichwort 'document' in sampleData durch:
     # Rufen Sie die Felder in jeder Zeile ab.
     number = document[0]
@@ -222,18 +221,18 @@ Alle Dokumente werden in der Datenbank gespeichert:
 
 Sie sollten wissen, dass wir jedes Dokument prüfen, das erfolgreich erstellt wurde.
 
+
 ## Daten überprüfen
 
 Zu diesem Zeitpunkt wurde eine kleine Datensammlung in Form von Dokumenten in der Datenbank gespeichert.
 Jetzt können Sie eine Reihe von Abfragen ausführen, die alle unterschiedliche Wege darstellen,
-Daten aus der Datenbank abzurufen.
+Daten aus der Datenbank abzurufen. 
 
 ### Minimaler Abruf eines Dokuments
 
 Um einen minimalen Abruf auszuführen,
 fordern Sie zunächst eine Liste aller Dokumente in der Datenbank an.
-Diese Liste wird als Array zurückgegeben.
-Anschließend können Sie den Inhalt eines Elements im Array sehen.
+Diese Liste wird als Array zurückgegeben. Anschließend können Sie den Inhalt eines Elements im Array sehen. 
 
 Im Beispielcode fordern wir das erste aus der Datenbank abgerufene Dokument an:
 
@@ -243,7 +242,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-Das Ergebnis entspricht dem folgenden Beispiel:
+Das Ergebnis entspricht dem folgenden Beispiel: 
 
 ```json
 [
@@ -259,24 +258,20 @@ Das Ergebnis entspricht dem folgenden Beispiel:
 {:codeblock}
 
 >   **Hinweis**: Das Wesen von NoSQL-Datenbanken
-    wie {{site.data.keyword.cloudant_short_notm}} bedeutet, dass einfache
-    Grundsätze wie 'das erste in einer Datenbank gespeicherte Dokument ist immer
-    das erste zurückgegebene Dokument in einer Ergebnisliste' nicht zwangsläufig
-    zutreffen.
+    wie Cloudant bedeutet, dass einfache Grundsätze  - wie "das erste in der Datenbank gespeicherte Dokument ist immer das   erste zurückgegebene Dokument in einer Ergebnisliste" - nicht zwangsläufig zutreffen.
 
 ### Vollständiger Abruf eines Dokuments
 
 Um einen vollständigen Abruf auszuführen,
   fordern Sie eine Liste aller Dokumente in der Datenbank an
   und geben zusätzlich an, dass der Dokumentinhalt ebenfalls zurückgegeben
-  werden muss.
-Dazu geben Sie die Option `include_docs` an.
+  werden muss. Dazu geben Sie die Option `include_docs` an.
 Wie zuvor werden die Ergebnisse als Array zurückgegeben.
 Dann können wir die Details eines Elements im Array anzeigen,
-dieses Mal einschließlich des vollständigen Inhalts des Dokuments. 
+dieses Mal einschließlich des vollständigen Inhalts des Dokuments.  
 
 Wie zuvor fordern wir das erste aus der Datenbank abgerufene
-Dokument an:
+Dokument an: 
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
@@ -284,7 +279,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-Das Ergebnis entspricht dem folgenden Beispiel:
+Das Ergebnis entspricht dem folgenden Beispiel: 
 
 ```json
 [
@@ -307,17 +302,15 @@ Das Ergebnis entspricht dem folgenden Beispiel:
 ```
 {:codeblock}
 
-## {{site.data.keyword.cloudant_short_notm}}-API-Endpunkt direkt aufrufen
+## Cloudant-API-Endpunkt direkt aufrufen
 
-Wir können auch mit den {{site.data.keyword.cloudant_short_notm}}-API-Endpunkten direkt
-in einer Python-Anwendung arbeiten.
+Wir können auch mit den Cloudant-API-Endpunkten direkt in einer Python-Anwendung arbeiten. 
 
 In diesem Beispielcode wird erneut eine Liste
 aller Dokumente, einschließlich ihrer Inhalte, angefordert.
-Dieses Mal rufen wir jedoch den
-{{site.data.keyword.cloudant_short_notm}}-Endpunkt [`/_all_docs`](../api/database.html#get-documents) auf.
+Dieses Mal jedoch, indem Sie den Cloudant-[Endpunkt `/_all_docs`](../api/database.html#get-documents) aufrufen. 
 
-Zunächst geben Sie den Endpunkt an, der kontaktiert werden soll, und alle Parameter, die bei diesem Aufruf bereitgestellt werden müssen:
+Zunächst geben Sie den Endpunkt an, der kontaktiert werden soll, und alle Parameter, die bei diesem Aufruf bereitgestellt werden müssen: 
 
 ```python
 end_point = '{0}/{1}'.format(serviceURL, databaseName + "/_all_docs")
@@ -326,7 +319,7 @@ params = {'include_docs': 'true'}
 {:codeblock}
 
 Dann senden Sie die Anforderung an die Serviceinstanz
-  und zeigen die Ergebnisse an:
+  und zeigen die Ergebnisse an: 
 
 ```python
 response = client.r_session.get(end_point, params=params)
@@ -334,7 +327,7 @@ print "{0}\n".format(response.json())
 ```
 {:codeblock}
 
-Das Ergebnis entspricht dem folgenden _abgekürzten_ Beispiel:
+Das Ergebnis entspricht dem folgenden _abgekürzten_ Beispiel: 
 
 ```json
 {
@@ -380,9 +373,9 @@ Das Ergebnis entspricht dem folgenden _abgekürzten_ Beispiel:
 
 ## Datenbank löschen
 
-Wenn Sie die Arbeit an der Datenbank abgeschlossen haben, kann sie gelöscht werden.
+Wenn Sie die Arbeit an der Datenbank abgeschlossen haben, kann sie gelöscht werden. 
 
-Dies ist ein einfacher Schritt. Sehen Sie sich dazu den folgenden Python-Beispielcode an:
+Dies ist ein einfacher Schritt. Sehen Sie sich dazu den folgenden Python-Beispielcode an: 
 
 ```python
 try :
@@ -395,11 +388,11 @@ else:
 {:codeblock}
 
 Wir haben einige grundlegende Fehlerbehandlungsschritte eingeschlossen,
-um zu veranschaulichen, wie Probleme entstehen und gelöst werden können.
+um zu veranschaulichen, wie Probleme entstehen und gelöst werden können. 
 
 ## Verbindung mit der Serviceinstanz trennen
 
-Der letzte Schritt ist das Trennen der Verbindung zwischen der Python-Clientanwendung und der Serviceinstanz.
+Der letzte Schritt ist das Trennen der Verbindung zwischen der Python-Clientanwendung und der Serviceinstanz. 
 
 ```python
 client.disconnect()
@@ -410,18 +403,17 @@ client.disconnect()
 
 Der folgende Code ist ein vollständiges Python-Programm für den Zugriff auf eine
 {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.Bluemix_notm}} und
-für das Ausführen einer typischen Serie von Tasks:
+für das Ausführen einer typischen Serie von Tasks: 
 
-1.  Verbindung mit der Serviceinstanz herstellen.
-2.  Datenbank in der Serviceinstanz erstellen.
-3.  Kleine Datensammlung als Dokumente in der Datenbank speichern.
-4.  Vollständige Liste der Dokumente abrufen.
-5.  Datenbank löschen.
-6.  Verbindung mit der Serviceinstanz trennen.
+1.  Verbindung mit der Serviceinstanz herstellen. 
+2.  Datenbank in der Serviceinstanz erstellen. 
+3.  Kleine Datensammlung als Dokumente in der Datenbank speichern. 
+4.  Vollständige Liste der Dokumente abrufen. 
+5.  Datenbank löschen. 
+6.  Verbindung mit der Serviceinstanz trennen. 
 
 ```python
 # 1.  Verbindung mit der Serviceinstanz herstellen.
-
 # Aktivieren Sie die erforderlichen Python-Bibliotheken.
 
 from cloudant.client import Cloudant
@@ -449,17 +441,15 @@ sampleData = [
 # Starten Sie die Demo.
 print "===\n"
 
-# Verwenden Sie die {{site.data.keyword.cloudant_short_notm}}-Bibliothek, um einen {{site.data.keyword.cloudant_short_notm}}-Client zu erstellen.
+# Verwenden Sie die Cloudant-Bibliothek, um einen Cloudant-Client zu erstellen.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Stellen Sie eine Verbindung zum Server her.
 client.connect()
 
 # 2.  Datenbank in der Serviceinstanz erstellen.
-
 # Erstellen Sie eine Instanz der Datenbank
-.
-myDatabaseDemo = client.create_database(databaseName)
+. myDatabaseDemo = client.create_database(databaseName)
 
 # Prüfen Sie, dass die Datenbank jetzt vorhanden ist.
 if myDatabaseDemo.exists():
@@ -469,9 +459,8 @@ if myDatabaseDemo.exists():
 print "----\n"
 
 # 3.  Kleine Datensammlung als Dokumente in der Datenbank speichern.
-
-# Erstellen Sie Dokumente mithilfe von Beispieldaten.
-# Gehen Sie jede Zeile im Array
+  # Erstellen Sie Dokumente mithilfe von Beispieldaten.
+  # Gehen Sie jede Zeile im Array
   nach dem Stichwort 'document' in sampleData durch:
     # Rufen Sie die Felder in jeder Zeile ab.
     number = document[0]
@@ -499,7 +488,6 @@ print "----\n"
 print "----\n"
 
 # 4.  Vollständige Liste der Dokumente abrufen.
-
 # Einfacher und minimaler Abruf des ersten
 # Dokuments in der Datenbank.
 result_collection = Result(myDatabaseDemo.all_docs)
@@ -513,7 +501,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Setzen Sie die Ergebnisse in Leerzeichen.
 print "----\n"
 
-# Verwenden Sie einen {{site.data.keyword.cloudant_short_notm}}-API-Endpunkt, um alle
+# Verwenden Sie einen Cloudant-API-Endpunkt, um alle
 # Dokumente in der Datenbank,
 # einschließlich ihrer Inhalte, abzurufen.
 
@@ -534,7 +522,6 @@ print "----\n"
 # Zeit zum Aufräumen.
 
 # 5.  Datenbank löschen.
-
 # Löschen Sie die Testdatenbank.
 try :
     client.delete_database(databaseName)
@@ -544,7 +531,6 @@ else:
     print "'{0}' successfully deleted.\n".format(databaseName)
 
 # 6.  Verbindung mit der Serviceinstanz trennen.
-
 # Trennen Sie die Verbindung zum Server.
 client.disconnect()
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-05-22"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-02"
 
 <!-- Acrolinx: 2017-05-22 -->
 
-# Configuration de {{site.data.keyword.cloudant_short_notm}} pour la reprise après incident dans plusieurs régions
+# Configuration de Cloudant pour la reprise après incident dans plusieurs régions
 
 Le [guide de reprise après incident de {{site.data.keyword.cloudant_short_notm}}](disaster-recovery-and-backup.html)
 explique que l'une des manières d'activer la reprise après incident consiste à utiliser la réplication {{site.data.keyword.cloudantfull}} afin de créer une redondance au niveau de plusieurs régions.
@@ -46,9 +46,9 @@ Informations importantes :
   une stratégie de gestion des conflits doit être mise en place.
   Par conséquent, assurez-vous de comprendre parfaitement comment fonctionne la [réplication](../api/replication.html) et les [conflits](mvcc.html#distributed-databases-and-conflicts) avant d'envisager cette architecture.
 
-Contactez le support technique de [{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window} si vous avez besoin d'aide pour modéliser les données de manière à gérer efficacement les conflits.
+Contactez le support technique de [{{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} si vous avez besoin d'aide pour modéliser les données de manière à gérer efficacement les conflits.
 
-## Présentation
+## Aperçu
 
 La présente documentation explique comment créer une réplication bidirectionnelle.
 Cette configuration permet à deux bases de données de fonctionner dans une topologie active-active.
@@ -179,9 +179,9 @@ Cette configuration offre plusieurs avantages :
 - Le chargement peut être réparti sur plusieurs comptes.
 - Les applications peuvent être configurées pour accéder à un compte avec un temps d'attente inférieur (pas forcément le compte le plus proche géographiquement).
 
-Une application peut être configurée pour communiquer avec le compte {{site.data.keyword.cloudant_short_notm}} le "plus proche".
+Une application peut être configurée pour communiquer avec le compte Cloudant le "plus proche".
 Pour les applications hébergées dans le centre de données DC1, définissez leur URL {{site.data.keyword.cloudant_short_notm}} sur `"https://myaccount-dc1.cloudant.com/mydb"`.
-De même, pour les applications hébergées dans le centre de données DC2, définissez leur URL {{site.data.keyword.cloudant_short_notm}} sur `"https://myaccount-dc2.cloudant.com/mydb"`.
+De même, pour les applications hébergées dans le centre de données DC2, définissez leur URL Cloudant sur `"https://myaccount-dc2.cloudant.com/mydb"`.
 
 #### Active-passive
 
@@ -206,7 +206,7 @@ Par exemple, dans une configuration de type 'Write-Primary, Read-Replica', toute
 *	Examinez la façon dont vos documents de conception et index sont déployés et mis à jour.
   Il peut être plus efficace d'automatiser ces tâches.
 
-## Basculement entre les régions {{site.data.keyword.cloudant_short_notm}} 
+## Basculement entre les régions Cloudant
 
 En règle générale, le processus de gestion d'un basculement entre les régions ou les centres de données est géré à un niveau supérieur au sein de votre liste d'applications, par exemple en configurant les changements de basculement de serveur d'application ou en équilibrant la charge.
 
@@ -216,11 +216,11 @@ Par exemple, vous souhaitez peut-être forcer un basculement en réponse à un a
 
 Toutefois, si vous avez besoin de gérer les basculements, les options possibles sont les suivantes :
 
-* Placez votre propre [proxy HTTP devant {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/greenmangaming/cloudant-nginx){:new_window}.
+* Placez votre propre [proxy HTTP devant {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/green-man-gaming-cross-cloud-nginx-config/){:new_window}.
   Configurez votre application de sorte qu'elle communique avec le proxy plutôt qu'avec l'instance {{site.data.keyword.cloudant_short_notm}}.
   Cette configuration indique que la tâche de modification des instances {{site.data.keyword.cloudant_short_notm}} utilisées par les applications peut être gérée via une modification apportée à la configuration du proxy plutôt qu'aux paramètres de l'application.
   Un grand nombre de proxys sont capables d'équilibrer la charge en fonction des diagnostics d'intégrité définis par l'utilisateur.
-* Utilisez un équilibreur de charge tel que [Traffic Director ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://dyn.com/traffic-director/){:new_window} pour procéder au routage vers {{site.data.keyword.cloudant_short_notm}}.
+* Utilisez un équilibreur de charge tel que [Traffic Director ![External link icon](../images/launch-glyph.svg "External link icon")](http://dyn.com/traffic-director/){:new_window} pour procéder au routage vers {{site.data.keyword.cloudant_short_notm}}.
   Cette option requiert une définition `CNAME` qui achemine vers différents comptes {{site.data.keyword.cloudant_short_notm}}, en fonction d'un diagnostic d'intégrité ou d'une règle de temps d'attente.
 
 ## Reprise sur basculement

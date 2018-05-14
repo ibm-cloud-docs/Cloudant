@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -12,9 +12,9 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 在 {{site.data.keyword.Bluemix_notm}} 上创建并填充简单 {{site.data.keyword.cloudant_short_notm}} 数据库
+# 在 Bluemix 上创建并填充简单 Cloudant 数据库
 
-本教程说明了如何使用 [Python 编程语言 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){:new_window} 在 {{site.data.keyword.Bluemix}} 服务实例中创建 {{site.data.keyword.cloudantfull}} 数据库，并使用简单数据集合来填充数据库。
+本教程说明了如何使用 [Python 编程语言 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){:new_window} 在 {{site.data.keyword.Bluemix_notm}} 服务实例中创建 {{site.data.keyword.cloudantfull}} 数据库，并使用简单数据集合来填充数据库。
 {:shortdesc}
 
 ## 先决条件
@@ -39,7 +39,7 @@ Python 2.7.12
 ```
 {:codeblock}
 
-### {{site.data.keyword.cloudant_short_notm}} 的 Python 客户机库
+### Cloudant 的 Python 客户机库
 
 有一个[官方支持的库](../libraries/supported.html#python)，能使 Python 应用程序与 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 配合使用。
 
@@ -59,7 +59,7 @@ cloudant==2.3.1
 ```
 {:codeblock}
 
-### Bluemix 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
+### Bluemix 上的 Cloudant 服务实例
 
 [本教程](create_service.html)中描述了创建适用服务实例的过程。
 
@@ -94,9 +94,9 @@ cloudant==2.3.1
 
 此外，我们也未尝试解决所有可能的检查或错误条件。教程中显示了一些示例检查，用于说明各种方法，但您应该应用标准最佳实践来检查和处理自己的应用程序遇到的所有警告或错误条件。 
 
-## 连接到 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
+## 连接到 Bluemix 上的 Cloudant 服务实例
 
-Python 应用程序需要 {{site.data.keyword.cloudant_short_notm}} 客户机库组件才能连接到服务实例。这些组件通过标准 `import` 语句确定：
+Python 应用程序需要 Cloudant 客户机库组件才能连接到服务实例。这些组件通过标准 `import` 语句确定：
 
 ```python
 from cloudant.client import Cloudant
@@ -115,7 +115,7 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 {:codeblock}
 
 >   **注**：此处说明的服务凭证
-是在 Bluemix 上创建演示 {{site.data.keyword.cloudant_short_notm}} 服务时定义的。在此重现这些凭证，是为了说明如何在 Python 应用程序中使用这些凭证。但是，现在已除去了演示 {{site.data.keyword.cloudant_short_notm}} 服务，因此这些凭证不再有效；您_必须_提供并使用自己的服务凭证。
+是在 Bluemix 上创建演示 Cloudant 服务时定义的。在此重现这些凭证，是为了说明如何在 Python 应用程序中使用这些凭证。但是，现在已除去了演示 Cloudant 服务，因此这些凭证不再有效；您_必须_提供并使用自己的服务凭证。
 
 只要在应用程序中启了 Python 客户机库并确定了服务凭证，就可以建立与服务实例的连接：
 
@@ -234,9 +234,8 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
->   **注**：NoSQL 数据库
-（如 {{site.data.keyword.cloudant_short_notm}}）的性质意味着，数据库中存储的第一个文档始终是结果列表中返回的第一个文档这样的简单概念并不一定适用。
-
+>   **注**：NoSQL 数据库（如 Cloudant）的性质
+代表了简单的概念，也就是数据库中存储的第一个文档始终是结果列表中返回的第一个文档，但在此情况下不一定适用。
 
 ### 文档完整检索
 
@@ -273,11 +272,11 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-## 直接调用 {{site.data.keyword.cloudant_short_notm}} API 端点
+## 直接调用 Cloudant API 端点
 
-我们还可以在 Python 应用程序中直接使用 {{site.data.keyword.cloudant_short_notm}} API 端点。
+我们还可以在 Python 应用程序中直接使用 Cloudant API 端点。
 
-在此示例代码中，我们将再次请求包含所有文档（包括其内容）的列表。但是，这次是通过调用 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 端点](../api/database.html#get-documents)来执行此操作。
+在此示例代码中，我们将再次请求包含所有文档（包括其内容）的列表。但是，这次是通过调用 Cloudant [`/_all_docs` 端点](../api/database.html#get-documents)来执行此操作。
 
 首先，确定要联系的端点，以及要随调用一起提供的任何参数：
 
@@ -302,7 +301,7 @@ print "{0}\n".format(response.json())
     "rows": [
         {
             "value": {
-          "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
+              "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
             },
             "id": "14746fe384c7e2f06f7295403df89187",
             "key": "14746fe384c7e2f06f7295403df89187",
@@ -407,7 +406,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
+# Use the Cloudant library to create a Cloudant client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -470,7 +469,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
+# Use a Cloudant API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

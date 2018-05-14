@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-12-11"
+  years: 2015, 2017
+lastupdated: "2017-06-09"
 
 ---
 
@@ -14,36 +14,49 @@ lastupdated: "2017-12-11"
 
 <!-- Acrolinx: 2017-02-23 -->
 
-# {{site.data.keyword.Bluemix_notm}} pubblico
+# IBM Bluemix
 
-{{site.data.keyword.cloudantfull}} pubblico è l'offerta più ricca di funzionalità di {{site.data.keyword.cloudant_short_notm}},
-che riceve per prima gli aggiornamenti e le nuove funzioni. Il prezzo si basa
-sui tuoi requisiti di velocità effettiva e di archiviazione, rendendolo adatto a qualsiasi
-carico richiesto. 
+{{site.data.keyword.cloudant}} è disponibile anche come un servizio
+[{{site.data.keyword.Bluemix}}
+![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
+{:shortdesc}
 
-Esiste un [piano Lite](#lite-plan) gratuito con una quantità fissa di
-capacità produttiva e dati per scopi di sviluppo e di valutazione. Esiste anche un
-[piano Standard](#standard-plan) a pagamento che offre capacità produttiva fornita e archiviazione
-dati configurabili a un prezzo che si adatta al variare dei requisiti della tua
-applicazione. È inoltre disponibile un [piano hardware dedicato](#dedicated-hardware-plan) con
-una tariffa mensile aggiuntiva per l'esecuzione di una o più delle tue istanze del piano Standard
-in un ambiente hardware dedicato. L'ambiente hardware dedicato è
-unicamente per utilizzo personale e, se viene eseguito il provisioning di un'istanza del piano hardware dedicato
-all'interno di un'ubicazione negli USA, puoi selezionare facoltativamente una configurazione conforme [HIPAA
-![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}.
+{{site.data.keyword.Bluemix_short}} è una piattaforma cloud a standard aperti per
+la creazione, esecuzione e gestione delle
+applicazioni. Scopri ulteriori informazioni su {{site.data.keyword.Bluemix_notm}}
+e inizia ad utilizzarlo all'indirizzo
+[home page ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/){:new_window}.
 
-La seguente tabella riepiloga la configurazione della capacità produttiva fornita e dello spazio su
-disco per i piani:
+## Bluemix Pubblico
+
+{{site.data.keyword.cloudantfull}} è disponibile come un [piano Lite](#lite-plan) gratuito e
+come diverse configurazioni nel [piano Standard](#standard-plan) a pagamento.
+È anche disponibile un [piano dedicato](#dedicated-plan).
+Questo piano offre la stessa configurabilità del piano Standard
+ma viene fornita su un hardware dedicato.
+L'hardware dedicato non viene condiviso con altri account,
+il che significa che sei l'unico che può utilizzarlo.
+Se viene eseguito il provisioning di un'istanza del piano dedicato in un'[Ubicazione US](#locations),
+puoi facoltativamente selezionare una configurazione conforme
+[HIPAA ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}.
+
+La seguente tabella riepiloga le misurazioni delle prestazioni per ogni piano.
+
+>   **Nota**: i dettagli nella tabella sono indicativi come a settembre 2016.
+    Per i valori correnti,
+    contatta il supporto [{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
+
+>   **Nota**: tutti i valori della valuta in questo documento sono in dollari americani ($).
 
 <table border='1'>
 
 <tr>
-<th>Piani</th><th>Lite</th><th colspan='4'>Standard</th>
+<th>Piani</th><th>Lite</th><th colspan='4'>Standard <i>e</i> Dedicated</th>
 </tr>
 <tr>
 <td>Prezzo di base (per ora)</td>
 <td>$0.00</td>
-<td colspan='4'>Consulta <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno"></a>.</td>
+<td colspan='4'>Consulta <a href="http://cloudant.com/bluemix" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno"></a>.</td>
 </tr>
 <tr>
 <td>Capacità produttiva fornita (ricerche al secondo)</td>
@@ -70,7 +83,7 @@ disco per i piani:
 <td>1.000</td>
 </tr>
 <tr>
-<td>Dimensione documento individuale massima</td>
+<td>Dimensione documento individuale massima </td>
 <td>1 MB</td>
 <td colspan='4'>1 MB</td>
 </tr>
@@ -81,20 +94,18 @@ disco per i piani:
 </tr>
 <tr>
 <td>Eccedenza disco (per GB/ora)</td>
-<td>Non disponibile</td>
-<td colspan='4'>Consulta <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno"></a>.</td>
+<td>Non disponibile </td>
+<td colspan='4'>Consulta <a href="http://cloudant.com/bluemix" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno"></a>.</td>
 </tr>
 
 </table>
-
-## Piani
 
 Puoi selezionare quale piano utilizzare quando
 [esegui il provisioning della tua istanza del servizio {{site.data.keyword.cloudant_short_notm}}](#provisioning-a-cloudant-instance-on-bluemix).
 Per impostazione predefinita,
 è selezionato il [piano Lite](#lite-plan).
 
-![{{site.data.keyword.cloudant_short_notm}} - Selezione del piano per l'istanza del servizio](../images/fb87416a.png)
+![Selezione piano istanza servizio Cloudant](../images/fb87416a.png)
 
 ### Piano Lite
 
@@ -105,7 +116,7 @@ le scritture e le query.
 
 L'utilizzo dell'archiviazione viene controllato giornalmente. Se superi il tuo limite di archiviazione, le richieste HTTP all'account ricevono
 un codice di stato 402 con il messaggio di errore, "L'account ha superato la propria quota di utilizzo dati. È necessario un aggiornamento a un piano a pagamento."
-Per informarti, viene inoltre visualizzato un banner nel dashboard {{site.data.keyword.cloudant_short_notm}}. Puoi ancora leggere e eliminare i dati. Tuttavia, per scrivere nuovi dati,
+Per informarti, viene inoltre visualizzato un banner nel dashboard Cloudant. Puoi ancora leggere e eliminare i dati. Tuttavia, per scrivere nuovi dati,
 devi eseguire l'aggiornamento a un piano a pagamento o eliminare i dati e attendere fino al successivo controllo sul tuo account per essere riattivato. 
 
 Se desideri archiviare più di un GB di dati o
@@ -117,22 +128,38 @@ passa al [piano Standard](#standard-plan).
 Il piano Standard include 20 GB di archiviazione dati.
 Se archivi più di 20 GB,
 ti viene addebitato un costo definito per GB per ora.
-Consulta le informazioni sul [Pricing ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud/cloudant/pricing){:new_window} per il costo corrente.
+Consulta le informazioni sul [Pricing ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://cloudant.com/bluemix){:new_window} per il costo corrente.
 Nel piano Standard,
 puoi anche modificare la capacità produttiva fornita per le ricerche,
 le scritture e le query.
 
-### Piano hardware dedicato
+### Piano dedicato
 
-Puoi eseguire facoltativamente le tue istanze del piano Standard su un ambiente hardware dedicato in
-qualsiasi [data center {{site.data.keyword.IBM}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud-computing/bluemix/data-centers)
-a una tariffa mensile. Puoi acquistare un unico piano hardware dedicato per una determinata ubicazione
-in cui eseguire il provisioning di una o più istanza del piano Standard. Questo piano è necessario per
-la conformità HIPAA e deve essere selezionato al momento del provisioning. Nota che il piano hardware
-dedicato non è disponibile per gli utenti di {{site.data.keyword.Bluemix_notm}} dedicato, ma è disponibile solo per gli utenti di {{site.data.keyword.Bluemix_notm}}
-pubblico.
+{{site.data.keyword.cloudant_short_notm}} è disponibile su hardware dedicato a singolo tenant come parte di una configurazione di
+[{{site.data.keyword.Bluemix_notm}} Dedicato
+![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/cloud-computing/bluemix/dedicated/){:new_window}.
 
-## Capacità produttiva fornita
+<div id="servicetier"></div>
+
+## Livelli del servizio
+
+Puoi visualizzare i dettagli della capacità produttiva nei piani disponibili per il tuo account.
+Puoi selezionare il livello di provisioning che desideri utilizzare,
+tramite la scheda Account del tuo dashboard dell'account {{site.data.keyword.cloudant_short_notm}}.
+
+![Dashboard account](../images/cloudant_capacity.png)
+
+Per passare a una capacità produttiva differente,
+seleziona il provisioning che desideri e fai quindi clic sul pulsante di opzione
+`Change Capacity`.
+Ti verrà richiesto di confermare la modifica e ti verrà ricordato che la modifica di
+provisioning necessità di 24 per essere completata.
+
+![Dashboard account](../images/cloudant_capacity_change.png)
+
+<div id="throughput"></div>
+
+### Capacità produttiva fornita
 
 Il provisioning effettivo viene identificato e misurato come uno di tre tipi di eventi:
 
@@ -151,7 +178,8 @@ Il provisioning effettivo viene identificato e misurato come uno di tre tipi di 
 	-	Vista MapReduce ([`_view`](../api/creating_views.html#using-views))
 	-	Indice di ricerca ([`_search`](../api/search.html#queries))
 	-	Indice geospaziale ([`_geo`](../api/cloudant-geo.html#querying-a-cloudant-geo-index))
-	-	Query {{site.data.keyword.cloudant_short_notm}} ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
+	-	Query Cloudant ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
+	-	Modifiche ([`_changes`](../api/database.html#get-changes))
 
 La misurazione della velocità effettiva è un conteggio semplice del numero di eventi di ogni tipo,
 al secondo,
@@ -168,8 +196,7 @@ Le seguenti richieste di ricerca effettuate durante il periodo di 1.000 secondi 
 vengono rifiutate finché il numero di richieste di ricerca scende nuovamente a meno di 200.
 
 Quando una richiesta viene rifiutata perché il numero di eventi viene superato,
-le applicazioni ricevono una risposta [`429` Too Many
-Requests](../api/http.html#429)
+le applicazioni ricevono una risposta [`429` troppe richieste](../api/http.html#429). 
 
 Le versioni recenti delle librerie client supportate (per linguaggi [Java](../libraries/supported.html#java),
 [Node.js](../libraries/supported.html#node-js),
@@ -196,49 +223,19 @@ a una configurazione del piano diversa.
 In sintesi,
 devi assicurarti che la tua applicazione possa gestire una risposta [`429`](../api/http.html#429) correttamente.
 
-<div id="servicetier"></div>
+### Dimensione documento individuale massima
 
-### Visualizzazione e modifica della capacità
+I dati vengono archiviati in {{site.data.keyword.cloudant_short_notm}} come [documenti JSON](../api/document.html).
+Per i documenti in un servizio {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.Bluemix_notm}},
+la dimensione massima di un documento individuale è 1 MB.
+Superare questo limite genera un errore [`413`](../api/http.html#413).
 
-Puoi visualizzare i dettagli della capacità produttiva nei piani disponibili per il tuo account.
-Puoi selezionare il livello di provisioning che desideri utilizzare,
-tramite la scheda Account del tuo dashboard dell'account {{site.data.keyword.cloudant_short_notm}}.
-
-![Dashboard account](../images/cloudant_capacity.png)
-
-Per passare a una capacità produttiva differente,
-seleziona il provisioning che desideri e fai quindi clic sul pulsante di opzione
-`Change Capacity`.
-Ti verrà richiesto di confermare la modifica e ti verrà ricordato che la modifica di
-provisioning necessità di 24 per essere completata.
-
-![Dashboard account](../images/cloudant_capacity_change.png)
-
-<div id="throughput"></div>
-
-### Monitoraggio dell'utilizzo 
-
-Le informazioni sul tuo utilizzo sono disponibili nel riquadro Operazioni correnti della scheda Monitoraggio nel tuo dashboard {{site.data.keyword.cloudant_short_notm}}. 
-
-![Monitoraggio dell'utilizzo nel dashboard](../images/cloudant_usage.png)
-
-I dettagli sono qui forniti,
-e illustrano la tua [velocità effettiva](#provisioned-throughput-capacity) corrente
-e la quantità di [dati archiviati](#disk-space-included).
-
-Il monitoraggio ti aiuta a riconoscere se una modifica al provisioning nel tuo piano potrebbe essere consigliabile.
-Ad esempio,
-se raggiungi frequentemente il numero massimo di ricerche database,
-puoi quindi modificare il provisioning tramite il [Pannello del servizio](#servicetier) nella scheda Account del dashboard.
-
-## Utilizzo dei dati
-
-### Spazio su disco incluso
+### Spazio disco incluso
 
 Questo valore è la capacità di archiviazione inclusa nel piano.
 Viene utilizzato sia per l'archiviazione degli indici che dei dati.
 
-### Eccedenza disco
+### Eccedenza disco 
 
 Tutte le istanze del piano Lite e Standard sono monitorate per lo spazio disco utilizzato.
 Se l'account utilizza più della quantità di archiviazione di cui è stato eseguito il provisioning nella tua configurazione del piano,
@@ -258,7 +255,7 @@ ti sarà addebitata un'eccedenza in base a 87 GB x 12 ore = 1044 GB ore di ulter
 
 L'eccedenza viene calcolata utilizzando il numero massimo di ulteriori GB rispetto all'assegnazione del piano durante un'ora in particolare nel ciclo ci fatturazione.
 
-### Esempio di eccedenza del disco
+### Un esempio di eccedenza utilizzata
 
 Supponi di iniziare un mese di 30 giorni con un'istanza del servizio del piano Standard che utilizza 9 GB di archiviazione.
 Successivamente,
@@ -266,7 +263,7 @@ la tua archiviazione aumenta a 21.5 GB per 15 minuti durante l'ora a partire dal
 L'istanza scende a 9.5 GB per i successivi 10 minuti dell'ora 02:00,
 quindi aumenta a 108 GB per i successivi 25 minuti dell'ora 02:00.
 Infine,
-la tua istanza termina l'ora e il resto del mese scendendo a 28 GB.
+la tua istanza termina l'ora e per il resto del mese scende a 28 GB.
 
 Questo modello significa che il numero massimo di ulteriori GB rispetto all'assegnazione del piano è stato 88 GB durante l'ora 2 del giorno 3.
 Per l'ora 03:00 del giorno 3
@@ -285,17 +282,11 @@ ti sarà addebitata un'eccedenza basata su 8 GB x 24 ore x 27 giorni = 5184 GB o
 
 La fattura dell'eccedenza totale del mese si baserà su un totale di 88 + 168 + 5184 = 5440 GB ore.
 
-### Dimensione documento individuale massima
+## Ubicazioni
 
-I dati vengono archiviati in {{site.data.keyword.cloudant_short_notm}} come [documenti JSON](../api/document.html).
-Per i documenti in un servizio {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.Bluemix_notm}},
-la dimensione massima di un documento individuale è 1 MB.
-Superare questo limite genera un errore [`413`](../api/http.html#413).
-
-## Ubicazioni e locazione
-
-Per impostazione predefinita, tutti i piani Lite e Standard vengono distribuiti in ambienti a
-più tenant. Come parte della tua selezione del piano,
+Per impostazione predefinita,
+tutti i piani ad eccezione del dedicato si basano su cluster a più tenant.
+Come parte della tua selezione del piano,
 puoi scegliere tra le seguenti regioni di {{site.data.keyword.Bluemix_notm}} pubblico:
 
 -   Stati Uniti Sud
@@ -303,38 +294,59 @@ puoi scegliere tra le seguenti regioni di {{site.data.keyword.Bluemix_notm}} pub
 -   Sydney
 -   Germania
 
-Le istanze del piano hardware dedicato possono essere distribuite nella maggior parte delle
-[ubicazioni di data center {{site.data.keyword.IBM_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud-computing/bluemix/data-centers).
-Vedi il menu a discesa nel catalogo {{site.data.keyword.Bluemix_notm}} per un elenco aggiornato di ubicazioni disponibili.
-
 ## Sicurezza, crittografia e conformità
 
 Tutti i piani vengono forniti sui server con la crittografia del disco
 [a riposo
 ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window}.
 L'accesso viene crittografato su una connessione di rete utilizzando HTTPS.
-Per ulteriori dettagli,
-vedi [Sicurezza {{site.data.keyword.Bluemix_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}.
+Per ulteriori dettagli, consulta
+[DBaaS Security ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/product/cloudant-features/dbaas-security/){:new_window}.
 
 I piani inoltre offrono
 [Security Compliance Certification ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/product/cloudant-features/cloudant-compliance/){:new_window}.
 La conformità [HIPAA ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}
-richiede un [ambiente dedicato](#dedicated-hardware-plan),
+richiede un [ambiente dedicato](#dedicated-plan),
 per cui richiedere questo ambiente come parte del [processo di provisioning](#provisioning-a-cloudant-instance-on-bluemix).
 
-## Alta disponibilità, ripristino di emergenza e backup
+## Elevata disponibilità, ripristino di emergenza e backup
 
-Per fornire alta disponibilità (HA) e ripristino di emergenza (DR) all'interno di un data center, tutti i dati
-vengono archiviati in triplice copia in tre server fisici separati in un cluster. Puoi eseguire il provisioning degli account in più data center,
-quindi utilizzare la replica dei dati continua per fornire HA/DR ai data center. Il backup dei dati {{site.data.keyword.cloudant_short_notm}} non viene eseguito automaticamente, ma vengono forniti
-strumenti supportati per gestire i backup. Consulta la
-[guida Ripristino di emergenza e backup ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)
-per esplorare tutte le considerazioni su HA, DR e backup per soddisfare i requisiti dell'applicazione. 
+Per fornire Elevata disponibilità (HA) e Ripristino di emergenza (DR) in un data center,
+tutti i dati vengono archiviati in triplice copia in tre server fisici separati in un cluster.
+Puoi eseguire il provisioning degli account in più data center,
+quindi utilizzare la replica dei dati continua per fornire HA/DR ai data center.
+
+Non viene seguito automaticamente il backup dei dati {{site.data.keyword.cloudant_short_notm}}.
+Puoi richiedere l'abilitazione di una [funzione di backup incrementale](../guides/backup-guide.html)
+o in alternativa implementare la tua propria soluzione utilizzando una delle varie tecniche possibili descritte
+[qui
+![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/){:new_window}.
+
+## Monitoraggio dell'utilizzo
+
+Le informazioni sul tuo utilizzo sono disponibili nel pannello di utilizzo della scheda delle attività nel tuo dashboard {{site.data.keyword.cloudant_short_notm}}.
+
+![Monitoraggio dell'utilizzo nel dashboard](../images/cloudant_usage.png).
+
+I dettagli sono qui forniti,
+e illustrano la tua [velocità effettiva](#throughput) corrente
+e la quantità di [dati archiviati](#disk-space-included).
+
+Il monitoraggio ti aiuta a riconoscere se una modifica al provisioning nel tuo piano potrebbe essere consigliabile.
+Ad esempio,
+se raggiungi frequentemente il numero massimo di ricerche database,
+puoi quindi modificare il provisioning tramite il [Pannello del servizio](#servicetier) nella scheda Account del dashboard.
+
+## Specifiche hardware
+
+Tutti i piani ad eccezione del dedicato vengono implementati su cluster a più tenant.
+Tutti i dati vengono archiviati in triplice copia,
+in tre nodi fisici separati per l'elevata disponibilità e per il ripristino dati.
 
 ## Supporto
 
 Il supporto per le istanze del servizio standard e dedicata è facoltativo.
-Viene fornito acquistando "Supporto {{site.data.keyword.Bluemix}} Standard".
+Viene fornito acquistando "Supporto {{site.data.keyword.Bluemix_notm}} Standard".
 Il supporto non è disponibile per il piano Lite.
 
 È disponibile un calcolatore dei prezzi per il supporto {{site.data.keyword.Bluemix_notm}}
@@ -344,15 +356,9 @@ Le informazioni sui dettagli del supporto SLA (Service Level Agreement) sono dis
 [qui
 ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://www-03.ibm.com/software/sla/sladb.nsf/pdf/6606-08/$file/i126-6606-08_05-2016_en_US.pdf){:new_window}.
 
-## Provisioning di un'istanza {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}
+## Provisioning di un'istanza Cloudant su Bluemix
 
-Puoi eseguire il provisioning di un'istanza del piano Lite o Standard {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix}} in due modi:
+Puoi eseguire il provisioning di un'istanza {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}} in due modi:
 
-- Utilizzando il dashboard. Un'esercitazione che descrive il processo è disponibile [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
-- Utilizzando lo strumento di comando Cloud Foundry. Un'esercitazione che descrive il processo è disponibile [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
- 
-Per creare e sfruttare un'istanza del piano hardware dedicato {{site.data.keyword.cloudant_short_notm}}, segui l'esercitazione che descrive il processo [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
-
-
-
-
+-	Utilizzando il dashboard. È disponibile un'esercitazione che descrive il processo [qui](../tutorials/create_service.html).
+-	Utilizzando lo strumento di comando Cloud Foundry. È disponibile un'esercitazione che descrive il processo [qui](../tutorials/create_service_cli.html).

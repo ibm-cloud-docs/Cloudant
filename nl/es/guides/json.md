@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2015, 2018
+  years: 2015, 2017
 lastupdated: "2017-01-06"
 
 ---
@@ -14,30 +14,28 @@ lastupdated: "2017-01-06"
 
 # JSON
 
-La mayoría de las solicitudes enviadas a {{site.data.keyword.cloudantfull}} y de respuestas recibidas utilizan
+La mayoría de solicitudes enviadas a Cloudant y de respuestas recibidas utilizan
 [JavaScript Object Notation (JSON) ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://en.wikipedia.org/wiki/JSON){:new_window}
-para formatear el contenido y la estructura de los datos y respuestas.
+para formatear el contenido y la estructura de los datos y de las respuestas.
 {:shortdesc}
 
-En las bases de datos de {{site.data.keyword.cloudant_short_notm}}, el objeto JSON se utiliza para representar diversas estructuras, que incluyen todos los documentos de una base de datos.
+En las bases de datos Cloudant, el objeto
+JSON se utiliza para representar diversas estructuras, que incluyen todos los documentos de una base de datos. 
 
 El análisis de JSON en un objeto JavaScript se admite mediante la función `JSON.parse()` en JavaScript o mediante diversas [bibliotecas](../libraries/index.html)
 que realizan automáticamente el análisis del contenido en un objeto JavaScript.
 Las [bibliotecas](../libraries/index.html) para analizar y generar JSON
-están disponibles para muchos de los principales lenguajes de programación.
+están disponibles para muchos de los principales lenguajes de programación. 
 
 Se utiliza JSON porque es la solución más sencilla y rápida para trabajar con datos utilizando un navegador web.
 Esto se debe a que las estructuras de JSON se pueden evaluar y utilizar como objetos JavaScript dentro del entorno del navegador web.
-JSON también se integra con el JavaScript del servidor que se utiliza en {{site.data.keyword.cloudant_short_notm}}.
-Los documentos JSON siempre tienen codificación UTF-8.
+JSON también se integra con el JavaScript del servidor que se utiliza en Cloudant.
+Los documentos JSON siempre tienen codificación UTF-8. 
 
->   **Nota**: Es importante que se asegure de que:
+>   **Nota**: Es importante que se asegure de que: 
 
--   Las estructuras JSON sean válidas.
-    Las estructuras no válidas hacen que {{site.data.keyword.cloudant_short_notm}} devuelva el código de estado de HTTP [400 (solicitud errónea)](../api/http.html#400).
--   Normalice las series de caracteres de los documentos JSON recuperados de {{site.data.keyword.cloudant_short_notm}},
-    antes de compararlos.
-    Esto se debe a que es posible que se haya aplicado la normalización Unicode de modo que una serie almacenada y luego recuperada no sea idéntica a nivel binario.
+-   Las estructuras JSON sean válidas. Las estructuras no válidas hacen que Cloudant devuelva el código de estado de HTTP [400 (solicitud errónea)](../api/http.html#400).
+-   Normalice las series de caracteres de los documentos JSON recuperados de Cloudant antes de compararlos. Esto se debe a que es posible que se haya aplicado la normalización Unicode de modo que una serie almacenada y luego recuperada no sea idéntica a nivel binario. 
 
 JSON admite los mismos tipos básicos que JavaScript:
 
@@ -60,7 +58,7 @@ _Ejemplo de número en formato JSON:_
 
 ## Series de caracteres
 
-Las series de caracteres se deben especificar entre comillas dobles. Las series dan soporte a caracteres Unicode y al carácter de escape barra inclinada invertida.
+Las series de caracteres se deben especificar entre comillas dobles. Las series dan soporte a caracteres Unicode y al carácter de escape barra inclinada invertida. 
 
 _Ejemplo de una serie de caracteres en formato JSON:_
 
@@ -71,7 +69,7 @@ _Ejemplo de una serie de caracteres en formato JSON:_
 
 ## Booleanos
 
-Un valor `true` o `false`.
+Un valor `true` o `false`. 
 
 _Ejemplo de un booleano en formato JSON:_
 
@@ -112,8 +110,7 @@ _Ejemplo de una matriz en formato JSON (lineal):_
 
 ## Objetos
 
-Un conjunto de pares clave/valor, como una matriz asociativa o un hash.
-La clave debe ser una serie de caracteres, pero el valor puede ser cualquiera de los valores JSON admitidos.
+Un conjunto de pares clave/valor, como una matriz asociativa o un hash. La clave debe ser una serie de caracteres, pero el valor puede ser cualquiera de los valores JSON admitidos. 
 
 _Ejemplo de un objeto JSON:_
 

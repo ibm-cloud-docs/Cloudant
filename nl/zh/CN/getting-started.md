@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-02"
+  years: 2015, 2017
+lastupdated: "2017-08-25"
 
 ---
 
@@ -94,8 +94,6 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
   ... 其中，`<yourDatabaseName>` 是您希望为数据库提供的名称。
- 
-
   > **注：**数据库名称必须以字母开头，并且只能包含小写字符 (a-z)、数字 (0-9) 以及以下任意字符：`_`、`$`、`(`、`)`、`+`、`-` 和 `/`。
 
 2. 创建数据库：
@@ -241,7 +239,7 @@ lastupdated: "2017-11-02"
 
 ## 第 5 步：通过 {{site.data.keyword.cloudant_short_notm}} API 端点检索数据
 
-您还可以通过调用 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 端点](api/database.html#get-documents)来请求所有文档及其内容的列表。
+您还可以通过调用 Cloudant [`/_all_docs` 端点](api/database.html#get-documents)来请求所有文档及其内容的列表。
 
 1. 确定要联系的端点，以及要随调用一起提供的任何参数：
   ```python
@@ -250,8 +248,6 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
   ... 其中，`<url>` 是在第 1 步中找到的服务凭证中的 URL 值。
-
-
 2. 向服务实例发送请求，然后显示的结果如下：
   ```python
   response = client.r_session.get(end_point, params=params)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -14,24 +14,24 @@ lastupdated: "2017-11-06"
 
 # Gestion des versions de document et MVCC
 
-La méthode [Multi-version concurrency control (MVCC) ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window}
-est utilisée par les bases de données {{site.data.keyword.cloudantfull}} pour s'assurer que les tous les noeuds d'un cluster de base de données contiennent
+La méthode [Multi-version concurrency control (MVCC) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window}
+est utilisée par les bases de données Cloudant pour s'assurer que les tous les noeuds d'un cluster de base de données contiennent
 uniquement la [version la plus récente](../api/document.html) d'un document.
 {:shortdesc}
 
-Etant donné que les bases de données {{site.data.keyword.cloudant_short_notm}} sont [finalement cohérentes](cap_theorem.html), il est
+Etant donné que les bases de données Cloudant sont [finalement cohérentes](cap_theorem.html), il est
 nécessaire d'éviter les incohérences survenant entre les noeuds, suite à une synchronisation avec des documents
 obsolètes.
 
-MVCC (Multi-Version Concurrency Control) permet un accès simultané en lecture et écriture à une base de données {{site.data.keyword.cloudant_short_notm}}.
-MVCC est une forme de [contrôle optimiste des accès concurrents![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}.
-De plus, MVCC permet également des opérations de lecture et d'écriture plus rapides sur les bases de données {{site.data.keyword.cloudant_short_notm}} car aucun verrouillage de base de données n'est
+MVCC (Multi-Version Concurrency Control), forme de [contrôle optimiste des accès concurrents ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window},
+permet un accès simultané en lecture et écriture à une base de données Cloudant.
+De plus, MVCC permet également des opérations de lecture et d'écriture plus rapides sur les bases de données Cloudant car aucun verrouillage de base de données n'est
 requis pour les opérations de lecture ou d'écriture.
-Cette méthode active également la synchronisation entre les noeuds de base de données {{site.data.keyword.cloudant_short_notm}}.
+Cette méthode active également la synchronisation entre les noeuds de base de données Cloudant.
 
 ## Révisions
 
-Chaque document d'une base de données {{site.data.keyword.cloudant_short_notm}} a une zone `_rev` indiquant son numéro de révision.
+Chaque document d'une base de données a une zone `_rev` indiquant son numéro de révision.
 
 Un numéro de révision est ajouté à vos documents par le serveur lorsque vous les insérez ou les modifiez.
 Ce numéro est inclus dans la réponse du serveur lorsque vous modifiez ou lisez un document.
@@ -53,7 +53,7 @@ Sinon, votre demande échoue et renvoie une [erreur 409](../api/http.html#409).
 Vous pouvez demander une révision spécifique en utilisant sa valeur `_rev`.
 Cependant,
 les anciennes versions sont régulièrement supprimées par un processus appelé
-[compression ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://en.wikipedia.org/wiki/Data_compaction){:new_window}.
+[compression ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Data_compaction){:new_window}.
 La compression fait que vous ne pouvez pas vous fier à une réponse lors de la demande
 d'une révision de document spécifique à l'aide de l'élément `_rev` afin d'obtenir un historique des révisions de votre document.
 Si vous avez besoin d'un tel historique,
@@ -61,7 +61,7 @@ vous pouvez [créer un nouveau document](../api/document.html#documentCreate) po
 
 ## Bases de données réparties et conflits
 
-Les bases de données réparties fonctionnent avec une connexion constante à la base de données principale sur {{site.data.keyword.cloudant_short_notm}},
+Les bases de données réparties fonctionnent avec une connexion constante à la base de données principale sur Cloudant,
 elle-même répartie.
 Ainsi, les mises à jour s'appuyant sur la même version précédente peuvent être toujours en conflit.
 
@@ -202,7 +202,7 @@ d'autres stratégies de résolution peuvent être requises :
 *   Algorithmes complexes : Par exemple, fusion triple de zones de texte.
 
 Pour obtenir un exemple pratique du mode d'implémentation d'une fusion des modifications,
-voir la page présentant un [projet avec un code exemple ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/glynnbird/deconflict){:new_window}.
+voir la page présentant un [projet avec un code exemple ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/deconflict){:new_window}.
 
 ### Téléchargement de la nouvelle révision
 

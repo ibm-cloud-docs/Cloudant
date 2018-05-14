@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-06"
+  years: 2017
+lastupdated: "2017-05-15"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-05-15 -->
 
-# Come vengono memorizzati i dati in {{site.data.keyword.cloudant_short_notm}}?
+# Come vengono memorizzati i dati in Cloudant?
 
 ## Concetti
 
-Ogni database in {{site.data.keyword.cloudantfull}} è formato da uno o più _frammenti_ distinti,
+Ogni database in Cloudant è formato da uno o più _frammenti_ distinti,
 dove il numero di frammenti è indicato come _Q_.
 Un frammento è un sottoinsieme distinto di documenti dal database.
 Tutti i _Q_ frammenti insieme contengono i dati all'interno del database.
@@ -52,7 +52,7 @@ Il numero di repliche (copie di un frammento) è anche configurabile.
 In pratica,
 l'osservazione e la misurazione di molti sistemi suggeriscono che tre repliche sono un numero pragmatico nella maggior parte dei casi
 per ottenere un buon equilibrio tra prestazioni e sicurezza dei dati.
-Sarebbe del tutto eccezionale e insolito che un sistema {{site.data.keyword.cloudant_short_notm}} utilizzasse un numero di repliche diverso.
+Sarebbe del tutto eccezionale e insolito per un sistema Cloudant utilizzare un numero diverso di repliche.
 
 ## Come influisce la frammentazione sulle prestazioni?
 
@@ -126,7 +126,7 @@ i frammenti più piccoli sono più facili da spostare sulla rete durante il ribi
 
 Dati i requisiti contrastanti per evitare di avere troppi documenti e mantenere minime le dimensioni dei frammenti,
 un unico valore _Q_ non può funzionare in modo ottimale per tutti i casi.
-{{site.data.keyword.cloudant_short_notm}} regola i valori predefiniti per i cluster al cambiare dei modelli di utilizzo.
+Cloudant regola i valori predefiniti per i cluster al cambiare dei modelli di utilizzo.
 
 Tuttavia,
 per un database specifico,
@@ -152,7 +152,7 @@ in particolare per i database più grandi:
 *	Per i database ancora più grandi,
 	potresti frammentare manualmente i tuoi dati in più database.
 	Per i database così grandi,
-	contatta il [supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window} per assistenza.
+	contatta il [supporto Cloudant ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window} per assistenza.
 
 >	**Nota:** i numeri indicati in queste linee guida derivano dall'osservazione e dall'esperienza
 	piuttosto che da un calcolo preciso.
@@ -180,7 +180,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**Nota:** l'impostazione di _Q_ per i database non è abilitata per i database {{site.data.keyword.cloudant_short_notm}} su Bluemix.
+>	**Nota:** l'impostazione di _Q_ per i database non è abilitata per i database Cloudant su Bluemix.
 	Il valore _Q_ non è disponibile nella maggior parte dei cluster a più tenant di `cloudant.com`.
 
 Se tenti di impostare il valore _Q_ dove non è disponibile,
@@ -204,7 +204,7 @@ Tuttavia,
 non puoi modificare il valore del numero di repliche dall'impostazione predefinita di 3.
 In particolare,
 non è possibile specificare un valore del numero di repliche diverso quando crei un database.
-Per ulteriore assistenza, contatta il [supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
+Per ulteriore assistenza, contatta il [supporto Cloudant ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
 
 ### Cosa sono gli argomenti _R_ e _W_?
 
@@ -231,7 +231,7 @@ da una delle repliche che ospita il frammento appropriato.
 
 >	**Nota:** la riduzione del valore _R_ aumenta la probabilità che la risposta che viene
 	restituita non sia basata sui dati più recenti
-	a causa del modello di [consistenza eventuale](cap_theorem.html) utilizzato da {{site.data.keyword.cloudant_short_notm}}.
+	a causa del modello di [consistenza eventuale](cap_theorem.html) utilizzato da Cloudant.
 	L'utilizzo del valore _R_ aiuta a mitigare questo effetto.
 
 Il valore predefinito per _R_ è _2_.

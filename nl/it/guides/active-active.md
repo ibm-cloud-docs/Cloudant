@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-11-02"
+lastupdated: "2017-05-22"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-02"
 
 <!-- Acrolinx: 2017-05-22 -->
 
-# Configurazione di {{site.data.keyword.cloudant_short_notm}} per il ripristino di emergenza in più regioni
+# Configurazione di Cloudant per il ripristino di emergenza in più regioni
 
 La [guida al ripristino di emergenza di {{site.data.keyword.cloudant_short_notm}}](disaster-recovery-and-backup.html)
 spiega che un modo per abilitare il ripristino di emergenza è quello di utilizzare la replica
@@ -218,13 +218,13 @@ Questa configurazione offre diversi vantaggi:
   latenza (non sempre il più vicino geograficamente).
 
 Un'applicazione può essere impostata per comunicare con l'account
-{{site.data.keyword.cloudant_short_notm}} "più vicino".
+Cloudant 'più vicino'.
 Per le applicazioni ospitate in DC1,
 è opportuno impostarne l'URL {{site.data.keyword.cloudant_short_notm}}
 su `"https://myaccount-dc1.cloudant.com/mydb"`.
 Allo stesso modo,
 per le applicazioni ospitate in DC2,
-imposterai il loro URL {{site.data.keyword.cloudant_short_notm}} su `"https://myaccount-dc2.cloudant.com/mydb"`.
+imposterai il loro URL Cloudant su `"https://myaccount-dc2.cloudant.com/mydb"`.
 
 #### Attivo-passivo
 
@@ -261,7 +261,7 @@ ma il carico di lettura viene diffuso tra le repliche.
 *	Considera in che modo vengono distribuiti e aggiornati i documenti di progettazione e gli indici.
   Potrebbe essere un modo più efficiente per automatizzare queste attività.
 
-## Failover tra le regioni {{site.data.keyword.cloudant_short_notm}}
+## Failover tra le regioni Cloudant
 
 Generalmente,
 il processo di gestione di un failover tra regioni o data center viene gestito a livello superiore all'interno del tuo stack dell'applicazione,
@@ -279,7 +279,7 @@ Tuttavia,
 se stabilisci che hai bisogno della capacità di gestire i failover,
 alcune opzioni possibili includono:
 
-* Metti il tuo [proxy HTTP davanti a {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/greenmangaming/cloudant-nginx){:new_window}.
+* Metti il tuo [proxy HTTP davanti a {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/green-man-gaming-cross-cloud-nginx-config/){:new_window}.
   Configura l'applicazione per parlare con il proxy anziché con l'istanza {{site.data.keyword.cloudant_short_notm}}.
   Questa configurazione significa che l'attività di modifica delle istanze {{site.data.keyword.cloudant_short_notm}}
   utilizzate dalle applicazioni può essere gestita tramite una modifica alla configurazione proxy

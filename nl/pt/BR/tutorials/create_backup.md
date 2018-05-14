@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-07-13"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-11-07"
 
 # Criando um backup
 
-Esse tutorial demonstra como usar o
+Este tutorial demonstra como usar o
 utilitário de linha de comandos [CouchBackup ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
-para fazer backup e restaurar uma instância do CouchDB ou do {{site.data.keyword.cloudant_short_notm}}. O CouchBackup faz backup
+para fazer backup e restaurar uma instância do CouchDB ou do Cloudant. O CouchBackup faz backup
 do banco de dados em um arquivo. Se o banco de dados falhar, será possível usar o arquivo de backup para
-restaurar as informações para um banco de dados existente. 
+restaurar as informações para um banco de dados existente.
 {:shortdesc}
 
 ## Antes de iniciar
@@ -145,12 +145,12 @@ fará backup e restaurará em exercícios posteriores.
 ## Configurando uma variável de ambiente
 
 É possível usar variáveis de ambiente e opções de linha de comandos para especificar a
-URL e o banco de dados para a instância do CouchDB ou do {{site.data.keyword.cloudant_short_notm}} que você deseja trabalhar
+URL e o banco de dados para a instância do CouchDB ou do Cloudant que você deseja que funcione
 com o CouchBackup. 
 
 Neste tutorial, configuramos o `COUCH_URL` e especificamos o banco de dados usando o parâmetro `--db`. 
 
-Configure a variável de ambiente `COUCH_URL` para especificar a URL para a instância do CouchDB ou do {{site.data.keyword.cloudant_short_notm}}.
+Configure a variável de ambiente `COUCH_URL` para especificar a URL para a instância do CouchDB ou do Cloudant.
 
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
@@ -361,7 +361,7 @@ No arquivo `couchbackup-demo-backup.txt`, será possível restaurar seus dados e
 o comando `couchrestore`. 
 
 > **Nota**: a restauração de um backup será suportada apenas quando a restauração ocorrer em um banco de dados vazio. Se você excluir todos 
-os documentos de um banco de dados, os registros de exclusão de documento ainda estarão presentes para propósitos de consistência de replicação. 
+os documentos de um banco de dados, os registros de exclusão de documento ainda estarão presentes para propósitos de consistência de replicação.
 Isso significa que um banco de dados que contém apenas documentos excluídos não é considerado vazio e, portanto, não poderá ser usado
 como o destino durante a restauração de um backup.
 
@@ -395,7 +395,7 @@ como o destino durante a restauração de um backup.
     ```
     {:codeblock}
 
-Agora você executou backup, restaurou um banco de dados e criou um arquivo de log. Veja a Documentação do {{site.data.keyword.cloudant_short_notm}}
-para obter mais informações sobre o [recuperação de desastre e backup](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
-[configurando o {{site.data.keyword.cloudant_short_notm}} para recuperação de desastre de região cruzada](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)
-e [backup e recuperação do {{site.data.keyword.cloudant_short_notm}}](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  
+Agora você executou backup, restaurou um banco de dados e criou um arquivo de log. Consulte a documentação do Cloudant
+para obter mais informações sobre [recuperação de desastre e backup](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
+[configurando o Cloudant para recuperação de desastre de região cruzada](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)
+e [backup e recuperação do Cloudant](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  

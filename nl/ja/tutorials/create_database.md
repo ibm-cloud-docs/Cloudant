@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# {{site.data.keyword.Bluemix_notm}} での単純 {{site.data.keyword.cloudant_short_notm}} データベースの作成とデータ取り込み
+# Bluemix での単純 Cloudant データベースの作成とデータ取り込み
 
 このチュートリアルでは、[Python プログラミング言語 ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://www.python.org/){:new_window}
-を使用して、{{site.data.keyword.Bluemix}} サービス・インスタンスに {{site.data.keyword.cloudantfull}} データベースを作成し、
+を使用して、{{site.data.keyword.Bluemix_notm}} サービス・インスタンスに {{site.data.keyword.cloudantfull}} データベースを作成し、
 データベースに単純なデータ・コレクションを取り込む方法を示しています。
 {:shortdesc}
 
@@ -42,7 +42,7 @@ Python 2.7.12
 ```
 {:codeblock}
 
-### {{site.data.keyword.cloudant_short_notm}} の Python クライアント・ライブラリー
+### Cloudant の Python クライアント・ライブラリー
 
 Python アプリケーションが {{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}}
 と動作するための[公式サポート・ライブラリー](../libraries/supported.html#python)があります。
@@ -56,26 +56,25 @@ pip freeze
 ```
 {:pre}
 
-システムにインストールされているすべての Python モジュールのリストが表示されます。
-リストを調べ、以下のような {{site.data.keyword.cloudant_short_notm}} 項目を探します。
+システムにインストールされているすべての Python モジュールのリストが表示されます。リストを調べ、以下のような {{site.data.keyword.cloudant_short_notm}} 項目を探します。
 
 ```
 cloudant==2.3.1
-```
+	```
 {:codeblock}
 
-### Bluemix 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンス
+### Bluemix 上の Cloudant サービス・インスタンス
 
 適切なサービス・インスタンスを作成するためのプロセスについては、[別のチュートリアル](create_service.html)に説明があります。
 
 サービス・インスタンスに関して以下のサービス資格情報を使用可能な状態にしてください。
 
-フィールド      | 目的
+フィールド| 目的
 -----------|--------
 `host`     | アプリケーションがサービス・インスタンスを検索するために使用するホスト名。
 `username` | アプリケーションがサービス・インスタンスにアクセスするために必要なユーザー名。
 `password` | アプリケーションがサービス・インスタンスにアクセスするために必要なパスワード。
-`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。 通常、443 で HTTPS アクセスを強制します。
+`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。通常、443 で HTTPS アクセスを強制します。
 `url`      | その他の資格情報を単一の URL に集約したストリング。アプリケーションによる使用に適しています。
 
 サービス・インスタンスのサービス資格情報の検索に関する情報は、
@@ -103,15 +102,16 @@ cloudant==2.3.1
 手法を示すためにサンプルのチェックがいくつか以下に示されていますが、
 アプリケーションで発生する警告やエラー条件すべてをチェックして処理する通常のベスト・プラクティスを適用してください。 
 
-## {{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスへの接続
+## Bluemix 上の Cloudant サービス・インスタンスへの接続
 
-{{site.data.keyword.cloudant_short_notm}} クライアント・ライブラリー・コンポーネントがサービス・インスタンスに接続可能であることが、Python アプリケーションによって要求されます。
+Cloudant クライアント・ライブラリー・コンポーネントがサービス・インスタンスに接続可能であることが、Python アプリケーションによって要求されます。
 これらのコンポーネントは、以下のように通常の `import` ステートメントとして指定されます。
 
 ```python
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
+
 ```
 {:codeblock}
 
@@ -125,10 +125,10 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 {:codeblock}
 
 >   **注**: ここで例に示したサービス資格情報は、
-    デモの {{site.data.keyword.cloudant_short_notm}} サービスが Bluemix で作成されたときに定義されたものです。
+    デモの Cloudant サービスが Bluemix で作成されたときに定義されたものです。
     これらの資格情報は、Python アプリケーション内でどう使用されるかを示すためにここで再現されています。
     しかし、
-    デモの {{site.data.keyword.cloudant_short_notm}} サービスはもう削除されているため、
+    デモの Cloudant サービスはもう削除されているため、
     これらの資格情報は有効ではありません。
     _必ず_、ご自分のサービス資格情報を提供して使用してください。
 
@@ -159,7 +159,7 @@ databaseName = "databasedemo"
 その後、データベースを作成します。
 
 ```python
-myDatabaseDemo = client.create_database(databaseName)
+    myDatabaseDemo = client.create_database(databaseName)
 ```
 {:codeblock}
 
@@ -178,8 +178,8 @@ if myDatabaseDemo.exists():
 まず、データを特定します。
 
 ```python
-sampleData = [
-    [1, "one", "boiling", 100],
+  sampleData = [
+      [1, "one", "boiling", 100],
     [2, "two", "hot", 40],
     [3, "three", "warm", 20],
     [4, "four", "cold", 10],
@@ -212,15 +212,14 @@ for document in sampleData:
     }
 
     # Create a document using the Database API.
-    newDocument = myDatabaseDemo.create_document(jsonDocument)
-
-    # Check that the document exists in the database.
+            newDocument = myDatabaseDemo.create_document(jsonDocument)
+# Check that the document exists in the database.
     if newDocument.exists():
         print "Document '{0}' successfully created.".format(number)
 ```
 {:codeblock}
 
-各文書が正常に作成されたかを確認している点に注意してください。
+各文書が正常に作成されたかを確認している点に注意してください。 
 
 ## データの取得
 
@@ -231,8 +230,7 @@ for document in sampleData:
 
 最小限の取得を実行するには、
 まず、データベース内のすべての文書のリストを要求します。
-このリストは、配列として返されます。
-その後、配列内の要素の内容を表示できます。
+このリストは、配列として返されます。その後、配列内の要素の内容を表示できます。
 
 サンプル・コードでは、データベースから取得される最初の文書を要求します。
 
@@ -248,7 +246,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 [
     {
         "value": {
-            "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
+                "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
         },
         "id": "14746fe384c7e2f06f7295403df89187",
         "key": "14746fe384c7e2f06f7295403df89187"
@@ -257,7 +255,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
->   **注**: {{site.data.keyword.cloudant_short_notm}} などの NoSQL データベースの
+>   **注**: Cloudant などの NoSQL データベースの
     性質上、データベースに保管された最初の文書が結果リストで常に最初に戻されるという単純な概念は、必ずしも当てはまりません。
 
 ### 文書の全取得
@@ -283,7 +281,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 [
     {
         "value": {
-          "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
+                "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
         },
         "id": "14746fe384c7e2f06f7295403df89187",
         "key": "14746fe384c7e2f06f7295403df89187",
@@ -300,14 +298,14 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-## {{site.data.keyword.cloudant_short_notm}} API エンドポイントの直接呼び出し
+## Cloudant API エンドポイントの直接呼び出し
 
-Python アプリケーション内から {{site.data.keyword.cloudant_short_notm}} API エンドポイントを直接操作することも可能です。
+Python アプリケーション内から Cloudant API エンドポイントを直接操作することも可能です。
 
 このサンプル・コードでも、
 内容も含めてすべての文書のリストを要求します。
 ただし今回は、
-{{site.data.keyword.cloudant_short_notm}} の [`/_all_docs` エンドポイント](../api/database.html#get-documents)を呼び出して、これを行います。
+Cloudant の [`/_all_docs` エンドポイント](../api/database.html#get-documents)を呼び出して、これを行います。
 
 まず、コンタクトするエンドポイントと、呼び出しと一緒に提供するパラメーターを指定します。
 
@@ -331,24 +329,24 @@ print "{0}\n".format(response.json())
 {
     "rows": [
           {
-            "value": {
-              "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
-            },
+              "value": {
+                "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
+        },
         "id": "14746fe384c7e2f06f7295403df89187",
         "key": "14746fe384c7e2f06f7295403df89187",
         "doc": {
-                "temperatureField": 10,
+            "temperatureField": 10,
             "descriptionField": "cold",
             "numberField": 4,
             "nameField": "four",
             "_id": "14746fe384c7e2f06f7295403df89187",
             "_rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
         }
-        },
+    },
         ...
         {
             "value": {
-              "rev": "1-7130413a8c7c5f1de5528fe4d373045c"
+                "rev": "1-7130413a8c7c5f1de5528fe4d373045c"
             },
             "id": "49baa66cc66b4dda86ffb2852ae78eb8",
             "key": "49baa66cc66b4dda86ffb2852ae78eb8",
@@ -381,6 +379,7 @@ except CloudantException:
     print "There was a problem deleting '{0}'.\n".format(databaseName)
 else:
     print "'{0}' successfully deleted.\n".format(databaseName)
+
 ```
 {:codeblock}
 
@@ -392,6 +391,7 @@ else:
 
 ```python
 client.disconnect()
+
 ```
 {:codeblock}
 
@@ -423,11 +423,10 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 
 # This is the name of the database we are working with.
 databaseName = "databasedemo"
-
 # This is a simple collection of data,
 # to store within the database.
-sampleData = [
-    [1, "one", "boiling", 100],
+  sampleData = [
+      [1, "one", "boiling", 100],
     [2, "two", "hot", 40],
     [3, "three", "warm", 20],
     [4, "four", "cold", 10],
@@ -437,21 +436,18 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
-client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
-
+# Use the Cloudant library to create a Cloudant client.
+    client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 # Connect to the server
 client.connect()
 
 # 2.  Creating a database within the service instance.
 
 # Create an instance of the database.
-myDatabaseDemo = client.create_database(databaseName)
-
+    myDatabaseDemo = client.create_database(databaseName)
 # Check that the database now exists.
 if myDatabaseDemo.exists():
     print "'{0}' successfully created.\n".format(databaseName)
-
 # Space out the results.
 print "----\n"
 
@@ -476,9 +472,8 @@ for document in sampleData:
     }
 
     # Create a document using the Database API.
-    newDocument = myDatabaseDemo.create_document(jsonDocument)
-
-    # Check that the document exists in the database.
+            newDocument = myDatabaseDemo.create_document(jsonDocument)
+# Check that the document exists in the database.
     if newDocument.exists():
         print "Document '{0}' successfully created.".format(number)
 
@@ -500,7 +495,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
+# Use a Cloudant API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

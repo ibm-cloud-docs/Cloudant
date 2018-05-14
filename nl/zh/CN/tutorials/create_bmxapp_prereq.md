@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-01-10"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# 创建简单 {{site.data.keyword.Bluemix_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：先决条件
+# 创建简单 Bluemix 应用程序以访问 Cloudant 数据库：先决条件
 
 本部分教程描述了创建 {{site.data.keyword.Bluemix}} 应用程序的先决条件。
 {:shortdesc}
@@ -43,13 +43,13 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
+### Bluemix 上的 Cloudant 服务实例
 
-[此处](create_service.html)提供了用于创建名为“`Cloudant Service 2017`”的 {{site.data.keyword.cloudantfull}} 服务实例的单独教程。
+[此处](create_service.html)提供了用于创建名为“`Cloudant Service 2017`”的 {{site.data.keyword.cloudant_short_notm}} 服务实例的单独教程。
 
 本教程假定您已创建名为“`Cloudant Service 2017`”的服务实例。
 
-### {{site.data.keyword.cloudant_short_notm}} 数据库应用程序
+### Cloudant 数据库应用程序
 
 [此处](create_database.html)提供了用于创建独立 Python 应用程序以与 {{site.data.keyword.cloudant_short_notm}} 服务实例配合使用的单独教程。该教程介绍了许多概念，对于了解如何创建并填充 {{site.data.keyword.cloudant_short_notm}} 数据库很有用。
 

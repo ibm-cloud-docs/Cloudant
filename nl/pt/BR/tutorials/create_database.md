@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Criando e preenchendo um banco de dados {{site.data.keyword.cloudant_short_notm}} simples no {{site.data.keyword.Bluemix_notm}}
+# Criando e preenchendo um banco de dados Cloudant simples no Bluemix
 
-Esse tutorial mostra como usar a [linguagem de programação Python ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.python.org/){:new_window} para
-criar um banco de dados {{site.data.keyword.cloudantfull}} na instância de serviço do {{site.data.keyword.Bluemix}}
+Este tutorial mostra como usar a [linguagem de programação Python ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.python.org/){:new_window} para
+criar um banco de dados {{site.data.keyword.cloudantfull}} em sua instância de serviço do {{site.data.keyword.Bluemix_notm}}
 e preencher o banco de dados com uma coleção de dados simples.
 {:shortdesc}
 
@@ -44,7 +44,7 @@ Python 2.7.12
 ```
 {:codeblock}
 
-### Python Client Library para o {{site.data.keyword.cloudant_short_notm}}
+### Biblioteca do cliente Python para o Cloudant
 
 Há uma [biblioteca oficialmente suportada](../libraries/supported.html#python) para permitir que os aplicativos Python trabalhem com o
 {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}.
@@ -68,7 +68,7 @@ cloudant==2.3.1
 ```
 {:codeblock}
 
-### Uma instância de serviço do {{site.data.keyword.cloudant_short_notm}} no Bluemix
+### Uma instância de serviço do Cloudant no Bluemix
 
 O processo para criar uma instância de serviço adequada é descrito [neste tutorial](create_service.html).
 
@@ -113,9 +113,9 @@ para ilustrar as técnicas,
 mas será necessário aplicar as melhores práticas normais para verificar e manipular todas as
 condições de aviso ou de erro encontradas por seus próprios aplicativos. 
 
-## Conectando-se a uma instância de serviço do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}
+## Conectando-se a uma instância de serviço do Cloudant no Bluemix
 
-Um aplicativo Python requer que os componentes do {{site.data.keyword.cloudant_short_notm}} Client Library sejam capazes de se conectar à instância de serviço.
+Um aplicativo Python requer que os componentes da Biblioteca do cliente do Cloudant sejam capazes de se conectar à instância de serviço.
 Esses componentes são identificados como instruções `import` normais:
 
 ```python
@@ -135,9 +135,12 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 {:codeblock}
 
 >   **Nota**: as credenciais de serviço ilustradas aqui
-    foram definidas quando um serviço {{site.data.keyword.cloudant_short_notm}} de demonstração foi criado no Bluemix.
-    As credenciais foram reproduzidas aqui para mostrar como seriam usadas em um aplicativo Python.
-    No entanto, o serviço {{site.data.keyword.cloudant_short_notm}} de demonstração foi removido agora, então essas credenciais não funcionarão. Será _necessário_ fornecer e usar suas próprias credenciais de serviço.
+foram definidas quando um serviço de demonstração do Cloudant foi criado no Bluemix.
+As credenciais foram reproduzidas aqui para mostrar como seriam usadas em um aplicativo Python.
+No entanto,
+o serviço de demonstração do Cloudant foi removido agora,
+portanto, essas credenciais não funcionarão;
+_deve-se_ fornecer e usar suas próprias credenciais de serviço.
 
 Depois de ter ativado a biblioteca do cliente Python em seu aplicativo
 e identificado as credenciais de serviço,
@@ -272,10 +275,10 @@ O resultado é semelhante ao exemplo a seguir:
 {:codeblock}
 
 >   **Nota**: a natureza de bancos de dados NoSQL,
-    como {{site.data.keyword.cloudant_short_notm}},
-    significa que noções simples do primeiro documento armazenado em um banco de dados
-    sempre sendo o primeiro retornado em uma lista de resultados
-    não se aplicam necessariamente.
+como o Cloudant,
+significa que noções simples do primeiro documento armazenado em um banco de dados
+sempre sendo o primeiro retornado em uma lista de resultados
+não se aplicam necessariamente.
 
 ### Recuperação completa de um documento
 
@@ -320,17 +323,17 @@ O resultado é semelhante ao exemplo a seguir:
 ```
 {:codeblock}
 
-## Chamando um terminal de API do {{site.data.keyword.cloudant_short_notm}} diretamente
+## Chamando um terminal de API do Cloudant diretamente
 
-Também podemos trabalhar com os terminais de API do {{site.data.keyword.cloudant_short_notm}} diretamente
-de dentro de um aplicativo Python.
+Também podemos trabalhar com os terminais de API do Cloudant diretamente
+de um aplicativo Python.
 
 Neste código de exemplo,
 solicitamos novamente uma lista de todos os documentos,
 incluindo seu conteúdo.
 Desta vez,
 no entanto,
-fazemos isso chamando o [terminal `/_all_docs`](../api/database.html#get-documents) do {{site.data.keyword.cloudant_short_notm}}.
+fazemos isso chamando o [terminal `/_all_docs`](../api/database.html#get-documents) do Cloudant.
 
 Primeiro,
 identificamos o terminal para contato
@@ -414,7 +417,7 @@ else:
 ```
 {:codeblock}
 
-Incluímos alguma manipulação de erros básica para ilustrar como os problemas podem ser capturados e direcionados.
+Incluímos alguma manipulação de erros básica para ilustrar como os problemas podem ser capturados e direcionados. 
 
 ## Fechando a conexão com a instância de serviço
 
@@ -468,7 +471,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
+# Use the Cloudant library to create a Cloudant client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -531,7 +534,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
+# Use a Cloudant API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

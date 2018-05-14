@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2017-11-06"
+  years: 2015, 2017
+lastupdated: "2017-01-06"
 
 ---
 
@@ -14,15 +14,15 @@ lastupdated: "2017-11-06"
 
 # CouchApps
 
-{{site.data.keyword.cloudantfull}} può ospitare dati di file non elaborati,
+Cloudant può ospitare dati di file non elaborati,
 come le immagini,
 e servirli su HTTP,
 il che significa che può ospitare tutti i file statici necessari per eseguire un sito web
 e ospitarli proprio come un server web.
 {:shortdesc}
 
-Poiché questi file saranno ospitati su {{site.data.keyword.cloudant_short_notm}},
-JavaScript lato client potrà accedere ai database {{site.data.keyword.cloudant_short_notm}}.
+Poiché questi file saranno ospitati su Cloudant,
+JavaScript lato client potrà accedere ai database Cloudant.
 Si dice che un'applicazione costruita in questo modo abbia un'architettura a due livelli,
 costituita dal client - in genere un browser - e dal database.
 Nella community CouchDB,
@@ -48,15 +48,15 @@ Come scegliere quella appropriata?
 
 ## Una CouchApp è appropriata se...
 
--   Il tuo server ha fornito solo un'API a {{site.data.keyword.cloudant_short_notm}}.
--   Utilizzi l'[autenticazione basata su cookie](../api/authentication.html) di
-    {{site.data.keyword.cloudant_short_notm}}.
--   Utilizzi i database [`_users` e `_security`](../api/authorization.html) di {{site.data.keyword.cloudant_short_notm}}
+-   Il tuo server ha fornito solo un'API a Cloudant.
+-   Utilizzi
+    l'[autenticazione basata su cookie](../api/authentication.html) di Cloudant.
+-   Utilizzi i database [`_users` e `_security`](../api/authorization.html) di Cloudant
     per gestire gli utenti e le autorizzazioni.
 -   Non hai bisogno di pianificare lavori CRON o altre attività regolari.
 
 Per iniziare a utilizzare le CouchApp,
-consulta [Gestione di applicazioni su {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/app-management/){:new_window}.
+consulta [Gestione di applicazioni su Cloudant ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/app-management/){:new_window}.
 
 ## Un'applicazione a 3 livelli è appropriata se...
 
@@ -68,4 +68,4 @@ consulta [Gestione di applicazioni su {{site.data.keyword.cloudant_short_notm}} 
 
 Puoi scrivere il tuo livello di server utilizzando le tecnologie più adatte alle tue
 esigenze.
-È [disponibile](../libraries/index.html) un elenco di librerie per lavorare con {{site.data.keyword.cloudant_short_notm}}.
+È [disponibile](../libraries/index.html) un elenco di librerie per lavorare con Cloudant.

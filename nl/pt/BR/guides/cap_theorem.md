@@ -20,11 +20,11 @@ lastupdated: "2017-01-24"
 
 # Teorema CAP
 
-O {{site.data.keyword.cloudantfull}} usa um modelo ['Eventualmente consistente' ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}.
+O Cloudant usa um modelo ['Eventualmente consistente' ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}.
 {:shortdesc}
 
 Para entender como esse modelo funciona
-e porque é uma parte essencial do uso do {{site.data.keyword.cloudant_short_notm}},
+e porque é uma parte essencial de uso do Cloudant,
 considere o que se entende por Consistência.
 
 Consistência é uma das quatro propriedades ['ACID' ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/ACID){:new_window}
@@ -35,7 +35,7 @@ consistency é um dos três atributos no
 teorema <a href="http://en.wikipedia.org/wiki/CAP_Theorem" target="_blank">'CAP' <img src="../images/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo"></a>.
 Os atributos são **C**onsistency,
 **A**vailability e **P**artition tolerance.
-O teorema afirma que não é possível para um sistema de computador distribuído, como {{site.data.keyword.cloudant_short_notm}},
+O teorema afirma que não é possível para um sistema de computador distribuído, como o Cloudant,
 garantir três atributos _simultaneamente_:
 
 -   Consistência,
@@ -46,10 +46,10 @@ que garante que cada solicitação receba uma resposta sobre se foi bem-sucedida
 em que o sistema continuará a operar, mesmo se qualquer parte do sistema for perdida ou falhar.
 
 A impossibilidade de garantir os três atributos ao mesmo tempo
-significa que o {{site.data.keyword.cloudant_short_notm}} não garante o atributo Consistency.
+significa que o Cloudant não garante o atributo Consistency.
 Em um modelo eventualmente consistente,
-como {{site.data.keyword.cloudant_short_notm}},
-uma atualização feita em uma parte do sistema é _eventualmente_ vista por outras partes do sistema.
+como o Cloudant,
+uma atualização feita em uma parte do sistema é vista _eventualmente_ por outras partes do sistema.
 À medida que a atualização se propaga,
 diz-se que o sistema 'converge' em consistência completa.
 
@@ -85,8 +85,8 @@ o restante elegerá um novo líder.
 Este processo de eleição difere entre os sistemas
 e pode ser uma origem de [problemas significativos ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://aphyr.com/posts/284-call-me-maybe-mongodb){:new_window}.
 
-O {{site.data.keyword.cloudant_short_notm}} prioriza a disponibilidade e a tolerância de partição empregando uma configuração mestre/mestre,
-para que cada nó possa aceitar gravações e leituras para sua parte dos seus dados.
+O Cloudant prioriza a disponibilidade e a tolerância de partição empregando uma configuração mestre/mestre,
+para que cada nó possa aceitar gravações e leituras para sua parte dos dados.
 Vários nós contêm cópias de cada parte de seus dados.
 Cada nó copia dados com outros nós.
 Se um nó se tornar inacessível,
@@ -159,8 +159,8 @@ Em grande escala,
 
 Os sistemas de banco de dados ocultam as complexidades de disponibilidade versus consistência em diferentes maneiras,
 mas elas estão sempre lá.
-A visualização que é tomada pelo banco de dados como um serviço do {{site.data.keyword.cloudant_short_notm}},
+A visualização obtida pelo banco de dados Cloudant como um serviço,
 junto ao CouchDB e outros bancos de dados NoSQL,
-é que é melhor requerer que os desenvolvedores direcionem essas complexidades no início do processo de design.
+é que é melhor requerer que os desenvolvedores tratem essas complexidades no início do processo de design.
 Ao fazer o trabalho duro na frente,
 você reduz as surpresas porque os aplicativos estão prontos para escalar desde o primeiro dia.

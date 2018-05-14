@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2017-11-07"
+  years: 2017
+lastupdated: "2017-08-25"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.Bluemix_notm}} アプリケーションの作成: アプリケーション環境
+# Cloudant データベースにアクセスする単純な Bluemix アプリケーションの作成: アプリケーション環境
 
 チュートリアルのこのセクションでは、
 {{site.data.keyword.Bluemix}} アプリケーションの作成に必要なアプリケーション環境をセットアップする方法について説明します。
@@ -49,7 +49,7 @@ lastupdated: "2017-11-07"
     (例えば、「`Cloudant Python`」など)。
     ホスト名は自動で生成されますが、カスタマイズすることも可能です。<br/>
     ![{{site.data.keyword.Bluemix_notm}} Python Cloud Foundry アプリ名](images/img0014.png)<br/>
-    >   **注**: ホスト名は、{{site.data.keyword.Bluemix_notm}} ドメイン内で固有でなければなりません。 この例では、ドメイン名が「`mybluemix.net`」で、完全なホスト名は「`Cloudant-Python.mybluemix.net`」になります。
+    >   **注**: ホスト名は、{{site.data.keyword.Bluemix_notm}} ドメイン内で固有でなければなりません。この例では、ドメイン名が「`mybluemix.net`」で、完全なホスト名は「`Cloudant-Python.mybluemix.net`」になります。
 
 6.  「`作成`」をクリックして、アプリケーション環境を作成します。<br/>
     ![{{site.data.keyword.Bluemix_notm}} Python Cloud Foundry アプリの作成](images/img0015.png)
@@ -80,7 +80,7 @@ lastupdated: "2017-11-07"
 
 1.  {{site.data.keyword.Bluemix_notm}} ダッシュボードから、アプリケーションのエントリーをクリックします。<br/>
     ![{{site.data.keyword.Bluemix_notm}} ダッシュボードでアプリケーションを選択](images/img0018.png)<br/>
-    >   **注**: 「`経路`」列は避けてください。アプリケーションに関連付けられたリンクをクリックすると、構成エリアに進まずに、アプリケーションが起動されます。 なるべくアプリケーションの名前の上をクリックしてください。
+    >   **注**: 「`経路`」列は避けてください。アプリケーションに関連付けられたリンクをクリックすると、構成エリアに進まずに、アプリケーションが起動されます。なるべくアプリケーションの名前の上をクリックしてください。
 
     アプリケーションの構成および管理の概要エリアが表示されます。
 
@@ -118,7 +118,7 @@ lastupdated: "2017-11-07"
 
 <div id="toolkits"></div>
 
-## Cloud Foundry および {{site.data.keyword.Bluemix_notm}} のコマンド・ツールキット
+## Cloud Foundry および Bluemix のコマンド・ツールキット
 
 チュートリアルのこのセクションでは、
 {{site.data.keyword.Bluemix_notm}} 環境、アプリケーション、サービスを処理するためにインストールされていなければならないツールキットについて説明します。
@@ -316,7 +316,7 @@ Python クライアント・ライブラリーを有効にするには、
 「`requirements.txt`」ファイルを以下のように変更します。
 ```
 cloudant==2.3.1
-```
+	```
 {:codeblock}
 
 ## 次のステップ
