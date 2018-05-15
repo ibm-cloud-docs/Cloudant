@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-07"
+  years: 2017, 2018
+lastupdated: "2018-05-11"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.Bluemix_notm}}
+# Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}
 
 This tutorial shows you how to use the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} to
-create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.Bluemix}} service instance,
+create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.cloud_notm}} service instance,
 and populate the database with a simple collection of data.
 {:shortdesc}
 
@@ -47,7 +47,7 @@ Python 2.7.12
 ### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
 
 There is an [officially supported library](../libraries/supported.html#python) to enable your Python applications to work with
-{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}}.
+{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 
 You should install this using the instructions provided [here](../libraries/supported.html#python).
 
@@ -68,7 +68,7 @@ cloudant==2.3.1
 ```
 {:codeblock}
 
-### A {{site.data.keyword.cloudant_short_notm}} service instance on Bluemix
+### A {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 
 The process for creating a suitable service instance is described in [this tutorial](create_service.html).
 
@@ -90,7 +90,7 @@ available [here](create_service.html#locating-your-service-credentials).
 This tutorial builds up a series of Python language instructions,
 suitable for the following tasks:
 
-1.  [Connecting to a {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}](#connecting-to-a-cloudant-service-instance-on-bluemix).
+1.  [Connecting to a {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud}}](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud).
 2.  [Creating a database within the service instance](#creating-a-database-within-the-service-instance).
 3.  [Storing a small collection of data as documents within the database](#storing-a-small-collection-of-data-as-documents-within-the-database).
 4.  [Retrieving a complete list of the documents](#retrieving-a-complete-list-of-the-documents).
@@ -113,7 +113,7 @@ to illustrate the techniques,
 but you should apply normal best practices for checking and handling all
 warning or error conditions encountered by your own applications. 
 
-## Connecting to a {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}
+## Connecting to a {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 
 A Python application requires the {{site.data.keyword.cloudant_short_notm}} Client Library components to be able to connect to the service instance.
 These components are identified as normal `import` statements:
@@ -135,7 +135,7 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 {:codeblock}
 
 >   **Note**: The service credentials illustrated here
-    were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on Bluemix.
+    were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloud_notm}}.
     The credentials are reproduced here to show how they would be used in a Python application.
     However,
     the demonstration {{site.data.keyword.cloudant_short_notm}} service has been removed now,
@@ -153,7 +153,7 @@ client.connect()
 {:codeblock}
 
 At this point,
-your Python application has access to the service instance on Bluemix.
+your Python application has access to the service instance on {{site.data.keyword.cloud_notm}}.
 
 ## Creating a database within the service instance
 
@@ -432,7 +432,7 @@ client.disconnect()
 ## Complete listing
 
 The following code is a complete Python program to access a
-{{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}},
+{{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}},
 and perform a typical series of tasks:
 
 1.  Connecting to the service instance.

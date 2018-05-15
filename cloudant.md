@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-02"
+  years: 2015, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -40,11 +40,11 @@ details about {{site.data.keyword.cloudant_short_notm}} concepts,
 tasks and techniques.
 
 You can launch the {{site.data.keyword.cloudant_short_notm}} service from the
-[{{site.data.keyword.Bluemix}} dashboard](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/).
+[{{site.data.keyword.Bluemix}} dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
 is [available](index.html),
-along with more detailed [tutorials](tutorials/index.html) that describe tasks in more detail.
+along with [tutorials](tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix) that describe tasks in more detail.
 More information about details such as authenticating with database instances,
 and querying data,
 is available in the [API reference](api/index.html).
@@ -53,7 +53,7 @@ is available in the [API reference](api/index.html).
 
 ## Documentation Contents
 
-*	[{{site.data.keyword.cloudant_short_notm}} Offerings](offerings/index.html): The {{site.data.keyword.cloudant_short_notm}} is available
+*	[{{site.data.keyword.cloudant_short_notm}} Offerings](offerings/bluemix.html#ibm-cloud-public): The {{site.data.keyword.cloudant_short_notm}} is available
 	in a variety of offerings,
 	all described in this section.
 *	[{{site.data.keyword.cloudant_short_notm}} Basics](basics/index.html):
@@ -64,12 +64,12 @@ is available in the [API reference](api/index.html).
 *	[Client Libraries](libraries/index.html): Client libraries are toolkits that
 	let you develop your own applications,
 	ready to work with {{site.data.keyword.cloudant_short_notm}} databases.
-* [Tutorials](tutorials/index.html): A detailed collection of articles,
+* [Tutorials](tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix): A detailed collection of articles,
   showing you how to perform key tasks using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}}.
 *	[{{site.data.keyword.cloudant_short_notm}} API Reference](api/index.html): The API reference is a
 	comprehensive and living catalog of the {{site.data.keyword.cloudant_short_notm}} capabilities.
 	You can find detailed information about the things you can do with {{site.data.keyword.cloudant_short_notm}}.
-*	[Guides](guides/index.html): These guides go into detail about
+*	[Guides](guides/acurl.html#authorized-curl-acurl-): These guides go into detail about
 	use cases and more complex activities and problems.
 	The guides also explore some of the important concepts behind the mechanics of a {{site.data.keyword.cloudant_short_notm}} database.
 

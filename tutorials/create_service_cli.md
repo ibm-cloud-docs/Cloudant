@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-07"
+  years: 2017, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -12,14 +12,14 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating a {{site.data.keyword.cloudant_short_notm}} instance on Bluemix using the Cloud Foundry tools
+# Creating a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}} using the Cloud Foundry tools
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
 service instance on {{site.data.keyword.Bluemix}}
 using the Cloud Foundry tools.
 {:shortdesc}
 
-## Pre-requisites
+## Prerequisites
 
 To follow this tutorial,
 you must first install the {{site.data.keyword.Bluemix_notm}} Cloud Foundry tools.
@@ -29,7 +29,7 @@ Details for installing the tools are available in
 > **Note**: Ensure you install both the Cloud Foundry _and_
   the {{site.data.keyword.Bluemix_notm}} toolkits.
 
-## Identifying the Bluemix API endpoint
+## Identifying the {{site.data.keyword.Bluemix_notm}} API endpoint
 
 Specify the target API endpoint for your Cloud Foundry commands;
 

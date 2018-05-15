@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-12-27"
+  years: 2015, 2018
+lastupdated: "2018-04-17"
 
 ---
 
@@ -32,7 +32,7 @@ For more detailed system information,
 you make use of the cluster monitoring API.
 
 >	**Note**: The cluster monitoring API is not available for
-[IBM {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](../offerings/index.html#cloudant-local).
+[IBM {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](../offerings/cloudant_local.html#cloudant-local).
 
 ## Monitoring metrics overview
 
@@ -782,9 +782,135 @@ _Example results (abbreviated) from a `response_time` monitoring request:_
 
 ```json
 {
-    "start": 1436195645,
-    "end": 1436195945,
-    "target_responses": []
+  "start": 1523984559,
+  "end": 1523984859,
+  "target_responses": [
+    {
+      "datapoints": [
+        [
+          118.1668472290039,
+          1523984540
+        ],
+        [
+          90.57628631591797,
+          1523984550
+        ],
+        [
+          142.6778106689453,
+          1523984560
+        ],
+        [
+          118.42487335205078,
+          1523984570
+        ],
+        [
+          120.38044738769531,
+          1523984580
+        ],
+        [
+          103.94148254394531,
+          1523984590
+        ],
+        [
+          126.64134979248047,
+          1523984600
+        ],
+        [
+          113.03324127197266,
+          1523984610
+        ],
+        [
+          136.9058074951172,
+          1523984620
+        ],
+        [
+          148.68711853027344,
+          1523984630
+        ],
+        [
+          121.22771453857422,
+          1523984640
+        ],
+        [
+          142.86459350585938,
+          1523984650
+        ],
+        [
+          103.75953674316406,
+          1523984660
+        ],
+        [
+          139.1707763671875,
+          1523984670
+        ],
+        [
+          118.29866027832031,
+          1523984680
+        ],
+        [
+          126.3541259765625,
+          1523984690
+        ],
+        [
+          115.5962905883789,
+          1523984700
+        ],
+        [
+          106.68751525878906,
+          1523984710
+        ],
+        [
+          144.12387084960938,
+          1523984720
+        ],
+        [
+          103.8598861694336,
+          1523984730
+        ],
+        [
+          136.84429931640625,
+          1523984740
+        ],
+        [
+          110.58084106445312,
+          1523984750
+        ],
+        [
+          94.69702911376953,
+          1523984760
+        ],
+        [
+          126.85747528076172,
+          1523984770
+        ],
+        [
+          100.8759994506836,
+          1523984780
+        ],
+        [
+          145.0876922607422,
+          1523984790
+        ],
+        [
+          100.77622985839844,
+          1523984800
+        ],
+        [
+          null,
+          1523984810
+        ],
+        [
+          null,
+          1523984820
+        ],
+        [
+          null,
+          1523984830
+        ]
+      ],
+      "target": "myclustername Response Time (ms)"
+    }
+  ]
 }
 ```
 {:codeblock}

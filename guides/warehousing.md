@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-14"
+lastupdated: "2018-04-12"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2018-02-14"
 ## Deprecating {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdbshort_notm}} feature (February 7, 2018)
 {: #deprecating-cloudant-nosql-db-s-db2-warehouse-on-cloud-feature-february-7-2018-}
 
-{{site.data.keyword.cloudant}}'s {{site.data.keyword.dashdblong}} feature is deprecated and will be withdrawn according to the timeline below. Data
+{{site.data.keyword.cloudantfull}}'s {{site.data.keyword.dashdblong}} feature is deprecated and will be withdrawn according to the timeline below. Data
 will not be removed from either system but synchronization will stop. 
 
 Deprecation date | What is being deprecated
@@ -31,24 +31,12 @@ Data that has been transferred to {{site.data.keyword.dashdbshort_notm}} by Apri
 
 ### Alternatives to the {{site.data.keyword.dashdbshort_notm}} feature
 
-Use Apache Spark&trade; in Data Science Experience:
+See the 
+[data-flow-examples repository ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/data-flow-examples){:new_window} 
+for tutorials on 
+extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
+{{site.data.keyword.dashdbshort_notm}} table.
 
-1. [Scala tutorial for saving 'animaldb' database to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-scala-load-to-dashdb.md){:new_window}
-
-2. [Python tutorial for saving 'animaldb' database to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/animaldb-python-load-to-dashdb.md){:new_window}
-
-3. [Python tutorial for saving filtered 'crimes' Spark DataFrame to {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-load-to-dashdb-python.md){:new_window}<br>
-
-   [Notebook for above 'crimes' to {{site.data.keyword.dashdbshort_notm}} example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/crimes-python-load-to-dashdb.ipynb){:new_window}
-
-4. [Scala tutorial for loading docs and saving filtered 'sales' Spark DataFrame to {{site.data.keyword.Db2_on_Cloud_short}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.md){:new_window}<br>
-   
-   [Notebook for above 'sales' example ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/sql-cloudant-notebooks/blob/master/save-to-db2-warehouse/sales-continuous-load-cloudant-to-db2.ipynb){:new_window}
-
-> **Note**: For the Apache Spark&trade;/Bahir sql-cloudant connector solution, customers are responsible for creating and 
-modifying the {{site.data.keyword.Db2_on_Cloud_long}} schema. Although customers lose the automated 
-functionality of SDP, they now have the power to alter the data coming in to Apache Spark&trade; (i.e., filter columns) 
-and design the {{site.data.keyword.Db2_on_Cloud_short}} schema.
 
 ## Data warehousing overview
 
@@ -93,16 +81,16 @@ using relational database technology to enable the Data Warehouses is a popular 
 even for big data tasks.
 
 There are many use cases that nicely illustrate the benefits of
-integrating {{site.data.keyword.cloudantfull}} capabilities with a relational data warehouse,
+integrating {{site.data.keyword.cloudant_short_notm}} capabilities with a relational data warehouse,
 such as the following examples.
 
 ## Is this integration right for my use case?
 
 {{site.data.keyword.cloudant_short_notm}}'s warehousing integration is a streamlined process which will
 automatically discover your documents' schemas and import data
-intelligently into Db2 Warehouse on Cloud or DB2 on Cloud. When you create
+intelligently into {{site.data.keyword.dashdbshort_notm}} or {{site.data.keyword.Db2_on_Cloud_short}}. When you create
 a warehouse on {{site.data.keyword.cloudant_short_notm}}, the schema is first auto-discovered, and then data
-is imported into the connected Db2 Warehouse database. 
+is imported into the connected {{site.data.keyword.dashdbshort_notm}} database. 
 
 The integration is suitable when your data has the following characteristics:
 
@@ -114,7 +102,7 @@ The integration is suitable when your data has the following characteristics:
 * Warehousing is not required to be strictly real time. Updated documents
     typically appear in a warehouse within a few seconds, but this is not
     guaranteed and will vary based on your database load.
-* DB2 on Cloud limits schemas to 1,012 fields. JSON documents with a large 
+* {{site.data.keyword.Db2_on_Cloud_short}} limits schemas to 1,012 fields. JSON documents with a large 
     number of fields, including nested objects and large arrays, may exceed this limit.
 
 ## Joining data
@@ -169,7 +157,7 @@ that enable you to perform a range of basic analytical tasks.
 
 For more advanced warehousing tasks,
 you can leverage the full capabilities provided by the
-IBM cloud-based warehousing service [{{site.data.keyword.IBM}} Db2 Warehouse on Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/analytics/us/en/data-management/data-warehouse/){:new_window}.
+IBM cloud-based warehousing service [{{site.data.keyword.IBM}} {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/analytics/us/en/data-management/data-warehouse/){:new_window}.
 
 When you use {{site.data.keyword.cloudant_short_notm}},
 you have integrated and easy access to advanced warehousing capabilities,
@@ -179,110 +167,52 @@ such as:
 -   Performing SQL-based queries on your data.
 -   Building analytics from your data.
 
-These advanced warehousing capabilities are enabled through services such as Db2 Warehouse on Cloud,
+These advanced warehousing capabilities are enabled through services such as {{site.data.keyword.dashdbshort_notm}},
 which is a natural complement to {{site.data.keyword.cloudant_short_notm}}.
 
 Alternatively,
 if you only need a relational data store for your documents,
 without the warehousing capabilities,
-you can load your {{site.data.keyword.cloudant_short_notm}} documents into the [IBM DB2 on Cloud](#ibm-db2-on-cloud) service.
+you can load your {{site.data.keyword.cloudant_short_notm}} documents into the [{{site.data.keyword.Db2_on_Cloud_short}}](#ibm-db2-on-cloud) service.
 
-## IBM Db2 Warehouse on Cloud
+## {{site.data.keyword.dashdblong_notm}}
 
-Db2 Warehouse on Cloud is a cloud-based data warehouse service,
+{{site.data.keyword.dashdbshort_notm}} is a cloud-based data warehouse service,
 purpose-built for analytic work.
 While especially suited for {{site.data.keyword.cloudant_short_notm}} JSON data,
-Db2 Warehouse on Cloud can accept data from a variety of sources by
+{{site.data.keyword.dashdbshort_notm}} can accept data from a variety of sources by
 examining the structure of data when it is loaded.
 
 For more information,
-see the [IBM Db2 Warehouse on Cloud documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
+see the [{{site.data.keyword.dashdblong_notm}} documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
 
-## DB2 Hosted
+## {{site.data.keyword.Db2Hosted_notm}}
 
-[{{site.data.keyword.DB2OnCloud_full}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/ibm-db2-on-cloud){:new_window}
-provides you with a database on IBM's SoftLayer® global cloud infrastructure.
-It offers you the rich features of an on-premise DB2 deployment,
+[{{site.data.keyword.Db2Hosted_full}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/ibm-db2-on-cloud){:new_window}
+provides you with a database on IBM SoftLayer® global cloud infrastructure.
+It offers you the rich features of an on-premise Db2 deployment,
 but without the cost,
 complexity,
 and risk of managing your own infrastructure.
 
-For more information, see the [{{site.data.keyword.DB2OnCloud_short}} documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/services/DB2OnCloud/index.html#DB2OnCloud){:new_window}.
+For more information, see the [{{site.data.keyword.Db2Hosted_short}} documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/services/DB2OnCloud/index.html#DB2OnCloud){:new_window}.
 
 ## Creating a warehouse
 
-There are two ways you can create a warehouse:
+This feature is being deprecated. As part of the deprecation plan, the ability to 
+create new warehouse jobs was removed March 31, 2018.
 
-1.  [Use {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse)
-2.  [Connect {{site.data.keyword.cloudant_short_notm}} to an existing warehouse](#connect-cloudant-to-an-existing-warehouse)
-
-### Use {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse
-
-The simplest method for creating a warehouse is for {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse instance within {{site.data.keyword.Bluemix}},
-on your behalf.
-Do this by clicking the `Create Warehouse` button on the `Warehouse` task
-within the `Integrations` tab of your {{site.data.keyword.cloudant_short_notm}} dashboard.
-
-![Screenshot of the "Create a Db2 Warehouse on Cloud warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createDashDBWH.png)
-
-If you are not already logged in to {{site.data.keyword.Bluemix_notm}},
-you are asked to do so.
-
->   **Note**: By default, {{site.data.keyword.cloudant_short_notm}} creates a Db2 Warehouse on Cloud instance on {{site.data.keyword.Bluemix_notm}} for your warehouse.
-
-![Screenshot of the "Authenticate to {{site.data.keyword.Bluemix_notm}}" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/authenticateToBluemix.png)
-
-When you have authenticated,
-you can request that a new Db2 Warehouse on Cloud instance is created using your {{site.data.keyword.Bluemix_notm}} account.
-
-To do this:
-
-1.  Provide the name you would like to use for the Warehouse in the `Warehouse Name` field.
-2.  Provide the name of your existing database within {{site.data.keyword.cloudant_short_notm}}, in the `Data Sources` field.
-3.  Ensure that the `Create new Db2 Warehouse on Cloud instance` option is selected on the form.
-4.  Click the `Create Warehouse` button.
-
-![Screenshot of the "Create Warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createWarehouse.png)
-
-### Connect {{site.data.keyword.cloudant_short_notm}} to an existing warehouse
-
-Instead of using {{site.data.keyword.cloudant_short_notm}} to create the Db2 Warehouse on Cloud warehouse database,
-you can connect to an existing Db2 Warehouse on Cloud instance.
-
-The process is similar to [using {{site.data.keyword.cloudant_short_notm}} to create a Db2 Warehouse on Cloud warehouse](#use-cloudant-to-create-a-db2-warehouse-on-cloud-warehouse),
-however instead of selecting the `Create new Db2 Warehouse on Cloud instance` option,
-select the `Db2 Warehouse on Cloud service instance` and choose the Db2 Warehouse on Cloud warehouse that already exists within {{site.data.keyword.Bluemix_notm}}.
-
-![Screenshot of the "Connect to existing Db2 Warehouse on Cloud instance" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/existingDashDBInstance.png)
-
-### Using a DB2 warehouse instance
-
-If you prefer,
-you can connect to an existing DB2 warehouse instance instead of Db2 Warehouse on Cloud.
-Do this by selecting the `DB2` option within your {{site.data.keyword.cloudant_short_notm}} dashboard to connect to an existing DB2 instance.
-
-![Screenshot of the Create a DB2 warehouse" task within the {{site.data.keyword.cloudant_short_notm}} dashboard](../images/createDB2WH.png)
-
-If you want to connect to a DB2 instance,
-you must provide the following details:
-
--   Host address
--   Port number
--   Database name
--   User ID for the database
--   Password for the User ID
-
->   **Note**: The remainder of this topic refers to Db2 Warehouse on Cloud as the warehouse instance.
+>   **Note**: The remainder of this topic refers to {{site.data.keyword.dashdbshort_notm}} as the warehouse instance.
     However,
-    the topic applies equally if you are using an instance of DB2.
+    the topic applies equally if you are using an instance of {{site.data.keyword.Db2_on_Cloud_short}}.
     A tutorial is also available describing how to
-    [load JSON data from {{site.data.keyword.cloudant_short_notm}} into Db2 Warehouse on Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices../dashdb/get/load-json-from-cloudant-database-in-to-dashdb/){:new_window},
-    and includes examples of using DB2 as the warehouse database.
+    [load JSON data from {{site.data.keyword.cloudant_short_notm}} into {{site.data.keyword.dashdbshort_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/clouddataservices../dashdb/get/load-json-from-cloudant-database-in-to-dashdb/){:new_window},
+    and includes examples of using {{site.data.keyword.Db2_on_Cloud_short}} as the warehouse database.
 
 ## Warehouse schema
 
 When you first create a warehouse from within {{site.data.keyword.cloudant_short_notm}},
-Db2 Warehouse on Cloud creates the best possible schema for the data within the database,
+{{site.data.keyword.dashdbshort_notm}} creates the best possible schema for the data within the database,
 helping ensure that each of the fields within your JSON documents has a corresponding entry within the new schema.
 Optionally,
 when creating the warehouse,
@@ -292,7 +222,7 @@ Once the schema is created,
 the warehouse is able to hold your data in a relational format.
 {{site.data.keyword.cloudant_short_notm}} then [replicates](../api/replication.html) to perform
 an 'initial load' of the database documents into the warehouse,
-giving you a working collection of your data in the Db2 Warehouse on Cloud relational database.
+giving you a working collection of your data in the {{site.data.keyword.dashdbshort_notm}} relational database.
 
 Over time,
 your {{site.data.keyword.cloudant_short_notm}} database content might change.
@@ -308,55 +238,55 @@ You can modify the schema of an existing warehouse.
 With {{site.data.keyword.cloudant_short_notm}} warehousing,
 you can run 'traditional' SQL queries,
 and view the results,
-all from within the Db2 Warehouse on Cloud console.
+all from within the {{site.data.keyword.dashdbshort_notm}} console.
 
 
-![Screenshot of the "Db2 Warehouse on Cloud dashboard" within {{site.data.keyword.Bluemix_notm}}](../images/useDashDBdashboard.png)
+![Screenshot of the "{{site.data.keyword.dashdbshort_notm}} dashboard" within {{site.data.keyword.Bluemix_notm}}](../images/useDashDBdashboard.png)
 
 External applications can interact with the data in the same way as with any other relational database.
-The advantage of Db2 Warehouse on Cloud is that you can perform other warehousing tasks,
+The advantage of {{site.data.keyword.dashdbshort_notm}} is that you can perform other warehousing tasks,
 such as loading more data from other sources,
 and analyzing the data using built-in analytic tools.
-Db2 Warehouse on Cloud supports the
+{{site.data.keyword.dashdbshort_notm}} supports the
 [`'R'` programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/R_%28programming_language%29){:new_window}
 and software environment for statistical computing and graphics.
 This means you have access to algorithms that let you perform database analytic tasks such as linear regression,
 'k-means' clustering,
 and geospatial analysis.
 
-The `RStudio` tool allows you to create `'R'` scripts which are then uploaded into Db2 Warehouse on Cloud,
+The `RStudio` tool allows you to create `'R'` scripts which are then uploaded into {{site.data.keyword.dashdbshort_notm}},
 then run using your data.
 
-For more information about working with Db2 Warehouse on Cloud,
-see the [IBM Db2 Warehouse on Cloud documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
+For more information about working with {{site.data.keyword.dashdbshort_notm}},
+see the [{{site.data.keyword.dashdblong_notm}} documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SS6NHC/com.ibm.swg.im.dashdb.kc.doc/welcome.html){:new_window}.
 
 ## Keeping the data and structure fresh
 
-Data is loaded from {{site.data.keyword.cloudant_short_notm}} into Db2 Warehouse on Cloud using a [replication](../api/replication.html) process.
+Data is loaded from {{site.data.keyword.cloudant_short_notm}} into {{site.data.keyword.dashdbshort_notm}} using a [replication](../api/replication.html) process.
 This means that if your {{site.data.keyword.cloudant_short_notm}} data is updated or modified in some way,
-replication of the documents into Db2 Warehouse on Cloud must take place again
+replication of the documents into {{site.data.keyword.dashdbshort_notm}} must take place again
 to ensure your analytic tasks continue to work using the most up-to-date information.
 
 As with normal {{site.data.keyword.cloudant_short_notm}} replication,
 data is transferred one-way only:
-for a warehouse the transfer is from {{site.data.keyword.cloudant_short_notm}} to Db2 Warehouse on Cloud.
+for a warehouse the transfer is from {{site.data.keyword.cloudant_short_notm}} to {{site.data.keyword.dashdbshort_notm}}.
 After the initial load of data,
 the warehouse subscribes to data content changes in the {{site.data.keyword.cloudant_short_notm}} database.
-Any changes are replicated from the {{site.data.keyword.cloudant_short_notm}} source to the Db2 Warehouse on Cloud target.
-This means that warehousing is a form of continuous replication from {{site.data.keyword.cloudant_short_notm}} to Db2 Warehouse on Cloud.
+Any changes are replicated from the {{site.data.keyword.cloudant_short_notm}} source to the {{site.data.keyword.dashdbshort_notm}} target.
+This means that warehousing is a form of continuous replication from {{site.data.keyword.cloudant_short_notm}} to {{site.data.keyword.dashdbshort_notm}}.
 
 Over time,
 your {{site.data.keyword.cloudant_short_notm}} database might also have structural changes.
 This might include the addition or removal of fields from the JSON documents.
 When this happens,
 the schema used by the warehouse might become invalid,
-resulting in errors reported when fresh data is replicated from {{site.data.keyword.cloudant_short_notm}} to Db2 Warehouse on Cloud.
+resulting in errors reported when fresh data is replicated from {{site.data.keyword.cloudant_short_notm}} to {{site.data.keyword.dashdbshort_notm}}.
 
 To solve this problem,
 {{site.data.keyword.cloudant_short_notm}} warehousing has a 'rescan' facility.
 This rescans the structure of the {{site.data.keyword.cloudant_short_notm}} database,
-and determines the new schema required in Db2 Warehouse on Cloud.
-The old tables within Db2 Warehouse on Cloud that were created during the previous scan are then dropped,
+and determines the new schema required in {{site.data.keyword.dashdbshort_notm}}.
+The old tables within {{site.data.keyword.dashdbshort_notm}} that were created during the previous scan are then dropped,
 new tables created using the new schema,
 and finally the current {{site.data.keyword.cloudant_short_notm}} data is loaded as a fresh 'initial load'.
 
@@ -394,12 +324,12 @@ As soon as the rescan completes,
 the warehouse is started.
 
 If you want to customize the warehouse schema,
-enable the `Customize Schema` checkbox,
+enable the `Customize Schema` check box,
 before clicking the `Rescan` button.
 
 ![Screen shot of 'Rescan Source' panel, showing the 'Customize Schema' option enabled.](../images/rescanSource2.png)
 
-The `Customize Schema` checkbox enables two options.
+The `Customize Schema` check box enables two options.
 
 1.  The discovery algorithm used.
 2.  The sample size.
@@ -447,7 +377,7 @@ ensure that you check the `Customize Schema` option during the creation process:
 
 ![Screen shot of warehouse creation panel, showing the 'Customize Schema' option enabled.](../images/customizeSchema01.png)
 
-The warehouse is created in Db2 Warehouse on Cloud as normal,
+The warehouse is created in {{site.data.keyword.dashdbshort_notm}} as normal,
 however it is not started immediately.
 Instead,
 you have the opportunity to customize the schema before proceeding.
@@ -455,7 +385,7 @@ you have the opportunity to customize the schema before proceeding.
 To do this,
 click the link for your warehouse:
 
-![Screen shot of `Open in Db2 Warehouse on Cloud` button.](../images/openInDashDB.png)
+![Screen shot of `Open in {{site.data.keyword.dashdbshort_notm}}` button.](../images/openInDashDB.png)
 
 The resulting display gives you a button to customize the schema used for your source database.
 Hovering over the Status indicator confirms that the schema is ready for customization:
@@ -472,7 +402,7 @@ click the `Rescan` button:
 ![Screen shot of `Rescan` button.](../images/customizeSchema04.png)
 
 When you are happy with the database schema for the warehouse,
-simply click the `Run` button:
+click the `Run` button:
 
 ![Screen shot of `Run` button.](../images/customizeSchema05.png)
 
@@ -497,14 +427,14 @@ is available in [Stack Overflow ![External link icon](../images/launch-glyph.svg
 
 If you need further help,
 and can't find solutions in Stack Overflow,
-please contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
 
 ### Exceptions visible in the dashboard
 
 Sometimes,
 the warehouse encounters an error condition.
 For example,
-if you try to create a warehouse using an existing DB2 database,
+if you try to create a warehouse using an existing {{site.data.keyword.Db2_on_Cloud_short}} database,
 but fail to enter the correct database details,
 then warehouse cannot be created successfully.
 
@@ -522,7 +452,7 @@ a little more information is supplied:
 When you click on the indicator,
 a window appears giving you more details about exactly what the problem is.
 In this example,
-the host details entered for the DB2 connection were not valid:
+the host details entered for the {{site.data.keyword.Db2_on_Cloud_short}} connection were not valid:
 
 ![Screen shot showing hover summary of error status.](../images/errorIndicator3.png)
 

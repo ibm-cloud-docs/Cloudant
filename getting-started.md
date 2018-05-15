@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2015, 2017
+  years: 2015, 2018
 lastupdated: "2017-11-02"
 
 ---
@@ -165,7 +165,7 @@ an instance of the {{site.data.keyword.cloudant}} service, and the following Pyt
   ```
   {: codeblock}
 
-Notice that we check that each document was successfully created.
+Notice that we check to ensure that each document is successfully created.
 {: tip}
 
 ## Step 4: Retrieving data through queries
@@ -213,13 +213,11 @@ A full retrieval also includes the data _within_ a document.
         }
     ]
     ```
-    {:screen}
+    {: codeblock}
 
-  > **Note:** The nature of NoSQL databases,
-  such as {{site.data.keyword.cloudant_short_notm}},
-  means that simple notions such as the first document stored in a database is always
-  the first one returned in a list of results,
-  do not necessarily apply.
+  > **Note:** Simple notions like the first document stored in a database is always
+  the first one returned in a list of results do not always apply to NoSQL databases like 
+  {{site.data.keyword.cloudant_short_notm}}.
 
 * To perform a full retrieval,
   request a list of all documents within the database,
@@ -258,7 +256,7 @@ A full retrieval also includes the data _within_ a document.
     }
   ]
   ```
-  {:screen}
+  {: codeblock}
 
 ## Step 5: Retrieving data through the {{site.data.keyword.cloudant_short_notm}} API endpoint
 
@@ -330,7 +328,7 @@ invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](a
       "offset": 0
   }
   ```
-  {:screen}
+  {: codeblock}
 
 ## Step 6: Delete the database
 

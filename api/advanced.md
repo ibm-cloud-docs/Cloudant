@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2018
+<<<<<<< HEAD
 lastupdated: "2018-05-15"
+=======
+lastupdated: "2017-11-02"
+>>>>>>> production
 
 ---
 

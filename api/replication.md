@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2015, 2017
+  years: 2015, 2018
 lastupdated: "2018-05-15"
 
 ---
@@ -66,8 +66,8 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "source" : "http://$USERNAME1:$PASSWORD1@example.com/db",
-  "target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/db",
+  "source" : "https://$USERNAME1:$PASSWORD1@$ACCOUNT1.cloudant.com/db",
+  "target" : "https://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/db",
 }
 ```
 {:codeblock}
@@ -316,9 +316,9 @@ Accept: application/json
 
 <div id="-optional-creating-a-replication-to-two-bluemix-environments"></div>
 
-### Creating a replication within a Bluemix environment
+### Creating a replication within an {{site.data.keyword.cloud_notm}} environment
 
-You can replicate a {{site.data.keyword.cloudant_short_notm}} database to one or more Bluemix environments.
+You can replicate a {{site.data.keyword.cloudant_short_notm}} database to one or more {{site.data.keyword.cloud}} environments.
 When you set up the replication job for each environment,
 the source database and target database names you provide must use the following format:
 
@@ -327,7 +327,7 @@ https://$ACCOUNT:$PASSWORD@$REMOTE_USERNAME.cloudant.com/$DATABASE_NAME
 ```
 {:codeblock}
 
-You create the database within Bluemix by using the name: `$DATABASE_NAME`,
+You create the database within {{site.data.keyword.cloud}} by using the name: `$DATABASE_NAME`,
 and add it to the URL format.
 Do not copy the `URL` field from the `VCAP_SERVICES` environment variable.
 
@@ -661,6 +661,17 @@ _Example request to cancel the replication, providing matching fields to the ori
 }
 ```
 {:codeblock}
+
+
+## Replication errors
+
+When replicating to a target cluster with these size [limits](../offerings/bluemix.html#request-and-document-size-limits), 
+documents which exceed any of the limits will 
+not be replicated. For continuous replications, monitor the `_active_tasks` endpoint and check 
+the replication task's `doc_write_failures` counter. If the `doc_write_failures` counter is not `0`, 
+it means some documents did 
+not replicate. If replication is not continuous, and has already completed, the `doc_write_failures` 
+counter can be found in the replication document's `_replication_stats` object.
 
 ## Example replication sequence
 

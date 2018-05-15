@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2018-01-16"
+  years: 2015, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -98,20 +98,20 @@ _Example response from running the simple view query:_
 
 ```json
 {
-	"total_rows": 2,
-	"offset": 0,
-	"rows": [
-		{
-			"id":"23598567",
-			"number":"23598567",
-			"training":"2014/05/21 10:00:00"
-		},
-		{
-			"id":"42987103",
-			"number":"42987103",
-			"training":"2014/07/30 12:00:00"
-		}
-	]
+  "total_rows": 2,
+  "offset": 0,
+  "rows": [
+    {
+      "id": "23598567",
+      "key": "23598567",
+      "value": "2014/05/21 10:00:00"
+    },
+    {
+      "id": "42987103",
+      "key": "42987103",
+      "value": "2014/07/30 12:00:00"
+    }
+  ]
 }
 ```
 {:codeblock}
@@ -135,12 +135,12 @@ function(doc) {
 ```
 {:codeblock}
 
-### An index for a one to many relationship
+### An index for a one-to-many relationship
 
 If the object passed to `emit` has an `_id` field,
 a view query with `include_docs` set to `true` contains the document with the given ID.
 
-_Example of indexing a one to many relationship:_
+_Example of indexing a one-to-many relationship:_
 
 ```javascript
 function(doc) {
@@ -159,7 +159,7 @@ Keys are not limited to simple values.
 You can use arbitrary JSON values to influence sorting.
 
 When the key is an array,
-view results can be grouped by a sub-section of the key.
+view results can be grouped by a sub-section of the key. 
 For example,
 if keys have the form `[year, month, day]`,
 then results can be reduced to a single value or by year,
@@ -180,9 +180,11 @@ The latter case is referred to as a 'rereduce'.
 
 Reduce functions are passed three arguments in the following order:
 
--	keys - an array of values.
--	values - an array of values.
--	rereduce - a boolean flag.
+-	keys
+-	values
+-	rereduce
+
+A description of the reduce functions follows below. 
 
 _Example of a reduce function:_
 
@@ -274,7 +276,60 @@ _Example of the reply:_
 ```
 {:codeblock}
 
+## Map and reduce function restrictions
 
+This section describes map and reduce function restrictions.
+
+### Referential transparency
+
+The map function must be referentially transparent. Referential transparency means that 
+an expression can be replaced with the same value without changing the result, in this 
+case, a document and a key/value pair. Because of this, 
+{{site.data.keyword.cloudant_short_notm}} views can be updated 
+incrementally and only reindex the delta since the last update.
+
+### Commutative and associative properties
+
+In addition to referential transparency, the reduce function must also have commutative 
+and associative properties for the input. This makes it possible for the MapReduce 
+function to reduce its own output and produce the same response, for example:
+
+<code>f(Key, Values) == f(Key, [ f(Key, Values) ] )</code> 
+
+As a result, {{site.data.keyword.cloudant_short_notm}} can store intermediate 
+results to the inner nodes of the 
+B-tree indexes. These 
+restrictions also makes it possible for indexes to spread across machines and reduce 
+at query time. 
+
+### Document partitioning 
+ 
+Due to sharding, there are 
+no guarantees that the output of any two specific map functions will be passed to 
+the same instance of a reduce call, so you should not rely on any ordering. Your 
+reduce function must consider all the values passed to it and return the correct 
+answer irrespective of ordering. Cloudant is also guaranteed to call your reduce 
+function with `rereduce=true` at query time even if it did not need to do so when 
+building the index, so it is essential that your function works correctly in that 
+case (`rereduce=true` means that the keys parameter is `null` and the values array is 
+filled with results from previous reduce function calls).
+
+### Reduced value size
+
+{{site.data.keyword.cloudant_short_notm}} computes view indexes and the 
+corresponding reduce values then caches 
+these values inside each of the B-tree node pointers. Now, 
+{{site.data.keyword.cloudant_short_notm}} can reuse 
+reduced values when updating the B-tree. You must pay attention to the amount 
+of data that is returned from reduce functions.
+
+It is best that the size of your returned data set stays small and grows no 
+faster than `log(num_rows_processed)`. If you ignore this restriction, 
+{{site.data.keyword.cloudant_short_notm}} does not automatically throw an error, 
+but B-tree performance degrades 
+dramatically. If your view works correctly with small data sets but quits 
+working when more data is added, you might have violated the growth rate 
+characteristic restriction. 
 
 ## Storing the view definition
 

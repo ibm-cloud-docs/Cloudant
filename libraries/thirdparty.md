@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-06"
+  years: 2015, 2018
+lastupdated: "2018-05-11"
 
 ---
 
@@ -179,7 +179,7 @@ The [Apache Bahir extensions for Apache Spark  ![External link icon](../images/l
 include a `spark-sql-cloudant` connector that is the {{site.data.keyword.cloudant_short_notm}} library for Apache Spark.
 
 The spark-sql-cloudant connector is already loaded into the
-[IBM Bluemix Apache Spark-as-a-Service ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} offering.
+[{{site.data.keyword.cloud_notm}} Apache Spark-as-a-Service ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} offering.
 It can be used with any stand-alone Spark cluster.
 
 See the [project information ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/bahir/tree/master/sql-cloudant){:new_window}

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-09"
+  years: 2017, 2018
+lastupdated: "2018-05-11"
 
 ---
 
@@ -14,10 +14,10 @@ lastupdated: "2017-11-09"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creating a simple Bluemix application to access a {{site.data.keyword.cloudant_short_notm}} database: the code
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: the code
 
 This section of the tutorial describes the code
-for an {{site.data.keyword.Bluemix}} application.
+for an {{site.data.keyword.cloud}} application.
 {:shortdesc}
 
 <div id="theApp"></div>
@@ -29,10 +29,10 @@ ready to begin creating the application:
 
 -   [The Python programming language](create_bmxapp_prereq.html#python).
 -   [A {{site.data.keyword.cloudant_short_notm}} database instance](create_bmxapp_prereq.html#csi).
--   [A {{site.data.keyword.Bluemix_notm}} application environment](create_bmxapp_appenv.html#creating).
+-   [An {{site.data.keyword.cloud_notm}} application environment](create_bmxapp_appenv.html#creating).
 -   A [connection](create_bmxapp_appenv.html#connecting) between the {{site.data.keyword.cloudant_short_notm}} database instance
-    and the {{site.data.keyword.Bluemix_notm}} application environment.
--   The [toolkits](create_bmxapp_appenv.html#toolkits) for managing Cloud Foundry-based {{site.data.keyword.Bluemix_notm}} applications.
+    and the {{site.data.keyword.cloud_notm}} application environment.
+-   The [toolkits](create_bmxapp_appenv.html#toolkits) for managing Cloud Foundry-based {{site.data.keyword.cloud_notm}} applications.
 -   A ['starter' application pack](create_bmxapp_appenv.html#starter), containing initial configuration and code template files.
 
 >   **Note**: No attempt was made to create _efficient_ Python code for this tutorial.
@@ -78,7 +78,7 @@ Modify your configuration files as follows:
       - <your database instance>
     ```
     {:codeblock}
-    >   **Note**: Ensure that you modify the '`domain`', '`name`', '`host`', and '`services`' values. They are the values that were entered when you created your [{{site.data.keyword.Bluemix_notm}} application environment](create_bmxapp_appenv.html#creating) and your [{{site.data.keyword.cloudant_short_notm}} database instance](create_bmxapp_prereq.html#csi).
+    >   **Note**: Ensure that you modify the '`domain`', '`name`', '`host`', and '`services`' values. They are the values that were entered when you created your [{{site.data.keyword.cloud_notm}} application environment](create_bmxapp_appenv.html#creating) and your [{{site.data.keyword.cloudant_short_notm}} database instance](create_bmxapp_prereq.html#csi).
 
 3.  Edit the '`requirements.txt`' file so that it contains the following text:
     ```
@@ -196,7 +196,7 @@ target.write("\n====\n\n")
 
 #### Working with the {{site.data.keyword.cloudant_short_notm}} database instance
 
-The Python application runs within a {{site.data.keyword.Bluemix_notm}} application environment.
+The Python application runs within an {{site.data.keyword.cloud_notm}} application environment.
 The environment provides all the necessary information for the application to access connected services.
 The information is provided within an environment variable,
 called '`VCAP_SERVICES`'.
@@ -204,11 +204,11 @@ This variable can be accessed by the application,
 and used to determine the connection details.
 
 The first task is to ensure that the application is running within
-a {{site.data.keyword.Bluemix_notm}} application environment.
+an {{site.data.keyword.cloud_notm}} application environment.
 Check by testing for the presence of the '`VCAP_SERVICES`' environment variable:
 
 ```python
-# Check that we are running in a Bluemix application environment.
+# Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
 ```
 {:codeblock}
@@ -247,7 +247,7 @@ target.write("Got cloudantNoSQLDBData\n")
 ```
 {:codeblock}
 
-Several {{site.data.keyword.Bluemix_notm}} services might be connected to the application environment.
+Several {{site.data.keyword.cloud_notm}} services might be connected to the application environment.
 The credentials for each service are listed as array elements.
 In this tutorial,
 only one [service connection was created](create_bmxapp_appenv.html#connecting).
@@ -256,7 +256,7 @@ the application accesses the first element (element 'zero').
 Each service element contains the credentials for that service,
 expressed as a list indexed by the essential field names that are needed to access the service.
 More information about the field names is provided in the
-[tutorial](create_database.html#a-cloudant-service-instance-on-bluemix) that describes a simple database creation task.
+[tutorial](create_database.html#a-cloudant-no-sql-db-service-instance-on-ibm-cloud) that describes a simple database creation task.
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -282,7 +282,7 @@ servicePassword = credentialsData['password']
 target.write("Got password: ")
 target.write(servicePassword)
 target.write("\n")
-# ... and the URL of the service within Bluemix.
+# ... and the URL of the service within {{site.data.keyword.cloud_notm}}.
 serviceURL = credentialsData['url']
 target.write("Got URL: ")
 target.write(serviceURL)
@@ -293,7 +293,7 @@ target.write("\n")
 The application now has all the details necessary to create a database within the
 {{site.data.keyword.cloudant_short_notm}} database instance.
 This task is described in more detail in the
-[tutorial](create_database.html#a-cloudant-service-instance-on-bluemix) that describes simple database creation.
+[tutorial](create_database.html#a-cloudant-no-sql-db-service-instance-on-ibm-cloud) that describes simple database creation.
 
 The application must do these tasks:
 
@@ -350,7 +350,7 @@ The final task is to start the web server within the Python application.
 The sole purpose of the server is to return the log file on request.
 This log file confirms that the Python application successfully completed the following tasks:
 
-1.  Ran successfully within the {{site.data.keyword.Bluemix_notm}} application environment.
+1.  Ran successfully within the {{site.data.keyword.cloud_notm}} application environment.
 2.  Determined the details for service connections.
 3.  Connected to a {{site.data.keyword.cloudant_short_notm}} database instance.
 4.  Created a database.
@@ -381,7 +381,7 @@ The next step in the tutorial is to [upload the application](create_bmxapp_uploa
 ## Complete listing
 
 The following code is the complete Python program to access a
-{{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}:
+{{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}:
 
 ```python
 # Make Python modules available.
@@ -430,7 +430,7 @@ target.write("\n====\n\n")
 
 # Start working with the {{site.data.keyword.cloudant_short_notm}} service instance.
 
-# Check that we are running in a Bluemix application environment.
+# Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
     # Yes we are, so get the service information.
     vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
@@ -456,7 +456,7 @@ if 'VCAP_SERVICES' in os.environ:
     target.write("Got password: ")
     target.write(servicePassword)
     target.write("\n")
-    # ... and the URL of the service within Bluemix.
+    # ... and the URL of the service within {{site.data.keyword.cloud_notm}}.
     serviceURL = credentialsData['url']
     target.write("Got URL: ")
     target.write(serviceURL)

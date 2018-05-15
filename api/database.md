@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-02"
+  years: 2015, 2018
+lastupdated: "2018-02-01"
 
 ---
 
@@ -217,7 +217,7 @@ curl https://$ACCOUNT.cloudant.com/_all_dbs \
 ```
 {:codeblock}
 
-<!---
+<!--
 
 _Example of using JavaScript to list all databases:_
 
@@ -233,7 +233,7 @@ account.db.list(function (err, body, headers) {
 ```
 {:codeblock}
 
---->
+-->
 
 The response is a JSON array with all the database names.
 
@@ -369,6 +369,168 @@ _Example response after a request for all documents in a database:_
 }
 ```
 {:codeblock}
+
+## Send multiple queries to a database
+
+This section describes how to send multiple queries to a database using `_all_docs` and `_view` endpoints. 
+
+### Send multiple queries to a database by using `_all_docs`
+
+To send multiple queries to a specific database, send a `POST` request to 
+`https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries`.
+
+_Example of using HTTP to send multiple queries to a database:_
+
+```http
+POST /_all_docs/queries HTTP/1.1
+```
+{:codeblock}
+
+_Example of using the command line to send multiple queries to a database,_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries
+```
+{:codeblock}
+
+`POST`ing to the `_all_docs/queries` endpoint runs multiple specified built-in view queries of all documents 
+in this database. This endpoint enables you to request multiple queries in a single request, instead 
+of multiple `POST /$DATABASE/_all_docs` requests. 
+
+The request JSON object must have a `queries` field. It represents an array of query 
+objects with fields for the parameters of each individual view query to be run. 
+The field names and their meaning are the same as the query parameters of a regular 
+`_all_docs` request. 
+
+The results are returned by using the following response JSON object:
+
+Response JSON object    | Description | Type
+------------------------|-------------|-----
+`results` | An array of result objects - one for each query. Each result object contains the same fields as the response to a regular `_all_docs` request. | array
+
+
+_Example request with multiple queries:_
+
+```json
+{POST /db/_all_docs/queries HTTP/1.1
+Content-Type: application/json
+Accept: application/json
+Host: localhost:5984
+
+{
+    "queries": [
+        {
+            "keys": [
+                "meatballs",
+                "spaghetti"
+            ]
+        },
+        {
+            "limit": 3,
+            "skip": 2
+        }
+    ]
+}
+```
+{:codeblock}
+
+_Example response for multiple queries:_
+```json
+HTTP/1.1 200 OK
+Cache-Control: must-revalidate
+Content-Type: application/json
+Date: Wed, 20 Dec 2017 11:17:07 GMT
+ETag: "1H8RGBCK3ABY6ACDM7ZSC30QK"
+Server: CouchDB (Erlang/OTP)
+Transfer-Encoding: chunked
+
+{
+    "results" : [
+        {
+            "rows": [
+                {
+                    "id": "SpaghettiWithMeatballs",
+                    "key": "meatballs",
+                    "value": 1
+                },
+                {
+                    "id": "SpaghettiWithMeatballs",
+                    "key": "spaghetti",
+                    "value": 1
+                },
+                {
+                    "id": "SpaghettiWithMeatballs",
+                    "key": "tomato sauce",
+                    "value": 1
+                }
+            ],
+            "total_rows": 3
+        },
+        {
+            "offset" : 2,
+            "rows" : [
+                {
+                    "id" : "Adukiandorangecasserole-microwave",
+                    "key" : "Aduki and orange casserole - microwave",
+                    "value" : [
+                        null,
+                        "Aduki and orange casserole - microwave"
+                    ]
+                },
+                {
+                    "id" : "Aioli-garlicmayonnaise",
+                    "key" : "Aioli - garlic mayonnaise",
+                    "value" : [
+                        null,
+                        "Aioli - garlic mayonnaise"
+                    ]
+                },
+                {
+                    "id" : "Alabamapeanutchicken",
+                    "key" : "Alabama peanut chicken",
+                    "value" : [
+                        null,
+                        "Alabama peanut chicken"
+                    ]
+                }
+            ],
+            "total_rows" : 2667
+        }
+    ]
+}
+```
+{:codeblock}
+
+> **Note**: Multiple queries are also supported in `/$DATABASE/_local_docs/queries` and 
+`/$DATABASE/_design_docs/queries`, which is similar to `/$DATABASE/_all_docs/queries`. 
+
+### Send multiple view queries to a database by using `_view`
+
+To send multiple view queries to a specific database, send a `POST` request to 
+`https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
+
+_Example of using HTTP to send multiple queries to a database:_
+
+```http
+POST /_view/$VIEW/queries HTTP/1.1
+```
+{:codeblock}
+
+_Example of using the command line to send multiple view queries to a database,_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_view/$VIEW/queries
+```
+{:codeblock}
+
+Multiple queries are supported with the `_view` endpoint, 
+`/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
+
+The request JSON object must have a `queries` field. It represents an array of query 
+objects with fields for the parameters of each individual view query to be executed. 
+The field names and their meaning are the same as the query parameters of a regular 
+`_view` request. 
+
 
 ## Get Changes
 
