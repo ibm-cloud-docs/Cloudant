@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-11"
 
 ---
 
@@ -24,7 +24,7 @@ and are the basis of the {{site.data.keyword.cloudantfull}} database.
 
 Documents are limited to a maximum size of 64 MB.
 
->   **Note**: If you are using a [{{site.data.keyword.cloudant_short_notm}} service on IBM Bluemix](../offerings/bluemix.html),
+>   **Note**: If you are using a [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](../offerings/bluemix.html),
     documents are limited to a maximum size of 1 MB.
     Exceeding this limit causes a [`413` error](http.html#413).
 
