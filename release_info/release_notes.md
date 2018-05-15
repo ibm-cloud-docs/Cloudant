@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-07"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -23,7 +23,7 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 6919 
+## Build 6919 (May 14, 2018)
 
 - Remove outdated dependencies.
 - Introduce new action, `DELETE`, on the `/_iam_session` endpoint which invalidates the IAM session cookie. 
