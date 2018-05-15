@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -20,7 +20,7 @@ This section contains details about more advanced replication concepts and tasks
 {:shortdesc}
 
 You might also find it helpful to review details of the underlying
-[replication protocol ![External link icon](../images/launch-glyph.svg "External link icon")](http://dataprotocols.org/couchdb-replication/){:new_window},
+[replication protocol ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/replication/protocol.html/){:new_window},
 and review the [Advanced Methods](advanced.html) material.
 
 ## Replication database maintenance
