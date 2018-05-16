@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-22"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -77,7 +77,7 @@ The focused roles are as follows:
 Role          | Description                                                                                   | API Endpoints
 --------------|-----------------------------------------------------------------------------------------------|--------------
 `_design`     | Allows create, read, modify, or delete access to design documents.                            | [`_design`](design_documents.html), [`_find`](cloudant_query.html#finding-documents-using-an-index), [`_index`](cloudant_query.html)
-`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](replication.html#the-since_seq-field), [`_replicate`](replication.html#the-_replicate-endpoint), [`_replicator`](replication.html#replicator-database)
+`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](replication.html#the-since_seq-field), [`_replicate`](advanced_replication.html#the-_replicate-endpoint), [`_replicator`](replication.html#replicator-database)
 `_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint.                          | [`_security`](#viewing-permissions)
 
 The nature of the access that is granted depends on the specific API endpoint.

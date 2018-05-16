@@ -109,7 +109,7 @@ field is invalid for the current query. When this occurs, the `warning` field is
 
 - `POST` requests to the `_revs_diff` endpoint require either the `_reader` or `_replicator` role.
 - Add the `X-Frame-Options` header settings to prevent click jacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options-setting).
-- Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler).   
+- Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler).  
 
 ## Build 6276 (July 4, 2017)
 

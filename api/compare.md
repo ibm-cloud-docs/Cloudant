@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -51,7 +51,7 @@ Removed for 96973.
 
 <tr>
 <td><code>GET&nbsp;/</code><p>
-<a href='advanced.html#get-/' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced.html#-get-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/common.html#get--' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/common.html#get--' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Meta information about the cluster.</td>
@@ -127,7 +127,7 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>GET&nbsp;/\_db\_updates</code><p>
-<a href='advanced.html#get-/\_db\_updates' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced.html#-get-_db_updates-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/common.html#get--\_db\_updates' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/common.html#get--\_db\_updates' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>List all database events in the instance.<p>In {{site.data.keyword.cloudant_short_notm}} the endpoint is only available to dedicated customers. Its documentation references additional query params (limit, since, descending) and an additional feed type value (normal) For CouchDB, its documentation references an additional feed type value (eventsource)</p></td>
@@ -139,34 +139,34 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>GET&nbsp;/\_membership</code><p>
-<a href='advanced.html#get-/\_membership' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced.html#-get-_membership-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/common.html#membership' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 </p></td><td>List the names of nodes in the cluster. Active clusters are indicated in the cluster\_nodes field, while all\_nodes has all nodes.</td>
 </tr>
 <tr>
 <td><code>POST&nbsp;/\_replicate</code><p>
-<a href='replication.html#the-/\_replicate-endpoint' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced_replication.html#the-_replicate-endpoint' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/common.html#post--\_replicate' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/common.html#post--\_replicate' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Request, configure, or stop, a replication operation.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (selector, since\_seq).</p></td>
 </tr>
 <tr>
 <td><code>POST&nbsp;/\_replicator</code><p>
-<a href='replication.html#the-/\_replicator-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='replication.html#the-_replicator-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Trigger a replication.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (selector, since\_seq).</p></td>
 </tr>
 <tr>
 <td><code>PUT&nbsp;/\_replicator</code><p>
-<a href='replication.html#the-/\_replicator-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='replication.html#the-_replicator-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Trigger a replication.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (selector, since\_seq).</p></td>
 </tr>
 <tr>
 <td><code>DELETE&nbsp;/\_replicator</code><p>
-<a href='replication.html#the-/\_replicator-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='replication.html#the-_replicator-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/replication/replicator.html' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Cancel an ongoing replication<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (selector, since\_seq).</p></td>
@@ -215,7 +215,7 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>GET&nbsp;/\_uuids</code><p>
-<a href='advanced.html#get-/\_uuids' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced.html#-get-_uuids-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/common.html#uuids' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/common.html#uuids' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Request one or more Universally Unique Identifiers (UUIDs).</td>
@@ -351,12 +351,12 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_design/{ddoc}/\_geo\_info/{index}</code><p>
-<a href='cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='cloudant-geo.html#obtaining-information-about-a-cloudant-nosql-db-geo-index' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 </p></td><td>Obtain information about a geospatial index.</td>
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_design/{ddoc}/\_geo/{index}</code><p>
-<a href='cloudant-geo.html#querying-a-cloudant-geo-index' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='cloudant-geo.html#querying-a-cloudant-nosql-db-geo-index' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 </p></td><td>Query a geo index.</td>
 </tr>
 <tr>
@@ -460,14 +460,14 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_design/{ddoc}/\_view/{view}</code><p>
-<a href='creating_views.html#using-views' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='using_views.html#using-views' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/views.html#get--db-\_design-ddoc-\_view-view' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/views.html#get--db-\_design-ddoc-\_view-view' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Execute the view function from the specified design document.<p>CouchDB documentation references additional query params (conflicts, end\_key, end\_key\_doc\_id, attachments, att\_encoding\_info, sorted, start\_key, start\_key\_doc\_id, update\_seq). CouchDB 2.0 added sorted parameter not available in CouchDB 1.6.</p></td>
 </tr>
 <tr>
 <td><code>POST&nbsp;/{db}/\_design/{ddoc}/\_view/{view}</code><p>
-<a href='creating_views.html#querying-a-view-using-a-list-of-keys' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='using_views.html#querying-a-view-by-using-a-list-of-keys' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/views.html#post--db-\_design-ddoc-\_view-view' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/views.html#post--db-\_design-ddoc-\_view-view' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Execute the view function from the specified design document.<p>CouchDB documentation references additional query params (conflicts, end\_key, end\_key\_doc\_id, attachments, att\_encoding\_info, sorted, start\_key, start\_key\_doc\_id, update\_seq).</p></td>
@@ -488,7 +488,7 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>PUT&nbsp;/{db}/\_design/{ddoc}/{attname}</code><p>
-<a href='attachments.html#create-/-update' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='attachments.html#create-update' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/common.html#put--db-\_design-ddoc-attname' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/common.html#put--db-\_design-ddoc-attname' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Upload the supplied content as an attachment to the specified design document.</td>
@@ -521,7 +521,7 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_index</code><p>
-<a href='cloudant_query.html#list-all-cloudant-query-indexes' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='cloudant_query.html#list-all-cloudant-nosql-db-query-indexes' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/find.html#get--db-\_index' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 </p></td><td>List indexes.</td>
 </tr>
@@ -567,7 +567,7 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>POST&nbsp;/{db}/\_missing\_revs</code><p>
-<a href='advanced.html#get-/$DATABASE/missingrevs' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced.html#-get-database-_missing_revs-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/misc.html#post--db-\_missing\_revs' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/misc.html#post--db-\_missing\_revs' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Return the document revisions from the given list that do not exist in the database.</td>
@@ -579,21 +579,21 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>POST&nbsp;/{db}/\_revs\_diff</code><p>
-<a href='advanced.html#post-/$DATABASE/\_revs\_diff' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced.html#-post-database-_revs_diff-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/misc.html#post--db-\_revs\_diff' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/misc.html#post--db-\_revs\_diff' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Given a set of document/revision IDs, return the subset of those that do not correspond to revisions stored in the database.</td>
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_revs\_limit</code><p>
-<a href='advanced.html#get-/$DATABASE/\_revs\_limit' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced.html#-get-database-_revs_limit-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/misc.html#get--db-\_revs\_limit' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/misc.html#get--db-\_revs\_limit' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Get the number of document revisions tracked.</td>
 </tr>
 <tr>
 <td><code>PUT&nbsp;/{db}/\_revs\_limit</code><p>
-<a href='advanced.html#put-/$DATABASE/\_revs\_limit' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced.html#-put-database-_revs_limit-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/misc.html#put--db-\_revs\_limit' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/misc.html#put--db-\_revs\_limit' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Set the maximum number of document revisions tracked.</td>
@@ -614,7 +614,7 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>GET&nbsp;/{db}/\_shards</code><p>
-<a href='advanced.html#get-/$DATABASE/\_shards' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced.html#-get-database-_shards-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 </p></td><td>Return information about the shards in the cluster</td>
 </tr>
@@ -674,7 +674,7 @@ Removed for 96973.
 </tr>
 <tr>
 <td><code>PUT&nbsp;/{db}/{docid}/{attname}</code><p>
-<a href='attachments.html#create-/-update' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='attachments.html#create-update' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/document/attachments.html#put--db-docid-attname' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/document/attachments.html#put--db-docid-attname' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td>Upload the supplied content as an attachment to the specified document.</td>

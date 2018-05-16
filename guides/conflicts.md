@@ -25,7 +25,7 @@ the effect might be to introduce disagreement or 'conflicts' as to what is the c
 definitive content for the document.
 
 {{site.data.keyword.cloudantfull}} tries to help you avoid conflicts by warning you of potential problems.
-It does this by returning a [`409` response](http.html#409) to a problematic update request.
+It does this by returning a [`409` response](http.html#http-status-codes) to a problematic update request.
 However,
 a `409` response might not be received if the database update is requested on a
 system that is not currently connected to the network.

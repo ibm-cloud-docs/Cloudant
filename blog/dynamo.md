@@ -2,7 +2,7 @@
 
 copyright:
   years: 2010, 2018
-lastupdated: "2017-01-16"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -30,7 +30,7 @@ as noted [here ![External link icon](../images/launch-glyph.svg "External link i
 With the availability of Cloudant's new
 [hosted service ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/#%21/solutions){:new_window},
 a new option has entered the scene.
-Our clustering is similar to [Voldemort ![External link icon](../images/launch-glyph.svg "External link icon")](http://project-voldemort.com/){:new_window},
+Our clustering is similar to [Voldemort ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.project-voldemort.com/){:new_window},
 [Cassandra ![External link icon](../images/launch-glyph.svg "External link icon")](http://cassandra.apache.org/){:new_window},
 or [Riak ![External link icon](../images/launch-glyph.svg "External link icon")](http://github.com/basho/riak){:new_window},
 as it implements a version of

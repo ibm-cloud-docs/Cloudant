@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -151,7 +151,7 @@ you do not need to download them again,
 unless they are updated.
 
 General information about the toolkits is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/index.html){:new_window}.
+[here ![External link icon](../images/launch-glyph.svg "External link icon")](../getting-started.html#getting-started-with-cloudant){:new_window}.
 
 ### Installing the Cloud Foundry toolkit
 
@@ -198,9 +198,9 @@ Use the following steps to download and install the {{site.data.keyword.cloud_no
     on the '`Getting started`' window of your application:<br/>
     ![A link to download the Cloud Foundry toolkit](images/img0027.png)
 
-2.  Clicking the link takes you to a
-    [download page ![External link icon](../images/launch-glyph.svg "External link icon")](http://clis.ng.bluemix.net/ui/home.html){:new_window}:<br/>
+2.  Clicking the link takes you to a [download page ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window}:<br/>
     ![The {{site.data.keyword.cloud_notm}} toolkit download page](images/img0028.png)
+
 
 3.  Download and run the appropriate installer for your system.
 
