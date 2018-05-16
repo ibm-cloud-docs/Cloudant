@@ -27,7 +27,7 @@ and {{site.data.keyword.cloudant_short_notm}} take data privacy and governance s
 
 To govern the movement of data from the EU to the US,
 {{site.data.keyword.cloudant_short_notm}} complied with both US-EU and US-Swiss
-[Safe Harbour Frameworks ![External link icon](../images/launch-glyph.svg "External link icon")](https://safeharbor.export.gov/companyinfo.aspx?id=29450){:new_window}.
+[Safe Harbour Frameworks ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.export.gov/safeharbor_eu){:new_window}.
 Following the 2015 ruling of the European Court of Justice that
 [invalidated ![External link icon](../images/launch-glyph.svg "External link icon")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){:new_window}
 the Safe Harbour agreement,
