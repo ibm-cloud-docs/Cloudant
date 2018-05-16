@@ -103,9 +103,7 @@ do the following steps:
     in the history array that is found in the checkpoint document.
 4.  Replicate to the new incremental backup database,
     setting the [`since_seq` field](../api/replication.html#the-since_seq-field)
-    in the replication document to the value of
-    the [`recorded_seq` field](backup-guide.html#get-the-recorded_seq-value)
-    found in the previous step.
+    in the replication document to the value of the `recorded_seq` field found in the previous step.
 
 >   **Note**: By definition, using the `since_seq` option bypasses the normal checkpointing facility. Only use `since_seq` with caution. 
 

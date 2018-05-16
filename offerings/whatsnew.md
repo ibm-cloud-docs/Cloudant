@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -21,7 +21,7 @@ Keep up to date with changes and updates for {{site.data.keyword.cloudantfull}}.
 
 ## Dedicated hardware
 
-A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
+A new [Dedicated service instance](bluemix.html#plans) is available.
 
 ## Build 6233
 
@@ -44,7 +44,7 @@ A new [Dedicated service instance](bluemix.html#dedicated-plan) is available.
 - If the design document that is intended to specify a geospatial index is invalid,
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
-  results in an [HTTP `404`](http.html#404) response.
+  results in an [HTTP `404`](http.html#http-status-codes) response.
 - Added support for the [`$allmatch`](../api/cloudant_query.html#the-allmatch-operator) operator.
 
 ## Build 5834

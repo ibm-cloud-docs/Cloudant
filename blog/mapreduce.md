@@ -2,7 +2,7 @@
 
 copyright:
   years: 2011, 2018
-lastupdated: "2017-01-16"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -186,7 +186,7 @@ in realtime!
 
 I've chosen to import the FAA crash data using my favorite tools:
 Python and Benoit's
-[Couchdbkit ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdbkit.org/){:new_window} library.
+[Couchdbkit ![External link icon](../images/launch-glyph.svg "External link icon")](https://pypi.org/project/couchdbkit/){:new_window} library.
 If you use the Python
 [Boto ![External link icon](../images/launch-glyph.svg "External link icon")](https://code.google.com/p/boto/){:new_window} module for AWS,
 you will feel right at home.

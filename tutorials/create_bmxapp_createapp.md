@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -256,7 +256,7 @@ the application accesses the first element (element 'zero').
 Each service element contains the credentials for that service,
 expressed as a list indexed by the essential field names that are needed to access the service.
 More information about the field names is provided in the
-[tutorial](create_database.html#a-cloudant-no-sql-db-service-instance-on-ibm-cloud) that describes a simple database creation task.
+[tutorial](create_database.html#pre-requisites) that describes a simple database creation task.
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -293,7 +293,7 @@ target.write("\n")
 The application now has all the details necessary to create a database within the
 {{site.data.keyword.cloudant_short_notm}} database instance.
 This task is described in more detail in the
-[tutorial](create_database.html#a-cloudant-no-sql-db-service-instance-on-ibm-cloud) that describes simple database creation.
+[tutorial](create_database.html#creating-a-database-within-the-service-instance) that describes simple database creation.
 
 The application must do these tasks:
 

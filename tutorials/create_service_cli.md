@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -24,7 +24,7 @@ using the Cloud Foundry tools.
 To follow this tutorial,
 you must first install the {{site.data.keyword.Bluemix_notm}} Cloud Foundry tools.
 Details for installing the tools are available in
-[this separate tutorial](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits).
+[this separate tutorial](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits).
 
 > **Note**: Ensure you install both the Cloud Foundry _and_
   the {{site.data.keyword.Bluemix_notm}} toolkits.

@@ -198,14 +198,9 @@ Use the following steps to download and install the {{site.data.keyword.cloud_no
     on the '`Getting started`' window of your application:<br/>
     ![A link to download the Cloud Foundry toolkit](images/img0027.png)
 
-2.  Clicking the link takes you to a
-<<<<<<< HEAD
-    [download page ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window}:<br/>
-    ![The Bluemix toolkit download page](images/img0028.png)
-=======
-    [download page ![External link icon](../images/launch-glyph.svg "External link icon")](http://clis.ng.bluemix.net/ui/home.html){:new_window}:<br/>
+2.  Clicking the link takes you to a [download page ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window}:<br/>
     ![The {{site.data.keyword.cloud_notm}} toolkit download page](images/img0028.png)
->>>>>>> production
+
 
 3.  Download and run the appropriate installer for your system.
 
