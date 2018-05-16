@@ -16,60 +16,39 @@ lastupdated: "2018-02-15"
 
 # Cloudant.com
 
-> **Note**: The {{site.data.keyword.cloudantfull}} Shared Plan is being retired on March 31, 2018. 
-As of July 24th, 2017, no new Shared Plan accounts can be created on [https://cloudant.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/){:new_window}. 
+> **附註**：「{{site.data.keyword.cloudantfull}} 共用方案」將在 2018 年 3 月 31 日淘汰。 
+自 2017 年 7 月 24 日開始，就無法在 [https://cloudant.com/ ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/){:new_window} 上建立新的「共用方案」帳戶。 
 
-{{site.data.keyword.cloudant_short_notm}} is a hosted and fully-managed database-as-a-service (DBaaS). 
-It was built from the ground up to scale globally, run non-stop, and handle a wide variety of data types 
-like [JSON](../basics/index.html#json),
-[full-text](../api/cloudant_query.html#creating-an-index),
-and [geospatial](../api/cloudant-geo.html).
+{{site.data.keyword.cloudant_short_notm}} 是已託管且受完整管理的資料庫即服務 (DBaaS)。它建置時已徹底全球擴充、不間斷地執行，並且處理廣泛的資料類型（例如 [JSON](../basics/index.html#json)、[全文](../api/cloudant_query.html#creating-an-index)及[地理空間](../api/cloudant-geo.html)）。
 
-{{site.data.keyword.cloudant_short_notm}} is an operational data store optimized to handle concurrent 
-reads and writes, and enable high availability and data durability.
+{{site.data.keyword.cloudant_short_notm}} 是作業資料儲存庫，它已經過最佳化，可以處理同時讀寫，並且可達到高可用性和資料延續性。
 
-It provides an [HTTP API](../basics/index.html#http-api) for working with your 
-[JSON](../basics/index.html#json) data, and 24-hour operational support and maintenance. 
-{{site.data.keyword.cloudant_short_notm}} is based on 
-[Apache CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){:new_window}, 
-and is delivered as various multi-tenant, dedicated, and installed services.
+它提供 [HTTP API](../basics/index.html#http-api) 來使用 [JSON](../basics/index.html#json) 資料，以及提供 24 小時的作業支援及維護。{{site.data.keyword.cloudant_short_notm}} 是以 [Apache CouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://couchdb.apache.org/){:new_window} 為基礎，並以各種多方承租戶、專用及已安裝服務的形式交付。
 
-> **Note**: All currency values in this document are in US dollars ($).
+> **附註**：此文件中的所有貨幣值單位都是美元 ($)。
 
-It is offered as either a [Shared Plan](#shared-plan) or an 
-[Enterprise (Dedicated) Plan](#enterprise-plan). {{site.data.keyword.cloudant_short_notm}} 
-is also available as an [{{site.data.keyword.cloud}} service](https://www.ibm.com/cloud/).
+其提供為[共用方案](#shared-plan)或[企業（專用）方案](#enterprise-plan)。{{site.data.keyword.cloudant_short_notm}} 也提供作為 [{{site.data.keyword.cloud}} 服務](https://www.ibm.com/cloud/)。
 
-> **Note**: The {{site.data.keyword.cloudant_short_notm}} Shared Plan and Enterprise (Dedicated) Plan 
-offerings are not available on the {{site.data.keyword.cloud_notm}} service.
+> **附註**：{{site.data.keyword.cloud_notm}} 服務上未提供「{{site.data.keyword.cloudant_short_notm}} 共用方案」及「企業（專用）方案」供應項目。
 
-## Enterprise Plan
+## 企業方案
 {: #enterprise-plan}
 
-With the {{site.data.keyword.cloudant_short_notm}} DBaaS Enterprise Plan, you have access to all the 
-{{site.data.keyword.cloudant_short_notm}} DBaaS capabilities, provided through a dedicated, 
-single-tenant cluster.
+使用「{{site.data.keyword.cloudant_short_notm}} DBaaS 企業方案」，您可以存取透過專用、單一承租戶叢集所提供的所有 {{site.data.keyword.cloudant_short_notm}} DBaaS 功能。
 
-This plan gives you assured database performance and up-time, by using dedicated DBaaS clusters or 
-hardware available at various hosting locations.
+此方案藉由使用各個管理位置上提供的專用 DBaaS 叢集或硬體，為您提供確保的資料庫效能及啟動時間。
 
-For users of the Enterprise plan who require a new or additional {{site.data.keyword.cloudant_short_notm}} 
-account on one of their dedicated clusters, sign up at [https://cloudant.com/enterprise-sign-up ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/enterprise-sign-up){:new_window}, 
-create an account using the form, and open a support ticket to request that your account be moved to one of your 
-{{site.data.keyword.cloudant_short_notm}} Enterprise dedicated clusters. 
+針對需要其中一個專用叢集上新的或其他 {{site.data.keyword.cloudant_short_notm}} 帳戶的「企業方案」使用者，請在 [https://cloudant.com/enterprise-sign-up ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/enterprise-sign-up){:new_window} 註冊、使用表單來建立帳戶，以及開立支援問題單要求將您的帳戶移至其中一個「{{site.data.keyword.cloudant_short_notm}} 企業」專用叢集。 
 
-## Shared Plan
+## 共用方案
 {: #shared-plan}
 
-> **Note**: The {{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on March 31, 2018. 
-As of July 24th, 2017, no new Shared Plan accounts can be created on 
-[https://cloudant.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/){:new_window}. 
+> **附註**：「{{site.data.keyword.cloudant_short_notm}} 共用方案」將在 2018 年 3 月 31 日淘汰。 
+自 2017 年 7 月 24 日開始，就無法在 [https://cloudant.com/ ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/){:new_window} 上建立新的「共用方案」帳戶。 
 
-With the {{site.data.keyword.cloudant_short_notm}} Shared Plan, you have access to all the 
-{{site.data.keyword.cloudant_short_notm}} DBaaS capabilities, provided through a shared or 'multi-tenant' cluster.
+使用「{{site.data.keyword.cloudant_short_notm}} 共用方案」，您可以存取透過共用或「多方承租戶」叢集所提供的所有 {{site.data.keyword.cloudant_short_notm}} DBaaS 功能。
 
-Pricing is metered, based on your monthly usage. No charge applies if your monthly usage is 
-under $50.00 (as of August 2016). See terms [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/assets/terms.pdf){:new_window}. 
+定價是根據您的每月用量進行計量。如果您的每月用量低於 $50.00（自 2016 年 8 月開始），則不會有任何費用。請參閱[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/assets/terms.pdf){:new_window} 的條款。 
    
       
          

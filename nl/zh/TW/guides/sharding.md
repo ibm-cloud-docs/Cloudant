@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-05-15"
+  years: 2017, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -14,11 +14,12 @@ lastupdated: "2017-05-15"
 
 <!-- Acrolinx: 2017-05-15 -->
 
-# 如何在 Cloudant 中儲存資料？
+# 如何在 {{site.data.keyword.cloudant_short_notm}} 中儲存資料？
 
 ## 概念
 
-Cloudant 中的每個資料庫都是由一個以上的不同 _Shard_ 所形成，其中，Shard 數目稱為 _Q_。Shard 是資料庫中文件的不同子集。所有 _Q_ 個 Shard 都會包含資料庫內的資料。每一個 Shard 都會儲存為三個不同的副本。每一個 Shard 副本都稱為 Shard _抄本_。每一個 Shard 抄本都會儲存在不同的伺服器上。這些伺服器位在單一位置資料中心內。資料中心內的伺服器集合稱為叢集。
+{{site.data.keyword.cloudantfull}} 中的每個資料庫都是由一個以上的不同 _Shard_ 所形成，其中，Shard 數目稱為 _Q_。
+Shard 是資料庫中文件的不同子集。所有 _Q_ 個 Shard 都會包含資料庫內的資料。每一個 Shard 都會儲存為三個不同的副本。每一個 Shard 副本都稱為 Shard _抄本_。每一個 Shard 抄本都會儲存在不同的伺服器上。這些伺服器位在單一位置資料中心內。資料中心內的伺服器集合稱為叢集。
 
 ![Shard 處理](../images/sharding_database.png)
 
@@ -30,7 +31,7 @@ Cloudant 中的每個資料庫都是由一個以上的不同 _Shard_ 所形成�
 
 不同叢集的 _Q_ 預設值會不同。此值會隨著時間進行調整。
 
-抄本數目（Shard 副本）也可以進行配置。實際上，許多系統的觀察及測量都建議在大部分情況下，三個抄本是在效能與資料安全之間取得良好平衡的實用數目。如果 Cloudant 系統使用不同的抄本計數，則會發生異常。
+抄本數目（Shard 副本）也可以進行配置。實際上，許多系統的觀察及測量都建議在大部分情況下，三個抄本是在效能與資料安全之間取得良好平衡的實用數目。如果 {{site.data.keyword.cloudant_short_notm}} 系統使用不同的抄本計數，則會發生異常。
 
 ## Shard 處理如何影響效能？
 
@@ -43,7 +44,7 @@ Cloudant 中的每個資料庫都是由一個以上的不同 _Shard_ 所形成�
 1.	資料庫中的每一份文件都會儲存在單一 Shard 中。因此，具有許多 Shard 會對任何單一文件要求啟用更高的平行化。原因是協調程式只會將要求傳送至保留文件的節點。因此，如果資料庫有許多 Shard，則可能會有許多不需要回應要求的其他節點。這些節點可以繼續處理其他作業，而不必中斷協調程式要求。
 2.	若要回應查詢要求，資料庫必須處理所有 Shard 的結果。因此，有更多 Shard 會產生更多的處理需求。原因是協調程式必須一個 Shard 進行一個要求，然後先結合結果，再將回應傳回給用戶端。
 
-若要協助判定資料庫的合適 Shard 計數，請從識別應用程式所進行要求的最常見類型開始。例如，考慮要求主要用於單一文件作業，還是要求大部分是查詢？有任何作業具有時效性嗎？
+若要協助判定資料庫的合適 Shard 計數，首先請識別應用程式所進行要求的最常見類型。例如，考慮要求主要用於單一文件作業，還是要求大部分是查詢？有任何作業具有時效性嗎？
 
 針對所有查詢，協調程式會對所有抄本發出讀取要求。會使用此方式，因為每一個抄本都會針對可協助回答查詢的索引維護其自己的副本。此配置的重要結果是_如果_ 文件寫入傾向平均分散到叢集中的 Shard，則具有多個 Shard 會啟用平行索引建置。
 
@@ -53,7 +54,7 @@ Cloudant 中的每個資料庫都是由一個以上的不同 _Shard_ 所形成�
 
 一般而言，避免每個 Shard 超過 1 千萬份文件。就整體 Shard 大小而言，基於作業原因，將 Shard 數目保持低於 10 GB 會有所幫助。例如，在重新平衡期間，較小的 Shard 較容易透過網路移動。
 
-如果有避免過多文件並保持小的 Shard 大小的衝突需求，則單一 _Q_ 值無法完全適用於所有情況。使用模式變更時，Cloudant 會隨著時間調整叢集的預設值。
+如果有避免過多文件並保持小的 Shard 大小的衝突需求，則單一 _Q_ 值無法完全適用於所有情況。使用模式變更時，{{site.data.keyword.cloudant_short_notm}} 會隨著時間調整叢集的預設值。
 
 不過，針對特定資料庫，花時間考量觀察到的要求模式和大小，以及使用此資訊來引導未來選取適當的 Shard 數目通常十分實用。具有代表性資料及要求模式的測試對於更恰當預估適當的 _Q_ 值十分重要。請準備好體驗正式作業環境，以變更這些預期。
 
@@ -64,7 +65,7 @@ Cloudant 中的每個資料庫都是由一個以上的不同 _Shard_ 所形成�
 *	如果您資料的大小微不足道（例如數十或數百 MB，或者數千份文件），則不太需要使用超過單一 Shard。
 *	對於數 GB 或數百萬份文件的資料庫，則可接受單位數的 Shard 計數（例如 8）。
 *	對於數千萬或數億份文件或數十 GB 的較大資料庫，請考慮將資料庫配置為使用 16 個 Shard。
-*	對於更大的資料庫，請考慮手動將資料分割成數個資料庫。針對這類大型資料庫，請聯絡 [Cloudant 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window} 以尋求建議。
+*	對於更大的資料庫，請考慮手動將資料分割成數個資料庫。針對這類大型資料庫，請聯絡 [{{site.data.keyword.cloudant_short_notm}} 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window} 以尋求建議。
 
 >	**附註：**這些準則中的數目來自於觀察及經驗，而不是精確計算。
 
@@ -85,7 +86,8 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**附註：**對於 Bluemix 上的 Cloudant 資料庫，未啟用為資料庫設定 _Q_ 的功能。在大部分的 `cloudant.com` 多方承租戶叢集上，無法使用 _Q_ 值。
+>	**附註：**對於 Bluemix 上的 {{site.data.keyword.cloudant_short_notm}} 資料庫，未啟用為資料庫設定 _Q_ 的功能。
+ 在大部分的 `cloudant.com` 多方承租戶叢集上，無法使用 _Q_ 值。
 
 如果您嘗試在無法使用的位置設定 _Q_ 值，則結果是 JSON 主體與下列範例類似的 [`403` 回應](../api/http.html#403)：
 
@@ -99,7 +101,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 
 ### 設定抄本計數
 
-從 CouchDB 第 2 版開始，您可以在建立資料庫時[指定抄本計數 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}。不過，您無法變更預設值 3 的抄本計數值。特別的是，建立資料庫時，無法指定不同的抄本計數值。如需進一步協助，請聯絡 [Cloudant 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
+從 CouchDB 第 2 版開始，您可以在建立資料庫時[指定抄本計數 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}。不過，您無法變更預設值 3 的抄本計數值。特別的是，建立資料庫時，無法指定不同的抄本計數值。如需進一步協助，請聯絡 [{{site.data.keyword.cloudant_short_notm}} 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
 
 ### 何謂 _R_ 及 _W_ 引數？
 
@@ -113,7 +115,8 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 
 將 _R_ 設定為 _1_ 可能會改善整體回應時間，因為協調程式可以更快速地傳回回應。原因是協調程式只需等待來自任何一個管理適當 Shard 的抄本的單一回應。
 
->	**附註：**減少 _R_ 值會增加所傳回回應因 Cloudant 所使用的 [最終一致性](cap_theorem.html)模型而未根據最新資料的可能性。使用預設 _R_ 值有助於減少此影響。
+>	**附註：**減少 _R_ 值會增加所傳回回應因 {{site.data.keyword.cloudant_short_notm}} 所使用的[最終一致性](cap_theorem.html)模型而未根據最新資料的可能性。
+ 使用預設 _R_ 值有助於減少此影響。
 
 _R_ 的預設值是 _2_。此值對應於使用三個 Shard 抄本的一般資料庫的大部分抄本。如果資料庫的抄本數目高於或低於 3，則 _R_ 的預設值會相應地變更。
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-04-20"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -16,18 +16,22 @@ lastupdated: "2017-04-20"
 
 # 抄寫
 
-可以在相同的 Cloudant 帳戶中、跨帳戶以及跨資料中心，將資料從某個資料庫複製到另一個資料庫。
+可以在相同的 {{site.data.keyword.cloudantfull}} 帳戶中、跨帳戶以及跨資料中心，將資料從某個資料庫複製到另一個資料庫。
 {:shortdesc}
 
-使用 [Cloudant Sync ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/product/cloudant-features/sync/){:new_window} 或 [PouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/){:new_window}，即可在 Cloudant 帳戶及行動裝置之間來回抄寫資料。抄寫可以單向或雙向執行為「一次性」或持續作業，並且可以使用參數進行微調。
+使用 [{{site.data.keyword.cloudant_short_notm}} Sync ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/product/cloudant-features/sync/){:new_window} 或 [PouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/){:new_window}，即可在 {{site.data.keyword.cloudant_short_notm}} 帳戶與行動裝置之間來回抄寫資料。
+抄寫可以單向或雙向執行為「一次性」或持續作業，並且可以使用參數進行微調。
 
-Cloudant 的抄寫通訊協定與某範圍的其他資料庫及程式庫相容，使其最適合於 Internet of Things (IoT) 及行動應用程式。
+{{site.data.keyword.cloudant_short_notm}} 的抄寫通訊協定與某範圍的其他資料庫及程式庫相容，使其最適用於 Internet of Things (IoT) 及行動應用程式。
 
-本手冊介紹 Cloudant 的抄寫功能、討論一般使用案例，以及顯示如何順利抄寫應用程式。
+本手冊介紹 {{site.data.keyword.cloudant_short_notm}} 的抄寫功能、討論一般使用案例，以及顯示如何順利抄寫應用程式。
 
 ## 何謂抄寫？
 
-Cloudant 是具有 HTTP API 的分散式 JSON 資料儲存庫。在多個雲端上或您的伺服器框架中，Cloudant 可以執行為服務。文件會儲存在資料庫中，而且可以成長到任何大小，因為 Cloudant 會將其資料分派到多個節點。抄寫是將資料從來源資料庫複製到目標資料庫。來源及目標資料庫不需要位在相同的 Cloudant 帳戶中，甚至不需要在相同的資料中心內。
+{{site.data.keyword.cloudant_short_notm}} 是具有 HTTP API 的分散式 JSON 資料儲存庫。
+在多個雲端上或您的伺服器框架中，{{site.data.keyword.cloudant_short_notm}} 可以執行為服務。
+文件會儲存在資料庫中，而且可以成長到任何大小，因為 {{site.data.keyword.cloudant_short_notm}} 會將其資料分派到多個節點。
+抄寫是將資料從來源資料庫複製到目標資料庫。來源及目標資料庫不需要位在相同的 {{site.data.keyword.cloudant_short_notm}} 帳戶中，甚至不需要在相同的資料中心內。
 
 ![抄寫](../images/replication_guide_1.png)
 
@@ -39,23 +43,25 @@ Cloudant 是具有 HTTP API 的分散式 JSON 資料儲存庫。在多個雲端�
 
 ## 如何使用儀表板開始抄寫
 
-「Cloudant 儀表板」提供一種便利的使用者介面來觸發抄寫。開啟「Cloudant 儀表板」的「抄寫」標籤，然後按一下`新建抄寫`動作按鈕。請完成簡單表單：
+「{{site.data.keyword.cloudant_short_notm}} 儀表板」提供一種便利的使用者介面來觸發抄寫。
+開啟「{{site.data.keyword.cloudant_short_notm}} 儀表板」的「抄寫」標籤，然後按一下`新建抄寫`動作按鈕。
+請完成簡單表單：
 
 ![抄寫 2](../images/replication_guide_2.png)
 
-使用此表單，定義來源及目標資料庫，然後按一下「`抄寫`」。
+使用此表單，定義來源及目標資料庫，然後按一下`抄寫`。
 
 ![抄寫 3](../images/replication_guide_3.png)
 
-每一個抄寫作業的狀態都可以顯示在「儀表板」的「`所有抄寫`」區段中。每一個進行中工作的狀態都會從「`已觸發`」變更為「`完成`」。
+每一個抄寫作業的狀態都可以顯示在「儀表板」的`所有抄寫`區段中。每一個進行中工作的狀態都會從`已觸發`變更為`完成`。
 
 ![抄寫 4](../images/replication_guide_4.png)
 
 <div id="how-do-i-run-replication-across-different-cloudant-accounts-"></div>
 
-## 如何跨不同的 Cloudant 帳戶執行抄寫
+## 如何跨不同的 {{site.data.keyword.cloudant_short_notm}} 帳戶執行抄寫
 
-抄寫的來源及目標是 Cloudant 資料庫的 URL，如下列範例中所示。
+抄寫的來源及目標是 {{site.data.keyword.cloudant_short_notm}} 資料庫的 URL，如下列範例所示。
 
 _定義抄寫來源及目標 URL 的範例：_
 
@@ -77,15 +83,16 @@ _定義抄寫來源及目標 URL 的範例：_
 
 <div id="how-do-i-initiate-replication-via-the-cloudant-api-"></div>
 
-## 如何使用 Cloudant API 開始抄寫
+## 如何使用 {{site.data.keyword.cloudant_short_notm}} API 開始抄寫
 
-每個 Cloudant 帳戶都有稱為 `_replicator` 的特殊資料庫，您在其中可以插入抄寫工作。將文件新增至 `_replicator` 資料庫，以開始抄寫。這份文件說明想要的抄寫，並包含下列欄位：
+每個 {{site.data.keyword.cloudant_short_notm}} 帳戶都有稱為 `_replicator` 的特殊資料庫，您在其中可以插入抄寫工作。
+將文件新增至 `_replicator` 資料庫，以開始抄寫。這份文件說明想要的抄寫，並包含下列欄位：
 
 欄位            | 用途
 ----------------|--------
-`_id`           | 提供 `_id` 欄位是選用作業，但可以用於識別抄寫作業。如果您未提供值，則 Cloudant 會為您產生值。
-`source`        | 來源 Cloudant 資料庫的 URL（包括登入認證）。
-`target`        | 目的地 Cloudant 資料庫的 URL（包括登入認證）。
+`_id`           | 提供 `_id` 欄位是選用作業，但可以用於識別抄寫作業。如果您未提供值，則 {{site.data.keyword.cloudant_short_notm}} 會為您產生值。
+`source`        | 來源 {{site.data.keyword.cloudant_short_notm}} 資料庫的 URL（包括登入認證）。
+`target`        | 目的地 {{site.data.keyword.cloudant_short_notm}} 資料庫的 URL（包括登入認證）。
 `create_target` | （選用）判斷是否要建立不存在的目的地資料庫。
 
 _使用 HTTP 開始抄寫工作的範例：_
@@ -122,9 +129,10 @@ _說明想要的抄寫的範例 JSON 文件：_
 
 ## 抄寫如何影響變更清單？
 
-您可以使用 [`_changes` 端點](../api/database.html#get-changes)，以取得對文件進行的變更清單。不過，Cloudant 資料庫的分散式本質表示 `_changes` 資訊來源所提供的回應不能是特定日期和時間之後發生的簡單變更清單。
+您可以使用 [`_changes` 端點](../api/database.html#get-changes)，以取得對文件進行的變更清單。不過，{{site.data.keyword.cloudant_short_notm}} 資料庫的分散式本質表示 `_changes` 資訊來源所提供的回應不能是特定日期和時間之後發生的簡單變更清單。
 
-[CAP 定理](cap_theorem.html)討論清楚指出 Cloudant 使用「最終一致」的模型。此模型表示，如果您同時要求文件的資料庫的兩個不同抄本，則在其中一個資料庫副本仍然等待完成抄寫時，可能會取得不同結果。_最後_，資料庫副本會完成其抄寫，因此每一個副本中都會有對文件的所有變更。
+[CAP 定理](cap_theorem.html)討論清楚指出 {{site.data.keyword.cloudant_short_notm}} 使用「最終一致」的模型。
+此模型表示，如果您同時要求文件的資料庫的兩個不同抄本，則在其中一個資料庫副本仍然等待完成抄寫時，可能會取得不同結果。_最後_，資料庫副本會完成其抄寫，因此每一個副本中都會有對文件的所有變更。
 
 這個「最終一致性」模型有兩個影響變更清單的特徵：
 
@@ -133,7 +141,7 @@ _說明想要的抄寫的範例 JSON 文件：_
 
 第一個特徵的結果是，當您要求變更清單時，要求特定時間點之後的變更清單並沒有意義。原因在於變更清單可能是由不同的資料庫副本所提供，因而導致不同時間的文件更新。不過，要求特定變更之後的變更清單_有_ 其意義，而此特定變更是使用序列 ID 所指定。
 
-第一個特徵的額外結果是，可能需要「回顧」先前的變更，以與變更清單一致。換句話說，若要取得變更清單，請從與資料庫副本一致的最新變更開始。使用讓資料庫副本之間的抄寫同步的[檢查點](#checkpoints)機制，即可識別 Cloudant 內資料庫副本之間的一致點。
+第一個特徵的額外結果是，可能需要「回顧」先前的變更，以與變更清單一致。換句話說，若要取得變更清單，請從與資料庫副本一致的最新變更開始。使用讓資料庫副本之間的抄寫同步的[檢查點](#checkpoints)機制，即可識別 {{site.data.keyword.cloudant_short_notm}} 內資料庫副本之間的一致點。
 
 最後，第二個性質的結果是，出現在變更清單中的個別變更可能會以不同的順序呈現在不同資料庫副本所回答的後續要求中。換句話說，起始變更清單可能會以 `A`、`B`、`C` 這個順序報告變更。但是，後續的變更清單可能會以 `C`、`A`、`B` 這個順序報告變更。所有變更都會列出，但順序不同。這項差異的原因是，抄寫期間所收到的一系列變更在資料庫的兩個不同副本之間可能會不同。
 
@@ -158,16 +166,17 @@ _說明想要的抄寫的範例 JSON 文件：_
 -   在目的地端寫入文件。
 -   在兩端寫入檢查點文件。
 
-Cloudant 具有特殊 `_replicator` 使用者許可權。此許可權容許建立檢查點文件，但不容許在資料庫中建立一般文件。一般而言，會[建立 API 金鑰](../api/authorization.html#creating-api-keys)，而 API 金鑰具有：
+{{site.data.keyword.cloudant_short_notm}} 具有特殊 `_replicator` 使用者許可權。
+此許可權容許建立檢查點文件，但不容許在資料庫中建立一般文件。一般而言，會[建立 API 金鑰](../api/authorization.html#creating-api-keys)，而 API 金鑰具有：
 
 -   來源端的 `_reader` 及 `_replicator` 存取權。
 -   目的地端的 `_reader` 及 `_writer` 存取權。
 
-根據每個資料庫，可以在「Cloudant 儀表板」內建立及配置 API 金鑰。
+根據每個資料庫，可以在「{{site.data.keyword.cloudant_short_notm}} 儀表板」內建立及配置 API 金鑰。
 
 ![抄寫](../images/replication_guide_5.png)
 
-使用 Cloudant API，也可以[透過程式設計方式](../api/authorization.html#creating-api-keys)建立它們。
+使用 {{site.data.keyword.cloudant_short_notm}} API，也可以[透過程式設計方式](../api/authorization.html#creating-api-keys)建立它們。
 
 ## 雙向抄寫
 
@@ -179,7 +188,7 @@ Cloudant 具有特殊 `_replicator` 使用者許可權。此許可權容許建�
 
 到目前為止，討論只涉及一次性抄寫，而這會在將所有來源資料寫入目標資料庫時完成。使用持續抄寫，資料會持續流動。來源資料庫的所有後續變更都會即時傳輸至目標資料庫。
 
-當您在「Cloudant 儀表板」中定義抄寫作業時按一下「`將此抄寫設為持續`」勾選框，或在 Cloudant API 中設定 ["`continuous`" ](../api/replication.html#checkpoints) 旗標，即會觸發持續抄寫。
+當您在「{{site.data.keyword.cloudant_short_notm}} 儀表板」中定義抄寫作業時按一下`將此抄寫設為持續`勾選框，或在 {{site.data.keyword.cloudant_short_notm}} API 中設定 ["`continuous`"](../api/replication.html#checkpoints) 旗標，即會觸發持續抄寫。
 
 設定 "`continuous`" 旗標，即可以單向或雙向持續進行雙向抄寫。
 
@@ -217,9 +226,10 @@ _定義持續抄寫的 JSON 文件的範例：_
 
 ## 監視抄寫
 
-您隨時可以使用「儀表板」或 API 來檢查 Cloudant `_replicator` 資料庫的狀態。
+您隨時可以使用「儀表板」或 API 來檢查 {{site.data.keyword.cloudant_short_notm}} `_replicator` 資料庫的狀態。
 
-如果抄寫失敗（例如，如果鑑別認證無效），則錯誤狀態會記錄在 `_replicator` 文件中。此外，也可以使用 Cloudant 帳戶的 `/_active_tasks` 端點來查看進行中的抄寫工作。[這裡](../api/active_tasks.html)提供其他詳細資料。
+如果抄寫失敗（例如，如果鑑別認證無效），則錯誤狀態會記錄在 `_replicator` 文件中。此外，也可以使用 {{site.data.keyword.cloudant_short_notm}} 帳戶的 `/_active_tasks` 端點來查看進行中的抄寫工作。
+[這裡](../api/active_tasks.html)提供其他詳細資料。
 
 _使用 HTTP 監視抄寫處理程序的範例：_
 
@@ -276,19 +286,23 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 
 ## 其他抄寫使用案例
 
-抄寫不只是用於 Cloudant 對 Cloudant 資料傳送。Cloudant 的抄寫通訊協定與各種實際應用程式的其他資料庫及程式庫相容。
+抄寫不只是用於 {{site.data.keyword.cloudant_short_notm}} 對 {{site.data.keyword.cloudant_short_notm}} 資料傳送。
+{{site.data.keyword.cloudant_short_notm}} 的抄寫通訊協定與各種實際應用程式的其他資料庫及程式庫相容。
 
 ### Apache CouchDB
 
-[Apache CouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://couchdb.apache.org/){:new_window} 是一種開放程式碼資料庫，可以與 Cloudant 進行通訊，並且需要進行最少設定。應用程式包括：
+[Apache CouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://couchdb.apache.org/){:new_window} 是一種開放程式碼資料庫，可以與 {{site.data.keyword.cloudant_short_notm}} 進行通訊，並且需要進行最少設定。
+應用程式包括：
 
--   備份：將資料從 Cloudant 抄寫至您自己的 CouchDB 資料庫，並基於保存用途建立資料的晚間 Snapshot。將資料傳送至備份服務（例如 [Amazon Glacier ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://aws.amazon.com/glacier/){:new_window}），以進行安全保留。
--   本端優先資料收集：先將資料寫入本端 Apache CouchDB，再將它抄寫至 Cloudant 以進行長期儲存、聚集及分析。
+-   備份：將資料從 {{site.data.keyword.cloudant_short_notm}} 抄寫至您自己的 CouchDB 資料庫，並基於保存用途建立資料的晚間 Snapshot。
+    將資料傳送至備份服務（例如 [Amazon Glacier ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://aws.amazon.com/glacier/){:new_window}），以進行安全保留。
+-   本端優先資料收集：先將資料寫入本端 Apache CouchDB，再將它抄寫至 {{site.data.keyword.cloudant_short_notm}} 以進行長期儲存、聚集及分析。
 
 ### PouchDB
 
-[PouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/){:new_window}
-是一種開放程式碼瀏覽器內資料庫，容許在瀏覽器與 Cloudant 之間雙向抄寫資料。將資料儲存在用戶端的 Web 瀏覽器中，甚至可容許 Web 應用程式在沒有網際網路連線的情況下運作。PouchDB 可以在具有網際網路連線時，與 Cloudant 之間同步化任何變更的資料。設定從用戶端抄寫需要幾行 JavaScript。
+[PouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/){:new_window} 是一種開放程式碼瀏覽器內資料庫，容許在瀏覽器與 {{site.data.keyword.cloudant_short_notm}} 之間雙向抄寫資料。
+將資料儲存在用戶端的 Web 瀏覽器中，甚至可容許 Web 應用程式在沒有網際網路連線的情況下運作。PouchDB 可以在具有網際網路連線時，與 {{site.data.keyword.cloudant_short_notm}} 之間同步化任何變更的資料。
+設定從用戶端抄寫需要幾行 JavaScript。
 
 _使用 PouchDB 啟用抄寫的範例 JavaScript：_
 
@@ -301,7 +315,8 @@ db.sync(URL, { live: true });
 
 ### CloudantSync
 
-[CloudantSync ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/cloudant-sync-resources/){:new_window} 是一組適用於 iOS 及 Android 的程式庫，容許將資料儲存在行動裝置本端中，並在允許行動連線功能時與 Cloudant 同步。與 [PouchDB](#pouchdb) 相同，設定抄寫需要幾行程式碼。
+[CloudantSync ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/cloudant-sync-resources/){:new_window} 是一組適用於 iOS 及 Android 的程式庫，容許將資料儲存在行動裝置本端中，並在允許行動連線功能時與 {{site.data.keyword.cloudant_short_notm}} 同步。
+與 [PouchDB](#pouchdb) 相同，設定抄寫需要幾行程式碼。
 
 _使用 CloudantSync 啟用抄寫的範例 JavaScript：_
 
@@ -315,7 +330,7 @@ replicator.start();
 ```
 {:codeblock}
 
-CloudantSync 廣泛用於行動應用程式（例如 iPhone 及 Android 遊戲），其中，透過抄寫將應用程式狀態持續保存至 Cloudant，但裝置上也提供資料以供離線使用。
+CloudantSync 廣泛用於行動應用程式（例如 iPhone 及 Android 遊戲），其中，透過抄寫將應用程式狀態持續保存至 {{site.data.keyword.cloudant_short_notm}}，但裝置上也提供資料以供離線使用。
 
 ## 過濾抄寫
 
@@ -328,7 +343,8 @@ CloudantSync 廣泛用於行動應用程式（例如 iPhone 及 Android 遊戲�
 
 ### 抄寫過濾函數
 
-Cloudant 的過濾抄寫容許定義 JavaScript 函數，以使用回覆值來判斷是否要過濾資料庫中的每一份文件。[過濾函數](../api/design_documents.html#filter-functions)儲存在[設計文件](../api/design_documents.html)中。
+{{site.data.keyword.cloudant_short_notm}} 的過濾抄寫容許定義 JavaScript 函數，以使用回覆值來判斷是否要過濾資料庫中的每一份文件。
+[過濾函數](../api/design_documents.html#filter-functions)儲存在[設計文件](../api/design_documents.html)中。
 
 下列範例是只容許抄寫非刪除文件的過濾函數。
 
@@ -384,7 +400,8 @@ _定義過濾抄寫的 JSON 文件的範例：_
 
 ## changes 資訊來源
 
-Cloudant 會透過來自 [`_changes` 端點](../api/database.html#get-changes)的單一 HTTP 資訊來源，來發佈影響資料庫的新增、編輯及刪除。應用程式可以使用此資訊來源來觸發事件。使用
+{{site.data.keyword.cloudant_short_notm}} 會透過來自 [`_changes` 端點](../api/database.html#get-changes)的單一 HTTP 資訊來源，來發佈影響資料庫的新增、編輯及刪除。
+應用程式可以使用此資訊來源來觸發事件。使用
 HTTP 或 `curl`，即可存取資訊來源，如範例所示。使用 `feed=continuous` 選項表示串流提供取得資料庫中每份文件的最新版本所需的每個變更。
 
 _使用 HTTP 查詢 changes 資訊來源的範例：_
@@ -479,7 +496,7 @@ feed.follow();
 ```
 {:codeblock}
 
-以程式設計方式存取 `_changes` 資料十分簡單。例如，使用 [Cloudant Node.js 程式庫](../libraries/supported.html#node-js)，透過幾行程式碼來追蹤變更。
+以程式設計方式存取 `_changes` 資料十分簡單。例如，使用 [{{site.data.keyword.cloudant_short_notm}} Node.js 程式庫](../libraries/supported.html#node-js)，透過幾行程式碼來追蹤變更。
 
 範例使用案例可能是：
 
@@ -508,7 +525,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 {:codeblock}
 
 >   **附註**：`_changes` 資訊來源內的文件排序不一定都相同。
-    換句話說，可能不會以嚴格的時間順序來顯示變更。原因在於資料是從多個 Cloudant 節點傳回，並套用最終一致性規則。
+    換句話說，可能不會以嚴格的時間順序來顯示變更。原因在於資料是從多個 {{site.data.keyword.cloudant_short_notm}} 節點傳回，並套用最終一致性規則。
 
 ## 抄寫陷阱
 
@@ -521,8 +538,10 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 *   資料庫 "a" 的 `_reader` 及 `_replicator` 權限。
 *   資料庫 "b" 的 `_writer` 權限。
 
-API 金鑰是在「Cloudant 儀表板」中或[透過 API](../api/authorization.html#creating-api-keys) 所產生。每一個金鑰都可以獲指派與特定
-Cloudant 資料庫相關的個別權限。Cloudant 必須可以寫入其在抄寫「讀取」端的檢查點文件，否則，不會儲存任何狀態，而且無法從其停止位置繼續抄寫。如果未儲存狀態，可能會在繼續抄寫大型資料集時導致發生效能問題。原因在於沒有檢查點，抄寫處理程序在每次繼續時，都會從頭重新開始。
+API 金鑰是在「{{site.data.keyword.cloudant_short_notm}} 儀表板」中或[透過 API](../api/authorization.html#creating-api-keys) 所產生。
+每一個金鑰都可以獲指派與特定 {{site.data.keyword.cloudant_short_notm}} 資料庫相關的個別權限。
+{{site.data.keyword.cloudant_short_notm}} 必須可以寫入其在抄寫「讀取」端的檢查點文件，否則，不會儲存任何狀態，而且無法從其停止位置繼續抄寫。
+如果未儲存狀態，可能會在繼續抄寫大型資料集時導致發生效能問題。原因在於沒有檢查點，抄寫處理程序在每次繼續時，都會從頭重新開始。
 
 ### 抄寫文件衝突
 
@@ -535,7 +554,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 ```
 {:codeblock}
 
-在傳回的 JSON 中，尋找 `disk_size` 值。如果值指出超過 1 GB 的大小，請聯絡 [IBM Cloudant 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}，以取得進一步的建議。
+在傳回的 JSON 中，尋找 `disk_size` 值。如果值指出超過 1 GB 的大小，請聯絡 [IBM {{site.data.keyword.cloudant_short_notm}} 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}，以取得進一步的建議。
 
 您可以檢查個別 `_replicator` 文件是否有衝突，如下列範例中所示：
 
@@ -571,14 +590,17 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 
 ### 許多同時抄寫
 
-很容易忘記您先前已在兩個資料庫之間設定抄寫，因而錯誤地建立額外的抄寫處理程序。每一個抄寫工作都彼此獨立，因此 Cloudant 不會讓您無法建立額外的抄寫處理程序。不過，每一個抄寫作業都會消耗系統資源。
+很容易忘記您先前已在兩個資料庫之間設定抄寫，因而錯誤地建立額外的抄寫處理程序。每一個抄寫工作都彼此獨立，因此 {{site.data.keyword.cloudant_short_notm}} 不會讓您無法建立額外的抄寫處理程序。
+不過，每一個抄寫作業都會消耗系統資源。
 
-您可以檢查「Cloudant 儀表板」中的「作用中抄寫」，確定沒有不想要的抄寫作業正在進行中。刪除任何不再需要的 `_replicator` 文件。
+您可以檢查「{{site.data.keyword.cloudant_short_notm}} 儀表板」中的「作用中抄寫」，確定沒有不想要的抄寫作業正在進行中。
+刪除任何不再需要的 `_replicator` 文件。
 
 ## 調整抄寫速度
 
-依預設，Cloudant 抄寫會以適當的速率執行，以取得從來源至目標的資料，而不會嚴重影響效能。選擇抄寫速率與其他作業的叢集效能是一種取捨。您的使用案例可能需要以犧性其他
-Cloudant 服務為代價，才能進行更快的抄寫。或者，您可能需要讓叢集效能取得優先權，並將抄寫視為背景處理程序。
+依預設，{{site.data.keyword.cloudant_short_notm}} 抄寫會以適當的速率執行，以取得從來源至目標的資料，而不會嚴重影響效能。
+選擇抄寫速率與其他作業的叢集效能是一種取捨。您的使用案例可能需要以犧性其他 {{site.data.keyword.cloudant_short_notm}} 服務為代價，才能進行更快的抄寫。
+或者，您可能需要讓叢集效能取得優先權，並將抄寫視為背景處理程序。
 
 [提供](../api/advanced_replication.html)進階抄寫 API 選項，以增加或減少抄寫期間所使用的計算功能數量。例如：
 
@@ -586,4 +608,4 @@ Cloudant 服務為代價，才能進行更快的抄寫。或者，您可能需�
 *   如果您有許多小型文件，則可能會考慮增加 [`worker_process`](../api/advanced_replication.html#performance-related-options) 及 [`http_connections`](../api/advanced_replication.html#performance-related-options) 值。
 *   如果您要在影響最小的情況下執行抄寫，則可能適合將 `worker_processes` 及 `http_connections` 設為 1。
 
-如需使用案例最佳配置的進一步協助，請聯絡 [IBM Cloudant 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
+如需使用案例最佳配置的進一步協助，請聯絡 [IBM {{site.data.keyword.cloudant_short_notm}} 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-06"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -12,14 +12,13 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 在 Bluemix 上建立簡單的 Cloudant 資料庫並將資料移入其中
+# 在 {{site.data.keyword.Bluemix_notm}} 上建立簡單的 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中
 
-本指導教學顯示如何使用 [Python 程式設計語言 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window} 在 {{site.data.keyword.Bluemix_notm}} 服務實例上建立 {{site.data.keyword.cloudantfull}} 資料庫，以及將簡單資料集合移入資料庫。
-{:shortdesc}
+本指導教學示範如何使用 [Python 程式設計語言 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window} 在 {{site.data.keyword.Bluemix}} 服務實例上建立 {{site.data.keyword.cloudantfull}} 資料庫，以及將簡單資料集合移入資料庫中。{:shortdesc}
 
 ## 必要條件
 
-請確定您已備妥下列資源或資訊，再透過指導教學開始運作。
+請確定您已備妥下列資源或資訊，然後才開始進行本指導教學。
 
 ### Python
 
@@ -32,14 +31,14 @@ python --version
 ```
 {:pre}
 
-您應該會收到與下列類似的結果：
+您應該會收到與下列內容類似的結果：
 
 ```
 Python 2.7.12
 ```
 {:codeblock}
 
-### Cloudant 的 Python 用戶端程式庫
+### {{site.data.keyword.cloudant_short_notm}} 的 Python 用戶端程式庫
 
 有[正式支援的程式庫](../libraries/supported.html#python)，可讓 Python 應用程式在 {{site.data.keyword.Bluemix_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。
 
@@ -52,18 +51,18 @@ pip freeze
 ```
 {:pre}
 
-您應該取得系統上安裝的所有 Python 模組清單。請檢查清單，並尋找與下面類似的 {{site.data.keyword.cloudant_short_notm}} 項目：
+您應該會得到系統上所有已安裝 Python 模組的清單。請檢查清單，並尋找與下列內容類似的 {{site.data.keyword.cloudant_short_notm}} 項目：
 
 ```
 cloudant==2.3.1
 ```
 {:codeblock}
 
-### Bluemix 上的 Cloudant 服務實例
+### Bluemix 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例
 
 [本指導教學](create_service.html)說明建立適合的服務實例的處理程序。
 
-請確定您有服務實例可用的下列「服務認證」：
+請確定您的服務實例有下列「服務認證」可用：
 
 欄位       | 用途
 -----------|--------
@@ -71,13 +70,13 @@ cloudant==2.3.1
 `username` | 應用程式存取服務實例所需的使用者名稱。
 `password` | 應用程式存取服務實例所需的密碼。
 `port`     | 用來存取主機上服務實例的 HTTP 埠號。一般是 443，可強制執行 HTTPS 存取。
-`url`      | 將其他認證資訊聚集至單一 URL 的字串，適合供應用程式使用。
+`url`      | 將其他認證資訊聚集成單一 URL 的字串，適合供應用程式使用。
 
 [這裡](create_service.html#locating-your-service-credentials)提供尋找服務實例的服務認證的相關資訊。
 
 ## 環境定義
 
-本指導教學建置一系列的 Python 語言指令，適用於下列作業：
+本指導教學累積了一系列的 Python 語言指令，適用於下列作業：
 
 1.  [連接至 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例](#connecting-to-a-cloudant-service-instance-on-bluemix)。
 2.  [在服務實例內建立資料庫](#creating-a-database-within-the-service-instance)。
@@ -90,13 +89,14 @@ cloudant==2.3.1
 
 指導教學結尾（[這裡](#complete-listing)）會提供執行所有作業的完整 Python 程式。
 
-本指導教學不會嘗試建立_有效_的 Python 程式碼；旨在顯示您可從中學習並套用至您自己的應用程式之簡單易懂的可運作程式碼。
+本指導教學不會嘗試建立_有效率_ 的 Python 程式碼；本指導教學是為了示範簡單易懂的可運作程式碼，方便您從中學習並應用於自己的應用程式。
 
-此外，不會嘗試處理所有可能的檢查或錯誤狀況。這裡顯示一些範例檢查來說明技術，但您應該套用一般最佳作法來檢查及處理您自己的應用程式所發生的所有警告或錯誤狀況。 
+此外，也不會嘗試處理所有可能的檢查或錯誤狀況。這裡顯示一些範例檢查來說明技巧，但您應該應用正常的最佳作法來檢查及處理您自己的應用程式所發生的所有警告或錯誤狀況。 
 
-## 在 Bluemix 上連接至 Cloudant 服務實例
+## 在 {{site.data.keyword.Bluemix_notm}} 上連接至 {{site.data.keyword.cloudant_short_notm}} 服務實例
 
-Python 應用程式需要「Cloudant 用戶端程式庫」元件能夠連接至服務實例。這些元件識別為一般 `import` 陳述式：
+Python 應用程式需要「{{site.data.keyword.cloudant_short_notm}} 用戶端程式庫」元件能夠連接至服務實例。
+這些元件識別為一般 `import` 陳述式：
 
 ```python
 from cloudant.client import Cloudant
@@ -114,7 +114,9 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **附註**：這裡說明的服務認證是在 Bluemix 上建立示範 Cloudant 服務時定義。這裡會重新產生認證，以顯示如何將它們用於 Python 應用程式中。不過，現在已移除示範 Cloudant 服務，因此這些認證將不會運作；您_必須_ 提供及使用您自己的服務認證。
+>   **附註**：這裡說明的服務認證
+    是在 Bluemix 上建立示範 {{site.data.keyword.cloudant_short_notm}} 服務時定義的。
+    我們在這裡重新產生認證，是要示範如何將它們用於 Python 應用程式中。不過，現在已移除示範 {{site.data.keyword.cloudant_short_notm}} 服務，因此這些認證將不會運作；您_必須_ 提供及使用您自己的服務認證。
 
 您在應用程式內啟用 Python 用戶端程式庫並識別服務認證之後，就可以建立與服務實例的連線：
 
@@ -128,7 +130,7 @@ client.connect()
 
 ## 在服務實例內建立資料庫
 
-下一步是在服務實例（稱為 `databasedemo`）內建立資料庫。
+下一步是在服務實例內建立資料庫，稱為 `databasedemo`。
 
 作法是在 Python 應用程式中定義變數：
 
@@ -156,7 +158,7 @@ if myDatabaseDemo.exists():
 
 我們現在要在資料庫中儲存小型的簡單資料集合。
 
-我們從識別一些資料開始：
+首先，我們識別一些資料：
 
 ```python
 sampleData = [
@@ -232,7 +234,8 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
->   **附註**：NoSQL 資料庫（例如 Cloudant）的本質表示針對資料庫中所儲存且一律為結果清單中所傳回之第一個項目的第一份文件，其簡單記號不一定適用。
+>   **附註**：NoSQL 資料庫（例如 {{site.data.keyword.cloudant_short_notm}}）的本質
+表示，像是資料庫中儲存的第一份文件一定會是結果清單中傳回的第一份文件，這樣簡單的說法並不一定適用。
 
 ### 文件的完整擷取
 
@@ -269,11 +272,11 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-## 直接呼叫 Cloudant API 端點
+## 直接呼叫 {{site.data.keyword.cloudant_short_notm}} API 端點
 
-我們也可以直接從 Python 應用程式使用 Cloudant API 端點。
+我們也可以直接從 Python 應用程式內使用 {{site.data.keyword.cloudant_short_notm}} API 端點。
 
-在此範例程式碼中，我們再次要求所有文件的清單（包括其內容）。不過，目前的作法是呼叫 Cloudant [`/_all_docs` 端點](../api/database.html#get-documents)。
+在此範例程式碼中，我們再次要求所有文件的清單（包括其內容）。不過，這一次的作法是呼叫 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 端點](../api/database.html#get-documents)。
 
 首先，我們會識別要聯絡的端點，以及與呼叫一起提供的任何參數：
 
@@ -298,7 +301,7 @@ print "{0}\n".format(response.json())
     "rows": [
         {
             "value": {
-              "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
+          "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
             },
             "id": "14746fe384c7e2f06f7295403df89187",
             "key": "14746fe384c7e2f06f7295403df89187",
@@ -337,9 +340,9 @@ print "{0}\n".format(response.json())
 
 ## 刪除資料庫
 
-當我們完成資料庫的使用時，即可將它刪除。
+當我們不再使用資料庫時，可以將它刪除。
 
-這是下列範例 Python 程式碼中所顯示的簡單步驟：
+這是一個簡單的步驟，如下列範例 Python 程式碼中所示：
 
 ```python
 try :
@@ -351,7 +354,7 @@ else:
 ```
 {:codeblock}
 
-我們已包括一些基本錯誤處理來說明如何捕捉及解決問題。
+我們已包含一些基本錯誤處理，來說明如何捕捉及解決問題。
 
 ## 關閉與服務實例的連線
 
@@ -364,7 +367,7 @@ client.disconnect()
 
 ## 完整清單
 
-下列程式碼是存取 {{site.data.keyword.Bluemix_notm}} 上 {{site.data.keyword.cloudant_short_notm}} 服務實例的完整 Python 程式，並執行一系列的一般作業：
+下列程式碼是完整的 Python 程式，它可以存取 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例，並執行一系列的一般作業：
 
 1.  連接至服務實例。
 2.  在服務實例內建立資料庫。
@@ -403,7 +406,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the Cloudant library to create a Cloudant client.
+# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -466,7 +469,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a Cloudant API endpoint to retrieve
+# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

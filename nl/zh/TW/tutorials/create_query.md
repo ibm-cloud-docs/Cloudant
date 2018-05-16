@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-07-03"
+  years: 2017, 2018
+lastupdated: "2018-03-02"
 
 ---
 {:new_window: target="_blank"}
@@ -11,23 +11,24 @@ lastupdated: "2017-07-03"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 建立 Cloudant 查詢
+# 建立 {{site.data.keyword.cloudant_short_notm}} 查詢
 
-本指導教學示範如何建立資料庫、將文件移入其中、建立索引，以及使用索引來查詢資料庫。
+本指導教學示範如何建立資料庫、將文件移入其中、建立索引，然後使用索引來查詢資料庫。
 
-同時提供 ![「指令行」圖示](../images/CommandLineIcon.png) _指令行_ 及 ![「儀表板」圖示](../images/DashboardIcon.png) _Cloudant 儀表板_ 的練習。「Cloudant 儀表板」練習可提供每一個作業的視覺化範例。您可以遵循整個指導教學的鏈結，以取得相關資訊。
+同時提供 ![「指令行」圖示](../images/CommandLineIcon.png) _指令行_ 及 ![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_ 的練習。「{{site.data.keyword.Bluemix}} 儀表板」練習可提供每一個作業的視覺化範例。您可以遵循整個指導教學的鏈結，以取得相關資訊。
 
-若要開始，您可以建立 `query-demo` 資料庫，以及包含這些練習資料的一些文件。
+首先，您可以建立 `query-demo` 資料庫，以及包含這些練習資料的一些文件。
 
 ## 假設
 
 開始之前，請遵循下列步驟，以準備執行指導教學：
 
-1.  [建立 Bluemix 帳戶 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/registration/){:new_window}。
-2.  登入 [Cloudant 儀表板 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}。
-3.  [在 Bluemix 上建立 Cloudant 實例](create_service.html#creating-a-cloudant-instance-on-bluemix)。
+1.  [建立 {{site.data.keyword.Bluemix}} 帳戶 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/registration/){:new_window}。
+2.  登入 [{{site.data.keyword.Bluemix_notm}} 儀表板 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}。
+3.  [在 {{site.data.keyword.Bluemix_notm}} 上建立 {{site.data.keyword.cloudant_short_notm}} 實例](create_service.html#creating-a-cloudant-instance-on-bluemix)。
 4.  （選用）[建立 acurl 別名](../guides/acurl.html#authorized-curl-acurl-)，以從指令行更輕鬆且更快速地執行指令。
-5.  將練習中所含指令中的 `$ACCOUNT` 變數，取代為您用來登入「Cloudant 儀表板」的使用者名稱。如果您決定不要設定 `acurl`，請使用下列 URL，而不是練習中所提供的 URL：
+5.  將練習中所含指令中的 `$ACCOUNT` 變數，取代為您用來登入「{{site.data.keyword.cloudant_short_notm}} 儀表板」的使用者名稱。
+  如果您決定不要設定 `acurl`，請使用下列 URL，而不是練習中所提供的 URL：
   ``` sh
   curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
   ```
@@ -54,9 +55,9 @@ lastupdated: "2017-07-03"
   ```
   {:codeblock}
 
-![「儀表板」圖示](../images/DashboardIcon.png) _Cloudant 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
 
-1.  開啟您已建立的 Cloudant 服務實例。
+1.  開啟您已建立的 {{site.data.keyword.cloudant_short_notm}} 服務實例。
 2.  選取「資料庫」標籤：
 
   ![「資料庫」標籤](../images/tabs.png)
@@ -155,7 +156,7 @@ lastupdated: "2017-07-03"
   ```
   {:codeblock}
 
-![「儀表板」圖示](../images/DashboardIcon.png) _Cloudant 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
 
 1.  按一下 **`+`**，然後選取**新建文件**。即會開啟「新建文件」視窗。
 2.  若要建立文件，請複製下列範例文字，並取代新文件中的現有文字。
@@ -236,17 +237,17 @@ lastupdated: "2017-07-03"
 
 ## 建立索引
 
-Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資料庫的查詢，而結果稱為結果集。當您將查詢提交給視圖時，查詢會搜尋結果集。索引是一種建構資料以改善擷取時間的方式。
+{{site.data.keyword.cloudant_short_notm}} 提供視圖及索引來查詢資料庫。視圖會執行儲存至資料庫的查詢，而結果稱為結果集。當您將查詢提交給視圖時，查詢會搜尋結果集。索引是一種建構資料以改善擷取時間的方式。
 
-您可以使用 Cloudant 隨附的主要索引，或者次要索引，例如下列清單中所說明的視圖 (MapReduce)、搜尋索引、「Cloudant 地理空間」查詢或「Cloudant 查詢」：
+您可以使用 {{site.data.keyword.cloudant_short_notm}} 隨附的主要索引，或者次要索引，例如下列清單中所說明的視圖 (MapReduce)、搜尋索引、「{{site.data.keyword.cloudant_short_notm}} 地理空間」查詢或「{{site.data.keyword.cloudant_short_notm}} 查詢」：
 
 *	主要索引 – 依 ID 查閱文件或文件清單。  
-*	[視圖](../api/creating_views.html#views-mapreduce-) – 在符合所指定搜尋準則（例如計數、總和、平均值及其他數學函數）的資料庫中搜尋資訊。您可以搜尋的準則指定於視圖的定義中。視圖使用 MapReduce 參照範例。
+*	[視圖](../api/creating_views.html#views-mapreduce-) – 在資料庫中搜尋符合所指定搜尋準則（例如計數、總和、平均值及其他數學函數）的資訊。您可以搜尋的準則指定於視圖的定義中。視圖使用 MapReduce 參照範例。
 *	[搜尋索引](../api/search.html#search) – 搜尋一個以上的欄位、大量文字，或是搭配使用萬用字元、模糊搜尋或資料類型與 [Lucene 查詢剖析器語法 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}。
-*	[Cloudant 地理空間](../api/cloudant-geo.html#cloudant-geospatial) – 根據空間關係來搜尋文件。
-*	[Cloudant 查詢](../api/cloudant_query.html#query) – 使用 Mongo 樣式的查詢語法，透過使用邏輯運算子來搜尋文件。「Cloudant 查詢」是視圖及搜尋索引的組合。我們在本指導教學中使用「Cloudant 查詢」。
+*	[{{site.data.keyword.cloudant_short_notm}} 地理空間](../api/cloudant-geo.html#cloudant-geospatial) – 根據空間關係來搜尋文件。
+*	[{{site.data.keyword.cloudant_short_notm}} 查詢](../api/cloudant_query.html#query) – 使用 Mongo 樣式的查詢語法，透過使用邏輯運算子來搜尋文件。「{{site.data.keyword.cloudant_short_notm}} 查詢」是視圖及搜尋索引的組合。我們在本指導教學中使用「{{site.data.keyword.cloudant_short_notm}} 查詢」。
 
-> **附註：**如果沒有符合所指定查詢的可用已定義索引，則 Cloudant
+> **附註：**如果沒有符合所指定查詢的可用已定義索引，則 {{site.data.keyword.cloudant_short_notm}}
 > 會使用 `_all_docs` 索引。
 
 
@@ -254,17 +255,24 @@ Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資�
 
 1.  將下列範例 JSON 資料複製到名為 `query-index.dat` 的檔案。
   ```json
-  {
-    "index": {
+{
+	"index": {
       "fields": [
-        "lastname",
-        "location",
-        "age"
-      ]
-    },
-    "name": "query-index",
-    "type": "json"
-  }
+        "age",
+			"lastname"
+		],
+		"partial_filter_selector": {
+			"age": {
+				"$gte": 30
+			},
+			"lastname": {
+				"$eq": "Greene"
+			}
+		}
+	},
+  		"ddoc": "partial-index",
+		"type": "json"
+}
   ```
   {:codeblock}
 
@@ -286,22 +294,29 @@ Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資�
 
 
 
-![「儀表板」圖示](../images/DashboardIcon.png) _Cloudant 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
 
 1.  按一下**所有文件**或**設計文件**標籤上的 **`+` > 查詢索引**。
 2.  將下列範例 JSON 資料貼入**索引**欄位中：
   ```json
-  {
-    "index": {
+{
+	"index": {
       "fields": [
-        "lastname",  
-        "location",
-        "age"
-      ]
-    },
-    "name": "query-index",
-    "type": "json"
-  }
+        "age",
+			"lastname"
+		],
+		"partial_filter_selector": {
+			"age": {
+				"$gte": 30
+			},
+			"lastname": {
+				"$eq": "Greene"
+			}
+		}
+	},
+  		"ddoc": "partial-index",
+		"type": "json"
+}
   ```
   {:codeblock}
 
@@ -313,15 +328,15 @@ Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資�
 
 ## 建立查詢
 
-查詢可讓您從 Cloudant 中擷取資料。撰寫良好的[查詢](../api/cloudant_query.html#query)可以縮小搜尋及其結果的範圍，只包括您要的資料。
+查詢可讓您從 {{site.data.keyword.cloudant_short_notm}} 中擷取資料。撰寫良好的[查詢](../api/cloudant_query.html#query)可以縮小搜尋及其結果的範圍，只包含您要的資料。
 
-此練習顯示如何撰寫及執行簡單查詢、含有兩個欄位的查詢，以及含有[運算子](../api/cloudant_query.html#cloudant_query.html#operators)的查詢。您可以指定至少一個欄位及其對應值，以使用運算子進行查詢。查詢接著會使用此值來搜尋資料庫中是否有相符項。
+此練習示範如何撰寫及執行簡單查詢、含有兩個欄位的查詢，以及含有[運算子](../api/cloudant_query.html#cloudant_query.html#operators)的查詢。您可以指定至少一個欄位及其對應值，以使用運算子進行查詢。查詢接著會使用此值來搜尋資料庫中是否有相符項。
 
 針對最簡單查詢以外的所有查詢，將 JSON 新增至資料檔，並從指令行中執行它。
 
 ### 執行簡單查詢
 
-此範例示範「Cloudant 查詢」如何使用 `query-index` 來尋找 `lastname`，以及如何過濾記憶體中的結果來尋找 `firstaname`。   
+此範例示範「{{site.data.keyword.cloudant_short_notm}} 查詢」如何使用 `query-index` 來尋找 `lastname`，以及如何過濾記憶體中的結果來尋找 `firstaname`。   
 
 ![「指令行」圖示](../images/CommandLineIcon.png) _指令行_
 
@@ -359,10 +374,10 @@ Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資�
   ```
   {:codeblock}
 
-![「儀表板」圖示](../images/DashboardIcon.png) _Cloudant 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
 
 1.  按一下**查詢**標籤。
-2.  複製下列範例 JSON，並將其貼入「Cloudant 查詢」視窗：
+2.  複製下列範例 JSON，並將其貼入「{{site.data.keyword.cloudant_short_notm}} 查詢」視窗：
   ```json
    {
       "selector": {
@@ -381,7 +396,7 @@ Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資�
 
 ### 執行含有兩個欄位的查詢
 
-此範例使用兩個欄位來尋找命名為 `Brown` 且住在 `New York City, NY` 的每個人。
+此範例使用兩個欄位來尋找名為 `Brown` 且住在 `New York City, NY` 的所有人。
 
 我們使用與下列範例類似的 ['selector' 表示式](../api/cloudant_query.html#selector-syntax)來說明搜尋：
 ```json
@@ -394,7 +409,7 @@ Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資�
 ```
 {:codeblock}
 
-我們可以在 selector 表示式內新增更多詳細資料，以修改結果來符合需求。`fields` 參數指定結果所包含的欄位。在我們的範例中，結果包括名字、姓氏及位置。根據 `sort` 參數中的值，依名字的遞增順序排序結果。額外詳細資料類似下列範例：
+我們可以在 selector 表示式內新增更多詳細資料，以修改結果來符合需求。`fields` 參數指定結果所包含的欄位。在我們的範例中，結果包含名字、姓氏及位置。根據 `sort` 參數中的值，依名字的遞增順序排序結果。額外詳細資料類似下列範例：
 ```json
 {
   ...
@@ -466,10 +481,10 @@ Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資�
   ```
   {:codeblock}
 
-![「儀表板」圖示](../images/DashboardIcon.png) _Cloudant 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
 
 1.  按一下**查詢**標籤。
-2.  複製下列範例 JSON，並將其貼入「Cloudant 查詢」視窗：
+2.  複製下列範例 JSON，並將其貼入「{{site.data.keyword.cloudant_short_notm}} 查詢」視窗：
   ```json
   {
     "selector": {
@@ -507,44 +522,58 @@ Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資�
 ```json
 {
   "selector": {
+      "age": {
+      "$gt": 30
+    },
     "lastname": {
       "$eq": "Greene"
-    },
-    "age": {
-      "$gt": 30
     }
   }
 }
-```   
+``` 
+{:codeblock}
+
+根據 `sort` 參數中的值，依姓氏的遞增順序排序結果。
+
+```json
+    "sort": [
+      {
+        "age": "asc"   
+      },        
+      {
+        "lastname": "asc"
+      }
+    ] 
+```  
 {:codeblock}
 
 ![「指令行」圖示](../images/CommandLineIcon.png) _指令行_
 
 1.  將下列範例 JSON 複製到名為 `query3.dat` 的檔案。
   ```json
-  {
-    "selector": {
-      "lastname": {
-        "$eq": "Greene"
-      },
+{
+   "selector": {
       "age": {
-        "$gt": 30
+         "$gt": 30
+      },
+      "lastname": {
+         "$eq": "Greene"
       }
-    },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
-    ],
+   },
+    "fields": [
+      "age",
+      "firstname"
+   ],
     "sort": [
       {
-        "lastname": "asc"
+        "age": "asc"
       },
       {
-        "firstname": "asc"
+         "lastname": "asc"
       }
-    ]  
-  }
+   ],
+   "use_index": "_design/partial-index"
+}
   ```
   {:codeblock}
 
@@ -556,51 +585,43 @@ Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資�
 
 3.  檢閱查詢結果：
   ```json
-  {
-    "docs": [
-      {
-        "firstname": "Anna",
-        "lastname": "Greene",
-        "age": 44
-      },
-      {
-        "firstname": "Greg",
-        "lastname": "Greene",
-        "age": 35
-      }
-    ]
-  }
+{"docs":[
+     {"age":35,"firstname":"Greg"},
+     {"age":44,"firstname":"Anna"}
+   ],
+"bookmark": "g1AAAABCeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmFwOSHWiDkiSzb0oNTUvNSsLAEsmEeQ"
+}
   ```
   {:codeblock}
 
-![「儀表板」圖示](../images/DashboardIcon.png) _Cloudant 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
 
 1.  按一下**查詢**標籤。
-2.  複製下列範例 JSON，並將其貼入「Cloudant 查詢」視窗：
+2.  複製下列範例 JSON，並將其貼入「{{site.data.keyword.cloudant_short_notm}} 查詢」視窗：
   ```json
-  {
-    "selector": {
-      "lastname": {
-        "$eq": "Greene"
-      },
+{
+   "selector": {
       "age": {
-        "$gt": 30
+         "$gt": 30
+      },
+      "lastname": {
+         "$eq": "Greene"
       }
-    },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
-    ],
+   },
+    "fields": [
+      "age",
+      "firstname"
+   ],
     "sort": [
       {
-        "lastname": "asc"
+        "age": "asc"
       },
       {
-        "firstname": "asc"
+         "lastname": "asc"
       }
-    ]   
-  }
+   ],
+   "use_index": "_design/partial-index"
+}
   ```
   {:codeblock}
 
@@ -610,4 +631,4 @@ Cloudant 提供視圖及索引來查詢資料庫。視圖會執行儲存至資�
 
   ![查詢 3 結果](../images/dashboard_query3_results.png)
 
-如需 Cloudant 的相關資訊，請參閱 [Cloudant 文件](../cloudant.html#overview)。
+如需 {{site.data.keyword.cloudant_short_notm}} 的相關資訊，請參閱 [{{site.data.keyword.cloudant_short_notm}} 文件](../cloudant.html#overview)。

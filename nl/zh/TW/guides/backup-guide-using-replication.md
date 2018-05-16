@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-25"
+lastupdated: "2017-05-04"
 
 ---
 
@@ -16,22 +16,25 @@ lastupdated: "2017-08-25"
 
 <div id="back-up-your-data-using-replication"></div>
 
-# 使用抄寫備份您的資料
+# 抄寫增量備份
 
->	**附註**：本手冊包含有關 Cloudant 備份的較舊或「已淘汰」指引。如需現行備份指引，請參閱[災難回復和備份](disaster-recovery-and-backup.html)手冊。
+>	**附註**：本手冊包含有關 {{site.data.keyword.cloudantfull}} 備份的較舊或「已淘汰」指引。
+ 如需現行備份指引，請參閱[災難回復和備份](disaster-recovery-and-backup.html)手冊。
 
 資料庫備份保護您的資料免於可能的遺失或毀損。
 {:shortdesc}
 
-您可以使用 Cloudant 抄寫機能來建立資料庫備份，並將它儲存在 Cloudant 叢集上。然後，您可以從這些備份中將資料、整個資料庫或特定的 JSON 文件還原至正式作業叢集。
+您可以使用 {{site.data.keyword.cloudant_short_notm}} 抄寫機能來建立資料庫備份，並將它儲存在 {{site.data.keyword.cloudant_short_notm}} 叢集上。
+然後，您可以從這些備份中將資料、整個資料庫或特定的 JSON 文件還原至正式作業叢集。
 
-使用 Cloudant 抄寫時，資料庫備份可將您的資料庫內容儲存至檢查點。您可以「回復」至特定檢查點。檢查點並非專指精確時間。反之，它是備份期間發生特定變更之後當時資料庫的記錄。如此一來，備份可以保留資料庫在所選取時間的狀態。
+使用 {{site.data.keyword.cloudant_short_notm}} 抄寫時，資料庫備份可將您的資料庫內容儲存至檢查點。
+您可以「回復」至特定檢查點。檢查點並非專指精確時間。反之，它是備份期間發生特定變更之後當時資料庫的記錄。如此一來，備份可以保留資料庫在所選取時間的狀態。
 
 ## 增量備份
 
 如果您是「企業」客戶，則[可以使用](disaster-recovery-and-backup.html)每日增量備份功能。
 
-如果您不是「企業」客戶，或偏好建立自己的備份，則可以使用 Cloudant 抄寫機能來建立資料庫備份。
+如果您不是「企業」客戶，或偏好建立自己的備份，則可以使用 {{site.data.keyword.cloudant_short_notm}} 抄寫機能來建立資料庫備份。
 
 簡單方法為將整個資料庫抄寫至附上日期的備份資料庫。此方法適用且容易執行。但是，如果您需要多個復原點的備份（例如七個每日備份及四個每週備份），則必須將資料庫的完整副本儲存在每一個新的備份資料庫中。完整副本可能需要使用大量的磁碟空間，尤其是如果您的資料庫很大。
 
@@ -41,6 +44,8 @@ lastupdated: "2017-08-25"
 
 >   **附註**：您可以將備份配置為定期觸發。
     不過，每一個間隔必須是 24 小時以上。換言之，您可以執行每日備份，但不能執行每小時備份。
+
+
 
 ## 建立增量備份
 
@@ -278,7 +283,7 @@ _說明還原的 JSON 文件：_
     "_id": "restore-monday",
     "source": "${url}/backup-monday",
     "target": "${url}/restore",
-    "create-target": true  
+    "create_target": true  
 }
 ```
 {:codeblock}
@@ -289,6 +294,8 @@ _說明還原的 JSON 文件：_
 
 >   **附註**：順序不是排字錯誤；
     實際上，_是_ 真的要先從星期二還原，_然後再_ 從星期一還原。
+
+
 
 您可能依時間順序還原，但使用相反的順序，星期二更新的文件只需寫入至目標資料庫一次。會忽略星期一資料庫中儲存的舊版文件。
 
@@ -314,7 +321,7 @@ _要求還原星期二備份的 JSON 文件：_
     "_id": "restore-tuesday",
     "source": "${url}/backup-tuesday",
     "target": "${url}/restore",
-    "create-target": true  
+    "create_target": true  
 }
 ```
 {:codeblock}
@@ -392,4 +399,4 @@ _設定 IO 優先順序的 JSON 文件範例：_
 
 ## 需要協助嗎？
 
-抄寫及備份可能很棘手。如果遇到困難，請參閱[抄寫手冊](replication_guide.html)，或聯絡 [IBM Cloudant 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
+抄寫及備份可能很棘手。如果遇到困難，請參閱[抄寫手冊](replication_guide.html)，或聯絡 [IBM {{site.data.keyword.cloudant_short_notm}} 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
