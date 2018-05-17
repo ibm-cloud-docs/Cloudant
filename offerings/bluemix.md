@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -36,52 +36,51 @@ compliant configuration.
 The following table summarizes the provisioned throughput capacity and disk 
 space configuration for the plans:
 
-<div id="maxtable">
-</div>
+<div id="maxtable"></div>
 
-<table border='1'>
+<table>
 
 <tr>
-<th>Plans</th><th>Lite</th><th colspan='4'>Standard</th>
+<th id="plans">Plans</th><th id="lite">Lite</th><th id="standard" colspan='4'>Standard</th>
 </tr>
 <tr>
-<td>Base Price (per hour)</td>
-<td>$0.00</td>
-<td colspan='4'>See <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
+<td headers="base-priceperhour">Base Price (per hour)</td>
+<td headers="lite">$0.00</td>
+<td  headers="standard" colspan='4'>See <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (Lookups per second)</td>
-<td>20</td>
-<td>100</td>
-<td>1,000</td>
-<td>5,000</td>
-<td>20,000</td>
+<td headers="provisionedthroughputcapacity-lookupspersecond">Provisioned Throughput Capacity (Lookups per second)</td>
+<td headers="lite">20</td>
+<td headers="standard">100</td>
+<td headers="standard">1,000</td>
+<td headers="standard">5,000</td>
+<td headers="standard">20,000</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (Writes per second)</td>
-<td>10</td>
-<td>50</td>
-<td>500</td>
-<td>2,500</td>
-<td>10,000</td>
+<td headers="provisionedthroughputcapacity-writespersecond">Provisioned Throughput Capacity (Writes per second)</td>
+<td headers="lite">10</td>
+<td headers="standard">50</td>
+<td headers="standard">500</td>
+<td headers="standard">2,500</td>
+<td headers="standard">10,000</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (Queries per second)</td>
-<td>5</td>
-<td>5</td>
-<td>50</td>
-<td>250</td>
-<td>1,000</td>
+<td headers="provisionedthroughputcapacity-queriespersecond">Provisioned Throughput Capacity (Queries per second)</td>
+<td headers="lite">5</td>
+<td headers="standard">5</td>
+<td headers="standard">50</td>
+<td headers="standard">250</td>
+<td headers="standard">1,000</td>
 </tr>
 <tr>
-<td>Disk Space Included</td>
-<td>1 GB</td>
-<td colspan='4'>20 GB</td>
+<td headers="diskspaceincluded">Disk Space Included</td>
+<td headers="lite">1 GB</td>
+<td headers="standard" colspan='4'>20 GB</td>
 </tr>
 <tr>
-<td>Disk Overage (per GB/hour)</td>
-<td>Not available</td>
-<td colspan='4'>See <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
+<td headers="diskoveragepergbhour">Disk Overage (per GB/hour)</td>
+<td headers="lite">Not available</td>
+<td headers="standard" colspan='4'>See <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">Pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 
 </table>
