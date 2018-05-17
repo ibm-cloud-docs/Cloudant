@@ -48,6 +48,8 @@ Removed for 96973.
 </tr>
 -->
 
+<div id="comparetable"></div>
+
 <table border='1'>
 
 <tr>

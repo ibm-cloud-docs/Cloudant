@@ -38,7 +38,7 @@ space configuration for the plans:
 
 <div id="maxtable"></div>
 
-<table>
+<table border='1'>
 
 <tr>
 <th id="plans">Plans</th><th id="lite">Lite</th><th id="standard" colspan='4'>Standard</th>
