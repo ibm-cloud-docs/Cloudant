@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-11"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -36,7 +36,8 @@ compliant configuration.
 The following table summarizes the provisioned throughput capacity and disk 
 space configuration for the plans:
 
-<div id="maxtable"></div>
+<div id="maxtable">
+</div>
 
 <table border='1'>
 
