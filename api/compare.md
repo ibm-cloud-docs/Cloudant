@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -53,7 +53,7 @@ Removed for 96973.
 <table border='1'>
 
 <tr>
-<th id="endpoint&links">Endpoint & links</th>
+<th id="endpoint&links">Endpoint & Links</th>
 <th id="description">Description</th>
 </tr>
 <tr>
