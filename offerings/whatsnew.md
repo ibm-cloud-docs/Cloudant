@@ -44,7 +44,7 @@ A new [Dedicated service instance](bluemix.html#plans) is available.
 - If the design document that is intended to specify a geospatial index is invalid,
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
-  results in an [HTTP `404`](http.html#http-status-codes) response.
+  results in an [HTTP `404`](../api/http.html#http-status-codes) response.
 - Added support for the [`$allmatch`](../api/cloudant_query.html#the-allmatch-operator) operator.
 
 ## Build 5834
