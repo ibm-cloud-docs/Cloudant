@@ -7,29 +7,27 @@ Cloudant NoSQL DB
 	{: .navgroup id="learn"}
 	getting-started.md
 	cloudant.md
-
-	{: .topicgroup}
-	Offerings
-		offerings/bluemix.md
-		offerings/bluemix_dedicated.md
-		offerings/cloudant_local.md
-		offerings/cloudant.com.md
+	offerings/bluemix.md
 
 	{: .topicgroup}
     Security and Compliance
     	offerings/security.md
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
-    	offerings/audit.md
-    	offerings/gdpr.md
 
 	{: .topicgroup}
 	Release information
 		release_info/release_notes.md
 		release_info/differences_major_releases.md
 		release_info/deprecations.md
-	{: .navgroup-end}
 
+	{: .topicgroup}
+    Other offerings
+		offerings/bluemix_dedicated.md
+		offerings/cloudant_local.md
+		offerings/cloudant.com.md
+	{: .navgroup-end}
+	
 	{: .navgroup id="reference"}
     basics/index.md
 

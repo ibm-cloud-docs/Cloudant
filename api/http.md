@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -107,7 +107,7 @@ Cache-Control: must-revalidate
 ```
 {:codeblock}
 
-#### Content-Type
+#### Content-Type for request headers
 
 The `Content-Type` header specifies the content type of the information being supplied within the request.
 The specification uses MIME type specifications.
@@ -169,7 +169,7 @@ If the document has been modified,
 you should get a normal [`200` response](#200),
 provided the document still exists and no other errors occurred.
 
-### Response Headers
+### Response headers
 
 Response headers are returned by the server when sending back content.
 They include a number of different fields,
@@ -202,7 +202,7 @@ The `Content-Length` header reports the length in bytes of the returned content.
 
 <div id="content-type-field"></div>
 
-#### Content-Type
+#### Content-Type for response headers
 
 The `Content-Type` header specifies the MIME type of the returned data.
 For most request,

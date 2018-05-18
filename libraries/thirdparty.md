@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -36,7 +36,7 @@ install-package mycouch.cloudant
 ```
 {:codeblock}
 
-### Libraries and Frameworks
+### Libraries and Frameworks for C# / .NET
 
 -   [MyCouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danielwertheim/mycouch){:new_window}.
 -   [LoveSeat ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/soitgoes/LoveSeat){:new_window}.
@@ -46,7 +46,7 @@ install-package mycouch.cloudant
 -   [EasyCouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/hhariri/EasyCouchDB){:new_window}.
 -   `WDK.API.CouchDB` from [Kanapes IDE ![External link icon](../images/launch-glyph.svg "External link icon")](http://kanapeside.com/){:new_window}.
 
-### Examples and Tutorials
+### Examples and Tutorials for C# / .NET
 
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/c%23){:new_window}.
 
@@ -64,13 +64,13 @@ require_once('./src/Sag.php');
 ```
 {:codeblock}
 
-### Libraries and Frameworks
+### Libraries and Frameworks for PHP
 
 -   [sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){:new_window}.
 -   [Doctrine CouchDB Client ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/doctrine/couchdb-client){:new_window}.
 -   [PHP-on-Couch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dready92/PHP-on-Couch){:new_window}.
 
-### Examples and Tutorials
+### Examples and Tutorials for PHP
 
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/php){:new_window}.
 
@@ -89,7 +89,7 @@ refer to [PouchDB ![External link icon](../images/launch-glyph.svg "External lin
 
 >   **Note**: PouchDB can also be installed with Bower: `bower install pouchdb`.
 
-### Libraries and Frameworks
+### Libraries and Frameworks for JavaScript
 
 -   [Backbone.cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/backbone.cloudant){:new_window}.
     See the [blog post ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/backbone-and-cloudant/){:new_window} for more information.
@@ -97,7 +97,7 @@ refer to [PouchDB ![External link icon](../images/launch-glyph.svg "External lin
 -   [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window} - JavaScript database for browser,
     with offline synchronization.
 
-### Examples and Tutorials
+### Examples and Tutorials for JavaScript
 
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} using jQuery.
 -   [CSVtoCloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/michellephung/CSVtoCloudant){:new_window} -
@@ -126,12 +126,12 @@ gem install couchrest
 ```
 {:codeblock}
 
-### Libraries and Frameworks
+### Libraries and Frameworks for Ruby
 
 There are many CouchDB clients listed on
 [Ruby Toolbox ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ruby-toolbox.com/categories/couchdb_clients){:new_window}.
 
-### Examples and Tutorials
+### Examples and Tutorials for Ruby
 
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/ruby){:new_window}.
 
