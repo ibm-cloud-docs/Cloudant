@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-11-06"
+  years: 2015, 2018
+lastupdated: "2018-05-17"
 
 ---
 
@@ -10,7 +10,8 @@ lastupdated: "2017-11-06"
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-{:pre: .pre}
+{:pre: .pre
+{:tip .tip}
 
 <!-- Keep up-to-date with changes in backup-cookbook.md -->
 
@@ -40,7 +41,8 @@ the CouchBackup package contains two command line tools:
 1. `couchbackup`, which dumps the JSON data from a database to a backup text file.
 2. `couchrestore`, which restores data from a backup text file to a database.
 
-<strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
+> **Warning!** The CouchBackup tools have [limitations](#limitations).
+{:tip}
 
 ## Backing up your {{site.data.keyword.cloudant_short_notm}} data
 
@@ -60,10 +62,12 @@ including:
 * Using a log file to record the progress of a backup.
 * The ability to resume an interrupted backup.
   **Note**: This option is only available with the log file for the interrupted backup.
+  {:tip}
 * Sending the backup text file to a named output file,
   rather than redirecting the `stdout` output.
 
-<strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
+> **Warning!** The CouchBackup tools have [limitations](#limitations).
+{:tip}
 
 ## Restoring your {{site.data.keyword.cloudant_short_notm}} data
 
@@ -84,11 +88,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 The [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{:new_window} provides details of other restore options.
 
-<strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
+> **Warning!** The CouchBackup tools have [limitations](#limitations).
+{:tip}
 
 ## Limitations
 
-<strong style="color:red;">Warning!</strong> The CouchBackup tools have the following limitations: 
+> **Warning!** The CouchBackup tools have the following limitations: 
+{:tip}
 
 * `_security` settings are not backed up by the tools.
 * Attachments are not backed up by the tools.
@@ -226,11 +232,12 @@ see the [npm page ![External link icon](../images/launch-glyph.svg "External lin
 
 The following script sample shows how to combine the `couchbackup` library
 with use of {{site.data.keyword.IBM}} Cloud Object Storage.
-This code illustrates how you might use Cross Region S3 API to back up a database to an object store.
+This code illustrates how you might use Cross Regi   on S3 API to back up a database to an object store.
 
 > **Note**: A prerequisite for the code is that you initialize the S3 client object for
   {{site.data.keyword.IBM_notm}} Cloud Object Storage by following
 [these instructions ![External link icon](../images/launch-glyph.svg "External link icon")][cosclient]{:new_window}.
+{:tip}
 
 ```javascript
 /*
