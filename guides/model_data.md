@@ -45,7 +45,7 @@ Typically, data models based on immutable data require the use of views to summa
 the documents which comprise the current state. As views are precomputed, this shouldn’t 
 adversely affect application performance.
 
-## Why this helps consider immutable data 
+## Why this helps you consider immutable data 
 
 Behind our `https://$ACCOUNT.cloudant.com/` interface is a distributed database. 
 Within the cluster, documents are bucketed into a number of shards which collectively form the 
@@ -80,7 +80,7 @@ You'll save work in your application and allow the database to concentrate on se
 small requests rather than reading huge amounts of data from disk to service a single large 
 request.
 
-## Why this helps by using views to pre-calculate results
+## Why this helps you use views to pre-calculate results
 
 It's quite straightforward. First, note that both maps and reduces are precomputed. This means 
 that asking for the result of a reduce function is a cheap operation, particularly when 
@@ -120,7 +120,7 @@ documents with a given tag by
 [emitting each tag as a key in your view's map function](../api/creating_views.html). 
 Querying the view for a given key will then provide all the documents with that tag.
 
-## Why this helps de-normalize your data
+## Why this helps you de-normalize your data
 
 It all comes down to the number of HTTP requests your application makes. There's a cost to 
 opening HTTP connections - particularly HTTPS - and, while re-using connections helps, making 
@@ -179,7 +179,7 @@ operations for a given patient. Again, views are used to help knit together a fu
 a given entity from separate documents, helping to keep the number of HTTP requests low even 
 though we’ve split up the data for a single modeled entity.
 
-## Why this helps avoid conflicts
+## Why this helps you avoid conflicts
 
 Avoiding conflicted documents helps speed up many operations on your {{site.data.keyword.cloudant_short_notm}} databases. 
 This is because there’s a process which works out the current winning revision used each time 
@@ -219,7 +219,7 @@ How you do this is very application specific, but here's a few tips:
     version of the other documents that are not consistent with the document you're resolving,
     making correct resolution difficult. And what if the other documents are conflicted?
 
-## Why this helps build in conflict resolution 
+## Why this helps you build in conflict resolution 
 
 As described above, heavily conflicted documents exert a heavy toll on the database. Building 
 in the capability to resolve conflicts from the beginning is a great help in avoiding 
