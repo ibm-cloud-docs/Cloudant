@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-05-17"
 # My top 5 tips for modelling your data to scale
 
 This article considers the finer 
-points of modelling your application's data to work efficiently at large scale.
+points of modelling your application's data to work efficiently on a large scale.
 {:shortdesc}
 
 _(This guide is based on a Blog article by Mike Rhodes:
