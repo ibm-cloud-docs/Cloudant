@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-02-28"
+lastupdated: "2018-05-21"
 
 ---
 
@@ -21,7 +21,73 @@ Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releas
 
 ## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (February 7, 2018)
 
-- You can find a schedule and alternatives to {{site.data.keyword.dashdblong}} [here](../guides/warehousing.html#deprecating-cloudant-nosql-db-s-db2-warehouse-on-cloud-feature-february-7-2018-). 
+- You can find alternatives to {{site.data.keyword.dashdblong}} [here](../guides/warehousing.html#deprecating-cloudant-nosql-db-s-db2-warehouse-on-cloud-feature-february-7-2018-). 
+- You can find a DB2 instance in the Warehouse documents by using the `_warehouser` endpoint. See the following example, and the fields you can use to find documents:
+
+`GET {$DATABASE}/{$DOCUMENT_ID} = _warehouser/WAREHOUSE_NAME@SOURCE_NAME`
+
+```http
+{
+  "_id": "dashdb-uk@largedb100g",
+  "_rev": "20803-62c183daeb579cb407ff5ef4bc6a96e1",
+  "sdp_cluster_threshold": 0.2,
+  "replication_status": {
+    "largedb100g": {
+      "docsSkipped": 0,
+      "id": "largedb100g",
+      "time": "2018-04-30T18:15:41Z",
+      "docsProcessed": 52700744,
+      "status": "error",
+      "docsSuccess": 21700000,
+      "sub_status": "initial",
+      "lastSeq": "21600004-g1AAAAG3eJzLYWBgYMlgTmFQSElKzi9KdUhJMtYrSS0uqTQwMtVLzskvTUnMK9HLSy3JAapkSmRIsv___39WBnMSg8_cg7lAMfY0s-Q00xQjIoxAtccIjz1JDkAyqR5mVbynB9gqs9RUC6MkcyJMQbXKEI9VeSxAkqEBSAFt2w-2LlDyCMRnaWZAn6UQYRLxIQix7gDEOmhATjMHW2duYWaUmpZChElZADwVjNs",
+      "docsFailed": 21600000,
+      "docsWarned": 0
+    }
+  },
+  "default_region": null,
+  "create_target": true,
+  "write_mode": "update",
+  "sample_size": null,
+  "dashboard_url": "https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login",
+  "source_database_name": "largedb100g",
+  "dashdb_instance_name": null,
+  "jdbcurl": null,
+  "dynamite_token": "XXXXXXXX",
+  "discovery_status": {
+    "largedb100g": {
+      "time": "2018-04-30T13:16:50Z",
+      "status": "discovering",
+      "JSONSchema": "_local/dashdb-uk@largedb100g[0]"
+    }
+  },
+  "external_db2_instance": true,
+  "warehouser_error_message": "DB2 SQL Error: SQLCODE=-289, SQLSTATE=57011, SQLERRMC=dash12555space1, DRIVER=4.18.60;DB2 SQL Error: SQLCODE=-289, SQLSTATE=57011, SQLERRMC=dash12555space1, DRIVER=4.18.60;",
+  "source": [
+    "https://testy-dynamite-003.cloudant.com/largedb100g"
+  ],
+  "dashdb_instance_id": null,
+  "target": "jdbc:db2://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net:50000/BLUDB",
+  "warehouser_state": "error",
+  "warehouser_state_time": "2018-04-30T18:15:41Z",
+  "warehouser_error_code": 40012,
+  "overwrite_target": true,
+  "dynamite_user": "dash12555",
+  "warehouser_id": "dashdb-uk",
+  "sdp_function": "all_union"
+}
+```
+
+Field | Description
+--------------------
+`dashboard_url` | Log in URL to the account you want to search. 
+`target` | Db2 Warehouse on Cloud database you want to search. 
+`dynamite_user` | 
+`dynamite_token` |
+`dashdb_instance_name` |
+`source` |
+
+
 
 ## Disabled JavaScript constructors (December 7, 2017)
 
