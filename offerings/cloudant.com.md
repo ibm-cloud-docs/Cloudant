@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-05-21"
 
 ---
 
@@ -62,8 +62,7 @@ create an account using the form, and open a support ticket to request that your
 {: #shared-plan}
 
 > **Note**: The {{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on March 31, 2018. 
-As of July 24th, 2017, no new Shared Plan accounts can be created on 
-[https://cloudant.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/){:new_window}. 
+As of July 24th, 2017, no new Shared Plan accounts can be created on cloudant.com. 
 
 With the {{site.data.keyword.cloudant_short_notm}} Shared Plan, you have access to all the 
 {{site.data.keyword.cloudant_short_notm}} DBaaS capabilities, provided through a shared or 'multi-tenant' cluster.
