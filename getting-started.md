@@ -25,8 +25,9 @@ In addition to this tutorial, see our hands-on tutorials that help you learn mor
 
 - [Liberty for Java and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
 - [Node.js and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+- [Swift and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
 
-For more in-depth tutorials about deploying your first app, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/){:new_window}. 
+For more language-specific tutorials, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/){:new_window}. 
 
 <div id="prerequisites"></div>
 
