@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-22"
+lastupdated: "2018-05-23"
 
 ---
 
@@ -27,12 +27,11 @@ for tutorials on
 extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
 {{site.data.keyword.dashdbshort_notm}} table.
 
-### Siging in to {{site.data.keyword.dashdbshort_notm}} console  
+### Signing in to {{site.data.keyword.dashdbshort_notm}} console  
 
 If you want to sign in to the {{site.data.keyword.dashdbshort_notm}} console, you must first extract the information you need to sign in from the warehouser document. 
 
-To retrieve information about the warehouser document, you run the following curl command
-:
+To retrieve information from the warehouser document, you must run the following curl command:
 
 ```curl
 curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/_warehouser/_id
@@ -40,7 +39,7 @@ curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/_warehouser/_id
 
 For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values are the same. 
 
-Before you run the command, replace `_id` with `example@source-db`, where `example` is the warehouser document's name, and `source-db` is the source database's name (that is used for replicating {{site.data.keyword.cloudant_short_notm}} to Db2):
+Before you run the command, replace `_id` with `example@source-db`, where `example` is the warehouser document's name, and `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to Db2:
 
 ```curl
 curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/_warehouser/example@source-db
@@ -59,7 +58,7 @@ _Example response when you search for information in the warehouser document:_
 }
 ```
 
-The list of fields you use to find the sign in information for {{site.data.keyword.dashdbshort_notm}} console: 
+The following table shows the fields you use to find information for signing in to {{site.data.keyword.dashdbshort_notm}} console: 
 
 | Field | Description 
 | --- | --- 
@@ -69,11 +68,10 @@ The list of fields you use to find the sign in information for {{site.data.keywo
 | `target` | Db2 JDBC connection URL, only used if the value for `dashboard_url` is null
 | `dynamite_user` | Db2 user name
 
-
-To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you must remember the values for each of the following fields taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.  
+To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you must remember the values for each of the following fields that are taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.  
 
 1.  From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console using the value of the `dashboard_url` field.  
-> **Note**: If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console.  For example, the host for the `target` in the example output from the previous example is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the postfix `login`, you can sign in with the following URL: `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
+> **Note**: If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console.  For example, the host for the `target` from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the postfix `login`, you can sign in with the following URL: `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
 2. To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password. 
 3.  Click **Sign In** to continue.
 4.  After you sign in, the dashboard appears.  
@@ -81,9 +79,6 @@ To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you must remem
     All the tables that were created with the {{site.data.keyword.dashdbshort_notm}} feature are under the `dynamite_user` name.
 
 > **Note**: If you want to run SQL commands on the tables, go to the Run SQL tab.
-
-
-
 
 ## Disabled JavaScript constructors (December 7, 2017)
 
