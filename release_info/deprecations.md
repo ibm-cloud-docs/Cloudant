@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-21"
+lastupdated: "2018-05-22"
 
 ---
 
@@ -20,72 +20,68 @@ Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releas
 {:shortdesc}
 
 ## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (February 7, 2018)
+ 
+To find alternatives to {{site.data.keyword.dashdblong}}, see the 
+[data-flow-examples repository ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/data-flow-examples){:new_window} 
+for tutorials on 
+extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
+{{site.data.keyword.dashdbshort_notm}} table.
 
-- You can find alternatives to {{site.data.keyword.dashdblong}} [here](../guides/warehousing.html#deprecating-cloudant-nosql-db-s-db2-warehouse-on-cloud-feature-february-7-2018-). 
-- You can find a DB2 instance in the Warehouse documents by using the `_warehouser` endpoint. See the following example, and the fields you can use to find documents:
+### Siging in to {{site.data.keyword.dashdbshort_notm}} console  
 
-`GET {$DATABASE}/{$DOCUMENT_ID} = _warehouser/WAREHOUSE_NAME@SOURCE_NAME`
+If you want to sign in to the {{site.data.keyword.dashdbshort_notm}} console, you must first extract the information you need to sign in from the warehouser document. 
+
+To retrieve information about the warehouser document, you run the following curl command
+:
+
+```curl
+curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/_warehouser/_id
+```
+
+For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values are the same. 
+
+Before you run the command, replace `_id` with `example@source-db`, where `example` is the warehouser document's name, and `source-db` is the source database's name (that is used for replicating {{site.data.keyword.cloudant_short_notm}} to Db2):
+
+```curl
+curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/_warehouser/example@source-db
+```
+
+_Example response when you search for information in the warehouser document:_
 
 ```http
 {
-  "_id": "dashdb-uk@largedb100g",
-  "_rev": "20803-62c183daeb579cb407ff5ef4bc6a96e1",
-  "sdp_cluster_threshold": 0.2,
-  "replication_status": {
-    "largedb100g": {
-      "docsSkipped": 0,
-      "id": "largedb100g",
-      "time": "2018-04-30T18:15:41Z",
-      "docsProcessed": 52700744,
-      "status": "error",
-      "docsSuccess": 21700000,
-      "sub_status": "initial",
-      "lastSeq": "21600004-g1AAAAG3eJzLYWBgYMlgTmFQSElKzi9KdUhJMtYrSS0uqTQwMtVLzskvTUnMK9HLSy3JAapkSmRIsv___39WBnMSg8_cg7lAMfY0s-Q00xQjIoxAtccIjz1JDkAyqR5mVbynB9gqs9RUC6MkcyJMQbXKEI9VeSxAkqEBSAFt2w-2LlDyCMRnaWZAn6UQYRLxIQix7gDEOmhATjMHW2duYWaUmpZChElZADwVjNs",
-      "docsFailed": 21600000,
-      "docsWarned": 0
-    }
-  },
-  "default_region": null,
-  "create_target": true,
-  "write_mode": "update",
-  "sample_size": null,
-  "dashboard_url": "https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login",
-  "source_database_name": "largedb100g",
-  "dashdb_instance_name": null,
-  "jdbcurl": null,
-  "dynamite_token": "XXXXXXXX",
-  "discovery_status": {
-    "largedb100g": {
-      "time": "2018-04-30T13:16:50Z",
-      "status": "discovering",
-      "JSONSchema": "_local/dashdb-uk@largedb100g[0]"
-    }
-  },
-  "external_db2_instance": true,
-  "warehouser_error_message": "DB2 SQL Error: SQLCODE=-289, SQLSTATE=57011, SQLERRMC=dash12555space1, DRIVER=4.18.60;DB2 SQL Error: SQLCODE=-289, SQLSTATE=57011, SQLERRMC=dash12555space1, DRIVER=4.18.60;",
-  "source": [
-    "https://testy-dynamite-003.cloudant.com/largedb100g"
-  ],
-  "dashdb_instance_id": null,
-  "target": "jdbc:db2://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net:50000/BLUDB",
-  "warehouser_state": "error",
-  "warehouser_state_time": "2018-04-30T18:15:41Z",
-  "warehouser_error_code": 40012,
-  "overwrite_target": true,
-  "dynamite_user": "dash12555",
-  "warehouser_id": "dashdb-uk",
-  "sdp_function": "all_union"
+  "_id": "example@source-db",
+      "dashboard_url": "https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login",
+      "dynamite_token": "XXXXXXXX",
+      "target": "jdbc:db2://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net:50000/BLUDB",
+      "dynamite_user": "dash12555",
+  ...
 }
 ```
 
-Field | Description
---------------------
-`dashboard_url` | Log in URL to the account you want to search. 
-`target` | Db2 Warehouse on Cloud database you want to search. 
-`dynamite_user` | 
-`dynamite_token` |
-`dashdb_instance_name` |
-`source` |
+The list of fields you use to find the sign in information for {{site.data.keyword.dashdbshort_notm}} console: 
+
+| Field | Description 
+| --- | --- 
+| `_id` | ID of the _warehouser document 
+| `dashboard_url` | URL of the {{site.data.keyword.dashdbshort_notm}} console 
+| `dynamite_token` | Db2 token 
+| `target` | Db2 JDBC connection URL, only used if the value for `dashboard_url` is null
+| `dynamite_user` | Db2 user name
+
+
+To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you must remember the values for each of the following fields taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.  
+
+1.  From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console using the value of the `dashboard_url` field.  
+> **Note**: If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console.  For example, the host for the `target` in the example output from the previous example is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the postfix `login`, you can sign in with the following URL: `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
+2. To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password. 
+3.  Click **Sign In** to continue.
+4.  After you sign in, the dashboard appears.  
+5.  Click the **Explore** tab to see your Db2 schemas and tables.  
+    All the tables that were created with the {{site.data.keyword.dashdbshort_notm}} feature are under the `dynamite_user` name.
+
+> **Note**: If you want to run SQL commands on the tables, go to the Run SQL tab.
+
 
 
 
