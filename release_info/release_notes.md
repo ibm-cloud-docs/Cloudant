@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-15"
+lastupdated: "2018-05-23"
 
 ---
 
@@ -22,6 +22,10 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 6979 (May 23, 2018)
+
+- Improvements to internal audit facility.
 
 ## Build 6919 (May 14, 2018)
 
