@@ -16,10 +16,17 @@ lastupdated: "2017-11-02"
 # Getting started tutorial
 {: #getting-started-with-cloudant}
 
-In this {{site.data.keyword.cloudantfull}} getting started tutorial
-we'll use Python to create a {{site.data.keyword.cloudant}} database
+In this {{site.data.keyword.cloudantfull}} getting started tutorial,
+we use Python to create a {{site.data.keyword.cloudant_short_notm}} database
 and populate that database with a simple collection of data.
 {:shortdesc}
+
+In addition to this tutorial, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
+
+- [Liberty for Java and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
+- [Node.js and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+
+For more in-depth tutorials about deploying your first app, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/){:new_window}. 
 
 <div id="prerequisites"></div>
 
