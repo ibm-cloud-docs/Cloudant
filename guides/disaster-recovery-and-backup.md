@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -64,6 +64,7 @@ the tools and features can then address your HA or DR requirements.
 
 >	**Note**: Different tools and features provide different levels of protection.
 	The different features might be more or less suitable for your specific HA or DR requirement.
+{:tip}
 
 {{site.data.keyword.cloudant_short_notm}} provides a number of tools and features that address general requirements:
 
@@ -186,7 +187,8 @@ the tools supported by {{site.data.keyword.cloudant_short_notm}} help you to:
 	suitable for further processing and off-site storage.
 *	Restore complete databases from a previous state that is contained in your backup file.
 
-<strong style="color:red;">Warning!</strong> The tools supported by {{site.data.keyword.cloudant_short_notm}} have the following limitations: 
+> **Warning!** The tools supported by {{site.data.keyword.cloudant_short_notm}} have the following limitations: 
+{:tip}
 
 *	`_security` settings are not backed up by the tools.
 *	Attachments are not backed up by the tools.

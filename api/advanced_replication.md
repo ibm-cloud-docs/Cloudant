@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-15"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -102,7 +102,7 @@ Use it to determine the status of a replication described by a replication docum
 The status of a replication can be one of seven possible states,
 as described [previously](#the-replication-scheduler).
 
-#### Query parameters 
+#### Query parameters for the `/_scheduler/docs` endpoint
 
 You can add query parameters to the URL and narrow your search results, for example, `'_scheduler/docs/_replicator?limit=1&skip=1'`. 
 
@@ -134,7 +134,7 @@ the endpoint does not include results for replications that are in the `complete
 the reason is that such replications are considered to have finished,
 and therefore are no longer active jobs.
 
-#### Query parameters 
+#### Query parameters for the `/_scheduler/jobs` endpoint
 
 You can add query parameters to the URL and narrow your search results, for example, `'_scheduler/jobs/_replicator?limit=1&skip=1'`. 
 
