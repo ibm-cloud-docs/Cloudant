@@ -74,19 +74,19 @@ The information returned in the previous example is described in the following l
 </tr>
 <tr>
 <td headers="field"><p style="margin-left: 40px"><code>dashboard_url</code></p></td>
-<td headers="description">URL of the {{site.data.keyword.dashdbshort_notm}} console</td>
+<td headers="description"><p>URL of the {{site.data.keyword.dashdbshort_notm}} console</p></td>
 </tr>
 <tr>
 <td headers="field"><p style="margin-left: 40px"><code>dynamite_token</code></p></td>
-<td headers="description">Db2 password</td>
+<td headers="description"><p>Db2 password</p></td>
 </tr>
 <tr>
 <td headers="field"><p style="margin-left: 40px"><code>target</code></p></td>
-<td headers="description">Db2 JDBC connection URL, only used if the value for <code>dashboard_url</code> is null</td>
+<td headers="description"><p>Db2 JDBC connection URL, only used if the value for <code>dashboard_url</code> is null</p></td>
 </tr>
 <tr>
 <td headers="field"><p style="margin-left: 40px"><code>dynamite_user</code></p></td>
-<td headers="description">Db2 user name</td>
+<td headers="description"><p>Db2 user name</p></td>
 </tr>
 </tr>
 </table>
