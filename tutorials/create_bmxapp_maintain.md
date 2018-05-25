@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-05-11"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: maintaining and troubleshooting
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: maintaining and troubleshooting
 
 This tutorial shows you how to maintain an
-{{site.data.keyword.Bluemix}} application,
-hosted in your {{site.data.keyword.Bluemix_notm}} service instance.
+{{site.data.keyword.cloud}} application,
+hosted in your {{site.data.keyword.cloud_notm}} service instance.
 {:shortdesc}
 
 <div id="maintenance"></div>
@@ -28,12 +28,12 @@ hosted in your {{site.data.keyword.Bluemix_notm}} service instance.
 This section of the tutorial explains how to refresh,
 start,
 and stop,
-your Python applications on {{site.data.keyword.Bluemix_notm}}.
+your Python applications on {{site.data.keyword.cloud_notm}}.
 
 ### Finding the status of your application
 
 The status of applications within your
-{{site.data.keyword.Bluemix_notm}} service instance is displayed on the dashboard.
+{{site.data.keyword.cloud_notm}} service instance is displayed on the dashboard.
 
 In the following example,
 The `Cloudant Python` application is not running,
@@ -81,7 +81,7 @@ simply follow the [upload process](create_bmxapp_upload.html).
 The new version overwrites the older version of the application.
 
 >   **Note**: If the older version of the application is already running when you start the upload,
-    {{site.data.keyword.Bluemix_notm}} automatically stops the application first.
+    {{site.data.keyword.cloud_notm}} automatically stops the application first.
 
 ## Diagnosing and resolving problems
 
@@ -89,9 +89,9 @@ This section of the tutorial provides some basic troubleshooting tips to help
 you identify,
 diagnose,
 and resolve some problems that you might encounter when you develop and deploy
-your first {{site.data.keyword.Bluemix_notm}} applications.
+your first {{site.data.keyword.cloud_notm}} applications.
 
-A good source of advice on best practice for creating {{site.data.keyword.Bluemix_notm}} or
+A good source of advice on best practice for creating {{site.data.keyword.cloud_notm}} or
 Cloud Foundry applications is
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}.
 
@@ -110,13 +110,13 @@ is prudent.
 ### Using the application log
 
 The most useful resource for diagnosing and resolving problems with
-{{site.data.keyword.Bluemix_notm}} application is the log file.
+{{site.data.keyword.cloud_notm}} application is the log file.
 
-The log file for a {{site.data.keyword.Bluemix_notm}} application can be found on the `Logs` information page:<br/>
+The log file for an {{site.data.keyword.cloud_notm}} application can be found on the `Logs` information page:<br/>
 ![Screen capture showing the link to access the 'Logs' information page](images/img0042.png)
 
 Like most log files,
-a {{site.data.keyword.Bluemix_notm}} application log contains details about what events occurred,
+an {{site.data.keyword.cloud_notm}} application log contains details about what events occurred,
 and when.
 
 The log also identifies which component was involved in the recorded event.
@@ -126,7 +126,7 @@ Component label | Component
 ----------------|----------
 `API`           | The Cloud Foundry system.
 `APP`           | Your application.
-`CELL`          | The container that holds your application within {{site.data.keyword.Bluemix_notm}}.
+`CELL`          | The container that holds your application within {{site.data.keyword.cloud_notm}}.
 `RTR`           | The networking components carry messages to or from your application.
 
 For example,

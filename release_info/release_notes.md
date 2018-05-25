@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-04-19"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-04-19"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-07-14 -->
+<!-- Acrolinx: 2018-05-07 -->
 
 # Release Notes
 
@@ -23,7 +23,17 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 6900 (April 19, 2018)
+## Build 6919 (May 14, 2018)
+
+- Remove outdated dependencies.
+- Introduce new action, `DELETE`, on the `/_iam_session` endpoint which invalidates the IAM session cookie. 
+
+## Build 6909 (April 26, 2018)
+
+- Improved compatibility with IAM.
+- Fix `badarg` error in the module that parses `http` multipart requests.
+
+## Build 6900 (April 25, 2018)
 
 - Improve validation of password schemes. 
 - In `_scheduler/docs`, set the value of the state field to `crashing` when the last event in the history was a crash. 
@@ -32,7 +42,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6895 (April 17, 2018)
 
-- Fix a regression introduced with pluggable storage engine.
+- Fix a regression that is introduced with pluggable storage engine.
 
 ## Build 6875 (April 4, 2018)
 
@@ -41,7 +51,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6870 (March 30, 2018)
 
-- Fix how the `kill` command works when terminating an operating system process. 
+- Fix how the `kill` command works when you terminate an operating system process. 
 - Fix `_changes` endpoint shard substitution.
 - Fix compaction resumption for terminated compactions.
 
@@ -58,8 +68,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6656 (February 15, 2018)
 
-- Update `_design_docs` to respect the query parameters used by `_all_docs`. See [Get design documents](../api/database.html#get-design-documents).
-- When sending a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
+- Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](../api/database.html#get-design-documents).
+- When you send a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
 - Remove headers from replication document on read.
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response. 
 - Change semantics of status codes for create database.
@@ -70,53 +80,53 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6600 (December 28, 2017)
 
-- Query: fields referenced within `$or` operations are considered when determining the usable 
-indexes for a given selector.
+- Query: fields that are referenced within `$or` operations are considered when {{site.data.keyword.cloudant_short_notm}} query determines the usable 
+indexes for a particular selector.
 
 ## Build 6588 (December 7, 2017)
 
-- A new parameter, `create_target_params`, was added that allows you to customize the target database
+- A new parameter, `create_target_params`, was added for you to customize the target database
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
 replicas to create.
 - A request to `/_scheduler` without specifying subsections `docs` or `jobs` now returns a `Not found` error.
 - A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request.`
 - For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in 
 JavaScript.
-- Added the header `Prefer: return=minimal` to return only essential headers. This reduces the size of the request which gives a performance improvement to non-browser clients.
+- Added the header `Prefer: return=minimal` to return only essential headers. This header reduces the size of the request, which gives a performance improvement to non-browser clients.
 
 ### Query (<code>_find</code> endpoint):
 
 - {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){:new_window}.
-- The logic for determining whether a given index is valid for a query has changed, addressing a bug that could lead to incorrect results. 
-- Queries using text indexes no longer crash when `$exists`: `false` is used.
-- Partial indexes are now supported for both JSON and text indexes. See  [Creating a partial index](../api/cloudant_query.html#creating-a-partial-index) for more information.
-- Execution statistics about a query can now be generated. These are enabled using the `execution_stats=true` parameter. See [finding documents by using an index](../api/cloudant_query.html#finding-documents-by-using-an-index) for more information.
-- [Pagination](../api/cloudant_query.html#pagination) is supported using the bookmark field. Bookmarks are enabled for all index types.
+- The logic for determining whether a specific index is valid for a query has changed, addressing a bug that might lead to incorrect results. 
+- Queries that use text indexes no longer crash when `$exists`: `false` is used.
+- Partial indexes are now supported for both JSON and text indexes. For more information, see  [Creating a partial index](../api/cloudant_query.html#creating-a-partial-index) for more information.
+- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [finding documents by using an index](../api/cloudant_query.html#finding-documents-by-using-an-index) for more information.
+- [Pagination](../api/cloudant_query.html#pagination) is supported by using the bookmark field. Bookmarks are enabled for all index types.
 - `_find` now falls back to any valid index if the value specified in the `use_index`
 field is invalid for the current query. When this occurs, the `warning` field is populated in the query response.
 
 ## Build 6365 (August 17, 2017)
 
 - `POST` requests to the `_revs_diff` endpoint require either the `_reader` or `_replicator` role.
-- Add the `X-Frame-Options` header settings to prevent clickjacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options-setting).
-- Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler).   
+- Add the `X-Frame-Options` header settings to prevent click jacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options-setting).
+- Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler).  
 
 ## Build 6276 (July 4, 2017)
 
-- An error message that occurs when you attempt to put a document attachment with a non-existent revision has changed
-to a 409 error with the following information: `{`error`:`not_found`,`reason`:`missing_rev`}`.
+- An error message changed that occurs when you attempt to put a document attachment with a non-existent revision.
+Now, the error is a 409 error with the following information: `{`error`:`not_found`,`reason`:`missing_rev`}`.
 
 ## Build 6233 (June 26, 2017)
 
-- Fixes a {{site.data.keyword.cloudant_short_notm}} Query issue where indexes excluding potentially matching documents were selected by the query planner.
+- Fixes a {{site.data.keyword.cloudant_short_notm}} Query issue where indexes that excluded potentially matching documents were selected by the query planner.
 
 ## Build 6069 (May 11, 2017)
 
-- Previously, a replication job which crashed for some reason resulted in an update to the replication document,
+- Previously, a replication job that failed for some reason which resulted in an update to the replication document,
   followed by a fresh attempt to start a new replication.
   Under some circumstances,
-  this behavior could continue indefinitely: many duplicates of the same error message.
-  A fix was introduced so that the replication document is not updated unless the reason for the error has changed.
+  this behavior might continue indefinitely: many duplicates of the same error message.
+  A fix was introduced so that the replication document is not updated unless the reason for the error changes.
 - If the design document that is intended to specify a geospatial index is invalid,
   an attempt to retrieve information about the index by using
   the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
@@ -129,8 +139,8 @@ to a 409 error with the following information: `{`error`:`not_found`,`reason`:`m
 
 ## Build 5728 (November 25, 2016)
 
-- {{site.data.keyword.cloudant_short_notm}} is more tolerant of malformed user documents stored within the `_users` database.
-  User documents should be structured and populated to comply with
+- {{site.data.keyword.cloudant_short_notm}} is more tolerant of malformed user documents that are stored within the `_users` database.
+  User documents must be structured and populated to comply with
   [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
 
 ## Build 5638 (October 11, 2016)

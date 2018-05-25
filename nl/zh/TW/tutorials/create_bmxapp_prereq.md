@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-10"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,14 +14,14 @@ lastupdated: "2017-01-10"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# 建立簡單的 Bluemix 應用程式以存取 Cloudant 資料庫：必要條件
+# 建立簡單的 {{site.data.keyword.Bluemix_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：必要條件
 
 指導教學的這一節說明用於建立 {{site.data.keyword.Bluemix}} 應用程式的必要條件。
 {:shortdesc}
 
 ## 必要條件
 
-請確定您已有下列資源或資訊，再透過指導教學開始運作。
+請確定您已有下列資源或資訊，然後才開始進行本指導教學。
 
 ### Python
 
@@ -43,15 +43,15 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### Bluemix 上的 Cloudant 服務實例
+### {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例
 
-[這裡](create_service.html)提供用於建立 {{site.data.keyword.cloudant_short_notm}} 服務實例（稱為 '`Cloudant Service 2017`'）的不同指導教學。
+[這裡](create_service.html)提供用於建立 {{site.data.keyword.cloudantfull}} 服務實例（稱為 '`Cloudant Service 2017`'）的個別指導教學。
 
 本指導教學假設您已建立稱為 '`Cloudant Service 2017`' 的服務實例。
 
-### Cloudant 資料庫應用程式
+### {{site.data.keyword.cloudant_short_notm}} 資料庫應用程式
 
-[這裡](create_database.html)提供用於建立獨立式 Python 應用程式來使用 {{site.data.keyword.cloudant_short_notm}} 服務實例的不同指導教學。它會引進有助於瞭解如何建立並將資料移入 {{site.data.keyword.cloudant_short_notm}} 資料庫的一些概念。
+[這裡](create_database.html)提供用於建立獨立式 Python 應用程式，以便使用 {{site.data.keyword.cloudant_short_notm}} 服務實例的個別指導教學。它介紹有助於瞭解如何建立 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中的一些概念。
 
 本指導教學假設您熟悉這些概念。
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-22"
+lastupdated: "2018-05-15"
 
 ---
 
@@ -316,9 +316,9 @@ Accept: application/json
 
 <div id="-optional-creating-a-replication-to-two-bluemix-environments"></div>
 
-### Creating a replication within a Bluemix environment
+### Creating a replication within an {{site.data.keyword.cloud_notm}} environment
 
-You can replicate a {{site.data.keyword.cloudant_short_notm}} database to one or more Bluemix environments.
+You can replicate a {{site.data.keyword.cloudant_short_notm}} database to one or more {{site.data.keyword.cloud}} environments.
 When you set up the replication job for each environment,
 the source database and target database names you provide must use the following format:
 
@@ -327,7 +327,7 @@ https://$ACCOUNT:$PASSWORD@$REMOTE_USERNAME.cloudant.com/$DATABASE_NAME
 ```
 {:codeblock}
 
-You create the database within Bluemix by using the name: `$DATABASE_NAME`,
+You create the database within {{site.data.keyword.cloud}} by using the name: `$DATABASE_NAME`,
 and add it to the URL format.
 Do not copy the `URL` field from the `VCAP_SERVICES` environment variable.
 
