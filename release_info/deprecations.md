@@ -27,14 +27,14 @@ for tutorials on
 extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
 {{site.data.keyword.dashdbshort_notm}} table.
 
-### Signing in to {{site.data.keyword.dashdbshort_notm}} console  
+### Extracting {{site.data.keyword.dashdbshort_notm}} login information for stopped Warehouse Jobs
 
-If you want to sign in to the {{site.data.keyword.dashdbshort_notm}} console, you must first extract the information that you need to sign with from the warehouser document. 
+Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need the URL and credentials. This information is located in the warehouser document. 
 
 To retrieve information from the warehouser document, you must run the following curl command:
 
 ```curl
-curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/_warehouser/_id
+curl -u $USERNAME https://$ACCOUNT.cloudant.com/_warehouser/$DOCUMENT_ID
 ```
 
 For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values are the same. 
@@ -42,7 +42,7 @@ For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values ar
 Before you run the command, replace `_id` with `example@source-db`. In this case, `example` is the warehouser document's name, and `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to Db2:
 
 ```curl
-curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/_warehouser/example@source-db
+curl -u $USERNAME https://$ACCOUNT.cloudant.com/_warehouser/example@source-db
 ```
 
 _Example response when you search for information in the warehouser document:_
@@ -53,32 +53,23 @@ _Example response when you search for information in the warehouser document:_
       "dashboard_url": "https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login",
       "dynamite_token": "XXXXXXXX",
       "target": "jdbc:db2://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net:50000/BLUDB",
-      "dynamite_user": "dash12555",
+      "dynamite_user": "dash12345",
   ...
 }
 ```
 
-The following table shows the fields that you use to find information for signing in to the {{site.data.keyword.dashdbshort_notm}} console: 
+The information returned in the previous example is described in the following list:
 
-| Field | Description 
-| --- | --- 
-| `_id` | ID of the _warehouser document 
-| `dashboard_url` | URL of the {{site.data.keyword.dashdbshort_notm}} console 
-| `dynamite_token` | Db2 token 
-| `target` | Db2 JDBC connection URL, only used if the value for `dashboard_url` is null
-| `dynamite_user` | Db2 user name
-
-To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to remember the values for each of the following fields that are taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.  
-
+<ul><li><code>_id</code> - ID of the _warehouser document
+<p><ul><li><code>dashboard_url</code> - URL of the {{site.data.keyword.dashdbshort_notm}} console</li>
+      <li><code>dynamite_token</code> - Db2 password </li>
+      <li><code>target</code> - Db2 JDBC connection URL, only used if the value for <code>dashboard_url</code> is null</li>
+      <li><code>dynamite_user</code> - Db2 user name</li></ul></p></li></ul>
+       
 1.  From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console by using the value in the `dashboard_url` field.  
-> **Note**: If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console.  For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the postfix `login`, you can sign in with the following URL: `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
-2. To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password. 
-3.  Click **Sign In** to continue.
-4.  After you sign in, the dashboard appears.  
-5.  Click the **Explore** tab to see your Db2 schemas and tables.  
-    All the tables that were created with the {{site.data.keyword.dashdbshort_notm}} feature are under the `dynamite_user` name.
+> **Note**: To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the postfix `login`, you can sign in with the following URL: `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
+2. To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password.
 
-> **Note**: If you want to run SQL commands on the tables, go to the Run SQL tab.
 
 ## Disabled JavaScript constructors (December 7, 2017)
 
