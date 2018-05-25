@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-24"
+lastupdated: "2018-05-25"
 
 ---
 
@@ -27,7 +27,7 @@ for tutorials on
 extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
 {{site.data.keyword.dashdbshort_notm}} table.
 
-### Extracting {{site.data.keyword.dashdbshort_notm}} login information for stopped Warehouse Jobs
+### Extracting {{site.data.keyword.dashdbshort_notm}} login information for stopped {{site.data.keyword.dashdbshort_notm}} Jobs
 
 Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need the URL and credentials. This information is located in the warehouser document. 
 
@@ -39,7 +39,7 @@ curl -u $USERNAME https://$ACCOUNT.cloudant.com/_warehouser/$DOCUMENT_ID
 
 For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values are the same. 
 
-Before you run the command, replace `_id` with `example@source-db`. In this case, `example` is the warehouser document's name, and `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to Db2:
+Before you run the command, replace `$DOCUMENT_ID` with `example@source-db`. In this case, `example` is the warehouser document's name, and `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to Db2:
 
 ```curl
 curl -u $USERNAME https://$ACCOUNT.cloudant.com/_warehouser/example@source-db
@@ -69,23 +69,23 @@ The information returned in the previous example is described in the following l
 <th id="field">Field</th><th id="description" colspan='4'>Description</th>
 </tr>
 <tr>
-<td headers="field"><code>_id</code></td>
+<td headers="field"><p style="margin-left: 02px"><code>_id</code></p></td>
 <td headers="description">ID of the _warehouser document</td>
 </tr>
 <tr>
-<td headers="field"><p style="margin-left: 40px"><code>dashboard_url</code></p></td>
+<td headers="field"><p style="margin-left: 20px"><code>dashboard_url</code></p></td>
 <td headers="description"><p>URL of the {{site.data.keyword.dashdbshort_notm}} console</p></td>
 </tr>
 <tr>
-<td headers="field"><p style="margin-left: 40px"><code>dynamite_token</code></p></td>
+<td headers="field"><p style="margin-left: 20px"><code>dynamite_token</code></p></td>
 <td headers="description"><p>Db2 password</p></td>
 </tr>
 <tr>
-<td headers="field"><p style="margin-left: 40px"><code>target</code></p></td>
+<td headers="field"><p style="margin-left: 20px"><code>target</code></p></td>
 <td headers="description"><p>Db2 JDBC connection URL, only used if the value for <code>dashboard_url</code> is null</p></td>
 </tr>
 <tr>
-<td headers="field"><p style="margin-left: 40px"><code>dynamite_user</code></p></td>
+<td headers="field"><p style="margin-left: 20px"><code>dynamite_user</code></p></td>
 <td headers="description"><p>Db2 user name</p></td>
 </tr>
 </tr>
