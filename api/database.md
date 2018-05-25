@@ -84,7 +84,7 @@ the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
-201  | Database created successfully
+201  | Database created successfully.
 202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
 403  | Invalid database name.
 412  | Database already exists.
