@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-23"
+lastupdated: "2018-05-24"
 
 ---
 
@@ -60,11 +60,38 @@ _Example response when you search for information in the warehouser document:_
 
 The information returned in the previous example is described in the following list:
 
-<ul><li><code>_id</code> - ID of the _warehouser document
-<p><ul><li><code>dashboard_url</code> - URL of the {{site.data.keyword.dashdbshort_notm}} console</li>
-      <li><code>dynamite_token</code> - Db2 password </li>
-      <li><code>target</code> - Db2 JDBC connection URL, only used if the value for <code>dashboard_url</code> is null</li>
-      <li><code>dynamite_user</code> - Db2 user name</li></ul></p></li></ul>
+
+<div id="warehouser-fields"></div>
+
+<table border='1'>
+
+<tr>
+<th id="field">Field</th><th id="description" colspan='4'>Description</th>
+</tr>
+<tr>
+<td headers="field"><code>_id</code></td>
+<td headers="description">ID of the _warehouser document</td>
+</tr>
+<tr>
+<td headers="field"><p style="margin-left: 40px"><code>dashboard_url</code></p></td>
+<td headers="description">URL of the {{site.data.keyword.dashdbshort_notm}} console</td>
+</tr>
+<tr>
+<td headers="field"><p style="margin-left: 40px"><code>dynamite_token</code></p></td>
+<td headers="description">Db2 password</td>
+</tr>
+<tr>
+<td headers="field"><p style="margin-left: 40px"><code>target</code></p></td>
+<td headers="description">Db2 JDBC connection URL, only used if the value for <code>dashboard_url</code> is null</td>
+</tr>
+<tr>
+<td headers="field"><p style="margin-left: 40px"><code>dynamite_user</code></p></td>
+<td headers="description">Db2 user name</td>
+</tr>
+</tr>
+</table>
+
+To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to remember the values for each of the following fields that are taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.
        
 1.  From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console by using the value in the `dashboard_url` field.  
 > **Note**: To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the postfix `login`, you can sign in with the following URL: `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
