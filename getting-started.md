@@ -36,19 +36,19 @@ For more language-specific tutorials, see [Get started by deploying your first a
 ## Before you begin
 {: #prereqs}
 
-You'll need a [{{site.data.keyword.Bluemix}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window},
-an instance of the {{site.data.keyword.cloudant}} service, and the following Python requirements:
+You need an [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window},
+an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the following Python requirements:
 
-*	Install the latest version of the
+*	Install the most recent version of the
 	[Python programming language ![External link icon](images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} on your system.
 	
-	To check this, run the following command at a prompt:
+	To check, run the following command at a prompt:
 	```sh
 	python --version
 	```
 	{:pre}
 	
-	You should get a result similar to:
+	You will see a result similar to this one:
 
 	```
 	Python 2.7.12
@@ -59,21 +59,25 @@ an instance of the {{site.data.keyword.cloudant}} service, and the following Pyt
 	to enable your Python applications to work with
 	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}}.
 	
-	To check that you have the client library installed successfully,
+	To check that you installed the client library successfully,
 	run the following command at a prompt:
 	```sh
 	pip freeze
 	```
 	{:pre}
 	
+<<<<<<< HEAD
 	You should get a list of all the Python modules installed on your system. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
+=======
+	You will see a list of all the Python modules installed on your system. Inspect the list, looking for a {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
+>>>>>>> 68e1544... Run Acrolinx for fb93523b.
 
 	```
 	cloudant==2.3.1
 	```
 	{:screen}
 	
-	If the `cloudant` module is not installed, install it by using a command similar to the following:
+	If the `cloudant` module is not installed, install it by using a command similar to the following one:
 	
 	```
 	pip install cloudant==2.3.1
