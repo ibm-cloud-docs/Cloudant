@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-25"
+lastupdated: "2018-05-30"
 
 ---
 
@@ -50,10 +50,10 @@ _Example response when you search for information in the warehouser document:_
 ```http
 {
   "_id": "example@source-db",
-      "dashboard_url": "https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login",
-      "dynamite_token": "XXXXXXXX",
-      "target": "jdbc:db2://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net:50000/BLUDB",
-      "dynamite_user": "dash12345",
+  "dashboard_url": "https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login",
+  "dynamite_token": "XXXXXXXX",
+  "target": "jdbc:db2://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net:50000/BLUDB",
+  "dynamite_user": "dash12345",
   ...
 }
 ```
