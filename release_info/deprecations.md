@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-30"
+lastupdated: "2018-05-31"
 
 ---
 
@@ -21,7 +21,7 @@ Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releas
 
 ## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (February 7, 2018)
  
-To find alternatives to {{site.data.keyword.dashdblong}}, see the 
+To find alternatives to {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdblong}} feature, see the 
 [data-flow-examples repository ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/data-flow-examples){:new_window} 
 for tutorials on 
 extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
