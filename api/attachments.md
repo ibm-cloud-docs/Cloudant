@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-05-31"
 
 ---
 
@@ -11,8 +11,13 @@ lastupdated: "2018-05-16"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-05-31 -->
 
 # Attachments
+{: #attachments}
+
 Another way to store data is to use attachments.
 Attachments are Binary Large Object ([BLOB ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Binary_large_object){:new_window})
 files contained within documents.
@@ -27,18 +32,21 @@ The BLOB holds data including:
 
 Examples of BLOBs would be images and multimedia.
 
->	**Note**: If you include the attachment as an '[inline](#inline)' component of the overall JSON,
+If you include the attachment as an '[inline](#inline)' component of the overall JSON,
 the attachment content should be represented using BASE64 form.
+{: tip}
 
 The content type corresponds to a [MIME type ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){:new_window}.
 For example,
 if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.
 
->	**Note**: As a best practice,
+As a best practice,
 keep attachments small in size and number because attachments can impact performance.
+{: tip}
 
 ## Create / Update
+{: #create-update}
 
 To create a new attachment at the same time as creating a new document,
 include the attachment as an '[inline](#inline)' component of the JSON content.
@@ -50,8 +58,9 @@ The attachment's [content type ![External link icon](../images/launch-glyph.svg 
 must be specified using the `Content-Type` header.
 The `$ATTACHMENT` value is the name by which the attachment is associated with the document.
 
->	**Note**: You can create more than one attachment for a document by ensuring
+You can create more than one attachment for a document by ensuring
 that the `$ATTACHMENT` value for each attachment is unique within the document.
+{: tip}
 
 _Example instruction for creating or updating an attachment, using HTTP:_
 
@@ -98,9 +107,9 @@ fs.readFile($FILEPATH, function (err, data) {
 
 The response contains the document ID and the new document revision.
 
->	**Note**: Attachments do not have their own revisions.
-Instead,
-updating or creating an attachment changes the revision of the document it is attached to.
+Attachments do not have their own revisions.
+Instead, when you update or create an attachment, it changes the revision of the document it is attached to. 
+{: tip}
 
 _Example response:_
 
@@ -114,6 +123,7 @@ _Example response:_
 {:codeblock}
 
 ## Read
+{: #read}
 
 To retrieve an attachment,
 make a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
@@ -154,6 +164,7 @@ db.attachment.get($DOCUMENT_ID, $FILENAME, function (err, body) {
 -->
 
 ## Delete
+{: #delete}
 
 To delete an attachment,
 make a `DELETE` request with the document's latest `_rev`
@@ -211,6 +222,7 @@ _Example response after successfuly deleting an attachment:_
 {:codeblock}
 
 ## Inline
+{: #inline}
 
 Inline attachments are attachments included as part of the JSON content.
 The content must be provided using [BASE64 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Base64){:new_window} representation,
@@ -236,6 +248,7 @@ _Example JSON document that includes an inline attachment of a jpeg image:_
 {:codeblock}
 
 ## Performance considerations
+{: #performance-considerations}
 
 While document attachments are very useful,
 they do have implications for application performance.

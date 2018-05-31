@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-05-31"
 
 ---
 
@@ -11,10 +11,12 @@ lastupdated: "2018-05-17"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-31 -->
+<!-- Acrolinx: 2018-05-31 -->
 
 # Advanced replication
+{: #advanced-replication}
 
 This section contains details about more advanced replication concepts and tasks.
 {:shortdesc}
@@ -24,6 +26,7 @@ You might also find it helpful to review details of the underlying
 and review the [Advanced Methods](advanced.html) material.
 
 ## Replication database maintenance
+{: #replication-database-maintenance}
 
 A replication database must be looked after like any other database.
 Without regular database maintenance,
@@ -36,6 +39,7 @@ This can be done by determining the age of documents,
 and [deleting them](document.html#delete) if they are no longer needed.
 
 ## The replication scheduler
+{: #the-replication-scheduler}
 
 The new {{site.data.keyword.cloudant_short_notm}} Replication Scheduler provides a number of improvements and enhancements when compared
 with the previous {{site.data.keyword.cloudant_short_notm}} replication mechanism.
@@ -96,6 +100,7 @@ The typical process for using the replication scheduler to manage and monitor re
 2.  Monitor the status of the replication using the `/_scheduler/docs` endpoint.
 
 ### The `/_scheduler/docs` endpoint
+{: #the-_scheduler-docs-endpoint}
 
 The `/_scheduler/docs` endpoint provides a monitoring capability.
 Use it to determine the status of a replication described by a replication document.
@@ -103,6 +108,7 @@ The status of a replication can be one of seven possible states,
 as described [previously](#the-replication-scheduler).
 
 #### Query parameters for the `/_scheduler/docs` endpoint
+{: #query-parameters-for-the-_scheduler-docs-endpoint}
 
 You can add query parameters to the URL and narrow your search results, for example, `'_scheduler/docs/_replicator?limit=1&skip=1'`. 
 
@@ -117,12 +123,14 @@ Name      | Type                    | Description                               
 `skip`    | integer                 | Number of results to skip before returning search results.                | 0
 
 #### The `/_scheduler/docs/_replicator/$doc_id` endpoint
+{: #the-_scheduler-docs-_replicator-doc_id-endpoint}
 
 The endpoint uses document IDs as the primary identifier.
 This characteristic means that if you know the document ID,
 you can directly query that one particular document by using a `/_scheduler/docs/_replicator/$doc_id` query. Note that the ID must be URL encoded. 
 
 ### The `/_scheduler/jobs` endpoint
+{: #the-_scheduler-jobs-endpoint}
 
 The `/_scheduler/jobs` endpoint provides more details about active replication tasks that are performed during replication.
 
@@ -135,6 +143,7 @@ the reason is that such replications are considered to have finished,
 and therefore are no longer active jobs.
 
 #### Query parameters for the `/_scheduler/jobs` endpoint
+{: #query-parameters-for-the-_scheduler-jobs-endpoint}
 
 You can add query parameters to the URL and narrow your search results, for example, `'_scheduler/jobs/_replicator?limit=1&skip=1'`. 
 
@@ -148,21 +157,25 @@ Name     | Type    | Description                                                
 `skip`   | integer | Number of results to skip before returning search results.           | 0
 
 #### The `/_scheduler/jobs/_replicator/$job_id` endpoint
+{: #the-_scheduler-jobs-_replicator-job_id-endpoint}
 
 The `/_scheduler/jobs/_replicator/$job_id` endpoint shows the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
 
 ## Replication Status
+{: #replication-status}
 
 You can determine replication status by checking
 the [replication scheduler](#status-checking-by-using-the-replication-scheduler).
 
-> **Note:** The previous technique of checking replication status by inspecting
+The previous technique of checking replication status by inspecting
 the [replication document](#status-checking-by-using-the-replication-document) is still available.
+{: tip}
 
 
 <div id="status-checking-using-the-replication-scheduler"></div>
 
 ### Status checking by using the replication scheduler
+{: #status-checking-by-using-the-replication-scheduler}
 
 The replication scheduler enables you to determine the status of replication. 
 
@@ -344,11 +357,13 @@ The response received from the replication scheduler shows the history and curre
 <div id="status-checking-using-the-replication-document"></div>
 
 ### Status checking by using the replication document
+{: #status-checking-by-using-the-replication-document}
 
 When replication is managed by storing a document in the `_replicator` database,
 the contents of the document are updated as the replication status changes.
 
-> **Note:** The preferred method of checking replication status is to use the [replication scheduler](#the-replication-scheduler).
+The preferred method of checking replication status is to use the [replication scheduler](#the-replication-scheduler).
+{: tip}
 
 In particular, after replication starts,
 three new fields are added automatically to the replication document.
@@ -417,6 +432,7 @@ A continuous replication can never have a `completed` state.
 <div id="authentication"></div>
 
 ## Authentication during replication
+{: #authentication-during-replication}
 
 In any production application, security of the source and target databases is essential.
 In order for replication to proceed, authentication is necessary to access the databases.
@@ -438,14 +454,16 @@ _Example of specifying user name and password values for accessing source and ta
 {:codeblock}
 
 ## Filtered Replication
+{: #filtered-replication}
 
 Sometimes you do not want to transfer all documents from source to target.
 To choose which documents to transfer,
 include one or more filter functions in a design document on the source.
 You can then tell the replicator to use these filter functions.
 
-> **Note**: Filtering documents during replication is similar to the process of
+Filtering documents during replication is similar to the process of
 [filtering the `_changes` feed](design_documents.html#filter-functions).
+{: tip}
 
 A filter function takes two arguments:
 
@@ -514,6 +532,7 @@ _Example JSON for starting a filtered replication with supplied parameters:_
 {:codeblock}
 
 ## Named Document Replication
+{: #named-document-replication}
 
 Sometimes you do not want to replicate documents.
 For simple replications,
@@ -534,6 +553,7 @@ _Example replication of specific documents:_
 {:codeblock}
 
 ## Replicating through a proxy
+{: #replicating-through-a-proxy}
 
 If you want replication to pass through an HTTP proxy,
 provide the proxy details in the `proxy` field of the replication data.
@@ -550,6 +570,7 @@ _Example showing replication through a proxy:_
 {:codeblock}
 
 ## The `user_ctx` property and delegations
+{: #the-user_ctx-property-and-delegations}
 
 Replication documents can have a custom `user_ctx` property.
 This property defines the user context under which a replication runs.
@@ -607,7 +628,8 @@ for admins,
 the `user_ctx` property can be used to trigger a replication on behalf of another user.
 This user context is passed to local target database document validation functions.
 
->   **Note**: The `user_ctx` property applies for local endpoints only.
+The `user_ctx` property applies for local endpoints only.
+{: tip}
 
 In summary,
 for admins the `user_ctx` property is optional,
@@ -616,6 +638,7 @@ When the roles property of `user_ctx` is missing,
 it defaults to the empty list `[ ]`.
 
 ## Performance-related options
+{: #performance-related-options}
 
 Several performance-related options can be set for a replication,
 by including them in the replication document.
@@ -667,6 +690,7 @@ _Example of including performance options in a replication document:_
 {:codeblock}
 
 ## Attachments
+{: #attachments}
 
 Having large numbers of attachments on documents might cause an adverse effect on replication performance.
 
@@ -674,9 +698,12 @@ For more information about the effect of attachments on replication performance,
 see [here](attachments.html#performance-considerations).
 
 ## The `/_replicate` endpoint
+{: #the-_replicate-endpoint}
 
->	**Note**: It is preferable to use the [Replicator scheduler](#the-replication-scheduler) to manage replication.
-	Details of why are provided [here](#avoiding-the-_replicate-endpoint).
+It is preferable to use the [Replicator scheduler](#the-replication-scheduler) to manage replication.
+Details of why are provided [here](#avoiding-the-_replicate-endpoint).
+{: tip}
+
 
 You can use this endpoint to request,
 configure,
@@ -740,6 +767,7 @@ _Example JSON document that describes the required replication:_
 {:codeblock}
 
 ### Return Codes
+{: #return-codes}
 
 Code  | Description
 ------|------------
@@ -749,12 +777,14 @@ Code  | Description
 `500` | JSON specification was invalid.
 
 ### Canceling replication using the `/_replicate` endpoint
+{: #canceling-replication-using-the-_replicate-endpoint}
 
 A replication that is triggered by `POST`ing to `/_replicate` can be canceled
 by `POST`ing the exact same JSON object but with the additional `cancel` property set to `true`.
 
->	**Note**: If a replication is canceled,
+If a replication is canceled,
 the request that initiated the replication fails with [error 500 (shutdown)](http.html#500).
+{: tip}
 
 The replication ID can be obtained from the original replication request if it is a continuous replication.
 Alternatively,
@@ -788,8 +818,10 @@ _Example JSON document that describes the replication to be canceled:_
 {:codeblock}
 
 ### Avoiding the `/_replicate` endpoint
+{: #avoiding-the-_replicate-endpoint}
 
->   **Note**: Use the [`_replicator` scheduler](#the-replication-scheduler) in preference to the `/_replicate` endpoint.
+Use the [`_replicator` scheduler](#the-replication-scheduler) in preference to the `/_replicate` endpoint.
+{: tip}
 
 A significant reason is that if there was a problem during replication,
 such as a stall,

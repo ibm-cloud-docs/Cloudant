@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-05-31"
 
 ---
 
@@ -11,8 +11,12 @@ lastupdated: "2017-11-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-05-31 -->
 
 # Authentication
+{: #authentication}
 
 Authentication means proving who you are.
 This is typically done by providing your user credentials for verification.
@@ -29,12 +33,14 @@ Cookie authentication is similar to having a key to the door so that you can let
 Within {{site.data.keyword.cloudant_short_notm}},
 the key is a cookie named `AuthSession`.
 
->	**Note**: When creating or using performance-critical {{site.data.keyword.cloudant_short_notm}} applications,
+When creating or using performance-critical {{site.data.keyword.cloudant_short_notm}} applications,
 Cookie authentication has benefits compared with Basic authentication.
 Therefore,
 you should prefer Cookie authentication where possible.
+{: tip}
 
 ## Basic Authentication
+{: #basic-authentication}
 
 To use Basic authentication,
 pass along your credentials as part of every request.
@@ -95,6 +101,7 @@ print ping.status_code
 {:codeblock}
 
 ## Cookie Authentication
+{: #cookie-authentication}
 
 Cookie authentication requires you to supply a valid username and password once,
 at the start of a series of tasks (the session).
@@ -118,6 +125,7 @@ Method | Path | Description | Headers | Form Parameters
 `DELETE` | `/_session` | Logout cookie based user | AuthSession cookie returned by POST request | —
 
 ### Requesting a cookie
+{: #requesting-a-cookie}
 
 With Cookie authentication,
 you use your credentials to acquire a cookie.
@@ -222,6 +230,7 @@ _JSON part of response:_
 <div id="getting-cookie-information"></div>
 
 ### Getting cookie-authenticated information
+{: #getting-cookie-authenticated-information}
 
 When a cookie has been set,
 information about the authenticated user can be retrieved with a `GET` request.
@@ -276,6 +285,7 @@ _Example response to request for cookie information:_
 {:codeblock}
 
 ### Deleting a cookie
+{: #deleting-a-cookie}
 
 You can end the cookie authentication session by sending a `DELETE` request to the same URL used to create the cookie.
 The `DELETE` request must include the cookie you wish to delete.

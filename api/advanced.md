@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-15"
+lastupdated: "2018-05-31"
 
 ---
 
@@ -11,8 +11,12 @@ lastupdated: "2018-05-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-05-31 -->
 
 # Advanced
+{: #advanced}
 
 These endpoints provide information about the state of the cluster,
 details about revision history,
@@ -20,6 +24,7 @@ and other miscellaneous tasks.
 {:shortdesc}
 
 ## `GET /`
+{: #-get-}
 
 -	**Method**: `GET`
 -	**Path**: `/`
@@ -30,11 +35,12 @@ The response is a JSON object containing a welcome message and the version of th
 The `version` field contains the CouchDB version the server is compatible with.
 The `vendor.version` field contains the build number of {{site.data.keyword.cloudantfull}}'s CouchDB implementation.
 
-> **Note:** For {{site.data.keyword.cloudant_short_notm}} versions prior to 2.0.0,
+For {{site.data.keyword.cloudant_short_notm}} versions prior to 2.0.0,
 you might see a `cloudant_build` field in the response,
 rather than a `vendor.version` field.
 In each case,
 the field contains the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
+{: tip}
 
 _Example request to get server meta information, using HTTP:_
 
@@ -100,8 +106,10 @@ _Example JSON response for an older {{site.data.keyword.cloudant_short_notm}} ve
 {:codeblock}
 
 ## `GET /_db_updates`
+{: #-get-_db_updates-}
 
-> **Note**: This endpoint is only available to customers with dedicated system accounts.
+This endpoint is only available to customers with dedicated system accounts.
+{: tip}
 
 The `/_db_updates` endpoint returns a list of changes to databases,
 similar to a global [changes feed](database.html#get-changes).
@@ -174,6 +182,7 @@ _Example response:_
 {:codeblock}
 
 ## `GET /$DATABASE/_shards`
+{: #-get-database-_shards-}
 
 The `/$DATABASE/_shards` endpoint returns informations about the shards in the cluster,
 specifically what nodes contain what hash ranges.
@@ -247,6 +256,7 @@ _Example response:_
 {:codeblock}
 
 ## `GET /$DATABASE/_missing_revs`
+{: #-get-database_missing_revs-}
 
 When supplied with a list of document revisions, 
 the `/$DATABASE/_missing_revs` endpoint returns a list of the document revisions that do not exist in the database.
@@ -320,6 +330,7 @@ _Example response:_
 {:codeblock}
 
 ## `POST /$DATABASE/_revs_diff`
+{: #-post-database-_revs_diff-}
 
 When supplied with a set of document revision IDs, 
 the `/$DATABASE/_revs_diff` endpoint returns the subset of those that do not correspond to revisions stored in the database.
@@ -396,13 +407,15 @@ _Example response:_
 {:codeblock}
 
 ## `GET /$DATABASE/_revs_limit`
+{: #-get-database-_revs_limit-}
 
 Gets the number of past revisions of a document that {{site.data.keyword.cloudant_short_notm}} retains.
 
-> **Note**: Although the documents associated with past revisions are automatically removed,
+Although the documents associated with past revisions are automatically removed,
 "tombstones" remain with the `_rev` value for that revision.
 If a document has more revisions than the value of `_revs_limit`,
 {{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
+{: tip}
 
 _Example request, using HTTP:_
 
@@ -447,13 +460,15 @@ _Example response:_
 {:codeblock}
 
 ## `PUT /$DATABASE/_revs_limit`
+{: #-put-database-_revs_limit-}
 
 Sets the maximum number of past revisions of a document that {{site.data.keyword.cloudant_short_notm}} retains.
 
->   **Note**: Although the documents associated with past revisions are automatically removed,
+Although the documents associated with past revisions are automatically removed,
 "tombstones" remain with the `_rev` value for that revision.
 If a document has more revisions than the value of `_revs_limit`,
 {{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
+{: tip}
 
 _Example request, using HTTP:_
 
@@ -503,6 +518,7 @@ _Example response:_
 {:codeblock}
 
 ## `GET /_membership`
+{: #-get-_membership-}
 
 This endpoint returns the names of nodes in the cluster.
 Currently active clusters are indicated in the `cluster_nodes` field.
@@ -549,6 +565,7 @@ account.request({
 -->
 
 ### Response structure
+{: #response-structure}
 
 Field name      | Description
 ----------------|------------------------------------------------------------------
@@ -574,6 +591,7 @@ _Example response:_
 {:codeblock}
 
 ## `GET /_uuids`
+{: #-get-_uuids-}
 
 This endpoint is a general utility requests one or more Universally Unique Identifiers (UUIDs).
 The response is a JSON object providing a list of UUIDs.

@@ -36,7 +36,7 @@ versions are released.
 - {{site.data.keyword.cloudant_short_notm}} Query uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){:new_window}.
  
 ### Response Content-Type
-{: #respons-content-type}
+{: #response-content-type}
 
 - The default response content-type changed from `text/plain` to `application/json`. 
 Previously, in the CouchDB 1.6-based release, the content-type of JSON database 
