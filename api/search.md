@@ -312,13 +312,9 @@ The name of the language is also the name of the analyzer.
 *	`thai`
 *	`turkish`
 
-    Language-specific analyzers are optimized for the specified language.
-    You cannot combine a generic analyzer with a language-specific analyzer.
-    Instead,
-    you might use a ['`perfield`' analyzer](#per-field-analyzers) to select different analyzers
-    for different fields within the documents.
-    {: tip}
-    
+Language-specific analyzers are optimized for the specified language. You cannot combine a generic analyzer with a language-specific analyzer. Instead, you might use a ['`perfield`' analyzer](#per-field-analyzers) to select different analyzers for different fields within the documents.
+{: tip}
+
 ### Per-Field Analyzers
 
 The '`perfield`' analyzer configures multiple analyzers for different fields.
@@ -350,10 +346,8 @@ _Example of defining different analyzers for different fields:_
 Stop words are words that do not get indexed.
 You define them within a design document by turning the analyzer string into an object.
 
-The `keyword`,
-`simple`,
- and `whitespace` analyzers do not support stop words.
- {: tip}
+The `keyword`, `simple`, and `whitespace` analyzers do not support stop words.
+{: tip}
 
 The default stop words for the `standard` analyzer are included in the following list:
 
@@ -495,10 +489,9 @@ db.search($DESIGN_ID, $SEARCH_INDEX, {
 
 ### Query Parameters
 
->	You must enable [faceting](#faceting) before you can use the following parameters:
-	-	`counts`
-	-	`drilldown`
-    {: tip}
+You must enable [faceting](#faceting) before you can use the following parameters:
+-	`counts`
+-	`drilldown`
     
 <table border='1'>
 
@@ -688,14 +681,11 @@ Fields that are used for sorting must be indexed by the same indexer that is use
 </tr>
 </table>
 
-	Do not combine the `bookmark` and `stale` options.
-	These options constrain the choice of shard replicas to use for the response.
-	When used together,
-	the options might cause problems when contact is attempted with replicas that are slow or not available.
-    {: tip}
+Do not combine the `bookmark` and `stale` options. These options constrain the choice of shard replicas to use for the response. When used together, the options might cause problems when contact is attempted with replicas that are slow or not available.
+{: tip}
 
-	Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
-    {: tip}
+Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
+{: tip}
 
 ### Relevance
 
@@ -816,16 +806,8 @@ you can run a query with `~` to find terms like the search term.
 For instance,
 `look~` finds the terms `book` and `took`.
 
-  If the lower and upper bounds of a range 
-  query are both strings that contain only numeric digits, 
-  the bounds are treated as numbers not as strings.
-  For example,
-  if you search by using the query
-  `mod_date:["20170101" TO "20171231"]`,
-  the results include documents for which `mod_date` is
-  between the numeric values 20170101 and 20171231,
-  not between the strings "20170101" and "20171231".
-  {: tip}
+If the lower and upper bounds of a range query are both strings that contain only numeric digits, the bounds are treated as numbers not as strings. For example, if you search by using the query `mod_date:["20170101" TO "20171231"]`, the results include documents for which `mod_date` is between the numeric values 20170101 and 20171231, not between the strings "20170101" and "20171231".
+{: tip}
 
 You can alter the importance of a search term by adding `^` and a positive number.
 This alteration makes matches containing the term more or less relevant,
@@ -860,8 +842,8 @@ If this bookmark is later provided as a URL parameter,
 the response skips the rows that were seen already,
 making it quick and easy to get the next set of results.
 
-  The response never includes a bookmark if the [`"group_field"` parameter](#query-parameters)is included in the search query.
-  {: tip}
+The response never includes a bookmark if the [`"group_field"` parameter](#query-parameters) is included in the search query.
+{: tip}
 
 The following characters require escaping if you want to search on them:
 
@@ -882,9 +864,9 @@ If you use the 'sort by distance' feature as described in [Geographical Searches
 then the first element is the distance from a point.
 The distance is measured by using either kilometers or miles.
 
-    The second element in the order array can be ignored.
-    It is used for troubleshooting purposes only.
-    {: tip}
+The second element in the order array can be ignored.
+It is used for troubleshooting purposes only.
+{: tip}
 
 ## Faceting
 
@@ -905,16 +887,15 @@ function(doc) {
 ```
 {:codeblock}
 
-    To use facets,
-    all the documents in the index must include all the fields that have faceting enabled.
-    If your documents do not include all the fields,
-    you receive a `bad_request` error with the following reason, "The `field_name` does not exist."
-    If each document does not contain all the fields for facets,
-    create separate indexes for each field.
-    If you do not create separate indexes for each field,
-    you must include only documents that contain all the fields.
-    Verify that the fields exist in each document by using a single `if` statement.
-    {: tip}
+To use facets,
+all the documents in the index must include all the fields that have faceting enabled.
+If your documents do not include all the fields,
+you receive a `bad_request` error with the following reason, "The `field_name` does not exist."
+If each document does not contain all the fields for facets,
+create separate indexes for each field.
+If you do not create separate indexes for each field,
+you must include only documents that contain all the fields.
+Verify that the fields exist in each document by using a single `if` statement.
 
 _Example `if` statement to verify that the required fields exist in each document:_
 
@@ -931,17 +912,17 @@ if (typeof doc.town == "string" && typeof doc.name == "string") {
 The `counts` facet syntax takes a list of fields,
 and returns the number of query results for each unique value of each named field.
 
-    The `count` operation works only if the indexed values are strings.
-    The indexed values cannot be mixed types.
-    For example,
-    if 100 strings are indexed,
-    and one number,
-    then the index cannot be used for `count` operations.
-    You can check the type by using the '`typeof`' operator,
-    and convert it by using the `parseInt`,
-    `parseFloat`,
-    or `.toString()` functions.
-    {: tip}
+The `count` operation works only if the indexed values are strings.
+The indexed values cannot be mixed types.
+For example,
+if 100 strings are indexed,
+and one number,
+then the index cannot be used for `count` operations.
+You can check the type by using the '`typeof`' operator,
+and convert it by using the `parseInt`,
+`parseFloat`,
+or `.toString()` functions.
+{: tip}
 
 _Example of a query using the `counts` facet syntax:_ 
 
@@ -988,17 +969,17 @@ to return counts of results that fit into each specified category.
 Inclusive range queries are denoted by brackets (`[`, `]`).
 Exclusive range queries are denoted by curly brackets (`{`, `}`).
 
-    The `range` operation works only if the indexed values are numbers.
-    The indexed values cannot be mixed types.
-    For example,
-    if 100 strings are indexed,
-    and one number,
-    then the index cannot be used for `range` operations.
-    You can check the type by using the '`typeof`' operator,
-    and convert it by using the `parseInt`,
-    `parseFloat`,
-    or `.toString()` functions.
-    {: tip}
+The `range` operation works only if the indexed values are numbers.
+The indexed values cannot be mixed types.
+For example,
+if 100 strings are indexed,
+and one number,
+then the index cannot be used for `range` operations.
+You can check the type by using the '`typeof`' operator,
+and convert it by using the `parseInt`,
+`parseFloat`,
+or `.toString()` functions.
+{: tip}
 
 _Example of a request that uses faceted search for matching `ranges`:_
 
@@ -1165,9 +1146,9 @@ with one subfield per field name.
 For each field,
 you receive an array of fragments with the search term highlighted.
 
-    For highlighting to work,
-    store the field in the index by using the `store: true` option.
-    {: tip}
+For highlighting to work,
+store the field in the index by using the `store: true` option.
+{: tip}
 
 _Example of using HTTP to search with highlighting enabled:_
 
