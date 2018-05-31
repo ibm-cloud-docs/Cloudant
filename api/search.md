@@ -352,14 +352,7 @@ You define them within a design document by turning the analyzer string into an 
 The default stop words for the `standard` analyzer are included in the following list:
 
 ```json
- "a", "an", "and", "are", 
- "as", "at", "be", "but", 
- "by", "for", "if", "in", 
- "into", "is", "it", "no", 
- "not", "of", "on", "or", 
- "such", "that", "the", "their", 
- "then", "there", "these", "they", 
- "this", "to", "was", "will", "with" 
+ "a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "into", "is", "it", "no", "not", "of", "on", "or", "such", "that", "the", "their", "then", "there", "these", "they", "this", "to", "was", "will", "with" 
  ```
 
 _Example of defining non-indexed ('stop') words:_
