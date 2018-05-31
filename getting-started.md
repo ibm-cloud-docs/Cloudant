@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2018
+<<<<<<< HEAD
 lastupdated: "2018-06-08"
+=======
+lastupdated: "2018-05-31"
+>>>>>>> f5f7fe2... Run Acrolinx and add tags for fb93523b.
 
 ---
 
@@ -13,7 +17,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-05-30 -->
+<!-- Acrolinx: 2018-05-31 -->
 
 # Getting started tutorial
 {: #getting-started-with-cloudant}
@@ -48,7 +52,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	```
 	{:pre}
 	
-	You will see a result similar to this one:
+	You see a result similar to this one:
 
 	```
 	Python 2.7.12
@@ -67,10 +71,14 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	{:pre}
 	
 <<<<<<< HEAD
+<<<<<<< HEAD
 	You should get a list of all the Python modules installed on your system. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
 =======
 	You will see a list of all the Python modules installed on your system. Inspect the list, looking for a {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
 >>>>>>> 68e1544... Run Acrolinx for fb93523b.
+=======
+	You see a list of all the Python modules that are installed on your system. Inspect the list, looking for a {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
+>>>>>>> f5f7fe2... Run Acrolinx and add tags for fb93523b.
 
 	```
 	cloudant==2.3.1
@@ -85,8 +93,9 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	{:pre}
 
 ## Step 1: Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}
+{: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
-1.	Run the following '`import`' statements of the {{site.data.keyword.cloudant_short_notm}}
+1.	Run the '`import`' statements of the {{site.data.keyword.cloudant_short_notm}}
 	Client Library components to enable your Python application to connect to
 	the {{site.data.keyword.cloudant_short_notm}} service instance.
 	```python
@@ -121,6 +130,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 
 
 ## Step 2: Create a database
+{: #step-2-create-a-database}
 
 1. Define a variable in the Python application:
   ```python
@@ -129,7 +139,8 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   {: codeblock}
   ... where `<yourDatabaseName>` is the name you would like to give your database. 
 
-  > **Note:** The database name must begin with a letter and can include only lowercase characters (a-z), numerals (0-9), and any of the following characters `_`, `$`, `(`, `)`, `+`, `-`, and `/`.
+  The database name must begin with a letter and can include only lowercase characters (a-z), numerals (0-9), and any of the following characters `_`, `$`, `(`, `)`, `+`, `-`, and `/`.
+  {: tip}
 
 2. Create the database:
   ```python
@@ -137,7 +148,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   ```
   {: codeblock}
 
-3. Confirm the database was created successfully:
+3. Confirm that the database was created successfully:
   ```python
   if myDatabase.exists():
       print "'{0}' successfully created.\n".format(databaseName)
@@ -145,6 +156,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   {: codeblock}
 
 ## Step 3: Store a small collection of data as documents within the database
+{: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
 
 1. Define a collection of data:
   ```python
@@ -162,7 +174,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   Each document is stored in the database:
 
   ```python
-  # Create documents using the sample data.
+  # Create documents by using the sample data.
   # Go through each row in the array
   for document in sampleData:
     # Retrieve the fields in each row.
@@ -180,7 +192,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
         "temperatureField": temperature
     }
 
-    # Create a document using the Database API.
+    # Create a document by using the database API.
     newDocument = myDatabase.create_document(jsonDocument)
 
     # Check that the document exists in the database.
@@ -189,18 +201,18 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   ```
   {: codeblock}
 
-Notice that we check to ensure that each document is successfully created.
-{: tip}
+  Notice that we check to ensure that each document is successfully created.
+  {: tip}
 
 ## Step 4: Retrieving data through queries
+{: #step-4-retrieving-data-through-queries}
 
-At this point,
-a small collection of data has been stored as documents within the database.
+A small collection of data was stored as documents within the database.
 You can do a minimal or full retrieval of that data from the database.
 A minimal retrieval obtains the basic data _about_ a document.
 A full retrieval also includes the data _within_ a document.
 
-* To perform a minimal retrieval:
+* To run a minimal retrieval:
   1. First, request a list of all documents within the database.
     ```python
     result_collection = Result(myDatabase.all_docs)
@@ -222,9 +234,10 @@ A full retrieval also includes the data _within_ a document.
     ```
     {:screen}
     
-    > **Note:** The `u'` prefix is simply an indication that Python is displaying a Unicode string. 
-    
-    If we tidy the appearance a little, we can see that the minimal document details we got back are equivalent to this:
+    The `u'` prefix is an indication that Python is displaying a Unicode string. 
+    {: tip}
+
+    If we tidy the appearance a little, we can see that the minimal document details we got back are equivalent to this example:
     
     ```json
     [
@@ -239,11 +252,10 @@ A full retrieval also includes the data _within_ a document.
     ```
     {: codeblock}
 
-  > **Note:** Simple notions like the first document stored in a database is always
-  the first one returned in a list of results do not always apply to NoSQL databases like 
-  {{site.data.keyword.cloudant_short_notm}}.
+    The idea that the first document that is stored in a database is always the first document returned in a list of results does not always apply to NoSQL databases like {{site.data.keyword.cloudant_short_notm}}.
+    {: tip}
 
-* To perform a full retrieval,
+* To run a full retrieval,
   request a list of all documents within the database,
   and specify that the document content must also be returned
   by providing the `include_docs` option.
@@ -259,7 +271,7 @@ A full retrieval also includes the data _within_ a document.
   ```
   {: screen}
   
-  If we tidy the appearance a little, we can see that the full document details we got back are equivalent to this:
+  If we tidy the appearance a little, we can see that the full document details we got back are equivalent to this example:
   
   ```json
   [
@@ -283,6 +295,7 @@ A full retrieval also includes the data _within_ a document.
   {: codeblock}
 
 ## Step 5: Retrieving data through the {{site.data.keyword.cloudant_short_notm}} API endpoint
+{: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
 You can also request a list of all documents and their contents by
 invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](api/database.html#get-documents).
@@ -295,8 +308,7 @@ invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](a
   {: codeblock}
   ... where `<url>` is the URL value from the service credentials you found in Step 1.
 
-2. Send the request to the service instance,
-  then display the results:
+2. Send the request to the service instance, and display the results:
   ```python
   response = client.r_session.get(end_point, params=params)
   print "{0}\n".format(response.json())
@@ -310,7 +322,7 @@ invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](a
   ```
   {:screen}
   
-  We can tidy the appearance a little, and see that the _abbreviated_ details we got back are similar to this:
+  We can tidy the appearance a little, and see that the _abbreviated_ details we got back are similar to this example:
   
   ```json
   {
@@ -355,12 +367,13 @@ invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](a
   {: codeblock}
 
 ## Step 6: Delete the database
+{: #step-6-delete-the-database}
 
 When you are finished with the database,
 it can be deleted.
 
 ```python
-try :
+try:
     client.delete_database(databaseName)
 except CloudantException:
     print "There was a problem deleting '{0}'.\n".format(databaseName)
@@ -369,10 +382,11 @@ else:
 ```
 {: codeblock}
 
-We have included some basic error handling
-to illustrate how problems might be caught and addressed.
+We included some basic error handling
+to show you how to troubleshoot and address potential issues.
 
 ## Step 7: Close the connection to the service instance
+{: #step-7-close-the-connection-to-the-service-instance}
 
 The final step is to disconnect the Python client application from the service instance:
 
@@ -382,17 +396,19 @@ client.disconnect()
 {: codeblock}
 
 ## Next steps
+{: #next-steps}
 
-For more information on all the {{site.data.keyword.cloudant_short_notm}} offerings,
+For more information about all {{site.data.keyword.cloudant_short_notm}} offerings,
 see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} site.
 
-For more details and tutorials on {{site.data.keyword.cloudant_short_notm}} concepts,
-tasks and techniques,
+For more details and tutorials about {{site.data.keyword.cloudant_short_notm}} concepts,
+tasks, and techniques,
 see the [{{site.data.keyword.cloudant_short_notm}} documentation](cloudant.html).
 
 ## Appendix: Complete Python code listing
+{: #appendix-complete-python-code-listing}
 
-The complete Python code listing is as follows.
+The complete Python code listing is as follows. 
 Remember to replace the `<username>`,
 `<password>`,
 and `<url>` values with your service credentials.

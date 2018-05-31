@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-10-31"
+lastupdated: "2018-05-31"
 
 ---
 
@@ -12,12 +12,13 @@ lastupdated: "2017-10-31"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-05-29 -->
+<!-- Acrolinx: 2018-05-31 -->
 
 # Account
+{: #account}
 
 Your account is your entry point for the {{site.data.keyword.cloudantfull}} API.
-You access your account using the address prefix
+You access your account by using the address prefix
 `https://$ACCOUNT.cloudant.com`.
 Your {{site.data.keyword.cloudant_short_notm}} dashboard is always
 `https://$ACCOUNT.cloudant.com/dashboard.html`.
@@ -26,13 +27,14 @@ Your {{site.data.keyword.cloudant_short_notm}} dashboard is always
 If you don't yet have an account, [sign up ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/sign-up/){:new_window}.
 
 ## Ping
+{: #ping}
 
-To see if your {{site.data.keyword.cloudant_short_notm}} account is accessible,
+To see whether your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspelled your account name,
 you might get a [503 'service unavailable' error](http.html#503).
 
-_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, using HTTP:_
+_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using HTTP:_
 
 ```HTTP
 GET / HTTP/1.1
@@ -40,7 +42,7 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
 
-_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, using the command line:_
+_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using the command line:_
 
 ```sh
 curl -u $ACCOUNT https://$ACCOUNT.cloudant.com
@@ -49,7 +51,7 @@ curl -u $ACCOUNT https://$ACCOUNT.cloudant.com
 
 <!--
 
-_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, using Javascript:_
+_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using Javascript:_
 
 ```javascript
 var nano = require('nano');
@@ -64,7 +66,7 @@ account.request(function (err, body) {
 
 -->
 
-_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, using Python:_
+_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using Python:_
 
 ```python
 import cloudant
@@ -76,9 +78,10 @@ print ping.status_code
 {:codeblock}
 
 ## CORS
+{: #cors}
 
 [Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){:new_window} is a
-mechanism that allows Javascript from another domain to interact with data in
+mechanism that allows JavaScript from another domain to interact with data in
 your {{site.data.keyword.cloudant_short_notm}} account.
 
 More information about CORS and {{site.data.keyword.cloudant_short_notm}} is available [here](cors.html).
