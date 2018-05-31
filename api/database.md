@@ -12,7 +12,7 @@ lastupdated: "2018-05-16"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-03-02 -->
+<!-- Acrolinx: 2018-04-30 -->
 
 # Databases
 
@@ -84,7 +84,7 @@ the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
-201  | Database created successfully
+201  | Database created successfully.
 202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
 403  | Invalid database name.
 412  | Database already exists.
@@ -332,7 +332,7 @@ The following table describes the meaning of the individual fields:
 
 Field        | Description                                                                         | Type
 -------------|-------------------------------------------------------------------------------------|-----
-`offset`     | Offset where the document list started.                                             | numeric
+`offset`     | Offset where the document list started.                                             | numeric, null (The type can be `null` when `keys` are specified.)
 `rows`       | Array of document objects.                                                          | array
 `total_rows` | Number of documents in the database or view that match the parameters of the query. | numeric
 `update_seq` | Current update sequence for the database.                                           | string
