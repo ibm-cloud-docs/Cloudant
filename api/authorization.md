@@ -13,9 +13,10 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-03-20 -->
+<!-- Acrolinx: 2018-06-01 -->
 
 # Authorization
+{: #authorization}
 
 After [authenticating](authentication.html),
 the next test is to decide whether you are allowed to do certain tasks.
@@ -26,12 +27,11 @@ When you authenticate with the {{site.data.keyword.cloudantfull}} system,
 it 'knows' who you are.
 The next question is: what tasks are you allowed to do?
 
-One way of answering that question might be to have a complete list of all the possible tasks that you are allowed to
-do,
-for each aspect of an {{site.data.keyword.cloudant_short_notm}} system such as a database or a document.
+You might create a complete list of all the possible tasks that you can do,
+for each aspect of an {{site.data.keyword.cloudant_short_notm}} system, such as a database or a document.
 Although simple,
 this approach would require many lengthy lists.
-Keeping those lists correct and complete would be impractical.
+Keeping those lists accurate and complete is impractical.
 
 A better approach uses the idea of 'roles'.
 The various tasks can be grouped into collections that are typical of some generic roles.
@@ -46,6 +46,7 @@ If you have a role,
 then you can do all the tasks that are associated with that role.
 
 ## Roles
+{: #roles}
 
 {{site.data.keyword.cloudant_short_notm}} has a number of roles available.
 The roles can be assigned to user accounts or [API keys](#creating-api-keys).
@@ -86,14 +87,13 @@ For example,
 the `_design` role provides access that allows a user or [API key](#creating-api-keys) to create,
 read,
 modify,
-or delete design documents,
-but has the advantage of not requiring assignment of the more widely applicable `_reader` or `_writer` roles.
+or delete design documents. If you grant access this way, the advantage is that you are not required to assign the more widely applicable `_reader` or `_writer` roles.
 This distinction is useful because otherwise the authorized account would be able to read from or write to documents within the database,
 other than the design documents.
 
 The credentials that you use to log in to the dashboard automatically have the `_admin` role for all databases you create.
 Everyone and everything else,
-including users you share databases with,
+including users that you share databases with,
 and API keys you create,
 must be given a role explicitly to do corresponding tasks.
 
@@ -111,22 +111,23 @@ For example,
 if the `nobody` user name is intentionally granted `_admin`,
 `_reader`,
 and `_writer` roles,
-but an authenticated user account such as `alexone` is granted only the `_reader` role,
-then an unauthenticated user might do more than the authenticated `alexone` user. 
+but an authenticated user account such as `alexone` is granted only the `_reader` role. In this case, it is possible that an unauthenticated user might have a more powerful role than the authenticated `alexone` user. 
 
->   **Note:** It is important to understand that the `nobody` user name is _not_ way of providing a default set of permissions. Instead, the `nobody` user name is used to determine permissions for _unauthenticated_ users.
+It is important to understand that the `nobody` user name is _not_ way of providing a default set of permissions. Instead, the `nobody` user name is used to determine permissions for _unauthenticated_ users.
+{: tip}
 
 ### Determining the role to assign
+{: #determining-the-role-to-assign}
 
 When you determine the role or roles to assign to a user account or API key,
-it is best to give the lowest possible role necessary to do the tasks that are expected of that account or API key.
+it is best to assign a role with the least permissions necessary to do the tasks for that account or API key.
 
 If the tasks are for a specific aspect,
-such as working with design documents or the security settings,
-then it might be possible to assign one of the focused roles,
-such as `_design` or `_security`.
+such as working with design documents or security settings,
+then assign a focused role, such as `_design` or `_security`.
 
 ## Viewing Permissions
+{: #viewing-permissions}
 
 To see who has permissions to read,
 write,
@@ -204,6 +205,7 @@ _Example response to request for permissions:_
 {:codeblock}
 
 ## Modifying Permissions
+{: #modifying-permissions}
 
 To modify who has permissions to read,
 write,
@@ -323,6 +325,7 @@ _Example of an incorrect authorization modification request document:_
 {:codeblock}
 
 ## API keys
+{: #api-keys}
 
 Use API keys to enable database access for a person or application,
 but without creating a new {{site.data.keyword.cloudant_short_notm}} account for that person or application.
@@ -341,17 +344,19 @@ an API key does not have access to the dashboard.
 An API key is primarily used to enable applications to access a database,
 with a determined level of access control.
 
-> **Note**: All {{site.data.keyword.cloudant_short_notm}} instances deployed 
+All {{site.data.keyword.cloudant_short_notm}} instances that are deployed 
 from the {{site.data.keyword.Bluemix_notm}} Public Germany 
-region will be deployed in EU-managed environments. Any 
+region are deployed in EU-managed environments. Any 
 {{site.data.keyword.cloudant_short_notm}} account or 
-API key generated outside of an EU-managed environment cannot be granted 
+API key that is generated outside of an EU-managed environment cannot be granted 
 access to an EU-managed {{site.data.keyword.cloudant_short_notm}} instance. 
-For more information on {{site.data.keyword.cloudant_short_notm}} 
+For more information about {{site.data.keyword.cloudant_short_notm}} 
 in an EU-managed environment, see 
 [Locations and tenancy](../offerings/bluemix.html#locations-and-tenancy).
+{: tip}
 
 ## Creating API Keys
+{: #creating-api-keys}
 
 >	**Note**: An earlier method of generating API keys by `POST`ing to
 the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
@@ -424,6 +429,7 @@ _Example response to request for an API key:_
 {:codeblock}
 
 ## Using API keys
+{: #using-api-keys}
 
 API keys are typically generated by using an account that has at least one database.
 It is possible to use the API key with other databases,
@@ -451,6 +457,7 @@ see the blog article:
 [Using an {{site.data.keyword.cloudant_short_notm}} API Key with Multiple {{site.data.keyword.cloudant_short_notm}} Databases and Accounts ![External link icon](../images/launch-glyph.svg "External link icon")](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){:new_window}.
 
 ## Deleting API keys
+{: #deleting-api-keys}
 
 It is not possible to delete an API key.
 An API key is always available for use if you know the key and its password.
@@ -465,19 +472,21 @@ remove it from the database.
 All the permissions that were previously assigned to the API key for it to work with that database are then removed.
 
 ### To remove an API key by using the Dashboard
+{: #to-remove-an-api-key-by-using-the-dashboard}
 
-1.	Click `Databases` -> `Permissions`.
+1.	Click `Databases` > `Permissions`.
 2.	Hover over the API key you would like to delete.
 3.	Click the '`X`' that appears when you hover over the API key.
 
 ### To remove an API key by using the {{site.data.keyword.cloudant_short_notm}} API
+{: #to-remove-an-api-key-by-using-the-cloudant-nosql-db-api}
 
 Use the [modifying permissions](#modifying-permissions) technique to remove the API key from the list of users with access permission.
 
 This technique works because an API key is similar to a user,
 and is granted access permissions.
 By removing the API key from the list of users that have access permissions,
-the effect is to remove the API key from the list of 'users' that have access to the database.
+you remove the API key from the list of 'users' that have access to the database.
 
 To remove the API key,
 send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](#creating-api-keys).
@@ -487,12 +496,13 @@ The updated list _must omit_ the API key.
 <div id="enabling-the-_users-database-with-cloudant"></div>
 
 ## Using the `_users` database with {{site.data.keyword.cloudant_short_notm}}
+{: #using-the-_users-database-with-cloudant-nosql-db}
 
 You can use the
 [`_users` database ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#authentication-database){:new_window}
 to manage roles in {{site.data.keyword.cloudant_short_notm}}.
 
-User documents stored in the `_users` database should be structured and populated to comply with
+User documents that are stored in the `_users` database must be structured and populated to comply with
 [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
 
 In addition, you can disable the {{site.data.keyword.cloudant_short_notm}} authorization checks by setting the `couchdb_auth_only:true` parameter. 
