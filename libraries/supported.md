@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-05-21"
 
 ---
 
@@ -43,7 +43,7 @@ Information about installing the library by adding it as a dependency to your Ma
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant#installation-and-usage){:new_window},
 along with details and examples of how to use the library.
 
-### Libraries and Frameworks for Java
+### Libraries and frameworks for Java
 
 #### Supported library for Java
 
@@ -57,7 +57,7 @@ along with details and examples of how to use the library.
 -   [LightCouch ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.lightcouch.org/){:new_window}.
 -   [Java {{site.data.keyword.cloudant_short_notm}} Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=CloudantJavaBPTemplate&fromCatalog=true){:new_window} boilerplate for {{site.data.keyword.cloud}}.
 
-### Examples and Tutorials for Java
+### Examples and tutorials for Java
 
 -   [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/java){:new_window} with HTTP and JSON libraries.
 -   [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/java/CrudWithEktorp){:new_window} with ektorp library.
@@ -77,7 +77,7 @@ npm install cloudant
 ```
 {:codeblock}
 
-### Libraries and Frameworks for node.js
+### Libraries and frameworks for node.js
 
 #### Supported library for node.js
 
@@ -96,7 +96,7 @@ npm install cloudant
 -   [Node.js {{site.data.keyword.cloudant_short_notm}} DB Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=nodejscloudantbp&fromCatalog=true){:new_window} - boilerplate for {{site.data.keyword.cloud_notm}}.
 -   [Mobile Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=mobileBackendStarter&fromCatalog=true){:new_window} - boiler plate for {{site.data.keyword.cloud_notm}} (Node.js, Security, Push, and Mobile Data/{{site.data.keyword.cloudant_short_notm}}).
 
-### Examples and Tutorials for node.js
+### Examples and tutorials for node.js
 
 -   [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/nodejs){:new_window}.
 -   [Cloudant-Uploader ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/garbados/Cloudant-Uploader){:new_window} - utility to upload `.csv` files to {{site.data.keyword.cloudant_short_notm}}.
