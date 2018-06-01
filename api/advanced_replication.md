@@ -18,7 +18,7 @@ lastupdated: "2018-05-31"
 # Advanced replication
 {: #advanced-replication}
 
-This section contains details about more advanced replication concepts and tasks.
+You can learn about advanced replication concepts and tasks, including maintaining your replication database, scheduling and monitoring replications, authenticating during replication, and more.
 {:shortdesc}
 
 You might also find it helpful to review details of the underlying
@@ -32,10 +32,10 @@ A replication database must be looked after like any other database.
 Without regular database maintenance,
 you might accumulate invalid documents that were caused by interruptions to the replication process.
 Having many invalid documents can result in an excess load on your cluster
-when the replicator process is restarted by {{site.data.keyword.cloudantfull}} operations.
+when the replicator process is restarted by {{site.data.keyword.cloudant_notm}} operations.
 
 The main action that you can do to maintain a replication database is to remove old documents.
-This can be done by determining the age of documents,
+This action can be done by determining the age of documents,
 and [deleting them](document.html#delete) if they are no longer needed.
 
 ## The replication scheduler
@@ -45,9 +45,8 @@ The new {{site.data.keyword.cloudant_short_notm}} Replication Scheduler provides
 with the previous {{site.data.keyword.cloudant_short_notm}} replication mechanism.
 
 In particular,
-network usage during replication is more efficient,
-and the scheduler takes into account the current load for individual database nodes within a cluster
-when determining the allocation of replication tasks.
+network usage during replication is more efficient. The scheduler factors in the current load for individual database nodes within a cluster
+when it determines the allocation of replication tasks.
 
 Finally,
 the state of a replication is now more detailed,
@@ -91,20 +90,20 @@ The scheduler introduces two new endpoints:
 - [`/_scheduler/docs`](#the-_scheduler-docs-endpoint)
 - [`/_scheduler/jobs`](#the-_scheduler-jobs-endpoint)
 
-These endpoints enable you to manage and determine replication status more quickly and easily.
+You can manage and determine replication status more quickly and easily when you use these endpoints.
 
 The typical process for using the replication scheduler to manage and monitor replications is as follows:
 
 1.  Create a [replication document](replication.html#replication-document-format) that describes the needed replication,
     and store the document in the [replicator database](replication.html#the-_replicator-database).
-2.  Monitor the status of the replication using the `/_scheduler/docs` endpoint.
+2.  Monitor the status of the replication by using the `/_scheduler/docs` endpoint.
 
 ### The `/_scheduler/docs` endpoint
 {: #the-_scheduler-docs-endpoint}
 
 The `/_scheduler/docs` endpoint provides a monitoring capability.
-Use it to determine the status of a replication described by a replication document.
-The status of a replication can be one of seven possible states,
+Use it to determine the status of a replication that is described by a replication document.
+The status of a replication can be 1 of 7 possible states,
 as described [previously](#the-replication-scheduler).
 
 #### Query parameters for the `/_scheduler/docs` endpoint
@@ -118,29 +117,27 @@ You can use the following parameters to narrow your search results:
 
 Name      | Type                    | Description                                                               | Default
 ----------|-------------------------|---------------------------------------------------------------------------|-------------------
-`states`  | comma-delimited strings | Only includes replication documents in the specified states.               | Return all states
-`limit`   | integer                 | Number of documents included in the search results. Maximum limit is 200. | Return all
-`skip`    | integer                 | Number of results to skip before returning search results.                | 0
+`states`  | comma-delimited strings | Includes only replication documents in the specified states.               | Return all states
+`limit`   | integer                 | Number of documents that are included in the search results. Maximum limit is 200. | Return all
+`skip`    | integer                 | Number of results to skip before the search results are returned.                | 0
 
 #### The `/_scheduler/docs/_replicator/$doc_id` endpoint
 {: #the-_scheduler-docs-_replicator-doc_id-endpoint}
 
 The endpoint uses document IDs as the primary identifier.
 This characteristic means that if you know the document ID,
-you can directly query that one particular document by using a `/_scheduler/docs/_replicator/$doc_id` query. Note that the ID must be URL encoded. 
+you can directly query that one particular document by using a `/_scheduler/docs/_replicator/$doc_id` query. The ID must be URL encoded. 
 
 ### The `/_scheduler/jobs` endpoint
 {: #the-_scheduler-jobs-endpoint}
 
-The `/_scheduler/jobs` endpoint provides more details about active replication tasks that are performed during replication.
+The `/_scheduler/jobs` endpoint provides more details about active replication tasks that are run during replication.
 
 For example,
 the `/_scheduler/jobs` endpoint describes when the replication last started, stopped, or crashed.
 
 However,
-the endpoint does not include results for replications that are in the `completed` or `failed` state;
-the reason is that such replications are considered to have finished,
-and therefore are no longer active jobs.
+the endpoint does not include results for replications that are in the `completed` or `failed` state. Replications in these states are not included because such replications are considered complete, and therefore are no longer active jobs.
 
 #### Query parameters for the `/_scheduler/jobs` endpoint
 {: #query-parameters-for-the-_scheduler-jobs-endpoint}
@@ -153,13 +150,13 @@ You can use the following parameters to narrow your search results:
 
 Name     | Type    | Description                                                          | Default
 ---------|---------|----------------------------------------------------------------------|-------------
-`limit`  | integer | Number of jobs included in the search results. Maximum limit is 200. | 25
-`skip`   | integer | Number of results to skip before returning search results.           | 0
+`limit`  | integer | Number of jobs that are included in the search results. Maximum limit is 200. | 25
+`skip`   | integer | Number of results to skip before search results are returned.           | 0
 
 #### The `/_scheduler/jobs/_replicator/$job_id` endpoint
 {: #the-_scheduler-jobs-_replicator-job_id-endpoint}
 
-The `/_scheduler/jobs/_replicator/$job_id` endpoint shows the state of a single replication task based on its replication ID. Note that the ID must be URL encoded.
+The `/_scheduler/jobs/_replicator/$job_id` endpoint shows the state of a single replication task based on its replication ID. The ID must be URL encoded.
 
 ## Replication Status
 {: #replication-status}
@@ -177,10 +174,10 @@ the [replication document](#status-checking-by-using-the-replication-document) i
 ### Status checking by using the replication scheduler
 {: #status-checking-by-using-the-replication-scheduler}
 
-The replication scheduler enables you to determine the status of replication. 
+You can use the replication scheduler to determine the status of replication. 
 
-To determine the current status of replication using the replication scheduler,
-send a `GET` request to the `/_scheduler/docs` endpoint. See the example below. 
+To determine the current status of replication by using the replication scheduler,
+send a `GET` request to the `/_scheduler/docs` endpoint. See the following example. 
 
 _Example of using HTTP to get the replication status from the replication scheduler:_
 
@@ -223,7 +220,7 @@ _Example response (abbreviated) from the replication scheduler:_
 ```
 {:codeblock}
 
-The response received from the replication scheduler shows the history and current status of all replications.
+The response that is received from the replication scheduler shows the history and current status of all replications.
 
 _Example of using the command line to find jobs with the `limit` and `skip` parameters:_
 
@@ -352,7 +349,7 @@ _Example response from using the `_job_id` parameter:_
 ```
 {:codeblock}
 
-The response received from the replication scheduler shows the history and current status of all replications.
+The response that is received from the replication scheduler shows the history and current status of all replications.
 
 <div id="status-checking-using-the-replication-document"></div>
 
@@ -589,12 +586,12 @@ In other words,
 the replicator database implementation is similar to a `_changes` feed consumption application, 
 with `?include_docs=true` set.
 
-This implementation difference for replication means that for non admin users,
+For replication, this implementation difference means that for non-admin users,
 a `user_ctx` property that contains the user's name and a subset of their roles
 must be defined in the replication document.
 This requirement is addressed by a validation function present in the default design document of the replicator database.
 The function validates each document update.
-This validation function also ensures that a non admin user cannot set a user name property in the `user_ctx` property
+This validation function also ensures that a non-admin user cannot set a user name property in the `user_ctx` property
 that does not correspond to the correct user name.
 The same principle also applies for roles.
 
@@ -633,7 +630,7 @@ The `user_ctx` property applies for local endpoints only.
 
 In summary,
 for admins the `user_ctx` property is optional,
-while for regular (non admin) users it is mandatory.
+while for regular (non-admin) users it is mandatory.
 When the roles property of `user_ctx` is missing,
 it defaults to the empty list `[ ]`.
 
@@ -710,7 +707,7 @@ configure,
 or stop,
 a replication operation.
 
-You do this by sending a `POST` request directly to the `/_replicate` endpoint.
+You do these actions by sending a `POST` request directly to the `/_replicate` endpoint.
 The `POST` contains a JSON document that describes the wanted replication.
 
 -	**Method**: `POST`
@@ -723,9 +720,9 @@ The JSON document must contain fields that define the source,
 target,
 and other options.
 
-With the exception of the `cancel` field,
-the fields in the JSON document supplied to the `_replicate` endpoint are identical to those in
-a replication document stored in the [`_replicator` database](replication.html#replicator-database).
+Except for the `cancel` field,
+the fields in the JSON document that is supplied to the `_replicate` endpoint are identical to those fields in
+a replication document that is stored in the [`_replicator` database](replication.html#replicator-database).
 The JSON document uses the [replication document format](replication.html#replication-document-format).
 
 The fields of the JSON request are as follows:
@@ -776,8 +773,8 @@ Code  | Description
 `404` | Either the source or target database was not found.
 `500` | JSON specification was invalid.
 
-### Canceling replication using the `/_replicate` endpoint
-{: #canceling-replication-using-the-_replicate-endpoint}
+### Canceling replication by using the `/_replicate` endpoint
+{: #canceling-replication-by-using-the-_replicate-endpoint}
 
 A replication that is triggered by `POST`ing to `/_replicate` can be canceled
 by `POST`ing the exact same JSON object but with the additional `cancel` property set to `true`.
@@ -820,16 +817,8 @@ _Example JSON document that describes the replication to be canceled:_
 ### Avoiding the `/_replicate` endpoint
 {: #avoiding-the-_replicate-endpoint}
 
-Use the [`_replicator` scheduler](#the-replication-scheduler) in preference to the `/_replicate` endpoint.
+Use the [`_replicator` scheduler](#the-replication-scheduler) instead of the `/_replicate` endpoint.
 {: tip}
 
-A significant reason is that if there was a problem during replication,
-such as a stall,
-timeout, or application crash,
-then a replication that is defined within the `_replicator` database is automatically restarted by the system.
-
-If you defined a replication by sending a request to the `/_replicate` endpoint,
-it cannot be restarted by the system if a problem occurs because the replication request does not persist.
-
-In addition,
-replications that are defined in the `_replicator` database are easier to [monitor](advanced_replication.html#replication-status).
+If a problem occurs during replication, such as a stall, timeout, or application crash,
+a replication that is defined within the `_replicator` database is automatically restarted by the system. Whereas, if you define a replication by sending a request to the `/_replicate` endpoint, it cannot be restarted by the system if a problem occurs because the replication request does not persist. In addition, replications that are defined in the `_replicator` database are easier to [monitor](advanced_replication.html#replication-status).
