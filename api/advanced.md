@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-31"
+lastupdated: "2018-06-01"
 
 ---
 
@@ -31,18 +31,18 @@ and other miscellaneous tasks.
 -	**Response**: Welcome message and version
 
 Accessing the root endpoint `/` returns meta information about the cluster.
-The response is a JSON object containing a welcome message and the version of the server.
+The response is a JSON object that contains a welcome message and the version of the server.
 The `version` field contains the CouchDB version the server is compatible with.
 The `vendor.version` field contains the build number of {{site.data.keyword.cloudantfull}}'s CouchDB implementation.
 
-For {{site.data.keyword.cloudant_short_notm}} versions prior to 2.0.0,
+For {{site.data.keyword.cloudant_short_notm}} versions before 2.0.0,
 you might see a `cloudant_build` field in the response,
 rather than a `vendor.version` field.
 In each case,
 the field contains the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
 {: tip}
 
-_Example request to get server meta information, using HTTP:_
+_Example request to get server meta information,by using HTTP:_
 
 ```HTTP
 GET / HTTP/1.1
@@ -50,7 +50,7 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
 
-_Example request to get server meta information, using the command line:_
+_Example request to get server meta information, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/
@@ -59,7 +59,7 @@ curl https://$ACCOUNT.cloudant.com/
 
 <!--
 
-_Example request to get server meta information, using Javascript:_
+_Example request to get server meta information, by using Javascript:_
 
 ```javascript
 var nano = require('nano');
@@ -125,21 +125,21 @@ Polling modes for this endpoint work like the polling modes for
 
 Argument | Description | Optional | Type | Default | Supported Values
 ---------|-------------|----------|------|---------|-----------------
-descending | Whether results should be returned in descending order, in other words the most recent event appears first. By default, the oldest event is returned first. | yes | boolean | false | 
+descending | Determines that results are returned in descending order, in other words the most recent event appears first. By default, the oldest event is returned first. | yes | boolean | false | 
 feed | Type of feed | yes | string | normal | `continuous`: Continuous (non-polling) mode, `longpoll`: Long polling mode, `normal`: default polling mode
-heartbeat | Time in milliseconds after which an empty line is sent during longpoll or continuous if there have been no changes | yes | numeric | 60000 | 
+heartbeat | Time in milliseconds after which an empty line is sent during longpoll or continuous if no changes occurred | yes | numeric | 60000 | 
 limit | Maximum number of results to return | yes | numeric | none |  
 since | Start the results from changes immediately after the specified sequence number. If since is 0 (the default), the request returns all changes since the feature was activated. | yes | string | 0 | 
-timeout | Number of milliseconds to wait for data in a `longpoll` or `continuous` feed before terminating the response. If both `heartbeat` and `timeout` are suppled, `heartbeat` supersedes `timeout`. | yes | numeric |  | 
+timeout | Number of milliseconds to wait for data in a `longpoll` or `continuous` feed before the response is terminated. If both `heartbeat` and `timeout` are suppled, `heartbeat` supersedes `timeout`. | yes | numeric |  | 
 
-_Example request to get a list of changes to the database, using HTTP:_
+_Example request to get a list of changes to the database, by using HTTP:_
 
 ```HTTP
 GET /_db_updates HTTP/1.1
 ```
 {:codeblock}
 
-_Example request to get a list of changes to the database, using the command line:_
+_Example request to get a list of changes to the database, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_db_updates \
@@ -184,20 +184,20 @@ _Example response:_
 ## `GET /$DATABASE/_shards`
 {: #-get-database-_shards-}
 
-The `/$DATABASE/_shards` endpoint returns informations about the shards in the cluster,
+The `/$DATABASE/_shards` endpoint returns information about the shards in the cluster,
 specifically what nodes contain what hash ranges.
 
-The `shards` field in the response contains an object with keys that are the hash value range constituting each shard.
-Each value is the array of nodes containing that a copy of that shard.
+The `shards` field in the response contains an object with keys that are the hash value range for each shard.
+Each value is the array of nodes that contain that a copy of that shard.
 
-_Example request, using HTTP:_
+_Example request, by using HTTP:_
 
 ```HTTP
 GET /$DATABASE/_shards HTTP/1.1
 ```
 {:codeblock}
 
-_Example request, using the command line:_
+_Example request, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_shards \
@@ -274,7 +274,7 @@ similar to the following example:
 ```
 {:codeblock}
 
-_Example request, using HTTP:_
+_Example request, by using HTTP:_
 
 ```HTTP
 GET /$DATABASE/_missing_revs HTTP/1.1
@@ -282,7 +282,7 @@ Content-Type: application/json
 ```
 {:codeblock}
 
-_Example request, using the command line:_
+_Example request, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_missing_revs \
@@ -333,7 +333,7 @@ _Example response:_
 {: #-post-database-_revs_diff-}
 
 When supplied with a set of document revision IDs, 
-the `/$DATABASE/_revs_diff` endpoint returns the subset of those that do not correspond to revisions stored in the database.
+the `/$DATABASE/_revs_diff` endpoint returns a subset of those document revision IDs that do not correspond to revisions stored in the database.
 
 The list of document revision IDs is supplied in a JSON document,
 similar to the following example:
@@ -349,7 +349,7 @@ similar to the following example:
 ```
 {:codeblock}
 
-_Example request, using HTTP:_
+_Example request, by using HTTP:_
 
 ```HTTP
 POST /$DATABASE/_revs_diff HTTP/1.1
@@ -411,20 +411,20 @@ _Example response:_
 
 Gets the number of past revisions of a document that {{site.data.keyword.cloudant_short_notm}} retains.
 
-Although the documents associated with past revisions are automatically removed,
+Although the documents that are associated with past revisions are automatically removed,
 "tombstones" remain with the `_rev` value for that revision.
 If a document has more revisions than the value of `_revs_limit`,
 {{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
 {: tip}
 
-_Example request, using HTTP:_
+_Example request, by using HTTP:_
 
 ```HTTP
 GET /$DATABASE/_revs_limit HTTP/1.1
 ```
 {:codeblock}
 
-_Example request, using the command line:_
+_Example request, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_revs_limit \
@@ -464,20 +464,20 @@ _Example response:_
 
 Sets the maximum number of past revisions of a document that {{site.data.keyword.cloudant_short_notm}} retains.
 
-Although the documents associated with past revisions are automatically removed,
+Although the documents that are associated with past revisions are automatically removed,
 "tombstones" remain with the `_rev` value for that revision.
 If a document has more revisions than the value of `_revs_limit`,
 {{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
 {: tip}
 
-_Example request, using HTTP:_
+_Example request, by using HTTP:_
 
 ```HTTP
 PUT /$DATABASE/_revs_limit HTTP/1.1
 ```
 {:codeblock}
 
-_Example request, using the command line:_
+_Example request, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_revs_limit \
@@ -521,23 +521,23 @@ _Example response:_
 {: #-get-_membership-}
 
 This endpoint returns the names of nodes in the cluster.
-Currently active clusters are indicated in the `cluster_nodes` field.
+Currently, active clusters are indicated in the `cluster_nodes` field.
 The `all_nodes` field lists all the nodes,
 regardless of whether they are active or not.
 
 -   **Method**: `GET`
 -   **Path**: `/_membership`
--   **Response**: JSON document listing cluster nodes and all nodes
+-   **Response**: JSON document that lists cluster nodes and all nodes
 -   **Roles permitted**: _admin
 
-_Example request to list nodes in the cluster, using HTTP:_
+_Example request to list nodes in the cluster, by using HTTP:_
 
 ```http
 GET /_membership HTTP/1.1
 ```
 {:codeblock}
 
-_Example request to list nodes in the cluster, using the command line:_
+_Example request to list nodes in the cluster, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_membership \
@@ -594,24 +594,24 @@ _Example response:_
 {: #-get-_uuids-}
 
 This endpoint is a general utility requests one or more Universally Unique Identifiers (UUIDs).
-The response is a JSON object providing a list of UUIDs.
+The response is a JSON object that provides a list of UUIDs.
 
 -   **Method**: `GET`
 -   **Path**: `/_uuids`
--   **Response**: JSON document containing a list of UUIDs
+-   **Response**: JSON document that contains a list of UUIDs
 
 Argument | Description               | Optional | Type
 ---------|---------------------------|----------|------------------------------------------------------------------
 `count`  | Number of UUIDs to return | yes      | Positive integer, greater than 0 and less than or equal to 1,000.
 
-_Example request for a single UUID, using HTTP:_
+_Example request for a single UUID, by using HTTP:_
 
 ```HTTP
 GET /_uuids HTTP/1.1
 ```
 {:codeblock}
 
-_Example request for a single UUID, using the command line:_
+_Example request for a single UUID, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_uuids \
@@ -649,14 +649,14 @@ _Example response to a request for a single UUID:_
 ```
 {:codeblock}
 
-_Example request for five UUIDs, using HTTP:_
+_Example request for five UUIDs, by using HTTP:_
 
 ```HTTP
 GET /_uuids?count=5 HTTP/1.1
 ```
 {:codeblock}
 
-_Example request for five UUIDs, using the command line:_
+_Example request for five UUIDs, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_uuids?count=5 \
