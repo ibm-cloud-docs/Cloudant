@@ -19,13 +19,12 @@ lastupdated: "2018-06-01"
 {: #query}
 
 {{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for
-{{site.data.keyword.cloudant_short_notm}} databases. There are two types of
-{{site.data.keyword.cloudant_short_notm}} Query indexes: `json` and `text`.
+{{site.data.keyword.cloudant_short_notm}} databases. {{site.data.keyword.cloudant_short_notm}} Query uses two types of indexes: `json` and `text`.
 {:shortdesc}
 
 If you know exactly what data you want to look for, or you want to keep storage and
 processing requirements to a minimum, you can specify how the index is created, by
-making it of type `json`.
+making it of type `json`. 
 
 But for maximum flexibility when you search for data, you would typically create
 an index of type `text`. Indexes of type `text` have a simple mechanism for automatically
@@ -109,8 +108,7 @@ Code | Description
 ### Creating a "type=text" index
 {: #creating-a-type-text-index}
 
-While it is preferable to use default values when you create a single text index,
-some useful index attributes can be modified.
+It is preferable to use default values when you create a single text index, but some useful index attributes can be modified.
 
 For Full Text Indexes (FTIs), `type` must be set to `text`.
 {: tip}
@@ -228,7 +226,7 @@ it defaults to `true` and the `standard` analyzer is used.
 {: #the-fields-array}
 
 The `fields` array contains a list of fields that must be indexed for each document.
-If you know that an index queries only on specific fields,
+If you know an index queries only on specific fields,
 then this field can be used to limit the size of the index.
 Each field must also specify a type to be indexed.
 The acceptable types are:
@@ -257,7 +255,7 @@ You might prefer to set the `index_array_lengths` field to `false` if:
 	or not completely under your control,
 	making it difficult to estimate the impact of the extra processing that is needed to determine and store the array lengths.
 
-The [`$size` operator](#the-size-operator) requires that the `index_array_lengths` field is set to `true`,
+The [`$size` operator](#the-size-operator) requires the `index_array_lengths` field is set to `true`,
 otherwise the operator cannot work.
 {: tip}
 
@@ -289,7 +287,7 @@ or proximity detection.
 For more information,
 see [{{site.data.keyword.cloudant_short_notm}} Search documentation](search.html#search).
 The `$text` operator applies to all strings found in the document.
-It is invalid to place this operator in the context of a field name.
+If you place this operator in the context of a field name, it is invalid.
 
 The `fields` array is a list of fields that must be returned for each document. The provided
 field names can use dotted notation to access subfields.
