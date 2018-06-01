@@ -81,21 +81,31 @@ _Example of returned JSON, confirming that the index was created:_
 #### Request Body format
 {: #request-body-format}
 
--	**index**:
-    -	**fields**: A JSON array of field names that uses the [sort syntax](#sort-syntax).
-    	Nested fields are also allowed, for example `"person.name"`.
--	**ddoc (optional)**: Name of the design document in which the index is created.
-	By default,
-	each index is created in its own design document.
-	Indexes can be grouped into design documents for efficiency.
-	However,
-	a change to one index in a design document invalidates all other indexes in the same document.
--	**type (optional)**: Can be `json` or `text`.
-	Defaults to `json`.
-	Geospatial indexes will be supported in the future.
--	**name (optional)**: Name of the index.
-	If no name is provided,
-	a name is generated automatically.
+<div id="request-body-format"></div>
+
+<table border='1'>
+
+<tr>
+<th id="field">Field</th><th id="description" colspan='4'>Description</th>
+</tr>
+<tr>
+<td headers="field" align="center" valign="top"><p>index:</p></td>
+<td headers="description"><p>fields:<p style="margin-left: 20px">A JSON array of field names that uses the <a href="https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#sort-syntax">sort syntax</a>. Nested fields are also allowed, for example, <code>"person.name"</code>.</p></p></td>
+</tr>
+<tr>
+<td headers="field"><p>ddoc (optional)</p></td>
+<td headers="description"><p>Name of the design document in which the index is created. By default, each index is created in its own design document. Indexes can be grouped into design documents for efficiency. However, a change to one index in a design document invalidates all other indexes in the same document.</p></td>
+</tr>
+<tr>
+<td headers="field"><p>type (optional)</p></td>
+<td headers="description"><p>Can be <code>json</code> or <code>text</code>. Defaults to <code>json</code>. Geospatial indexes will be supported in the future.</p></td>
+</tr>
+<tr>
+<td headers="field"><p>name (optional)</p></td>
+<td headers="description"><p>Name of the index. If no name is provided, a name is generated automatically.</p></td>
+</tr>
+</tr>
+</table>
 
 #### Return Codes
 {: #return-codes}
