@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-06-16"
+lastupdated: "2018-05-31"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-06-16"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-01-13 -->
 
@@ -42,16 +43,18 @@ _Example design document that defines a search index:_
 
 ## Index functions
 
->	**Note**: Attempting to index by using a data field that does not exist fails.
+Attempting to index by using a data field that does not exist fails.
 To avoid this problem,
 use an appropriate [guard clause](#index-guard-clauses).
+{: tip}
 
-
-> **Note**: Within a search index, do not index the same field name with more than one data type. If the 
+Within a search index, do not index the same field name with more than one data type. If the 
     same field name is indexed with different data types in the same search index function, 
     you might get an error when querying the search index that says the field "was indexed without 
     position data." For example, do not include both of these lines in the same search index function, 
     as they index the `myfield` field as two different data types: a string `"this is a string"` and a number `123`.
+{: tip}
+
 ```json
 index("myfield", "this is a string");
 index("myfield", 123);
@@ -153,8 +156,9 @@ The third, optional, parameter is a JavaScript object with the following fields:
 </tr>
 </table>
 
->	**Note**: If you do not set the `store` parameter,
+If you do not set the `store` parameter,
 the index data results for the document are not returned in response to a query.
+{: tip}
 
 _Example search index function:_
 
@@ -308,11 +312,8 @@ The name of the language is also the name of the analyzer.
 *	`thai`
 *	`turkish`
 
->	**Note**: Language-specific analyzers are optimized for the specified language.
-    You cannot combine a generic analyzer with a language-specific analyzer.
-    Instead,
-    you might use a ['`perfield`' analyzer](#per-field-analyzers) to select different analyzers
-    for different fields within the documents.
+Language-specific analyzers are optimized for the specified language. You cannot combine a generic analyzer with a language-specific analyzer. Instead, you might use a ['`perfield`' analyzer](#per-field-analyzers) to select different analyzers for different fields within the documents.
+{: tip}
 
 ### Per-Field Analyzers
 
@@ -345,9 +346,17 @@ _Example of defining different analyzers for different fields:_
 Stop words are words that do not get indexed.
 You define them within a design document by turning the analyzer string into an object.
 
->	**Note**: The `keyword`,
-`simple`,
- and `whitespace` analyzers do not support stop words.
+The `keyword`, `simple`, and `whitespace` analyzers do not support stop words.
+{: tip}
+
+The default stop words for the `standard` analyzer are included in the following list:
+
+```json
+ "a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", 
+ "in", "into", "is", "it", "no", "not", "of", "on", "or", "such", 
+ "that", "the", "their", "then", "there", "these", "they", "this", 
+ "to", "was", "will", "with" 
+ ```
 
 _Example of defining non-indexed ('stop') words:_
 
@@ -480,10 +489,10 @@ db.search($DESIGN_ID, $SEARCH_INDEX, {
 
 ### Query Parameters
 
->	**Note**: You must enable [faceting](#faceting) before you can use the following parameters:
-	-	`counts`
-	-	`drilldown`
-
+You must enable [faceting](#faceting) before you can use the following parameters:
+-	`counts`
+-	`drilldown`
+    
 <table border='1'>
 
 <tr>
@@ -672,12 +681,11 @@ Fields that are used for sorting must be indexed by the same indexer that is use
 </tr>
 </table>
 
->	**Note**: Do not combine the `bookmark` and `stale` options.
-	These options constrain the choice of shard replicas to use for the response.
-	When used together,
-	the options might cause problems when contact is attempted with replicas that are slow or not available.
+Do not combine the `bookmark` and `stale` options. These options constrain the choice of shard replicas to use for the response. When used together, the options might cause problems when contact is attempted with replicas that are slow or not available.
+{: tip}
 
->	**Note**: Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
+Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
+{: tip}
 
 ### Relevance
 
@@ -798,15 +806,8 @@ you can run a query with `~` to find terms like the search term.
 For instance,
 `look~` finds the terms `book` and `took`.
 
-> **Note**: If the lower and upper bounds of a range 
-  query are both strings that contain only numeric digits, 
-  the bounds are treated as numbers not as strings.
-  For example,
-  if you search by using the query
-  `mod_date:["20170101" TO "20171231"]`,
-  the results include documents for which `mod_date` is
-  between the numeric values 20170101 and 20171231,
-  not between the strings "20170101" and "20171231".
+If the lower and upper bounds of a range query are both strings that contain only numeric digits, the bounds are treated as numbers not as strings. For example, if you search by using the query `mod_date:["20170101" TO "20171231"]`, the results include documents for which `mod_date` is between the numeric values 20170101 and 20171231, not between the strings "20170101" and "20171231".
+{: tip}
 
 You can alter the importance of a search term by adding `^` and a positive number.
 This alteration makes matches containing the term more or less relevant,
@@ -841,8 +842,8 @@ If this bookmark is later provided as a URL parameter,
 the response skips the rows that were seen already,
 making it quick and easy to get the next set of results.
 
->   **Note**: The response never includes a bookmark if the [`"group_field"` parameter](#query-parameters)
-    is included in the search query.
+The response never includes a bookmark if the [`"group_field"` parameter](#query-parameters) is included in the search query.
+{: tip}
 
 The following characters require escaping if you want to search on them:
 
@@ -863,8 +864,9 @@ If you use the 'sort by distance' feature as described in [Geographical Searches
 then the first element is the distance from a point.
 The distance is measured by using either kilometers or miles.
 
->   **Note**: The second element in the order array can be ignored.
-    It is used for troubleshooting purposes only.
+The second element in the order array can be ignored.
+It is used for troubleshooting purposes only.
+{: tip}
 
 ## Faceting
 
@@ -885,15 +887,15 @@ function(doc) {
 ```
 {:codeblock}
 
->   **Note**: To use facets,
-    all the documents in the index must include all the fields that have faceting enabled.
-    If your documents do not include all the fields,
-    you receive a `bad_request` error with the following reason, "The `field_name` does not exist."
-    If each document does not contain all the fields for facets,
-    create separate indexes for each field.
-    If you do not create separate indexes for each field,
-    you must include only documents that contain all the fields.
-    Verify that the fields exist in each document by using a single `if` statement.
+To use facets,
+all the documents in the index must include all the fields that have faceting enabled.
+If your documents do not include all the fields,
+you receive a `bad_request` error with the following reason, "The `field_name` does not exist."
+If each document does not contain all the fields for facets,
+create separate indexes for each field.
+If you do not create separate indexes for each field,
+you must include only documents that contain all the fields.
+Verify that the fields exist in each document by using a single `if` statement.
 
 _Example `if` statement to verify that the required fields exist in each document:_
 
@@ -910,16 +912,17 @@ if (typeof doc.town == "string" && typeof doc.name == "string") {
 The `counts` facet syntax takes a list of fields,
 and returns the number of query results for each unique value of each named field.
 
->   **Note**: The `count` operation works only if the indexed values are strings.
-    The indexed values cannot be mixed types.
-    For example,
-    if 100 strings are indexed,
-    and one number,
-    then the index cannot be used for `count` operations.
-    You can check the type by using the '`typeof`' operator,
-    and convert it by using the `parseInt`,
-    `parseFloat`,
-    or `.toString()` functions.
+The `count` operation works only if the indexed values are strings.
+The indexed values cannot be mixed types.
+For example,
+if 100 strings are indexed,
+and one number,
+then the index cannot be used for `count` operations.
+You can check the type by using the '`typeof`' operator,
+and convert it by using the `parseInt`,
+`parseFloat`,
+or `.toString()` functions.
+{: tip}
 
 _Example of a query using the `counts` facet syntax:_ 
 
@@ -966,16 +969,17 @@ to return counts of results that fit into each specified category.
 Inclusive range queries are denoted by brackets (`[`, `]`).
 Exclusive range queries are denoted by curly brackets (`{`, `}`).
 
->   **Note**: The `range` operation works only if the indexed values are numbers.
-    The indexed values cannot be mixed types.
-    For example,
-    if 100 strings are indexed,
-    and one number,
-    then the index cannot be used for `range` operations.
-    You can check the type by using the '`typeof`' operator,
-    and convert it by using the `parseInt`,
-    `parseFloat`,
-    or `.toString()` functions.
+The `range` operation works only if the indexed values are numbers.
+The indexed values cannot be mixed types.
+For example,
+if 100 strings are indexed,
+and one number,
+then the index cannot be used for `range` operations.
+You can check the type by using the '`typeof`' operator,
+and convert it by using the `parseInt`,
+`parseFloat`,
+or `.toString()` functions.
+{: tip}
 
 _Example of a request that uses faceted search for matching `ranges`:_
 
@@ -1142,8 +1146,9 @@ with one subfield per field name.
 For each field,
 you receive an array of fragments with the search term highlighted.
 
->   **Note**: For highlighting to work,
-    store the field in the index by using the `store: true` option.
+For highlighting to work,
+store the field in the index by using the `store: true` option.
+{: tip}
 
 _Example of using HTTP to search with highlighting enabled:_
 
