@@ -60,10 +60,11 @@ Cloudant NoSQL DB
 
 	{: .topicgroup}
 	Sample apps
-		[Feedback Mobile App using Ionic and Cloudant](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
+		[Offline First shopping list](https://developer.ibm.com/code/patterns/create-an-offline-first-shopping-list-progressive-web-app/)
 		[Open Fridge](https://github.com/krook/openfridge)
-		[Online Catalog Store](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
-
+		[iOS game with Core ML and Watson Visual Recognition](https://developer.ibm.com/code/patterns/build-an-ios-game-powered-by-core-ml-and-watson-visual-recognition/)
+		[Mobile health app with Watson Studio](https://developer.ibm.com/code/patterns/develop-web-based-mobile-health-app-uses-machine-learning/)
+		
 	{: .topicgroup}
 	Libraries
 		libraries/index.md
