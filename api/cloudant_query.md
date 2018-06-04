@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-06-04"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-01"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-01 -->
+<!-- Acrolinx: 2018-06-04 -->
 
 # Query
 {: #query}
@@ -36,7 +36,7 @@ While more flexible, `text` indexes might take longer to create and require more
 ## Creating an index
 {: #creating-an-index}
 
-You can create an index with one of two types:
+You can create an index with one of the following types:
 
 -	`"type": "json"`
 -	`"type": "text"`
@@ -118,7 +118,7 @@ Code | Description
 ### Creating a "type=text" index
 {: #creating-a-type-text-index}
 
-It is preferable to use default values when you create a single text index, but some useful index attributes can be modified.
+When you create a single text index, it is a good practice to use the default values, but some useful index attributes can be modified.
 
 For Full Text Indexes (FTIs), `type` must be set to `text`.
 {: tip}
@@ -253,8 +253,7 @@ If the property is not explicitly set,
 the default value is `true`.
 
 If the field is set to `true`,
-the index requires extra work,
-including a scan of every document for any arrays,
+the index requires extra work. This work includes a scan of every document for any arrays,
 and creating a field to hold the length for each array found.
 
 You might prefer to set the `index_array_lengths` field to `false` if:
@@ -262,8 +261,8 @@ You might prefer to set the `index_array_lengths` field to `false` if:
 -	You do not need to know the length of an array.
 -	You do not use the [`$size` operator](#the-size-operator).
 -	The documents in your database are complex,
-	or not completely under your control,
-	making it difficult to estimate the impact of the extra processing that is needed to determine and store the array lengths.
+	or not completely under your control.
+	As a result, it is difficult to estimate the impact of the extra processing that is needed to determine and store the array lengths.
 
 The [`$size` operator](#the-size-operator) requires the `index_array_lengths` field is set to `true`,
 otherwise the operator cannot work.
@@ -340,13 +339,13 @@ Methods  | Path                | Description
 ## Creating a partial index
 {: #creating-a-partial-index}
 
-Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
-for more information and the original example. 
+Cloudant Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
+and the original example. 
 
-The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still supported for backwards compatibility for text indexes only.
+The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still compatible with an earlier version for text indexes only.
 {: tip}
 
-Let's look at an example query:
+See an example query:
 ```
 {
   "selector": {
@@ -359,10 +358,10 @@ Let's look at an example query:
 ```
 Without a partial index, this query requires a full index scan to find 
 all the documents of `type`:`user` that do not have a status of `archived`. 
-This occurs because a normal index can only be used to match contiguous rows, 
+This situation occurs because a normal index can be used to match contiguous rows, 
 and the `$ne` operator cannot guarantee that.
 
-To improve response time, we can create an index which excludes documents 
+To improve response time, you can create an index that excludes documents 
 with `status`: { `$ne`: `archived` } at index time by using the 
 `partial_filter_selector` field:
 ```
@@ -385,7 +384,7 @@ Host: localhost:5984
 }
 ```
 Partial indexes are not currently used by the query planner unless specified 
-by a `use_index` field, so we need to modify the original query:
+by a `use_index` field, so you must modify the original query:
 ```
 {
   "selector": {
@@ -397,10 +396,8 @@ by a `use_index` field, so we need to modify the original query:
   "use_index": "type-not-archived"
 }
 ```
-Technically, we don't need to include the filter on the `status` field in the 
-query selector - the partial index ensures this is always true - but including 
-it makes the intent of the selector more clear and makes it easier to take 
-advantage of future improvements to query planning (e.g. automatic selection of 
+Technically, you do not need to include the filter on the `status` field in the 
+query selector. The partial index ensures that this value is always true. However, if you include the filter, it makes the intent of the selector clearer. It also makes it easier to take advantage of future improvements to query planning (for example, automatic selection of 
 partial indexes).  
 
 ## List all {{site.data.keyword.cloudant_short_notm}} Query indexes
@@ -428,8 +425,8 @@ Design documents are discussed in more detail [here](design_documents.html).
 
 -	**indexes**: Array of indexes
 	-	**ddoc**: ID of the design document the index belongs to.
-		This ID can be used to retrieve the design document that contains the index,
-		by making a `GET` request to `/$DATABASE/$DDOC`, where `$DDOC` is the value of this field.
+		This ID can be used to retrieve the design document that contains the index.
+		It does so by making a `GET` request to `/$DATABASE/$DDOC`, where `$DDOC` is the value of this field.
 	-	**name**: Name of the index.
 	-	**type**: Type of the index.
 		Currently, `json` is the only supported type.
@@ -498,7 +495,7 @@ Design documents are not returned by `_find`.
 
 -	**selector**: JSON object that describes the criteria that are used to select documents.
 	More information is provided in the section on [selectors](#selector-syntax).
--	**limit (optional, default: 25)**: Maximum number of results returned. Note that `type: text` indexes are limited to 200 results when queried.
+-	**limit (optional, default: 25)**: Maximum number of results returned. The `type: text` indexes are limited to 200 results when queried.
 -	**skip (optional, default: 0)**: Skip the first 'n' results, where 'n' is the value that is specified.
 -	**sort (optional, default: [])**: JSON array,
 	ordered according to the [sort syntax](#sort-syntax).
@@ -519,8 +516,9 @@ Design documents are not returned by `_find`.
 	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index.
 
 	For more information, see [Explain Plans](#explain-plans).
--   **execution_stats (optional, default: false)**: Use this option to find information about the query
-    that was executed, including total key lookups, total document lookups (when `include_docs=true`
+-   **execution_stats (optional, default: false)**: Use this option to find information 
+	about the query
+    that was run. This information includes total key lookups, total document lookups (when `include_docs=true`
     is used), and total quorum document lookups (when Fabric document lookups are used). 	
 
 The `bookmark` field is used for paging through result sets.
@@ -586,7 +584,7 @@ The {{site.data.keyword.cloudant_short_notm}} Query language is expressed as a J
 Within this structure,
 you can apply conditional logic by using specially named fields.
 
-While the {{site.data.keyword.cloudant_short_notm}} Query language has some similarities with MongoDB query documents,these similarities arise from a commonality of purpose and do not necessarily extend to equivalence of function or result.
+The {{site.data.keyword.cloudant_short_notm}} Query language has some similarities with MongoDB query documents, but these similarities arise from a commonality of purpose and do not necessarily extend to equivalence of function or result.
 
 ### Selector basics
 {: #selector-basics}
@@ -1128,7 +1126,7 @@ Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are bot
               | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression.
 
 Regular expressions do not work with indexes,
-so they must not be used to filter large data sets. They can, however, be used to restrict a `partial index <find/partial_indexes>`.
+so they must not be used to filter large data sets. However, they can be used to restrict a `partial index <find/partial_indexes>`.
 {: tip}
 
 ### Examples of condition operators
@@ -1430,7 +1428,7 @@ _Example of using the $exists operator:_
 #### The `$type` operator
 {: #the-type-operator}
 
-The `$type` operator requires that the specified document field is of the correct type.
+The `$type` operator requires the specified document field is of the correct type.
 
 _Example of using the `$type` operator:_
 
@@ -1453,7 +1451,7 @@ _Example of using the `$type` operator:_
 #### The `$in` operator
 {: #the-in-operator}
 
-The `$in` operator requires that the document field _must_ exist in the list provided.
+The `$in` operator requires the document field _must_ exist in the list provided.
 
 _Example of using the $in operator:_
 
@@ -1477,7 +1475,7 @@ _Example of using the $in operator:_
 #### The `$nin` operator
 {: #the-nin-operator}
 
-The `$nin` operator requires that the document field must _not_ exist in the list provided.
+The `$nin` operator requires the document field must _not_ exist in the list provided.
 
 _Example of using the $nin operator:_
 
@@ -1589,10 +1587,9 @@ that argument can itself be another operator with arguments of its own.
 This expansion enables more complex selector expressions.
 
 Combination or array logical operators, such as `$regex`, can
-result in a full database scan when using indexes of type JSON,
+result in a full database scan when you use indexes of type JSON,
 resulting in poor performance. Only equality operators, such as `$eq`,
-`$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups to be
-performed. To ensure indexes are used effectively, analyze the
+`$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups. To ensure that indexes are used effectively, analyze the
 [explain plan](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans) for each query.  
 {: tip}
 
@@ -1611,7 +1608,7 @@ see the [Erlang Regular Expression ![External link icon](../images/launch-glyph.
 
 The `sort` field contains a list of field name and direction pairs,
 expressed as a basic array.
-The first field name and direction pair is the topmost level of sort.
+The first field name and direction pair are the topmost level of sort.
 The second pair,
 if provided,
 is the next level of sort.
@@ -1753,15 +1750,15 @@ _Example of selective retrieval of fields from matching documents:_
 ## Pagination
 {: #pagination}
 
-{{site.data.keyword.cloudant_short_notm}} Query supports pagination via the bookmark field. Every `_find` response contains a bookmark - a token
+{{site.data.keyword.cloudant_short_notm}} Query supports pagination by the bookmark field. Every `_find` response contains a bookmark - a token
 that {{site.data.keyword.cloudant_short_notm}} uses to determine where to resume from when subsequent queries are made. To get the next
 set of query results, add the bookmark that was received in the previous response to your next request.
-Remember to keep the selector the same, otherwise you will receive unexpected results. To paginate backwards,
+Remember to keep the selector the same, otherwise you receive unexpected results. To paginate backwards,
 you can use a previous bookmark to return the previous set of results.
 
-The presence of a bookmark doesn’t guarantee that there are more results. You can test whether
-you have reached the end of the result set by comparing the number of results returned with the page size
-requested - if the results returned < limit, there are no more results.
+The presence of a bookmark doesn’t guarantee more results. You can test whether
+you are at the end of the result set by comparing the number of results that are returned with the page size
+requested. If the results returned < limit, no more results were returned in the result set.
 {: tip}
 
 ## Explain Plans
@@ -1774,14 +1771,14 @@ When you specify an index to use,
 {{site.data.keyword.cloudant_short_notm}} Query uses the following logic:
 
 -	The query planner looks at the selector section,
-	and finds the index with the closest match to operators and fields used in the query.
-	If there are two or more JSON type indexes that match,
+	and finds the index with the closest match to operators and fields that are used in the query.
+	If two or more JSON type indexes match,
 	the index with the smallest number of fields in the index is preferred.
-  If there are still two or more candidate indexes,
+  If two or more candidate indexes still exist,
   the index with the first alphabetical name is chosen.
 -	If a `json` type index _and_ a `text` type index might both satisfy a selector,
 	the `json` index is chosen by default.
--	If a `json` type index _and_ a `text` type index the same field (for example `fieldone`),
+-	If a `json` type index _and_ a `text` type index exist in the same field (for example `fieldone`),
 	but the selector can be satisfied only by using a `text` type index,
 	then the `text` type index is chosen.
 
@@ -1904,7 +1901,7 @@ _Example response that shows which index was used to answer a query:_
 To instruct a query to use a specific index,
 add the `use_index` parameter to the query.
 
-The value of the `use_index` parameter takes one of two formats:
+The value of the `use_index` parameter takes one of the following formats:
 
 -	`"use_index": "$DDOC"`
 -	`"use_index": ["$DDOC","$INDEX_NAME"]`
@@ -2036,7 +2033,7 @@ This search is more complicated.
 The `$in` operator has some special semantics for array values that are inherited from the way MongoDB's behaves.
 In particular,
 the `$in` operator applies to the value **OR** any of the values that are contained in an array that is named by the field.
-In our example,
+In this example,
 the expression means that both `"type":"starch"` **AND** `"type":["protein"]` would match the example argument to `$in`.
 Earlier,
 the `type_3astring` expression was converted to `type:string`.
@@ -2156,7 +2153,7 @@ _Example response after a text index is created successfully:_
 The most obvious difference in the results you get when you use full text indexes is
 the inclusion of a large `bookmark` field.
 The reason is that text indexes are different from view-based indexes.
-For more flexibility when you work with the results that are obtained from a full text query,
+For more flexibility, when you work with the results that are obtained from a full text query,
 you can supply the `bookmark` value as part of the request body.
 Use the `bookmark` to specify which page of results you require.
 

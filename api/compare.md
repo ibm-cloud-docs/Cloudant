@@ -13,6 +13,8 @@ lastupdated: "2018-06-21"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2018-06-04 -->
+
 # Comparison of {{site.data.keyword.cloudant_short_notm}} and CouchDB API endpoints
 
 This section provides a simple list of the {{site.data.keyword.cloudantfull}} (![{{site.data.keyword.cloudant_short_notm}} Logo](../images/verySmallCloudant.png)),

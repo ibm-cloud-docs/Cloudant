@@ -13,7 +13,10 @@ lastupdated: "2018-06-07"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2018-06-04 -->
+
 # {{site.data.keyword.cloudant_short_notm}} Geospatial
+{: #cloudant-nosql-db-geospatial}
 
 {{site.data.keyword.cloudantfull}} Geospatial,
 or '{{site.data.keyword.cloudant_short_notm}} Geo',
@@ -37,6 +40,7 @@ with the flexibility and scalability of {{site.data.keyword.cloudant_short_notm}
 	and syndicated across other web applications.
 
 ## {{site.data.keyword.cloudant_short_notm}} Geo overview
+{: #cloudant-nosql-db-geo-overview}
 
 {{site.data.keyword.cloudant_short_notm}} Geo lets you structure your data using GeoJSON format.
 Design documents are used to index the data.
@@ -69,6 +73,7 @@ The basic steps for working with geospatial data in {{site.data.keyword.cloudant
 3.  Search the indexed geometry object by using various geometries and geometric relationships.
 
 ## Using {{site.data.keyword.cloudant_short_notm}} Geospatial through the Dashboard
+{: #using-cloudant-nosql-db-geospatial-through-the-dashboard}
 
 The Dashboard lets you perform several geospatial tasks:
 
@@ -112,6 +117,7 @@ More information on using {{site.data.keyword.cloudant_short_notm}} Geospatial i
 the [Learning Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.cloudant.com/learning-center#geo){:new_window}.
 
 ## GeoJSON
+{: #geojson}
 
 [GeoJSON format ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){:new_window}
 is used to express a variety of geographic data structures, including:
@@ -127,6 +133,7 @@ is used to express a variety of geographic data structures, including:
 A GeoJSON document is simply a JSON document containing two distinct key:value sections:
 
 ### `type`
+{: #type}
 
 It must be present and contain the value `Feature`.
 
@@ -259,9 +266,10 @@ _Example response in JSON format:_
 ```
 {:codeblock}
 
->	**Note:** If the design document that is intended to specify a geospatial index is invalid,
-	an attempt to retrieve information about the index by using the `_geo_info` endpoint
-	results in an [HTTP `404`](http.html#404) response.
+If the design document that is intended to specify a geospatial index is invalid,
+an attempt to retrieve information about the index by using the `_geo_info` endpoint
+results in an [HTTP `404`](http.html#404) response.
+{: tip}
 
 ## Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
 
@@ -326,8 +334,8 @@ _Example of a `polygon` query:_
 ```
 {:codeblock}
 
->	**Note**: {{site.data.keyword.cloudant_short_notm}} Geo uses `intersects` as the default geometric relation
-when executing a query with query geometry only.
+{{site.data.keyword.cloudant_short_notm}} Geo uses `intersects` as the default geometric relation when executing a query with query geometry only.
+{: tip}
 
 ### Geometric Relation
 
