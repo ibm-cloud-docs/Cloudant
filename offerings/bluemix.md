@@ -12,7 +12,7 @@ lastupdated: "2018-06-05"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-02-23 -->
+<!-- Acrolinx: 2018-06-05 -->
 
 # {{site.data.keyword.Bluemix_notm}} Public
 {: #ibm-cloud-public}
