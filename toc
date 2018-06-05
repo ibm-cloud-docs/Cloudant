@@ -7,6 +7,8 @@ Cloudant NoSQL DB
 	{: .navgroup id="learn"}
 	getting-started.md
 	cloudant.md
+	offerings/bluemix.md
+	offerings/pricing.md
 
 	{: .topicgroup}
 	Offerings
@@ -21,12 +23,20 @@ Cloudant NoSQL DB
     	offerings/security.md
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
+		offerings/audit.md
+		offerings/gdpr.md
 
 	{: .topicgroup}
 	Release information
 		release_info/release_notes.md
 		release_info/differences_major_releases.md
 		release_info/deprecations.md
+	
+	{: .topicgroup}
+	Other offerings
+		offerings/bluemix_dedicated.md
+		offerings/cloud_local.md
+		offerings/cloudant.com.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
