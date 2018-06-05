@@ -86,6 +86,7 @@ Standard plan:
 </table>
 
 ## Plans
+{: #plans}
 
 You can select which plan to use when you
 [provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-instance-on-bluemix).
@@ -95,6 +96,7 @@ the [Lite plan](#lite-plan) is selected.
 ![{{site.data.keyword.cloudant_short_notm}} service instance plan selection](../images/fb87416a.png)
 
 ### Lite plan
+{: #lite-plan}
 
 The Lite plan is free,
 but limits you to a maximum of 1 GB of data storage.
@@ -111,6 +113,7 @@ or to have a greater throughput capacity,
 move to the [Standard plan](#standard-plan).
 
 ### Standard plan
+{: #standard-plan}
 
 The Standard plan includes 20 GB of data storage.
 If you store more than 20 GB,
@@ -122,6 +125,7 @@ writes,
 and queries.
 
 ### Dedicated hardware plan
+{: #dedicated-hardware-plan}
 
 As an alternative, you can run your Standard plan instances on a dedicated hardware environment in 
 any [{{site.data.keyword.IBM}} data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 
@@ -134,6 +138,7 @@ The Dedicated Hardware plan is not available to {{site.data.keyword.Bluemix_notm
 
 ## Provisioned throughput capacity
 {: #provisioned-throughput-capacity}
+
 Throughput provision is identified and measured as one of the following types of events:
 
 1.	A lookup,
@@ -184,10 +189,8 @@ The reason is that the number of retries is limited;
 regularly transgressing the number of requests is a strong indicator
 for moving to a different plan configuration.
 
->   **Note**: If you are porting an existing application,
-    it might not be able to handle a `429` response.
-    As part of your migration verification,
-    check that your application handles `429` responses correctly.
+If you are porting an existing application, it might not be able to handle a `429` response. As part of your migration verification, check that your application handles `429` responses correctly.
+{: tip}
 
 In summary,
 you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
@@ -195,6 +198,7 @@ you must ensure that your application is able to handle a [`429`](../api/http.ht
 <div id="servicetier"></div>
 
 ### Viewing and changing capacity
+{: #viewing-and-changing-capacity}
 
 You can see details of the throughput capacity within the plans available for your account.
 You can select the level of provisioning that you want to use,
@@ -212,6 +216,7 @@ complete.
 <div id="throughput"></div>
 
 ### Monitoring usage 
+{: #monitoring-usage}
 
 Information about your usage is available in the Current Operations pane of the Monitoring tab within your {{site.data.keyword.cloudant_short_notm}} Dashboard. 
 
@@ -227,13 +232,16 @@ if you frequently approach the maximum number of database lookups,
 then you can modify the provisioning through the [Service pane](#servicetier) on the Account tab of the Dashboard.
 
 ## Data usage
+{: #data-usage}
 
 ### Disk space included
+{: #disk-space-included}
 
 This value is the storage capacity that is included in the plan.
 It is used for both data and index storage.
 
 ### Disk overage
+{: #disk-overage}
 
 All Standard and Lite plan service instances are monitored for disk space used.
 If the account uses more than the amount of storage that is provided in your plan configuration,
@@ -254,6 +262,7 @@ you would be billed an overage charge based on 87 GB x 12 hours = 1044 GB hours 
 Overage is calculated by using the maximum number of GB more than the plan allocation during a particular hour within the billing cycle.
 
 ### Disk overage example
+{: #disk-overage-example}
 
 Assume that you start a month of 30 days with a Standard plan service instance that uses 9 GB of storage.
 Next,
@@ -281,6 +290,7 @@ your bill includes an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours
 The total overage bill for the month is based on a total of 88 + 168 + 5184 = 5440 GB hours.
 
 ## Request and document size limits
+{: #request-and-document-size-limits}
 
 {{site.data.keyword.cloudant_short_notm}} JSON documents and requests have the 
 following maximum size limits: 
@@ -302,6 +312,7 @@ replicate to the target database. More information about how to detect replicati
 errors is available [here](../api/replication.html#replication-errors).
 
 ## Locations and tenancy
+{: #locations-and-tenancy}
 
 By default, all Lite and Standard plans are deployed on multi-tenant 
 environments. As part of your plan selection, you can choose from the 
@@ -325,6 +336,7 @@ outside of an EU-managed environment cannot be granted access to an EU-managed
 {{site.data.keyword.cloudant_short_notm}} instance.
 
 ## Security, encryption, and compliance
+{: #security-encryption-and-compliance}
 
 All plans are provided on servers with
 [at-rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window} disk encryption.
@@ -349,6 +361,7 @@ support ticket, and our support team coordinates getting your new Dedicated Hard
 encryption-at-rest encryption keys that are managed by your Key Protect instance.
 
 ## High availability, disaster recovery, and backup
+{: #high-availability-disaster-recovery-and-backup}
 
 To provide high availability (HA) and disaster recovery (DR) within a data center, all data is 
 stored in triplicate across three separate physical servers in a cluster. You can provision 
@@ -359,6 +372,7 @@ provided to handle backups. Review the
 to explore all HA, DR, and backup considerations to meet your application requirements. 
 
 ## Support
+{: #support}
 
 Support for Standard and Dedicated plan service instances is optional.
 It is provided by purchasing "{{site.data.keyword.Bluemix}} Standard Support".
@@ -370,6 +384,7 @@ Information about the details of the Support Service Level Agreement (SLA) is av
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-03.ibm.com/software/sla/sladb.nsf/pdf/6606-08/$file/i126-6606-08_05-2016_en_US.pdf){:new_window}.
 
 ## Provisioning a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
+{: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
 
 You can provision a {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.Bluemix}} in two ways:
 
@@ -377,7 +392,3 @@ You can provision a {{site.data.keyword.cloudant_short_notm}} Lite or Standard p
 - Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
  
 To create and use a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial that describes the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
-
-
-
-
