@@ -79,12 +79,6 @@ Standard | 20 GB | Additional storage costs $0.0014 per GB per hour, which is ap
 
 How does data display in the {{site.data.keyword.cloud_notm}} Usage Dashboard?
 
-In the screen capture, you can see that the usage of storage displays above the 20 GB limit that 
-is included in the Standard plan, which is priced per GB/hour. When you are under 20 GB of storage, the 
-display shows 0 GB since you did not go over the limit.
-
-![{{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics](../images/usage-dashboard2.png)
-
 This view shows the totals for usage that is accrued during this month, and so, only shows costs 
 for the month so far. The Estimated Total reflects the bill so far for the month. By the end 
 of the month, you'll see your average capacity for the month, which is your total monthly 
@@ -92,3 +86,5 @@ bill. The `STORAGE_MANAGED_PER_MONTH` field only shows the amount above the 20 G
 so in the following example, there are approximately 40 GB of data total in the account.  
 
 ![{{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics view with higher STORAGE MANAGED PER MONTH](../images/usage-dashboard1.png)
+
+When you use less than 20 GB of storage, the display shows 0 GB since you did not go over the limit.
