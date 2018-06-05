@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-18"
+lastupdated: "2018-06-05"
 
 ---
 
@@ -22,16 +22,15 @@ feature-rich offering, receiving updates and new features first. Pricing is base
 your throughput and storage requirements, making it suitable for any 
 required load. 
 
-There is a free [Lite plan](#lite-plan) with a fixed amount of 
-throughput capacity and data for development and evaluation purposes. There 
-is also a paid [Standard plan](#standard-plan) which offers configurable provisioned throughput 
+The free [Lite plan](#lite-plan) includes a fixed amount of 
+throughput capacity and data for development and evaluation purposes. The paid [Standard plan](#standard-plan) offers configurable provisioned throughput 
 capacity and data storage pricing that scales as your application requirements 
 change.  An optional [Dedicated Hardware plan](#dedicated-hardware-plan) is also available for an 
 additional monthly fee to run one or more of your Standard plan instances 
 on a dedicated hardware environment. The dedicated hardware environment 
 is for your sole use, and if a Dedicated Hardware plan instance is provisioned 
 within a US location, you can optionally select a [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
-compliant configuration.
+-compliant configuration.
 
 The following table summarizes the provisioned throughput capacity and 
 disk space configuration for the Lite plan and a few examples for the 
@@ -124,17 +123,18 @@ and queries.
 
 ### Dedicated hardware plan
 
-You can optionally run your Standard plan instances on a dedicated hardware environment in 
+As an alternative, you can run your Standard plan instances on a dedicated hardware environment in 
 any [{{site.data.keyword.IBM}} data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 
-for a monthly fee. You purchase a single dedicated hardware plan for a given location 
+for a monthly fee. You purchase a single dedicated hardware plan for a specific location 
 and can provision one or more Standard plan instances on it. This plan is necessary for 
-HIPAA compliance and must be selected at provisioning time. Note that the Dedicated 
-Hardware plan is not available to {{site.data.keyword.Bluemix_notm}} Dedicated customers and is only available for {{site.data.keyword.Bluemix_notm}} 
-Public customers.
+HIPAA compliance and must be selected at provisioning time. 
+
+The Dedicated Hardware plan is not available to {{site.data.keyword.Bluemix_notm}} Dedicated customers and is only available for {{site.data.keyword.Bluemix_notm}} Public customers.
+{: tip}
 
 ## Provisioned throughput capacity
 {: #provisioned-throughput-capacity}
-Throughput provision is identified and measured as one of three kinds of events:
+Throughput provision is identified and measured as one of the following types of events:
 
 1.	A lookup,
     which is a read of a specific document,
@@ -145,7 +145,7 @@ Throughput provision is identified and measured as one of three kinds of events:
     or deletion of an individual document,
     or any update due to an index build.
 3.	A query,
-    which is a request made to one of the {{site.data.keyword.cloudant_short_notm}} query endpoints,
+    which is a request that is made to one of the {{site.data.keyword.cloudant_short_notm}} query endpoints,
     including the following types:
 	-	Primary Index ([`_all_docs`](../api/database.html#get-documents))
 	-	MapReduce View ([`_view`](../api/creating_views.html#using-views))
@@ -161,9 +161,7 @@ requests are rejected until the number of events within the sliding window
 no longer exceeds the number that is provisioned.
 It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
-For example, if you are on the Standard plan with provisioned for 200 lookups per second,
-your account might make a maximum of 200 lookup requests during a consecutive period of 1,000 milliseconds (1 second).
-Subsequent lookup requests made during the sliding 1,000-millisecond period
+For example, the Standard plan is provisioned for 200 lookups per second. Your account might make a maximum of 200 lookup requests during a consecutive period of 1,000 milliseconds (1 second). Subsequent lookup requests made during the sliding 1,000-millisecond period
 are rejected until the number of lookup requests in that period drops to less than 200 again.
 
 When a request is rejected because the number of events is exceeded,
@@ -174,8 +172,8 @@ Recent versions of the supported client libraries (for [Java](../libraries/suppo
 [Node.js](../libraries/supported.html#node-js),
 and [Python](../libraries/supported.html#python) languages) help you handle a `429` response.
 For example,
-the Java library throws a
-[`TooManyRequestsException` ![External link icon](../images/launch-glyph.svg "External link icon")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){:new_window}.
+the Java library generates a
+[`TooManyRequestsException` ![External link icon](../images/launch-glyph.svg "External link icon")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){:new_window} response.
 
 By default,
 the supported client libraries do not automatically attempt to retry
@@ -205,7 +203,7 @@ through the Account tab of your {{site.data.keyword.cloudant_short_notm}} accoun
 ![Account Dashboard](../images/cloudant_capacity.png)
 
 To move to a different throughput capacity, select the provisioning you 
-want, then click the `Update` button. You are asked to confirm the change, 
+want, then click `Update`. You are asked to confirm the change, 
 and reminded that the provisioning change can take up to 24 hours to 
 complete.
 
@@ -232,7 +230,7 @@ then you can modify the provisioning through the [Service pane](#servicetier) on
 
 ### Disk space included
 
-This value is the storage capacity included in the plan.
+This value is the storage capacity that is included in the plan.
 It is used for both data and index storage.
 
 ### Disk overage
@@ -272,15 +270,15 @@ your instance was 8 GB more than the plan allocation.
 
 Therefore,
 for hour 02:00 of day 3,
-you will be billed an overage based on 88 GB x 1 hour = 88 GB hours.
+your bill includes an overage based on 88 GB x 1 hour = 88 GB hours.
 
 For hour 03:00 of day 3 to the end of day 3,
-you will be billed an overage based on 8 GB x 21 hours = 168 GB hours.
+your bill includes an overage based on 8 GB x 21 hours = 168 GB hours.
 
 For hour 00:00 of day 4 to the end of the month (of 30 days),
-you will be billed an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours.
+your bill includes an overage based on 8 GB x 24 hours x 27 days = 5184 GB hours.
 
-The total overage bill for the month would be based on a total of 88 + 168 + 5184 = 5440 GB hours.
+The total overage bill for the month is based on a total of 88 + 168 + 5184 = 5440 GB hours.
 
 ## Request and document size limits
 
@@ -299,8 +297,8 @@ It is recommended that you store binary attachments, or large JSON blobs,
 in object storage and save a link to the location in a 
 {{site.data.keyword.cloudant_short_notm}} JSON document.   
 
-When replicating, documents or attachments larger than these limits will not be 
-replicated to the target database. More information about how to detect replication
+When you replicate, documents or attachments larger than these limits do not 
+replicate to the target database. More information about how to detect replication
 errors is available [here](../api/replication.html#replication-errors).
 
 ## Locations and tenancy
@@ -319,10 +317,10 @@ Dedicated Hardware plan instances can be deployed in most
 [{{site.data.keyword.IBM_notm}} data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
 See the drop-down menu in the {{site.data.keyword.Bluemix_notm}} catalog for an up-to-date list of available locations.
 
-&Dagger;All {{site.data.keyword.cloudant_short_notm}} instances deployed from the 
-{{site.data.keyword.Bluemix_notm}} Public Germany region will be 
-deployed in EU-managed environments. Any {{site.data.keyword.cloudant_short_notm}} 
-account or API key generated 
+&Dagger;All {{site.data.keyword.cloudant_short_notm}} instances that are deployed from the 
+{{site.data.keyword.Bluemix_notm}} Public Germany region 
+deploy in EU-managed environments. Any {{site.data.keyword.cloudant_short_notm}} 
+account or API key that is generated 
 outside of an EU-managed environment cannot be granted access to an EU-managed 
 {{site.data.keyword.cloudant_short_notm}} instance.
 
@@ -342,20 +340,20 @@ so request this environment as part of the [provisioning process](#provisioning-
 
 <div id="byok"></div>
 
-If you require bring-your-own-key (BYOK) for encryption-at-rest, this is enabled via {{site.data.keyword.cloud}} Key 
+If you require bring-your-own-key (BYOK) for encryption-at-rest, this encryption is enabled by using {{site.data.keyword.cloud}} Key 
 Protect. {{site.data.keyword.cloudant_short_notm}} supports this feature for new {{site.data.keyword.cloudant_short_notm}} 
 [Dedicated Hardware plan](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public) 
-instances deployed in all regions. First, create an instance of the Dedicated 
-Hardware plan via the [{{site.data.keyword.cloud_notm}} Catalog](https://console.bluemix.net/catalog/). Then submit a 
-support ticket and our support team will coordinate getting your new Dedicated Hardware instance's 
-encryption-at-rest encryption keys managed via your Key Protect instance.
+instances that are deployed in all regions. First, create an instance of the Dedicated 
+Hardware plan by using the [{{site.data.keyword.cloud_notm}} catalog](https://console.bluemix.net/catalog/). Then, submit a 
+support ticket, and our support team coordinates getting your new Dedicated Hardware instance's 
+encryption-at-rest encryption keys that are managed by your Key Protect instance.
 
 ## High availability, disaster recovery, and backup
 
 To provide high availability (HA) and disaster recovery (DR) within a data center, all data is 
 stored in triplicate across three separate physical servers in a cluster. You can provision 
 accounts in multiple data centers, then use continuous data replication to provide HA/DR across 
-data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically backed up, but supported tooling is 
+data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically backed up, but supported tools are  
 provided to handle backups. Review the 
 [Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) 
 to explore all HA, DR, and backup considerations to meet your application requirements. 
@@ -375,10 +373,10 @@ Information about the details of the Support Service Level Agreement (SLA) is av
 
 You can provision a {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.Bluemix}} in two ways:
 
-- Using the Dashboard. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
-- Using the Cloud Foundry command tool. A tutorial describing the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
+- Using the Dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
+- Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
  
-To create and leverage a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
+To create and use a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial that describes the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
 
 
 

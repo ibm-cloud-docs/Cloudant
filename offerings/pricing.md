@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-27"
+lastupdated: "2018-06-05"
 
 ---
 
@@ -12,9 +12,10 @@ lastupdated: "2018-04-27"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2017-04-27 -->
+<!-- Acrolinx: 2018-06-057 -->
 
 # Pricing
+{: #pricing}
 
 {{site.data.keyword.cloudantfull}} provides tuning to scale up and down your provisioned throughput 
 capacity, which is a reserved number of lookups, writes, and queries each second allocated to 
@@ -24,6 +25,7 @@ application is trying to exceed its provisioned throughput capacity allowance.
 
 
 ## Pricing Examples 
+{: #pricing-examples}
 
 Let's assume you are building a mobile app with {{site.data.keyword.cloudant_short_notm}} and do not yet know the capacity 
 that you might need. In this case, we recommend that you start with the lowest provisioned throughput 
@@ -35,9 +37,9 @@ the Standard plan that is 100 lookups/sec, 50 writes/sec, and 5 queries/sec. The
 this capacity is $0.105 per hour. The 100 lookups/sec, 50 writes/sec, and 5 queries/sec are 
 a block of provisioned throughput capacity. When you need to scale up (or down), you 
 can scale in increments of these blocks of capacity. Assuming the instance has less than 
-the 20 GB of storage that is included in the Standard plan, there are no storage costs. On the 
+the 20 GB of storage that is included in the Standard plan, no storage costs are incurred. On the 
 {{site.data.keyword.cloudant_short_notm}} Dashboard's > Account > Capacity tab, the 
-provisioned throughput capacity setting looks like this:
+provisioned throughput capacity setting looks like this screen capture:
 
 ![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab](../images/cloudant-dashboard.png)
 
@@ -69,6 +71,7 @@ What about 1,000 lookups, 500 writes, and 50 queries? See the following details:
 - Total = $766.50
 
 ## Data Usage 
+{: #data-usage}
 
 What about pricing for data overage, how does that work?
 
@@ -79,11 +82,7 @@ Standard | 20 GB | Additional storage costs $0.0014 per GB per hour, which is ap
 
 How does data display in the {{site.data.keyword.cloud_notm}} Usage Dashboard?
 
-This view shows the totals for usage that is accrued during this month, and so, only shows costs 
-for the month so far. The Estimated Total reflects the bill so far for the month. By the end 
-of the month, you'll see your average capacity for the month, which is your total monthly 
-bill. The `STORAGE_MANAGED_PER_MONTH` field only shows the amount above the 20 GB included, 
-so in the following example, there are approximately 40 GB of data total in the account.  
+This view shows the totals for usage that are accrued during this month, and so, shows only costs for the month so far. The Estimated Total reflects the bill so far for the month. By the end of the month, you see your average capacity for the month, which is your total monthly bill. The `STORAGE_MANAGED_PER_MONTH` field shows only the amount higher than the 20 GB included, so in the following example, you see approximately 40 GB of data total in the account.  
 
 ![{{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics view with higher STORAGE MANAGED PER MONTH](../images/usage-dashboard1.png)
 
