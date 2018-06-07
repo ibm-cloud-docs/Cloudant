@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-05"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,15 +12,15 @@ lastupdated: "2018-06-05"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2018-06-057 -->
+<!-- Acrolinx: 2018-06-07 -->
 
 # Pricing
 {: #pricing}
 
-{{site.data.keyword.cloudantfull}} provides tuning to scale up and down your provisioned throughput 
+{{site.data.keyword.cloudantfull}} allows tuning to scale up and down your provisioned throughput 
 capacity, which is a reserved number of lookups, writes, and queries each second allocated to 
 an instance. The throughput capacity level is the maximum usage level. If you attempt to 
-exceed the reserved capacity, it can cause an HTTP 429 status code that indicates the 
+exceed the reserved capacity, you get an HTTP 429 status code that indicates the 
 application is trying to exceed its provisioned throughput capacity allowance.
 
 
