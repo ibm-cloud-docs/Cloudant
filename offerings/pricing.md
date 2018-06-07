@@ -43,30 +43,20 @@ provisioned throughput capacity setting looks like this screen capture:
 
 ![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab](../images/cloudant-dashboard.png)
 
-The capacity slider shows the hourly cost of the provisioned throughput capacity of 100 
-lookups/sec, 50 writes/sec, and 5 queries/sec in USD of $0.105/hour. The slider shows a rough cost 
-per month of $76.65. The monthly amount is an estimate based on an average of 730 hours per 
-month. The cost in any month can be slightly different depending on the number of 
-hours in the month.
+The capacity slider shows the hourly cost of the provisioned throughput capacity of 100 lookups/sec, 50 writes/sec, and 5 queries/sec in USD of $0.105/hour. The slider shows a rough cost per month of $76.65. The monthly amount is an estimate based on an average of 730 hours per month. The cost in any month can be slightly different depending on the number of hours in the month.
 
-Lookups, writes, and queries cannot be scaled independently. Use the slider to select the 
-number of blocks of provisioned throughput capacity based on the maximum limit of either 
-lookups/sec, writes/sec, or queries/sec required for your application. For example, if 
-your application requires 1,000 lookups per second, use the slider to select the capacity 
-that offers 1,000 lookups/sec, 500 writes/sec, and 50 queries/sec, even if you do not 
-need the corresponding number of writes or queries.
+Example equation: 
+
+- $0.105 per hour 1 block of 100 lookups/sec, 50 writes/sec, and 5 queries/sec provisioned throughput capacity * 730 hours (approximate hours in a month)
+- Total = $76.65
+
+Lookups, writes, and queries cannot be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either lookups/sec, writes/sec, or queries/sec required for your application. For example, if your application requires 1,000 lookups per second, use the slider to select the capacity that offers 1,000 lookups/sec, 500 writes/sec, and 50 queries/sec, even if you do not need the corresponding number of writes or queries.
 
 ![{{site.data.keyword.cloudant_short_notm}} Dashboard Capacity tab with more capacity selected](../images/cloudant-gran-tuning.png)
 
-How do you estimate the total cost for provisioned throughput capacity per month of 100 
-lookups, 50 writes, and 5 queries? See the following details:
+How do you estimate the total cost for provisioned throughput capacity per month of 1,000 lookups, 500 writes, and 50 queries? 
 
-- $0.105 per hour * 1 block of 100 lookups/sec, 50 writes/sec, and 5 queries/sec provisioned throughput capacity * 730 hours (approximate hours in a month)
-- Total = $76.65
-
-What about 1,000 lookups, 500 writes, and 50 queries? See the following details:
-
-- $0.105 per hour * 10 blocks of 100 lookups/sec, 50 writes/sec, and 5 queries/sec provisioned throughput capacity * 730 hours (approximate hours in a month)
+- $0.105 per hour 10 blocks of 100 lookups/sec, 50 writes/sec, and 5 queries/sec provisioned throughput capacity * 730 hours (approximate hours in a month)
 - Alternatively the slider shows you the provisioned throughput capacity of 1000 lookups/sec, 500 writes/sec, and 50 queries/sec costs $1.050/hour * 730 hours
 - Total = $766.50
 
