@@ -53,7 +53,7 @@ is available in the [API reference](api/index.html).
 
 ## Documentation Contents
 
-*	[{{site.data.keyword.cloudant_short_notm}} Offerings](offerings/bluemix.html#ibm-cloud-public): The {{site.data.keyword.cloudant_short_notm}} is available
+*	[{{site.data.keyword.cloudant_short_notm}} Offerings](offerings/bluemix.html#ibm-cloud-public): {{site.data.keyword.cloudant_short_notm}} is available
 	in a variety of offerings,
 	all described in this section.
 *	[{{site.data.keyword.cloudant_short_notm}} Basics](basics/index.html):
