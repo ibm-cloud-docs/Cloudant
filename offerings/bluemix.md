@@ -46,7 +46,7 @@ Standard plan:
 <tr>
 <th id="base-priceperhour" headers="plans">Base Price (per hour)</td>
 <td headers="lite base-priceperhour">$0.00</td>
-<td headers="standard base-priceperhour" colspan='4'>See <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
+<td headers="standard base-priceperhour" colspan='4'>See <a href="../offerings/pricing.html#pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 <tr>
 <th id="provisionedthroughputcapacity-lookupspersecond" headers="plans">Provisioned Throughput Capacity (Lookups per second)</td>
@@ -80,7 +80,7 @@ Standard plan:
 <tr>
 <th headers="diskoveragepergbhour" headers="plans">Disk Overage (per GB/hour)</td>
 <td headers="lite diskoveragepergbhour">Not available</td>
-<td headers="standard diskoveragepergbhour" colspan='4'>See <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
+<td headers="standard diskoveragepergbhour" colspan='4'>See <a href="../offerings/pricing.html#pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 
 </table>

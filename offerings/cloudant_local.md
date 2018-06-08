@@ -16,7 +16,7 @@ lastupdated: "2017-12-04"
 
 # {{site.data.keyword.cloudant_local_notm}}
 
-[{{site.data.keyword.cloudantfull}} Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){:new_window}
+[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){:new_window}
 is a locally installed version of the {{site.data.keyword.cloudant_short_notm}} Database-as-a-Service (DBaaS) offering.
 
 {{site.data.keyword.cloudant_local_notm}} provides you with the same basic capabilities as the full {{site.data.keyword.cloudant_short_notm}} single-tenant offering,
