@@ -504,4 +504,4 @@ Replication and backups can be tricky.
 If you get stuck,
 check out the [replication guide](replication_guide.html),
 or contact the
-[IBM {{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+[{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -366,7 +366,7 @@ remember to record the key name and password.
 These values are both randomly generated,
 and cannot be retrieved if lost or forgotten.
 
->	**Note**: [{{site.data.keyword.IBM_notm}} {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}
+>	**Note**: [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}
 does not support API Keys.
 For a similar capability,
 create "CouchDB" style users,

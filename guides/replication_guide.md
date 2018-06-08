@@ -730,7 +730,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 In the returned JSON,
 look for the `disk_size` value.
 If the value indicates a size of over 1 GB,
-contact the [IBM {{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} for further advice.
+contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} for further advice.
 
 You can check an individual `_replicator` document for conflicts,
 as shown in the following example:
@@ -805,4 +805,4 @@ For example:
     setting `worker_processes` and `http_connections` to 1 might be appropriate.
 
 For further assistance about the best configuration for your use-case,
-contact the [IBM {{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
