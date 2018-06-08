@@ -118,7 +118,7 @@ move to the [Standard plan](#standard-plan).
 The Standard plan includes 20 GB of data storage.
 If you store more than 20 GB,
 you are charged a defined cost per GB per hour.
-See the [Pricing](../offerings/pricing.html#pricing){:new_window} information for the current cost.
+See the [pricing](../offerings/pricing.html#pricing){:new_window} information for the current cost.
 On the Standard plan,
 you can also change the amount of provisioned throughput capacity for lookups,
 writes,
