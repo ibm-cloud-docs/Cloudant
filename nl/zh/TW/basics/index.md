@@ -12,60 +12,89 @@ lastupdated: "2018-02-15"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# {{site.data.keyword.cloudant_short_notm}} 基本觀念
+# {{site.data.keyword.cloudant_short_notm}} Basics
 
-如果這是您第一次閱讀本資訊，請在進一步瞭解之前，先瀏覽本節。
+If it's your first time here,
+scan this section before you scroll further.
 {:shortdesc}
 
-[用戶端程式庫](../libraries/index.html#-client-libraries)、[API 參考資料](../api/index.html#-api-reference)及[手冊](../guides/acurl.html#authorized-curl-acurl-)上的各節，都假設您已知 {{site.data.keyword.cloudantfull}} 的一些相關基本概念。
+The sections on [Client Libraries](../libraries/index.html#-client-libraries),
+[API Reference](../api/index.html#-api-reference),
+and [Guides](../guides/acurl.html#authorized-curl-acurl-) assume you know some basic things about {{site.data.keyword.cloudantfull}}.
 
-## 連接至 {{site.data.keyword.cloudant_short_notm}}
+## Connecting to {{site.data.keyword.cloudant_short_notm}}
 
-若要存取 {{site.data.keyword.cloudant_short_notm}}，您必須具有 [{{site.data.keyword.cloudant}} 帳戶](../api/account.html)或 [{{site.data.keyword.Bluemix}} 帳戶](../offerings/bluemix.html)。
+To access {{site.data.keyword.cloudant_short_notm}},
+you must have either a [{{site.data.keyword.cloudant}} account](../api/account.html),
+or an [{{site.data.keyword.Bluemix}} account](../offerings/bluemix.html).
 
 ## HTTP API
 
-所有對 {{site.data.keyword.cloudant_short_notm}} 的要求都會透過 Web 進行。
-這表示任何可與 Web 對話的系統都可以與 {{site.data.keyword.cloudant_short_notm}} 對話。
-{{site.data.keyword.cloudant_short_notm}} 的所有特定語言檔案庫都只是封套，提供一些便利性和語言細節，幫助您使用簡單的 API。
-許多使用者選擇利用原始 HTTP 程式庫來使用 {{site.data.keyword.cloudant_short_notm}}。
+All requests to {{site.data.keyword.cloudant_short_notm}} go over the web.
+This means any system that can speak to the web can speak to {{site.data.keyword.cloudant_short_notm}}.
+All language-specific libraries for {{site.data.keyword.cloudant_short_notm}} are really just wrappers that provide
+some convenience and linguistic niceties to help you work with a simple API.
+Many users choose to use raw HTTP libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 
-[API 參考資料的 HTTP 主題](../api/http.html)中提供有關 {{site.data.keyword.cloudant_short_notm}} 如何使用 HTTP 的特定詳細資料。
+Specific details about how {{site.data.keyword.cloudant_short_notm}} uses HTTP are
+provided in the [HTTP topic of the API Reference](../api/http.html).
 
-{{site.data.keyword.cloudant_short_notm}} 支援下列 HTTP 要求方法：
+{{site.data.keyword.cloudant_short_notm}} supports the following HTTP request methods:
 
 -   `GET`
 
-    要求指定的項目。如同一般 HTTP 要求，URL 的格式定義傳回的內容。使用 {{site.data.keyword.cloudant_short_notm}}，這可以包括靜態項目、資料庫文件，以及配置和統計資訊。
-    在大部分情況下，傳回的資訊採用 JSON 文件的格式。
+    Request the specified item.
+    As with normal HTTP requests,
+    the format of the URL defines what is returned.
+    With {{site.data.keyword.cloudant_short_notm}} this can include static items,
+    database documents,
+    and configuration and statistical information.
+    In most cases the information is returned in the form of a JSON document.
 
 -   `HEAD`
 
-    `HEAD` 方法用來取得 `GET` 要求的 HTTP 標頭，不含回應內文。
+    The `HEAD` method is used to get the HTTP header of a `GET` request without the body of the response.
 
 -   `POST`
 
-    上傳資料。在 {{site.data.keyword.cloudant_short_notm}} 的 API 內，`POST` 方法用來設定值、上傳文件、設定文件值，以及啟動部分管理指令。
+    Upload data.
+    Within {{site.data.keyword.cloudant_short_notm}}'s API,
+    the `POST` method is used to set values,
+    upload documents,
+    set document values,
+    and start some administration commands.
 
 -   `PUT`
 
-    用來「儲存」特定資源。在 {{site.data.keyword.cloudant_short_notm}} 的 API 中，`PUT` 用來建立新的物件，包括資料庫、文件、視圖，以及設計文件。
+    Used to 'store' a specific resource.
+    In {{site.data.keyword.cloudant_short_notm}}'s API,
+    `PUT` is used to create new objects,
+    including databases,
+    documents,
+    views,
+    and design documents.
 
 -   `DELETE`
 
-    刪除指定的資源，包括文件、視圖，以及設計文件。
+    Deletes the specified resource,
+    including documents,
+    views,
+    and design documents.
 
 -   `COPY`
 
-    可用來複製文件及物件的特殊方法。
+    A special method that can be used to copy documents and objects.
 
-如果用戶端（例如某些 Web 瀏覽器）不支援使用這些 HTTP 方法，可改用 `POST`，並將 `X-HTTP-Method-Override` 要求標頭設為實際 HTTP 方法。
+If the client (such as some web browsers) does not support using these HTTP methods,
+`POST` can be used instead with the `X-HTTP-Method-Override` request header set to the actual HTTP method.
 
-### 「不容許的方法」錯誤
+### Method not allowed error
 
-如果使用不受支援的 HTTP 要求類型與不支援指定類型的 URL 搭配，則會傳回 [405](../api/http.html#405) 錯誤，列出支援的 HTTP 方法，如下列範例所示。
+If you use an unsupported HTTP request type with a URL that does not support the specified type,
+a [405](../api/http.html#405) error is returned,
+listing the supported HTTP methods, as shown in the following example.
 
-_回應不受支援的要求的範例錯誤訊息：_
+_Example error message in response to an unsupported request:_
 
 ```json
 {
@@ -78,31 +107,53 @@ _回應不受支援的要求的範例錯誤訊息：_
 ## JSON
 {: #json}
 
-{{site.data.keyword.cloudant_short_notm}} 使用 JSON（JavaScript 物件表示法）編碼來儲存文件，因此任何編碼成 JSON 的內容都可以儲存為文件。
-包含媒體（例如影像、視訊及音訊）的檔案稱為 BLOB（二進位大型物件），而且可以儲存為與文件相關聯的附件。
+{{site.data.keyword.cloudant_short_notm}} stores documents using JSON (JavaScript Object Notation) encoding,
+so anything encoded into JSON can be stored as a document.
+Files containing media,
+such as images,
+videos,
+and audio,
+are called BLOBs (Binary Large OBjects),
+and can be stored as attachments associated with documents.
 
-您可以在 [JSON 手冊](../guides/json.html)中找到 JSON 的相關資訊。
+More information about JSON can be found in the [JSON Guide](../guides/json.html).
 
 <div id="distributed"></div>
 
-## 分散式系統
+## Distributed Systems
 
-{{site.data.keyword.cloudant_short_notm}} 的 API 可讓您與眾多機器（稱為叢集）的協同作業互動。
-叢集中的機器必須位於相同的資料中心，但可在該資料中心的不同 'Pod' 內。使用不同的 Pod 可協助改善 {{site.data.keyword.cloudant_short_notm}} 的「高可用性」特徵。
+{{site.data.keyword.cloudant_short_notm}}'s API enables you to interact with a collaboration of numerous machines,
+called a cluster.
+The machines in a cluster must be in the same datacenter,
+but can be within different 'pods' in that datacenter.
+Using different pods helps improve the High Availability characteristics of {{site.data.keyword.cloudant_short_notm}}.
 
-形成叢集的優點是，當您需要更多的運算能力時，只需增加更多的機器即可。比起擴充或加強現有單一機器，此舉通常更具成本效益和容錯能力。
+An advantage of clustering is that when you need more computing capacity,
+you just add more machines.
+This is often more cost-effective and fault-tolerant than scaling up or enhancing an existing single machine.
 
-如需 {{site.data.keyword.cloudant_short_notm}} 及分散式系統概念的相關資訊，請參閱 [CAP 定理](../guides/cap_theorem.html)手冊。
+For more information about {{site.data.keyword.cloudant_short_notm}} and distributed system concepts,
+see the [CAP Theorem](../guides/cap_theorem.html) guide.
 
-## 抄寫
+## Replication
 
-[抄寫](../api/replication.html)是 {{site.data.keyword.cloudant_short_notm}}、[CouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://couchdb.apache.org/){:new_window}、[PouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/){:new_window}，以及其他分散式資料庫所遵循的程序。
-抄寫會同步處理兩個資料庫的狀態，使其內容相同。
+[Replication](../api/replication.html) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
+[CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){:new_window},
+[PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window},
+and other distributed databases.
+Replication synchronizes the state of two databases so that their contents are identical.
 
-您可以連續抄寫。這表示每次來源資料庫變更時目標資料庫也會隨之更新。連續抄寫可以用於備份資料、跨多個資料庫聚集資料，或共用資料。
+You can replicate continuously.
+This means that a target database updates every time the source database changes.
+Continuous replication can be used for backups of data,
+aggregating data across multiple databases,
+or for sharing data.
 
-不過，連續抄寫表示會連續測試任何來源資料庫變更。此測試需要連續內部呼叫，這可能會影響效能或使用資料庫的成本。
+However,
+continuous replication means testing continuously for any source database changes.
+This testing requires continuous internal calls,
+which might impact performance or the cost of using the database.
 
->   **附註**：連續抄寫可能導致大量的內部呼叫。
-    這可能會影響 {{site.data.keyword.cloudant_short_notm}} 系統的多方承租戶使用者的成本。
-    依預設，會停用連續抄寫。
+>   **Note**: Continuous replication can result in a large number of internal calls.
+    This might affect costs for multi-tenant users of {{site.data.keyword.cloudant_short_notm}} systems.
+    Continuous replication is disabled by default.

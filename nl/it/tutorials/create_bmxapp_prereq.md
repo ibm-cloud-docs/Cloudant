@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-10"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-10"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creazione di un'applicazione Bluemix di esempio per accedere a un database Cloudant: prerequisiti 
+# Creazione di una semplice applicazione {{site.data.keyword.Bluemix_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: prerequisiti
 
 Questa sezione dell'esercitazione illustra i prerequisiti per la creazione di un'applicazione {{site.data.keyword.Bluemix}}.
 {:shortdesc}
@@ -49,15 +49,15 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### Un'istanza del servizio Cloudant su Bluemix
+### Un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}
 
-Un'esercitazione separata per la creazione di un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} denominata
+Un'esercitazione separata per la creazione di un'istanza del servizio {{site.data.keyword.cloudantfull}} denominata
 '`Cloudant Service 2017`' è disponibile [qui](create_service.html).
 
 Questa esercitazione presuppone che hai già creato un'istanza del servizio denominata
 '`Cloudant Service 2017`'.
 
-### Un'applicazione del database Cloudant 
+### Un'applicazione database {{site.data.keyword.cloudant_short_notm}}
 
 Un'esercitazione separata per la creazione di un'applicazione Python autonoma
 da utilizzare con l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}

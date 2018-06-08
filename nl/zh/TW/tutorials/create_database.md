@@ -12,91 +12,111 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 在 {{site.data.keyword.Bluemix_notm}} 上建立簡單的 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中
+# Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.Bluemix_notm}}
 
-本指導教學示範如何使用 [Python 程式設計語言 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window} 在 {{site.data.keyword.Bluemix}} 服務實例上建立 {{site.data.keyword.cloudantfull}} 資料庫，以及將簡單資料集合移入資料庫中。{:shortdesc}
+This tutorial shows you how to use the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} to
+create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.Bluemix}} service instance,
+and populate the database with a simple collection of data.
+{:shortdesc}
 
-## 必要條件
+## Pre-requisites
 
-請確定您已備妥下列資源或資訊，然後才開始進行本指導教學。
+Ensure that you have the following resources or information ready,
+before you start working through the tutorial.
 
 ### Python
 
-您必須已在系統上安裝現行 [Python 程式設計語言 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window} 安裝。
+You must have a current installation of the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window}
+installed on your system.
 
-若要檢查這項作業，請在提示中執行下列指令：
+To check this,
+run the following command at a prompt:
 
 ```sh
 python --version
 ```
 {:pre}
 
-您應該會收到與下列內容類似的結果：
+You should get a result similar to:
 
 ```
 Python 2.7.12
 ```
 {:codeblock}
 
-### {{site.data.keyword.cloudant_short_notm}} 的 Python 用戶端程式庫
+### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
 
-有[正式支援的程式庫](../libraries/supported.html#python)，可讓 Python 應用程式在 {{site.data.keyword.Bluemix_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。
+There is an [officially supported library](../libraries/supported.html#python) to enable your Python applications to work with
+{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}}.
 
-您應該使用[這裡](../libraries/supported.html#python)所提供的指示來安裝此項目。
+You should install this using the instructions provided [here](../libraries/supported.html#python).
 
-若要確認您已順利安裝用戶端程式庫，請在提示中執行下列指令：
+To check that you have the client library installed successfully,
+run the following command at a prompt:
 
 ```sh
 pip freeze
 ```
 {:pre}
 
-您應該會得到系統上所有已安裝 Python 模組的清單。請檢查清單，並尋找與下列內容類似的 {{site.data.keyword.cloudant_short_notm}} 項目：
+You should get a list of all the Python modules installed on your system.
+Inspect the list,
+looking for a {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
 
 ```
 cloudant==2.3.1
 ```
 {:codeblock}
 
-### Bluemix 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例
+### A {{site.data.keyword.cloudant_short_notm}} service instance on Bluemix
 
-[本指導教學](create_service.html)說明建立適合的服務實例的處理程序。
+The process for creating a suitable service instance is described in [this tutorial](create_service.html).
 
-請確定您的服務實例有下列「服務認證」可用：
+Ensure that you have the following Service Credentials available for your service instance:
 
-欄位       | 用途
+Field      | Purpose
 -----------|--------
-`host`     | 應用程式用來尋找服務實例的主機名稱。
-`username` | 應用程式存取服務實例所需的使用者名稱。
-`password` | 應用程式存取服務實例所需的密碼。
-`port`     | 用來存取主機上服務實例的 HTTP 埠號。一般是 443，可強制執行 HTTPS 存取。
-`url`      | 將其他認證資訊聚集成單一 URL 的字串，適合供應用程式使用。
+`host`     | The hostname used by applications to locate the service instance.
+`username` | The username required for applications to access the service instance.
+`password` | The password required for applications to access the service instance.
+`port`     | The HTTP port number for accessing the service instance on the host. Normally 443 to force HTTPS access.
+`url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
 
-[這裡](create_service.html#locating-your-service-credentials)提供尋找服務實例的服務認證的相關資訊。
+Information on finding the service credentials for your service instance is
+available [here](create_service.html#locating-your-service-credentials).
 
-## 環境定義
+## Context
 
-本指導教學累積了一系列的 Python 語言指令，適用於下列作業：
+This tutorial builds up a series of Python language instructions,
+suitable for the following tasks:
 
-1.  [連接至 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例](#connecting-to-a-cloudant-service-instance-on-bluemix)。
-2.  [在服務實例內建立資料庫](#creating-a-database-within-the-service-instance)。
-3.  [將小型資料集合當成文件儲存在資料庫內](#storing-a-small-collection-of-data-as-documents-within-the-database)。
-4.  [擷取完整的文件清單](#retrieving-a-complete-list-of-the-documents)。
-5.  [刪除資料庫](#deleting-the-database)。
-6.  [關閉與服務實例的連線](#closing-the-connection-to-the-service-instance)。
+1.  [Connecting to a {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}](#connecting-to-a-cloudant-service-instance-on-bluemix).
+2.  [Creating a database within the service instance](#creating-a-database-within-the-service-instance).
+3.  [Storing a small collection of data as documents within the database](#storing-a-small-collection-of-data-as-documents-within-the-database).
+4.  [Retrieving a complete list of the documents](#retrieving-a-complete-list-of-the-documents).
+5.  [Deleting the database](#deleting-the-database).
+6.  [Closing the connection to the service instance](#closing-the-connection-to-the-service-instance).
 
-在本指導教學中，每一個作業特有的 Python 程式碼都會提供為作業說明的一部分。
+Python code specific to each task is provided as part of the task description in this tutorial.
 
-指導教學結尾（[這裡](#complete-listing)）會提供執行所有作業的完整 Python 程式。
+A complete Python program to perform all the tasks is provided at the end of the tutorial,
+[here](#complete-listing).
 
-本指導教學不會嘗試建立_有效率_ 的 Python 程式碼；本指導教學是為了示範簡單易懂的可運作程式碼，方便您從中學習並應用於自己的應用程式。
+No attempt has been made to create _efficient_ Python code for this tutorial;
+the intention is to show simple and easy-to-understand working code
+that you can learn from and apply for your own applications.
 
-此外，也不會嘗試處理所有可能的檢查或錯誤狀況。這裡顯示一些範例檢查來說明技巧，但您應該應用正常的最佳作法來檢查及處理您自己的應用程式所發生的所有警告或錯誤狀況。 
+Also,
+no attempt has been made to address all possible checks or error conditions.
+Some example checks are shown here,
+to illustrate the techniques,
+but you should apply normal best practices for checking and handling all
+warning or error conditions encountered by your own applications. 
 
-## 在 {{site.data.keyword.Bluemix_notm}} 上連接至 {{site.data.keyword.cloudant_short_notm}} 服務實例
+## Connecting to a {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}
 
-Python 應用程式需要「{{site.data.keyword.cloudant_short_notm}} 用戶端程式庫」元件能夠連接至服務實例。
-這些元件識別為一般 `import` 陳述式：
+A Python application requires the {{site.data.keyword.cloudant_short_notm}} Client Library components to be able to connect to the service instance.
+These components are identified as normal `import` statements:
 
 ```python
 from cloudant.client import Cloudant
@@ -105,7 +125,7 @@ from cloudant.result import Result, ResultByKey
 ```
 {:codeblock}
 
-應用程式必須有服務的[服務認證](create_service.html#locating-your-service-credentials)：
+The application must have the [Service Credentials](create_service.html#locating-your-service-credentials) for the service:
 
 ```python
 serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
@@ -114,11 +134,17 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **附註**：這裡說明的服務認證
-    是在 Bluemix 上建立示範 {{site.data.keyword.cloudant_short_notm}} 服務時定義的。
-    我們在這裡重新產生認證，是要示範如何將它們用於 Python 應用程式中。不過，現在已移除示範 {{site.data.keyword.cloudant_short_notm}} 服務，因此這些認證將不會運作；您_必須_ 提供及使用您自己的服務認證。
+>   **Note**: The service credentials illustrated here
+    were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on Bluemix.
+    The credentials are reproduced here to show how they would be used in a Python application.
+    However,
+    the demonstration {{site.data.keyword.cloudant_short_notm}} service has been removed now,
+    so these credentials will not work;
+    you _must_ supply and use your own service credentials.
 
-您在應用程式內啟用 Python 用戶端程式庫並識別服務認證之後，就可以建立與服務實例的連線：
+Once you have enabled the Python client library within your application,
+and identified the service credentials,
+you can establish a connection to the service instance:
 
 ```python
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
@@ -126,27 +152,29 @@ client.connect()
 ```
 {:codeblock}
 
-此時，您的 Python 應用程式可以存取 Bluemix 上的服務實例。
+At this point,
+your Python application has access to the service instance on Bluemix.
 
-## 在服務實例內建立資料庫
+## Creating a database within the service instance
 
-下一步是在服務實例內建立資料庫，稱為 `databasedemo`。
+The next step is to create a database within the service instance,
+called `databasedemo`.
 
-作法是在 Python 應用程式中定義變數：
+We do this by defining a variable in the Python application:
 
 ```python
 databaseName = "databasedemo"
 ```
 {:codeblock}
 
-我們接著會建立資料庫：
+We then create the database:
 
 ```python
 myDatabaseDemo = client.create_database(databaseName)
 ```
 {:codeblock}
 
-最好確認已順利建立資料庫：
+It is helpful to check that the database was created successfully:
 
 ```python
 if myDatabaseDemo.exists():
@@ -154,11 +182,12 @@ if myDatabaseDemo.exists():
 ```
 {:codeblock}
 
-## 將小型資料集合當成文件儲存在資料庫內
+## Storing a small collection of data as documents within the database
 
-我們現在要在資料庫中儲存小型的簡單資料集合。
+We now want to store a small,
+simple collection of data in the database.
 
-首先，我們識別一些資料：
+We start by identifying some data:
 
 ```python
 sampleData = [
@@ -171,7 +200,10 @@ sampleData = [
 ```
 {:codeblock}
 
-接下來，某個一般 Python 程式碼會「逐步」執行資料，並將它轉換為 JSON 文件。每一份文件都會儲存在資料庫中：
+Next,
+some ordinary Python code 'steps' through the data,
+converting it into JSON documents.
+Each document is stored in the database:
 
 ```python
 # Create documents using the sample data.
@@ -201,17 +233,25 @@ for document in sampleData:
 ```
 {:codeblock}
 
-請注意，我們確認已順利建立每一份文件。
+Notice that we check that each document was successfully created.
 
-## 擷取資料
+## Retrieving data
 
-此時，已將小型資料集合當成文件儲存在資料庫內。我們現在可以執行一系列的查詢，並說明從資料庫擷取資料的不同方式。
+At this point,
+a small collection of data
+has been stored as documents within the database.
+We can now perform a series of queries,
+illustrating different ways of retrieving data from the database.
 
-### 文件的最小擷取
+### A minimal retrieval of a document
 
-為了執行最小擷取，我們會先要求資料庫內的所有文件清單。此清單會以陣列傳回。我們接著可以顯示陣列中元素的內容。
+To perform a minimal retrieval,
+we first request a list of all documents within the database.
+This list is returned as an array.
+We can then show the content of an element in the array.
 
-在範例程式碼中，我們要求從資料庫中擷取的第一份文件：
+In the sample code,
+we request the first document retrieved from the database:
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs)
@@ -219,7 +259,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-結果類似下列範例：
+The result is similar to the following example:
 
 ```json
 [
@@ -234,14 +274,25 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
->   **附註**：NoSQL 資料庫（例如 {{site.data.keyword.cloudant_short_notm}}）的本質
-表示，像是資料庫中儲存的第一份文件一定會是結果清單中傳回的第一份文件，這樣簡單的說法並不一定適用。
+>   **Note**: The nature of NoSQL databases,
+    such as {{site.data.keyword.cloudant_short_notm}},
+    means that simple notions of the first document stored in a database
+    always being the first one returned in a list of results,
+    do not necessarily apply.
 
-### 文件的完整擷取
+### Full retrieval of a document
 
-為了執行完整擷取，我們會要求資料庫內的所有文件清單，並額外指定也必須傳回文件內容。作法是使用 `include_docs` 選項。結果依然會以陣列傳回。我們接著可以顯示陣列中元素的詳細資料，而這次會包括資料庫的完整內容。 
+To perform a full retrieval,
+we request a list of all documents within the database,
+and additionally specify that the document content must also be returned.
+We do this by using the `include_docs` option.
+As before,
+the results are returned as an array.
+We can then show the details of an element in the array,
+this time including the full content of the document. 
 
-我們依然要求從資料庫中擷取的第一份文件：
+As before,
+we request the first document retrieved from the database:
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
@@ -249,7 +300,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-結果類似下列範例：
+The result is similar to the following example:
 
 ```json
 [
@@ -272,13 +323,21 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-## 直接呼叫 {{site.data.keyword.cloudant_short_notm}} API 端點
+## Calling a {{site.data.keyword.cloudant_short_notm}} API endpoint directly
 
-我們也可以直接從 Python 應用程式內使用 {{site.data.keyword.cloudant_short_notm}} API 端點。
+We can also work with the {{site.data.keyword.cloudant_short_notm}} API endpoints directly,
+from within a Python application.
 
-在此範例程式碼中，我們再次要求所有文件的清單（包括其內容）。不過，這一次的作法是呼叫 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 端點](../api/database.html#get-documents)。
+In this example code,
+we again request a list of all the documents,
+including their content.
+This time,
+however,
+we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](../api/database.html#get-documents).
 
-首先，我們會識別要聯絡的端點，以及與呼叫一起提供的任何參數：
+First,
+we identify the endpoint to contact,
+and any parameters to supply along with the call:
 
 ```python
 end_point = '{0}/{1}'.format(serviceURL, databaseName + "/_all_docs")
@@ -286,7 +345,9 @@ params = {'include_docs': 'true'}
 ```
 {:codeblock}
 
-接下來，我們將要求傳送至服務實例，然後顯示結果：
+Next,
+we send the request to the service instance,
+then display the results:
 
 ```python
 response = client.r_session.get(end_point, params=params)
@@ -294,14 +355,14 @@ print "{0}\n".format(response.json())
 ```
 {:codeblock}
 
-結果類似下列_簡短_ 範例：
+The result is similar to the following _abbreviated_ example:
 
 ```json
 {
     "rows": [
         {
             "value": {
-          "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
+              "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
             },
             "id": "14746fe384c7e2f06f7295403df89187",
             "key": "14746fe384c7e2f06f7295403df89187",
@@ -338,11 +399,13 @@ print "{0}\n".format(response.json())
 ```
 {:codeblock}
 
-## 刪除資料庫
+## Deleting the database
 
-當我們不再使用資料庫時，可以將它刪除。
+When we have finished with the database,
+it can be deleted.
 
-這是一個簡單的步驟，如下列範例 Python 程式碼中所示：
+This is a simple step,
+as shown in the following sample Python code:
 
 ```python
 try :
@@ -354,27 +417,30 @@ else:
 ```
 {:codeblock}
 
-我們已包含一些基本錯誤處理，來說明如何捕捉及解決問題。
+We have included some basic error handling to illustrate how problems
+might be caught and addressed.
 
-## 關閉與服務實例的連線
+## Closing the connection to the service instance
 
-最後一個步驟是中斷 Python 用戶端應用程式與服務實例的連線：
+The final step is to disconnect the Python client application from the service instance:
 
 ```python
 client.disconnect()
 ```
 {:codeblock}
 
-## 完整清單
+## Complete listing
 
-下列程式碼是完整的 Python 程式，它可以存取 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例，並執行一系列的一般作業：
+The following code is a complete Python program to access a
+{{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}},
+and perform a typical series of tasks:
 
-1.  連接至服務實例。
-2.  在服務實例內建立資料庫。
-3.  將小型資料集合當成文件儲存在資料庫內。
-4.  擷取完整文件清單。
-5.  刪除資料庫。
-6.  關閉與服務實例的連線。
+1.  Connecting to the service instance.
+2.  Creating a database within the service instance.
+3.  Storing a small collection of data as documents within the database.
+4.  Retrieving a complete list of the documents.
+5.  Deleting the database.
+6.  Closing the connection to the service instance.
 
 ```python
 # 1.  Connecting to the service instance.

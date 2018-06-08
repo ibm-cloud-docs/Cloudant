@@ -12,78 +12,97 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 授權的 curl：`acurl`
+# Authorized curl: `acurl`
 
-_（本手冊是以 Samantha Scharr 所撰寫的部落格文章為基礎：[
-"Authorized curl, a.k.a. acurl" ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window}，最初發佈於 2013 年 11月 27 日。）_
+_(This guide is based on a Blog article by Samantha Scharr: [
+"Authorized curl, a.k.a. acurl" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window},
+originally published November 27, 2013.)_
 
-`acurl` 是便利的別名，容許您 `curl` {{site.data.keyword.cloudantfull}} 指令至 URL，而不需要針對每個要求輸入您的使用者名稱和密碼。
-這表示資料庫的簡單 `GET` 不再需要寫入為 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`，相反地您可以只使用 `https://$ACCOUNT.cloudant.com/foo`。
+`acurl` is a handy alias that allows you to `curl` {{site.data.keyword.cloudantfull}} commands to URLs
+without having to enter your username and password for every request.
+That means a simple `GET` to a database no longer needs to be written as
+`https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`
+but instead you can just use `https://$ACCOUNT.cloudant.com/foo`.
 
-此舉不僅減少煩人的長 URL，`acurl` 別名還更加安全。它會防止有人在您鍵入時從您背後窺探您的密碼，而且重要的是，藉由強制執行 HTTPS，它可確保您的密碼不會以純文字形式在網路中傳送。
+Not only does this cut down on annoyingly long URLs,
+but the `acurl` alias is also more secure.
+It prevents someone from reading your password over your shoulder as you type,
+and importantly,
+it makes sure your password isn’t sent in plain text over the network by enforcing HTTPS.
 
-只需三個簡單的步驟即可達到此目的：
+All it takes is three simple steps:
 
-1.	[對使用者名稱和密碼進行編碼](#encode-username-and-password)。
-2.	[建立別名](#create-an-alias)。
-3.	[啟動別名](#activate-the-alias)。
+1.	[Encode username and password](#encode-username-and-password).
+2.	[Create an alias](#create-an-alias)
+3.	[Activate the alias](#activate-the-alias).
 
-## 對使用者名稱和密碼進行編碼
+## Encode username and password
 
-首先，使用 base64 對您的 {{site.data.keyword.cloudant_short_notm}} 使用者名稱和密碼進行編碼。
-這提供我們 base64 字元順序作為輸出。
+First we base64-encode your {{site.data.keyword.cloudant_short_notm}} username and password.
+This gives us a base64 character sequence as output.
 
-使用 base64 編碼部分資料的指令與下列範例類似：
+The command to base64-encode some data is similar to the following example:
 
 ```python
 python -c 'import base64; print base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD")'
 ```
 {:codeblock}
 
-假設輸出稱為 `<OUTPUT-OF-BASE64>`。
+We assume that the output is called `<OUTPUT-OF-BASE64>`.
 
-例如，如果使用指令：
+For example,
+if you use the command:
 
 ```python
 python -c 'import base64; print base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD")'
 ```
 {:codeblock}
 
-則會獲得下列輸出：
+You then get the following output:
 
 ```
 bXl1c2VybmFtZTpteXBhc3N3b3Jk
 ```
 {:codeblock}
 
->	**附註**：記住，您的密碼仍以純文字形式儲存在電腦上；base64 編碼_並非_ 加密。如果在相同的字元順序上使用 base64 編碼，您一律會獲得相同的對應字元輸出順序。
+>	**Note**: Remember that your password is still stored in plain text on your computer;
+	base64-encoding is _not_ encryption.
+	If you use base64-encode on the same character sequence,
+	you always get the same corresponding character output sequence.
 
-## 建立別名
+## Create an alias
 
-現在，會為包括這些認證的 `curl` 建立別名，因此不必在每次撰寫 `curl` 指令時輸入它們。
+Now we create an alias for `curl` that includes these credentials so we don’t have to enter them
+every time we write a `curl` command.
 
-將下列這一行新增至您的 `~/.bashrc` 或 `~/.bash_profile`：
+Add the following line to your `~/.bashrc` or `~/.bash_profile`:
 
 ```sh
 alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BASE64>'"
 ```
 {:codeblock}
 
-此別名會新增 Authorization 標頭，而不是在您於指令行上輸入的 URL 中包括授權認證。它也會強制使用強烈建議的 HTTPS 來代替純 HTTP，因為它會在傳輸時加密您的資料及認證，並協助您確定正在連接至 {{site.data.keyword.cloudant_short_notm}} 系統。
+This alias adds an Authorization header instead of including the
+authorization credentials in the URL you enter on the command line.
+It also forces the use of HTTPS which we strongly recommend over plain HTTP
+as it encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
 
-## 啟動別名
+## Activate the alias
 
-現在，啟動新的 shell 或執行 `source ~/.bash_profile`（或 `~/.bashrc`，如果已使用的話），讓別名運作。
+Now start a new shell or run `source ~/.bash_profile` (or `~/.bashrc` if you used that) to make the alias functional.
 
-## 測試 `acurl`
+## Testing `acurl`
 
-現在，讓我們確定一切都已設定正確。繼續並執行：
+Now let's make sure everything is set up correctly.
+Go ahead and run:
 
 ```sh
 acurl https://$ACCOUNT.cloudant.com/_all_dbs
 ```
 {:codeblock}
 
-如果您獲得資料庫的清單，棒極了！`acurl` 已設定好，可以開始執行。
+If you get the list of your databases back,
+awesome!
+`acurl` is set up and ready to go.
 
-祝您撰寫程式碼愉快！
+Happy coding!

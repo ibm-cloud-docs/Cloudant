@@ -12,48 +12,71 @@ lastupdated: "2017-11-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 文件版本化及 MVCC
+# Document Versioning and MVCC
 
-[多版本並行控制 (MVCC) ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window} 是 {{site.data.keyword.cloudantfull}} 資料庫確定資料庫叢集中的所有節點都只包含文件[最新版本](../api/document.html)的方式。
+[Multi-version concurrency control (MVCC) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window}
+is how {{site.data.keyword.cloudantfull}} databases ensure that all of the nodes in a database's cluster contain
+only the [newest version](../api/document.html) of a document.
 {:shortdesc}
 
-因為 {{site.data.keyword.cloudant_short_notm}} 資料庫[最終會一致](cap_theorem.html)，所以這是必要項目，可防止因過期文件之間的同步化而導致節點之間造成不一致。
+Since {{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](cap_theorem.html),
+this is necessary to prevent inconsistencies arising between nodes
+as a result of synchronizing between outdated documents.
 
-多版本並行控制 (MVCC) 會啟用 {{site.data.keyword.cloudant_short_notm}} 資料庫的並行讀取及寫入權。
-MVCC 是某種形式的[樂觀併行 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}。它會在 {{site.data.keyword.cloudant_short_notm}} 資料庫上進行更快速的讀取及寫入作業，因為不需要對讀取或寫入作業進行資料庫鎖定。
-MVCC 也會在 {{site.data.keyword.cloudant_short_notm}} 資料庫節點之間啟用同步化。
+Multi-Version Concurrency Control (MVCC) enables concurrent read and write access to a {{site.data.keyword.cloudant_short_notm}} database.
+MVCC is a form of [optimistic concurrency ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}.
+It makes both read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because
+there is no need for database locking on either read or write operations.
+MVCC also enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
 
-## 修訂
+## Revisions
 
-{{site.data.keyword.cloudant_short_notm}} 資料庫中的每份文件都會有指出其修訂號碼的 `_rev` 欄位。
+Every document in a {{site.data.keyword.cloudant_short_notm}} database has a `_rev` field indicating its revision number.
 
-當您插入或修改文件時，伺服器會將修訂號碼新增至文件。當您變更或讀取文件時，會在伺服器回應中包含此號碼。將使用簡單計數器與文件雜湊的組合來建構 `_rev` 值。
+A revision number is added to your documents by the server when you insert or modify them.
+The number is included in the server response when you make changes or read a document.
+The `_rev` value is constructed using a combination of a simple counter and a hash of the document.
 
-修訂號碼的兩個主要用途是協助：
+The two main uses of the revision number are to help:
 
-1.  判定必須在伺服器之間抄寫的文件。
-2.  確認用戶端正在嘗試修改最新版本的文件。
+1.  Determine what documents must be replicated between servers.
+2.  Confirm that a client is trying to modify the latest version of a document.
 
-您必須在[更新文件](../api/document.html#update)時指定前一個 `_rev`，否則您的要求會失敗，並傳回 [409 錯誤](../api/http.html#409)。
+You must specify the previous `_rev` when [updating a document](../api/document.html#update)
+or else your request fails and returns a [409 error](../api/http.html#409).
 
->   **附註**：不應該使用 `_rev` 來建置版本控制系統。
-    原因是它為伺服器所使用的內部值。此外，較舊的文件修訂是暫時項目，因此會定期予以移除。
+>   **Note**: `_rev` should not be used to build a version control system.
+    The reason is that it is an internal value used by the server.
+    In addition,
+    older revisions of a document are transient,
+    and therefore removed regularly.
 
+You can query a particular revision using its `_rev`,
+however,
+older revisions are regularly deleted by a process called
+[compaction ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Data_compaction){:new_window}.
+A consequence of compaction is that
+you cannot rely on a successful response when querying a particular document revision
+using its `_rev` in order to obtain a history of revisions to your document.
+If you need a version history of your documents,
+a solution is to [create a new document](../api/document.html#documentCreate) for each revision.
 
+## Distributed Databases and Conflicts
 
-您可以使用 `_rev` 來查詢特定修訂，不過，稱為[壓縮 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Data_compaction){:new_window} 的處理程序會定期刪除較舊的修訂。壓縮的結果是使用 `_rev` 查詢特定文件修訂以取得您文件的修訂歷程時，您無法依賴成功回應。如果您需要文件的版本歷程，則解決方案是針對每一個修訂[建立新的文件](../api/document.html#documentCreate)。
+Distributed databases work without a constant connection to the main database on {{site.data.keyword.cloudant_short_notm}},
+which is itself distributed,
+so updates based on the same previous version can still be in conflict.
 
-## 分散式資料庫及衝突
+To find conflicts,
+add the query parameter [`conflicts=true`](../api/database.html#get-changes) when retrieving a document.
+The response contains a `_conflicts` array with all conflicting revisions.
 
-分散式資料庫是在未持續連線至 {{site.data.keyword.cloudant_short_notm}} 上本身為分散式的主要資料庫的情況下運作，因此根據相同舊版本的更新仍然可能會發生衝突。
+To find conflicts for multiple documents in a database,
+write a view.
 
-若要尋找衝突，請在擷取文件時新增查詢參數 [`conflicts=true`](../api/database.html#get-changes)。回應包含具有所有衝突修訂的 `_conflicts` 陣列。
+The following map function is is an example that emits all conflicting revisions for every document that has a conflict.
 
-若要尋找資料庫中多份文件的衝突，請撰寫視圖。
-
-下列對映函數範例會發出每份發生衝突的文件的所有衝突修訂。
-
-_尋找發生衝突的文件的對映函數範例：_
+_Example of a map function to find documents with a conflict:_
 
 ```javascript
 function (doc) {
@@ -64,18 +87,22 @@ function (doc) {
 ```
 {:codeblock}
 
-您可以定期查詢此視圖，並視需要解決衝突，或在每一次抄寫之後查詢視圖。
+You could regularly query this view and resolve conflicts as needed,
+or query the view after each replication.
 
-## 如何解決衝突
+## How to resolve conflicts
 
-在您找到衝突之後，可以使用 4 個步驟進行解決。
+Once you've found a conflict,
+you can resolve it in 4 steps.
 
-1.  [取得](#get-conflicting-revisions)衝突修訂。
-2.  將它們[合併](#merge-the-changes)至應用程式，或詢問使用者想要執行的作業。
-3.  [上傳](#upload-the-new-revision)新的修訂。
-4.  [刪除](#delete-old-revisions)舊的修訂。
+1.  [Get](#get-conflicting-revisions) the conflicting revisions.
+2.  [Merge](#merge-the-changes) them in your application or ask the user what he wants to do.
+3.  [Upload](#upload-the-new-revision) the new revision.
+4.  [Delete](#delete-old-revisions) old revisions.
 
-讓我們考慮如何完成這項作業的範例。假設您有線上商店的產品資料庫。文件的第一個版本可能類似下列範例：
+Let's consider an example of how this can be done.
+Suppose you have a database of products for an online shop.
+The first version of a document might look like the following example:
 
 ```json
 {
@@ -88,9 +115,10 @@ function (doc) {
 ```
 {:codeblock}
 
-文件還沒有說明時，可能會有人新增說明：
+As the document doesn't have a description yet,
+someone might add one:
 
-_透過新增說明所建立的文件的第二個版本：_
+_Second version of the document, created by adding a description:_
 
 ```json
 {
@@ -103,9 +131,9 @@ _透過新增說明所建立的文件的第二個版本：_
 ```
 {:codeblock}
 
-同時，其他人（使用抄寫的資料庫）會降低價格：
+At the same time, someone else - working with a replicated database - reduces the price:
 
-_因不同 `price` 值而與前一個修訂衝突的不同修訂：_
+_A different revision, conflicting with the previous one, because of different `price` value:_
 
 ```json
 {
@@ -118,20 +146,21 @@ _因不同 `price` 值而與前一個修訂衝突的不同修訂：_
 ```
 {:codeblock}
 
-接著會抄寫兩個資料庫。文件版本中的差異會導致衝突。
+The two databases are then replicated.
+The difference in document versions results in a conflict.
 
-### 取得衝突修訂
+### Get conflicting revisions
 
-您可以使用 `conflicts=true` 選項來識別發生衝突的文件。
+You identify documents with with conflicts by using the `conflicts=true` option.
 
-_尋找發生衝突的文件的範例：_
+_Example of finding documents with conflicts:_
 
 ```http
 http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
 ```
 {:codeblock}
 
-_顯示影響文件的衝突修訂的範例回應：_
+_Example response showing conflicting revisions affecting documents:_
 
 ```json
 {
@@ -145,13 +174,17 @@ _顯示影響文件的衝突修訂的範例回應：_
 ```
 {:codeblock}
 
-已任意選擇具有已變更價格的版本，因為文件的最新版本以及與另一個版本的衝突的標記方式是在 `_conflicts` 陣列中提供該其他版本的 ID。在大部分情況下，此陣列只有一個元素，但可能會有許多衝突修訂。
+The version with the changed price has been chosen arbitrarily as the latest version of the document
+and the conflict with another version is noted by providing the ID of that other version in the `_conflicts` array.
+In most cases this array has only one element,
+but there might be many conflicting revisions.
 
-### 合併變更
+### Merge the changes
 
-若要比較修訂以查看變更內容，您的應用程式會從資料庫中取得所有版本。
+To compare the revisions to see what has been changed,
+your application gets all of the versions from the database.
 
-_從資料庫中擷取文件的所有版本的範例指令：_
+_Example commands to retrieve all versions of a document from the database:_
 
 ```http
 http://$ACCOUNT.cloudant.com/products/$_ID
@@ -160,21 +193,25 @@ http://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c329
 ```
 {:codeblock}
 
-因為衝突變更是針對文件的不同欄位，所以很容易就可以合併它們。
+Since the conflicting changes are for different fields of the document,
+it is easy to merge them.
 
-針對較複雜的衝突，可能需要其他解決方案策略：
+For more complex conflicts,
+other resolution strategies might be required:
 
-*   時間型：使用第一次或最後一次編輯內容。
-*   使用者人為介入：向使用者報告衝突，並讓他們決定最佳解決方案。
-*   更準確的演算法：例如，文字欄位的 3 方合併。
+*   Time based: use the first or last edit.
+*   User intervention: report conflicts to users and let them decide on the best resolution.
+*   Sophisticated algorithms: for example, 3-way merges of text fields.
 
-如需如何實作變更合併的實際範例，請參閱[這個含有範例程式碼的專案 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/glynnbird/deconflict){:new_window}。
+For a practical example of how to implement a merge of changes,
+see [this project with sample code ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/deconflict){:new_window}.
 
-### 上傳新的修訂
+### Upload the new revision
 
-下一步是建立可解決衝突的文件，並使用它來更新資料庫。
+The next step is to create a document that resolves the conflicts,
+and update the database with it.
 
-_合併兩個衝突修訂的變更的範例文件：_
+_An example document that merges changes from the two conflicting revisions:_
 
 ```json
 {
@@ -187,22 +224,25 @@ _合併兩個衝突修訂的變更的範例文件：_
 ```
 {:codeblock}
 
-### 刪除舊的修訂
+### Delete old revisions
 
-最後，您可以將 `DELETE` 要求傳送至含有我們要刪除之修訂的 URL，來刪除舊的修訂。
+Finally,
+you delete the old revisions by sending a `DELETE` request to the URLs with the revision we want to delete.
 
-_使用 HTTP 刪除舊文件修訂的範例要求：_
+_Example request to delete an old document revision, using HTTP:_
 
 ```http
 DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 ```
 {:codeblock}
 
-_使用指令行刪除舊文件修訂的範例要求：_
+_Example request to delete an old document revision, using the command line:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121" -X DELETE
 ```
 {:codeblock}
 
-此時，即會解決影響文件的衝突。驗證這項作業的方式是將 `conflicts` 參數設為 `true` 來重新 `GET`（取得）文件。
+At this point,
+conflicts affecting the document are resolved.
+You can verify this by `GET`ting the document again with the `conflicts` parameter set to `true`.

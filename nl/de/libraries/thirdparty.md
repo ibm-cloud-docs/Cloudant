@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-04"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -14,18 +14,18 @@ lastupdated: "2017-01-04"
 
 # Clientbibliotheken anderer Anbieter
 
->   **Hinweis**: Clientbibliotheken anderer Anbieter werden von Cloudant nicht verwaltet oder unterstützt. 
+>   **Hinweis**: Clientbibliotheken anderer Anbieter werden von {{site.data.keyword.cloudantfull}} nicht verwaltet oder unterstützt.
 
 ## Mobile Bibliotheken anderer Anbieter
 
-Arbeit mit einer Cloudant-Datenbank: 
+Arbeit mit einer Cloudant-Datenbank:
 
--   [Mit IBM Worklight angetriebene native Objective-C-iOS-Apps ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} mit einem Cloudant-Adapter. 
+-   Mit [IBM Worklight angetriebene native Objective-C-iOS-Apps ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} mit einem {{site.data.keyword.cloudant_short_notm}}-Adapter.
 
 ## C# / .NET
 
 [MyCouch ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/danielwertheim/mycouch){:new_window}
-ist ein asynchroner CouchDB- und Cloudant-Client für .Net.
+ist ein asynchroner CouchDB- und {{site.data.keyword.cloudant_short_notm}}-Client für .Net.
 
 Um die Bibliothek zu installieren, müssen Sie die Paketmanagerkonsole öffnen und folgenden Befehl aufrufen:
 
@@ -50,11 +50,11 @@ install-package mycouch.cloudant
 
 ## PHP
 
-[Sag ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/sbisbee/sag){:new_window} ist ein CouchDB- und Cloudant-Client von PHP.
-[Sag.js ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/sbisbee/sag-js){:new_window} ist die JavaScript-Entsprechung von Sag. 
+[Sag ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/sbisbee/sag){:new_window} ist ein CouchDB- und {{site.data.keyword.cloudant_short_notm}}-Client von PHP.
+[Sag.js ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/sbisbee/sag-js){:new_window} ist die JavaScript-Entsprechung von Sag.
 
 Laden Sie für die Installation `sag` von [https://github.com/sbisbee/sag ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/sbisbee/sag){:new_window} herunter
-und schließen Sie die Bibliothek dann in Ihre Anwendung ein. 
+und schließen Sie die Bibliothek dann in Ihre Anwendung ein.
 
 ```
 require_once('./src/Sag.php');
@@ -73,11 +73,11 @@ require_once('./src/Sag.php');
 
 ## JavaScript
 
-[PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){:new_window} ist eine JavaScript-Datenbank, die mit Cloudant
-synchronisiert werden kann, d. h., Sie können einfach durch Verwendung von PouchDB Ihre Apps offline bereitstellen.
-Weitere Informationen finden Sie in [unserem Blogbeitrag ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/pouchdb){:new_window} auf PouchDB. 
+[PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){:new_window} ist eine JavaScript-Datenbank, die mit {{site.data.keyword.cloudant_short_notm}}
+synchronisiert werden kann, d. h. Sie können einfach durch Verwendung von PouchDB Ihre Apps offline bereitstellen.
+Weitere Informationen finden Sie in [unserem Blogbeitrag ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/pouchdb){:new_window} auf PouchDB.
 
-Zum Abrufen von PouchDB sowie für Konfigurationsdetails müssen Sie [PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){:new_window} zurate ziehen. 
+Zum Abrufen von PouchDB sowie für Konfigurationsdetails müssen Sie [PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){:new_window} zurate ziehen.
 
 >   **Hinweis**: PouchDB ist auch für Node.js verfügbar: `npm install pouchdb`.
 
@@ -86,29 +86,29 @@ Zum Abrufen von PouchDB sowie für Konfigurationsdetails müssen Sie [PouchDB ![
 ### Bibliotheken und Frameworks
 
 -   [Backbone.cloudant ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant-labs/backbone.cloudant){:new_window}.
-    Weitere Informationen finden Sie im [Blogbeitrag ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/backbone-and-cloudant/){:new_window}. 
+    Weitere Informationen finden Sie im [Blogbeitrag ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/backbone-and-cloudant/){:new_window}.
 -   [sag.js ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/sbisbee/sag-js){:new_window}.
 -   [PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){:new_window} - JavaScript-Datenbank für Browser
-    mit Offlinesynchronisierung. 
+    mit Offlinesynchronisierung.
 
 ### Beispiele und Lernprogramme
 
--   [CRUD ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} mit jQuery. 
+-   [CRUD ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} mit jQuery.
 -   [CSVtoCloudant ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/michellephung/CSVtoCloudant){:new_window} -
-    Benutzerschnittstelle für den Import von `.csv`-Dateien in Cloudant.
-    Auf die App kann auch [hier ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://michellephung.github.io/CSVtoCloudant/){:new_window} zugegriffen werden. 
+    Benutzerschnittstelle für den Import von `.csv`-Dateien in {{site.data.keyword.cloudant_short_notm}}.
+    Auf die App kann auch [hier ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://michellephung.github.io/CSVtoCloudant/){:new_window} zugegriffen werden.
 -   [csv2couchdb ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/Mango-information-systems/csv2couchdb){:new_window} -
-    Benutzerschnittstelle von Mango Systems für den Import von `.csv`-Dateien in CouchDB/Cloudant. 
--   [songblog ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/millayr/songblog){:new_window} - Beispiel-App mit JQuery. 
+    Benutzerschnittstelle von Mango Systems für den Import von `.csv`-Dateien in CouchDB/{{site.data.keyword.cloudant_short_notm}}.
+-   [songblog ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/millayr/songblog){:new_window} - Beispiel-App mit JQuery.
 -   [Leitfaden 'Einführung in PouchDB' ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/getting-started.html){:new_window} -
-    Beispiel für eine To-Do-Anwendung, die vom Browser nach Cloudant oder CouchDB synchronisiert wird. 
+    Beispiel für eine To-Do-Anwendung, die vom Browser nach {{site.data.keyword.cloudant_short_notm}} oder CouchDB synchronisiert wird.
 -   [locationtracker ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/rajrsingh/locationtracker){:new_window} -
-    Beispiel-App für das Aufzeichnen und Zuordnen von Speicherpositionen mit PouchDB,
-    CouchApp und Cloudant. 
+    Beispiel-App für das Aufzeichnen und Zuordnen von Speicherpositionen mit PouchDB, CouchApp und
+    {{site.data.keyword.cloudant_short_notm}}.
 
 ## Ruby
 
-[CouchRest ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/couchrest/couchrest){:new_window} ist ein CouchDB- und Cloudant-Client
+[CouchRest ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/couchrest/couchrest){:new_window} ist ein CouchDB- und {{site.data.keyword.cloudant_short_notm}}-Client
 mit Erweiterungen für die Arbeit mit Rails unter Verwendung eines [CouchRest-Modells ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/couchrest/couchrest_model){:new_window}.
 
 Führen Sie den folgenden Befehl aus, um CouchRest zu installieren:
@@ -121,7 +121,7 @@ gem install couchrest
 ### Bibliotheken und Frameworks
 
 In der
-[Ruby Toolbox ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ruby-toolbox.com/categories/couchdb_clients){:new_window} sind viele CouchDB-Clients aufgeführt. 
+[Ruby Toolbox ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ruby-toolbox.com/categories/couchdb_clients){:new_window} sind viele CouchDB-Clients aufgeführt.
 
 ### Beispiele und Lernprogramme
 
@@ -132,10 +132,10 @@ In der
 ## Meteor
 
 [cloudant:couchdb ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://atmospherejs.com/cloudant/couchdb){:new_window} ist die
-Cloudant-Bibliothek für das Paket `couchdb-meteor`.
+{{site.data.keyword.cloudant_short_notm}}-Bibliothek für das Paket `couchdb-meteor`.
 Da Apache CouchDB nicht mit Meteor oder dem Paket 'couchdb' ausgeliefert wird,
 müssen Sie eine URL für Meteor bereitstellen, um eine Verbindung mit einer aktiven
-CouchDB- oder Cloudant-Serverinstanz herzustellen, bevor Sie Meteor installieren.
+CouchDB- oder {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz herzustellen, bevor Sie Meteor installieren.
 Fügen Sie dieses Paket
 zu Ihrer Meteor-Anwendung hinzu:
 
@@ -147,23 +147,20 @@ meteor add cloudant:couchdb
 Das Paket 'couchdb-meteor' stellt Folgendes bereit:
 
 -   Liveabfrageimplementierung und Echtzeitaktualisierungen aus der Datenbank durch
-   Nutzung des CouchDB-Feeds `_changes`. 
+   Nutzung des CouchDB-Feeds `_changes`.
 -   DDP-RPC-Endpunkte (Distributed Data Protocol), die Daten aus lokal verbundenen
-   Clients aktualisieren. 
--   Serialisierung und Deserialisierung von Aktualisierungen für das DDP-Format. 
+   Clients aktualisieren.
+-   Serialisierung und Deserialisierung von Aktualisierungen für das DDP-Format.
 
->   **Hinweis**: Die von Cloudant Query verwendete und 
-    ursprünglich von Cloudant entwickelte
-   JSON-Abfragesyntax wurde für Version 2.0 an Apache CouchDB
-   zurückgegeben.
+>   **Hinweis**: Die von {{site.data.keyword.cloudant_short_notm}} Query verwendete,
+    ursprünglich von {{site.data.keyword.cloudant_short_notm}} entwickelte JSON-Abfragesyntax
+    wurde für Version 2.0 an Apache CouchDB zurückgegeben.
     Die vordefinierten Binärdateien für Apache CouchDB Version 2.0 sind noch
    nicht verfügbar.
-    Sie können dieses Modul mit Cloudant DBaaS oder Cloudant
-   Local verwenden, bis die vordefinierten Binärdateien verfügbar sind.
+    Sie können dieses Modul mit {{site.data.keyword.cloudant_short_notm}} DBaaS oder Cloudant Local verwenden, bis die vordefinierten Binärdateien verfügbar sind.
 
-Zur Konfiguration der Angaben für die Apache CouchDB- oder Cloudant-Serververbindung
-müssen Sie die entsprechende URL als Umgebungsvariable `COUCHDB_URL` an den
-Meteor-Serverprozess übergeben: 
+Zur Konfiguration der Angaben für die Apache CouchDB- oder {{site.data.keyword.cloudant_short_notm}}-Serververbindung
+müssen Sie die entsprechende URL als Umgebungsvariable `COUCHDB_URL` an den Meteor-Serverprozess übergeben:
 
 ```sh
 $ export COUCHDB_URL=https://username:password@username.cloudant.com
@@ -171,16 +168,16 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 {:codeblock}
 
 In der [API-Referenz](../api/index.html) finden Sie weitere Informationen zu APIs des
-Typs 'meteor-couchdb'.  
+Typs 'meteor-couchdb'. 
 
 ## Apache Spark
 
-[spark-cloudant ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant-labs/spark-cloudant){:new_window}
-ist die Cloudant-Bibliothek für Apache Spark. 
+Die [Apache Bahir-Erweiterungen für Apache Spark  ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://bahir.apache.org/#home){:new_window}
+beinhalten einen `spark-sql-cloudant`-Connector, der die {{site.data.keyword.cloudant_short_notm}}-Bibliothek für Apache Spark ist.
 
-Die Bibliothek 'spark-cloudant' ist bereits in
-das Angebot [IBM Bluemix Apache Spark-as-a-Service ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} geladen.
-Sie kann mit jedem eigenständigen Spark-Cluster verwendet werden. 
+Der Connector 'spark-sql-cloudant' ist bereits in das Angebot
+[IBM Bluemix Apache Spark-as-a-Service ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} geladen.
+Er kann mit jedem eigenständigen Spark-Cluster verwendet werden.
 
-Weitere Details finden Sie in den [Projektinformationen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant-labs/spark-cloudant){:new_window}
-und in den [Spark-Paketen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://spark-packages.org/package/cloudant-labs/spark-cloudant){:new_window}. 
+Weitere Details finden Sie in den [Projektinformationen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/apache/bahir/tree/master/sql-cloudant){:new_window}
+und in der [Apache Bahir-Dokumentation für 'spark-sql-cloudant' ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://bahir.apache.org/docs/spark/current/spark-sql-cloudant/){:new_window}.

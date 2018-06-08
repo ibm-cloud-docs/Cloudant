@@ -14,29 +14,34 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# 建立簡單的 {{site.data.keyword.Bluemix_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：上傳應用程式
+# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: uploading the application
 
-指導教學的這一節說明如何上傳 {{site.data.keyword.Bluemix}} 應用程式。
+This section of the tutorial describes how to upload an
+{{site.data.keyword.Bluemix}} application.
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## 連接至 {{site.data.keyword.Bluemix_notm}}
+## Connecting to {{site.data.keyword.Bluemix_notm}}
 
-第一項作業是連接至 {{site.data.keyword.Bluemix_notm}}。
+The first task is to connect to {{site.data.keyword.Bluemix_notm}}.
 
-[{{site.data.keyword.Bluemix_notm}} 工具箱](create_bmxapp_appenv.html#toolkits)可協助您進行連線。
+The [{{site.data.keyword.Bluemix_notm}} toolkit](create_bmxapp_appenv.html#toolkits) helps you to make the connection.
 
-Cloud Foundry 需要知道用於進行 API 呼叫（例如，當您上傳應用程式時）的 URL。{{site.data.keyword.Bluemix_notm}} 工具箱使用 '`cf api`' 指令來管理 API 端點。[這裡提供了 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window} '`cf api`' 指令的相關資訊。
+Cloud Foundry needs to know the URL to use for making API calls,
+for example when you upload an application.
+The {{site.data.keyword.Bluemix_notm}} toolkit uses the '`cf api`' command to manage the API endpoint.
+More information about the '`cf api`' command is
+[available ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
 
-使用下列指令，以告知 Cloud Foundry 要使用的 URL：
+Use the following command to tell Cloud Foundry the URL to use:
 
 ```sh
 bluemix api https://api.ng.bluemix.net
 ```
 {:pre}
 
-預期結果類似下列輸出：
+Expect a result similar to the following output:
 
 ```
 Invoking 'cf api https://api.ng.bluemix.net'...
@@ -50,26 +55,30 @@ Not logged in. Use 'bluemix login' to log in.
 ```
 {:codeblock}
 
-Cloud Foundry 現在知道將 API 呼叫傳送到哪裏，以便管理應用程式。
+Cloud Foundry now knows where to send API calls for managing applications.
 
-下一步是登入 {{site.data.keyword.Bluemix_notm}} 應用程式環境。您必須提供下列帳戶詳細資料：
+The next step is to log in to your {{site.data.keyword.Bluemix_notm}} application environment.
+You must supply the following account details:
 
--   您的使用者名稱（其指定為 '`-u`' 參數）。
--   您的組織名稱（其指定為 '`-o`' 參數）。
--   您的空間（其指定為 '`-s`' 參數）。
+-   Your user name, which is specified as the '`-u`' parameter.
+-   Your organization name, which is specified as the '`-o`' parameter.
+-   Your space, which is specified as the '`-s`' parameter.
 
->   **附註**：當您透過 Web 瀏覽器登入時，
-    {{site.data.keyword.Bluemix_notm}} 儀表板上會提供帳戶詳細資料，如下列範例所示：<br/>
-    ![尋找 {{site.data.keyword.Bluemix_notm}} 帳戶詳細資料](images/img0035.png)
+>   **Note**: The account details are available on your {{site.data.keyword.Bluemix_notm}} dashboard,
+    when you log in through a web browser,
+    as shown in the following example:<br/>
+    ![Finding your {{site.data.keyword.Bluemix_notm}} account details](images/img0035.png)
 
-使用與下列範例類似的指令來登入 {{site.data.keyword.Bluemix_notm}} 應用程式環境。請注意，系統會要求您輸入您的帳戶密碼。
+Use a command similar to the following example to log in to your
+{{site.data.keyword.Bluemix_notm}} application environment.
+Notice that you are asked to enter your account password.
 
 ```sh
 bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {:pre}
 
-預期結果類似下列輸出：
+Expect a result similar to the following output:
 
 ```
 Invoking 'cf login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev'...
@@ -91,22 +100,26 @@ Space:          dev
 ```
 {:codeblock}
 
-## 上傳應用程式
+## Uploading the application
 
-{{site.data.keyword.cloudant_short_notm}} Foundry 工具箱現在知道如何連接至 {{site.data.keyword.Bluemix_notm}} 環境。
+The {{site.data.keyword.cloudant_short_notm}} Foundry toolkit now knows how to connect to the {{site.data.keyword.Bluemix_notm}} environment.
 
-下一步是上傳應用程式本身。[資訊清單檔](create_bmxapp_appenv.html#manifest)中提供了 {{site.data.keyword.Bluemix_notm}} 應用程式的詳細資料。
+The next step is to upload the application itself.
+Details of a {{site.data.keyword.Bluemix_notm}} application
+are provided in the [manifest file](create_bmxapp_appenv.html#manifest).
 
-已如[這裡](create_bmxapp_createapp.html#essential-files)所述，更新了指導教學應用程式的資訊清單檔。
+The manifest file for the tutorial application was updated
+as described [here](create_bmxapp_createapp.html#essential-files)
 
-請使用與下列範例類似的指令來登入，以上傳 {{site.data.keyword.Bluemix_notm}} 應用程式。
+Use a command similar to the following example to log in to upload your
+{{site.data.keyword.Bluemix_notm}} application.
 
 ```sh
 cf push "Cloudant Python"
 ```
 {:pre}
 
-即會顯示一系列的結果訊息。
+A sequence of result messages is displayed.
 
 ```
 Using manifest file /..../BMXDemo/manifest.yml
@@ -116,7 +129,9 @@ OK
 ```
 {:codeblock}
 
-Cloud Foundry 工具箱已找到資訊清單檔，並且準備好使用您[稍早](#uploading)提供的連線及識別詳細資料來上傳應用程式。
+The Cloud Foundry toolkit located the manifest file,
+and is preparing to upload the application by using the connection
+and identification details you provided [earlier](#uploading).
 
 ```
 Using route Cloudant-Python.mybluemix.net
@@ -130,7 +145,8 @@ OK
 ```
 {:codeblock}
 
-已順利上傳應用程式，並與 {{site.data.keyword.cloudant_short_notm}} 資料庫實例進行連線。
+The application was uploaded successfully,
+and a connection made with the {{site.data.keyword.cloudant_short_notm}} database instance.
 
 ```
 Starting app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -163,9 +179,16 @@ App {{site.data.keyword.cloudant_short_notm}} Python was started using this comm
 ```
 {:codeblock}
 
-應用程式會自動啟動。在啟動期間，會透過評估 [requirements.txt 檔案](create_bmxapp_appenv.html#requirements)的內容，進行檢查以確保符合所有需求。應用程式需要存取 {{site.data.keyword.cloudant_short_notm}} 程式庫，這是在建立應用程式時[指定](create_bmxapp_createapp.html#essential-files)。
+The application starts automatically.
+As part of the startup,
+a check is made to ensure that all requirements are met,
+by evaluating the contents of the [requirements.txt file](create_bmxapp_appenv.html#requirements).
+The application requires access to the {{site.data.keyword.cloudant_short_notm}} library,
+which was [specified](create_bmxapp_createapp.html#essential-files) when the application was created.
 
-在您上傳並啟動應用程式之後，會執行一些簡單的系統檢查，確認對於 {{site.data.keyword.Bluemix_notm}} 而言，應用程式正確地在執行中。
+After you upload and start the application,
+some simple system checks are run to confirm that the application is running correctly
+as far as {{site.data.keyword.Bluemix_notm}} is concerned.
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -184,36 +207,70 @@ buildpack: python 1.5.5
 ```
 {:codeblock}
 
-## 測試範例應用程式
+## Testing the sample application
 
-第一次建立「{{site.data.keyword.Bluemix_notm}} 應用程式」環境時，儀表板會在`路徑`直欄中包含應用程式的鏈結：<br/>
-![顯示應用程式之儀表板的擷取畫面](images/img0017.png)
+When the {{site.data.keyword.Bluemix_notm}} Application environment was first created,
+the dashboard included a link in the `Route` column for the application:<br/>
+![Screenshot showing dashboard for the application](images/img0017.png)
 
-按一下鏈結會開啟瀏覽器視窗，以向在對應埠上接聽的應用程式要求一些資料。應用程式會傳回應用程式啟動時所產生日誌檔的內容，以作為回應：<br/>
-![指導教學應用程式開始執行時所產生的日誌檔](images/img0030.png)
+Clicking the link opens a browser window,
+requesting some data from the application that is listening at the corresponding port.
+The application responds by returning the contents of
+the log file that was generated as the application was starting:<br/>
+![Log file generated as the tutorial application started running](images/img0030.png)
 
-此日誌檔的內容十分有趣。會清楚地顯示開始及結束時間。在這中間，日誌記錄了擷取 {{site.data.keyword.cloudant_short_notm}} 的連線資訊時的所有詳細資料。連線的實際值並不重要。日誌顯示指導教學應用程式能夠找到、擷取並使用這些值，以在 {{site.data.keyword.cloudant_short_notm}} 資料庫中建立新文件。
+The contents of this log file are interesting.
+The start and end times are clearly displayed.
+In between,
+the log records each of the details as the connection information
+for the {{site.data.keyword.cloudant_short_notm}} was retrieved.
+The actual values of the connection are not important.
+The log shows that the tutorial application was able to locate,
+retrieve,
+and use those values to create a new document in the 
+{{site.data.keyword.cloudant_short_notm}} database.
 
-### 確認資料庫詳細資料
+### Confirming the database details
 
-請先開啟「{{site.data.keyword.cloudant_short_notm}} 儀表板」。在 {{site.data.keyword.cloudant_short_notm}} 服務頁面的`管理`標籤上，按一下`啟動`圖示：<br/>
-![在 {{site.data.keyword.cloudant_short_notm}} 服務頁面上的「啟動」圖示](images/img0036.png)
+Start by opening the {{site.data.keyword.cloudant_short_notm}} Dashboard.
+Click the `Launch` icon on the `Manage` tab of the 
+{{site.data.keyword.cloudant_short_notm}} service page:<br/>
+![Launch icon on the {{site.data.keyword.cloudant_short_notm}} service page](images/img0036.png)
 
-> **附註**：若要尋找 {{site.data.keyword.cloudant_short_notm}} 服務頁面，請參閱[「建立 {{site.data.keyword.cloudant_short_notm}} 實例」指導教學](create_service.html#locating-your-service-credentials)中的詳細資料。
+> **Note**: To find your {{site.data.keyword.cloudant_short_notm}} service page,
+  refer to the details in the
+  ['Creating a {{site.data.keyword.cloudant_short_notm}} instance' tutorial](create_service.html#locating-your-service-credentials).
 
-儀表板開啟時，您可以看到應用程式已建立 '`databasedemo`' 資料庫：<br/>
-![顯示新資料庫的「{{site.data.keyword.cloudant_short_notm}} 儀表板」](images/img0031.png)
+When the dashboard opens,
+you can see that the application
+created the '`databasedemo`' database:<br/>
+![The {{site.data.keyword.cloudant_short_notm}} Dashboard showing the new database](images/img0031.png)
 
-資料庫包含應用程式所建立的單一文件。若要驗證文件是否存在，請按一下儀表板內的資料庫名稱。即會出現資料庫的選項清單。當您選取`所有文件`標籤時，即會出現單一文件的詳細資料：<br/>
-![新資料庫內的單一文件](images/img0032.png)
+The database contains a single document,
+created by the application.
+To verify the presence of the document,
+click the database name within the dashboard.
+A list of options for the database appears.
+When you select the `All documents` tab,
+details for a single document appear:<br/>
+![A single document within the new database](images/img0032.png)
 
-若要查看文件的內容，請按一下顯示為鉛筆影像的`編輯`圖示：<br/>
-![文件的詳細資料](images/img0033.png)
+To see the contents of the document,
+click the `Edit` icon,
+which appears as an image of a pencil:<br/>
+![Details of the document](images/img0033.png)
 
-文件的內容出現時，您可以查看指導教學應用程式已建立的每一個欄位。<br/>
-![文件內的欄位](images/img0034.png)<br/>
-特別值得一提的是，`rightNow` 欄位具有建立文件的日期和時間。此值對應於[應用程式日誌檔](#testing-the-sample-application)內已記錄的時間。
+When the contents of the document appear,
+you can see each of the fields that were created by the tutorial application.<br/>
+![The fields within the document](images/img0034.png)<br/>
+In particular,
+the `rightNow` field has the date and time the document was created.
+This value corresponds to the time that was recorded within the
+[application log file](#testing-the-sample-application).
 
-## 下一步
+## The next step
 
-指導教學中的下一步是[操作及維護應用程式](create_bmxapp_maintain.html)，例如，當您啟動、停止及除錯應用程式時。
+The next step in the tutorial is to [operate and maintain the application](create_bmxapp_maintain.html),
+for example when you start,
+stop,
+and debug the application.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -15,23 +15,23 @@ lastupdated: "2017-01-06"
 # Versão de documento e MVCC
 
 [Multi-version concurrency control (MVCC) ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window}
-é como os bancos de dados Cloudant asseguram que todos os nós no cluster de um banco de dados contenham
-apenas a [versão mais recente](../api/document.html) de um documento.
+é como os bancos de dados {{site.data.keyword.cloudantfull}} asseguram que todos os nós no cluster de um banco de dados contenham
+somente a [versão mais recente](../api/document.html) de um documento.
 {:shortdesc}
 
-Como os bancos de dados Cloudant são [eventualmente consistentes](cap_theorem.html),
+Como os bancos de dados {{site.data.keyword.cloudant_short_notm}} são [eventualmente consistentes](cap_theorem.html),
 isso é necessário para evitar que surjam inconsistências entre os nós
 como resultado da sincronização entre documentos desatualizados.
 
-O Multi-Version Concurrency Control (MVCC) permite acesso simultâneo de leitura e gravação a um banco de dados Cloudant.
+Multi-Version Concurrency Control (MVCC) permite acesso simultâneo de leitura e gravação a um banco de dados {{site.data.keyword.cloudant_short_notm}}.
 MVCC é uma forma de [simultaneidade otimista ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}.
-Ele torna as operações de leitura e gravação nos bancos de dados Cloudant mais rápidas porque
+Ele torna as operações de leitura e gravação nos bancos de dados {{site.data.keyword.cloudant_short_notm}} mais rápidas porque
 não há necessidade de bloqueio do banco de dados nas operações de leitura ou gravação.
-O MVCC também permite sincronização entre os nós dos bancos de dados Cloudant.
+O MVCC também permite sincronização entre os nós de banco de dados {{site.data.keyword.cloudant_short_notm}}.
 
 ## Revisões
 
-Todo documento em um banco de dados Cloudant possui um campo `_rev` indicando seu número de revisão.
+Todo documento em um banco de dados {{site.data.keyword.cloudant_short_notm}} tem um campo `_rev` indicando seu número de revisão.
 
 Um número de revisão é incluído em seus documentos pelo servidor quando você o insere ou o modifica.
 O número é incluído na resposta do servidor quando você faz mudanças ou lê um documento.
@@ -46,8 +46,8 @@ Deve-se especificar o `_rev` anterior ao [atualizar um documento](../api/documen
 ou então sua solicitação falhará e retornará um [erro 409](../api/http.html#409).
 
 >   **Nota**: `_rev` não deve ser usado para construir um sistema de controle de versão.
-O motivo é que ele é um valor interno usado pelo servidor.
-Além disso,
+    O motivo é que ele é um valor interno usado pelo servidor.
+    Além disso,
 revisões mais antigas de um documento são temporárias
 e, portanto, removidas regularmente.
 
@@ -63,9 +63,9 @@ uma solução será [criar um novo documento](../api/document.html#documentCreat
 
 ## Bancos de dados distribuídos e conflitos
 
-Os bancos de dados distribuídos funcionam sem uma conexão constante com o banco de dados principal no Cloudant,
+Os bancos de dados distribuídos funcionam sem uma conexão constante com o banco de dados principal no {{site.data.keyword.cloudant_short_notm}},
 que é por si só distribuído,
-portanto, as atualizações baseadas na mesma versão anterior ainda podem estar em conflito.
+portanto as atualizações baseadas na mesma versão anterior ainda podem estar em conflito.
 
 Para localizar conflitos,
 inclua o parâmetro de consulta [`conflicts=true`](../api/database.html#get-changes) ao recuperar um documento.

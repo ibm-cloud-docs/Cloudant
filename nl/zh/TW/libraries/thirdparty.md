@@ -12,145 +12,175 @@ lastupdated: "2017-11-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 協力廠商用戶端程式庫
+# Third-party client libraries
 
->   **附註**：{{site.data.keyword.cloudantfull}} 不會維護或支援協力廠商用戶端程式庫。
+>   **Note**: Third-party client libraries are not maintained or supported by {{site.data.keyword.cloudantfull}}.
 
-## 協力廠商行動程式庫
+## Third-party Mobile libraries
 
-使用 Cloudant 資料庫：
+Working with a Cloudant database:
 
--   搭配「{{site.data.keyword.cloudant_short_notm}} 配接器」的 [IBM Worklight Powered Native Objective-C iOS 應用程式 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window}。
+-   [IBM Worklight Powered Native Objective-C iOS Apps ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} with a {{site.data.keyword.cloudant_short_notm}} Adapter.
 
 ## C# / .NET
 
-[MyCouch ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/danielwertheim/mycouch){:new_window} 是適用於 .Net 的非同步 CouchDB 及 {{site.data.keyword.cloudant_short_notm}} 用戶端。
+[MyCouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danielwertheim/mycouch){:new_window}
+is an asynchronous CouchDB and {{site.data.keyword.cloudant_short_notm}} client for .Net.
 
-若要安裝程式庫，請開啟「套件管理程式」主控台，並呼叫：
+To install the library,
+open up the Package manager console,
+and invoke:
 
 ```
 install-package mycouch.cloudant
 ```
 {:codeblock}
 
-### 程式庫及架構
+### Libraries and Frameworks
 
--   [MyCouch ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/danielwertheim/mycouch){:new_window}。
--   [LoveSeat ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/soitgoes/LoveSeat){:new_window}。
--   [Divan ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/foretagsplatsen/Divan){:new_window}。
--   [Relax ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/arobson/Relax){:new_window}。
--   [Hammock ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://code.google.com/p/relax-net/){:new_window}。
--   [EasyCouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/hhariri/EasyCouchDB){:new_window}。
--   `WDK.API.CouchDB`，來自 [Kanapes IDE ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://kanapeside.com/){:new_window}。
+-   [MyCouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danielwertheim/mycouch){:new_window}.
+-   [LoveSeat ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/soitgoes/LoveSeat){:new_window}.
+-   [Divan ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/foretagsplatsen/Divan){:new_window}.
+-   [Relax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/arobson/Relax){:new_window}.
+-   [Hammock ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/relax-net/){:new_window}.
+-   [EasyCouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/hhariri/EasyCouchDB){:new_window}.
+-   `WDK.API.CouchDB` from [Kanapes IDE ![External link icon](../images/launch-glyph.svg "External link icon")](http://kanapeside.com/){:new_window}.
 
-### 範例及指導教學
+### Examples and Tutorials
 
--   [CRUD ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/haengematte/tree/master/c%23){:new_window}。
+-   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/c%23){:new_window}.
 
 ## PHP
 
-[Sag ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/sbisbee/sag){:new_window} 是 PHP 的 CouchDB 及 {{site.data.keyword.cloudant_short_notm}} 用戶端。
-[Sag.js ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/sbisbee/sag-js){:new_window} 是 Sag 的 JavaScript 對應項目。
+[Sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){:new_window} is PHP's CouchDB and {{site.data.keyword.cloudant_short_notm}} client.
+[Sag.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){:new_window} is Sag's JavaScript counterpart.
 
-若要安裝，請從 [https://github.com/sbisbee/sag ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/sbisbee/sag){:new_window} 下載 `sag`，然後在您的應用程式中包括程式庫。
+To install,
+download `sag` from [https://github.com/sbisbee/sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){:new_window},
+then include the library in your application:
 
 ```
 require_once('./src/Sag.php');
 ```
 {:codeblock}
 
-### 程式庫及架構
+### Libraries and Frameworks
 
--   [sag ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/sbisbee/sag){:new_window}。
--   [Doctrine CouchDB Client ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/doctrine/couchdb-client){:new_window}。
--   [PHP-on-Couch ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/dready92/PHP-on-Couch){:new_window}。
+-   [sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){:new_window}.
+-   [Doctrine CouchDB Client ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/doctrine/couchdb-client){:new_window}.
+-   [PHP-on-Couch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dready92/PHP-on-Couch){:new_window}.
 
-### 範例及指導教學
+### Examples and Tutorials
 
--   [CRUD ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/haengematte/tree/master/php){:new_window}。
+-   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/php){:new_window}.
 
 ## JavaScript
 
-[PouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/){:new_window} 是可與 {{site.data.keyword.cloudant_short_notm}} 同步的 JavaScript 資料庫，這表示您只要使用 PouchDB 就可以離線使用應用程式。
-如需相關資訊，請參閱 PouchDB 上的[我們的部落格文章 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/pouchdb){:new_window}。
+[PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window} is a JavaScript database that can sync with {{site.data.keyword.cloudant_short_notm}},
+meaning you can make your apps offline-ready just by using PouchDB.
+For more info,
+see [our blog post ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/pouchdb){:new_window} on PouchDB.
 
-若要取得 PouchDB，以及設定詳細資料，請參閱 [PouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/){:new_window}。
+To obtain PouchDB,
+and for setup details,
+refer to [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window}.
 
->   **附註**：PouchDB 也適用於 Node.js：`npm install pouchdb`。
+>   **Note**: PouchDB is also available for Node.js: `npm install pouchdb`.
 
->   **附註**：也可以使用 Bower 來安裝 PouchDB：`bower install pouchdb`。
+>   **Note**: PouchDB can also be installed with Bower: `bower install pouchdb`.
 
-### 程式庫及架構
+### Libraries and Frameworks
 
--   [Backbone.cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant-labs/backbone.cloudant){:new_window}。如需相關資訊，請參閱[部落格文章 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/backbone-and-cloudant/){:new_window}。
--   [sag.js ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/sbisbee/sag-js){:new_window}。
--   [PouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/){:new_window} - 瀏覽器的 JavaScript 資料庫，具有離線同步化。
+-   [Backbone.cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/backbone.cloudant){:new_window}.
+    See the [blog post ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/backbone-and-cloudant/){:new_window} for more information.
+-   [sag.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){:new_window}.
+-   [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window} - JavaScript database for browser,
+    with offline synchronization.
 
-### 範例及指導教學
+### Examples and Tutorials
 
--   使用 jQuery 的 [CRUD ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window}。
--   [CSVtoCloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/michellephung/CSVtoCloudant){:new_window} - 用於將 `.csv` 檔案匯入至 {{site.data.keyword.cloudant_short_notm}} 的使用者介面。
-    也可以在[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://michellephung.github.io/CSVtoCloudant/){:new_window} 存取應用程式。
--   [csv2couchdb ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/Mango-information-systems/csv2couchdb){:new_window} - 來自 Mango Systems 的使用者介面，用來將 `.csv` 檔案匯入至 CouchDB/{{site.data.keyword.cloudant_short_notm}}。
--   [songblog ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/millayr/songblog){:new_window} - 使用 JQuery 的範例應用程式。
--   [PouchDB 入門手冊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/getting-started.html){:new_window} - 從瀏覽器同步到 {{site.data.keyword.cloudant_short_notm}} 或 CouchDB 的範例「待辦事項」應用程式。
--   [locationtracker ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/rajrsingh/locationtracker){:new_window} - 使用 PouchDB、CouchApp 及 {{site.data.keyword.cloudant_short_notm}} 來記錄及對映位置的範例應用程式。
+-   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} using jQuery.
+-   [CSVtoCloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/michellephung/CSVtoCloudant){:new_window} -
+    UI for importing `.csv` files into {{site.data.keyword.cloudant_short_notm}}.
+    The app can also be accessed [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://michellephung.github.io/CSVtoCloudant/){:new_window}.
+-   [csv2couchdb ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/Mango-information-systems/csv2couchdb){:new_window} -
+    UI from Mango Systems to import `.csv` files to CouchDB/{{site.data.keyword.cloudant_short_notm}}.
+-   [songblog ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/millayr/songblog){:new_window} - example app using JQuery.
+-   [PouchDB Getting Started Guide ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/getting-started.html){:new_window} -
+    example Todo application that syncs from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
+-   [locationtracker ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/rajrsingh/locationtracker){:new_window} -
+    example app to record and map location using PouchDB,
+    CouchApp,
+    and {{site.data.keyword.cloudant_short_notm}}.
 
 ## Ruby
 
-[CouchRest ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/couchrest/couchrest){:new_window} 是 CouchDB 及 {{site.data.keyword.cloudant_short_notm}} 用戶端，具有可使用 [CouchRest 模型 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/couchrest/couchrest_model){:new_window} 來處理 Rails 的延伸。
+[CouchRest ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/couchrest/couchrest){:new_window} is a CouchDB and {{site.data.keyword.cloudant_short_notm}} client
+with extensions for working with Rails using [CouchRest Model ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/couchrest/couchrest_model){:new_window}.
 
-若要安裝 CouchRest，請執行下列指令：
+To install CouchRest,
+run the command:
 
 ```sh
 gem install couchrest
 ```
 {:codeblock}
 
-### 程式庫及架構
+### Libraries and Frameworks
 
-[Ruby Toolbox ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ruby-toolbox.com/categories/couchdb_clients){:new_window} 上列出許多 CouchDB 用戶端。
+There are many CouchDB clients listed on
+[Ruby Toolbox ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ruby-toolbox.com/categories/couchdb_clients){:new_window}.
 
-### 範例及指導教學
+### Examples and Tutorials
 
--   [CRUD ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/haengematte/tree/master/ruby){:new_window}。
+-   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/ruby){:new_window}.
 
 <div id="couchdb"></div>
 
 ## Meteor
 
-[cloudant:couchdb ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://atmospherejs.com/cloudant/couchdb){:new_window} 是 `couchdb-meteor` 套件的 {{site.data.keyword.cloudant_short_notm}} 程式庫。
-因為 Apache CouchDB 未隨附 Meteor 或 couchdb 套件，所以您必須先提供要連接至執行中 CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 伺服器實例的 Meteor URL，然後再安裝 Meteor。
-請將此套件新增至 Meteor 應用程式：
+[cloudant:couchdb ![External link icon](../images/launch-glyph.svg "External link icon")](https://atmospherejs.com/cloudant/couchdb){:new_window} is the
+{{site.data.keyword.cloudant_short_notm}} library for the `couchdb-meteor` package.
+Since Apache CouchDB does not ship with Meteor or the couchdb package,
+you must provide a URL for Meteor to connect
+to a running CouchDB or {{site.data.keyword.cloudant_short_notm}} server instance before you install Meteor.
+Add this package to your Meteor application:
 
 ```sh
 meteor add cloudant:couchdb
 ```
 {:codeblock}
 
-couchdb-meteor 套件提供：
+The couchdb-meteor package provides:
 
--   使用 CouchDB `_changes` 資訊來源的資料庫的 Livequery 實作及即時更新。
--   「分散式資料通訊協定 (DDP)」RPC 端點，其更新本端連接的用戶端的資料。
--   序列化及解除序列化對 DDP 格式的更新。
+-   Livequery implementation and real-time updates from the database by consuming the CouchDB `_changes` feed.
+-   Distributed Data Protocol (DDP) RPC endpoints that update data from clients connected locally.
+-   Serialization and deserialization of updates to the DDP format.
 
->   **附註**：由「{{site.data.keyword.cloudant_short_notm}} 查詢」使用且一開始由 {{site.data.keyword.cloudant_short_notm}} 開發的 JSON 查詢語法，會被提供回 Apache CouchDB 作為 2.0 版。
-    Apache CouchDB 2.0 版的預先建置的二進位檔還是無法使用。您可以搭配使用此模組與 {{site.data.keyword.cloudant_short_notm}} DBaaS 或「Cloudant 本端」，直到預先建置的二進位檔可供使用。
+>   **Note**: The JSON query syntax used by {{site.data.keyword.cloudant_short_notm}} Query,
+    and initially developed by {{site.data.keyword.cloudant_short_notm}},
+    was contributed back to Apache CouchDB for version 2.0.
+    Pre-built binaries for Apache CouchDB version 2.0 are not yet available.
+    You can use this module with {{site.data.keyword.cloudant_short_notm}} DBaaS or Cloudant Local until the pre-built binaries are available.
 
-若要配置 Apache CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 伺服器連線資訊，請將其 URL 當作 `COUCHDB_URL` 環境變數傳遞給 Meteor 伺服器處理程序：
+To configure the Apache CouchDB or {{site.data.keyword.cloudant_short_notm}} server connection information,
+pass its URL as the `COUCHDB_URL` environment variable to the Meteor server process:
 
 ```sh
 $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {:codeblock}
 
-如需 meteor-couchdb API 的相關資訊，請參閱 [API 參考資料](../api/index.html)。 
+See the [API Reference](../api/index.html) for more information about meteor-couchdb APIs. 
 
 ## Apache Spark
 
-[Apache Spark 的 Apache Bahir 延伸 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://bahir.apache.org/#home){:new_window} 包括 `spark-sql-cloudant` 連接器，其為 Apache Spark 的 {{site.data.keyword.cloudant_short_notm}} 程式庫。
+The [Apache Bahir extensions for Apache Spark  ![External link icon](../images/launch-glyph.svg "External link icon")](http://bahir.apache.org/#home){:new_window}
+include a `spark-sql-cloudant` connector that is the {{site.data.keyword.cloudant_short_notm}} library for Apache Spark.
 
-spark-sql-cloudant 連接器已載入至 [IBM Bluemix Apache Spark-as-a-Service ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} 供應項目。
-它可與任何獨立式 Spark 叢集搭配使用。
+The spark-sql-cloudant connector is already loaded into the
+[IBM Bluemix Apache Spark-as-a-Service ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} offering.
+It can be used with any stand-alone Spark cluster.
 
-如需詳細資料，請參閱[專案資訊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/apache/bahir/tree/master/sql-cloudant){:new_window} 及 [Apache Bahir spark-sql-cloudant 文件 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://bahir.apache.org/docs/spark/current/spark-sql-cloudant/){:new_window}。
+See the [project information ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/bahir/tree/master/sql-cloudant){:new_window}
+and [Apache Bahir spark-sql-cloudant documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://bahir.apache.org/docs/spark/current/spark-sql-cloudant/){:new_window} for more details.

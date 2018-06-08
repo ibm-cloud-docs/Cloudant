@@ -14,82 +14,178 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-05-15 -->
 
-# 如何在 {{site.data.keyword.cloudant_short_notm}} 中儲存資料？
+# How is data stored in {{site.data.keyword.cloudant_short_notm}}?
 
-## 概念
+## Concepts
 
-{{site.data.keyword.cloudantfull}} 中的每個資料庫都是由一個以上的不同 _Shard_ 所形成，其中，Shard 數目稱為 _Q_。
-Shard 是資料庫中文件的不同子集。所有 _Q_ 個 Shard 都會包含資料庫內的資料。每一個 Shard 都會儲存為三個不同的副本。每一個 Shard 副本都稱為 Shard _抄本_。每一個 Shard 抄本都會儲存在不同的伺服器上。這些伺服器位在單一位置資料中心內。資料中心內的伺服器集合稱為叢集。
+Every database in {{site.data.keyword.cloudantfull}} is formed of one or more distinct _shards_,
+where the number of shards is referred to as _Q_.
+A shard is a distinct subset of documents from the database.
+All _Q_ shards together contain the data within database.
+Each shard is stored in three separate copies.
+Each shard copy is called a shard _replica_.
+Each shard replica is stored on a different server.
+The servers are available within a single location data center.
+The collection of servers in a data center is called a cluster.
 
-![Shard 處理](../images/sharding_database.png)
+![sharding](../images/sharding_database.png)
 
-文件會指派給特定 Shard，方法是使用其 ID 的一致雜湊。這項指派表示文件一律儲存在已知 Shard 以及一組已知的伺服器上。
+A document is assigned to a particular shard by using consistent hashing of its ID.
+This assignment means that a document is always stored on a known shard and a known set of servers.
 
-![文件一致雜湊](../images/sharding_document.png)
+![document consistent hashing](../images/sharding_document.png)
 
-有時候，會_重新平衡_ Shard。重新平衡包含將抄本移至不同的伺服器。它的發生原因有數個，例如，伺服器監視建議某部伺服器比其他伺服器更頻繁或更不頻繁使用時，或伺服器必須暫時停止服務來進行維護時。Shard 及抄本數目會保持相同，而且文件仍然會指派給相同的 Shard，但 Shard 抄本的伺服器儲存空間位置會變更。
+Occasionally,
+shards are _rebalanced_.
+Rebalancing involves moving replicas to different servers.
+It occurs for several reasons,
+for example when server monitoring suggests that a server is more heavily or lightly used than other servers,
+or when a server must be taken out of service temporarily for maintenance.
+The number of shards and replicas stays the same,
+and documents remain assigned to the same shard,
+but the server storage location for a shard replica changes.
 
-不同叢集的 _Q_ 預設值會不同。此值會隨著時間進行調整。
+The default value for _Q_ varies for different clusters.
+The value can be tuned over time.
 
-抄本數目（Shard 副本）也可以進行配置。實際上，許多系統的觀察及測量都建議在大部分情況下，三個抄本是在效能與資料安全之間取得良好平衡的實用數目。如果 {{site.data.keyword.cloudant_short_notm}} 系統使用不同的抄本計數，則會發生異常。
+The number of replicas (copies of a shard) is also configurable.
+In practice,
+observation and measurement of many systems suggests that three replicas is a pragmatic number in most cases
+to achieve a good balance between performance and data safety.
+It would be exceptional and unusual for a {{site.data.keyword.cloudant_short_notm}} system to use a different replica count.
 
-## Shard 處理如何影響效能？
+## How does sharding affect performance?
 
-資料庫的 Shard 數目可進行配置，因為它會以多種方式影響資料庫效能。
+The number of shards for a database is configurable
+because it affects database performance in a number of ways.
 
-要求從用戶端應用程式進入資料庫時，會將叢集中的一部伺服器或一個「節點」指派為要求的_協調程式_。此協調程式會對保留要求相關資料的節點進行內部要求，並決定要求的回應，然後將此回應傳回給用戶端。
+When a request comes into the database from a client application,
+one server or 'node' in the cluster is assigned as the _coordinator_ of the request.
+This coordinator makes internal requests to the nodes that hold the data relevant to the request,
+determines the response to the request,
+and returns this response to the client.
 
-資料庫的 Shard 數目可能會以兩種方式影響效能：
+The number of shards for a database can affect the performance in two ways:
 
-1.	資料庫中的每一份文件都會儲存在單一 Shard 中。因此，具有許多 Shard 會對任何單一文件要求啟用更高的平行化。原因是協調程式只會將要求傳送至保留文件的節點。因此，如果資料庫有許多 Shard，則可能會有許多不需要回應要求的其他節點。這些節點可以繼續處理其他作業，而不必中斷協調程式要求。
-2.	若要回應查詢要求，資料庫必須處理所有 Shard 的結果。因此，有更多 Shard 會產生更多的處理需求。原因是協調程式必須一個 Shard 進行一個要求，然後先結合結果，再將回應傳回給用戶端。
+1.	Each document in the database is stored on a single shard.
+	Therefore,
+	having many shards enables greater parallelism for any single document request.
+	The reason is that the coordinator sends requests only to the nodes that hold the document.
+	Therefore,
+	if the database has many shards,
+	there are likely to be many other nodes that do not need to respond to the request.
+	These nodes can continue to work on other tasks without interruption from the coordinator request.
+2.	To respond to a query request,
+	a database must process the results from all the shards.
+	Therefore,
+	having more shards introduces a greater processing demand.
+	The reason is that the coordinator must make one request per shard,
+	then combine the results before it returns the response to the client.
 
-若要協助判定資料庫的合適 Shard 計數，首先請識別應用程式所進行要求的最常見類型。例如，考慮要求主要用於單一文件作業，還是要求大部分是查詢？有任何作業具有時效性嗎？
+To help determine a suitable shard count for your database,
+begin by identifying the most common types of requests that are made by the applications.
+For example,
+consider whether the requests are mostly for single document operations,
+or are the requests mostly queries?
+Are any of the operations time-sensitive?
 
-針對所有查詢，協調程式會對所有抄本發出讀取要求。會使用此方式，因為每一個抄本都會針對可協助回答查詢的索引維護其自己的副本。此配置的重要結果是_如果_ 文件寫入傾向平均分散到叢集中的 Shard，則具有多個 Shard 會啟用平行索引建置。
+For all queries,
+the coordinator issues read requests to all replicas.
+This approach is used because each replica maintains its own copy of the indexes that help answer queries.
+An important consequence of this configuration is that having more shards enables parallel index building _if_
+document writes tend to be evenly distributed across the shards in the cluster.
 
-實際上，很難預測跨叢集中節點的可能索引作業負載。甚至，預測索引作業負載可能還比處理要求模式更不實用。原因是可能需要索引作業的時間是在文件寫入之後，而不是在文件要求之後。因此，單獨考量索引作業無法提供足夠的資訊來預估適當的 Shard 計數。
+In practice,
+it is hard to predict the likely indexing load across the nodes in the cluster.
+Furthermore,
+predicting indexing load tends to be less useful than addressing request patterns.
+The reason is that indexing might be required after a document write,
+but not after a document request.
+Therefore,
+considering indexing alone does not provide sufficient information
+to estimate an appropriate shard count.
 
-當您考慮資料大小時，重要考量是每個 Shard 的文件數目。每一個 Shard 都會將其文件保留在磁碟的大型 [B-Tree ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/B-tree){:new_window} 中。索引會以相同的方式儲存。將更多文件新增至 Shard 時，在一般文件查閱或查詢期間用來遍訪 B-Tree 的步驟數目會增加。此「深度增加」很容易會拖慢要求，因為必須從快取或磁碟讀取更多資料。
+When you consider data size,
+an important consideration is the number of documents per shard.
+Each shard holds its documents in a large
+[B-tree ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/B-tree){:new_window}
+on disk.
+Indexes are stored in the same way.
+As more documents are added to a shard,
+the number of steps that are used to traverse the B-tree
+during a typical document lookup or query increases.
+This 'depth increase' tends to slow down requests
+because more data must be read from caches or disk.
 
-一般而言，避免每個 Shard 超過 1 千萬份文件。就整體 Shard 大小而言，基於作業原因，將 Shard 數目保持低於 10 GB 會有所幫助。例如，在重新平衡期間，較小的 Shard 較容易透過網路移動。
+In general,
+avoid having more than 10 million documents per shard.
+In terms of overall shard size,
+keeping shards under 10 GB is helpful for operational reasons.
+For example,
+smaller shards are easier to move over the network during rebalancing.
 
-如果有避免過多文件並保持小的 Shard 大小的衝突需求，則單一 _Q_ 值無法完全適用於所有情況。使用模式變更時，{{site.data.keyword.cloudant_short_notm}} 會隨著時間調整叢集的預設值。
+Given the conflicting requirements to avoid having too many documents and keeping shard size low,
+a single _Q_ value cannot work optimally for all cases.
+{{site.data.keyword.cloudant_short_notm}} tunes the defaults for clusters over time as usage patterns change.
 
-不過，針對特定資料庫，花時間考量觀察到的要求模式和大小，以及使用此資訊來引導未來選取適當的 Shard 數目通常十分實用。具有代表性資料及要求模式的測試對於更恰當預估適當的 _Q_ 值十分重要。請準備好體驗正式作業環境，以變更這些預期。
+Nevertheless,
+for a specific database,
+it is often useful to take the time to consider observed request patterns and sizing,
+and use this information to guide the future selection of an appropriate number of shards.
+Testing with representative data and request patterns is essential for better estimation of good _Q_ values.
+Be prepared for production experience to alter those expectations.
 
 <div id="summary"></div>
 
-在早期規劃階段期間，下列簡單準則可能十分有用。請記得使用代表性資料進行測試（特別是針對較大的資料庫）來驗證提出的配置：
+The following simple guidelines might be helpful during the early planning stages.
+Remember to validate your proposed configuration by testing with representative data,
+particularly for larger databases:
 
-*	如果您資料的大小微不足道（例如數十或數百 MB，或者數千份文件），則不太需要使用超過單一 Shard。
-*	對於數 GB 或數百萬份文件的資料庫，則可接受單位數的 Shard 計數（例如 8）。
-*	對於數千萬或數億份文件或數十 GB 的較大資料庫，請考慮將資料庫配置為使用 16 個 Shard。
-*	對於更大的資料庫，請考慮手動將資料分割成數個資料庫。針對這類大型資料庫，請聯絡 [{{site.data.keyword.cloudant_short_notm}} 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window} 以尋求建議。
+*	If your data is trivial in size,
+	such as a few tens or hundreds of MB,
+	or thousands of documents,
+	then there is little need for more than a single shard.
+*	For databases of a few GB or few million documents,
+	then a single-digit shard count such as 8 is likely to be acceptable.
+*	For larger databases of tens to hundreds of millions of documents or tens of GB,
+	consider configuring your database to use 16 shards.
+*	For even larger databases,
+	consider manually sharding your data into several databases.
+	For such large databases,
+	contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} for advice.
 
->	**附註：**這些準則中的數目來自於觀察及經驗，而不是精確計算。
+>	**Note:** The numbers in these guidelines are derived from observation and experience
+	rather than precise calculation.
 
 <div id="API"></div>
 
-## 使用 Shard
+## Working with shards
 
-### 設定 Shard 計數
+### Setting shard count
 
-建立資料庫時，會設定資料庫的 Shard 數目 _Q_。稍後無法變更 _Q_ 值。
+The number of shards,
+_Q_,
+for a database is set when the database is created.
+The _Q_ value cannot be changed later.
 
-若要在建立資料庫時指定 _Q_，請使用 `q` 查詢字串參數。
+To specify the _Q_ when you create a database,
+use the `q` query string parameter.
 
-在下列範例中，會建立稱為 `mynewdatabase` 的資料庫。`q` 參數指定為資料庫建立八個 Shard。
+In the following example,
+a database that is called `mynewdatabase` is created.
+The `q` parameter specifies that eight shards are created for the database.
 
 ```sh
 curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**附註：**對於 Bluemix 上的 {{site.data.keyword.cloudant_short_notm}} 資料庫，未啟用為資料庫設定 _Q_ 的功能。
- 在大部分的 `cloudant.com` 多方承租戶叢集上，無法使用 _Q_ 值。
+>	**Note:** Setting _Q_ for databases is not enabled for {{site.data.keyword.cloudant_short_notm}} databases on Bluemix.
+	The _Q_ value is not available on most `cloudant.com` multi-tenant clusters.
 
-如果您嘗試在無法使用的位置設定 _Q_ 值，則結果是 JSON 主體與下列範例類似的 [`403` 回應](../api/http.html#403)：
+If you attempt to set the _Q_ value where it is not available,
+the result is a [`403` response](../api/http.html#403) with a JSON body
+similar to the following example:
 
 ```json
 {
@@ -99,33 +195,61 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
-### 設定抄本計數
+### Setting the replica count
 
-從 CouchDB 第 2 版開始，您可以在建立資料庫時[指定抄本計數 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}。不過，您無法變更預設值 3 的抄本計數值。特別的是，建立資料庫時，無法指定不同的抄本計數值。如需進一步協助，請聯絡 [{{site.data.keyword.cloudant_short_notm}} 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
+In CouchDB version 2 onwards,
+you are allowed to [specify the replica count ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}
+when you create a database.
+However,
+you are not allowed to change the replica count value from the default of 3.
+In particular,
+it is not possible to specify a different replica count value when you create a database.
+For further help, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
 
-### 何謂 _R_ 及 _W_ 引數？
+### What are the _R_ and _W_ arguments?
 
-部分要求的引數會影響協調程式在回答要求時的行為。這些引數在要求查詢字串的其名稱後面稱為 _R_ 及 _W_。它們只能用於單一文件作業。它們不會影響一般「查詢樣式」要求。
+Some requests can have arguments that affect the coordinator's behavior when it answers the request.
+These arguments are known as _R_ and _W_ after their names in the request query string.
+They can be used for single document operations only.
+They have no effect on general 'query style' requests.
 
-實際上，指定 _R_ 及 _W_ 值沒有什麼太大用處。例如，指定 _R_ 或 _W_ 不會變更讀取或寫入的一致性。
+In practice,
+it is rarely useful to specify _R_ and _W_ values.
+For example,
+specifying either _R_ or _W_ does not alter consistency for the read or write.
 
-#### 何謂 _R_？
+#### What is _R_?
 
-只能在單一文件要求上指定 _R_ 引數。_R_ 會影響協調程式必須先接收多少回應，再回覆用戶端。回應必須來自管理包含文件之 Shard 抄本的節點。 
+The _R_ argument can be specified on single document requests only.
+_R_ affects how many responses must be received by the coordinator before it replies to the client.
+The responses must come from the nodes that host the replicas of the shard that contains the document. 
 
-將 _R_ 設定為 _1_ 可能會改善整體回應時間，因為協調程式可以更快速地傳回回應。原因是協調程式只需等待來自任何一個管理適當 Shard 的抄本的單一回應。
+Setting _R_ to _1_ might improve the overall response time
+because the coordinator can return a response more quickly.
+The reason is that the coordinator must wait only for a single response
+from any one of the replicas that host the appropriate shard.
 
->	**附註：**減少 _R_ 值會增加所傳回回應因 {{site.data.keyword.cloudant_short_notm}} 所使用的[最終一致性](cap_theorem.html)模型而未根據最新資料的可能性。
- 使用預設 _R_ 值有助於減少此影響。
+>	**Note:** Reducing the _R_ value increases the likelihood that the response that is
+	returned is not based on the most up-to-date data
+	because of the [eventual consistency](cap_theorem.html) model used by {{site.data.keyword.cloudant_short_notm}}.
+	Using the default _R_ value helps mitigate this effect.
 
-_R_ 的預設值是 _2_。此值對應於使用三個 Shard 抄本的一般資料庫的大部分抄本。如果資料庫的抄本數目高於或低於 3，則 _R_ 的預設值會相應地變更。
+The default value for _R_ is _2_.
+This value corresponds to most of the replicas for a typical database that uses three shard replicas.
+If the database has a number of replicas that is higher or lower than 3,
+the default value for _R_ changes correspondingly.
 
-#### 何謂 _W_？
+#### What is _W_?
 
-只能在單一文件寫入要求上指定 _W_。
+_W_ can be specified on single document write requests only.
 
-_W_ 類似 _R_，因為它會影響協調程式必須先接收多少回應，再回覆用戶端。
+_W_ is similar to _R_,
+because it affects how many responses must be received by the coordinator before it replies to the client.
 
->	**附註：**_W_ 不會以任何方式影響實際寫入行為。
+>	**Note:** _W_ does not affect the actual write behavior in any way.
 
-_W_ 的值不會影響是否在資料庫內寫入文件。藉由指定 _W_ 值，用戶端可以檢查回應中的 HTTP 狀態碼，以判斷 _W_ 抄本是否已回應協調程式。協調程式會先等待來自管理文件副本之節點的 _W_ 回應預定逾時，再將回應傳回給用戶端。
+The value of _W_ does not affect whether the document is written within the database or not.
+By specifying a _W_ value,
+the client can inspect the HTTP status code in the response to determine whether _W_ replicas responded to the coordinator.
+The coordinator waits up to a pre-determined timeout for _W_ responses from nodes that host copies of the document,
+before it returns the response to the client.

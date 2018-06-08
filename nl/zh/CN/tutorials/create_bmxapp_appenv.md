@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-08-25"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-08-25"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# 创建简单 Bluemix 应用程序以访问 Cloudant 数据库：应用程序环境
+# 创建简单 {{site.data.keyword.Bluemix_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：应用程序环境
 
 本部分教程描述了如何设置创建 {{site.data.keyword.Bluemix}} 应用程序所必须拥有的应用程序环境。
 {:shortdesc}
@@ -91,7 +91,7 @@ lastupdated: "2017-08-25"
 
 <div id="toolkits"></div>
 
-## Cloud Foundry 和 Bluemix 命令工具箱
+## Cloud Foundry 和 {{site.data.keyword.Bluemix_notm}} 命令工具箱
 
 本部分教程描述了必须安装后才能使用 {{site.data.keyword.Bluemix_notm}} 环境、应用程序和服务的工具箱。
 

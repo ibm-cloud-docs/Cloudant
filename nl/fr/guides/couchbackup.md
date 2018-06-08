@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-05-02"
+  years: 2017, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -20,7 +20,7 @@ Le caractère distribué de {{site.data.keyword.cloudant}} fournit une forme inh
 CouchBackup est un outil de ligne de commande qui fournit une nouvelle approche de sauvegarde plus flexible et plus puissante.
 {:shortdesc}
 
-## Aperçu
+## Présentation
 
 Les avantages liés à la distribution de {{site.data.keyword.cloudant_short_notm}} sont obtenus en utilisant des clusters.
 Dans un cluster, les données d'une base de données sont stockées dans plusieurs exemplaires.
@@ -63,7 +63,7 @@ Par exemple,
 une application client utilisée dans une zone géographique peut s'attendre à de meilleures performances lorsqu'elle accède aux données d'un cluster installé dans une zone géographique environnante.
 Si vous souhaitez optimiser les performances de l'application, nous vous conseillons de concevoir l'application client de sorte qu'elle identifie le cluster "le plus proche" et qu'elle s'y connecte lors des requêtes de base de données.
 
-Un tutoriel expliquant la procédure de configuration d'un environnement d'application dans plusieurs régions est disponible [ici ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/cloud/library/cl-multi-region-bluemix-apps-with-cloudant-and-dyn-trs/index.html){:new_window}.
+Un tutoriel expliquant la procédure de configuration d'un environnement d'application dans plusieurs régions est disponible [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/developerworks/cloud/library/cl-multi-region-bluemix-apps-with-cloudant-and-dyn-trs/index.html){:new_window}.
 
 ### Modification des données, accidentelle ou malveillante
 

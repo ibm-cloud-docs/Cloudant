@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-06"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -12,9 +12,9 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Cómo crear y llenar una base de datos de Cloudant sencilla en Bluemix
+# Cómo crear y llenar una base de datos de {{site.data.keyword.cloudant_short_notm}} sencilla en {{site.data.keyword.Bluemix_notm}}
 
-En esta guía de aprendizaje se muestra cómo utilizar el [lenguaje de programación Python![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window} para crear una base de datos de {{site.data.keyword.cloudantfull}} en la instancia de servicio de {{site.data.keyword.Bluemix_notm}} y llenar la base de datos con una sencilla colección de datos.
+En esta guía de aprendizaje se muestra cómo utilizar el [lenguaje de programación Python![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window} para crear una base de datos de {{site.data.keyword.cloudantfull}} en la instancia de servicio de {{site.data.keyword.Bluemix}} y llenar la base de datos con una sencilla colección de datos.
 {:shortdesc}
 
 ## Requisitos previos
@@ -24,47 +24,48 @@ Asegúrese de tener los siguientes recursos o información preparados antes de e
 ### Python
 
 Debe tener una instalación actualizada del [lenguaje de programación Python![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window}
-en su sistema. 
+en su sistema.
 
-Para comprobarlo, ejecute el siguiente mandato: 
+Para comprobarlo, ejecute el siguiente mandato:
 
 ```sh
 python --version
 ```
 {:pre}
 
-Debería obtener un resultado parecido al siguiente: 
+Debería obtener un resultado parecido al siguiente:
 
 ```
 Python 2.7.12
 ```
 {:codeblock}
 
-### Biblioteca de cliente de Python para Cloudant
+### Biblioteca de cliente de Python para {{site.data.keyword.cloudant_short_notm}}
 
 Existe una [biblioteca oficialmente admitida](../libraries/supported.html#python) para permitir que las aplicaciones Python funcionen con {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}.
 
 Debe instalarla siguiendo las instrucciones que se proporcionan [aquí](../libraries/supported.html#python).
 
-Para comprobar que ha instalado correctamente la biblioteca de cliente, ejecute el siguiente mandato: 
+Para comprobar que ha instalado correctamente la biblioteca de cliente, ejecute el siguiente mandato:
 
 ```sh
 pip freeze
 ```
 {:pre}
 
-Debería obtener una lista de todos los módulos de Python instalados en el sistema. Examine la lista y busque una entrada de {{site.data.keyword.cloudant_short_notm}} parecida a la siguiente: 
+Debería obtener una lista de todos los módulos de Python instalados en el sistema.
+Examine la lista y busque una entrada de {{site.data.keyword.cloudant_short_notm}} parecida a la siguiente:
 
 ```
 cloudant==2.3.1
 ```
 {:codeblock}
 
-### Una instancia de servicio Cloudant en Bluemix
+### Una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en Bluemix
 
 El proceso para crear una instancia de servicio adecuada se describe en [esta guía de aprendizaje](create_service.html).
 
-Asegúrese de tener disponibles las siguientes credenciales de servicio para su instancia de servicio: 
+Asegúrese de tener disponibles las siguientes credenciales de servicio para su instancia de servicio:
 
 Campo      | Finalidad
 -----------|--------
@@ -78,7 +79,7 @@ Campo      | Finalidad
 
 ## Contexto
 
-En esta guía de aprendizaje se creará una serie de instrucciones en lenguaje Python, adecuadas para las siguientes tareas: 
+En esta guía de aprendizaje se creará una serie de instrucciones en lenguaje Python, adecuadas para las siguientes tareas:
 
 1.  [Conectar con una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}](#connecting-to-a-cloudant-service-instance-on-bluemix).
 2.  [Crear una base de datos dentro de la instancia de servicio](#creating-a-database-within-the-service-instance).
@@ -87,17 +88,19 @@ En esta guía de aprendizaje se creará una serie de instrucciones en lenguaje P
 5.  [Suprimir la base de datos](#deleting-the-database).
 6.  [Cerrar la conexión con la instancia de servicio](#closing-the-connection-to-the-service-instance).
 
-En esta guía de aprendizaje se proporciona código de Python específico de cada tarea como parte de la descripción de la tarea. 
+En esta guía de aprendizaje se proporciona código de Python específico de cada tarea como parte de la descripción de la tarea.
 
-[Aquí](#complete-listing), al final de la guía de aprendizaje, encontrará el programa Python completo para realizar todas las tareas. 
+[Aquí](#complete-listing), al final de la guía de aprendizaje, encontrará el programa Python completo para realizar todas las tareas.
 
-En esta guía de aprendizaje no se pretende crear código Python _eficiente_; el objetivo es mostrar un código sencillo y fácil de comprender que funcione, con el que pueda aprender y que pueda aplicar a sus propias aplicaciones. 
+En esta guía de aprendizaje no se pretende crear código Python _eficiente_; el objetivo es mostrar un código sencillo y fácil de comprender que funcione, con el que pueda aprender y que pueda aplicar a sus propias aplicaciones.
 
-Tampoco se pretende realizar todas las comprobaciones posibles ni analizar todas las condiciones de error. Aquí se muestran algunas comprobaciones de ejemplo para ilustrar las técnicas, pero debe aplicar las prácticas recomendadas habituales para comprobar y manejar todas las condiciones de aviso y de error que encuentren sus propias aplicaciones.  
+Tampoco se pretende realizar todas las comprobaciones posibles ni analizar todas las condiciones de error.
+Aquí se muestran algunas comprobaciones de ejemplo para ilustrar las técnicas, pero debe aplicar las prácticas recomendadas habituales para comprobar y manejar todas las condiciones de aviso y de error que encuentren sus propias aplicaciones. 
 
-## Conexión con una instancia de servicio de Cloudant en Bluemix
+## Conexión con una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}
 
-Una aplicación Python necesita los componentes de la biblioteca de cliente de Cloudant para poder conectar con la instancia de servicio. Estos componentes se identifican como sentencias `import` normales: 
+Una aplicación Python necesita los componentes de la biblioteca de cliente de {{site.data.keyword.cloudant_short_notm}} para poder conectar con la instancia de servicio.
+Estos componentes se identifican como sentencias `import` normales:
 
 ```python
 from cloudant.client import Cloudant
@@ -116,12 +119,9 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 {:codeblock}
 
 >   **Nota**: Las credenciales de servicio que se muestran aquí
-    se han definido durante la creación del servicio Cloudant de demostración en Bluemix.
+    se han definido durante la creación del servicio {{site.data.keyword.cloudant_short_notm}} de demostración en Bluemix.
     Aquí se reproducen las credenciales para mostrar cómo se utilizarían en una aplicación Python.
-    Sin embargo, el servicio
-    Cloudant de demostración se ha eliminado, de modo
-    que estas credenciales no funcionarán;
-    _debe_ suministrar y utilizar sus propias credenciales de servicio.
+    Sin embargo, el servicio {{site.data.keyword.cloudant_short_notm}} de demostración se ha eliminado, de modo que _debe_ proporciona y usar sus propias credenciales de servicio.
 
 Cuando haya habilitado la biblioteca de cliente de Python en su aplicación e identificado las credenciales de servicio, puede establecer una conexión con la instancia de servicio:
 
@@ -144,14 +144,14 @@ databaseName = "databasedemo"
 ```
 {:codeblock}
 
-Luego creamos la base de datos: 
+Luego creamos la base de datos:
 
 ```python
 myDatabaseDemo = client.create_database(databaseName)
 ```
 {:codeblock}
 
-Resulta útil comprobar que la base de datos se ha creado correctamente: 
+Resulta útil comprobar que la base de datos se ha creado correctamente:
 
 ```python
 if myDatabaseDemo.exists():
@@ -161,7 +161,7 @@ if myDatabaseDemo.exists():
 
 ## Almacenamiento de una pequeña colección de datos como documentos dentro de la base de datos
 
-Ahora queremos almacenar una pequeña y sencilla colección de datos en la base de datos. 
+Ahora queremos almacenar una pequeña y sencilla colección de datos en la base de datos.
 
 Empezamos por identificar algunos datos:
 
@@ -176,7 +176,8 @@ sampleData = [
 ```
 {:codeblock}
 
-A continuación, parte del código ordinario de Python 'recorre' los datos, convirtiéndolos en documentos JSON. Cada documento se almacena en la base de datos:
+A continuación, parte del código ordinario de Python 'recorre' los datos, convirtiéndolos en documentos JSON.
+Cada documento se almacena en la base de datos:
 
 ```python
 # Crear documentos utilizando los datos de ejemplo.
@@ -207,7 +208,6 @@ A continuación, parte del código ordinario de Python 'recorre' los datos, conv
 
 Observe que comprobamos que cada documento se ha creado correctamente.
 
-
 ## Recuperación de datos
 
 En este punto, una pequeña colección de datos se han almacenado como documentos en la base de datos.
@@ -215,7 +215,9 @@ Ahora podemos realizar una serie de consultas que ilustren distintas maneras de 
 
 ### Una recuperación mínima de un documento
 
-Para realizar una recuperación mínima, en primer lugar solicite una lista de todos los documentos de la base de datos. Esta lista se devuelve como una matriz. Ahora podemos mostrar el contenido de un elemento de la matriz.
+Para realizar una recuperación mínima, en primer lugar solicite una lista de todos los documentos de la base de datos.
+Esta lista se devuelve como una matriz.
+Ahora podemos mostrar el contenido de un elemento de la matriz.
 
 En el código de ejemplo, solicitamos el primer documento recuperado de la base de datos:
 
@@ -226,7 +228,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 {:codeblock}
 
 El resultado es parecido al del
-siguiente ejemplo: 
+siguiente ejemplo:
 
 ```json
 [
@@ -242,13 +244,16 @@ siguiente ejemplo:
 {:codeblock}
 
 >   **Nota**: La naturaleza de bases de datos NoSQL,
-como Cloudant,
+    como {{site.data.keyword.cloudant_short_notm}},
 implica que no necesariamente se aplican las nociones más sencillas, como que el primer documento almacenado en una base de datos es siempre el primero que se devuelve en una lista de resultados.
+
 ### Recuperación completa de un documento
 
 Para realizar una recuperación completa,
 solicitamos una lista de todos los documentos de la base de datos y además especificamos que también se debe devolver el contenido del documento.
-Para ello utilizamos la opción `include_docs`. Como antes, los resultados se devuelven como una matriz. Ahora podemos mostrar los detalles de un elemento de la matriz, esta vez incluyendo el contenido completo del documento. 
+Para ello utilizamos la opción `include_docs`.
+Como antes, los resultados se devuelven como una matriz.
+Ahora podemos mostrar los detalles de un elemento de la matriz, esta vez incluyendo el contenido completo del documento. 
 
 Como antes, solicitamos el primer documento recuperado de la base de datos:
 
@@ -259,7 +264,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 {:codeblock}
 
 El resultado es parecido al del
-siguiente ejemplo: 
+siguiente ejemplo:
 
 ```json
 [
@@ -282,11 +287,12 @@ siguiente ejemplo:
 ```
 {:codeblock}
 
-## Llamada directa a un punto final de API de Cloudant
+## Llamada directa a un punto final de API de {{site.data.keyword.cloudant_short_notm}}
 
-También podemos trabajar directamente con los puntos finales de la API de Cloudant, desde una aplicación Python.
+También podemos trabajar directamente con los puntos finales de la API de {{site.data.keyword.cloudant_short_notm}}, desde una aplicación Python.
 
-En este código de ejemplo, volvemos a solicitar una lista de todos los documentos, incluido su contenido. Esta vez, sin embargo, lo hacemos invocando el punto final [`/_all_docs` de Cloudant](../api/database.html#get-documents).
+En este código de ejemplo, volvemos a solicitar una lista de todos los documentos, incluido su contenido.
+Esta vez, sin embargo, lo hacemos invocando el punto final [`/_all_docs` de {{site.data.keyword.cloudant_short_notm}}](../api/database.html#get-documents).
 
 En primer lugar identificamos el punto final con el que vamos a establecer contacto y los parámetros que se deben suministrar junto con la llamada:
 
@@ -304,7 +310,7 @@ print "{0}\n".format(response.json())
 ```
 {:codeblock}
 
-El resultado es parecido al del siguiente ejemplo _abreviado_: 
+El resultado es parecido al del siguiente ejemplo _abreviado_:
 
 ```json
 {
@@ -350,9 +356,9 @@ El resultado es parecido al del siguiente ejemplo _abreviado_:
 
 ## Supresión de la base de datos
 
-Cuando hayamos terminado con la base de datos, la podemos suprimir. 
+Cuando hayamos terminado con la base de datos, la podemos suprimir.
 
-Este es un paso sencillo, tal como se muestra en el siguiente código Python de ejemplo: 
+Este es un paso sencillo, tal como se muestra en el siguiente código Python de ejemplo:
 
 ```python
 try :
@@ -364,7 +370,7 @@ else:
 ```
 {:codeblock}
 
-Hemos incluido algún ejemplo de gestión de errores básicos para ilustrar cómo se pueden detectar y solucionar problemas. 
+Hemos incluido algún ejemplo de gestión de errores básicos para ilustrar cómo se pueden detectar y solucionar problemas.
 
 ## Cierre de la conexión con la instancia de servicio
 
@@ -377,17 +383,18 @@ client.disconnect()
 
 ## Listado completo
 
-El código siguiente es el programa Python completo para acceder a una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}} y realizar una típica serie de tareas: 
+El código siguiente es el programa Python completo para acceder a una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}} y realizar una típica serie de tareas:
 
-1.  Conectar con la instancia de servicio. 
+1.  Conectar con la instancia de servicio.
 2.  Crear una base de datos dentro de la instancia de servicio.
 3.  Almacenar una pequeña colección de datos como documentos dentro de la base de datos.
 4.  Recuperar una lista completa de documentos.
-5.  Suprimir la base de datos. 
+5.  Suprimir la base de datos.
 6.  Cerrar la conexión con la instancia de servicio.
 
 ```python
 # 1.  Conectar con la instancia de servicio.
+
 # Habilitar las bibliotecas de Python necesarias.
 
 from cloudant.client import Cloudant
@@ -415,13 +422,14 @@ sampleData = [
 # Iniciar la demo.
 print "===\n"
 
-# Utilizar la biblioteca de Cloudant para crear un cliente Cloudant.
+# Utilizar la biblioteca de {{site.data.keyword.cloudant_short_notm}} para crear un cliente de {{site.data.keyword.cloudant_short_notm}}.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Conectar con el servidor
 client.connect()
 
 # 2.  Crear una base de datos dentro de la instancia de servicio.
+
 # Crear una instancia de la base de datos.
 myDatabaseDemo = client.create_database(databaseName)
 
@@ -433,6 +441,7 @@ if myDatabaseDemo.exists():
 print "----\n"
 
 # 3.  Almacenar una pequeña colección de datos como documentos dentro de la base de datos.
+
 # Crear documentos utilizando los datos de ejemplo.
 # Examinar cada fila de la matriz para el documento en sampleData:
 # Recuperar los campos de cada fila.
@@ -461,6 +470,7 @@ print "----\n"
 print "----\n"
 
 # 4.  Recuperar una lista completa de documentos.
+
 # Recuperación sencilla y mínima del primer
 # documento de la base de datos.
 result_collection = Result(myDatabaseDemo.all_docs)
@@ -474,7 +484,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Separar los resultados.
 print "----\n"
 
-# Utilizar un punto final de API de Cloudant para recuperar
+# Utilizar un punto final de API de {{site.data.keyword.cloudant_short_notm}} para recuperar
 # todos los documentos de la base de datos,
 # incluido su contenido.
 
@@ -495,6 +505,7 @@ print "----\n"
 # Ha llegado el momento de limpiar.
 
 # 5.  Suprimir la base de datos.
+
 # Suprimir la base de datos de prueba.
 try :
     client.delete_database(databaseName)
@@ -504,6 +515,7 @@ else:
     print "'{0}' successfully deleted.\n".format(databaseName)
 
 # 6.  Cerrar la conexión con la instancia de servicio.
+
 # Desconectar del servidor
 client.disconnect()
 

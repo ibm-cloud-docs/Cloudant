@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-25"
+lastupdated: "2017-05-04"
 
 ---
 
@@ -16,22 +16,22 @@ lastupdated: "2017-08-25"
 
 <div id="back-up-your-data-using-replication"></div>
 
-# 使用复制备份数据
+# 复制递增
 
->	**注**：本指南包含有关 Cloudant 备份的较旧或“不推荐使用”的指导信息。有关最新的备份指导信息，请参阅[灾难恢复和备份](disaster-recovery-and-backup.html)指南。
+>	**注**：本指南包含有关 {{site.data.keyword.cloudantfull}} 备份的较旧或“不推荐使用”的指导信息。有关最新的备份指导信息，请参阅[灾难恢复和备份](disaster-recovery-and-backup.html)指南。
 
 数据库备份可保护数据，以防潜在的丢失或损坏。
 {:shortdesc}
 
-可以使用 Cloudant 复制工具来创建数据库备份，并将其存储在 Cloudant 集群上。然后，可以通过备份将数据、完整数据库或特定 JSON 文档复原到生产集群。
+可以使用 {{site.data.keyword.cloudant_short_notm}} 复制工具来创建数据库备份，并将其存储在 {{site.data.keyword.cloudant_short_notm}} 集群上。然后，可以通过备份将数据、完整数据库或特定 JSON 文档复原到生产集群。
 
-通过使用 Cloudant 复制，数据库备份会将数据库内容存储到检查点。可以“回滚”到特定的检查点。检查点并不特定于精确的时间。相反，检查点是在备份期间发生特定更改后的原样数据库记录。通过这种方式，备份可以保留所选时间的数据库状态。
+通过使用 {{site.data.keyword.cloudant_short_notm}} 复制，数据库备份会将数据库内容存储到检查点。可以“回滚”到特定的检查点。检查点并不特定于精确的时间。相反，检查点是在备份期间发生特定更改后的原样数据库记录。通过这种方式，备份可以保留所选时间的数据库状态。
 
 ## 增量备份
 
 如果您是企业客户，那么每日增量备份功能[可用](disaster-recovery-and-backup.html)。
 
-如果您不是企业客户，或者希望创建自己的备份，那么可以使用 Cloudant 复制工具来创建数据库备份。
+如果您不是企业客户，或者希望创建自己的备份，那么可以使用 {{site.data.keyword.cloudant_short_notm}} 复制工具来创建数据库备份。
 
 一种简单的方法是将整个数据库复制到指定日期的备份数据库。此方法很有效且易于操作。但是，如果需要多个时间点的备份（例如，7 个每日备份和 4 个每周备份），那么必须在每个新的备份数据库中存储数据库的完整副本。完整副本可能需要使用大量磁盘，尤其是数据库很大的情况下。
 
@@ -41,6 +41,8 @@ lastupdated: "2017-08-25"
 
 >   **注**：您可以将备份配置为定期触发。
 但是，每个时间间隔必须为 24 小时或更长时间。换言之，您可以运行每日备份，但不能运行每小时备份。
+
+
 
 ## 创建增量备份
 
@@ -278,7 +280,7 @@ _用于描述复原的 JSON 文档：_
     "_id": "restore-monday",
     "source": "${url}/backup-monday",
     "target": "${url}/restore",
-    "create-target": true  
+    "create_target": true  
 }
 ```
 {:codeblock}
@@ -289,6 +291,8 @@ _用于描述复原的 JSON 文档：_
 
 >   **注**：上面列出的顺序不是拼写错误；
 这样做的目的确实是_先_从周二复原，_再_从周一复原。
+
+
 
 您可以按时间顺序进行复原，但使用逆序时，周二更新的文档只需要写入目标数据库一次。将忽略文档在周一数据库中存储的较早版本。
 
@@ -314,7 +318,7 @@ _用于请求复原周二备份的 JSON 文档：_
     "_id": "restore-tuesday",
     "source": "${url}/backup-tuesday",
     "target": "${url}/restore",
-    "create-target": true  
+    "create_target": true  
 }
 ```
 {:codeblock}
@@ -392,4 +396,4 @@ _用于设置 IO 优先级的 JSON 文档的示例：_
 
 ## 需要帮助？
 
-复制和备份可能很棘手。如果遇到困难，请检查[复制指南](replication_guide.html)，或联系 [IBM Cloudant 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。
+复制和备份可能很棘手。如果遇到困难，请检查[复制指南](replication_guide.html)，或联系 [IBM {{site.data.keyword.cloudant_short_notm}} 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。

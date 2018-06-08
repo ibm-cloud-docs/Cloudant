@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-11"
+  years: 2017, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creazione di un'applicazione Bluemix di esempio per accedere a un database Cloudant: il codice
+# Creazione di una semplice applicazione {{site.data.keyword.cloud_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: il codice
 
 Questa sezione dell'esercitazione illustra il codice
 per un'applicazione {{site.data.keyword.Bluemix}}.
@@ -133,7 +133,7 @@ L'applicazione si collega all'istanza del database {{site.data.keyword.cloudant_
 per cui deve importare i componenti della libreria {{site.data.keyword.cloudant_short_notm}}:
 
 ```python
-# Abilita le librerie Python obbligatorie da utilizzare con Cloudant.
+# Abilita le librerie Python necessarie per lavorare con {{site.data.keyword.cloudant_short_notm}}.
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
@@ -179,7 +179,7 @@ Il file contiene il log di ogni attività come l'applicazione crea il database:
 filename = "index.html"
 target = open(filename, 'w')
 target.truncate()
-target.write("<html><head><title>Demo Cloudant Python</title></head><body><p>Log dei passi Cloudant Python...</p><pre>")
+target.write("<html><head><title>{{site.data.keyword.cloudant_short_notm}} Python demo</title></head><body><p>Log dei passi Cloudant Python...</p><pre>")
 ```
 {:codeblock}
 
@@ -194,7 +194,7 @@ target.write("\n====\n\n")
 ```
 {:codeblock}
 
-#### Utilizzo dell'istanza del database Cloudant
+#### Utilizzo dell'istanza del database {{site.data.keyword.cloudant_short_notm}}
 
 L'applicazione Python viene eseguita in un ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}}.
 L'ambiente fornisce tutte le informazioni necessarie sull'applicazione per accedere ai servizi collegati.
@@ -208,7 +208,7 @@ ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}}.
 Verifica che sia presente la variabile di ambiente '`VCAP_SERVICES`' nel test:
 
 ```python
-# Verifica che siamo in esecuzione in un ambiente dell'applicazione Bluemix.
+# Verifica che siamo in esecuzione in un ambiente dell'applicazione {{site.data.keyword.cloud_notm}}.
 if 'VCAP_SERVICES' in os.environ:
 ```
 {:codeblock}
@@ -240,9 +240,9 @@ Inoltre,
 registra l'evento nel 'file di log':
 
 ```python
-# Ricerca l'istanza del servizio Cloudant.
+# Ricerca l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}.
 cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
-# Tieni presente che abbiamo correttamente trovato alcune informazioni sul servizio Cloudant.
+# Registra il fatto che sono state trovate correttamente alcune informazioni sul servizio {{site.data.keyword.cloudant_short_notm}}.
 target.write("Got cloudantNoSQLDBData\n")
 ```
 {:codeblock}
@@ -259,11 +259,11 @@ Ulteriori informazioni sui nomi dei campi vengono fornite
 nell'[esercitazione](create_database.html#a-cloudant-service-instance-on-bluemix) che descrive un'attività di creazione del database semplice.
 
 ```python
-# Ottieni un elenco contenente le informazioni sul collegamento Cloudant.
+# Ottieni un elenco contenente le informazioni sulla connessione {{site.data.keyword.cloudant_short_notm}}.
 credentials = cloudantNoSQLDBData[0]
 # Ottieni i valori essenziali per la nostra applicazione per comunicare con il servizio.
 credentialsData = credentials['credentials']
-# Tieni presente che abbiamo correttamente trovato i valori Cloudant.
+# Registra il fatto che sono stati trovati correttamente i valori {{site.data.keyword.cloudant_short_notm}}.
 target.write("Got credentialsData\n\n")
 ```
 {:codeblock}
@@ -307,7 +307,7 @@ L'applicazione deve eseguire queste attività:
 Il codice per queste attività è il seguente:
 
 ```python
-# Disponiamo ora di tutti i dettagli necessari per utilizzare l'istanza del servizio Cloudant.
+# Disponiamo ora di tutti i dettagli necessari per utilizzare l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}.
 # Collegati all'istanza del servizio.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 client.connect()
@@ -400,7 +400,7 @@ except ImportError:
     from http.server import SimpleHTTPRequestHandler as Handler
     from http.server import HTTPServer as Server
 
-# Abilita le librerie Python obbligatorie da utilizzare con Cloudant.
+# Abilita le librerie Python necessarie per lavorare con {{site.data.keyword.cloudant_short_notm}}.
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
@@ -421,14 +421,14 @@ os.chdir('static')
 filename = "index.html"
 target = open(filename, 'w')
 target.truncate()
-target.write("<html><head><title>Demo Cloudant Python</title></head><body><p>Log dei passi Cloudant Python...</p><pre>")
+target.write("<html><head><title>Demo Cloudant Python</title></head><body><p>Log dei passi {{site.data.keyword.cloudant_short_notm}} Python...</p><pre>")
 
 # Inserisci un'indicazione chiara della data e ora correnti all'inizio della pagina.
 target.write("====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n\n")
 
-# Inizia ad utilizzare l'istanza del servizio Cloudant.
+# Inizia a utilizzare l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}.
 
 # Verifica che siamo in esecuzione in un ambiente dell'applicazione Bluemix.
 if 'VCAP_SERVICES' in os.environ:
@@ -436,15 +436,15 @@ if 'VCAP_SERVICES' in os.environ:
     vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
     # Tieni presente che abbiamo correttamente trovato alcune informazioni sul servizio.
     target.write("Got vcap_servicesData\n")
-    # Ricerca l'istanza del servizio Cloudant.
+    # Ricerca l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}.
     cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
-    # Tieni presente che abbiamo correttamente trovato alcune informazioni sul servizio Cloudant.
+    # Registra il fatto che sono state trovate correttamente alcune informazioni sul servizio {{site.data.keyword.cloudant_short_notm}}.
     target.write("Got cloudantNoSQLDBData\n")
-    # Ottieni un elenco contenente le informazioni sul collegamento Cloudant.
+    # Ottieni un elenco contenente le informazioni sulla connessione {{site.data.keyword.cloudant_short_notm}}.
     credentials = cloudantNoSQLDBData[0]
     # Ottieni i valori essenziali per la nostra applicazione per comunicare con il servizio.
     credentialsData = credentials['credentials']
-    # Tieni presente che abbiamo correttamente trovato i valori Cloudant.
+    # Registra il fatto che sono stati trovati correttamente i valori {{site.data.keyword.cloudant_short_notm}}.
     target.write("Got credentialsData\n\n")
     # Ottieni il nome utente ...
 serviceUsername = credentialsData['username']
@@ -462,22 +462,22 @@ target.write("Got URL: ")
     target.write(serviceURL)
 target.write("\n")
 
-    # Disponiamo ora di tutti i dettagli necessari per utilizzare l'istanza del servizio Cloudant.
+    # Disponiamo ora di tutti i dettagli necessari per utilizzare l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}.
     # Collegati all'istanza del servizio.
     client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
-client.connect()
+    client.connect()
     # Crea un database nell'istanza.
     myDatabaseDemo = client.create_database(databaseName)
-if myDatabaseDemo.exists():
-    target.write("'{0}' successfully created.\n".format(databaseName))
-    # Crea un documento JSON molto semplice con la data e l'ora correnti.
+    if myDatabaseDemo.exists():
+        target.write("'{0}' successfully created.\n".format(databaseName))
+        # Crea un documento JSON molto semplice con la data e l'ora correnti.
         jsonDocument = {
             "rightNow": strftime("%Y-%m-%d %H:%M:%S", gmtime())
     }
         # Archivia il documento JSON nel database.
         newDocument = myDatabaseDemo.create_document(jsonDocument)
-    if newDocument.exists():
-        target.write("Document successfully created.\n")
+        if newDocument.exists():
+            target.write("Document successfully created.\n")
     # Tutto eseguito - scollegati dall'istanza del servizio.
     client.disconnect()
 

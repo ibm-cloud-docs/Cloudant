@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-07-13"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -15,15 +15,15 @@ lastupdated: "2017-07-13"
 # Création d'une sauvegarde
 
 Ce tutoriel explique comment utiliser l'utilitaire de ligne de commande
-[CouchBackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
-pour sauvegarder et restaurer une instance CouchDB ou Cloudant. CouchBackup sauvegarde la
+[CouchBackup ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
+pour sauvegarder et restaurer une instance CouchDB ou {{site.data.keyword.cloudant_short_notm}}. CouchBackup sauvegarde la
 base de données dans un fichier. En cas d'échec de défaillance de la base de données, vous pouvez utiliser le fichier de sauvegarde pour restaurer les informations dans une
-base de données existante.
+base de données existante. 
 {:shortdesc}
 
 ## Avant de commencer
 
-Installez CouchBackup en exécutant la commande `install`.  
+Installez CouchBackup en exécutant la commande `install`. 
 
 ```sh
 npm install -g @cloudant/couchbackup
@@ -32,9 +32,9 @@ npm install -g @cloudant/couchbackup
 
 ## Création d'une base de données
 
-Créez une base de données exemple `couchbackup-demo` pour l'utiliser dans ce tutoriel. 
+Créez une base de données exemple `couchbackup-demo` pour l'utiliser dans ce tutoriel.
 
-1.  Créez une base de données en exécutant la commande suivante : 
+1.  Créez une base de données en exécutant la commande suivante :
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo -X PUT
@@ -52,7 +52,7 @@ Créez une base de données exemple `couchbackup-demo` pour l'utiliser dans ce t
 
 ## Création de documents dans la base de données
 
-Les documents que vous créez dans cet exercice contiennent les données que vous sauvegardez et restaurez ultérieurement.  
+Les documents que vous créez dans cet exercice contiennent les données que vous sauvegardez et restaurez ultérieurement. 
 
 1.  Copiez le texte exemple dans un fichier de données nommé `bulkcreate.dat` pour créer les cinq documents.
     
@@ -143,11 +143,11 @@ Les documents que vous créez dans cet exercice contiennent les données que vou
 ## Définition d'une variable d'environnement
 
 Vous pouvez utiliser des variables d'environnement ou des options de ligne de
-commande pour spécifier l'URL et la base de données de l'instance CouchDB ou Cloudant que vous souhaitez employer avec CouchBackup. 
+commande pour spécifier l'URL et la base de données de l'instance CouchDB ou {{site.data.keyword.cloudant_short_notm}} que vous souhaitez employer avec CouchBackup. 
 
 Dans ce tutoriel, définissez `COUCH_URL` et spécifiez la base de données à l'aide du paramètre `--db`. 
 
-Définissez la variable d'environnement `COUCH_URL` pour spécifier l'URL de l'instance CouchDB ou Cloudant.
+Définissez la variable d'environnement `COUCH_URL` pour spécifier l'URL de l'instance CouchDB ou {{site.data.keyword.cloudant_short_notm}}.
 
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
@@ -156,9 +156,9 @@ export COUCH_URL=https://username:password@myhost.cloudant.com
 
 ## Sauvegarde d'une base de données
 
-L'utilitaire CouchBackup sauvegarde votre base de données dans un fichier texte afin de conserver vos données et faciliter leur restauration.  
+L'utilitaire CouchBackup sauvegarde votre base de données dans un fichier texte afin de conserver vos données et faciliter leur restauration. 
 
-1.  Exécutez la commande `couchbackup` pour acheminer le contenu de votre base de données vers un fichier texte.  
+1.  Exécutez la commande `couchbackup` pour acheminer le contenu de votre base de données vers un fichier texte. 
  
     ```sh
     couchbackup --db couchbackup-demo > couchbackup-demo-backup.txt
@@ -185,7 +185,7 @@ L'utilitaire CouchBackup sauvegarde votre base de données dans un fichier texte
     {:codeblock}
     
 3.  Examinez le répertoire pour vérifier que le fichier `couchbackup-demo-backup.txt` a été créé. 
-4.  Ouvrez le fichier et examinez la liste des documents sauvegardés depuis la base de données.   
+4.  Ouvrez le fichier et examinez la liste des documents sauvegardés depuis la base de données.  
     
     ```json
     [
@@ -267,10 +267,10 @@ L'utilitaire CouchBackup sauvegarde votre base de données dans un fichier texte
 Un fichier journal enregistre la progression de votre sauvegarde. Dans CouchBackup,
 utilisez le paramètre `--log` pour créer le fichier journal. Vous
 pouvez également l'employer pour redémarrer une sauvegarde là où elle s'était arrêtée et
-spécifier le nom du fichier de sortie.  
+spécifier le nom du fichier de sortie. 
 
 La commande `couchbackup` utilise les paramètres suivants pour
-spécifier l'option de base de données, de fichier journal et de reprise.  
+spécifier l'option de base de données, de fichier journal et de reprise. 
 
 *   `--db` = `couchbackup-demo`
 *   `--log` = `couchbackup-demo.log`
@@ -324,7 +324,7 @@ spécifier l'option de base de données, de fichier journal et de reprise.
     ```
     {:codeblock}
 
-3.  Ouvrez le fichier journal`couchbackup-demo-backup.log` et examinez les actions prises lors de la sauvegarde ou de la restauration.   
+3.  Ouvrez le fichier journal`couchbackup-demo-backup.log` et examinez les actions prises lors de la sauvegarde ou de la restauration.  
     
     ```sh
     :t batch0 [
@@ -354,12 +354,12 @@ Le fichier `couchbackup-demo-backup.txt` vous permet de restaurer vos données d
 
 > **Remarque ** : La restauration d'une sauvegarde est prise en charge uniquement dans le cas d'une restauration dans une base de données vide. Si vous supprimez tous
 les documents d'une base de données, les enregistrements de suppression des documents
-restent présents dans un souci de cohérence de réplication.
+restent présents dans un souci de cohérence de réplication. 
 Cela signifie qu'une base de données contenant uniquement des documents supprimés n'est
 pas considérée comme vide et ne peut donc pas être utilisée comme cible lors de la
 restauration d'une sauvegarde.
 
-1.  (Prérequis) Créez une nouvelle base de données vide dans laquelle vous pouvez restaurer vos données. 
+1.  (Prérequis) Créez une nouvelle base de données vide dans laquelle vous pouvez restaurer vos données.
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo-restore -X PUT
@@ -391,5 +391,5 @@ restauration d'une sauvegarde.
 
 Vous venez de sauvegarder et de restaurer une base de données, et avez créé un fichier journal. Pour plus d'informations sur
 [la sauvegarde et la reprise après incident](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
-[la configuration de Cloudant en vue de la reprise après incident inter-région](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery) et la
-[sauvegarde et la reprise de Cloudant](../guides/backup-cookbook.html#cloudant-backup-and-recovery), reportez-vous à la documentation de Cloudant.  
+[la configuration de {{site.data.keyword.cloudant_short_notm}} en vue de la reprise après incident inter-région](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery) et la
+[{{site.data.keyword.cloudant_short_notm}}sauvegarde et la reprise](../guides/backup-cookbook.html#cloudant-backup-and-recovery), reportez-vous à la documentation de {{site.data.keyword.cloudant_short_notm}}.  

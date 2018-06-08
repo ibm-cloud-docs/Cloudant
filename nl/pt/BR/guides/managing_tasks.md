@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -118,11 +118,11 @@ a tarefa deverá levar 1.000.000 / 250 = 4.000 segundos
 ou aproximadamente 66 minutos, para ser concluída.
 
 >   **Nota**: as estimativas do tempo para concluir uma tarefa de indexação não podem ser 100% precisas.
-O tempo real para concluir a tarefa depende de vários fatores,
+    O tempo real para concluir a tarefa depende de vários fatores,
 incluindo:
 
 -   O tempo que leva para processar cada documento.
-Por exemplo,
+    Por exemplo,
 uma visualização pode verificar o tipo de um documento primeiro
 e só emitir novas entradas de índice para um tipo.
 -   O tamanho dos documentos.
@@ -227,7 +227,7 @@ a replicação poderá estar paralisada porque o usuário que acessa os bancos d
 não tem permissões de gravação.
 
 >   **Nota**: a replicação usa [pontos de verificação](replication_guide.html#checkpoints).
-Isso significa que o conteúdo já replicado e não mudado
+    Isso significa que o conteúdo já replicado e não mudado
 não precisará ser replicado novamente se a replicação for reiniciada.
 
 Se você tiver criado o processo de replicação criando um documento no banco de dados `_replicator`,

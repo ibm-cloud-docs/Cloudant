@@ -12,27 +12,33 @@ lastupdated: "2018-03-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 使用 Cloud Foundry 工具在 {{site.data.keyword.Bluemix_notm}} 上建立 {{site.data.keyword.cloudant_short_notm}} 實例
+# Creating a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}} using the Cloud Foundry tools
 
-本指導教學示範如何使用 Cloud Foundry 工具在 {{site.data.keyword.Bluemix}} 上建立 {{site.data.keyword.cloudantfull}} 服務實例。
+This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
+service instance on {{site.data.keyword.Bluemix}}
+using the Cloud Foundry tools.
 {:shortdesc}
 
-## 必要條件
+## Prerequisites
 
-若要遵循本指導教學，您必須先安裝 {{site.data.keyword.Bluemix_notm}} Cloud Foundry 工具。[這個個別指導教學](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits)提供了安裝工具的詳細資料。
+To follow this tutorial,
+you must first install the {{site.data.keyword.Bluemix_notm}} Cloud Foundry tools.
+Details for installing the tools are available in
+[this separate tutorial](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits).
 
-> **附註**：請確定您同時安裝 Cloud Foundry _及_ {{site.data.keyword.Bluemix_notm}} 工具箱。
+> **Note**: Ensure you install both the Cloud Foundry _and_
+  the {{site.data.keyword.Bluemix_notm}} toolkits.
 
-## 識別 {{site.data.keyword.Bluemix_notm}} API 端點
+## Identifying the {{site.data.keyword.Bluemix_notm}} API endpoint
 
-指定 Cloud Foundry 指令的目標 API 端點：
+Specify the target API endpoint for your Cloud Foundry commands;
 
 ```sh
 bx api https://api.ng.bluemix.net
 ```
 {:codeblock}
 
-結果確認您已正確地識別端點：
+The result confirms that you have correctly identified the endpoint:
 
 ```sh
 Setting api endpoint to https://api.ng.bluemix.net...
@@ -43,16 +49,19 @@ Not logged in. Use 'bx login' to log in.
 ```
 {:pre}
 
-## 登入 {{site.data.keyword.Bluemix_notm}} 帳戶
+## Logging in to your {{site.data.keyword.Bluemix_notm}} account
 
-1.  使用下列指令，以開始 {{site.data.keyword.Bluemix_notm}} 帳戶的登入程序：
+1.  Use the following command to start the login process for
+  your {{site.data.keyword.Bluemix_notm}} account:
   
   ```sh
   bx login
   ```
   {:codeblock}
   
-  {{site.data.keyword.Bluemix_notm}} 的回覆方式是提醒您現行的 API 端點，然後要求輸入您帳戶的電子郵件位址：
+  {{site.data.keyword.Bluemix_notm}} replies by reminding you of the current
+  API endpoint,
+  then asks for the email address of your account:
   
   ```sh
   API endpoint: https://api.ng.bluemix.net
@@ -61,7 +70,8 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
 
-2.  輸入您帳戶的電子郵件位址。然後，{{site.data.keyword.Bluemix_notm}} 會要求輸入您帳戶的密碼：
+2.  Enter the email address of your account.
+  {{site.data.keyword.Bluemix_notm}} then asks for the password for your account:
   ```sh
   API endpoint: https://api.ng.bluemix.net
   
@@ -71,7 +81,8 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
   
-  {{site.data.keyword.Bluemix_notm}} 會驗證您的詳細資料，然後彙總您登入階段作業的相關資訊：
+  {{site.data.keyword.Bluemix_notm}} validates your details,
+  then summarizes the information about your login session:
   ```sh
   API endpoint: https://api.ng.bluemix.net
   
@@ -96,32 +107,37 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
 
-3.  您現在已登入 {{site.data.keyword.Bluemix_notm}} 帳戶。
+3.  You have now logged in to your {{site.data.keyword.Bluemix_notm}} account.
 
-## 選擇服務的 {{site.data.keyword.cloudant_short_notm}} 方案
+## Choosing the {{site.data.keyword.cloudant_short_notm}} plan for your service
 
-取得所有可用服務供應項目的清單。請過濾此清單，使其只符合 {{site.data.keyword.cloudant_short_notm}} 服務：
+Obtain a list of all the available service offerings.
+Filter the list to match only {{site.data.keyword.cloudant_short_notm}} services:
 
 ```sh
 bx service offerings | grep -i Cloudant
 ```
 {:codeblock}
 
-結果會列出您帳戶可用的 {{site.data.keyword.cloudant_short_notm}} 服務，包括您可以選取的特定方案：
+The result is a list of the {{site.data.keyword.cloudant_short_notm}} services
+available to your account,
+including the specific plans you can select:
 
 ```sh
 cloudantNoSQLDB   Lite, Standard*
 ```
 {:pre}
 
-**選用項目**：若要查看方案的其他詳細資料，請使用下列指令：
+**Optional**: To see more details about the plans,
+use the following command:
 
 ```sh
 bx cf marketplace -s cloudantNoSQLDB
 ```
 {:codeblock}
 
-結果會顯示可用方案的摘要，類似於範例回應的下列區段（詳細資料到 2017 年 5 月截止正確）：
+The result is a summary of the available plans,
+similar to the following section of an example response (details correct as at May 2017):
 
 ```
 Lite
@@ -131,25 +147,29 @@ and includes a max of 1GB of encrypted data storage.   free
 ```
 {:pre}
 
-## 建立 {{site.data.keyword.cloudant_short_notm}} 服務
+## Creating the {{site.data.keyword.cloudant_short_notm}} service
 
-在 {{site.data.keyword.Bluemix_notm}} 內建立服務實例的基本指令格式如下：
+The basic command format to create a service instance
+within {{site.data.keyword.Bluemix_notm}} is as follows:
 
 ```sh
 bx service create <service> <plan> <instance name>
 ```
 {:pre}
 
-假設我們要使用 `Lite` 方案來建立實例名稱為 `cs20170517a` 的 {{site.data.keyword.cloudant_short_notm}} 服務實例。
+Assume we want to create an instance of
+a {{site.data.keyword.cloudant_short_notm}} service using the `Lite` plan,
+where the instance name is `cs20170517a`.
 
-請使用與下列範例類似的指令：
+Do this by using a command similar to the following example:
 
 ```sh
 bx service create cloudantNoSQLDB Lite cs20170517a
 ```
 {:codeblock}
 
-建立服務實例之後，會回應與下列範例類似的訊息：
+After creating the service instance,
+responds with a message similar to the following example:
 
 ```sh
 Invoking 'cf create-service cloudantNoSQLDB Lite cs20170517a'...
@@ -160,40 +180,49 @@ OK
 ```
 {:pre}
 
-## 建立 {{site.data.keyword.cloudant_short_notm}} 服務的認證
+## Creating credentials for your {{site.data.keyword.cloudant_short_notm}} service
 
-需要存取 {{site.data.keyword.cloudant_short_notm}} 服務的應用程式，必須具有必要的認證。
+Applications that require access to your {{site.data.keyword.cloudant_short_notm}} service
+must have the necessary credentials.
 
->   **附註**：服務認證很重要。
-如果有任何人或任何應用程式可以存取認證，實際上就可以利用服務實例執行想要的一切作業，例如，他們/它們可能會建立偽造資料，或刪除寶貴的資訊。請小心地保護這些認證。
+>   **Note**: Service credentials are valuable.
+    If anyone or any application has access to the credentials,
+    they can effectively do whatever they want with the service instance,
+    for example they might create spurious data,
+    or delete valuable information.
+    Protect these credentials carefully.
 
-服務認證包含五個欄位：
+The service credentials consist of five fields:
 
-欄位       | 用途
+Field      | Purpose
 -----------|--------
-`host`     | 應用程式用來尋找服務實例的主機名稱。
-`username` | 應用程式存取服務實例所需的使用者名稱。
-`password` | 應用程式存取服務實例所需的密碼。
-`port`     | 用來存取主機上服務實例的 HTTP 埠號。一般是 443，可強制執行 HTTPS 存取。
-`url`      | 將其他認證資訊聚集成單一 URL 的字串，適合供應用程式使用。
+`host`     | The host name that is used by applications to locate the service instance.
+`username` | The user name that is required for applications to access the service instance.
+`password` | The password that is required for applications to access the service instance.
+`port`     | The HTTP port number for accessing the service instance on the host. Normally 443 to force HTTPS access.
+`url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
 
-在 {{site.data.keyword.Bluemix_notm}} 內建立服務實例的認證的基本指令格式如下：
+The basic command format to create credentials for a service instance
+within {{site.data.keyword.Bluemix_notm}} is as follows:
 
 ```sh
 bx cf create-service-key <instance name> <credentials name>
 ```
 {:pre}
 
-假設我們要建立 {{site.data.keyword.cloudant_short_notm}} 服務的 `cs20170517a` 實例的認證，而認證的名稱是 `creds20170517a`。
+Assume we want to create credentials for the `cs20170517a` instance of
+a {{site.data.keyword.cloudant_short_notm}} service,
+where the name for the credentials is `creds20170517a`.
 
-請使用與下列範例類似的指令：
+Do this by using a command similar to the following example:
 
 ```sh
 bx cf create-service-key cs20170517a creds20170517a
 ```
 {:codeblock}
 
-收到建立服務實例認證的要求之後，{{site.data.keyword.Bluemix_notm}} 會回應與下列範例類似的訊息：
+After receiving the request to create credentials for the service instance,
+{{site.data.keyword.Bluemix_notm}} responds with a message similar to the following example:
 
 ```sh
 Invoking 'cf create-service-key cs20170517a creds20170517a'...
@@ -203,25 +232,29 @@ OK
 ```
 {:pre}
 
-## 列出 {{site.data.keyword.cloudant_short_notm}} 服務的服務認證
+## Listing the service credentials for your {{site.data.keyword.cloudant_short_notm}} service
 
-在 {{site.data.keyword.Bluemix_notm}} 內擷取服務實例認證的基本指令格式如下：
+The basic command format to retrieve the credentials for a service instance
+within {{site.data.keyword.Bluemix_notm}} is as follows:
 
 ```sh
 bx cf service-key <instance name> <credentials name>
 ```
 {:pre}
 
-假設我們要擷取 {{site.data.keyword.cloudant_short_notm}} 服務的 `cs20170517a` 實例的認證，而認證的名稱是 `creds20170517a`。
+Assume we want to retrieve credentials for the `cs20170517a` instance of
+a {{site.data.keyword.cloudant_short_notm}} service,
+where the name for the credentials is `creds20170517a`.
 
-請使用與下列範例類似的指令：
+Do this by using a command similar to the following example:
 
 ```sh
 bx cf service-key cs20170517a creds20170517a
 ```
 {:codeblock}
 
-收到擷取服務實例認證的要求之後，{{site.data.keyword.Bluemix_notm}} 會回應與下列（簡短）範例類似的訊息：
+After receiving the request to retrieve the credentials for the service instance,
+{{site.data.keyword.Bluemix_notm}} responds with a message similar to the following (abbreviated) example:
 
 ```sh
 Invoking 'cf service-key cs20170517a creds20170517a'...
@@ -238,46 +271,59 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 ```
 {:pre}
 
-## 使用 {{site.data.keyword.cloudant_short_notm}} 服務實例
+## Using your {{site.data.keyword.cloudant_short_notm}} service instance
 
-此時，您：
+At this point,
+you have:
 
-1.  已在 {{site.data.keyword.Bluemix_notm}} 內建立 {{site.data.keyword.cloudant_short_notm}} 服務實例。
-2.  已建立 {{site.data.keyword.cloudant_short_notm}} 服務實例的認證。
-3.  已擷取服務實例認證，因此應用程式可以使用它們。
+1.  Created a {{site.data.keyword.cloudant_short_notm}} service
+  instance within {{site.data.keyword.Bluemix_notm}}.
+2.  Created credentials for the {{site.data.keyword.cloudant_short_notm}} service instance.
+3.  Retrieved the service instance credentials, so that they can be used by your application.
 
-[這裡](create_database.html#context)提供顯示如何使用 {{site.data.keyword.cloudant_short_notm}} 服務實例的指導教學。請記得替換您已在本指導教學中建立的認證。
+A tutorial showing how to use a {{site.data.keyword.cloudant_short_notm}} service instance
+is available [here](create_database.html#context).
+Remember to substitute the credentials you created in this tutorial.
 
-## （選用）後續整理
+## (Optional) Tidying up afterwards
 
-下列簡短指令清單可能對您整理開發環境很實用。
+The following short list of commands might be helpful in tidying up your development environment.
 
-### 刪除服務認證
+### Deleting service credentials
 
-若要刪除一組服務認證，請使用與下列類似的指令：
+To delete a set of service credentials,
+use a command similar to the following:
 
 ```sh
 bx cf delete-service-key <instance name> <credentials name>
 ```
 {:pre}
 
-例如，若要從 {{site.data.keyword.cloudant_short_notm}} 服務的 `cs20170517a` 實例中刪除稱為 `creds20170517a` 的認證，您可以使用與下列類似的指令：
+For example,
+to delete the credentials called `creds20170517a`
+from the `cs20170517a` instance of
+a {{site.data.keyword.cloudant_short_notm}} service,
+you might use a command like this:
 
 ```sh
 bx cf delete-service-key cs20170517a creds20170517a
 ```
 {:pre}
 
-### 刪除服務實例
+### Deleting a service instance
 
-若要刪除服務實例，請使用與下列類似的指令：
+To delete a service instance,
+use a command similar to the following:
 
 ```sh
 bx service delete <instance name>
 ```
 {:pre}
 
-例如，若要刪除 {{site.data.keyword.cloudant_short_notm}} 服務的 `cs20170517a` 實例，您可以使用與下列類似的指令：
+For example,
+to delete the `cs20170517a` instance of
+a {{site.data.keyword.cloudant_short_notm}} service,
+you might use a command like this:
 
 ```sh
 bx service delete cs20170517a

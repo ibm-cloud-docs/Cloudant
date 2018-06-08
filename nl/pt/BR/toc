@@ -10,39 +10,20 @@ Cloudant NoSQL DB
 
 	{: .topicgroup}
 	Ofertas
-		offerings/index.md
 		offerings/bluemix.md
-		offerings/whatsnew.md
+		offerings/bluemix_dedicated.md
+		offerings/cloudant_local.md
+		offerings/cloudant.com.md
+
+	{: .topicgroup}
+    Segurança e conformidade
+    	offerings/security.md
+    	offerings/compliance.md
+    	offerings/dataprivacygovernance.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
     basics/index.md
-
-	{: .topicgroup}
-	Referência de API
-		api/index.md
-		api/http.md
-		api/compare.md
-		api/account.md
-		api/authentication.md
-		api/authorization.md
-		api/cors.md
-		api/database.md
-		api/document.md
-		api/attachments.md
-		api/cloudant_query.md
-		api/design_documents.md
-		api/creating_views.md
-		api/using_views.md
-		api/search.md
-		api/cloudant-geo.md
-		api/replication.md
-		api/advanced_replication.md
-		api/active_tasks.md
-		api/vhosts.md
-		api/advanced.md
-		api/monitoring.md
-		api/backup.md
 
 	{: .topicgroup}
 	Apps de amostra
@@ -62,6 +43,7 @@ Cloudant NoSQL DB
 	Tutoriais
 		tutorials/create_service.md
 		tutorials/create_service_cli.md
+		tutorials/create_dedicated_hardware_plan.md
 		tutorials/create_database.md
 		tutorials/create_query.md
 		tutorials/create_backup.md
@@ -81,8 +63,6 @@ Cloudant NoSQL DB
 	{: .topicgroup}
 	Guias
 		guides/acurl.md
-		guides/backup-guide.md
-		guides/backup-guide-using-replication.md
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/warehousing.md
@@ -92,13 +72,8 @@ Cloudant NoSQL DB
 		guides/sharding.md
 		guides/json.md
 		guides/managing_tasks.md
+		guides/conflicts.md
 		guides/model_data.md
 		guides/replication_guide.md
-
-	{: .topicgroup}
-    Segurança
-    	offerings/security.md
-    	offerings/compliance.md
-    	offerings/dataprivacygovernance.md
+		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
-
