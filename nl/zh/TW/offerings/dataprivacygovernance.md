@@ -14,65 +14,28 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-02-01 -->
 
-# Data Privacy and Governance
+# 資料隱私及控管
 
-_(This {{site.data.keyword.cloudantfull}} Data Privacy and Governance Update was originally published April 20, 2016.)_
+_（此「{{site.data.keyword.cloudantfull}} 資料隱私及控管更新」一開始發行於 2016 年 4 月 20 日。）_
 
-As a pioneer in the provision of a fully managed and globally distributable Database-as-a-Service,
-{{site.data.keyword.cloudant_short_notm}} allows customers to locate data in any
-global {{site.data.keyword.BluSoftlayer_full}} or AWS region.
-By providing customers with such high levels of data mobility to serve the local needs of customers,
-{{site.data.keyword.IBM}},
-and {{site.data.keyword.cloudant_short_notm}} take data privacy and governance seriously.
+身為佈建完整受管理且可散佈全球之「資料庫即服務」的先驅，{{site.data.keyword.cloudant_short_notm}} 可讓客戶在任何全球 {{site.data.keyword.BluSoftlayer_full}} 或 AWS 地區中找到資料。藉由將這類高階資料行動性提供給客戶來滿足客戶的本端需求，{{site.data.keyword.IBM}} 及 {{site.data.keyword.cloudant_short_notm}} 很認真看待資料隱私及控管。
 
-To govern the movement of data from the EU to the US,
-{{site.data.keyword.cloudant_short_notm}} complied with both US-EU and US-Swiss
-[Safe Harbour Frameworks ![External link icon](../images/launch-glyph.svg "External link icon")](https://safeharbor.export.gov/companyinfo.aspx?id=29450){:new_window}.
-Following the 2015 ruling of the European Court of Justice that
-[invalidated ![External link icon](../images/launch-glyph.svg "External link icon")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){:new_window}
-the Safe Harbour agreement,
-{{site.data.keyword.IBM_notm}} was quick to urge policymakers to work expediently
-to ensure "[unbroken data flows between the European Union and the United States ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/ibm/ibmgra/safe_harbor_10062015.html){:new_window}".
+為了控管從歐盟到美國的資料移動，{{site.data.keyword.cloudant_short_notm}} 同時遵守美國與歐盟和美國與瑞士的[安全港架構 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://safeharbor.export.gov/companyinfo.aspx?id=29450){:new_window}。在歐洲法院 2015 年裁決安全港協議[無效 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){:new_window} 之後，{{site.data.keyword.IBM_notm}} 很快就力促政策制定者採取應變措施，確保[歐盟與美國之間的資料流動不中斷 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/ibm/ibmgra/safe_harbor_10062015.html){:new_window}。
 
-{{site.data.keyword.IBM_notm}} prepared an EU Model Clauses agreement for {{site.data.keyword.cloudant_short_notm}} customers
-to facilitate the transfer of personal data outside of the EU
-in accordance with the EU data privacy laws.
-EU Model clauses are relevant to all customers
-that send personal information about EU citizens to {{site.data.keyword.cloudant_short_notm}}.
+{{site.data.keyword.IBM_notm}} 針對 {{site.data.keyword.cloudant_short_notm}} 客戶準備了「歐盟示範條款」合約，方便在符合歐盟資料隱私法的情況下在歐盟以外地區傳送個人資料。「歐盟示範條款」與將歐盟居民的個人資訊傳送至 {{site.data.keyword.cloudant_short_notm}} 的所有客戶息息相關。
 
-To request an EU Model Clauses agreement,
-or for any other information or assistance around the transfer of personal data,
-customers can contact the dedicated EU Model Clauses team at [eu-mc@ie.ibm.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:eu-mc@ie.ibm.com){:new_window}.
+若要要求「歐盟示範條款」合約，或如需傳送個人資料的任何其他資訊或協助，客戶可以與專用「歐盟示範條款」團隊聯絡：[eu-mc@ie.ibm.com ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:eu-mc@ie.ibm.com){:new_window}。
 
-The EU Directive 95/46/EC sets out rules about the processing of customer's personal data.
-As the data controller,
-customers appoint {{site.data.keyword.IBM_notm}} as a data processor to process any personal data that might be included in the customer's content.
-In turn,
-customers are responsible for obtaining all necessary consents
-to include the content (including any personal data) in the {{site.data.keyword.cloudant_short_notm}} solutions.
+EU Directive 95/46/EC 闡述了客戶個人資料的處理規則。身為資料控制者，客戶會將 {{site.data.keyword.IBM_notm}} 指派為資料處理者，來處理客戶內容中可能包含的任何個人資料。
+客戶接著會負責取得包括 {{site.data.keyword.cloudant_short_notm}} 解決方案內容（包括任何個人資料）的所有必要同意。
 
-A list of countries where content might be held,
-or from where content might be accessed,
-for delivering and supporting a Cloud Service,
-is available at:
-[www.ibm.com/cloud/datacenters ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/cloud/datacenters){:new_window}.
+[www.ibm.com/cloud/datacenters ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/cloud/datacenters){:new_window} 提供可能保留內容或可能從中存取內容且用於交付及支援「雲端服務」的國家/地區清單。
 
-More information about {{site.data.keyword.cloudant_short_notm}}'s overall standards compliance can be found
-[here](compliance.html).
-Similar information can be found for these IaaS business partners:
+[這裡](compliance.html)提供 {{site.data.keyword.cloudant_short_notm}} 整體標準規範的相關資訊。您可以找到這些 IaaS 事業夥伴的類似資訊：
 
--   [Amazon ![External link icon](../images/launch-glyph.svg "External link icon")](https://aws.amazon.com/compliance/){:new_window}
--   [{{site.data.keyword.BluSoftlayer_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.softlayer.com/compliance){:new_window}
+-   [Amazon ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://aws.amazon.com/compliance/){:new_window}
+-   [{{site.data.keyword.BluSoftlayer_notm}} ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.softlayer.com/compliance){:new_window}
 
-Following the recent vote in favor of new
-[General Data Protection Regulations ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){:new_window},
-{{site.data.keyword.cloudant_short_notm}} customers need to be aware not only of the {{site.data.keyword.cloudant_short_notm}} team's understanding and
-compliance against emerging data privacy standards and legislation
-but also of {{site.data.keyword.IBM_notm}}'s wider ability to provide a comprehensive suite of solutions
-to assist businesses of all sizes with their own internal data governance requirements.
+在支持新的[一般資料保護規則 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){:new_window} 的最近一次投票之後，{{site.data.keyword.cloudant_short_notm}} 客戶不僅需要知道 {{site.data.keyword.cloudant_short_notm}} 團隊對新興資料隱私標準及法規的瞭解及遵循，也需要知道 {{site.data.keyword.IBM_notm}} 有更廣泛的能力可以提供一組綜合性解決方案，來協助各種規模的企業滿足自己的內部資料控管需求。
 
-If you have further questions about the impending changes to data protection laws in Europe
-and how they are likely to impact your business,
-or would like to discuss how {{site.data.keyword.IBM_notm}} can support your information governance
-and compliance efforts,
-contact the Client Success team at [cdscsm@us.ibm.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:cdscsm@us.ibm.com){:new_window}. 
+如果您對歐洲資料保護法即將進行的變更，以及它們對您的企業可能有何影響有進一步問題，或是想要討論 {{site.data.keyword.IBM_notm}} 如何支援您的資訊控管及法規遵循工作，請與「客戶成功」團隊聯絡：[cdscsm@us.ibm.com ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:cdscsm@us.ibm.com){:new_window}。 

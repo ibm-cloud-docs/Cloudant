@@ -14,85 +14,50 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-05-02 -->
 
-# Back up your data by using CouchBackup
+# 使用 CouchBackup 備份資料
 
-The distributed nature of {{site.data.keyword.cloudant}} provides an inherent form of data backup.
-CouchBackup is a command line tool that provides you with a more powerful and flexible way for you to back up your data.
+{{site.data.keyword.cloudant}} 的分散式本質提供資料備份的固有形式。CouchBackup 是一種指令行工具，提供更強大且彈性的方式，供您備份資料。
 {:shortdesc}
 
-## Overview
+## 概觀
 
-The distributed benefits of {{site.data.keyword.cloudant_short_notm}} are achieved by using clusters.
-In a cluster,
-data within a database is stored in multiple copies.
-The copies are spread across at least three separate physical servers.
-Using clusters for data storage gives {{site.data.keyword.cloudant_short_notm}}
-inherent High Availability (HA) and Disaster Recovery (DR) characteristics.
-Using clusters helps {{site.data.keyword.cloudant_short_notm}} tolerate the loss of a node
-from within a cluster without losing data.
+{{site.data.keyword.cloudant_short_notm}} 的分散式優勢是透過使用叢集來達成。在叢集中，資料庫內的資料會儲存在多個副本中。這些副本會分散在至少三部不同的實體伺服器中。使用叢集作為資料儲存空間，提供 {{site.data.keyword.cloudant_short_notm}} 固有的「高可用性 (HA)」及「災難回復 (DR)」特徵。使用叢集可協助 {{site.data.keyword.cloudant_short_notm}} 容忍叢集內流失節點，但不會流失資料。
 
-However,
-even with these HA and DR characteristics,
-there are other use cases where you might want enhanced backup of data.
+不過，即使具有這些 HA 及 DR 特徵，也會有其他使用案例讓您可能想要加強資料備份。
 
 <div id="activepassive"></div>
 
-### Data Center outage and Disaster Recovery
+### 資料中心運行中斷及災難回復
 
-[Continuous replication](../api/replication.html#continuous-replication) between clusters is a good solution to the problem of
-when a {{site.data.keyword.cloudant_short_notm}} cluster is not completely available.
-Continuous replication is an 'active-passive' model.
-The 'active' part of the model is the continuous replication.
-The 'passive' part of the model acknowledges that the replica is not normally intended to respond to requests from applications.
-Instead,
-the replica is primarily used as a clone of the original database.
-If necessary,
-the data can be accessed from the clone.
-Alternatively,
-the data in the clone might be restored somewhere else by using [replication](../api/replication.html).
+當 {{site.data.keyword.cloudant_short_notm}} 叢集不是完全可用時，叢集之間的[連續抄寫](../api/replication.html#continuous-replication)是解決此問題的好方案。連續抄寫是「主動-被動」模型。模型的「主動」部分是連續抄寫。模型的「被動」部分會確認抄本一般不是用來回應來自應用程式的要求。相反地，抄本主要用作原始資料庫的複本。必要的話，可從複本存取資料。或者，您也可以在其他位置使用[抄寫](../api/replication.html)來還原複本中的資料。
 
->	**Note:** Restoring a large database by replicating from a clone might take a long time.
+>	**附註：**從複本進行抄寫來還原大型資料庫可能需要很長的時間。
 
-### High Availability, automatic fail-over, and geo-load balancing
+### 高可用性、自動失效接手及地理負載平衡
 
-An alternative to the ['active-passive'](#activepassive) approach is where you configure two data centers to use an 'active-active' model.
+[「主動-被動」](#activepassive)方法的替代方案，是您在其中配置兩個資料中心來使用「主動-主動」模型。
 
-In this model,
-any changes that are made to a database in cluster A are replicated to a database in cluster B.
-Similarly,
-any changes that are made to the database in cluster B are replicated to the database in cluster A.
+在此模型中，對叢集 A 中的資料庫所做的任何變更都會抄寫至叢集 B 中的資料庫。同樣地，對叢集 B 中的資料庫所做的任何變更都會抄寫至叢集 A 中的資料庫。
 
->	**Note:** This model can be set up by using the {{site.data.keyword.cloudant_short_notm}} dashboard.
-It does not require action by {{site.data.keyword.cloudant_short_notm}} support.
+>	**附註：**您可以使用 {{site.data.keyword.cloudant_short_notm}} 儀表板來設定此模型。它不需要透過 {{site.data.keyword.cloudant_short_notm}} 支援執行。
 
-With this model in place,
-you can design your database applications to 'fail over' to one of the clusters if some availability criteria is met.
-You can define the availability criteria as part of your application design.
 
-You can also include geographic 'load balancing' in your application design.
-For example,
-a client application that is used in one geographical area would normally expect better performance
-when the application accesses data that is stored within a cluster in a 'nearby' geographical area.
-Designing the client application to identify the 'closest' cluster and connect to that for database queries
-would help the application performance.
 
-A tutorial explaining how to set up a multi-region application environment is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/cloud/library/cl-multi-region-bluemix-apps-with-cloudant-and-dyn-trs/index.html){:new_window}.
+此模型就緒後，您可以設定資料庫應用程式，以在符合某些可用性準則時，「失效接手」至其中一個叢集。您可將可用性準則定義為應用程式設計的一部分。
 
-### Accidental or malicious or data modification
+您也可以在應用程式設計中併入地理「負載平衡」。例如，當應用程式存取儲存在「附近」地理區域的叢集內的資料時，用於某個地理區域的用戶端應用程式一般將預期更好的效能。設計用戶端應用程式來識別「最接近」的叢集，並連接至該叢集，以進行資料庫查詢，將可協助提升應用程式效能。
 
-{{site.data.keyword.cloudant_short_notm}} does not provide a mechanism for creating a snapshot of your database.
-If you need this kind of capability,
-for example to facilitate document-level roll-back to a previous known state,
-you might achieve the same effect in one of two ways:
+[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/developerworks/cloud/library/cl-multi-region-bluemix-apps-with-cloudant-and-dyn-trs/index.html){:new_window} 提供一個指導教學，說明如何設定多重區域應用程式環境。
 
-1.	By using replication. Do this by replicating the database. Make sure you record the final sequence ID. On a schedule that you determine, replicate the database to a new database. Start the replication from the last recorded sequence ID. By retaining the sequence IDs for the replications, you can produce the effect of a roll-up mechanism. The result would be similar to creating regular 'weekly' snapshots from the 'daily' snapshots. A limitation of this approach is that it also replicates deleted or 'tombstone' document revisions, and also unresolved conflicts.
+### 意外或惡意的資料修改
 
-2.	By dumping the database contents to file. Various tools exist that might be used to dump the database contents to a file. The resulting dump file can be stored on a cheaper block-oriented device or service. A limitation of such an approach is that it normally dumps the current document revisions only. This limitation means that unresolved conflicts are not included.
+{{site.data.keyword.cloudant_short_notm}} 不會提供為資料庫建立 Snapshot 的機制。如果您需要此類型功能（例如協助文件層次回復至先前的已知狀況），您可以透過下列兩種方式之一達到相同的效果：
 
-Creating a database dump is an effective way of enabling a variety of backups solutions.
-Therefore,
-the remainder of the discussion focuses on this approach.
+1.	使用抄寫。抄寫此資料庫來執行此動作。確定您已記錄最終順序 ID。根據您決定的排程，將此資料庫抄寫至新的資料庫。從前次記錄的順序 ID 啟動抄寫。保留抄寫的順序 ID，您可以產生累積更新機制的效果。結果將類似於從「每日」Snapshot 建立一般的「每週」Snapshot。此方法的限制為它也會抄寫已刪除的或「圖碑」文件修訂，而且也有尚未解決的衝突。
+
+2.	將資料庫內容傾出至檔案。有各種工具存在，可以用來將資料庫內容傾出至檔案。產生的傾出檔可以儲存在較便宜的區塊導向裝置或服務上。這類方法的限制為它一般只會傾出現行文件修訂。此限制表示不包括尚未解決的衝突。
+
+建立資料庫傾出是啟用各種備份解決方案的有效方式。因此，剩餘的討論著重在這個方法上。
 
 <!--
 https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/

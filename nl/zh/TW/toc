@@ -9,14 +9,14 @@ Cloudant NoSQL DB
 	cloudant.md
 
 	{: .topicgroup}
-	Offerings
+	供應項目
 		offerings/bluemix.md
 		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
 		offerings/cloudant.com.md
 
 	{: .topicgroup}
-    Security and Compliance
+    安全及法規遵循
     	offerings/security.md
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
@@ -26,13 +26,13 @@ Cloudant NoSQL DB
     basics/index.md
 
 	{: .topicgroup}
-	Sample apps
-		[Feedback Mobile App using Ionic and Cloudant](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
+	範例應用程式
+		[使用 Ionic 及 Cloudant 的意見行動應用程式](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
 		[Open Fridge](https://github.com/krook/openfridge)
-		[Online Catalog Store](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
+		[線上型錄商店](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
 
 	{: .topicgroup}
-	Libraries
+	程式庫
 		libraries/index.md
 		libraries/supported.md
 		libraries/thirdparty.md
@@ -40,7 +40,7 @@ Cloudant NoSQL DB
 
 	{: .navgroup id="howto"}
 	{: .topicgroup}
-	Tutorials
+	指導教學
 		tutorials/create_service.md
 		tutorials/create_service_cli.md
 		tutorials/create_dedicated_hardware_plan.md
@@ -55,13 +55,13 @@ Cloudant NoSQL DB
 		tutorials/create_bmxapp_maintain.md
 
 	{: .topicgroup}
-	Recovery and backup
+	回復及備份
 		guides/disaster-recovery-and-backup.md
 		guides/active-active.md
 		guides/backup-cookbook.md
 
 	{: .topicgroup}
-	Guides
+	手冊
 		guides/acurl.md
 		guides/cap_theorem.md
 		guides/couchapps.md

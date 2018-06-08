@@ -14,239 +14,168 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: the application environment
+# 建立簡單的 {{site.data.keyword.Bluemix_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：應用程式環境
 
-This section of the tutorial describes how to set up the application environment you must have
-for creating an {{site.data.keyword.Bluemix}} application.
+指導教學的這一節說明如何設定在建立 {{site.data.keyword.Bluemix}} 應用程式時必須要有的應用程式環境。
 {:shortdesc}
 
 <div id="creating"></div>
 
-## Creating a Bluemix application environment
+## 建立 Bluemix 應用程式環境
 
-1.  Log in to your {{site.data.keyword.Bluemix_notm}} account.
-    The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
-    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
-    After you authenticate with your user name and password,
-    the {{site.data.keyword.Bluemix_notm}} dashboard appears:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
+1.  登入 {{site.data.keyword.Bluemix_notm}} 帳戶。{{site.data.keyword.Bluemix_notm}} 儀表板位於 [http://bluemix.net ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://bluemix.net){:new_window}。在您利用使用者名稱及密碼進行鑑別之後，會出現 {{site.data.keyword.Bluemix_notm}} 儀表板：<br/>
+    ![{{site.data.keyword.Bluemix_notm}} 儀表板](images/img0001.png)
 
-2.  Click the '`Catalog`' link:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} catalog link](images/img0002.png)<br/>
-    A list of the services available on {{site.data.keyword.Bluemix_notm}} appears.
+2.  按一下`型錄`鏈結：<br/>
+    ![{{site.data.keyword.Bluemix_notm}} 型錄鏈結](images/img0002.png)<br/>
+    即會出現 {{site.data.keyword.Bluemix_notm}} 上可用的服務清單。
 
-3.  Click the '`Cloud Foundry Apps`' entry under the `Apps` heading:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} Cloud Foundry Apps](images/img0012.png)<br/>
-    A list of the Cloud Foundry Applications
-    available on {{site.data.keyword.Bluemix_notm}} appears.
+3.  按一下`應用程式`標題下的 `Cloud Foundry 應用程式`項目：<br/>
+    ![{{site.data.keyword.Bluemix_notm}} Cloud Foundry 應用程式](images/img0012.png)<br/>
+    即會出現 {{site.data.keyword.Bluemix_notm}} 上可用的 Cloud Foundry 應用程式清單。
 
-4.  Click the '`Python`' entry:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} Python Cloud Foundry App](images/img0013.png)<br/>
-    A '`Create a Cloud Foundry App`' form appears.
+4.  按一下 '`Python`' 項目：<br/>
+    ![{{site.data.keyword.Bluemix_notm}} Python Cloud Foundry 應用程式](images/img0013.png)<br/>
+    即會出現`建立 Cloud Foundry 應用程式`表單。
 
-5.  Use the '`Create a Cloud Foundry App`' form to specify and create the environment
-    for your Python Cloud Foundry application.
-    Enter a name for your application,
-    for example '`Cloudant Python`'.
-    The host name is generated for you automatically,
-    although you can customize it:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} Python Cloud Foundry App names](images/img0014.png)<br/>
-    >   **Note**: The host name must be unique within the {{site.data.keyword.Bluemix_notm}} domain. In this example, the domain is '`mybluemix.net`', giving a full host name of '`Cloudant-Python.mybluemix.net`'.
+5.  使用`建立 Cloud Foundry 應用程式`表單，以指定及建立 Python Cloud Foundry 應用程式的環境。請輸入應用程式的名稱，例如 '`Cloudant Python`'。系統會自動為您產生主機名稱，但您可以進行自訂：<br/>
+    ![{{site.data.keyword.Bluemix_notm}} Python Cloud Foundry 應用程式名稱](images/img0014.png)<br/>
+    >   **附註**：在 {{site.data.keyword.Bluemix_notm}} 網域內，主機名稱必須是唯一的。在此範例中，網域為 '`mybluemix.net`'，因此完整主機名稱為 '`Cloudant-Python.mybluemix.net`'。
 
-6.  Click '`Create`' to create the application environment:<br/>
-    ![Create the {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry App](images/img0015.png)
+6.  按一下`建立`來建立應用程式環境：<br/>
+    ![建立 {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry 應用程式](images/img0015.png)
 
-7.  After a short pause,
-    the '`Getting Started`' window for your new application environment appears.
-    A test application is automatically created within the environment.
-    The application is started automatically,
-    as shown by the green icon and `Your app is running` status.
-    The application is a 'heartbeat' program,
-    sufficient to show that the new application environment is ready for you to use.
-    Click the `Dashboard`' link to return to your {{site.data.keyword.Bluemix_notm}} account dashboard.<br/>
-    ![The new {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry App running for the first time](images/img0016.png)
+7.  在短暫暫停之後，會出現新應用程式環境的`開始使用`視窗。會在環境內自動建立測試應用程式。將自動啟動應用程式，如綠色圖示及`您的應用程式正在執行中`狀態所示。應用程式是一種「活動訊號」程式，它足以顯示新的應用程式環境已就緒，可供您使用。按一下`儀表板`鏈結，以回到 {{site.data.keyword.Bluemix_notm}} 帳戶儀表板。<br/>
+    ![首次執行的新 {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry 應用程式](images/img0016.png)
 
-8.  Your dashboard now includes the newly created application environment:<br/>
-    ![The basic {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry App appearing in the dashboard](images/img0017.png)
+8.  您的儀表板現在包括新建立的應用程式環境：<br/>
+    ![出現在儀表板中的基本 {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry 應用程式](images/img0017.png)
 
-You now have a {{site.data.keyword.Bluemix_notm}} Python application environment,
-ready to use.
+您現在具備 {{site.data.keyword.Bluemix_notm}} Python 應用程式環境，可供您使用。
 
-To work with a {{site.data.keyword.cloudant_short_notm}} database instance,
-the next step is to create a 'connection' between the application environment and the database instance.
+若要使用 {{site.data.keyword.cloudant_short_notm}} 資料庫實例，下一步是在應用程式環境與資料庫實例之間建立「連線」。
 
 <div id="connecting"></div>
 
-## Connecting Bluemix applications and services
+## 連接 Bluemix 應用程式與服務
 
-This section of the tutorial explains how you connect
-{{site.data.keyword.Bluemix_notm}} application environments and services by using
-the configuration and management area of your application.
+指導教學的這一節說明如何使用應用程式的配置及管理區域來連接 {{site.data.keyword.Bluemix_notm}} 應用程式環境與服務。
 
-1.  From your {{site.data.keyword.Bluemix_notm}} dashboard,
-    click the entry for your application.<br/>
-    ![Selecting your application on the {{site.data.keyword.Bluemix_notm}} dashboard](images/img0018.png)<br/>
-    >   **Note**: Avoid the '`Route`' column, as clicking the link that is associated with your application invokes the application rather than taking you to the configuration area. A better place to click is on the name of your application.
+1.  從 {{site.data.keyword.Bluemix_notm}} 儀表板中，按一下應用程式的項目。<br/>
+    ![在 {{site.data.keyword.Bluemix_notm}} 儀表板上選取應用程式](images/img0018.png)<br/>
+    >   **附註**：請避免使用`路徑`直欄，因為按一下與應用程式相關聯的鏈結會呼叫應用程式，而不是將您帶至配置區域。最好是按一下應用程式的名稱。
 
-    The configuration and management overview area for your application appears.
+    即會出現應用程式的配置及管理概觀區域。
 
-2.  To connect the application environment to another service,
-    click the '`Connections`' link:<br/>
-    ![Selecting the connection configuration for your {{site.data.keyword.Bluemix_notm}} application](images/img0019.png)<br/>
-    An area appears for configuring a connection between your application and any other services available within your account.
+2.  若要將應用程式環境連接至另一個服務，請按一下`連線`鏈結：<br/>
+    ![選取 {{site.data.keyword.Bluemix_notm}} 應用程式的連線配置](images/img0019.png)<br/>
+    即會出現一個區域，可用於配置應用程式與帳戶內可用的任何其他服務之間的連線。
 
-3.  A [prerequisite](create_bmxapp_prereq.html#prerequisites) for this tutorial is an
-    existing {{site.data.keyword.cloudant_short_notm}} database instance.
-    Click '`Connect existing`' to establish a connection between that database instance and your application:<br/>
-    ![Connect to an existing database instance](images/img0020.png)<br/>
-    A list of the existing service instances in your account appears.
+3.  本指導教學的[必要條件](create_bmxapp_prereq.html#prerequisites)是已具備現有的 {{site.data.keyword.cloudant_short_notm}} 資料庫實例。按一下`連接現有項目`，以建立該資料庫實例與應用程式之間的連線：<br/>
+    ![連接至現有資料庫實例](images/img0020.png)<br/>
+    即會出現您帳戶中的現有服務實例清單。
 
-4.  Click the {{site.data.keyword.cloudant_short_notm}} database instance that you want to use.
-    This tutorial uses the '`Cloudant Service 2017`' instance:<br/>
-    ![Choose the tutorial example database instance](images/img0021.png)
+4.  按一下您要使用的 {{site.data.keyword.cloudant_short_notm}} 資料庫實例。本指導教學使用 '`Cloudant Service 2017`' 實例：<br/>
+    ![選擇指導教學範例資料庫實例](images/img0021.png)
 
-5.  You are asked to confirm that you really want to connect the database instance to your application.
-    Click '`Connect`' to confirm the connection:<br>
-    ![Confirm connection to the database instance](images/img0022.png)
+5.  系統會要求您確認是否真的要將資料庫實例連接至應用程式。按一下`連接`來確認連線：<br>
+    ![確認與資料庫實例的連線](images/img0022.png)
 
-6.  Modifying the service connections for an application affects its overall configuration.
-    The modification requires a 'restaging' of the application,
-    which also forces a running application to stop.
-    A window appears for you to confirm that you are ready for the 'restaging' to proceed.
-    Click '`Restage`' to continue:<br/>
-    ![Confirm restaging of the application](images/img0023.png)
+6.  修改應用程式的服務連線會影響其整體配置。修改需要「重新編譯打包」應用程式，這也會強制停止執行中應用程式。即會出現一個視窗，讓您確認可以繼續「重新編譯打包」。按一下`重新編譯打包`以繼續進行：<br/>
+    ![確認重新編譯打包應用程式](images/img0023.png)
 
-7.  The service connections page reappears.
-    It now includes the newly connected database instance:<br/>
-    ![The newly connected database instance](images/img0024.png)
+7.  即會重新出現服務連線頁面。它現在包括新連接的資料庫實例：<br/>
+    ![新連接的資料庫實例](images/img0024.png)
 
-The application environment and the database instance are now connected.
-The next step is to ensure that the necessary tools are installed for you to
-work with {{site.data.keyword.Bluemix_notm}} applications.
+現在已連接應用程式環境及資料庫實例。下一步是確定已為您安裝使用 {{site.data.keyword.Bluemix_notm}} 應用程式的必要工具。
 
 <div id="toolkits"></div>
 
-## The Cloud Foundry and {{site.data.keyword.Bluemix_notm}} command toolkits
+## Cloud Foundry 及 {{site.data.keyword.Bluemix_notm}} 指令工具箱
 
-This section of the tutorial describes the toolkits that must be installed to work with
-your {{site.data.keyword.Bluemix_notm}} environment,
-applications,
-and services.
+指導教學的這一節說明要使用 {{site.data.keyword.Bluemix_notm}} 環境、應用程式及服務時必須安裝的工具箱。
 
-The [Cloud Foundry ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window}
-toolkit is a collection of tools for working with applications that are
-deployed in a Cloud Foundry-compatible environment.
-Use these tools for tasks such as updating a deployed application,
-or to start and stop a running application.
+[Cloud Foundry ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} 工具箱是工具集合，可用來使用 Cloud Foundry 相容環境中部署的應用程式。使用這些工具可進行各種作業，例如更新已部署的應用程式，或者啟動及停止執行中應用程式。
 
-The {{site.data.keyword.Bluemix_notm}} toolkit provides extra capabilities,
-which are required for working with applications hosted and running within a {{site.data.keyword.Bluemix_notm}} environment.
+{{site.data.keyword.Bluemix_notm}} 工具箱提供額外功能，而這些是使用在 {{site.data.keyword.Bluemix_notm}} 環境內管理及執行之應用程式的必要功能。
 
-> **Note**: Ensure you install both the Cloud Foundry _and_
-  the {{site.data.keyword.Bluemix_notm}} toolkits.
+> **附註**：請確定您同時安裝 Cloud Foundry _及_ {{site.data.keyword.Bluemix_notm}} 工具箱。
 
-Downloading and installing the toolkits is a one-off task.
-If the toolkits are already installed and working on your system,
-you do not need to download them again,
-unless they are updated.
+下載及安裝工具箱是單次作業。如果工具箱已安裝並在您的系統中運作，則除非進行過更新，否則不需要重新予以下載。
 
-General information about the toolkits is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/index.html){:new_window}.
+[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/docs/cli/index.html){:new_window} 提供工具箱的一般資訊。
 
-### Installing the Cloud Foundry toolkit
+### 安裝 Cloud Foundry 工具箱
 
-Some operating system distributions have a version of the Cloud Foundry toolkit available already.
-If the version supported is 6.11 or better,
-it is compatible with {{site.data.keyword.Bluemix_notm}} and can be used.
-You can check what version is installed by running [this test](#checkCFversion).
+部分作業系統發行套件已有可用的 Cloud Foundry 工具箱版本。如果支援的版本是 6.11 或更新版本，則與 {{site.data.keyword.Bluemix_notm}} 相容，並且可以使用。您可以執行[此測試](#checkCFversion)來檢查已安裝的版本。
 
-Alternatively,
-use the following steps to download and install the Cloud Foundry toolkit on your system: 
+或者，使用下列步驟，在系統上下載及安裝 Cloud Foundry 工具箱： 
 
-1.  A link to download the Cloud Foundry toolkit is available on the '`Getting started`' window of
-    your application environment:<br/>
-    ![A link to download the Cloud Foundry toolkit](images/img0025.png)
+1.  應用程式環境的`開始使用`視窗提供 Cloud Foundry 工具箱的下載鏈結：<br/>
+    ![下載 Cloud Foundry 工具箱的鏈結](images/img0025.png)
 
-2.  Clicking the link takes you to a
-    [download page on GitHub ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudfoundry/cli/releases){:new_window}:<br/>
-    ![The Cloud Foundry toolkit download page on GitHub](images/img0026.png)
+2.  按一下此鏈結會將您帶到 [GitHub 上的下載頁面 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudfoundry/cli/releases){:new_window}：<br/>
+    ![GitHub 上的 Cloud Foundry 工具箱下載頁面](images/img0026.png)
 
-3.  Download and run the most recent version of the installer for your system.
+3.  為您的系統下載並執行最新版本的安裝程式。
 
-4.  <div id='checkCFversion'></div>To check that you have a working Cloud Foundry toolkit,
-    run the following command at a prompt:
+4.  <div id='checkCFversion'></div>若要確認您有運作中的 Cloud Foundry 工具箱，請在提示中執行下列指令：
 
     ```sh
     cf --version
     ```
     {:pre}
     
-    Expect a result similar to the following output:
+    預期結果類似下列輸出：
     
     ```
     cf version 6.20.0+25b1961-2016-06-29
     ```
     {:codeblock}
     
-    >   **Note**: The Cloud Foundry toolkit version must be 6.11 or more recent for compatibility with {{site.data.keyword.Bluemix_notm}}.
+    >   **附註**：Cloud Foundry 工具箱版本必須是 6.11 或更新版本，才能與 {{site.data.keyword.Bluemix_notm}} 相容。
 
-### Installing the Bluemix toolkit
+### 安裝 Bluemix 工具箱
 
-Use the following steps to download and install the {{site.data.keyword.Bluemix_notm}} toolkit on your system.
+請使用下列步驟，在系統上下載及安裝 {{site.data.keyword.Bluemix_notm}} 工具箱。
 
-1.  A link to download the {{site.data.keyword.Bluemix_notm}} toolkit is available
-    on the '`Getting started`' window of your application:<br/>
-    ![A link to download the Cloud Foundry toolkit](images/img0027.png)
+1.  應用程式的`開始使用`視窗提供了 {{site.data.keyword.Bluemix_notm}} 工具箱的下載鏈結：<br/>
+    ![下載 Cloud Foundry 工具箱的鏈結](images/img0027.png)
 
-2.  Clicking the link takes you to a
-    [download page ![External link icon](../images/launch-glyph.svg "External link icon")](http://clis.ng.bluemix.net/ui/home.html){:new_window}:<br/>
-    ![The Bluemix toolkit download page](images/img0028.png)
+2.  按一下此鏈結會將您帶到[下載頁面 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://clis.ng.bluemix.net/ui/home.html){:new_window}：<br/>
+    ![Bluemix 工具箱下載頁面](images/img0028.png)
 
-3.  Download and run the appropriate installer for your system.
+3.  為您的系統下載並執行適當的安裝程式。
 
-    The installer checks to ensure that you have a suitable version of the Cloud Foundry toolkit installed.
-    If everything is correct,
-    the {{site.data.keyword.Bluemix_notm}} toolkit installs on your system.
+    安裝程式會確認您已安裝適合的 Cloud Foundry 工具箱版本。如果一切正確，則會在系統上安裝 {{site.data.keyword.Bluemix_notm}} 工具箱。
 
-4.  To check that you have a working {{site.data.keyword.Bluemix_notm}} toolkit,
-    run the following command at a prompt:
+4.  若要確認您有運作中的 {{site.data.keyword.Bluemix_notm}} 工具箱，請在提示中執行下列指令：
     
     ```sh
     bluemix --version
     ```
     {:pre}
     
-    Expect a result similar to the following output:
+    預期結果類似下列輸出：
     
     ```
     bluemix version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
     ```
     {:codeblock}
     
-The tools to work with {{site.data.keyword.Bluemix_notm}} applications are now available.
-The next step is to obtain the 'starter' materials to help you create
-a {{site.data.keyword.Bluemix_notm}} application.
+現在提供使用 {{site.data.keyword.Bluemix_notm}} 應用程式的工具。下一步是取得「入門範本」資料，協助您建立 {{site.data.keyword.Bluemix_notm}} 應用程式。
 
 <div id="starter"></div>
 
-## The 'starter' application
+## 「入門範本」應用程式
 
-This section of the tutorial describes a {{site.data.keyword.Bluemix_notm}}
-starter application,
-and explains how you customize it to access
-a {{site.data.keyword.cloudant_short_notm}} database instance.
+指導教學的這一節說明 {{site.data.keyword.Bluemix_notm}} 入門範本應用程式，並解釋如何進行自訂來存取 {{site.data.keyword.cloudant_short_notm}} 資料庫實例。
 
-A {{site.data.keyword.Bluemix_notm}} starter application is the minimum possible collection
-of source and configuration files
-necessary to create a working {{site.data.keyword.Bluemix_notm}} application.
-In some regards,
-it is similar to a ['Hello World' application ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){:new_window};
-sufficient only to show that the basic system and configuration is working correctly.
+{{site.data.keyword.Bluemix_notm}} 入門範本應用程式是建立可運作 {{site.data.keyword.Bluemix_notm}} 應用程式所需原始檔及配置檔的最小可能集合。在某些方面，它類似 ['Hello World' 應用程式 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){:new_window}；它只足以顯示基本系統及配置正確地運作。
 
-A {{site.data.keyword.Bluemix_notm}} starter application is an archive of example files that
-you must modify or extend as you develop your {{site.data.keyword.Bluemix_notm}} application.
+{{site.data.keyword.Bluemix_notm}} 入門範本應用程式是您開發 {{site.data.keyword.Bluemix_notm}} 應用程式時必須修改或擴充的範例檔案的保存檔。
 
-Three files in particular are essential:
+有三個檔案特別重要：
 
 -   ['`Procfile`'](#procfile)
 -   ['`manifest.yml`'](#manifest)
@@ -254,49 +183,35 @@ Three files in particular are essential:
 
 <div id="procfile"></div>
 
-### The '`Procfile`' file
+### '`Procfile`' 檔案
 
-The '`Procfile`' contains the details
-that {{site.data.keyword.Bluemix_notm}} needs to run your application.
+'`Procfile`' 包含 {{site.data.keyword.Bluemix_notm}} 執行應用程式所需的詳細資料。
 
-More specifically,
-a '`Procfile`' is a Cloud Foundry artifact that
-defines an application process type,
-and the command to run the application.
-More information about '`Procfile`' is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){:new_window}.
+更具體而言，'`Procfile`' 是一種 Cloud Foundry 構件，定義應用程式處理程序類型，以及執行應用程式的指令。[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){:new_window} 提供了 '`Procfile`' 的相關資訊。
 
-The '`Procfile`' for a {{site.data.keyword.Bluemix_notm}} Python starter application
-looks similar to the following example:
+{{site.data.keyword.Bluemix_notm}} Python 入門範本應用程式的 '`Procfile`' 類似下列範例：
 
 ```
 web: python server.py
 ```
 {:codeblock}
 
-This example indicates that the application is a Python web application,
-and that it is started by running the command:
+此範例指出應用程式是 Python Web 應用程式，並透過執行下列指令予以啟動：
 
 ```sh
 python server.py
 ```
 {:codeblock}
 
-A starter '`server.py`' Python source file is included in the starter application archive.
-The '`server.py`' file is modified for your application.
-Alternatively,
-create an entirely new Python source file.
-Then,
-update the '`Procfile`' so that the new file is used when your application starts.
+入門範本應用程式保存檔中包括入門範本 '`server.py`' Python 原始檔。針對您的應用程式修改 '`server.py`' 檔案。或者，建立全新的 Python 原始檔。然後，更新 '`Procfile`'，以在啟動應用程式時使用新檔案。
 
 <div id="manifest"></div>
 
-### The '`manifest.yml`' file
+### '`manifest.yml`' 檔案
 
-The '`manifest.yml`' file is a full description of the application,
-and of the environment it requires to run.
+'`manifest.yml`' 檔案是應用程式及其執行所需環境的完整說明。
 
-The file for a {{site.data.keyword.Bluemix_notm}} Python starter application looks similar to the following example:
+{{site.data.keyword.Bluemix_notm}} Python 入門範本應用程式的檔案類似下列範例：
 
 ```
 applications:
@@ -312,42 +227,30 @@ applications:
 ```
 {:codeblock}
 
-Three points are worth noting:
+有三點值得注意：
 
--   The '`domain`',
-    '`name`',
-    and '`host`' values correspond to the values entered when
-    your {{site.data.keyword.Bluemix_notm}} application was [created](#creating).
--   The '`name`' value is used by the Cloud Foundry toolkit to identify the application you are administering.
--   The '`services`' value confirms that the '`Cloudant Service 2017`'
-    {{site.data.keyword.cloudant_short_notm}} database instance is connected to the application environment.
+-   '`domain`'、'`name`' 及 '`host`' 值對應於[建立](#creating) {{site.data.keyword.Bluemix_notm}} 應用程式時所輸入的值。
+-   Cloud Foundry 工具箱使用 '`name`' 值來識別您所管理的應用程式。
+-   '`services`' 值確認 '`Cloudant Service 2017`' {{site.data.keyword.cloudant_short_notm}} 資料庫實例連接至應用程式環境。
 
-You do not normally need to modify the '`manifest.yml`' file,
-however it is helpful to understand why it must be present for your application to work.
+通常您不需要修改 '`manifest.yml`' 檔案，不過，最好瞭解應用程式為什麼必須要有它才能運作。
 
 <div id="requirements"></div>
 
-### The '`requirements.txt`' file
+### '`requirements.txt`' 檔案
 
-The '`requirements.txt`' file specifies any additional components that are required for your application to work.
+'`requirements.txt`' 檔案指定應用程式運作所需的任何其他元件。
 
-In the starter application,
-the '`requirements.txt`' file is empty.
+在入門範本應用程式中，'`requirements.txt`' 檔案是空的。
 
-However,
-in this tutorial the Python application accesses a
-{{site.data.keyword.cloudant_short_notm}} database instance.
-Therefore,
-the application must be able to use the
-[{{site.data.keyword.cloudant_short_notm}} client library for Python applications](../libraries/supported.html#python).
+不過，在本指導教學中，Python 應用程式會存取 {{site.data.keyword.cloudant_short_notm}} 資料庫實例。因此，應用程式必須可以使用 [Python 應用程式的 {{site.data.keyword.cloudant_short_notm}} 用戶端程式庫](../libraries/supported.html#python)。
 
-To enable the Python client library,
-modify the '`requirements.txt`' file to read:
+若要啟用 Python 用戶端程式庫，請修改 '`requirements.txt`' 檔案以讀取：
 ```
 cloudant==2.3.1
 ```
 {:codeblock}
 
-## The next step
+## 下一步
 
-The next step in the tutorial is to [create the application](create_bmxapp_createapp.html).
+指導教學中的下一步是[建立應用程式](create_bmxapp_createapp.html)。

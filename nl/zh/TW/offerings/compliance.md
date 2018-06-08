@@ -14,59 +14,32 @@ lastupdated: "2018-01-16"
 
 <!-- Acrolinx: 2017-04-28 -->
 
-# Compliance
+# 法規遵循
 
-{{site.data.keyword.cloudantfull}} provides a trustworthy and secure cloud database system.
-The service is built on best-in-industry standards,
-including ISO 27001:2013.
+{{site.data.keyword.cloudantfull}} 提供可靠且安全的雲端資料庫系統。此服務是以業界最佳標準（包括 ISO 27001:2013）為建置基礎。
 
-## Top-tier Physical systems
+## 最上層實體系統
 
-The {{site.data.keyword.cloudant_short_notm}} DBaaS is physically hosted
-on Tier-1 cloud infrastructure providers such as {{site.data.keyword.Bluemix}} and Amazon.
-Therefore,
-your data is protected by the network and physical security measures that are employed by these providers.
+{{site.data.keyword.cloudant_short_notm}} DBaaS 實際在第 1 層雲端基礎架構提供者（例如 {{site.data.keyword.Bluemix}} 及 Amazon）上進行管理。因此，您的資料是受到這些提供者所使用的網路及實體安全措施所保護。
 
 ## HIPAA
 
-{{site.data.keyword.cloudant_short_notm}}, when deployed on dedicated hardware on {{site.data.keyword.Bluemix_notm}}, 
-meets the required {{site.data.keyword.IBM_notm}} controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. These requirements 
-include the appropriate administrative, physical, and technical safeguards required of Business 
-Associates in 45 CFR Part 160 and Subparts A and C of Part 164. HIPAA must be requested at the 
-time of provisioning and applies to the {{site.data.keyword.cloudant_short_notm}} Enterprise plan, 
-{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}} Dedicated, 
-and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.data.keyword.Bluemix_notm}} Public. Customers 
-must contact their sales 
-representative to sign a Business Associate Addendum (BAA) agreement with {{site.data.keyword.IBM_notm}}.
+部署於 {{site.data.keyword.Bluemix_notm}} 之專用硬體上的 {{site.data.keyword.cloudant_short_notm}} 符合與 1996 年「醫療保險轉移和責任法 (HIPAA)」的「安全與隱私權規則」需求相應的必要 {{site.data.keyword.IBM_notm}} 控制。這些需求包括「企業聯盟 (Business Associates)」在 45 CFR 第 160 篇以及第 164 篇的子篇 A 及 C 中所要求的適當管理、實體及技術防護措施。HIPAA 必須在佈建時間進行要求，並且適用於「{{site.data.keyword.cloudant_short_notm}} 企業方案」、「{{site.data.keyword.Bluemix_notm}} 專用」上的 {{site.data.keyword.cloudant_short_notm}} 及「{{site.data.keyword.Bluemix_notm}} 公用」上的「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」。客戶必須與業務代表聯絡，以便和 {{site.data.keyword.IBM_notm}} 簽署「企業聯盟附錄 (Business Associate Addendum, BAA)」合約。
 
-## International Organization for Standardization (ISO)
+## 國際標準組織 (ISO)
 
-{{site.data.keyword.cloudant_short_notm}} is audited by a third-party security firm
-and meets all of the requirements for ISO 27001:
+{{site.data.keyword.cloudant_short_notm}} 經第三方安全公司審核，符合 ISO 27001 的所有需求：
 
-* [{{site.data.keyword.Bluemix_notm}} ISO 27001:2013 Certificate of Registration ![External link icon](../images/launch-glyph.svg "External link icon")](ftp://public.dhe.ibm.com/cloud/bluemix/compliance/Bluemix_ISO27K1_WWCert_2016.pdf){:new_window}
-* [{{site.data.keyword.IBM_notm}} SaaS ISO 27001:2013 Certificate ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?subtype=ST&infotype=SA&htmlfid=KUJ12445USEN&attachment=KUJ12445USEN.PDF){:new_window}
+* [{{site.data.keyword.Bluemix_notm}} ISO 27001:2013 登錄憑證 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](ftp://public.dhe.ibm.com/cloud/bluemix/compliance/Bluemix_ISO27K1_WWCert_2016.pdf){:new_window}
+* [{{site.data.keyword.IBM_notm}} SaaS ISO 27001:2013 憑證 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?subtype=ST&infotype=SA&htmlfid=KUJ12445USEN&attachment=KUJ12445USEN.PDF){:new_window}
 
-## SOC 2 Type 2 Certification
+## SOC 2 類型 2 憑證
 
-{{site.data.keyword.IBM_notm}} provides a Service Organization Controls (SOC) 2 Type 2 report 
-for Cloudant. The reports evaluate IBM's operational controls according to the criteria set 
-by the American Institute of Certified Public Accountants (AICPA) Trust Services Principles. 
-The Trust Services Principles define adequate control systems and establish industry standards 
-for service providers such as IBM Cloud to safeguard their customers' data and information.
+{{site.data.keyword.IBM_notm}} 提供適用於 Cloudant 的「服務組織控制 (SOC) 2 類型 2」報告。這些報告會根據「美國註冊會計師協會 (AICPA) 信任服務原則」所設定的準則來評估 IBM 的作業控制。
+「信任服務原則」定義適當的控制系統，並建立服務提供者（如 IBM Cloud）的業界標準，以保護其客戶資料及資訊。
 
-You can request an SOC 2 Type 2 report from the customer portal 
-or contact your sales representative. Alternatively, you can open 
-a support ticket with 
-[IBM Cloud support ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/support){:new_window} 
-or email 
-[support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+您可以從客戶入口網站要求「SOC 2 類型 2」報告，或與業務代表聯絡。或者，您也可以向 [IBM Cloud 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/support){:new_window} 開立支援問題單，或將電子郵件寄到 [support@cloudant.com ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
 
-## General Data Protection Regulation (GDPR) 
+## 一般資料保護規範 (GDPR) 
 
-The GDPR seeks to create a harmonized data protection law 
-framework across the EU and aims to give citizens back the control of their personal data, whilst 
-imposing strict rules on those hosting and ‘processing’ this data, anywhere in the world. The 
-Regulation also introduces rules relating to the free movement of personal data within and outside 
-the EU. The {{site.data.keyword.cloudant_short_notm}} team is currently working on related activities for GDPR and fully intends to 
-be compliant by the deadline of May 25, 2018.
+GDPR 嘗試建立跨歐盟的協調資料保護法律架構，而且目的是將居民的個人資料控制權返還給居民，同時對於在全球任何位置管理及「處理」此資料的人強制施行嚴格的規則。此「規範」也會建立與在歐盟內外部自由移動個人資料有關的規則。{{site.data.keyword.cloudant_short_notm}} 團隊目前正在處理 GDPR 的相關活動，而且在 2018 年 5 月 25 日截止時間之前完全符合標準。
