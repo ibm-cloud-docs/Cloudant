@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-15"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-05-15"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creating a simple {{site.data.keyword.cloud_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: the application environment
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: the application environment
 
 This section of the tutorial describes how to set up the application environment you must have
 for creating an {{site.data.keyword.cloud}} application.
@@ -72,7 +72,7 @@ for creating an {{site.data.keyword.cloud}} application.
 You now have an {{site.data.keyword.cloud_notm}} Python application environment,
 ready to use.
 
-To work with a {{site.data.keyword.cloudant_short_notm}} database instance,
+To work with an {{site.data.keyword.cloudant_short_notm}} database instance,
 the next step is to create a 'connection' between the application environment and the database instance.
 
 <div id="connecting"></div>
@@ -234,7 +234,7 @@ an {{site.data.keyword.cloud_notm}} application.
 This section of the tutorial describes an {{site.data.keyword.cloud_notm}}
 starter application,
 and explains how you customize it to access
-a {{site.data.keyword.cloudant_short_notm}} database instance.
+an {{site.data.keyword.cloudant_short_notm}} database instance.
 
 An {{site.data.keyword.cloud_notm}} starter application is the minimum possible collection
 of source and configuration files
@@ -335,8 +335,7 @@ In the starter application,
 the '`requirements.txt`' file is empty.
 
 However,
-in this tutorial the Python application accesses a
-{{site.data.keyword.cloudant_short_notm}} database instance.
+in this tutorial the Python application accesses an {{site.data.keyword.cloudant_short_notm}} database instance.
 Therefore,
 the application must be able to use the
 [{{site.data.keyword.cloudant_short_notm}} client library for Python applications](../libraries/supported.html#python).

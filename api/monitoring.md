@@ -12,7 +12,7 @@ lastupdated: "2018-04-17"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Monitoring a {{site.data.keyword.cloudant_short_notm}} cluster
+# Monitoring an {{site.data.keyword.cloudant_short_notm}} cluster
 
 A key part of ensuring best performance,
 or troubleshooting any problems,

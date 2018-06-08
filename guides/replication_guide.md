@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -20,7 +20,7 @@ Data can be copied from one database to another in the same {{site.data.keyword.
 across accounts and across data centers.
 {:shortdesc}
 
-Data can even be replicated to and from a {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
+Data can even be replicated to and from an {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
 using [{{site.data.keyword.cloudant_short_notm}} Sync ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
 or [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window}.
 Replication can run in one direction or in both directions,

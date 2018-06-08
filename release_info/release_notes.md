@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-31"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -122,7 +122,7 @@ Now, the error is a 409 error with the following information: `{`error`:`not_fou
 
 ## Build 6233 (June 26, 2017)
 
-- Fixes a {{site.data.keyword.cloudant_short_notm}} Query issue where indexes that excluded potentially matching documents were selected by the query planner.
+- Fixes an {{site.data.keyword.cloudant_short_notm}} Query issue where indexes that excluded potentially matching documents were selected by the query planner.
 
 ## Build 6069 (May 11, 2017)
 

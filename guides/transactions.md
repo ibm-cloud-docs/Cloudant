@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -264,4 +264,4 @@ to represent - rather than rely on - joining data with a foreign key.
 For example,
 when recording the state of a basket at the time of purchase.
 This allows an order's state to be fetched by a single call
-to a {{site.data.keyword.cloudant_short_notm}}'s view that groups documents related by `order_id`.
+to an {{site.data.keyword.cloudant_short_notm}}'s view that groups documents related by `order_id`.

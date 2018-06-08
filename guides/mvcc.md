@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -23,7 +23,7 @@ Since {{site.data.keyword.cloudant_short_notm}} databases are [eventually consis
 this is necessary to prevent inconsistencies arising between nodes
 as a result of synchronizing between outdated documents.
 
-Multi-Version Concurrency Control (MVCC) enables concurrent read and write access to a {{site.data.keyword.cloudant_short_notm}} database.
+Multi-Version Concurrency Control (MVCC) enables concurrent read and write access to an {{site.data.keyword.cloudant_short_notm}} database.
 MVCC is a form of [optimistic concurrency ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}.
 It makes both read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because
 there is no need for database locking on either read or write operations.
@@ -31,7 +31,7 @@ MVCC also enables synchronization between {{site.data.keyword.cloudant_short_not
 
 ## Revisions
 
-Every document in a {{site.data.keyword.cloudant_short_notm}} database has a `_rev` field indicating its revision number.
+Every document in an {{site.data.keyword.cloudant_short_notm}} database has a `_rev` field indicating its revision number.
 
 A revision number is added to your documents by the server when you insert or modify them.
 The number is included in the server response when you make changes or read a document.

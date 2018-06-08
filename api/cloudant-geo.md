@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-11-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 # {{site.data.keyword.cloudant_short_notm}} Geospatial
 
@@ -169,7 +170,7 @@ More information about GeoJSON,
 including the full specification,
 is available at [http://geojson.org/ ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/){:new_window}.
 
-## Creating a {{site.data.keyword.cloudant_short_notm}} Geo Index
+## Creating an {{site.data.keyword.cloudant_short_notm}} Geo Index
 
 To make it easier to work with {{site.data.keyword.cloudant_short_notm}} Geo documents,
 it is best practice to create a separate design document,
@@ -211,7 +212,7 @@ is [R\*\_tree ![External link icon](../images/launch-glyph.svg "External link ic
 Although it has a slightly higher resource requirement for building the index,
 the resulting index offers much better performance in responding to geospatial queries.
 
-## Obtaining information about a {{site.data.keyword.cloudant_short_notm}} geo index
+## Obtaining information about an {{site.data.keyword.cloudant_short_notm}} geo index
 
 You can obtain information about a geospatial index within a database.
 Do this by using the `_geo_info` endpoint.
@@ -262,7 +263,7 @@ _Example response in JSON format:_
 	an attempt to retrieve information about the index by using the `_geo_info` endpoint
 	results in an [HTTP `404`](http.html#404) response.
 
-## Querying a {{site.data.keyword.cloudant_short_notm}} Geo index
+## Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
 
 The fundamental API call for utilizing {{site.data.keyword.cloudant_short_notm}} Geo has a simple format,
 where the query parameters field `<query-parameters>` includes three different types of parameters:
@@ -271,7 +272,7 @@ where the query parameters field `<query-parameters>` includes three different t
 -	Geometric relation.
 _	Result set.
 
-_Example format for a {{site.data.keyword.cloudant_short_notm}} Geo API call:_
+_Example format for an {{site.data.keyword.cloudant_short_notm}} Geo API call:_
 
 ```http
 /$DATABASE/_design/$DDOCS/_geo/$INDEX_NAME?$QUERY_PARAMS
@@ -280,7 +281,7 @@ _Example format for a {{site.data.keyword.cloudant_short_notm}} Geo API call:_
 
 ### Query Geometry
 
-A query geometry parameter must be provided for a {{site.data.keyword.cloudant_short_notm}} Geo search.
+A query geometry parameter must be provided for an {{site.data.keyword.cloudant_short_notm}} Geo search.
 There are four types of query geometries that are defined as follows:
 
 Parameter | Description
@@ -389,7 +390,7 @@ https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POINT(-71.0537
 ```
 {:codeblock}
 
->	**Note**: The `nearest=true` search can change the semantics of a {{site.data.keyword.cloudant_short_notm}} Geo search.
+>	**Note**: The `nearest=true` search can change the semantics of an {{site.data.keyword.cloudant_short_notm}} Geo search.
 For example,
 without `nearest=true` in the example query,
 the results only include GeoJSON documents that have coordinates equal to the given query point `(-71.0537124 42.3681995)`
@@ -497,7 +498,7 @@ _Example response to the query:_
 ```
 {:codeblock}
 
-## Example: Querying a {{site.data.keyword.cloudant_short_notm}} Geo index
+## Example: Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
 
 ### Simple Circle
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-21"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-05-21"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-03-06 -->
 
@@ -36,8 +37,7 @@ Details of {{site.data.keyword.cloudant_short_notm}} Sync [resources ![External 
 
 ## Java
 
-[java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){:new_window} is the official
-{{site.data.keyword.cloudantfull}} library for Java.
+[java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){:new_window} is the official {{site.data.keyword.cloudantfull}} library for Java.
 
 Information about installing the library by adding it as a dependency to your Maven or Gradle builds is available
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant#installation-and-usage){:new_window},
@@ -55,7 +55,7 @@ along with details and examples of how to use the library.
 -   [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){:new_window}.
 -   [jrelax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/isterin/jrelax){:new_window}.
 -   [LightCouch ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.lightcouch.org/){:new_window}.
--   [Java {{site.data.keyword.cloudant_short_notm}} Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=CloudantJavaBPTemplate&fromCatalog=true){:new_window} boilerplate for {{site.data.keyword.cloud}}.
+-   [Java Cloudant Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=CloudantJavaBPTemplate&fromCatalog=true){:new_window} boilerplate for {{site.data.keyword.cloud}}.
 
 ### Examples and tutorials for Java
 
@@ -121,7 +121,7 @@ Learn more information about the Python language at [python.org ![External link 
 ## Swift
 
 A supported library is available for working with {{site.data.keyword.cloudant_short_notm}}.
-The library is called Swift{{site.data.keyword.cloudant_short_notm}},
+The library is called SwiftCloudant,
 and is installed by using `cocoapods`.
 
 The podfile entry is:
