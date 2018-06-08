@@ -13,6 +13,8 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # Getting started tutorial
 {: #getting-started-with-cloudant}
 
