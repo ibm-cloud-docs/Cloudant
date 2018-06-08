@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-05-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creating a simple {{site.data.keyword.cloud_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: the code
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: the code
 
 This section of the tutorial describes the code
 for an {{site.data.keyword.cloud}} application.
@@ -28,7 +28,7 @@ The following components are now in place,
 ready to begin creating the application:
 
 -   [The Python programming language](create_bmxapp_prereq.html#python).
--   [A {{site.data.keyword.cloudant_short_notm}} database instance](create_bmxapp_prereq.html#csi).
+-   [An {{site.data.keyword.cloudant_short_notm}} database instance](create_bmxapp_prereq.html#csi).
 -   [An {{site.data.keyword.cloud_notm}} application environment](create_bmxapp_appenv.html#creating).
 -   A [connection](create_bmxapp_appenv.html#connecting) between the {{site.data.keyword.cloudant_short_notm}} database instance
     and the {{site.data.keyword.cloud_notm}} application environment.
@@ -256,7 +256,7 @@ the application accesses the first element (element 'zero').
 Each service element contains the credentials for that service,
 expressed as a list indexed by the essential field names that are needed to access the service.
 More information about the field names is provided in the
-[tutorial](create_database.html#a-cloudant-no-sql-db-service-instance-on-ibm-cloud) that describes a simple database creation task.
+[tutorial](create_database.html#pre-requisites) that describes a simple database creation task.
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -293,7 +293,7 @@ target.write("\n")
 The application now has all the details necessary to create a database within the
 {{site.data.keyword.cloudant_short_notm}} database instance.
 This task is described in more detail in the
-[tutorial](create_database.html#a-cloudant-no-sql-db-service-instance-on-ibm-cloud) that describes simple database creation.
+[tutorial](create_database.html#creating-a-database-within-the-service-instance) that describes simple database creation.
 
 The application must do these tasks:
 
@@ -352,7 +352,7 @@ This log file confirms that the Python application successfully completed the fo
 
 1.  Ran successfully within the {{site.data.keyword.cloud_notm}} application environment.
 2.  Determined the details for service connections.
-3.  Connected to a {{site.data.keyword.cloudant_short_notm}} database instance.
+3.  Connected to an {{site.data.keyword.cloudant_short_notm}} database instance.
 4.  Created a database.
 5.  Created a document within the database.
 6.  Replied with the log of events when requested.
@@ -380,8 +380,7 @@ The next step in the tutorial is to [upload the application](create_bmxapp_uploa
 
 ## Complete listing
 
-The following code is the complete Python program to access a
-{{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}:
+The following code is the complete Python program to access an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}:
 
 ```python
 # Make Python modules available.

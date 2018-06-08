@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
+# Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
 service instance using the {{site.data.keyword.Bluemix}} dashboard,
@@ -20,7 +20,7 @@ and shows you where to find the essential information to enable your application
 to work with the database.
 {:shortdesc}
 
-To access a {{site.data.keyword.cloudant_short_notm}} service instance,
+To access an {{site.data.keyword.cloudant_short_notm}} service instance,
 you require a set of [Service Credentials](#the-service-credentials).
 The credentials are generated as part of the process when you create a service instance.
 

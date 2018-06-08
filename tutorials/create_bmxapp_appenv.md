@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creating a simple {{site.data.keyword.cloud_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: the application environment
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: the application environment
 
 This section of the tutorial describes how to set up the application environment you must have
 for creating an {{site.data.keyword.cloud}} application.
@@ -72,7 +72,7 @@ for creating an {{site.data.keyword.cloud}} application.
 You now have an {{site.data.keyword.cloud_notm}} Python application environment,
 ready to use.
 
-To work with a {{site.data.keyword.cloudant_short_notm}} database instance,
+To work with an {{site.data.keyword.cloudant_short_notm}} database instance,
 the next step is to create a 'connection' between the application environment and the database instance.
 
 <div id="connecting"></div>
@@ -151,7 +151,7 @@ you do not need to download them again,
 unless they are updated.
 
 General information about the toolkits is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/index.html){:new_window}.
+[here ![External link icon](../images/launch-glyph.svg "External link icon")](../getting-started.html#getting-started-with-cloudant){:new_window}.
 
 ### Installing the Cloud Foundry toolkit
 
@@ -198,9 +198,9 @@ Use the following steps to download and install the {{site.data.keyword.cloud_no
     on the '`Getting started`' window of your application:<br/>
     ![A link to download the Cloud Foundry toolkit](images/img0027.png)
 
-2.  Clicking the link takes you to a
-    [download page ![External link icon](../images/launch-glyph.svg "External link icon")](http://clis.ng.bluemix.net/ui/home.html){:new_window}:<br/>
+2.  Clicking the link takes you to a [download page ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window}:<br/>
     ![The {{site.data.keyword.cloud_notm}} toolkit download page](images/img0028.png)
+
 
 3.  Download and run the appropriate installer for your system.
 
@@ -234,7 +234,7 @@ an {{site.data.keyword.cloud_notm}} application.
 This section of the tutorial describes an {{site.data.keyword.cloud_notm}}
 starter application,
 and explains how you customize it to access
-a {{site.data.keyword.cloudant_short_notm}} database instance.
+an {{site.data.keyword.cloudant_short_notm}} database instance.
 
 An {{site.data.keyword.cloud_notm}} starter application is the minimum possible collection
 of source and configuration files
@@ -335,8 +335,7 @@ In the starter application,
 the '`requirements.txt`' file is empty.
 
 However,
-in this tutorial the Python application accesses a
-{{site.data.keyword.cloudant_short_notm}} database instance.
+in this tutorial the Python application accesses an {{site.data.keyword.cloudant_short_notm}} database instance.
 Therefore,
 the application must be able to use the
 [{{site.data.keyword.cloudant_short_notm}} client library for Python applications](../libraries/supported.html#python).

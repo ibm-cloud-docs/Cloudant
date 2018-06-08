@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-22"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-05-22"
 
 <!-- Acrolinx: 2017-05-22 -->
 
-# 配置 Cloudant 進行跨區域災難回復
+# 配置 {{site.data.keyword.cloudant_short_notm}} 進行跨地區災難回復
 
 [{{site.data.keyword.cloudant_short_notm}} 災難回復手冊](disaster-recovery-and-backup.html)說明啟用災難回復的方式，就是使用 {{site.data.keyword.cloudantfull}} 抄寫來建立跨地區的備援。
 
@@ -33,7 +33,7 @@ lastupdated: "2017-05-22"
 
 ## 開始之前
 
-> **附註**：若為主動-主動部署，用於管理衝突的策略必須就緒。因此，在考量此架構之前，務必瞭解[抄寫](../api/replication.html)及[衝突](mvcc.html#distributed-databases-and-conflicts)的運作方式。
+> **附註**：若為主動-主動部署，必須有管理衝突的策略就緒。因此，在考量此架構之前，務必瞭解[抄寫](../api/replication.html)及[衝突](mvcc.html#distributed-databases-and-conflicts)的運作方式。
 
 如果您需要有關如何建立資料模型來有效處理衝突的協助，請聯絡 [{{site.data.keyword.cloudant_short_notm}} 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
 
@@ -46,10 +46,10 @@ lastupdated: "2017-05-22"
 * `myaccount-dc1.cloudant.com`
 * `myaccount-dc2.cloudant.com`
 
-當具備這些帳戶時，基本步驟如下：
+這些帳戶就緒後，基本步驟如下：
 
 1. 在帳戶內[建立](#step-1-create-your-databases)一對對等節點資料庫。
-2. [設定](#step-2-create-an-api-key-for-your-replications)在這些資料庫之間用於抄寫的 API 金鑰。
+2. [設定](#step-2-create-an-api-key-for-your-replications) API 金鑰，以用於這些資料庫之間的抄寫。
 3. 授與適當的許可權。
 4. 設定抄寫。
 5. 測試抄寫如預期般運作。
@@ -59,9 +59,9 @@ lastupdated: "2017-05-22"
 
 在每一個帳戶內，[建立](../api/database.html#create)您要在其間抄寫的資料庫。
 
-在此範中，會建立一個稱為 `mydb` 的資料庫。
+在此範例中，會建立一個稱為 `mydb` 的資料庫。
 
-在此範例中用於資料庫的名稱並不重要，但要完全使用相同的名稱。
+在此範例中用於資料庫的名稱並不重要，但使用相同的名稱會比較清楚。
 
 ```sh
 curl https://myaccount-dc1.cloudant.com/mydb -XPUT -u myaccount-dc1
@@ -73,7 +73,7 @@ curl https://myaccount-dc2.cloudant.com/mydb -XPUT -u myaccount-dc2
 
 使用 [API 金鑰](../api/authorization.html#api-keys)進行連續抄寫，是一個好主意。優點是如果您的主要帳戶詳細資料變更，例如，在密碼重設之後，您的抄寫可以繼續保持不變。
 
-API 金鑰不會關聯於單一帳戶。此特徵表示可以建立單一 API 金鑰，然後為這兩個帳戶授與適當的資料庫許可權。
+API 金鑰不會關聯於單一帳戶。這項特徵表示可以建立單一 API 金鑰，然後為兩個帳戶授與適當的資料庫許可權。
 
 例如，下列指令會要求帳戶 `myaccount-dc1` 的 API 金鑰：
 
@@ -147,9 +147,9 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 
 ### 步驟 6：配置應用程式
 
-此時，資料庫會設為彼此保持同步。
+此時，資料庫已設定彼此保持同步。
 
-下一個決策為是要以[主動-主動](#active-active)還是[主動-被動](#active-passive)方式使用資料庫。
+接下來要決定以[主動-主動](#active-active)還是[主動-被動](#active-passive)方式使用資料庫。
 
 #### 主動-主動
 
@@ -162,35 +162,36 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 - 負載可以分散至數個帳戶。
 - 應用程式可以配置為存取延遲較低的帳戶（不一定是地理上最接近的帳戶）。
 
-應用程式可以設為與「最接近」的 Cloudant 帳戶通訊。若為 DC1 中管理的應用程式，適合將其 {{site.data.keyword.cloudant_short_notm}}  URL 設為 `"https://myaccount-dc1.cloudant.com/mydb"`。同樣地，若為 DC2 中管理的應用程式，將其 Cloudant URL 設為 `"https://myaccount-dc2.cloudant.com/mydb"`。
+應用程式可以設定為與「最接近」的 {{site.data.keyword.cloudant_short_notm}} 帳戶通訊。
+若為 DC1 中管理的應用程式，適合將其 {{site.data.keyword.cloudant_short_notm}}  URL 設為 `"https://myaccount-dc1.cloudant.com/mydb"`。同樣地，若為 DC2 中管理的應用程式，請將其 {{site.data.keyword.cloudant_short_notm}} URL 設為 `"https://myaccount-dc2.cloudant.com/mydb"`。
 
 #### 主動-被動
 
-在主動-被動配置中，應用程式的所有實例都會配置為使用主要資料庫。不過，應用程式可以失效接手另一個備份資料庫（如果情況必須如此的話）。失效接手可在應用程式邏輯本身內、或使用負載平衡器，或使用某些其他方法來實作。
+在主動-被動配置中，應用程式的所有實例都會配置為使用主要資料庫。不過，應用程式可以失效接手到另一個備份資料庫（如果情況必須如此的話）。失效接手可在應用程式邏輯本身內實作、使用負載平衡器實作，或使用某些其他方法來實作。
 
-是否需要失效接手的簡單測試將是使用主要資料庫端點作為「活動訊號」。例如，傳送至主要資料庫端點的簡單 `GET` 要求一般會傳回[有關資料庫的詳細資料](../api/database.html#getting-database-details)。如果未收到任何回應，則可能指出需要失效接手。
+是否需要失效接手的一項簡單測試，是使用主要資料庫端點作為「活動訊號」。例如，傳送至主要資料庫端點的簡單 `GET` 要求一般會傳回[有關資料庫的詳細資料](../api/database.html#getting-database-details)。如果未收到任何回應，則可能指出需要失效接手。
 
 #### 其他配置
 
 您可以針對配置考量其他混合式方法。
 
-例如，在 'Write-Primary, Read-Replica' 配置中，所有寫入都會移至某個資料庫，但讀取負載會分散至各抄本。
+例如，在 'Write-Primary, Read-Replica' 配置中，所有寫入會集中到一個資料庫，但讀取負載會分散至各抄本。
 
 ### 步驟 7：後續步驟
 
 * 考量監視資料庫之間的[抄寫](../api/advanced_replication.html)。使用資料來判斷您的配置是否可以進一步最佳化。
 *	考量如何部署及更新您的設計文件及索引。您可以更有效率地找到它，以自動執行這些作業。
 
-## 在 Cloudant 地區之間失效接手
+## 在 {{site.data.keyword.cloudant_short_notm}} 地區之間失效接手
 
 一般而言，在地區或資料中心之間管理失效接手的過程，會在應用程式堆疊內的較高位置進行處理，例如，透過配置應用程式伺服器失效接手變更，或平衡負載。
 
-{{site.data.keyword.cloudant_short_notm}} 並未提供一種機能，讓您明確地管理任何失效接手，或在在各地區之間重新遞送要求。此限制部分基於技術原因，部分因為可能發生的情況往往是應用程式特定的。例如，您可能想要強制執行失效接手以回應自訂效能度量。
+{{site.data.keyword.cloudant_short_notm}} 並未提供一種機能，讓您明確地管理任何失效接手，或在各地區之間重新遞送要求。此限制部分基於技術原因，部分因為可能發生的情況往往是應用程式特定的。例如，您可能想要強制執行失效接手以回應自訂效能度量。
 
 不過，如果您決定確實需要管理失效接手的能力，則部分可能選項包括：
 
-* 將您自己的 [HTTP Proxy 放在 {{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/green-man-gaming-cross-cloud-nginx-config/){:new_window} 前面。將您的應用程式配置為與 Proxy 而非 {{site.data.keyword.cloudant_short_notm}} 實例交談。此配置表示您可以處理變更應用程式所使用之 {{site.data.keyword.cloudant_short_notm}} 實例的作業，方法為修改 Proxy 配置，而非修改應用程式設定。根據使用者定義的性能檢查，許多 Proxy 具備平衡負載的功能。
-* 使用廣域負載平衡器（例如[資料流量引導器 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://dyn.com/traffic-director/){:new_window}），來遞送至 {{site.data.keyword.cloudant_short_notm}}。此選項需要 `CNAME` 定義，根據性能檢查或延遲規則來遞送至不同的 {{site.data.keyword.cloudant_short_notm}} 帳戶。
+* 將您自己的 [HTTP Proxy 放在 {{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/greenmangaming/cloudant-nginx){:new_window} 前面。將您的應用程式配置為與 Proxy 而非 {{site.data.keyword.cloudant_short_notm}} 實例交談。此配置表示您可以處理變更應用程式所使用之 {{site.data.keyword.cloudant_short_notm}} 實例的作業，方法為修改 Proxy 配置，而非修改應用程式設定。根據使用者定義的性能檢查，許多 Proxy 具備平衡負載的功能。
+* 使用全球負載平衡器（例如[資料流量引導器 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://dyn.com/traffic-director/){:new_window}），來遞送至 {{site.data.keyword.cloudant_short_notm}}。此選項需要 `CNAME` 定義，根據性能檢查或延遲規則來遞送至不同的 {{site.data.keyword.cloudant_short_notm}} 帳戶。
 
 ## 從失效接手中回復
 
@@ -218,4 +219,4 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 ### 索引
 
 * 索引是否充分保持最新？請使用[作用中作業](../api/active_tasks.html)端點來檢查此情況。
-* 測試「索引備妥」的層次，方法為傳送查詢至索引，並判斷是否在可接受的時間內傳回索引。
+* 測試「索引就緒」的層次，方法為傳送查詢至索引，並判斷是否在可接受的時間內傳回索引。

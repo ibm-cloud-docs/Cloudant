@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -20,7 +20,7 @@ Data can be copied from one database to another in the same {{site.data.keyword.
 across accounts and across data centers.
 {:shortdesc}
 
-Data can even be replicated to and from a {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
+Data can even be replicated to and from an {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
 using [{{site.data.keyword.cloudant_short_notm}} Sync ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
 or [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window}.
 Replication can run in one direction or in both directions,
@@ -730,7 +730,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 In the returned JSON,
 look for the `disk_size` value.
 If the value indicates a size of over 1 GB,
-contact the [IBM {{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} for further advice.
+contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} for further advice.
 
 You can check an individual `_replicator` document for conflicts,
 as shown in the following example:
@@ -805,4 +805,4 @@ For example:
     setting `worker_processes` and `http_connections` to 1 might be appropriate.
 
 For further assistance about the best configuration for your use-case,
-contact the [IBM {{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.

@@ -56,7 +56,7 @@ shares the underlying hardware resources that make up the {{site.data.keyword.cl
 
 All plans are provided on servers with [at rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest) 
 disk encryption. Access is over the public network connection and encrypted by 
-using HTTPS. For more detail, see [Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}. 
+using HTTPS. For more detail, see [Security ![External link icon](../images/launch-glyph.svg "External link icon")](../offerings/security.html#security){:new_window}. 
 IP whitelisting is available on request to {{site.data.keyword.cloudant_short_notm}} Support and will apply to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level. 
 
@@ -69,6 +69,7 @@ support ticket and our support team will coordinate getting your new Dedicated H
 encryption-at-rest encryption keys managed via your Key Protect instance. 
 
 The plan also offers [Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
+
 [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
 compliance is available upon request, so request this during the purchase process with an {{site.data.keyword.IBM_notm}} sales representative. 
 

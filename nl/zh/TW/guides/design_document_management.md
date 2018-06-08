@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -14,14 +14,15 @@ lastupdated: "2017-01-06"
 
 # 設計文件管理
 
-*由 Glynn Bird（IBM Cloudant 的開發人員代言人）提供的文章，[glynn@cloudant.com ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:glynn@cloudant.com){:new_window}*
+*由 Glynn Bird（IBM Cloudant 的開發人員代言人）提出的文章，[glynn@cloudant.com ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:glynn@cloudant.com){:new_window}*
 
-Cloudant 的可擴充 JSON 資料儲存庫具有數個查詢機制，全都會對核心資料產生個別建立且維護的索引。儲存文件時，不會立即執行索引。相反地，它會排定在稍後發生，這會提供更快、非封鎖的寫入量。
+{{site.data.keyword.cloudantfull}} 的可擴充 JSON 資料儲存庫具有數個查詢機制，全都會對核心資料產生個別建立且維護的索引。儲存文件時，不會立即執行索引。相反地，它會排定在稍後發生，這會提供更快、非封鎖的寫入量。
 
 -   MapReduce 視圖是資料集的索引，搭配 BTree 中儲存的索引鍵值組，可依索引鍵或索引鍵範圍進行有效的擷取
 -   「搜尋索引」是使用 Apache Lucene 建構的，容許任意文字搜尋、資料類型作業，以及複雜的特定查詢
 
-Cloudant 的[搜尋索引](../api/search.html)及 [MapReduce 視圖](../api/creating_views.html)的配置方法為將「設計文件」新增至資料庫。「設計文件」是 JSON 文件，其中包含如何建置視圖或索引的相關資訊。讓我們舉一個簡單範例。假設我們具有資料文件的簡單集合，類似於下列範例：
+{{site.data.keyword.cloudant_short_notm}} 的[搜尋索引](../api/search.html)及 [MapReduce 視圖](../api/creating_views.html)的配置方法為將「設計文件」新增至資料庫。
+「設計文件」是 JSON 文件，其中包含如何建置視圖或索引的相關資訊。讓我們舉一個簡單範例。假設我們具有資料文件的簡單集合，類似於下列範例：
 
 _簡單資料文件的範例：_
 
@@ -76,14 +77,15 @@ _使用 map 函數定義視圖的設計文件範例：_
 
 結果為我們的對映程式碼已轉換為 JSON 相容字串，並內含在「設計文件」中。
 
-一旦儲存了「設計文件」，Cloudant 就會觸發伺服器端處理程序來建置 `fetch/by_ts` 視圖。作法為反覆運算資料庫中的每一份文件，並將每一份文件傳送至 Javascript map 函數。此函數會傳回已發出的鍵值組。當反覆運算繼續時，每一個鍵值組都會儲存在 B-Tree 索引中。在第一次建置索引之後，只會對新的及更新的文件執行後續的重新索引。已刪除的文件會解除索引。此省時的處理程序稱為*增量 MapReduce*，如下圖所示：
+儲存「設計文件」之後，{{site.data.keyword.cloudant_short_notm}} 就會觸發伺服器端處理程序來建置 `fetch/by_ts` 視圖。
+作法為反覆運算資料庫中的每一份文件，並將每一份文件傳送至 Javascript map 函數。此函數會傳回已發出的鍵值組。當反覆運算繼續時，每一個鍵值組都會儲存在 B-Tree 索引中。在第一次建置索引之後，只會對新的及更新的文件執行後續的重新索引。已刪除的文件會解除索引。此省時的處理程序稱為*增量 MapReduce*，如下圖所示：
 
 ![增量 MapReduce 的圖解](../images/DesDocMan00.png)
 
 此時值得記住：
 
--   索引的建構會非同步發生。Cloudant 確認已儲存我們的「設計文件」，但若要檢查索引的建構進度，必須輪詢 Cloudant 的 [`_active_tasks`](../api/active_tasks.html) 端點。
--   我們具有的資料越多，則備妥索引所需的時間就越長。
+-   索引的建構會非同步發生。{{site.data.keyword.cloudant_short_notm}} 確認已儲存我們的「設計文件」，但若要檢查索引的建構進度，必須輪詢 {{site.data.keyword.cloudant_short_notm}} 的 [`_active_tasks`](../api/active_tasks.html) 端點。
+-   我們具有的資料越多，則索引就緒所需的時間就越長。
 -   當起始索引建置進行中時，_針對該索引所做的任何查詢都將封鎖_。
 -   查詢視圖會觸發尚未增量索引之任何文件的「對映」。這確保取得最新的資料視圖。如需此規則的例外狀況資訊，請參閱下列 ['`stale`' 參數](#stale)討論。
 
@@ -95,6 +97,8 @@ _使用 map 函數定義視圖的設計文件範例：_
 
 >   **附註**：此行為不適用於 Lucene 搜尋索引。
     您可在相同的設計文件內變更它們，這不會讓相同文件中其他未變更的索引失效。
+
+
 
 ![「設計文件」版本變更的圖解](../images/DesDocMan02.png)
 
@@ -123,7 +127,8 @@ _使用 reduce 函數的設計文件範例：_
 ```
 {:codeblock}
 
-當儲存此設計文件時，Cloudant 會讓舊索引完全失效，並開始從頭建置新的索引，輸流反覆運算每一份文件。進行原始建置時，所需時間取決於資料庫中有多少文件，並會封鎖該視圖上送入的查詢，直到完成為止。
+儲存此設計文件時，{{site.data.keyword.cloudant_short_notm}} 會讓舊索引完全失效，並開始從頭建置新的索引，輸流反覆運算每一份文件。
+進行原始建置時，所需時間取決於資料庫中有多少文件，並會封鎖該視圖上送入的查詢，直到完成為止。
 
 但發生問題...
 
@@ -151,7 +156,8 @@ _使用 reduce 函數的設計文件範例：_
 
 ### 「移動及切換」設計文件
 
-[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window} 所記載的另一種方式，係根據 Cloudant 在具有兩份相同的設計文件時可辨識它們的實際情況，因此在重建已有的視圖時不會浪費時間及資源。換言之，如果取得設計文件 `_design/fetch`，並建立完全相同的複本 `_design/fetch_OLD`，則這兩個端點將可交換運作，不會觸發任何重新索引。
+[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window} 所記載的另一種方式，係根據 {{site.data.keyword.cloudant_short_notm}} 在具有兩份相同的設計文件時可辨識它們的實際情況，因此在重建已有的視圖時不會浪費時間及資源。
+換言之，如果取得設計文件 `_design/fetch`，並建立完全相同的複本 `_design/fetch_OLD`，則這兩個端點將可交換運作，不會觸發任何重新索引。
 
 切換至新視圖的程序如下：
 
@@ -174,9 +180,9 @@ npm install -g couchmigrate
 ```
 {:codeblock}
 
-若要使用 `couchmigrate` Script，首先請透過設定稱為 `COUCH_URL` 的環境變數來定義 CouchDB/Cloudant 實例的 URL。
+若要使用 `couchmigrate` Script，首先請透過設定稱為 `COUCH_URL` 的環境變數來定義 CouchDB/{{site.data.keyword.cloudant_short_notm}} 實例的 URL。
 
-_定義 Cloudant 實例的 URL：_
+_定義 {{site.data.keyword.cloudant_short_notm}} 實例的 URL：_
 
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
@@ -185,7 +191,7 @@ export COUCH_URL=http://127.0.0.1:5984
 
 URL 可以是 HTTP 或 HTTPS，而且可以包括鑑別認證。
 
-_定義具有鑑別認證之 Cloudant 實例的 URL：_
+_定義具有鑑別認證之 {{site.data.keyword.cloudant_short_notm}} 實例的 URL：_
 
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
@@ -217,14 +223,16 @@ Script 會協調「移動及切換」程序，等到視圖完成建置後再返�
 
 查詢視圖時，有三個選項：
 
--   預設行為是確保在傳回答案之前索引保持最新狀態，而且資料庫中有最新文件。查詢視圖時，Cloudant 首先會對 250 份新文件編製索引，然後傳回答案。
--   替代方案為將 "`stale=ok`" 參數新增至 API 呼叫。此參數表示「傳給我已編製索引的資料，我不在意最新的更新項目」。換言之，利用 "`stale=ok`" 查詢視圖時，Cloudant 會立即傳回答案，不進行任何其他重新索引。
--   第二個替代方案為將 "`stale=update_after`" 參數新增至 API 呼叫。此參數表示「傳給我已編製索引的資料，_並且_ 接著對任何新文件重新編製索引」。換言之，利用 "`stale=update_after`" 查詢視圖時，Cloudant 會立即傳回答案，並且接著排定背景作業來對新資料編製索引。
+-   預設行為是確保在傳回答案之前索引保持最新狀態，而且資料庫中有最新文件。查詢視圖時，{{site.data.keyword.cloudant_short_notm}} 首先會對 250 份新文件編製索引，然後傳回答案。
+-   替代方案為將 "`stale=ok`" 參數新增至 API 呼叫。此參數表示「傳給我已編製索引的資料，我不在意最新的更新項目」。換言之，利用 "`stale=ok`" 查詢視圖時，{{site.data.keyword.cloudant_short_notm}} 會立即傳回答案，不進行任何其他重新索引。
+-   第二個替代方案為將 "`stale=update_after`" 參數新增至 API 呼叫。此參數表示「傳給我已編製索引的資料，_並且_ 接著對任何新文件重新編製索引」。換言之，利用 "`stale=update_after`" 查詢視圖時，{{site.data.keyword.cloudant_short_notm}} 會立即傳回答案，並且接著排定背景作業來對新資料編製索引。
 
 新增 "`stale=ok`" 或 "`stale=update_after`" 可能是更快從視圖取得答案的好方式，但會以即時性為代價。 
 
->   **附註**：預設行為會將負載平均分配至 Cloudant 叢集的各個節點中。
+>   **附註**：預設行為會將負載平均分配至 {{site.data.keyword.cloudant_short_notm}} 叢集的各個節點。
     如果使用替代方案 `stale=ok` 或 `stale=update_after` 選項，這可能會優先使用叢集節點的子集，以從最終一致集合傳回一致結果。這表示 '`stale`' 參數不是所有使用案例的完美解決方案。不過，如果您的應用程式樂意接受過時的結果，則對快速變更的資料集提供及時回應，可能會很有用。如果資料的變更率很小，新增 "`stale=ok`" 或 "`stale=update_after`" 將不會帶來效能優勢，而且可能無法在大型叢集上平均分配負載。
+
+
 
 
 盡可能避免使用 `stale=ok` 或 `stale=update_after`。原因是預設行為會提供全新資料，並在叢集內分送資料。如果可讓用戶端應用程式意識到有一個大型資料處理作業進行中（例如，定期大量資料更新），則應用程式可在這些時間暫時切換至 `stale=ok`，之後再回復為預設行為。

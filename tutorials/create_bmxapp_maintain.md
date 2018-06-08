@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-05-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creating a simple {{site.data.keyword.cloud_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: maintaining and troubleshooting
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: maintaining and troubleshooting
 
 This tutorial shows you how to maintain an
 {{site.data.keyword.cloud}} application,

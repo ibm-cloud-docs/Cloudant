@@ -15,22 +15,22 @@ Cloudant NoSQL DB
     	offerings/security.md
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
-    	offerings/audit.md
-    	offerings/gdpr.md
+		offerings/audit.md
+		offerings/gdpr.md
 
 	{: .topicgroup}
 	Release information
 		release_info/release_notes.md
 		release_info/differences_major_releases.md
 		release_info/deprecations.md
-	
+
 	{: .topicgroup}
-	Other offerings
+    Other offerings
 		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
 		offerings/cloudant.com.md
 	{: .navgroup-end}
-
+	
 	{: .navgroup id="reference"}
     basics/index.md
 
@@ -61,10 +61,11 @@ Cloudant NoSQL DB
 
 	{: .topicgroup}
 	Sample apps
-		[Feedback Mobile App using Ionic and Cloudant](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
+		[Offline First shopping list](https://developer.ibm.com/code/patterns/create-an-offline-first-shopping-list-progressive-web-app/)
 		[Open Fridge](https://github.com/krook/openfridge)
-		[Online Catalog Store](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
-
+		[iOS game with Core ML and Watson Visual Recognition](https://developer.ibm.com/code/patterns/build-an-ios-game-powered-by-core-ml-and-watson-visual-recognition/)
+		[Mobile health app with Watson Studio](https://developer.ibm.com/code/patterns/develop-web-based-mobile-health-app-uses-machine-learning/)
+		
 	{: .topicgroup}
 	Libraries
 		libraries/index.md
@@ -99,7 +100,6 @@ Cloudant NoSQL DB
 		guides/acurl.md
 		guides/cap_theorem.md
 		guides/couchapps.md
-		guides/warehousing.md
 		guides/design_document_management.md
 		guides/mvcc.md
 		guides/transactions.md

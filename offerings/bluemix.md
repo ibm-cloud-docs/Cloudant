@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-05"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -41,46 +41,46 @@ Standard plan:
 <table border='1'>
 
 <tr>
-<th>Plans</th><th>Lite</th><th colspan='4'>Standard</th>
+<th id="plans">Plans</th><th id="lite">Lite</th><th id="standard" colspan='4'>Standard</th>
 </tr>
 <tr>
-<td>Base Price (per hour)</td>
-<td>$0.00</td>
-<td colspan='4'>See <a href="../offerings/pricing.html#pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
+<th id="base-priceperhour" headers="plans">Base Price (per hour)</td>
+<td headers="lite base-priceperhour">$0.00</td>
+<td headers="standard base-priceperhour" colspan='4'>See <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (Lookups per second)</td>
-<td>20</td>
-<td>100</td>
-<td>1,000</td>
-<td>5,000</td>
-<td>20,000</td>
+<th id="provisionedthroughputcapacity-lookupspersecond" headers="plans">Provisioned Throughput Capacity (Lookups per second)</td>
+<td headers="lite provisionedthroughputcapacity-lookupspersecond-lite">20</td>
+<td headers="standard provisionedthroughputcapacity-lookupspersecond">100</td>
+<td headers="standard provisionedthroughputcapacity-lookupspersecond">1,000</td>
+<td headers="standard provisionedthroughputcapacity-lookupspersecond">5,000</td>
+<td headers="standard provisionedthroughputcapacity-lookupspersecond">20,000</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (Writes per second)</td>
-<td>10</td>
-<td>50</td>
-<td>500</td>
-<td>2,500</td>
-<td>10,000</td>
+<th id="provisionedthroughputcapacity-writespersecond" headers="plans">Provisioned Throughput Capacity (Writes per second)</td>
+<td headers="lite provisionedthroughputcapacity-writespersecond">10</td>
+<td headers="standard provisionedthroughputcapacity-writespersecond">50</td>
+<td headers="standard provisionedthroughputcapacity-writespersecond">500</td>
+<td headers="standard provisionedthroughputcapacity-writespersecond">2,500</td>
+<td headers="standard provisionedthroughputcapacity-writespersecond">10,000</td>
 </tr>
 <tr>
-<td>Provisioned Throughput Capacity (Queries per second)</td>
-<td>5</td>
-<td>5</td>
-<td>50</td>
-<td>250</td>
-<td>1,000</td>
+<th id="provisionedthroughputcapacity-queriespersecond" headers="plans">Provisioned Throughput Capacity (Queries per second)</td>
+<td headers="lite provisionedthroughputcapacity-queriespersecond">5</td>
+<td headers="standard provisionedthroughputcapacity-queriespersecond">5</td>
+<td headers="standard provisionedthroughputcapacity-queriespersecond">50</td>
+<td headers="standard provisionedthroughputcapacity-queriespersecond">250</td>
+<td headers="standard provisionedthroughputcapacity-queriespersecond">1,000</td>
 </tr>
 <tr>
-<td>Disk Space Included</td>
-<td>1 GB</td>
-<td colspan='4'>20 GB</td>
+<th headers="diskspaceincluded" headers="plans">Disk Space Included</td>
+<td headers="lite diskspaceincluded">1 GB</td>
+<td headers="standard diskspaceincluded" colspan='4'>20 GB</td>
 </tr>
 <tr>
-<td>Disk Overage (per GB/hour)</td>
-<td>Not available</td>
-<td colspan='4'>See <a href="../offerings/pricing.html#pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
+<th headers="diskoveragepergbhour" headers="plans">Disk Overage (per GB/hour)</td>
+<td headers="lite diskoveragepergbhour">Not available</td>
+<td headers="standard diskoveragepergbhour" colspan='4'>See <a href="https://www.ibm.com/cloud/cloudant/pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 
 </table>
@@ -304,8 +304,7 @@ Request Body Size | 11 MB
 Exceeding any of these limits results in a [413 response](../api/http.html#413).
 
 It is recommended that you store binary attachments, or large JSON blobs, 
-in object storage and save a link to the location in a 
-{{site.data.keyword.cloudant_short_notm}} JSON document.   
+in object storage and save a link to the location in an {{site.data.keyword.cloudant_short_notm}} JSON document.   
 
 When you replicate, documents or attachments larger than these limits do not 
 replicate to the target database. More information about how to detect replication
@@ -383,12 +382,16 @@ A pricing calculator for {{site.data.keyword.Bluemix_notm}} Standard Support is 
 Information about the details of the Support Service Level Agreement (SLA) is available
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-03.ibm.com/software/sla/sladb.nsf/pdf/6606-08/$file/i126-6606-08_05-2016_en_US.pdf){:new_window}.
 
-## Provisioning a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
+## Provisioning an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
 {: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
 
-You can provision a {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.Bluemix}} in two ways:
+You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.Bluemix}} in two ways:
 
 - Using the Dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
 - Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
  
-To create and use a {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial that describes the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
+To create and leverage an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
+
+
+
+

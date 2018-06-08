@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -52,7 +52,7 @@ The number of replicas (copies of a shard) is also configurable.
 In practice,
 observation and measurement of many systems suggests that three replicas is a pragmatic number in most cases
 to achieve a good balance between performance and data safety.
-It would be exceptional and unusual for a {{site.data.keyword.cloudant_short_notm}} system to use a different replica count.
+It would be exceptional and unusual for an {{site.data.keyword.cloudant_short_notm}} system to use a different replica count.
 
 ## How does sharding affect performance?
 

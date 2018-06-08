@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-10-27"
+  years: 2017, 2018
+lastupdated: "2018-06-07"
 
 ---
 
@@ -22,7 +22,7 @@ It's worth starting there if you are new to the subject and want to understand w
 with the other capabilities that {{site.data.keyword.cloudant_short_notm}} offers
 to support Disaster Recovery (DR) and High Availability (HA) requirements.
 
-Although data is stored redundantly within a {{site.data.keyword.cloudant_short_notm}} cluster,
+Although data is stored redundantly within an {{site.data.keyword.cloudant_short_notm}} cluster,
 it's important to consider extra backup measures.
 For example,
 redundant data storage does not protect against mistakes when data is changed.
@@ -41,7 +41,8 @@ the CouchBackup package contains two command line tools:
 1. `couchbackup`, which dumps the JSON data from a database to a backup text file.
 2. `couchrestore`, which restores data from a backup text file to a database.
 
-<strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
+> **Warning!** The CouchBackup tools have [limitations](#limitations).
+{:tip}
 
 ## Backing up your {{site.data.keyword.cloudant_short_notm}} data
 
@@ -61,10 +62,12 @@ including:
 * Using a log file to record the progress of a backup.
 * The ability to resume an interrupted backup.
   **Note**: This option is only available with the log file for the interrupted backup.
+  {:tip}
 * Sending the backup text file to a named output file,
   rather than redirecting the `stdout` output.
 
-<strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
+> **Warning!** The CouchBackup tools have [limitations](#limitations).
+{:tip}
 
 ## Restoring your {{site.data.keyword.cloudant_short_notm}} data
 
@@ -85,11 +88,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 The [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{:new_window} provides details of other restore options.
 
-<strong style="color:red;">Warning!</strong> The CouchBackup tools have [limitations](#limitations).
+> **Warning!** The CouchBackup tools have [limitations](#limitations).
+{:tip}
 
 ## Limitations
 
-<strong style="color:red;">Warning!</strong> The CouchBackup tools have the following limitations: 
+> **Warning!** The CouchBackup tools have the following limitations: 
+{:tip}
 
 * `_security` settings are not backed up by the tools.
 * Attachments are not backed up by the tools.
@@ -232,6 +237,7 @@ This code illustrates how you might use Cross Region S3 API to back up a databas
 > **Note**: A prerequisite for the code is that you initialize the S3 client object for
   {{site.data.keyword.IBM_notm}} Cloud Object Storage by following
 [these instructions ![External link icon](../images/launch-glyph.svg "External link icon")][cosclient]{:new_window}.
+{:tip}
 
 ```javascript
 /*

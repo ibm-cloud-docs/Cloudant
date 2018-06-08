@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -44,7 +44,7 @@ You can launch the {{site.data.keyword.cloudant_short_notm}} service from the
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
 is [available](index.html),
-along with [tutorials](tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix) that describe tasks in more detail.
+along with [tutorials](tutorials/create_service.html#creating-a-service-instance) that describe tasks in more detail.
 More information about details such as authenticating with database instances,
 and querying data,
 is available in the [API reference](api/index.html).
@@ -64,7 +64,7 @@ is available in the [API reference](api/index.html).
 *	[Client Libraries](libraries/index.html): Client libraries are toolkits that
 	let you develop your own applications,
 	ready to work with {{site.data.keyword.cloudant_short_notm}} databases.
-* [Tutorials](tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix): A detailed collection of articles,
+* [Tutorials](tutorials/create_service.html#creating-a-service-instance): A detailed collection of articles,
   showing you how to perform key tasks using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}}.
 *	[{{site.data.keyword.cloudant_short_notm}} API Reference](api/index.html): The API reference is a
 	comprehensive and living catalog of the {{site.data.keyword.cloudant_short_notm}} capabilities.

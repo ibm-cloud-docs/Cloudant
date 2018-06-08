@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -61,10 +61,10 @@ For more information about supported classifications of Personal Data, see the
 {{site.data.keyword.cloudant_short_notm}} records some data about its users, and is a Data Controller for said 
 Personal Information (PI) data. The data we record depends on the type of account you have.
 
-If you have a {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
+If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
 Enterprise cluster, we record data 
 about you and are considered a Data Controller for your data within the context of GDPR. 
-If you have a {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
+If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
 Enterprise cluster, we have your:
 
  * Name

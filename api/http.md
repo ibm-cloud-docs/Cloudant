@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -107,7 +107,7 @@ Cache-Control: must-revalidate
 ```
 {:codeblock}
 
-#### Content-Type
+#### Content-Type for request headers
 
 The `Content-Type` header specifies the content type of the information being supplied within the request.
 The specification uses MIME type specifications.
@@ -169,7 +169,7 @@ If the document has been modified,
 you should get a normal [`200` response](#200),
 provided the document still exists and no other errors occurred.
 
-### Response Headers
+### Response headers
 
 Response headers are returned by the server when sending back content.
 They include a number of different fields,
@@ -202,7 +202,7 @@ The `Content-Length` header reports the length in bytes of the returned content.
 
 <div id="content-type-field"></div>
 
-#### Content-Type
+#### Content-Type for response headers
 
 The `Content-Type` header specifies the MIME type of the returned data.
 For most request,
@@ -277,5 +277,5 @@ Code                                    | Meaning
 `417 - Expectation Failed`              | When sending documents in bulk, the bulk load operation failed.
 `429 - Too Many Requests`               | The user has sent too many requests in a given amount of time. More information is available in the corresponding [RFC 6585 ![External link icon](../images/launch-glyph.svg "External link icon")](https://tools.ietf.org/html/rfc6585#page-3){:new_window}.
 `500 - Internal Server Error`           | The request was invalid, either because the supplied JSON was invalid, or invalid information was supplied as part of the request. Alternatively, a replication was canceled while in progress.
-`503 - Service Unavailable`             | The request could not be processed. Seeing this response following a {{site.data.keyword.cloudant_short_notm}} request might indicate an misspelled {{site.data.keyword.cloudant_short_notm}} account name.
+`503 - Service Unavailable`             | The request could not be processed. Seeing this response following an {{site.data.keyword.cloudant_short_notm}} request might indicate an misspelled {{site.data.keyword.cloudant_short_notm}} account name.
 
