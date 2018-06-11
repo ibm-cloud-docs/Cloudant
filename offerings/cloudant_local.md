@@ -35,7 +35,7 @@ including:
 ## Support
 To get help with an {{site.data.keyword.cloudant_local_notm}} issue, open a support ticket with {{site.data.keyword.cloudant_short_notm}} support and include the following information:
 
-1. Create a ticket in an email and send it to: mailto:support@cloudant.com.
+1. Create an email to open an [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com).
 2. In the email subject line, provide a single sentence about the problem.
 3. The email must contain the following details to help us diagnose your problem:
     - Name
