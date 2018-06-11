@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-10"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-10"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Cloudant データベースにアクセスする単純な Bluemix アプリケーションの作成
+# {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.Bluemix_notm}} アプリケーションの作成
 
 このチュートリアルでは、
 [Python プログラミング言語 ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://www.python.org/){:new_window}
@@ -61,7 +61,7 @@ Python アプリケーションをセットアップして作成します。
 
 -   [{{site.data.keyword.Bluemix_notm}} で Python アプリケーション環境を作成します。](create_bmxapp_appenv.html#creating)
 -   [Python アプリケーション環境に、{{site.data.keyword.cloudant_short_notm}} データベース・インスタンスへの「接続」があることを確認します。](create_bmxapp_appenv.html#connecting)
--   [(一回限りのタスク) Cloud Foundry と Bluemix のコマンド・ライン・ツールキットをダウンロードしてインストールします。](create_bmxapp_appenv.html#toolkits)
+-   [(一回限りのタスク) Cloud Foundry と {{site.data.keyword.Bluemix_notm}} のコマンド・ライン・ツールキットをダウンロードしてインストールします。](create_bmxapp_appenv.html#toolkits)
 -   [スターター・アプリケーションをダウンロードします。](create_bmxapp_appenv.html#starter)
 -   [スターター・アプリケーションをカスタマイズして、{{site.data.keyword.cloudant_short_notm}} データベース・インスタンスにアクセスする独自のアプリケーションを作成します。](create_bmxapp_createapp.html#theApp)
 -   [アプリケーションをアップロードして、動作するかテストします。](create_bmxapp_upload.html#uploading)

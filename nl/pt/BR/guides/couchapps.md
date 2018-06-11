@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -14,15 +14,15 @@ lastupdated: "2017-01-06"
 
 # CouchApps
 
-O Cloudant pode hospedar dados de arquivo brutos,
+O {{site.data.keyword.cloudantfull}} pode hospedar dados do arquivo brutos,
 como imagens,
 e entregá-los por meio de HTTP,
 o que significa que ele pode hospedar todos os arquivos estáticos necessários para executar um website
 e hospedá-los como um servidor da web.
 {:shortdesc}
 
-Como esses arquivos seriam hospedados no Cloudant,
-o JavaScript do lado do cliente poderia acessar bancos de dados Cloudant.
+Como esses arquivos seriam hospedados no {{site.data.keyword.cloudant_short_notm}},
+o JavaScript do lado do cliente poderia acessar bancos de dados {{site.data.keyword.cloudant_short_notm}}.
 Um aplicativo construído assim é mencionado como tendo uma arquitetura de duas camadas,
 consistindo no cliente - geralmente um navegador - e no banco de dados.
 Na comunidade CouchDB,
@@ -48,15 +48,15 @@ Quando cada um é apropriado?
 
 ## Um CouchApp será apropriado se...
 
--   De qualquer forma, o servidor tiver fornecido apenas uma API para o Cloudant.
--   Estiver tudo bem para você usar a
-    [autenticação baseada em cookie](../api/authentication.html) do Cloudant.
--   Estiver tudo bem para você usar os bancos de dados [`_users` e `_security`](../api/authorization.html)
-do Cloudant para gerenciar usuários e permissões.
+-   Seu servidor tiver fornecido somente uma API para o {{site.data.keyword.cloudant_short_notm}} de qualquer maneira.
+-   Você concordar em usar a
+    [autenticação baseada em cookie](../api/authentication.html) do {{site.data.keyword.cloudant_short_notm}}.
+-   Você concordar em usar os bancos de dados [`_users` e `_security`](../api/authorization.html)
+    do {{site.data.keyword.cloudant_short_notm}} para gerenciar usuários e permissões.
 -   Não for necessário planejar cronjobs ou outras tarefas regulares.
 
-Para iniciar a utilização dos CouchApps,
-leia [Gerenciando aplicativos no Cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/app-management/){:new_window}.
+Para introdução aos CouchApps,
+leia [Gerenciando aplicativos no {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/app-management/){:new_window}.
 
 ## Um aplicativo de 3 camadas será apropriado se...
 
@@ -68,4 +68,4 @@ cookie, como Oauth ou um sistema de login de terceiro.
 
 Será possível gravar a camada de seu servidor usando as tecnologias que funcionarem melhor
 para você.
-Está [disponível](../libraries/index.html) uma lista de bibliotecas para trabalhar com o Cloudant.
+Uma lista de bibliotecas para trabalhar com o {{site.data.keyword.cloudant_short_notm}} está [disponível](../libraries/index.html).

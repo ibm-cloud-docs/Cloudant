@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-08-25"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-08-25"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Criando um aplicativo Bluemix simples para acessar um banco de dados Cloudant: o ambiente de aplicativos
+# Criando um aplicativo {{site.data.keyword.Bluemix_notm}} simples para acessar um banco de dados {{site.data.keyword.cloudant_short_notm}}: o ambiente de aplicativo
 
 Esta seção do tutorial descreve como configurar o ambiente de aplicativos que deve-se ter
 para criar um aplicativo {{site.data.keyword.Bluemix}}.
@@ -27,28 +27,28 @@ para criar um aplicativo {{site.data.keyword.Bluemix}}.
 1.  Efetue login em sua conta do {{site.data.keyword.Bluemix_notm}}.
     O painel do {{site.data.keyword.Bluemix_notm}} pode ser localizado em:
 [http://bluemix.net ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://bluemix.net){:new_window}.
-Após a autenticação com seu nome de usuário e senha,
+    Após a autenticação com seu nome de usuário e senha,
 o painel do {{site.data.keyword.Bluemix_notm}} aparece:<br/>
     ![Painel do {{site.data.keyword.Bluemix_notm}}](images/img0001.png)
 
 2.  Clique no link '`Catalog`':<br/>
     ![Link do catálogo do {{site.data.keyword.Bluemix_notm}}](images/img0002.png)<br/>
-Aparece uma lista dos serviços disponíveis no {{site.data.keyword.Bluemix_notm}}.
+    Aparece uma lista dos serviços disponíveis no {{site.data.keyword.Bluemix_notm}}.
 
 3.  Clique na entrada '`Cloud Foundry Apps`' sob o título `Apps`:<br/>
     ![Apps Cloud Foundry do {{site.data.keyword.Bluemix_notm}}](images/img0012.png)<br/>
-Aparece uma lista dos aplicativos Cloud Foundry
+    Aparece uma lista dos aplicativos Cloud Foundry
 disponíveis no {{site.data.keyword.Bluemix_notm}}.
 
 4.  Clique na entrada '`Python`':<br/>
     ![App Python Cloud Foundry do {{site.data.keyword.Bluemix_notm}}](images/img0013.png)<br/>
-Aparece um formulário '`Create a Cloud Foundry App`'.
+    Aparece um formulário '`Create a Cloud Foundry App`'.
 
 5.  Use o formulário '`Create a Cloud Foundry App`' para  especificar e criar o ambiente
 para seu aplicativo Python Cloud Foundry.
     Insira um nome para seu aplicativo,
 por exemplo, '`Cloudant Python`'.
-O nome do host é gerado para você automaticamente,
+    O nome do host é gerado para você automaticamente,
 embora seja possível customizá-lo:<br/>
     ![Nomes dos apps Python Cloud Foundry do {{site.data.keyword.Bluemix_notm}}](images/img0014.png)<br/>
     >   **Nota**: o nome do host deve ser exclusivo no domínio do {{site.data.keyword.Bluemix_notm}}. Neste exemplo, o domínio é '`mybluemix.net`', fornecendo um nome completo do host de '`Cloudant-Python.mybluemix.net`'.
@@ -58,12 +58,12 @@ embora seja possível customizá-lo:<br/>
 
 7.  Após uma curta pausa, a
 janela '`Getting Started`' para seu novo ambiente de aplicativos aparece.
-Um aplicativo de teste é criado automaticamente no ambiente.
-O aplicativo é iniciado automaticamente,
+    Um aplicativo de teste é criado automaticamente no ambiente.
+    O aplicativo é iniciado automaticamente,
 conforme mostrado pelo ícone verde e o status `Your app is running`.
-O aplicativo é um programa 'pulsação',
+    O aplicativo é um programa 'pulsação',
 suficiente para mostrar que o novo ambiente de aplicativos está pronto para você usar.
-Clique no link `Dashboard`' para retornar para o painel de sua conta do {{site.data.keyword.Bluemix_notm}}.<br/>
+    Clique no link `Dashboard`' para retornar para o painel de sua conta do {{site.data.keyword.Bluemix_notm}}.<br/>
     ![O novo app Python Cloud Foundry do {{site.data.keyword.Bluemix_notm}} pela primeira vez](images/img0016.png)
 
 8.  Seu painel agora inclui o ambiente de aplicativos recém-criado:<br/>
@@ -93,31 +93,31 @@ clique na entrada de seu aplicativo.<br/>
 2.  Para conectar o ambiente de aplicativos a outro serviço,
 clique no link '`Connections`':<br/>
     ![Selecionando a configuração de conexão para seu aplicativo {{site.data.keyword.Bluemix_notm}}](images/img0019.png)<br/>
-Aparece uma área para configurar uma conexão entre seu aplicativo e quaisquer outros serviços disponíveis em sua conta.
+    Aparece uma área para configurar uma conexão entre seu aplicativo e quaisquer outros serviços disponíveis em sua conta.
 
 3.  Um [pré-requisito](create_bmxapp_prereq.html#prerequisites) para esse tutorial é uma
 instância de banco de dados existente do {{site.data.keyword.cloudant_short_notm}}.
-Clique em '`Connect existing`' para estabelecer uma conexão entre essa instância do banco de dados e seu aplicativo:<br/>
+    Clique em '`Connect existing`' para estabelecer uma conexão entre essa instância do banco de dados e seu aplicativo:<br/>
     ![Conectar a uma instância de banco de dados existente](images/img0020.png)<br/>
-Aparece uma lista das instâncias de serviço existentes em sua conta.
+    Aparece uma lista das instâncias de serviço existentes em sua conta.
 
 4.  Clique na instância de banco de dados do {{site.data.keyword.cloudant_short_notm}} que você deseja usar.
-Este tutorial usa a instância '`Cloudant Service 2017`':<br/>
+    Este tutorial usa a instância '`Cloudant Service 2017`':<br/>
     ![Escolher a instância de banco de dados de exemplo do tutorial](images/img0021.png)
 
 5.  Você é solicitado a confirmar que realmente deseja conectar a instância de banco de dados a seu aplicativo.
-Clique em '`Connect`' para confirmar a conexão:<br>
+    Clique em '`Connect`' para confirmar a conexão:<br>
     ![Confirmar a conexão com a instância de banco de dados](images/img0022.png)
 
 6.  Modificar as conexões de serviço de um aplicativo afeta sua configuração geral.
-A modificação requer uma 'remontagem' do aplicativo,
+    A modificação requer uma 'remontagem' do aplicativo,
 que também força um aplicativo em execução a parar.
-Aparece uma janela para você confirmar que está pronto para que a 'remontagem' continue.
-Clique em '`Restage`' para continuar:<br/>
+    Aparece uma janela para você confirmar que está pronto para que a 'remontagem' continue.
+    Clique em '`Restage`' para continuar:<br/>
     ![Confirmar remontagem do aplicativo](images/img0023.png)
 
 7.  A página de conexões de serviço reaparece.
-Agora ela inclui a instância de banco de dados recém-conectada:<br/>
+    Agora ela inclui a instância de banco de dados recém-conectada:<br/>
     ![A instância de banco de dados recém-conectada](images/img0024.png)
 
 O ambiente de aplicativos e a instância de banco de dados estão agora conectados.
@@ -126,7 +126,7 @@ trabalhar com aplicativos {{site.data.keyword.Bluemix_notm}}.
 
 <div id="toolkits"></div>
 
-## Os kits de ferramentas de comandos do Cloud Foundry e do Bluemix
+## O Cloud Foundry e os kits de ferramentas de comandos do {{site.data.keyword.Bluemix_notm}}
 
 Esta seção do tutorial descreve os kits de ferramentas que devem ser instalados para funcionar com
 seu ambiente,
@@ -205,7 +205,7 @@ na janela '`Getting started`' de seu aplicativo:<br/>
 3.  Faça download e execute o instalador apropriado para seu sistema.
 
     O instalador verifica para assegurar que você tenha uma versão adequada do kit de ferramentas do Cloud Foundry instalada.
-Se tudo estiver correto,
+    Se tudo estiver correto,
 o kit de ferramentas do {{site.data.keyword.Bluemix_notm}} será instalado em seu sistema.
 
 4.  Para verificar se você tem um kit de ferramentas operacional no {{site.data.keyword.Bluemix_notm}},

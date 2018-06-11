@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-11"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Criando um aplicativo Bluemix simples para acessar um banco de dados Cloudant: fazendo upload do aplicativo
+# Criando um aplicativo {{site.data.keyword.Bluemix_notm}} simples para acessar um banco de dados {{site.data.keyword.cloudant_short_notm}}: fazendo upload do aplicativo
 
 Esta seção do tutorial descreve como fazer upload de um
 aplicativo {{site.data.keyword.Bluemix}}.
@@ -22,7 +22,7 @@ aplicativo {{site.data.keyword.Bluemix}}.
 
 <div id="uploading"></div>
 
-## Conectando-se ao Bluemix
+## Conectando-se ao {{site.data.keyword.Bluemix_notm}}
 
 A primeira tarefa é se conectar ao {{site.data.keyword.Bluemix_notm}}.
 
@@ -65,7 +65,7 @@ Deve-se fornecer os detalhes de conta a seguir:
 -   Seu espaço, especificado como o parâmetro '`-s`'.
 
 >   **Nota**: os detalhes da conta ficam disponíveis no painel do {{site.data.keyword.Bluemix_notm}}
-ao efetuar login por meio de um navegador da web,
+    ao efetuar login por meio de um navegador da web,
 conforme mostrado no exemplo a seguir:<br/>
     ![Localizando os detalhes da conta do {{site.data.keyword.Bluemix_notm}}](images/img0035.png)
 
@@ -92,7 +92,7 @@ OK
 Targeted org Adrian.Warman@uk.ibm.com
 
 Targeted space dev
-
+                
 API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
 User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
@@ -102,7 +102,7 @@ Space:          dev
 
 ## Fazendo upload do aplicativo
 
-Agora o kit de ferramentas do Cloudant Foundry sabe como se conectar ao ambiente do {{site.data.keyword.Bluemix_notm}}.
+O kit de ferramentas do {{site.data.keyword.cloudant_short_notm}} Foundry agora sabe como se conectar ao ambiente {{site.data.keyword.Bluemix_notm}}.
 
 A próxima etapa é fazer upload do próprio aplicativo.
 Detalhes de um aplicativo {{site.data.keyword.Bluemix_notm}}
@@ -124,7 +124,7 @@ Uma sequência de mensagens de resultado é exibida.
 ```
 Using manifest file /..../BMXDemo/manifest.yml
 
-Updating app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -140,7 +140,7 @@ Uploading app files from: /..../BMXDemo
 Uploading 1.5K, 3 files
 Done uploading               
 OK
-Binding service Cloudant Service 2017 to app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -149,7 +149,7 @@ O aplicativo foi transferido por upload com sucesso
 e uma conexão feita com a instância de banco de dados do {{site.data.keyword.cloudant_short_notm}}.
 
 ```
-Starting app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Starting app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 -----> Downloaded app package (4.0K)
 -----> Downloaded app buildpack cache (29M)
 -------> Buildpack version 1.5.5
@@ -175,7 +175,7 @@ App started
 
 OK
 
-App Cloudant Python was started using this command `python server.py`
+App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
 ```
 {:codeblock}
 
@@ -191,7 +191,7 @@ algumas verificações simples do sistema são executadas para confirmar que o a
 no que diz respeito ao {{site.data.keyword.Bluemix_notm}}.
 
 ```
-Showing health and status for app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 
 requested state: started

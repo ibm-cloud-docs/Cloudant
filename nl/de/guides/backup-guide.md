@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -12,544 +12,262 @@ lastupdated: "2017-05-04"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Ihre Daten sichern
+<!-- Keep up-to-date with changes in backup-cookbook.md -->
 
->   **Hinweis**: Dieser Leitfaden bezieht sich auf ein *veraltetes* Feature zur täglichen inkrementellen Sicherung, 
-    das früher nur auf Nachfrage für Unternehmenskunden verfügbar war.
-    Aktuelle Informationen zu Sicherungen finden Sie im Leitfaden [Disaster-Recovery und Sicherung](disaster-recovery-and-backup.html).
+# {{site.data.keyword.cloudant_short_notm}}-Sicherung und -Wiederherstellung
 
-Diese Funktionalität:
--   ist nicht standardmäßig aktiviert.
--   ist nur für Unternehmenskunden verfügbar, die sie spezifisch anfordern müssen.
--   muss explizit konfiguriert werden, bevor sie verwendet werden kann.
--   unterliegt [bekannten Einschränkungen](#known-limitations).
--   steht nicht für [Cloudant Local ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window} zur Verfügung.
-Weitere Informationen erhalten Sie vom [IBM Cloudant-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}. 
+Dieses Cookbook ist Teil des [{{site.data.keyword.cloudantfull}}-Leitfadens zur Disaster-Recovery](disaster-recovery-and-backup.html).
+Beginnen Sie hier, wenn Sie mit der Thematik noch nicht besonders vertraut sind und verstehen möchten, wie Sicherungen mit den anderen Funktionen, die {{site.data.keyword.cloudantfull}} bietet,
+zusammenarbeiten, um Disaster-Recovery- (DR) und Hochverfügbarkeitsanforderungen (HA) zu unterstützen.
 
->   **Hinweis**: Das Feature für tägliche inkrementelle Sicherungen steht nicht für
-    [Cloudant Local ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window} zur Verfügung.
-    Wenn Sie Daten in Cloudant Local sichern möchten,
-    verwenden Sie die [Replikation](../api/replication.html), um eine Kopie Ihrer Datenbank zu erstellen.
+Obwohl Daten redundant in einem {{site.data.keyword.cloudant_short_notm}}-Cluster gespeichert werden,
+ist es wichtig, zusätzliche Sicherungsmaßnahmen in Betracht zu ziehen.
+Redundanter Datenspeicher schützt beispielsweise nicht vor Fehlern beim Ändern von Daten.
 
-Um Hochverfügbarkeit sicherzustellen, erstellt
-{{site.data.keyword.cloudant}} drei Kopien jedes Dokuments und speichert sie auf drei verschiedenen Servern in einem Cluster.
-Diese Vorgehensweise ist der Standard für alle Cloudant-Benutzer.
-Selbst wenn Ihre Daten dreifach repliziert werden, ist es dennoch wichtig, sie zu sichern. 
+## Einführung in CouchBackup
 
-Warum sind Sicherungen so wichtig?
-Ganz allgemein kann der Zugriff auf Daten auf viele Arten verloren gehen.
-Beispielsweise kann ein Hurrikane Ihr Rechenzentrum und alle drei Knoten an diesem Standort zerstören.
-Sie können den Verlust Ihrer Daten im Katastrophenfall verhindern, indem Sie Ihre Daten auf ein Cluster (dediziert oder mit mehreren Mandanten) an einem anderen geografischen Standort replizieren.
-Wenn jedoch eine fehlerhafte Anwendung die Daten in Ihrer Datenbank löscht oder überschreibt, sind doppelte Daten nicht hilfreich. 
+{{site.data.keyword.cloudant_short_notm}} stellt ein unterstütztes Tool für Momentaufnahmesicherungen und -wiederherstellungen bereit.
+Dieses Open-Source-Tool heißt CouchBackup.
+Es handelt sich um eine `node.js`-Bibliothek und kann [unter npm ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{:new_window} installiert werden.
 
-Mit einer umfassenden, getesteten Sicherung können Sie die folgende Frage selbstbewusst beantworten:
-"Wie können wir Daten im Fall von Verlust oder Beschädigung wiederherstellen?" 
+Neben der Bibliothek enthält das CouchBackup-Paket zwei Befehlszeilentools:
 
-Mit Cloudant können Unternehmenskunden täglich inkrementelle Sicherungen durchführen. 
+1. `couchbackup`, das einen Speicherauszug von JSON-Daten aus einer Datenbank in einer Sicherungstextdatei erstellt.
+2. `couchrestore`, das Daten aus einer Sicherungstextdatei in einer Datenbank wiederherstellt.
 
-Wenn Sie kein Unternehmenskunde sind oder wenn Sie Ihre eigenen Sicherungsmechanismen einrichten möchten,
-ziehen Sie in Betracht, [Replikation zum Durchführen von Sicherungen einzusetzen](disaster-recovery-and-backup.html). 
+<strong style="color:red;">Achtung!</strong> Die CouchBackup-Tools haben [Einschränkungen](#limitations).
 
->   **Hinweis**: Die tägliche inkrementelle Sicherung für Unternehmenskunden ist aktuell ein *Beta*-Feature. 
-    Es ist nicht standardmäßig aktiviert.
+## {{site.data.keyword.cloudant_short_notm}}-Daten sichern
 
-Tägliche inkrementelle Sicherungen, auch Deltas genannt, machen den Vergleich von Dokumenten
-und eine einfachere Wiederherstellung einzelner Dokumente möglich.
-In regelmäßigen Abständen, die konfiguriert werden können, werden die kleineren täglichen Deltas in wöchentlichen Deltas zusammengefasst. Entsprechend werden wöchentliche
-Deltas in monatlichen Deltas und monatliche Deltas in jährlichen Deltas zusammengefasst.
-Der Prozess des Zusammenfassens von Deltas ist ein pragmatischer Kompromiss zwischen
-der Möglichkeit, genau die richtige Version eines Dokuments wiederherzustellen, und der Tatsache,
-dass dafür eine Menge Speicherplatz benötigt wird. 
-
-Die Sicherungsfunktion ermöglicht es Ihnen, einzelne Dokumente manuell wiederherzustellen.
-Für den Fall, dass Sie eine ganze Datenbank wiederherstellen möchten, z. B. als Teil eines
-Disaster-Recovery-Szenarios, können Sie das Support-Team kontaktieren und Ihre Daten auf den Tag, die Woche,
-den Monat oder das Jahr genau wiederherstellen, abhängig von den Deltas, die verfügbar sind. 
-
-Weitere Informationen zu Datensicherungen in Cloudant finden Sie im Rest dieses Abschnitts.
-Wenden Sie sich an das Cloudant-Support-Team, wenn Sie weitere Unterstützung benötigen oder möchten, dass die Datensicherung aktiviert wird:
-[support@cloudant.com ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}.
-
->   **Hinweis**: Das Cloudant-Feature für Sicherungen steht nur Unternehmenskunden zur Verfügung. 
-
->   **Hinweis**: Standardmäßig werden
-    `_design`-Dokumente nicht gesichert,
-    damit Indizes _nicht_ auf den inkrementellen Sicherungsdatenbanken basieren.
-    Wenn Sie Sicherungen der `_design`-Dokumente benötigen,
-    müssen Sie sie in Ihrem bevorzugten Tool zur Quellcodeverwaltung aufbewahren.
-
-## Konzepte
-
-Es ist hilfreich, die folgenden Begriffe im Zusammenhang mit Sicherungskonzepten zu kennen: 
-
-Begriff              | Bedeutung
----------------------|--------
-Sicherungsbereinigung| Wenn ein Delta-Datenbank zusammengefasst wurde, wird sie nach einem konfigurierbaren Zeitraum entfernt. Auf diese Weise können Sie Datenaufbewahrung mit einer hohen Granularität und die Speicherkosten ausgleichen .
-Sicherungsrollup     | Tägliche Sicherungen werden in wöchentlich zusammengefassten Datenbanken kombiniert. Diese fassen die täglichen Deltas in einer gröberen (weniger differenzierten) Sicherung zusammen. Entsprechend werden wöchentliche
-Datenbanken in monatlichen Datenbanken und monatliche Datenbanken in jährlichen Datenbanken zusammengefasst.
-
-Sicherungslauf       | In einem Sicherungszeitraum wird die Quellendatenbank mithilfe von Sequenzwerten repliziert, um die Dokumente zu bestimmen, die während des Sicherungszeitraums geändert wurden. Nach ihrem Abschluss wird diese Replikation als tägliche Sicherung bezeichnet. 
-Baselinesicherung    | Eine Sammlung von Dokumenten, mit denen eine Delta-Datenbank verglichen werden kann .
-Tägliche Sicherung   | Siehe Sicherungslauf.
-Tägliches Delta      | Ein anderer Name für eine tägliche Sicherung.
-Delta-Datenbank      | Die Sammlung von Dokumenten, die über einen Zeitraum geändert wurden (das Delta).
-Hohe/geringe Granularität | Diese gibt an, wie genau Sie den Änderungszeitpunkt eines Dokuments angeben können. Ein Rollup mit hoher Granularität hat einen kurzen Zeithorizont für die Änderung, z. B. einen Tag im Fall einer täglichen Sicherung. Ein Rollup mit niedriger Granularität hat einen langen Zeithorizont für die Änderung, z. B. ein Jahr im Fall einer jährlichen Sicherung. 
-Inkrementelle Sicherung   | Die Sammlung von Dokumenten, die seit der letzten Sicherung in der Datenbank geändert wurden. 
-Rollup              | Zusammenfassung einer Sammlung inkrementeller Sicherungen in eine Sicherung mit niedrigerer Granularität, z. B. die Zusammenfassung täglicher Sicherungen einer Woche in einer wöchentlichen Sicherung. 
-
-## Inkrementelle Sicherungen
-
-Der erste Schritt beim Aktivieren inkrementeller Sicherungen ist das Ausführen einer vollständigen Sicherung Ihrer gesamten Datenbank.
-Dies liefert eine Baseline für alle nachfolgenden inkrementellen Sicherungen. 
-
-Jeden Tag wird nach der ersten Baseline-Sicherung eine tägliche, inkrementelle Sicherung durchgeführt.
-Diese tägliche inkrementelle Sicherung enthält nur die Daten, die in der Datenbank seit der letzten Sicherung geändert wurden.
-Die tägliche Sicherung ist das "tägliche Delta". 
-
-Als Teil der Anforderung zur Aktivierung von Datensicherungen können Sie eine bestimmte Uhrzeit für die Sicherung festlegen.
-Das tägliche Delta wird jeden Tag zum angegebenen Zeitpunkt erstellt. 
-
-## Rollups
-
-Ein Rollup kombiniert tägliche Sicherungen in wöchentlich zusammengefassten Datenbanken.
-Diese Rollup-Datenbanken kombinieren die täglichen Deltas in einer weniger detaillierten oder weniger differenzierten Zeitscheibe.
-Wöchentliche Datenbanken werden in monatlichen Datenbanken zusammengefasst und monatliche Datenbanken in jährlichen Datenbanken. 
-
-![Abbildung einer Rollup-Hierarchie](../images/rollups.png)
-
-Wenn Sie anfordern, dass Sicherungen aktiviert werden, müssen Sie angeben, wie viele tägliche Deltas aufbewahrt werden sollen.
-Sobald diese Anzahl erreicht wurde, wird das älteste Delta in der aktuellsten wöchentlichen Datenbank zusammengefasst.
-Daraufhin werden die wöchentlichen Datenbanken zusammengefasst, um die monatliche Datenbanken zu erstellen usw. 
-
-Sobald die Delta-Datenbanken zusammengefasst wurden, werden sie entfernt, um Speicherplatz freizugeben. 
-
-## Wiederherstellungen
-
-Wenn Sie über Sicherungen für eine Datenbank verfügen, können Sie einzelne Dokumente in dieser Datenbank und auch die Änderungen an dem jeweiligen Dokument anzeigen.
-Sie können auch die Version des Dokuments wiederherstellen, die an einem bestimmten Datum aktuell war, falls die Granularität des Deltas dies zulässt. 
-
->   **Hinweis**: Dokumente müssen statisch sein, bevor sie aus der Sicherung wiederhergestellt werden. 
-    Mit anderen Worten: Das Dokument sollte nicht ständig geändert und aktualisiert werden.
-
-Bitten Sie bei komplexeren Wiederherstellungen,
-z. B. der Wiederherstellung ganzer Datenbanken,
-den [Cloudant-Support ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window} um Unterstützung. 
-
-## Dashboard verwenden
-
-Unternehmenskunden können den Status und den Verlauf von Sicherungen mithilfe des Cloudant-Dashboards überprüfen. 
-
-Sie können unter anderem folgende Tasks ausführen: 
-
--   Zeigen Sie den Status der letzten Sicherung an, einschließlich Datum und Uhrzeit. 
--   Zeigen Sie eine Liste der Versionen von Sicherungsdokumenten nach Datum und Uhrzeit an. 
--   Zeigen Sie ein aktuelles Dokument und den Unterschied zu einer beliebigen gesicherten Version an.
--   Stellen Sie ein Dokument aus einer gesicherten Version wieder her. 
-
-### Datenbanksicherungsstatus anzeigen
-
-![Dashboardansicht des Datenbanksicherungsstatus](../images/dashboarddatabasesbackup.png)
-
-Wenn Sie die Registerkarte 'Datenbank' im Cloudant-Dashboard auswählen,
-sehen Sie eine Spalte mit dem Sicherungsstatus jeder einzelnen Datenbank. 
-
-### Dokumentsicherungsstatus anzeigen
-
-![Dashboardansicht des Sicherungsstatus aller Dokumente](../images/dashboarddatabasesbackupbutton.png)
-
-In einer Datenbank können Sie den Sicherungsstatus eines bestimmten Dokuments anzeigen.
-Prüfen Sie dafür zunächst, ob ein Sicherungssymbol (![Symbol für Dashboard-Sicherung](../images/dashboarddatabasesbackupicon.png))
-für Ihr Dokument angezeigt wird.
-Dies zeigt an, ob das jeweilige Dokument in die Sicherungstask eingeschlossen ist. 
-
-Wenn Sie das Dokument auswählen, sehen Sie eine Registerkarte 'Sicherung'. 
-
-![Dashboardansicht des Dokumentsicherungsstatus](../images/dashboarddatabasesbackupdocument.png)
-
-### Unterschiede zwischen Dokumentsicherungsversionen anzeigen und Dokumente wiederherstellen
-
-![Dashboardansicht des Dokumentsicherungsstatus](../images/dashboarddatabasesbackupdocumentdiff.png)
-
-Wenn Sie auf die Registerkarte 'Sicherung' für ein Dokument klicken,
-können Sie die Unterschiede zwischen der aktuellen Version des Dokuments und einer beliebigen anderen gesicherten Version sehen. 
-
-Wenn Sie eine bestimmte Sicherungsversion dieses Dokuments wiederherstellen möchten,
-wählen Sie einfach das Datum der wiederherzustellenden Sicherung aus und klicken Sie dann auf die Schaltfläche 'Wiederherstellen'. 
-
->   **Hinweis**: Dokumente müssen einen stabilen Zustand erreicht haben, bevor sie aus einer Sicherung wiederhergestellt werden. 
-    Mit anderen Worten: Das Dokument sollte nicht ständig geändert und aktualisiert werden.
-
-## API verwenden
-
-Eine Reihe von REST-API-Aufrufen steht für den Einsatz mit der Cloudant-Sicherungsfunktion zur Verfügung. 
-
-### Taskkonfiguration
-
-Der Aufruf `task` ruft die Taskkonfiguration für den Benutzer ab. 
-
-Sie können das in der Antwort verwendete Format mithilfe des Parameters `format` angeben. 
-
-_Beispiel für das Anfordern der Sicherungstaskkonfiguration für den Benutzer,
-bei dem Ergebnisse (standardmäßig) in einem Listenformat zurückgegeben werden, unter Verwendung von HTTP:_
-
-```http
-GET /_api/v2/backup/task HTTP/1.1
-```
-{:codeblock}
-
-_Beispiel für das Anfordern der Sicherungstaskkonfiguration für den Benutzer,
-bei dem Ergebnisse (standardmäßig) in einem Listenformat zurückgegeben werden, über die Befehlszeile:_
+Sie können eine einfache Sicherung mithilfe des Tools `couchbackup` durchführen.
+Um die `animaldb`-Datenbank in einer Textdatei namens `backup.txt` zu sichern,
+können Sie einen Befehl ähnlich dem folgenden absetzen:
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/task \
-    -X GET
+couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 ```
 {:codeblock}
 
-_Beispiel für das Anfordern der Sicherungstaskkonfiguration für den Benutzer,
-bei dem Ergebnisse in einem Zuordnungsformat zurückgegeben werden, unter Verwendung von HTTP:_
+Der Befehl [npm readme ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmreadme]{:new_window} liefert Details zu weiteren Optionen,
+darunter die folgenden:
 
-```http
-GET /_api/v2/backup/task?format=mapping HTTP/1.1
-```
-{:codeblock}
+* Umgebungsvariablen zum Festlegen der Namen von Datenbank und URL.
+* Protokolldateien zum Aufzeichnen des Fortschritts einer Sicherung.
+* Möglichkeit, eine unterbrochene Sicherung fortzusetzen.
+  **Hinweis**: Diese Option ist nur mit der Protokolldatei der nicht unterbrochenen Sicherung verfügbar.
+* Senden der Sicherungstextdatei an eine angegebene Ausgabedatei,
+  statt Weiterleiten der `stdout`-Ausgabe.
 
-_Beispiel für das Anfordern der Sicherungstaskkonfiguration für den Benutzer,
-bei dem Ergebnisse in einem Zuordnungsformat zurückgegeben werden, über die Befehlszeile:_
+<strong style="color:red;">Achtung!</strong> Die CouchBackup-Tools haben [Einschränkungen](#limitations).
+
+## {{site.data.keyword.cloudant_short_notm}}-Daten wiederherstellen
+
+Zum Wiederherstellen Ihrer Daten verwenden Sie das Tool `couchrestore`.
+Verwenden Sie `couchrestore`, um die Sicherungsdatei in eine neue {{site.data.keyword.cloudant_short_notm}}-Datenbank zu importieren.
+Stellen Sie dann sicher, dass Sie alle Indizes erstellt haben, bevor eine Anwendung versucht, die wiederhergestellten Daten zu verwenden.
+
+Gehen Sie beispielsweise wie folgt vor, um die Daten, die in dem früheren Beispiel gesichert wurden, wiederherzustellen:
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/task?format=mapping \
-     -X GET
+couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 ```
 {:codeblock}
 
-Das Standardantwortformat ist eine Liste.
-Sie können dieses Format direkt mithilfe des Parameters `...backup/task?format=list` anfordern.
-Die Antwort enthält eine einfache Liste der für den Benutzer definierten Sicherungstasks. 
+Der Befehl [npm readme ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmreadme]{:new_window} liefert Details über andere Wiederherstellungsoptionen.
 
-Sie können beispielsweise eine Listenformatantwort mithilfe eines der folgenden Befehle anfordern: 
+<strong style="color:red;">Achtung!</strong> Die CouchBackup-Tools haben [Einschränkungen](#limitations).
 
-```http
-https://$ACCOUNT.cloudant.com/_api/v2/backup/task
+## Einschränkungen
 
-https://$ACCOUNT.cloudant.com/_api/v2/backup/task?format=list
+<strong style="color:red;">Achtung!</strong> Die CouchBackup-Tools haben die folgenden Einschränkungen: 
+
+* `_security`-Einstellungen werden von den Tools nicht gesichert.
+* Anhänge werden von den Tools nicht gesichert.
+* Die Sicherungen sind keine präzisen zeitpunktgesteuerten Momentaufnahmen.
+  Der Grund dafür ist, dass die Dokumente in der Datenbank in Stapeln abgerufen werden,
+  aber andere Anwendungen zur gleichen Zeit Dokumente aktualisieren können.
+  Deshalb können sich die Daten in der Datenbank zwischen dem Lesen des ersten und letzten Stapels ändern.
+* Indexdefinitionen, die in Entwurfsdokumenten enthalten sind, werden gesichert, aber der Inhalt der Indizes wird nicht gesichert.
+  Diese Einschränkung bedeutet, dass die Indizes erneut erstellt werden müssen, wenn Daten wiederhergestellt werden.
+  Das Neuerstellen kann abhängig davon, wie viele Daten wiederhergestellt werden, ziemlich lange dauern.
+
+## Tools verwenden
+
+Der Befehl [npm page ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{:new_window}
+gibt die Grundlagen der Verwendung der Befehlszeilentools zum Sichern und Wiederherstellen von Daten im Detail an.
+Die folgenden Beispiele zeigen, wie diese Details in die Praxis umgesetzt werden können, indem die Verwendung der Tools für bestimmte Tasks beschrieben wird.
+
+Das CouchBackup-Paket bietet zwei Möglichkeiten zur Verwendung seiner Kernfunktionen.
+
+* Die Befehlszeilentools können in standardmäßige UNIX-Befehlpipelines eingebettet werden.
+  In vielen Szenarios ist eine Kombination von `cron` und einfachem Shell-Scripting der Anwendung `couchbackup` ausreichend.
+* Eine Bibliothek, die von Node.js verwendet werden kann.
+  Die Bibliothek lässt zu, dass kompliziertere Sicherungsprozesse erstellt und implementiert werden können, z. B. das dynamische Bestimmen, welche Datenbanken gesichert werden müssen.
+
+Verwenden Sie entweder das Befehlszeilen-Sicherungstool oder die Bibliothek mit Anwendungscode,
+um Sicherungen aus {{site.data.keyword.cloudant_short_notm}}-Datenbanken als Teil komplexerer Situationen zuzulassen.
+Ein nützliches Szenario ist das Planen von Sicherungen mithilfe von `cron` und das automatische Hochladen von Daten in den
+[Cloudobjektspeicher ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window}
+für eine langfristige Aufbewahrung.
+
+## Beispiele für das Befehlszeilenscripting
+
+Zwei Voraussetzungen müssen häufig erfüllt werden:
+
+* Einsparen von Plattenspeicherplatz
+  durch [Zippen der Sicherungsdatei](#zipping-a-backup-file) während ihrer Erstellung.
+* Automatisches Erstellen von Datenbanksicherungen [in regelmäßigen Abständen](#hourly-or-daily-backups-using-cron).
+
+### Sicherungsdatei komprimieren
+
+Das Tool `couchbackup` kann eine Sicherungsdatei direkt auf Platte schreiben
+oder die Sicherung in `stdout` streamen.
+Beim Streaming in `stdout` können Daten umgewandelt werden, bevor sie auf Platte geschrieben werden.
+Diese Funktionalität wird zum Komprimieren von Daten innerhalb des Streams verwendet.
+
+```sh
+couchbackup --url "https://examples.cloudant.com" \
+  --db "animaldb" | gzip > backup.gz
 ```
 {:codeblock}
 
-_Beispiel einer Antwort auf eine Listenformatanforderung:_
+In diesem Beispiel übernimmt das Tool `gzip` die Sicherungsdaten direkt aus `stdin`,
+komprimiert sie und gibt sie in `stdout` wieder aus.
+Der resultierende komprimierte Datenstrom wird dann in eine Datei namens `backup.gz` umgeleitet und geschrieben.
 
-```json
-{
-    "rows": [
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-0d0b0cf1b0ea42179f9c082ddc5e07cb",
-            "source_db": "backmeup",
-            "latest_completion": null
-        },
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-d0ea6e8218074699a562af543db66615",
-            "source_db": "backuptest",
-            "latest_completion": "2016-01-17T05:57:44+00:00"
-        },
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-24cd8359b94640be85b7d4071921e781",
-            "source_db": "taskdb",
-            "latest_completion": "2016-01-17T00:01:04+00:00"
+Wenn die Datenbank es erfordert, dass Sie Zugriffsberechtigungsnachweise angeben,
+verwenden Sie eine URL im Format `https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com`, z. B.:
+
+```sh
+couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
+  --db "animaldb" | gzip > backup.gz
+```
+{:codeblock}
+
+Eine logische Konsequenz, wenn Sie die Daten auf andere Weise umwandeln wollen, ist es, die Pipeline zu erweitern.
+Sie möchten beispielsweise die Daten verschlüsseln, bevor sie auf Platte geschrieben werden.
+Alternativ können Sie die Daten direkt in einen Objektspeicherservice schreiben, mithilfe der zugehörigen Befehlszeilentools.
+
+### Stündliche oder tägliche Sicherungen, die `cron` verwenden
+
+Das Planungstool `cron` kann so konfiguriert werden, dass es in regelmäßigen Abständen Momentaufnahmen von Daten macht.
+
+Ein sinnvoller Ausgangspunkt ist es, `couchbackup` anzuweisen, eine einzelne Sicherung in eine Datei zu schreiben,
+wobei der Dateiname das aktuelle Datum und die aktuelle Uhrzeit enthält, wie im folgenden Beispiel gezeigt:
+
+```sh
+couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
+  --db "animaldb" > animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
+```
+{:codeblock}
+
+Nachdem Sie den Befehl geprüft und festgestellt haben, dass er ordnungsgemäß funktioniert,
+kann er in einen Cron-Job eingegeben werden:
+
+1.  Installieren Sie die CouchBackup-Tools auf dem Server, der die Sicherungen durchführen soll.
+2.  Erstellen Sie einen Ordner zum Speichern der Sicherungen.
+3.  Erstellen Sie einen Cron-Eintrag, der angibt, wie häufig die Sicherung durchgeführt werden soll.
+
+Sie können einen Cron-Eintrag mithilfe des Befehls `crontab -e` erstellen.
+Informieren Sie sich in der Systemdokumentation über bestimmte Details der Cron-Optionen.
+
+Ein Cron-Eintrag für eine tägliche Sicherung sieht wie folgt aus:
+
+```sh
+0 5 * * * couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" --db "animaldb" > /path/to/folder/animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
+```
+{:codeblock}
+
+Dieser Cron-Eintrag erstellt eine tägliche Sicherung um 05:00 Uhr.
+Sie können das Cron-Muster bei Bedarf ändern, um stündliche, tägliche, wöchentliche oder monatliche Sicherungen durchzuführen.
+
+## CouchBackup als Bibliothek
+
+Die Befehlszeilentools `couchbackup` und `couchrestore` sind Wrapper um eine Bibliothek herum,
+die Sie in Ihren eigenen Node.js-Anwendungen verwendet können.
+
+Die Bibliothek kann in komplexeren Szenarios wie den folgenden hilfreich sein:
+
+* Sichern verschiedener Datenbanken in einer Task.
+  Sie können diese Sicherung ausführen, indem Sie alle Datenbanken mithilfe des [`_all_dbs`](../api/database.html#get-databases)-Aufrufs ermitteln und dann jede Datenbank einzeln sichern.
+* Längere Pipelines erhöhen das Fehlerrisiko.
+  Mithilfe der CouchBackup-Bibliothek kann Ihre Anwendung alle Fehler bei frühester Gelegenheit erkennen und adressieren.
+
+Weitere Informationen finden Sie auf der [npm-Seite ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{:new_window}.
+
+Das folgende Beispielscript zeigt, wie die Bibliothek `couchbackup` unter Verwendung von {{site.data.keyword.IBM}} Cloud-Objektspeicher kombiniert werden kann.
+Dieser Code stellt dar, wie Sie die regionsübergreifende S3-API zum Sichern einer Datenbank in einem Objektspeicher verwenden können.
+
+> **Hinweis**: Eine Voraussetzung für den Code ist die Initialisierung des S3-Clientobjekts für
+  {{site.data.keyword.IBM_notm}} Cloud-Objektspeicher anhand
+[dieser Anweisungen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][cosclient]{:new_window}.
+
+```javascript
+/*
+  Backup directly from Cloudant to an S3 bucket via a stream.
+  @param {string} couchHost - URL of database root
+  @param {string} couchDatabase - backup source database
+  @param {object} s3Client - S3 client object
+  @param {string} s3Bucket - Destination S3 bucket (must exist)
+  @param {string} s3Key - Destination object's key (shouldn't exist)
+  @param {boolean} shallow - Whether to use couchbackup's shallow mode
+  @returns {Promise}
+*/
+function backupToS3(sourceUrl, s3Client, s3Bucket, s3Key, shallow) {
+  return new Promise((resolve, reject) => {
+    debug('Setting up S3 upload to ${s3Bucket}/${s3Key}');
+
+    // Ein zu durchlaufender Datenstrom, in den die Ausgabe von
+    // couchbackup geschrieben wird und der dann vom S3-Upload-Client gelesen wird.
+    // Er verfügt über einen internen Puffer von 10 MB.
+    const streamToUpload = new stream.PassThrough({highWaterMark: 10485760});
+
+    // Konfigurieren Sie den S3-Upload.
+    const params = {
+      Bucket: s3Bucket,
+      Key: s3Key,
+      Body: streamToUpload
+    };
+    s3Client.upload(params, function(err, data) {
+      debug('S3 upload done');
+      if (err) {
+        debug(err);
+        reject(new Error('S3 upload failed'));
+        return;
+      }
+      debug('S3 upload succeeded');
+      debug(data);
+      resolve();
+    }).httpUploadProgress = (progress) => {
+      debug('S3 upload progress: ${progress}');
+    };
+
+    debug('Starting streaming data from ${sourceUrl}');
+    couchbackup.backup(
+      sourceUrl,
+      streamToUpload,
+      (err, obj) => {
+        if (err) {
+          debug(err);
+          reject(new Error('CouchBackup failed with an error'));
+          return;
         }
-    ]
+        debug('Download from ${sourceUrl} complete.');
+        streamToUpload.end();  // must call end() to complete S3 upload.
+        // resolve() is called by the S3 upload
+      }
+    );
+  });
 }
 ```
 {:codeblock}
 
-Eine umfassendere Antwort wird im Zuordnungsformat verfügbar gemacht. Sie können dieses Format direkt mithilfe des Parameters `...backup/task?format=mapping` anfordern. 
+## Andere Disaster-Recovery-Optionen
 
-Sie können beispielsweise eine Zuordnungsformatantwort mithilfe des folgenden Befehls anfordern: 
+Kehren Sie zum [{{site.data.keyword.cloudant_short_notm}}-Leitfaden zur Disaster-Recovery](disaster-recovery-and-backup.html)
+zurück und lernen Sie die anderen Features kennen, die {{site.data.keyword.cloudant_short_notm}}
+für die Konfiguration einer vollständigen Disaster-Recovery bietet.
 
-```http
-https://$ACCOUNT.cloudant.com/_api/v2/backup/task?format=mapping
-```
-{:codeblock}
-
-_Beispiel einer Antwort auf eine Zuordnungsformatanforderung:_
-
-```json
-{
-    "backmeup": {
-        "username": "$ACCOUNT",
-        "task": "backup-0d0b0cf1b0ea42179f9c082ddc5e07cb",
-        "source_db": "backmeup",
-        "latest_completion": null
-    },
-    "backuptest": {
-        "username": "$ACCOUNT",
-        "task": "backup-d0ea6e8218074699a562af543db66615",
-        "source_db": "backuptest",
-        "latest_completion": "2016-01-17T05:57:44+00:00"
-    },
-    "taskdb": {
-        "username": "$ACCOUNT",
-        "task": "backup-24cd8359b94640be85b7d4071921e781",
-        "source_db": "taskdb",
-        "latest_completion": "2016-01-17T00:01:04+00:00"
-    }
-}
-```
-{:codeblock}
-
-### Festlegen von Sicherungstasks für bestimmte Datenbanken
-
-Der Parameter `databases` für die Anforderung `task` wird verwendet,
-um herauszufinden, welche Sicherungstasks einer bestimmten Datenbank zugeordnet sind. 
-
-In der Antwort sind die Sicherungstaskdetails für die Datenbank im Feld `source_db` angegeben.
-Die angegebene `task` kann in anderen Sicherungs-API-Aufrufen verwendet werden, z. B. zum [Auflisten von Datenbanken](#list-of-databases). 
-
-_Beispiel eines Befehls zum Suchen von Sicherungstasks für die Datenbanken `backuptest` und `taskdb`, unter Verwendung von HTTP:_
-
-```http
-GET /_api/v2/backup/task?databases=backuptest,taskdb HTTP/1.1
-```
-{:codeblock}
-
-_Beispiel eines Befehls zum Suchen von Sicherungstasks für die Datenbank `backuptest` und `taskdb`, über die Befehlszeile:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/task?databases=backuptest,taskdb \
-    -X GET
-```
-{:codeblock}
-
-_Beispiel einer Antwort auf die Suche nach Sicherungstasks für bestimmte Datenbanken:_
-
-```json
-{
-    "rows": [
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-d0ea6e8218074699a562af543db66615",
-            "source_db": "backuptest",
-            "latest_completion": "2016-01-17T05:57:44+00:00"
-        },
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-24cd8359b94640be85b7d4071921e781",
-            "source_db": "taskdb",
-            "latest_completion": "2016-01-17T00:01:04+00:00"
-        }
-    ]
-}
-```
-{:codeblock}
-
-### Liste von Datenbanken
-
-Die Anforderung `monitor` ruft eine Liste der Datenbanken ab, die von der Sicherungstask `$TASKNAME` erstellt wurde,
-die außerdem das Dokument `$DOCID` enthält. 
-
-Die Anforderung unterstützt ein optionales Argument: `include_docs`.
-Der Standardwert ist `false`.
-Wenn die Anforderung `monitor` auf `true` gesetzt ist,
-gibt sie den vollständigen Dokumentinhalt für jede Sicherungsdatenbank zurück, die das Dokument `$DOCID` enthält. 
-
-_Liste von Datenbanken abrufen, die von einer Sicherungstask erstellt werden und ein bestimmtes Dokument enthalten, unter Verwendung von HTTP:_
-
-```http
-GET /_api/v2/backup/monitor/$TASKNAME/$DOCID?include_docs=true HTTP/1.1
-```
-{:codeblock}
-
-_Liste von Datenbanken abrufen, die von einer Sicherungstask erstellt werden und ein bestimmtes Dokument enthalten, über die Befehlszeile:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/monitor/$TASKNAME/$DOCID?include_docs=true \
-    -X GET
-```
-{:codeblock}
-
-### Dokument wiederherstellen
-
-Der Aufruf `restore` ersetzt ein Dokument, angegeben durch `$DOCID`,
-in einer Quellendatenbank.
-Die Quellendatenbank ist durch `$TASKNAME` angegeben. `$TASKDATE` ist die Zeitmarke einer bestimmten Sicherung
-und gibt an, wann die Sicherung durchgeführt wurde.
-`$FREQUENCY` ist einer der folgenden vier Werte: 
--   `"daily"`
--   `"weekly"`
--    `"monthly"`
--   `"yearly"`
-
->   **Hinweis**: Dokumente müssen einen stabilen Zustand erreicht haben, bevor sie aus einer Sicherung wiederhergestellt werden. 
-    Mit anderen Worten:
-    Das Dokument sollte während der Wiederherstellung nicht geändert oder aktualisiert werden.
-
-_Beispiel einer Anforderung zum Wiederherstellen eines Dokuments, unter Verwendung von HTTP:_
-
-```http
-POST /_api/v2/backup/restore/document --data=@RESTORE.json HTTP/1.1
-Content-Type: application/json
-```
-{:codeblock}
-
-_Beispiel einer Anforderung zum Wiederherstellen der jüngsten Version eines Dokuments in einer bestimmten Sicherungsdatenbank, über die Befehlszeile:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/restore/document --data=@RESTORE.json \
-    -X POS \
-    -H "Content-Type: application/json" \
-    -d "$JSON"
-```
-{:codeblock}
-
-_Beispiel eines JSON-Dokuments, das anfordert, dass die jüngste Version eines
-Dokuments in einer bestimmten Sicherungsdatenbank wiederhergestellt wird:_
-
-```json
-{
-    "doc_id": $DOCID,
-    "task_name": $TASKNAME,
-    "task_date": $TASKDATE,
-    "frequency": $FREQUENCY
-}
-```
-{:codeblock}
-
-## Funktionsweise von Sicherungen mit inkrementeller Replikation
-
-Eine sehr einfache Form der Sicherung ist die [Replikation](../api/replication.html) der Datenbank in einer Sicherungsdatenbank mit Datum. 
-
-Diese Methode funktioniert und ist simpel. Aber wenn die Datenbank umfangreich ist und Sie Sicherungen für diverse Zeitpunkte benötigen,
-z. B. sieben tägliche und vier wöchentliche Sicherungen,
-führt das dazu, dass Sie in jeder neuen Sicherungsdatenbank eine vollständige Kopie aller Dokumente speichern.
-Dafür benötigen Sie sehr wahrscheinlich viel Speicherplatz. 
-
-Inkrementelle Sicherungen sind eine gute Lösung, um nur die Dokumente zu speichern, die sich seit der letzten Sicherung geändert haben. 
-
-Sie müssen zunächst eine Sicherung der gesamten Datenbank durchführen.
-Nach der ersten Sicherung führen Sie regelmäßig inkrementelle Sicherungen durch,
-bei denen nur gesichert wird, was sich in der Datenbank seit der letzten Sicherung geändert hat.
-Typischerweise finden diese inkrementellen Sicherungen einmal täglich statt, d. h. diese Replikation
-ist eine tägliche Sicherung. 
-
-Inkrementelle Sicherungen sichern nur das Delta zwischen Sicherungen.
-Die Quellendatenbank wird in regelmäßigen Intervallen in eine Zieldatenbank repliziert.
-Die Replikation verwendet Sequenzwerte, um die während des Intervallzeitraums geänderten Dokumente anzugeben. 
-
-Die Sicherungsoperation verwendet Replikation, um einen Prüfpunkt abzurufen und zu speichern.
-Dieser Prüfpunkt ist eine andere Datenbank mit einem internen Namen. 
-
-Der Replikationsprozess für eine Datenbank beginnt mit dem Abrufen des Werts des Parameters `since_seq`.
-Dieser Parameter gibt an, wo die letzte Replikation geendet hat. 
-
->   **Hinweis**: Definitionsgemäß inaktiviert die Verwendung der Option `since_seq` das normale Replikationsprüfpunktverfahren. Verwenden Sie `since_seq` deshalb nur mit großer Vorsicht.  
-
-Die folgenden Schritte beschreiben, wie inkrementelle Sicherungen erstellt werden: 
-
-1.  [Suchen Sie nach der ID des Prüfpunktdokuments für die letzte Replikation.](#find-the-id-of-the-checkpoint-document-for-the-last-replication)
-2.  [Rufen Sie den Wert `recorded_seq` ab.](#get-the-recorded_seq-value)
-3.  [Führen Sie eine inkrementelle Sicherung durch.](#run-an-incremental-backup)
-
-### ID des Prüfpunktdokuments für die letzte Replikation suchen
-
-Der Prüfpunkt-ID-Wert wird im Feld `_replication_id` des Replikationsdokuments in der Datenbank `_replicator` gespeichert. 
-
-_Beispiel einer Anforderung zum Abrufen der Prüfpunkt-ID der letzten inkrementellen Sicherung
-für eine Datenbank namens `original`, unter Verwendung von HTTP:_
-
-```http
-GET /_replicator/original HTTP/1.1
-```
-{:codeblock}
-
-_Beispiel einer Anforderung zum Abrufen der Prüfpunkt-ID der letzten inkrementellen Sicherung
-für eine Datenbank namens `original`, über die Befehlszeile:_
-
-```sh
-replication_id=$(curl "${url}/_replicator/original" | jq -r '._replication_id')
-```
-{:pre}
-
-### Wert `recorded_seq` abrufen
-
-Nachdem Sie die Prüfpunkt-ID herausgefunden haben,
-verwenden Sie sie, um den Wert `recorded_seq` aus dem ersten
-Element des Verlaufsarrays im Dokument `/_local/${replication_id}` in der ursprünglichen Datenbank abzurufen. 
-
-_Beispiel für das Abrufen des Werts `recorded_seq` aus einer Datenbank namens `original`, unter Verwendung von HTTP:_
-
-```http
-GET /original/_local/${replication_id} HTTP/1.1
-```
-{:codeblock}
-
-_Beispiel für das Abrufen des Werts `recorded_seq` aus einer Datenbank namens `original`, über die Befehlszeile:_
-
-```sh
-recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history[0].recorded_seq')
-```
-{:pre}
-
-### Inkrementelle Sicherung ausführen
-
-Jetzt kennen Sie die Prüfpunkt-ID und den Wert `recorded_seq`
-und können die neue inkrementelle Sicherung starten. 
-
-_Beispiel für das Starten einer neuen inkrementellen Sicherung in einer inkrementellen Datenbank namens `newbackup`, unter Verwendung von HTTP:_
-
-```http
-PUT /_replicator/newbackup HTTP/1.1
-Content-Type: application/json
-```
-{:codeblock}
-
-_Beispiel für das Starten einer neuen inkrementellen Sicherung in einer inkrementellen Datenbank namens `newbackup`, über die Befehlszeile:_
-
-```sh
-curl -X PUT "${url}/_replicator/newbackup" -H "${ct}" -d @newbackup.json
-```
-{:codeblock}
-
-_Beispiel einer JSON-Datei, die eine inkrementelle Sicherung angibt:_
-
-```json
-{
-    "_id": "newbackup",
-    "source": "${url}/original",
-    "target": "${url}/newbackup",
-    "since_seq": "${recorded_seq}"
-}
-```
-{:codeblock}
-
-## Bekannte Einschränkungen
-
->   **Hinweis**: Die tägliche inkrementelle Sicherung für Unternehmenskunden ist aktuell eine Beta-Funktionalität. 
-    Sie ist nicht standardmäßig aktiviert.
-
--   IBM Cloudant Backup und die zugehörigen Wiederherstellungsfunktionalitäten
-    basieren auf der zugrunde liegenden Replikationstechnologie.
-    Faktoren, die sich auf die Replikation auswirken oder sie gar unterbrechen,
-    wirken sich auch auf die Sicherungs- oder Wiederherstellungsprozesse aus
-    bzw. blockieren diese. 
--   Sicherungs- und Wiederherstellungsprozesse können für umfangreiche Datenbanken, z. B. 100 GB,
-    sehr viel Zeit in Anspruch nehmen.
-    Dasselbe gilt für die Erstsicherung, die bei einer umfangreichen
-    Datenbank mehrere Tage dauern kann.
-    Entsprechend kann der Wiederherstellungsprozess zwischen wenigen Stunden bis zu mehreren Tagen dauern,
-    auch hier abhängig von der Größe der Datenbank. 
--   Bei großen täglichen Sicherungen ist es möglich, dass der Sicherungsprozess
-    nicht innerhalb eines Tages (24 Stunden) abgeschlossen werden kann.
-    Der Sicherungsprozess wird üblicherweise bis zum Abschluss durchgeführt,
-    d. h. er würde inkrementelle Änderungen mehrerer Tage beinhalten. 
--   Es gibt derzeit keine Unterstützung für die Sicherung eines vollständigen Benutzerkontos. Stattdessen
-    müssen Sie alle Datenbanken in einem Benutzerkonto angeben, die für die Sicherung oder Wiederherstellung aktiviert werden sollen.
-    Aktuell gibt es ein Limit von 50 Datenbanken, die für die Sicherung in einem beliebigen Benutzerkonto
-    aktiviert werden können. 
--   Die IBM Cloudant Backup-Funktionalität unterstützt derzeit keine Sicherung oder
-    Wiederherstellung für [Entwurfsdokumente](../api/design_documents.html).
-    Wenn Sie Sicherungen von Entwurfsdokumenten benötigen,
-    müssen Sie diese in Ihrem bevorzugten Tool zur Quellcodeverwaltung verwalten. 
--   Aktuell müssen sich die Zieldatenbank für das Ausführen einer Datenbankwiederherstellung und
-    die ursprüngliche Quellendatenbank unterscheiden.
+[npmpackage]: https://www.npmjs.com/package/@cloudant/couchbackup
+[npmreadme]: https://github.com/cloudant/couchbackup/blob/master/README.md
+[cosclient]: https://developer.ibm.com/recipes/tutorials/cloud-object-storage-s3-api-intro/

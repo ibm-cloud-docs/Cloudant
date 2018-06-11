@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2017-11-06"
 
 ---
 
@@ -12,474 +12,241 @@ lastupdated: "2017-05-04"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# データのバックアップ
+<!-- Keep up-to-date with changes in backup-cookbook.md -->
 
->   **注**: このガイドでは、*非推奨の*日次増分バックアップ機能 (以前、Enterprise のお客様が要求した場合にのみ利用可能であった機能) について説明します。現在のバックアップのガイダンスについては、『[災害復旧およびバックアップ](disaster-recovery-and-backup.html)』のガイドを参照してください。
-この機能は、以下のとおりです。
--   デフォルトでは、有効になっていません。
--   Enterprise のお客様のみが使用可能であり、特別に要求する必要があります。
--   運用前に明示的に構成する必要があります。
--   [既知の制限](#known-limitations)を受けます。
--   [Cloudant Local ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window} には適用できません。
-詳しくは、[IBM Cloudant サポート・チーム ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window} にお問い合わせください。
+# {{site.data.keyword.cloudant_short_notm}} バックアップおよびリカバリー
 
->   **注**: 日次増分バックアップ機能は、[Cloudant Local ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window} に対しては適用できません。Cloudant Local でデータをバックアップするには、[複製](../api/replication.html)を使用して、データベースのコピーを作成します。
-高可用性を確保するために、{{site.data.keyword.cloudant}} は各文書の 3 つのコピーを作成し、クラスター内の異なる 3 つのサーバーに保管します。
-このプラクティスは、すべての Cloudant ユーザーに対してデフォルトです。
-データは、3 重に複製されていますが、それでもバックアップすることが重要です。
+このクックブックは、[{{site.data.keyword.cloudantfull}} 災害復旧ガイド](disaster-recovery-and-backup.html)の一部です。
+この主題について慣れておらず、災害復旧 (DR) および高可用性 (HA) 要件をサポートするために {{site.data.keyword.cloudantfull}} で提供されている他の機能にバックアップがどこで適合するかを理解する必要がある場合は、そのガイドから開始してください。
 
-バックアップはどうして重要なのでしょうか。
-一般的に、多くの形でデータへのアクセスが失われる可能性があります。
-例えば、ハリケーンでデータ・センターが破壊され、3 つすべてのノードがその場所にあった場合、データは失われます。
-異なる地理的位置にあるクラスター (専用またはマルチテナント) にデータを複製することで、災害時にデータが失われることを防止できます。
-ただし、欠陥のあるアプリケーションがデータベース内のデータを削除したり上書きしたりした場合、重複データは役立ちません。
+データは {{site.data.keyword.cloudant_short_notm}} クラスター内に冗長に保管されますが、追加のバックアップ対策を考慮することが重要です。
+例えば、冗長データ・ストレージでは、データの変更時におけるミスから保護されません。
 
-テスト済みの包括的なバックアップを用意しておくと、データが失われたり破損したりしたときにどのようにリストアすべきかという問題に安心して対応できます。
+## CouchBackup の導入
 
-Cloudant では、Enterprise のお客様は、日次増分バックアップを使用できます。
+{{site.data.keyword.cloudant_short_notm}} には、スナップショット・バックアップおよびリストア用にサポートされるツールが用意されています。
+このツールは、CouchBackup と呼ばれ、オープン・ソースです。
+これは `node.js` ライブラリーであり、[npm ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][npmpackage]{:new_window} でインストールできます。
 
-Enterprise のお客様でない場合、あるいは独自のバックアップ・メカニズムを作成する場合は、[複製を使用したバックアップの実行](disaster-recovery-and-backup.html)を検討してください。
+CouchBackup パッケージには、このライブラリーに加え、以下の 2 つのコマンド・ライン・ツールが含まれています。
 
->   **注**: 現在、Enterprise のお客様用の日次増分バックアップは、*ベータ* 機能です。
-デフォルトでは、有効になっていません。
-日次増分バックアップ (「差分」) では、文書を比較したり、簡単に単一の文書をリストアしたりすることができます。
-構成可能な定期的な間隔で、小さな日次の差分は、週次の差分にロールアップされます。
-同様に、週次の差分は月次の差分にロールアップされ、月次の差分は年次の差分にロールアップされます。
-差分をロールアップするこのプロセスは、リストアできる文書のバージョンの正確性と必要なストレージ・スペース量の間の実用的な妥協点です。
+1. `couchbackup`。データベースから JSON データをバックアップ・テキスト・ファイルにダンプします。
+2. `couchrestore`。バックアップ・テキスト・ファイルからデータをデータベースにリストアします。
 
-バックアップ機能により、個別の文書を手動でリストアできます。
-(例えば、災害復旧シナリオの一環として) データベース全体をリストアする場合は、サポート・チームに連絡して、使用可能な差分に従い、特定の日、週、年、または年にデータを復旧できます。
+<strong style="color:red;">警告</strong>: CouchBackup ツールには[制限](#limitations)があります。
 
-Cloudant がデータをバックアップする方法について詳しくは、このトピックの残りの部分で説明します。
-追加の支援が必要な場合、あるいはデータのバックアップの有効化を要求する場合は、Cloudant サポート・チーム ([support@cloudant.com ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window}) に連絡してください。
+## {{site.data.keyword.cloudant_short_notm}} データのバックアップ
 
->   **注**: Cloudant のバックアップ機能は、Enterprise のお客様のみが使用できます。
-
->   **注**: デフォルトでは、`_design` 文書は、バックアップされないため、増分バックアップ・データベースでは、索引は作成_されません_。`_design` 文書をバックアップする必要がある場合は、任意のソース制御ツールで該当文書を保持する必要があります。
-## 概念
-
-バックアップの概念について言及する際には、以下の用語を理解しておくと役立ちます。
-
-用語                 | 意味
----------------------|--------
-バックアップのクリーンアップ (Backup cleanup)       | 差分データベースがロールアップされた場合、構成可能な期間の経過後に差分データベースは削除される。これにより、細かい細分度でデータの保存とストレージのコストとのバランスを取ることができる。
-バックアップのロールアップ (Backup rollup)          | 日次のバックアップは、週次のロールアップ・データベースに結合される。これにより、日次の差分が粗い (細分度が低い) バックアップに結合される。同様に、週次のデータベースは、月次のデータベースにロールアップされ、月次のデータベースは年次のデータベースにロールアップされる。
-バックアップ実行 (Backup run)                      | バックアップ期間に、ソース・データベースは、そのバックアップ期間中に変更された文書を判別するためのシーケンス値を使用して複製される。完了すると、この複製は、日次バックアップと呼ばれる。
-ベースライン・バックアップ (Baseline backup)        | 差分データベースの比較基準となる文書のコレクション。
-日次バックアップ (Daily backup)                     | 「バックアップ実行 (Backup run)」を参照。
-日次の差分 (Daily delta)                            | 日次バックアップの別の名前。
-差分データベース (Delta database)                   | 特定の期間に変更された文書のコレクション (「差分」)。
-高い/低い細分度 (High/low granularity)              | これは、文書の変更の期間を指定できる精度を示す。高い細分度のロールアップは、変更の期間の時間尺度が短い (例えば、日次バックアップの場合の 1 日)。低い細分度のロールアップは、変更の期間の時間尺度が長い (例えば、年次バックアップの場合の 1 年)。
-増分バックアップ (Incremental backup)               | 最後のバックアップ以降にデータベースで変更された文書のコレクション。
-ロールアップ (Roll up)                              | 増分バックアップのコレクションを低い細分度のバックアップに集約すること。例えば、週の日次バックアップを単一の「週次」バックアップに集約する。
-
-## 増分バックアップ
-
-増分バックアップを有効にする際の最初のステップでは、データベース全体のフルバックアップを実行します。
-これは、後続の増分バックアップの「ベースライン」となります。
-
-最初の「ベースライン」バックアップの後、毎日、日時増分バックアップを実行します。
-この日次増分バックアップには、最後のバックアップ以降にデータベースで変更されたデータのみが含まれます。
-日次バックアップは、「日次の差分」です。
-
-データ・バックアップの有効化要求の一環として、バックアップを実行する時刻を指定できます。
-日次の差分は、毎日、指定された時刻に作成されます。
-
-## ロールアップ
-
-ロールアップでは、日次バックアップを週次ロールアップ・データベースに結合します。
-このロールアップ・データベースは、日次の差分を粗い (「細分度が低い」) タイム・スライスに結合します。
-週次データベースは、月次データベースにロールアップされ、月次データベースは年次データベースにロールアップされます。
-
-![ロールアップ階層の図](../images/rollups.png)
-
-バックアップの有効化を要求する際、保持する日次の差分の数を指定する必要があります。
-この数に達すると、最も古い日次の差分が、最新の週次データベースにロールアップされます。
-その後、週次データベースがロールアップされて月次データベースが作成され、その後も同様に進みます。
-
-差分データベースは、ロールアップされると、ストレージ・スペースを解放するために削除されます。
-
-## リストア
-
-データベース用のバックアップがある場合、そのデータベース内の個別の文書を表示できます。また、その文書に対して行われた変更を確認することもできます。
-特定の日付におけるバージョンに文書をリストアすることもできます (差分の細分度内で使用可能な場合)。
-
->   **注**: 文書は、バックアップからリストアする前に静的になっている必要があります。
-つまり、文書が継続的に変更や更新を受け取っていてはなりません。
-フルデータベース・リストアなどの複雑なリストアについては、[Cloudant サポート ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window} に支援を要求してください。
-
-## ダッシュボードの使用
-
-Enterprise のお客様は、Cloudant ダッシュボードを使用して、バックアップの状況および履歴を確認できます。
-
-以下のタスクを実行できます。
-
--   最後のバックアップの状況 (日時など) を表示する。
--   日時ごとのバックアップ文書バージョンのリストを表示する。
--   現行文書、および現行文書と任意のバックアップ・バージョンとの差異を表示する。
--   バックアップ・バージョンから文書をリストアする。
-
-### データベース・バックアップ状況の表示
-
-![データベース・バックアップ状況を示したダッシュボード・ビュー](../images/dashboarddatabasesbackup.png)
-
-Cloudant ダッシュボード内で「データベース」タブを選択すると、各データベースのバックアップ状況列を確認できます。
-
-### 文書バックアップ状況の表示
-
-![すべての文書のバックアップ状況を示したダッシュボード・ビュー](../images/dashboarddatabasesbackupbutton.png)
-
-データベース内で、特定の文書のバックアップ状況を表示できます。
-これを行うには、まず、文書のバックアップ・アイコン (![ダッシュボード・バックアップ・アイコン](../images/dashboarddatabasesbackupicon.png)) があるかどうかを確認します。
-これは、特定の文書がバックアップ・タスクに含まれているかどうかを示します。
-
-文書を選択すると、バックアップ・タブを確認できます。
-
-![文書バックアップ状況を示したダッシュボード・ビュー](../images/dashboarddatabasesbackupdocument.png)
-
-### 文書バックアップ・バージョン間の差異の表示とリストア
-
-![文書バックアップ状況を示したダッシュボード・ビュー](../images/dashboarddatabasesbackupdocumentdiff.png)
-
-文書のバックアップ・タブをクリックすると、文書の現行バージョンと任意の他のバックアップ・バージョンとの差異を確認できます。
-
-その文書の特定のバックアップ・バージョンをリストアすることに決めた場合、単にリストアするバックアップの日付を選択し、「リストア (Restore)」ボタンをクリックしてください。
-
->   **注**: 文書は、バックアップからリストアする前に、安定した状態でなければなりません。
-つまり、文書が継続的に変更や更新を受け取っていてはなりません。
-## API の使用
-
-Cloudant バックアップ機能を処理するために、多数の REST API 呼び出しが使用可能です。
-
-### タスクの構成
-
-`task` 呼び出しは、ユーザーのバックアップ・タスク構成を取得します。
-
-`format` パラメーターを使用して、応答で使用されるフォーマットを指定できます。
-
-_ユーザーのバックアップ・タスク構成を要求し、HTTP を使用して、リスト・フォーマット (デフォルト) で結果を返す例:_
-
-```http
-GET /_api/v2/backup/task HTTP/1.1
-```
-{:codeblock}
-
-_ユーザーのバックアップ・タスク構成を要求し、コマンド・ラインを使用して、リスト・フォーマット (デフォルト) で結果を返す例:_
+`couchbackup` ツールを使用して、シンプルなバックアップを実行できます。
+`animaldb` データベースを `backup.txt` という名前のテキスト・ファイルにバックアップするには、以下の例のようなコマンドを使用できます。
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/task \
-    -X GET
+couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 ```
 {:codeblock}
 
-_ユーザーのバックアップ・タスク構成を要求し、HTTP を使用して、マッピング・フォーマットで結果を返す例:_
+[npm readme ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][npmreadme]{:new_window} で、以下のものなど、他のオプションについて詳述されています。
 
-```http
-GET /_api/v2/backup/task?format=mapping HTTP/1.1
-```
-{:codeblock}
+* データベースの名前および URL を設定する環境変数。
+* ログ・ファイルを使用したバックアップの進行の記録。
+* 中断したバックアップを再開する機能。
+  **注**: このオプションは、中断したバックアップのログ・ファイルを使用する場合にのみ使用可能です。
+* `stdout` 出力のリダイレクトではなく、指定出力ファイルへのバックアップ・テキスト・ファイルの送信。
 
-_ユーザーのバックアップ・タスク構成を要求し、コマンド・ラインを使用して、マッピング・フォーマットで結果を返す例:_
+<strong style="color:red;">警告</strong>: CouchBackup ツールには[制限](#limitations)があります。
+
+## {{site.data.keyword.cloudant_short_notm}} データのリストア
+
+データをリストアするには、`couchrestore` ツールを使用します。
+`couchrestore` を使用して、バックアップ・ファイルを新規 {{site.data.keyword.cloudant_short_notm}} データベースにインポートします。
+次に、リストアしたデータをアプリケーションで使用しようとする前に、すべての索引を作成しておきます。
+
+例えば、前の例でバックアップしたデータをリストアするには、以下のようにします。
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/task?format=mapping \
-     -X GET
+couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 ```
 {:codeblock}
 
-デフォルトの応答フォーマットは、リストです。
-`...backup/task?format=list` パラメーターを使用して、このフォーマットを直接要求できます。
-応答には、ユーザーに対して定義されているバックアップ・タスクのシンプルなリストが含まれます。
+[npm readme ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][npmreadme]{:new_window} に、他のリストア・オプションの詳細が示されています。
 
-例えば、以下のいずれかのコマンドを使用して、リスト・フォーマットの応答を要求できます。
+<strong style="color:red;">警告</strong>: CouchBackup ツールには[制限](#limitations)があります。
 
-```http
-https://$ACCOUNT.cloudant.com/_api/v2/backup/task
+## 制限
 
-https://$ACCOUNT.cloudant.com/_api/v2/backup/task?format=list
+<strong style="color:red;">警告</strong>: CouchBackup ツールには、以下の制限があります。 
+
+* `_security` の設定は、ツールによってバックアップされません。
+* 添付ファイルは、ツールによってバックアップされません。
+* バックアップは、正確な「ポイント・イン・タイム」のスナップショットではありません。
+  これは、データベース内の文書がバッチで取得され、同じときに他のアプリケーションが文書を更新している可能性があるためです。
+  したがって、データベース内のデータは、最初のバッチが読み取られたときと最後のバッチが読み取られたときで異なる可能性があります。
+* 設計文書内に保持されている索引定義はバックアップされますが、索引の内容はバックアップされません。
+  この制限は、データのリストア時に索引を再作成する必要があることを意味します。
+  リストアするデータの量によっては、再作成に相当な時間がかかることがあります。
+
+## ツールの使用
+
+[npm ページ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][npmpackage]{:new_window} で、データのバックアップとリストア用コマンド・ライン・ツール使用の基本の詳細が示されています。
+以下の例では、特定のタスクにおけるツールの使用について説明することで、そうした詳細を実際に行う方法を示します。
+
+CouchBackup パッケージでは、そのコア機能を使用するために以下の 2 つの方法が用意されています。
+
+* コマンド・ライン・ツール。これを標準 UNIX コマンド・パイプラインに組み込むことができます。
+  多くのシナリオでは、`cron` と `couchbackup` アプリケーションのシンプルなシェル・スクリプトを組み合わせることで十分対応できます。
+* node.js から使用可能なライブラリー。
+  このライブラリーにより、バックアップする必要があるデータベースを動的に判別するなど、複雑なバックアップ・プロセスを作成してデプロイできます。
+
+コマンド・ライン・バックアップ・ツール、またはライブラリーとアプリケーション・コードを使用して、複雑な状況の一部としての {{site.data.keyword.cloudant_short_notm}} データベースからのバックアップを実現します。
+役に立つシナリオとして、`cron` を使用してバックアップをスケジュールし、自動的にデータを [クラウド・オブジェクト・ストレージ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window} にアップロードして長期保存することが考えられます。
+
+## コマンド・ライン・スクリプトの例
+
+以下の 2 つの要件が必要になることがよくあります。
+
+* 作成された[バックアップ・ファイルを zip する](#zipping-a-backup-file)ことによる、ディスク・スペースの節約。
+* [定期的間隔での](#hourly-or-daily-backups-using-cron)データベースのバックアップの自動作成
+
+### バックアップ・ファイルの圧縮
+
+`couchbackup` ツールでは、バックアップ・ファイルをディスクに直接書き込むか、バックアップを `stdout` にストリーミングすることができます。
+`stdout` にストリーミングする場合、データを変換してからディスクに書き込むことができます。
+この機能を使用して、ストリーム内のデータを圧縮します。
+
+```sh
+couchbackup --url "https://examples.cloudant.com" \
+  --db "animaldb" | gzip > backup.gz
 ```
 {:codeblock}
 
-_リスト・フォーマット要求後の応答の例:_
+この例では、`gzip` ツールでバックアップ・データを `stdin` から直接受け入れ、データを圧縮してから、`stdout` を介して出力します。
+結果として得られた圧縮データ・ストリームをリダイレクトして、`backup.gz` という名前のファイルに書き込みます。
 
-```json
-{
-    "rows": [
-          {
-              "username": "$ACCOUNT",
-            "task": "backup-0d0b0cf1b0ea42179f9c082ddc5e07cb",
-            "source_db": "backmeup",
-            "latest_completion": null
-        },
-        {
-            "username": "$ACCOUNT",
-        "task": "backup-d0ea6e8218074699a562af543db66615",
-        "source_db": "backuptest",
-        "latest_completion": "2016-01-17T05:57:44+00:00"
-    },
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-24cd8359b94640be85b7d4071921e781",
-            "source_db": "taskdb",
-            "latest_completion": "2016-01-17T00:01:04+00:00"
+データベースでアクセス資格情報を指定する必要がある場合は、`https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com` という形式の URL を使用します。例:
+
+```sh
+couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
+  --db "animaldb" | gzip > backup.gz
+```
+{:codeblock}
+
+データを他の方法で変換する場合にパイプラインを拡張するのは単純です。
+例えば、データをディスクに書き込む前に暗号化できます。
+あるいは、コマンド・ライン・ツールを使用して、データをオブジェクト・ストア・サービスに直接書き込むこともできます。
+
+### `cron` を使用した毎時または毎日のバックアップ
+
+定期的にデータのスナップショットを取得するように `cron` スケジューリング・ツールをセットアップできます。
+
+役に立つ開始点として、`couchbackup` で単一のバックアップをファイルに書き込みます。ファイル名には、現在の日時を含めます。例:
+
+```sh
+couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
+  --db "animaldb" > animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
+```
+{:codeblock}
+
+コマンドが正常に機能することを確認した後に、以下のように、cron ジョブに入力できます。
+
+1.  バックアップを実行するサーバーに CouchBackup ツールをインストールします。
+2.  バックアップを保管するフォルダーを作成します。
+3.  バックアップの頻度を記述する「cron 項目」を作成します。
+
+`crontab -e` コマンドを使用して、cron 項目を作成できます。
+「cron」のオプションの具体的な詳細については、ご使用のシステムの資料を参照してください。
+
+バックアップを毎日実行する cron 項目は、以下の例のようになります。
+
+```sh
+0 5 * * * couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" --db "animaldb" > /path/to/folder/animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
+```
+{:codeblock}
+
+この cron 項目では、バックアップを毎日 05:00 に作成します。
+必要に応じて、cron のパターンを変更して、バックアップを毎時、毎日、毎週、または毎月実行できます。
+
+## ライブラリーとしての CouchBackup の使用
+
+`couchbackup` および `couchrestore` コマンド・ライン・ツールは、独自の node.js アプリケーションで使用できる、ライブラリーのラッパーです。
+
+ライブラリーは、以下の例に示すような複雑なシナリオで役立ちます。
+
+* 1 つのタスクで複数のデータベースをバックアップする。
+  [`_all_dbs`](../api/database.html#get-databases) 呼び出しを使用してすべてのデータベースを指定してから、各データベースのバックアップを個別に実行することで、このようなバックアップを実行できます。
+* パイプラインが長い場合に、エラーのリスクが高まる。
+  ご使用のアプリケーションで CouchBackup ライブラリーを使用して、できる限り早くエラーを検出して解決できます。
+
+詳しくは、[npm ページ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][npmpackage]{:new_window} を参照してください。
+
+以下のスクリプト例では、`couchbackup` ライブラリーと {{site.data.keyword.IBM}} クラウド・オブジェクト・ストアの使用を組み合わせる方法を示します。
+このコードでは、クロス地域 S3 API を使用してデータベースをオブジェクト・ストアにバックアップする方法を示します。
+
+> **注**: このコードの前提条件として、[この説明 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][cosclient]{:new_window} に従って、{{site.data.keyword.IBM_notm}} クラウド・オブジェクト・ストレージ用に S3 クライアント・オブジェクトを初期化します。
+
+```javascript
+/*
+  ストリームを介して Cloudant から S3 バケットに直接バックアップ。
+  @param {string} couchHost - データベース・ルートの URL
+  @param {string} couchDatabase - バックアップ・ソース・データベース
+  @param {object} s3Client - S3 クライアント・オブジェクト
+  @param {string} s3Bucket - 宛先 S3 バケット (存在している必要あり)
+  @param {string} s3Key - 宛先オブジェクトの鍵 (存在してはならない)
+  @param {boolean} shallow - couchbackup の shallow モードを使用するかどうか
+  @returns {Promise}
+*/
+function backupToS3(sourceUrl, s3Client, s3Bucket, s3Key, shallow) {
+  return new Promise((resolve, reject) => {
+    debug('Setting up S3 upload to ${s3Bucket}/${s3Key}');
+
+    // A pass through stream that has couchbackup's output
+    // written to it and it then read by the S3 upload client.
+    // It has a 10MB internal buffer.
+    const streamToUpload = new stream.PassThrough({highWaterMark: 10485760});
+
+    // Set up S3 upload.
+    const params = {
+      Bucket: s3Bucket,
+      Key: s3Key,
+      Body: streamToUpload
+    };
+    s3Client.upload(params, function(err, data) {
+      debug('S3 upload done');
+      if (err) {
+        debug(err);
+        reject(new Error('S3 upload failed'));
+        return;
+      }
+      debug('S3 upload succeeded');
+      debug(data);
+      resolve();
+    }).httpUploadProgress = (progress) => {
+      debug('S3 upload progress: ${progress}');
+    };
+
+    debug('Starting streaming data from ${sourceUrl}');
+    couchbackup.backup(
+      sourceUrl,
+      streamToUpload,
+      (err, obj) => {
+        if (err) {
+          debug(err);
+          reject(new Error('CouchBackup failed with an error'));
+          return;
         }
-    ]
+        debug('Download from ${sourceUrl} complete.');
+        streamToUpload.end();  // must call end() to complete S3 upload.
+        // resolve() is called by the S3 upload
+      }
+    );
+  });
 }
 ```
 {:codeblock}
 
-より包括的な応答がマッピング・フォーマットで使用可能です。
-`...backup/task?format=mapping` パラメーターを使用して、このフォーマットを直接要求できます。
+## その他の災害復旧オプション
 
-例えば、以下のコマンドを使用して、マッピング・フォーマットの応答を要求できます。
+[{{site.data.keyword.cloudant_short_notm}} 災害復旧ガイド](disaster-recovery-and-backup.html)に戻り、完全な災害復旧セットアップのために {{site.data.keyword.cloudant_short_notm}} で提供されている他の機能を調べてください。
 
-```http
-https://$ACCOUNT.cloudant.com/_api/v2/backup/task?format=mapping
-```
-{:codeblock}
-
-_マッピング・フォーマット要求後の応答の例:_
-
-```json
-{
-    "backmeup": {
-        "username": "$ACCOUNT",
-        "task": "backup-0d0b0cf1b0ea42179f9c082ddc5e07cb",
-        "source_db": "backmeup",
-        "latest_completion": null
-    },
-    "backuptest": {
-        "username": "$ACCOUNT",
-        "task": "backup-d0ea6e8218074699a562af543db66615",
-        "source_db": "backuptest",
-        "latest_completion": "2016-01-17T05:57:44+00:00"
-    },
-    "taskdb": {
-        "username": "$ACCOUNT",
-        "task": "backup-24cd8359b94640be85b7d4071921e781",
-        "source_db": "taskdb",
-        "latest_completion": "2016-01-17T00:01:04+00:00"
-    }
-}
-```
-{:codeblock}
-
-### 特定のデータベースのバックアップ・タスクの判別
-
-`task` 要求の `databases` パラメーターは、特定のデータベースに関連付けられているバックアップ・タスクを検出するために使用します。
-
-応答は、`source_db` フィールドで識別されたデータベースのバックアップ・タスク詳細をリストします。
-識別された `task` は、[database listing](#list-of-databases) などの他のバックアップ API 呼び出しで使用できます。
-
-_HTTP を使用して `backuptest` および `taskdb` データベースのバックアップ・タスクを検出するコマンドの例:_
-
-```http
-GET /_api/v2/backup/task?databases=backuptest,taskdb HTTP/1.1
-```
-{:codeblock}
-
-_コマンド・ラインを使用して `backuptest` および `taskdb` データベースのバックアップ・タスクを検出するコマンドの例:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/task?databases=backuptest,taskdb \
-    -X GET
-```
-{:codeblock}
-
-_特定のデータベースのバックアップ・タスクの検出に対する応答の例:_
-
-```json
-{
-    "rows": [
-          {
-              "username": "$ACCOUNT",
-        "task": "backup-d0ea6e8218074699a562af543db66615",
-        "source_db": "backuptest",
-        "latest_completion": "2016-01-17T05:57:44+00:00"
-    },
-        {
-            "username": "$ACCOUNT",
-            "task": "backup-24cd8359b94640be85b7d4071921e781",
-            "source_db": "taskdb",
-            "latest_completion": "2016-01-17T00:01:04+00:00"
-        }
-    ]
-}
-```
-{:codeblock}
-
-### データベースのリスト
-
-`monitor` 要求は、文書 `$DOCID` も含まれた、バックアップ・タスク `$TASKNAME` によって作成されたデータベースのリストを取得します。
-
-この要求では、オプションの引数 `include_docs` がサポートされます。
-デフォルト値は `false` です。`true` に設定されている場合、`monitor` 要求は、`$DOCID` が含まれている各バックアップ・データベースの完全な文書の内容を返します。
-
-_HTTP を使用した、特定の文書が含まれている、バックアップ・タスクによって作成されたデータベースのリストの取得:_
-
-```http
-GET /_api/v2/backup/monitor/$TASKNAME/$DOCID?include_docs=true HTTP/1.1
-```
-{:codeblock}
-
-_コマンド・ラインを使用した、特定の文書が含まれている、バックアップ・タスクによって作成されたデータベースのリストの取得:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/monitor/$TASKNAME/$DOCID?include_docs=true \
-    -X GET
-```
-{:codeblock}
-
-### 文書のリストア
-
-`restore` 呼び出しは、ソース・データベースからの、`$DOCID` で指定された文書を置き換えます。
-ソース・データベースは、`$TASKNAME` で指定されます。
-`$TASKDATE` は、特定のバックアップのタイム・スタンプであり、いつバックアップが実行されたのかを示します。
-`$FREQUENCY` は、以下の 4 つの値のいずれかです。
--   `"daily"`
--   `"weekly"`
--    `"monthly"`
--   `"yearly"`
-
->   **注**: 文書は、バックアップからリストアする前に、安定した状態でなければなりません。
-つまり、リストアの進行中に文書が変更や更新を受け取っていてはなりません。
-_HTTP を使用した文書のリストア要求の例:_
-
-```http
-POST /_api/v2/backup/restore/document --data=@RESTORE.json HTTP/1.1
-Content-Type: application/json
-```
-{:codeblock}
-
-_コマンド・ラインを使用した、特定のバックアップ・データベースで保持されている最新バージョンからの文書のリストア要求の例:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/backup/restore/document --data=@RESTORE.json \
-    -X POS \
-    -H "Content-Type: application/json" \
-    -d "$JSON"
-```
-{:codeblock}
-
-_特定のバックアップ・データベースに保持されている最新のバージョンから文書をリストアするように要求する JSON 文書の例:_
-
-```json
-{
-    "doc_id": $DOCID,
-    "task_name": $TASKNAME,
-    "task_date": $TASKDATE,
-    "frequency": $FREQUENCY
-}
-```
-{:codeblock}
-
-## 増分複製を使用したバックアップの仕組み
-
-バックアップの非常にシンプルな形式では、データベースを日付付きバックアップ・データベースに[複製](../api/replication.html)します。
-
-この方法は効果的で、実行するのが簡単です。
-ただし、データベースが大規模で、複数のポイント・イン・タイムのバックアップ (例えば、日次バックアップが 7 つ、週次バックアップが 4 つ) が必要な場合、各新規バックアップ・データベースにすべての文書の完全なコピーを保管することになります。
-これには恐らく、大量のストレージ・スペースが必要になります。
-
-最後のバックアップ以降に変更された文書のみを保管するのには、増分バックアップが優れたソリューションです。
-
-最初、データベース全体のバックアップを実行します。
-最初のバックアップ以降は、定期的な増分バックアップを実行して、最後のバックアップ以降にデータベースで変更された内容のみをバックアップします。
-通常、この増分バックアップは、1 日に 1 回行われるため、この複製は日次バックアップです。
-
-増分バックアップでは、バックアップ間の差分のみが保存されます。
-定期的な間隔で、ソース・データベースはターゲット・データベースに複製されます。
-複製では、シーケンス値を使用して、各間隔期間に変更された文書を識別します。
-
-バックアップ操作は複製を使用して、チェックポイントを取得および保管します。
-このチェックポイントは、内部名を持つ別のデータベースです。
-
-データベースの複製プロセスは、`since_seq` パラメーターの値を検出することから開始します。
-このパラメーターは、最後の複製がどこで終了したのかを示します。
-
->   **注**: 本質的に、`since_seq` オプションを使用すると、通常の複製チェックポイント機能が無効になります。`since_seq` を使用する際には、必ず注意してください。 
-
-以下のステップでは、増分バックアップがどのように作成されるのかの概要を示します。
-
-1.  [最後の複製のチェックポイント文書の ID を検出する。](#find-the-id-of-the-checkpoint-document-for-the-last-replication)
-2.  [`recorded_seq` の値を取得する。](#get-the-recorded_seq-value)
-3.  [増分バックアップを実行する。](#run-an-incremental-backup)
-
-### 最後の複製のチェックポイント文書の ID を検出する
-
-チェックポイント ID 値は、`_replicator` データベース内の複製文書の `_replication_id` フィールドに保管されます。
-
-_HTTP を使用した、`original` という名前のデータベースの最後の増分バックアップのチェックポイント ID を取得する要求の例:_
-
-```http
-GET /_replicator/original HTTP/1.1
-```
-{:codeblock}
-
-_コマンド・ラインを使用した、`original` という名前のデータベースの最後の増分バックアップのチェックポイント ID を取得する要求の例:_
-
-```sh
-replication_id=$(curl "${url}/_replicator/original" | jq -r '._replication_id')
-```
-{:pre}
-
-### `recorded_seq` の値を取得する
-
-チェックポイント ID を取得した後に、その ID を使用して、original データベース内の `/_local/${replication_id}` 文書にある history 配列の最初の要素から `recorded_seq` の値を取得します。
-
-_HTTP を使用した、`original` という名前のデータベースから `recorded_seq` の値を取得する例:_
-
-```http
-GET /original/_local/${replication_id} HTTP/1.1
-```
-{:codeblock}
-
-_コマンド・ラインを使用した、`original` という名前のデータベースから `recorded_seq` の値を取得する例:_
-
-```sh
-recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history[0].recorded_seq')
-```
-{:pre}
-
-### 増分バックアップを実行する
-
-チェックポイント ID と `recorded_seq` の取得が終わったので、新規増分バックアップを開始できます。
-
-_HTTP を使用した、`newbackup` という名前の増分データベースへの新規増分バックアップを開始する例:_
-
-```http
-PUT /_replicator/newbackup HTTP/1.1
-Content-Type: application/json
-```
-{:codeblock}
-
-_コマンド・ラインを使用した、`newbackup` という名前の増分データベースへの新規増分バックアップを開始する例:_
-
-```sh
-curl -X PUT "${url}/_replicator/newbackup" -H "${ct}" -d @newbackup.json
-```
-{:codeblock}
-
-_増分バックアップを指定する JSON ファイルの例:_
-
-```json
-{
-    "_id": "newbackup",
-    "source": "${url}/original",
-    "target": "${url}/newbackup",
-    "since_seq": "${recorded_seq}"
-}
-```
-{:codeblock}
-
-## 既知の制限
-
->   **注**: 現在、Enterprise のお客様用の日次増分バックアップは、ベータ機能です。
-デフォルトでは、有効になっていません。
--   IBM Cloudant バックアップおよび関連リストア機能は、基盤の複製テクノロジーに基づいています。複製に影響する (さらには複製を妨害する) 要因が、バックアップまたはリストア・プロセスに影響する (さらにはプロセスを停止する) ことがあります。
--   大規模データベース (例えば、サイズが 100 GB を超えるものなど) では、バックアップおよびリストア・プロセスに長時間がかかることがあります。これは、最初のバックアップに当てはまり、大規模データベースでは完了するまでに数日かかることがあります。同様に、リストア・プロセスの場合も、データベースのサイズに応じて、数時間から数日かかることがあります。
--   大規模な日次バックアップの場合、バックアップ・プロセスが 1 日 (24 時間) で完了できない可能性があります。バックアップ・プロセスは通常、完了するまで実行されるため、1 日を超える増分的変更が含まれることになります。
--   現在、完全なユーザー・アカウントをバックアップするためのサポートはありません。代わりに、バックアップまたはリストアで有効にするユーザー・アカウント内の各データベースを指定する必要があります。現在、任意の 1 つのユーザー・アカウント内でバックアップを有効にできるデータベース数は 50 までという制限があります。
--   現在、IBM Cloudant バックアップ機能では、[設計文書](../api/design_documents.html)のバックアップおよびリストアはサポートされません。設計文書をバックアップする必要がある場合は、任意のソース制御ツールで該当文書を保持する必要があります。
-
--   現在、データベース・リストアを実行するためのターゲット・データベースは、元のソース・データベースとは異なるものでなければなりません。
+[npmpackage]: https://www.npmjs.com/package/@cloudant/couchbackup
+[npmreadme]: https://github.com/cloudant/couchbackup/blob/master/README.md
+[cosclient]: https://developer.ibm.com/recipes/tutorials/cloud-object-storage-s3-api-intro/

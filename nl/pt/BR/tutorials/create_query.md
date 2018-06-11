@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-07-03"
+  years: 2017, 2018
+lastupdated: "2018-03-02"
 
 ---
 {:new_window: target="_blank"}
@@ -11,14 +11,14 @@ lastupdated: "2017-07-03"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Criando uma consulta do Cloudant
+# Criando um {{site.data.keyword.cloudant_short_notm}} Query
 
 Este tutorial demonstra como criar um banco de dados, preenchê-lo
 com documentos, criar um índice e usar o índice para consultar o banco de dados.
 
-São fornecidos exercícios para a ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
-e o ![Ícone de painel](../images/DashboardIcon.png) _Painel do Cloudant_. Os
-exercícios do Painel do Cloudant fornecem um exemplo visual de cada tarefa. É possível seguir os links
+Exercícios para a ![Ícone de linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
+e o ![Ícone de painel](../images/DashboardIcon.png) _Painel do {{site.data.keyword.Bluemix_notm}}_ são fornecidos. Os
+exercícios do Painel do {{site.data.keyword.Bluemix}} fornecem um exemplo visual de cada tarefa. É possível seguir os links
 ao longo do tutorial para obter mais informações.
 
 Para começar, você cria o banco de dados `query-demo` e alguns documentos que
@@ -28,13 +28,13 @@ contêm os dados para esses exercícios.
 
 Antes de iniciar, siga estas etapas para se preparar para o tutorial:
 
-1.  [Crie uma conta do Bluemix ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/registration/){:new_window}.
+1.  [Crie uma conta do {{site.data.keyword.Bluemix}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Efetue login no
-[Painel do Cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Criar uma instância do Cloudant no Bluemix](create_service.html#creating-a-cloudant-instance-on-bluemix).
+  [Painel do {{site.data.keyword.Bluemix_notm}}![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+3.  [Crie uma instância do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-cloudant-instance-on-bluemix).
 4.  (Opcional) [Crie um alias acurl](../guides/acurl.html#authorized-curl-acurl-) para facilitar e acelerar a execução de comandos por meio da linha de comandos.
-5.  Substitua a variável `$ACCOUNT` nos comandos incluídos nos exercícios com o nome do usuário usado para efetuar login no Painel do Cloudant.
-Se você decidir não configurar o `acurl`,
+5.  Substitua a variável `$ACCOUNT` nos comandos que são incluídos nos exercícios com o nome do usuário que você usa para efetuar login no Painel do {{site.data.keyword.cloudant_short_notm}}.
+  Se você decidir não configurar o `acurl`,
 use a URL a seguir, em vez daquela fornecida nos exercícios:
   ``` sh
   curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
@@ -48,8 +48,8 @@ Nesta seção, você criará o [banco de dados](../api/database.html#create) `qu
 
 > **Nota:** neste tutorial,
 usamos o alias `acurl`, em vez do comando `curl`.
-O alias `acurl` é criado usando as etapas descritas [aqui](../guides/acurl.html#authorized-curl-acurl-).
-Se você preferir usar o comando `curl`
+  O alias `acurl` é criado usando as etapas descritas [aqui](../guides/acurl.html#authorized-curl-acurl-).
+  Se você preferir usar o comando `curl`
 ou outro método para chamar terminais de API,
 substitua seu comando no tutorial
 junto aos parâmetros requeridos por seu comando,
@@ -70,9 +70,9 @@ como username e password.
   ```
   {:codeblock}
 
-![Ícone de Painel](../images/DashboardIcon.png) _Painel do Cloudant_
+![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
 
-1.  Abra a instância de serviço do Cloudant que você criou.
+1.  Abra a instância de serviço do {{site.data.keyword.cloudant_short_notm}} que você criou.
 2.  Selecione a guia Bancos de dados:
 
   ![Guia bancos de dados](../images/tabs.png)
@@ -173,7 +173,7 @@ estão incluídos em um arquivo é identificado pelo nome fornecido.
   ```
   {:codeblock}
 
-![Ícone de Painel](../images/DashboardIcon.png) _Painel do Cloudant_
+![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
 
 1.  Clique em **`+`** e selecione **Novo doc**. A janela 'Novo documento' é aberta.
 2.  Para criar um documento, copie o texto de amostra a seguir e substitua o texto existente no novo documento.
@@ -254,21 +254,21 @@ estão incluídos em um arquivo é identificado pelo nome fornecido.
 
 ## Criando um índice
 
-O Cloudant fornece visualizações e índices para consultar o banco de dados. Uma visualização executa uma consulta que é salva no banco de dados e
+O {{site.data.keyword.cloudant_short_notm}} fornece visualizações e índices para consultar o banco de dados. Uma visualização executa uma consulta que é salva no banco de dados e
 o resultado é chamado de conjunto de resultados. Ao enviar uma consulta para a visualização, sua consulta procura
 o conjunto de resultados. Um índice é uma maneira de estruturar dados que melhoram o tempo de recuperação.
 
-É possível usar o índice primário fornecido com o Cloudant ou índices secundários, como visualizações
-(MapReduce), índices de procura, consultas do Cloudant Geoespatial ou Cloudant Query, conforme descrito
+É possível usar o índice primário fornecido com o {{site.data.keyword.cloudant_short_notm}} ou os índices secundários como visualizações
+(MapReduce), índices de procura, consultas geoespaciais do {{site.data.keyword.cloudant_short_notm}} ou {{site.data.keyword.cloudant_short_notm}} Query conforme descrito
 na lista a seguir:
 
 *	Índice primário - consultar um documento ou uma lista de documentos por ID.  
 *	[Visualização](../api/creating_views.html#views-mapreduce-) – procurar informações no banco de dados que correspondem aos critérios de procura especificados, como contagens, somas, médias e outras funções matemáticas. Os critérios que podem ser procurados são especificados na definição da visualização. As visualizações usam o paradigma MapReduce.
 *	[Índice de procura](../api/search.html#search) – procure um ou mais campos, grandes quantias de texto ou use curingas, procura difusa ou máscaras com a [Sintaxe do analisador sintático de consulta Lucene ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
-*	[Cloudant Geoespatial](../api/cloudant-geo.html#cloudant-geospatial) – procure documentos com base em um relacionamento espacial.
-*	[Cloudant Query](../api/cloudant_query.html#query) – use a sintaxe de consulta no estilo Mongo para procurar documentos usando operadores lógicos. O Cloudant Query é uma combinação de uma visualização e um índice de procura. Usamos o Cloudant Query neste tutorial.
+*	[{{site.data.keyword.cloudant_short_notm}} Geospatial](../api/cloudant-geo.html#cloudant-geospatial) – procure documentos com base em um relacionamento espacial.
+*	[{{site.data.keyword.cloudant_short_notm}} Query](../api/cloudant_query.html#query) – use a sintaxe da consulta de estilo Mongo para procurar documentos usando operadores locais. O {{site.data.keyword.cloudant_short_notm}} Query é uma combinação de uma visualização e um índice de procura. Usamos o {{site.data.keyword.cloudant_short_notm}} Query neste tutorial.
 
-> **Nota:** se não houver nenhum índice definido disponível que corresponda à consulta especificada, o Cloudant
+> **Nota:** se não houver um índice definido disponível que corresponda à consulta especificada, o {{site.data.keyword.cloudant_short_notm}}
 > usará o índice `_all_docs`.
 
 
@@ -276,17 +276,18 @@ na lista a seguir:
 
 1.  Copie os dados JSON de amostra a seguir em um arquivo chamado `query-index.dat`.
   ```json
-  {
-    "index": {
-      "fields": [
-        "lastname",
-        "location",
-        "age"
-      ]
-    },
-    "name": "query-index",
-    "type": "json"
-  }
+{
+	"index": {
+		"fields": [
+			"age", 			"lastname"
+		], 		"partial_filter_selector": {
+			"age": {
+				"$gte": 30
+			}, "lastname": {
+				"$eq": "Greene" }
+		}
+	}, 		"ddoc": "partial-index", 		"type": "json"
+}
   ```
   {:codeblock}
 
@@ -308,22 +309,23 @@ na lista a seguir:
 
 
 
-![Ícone de Painel](../images/DashboardIcon.png) _Painel do Cloudant_
+![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
 
 1.  Clique em **`+` > Índices de consulta** na guia **Todos os documentos** ou **Documentos de design**.
 2.  Cole os dados JSON de amostra a seguir no campo **Índice**:
   ```json
-  {
-    "index": {
-      "fields": [
-        "lastname",  
-        "location",
-        "age"
-      ]
-    },
-    "name": "query-index",
-    "type": "json"
-  }
+{
+	"index": {
+		"fields": [
+			"age", 			"lastname"
+		], 		"partial_filter_selector": {
+			"age": {
+				"$gte": 30
+			}, "lastname": {
+				"$eq": "Greene" }
+		}
+	}, 		"ddoc": "partial-index", 		"type": "json"
+}
   ```
   {:codeblock}
 
@@ -335,7 +337,7 @@ na lista a seguir:
 
 ## Criando uma consulta
 
-As consultas permitem extrair seus dados do Cloudant. Uma
+As consultas permitem extrair seus dados do {{site.data.keyword.cloudant_short_notm}}. Uma
 [consulta](../api/cloudant_query.html#query) bem escrita pode limitar sua procura e
 seus resultados para incluir apenas os dados desejados.
 
@@ -348,7 +350,7 @@ Para qualquer coisa, exceto a consulta mais simples, inclua o JSON em um arquivo
 
 ### Executando uma consulta simples
 
-Este exemplo demonstra como o Cloudant Query usa o `query-index` para localizar o
+Esse exemplo demonstra como o {{site.data.keyword.cloudant_short_notm}} Query usa o `query-index` para localizar o
 `lastname` e filtra os resultados na memória para localizar o `firstaname`.   
 
 ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
@@ -387,10 +389,10 @@ Este exemplo demonstra como o Cloudant Query usa o `query-index` para localizar 
   ```
   {:codeblock}
 
-![Ícone de Painel](../images/DashboardIcon.png) _Painel do Cloudant_
+![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
 
 1.  Clique na guia **Consulta**.
-2.  Copie e cole o JSON de amostra a seguir na janela do Cloudant Query:
+2.  Copie e cole a JSON de amostra a seguir na janela do {{site.data.keyword.cloudant_short_notm}} Query:
   ```json
    {
       "selector": {
@@ -500,10 +502,10 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
   ```
   {:codeblock}
 
-![Ícone de Painel](../images/DashboardIcon.png) _Painel do Cloudant_
+![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
 
 1.  Clique na guia **Consulta**.
-2.  Copie e cole o JSON de amostra a seguir na janela do Cloudant Query:
+2.  Copie e cole a JSON de amostra a seguir na janela do {{site.data.keyword.cloudant_short_notm}} Query:
   ```json
   {
     "selector": {
@@ -542,44 +544,51 @@ Usamos uma expressão selector como o exemplo a seguir:
 ```json
 {
   "selector": {
-    "lastname": {
-      "$eq": "Greene"
-    },
     "age": {
       "$gt": 30
-    }
+    }, 			"lastname": {
+      "$eq": "Greene" 			}
   }
 }
-```   
+``` 
+{:codeblock}
+
+Os resultados são classificados pelo sobrenome em ordem crescente com base nos
+valores no parâmetro `sort`.
+
+```json
+    "sort": [
+      {
+        "age": "asc"   
+      },        
+      {
+        "lastname": "asc" }
+    ] 
+```  
 {:codeblock}
 
 ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
 
 1.  Copie o JSON de amostra a seguir em um arquivo chamado `query3.dat`.
   ```json
-  {
-    "selector": {
-      "lastname": {
-        "$eq": "Greene"
-      },
+{
+   "selector": {
       "age": {
-        "$gt": 30
-      }
-    },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
-    ],
+         "$gt": 30
+      }, 			"lastname": {
+         "$eq": "Greene" 			}
+   },
+    "fields": [
+      "age", "firstname"
+   ],
     "sort": [
       {
-        "lastname": "asc"
+         "age": "asc"
       },
       {
-        "firstname": "asc"
-      }
-    ]  
-  }
+         "lastname": "asc" }
+   ], "use_index": "_design/partial-index"
+}
   ```
   {:codeblock}
 
@@ -591,51 +600,38 @@ Usamos uma expressão selector como o exemplo a seguir:
 
 3.  Revise os resultados da consulta:
   ```json
-  {
-    "docs": [
-      {
-        "firstname": "Anna",
-        "lastname": "Greene",
-        "age": 44
-      },
-      {
-        "firstname": "Greg",
-        "lastname": "Greene",
-        "age": 35
-      }
-    ]
-  }
+{"docs":[
+     {"age":35,"firstname":"Greg"},
+     {"age":44,"firstname":"Anna"}
+   ],
+"bookmark": "g1AAAABCeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmFwOSHWiDkiSzb0oNTUvNSsLAEsmEeQ"
+}
   ```
   {:codeblock}
 
-![Ícone de Painel](../images/DashboardIcon.png) _Painel do Cloudant_
+![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
 
 1.  Clique na guia **Consulta**.
-2.  Copie e cole o JSON de amostra a seguir na janela do Cloudant Query:
+2.  Copie e cole a JSON de amostra a seguir na janela do {{site.data.keyword.cloudant_short_notm}} Query:
   ```json
-  {
-    "selector": {
-      "lastname": {
-        "$eq": "Greene"
-      },
+{
+   "selector": {
       "age": {
-        "$gt": 30
-      }
-    },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
-    ],
+         "$gt": 30
+      }, 			"lastname": {
+         "$eq": "Greene" 			}
+   },
+    "fields": [
+      "age", "firstname"
+   ],
     "sort": [
       {
-        "lastname": "asc"
+         "age": "asc"
       },
       {
-        "firstname": "asc"
-      }
-    ]   
-  }
+         "lastname": "asc" }
+   ], "use_index": "_design/partial-index"
+}
   ```
   {:codeblock}
 
@@ -645,4 +641,4 @@ Usamos uma expressão selector como o exemplo a seguir:
 
   ![Resultados da consulta 3](../images/dashboard_query3_results.png)
 
-Para obter mais informações sobre o Cloudant, veja a [Documentação do Cloudant](../cloudant.html#overview).
+Para obter mais informações sobre o {{site.data.keyword.cloudant_short_notm}}, veja a [Documentação do {{site.data.keyword.cloudant_short_notm}}](../cloudant.html#overview).

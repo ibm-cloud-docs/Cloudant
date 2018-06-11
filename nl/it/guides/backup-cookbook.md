@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-11"
+lastupdated: "2017-10-27"
 
 ---
 
@@ -13,8 +13,9 @@ lastupdated: "2017-07-11"
 {:pre: .pre}
 
 <!-- Acrolinx: 2017-05-23 -->
+<!-- Update backup-guide.md with with any changes. -->
 
-# Backup e ripristino Cloudant
+# Backup e ripristino {{site.data.keyword.cloudant_short_notm}}
 
 Questo cookbook fa parte della [guida al ripristino di emergenza di {{site.data.keyword.cloudantfull}}](disaster-recovery-and-backup.html).
 Vale la pena iniziare da qui se sei alle prime armi e vuoi comprendere dove si colloca il
@@ -42,7 +43,7 @@ il pacchetto CouchBackup contiene due strumenti della riga di comando:
 
 <strong style="color:red;">Avvertenza.</strong> Gli strumenti CouchBackup hanno delle [limitazioni](#limitations).
 
-## Backup dei tuoi dati Cloudant
+## Backup dei tuoi dati {{site.data.keyword.cloudant_short_notm}}
 
 Puoi eseguire un semplice backup utilizzando lo strumento `couchbackup`.
 Per eseguire il backup di un database `animaldb` in un file di testo chiamato `backup.txt`,
@@ -65,7 +66,7 @@ tra cui:
 
 <strong style="color:red;">Avvertenza.</strong> Gli strumenti CouchBackup hanno delle [limitazioni](#limitations).
 
-## Ripristino dei tuoi dati Cloudant
+## Ripristino dei tuoi dati {{site.data.keyword.cloudant_short_notm}}
 
 Per ripristinare i tuoi dati,
 utilizza lo strumento `couchrestore`.

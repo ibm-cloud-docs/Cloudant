@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-05-22"
+lastupdated: "2017-11-02"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-05-22"
 
 <!-- Acrolinx: 2017-05-22 -->
 
-# クロス地域災害復旧のための Cloudant の構成
+# クロス地域災害復旧のための {{site.data.keyword.cloudant_short_notm}} の構成
 
 [{{site.data.keyword.cloudant_short_notm}} 災害復旧ガイド](disaster-recovery-and-backup.html)では、災害復旧を有効にする 1 つの方法として、{{site.data.keyword.cloudantfull}} 複製を使用して地域間での冗長性を作成する方法があると説明しています。
 
@@ -29,11 +29,13 @@ lastupdated: "2017-05-22"
 * 各データ・センター内で、{{site.data.keyword.cloudant_short_notm}} は、3 つのサーバーで 3 重にデータを保管することで既に高可用性を備えています。
 * 複製は、アカウント・レベルではなくデータベースで行われ、明示的に構成する必要があります。
 * {{site.data.keyword.cloudant_short_notm}} は、複製の待ち時間についてサービス・レベル・アグリーメント (SLA) も確実性も提供していません。
-* {{site.data.keyword.cloudant_short_notm}} は、個別の複製をモニターしません。失敗した複製を検出して再始動する独自の対策を使用することをお勧めします。
+* {{site.data.keyword.cloudant_short_notm}} は、個別の複製をモニターしません。
+  失敗した複製を検出して再始動する独自の対策を使用することをお勧めします。
 
 ## 始める前に
 
-> **注**: アクティブ/アクティブ・デプロイメントでは、競合を管理するための方策が実装されている必要があります。そのため、必ず、このアーキテクチャーについて検討する前に、[複製](../api/replication.html)と[競合](mvcc.html#distributed-databases-and-conflicts)の仕組みについて理解しておいてください。
+> **注**: アクティブ/アクティブ・デプロイメントでは、競合を管理するための方策が実装されている必要があります。
+  そのため、必ず、このアーキテクチャーについて検討する前に、[複製](../api/replication.html)と[競合](mvcc.html#distributed-databases-and-conflicts)の仕組みについて理解しておいてください。
 
 競合を効果的に処理するためにデータをモデル化する方法について支援が必要な場合は、[{{site.data.keyword.cloudant_short_notm}} サポート ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window} にお問い合わせください。
 
@@ -96,7 +98,8 @@ $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-d
 ```
 {:codeblock}
 
-> **注**: パスワードを慎重にメモしてください。後からパスワードを取得することはできません。
+> **注**: パスワードを慎重にメモしてください。
+  後からパスワードを取得することはできません。
 
 ### ステップ 3: アクセス許可を付与する
 
@@ -166,9 +169,9 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 - 負荷を複数のアカウントで分散できる。
 - 待ち時間が短い (必ずしも地理的に最も近いわけではありません) アカウントにアクセスするようにアプリケーションを構成できる。
 
-アプリケーションは、「最も近い」Cloudant アカウントと通信するようにセットアップできます。
+アプリケーションは、「最も近い」{{site.data.keyword.cloudant_short_notm}} アカウントと通信するようにセットアップできます。
 DC1 でホストされているアプリケーションの場合、{{site.data.keyword.cloudant_short_notm}} URL を `"https://myaccount-dc1.cloudant.com/mydb"` に設定するのが適切です。
-同様に、DC2 でホストされているアプリケーションの場合、その Cloudant URL を `"https://myaccount-dc2.cloudant.com/mydb"` に設定することになります。
+同様に、DC2 でホストされているアプリケーションの場合、その {{site.data.keyword.cloudant_short_notm}} URL を `"https://myaccount-dc2.cloudant.com/mydb"` に設定することになります。
 
 #### アクティブ/パッシブ
 
@@ -188,10 +191,12 @@ DC1 でホストされているアプリケーションの場合、{{site.data.k
 
 ### ステップ 7: 次のステップ
 
-* データベース間の[複製](../api/advanced_replication.html)をモニターすることを検討します。データを使用して、構成をさらに最適化できるかどうかを判別します。
-*	設計文書および索引をデプロイおよび更新する方法を検討します。これらのタスクを自動化すると、効率化する場合があります。
+* データベース間の[複製](../api/advanced_replication.html)をモニターすることを検討します。
+  データを使用して、構成をさらに最適化できるかどうかを判別します。
+*	設計文書および索引をデプロイおよび更新する方法を検討します。
+  これらのタスクを自動化すると、効率化する場合があります。
 
-## Cloudant 地域間でフェイルオーバーする
+## {{site.data.keyword.cloudant_short_notm}} 地域間でフェイルオーバーする
 
 通常、地域またはデータ・センター間でのフェイルオーバーを管理するプロセスは、アプリケーション・スタック内の高いところで、例えば、アプリケーション・サーバーのフェイルオーバーの変更を構成したり、負荷のバランスを取ったりすることで処理されます。
 
@@ -201,8 +206,12 @@ DC1 でホストされているアプリケーションの場合、{{site.data.k
 
 ただし、フェイルオーバーを管理する機能が必要であると決定した場合、以下のようなオプションが考えられます。
 
-* 独自の [HTTP プロキシーを {{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/blog/green-man-gaming-cross-cloud-nginx-config/){:new_window} の前に配置します。{{site.data.keyword.cloudant_short_notm}} インスタンスではなく、プロキシーと通信するようにアプリケーションを構成します。この構成は、アプリケーション設定を変更するのではなく、プロキシー構成を変更することで、アプリケーションによって使用される {{site.data.keyword.cloudant_short_notm}} インスタンスを変更するタスクを処理できることを意味します。多くのプロキシーは、ユーザー定義のヘルス・チェックに基づいて負荷のバランスを取る機能を備えています。
-* [Traffic Director ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://dyn.com/traffic-director/){:new_window} などのグローバル・ロード・バランサーを使用して、{{site.data.keyword.cloudant_short_notm}} に経路指定します。このオプションでは、ヘルス・チェックまたは待ち時間のルールに基づいて、異なる {{site.data.keyword.cloudant_short_notm}} アカウントに経路指定する `CNAME` の定義が必要です。
+* 独自の [HTTP プロキシーを {{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/greenmangaming/cloudant-nginx){:new_window} の前に配置します。
+  {{site.data.keyword.cloudant_short_notm}} インスタンスではなく、プロキシーと通信するようにアプリケーションを構成します。
+  この構成は、アプリケーション設定を変更するのではなく、プロキシー構成を変更することで、アプリケーションによって使用される {{site.data.keyword.cloudant_short_notm}} インスタンスを変更するタスクを処理できることを意味します。
+  多くのプロキシーは、ユーザー定義のヘルス・チェックに基づいて負荷のバランスを取る機能を備えています。
+* [Traffic Director ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://dyn.com/traffic-director/){:new_window} などのグローバル・ロード・バランサーを使用して、{{site.data.keyword.cloudant_short_notm}} に経路指定します。
+  このオプションでは、ヘルス・チェックまたは待ち時間のルールに基づいて、異なる {{site.data.keyword.cloudant_short_notm}} アカウントに経路指定する `CNAME` の定義が必要です。
 
 ## フェイルオーバーからの復旧
 
@@ -226,9 +235,11 @@ DC1 でホストされているアプリケーションの場合、{{site.data.k
 
 [複製状況のモニター](../api/advanced_replication.html#replication-status)に関する詳細を参照してください。
 
-> **注:** データベースが継続的に変更されている場合、複製状況が 0 になることはあまり考えられません。許容される状況しきい値やエラー状態を表す状況しきい値を決定する必要があります。
+> **注:** データベースが継続的に変更されている場合、複製状況が 0 になることはあまり考えられません。
+  許容される状況しきい値やエラー状態を表す状況しきい値を決定する必要があります。
 
 ### 索引
 
-* 索引は十分に最新のものですか? これは、[アクティブ・タスク](../api/active_tasks.html)・エンドポイントを使用して検査します。
+* 索引は十分に最新のものですか?
+  これは、[アクティブ・タスク](../api/active_tasks.html)・エンドポイントを使用して検査します。
 * 照会を索引に送信し、許容時間内に戻るかどうかを判別することで、「索引の準備状況」のレベルをテストします。
