@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -26,7 +26,7 @@ Database backups protect your data against potential loss or corruption.
 {:shortdesc}
 
 You can use the {{site.data.keyword.cloudant_short_notm}} replication facility to create a database backup,
-and store it on a {{site.data.keyword.cloudant_short_notm}} cluster.
+and store it on an {{site.data.keyword.cloudant_short_notm}} cluster.
 You can then restore data,
 entire databases,
 or specific JSON documents,
@@ -504,4 +504,4 @@ Replication and backups can be tricky.
 If you get stuck,
 check out the [replication guide](replication_guide.html),
 or contact the
-[IBM {{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+[{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.

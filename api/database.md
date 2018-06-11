@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-05-16"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-04-30 -->
 
@@ -22,7 +23,7 @@ All documents must be contained in a database.
 {:shortdesc}
 
 A guide is [available](../guides/transactions.html),
-providing an example of how documents for an e-commerce application might be used within a {{site.data.keyword.cloudant_short_notm}} database.
+providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
 A more complex database application,
 involving extra storage,
@@ -859,7 +860,7 @@ send a `DELETE` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
 
 >	**Note**: No additional check is made to ensure that you really intended to delete the database ("Are you sure?").
 
-_Example of using HTTP to delete a {{site.data.keyword.cloudant_short_notm}} database:_
+_Example of using HTTP to delete an {{site.data.keyword.cloudant_short_notm}} database:_
 
 ```http
 DELETE /$DATABASE HTTP/1.1
@@ -867,7 +868,7 @@ Host: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
 
-_Example of using the command line to delete a {{site.data.keyword.cloudant_short_notm}} database:_
+_Example of using the command line to delete an {{site.data.keyword.cloudant_short_notm}} database:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE \
@@ -877,7 +878,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE \
 
 <!--
 
-_Example of using JavaScript to delete a {{site.data.keyword.cloudant_short_notm}} database:_
+_Example of using JavaScript to delete an {{site.data.keyword.cloudant_short_notm}} database:_
 
 ```javascript
 var nano = require('nano');

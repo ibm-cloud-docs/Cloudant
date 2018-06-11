@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -277,5 +277,5 @@ Code                                    | Meaning
 `417 - Expectation Failed`              | When sending documents in bulk, the bulk load operation failed.
 `429 - Too Many Requests`               | The user has sent too many requests in a given amount of time. More information is available in the corresponding [RFC 6585 ![External link icon](../images/launch-glyph.svg "External link icon")](https://tools.ietf.org/html/rfc6585#page-3){:new_window}.
 `500 - Internal Server Error`           | The request was invalid, either because the supplied JSON was invalid, or invalid information was supplied as part of the request. Alternatively, a replication was canceled while in progress.
-`503 - Service Unavailable`             | The request could not be processed. Seeing this response following a {{site.data.keyword.cloudant_short_notm}} request might indicate an misspelled {{site.data.keyword.cloudant_short_notm}} account name.
+`503 - Service Unavailable`             | The request could not be processed. Seeing this response following an {{site.data.keyword.cloudant_short_notm}} request might indicate an misspelled {{site.data.keyword.cloudant_short_notm}} account name.
 

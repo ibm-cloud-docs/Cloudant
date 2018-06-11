@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-05-16"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating a {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}} using the Cloud Foundry tools
+# Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}} using the Cloud Foundry tools
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
 service instance on {{site.data.keyword.Bluemix}}
@@ -158,7 +158,7 @@ bx service create <service> <plan> <instance name>
 {:pre}
 
 Assume we want to create an instance of
-a {{site.data.keyword.cloudant_short_notm}} service using the `Lite` plan,
+an {{site.data.keyword.cloudant_short_notm}} service using the `Lite` plan,
 where the instance name is `cs20170517a`.
 
 Do this by using a command similar to the following example:
@@ -211,7 +211,7 @@ bx cf create-service-key <instance name> <credentials name>
 {:pre}
 
 Assume we want to create credentials for the `cs20170517a` instance of
-a {{site.data.keyword.cloudant_short_notm}} service,
+an {{site.data.keyword.cloudant_short_notm}} service,
 where the name for the credentials is `creds20170517a`.
 
 Do this by using a command similar to the following example:
@@ -243,7 +243,7 @@ bx cf service-key <instance name> <credentials name>
 {:pre}
 
 Assume we want to retrieve credentials for the `cs20170517a` instance of
-a {{site.data.keyword.cloudant_short_notm}} service,
+an {{site.data.keyword.cloudant_short_notm}} service,
 where the name for the credentials is `creds20170517a`.
 
 Do this by using a command similar to the following example:
@@ -276,12 +276,12 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 At this point,
 you have:
 
-1.  Created a {{site.data.keyword.cloudant_short_notm}} service
+1.  Created an {{site.data.keyword.cloudant_short_notm}} service
   instance within {{site.data.keyword.Bluemix_notm}}.
 2.  Created credentials for the {{site.data.keyword.cloudant_short_notm}} service instance.
 3.  Retrieved the service instance credentials, so that they can be used by your application.
 
-A tutorial showing how to use a {{site.data.keyword.cloudant_short_notm}} service instance
+A tutorial showing how to use an {{site.data.keyword.cloudant_short_notm}} service instance
 is available [here](create_database.html#context).
 Remember to substitute the credentials you created in this tutorial.
 
@@ -302,7 +302,7 @@ bx cf delete-service-key <instance name> <credentials name>
 For example,
 to delete the credentials called `creds20170517a`
 from the `cs20170517a` instance of
-a {{site.data.keyword.cloudant_short_notm}} service,
+an {{site.data.keyword.cloudant_short_notm}} service,
 you might use a command like this:
 
 ```sh
@@ -322,7 +322,7 @@ bx service delete <instance name>
 
 For example,
 to delete the `cs20170517a` instance of
-a {{site.data.keyword.cloudant_short_notm}} service,
+an {{site.data.keyword.cloudant_short_notm}} service,
 you might use a command like this:
 
 ```sh

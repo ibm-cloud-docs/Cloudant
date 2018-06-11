@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2018-05-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creating a simple {{site.data.keyword.cloud_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: uploading the application
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: uploading the application
 
 This section of the tutorial describes how to upload an
 {{site.data.keyword.cloud}} application.
@@ -237,9 +237,10 @@ Click the `Launch` icon on the `Manage` tab of the
 {{site.data.keyword.cloudant_short_notm}} service page:<br/>
 ![Launch icon on the {{site.data.keyword.cloudant_short_notm}} service page](images/img0036.png)
 
-> **Note**: To find your {{site.data.keyword.cloudant_short_notm}} service page,
-  refer to the details in the
-  ['Creating a {{site.data.keyword.cloudant_short_notm}} instance' tutorial](create_service.html#locating-your-service-credentials).
+To find your {{site.data.keyword.cloudant_short_notm}} service page,
+refer to the details in the
+['Creating an {{site.data.keyword.cloudant_short_notm}} instance' tutorial](create_service.html#locating-your-service-credentials).
+{: tip}
 
 When the dashboard opens,
 you can see that the application
