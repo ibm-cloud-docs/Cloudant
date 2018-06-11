@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -263,7 +263,7 @@ npm install -g couchmigrate
 To use the `couchmigrate` script,
 first define the URL of the CouchDB/{{site.data.keyword.cloudant_short_notm}} instance by setting an environment variable called `COUCH_URL`.
 
-_Defining the URL of the a {{site.data.keyword.cloudant_short_notm}} instance:_
+_Defining the URL of the an {{site.data.keyword.cloudant_short_notm}} instance:_
 
 ```sh
 export COUCH_URL=http://127.0.0.1:5984

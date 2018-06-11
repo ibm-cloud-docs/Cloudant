@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-05-16"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-03-20 -->
 
@@ -27,7 +28,7 @@ The next question is: what tasks are you allowed to do?
 
 One way of answering that question might be to have a complete list of all the possible tasks that you are allowed to
 do,
-for each aspect of a {{site.data.keyword.cloudant_short_notm}} system such as a database or a document.
+for each aspect of an {{site.data.keyword.cloudant_short_notm}} system such as a database or a document.
 Although simple,
 this approach would require many lengthy lists.
 Keeping those lists correct and complete would be impractical.
@@ -365,7 +366,7 @@ remember to record the key name and password.
 These values are both randomly generated,
 and cannot be retrieved if lost or forgotten.
 
->	**Note**: [{{site.data.keyword.IBM_notm}} {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}
+>	**Note**: [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}
 does not support API Keys.
 For a similar capability,
 create "CouchDB" style users,
@@ -447,7 +448,7 @@ do the following steps:
 
 For an example of this process,
 see the blog article:
-[Using a {{site.data.keyword.cloudant_short_notm}} API Key with Multiple {{site.data.keyword.cloudant_short_notm}} Databases and Accounts ![External link icon](../images/launch-glyph.svg "External link icon")](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){:new_window}.
+[Using an {{site.data.keyword.cloudant_short_notm}} API Key with Multiple {{site.data.keyword.cloudant_short_notm}} Databases and Accounts ![External link icon](../images/launch-glyph.svg "External link icon")](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){:new_window}.
 
 ## Deleting API keys
 

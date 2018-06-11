@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-15"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -89,7 +89,7 @@ _Example error response if one of the requested databases for a replication does
 * A new and more powerful [replication scheduler](advanced_replication.html#the-replication-scheduler)
   changes the previous behavior of the {{site.data.keyword.cloudant_short_notm}} replication mechanisms.
   Ensure your applications are updated accordingly.
-* Replications can severely impact the performance of a {{site.data.keyword.cloudant_short_notm}} instance.
+* Replications can severely impact the performance of an {{site.data.keyword.cloudant_short_notm}} instance.
   Performance testing helps you understand the impact on your environment
   under an increasing number of concurrent replications.
 * [Continuous replication](#continuous-replication) can result in many internal calls.
@@ -318,7 +318,7 @@ Accept: application/json
 
 ### Creating a replication within an {{site.data.keyword.cloud_notm}} environment
 
-You can replicate a {{site.data.keyword.cloudant_short_notm}} database to one or more {{site.data.keyword.cloud}} environments.
+You can replicate an {{site.data.keyword.cloudant_short_notm}} database to one or more {{site.data.keyword.cloud}} environments.
 When you set up the replication job for each environment,
 the source database and target database names you provide must use the following format:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-21"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -18,9 +18,9 @@ lastupdated: "2018-05-21"
 
 ## Third-party mobile libraries
 
-Working with a {{site.data.keyword.cloudant_short_notm}} database:
+Working with an {{site.data.keyword.cloudant_short_notm}} database:
 
--   [IBM Worklight Powered Native Objective-C iOS Apps ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} with a {{site.data.keyword.cloudant_short_notm}} Adapter.
+-   [IBM Worklight Powered Native Objective-C iOS Apps ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} with an {{site.data.keyword.cloudant_short_notm}} Adapter.
 
 ## C# / .NET
 

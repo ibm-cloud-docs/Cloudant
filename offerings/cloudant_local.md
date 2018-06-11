@@ -14,19 +14,19 @@ lastupdated: "2017-12-04"
 
 <!-- Acrolinx: 2017-03-16 -->
 
-# Cloudant Local
+# {{site.data.keyword.cloudant_local_notm}}
 
-[{{site.data.keyword.cloudantfull}} Data Layer Local Edition ({{site.data.keyword.cloudant_short_notm}} Local) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){:new_window}
+[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){:new_window}
 is a locally installed version of the {{site.data.keyword.cloudant_short_notm}} Database-as-a-Service (DBaaS) offering.
 
-{{site.data.keyword.cloudant_short_notm}} Local provides you with the same basic capabilities as the full {{site.data.keyword.cloudant_short_notm}} single-tenant offering,
+{{site.data.keyword.cloudant_local_notm}} provides you with the same basic capabilities as the full {{site.data.keyword.cloudant_short_notm}} single-tenant offering,
 but hosted within your own data center.
 
-A more detailed overview of {{site.data.keyword.cloudant_short_notm}} Local is
+A more detailed overview of {{site.data.keyword.cloudant_local_notm}} is
 [available ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_cloudant_local_overview.html){:new_window}.
 The
 [IBM Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){:new_window}
-provides information on many aspects of {{site.data.keyword.cloudant_short_notm}} Local,
+provides information on many aspects of {{site.data.keyword.cloudant_local_notm}},
 including:
 
 -   [Installation and Configuration ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_installing.html){:new_window}.

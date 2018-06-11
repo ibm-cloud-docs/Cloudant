@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-23"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -13,11 +13,13 @@ lastupdated: "2018-05-23"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # Getting started tutorial
 {: #getting-started-with-cloudant}
 
 In this {{site.data.keyword.cloudantfull}} getting started tutorial,
-we use Python to create a {{site.data.keyword.cloudant_short_notm}} database
+we use Python to create an {{site.data.keyword.cloudant_short_notm}} database
 and populate that database with a simple collection of data.
 {:shortdesc}
 
@@ -64,7 +66,7 @@ an instance of the {{site.data.keyword.cloudant}} service, and the following Pyt
 	```
 	{:pre}
 	
-	You should get a list of all the Python modules installed on your system. Inspect the list, looking for a {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
+	You should get a list of all the Python modules installed on your system. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
 
 	```
 	cloudant==2.3.1

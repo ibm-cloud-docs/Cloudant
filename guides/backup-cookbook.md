@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -22,7 +22,7 @@ It's worth starting there if you are new to the subject and want to understand w
 with the other capabilities that {{site.data.keyword.cloudant_short_notm}} offers
 to support Disaster Recovery (DR) and High Availability (HA) requirements.
 
-Although data is stored redundantly within a {{site.data.keyword.cloudant_short_notm}} cluster,
+Although data is stored redundantly within an {{site.data.keyword.cloudant_short_notm}} cluster,
 it's important to consider extra backup measures.
 For example,
 redundant data storage does not protect against mistakes when data is changed.

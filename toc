@@ -8,6 +8,7 @@ Cloudant NoSQL DB
 	getting-started.md
 	cloudant.md
 	offerings/bluemix.md
+	offerings/pricing.md
 
 	{: .topicgroup}
     Security and Compliance
