@@ -25,7 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 7014 (June 12, 2018)
 
-- Removed the requirement to explicitly specify built-in fields, `_id` or `_rev`, in the query selector. For  more information, see [Finding documents by using an index]../api/cloudant_query.html#finding-documents-by-using-an-index).
+- Removed the requirement to explicitly specify built-in fields, `_id` or `_rev`, in the query selector. For  more information, see [Finding documents by using an index](../api/cloudant_query.html#finding-documents-by-using-an-index).
 
 ## Build 6979 (May 29, 2018)
 
