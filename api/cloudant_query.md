@@ -475,7 +475,7 @@ _Example of a response body with two indexes:_
 	the field syntax as described in the following information.
 	Use this parameter to specify which fields of an object must be returned.
 	If it is omitted,
-	the entire object is returned. The built-in fields, `_id` and `_rev`, are special. These fields are guaranteed to exist in all matching documents. If you declare an index ['a', '_id'], {{site.data.keyword.cloudant_short_notm}} can safely exclude `_id` from the index coverage check, so a selector {'a': 'foo'} is able to use this index. 
+	the entire object is returned.
 -	**r (optional, default: 1)**: The read quorum that is needed for the result.
 	The value defaults to 1,
 	in which case the document that was found in the index is returned.

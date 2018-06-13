@@ -25,7 +25,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 7014 (June 12, 2018)
 
-- Removed the requirement to explicitly specify built-in fields, `_id` or `_rev`, in the query selector. For  more information, see [Finding documents by using an index](../api/cloudant_query.html#finding-documents-by-using-an-index).
+- Remove the requirement to cover `_id` or `_rev` in the query selector in order to use a JSON index that explicitly contains them.
 
 ## Build 6979 (May 29, 2018)
 
@@ -38,7 +38,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6909 (April 26, 2018)
 
-- Improved compatibility with IAM.
+- Improve compatibility with IAM.
 - Fix `badarg` error in the module that parses `http` multipart requests.
 
 ## Build 6900 (April 25, 2018)
