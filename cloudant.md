@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-06-13"
 
 ---
 
@@ -12,19 +12,21 @@ lastupdated: "2018-05-16"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
+<!-- Acrolinx: 2018-06-13 -->
+
 # Overview
 
-This is the online documentation for the [{{site.data.keyword.cloudantfull}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window},
+This site is the online documentation for the [{{site.data.keyword.cloudantfull}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window},
 all intended to help you get going quickly.
 {:shortdesc}
 
 [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){:new_window}
 is a document-oriented DataBase as a Service (DBaaS).
 It stores data as documents in JSON format.
-It's built with scalability,
+It is built with scalability,
 high availability,
 and durability in mind.
-It comes with a wide variety of indexing options including map-reduce,
+It comes with a wide variety of indexing options that include MapReduce,
 {{site.data.keyword.cloudantfull}} Query,
 full-text indexing,
 and geospatial indexing.
@@ -33,13 +35,13 @@ desktop PCs,
 and mobile devices.
 {:shortdesc}
 
-For more information on all the {{site.data.keyword.cloudant_short_notm}} offerings,
+For more information about other {{site.data.keyword.cloudant_short_notm}} offerings,
 see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} site.
-The online documentation provided here gives you
+The online documentation that is provided here gives you
 details about {{site.data.keyword.cloudant_short_notm}} concepts,
-tasks and techniques.
+tasks, and techniques.
 
-You can launch the {{site.data.keyword.cloudant_short_notm}} service from the
+You can start the {{site.data.keyword.cloudant_short_notm}} service from the
 [{{site.data.keyword.Bluemix}} dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
@@ -53,32 +55,39 @@ is available in the [API reference](api/index.html).
 
 ## Documentation Contents
 
-*	[{{site.data.keyword.cloudant_short_notm}} Offerings](offerings/bluemix.html#ibm-cloud-public): {{site.data.keyword.cloudant_short_notm}} is available
-	in a variety of offerings,
-	all described in this section.
-*	[{{site.data.keyword.cloudant_short_notm}} Basics](basics/index.html):
-  If it's your first time using {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in general,
-	scan this quick introduction to the basics before you read further.
-	It tells you the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}.
-	The rest of the documentation assumes you know these basics.
-*	[Client Libraries](libraries/index.html): Client libraries are toolkits that
-	let you develop your own applications,
-	ready to work with {{site.data.keyword.cloudant_short_notm}} databases.
+*	[Getting started tutorial](getting-started.html#getting-started-with-cloudant): Learn how to create an {{site.data.keyword.cloudantfull}} database and populate that database with a simple collection of data by using Python.
+*	[{{site.data.keyword.cloud_notm}} Public](offerings/bluemix.html#ibm-cloud-public): Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
+*	[Pricing](offerings/pricing.html#pricing): An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 
+*	[Security and Compliance](offerings/security.html#security): A collection of articles that describe the {{site.data.keyword.cloudant_short_notm}} position on security, compliance, data privacy and governance, audit logging, and General Data Protection Regulation (GDPR).
+*	[Release information](https://console.bluemix.net/docs/services/Cloudant/release_info/release_notes.html#release-notes): Release-related information that includes release notes, what changed between major releases, and deprecations. 
+*	[Other offerings](offerings/bluemix_dedicated.html#ibm-cloud-dedicated): In addition to {{site.data.keyword.cloud_notm}} Public, {{site.data.keyword.cloudant_short_notm}} is available
+	in various offerings,
+	all described in here.
 * [Tutorials](tutorials/create_service.html#creating-a-service-instance): A detailed collection of articles,
-  showing you how to perform key tasks using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}}.
+  showing you how to perform key tasks by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
+*	[Guides](guides/acurl.html#authorized-curl-acurl-): The guides go into detail about
+	use cases and more complex activities and problems.
+	The guides also explore some of the important concepts behind the mechanics of an {{site.data.keyword.cloudant_short_notm}} database.
+*	[{{site.data.keyword.cloudant_short_notm}} Basics](basics/index.html):
+  If this time is your first time to use {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in general,
+	scan this quick introduction to the basics before you read further.
+	The article describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}.
+	The rest of the documentation assumes that you know these basics.
 *	[{{site.data.keyword.cloudant_short_notm}} API Reference](api/index.html): The API reference is a
 	comprehensive and living catalog of the {{site.data.keyword.cloudant_short_notm}} capabilities.
 	You can find detailed information about the things you can do with {{site.data.keyword.cloudant_short_notm}}.
-*	[Guides](guides/acurl.html#authorized-curl-acurl-): These guides go into detail about
-	use cases and more complex activities and problems.
-	The guides also explore some of the important concepts behind the mechanics of a {{site.data.keyword.cloudant_short_notm}} database.
+*	Sample apps: The sample applications include: Offline First shopping list, Open Fridge, iOS game with Core ML and Watson Visual Recognition, and Mobile health app with Watson Studio. 
+*	[Client Libraries](libraries/index.html): Client libraries are toolkits that
+	help you develop your own applications,
+	ready to work with {{site.data.keyword.cloudant_short_notm}} databases.
+
 
 ## Contribute
 
-{{site.data.keyword.cloudant_short_notm}} is built on best-of-breed open source technologies,
-and we're heavy committers to the technology we rely on.
+{{site.data.keyword.cloudant_short_notm}} is built on best-of-class open source technologies,
+and we're committed to the technology we rely on.
 We're also open about our documentation.
 If it's not working for you,
 it's not working for us.
-Please make contributions or share suggestions through
+You can make contributions or share suggestions through
 {{site.data.keyword.cloudant_short_notm}} Labs on [GitHub ![External link icon](images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){:new_window}.
