@@ -68,10 +68,9 @@ is available in the [API reference](api/index.html).
 *	[Guides](guides/acurl.html#authorized-curl-acurl-): The guides go into detail about
 	use cases and more complex activities and problems.
 	The guides also explore some of the important concepts behind the mechanics of an {{site.data.keyword.cloudant_short_notm}} database.
-*	[{{site.data.keyword.cloudant_short_notm}} Basics](basics/index.html):
-  If this time is your first time to use {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in general,
+*	[{{site.data.keyword.cloudant_short_notm}} Basics](basics/index.html): If you have never 		used {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in general,
 	scan this quick introduction to the basics before you read further.
-	The article describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}.
+	It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}.
 	The rest of the documentation assumes that you know these basics.
 *	[{{site.data.keyword.cloudant_short_notm}} API Reference](api/index.html): The API reference is a
 	comprehensive and living catalog of the {{site.data.keyword.cloudant_short_notm}} capabilities.
