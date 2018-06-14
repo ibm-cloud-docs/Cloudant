@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-06"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -12,20 +12,20 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Création et remplissage d'une base de données Cloudant simple sur Bluemix
+# Création et remplissage d'une base de données {{site.data.keyword.cloudant_short_notm}} simple sur {{site.data.keyword.Bluemix_notm}}
 
-Ce tutoriel explique comment utiliser le [langage de programmation Python ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} pour créer une base de données
-{{site.data.keyword.cloudantfull}} dans votre instance de service {{site.data.keyword.Bluemix_notm}} et comment la remplir avec une collection de données simple.
+Ce tutoriel explique comment utiliser le [langage de programmation Python ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.python.org/){:new_window} pour créer une base de données
+{{site.data.keyword.cloudantfull}} dans votre instance de service {{site.data.keyword.Bluemix}} et comment la remplir avec une collection de données simple.
 {:shortdesc}
 
 ## Conditions prérequises
 
 Vérifiez que vous disposez des ressources ou des informations suivantes avant de
-commencer à travailler sur ce tutoriel. 
+commencer à travailler sur ce tutoriel.
 
 ### Python
 
-Vous devez disposez d'une installation en cours du [langage de programmation Python ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} sur votre système. 
+Vous devez disposez d'une installation en cours du [langage de programmation Python ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.python.org/){:new_window} sur votre système.
 
 Pour savoir si vous disposez d'une telle installation, exécutez la commande suivante à l'invite :
 
@@ -34,14 +34,14 @@ python --version
 ```
 {:pre}
 
-Vous devez obtenir un résultat similaire à la sortie suivante :
+Vous devez obtenir un résultat similaire à ce qui suit :
 
 ```
 Python 2.7.12
 ```
 {:codeblock}
 
-### Python Client Library for Cloudant
+### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
 
 Il existe une [bibliothèque officiellement prise en charge](../libraries/supported.html#python) qui active vos applications Python et fait en sorte qu'elles fonctionnent avec {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}.
 
@@ -55,24 +55,24 @@ pip freeze
 {:pre}
 
 Vous devez obtenir la liste de tous les modules Python installés sur votre système.
-Examinez cette liste en recherchant une entrée {{site.data.keyword.cloudant_short_notm}} similaire à l'entrée suivante : 
+Examinez cette liste en recherchant une entrée {{site.data.keyword.cloudant_short_notm}} similaire à l'entrée suivante :
 
 ```
 cloudant==2.3.1
 ```
 {:codeblock}
 
-### Instance de service Cloudant sur Bluemix
+### Instance du service {{site.data.keyword.cloudant_short_notm}} sur  Bluemix 
 
 Le processus de création d'une instance de service appropriée est décrite dans [ce tutoriel](create_service.html).
 
-Assurez-vous de disposer des données d'identification de service suivantes pour votre instance de service : 
+Assurez-vous de disposer des données d'identification de service suivantes pour votre instance de service :
 
-Zone       | Objectif
+Zone      | Objectif
 -----------|--------
-`host`     | Nom d'hôte employé par les applications pour localiser l'instance de service. 
-`username` | Nom d'utilisateur requis par les applications pour accéder à l'instance de service. 
-`password` | Mot de passe requis par les applications pour accéder à l'instance de service. 
+`host`     | Nom d'hôte employé par les applications pour localiser l'instance de service.
+`username` | Nom d'utilisateur requis par les applications pour accéder à l'instance de service.
+`password` | Mot de passe requis par les applications pour accéder à l'instance de service.
 `port`     | Numéro de port HTTP pour l'accès à l'instance de service sur l'hôte. Il s'agit généralement du numéro de port 443 qui force l'accès HTTPS.
 `url`      | Chaîne regroupant les autres informations de données d'identification en une seule URL, adaptée pour une utilisation par des applications.
 
@@ -80,7 +80,7 @@ Vous trouverez des informations sur la recherche des données d'identification d
 
 ## Contexte
 
-Ce tutoriel repose sur une série d'instructions en langage Python pouvant être utilisées lors des tâches suivantes : 
+Ce tutoriel repose sur une série d'instructions en langage Python pouvant être utilisées lors des tâches suivantes :
 
 1.  [Connexion à une instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}](#connecting-to-a-cloudant-service-instance-on-bluemix).
 2.  [Création d'une base de données dans l'instance de service](#creating-a-database-within-the-service-instance).
@@ -89,21 +89,21 @@ Ce tutoriel repose sur une série d'instructions en langage Python pouvant être
 5.  [Suppression de la base de données](#deleting-the-database).
 6.  [Fermeture de la connexion à l'instance de service](#closing-the-connection-to-the-service-instance).
 
-Le code Python spécifique à chaque tâche est fourni dans la description de cette dernière dans ce tutoriel. 
+Le code Python spécifique à chaque tâche est fourni dans la description de cette dernière dans ce tutoriel.
 
 Un programme Python complet qui permet d'exécuter toutes les tâches est fourni à la fin de ce tutoriel, [ici](#complete-listing).
 
 Aucune tentative de création d'un code Python _efficace_ n'a été  effectuée pour ce tutoriel. Notre seule intention est de vous montrer un code simple et
-facile à comprendre, qui fonctionne, et que vous pouvez apprendre et appliquer à vos propres applications. 
+facile à comprendre, qui fonctionne, et que vous pouvez apprendre et appliquer à vos propres applications.
 
 De même, nous n'avons pas essayé de résoudre toutes les vérifications ou conditions d'erreur possibles.
 Certains exemples de vérifications sont inclus dans le but d'illustrer certaines techniques, mais vous devez appliquer les meilleures pratiques afin de vérifier et
 traiter tous les avertissements ou cas d'erreur que vous rencontrez dans vos propres applications. 
 
-## Connexion à une instance de service Cloudant sur Bluemix
+## Connexion à une instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}
 
-Une application Python requiert les composants Cloudant Client Library pour pouvoir se connecter à l'instance de service.
-Ces composants sont identifiés comme des instructions `import` normales : 
+Une application Python requiert les composants {{site.data.keyword.cloudant_short_notm}} Client Library pour pouvoir se connecter à l'instance de service.
+Ces composants sont identifiés comme des instructions `import` normales :
 
 ```python
 from cloudant.client import Cloudant
@@ -121,12 +121,14 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **Remarque** : Les données d'identification du service illustrées 
-    ont été définies lors de la création d'un service Cloudant de démonstration sur Bluemix.
+>   **Remarque** : Les données d'identification du service illustrées
+    ont été définies lors de la création d'un service {{site.data.keyword.cloudant_short_notm}} de démonstration sur Bluemix.
     Ces données d'identification sont reproduites ici pour illustrer la manière dont elles sont utilisées dans une application Python.
-    Toutefois, le service Cloudant de démonstration ayant été retiré, elles ne
+    Toutefois, le service {{site.data.keyword.cloudant_short_notm}} de démonstration ayant été retiré, elles ne
 fonctionnent pas. Vous _devez_ indiquer et utiliser vos propres données
 d'identification pour le service.
+
+
 Une fois que vous avez activé la bibliothèque client Python dans votre application
 et que vous avez identifié les données d'identification du service, vous pouvez établir
 une connexion vers l'instance de service :
@@ -143,7 +145,7 @@ A ce stade, votre application Python a accès à l'instance de service sur Bluem
 
 L'étape suivante consiste à créer une base de données dans l'instance de service nommée `databasedemo`.
 
-Pour ce faire, définissez une variable dans l'application Python : 
+Pour ce faire, définissez une variable dans l'application Python :
 
 ```python
 databaseName = "databasedemo"
@@ -157,7 +159,7 @@ myDatabaseDemo = client.create_database(databaseName)
 ```
 {:codeblock}
 
-Il est utile de vérifier que la base de données a bien été créée : 
+Il est utile de vérifier que la base de données a bien été créée :
 
 ```python
 if myDatabaseDemo.exists():
@@ -213,21 +215,21 @@ for document in sampleData:
 ```
 {:codeblock}
 
-Vous remarquerez que chaque document a été créé avec succès. 
+Notez que nous avons vérifié que chaque document avait bien été créé.
 
 ## Extraction des données
 
 A ce stade, une petite collection de données a été stockée sous forme de documents dans la base de données.
-Vous pouvez maintenant effectuer une série de requêtes illustrant les différents modes d'extraction des données à partir de la base de données. 
+Vous pouvez maintenant effectuer une série de requêtes illustrant les différents modes d'extraction des données à partir de la base de données.
 
 ### Extraction minimale d'un document
 
 Pour procéder à une extraction minimale, demandez tout d'abord la liste de
 tous les documents figurant dans la base de données.
 Cette liste est renvoyée sous forme de tableau.
-Vous pouvez ensuite afficher le contenu d'un élément du tableau. 
+Vous pouvez ensuite afficher le contenu d'un élément du tableau.
 
-Cet exemple de code permet de demander le premier document extrait depuis la base de données : 
+Cet exemple de code permet de demander le premier document extrait depuis la base de données :
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs)
@@ -235,7 +237,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-Le résultat est similaire à l'exemple suivant : 
+Le résultat est similaire à ce qui suit :
 
 ```json
 [
@@ -251,9 +253,11 @@ Le résultat est similaire à l'exemple suivant :
 {:codeblock}
 
 >   **Remarque** : La nature des bases de données NoSQL,
-    comme Cloudant, signifie que les notions simples du premier document stocké dans une
+    comme {{site.data.keyword.cloudant_short_notm}}, signifie que les notions simples du premier document stocké dans une
 base de données et toujours le premier à être renvoyé dans une liste de
 résultats, ne s'appliquent pas nécessairement.
+
+
 
 ### Extraction complète d'un document
 
@@ -265,7 +269,7 @@ Comme précédemment, les résultats sont renvoyés sous forme de tableau.
 Vous pouvez ensuite afficher les détails d'un élément du tableau, y compris cette fois le
 contenu complet du document. 
 
-Comme précédemment, demandez tout d'abord le premier document extrait à partir de la base de données : 
+Comme précédemment, demandez tout d'abord le premier document extrait à partir de la base de données :
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
@@ -273,7 +277,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-Le résultat est similaire à l'exemple suivant : 
+Le résultat est similaire à ce qui suit :
 
 ```json
 [
@@ -295,16 +299,16 @@ Le résultat est similaire à l'exemple suivant :
 ```
 {:codeblock}
 
-## Appel direct d'un noeud final d'API Cloudant
+## Appel direct d'un noeud final d'API {{site.data.keyword.cloudant_short_notm}}
 
-Vous pouvez également utiliser directement les noeuds finaux d'API Cloudant à partir d'une application Python.
+Vous pouvez également utiliser directement les noeuds finaux d'API {{site.data.keyword.cloudant_short_notm}} à partir d'une application Python.
 
 Cet exemple de code permet d'appeler la liste de tous les documents, y compris leur
 contenu.
-Cependant, cette fois, il appelle le noeud final Cloudant [`/_all_docs`](../api/database.html#get-documents).
+Cependant, cette fois, il appelle le noeud final {{site.data.keyword.cloudant_short_notm}} [`/_all_docs`](../api/database.html#get-documents).
 
 Identifiez d'abord le noeud final à contacter ainsi que d'éventuels paramètres à
-indiquer lors de l'appel : 
+indiquer lors de l'appel :
 
 ```python
 end_point = '{0}/{1}'.format(serviceURL, databaseName + "/_all_docs")
@@ -312,7 +316,7 @@ params = {'include_docs': 'true'}
 ```
 {:codeblock}
 
-Envoyez ensuite la demande à l'instance de service, puis affichez les résultats : 
+Envoyez ensuite la demande à l'instance de service, puis affichez les résultats :
 
 ```python
 response = client.r_session.get(end_point, params=params)
@@ -320,7 +324,7 @@ print "{0}\n".format(response.json())
 ```
 {:codeblock}
 
-Le résultat est similaire à l'exemple _abrégé_ suivant : 
+Le résultat est similaire à l'exemple _abrégé_ suivant :
 
 ```json
 {
@@ -366,7 +370,7 @@ Le résultat est similaire à l'exemple _abrégé_ suivant :
 
 ## Suppression de la base de données
 
-Une fois que vous en avez terminé avec la base de données, vous pouvez la supprimer. 
+Une fois que vous en avez terminé avec la base de données, vous pouvez la supprimer.
 
 Il s'agit d'une étape simple, comme indiqué dans l'exemple de code Python suivant :
 
@@ -381,11 +385,11 @@ else:
 {:codeblock}
 
 Un traitement d'erreurs de base a été inclus pour illustrer la manière dont les
-problèmes peuvent être interceptés et résolus. 
+problèmes peuvent être interceptés et résolus.
 
 ## Fermeture de la connexion à l'instance de service
 
-L'étape finale consiste à déconnecter l'application client Python de l'instance de service : 
+L'étape finale consiste à déconnecter l'application client Python de l'instance de service :
 
 ```python
 client.disconnect()
@@ -396,7 +400,7 @@ client.disconnect()
 
 Le code suivant est un programme Python complet qui accède à une instance de service
 {{site.data.keyword.cloudant_short_notm}} sur
-{{site.data.keyword.Bluemix_notm}} et effectue une série de tâches typique : 
+{{site.data.keyword.Bluemix_notm}} et effectue une série de tâches typique :
 
 1.  Connexion à l'instance de service
 2.  Création d'une base de données dans l'instance de service
@@ -435,7 +439,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the Cloudant library to create a Cloudant client.
+# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -498,7 +502,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a Cloudant API endpoint to retrieve
+# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

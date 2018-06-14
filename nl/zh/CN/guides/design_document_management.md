@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -16,12 +16,12 @@ lastupdated: "2017-01-06"
 
 *本文由 IBM Cloudant 开发技术推广工程师 Glynn Bird ([glynn@cloudant.com ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:glynn@cloudant.com){:new_window}) 投稿*
 
-Cloudant 的可扩展 JSON 数据存储具有多种查询机制，所有这些机制都将生成独立于核心数据进行创建和维护的索引。建立索引的操作不会在保存文档时立即执行，而是会安排在日后执行，从而实现更快、无阻塞的写入吞吐量。
+{{site.data.keyword.cloudantfull}} 的可扩展 JSON 数据存储具有多种查询机制，所有这些机制都将生成独立于核心数据进行创建和维护的索引。建立索引的操作不会在保存文档时立即执行，而是会安排在日后执行，从而实现更快、无阻塞的写入吞吐量。
 
 -   MapReduce 视图是数据集内的索引，其中键值对存储在 B 型树中，以便通过键或键范围进行高效检索
 -   搜索索引是使用 Apache Lucene 构造的，允许自由文本搜索、刻面和复杂的特别查询
 
-Cloudant 的[搜索索引](../api/search.html)和 [MapReduce 视图](../api/creating_views.html)通过向数据库添加设计文档进行配置。设计文档是 JSON 文档，其中包含有关将如何构建视图或索引的指示信息。下面举一个简单的例子。假定有一个简单的数据文档集合，类似于以下示例。
+{{site.data.keyword.cloudant_short_notm}} 的[搜索索引](../api/search.html)和 [MapReduce 视图](../api/creating_views.html)通过向数据库添加设计文档进行配置。设计文档是 JSON 文档，其中包含有关将如何构建视图或索引的指示信息。下面举一个简单的例子。假定有一个简单的数据文档集合，类似于以下示例。
 
 _简单数据文档的示例：_
 
@@ -76,13 +76,13 @@ _使用 map 函数定义视图的示例设计文档：_
 
 结果是，map 代码已转换为符合 JSON 的字符串，并且包含在设计文档中。
 
-一旦保存了设计文档后，Cloudant 就会触发服务器端进程来构建 `fetch/by_ts` 视图。为此，Cloudant 对数据库中的每个文档执行迭代，然后将每个文档发送给 JavaScript map 函数。此函数会返回发出的键/值对。随着迭代继续，每个键/值对都会存储在 B 型树索引中。首次构建索引之后，后续重建索引操作将仅对新文档和更新后的文档执行。对于删除的文档，会除去其索引。这种省时的过程称为*增量 MapReduce*，如下图中所示：
+一旦保存了设计文档后，{{site.data.keyword.cloudant_short_notm}} 就会触发服务器端进程来构建 `fetch/by_ts` 视图。为此，Cloudant 对数据库中的每个文档执行迭代，然后将每个文档发送给 JavaScript map 函数。此函数会返回发出的键/值对。随着迭代继续，每个键/值对都会存储在 B 型树索引中。首次构建索引之后，后续重建索引操作将仅对新文档和更新后的文档执行。对于删除的文档，会除去其索引。这种省时的过程称为*增量 MapReduce*，如下图中所示：
 
 ![增量 MapReduce 图](../images/DesDocMan00.png)
 
 此时应牢记的一点是：
 
--   索引构造是异步发生的。Cloudant 会确认设计文档是否已保存，但要检查索引构造的进度，必须轮询 Cloudant 的 [`_active_tasks`](../api/active_tasks.html) 端点。
+-   索引构造是异步发生的。{{site.data.keyword.cloudant_short_notm}} 会确认设计文档是否已保存，但要检查索引构造的进度，必须轮询 {{site.data.keyword.cloudant_short_notm}} 的 [`_active_tasks`](../api/active_tasks.html) 端点。
 -   拥有的数据越多，建立索引所需的时间就越长。
 -   在初始索引构建正在进行的过程中，_将阻止针对该索引的任何查询_。
 -   查询视图会触发对任何尚未以增量方式建立索引的文档执行“映射”。这可确保获得数据的最新视图。请参阅以下[“`stale`”参数](#stale)讨论，以了解此规则的例外情况。
@@ -95,6 +95,8 @@ _使用 map 函数定义视图的示例设计文档：_
 
 >   **注**：此行为不适用于 Lucene 搜索索引。
 这种索引可以在同一设计文档中变更，而不会使同一文档中的其他未更改索引失效。
+
+
 
 ![设计文档版本更改图](../images/DesDocMan02.png)
 
@@ -123,7 +125,7 @@ _使用 reduce 函数的示例设计文档：_
 ```
 {:codeblock}
 
-保存此设计文档时，Cloudant 会使旧索引完全失效，并从头开始构建新索引，并依次迭代每个文档。与原始构建一样，所用时间取决于数据库中的文档数，并且会阻塞对该视图的入局查询，直到完成索引为止。
+保存此设计文档时，{{site.data.keyword.cloudant_short_notm}} 会使旧索引完全失效，并从头开始构建新索引，依次对每个文档进行迭代。与原始构建一样，所用时间取决于数据库中的文档数，并且会阻塞对该视图的入局查询，直到完成索引为止。
 
 但有一个问题：
 
@@ -151,7 +153,7 @@ _使用 reduce 函数的示例设计文档：_
 
 ### “移动并切换”设计文档
 
-另一种方法（在[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window} 记录）依赖于以下前提条件：Cloudant 能识别到何时有两个完全相同的设计文档，并且不会浪费时间和资源来重建已有的视图。换言之，如果采用设计文档 `_design/fetch` 并创建完全重复的 `_design/fetch_OLD`，那么这两个端点可以互换工作，而不会触发任何重建索引的操作。
+另一种方法（在[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window} 记录）依赖于以下前提条件：{{site.data.keyword.cloudant_short_notm}} 能识别到何时有两个完全相同的设计文档，并且不会浪费时间和资源来重建已有的视图。换言之，如果采用设计文档 `_design/fetch` 并创建完全重复的 `_design/fetch_OLD`，那么这两个端点可以互换工作，而不会触发任何重建索引的操作。
 
 切换到新视图的过程如下：
 
@@ -174,9 +176,9 @@ npm install -g couchmigrate
 ```
 {:codeblock}
 
-要使用 `couchmigrate` 脚本，请首先通过设置名为 `COUCH_URL` 的环境变量来定义 CouchDB/Cloudant 实例的 URL。
+要使用 `couchmigrate` 脚本，请首先通过设置名为 `COUCH_URL` 的环境变量来定义 CouchDB/{{site.data.keyword.cloudant_short_notm}} 实例的 URL。
 
-_定义 Cloudant 实例的 URL：_
+_定义 {{site.data.keyword.cloudant_short_notm}} 实例的 URL：_
 
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
@@ -185,7 +187,7 @@ export COUCH_URL=http://127.0.0.1:5984
 
 该 URL 可以是 HTTP 或 HTTPS，并且可以包含认证凭证。
 
-_使用认证凭证定义 Cloudant 实例的 URL：_
+_使用认证凭证定义 {{site.data.keyword.cloudant_short_notm}} 实例的 URL：_
 
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
@@ -217,14 +219,16 @@ couchmigrate --db mydb --dd /path/to/my/dd.json
 
 查询视图时，有三个选项：
 
--   缺省行为是确保索引是最新的，使用的是数据库中的最新文档，然后再返回应答。查询视图时，Cloudant 会先对 250 个新文档建立索引，然后返回应答。
--   替代方法是将“`stale=ok`”参数添加到 API 调用。此参数表示“返回已建立索引的数据，不管最新更新”。换言之，使用“`stale=ok`”查询视图时，Cloudant 会立即返回应答，而无需任何额外的索引重建。
--   另一种替代方法是将“`stale=update_after`”参数添加到 API 调用。此参数表示“返回已建立索引的数据，_并且_对所有新文档重建索引”。换言之，使用“`stale=update_after`”查询视图时，Cloudant 会立即返回应答，然后安排后台任务对新数据建立索引。
+-   缺省行为是确保索引是最新的，使用的是数据库中的最新文档，然后再返回应答。查询视图时，{{site.data.keyword.cloudant_short_notm}} 会先对 250 个新文档建立索引，然后返回应答。
+-   替代方法是将“`stale=ok`”参数添加到 API 调用。此参数表示“返回已建立索引的数据，不管最新更新”。换言之，使用“`stale=ok`”查询视图时，{{site.data.keyword.cloudant_short_notm}} 会立即返回应答，而无需任何额外的索引重建。
+-   另一种替代方法是将“`stale=update_after`”参数添加到 API 调用。此参数表示“返回已建立索引的数据，_并且_对所有新文档重建索引”。换言之，使用“`stale=update_after`”查询视图时，{{site.data.keyword.cloudant_short_notm}} 会立即返回应答，然后安排后台任务对新数据建立索引。
 
 添加“`stale=ok`”或“`stale=update_after`”可能很适合从视图更快获得应答，但数据可能不够新。 
 
->   **注**：缺省行为是在 Cloudant 集群中的各节点之间平均分布负载。
+>   **注**：缺省行为是在 {{site.data.keyword.cloudant_short_notm}} 集群中的各节点之间平均分布负载。
 如果使用替代选项 `stale=ok` 或 `stale=update_after`，这可能会偏好一部分集群节点，以便从整个最终一致性集返回一致的结果。这意味着“`stale`”参数并不是所有用例的完美解决方案。但是，如果应用程序乐意接受陈旧的结果，那么此参数有助于提供对快速变化的数据集的及时响应。如果数据的变化速率很低，那么添加“`stale=ok`”或“`stale=update_after`”不会带来性能优势，并且可能会在较大的集群上不均匀地分布负载。
+
+
 请尽可能避免使用 `stale=ok` 或 `stale=update_after`。原因是缺省行为提供了最新的数据，并会在集群中分布数据。如果能使客户端应用程序知道正在进行大型数据处理任务（例如，在定期批量数据更新期间），那么该应用程序可在这些时间内临时切换到 `stale=ok`，之后再还原为缺省行为。
 
 >   **注**：`stale` 选项仍然可用，

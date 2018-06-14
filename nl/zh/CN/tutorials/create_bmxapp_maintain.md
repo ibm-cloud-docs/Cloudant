@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-11"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# 创建简单 Bluemix 应用程序以访问 Cloudant 数据库：维护和故障诊断
+# 创建简单 {{site.data.keyword.Bluemix_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：维护和故障诊断
 
 本教程说明了如何维护在 {{site.data.keyword.Bluemix_notm}} 服务实例中托管的 {{site.data.keyword.Bluemix}} 应用程序。
 {:shortdesc}
@@ -36,6 +36,8 @@ lastupdated: "2017-01-11"
 
 >   **注**：如果未首先删除教程演示数据库，
 就尝试启动教程应用程序，那么该应用程序无法正常运行。应用程序会陷入循环：尝试启动、因数据库存在而失败、停止、接着重试启动。要解决此问题，请[停止应用程序](#stopping-your-application)，然后删除教程演示数据库。随后，该应用程序就可以成功启动。
+
+
 
 要启动已停止的应用程序，请先单击仪表板上的“应用程序菜单”图标：<br/>
 ![显示具有应用程序管理图标的仪表板的截屏](images/img0038.png)
@@ -60,6 +62,8 @@ lastupdated: "2017-01-11"
 >   **注**：如果启动上传时旧版本应用程序已在运行，
     那么 {{site.data.keyword.Bluemix_notm}} 会首先自动停止该应用程序。
 
+
+
 ## 问题诊断和解决
 
 本部分教程提供了一些基本的故障诊断技巧，可帮助您识别、诊断和解决在开发和部署第一个 {{site.data.keyword.Bluemix_notm}} 应用程序时可能会遇到的一些问题。
@@ -70,6 +74,8 @@ lastupdated: "2017-01-11"
 
 >   **注**：为了简明易懂，
 本教程是将内容写入到本地文件系统。但是，写入的材料量很小。预计不会持久存储，而且不属于“关键任务”。
+
+
 
 ### 使用应用程序日志
 

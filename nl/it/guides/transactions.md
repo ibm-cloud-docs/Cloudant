@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Raggruppamento di documenti correlati in Cloudant
+# Raggruppamento di documenti correlati in {{site.data.keyword.cloudant_short_notm}}
 
 Tradizionalmente,
 i sistemi di e-commerce vengono creati con i database relazionali.
@@ -26,18 +26,18 @@ incluso l'utilizzo di unioni tra le raccolte,
 le enumerazioni per registrare lo stato di un oggetto
 le transazioni del database per garantire operazioni atomiche.
 
-Cloudant favorisce la disponibilità oltre alla consistenza.
+{{site.data.keyword.cloudantfull}} favorisce la disponibilità oltre alla consistenza.
 È un database ad alta disponibilità,
 tollerante agli errori
 e distribuito con consistenza eventuale.
 Questo offre il vantaggio che il servizio di acquisto del cliente è sempre disponibile e abbastanza
 scalabile per far fronte a più utenti che effettuano acquisti nello stesso tempo.
-Ciò significa che l'applicazione può utilizzare i punti di forza di Cloudant e non trattarlo come un database relazionale.
+Ciò significa che l'applicazione può utilizzare i punti di forza di {{site.data.keyword.cloudant_short_notm}} e non trattarlo come un database relazionale.
 
-La discussione in questo argomento descrive alcuni dei fattori coinvolti nella
-creazione di un sistema di e-commerce che sfrutta i punti di forza di Cloudant
+La discussione in questo argomento delinea alcuni dei fattori
+coinvolti nella creazione di un sistema di e-commerce che sfrutta i punti di forza di {{site.data.keyword.cloudant_short_notm}}
 utilizzando concetti applicabili a molti altri domini,
-come ad esempio:
+ad esempio:
 
 -   Utilizzo di più documenti per rappresentare lo stato di un acquisto,
     invece di aggiornare frequentemente un singolo documento.
@@ -120,7 +120,7 @@ vengono utilizzati UUID più lunghi per garantire che i documenti vengano memori
 
 Per creare un identificativo univoco da utilizzare nella tua applicazione,
 ad esempio un `order_id`,
-richiama l'[endpoint `GET _uuids`](../api/advanced.html#-get-_uuids-) sull'API Cloudant.
+richiama l'[endpoint `GET _uuids`](../api/advanced.html#-get-_uuids-) sull'API {{site.data.keyword.cloudant_short_notm}}.
 Il database genera un identificativo per te.
 È possibile utilizzare lo stesso endpoint per generare più ID aggiungendo un parametro `count`,
 ad esempio, `/_uuids?count=10`.
@@ -158,7 +158,7 @@ _Esempio di record di pagamento:_
 Nell'esempio precedente,
 il cliente ha pagato fornendo una carta di credito e riscattando un buono prepagato.
 Il totale dei due pagamenti è stato aggiunto all'importo dell'ordine.
-Ogni pagamento è stato scritto in Cloudant come documento separato.
+Ogni pagamento è stato scritto in {{site.data.keyword.cloudant_short_notm}} come documento separato.
 
 Potresti vedere lo stato di un ordine creando una vista di tutto ciò che sai in merito a un `order_id`.
 La vista abiliterà un registro contenente le seguenti informazioni: 
@@ -233,7 +233,7 @@ il risultato indica che l'ordine è interamente pagato.
 Il motivo è che il totale positivo dell'ordine di acquisto annulla gli importi di pagamento negativi.
 La registrazione di eventi come documenti separati,
 ossia uno per l'ordine e uno per ogni pagamento,
-è una buona procedura in Cloudant,
+è una buona procedura in {{site.data.keyword.cloudant_short_notm}},
 in quanto evita la possibilità di creare conflitti quando più processi modificano contemporaneamente lo stesso documento.
 
 ## Aggiunta di altri documenti
@@ -245,15 +245,15 @@ documenti separati al database per registrare le seguenti modifiche dello stato 
 -   Ricevute di consegna.
 -   Record di rimborso.
 
-Quando i dati arrivano,
-Cloudant scrive ciascun documento separatamente.
+All'arrivo dei dati,
+{{site.data.keyword.cloudant_short_notm}} scrive separatamente su ciascun documento.
 Pertanto,
 non è necessario modificare il documento di acquisto principale.
 
-## Vantaggi di memorizzare gli ordini di acquisto in Cloudant
+## Vantaggi di memorizzare gli ordini di acquisto in {{site.data.keyword.cloudant_short_notm}}
 
-L'utilizzo di Cloudant per memorizzare le informazioni sugli ordini di acquisto consente a un sistema di gestione degli ordini di essere altamente disponibile e scalabile,
-il che ti permette di affrontare grandi volumi di dati ed elevati livelli di accesso simultaneo.
+L'utilizzo di {{site.data.keyword.cloudant_short_notm}} per memorizzare le informazioni sugli ordini di acquisto consente a un sistema di gestione degli ordini di essere altamente disponibile e scalabile,
+il che ti permette di gestire grandi volumi di dati ed elevati livelli di accesso simultaneo.
 Modellando i dati in documenti separati che vengono scritti solo una volta,
 possiamo garantire che i documenti non vadano mai in conflitto,
 ad esempio durante l'accesso simultaneo allo stesso documento da parte di processi separati.
@@ -264,4 +264,4 @@ per rappresentare l'unione di dati, piuttosto che basarsi su di essa, con una ch
 Ad esempio,
 quando si registra lo stato di un carrello al momento dell'acquisto.
 Ciò consente di recuperare lo stato di un ordine mediante una singola chiamata
-a una vista di Cloudant che raggruppa i documenti correlati da `order_id`.
+a una vista di {{site.data.keyword.cloudant_short_notm}} che raggruppa i documenti correlati da `order_id`.

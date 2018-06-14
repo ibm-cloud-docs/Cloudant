@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-07-13"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-07-13"
 
 # 创建备份
 
-本教程演示了如何使用 [CouchBackup ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} 命令行实用程序来备份和复原 CouchDB 或 Cloudant 实例。CouchBackup 会将数据库备份到文件。如果数据库发生故障，可以使用备份文件将信息复原到现有数据库。
+本教程演示了如何使用 [CouchBackup ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} 命令行实用程序来备份和复原 CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 实例。CouchBackup 会将数据库备份到文件。如果数据库发生故障，可以使用备份文件将信息复原到现有数据库。
 {:shortdesc}
 
 ## 准备工作
@@ -138,11 +138,11 @@ npm install -g @cloudant/couchbackup
     
 ## 设置环境变量
 
-可以使用环境变量或命令行选项来指定要使用 CouchBackup 的 CouchDB 或 Cloudant 实例的 URL 和数据库。 
+可以使用环境变量或命令行选项来指定要使用 CouchBackup 的 CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 实例的 URL 和数据库。 
 
 在本教程中，我们设置 `COUCH_URL`，并使用 `--db` 参数指定数据库。 
 
-设置 `COUCH_URL` 环境变量以指定 CouchDB 或 Cloudant 实例的 URL。
+设置 `COUCH_URL` 环境变量以指定 CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 实例的 URL。
 
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
@@ -348,6 +348,8 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
 
 > **注**：复原备份仅支持复原到空数据库。如果删除数据库中的所有 
 文档，文档删除记录仍然会存在，用于保持复制一致性。这意味着仅包含已删除文档的数据库不会被视为空数据库，因此无法在复原备份时用作目标。
+
+
 1.  （先决条件）创建一个新的空数据库，以便可以在其中复原数据。
     
     ```sh
@@ -378,4 +380,4 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
     ```
     {:codeblock}
 
-现在，您已备份和复原数据库，并创建了日志文件。有关[灾难恢复和备份](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)、[配置 Cloudant 用于跨区域灾难恢复](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)以及 [Cloudant 备份和恢复](../guides/backup-cookbook.html#cloudant-backup-and-recovery)的更多信息，请参阅“Cloudant 文档”。  
+现在，您已备份和复原数据库，并创建了日志文件。有关[灾难恢复和备份](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)、[配置 {{site.data.keyword.cloudant_short_notm}} 用于跨区域灾难恢复](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)以及 [{{site.data.keyword.cloudant_short_notm}} 备份和恢复](../guides/backup-cookbook.html#cloudant-backup-and-recovery)的更多信息，请参阅“{{site.data.keyword.cloudant_short_notm}} 文档”。  

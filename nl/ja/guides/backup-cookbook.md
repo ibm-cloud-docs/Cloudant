@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017
-lastupdated: "2017-07-11"
+lastupdated: "2017-10-27"
 
 ---
 
@@ -13,11 +13,12 @@ lastupdated: "2017-07-11"
 {:pre: .pre}
 
 <!-- Acrolinx: 2017-05-23 -->
+<!-- Update backup-guide.md with with any changes. -->
 
-# Cloudant バックアップおよびリカバリー
+# {{site.data.keyword.cloudant_short_notm}} バックアップおよびリカバリー
 
-この cookbook は、[{{site.data.keyword.cloudantfull}} 災害復旧ガイド](disaster-recovery-and-backup.html)の一部です。
-この主題について慣れておらず、災害復旧 (DR) および高可用性 (HA) 要件をサポートするために {{site.data.keyword.cloudant_short_notm}} で提供されている他の機能とバックアップが連携する場所を理解する必要がある場合は、そこから開始してください。
+このクックブックは、[{{site.data.keyword.cloudantfull}} 災害復旧ガイド](disaster-recovery-and-backup.html)の一部です。
+この主題について慣れておらず、災害復旧 (DR) および高可用性 (HA) 要件をサポートするために {{site.data.keyword.cloudant_short_notm}} で提供されている他の機能にバックアップがどこで適合するかを理解する必要がある場合は、そのガイドから開始してください。
 
 データは {{site.data.keyword.cloudant_short_notm}} クラスター内に冗長に保管されますが、追加のバックアップ対策を考慮することが重要です。
 例えば、冗長データ・ストレージでは、データの変更時におけるミスから保護されません。
@@ -35,7 +36,7 @@ CouchBackup パッケージには、このライブラリーに加え、以下�
 
 <strong style="color:red;">警告</strong>: CouchBackup ツールには[制限](#limitations)があります。
 
-## Cloudant データのバックアップ
+## {{site.data.keyword.cloudant_short_notm}} データのバックアップ
 
 `couchbackup` ツールを使用して、シンプルなバックアップを実行できます。
 `animaldb` データベースを `backup.txt` という名前のテキスト・ファイルにバックアップするには、以下の例のようなコマンドを使用できます。
@@ -55,7 +56,7 @@ couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 
 <strong style="color:red;">警告</strong>: CouchBackup ツールには[制限](#limitations)があります。
 
-## Cloudant データのリストア
+## {{site.data.keyword.cloudant_short_notm}} データのリストア
 
 データをリストアするには、`couchrestore` ツールを使用します。
 `couchrestore` を使用して、バックアップ・ファイルを新規 {{site.data.keyword.cloudant_short_notm}} データベースにインポートします。
@@ -78,8 +79,12 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 * `_security` の設定は、ツールによってバックアップされません。
 * 添付ファイルは、ツールによってバックアップされません。
-* バックアップは、正確な「ポイント・イン・タイム」のスナップショットではありません。これは、データベース内の文書がバッチで取得され、同じときに他のアプリケーションが文書を更新している可能性があるためです。従って、データベース内のデータは、最初のバッチが読み取られたときと最後のバッチが読み取られたときで異なる可能性があります。
-* 設計文書内に保持されている索引定義はバックアップされますが、索引の内容はバックアップされません。この制限は、データのリストア時に索引を再作成する必要があることを意味します。リストアするデータの量によっては、再作成に相当な時間がかかることがあります。
+* バックアップは、正確な「ポイント・イン・タイム」のスナップショットではありません。
+  これは、データベース内の文書がバッチで取得され、同じときに他のアプリケーションが文書を更新している可能性があるためです。
+  したがって、データベース内のデータは、最初のバッチが読み取られたときと最後のバッチが読み取られたときで異なる可能性があります。
+* 設計文書内に保持されている索引定義はバックアップされますが、索引の内容はバックアップされません。
+  この制限は、データのリストア時に索引を再作成する必要があることを意味します。
+  リストアするデータの量によっては、再作成に相当な時間がかかることがあります。
 
 ## ツールの使用
 
@@ -88,8 +93,10 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 CouchBackup パッケージでは、そのコア機能を使用するために以下の 2 つの方法が用意されています。
 
-* コマンド・ライン・ツール。これを標準 UNIX コマンド・パイプラインに組み込むことができます。多くのシナリオでは、`cron` と `couchbackup` アプリケーションのシンプルなシェル・スクリプトを組み合わせることで十分対応できます。
-* node.js から使用可能なライブラリー。このライブラリーにより、バックアップする必要があるデータベースを動的に判別するなど、複雑なバックアップ・プロセスを作成してデプロイできます。
+* コマンド・ライン・ツール。これを標準 UNIX コマンド・パイプラインに組み込むことができます。
+  多くのシナリオでは、`cron` と `couchbackup` アプリケーションのシンプルなシェル・スクリプトを組み合わせることで十分対応できます。
+* node.js から使用可能なライブラリー。
+  このライブラリーにより、バックアップする必要があるデータベースを動的に判別するなど、複雑なバックアップ・プロセスを作成してデプロイできます。
 
 コマンド・ライン・バックアップ・ツール、またはライブラリーとアプリケーション・コードを使用して、複雑な状況の一部としての {{site.data.keyword.cloudant_short_notm}} データベースからのバックアップを実現します。
 役に立つシナリオとして、`cron` を使用してバックアップをスケジュールし、自動的にデータを [クラウド・オブジェクト・ストレージ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window} にアップロードして長期保存することが考えられます。
@@ -116,7 +123,7 @@ couchbackup --url "https://examples.cloudant.com" \
 この例では、`gzip` ツールでバックアップ・データを `stdin` から直接受け入れ、データを圧縮してから、`stdout` を介して出力します。
 結果として得られた圧縮データ・ストリームをリダイレクトして、`backup.gz` という名前のファイルに書き込みます。
 
-データベースでアクセス資格情報を指定する必要がある場合は、`https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com` という形式の URL を使用します。例: 
+データベースでアクセス資格情報を指定する必要がある場合は、`https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com` という形式の URL を使用します。例:
 
 ```sh
 couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
@@ -132,7 +139,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
 
 定期的にデータのスナップショットを取得するように `cron` スケジューリング・ツールをセットアップできます。
 
-役に立つ開始点として、`couchbackup` で単一のバックアップをファイルに書き込みます。ファイル名には、現在の日時を含めます。例: 
+役に立つ開始点として、`couchbackup` で単一のバックアップをファイルに書き込みます。ファイル名には、現在の日時を含めます。例:
 
 ```sh
 couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
@@ -165,8 +172,10 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 
 ライブラリーは、以下の例に示すような複雑なシナリオで役立ちます。
 
-* 1 つのタスクで複数のデータベースをバックアップする。[`_all_dbs`](../api/database.html#get-databases) 呼び出しを使用してすべてのデータベースを指定してから、各データベースのバックアップを個別に実行することで、このようなバックアップを実行できます。
-* パイプラインが長い場合に、エラーのリスクが高まる。ご使用のアプリケーションで CouchBackup ライブラリーを使用して、できる限り早くエラーを検出して解決できます。
+* 1 つのタスクで複数のデータベースをバックアップする。
+  [`_all_dbs`](../api/database.html#get-databases) 呼び出しを使用してすべてのデータベースを指定してから、各データベースのバックアップを個別に実行することで、このようなバックアップを実行できます。
+* パイプラインが長い場合に、エラーのリスクが高まる。
+  ご使用のアプリケーションで CouchBackup ライブラリーを使用して、できる限り早くエラーを検出して解決できます。
 
 詳しくは、[npm ページ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][npmpackage]{:new_window} を参照してください。
 

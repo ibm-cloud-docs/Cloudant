@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Agrupando documentos relacionados no Cloudant
+# Agrupando documentos relacionados no {{site.data.keyword.cloudant_short_notm}}
 
 Tradicionalmente,
 os sistemas e-commerce são construídos com bancos de dados relacionais.
@@ -26,16 +26,16 @@ incluindo o uso de junções entre as coletas,
 enumerações para registrar o estado de um objeto
 e transações do banco de dados para garantir operações atômicas.
 
-O Cloudant favorece a disponibilidade sobre a consistência.
+O {{site.data.keyword.cloudantfull}} favorece a disponibilidade sobre a consistência.
 É um banco de dados distribuído
 de alta disponibilidade,
 tolerante a falhas, eventualmente consistente.
 A vantagem disso é que o serviço de compras do cliente está sempre disponível e escalável o suficiente
 para lidar com múltiplos usuários fazendo compras ao mesmo tempo.
-Isso significa que seu aplicativo pode utilizar os pontos fortes do Cloudant e não tratá-lo como um banco de dados relacional.
+Isso significa que seu aplicativo pode utilizar intensidades do {{site.data.keyword.cloudant_short_notm}} e não o tratar como um banco de dados relacional.
 
-A discussão neste tópico descreve alguns dos fatores
-envolvidos na construção de um sistema e-commerce que aproveita os pontos fortes do Cloudant
+A discussão nesse tópico descreve alguns dos fatores
+envolvidos na construção de um sistema e-commerce que aproveita as intensidades do {{site.data.keyword.cloudant_short_notm}},
 usando conceitos que são aplicáveis a muitos outros domínios,
 como:
 
@@ -102,7 +102,7 @@ especificamente:
 -   A cesta duplica alguns dos dados do produto nesse registro,
 o suficiente para registrar o estado dos itens comprados no ponto de venda.
 -   O documento não contém campos que marcam o status da ordem.
-Documentos adicionais seriam incluídos posteriormente para registrar pagamentos e entrega.
+    Documentos adicionais seriam incluídos posteriormente para registrar pagamentos e entrega.
 -   O banco de dados gera automaticamente um documento `_id` ao inserir o documento no banco de dados.
 -   Um identificador exclusivo (`order_id`) é fornecido com cada registro de compra para referenciar a ordem posteriormente. 
  
@@ -120,7 +120,7 @@ UUIDs mais longos são usados para assegurar que os documentos sejam armazenados
 
 Para criar um identificador exclusivo para uso em seu aplicativo,
 como um `order_id`,
-chame o terminal [`GET _uuids`](../api/advanced.html#-get-_uuids-) na API do Cloudant.
+chame o [terminal `GET _uuids`](../api/advanced.html#-get-_uuids-) na API do {{site.data.keyword.cloudant_short_notm}}.
 O banco de dados gera um identificador para você.
 O mesmo terminal pode ser usado para gerar múltiplos IDs incluindo um parâmetro `count`,
 por exemplo, `/_uuids?count=10`.
@@ -158,7 +158,7 @@ _Exemplo de um registro de pagamento:_
 No exemplo anterior,
 o cliente pagou fornecendo um cartão de crédito e resgatando um voucher pago antecipadamente.
 O total dos dois pagamentos totalizou a quantia da ordem.
-Cada pagamento foi gravado no Cloudant como um documento separado.
+Cada pagamento foi gravado no {{site.data.keyword.cloudant_short_notm}} como um documento separado.
 
 Você poderia ver o status de uma ordem criando uma visualização de tudo o que sabe sobre um `order_id`.
 A visualização permitiria um livro razão contendo as informações a seguir: 
@@ -232,8 +232,8 @@ Como a visualização no exemplo anterior retorna 0 para o valor da ordem,
 o resultado indica que a ordem foi totalmente paga.
 A razão é que o total positivo da ordem de compra cancela as quantias de pagamento negativo.
 Registrar eventos como documentos separados,
-isto é, um para a ordem e um para cada pagamento,
-é uma boa prática no Cloudant,
+que é um para a ordem e um para cada pagamento,
+é uma boa prática no {{site.data.keyword.cloudant_short_notm}},
 já que evita a possibilidade de criar conflitos quando múltiplos processos modificam o mesmo documento simultaneamente.
 
 ## Incluindo documentos adicionais
@@ -246,13 +246,13 @@ documentos separados no banco de dados para registrar as mudanças de estado a s
 -   Registros de reembolso.
 
 Conforme os dados chegam,
-o Cloudant grava cada documento separadamente.
+o {{site.data.keyword.cloudant_short_notm}} grava em cada documento separadamente.
 Portanto,
 não é necessário modificar o documento de compra principal.
 
-## Vantagens de armazenar ordens de compra no Cloudant
+## Vantagens de armazenar ordens de compra no {{site.data.keyword.cloudant_short_notm}}
 
-Usar o Cloudant para armazenar informações da ordem de compra permite que um sistema de ordenação fique altamente disponível e escalável,
+Usar o {{site.data.keyword.cloudant_short_notm}} para armazenar informações da ordem de compra permite que um sistema de ordenação seja altamente disponível e escalável,
 permitindo lidar com grandes volumes de dados e altas taxas de acesso simultâneo.
 Ao modelar os dados em documentos separados que são gravados apenas uma vez,
 é possível assegurar que os documentos nunca entrem em conflito,
@@ -264,4 +264,4 @@ para representar - em vez de depender - a junção de dados com uma chave estran
 Por exemplo,
 ao registrar o estado de uma cesta no momento da compra.
 Isso permite que o estado de uma ordem seja buscado por uma única chamada
-para uma visualização do Cloudant que agrupa documentos relacionados por `order_id`.
+para uma visualização do {{site.data.keyword.cloudant_short_notm}} que agrupa documentos relacionados por `order_id`.

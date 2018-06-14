@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-05-22"
+  years: 2017, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2017-05-22"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Criando uma instância do Cloudant no Bluemix usando as ferramentas do Cloud Foundry
+# Criando uma instância do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}} usando as ferramentas do Cloud Foundry
 
-Este tutorial mostra como criar uma instância de serviço do {{site.data.keyword.cloudantfull}}
-no {{site.data.keyword.Bluemix_notm}}
+Esse tutorial mostra como criar uma instância de serviço do
+{{site.data.keyword.cloudantfull}} no {{site.data.keyword.Bluemix}}
 usando as ferramentas do Cloud Foundry.
 {:shortdesc}
 
@@ -29,7 +29,7 @@ Detalhes para instalar as ferramentas estão disponíveis
 > **Nota**: assegure-se de instalar os kits de ferramentas do Cloud Foundry _e_
 do {{site.data.keyword.Bluemix_notm}}.
 
-## Identificando o terminal de API do Bluemix
+## Identificando o terminal de API do {{site.data.keyword.Bluemix_notm}}
 
 Especifique o terminal de API de destino para comandos do Cloud Foundry;
 
@@ -49,7 +49,7 @@ Not logged in. Use 'bx login' to log in.
 ```
 {:pre}
 
-## Efetuando login em sua conta do Bluemix
+## Efetuando login em sua conta do {{site.data.keyword.Bluemix_notm}}
 
 1.  Use o comando a seguir para iniciar o processo de login
 de sua conta do {{site.data.keyword.Bluemix_notm}}:
@@ -71,7 +71,7 @@ e, em seguida, solicita o endereço de e-mail de sua conta:
   {:pre}
 
 2.  Insira o endereço de e-mail de sua conta.
-O {{site.data.keyword.Bluemix_notm}} então solicita a senha de sua conta:
+  O {{site.data.keyword.Bluemix_notm}} então solicita a senha de sua conta:
   ```sh
   API endpoint: https://api.ng.bluemix.net
   
@@ -97,7 +97,7 @@ e, em seguida, resume as informações sobre sua sessão de login:
   Targeted org J.Doe@email.com
   
   Targeted space dev
-
+  
   API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
   Region:         us-south
   User:           j.doe@email.com
@@ -109,7 +109,7 @@ e, em seguida, resume as informações sobre sua sessão de login:
 
 3.  Agora você efetuou login em sua conta do {{site.data.keyword.Bluemix_notm}}.
 
-## Escolhendo o plano do Cloudant para seu serviço
+## Escolhendo o plano do {{site.data.keyword.cloudant_short_notm}} para seu serviço
 
 Obtenha uma lista de todas as ofertas de serviços disponíveis.
 Filtre a lista para que corresponda apenas aos serviços do {{site.data.keyword.cloudant_short_notm}}:
@@ -141,13 +141,13 @@ semelhante à seção a seguir de uma resposta de exemplo (detalhes corretos com
 
 ```
 Lite
-The Lite plan provides access to the full functionality of Cloudant for development and evaluation.
+O plano Lite fornece acesso à funcionalidade integral do {{site.data.keyword.cloudant_short_notm}} para desenvolvimento e avaliação.
 The plan has a set amount of provisioned throughput capacity as shown
 and includes a max of 1GB of encrypted data storage.   free
 ```
 {:pre}
 
-## Criando o serviço do Cloudant
+## Criando o serviço {{site.data.keyword.cloudant_short_notm}}
 
 O formato básico do comando para criar uma instância de serviço
 no {{site.data.keyword.Bluemix_notm}} é como a seguir:
@@ -180,17 +180,17 @@ OK
 ```
 {:pre}
 
-## Criando credenciais para seu serviço do Cloudant
+## Criando credenciais para seu serviço {{site.data.keyword.cloudant_short_notm}}
 
 Os aplicativos que requerem acesso ao serviço do {{site.data.keyword.cloudant_short_notm}}
 devem ter as credenciais necessárias.
 
 >   **Nota**: as credenciais de serviço são valiosas.
-Se alguém ou algum aplicativo tiver acesso às credenciais,
+    Se alguém ou algum aplicativo tiver acesso às credenciais,
 eles poderão efetivamente fazer o que quiserem com a instância de serviço,
 por exemplo, poderão criar dados falsos
 ou excluir informações de valor.
-Proteja essas credenciais cuidadosamente.
+    Proteja essas credenciais cuidadosamente.
 
 As credenciais de serviço consistem em cinco campos:
 
@@ -232,7 +232,7 @@ OK
 ```
 {:pre}
 
-## Listando as credenciais de serviço para seu serviço do Cloudant
+## Listando as credenciais de serviço para seu serviço {{site.data.keyword.cloudant_short_notm}}
 
 O formato básico do comando para recuperar as credenciais para uma instância de serviço
 no {{site.data.keyword.Bluemix_notm}} é como a seguir:
@@ -271,7 +271,7 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 ```
 {:pre}
 
-## Usando sua instância de serviço do Cloudant
+## Usando sua instância de serviço do {{site.data.keyword.cloudant_short_notm}}
 
 Neste ponto,
 você terá:
