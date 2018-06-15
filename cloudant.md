@@ -41,8 +41,7 @@ The online documentation that is provided here gives you
 details about {{site.data.keyword.cloudant_short_notm}} concepts,
 tasks, and techniques.
 
-You can start the {{site.data.keyword.cloudant_short_notm}} service from the
-[{{site.data.keyword.Bluemix}} dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
+You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.Bluemix}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
 is [available](index.html),
