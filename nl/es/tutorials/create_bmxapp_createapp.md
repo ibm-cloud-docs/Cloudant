@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-11"
+  years: 2017, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creación de una aplicación sencilla de Bluemix para acceder a una base de datos de Cloudant: el código
+# Creación de una aplicación sencilla de {{site.data.keyword.cloud_notm}} para acceder a una base de datos de {{site.data.keyword.cloudant_short_notm}}: el código
 
 En esta sección de la guía de aprendizaje se describe el código correspondiente a una aplicación de {{site.data.keyword.Bluemix}}.
 {:shortdesc}
@@ -23,17 +23,21 @@ En esta sección de la guía de aprendizaje se describe el código correspondien
 
 ## Creación de la aplicación
 
-Dispone de los siguientes componentes, listos para empezar a crear la aplicación: 
+Dispone de los siguientes componentes, listos para empezar a crear la aplicación:
 
 -   [El lenguaje de programación Python](create_bmxapp_prereq.html#python).
 -   [Una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}](create_bmxapp_prereq.html#csi).
 -   [Un entorno de aplicación de {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#creating).
--   Una [conexión](create_bmxapp_appenv.html#connecting) entre la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} y el entorno de aplicación de {{site.data.keyword.Bluemix_notm}}. 
--   Los [kits de herramientas](create_bmxapp_appenv.html#toolkits) para gestionar las aplicaciones {{site.data.keyword.Bluemix_notm}} basadas en Cloud Foundry. 
--   Un [paquete de aplicación 'de inicio'](create_bmxapp_appenv.html#starter), que contiene la configuración inicial y archivos de plantilla de código. 
+-   Una [conexión](create_bmxapp_appenv.html#connecting) entre la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} y el entorno de aplicación de {{site.data.keyword.Bluemix_notm}}.
+-   Los [kits de herramientas](create_bmxapp_appenv.html#toolkits) para gestionar las aplicaciones {{site.data.keyword.Bluemix_notm}} basadas en Cloud Foundry.
+-   Un [paquete de aplicación 'de inicio'](create_bmxapp_appenv.html#starter), que contiene la configuración inicial y archivos de plantilla de código.
 
->   **Nota**: En esta guía de aprendizaje no se pretende crear código Python _eficiente_. 
-La finalidad es mostrar un código sencillo y fácil de comprender que funcione, con el que pueda aprender y que pueda aplicar a sus propias aplicaciones. Tampoco se pretende realizar todas las comprobaciones posibles ni analizar todas las condiciones de error. Se incluyen algunas comprobaciones de ejemplo para ilustrar algunas de las técnicas. En sus aplicaciones debe comprobar y analizar todas las condiciones de aviso o de error.
+>   **Nota**: En esta guía de aprendizaje no se pretende crear código Python _eficiente_.
+    La finalidad es mostrar un código sencillo y fácil de comprender que funcione, con el que pueda aprender y que pueda aplicar a sus propias aplicaciones.
+    Tampoco se pretende realizar todas las comprobaciones posibles ni analizar todas las condiciones de error.
+    Se incluyen algunas comprobaciones de ejemplo para ilustrar algunas de las técnicas.
+    En sus aplicaciones debe comprobar y analizar todas las condiciones de aviso o de error.
+
 ### Archivos esenciales
 
 La aplicación necesita tres archivos de configuración y un archivo de origen, todos disponibles en el [paquete de aplicación 'de inicio'](create_bmxapp_appenv.html#starter):
@@ -66,6 +70,7 @@ Modifique los archivos de configuración de la siguiente manera:
     ```
     {:codeblock}
     >   **Nota**: Asegúrese de modificar los valores de '`domain`', '`name`', '`host`' y '`services`'. Son los valores especificados cuando se creó el [entorno de aplicación de {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#creating) y la [instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}](create_bmxapp_prereq.html#csi).
+
 3.  Edite el archivo '`requirements.txt`' para que contenga el texto siguiente:
     ```
     cloudant==2.3.1
@@ -74,12 +79,14 @@ Modifique los archivos de configuración de la siguiente manera:
 
 ### El código de la aplicación
 
-El siguiente paso consiste en trabajar en el código de la aplicación. Se describe cada sección y se presenta el código.
-Al final de esta sección de la guía de aprendizaje encontrará un [listado completo](#complete-listing) del código de la aplicación. 
+El siguiente paso consiste en trabajar en el código de la aplicación.
+Se describe cada sección y se presenta el código.
+Al final de esta sección de la guía de aprendizaje encontrará un [listado completo](#complete-listing) del código de la aplicación.
 
 #### Iniciación
 
-La aplicación Python necesita algunos componentes básicos para funcionar. Se importan de la siguiente manera:
+La aplicación Python necesita algunos componentes básicos para funcionar.
+Se importan de la siguiente manera:
 
 ```python
 # Dejar disponibles los módulos de Python.
@@ -112,14 +119,15 @@ except ImportError:
 La aplicación se conecta a la instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}}, por lo que debe importar los componentes de la biblioteca de {{site.data.keyword.cloudant_short_notm}}:
 
 ```python
-# Habilitar las bibliotecas de Python necesarias para trabajar con Cloudant.
+# Habilitar las bibliotecas de Python necesarias para trabajar en {{site.data.keyword.cloudant_short_notm}}.
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 ```
 {:codeblock}
 
-La aplicación crea una base de datos dentro de la instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}}. Se necesita un nombre para la base de datos:
+La aplicación crea una base de datos dentro de la instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}}.
+Se necesita un nombre para la base de datos:
 
 ```python
 # Este es el nombre de la base de datos que queremos crear.
@@ -127,9 +135,10 @@ databaseName = "databasedemo"
 ```
 {:codeblock}
 
-La aplicación registra el progreso a medida que se conecta a la instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}} y crea la base de datos. El registro adopta la forma de un archivo de registro, que se almacena en una carpeta a la que puede acceder el servidor web Python.
+La aplicación registra el progreso a medida que se conecta a la instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}} y crea la base de datos.
+El registro adopta la forma de un archivo de registro, que se almacena en una carpeta a la que puede acceder el servidor web Python.
 
-Cree una carpeta (denominada '`static`' en la aplicación) y prepárela para que almacene un archivo: 
+Cree una carpeta (denominada '`static`' en la aplicación) y prepárela para que almacene un archivo:
 
 ```python
 # Cambiar el directorio actual para no exponer los archivos de control
@@ -143,18 +152,20 @@ os.chdir('static')
 ```
 {:codeblock}
 
-A continuación, cree un archivo HTML sencillo. El archivo contendrá el registro de cada actividad a medida que la aplicación crea la base de datos:
+A continuación, cree un archivo HTML sencillo.
+El archivo contendrá el registro de cada actividad a medida que la aplicación crea la base de datos:
 
 ```python
 # Empezar a crear una página web muy sencilla.
 filename = "index.html"
 target = open(filename, 'w')
 target.truncate()
-target.write("<html><head><title>Demo de Python de Cloudant</title></head><body><p>Registro de los pasos de Cloudant Python...</p><pre>")
+target.write("<html><head><title>Demo de {{site.data.keyword.cloudant_short_notm}} Python</title></head><body><p>Registro de los pasos de Cloudant Python...</p><pre>")
 ```
 {:codeblock}
 
-La primera parte del registro es un registro de la fecha y hora actuales. Este registro ayuda a confirmar que la base de datos creada es nueva: 
+La primera parte del registro es un registro de la fecha y hora actuales.
+Este registro ayuda a confirmar que la base de datos creada es nueva:
 
 ```python
 # Colocar una indicación clara de la fecha y hora actuales en la parte superior de la página.
@@ -164,22 +175,29 @@ target.write("\n====\n\n")
 ```
 {:codeblock}
 
-#### Cómo trabajar con la instancia de la base de datos de Cloudant
+#### Cómo trabajar con una instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}}
 
-La aplicación Python se ejecuta en un entorno de aplicación de {{site.data.keyword.Bluemix_notm}}. El entorno proporciona toda la información necesaria para que la aplicación acceda a los servicios conectados. La información se proporciona en una variable de entorno denominada '`VCAP_SERVICES`'. La aplicación puede acceder a esta variable y utilizarla para determinar los detalles de la conexión.
+La aplicación Python se ejecuta en un entorno de aplicación de {{site.data.keyword.Bluemix_notm}}.
+El entorno proporciona toda la información necesaria para que la aplicación acceda a los servicios conectados.
+La información se proporciona en una variable de entorno denominada '`VCAP_SERVICES`'.
+La aplicación puede acceder a esta variable y utilizarla para determinar los detalles de la conexión.
 
 La primera tarea consiste en asegurarse de que la aplicación se está ejecutando dentro del entorno de aplicación de {{site.data.keyword.Bluemix_notm}}.
-Para ello compruebe si existe la variable de entorno '`VCAP_SERVICES`': 
+Para ello compruebe si existe la variable de entorno '`VCAP_SERVICES`':
 
 ```python
-# Comprobar que se está ejecutando en un entorno de aplicación de Bluemix.
+# Comprobar que se está ejecutando en un entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 if 'VCAP_SERVICES' in os.environ:
 ```
 {:codeblock}
 
->   **Nota**: Las siguientes secciones de código solo se ejecutan si se ha encontrado la variable de entorno. 
-    En Python, este código está sangrado para indicar que es el cuerpo de la prueba. En esta guía de aprendizaje, se omite la sangría de los segmentos de código para ahorrar espacio. Sin embargo, en el [listado completo](#complete-listing) se muestra la sangría correctamente.
-Suponiendo que la variable se ha encontrado, se procederá a utilizar la información. Empiece cargando los datos JSON que almacenados en la variable y registrando el suceso en el nuevo 'archivo de registro':
+>   **Nota**: Las siguientes secciones de código solo se ejecutan si se ha encontrado la variable de entorno.
+    En Python, este código está sangrado para indicar que es el cuerpo de la prueba.
+    En esta guía de aprendizaje, se omite la sangría de los segmentos de código para ahorrar espacio.
+    Sin embargo, en el [listado completo](#complete-listing) se muestra la sangría correctamente.
+
+Suponiendo que la variable se ha encontrado, se procederá a utilizar la información.
+Empiece cargando los datos JSON que almacenados en la variable y registrando el suceso en el nuevo 'archivo de registro':
 
 ```python
 # Comprobado; obtener la información de servicio.
@@ -189,25 +207,30 @@ target.write("Got vcap_servicesData\n")
 ```
 {:codeblock}
 
-A continuación, busque información sobre la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} conectada. Nuevamente, registre el suceso en el 'archivo de registro':
+A continuación, busque información sobre la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} conectada.
+Nuevamente, registre el suceso en el 'archivo de registro':
 
 ```python
-# Buscar la instancia de servicio de Cloudant.
+# Buscar la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}.
 cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
-# Registrar que se ha encontrado correctamente cierta información de servicio de Cloudant.
+# Registrar que se ha encontrado correctamente cierta información de servicio de {{site.data.keyword.cloudant_short_notm}}.
 target.write("Got cloudantNoSQLDBData\n")
 ```
 {:codeblock}
 
 Es posible que haya varios servicios de {{site.data.keyword.Bluemix_notm}} conectados al entorno de aplicación.
-Las credenciales de cada servicio se muestran como elementos de una matriz. En esta guía de aprendizaje, solo [se ha creado una conexión de servicio](create_bmxapp_appenv.html#connecting). Por lo tanto, la aplicación accede al primer elemento (elemento 'cero'). Cada elemento de servicio contiene las credenciales correspondientes a dicho servicio, expresadas como una lista indexada por los nombres de campo esenciales que se necesitan para acceder al servicio. Encontrará más información sobre los nombres de los campos en la [guía de aprendizaje](create_database.html#a-cloudant-service-instance-on-bluemix) que describe una tarea de ejemplo de creación de una base de datos. 
+Las credenciales de cada servicio se muestran como elementos de una matriz.
+En esta guía de aprendizaje, solo [se ha creado una conexión de servicio](create_bmxapp_appenv.html#connecting).
+Por lo tanto, la aplicación accede al primer elemento (elemento 'cero').
+Cada elemento de servicio contiene las credenciales correspondientes a dicho servicio, expresadas como una lista indexada por los nombres de campo esenciales que se necesitan para acceder al servicio.
+Encontrará más información sobre los nombres de los campos en la [guía de aprendizaje](create_database.html#a-cloudant-service-instance-on-bluemix) que describe una tarea de ejemplo de creación de una base de datos.
 
 ```python
-# Obtener una lista que contenga la información de conexión de Cloudant.
+# Obtener una lista que contenga la información de conexión de {{site.data.keyword.cloudant_short_notm}}.
 credentials = cloudantNoSQLDBData[0]
 # Obtener los valores esenciales para que nuestra aplicación se comunique con el servicio.
 credentialsData = credentials['credentials']
-# Registrar que se han encontrado correctamente los valores de Cloudant.
+# Registrar que se han encontrado correctamente los valores de {{site.data.keyword.cloudant_short_notm}}.
 target.write("Got credentialsData\n\n")
 ```
 {:codeblock}
@@ -233,7 +256,8 @@ target.write("\n")
 ```
 {:codeblock}
 
-Ahora la aplicación tiene todos los detalles necesarios para crear una base de datos dentro de la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}. Esta tarea se describe con más detalle en la [guía de aprendizaje](create_database.html#a-cloudant-service-instance-on-bluemix) que describe la creación de una base de datos sencilla. 
+Ahora la aplicación tiene todos los detalles necesarios para crear una base de datos dentro de la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}.
+Esta tarea se describe con más detalle en la [guía de aprendizaje](create_database.html#a-cloudant-service-instance-on-bluemix) que describe la creación de una base de datos sencilla.
 
 La aplicación debe realizar estas tareas:
 
@@ -247,7 +271,7 @@ La aplicación debe realizar estas tareas:
 El código correspondiente a estas tareas es el siguiente:
 
 ```python
-# Ahora tenemos todos los detalles que necesitamos para trabajar con la instancia de servicio de Cloudant.
+# Ahora tenemos todos los detalles necesarios para trabajar con la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}.
 # Conectar con la instancia de servicio.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 client.connect()
@@ -285,14 +309,16 @@ target.close()
 
 #### Cómo servir el archivo de registro
 
-La última tarea consiste iniciar el servidor web dentro de la aplicación Python. La única finalidad del servidor es devolver el archivo de registro bajo demanda. Este archivo de registro confirma que la aplicación Python ha completado correctamente las siguientes tareas: 
+La última tarea consiste iniciar el servidor web dentro de la aplicación Python.
+La única finalidad del servidor es devolver el archivo de registro bajo demanda.
+Este archivo de registro confirma que la aplicación Python ha completado correctamente las siguientes tareas:
 
 1.  Se ha ejecutado correctamente en el entorno de aplicación de {{site.data.keyword.Bluemix_notm}}.
 2.  Ha determinado los detalles de las conexiones de servicio.
-3.  Ha conectado con una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}. 
+3.  Ha conectado con una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}.
 4.  Ha creado una base de datos.
 5.  Ha creado un documento dentro de la base de datos.
-6.  Ha respondido con el registro de sucesos cuando se ha solicitado. 
+6.  Ha respondido con el registro de sucesos cuando se ha solicitado.
 
 El código para iniciar el servidor web Python se incluye como parte del [paquete de aplicación 'de inicio'](create_bmxapp_appenv.html#starter):
 
@@ -312,7 +338,7 @@ httpd.server_close()
 
 ## El paso siguiente
 
-El siguiente paso de esta guía de aprendizaje es [cargar la aplicación](create_bmxapp_upload.html) para probarla. 
+El siguiente paso de esta guía de aprendizaje es [cargar la aplicación](create_bmxapp_upload.html) para probarla.
 
 ## Listado completo
 
@@ -335,7 +361,7 @@ except ImportError:
     from http.server import SimpleHTTPRequestHandler as Handler
     from http.server import HTTPServer as Server
 
-# Habilitar las bibliotecas de Python necesarias para trabajar con Cloudant.
+# Habilitar las bibliotecas de Python necesarias para trabajar en {{site.data.keyword.cloudant_short_notm}}.
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
@@ -356,14 +382,14 @@ os.chdir('static')
 filename = "index.html"
 target = open(filename, 'w')
 target.truncate()
-target.write("<html><head><title>Demo de Python de Cloudant</title></head><body><p>Registro de los pasos de Cloudant Python...</p><pre>")
+target.write("<html><head><title>Demo de Python de Cloudant</title></head><body><p>Registro de los pasos de {{site.data.keyword.cloudant_short_notm}} Python...</p><pre>")
 
 # Colocar una indicación clara de la fecha y hora actuales en la parte superior de la página.
 target.write("====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n\n")
 
-# Empezar a trabajar con la instancia de servicio de Cloudant.
+# Empezar a trabajar con la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}.
 
 # Comprobar que se está ejecutando en un entorno de aplicación de Bluemix.
 if 'VCAP_SERVICES' in os.environ:
@@ -371,15 +397,15 @@ if 'VCAP_SERVICES' in os.environ:
     vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
     # Registrar que se ha encontrado correctamente cierta información de servicio.
     target.write("Got vcap_servicesData\n")
-    # Buscar la instancia de servicio de Cloudant.
+    # Buscar la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}.
     cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
-    # Registrar que se ha encontrado correctamente cierta información de servicio de Cloudant.
+    # Registrar que se ha encontrado correctamente cierta información de servicio de {{site.data.keyword.cloudant_short_notm}}.
     target.write("Got cloudantNoSQLDBData\n")
-    # Obtener una lista que contenga la información de conexión de Cloudant.
+    # Obtener una lista que contenga la información de conexión de {{site.data.keyword.cloudant_short_notm}}.
     credentials = cloudantNoSQLDBData[0]
     # Obtener los valores esenciales para que nuestra aplicación se comunique con el servicio.
     credentialsData = credentials['credentials']
-    # Registrar que se han encontrado correctamente los valores de Cloudant.
+    # Registrar que se han encontrado correctamente los valores de {{site.data.keyword.cloudant_short_notm}}.
     target.write("Got credentialsData\n\n")
     # Obtener el nombre de usuario...
     serviceUsername = credentialsData['username']
@@ -397,7 +423,7 @@ if 'VCAP_SERVICES' in os.environ:
     target.write(serviceURL)
     target.write("\n")
 
-    # Ahora tenemos todos los detalles que necesitamos para trabajar con la instancia de servicio de Cloudant.
+    # Ahora tenemos todos los detalles necesarios para trabajar con la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}.
     # Conectar con la instancia de servicio.
     client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
     client.connect()

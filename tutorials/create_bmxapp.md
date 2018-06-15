@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database
+# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database
 
 This tutorial shows you how to create an {{site.data.keyword.Bluemix}} application that uses the
 [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} to
@@ -28,7 +28,7 @@ A significant advantage of {{site.data.keyword.Bluemix_notm}} is that you can cr
 {{site.data.keyword.Bluemix_notm}} itself.
 You do not have to find and maintain a server to run your applications.
 
-If you are already using a {{site.data.keyword.cloudant_short_notm}} database instance
+If you are already using an {{site.data.keyword.cloudant_short_notm}} database instance
 within {{site.data.keyword.Bluemix_notm}},
 it makes sense to have your applications there,
 too.
@@ -40,7 +40,7 @@ that simplifies the process of creating applications that can be deployed and ru
 within a Cloud environment.
 
 [A separate tutorial](create_database.html) showed you how to create a stand-alone Python application
-that uses a {{site.data.keyword.cloudant_short_notm}}
+that uses an {{site.data.keyword.cloudant_short_notm}}
 database instance within {{site.data.keyword.Bluemix_notm}}.
 In this tutorial,
 you set up and create a small Python application hosted within {{site.data.keyword.Bluemix_notm}}.
@@ -67,11 +67,11 @@ warnings or error conditions that are encountered by your own applications.
 ## Task overview
 
 To create a working Python application on {{site.data.keyword.Bluemix_notm}}
-that can access a {{site.data.keyword.cloudant_short_notm}} database instance,
+that can access an {{site.data.keyword.cloudant_short_notm}} database instance,
 you need to perform the following tasks:
 
 -   [Create a Python application environment on {{site.data.keyword.Bluemix_notm}}.](create_bmxapp_appenv.html#creating)
--   [Ensure that the Python application environment has a 'connection' to a {{site.data.keyword.cloudant_short_notm}} database instance.](create_bmxapp_appenv.html#connecting)
+-   [Ensure that the Python application environment has a 'connection' to an {{site.data.keyword.cloudant_short_notm}} database instance.](create_bmxapp_appenv.html#connecting)
 -   [(One-off task) Download and install the Cloud Foundry and {{site.data.keyword.Bluemix_notm}} command line toolkits.](create_bmxapp_appenv.html#toolkits)
 -   [Download the 'starter' application.](create_bmxapp_appenv.html#starter)
 -   [Customize the starter application to create your own application for accessing the {{site.data.keyword.cloudant_short_notm}} database instance.](create_bmxapp_createapp.html#theApp)

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-11"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,22 +14,22 @@ lastupdated: "2017-01-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Création d'une application Bluemix simple permettant d'accéder à une base de données Cloudant : téléchargement de l'application
+# Création d'une application {{site.data.keyword.Bluemix_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}} : téléchargement de l'application
 
 Cette section du tutoriel décrit comment télécharger une application {{site.data.keyword.Bluemix}}.
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## Connexion à Bluemix
+## Connexion à {{site.data.keyword.Bluemix_notm}}
 
 La première tâche consiste à se connecter à {{site.data.keyword.Bluemix_notm}}.
 
-Le [kit d'outils {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#toolkits) vous aide à établir la connexion. 
+Le [kit d'outils {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#toolkits) vous aide à établir la connexion.
 
 Cloud Foundry doit connaître l'URL à employer pour effectuer les appels d'API, par exemple lorsque vous téléchargez une application.
 Le kit d'outils {{site.data.keyword.Bluemix_notm}} utilise la commande '`cf api`' pour gérer le noeud final d'API.
-Vous trouverez davantage d'informations sur la commande '`cf api`' [ici ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
+Vous trouverez davantage d'informations sur la commande '`cf api`' [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
 
 Utilisez la commande suivante pour indiquer à Cloud Foundry l'URL à utiliser :
 
@@ -38,7 +38,7 @@ bluemix api https://api.ng.bluemix.net
 ```
 {:pre}
 
-Vous devez obtenir un résultat similaire à la sortie suivante : 
+Vous devez obtenir un résultat similaire à la sortie suivante :
 
 ```
 Invoking 'cf api https://api.ng.bluemix.net'...
@@ -55,25 +55,25 @@ Not logged in. Use 'bluemix login' to log in.
 Cloud Foundry sait désormais où il doit envoyer les appels d'API pour la gestion des applications.
 
 L'étape suivante consiste à vous connecter à votre environnement d'application {{site.data.keyword.Bluemix_notm}}.
-Vous devez indiquer les détails du compte suivants : 
+Vous devez indiquer les détails du compte suivants :
 
--   Votre nom d'utilisateur, spécifié en tant que paramètre '`-u`'. 
+-   Votre nom d'utilisateur, spécifié en tant que paramètre '`-u`'.
 -   Votre nom d'organisation, spécifié en tant que paramètre '`-o`'.
--   Votre espace, spécifié en tant que paramètre '`-s`'. 
+-   Votre espace, spécifié en tant que paramètre '`-s`'.
 
 >   **Remarque** : Les détails du compte sont disponibles dans votre tableau de bord {{site.data.keyword.Bluemix_notm}}
     lorsque vous vous connectez via un navigateur Web, comme indiqué dans l'exemple suivant :<br/>
     ![Recherche des détails du compte {{site.data.keyword.Bluemix_notm}}](images/img0035.png)
 
 Utilisez une commande similaire à l'exemple suivant pour vous connecter à votre environnement d'application {{site.data.keyword.Bluemix_notm}}.
-Vous êtes invité à entrer le mot de passe de votre compte. 
+Vous êtes invité à entrer le mot de passe de votre compte.
 
 ```sh
 bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {:pre}
 
-Vous devez obtenir un résultat similaire à la sortie suivante : 
+Vous devez obtenir un résultat similaire à la sortie suivante :
 
 ```
 Invoking 'cf login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev'...
@@ -87,7 +87,7 @@ OK
 Targeted org Adrian.Warman@uk.ibm.com
 
 Targeted space dev
-
+                
 API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
 User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
@@ -97,7 +97,7 @@ Space:          dev
 
 ## Téléchargement de l'application
 
-Le kit d'outils Cloud Foundry sait désormais comment se connecter à l'environnement {{site.data.keyword.Bluemix_notm}}.
+Le kit d'outils {{site.data.keyword.cloudant_short_notm}} Foundry sait désormais comment se connecter à l'environnement {{site.data.keyword.Bluemix_notm}}.
 
 L'étape suivante consiste à télécharger l'application elle-même.
 Les détails d'une application {{site.data.keyword.Bluemix_notm}} sont fournis
@@ -112,12 +112,12 @@ cf push "Cloudant Python"
 ```
 {:pre}
 
-Une séquence de messages de résultat s'affiche. 
+Une séquence de messages de résultat s'affiche.
 
 ```
 Using manifest file /..../BMXDemo/manifest.yml
 
-Updating app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -129,9 +129,9 @@ Using route Cloudant-Python.mybluemix.net
 Uploading Cloudant Python...
 Uploading app files from: /..../BMXDemo
 Uploading 1.5K, 3 files
-Done uploading
+Done uploading               
 OK
-Binding service Cloudant Service 2017 to app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -139,7 +139,7 @@ OK
 L'application a été téléchargée avec succès et une connexion a été établie avec l'instance de base de données {{site.data.keyword.cloudant_short_notm}}.
 
 ```
-Starting app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Starting app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 -----> Downloaded app package (4.0K)
 -----> Downloaded app buildpack cache (29M)
 -------> Buildpack version 1.5.5
@@ -165,7 +165,7 @@ App started
 
 OK
 
-App Cloudant Python was started using this command `python server.py`
+App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
 ```
 {:codeblock}
 
@@ -181,7 +181,7 @@ système simples sont exécutées pour confirmer que l'application s'exécute co
 ce qui concerne {{site.data.keyword.Bluemix_notm}}.
 
 ```
-Showing health and status for app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 
 requested state: started
@@ -205,7 +205,7 @@ est créé pour la première fois, le tableau de bord inclut un lien dans la col
 
 Cliquez sur ce lien pour ouvrir une fenêtre de navigateur qui demande certaines
 données à l'application à l'écoute sur le port correspondant.
-L'application répond en renvoyant le contenu du fichier journal généré lors de son démarrage : <br/>
+L'application répond en renvoyant le contenu du fichier journal généré lors de son démarrage :<br/>
 ![Fichier journal généré au démarrage de l'application du tutoriel](images/img0030.png)
 
 Le contenu de ce fichier journal est intéressant.
@@ -214,7 +214,7 @@ Dans cet intervalle, le journal enregistre chaque détail au fur et à mesure de
 l'extraction des informations de connexion de {{site.data.keyword.cloudant_short_notm}}.
 Les valeurs réelles de la connexion ne sont pas importantes.
 Le journal indique que l'application du tutoriel a pu localiser, extraire et utiliser ces
-valeurs pour créer un document dans la base de données {{site.data.keyword.cloudant_short_notm}}. 
+valeurs pour créer un document dans la base de données {{site.data.keyword.cloudant_short_notm}}.
 
 ### Confirmation des détails de la base de données
 
@@ -236,7 +236,7 @@ La liste des options pour la base de données s'affiche.
 Lorsque vous sélectionnez l'onglet `All documents`, les détails d'un seul document s'affichent :<br/>
 ![Un document dans la nouvelle base de données](images/img0032.png)
 
-Pour afficher le contenu du document, cliquez sur l'icône `Edit` représentée par un crayon : <br/>
+Pour afficher le contenu du document, cliquez sur l'icône `Edit` représentée par un crayon :<br/>
 ![Détails du document](images/img0033.png)
 
 Lorsque le contenu du document apparaît, vous pouvez voir chaque zone créée par

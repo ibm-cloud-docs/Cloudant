@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-04-20"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -16,33 +16,33 @@ lastupdated: "2017-04-20"
 
 # Replicação
 
-Os dados podem ser copiados de um banco de dados para outro na mesma conta do Cloudant,
-através de contas e de data centers.
+Os dados podem ser copiados de um banco de dados para outro na mesma conta do {{site.data.keyword.cloudantfull}},
+entre contas e entre data centers.
 {:shortdesc}
 
-Os dados podem até ser replicados para e de uma conta do Cloudant e um dispositivo móvel
-usando o [Cloudant Sync ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
-ou o [PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window}.
+Os dados podem até ser replicados para/de uma conta do {{site.data.keyword.cloudant_short_notm}} e um dispositivo móvel
+usando [Sincronização do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
+ou [PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window}.
 A replicação pode ser executada em uma direção ou em ambas as direções,
 como uma operação 'única' ou contínua
 e pode ser finamente ajustada usando parâmetros.
 
-O protocolo de replicação do Cloudant é compatível com uma amplitude de outros bancos de dados e bibliotecas,
-tornando-o um grande ajuste para aplicativos Internet of Things (IoT) e móveis.
+O protocolo de replicação do {{site.data.keyword.cloudant_short_notm}} é compatível com um intervalo de outros bancos de dados e bibliotecas,
+tornando-o um bom ajuste para Internet of Things (IoT) e aplicativos móveis.
 
-Este guia introduz funções de replicação do Cloudant,
+Este guia apresenta as funções de replicação do {{site.data.keyword.cloudant_short_notm}},
 discute casos de uso comuns
 e mostra como fazer seu aplicativo replicar com sucesso.
 
 ## O que é replicação?
 
-O Cloudant é um armazenamento de dados JSON distribuído com uma API HTTP.
-O Cloudant pode ser executado como um serviço em múltiplas nuvens
+O {{site.data.keyword.cloudant_short_notm}} é um armazenamento de dados JSON distribuído com uma API HTTP.
+O {{site.data.keyword.cloudant_short_notm}} pode ser executado como um serviço em múltiplas nuvens
 ou em seu rack de servidor.
-Os documentos são armazenados em bancos de dados e podem chegar a qualquer tamanho, uma vez que o Cloudant fragmenta seus dados em vários nós.
+Os documentos são armazenados em bancos de dados e podem chegar a qualquer tamanho, pois o {{site.data.keyword.cloudant_short_notm}} fragmenta seus dados em vários nós.
 A replicação é a cópia de dados de um banco de dados de origem para um banco de dados de destino.
-Os bancos de dados de origem e de destino não precisam estar na mesma conta do Cloudant
-ou no mesmo data center.
+Os bancos de dados de origem e de destino não precisam estar na mesma conta do {{site.data.keyword.cloudant_short_notm}}
+ou ainda no mesmo data center.
 
 ![replicação](../images/replication_guide_1.png)
 
@@ -61,8 +61,8 @@ Os dados preexistentes no banco de dados de destino permanecem.
 
 ## Como iniciar a replicação usando o Painel
 
-O Painel do Cloudant fornece uma interface com o usuário conveniente para acionar a replicação.
-Abra a guia Replicação do Painel do Cloudant e clique no botão de ação `New Replication`.
+O Painel do {{site.data.keyword.cloudant_short_notm}} fornece uma interface com o usuário conveniente para acionar a replicação.
+Abra a guia Replicação do Painel do {{site.data.keyword.cloudant_short_notm}} e clique no botão de ação `Nova replicação`.
 Preencha o formulário simples:
 
 ![replication2](../images/replication_guide_2.png)
@@ -80,9 +80,9 @@ Cada tarefa muda o estado de "`Triggered`" para "`Complete`" à medida que progr
 
 <div id="how-do-i-run-replication-across-different-cloudant-accounts-"></div>
 
-## Como executar a replicação entre diferentes contas do Cloudant
+## Como executar a replicação entre diferentes contas do {{site.data.keyword.cloudant_short_notm}}
 
-A origem e o destino de uma replicação são URLs de bancos de dados Cloudant,
+A origem e o destino de uma replicação são URLs de bancos de dados {{site.data.keyword.cloudant_short_notm}},
 conforme mostrado no exemplo a seguir.
 
 _Exemplo de definição de URLs de origem e de destino para replicação:_
@@ -115,9 +115,9 @@ A decisão quanto a qual dispositivo iniciará a replicação é sua.
 
 <div id="how-do-i-initiate-replication-via-the-cloudant-api-"></div>
 
-## Como iniciar a replicação usando a API do Cloudant
+## Como iniciar a replicação usando a API do {{site.data.keyword.cloudant_short_notm}}
 
-Toda conta do Cloudant tem um banco de dados especial chamado `_replicator`,
+Cada conta do {{site.data.keyword.cloudant_short_notm}} tem um banco de dados especial que é chamado `_replicator`,
 no qual as tarefas de replicação podem ser inseridas.
 Inclua um documento no banco de dados `_replicator` para iniciar a replicação.
 O documento descreve a replicação desejada
@@ -125,9 +125,9 @@ e contém os campos a seguir:
 
 Campo           | Propósito
 ----------------|--------
-`_id`           | O fornecimento de um campo `_id` é opcional, mas pode ser útil para identificar tarefas de replicação. O Cloudant gerará um valor para você se você não fornecer um.
-`source`        | A URL do banco de dados Cloudant de origem, incluindo credenciais de login.
-`target`        | A URL do banco de dados Cloudant de destino, incluindo credenciais de login.
+`_id`           | O fornecimento de um campo `_id` é opcional, mas pode ser útil para identificar tarefas de replicação. O {{site.data.keyword.cloudant_short_notm}} gerará um valor se você não fornecer um.
+`source`        | A URL do banco de dados {{site.data.keyword.cloudant_short_notm}} de origem, incluindo credenciais de login.
+`target`        | A URL do banco de dados {{site.data.keyword.cloudant_short_notm}} de destino, incluindo credenciais de login.
 `create_target` | (Opcional) Determine se o banco de dados de destino deverá ser criado se ele ainda não existir.
 
 _Exemplo de como usar HTTP para iniciar uma tarefa de replicação:_
@@ -167,12 +167,12 @@ _Exemplo de documento JSON que descreve a replicação desejada:_
 É possível obter uma lista de mudanças feitas em um documento usando
 o [terminal `_changes`](../api/database.html#get-changes).
 No entanto,
-a natureza distribuída de bancos de dados Cloudant
-significa que a resposta fornecida pelo feed `_changes`
-não pode ser uma lista simples de mudanças que ocorreram após uma data e hora específicas.
+a natureza distribuída de bancos de dados {{site.data.keyword.cloudant_short_notm}}
+significa que a resposta que é fornecida pelo feed `_changes`
+não pode ser uma lista simples de mudanças que ocorreram após uma determinada data e hora.
 
-A discussão sobre [Teorema CAP](cap_theorem.html) deixa claro que o
-Cloudant usa um modelo 'eventualmente consistente'.
+A discussão de [Teorema CAP](cap_theorem.html) deixa claro que
+o {{site.data.keyword.cloudant_short_notm}} usa um modelo 'eventualmente consistente'.
 Esse modelo significa que se você tiver solicitado duas réplicas diferentes de um banco de dados para um documento
 ao mesmo tempo,
 poderá obter resultados diferentes se uma das cópias do banco de dados ainda estiver aguardando a conclusão da replicação.
@@ -201,8 +201,8 @@ Em outras palavras,
 para obter uma lista de mudanças,
 você começará da mudança mais recente com a qual as cópias do banco de dados concordarem.
 O ponto de concordância entre cópias do banco de dados é identificado no
-Cloudant usando o mecanismo de [ponto de verificação](#checkpoints)
-que permite que a replicação entre cópias do banco de dados sejam sincronizadas.
+{{site.data.keyword.cloudant_short_notm}} usando o mecanismo de [ponto de verificação](#checkpoints)
+que permite que a replicação entre cópias do banco de dados seja sincronizada.
 
 Finalmente,
 uma consequência da segunda característica é que as mudanças individuais que aparecem na
@@ -263,7 +263,7 @@ Será suficiente se as credenciais conseguirem:
 -   Gravar documentos na extremidade de destino.
 -   Gravar documentos de ponto de verificação em ambas as extremidades.
 
-O Cloudant tem uma permissão de usuário `_replicator` especial.
+O {{site.data.keyword.cloudant_short_notm}} tem uma permissão de usuário `_replicator` especial.
 Essa permissão permite que os documentos de ponto de verificação sejam criados,
 mas não permite a criação de documentos comuns em um banco de dados.
 Em geral,
@@ -272,12 +272,12 @@ Em geral,
 -   Acesso `_reader` e `_replicator` no lado de origem.
 -   Acesso `_reader` e `_writer` no lado de destino.
 
-As chaves API podem ser criadas e configuradas no Painel do Cloudant,
-com base no banco de dados.
+As chaves API podem ser criadas e configuradas no Painel do {{site.data.keyword.cloudant_short_notm}},
+em uma base por banco de dados.
 
 ![replicação](../images/replication_guide_5.png)
 
-Elas também podem ser criadas [programaticamente](../api/authorization.html#creating-api-keys) usando a API do Cloudant.
+Elas também podem ser criadas [programaticamente](../api/authorization.html#creating-api-keys) usando a API do {{site.data.keyword.cloudant_short_notm}}.
 
 ## Replicação em duas vias
 
@@ -299,9 +299,8 @@ Com a replicação contínua,
 os dados fluem continuamente.
 Todas as mudanças subsequentes no banco de dados de origem são transmitidas para o banco de dados de destino em tempo real.
 
-A replicação contínua é acionada clicando na
-caixa de seleção "`Make this replication continuous`" ao definir uma tarefa de replicação no Painel do Cloudant
-ou configurando a sinalização ["`continuous`"](../api/replication.html#checkpoints) na API do Cloudant.
+A replicação contínua é acionada clicando na caixa de seleção "`Tornar esta replicação contínua`" quando você define uma tarefa de replicação no Painel do {{site.data.keyword.cloudant_short_notm}}
+ou configurando a sinalização ["`continuous`"](../api/replication.html#checkpoints) na API do {{site.data.keyword.cloudant_short_notm}}.
 
 A replicação em duas vias pode se tornar contínua em uma ou em ambas as direções,
 configurando a sinalização "`continuous`".
@@ -340,14 +339,14 @@ _Exemplo de um documento JSON que define uma replicação contínua:_
 
 ## Monitorando a replicação
 
-É possível verificar o status do banco de dados `_replicator` do Cloudant a qualquer momento,
+É possível verificar o status do banco de dados `_replicator` do {{site.data.keyword.cloudant_short_notm}} a qualquer momento,
 usando o Painel ou a API.
 
 Se a replicação tiver falhado,
 por exemplo, em razão de as credenciais de autenticação serem inválidas,
 o estado de erro será registrado no documento `_replicator`.
 Além disso,
-o terminal `/_active_tasks` da conta do Cloudant pode ser usado para ver o trabalho de replicação à medida que progride.
+o terminal `/_active_tasks` da conta do {{site.data.keyword.cloudant_short_notm}} pode ser usado para ver o trabalho de replicação à medida que progride.
 Mais detalhes estão disponíveis [aqui](../api/active_tasks.html).
 
 _Exemplo de como usar HTTP para monitorar um processo de replicação:_
@@ -407,32 +406,32 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 
 ## Outros casos de uso de replicação
 
-A replicação não serve só para a transferência de dados do Cloudant para o Cloudant.
-O protocolo de replicação do Cloudant é compatível com outros bancos de dados e bibliotecas de vários aplicativos do mundo real.
+A replicação não é apenas para transferência de dados do {{site.data.keyword.cloudant_short_notm}} para o {{site.data.keyword.cloudant_short_notm}}.
+O protocolo de replicação do {{site.data.keyword.cloudant_short_notm}} é compatível com outros bancos de dados e bibliotecas para vários aplicativos do mundo real.
 
 ### Apache CouchDB
 
-O [Apache CouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://couchdb.apache.org/){:new_window} é um banco de dados de software livre
-que pode se comunicar com o Cloudant
+[Apache CouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://couchdb.apache.org/){:new_window} é um banco de dados de software livre
+que pode se comunicar com o {{site.data.keyword.cloudant_short_notm}}
 e que requer configuração mínima.
 Os aplicativos incluem:
 
--   Backup: replique os dados do Cloudant em seus próprios bancos de dados CouchDB
-e tire capturas instantâneas todas as noites de seus dados para propósitos de arquivamento.
-Envie os dados para um serviço de backup como o
+-   Backup: replique seus dados do {{site.data.keyword.cloudant_short_notm}} para seus próprios bancos de dados CouchDB
+    e tome capturas instantâneas todas as noites de seus dados para propósitos de arquivamento.
+    Envie os dados para um serviço de backup como o
 [Amazon Glacier ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://aws.amazon.com/glacier/){:new_window} para manutenção segura.
--   Primeira coleta de dados local: grave seus dados no Apache CouchDB local primeiro
-e, em seguida, replique-os no Cloudant para armazenamento, agregação e
-análise a
-longo prazo.
+-   Coleta de dados primeiro no local: grave seus dados no Apache CouchDB local primeiro
+    e, em seguida, replique-os para o {{site.data.keyword.cloudant_short_notm}} para armazenamento de longo prazo,
+    agregação
+    e análise.
 
 ### PouchDB
 
-O [PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window} é um banco de dados
-de navegador interno de software livre, que permite que os dados sejam replicados em ambas as direções entre o navegador e o Cloudant.
+[PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window} é um banco de dados
+de navegador de software livre que permite que os dados sejam replicados em ambas as direções entre o navegador e o {{site.data.keyword.cloudant_short_notm}}.
 Armazenar os dados em um navegador da web no lado do cliente permite que os aplicativos da web funcionem
 mesmo sem uma conexão com a Internet.
-O PouchDB pode sincronizar quaisquer dados mudados para e do Cloudant quando uma conexão de Internet está presente.
+O PouchDB pode sincronizar quaisquer dados mudados para/do {{site.data.keyword.cloudant_short_notm}} quando uma conexão de Internet está presente.
 Configurar a replicação do lado do cliente requer algumas linhas de JavaScript.
 
 _Exemplo de JavaScript que usa o PouchDB para ativar a replicação:_
@@ -446,9 +445,9 @@ db.sync(URL, { live: true });
 
 ### CloudantSync
 
-O [CloudantSync ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/cloudant-sync-resources/){:new_window} é um conjunto de bibliotecas
-para iOS e Android que permitirá que os dados sejam armazenados localmente em um dispositivo móvel
-e sincronizados com o Cloudant quando a conectividade móvel permitir.
+[CloudantSync ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/cloudant-sync-resources/){:new_window} é um conjunto de bibliotecas
+para iOS e Android que permite que os dados sejam armazenados localmente em um dispositivo móvel
+e sincronizados com o {{site.data.keyword.cloudant_short_notm}} quando a conectividade móvel permite.
 Como com o [PouchDB](#pouchdb),
 a configuração da replicação requer algumas linhas de código.
 
@@ -466,8 +465,8 @@ replicator.start();
 
 O CloudantSync é usado amplamente em aplicativos móveis,
 como jogos do iPhone e do Android,
-em que o estado do aplicativo é persistido no Cloudant por replicação,
-mas os dados também ficam disponíveis no dispositivo para uso off-line.
+em que o estado do aplicativo é persistido no {{site.data.keyword.cloudant_short_notm}} por replicação,
+mas os dados também estão disponíveis no dispositivo para uso off-line.
 
 ## Replicação filtrada
 
@@ -484,7 +483,7 @@ como armazenar dados do Reino Unido em um banco de dados e dados dos EUA em outr
 
 ### Funções do filtro de replicação
 
-A replicação filtrada do Cloudant permite a definição de uma função JavaScript que usa o valor de retorno
+A replicação filtrada do {{site.data.keyword.cloudant_short_notm}} permite a definição de uma função JavaScript que usa o valor de retorno
 para determinar se cada documento em um banco de dados deve ser filtrado ou não.
 As [funções de filtro](../api/design_documents.html#filter-functions) são armazenadas
 em [documentos de design](../api/design_documents.html).
@@ -548,9 +547,9 @@ _Exemplo de um documento JSON que define uma replicação filtrada:_
 
 ## Feed de mudanças
 
-O Cloudant publica as inclusões,
+O {{site.data.keyword.cloudant_short_notm}} publica as inclusões,
 as edições
-e as exclusões que afetam um banco de dados por meio de um único feed de HTTP do
+e exclusões que afetam um banco de dados por meio de um único feed de HTTP do
 [terminal `_changes`](../api/database.html#get-changes).
 Esse feed pode ser usado por seu aplicativo para acionar eventos.
 É possível acessar o feed usando HTTP ou `curl`,
@@ -656,7 +655,7 @@ feed.follow();
 
 O acesso aos dados `_changes` programaticamente é feito de forma direta.
 Por exemplo,
-use a [biblioteca Node.js do Cloudant](../libraries/supported.html#node-js)
+use a [biblioteca Node.js do {{site.data.keyword.cloudant_short_notm}}](../libraries/supported.html#node-js)
 para seguir as mudanças com algumas linhas de código.
 
 Os exemplos de casos de uso podem ser:
@@ -688,9 +687,9 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 {:codeblock}
 
 >   **Nota**: a ordenação de documentos no feed `_changes` nem sempre é a mesma.
-Em outras palavras, as mudanças podem não aparecer em ordem estrita de tempo.
-O motivo é que os dados são retornados de múltiplos nós do Cloudant
-e as regras de consistência eventual se aplicam.
+    Em outras palavras, as mudanças podem não aparecer em ordem estrita de tempo.
+    A razão é que os dados são retornados de múltiplos nós do {{site.data.keyword.cloudant_short_notm}}
+    e as regras de consistência eventual se aplicam.
 
 ## Armadilhas da replicação
 
@@ -704,10 +703,10 @@ as credenciais fornecidas deverão ter:
 *   Os direitos `_reader` e `_replicator` no banco de dados "a".
 *   Os direitos `_writer` no banco de dados "b".
 
-As chaves API são geradas no Painel do Cloudant ou [por meio da API](../api/authorization.html#creating-api-keys).
-Cada chave pode receber direitos individuais que se relacionam a um banco de dados específico do Cloudant.
-O Cloudant deve ser capaz de gravar seus documentos de ponto de verificação na extremidade de "leitura" da replicação,
-caso contrário, nenhum estado será salvo e a replicação não poderá continuar de onde parou.
+As chaves API são geradas no Painel do {{site.data.keyword.cloudant_short_notm}} ou [por meio da API](../api/authorization.html#creating-api-keys).
+Cada chave pode receber direitos individuais que se relacionam a um banco de dados {{site.data.keyword.cloudant_short_notm}} específico.
+O {{site.data.keyword.cloudant_short_notm}} deve ser capaz de gravar seus documentos de ponto de verificação na extremidade de "leitura" da replicação,
+caso contrário, nenhum estado é salvo e a replicação não pode continuar de onde parou.
 Se o estado não for salvo,
 ele poderá levar a problemas de desempenho quando a replicação de conjuntos de dados grandes continuar.
 O motivo é que sem os pontos de verificação,
@@ -730,8 +729,8 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 
 No JSON retornado,
 procure o valor `disk_size`.
-Se o valor indicar um tamanho acima de 1 GB,
-entre em contato com a [equipe de suporte do IBM Cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window} para orientação adicional.
+Se o valor indica um tamanho acima de 1 GB,
+entre em contato com a [equipe de suporte do IBM {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window} para avisos adicionais.
 
 É possível verificar um documento `_replicator` individual para conflitos,
 conforme mostrado no exemplo a seguir:
@@ -773,20 +772,20 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 É fácil esquecer que você anteriormente configurava a replicação entre dois bancos de dados
 e, portanto, criava processos extras de replicação por engano.
 Cada tarefa de replicação é independente da outra,
-portanto, o Cloudant não evita a criação de processos extras de replicação.
+então o {{site.data.keyword.cloudant_short_notm}} não evita a criação de processos extras de replicação.
 No entanto, cada tarefa de replicação esgota os recursos do sistema.
 
-É possível verificar suas "replicações ativas" no Painel do Cloudant
-para assegurar que não há tarefas de replicação indesejadas em andamento.
+É possível verificar suas "replicações ativas" no Painel do {{site.data.keyword.cloudant_short_notm}}
+para assegurar que não haja tarefas de replicação indesejadas em andamento.
 Exclua os documentos `_replicator` que não são mais necessários.
 
 ## Ajustando a velocidade de replicação
 
 Por padrão,
-a replicação do Cloudant é executada em uma taxa apropriada para levar os dados da origem para o destino
+a replicação do {{site.data.keyword.cloudant_short_notm}} é executada em uma taxa apropriada para obter os dados da origem para o destino
 sem afetar negativamente o desempenho.
 Escolher entre a taxa de replicação e o desempenho do cluster para outras tarefas é uma troca.
-Seu caso de uso pode requerer replicação mais rápida às custas de outros serviços do Cloudant.
+Seu caso de uso pode requerer replicação mais rápida às custas de outros serviços do {{site.data.keyword.cloudant_short_notm}}.
 Como alternativa,
 talvez você requeira que o desempenho do cluster tenha prioridade,
 com a replicação tratada como um processo de segundo plano.
@@ -806,4 +805,4 @@ poderá considerar aumentar os valores
 a configuração de `worker_processes` e `http_connections` como 1 poderá ser apropriada.
 
 Para obter assistência adicional sobre a melhor configuração para seu caso de uso,
-entre em contato com a [equipe de suporte do IBM Cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.
+entre em contato com a [equipe de suporte do IBM {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-01"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-02-01"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-03-02 -->
+<!-- Acrolinx: 2018-04-30 -->
 
 # Databases
 
@@ -22,7 +23,7 @@ All documents must be contained in a database.
 {:shortdesc}
 
 A guide is [available](../guides/transactions.html),
-providing an example of how documents for an e-commerce application might be used within a {{site.data.keyword.cloudant_short_notm}} database.
+providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
 A more complex database application,
 involving extra storage,
@@ -84,7 +85,7 @@ the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
-201  | Database created successfully
+201  | Database created successfully.
 202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
 403  | Invalid database name.
 412  | Database already exists.
@@ -332,7 +333,7 @@ The following table describes the meaning of the individual fields:
 
 Field        | Description                                                                         | Type
 -------------|-------------------------------------------------------------------------------------|-----
-`offset`     | Offset where the document list started.                                             | numeric
+`offset`     | Offset where the document list started.                                             | numeric, null (The type can be `null` when `keys` are specified.)
 `rows`       | Array of document objects.                                                          | array
 `total_rows` | Number of documents in the database or view that match the parameters of the query. | numeric
 `update_seq` | Current update sequence for the database.                                           | string
@@ -550,7 +551,7 @@ Argument       | Description | Supported Values | Default
 ---------------|-------------|------------------|---------
 `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | boolean | false 
 `descending`   | Return the changes in sequential order. | boolean | false | 
-`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. See [API: GET / documentation](advanced.html#get-/) for more information. | A JSON array of document IDs | |
+`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. See [API: GET / documentation](advanced.html#-get-) for more information. | A JSON array of document IDs | |
 `feed`         | Type of feed required. For details, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
 `filter`       | Name of [filter function](design_documents.html#filter-functions) to use to get updates. The filter is defined in a [design document](design_documents.html). | string | no filter
 `heartbeat`    | If there were no changes during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | any positive number | no heartbeat | 
@@ -859,7 +860,7 @@ send a `DELETE` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
 
 >	**Note**: No additional check is made to ensure that you really intended to delete the database ("Are you sure?").
 
-_Example of using HTTP to delete a {{site.data.keyword.cloudant_short_notm}} database:_
+_Example of using HTTP to delete an {{site.data.keyword.cloudant_short_notm}} database:_
 
 ```http
 DELETE /$DATABASE HTTP/1.1
@@ -867,7 +868,7 @@ Host: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
 
-_Example of using the command line to delete a {{site.data.keyword.cloudant_short_notm}} database:_
+_Example of using the command line to delete an {{site.data.keyword.cloudant_short_notm}} database:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE \
@@ -877,7 +878,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE \
 
 <!--
 
-_Example of using JavaScript to delete a {{site.data.keyword.cloudant_short_notm}} database:_
+_Example of using JavaScript to delete an {{site.data.keyword.cloudant_short_notm}} database:_
 
 ```javascript
 var nano = require('nano');

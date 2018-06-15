@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-05-31"
+  years: 2015, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -22,8 +22,10 @@ O [{{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/la
 é um Banco de dados como um serviço (DBaaS) orientado a documentos.
 Ele armazena dados como documentos no formato JSON.
 Ele é construído com escalabilidade, alta disponibilidade e durabilidade em mente.
-Ele é fornecido com uma grande variedade de opções de indexação incluindo map-reduce,
-Cloudant Query, indexação de texto total e indexação geoespacial.
+Ele vem com uma ampla variedade de opções de indexação, incluindo map-reduce,
+{{site.data.keyword.cloudantfull}} Query,
+indexação de texto total e
+indexação geoespacial.
 Os recursos de replicação facilitam a manutenção de dados em sincronia entre os
 clusters de banco de dados, PCs desktop e dispositivos móveis.
 {:shortdesc}
@@ -34,12 +36,12 @@ A documentação on-line fornecida aqui fornece
 detalhes sobre conceitos, tarefas e técnicas
 do {{site.data.keyword.cloudant_short_notm}}.
 
-É possível ativar o serviço {{site.data.keyword.cloudant_short_notm}} por meio do
-[painel do {{site.data.keyword.Bluemix}}](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/).
+É possível ativar o serviço {{site.data.keyword.cloudant_short_notm}} no painel
+[{{site.data.keyword.Bluemix}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
 
-Está [disponível](index.html) uma 'iniciação rápida' para ficar funcional
-com o {{site.data.keyword.cloudant_short_notm}}
-junto a [tutoriais](tutorials/index.html) mais detalhados que descrevem tarefas em mais detalhes.
+Uma 'iniciação rápida' para colocar o {{site.data.keyword.cloudant_short_notm}} em funcionamento
+está [disponível](index.html),
+junto com [tutoriais](tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix) que descrevem tarefas com mais detalhes.
 Mais informações sobre detalhes, como autenticar-se com instâncias de banco de dados
 e consultar dados,
 estão disponíveis na [Referência de API](api/index.html).
@@ -48,9 +50,7 @@ estão disponíveis na [Referência de API](api/index.html).
 
 ## Conteúdo da documentação
 
-*	[Ofertas do {{site.data.keyword.cloudant_short_notm}}](offerings/index.html): o {{site.data.keyword.cloudant_short_notm}} está disponível
-em uma variedade de ofertas,
-todas descritos nesta seção.
+*	[Ofertas do {{site.data.keyword.cloudant_short_notm}}](offerings/bluemix.html#ibm-cloud-public): o {{site.data.keyword.cloudant_short_notm}} está disponível em uma variedade de ofertas,	todas descritas nesta seção.
 *	[Informações básicas do {{site.data.keyword.cloudant_short_notm}}](basics/index.html):
 se for a primeira vez que usa bancos de dados {{site.data.keyword.cloudant_short_notm}} ou NoSQL em geral,
 verifique essa introdução rápida nas informações básicas antes de continuar lendo.
@@ -59,12 +59,12 @@ verifique essa introdução rápida nas informações básicas antes de continua
 *	[Bibliotecas do cliente](libraries/index.html): as bibliotecas do cliente são kits de ferramentas que
 permitem desenvolver seus próprios aplicativos,
 prontos para trabalhar com bancos de dados {{site.data.keyword.cloudant_short_notm}}.
-* [Tutoriais](tutorials/index.html): uma coleção detalhada de artigos
+* [Tutoriais](tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix): uma coleção detalhada de artigos
 que mostram como executar tarefas essenciais usando o {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}.
 *	[Referência de API do {{site.data.keyword.cloudant_short_notm}}](api/index.html): a referência de API é um
 catálogo abrangente e ativo dos recursos do {{site.data.keyword.cloudant_short_notm}}.
 	É possível localizar informações detalhadas sobre as coisas que podem ser feitas com o {{site.data.keyword.cloudant_short_notm}}.
-*	[Guias](guides/index.html): esses guias detalham
+*	[Guias](guides/acurl.html#authorized-curl-acurl-): esses guias detalham
 os casos de uso, além de atividades e problemas mais complexos.
 	Os guias também exploram alguns dos conceitos importantes utilizados com os mecanismos de um banco de dados {{site.data.keyword.cloudant_short_notm}}.
 
@@ -76,4 +76,4 @@ Também somos flexíveis quanto à nossa documentação.
 Se não estiver funcionando para você,
 não estará funcionando para nós.
 Faça contribuições ou compartilhe sugestões por meio de
-Cloudant Labs no [GitHub ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant-labs/slate){:new_window}.
+Laboratórios do {{site.data.keyword.cloudant_short_notm}} no [GitHub ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant-labs/slate){:new_window}.

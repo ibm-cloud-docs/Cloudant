@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-07-07"
+  years: 2017, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -14,9 +14,9 @@ lastupdated: "2017-07-07"
 
 <!-- Acrolinx: 2017-05-04 -->
 
-# Cloudant 中的新增功能
+# {{site.data.keyword.cloudant_short_notm}} 中的新增功能
 
-通过更改和更新使 Cloudant 保持最新。
+通过更改和更新使 {{site.data.keyword.cloudantfull}} 保持最新。
 {:shortdesc}
 
 ## 专用硬件
@@ -25,7 +25,7 @@ lastupdated: "2017-07-07"
 
 ## 构建 6233
 
-- 引入了新的复制调度程序。调度程序除了具备性能优势和更多端点之外，还可更改复制状态的监视和报告方式。尤其是，不再支持记录复制文档中的状态更新。有关此重要更改的更多信息，请参阅有关[复制调度程序](../api/advanced_replication.html#the_replication_scheduler)的详细信息。如果您有任何问题或疑问，请使用 Cloudant“仪表板”开具凭单，以联系 Cloudant 支持。
+- 引入了新的复制调度程序。调度程序除了具备性能优势和更多端点之外，还可更改复制状态的监视和报告方式。尤其是，不再支持记录复制文档中的状态更新。有关此重要更改的更多信息，请参阅有关[复制调度程序](../api/advanced_replication.html#the_replication_scheduler)的详细信息。如果您有任何问题或疑问，请使用 {{site.data.keyword.cloudant_short_notm}}“仪表板”开具凭单，以联系 {{site.data.keyword.cloudant_short_notm}} 支持。
 
 ## 构建 6069
 
@@ -39,7 +39,7 @@ lastupdated: "2017-07-07"
 
 ## 构建 5728
 
-- Cloudant 对 `_users` 数据库中存储的格式不正确的用户文档容忍度更高。用户文档应该根据 [Apache Software Foundation CouchDB 需求 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window} 来设计结构和填充。
+- {{site.data.keyword.cloudant_short_notm}} 对 `_users` 数据库中存储的格式不正确的用户文档容忍度更高。用户文档应该根据 [Apache Software Foundation CouchDB 需求 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window} 来设计结构和填充。
 
 ## 构建 5638
 
@@ -55,7 +55,7 @@ lastupdated: "2017-07-07"
 -	支持 CouchDB 1.6 `_users` 数据库功能，包括在 `_users` 数据库中创建文档时对密码进行服务器端散列处理。
 -	`/_bulk_get` 端点可减少在复制到移动客户端时使用的请求数。
 -	设计文档元数据包含 `update pending` 字段。
--	如果不存在有效的索引，那么 Cloudant 查询不再返回错误。
+-	如果不存在有效的索引，那么 {{site.data.keyword.cloudant_short_notm}} 查询不再返回错误。
 
 ### 中断/行为更改
 
@@ -68,7 +68,7 @@ lastupdated: "2017-07-07"
 
 -   对于缩减与不缩减的视图结果，键值的 Unicode 规范化保持一致。如果在设计文档中指定了原始整理，那么此修订可能会更改结果顺序。
 -   查询视图或 `_all_docs` 数据库时，指定 `keys` 参数以及 `key`、`startkey` 和 `endkey` 参数中的任一参数都会发生错误。
--   如果 `startkey` 和 `endkey` 参数无法与任何行相匹配，那么将这两个参数传递给视图时会发生错误。例如，`startkey` 参数高于 `descending=false` 的 `endkey` 参数，或者 `startkey` 参数低于 `descending=true` 的 `endkey` 参数时，Cloudant 都会返回 `400 Bad Request` 错误。
+-   如果 `startkey` 和 `endkey` 参数无法与任何行相匹配，那么将这两个参数传递给视图时会发生错误。例如，`startkey` 参数高于 `descending=false` 的 `endkey` 参数，或者 `startkey` 参数低于 `descending=true` 的 `endkey` 参数时，{{site.data.keyword.cloudant_short_notm}} 都会返回 `400 Bad Request` 错误。
 -   在视图文档中配置 `dbcopy` 时，此参数会自动转换为设计文档中的 `options` 字段。 
 
 设计文档
@@ -84,7 +84,7 @@ lastupdated: "2017-07-07"
 
 用户文档
 
--   验证在 `_users` 数据库中创建的用户文档的结构。在 DBNext 升级之后，用户文档必须符合 ASF CouchdDB 的需求。先前，Cloudant 不会验证用户文档的结构。 
+-   验证在 `_users` 数据库中创建的用户文档的结构。在 DBNext 升级之后，用户文档必须符合 ASF CouchdDB 的需求。先前，{{site.data.keyword.cloudant_short_notm}} 不会验证用户文档的结构。 
 
 复制 
 

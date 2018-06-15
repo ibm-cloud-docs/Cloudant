@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-13"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -345,7 +345,7 @@ you should avoid using functions that generate random numbers or return the curr
 ## List Functions
 
 Use list functions to customize the format of
-[MapReduce](creating_views.html#using-views) query results.
+[MapReduce](using_views.html#using-views) query results.
 A good example of their use is when you want to access {{site.data.keyword.cloudant_short_notm}} directly from a browser,
 and need data to be returned in a different format,
 such as HTML.

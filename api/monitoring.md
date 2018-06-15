@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-30"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-04-30"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Monitoring a {{site.data.keyword.cloudant_short_notm}} cluster
+# Monitoring an {{site.data.keyword.cloudant_short_notm}} cluster
 
 > **Important**: The monitoring API is only available to {{site.data.keyword.cloudantfull}} Enterprise 
 customers with dedicated clusters and not to {{site.data.keyword.cloud}} Public customers.
@@ -35,7 +35,7 @@ For more detailed system information,
 you make use of the cluster monitoring API.
 
 >	**Note**: The cluster monitoring API is not available for
-[IBM {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](../offerings/cloudant_local.html#cloudant-local).
+[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](../offerings/cloudant_local.html#cloudant-local).
 
 ## Monitoring metrics overview
 

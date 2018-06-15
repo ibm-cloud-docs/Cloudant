@@ -17,7 +17,8 @@ lastupdated: "2017-01-06"
 _（本手冊是以 Samantha Scharr 所撰寫的部落格文章為基礎：[
 "Authorized curl, a.k.a. acurl" ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window}，最初發佈於 2013 年 11月 27 日。）_
 
-`acurl` 是便利的別名，可讓您 `curl` Cloudant 指令至 URL，無需為每一個要求輸入您的使用者名稱和密碼。這表示資料庫的簡單 `GET` 不再需要寫入為 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`，相反地您可以只使用 `https://$ACCOUNT.cloudant.com/foo`。
+`acurl` 是便利的別名，容許您 `curl` {{site.data.keyword.cloudantfull}} 指令至 URL，而不需要針對每個要求輸入您的使用者名稱和密碼。
+這表示資料庫的簡單 `GET` 不再需要寫入為 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`，相反地您可以只使用 `https://$ACCOUNT.cloudant.com/foo`。
 
 此舉不僅減少煩人的長 URL，`acurl` 別名還更加安全。它會防止有人在您鍵入時從您背後窺探您的密碼，而且重要的是，藉由強制執行 HTTPS，它可確保您的密碼不會以純文字形式在網路中傳送。
 
@@ -29,7 +30,8 @@ _（本手冊是以 Samantha Scharr 所撰寫的部落格文章為基礎：[
 
 ## 對使用者名稱和密碼進行編碼
 
-首先，使用 base64 對您的 Cloudant 使用者名稱和密碼進行編碼。這提供我們 base64 字元順序作為輸出。
+首先，使用 base64 對您的 {{site.data.keyword.cloudant_short_notm}} 使用者名稱和密碼進行編碼。
+這提供我們 base64 字元順序作為輸出。
 
 使用 base64 編碼部分資料的指令與下列範例類似：
 
@@ -67,7 +69,7 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 ```
 {:codeblock}
 
-此別名會新增 Authorization 標頭，而不是在您於指令行上輸入的 URL 中包括授權認證。它也會強制使用強烈建議的 HTTPS，代替純 HTTP，因為它會在傳輸時加密您的資料及認證，並協助您確定正在連接至 Cloudant 系統。
+此別名會新增 Authorization 標頭，而不是在您於指令行上輸入的 URL 中包括授權認證。它也會強制使用強烈建議的 HTTPS 來代替純 HTTP，因為它會在傳輸時加密您的資料及認證，並協助您確定正在連接至 {{site.data.keyword.cloudant_short_notm}} 系統。
 
 ## 啟動別名
 
@@ -82,6 +84,6 @@ acurl https://$ACCOUNT.cloudant.com/_all_dbs
 ```
 {:codeblock}
 
-如果您獲得資料庫的清單，棒極了！`acurl` 已設定並備妥可以開始執行。
+如果您獲得資料庫的清單，棒極了！`acurl` 已設定好，可以開始執行。
 
 祝您撰寫程式碼愉快！

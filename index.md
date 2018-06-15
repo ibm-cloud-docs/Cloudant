@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-05-30"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -56,7 +56,7 @@ an instance of the {{site.data.keyword.cloudant}} service, and the following Pyt
 	```
 	{:pre}
 	
-	You should get a list of all the Python modules installed on your system. Inspect the list, looking for a {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
+	You should get a list of all the Python modules installed on your system. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
 
 	```
 	cloudant==2.3.1

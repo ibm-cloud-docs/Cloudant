@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,34 +14,34 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: the application environment
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: the application environment
 
 This section of the tutorial describes how to set up the application environment you must have
-for creating an {{site.data.keyword.Bluemix}} application.
+for creating an {{site.data.keyword.cloud}} application.
 {:shortdesc}
 
 <div id="creating"></div>
 
-## Creating a Bluemix application environment
+## Creating an {{site.data.keyword.cloud_notm}} application environment
 
-1.  Log in to your {{site.data.keyword.Bluemix_notm}} account.
-    The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
+1.  Log in to your {{site.data.keyword.cloud_notm}} account.
+    The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After you authenticate with your user name and password,
-    the {{site.data.keyword.Bluemix_notm}} dashboard appears:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
+    the {{site.data.keyword.cloud_notm}} dashboard appears:<br/>
+    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
 2.  Click the '`Catalog`' link:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} catalog link](images/img0002.png)<br/>
-    A list of the services available on {{site.data.keyword.Bluemix_notm}} appears.
+    ![{{site.data.keyword.cloud_notm}} catalog link](images/img0002.png)<br/>
+    A list of the services available on {{site.data.keyword.cloud_notm}} appears.
 
 3.  Click the '`Cloud Foundry Apps`' entry under the `Apps` heading:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} Cloud Foundry Apps](images/img0012.png)<br/>
+    ![{{site.data.keyword.cloud_notm}} Cloud Foundry Apps](images/img0012.png)<br/>
     A list of the Cloud Foundry Applications
-    available on {{site.data.keyword.Bluemix_notm}} appears.
+    available on {{site.data.keyword.cloud_notm}} appears.
 
 4.  Click the '`Python`' entry:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} Python Cloud Foundry App](images/img0013.png)<br/>
+    ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry App](images/img0013.png)<br/>
     A '`Create a Cloud Foundry App`' form appears.
 
 5.  Use the '`Create a Cloud Foundry App`' form to specify and create the environment
@@ -50,11 +50,11 @@ for creating an {{site.data.keyword.Bluemix}} application.
     for example '`Cloudant Python`'.
     The host name is generated for you automatically,
     although you can customize it:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} Python Cloud Foundry App names](images/img0014.png)<br/>
-    >   **Note**: The host name must be unique within the {{site.data.keyword.Bluemix_notm}} domain. In this example, the domain is '`mybluemix.net`', giving a full host name of '`Cloudant-Python.mybluemix.net`'.
+    ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry App names](images/img0014.png)<br/>
+    >   **Note**: The host name must be unique within the {{site.data.keyword.cloud_notm}} domain. In this example, the domain is '`mybluemix.net`', giving a full host name of '`Cloudant-Python.mybluemix.net`'.
 
 6.  Click '`Create`' to create the application environment:<br/>
-    ![Create the {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry App](images/img0015.png)
+    ![Create the {{site.data.keyword.cloud_notm}} Python Cloud Foundry App](images/img0015.png)
 
 7.  After a short pause,
     the '`Getting Started`' window for your new application environment appears.
@@ -63,36 +63,36 @@ for creating an {{site.data.keyword.Bluemix}} application.
     as shown by the green icon and `Your app is running` status.
     The application is a 'heartbeat' program,
     sufficient to show that the new application environment is ready for you to use.
-    Click the `Dashboard`' link to return to your {{site.data.keyword.Bluemix_notm}} account dashboard.<br/>
-    ![The new {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry App running for the first time](images/img0016.png)
+    Click the `Dashboard`' link to return to your {{site.data.keyword.cloud_notm}} account dashboard.<br/>
+    ![The new {{site.data.keyword.cloud_notm}} Python Cloud Foundry App running for the first time](images/img0016.png)
 
 8.  Your dashboard now includes the newly created application environment:<br/>
-    ![The basic {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry App appearing in the dashboard](images/img0017.png)
+    ![The basic {{site.data.keyword.cloud_notm}} Python Cloud Foundry App appearing in the dashboard](images/img0017.png)
 
-You now have a {{site.data.keyword.Bluemix_notm}} Python application environment,
+You now have an {{site.data.keyword.cloud_notm}} Python application environment,
 ready to use.
 
-To work with a {{site.data.keyword.cloudant_short_notm}} database instance,
+To work with an {{site.data.keyword.cloudant_short_notm}} database instance,
 the next step is to create a 'connection' between the application environment and the database instance.
 
 <div id="connecting"></div>
 
-## Connecting Bluemix applications and services
+## Connecting {{site.data.keyword.cloud_notm}} applications and services
 
 This section of the tutorial explains how you connect
-{{site.data.keyword.Bluemix_notm}} application environments and services by using
+{{site.data.keyword.cloud_notm}} application environments and services by using
 the configuration and management area of your application.
 
-1.  From your {{site.data.keyword.Bluemix_notm}} dashboard,
+1.  From your {{site.data.keyword.cloud_notm}} dashboard,
     click the entry for your application.<br/>
-    ![Selecting your application on the {{site.data.keyword.Bluemix_notm}} dashboard](images/img0018.png)<br/>
+    ![Selecting your application on the {{site.data.keyword.cloud_notm}} dashboard](images/img0018.png)<br/>
     >   **Note**: Avoid the '`Route`' column, as clicking the link that is associated with your application invokes the application rather than taking you to the configuration area. A better place to click is on the name of your application.
 
     The configuration and management overview area for your application appears.
 
 2.  To connect the application environment to another service,
     click the '`Connections`' link:<br/>
-    ![Selecting the connection configuration for your {{site.data.keyword.Bluemix_notm}} application](images/img0019.png)<br/>
+    ![Selecting the connection configuration for your {{site.data.keyword.cloud_notm}} application](images/img0019.png)<br/>
     An area appears for configuring a connection between your application and any other services available within your account.
 
 3.  A [prerequisite](create_bmxapp_prereq.html#prerequisites) for this tutorial is an
@@ -122,14 +122,14 @@ the configuration and management area of your application.
 
 The application environment and the database instance are now connected.
 The next step is to ensure that the necessary tools are installed for you to
-work with {{site.data.keyword.Bluemix_notm}} applications.
+work with {{site.data.keyword.cloud_notm}} applications.
 
 <div id="toolkits"></div>
 
-## The Cloud Foundry and {{site.data.keyword.Bluemix_notm}} command toolkits
+## The Cloud Foundry and {{site.data.keyword.cloud_notm}} command toolkits
 
 This section of the tutorial describes the toolkits that must be installed to work with
-your {{site.data.keyword.Bluemix_notm}} environment,
+your {{site.data.keyword.cloud_notm}} environment,
 applications,
 and services.
 
@@ -139,11 +139,11 @@ deployed in a Cloud Foundry-compatible environment.
 Use these tools for tasks such as updating a deployed application,
 or to start and stop a running application.
 
-The {{site.data.keyword.Bluemix_notm}} toolkit provides extra capabilities,
-which are required for working with applications hosted and running within a {{site.data.keyword.Bluemix_notm}} environment.
+The {{site.data.keyword.cloud_notm}} toolkit provides extra capabilities,
+which are required for working with applications hosted and running within an {{site.data.keyword.cloud_notm}} environment.
 
 > **Note**: Ensure you install both the Cloud Foundry _and_
-  the {{site.data.keyword.Bluemix_notm}} toolkits.
+  the {{site.data.keyword.cloud_notm}} toolkits.
 
 Downloading and installing the toolkits is a one-off task.
 If the toolkits are already installed and working on your system,
@@ -151,13 +151,13 @@ you do not need to download them again,
 unless they are updated.
 
 General information about the toolkits is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/index.html){:new_window}.
+[here ![External link icon](../images/launch-glyph.svg "External link icon")](../getting-started.html#getting-started-with-cloudant){:new_window}.
 
 ### Installing the Cloud Foundry toolkit
 
 Some operating system distributions have a version of the Cloud Foundry toolkit available already.
 If the version supported is 6.11 or better,
-it is compatible with {{site.data.keyword.Bluemix_notm}} and can be used.
+it is compatible with {{site.data.keyword.cloud_notm}} and can be used.
 You can check what version is installed by running [this test](#checkCFversion).
 
 Alternatively,
@@ -188,27 +188,27 @@ use the following steps to download and install the Cloud Foundry toolkit on you
     ```
     {:codeblock}
     
-    >   **Note**: The Cloud Foundry toolkit version must be 6.11 or more recent for compatibility with {{site.data.keyword.Bluemix_notm}}.
+    >   **Note**: The Cloud Foundry toolkit version must be 6.11 or more recent for compatibility with {{site.data.keyword.cloud_notm}}.
 
-### Installing the Bluemix toolkit
+### Installing the {{site.data.keyword.cloud_notm}} toolkit
 
-Use the following steps to download and install the {{site.data.keyword.Bluemix_notm}} toolkit on your system.
+Use the following steps to download and install the {{site.data.keyword.cloud_notm}} toolkit on your system.
 
-1.  A link to download the {{site.data.keyword.Bluemix_notm}} toolkit is available
+1.  A link to download the {{site.data.keyword.cloud_notm}} toolkit is available
     on the '`Getting started`' window of your application:<br/>
     ![A link to download the Cloud Foundry toolkit](images/img0027.png)
 
-2.  Clicking the link takes you to a
-    [download page ![External link icon](../images/launch-glyph.svg "External link icon")](http://clis.ng.bluemix.net/ui/home.html){:new_window}:<br/>
-    ![The Bluemix toolkit download page](images/img0028.png)
+2.  Clicking the link takes you to a [download page ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window}:<br/>
+    ![The {{site.data.keyword.cloud_notm}} toolkit download page](images/img0028.png)
+
 
 3.  Download and run the appropriate installer for your system.
 
     The installer checks to ensure that you have a suitable version of the Cloud Foundry toolkit installed.
     If everything is correct,
-    the {{site.data.keyword.Bluemix_notm}} toolkit installs on your system.
+    the {{site.data.keyword.cloud_notm}} toolkit installs on your system.
 
-4.  To check that you have a working {{site.data.keyword.Bluemix_notm}} toolkit,
+4.  To check that you have a working {{site.data.keyword.cloud_notm}} toolkit,
     run the following command at a prompt:
     
     ```sh
@@ -223,28 +223,28 @@ Use the following steps to download and install the {{site.data.keyword.Bluemix_
     ```
     {:codeblock}
     
-The tools to work with {{site.data.keyword.Bluemix_notm}} applications are now available.
+The tools to work with {{site.data.keyword.cloud_notm}} applications are now available.
 The next step is to obtain the 'starter' materials to help you create
-a {{site.data.keyword.Bluemix_notm}} application.
+an {{site.data.keyword.cloud_notm}} application.
 
 <div id="starter"></div>
 
 ## The 'starter' application
 
-This section of the tutorial describes a {{site.data.keyword.Bluemix_notm}}
+This section of the tutorial describes an {{site.data.keyword.cloud_notm}}
 starter application,
 and explains how you customize it to access
-a {{site.data.keyword.cloudant_short_notm}} database instance.
+an {{site.data.keyword.cloudant_short_notm}} database instance.
 
-A {{site.data.keyword.Bluemix_notm}} starter application is the minimum possible collection
+An {{site.data.keyword.cloud_notm}} starter application is the minimum possible collection
 of source and configuration files
-necessary to create a working {{site.data.keyword.Bluemix_notm}} application.
+necessary to create a working {{site.data.keyword.cloud_notm}} application.
 In some regards,
 it is similar to a ['Hello World' application ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){:new_window};
 sufficient only to show that the basic system and configuration is working correctly.
 
-A {{site.data.keyword.Bluemix_notm}} starter application is an archive of example files that
-you must modify or extend as you develop your {{site.data.keyword.Bluemix_notm}} application.
+An {{site.data.keyword.cloud_notm}} starter application is an archive of example files that
+you must modify or extend as you develop your {{site.data.keyword.cloud_notm}} application.
 
 Three files in particular are essential:
 
@@ -257,7 +257,7 @@ Three files in particular are essential:
 ### The '`Procfile`' file
 
 The '`Procfile`' contains the details
-that {{site.data.keyword.Bluemix_notm}} needs to run your application.
+that {{site.data.keyword.cloud_notm}} needs to run your application.
 
 More specifically,
 a '`Procfile`' is a Cloud Foundry artifact that
@@ -266,7 +266,7 @@ and the command to run the application.
 More information about '`Procfile`' is available
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){:new_window}.
 
-The '`Procfile`' for a {{site.data.keyword.Bluemix_notm}} Python starter application
+The '`Procfile`' for an {{site.data.keyword.cloud_notm}} Python starter application
 looks similar to the following example:
 
 ```
@@ -296,7 +296,7 @@ update the '`Procfile`' so that the new file is used when your application start
 The '`manifest.yml`' file is a full description of the application,
 and of the environment it requires to run.
 
-The file for a {{site.data.keyword.Bluemix_notm}} Python starter application looks similar to the following example:
+The file for an {{site.data.keyword.cloud_notm}} Python starter application looks similar to the following example:
 
 ```
 applications:
@@ -317,7 +317,7 @@ Three points are worth noting:
 -   The '`domain`',
     '`name`',
     and '`host`' values correspond to the values entered when
-    your {{site.data.keyword.Bluemix_notm}} application was [created](#creating).
+    your {{site.data.keyword.cloud_notm}} application was [created](#creating).
 -   The '`name`' value is used by the Cloud Foundry toolkit to identify the application you are administering.
 -   The '`services`' value confirms that the '`Cloudant Service 2017`'
     {{site.data.keyword.cloudant_short_notm}} database instance is connected to the application environment.
@@ -335,8 +335,7 @@ In the starter application,
 the '`requirements.txt`' file is empty.
 
 However,
-in this tutorial the Python application accesses a
-{{site.data.keyword.cloudant_short_notm}} database instance.
+in this tutorial the Python application accesses an {{site.data.keyword.cloudant_short_notm}} database instance.
 Therefore,
 the application must be able to use the
 [{{site.data.keyword.cloudant_short_notm}} client library for Python applications](../libraries/supported.html#python).

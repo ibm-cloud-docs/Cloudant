@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-05-22"
+  years: 2017, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -12,9 +12,9 @@ lastupdated: "2017-05-22"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 使用 Cloud Foundry 工具在 Bluemix 上创建 Cloudant 实例
+# 使用 Cloud Foundry 工具在 {{site.data.keyword.Bluemix_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例
 
-本教程说明了如何使用 Cloud Foundry 工具在 {{site.data.keyword.Bluemix_notm}} 上创建 {{site.data.keyword.cloudantfull}} 服务实例。
+本教程说明了如何使用 Cloud Foundry 工具在 {{site.data.keyword.Bluemix}} 上创建 {{site.data.keyword.cloudantfull}} 服务实例。
 {:shortdesc}
 
 ## 先决条件
@@ -23,7 +23,7 @@ lastupdated: "2017-05-22"
 
 > **注**：确保安装了 Cloud Foundry _和_ {{site.data.keyword.Bluemix_notm}} 工具箱。
 
-## 确定 Bluemix API 端点
+## 确定 {{site.data.keyword.Bluemix_notm}} API 端点
 
 指定 Cloud Foundry 命令的目标 API 端点；
 
@@ -43,7 +43,7 @@ Not logged in. Use 'bx login' to log in.
 ```
 {:pre}
 
-## 登录到 Bluemix 帐户
+## 登录到 {{site.data.keyword.Bluemix_notm}} 帐户
 
 1.  使用以下命令启动 {{site.data.keyword.Bluemix_notm}} 帐户的登录过程：
   
@@ -98,7 +98,7 @@ Not logged in. Use 'bx login' to log in.
 
 3.  现在，您已登录到 {{site.data.keyword.Bluemix_notm}} 帐户。
 
-## 为服务选择 Cloudant 套餐
+## 为服务选择 {{site.data.keyword.cloudant_short_notm}} 套餐
 
 获取所有可用服务产品的列表。过滤列表以便只匹配 {{site.data.keyword.cloudant_short_notm}} 服务：
 
@@ -125,13 +125,13 @@ bx cf marketplace -s cloudantNoSQLDB
 
 ```
 Lite
-The Lite plan provides access to the full functionality of Cloudant for development and evaluation.
+The Lite plan provides access to the full functionality of {{site.data.keyword.cloudant_short_notm}} for development and evaluation.
 The plan has a set amount of provisioned throughput capacity as shown
 and includes a max of 1GB of encrypted data storage.   free
 ```
 {:pre}
 
-## 创建 Cloudant 服务
+## 创建 {{site.data.keyword.cloudant_short_notm}} 服务
 
 用于在 {{site.data.keyword.Bluemix_notm}} 中创建服务实例的基本命令格式如下所示：
 
@@ -160,12 +160,14 @@ OK
 ```
 {:pre}
 
-## 为 Cloudant 服务创建凭证
+## 为 {{site.data.keyword.cloudant_short_notm}} 服务创建凭证
 
 需要访问 {{site.data.keyword.cloudant_short_notm}} 服务的应用程序必须具有必要的凭证。
 
 >   **注**：服务凭证十分重要。
 如果任何人或任何应用程序有权访问凭证，那么就能使用服务实例有效地执行所需的一切操作，例如可以创建伪造数据或删除宝贵的信息。因此，请谨慎保护这些凭证。
+
+
 
 服务凭证由五个字段组成：
 
@@ -203,7 +205,7 @@ OK
 ```
 {:pre}
 
-## 列出 Cloudant 服务的服务凭证
+## 列出 {{site.data.keyword.cloudant_short_notm}} 服务的服务凭证
 
 用于在 {{site.data.keyword.Bluemix_notm}} 中检索服务实例凭证的基本命令格式如下所示：
 
@@ -238,7 +240,7 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 ```
 {:pre}
 
-## 使用 Cloudant 服务实例
+## 使用 {{site.data.keyword.cloudant_short_notm}} 服务实例
 
 此时，您已经执行了以下操作：
 

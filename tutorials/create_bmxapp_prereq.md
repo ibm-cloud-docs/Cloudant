@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access a {{site.data.keyword.cloudant_short_notm}} database: Prerequisites
+# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: Prerequisites
 
 This section of the tutorial describes the prerequisites
 for creating an {{site.data.keyword.Bluemix}} application.
@@ -49,21 +49,20 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### A {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}
+### An {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}
 
-A separate tutorial for creating a {{site.data.keyword.cloudantfull}} service instance called
+A separate tutorial for creating an {{site.data.keyword.cloudantfull}} service instance called
 '`Cloudant Service 2017`' is available [here](create_service.html).
 
 This tutorial assumes that you have already created a service instance called
 '`Cloudant Service 2017`'.
 
-### A {{site.data.keyword.cloudant_short_notm}} database application
+### An {{site.data.keyword.cloudant_short_notm}} database application
 
 A separate tutorial for creating a stand-alone Python application
-to work with a {{site.data.keyword.cloudant_short_notm}}
+to work with an {{site.data.keyword.cloudant_short_notm}}
 service instance is available [here](create_database.html).
-It introduces a number of concepts that are helpful for understanding how to create and populate a
-{{site.data.keyword.cloudant_short_notm}} database.
+It introduces a number of concepts that are helpful for understanding how to create and populate an {{site.data.keyword.cloudant_short_notm}} database.
 
 This tutorial assumes that you are familiar with those concepts.
 

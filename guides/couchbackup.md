@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -40,7 +40,7 @@ there are other use cases where you might want enhanced backup of data.
 ### Data Center outage and Disaster Recovery
 
 [Continuous replication](../api/replication.html#continuous-replication) between clusters is a good solution to the problem of
-when a {{site.data.keyword.cloudant_short_notm}} cluster is not completely available.
+when an {{site.data.keyword.cloudant_short_notm}} cluster is not completely available.
 Continuous replication is an 'active-passive' model.
 The 'active' part of the model is the continuous replication.
 The 'passive' part of the model acknowledges that the replica is not normally intended to respond to requests from applications.
@@ -97,7 +97,7 @@ the remainder of the discussion focuses on this approach.
 <!--
 https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/
 
-A useful approach is to have couchbackup's snapshots placed on the Bluemix Object Storage service, as described here:
+A useful approach is to have couchbackup's snapshots placed on the {{site.data.keyword.cloud}} Object Storage service, as described here:
 
 https://developer.ibm.com/recipes/tutorials/object-storage-cloudant-backup/
 -->

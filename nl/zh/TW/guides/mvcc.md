@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -14,16 +14,18 @@ lastupdated: "2017-01-06"
 
 # 文件版本化及 MVCC
 
-[多版本並行控制 (MVCC) ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window} 是 Cloudant 資料庫確定資料庫叢集中的所有節點都只包含文件[最新版本](../api/document.html)的方式。
+[多版本並行控制 (MVCC) ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window} 是 {{site.data.keyword.cloudantfull}} 資料庫確定資料庫叢集中的所有節點都只包含文件[最新版本](../api/document.html)的方式。
 {:shortdesc}
 
-因為 Cloudant 資料庫[最終會一致](cap_theorem.html)，所以這是必要項目，可防止因過期文件之間的同步化而導致節點之間造成不一致。
+因為 {{site.data.keyword.cloudant_short_notm}} 資料庫[最終會一致](cap_theorem.html)，所以這是必要項目，可防止因過期文件之間的同步化而導致節點之間造成不一致。
 
-多版本並行控制 (MVCC) 會啟用 Cloudant 資料庫的並行讀取及寫入權。MVCC 是某種形式的[樂觀併行 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}。它會在 Cloudant 資料庫上進行更快速的讀取及寫入作業，因為不需要對讀取或寫入作業進行資料庫鎖定。MVCC 也會在 Cloudant 資料庫節點之間啟用同步化。
+多版本並行控制 (MVCC) 會啟用 {{site.data.keyword.cloudant_short_notm}} 資料庫的並行讀取及寫入權。
+MVCC 是某種形式的[樂觀併行 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}。它會在 {{site.data.keyword.cloudant_short_notm}} 資料庫上進行更快速的讀取及寫入作業，因為不需要對讀取或寫入作業進行資料庫鎖定。
+MVCC 也會在 {{site.data.keyword.cloudant_short_notm}} 資料庫節點之間啟用同步化。
 
 ## 修訂
 
-Cloudant 資料庫中的每份文件都會有指出其修訂號碼的 `_rev` 欄位。
+{{site.data.keyword.cloudant_short_notm}} 資料庫中的每份文件都會有指出其修訂號碼的 `_rev` 欄位。
 
 當您插入或修改文件時，伺服器會將修訂號碼新增至文件。當您變更或讀取文件時，會在伺服器回應中包含此號碼。將使用簡單計數器與文件雜湊的組合來建構 `_rev` 值。
 
@@ -37,11 +39,13 @@ Cloudant 資料庫中的每份文件都會有指出其修訂號碼的 `_rev` 欄
 >   **附註**：不應該使用 `_rev` 來建置版本控制系統。
     原因是它為伺服器所使用的內部值。此外，較舊的文件修訂是暫時項目，因此會定期予以移除。
 
+
+
 您可以使用 `_rev` 來查詢特定修訂，不過，稱為[壓縮 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Data_compaction){:new_window} 的處理程序會定期刪除較舊的修訂。壓縮的結果是使用 `_rev` 查詢特定文件修訂以取得您文件的修訂歷程時，您無法依賴成功回應。如果您需要文件的版本歷程，則解決方案是針對每一個修訂[建立新的文件](../api/document.html#documentCreate)。
 
 ## 分散式資料庫及衝突
 
-分散式資料庫是在未持續連線至 Cloudant 上本身為分散式的主要資料庫的情況下運作，因此根據相同舊版本的更新仍然可能會發生衝突。
+分散式資料庫是在未持續連線至 {{site.data.keyword.cloudant_short_notm}} 上本身為分散式的主要資料庫的情況下運作，因此根據相同舊版本的更新仍然可能會發生衝突。
 
 若要尋找衝突，請在擷取文件時新增查詢參數 [`conflicts=true`](../api/database.html#get-changes)。回應包含具有所有衝突修訂的 `_conflicts` 陣列。
 

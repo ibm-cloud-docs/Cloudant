@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-08-25"
+lastupdated: "2017-05-04"
 
 ---
 
@@ -16,23 +16,23 @@ lastupdated: "2017-08-25"
 
 <div id="back-up-your-data-using-replication"></div>
 
-# Fazer backup dos dados usando a replicação
+# Incrementais de replicação
 
->	**Nota**: este guia contém orientação mais antiga ou 'descontinuada' sobre backup do Cloudant.
-Para obter orientação de backup atual,
+>	**Nota**: este guia contém orientação mais antiga ou 'descontinuada' sobre backup do {{site.data.keyword.cloudantfull}}.
+	Para obter orientação de backup atual,
 veja o guia [Recuperação de desastre e backup](disaster-recovery-and-backup.html).
 
 Os backups de banco de dados protegem seus dados contra perda ou danos em potencial.
 {:shortdesc}
 
-É possível usar o recurso de replicação do Cloudant para criar um backup de banco de dados
-e armazená-lo em um cluster do Cloudant.
+É possível usar o recurso de replicação do {{site.data.keyword.cloudant_short_notm}} para criar um backup de banco de dados
+e armazená-lo em um cluster do {{site.data.keyword.cloudant_short_notm}}.
 Será possível, em seguida, restaurar dados,
 bancos de dados inteiros
 ou documentos JSON específicos
 desses backups em seu cluster de produção.
 
-Usando a replicação do Cloudant,
+Usando a replicação do {{site.data.keyword.cloudant_short_notm}},
 um backup de banco de dados armazena o conteúdo do banco de dados em um ponto de verificação.
 É possível 'recuperar' para um ponto de verificação específico.
 O ponto de verificação não é específico de um horário preciso.
@@ -48,7 +48,7 @@ um recurso de backup incremental diário estará [disponível](disaster-recovery
 
 Se você não for um cliente corporativo
 ou preferir criar seus próprios backups,
-será possível usar o recurso de replicação do Cloudant para criar um backup de banco de dados.
+será possível usar o recurso de replicação do {{site.data.keyword.cloudant_short_notm}} para criar um backup de banco de dados.
 
 Uma abordagem simples é replicar o banco de dados inteiro para um banco de dados de backup com data.
 Esse método funciona e é fácil de executar.
@@ -71,9 +71,9 @@ fazendo backup _somente_ do que tiver sido mudado no banco de dados desde o últ
 Essa replicação se torna um backup diário.
 
 >   **Nota**: é possível configurar um backup para ser acionado em intervalos regulares.
-No entanto,
+    No entanto,
 cada intervalo deve ser de 24 horas ou mais.
-Ou seja,
+    Ou seja,
 é possível executar backups diários, mas não backups de hora em hora.
 
 ## Criando um backup incremental
@@ -92,12 +92,12 @@ Para criar um backup incremental,
 execute as etapas a seguir:
 
 1.  Localize o ID do documento de ponto de verificação da última replicação.
-Ele fica armazenado no campo `_replication_id` do documento de replicação
+    Ele fica armazenado no campo `_replication_id` do documento de replicação
 localizado no banco de dados `_replicator`.
 2.  Abra o documento de ponto de verificação em `/$DATABASE/_local/$REPLICATION_ID`,
 em que `$REPLICATION_ID` é o ID localizado na etapa anterior
 e `$DATABASE` é o nome da origem ou do banco de dados de destino.
-O documento geralmente existe em ambos os bancos de dados,
+    O documento geralmente existe em ambos os bancos de dados,
 mas pode existir apenas em um.
 3.  Procure o campo `recorded_seq` do primeiro elemento
 na matriz do histórico localizada no documento de ponto de verificação.
@@ -369,7 +369,7 @@ _Documento JSON que descreve a restauração:_
     "_id": "restore-monday",
     "source": "${url}/backup-monday",
     "target": "${url}/restore",
-    "create-target": true  
+    "create_target": true  
 }
 ```
 {:codeblock}
@@ -380,7 +380,7 @@ Para restaurar o banco de dados da terça-feira,
 você primeiro replica de `backup-tuesday` e, em seguida, de `backup-monday`.
 
 >   **Nota**: a ordem não é um erro tipográfico;
-a intenção realmente _é_ restaurar de terça-feira e _depois_ de segunda-feira.
+    a intenção realmente _é_ restaurar de terça-feira e _depois_ de segunda-feira.
 
 É possível restaurar na sequência cronológica,
 mas usando a ordem inversa.
@@ -409,7 +409,7 @@ _Documento JSON que solicita restauração do backup de terça-feira:_
     "_id": "restore-tuesday",
     "source": "${url}/backup-tuesday",
     "target": "${url}/restore",
-    "create-target": true  
+    "create_target": true  
 }
 ```
 {:codeblock}
@@ -505,5 +505,4 @@ Certifique-se de que suas tarefas de replicação não iniciem no mesmo horário
 Replicação e backups podem ser complicados.
 Se você tiver problemas,
 verifique o [guia de replicação](replication_guide.html)
-ou entre em contato com a
-[equipe de suporte do IBM Cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.
+ou entre em contato com a equipe de suporte [IBM {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.
