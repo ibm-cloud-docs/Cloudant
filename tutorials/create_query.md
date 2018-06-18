@@ -76,11 +76,11 @@ is the database that we use in this tutorial.
 ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
 
 1.  Open the {{site.data.keyword.cloudant_short_notm}} service instance that you created.
-2.  Select the Databases tab:
-
+2.  On {{site.data.keyword.cloudant_short_notm}} service page, click **Launch**.
+    The Databases tab opens.
   ![Databases tab](../images/tabs.png)
-3.  Click **Create Database**.
-4.  Enter `query-demo` and click **Create**.
+4.  Click **Create Database**.
+5.  Enter `query-demo` and click **Create**.
 
   The `query-demo` database automatically opens.
 
@@ -412,7 +412,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
 
 3.  Click **Run Query**.
 
-  The query results display in the right pane. You can see them from the Table view in the following screen capture:
+  The query results display. You can see them from the Table view in the following screen capture:
 
   ![Query 1 results](../images/dashboard_query1_results.png)
 
