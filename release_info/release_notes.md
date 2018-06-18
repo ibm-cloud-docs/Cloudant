@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-06-12"
 
 ---
 
@@ -23,6 +23,10 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 7014 (June 12, 2018)
+
+- Remove the requirement to cover `_id` or `_rev` in the query selector in order to use a JSON index that explicitly contains them.
+
 ## Build 6979 (May 29, 2018)
 
 - Improvements to internal audit facility.
@@ -34,7 +38,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 ## Build 6909 (April 26, 2018)
 
-- Improved compatibility with IAM.
+- Improve compatibility with IAM.
 - Fix `badarg` error in the module that parses `http` multipart requests.
 
 ## Build 6900 (April 25, 2018)

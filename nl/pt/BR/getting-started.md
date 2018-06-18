@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-25"
+  years: 2015, 2018
+lastupdated: "2017-11-02"
 
 ---
 
@@ -56,7 +56,7 @@ execute o comando a seguir em um prompt:
 	```
 	{:pre}
 	
-	É necessário obter uma lista de todos os módulos Python instalados no sistema.  Inspecione a lista, procurando uma entrada do {{site.data.keyword.cloudant_short_notm}} semelhante à seguinte:
+	É necessário obter uma lista de todos os módulos Python instalados no sistema. Inspecione a lista, procurando uma entrada do {{site.data.keyword.cloudant_short_notm}} semelhante à seguinte:
 
 	```
 	cloudant==2.3.1
@@ -103,7 +103,7 @@ para permitir que o aplicativo Python se conecte
   databaseName = "<yourDatabaseName>"
   ```
   {: codeblock}
-  ... em que `<yourDatabaseName>` é o nome que você gostaria de dar ao banco de dados.
+  ... em que `<yourDatabaseName>` é o nome que você gostaria de dar ao banco de dados. 
 
   > **Nota:** o nome do banco de dados deve começar com uma letra e pode incluir apenas caracteres minúsculos (a - z), numerais (0 - 9) e qualquer um dos caracteres a seguir `_`, `$`, `(`, `)`, `+`, `-` e `/`.
 
@@ -263,7 +263,7 @@ fornecendo a opção `include_docs`.
 ## Etapa 5: recuperando dados por meio do terminal de API do {{site.data.keyword.cloudant_short_notm}}
 
 Também é possível solicitar uma lista de todos os documentos e seus conteúdos
-chamando o [terminal `/_all_docs`](api/database.html#get-documents) do Cloudant.
+chamando o [terminal `/_all_docs`](api/database.html#get-documents) do {{site.data.keyword.cloudant_short_notm}}.
 
 1. Identifique o terminal para contato e quaisquer parâmetros a serem fornecidos junto à chamada:
   ```python

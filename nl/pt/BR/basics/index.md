@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-02-15"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-01-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Informações básicas do Cloudant
+# Informações básicas do {{site.data.keyword.cloudant_short_notm}}
 
 Se for a sua primeira vez aqui,
 verifique esta seção antes de continuar.
@@ -20,9 +20,9 @@ verifique esta seção antes de continuar.
 
 As seções sobre [Bibliotecas do cliente](../libraries/index.html#-client-libraries),
 [Referência de API](../api/index.html#-api-reference)
-e [Guias](../guides/index.html#-guides) supõem que você saiba algumas coisas básicas sobre o Cloudant.
+e [Guias](../guides/acurl.html#authorized-curl-acurl-) presumem que você saiba algumas coisas básicas sobre o {{site.data.keyword.cloudantfull}}.
 
-## Conectando ao Cloudant
+## Conectando-se ao {{site.data.keyword.cloudant_short_notm}}
 
 Para acessar o {{site.data.keyword.cloudant_short_notm}},
 deve-se ter uma [conta do {{site.data.keyword.cloudant}}](../api/account.html)
@@ -30,26 +30,26 @@ ou uma [conta do {{site.data.keyword.Bluemix}}](../offerings/bluemix.html).
 
 ## API HTTP
 
-Todas as solicitações para o Cloudant passam pela web.
-Isso significa que qualquer sistema que se comunique com a web pode fazê-lo com o Cloudant.
-Todas as bibliotecas específicas do idioma para o Cloudant são realmente apenas wrappers que fornecem
-alguma conveniência e sutilezas linguísticas para ajudá-lo a trabalhar com uma API simples.
-Muitos usuários escolhem usar bibliotecas HTTP brutas para trabalhar com o Cloudant.
+Todas as solicitações para o {{site.data.keyword.cloudant_short_notm}} passam pela web.
+Isso significa que qualquer sistema que possa falar com a web pode falar com o {{site.data.keyword.cloudant_short_notm}}.
+Todas as bibliotecas específicas da linguagem para o {{site.data.keyword.cloudant_short_notm}} são realmente apenas wrappers que fornecem
+alguma conveniência e sutilezas linguísticas para ajudar você a trabalhar com uma API simples.
+Muitos usuários escolhem usar bibliotecas HTTP brutas para trabalhar com o {{site.data.keyword.cloudant_short_notm}}.
 
-Detalhes específicos sobre como o Cloudant usa HTTP são
+Detalhes específicos sobre como o {{site.data.keyword.cloudant_short_notm}} usa HTTP são
 fornecidos no [tópico HTTP da Referência de API](../api/http.html).
 
-O Cloudant suporta os métodos de solicitação de HTTP a seguir:
+O {{site.data.keyword.cloudant_short_notm}} suporta os métodos de solicitação de HTTP a seguir:
 
 -   `GET`
 
     Solicitar o item especificado.
-Como com solicitações normais de HTTP,
+    Como com solicitações normais de HTTP,
 o formato da URL define o que é retornado.
-Com o Cloudant, isso pode incluir itens estáticos,
+    Com o {{site.data.keyword.cloudant_short_notm}}, isso pode incluir itens estáticos,
 documentos do banco de dados
-e informações de configuração e estatísticas.
-Na maioria dos casos, as informações são retornadas na forma de um documento JSON.
+e informações de configuração e de estatísticas.
+    Na maioria dos casos, as informações são retornadas na forma de um documento JSON.
 
 -   `HEAD`
 
@@ -58,7 +58,7 @@ Na maioria dos casos, as informações são retornadas na forma de um documento 
 -   `POST`
 
     Fazer upload de dados.
-Na API do Cloudant,
+    Na API do {{site.data.keyword.cloudant_short_notm}},
 o método `POST` é usado para configurar valores,
 fazer upload de documentos,
 configurar valores do documento
@@ -67,7 +67,7 @@ e iniciar alguns comandos de administração.
 -   `PUT`
 
     Usado para 'armazenar' um recurso específico.
-Na API do Cloudant,
+    Na API do {{site.data.keyword.cloudant_short_notm}},
 `PUT` é usado para criar novos objetos,
 incluindo bancos de dados,
 documentos,
@@ -105,9 +105,10 @@ _Exemplo de mensagem de erro em resposta a uma solicitação não suportada:_
 {:codeblock}
 
 ## JSON
+{: #json}
 
-O Cloudant armazena documentos usando a codificação JSON (JavaScript Object Notation),
-portanto, tudo codificado em JSON pode ser armazenado como um documento.
+O {{site.data.keyword.cloudant_short_notm}} armazena documentos usando codificação JSON (JavaScript Object Notation),
+portanto, qualquer coisa codificada em JSON pode ser armazenada como um documento.
 Arquivos contendo mídia,
 como imagens,
 vídeos
@@ -121,25 +122,25 @@ Mais informações sobre JSON podem ser localizadas no [Guia do JSON](../guides/
 
 ## Sistemas distribuídos
 
-A API do Cloudant permite interagir com uma colaboração de várias máquinas,
+a API do {{site.data.keyword.cloudant_short_notm}} permite interagir com uma colaboração de várias máquinas,
 chamadas de cluster.
 As máquinas em um cluster devem estar no mesmo data center,
 mas podem ficar dentro de 'pods' diferentes nesse data center.
-O uso de diferentes pods ajuda a melhorar as características de Alta disponibilidade do Cloudant.
+Usar diferentes pods ajuda a melhorar as características de Alta Disponibilidade do {{site.data.keyword.cloudant_short_notm}}.
 
 Uma vantagem do armazenamento em cluster é que quando for necessário mais capacidade de cálculo,
 bastará incluir mais máquinas.
 Isso geralmente apresenta menor custo e tolerância a falhas do que ajustar a escala ou aprimorar uma única máquina existente.
 
-Para obter mais informações sobre o Cloudant e conceitos do sistema distribuído,
+Para obter mais informações sobre o {{site.data.keyword.cloudant_short_notm}} e os conceitos de sistema distribuído,
 veja o guia [Teorema CAP](../guides/cap_theorem.html).
 
 ## Replicação
 
-[Replicação](../api/replication.html) é um procedimento seguido pelo Cloudant,
-pelo [CouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://couchdb.apache.org/){:new_window},
-pelo [PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window}
-e por outros bancos de dados distribuídos.
+[Replicação](../api/replication.html) é um procedimento seguido pelo {{site.data.keyword.cloudant_short_notm}},
+[CouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://couchdb.apache.org/){:new_window},
+[PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window}
+e outros bancos de dados distribuídos.
 A replicação sincroniza o estado de dois bancos de dados para que seus conteúdos sejam idênticos.
 
 É possível replicar continuamente.
@@ -154,5 +155,5 @@ Esse teste requer chamadas internas contínuas,
 que podem afetar o desempenho ou o custo de uso do banco de dados.
 
 >   **Nota**: a replicação contínua pode resultar em um grande número de chamadas internas.
-Isso pode afetar os custos para usuários com diversos locatários de sistemas Cloudant.
-A replicação contínua é desativada por padrão.
+    Isso pode afetar os custos para usuários com diversos locatários de sistemas {{site.data.keyword.cloudant_short_notm}}.
+    A replicação contínua é desativada por padrão.
