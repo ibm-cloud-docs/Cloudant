@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2017-01-06"
 *Articolo fornito da Glynn Bird, Developer Advocate presso IBM Cloudant,
 [glynn@cloudant.com ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:glynn@cloudant.com){:new_window}*
 
-L'archivio dati JSON scalabile di Cloudant ha diversi meccanismi di query,
+L'archivio dati JSON scalabile di {{site.data.keyword.cloudantfull}} ha diversi meccanismi di query,
 ognuno dei quali genera degli indici creati e gestiti separatamente dai dati principali.
 L'indicizzazione non viene eseguita immediatamente quando viene salvato un documento.
 Invece,
@@ -29,7 +29,7 @@ non bloccante più veloce.
 -   Gli indici di ricerca sono costruiti utilizzando Apache Lucene per consentire la ricerca a testo libero,
     sfaccettatura e query ad hoc complesse
 
-Gli [indici di ricerca](../api/search.html) e le [viste MapReduce](../api/creating_views.html) di Cloudant
+Gli [indici di ricerca](../api/search.html) e le [viste MapReduce](../api/creating_views.html) di {{site.data.keyword.cloudant_short_notm}}
 vengono configurati aggiungendo documenti di progettazione a un database.
 I documenti di progettazione sono documenti JSON che contengono istruzioni su come costruire la vista o l'indice.
 Facciamo un semplice esempio.
@@ -100,7 +100,7 @@ Il risultato è che il nostro codice della mappa è stato restituito in una stri
 e incluso in un documento di progettazione.
 
 Una volta salvato il documento di progettazione,
-Cloudant attiva i processi lato server per creare la vista `fetch/by_ts`.
+{{site.data.keyword.cloudant_short_notm}} attiva i processi lato server per creare la vista `fetch/by_ts`.
 Esegue questa operazione iterando ogni documento nel database
 e inviando ognuno di questi alla funzione di mappa Javascript.
 La funzione restituisce la coppia chiave/valore emessa.
@@ -117,9 +117,9 @@ come mostrato nel seguente diagramma:
 A questo punto, è bene ricordare che:
 
 -   La costruzione di un indice avviene in modo asincrono:
-    Cloudant conferma che il nostro documento di progettazione è stato salvato,
+    {{site.data.keyword.cloudant_short_notm}} conferma che il nostro documento di progettazione è stato salvato,
     ma per controllare l'avanzamento della costruzione del nostro indice,
-    dobbiamo eseguire il polling dell'endpoint [`_active_tasks`](../api/active_tasks.html) di Cloudant.
+    dobbiamo eseguire il polling dell'endpoint [`_active_tasks`](../api/active_tasks.html) di {{site.data.keyword.cloudant_short_notm}}.
 -   Più dati abbiamo,
     più tempo richiederà il completamento dell'indice.
 -   Mentre la creazione dell'indice iniziale è in corso,
@@ -181,7 +181,7 @@ _Documento di progettazione di esempio che utilizza una funzione di riduzione:_
 {:codeblock}
 
 Quando questo documento di progettazione viene salvato,
-Cloudant invalida completamente il vecchio indice e inizia a creare il nuovo indice da zero,
+{{site.data.keyword.cloudant_short_notm}} invalida completamente il vecchio indice e inizia a creare il nuovo indice da zero,
 iterando a turno ogni documento.
 Come con la creazione originale,
 il tempo impiegato dipende da quanti documenti sono presenti nel database
@@ -227,7 +227,7 @@ purché ti ricordi di rimuovere successivamente le versioni precedenti.
 
 Un altro approccio,
 documentato [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window},
-si basa sul fatto che Cloudant riconosce quando dispone di due documenti di progettazione identici
+si basa sul fatto che {{site.data.keyword.cloudant_short_notm}} riconosce quando dispone di due documenti di progettazione identici
 e non sprecherà tempo e risorse per ricostruire le viste già esistenti.
 In altre parole,
 se prendiamo il nostro documento di progettazione `_design/fetch` e creiamo un duplicato esatto `_design/fetch_OLD`,
@@ -261,9 +261,9 @@ npm install -g couchmigrate
 {:codeblock}
 
 Per utilizzare lo script `couchmigrate`,
-per prima cosa definisci l'URL dell'istanza CouchDB/Cloudant impostando una variabile di ambiente denominata `COUCH_URL`.
+per prima cosa definisci l'URL dell'istanza CouchDB/{{site.data.keyword.cloudant_short_notm}} impostando una variabile di ambiente denominata `COUCH_URL`.
 
-_Definizione dell'URL di una istanza Cloudant:_
+_Definizione dell'URL di una istanza {{site.data.keyword.cloudant_short_notm}}:_
 
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
@@ -273,7 +273,7 @@ export COUCH_URL=http://127.0.0.1:5984
 L'URL può essere HTTP o HTTPS
 e può includere le credenziali di autenticazione.
 
-_Definizione dell'URL dell'istanza Cloudant con le credenziali di autenticazione:_
+_Definizione dell'URL dell'istanza {{site.data.keyword.cloudant_short_notm}} con le credenziali di autenticazione:_
 
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
@@ -320,27 +320,27 @@ Quando si eseguono query nella vista, abbiamo tre scelte:
     con gli ultimi documenti nel database,
     prima di restituire la risposta.
     Quando eseguiamo una query nella vista,
-    Cloudant prima indicizza 250 nuovi documenti
+    {{site.data.keyword.cloudant_short_notm}} prima indicizza 250 nuovi documenti
     e poi restituisce la risposta.
 -   Un'alternativa consiste nell'aggiungere il parametro "`stale=ok`" alla chiamata API.
     Il parametro significa " restituiscimi i dati già indicizzati,
     non mi interessano gli ultimi aggiornamenti".
     In altre parole,
     quando esegui la query nella vista con "`stale=ok`",
-    Cloudant restituisce la risposta immediatamente
+    {{site.data.keyword.cloudant_short_notm}} restituisce la risposta immediatamente
     senza alcuna ulteriore indicizzazione.
 -   Una seconda alternativa è quella di aggiungere il parametro "`stale=update_after`" alla chiamata API.
     Il parametro significa " restituiscimi i dati già indicizzati,
     _e _ poi reindicizza i nuovi documenti".
     In altre parole,
     quando esegui la query nella vista con "`stale=update_after`",
-    Cloudant restituisce la risposta immediatamente
+    {{site.data.keyword.cloudant_short_notm}} restituisce la risposta immediatamente
     e poi pianifica un'attività in background per indicizzare i nuovi dati.
 
 L'aggiunta di "`stale=ok`" o "`stale=update_after`" può essere un buon modo per ottenere le risposte più rapidamente da una vista,
 ma a scapito dell'aggiornamento. 
 
->   **Nota**: il comportamento predefinito distribuisce il carico uniformemente tra i nodi del cluster Cloudant.
+>   **Nota**: il comportamento predefinito distribuisce il carico uniformemente tra i nodi del cluster {{site.data.keyword.cloudant_short_notm}}.
     Se utilizzi le opzioni alternative `stale=ok` o `stale=update_after`,
     questo potrebbe favorire un sottoinsieme di nodi del cluster
     al fine di restituire risultati consistenti da tutta la serie con consistenza eventuale.

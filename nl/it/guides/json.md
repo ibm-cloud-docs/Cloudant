@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2015, 2017
+  years: 2015, 2018
 lastupdated: "2017-01-06"
 
 ---
@@ -14,12 +14,12 @@ lastupdated: "2017-01-06"
 
 # JSON
 
-La maggior parte di richieste e risposte da e verso Cloudant
+La maggior parte di richieste e risposte da e verso {{site.data.keyword.cloudantfull}}
 utilizza il [JSON (JavaScript Object Notation) ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/JSON){:new_window}
 per formattare il contenuto e la struttura dei dati e delle risposte.
 {:shortdesc}
 
-Nel database Cloudant,
+Nei database {{site.data.keyword.cloudant_short_notm}},
 l'oggetto JSON è utilizzato per rappresentare una varietà di strutture,
 inclusi tutti i documenti contenuti in un database.
 
@@ -31,14 +31,14 @@ sono disponibili per molti linguaggi di programmazione principali.
 
 JSON viene utilizzato perché è la soluzione più semplice e più facile per lavorare con i dati utilizzando un browser Web.
 Ciò è dovuto al fatto che le strutture JSON possono essere valutate e utilizzate come oggetti JavaScript all'interno dell'ambiente del browser web.
-Inoltre JSON si integra con il JavaScript lato server utilizzato in Cloudant.
+Inoltre JSON si integra con il JavaScript lato server utilizzato in {{site.data.keyword.cloudant_short_notm}}.
 I documenti JSON sono sempre codificati in UTF-8.
 
 >   **Nota**: occorre prestare attenzione per garantire che:
 
 -   Le tue strutture JSON siano valide.
-    Se le strutture non sono valide Cloudant restituisce il codice di stato HTTP [400 (richiesta non valida)](../api/http.html#400).
--   Normalizzi le stringhe nei documenti JSON recuperati da Cloudant,
+    Se le strutture non sono valide {{site.data.keyword.cloudant_short_notm}} restituisce il codice di stato HTTP [400 (richiesta non valida)](../api/http.html#400).
+-   Normalizzi le stringhe nei documenti JSON recuperati da {{site.data.keyword.cloudant_short_notm}},
     prima di confrontarle.
     Il motivo è che potrebbe essere stata applicata la normalizzazione Unicode,
     pertanto una stringa memorizzata e poi recuperata non è identica a livello binario.

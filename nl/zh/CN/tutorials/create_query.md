@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-07-03"
+  years: 2017, 2018
+lastupdated: "2018-03-02"
 
 ---
 {:new_window: target="_blank"}
@@ -11,11 +11,11 @@ lastupdated: "2017-07-03"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 创建 Cloudant 查询
+# 创建 {{site.data.keyword.cloudant_short_notm}} 查询
 
 本教程演示了如何创建数据库、使用文档填充数据库、创建索引以及使用索引来查询数据库。
 
-教程中提供了针对 ![“命令行”图标](../images/CommandLineIcon.png) _命令行_和 ![“仪表板”图标](../images/DashboardIcon.png) _Cloudant 仪表板_的练习。Cloudant 仪表板练习将为每个任务提供一个直观示例。您可以访问本教程中的链接来了解更多信息。
+提供了针对 ![“命令行”图标](../images/CommandLineIcon.png) _命令行_和 ![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_的练习。{{site.data.keyword.Bluemix}} 仪表板练习将为每个任务提供一个直观示例。您可以访问本教程中的链接来了解更多信息。
 
 首先，创建 `query-demo` 数据库以及一些包含这些练习数据的文档。
 
@@ -23,11 +23,11 @@ lastupdated: "2017-07-03"
 
 开始之前，请执行以下步骤以准备使用本教程：
 
-1.  [创建 Bluemix 帐户 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/registration/){:new_window}。
-2.  登录到 [Cloudant 仪表板 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}。
-3.  [在 Bluemix 上创建 Cloudant 实例](create_service.html#creating-a-cloudant-instance-on-bluemix)。
+1.  [创建 {{site.data.keyword.Bluemix}} 帐户 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/registration/){:new_window}。
+2.  登录到 [{{site.data.keyword.Bluemix_notm}} 仪表板 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}。
+3.  [在 {{site.data.keyword.Bluemix_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例](create_service.html#creating-a-cloudant-instance-on-bluemix)。
 4.  （可选）[创建 acurl 别名](../guides/acurl.html#authorized-curl-acurl-)，以便更快、更轻松地通过命令行运行命令。
-5.  将练习中包含的命令中的 `$ACCOUNT` 变量替换为您用于登录到 Cloudant 仪表板的用户名。如果决定不设置 `acurl`，请使用以下 URL，而不要使用练习中提供的 URL：
+5.  将练习中包含的命令中的 `$ACCOUNT` 变量替换为您用于登录到 {{site.data.keyword.cloudant_short_notm}} 仪表板的用户名。如果决定不设置 `acurl`，请使用以下 URL，而不要使用练习中提供的 URL：
   ``` sh
   curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
   ```
@@ -54,9 +54,9 @@ lastupdated: "2017-07-03"
   ```
   {:codeblock}
 
-![“仪表板”图标](../images/DashboardIcon.png) _Cloudant 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
 
-1.  打开已创建的 Cloudant 服务实例。
+1.  打开已创建的 {{site.data.keyword.cloudant_short_notm}} 服务实例。
 2.  选择“数据库”选项卡：
 
   ![“数据库”选项卡](../images/tabs.png)
@@ -155,7 +155,7 @@ lastupdated: "2017-07-03"
   ```
   {:codeblock}
 
-![“仪表板”图标](../images/DashboardIcon.png) _Cloudant 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
 
 1.  单击 **`+`**，然后选择**新建文档**。这将打开“新建文档”窗口。
 2.  要创建文档，请复制以下样本文本，并替换新文档中的现有文本。
@@ -236,17 +236,17 @@ lastupdated: "2017-07-03"
 
 ## 创建索引
 
-Cloudant 提供了用于查询数据库的视图和索引。视图可运行保存到数据库的查询，结果称为结果集。向视图提交查询时，查询将搜索结果集。索引是用于对数据进行结构化的一种方法，可缩短检索时间。
+{{site.data.keyword.cloudant_short_notm}} 提供了用于查询数据库的视图和索引。视图可运行保存到数据库的查询，结果称为结果集。向视图提交查询时，查询将搜索结果集。索引是用于对数据进行结构化的一种方法，可缩短检索时间。
 
-您可以使用 Cloudant 随附的主索引，也可以使用辅助索引，例如视图 (MapReduce)、搜索索引、Cloudant 地理空间查询或 Cloudant 查询，如以下列表中所述：
+您可以使用 {{site.data.keyword.cloudant_short_notm}} 随附的主索引，也可以使用辅助索引，例如视图 (MapReduce)、搜索索引、{{site.data.keyword.cloudant_short_notm}} 地理空间查询或 {{site.data.keyword.cloudant_short_notm}} 查询，如以下列表中所述：
 
 *	主索引 - 按标识查找文档或文档列表。  
 *	[视图](../api/creating_views.html#views-mapreduce-) - 在数据库中搜索与指定的搜索条件（例如，计数、求和、平均值和其他数学函数）相匹配的信息。可以搜索的条件在视图的定义中指定。视图使用 MapReduce 范式。
 *	[搜索索引](../api/search.html#search) - 使用 [Lucene 查询解析器语法 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window} 搜索一个或多个字段、搜索大量文本，或使用通配符、模糊搜索或构面。
-*	[Cloudant 地理空间](../api/cloudant-geo.html#cloudant-geospatial) - 基于空间关系搜索文档。
-*	[Cloudant 查询](../api/cloudant_query.html#query) - 使用 Mongo 样式的查询语法通过逻辑运算符搜索文档。Cloudant 查询是视图和搜索索引的组合。在本教程中使用的是 Cloudant 查询。
+*	[{{site.data.keyword.cloudant_short_notm}} 地理空间](../api/cloudant-geo.html#cloudant-geospatial) - 基于空间关系搜索文档。
+*	[{{site.data.keyword.cloudant_short_notm}} 查询](../api/cloudant_query.html#query) - 使用 Mongo 样式的查询语法通过逻辑运算符搜索文档。{{site.data.keyword.cloudant_short_notm}} 查询是视图和搜索索引的组合。在本教程中使用的是 {{site.data.keyword.cloudant_short_notm}} 查询。
 
-> **注：** 如果没有与指定查询相匹配的可用定义索引，那么 Cloudant
+> **注：** 如果没有与指定查询相匹配的可用定义索引，那么 {{site.data.keyword.cloudant_short_notm}}
 > 将使用 `_all_docs` 索引。
 
 
@@ -254,17 +254,24 @@ Cloudant 提供了用于查询数据库的视图和索引。视图可运行保�
 
 1.  将以下样本 JSON 数据复制到名为 `query-index.dat` 的文件中。
   ```json
-  {
-    "index": {
+{
+	"index": {
       "fields": [
-        "lastname",
-        "location",
-        "age"
-      ]
-    },
-    "name": "query-index",
-    "type": "json"
-  }
+			"age",
+			"lastname"
+		],
+		"partial_filter_selector": {
+			"age": {
+				"$gte": 30
+			},
+			"lastname": {
+				"$eq": "Greene"
+			}
+		}
+	},
+  		"ddoc": "partial-index",
+		"type": "json"
+}
   ```
   {:codeblock}
 
@@ -286,22 +293,29 @@ Cloudant 提供了用于查询数据库的视图和索引。视图可运行保�
 
 
 
-![“仪表板”图标](../images/DashboardIcon.png) _Cloudant 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
 
 1.  单击**所有文档**或**设计文档**选项卡上的 **`+` > 查询索引**。
 2.  将以下样本 JSON 数据粘贴到**索引**字段中：
   ```json
-  {
-    "index": {
+{
+	"index": {
       "fields": [
-        "lastname",  
-        "location",
-        "age"
-      ]
-    },
-    "name": "query-index",
-    "type": "json"
-  }
+			"age",
+			"lastname"
+		],
+		"partial_filter_selector": {
+			"age": {
+				"$gte": 30
+			},
+			"lastname": {
+				"$eq": "Greene"
+			}
+		}
+	},
+  		"ddoc": "partial-index",
+		"type": "json"
+}
   ```
   {:codeblock}
 
@@ -313,7 +327,7 @@ Cloudant 提供了用于查询数据库的视图和索引。视图可运行保�
 
 ## 创建查询
 
-通过查询，可以从 Cloudant 中抽取数据。编写良好的[查询](../api/cloudant_query.html#query)可以缩小搜索范围，并且搜索结果仅包括所需的数据。
+通过查询，可以从 {{site.data.keyword.cloudant_short_notm}} 中抽取数据。编写良好的[查询](../api/cloudant_query.html#query)可以缩小搜索范围，并且搜索结果仅包括所需的数据。
 
 本练习说明了如何编写和运行简单查询、具有两个字段的查询和具有[运算符](../api/cloudant_query.html#cloudant_query.html#operators)的查询。使用具有运算符的查询时，请至少指定一个字段及其对应的值。然后，查询将使用此值在数据库中搜索匹配项。
 
@@ -321,7 +335,7 @@ Cloudant 提供了用于查询数据库的视图和索引。视图可运行保�
 
 ### 运行简单查询
 
-此示例演示了 Cloudant 查询如何使用 `query-index` 来查找 `lastname`，并过滤内存中的结果以查找 `firstaname`。   
+此示例演示了 {{site.data.keyword.cloudant_short_notm}} 查询如何使用 `query-index` 来查找 `lastname`，并过滤内存中的结果以查找 `firstaname`。   
 
 ![“命令行”图标](../images/CommandLineIcon.png) _命令行_
 
@@ -359,10 +373,10 @@ Cloudant 提供了用于查询数据库的视图和索引。视图可运行保�
   ```
   {:codeblock}
 
-![“仪表板”图标](../images/DashboardIcon.png) _Cloudant 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
 
 1.  单击**查询**选项卡。
-2.  将以下样本 JSON 复制并粘贴到“Cloudant 查询”窗口中：
+2.  将以下样本 JSON 复制并粘贴到“{{site.data.keyword.cloudant_short_notm}} 查询”窗口中：
   ```json
    {
       "selector": {
@@ -466,10 +480,10 @@ Cloudant 提供了用于查询数据库的视图和索引。视图可运行保�
   ```
   {:codeblock}
 
-![“仪表板”图标](../images/DashboardIcon.png) _Cloudant 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
 
 1.  单击**查询**选项卡。
-2.  将以下样本 JSON 复制并粘贴到“Cloudant 查询”窗口中：
+2.  将以下样本 JSON 复制并粘贴到“{{site.data.keyword.cloudant_short_notm}} 查询”窗口中：
   ```json
   {
     "selector": {
@@ -507,44 +521,58 @@ Cloudant 提供了用于查询数据库的视图和索引。视图可运行保�
 ```json
 {
   "selector": {
+      "age": {
+      "$gt": 30
+    },
     "lastname": {
       "$eq": "Greene"
-    },
-    "age": {
-      "$gt": 30
     }
   }
 }
-```   
+``` 
+{:codeblock}
+
+结果根据 `sort` 参数中的值按姓氏升序排序。
+
+```json
+    "sort": [
+      {
+        "age": "asc"   
+      },        
+      {
+        "lastname": "asc"
+      }
+    ] 
+```  
 {:codeblock}
 
 ![“命令行”图标](../images/CommandLineIcon.png) _命令行_
 
 1.  将以下样本 JSON 复制到名为 `query3.dat` 的文件中。
   ```json
-  {
-    "selector": {
-      "lastname": {
-        "$eq": "Greene"
-      },
+{
+   "selector": {
       "age": {
-        "$gt": 30
+         "$gt": 30
+      },
+      "lastname": {
+         "$eq": "Greene"
       }
-    },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
-    ],
+   },
+    "fields": [
+      "age",
+      "firstname"
+   ],
     "sort": [
       {
-        "lastname": "asc"
+        "age": "asc"
       },
       {
-        "firstname": "asc"
+         "lastname": "asc"
       }
-    ]  
-  }
+   ],
+   "use_index": "_design/partial-index"
+}
   ```
   {:codeblock}
 
@@ -556,51 +584,43 @@ Cloudant 提供了用于查询数据库的视图和索引。视图可运行保�
 
 3.  查看查询结果：
   ```json
-  {
-    "docs": [
-      {
-        "firstname": "Anna",
-        "lastname": "Greene",
-        "age": 44
-      },
-      {
-        "firstname": "Greg",
-        "lastname": "Greene",
-        "age": 35
-      }
-    ]
-  }
+{"docs":[
+     {"age":35,"firstname":"Greg"},
+     {"age":44,"firstname":"Anna"}
+   ],
+"bookmark": "g1AAAABCeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmFwOSHWiDkiSzb0oNTUvNSsLAEsmEeQ"
+}
   ```
   {:codeblock}
 
-![“仪表板”图标](../images/DashboardIcon.png) _Cloudant 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
 
 1.  单击**查询**选项卡。
-2.  将以下样本 JSON 复制并粘贴到“Cloudant 查询”窗口中：
+2.  将以下样本 JSON 复制并粘贴到“{{site.data.keyword.cloudant_short_notm}} 查询”窗口中：
   ```json
-  {
-    "selector": {
-      "lastname": {
-        "$eq": "Greene"
-      },
+{
+   "selector": {
       "age": {
-        "$gt": 30
+         "$gt": 30
+      },
+      "lastname": {
+         "$eq": "Greene"
       }
-    },
-    "fields" : [
-      "firstname",
-      "lastname",
-      "age"
-    ],
+   },
+    "fields": [
+      "age",
+      "firstname"
+   ],
     "sort": [
       {
-        "lastname": "asc"
+        "age": "asc"
       },
       {
-        "firstname": "asc"
+         "lastname": "asc"
       }
-    ]   
-  }
+   ],
+   "use_index": "_design/partial-index"
+}
   ```
   {:codeblock}
 
@@ -610,4 +630,4 @@ Cloudant 提供了用于查询数据库的视图和索引。视图可运行保�
 
   ![查询 3 结果](../images/dashboard_query3_results.png)
 
-有关 Cloudant 的更多信息，请参阅 [Cloudant 文档](../cloudant.html#overview)。
+有关 {{site.data.keyword.cloudant_short_notm}} 的更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}} 文档](../cloudant.html#overview)。

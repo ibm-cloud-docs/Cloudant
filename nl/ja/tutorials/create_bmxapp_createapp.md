@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-11"
+  years: 2017, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Cloudant データベースにアクセスする単純な Bluemix アプリケーションの作成: コード
+# {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.cloud_notm}} アプリケーションの作成: コード
 
 チュートリアルのこのセクションでは、{{site.data.keyword.Bluemix}} アプリケーションのコードについて説明します。
 {:shortdesc}
@@ -59,9 +59,9 @@ lastupdated: "2017-01-11"
 
 2.  「`manifest.yml`」ファイルを編集して、次のテキストを含めます。
     ```
-applications:
+    applications:
 - path: .
-  memory: 128M
+      memory: 128M
       instances: 1
       domain: <your domain>
       name: <your application name>
@@ -71,12 +71,12 @@ applications:
       - <your database instance>
     ```
     {:codeblock}
-    >   **注**: 「`domain`」、「`name`」、「`host`」、「`services`」の値を必ず変更してください。これらは、[{{site.data.keyword.Bluemix_notm}} アプリケーション環境](create_bmxapp_appenv.html#creating)と [{{site.data.keyword.cloudant_short_notm}} データベース・インスタンス](create_bmxapp_prereq.html#csi)の作成時に入力した値です。
+    >   **注**: 「`domain`」、「`name`」、「`host`」、「`services`」の値を必ず変更してください。 これらは、[{{site.data.keyword.Bluemix_notm}} アプリケーション環境](create_bmxapp_appenv.html#creating)と [{{site.data.keyword.cloudant_short_notm}} データベース・インスタンス](create_bmxapp_prereq.html#csi)の作成時に入力した値です。
 
 3.  「`requirements.txt`」ファイルを編集して、次のテキストを含めます。
     ```
-cloudant==2.3.1
-	```
+    cloudant==2.3.1
+    ```
     {:codeblock}
 
 ### アプリケーション・コード
@@ -123,11 +123,10 @@ except ImportError:
 {{site.data.keyword.cloudant_short_notm}} ライブラリー・コンポーネントをインポートする必要があります。
 
 ```python
-# Enable the required Python libraries for working with Cloudant.
+# Enable the required Python libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
-
 ```
 {:codeblock}
 
@@ -165,7 +164,7 @@ os.chdir('static')
 filename = "index.html"
 target = open(filename, 'w')
 target.truncate()
-target.write("<html><head><title>Cloudant Python Demo</title></head><body><p>Log of Cloudant Python steps...</p><pre>")
+target.write("<html><head><title>{{site.data.keyword.cloudant_short_notm}} Python Demo</title></head><body><p>Log of Cloudant Python steps...</p><pre>")
 ```
 {:codeblock}
 
@@ -180,7 +179,7 @@ target.write("\n====\n\n")
 ```
 {:codeblock}
 
-#### Cloudant データベース・インスタンスの処理
+#### {{site.data.keyword.cloudant_short_notm}} データベース・インスタンスの処理
 
 Python アプリケーションは、{{site.data.keyword.Bluemix_notm}} アプリケーション環境内で実行されます。
 この環境は、接続されたサービスにアプリケーションがアクセスするために必要なすべての情報を提供します。
@@ -191,7 +190,7 @@ Python アプリケーションは、{{site.data.keyword.Bluemix_notm}} アプ�
 以下のように、「`VCAP_SERVICES`」環境変数の存在をテストしてチェックします。
 
 ```python
-# Check that we are running in a Bluemix application environment.
+# Check that we are running in a {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
 ```
 {:codeblock}
@@ -217,9 +216,9 @@ target.write("Got vcap_servicesData\n")
 同様に、「ログ・ファイル」にイベントを記録します。
 
 ```python
-# Look for the Cloudant service instance.
+# Look for the {{site.data.keyword.cloudant_short_notm}} service instance.
 cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
-# Log the fact that we successfully found some Cloudant service information.
+# Log the fact that we successfully found some {{site.data.keyword.cloudant_short_notm}} service information.
 target.write("Got cloudantNoSQLDBData\n")
 ```
 {:codeblock}
@@ -235,11 +234,11 @@ target.write("Got cloudantNoSQLDBData\n")
 [チュートリアル](create_database.html#a-cloudant-service-instance-on-bluemix)にあります。
 
 ```python
-# Get a list containing the Cloudant connection information.
+# Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
 credentials = cloudantNoSQLDBData[0]
 # Get the essential values for our application to talk to the service.
 credentialsData = credentials['credentials']
-# Log the fact that we successfully found the Cloudant values.
+# Log the fact that we successfully found the {{site.data.keyword.cloudant_short_notm}} values.
 target.write("Got credentialsData\n\n")
 ```
 {:codeblock}
@@ -281,7 +280,7 @@ target.write("\n")
 これらのタスクのコードは、以下のとおりです。
 
 ```python
-# We now have all the details we need to work with the Cloudant service instance.
+# We now have all the details we need to work with the {{site.data.keyword.cloudant_short_notm}} service instance.
 # Connect to the service instance.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 client.connect()
@@ -299,7 +298,6 @@ if myDatabaseDemo.exists():
         target.write("Document successfully created.\n")
 # All done - disconnect from the service instance.
 client.disconnect()
-
 ```
 {:codeblock}
 
@@ -375,13 +373,14 @@ except ImportError:
     from http.server import SimpleHTTPRequestHandler as Handler
     from http.server import HTTPServer as Server
 
-# Enable the required Python libraries for working with Cloudant.
+# Enable the required Python libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 
 # This is the name of the database we intend to create.
 databaseName = "databasedemo"
+
 # Change current directory to avoid exposure of control files
 try:
     os.mkdir('static')
@@ -390,35 +389,36 @@ except OSError:
     # no need to create it.
     pass
 os.chdir('static')
+
 # Begin creating a very simple web page.
 filename = "index.html"
 target = open(filename, 'w')
 target.truncate()
-target.write("<html><head><title>Cloudant Python Demo</title></head><body><p>Log of Cloudant Python steps...</p><pre>")
+target.write("<html><head><title>Cloudant Python Demo</title></head><body><p>Log of {{site.data.keyword.cloudant_short_notm}} Python steps...</p><pre>")
 
 # Put a clear indication of the current date and time at the top of the page.
 target.write("====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n\n")
 
-# Start working with the Cloudant service instance.
+# Start working with the {{site.data.keyword.cloudant_short_notm}} service instance.
 
 # Check that we are running in a Bluemix application environment.
 if 'VCAP_SERVICES' in os.environ:
     # Yes we are, so get the service information.
     vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
     # Log the fact that we successfully found some service information.
-target.write("Got vcap_servicesData\n")
-    # Look for the Cloudant service instance.
+    target.write("Got vcap_servicesData\n")
+    # Look for the {{site.data.keyword.cloudant_short_notm}} service instance.
     cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
-    # Log the fact that we successfully found some Cloudant service information.
-target.write("Got cloudantNoSQLDBData\n")
-    # Get a list containing the Cloudant connection information.
+    # Log the fact that we successfully found some {{site.data.keyword.cloudant_short_notm}} service information.
+    target.write("Got cloudantNoSQLDBData\n")
+    # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
     credentials = cloudantNoSQLDBData[0]
     # Get the essential values for our application to talk to the service.
     credentialsData = credentials['credentials']
-    # Log the fact that we successfully found the Cloudant values.
-target.write("Got credentialsData\n\n")
+    # Log the fact that we successfully found the {{site.data.keyword.cloudant_short_notm}} values.
+    target.write("Got credentialsData\n\n")
     # Get the username ...
     serviceUsername = credentialsData['username']
     target.write("Got username: ")
@@ -435,7 +435,7 @@ target.write("Got credentialsData\n\n")
     target.write(serviceURL)
     target.write("\n")
 
-    # We now have all the details we need to work with the Cloudant service instance.
+    # We now have all the details we need to work with the {{site.data.keyword.cloudant_short_notm}} service instance.
     # Connect to the service instance.
     client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
     client.connect()
@@ -444,16 +444,15 @@ target.write("Got credentialsData\n\n")
     if myDatabaseDemo.exists():
         target.write("'{0}' successfully created.\n".format(databaseName))
         # Create a very simple JSON document with the current date and time.
-jsonDocument = {
-                    "rightNow": strftime("%Y-%m-%d %H:%M:%S", gmtime())
+        jsonDocument = {
+            "rightNow": strftime("%Y-%m-%d %H:%M:%S", gmtime())
         }
         # Store the JSON document in the database.
         newDocument = myDatabaseDemo.create_document(jsonDocument)
         if newDocument.exists():
             target.write("Document successfully created.\n")
     # All done - disconnect from the service instance.
-client.disconnect()
-
+    client.disconnect()
 
 # Put another clear indication of the current date and time at the bottom of the page.
 target.write("\n====\n")
@@ -462,6 +461,7 @@ target.write("\n====\n")
 # Finish creating the web page.
 target.write("</pre></body></html>")
 target.close()
+
 # Start up the simple Python web server application,
 # so that it can 'serve' our newly created web page.
 PORT = int(os.getenv('PORT', 8000))

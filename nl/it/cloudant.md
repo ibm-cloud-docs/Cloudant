@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-05-31"
+  years: 2015, 2018
+lastupdated: "2018-03-07"
 
 ---
 
@@ -25,7 +25,7 @@ Consente di memorizzare i dati come documenti in formato JSON.
 l'alta disponibilità
 e la durabilità.
 Viene fornito con un'ampia varietà di opzioni di indicizzazione come map-reduce,
-Cloudant Query,
+{{site.data.keyword.cloudantfull}} Query,
 full-text e
 geospaziale.
 Le funzionalità di replica aiutano a mantenere sincronizzati i dati
@@ -39,11 +39,11 @@ dettagli sui concetti, sulle attività e sulle tecniche di
 {{site.data.keyword.cloudant_short_notm}}.
 
 Puoi avviare il servizio {{site.data.keyword.cloudant_short_notm}} dal
-[dashboard {{site.data.keyword.Bluemix}}](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/).
+[dashboard {{site.data.keyword.Bluemix}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
 
-È [disponibile](index.html) una 'guida rapida' per cominciare a lavorare con {{site.data.keyword.cloudant_short_notm}}
-oltre a delle
-[esercitazioni](tutorials/index.html) più dettagliate che descrivono le attività in modo più completo.
+È [disponibile](index.html)
+una 'guida rapida' per cominciare a lavorare con {{site.data.keyword.cloudant_short_notm}}
+oltre a delle [esercitazioni](tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix) più dettagliate che descrivono le attività in modo più completo.
 Ulteriori informazioni sui dettagli come l'autenticazione con le istanze del database
 e l'esecuzione di query dei dati
 sono disponibili nella [Guida di riferimento API](api/index.html).
@@ -52,8 +52,8 @@ sono disponibili nella [Guida di riferimento API](api/index.html).
 
 ## Contenuto della documentazione
 
-*	[Offerte {{site.data.keyword.cloudant_short_notm}}](offerings/index.html): {{site.data.keyword.cloudant_short_notm}} è disponibile in una
-varietà di offerte,
+*	[Offerte {{site.data.keyword.cloudant_short_notm}}](offerings/bluemix.html#ibm-cloud-public): {{site.data.keyword.cloudant_short_notm}} è disponibile
+	in una varietà di offerte,
 	tutte descritte in questa sezione.
 *	[Principi di base di {{site.data.keyword.cloudant_short_notm}}](basics/index.html):
   se è la prima volta che utilizzi {{site.data.keyword.cloudant_short_notm}} o i database NoSQL in generale,
@@ -63,12 +63,12 @@ varietà di offerte,
 *	[Librerie client](libraries/index.html): le librerie client sono dei toolkit
 	che ti consentono di sviluppare le tue proprie applicazioni,
 	pronte a lavorare con i database {{site.data.keyword.cloudant_short_notm}}.
-* [Esercitazioni](tutorials/index.html): una raccolta dettagliata di articoli
+* [Esercitazioni](tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix): una raccolta dettagliata di articoli
   che ti mostrano come eseguire attività chiave utilizzando {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}.
 *	[Guida di riferimento API {{site.data.keyword.cloudant_short_notm}}](api/index.html): la guida di riferimento API
 	è un catalogo completo e dinamico delle funzionalità di {{site.data.keyword.cloudant_short_notm}}.
 	Puoi trovare informazioni dettagliate sulle operazioni che puoi fare con {{site.data.keyword.cloudant_short_notm}}.
-*	[Guide](guides/index.html): queste guide entrano in dettaglio sui
+*	[Guide](guides/acurl.html#authorized-curl-acurl-): queste guide entrano in dettaglio sui
 	casi di utilizzo e sulle attività e sui problemi più complessi.
 	Le guide esplorano anche alcuni dei concetti importanti dietro la meccanica di un database {{site.data.keyword.cloudant_short_notm}}.
 
@@ -80,4 +80,4 @@ Inoltre, siamo aperti a consigli in merito alla nostra documentazione.
 Se non funziona per voi,
 non funziona per noi.
 Dai un contributo o condividi suggerimenti attraverso
-Cloudant Labs su [GitHub ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant-labs/slate){:new_window}.
+{{site.data.keyword.cloudant_short_notm}} Labs su [GitHub ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant-labs/slate){:new_window}.

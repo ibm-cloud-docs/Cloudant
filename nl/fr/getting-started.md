@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-25"
+  years: 2015, 2018
+lastupdated: "2017-11-02"
 
 ---
 
@@ -24,11 +24,11 @@ Dans ce tutoriel de mise en route d'{{site.data.keyword.cloudantfull}}, nous all
 ## Avant de commencer
 {: #prereqs}
 
-Vous devez posséder un [compte Bluemix![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}, une instance de service {{site.data.keyword.cloudant}}, et respecter les exigences Python suivantes :
+Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/registration/){:new_window}, une instance de service {{site.data.keyword.cloudant}}, et respecter les exigences Python suivantes :
 
-*	Installez la dernière version du [langage de programmation Python ![External link icon](images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} sur votre système.
+*	Installez la dernière version du [langage de programmation Python ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://www.python.org/){:new_window} sur votre système.
 	
-	Pour vérifier que vous disposez de la bonne version, exécutez la commande ci-dessous à l'aide d'une invite de commande :
+	Pour savoir si vous disposez d'une telle installation, exécutez la commande suivante à l'invite :
 	```sh
 	python --version
 	```
@@ -49,7 +49,7 @@ Vous devez posséder un [compte Bluemix![External link icon](images/launch-glyph
 	```
 	{:pre}
 	
-	Vous devez obtenir la liste de tous les modules Python installés sur votre système. Examinez la liste, à la recherche d'une entrée {{site.data.keyword.cloudant_short_notm}} similaire à ce qui suit :
+	Vous devez obtenir la liste de tous les modules Python installés sur votre système. Examinez cette liste en recherchant une entrée {{site.data.keyword.cloudant_short_notm}} similaire à l'entrée suivante :
 
 	```
 	cloudant==2.3.1
@@ -94,7 +94,7 @@ Vous devez posséder un [compte Bluemix![External link icon](images/launch-glyph
   databaseName = "<yourDatabaseName>"
   ```
   {: codeblock}
-  ... où `<yourDatabaseName>` désigne le nom que vous souhaitez attribuer à votre base de données.
+  ... où `<yourDatabaseName>` désigne le nom que vous souhaitez attribuer à votre base de données. 
 
   > **Remarque** : Le nom de la base de données doit commencer par une lettre et doit comprendre uniquement des caractères en minuscules (a-z), des chiffres (0-9) ainsi que les caractères spéciaux `_`, `$`, `(`, `)`, `+`, `-` et `/`.
 
@@ -161,7 +161,7 @@ Notez que nous avons vérifié que chaque document avait bien été créé.
 
 ## Etape 4 : Extraction des données à l'aide de requêtes
 
-A ce stade, une petite collection de données a été stockée en tant que documents dans la base de données.
+A ce stade, une petite collection de données a été stockée sous forme de documents dans la base de données.
 Vous pouvez procéder à l'extraction complète ou partielle des données de la base de données.
 Une extraction partielle récupère les données de base _concernant_ un document.
 Une extraction complète inclut également les données figurant _dans_ le document.
@@ -208,7 +208,7 @@ Une extraction complète inclut également les données figurant _dans_ le docum
   > **Remarque** : De part leur nature, les bases de données NoSQL,
   par exemple {{site.data.keyword.cloudant_short_notm}},
   ne prennent pas forcément en compte des notions simples telles que le premier document stocké dans une base de données est toujours
-  le premier renvoyé dans la liste des résultats. 
+  le premier renvoyé dans la liste des résultats.
 
 * Pour effectuer une extraction complète,
   demandez la liste de tous les documents de la base de données,
@@ -251,7 +251,7 @@ Une extraction complète inclut également les données figurant _dans_ le docum
 
 ## Etape 5 : Extraction des données à l'aide du noeud final d'API {{site.data.keyword.cloudant_short_notm}}
 
-Vous pouvez aussi demander la liste de tous les documents et de leur contenu en appelant le noeud final Cloudant [`/_all_docs`](api/database.html#get-documents).
+Vous pouvez aussi demander la liste de tous les documents et de leur contenu en appelant le noeud final {{site.data.keyword.cloudant_short_notm}} [`/_all_docs`](api/database.html#get-documents).
 
 1. Identifiez le noeud final à contacter, ainsi que tous les paramètres à renseigner parallèlement à l'appel :
   ```python
@@ -334,7 +334,7 @@ else:
 ```
 {: codeblock}
 
-Un traitement d'erreurs de base a été inclus pour illustrer la manière dont les problèmes peuvent être interceptés et résolus. 
+Un traitement d'erreurs de base a été inclus pour illustrer la manière dont les problèmes peuvent être interceptés et résolus.
 
 ## Etape 7 : Déconnexion de l'instance de service
 
@@ -347,8 +347,7 @@ client.disconnect()
 
 ## Etapes suivantes
 
-Pour plus d'informations sur les offres de {{site.data.keyword.cloudant_short_notm}}, consultez le site officiel de [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
-
+Pour plus d'informations sur les offres de {{site.data.keyword.cloudant_short_notm}}, consultez le site officiel de [{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
 
 Pour obtenir des détails et tutoriels complémentaires sur les concepts, tâches et techniques de {{site.data.keyword.cloudant_short_notm}}, consultez la [documentation {{site.data.keyword.cloudant_short_notm}}](cloudant.html).
 

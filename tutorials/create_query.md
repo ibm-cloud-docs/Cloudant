@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-06-20"
 
 ---
 {:new_window: target="_blank"}
@@ -10,6 +10,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-06-13 -->
 
 # Creating an {{site.data.keyword.cloudant_short_notm}} Query
 
@@ -73,11 +76,12 @@ is the database that we use in this tutorial.
 ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
 
 1.  Open the {{site.data.keyword.cloudant_short_notm}} service instance that you created.
-2.  Select the Databases tab:
-
+2.  On {{site.data.keyword.cloudant_short_notm}} service page, click **Launch**.
+    The Databases tab opens.
+    
   ![Databases tab](../images/tabs.png)
-3.  Click **Create Database**.
-4.  Enter `query-demo` and click **Create**.
+4.  Click **Create Database**.
+5.  Enter `query-demo` and click **Create**.
 
   The `query-demo` database automatically opens.
 
@@ -240,17 +244,9 @@ that you create in this exercise contain the data that you use to query the `que
   ```
   {:codeblock}
 
-  The `query-demo` database was created. You can see the documents in the right pane.
+  The `query-demo` database was populated with five records. You can see the records from the Table view in the following screen capture:
 
-  ![Sample documents 1](../images/docs1.png)
-
-  ![Sample documents 2](../images/docs2.png)
-
-  ![Sample documents 3](../images/docs3.png)
-
-  ![Sample documents 4](../images/docs4.png)
-
-  ![Sample documents 5](../images/docs5.png)      
+  ![Sample documents](../images/docs1.png)     
 
 ## Creating an index
 
@@ -341,7 +337,7 @@ in the following list:
   ```
   {:codeblock}
 
-  The index was created. You can see it in the right pane.
+  The index was created. You can see the index in the following screen capture:
 
   ![Query index](../images/query-index1.png)
 
@@ -354,7 +350,7 @@ Queries allow you to extract your data from {{site.data.keyword.cloudant_short_n
 its results to include only the data you want.
 
 This exercise shows you how to write and run a simple query, query with two fields,
-and query with an [operator](../api/cloudant_query.html#cloudant_query.html#operators).
+and query with two [operators](../api/cloudant_query.html#cloudant_query.html#operators).
 You query with an operator by specifying at least one field and its corresponding value.
 The query then uses this value to search the database for matches.
 
@@ -417,7 +413,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
 
 3.  Click **Run Query**.
 
-  The query results appear in the right pane.
+  The query results display. You can see them from the Table view in the following screen capture:
 
   ![Query 1 results](../images/dashboard_query1_results.png)
 
@@ -447,17 +443,9 @@ The extra details look like the following example:
 {
   ...
   "fields" : [
-    "lastname",
     "firstname",
+    "lastname",
     "location"
-  ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
   ]
 }
 ```  
@@ -472,19 +460,11 @@ The extra details look like the following example:
       "lastname": "Brown",
       "location": "New York City, NY"
     },
-    "fields": [
-      "firstname",
-      "lastname",
-      "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]
+   "fields" : [
+     "firstname",
+     "lastname",
+     "location"
+  ]
   }
   ```
   {:codeblock}
@@ -500,12 +480,17 @@ The extra details look like the following example:
   {
     "docs": [
       {
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      },
+      {
         "firstname": "John",
         "lastname": "Brown",
         "location": "New York City, NY"
       },
       {
-        "firstname": "Sally",
+        "firstname": "Lois",
         "lastname": "Brown",
         "location": "New York City, NY"
       }
@@ -528,22 +513,14 @@ The extra details look like the following example:
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+    ] 
   }
   ```
   {:codeblock}
 
 3.  Click **Run Query**.
 
-  The query results appear in the right pane.
+  The query results display. You can see them from the Table view in the following screen capture:
 
   ![Query 2 results](../images/dashboard_query2_results.png)
 
@@ -567,16 +544,13 @@ We use a selector expression like the following example:
 ``` 
 {:codeblock}
 
-The results are sorted by last name in ascending order based on the 
-values in the `sort` parameter.
+The results are sorted by age in ascending order based on the 
+values specified in the `sort` parameter.
 
 ```json
     "sort": [
       {
         "age": "asc"   
-      },        
-      {
-        "lastname": "asc"
       }
     ] 
 ```  
@@ -602,9 +576,6 @@ values in the `sort` parameter.
    "sort": [
       {
          "age": "asc"
-      },
-      {
-         "lastname": "asc"
       }
    ],
    "use_index": "_design/partial-index"
@@ -650,9 +621,6 @@ values in the `sort` parameter.
    "sort": [
       {
          "age": "asc"
-      },
-      {
-         "lastname": "asc"
       }
    ],
    "use_index": "_design/partial-index"
@@ -662,7 +630,7 @@ values in the `sort` parameter.
 
 3.  Click **Run Query**.
 
-  The query results appear in the right pane.
+  The query results display. You can see them from the Table view in the following screen capture:
 
   ![Query 3 results](../images/dashboard_query3_results.png)
 
