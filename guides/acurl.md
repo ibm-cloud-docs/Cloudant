@@ -91,6 +91,15 @@ as it encrypts your data and credentials in transit and helps you be sure you’
 
 Now start a new shell or run `source ~/.bash_profile` (or `~/.bashrc` if you used that) to make the alias functional.
 
+## Create an alias in Windows
+
+Run the following command to create an alias in Windows:
+
+```
+echo "machine $ACCOUNT.cloudant.com login $ACCOUNT password $PASSWORD" >> ~/.netrc
+curl -n ...
+```
+
 ## Testing `acurl`
 
 Now let's make sure everything is set up correctly.
