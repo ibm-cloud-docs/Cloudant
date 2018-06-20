@@ -14,6 +14,9 @@ lastupdated: "2018-06-08"
 
 # Monitoring an {{site.data.keyword.cloudant_short_notm}} cluster
 
+> **Important**: The monitoring API is only available to {{site.data.keyword.cloudantfull}} Enterprise 
+customers with dedicated clusters and not to {{site.data.keyword.cloud}} Public customers.
+
 A key part of ensuring best performance,
 or troubleshooting any problems,
 is monitoring the affected system.
@@ -48,7 +51,7 @@ For example,
 if you wanted to monitor the number of documents processed by a map function each second,
 you would direct the request to the `map_doc` endpoint.
 
-A full list of the available endpoints is [available](#monitoring-endpoints).
+For more information, see a full list of the available [endpoints](#monitoring-endpoints).
 
 The data returned is provided in JSON format by default.
 You can specify a `raw` format if you prefer.
@@ -195,7 +198,6 @@ Endpoint                                | Description
 [`network`](#network)                   | The octets received and transmitted.   
 [`rate/status_code`](#rate-status_code) | The rate of requests, grouped by status code.
 [`rate/verb`](#rate-verb)               | The rate of requests, grouped by HTTP verb.
-[`response_time`](#response_time)       | The average response time to a request, measured in ms.
 [`rps`](#rps)                           | The number of reads per second.
 [`wps`](#wps)                           | The number of writes per second.
 
@@ -992,7 +994,3 @@ _Example results (abbreviated) from a `wps` monitoring request:_
 }
 ```
 {:codeblock}
-
-
-
-
