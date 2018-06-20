@@ -95,7 +95,7 @@ Now start a new shell or run `source ~/.bash_profile` (or `~/.bashrc` if you use
 
 Run the following command to create an alias in Windows:
 
-```
+```sh
 echo "machine $ACCOUNT.cloudant.com login $ACCOUNT password $PASSWORD" >> ~/.netrc
 curl -n ...
 ```
