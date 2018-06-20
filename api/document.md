@@ -209,7 +209,7 @@ a client can cache the state of data locally.
 Caching also helps to keep request counts down,
 increase application performance,
 and decrease load on the database cluster.
-This behavior also applies to other read requests such as to map-reduce and search indexes.
+This behavior also applies to other read requests such as to MapReduce and search indexes.
 
 _Example of retrieving a document by using HTTP:_
 

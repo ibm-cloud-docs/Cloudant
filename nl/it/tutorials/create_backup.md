@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-07-13"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-07-13"
 
 # Creazione di un backup
 
-Questa esercitazione illustra come utilizzare il programma della riga di comando
-[CouchBackup ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
-per eseguire il backup e ripristinare un'istanza CouchDB o Cloudant. CouchBackup esegue il backup
+Questa esercitazione illustra come utilizzare
+il programma di utilità della riga di comando [CouchBackup ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
+per eseguire il backup e il ripristino di un'istanza CouchDB o {{site.data.keyword.cloudant_short_notm}}. CouchBackup esegue il backup
 dei database in un file. Se si verifica un errore nel database, puoi utilizzare il file di backup
-per ripristinare le informazioni in un database esistente.
+per ripristinare le informazioni in un database esistente. 
 {:shortdesc}
 
 ## Operazioni preliminari
@@ -51,12 +51,12 @@ da utilizzare in questa esercitazione.
     ```
     {:codeblock}
 
-## Creazione di documenti nel database 
+## Creazione di documenti nel database
 
 I documenti che crei in questo esercizio contengono i dati di cui puoi eseguire il backup
 e il ripristino nei successivi esercizi. 
 
-1.  Copia il testo di esempio in un file di dati denominato `bulkcreate.dat` per creare tutti i cinque documenti. 
+1.  Copia il testo di esempio in un file di dati denominato `bulkcreate.dat` per creare tutti i cinque documenti.
     
     ```json
     {
@@ -102,7 +102,7 @@ e il ripristino nei successivi esercizi.
     ```
     {:codeblock}
     
-2.  Esegui questo comando per creare i documenti: 
+2.  Esegui questo comando per creare i documenti:
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
@@ -142,14 +142,15 @@ e il ripristino nei successivi esercizi.
     ```
     {:codeblock}
     
-## Configurazione di una variabile di ambiente 
+## Configurazione di una variabile di ambiente
 
-Puoi utilizzare le variabili di ambiente o le opzioni della riga di comando per specificare l'URL
-e il database per l'istanza CouchDB o Cloudant che desideri utilizzare con CouchBackup. 
+Puoi utilizzare le variabili di ambiente o le opzioni della riga di comando per specificare
+l'URL e il database per l'istanza CouchDB o {{site.data.keyword.cloudant_short_notm}} che desideri utilizzare
+con CouchBackup. 
 
 In questa esercitazione, configuriamo `COUCH_URL` e specifichiamo il database utilizzando il parametro `--db`. 
 
-Configura la variabile di ambiente `COUCH_URL` per specificare l'URL dell'istanza CouchDB o Cloudant.
+Imposta la variabile di ambiente `COUCH_URL` per specificare l'URL per l'istanza CouchDB o {{site.data.keyword.cloudant_short_notm}}.
 
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
@@ -267,7 +268,7 @@ i tuoi dati e renderli facili da ripristinare.
     ```
     {:codeblock}
 
-## Creazione di un file di log 
+## Creazione di un file di log
 
 Un file di log registra l'avanzamento del tuo backup. Con CouchBackup, puoi utilizzare il parametro `--log`
 per creare il file di log. Puoi inoltre utilizzarlo per riavviare un backup dal punto in cui si è interrotto
@@ -360,7 +361,7 @@ Dal file `couchbackup-demo-backup.txt`, puoi ripristinare i tuoi dati in un data
 `couchrestore`. 
 
 > **Nota**: il ripristino di un backup è supportato solo quando viene ripristinato in un database vuoto. Se elimini tutti
-i documenti da un database, i record di eliminazione del documento sono ancora presenti per scopi di consistenza della replica.
+i documenti da un database, i record di eliminazione del documento sono ancora presenti per scopi di consistenza della replica. 
 Questo significa che un database che contiene solo documenti eliminati non è considerato vuoto e non può essere utilizzato
 come destinazione quando si ripristina un backup.
 
@@ -394,7 +395,7 @@ come destinazione quando si ripristina un backup.
     ```
     {:codeblock}
 
-Ora, hai eseguito il backup e ripristinato una database e creato un file di log. Consulta la documentazione Cloudant
-per informazioni sul [ripristino di emergenza e backup](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
-[configurando Cloudant per il ripristino di emergenza tra più regioni](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery),
-e il [backup e ripristino Cloudant](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  
+Ora, hai eseguito il backup e ripristinato una database e creato un file di log. Consulta la documentazione {{site.data.keyword.cloudant_short_notm}}
+per ulteriori informazioni sul [ripristino di emergenza e backup](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
+sulla [configurazione di {{site.data.keyword.cloudant_short_notm}} per il ripristino di emergenza tra più regioni](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)
+e sul [backup e ripristino {{site.data.keyword.cloudant_short_notm}}](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  

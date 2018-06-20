@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2015, 2017
+  years: 2015, 2018
 lastupdated: "2017-01-06"
 
 ---
@@ -14,11 +14,11 @@ lastupdated: "2017-01-06"
 
 # JSON
 
-La plupart des demandes et des réponses vers et depuis Cloudant utilisent le format [JavaScript Object Notation (JSON) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/JSON){:new_window}
+La plupart des demandes et des réponses vers et depuis {{site.data.keyword.cloudantfull}} utilisent le format [JavaScript Object Notation (JSON) ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/JSON){:new_window}
 pour mettre en forme le contenu et la structure des données et des réponses.
 {:shortdesc}
 
-Dans les bases de données Cloudant,
+Dans les bases de données {{site.data.keyword.cloudant_short_notm}},
 l'objet JSON est utilisé pour représenter une variété de structures, y compris l'ensemble des documents d'une base de données.
 
 L'analyse syntaxique de JSON en un objet JavaScript est prise en charge par le biais de la fonction `JSON.parse()` dans JavaScript,
@@ -28,14 +28,14 @@ Des [bibliothèques](../libraries/index.html) destinées à l'analyse et à la g
 
 JSON est utilisé, car il s'agit de la solution la plus simple et la plus facile pour travailler avec des données sous un navigateur Web.
 La raison en est que les structures JSON peuvent être évaluées et utilisées en tant qu'objets JavaScript au sein de l'environnement de navigateur Web.
-En outre, JSON s'intègre au JavaScript côté serveur utilisé dans Cloudant.
+En outre, JSON s'intègre au JavaScript côté serveur utilisé dans {{site.data.keyword.cloudant_short_notm}}.
 Les documents JSON sont toujours encodés au format UTF-8.
 
 >   **Remarque** : Il est essentiel de contrôler les points suivants :
 
 -   Vos structures JSON sont valides.
-    Des structures non valides forcent Cloudant à renvoyer un code de statut HTTP [400 - Demande incorrecte](../api/http.html#400).
--   Vous normalisez les chaînes dans les documents JSON récupérés à partir de Cloudant, avant de les comparer.
+    Des structures non valides forcent {{site.data.keyword.cloudant_short_notm}} à renvoyer un code de statut HTTP [400 - Demande incorrecte](../api/http.html#400).
+-   Vous normalisez les chaînes dans les documents JSON récupérés à partir de {{site.data.keyword.cloudant_short_notm}}, avant de les comparer.
     Ceci s'explique par le fait que la normalisation Unicode a peut-être été appliquée,
     et qu'une chaîne stockée, puis extraite n'est pas identique au niveau binaire.
 

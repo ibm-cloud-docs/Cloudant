@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-04-20"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -16,32 +16,32 @@ lastupdated: "2017-04-20"
 
 # Replica
 
-I dati possono essere copiati da un database a un altro nello stesso account Cloudant,
+I dati possono essere copiati da un database a un altro nello stesso account {{site.data.keyword.cloudantfull}},
 in più account e in più data center.
 {:shortdesc}
 
-I dati possono anche essere replicati da e verso un account Cloudant e un dispositivo mobile
-utilizzando [Cloudant Sync ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
+I dati possono anche essere replicati da e verso un account {{site.data.keyword.cloudant_short_notm}} e un dispositivo mobile
+utilizzando [{{site.data.keyword.cloudant_short_notm}} Sync ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
 o [PouchDB ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://pouchdb.com/){:new_window}.
 La replica può essere eseguita in una direzione o in entrambe le direzioni,
 come operazione 'singola' o continua,
 e può essere ottimizzata utilizzando i parametri.
 
-Il protocollo della replica di Cloudant è compatibile con una gamma di altri database e librerie
+Il protocollo di replica di {{site.data.keyword.cloudant_short_notm}} è compatibile con una gamma di altri database e librerie
 il che lo rende particolarmente adatto per le applicazioni Internet of Things (IoT) e mobili.
 
-Questa guida introduce le funzioni di replica Cloudant,
+Questa guida introduce le funzioni di replica {{site.data.keyword.cloudant_short_notm}},
 descrive i casi di utilizzo comuni
 e mostra come eseguire la replica della tua applicazione correttamente.
 
 ## Cos'è la replica?
 
-Cloudant è un archivio dati JSON distribuito con una API HTTP.
-Cloudant può essere eseguito come servizio su più cloud
+{{site.data.keyword.cloudant_short_notm}} è un archivio dati JSON distribuito con una API HTTP.
+{{site.data.keyword.cloudant_short_notm}} può essere eseguito come servizio su più cloud
 o nel tuo rack di server.
-I documenti vengono memorizzati nei database e possono raggiungere qualsiasi dimensione poiché Cloudant frammenta i suoi dati in molti nodi.
+I documenti vengono memorizzati nei database e possono raggiungere qualsiasi dimensione poiché {{site.data.keyword.cloudant_short_notm}} frammenta i suoi dati in molti nodi.
 La replica è la copia dei dati da un database di origine a un database di destinazione.
-I database di origine e di destinazione non devono essere necessariamente nello stesso account Cloudant
+I database di origine e di destinazione non devono essere necessariamente nello stesso account {{site.data.keyword.cloudant_short_notm}}
 o nello stesso data center.
 
 ![replica](../images/replication_guide_1.png)
@@ -61,8 +61,8 @@ Rimane qualsiasi dato preesistente nel database di destinazione.
 
 ## Come avviare la replica utilizzando il dashboard
 
-Il dashboard Cloudant fornisce una pratica interfaccia utente per attivare la replica.
-Apri la scheda Replica del tuo dashboard Cloudant e fai clic sul pulsante di opzione `Nuova replica`.
+Il dashboard {{site.data.keyword.cloudant_short_notm}} fornisce una pratica interfaccia utente per attivare la replica.
+Apri la scheda Replica del tuo dashboard {{site.data.keyword.cloudant_short_notm}} e fai clic sul pulsante di azione `Nuova replica`.
 Completa il semplice modulo:
 
 ![replica2](../images/replication_guide_2.png)
@@ -80,9 +80,9 @@ Ogni lavoro modifica lo stato da "`Attivato`" a "`Completo`" man mano che avanza
 
 <div id="how-do-i-run-replication-across-different-cloudant-accounts-"></div>
 
-## Come eseguire la replica in diversi account Cloudant
+## Come eseguire la replica in diversi account {{site.data.keyword.cloudant_short_notm}}
 
-L'origine e la destinazione di una replica sono URL di database Cloudant,
+L'origine e la destinazione di una replica sono URL di database {{site.data.keyword.cloudant_short_notm}},
 come mostrato nel seguente esempio.
 
 _Esempio di definizione degli URL di origine e di destinazione per la replica:_
@@ -115,9 +115,9 @@ La decisione su quale dispositivo avvia la replica è tua.
 
 <div id="how-do-i-initiate-replication-via-the-cloudant-api-"></div>
 
-## Come avviare la replica utilizzando l'API Cloudant
+## Come avviare la replica utilizzando l'API {{site.data.keyword.cloudant_short_notm}}
 
-Ogni account Cloudant ha un database speciale chiamato `_replicator`,
+Ogni account {{site.data.keyword.cloudant_short_notm}} ha un database speciale chiamato `_replicator`,
 in cui è possibile inserire i lavori di replica.
 Per avviare la replica, aggiungi un documento nel database `_replicator`.
 Il documento descrive la replica desiderata
@@ -125,9 +125,9 @@ e contiene i seguenti campi:
 
 Campo           | Scopo
 ----------------|--------
-`_id`           | La specifica del campo `_id` è facoltativa, ma può essere utile per identificare le attività di replica. Se non fornisci un valore, Cloudant ne genera uno per te.
-`source`        | L'URL del database Cloudant di origine, incluse le credenziali di accesso.
-`target`        | L'URL del database Cloudant di destinazione, incluse le credenziali di accesso.
+`_id`           | La specifica del campo `_id` è facoltativa, ma può essere utile per identificare le attività di replica. Se non fornisci un valore, {{site.data.keyword.cloudant_short_notm}} ne genera uno per te.
+`source`        | L'URL del database {{site.data.keyword.cloudant_short_notm}} di origine, incluse le credenziali di accesso.
+`target`        | L'URL del database {{site.data.keyword.cloudant_short_notm}} di destinazione, incluse le credenziali di accesso.
 `create_target` | (Facoltativo) Determina se creare il database di destinazione se non esiste ancora.
 
 _Esempio di utilizzo di HTTP per avviare un lavoro di replica:_
@@ -167,12 +167,12 @@ _Documento JSON di esempio che descrive la replica desiderata:_
 Puoi ottenere un elenco delle modifiche apportate a un documento utilizzando
 l'[endpoint `_changes`](../api/database.html#get-changes).
 Tuttavia,
-la natura distribuita dei database Cloudant
+la natura distribuita dei database {{site.data.keyword.cloudant_short_notm}}
 indica che la riposta fornita dal feed `_changes`
 non può essere un semplice elenco di modifiche che si sono verificate dopo una determinata data e ora.
 
-La discussione sul [Teorema CAP](cap_theorem.html)
-chiarisce che Cloudant utilizza un modello di 'consistenza eventuale'.
+La discussione sul [Teorema CAP](cap_theorem.html) chiarisce
+che {{site.data.keyword.cloudant_short_notm}} utilizza un modello di 'consistenza eventuale'.
 Questo modello significa che se hai richiesto un documento a due diverse repliche di un database
 nello stesso momento,
 potresti ottenere risultati diversi se una delle copie del database è ancora in attesa di terminare la replica.
@@ -201,7 +201,7 @@ In altre parole,
 per ottenere un elenco delle modifiche,
 inizi dalla modifica più recente concordata dalle copie del database.
 Il punto di accordo tra le copie del database viene identificato all'interno di
-Cloudant utilizzando il meccanismo di [checkpoint](#checkpoints)
+{{site.data.keyword.cloudant_short_notm}} utilizzando il meccanismo di [checkpoint](#checkpoints)
 che consente di sincronizzare la replica tra le copie del database.
 
 Infine,
@@ -263,7 +263,7 @@ Le credenziali di accesso fornite nei parametri di origine e di destinazione non
 -   Scrivere i documenti all'estremità di destinazione.
 -   Scrivere i documenti di checkpoint in entrambe le estremità.
 
-Cloudant ha una speciale autorizzazione utente `_replicator`.
+{{site.data.keyword.cloudant_short_notm}} ha una speciale autorizzazione utente `_replicator`.
 Questa autorizzazione consente di creare i documenti di checkpoint,
 ma non consente la creazione di documenti comuni in un database.
 In generale,
@@ -272,12 +272,12 @@ In generale,
 -   accesso `_reader` e `_replicator` sul lato di origine.
 -   accesso `_reader` e `_writer` sul lato di destinazione.
 
-Le chiavi API possono essere create e configurate all'interno del dashboard Cloudant
+Le chiavi API possono essere create e configurate all'interno del dashboard {{site.data.keyword.cloudant_short_notm}}
 in base al database.
 
 ![replica](../images/replication_guide_5.png)
 
-Possono essere utilizzate anche [in modo programmatico](../api/authorization.html#creating-api-keys) utilizzando l'API Cloudant.
+Possono essere create anche [in modo programmatico](../api/authorization.html#creating-api-keys) utilizzando l'API {{site.data.keyword.cloudant_short_notm}}.
 
 ## Replica a due vie
 
@@ -299,9 +299,8 @@ Con la replica continua,
 i dati fluiscono continuamente.
 Tutte le modifiche successive apportate al database di origine vengono trasmesse al database di destinazione in tempo reale.
 
-La replica continua viene attivata facendo clic sulla casella di spunta
-"`Rendi questa replica continua`" quando definisce un'attività di replica nel dashboard Cloudant Dashboard
-o impostando l'indicatore ["`continuous`"](../api/replication.html#checkpoints) nell'API Cloudant.
+La replica continua viene attivata facendo clic sulla casella di spunta "`Rendi questa replica continua`" quando definisci un'attività di replica nel dashboard {{site.data.keyword.cloudant_short_notm}}
+o impostando l'indicatore ["`continuous`"](../api/replication.html#checkpoints) nell'API {{site.data.keyword.cloudant_short_notm}}.
 
 La replica a due vie può essere resa continua in una o entrambe le direzioni,
 impostando l'indicatore "`continuous`".
@@ -340,14 +339,14 @@ _Esempio di documento JSON che definisce una replica continua:_
 
 ## Monitoraggio della replica
 
-Puoi controllare lo stato del database `_replicator` di Cloudant in qualsiasi momento,
+Puoi controllare lo stato del database `_replicator` di {{site.data.keyword.cloudant_short_notm}} in qualsiasi momento,
 utilizzando il dashboard o l'API.
 
 Se la replica non è riuscita,
 ad esempio perché le credenziali di autenticazione non erano valide,
 lo stato di errore viene registrato nel documento `_replicator`.
 Inoltre,
-è possibile utilizzare l'endpoint `/_active_tasks` dell'account Cloudant per vedere l'avanzamento del lavoro di replica.
+è possibile utilizzare l'endpoint `/_active_tasks` dell'account {{site.data.keyword.cloudant_short_notm}} per vedere l'avanzamento del lavoro di replica.
 Ulteriori dettagli sono disponibili [qui](../api/active_tasks.html).
 
 _Esempio di utilizzo di HTTP per monitorare un processo di replica:_
@@ -407,32 +406,32 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 
 ## Altri casi di utilizzo della replica
 
-La replica non si limita solo al trasferimento dei dati da Cloudant a Cloudant.
-Il protocollo della replica di Cloudant è compatibile con altri database e librerie per diverse applicazioni del mondo reale.
+La replica non si limita solo al trasferimento dei dati da {{site.data.keyword.cloudant_short_notm}} a {{site.data.keyword.cloudant_short_notm}}.
+Il protocollo di replica di {{site.data.keyword.cloudant_short_notm}} è compatibile con altri database e librerie per diverse applicazioni del mondo reale.
 
 ### Apache CouchDB
 
 [Apache CouchDB ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://couchdb.apache.org/){:new_window} è un database open source
-che può comunicare con Cloudant
+che può comunicare con {{site.data.keyword.cloudant_short_notm}}
 e richiede una configurazione minima.
 Le applicazioni includono:
 
--   Backup: replica i tuoi dati da Cloudant ai database CouchDB
+-   Backup: replica i tuoi dati da {{site.data.keyword.cloudant_short_notm}} ai database CouchDB
     ed esegui istantanee notturne dei tuoi dati per scopi di archiviazione.
     Invia i dati in un servizio di backup come
     [Amazon Glacier ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://aws.amazon.com/glacier/){:new_window} per un'archiviazione sicura.
 -   Raccolta dati iniziale in locale: scrivi prima i tuoi dati in Apache CouchDB in locale,
-    quindi replica i dati in Cloudant per l'archiviazione di lungo termine,
+    quindi replica i dati in {{site.data.keyword.cloudant_short_notm}} per l'archiviazione di lungo termine,
     l'aggregazione
     e l'analisi.
 
 ### PouchDB
 
 [PouchDB ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://pouchdb.com/){:new_window} è un database open source
-progettato per lavorare con i browser che consente di replicare i dati in entrambe le direzioni tra il browser e Cloudant.
+progettato per lavorare con i browser che consente di replicare i dati in entrambe le direzioni tra il browser e {{site.data.keyword.cloudant_short_notm}}.
 La memorizzazione dei dati in un browser web sul lato client consente alle applicazioni web di funzionare
 anche senza una connessione a Internet.
-PouchDB può sincronizzare i dati modificati da e verso Cloudant quando è presente una connessione Internet.
+PouchDB può sincronizzare i dati modificati da e verso {{site.data.keyword.cloudant_short_notm}} quando è presente una connessione Internet.
 L'impostazione della replica dal lato client richiede alcune righe di JavaScript.
 
 _JavaScript di esempio che utilizza PouchDB per abilitare la replica:_
@@ -448,7 +447,7 @@ db.sync(URL, { live: true });
 
 [CloudantSync ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/cloudant-sync-resources/){:new_window} è un insieme di librerie
 per iOS e Android che consente di memorizzare i dati localmente in un dispositivo mobile
-e di sincronizzarli con Cloudant quando la connettività mobile lo consente.
+e di sincronizzarli con  {{site.data.keyword.cloudant_short_notm}} quando la connettività mobile lo consente.
 Come con [PouchDB](#pouchdb),
 l'impostazione della replica richiede alcune righe di codice.
 
@@ -465,8 +464,8 @@ replicator.start();
 {:codeblock}
 
 CloudantSync è ampiamente utilizzato nelle applicazioni mobili,
-ad esempio nei giochi per iPhone e Android,
-dove lo stato dell'applicazione è mantenuto in Cloudant dalla replica,
+come nei giochi per iPhone e Android,
+dove lo stato dell'applicazione è mantenuto in {{site.data.keyword.cloudant_short_notm}} dalla replica,
 ma i dati sono disponibili anche sul dispositivo per l'utilizzo non in linea.
 
 ## Replica filtrata
@@ -484,7 +483,7 @@ Alcuni esempi comprendono:
 
 ### Funzioni di filtro della replica
 
-La replica filtrata di Cloudant consente la definizione di una funzione JavaScript che utilizza il valore di ritorno
+La replica filtrata di {{site.data.keyword.cloudant_short_notm}} consente la definizione di una funzione JavaScript che utilizza il valore restituito
 per determinare se ogni documento in un database deve essere filtrato o meno.
 Le [funzioni di filtro](../api/design_documents.html#filter-functions) sono memorizzate
 nei [documenti di progettazione](../api/design_documents.html).
@@ -548,7 +547,7 @@ _Esempio di documento JSON che definisce una replica filtrata:_
 
 ## Feed delle modifiche
 
-Cloudant pubblica le aggiunte,
+{{site.data.keyword.cloudant_short_notm}} pubblica le aggiunte,
 le modifiche
 e le eliminazioni che interessano un database attraverso un singolo feed HTTP
 dall'[endpoint `_changes`](../api/database.html#get-changes).
@@ -656,7 +655,7 @@ feed.follow();
 
 L'accesso ai dati `_changes` in modo programmato è semplice.
 Ad esempio,
-utilizza la [libreria Node.js Cloudant](../libraries/supported.html#node-js)
+utilizza la [libreria Node.js {{site.data.keyword.cloudant_short_notm}}](../libraries/supported.html#node-js)
 per seguire le modifiche con poche righe di codice.
 
 Alcuni casi di utilizzo di esempio potrebbero essere:
@@ -689,7 +688,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 
 >   **Nota**: l'ordine dei documenti nel feed `_changes` non è sempre lo stesso.
     In altre parole, le modifiche potrebbero non essere visualizzate in un rigoroso ordine di tempo.
-    Il motivo è che i dati vengono restituiti da più nodi Cloudant
+    Il motivo è che i dati vengono restituiti da più nodi {{site.data.keyword.cloudant_short_notm}}
     e si applicano le regole della consistenza eventuale.
 
 ## Insidie della replica
@@ -704,10 +703,10 @@ le credenziali fornite devono avere:
 *   i diritti `_reader` e `_replicator` sul database "a".
 *   i diritti `_writer` sul database "b".
 
-Le chiavi API vengono generate nel dashboard Cloudant o [attraverso l'API](../api/authorization.html#creating-api-keys).
-A ogni chiave possono essere forniti diritti individuali relativi a uno specifico database Cloudant.
-Cloudant deve essere in grado di scrivere i propri documenti di checkpoint alla fine della "lettura" della replica,
-altrimenti non viene salvato alcuno stato e la replica non può riprendere da dove è stata arrestata.
+Le chiavi API vengono generate nel dashboard {{site.data.keyword.cloudant_short_notm}} o [tramite l'API](../api/authorization.html#creating-api-keys).
+A ogni chiave possono essere forniti diritti individuali relativi a uno specifico database {{site.data.keyword.cloudant_short_notm}}.
+{{site.data.keyword.cloudant_short_notm}} deve essere in grado di scrivere i propri documenti di checkpoint alla fine della "lettura" della replica,
+altrimenti non viene salvato alcuno stato e la replica non può riprendere da dove è stata interrotta.
 Se lo stato non viene salvato,
 potrebbero verificarsi dei problemi di prestazione durante la ripresa della replica di grandi serie di dati.
 Il motivo è che senza checkpoint,
@@ -731,7 +730,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 Nel JSON restituito,
 cerca il valore `disk_size`.
 Se il valore indica una dimensione di oltre 1 GB,
-contatta il [team di supporto di IBM ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window} per ulteriori suggerimenti.
+contatta il [team di supporto di IBM {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window} per ulteriori suggerimenti.
 
 Puoi controllare i conflitti di un singolo documento `_replicator`,
 come mostrato nel seguente esempio:
@@ -773,20 +772,20 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 È facile dimenticare di aver precedentemente impostato la replica tra due database
 e creare quindi ulteriori processi di replica per errore.
 Ogni lavoro di replica è indipendente dall'altro,
-pertanto Cloudant non ti impedisce di creare processi di replica aggiuntivi.
+pertanto {{site.data.keyword.cloudant_short_notm}} non ti impedisce di creare processi di replica aggiuntivi.
 Tuttavia, ogni attività di replica consuma le risorse del sistema.
 
-Puoi controllare le tue "repliche attive" nel dashboard Cloudant
+Puoi controllare le tue "repliche attive" nel dashboard {{site.data.keyword.cloudant_short_notm}}
 per garantire che non ci siano attività di replica indesiderate in corso.
 Elimina tutti i documenti `_replicator` che non sono più necessari.
 
 ## Ottimizzazione della velocità di replica
 
 Per impostazione predefinita,
-la replica Cloudant viene eseguita con una frequenza appropriata per spostare i dati dall'origine alla destinazione
+la replica {{site.data.keyword.cloudant_short_notm}} viene eseguita con una frequenza appropriata per spostare i dati dall'origine alla destinazione
 senza influire negativamente sulle prestazioni.
 La scelta tra la frequenza di replica e le prestazioni del cluster per altre attività diventa un compromesso.
-Il tuo caso di utilizzo potrebbe richiedere una replica più rapida a scapito di altri servizi Cloudant.
+Il tuo caso di utilizzo potrebbe richiedere una replica più rapida a scapito di altri servizi {{site.data.keyword.cloudant_short_notm}}.
 In alternativa,
 potresti richiedere di dare la priorità alle prestazioni del cluster,
 trattando la replica come processo in background.
@@ -805,5 +804,5 @@ Ad esempio:
 *   Se vuoi eseguire la replica con un impatto minimo,
     l'impostazione di `worker_processes` e `http_connections` su 1 potrebbe essere appropriata.
 
-Per ulteriore assistenza in merito alla configurazione migliore per il tuo caso di utilizzo,
-contatta il [team di supporto di IBM Cloudant ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
+Per ulteriore assistenza sulla migliore configurazione per il tuo caso di utilizzo,
+contatta il [team di supporto di IBM {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.

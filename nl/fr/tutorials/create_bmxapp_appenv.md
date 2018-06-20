@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-08-25"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-08-25"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Création d'une application Bluemix simple permettant d'accéder à une base de données Cloudant : l'environnement d'application 
+# Création d'une application {{site.data.keyword.Bluemix_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}} : l'environnement d'application 
 
 Cette section du tutoriel décrit comment configurer l'environnement d'application dont vous devez disposer pour créer une application {{site.data.keyword.Bluemix}}.
 {:shortdesc}
@@ -25,13 +25,13 @@ Cette section du tutoriel décrit comment configurer l'environnement d'applicati
 
 1.  Connectez-vous à votre compte {{site.data.keyword.Bluemix_notm}}.
     Le tableau de bord {{site.data.keyword.Bluemix_notm}} est disponible à l'adresse :
-    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
+    [http://bluemix.net ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://bluemix.net){:new_window}.
     Une fois que vous vous êtes authentifié avec votre nom d'utilisateur et votre mot de passe, le tableau de bord {{site.data.keyword.Bluemix_notm}} apparaît :<br/>
     ![Tableau de bord {{site.data.keyword.Bluemix_notm}}](images/img0001.png)
 
 2.  Cliquez sur le lien '`Catalogue`' :<br/>
     ![Lien du catalogue {{site.data.keyword.Bluemix_notm}}](images/img0002.png)<br/>
-    La liste des services disponibles sur {{site.data.keyword.Bluemix_notm}} s'affiche. 
+    La liste des services disponibles sur {{site.data.keyword.Bluemix_notm}} s'affiche.
 
 3.  Cliquez sur l'entrée '`Applications Cloud Foundry`' sous l'en-tête `Applications` :<br/>
     ![Applications {{site.data.keyword.Bluemix_notm}} Cloud Foundry](images/img0012.png)<br/>
@@ -47,21 +47,22 @@ Cette section du tutoriel décrit comment configurer l'environnement d'applicati
     ![Noms d'application {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry](images/img0014.png)<br/>
     >   **Remarque** : Le nom d'hôte doit être unique au sein du domaine {{site.data.keyword.Bluemix_notm}}. Dans cet exemple, le domaine est '`mybluemix.net`', ce qui donne le nom d'hôte complet '`Cloudant-Python.mybluemix.net`'.
 
-6.  Cliquez sur '`Créer`' pour créer l'environnement d'application : <br/>
+6.  Cliquez sur '`Créer`' pour créer l'environnement d'application :<br/>
     ![Créez l'application {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry](images/img0015.png)
 
 7.  Après une courte pause, la fenêtre '`Initiation`' de votre nouvel environnement d'application s'affiche.
-    Une application de test est automatiquement créée dans l'environnement. Cette application est démarrée automatiquement, comme indiqué par l'icône verte et le statut `Votre application est en cours d'exécution`.
+    Une application de test est automatiquement créée dans l'environnement.
+    Cette application est démarrée automatiquement, comme indiqué par l'icône verte et le statut `Votre application est en cours d'exécution`.
     L'application est un programme à 'pulsations' suffisant pour montrer que le nouvel environnement d'application est prêt à être utilisé.
     Cliquez sur le lien `Tableau de bord`' pour revenir au tableau de bord de votre compte {{site.data.keyword.Bluemix_notm}}.<br/>
     ![La nouvelle application {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry exécutée pour la première fois](images/img0016.png)
 
-8.  Votre tableau de bord inclut désormais l'environnement d'application nouvellement créé : <br/>
+8.  Votre tableau de bord inclut désormais l'environnement d'application nouvellement créé :<br/>
     ![Application {{site.data.keyword.Bluemix_notm}} Python Cloud Foundry de base apparaissant dans le tableau de bord](images/img0017.png)
 
-Vous disposez maintenant d'un environnement d'application {{site.data.keyword.Bluemix_notm}} Python, prêt à être utilisé. 
+Vous disposez maintenant d'un environnement d'application {{site.data.keyword.Bluemix_notm}} Python, prêt à être utilisé.
 
-Si vous souhaitez utiliser une instance de base de données {{site.data.keyword.cloudant_short_notm}}, vous devez maintenant créer une 'connexion' entre l'environnement d'application et l'instance de base de données. 
+Si vous souhaitez utiliser une instance de base de données {{site.data.keyword.cloudant_short_notm}}, vous devez maintenant créer une 'connexion' entre l'environnement d'application et l'instance de base de données.
 
 <div id="connecting"></div>
 
@@ -73,24 +74,24 @@ Cette section du tutoriel explique comment connecter des services et des environ
     ![Sélection de votre application dans le tableau de bord {{site.data.keyword.Bluemix_notm}}](images/img0018.png)<br/>
     >   **Remarque** : Evitez la colonne '`Route`' car le fait de cliquer sur le lien associé à votre application appelle l'application au lieu de vous amener dans la zone de configuration. Il est préférable de cliquer sur le nom de votre application.
 
-    La zone d'aperçu de la configuration et de la gestion de votre application s'affiche. 
+    La zone d'aperçu de la configuration et de la gestion de votre application s'affiche.
 
 2.  Pour connecter l'environnement d'application à un autre service, cliquez sur le lien '`Connexions`' :<br/>
     ![Sélection de la configuration de connexion de votre application {{site.data.keyword.Bluemix_notm}}](images/img0019.png)<br/>
-    Une zone permettant de configurer une connexion entre votre application et tout autre service disponible dans votre compte apparaît. 
+    Une zone permettant de configurer une connexion entre votre application et tout autre service disponible dans votre compte apparaît.
 
 3.  Ce tutoriel [requiert](create_bmxapp_prereq.html#prerequisites) une instance de base
 de données {{site.data.keyword.cloudant_short_notm}} existante.
     Cliquez sur '`Connecter un existant`' pour établir une connexion entre cette instance de base de données et votre application:<br/>
     ![Connexion à une instance de base de données existante](images/img0020.png)<br/>
-    La liste des instances de service existantes de votre compte s'affiche. 
+    La liste des instances de service existantes de votre compte s'affiche.
 
 4.  Cliquez sur l'instance de base de données {{site.data.keyword.cloudant_short_notm}} que vous souhaitez utiliser.
-    Ce tutoriel utilise l'instance '`Cloudant Service 2017`' : <br/>
+    Ce tutoriel utilise l'instance '`Cloudant Service 2017`' :<br/>
     ![Choisissez l'instance de base de données exemple du tutoriel](images/img0021.png)
 
 5.  Vous êtes invité à confirmer que vous souhaitez réellement connecter l'instance de base de données à votre application.
-    Cliquez sur '`Connecter`' pour confirmer la connexion : <br>
+    Cliquez sur '`Connecter`' pour confirmer la connexion :<br>
     ![Confirmez la connexion à l'instance de base de données](images/img0022.png)
 
 6.  La modification des connexions de service d'une application affecte sa configuration globale.
@@ -102,7 +103,7 @@ processus de 'reconstitution'.
     ![Confirmez la reconstitution de l'application](images/img0023.png)
 
 7.  La page des connexions de service apparaît à nouveau.
-Elle inclut désormais l'instance de base de données nouvellement connectée :<br/>
+    Elle inclut désormais l'instance de base de données nouvellement connectée :<br/>
     ![Instance de base de données nouvellement connectée](images/img0024.png)
 
 L'environnement d'application et l'instance de base de données sont maintenant connectés.
@@ -110,14 +111,14 @@ L'étape suivante consiste à vérifier que les outils requis sont installés et
 
 <div id="toolkits"></div>
 
-## Kits d'outils de ligne de commande Cloud Foundry et Bluemix
+## Kits d'outils de ligne de commande Cloud Foundry et {{site.data.keyword.Bluemix_notm}}
 
 Cette section du tutoriel décrit les kits d'outils qui doivent être installés pour fonctionner avec votre environnement {{site.data.keyword.Bluemix_notm}}, vos applications et vos services.
 
-Le kit d'outils [Cloud Foundry ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} est une collection d'outils destinés à
+Le kit d'outils [Cloud Foundry ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} est une collection d'outils destinés à
 être utilisés avec des applications déployées dans un environnement compatible avec Cloud Foundry.
 Employez ces outils pour effectuer des tâches telles que la mise à jour d'une application
-déployée, ou pour démarrer et arrêter une application en cours d'exécution. 
+déployée, ou pour démarrer et arrêter une application en cours d'exécution.
 
 Le kit d'outils {{site.data.keyword.Bluemix_notm}} offre des fonctions
 supplémentaires requises pour une utilisation avec des applications hébergées et exécutées dans un environnement {{site.data.keyword.Bluemix_notm}}.
@@ -126,9 +127,9 @@ supplémentaires requises pour une utilisation avec des applications hébergées
 
 Le téléchargement et l'installation des kits d'outils est une tâche ponctuelle.
 S'ils sont déjà installés et en fonctionnement sur votre système, il n'est pas nécessaire
-de les télécharger à nouveau, sauf s'ils ont fait l'objet d'une mise à jour. 
+de les télécharger à nouveau, sauf s'ils ont fait l'objet d'une mise à jour.
 
-Des informations générales sur les kits d'outils sont disponibles [ici ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/index.html){:new_window}.
+Des informations générales sur les kits d'outils sont disponibles [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/docs/cli/index.html){:new_window}.
 
 ### Installation du kit d'outils Cloud Foundry
 
@@ -142,19 +143,19 @@ Vous pouvez également suivre les étapes ci-après pour télécharger et instal
 disponible dans la fenêtre '`Initiation`' de votre environnement d'application :<br/>
     ![Lien permettant de télécharger le kit d'outils Cloud Foundry](images/img0025.png)
 
-2.  Cliquez sur ce lien pour accéder à la [page de téléchargement sur GitHub ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudfoundry/cli/releases){:new_window} :<br/>
+2.  Cliquez sur ce lien pour accéder à la [page de téléchargement sur GitHub ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudfoundry/cli/releases){:new_window} :<br/>
     ![Page de téléchargement du kit d'outils Cloud Foundry sur GitHub](images/img0026.png)
 
-3.  Téléchargez et exécutez la version la plus récente du programme d'installation correspondant à votre système. 
+3.  Téléchargez et exécutez la version la plus récente du programme d'installation correspondant à votre système.
 
-4.  <div id='checkCFversion'></div>Pour vérifier que vous disposez d'un kit d'outils Cloud Foundry compatible, exécutez la commande suivante à l'invite : 
+4.  <div id='checkCFversion'></div>Pour vérifier que vous disposez d'un kit d'outils Cloud Foundry compatible, exécutez la commande suivante à l'invite :
 
     ```sh
     cf --version
     ```
     {:pre}
     
-    Vous devez obtenir un résultat similaire à la sortie suivante : 
+    Vous devez obtenir un résultat similaire à la sortie suivante :
     
     ```
     cf version 6.20.0+25b1961-2016-06-29
@@ -170,7 +171,7 @@ Procédez comme suit pour télécharger et installer l' kit d'outils {{site.data
 1.  Un lien permettant de télécharger le kit d'outils {{site.data.keyword.Bluemix_notm}} est disponible dans la fenêtre '`Initiation`' de votre application :<br/>
     ![Lien permettant de télécharger le kit d'outils Cloud Foundry](images/img0027.png)
 
-2.  Cliquez sur ce lien pour accéder à la [page de téléchargement ![External link icon](../images/launch-glyph.svg "External link icon")](http://clis.ng.bluemix.net/ui/home.html){:new_window} :<br/>
+2.  Cliquez sur ce lien pour accéder à la [page de téléchargement ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://clis.ng.bluemix.net/ui/home.html){:new_window} :<br/>
     ![Page de téléchargement du kit d'outils Bluemix](images/img0028.png)
 
 3.  Téléchargez et exécutez le programme d'installation approprié correspondant à votre système.
@@ -185,7 +186,7 @@ Procédez comme suit pour télécharger et installer l' kit d'outils {{site.data
     ```
     {:pre}
     
-    Vous devez obtenir un résultat similaire à la sortie suivante : 
+    Vous devez obtenir un résultat similaire à la sortie suivante :
     
     ```
     bluemix version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
@@ -204,7 +205,7 @@ Cette section du tutoriel décrit une application de démarrage {{site.data.keyw
 Une application de démarrage {{site.data.keyword.Bluemix_notm}} est la
 collection la plus petite possible de fichiers source et de configuration nécessaires à la
 création d'une application {{site.data.keyword.Bluemix_notm}} pouvant être exécutée.
-Par certains aspects, elle est similaire à une [application 'Hello World' ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){:new_window} ; elle suffit à montrer que le système et la configuration de base fonctionnent correctement.
+Par certains aspects, elle est similaire à une [application 'Hello World' ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){:new_window} ; elle suffit à montrer que le système et la configuration de base fonctionnent correctement.
 
 Une application de démarrage {{site.data.keyword.Bluemix_notm}} est une archive de fichiers exemples que vous devez modifier ou étendre au fur et à mesure que vous développez votre application {{site.data.keyword.Bluemix_notm}}.
 
@@ -221,9 +222,9 @@ Trois fichiers en particulier sont essentiels :
 Le fichier '`Procfile`' contient les détails requis par {{site.data.keyword.Bluemix_notm}} pour l'exécution de votre application.
 
 Plus spécifiquement, un fichier '`Procfile`' est un artefact Cloud Foundry qui définit un type de processus applicatif et la commande permettant d'exécuter l'application.
-Vous trouvez plus d'informations sur '`Procfile`' [ici ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){:new_window}.
+Vous trouvez plus d'informations sur '`Procfile`' [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){:new_window}.
 
-Le fichier '`Procfile`' d'une application de démarrage {{site.data.keyword.Bluemix_notm}} Python est similaire à l'exemple suivant : 
+Le fichier '`Procfile`' d'une application de démarrage {{site.data.keyword.Bluemix_notm}} Python est similaire à l'exemple suivant :
 
 ```
 web: python server.py
@@ -246,9 +247,9 @@ Vous devez alors mettre à jour le fichier '`Procfile`' de telle sorte qu'il uti
 
 ### Fichier '`manifest.yml`'
 
-Le fichier '`manifest.yml`' est une description complète de l'application et de l'environnement qu'elle requiert pour s'exécuter. 
+Le fichier '`manifest.yml`' est une description complète de l'application et de l'environnement qu'elle requiert pour s'exécuter.
 
-Le fichier d'une application de démarrage {{site.data.keyword.Bluemix_notm}} Python ressemble à l'exemple suivant : 
+Le fichier d'une application de démarrage {{site.data.keyword.Bluemix_notm}} Python ressemble à l'exemple suivant :
 
 ```
 applications:
@@ -268,7 +269,7 @@ Il est important de noter les trois points suivants :
 
 -   Les valeurs de '`domain`', '`name`' et '`host`' correspondent aux valeurs saisies lors de la [création](#creating) de votre application {{site.data.keyword.Bluemix_notm}}.
 -   La valeur de '`name`' est utilisée par le kit d'outils Cloud Foundry pour identifier l'application que vous administrez.
--   La valeur de '`services`' confirme que l'instance de base de données {{site.data.keyword.cloudant_short_notm}} '`Cloudant Service 2017`' est connectée à l'environnement d'application. 
+-   La valeur de '`services`' confirme que l'instance de base de données {{site.data.keyword.cloudant_short_notm}} '`Cloudant Service 2017`' est connectée à l'environnement d'application.
 
 Il n'est normalement pas nécessaire de modifier le fichier '`manifest.yml`'. Il est cependant utile de comprendre la raison de sa présence et son utilité au fonctionnement de votre application.
 

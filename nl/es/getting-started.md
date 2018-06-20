@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-08-25"
+  years: 2015, 2018
+lastupdated: "2017-11-02"
 
 ---
 
@@ -26,18 +26,18 @@ Python para crear una base de datos {{site.data.keyword.cloudant}} y llenaremos 
 {: #prereqs}
 
 Necesitará una [cuenta de Bluemix ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/registration/){:new_window},
-una instancia del servicio {{site.data.keyword.cloudant}} y los siguientes requisitos de Python: 
+una instancia del servicio {{site.data.keyword.cloudant}} y los siguientes requisitos de Python:
 
 *	Instale la última versión del
-	[lenguaje de programación Python ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window} en su sistema. 
+	[lenguaje de programación Python ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window} en su sistema.
 	
-	Para comprobarlo, ejecute el siguiente mandato: 
+	Para comprobarlo, ejecute el siguiente mandato:
 	```sh
 	python --version
 	```
 	{:pre}
 	
-	Debería obtener un resultado parecido al siguiente: 
+	Debería obtener un resultado parecido al siguiente:
 
 	```
 	Python 2.7.12
@@ -47,20 +47,20 @@ una instancia del servicio {{site.data.keyword.cloudant}} y los siguientes requi
 *	Instale la [biblioteca de Python](libraries/supported.html#python)
 	para que sus aplicaciones Python puedan trabajar con {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}.
 	
-	Para comprobar que ha instalado correctamente la biblioteca de cliente, ejecute el siguiente mandato: 
+	Para comprobar que ha instalado correctamente la biblioteca de cliente, ejecute el siguiente mandato:
 	```sh
 	pip freeze
 	```
 	{:pre}
 	
-	Debería obtener una lista de todos los módulos de Python instalados en el sistema. Examine la lista y busque una entrada de {{site.data.keyword.cloudant_short_notm}} parecida a la siguiente: 
+	Debería obtener una lista de todos los módulos de Python instalados en el sistema. Examine la lista y busque una entrada de {{site.data.keyword.cloudant_short_notm}} parecida a la siguiente:
 
 	```
 	cloudant==2.3.1
 	```
 	{:screen}
 	
-	Si el módulo `cloudant` no está instalado, instálelo con un mandato parecido al siguiente: 
+	Si el módulo `cloudant` no está instalado, instálelo con un mandato parecido al siguiente:
 	
 	```
 	pip install cloudant==2.3.1
@@ -70,7 +70,7 @@ una instancia del servicio {{site.data.keyword.cloudant}} y los siguientes requi
 ## Paso 1: Conectar con la instancia del servicio {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}
 
 1.	Ejecute las siguientes sentencias '`import`' de los componentes de la biblioteca de cliente de {{site.data.keyword.cloudant_short_notm}} para permitir que
-la aplicación Python se conecte con la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}. 
+la aplicación Python se conecte con la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}.
 	```python
 	from cloudant.client import Cloudant
 	from cloudant.error import CloudantException
@@ -78,12 +78,13 @@ la aplicación Python se conecte con la instancia de servicio de {{site.data.key
 	```
 	{: codeblock}
 
-2. Identifique las credenciales de servicio de {{site.data.keyword.cloudant_short_notm}}: 
-  1. En la consola de {{site.data.keyword.Bluemix_notm}}, abra el panel de control correspondiente a la instancia de servicio. 
+2. Identifique las credenciales de servicio de {{site.data.keyword.cloudant_short_notm}}:
+  1. En la consola de {{site.data.keyword.Bluemix_notm}}, abra el panel de control correspondiente a la instancia de servicio.
   2. En el panel de navegación izquierdo, pulse **`Credenciales de servicio`**.
   3. Pulse **`Ver credenciales`** bajo **`ACCIONES`**.
 
-3.	Establezca una conexión con la instancia de servicio ejecutando el mandato siguiente. Sustituya las credenciales de servicio del paso anterior:
+3.	Establezca una conexión con la instancia de servicio ejecutando el mandato siguiente.
+	Sustituya las credenciales de servicio del paso anterior:
 	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
 	client.connect()
@@ -98,16 +99,17 @@ la aplicación Python se conecte con la instancia de servicio de {{site.data.key
   databaseName = "<yourDatabaseName>"
   ```
   {: codeblock}
-  ... donde `<yourDatabaseName>` es el nombre que desea asignar a la base de datos.
+  ... donde `<yourDatabaseName>` es el nombre que desea asignar a la base de datos. 
+
   > **Nota:** La base de datos debe comenzar por una letra y solo puede incluir caracteres en minúsculas (a-z), valores numéricos (0-9) y cualquiera de los siguientes caracteres `_`, `$`, `(`, `)`, `+`, `-` y `/`.
 
-2. Cree la base de datos: 
+2. Cree la base de datos:
   ```python
   myDatabase = client.create_database(databaseName)
   ```
   {: codeblock}
 
-3. Confirme que la base de datos se ha creado correctamente: 
+3. Confirme que la base de datos se ha creado correctamente:
   ```python
   if myDatabase.exists():
       print "'{0}' successfully created.\n".format(databaseName)
@@ -165,10 +167,11 @@ Observe que comprobamos que cada documento se ha creado correctamente.
 
 En este punto, una pequeña colección de datos se han almacenado como documentos en la base de datos.
 Puede realizar una recuperación mínima o completa de dichos datos de la base de datos.
-Una recuperación mínima obtiene los datos básicos _sobre_ un documento. Una recuperación completa también incluye los datos _incluidos_ en un documento.
+Una recuperación mínima obtiene los datos básicos _sobre_ un documento.
+Una recuperación completa también incluye los datos _incluidos_ en un documento.
 
-* Para realizar una recuperación mínima: 
-  1. En primer lugar, solicite una lista de todos los documentos de la base de datos. 
+* Para realizar una recuperación mínima:
+  1. En primer lugar, solicite una lista de todos los documentos de la base de datos.
     ```python
     result_collection = Result(myDatabase.all_docs)
     ```      
@@ -183,16 +186,16 @@ Una recuperación mínima obtiene los datos básicos _sobre_ un documento. Una r
     {: codeblock}
 
     El resultado es parecido al del
-siguiente ejemplo: 
+siguiente ejemplo:
     
     ```
     [{u'value': {u'rev': u'1-106e76a2612ea13468b2f243ea75c9b1'}, u'id': u'14be111aac74534cf8d390eaa57db888', u'key': u'14be111aac74534cf8d390eaa57db888'}]
     ```
     {:screen}
     
-    > **Nota:** El prefijo `u'` es simplemente una indicación de que Python está mostrando una serie Unicode.  
+    > **Nota:** El prefijo `u'` es simplemente una indicación de que Python está mostrando una serie Unicode. 
     
-    Si organizamos un poco el aspecto, veremos que los detalles del documento mínimo que hemos obtenido equivalen a lo siguiente: 
+    Si organizamos un poco el aspecto, veremos que los detalles del documento mínimo que hemos obtenido equivalen a lo siguiente:
     
     ```json
     [
@@ -209,7 +212,7 @@ siguiente ejemplo:
 
   > **Nota:** La naturaleza de las bases de datos NoSQL,
   como {{site.data.keyword.cloudant_short_notm}},
-  implica que no necesariamente se aplican las nociones más sencillas, como por ejemplo que el primer documento almacenado en una base de datos es siempre el primero que se devuelve en una lista de resultados. 
+  implica que no necesariamente se aplican las nociones más sencillas, como por ejemplo que el primer documento almacenado en una base de datos es siempre el primero que se devuelve en una lista de resultados.
 
 * Para realizar una recuperación completa,
   solicite una lista de todos los documentos de la base de datos e indique que también se debe devolver el contenido del documento especificando la opción `include_docs`.
@@ -220,13 +223,13 @@ siguiente ejemplo:
   {: codeblock}
   
   El resultado es parecido al del
-siguiente ejemplo: 
+siguiente ejemplo:
   ```
   [{u'value': {u'rev': u'1-7130413a8c7c5f1de5528fe4d373045c'}, u'id': u'0cfc7d902f613d5fdb7b7818e262353b', u'key': u'0cfc7d902f613d5fdb7b7818e262353b', u'doc': {u'temperatureField': 40, u'descriptionField': u'hot', u'numberField': 2, u'nameField': u'two', u'_id': u'0cfc7d902f613d5fdb7b7818e262353b', u'_rev': u'1-7130413a8c7c5f1de5528fe4d373045c'}}]
   ```
   {: screen}
   
-  Si organizamos un poco el aspecto, veremos que los detalles del documento completo que hemos obtenido equivalen a lo siguiente: 
+  Si organizamos un poco el aspecto, veremos que los detalles del documento completo que hemos obtenido equivalen a lo siguiente:
   
   ```json
   [
@@ -251,7 +254,7 @@ siguiente ejemplo:
 
 ## Paso 5: Recuperar datos a través del punto final de la API de {{site.data.keyword.cloudant_short_notm}}
 
-También puede solicitar una lista de todos los documentos y su contenido invocando el [punto final `/_all_docs`](api/database.html#get-documents) de Cloudant.
+También puede solicitar una lista de todos los documentos y su contenido invocando el [punto final `/_all_docs` de {{site.data.keyword.cloudant_short_notm}}](api/database.html#get-documents).
 
 1. Identifique el punto final con el que va a establecer contacto y los parámetros que se deben suministrar junto con la llamada:
   ```python
@@ -260,6 +263,7 @@ También puede solicitar una lista de todos los documentos y su contenido invoca
   ```
   {: codeblock}
   ... donde `<url>` es el valor de URL de las credenciales de servicio que ha encontrado en el paso 1.
+
 2. Envíe la solicitud a la instancia de servicio y luego visualice los resultados:
   ```python
   response = client.r_session.get(end_point, params=params)
@@ -267,14 +271,14 @@ También puede solicitar una lista de todos los documentos y su contenido invoca
   ```
   {: codeblock}
 
-  El resultado es parecido al del siguiente ejemplo _abreviado_: 
+  El resultado es parecido al del siguiente ejemplo _abreviado_:
   
   ```
   {u'rows': [{u'value': {u'rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}, u'id': u'0532feb6fd6180d79b842d871316c444', u'key': u'0532feb6fd6180d79b842d871316c444', u'doc': {u'temperatureField': 20, u'descriptionField': u'warm', u'numberField': 3, u'nameField': u'three', u'_id': u'0532feb6fd6180d79b842d871316c444', u'_rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}}, ... , {u'value': {u'rev': u'1-3f61736fa96473d358365ce1665e3d97'}, u'id': u'db396f77bbe12a567b09177b4accbdbc', u'key': u'db396f77bbe12a567b09177b4accbdbc', u'doc': {u'temperatureField': 0, u'descriptionField': u'freezing', u'numberField': 5, u'nameField': u'five', u'_id': u'db396f77bbe12a567b09177b4accbdbc', u'_rev': u'1-3f61736fa96473d358365ce1665e3d97'}}], u'total_rows': 5, u'offset': 0}
   ```
   {:screen}
   
-  Podemos organizar un poco el aspecto y ver que los detalles _abreviados_ que hemos obtenido se parecen a lo siguiente: 
+  Podemos organizar un poco el aspecto y ver que los detalles _abreviados_ que hemos obtenido se parecen a lo siguiente:
   
   ```json
   {
@@ -320,7 +324,7 @@ También puede solicitar una lista de todos los documentos y su contenido invoca
 
 ## Paso 6: Suprimir la base de datos
 
-Cuando haya terminado con la base de datos, ya la puede suprimir. 
+Cuando haya terminado con la base de datos, ya la puede suprimir.
 
 ```python
 try :
@@ -332,7 +336,7 @@ else:
 ```
 {: codeblock}
 
-Hemos incluido algún ejemplo de gestión de errores básicos para ilustrar cómo se pueden detectar y solucionar problemas. 
+Hemos incluido algún ejemplo de gestión de errores básicos para ilustrar cómo se pueden detectar y solucionar problemas.
 
 ## Paso 7: Cerrar la conexión con la instancia del servicio
 
@@ -345,16 +349,17 @@ client.disconnect()
 
 ## Siguientes pasos
 
-Para obtener más información sobre todas las ofertas de {{site.data.keyword.cloudant_short_notm}}, consulte el sitio principal de [{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}. 
+Para obtener más información sobre todas las ofertas de {{site.data.keyword.cloudant_short_notm}}, consulte el sitio principal de [{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
 
 Para ver más detalles y las guías de aprendizaje sobre conceptos, tareas y técnicas de {{site.data.keyword.cloudant_short_notm}}, consulte la [documentación de {{site.data.keyword.cloudant_short_notm}}](cloudant.html).
 
 ## Apéndice: Listado completo del código Python
 
-El listado completo del código Python es el siguiente. Recuerde sustituir los valores `<username>`,
+El listado completo del código Python es el siguiente.
+Recuerde sustituir los valores `<username>`,
 `<password>`
 y `<url>` por sus credenciales de servicio.
-Paralelamente, sustituya el valor `<yourDatabaseName>` por el nombre de su base de datos. 
+Paralelamente, sustituya el valor `<yourDatabaseName>` por el nombre de su base de datos.
 
 ```python
 from cloudant.client import Cloudant
@@ -368,9 +373,10 @@ databaseName = "<yourDatabaseName>"
 
 myDatabase = client.create_database(databaseName)
 
-  if myDatabase.exists():
+if myDatabase.exists():
       print "'{0}' successfully created.\n".format(databaseName)
-  sampleData = [
+
+sampleData = [
     [1, "one", "boiling", 100],
     [2, "two", "hot", 40],
     [3, "three", "warm", 20],
@@ -378,8 +384,8 @@ myDatabase = client.create_database(databaseName)
     [5, "five", "freezing", 0]
 ]
 
-  # Crear documentos utilizando los datos de ejemplo.
-  # Examinar cada fila de la matriz para el documento en sampleData:
+# Crear documentos utilizando los datos de ejemplo.
+# Examinar cada fila de la matriz para el documento en sampleData:
 # Recuperar los campos de cada fila.
     number = document[0]
     name = document[1]
@@ -406,9 +412,10 @@ result_collection = Result(myDatabase.all_docs)
 
 print "Documento mínimo recuperado:\n{0}\n".format(result_collection[0])
 
-    result_collection = Result(myDatabase.all_docs, include_docs=True)
+result_collection = Result(myDatabase.all_docs, include_docs=True)
 print "Documento completo recuperado:\n{0}\n".format(result_collection[0])
-  end_point = '{0}/{1}'.format("<url>", databaseName + "/_all_docs")
+
+end_point = '{0}/{1}'.format("<url>", databaseName + "/_all_docs")
 params = {'include_docs': 'true'}
 response = client.r_session.get(end_point, params=params)
 print "{0}\n".format(response.json())

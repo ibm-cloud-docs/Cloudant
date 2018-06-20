@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-11"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creazione di un'applicazione Bluemix di esempio per accedere a un database Cloudant: caricamento dell'applicazione
+# Creazione di una semplice applicazione {{site.data.keyword.Bluemix_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: caricamento dell'applicazione
 
 Questa sezione dell'esercitazione illustra come caricare
 un'applicazione {{site.data.keyword.Bluemix}}.
@@ -22,7 +22,7 @@ un'applicazione {{site.data.keyword.Bluemix}}.
 
 <div id="uploading"></div>
 
-## Connessione a Bluemix
+## Connessione a {{site.data.keyword.Bluemix_notm}}
 
 La prima attività è di collegarsi a {{site.data.keyword.Bluemix_notm}}.
 
@@ -103,7 +103,7 @@ Space:          dev
 
 ## Caricamento dell'applicazione
 
-Il toolkit Cloudant Foundry ora conosce come collegarsi all'ambiente {{site.data.keyword.Bluemix_notm}}.
+Il toolkit {{site.data.keyword.cloudant_short_notm}} Foundry ora sa come connettersi all'ambiente {{site.data.keyword.Bluemix_notm}}.
 
 Il passo successivo è di caricare l'applicazione stessa.
 I dettagli di un'applicazione {{site.data.keyword.Bluemix_notm}}
@@ -125,7 +125,7 @@ Viene visualizzata una sequenza di messaggi del risultato.
 ```
 Using manifest file /..../BMXDemo/manifest.yml
 
-Updating app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -141,7 +141,7 @@ Uploading app files from: /..../BMXDemo
 Uploading 1.5K, 3 files
 Done uploading               
 OK
-Binding service Cloudant Service 2017 to app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
 {:codeblock}
@@ -150,7 +150,7 @@ L'applicazione è stata caricata correttamente
 ed è stata effettuata una connessione all'istanza del database {{site.data.keyword.cloudant_short_notm}}.
 
 ```
-Starting app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Starting app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 -----> Downloaded app package (4.0K)
 -----> Downloaded app buildpack cache (29M)
 -------> Buildpack version 1.5.5
@@ -176,11 +176,12 @@ App started
 
 OK
 
-App Cloudant Python was started using this command `python server.py`
+App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
 ```
 {:codeblock}
 
-L'applicazione viene avviata automaticamente. Come parte dell'avvio,
+L'applicazione viene avviata automaticamente.
+Come parte dell'avvio,
 viene eseguito un controllo per garantire che siano stati soddisfatti tutti i requisiti,
 valutando il contenuto del [file requirements.txt](create_bmxapp_appenv.html#requirements).
 L'applicazione richiede l'accesso alla libreria {{site.data.keyword.cloudant_short_notm}},
@@ -191,7 +192,7 @@ vengono eseguiti alcuni piccoli controlli di sistema per confermare che l'applic
 per quanto riguarda {{site.data.keyword.Bluemix_notm}}.
 
 ```
-Showing health and status for app Cloudant Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
+Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 
 requested state: started
@@ -207,7 +208,7 @@ buildpack: python 1.5.5
 ```
 {:codeblock}
 
-## Verifica dell'applicazione di esempio 
+## Verifica dell'applicazione di esempio
 
 Quando l'ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}} è stato creato per la prima volta,
 in dashboard ha incluso un link nella colonna `Route` dell'applicazione:<br/>
@@ -270,4 +271,4 @@ Questo valore corrisponde all'ora registrata nel
 ## Passo successivo
 
 Il passo successivo nell'esercitazione è di [gestire e mantenere l'applicazione](create_bmxapp_maintain.html),
-ad esempio quando avvii, arresti ed esegui il debug dell'applicazione.  
+ad esempio quando avvii, arresti ed esegui il debug dell'applicazione.

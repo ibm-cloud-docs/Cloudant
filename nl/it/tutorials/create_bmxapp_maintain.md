@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-01-11"
+  years: 2017, 2018
+lastupdated: "2017-11-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-01-11"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creazione di un'applicazione Bluemix di esempio per accedere a un database Cloudant: manutenzione e risoluzione dei problemi 
+# Creazione di una semplice applicazione {{site.data.keyword.Bluemix_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: manutenzione e risoluzione dei problemi
 
 Questa esercitazione illustra come conservare un'applicazione
 {{site.data.keyword.Bluemix}},
@@ -23,13 +23,13 @@ ospitata nella tua istanza del servizio {{site.data.keyword.Bluemix_notm}}.
 
 <div id="maintenance"></div>
 
-## Esecuzione delle attività di manutenzione dell'applicazione di base 
+## Esecuzione delle attività di manutenzione dell'applicazione di base
 
 Questa sezione dell'esercitazione illustra come aggiornare,
 avviare e arrestare la tua applicazione
 Python in {{site.data.keyword.Bluemix_notm}}.
 
-### Trovare lo stato della tua applicazione 
+### Trovare lo stato della tua applicazione
 
 Lo stato delle applicazioni nella tua istanza del servizio
 {{site.data.keyword.Bluemix_notm}} viene visualizzato nel dashboard.
@@ -81,7 +81,7 @@ La nuova versione sovrascrive la versione precedente dell'applicazione.
 >   **Nota**: se la vecchia versione dell'applicazione è già in esecuzione quando avvii il caricamento,
     {{site.data.keyword.Bluemix_notm}} prima arresta automaticamente l'applicazione.
 
-## Diagnostica e risoluzione dei problemi 
+## Diagnostica e risoluzione dei problemi
 
 Questa sezione dell'esercitazione fornisce alcuni suggerimenti sulla risoluzione dei problemi di base per aiutarti
 a identificare, diagnosticare
@@ -115,7 +115,7 @@ Il file di log per un'applicazione {{site.data.keyword.Bluemix_notm}} può esser
 ![Acquisizione schermo che mostra il link per accedere alla pagina delle informazioni 'Logs' ](images/img0042.png)
 
 Come la maggior parte dei file di log,
-un log dell'applicazione {{site.data.keyword.Bluemix_notm}} contiene i dettagli su quali eventi si sono verificati e quando. 
+un log dell'applicazione {{site.data.keyword.Bluemix_notm}} contiene i dettagli su quali eventi si sono verificati e quando.
 
 Il log inoltre identifica quale componente è stato coinvolto nell'evento registrato.
 La seguente tabella identifica i componenti chiave:
@@ -165,4 +165,4 @@ Devi quindi applicare le normali procedure di risoluzione dei problemi per risol
 
 ## Fine dell'esercitazione
 
-L'esercitazione è completa. 
+L'esercitazione è completa.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2017-11-06"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-01-06"
 
 # Clientbibliotheken
 
-Bei Clientbibliotheken handelt es sich um die Tools, mit deren Hilfe Sie Ihre eigenen Anwendungen
-für die Arbeit mit Cloudant-Datenbanken entwickeln können.
+Bei Clientbibliotheken handelt es sich um Tools, mit deren Hilfe Sie Ihre eigenen Anwendungen
+für die Arbeit mit {{site.data.keyword.cloudantfull}}-Datenbanken entwickeln können.
 {:shortdesc}
 
-Die folgenden Clientbibliotheken werden formal von Cloudant [unterstützt](supported.html). 
+Die folgenden Clientbibliotheken werden von {{site.data.keyword.cloudant_short_notm}} formal [unterstützt](supported.html).
 
 -	[Mobil](supported.html#mobile)
 -	[Java](supported.html#java)
@@ -26,13 +26,13 @@ Die folgenden Clientbibliotheken werden formal von Cloudant [unterstützt](suppo
 -	[Python](supported.html#python)
 -	[Swift](supported.html#swift)
 
-Bei einer unterstützten Bibliothek handelt es sich um eine Bibliothek, über die Sie Cloudant kontaktieren können,
-wenn Sie auf ein bestimmtes, reproduzierbares Problem in der aktuellen Version der Bibliothek stoßen.
+Bei einer unterstützten Bibliothek handelt es sich um eine Bibliothek, über die Sie {{site.data.keyword.cloudant_short_notm}}
+kontaktieren können, wenn Sie auf ein bestimmtes, reproduzierbares Problem in der aktuellen Version der Bibliothek stoßen.
 
 Andere Clientbibliotheken wurden von
-[anderen Anbietern](thirdparty.html#third-party-client-libraries) erstellt oder werden offiziell nicht mehr unterstützt. 
+[anderen Anbietern](thirdparty.html#third-party-client-libraries) erstellt oder werden offiziell nicht mehr unterstützt.
 
->   **Hinweis**: Clientbibliotheken anderer Anbieter werden von Cloudant nicht verwaltet oder unterstützt. 
+>   **Hinweis**: Clientbibliotheken anderer Anbieter werden von {{site.data.keyword.cloudant_short_notm}} nicht verwaltet oder unterstützt.
     Wenn Sie auf ein bestimmtes, reproduzierbares Problem mit einer
    Bibliothek eines anderen Anbieters stoßen, müssen Sie den Verwalter der Bibliothek um
    Unterstützung bitten.
