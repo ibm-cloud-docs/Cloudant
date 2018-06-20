@@ -23,14 +23,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 7037 (June 20, 2018)
+## Build xxxx (June 20, 2018)
 
-- Update audit logging. Now, if audit logging fails, it no longer returns a 500 error.
-- Add response code to audit log. 
-- Add forward compatibility clause for `_stats` disk format change. 
-- Replace underscores with dashes in action names. 
-- Rename `database-write` action to `database-create` action.
-- Update {{site.data.keyword.cloudant_short_notm}} to force an index to close before destroying it.
+- Add forward compatibility clause for `_stats` disk format change.
+- Add compatibility clause for attachment receiver to facilitate erlang upgrade.
+- Improvements to internal audit facility.
 
 ## Build 7014 (June 12, 2018)
 
