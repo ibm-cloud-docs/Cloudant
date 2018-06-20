@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-15"
+lastupdated: "2018-06-20"
 
 ---
 {:new_window: target="_blank"}
@@ -78,6 +78,7 @@ is the database that we use in this tutorial.
 1.  Open the {{site.data.keyword.cloudant_short_notm}} service instance that you created.
 2.  On {{site.data.keyword.cloudant_short_notm}} service page, click **Launch**.
     The Databases tab opens.
+    
   ![Databases tab](../images/tabs.png)
 4.  Click **Create Database**.
 5.  Enter `query-demo` and click **Create**.
