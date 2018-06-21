@@ -39,7 +39,7 @@ All it takes is three simple steps:
 2.	[Create an alias](#create-an-alias)
 3.	[Activate the alias](#activate-the-alias).
 
-If you are using a Windows computer, specify the user name and password from the command line.
+If you are using a Windows computer, you can specify your user name and password from the command line.
 {:tip}
 
 ## Encode username and password
