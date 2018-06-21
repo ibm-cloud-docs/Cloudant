@@ -11,6 +11,7 @@ lastupdated: "2018-06-21"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-05-07 -->
 
@@ -37,6 +38,9 @@ All it takes is three simple steps:
 1.	[Encode username and password](#encode-username-and-password).
 2.	[Create an alias](#create-an-alias)
 3.	[Activate the alias](#activate-the-alias).
+
+If you are using a Windows computer, specify the user name and password from the command line.
+{:tip}
 
 ## Encode username and password
 
@@ -92,16 +96,6 @@ as it encrypts your data and credentials in transit and helps you be sure you’
 ## Activate the alias
 
 Now start a new shell or run `source ~/.bash_profile` (or `~/.bashrc` if you used that) to make the alias functional.
-
-## Create an alias in Windows
-
-Run the following command to create an alias in Windows:
-
-```sh
-echo "$COMPUTER $ACCOUNT.cloudant.com login $ACCOUNT password $PASSWORD" >> ~/.netrc
-curl -n ...
-```
-{:codeblock}
 
 ## Testing `acurl`
 
