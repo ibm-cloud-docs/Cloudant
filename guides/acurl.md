@@ -99,6 +99,7 @@ Run the following command to create an alias in Windows:
 echo "machine $ACCOUNT.cloudant.com login $ACCOUNT password $PASSWORD" >> ~/.netrc
 curl -n ...
 ```
+{:codeblock}
 
 ## Testing `acurl`
 
