@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-06-21"
 
 ---
 
@@ -38,7 +38,7 @@ Standard plan:
 
 <div id="maxtable"></div>
 
-<table border='1'>
+<table>
 
 <tr>
 <th id="plans">Plans</th><th id="lite">Lite</th><th id="standard" colspan='4'>Standard</th>
@@ -73,12 +73,12 @@ Standard plan:
 <td headers="standard provisionedthroughputcapacity-queriespersecond">1,000</td>
 </tr>
 <tr>
-<th headers="diskspaceincluded" headers="plans">Disk Space Included</td>
+<th id="diskspaceincluded" headers="plans">Disk Space Included</td>
 <td headers="lite diskspaceincluded">1 GB</td>
 <td headers="standard diskspaceincluded" colspan='4'>20 GB</td>
 </tr>
 <tr>
-<th headers="diskoveragepergbhour" headers="plans">Disk Overage (per GB/hour)</td>
+<th id="diskoveragepergbhour" headers="plans">Disk Overage (per GB/hour)</td>
 <td headers="lite diskoveragepergbhour">Not available</td>
 <td headers="standard diskoveragepergbhour" colspan='4'>See <a href="../offerings/pricing.html#pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
@@ -86,7 +86,6 @@ Standard plan:
 </table>
 
 ## Plans
-{: #plans}
 
 You can select which plan to use when you
 [provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-instance-on-bluemix).
