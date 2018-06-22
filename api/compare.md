@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-21"
+lastupdated: "2018-06-21"
 
 ---
 
@@ -50,7 +50,7 @@ Removed for 96973.
 
 <div id="comparetable"></div>
 
-<table role=`none` border='1'>
+<table>
 
 <tr>
 <th id="endpoint&links">Endpoint & Links</th>
@@ -336,7 +336,7 @@ Removed for 96973.
 </p></td><td headers="description">Get the contents of the design document specified with the name of the design document and from the specified database from the URL.</td>
 </tr>
 <tr>
-<td  id="endpoint&links"><code>PUT&nbsp;/{db}/\_design/{ddoc}</code><p>
+<td headers="endpoint&links"><code>PUT&nbsp;/{db}/\_design/{ddoc}</code><p>
 <a href='design_documents.html#creating-or-updating-a-design-document' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/common.html#put--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/common.html#put--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
@@ -498,7 +498,8 @@ Removed for 96973.
 <a href='attachments.html#create-update' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/common.html#put--db-\_design-ddoc-attname' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/common.html#put--db-\_design-ddoc-attname' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Upload the supplied content as an attachment to the specified design document.</td>
+</p></td>
+<td headers="description">Upload the supplied content as an attachment to the specified design document.</td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>DELETE&nbsp;/{db}/\_design/{ddoc}/{attname}</code><p>

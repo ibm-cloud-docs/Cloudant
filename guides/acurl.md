@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-06-21"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-01-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-05-07 -->
 
 # Authorized curl: `acurl`
 
@@ -35,6 +38,9 @@ All it takes is three simple steps:
 1.	[Encode username and password](#encode-username-and-password).
 2.	[Create an alias](#create-an-alias)
 3.	[Activate the alias](#activate-the-alias).
+
+If you are using a Windows computer, you can specify your user name and password from the command line.
+{:tip}
 
 ## Encode username and password
 
