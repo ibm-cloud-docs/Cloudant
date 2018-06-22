@@ -22,7 +22,7 @@ _(This guide is based on a Blog article by Samantha Scharr: [
 originally published November 27, 2013.)_
 
 `acurl` is a handy alias that allows you to `curl` {{site.data.keyword.cloudantfull}} commands to URLs
-without having to enter your username and password for every request.
+without having to enter your user name and password for every request.
 That means a simple `GET` to a database no longer needs to be written as
 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`
 but instead you can just use `https://$ACCOUNT.cloudant.com/foo`.
@@ -35,16 +35,16 @@ it makes sure your password isn’t sent in plain text over the network by enfor
 
 All it takes is three simple steps:
 
-1.	[Encode username and password](#encode-username-and-password).
+1.	[Encode user name and password](#encode-username-and-password).
 2.	[Create an alias](#create-an-alias)
 3.	[Activate the alias](#activate-the-alias).
 
 If you are using a Windows computer, you can specify your user name and password from the command line.
 {:tip}
 
-## Encode username and password
+## Encode user name and password
 
-First we base64-encode your {{site.data.keyword.cloudant_short_notm}} username and password.
+First we base64-encode your {{site.data.keyword.cloudant_short_notm}} user name and password.
 This gives us a base64 character sequence as output.
 
 The command to base64-encode some data is similar to the following example:
