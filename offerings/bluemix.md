@@ -11,6 +11,7 @@ lastupdated: "2018-06-21"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-06-05 -->
 
@@ -358,10 +359,8 @@ Hardware plan by using the [{{site.data.keyword.cloud_notm}} catalog](https://co
 support ticket, and our support team coordinates getting your new Dedicated Hardware instance's 
 encryption-at-rest encryption keys that are managed by your Key Protect instance.
 
-IP whitelisting is available for {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instances. Open a [support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} ticket to request IP whitelists for a specified set of IP or IP ranges. Note that IP whitelists apply to both the {{site.data.keyword.cloudant_short_notm}} user interface and Dashboard, so be mindful to include any {{site.data.keyword.cloudant_short_notm}} administrator IPs that need to access the {{site.data.keyword.cloudant_short_notm}} Dashboard directly. 
+IP whitelisting is available for {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instances. Open a [support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} ticket to request IP whitelists for a specified set of IP or IP ranges. Note that IP whitelists apply to both the {{site.data.keyword.cloudant_short_notm}} user interface and Dashboard, so be mindful to include any {{site.data.keyword.cloudant_short_notm}} administrator IPs that need to access the {{site.data.keyword.cloudant_short_notm}} Dashboard directly. IP whitelisting is not available to {{site.data.keyword.cloudant_short_notm}} instances deployed on default multi-tenant environments. 
 
-IP whitelisting is not available to {{site.data.keyword.cloudant_short_notm}} instances deployed on default multi-tenant environments. 
-{:tip}
 
 ## High availability, disaster recovery, and backup
 {: #high-availability-disaster-recovery-and-backup}
