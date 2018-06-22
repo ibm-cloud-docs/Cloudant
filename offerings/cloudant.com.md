@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-24"
+lastupdated: "2018-06-21"
 
 ---
 
@@ -68,7 +68,7 @@ With the {{site.data.keyword.cloudant_short_notm}} Shared Plan, you have access 
 {{site.data.keyword.cloudant_short_notm}} DBaaS capabilities, provided through a shared or 'multi-tenant' cluster.
 
 Pricing is metered, based on your monthly usage. No charge applies if your monthly usage is 
-under $50.00 (as of August 2016). See terms [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/assets/terms.pdf){:new_window}. 
+under $50.00 (as of August 2016). For more information, see the [{{site.data.keyword.cloudant_short_notm}} Shared Plan Terms of Service ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/assets/terms.pdf){:new_window}. 
    
       
          
