@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-15"
+lastupdated: "2018-06-26"
 
 ---
 
@@ -11,13 +11,13 @@ lastupdated: "2018-06-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-06-13 -->
 
 # Overview
 
-This site is the online documentation for the [{{site.data.keyword.cloudantfull}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window},
-all intended to help you get going quickly.
+The online documentation for {{site.data.keyword.cloudantfull}} intends to help you get going quickly. For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} product page ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
 {:shortdesc}
 
 [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){:new_window}
