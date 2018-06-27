@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-21"
+lastupdated: "2018-06-26"
 
 ---
 
@@ -42,15 +42,15 @@ Standard plan:
 <table>
 
 <tr>
-<th id="plans">Plans</th><th id="lite">Lite</th><th id="standard" colspan='4'>Standard</th>
+<th id="plan">Plan</th><th id="lite">Lite</th><th id="standard" colspan='4'>Standard</th>
 </tr>
 <tr>
-<th id="base-priceperhour" headers="plans">Base Price (per hour)</td>
+<th id="base-priceperhour" headers="plan">Base Price (per hour)</td>
 <td headers="lite base-priceperhour">$0.00</td>
 <td headers="standard base-priceperhour" colspan='4'>See <a href="../offerings/pricing.html#pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
 <tr>
-<th id="provisionedthroughputcapacity-lookupspersecond" headers="plans">Provisioned Throughput Capacity (Lookups per second)</td>
+<th id="provisionedthroughputcapacity-lookupspersecond" headers="plan">Provisioned Throughput Capacity (Lookups per second)</td>
 <td headers="lite provisionedthroughputcapacity-lookupspersecond-lite">20</td>
 <td headers="standard provisionedthroughputcapacity-lookupspersecond">100</td>
 <td headers="standard provisionedthroughputcapacity-lookupspersecond">1,000</td>
@@ -58,7 +58,7 @@ Standard plan:
 <td headers="standard provisionedthroughputcapacity-lookupspersecond">20,000</td>
 </tr>
 <tr>
-<th id="provisionedthroughputcapacity-writespersecond" headers="plans">Provisioned Throughput Capacity (Writes per second)</td>
+<th id="provisionedthroughputcapacity-writespersecond" headers="plan">Provisioned Throughput Capacity (Writes per second)</td>
 <td headers="lite provisionedthroughputcapacity-writespersecond">10</td>
 <td headers="standard provisionedthroughputcapacity-writespersecond">50</td>
 <td headers="standard provisionedthroughputcapacity-writespersecond">500</td>
@@ -66,7 +66,7 @@ Standard plan:
 <td headers="standard provisionedthroughputcapacity-writespersecond">10,000</td>
 </tr>
 <tr>
-<th id="provisionedthroughputcapacity-queriespersecond" headers="plans">Provisioned Throughput Capacity (Queries per second)</td>
+<th id="provisionedthroughputcapacity-queriespersecond" headers="plan">Provisioned Throughput Capacity (Queries per second)</td>
 <td headers="lite provisionedthroughputcapacity-queriespersecond">5</td>
 <td headers="standard provisionedthroughputcapacity-queriespersecond">5</td>
 <td headers="standard provisionedthroughputcapacity-queriespersecond">50</td>
@@ -74,12 +74,12 @@ Standard plan:
 <td headers="standard provisionedthroughputcapacity-queriespersecond">1,000</td>
 </tr>
 <tr>
-<th id="diskspaceincluded" headers="plans">Disk Space Included</td>
+<th id="diskspaceincluded" headers="plan">Disk Space Included</td>
 <td headers="lite diskspaceincluded">1 GB</td>
 <td headers="standard diskspaceincluded" colspan='4'>20 GB</td>
 </tr>
 <tr>
-<th id="diskoveragepergbhour" headers="plans">Disk Overage (per GB/hour)</td>
+<th id="diskoveragepergbhour" headers="plan">Disk Overage (per GB/hour)</td>
 <td headers="lite diskoveragepergbhour">Not available</td>
 <td headers="standard diskoveragepergbhour" colspan='4'>See <a href="../offerings/pricing.html#pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
 </tr>
