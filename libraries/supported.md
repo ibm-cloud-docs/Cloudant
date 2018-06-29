@@ -81,7 +81,7 @@ npm install cloudant
 
 #### Supported library for node.js
 
--   [nodejs-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.org/package/cloudant){:new_window}).
+-   [nodejs-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/cloudant){:new_window}).
 
 #### Unsupported libraries and frameworks for node.js
 
