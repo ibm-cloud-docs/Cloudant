@@ -32,7 +32,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 7051 (June 29, 2018)
 
 - Add forward compatibility clause for `_stats` disk format change.
-- Add compatibility clause for attachment receiver to facilitate erlang upgrade.
+- Add compatibility clause for attachment receiver to facilitate Erlang upgrade.
 - Improvements to internal audit facility.
 
 ## Build 7014 (June 12, 2018)
