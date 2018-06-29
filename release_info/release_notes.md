@@ -2,11 +2,7 @@
 
 copyright:
   years: 2017, 2018
-<<<<<<< HEAD
 lastupdated: "2018-06-29"
-=======
-lastupdated: "2018-05-31"
->>>>>>> f5f7fe2... Run Acrolinx and add tags for fb93523b.
 
 ---
 
