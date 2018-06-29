@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-12"
+lastupdated: "2018-06-29"
 
 ---
 
@@ -22,6 +22,12 @@ Changes and updates to {{site.data.keyword.cloudantfull}} grouped by build numbe
 ## Dedicated hardware
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 7051 (June 29, 2018)
+
+- Add forward compatibility clause for `_stats` disk format change.
+- Add compatibility clause for attachment receiver to facilitate erlang upgrade.
+- Improvements to internal audit facility.
 
 ## Build 7014 (June 12, 2018)
 
