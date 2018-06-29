@@ -22,25 +22,25 @@ to work with the database.
 
 To access an {{site.data.keyword.cloudant_short_notm}} service instance,
 you require a set of [Service Credentials](#the-service-credentials).
-The credentials are generated as part of the process when you create a service instance.
+You create credentials when you create a service instance. You can create additional 
+credentials at any time. 
 
-You can also find these credentials at any time,
-by accessing your {{site.data.keyword.cloudant_short_notm}} account.
+You can find these credentials by accessing your {{site.data.keyword.cloudant_short_notm}} account.
 
 ## Creating a service instance
 
 1.  Log in to your {{site.data.keyword.Bluemix_notm}} account.<br/>
     The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
-    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
+    [http://console.bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard:<br/>
+    you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard without any service instances:<br/>
     ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
 
-2.  Click the `Catalog` link:<br/>
+2.  Click the `Create resource` button:<br/>
     ![{{site.data.keyword.Bluemix_notm}} catalog link](images/img0002.png)<br/>
     A list of the services available on {{site.data.keyword.Bluemix_notm}} appears.
 
-3.  Click the `Data & Analytics` entry under the `Services` heading:<br/>
+3.  Click the `Data & Analytics` entry under the `Platform` heading:<br/>
     ![{{site.data.keyword.Bluemix_notm}} Data & Analytics services](images/img0003.png)<br/>
     A list of the Data & Analytics services
     available on {{site.data.keyword.Bluemix_notm}} appears.
@@ -49,9 +49,9 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
     ![{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)
 
 5.  In the service configuration window,
-    enter a service name.
+    enter a service name. Verify that the region/location, organization, and space selections are correct.
     In this example,
-    the service name is `Cloudant Service 2017`:<br/>
+    the service name is `Cloudant NoSQL DB service`:<br/>
     ![{{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0005.png)
 
 6.  By default,
@@ -70,10 +70,16 @@ by accessing your {{site.data.keyword.cloudant_short_notm}} account.
     click the `Service Credentials` tab:<br/>
     ![Accessing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0007.png)
 
-8.  The Service Credentials window appears.
-    To see the credentials that are required to access the service,
-    click the `View Credentials` dropdown:<br/>
-    ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0008.png)
+8.  Create a new {{site.data.keyword.cloudant_short_notm}} service credential:
+  <br>a. Click the `New credential` button.</br>
+  <br>![Create new service credentials](images/img0050.png)
+  <br>b. Enter a name for the new credential in the Add new credential window, see below.
+  <br>c. (Optional) Add inline configuration parameters.
+  <br>d. Click the `Add` button. </br>
+  <br>![Add a new service credential](images/img0051.png)
+  <br>Your new credential appears at the bottom of the page.
+  <br>e. Click `View credentials` under Actions. </br>
+  <br>![View all service credentials](images/img0052.png)
 
 9.  The Service Credentials details appear:<br/>
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
@@ -99,9 +105,9 @@ The service credentials consist of five fields:
 
 Field      | Purpose
 -----------|--------
-`host`     | The host name that is used by applications to locate the service instance.
 `username` | The user name that is required for applications to access the service instance.
 `password` | The password that is required for applications to access the service instance.
+`host`     | The host name that is used by applications to locate the service instance.
 `port`     | The HTTP port number for accessing the service instance on the host. Normally 443 to force HTTPS access.
 `url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
 
@@ -114,20 +120,16 @@ At any time,
 you can find the credentials for a service that is associated with your account.
 
 1.  Begin by logging in to {{site.data.keyword.cloudant_short_notm}}.
-    The {{site.data.keyword.Bluemix}} dashboard can be found at:
+    The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
-
-2.  Scroll down the Dashboard,
-    until you reach the section that lists all your services:<br/>
-    ![{{site.data.keyword.Bluemix_notm}}' service listing](images/img0010.png)
+    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0053.png)
 
 3.  In this example,
     we want to find the service credentials for the {{site.data.keyword.cloudant_short_notm}}
     service instance that was created earlier in the tutorial,
-    called `Cloudant Service 2017`.
+    called `Cloudant NoSQL DB service`.
     Click the corresponding row:<br/>
     ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png)
 

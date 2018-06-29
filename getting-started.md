@@ -36,7 +36,7 @@ For more language-specific tutorials, see [Get started by deploying your first a
 ## Before you begin
 {: #prereqs}
 
-You'll need a [Bluemix account ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window},
+You'll need a [{{site.data.keyword.Bluemix}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window},
 an instance of the {{site.data.keyword.cloudant}} service, and the following Python requirements:
 
 *	Install the latest version of the
@@ -92,11 +92,21 @@ an instance of the {{site.data.keyword.cloudant}} service, and the following Pyt
 	```
 	{: codeblock}
 
-2. Identify the {{site.data.keyword.cloudant_short_notm}} service credentials:
-  1. In the {{site.data.keyword.Bluemix_notm}} console, open the dashboard for your service instance.
-  2. In the left navigation, click **`Service credentials`**.
-  3. Click **`View credentials`** under **`ACTIONS`**.
-
+2.  Create a new {{site.data.keyword.cloudant_short_notm}} service credential:
+  <br>In the {{site.data.keyword.Bluemix_notm}} console, open the dashboard for your service instance.
+  <br>In the left navigation, click `Service credentials`.
+  <br>a. Click the `New credential` button.
+  <br>![Create new service credentials](tutorials/images/img0050.png)
+  <br>b. Enter a name for the new credential in the Add new credential window, see below.
+  <br>c. (Optional) Add inline configuration parameters.
+  <br>d. Click the `Add` button. 
+  <br>Your credentials are added to the Service credentials table.
+  <br>![Add a new service credential](tutorials/images/img0051.png)
+  <br>e. Click `View credentials` under ACTIONS. 
+  <br>![View all service credentials](tutorials/images/img0052.png)
+  <br>The Service credentials details appear:
+   <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
+   
 3.	Establish a connection to the service instance by running the following command.
 	Replace your service credentials from the previous step:
 	```python
