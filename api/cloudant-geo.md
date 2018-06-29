@@ -13,7 +13,10 @@ lastupdated: "2018-06-07"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2018-06-04 -->
+
 # {{site.data.keyword.cloudant_short_notm}} Geospatial
+{: #cloudant-nosql-db-geospatial}
 
 {{site.data.keyword.cloudantfull}} Geospatial,
 or '{{site.data.keyword.cloudant_short_notm}} Geo',
@@ -21,9 +24,9 @@ combines the advanced geospatial queries of a Geographic Information System (GIS
 with the flexibility and scalability of {{site.data.keyword.cloudant_short_notm}}'s database-as-a-service (DBaaS) capabilities.
 {:shortdesc}
 
-{{site.data.keyword.cloudant_short_notm}} Geo:
+You can use {{site.data.keyword.cloudant_short_notm}} Geo to do the following tasks:
 
--   Enables web and mobile developers to enhance their applications using geospatial operations that go beyond simple bounding boxes.
+-   Enables web and mobile developers to enhance their applications by using geospatial operations that go beyond simple bounding boxes.
 -   Integrates with existing GIS applications,
 	so that they can scale to accommodate different data sizes,
 	concurrent users,
@@ -37,24 +40,24 @@ with the flexibility and scalability of {{site.data.keyword.cloudant_short_notm}
 	and syndicated across other web applications.
 
 ## {{site.data.keyword.cloudant_short_notm}} Geo overview
+{: #cloudant-nosql-db-geo-overview}
 
-{{site.data.keyword.cloudant_short_notm}} Geo lets you structure your data using GeoJSON format.
+You can use {{site.data.keyword.cloudant_short_notm}} Geo to structure your data by using GeoJSON format.
 Design documents are used to index the data.
 Just like working with other {{site.data.keyword.cloudant_short_notm}} documents,
 an initial scan works through all the documents in the database,
 giving you the first index.
 Subsequent updates to the documents result in incremental updates to the index.
 
-The key advantage of {{site.data.keyword.cloudant_short_notm}} Geo is to enable you to identify,
+The key advantage to using {{site.data.keyword.cloudant_short_notm}} Geo is that you can  identify,
 specify,
-or search for documents based on a spatial relationship;
-in effect using geometry to provide an additional way of expressing the relationship between and within documents.
+or search for documents based on a spatial relationship. In effect, {{site.data.keyword.cloudant_short_notm}} uses geometry to provide an extra way of expressing the relationship between and within documents.
 
-An example would be to specify that a document is considered to be 'contained' if it has
-a geospatial characteristic that fits within a given geospatial polygon,
+An example would be to specify a document that is considered to be 'contained' if it has
+a geospatial characteristic that fits within a given geospatial polygon, which is
 defined by a series of points.
 
-_Example of a relationship using a geospatial polygon:_
+_Example of a relationship that uses a geospatial polygon:_
 
 ```
 relation=contains&g=POLYGON ((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
@@ -64,57 +67,58 @@ relation=contains&g=POLYGON ((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0
 The basic steps for working with geospatial data in {{site.data.keyword.cloudant_short_notm}} Geo are as follows:
 
 1.  Include a GeoJSON geometry object in your JSON document.
-	The geometry object can be of any type defined by the [GeoJSON specification ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){:new_window}.
-2.  Index the geometry object using {{site.data.keyword.cloudant_short_notm}} Geo defined `st_index` function.
+	The geometry object can be of any type that is defined by the [GeoJSON specification ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){:new_window}.
+2.  Index the geometry object that uses {{site.data.keyword.cloudant_short_notm}} Geo defined `st_index` function.
 3.  Search the indexed geometry object by using various geometries and geometric relationships.
 
 ## Using {{site.data.keyword.cloudant_short_notm}} Geospatial through the Dashboard
+{: #using-cloudant-nosql-db-geospatial-through-the-dashboard}
 
-The Dashboard lets you perform several geospatial tasks:
+You can use the Dashboard to do several geospatial tasks:
 
-*	Quick and easy visualisation of data stored in spatial indexes.
+*	Visualization of data that is stored in spatial indexes.
 *	Spatial query construction.
-*	Visualisation of spatial query results.
+*	Visualization of spatial query results.
 
-Before using the geospatial capability through the dashboard,
+Before you use the geospatial capability through the dashboard,
 you must have some spatially indexed data within a database.
 
 To access the geospatial area of the dashboard,
-perform the following steps:
+follow these steps:
 
-1.	Select the database containing spatially indexed data.
+1.	Select the database that contains spatially indexed data.
 2.	Select the Design Documents menu.
 3.	Select the Design Document that contains the definition of the spatial index.
-	A 'Geospatial Indexes' sub menu appears for the spatial index.
+	A 'Geospatial Indexes' menu appears for the spatial index.
 4.	Select the Geospatial Index for your data.
 	A map view appears,
 	showing a small selection of the spatial features contained within the index.
 5.	To see a JSON view of the index,
-	click the corresponding button of the map view.
+	click the corresponding map view button.
 
-You can construct spatial queries using the drawing menu available on the map view.
-To construct a spatial query:
+You can construct spatial queries by using the drawing menu available on the map view:
 
 1.	Open the drawing menu in the map view.
-2.	Select the geometry type you require.
+2.	Select the geometry type that you require.
 3.	Click in the map view to define the geospatial area.
 
 Depending on the geometry type you specify,
 a default spatial relation is chosen for you.
 The exact relation is visible by selecting the Options menu.
 
-The lowest area of the map view provides tools that let you select how many spatial features are displayed at once,
+The lowest area of the map view provides tools to select how many spatial features are displayed together,
 up to a maximum of 200 at a time.
 To see the other results from your geospatial query,
-page through them by clicking the left or right arrow buttons.
+page through them by clicking the left or right arrows.
 
 More information on using {{site.data.keyword.cloudant_short_notm}} Geospatial is available through
 the [Learning Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.cloudant.com/learning-center#geo){:new_window}.
 
 ## GeoJSON
+{: #geojson}
 
 [GeoJSON format ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){:new_window}
-is used to express a variety of geographic data structures, including:
+is used to express the following various geographic data structures:
 
 -   `Point`
 -   `LineString`
@@ -124,17 +128,19 @@ is used to express a variety of geographic data structures, including:
 -   `MultiPolygon`
 -   `GeometryCollection`
 
-A GeoJSON document is simply a JSON document containing two distinct key:value sections:
+A GeoJSON document is a JSON document that contains the following distinct `key:value` sections:
 
 ### `type`
+{: #type}
 
 It must be present and contain the value `Feature`.
 
 ### `geometry`
+{: #geometry}
 
 It must contain two fields: `type` and `coordinates`, where:
 
--	`type` field specifies a GeoJSON geometry type which must be one of `Point`,
+-	`type` field specifies a GeoJSON geometry type that must be one of `Point`,
 	`LineString`,
 	`Polygon`,
 	`MultiPoint`,
@@ -171,21 +177,22 @@ including the full specification,
 is available at [http://geojson.org/ ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/){:new_window}.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Geo Index
+{: #creating-a-cloudant-nosql-db-geo-index}
 
 To make it easier to work with {{site.data.keyword.cloudant_short_notm}} Geo documents,
-it is best practice to create a separate design document,
+it is a best practice to create a separate design document,
 specifically for {{site.data.keyword.cloudant_short_notm}} Geo.
 
 When you create a geospatial index,
-you must use the {{site.data.keyword.cloudant_short_notm}} Geo defined keyword `st_indexes` to hold one or more {{site.data.keyword.cloudant_short_notm}} Geo index definitions,
-where each index must be defined by the {{site.data.keyword.cloudant_short_notm}} Geo `st_index` function.
+you must use the {{site.data.keyword.cloudant_short_notm}} Geo defined keyword `st_indexes` to hold one or more {{site.data.keyword.cloudant_short_notm}} Geo index definitions.
+Each index must be defined by the {{site.data.keyword.cloudant_short_notm}} Geo `st_index` function. 
 
 ### `geoidx`: An example {{site.data.keyword.cloudant_short_notm}} Geo index
+{: #-geoidx-an-example-cloudant-nosql-db-geo-index}
 
 For example,
-you could create a design document with the `_id` value `"_design/geodd"` which contains an index called `"geoidx"`.
-The index is a simple JavaScript function that checks for the presence of a valid geometry object in the document,
-and if found ensures that the document is included in the `st_index` {{site.data.keyword.cloudant_short_notm}} Geo index function.
+you can create a design document with the `_id` value `"_design/geodd"` that contains an index that is called `"geoidx"`.
+The index is a simple JavaScript function that checks for the presence of a valid geometry object in the document. If a valid geometry object is found, it ensures that the document is included in the `st_index` {{site.data.keyword.cloudant_short_notm}} Geo index function.
 
 _An example {{site.data.keyword.cloudant_short_notm}} Geo design document, containing an index:_
 
@@ -202,26 +209,27 @@ _An example {{site.data.keyword.cloudant_short_notm}} Geo design document, conta
 {:codeblock}
 
 ### Geospatial indexing
+{: #geospatial-indexing}
 
-There are a number of different algorithms for indexing geospatial data.
+Geospatial indexing includes a number of different algorithms for indexing geospatial data.
 Some algorithms are simple to understand and implement,
 but do not produce fast results.
 
-The basic algorithm used by {{site.data.keyword.cloudant_short_notm}} Geo
+The basic algorithm that is used by {{site.data.keyword.cloudant_short_notm}} Geo
 is [R\*\_tree ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/R*_tree){:new_window}.
 Although it has a slightly higher resource requirement for building the index,
 the resulting index offers much better performance in responding to geospatial queries.
 
-## Obtaining information about an {{site.data.keyword.cloudant_short_notm}} geo index
+## Obtaining information about an {{site.data.keyword.cloudant_short_notm}} Geo index
+{: #obtaining-information-about-a-cloudant-nosql-db-geo-index}
 
-You can obtain information about a geospatial index within a database.
-Do this by using the `_geo_info` endpoint.
+You can obtain information about a geospatial index within a database. Use the `_geo_info` endpoint to get the information.
 
 For example,
 you might want to obtain information about the `geoidx` geospatial index,
 held within the `geodd` design document of the `crimes` database.
 
-_Example request, using HTTP:_
+_Example request, by using HTTP:_
 
 ```http
 GET /crimes/_design/geodd/_geo_info/geoidx HTTP/1.1
@@ -229,14 +237,14 @@ Host: $ACCOUNT.cloudant.com
 ```
 {:codeblock}
 
-_Example request, using the command line:_
+_Example request, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/crimes/_design/geodd/_geo_info/geoidx \
 ```
 {:codeblock}
 
-The data returned within the `geo_index` portion of the JSON response includes
+The data that is returned within the `geo_index` portion of the JSON response includes
 the following fields:
 
 Field | Description
@@ -259,18 +267,20 @@ _Example response in JSON format:_
 ```
 {:codeblock}
 
->	**Note:** If the design document that is intended to specify a geospatial index is invalid,
-	an attempt to retrieve information about the index by using the `_geo_info` endpoint
-	results in an [HTTP `404`](http.html#404) response.
+If the design document that is intended to specify a geospatial index is invalid,
+an attempt to retrieve information about the index by using the `_geo_info` endpoint
+results in an [HTTP `404`](http.html#404) response.
+{: tip}
 
 ## Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
+{: #querying-a-cloudant-nosql-db-geo-index}
 
-The fundamental API call for utilizing {{site.data.keyword.cloudant_short_notm}} Geo has a simple format,
+The fundamental API call for using {{site.data.keyword.cloudant_short_notm}} Geo has a simple format,
 where the query parameters field `<query-parameters>` includes three different types of parameters:
 
--	Query geometry.
--	Geometric relation.
-_	Result set.
+-	Query geometry
+-	Geometric relation
+_	Result set
 
 _Example format for an {{site.data.keyword.cloudant_short_notm}} Geo API call:_
 
@@ -280,9 +290,10 @@ _Example format for an {{site.data.keyword.cloudant_short_notm}} Geo API call:_
 {:codeblock}
 
 ### Query Geometry
+{: #query-geometry}
 
 A query geometry parameter must be provided for an {{site.data.keyword.cloudant_short_notm}} Geo search.
-There are four types of query geometries that are defined as follows:
+The four types of query geometries are defined as follows:
 
 Parameter | Description
 ----------|------------
@@ -326,19 +337,20 @@ _Example of a `polygon` query:_
 ```
 {:codeblock}
 
->	**Note**: {{site.data.keyword.cloudant_short_notm}} Geo uses `intersects` as the default geometric relation
-when executing a query with query geometry only.
+{{site.data.keyword.cloudant_short_notm}} Geo uses `intersects` as the default geometric relation when it runs a query with query geometry only.
+{: tip}
 
 ### Geometric Relation
+{: #geometric-relation}
 
 {{site.data.keyword.cloudant_short_notm}} Geo works with geospatial relationships and follows
 the [DE-9IM specification ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/DE-9IM){:new_window} for geometric relations.
-These define the different ways in which two geospatial objects are related to each other,
+This specification defines the different ways in which two geospatial objects are related to each other,
 if indeed they are related at all.
 
 For example,
 you might specify a polygon object that describes a housing district.
-You could then query your document database for people residing within that district
+You might then query your document database for people that reside within that district
 by requesting all documents where the place of residence is *contained* within the polygon object.
 
 When you specify a query geometry,
@@ -363,7 +375,7 @@ Relation                | Description
 `Q touches R`           | True if, and only if, the common points of two geometries are found only at the boundaries of two geometries. At least one geometry must be a linestring, polygon, multilinestring, or multipolygon.
 `Q within R`            | True if `Q` lies entirely within `R`. `within` returns the exact opposite result of `contains`.
 
-_An example of returning all geometries which are contained by a `polygon`:_
+_An example of returning all geometries that are contained by a `polygon`:_
 
 ```http
 ?relation=contains&g=polygon((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
@@ -371,35 +383,38 @@ _An example of returning all geometries which are contained by a `polygon`:_
 {:codeblock}
 
 ### Nearest neighbor search
+{: #nearest-neighbor-search}
 
 {{site.data.keyword.cloudant_short_notm}} Geo supports Nearest Neighbor search,
-known as NN search.
+which is known as NN search.
 If provided,
 the `nearest=true` search returns all results by sorting their distances to the center of the query geometry.
 This geometric relation `nearest=true` can be used either with all the geometric relations described earlier,
 or alone.
 
 For example,
-one policeman might search five crimes that occurred near a specific location
-by issuing the query in the following example.
+one police officer might search five crimes that occurred near a specific location
+by typing the query in the following example.
 
-_Example query to find nearest five crimes against a given location:_
+_Example query to find nearest five crimes against a specific location:_
 
 ```http
 https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POINT(-71.0537124 42.3681995)&nearest=true&limit=5
 ```
 {:codeblock}
 
->	**Note**: The `nearest=true` search can change the semantics of an {{site.data.keyword.cloudant_short_notm}} Geo search.
+The `nearest=true` search can change the semantics of an {{site.data.keyword.cloudant_short_notm}} Geo search.
 For example,
 without `nearest=true` in the example query,
-the results only include GeoJSON documents that have coordinates equal to the given query point `(-71.0537124 42.3681995)`
+the results include only GeoJSON documents that have coordinates equal to the query point `(-71.0537124 42.3681995)`
 _or_ an empty results set.
 However,
 by using the `nearest=true` search,
 the results include all GeoJSON documents in the database whose order is measured by the distance to the query point.
+{: tip}
 
 ### Result Set
+{: #result-set}
 
 You can use the following parameters to deal with the returned result set, 
 such as returning results in GeoJSON format or limiting the number of returned results.
@@ -409,11 +424,12 @@ Parameter      | Description
 `bookmark`     | Allows you to page through the results. The default is 25 results.
 `format`       | Causes the query output to be in a specified format. Possible values are `legacy`, `geojson`, `view`, or `application/vnd.geo+json`. The default format is `view`.
 `include_docs` | Adds the entire document as a document object, and includes it in the output results.
-`limit`        |  An integer to limit the number of results returned. The default value is 100. The maximum value is 200. A value larger than 200 will return an error.
-`skip`         | Skip this number of records before starting to return the results. The default value is 0.
-`stale=ok`     | Speeds up responses by not waiting to complete index re-building or updates between database cluster nodes.
+`limit`        |  An integer to limit the number of results returned. The default value is 100. The maximum value is 200. A value larger than 200 returns an error.
+`skip`         | Skip this number of records before {{site.data.keyword.cloudant_short_notm}} Geo search starts to return the results. The default value is 0.
+`stale=ok`     | Speeds up responses by not waiting to complete index rebuilds or updates between database cluster nodes.
 
 #### Format Parameter Examples
+{: #format-parameter-examples}
 
 These examples show the available results based on the options you specify for the format parameter.
 
@@ -499,8 +515,10 @@ _Example response to the query:_
 {:codeblock}
 
 ## Example: Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
+{: #example-querying-a-cloudant-nosql-db-geo-index}
 
 ### Simple Circle
+{: #simple-circle}
 
 This simple example demonstrates how {{site.data.keyword.cloudant_short_notm}} Geo can find documents that are considered to have a geospatial
 position within a given geographic circle.
@@ -510,10 +528,10 @@ To specify the circle, you provide:
 
 -	Latitude
 -	Longitude
--	Circle radius, specified in meters
+-	Circle radius, which is specified in meters
 
 This query compares the geometry of each document in the index with the geometry of the specified circle.
-The comparison is performed according to the relation you request in the query.
+The comparison is run according to the relation you request in the query.
 So,
 to find all documents that fall within the circle,
 you use the `contains` relation.
@@ -550,13 +568,14 @@ _Example response to the query:_
 {:codeblock}
 
 ### A polygon query
+{: #a-polygon-query}
 
 A more complex example shows where you specify a polygon as the geometric object of interest.
-A polygon is simply any object defined by a series of connected points,
+A polygon is any object that is defined by a series of connected points,
 where none of the connections (the lines between the points) cross any of the other connections.
 
 For example,
-we might provide a polygon description as the geometric object,
+you might provide a polygon description as the geometric object,
 and then request that the query return details of documents within the database that are contained by the polygon.
 
 _Example query to find documents that have a geospatial position within a polygon:

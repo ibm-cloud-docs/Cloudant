@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-01"
 
 ---
 
@@ -11,8 +11,12 @@ lastupdated: "2017-11-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-06-01 -->
 
 # Back up your data
+{: #back-up-your-data}
 
 To protect your business from data loss and corruption,
 you should backup your data.
@@ -32,7 +36,7 @@ having a complete copy of your database for each of the requirements can quickly
 An alternative is to use the {{site.data.keyword.cloudant_short_notm}} Incremental Backup feature.
 Incremental backups are a good solution for storing only the documents that have changed since the last backup.
 
->   **Note**: Daily incremental backup for Enterprise customers is currently a Beta capability.
-    It is not enabled by default.
+Daily incremental backup for Enterprise customers is currently a Beta capability. It is not enabled by default.
+{: tip}
 
 You can see more information about Incremental Backups in the topic [Back up your data](../guides/backup-guide.html).

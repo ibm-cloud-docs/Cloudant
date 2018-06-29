@@ -12,14 +12,20 @@ lastupdated: "2018-05-31"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
+<<<<<<< HEAD
 <!-- Acrolinx: 2018-05-23 -->
+=======
+<!-- Acrolinx: 2018-05-31 -->
+>>>>>>> f5f7fe2... Run Acrolinx and add tags for fb93523b.
 
 # Deprecations
+{: #deprecations}
 
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {:shortdesc}
 
 ## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (February 7, 2018)
+<<<<<<< HEAD
  
 To find alternatives to {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdblong}} feature, see the 
 [data-flow-examples repository ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/data-flow-examples){:new_window} 
@@ -96,9 +102,13 @@ To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to re
 1.  From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console by using the value in the `dashboard_url` field.  
 > **Note**: To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the postfix `login`, you can sign in with the following URL: `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
 2. To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password.
+=======
+{: #cloudant-nosql-db-feature-is-deprecated-february-7-2018}
+>>>>>>> f5f7fe2... Run Acrolinx and add tags for fb93523b.
 
 
 ## Disabled JavaScript constructors (December 7, 2017)
+{: #disabled-javascript-constructors-december-7-2017}
 
 - If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message
 similar to this is returned, "Call to `eval()` was blocked by CSP." You can fix the problem 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-01-16"
+lastupdated: "2018-06-04"
 
 ---
 
@@ -11,35 +11,38 @@ lastupdated: "2018-01-16"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-24 -->
+<!-- Acrolinx: 2018-06-04 -->
 
 # Query
+{: #query}
 
 {{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for
-{{site.data.keyword.cloudant_short_notm}} databases. There are two types of
-{{site.data.keyword.cloudant_short_notm}} Query indexes: `json` and `text`.
+{{site.data.keyword.cloudant_short_notm}} databases. {{site.data.keyword.cloudant_short_notm}} Query uses two types of indexes: `json` and `text`.
 {:shortdesc}
 
 If you know exactly what data you want to look for, or you want to keep storage and
 processing requirements to a minimum, you can specify how the index is created, by
-making it of type `json`.
+making it of type `json`. 
 
 But for maximum flexibility when you search for data, you would typically create
 an index of type `text`. Indexes of type `text` have a simple mechanism for automatically
 indexing all the fields in the documents.
 
-> **Note**: While more flexible, `text` indexes might take longer to create and require
-more storage resources than `json` indexes.
+While more flexible, `text` indexes might take longer to create and require more storage resources than `json` indexes.
+{: tip}
 
 ## Creating an index
+{: #creating-an-index}
 
-You can create an index with one of two types:
+You can create an index with one of the following types:
 
 -	`"type": "json"`
 -	`"type": "text"`
 
 ### Creating a "type=json" index
+{: #creating-a-type-json-index}
 
 To create a JSON index in the database `$DATABASE`,
 make a `POST` request to `/$DATABASE/_index` with a JSON object that describes the index in the request body.
@@ -76,24 +79,36 @@ _Example of returned JSON, confirming that the index was created:_
 {:codeblock}
 
 #### Request Body format
+{: #request-body-format}
 
--	**index**:
-    -	**fields**: A JSON array of field names that uses the [sort syntax](#sort-syntax).
-    	Nested fields are also allowed, for example `"person.name"`.
--	**ddoc (optional)**: Name of the design document in which the index is created.
-	By default,
-	each index is created in its own design document.
-	Indexes can be grouped into design documents for efficiency.
-	However,
-	a change to one index in a design document invalidates all other indexes in the same document.
--	**type (optional)**: Can be `json` or `text`.
-	Defaults to `json`.
-	Geospatial indexes will be supported in the future.
--	**name (optional)**: Name of the index.
-	If no name is provided,
-	a name is generated automatically.
+<div id="request-body-format"></div>
+
+<table border='1'>
+
+<tr>
+<th id="field">Field</th><th id="description" colspan='4'>Description</th>
+</tr>
+<tr>
+<td headers="field" align="center" valign="top"><p>index:</p></td>
+<td headers="description"><p>fields:<p style="margin-left: 20px">A JSON array of field names that uses the <a href="https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#sort-syntax">sort syntax</a>. Nested fields are also allowed, for example, <code>"person.name"</code>.</p></p></td>
+</tr>
+<tr>
+<td headers="field"><p>ddoc (optional)</p></td>
+<td headers="description"><p>Name of the design document in which the index is created. By default, each index is created in its own design document. Indexes can be grouped into design documents for efficiency. However, a change to one index in a design document invalidates all other indexes in the same document.</p></td>
+</tr>
+<tr>
+<td headers="field"><p>type (optional)</p></td>
+<td headers="description"><p>Can be <code>json</code> or <code>text</code>. Defaults to <code>json</code>. Geospatial indexes will be supported in the future.</p></td>
+</tr>
+<tr>
+<td headers="field"><p>name (optional)</p></td>
+<td headers="description"><p>Name of the index. If no name is provided, a name is generated automatically.</p></td>
+</tr>
+</tr>
+</table>
 
 #### Return Codes
+{: #return-codes}
 
 Code | Description
 -----|------------
@@ -102,10 +117,11 @@ Code | Description
 
 ### Creating a "type=text" index
 {: #creating-a-type-text-index}
-While it is preferable to use default values when you create a single text index,
-some useful index attributes can be modified.
 
->	**Note:** For Full Text Indexes (FTIs), `type` must be set to `text`.
+When you create a single text index, it is a good practice to use the default values, but some useful index attributes can be modified.
+
+For Full Text Indexes (FTIs), `type` must be set to `text`.
+{: tip}
 
 The `name` and `ddoc` attributes are for grouping indexes into design documents.
 Use the attributes to refer to index groups by using a custom string value.
@@ -164,6 +180,7 @@ _Example of JSON document that requests creation of a more complex index:_
 {:codeblock}
 
 #### The `index` field
+{: #the-index-field}
 
 The `index` field contains settings specific to text indexes.
 
@@ -179,8 +196,8 @@ The indexing process traverses all of the fields in all the documents in the dat
 
 An example of creating a text index for all fields in all documents in a database is [available](#example-movies-demo-database).
 
-> **Note**: Take care when you index all fields in all documents for large data sets,
-as it might be a resource-consuming activity.
+Take care when you index all fields in all documents for large data sets, as it might be a resource-consuming activity.
+{: tip}
 
 _Example of JSON document that requests creation of an index of all fields in all documents:_
 
@@ -193,6 +210,7 @@ _Example of JSON document that requests creation of an index of all fields in al
 {:codeblock}
 
 #### The `default_field` field
+{: #the-default-field-field}
 
 The `default_field` value specifies how the `$text` operator can be used with the index.
 
@@ -215,9 +233,10 @@ or is supplied with an empty object,
 it defaults to `true` and the `standard` analyzer is used.
 
 #### The `fields` array
+{: #the-fields-array}
 
 The `fields` array contains a list of fields that must be indexed for each document.
-If you know that an index queries only on specific fields,
+If you know an index queries only on specific fields,
 then this field can be used to limit the size of the index.
 Each field must also specify a type to be indexed.
 The acceptable types are:
@@ -227,14 +246,14 @@ The acceptable types are:
 -	`"number"`
 
 #### The `index_array_lengths` field
+{: the-index_array_lengths-field}
 
 {{site.data.keyword.cloudant_short_notm}} Query text indexes have a property that is called `index_array_lengths`.
 If the property is not explicitly set,
 the default value is `true`.
 
 If the field is set to `true`,
-the index requires extra work,
-including a scan of every document for any arrays,
+the index requires extra work. This work includes a scan of every document for any arrays,
 and creating a field to hold the length for each array found.
 
 You might prefer to set the `index_array_lengths` field to `false` if:
@@ -242,11 +261,12 @@ You might prefer to set the `index_array_lengths` field to `false` if:
 -	You do not need to know the length of an array.
 -	You do not use the [`$size` operator](#the-size-operator).
 -	The documents in your database are complex,
-	or not completely under your control,
-	making it difficult to estimate the impact of the extra processing that is needed to determine and store the array lengths.
+	or not completely under your control.
+	As a result, it is difficult to estimate the impact of the extra processing that is needed to determine and store the array lengths.
 
-> **Note**: The [`$size` operator](#the-size-operator) requires that the `index_array_lengths` field is set to `true`,
+The [`$size` operator](#the-size-operator) requires the `index_array_lengths` field is set to `true`,
 otherwise the operator cannot work.
+{: tip}
 
 _Example JSON document with suggested settings to optimize performance on production systems:_
 
@@ -261,6 +281,7 @@ _Example JSON document with suggested settings to optimize performance on produc
 {:codeblock}
 
 ## Query Parameters
+{: #query-parameters}
 
 The format of the `selector` field is as described in the [selector syntax](#selector-syntax),
 except for the new `$text` operator.
@@ -275,7 +296,7 @@ or proximity detection.
 For more information,
 see [{{site.data.keyword.cloudant_short_notm}} Search documentation](search.html#search).
 The `$text` operator applies to all strings found in the document.
-It is invalid to place this operator in the context of a field name.
+If you place this operator in the context of a field name, it is invalid.
 
 The `fields` array is a list of fields that must be returned for each document. The provided
 field names can use dotted notation to access subfields.
@@ -298,6 +319,7 @@ _Example JSON document that uses all available query parameters:_
 {:codeblock}
 
 ## Working with indexes
+{: #working-with-indexes}
 
 {{site.data.keyword.cloudant_short_notm}} endpoints can be used to create,
 list,
@@ -315,13 +337,15 @@ Methods  | Path                | Description
 `POST`   | `/$DATABASE/_index` | Create an index.
 
 ## Creating a partial index
+{: #creating-a-partial-index}
 
-Cloudant Query supports partial indexes using the `partial_filter_selector` field. See the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
-for more information and the original example. 
+Cloudant Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
+and the original example. 
 
-> **Note**: The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still supported for backwards compatibility for text indexes only.
+The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still compatible with an earlier version for text indexes only.
+{: tip}
 
-Let's look at an example query:
+See an example query:
 ```
 {
   "selector": {
@@ -334,10 +358,10 @@ Let's look at an example query:
 ```
 Without a partial index, this query requires a full index scan to find 
 all the documents of `type`:`user` that do not have a status of `archived`. 
-This occurs because a normal index can only be used to match contiguous rows, 
+This situation occurs because a normal index can be used to match contiguous rows, 
 and the `$ne` operator cannot guarantee that.
 
-To improve response time, we can create an index which excludes documents 
+To improve response time, you can create an index that excludes documents 
 with `status`: { `$ne`: `archived` } at index time by using the 
 `partial_filter_selector` field:
 ```
@@ -360,7 +384,7 @@ Host: localhost:5984
 }
 ```
 Partial indexes are not currently used by the query planner unless specified 
-by a `use_index` field, so we need to modify the original query:
+by a `use_index` field, so you must modify the original query:
 ```
 {
   "selector": {
@@ -372,13 +396,12 @@ by a `use_index` field, so we need to modify the original query:
   "use_index": "type-not-archived"
 }
 ```
-Technically, we don't need to include the filter on the `status` field in the 
-query selector - the partial index ensures this is always true - but including 
-it makes the intent of the selector more clear and makes it easier to take 
-advantage of future improvements to query planning (e.g. automatic selection of 
+Technically, you do not need to include the filter on the `status` field in the 
+query selector. The partial index ensures that this value is always true. However, if you include the filter, it makes the intent of the selector clearer. It also makes it easier to take advantage of future improvements to query planning (for example, automatic selection of 
 partial indexes).  
 
 ## List all {{site.data.keyword.cloudant_short_notm}} Query indexes
+{: #list-all-cloudant-nosql-db-query-indexes}
 
 -	**Method**: `GET`
 -	**URL Path**: `/$DATABASE/_index`
@@ -398,11 +421,12 @@ although these actions are not usually necessary when you use {{site.data.keywor
 Design documents are discussed in more detail [here](design_documents.html).
 
 ### Response body format
+{: #response-body-format}
 
 -	**indexes**: Array of indexes
 	-	**ddoc**: ID of the design document the index belongs to.
-		This ID can be used to retrieve the design document that contains the index,
-		by making a `GET` request to `/$DATABASE/$DDOC`, where `$DDOC` is the value of this field.
+		This ID can be used to retrieve the design document that contains the index.
+		It does so by making a `GET` request to `/$DATABASE/$DDOC`, where `$DDOC` is the value of this field.
 	-	**name**: Name of the index.
 	-	**type**: Type of the index.
 		Currently, `json` is the only supported type.
@@ -440,6 +464,7 @@ _Example of a response body with two indexes:_
 {:codeblock}
 
 ## Deleting an index
+{: #deleting-an-index}
 
 -	**Method**: `DELETE`
 -	**URL Path**: `/$DATABASE/_index/$DDOC/$TYPE/$NAME` where `$DATABASE` is the name of the database,
@@ -455,19 +480,22 @@ _Example of a response body with two indexes:_
 <div id="finding-documents-using-an-index"></div>
 
 ## Finding documents by using an index
+{: #finding-documents-by-using-an-index}
 
 -	**Method**: `POST`
 -	**URL Path**: `/$DATABASE/_find`
 -	**Response Body**: JSON object that describes the query results.
 -	**Roles**: `_reader`
 
-> **Note**: Design documents are not returned by `_find`.
+Design documents are not returned by `_find`.
+{: tip}
 
 ### Request body
+{: #request-body}
 
 -	**selector**: JSON object that describes the criteria that are used to select documents.
 	More information is provided in the section on [selectors](#selector-syntax).
--	**limit (optional, default: 25)**: Maximum number of results returned. Note that `type: text` indexes are limited to 200 results when queried.
+-	**limit (optional, default: 25)**: Maximum number of results returned. The `type: text` indexes are limited to 200 results when queried.
 -	**skip (optional, default: 0)**: Skip the first 'n' results, where 'n' is the value that is specified.
 -	**sort (optional, default: [])**: JSON array,
 	ordered according to the [sort syntax](#sort-syntax).
@@ -488,8 +516,9 @@ _Example of a response body with two indexes:_
 	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index.
 
 	For more information, see [Explain Plans](#explain-plans).
--   **execution_stats (optional, default: false)**: Use this option to find information about the query
-    that was executed, including total key lookups, total document lookups (when `include_docs=true`
+-   **execution_stats (optional, default: false)**: Use this option to find information 
+	about the query
+    that was run. This information includes total key lookups, total document lookups (when `include_docs=true`
     is used), and total quorum document lookups (when Fabric document lookups are used). 	
 
 The `bookmark` field is used for paging through result sets.
@@ -519,6 +548,7 @@ _Example request in JSON format, for finding documents by using an index:_
 {:codeblock}
 
 ### Response body
+{: #response-body}
 
 -	**docs**: Array of documents that match the search.
 	In each matching document,
@@ -548,15 +578,16 @@ _Example response when you use an index to find documents:_
 {:codeblock}
 
 ## Selector Syntax
+{: #selector-syntax}
 
 The {{site.data.keyword.cloudant_short_notm}} Query language is expressed as a JSON object that describes documents of interest.
 Within this structure,
 you can apply conditional logic by using specially named fields.
 
->   **Note**: While the {{site.data.keyword.cloudant_short_notm}} Query language has some similarities with MongoDB query documents,
-    these similarities arise from a commonality of purpose and do not necessarily extend to equivalence of function or result.
+The {{site.data.keyword.cloudant_short_notm}} Query language has some similarities with MongoDB query documents, but these similarities arise from a commonality of purpose and do not necessarily extend to equivalence of function or result.
 
 ### Selector basics
+{: #selector-basics}
 
 Elementary selector syntax requires you to specify one or more fields,
 and the corresponding values needed for those fields.
@@ -604,6 +635,7 @@ For more information about creating complex selector expressions,
 see [Creating selector expressions](#creating-selector-expressions).
 
 ### Selector with two fields
+{: #selector-with-two-fields}
 
 In the following example,
 the selector matches any document with a `name` field that contains `Paul`,
@@ -622,6 +654,7 @@ _Example of a more complex selector:_
 {:codeblock}
 
 ## Subfields
+{: #subfields}
 
 Use a more complex selector to specify the values for field of nested objects,
 or subfields.
@@ -655,6 +688,7 @@ _Example of an equivalent field and subfield selector that uses dot notation:_
 {:codeblock}
 
 ## Operators
+{: #operators}
 
 Operators are identified by the use of a dollar sign (`$`) prefix in the name field.
 
@@ -682,6 +716,7 @@ A selector without an explicit operator is considered to have an implicit operat
 The exact implicit operator is determined by the structure of the selector expression.
 
 ## Implicit Operators
+{: #implicit-operators}
 
 The two implicit operators are:
 
@@ -844,12 +879,14 @@ _Example that uses explicit `$and` and `$eq` operators:_
 {:codeblock}
 
 ## Explicit operators
+{: #explicit-operators}
 
 All operators,
 apart from the `$eq` (equality) and `$and` and operators,
 must be stated explicitly.
 
 ## Combination Operators
+{: #combination-operators}
 
 Combination operators are used to combine selectors.
 In addition to the common Boolean operators found in most programming languages,
@@ -871,8 +908,10 @@ Operator                                | Argument | Purpose
 [`$or`](#the-or-operator)               | Array    | Matches if any of the selectors in the array match. All selectors must use the same index.
 
 ### Examples of combination operators
+{: #examples-of-combination-operators}
 
 #### The `$all` operator
+{: #the-all-operator}
 
 The `$all` operator matches an array value if it contains _all_ the elements of the argument array.
 
@@ -895,6 +934,7 @@ _Example of using the $all operator:_
 {:codeblock}
 
 #### The `$allMatch` operator
+{: #the-allmatch-operator}
 
 The `$allMatch` matches and returns all documents that contain an array field,
 where all the elements in the array field match the supplied query criteria.
@@ -913,6 +953,7 @@ _Example of using the $allMatch operator:_
 {:codeblock}
 
 #### The `$and` operator
+{: #the-and-operator}
 
 The `$and` operator matches if all the selectors in the array match.
 
@@ -945,6 +986,7 @@ _Example of using the $and operator:_
 {:codeblock}
 
 #### The `$elemMatch` operator
+{: #the-elemmatch-operator}
 
 The `$elemMatch` operator matches and returns all documents that contain an array field
 with at least one element that matches the supplied query criteria.
@@ -970,6 +1012,7 @@ _Example of using the $elemMatch operator:_
 {:codeblock}
 
 #### The `$nor` operator
+{: #the-nor-operator}
 
 The `$nor` operator matches if the selector does _not_ match.
 
@@ -999,6 +1042,7 @@ _Example of using the $nor operator:_
 {:codeblock}
 
 #### The `$not` operator
+{: #the-not-operator}
 
 The `$not` operator matches if the selector does _not_ resolve to a value of `true`.
 
@@ -1026,6 +1070,7 @@ _Example of using the $not operator:_
 {:codeblock}
 
 #### The `$or` operator
+{: #the-or-operator}
 
 The `$or` operator matches if any of the selectors in the array match.
 
@@ -1050,6 +1095,7 @@ _Example of using the $or operator:_
 {:codeblock}
 
 ## Condition Operators
+{: #condition-operators}
 
 Condition operators are specific to a field,
 and are used to evaluate the value that is stored in that field.
@@ -1079,13 +1125,15 @@ Array         | `$in`     | Array of JSON values | The document field must exist
 Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](http.html#404). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
               | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression.
 
-> **Note**: Regular expressions do not work with indexes,
-so they must not be used to filter large data sets. They can, however, be used to restrict a
-`partial index <find/partial_indexes>`.
+Regular expressions do not work with indexes,
+so they must not be used to filter large data sets. However, they can be used to restrict a `partial index <find/partial_indexes>`.
+{: tip}
 
 ### Examples of condition operators
+{: #examples-of-condition-operators}
 
 #### The `$lt` operator
+{: #the-lt-operator}
 
 The `$lt` operator matches if the specified field content is less than the argument.
 
@@ -1130,6 +1178,7 @@ _Example of using the `$lt` operator with a database that is indexed on the fiel
 {:codeblock}
 
 #### The `$lte` operator
+{: #the-lte-operator}
 
 The `$lte` operator matches if the specified field content is less than or equal to the argument.
 
@@ -1174,6 +1223,7 @@ _Example of using the `$lte` operator with a database that is indexed on the fie
 {:codeblock}
 
 #### The `$eq` operator
+{: #the-eq-operator}
 
 The `$eq` operator matches if the specified field content is equal to the supplied argument.
 
@@ -1216,11 +1266,13 @@ _Example of using the `$eq` operator with a database that is indexed on the fiel
 {:codeblock}
 
 #### The `$ne` operator
+{: #the-ne-operator}
 
 The `$ne` operator matches if the specified field content is not equal to the supplied argument.
 
-> **Note**: The `$ne` operator cannot be the basic (lowest level) element in a selector
+The `$ne` operator cannot be the basic (lowest level) element in a selector
 when you use an index of type `json`.
+{: tip}
 
 _Example of using the `$ne` operator with full text indexing:_
 
@@ -1259,6 +1311,7 @@ _Example of using the `$ne` operator with a primary index:_
 {:codeblock}
 
 #### The `$gte` operator
+{: #the-gte-operator}
 
 The `$gte` operator matches if the specified field content is greater than or equal to the argument.
 
@@ -1303,6 +1356,7 @@ _Example of using the `$gte` operator with a database that is indexed on the fie
 {:codeblock}
 
 #### The `$gt` operator
+{: #the-gt-operator}
 
 The `$gt` operator matches if the specified field content is greater than the argument.
 
@@ -1347,6 +1401,7 @@ _Example of using the `$gt` operator with a database that is indexed on the fiel
 {:codeblock}
 
 #### The `$exists` operator
+{: #the-exists-operator}
 
 The `$exists` operator matches if the field exists,
 regardless of its value.
@@ -1371,8 +1426,9 @@ _Example of using the $exists operator:_
 {:codeblock}
 
 #### The `$type` operator
+{: #the-type-operator}
 
-The `$type` operator requires that the specified document field is of the correct type.
+The `$type` operator requires the specified document field is of the correct type.
 
 _Example of using the `$type` operator:_
 
@@ -1393,8 +1449,9 @@ _Example of using the `$type` operator:_
 {:codeblock}
 
 #### The `$in` operator
+{: #the-in-operator}
 
-The `$in` operator requires that the document field _must_ exist in the list provided.
+The `$in` operator requires the document field _must_ exist in the list provided.
 
 _Example of using the $in operator:_
 
@@ -1416,8 +1473,9 @@ _Example of using the $in operator:_
 {:codeblock}
 
 #### The `$nin` operator
+{: #the-nin-operator}
 
-The `$nin` operator requires that the document field must _not_ exist in the list provided.
+The `$nin` operator requires the document field must _not_ exist in the list provided.
 
 _Example of using the $nin operator:_
 
@@ -1439,6 +1497,7 @@ _Example of using the $nin operator:_
 {:codeblock}
 
 #### The `$size` operator
+{: #the-size-operator}
 
 The `$size` operator matches the length of an array field in a document.
 
@@ -1461,6 +1520,7 @@ _Example of using the `$size` operator:_
 {:codeblock}
 
 #### The `$mod` operator
+{: #the-mod-operator}
 
 The `$mod` operator matches documents where the expression (`field % Divisor == Remainder`) is true,
 and only when the document field is an integer.
@@ -1468,11 +1528,12 @@ The Divisor and Remainder must be integers.
 They can be positive or negative integers.
 A query where the Divisor or Remainder is a non-integer returns a [404 status](http.html#404).
 
->	**Note**: When you use negative integer values for the Divisor or Remainder,
+When you use negative integer values for the Divisor or Remainder,
 the {{site.data.keyword.cloudant_short_notm}} `$mod` operator behaves in a similar way to the
 [Erlang `rem` modulo operator ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/reference_manual/expressions.html){:new_window},
 or the [`%` operator in C ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){:new_window},
 and uses [truncated division ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Modulo_operation){:new_window}.
+{: tip}
 
 _Example of using the `$mod` operator:_
 
@@ -1493,6 +1554,7 @@ _Example of using the `$mod` operator:_
 {:codeblock}
 
 #### The `$regex` operator
+{: #the-regex-operator}
 
 The `$regex` operator matches when the field is a string value _and_ matches the supplied regular expression.
 
@@ -1517,18 +1579,19 @@ _Example of using the `$regex` operator:_
 {:codeblock}
 
 ## Creating selector expressions
+{: #creating-selector-expressions}
 
 In general,
 whenever you have an operator that takes an argument,
 that argument can itself be another operator with arguments of its own.
 This expansion enables more complex selector expressions.
 
->   **Note**: Combination or array logical operators, such as `$regex`, can
-> result in a full database scan when using indexes of type JSON,
-> resulting in poor performance. Only equality operators, such as `$eq`,
-> `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups to be
-> performed. To ensure indexes are used effectively, analyze the
-> [explain plan](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans) for each query.  
+Combination or array logical operators, such as `$regex`, can
+result in a full database scan when you use indexes of type JSON,
+resulting in poor performance. Only equality operators, such as `$eq`,
+`$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups. To ensure that indexes are used effectively, analyze the
+[explain plan](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans) for each query.  
+{: tip}
 
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently _based_ on
@@ -1541,10 +1604,11 @@ For more information about what is implemented,
 see the [Erlang Regular Expression ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/man/re.html){:new_window} information.
 
 ## Sort Syntax
+{: #sort-syntax}
 
 The `sort` field contains a list of field name and direction pairs,
 expressed as a basic array.
-The first field name and direction pair is the topmost level of sort.
+The first field name and direction pair are the topmost level of sort.
 The second pair,
 if provided,
 is the next level of sort.
@@ -1554,8 +1618,8 @@ Use dotted notation if wanted for subfields.
 
 The direction value is `asc` for ascending, and `desc` for descending.
 
->	**Note**: If you omit the direction value,
-the default `asc` is used.
+If you omit the direction value, the default `asc` is used.
+{: tip}
 
 _Example of simple sort syntax:_
 
@@ -1591,12 +1655,12 @@ To use sorting, ensure that:
 	with all the sort fields in the same order.
 -	Each object in the sort array has a single key.
 
->	**Note**: If an object in the sort array does not have a single key,
-the resulting sort order is implementation-specific and might change.
+If an object in the sort array does not have a single key, the resulting sort order is implementation-specific and might change.
+{: tip}
 
->	**Note**: Currently,
-{{site.data.keyword.cloudant_short_notm}} Query does not support multiple fields with different sort orders,
+Currently, {{site.data.keyword.cloudant_short_notm}} Query does not support multiple fields with different sort orders,
 so the directions must be either all ascending or all descending.
+{: tip}
 
 If the direction is ascending,
 you can use a string instead of an object to specify the sort fields.
@@ -1625,13 +1689,13 @@ JSON index                                | It is not necessary to specify the t
 Text index of all fields in all documents | Specify the type of any sort field in the query if the database contains any documents in which the sort field has one type _and also_ contains some documents in which the sort field has a different type.
 Any other text index                      | Specify the type of all sort fields in the query.
 
->	**Note**: A text index of all fields
+A text index of all fields
 in all documents is created when you use the syntax:
 [`"index": {}`](#the-index-field).
+{: tip}
 
->	**Note**: The sorting order is undefined when fields contain different data types.
-This characteristic is an important difference between text and view indexes.
-Sorting behavior for fields with different data types might change in future versions.
+The sorting order is undefined when fields contain different data types. This characteristic is an important difference between text and view indexes. Sorting behavior for fields with different data types might change in future versions.
+{: tip}
 
 _Example of a simple query that uses sorting:_
 
@@ -1653,6 +1717,7 @@ _Example of a simple query that uses sorting:_
 {:codeblock}
 
 ## Filtering fields
+{: #filtering-fields}
 
 It is possible to specify exactly which fields are returned for a document when you select from a database.
 The two advantages are:
@@ -1662,8 +1727,8 @@ The two advantages are:
 
 The fields to be returned are specified as an array.
 
->	**Note**: Only the specified filter fields are included in the response.
-`_id` or other metadata fields are not automatically included.
+Only the specified filter fields are included in the response. `_id` or other metadata fields are not automatically included.
+{: tip}
 
 _Example of selective retrieval of fields from matching documents:_
 
@@ -1683,18 +1748,21 @@ _Example of selective retrieval of fields from matching documents:_
 {:codeblock}
 
 ## Pagination
+{: #pagination}
 
-{{site.data.keyword.cloudant_short_notm}} Query supports pagination via the bookmark field. Every `_find` response contains a bookmark - a token
+{{site.data.keyword.cloudant_short_notm}} Query supports pagination by the bookmark field. Every `_find` response contains a bookmark - a token
 that {{site.data.keyword.cloudant_short_notm}} uses to determine where to resume from when subsequent queries are made. To get the next
 set of query results, add the bookmark that was received in the previous response to your next request.
-Remember to keep the selector the same, otherwise you will receive unexpected results. To paginate backwards,
+Remember to keep the selector the same, otherwise you receive unexpected results. To paginate backwards,
 you can use a previous bookmark to return the previous set of results.
 
-Note that the presence of a bookmark doesn’t guarantee that there are more results. You can test whether
-you have reached the end of the result set by comparing the number of results returned with the page size
-requested - if the results returned < limit, there are no more results.
+The presence of a bookmark doesn’t guarantee more results. You can test whether
+you are at the end of the result set by comparing the number of results that are returned with the page size
+requested. If the results returned < limit, no more results were returned in the result set.
+{: tip}
 
 ## Explain Plans
+{: #explain-plans}
 
 {{site.data.keyword.cloudant_short_notm}} Query chooses which index to use for responding to a query,
 unless you specify an index at query time.
@@ -1703,14 +1771,14 @@ When you specify an index to use,
 {{site.data.keyword.cloudant_short_notm}} Query uses the following logic:
 
 -	The query planner looks at the selector section,
-	and finds the index with the closest match to operators and fields used in the query.
-	If there are two or more JSON type indexes that match,
+	and finds the index with the closest match to operators and fields that are used in the query.
+	If two or more JSON type indexes match,
 	the index with the smallest number of fields in the index is preferred.
-  If there are still two or more candidate indexes,
+  If two or more candidate indexes still exist,
   the index with the first alphabetical name is chosen.
 -	If a `json` type index _and_ a `text` type index might both satisfy a selector,
 	the `json` index is chosen by default.
--	If a `json` type index _and_ a `text` type index the same field (for example `fieldone`),
+-	If a `json` type index _and_ a `text` type index exist in the same field (for example `fieldone`),
 	but the selector can be satisfied only by using a `text` type index,
 	then the `text` type index is chosen.
 
@@ -1833,7 +1901,7 @@ _Example response that shows which index was used to answer a query:_
 To instruct a query to use a specific index,
 add the `use_index` parameter to the query.
 
-The value of the `use_index` parameter takes one of two formats:
+The value of the `use_index` parameter takes one of the following formats:
 
 -	`"use_index": "$DDOC"`
 -	`"use_index": ["$DDOC","$INDEX_NAME"]`
@@ -1852,6 +1920,7 @@ _Example query with instructions to use a specific index:_
 {:codeblock}
 
 ## Note about `text` indexes
+{: #note-about-text-indexes}
 
 The basic premise for full text indexes is that a document
 is "expanded" into a list of key:value pairs that are indexed by Lucene.
@@ -1869,11 +1938,13 @@ if a match was found as a result of searching for either an individual element,
 or an element from an array,
 then the match is considered a success.
 
-> **Note**: Like Cloudant Search indexes, Cloudant Query indexes of `type: text` are limited to 200 results when queried.
+Like Cloudant Search indexes, Cloudant Query indexes of `type: text` are limited to 200 results when queried.
+{: tip}
 
 <div id="selector-translation"></div>
 
 ### Selector conversion
+{: #selector-conversion}
 
 A standard Lucene search expression might not fully implement the wanted JSON-based {{site.data.keyword.cloudant_short_notm}} query syntax.
 Therefore,
@@ -1905,6 +1976,7 @@ _The corresponding Lucene query:_
 {:codeblock}
 
 ### A more complex example
+{: #a-more-complex-example}
 
 The following example illustrates some important points.
 
@@ -1961,7 +2033,7 @@ This search is more complicated.
 The `$in` operator has some special semantics for array values that are inherited from the way MongoDB's behaves.
 In particular,
 the `$in` operator applies to the value **OR** any of the values that are contained in an array that is named by the field.
-In our example,
+In this example,
 the expression means that both `"type":"starch"` **AND** `"type":["protein"]` would match the example argument to `$in`.
 Earlier,
 the `type_3astring` expression was converted to `type:string`.
@@ -1992,6 +2064,7 @@ _Corresponding Lucene query. The '#' comments are not valid Lucene syntax, but h
 <div id="example-movies-demo-database"></div>
 
 ## Example: Movies demonstration database
+{: #example-movies-demonstration-database}
 
 To describe full text indexes,
 it is helpful to have a large collection of data to work with.
@@ -2080,12 +2153,13 @@ _Example response after a text index is created successfully:_
 The most obvious difference in the results you get when you use full text indexes is
 the inclusion of a large `bookmark` field.
 The reason is that text indexes are different from view-based indexes.
-For more flexibility when you work with the results that are obtained from a full text query,
+For more flexibility, when you work with the results that are obtained from a full text query,
 you can supply the `bookmark` value as part of the request body.
 Use the `bookmark` to specify which page of results you require.
 
->	**Note**: The actual `bookmark` value is long,
+The actual `bookmark` value is long,
 so the examples here have values that are truncated for reasons of clarity.
+{: tip}
 
 _Example of using HTTP to search for a specific document within the database:_
 
