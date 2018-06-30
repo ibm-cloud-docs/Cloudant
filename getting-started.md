@@ -66,15 +66,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	```
 	{:pre}
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-	You should get a list of all the Python modules installed on your system. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
-=======
-	You will see a list of all the Python modules installed on your system. Inspect the list, looking for a {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
->>>>>>> 68e1544... Run Acrolinx for fb93523b.
-=======
-	You see a list of all the Python modules that are installed on your system. Inspect the list, looking for a {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
->>>>>>> f5f7fe2... Run Acrolinx and add tags for fb93523b.
+	You will see a list of all the Python modules that are installed on your system. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
 
 	```
 	cloudant==2.3.1
