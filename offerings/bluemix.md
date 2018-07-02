@@ -110,7 +110,7 @@ you must either upgrade to a paid account or delete data and wait until the next
 
 If you would like to store more than one GB of data,
 or to have a greater throughput capacity,
-move to the [Standard plan](#standard-plan). Upgrading from the Lite Plan to the Standard Plan is non-disruptive process and requires no application or database downtime. 
+move to the [Standard plan](#standard-plan). Upgrading from the Lite Plan to the Standard Plan is a non-disruptive process and requires no application or database downtime. 
 
 ### Standard plan
 {: #standard-plan}
@@ -124,7 +124,7 @@ you can also change the amount of provisioned throughput capacity for lookups,
 writes,
 and queries.
 
-Note that downgrading from a Standard plan to a Lite plan has the risk of the Cloudant plan being suspended if the data size is over the 1GB limit of the Lite plan.
+Note that downgrading from a Standard plan to a Lite plan has the risk of that Cloudant plan being suspended if the data size is over the 1GB limit of the Lite plan.
 
 ### Dedicated hardware plan
 {: #dedicated-hardware-plan}
