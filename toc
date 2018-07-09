@@ -23,14 +23,14 @@ Cloudant NoSQL DB
 		release_info/release_notes.md
 		release_info/differences_major_releases.md
 		release_info/deprecations.md
-
+	
 	{: .topicgroup}
-    Other offerings
+	Other offerings
 		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
 		offerings/cloudant.com.md
 	{: .navgroup-end}
-	
+
 	{: .navgroup id="reference"}
     basics/index.md
 
@@ -101,6 +101,7 @@ Cloudant NoSQL DB
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/design_document_management.md
+		guides/iam.md
 		guides/mvcc.md
 		guides/transactions.md
 		guides/sharding.md
@@ -111,3 +112,4 @@ Cloudant NoSQL DB
 		guides/replication_guide.md
 		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
+
