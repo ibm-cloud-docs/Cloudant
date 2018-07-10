@@ -246,12 +246,7 @@ It is used for both data and index storage.
 All Standard and Lite plan resources include disk space, which
 is used for JSON data, attachments, and indexes. All Standard and Lite plan
 resources are monitored for disk space used. When you use more data than the
-plan allocates, you can expect the following conditions to apply:
-
-- Standard plan instance resources: If the account uses more than the amount of storage that is alloted in your plan configuration, it is considered to 'overflow'. Overflow causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.
-- Lite plan instance resources: Disk usage is capped on the Lite plan. After you reach the cap, you cannot write new data. To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.
-
-For Standard plan instance resources, the extra money you must pay for using more disk space than is provided in the plan is called an 'overage'. An overage is calculated on an hourly basis.
+plan allocates, you can expect the conditions described in the table to apply:
 
 <table>
 
