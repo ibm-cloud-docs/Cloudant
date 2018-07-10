@@ -246,7 +246,7 @@ It is used for both data and index storage.
 All Standard and Lite plan resources include disk space, which
 is used for JSON data, attachments, and indexes. All Standard and Lite plan
 resources are monitored for disk space used. When you use more data than the
-plan allocates, you can expect the conditions described in the table to apply:
+plan allocates, you can expect the conditions described in the following table to apply:
 
 <table>
 
