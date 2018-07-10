@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-26"
+lastupdated: "2018-07-10"
 
 ---
 
@@ -243,21 +243,37 @@ It is used for both data and index storage.
 ### Disk overage
 {: #disk-overage}
 
-All Standard and Lite plan service instances are monitored for disk space used.
-If the account uses more than the amount of storage that is provided in your plan configuration,
-it is considered to 'overflow'.
-Overflow causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.
+All Standard and Lite plan resources include disk space, which
+is used for JSON data, attachments, and indexes. All Standard and Lite plan
+resources are monitored for disk space used. When you use more data than the
+plan allocates, you can expect the following conditions to apply:
 
-The extra amount of money that you must pay for using more disk space than is provided in the plan is called an 'overage'.
-Overage is calculated on an hourly basis.
-It is not possible to overflow the disk space available in the Lite plan.
+- Standard plan instance resources: If the account uses more than the amount of storage that is alloted in your plan configuration, it is considered to 'overflow'. Overflow causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.
+- Lite plan instance resources: Disk usage is capped on the Lite plan. After you reach the cap, you cannot write new data. To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.
 
-For example,
-assume that your Standard plan instance increases disk usage to 107 GB for half a day (12 hours).
-This change means that your instance caused overflow of 87 GB more than the 20 GB plan allocation,
-for 12 hours.
-Therefore,
-you would be billed an overage charge based on 87 GB x 12 hours = 1044 GB hours for that extra space.
+For Standard plan instance resources, the extra money you must pay for using more disk space than is provided in the plan is called an 'overage'. An overage is calculated on an hourly basis.
+
+<table>
+
+<tr>
+<th id="resource">Resource</th><th id="description">Description</th>
+</tr>
+<tr>
+<th headers="standard-plan-instance">Standard plan instance</td>
+<td headers="description"><p>
+<ul><li>If the account uses more than the amount of storage that is alloted in your plan configuration, it is considered to 'overflow'. Overflow causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.</li>
+<li>The extra money you must pay, for using more disk space than is provided in the plan, is called an 'overage'. An overage is calculated on an hourly basis.</li></ul></p></td>
+</tr>
+<tr>
+<th headers="lite-plan-instance">Lite plan instance</td>
+<td headers="description">Disk usage is capped on the Lite plan. After you reach the cap, you cannot write new data. To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.</td>
+</tr>
+</table>
+
+
+
+For example, assume that your Standard plan instance increases disk usage to 107 GB for half a day (12 hours). This change means that your instance caused overflow of 87 GB more than the 20 GB plan allocation, for 12 hours.
+Therefore, you would be billed an overage charge based on 87 GB x 12 hours = 1044 GB hours for that extra space.
 
 Overage is calculated by using the maximum number of GB more than the plan allocation during a particular hour within the billing cycle.
 
