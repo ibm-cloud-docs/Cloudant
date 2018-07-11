@@ -260,7 +260,9 @@ plan allocates, you can expect the conditions described in the following table t
 </tr>
 <tr>
 <th headers="lite-plan">Lite</td>
-<td headers="description">Disk usage is capped on the Lite plan. After you reach the cap, you cannot write new data. To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.</td>
+<td headers="description"><p>
+<ul><li>Disk usage is capped on the Lite plan. After you reach the cap, you cannot write new data. To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.</p>
+</li></ul></td>
 </tr>
 </table>
 
