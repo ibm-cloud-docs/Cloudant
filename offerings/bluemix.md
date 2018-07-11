@@ -253,13 +253,13 @@ plan allocates, you can expect the conditions described in the following table t
 <th id="plan">Plan</th><th id="description">Description</th>
 </tr>
 <tr>
-<th headers="standard-plan">Standard plan</td>
+<th headers="standard-plan">Standard</td>
 <td headers="description"><p>
 <ul><li>If the account uses more than the amount of storage that is alloted in your plan configuration, it is considered to 'overflow'. Overflow causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.</li>
 <li>The extra money you must pay, for using more disk space than is provided in the plan, is called an 'overage'. An overage is calculated on an hourly basis.</li></ul></p></td>
 </tr>
 <tr>
-<th headers="lite-plan">Lite plan</td>
+<th headers="lite-plan">Lite</td>
 <td headers="description">Disk usage is capped on the Lite plan. After you reach the cap, you cannot write new data. To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.</td>
 </tr>
 </table>
