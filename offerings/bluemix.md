@@ -213,6 +213,9 @@ complete.
 
 ![Account Dashboard](../images/cloudant_capacity_change.png)
 
+The size of the capacity increase is limited to 10 units (1000 lookups/second, 500 writes/second, and 50 queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} Dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+{: tip}
+
 <div id="throughput"></div>
 
 ### Monitoring usage 
