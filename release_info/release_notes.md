@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-29"
+lastupdated: "2018-07-12"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-06-29"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2018-07-10 -->
 
 # Release Notes
 {: #release-notes}
@@ -25,22 +25,38 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 7084 (July 12, 2018)
+{: #build-7084-july-12-2018}
+
+- Refactor code for `_stats` reducer.
+- Fix active size calculations for views.
+- Rewrite the `couch_key_tree` algorithm to reduce its computational complexity and avoid calling stemming when unnecessary.  
+- Change allocation strategy for message queue for each important process so it is not stored on the heap of that process.
+- Improvements to internal audit facility.
+- Any constant fields that are in the selector, and are part of the index, for example, {A: {$eq: 10}}, are inserted into the sort list if they are not already included. This method increases the chance that the best index is selected for the query, for example, index = [A, B], sort = [B], and selector = {A: 1}. The sort then becomes [A, B]. 
+
+<p class="tip">Only the fields that are in front of the current sort fields in the list are added.</p> 
+
+
 ## Build 7051 (June 29, 2018)
+{: #build-7051-june-29-2018}
 
 - Add forward compatibility clause for `_stats` disk format change.
 - Add compatibility clause for attachment receiver to facilitate Erlang upgrade.
 - Improvements to internal audit facility.
 
 ## Build 7014 (June 12, 2018)
+{: #build-7014-june-12-2018}
 
 - Remove the requirement to cover `_id` or `_rev` in the query selector in order to use a JSON index that explicitly contains them.
 
 ## Build 6979 (May 29, 2018)
+{: #build-6979-may-29-2018}
 
 - Improvements to internal audit facility.
 
 ## Build 6919 (May 14, 2018)
-{: build-6919-may-14-2018}
+{: #build-6919-may-14-2018}
 
 - Remove outdated dependencies.
 - Introduce new action, `DELETE`, on the `/_iam_session` endpoint, which invalidates the IAM session cookie. 
