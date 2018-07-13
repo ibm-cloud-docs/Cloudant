@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-12"
+lastupdated: "2018-07-13"
 
 ---
 
@@ -253,7 +253,7 @@ plan allocates, you can expect the conditions described in the following table t
 <table>
 
 <tr>
-<th id="plan">Plan</th><th id="description">Description</th>
+<th id="plans">Plan</th><th id="description">Description</th>
 </tr>
 <tr>
 <th headers="standard-plan">Standard</td>

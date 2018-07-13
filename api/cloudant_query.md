@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-04"
+lastupdated: "2018-07-13"
 
 ---
 
@@ -420,8 +420,8 @@ although these actions are not usually necessary when you use {{site.data.keywor
 
 Design documents are discussed in more detail [here](design_documents.html).
 
-### Response body format
-{: #response-body-format}
+### Response body format for listing all {{site.data.keyword.cloudant_short_notm}} Query indexes
+{: #response-body-format-for-listing-all-IBM-cloudant-query-indexes}
 
 -	**indexes**: Array of indexes
 	-	**ddoc**: ID of the design document the index belongs to.

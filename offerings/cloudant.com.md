@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-28"
+lastupdated: "2018-07-13"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2018-06-28"
 # Cloudant.com
 
 > **Note**: The {{site.data.keyword.cloudantfull}} Shared Plan is being retired on 31 March 2018. 
-As of  24 July 2017, no new Shared Plan accounts can be created on the [{{site.data.keyword.cloudant_short_notm}} Sign up page ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/){:new_window}. 
+As of  24 July 2017, no new Shared Plan accounts can be created from the https://cloudant.com page. 
 
 {{site.data.keyword.cloudant_short_notm}} is a hosted and fully-managed database-as-a-service (DBaaS). 
 It was built from the ground up to scale globally, run non-stop, and handle a wide variety of data types 
