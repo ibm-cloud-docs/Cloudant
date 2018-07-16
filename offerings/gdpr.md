@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-07-16"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-04-28 -->
 
@@ -19,7 +20,7 @@ lastupdated: "2018-06-07"
 The GDPR seeks to create a harmonized data protection law framework across the EU and aims 
 to give citizens back the control of their personal data, while imposing strict rules on 
 those hosting and ‘processing’ this data, anywhere in the world. The Regulation also introduces 
-rules relating to the free movement of personal data within and outside the EU. 
+rules that relate to the free movement of personal data within and outside the EU. 
 
 With the [General Data Protection Regulation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.eugdpr.org/){:new_window},
 {{site.data.keyword.cloudantfull}} customers can rely on 
@@ -42,24 +43,23 @@ for GDPR:
  * Identity/civil status
  * Personal life
  * Professional life
- * Economic and financial information
  * Location data
  * Connectivity/device data
 
-**Sensitive Personal Data**, restricted to:
-  * Health data, extra conditions apply to be covered in a Service Description
+**Sensitive Personal Data**, which is restricted to:
+  * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){:new_window} and [{{site.data.keyword.cloud}} Additional Service Description ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6627-04/$file/i126-6627-04_04-2018_en_US.pdf){:new_window}
 
-If you are storing health care data, you *must* complete the following tasks:
+If you are storing healthcare data, you *must* complete the following tasks:
  - Notify {{site.data.keyword.cloudant_short_notm}} before writing any data.
  - Request a HIPAA-compliant dedicated cluster.
 
 For more information about supported classifications of Personal Data, see the 
-[{{site.data.keyword.cloudant_short_notm}} detailed system requirements under 2. Personal Data ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
+[Data Sheet Addendum (DSA) under 2. Personal Data ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
 
 ## Data about me
 
 {{site.data.keyword.cloudant_short_notm}} records some data about its users, and is a Data Controller for said 
-Personal Information (PI) data. The data we record depends on the type of account you have.
+Personal Information (PI) data. The data that {{site.data.keyword.cloudant_short_notm}} records depends on the type of account you have.
 
 If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
 Enterprise cluster, we record data 
@@ -70,22 +70,22 @@ Enterprise cluster, we have your:
  * Name
  * Email
 
-The data we hold can be viewed and updated via the {{site.data.keyword.cloudant_short_notm}} dashboard.
+The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and updated via the {{site.data.keyword.cloudant_short_notm}} dashboard.
 
 If you have an account provisioned by {{site.data.keyword.cloud_notm}} (including a dedicated instance), 
 {{site.data.keyword.cloudant_short_notm}} _does not_ collect the personal data previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} processes limited client PI in the course of running the service and optimising 
-the user experience of it. We use email for contacting clients as appropriate. Monitoring 
-client interactions with the {{site.data.keyword.cloudant_short_notm}} dashboard is the other way we process PI.
+the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email for contacting clients as appropriate. Monitoring 
+client interactions with the {{site.data.keyword.cloudant_short_notm}} dashboard is the other way {{site.data.keyword.cloudant_short_notm}} processes PI.
 
 ### Restriction of processing
 
-We send dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict 
+{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict 
 processing of client PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information associated 
-with the client as sent to Segment, and prevents further data from being sent. We need to retain the 
-ability to contact dedicated clients via email and provide an interface for clients to keep this 
+with the client as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
+ability to contact dedicated clients via email and provides an interface for clients to keep this 
 information up to date either directly, or via client configuration of their contact details 
 via their {{site.data.keyword.cloud_notm}} account details.
 
@@ -96,15 +96,16 @@ visible to our operations and support teams (see below).
 
 For sensitive data, that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}, 
 you must encrypt or otherwise protect (pseudonymise) your data before sending it to us. You must avoid 
-using PI for a document `_id`, as these are always visible and written to the access logs.
+using PI as a document `_id` in your URLs, for example, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, 
+as these are always visible and written to the access logs.
 
 ## Data locations
 
 Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data will be 
-made available, and kept up to date, via the Data Sheet Addendum (DPA).
+made available, and kept up to date, via the DSA.
 
 For more information about data locations, see the 
-[{{site.data.keyword.cloudantfull}} detailed system requirements under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
+[DSA under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
 
 ## Service security
 
@@ -114,12 +115,12 @@ As a user of {{site.data.keyword.cloudant_short_notm}}, you should:
 
  * Use the default CORS configuration to prevent unexpected access.
  * Use API keys liberally, such that components can have 'least privileged access,' coupled with the audit log. This practice allows you to understand who accessed which data.
- * Encrypt or otherwise protect (pseudonymise) any sensitive data before sending it to us.
+ * Encrypt or otherwise protect (pseudonymise) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
 
 ### Physical And Environmental Security Measures
 
 Physical security of our data centers is handled by our infrastructure providers: SoftLayer, 
-AWS, and 21Vianet. All hold externally audited certifications for their physical security. We 
+AWS, and 21Vianet. All hold externally audited certifications for their physical security. {{site.data.keyword.cloudant_short_notm}} 
 will not be providing further details of the physical security controls in place at our data 
 centers.
 
@@ -131,7 +132,7 @@ customer upon request.
 
 Technical and Organisational Measures (TOMs) are employed by {{site.data.keyword.cloudant_short_notm}} 
 to ensure the security of 
-Personal Data. We hold externally audited certifications for the controls we employ. 
+Personal Data. {{site.data.keyword.cloudant_short_notm}} holds externally audited certifications for the controls {{site.data.keyword.cloudant_short_notm}} employs. 
 Certification details and attestation reports (i.e., ISO and SOC2) can be provided to the 
 customer upon request.
 
@@ -159,20 +160,20 @@ For more information on deleting tombstones, see [Simple removal of 'tombstone' 
 ### When is a deleted document removed?
 
 Compaction runs automatically and periodically removes old revisions (deleted or otherwise) 
-from the database, by writing out only 'leaf' revisions to a new file. We keep a history of 
+from the database, by writing out only 'leaf' revisions to a new file. {{site.data.keyword.cloudant_short_notm}} keeps a history of 
 `_id` and `_rev` to enable replication, but not old document bodies.
 
 > **Note**: {{site.data.keyword.cloudant_short_notm}} does not expose the CouchDB compaction API.
 
-We do not guarantee that a database will be compacted in a specific time. Clusters can host 
-10000+ accounts, each containing many databases. Compaction is done as a background process across 
-the whole cluster, and databases are always being compacted; there is just no guarantee it is the 
+{{site.data.keyword.cloudant_short_notm}} does not guarantee that a database will be compacted in a specific time. 
+Compaction is done as a background process across 
+the storage tier, and databases are always being compacted; there is just no guarantee it is the 
 data you have just deleted/changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting *Right to be forgotten* requests via 
 the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO) ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window}. 
-When a *Right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, we verify the request, 
-explicitly trigger database compaction, and verify that compaction has occurred.
+When a *Right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request, 
+explicitly triggers database compaction, and verifies that compaction has occurred.
 At the end of this process, the only version of the document is its tombstone 
 (`_id`, `_rev`, `_deleted`, and any fields your application includes there).
 
@@ -196,7 +197,7 @@ If a document needs removal via a *Right to be forgotten* request:
 
 1. File a request with the [{{site.data.keyword.IBM_notm}} DPO ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window} to request purging of specific document `_id` values along with the reason.
 1. On receipt of a formal request by the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} operations
-verifies the request to confirm the `id` contains PI. We do not purge data that does not have PI in the `_id`. 
+verifies the request to confirm the `id` contains PI. {{site.data.keyword.cloudant_short_notm}} does not purge data that does not have PI in the `_id`. 
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
 This process is only to be used for emergency deletion requests (for example, *right to be 
@@ -210,7 +211,8 @@ rely on regular purging by the {{site.data.keyword.cloudant_short_notm}} operati
 1. The request is for over 100 documents.
 
 Even with purge, PI in the `_id` field leaks into places you do not want it, such as 
-{{site.data.keyword.cloudant_short_notm}} logs, so it should be avoided. We have a business reason to retain those logs and 
+{{site.data.keyword.cloudant_short_notm}} logs, so it should be avoided. 
+{{site.data.keyword.cloudant_short_notm}} has a business reason to retain those logs and 
 will not remove log lines containing document `_id` values.
 
 ### What about deleting a database?
