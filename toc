@@ -101,6 +101,7 @@ Cloudant NoSQL DB
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/design_document_management.md
+		guides/iam.md
 		guides/mvcc.md
 		guides/transactions.md
 		guides/sharding.md
