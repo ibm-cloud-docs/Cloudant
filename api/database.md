@@ -894,14 +894,13 @@ account.db.destroy($DATABASE, function (err, body, headers) {
 
 -->
 
-If deletion succeeds, you get a [200 or 202 response](http.html#201).
-An error response uses
-the HTTP status code to indicate what went wrong.
+If deletion succeeds, you get a [200 or 202 response](../api/http.html#http-status-codes){:new_window}.
+An error response uses the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
 200  | Database deleted successfully.
-202  | The database was successfully deleted on some nodes, but the number of nodes is less than the write quorum.
+202  | Database was successfully deleted on some nodes, but the number of nodes is less than the write quorum.
 404  | Database doesn't exist on all of the nodes.
 
 _Example response that is received after a database is deleted successfully:_
