@@ -25,6 +25,18 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build XXXX (July, YY, 2018)
+{: #build-XXXX-july-YY-2018}
+
+- Improve validation of configuration parameters supplied by administrator.
+- Delete compaction files when database is deleted while compaction is running.
+- Improve sandboxing features.
+- Optimize authentication check.
+- Change semantics of status codes for delete database.
+- Support `conflicts: true` for queries to the `/{db}/_find` endpoint.
+- Preserve update_seq across view compaction.
+
+
 ## Build 7084 (July 12, 2018)
 {: #build-7084-july-12-2018}
 
