@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-21"
+lastupdated: "2018-07-30"
 
 ---
 
@@ -27,6 +27,9 @@ Some CouchDB endpoints do not have {{site.data.keyword.cloudant_short_notm}} equ
 because it would not be meaningful.
 Similarly,
 some {{site.data.keyword.cloudant_short_notm}} endpoints do not have CouchDB equivalents.
+
+> **Note**: While Cloudant is API-compliant with CouchDB, Cloudant does not support URL 
+rewrites via the JavaScript function.
 
 For more information about a given endpoint on a service,
 click the corresponding icon.
