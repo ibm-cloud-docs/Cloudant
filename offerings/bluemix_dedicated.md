@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-07-13"
 
 ---
 
@@ -58,15 +58,7 @@ All plans are provided on servers with [at rest ![External link icon](../images/
 disk encryption. Access is over the public network connection and encrypted by 
 using HTTPS. For more detail, see [Security ![External link icon](../images/launch-glyph.svg "External link icon")](../offerings/security.html#security){:new_window}. 
 IP whitelisting is available on request to {{site.data.keyword.cloudant_short_notm}} Support and will apply to 
-the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level. 
-
-If you require bring-your-own-key (BYOK) for encryption-at-rest, this is enabled via {{site.data.keyword.cloud}} Key 
-Protect. {{site.data.keyword.cloudant_short_notm}} supports this feature for new {{site.data.keyword.cloudant_short_notm}} 
-[Dedicated Hardware plan](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public) 
-instances deployed in all regions. First, create an instance of the Dedicated 
-Hardware plan via the [{{site.data.keyword.cloud_notm}} Catalog](https://console.bluemix.net/catalog/). Then submit a 
-support ticket and our support team will coordinate getting your new Dedicated Hardware instance's 
-encryption-at-rest encryption keys managed via your Key Protect instance. 
+the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level.  
 
 The plan also offers [Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
 
