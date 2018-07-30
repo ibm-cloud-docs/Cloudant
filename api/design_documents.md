@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-07-30"
 
 ---
 
@@ -293,6 +293,8 @@ _Example JSON describing some rewrite rules:_
 }
 ```
 {:codeblock}
+> **Note**: While Cloudant is API-compliant with CouchDB, Cloudant does not support URL 
+rewrites via the JavaScript function.
 
 ### Example rewrite rules
 
