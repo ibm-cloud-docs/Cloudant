@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-13"
+lastupdated: "2018-07-30"
 
 ---
 
@@ -17,28 +17,28 @@ lastupdated: "2018-07-13"
 # Cloudant.com
 
 > **Note**: The {{site.data.keyword.cloudantfull}} Shared Plan is being retired on 31 March 2018. 
-As of  24 July 2017, no new Shared Plan accounts can be created from the https://cloudant.com page. 
+As of  24 July 2017, no new Shared Plan accounts can be created from the [Cloudant product page](https://cloudant.com){:new_window}. 
 
 {{site.data.keyword.cloudant_short_notm}} is a hosted and fully-managed database-as-a-service (DBaaS). 
 It was built from the ground up to scale globally, run non-stop, and handle a wide variety of data types 
-like [JSON](../basics/index.html#json),
-[full-text](../api/cloudant_query.html#creating-an-index),
-and [geospatial](../api/cloudant-geo.html).
+like [JSON](../basics/index.html#json){:new_window},
+[full-text](../api/cloudant_query.html#creating-an-index){:new_window},
+and [geospatial](../api/cloudant-geo.html){:new_window}.
 
 {{site.data.keyword.cloudant_short_notm}} is an operational data store optimized to handle concurrent 
 reads and writes, and enable high availability and data durability.
 
-It provides an [HTTP API](../basics/index.html#http-api) for working with your 
-[JSON](../basics/index.html#json) data, and 24-hour operational support and maintenance. 
+It provides an [HTTP API](../basics/index.html#http-api){:new_window} for working with your 
+[JSON](../basics/index.html#json){:new_window} data, and 24-hour operational support and maintenance. 
 {{site.data.keyword.cloudant_short_notm}} is based on 
 [Apache CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){:new_window}, 
 and is delivered as various multi-tenant, dedicated, and installed services.
 
 > **Note**: All currency values in this document are in US dollars ($).
 
-It is offered as either a [Shared Plan](#shared-plan) or an 
-[Enterprise (Dedicated) Plan](#enterprise-plan). {{site.data.keyword.cloudant_short_notm}} 
-is also available as an [{{site.data.keyword.cloud}} service](https://www.ibm.com/cloud/).
+It is offered as either a [Shared Plan](#shared-plan){:new_window} or an 
+[Enterprise (Dedicated) Plan](#enterprise-plan){:new_window}. {{site.data.keyword.cloudant_short_notm}} 
+is also available as an [{{site.data.keyword.cloud}} service](https://www.ibm.com/cloud/){:new_window}.
 
 > **Note**: The {{site.data.keyword.cloudant_short_notm}} Shared Plan and Enterprise (Dedicated) Plan 
 offerings are not available on the {{site.data.keyword.cloud_notm}} service.
