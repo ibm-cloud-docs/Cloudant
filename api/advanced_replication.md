@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-07-31"
 
 ---
 
@@ -527,6 +527,9 @@ _Example JSON for starting a filtered replication with supplied parameters:_
 }
 ```
 {:codeblock}
+
+The selector option provides performance benefits when compared with using the filter option. Use the selector option whenever possible. For more information, see the [`selector` ![External link icon](../images/launch-glyph.svg "External link icon")](replication.html#selector-field){:new_window} documentation.
+{: tip}
 
 ## Named Document Replication
 {: #named-document-replication}
