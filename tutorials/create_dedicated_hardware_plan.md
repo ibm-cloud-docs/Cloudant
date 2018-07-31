@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-07-13"
 
 ---
 
@@ -57,20 +57,25 @@ instances on it.
     -   Enter a Service name.<br/>
     -   Specify the region and space to deploy.<br/>
     -   Select a location for deployment.<br/>
-    -   Answer yes or no to the question about whether HIPAA is required. Note that HIPAA is only valid for U.S. locations.<br/> 
-     
+    -   Answer yes or no to the question about whether HIPAA is required.<br/>
+
+    **Note**: HIPAA is only valid for U.S. locations. {{site.data.keyword.IBM}} can provision a Dedicated or Bare Metal cluster to implement HIPAA controls. A cluster is only provisioned upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. This agreement is described in the Service Description terms. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
+      
     **Note**: You deploy and provision Standard plan instances in the same region and space.    
     ![Configure dedicated hardware](../tutorials/images/select_deployment_location.png)<br/>
+
     Start the provisioning process. 
     
 7.  Click the `Create` button to begin provisioning from the bottom of the page. <br/>
     **Note**: Billing is prorated daily so make sure that you want to provision and 
     pay for an environment before clicking the **Create** button.<br/>
     ![Provision dedicated hardware](../tutorials/images/create_button_provision.png)<br/>
+
     **Note**: During provisioning, a spinning wheel appears next to the instance in 
     your {{site.data.keyword.Bluemix_notm}} dashboard. A request is sent to provision a Dedicated Hardware plan instance on bare 
     metal servers. Provisioning time is asynchronous and can take up to 5 days. 
     ![Provision dedicated hardware alternate version](../tutorials/images/create_button_provision2.png)<br/>
+    
     
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment
 
@@ -96,6 +101,7 @@ instances on it.
 
 5.  Click `Standard` from the pricing plans at the bottom of the page. <br/>
     **Note**: You cannot provision a Lite plan instance on a Dedicated Hardware environment.<br/>
+
     ![Standard pricing plan](../tutorials/images/standard_pricing_plan.png)
     
 6.  Fill out the parameters at the top of the page by entering a Service name, Credential name, and so on 
