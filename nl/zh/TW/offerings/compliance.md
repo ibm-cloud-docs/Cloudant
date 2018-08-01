@@ -24,7 +24,7 @@ lastupdated: "2018-01-16"
 
 ## HIPAA
 
-部署於 {{site.data.keyword.Bluemix_notm}} 之專用硬體上的 {{site.data.keyword.cloudant_short_notm}} 符合與 1996 年「醫療保險轉移和責任法 (HIPAA)」的「安全與隱私權規則」需求相應的必要 {{site.data.keyword.IBM_notm}} 控制。這些需求包括「企業聯盟 (Business Associates)」在 45 CFR 第 160 篇以及第 164 篇的子篇 A 及 C 中所要求的適當管理、實體及技術防護措施。HIPAA 必須在佈建時間進行要求，並且適用於「{{site.data.keyword.cloudant_short_notm}} 企業方案」、「{{site.data.keyword.Bluemix_notm}} 專用」上的 {{site.data.keyword.cloudant_short_notm}} 及「{{site.data.keyword.Bluemix_notm}} 公用」上的「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」。客戶必須與業務代表聯絡，以便和 {{site.data.keyword.IBM_notm}} 簽署「企業聯盟附錄 (Business Associate Addendum, BAA)」合約。
+部署於 {{site.data.keyword.Bluemix_notm}} 之專用硬體上的 {{site.data.keyword.cloudant_short_notm}} 符合與 1996 年「醫療保險轉移和責任法 (HIPAA)」的「安全與隱私權規則」需求相應的必要 {{site.data.keyword.IBM_notm}} 控制。這些需求包括「企業聯盟 (Business Associates)」在 45 CFR 第 160 篇以及第 164 篇的子篇 A 及 C 中所要求的適當管理、實體及技術防護措施。HIPAA 必須在佈建時間進行要求，並且適用於「{{site.data.keyword.cloudant_short_notm}} 企業方案」、{{site.data.keyword.Bluemix_notm}} Dedicated 上的 {{site.data.keyword.cloudant_short_notm}} 及 {{site.data.keyword.Bluemix_notm}} Public 上的「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」。客戶必須與業務代表聯絡，以便和 {{site.data.keyword.IBM_notm}} 簽署「企業聯盟附錄 (Business Associate Addendum, BAA)」合約。
 
 ## 國際標準組織 (ISO)
 

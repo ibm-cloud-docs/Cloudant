@@ -43,7 +43,7 @@ de ISO 27001:
 {{site.data.keyword.IBM_notm}} proporciona un informe de Service Organization Controls (SOC) de tipo 2 para Cloudant. Los informes evalúan los controles operativos de IBM de acuerdo con los criterios establecidos por los llamados Trust Services Principles del American Institute of Certified Public Accountants (AICPA). 
 Los Trust Services Principles definen unos sistemas de control adecuados y establecen estándares del sector para que los proveedores de servicios como IBM custodien los datos y la información de sus clientes.
 
-Puede solicitar un informe SOC 2 de tipo 2 desde el portal del cliente o poniéndose en contacto con el representante de ventas. De forma alternativa, puede abrir una incidencia de soporte con el soporte de [IBM Cloud ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/support){:new_window} o el correo electrónico [support@cloudant.com ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){:new_window}.
+Puede solicitar un informe SOC 2 de tipo 2 desde el portal de clientes o poniéndose en contacto con el representante de ventas. De forma alternativa, puede abrir una incidencia de soporte con el soporte de [IBM Cloud ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/support){:new_window} o el correo electrónico [support@cloudant.com ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){:new_window}.
 
 ## Reglamento General de Protección de Datos (RGPD) 
 

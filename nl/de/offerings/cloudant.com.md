@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-05-24"
 
 ---
 
@@ -17,9 +17,9 @@ lastupdated: "2018-02-15"
 # Cloudant.com
 
 > **Hinweis**: Der gemeinsam genutzte {{site.data.keyword.cloudantfull}}-Plan wird am 31. März 2018 außer Kraft gesetzt. 
-Seit dem 24. Juli 2017 können keine neuen Konten für den gemeinsam genutzten Plan unter [https://cloudant.com/ ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/){:new_window} erstellt werden. 
+Seit dem 24. Juli 2017 können keine neuen Konten für den gemeinsam genutzten Plan auf der [{{site.data.keyword.cloudant_short_notm}}-Homepage ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/){:new_window} erstellt werden. 
 
-{{site.data.keyword.cloudant_short_notm}} ist eine gehostete und umfassend verwaltete Database as a Service (DBaaS).
+{{site.data.keyword.cloudant_short_notm}} ist eine gehostete und umfassend verwaltete Database as a Service (DBaaS). 
 Sie wurde von Grund auf neu erstellt für globale Skalierung, ununterbrochene Ausführung und die Bearbeitung einer großen Vielfalt
 von Datentypen wie [JSON](../basics/index.html#json)-,
 [Volltext](../api/cloudant_query.html#creating-an-index)- und
@@ -51,16 +51,13 @@ Mit dem {{site.data.keyword.cloudant_short_notm}} DBaaS-Plan für Unternehmen ha
 
 Dieser Plan sichert Ihnen Datenbankleistung und Verfügbarkeitszeit zu, indem dedizierte DBaaS-Cluster oder an verschiedenen Hostingstandorten verfügbare Hardware eingesetzt werden.
 
-Benutzer des Plans für Unternehmen, die ein neues oder zusätzliches {{site.data.keyword.cloudant_short_notm}}-Konto
-für einen ihrer dedizierten Cluster benötigen, können sich unter [https://cloudant.com/enterprise-sign-up ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/enterprise-sign-up){:new_window}
-anmelden, mit dem entsprechenden Formular ein Konto erstellen und in einem neu erstellten Support-Ticket anfordern, dass ihr Konto
-auf einen unserer dedizierten {{site.data.keyword.cloudant_short_notm}}-Cluster für Unternehmen versetzt wird. 
+Benutzer des Plans für Unternehmen, die ein neues oder zusätzliches {{site.data.keyword.cloudant_short_notm}}-Konto für einen ihrer dedizierten Cluster benötigen, können sich auf der [Registrierungsseite für das {{site.data.keyword.cloudant_short_notm}} Enterprise-Konto ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/enterprise-sign-up){:new_window}, anmelden, mit dem entsprechenden Formular ein Konto erstellen und in einem neu erstellten Support-Ticket anfordern, dass ihr Konto auf einen unserer dedizierten {{site.data.keyword.cloudant_short_notm}} Enterprise-Cluster für Unternehmen versetzt wird. 
 
 ## Gemeinsam genutzter Plan
 {: #shared-plan}
 
 > **Hinweis**: Der gemeinsam genutzte {{site.data.keyword.cloudant_short_notm}}-Plan wird am 31. März 2018 außer Kraft gesetzt. 
-Seit dem 24. Juli 2017 können keine neuen Konten für den gemeinsam genutzten Plan unter [https://cloudant.com/ ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/){:new_window} erstellt werden. 
+Seit dem 24. Juli 2017 können keine neuen Konten für den gemeinsam genutzten Plan unter 'cloudant.com' erstellt werden. 
 
 Mit dem gemeinsam genutzten {{site.data.keyword.cloudant_short_notm}}-Plan haben Sie Zugriff auf alle
 {{site.data.keyword.cloudant_short_notm}} DBaaS-Funktionen, die über einen gemeinsam genutzten oder

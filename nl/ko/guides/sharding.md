@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -100,7 +100,7 @@ _Q_의 기본값은 클러스터에 따라 다릅니다.
 예를 들어, 작은 샤드는 재밸런싱 중에 네트워크를 통해 이동하기 쉽습니다.
 
 문서 수를 줄이는 것과 샤드 크기를 줄이는 것은 서로 충돌하는 요구사항이므로, 하나의 _Q_ 값이 모든 경우에 대해 최적일 수는 없습니다.
-{{site.data.keyword.cloudant_short_notm}}에서는 시간이 경과하며 사용 패턴이 변경됨에 따라 클러스터의 기본값을 조정합니다. 
+{{site.data.keyword.cloudant_short_notm}}에서는 시간이 경과하며 사용 패턴이 변경됨에 따라 클러스터의 기본값을 조정합니다.
 
 어쨌든, 특정 데이터베이스에서 관찰된 패턴 및 크기 지정을 고려하는 시간을 갖고,
 이 정보를 사용하여 미래의 적절한 샤드 수를 선택하는 것은 도움이 됩니다.
@@ -121,7 +121,7 @@ _Q_의 기본값은 클러스터에 따라 다릅니다.
 *	이보다 더 큰 데이터베이스의 경우에는 데이터를 수동으로 여러 데이터베이스로
 	샤딩하는 것을 고려하십시오.
 	이렇게 큰 데이터베이스의 경우에는
-	[{{site.data.keyword.cloudant_short_notm}} 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하여 조언을 구하십시오. 
+	[{{site.data.keyword.cloudant_short_notm}} 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하여 조언을 구하십시오.
 
 >	**참고:** 이러한 가이드라인의 숫자는 정확한 계산이 아니라 관찰 및 경험을 통해 파악된 숫자입니다.
 
@@ -144,8 +144,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**참고:** Bluemix의 {{site.data.keyword.cloudant_short_notm}} 데이터베이스에서는 데이터베이스의 _Q_ 설정이 사용으로 설정되어 있지 않습니다.
-	대부분의 `cloudant.com` 멀티 테넌트 클러스터에서는 _Q_ 값을 사용할 수 없습니다.
+>	**참고:** {{site.data.keyword.cloud}}의 {{site.data.keyword.cloudant_short_notm}} 데이터베이스에서는 데이터베이스의 _Q_ 설정이 사용으로 설정되어 있지 않습니다.	대부분의 `cloudant.com` 멀티 테넌트 클러스터에서는 _Q_ 값을 사용할 수 없습니다.
 
 _Q_ 값이 사용 불가능한 경우에 이 값을 설정하려 시도하면 JSON 본문이 다음 예와 같은 [`403` 응답](../api/http.html#403)을 수신하게 됩니다.
 
@@ -163,7 +162,7 @@ CouchDB 버전 2 이상에서는 데이터베이스를 작성할 때
 [복제본 개수 지정 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}을 수행할 수 있습니다.
 그러나 복사본 개수 값을 기본값인 3에서 변경할 수는 없습니다.
 특히, 데이터베이스를 작성할 때는 다른 복제본 개수 값을 지정할 수 없습니다.
-추가적인 도움을 받으려면 [{{site.data.keyword.cloudant_short_notm}} 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하십시오. 
+추가적인 도움을 받으려면 [{{site.data.keyword.cloudant_short_notm}} 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하십시오.
 
 ### _R_ 및 _W_ 인수에 대한 정보
 
@@ -185,7 +184,8 @@ _R_을 _1_로 설정하면 조정자가 응답을 더 빨리 리턴할 수 있�
 이는 해당 샤드를 호스팅하는 복제본으로부터 하나의 응답만 기다리면 되기 때문입니다.
 
 >	**참고:** {{site.data.keyword.cloudant_short_notm}}에서 사용하는 [결과적 일관성](cap_theorem.html) 모델로 인해,
- _R_ 값을 줄이면 리턴되는 응답이 최신 데이터가 아닐 가능성이 높아집니다. 기본 _R_ 값을 사용하면 이 효과를 완화시키는 데 도움이 됩니다.
+ _R_ 값을 줄이면 리턴되는 응답이 최신 데이터가 아닐 가능성이 높아집니다.
+	기본 _R_ 값을 사용하면 이 효과를 완화시키는 데 도움이 됩니다.
 
 _R_의 기본값은 _2_입니다.
 이 값은 세 개의 샤드 복제본을 사용하는 일반적인 데이터베이스의 대부분의 복제본에 해당됩니다.

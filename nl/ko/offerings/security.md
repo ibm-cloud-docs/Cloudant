@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-04-28 -->
 
@@ -45,11 +46,12 @@ lastupdated: "2017-11-06"
 - 권한 부여: 특정 데이터베이스에 대한 읽기, 쓰기, 관리자 권한을 부여합니다.
 - "인플라이트" 암호화: {{site.data.keyword.cloudant_short_notm}}에 대한 모든 액세스는 HTTPS를 사용하여 암호화됩니다.
 - 저장 시 암호화: {{site.data.keyword.cloudant_short_notm}}의 디스크에 저장된 데이터는 암호화할 수 있습니다.
-  > **참고**: {{site.data.keyword.cloudant_short_notm}} 인스턴스에 저장된 데이터는 항상 암호화됩니다.
+  {{site.data.keyword.cloudant_short_notm}} 인스턴스에 저장된 데이터는 항상 암호화됩니다.{: tip}
+  
 - API 액세스: {{site.data.keyword.cloudant_short_notm}}는 보안 HTTP(HTTPS)를 통해 API를 사용하여 프로그래밍 방식으로 액세스됩니다.
   API 키는 {{site.data.keyword.cloudant_short_notm}} 대시보드를 사용하여 생성할 수 있습니다.
 - IP 화이트리스트 지정: {{site.data.keyword.cloudant_short_notm}} 엔터프라이즈 또는 {{site.data.keyword.Bluemix_notm}} 데디케이티드용 데디케이티드 환경의 {{site.data.keyword.cloudant_short_notm}} 고객은 IP 주소의 화이트리스트를 지정하여 지정된 서버 및 사용자만으로 액세스를 제한할 수 있습니다. 
-IP 화이트리스트 지정은 {{site.data.keyword.Bluemix_notm}} 퍼블릭의 {{site.data.keyword.cloudant_short_notm}} 플랜에서는 사용할 수 없음을 참고하십시오.  
+IP 화이트리스트 지정은 {{site.data.keyword.Bluemix_notm}} 퍼블릭의 {{site.data.keyword.cloudant_short_notm}} 플랜에서는 사용할 수 없음을 참고하십시오. 
 - CORS: {{site.data.keyword.cloudant_short_notm}} 대시보드를 사용하여 특정 도메인에 대한 CORS 지원을 사용으로 설정하십시오.
 
 ## 데이터 손실 또는 손상에 대한 보호

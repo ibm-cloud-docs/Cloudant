@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -83,8 +83,7 @@ Los índices se almacenan del mismo modo.
 A medida que se añaden más documentos a un fragmento, aumenta el número de pasos que se necesitan para recorrer el B-tree durante una consulta o búsqueda típica de documentos.
 Este 'aumento de profundidad' ralentiza las solicitudes porque se deben leer más datos de la memoria caché o del disco.
 
-En general, evite temer más
-de 10 millones de documentos por fragmento.
+En general, evite tener más de 10 millones de documentos por fragmento.
 En términos de tamaño general de fragmento, resulta útil
 mantener los fragmentos por debajo de los 10 GB por motivos operativos.
 Por ejemplo, los fragmentos de menor tamaño resultan más fáciles de trasladar sobre la red durante una operación de reequilibrio.
@@ -129,7 +128,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**Nota:** El establecimiento de _Q_ para bases de datos no está habilitado para bases de datos de {{site.data.keyword.cloudant_short_notm}} en Bluemix.
+>	**Nota:** El establecimiento de _Q_ para bases de datos no está habilitado para bases de datos de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud}}.
 	El valor _Q_ no está disponible en la mayoría de los clústeres multiarrendatario de `cloudant.com`.
 
 Si intenta establecer el valor de _Q_ donde no está disponible, el resultado es una [respuesta `403`](../api/http.html#403) con un cuerpo JSON similar al del ejemplo siguiente:

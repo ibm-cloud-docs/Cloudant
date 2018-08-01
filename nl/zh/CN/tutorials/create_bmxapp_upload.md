@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,20 +14,20 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# 创建简单 {{site.data.keyword.Bluemix_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：上传应用程序
+# 创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：上传应用程序
 
-本部分教程描述了如何上传 {{site.data.keyword.Bluemix}} 应用程序。
+本部分教程描述了如何上传 {{site.data.keyword.cloud}} 应用程序。
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## 连接到 {{site.data.keyword.Bluemix_notm}}
+## 连接到 {{site.data.keyword.cloud_notm}}
 
-第一个任务是连接到 {{site.data.keyword.Bluemix_notm}}。
+第一个任务是连接到 {{site.data.keyword.cloud_notm}}。
 
-[{{site.data.keyword.Bluemix_notm}} 工具箱](create_bmxapp_appenv.html#toolkits)可帮助您建立该连接。
+[{{site.data.keyword.cloud_notm}} 工具箱](create_bmxapp_appenv.html#toolkits)可帮助您建立该连接。
 
-Cloud Foundry 需要知道要用于进行 API 调用（例如，上传应用程序）的 URL。{{site.data.keyword.Bluemix_notm}} 工具箱使用“`cf api`”命令来管理 API 端点。有关“`cf api`”命令的更多信息[位于此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}。
+Cloud Foundry 需要知道要用于进行 API 调用（例如，上传应用程序）的 URL。{{site.data.keyword.cloud_notm}} 工具箱使用“`cf api`”命令来管理 API 端点。有关“`cf api`”命令的更多信息[位于此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}。
 
 使用以下命令通知 Cloud Foundry 要使用的 URL：
 
@@ -52,17 +52,17 @@ Not logged in. Use 'bluemix login' to log in.
 
 现在，Cloud Foundry 知道在何处发送用于管理应用程序的 API 调用。
 
-下一步是登录到 {{site.data.keyword.Bluemix_notm}} 应用程序环境。必须提供以下帐户详细信息：
+下一步是登录到 {{site.data.keyword.cloud_notm}} 应用程序环境。必须提供以下帐户详细信息：
 
 -   您的用户名，指定为“`-u`”参数的值。
 -   您的组织名称，指定为“`-o`”参数的值。
 -   您的空间，指定为“`-s`”参数的值。
 
->   **注**：通过 Web 浏览器登录时，帐户详细信息会在 {{site.data.keyword.Bluemix_notm}} 
+>   **注**：通过 Web 浏览器登录时，帐户详细信息会在 {{site.data.keyword.cloud_notm}} 
 仪表板上提供，如以下示例所示：<br/>
-    ![查找 {{site.data.keyword.Bluemix_notm}} 帐户详细信息](images/img0035.png)
+    ![查找 {{site.data.keyword.cloud_notm}} 帐户详细信息](images/img0035.png)
 
-使用类似于以下示例的命令登录到 {{site.data.keyword.Bluemix_notm}} 应用程序环境。请注意，系统会要求您输入帐户密码。
+使用类似于以下示例的命令登录到 {{site.data.keyword.cloud_notm}} 应用程序环境。请注意，系统会要求您输入帐户密码。
 
 ```sh
 bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
@@ -93,13 +93,13 @@ Space:          dev
 
 ## 上传应用程序
 
-现在，{{site.data.keyword.cloudant_short_notm}} Foundry 工具箱知道如何连接到 {{site.data.keyword.Bluemix_notm}} 环境。
+现在，{{site.data.keyword.cloudant_short_notm}} Foundry 工具箱知道如何连接到 {{site.data.keyword.cloud_notm}} 环境。
 
-下一步是上传应用程序本身。{{site.data.keyword.Bluemix_notm}} 应用程序的详细信息在[清单文件](create_bmxapp_appenv.html#manifest)中提供。
+下一步是上传应用程序本身。{{site.data.keyword.cloud_notm}} 应用程序的详细信息在[清单文件](create_bmxapp_appenv.html#manifest)中提供。
 
 教程应用程序的清单文件已更新，如[此处](create_bmxapp_createapp.html#essential-files)所述
 
-使用类似于以下示例的命令登录以上传 {{site.data.keyword.Bluemix_notm}} 应用程序。
+使用类似于以下示例的命令登录以上传 {{site.data.keyword.cloud_notm}} 应用程序。
 
 ```sh
 cf push "Cloudant Python"
@@ -165,7 +165,7 @@ App {{site.data.keyword.cloudant_short_notm}} Python was started using this comm
 
 应用程序会自动启动。在启动过程中，会通过评估 [requirements.txt 文件](create_bmxapp_appenv.html#requirements)的内容进行检查，以确保满足所有需求。应用程序需要对创建应用程序时[指定](create_bmxapp_createapp.html#essential-files)的 {{site.data.keyword.cloudant_short_notm}} 库的访问权。
 
-上传并启动应用程序后，会运行一些简单的系统检查，以确认对于 {{site.data.keyword.Bluemix_notm}} 而言，应用程序是否运行正常。
+上传并启动应用程序后，会运行一些简单的系统检查，以确认对于 {{site.data.keyword.cloud_notm}} 而言，应用程序是否运行正常。
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -186,7 +186,7 @@ buildpack: python 1.5.5
 
 ## 测试样本应用程序
 
-首次创建 {{site.data.keyword.Bluemix_notm}} 应用程序环境时，仪表板的`路径`列中包含该应用程序的链接：<br/>
+首次创建 {{site.data.keyword.cloud_notm}} 应用程序环境时，仪表板的`路径`列中包含该应用程序的链接：<br/>
 ![显示应用程序的仪表板的屏幕快照](images/img0017.png)
 
 单击此链接将打开浏览器窗口，并向正在侦听相应端口的应用程序请求一些数据。应用程序通过返回其启动时生成的日志文件内容进行响应：<br/>
@@ -196,10 +196,11 @@ buildpack: python 1.5.5
 
 ### 确认数据库详细信息
 
-首先打开 {{site.data.keyword.cloudant_short_notm}} 仪表板。单击 {{site.data.keyword.cloudant_short_notm}} 服务页面中`管理`选项卡上的`启动`图标：<br/>
+首先打开 {{site.data.keyword.cloudant_short_notm}}“仪表板”。单击 {{site.data.keyword.cloudant_short_notm}} 服务页面中`管理`选项卡上的`启动`图标：<br/>
 ![{{site.data.keyword.cloudant_short_notm}} 服务页面上的“启动”图标](images/img0036.png)
 
-> **注**：要找到 {{site.data.keyword.cloudant_short_notm}} 服务页面，请参阅[“创建 {{site.data.keyword.cloudant_short_notm}} 实例”教程](create_service.html#locating-your-service-credentials)中的详细信息。
+要找到 {{site.data.keyword.cloudant_short_notm}} 服务页面，请参阅[“创建 {{site.data.keyword.cloudant_short_notm}} 实例”教程](create_service.html#locating-your-service-credentials)中的详细信息。
+{: tip}
 
 打开仪表板后，可以看到应用程序已创建“`databasedemo`”数据库：<br/>
 ![显示新数据库的 {{site.data.keyword.cloudant_short_notm}} 仪表板](images/img0031.png)

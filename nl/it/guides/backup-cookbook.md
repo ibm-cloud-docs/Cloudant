@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-10-27"
+  years: 2017, 2018
+lastupdated: "2018-06-07"
 
 ---
 
@@ -41,7 +41,8 @@ il pacchetto CouchBackup contiene due strumenti della riga di comando:
 1. `couchbackup`, che esegue il dump dei dati JSON da un database a un file di testo di backup.
 2. `couchrestore`, che ripristina i dati da un file di testo di backup a un database.
 
-<strong style="color:red;">Avvertenza.</strong> Gli strumenti CouchBackup hanno delle [limitazioni](#limitations).
+> **Avvertenza.** Gli strumenti CouchBackup hanno delle [limitazioni](#limitations).
+{:tip}
 
 ## Backup dei tuoi dati {{site.data.keyword.cloudant_short_notm}}
 
@@ -61,10 +62,12 @@ tra cui:
 * Utilizzo di un file di log per registrare l'avanzamento di un backup.
 * La capacità di riprendere un backup interrotto.
   **Nota**: questa opzione è disponibile solo con il file di log per il backup interrotto.
+  {:tip}
 * Invio del file di testo di backup a un file di output denominato,
   piuttosto che reindirizzare l'output `stdout`.
 
-<strong style="color:red;">Avvertenza.</strong> Gli strumenti CouchBackup hanno delle [limitazioni](#limitations).
+> **Avvertenza.** Gli strumenti CouchBackup hanno delle [limitazioni](#limitations).
+{:tip}
 
 ## Ripristino dei tuoi dati {{site.data.keyword.cloudant_short_notm}}
 
@@ -85,11 +88,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 Il file [readme npm ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")][npmreadme]{:new_window} fornisce i dettagli di altre opzioni di ripristino.
 
-<strong style="color:red;">Avvertenza.</strong> Gli strumenti CouchBackup hanno delle [limitazioni](#limitations).
+> **Avvertenza.** Gli strumenti CouchBackup hanno delle [limitazioni](#limitations).
+{:tip}
 
 ## Limitazioni
 
-<strong style="color:red;">Avvertenza.</strong> Gli strumenti CouchBackup hanno le seguenti limitazioni: 
+> **Avvertenza.** Gli strumenti CouchBackup hanno le seguenti limitazioni: 
+{:tip}
 
 * Gli strumenti non eseguono il backup delle impostazioni `_security`.
 * Gli strumenti non eseguono il backup degli allegati.
@@ -232,6 +237,7 @@ Questo codice illustra come utilizzare l'API S3 in più regioni per eseguire il 
 > **Nota**: un prerequisito per il codice è quello di inizializzare l'oggetto client S3 per
   {{site.data.keyword.IBM_notm}} Cloud Object Storage seguendo
 [queste istruzioni![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")][cosclient]{:new_window}.
+{:tip}
 
 ```javascript
 /*

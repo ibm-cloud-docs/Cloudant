@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -24,8 +24,7 @@ lastupdated: "2017-05-04"
 Datenbanksicherungen schützen Ihre Daten vor Verlust oder Beschädigung.
 {:shortdesc}
 
-Sie können die {{site.data.keyword.cloudant_short_notm}}-Replikationsfunktion verwenden, um eine Datenbanksicherung
-zu erstellen und sie in einem {{site.data.keyword.cloudant_short_notm}}-Cluster zu speichern.
+Sie können die {{site.data.keyword.cloudant_short_notm}}-Replikationsfunktion verwenden, um eine Datenbanksicherung zu erstellen und sie in einem {{site.data.keyword.cloudant_short_notm}}-Cluster zu speichern.
 Dann können Sie Daten, gesamte Datenbanken oder bestimmte JSON-Dokumente aus diesen Sicherungen
 in Ihrem Produktionscluster wiederherstellen.
 
@@ -85,10 +84,7 @@ Führen Sie die folgenden Schritte aus, um eine inkrementelle Sicherung zu erste
     und `$DATABASE` der Name der Quellen- oder Zieldatenbank.
     Das Dokument existiert üblicherweise in beiden Datenbanken, kann aber auch nur in einer zu finden sein.
 3.  Suchen Sie nach dem Feld `recorded_seq` des ersten Elements im Verlaufsarray, das im Prüfpunktdokument gefunden wird.
-4.  Replizieren Sie in die neue inkrementelle Sicherungsdatenbank,
-    wobei Sie das Feld [`since_seq`](../api/replication.html#the-since_seq-field)
-    im Replikationsdokument auf den Wert des Felds [`recorded_seq`](backup-guide.html#get-the-recorded_seq-value)
-    setzen, den Sie im vorherigen Schritt ausfindig gemacht haben.
+4.  Replizieren Sie in die neue inkrementelle Sicherungsdatenbank, wobei Sie das Feld [`since_seq`](../api/replication.html#the-since_seq-field) im Replikationsdokument auf den Wert des Felds `recorded_seq` setzen, den Sie im vorherigen Schritt ausfindig gemacht haben.
 
 >   **Hinweis**: Definitionsgemäß umgeht die Verwendung der Option `since_seq` das normale Prüfpunktverfahren. Verwenden Sie `since_seq` deshalb nur mit großer Vorsicht. 
 
@@ -469,5 +465,4 @@ Stellen Sie sicher, dass Ihre Replikationsjobs nicht gleichzeitig beginnen.
 ## Brauchen Sie Hilfe?
 
 Replikation und Sicherungen können heikel sein.
-Wenn Sie nicht weiterkommen, lesen Sie den [Leitfaden zur Replikation](replication_guide.html),
-oder wenden Sie sich an das [IBM {{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}.
+Wenn Sie nicht weiterkommen, lesen Sie den [Leitfaden zur Replikation](replication_guide.html), oder wenden Sie sich an das [{{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}.

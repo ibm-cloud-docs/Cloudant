@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -26,7 +26,7 @@ lastupdated: "2017-11-07"
 ### Python
 
 ごく単純な開発作業を除き、
-[Python プログラミング言語 ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://www.python.org/){:new_window}
+[Python プログラミング言語 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){:new_window}
 の現行インストール済み環境がシステムにあると、大幅に簡単です。
 
 確認するには、プロンプトで以下のコマンドを実行します。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,20 +14,20 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# 建立簡單的 {{site.data.keyword.Bluemix_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：維護及疑難排解
+# 建立簡單的 {{site.data.keyword.cloud_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：維護及疑難排解
 
-本指導教學示範如何維護在 {{site.data.keyword.Bluemix_notm}} 服務實例中管理的 {{site.data.keyword.Bluemix}} 應用程式。
+本指導教學示範如何維護在 {{site.data.keyword.cloud_notm}} 服務實例中管理的 {{site.data.keyword.cloud}} 應用程式。
 {:shortdesc}
 
 <div id="maintenance"></div>
 
 ## 執行基本應用程式維護作業
 
-指導教學的這一節說明如何在 {{site.data.keyword.Bluemix_notm}} 上重新整理、啟動及停止 Python 應用程式。
+指導教學的這一節說明如何在 {{site.data.keyword.cloud_notm}} 上重新整理、啟動及停止 Python 應用程式。
 
 ### 尋找應用程式的狀態
 
-儀表板上會顯示 {{site.data.keyword.Bluemix_notm}} 服務實例內應用程式的狀態。
+儀表板上會顯示 {{site.data.keyword.cloud_notm}} 服務實例內應用程式的狀態。
 
 在下列範例中，`Cloudant Python` 應用程式未執行，而且狀態為`已停止`：<br/>
 ![顯示處於「已停止」狀態之應用程式的儀表板的畫面擷取](images/img0037.png)
@@ -60,15 +60,13 @@ lastupdated: "2017-11-07"
 若要上傳全新版本的應用程式，只需要遵循[上傳處理程序](create_bmxapp_upload.html)。新版本會改寫應用程式的舊版本。
 
 >   **附註**：如果您開始上傳時，應用程式的舊版本已在執行，
-    則 {{site.data.keyword.Bluemix_notm}} 會自動先停止應用程式。
-
-
+    則 {{site.data.keyword.cloud_notm}} 會自動先停止應用程式。
 
 ## 診斷及解決問題
 
-指導教學的這一節提供一些基本疑難排解提示，來協助您識別、診斷及解決一些開發及部署第一個 {{site.data.keyword.Bluemix_notm}} 應用程式時可能遇到的問題。
+指導教學的這一節提供一些基本疑難排解提示，來協助您識別、診斷及解決一些開發及部署第一個 {{site.data.keyword.cloud_notm}} 應用程式時可能遇到的問題。
 
-[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window} 提供了建立 {{site.data.keyword.Bluemix_notm}} 或 Cloud Foundry 應用程式的最佳作法的良好建議。
+[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window} 提供了建立 {{site.data.keyword.cloud_notm}} 或 Cloud Foundry 應用程式的最佳作法的良好建議。
 
 尤其是關於[避免寫入至本端檔案系統 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window} 的建議很謹慎。
 
@@ -79,21 +77,21 @@ lastupdated: "2017-11-07"
 
 ### 使用應用程式日誌
 
-診斷及解決 {{site.data.keyword.Bluemix_notm}} 應用程式問題時，最有用的資源是日誌檔。
+診斷及解決 {{site.data.keyword.cloud_notm}} 應用程式問題時，最有用的資源是日誌檔。
 
-您可以在`日誌`資訊頁面上找到 {{site.data.keyword.Bluemix_notm}} 應用程式的日誌檔：<br/>
+您可以在`日誌`資訊頁面上找到 {{site.data.keyword.cloud_notm}} 應用程式的日誌檔：<br/>
 ![顯示「日誌」資訊頁面存取鏈結的畫面擷取](images/img0042.png)
 
-與大部分日誌檔相同，{{site.data.keyword.Bluemix_notm}} 應用程式日誌會包含所發生事件及其發生時間的詳細資料。
+與大部分日誌檔相同，{{site.data.keyword.cloud_notm}} 應用程式日誌會包含所發生事件及其發生時間的詳細資料。
 
 此日誌也會識別已記錄事件中所涉及的元件。下表識別重要元件：
 
-元件標籤        | 元件
+元件標籤        |元件
 ----------------|----------
-`API`           | Cloud Foundry 系統。
-`APP`           | 您的應用程式。
-`CELL`          | 在 {{site.data.keyword.Bluemix_notm}} 內存放應用程式的容器。
-`RTR`           | 在應用程式中傳送或擷取訊息的網路元件。
+`API`           |Cloud Foundry 系統。
+`APP`           |您的應用程式。
+`CELL`          |在 {{site.data.keyword.cloud_notm}} 內存放應用程式的容器。
+`RTR`           |在應用程式中傳送或擷取訊息的網路元件。
 
 例如，下列畫面擷取包括數個一般事件：<br/>
 ![顯示指示性日誌資訊的畫面擷取](images/img0043.png)

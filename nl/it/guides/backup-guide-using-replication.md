@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -103,8 +103,7 @@ completa la seguente procedura:
     nell'array di cronologia che si trova nel documento di checkpoint.
 4.  Esegui la replica nel nuovo database di backup incrementale,
     impostando il [campo `since_seq`](../api/replication.html#the-since_seq-field)
-    nel documento di replica sul valore del
-    [campo `recorded_seq`](backup-guide.html#get-the-recorded_seq-value)
+    nel documento di replica sul valore del campo `recorded_seq`
     trovato nel passo precedente.
 
 >   **Nota**: per definizione, l'utilizzo dell'opzione `since_seq` ignora la normale funzione di checkpoint. Utilizza `since_seq` con cautela. 
@@ -506,4 +505,4 @@ La replica e i backup possono essere complicati.
 Se non sai come procedere,
 consulta la [guida della replica](replication_guide.html)
 o contatta il
-[team di supporto di IBM {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
+[team di supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.

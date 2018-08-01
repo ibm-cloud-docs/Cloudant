@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -30,7 +30,7 @@ Non devi trovare e gestire un server per eseguire le tue applicazioni.
 
 Se stai già utilizzando un'istanza del database {{site.data.keyword.cloudant_short_notm}}
 in {{site.data.keyword.Bluemix_notm}},
-ha senso che anche le tue applicazioni siano qui.
+ha senso che anche le tue applicazioni si trovino nello stesso posto.
 
 Le applicazioni {{site.data.keyword.Bluemix_notm}} vengono normalmente create utilizzando la tecnologia
 [Cloud Foundry ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window}.
@@ -38,12 +38,12 @@ Cloud Foundry offre una funzionalità PaaS (platform-as-a-service)
 che semplifica il processo di creazione delle applicazioni e che può essere distribuita ed eseguita
 in un ambiente cloud.
 
-[Un esercitazione separata](create_database.html) ti ha illustrato come creare un'applicazione Python autonoma
+[Un'esercitazione separata](create_database.html) ti ha illustrato come creare un'applicazione Python autonoma
 che utilizza un'istanza del database {{site.data.keyword.cloudant_short_notm}}
 in {{site.data.keyword.Bluemix_notm}}.
 In questa esercitazione,
 hai creato e configurato una piccola applicazione Python ospitata in {{site.data.keyword.Bluemix_notm}}.
-L'applicazione si collega alla tua istanza del database {{site.data.keyword.cloudant_short_notm}}
+L'applicazione si connette alla tua istanza del database {{site.data.keyword.cloudant_short_notm}}
 e crea un solo documento semplice.
 
 Il codice Python specifico per ogni attività viene fornito come parte di questa esercitazione.
@@ -69,7 +69,7 @@ che può accedere a un'istanza del database {{site.data.keyword.cloudant_short_n
 devi eseguire le seguenti attività:
 
 -   [Crea un ambiente dell'applicazione Python in {{site.data.keyword.Bluemix_notm}}.](create_bmxapp_appenv.html#creating)
--   [Assicurati che l'ambiente dell'applicazione Python disponga di un 'collegamento' a un'istanza del database {{site.data.keyword.cloudant_short_notm}}.](create_bmxapp_appenv.html#connecting)
+-   [Assicurati che l'ambiente dell'applicazione Python disponga di una 'connessione' a un'istanza del database {{site.data.keyword.cloudant_short_notm}}.](create_bmxapp_appenv.html#connecting)
 -   [(Attività singola) Scarica e installa i toolkit a riga di comando Cloud Foundry e {{site.data.keyword.Bluemix_notm}}.](create_bmxapp_appenv.html#toolkits)
 -   [Scarica l'applicazione 'starter'.](create_bmxapp_appenv.html#starter)
 -   [Personalizza l'applicazione starter per creare la tua propria applicazione per accedere all'istanza del database {{site.data.keyword.cloudant_short_notm}}.](create_bmxapp_createapp.html#theApp)

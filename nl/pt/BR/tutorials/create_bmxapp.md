@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Criando um aplicativo {{site.data.keyword.Bluemix_notm}} simples para acessar um banco de dados {{site.data.keyword.cloudant_short_notm}}
+# Criando um aplicativo {{site.data.keyword.Bluemix_notm}} simples para acessar um banco de dados do {{site.data.keyword.cloudant_short_notm}}
 
 Este tutorial mostra como criar um aplicativo {{site.data.keyword.Bluemix}} que usa a
 [linguagem de programação Python ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.python.org/){:new_window} para
@@ -28,10 +28,9 @@ Uma vantagem significativa do {{site.data.keyword.Bluemix_notm}} é que é poss�
 próprio {{site.data.keyword.Bluemix_notm}}.
 Não é necessário localizar e manter um servidor para executar os aplicativos.
 
-Se você já estiver usando uma instância de banco de dados do {{site.data.keyword.Bluemix_notm}}
+Se você já está usando uma instância de banco de dados do {{site.data.keyword.Bluemix_notm}}
 no {{site.data.keyword.cloudant_short_notm}},
-fará sentido ter seus aplicativos lá
-também.
+faz sentido que seus aplicativos também fiquem lá.
 
 Os aplicativos {{site.data.keyword.Bluemix_notm}} são criados geralmente usando
 a tecnologia [Cloud Foundry ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window}.
@@ -71,7 +70,7 @@ que possa acessar uma instância de banco de dados do {{site.data.keyword.clouda
 será necessário executar as tarefas a seguir:
 
 -   [Criar um ambiente de aplicativos Python no {{site.data.keyword.Bluemix_notm}}.](create_bmxapp_appenv.html#creating)
--   [Assegurar-se de que o ambiente de aplicativos Python tenha uma 'conexão' com uma instância de banco de dados do {{site.data.keyword.cloudant_short_notm}}.](create_bmxapp_appenv.html#connecting)
+-   [Assegurar-se de que o ambiente de aplicativos Python possua uma 'conexão' para uma instância de banco de dados do {{site.data.keyword.cloudant_short_notm}}.](create_bmxapp_appenv.html#connecting)
 -   [(Tarefa única) Fazer download e instalar o Cloud Foundry e os kits de ferramentas de linha de comandos do {{site.data.keyword.Bluemix_notm}}.](create_bmxapp_appenv.html#toolkits)
 -   [Fazer download do aplicativo 'iniciador'.](create_bmxapp_appenv.html#starter)
 -   [Customizar o aplicativo iniciador para criar seu próprio aplicativo para acessar a instância de banco de dados do {{site.data.keyword.cloudant_short_notm}}.](create_bmxapp_createapp.html#theApp)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -26,9 +26,9 @@ Fornendo ai clienti livelli così elevati di mobilità dei dati per soddisfare l
 e {{site.data.keyword.cloudant_short_notm}} prendono sul serio la privacy e la governance dei dati.
 
 Per controllare il movimento dei dati dalla UE agli Stati Uniti,
-{{site.data.keyword.cloudant_short_notm}} rispetta sia i framework Safe Harbour US-EU che US-Swiss
+{{site.data.keyword.cloudant_short_notm}} rispetta sia i framework Safe Harbour USA-UE che USA-Svizzera
 [
-![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://safeharbor.export.gov/companyinfo.aspx?id=29450){:new_window}.
+![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.export.gov/safeharbor_eu){:new_window}.
 Dopo la sentenza del 2015 della Corte di giustizia europea che
 [ha invalidato ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){:new_window}
 l'accordo Safe Harbour,

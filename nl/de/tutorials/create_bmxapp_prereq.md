@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -48,18 +48,15 @@ Python 2.7.12
 
 ### {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.Bluemix_notm}}
 
-Ein separates Lernprogramm für die Erstellung einer {{site.data.keyword.cloudantfull}}-Serviceinstanz namens
-`Cloudant Service 2017` ist [hier](create_service.html) verfügbar.
+Ein separates Lernprogramm für die Erstellung einer {{site.data.keyword.cloudantfull}}-Serviceinstanz namens `Cloudant Service 2017` ist [hier](create_service.html) verfügbar.
 
 In diesem Lernprogramm wird davon ausgegangen, dass Sie bereits eine Serviceinstanz namens
 `Cloudant Service 2017` erstellt haben.
 
 ### {{site.data.keyword.cloudant_short_notm}}-Datenbankanwendung
 
-Ein separates Lernprogramm für die Erstellung einer eigenständigen Python-Anwendung
-für die Arbeit mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz ist [hier](create_database.html) verfügbar.
-Es stellt eine Reihe von Konzepten vor, die dabei helfen, das Erstellen und Befüllen einer
-{{site.data.keyword.cloudant_short_notm}}-Datenbank zu verstehen.
+Ein separates Lernprogramm für die Erstellung einer eigenständigen Python-Anwendung für die Arbeit mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz ist [hier](create_database.html) verfügbar.
+Es stellt eine Reihe von Konzepten vor, die dabei helfen, das Erstellen und Befüllen einer {{site.data.keyword.cloudant_short_notm}}-Datenbank zu verstehen.
 
 In diesem Lernprogramm wird davon ausgegangen, dass Sie diese Konzepte bereits kennen.
 

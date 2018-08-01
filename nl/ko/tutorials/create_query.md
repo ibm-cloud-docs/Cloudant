@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-02"
+lastupdated: "2018-06-20"
 
 ---
 {:new_window: target="_blank"}
@@ -10,6 +10,9 @@ lastupdated: "2018-03-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-06-13 -->
 
 # {{site.data.keyword.cloudant_short_notm}} 조회 작성
 
@@ -25,8 +28,8 @@ lastupdated: "2018-03-02"
 시작하기 전에 다음 단계에 따라 튜토리얼을 진행할 준비를 하십시오.
 
 1.  [{{site.data.keyword.Bluemix}} 계정 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.ng.bluemix.net/registration/){:new_window}을 작성하십시오. 
-2.  [{{site.data.keyword.Bluemix_notm}} 대시보드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}에 로그인하십시오. 
-3.  [{{site.data.keyword.Bluemix_notm}}에 {{site.data.keyword.cloudant_short_notm}} 인스턴스를 작성하십시오](create_service.html#creating-a-cloudant-instance-on-bluemix). 
+2.  [{{site.data.keyword.Bluemix_notm}} 대시보드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}에 로그인하십시오.
+3.  [{{site.data.keyword.Bluemix_notm}}에 {{site.data.keyword.cloudant_short_notm}} 인스턴스를 작성하십시오](create_service.html#creating-a-service-instance).
 4.  (선택사항) 명령행에서 더 쉽고 빠르게 명령을 실행할 수 있도록 [acurl 별명을 작성하십시오](../guides/acurl.html#authorized-curl-acurl-).
 5.  실습에 포함된 명령의 `$ACCOUNT` 변수를 {{site.data.keyword.cloudant_short_notm}} 대시보드에 로그인할 때 사용하는 사용자 이름으로 대체하십시오.
   `acurl`을 설정하지 않기로 결정하는 경우에는 실습에 제공된 URL 대신 다음 URL을 사용하십시오.
@@ -61,12 +64,13 @@ lastupdated: "2018-03-02"
 
 ![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_
 
-1.  작성한 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 여십시오. 
-2.  데이터베이스 탭을 선택하십시오.
-
+1.  작성한 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 여십시오.
+2.  {{site.data.keyword.cloudant_short_notm}} 서비스 페이지에서 **시작**을 클릭하십시오.
+    데이터베이스 탭이 열립니다.
+    
   ![데이터베이스 탭](../images/tabs.png)
-3.  **데이터베이스 작성**을 클릭하십시오.
-4.  `query-demo`를 입력하고 **작성**을 클릭하십시오.
+4.  **데이터베이스 작성**을 클릭하십시오.
+5.  `query-demo`를 입력하고 **작성**을 클릭하십시오.
 
   `query-demo` 데이터베이스가 자동으로 열립니다.
 
@@ -227,32 +231,24 @@ lastupdated: "2018-03-02"
   ```
   {:codeblock}
 
-  `query-demo` 데이터베이스가 작성되었습니다. 오른쪽 분할창에서 문서를 볼 수 있습니다.
+  `query-demo` 데이터베이스가 다섯 개의 레코드로 채워져 있습니다. 다음 화면 캡처의 테이블 보기에서 레코드를 볼 수 있습니다.
 
-  ![샘플 문서 1](../images/docs1.png)
-
-  ![샘플 문서 2](../images/docs2.png)
-
-  ![샘플 문서 3](../images/docs3.png)
-
-  ![샘플 문서 4](../images/docs4.png)
-
-  ![샘플 문서 5](../images/docs5.png)      
+  ![샘플 문서](../images/docs1.png)     
 
 ## 인덱스 작성
 
 {{site.data.keyword.cloudant_short_notm}}에서는 데이터베이스를 조회하는 데 사용할 수 있는 보기 및 인덱스를 제공합니다. 보기는 데이터베이스에 저장된 조회를 실행하며, 그 결과를 결과 세트라고 합니다. 보기에 조회를 제출하면 조회가 결과 세트를 검색합니다. 인덱스는 데이터를 구조화하는 방법이며 이는 검색 시간을 단축시킵니다.
 
-사용자는 다음 목록에 설명되어 있는 바와 같이 {{site.data.keyword.cloudant_short_notm}}와 함께 제공되는 1차 인덱스를 사용하거나 보기(MapReduce), 검색 인덱스, {{site.data.keyword.cloudant_short_notm}} 지리공간 조회, {{site.data.keyword.cloudant_short_notm}} 조회와 같은 2차 인덱스를 사용할 수 있습니다. 
+사용자는 다음 목록에 설명되어 있는 바와 같이 {{site.data.keyword.cloudant_short_notm}}와 함께 제공되는 1차 인덱스를 사용하거나 보기(MapReduce), 검색 인덱스, {{site.data.keyword.cloudant_short_notm}} 지리공간 조회, {{site.data.keyword.cloudant_short_notm}} 조회와 같은 2차 인덱스를 사용할 수 있습니다.
 
 *	1차 인덱스 - ID를 사용하여 문서 또는 문서의 목록을 검색합니다.  
 *	[보기](../api/creating_views.html#views-mapreduce-) – 계수, 합계, 평균 및 기타 수학 함수로서 지정하는 검색 기준에 일치하는 데이터베이스 내의 정보를 검색합니다. 검색할 수 있는 기준은 보기의 정의에 지정됩니다. 보기는 MapReduce 패러다임을 사용합니다.
 *	[검색 인덱스](../api/search.html#search) – 하나 이상의 필드, 대량의 텍스트를 검색하거나, [Lucene 조회 구문 분석기 구문 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}에 와일드카드, 퍼지 검색 또는 패싯을 사용합니다.
-*	[{{site.data.keyword.cloudant_short_notm}} 지리공간](../api/cloudant-geo.html#cloudant-geospatial) – 공간 관계에 따라 문서를 검색합니다. 
-*	[{{site.data.keyword.cloudant_short_notm}} 조회](../api/cloudant_query.html#query) – Mongo 스타일의 조회 구문을 사용하여 논리 연산자를 사용함으로써 문서를 검색합니다. {{site.data.keyword.cloudant_short_notm}} 조회는 보기 및 검색 인덱스의 조합입니다. 이 튜토리얼에서는 {{site.data.keyword.cloudant_short_notm}} 조회를 사용합니다. 
+*	[{{site.data.keyword.cloudant_short_notm}} 지리공간](../api/cloudant-geo.html#cloudant-geospatial) – 공간 관계에 따라 문서를 검색합니다.
+*	[{{site.data.keyword.cloudant_short_notm}} 조회](../api/cloudant_query.html#query) – Mongo 스타일의 조회 구문을 사용하여 논리 연산자를 사용함으로써 문서를 검색합니다. {{site.data.keyword.cloudant_short_notm}} 조회는 보기 및 검색 인덱스의 조합입니다. 이 튜토리얼에서는 {{site.data.keyword.cloudant_short_notm}} 조회를 사용합니다.
 
 > **참고:** 지정된 조회와 일치하는 사용 가능한 정의된 인덱스가 없는 경우 {{site.data.keyword.cloudant_short_notm}}는
-> `_all_docs` 인덱스를 사용합니다. 
+> `_all_docs` 인덱스를 사용합니다.
 
 
 ![명령행 아이콘](../images/CommandLineIcon.png) _명령행_
@@ -324,7 +320,7 @@ lastupdated: "2018-03-02"
   ```
   {:codeblock}
 
-  인덱스가 작성되었습니다. 오른쪽 분할창에서 이를 볼 수 있습니다.
+  인덱스가 작성되었습니다. 다음 화면 캡처에서 인덱스를 확인할 수 있습니다.
 
   ![조회 인덱스](../images/query-index1.png)
 
@@ -334,15 +330,15 @@ lastupdated: "2018-03-02"
 
 조회를 통해 {{site.data.keyword.cloudant_short_notm}}에서 데이터를 추출할 수 있습니다. 잘 작성된 [조회](../api/cloudant_query.html#query)는 검색 범위를 좁히며 결과에 사용자가 원하는 결과만 포함됩니다.
 
-이 실습에서는 간단한 조회를 작성하고 실행하는 방법, 두 개의 필드를 사용하여 조회하는 방법 및 [연산자](../api/cloudant_query.html#cloudant_query.html#operators)를 사용하여 조회하는 방법을 보여줍니다.
-사용자는 하나 이상의 필드와 해당 값을 지정함으로써 연산자를 사용하여 조회할 수 있습니다.
+이 실습에서는 간단한 조회를 작성하고 실행하는 방법, 두 개의 필드를 사용하여 조회하는 방법 및 두 개의
+[연산자](../api/cloudant_query.html#cloudant_query.html#operators)를 사용하여 조회하는 방법을 보여줍니다. 사용자는 하나 이상의 필드와 해당 값을 지정함으로써 연산자를 사용하여 조회할 수 있습니다.
 조회는 그 후 이 값을 사용하여 데이터베이스에서 일치 항목을 검색합니다.
 
 가장 간단한 조회를 위해서는 JSON을 데이터 파일에 추가하고 이를 명령행에서 실행하십시오.
 
 ### 간단한 조회 실행
 
-이 예에서는 {{site.data.keyword.cloudant_short_notm}} 조회가 `query-index`를 사용하여 `lastname`을 찾고 메모리 내의 결과를 필터링하여 `firstaname`을 찾는 방법을 보여줍니다.    
+이 예에서는 {{site.data.keyword.cloudant_short_notm}} 조회가 `query-index`를 사용하여 `lastname`을 찾고 메모리 내의 결과를 필터링하여 `firstaname`을 찾는 방법을 보여줍니다.   
 
 ![명령행 아이콘](../images/CommandLineIcon.png) _명령행_
 
@@ -383,7 +379,7 @@ lastupdated: "2018-03-02"
 ![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_
 
 1.  **조회** 탭을 클릭하십시오.
-2.  다음 샘플 JSON을 복사하여 {{site.data.keyword.cloudant_short_notm}} 조회 창에 붙여넣으십시오. 
+2.  다음 샘플 JSON을 복사하여 {{site.data.keyword.cloudant_short_notm}} 조회 창에 붙여넣으십시오.
   ```json
    {
       "selector": {
@@ -396,7 +392,7 @@ lastupdated: "2018-03-02"
 
 3.  **조회 실행**을 클릭하십시오.
 
-  조회 결과가 오른쪽 분할창에 표시됩니다.
+  조회 결과가 표시됩니다. 다음 화면 캡처의 테이블 보기에서 볼 수 있습니다.
 
   ![조회 1 결과](../images/dashboard_query1_results.png)
 
@@ -424,17 +420,9 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
 {
   ...
   "fields" : [
-    "lastname",
     "firstname",
-    "location"
-  ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
+      "lastname",
+      "location"
   ]
 }
 ```  
@@ -449,19 +437,11 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
       "lastname": "Brown",
       "location": "New York City, NY"
     },
-    "fields": [
-      "firstname",
-      "lastname",
-      "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]
+    "fields" : [
+     "firstname",
+     "lastname",
+     "location"
+  ]
   }
   ```
   {:codeblock}
@@ -477,12 +457,17 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
   {
     "docs": [
       {
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      },
+      {
         "firstname": "John",
         "lastname": "Brown",
         "location": "New York City, NY"
       },
       {
-        "firstname": "Sally",
+        "firstname": "Lois",
         "lastname": "Brown",
         "location": "New York City, NY"
       }
@@ -494,7 +479,7 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
 ![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_
 
 1.  **조회** 탭을 클릭하십시오.
-2.  다음 샘플 JSON을 복사하여 {{site.data.keyword.cloudant_short_notm}} 조회 창에 붙여넣으십시오. 
+2.  다음 샘플 JSON을 복사하여 {{site.data.keyword.cloudant_short_notm}} 조회 창에 붙여넣으십시오.
   ```json
   {
     "selector": {
@@ -505,22 +490,14 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+    ] 
   }
   ```
   {:codeblock}
 
 3.  **조회 실행**을 클릭하십시오.
 
-  조회 결과가 오른쪽 분할창에 표시됩니다.
+  조회 결과가 표시됩니다. 다음 화면 캡처의 테이블 보기에서 볼 수 있습니다.
 
   ![조회 2 결과](../images/dashboard_query2_results.png)
 
@@ -543,15 +520,12 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
 ``` 
 {:codeblock}
 
-결과는 `sort` 매개변수의 값에 따라 성을 사용하여 오름차순으로 정렬됩니다. 
+결과는 `sort` 매개변수에서 지정된 값에 따라 연령 기준으로 오름차순으로 정렬됩니다. 
 
 ```json
     "sort": [
       {
         "age": "asc"   
-      },        
-      {
-        "lastname": "asc"
       }
     ] 
 ```  
@@ -576,10 +550,7 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
    ],
     "sort": [
       {
-         "age": "asc"
-      },
-      {
-         "lastname": "asc"
+         "age": "asc"   
       }
    ],
    "use_index": "_design/partial-index"
@@ -607,7 +578,7 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
 ![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_
 
 1.  **조회** 탭을 클릭하십시오.
-2.  다음 샘플 JSON을 복사하여 {{site.data.keyword.cloudant_short_notm}} 조회 창에 붙여넣으십시오. 
+2.  다음 샘플 JSON을 복사하여 {{site.data.keyword.cloudant_short_notm}} 조회 창에 붙여넣으십시오.
   ```json
 {
    "selector": {
@@ -624,10 +595,7 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
    ],
     "sort": [
       {
-         "age": "asc"
-      },
-      {
-         "lastname": "asc"
+         "age": "asc"   
       }
    ],
    "use_index": "_design/partial-index"
@@ -637,8 +605,8 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
 
 3.  **조회 실행**을 클릭하십시오.
 
-  조회 결과가 오른쪽 분할창에 표시됩니다.
+  조회 결과가 표시됩니다. 다음 화면 캡처의 테이블 보기에서 볼 수 있습니다.
 
   ![조회 3 결과](../images/dashboard_query3_results.png)
 
-{{site.data.keyword.cloudant_short_notm}}에 대한 자세한 정보는 [{{site.data.keyword.cloudant_short_notm}} 문서](../cloudant.html#overview)를 참조하십시오. 
+{{site.data.keyword.cloudant_short_notm}}에 대한 자세한 정보는 [{{site.data.keyword.cloudant_short_notm}} 문서](../cloudant.html#overview)를 참조하십시오.

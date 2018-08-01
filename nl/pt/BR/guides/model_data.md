@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -14,8 +14,8 @@ lastupdated: "2017-11-06"
 
 # Minhas 5 principais dicas para modelar seus dados para escala
 
-Este artigo considera os melhores
-pontos da modelagem de dados de seu aplicativo para que funcione de maneira eficiente em grande escala.
+Este artigo considera os melhores pontos
+de modelagem de dados de seu aplicativo para trabalhar de maneira eficiente em grande escala.
 {:shortdesc}
 
 _(Este guia se baseia em um artigo de Blog de Mike Rhodes:
@@ -31,7 +31,7 @@ características de desempenho que você está esperando alcançar.
 
 Sem mais delongas, vamos ao que interessa.
 
-## Considerar dados imutáveis
+## Considere dados imutáveis
 
 Se você estiver mudando a mesma parte de estado em uma taxa de uma vez por segundo ou mais, considere
 tornar seus documentos imutáveis. Isso diminui significativamente a possibilidade de criar
@@ -45,9 +45,9 @@ Geralmente, modelos de dados baseados em dados imutáveis requerem o uso de visu
 os documentos que compõem o estado atual. Como as visualizações são pré-calculadas, isso não deveria
 prejudicar o desempenho do aplicativo.
 
-## Por que isso ajuda
+## Por que isso ajuda você a considerar dados imutáveis 
 
-Atrás de sua interface `https://<account>.cloudant.com/` há um banco de dados distribuído. 
+Atrás de nossa interface `https://$ACCOUNT.cloudant.com/` há um banco de dados distribuído.
 Dentro do cluster, os documentos são depositados em vários shards que formam coletivamente o
 banco de dados. Esses shards são então distribuídos entre os nós no cluster. Isso é o que nos
 permite suportar bancos de dados com muitos terabytes de tamanho.
@@ -70,7 +70,7 @@ Descobrimos que este cenário de documento em conflito é significativamente mai
 para atualizações mais frequentes que uma vez por segundo, mas recomendamos que documentos imutáveis para atualizações de
 mais de uma vez a cada dez segundos estejam no lado seguro.
 
-## Usar visualizações para pré-calcular resultados em vez de como índices de procura
+## Use visualizações para pré-calcular resultados em vez de usá-las como índices de procura
 
 Em vez de usar visualizações como índices de procura glorificados - "consiga para mim todos os documentos `person`" - tente
 fazer com que o banco de dados faça o trabalho para você. Por exemplo, em vez de recuperar todos os dez mil
@@ -80,7 +80,7 @@ Você salvará o trabalho em seu aplicativo e permitirá que o banco de dados se
 solicitações pequenas, em vez de ler grandes quantias de dados do disco para atender uma única solicitação
 grande.
 
-## Por que isso ajuda
+## Por que isso ajuda você a usar visualizações para pré-calcular resultados
 
 É bastante direto. Primeiro, observe que os mapas e as reduções são pré-calculados. Isso significa
 que solicitar o resultado de uma função de redução é uma operação barata, especificamente quando
@@ -100,7 +100,7 @@ minimizando o tempo que os dados estão em trânsito e sendo combinados para for
 o poder de visualizações para pré-calcular os dados agregados é uma maneira de alcançar esse objetivo. Isso obviamente
 diminui o tempo que seu aplicativo gasta aguardando a conclusão da solicitação.
 
-## Desnormalizar seus dados
+## Desnormalize seus dados
 
 Em bancos de dados relacionais, a normalização de dados geralmente é a maneira mais eficiente de armazenar dados. 
 Isso faz muito sentido quando é possível usar JOINs para combinar facilmente dados de múltiplas tabelas. 
@@ -120,7 +120,7 @@ documentos com uma determinada tag
 [emitindo cada tag como uma chave na função de mapa de sua visualização](../api/creating_views.html). 
 Consultar a visualização em busca de uma determinada chave fornecerá então todos os documentos com essa tag.
 
-## Por que isso ajuda
+## Por que isso ajuda você a desnormalizar seus dados
 
 Tudo se resume ao número de solicitações de HTTP que seu aplicativo faz. Há um custo para
 abrir conexões HTTP - especificamente HTTPS - e, embora a reutilização de conexões ajude, fazer
@@ -130,7 +130,7 @@ Como um benefício secundário, os documentos desnormalizados e as visualizaçõ
 valor que seu aplicativo requer gerado antecipadamente, em vez de ser construído
 automaticamente no momento da consulta.
 
-## Evitar conflitos usando documentos com granularidade mais baixa
+## Evite conflitos usando documentos mais granulares
 
 Conflitante com o conselho para desnormalizar seus dados, este é o próximo conselho: use
 documentos com baixa granularidade para reduzir a possibilidade de que modificações simultâneas criem conflitos. 
@@ -179,9 +179,9 @@ as operações de um determinado paciente. Novamente, as visualizações são us
 uma determinada entidade de documentos separados, ajudando a manter baixo o número de solicitações de HTTP,
 apesar de termos dividido os dados de uma única entidade modelada.
 
-## Por que isso ajuda
+## Por que isso ajuda você a evitar conflitos
 
-Evitar documentos em conflito ajuda a acelerar muitas operações nos bancos de dados {{site.data.keyword.cloudant_short_notm}}.
+Evitar documentos em conflito ajuda a acelerar muitas operações nos bancos de dados {{site.data.keyword.cloudant_short_notm}}. 
 Isso ocorre porque há um processo que planeja a revisão vencedora atual usada sempre que
 o documento é lido: recuperações de documento único, chamadas com `include_docs=true`, construção da visualização
 e assim por diante.
@@ -198,7 +198,7 @@ O {{site.data.keyword.cloudant_short_notm}} manipula obviamente pequenos número
 o fato de que os documentos podem ser ramificados para evitar o descarte de dados -, mas quando níveis patológicos são
 atingidos, especificamente quando os conflitos não são resolvidos, demora-se muito e exige-se um uso intenso de memória para percorrer a árvore de documentos.
 
-## Resolução de conflitos integrados
+## Integre a resolução de conflitos
 
 Em um sistema eventualmente consistente como o {{site.data.keyword.cloudant_short_notm}}, os conflitos ocorrerão eventualmente. Conforme
 descrito acima, esse é um preço de nossa escalabilidade e resiliência de dados.
@@ -218,7 +218,7 @@ correta aumentará a latência na resolução de conflitos. Há também a possib
 versão dos outros documentos que não está consistente com o documento que está sendo resolvido,
 dificultando a resolução correta. E se os outros documentos estiverem em conflito?
 
-## Por que isso ajuda
+## Por que isso ajuda você a integrar a resolução de conflitos 
 
 Conforme descrito acima, documentos altamente conflitantes exercem uma carga pesada no banco de dados. A capacidade
 de resolver conflitos do início é uma grande ajuda para evitar

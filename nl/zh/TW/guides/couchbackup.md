@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -29,7 +29,7 @@ lastupdated: "2017-11-06"
 
 ### 資料中心運行中斷及災難回復
 
-當 {{site.data.keyword.cloudant_short_notm}} 叢集不是完全可用時，叢集之間的[連續抄寫](../api/replication.html#continuous-replication)是解決此問題的好方案。連續抄寫是「主動-被動」模型。模型的「主動」部分是連續抄寫。模型的「被動」部分會確認抄本一般不是用來回應來自應用程式的要求。相反地，抄本主要用作原始資料庫的複本。必要的話，可從複本存取資料。或者，您也可以在其他位置使用[抄寫](../api/replication.html)來還原複本中的資料。
+當 {{site.data.keyword.cloudant_short_notm}} 叢集不是完全可用時，叢集之間的[連續抄寫](../api/replication.html#continuous-replication)是解決此問題的良好方案。連續抄寫是「主動-被動」模型。模型的「主動」部分是連續抄寫。模型的「被動」部分會確認抄本一般不是用來回應來自應用程式的要求。相反地，抄本主要用作原始資料庫的複本。必要的話，可從複本存取資料。或者，您也可以在其他位置使用[抄寫](../api/replication.html)來還原複本中的資料。
 
 >	**附註：**從複本進行抄寫來還原大型資料庫可能需要很長的時間。
 
@@ -62,7 +62,7 @@ lastupdated: "2017-11-06"
 <!--
 https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/
 
-A useful approach is to have couchbackup's snapshots placed on the Bluemix Object Storage service, as described here:
+A useful approach is to have couchbackup's snapshots placed on the {{site.data.keyword.cloud}} Object Storage service, as described here:
 
 https://developer.ibm.com/recipes/tutorials/object-storage-cloudant-backup/
 -->

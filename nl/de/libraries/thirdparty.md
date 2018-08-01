@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2017-11-06"
 
 ## Mobile Bibliotheken anderer Anbieter
 
-Arbeit mit einer Cloudant-Datenbank:
+Mit einer {{site.data.keyword.cloudant_short_notm}}-Datenbank arbeiten:
 
 -   Mit [IBM Worklight angetriebene native Objective-C-iOS-Apps ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} mit einem {{site.data.keyword.cloudant_short_notm}}-Adapter.
 
@@ -34,7 +34,7 @@ install-package mycouch.cloudant
 ```
 {:codeblock}
 
-### Bibliotheken und Frameworks
+### Bibliotheken und Frameworks für C# / .NET
 
 -   [MyCouch ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/danielwertheim/mycouch){:new_window}.
 -   [LoveSeat ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/soitgoes/LoveSeat){:new_window}.
@@ -44,7 +44,7 @@ install-package mycouch.cloudant
 -   [EasyCouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/hhariri/EasyCouchDB){:new_window}.
 -   `WDK.API.CouchDB` von [Kanapes IDE ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://kanapeside.com/){:new_window}.
 
-### Beispiele und Lernprogramme
+### Beispiele und Lernprogramme für C# / .NET
 
 -   [CRUD ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant/haengematte/tree/master/c%23){:new_window}.
 
@@ -61,13 +61,13 @@ require_once('./src/Sag.php');
 ```
 {:codeblock}
 
-### Bibliotheken und Frameworks
+### Bibliotheken und Frameworks für PHP
 
 -   [sag ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/sbisbee/sag){:new_window}.
 -   [Doctrine CouchDB Client ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/doctrine/couchdb-client){:new_window}.
 -   [PHP-on-Couch ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/dready92/PHP-on-Couch){:new_window}.
 
-### Beispiele und Lernprogramme
+### Beispiele und Lernprogramme für PHP
 
 -   [CRUD ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant/haengematte/tree/master/php){:new_window}.
 
@@ -83,7 +83,7 @@ Zum Abrufen von PouchDB sowie für Konfigurationsdetails müssen Sie [PouchDB ![
 
 >   **Hinweis**: PouchDB kann auch mit Bower installiert werden: `bower install pouchdb`.
 
-### Bibliotheken und Frameworks
+### Bibliotheken und Frameworks für JavaScript
 
 -   [Backbone.cloudant ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant-labs/backbone.cloudant){:new_window}.
     Weitere Informationen finden Sie im [Blogbeitrag ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/backbone-and-cloudant/){:new_window}.
@@ -91,7 +91,7 @@ Zum Abrufen von PouchDB sowie für Konfigurationsdetails müssen Sie [PouchDB ![
 -   [PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){:new_window} - JavaScript-Datenbank für Browser
     mit Offlinesynchronisierung.
 
-### Beispiele und Lernprogramme
+### Beispiele und Lernprogramme für JavaScript
 
 -   [CRUD ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} mit jQuery.
 -   [CSVtoCloudant ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/michellephung/CSVtoCloudant){:new_window} -
@@ -118,12 +118,12 @@ gem install couchrest
 ```
 {:codeblock}
 
-### Bibliotheken und Frameworks
+### Bibliotheken und Frameworks für Ruby
 
 In der
 [Ruby Toolbox ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ruby-toolbox.com/categories/couchdb_clients){:new_window} sind viele CouchDB-Clients aufgeführt.
 
-### Beispiele und Lernprogramme
+### Beispiele und Lernprogramme für Ruby
 
 -   [CRUD ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant/haengematte/tree/master/ruby){:new_window}.
 
@@ -175,8 +175,7 @@ Typs 'meteor-couchdb'.
 Die [Apache Bahir-Erweiterungen für Apache Spark  ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://bahir.apache.org/#home){:new_window}
 beinhalten einen `spark-sql-cloudant`-Connector, der die {{site.data.keyword.cloudant_short_notm}}-Bibliothek für Apache Spark ist.
 
-Der Connector 'spark-sql-cloudant' ist bereits in das Angebot
-[IBM Bluemix Apache Spark-as-a-Service ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} geladen.
+Der Connector 'spark-sql-cloudant' ist bereits in das Angebot [{{site.data.keyword.cloud_notm}} Apache Spark-as-a-Service ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} geladen.
 Er kann mit jedem eigenständigen Spark-Cluster verwendet werden.
 
 Weitere Details finden Sie in den [Projektinformationen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/apache/bahir/tree/master/sql-cloudant){:new_window}

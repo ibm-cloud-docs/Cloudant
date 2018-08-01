@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -13,12 +13,22 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # Guía de aprendizaje de iniciación
 {: #getting-started-with-cloudant}
 
 En esta guía de aprendizaje de iniciación de {{site.data.keyword.cloudantfull}} utilizaremos
-Python para crear una base de datos {{site.data.keyword.cloudant}} y llenaremos la base de datos con una sencilla colección de datos.
+Python para crear una base de datos {{site.data.keyword.cloudant_short_notm}} y llenaremos la base de datos con una sencilla colección de datos.
 {:shortdesc}
+
+Además de esta guía de aprendizaje, consulte nuestras guías de aprendizaje prácticas que le ayudan a obtener más información sobre {{site.data.keyword.cloudant_short_notm}}. O bien, pruebe una de las guías de aprendizaje que se centre en un idioma específico:
+
+- [Liberty for Java y {{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
+- [Node.js y {{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+- [Swift y {{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+
+Para obtener más guías de aprendizaje específicas de cada idioma, consulte [Empiece desplegando su primera app ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/){:new_window}. 
 
 <div id="prerequisites"></div>
 
@@ -53,7 +63,7 @@ una instancia del servicio {{site.data.keyword.cloudant}} y los siguientes requi
 	```
 	{:pre}
 	
-	Debería obtener una lista de todos los módulos de Python instalados en el sistema. Examine la lista y busque una entrada de {{site.data.keyword.cloudant_short_notm}} parecida a la siguiente:
+	Debería obtener una lista de todos los módulos de Python instalados en el sistema. Examine la lista, buscando una entrada de {{site.data.keyword.cloudant_short_notm}} similar a la siguiente:
 
 	```
 	cloudant==2.3.1
@@ -160,7 +170,7 @@ la aplicación Python se conecte con la instancia de servicio de {{site.data.key
   ```
   {: codeblock}
 
-Observe que comprobamos que cada documento se ha creado correctamente.
+Tenga en cuenta que realizamos comprobaciones para asegurarnos de que cada documento se ha creado satisfactoriamente.
 {: tip}
 
 ## Paso 4: Recuperar de datos mediante consultas
@@ -181,7 +191,7 @@ Una recuperación completa también incluye los datos _incluidos_ en un document
 
   2. Muestre el contenido de un elemento de la matriz.
     ```python
-    print "Documento mínimo recuperado:\n{0}\n".format(result_collection[0])
+    print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
     ```
     {: codeblock}
 
@@ -208,11 +218,11 @@ siguiente ejemplo:
         }
     ]
     ```
-    {:screen}
+    {: codeblock}
 
-  > **Nota:** La naturaleza de las bases de datos NoSQL,
-  como {{site.data.keyword.cloudant_short_notm}},
-  implica que no necesariamente se aplican las nociones más sencillas, como por ejemplo que el primer documento almacenado en una base de datos es siempre el primero que se devuelve en una lista de resultados.
+  > **Nota:** Las nociones simples, como que el primer documento almacenado en una base de datos sea siempre
+  el primero devuelto en una lista de resultados, no siempre se aplican a bases de datos NoSQL como
+  {{site.data.keyword.cloudant_short_notm}}.
 
 * Para realizar una recuperación completa,
   solicite una lista de todos los documentos de la base de datos e indique que también se debe devolver el contenido del documento especificando la opción `include_docs`.
@@ -250,7 +260,7 @@ siguiente ejemplo:
     }
   ]
   ```
-  {:screen}
+  {: codeblock}
 
 ## Paso 5: Recuperar datos a través del punto final de la API de {{site.data.keyword.cloudant_short_notm}}
 
@@ -320,7 +330,7 @@ También puede solicitar una lista de todos los documentos y su contenido invoca
       "offset": 0
   }
   ```
-  {:screen}
+  {: codeblock}
 
 ## Paso 6: Suprimir la base de datos
 

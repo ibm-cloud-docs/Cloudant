@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -216,4 +216,4 @@ curl "https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6
 {:codeblock}
 
 En este punto se han resuelto los conflictos que afectaban al documento.
-Puede verificando volviendo a ejecutar `GET` del documento con el parámetro `conflicts` establecido en `true`.
+Puede verificarlo volviendo a ejecutar `GET` del documento con el parámetro `conflicts` establecido en `true`.

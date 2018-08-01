@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -13,13 +13,23 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # Tutorial Introdução
 {: #getting-started-with-cloudant}
 
-Neste tutorial de introdução do {{site.data.keyword.cloudantfull}},
-vamos usar Python para criar um banco de dados {{site.data.keyword.cloudant}}
-e preenchê-lo com uma coleção simples de dados.
+Neste tutorial de introdução ao {{site.data.keyword.cloudantfull}},
+usamos Python para criar um banco de dados do {{site.data.keyword.cloudant_short_notm}}
+e preencher o banco de dados com uma coleção simples de dados.
 {:shortdesc}
+
+Além deste tutorial, veja os nossos tutoriais práticos que ajudam você a aprender mais sobre o {{site.data.keyword.cloudant_short_notm}} ou experimente um dos tutoriais que focam em uma linguagem específica:
+
+- [Liberty for Java e {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
+- [Node.js e {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+- [Swift e {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+
+Para obter tutoriais específicos da linguagem, consulte [Introdução à implementação de seu primeiro aplicativo ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/){:new_window}. 
 
 <div id="prerequisites"></div>
 
@@ -165,7 +175,7 @@ para permitir que o aplicativo Python se conecte
   ```
   {: codeblock}
 
-Observe que verificamos que cada documento foi criado com sucesso.
+Observe que nós asseguramos a criação bem-sucedida de cada documento.
 {: tip}
 
 ## Etapa 4: recuperando dados por meio de consultas
@@ -213,13 +223,11 @@ Uma recuperação completa também inclui os dados _dentro_ de um documento.
         }
     ]
     ```
-    {:screen}
+    {: codeblock}
 
-  > **Nota:** a natureza de bancos de dados NoSQL,
-como o {{site.data.keyword.cloudant_short_notm}},
-significa que noções simples, como o primeiro documento armazenado em um banco de dados é sempre
-o primeiro retornado em uma lista de resultados,
-não se aplicam necessariamente.
+  > **Nota:** noções simples, como o fato de o primeiro documento armazenado em um banco de dados ser sempre
+o primeiro retornado em uma lista de resultados, nem sempre se aplicam a bancos de dados NoSQL, como o
+{{site.data.keyword.cloudant_short_notm}}.
 
 * Para executar uma recuperação completa,
 solicite uma lista de todos os documentos no banco de dados
@@ -258,7 +266,7 @@ fornecendo a opção `include_docs`.
     }
   ]
   ```
-  {:screen}
+  {: codeblock}
 
 ## Etapa 5: recuperando dados por meio do terminal de API do {{site.data.keyword.cloudant_short_notm}}
 
@@ -330,7 +338,7 @@ e, em seguida, exiba os resultados:
       "offset": 0
   }
   ```
-  {:screen}
+  {: codeblock}
 
 ## Etapa 6: exclua o banco de dados
 

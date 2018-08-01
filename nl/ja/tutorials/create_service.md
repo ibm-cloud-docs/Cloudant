@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -29,7 +29,7 @@ lastupdated: "2017-11-07"
 
 1.  {{site.data.keyword.Bluemix_notm}} アカウントにログインします。<br/>
     {{site.data.keyword.Bluemix_notm}} ダッシュボードは、
-    [http://bluemix.net ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](http://bluemix.net){:new_window} にあります。
+    [http://bluemix.net ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://bluemix.net){:new_window} にあります。
     ユーザー名とパスワードで認証すると、
     {{site.data.keyword.Bluemix_notm}} ダッシュボードが表示されます。<br/>
     ![{{site.data.keyword.Bluemix_notm}} ダッシュボード](images/img0001.png)
@@ -90,7 +90,7 @@ lastupdated: "2017-11-07"
 `host`     | アプリケーションがサービス・インスタンスを検索するために使用するホスト名。
 `username` | アプリケーションがサービス・インスタンスにアクセスするために必要なユーザー名。
 `password` | アプリケーションがサービス・インスタンスにアクセスするために必要なパスワード。
-`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。 通常、443 で HTTPS アクセスを強制します。
+`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。通常、443 で HTTPS アクセスを強制します。
 `url`      | その他の資格情報を単一の URL に集約したストリング。アプリケーションによる使用に適しています。
 
 サービス・インスタンスにアクセスできるアプリケーションを作成するには、これらの資格情報が必要です。
@@ -101,7 +101,7 @@ lastupdated: "2017-11-07"
 
 1.  まず、{{site.data.keyword.cloudant_short_notm}} にログインします。
     {{site.data.keyword.Bluemix}} ダッシュボードは、
-    [http://bluemix.net ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](http://bluemix.net){:new_window} にあります。
+    [http://bluemix.net ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://bluemix.net){:new_window} にあります。
     ユーザー名とパスワードで認証すると、
     {{site.data.keyword.Bluemix_notm}} ダッシュボードが表示されます。<br/>
     ![{{site.data.keyword.Bluemix_notm}} ダッシュボード](images/img0001.png)

@@ -20,7 +20,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
-   sodipodi:docname="replication_guide6.svg"><metadata
+   sodipodi:docname="replication_guide_6.svg"
+   inkscape:export-filename="F:\jordiserratosa\IBM\BM130\ABD011\S002\spa\process\images\replication_guide_6.png"
+   inkscape:export-xdpi="72.730003"
+   inkscape:export-ydpi="72.730003"><metadata
      id="metadata340"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
@@ -37,7 +40,7 @@
      id="namedview338"
      showgrid="false"
      inkscape:zoom="0.7828172"
-     inkscape:cx="459.05673"
+     inkscape:cx="238.69877"
      inkscape:cy="320.8045"
      inkscape:window-x="54"
      inkscape:window-y="-8"
@@ -130,7 +133,7 @@
          height="54"
          class="st1"
          id="rect29" /><text
-         x="47.25"
+         x="32.25"
          y="589.79999"
          class="st2"
          v:langID="1033"
@@ -157,7 +160,7 @@
          height="54"
          class="st1"
          id="rect38" /><text
-         x="46.880001"
+         x="39.380001"
          y="589.79999"
          class="st2"
          v:langID="1033"

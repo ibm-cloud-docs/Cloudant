@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -20,7 +20,7 @@ _（此「{{site.data.keyword.cloudantfull}} 資料隱私及控管更新」一�
 
 身為佈建完整受管理且可散佈全球之「資料庫即服務」的先驅，{{site.data.keyword.cloudant_short_notm}} 可讓客戶在任何全球 {{site.data.keyword.BluSoftlayer_full}} 或 AWS 地區中找到資料。藉由將這類高階資料行動性提供給客戶來滿足客戶的本端需求，{{site.data.keyword.IBM}} 及 {{site.data.keyword.cloudant_short_notm}} 很認真看待資料隱私及控管。
 
-為了控管從歐盟到美國的資料移動，{{site.data.keyword.cloudant_short_notm}} 同時遵守美國與歐盟和美國與瑞士的[安全港架構 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://safeharbor.export.gov/companyinfo.aspx?id=29450){:new_window}。在歐洲法院 2015 年裁決安全港協議[無效 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){:new_window} 之後，{{site.data.keyword.IBM_notm}} 很快就力促政策制定者採取應變措施，確保[歐盟與美國之間的資料流動不中斷 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/ibm/ibmgra/safe_harbor_10062015.html){:new_window}。
+為了控管從歐盟到美國的資料移動，{{site.data.keyword.cloudant_short_notm}} 同時遵守美國與歐盟和美國與瑞士的[安全港架構 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.export.gov/safeharbor_eu){:new_window}。在歐洲法院 2015 年裁決安全港協議[無效 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){:new_window} 之後，{{site.data.keyword.IBM_notm}} 很快就力促政策制定者採取應變措施，確保[歐盟與美國之間的資料流動不中斷 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/ibm/ibmgra/safe_harbor_10062015.html){:new_window}。
 
 {{site.data.keyword.IBM_notm}} 針對 {{site.data.keyword.cloudant_short_notm}} 客戶準備了「歐盟示範條款」合約，方便在符合歐盟資料隱私法的情況下在歐盟以外地區傳送個人資料。「歐盟示範條款」與將歐盟居民的個人資訊傳送至 {{site.data.keyword.cloudant_short_notm}} 的所有客戶息息相關。
 

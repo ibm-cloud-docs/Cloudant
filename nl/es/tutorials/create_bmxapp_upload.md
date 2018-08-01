@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,21 +14,21 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creación de una aplicación sencilla de {{site.data.keyword.Bluemix_notm}} para acceder a una base de datos de {{site.data.keyword.cloudant_short_notm}}: carga de la aplicación
+# Creación de una aplicación sencilla de {{site.data.keyword.cloud_notm}} para acceder a una base de datos de {{site.data.keyword.cloudant_short_notm}}: carga de la aplicación
 
-En esta sección de la guía de aprendizaje se describe cómo cargar una aplicación de {{site.data.keyword.Bluemix}}.
+En esta sección de la guía de aprendizaje se describe cómo cargar una aplicación de {{site.data.keyword.cloud}}.
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## Conexión a {{site.data.keyword.Bluemix_notm}}
+## Conexión a {{site.data.keyword.cloud_notm}}
 
-La primera tarea es conectarse a {{site.data.keyword.Bluemix_notm}}.
+La primera tarea es conectarse a {{site.data.keyword.cloud_notm}}.
 
-El [kit de herramientas de {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#toolkits) le ayuda a realizar la conexión.
+El [kit de herramientas de {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#toolkits) le ayuda a realizar la conexión.
 
 Cloud Foundry necesita saber el URL que debe utilizar para realizar llamadas de API, por ejemplo cuando carga una aplicación.
-El kit de herramientas de {{site.data.keyword.Bluemix_notm}} utiliza el mandato '`cf api`' para gestionar el punto final de la API.
+El kit de herramientas de {{site.data.keyword.cloud_notm}} utiliza el mandato '`cf api`' para gestionar el punto final de la API.
 Para ver más información sobre el mandato'`cf api`', consulte
 [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
 
@@ -55,18 +55,18 @@ Not logged in. Use 'bluemix login' to log in.
 
 Ahora Cloud Foundry sabe dónde enviar las llamadas de API para gestionar aplicaciones.
 
-El siguiente paso consiste en iniciar una sesión en el entorno de aplicación de {{site.data.keyword.Bluemix_notm}}.
+El siguiente paso consiste en iniciar una sesión en el entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 Debe proporcionar los siguientes detalles de la cuenta:
 
 -   El nombre de usuario, que se especifica en el parámetro '`-u`'.
 -   El nombre de la organización, que se especifica en el parámetro '`-o`'.
 -   El espacio, que se especifica en el parámetro '`-s`'.
 
->   **Nota**: Los detalles de la cuenta están disponibles en el panel de control de {{site.data.keyword.Bluemix_notm}},
+>   **Nota**: Los detalles de la cuenta están disponibles en el panel de control de {{site.data.keyword.cloud_notm}},
     cuando se inicia una sesión mediante un navegador web, tal como se muestra en el siguiente ejemplo:<br/>
-    ![Búsqueda de los detalles de la cuenta de {{site.data.keyword.Bluemix_notm}}](images/img0035.png)
+    ![Búsqueda de los detalles de la cuenta de {{site.data.keyword.cloud_notm}}](images/img0035.png)
 
-Utilice un mandato parecido al del siguiente ejemplo para iniciar una sesión en el entorno de aplicación de {{site.data.keyword.Bluemix_notm}}.
+Utilice un mandato parecido al del siguiente ejemplo para iniciar una sesión en el entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 Tenga en cuenta que se le solicitará que especifique la contraseña de su cuenta.
 
 ```sh
@@ -98,14 +98,14 @@ Space:          dev
 
 ## Carga de la aplicación
 
-Ahora, el kit de herramientas de {{site.data.keyword.cloudant_short_notm}} Foundry sabe cómo conectar con el entorno de {{site.data.keyword.Bluemix_notm}}.
+Ahora, el kit de herramientas de {{site.data.keyword.cloudant_short_notm}} Foundry sabe cómo conectar con el entorno de {{site.data.keyword.cloud_notm}}.
 
 El siguiente paso consiste en cargar la aplicación propiamente dicha.
-Encontrará los detalles de una aplicación de {{site.data.keyword.Bluemix_notm}} en el [archivo de manifiesto](create_bmxapp_appenv.html#manifest).
+Encontrará los detalles de una aplicación de {{site.data.keyword.cloud_notm}} en el [archivo de manifiesto](create_bmxapp_appenv.html#manifest).
 
 El archivo de manifiesto correspondiente a la aplicación de la guía de aprendizaje se ha actualizado tal como se describe [aquí](create_bmxapp_createapp.html#essential-files)
 
-Utilice un mandato parecido al del siguiente ejemplo para iniciar una sesión para cargar la aplicación de {{site.data.keyword.Bluemix_notm}}.
+Utilice un mandato parecido al del siguiente ejemplo para iniciar una sesión para cargar la aplicación de {{site.data.keyword.cloud_notm}}.
 
 ```sh
 cf push "Cloudant Python"
@@ -173,7 +173,7 @@ La aplicación se inicia automáticamente.
 Como parte del inicio, se realiza una comprobación para garantizar que se cumplen todos los requisitos, mediante la evaluación del contenido del [archivo requirements.txt](create_bmxapp_appenv.html#requirements).
 La aplicación necesita acceso a la biblioteca de {{site.data.keyword.cloudant_short_notm}}, que se [ha especificado](create_bmxapp_createapp.html#essential-files) cuando se ha creado la aplicación.
 
-Después de cargar e iniciar la aplicación, se ejecutan algunas comprobaciones sencillas del sistema para confirmar que la aplicación se ejecuta correctamente en lo referente a {{site.data.keyword.Bluemix_notm}}.
+Después de cargar e iniciar la aplicación, se ejecutan algunas comprobaciones sencillas del sistema para confirmar que la aplicación se ejecuta correctamente en lo referente a {{site.data.keyword.cloud_notm}}.
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -194,7 +194,7 @@ buildpack: python 1.5.5
 
 ## Prueba de la aplicación de ejemplo
 
-Cuando se ha creado por primera vez el entorno de aplicación de {{site.data.keyword.Bluemix_notm}}, el panel de control ha incluido un enlace en la columna `Ruta` correspondiente a la aplicación:<br/>
+Cuando se ha creado por primera vez el entorno de aplicación de {{site.data.keyword.cloud_notm}}, el panel de control ha incluido un enlace en la columna `Ruta` correspondiente a la aplicación:<br/>
 ![Captura de pantalla que muestra el panel de control correspondiente a la aplicación](images/img0017.png)
 
 Si se pulsa el enlace, se abre una ventana del navegador que solicita ciertos datos de la aplicación que está a la escucha en el puerto correspondiente.
@@ -213,7 +213,10 @@ Empiece por abrir el panel de control de {{site.data.keyword.cloudant_short_notm
 Pulse el icono `Iniciar` del separador `Gestionar` de la página de servicio de {{site.data.keyword.cloudant_short_notm}}:<br/>
 ![Icono Iniciar de la página de servicio de {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
 
-> **Nota**: Para encontrar la página de servicio de {{site.data.keyword.cloudant_short_notm}}, consulte los detalles de la guía de aprendizaje ['Creación de una instancia de {{site.data.keyword.cloudant_short_notm}}'](create_service.html#locating-your-service-credentials).
+Para encontrar la página de servicio de {{site.data.keyword.cloudant_short_notm}},
+consulte los detalles de la guía de aprendizaje
+['Creación de una instancia de {{site.data.keyword.cloudant_short_notm}}'](create_service.html#locating-your-service-credentials).
+{: tip}
 
 Cuando se abra el panel de control, verá que la aplicación ha creado la base de datos '`databasedemo`':<br/>
 ![El panel de control de {{site.data.keyword.cloudant_short_notm}} que muestra la nueva base de datos](images/img0031.png)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -64,6 +64,7 @@ as ferramentas e os recursos podem então tratar dos requisitos de HA ou DR.
 
 >	**Nota**: diferentes ferramentas e recursos fornecem diferentes níveis de proteção.
 	Os diferentes recursos podem ser mais ou menos adequados para seu requisito específico de HA ou DR.
+{:tip}
 
 O {{site.data.keyword.cloudant_short_notm}} fornece várias ferramentas e recursos que tratam de requisitos gerais:
 
@@ -186,7 +187,8 @@ as ferramentas suportadas pelo {{site.data.keyword.cloudant_short_notm}} ajudam 
 adequado para processamento posterior e armazenamento externo.
 *	Restaurar bancos de dados completos de um estado anterior contido em seu arquivo de backup.
 
-<strong style="color:red;">Aviso!</strong> As ferramentas suportadas pelo {{site.data.keyword.cloudant_short_notm}} tem as limitações a seguir: 
+> **Aviso!** As ferramentas suportadas pelo {{site.data.keyword.cloudant_short_notm}} tem as limitações a seguir: 
+{:tip}
 
 *	As configurações `_security` não são submetidas a backup pelas ferramentas.
 *	Os anexos não são submetidos a backup pelas ferramentas.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-10-27"
+  years: 2017, 2018
+lastupdated: "2018-06-07"
 
 ---
 
@@ -36,7 +36,8 @@ CouchBackup contiene dos herramientas de línea de mandatos:
 1. `couchbackup`, que realiza un volcado de los datos JSON de una base de datos en un archivo de texto de copia de seguridad.
 2. `couchrestore`, que restaura datos de un archivo de texto de copia de seguridad en una base de datos.
 
-<strong style="color:red;">Aviso</strong> Las herramientas de CouchBackup tienen [limitaciones](#limitations).
+> **Aviso** Las herramientas de CouchBackup tienen [limitaciones](#limitations).
+{:tip}
 
 ## Copia de seguridad de los datos de {{site.data.keyword.cloudant_short_notm}}
 
@@ -54,9 +55,11 @@ El [archivo readme de npm ![Icono de enlace externo](../images/launch-glyph.svg 
 * Uso de un archivo de registro para registrar el progreso de una copia de seguridad.
 * Capacidad para reanudar una copia de seguridad interrumpida.
   **Nota**: Esta opción solo está disponible con el archivo de registro para la copia de seguridad interrumpida.
+  {:tip}
 * Envío del archivo de texto de copia de seguridad a un archivo de salida con nombre, en lugar de redirigirlo a la salida `stdout`.
 
-<strong style="color:red;">Aviso</strong> Las herramientas de CouchBackup tienen [limitaciones](#limitations).
+> **Aviso** Las herramientas de CouchBackup tienen [limitaciones](#limitations).
+{:tip}
 
 ## Restauración de los datos de {{site.data.keyword.cloudant_short_notm}}
 
@@ -73,11 +76,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 El [archivo readme de npm ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")][npmreadme]{:new_window} contiene detalles sobre otras opciones de restauración.
 
-<strong style="color:red;">Aviso</strong> Las herramientas de CouchBackup tienen [limitaciones](#limitations).
+> **Aviso** Las herramientas de CouchBackup tienen [limitaciones](#limitations).
+{:tip}
 
 ## Limitaciones
 
-<strong style="color:red;">Aviso</strong> Las herramientas de CouchBackup tienen las siguientes limitaciones: 
+> **Aviso** Las herramientas de CouchBackup tienen las siguientes limitaciones: 
+{:tip}
 
 * Las herramientas no hacen copia de seguridad de los valores de `_security`.
 * Las herramientas no hacen copia de seguridad de los archivos adjuntos.
@@ -189,6 +194,7 @@ En este código se muestra cómo puede utilizar la API Cross Region S3 para hace
 
 > **Nota**: Un requisito previo para el código es que inicialice el objeto cliente S3 para {{site.data.keyword.IBM_notm}} Cloud Object Storage siguiendo
 [estas instrucciones ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")][cosclient]{:new_window}.
+{:tip}
 
 ```javascript
 /*

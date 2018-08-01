@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,21 +14,21 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Création d'une application {{site.data.keyword.Bluemix_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}} : maintenance et traitement des incidents 
+# Création d'une application {{site.data.keyword.cloud_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}} : maintenance et traitement des incidents 
 
 Ce tutoriel vous explique comment effectuer des opérations de maintenance sur une
-application {{site.data.keyword.Bluemix}} hébergée dans votre instance de service {{site.data.keyword.Bluemix_notm}}.
+application {{site.data.keyword.cloud}} hébergée dans votre instance de service {{site.data.keyword.cloud_notm}}.
 {:shortdesc}
 
 <div id="maintenance"></div>
 
 ## Tâches de maintenance de base sur une application
 
-Cette section du tutoriel explique comment actualiser, démarrer et arrêter vos applications Python sur {{site.data.keyword.Bluemix_notm}}.
+Cette section du tutoriel explique comment actualiser, démarrer et arrêter vos applications Python sur {{site.data.keyword.cloud_notm}}.
 
 ### Recherche du statut de votre application
 
-Le statut des applications d'une instance de service {{site.data.keyword.Bluemix_notm}} apparaît sur le tableau de bord.
+Le statut des applications d'une instance de service {{site.data.keyword.cloud_notm}} apparaît sur le tableau de bord.
 
 Dans l'exemple suivant, l'application `Cloudant Python` n'est pas en cours d'exécution et est à l'état `Arrêté` :<br/>
 ![Capture d'écran montrant le tableau de bord de l'application dans un état Arrêté](images/img0037.png)
@@ -68,16 +68,16 @@ Pour télécharger une version actualisée de votre application, suivez simpleme
 La nouvelle version remplace l'ancienne version de l'application.
 
 >   **Remarque** : Si l'ancienne version de l'application est déjà en cours d'exécution lorsque vous entamez le téléchargement,
-    {{site.data.keyword.Bluemix_notm}} commence automatiquement par arrêter l'application.
+    {{site.data.keyword.cloud_notm}} commence automatiquement par arrêter l'application.
 
 ## Diagnostic et résolution des problèmes
 
 Cette section du tutoriel fournit quelques conseils en matière de traitement des
 incidents pour vous aider à identifier, diagnostiquer et résoudre certains problèmes que
 vous êtes susceptible de rencontrer au cours du développement et du déploiement de vos
-premières applications {{site.data.keyword.Bluemix_notm}}.
+premières applications {{site.data.keyword.cloud_notm}}.
 
-Des conseils et les meilleures pratiques en matière de création d'applications {{site.data.keyword.Bluemix_notm}} ou Cloud Foundry sont disponibles [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}.
+Des conseils et les meilleures pratiques en matière de création d'applications {{site.data.keyword.cloud_notm}} ou Cloud Foundry sont disponibles [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}.
 
 En particulier, il est prudent de suivre le conseil qui permet d'[éviter les écritures sur le système de fichiers local ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}.
 
@@ -90,14 +90,13 @@ ainsi écrit est toutefois faible.
 ### Utilisation du journal de l'application
 
 La ressource la plus utile pour le diagnostic et la résolution des problèmes liés
-à une application {{site.data.keyword.Bluemix_notm}} est le fichier journal.
+à une application {{site.data.keyword.cloud_notm}} est le fichier journal.
 
-Le fichier journal d'une application {{site.data.keyword.Bluemix_notm}} se
-trouve sur la page d'informations `Journaux` :<br/>
+Le fichier journal d'une application {{site.data.keyword.cloud_notm}} se trouve sur la page d'informations `Journaux` :<br/>
 ![Capture d'écran montrant le lien permettant d'accéder à la page d'informations Journaux](images/img0042.png)
 
 Comme la plupart des fichiers journaux, le journal d'une application
-{{site.data.keyword.Bluemix_notm}} contient des détails sur les événements
+{{site.data.keyword.cloud_notm}} contient des détails sur les événements
 survenus et indique quand ils se sont produits.
 
 Le journal identifie également les composants impliqués dans l'événement enregistré.
@@ -107,7 +106,7 @@ Libellé du composant | Composant
 ----------------|----------
 `API`           | Système Cloud Foundry
 `APP`           | Votre application
-`CELL`          | Conteneur détenant votre application dans {{site.data.keyword.Bluemix_notm}}
+`CELL`          | Conteneur détenant votre application dans {{site.data.keyword.cloud_notm}}
 `RTR`           | Les composants réseau transmettent des messages vers ou depuis votre application.
 
 Par exemple, la capture d'écran suivante inclut un certain nombre d'événements type :<br/>

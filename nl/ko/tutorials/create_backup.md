@@ -139,11 +139,11 @@ npm install -g @cloudant/couchbackup
     
 ## 환경 변수 설정
 
-환경 변수 또는 명령행 옵션을 사용하여 CouchBackup을 실행할 CouchDB 또는 {{site.data.keyword.cloudant_short_notm}} 인스턴스의 URL 및 데이터베이스를 지정할 수 있습니다.  
+환경 변수 또는 명령행 옵션을 사용하여 CouchBackup을 실행할 CouchDB 또는 {{site.data.keyword.cloudant_short_notm}} 인스턴스의 URL 및 데이터베이스를 지정할 수 있습니다. 
 
 이 튜토리얼에서는 `COUCH_URL`을 설정하고 `--db` 매개변수를 사용하여 데이터베이스를 지정합니다. 
 
-`COUCH_URL` 환경 변수를 설정하여 CouchDB 또는 {{site.data.keyword.cloudant_short_notm}} 인스턴스의 URL을 지정하십시오. 
+`COUCH_URL` 환경 변수를 설정하여 CouchDB 또는 {{site.data.keyword.cloudant_short_notm}} 인스턴스의 URL을 지정하십시오.
 
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
@@ -384,4 +384,4 @@ CouchBackup 유틸리티는 데이터를 보존하고 복원하기 쉽도록 하
 
 이제까지, 데이터베이스를 백업 및 복원하고 로그 파일을 작성했습니다. [재해 복구 및 백업](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
 [교차 지역 재해 복구를 위한 {{site.data.keyword.cloudant_short_notm}} 구성](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery),
-[{{site.data.keyword.cloudant_short_notm}} 백업 및 복원](../guides/backup-cookbook.html#cloudant-backup-and-recovery)에 대한 자세한 정보는 {{site.data.keyword.cloudant_short_notm}} 문서를 참조하십시오.   
+[{{site.data.keyword.cloudant_short_notm}} 백업 및 복원](../guides/backup-cookbook.html#cloudant-backup-and-recovery)에 대한 자세한 정보는 {{site.data.keyword.cloudant_short_notm}} 문서를 참조하십시오.  

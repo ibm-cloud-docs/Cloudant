@@ -35,8 +35,6 @@ Ces attributs sont les suivants : **C**onsistency (Cohérence),
 **A**vailability (Disponibilité) et **P**artition tolerance (Tolérance au partitionnement).
 Ce théorème dit qu'il est impossible sur un système informatique de calcul distribué, tel que {{site.data.keyword.cloudant_short_notm}}, de garantir _en même temps_ les trois contraintes suivantes :
 
-
-
 -   Consistency (Cohérence) : tous les noeuds du système voient exactement les mêmes données au même moment ;
 -   Availability (Disponibilité) : garantit que toutes les requêtes reçoivent une réponse ;
 -   Partition tolerance (Tolérance au partitionnement) : le système continue à fonctionner même si une partie du système est perdue ou tombe en panne.

@@ -24,7 +24,7 @@ lastupdated: "2018-01-16"
 
 ## HIPAA
 
-{{site.data.keyword.cloudant_short_notm}} 在 {{site.data.keyword.Bluemix_notm}} 上的专用硬件上部署时，满足 {{site.data.keyword.IBM_notm}} 的控制要求。这些c要求与《1996 年健康保险可移植性和责任法案》(HIPAA) 中的“安全性和隐私规则”要求一致，包括在 45 CFR 第 160 部分以及第 164 部分的子部分 A 和 C 中规定的对“业务伙伴”进行相应管理、物理和技术保护的要求。HIPAA 必须在供应时请求，并且适用于 {{site.data.keyword.cloudant_short_notm}} 企业套餐、{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}} Dedicated 和 {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware Plan on {{site.data.keyword.Bluemix_notm}} Public。客户必须联系其销售代表以与 {{site.data.keyword.IBM_notm}} 签署 Business Associate Addendum (BAA) 协议。
+{{site.data.keyword.cloudant_short_notm}} 在 {{site.data.keyword.Bluemix_notm}} 上的专用硬件上部署时，满足 {{site.data.keyword.IBM_notm}} 的控制要求。这些要求与《1996 年健康保险可移植性和责任法案》(HIPAA) 中的“安全性和隐私规则”要求一致，包括在 45 CFR 第 160 部分以及第 164 部分的子部分 A 和 C 中规定的对“业务伙伴”进行相应管理、物理和技术保护的要求。HIPAA 必须在供应时请求，并且适用于 {{site.data.keyword.cloudant_short_notm}} 企业套餐、{{site.data.keyword.Bluemix_notm}} Dedicated 上的 {{site.data.keyword.cloudant_short_notm}} 和 {{site.data.keyword.Bluemix_notm}} Public 上的 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐。客户必须联系其销售代表以与 {{site.data.keyword.IBM_notm}} 签署 Business Associate Addendum (BAA) 协议。
 
 ## 国际标准化组织 (ISO)
 
@@ -42,4 +42,4 @@ lastupdated: "2018-01-16"
 
 ## 一般数据保护条例 (GDPR) 
 
-GDPR 致力于在整个欧盟建立协调的数据保护法律框架，目的是让居民重获对其个人数据的控制权，同时针对在全球任何位置托管和“处理”这些数据的行为实施严格规则。此条例还引入了与在欧盟内外自由移动个人数据相关的规则。{{site.data.keyword.cloudant_short_notm}} 团队当前正负责 GDPR 的相关活动，预计最迟在 2018 年 5 月 25 日之前完全合规。
+GDPR 力求在整个欧盟范围内建立一个统一的数据保护法律框架，目的是让公民重新拥有对其个人数据的控制权，同时对全球任意位置托管和“处理”此类数据的相关方施加严格的规则。该条例还引入了与欧盟境内和境外个人数据自由流通相关的规则。{{site.data.keyword.cloudant_short_notm}} 团队当前正负责 GDPR 的相关活动，预计最迟在 2018 年 5 月 25 日之前完全合规。

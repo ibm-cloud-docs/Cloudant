@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -71,7 +71,7 @@ Encontrará una guía de aprendizaje en la que se explica cómo configurar un en
 {{site.data.keyword.cloudant_short_notm}} no ofrece ningún mecanismo para crear una instantánea de la base de datos.
 Si necesita este tipo de función, por ejemplo para facilitar la retrotracción del nivel de un documento a un estado conocido anterior, puede conseguir el mismo efecto de dos formas:
 
-1.	Mediante la réplica. Puede realizar una réplica de la base de datos. Asegúrese de registrar el ID de secuencia final. Según la planificación que determine, cree una réplica de la base de datos en una base de datos nueva. Inicie la réplica desde el último ID de secuencia registrado. Al conservar los ID de secuencia para las réplicas puede generar el efecto de un mecanismo de acumulación. El resultado sería parecido al de crear instantáneas 'semanales' regulares a partir de instantáneas 'diarias'. Una limitación de este enfoque es que también hace una réplica de las revisiones de documentos suprimidas y conflictos no resueltos.
+1.	Mediante la réplica. Puede realizar una réplica de la base de datos. Asegúrese de registrar el ID de secuencia final. Según la planificación que determine, cree una réplica de la base de datos en una base de datos nueva. Inicie la réplica desde el último ID de secuencia registrado. Al conservar los ID de secuencia para las réplicas puede generar el efecto de un mecanismo de acumulación. El resultado sería parecido al de crear instantáneas 'semanales' regulares a partir de instantáneas 'diarias'. Una limitación de este enfoque es que también hace una réplica de las revisiones de documentos de marcador de exclusión ('tombstone') y conflictos no resueltos.
 
 2.	Mediante el volcado del contenido de la base de datos a un archivo. Existen varias herramientas para realizar un volcado del contenido de una base de datos en un archivo. El archivo de volcado resultante se puede guardar en un servicio o dispositivos barato orientado a objetos. Una limitación de este enfoque es que normalmente solo se realiza un volcado de las revisiones de documentos actuales. Esta limitación significa que no se incluyen los conflictos no resueltos.
 
@@ -81,7 +81,7 @@ Por lo tanto, el resto de este tema se centra en este enfoque.
 <!--
 https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/
 
-A useful approach is to have couchbackup's snapshots placed on the Bluemix Object Storage service, as described here:
+A useful approach is to have couchbackup's snapshots placed on the {{site.data.keyword.cloud}} Object Storage service, as described here:
 
 https://developer.ibm.com/recipes/tutorials/object-storage-cloudant-backup/
 -->

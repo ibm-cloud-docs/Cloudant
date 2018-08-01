@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-04-28 -->
 
@@ -53,7 +54,8 @@ mit denen Sie den Zugriff auf Daten steuern können:
   {{site.data.keyword.cloudant_short_notm}} werden mithilfe von HTTPS verschlüsselt.
 - Verschlüsselung gespeicherter Daten: Daten, die in
   {{site.data.keyword.cloudant_short_notm}} auf Platte gespeichert sind, können verschlüsselt werden.
-  > **Hinweis**: Daten, die in einer {{site.data.keyword.cloudant_short_notm}}-Instanz gespeichert sind, werden immer verschlüsselt.
+  Daten, die in einer {{site.data.keyword.cloudant_short_notm}}-Instanz gespeichert sind, werden immer verschlüsselt.{: tip}
+  
 - API-Zugriff: Auf {{site.data.keyword.cloudant_short_notm}} wird programmgesteuert
   mithilfe einer API über sicheres HTTP (HTTPS) zugegriffen.
   API-Schlüssel können über das {{site.data.keyword.cloudant_short_notm}}-Dashboard generiert werden.

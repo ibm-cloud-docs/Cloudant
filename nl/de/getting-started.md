@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -13,13 +13,21 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # Lernprogramm 'Einführung'
 {: #getting-started-with-cloudant}
 
-In diesem {{site.data.keyword.cloudantfull}}-Lernprogramm 'Einführung'
-verwenden wir Python, um eine {{site.data.keyword.cloudant}}-Datenbank zu erstellen und
-diese Datenbank mit einer einfachen Datensammlung zu befüllen.
+In diesem {{site.data.keyword.cloudantfull}}-Lernprogramm 'Einführung' verwenden wir Python, um eine {{site.data.keyword.cloudant_short_notm}}-Datenbank zu erstellen und diese Datenbank mit einer einfachen Datensammlung zu befüllen.
 {:shortdesc}
+
+Neben diesem Lernprogramm erfahren Sie mehr über {{site.data.keyword.cloudant_short_notm}} in unseren praktischen Lernprogrammen. Oder führen Sie eines der Lernprogramme in einer bestimmten Sprache aus:
+
+- [Liberty for Java und {{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
+- [Node.js und {{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+- [Swift und {{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+
+Weitere sprachspezifische Lernprogramme finden Sie unter [Stellen Sie nun Ihre erste App bereit ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/docs/){:new_window}. 
 
 <div id="prerequisites"></div>
 
@@ -49,7 +57,8 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
 	um Ihre Python-Anwendungen für die Arbeit mit
 	{{site.data.keyword.cloudant_short_notm}} unter {{site.data.keyword.Bluemix_notm}} zu aktivieren.
 	
-	Um sicherzustellen, dass Sie die Clientbibliothek erfolgreich installiert haben, führen Sie den folgenden Befehl an einer Eingabeaufforderung aus:
+	Um sicherzustellen, dass Sie die Clientbibliothek erfolgreich installiert haben,
+	führen Sie den folgenden Befehl an einer Eingabeaufforderung aus:
 	```sh
 	pip freeze
 	```
@@ -163,7 +172,7 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
   ```
   {: codeblock}
 
-Sie sollten wissen, dass wir jedes Dokument prüfen, das erfolgreich erstellt wurde.
+Beachten Sie, dass wir prüfen, ob jedes Dokument erfolgreich erstellt wurde.
 {: tip}
 
 ## Schritt 4: Rufen Sie Daten über Abfragen ab.
@@ -210,12 +219,9 @@ Ein vollständiger Abruf schließt auch die Daten _in_ einem Dokument ein.
         }
     ]
     ```
-    {:screen}
+    {: codeblock}
 
-  > **Hinweis:** Das Wesen von NoSQL-Datenbanken
-  wie {{site.data.keyword.cloudant_short_notm}} bedeutet, dass einfache
-  Grundsätze - wie "das erste in der Datenbank gespeicherte Dokument ist immer das
-  erste zurückgegebene Dokument in einer Ergebnisliste" - nicht zwangsläufig zutreffen.
+  > **Hinweis:** Einfache Grundsätze wie "Das erste in einer Datenbank gespeicherte Dokument ist immer das erste zurückgegebene Dokument in einer Ergebnisliste" treffen nicht immer auf NoSQL-Datenbanken wie {{site.data.keyword.cloudant_short_notm}} zu.
 
 * Um einen vollständigen Abruf auszuführen,
   fordern Sie eine Liste aller Dokumente in der Datenbank an
@@ -254,7 +260,7 @@ Ein vollständiger Abruf schließt auch die Daten _in_ einem Dokument ein.
     }
   ]
   ```
-  {:screen}
+  {: codeblock}
 
 ## Schritt 5: Rufen Sie Daten über den {{site.data.keyword.cloudant_short_notm}}-API-Endpunkt ab.
 
@@ -326,7 +332,7 @@ Sie können auch eine Liste aller Dokumente und deren Inhalt anfordern, indem Si
       "offset": 0
   }
   ```
-  {:screen}
+  {: codeblock}
 
 ## Schritt 6: Löschen Sie die Datenbank.
 

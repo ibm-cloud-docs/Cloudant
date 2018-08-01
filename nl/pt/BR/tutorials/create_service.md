@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -21,7 +21,7 @@ funcionem com o banco de dados.
 {:shortdesc}
 
 Para acessar uma instância de serviço do {{site.data.keyword.cloudant_short_notm}},
-será necessário um conjunto de [Credenciais de serviço](#the-service-credentials).
+você requer um conjunto de [Credenciais de serviço](#the-service-credentials).
 As credenciais serão geradas como parte do processo quando você criar uma instância de serviço.
 
 Também será possível localizar essas credenciais a qualquer momento,

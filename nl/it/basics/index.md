@@ -25,7 +25,7 @@ e [Guide](../guides/acurl.html#authorized-curl-acurl-) presuppongono che tu cono
 ## Connessione a {{site.data.keyword.cloudant_short_notm}}
 
 Per accedere a {{site.data.keyword.cloudant_short_notm}},
-devi disporre di un [account {{site.data.keyword.cloudant}}](../api/account.html)
+devi disporre di un [account {{site.data.keyword.cloudant_short_notm}}](../api/account.html)
 o di un [account {{site.data.keyword.Bluemix}}](../offerings/bluemix.html).
 
 ## API HTTP

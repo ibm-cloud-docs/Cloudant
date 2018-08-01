@@ -60,7 +60,7 @@ fará backup e restaurará em exercícios posteriores.
     
     ```json
     {
-        "docs": 
+        "docs":
         [
             { 
                 "_id": "doc1",

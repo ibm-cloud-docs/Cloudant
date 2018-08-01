@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -315,13 +315,13 @@ L'ajout du paramètre "`stale=ok`" ou "`stale=update_after`" peut être un bon m
     Cela signifie que le paramètre '`stale`' n'est pas adapté à tous les cas d'utilisation.
     Il peut toutefois se révéler utile pour obtenir des réponses rapides sur des ensembles de données en perpétuel changement, si votre application accepte des résultats périmés.
     Si le taux de changement de vos données est faible,
-    l'ajout du paramètre `stale=ok`" ou "`stale=update_after`" ne présente aucun avantage,
+    l'ajout du paramètre "`stale=ok`" ou "`stale=update_after`" ne présente aucun avantage,
     et risque même de répartir inégalement la charge sur des clusters plus importants.
 
 Evitez d'utiliser le paramètre `stale=ok` ou `stale=update_after` dans la mesure du possible.
 La raison en est que le comportement par défaut fournit les données les plus récentes,
 et les distribue au sein du cluster.
-S'il est possible d'indiquer à une application client qu'une longue tâche de traitement de données est en cours d'exécution (pendant une mise à jour de données non formatées, par exemple), l'application peut  basculer temporairement vers le paramètre `stale=ok` pendant ces périodes, puis revenir au comportement par défaut par la suite.
+S'il est possible d'indiquer à une application client qu'une longue tâche de traitement de données est en cours d'exécution (pendant une mise à jour de données non formatées, par exemple), l'application peut basculer temporairement vers le paramètre `stale=ok` pendant ces périodes, puis revenir au comportement par défaut par la suite.
 
 >   **Remarque** : L'option `stale` est toujours disponible,
     mais les options les plus utiles `stable` et `update` sont aussi disponibles et doivent être privilégiées.

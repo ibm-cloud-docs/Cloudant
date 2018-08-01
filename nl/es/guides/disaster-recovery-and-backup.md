@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -48,6 +48,7 @@ Una vez combinadas, las herramientas y características pueden dar una solución
 
 >	**Nota**: Las distintas herramientas y características proporcionan distintos niveles de protección.
 	Las distintas características pueden resultar más o menos adecuadas para su requisito específico de HA o DR.
+{:tip}
 
 {{site.data.keyword.cloudant_short_notm}} proporciona una serie de herramientas y características que abordan requisitos generales:
 
@@ -138,7 +139,8 @@ Concretamente, las herramientas que admite {{site.data.keyword.cloudant_short_no
 *	Hacer copia de seguridad de bases de datos enteras en un archivo, adecuado para su proceso y almacenamiento externo.
 *	Restaurar bases de datos enteras a partir de un estado anterior contenido en el archivo de copia de seguridad.
 
-<strong style="color:red;">Aviso</strong> Las herramientas que admite {{site.data.keyword.cloudant_short_notm}} tienen las siguientes limitaciones: 
+> **Aviso** Las herramientas que admite {{site.data.keyword.cloudant_short_notm}} tienen las siguientes limitaciones: 
+{:tip}
 
 *	Las herramientas no hacen copia de seguridad de los valores de `_security`.
 *	Las herramientas no hacen copia de seguridad de los archivos adjuntos.

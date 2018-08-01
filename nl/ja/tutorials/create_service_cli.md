@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -23,7 +23,7 @@ lastupdated: "2018-03-07"
 このチュートリアルを使用するには、
 まず、{{site.data.keyword.Bluemix_notm}} Cloud Foundry ツールのインストールが必要です。
 ツールのインストールに関する詳細は、
-[別のチュートリアル](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits)にあります。
+[別のチュートリアル](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits)にあります。
 
 > **注**: Cloud Foundry _および_
   {{site.data.keyword.Bluemix_notm}} の両方のツールキットを必ずインストールしてください。
@@ -187,7 +187,7 @@ OK
 `host`     | アプリケーションがサービス・インスタンスを検索するために使用するホスト名。
 `username` | アプリケーションがサービス・インスタンスにアクセスするために必要なユーザー名。
 `password` | アプリケーションがサービス・インスタンスにアクセスするために必要なパスワード。
-`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。 通常、443 で HTTPS アクセスを強制します。
+`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。通常、443 で HTTPS アクセスを強制します。
 `url`      | その他の資格情報を単一の URL に集約したストリング。アプリケーションによる使用に適しています。
 
 {{site.data.keyword.Bluemix_notm}} 内のサービス・インスタンスの資格情報を作成する基本コマンド・フォーマットは、以下のとおりです。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -39,8 +39,8 @@ há outros casos de uso nos quais talvez você queira backup aprimorado de dados
 
 ### Indisponibilidade do data center e recuperação de desastre
 
-A [replicação contínua](../api/replication.html#continuous-replication) entre clusters é uma boa solução para o problema de
-quando um cluster do {{site.data.keyword.cloudant_short_notm}} não está completamente disponível.
+A [replicação contínua](../api/replication.html#continuous-replication) entre clusters é uma boa solução para quando
+um cluster do {{site.data.keyword.cloudant_short_notm}} não está completamente disponível.
 A replicação contínua é um modelo 'ativo/passivo'.
 A parte 'ativa' do modelo é a replicação contínua.
 A parte 'passiva' do modelo reconhece que a réplica não deseja normalmente responder a solicitações dos aplicativos.
@@ -97,7 +97,7 @@ o restante da discussão se concentra nesta abordagem.
 <!--
 https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/
 
-A useful approach is to have couchbackup's snapshots placed on the Bluemix Object Storage service, as described here:
+A useful approach is to have couchbackup's snapshots placed on the {{site.data.keyword.cloud}} Object Storage service, as described here:
 
 https://developer.ibm.com/recipes/tutorials/object-storage-cloudant-backup/
 -->

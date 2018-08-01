@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2018-03-07"
 # Creazione di una semplice applicazione {{site.data.keyword.cloud_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: il codice
 
 Questa sezione dell'esercitazione illustra il codice
-per un'applicazione {{site.data.keyword.Bluemix}}.
+per un'applicazione {{site.data.keyword.cloud}}.
 {:shortdesc}
 
 <div id="theApp"></div>
@@ -29,10 +29,10 @@ pronti per iniziare a creare l'applicazione:
 
 -   [Il linguaggio di programmazione Python](create_bmxapp_prereq.html#python).
 -   [Un'istanza del database {{site.data.keyword.cloudant_short_notm}}](create_bmxapp_prereq.html#csi).
--   [Un ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#creating).
--   Un [collegamento](create_bmxapp_appenv.html#connecting) tra l'istanza del database {{site.data.keyword.cloudant_short_notm}}
-    e l'ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}}.
--   I [toolkit](create_bmxapp_appenv.html#toolkits) per le applicazioni {{site.data.keyword.Bluemix_notm}} basate su Cloud Foundry.
+-   [Un ambiente dell'applicazione {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#creating).
+-   Una [connessione](create_bmxapp_appenv.html#connecting) tra l'istanza del database {{site.data.keyword.cloudant_short_notm}}
+    e l'ambiente dell'applicazione {{site.data.keyword.cloud_notm}}.
+-   I [toolkit](create_bmxapp_appenv.html#toolkits) per le applicazioni {{site.data.keyword.cloud_notm}} basate su Cloud Foundry.
 -   Un [pacchetto applicazione 'starter'](create_bmxapp_appenv.html#starter), che contiene i file del modello di codice e la configurazione iniziale.
 
 >   **Nota**: non è stato effettuato un tentativo di creare del codice Python _efficiente_ per questa esercitazione.
@@ -67,7 +67,7 @@ Modifica i tuoi file di configurazione nel seguente modo:
 2.  Modifica il file '`manifest.yml`' in modo che contenga il seguente testo:
     ```
     applications:
-- path: .
+    - path: .
       memory: 128M
       instances: 1
       domain: <your domain>
@@ -78,7 +78,7 @@ Modifica i tuoi file di configurazione nel seguente modo:
       - <your database instance>
     ```
     {:codeblock}
-    >   **Nota**: assicurati di modificare i valori '`domain`', '`name`', '`host`' e '`services`'. Questi sono i valori che sono stati immessi quando hai creato il tuo [ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#creating) e la tua [istanza del database {{site.data.keyword.cloudant_short_notm}}](create_bmxapp_prereq.html#csi).
+    >   **Nota**: Assicurati di modificare i valori '`domain`', '`name`', '`host`' e '`services`'. Questi sono i valori che sono stati immessi quando hai creato il tuo [ambiente dell'applicazione {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#creating) e la tua [istanza del database {{site.data.keyword.cloudant_short_notm}}](create_bmxapp_prereq.html#csi).
 
 3.  Modifica il file '`requirements.txt`' in modo che contenga il seguente testo:
     ```
@@ -88,7 +88,7 @@ Modifica i tuoi file di configurazione nel seguente modo:
 
 ### Il codice dell'applicazione
 
-Il passo successivo è di lavorare sul codice dell'applicazione.
+Il passo successivo consiste nel lavorare sul codice dell'applicazione.
 Ogni sezione viene descritta e viene presentato il codice.
 Un [elenco completo](#complete-listing) del codice dell'applicazione
 si trova alla fine dell'esercitazione.
@@ -111,7 +111,7 @@ from time import gmtime, strftime
 
 L'applicazione funziona come un server web semplice,
 visualizzando solo una pagina:
-un log contenente i risultati del collegamento all'istanza del database {{site.data.keyword.cloudant_short_notm}}
+un log contenente i risultati della connessione all'istanza del database {{site.data.keyword.cloudant_short_notm}}
 e la creazione di un database.
 
 L'applicazione richiede i componente per servire come una pagina web:
@@ -129,7 +129,7 @@ except ImportError:
 
 >   **Nota**: questo segmento di codice viene fornito come parte del [pacchetto applicazione 'starter'](create_bmxapp_appenv.html#starter).
 
-L'applicazione si collega all'istanza del database {{site.data.keyword.cloudant_short_notm}},
+L'applicazione si connette all'istanza del database {{site.data.keyword.cloudant_short_notm}},
 per cui deve importare i componenti della libreria {{site.data.keyword.cloudant_short_notm}}:
 
 ```python
@@ -149,7 +149,7 @@ databaseName = "databasedemo"
 ```
 {:codeblock}
 
-L'applicazione registra l'avanzamento come si collega all'istanza del database
+L'applicazione registra l'avanzamento come si connette all'istanza del database
 {{site.data.keyword.cloudant_short_notm}}
 e crea il database.
 Il record prende la forma di un file di log,
@@ -196,15 +196,15 @@ target.write("\n====\n\n")
 
 #### Utilizzo dell'istanza del database {{site.data.keyword.cloudant_short_notm}}
 
-L'applicazione Python viene eseguita in un ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}}.
-L'ambiente fornisce tutte le informazioni necessarie sull'applicazione per accedere ai servizi collegati.
+L'applicazione Python viene eseguita in un ambiente dell'applicazione {{site.data.keyword.cloud_notm}}.
+L'ambiente fornisce tutte le informazioni necessarie sull'applicazione per accedere ai servizi connessi.
 Le informazioni vengono fornite in una variabile di ambiente,
 denominata '`VCAP_SERVICES`'.
 È possibile accedere a questa variabile dall'applicazione
 e utilizzarla per determinare i dettagli della connessione.
 
-La prima attività è di assicurarti che l'applicazione sia in esecuzione in un
-ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}}.
+La prima attività consiste nell'assicurarti che l'applicazione sia in esecuzione in un
+ambiente dell'applicazione {{site.data.keyword.cloud_notm}}.
 Verifica che sia presente la variabile di ambiente '`VCAP_SERVICES`' nel test:
 
 ```python
@@ -235,7 +235,7 @@ target.write("Got vcap_servicesData\n")
 {:codeblock}
 
 Successivamente,
-ricerca le informazioni sull'istanza del database {{site.data.keyword.cloudant_short_notm}} collegata.
+ricerca le informazioni sull'istanza del database {{site.data.keyword.cloudant_short_notm}} connessa.
 Inoltre,
 registra l'evento nel 'file di log':
 
@@ -247,16 +247,16 @@ target.write("Got cloudantNoSQLDBData\n")
 ```
 {:codeblock}
 
-Molti servizi {{site.data.keyword.Bluemix_notm}} potrebbe venire collegati all'ambiente dell'applicazione.
+Molti servizi {{site.data.keyword.cloud_notm}} potrebbe venire connessi all'ambiente dell'applicazione.
 Le credenziali per ogni servizio, sono elencate come elementi array.
 In questa esercitazione,
-[è stato creato solo un collegamento al servizio](create_bmxapp_appenv.html#connecting).
+[è stata creata solo una connessione al servizio](create_bmxapp_appenv.html#connecting).
 Pertanto,
 l'applicazione accede al primo elemento (elemento 'zero').
 Ogni elemento del servizio contiene le credenziali per tale servizio,
 espresse come un elenco indicizzato dai nome di campo essenziali necessari per accedere al servizio.
 Ulteriori informazioni sui nomi dei campi vengono fornite
-nell'[esercitazione](create_database.html#a-cloudant-service-instance-on-bluemix) che descrive un'attività di creazione del database semplice.
+nell'[esercitazione](create_database.html#pre-requisites) che descrive un'attività di creazione del database semplice.
 
 ```python
 # Ottieni un elenco contenente le informazioni sulla connessione {{site.data.keyword.cloudant_short_notm}}.
@@ -282,7 +282,7 @@ servicePassword = credentialsData['password']
 target.write("Got password: ")
 target.write(servicePassword)
 target.write("\n")
-# ... e l'URL del servizio in Bluemix.
+# ... e l'URL del servizio in {{site.data.keyword.cloud_notm}}.
 serviceURL = credentialsData['url']
 target.write("Got URL: ")
 target.write(serviceURL)
@@ -293,22 +293,22 @@ target.write("\n")
 L'applicazione dispone ora di tutti i dettagli necessari per creare un database nell'istanza del database
 {{site.data.keyword.cloudant_short_notm}}.
 Questa attività viene descritta più dettagliatamente
-nell'[esercitazione](create_database.html#a-cloudant-service-instance-on-bluemix) che descrive la creazione del database semplice.
+nell'[esercitazione](create_database.html#creating-a-database-within-the-service-instance) che descrive la creazione del database semplice.
 
 L'applicazione deve eseguire queste attività:
 
-1.  Stabilisce un collegamento all'istanza del database.
+1.  Stabilisce una connessione all'istanza del database.
 2.  Crea un database con il nome fornito [precedentemente](#getting-started).
 3.  Crea un documento JSON che contiene la data e l'ora correnti.
 4.  Archivia il documento JSON nel database.
 5.  Conferma che il documento sia stato archiviato in modo sicuro.
-6.  Chiude il collegamento all'istanza del database.
+6.  Chiude la connessione all'istanza del database.
 
 Il codice per queste attività è il seguente:
 
 ```python
 # Disponiamo ora di tutti i dettagli necessari per utilizzare l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}.
-# Collegati all'istanza del servizio.
+# Connettiti all'istanza del servizio.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 client.connect()
 # Crea un database nell'istanza.
@@ -323,14 +323,14 @@ if myDatabaseDemo.exists():
     newDocument = myDatabaseDemo.create_document(jsonDocument)
     if newDocument.exists():
         target.write("Document successfully created.\n")
-# Tutto eseguito - scollegati dall'istanza del servizio.
+# Tutto eseguito - disconnettiti dall'istanza del servizio.
 client.disconnect()
 ```
 {:codeblock}
 
 #### Chiusura del file di log
 
-Il passo successivo è di chiudere il file di log,
+Il passo successivo consiste nel chiudere il file di log,
 pronto per utilizzare un server web Python semplice nell'applicazione.
 
 ```python
@@ -350,9 +350,9 @@ L'attività finale è di avviare il server web nell'applicazione Python.
 L'unico scopo del server è di restituire il file di log su richiesta.
 Questo file di log conferma che l'applicazione Python ha completato correttamente le seguenti attività:
 
-1.  È sta eseguita correttamente nell'ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}}.
-2.  Determinato i dettagli dei collegamenti al servizio.
-3.  Collegata all'istanza del database {{site.data.keyword.cloudant_short_notm}}.
+1.  È sta eseguita correttamente nell'ambiente dell'applicazione {{site.data.keyword.cloud_notm}}.
+2.  Determinato i dettagli delle connessioni al servizio.
+3.  Stabilita una connessione a un'istanza del database {{site.data.keyword.cloudant_short_notm}}.
 4.  Creato un database.
 5.  Creato un documento nel database.
 6.  Risposto con il log degli eventi quando richiesto.
@@ -380,8 +380,7 @@ Il passo successivo nell'esercitazione è di [caricare l'applicazione](create_bm
 
 ## Elenco completo
 
-Il seguente codice è il programma Python completo per accedere all'istanza del servizio
-{{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.Bluemix_notm}}:
+Il seguente codice è il programma Python completo per accedere all'istanza del servizio {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}}:
 
 ```python
 # Rendi i moduli Python disponibili.
@@ -430,7 +429,7 @@ target.write("\n====\n\n")
 
 # Inizia a utilizzare l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}.
 
-# Verifica che siamo in esecuzione in un ambiente dell'applicazione Bluemix.
+# Verifica che siamo in esecuzione in un ambiente dell'applicazione {{site.data.keyword.cloud_notm}}.
 if 'VCAP_SERVICES' in os.environ:
     # Sì, così puoi ottenere le informazioni sul servizio.
     vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
@@ -456,14 +455,14 @@ target.write("\n")
     target.write("Got password: ")
     target.write(servicePassword)
 target.write("\n")
-    # ... e l'URL del servizio in Bluemix.
+    # ... e l'URL del servizio in {{site.data.keyword.cloud_notm}}.
     serviceURL = credentialsData['url']
 target.write("Got URL: ")
     target.write(serviceURL)
 target.write("\n")
 
     # Disponiamo ora di tutti i dettagli necessari per utilizzare l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}.
-    # Collegati all'istanza del servizio.
+    # Connettiti all'istanza del servizio.
     client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
     client.connect()
     # Crea un database nell'istanza.
@@ -478,7 +477,7 @@ target.write("\n")
         newDocument = myDatabaseDemo.create_document(jsonDocument)
         if newDocument.exists():
             target.write("Document successfully created.\n")
-    # Tutto eseguito - scollegati dall'istanza del servizio.
+    # Tutto eseguito - disconnettiti dall'istanza del servizio.
     client.disconnect()
 
 # Inserisci un'altra indicazione chiara della data e ora correnti alla fine della pagina.

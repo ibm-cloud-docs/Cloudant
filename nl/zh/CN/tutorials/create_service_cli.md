@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -19,9 +19,9 @@ lastupdated: "2018-03-07"
 
 ## 先决条件
 
-要学习本教程，必须先安装 {{site.data.keyword.Bluemix_notm}} Cloud Foundry 工具。[本单独教程](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits)中提供了有关安装这些工具的详细信息。
+要学习本教程，必须先安装 {{site.data.keyword.Bluemix_notm}} Cloud Foundry 工具。[本单独教程](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits)中提供了有关安装这些工具的详细信息。
 
-> **注**：确保安装了 Cloud Foundry _和_ {{site.data.keyword.Bluemix_notm}} 工具箱。
+> **注**：务必安装 Cloud Foundry _和_ {{site.data.keyword.Bluemix_notm}} 工具箱。
 
 ## 确定 {{site.data.keyword.Bluemix_notm}} API 端点
 
@@ -140,7 +140,7 @@ bx service create <service> <plan> <instance name>
 ```
 {:pre}
 
-假定要使用 `Lite` 套餐来创建 {{site.data.keyword.cloudant_short_notm}} 服务的实例，其中实例名称为 `cs20170517a`。
+假定要使用`轻量`套餐来创建 {{site.data.keyword.cloudant_short_notm}} 服务的实例，其中实例名称为 `cs20170517a`。
 
 使用类似于以下示例的命令来执行此操作：
 
@@ -171,13 +171,13 @@ OK
 
 服务凭证由五个字段组成：
 
-字段       | 用途
+字段       |用途
 -----------|--------
-`host`     | 应用程序用于查找服务实例的主机名。
-`username` | 应用程序访问服务实例所需的用户名。
-`password` | 应用程序访问服务实例所需的密码。
-`port`     | 用于访问主机上服务实例的 HTTP 端口号。通常为 443，可强制执行 HTTPS 访问。
-`url`      | 将其他凭证信息聚集到单个 URL 中（使其适合应用程序使用）的字符串。
+`host`     |应用程序用于查找服务实例的主机名。
+`username` |应用程序访问服务实例所需的用户名。
+`password` |应用程序访问服务实例所需的密码。
+`port`     |用于访问主机上服务实例的 HTTP 端口号。通常为 443，可强制执行 HTTPS 访问。
+`url`      |将其他凭证信息聚集到单个 URL 中（使其适合应用程序使用）的字符串。
 
 用于在 {{site.data.keyword.Bluemix_notm}} 中为服务实例创建凭证的基本命令格式如下所示：
 

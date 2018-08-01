@@ -78,7 +78,7 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 
 이 별명은 사용자가 명령행에 입력하는 URL에 권한 부여 신임 정보를 포함시키는 대신 권한 부여 헤더를 추가합니다.
 또한 HTTPS 사용이 자동 설정되며, 이는 전송 중에 사용자의 데이터 및 신임 정보를 암호화하고
-사용자가 {{site.data.keyword.cloudant_short_notm}} 시스템에 연결하고 있는지 확인하는 데 도움을 주므로 일반 HTTP를 사용하는 것보다 훨씬 바람직합니다. 
+사용자가 {{site.data.keyword.cloudant_short_notm}} 시스템에 연결하고 있는지 확인하는 데 도움을 주므로 일반 HTTP를 사용하는 것보다 훨씬 바람직합니다.
 
 ## 별명 활성화
 

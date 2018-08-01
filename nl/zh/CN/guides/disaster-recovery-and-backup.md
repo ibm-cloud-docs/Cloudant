@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -36,6 +36,7 @@ lastupdated: "2017-11-06"
 要满足您的 HA 或 DR 需求，往往需要首先将问题简化为更通用的需求。确定您的需求时，可以应用各种工具和功能来帮助解决通用需求。随后，将这些工具和功能组合在一起，就能满足您的 HA 或 DR 需求。
 
 >	**注**：不同的工具和功能将提供不同级别的保护。不同的功能可能或多或少适合您的特定 HA 或 DR 需求。
+{:tip}
 
 {{site.data.keyword.cloudant_short_notm}} 提供了用于满足通用需求的若干工具和功能：
 
@@ -97,7 +98,8 @@ lastupdated: "2017-11-06"
 *	将完整数据库备份到适合进一步处理和非现场存储的文件。
 *	从备份文件中包含的先前状态复原完整数据库。
 
-<strong style="color:red;">警告！</strong>{{site.data.keyword.cloudant_short_notm}} 支持的工具存在以下限制： 
+> **警告！**{{site.data.keyword.cloudant_short_notm}} 支持的工具存在以下限制： 
+{:tip}
 
 *	工具不会备份 `_security` 设置。
 *	工具不会备份附件。

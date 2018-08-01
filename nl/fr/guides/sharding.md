@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -52,7 +52,7 @@ Le nombre de répliques (copies d'un fragment) est également configurable.
 En pratique,
 l'observation et la mesure d'un grand nombre de systèmes indiquent qu'il est judicieux dans la plupart des cas d'utiliser trois répliques
 pour atteindre un équilibre entre les performances et la sécurité des données.
-Il est exceptionnel et inhabituel que le système {{site.data.keyword.cloudant_short_notm}} utilise un autre nombre de répliques.
+Il est exceptionnel et inhabituel qu'un système {{site.data.keyword.cloudant_short_notm}} utilise un autre nombre de répliques.
 
 ## En quoi la fragmentation affecte-t-elle les performances ?
 
@@ -180,8 +180,8 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**Remarque :** La définition de _Q_ pour les bases de données n'est pas activée pour les bases de données {{site.data.keyword.cloudant_short_notm}} sur Bluemix.
-	La valeur _Q_ n'est pas disponible sur la plupart des clusters à service partagé `cloudant.com`.
+>	**Remarque :** la définition de _Q_ pour les bases de données n'est pas activée pour les bases de données {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud}}.
+La valeur _Q_ n'est pas disponible sur la plupart des clusters à service partagé `cloudant.com`.
 
 Si vous tentez de définir la valeur _Q_ alors qu'elle est indisponible,
 une réponse [`403` est générée](../api/http.html#403) avec un corps JSON

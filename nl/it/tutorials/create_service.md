@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -20,7 +20,7 @@ e ti mostra dove trovare le informazioni essenziali per abilitare le tue applica
 ad utilizzare il database.
 {:shortdesc}
 
-Per accedere all'istanza del servizio {{site.data.keyword.cloudant_short_notm}},
+Per accedere a un'istanza del servizio {{site.data.keyword.cloudant_short_notm}},
 hai bisogno di una serie di [Credenziali del servizio](#the-service-credentials).
 Le credenziali vengono generate come parte del processo quando crei un'istanza del servizio.
 
@@ -66,7 +66,7 @@ al tuo account {{site.data.keyword.cloudant_short_notm}}.
 
 7.  Viene visualizzata una pagina del servizio,
     che conferma che il tuo nuovo servizio {{site.data.keyword.cloudant_short_notm}} è disponibile.
-    Per accedere alle informazioni di collegamento di cui ha bisogno la tua applicazione per il collegamento al servizio,
+    Per accedere alle informazioni di connessione di cui ha bisogno la tua applicazione per la connessione al servizio,
     fai clic sulla scheda `Service Credentials`:<br/>
     ![Accesso alle credenziali del servizio {{site.data.keyword.cloudant_short_notm}} ](images/img0007.png)
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -38,7 +38,7 @@ De este modo, una copia de seguridad puede conservar el estado de la base de dat
 
 Si es un cliente de empresa, [dispone](disaster-recovery-and-backup.html) de la función de copia de seguridad incremental diaria.
 
-Si no es un cliente de empresa, o si prefiere crear sus propias copias de seguridad, puede utilizar el recurso de réplica de {{site.data.keyword.cloudant_short_notm}}  para crear una copia de seguridad de la base de datos.
+Si no es un cliente de empresa, o si prefiere crear sus propias copias de seguridad, puede utilizar el recurso de réplica de {{site.data.keyword.cloudant_short_notm}} para crear una copia de seguridad de la base de datos.
 
 Un enfoque sencillo consiste es crear una réplica de toda la base de datos en una base de datos de copia de seguridad.
 Este método funciona y es muy sencillo.
@@ -75,7 +75,9 @@ Para crear una copia de seguridad incremental, siga los pasos siguientes:
 `$REPLICATION_ID` es el ID que ha encontrado en el paso anterior y `$DATABASE` es el nombre de la base de datos de origen o de destino.
     El documento suele existir en ambas bases de datos, pero es posible que solo esté en una.
 3.  Busque el campo `recorded_seq` del primer elemento de la matriz histórica que se encuentra en el documento de punto de comprobación.
-4.  Cree una réplica en la nueva base de datos de copia de seguridad incremental, estableciendo el [campo `since_seq`](../api/replication.html#the-since_seq-field) del documento de réplica en el valor del [campo `recorded_seq`](backup-guide.html#get-the-recorded_seq-value) del paso anterior.
+4.  Cree una réplica en la nueva base de datos de copia de seguridad incremental,
+    estableciendo el [campo `since_seq`](../api/replication.html#the-since_seq-field)
+    del documento de réplica en el valor del campo `recorded_seq` del paso anterior.
 
 >   **Nota**: Por definición, el uso de la opción `since_seq` omite el recurso normal de establecimiento de un punto de comprobación. Utilice `since_seq` con cuidado. 
 
@@ -435,4 +437,6 @@ Asegúrese de que los trabajos de réplica no comiencen a la vez.
 ## ¿Necesita ayuda?
 
 Las réplicas y copias de seguridad pueden ser complicadas.
-Si se atasca, consulte la [guía de réplica](replication_guide.html), o póngase en contacto con el equipo de soporte de [IBM {{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){:new_window}.
+Si se atasca, consulte la [guía de réplica](replication_guide.html),
+o póngase en contacto con el equipo de soporte de
+[{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){:new_window}.

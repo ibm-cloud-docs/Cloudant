@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -86,7 +86,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**附註：**對於 Bluemix 上的 {{site.data.keyword.cloudant_short_notm}} 資料庫，未啟用為資料庫設定 _Q_ 的功能。
+>	**附註：**對於 {{site.data.keyword.cloud}} 上的 {{site.data.keyword.cloudant_short_notm}} 資料庫，未啟用為資料庫設定 _Q_ 的功能。
  在大部分的 `cloudant.com` 多方承租戶叢集上，無法使用 _Q_ 值。
 
 如果您嘗試在無法使用的位置設定 _Q_ 值，則結果是 JSON 主體與下列範例類似的 [`403` 回應](../api/http.html#403)：

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2017-11-06"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Regroupement des documents liés dans {{site.data.keyword.cloudant_short_notm}} 
+# Regroupement des documents liés dans {{site.data.keyword.cloudant_short_notm}}
 
 Généralement,
 les systèmes de commerce électronique sont générés avec des bases de données relationnelles.

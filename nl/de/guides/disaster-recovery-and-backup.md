@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -54,6 +54,7 @@ Zusammen können die Tools und Funktionen dann Ihre Hochverfügbarkeits- und Dis
 
 >	**Hinweis**: Verschiedene Tools und Funktionen bieten unterschiedliche Ebenen des Schutzes.
 	Die einzelnen Funktionen können mehr oder weniger geeignet sein für Ihre spezifischen Hochverfügbarkeits- oder Disaster-Recovery-Probleme.
+{:tip}
 
 {{site.data.keyword.cloudant_short_notm}} stellt eine Auswahl an Tools und Funktionen für Ihre allgemeinen Anforderungen bereit:
 
@@ -157,7 +158,8 @@ Die von {{site.data.keyword.cloudant_short_notm}} unterstützten Tools helfen Ih
 die sich für die weitere Verarbeitung und Sicherung an einem anderen	Standort eignet.
 *	Wiederherstellen vollständiger Datenbanken aus einem früheren Zustand, der in Ihrer Sicherungsdatei enthalten ist.
 
-<strong style="color:red;">Achtung!</strong> Die von {{site.data.keyword.cloudant_short_notm}} unterstützten Tools haben die folgenden Einschränkungen: 
+> **Achtung!** Die von {{site.data.keyword.cloudant_short_notm}} unterstützten Tools haben die folgenden Einschränkungen: 
+{:tip}
 
 *	`_security`-Einstellungen werden von den Tools nicht gesichert.
 *	Anhänge werden von den Tools nicht gesichert.

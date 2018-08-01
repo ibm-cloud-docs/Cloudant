@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -72,7 +72,7 @@ puis cliquez sur "`Replicate`".
 ![réplication3](../images/replication_guide_3.png)
 
 Le statut de chaque tâche de réplication s'affiche dans la section "`All Replications`" du tableau de bord.
-Chaque travail passe de l'état `Triggered`" à l'état "`Complete`" lors de sa progression.
+Chaque travail passe de l'état "`Triggered`" à l'état "`Complete`" lors de sa progression.
 
 ![réplication4](../images/replication_guide_4.png)
 
@@ -689,8 +689,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
     Cela est dû au fait que les données sont renvoyés à partir de plusieurs noeuds {{site.data.keyword.cloudant_short_notm}} et
     que les règles de cohérence finale s'appliquent.
 
-
-
 ## Inconvénients de la réplication
 
 Lors de l'utilisation de la réplication, plusieurs éléments sont à prendre en compte.
@@ -730,7 +728,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 Dans l'élément JSON,
 recherchez la valeur `disk_size`.
 Si la valeur indique une taille supérieure à 1 Go,
-contactez l'[équipe de support IBM {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window} pour obtenir des conseils supplémentaires.
+contactez l'[équipe de support {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window} pour obtenir des conseils supplémentaires.
 
 Vous pouvez rechercher des conflits dans un document `_replicator`,
 comme cela est présenté dans l'exemple suivant :
@@ -805,4 +803,4 @@ Par exemple :
     attribuer la valeur 1 à `worker_processes` et `http_connections` peut être approprié.
 
 Pour obtenir de l'aide supplémentaire sur la meilleure configuration à utiliser pour votre scénario d'utilisation,
-contactez l'[équipe de support IBM {{site.data.keyword.cloudant_short_notm}}![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window}.
+contactez l'[équipe de support {{site.data.keyword.cloudant_short_notm}}![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window}.

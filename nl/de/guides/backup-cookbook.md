@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-10-27"
+  years: 2017, 2018
+lastupdated: "2018-06-07"
 
 ---
 
@@ -21,8 +21,7 @@ Dieses Cookbook ist Teil des [{{site.data.keyword.cloudantfull}}-Leitfadens zur 
 Beginnen Sie hier, wenn Sie mit der Thematik noch nicht besonders vertraut sind und verstehen möchten, wie Sicherungen mit den anderen Funktionen, die {{site.data.keyword.cloudant_short_notm}} bietet,
 zusammenarbeiten, um Disaster-Recovery- (DR) und Hochverfügbarkeitsanforderungen (HA) zu unterstützen.
 
-Obwohl Daten redundant in einem {{site.data.keyword.cloudant_short_notm}}-Cluster gespeichert werden,
-ist es wichtig, zusätzliche Sicherungsmaßnahmen in Betracht zu ziehen.
+Obwohl Daten redundant in einem {{site.data.keyword.cloudant_short_notm}}-Cluster gespeichert werden, ist es wichtig, zusätzliche Sicherungsmaßnahmen in Betracht zu ziehen.
 Redundanter Datenspeicher schützt beispielsweise nicht vor Fehlern beim Ändern von Daten.
 
 ## Einführung in CouchBackup
@@ -36,7 +35,8 @@ Neben der Bibliothek enthält das CouchBackup-Paket zwei Befehlszeilentools:
 1. `couchbackup`, das einen Speicherauszug von JSON-Daten aus einer Datenbank in einer Sicherungstextdatei erstellt.
 2. `couchrestore`, das Daten aus einer Sicherungstextdatei in einer Datenbank wiederherstellt.
 
-<strong style="color:red;">Achtung!</strong> Die CouchBackup-Tools haben [Einschränkungen](#limitations).
+> **Achtung!** Die CouchBackup-Tools haben [Einschränkungen](#limitations).
+{:tip}
 
 ## {{site.data.keyword.cloudant_short_notm}}-Daten sichern
 
@@ -56,10 +56,12 @@ darunter die folgenden:
 * Protokolldateien zum Aufzeichnen des Fortschritts einer Sicherung.
 * Möglichkeit, eine unterbrochene Sicherung fortzusetzen.
   **Hinweis**: Diese Option ist nur mit der Protokolldatei der nicht unterbrochenen Sicherung verfügbar.
+  {:tip}
 * Senden der Sicherungstextdatei an eine angegebene Ausgabedatei,
   statt Weiterleiten der `stdout`-Ausgabe.
 
-<strong style="color:red;">Achtung!</strong> Die CouchBackup-Tools haben [Einschränkungen](#limitations).
+> **Achtung!** Die CouchBackup-Tools haben [Einschränkungen](#limitations).
+{:tip}
 
 ## {{site.data.keyword.cloudant_short_notm}}-Daten wiederherstellen
 
@@ -76,11 +78,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 Der Befehl [npm readme ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmreadme]{:new_window} liefert Details über andere Wiederherstellungsoptionen.
 
-<strong style="color:red;">Achtung!</strong> Die CouchBackup-Tools haben [Einschränkungen](#limitations).
+> **Achtung!** Die CouchBackup-Tools haben [Einschränkungen](#limitations).
+{:tip}
 
 ## Einschränkungen
 
-<strong style="color:red;">Achtung!</strong> Die CouchBackup-Tools haben die folgenden Einschränkungen: 
+> **Achtung!** Die CouchBackup-Tools haben die folgenden Einschränkungen: 
+{:tip}
 
 * `_security`-Einstellungen werden von den Tools nicht gesichert.
 * Anhänge werden von den Tools nicht gesichert.
@@ -202,6 +206,7 @@ Dieser Code stellt dar, wie Sie die regionsübergreifende S3-API zum Sichern ein
 > **Hinweis**: Eine Voraussetzung für den Code ist die Initialisierung des S3-Clientobjekts für
   {{site.data.keyword.IBM_notm}} Cloud-Objektspeicher anhand
 [dieser Anweisungen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][cosclient]{:new_window}.
+{:tip}
 
 ```javascript
 /*

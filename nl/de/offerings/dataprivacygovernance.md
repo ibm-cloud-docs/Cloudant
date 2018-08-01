@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -26,7 +26,7 @@ eine besondere Bedeutung.
 
 Um das Übertragen von Daten aus dem europäischen Raum in die USA zu regeln,
 hält {{site.data.keyword.cloudant_short_notm}} die zwischen den USA und Europa sowie zwischen der USA und der Schweiz vereinbarten
-[Safe Harbour-Frameworks ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://safeharbor.export.gov/companyinfo.aspx?id=29450){:new_window} ein.
+[Safe Harbour-Frameworks ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.export.gov/safeharbor_eu){:new_window} ein.
 Im Anschluss an das Urteil des Europäischen Gerichtshofs im Jahr 2015, das die Safe Harbour-Vereinbarung [ungültig gemacht hat ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){:new_window},
 hat sich {{site.data.keyword.IBM_notm}} sehr schnell in die Diskussion eingebracht und politische Entscheidungsträger
 gemahnt, [den ununterbrochenen Datenfluss zwischen der
@@ -59,12 +59,11 @@ Sie [hier](compliance.html).
 -   [Amazon ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://aws.amazon.com/compliance/){:new_window}
 -   [{{site.data.keyword.BluSoftlayer_notm}} ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.softlayer.com/compliance){:new_window}
 
-Nach der jüngsten Abstimmung zugunsten einer neuen [Datenschutzgrundverordnung ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){:new_window}
+Nach der jüngsten Abstimmung zugunsten einer neuen [Datenschutz-Grundverordnung ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){:new_window}
 müssen sich {{site.data.keyword.cloudant_short_notm}}-Kunden nicht nur auf das Know-how des {{site.data.keyword.cloudant_short_notm}}-Teams
 und auf die Compliance mit aufkommenden Datenschutzstandards und -gesetzen verlassen können, sondern auch
 auf die weit darüber hinaus gehende Fähigkeit von {{site.data.keyword.IBM_notm}}, eine umfassende Suite
-von Lösungen zur Unterstützung von Unternehmen jeder Größe mit ihren eigenen Datengovernanceanforderungen
-bereitzustellen.
+von Lösungen zur Unterstützung von Unternehmen jeder Größe mit ihren eigenen Datengovernanceanforderungen bereitzustellen.
 
 Wenn Sie weiterführende Fragen haben zu den anstehenden Änderungen der Datenschutzgesetzgebung in Europa
 und inwieweit diese wahrscheinlich Ihr Unternehmen betreffen, oder wenn Sie besprechen möchten, wie

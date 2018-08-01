@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,23 +14,23 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Criando um aplicativo {{site.data.keyword.Bluemix_notm}} simples para acessar um banco de dados {{site.data.keyword.cloudant_short_notm}}: fazendo upload do aplicativo
+# Criando um aplicativo {{site.data.keyword.cloud_notm}} para acessar um banco de dados do {{site.data.keyword.cloudant_short_notm}}: fazendo upload do aplicativo
 
 Esta seção do tutorial descreve como fazer upload de um
-aplicativo {{site.data.keyword.Bluemix}}.
+aplicativo {{site.data.keyword.cloud}}.
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## Conectando-se ao {{site.data.keyword.Bluemix_notm}}
+## Conectando-se ao {{site.data.keyword.cloud_notm}}
 
-A primeira tarefa é se conectar ao {{site.data.keyword.Bluemix_notm}}.
+A primeira tarefa é se conectar ao {{site.data.keyword.cloud_notm}}.
 
-O [kit de ferramentas do {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#toolkits) ajuda a fazer a conexão.
+O [kit de ferramentas do {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#toolkits) ajuda você a fazer a conexão.
 
 O Cloud Foundry precisa saber a URL a ser usada para fazer chamadas API,
 por exemplo, ao fazer upload de um aplicativo.
-O kit de ferramentas do {{site.data.keyword.Bluemix_notm}} usa o comando '`cf api`' para gerenciar o terminal de API.
+O kit de ferramentas do {{site.data.keyword.cloud_notm}} usa o comando '`cf api`' para gerenciar o terminal de API.
 Mais informações sobre o comando '`cf api`' estão
 [disponíveis![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
 
@@ -57,20 +57,20 @@ Not logged in. Use 'bluemix login' to log in.
 
 Agora o Cloud Foundry sabe onde enviar chamadas API para gerenciar aplicativos.
 
-A próxima etapa é efetuar login no ambiente de aplicativos do {{site.data.keyword.Bluemix_notm}}.
+A próxima etapa é efetuar login em seu ambiente de aplicativos do {{site.data.keyword.cloud_notm}}.
 Deve-se fornecer os detalhes de conta a seguir:
 
 -   Seu nome de usuário, especificado como o parâmetro '`-u`'.
 -   O nome de sua organização, especificado como o parâmetro '`-o`'.
 -   Seu espaço, especificado como o parâmetro '`-s`'.
 
->   **Nota**: os detalhes da conta ficam disponíveis no painel do {{site.data.keyword.Bluemix_notm}}
+>   **Nota**: os detalhes da conta ficam disponíveis no painel do {{site.data.keyword.cloud_notm}}
     ao efetuar login por meio de um navegador da web,
 conforme mostrado no exemplo a seguir:<br/>
-    ![Localizando os detalhes da conta do {{site.data.keyword.Bluemix_notm}}](images/img0035.png)
+    ![Localizando seus detalhes da conta do {{site.data.keyword.cloud_notm}}](images/img0035.png)
 
 Use um comando semelhante ao exemplo a seguir para efetuar login no
-ambiente de aplicativos do {{site.data.keyword.Bluemix_notm}}.
+ambiente de aplicativos do {{site.data.keyword.cloud_notm}}.
 Observe que você é solicitado a inserir a senha de sua conta.
 
 ```sh
@@ -102,17 +102,17 @@ Space:          dev
 
 ## Fazendo upload do aplicativo
 
-O kit de ferramentas do {{site.data.keyword.cloudant_short_notm}} Foundry agora sabe como se conectar ao ambiente {{site.data.keyword.Bluemix_notm}}.
+O kit de ferramentas do {{site.data.keyword.cloudant_short_notm}} Foundry agora sabe como se conectar ao ambiente {{site.data.keyword.cloud_notm}}.
 
 A próxima etapa é fazer upload do próprio aplicativo.
-Detalhes de um aplicativo {{site.data.keyword.Bluemix_notm}}
+Detalhes de um aplicativo {{site.data.keyword.cloud_notm}}
 são fornecidos no [arquivo manifest](create_bmxapp_appenv.html#manifest).
 
 O arquivo manifest para o aplicativo tutorial foi atualizado
 conforme descrito [aqui](create_bmxapp_createapp.html#essential-files)
 
 Use um comando semelhante ao exemplo a seguir para efetuar login para fazer upload do
-aplicativo {{site.data.keyword.Bluemix_notm}}.
+aplicativo {{site.data.keyword.cloud_notm}}.
 
 ```sh
 cf push "Cloudant Python"
@@ -188,7 +188,7 @@ que foi [especificada](create_bmxapp_createapp.html#essential-files) durante a c
 
 Depois que você faz upload e inicia o aplicativo,
 algumas verificações simples do sistema são executadas para confirmar que o aplicativo está sendo executado corretamente,
-no que diz respeito ao {{site.data.keyword.Bluemix_notm}}.
+no que diz respeito ao {{site.data.keyword.cloud_notm}}.
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -209,7 +209,7 @@ buildpack: python 1.5.5
 
 ## Testando o aplicativo de amostra
 
-Quando o ambiente de aplicativos do {{site.data.keyword.Bluemix_notm}} foi criado pela primeira vez,
+Quando o ambiente de aplicativos do {{site.data.keyword.cloud_notm}} foi criado pela primeira vez,
 o painel incluía um link na coluna `Route` para o aplicativo:<br/>
 ![Captura de tela mostrando o painel do aplicativo](images/img0017.png)
 
@@ -237,8 +237,10 @@ Clique no ícone `Launch` na guia `Manage` da
 página do serviço {{site.data.keyword.cloudant_short_notm}}:<br/>
 ![Ícone Ativar na página do serviço {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
 
-> **Nota**: para localizar a página do serviço {{site.data.keyword.cloudant_short_notm}},
-consulte os detalhes no [tutorial 'Criando uma instância do {{site.data.keyword.cloudant_short_notm}}'](create_service.html#locating-your-service-credentials).
+Para localizar sua página de serviço do {{site.data.keyword.cloudant_short_notm}},
+consulte os detalhes no tutorial
+['Criando uma instância do {{site.data.keyword.cloudant_short_notm}}'](create_service.html#locating-your-service-credentials).
+{: tip}
 
 Quando o painel for aberto,
 será possível ver que o aplicativo

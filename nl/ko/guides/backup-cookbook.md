@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-10-27"
+  years: 2017, 2018
+lastupdated: "2018-06-07"
 
 ---
 
@@ -38,7 +38,8 @@ lastupdated: "2017-10-27"
 1. `couchbackup`은 데이터베이스에서 백업 텍스트 파일로 JSON 데이터를 덤프합니다.
 2. `couchrestore`는 백업 텍스트 파일에서 데이터베이스로 데이터를 복원합니다.
 
-<strong style="color:red;">주의하십시오!</strong> CouchBackup 도구에는 [제한사항](#limitations)이 있습니다.
+> **주의하십시오!** CouchBackup 도구에는 [제한사항](#limitations)이 있습니다.
+{:tip}
 
 ## {{site.data.keyword.cloudant_short_notm}} 데이터 백업
 
@@ -58,9 +59,11 @@ couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 * 로그 파일을 사용한 백업 진행상태 기록
 * 인터럽트된 백업을 재개하는 기능
   **참고**: 이 옵션은 인터럽트된 백업에 대한 로그 파일이 있어야 사용 가능합니다.
+  {:tip}
 * 백업 텍스트 파일을 `stdout` 출력으로 경로 재지정하지 않고 지정된 출력 파일에 전송
 
-<strong style="color:red;">주의하십시오!</strong> CouchBackup 도구에는 [제한사항](#limitations)이 있습니다.
+> **주의하십시오!** CouchBackup 도구에는 [제한사항](#limitations)이 있습니다.
+{:tip}
 
 ## {{site.data.keyword.cloudant_short_notm}} 데이터 복원
 
@@ -78,11 +81,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 [npm readme ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")][npmreadme]{:new_window}에 기타 복원 옵션에 대한 세부사항이 제공되어 있습니다.
 
-<strong style="color:red;">주의하십시오!</strong> CouchBackup 도구에는 [제한사항](#limitations)이 있습니다.
+> **주의하십시오!** CouchBackup 도구에는 [제한사항](#limitations)이 있습니다.
+{:tip}
 
 ## 제한사항
 
-<strong style="color:red;">주의하십시오!</strong> CouchBackup은 도구에는 다음 제한사항이 있습니다. 
+> **주의하십시오!** CouchBackup은 도구에는 다음 제한사항이 있습니다. 
+{:tip}
 
 * `_security` 설정은 이 도구에 의해 백업되지 않습니다.
 * 첨부 파일은 이 도구에 의해 백업되지 않습니다.
@@ -211,6 +216,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 > **참고**: 이 코드의 전제조건은 다음 지시사항에 따라 S3 클라이언트 오브젝트를
   {{site.data.keyword.IBM_notm}} Cloud Object Storage용으로 초기화하는 것입니다.
 [지시사항 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")][cosclient]{:new_window}
+{:tip}
 
 ```javascript
 /*

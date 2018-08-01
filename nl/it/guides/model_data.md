@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2017-11-06"
 # I miei 5 suggerimenti principali per modellare i tuoi dati in scala
 
 Questo articolo considera i punti più importanti
-per la modellazione dei tuoi dati applicativi per lavorare in modo efficace su larga scala.
+per la modellazione dei tuoi dati applicativi per lavorare in modo efficace su una larga scala.
 {:shortdesc}
 
 _(Questa guida si basa su un articolo del blog di  Mike Rhodes:
@@ -45,9 +45,9 @@ In genere, i modelli di dati basati su dati immutabili richiedono l'uso di viste
 i documenti che compongono lo stato attuale. Poiché le viste sono precalcolate,
 ciò non dovrebbe influire negativamente sulle prestazioni dell'applicazione.
 
-## Perché è utile
+## Perché ti aiuta considerare dati immutabili 
 
-Dietro la nostra interfaccia `https://<account>.cloudant.com/` c'è un database distribuito. 
+Dietro la nostra interfaccia `https://$ACCOUNT.cloudant.com/` è presente un database distribuito.
 All'interno del cluster, i documenti vengono suddivisi in una serie di frammenti che, collettivamente, formano
 il database. Questi frammenti vengono quindi distribuiti tra i nodi nel cluster. Questo è ciò che
 ci permette di supportare i database di molti terabyte di dimensioni.
@@ -80,7 +80,7 @@ Salverai il lavoro nella tua applicazione e consentirai al database di concentra
 piccole richieste invece che sulla lettura di enormi quantità di dati dal disco per servire una sola grande
 richiesta.
 
-## Perché è utile
+## Perché ti aiuta utilizzare le viste per precalcolare i risultati
 
 È abbastanza semplice. Per prima cosa, nota che le mappe e le riduzioni sono precalcolate. Questo significa
 che chiedere il risultato di una funzione di riduzione è un'operazione economica, in particolare se
@@ -120,7 +120,7 @@ con una determinata tag
 [emettendo ogni tag come chiave nella funzione di mappa della tua vista](../api/creating_views.html). 
 Eseguendo una query nella vista per una determinata chiave verranno forniti tutti i documenti con quella tag.
 
-## Perché è utile
+## Perché ti aiuta denormalizzare i tuoi dati
 
 Tutto si riduce al numero di richieste HTTP effettuate dalla tua applicazione. C'è un costo
 per aprire le connessioni HTTP - in particolare HTTPS - e, mentre il riutilizzo delle connessioni può aiutare, effettuare
@@ -153,7 +153,7 @@ Ad esempio, prendi un record medico che contiene un elenco di operazioni:
 Se Joe è abbastanza sfortunato da avere un sacco di operazioni contemporaneamente, i molti
 aggiornamenti simultanei a un documento possono creare documenti in conflitto, come descritto in precedenza. 
 È meglio suddividere le operazioni in documenti separati che fanno riferimento al documento personale di Joe
-e utilizzare una vista per collegare insieme le cose. Per rappresentare ogni operazione, devi caricare i documenti come
+e utilizzare una vista per connettere insieme le cose. Per rappresentare ogni operazione, devi caricare i documenti come
 nei due seguenti esempi:
 
 ```json
@@ -179,9 +179,9 @@ operazioni di un determinato paziente. Di nuovo, le viste vengono utilizzate per
 di una determinata entità da documenti separati, contribuendo a mantenere basso il numero di richieste HTTP
 anche se abbiamo suddiviso i dati per una singola entità modellata.
 
-## Perché è utile
+## Perché ti aiuta evitare conflitti
 
-Evitare i documenti in conflitto aiuta a velocizzare molte operazioni nei tuoi database {{site.data.keyword.cloudant_short_notm}}.
+Evitare i documenti in conflitto aiuta a velocizzare molte operazioni nei tuoi database {{site.data.keyword.cloudant_short_notm}}. 
 Ciò è dovuto al fatto che esiste un processo che esegue l'attuale revisione vincente
 utilizzata ogni volta che il documento viene letto: recuperi singoli di documenti, chiamate con `include_docs=true`, creazione di viste
 e così via.
@@ -199,7 +199,7 @@ sul fatto che i documenti possono diramarsi per evitare di eliminare i dati - ma
 patologici, in particolare se i conflitti non vengono risolti, è richiesto un laborioso procedimento e
 un uso intensivo della memoria per percorrere la struttura ad albero dei documenti.
 
-## Crea la funzione di risoluzione dei conflitti
+## Integra la risoluzione dei conflitti
 
 In un sistema con consistenza eventuale come {{site.data.keyword.cloudant_short_notm}}, i conflitti alla fine accadono. Come descritto
 in precedenza, questo è il prezzo della scalabilità e della resilienza dei dati.
@@ -219,7 +219,7 @@ Questa operazione è molto specifica dell'applicazione, ma ecco alcuni suggerime
     versione di altri documenti che non sono coerenti con il documento che stai risolvendo,
     rendendo difficile la risoluzione corretta. E se gli altri documenti sono in conflitto?
 
-## Perché è utile
+## Perché ti aiuta integrare la risoluzione dei conflitti 
 
 Come descritto in precedenza, i documenti fortemente in conflitto incidono pesantemente sul database. La creazione
 della funzionalità per risolvere i conflitti dall'inizio è un grande aiuto per evitare

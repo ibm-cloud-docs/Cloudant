@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -18,9 +18,9 @@ lastupdated: "2017-11-06"
 
 ## Bibliotecas móveis de terceiros
 
-Trabalhando com um banco de dados Cloudant:
+Trabalhando com um banco de dados do {{site.data.keyword.cloudant_short_notm}}:
 
--   [IBM Worklight Powered Native Objective-C iOS Apps ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} com um Adaptador do {{site.data.keyword.cloudant_short_notm}}.
+-   [Apps iOS Objective-C nativos desenvolvidos com o IBM Worklight ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} com um {{site.data.keyword.cloudant_short_notm}} Adapter.
 
 ## C# / .NET
 
@@ -34,7 +34,7 @@ install-package mycouch.cloudant
 ```
 {:codeblock}
 
-### Bibliotecas e estruturas
+### Bibliotecas e estruturas para C#/.NET
 
 -   [MyCouch ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/danielwertheim/mycouch){:new_window}.
 -   [LoveSeat ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/soitgoes/LoveSeat){:new_window}.
@@ -44,7 +44,7 @@ install-package mycouch.cloudant
 -   [EasyCouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/hhariri/EasyCouchDB){:new_window}.
 -   `WDK.API.CouchDB` do [Kanapes IDE ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://kanapeside.com/){:new_window}.
 
-### Exemplos e tutoriais
+### Exemplos e tutoriais para C#/.NET
 
 -   [CRUD ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/haengematte/tree/master/c%23){:new_window}.
 
@@ -62,20 +62,20 @@ require_once('./src/Sag.php');
 ```
 {:codeblock}
 
-### Bibliotecas e estruturas
+### Bibliotecas e estruturas para PHP
 
 -   [sag ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/sbisbee/sag){:new_window}.
 -   [Doctrine CouchDB Client ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/doctrine/couchdb-client){:new_window}.
 -   [PHP-on-Couch ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/dready92/PHP-on-Couch){:new_window}.
 
-### Exemplos e tutoriais
+### Exemplos e tutoriais para PHP
 
 -   [CRUD ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/haengematte/tree/master/php){:new_window}.
 
 ## JavaScript
 
-[PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window} é um banco de dados JavaScript que pode sincronizar com o {{site.data.keyword.cloudant_short_notm}},
-o que significa que é possível tornar seus apps off-ine apenas usando o PouchDB.
+[PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window} é um banco de dados JavaScript que pode ser sincronizado com o {{site.data.keyword.cloudant_short_notm}},
+o que significa que é possível fazer com que seus apps fiquem prontos para acesso off-line apenas usando o PouchDB.
 Para obter mais informações,
 veja [nossa postagem do blog ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/pouchdb){:new_window} no PouchDB.
 
@@ -87,7 +87,7 @@ consulte [PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone d
 
 >   **Nota**: o PouchDB também pode ser instalado com o Bower: `bower install pouchdb`.
 
-### Bibliotecas e estruturas
+### Bibliotecas e estruturas para JavaScript
 
 -   [Backbone.cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant-labs/backbone.cloudant){:new_window}.
     Veja a [postagem do blog ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/backbone-and-cloudant/){:new_window} para obter mais informações.
@@ -95,7 +95,7 @@ consulte [PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone d
 -   [PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window} - banco de dados JavaScript para navegador,
 com sincronização off-line.
 
-### Exemplos e tutoriais
+### Exemplos e tutoriais para JavaScript
 
 -   [CRUD ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} usando jQuery.
 -   [CSVtoCloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/michellephung/CSVtoCloudant){:new_window} -
@@ -123,12 +123,12 @@ gem install couchrest
 ```
 {:codeblock}
 
-### Bibliotecas e estruturas
+### Bibliotecas e estruturas para Ruby
 
 Há vários clientes CouchDB listados no
 [Ruby Toolbox ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.ruby-toolbox.com/categories/couchdb_clients){:new_window}.
 
-### Exemplos e tutoriais
+### Exemplos e tutoriais para Ruby
 
 -   [CRUD ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/haengematte/tree/master/ruby){:new_window}.
 
@@ -176,9 +176,9 @@ Veja a [Referência de API](../api/index.html) para obter mais informações sob
 As [extensões de Apache Bahir para o Apache Spark ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://bahir.apache.org/#home){:new_window}
 incluem um conector `spark-sql-cloudant` que é a biblioteca do {{site.data.keyword.cloudant_short_notm}} para o Apache Spark.
 
-O conector spark-sql-cloudant já está carregado na
-oferta [IBM Bluemix Apache Spark-as-a-Service ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window}.
-Ela pode ser usada com qualquer cluster Spark independente.
+O conector spark-sql-cloudant já está carregado na oferta
+[Apache Spark-as-a-Service do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window}.
+Ele pode ser usado com qualquer cluster Spark independente.
 
 Veja as [informações sobre o projeto ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/apache/bahir/tree/master/sql-cloudant){:new_window}
 e a [documentação do Apache Bahir spark-sql-cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://bahir.apache.org/docs/spark/current/spark-sql-cloudant/){:new_window} para obter mais detalhes.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Criando um aplicativo {{site.data.keyword.Bluemix_notm}} simples para acessar um banco de dados {{site.data.keyword.cloudant_short_notm}}: manutenção e resolução de problemas
+# Criando um aplicativo {{site.data.keyword.cloud_notm}} simples para acessar um banco de dados do {{site.data.keyword.cloudant_short_notm}}: manutenção e resolução de problemas
 
 Este tutorial mostra como manter um
-aplicativo {{site.data.keyword.Bluemix}}
-hospedado em sua instância de serviço do {{site.data.keyword.Bluemix_notm}}.
+aplicativo {{site.data.keyword.cloud}},
+hospedado em sua instância de serviço do {{site.data.keyword.cloud_notm}}.
 {:shortdesc}
 
 <div id="maintenance"></div>
@@ -28,12 +28,12 @@ hospedado em sua instância de serviço do {{site.data.keyword.Bluemix_notm}}.
 Esta seção do tutorial explica como atualizar,
 iniciar
 e parar
-seus aplicativos Python no {{site.data.keyword.Bluemix_notm}}.
+seus aplicativos Python no {{site.data.keyword.cloud_notm}}.
 
 ### Localizando o status de seu aplicativo
 
 O status de aplicativos dentro da
-instância de serviço do {{site.data.keyword.Bluemix_notm}} é exibido no painel.
+instância de serviço do {{site.data.keyword.cloud_notm}} é exibido no painel.
 
 No exemplo a seguir,
 o aplicativo `Cloudant Python` não está em execução
@@ -81,7 +81,7 @@ basta seguir o [processo de upload](create_bmxapp_upload.html).
 A nova versão sobrescreve a versão mais antiga do aplicativo.
 
 >   **Nota**: se a versão mais antiga do aplicativo já estiver em execução quando você iniciar o upload,
-    o {{site.data.keyword.Bluemix_notm}} parará automaticamente o aplicativo primeiro.
+    o {{site.data.keyword.cloud_notm}} parará automaticamente o aplicativo primeiro.
 
 ## Diagnosticando e resolvendo problemas
 
@@ -89,9 +89,9 @@ Esta seção do tutorial fornece algumas dicas básicas de resolução de proble
 a identificar,
 diagnosticar
 e resolver alguns problemas que possam ser encontrados ao desenvolver e implementar
-seus primeiros aplicativos {{site.data.keyword.Bluemix_notm}}.
+seus primeiros aplicativos {{site.data.keyword.cloud_notm}}.
 
-Uma boa fonte de conselhos sobre as melhores práticas para criar aplicativos {{site.data.keyword.Bluemix_notm}} ou
+Uma boa fonte de conselhos sobre as melhores práticas para criar aplicativos {{site.data.keyword.cloud_notm}} ou
 Cloud Foundry está
 [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}.
 
@@ -110,13 +110,13 @@ e não é 'essencial'.
 ### Usando o log do aplicativo
 
 O recurso mais útil para diagnosticar e resolver problemas com o
-aplicativo {{site.data.keyword.Bluemix_notm}} é o arquivo de log.
+aplicativo {{site.data.keyword.cloud_notm}} é o arquivo de log.
 
-O arquivo de log de um aplicativo {{site.data.keyword.Bluemix_notm}} pode ser localizado na página de informações `Logs`:<br/>
+O arquivo de log para um aplicativo {{site.data.keyword.cloud_notm}} pode ser localizado na página de informações `Logs`:<br/>
 ![Captura de tela mostrando o link para acessar a página de informações 'Logs'](images/img0042.png)
 
 Como a maioria dos arquivos de log,
-um log do aplicativo {{site.data.keyword.Bluemix_notm}} contém detalhes sobre quais eventos ocorreram
+um log do aplicativo {{site.data.keyword.cloud_notm}} contém detalhes sobre quais eventos ocorreram
 e quando.
 
 O log também identifica qual componente estava envolvido no evento registrado.
@@ -126,7 +126,7 @@ Rótulo do componente | Componente
 ----------------|----------
 `API`           | O sistema Cloud Foundry.
 `APP`           | Seu aplicativo.
-`CELL`          | O contêiner que contém seu aplicativo no {{site.data.keyword.Bluemix_notm}}.
+`CELL`          | O contêiner que contém seu aplicativo no {{site.data.keyword.cloud_notm}}.
 `RTR`           | Os componentes de rede transportam mensagens de ou para seu aplicativo.
 
 Por exemplo,

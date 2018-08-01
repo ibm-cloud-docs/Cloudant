@@ -177,7 +177,7 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 '가장 가까운' {{site.data.keyword.cloudant_short_notm}} 계정과 통신하도록 애플리케이션을 설정할 수 있습니다.
 DC1에서 호스팅되는 애플리케이션의 경우에는 이들의 {{site.data.keyword.cloudant_short_notm}} URL을
 `"https://myaccount-dc1.cloudant.com/mydb"`로 설정하는 것이 적절합니다.
-마찬가지로, DC2에서 호스팅되는 애플리케이션의 경우에는 {{site.data.keyword.cloudant_short_notm}} URL을 `"https://myaccount-dc2.cloudant.com/mydb"`로 설정합니다. 
+마찬가지로, DC2에서 호스팅되는 애플리케이션의 경우에는 {{site.data.keyword.cloudant_short_notm}} URL을 `"https://myaccount-dc2.cloudant.com/mydb"`로 설정합니다.
 
 #### 활성-수동
 

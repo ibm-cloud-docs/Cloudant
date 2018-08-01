@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -20,9 +20,7 @@ Daten können aus einer Datenbank in eine andere Datenbank im selben {{site.data
 und Rechenzentren hinweg, kopiert werden.
 {:shortdesc}
 
-Daten können sogar zwischen einem {{site.data.keyword.cloudant_short_notm}}-Konto und einem mobilen Gerät repliziert
-werden - mithilfe von [{{site.data.keyword.cloudant_short_notm}} Sync ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
-oder [PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){:new_window}.
+Daten können sogar zwischen einem {{site.data.keyword.cloudant_short_notm}}-Konto und einem mobilen Gerät repliziert werden - mithilfe von [{{site.data.keyword.cloudant_short_notm}} Sync ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/product/cloudant-features/sync/){:new_window} oder [PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){:new_window}.
 Die Replikation kann in einer oder in beiden Richtungen erfolgen,
 als einmalige oder kontinuierliche Operation,
 und sie kann mithilfe von Parametern optimiert werden.
@@ -682,8 +680,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 {:codeblock}
 
 Suchen Sie in der zurückgegebenen JSON nach dem Wert `disk_size`.
-Wenn der Wert größer als 1 GB ist, wenden Sie sich an das
-[IBM {{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window} für weitere Hilfestellung.
+Wenn der Wert größer als 1 GB ist, wenden Sie sich an das [{{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window} für weitere Hilfestellung.
 
 Sie können ein einzelnes `_replicator`-Dokument auf Konflikte prüfen,
 wie im folgenden Beispiel gezeigt:
@@ -754,5 +751,4 @@ Beispiel:
 *   Wenn Sie eine Replikation mit minimalen Auswirkungen durchführen möchten,
     können Sie `worker_processes` und `http_connections` auf 1 festlegen.
 
-Weitere Hilfestellung zur besten Konfiguration für Ihren Anwendungsfall erhalten Sie vom
-[IBM {{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}.
+Weitere Hilfestellung zur besten Konfiguration für Ihren Anwendungsfall erhalten Sie vom [{{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}.

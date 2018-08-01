@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,23 +14,23 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.Bluemix_notm}} アプリケーションの作成: アプリケーションのアップロード
+# {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.cloud_notm}} アプリケーションの作成: アプリケーションのアップロード
 
-チュートリアルのこのセクションでは、{{site.data.keyword.Bluemix}} アプリケーションのアップロード方法について説明します。
+チュートリアルのこのセクションでは、{{site.data.keyword.cloud}} アプリケーションのアップロード方法について説明します。
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## {{site.data.keyword.Bluemix_notm}} への接続
+## {{site.data.keyword.cloud_notm}} への接続
 
-最初のタスクは、{{site.data.keyword.Bluemix_notm}} への接続です。
+最初のタスクは、{{site.data.keyword.cloud_notm}} への接続です。
 
-接続には、[{{site.data.keyword.Bluemix_notm}} ツールキット](create_bmxapp_appenv.html#toolkits)を利用できます。
+接続には、[{{site.data.keyword.cloud_notm}} ツールキット](create_bmxapp_appenv.html#toolkits)を利用できます。
 
 Cloud Foundry は、アプリケーションのアップロード時など、API 呼び出しに使用する URL を認識している必要があります。
-{{site.data.keyword.Bluemix_notm}} ツールキットは、「`cf api`」コマンドを使用して API エンドポイントを管理します。
+{{site.data.keyword.cloud_notm}} ツールキットは、「`cf api`」コマンドを使用して API エンドポイントを管理します。
 「`cf api`」コマンドの詳細については、
-[こちら ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window} を参照してください。
+[こちら ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window} を参照してください。
 
 次のコマンドで、使用する URL を Cloud Foundry に指示します。
 
@@ -55,7 +55,7 @@ Not logged in. Use 'bluemix login' to log in.
 
 これで、Cloud Foundry は、アプリケーションを管理するためにどこに API 呼び出しを送信するかを認識しました。
 
-次のステップでは、{{site.data.keyword.Bluemix_notm}} アプリケーション環境にログインします。
+次のステップでは、{{site.data.keyword.cloud_notm}} アプリケーション環境にログインします。
 以下のアカウント詳細を指定する必要があります。
 
 -   ユーザー名。「`-u`」パラメーターで指定します。
@@ -63,11 +63,11 @@ Not logged in. Use 'bluemix login' to log in.
 -   スペース。「`-s`」パラメーターで指定します。
 
 >   **注**: アカウント詳細は、Web ブラウザーでのログイン時に、次の例のように
-     {{site.data.keyword.Bluemix_notm}} ダッシュボードで入手できます。<br/>
-    ![{{site.data.keyword.Bluemix_notm}} アカウント詳細の表示](images/img0035.png)
+     {{site.data.keyword.cloud_notm}} ダッシュボードで入手できます。<br/>
+    ![{{site.data.keyword.cloud_notm}} アカウント詳細の表示](images/img0035.png)
 
 次の例のようなコマンドを使用して、
-{{site.data.keyword.Bluemix_notm}} アプリケーション環境にログインします。
+{{site.data.keyword.cloud_notm}} アプリケーション環境にログインします。
 アカウント・パスワードの入力を求められることに注意してください。
 
 ```sh
@@ -99,17 +99,17 @@ Space:          dev
 
 ## アプリケーションのアップロード
 
-これで、{{site.data.keyword.cloudant_short_notm}} Foundry ツールキットが、{{site.data.keyword.Bluemix_notm}} 環境への接続方法を認識しました。
+これで、{{site.data.keyword.cloudant_short_notm}} Foundry ツールキットが、{{site.data.keyword.cloud_notm}} 環境への接続方法を認識しました。
 
 次のステップでは、アプリケーションのアップロードそのものを行います。
-{{site.data.keyword.Bluemix_notm}} アプリケーションの詳細は、
+{{site.data.keyword.cloud_notm}} アプリケーションの詳細は、
 [マニフェスト・ファイル](create_bmxapp_appenv.html#manifest)で示されます。
 
 チュートリアルのアプリケーションのマニフェスト・ファイルは、
 [該当の説明](create_bmxapp_createapp.html#essential-files)に従って更新されています。
 
 次の例のようなコマンドを使用して、
-{{site.data.keyword.Bluemix_notm}} アプリケーションをアップロードするためにログインします。
+{{site.data.keyword.cloud_notm}} アプリケーションをアップロードするためにログインします。
 
 ```sh
 cf push "Cloudant Python"
@@ -183,7 +183,7 @@ App {{site.data.keyword.cloudant_short_notm}} Python was started using this comm
 {{site.data.keyword.cloudant_short_notm}} ライブラリーへのアクセスが必要です。
 
 アプリケーションをアップロードして開始すると、
-{{site.data.keyword.Bluemix_notm}} に関してアプリケーションが正しく実行されていることを確認するために、単純なシステム・チェックがいくつか実行されます。
+{{site.data.keyword.cloud_notm}} に関してアプリケーションが正しく実行されていることを確認するために、単純なシステム・チェックがいくつか実行されます。
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -204,7 +204,7 @@ buildpack: python 1.5.5
 
 ## サンプル・アプリケーションのテスト
 
-{{site.data.keyword.Bluemix_notm}} アプリケーション環境が最初に作成されたときに、
+{{site.data.keyword.cloud_notm}} アプリケーション環境が最初に作成されたときに、
 ダッシュボードでアプリケーションの`「経路」`列にリンクが組み込まれます。<br/>
 ![アプリケーションのダッシュボードのスクリーン・ショット](images/img0017.png)
 
@@ -227,8 +227,10 @@ buildpack: python 1.5.5
 {{site.data.keyword.cloudant_short_notm}} サービス・ページの`「管理」`タブで`「起動 (Launch)」`アイコンをクリックします。<br/>
 ![{{site.data.keyword.cloudant_short_notm}} サービス・ページの「起動 (Launch)」アイコン](images/img0036.png)
 
-> **注**: {{site.data.keyword.cloudant_short_notm}} サービス・ページを探すには、
-  [「{{site.data.keyword.cloudant_short_notm}} インスタンスの作成」のチュートリアル](create_service.html#locating-your-service-credentials)で詳細を参照してください。
+{{site.data.keyword.cloudant_short_notm}} サービス・ページを探すには、
+  [「{{site.data.keyword.cloudant_short_notm}} インスタンスの作成」のチュートリアル](create_service.html#locating-your-service-credentials)で
+詳細を参照してください。
+{: tip}
 
 ダッシュボードが開き、
 アプリケーションで「`databasedemo`」データベースが作成されたことが分かります。<br/>

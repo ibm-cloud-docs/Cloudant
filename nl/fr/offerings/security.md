@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-04-28 -->
 
@@ -50,7 +51,9 @@ HTTPS ou HTTP reçue par {{site.data.keyword.cloudant_short_notm}}.
 - Autorisation : accordez des droits de lecture, d'écriture et d'administration sur des bases de données spécifiques.
 - Chiffrement "à la volée" : l'accès à {{site.data.keyword.cloudant_short_notm}} est entièrement chiffré via HTTPS.
 - Chiffrement au repos : possibilité de chiffrer les données stockées sur disque dans {{site.data.keyword.cloudant_short_notm}}.
-  > **Remarque** : Les données stockées dans une instance {{site.data.keyword.cloudant_short_notm}} sont toujours chiffrées.
+  Les données stockées dans une instance {{site.data.keyword.cloudant_short_notm}} sont toujours chiffrées.
+  {: tip}
+  
 - Accès via une API : l'accès à {{site.data.keyword.cloudant_short_notm}}
 s'effectue à l'aide d'un programme via une API et le protocole HTTP sécurisé (HTTPS).
   Vous pouvez générer les clés d'API via le tableau de bord {{site.data.keyword.cloudant_short_notm}}.
@@ -72,5 +75,6 @@ chaque document sur trois noeuds différents d'un cluster.
 données, quelle que soit la défaillance.
 - Réplication et exportation des données : vous pouvez répliquer vos bases de
 données en continu entre des clusters de différents centres de données, sur un cluster
-{{site.data.keyword.cloudant_short_notm}} Local sur site ou sur Apache CouchDB. Vous pouvez aussi exporter les données depuis {{site.data.keyword.cloudant_short_notm}} (au format JSON) vers d'autres
+{{site.data.keyword.cloudant_short_notm}} Local sur site ou sur Apache CouchDB.
+  Vous pouvez aussi exporter les données depuis {{site.data.keyword.cloudant_short_notm}} (au format JSON) vers d'autres
 emplacements ou sources (comme votre propre centre de données) afin de créer une redondance des données supplémentaire.

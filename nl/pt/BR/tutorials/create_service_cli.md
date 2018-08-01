@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -24,7 +24,7 @@ usando as ferramentas do Cloud Foundry.
 Para seguir este tutorial,
 deve-se primeiro instalar as ferramentas do Cloud Foundry do {{site.data.keyword.Bluemix_notm}}.
 Detalhes para instalar as ferramentas estão disponíveis
-[neste tutorial separado](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits).
+[neste tutorial separado](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits).
 
 > **Nota**: assegure-se de instalar os kits de ferramentas do Cloud Foundry _e_
 do {{site.data.keyword.Bluemix_notm}}.
@@ -141,7 +141,7 @@ semelhante à seção a seguir de uma resposta de exemplo (detalhes corretos com
 
 ```
 Lite
-O plano Lite fornece acesso à funcionalidade integral do {{site.data.keyword.cloudant_short_notm}} para desenvolvimento e avaliação.
+The Lite plan provides access to the full functionality of {{site.data.keyword.cloudant_short_notm}} for development and evaluation.
 The plan has a set amount of provisioned throughput capacity as shown
 and includes a max of 1GB of encrypted data storage.   free
 ```
@@ -157,7 +157,7 @@ bx service create <service> <plan> <instance name>
 ```
 {:pre}
 
-Suponha que queiramos criar uma instância de
+Suponha que desejamos criar uma instância de
 um serviço do {{site.data.keyword.cloudant_short_notm}} usando o plano `Lite`,
 em que o nome da instância é `cs20170517a`.
 
@@ -210,9 +210,9 @@ bx cf create-service-key <instance name> <credentials name>
 ```
 {:pre}
 
-Suponha que queiramos criar credenciais para a instância `cs20170517a` de
+Suponha que desejamos criar credenciais para a instância `cs20170517a` de
 um serviço do {{site.data.keyword.cloudant_short_notm}},
-em que o nome das credenciais é `creds20170517a`.
+em que o nome para as credenciais é `creds20170517a`.
 
 Faça isso usando um comando semelhante ao exemplo a seguir:
 
@@ -242,9 +242,9 @@ bx cf service-key <instance name> <credentials name>
 ```
 {:pre}
 
-Suponha que queiramos recuperar credenciais para a instância `cs20170517a` de
-um serviço do {{site.data.keyword.cloudant_short_notm}},
-em que o nome das credenciais é `creds20170517a`.
+Suponha que desejamos recuperar credenciais para a instância `cs20170517a`
+de um serviço do {{site.data.keyword.cloudant_short_notm}},
+em que o nome para as credenciais é `creds20170517a`.
 
 Faça isso usando um comando semelhante ao exemplo a seguir:
 
@@ -276,7 +276,7 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 Neste ponto,
 você terá:
 
-1.  Criado uma instância de serviço do {{site.data.keyword.cloudant_short_notm}}
+1.  Criada uma instância de serviço do {{site.data.keyword.cloudant_short_notm}}
 no {{site.data.keyword.Bluemix_notm}}.
 2.  Criado credenciais para a instância de serviço do {{site.data.keyword.cloudant_short_notm}}.
 3.  Recuperado as credenciais da instância de serviço, para que elas possam ser usadas por seu aplicativo.
@@ -303,7 +303,7 @@ Por exemplo,
 para excluir as credenciais chamadas `creds20170517a`
 da instância `cs20170517a` de
 um serviço do {{site.data.keyword.cloudant_short_notm}},
-você poderia usar um comando como este:
+é possível usar um comando como este:
 
 ```sh
 bx cf delete-service-key cs20170517a creds20170517a
@@ -323,7 +323,7 @@ bx service delete <instance name>
 Por exemplo,
 para excluir a instância `cs20170517a` de
 um serviço do {{site.data.keyword.cloudant_short_notm}},
-você poderia usar um comando como este:
+é possível usar um comando como este:
 
 ```sh
 bx service delete cs20170517a

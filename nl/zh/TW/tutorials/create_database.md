@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,9 +12,10 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 在 {{site.data.keyword.Bluemix_notm}} 上建立簡單的 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中
+# 在 {{site.data.keyword.cloud_notm}} 上建立簡單的 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中
 
-本指導教學示範如何使用 [Python 程式設計語言 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window} 在 {{site.data.keyword.Bluemix}} 服務實例上建立 {{site.data.keyword.cloudantfull}} 資料庫，以及將簡單資料集合移入資料庫中。{:shortdesc}
+本指導教學示範如何使用 [Python 程式設計語言 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window} 在 {{site.data.keyword.cloud_notm}} 服務實例中建立 {{site.data.keyword.cloudantfull}} 資料庫，並且將簡單資料集合移入資料庫中。
+{:shortdesc}
 
 ## 必要條件
 
@@ -40,7 +41,7 @@ Python 2.7.12
 
 ### {{site.data.keyword.cloudant_short_notm}} 的 Python 用戶端程式庫
 
-有[正式支援的程式庫](../libraries/supported.html#python)，可讓 Python 應用程式在 {{site.data.keyword.Bluemix_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。
+有[正式支援的程式庫](../libraries/supported.html#python)，可讓 Python 應用程式在 {{site.data.keyword.cloud_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。
 
 您應該使用[這裡](../libraries/supported.html#python)所提供的指示來安裝此項目。
 
@@ -51,26 +52,26 @@ pip freeze
 ```
 {:pre}
 
-您應該會得到系統上所有已安裝 Python 模組的清單。請檢查清單，並尋找與下列內容類似的 {{site.data.keyword.cloudant_short_notm}} 項目：
+您應該會得到系統上所有已安裝 Python 模組的清單。請檢查清單，找出與下列內容類似的 {{site.data.keyword.cloudant_short_notm}} 項目：
 
 ```
 cloudant==2.3.1
 ```
 {:codeblock}
 
-### Bluemix 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例
+### {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例
 
 [本指導教學](create_service.html)說明建立適合的服務實例的處理程序。
 
 請確定您的服務實例有下列「服務認證」可用：
 
-欄位       | 用途
+欄位       |用途
 -----------|--------
-`host`     | 應用程式用來尋找服務實例的主機名稱。
-`username` | 應用程式存取服務實例所需的使用者名稱。
-`password` | 應用程式存取服務實例所需的密碼。
-`port`     | 用來存取主機上服務實例的 HTTP 埠號。一般是 443，可強制執行 HTTPS 存取。
-`url`      | 將其他認證資訊聚集成單一 URL 的字串，適合供應用程式使用。
+`host`     |應用程式用來尋找服務實例的主機名稱。
+`username` |應用程式存取服務實例所需的使用者名稱。
+`password` |應用程式存取服務實例所需的密碼。
+`port`     |用來存取主機上服務實例的 HTTP 埠號。一般是 443，可強制執行 HTTPS 存取。
+`url`      |將其他認證資訊聚集成單一 URL 的字串，適合供應用程式使用。
 
 [這裡](create_service.html#locating-your-service-credentials)提供尋找服務實例的服務認證的相關資訊。
 
@@ -78,7 +79,7 @@ cloudant==2.3.1
 
 本指導教學累積了一系列的 Python 語言指令，適用於下列作業：
 
-1.  [連接至 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例](#connecting-to-a-cloudant-service-instance-on-bluemix)。
+1.  [在 {{site.data.keyword.cloud}} 上連接至 {{site.data.keyword.cloudant_short_notm}} 服務實例](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud)。
 2.  [在服務實例內建立資料庫](#creating-a-database-within-the-service-instance)。
 3.  [將小型資料集合當成文件儲存在資料庫內](#storing-a-small-collection-of-data-as-documents-within-the-database)。
 4.  [擷取完整的文件清單](#retrieving-a-complete-list-of-the-documents)。
@@ -93,7 +94,7 @@ cloudant==2.3.1
 
 此外，也不會嘗試處理所有可能的檢查或錯誤狀況。這裡顯示一些範例檢查來說明技巧，但您應該應用正常的最佳作法來檢查及處理您自己的應用程式所發生的所有警告或錯誤狀況。 
 
-## 在 {{site.data.keyword.Bluemix_notm}} 上連接至 {{site.data.keyword.cloudant_short_notm}} 服務實例
+## 在 {{site.data.keyword.cloud_notm}} 上連接至 {{site.data.keyword.cloudant_short_notm}} 服務實例
 
 Python 應用程式需要「{{site.data.keyword.cloudant_short_notm}} 用戶端程式庫」元件能夠連接至服務實例。
 這些元件識別為一般 `import` 陳述式：
@@ -114,9 +115,8 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **附註**：這裡說明的服務認證
-    是在 Bluemix 上建立示範 {{site.data.keyword.cloudant_short_notm}} 服務時定義的。
-    我們在這裡重新產生認證，是要示範如何將它們用於 Python 應用程式中。不過，現在已移除示範 {{site.data.keyword.cloudant_short_notm}} 服務，因此這些認證將不會運作；您_必須_ 提供及使用您自己的服務認證。
+這裡說明的服務認證是在 {{site.data.keyword.cloudant_short_notm}} 上建立示範 {{site.data.keyword.cloud_notm}} 服務時定義的。我們在這裡重新產生認證，是要示範如何將它們用於 Python 應用程式中。不過，現在已移除示範 {{site.data.keyword.cloudant_short_notm}} 服務，因此這些認證將不會運作；您_必須_ 提供及使用您自己的服務認證。
+{: tip}
 
 您在應用程式內啟用 Python 用戶端程式庫並識別服務認證之後，就可以建立與服務實例的連線：
 
@@ -126,7 +126,7 @@ client.connect()
 ```
 {:codeblock}
 
-此時，您的 Python 應用程式可以存取 Bluemix 上的服務實例。
+此時，您的 Python 應用程式可以存取 {{site.data.keyword.cloud_notm}} 上的服務實例。
 
 ## 在服務實例內建立資料庫
 
@@ -234,8 +234,8 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
->   **附註**：NoSQL 資料庫（例如 {{site.data.keyword.cloudant_short_notm}}）的本質
-表示，像是資料庫中儲存的第一份文件一定會是結果清單中傳回的第一份文件，這樣簡單的說法並不一定適用。
+NoSQL 資料庫（例如 {{site.data.keyword.cloudant_short_notm}}）的本質表示，像是資料庫中儲存的第一份文件一定會是結果清單中傳回的第一份文件，這樣簡單的說法並不一定適用。
+{: tip}
 
 ### 文件的完整擷取
 
@@ -367,7 +367,7 @@ client.disconnect()
 
 ## 完整清單
 
-下列程式碼是完整的 Python 程式，它可以存取 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例，並執行一系列的一般作業：
+下列程式碼是完整的 Python 程式，它可以存取 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例，並執行一系列的一般作業：
 
 1.  連接至服務實例。
 2.  在服務實例內建立資料庫。
@@ -406,7 +406,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
+# Use the {{site.data.keyword.cloudant_short_notm}} library to create an {{site.data.keyword.cloudant_short_notm}} client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -469,7 +469,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
+# Use an {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

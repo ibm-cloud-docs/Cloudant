@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,10 +14,10 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.Bluemix_notm}} アプリケーションの作成: 保守とトラブルシューティング
+# {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.cloud_notm}} アプリケーションの作成: 保守とトラブルシューティング
 
-このチュートリアルでは、{{site.data.keyword.Bluemix_notm}} サービス・インスタンスでホストされた
-{{site.data.keyword.Bluemix}} アプリケーションを保守する方法を示します。
+このチュートリアルでは、{{site.data.keyword.cloud_notm}} サービス・インスタンスでホストされた
+{{site.data.keyword.cloud}} アプリケーションを保守する方法を示します。
 {:shortdesc}
 
 <div id="maintenance"></div>
@@ -25,11 +25,11 @@ lastupdated: "2017-11-07"
 ## 基本的なアプリケーション保守タスクの実行
 
 チュートリアルのこのセクションでは、
-{{site.data.keyword.Bluemix_notm}} で Python アプリケーションを最新表示、開始、停止する方法を説明します。
+{{site.data.keyword.cloud_notm}} で Python アプリケーションを最新表示、開始、停止する方法を説明します。
 
 ### アプリケーションの状況の判別
 
-{{site.data.keyword.Bluemix_notm}} サービス・インスタンス内のアプリケーションの状況は、ダッシュボードに表示されます。
+{{site.data.keyword.cloud_notm}} サービス・インスタンス内のアプリケーションの状況は、ダッシュボードに表示されます。
 
 次の例で、
 `Cloudant Python` アプリケーションは実行中ではなく、
@@ -73,21 +73,21 @@ lastupdated: "2017-11-07"
 アプリケーションの新バージョンによって、旧バージョンが上書きされます。
 
 >   **注**: アップロードを開始したときにアプリケーションの旧バージョンが既に実行中の場合、
-    {{site.data.keyword.Bluemix_notm}} はまず、アプリケーションを自動的に停止します。
+    {{site.data.keyword.cloud_notm}} はまず、アプリケーションを自動的に停止します。
 
 ## 問題の診断と解決
 
 チュートリアルのこのセクションでは、初めて
-{{site.data.keyword.Bluemix_notm}}
+{{site.data.keyword.cloud_notm}}
 アプリケーションを開発してデプロイする際に発生する問題の、
 識別、診断、解決に役立つトラブルシューティングの基本的なヒントを示します。
 
-{{site.data.keyword.Bluemix_notm}} または
+{{site.data.keyword.cloud_notm}} または
 Cloud Foundry アプリケーション作成時のベスト・プラクティスに関するアドバイスを入手するには、
-[該当サイト![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window} を参照してください。
+[該当サイト![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window} を参照してください。
 
 特に、
-[ローカル・ファイル・システムに書き込まないようにする ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}
+[ローカル・ファイル・システムに書き込まないようにする ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}
 のは賢明なアドバイスです。
 
 >   **注**: このチュートリアルでは、
@@ -98,13 +98,13 @@ Cloud Foundry アプリケーション作成時のベスト・プラクティス
 
 ### アプリケーション・ログの使用
 
-{{site.data.keyword.Bluemix_notm}} アプリケーションでの問題を診断して解決するために最も役立つリソースは、ログ・ファイルです。
+{{site.data.keyword.cloud_notm}} アプリケーションでの問題を診断して解決するために最も役立つリソースは、ログ・ファイルです。
 
-{{site.data.keyword.Bluemix_notm}} アプリケーションのログ・ファイルは、`「ログ」`情報ページにあります。<br/>
+{{site.data.keyword.cloud_notm}} アプリケーションのログ・ファイルは、`「ログ」`情報ページにあります。<br/>
 ![「ログ」情報ページにアクセスするリンクの画面キャプチャー](images/img0042.png)
 
 多くのログ・ファイルと同様に、
-{{site.data.keyword.Bluemix_notm}} アプリケーションのログには、発生したイベントの内容と時間に関する詳細が含まれています。
+{{site.data.keyword.cloud_notm}} アプリケーションのログには、発生したイベントの内容と時間に関する詳細が含まれています。
 
 また、ログでは、記録されたイベントに関与したコンポーネントも特定されています。
 以下の表に、主要なコンポーネントを示します。
@@ -113,7 +113,7 @@ Cloud Foundry アプリケーション作成時のベスト・プラクティス
 ----------------|----------
 `API`           | Cloud Foundry システム。
 `APP`           | アプリケーション。
-`CELL`          | {{site.data.keyword.Bluemix_notm}} 内のアプリケーションを保持するコンテナー。
+`CELL`          | {{site.data.keyword.cloud_notm}} 内のアプリケーションを保持するコンテナー。
 `RTR`           | ネットワーキング・コンポーネントは、アプリケーションに、またはアプリケーションからメッセージを伝送します。
 
 例えば、以下の画面キャプチャーには、多くの一般的なイベントが含まれています。<br/>

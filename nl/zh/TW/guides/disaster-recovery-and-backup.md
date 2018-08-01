@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -34,6 +34,7 @@ lastupdated: "2017-11-06"
 處理 HA 或 DR 需求通常是從將問題簡化為較通用需求開始。當您識別需求時，即可套用協助解決通用需求的工具及特性。工具及特性合併使用時，就可以處理 HA 或 DR 需求。
 
 >	**附註**：不同的工具及特性可提供不同層次的保護。不同的特性可能較適合或較不適合您的特定 HA 或 DR 需求。
+{:tip}
 
 {{site.data.keyword.cloudant_short_notm}} 提供許多工具及特性，以處理一般需求：
 
@@ -101,7 +102,8 @@ lastupdated: "2017-11-06"
 *	將完整資料庫備份至檔案，適合進一步處理及離站儲存。
 *	從備份檔中所含的前一個狀態還原完整資料庫。
 
-<strong style="color:red;">警告！</strong>{{site.data.keyword.cloudant_short_notm}} 所支援的工具具有下列限制： 
+> **警告！**{{site.data.keyword.cloudant_short_notm}} 所支援的工具具有下列限制： 
+{:tip}
 
 *	工具不會備份 `_security` 設定。
 *	工具不會備份附件。

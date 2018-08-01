@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -236,5 +236,4 @@ Zugriff auf dasselbe Dokument durch separate Prozesse.
 Außerdem können Dokumente Kopien von Daten enthalten, die in anderen Sammlungen vorhanden sind,
 um verbundene Daten mit einem Fremdschlüssel darzustellen.
 Beispielsweise bei der Aufzeichnung des Status eines Einkaufskorbs zum Zeitpunkt des Einkaufs.
-Auf diese Weise kann der Status einer Bestellung durch einen einzelnen Aufruf der {{site.data.keyword.cloudant_short_notm}}-Ansicht
-abgerufen werden, die Dokumente mit Bezug auf `order_id` gruppiert.
+Auf diese Weise kann der Status einer Bestellung durch einen einzelnen Aufruf der {{site.data.keyword.cloudant_short_notm}}-Ansicht abgerufen werden, die Dokumente mit Bezug auf `order_id` gruppiert.

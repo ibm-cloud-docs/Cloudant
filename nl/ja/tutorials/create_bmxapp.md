@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2017-11-07"
 # {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.Bluemix_notm}} アプリケーションの作成
 
 このチュートリアルでは、
-[Python プログラミング言語 ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://www.python.org/){:new_window}
+[Python プログラミング言語 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){:new_window}
 を使用して、{{site.data.keyword.Bluemix_notm}} サービス・インスタンスでホストされた {{site.data.keyword.cloudantfull}} データベースにアクセスする
 {{site.data.keyword.Bluemix}} アプリケーションを作成する方法を示します。
 {:shortdesc}
@@ -32,7 +32,7 @@ lastupdated: "2017-11-07"
 そこにアプリケーションを置くのも妥当です。
 
 {{site.data.keyword.Bluemix_notm}} アプリケーションは通常、
-[Cloud Foundry ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} テクノロジーを使用して作成されます。
+[Cloud Foundry ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} テクノロジーを使用して作成されます。
 Cloud Foundry では Platform-as-a-Service (PaaS) 機能を提供しており、これにより、クラウド環境内でデプロイして実行可能なアプリケーションを作成するプロセスが単純化されます。
 
 {{site.data.keyword.Bluemix_notm}} 内の {{site.data.keyword.cloudant_short_notm}}

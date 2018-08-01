@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -58,7 +58,7 @@ lastupdated: "2017-05-04"
 1.  尋找前次抄寫之檢查點文件的 ID。它儲存在 `_replicator` 資料庫中找到之抄寫文件的 `_replication_id` 欄位中。
 2.  開啟位於 `/$DATABASE/_local/$REPLICATION_ID` 的檢查點文件，其中 `$REPLICATION_ID` 是您在前一個步驟中找到的 ID，而 `$DATABASE` 是來源或目標資料庫的名稱。文件通常存在於這兩個資料庫上，但也可能只存在於一個資料庫上。
 3.  在檢查點文件中找到的歷程陣列中，搜尋第一個元素的 `recorded_seq` 欄位。
-4.  抄寫至新的增量備份資料庫，同時將抄寫文件中的 [`since_seq` 欄位](../api/replication.html#the-since_seq-field)設為前一個步驟中找到之 [`recorded_seq` 欄位](backup-guide.html#get-the-recorded_seq-value)的值。
+4.  抄寫至新的增量備份資料庫，同時將抄寫文件中的 [`since_seq` 欄位](../api/replication.html#the-since_seq-field)設為前一個步驟中找到之 `recorded_seq` 欄位的值。
 
 >   **附註**：根據定義，使用 `since_seq` 選項會略過一般檢查點檢查作業機能。務必小心使用 `since_seq`。 
 
@@ -399,4 +399,4 @@ _設定 IO 優先順序的 JSON 文件範例：_
 
 ## 需要協助嗎？
 
-抄寫及備份可能很棘手。如果遇到困難，請參閱[抄寫手冊](replication_guide.html)，或聯絡 [IBM {{site.data.keyword.cloudant_short_notm}} 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
+抄寫及備份可能很棘手。如果遇到困難，請參閱[抄寫手冊](replication_guide.html)，或聯絡 [{{site.data.keyword.cloudant_short_notm}} 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。

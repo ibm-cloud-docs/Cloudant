@@ -23,8 +23,7 @@ Die Abschnitte [Clientbibliotheken](../libraries/index.html#-client-libraries),
 
 ## Verbindung zu {{site.data.keyword.cloudant_short_notm}} herstellen
 
-Für den Zugriff auf {{site.data.keyword.cloudant_short_notm}} müssen Sie entweder über ein [{{site.data.keyword.cloudant}}-Konto](../api/account.html) oder
-ein [{{site.data.keyword.Bluemix}}-Konto](../offerings/bluemix.html) verfügen.
+Für den Zugriff auf {{site.data.keyword.cloudant_short_notm}} müssen Sie entweder über ein [{{site.data.keyword.cloudant_short_notm}}-Konto](../api/account.html) oder ein [{{site.data.keyword.Bluemix}}-Konto](../offerings/bluemix.html) verfügen.
 
 ## HTTP-API
 

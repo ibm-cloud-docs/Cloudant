@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Création et remplissage d'une base de données {{site.data.keyword.cloudant_short_notm}} simple sur {{site.data.keyword.Bluemix_notm}}
+# Création et remplissage d'une base de données {{site.data.keyword.cloudant_short_notm}} simple sur {{site.data.keyword.cloud_notm}}
 
 Ce tutoriel explique comment utiliser le [langage de programmation Python ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.python.org/){:new_window} pour créer une base de données
-{{site.data.keyword.cloudantfull}} dans votre instance de service {{site.data.keyword.Bluemix}} et comment la remplir avec une collection de données simple.
+{{site.data.keyword.cloudantfull}} dans votre instance de service {{site.data.keyword.cloud_notm}} et comment la remplir avec une collection de données simple.
 {:shortdesc}
 
 ## Conditions prérequises
@@ -43,7 +43,7 @@ Python 2.7.12
 
 ### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
 
-Il existe une [bibliothèque officiellement prise en charge](../libraries/supported.html#python) qui active vos applications Python et fait en sorte qu'elles fonctionnent avec {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}.
+Il existe une [bibliothèque officiellement prise en charge](../libraries/supported.html#python) qui active vos applications Python et fait en sorte qu'elles fonctionnent avec {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}.
 
 Installez-la en suivant les instructions fournies [ici](../libraries/supported.html#python).
 
@@ -62,7 +62,7 @@ cloudant==2.3.1
 ```
 {:codeblock}
 
-### Instance du service {{site.data.keyword.cloudant_short_notm}} sur  Bluemix 
+### Instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}
 
 Le processus de création d'une instance de service appropriée est décrite dans [ce tutoriel](create_service.html).
 
@@ -82,7 +82,7 @@ Vous trouverez des informations sur la recherche des données d'identification d
 
 Ce tutoriel repose sur une série d'instructions en langage Python pouvant être utilisées lors des tâches suivantes :
 
-1.  [Connexion à une instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}](#connecting-to-a-cloudant-service-instance-on-bluemix).
+1.  [Connexion à une instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud}}](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud).
 2.  [Création d'une base de données dans l'instance de service](#creating-a-database-within-the-service-instance).
 3.  [Stockage d'une petite collection de données sous forme de documents dans la base de données](#storing-a-small-collection-of-data-as-documents-within-the-database).
 4.  [Extraction d'une liste complète des documents](#retrieving-a-complete-list-of-the-documents).
@@ -93,14 +93,14 @@ Le code Python spécifique à chaque tâche est fourni dans la description de ce
 
 Un programme Python complet qui permet d'exécuter toutes les tâches est fourni à la fin de ce tutoriel, [ici](#complete-listing).
 
-Aucune tentative de création d'un code Python _efficace_ n'a été  effectuée pour ce tutoriel. Notre seule intention est de vous montrer un code simple et
+Aucune tentative de création d'un code Python _efficace_ n'a été effectuée pour ce tutoriel. Notre seule intention est de vous montrer un code simple et
 facile à comprendre, qui fonctionne, et que vous pouvez apprendre et appliquer à vos propres applications.
 
 De même, nous n'avons pas essayé de résoudre toutes les vérifications ou conditions d'erreur possibles.
 Certains exemples de vérifications sont inclus dans le but d'illustrer certaines techniques, mais vous devez appliquer les meilleures pratiques afin de vérifier et
 traiter tous les avertissements ou cas d'erreur que vous rencontrez dans vos propres applications. 
 
-## Connexion à une instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}
+## Connexion à une instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}
 
 Une application Python requiert les composants {{site.data.keyword.cloudant_short_notm}} Client Library pour pouvoir se connecter à l'instance de service.
 Ces composants sont identifiés comme des instructions `import` normales :
@@ -121,13 +121,13 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **Remarque** : Les données d'identification du service illustrées
-    ont été définies lors de la création d'un service {{site.data.keyword.cloudant_short_notm}} de démonstration sur Bluemix.
+Les données d'identification du service illustrées ici
+    ont été définies lors de la création d'un service {{site.data.keyword.cloudant_short_notm}} de démonstration sur {{site.data.keyword.cloud_notm}}.
     Ces données d'identification sont reproduites ici pour illustrer la manière dont elles sont utilisées dans une application Python.
     Toutefois, le service {{site.data.keyword.cloudant_short_notm}} de démonstration ayant été retiré, elles ne
 fonctionnent pas. Vous _devez_ indiquer et utiliser vos propres données
 d'identification pour le service.
-
+{: tip}
 
 Une fois que vous avez activé la bibliothèque client Python dans votre application
 et que vous avez identifié les données d'identification du service, vous pouvez établir
@@ -139,7 +139,7 @@ client.connect()
 ```
 {:codeblock}
 
-A ce stade, votre application Python a accès à l'instance de service sur Bluemix.
+A ce stade, votre application Python a accès à l'instance de service sur {{site.data.keyword.cloud_notm}}.
 
 ## Création d'une base de données dans l'instance de service
 
@@ -252,12 +252,11 @@ Le résultat est similaire à ce qui suit :
 ```
 {:codeblock}
 
->   **Remarque** : La nature des bases de données NoSQL,
+La nature des bases de données NoSQL,
     comme {{site.data.keyword.cloudant_short_notm}}, signifie que les notions simples du premier document stocké dans une
 base de données et toujours le premier à être renvoyé dans une liste de
 résultats, ne s'appliquent pas nécessairement.
-
-
+{: tip}
 
 ### Extraction complète d'un document
 
@@ -400,7 +399,7 @@ client.disconnect()
 
 Le code suivant est un programme Python complet qui accède à une instance de service
 {{site.data.keyword.cloudant_short_notm}} sur
-{{site.data.keyword.Bluemix_notm}} et effectue une série de tâches typique :
+{{site.data.keyword.cloud_notm}} et effectue une série de tâches typique :
 
 1.  Connexion à l'instance de service
 2.  Création d'une base de données dans l'instance de service
@@ -439,7 +438,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
+# Use the {{site.data.keyword.cloudant_short_notm}} library to create an {{site.data.keyword.cloudant_short_notm}} client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -502,7 +501,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
+# Use an {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

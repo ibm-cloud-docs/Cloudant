@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -24,7 +24,8 @@ lastupdated: "2017-05-04"
 데이터베이스 백업은 데이터를 잠재적 손실 또는 손상으로부터 보호합니다.
 {:shortdesc}
 
-{{site.data.keyword.cloudant_short_notm}} 복제 기능을 사용하여 데이터베이스 백업을 작성하고 이를 {{site.data.keyword.cloudant_short_notm}} 클러스터에 저장할 수 있습니다.
+{{site.data.keyword.cloudant_short_notm}} 복제 기능을 사용하여 데이터베이스 백업을 작성하고 이를
+{{site.data.keyword.cloudant_short_notm}} 클러스터에 저장할 수 있습니다.
 그 후에는 이러한 백업에서 프로덕션 클러스터로 데이터, 전체 데이터베이스 또는 특정 JSON 문서를 복원할 수 있습니다.
 
 데이터베이스 백업에서는 {{site.data.keyword.cloudant_short_notm}} 복제를 사용하여 데이터베이스 컨텐츠를 체크포인트에 저장합니다.
@@ -37,7 +38,7 @@ lastupdated: "2017-05-04"
 
 엔터프라이즈 고객의 경우에는 일별 증분 백업 기능을 [사용할 수 있습니다](disaster-recovery-and-backup.html).
 
-엔터프라이즈 고객이 아니거나 고유한 백업을 작성하려는 경우에는 {{site.data.keyword.cloudant_short_notm}} 복제 기능을 사용하여 데이터베이스 백업을 작성할 수 있습니다. 
+엔터프라이즈 고객이 아니거나 고유한 백업을 작성하려는 경우에는 {{site.data.keyword.cloudant_short_notm}} 복제 기능을 사용하여 데이터베이스 백업을 작성할 수 있습니다.
 
 단순한 접근법은 전체 데이터베이스를 날짜 지정된 백업 데이터베이스에 복제하는 것입니다.
 이 방법은 백업 방법으로 사용 가능하며 수행하기 쉽습니다.
@@ -77,7 +78,7 @@ lastupdated: "2017-05-04"
     이 문서는 보통 두 데이터베이스에 모두 있지만 하나에만 있는 경우도 있습니다.
 3.  체크포인트 문서에 있는 히스토리 배열에서 첫 번째 요소의 `recorded_seq` 필드를 검색하십시오.
 4.  복제 문서에 있는 [`since_seq` 필드](../api/replication.html#the-since_seq-field)를
-    이전 단계에서 찾은 [`recorded_seq` 필드](backup-guide.html#get-the-recorded_seq-value) 값으로
+    이전 단계에서 찾은 `recorded_seq` 필드 값으로
     설정하여 새 증분 백업 데이터베이스로 복제하십시오.
 
 >   **참고**: 본질적으로, `since_seq` 옵션을 사용하면 일반 체크포인트 작성 기능이 무시됩니다. `since_seq`는 반드시 주의하여 사용하십시오. 
@@ -443,4 +444,4 @@ _IO 우선순위를 설정하는 JSON 문서의 예:_
 
 복제 및 백업 작업은 복잡할 수 있습니다.
 궁금한 점이 있는 경우에는 [복제 안내서](replication_guide.html)를 참조하거나
-[IBM {{site.data.keyword.cloudant_short_notm}} 지원 팀 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하십시오. 
+[{{site.data.keyword.cloudant_short_notm}} 지원 팀 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하십시오.

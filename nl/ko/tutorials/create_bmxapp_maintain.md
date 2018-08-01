@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,20 +14,20 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.Bluemix_notm}} 애플리케이션 작성: 유지보수 및 문제점 해결
+# {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.cloud_notm}} 애플리케이션 작성: 유지보수 및 문제점 해결
 
-이 튜토리얼에서는 {{site.data.keyword.Bluemix_notm}} 서비스 인스턴스에서 호스팅되는 {{site.data.keyword.Bluemix}} 애플리케이션을 유지보수하는 방법을 보여줍니다.
+이 튜토리얼에서는 {{site.data.keyword.cloud_notm}} 서비스 인스턴스에서 호스팅되는 {{site.data.keyword.cloud}} 애플리케이션을 유지보수하는 방법을 보여줍니다.
 {:shortdesc}
 
 <div id="maintenance"></div>
 
 ## 기본 애플리케이션 유지보수 태스크 수행
 
-이 튜토리얼 섹션에서는 {{site.data.keyword.Bluemix_notm}}에서 Python 애플리케이션을 새로 고치고, 시작하고, 중지하는 방법을 설명합니다.
+이 튜토리얼 섹션에서는 {{site.data.keyword.cloud_notm}}에서 Python 애플리케이션을 새로 고치고, 시작하고, 중지하는 방법을 설명합니다.
 
 ### 애플리케이션의 상태 찾기
 
-{{site.data.keyword.Bluemix_notm}} 서비스 인스턴스에 있는 애플리케이션의 상태는 대시보드에 표시됩니다.
+{{site.data.keyword.cloud_notm}} 서비스 인스턴스에 있는 애플리케이션의 상태는 대시보드에 표시됩니다.
 
 다음 예에서 `Cloudant Python` 애플리케이션은 실행 중이 아니며, `Stopped` 상태입니다.<br/>
 !['Stopped' 상태인 애플리케이션의 대시보드를 보여주는 화면 캡처](images/img0037.png)
@@ -64,13 +64,13 @@ lastupdated: "2017-11-07"
 애플리케이션의 새 버전이 이전 버전을 겹쳐씁니다.
 
 >   **참고**: 업로드를 시작할 때 애플리케이션의 이전 버전이 이미 실행 중인 경우
-    {{site.data.keyword.Bluemix_notm}}는 먼저 이 애플리케이션을 자동으로 중지합니다.
+    {{site.data.keyword.cloud_notm}}는 먼저 이 애플리케이션을 자동으로 중지합니다.
 
 ## 문제점 진단 및 해결
 
-이 튜토리얼 섹션에서는 첫 {{site.data.keyword.Bluemix_notm}} 애플리케이션을 개발하고 배치할 때 발생할 수 있는 여러 문제점을 식별하고, 진단하고, 해결하는 데 도움을 주는 몇 가지 기본적인 문제점 해결 팁을 제공합니다.
+이 튜토리얼 섹션에서는 첫 {{site.data.keyword.cloud_notm}} 애플리케이션을 개발하고 배치할 때 발생할 수 있는 여러 문제점을 식별하고, 진단하고, 해결하는 데 도움을 주는 몇 가지 기본적인 문제점 해결 팁을 제공합니다.
 
-{{site.data.keyword.Bluemix_notm}} 또는 Cloud Foundry 애플리케이션 작성의 우수 사례에 대한 유용한 조언은
+{{site.data.keyword.cloud_notm}} 또는 Cloud Foundry 애플리케이션 작성의 우수 사례에 대한 유용한 조언은
 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}에서 얻을 수 있습니다.
 
 특히 [로컬 파일 시스템에 대한 쓰기 발생 방지 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}에
@@ -84,22 +84,22 @@ lastupdated: "2017-11-07"
 
 ### 애플리케이션 로그 사용
 
-{{site.data.keyword.Bluemix_notm}} 애플리케이션의 문제점을 진단하고 해결하는 데 있어서 가장 유용한 리소스는 로그 파일입니다.
+{{site.data.keyword.cloud_notm}} 애플리케이션의 문제점을 진단하고 해결하는 데 있어서 가장 유용한 리소스는 로그 파일입니다.
 
-{{site.data.keyword.Bluemix_notm}} 애플리케이션의 로그 파일은 `Logs` 정보 페이지에서 찾을 수 있습니다.<br/>
+{{site.data.keyword.cloud_notm}} 애플리케이션의 로그 파일은 `Logs` 정보 페이지에서 찾을 수 있습니다.<br/>
 !['Logs' 정보 페이지에 액세스하는 링크를 보여주는 화면 캡처](images/img0042.png)
 
-대부분의 로그 파일과 마찬가지로, {{site.data.keyword.Bluemix_notm}} 애플리케이션 로그에는 발생한 이벤트와 발생 시점에 대한 세부사항이 포함되어 있습니다.
+대부분의 로그 파일과 마찬가지로, {{site.data.keyword.cloud_notm}} 애플리케이션 로그에는 발생한 이벤트와 발생 시점에 대한 세부사항이 포함되어 있습니다.
 
 이 로그 파일은 기록된 이벤트에 관련된 컴포넌트를 식별합니다.
 다음 표에는 주요 컴포넌트가 식별되어 있습니다.
 
-컴포넌트 레이블 | 컴포넌트
+컴포넌트 레이블 |컴포넌트
 ----------------|----------
-`API`           | Cloud Foundry 시스템입니다.
-`APP`           | 사용자의 애플리케이션입니다.
-`CELL`          | {{site.data.keyword.Bluemix_notm}} 내에서 사용자의 애플리케이션을 저장하고 있는 컨테이너입니다 .
-`RTR`           | 애플리케이션과 외부 간에 메시지를 전달하는 네트워킹 컴포넌트입니다.
+`API`           |Cloud Foundry 시스템입니다.
+`APP`           |사용자의 애플리케이션입니다.
+`CELL`          |{{site.data.keyword.cloud_notm}} 내에서 사용자의 애플리케이션을 저장하고 있는 컨테이너입니다 .
+`RTR`           |애플리케이션과 외부 간에 메시지를 전달하는 네트워킹 컴포넌트입니다.
 
 예를 들어, 다음 화면 캡처에는 몇 가지 일반적인 이벤트가 포함되어 있습니다.<br/>
 ![표시 로그 정보를 보여주는 화면 캡처](images/img0043.png)

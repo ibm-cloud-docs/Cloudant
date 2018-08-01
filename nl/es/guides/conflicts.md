@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-08-09"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -19,7 +19,7 @@ En bases de datos distribuidas en las que las copias de datos pueden almacenarse
 En otras palabras, si se realizan actualizaciones independientes en otras copias de documentos, el efecto puede provocar desacuerdos o 'conflictos' con respecto a cuál es el contenido definitivo y correcto del documento.
 
 {{site.data.keyword.cloudantfull}} intenta ayudarle a evitar conflictos advirtiéndole de posibles problemas.
-Lo hace devolviendo una [respuesta `409`](http.html#409) a una solicitud de actualización problemática.
+Lo hace devolviendo una [respuesta `409`](../api/http.html#http-status-codes) a una solicitud de actualización problemática.
 Sin embargo, es posible que no se reciba la respuesta `409` si se solicita la actualización de la base de datos en un sistema que actualmente no está conectado a la red.
 Por ejemplo, la base de datos puede estar en un dispositivo móvil desconectado temporalmente de Internet, lo que hace imposible comprobar si se han realizado otras actualizaciones potencialmente conflictivas en ese momento.
 
@@ -29,7 +29,7 @@ Sin embargo, la versión devuelta está determinada por un algoritmo interno que
 Si no comprueba los conflictos o no puede abordarlos, la base de datos de {{site.data.keyword.cloudant_short_notm}} empezará a mostrar varios comportamientos:
 
 * Aumento de inconsistencias en el contenido del documento, ya que hay más documentos conflictivos.
-* Aumento del tamaño de la base de datos, ya que todos los documentos conflictivos deben mantenerse  hasta que se resuelva el conflicto.
+* Aumento del tamaño de la base de datos, ya que todos los documentos conflictivos deben mantenerse hasta que se resuelva el conflicto.
 * Disminución del rendimiento, porque {{site.data.keyword.cloudant_short_notm}} debe trabajar más como respuesta a cada una de las solicitudes, ya que te intenta identificar la 'mejor versión posible' de un documento conflictivo.
 
 Las prácticas siguientes sugeridas pueden ayudarle a decidir cuándo comprobar o resolver conflictos:

@@ -21,7 +21,7 @@ lastupdated: "2018-02-15"
 
 ## 连接到 {{site.data.keyword.cloudant_short_notm}}
 
-要访问 {{site.data.keyword.cloudant_short_notm}}，您必须具有 [{{site.data.keyword.cloudant}} 帐户](../api/account.html)或 [{{site.data.keyword.Bluemix}} 帐户](../offerings/bluemix.html)。
+要访问 {{site.data.keyword.cloudant_short_notm}}，您必须具有 [{{site.data.keyword.cloudant_short_notm}} 帐户](../api/account.html)或 [{{site.data.keyword.Bluemix}} 帐户](../offerings/bluemix.html)。
 
 ## HTTP API
 

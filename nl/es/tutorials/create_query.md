@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-02"
+lastupdated: "2018-06-20"
 
 ---
 {:new_window: target="_blank"}
@@ -10,6 +10,9 @@ lastupdated: "2018-03-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-06-13 -->
 
 # Creación de una consulta de {{site.data.keyword.cloudant_short_notm}}
 
@@ -26,7 +29,7 @@ Antes de empezar, siga estos pasos para prepararse para la guía de aprendizaje:
 
 1.  [Cree una cuenta de {{site.data.keyword.Bluemix}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Inicie sesión en el [panel de control de {{site.data.keyword.Bluemix_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Cree una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-cloudant-instance-on-bluemix).
+3.  [Cree una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance).
 4.  (Opcional) [Cree un alias acurl](../guides/acurl.html#authorized-curl-acurl-) para que sea más fácil y más rápido ejecutar mandatos desde la línea de mandatos.
 5.  Sustituya la variable `$ACCOUNT` de los mandatos que figuran en los ejercicios por el nombre de usuario que utiliza para iniciar sesión en el panel de control de {{site.data.keyword.cloudant_short_notm}}.
   Si decide no configurar `acurl`, utilice el siguiente URL en lugar del que se proporciona en los ejercicios:
@@ -61,11 +64,12 @@ En esta sección, creará la [base de datos](../api/database.html#create) `query
 ![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Panel de control_
 
 1.  Abra la instancia de servicio de {{site.data.keyword.cloudant_short_notm}} que ha creado.
-2.  Seleccione el separador Bases de datos:
-
+2.  En la página de servicio de {{site.data.keyword.cloudant_short_notm}}, pulse **Iniciar**.
+    Se abrirá el separador Bases de datos.
+    
   ![Separador Bases de datos](../images/tabs.png)
-3.  Pulse **Crear base de datos**.
-4.  Escriba `query-demo` y pulse **Crear**.
+4.  Pulse **Crear base de datos**.
+5.  Escriba `query-demo` y pulse **Crear**.
 
   Se abre automáticamente la base de datos `query-demo`.
 
@@ -226,17 +230,9 @@ Los [documentos](../api/document.html#documents) que cree en este ejercicio cont
   ```
   {:codeblock}
 
-  Se ha creado la base de datos `query-demo`. Puede ver los documentos en el panel derecho.
+  La base de datos `query-demo` se ha rellenado con cinco registros. Puede ver los registros desde la vista Tabla en la siguiente captura de pantalla:
 
-  ![Documentos de ejemplo 1](../images/docs1.png)
-
-  ![Documentos de ejemplo 2](../images/docs2.png)
-
-  ![Documentos de ejemplo 3](../images/docs3.png)
-
-  ![Documentos de ejemplo 4](../images/docs4.png)
-
-  ![Documentos de ejemplo 5](../images/docs5.png)      
+  ![Documentos de ejemplo](../images/docs1.png)     
 
 ## Creación de un índice
 
@@ -248,7 +244,7 @@ Puede utilizar el índice primario que se suministra con {{site.data.keyword.clo
 *	[Vista](../api/creating_views.html#views-mapreduce-) – buscar en la base de datos información que coincida con los criterios de búsqueda que especifique, como recuentos, sumas, promedios y otras funciones matemáticas. Los criterios de búsqueda se pueden especificar en la definición de la vista. Las vistas utilizan el paradigma MapReduce.
 *	[Índice de búsqueda](../api/search.html#search) – buscar uno o varios campos, grandes cantidades de texto o utilizar caracteres comodín, búsqueda aproximada o facetas con la [sintaxis del analizador de consultas de Lucene![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
 *	[{{site.data.keyword.cloudant_short_notm}} Geospatial](../api/cloudant-geo.html#cloudant-geospatial) – buscar documentos en función de una relación espacial.
-*	[{{site.data.keyword.cloudant_short_notm}} Query](../api/cloudant_query.html#query) – utilizar la sintaxis de consulta de tipo Mongo para buscar documentos utilizando operadores  lógicos. {{site.data.keyword.cloudant_short_notm}} Query es una combinación de una vista y un índice de búsqueda. En esta guía de aprendizaje se utiliza {{site.data.keyword.cloudant_short_notm}} Query.
+*	[{{site.data.keyword.cloudant_short_notm}} Query](../api/cloudant_query.html#query) – utilizar la sintaxis de consulta de tipo Mongo para buscar documentos utilizando operadores lógicos. {{site.data.keyword.cloudant_short_notm}} Query es una combinación de una vista y un índice de búsqueda. En esta guía de aprendizaje se utiliza {{site.data.keyword.cloudant_short_notm}} Query.
 
 > **Nota:** Si no hay ningún índice definido disponible que coincida con la consulta especificada, {{site.data.keyword.cloudant_short_notm}}
 > utiliza el índice `_all_docs`.
@@ -323,7 +319,7 @@ Puede utilizar el índice primario que se suministra con {{site.data.keyword.clo
   ```
   {:codeblock}
 
-  Se ha creado el índice. Puede verlo en el panel derecho.
+  Se ha creado el índice. Puede ver el índice en la siguiente captura de pantalla:
 
   ![Índice de búsqueda](../images/query-index1.png)
 
@@ -333,7 +329,7 @@ Puede utilizar el índice primario que se suministra con {{site.data.keyword.clo
 
 Las consultas le permiten extraer datos de {{site.data.keyword.cloudant_short_notm}}. Un [consulta](../api/cloudant_query.html#query) bien escrita puede delimitar la búsqueda y sus resultados de modo que solo incluyan los datos que desea.
 
-En este ejercicio se muestra cómo escribir y ejecutar una consulta sencilla, cómo buscar con dos campos y cómo buscar con un [operador](../api/cloudant_query.html#cloudant_query.html#operators).
+En este ejercicio se muestra cómo escribir y ejecutar una consulta sencilla, cómo buscar con dos campos y cómo buscar con dos [operadores](../api/cloudant_query.html#cloudant_query.html#operators).
 Para realizar una búsqueda con un operador, especifique al menos un campo y su valor correspondiente.
 La consulta utiliza este valor para buscar coincidencias en la base de datos.
 
@@ -395,7 +391,7 @@ En este ejemplo se muestra cómo utiliza {{site.data.keyword.cloudant_short_notm
 
 3.  Pulse **Ejecutar consulta**.
 
-  Los resultados de la consulta aparecen en el panel derecho.
+  Se muestran los resultados de la consulta. Puede verlos desde la vista Tabla en la siguiente captura de pantalla:
 
   ![Resultados de la consulta 1](../images/dashboard_query1_results.png)
 
@@ -422,17 +418,9 @@ Los detalles adicionales se parecen a los del siguiente ejemplo:
 {
   ...
   "fields" : [
-    "lastname",
     "firstname",
-    "location"
-  ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
+      "lastname",
+      "location"
   ]
 }
 ```  
@@ -448,18 +436,10 @@ Los detalles adicionales se parecen a los del siguiente ejemplo:
       "location": "New York City, NY"
     },
     "fields": [
-      "firstname",
-      "lastname",
-      "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]
+     "firstname",
+     "lastname",
+     "location"
+  ]
   }
   ```
   {:codeblock}
@@ -475,12 +455,17 @@ Los detalles adicionales se parecen a los del siguiente ejemplo:
   {
     "docs": [
       {
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      },
+      {
         "firstname": "John",
         "lastname": "Brown",
         "location": "New York City, NY"
       },
       {
-        "firstname": "Sally",
+        "firstname": "Lois",
         "lastname": "Brown",
         "location": "New York City, NY"
       }
@@ -503,22 +488,14 @@ Los detalles adicionales se parecen a los del siguiente ejemplo:
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+    ] 
   }
   ```
   {:codeblock}
 
 3.  Pulse **Ejecutar consulta**.
 
-  Los resultados de la consulta aparecen en el panel derecho.
+  Se muestran los resultados de la consulta. Puede verlos desde la vista Tabla en la siguiente captura de pantalla:
 
   ![Resultados de la consulta 2](../images/dashboard_query2_results.png)
 
@@ -541,15 +518,13 @@ Utilizamos una expresión de selector como la del siguiente ejemplo:
 ``` 
 {:codeblock}
 
-Los resultados están ordenados por apellido en orden ascendente en función de los valores del parámetro `sort`.
+Los resultados están ordenados por antigüedad en orden ascendente en función de los
+valores especificados en el parámetro `sort`.
 
 ```json
     "sort": [
       {
         "age": "asc"   
-      },        
-      {
-        "lastname": "asc"
       }
     ] 
 ```  
@@ -574,10 +549,7 @@ Los resultados están ordenados por apellido en orden ascendente en función de 
    ],
     "sort": [
       {
-         "age": "asc"
-      },
-      {
-         "lastname": "asc"
+         "age": "asc"   
       }
    ],
    "use_index": "_design/partial-index"
@@ -622,10 +594,7 @@ Los resultados están ordenados por apellido en orden ascendente en función de 
    ],
     "sort": [
       {
-         "age": "asc"
-      },
-      {
-         "lastname": "asc"
+         "age": "asc"   
       }
    ],
    "use_index": "_design/partial-index"
@@ -635,7 +604,7 @@ Los resultados están ordenados por apellido en orden ascendente en función de 
 
 3.  Pulse **Ejecutar consulta**.
 
-  Los resultados de la consulta aparecen en el panel derecho.
+  Se muestran los resultados de la consulta. Puede verlos desde la vista Tabla en la siguiente captura de pantalla:
 
   ![Resultados de la consulta 3](../images/dashboard_query3_results.png)
 

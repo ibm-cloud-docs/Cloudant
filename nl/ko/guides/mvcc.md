@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -18,14 +18,16 @@ lastupdated: "2017-11-06"
 데이터베이스의 클러스터에 있는 모든 노드가 특정 문서의 [최신 버전](../api/document.html)만 포함하도록 하기 위해 {{site.data.keyword.cloudantfull}}데이터베이스가 사용하는 방법입니다.
 {:shortdesc}
 
-{{site.data.keyword.cloudant_short_notm}} 데이터베이스는 [결과적으로 일관](cap_theorem.html)되므로, 이전 문서 간 동기화로 인해 노드 간에 불일치가 발생하는 것을 방지해야 합니다. 
+{{site.data.keyword.cloudant_short_notm}} 데이터베이스는 [결과적으로 일관](cap_theorem.html)되므로, 이전 문서 간 동기화로 인해 노드 간에 불일치가 발생하는 것을 방지해야 합니다.
 
-다중 버전 동시성 제어(MVCC)는 {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 대한 동시 읽기 및 쓰기 액세스를 가능하게 합니다. MVCC는 [낙관적 동시성 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}의 한 형태입니다.
-데이터베이스가 읽기 또는 쓰기 오퍼레이션을 잠글 필요가 없으므로 이는 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 읽기 및 쓰기 오퍼레이션을 더 빠르게 만들어 줍니다. MVCC는 또한 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 노드 간 동기화를 가능하게 합니다. 
+다중 버전 동시성 제어(MVCC)는 {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 대한 동시 읽기 및 쓰기 액세스를 가능하게 합니다.
+MVCC는 [낙관적 동시성 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}의 한 형태입니다.
+데이터베이스가 읽기 또는 쓰기 오퍼레이션을 잠글 필요가 없으므로 이는 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 읽기 및 쓰기 오퍼레이션을 더 빠르게 만들어 줍니다.
+MVCC는 또한 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 노드 간 동기화를 가능하게 합니다.
 
 ## 개정판
 
-{{site.data.keyword.cloudant_short_notm}} 데이터베이스에 있는 모든 문서에는 해당 개정 번호를 표시하는 `_rev` 필드가 있습니다. 
+{{site.data.keyword.cloudant_short_notm}} 데이터베이스에 있는 모든 문서에는 해당 개정 번호를 표시하는 `_rev` 필드가 있습니다.
 
 개정 번호는 문서를 삽입하거나 수정할 때 서버에 의해 문서에 추가됩니다.
 문서를 변경하거나 읽을 때는 서버 응답에 이 번호가 포함됩니다.
@@ -49,7 +51,7 @@ lastupdated: "2017-11-06"
 
 ## 분산 데이터베이스 및 충돌
 
-분산 데이터베이스는 자신 또한 분산되어 있는 {{site.data.keyword.cloudant_short_notm}}의 주 데이터베이스에 대한 상시 연결 없이 작동하므로, 동일한 이전 버전을 기반으로 한 업데이트가 여전히 충돌할 수 있습니다. 
+분산 데이터베이스는 자신 또한 분산되어 있는 {{site.data.keyword.cloudant_short_notm}}의 주 데이터베이스에 대한 상시 연결 없이 작동하므로, 동일한 이전 버전을 기반으로 한 업데이트가 여전히 충돌할 수 있습니다.
 
 충돌을 찾으려면 문서를 검색할 때 조회 매개변수 [`conflicts=true`](../api/database.html#get-changes)를 추가하십시오.
 응답에 모든 충돌 개정판이 있는 `_conflicts` 배열이 포함됩니다.

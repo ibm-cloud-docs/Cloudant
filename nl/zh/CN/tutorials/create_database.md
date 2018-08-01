@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,9 +12,9 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# 在 {{site.data.keyword.Bluemix_notm}} 上创建并填充简单 {{site.data.keyword.cloudant_short_notm}} 数据库
+# 在 {{site.data.keyword.cloud_notm}} 上创建并填充简单 {{site.data.keyword.cloudant_short_notm}} 数据库
 
-本教程说明了如何使用 [Python 编程语言 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){:new_window} 在 {{site.data.keyword.Bluemix}} 服务实例中创建 {{site.data.keyword.cloudantfull}} 数据库，并使用简单数据集合来填充数据库。
+本教程说明了如何使用 [Python 编程语言 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){:new_window} 在 {{site.data.keyword.cloud_notm}} 服务实例中创建 {{site.data.keyword.cloudantfull}} 数据库，并使用简单的数据集合来填充该数据库。
 {:shortdesc}
 
 ## 先决条件
@@ -41,7 +41,7 @@ Python 2.7.12
 
 ### {{site.data.keyword.cloudant_short_notm}} 的 Python 客户机库
 
-有一个[官方支持的库](../libraries/supported.html#python)，能使 Python 应用程序与 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 配合使用。
+有一个[官方支持的库](../libraries/supported.html#python)，能使 Python 应用程序与 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 配合使用。
 
 您应该使用[此处](../libraries/supported.html#python)提供的指示信息安装此库。
 
@@ -59,19 +59,19 @@ cloudant==2.3.1
 ```
 {:codeblock}
 
-### Bluemix 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
+### {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
 
 [本教程](create_service.html)中描述了创建适用服务实例的过程。
 
 确保有以下服务凭证可用于服务实例：
 
-字段       | 用途
+字段       |用途
 -----------|--------
-`host`     | 应用程序用于查找服务实例的主机名。
-`username` | 应用程序访问服务实例所需的用户名。
-`password` | 应用程序访问服务实例所需的密码。
-`port`     | 用于访问主机上服务实例的 HTTP 端口号。通常为 443，可强制执行 HTTPS 访问。
-`url`      | 将其他凭证信息聚集到单个 URL 中（使其适合应用程序使用）的字符串。
+`host`     |应用程序用于查找服务实例的主机名。
+`username` |应用程序访问服务实例所需的用户名。
+`password` |应用程序访问服务实例所需的密码。
+`port`     |用于访问主机上服务实例的 HTTP 端口号。通常为 443，可强制执行 HTTPS 访问。
+`url`      |将其他凭证信息聚集到单个 URL 中（使其适合应用程序使用）的字符串。
 
 [此处](create_service.html#locating-your-service-credentials)提供了有关查找服务实例的服务凭证的信息。
 
@@ -79,7 +79,7 @@ cloudant==2.3.1
 
 本教程构建了一系列 Python 语言指示信息，适用于以下任务：
 
-1.  [连接到 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例](#connecting-to-a-cloudant-service-instance-on-bluemix)。
+1.  [连接到 {{site.data.keyword.cloud}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud)。
 2.  [在服务实例中创建数据库](#creating-a-database-within-the-service-instance)。
 3.  [将一个小型数据集合存储为数据库中的文档](#storing-a-small-collection-of-data-as-documents-within-the-database)。
 4.  [检索文档的完整列表](#retrieving-a-complete-list-of-the-documents)。
@@ -94,7 +94,7 @@ cloudant==2.3.1
 
 此外，我们也未尝试解决所有可能的检查或错误条件。教程中显示了一些示例检查，用于说明各种方法，但您应该应用标准最佳实践来检查和处理自己的应用程序遇到的所有警告或错误条件。 
 
-## 连接到 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
+## 连接到 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
 
 Python 应用程序需要 {{site.data.keyword.cloudant_short_notm}} 客户机库组件才能连接到服务实例。这些组件通过标准 `import` 语句确定：
 
@@ -114,8 +114,9 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **注**：此处说明的服务凭证
-是在 Bluemix 上创建演示 {{site.data.keyword.cloudant_short_notm}} 服务时定义的。在此重现这些凭证，是为了说明如何在 Python 应用程序中使用这些凭证。但是，现在已除去了演示 {{site.data.keyword.cloudant_short_notm}} 服务，因此这些凭证不再有效；您_必须_提供并使用自己的服务凭证。
+此处说明的服务凭证
+是在 {{site.data.keyword.cloudant_short_notm}} 上创建演示 {{site.data.keyword.cloud_notm}} 服务时定义的。在此重现这些凭证，是为了说明如何在 Python 应用程序中使用这些凭证。但是，现在已除去了演示 {{site.data.keyword.cloudant_short_notm}} 服务，因此这些凭证不再有效；您_必须_提供并使用自己的服务凭证。
+{: tip}
 
 只要在应用程序中启了 Python 客户机库并确定了服务凭证，就可以建立与服务实例的连接：
 
@@ -125,7 +126,7 @@ client.connect()
 ```
 {:codeblock}
 
-此时，Python 应用程序已有权访问 Bluemix 上的服务实例。
+此时，Python 应用程序已有权访问 {{site.data.keyword.cloud_notm}} 上的服务实例。
 
 ## 在服务实例中创建数据库
 
@@ -234,9 +235,9 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
->   **注**：NoSQL 数据库
-（如 {{site.data.keyword.cloudant_short_notm}}）的性质意味着，数据库中存储的第一个文档始终是结果列表中返回的第一个文档这样的简单概念并不一定适用。
-
+NoSQL 数据库
+（如 {{site.data.keyword.cloudant_short_notm}}）的性质意味着，简单地认为数据库中存储的第一个文档始终是结果列表中返回的第一个文档，这种想法不一定适用。
+{: tip}
 
 ### 文档完整检索
 
@@ -368,7 +369,7 @@ client.disconnect()
 
 ## 完整清单
 
-以下代码是完整的 Python 程序，可用于访问 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例，执行一系列典型任务：
+以下代码是用于访问 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例并执行一系列典型任务的完整 Python 程序：
 
 1.  连接到服务实例。
 2.  在服务实例中创建数据库。
@@ -407,7 +408,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
+# Use the {{site.data.keyword.cloudant_short_notm}} library to create an {{site.data.keyword.cloudant_short_notm}} client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -470,7 +471,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
+# Use an {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

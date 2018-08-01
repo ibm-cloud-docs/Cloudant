@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-07"
 
 # 在 {{site.data.keyword.Bluemix_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例
 
-本教程说明了如何使用 {{site.data.keyword.Bluemix}} 仪表板来创建 {{site.data.keyword.cloudantfull}} 服务实例，以及在何处可找到支持应用程序使用数据库的基本信息。
+本教程说明了如何使用 {{site.data.keyword.Bluemix}}“仪表板”来创建 {{site.data.keyword.cloudantfull}} 服务实例，以及在何处可找到支持应用程序使用数据库的基本信息。
 {:shortdesc}
 
 要访问 {{site.data.keyword.cloudant_short_notm}} 服务实例，您需要一组[服务凭证](#the-service-credentials)。在创建服务实例的过程中会生成这些凭证。
@@ -41,7 +41,7 @@ lastupdated: "2017-11-07"
 5.  在“服务配置”窗口中，输入服务名称。在此示例中，服务名称为 `Cloudant Service 2017`：<br/>
     ![{{site.data.keyword.cloudant_short_notm}} 服务名称和凭证](images/img0005.png)
 
-6.  缺省情况下，将使用“Lite”定价套餐来创建服务；Lite 是免费套餐，提供的容量有限。另外[提供](../offerings/bluemix.html)了容量更大的其他定价套餐。<br/>
+6.  缺省情况下，将使用“轻量”价格套餐来创建服务，这是免费套餐，提供的容量有限。另外[提供](../offerings/bluemix.html)了容量更大的其他价格套餐。<br/>
 要创建服务，请单击`创建`按钮：<br/>
     ![创建 {{site.data.keyword.cloudant_short_notm}} 服务名称和凭证](images/img0006.png)
 
@@ -67,13 +67,13 @@ lastupdated: "2017-11-07"
 
 服务凭证由五个字段组成：
 
-字段       | 用途
+字段       |用途
 -----------|--------
-`host`     | 应用程序用于查找服务实例的主机名。
-`username` | 应用程序访问服务实例所需的用户名。
-`password` | 应用程序访问服务实例所需的密码。
-`port`     | 用于访问主机上服务实例的 HTTP 端口号。通常为 443，可强制执行 HTTPS 访问。
-`url`      | 将其他凭证信息聚集到单个 URL 中（使其适合应用程序使用）的字符串。
+`host`     |应用程序用于查找服务实例的主机名。
+`username` |应用程序访问服务实例所需的用户名。
+`password` |应用程序访问服务实例所需的密码。
+`port`     |用于访问主机上服务实例的 HTTP 端口号。通常为 443，可强制执行 HTTPS 访问。
+`url`      |将其他凭证信息聚集到单个 URL 中（使其适合应用程序使用）的字符串。
 
 要创建可以访问服务实例的应用程序，您需要这些凭证。
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -16,9 +16,10 @@ lastupdated: "2017-05-04"
 
 <div id="back-up-your-data-using-replication"></div>
 
-# Incrémentiels de réplication 
+# Incrémentiels de réplication
 
->	**Remarque** : Le présent guide contient des informations anciennes, voire obsolètes, sur les sauvegardes {{site.data.keyword.cloudantfull}}. Pour obtenir les dernières recommandations en matière de sauvegarde, consultez le guide [Reprise après incident et sauvegarde](disaster-recovery-and-backup.html).
+>	**Remarque** : Le présent guide contient des informations anciennes, voire obsolètes, sur les sauvegardes {{site.data.keyword.cloudantfull}}.
+	Pour obtenir les dernières recommandations en matière de sauvegarde, consultez le guide [Reprise après incident et sauvegarde](disaster-recovery-and-backup.html).
 
 Les sauvegardes de base de données protègent vos données contre les risques de perte ou d'altération.
 {:shortdesc}
@@ -96,9 +97,8 @@ Pour créer une sauvegarde incrémentielle, procédez comme suit :
 3.  Recherchez la zone `recorded_seq` associée au premier élément
     du tableau d'historique qui se trouve dans le document de point de contrôle.
 4.  Procédez à la réplication vers la nouvelle base de données de sauvegarde incrémentielle,
-    en définissant la zone [`since_seq` ](../api/replication.html#the-since_seq-field)
-    du document de réplication sur la valeur de la zone [`recorded_seq`](backup-guide.html#get-the-recorded_seq-value)
-    identifiée à l'étape précédente.
+    en affectant à la zone [`since_seq`](../api/replication.html#the-since_seq-field)
+    du document de réplication la valeur de la zone `recorded_seq` identifiée à l'étape précédente.
 
 >   **Remarque** : Par définition, l'utilisation de l'option `since_seq` ignore l'option normale d'utilisation de point de contrôle. Utilisez le paramètre `since_seq` avec prudence. 
 
@@ -485,4 +485,4 @@ Assurez-vous que les travaux de réplication ne commencent pas en même temps.
 
 Les opérations de réplication et de sauvegarde peuvent s'avérer complexes.
 Si vous n'y arrivez pas,
-consultez le [guide de réplication](replication_guide.html) ou contactez l'[équipe de support d'IBM {{site.data.keyword.cloudant_short_notm}}![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window}.
+consultez le [guide de réplication](replication_guide.html) ou contactez l'[équipe de support d'{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window}.

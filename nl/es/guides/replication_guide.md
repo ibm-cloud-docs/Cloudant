@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -617,7 +617,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 
 En el documento JSON que se devuelve,
 busque el valor de `disk_size`.
-Si el valor indica un tamaño superior a 1 GB, póngase en contacto con el [equipo de soporte de IBM {{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){:new_window} para obtener más información.
+Si el valor indica un tamaño superior a 1 GB, póngase en contacto con el [equipo de soporte de {{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){:new_window} para obtener más información.
 
 Puede comprobar si existen conflictos en un documento `_replicator` individual, tal como se muestra en el siguiente ejemplo:
 
@@ -662,7 +662,7 @@ Suprima los documentos `_replicator` que ya no necesite.
 
 ## Ajuste de la velocidad de réplica
 
-De forma predeterminada, la réplica de {{site.data.keyword.cloudant_short_notm}}  se ejecuta en un ritmo adecuado para obtener datos del origen en el destino sin que ello afecte negativamente el rendimiento.
+De forma predeterminada, la réplica de {{site.data.keyword.cloudant_short_notm}} se ejecuta en un ritmo adecuado para obtener datos del origen en el destino sin que ello afecte negativamente el rendimiento.
 Lo ideal es encontrar el equilibrio entre ritmo de réplica y rendimiento del clúster para otras tareas.
 En algunos casos quizás sea preferible una réplica más rápida a costa de otros servicios de {{site.data.keyword.cloudant_short_notm}}.
 También es posible que tenga que dar prioridad al rendimiento del clúster y tratar la réplica como proceso de fondo.
@@ -674,4 +674,4 @@ Por ejemplo:
 *   Si tiene muchos documentos pequeños, tenga en cuenta la posibilidad de aumentar los valores de [`worker_process`](../api/advanced_replication.html#performance-related-options) y [`http_connections`](../api/advanced_replication.html#performance-related-options).
 *   Si desea ejecutar la réplica con un impacto mínimo, establecer `worker_processes` y `http_connections` en 1 puede ser lo adecuado.
 
-Para obtener más ayuda sobre la mejor configuración para su caso, póngase en contacto con el [equipo de soporte de IBM {{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){:new_window}.
+Para obtener más ayuda sobre la mejor configuración para su caso, póngase en contacto con el [equipo de soporte de {{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){:new_window}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -30,7 +30,7 @@ CouchBackup 是一种命令行工具，让您以更强大、更灵活的方式�
 
 ### 数据中心中断和灾难恢复
 
-集群之间的[持续复制](../api/replication.html#continuous-replication) 是针对 {{site.data.keyword.cloudant_short_notm}} 集群不完全可用问题的良好解决方案。持续复制是“主动/被动”模型。此模型的“主动”部分是持续复制。模型的“被动”部分确认副本在正常情况下不用于响应来自应用程序的请求，而是主要用作原始数据库的克隆。如有必要，可以访问克隆中的数据。或者，可以使用[复制](../api/replication.html)在其他某个位置复原克隆中的数据。
+集群之间的[持续复制](../api/replication.html#continuous-replication)是解决 {{site.data.keyword.cloudant_short_notm}} 集群不完全可用问题的好方法。持续复制是“主动/被动”模型。此模型的“主动”部分是持续复制。模型的“被动”部分确认副本在正常情况下不用于响应来自应用程序的请求，而是主要用作原始数据库的克隆。如有必要，可以访问克隆中的数据。或者，可以使用[复制](../api/replication.html)在其他某个位置复原克隆中的数据。
 
 >	**注：**通过从克隆进行复制来复原大型数据库可能需要很长时间。
 
@@ -63,7 +63,7 @@ CouchBackup 是一种命令行工具，让您以更强大、更灵活的方式�
 <!--
 https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/
 
-A useful approach is to have couchbackup's snapshots placed on the Bluemix Object Storage service, as described here:
+A useful approach is to have couchbackup's snapshots placed on the {{site.data.keyword.cloud}} Object Storage service, as described here:
 
 https://developer.ibm.com/recipes/tutorials/object-storage-cloudant-backup/
 -->

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-08-09"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -14,55 +14,59 @@ lastupdated: "2017-08-09"
 
 # Conflits
 
-Dans les bases de données réparties où les copies de données peuvent être stockées dans plusieurs emplacements, les caractéristiques naturelles du réseau et du système peuvent signifier que les modifications apportées à un document stocké à un emplacement ne peuvent pas être mises à jour ou répliquées instantanément. 
+Dans les bases de données réparties où les copies de données peuvent être stockées dans plusieurs emplacements, les caractéristiques naturelles du réseau et du système peuvent signifier que les modifications apportées à un document stocké à un emplacement ne peuvent pas être mises à jour ou répliquées instantanément.
 
-En d'autres termes, si des mises à jour indépendantes sont effectuées sur différentes copies de documents, cela peut avoir pour effet d'introduire des désaccords ou des 'conflits' quant au contenu correct et définitif du document. 
+En d'autres termes, si des mises à jour indépendantes sont effectuées sur différentes copies de documents, cela peut avoir pour effet d'introduire des désaccords ou des 'conflits' quant au contenu correct et définitif du document.
 
-{{site.data.keyword.cloudantfull}} tente de vous aider à éviter les conflits en vous avertissant des problèmes potentiels. Pour ce faire, il renvoie une [réponse `409`](http.html#409) à une demande de mise à jour problématique. Toutefois, une réponse `409` peut ne pas être reçue si la mise à jour de la base de données est demandée sur un système qui n'est pas actuellement connecté au réseau. Par exemple, la base de données peut se trouver sur un appareil mobile temporairement déconnecté d'Internet. Il est donc impossible à ce moment-là de vérifier si d'autres mises à jour potentiellement conflictuelles ont été effectuées. 
+{{site.data.keyword.cloudantfull}} tente de vous aider à éviter les conflits en vous avertissant des problèmes potentiels.
+Pour ce faire, il renvoie une [réponse `409`](../api/http.html#http-status-codes) à une demande de mise à jour problématique.
+Toutefois, une réponse `409` peut ne pas être reçue si la mise à jour de la base de données est demandée sur un système qui n'est pas actuellement connecté au réseau.
+Par exemple, la base de données peut se trouver sur un appareil mobile temporairement déconnecté d'Internet. Il est donc impossible à ce moment-là de vérifier si d'autres mises à jour potentiellement conflictuelles ont été effectuées.
 
-Si vous demandez un document en situation de conflit, la base de données {{site.data.keyword.cloudant_short_notm}} renvoie le document comme prévu. Cependant, la version renvoyée est déterminée par un algorithme interne qui prend en compte un certain nombre de facteurs ; vous ne devez pas supposer que le document renvoyé est toujours la version la plus récente, par exemple. 
+Si vous demandez un document en situation de conflit, la base de données {{site.data.keyword.cloudant_short_notm}} renvoie le document comme prévu.
+Cependant, la version renvoyée est déterminée par un algorithme interne qui prend en compte un certain nombre de facteurs ; vous ne devez pas supposer que le document renvoyé est toujours la version la plus récente, par exemple.
 
-Si vous ne vérifiez pas les conflits ou si vous ne parvenez pas à les résoudre, votre base de données {{site.data.keyword.cloudant_short_notm}} commence à afficher plusieurs comportements: 
+Si vous ne vérifiez pas les conflits ou si vous ne parvenez pas à les résoudre, votre base de données {{site.data.keyword.cloudant_short_notm}} commence à afficher plusieurs comportements:
 
-* Augmentation des incohérences dans le contenu des documents, car de plus en plus de documents sont contradictoires. 
-* Augmentation de la taille de la base de données, car tous les documents en conflit doivent être conservés jusqu'à la résolution du conflit. 
-* Diminution des performances, car {{site.data.keyword.cloudant_short_notm}} doit intensifier son activité en réponse à chaque demande, car elle tente d'identifier la 'meilleure version' possible d'un document en conflit. 
+* Augmentation des incohérences dans le contenu des documents, car de plus en plus de documents sont contradictoires.
+* Augmentation de la taille de la base de données, car tous les documents en conflit doivent être conservés jusqu'à la résolution du conflit.
+* Diminution des performances, car {{site.data.keyword.cloudant_short_notm}} doit intensifier son activité en réponse à chaque demande, car elle tente d'identifier la 'meilleure version' possible d'un document en conflit.
 
-Les pratiques suggérées suivantes peuvent vous aider à déterminer quand rechercher et résoudre les conflits : 
+Les pratiques suggérées suivantes peuvent vous aider à déterminer quand rechercher et résoudre les conflits :
 
 <table>
 <tr>
-<th>Caractéristique d'application	 </th>
-<th>Fréquence de la mise à jour du document	 </th>
-<th>Rechercher les conflits lors de l'extraction ?	 </th>
-<th>Rechercher les conflits lors de la mise à jour ? </th>
+<th>Caractéristique d'application</th>
+<th>Fréquence de la mise à jour du document</th>
+<th>Rechercher les conflits lors de l'extraction ?</th>
+<th>Rechercher les conflits lors de la mise à jour ?</th>
 </tr>
 <tr>
-<td>Toujours connecté à Internet, par exemple un serveur. </td>
+<td>Toujours connecté à Internet, par exemple un serveur.</td>
 <td>Souvent</td>
 <td>O</td>
 <td>-</td>
 </tr>
 <tr>
-<td>Toujours connecté à Internet.	 </td>
-<td>Parfois </td>
+<td>Toujours connecté à Internet.</td>
+<td>Parfois</td>
 <td>-</td>
 <td>O</td>
 </tr>
 <tr>
-<td>Souvent mais pas toujours connecté à Internet, par exemple un ordinateur portable. </td>
+<td>Souvent mais pas toujours connecté à Internet, par exemple un ordinateur portable.</td>
 <td>Souvent</td>
 <td>-</td>
 <td>O</td>
 </tr>
 <tr>
-<td>Souvent mais pas toujours connecté à Internet. </td>
-<td>Parfois </td>
+<td>Souvent mais pas toujours connecté à Internet.</td>
+<td>Parfois</td>
 <td>-</td>
 <td>O</td>
 </tr>
 <tr>
-<td>Occasionnellement connecté à Internet, par exemple une tablette. </td>
+<td>Occasionnellement connecté à Internet, par exemple une tablette.</td>
 <td>Souvent</td>
 <td>-</td>
 <td>O</td>
@@ -71,11 +75,12 @@ Les pratiques suggérées suivantes peuvent vous aider à déterminer quand rech
 
 ## Rechercher les conflits
 
-Pour rechercher les conflits susceptibles d'affecter un document, ajoutez le paramètre de requête `conflicts=true` lors de l'extraction d'un document. Lorsqu'il est renvoyé, le document obtenu contient un tableau `_conflicts`, qui inclut une liste de toutes les révisions en conflit. 
+Pour rechercher les conflits susceptibles d'affecter un document, ajoutez le paramètre de requête `conflicts=true` lors de l'extraction d'un document.
+Lorsqu'il est renvoyé, le document obtenu contient un tableau `_conflicts`, qui inclut une liste de toutes les révisions en conflit.
 
 <div></div>
 
-> Exemple de fonction de mappe pour rechercher des conflits dans des documents : 
+> Exemple de fonction de mappe pour rechercher des conflits dans des documents :
 
 ```
 function (doc) {
@@ -86,9 +91,11 @@ function (doc) {
 ```
 
 Pour trouver des conflits pour plusieurs documents d'une base de données,
-créez une [vue](../api/creating_views.html). A l'aide d'une fonction de mappe telle que l'exemple fourni, vous pouvez rechercher toutes les révisions de chaque document comportant un conflit. 
+créez une [vue](../api/creating_views.html).
+A l'aide d'une fonction de mappe telle que l'exemple fourni, vous pouvez rechercher toutes les révisions de chaque document comportant un conflit.
 
-Lorsque vous disposez d'une vue de ce type, vous pouvez l'utiliser pour rechercher et résoudre les conflits si nécessaire. Vous pouvez également interroger la vue après chaque réplication pour identifier et résoudre les conflits immédiatement. 
+Lorsque vous disposez d'une vue de ce type, vous pouvez l'utiliser pour rechercher et résoudre les conflits si nécessaire.
+Vous pouvez également interroger la vue après chaque réplication pour identifier et résoudre les conflits immédiatement.
 
 ## Résolution des conflits
 
@@ -101,7 +108,7 @@ Une fois que vous avez trouvé un conflit, vous pouvez le résoudre en quatre é
 
 <div></div>
 
-> Exemple de document - la première version. 
+> Exemple de document - la première version.
 
 ```json
 {
@@ -115,11 +122,11 @@ Une fois que vous avez trouvé un conflit, vous pouvez le résoudre en quatre é
 
 Un exemple présentant cette procédure est présenté ci-dessus.
 Supposons que vous ayez une base de données de produits pour un magasin en ligne.
-La première version d'un document peut être similaire à l'exemple fourni. 
+La première version d'un document peut être similaire à l'exemple fourni.
 
 <div></div>
 
-> Deuxième version (première révision) du document, par l'ajout d'une description. 
+> Deuxième version (première révision) du document, par l'ajout d'une description.
 
 ```json
 {
@@ -131,11 +138,11 @@ La première version d'un document peut être similaire à l'exemple fourni.
 }
 ```
 
-Le document n'a pas encore de description, donc quelqu'un pourrait en ajouter une. 
+Le document n'a pas encore de description, donc quelqu'un pourrait en ajouter une.
 
 <div></div>
 
-> Deuxième version _alternative_, introduisant un changement de données de réduction de prix à la première version du document. 
+> Deuxième version _alternative_, introduisant un changement de données de réduction de prix à la première version du document.
 
 ```json
 {
@@ -147,19 +154,22 @@ Le document n'a pas encore de description, donc quelqu'un pourrait en ajouter un
 }
 ```
 
-Au même moment, une autre personne utilisant une base de données répliquée réduit le prix. Cette modification est apportée à la première version du document. Par conséquent, la modification de réduction de prix ne 'connaît' pas la modification de la description. 
+Au même moment, une autre personne utilisant une base de données répliquée réduit le prix.
+Cette modification est apportée à la première version du document.
+Par conséquent, la modification de réduction de prix ne 'connaît' pas la modification de la description.
 
-Ultérieurement, lorsque les deux bases de données sont répliquées, il peut être difficile de savoir laquelle des deux versions alternatives du document est correcte. Il s'agit d'un scénario de conflit. 
+Ultérieurement, lorsque les deux bases de données sont répliquées, il peut être difficile de savoir laquelle des deux versions alternatives du document est correcte.
+Il s'agit d'un scénario de conflit.
 
 ## Obtention des révisions en conflit
 
-Pour rechercher les révisions conflictuelles d'un document, extrayez ce document normalement, mais incluez le paramètre `conflicts=true`, comme dans l'exemple suivant : 
+Pour rechercher les révisions conflictuelles d'un document, extrayez ce document normalement, mais incluez le paramètre `conflicts=true`, comme dans l'exemple suivant :
 
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
 <div></div>
 
-> Exemple de réponse à l'extraction d'un document, montrant des révisions conflictuelles 
+> Exemple de réponse à l'extraction d'un document, montrant des révisions conflictuelles
 
 ```json
 {
@@ -172,45 +182,50 @@ Pour rechercher les révisions conflictuelles d'un document, extrayez ce documen
 }
 ```
 
-Si le document comporte des conflits, vous obtenez une réponse similaire à l'exemple fourni, qui est basé sur la description modifiée ou le problème de prix modifié. 
+Si le document comporte des conflits, vous obtenez une réponse similaire à l'exemple fourni, qui est basé sur la description modifiée ou le problème de prix modifié.
 
-La version dont le prix a été modifié a été choisie _arbitrairement_ comme la dernière version du document. Vous ne devez pas supposer que la version la plus récente du document est considérée comme la dernière version à des fins de résolution de conflit. 
+La version dont le prix a été modifié a été choisie _arbitrairement_ comme la dernière version du document.
+Vous ne devez pas supposer que la version la plus récente du document est considérée comme la dernière version à des fins de résolution de conflit.
 
-Dans cet exemple, un conflit est considéré comme existant entre le document récupéré qui a la valeur `_rev` `2-f796915a291b37254f6df8f6f3389121`, et un autre document qui a la valeur `_rev` `2-61ae00e029d4f5edd2981841243ded13`. Les détails du document en conflit sont notés dans le tableau `_conflicts`. 
+Dans cet exemple, un conflit est considéré comme existant entre le document récupéré qui a la valeur `_rev` `2-f796915a291b37254f6df8f6f3389121`, et un autre document qui a la valeur `_rev` `2-61ae00e029d4f5edd2981841243ded13`.
+Les détails du document en conflit sont notés dans le tableau `_conflicts`.
 
-Souvent, vous pouvez constater que le tableau ne contient qu'un seul élément, mais il est possible qu'il y ait de nombreuses révisions conflictuelles, chacune d'entre elles étant répertoriée dans le tableau. 
+Souvent, vous pouvez constater que le tableau ne contient qu'un seul élément, mais il est possible qu'il y ait de nombreuses révisions conflictuelles, chacune d'entre elles étant répertoriée dans le tableau.
 
 ## Fusion des modifications
 
-Votre application doit identifier toutes les modifications potentielles et les réconcilier, en fusionnant efficacement les mises à jour correctes et valides pour produire une version unique et non conflictuelle du document. 
+Votre application doit identifier toutes les modifications potentielles et les réconcilier, en fusionnant efficacement les mises à jour correctes et valides pour produire une version unique et non conflictuelle du document.
 
 Pour comparer les révisions afin d'identifier les modifications,
-votre application doit extraire toutes les versions de la base de données. Comme décrit précédemment, vous devez commencer par récupérer un document et les détails de toutes les versions en conflit. Pour ce faire, vous devez utiliser une commande similaire à la suivante, qui demande également le tableau `_conflicts` : 
+votre application doit extraire toutes les versions de la base de données.
+Comme décrit précédemment, vous devez commencer par récupérer un document et les détails de toutes les versions en conflit.
+Pour ce faire, vous devez utiliser une commande similaire à la suivante, qui demande également le tableau `_conflicts` :
 
 `http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
 `
 
 Cette extraction fournit une version en cours du document que vous stockez, _et_ une liste de tous les autres documents en conflit qui doivent également être extraits, par exemple `...rev=2-61ae00e029d4f5edd2981841243ded13` et `...rev=1-7438df87b632b312c53a08361a7c3299`.
-Chacune de ces autres versions en conflit est également extraite et stockée, par exemple : 
+Chacune de ces autres versions en conflit est également extraite et stockée, par exemple :
 
   `http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13`
   `http://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299`
 
-Une fois que toutes les révisions en conflit d'un document sont disponibles, vous pouvez procéder à la résolution des conflits. 
+Une fois que toutes les révisions en conflit d'un document sont disponibles, vous pouvez procéder à la résolution des conflits.
 
-Dans notre scénario précédent, les différences entre les versions du document concernaient différents champs du document, ce qui facilitait leur fusion. 
+Dans notre scénario précédent, les différences entre les versions du document concernaient différents champs du document, ce qui facilitait leur fusion.
 
-Des conflits plus complexes nécessiteront probablement plus d'analyses. Pour vous aider, vous pouvez choisir parmi différentes stratégies de résolution de conflit, telles que : 
+Des conflits plus complexes nécessiteront probablement plus d'analyses.
+Pour vous aider, vous pouvez choisir parmi différentes stratégies de résolution de conflit, telles que :
 
-*	Basée sur l'horodatage : à l'aide d'un test simple de la première ou la plus récente édition. 
-*	Evaluation de l'utilisateur : les conflits sont signalés aux utilisateurs, qui décident alors de la meilleure résolution. 
+*	Basée sur l'horodatage : à l'aide d'un test simple de la première ou la plus récente édition.
+*	Evaluation de l'utilisateur : les conflits sont signalés aux utilisateurs, qui décident alors de la meilleure résolution.
 *	Algorithmes de fusion sophistiqués : souvent utilisés dans les [systèmes de contrôle de version](https://en.wikipedia.org/wiki/Merge_%28version_control%29). Par exemple, la [fusion à trois voies](https://en.wikipedia.org/wiki/Merge_%28version_control%29#Three-way_merge).
 
 Pour un exemple pratique du mode d'implémentation de ces modifications, consultez [ce projet avec un exemple de code](https://github.com/glynnbird/deconflict).
 
 ## Téléchargement de la nouvelle révision
 
-> Révision finale, après résolution et fusion des modifications des révisions précédentes en conflit. 
+> Révision finale, après résolution et fusion des modifications des révisions précédentes en conflit.
 
 ```json
 {
@@ -222,11 +237,12 @@ Pour un exemple pratique du mode d'implémentation de ces modifications, consult
 }
 ```
 
-Après avoir évalué et résolu les conflits, vous créez un document contenant les données actuelles et définitives. Ce nouveau document est téléchargé dans la base de données. 
+Après avoir évalué et résolu les conflits, vous créez un document contenant les données actuelles et définitives.
+Ce nouveau document est téléchargé dans la base de données.
 
 ## Suppression des anciennes révisions
 
-> Exemples de demandes de suppression des anciennes révisions. 
+> Exemples de demandes de suppression des anciennes révisions.
 
 ```http
 DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
@@ -234,7 +250,9 @@ DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841
 DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121
 ```
 
-La dernière étape consiste à supprimer les anciennes révisions. Pour ce faire, vous devez envoyer une requête `DELETE`, en spécifiant les révisions à supprimer. 
+La dernière étape consiste à supprimer les anciennes révisions.
+Pour ce faire, vous devez envoyer une requête `DELETE`, en spécifiant les révisions à supprimer.
 
-Lorsque les anciennes versions d'un document sont supprimées, les conflits associés à ce document sont marqués comme résolus. Vous pouvez vérifier qu'aucun conflit ne subsiste en demandant à nouveau le document, avec le paramètre `conflicts` défini sur true,
+Lorsque les anciennes versions d'un document sont supprimées, les conflits associés à ce document sont marqués comme résolus.
+Vous pouvez vérifier qu'aucun conflit ne subsiste en demandant à nouveau le document, avec le paramètre `conflicts` défini sur true,
 [comme précédemment](conflicts.html#finding-conflicts).

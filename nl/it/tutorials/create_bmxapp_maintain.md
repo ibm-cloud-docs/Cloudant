@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,11 +14,11 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creazione di una semplice applicazione {{site.data.keyword.Bluemix_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: manutenzione e risoluzione dei problemi
+# Creazione di una semplice applicazione {{site.data.keyword.cloud_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: manutenzione e risoluzione dei problemi
 
 Questa esercitazione illustra come conservare un'applicazione
-{{site.data.keyword.Bluemix}},
-ospitata nella tua istanza del servizio {{site.data.keyword.Bluemix_notm}}.
+{{site.data.keyword.cloud}},
+ospitata nella tua istanza del servizio {{site.data.keyword.cloud_notm}}.
 {:shortdesc}
 
 <div id="maintenance"></div>
@@ -27,12 +27,12 @@ ospitata nella tua istanza del servizio {{site.data.keyword.Bluemix_notm}}.
 
 Questa sezione dell'esercitazione illustra come aggiornare,
 avviare e arrestare la tua applicazione
-Python in {{site.data.keyword.Bluemix_notm}}.
+Python in {{site.data.keyword.cloud_notm}}.
 
 ### Trovare lo stato della tua applicazione
 
 Lo stato delle applicazioni nella tua istanza del servizio
-{{site.data.keyword.Bluemix_notm}} viene visualizzato nel dashboard.
+{{site.data.keyword.cloud_notm}} viene visualizzato nel dashboard.
 
 Nel seguente esempio,
 l'applicazione `Cloudant Python` non è in esecuzione e
@@ -79,16 +79,16 @@ segui semplicemente il [processo di caricamento](create_bmxapp_upload.html).
 La nuova versione sovrascrive la versione precedente dell'applicazione.
 
 >   **Nota**: se la vecchia versione dell'applicazione è già in esecuzione quando avvii il caricamento,
-    {{site.data.keyword.Bluemix_notm}} prima arresta automaticamente l'applicazione.
+    {{site.data.keyword.cloud_notm}} prima arresta automaticamente l'applicazione.
 
 ## Diagnostica e risoluzione dei problemi
 
 Questa sezione dell'esercitazione fornisce alcuni suggerimenti sulla risoluzione dei problemi di base per aiutarti
 a identificare, diagnosticare
 e risolvere alcuni problemi che potresti riscontrare quando sviluppi e distribuisci
-le tue prime applicazioni {{site.data.keyword.Bluemix_notm}}.
+le tue prime applicazioni {{site.data.keyword.cloud_notm}}.
 
-Una buona fonte di consigli sulle procedure consigliate per la creazione delle applicazioni {{site.data.keyword.Bluemix_notm}} o
+Una buona fonte di consigli sulle procedure consigliate per la creazione delle applicazioni {{site.data.keyword.cloud_notm}} o
 Cloud Foundry è
 [qui
 ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}.
@@ -109,13 +109,13 @@ il consiglio per
 ### Utilizzo del log dell'applicazione
 
 La risorsa più utile per la diagnostica e la risoluzione dei problemi con l'applicazione
-{{site.data.keyword.Bluemix_notm}} è il file di log.
+{{site.data.keyword.cloud_notm}} è il file di log.
 
-Il file di log per un'applicazione {{site.data.keyword.Bluemix_notm}} può essere trovato nella pagina delle informazioni `Logs`:<br/>
+Il file di log per un'applicazione {{site.data.keyword.cloud_notm}} può essere trovato nella pagina delle informazioni `Logs`:<br/>
 ![Acquisizione schermo che mostra il link per accedere alla pagina delle informazioni 'Logs' ](images/img0042.png)
 
 Come la maggior parte dei file di log,
-un log dell'applicazione {{site.data.keyword.Bluemix_notm}} contiene i dettagli su quali eventi si sono verificati e quando.
+un log dell'applicazione {{site.data.keyword.cloud_notm}} contiene i dettagli su quali eventi si sono verificati e quando.
 
 Il log inoltre identifica quale componente è stato coinvolto nell'evento registrato.
 La seguente tabella identifica i componenti chiave:
@@ -124,7 +124,7 @@ Etichetta componente | Componente
 ----------------|----------
 `API`           | Il sistema Cloud Foundry.
 `APP`           | La tua applicazione.
-`CELL`          | Il contenitore che ospita la tua applicazione in {{site.data.keyword.Bluemix_notm}}.
+`CELL`          | Il contenitore che ospita la tua applicazione in {{site.data.keyword.cloud_notm}}.
 `RTR`           | I componenti di rete che trasportano i tuoi messaggi dalla/alla applicazione.
 
 Ad esempio,

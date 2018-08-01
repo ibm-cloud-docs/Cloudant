@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -45,9 +45,9 @@ Généralement, les modèles de données s'appuyant sur des données non modifia
 qui résument les documents indiquant l'état en cours. Comme les vues sont précalculées, cela ne devrait avoir
 aucune conséquence sur les performances de l'application.
 
-## Intérêt
+## En quoi cela vous aide-t-il de prendre en compte les données non modifiables 
 
-Derrière notre interface `https://<account>.cloudant.com/` se trouve une base de données répartie. 
+Derrière notre interface `https://$ACCOUNT.cloudant.com/` se trouve une base de données répartie.
 Dans le cluster, les documents sont placés dans des fragments qui collectivement forment la
 base de données. Ces fragments sont ensuite répartis entre les noeuds du cluster. Ainsi, il est possible
 de prendre en charge des bases de données de plusieurs téraoctets.
@@ -70,7 +70,7 @@ Nous avons détecté que ce scénario de conflit de documents a plus de risque d
 à jour survenant à des fréquences supérieures à une seconde, mais nous recommandons néanmoins des documents non modifiables
 pour les mises à jour survenant à des fréquences supérieures à dix secondes pour des raisons de sécurité.
 
-## Utilisation de vues et non d'index de recherche pour pré-calculer les résultats
+## Utilisation de vues pour précalculer des résultats plutôt que comme des index de recherche
 
 Au lieu d'utiliser systématiquement des vues comme index de recherche ("extraction de tous les documents `person`"), essayez
 de laisser la base de données effectuer le travail pour vous. Par exemple, au lieu d'extraire un grand nombre de
@@ -80,7 +80,7 @@ Ainsi, le travail que vous devez effectuer dans l'application est réduit et la 
 grand nombre de petites demandes au lieu de lire de grandes quantités de données sur le disque pour traiter une seule
 demande de grande taille.
 
-## Intérêt
+## En quoi cela vous aide-t-il d'utiliser des vues pour pré-calculer des résultats
 
 L'avantage de cette méthode est évident : tout d'abord, les mappes et les réductions
 sont pré-calculées. Cela signifie
@@ -122,7 +122,7 @@ documents ayant une balise spécifique en
 [émettant chaque balise en tant que clé dans la fonction de mappe de votre vue](../api/creating_views.html). 
 Le fait de demander une clé spécifique dans la vue permet d'obtenir tous les documents ayant cette balise.
 
-## Intérêt
+## En quoi cela vous aide-t-il de dénormaliser vos données
 
 Le nombre de demandes HTTP effectuées par votre application. Chaque ouverture
 de connexion HTTP génère un coût (plus particulièrement pour HTTPS). Si une réutilisation des connexions peut
@@ -132,7 +132,7 @@ En outre, les documents dénormalisés et les vues précalculées permettent sou
 demandée par votre application soit générée à l'avance au lieu d'être construite à la volée lors de la
 demande.
 
-## Eviter les conflits en utilisant des documents à granularité plus fine
+## Prévention des conflits à l'aide de documents à granularité fin
 
 Outre la dénormalisation de vos données, nous vous recommandons d'utiliser
 des documents à granularité fine pour réduire le risque de modifications simultanées créant des conflits. 
@@ -181,9 +181,9 @@ les opérations pour un patient spécifique. Les vues permettent de créer une i
 à partir de différents documents, ce qui permet de réduire le nombre de demandes HTTP même si
 les données d'une entité modélisée ont été fractionnées.
 
-## Intérêt
+## En quoi cela vous aide-t-il d'éviter les conflits
 
-En évitant les documents en conflit, vous accélérez le traitement d'un grand nombre d'opérations sur vos bases de données {{site.data.keyword.cloudant_short_notm}}.
+En évitant les documents en conflit, vous accélérez le traitement d'un grand nombre d'opérations sur vos bases de données {{site.data.keyword.cloudant_short_notm}}. 
 Cela est dû au fait qu'il existe un processus qui résout la révision gagnante en cours utilisée dès
 que le document est lu : extractions de document, appels avec `include_docs=true`, génération de vue,
 etc.
@@ -201,7 +201,7 @@ fait qu'il est possible que les documents soient fractionnés, et ce afin d'évi
 très élevé, particulièrement si les conflits ne sont pas résolus, le parcours de l'arborescence des documents peut être très long et
 utiliser un grand nombre de ressources.
 
-## Résolution de conflit
+## Intégration de la résolution de conflit
 
 Dans un système cohérent ({{site.data.keyword.cloudant_short_notm}}, par exemple) des conflits peuvent survenir. Comme
 décrit ci-dessus, c'est là l'inconvénient de l'évolutivité et de la résilience des données.
@@ -221,7 +221,7 @@ La façon de procéder dépend de vos applications mais voici quelques conseils 
     une version des autres documents qui est incohérente avec le document en cours de résolution, ce qui complique
     l'opération, sans parler de la possibilité que les autres documents peuvent être en conflit.
 
-## Intérêt
+## En quoi cela vous aide-t-il d'intégrer la résolution de conflit 
 
 Comme décrit ci-dessus, les documents en conflit constituent un lourd handicap pour la base de données. Intégrer la possibilité
 de résoudre les conflits dès qu'ils apparaissent permet d'éviter d'avoir des documents en conflit.

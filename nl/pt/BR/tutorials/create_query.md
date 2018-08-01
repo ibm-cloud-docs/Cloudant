@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-02"
+lastupdated: "2018-06-20"
 
 ---
 {:new_window: target="_blank"}
@@ -10,8 +10,11 @@ lastupdated: "2018-03-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-# Criando um {{site.data.keyword.cloudant_short_notm}} Query
+<!-- Acrolinx: 2018-06-13 -->
+
+# Criando uma consulta do {{site.data.keyword.cloudant_short_notm}}
 
 Este tutorial demonstra como criar um banco de dados, preenchê-lo
 com documentos, criar um índice e usar o índice para consultar o banco de dados.
@@ -28,10 +31,10 @@ contêm os dados para esses exercícios.
 
 Antes de iniciar, siga estas etapas para se preparar para o tutorial:
 
-1.  [Crie uma conta do {{site.data.keyword.Bluemix}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/registration/){:new_window}.
+1.  [Criar uma conta do {{site.data.keyword.Bluemix}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Efetue login no
   [Painel do {{site.data.keyword.Bluemix_notm}}![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Crie uma instância do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-cloudant-instance-on-bluemix).
+3.  [Criar uma instância do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance).
 4.  (Opcional) [Crie um alias acurl](../guides/acurl.html#authorized-curl-acurl-) para facilitar e acelerar a execução de comandos por meio da linha de comandos.
 5.  Substitua a variável `$ACCOUNT` nos comandos que são incluídos nos exercícios com o nome do usuário que você usa para efetuar login no Painel do {{site.data.keyword.cloudant_short_notm}}.
   Se você decidir não configurar o `acurl`,
@@ -73,11 +76,12 @@ como username e password.
 ![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
 
 1.  Abra a instância de serviço do {{site.data.keyword.cloudant_short_notm}} que você criou.
-2.  Selecione a guia Bancos de dados:
-
+2.  Na {{site.data.keyword.cloudant_short_notm}} página de serviço, clique em **Ativar**.
+    A guia Bancos de dados é aberta.
+    
   ![Guia bancos de dados](../images/tabs.png)
-3.  Clique em **Criar banco de dados**.
-4.  Insira `query-demo` e clique em **Criar**.
+4.  Clique em **Criar banco de dados**.
+5.  Insira `query-demo` e clique em **Criar**.
 
   O banco de dados `query-demo` é aberto automaticamente.
 
@@ -240,17 +244,9 @@ estão incluídos em um arquivo é identificado pelo nome fornecido.
   ```
   {:codeblock}
 
-  O banco de dados `query-demo` foi criado. É possível ver os documentos na área de janela à direita.
+  O banco de dados `query-demo` foi preenchido com cinco registros. É possível ver os registros da visualização de Tabela na captura de tela a seguir:
 
-  ![Documentos de amostra 1](../images/docs1.png)
-
-  ![Documentos de amostra 2](../images/docs2.png)
-
-  ![Documentos de amostra 3](../images/docs3.png)
-
-  ![Documentos de amostra 4](../images/docs4.png)
-
-  ![Documentos de amostra 5](../images/docs5.png)      
+  ![Documentos de amostra](../images/docs1.png)     
 
 ## Criando um índice
 
@@ -329,7 +325,7 @@ na lista a seguir:
   ```
   {:codeblock}
 
-  O índice foi criado. É possível vê-lo na área de janela à direita.
+  O índice foi criado. É possível ver o índice na captura de tela a seguir:
 
   ![Índice de consulta](../images/query-index1.png)
 
@@ -341,8 +337,8 @@ As consultas permitem extrair seus dados do {{site.data.keyword.cloudant_short_n
 [consulta](../api/cloudant_query.html#query) bem escrita pode limitar sua procura e
 seus resultados para incluir apenas os dados desejados.
 
-Este exercício mostra como gravar e executar uma consulta simples, consulta com dois campos
-e consulta com um [operador](../api/cloudant_query.html#cloudant_query.html#operators).
+Este exercício mostra como gravar e executar uma consulta simples, uma consulta com dois campos
+e uma consulta com dois [operadores](../api/cloudant_query.html#cloudant_query.html#operators).
 Você consulta com um operador especificando pelo menos um campo e seu valor correspondente.
 A consulta então usará esse valor para procurar correspondências no banco de dados.
 
@@ -405,7 +401,7 @@ Esse exemplo demonstra como o {{site.data.keyword.cloudant_short_notm}} Query us
 
 3.  Clique em **Executar consulta**.
 
-  Os resultados da consulta aparecem na área de janela à direita.
+  Os resultados da consulta são exibidos. É possível vê-los na visualização de Tabela na captura de tela a seguir:
 
   ![Resultados da consulta 1](../images/dashboard_query1_results.png)
 
@@ -435,17 +431,9 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
 {
   ...
   "fields": [
-    "lastname",
     "firstname",
-    "location"
-  ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
+      "lastname",
+      "location"
   ]
 }
 ```  
@@ -460,19 +448,11 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
       "lastname": "Brown",
       "location": "New York City, NY"
     },
-    "fields": [
-      "firstname",
-      "lastname",
-      "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]
+    "fields" : [
+     "firstname",
+     "lastname",
+     "location"
+  ]
   }
   ```
   {:codeblock}
@@ -488,12 +468,17 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
   {
     "docs": [
       {
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      },
+      {
         "firstname": "John",
         "lastname": "Brown",
         "location": "New York City, NY"
       },
       {
-        "firstname": "Sally",
+        "firstname": "Lois",
         "lastname": "Brown",
         "location": "New York City, NY"
       }
@@ -516,22 +501,14 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+    ] 
   }
   ```
   {:codeblock}
 
 3.  Clique em **Executar consulta**.
 
-  Os resultados da consulta aparecem na área de janela à direita.
+  Os resultados da consulta são exibidos. É possível vê-los na visualização de Tabela na captura de tela a seguir:
 
   ![Resultados da consulta 2](../images/dashboard_query2_results.png)
 
@@ -553,16 +530,14 @@ Usamos uma expressão selector como o exemplo a seguir:
 ``` 
 {:codeblock}
 
-Os resultados são classificados pelo sobrenome em ordem crescente com base nos
-valores no parâmetro `sort`.
+Os resultados são classificados por idade em ordem crescente com base nos
+valores especificados no parâmetro `sort`.
 
 ```json
     "sort": [
       {
         "age": "asc"   
-      },        
-      {
-        "lastname": "asc" }
+      }
     ] 
 ```  
 {:codeblock}
@@ -583,10 +558,8 @@ valores no parâmetro `sort`.
    ],
     "sort": [
       {
-         "age": "asc"
-      },
-      {
-         "lastname": "asc" }
+         "age": "asc"   
+      }
    ], "use_index": "_design/partial-index"
 }
   ```
@@ -626,10 +599,8 @@ valores no parâmetro `sort`.
    ],
     "sort": [
       {
-         "age": "asc"
-      },
-      {
-         "lastname": "asc" }
+         "age": "asc"   
+      }
    ], "use_index": "_design/partial-index"
 }
   ```
@@ -637,7 +608,7 @@ valores no parâmetro `sort`.
 
 3.  Clique em **Executar consulta**.
 
-  Os resultados da consulta aparecem na área de janela à direita.
+  Os resultados da consulta são exibidos. É possível vê-los na visualização de Tabela na captura de tela a seguir:
 
   ![Resultados da consulta 3](../images/dashboard_query3_results.png)
 

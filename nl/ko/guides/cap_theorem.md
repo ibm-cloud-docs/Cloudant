@@ -23,7 +23,7 @@ lastupdated: "2017-01-24"
 {{site.data.keyword.cloudantfull}}에서는 ['결과적으로 일관된' ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window} 모델을 사용합니다.
 {:shortdesc}
 
-이 모델이 작동하는 방식과 이 모델이 {{site.data.keyword.cloudant_short_notm}} 사용에 있어서 필수적인 부분인 이유를 이해하려면 일관성의 의미를 이해해야 합니다. 
+이 모델이 작동하는 방식과 이 모델이 {{site.data.keyword.cloudant_short_notm}} 사용에 있어서 필수적인 부분인 이유를 이해하려면 일관성의 의미를 이해해야 합니다.
 
 일관성은 데이터베이스 내의 트랜잭션을 신뢰할 수 있는 방식으로 처리하고 보고하는 데 필요한 네 가지 ['ACID' ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://en.wikipedia.org/wiki/ACID){:new_window}
 특성 중 하나입니다.
@@ -35,8 +35,6 @@ lastupdated: "2017-01-24"
 가용성(**A**vailability) 및 파티션 장애 내성(**P**artition tolerance)입니다.
 이 정리의 내용은 {{site.data.keyword.cloudant_short_notm}}와 같은 분산 컴퓨터 시스템이 이들 세 속성을 _동시에_
 보장하는 것이 불가능하다는 것입니다.
-
-
 
 -   모든 노드가 동일한 시간에 동일한 데이터를 보는 일관성
 -   모든 요청이 성공 여부에 대한 응답을 수신하는 가용성

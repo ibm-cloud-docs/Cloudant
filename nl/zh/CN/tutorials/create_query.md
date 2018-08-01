@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-02"
+lastupdated: "2018-06-20"
 
 ---
 {:new_window: target="_blank"}
@@ -10,12 +10,15 @@ lastupdated: "2018-03-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-06-13 -->
 
 # 创建 {{site.data.keyword.cloudant_short_notm}} 查询
 
 本教程演示了如何创建数据库、使用文档填充数据库、创建索引以及使用索引来查询数据库。
 
-提供了针对 ![“命令行”图标](../images/CommandLineIcon.png) _命令行_和 ![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_的练习。{{site.data.keyword.Bluemix}} 仪表板练习将为每个任务提供一个直观示例。您可以访问本教程中的链接来了解更多信息。
+提供了针对 ![“命令行”图标](../images/CommandLineIcon.png) _命令行_和 ![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}“仪表板”_的练习。{{site.data.keyword.Bluemix}}“仪表板”练习将为每个任务提供一个直观示例。您可以访问本教程中的链接来了解更多信息。
 
 首先，创建 `query-demo` 数据库以及一些包含这些练习数据的文档。
 
@@ -25,9 +28,9 @@ lastupdated: "2018-03-02"
 
 1.  [创建 {{site.data.keyword.Bluemix}} 帐户 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/registration/){:new_window}。
 2.  登录到 [{{site.data.keyword.Bluemix_notm}} 仪表板 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}。
-3.  [在 {{site.data.keyword.Bluemix_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例](create_service.html#creating-a-cloudant-instance-on-bluemix)。
+3.  [在 {{site.data.keyword.Bluemix_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例](create_service.html#creating-a-service-instance)。
 4.  （可选）[创建 acurl 别名](../guides/acurl.html#authorized-curl-acurl-)，以便更快、更轻松地通过命令行运行命令。
-5.  将练习中包含的命令中的 `$ACCOUNT` 变量替换为您用于登录到 {{site.data.keyword.cloudant_short_notm}} 仪表板的用户名。如果决定不设置 `acurl`，请使用以下 URL，而不要使用练习中提供的 URL：
+5.  将练习中包含的命令中的 `$ACCOUNT` 变量替换为您用于登录到 {{site.data.keyword.cloudant_short_notm}}“仪表板”的用户名。如果决定不设置 `acurl`，请使用以下 URL，而不要使用练习中提供的 URL：
   ``` sh
   curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
   ```
@@ -57,11 +60,11 @@ lastupdated: "2018-03-02"
 ![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
 
 1.  打开已创建的 {{site.data.keyword.cloudant_short_notm}} 服务实例。
-2.  选择“数据库”选项卡：
-
+2.  在 {{site.data.keyword.cloudant_short_notm}} 服务页面上，单击**启动**。这将打开“数据库”选项卡。
+    
   ![“数据库”选项卡](../images/tabs.png)
-3.  单击**创建数据库**。
-4.  输入 `query-demo`，然后单击**创建**。
+4.  单击**创建数据库**。
+5.  输入 `query-demo`，然后单击**创建**。
 
   `query-demo` 数据库将自动打开。
 
@@ -222,17 +225,9 @@ lastupdated: "2018-03-02"
   ```
   {:codeblock}
 
-  `query-demo` 数据库已创建。您可以在右窗格中看到这些文档。
+  `query-demo` 数据库中已填充了五个记录。您可以在表视图中查看这些记录，如以下截屏所示：
 
-  ![样本文档 1](../images/docs1.png)
-
-  ![样本文档 2](../images/docs2.png)
-
-  ![样本文档 3](../images/docs3.png)
-
-  ![样本文档 4](../images/docs4.png)
-
-  ![样本文档 5](../images/docs5.png)      
+  ![样本文档](../images/docs1.png)     
 
 ## 创建索引
 
@@ -319,7 +314,7 @@ lastupdated: "2018-03-02"
   ```
   {:codeblock}
 
-  索引已创建。您可以在右窗格中看到该索引。
+  索引已创建。您可以查看该索引，如以下截屏所示：
 
   ![查询索引](../images/query-index1.png)
 
@@ -329,7 +324,7 @@ lastupdated: "2018-03-02"
 
 通过查询，可以从 {{site.data.keyword.cloudant_short_notm}} 中抽取数据。编写良好的[查询](../api/cloudant_query.html#query)可以缩小搜索范围，并且搜索结果仅包括所需的数据。
 
-本练习说明了如何编写和运行简单查询、具有两个字段的查询和具有[运算符](../api/cloudant_query.html#cloudant_query.html#operators)的查询。使用具有运算符的查询时，请至少指定一个字段及其对应的值。然后，查询将使用此值在数据库中搜索匹配项。
+本练习说明了如何编写和运行简单的查询、具有两个字段的查询以及具有[运算符](../api/cloudant_query.html#cloudant_query.html#operators)的查询。使用具有运算符的查询时，请至少指定一个字段及其对应的值。然后，查询将使用此值在数据库中搜索匹配项。
 
 除了最简单的查询外，对于其他查询，请向数据文件添加 JSON，并通过命令行运行查询。
 
@@ -389,7 +384,7 @@ lastupdated: "2018-03-02"
 
 3.  单击**运行查询**。
 
-  查询结果将显示在右窗格中。
+  这将显示查询结果。您可以在表视图中查看这些结果，如以下截屏所示：
 
   ![查询 1 结果](../images/dashboard_query1_results.png)
 
@@ -413,18 +408,10 @@ lastupdated: "2018-03-02"
 {
   ...
   "fields" : [
-    "lastname",
     "firstname",
-    "location"
-  ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
-  ]
+      "lastname",
+      "location"
+    ]
 }
 ```  
 {:codeblock}
@@ -440,17 +427,9 @@ lastupdated: "2018-03-02"
     },
     "fields": [
       "firstname",
-      "lastname",
-      "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]
+     "lastname",
+     "location"
+  ]
   }
   ```
   {:codeblock}
@@ -466,12 +445,17 @@ lastupdated: "2018-03-02"
   {
     "docs": [
       {
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      },
+      {
         "firstname": "John",
         "lastname": "Brown",
         "location": "New York City, NY"
       },
       {
-        "firstname": "Sally",
+        "firstname": "Lois",
         "lastname": "Brown",
         "location": "New York City, NY"
       }
@@ -494,22 +478,14 @@ lastupdated: "2018-03-02"
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+    ] 
   }
   ```
   {:codeblock}
 
 3.  单击**运行查询**。
 
-  查询结果将显示在右窗格中。
+  这将显示查询结果。您可以在表视图中查看这些结果，如以下截屏所示：
 
   ![查询 2 结果](../images/dashboard_query2_results.png)
 
@@ -521,7 +497,7 @@ lastupdated: "2018-03-02"
 ```json
 {
   "selector": {
-      "age": {
+            "age": {
       "$gt": 30
     },
     "lastname": {
@@ -532,17 +508,13 @@ lastupdated: "2018-03-02"
 ``` 
 {:codeblock}
 
-结果根据 `sort` 参数中的值按姓氏升序排序。
+结果会根据 `sort` 参数中指定的值按年龄升序排序。
 
 ```json
     "sort": [
       {
         "age": "asc"   
-      },        
-      {
-        "lastname": "asc"
-      }
-    ] 
+      }] 
 ```  
 {:codeblock}
 
@@ -565,12 +537,8 @@ lastupdated: "2018-03-02"
    ],
     "sort": [
       {
-        "age": "asc"
-      },
-      {
-         "lastname": "asc"
-      }
-   ],
+        "age": "asc"   
+      }],
    "use_index": "_design/partial-index"
 }
   ```
@@ -613,12 +581,8 @@ lastupdated: "2018-03-02"
    ],
     "sort": [
       {
-        "age": "asc"
-      },
-      {
-         "lastname": "asc"
-      }
-   ],
+        "age": "asc"   
+      }],
    "use_index": "_design/partial-index"
 }
   ```
@@ -626,7 +590,7 @@ lastupdated: "2018-03-02"
 
 3.  单击**运行查询**。
 
-  查询结果将显示在右窗格中。
+  这将显示查询结果。您可以在表视图中查看这些结果，如以下截屏所示：
 
   ![查询 3 结果](../images/dashboard_query3_results.png)
 

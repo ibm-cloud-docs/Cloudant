@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -44,7 +44,7 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### Instance du service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}
+### Instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}
 
 Un tutoriel distinct de création d'une instance de service {{site.data.keyword.cloudantfull}} nommée
 '`Cloudant Service 2017`' est disponible [ici](create_service.html).

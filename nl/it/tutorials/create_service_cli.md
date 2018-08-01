@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -24,9 +24,9 @@ utilizzando gli strumenti Cloud Foundry.
 Per seguire questa esercitazione,
 devi prima installare gli strumenti {{site.data.keyword.Bluemix_notm}} Cloud Foundry.
 I dettagli per l'installazione degli strumenti sono disponibili in
-[questa esercitazione separata](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits).
+[questa esercitazione separata](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits).
 
-> **Nota**: assicurati di installare i toolkit Cloud Foundry _e_
+> **Nota**: assicurati di installare entrambi i toolkit Cloud Foundry _e_
   {{site.data.keyword.Bluemix_notm}}.
 
 ## Identificazione dell'endpoint API {{site.data.keyword.Bluemix_notm}}
@@ -278,9 +278,9 @@ hai:
 1.  Creato un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} in
   {{site.data.keyword.Bluemix_notm}}.
 2.  Creato le credenziali per l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}.
-3.  Richiamato le credenziali dell'istanza del servizio, in modo che possano venire utilizzate dalla tua applicazione.
+3.  Richiamato le credenziali dell'istanza del servizio, in modo che possano essere utilizzate dalla tua applicazione.
 
-Un'esercitazione che mostra come utilizzare l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}
+Un'esercitazione che mostra come utilizzare un'istanza del servizio {{site.data.keyword.cloudant_short_notm}}
 è disponibile [qui](create_database.html#context).
 Ricorda di sostituire le credenziali che hai creato in questa esercitazione.
 

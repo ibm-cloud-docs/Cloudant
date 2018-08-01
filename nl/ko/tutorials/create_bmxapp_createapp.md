@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-03-07"
 
 # {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.cloud_notm}} 애플리케이션 작성: 코드
 
-이 튜토리얼 섹션에서는 {{site.data.keyword.Bluemix}} 애플리케이션의 코드를 설명합니다.
+이 튜토리얼 섹션에서는 {{site.data.keyword.cloud}} 애플리케이션의 코드를 설명합니다.
 {:shortdesc}
 
 <div id="theApp"></div>
@@ -27,9 +27,9 @@ lastupdated: "2018-03-07"
 
 -   [Python 프로그래밍 언어](create_bmxapp_prereq.html#python)
 -   [{{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스](create_bmxapp_prereq.html#csi)
--   [{{site.data.keyword.Bluemix_notm}} 애플리케이션 환경](create_bmxapp_appenv.html#creating)
--   {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스와 {{site.data.keyword.Bluemix_notm}} 애플리케이션 환경 간 [연결](create_bmxapp_appenv.html#connecting)
--   Cloud Foundry 기반 {{site.data.keyword.Bluemix_notm}} 애플리케이션 관리를 위한 [툴킷](create_bmxapp_appenv.html#toolkits)
+-   [{{site.data.keyword.cloud_notm}} 애플리케이션 환경](create_bmxapp_appenv.html#creating)
+-   {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스와 {{site.data.keyword.cloud_notm}} 애플리케이션 환경 간 [연결](create_bmxapp_appenv.html#connecting)
+-   Cloud Foundry 기반 {{site.data.keyword.cloud_notm}} 애플리케이션 관리를 위한 [툴킷](create_bmxapp_appenv.html#toolkits)
 -   초기 구성 및 코드 템플리트 파일을 포함하는 ['스타터' 애플리케이션 팩](create_bmxapp_appenv.html#starter)
 
 >   **참고**: 이 튜토리얼의 Python 코드를 작성하는 데 있어서 _효율성_은 고려되지 않았습니다.
@@ -70,7 +70,7 @@ lastupdated: "2018-03-07"
       - <your database instance>
     ```
     {:codeblock}
-    >   **참고**: '`domain`', '`name`', '`host`' 및 '`services`' 값을 수정했는지 확인하십시오. 이들은 [{{site.data.keyword.Bluemix_notm}} 애플리케이션 환경](create_bmxapp_appenv.html#creating) 및 [{{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스](create_bmxapp_prereq.html#csi)를 작성할 때 입력한 값입니다.
+    >   **참고**: '`domain`', '`name`', '`host`' 및 '`services' 값을 수정했는지 확인하십시오. 이들은 [{{site.data.keyword.cloud_notm}} 애플리케이션 환경](create_bmxapp_appenv.html#creating) 및 [{{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스](create_bmxapp_prereq.html#csi)를 작성할 때 입력한 값입니다.
 
 3.  다음 텍스트를 포함하도록 '`requirements.txt`' 파일을 편집하십시오.
     ```
@@ -178,16 +178,16 @@ target.write("\n====\n\n")
 
 #### {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스에 대한 작업
 
-Python 애플리케이션은 {{site.data.keyword.Bluemix_notm}} 환경 내에서 실행됩니다.
+Python 애플리케이션은 {{site.data.keyword.cloud_notm}} 환경 내에서 실행됩니다.
 이 환경은 애플리케이션이 연결된 서비스에 액세스하는 데 필요한 모든 정보를 제공합니다.
 이 정보는 '`VCAP_SERVICES`'라고 하는 환경 변수 내에 제공됩니다.
 이 변수는 애플리케이션에 의해 액세스될 수 있으며, 연결 세부사항을 판별하는 데 사용됩니다.
 
-첫 번째 태스크는 애플리케이션이 {{site.data.keyword.Bluemix_notm}} 애플리케이션 환경 내에서 실행 중인지 확인하는 것입니다.
+첫 번째 태스크는 애플리케이션이 {{site.data.keyword.cloud_notm}} 애플리케이션 환경 내에서 실행 중인지 확인하는 것입니다.
 '`VCAP_SERVICES`' 환경 변수의 유무를 테스트하여 이를 확인하십시오.
 
 ```python
-# Check that we are running in a {{site.data.keyword.cloud_notm}} application environment.
+# Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
 ```
 {:codeblock}
@@ -219,14 +219,14 @@ target.write("Got cloudantNoSQLDBData\n")
 ```
 {:codeblock}
 
-애플리케이션 환경에는 여러 {{site.data.keyword.Bluemix_notm}} 서비스가 연결될 수 있습니다.
+애플리케이션 환경에는 여러 {{site.data.keyword.cloud_notm}} 서비스가 연결될 수 있습니다.
 각 서비스의 신임 정보는 배열 요소로 나열됩니다.
 이 튜토리얼에서는 하나의 [서비스 연결만 작성되었습니다](create_bmxapp_appenv.html#connecting).
 따라서 애플리케이션은 첫 번째 요소(요소 '0')에 액세스합니다.
 각 서비스 요소는 서비스에 액세스하는 데 필요한 필수 필드 이름으로 인덱스화된 목록으로 표현된,
 해당 서비스의 신임 정보를 포함합니다.
 필드 이름에 대한 자세한 정보는 간단한 데이터베이스 작성 태스크를 설명하는
-[튜토리얼](create_database.html#a-cloudant-service-instance-on-bluemix)에 제공되어 있습니다.
+[튜토리얼](create_database.html#pre-requisites)에 제공되어 있습니다.
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -251,7 +251,7 @@ servicePassword = credentialsData['password']
 target.write("Got password: ")
 target.write(servicePassword)
 target.write("\n")
-# ... and the URL of the service within Bluemix.
+# ... and the URL of the service within {{site.data.keyword.cloud_notm}}.
 serviceURL = credentialsData['url']
 target.write("Got URL: ")
 target.write(serviceURL)
@@ -260,7 +260,7 @@ target.write("\n")
 {:codeblock}
 
 이제 애플리케이션이 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스 내에 데이터베이스를 작성하는 데 필요한 모든 세부사항을 확보했습니다.
-이 태스크는 간단한 데이터베이스 작성 작업을 설명하는 [튜토리얼](create_database.html#a-cloudant-service-instance-on-bluemix)에 자세히 설명되어 있습니다.
+이 태스크는 간단한 데이터베이스 작성 작업을 설명하는 [튜토리얼](create_database.html#creating-a-database-within-the-service-instance)에 자세히 설명되어 있습니다.
 
 애플리케이션은 다음 태스크를 수행해야 합니다.
 
@@ -316,7 +316,7 @@ target.close()
 이 서버의 유일한 목적은 요청 시에 로그 파일을 리턴하는 것입니다.
 이 로그 파일은 Python 애플리케이션이 다음 태스크를 완료했음을 확인합니다.
 
-1.  {{site.data.keyword.Bluemix_notm}} 애플리케이션 환경 내에서 성공적으로 실행되었습니다.
+1.  {{site.data.keyword.cloud_notm}} 애플리케이션 환경 내에서 성공적으로 실행되었습니다.
 2.  서비스 연결의 세부사항을 판별했습니다.
 3.  {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스에 연결했습니다.
 4.  데이터베이스를 작성했습니다.
@@ -345,7 +345,7 @@ httpd.server_close()
 
 ## 전체 목록
 
-다음 코드는 {{site.data.keyword.Bluemix_notm}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 액세스하는 전체 Python 프로그램입니다.
+다음 코드는 {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 액세스하는 전체 Python 프로그램입니다.
 
 ```python
 # Make Python modules available.
@@ -394,7 +394,7 @@ target.write("\n====\n\n")
 
 # Start working with the {{site.data.keyword.cloudant_short_notm}} service instance.
 
-# Check that we are running in a Bluemix application environment.
+# Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
     # Yes we are, so get the service information.
     vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
@@ -420,7 +420,7 @@ if 'VCAP_SERVICES' in os.environ:
     target.write("Got password: ")
     target.write(servicePassword)
     target.write("\n")
-    # ... and the URL of the service within Bluemix.
+    # ... and the URL of the service within {{site.data.keyword.cloud_notm}}.
     serviceURL = credentialsData['url']
     target.write("Got URL: ")
     target.write(serviceURL)

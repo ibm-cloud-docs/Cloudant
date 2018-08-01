@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,21 +14,21 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Création d'une application {{site.data.keyword.Bluemix_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}} : téléchargement de l'application
+# Création d'une application {{site.data.keyword.cloud_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}} : téléchargement de l'application
 
-Cette section du tutoriel décrit comment télécharger une application {{site.data.keyword.Bluemix}}.
+Cette section du tutoriel décrit comment télécharger une application {{site.data.keyword.cloud}}.
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## Connexion à {{site.data.keyword.Bluemix_notm}}
+## Connexion à {{site.data.keyword.cloud_notm}}
 
-La première tâche consiste à se connecter à {{site.data.keyword.Bluemix_notm}}.
+La première tâche consiste à se connecter à {{site.data.keyword.cloud_notm}}.
 
-Le [kit d'outils {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#toolkits) vous aide à établir la connexion.
+Le [kit d'outils {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#toolkits) vous aide à établir la connexion.
 
 Cloud Foundry doit connaître l'URL à employer pour effectuer les appels d'API, par exemple lorsque vous téléchargez une application.
-Le kit d'outils {{site.data.keyword.Bluemix_notm}} utilise la commande '`cf api`' pour gérer le noeud final d'API.
+Le kit d'outils {{site.data.keyword.cloud_notm}} utilise la commande '`cf api`' pour gérer le noeud final d'API.
 Vous trouverez davantage d'informations sur la commande '`cf api`' [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
 
 Utilisez la commande suivante pour indiquer à Cloud Foundry l'URL à utiliser :
@@ -54,18 +54,18 @@ Not logged in. Use 'bluemix login' to log in.
 
 Cloud Foundry sait désormais où il doit envoyer les appels d'API pour la gestion des applications.
 
-L'étape suivante consiste à vous connecter à votre environnement d'application {{site.data.keyword.Bluemix_notm}}.
+L'étape suivante consiste à vous connecter à votre environnement d'application {{site.data.keyword.cloud_notm}}.
 Vous devez indiquer les détails du compte suivants :
 
 -   Votre nom d'utilisateur, spécifié en tant que paramètre '`-u`'.
 -   Votre nom d'organisation, spécifié en tant que paramètre '`-o`'.
 -   Votre espace, spécifié en tant que paramètre '`-s`'.
 
->   **Remarque** : Les détails du compte sont disponibles dans votre tableau de bord {{site.data.keyword.Bluemix_notm}}
+>   **Remarque** : Les détails du compte sont disponibles dans votre tableau de bord {{site.data.keyword.cloud_notm}}
     lorsque vous vous connectez via un navigateur Web, comme indiqué dans l'exemple suivant :<br/>
-    ![Recherche des détails du compte {{site.data.keyword.Bluemix_notm}}](images/img0035.png)
+    ![Recherche des détails du compte {{site.data.keyword.cloud_notm}}](images/img0035.png)
 
-Utilisez une commande similaire à l'exemple suivant pour vous connecter à votre environnement d'application {{site.data.keyword.Bluemix_notm}}.
+Utilisez une commande similaire à l'exemple suivant pour vous connecter à votre environnement d'application {{site.data.keyword.cloud_notm}}.
 Vous êtes invité à entrer le mot de passe de votre compte.
 
 ```sh
@@ -97,15 +97,14 @@ Space:          dev
 
 ## Téléchargement de l'application
 
-Le kit d'outils {{site.data.keyword.cloudant_short_notm}} Foundry sait désormais comment se connecter à l'environnement {{site.data.keyword.Bluemix_notm}}.
+Le kit d'outils {{site.data.keyword.cloudant_short_notm}} Foundry sait désormais comment se connecter à l'environnement {{site.data.keyword.cloud_notm}}.
 
 L'étape suivante consiste à télécharger l'application elle-même.
-Les détails d'une application {{site.data.keyword.Bluemix_notm}} sont fournis
-dans le [fichier manifeste](create_bmxapp_appenv.html#manifest).
+Les détails d'une application {{site.data.keyword.cloud_notm}} sont fournis dans le [fichier manifeste](create_bmxapp_appenv.html#manifest).
 
 Le fichier manifeste de l'application du tutoriel a été mis à jour comme indiqué [ici](create_bmxapp_createapp.html#essential-files).
 
-Utilisez une commande similaire à l'exemple suivant pour vous connecter à votre application {{site.data.keyword.Bluemix_notm}}.
+Utilisez une commande similaire à l'exemple suivant pour vous connecter à votre application {{site.data.keyword.cloud_notm}}.
 
 ```sh
 cf push "Cloudant Python"
@@ -178,7 +177,7 @@ L'application doit avoir accès à la bibliothèque {{site.data.keyword.cloudant
 
 Une fois que vous avez téléchargé et démarré l'application, certaines vérifications
 système simples sont exécutées pour confirmer que l'application s'exécute correctement en
-ce qui concerne {{site.data.keyword.Bluemix_notm}}.
+ce qui concerne {{site.data.keyword.cloud_notm}}.
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -199,7 +198,7 @@ buildpack: python 1.5.5
 
 ## Test du modèle d'application
 
-Lorsque l'environnement d'application {{site.data.keyword.Bluemix_notm}}
+Lorsque l'environnement d'application {{site.data.keyword.cloud_notm}}
 est créé pour la première fois, le tableau de bord inclut un lien dans la colonne `Route` de l'application:<br/>
 ![Capture d'écran représentant le tableau de bord de l'application](images/img0017.png)
 
@@ -222,8 +221,9 @@ Commencez par ouvrir le tableau de bord {{site.data.keyword.cloudant_short_notm}
 Cliquez sur l'icône `Lancer` de l'onglet `Gérer` sur la page du service {{site.data.keyword.cloudant_short_notm}} :<br/>
 ![Icône Lancer sur la page du service {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
 
-> **Remarque** : Pour trouver la page de votre service {{site.data.keyword.cloudant_short_notm}}, reportez-vous aux informations
+Pour trouver la page de votre service {{site.data.keyword.cloudant_short_notm}}, reportez-vous aux informations détaillées
 indiquées dans le [tutoriel Création d'une instance {{site.data.keyword.cloudant_short_notm}}](create_service.html#locating-your-service-credentials).
+{: tip}
 
 Lorsque le tableau de bord s'affiche, vous pouvez voir que l'application a créé la
 base de données '`databasedemo`' :<br/>

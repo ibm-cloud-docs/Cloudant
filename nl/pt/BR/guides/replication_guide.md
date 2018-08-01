@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -20,9 +20,9 @@ Os dados podem ser copiados de um banco de dados para outro na mesma conta do {{
 entre contas e entre data centers.
 {:shortdesc}
 
-Os dados podem até ser replicados para/de uma conta do {{site.data.keyword.cloudant_short_notm}} e um dispositivo móvel
-usando [Sincronização do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
-ou [PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window}.
+Os dados podem até ser replicados para e por meio de uma conta do {{site.data.keyword.cloudant_short_notm}} e de um dispositivo móvel
+usando a Sincronização do [{{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
+ou o [PouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://pouchdb.com/){:new_window}.
 A replicação pode ser executada em uma direção ou em ambas as direções,
 como uma operação 'única' ou contínua
 e pode ser finamente ajustada usando parâmetros.
@@ -729,8 +729,8 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 
 No JSON retornado,
 procure o valor `disk_size`.
-Se o valor indica um tamanho acima de 1 GB,
-entre em contato com a [equipe de suporte do IBM {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window} para avisos adicionais.
+Se o valor indicar um tamanho de mais de 1 GB,
+entre em contato com a equipe de suporte do [{{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window} para avisos adicionais.
 
 É possível verificar um documento `_replicator` individual para conflitos,
 conforme mostrado no exemplo a seguir:
@@ -805,4 +805,4 @@ poderá considerar aumentar os valores
 a configuração de `worker_processes` e `http_connections` como 1 poderá ser apropriada.
 
 Para obter assistência adicional sobre a melhor configuração para seu caso de uso,
-entre em contato com a [equipe de suporte do IBM {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.
+entre em contato com a equipe de suporte do [{{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.

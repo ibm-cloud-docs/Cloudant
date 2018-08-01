@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2017-11-06"
 
 ## Bibliothèques mobiles tierces
 
-Utilisation d'une base de données Cloudant :
+Utilisation d'une base de données {{site.data.keyword.cloudant_short_notm}} :
 
 -   [IBM Worklight Powered Native Objective-C iOS Apps ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} avec adaptateur {{site.data.keyword.cloudant_short_notm}}.
 
@@ -33,7 +33,7 @@ install-package mycouch.cloudant
 ```
 {:codeblock}
 
-### Bibliothèques et structures
+### Bibliothèques et infrastructures pour C# / .NET
 
 -   [MyCouch ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/danielwertheim/mycouch){:new_window}.
 -   [LoveSeat ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/soitgoes/LoveSeat){:new_window}.
@@ -43,7 +43,7 @@ install-package mycouch.cloudant
 -   [EasyCouchDB ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/hhariri/EasyCouchDB){:new_window}.
 -   `WDK.API.CouchDB` fourni par [Kanapes IDE ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://kanapeside.com/){:new_window}.
 
-### Exemples et tutoriels
+### Exemples et tutoriels pour C# / .NET
 
 -   [CRUD ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/c%23){:new_window}.
 
@@ -59,13 +59,13 @@ require_once('./src/Sag.php');
 ```
 {:codeblock}
 
-### Bibliothèques et structures
+### Bibliothèques et infrastructures pour PHP
 
 -   [sag ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/sbisbee/sag){:new_window}.
 -   [Doctrine CouchDB Client ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/doctrine/couchdb-client){:new_window}.
 -   [PHP-on-Couch ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/dready92/PHP-on-Couch){:new_window}.
 
-### Exemples et tutoriels
+### Exemples et tutoriels pour PHP
 
 -   [CRUD ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/php){:new_window}.
 
@@ -80,14 +80,14 @@ Pour obtenir PouchDB, ainsi que des informations de configuration, voir [PouchDB
 
 >   **Remarque** : PouchDB peut également être installé avec Bower : `bower install pouchdb`.
 
-### Bibliothèques et structures
+### Bibliothèques et infrastructures pour JavaScript
 
 -   [Backbone.cloudant ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant-labs/backbone.cloudant){:new_window}.
     Pour plus d'informations voir l'[blog post ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/backbone-and-cloudant/){:new_window}.
 -   [sag.js ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/sbisbee/sag-js){:new_window}.
 -   [PouchDB ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://pouchdb.com/){:new_window} - Base de données JavaScript pour navigateur, avec synchronisation hors ligne.
 
-### Exemples et tutoriels
+### Exemples et tutoriels pour JavaScript
 
 -   [CRUD ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} utilisant jQuery.
 -   [CSVtoCloudant ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/michellephung/CSVtoCloudant){:new_window} - Interface utilisateur permettant d'importer des fichiers `.csv` dans {{site.data.keyword.cloudant_short_notm}}.
@@ -108,11 +108,11 @@ gem install couchrest
 ```
 {:codeblock}
 
-### Bibliothèques et structures
+### Bibliothèques et infrastructures pour Ruby
 
 De nombreux clients CouchDB sont répertoriés sur [Ruby Toolbox ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.ruby-toolbox.com/categories/couchdb_clients){:new_window}.
 
-### Exemples et tutoriels
+### Exemples et tutoriels pour Ruby
 
 -   [CRUD ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/ruby){:new_window}.
 
@@ -140,8 +140,6 @@ Le package couchdb-meteor fournit :
     Les fichiers binaires préconfigurés pour Apache CouchDB version 2.0 ne sont pas encore disponibles.
     Vous pouvez utiliser ce module avec {{site.data.keyword.cloudant_short_notm}} DBaaS ou Cloudant Local en attendant leur disponibilité.
 
-
-
 Pour configurer les informations de connexion serveur Apache CouchDB ou {{site.data.keyword.cloudant_short_notm}}, transmettez son URL en tant que variable d'environnement `COUCHDB_URL` au processus serveur de Meteor :
 
 ```sh
@@ -156,7 +154,7 @@ Pour plus d'informations sur les API meteor-couchdb, voir [Référence d'API](..
 Les [extensions Apache Bahir pour Apache Spark ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://bahir.apache.org/#home){:new_window}
 incluent un connecteur `spark-sql-cloudant` qui est la bibliothèque {{site.data.keyword.cloudant_short_notm}} pour Apache Spark.
 
-Le connecteur spark-sql-cloudant est déjà chargé dans l'offre [IBM Bluemix Apache Spark-as-a-Service ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window}.
+Le connecteur spark-sql-cloudant est déjà chargé dans l'offre [{{site.data.keyword.cloud_notm}}Apache Spark-as-a-Service ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window}.
 Celle-ci peut être utilisée avec n'importe quel cluster Spark autonome.
 
 Pour plus de détails, voir [la documentation de projet ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/apache/bahir/tree/master/sql-cloudant){:new_window}
