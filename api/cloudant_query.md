@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-07-30"
+lastupdated: "2018-08-01"
 
 ---
 
@@ -79,8 +79,7 @@ _Example of returned JSON, confirming that the index was created:_
 {:codeblock}
 
 #### Request Body format
-
-<div id="request-body-format"></div>
+{: #request-body-format}
 
 <table border='1'>
 
