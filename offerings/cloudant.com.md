@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-02"
 
 ---
 
@@ -11,13 +11,15 @@ lastupdated: "2018-08-01"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-03-16 -->
 
-# Cloudant.com
+# {{site.data.keyword.cloudant_short_notm}}.com
 
-> **Note**: The {{site.data.keyword.cloudantfull}} Shared Plan is being retired on 31 March 2018. 
-As of  24 July 2017, no new Shared Plan accounts can be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://cloudant.com){:new_window}. 
+The {{site.data.keyword.cloudantfull}} Shared Plan is being retired on 31 March 2018. 
+As of  24 July 2017, no new Shared Plan accounts can be created from the [Cloudant product page](https://cloudant.com){:new_window}. 
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} is a hosted and fully-managed database-as-a-service (DBaaS). 
 It was built from the ground up to scale globally, run non-stop, and handle a wide variety of data types 
@@ -34,14 +36,16 @@ It provides an [HTTP API](../basics/index.html#http-api){:new_window} for workin
 [Apache CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){:new_window}, 
 and is delivered as various multi-tenant, dedicated, and installed services.
 
-> **Note**: All currency values in this document are in US dollars ($).
+All currency values in this document are in US dollars ($).
+{: tip}
 
 It is offered as either a [Shared Plan](#shared-plan){:new_window} or an 
 [Enterprise (Dedicated) Plan](#enterprise-plan){:new_window}. {{site.data.keyword.cloudant_short_notm}} 
 is also available as an [{{site.data.keyword.cloud}} service](https://www.ibm.com/cloud/){:new_window}.
 
-> **Note**: The {{site.data.keyword.cloudant_short_notm}} Shared Plan and Enterprise (Dedicated) Plan 
+The {{site.data.keyword.cloudant_short_notm}} Shared Plan and Enterprise (Dedicated) Plan 
 offerings are not available on the {{site.data.keyword.cloud_notm}} service.
+{: tip}
 
 ## Enterprise Plan
 {: #enterprise-plan}
@@ -61,8 +65,9 @@ create an account using the form, and open a support ticket to request that your
 ## Shared Plan
 {: #shared-plan}
 
-> **Note**: The {{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on March 31, 2018. 
-As of July 24th, 2017, no new Shared Plan accounts can be created on cloudant.com. 
+The {{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on March 31, 2018. 
+As of July 24th, 2017, no new Shared Plan accounts can be created on the [{{site.data.keyword.cloudant_short_notm}} website](https://cloudant.com){:new_window}. 
+{: tip}
 
 With the {{site.data.keyword.cloudant_short_notm}} Shared Plan, you have access to all the 
 {{site.data.keyword.cloudant_short_notm}} DBaaS capabilities, provided through a shared or 'multi-tenant' cluster.
