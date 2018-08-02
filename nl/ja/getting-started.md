@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -13,11 +13,21 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # チュートリアルの概説
 {: #getting-started-with-cloudant}
 
-この {{site.data.keyword.cloudantfull}} チュートリアルの概説では、Python を使用して、{{site.data.keyword.cloudant}} データベースを作成し、そのデータベースにシンプルなデータ・コレクションを取り込みます。
+この {{site.data.keyword.cloudantfull}} チュートリアルの概説では、Python を使用して、{{site.data.keyword.cloudant_short_notm}} データベースを作成し、そのデータベースにシンプルなデータ・コレクションを取り込みます。
 {:shortdesc}
+
+このチュートリアルに加えて、{{site.data.keyword.cloudant_short_notm}} について詳しく知りたい場合に役立つ実践チュートリアルを参照してください。または、特定の言語に焦点を当てたチュートリアルの 1 つを試してみてください。
+
+- [Liberty for Java および {{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
+- [Node.js および {{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+- [Swift および {{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+
+その他の言語固有のチュートリアルについては、『[Get started by deploying your first app ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/docs/){:new_window}』を参照してください。 
 
 <div id="prerequisites"></div>
 
@@ -29,7 +39,7 @@ lastupdated: "2017-11-02"
 *	最新バージョンの [Python プログラミング言語 ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){:new_window} をシステムにインストールします。
 	
 	これを確認するには、プロンプトで以下のコマンドを実行します。
-	```sh
+ ```sh
 	python --version
 	```
 	{:pre}
@@ -43,8 +53,9 @@ lastupdated: "2017-11-02"
 
 *	[Python ライブラリー](libraries/supported.html#python)をインストールして、Python アプリケーションで {{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}} を処理できるようにします。
 	
-	クライアント・ライブラリーが正常にインストールされたことを確認するには、プロンプトで以下のコマンドを実行します。
-	```sh
+	クライアント・ライブラリーが正常にインストールされたことを確認するには、
+プロンプトで以下のコマンドを実行します。
+ ```sh
 	pip freeze
 	```
 	{:pre}
@@ -66,7 +77,7 @@ lastupdated: "2017-11-02"
 ## ステップ 1: {{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスに接続する
 
 1.	{{site.data.keyword.cloudant_short_notm}} クライアント・ライブラリー・コンポーネントの以下の「`import`」ステートメントを実行して、Python アプリケーションが {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスに接続できるようにします。
-	```python
+ ```python
 	from cloudant.client import Cloudant
 	from cloudant.error import CloudantException
 	from cloudant.result import Result, ResultByKey
@@ -80,7 +91,7 @@ lastupdated: "2017-11-02"
 
 3.	以下のコマンドを実行して、サービス・インスタンスへの接続を確立します。
 	前のステップで確認したサービス資格情報に置き換えてください。
-	```python
+ ```python
 	client = Cloudant("<username>", "<password>", url="<url>")
 	client.connect()
 	```
@@ -156,7 +167,7 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-各文書が正常に作成されたかを確認している点に注意してください。
+各文書が正常に作成されたかを確認することに注意してください。
 {: tip}
 
 ## ステップ 4: 照会を介してデータを取得する
@@ -203,9 +214,9 @@ lastupdated: "2017-11-02"
         }
     ]
     ```
-    {:screen}
+    {: codeblock}
 
-  > **注:** {{site.data.keyword.cloudant_short_notm}} などの NoSQL データベースの性質上、データベースに保管された最初の文書が常に結果のリストで返される最初のものであるなどのシンプルな概念が必ずしも当てはまるとは限りません。
+  > **注:** {{site.data.keyword.cloudant_short_notm}} などの NoSQL データベースには、データベースに保管された最初の文書が常に結果のリストで返される最初のものであるなどのシンプルな概念が必ずしも当てはまるとは限りません。
 
 * 完全な取得を実行するには、データベース内のすべての文書のリストを要求し、`include_docs` オプションを指定することで、文書の内容も返す必要があることを指定します。
   ```python
@@ -241,7 +252,7 @@ lastupdated: "2017-11-02"
     }
   ]
   ```
-  {:screen}
+  {: codeblock}
 
 ## ステップ 5: {{site.data.keyword.cloudant_short_notm}} API エンドポイントを介してデータを取得する
 
@@ -310,7 +321,7 @@ lastupdated: "2017-11-02"
       "offset": 0
   }
   ```
-  {:screen}
+  {: codeblock}
 
 ## ステップ 6: データベースを削除する
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -27,6 +27,7 @@ L'un des principaux avantages de {{site.data.keyword.Bluemix_notm}} est que vous
 Il n'est pas nécessaire de rechercher et gérer un serveur pour exécuter vos applications.
 
 Si vous utilisez déjà une instance de base de données {{site.data.keyword.cloudant_short_notm}} dans {{site.data.keyword.Bluemix_notm}}, il est judicieux de disposer de vos applications ici aussi.
+
 
 Les applications {{site.data.keyword.Bluemix_notm}} sont généralement créées à l'aide de la technologie [Cloud Foundry ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window}.
 Cloud Foundry offre une fonction de plateforme sous forme de services (Platform-as-a-Service ou PaaS) qui simplifie le processus de création des applications pouvant être déployées et exécutées dans un environnement de cloud.

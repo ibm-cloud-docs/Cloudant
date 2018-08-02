@@ -18,7 +18,7 @@ lastupdated: "2017-01-06"
 [JSON(JavaScript Object Notation) ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://en.wikipedia.org/wiki/JSON){:new_window}을 사용합니다.
 {:shortdesc}
 
-{{site.data.keyword.cloudant_short_notm}} 데이터베이스에서 JSON 오브젝트는 데이터베이스 내의 모든 문서를 포함하여 다양한 구조를 나타내는 데 사용됩니다. 
+{{site.data.keyword.cloudant_short_notm}} 데이터베이스에서 JSON 오브젝트는 데이터베이스 내의 모든 문서를 포함하여 다양한 구조를 나타내는 데 사용됩니다.
 
 JSON에서 JavaScript 오브젝트로의 구문 분석은 Javascript의 `JSON.parse()` 함수를 통해서, 또는
 컨텐츠를 JavaScript 오브젝트로 구문 분석하는 다양한 [라이브러리](../libraries/index.html)를 통해서 지원됩니다.
@@ -26,13 +26,15 @@ JSON 구문 분석 및 생성을 위한 [라이브러리](../libraries/index.htm
 
 JSON이 사용되는 이유는 웹 브라우저를 사용한 데이터 관련 작업에 대한 가장 간단하고 쉬운 솔루션이기 때문입니다.
 이는 JSON이 평가 가능하며 웹 브라우저 환경에서 JavaScript 오브젝트로 사용할 수 있기 때문입니다.
-JSON은 또한 {{site.data.keyword.cloudant_short_notm}} 내에서 사용되는 서버 측 JavaScript와 통합됩니다. JSON 문서는 항상 UTF-8로 인코딩됩니다.
+JSON은 또한 {{site.data.keyword.cloudant_short_notm}} 내에서 사용되는 서버 측 JavaScript와 통합됩니다.
+JSON 문서는 항상 UTF-8로 인코딩됩니다.
 
 >   **참고**: 다음 항목을 주의하여 확인해야 합니다.
 
 -   JSON 구조가 유효한지 확인하십시오.
-    유효하지 않은 구조는 {{site.data.keyword.cloudant_short_notm}}에서 [400(Bad Request)](../api/http.html#400) HTTP 상태 코드를 리턴하게 만듭니다. 
--   {{site.data.keyword.cloudant_short_notm}}로부터 수신한 JSON 문서는 비교하기 전에 이러한 문서의 문자열을 표준화하십시오. 이는 문서에 유니코드 표준화가 적용되어, 저장된 후 검색된 문자열이 2진 레벨에서 동일하지 않을 가능성이 있기 때문입니다.
+    유효하지 않은 구조는 {{site.data.keyword.cloudant_short_notm}}에서 [400(Bad Request)](../api/http.html#400) HTTP 상태 코드를 리턴하게 만듭니다.
+-   {{site.data.keyword.cloudant_short_notm}}로부터 수신한 JSON 문서는 비교하기 전에 이러한 문서의 문자열을 표준화하십시오.
+    이는 문서에 유니코드 표준화가 적용되어, 저장된 후 검색된 문자열이 2진 레벨에서 동일하지 않을 가능성이 있기 때문입니다.
 
 JSON에서는 JavaScript와 동일한 기본 유형을 지원합니다.
 

@@ -7,29 +7,65 @@ Cloudant NoSQL DB
 	{: .navgroup id="learn"}
 	getting-started.md
 	cloudant.md
-
-	{: .topicgroup}
-	오퍼링
-		offerings/bluemix.md
-		offerings/bluemix_dedicated.md
-		offerings/cloudant_local.md
-		offerings/cloudant.com.md
+	offerings/bluemix.md
+	offerings/pricing.md
 
 	{: .topicgroup}
     보안 및 규제 준수
     	offerings/security.md
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
+		offerings/audit.md
+		offerings/gdpr.md
 
+	{: .topicgroup}
+	릴리스 정보
+		release_info/release_notes.md
+		release_info/differences_major_releases.md
+		release_info/deprecations.md
+
+	{: .topicgroup}
+    기타 오퍼링
+		offerings/bluemix_dedicated.md
+		offerings/cloudant_local.md
+		offerings/cloudant.com.md
+	{: .navgroup-end}
+	
 	{: .navgroup id="reference"}
     basics/index.md
 
 	{: .topicgroup}
-	샘플 앱
-		[Ionic 및 Cloudant를 사용한 피드백 모바일 앱](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
-		[Open Fridge](https://github.com/krook/openfridge)
-		[온라인 카탈로그 저장소](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
+	API 참조서
+		api/index.md
+		api/http.md
+		api/compare.md
+		api/account.md
+		api/authentication.md
+		api/authorization.md
+		api/cors.md
+		api/database.md
+		api/document.md
+		api/attachments.md
+		api/cloudant_query.md
+		api/design_documents.md
+		api/creating_views.md
+		api/using_views.md
+		api/search.md
+		api/cloudant-geo.md
+		api/replication.md
+		api/advanced_replication.md
+		api/active_tasks.md
+		api/advanced.md
+		api/monitoring.md
+		api/backup.md
 
+	{: .topicgroup}
+	샘플 앱
+		[Offline First 쇼핑 목록](https://developer.ibm.com/code/patterns/create-an-offline-first-shopping-list-progressive-web-app/)
+		[Open Fridge](https://github.com/krook/openfridge)
+		[Core ML 및 Watson Visual Recognition을 사용하는 iOS 게임](https://developer.ibm.com/code/patterns/build-an-ios-game-powered-by-core-ml-and-watson-visual-recognition/)
+		[Watson Studio를 사용하는 모바일 건강 관련 앱](https://developer.ibm.com/code/patterns/develop-web-based-mobile-health-app-uses-machine-learning/)
+		
 	{: .topicgroup}
 	라이브러리
 		libraries/index.md
@@ -64,7 +100,6 @@ Cloudant NoSQL DB
 		guides/acurl.md
 		guides/cap_theorem.md
 		guides/couchapps.md
-		guides/warehousing.md
 		guides/design_document_management.md
 		guides/mvcc.md
 		guides/transactions.md

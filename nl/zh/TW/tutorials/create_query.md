@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-02"
+lastupdated: "2018-06-20"
 
 ---
 {:new_window: target="_blank"}
@@ -10,6 +10,9 @@ lastupdated: "2018-03-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-06-13 -->
 
 # 建立 {{site.data.keyword.cloudant_short_notm}} 查詢
 
@@ -25,7 +28,7 @@ lastupdated: "2018-03-02"
 
 1.  [建立 {{site.data.keyword.Bluemix}} 帳戶 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/registration/){:new_window}。
 2.  登入 [{{site.data.keyword.Bluemix_notm}} 儀表板 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}。
-3.  [在 {{site.data.keyword.Bluemix_notm}} 上建立 {{site.data.keyword.cloudant_short_notm}} 實例](create_service.html#creating-a-cloudant-instance-on-bluemix)。
+3.  [在 {{site.data.keyword.Bluemix_notm}} 上建立 {{site.data.keyword.cloudant_short_notm}} 實例](create_service.html#creating-a-service-instance)。
 4.  （選用）[建立 acurl 別名](../guides/acurl.html#authorized-curl-acurl-)，以從指令行更輕鬆且更快速地執行指令。
 5.  將練習中所含指令中的 `$ACCOUNT` 變數，取代為您用來登入「{{site.data.keyword.cloudant_short_notm}} 儀表板」的使用者名稱。
   如果您決定不要設定 `acurl`，請使用下列 URL，而不是練習中所提供的 URL：
@@ -58,11 +61,11 @@ lastupdated: "2018-03-02"
 ![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
 
 1.  開啟您已建立的 {{site.data.keyword.cloudant_short_notm}} 服務實例。
-2.  選取「資料庫」標籤：
-
+2.  在 {{site.data.keyword.cloudant_short_notm}} 服務頁面上，按一下**啟動**。即會開啟「資料庫」標籤。
+    
   ![「資料庫」標籤](../images/tabs.png)
-3.  按一下**建立資料庫**。
-4.  輸入 `query-demo`，然後按一下**建立**。
+4.  按一下**建立資料庫**。
+5.  輸入 `query-demo`，然後按一下**建立**。
 
   即會自動開啟 `query-demo` 資料庫。
 
@@ -223,17 +226,9 @@ lastupdated: "2018-03-02"
   ```
   {:codeblock}
 
-  已建立 `query-demo` 資料庫。您可以在右窗格中看到這些文件。
+  `query-demo` 資料庫已移入五筆記錄。您可以在下列畫面擷取的「表格」視圖中看到記錄：
 
-  ![範例文件 1](../images/docs1.png)
-
-  ![範例文件 2](../images/docs2.png)
-
-  ![範例文件 3](../images/docs3.png)
-
-  ![範例文件 4](../images/docs4.png)
-
-  ![範例文件 5](../images/docs5.png)      
+  ![範例文件](../images/docs1.png)     
 
 ## 建立索引
 
@@ -320,7 +315,7 @@ lastupdated: "2018-03-02"
   ```
   {:codeblock}
 
-  已建立索引。您可以在右窗格中看到它。
+  已建立索引。您可以在下列畫面擷取中看到索引：
 
   ![查詢索引](../images/query-index1.png)
 
@@ -330,7 +325,7 @@ lastupdated: "2018-03-02"
 
 查詢可讓您從 {{site.data.keyword.cloudant_short_notm}} 中擷取資料。撰寫良好的[查詢](../api/cloudant_query.html#query)可以縮小搜尋及其結果的範圍，只包含您要的資料。
 
-此練習示範如何撰寫及執行簡單查詢、含有兩個欄位的查詢，以及含有[運算子](../api/cloudant_query.html#cloudant_query.html#operators)的查詢。您可以指定至少一個欄位及其對應值，以使用運算子進行查詢。查詢接著會使用此值來搜尋資料庫中是否有相符項。
+此練習示範如何撰寫及執行簡單查詢、含有兩個欄位的查詢，以及含有兩個[運算子](../api/cloudant_query.html#cloudant_query.html#operators)的查詢。您可以指定至少一個欄位及其對應值，以使用運算子進行查詢。查詢接著會使用此值來搜尋資料庫中是否有相符項。
 
 針對最簡單查詢以外的所有查詢，將 JSON 新增至資料檔，並從指令行中執行它。
 
@@ -390,7 +385,7 @@ lastupdated: "2018-03-02"
 
 3.  按一下**執行查詢**。
 
-  查詢結果會顯示在右窗格中。
+  即會顯示查詢結果。您可以在下列畫面擷取的「表格」視圖中看到它們：
 
   ![查詢 1 結果](../images/dashboard_query1_results.png)
 
@@ -414,18 +409,10 @@ lastupdated: "2018-03-02"
 {
   ...
   "fields" : [
-    "lastname",
     "firstname",
-    "location"
-  ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
-  ]
+      "lastname",
+      "location"
+    ]
 }
 ```  
 {:codeblock}
@@ -439,19 +426,11 @@ lastupdated: "2018-03-02"
       "lastname": "Brown",
       "location": "New York City, NY"
     },
-    "fields": [
+    "fields" : [
       "firstname",
-      "lastname",
-      "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]
+     "lastname",
+     "location"
+  ]
   }
   ```
   {:codeblock}
@@ -467,12 +446,17 @@ lastupdated: "2018-03-02"
   {
     "docs": [
       {
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      },
+      {
         "firstname": "John",
         "lastname": "Brown",
         "location": "New York City, NY"
       },
       {
-        "firstname": "Sally",
+        "firstname": "Lois",
         "lastname": "Brown",
         "location": "New York City, NY"
       }
@@ -495,22 +479,14 @@ lastupdated: "2018-03-02"
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+    ] 
   }
   ```
   {:codeblock}
 
 3.  按一下**執行查詢**。
 
-  查詢結果會顯示在右窗格中。
+  即會顯示查詢結果。您可以在下列畫面擷取的「表格」視圖中看到它們：
 
   ![查詢 2 結果](../images/dashboard_query2_results.png)
 
@@ -533,17 +509,13 @@ lastupdated: "2018-03-02"
 ``` 
 {:codeblock}
 
-根據 `sort` 參數中的值，依姓氏的遞增順序排序結果。
+根據 `sort` 參數中所指定的值，依年齡的遞增順序排序結果。
 
 ```json
     "sort": [
       {
         "age": "asc"   
-      },        
-      {
-        "lastname": "asc"
-      }
-    ] 
+      }] 
 ```  
 {:codeblock}
 
@@ -566,12 +538,8 @@ lastupdated: "2018-03-02"
    ],
     "sort": [
       {
-        "age": "asc"
-      },
-      {
-         "lastname": "asc"
-      }
-   ],
+        "age": "asc"   
+      }],
    "use_index": "_design/partial-index"
 }
   ```
@@ -614,12 +582,8 @@ lastupdated: "2018-03-02"
    ],
     "sort": [
       {
-        "age": "asc"
-      },
-      {
-         "lastname": "asc"
-      }
-   ],
+        "age": "asc"   
+      }],
    "use_index": "_design/partial-index"
 }
   ```
@@ -627,7 +591,7 @@ lastupdated: "2018-03-02"
 
 3.  按一下**執行查詢**。
 
-  查詢結果會顯示在右窗格中。
+  即會顯示查詢結果。您可以在下列畫面擷取的「表格」視圖中看到它們：
 
   ![查詢 3 結果](../images/dashboard_query3_results.png)
 

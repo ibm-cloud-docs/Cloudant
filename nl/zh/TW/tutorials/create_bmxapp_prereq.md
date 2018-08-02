@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -51,7 +51,7 @@ Python 2.7.12
 
 ### {{site.data.keyword.cloudant_short_notm}} 資料庫應用程式
 
-[這裡](create_database.html)提供用於建立獨立式 Python 應用程式，以便使用 {{site.data.keyword.cloudant_short_notm}} 服務實例的個別指導教學。它介紹有助於瞭解如何建立 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中的一些概念。
+[這裡](create_database.html)提供用於建立獨立式 Python 應用程式，以使用 {{site.data.keyword.cloudant_short_notm}} 服務實例的個別指導教學。它介紹有助於瞭解如何建立 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中的一些概念。
 
 本指導教學假設您熟悉這些概念。
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -23,7 +23,7 @@ Poiché i database {{site.data.keyword.cloudant_short_notm}} hanno una [consiste
 questo è necessario per evitare inconsistenze che si verificano tra i nodi
 in seguito alla sincronizzazione tra documenti obsoleti.
 
-Il controllo della concorrenza multiversione (MVCC) consente l'accesso simultaneo in lettura e scrittura a un database {{site.data.keyword.cloudant_short_notm}}.
+Il controllo della concorrenza multiversione (MVCC, Multi-Version Concurrency Control) consente l'accesso simultaneo in lettura e scrittura a un database {{site.data.keyword.cloudant_short_notm}}.
 MVCC è una forma di [concorrenza ottimistica![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}.
 Rende più veloci le operazioni di lettura e scrittura nei database {{site.data.keyword.cloudant_short_notm}}
 perché non è necessario bloccare il database in operazioni di lettura o scrittura.

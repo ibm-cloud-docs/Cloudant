@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-10-27"
+  years: 2017, 2018
+lastupdated: "2018-06-07"
 
 ---
 
@@ -30,7 +30,8 @@ lastupdated: "2017-10-27"
 1. `couchbackup`，用于将数据库中的 JSON 数据转储到备份文本文件。
 2. `couchrestore`，用于将备份文本文件中的数据复原到数据库。
 
-<strong style="color:red;">警告！</strong>CouchBackup 工具存在[限制](#limitations)。
+> **警告！**CouchBackup 工具存在[限制](#limitations)。
+{:tip}
 
 ## 备份 {{site.data.keyword.cloudant_short_notm}} 数据
 
@@ -46,9 +47,11 @@ couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 * 用于设置数据库名称和 URL 的环境变量。
 * 使用日志文件来记录备份的进度。
 * 恢复已中断备份的能力。**注**：此选项仅可用于已中断备份的日志文件。
+  {:tip}
 * 将备份文本文件发送到指定的输出文件，而不是重定向 `stdout` 输出。
 
-<strong style="color:red;">警告！</strong>CouchBackup 工具存在[限制](#limitations)。
+> **警告！**CouchBackup 工具存在[限制](#limitations)。
+{:tip}
 
 ## 复原 {{site.data.keyword.cloudant_short_notm}} 数据
 
@@ -63,11 +66,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 [npm 自述文件 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")][npmreadme]{:new_window} 提供了其他复原选项的详细信息。
 
-<strong style="color:red;">警告！</strong>CouchBackup 工具存在[限制](#limitations)。
+> **警告！**CouchBackup 工具存在[限制](#limitations)。
+{:tip}
 
 ## 限制
 
-<strong style="color:red;">警告！</strong>CouchBackup 工具存在以下限制： 
+> **警告！**CouchBackup 工具存在以下限制： 
+{:tip}
 
 * 工具不会备份 `_security` 设置。
 * 工具不会备份附件。
@@ -156,8 +161,9 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 
 以下脚本样本说明了如何将 `couchbackup` 库与 {{site.data.keyword.IBM}} Cloud Object Storage 组合使用。此代码说明了可以如何使用跨区域 S3 API 将数据库备份到对象存储。
 
-> **注**：此代码的先决条件是通过遵循
-[以下指示信息 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")][cosclient]{:new_window}，初始化 {{site.data.keyword.IBM_notm}} Cloud Object Storage 的 S3 客户机对象。
+> **注**：此代码的先决条件是您已按照以下指示信息初始化 {{site.data.keyword.IBM_notm}} Cloud Object Storage 的 S3 客户机对象：
+[指示信息 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")][cosclient]{:new_window}。
+{:tip}
 
 ```javascript
 /*

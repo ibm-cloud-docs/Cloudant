@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -64,6 +64,7 @@ gli strumenti e le funzioni possono quindi soddisfare i requisiti HA o DR.
 
 >	**Nota**: strumenti e funzioni differenti forniscono diversi livelli di protezione.
 	Le diverse funzioni potrebbero essere più o meno adatte per il tuo specifico requisito HA o DR.
+{:tip}
 
 {{site.data.keyword.cloudant_short_notm}} fornisce una serie di strumenti e funzioni che soddisfano i requisiti generali:
 
@@ -186,7 +187,8 @@ gli strumenti supportati da {{site.data.keyword.cloudant_short_notm}} ti aiutano
 	adatto per un'ulteriore elaborazione e archiviazione esterna.
 *	Ripristinare database completi da uno stato precedente contenuto nel tuo file di backup.
 
-<strong style="color:red;">Avvertenza.</strong> Gli strumenti supportati da {{site.data.keyword.cloudant_short_notm}} hanno le seguenti limitazioni: 
+> **Avvertenza.** Gli strumenti supportati da {{site.data.keyword.cloudant_short_notm}} hanno le seguenti limitazioni: 
+{:tip}
 
 *	Gli strumenti non eseguono il backup delle impostazioni `_security`.
 *	Gli strumenti non eseguono il backup degli allegati.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -37,8 +37,7 @@ gibt es Anwendungsfälle, bei denen wir zu einer erweiterten Datensicherung rate
 
 ### Rechenzentrumsausfall und Disaster-Recovery
 
-Eine [fortlaufende Replikation](../api/replication.html#continuous-replication) zwischen Clustern ist eine gute Lösung für das Problem, dass ein
-{{site.data.keyword.cloudant_short_notm}}-Cluster nicht vollständig verfügbar ist.
+Eine [fortlaufende Replikation](../api/replication.html#continuous-replication) zwischen Clustern ist eine gute Lösung für das Problem, dass ein {{site.data.keyword.cloudant_short_notm}}-Cluster nicht vollständig verfügbar ist.
 Die fortlaufende Replikation ist ein 'Aktiv/Passiv'-Modell.
 Der aktive Teil des Modells ist die kontinuierliche Replikation.
 Den passiven Teil des Modells gibt es, weil das Replikat üblicherweise nicht auf Anforderungen von Anwendungen reagiert.
@@ -85,7 +84,7 @@ Deshalb konzentriert sich der Rest dieser Diskussion auf diese Methode.
 <!--
 https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/
 
-A useful approach is to have couchbackup's snapshots placed on the Bluemix Object Storage service, as described here:
+A useful approach is to have couchbackup's snapshots placed on the {{site.data.keyword.cloud}} Object Storage service, as described here:
 
 https://developer.ibm.com/recipes/tutorials/object-storage-cloudant-backup/
 -->

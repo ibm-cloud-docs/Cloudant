@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,21 +14,24 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-02-23 -->
 
-# Criando e alavancando uma instância do plano Hardware dedicado do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}
+# Criando e alavancando uma instância do plano Dedicated Hardware do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}
 
-Esse tutorial mostra como criar uma instância do plano Hardware dedicado do {{site.data.keyword.cloudantfull}}
-usando o painel do {{site.data.keyword.Bluemix}} e mostra como provisionar subsequentemente uma ou
-mais instâncias do plano Padrão para executar nela. 
+Este tutorial mostra como criar uma instância do plano Dedicated
+Hardware do {{site.data.keyword.cloudantfull}}
+usando o painel do {{site.data.keyword.Bluemix}} e mostra como provisionar subsequentemente uma ou mais
+instâncias do plano Standard para executar nela. 
 
-Criar uma instância do plano Hardware dedicado do {{site.data.keyword.cloudant_short_notm}} resulta no fornecimento
-de um ambiente {{site.data.keyword.cloudant_short_notm}} no hardware dedicado para seu uso exclusivo. Uma instância
+A criação de uma instância do plano Dedicated
+Hardware do {{site.data.keyword.cloudant_short_notm}} resulta no fornecimento
+de um ambiente do {{site.data.keyword.cloudant_short_notm}} no hardware dedicado para seu uso exclusivo. Uma instância
 de serviço é criada no painel do {{site.data.keyword.Bluemix_notm}}, mas observe que não é possível
 acessar a instância do plano Hardware dedicado diretamente e você não terá
-nenhuma Credencial de serviço para isso. É possível usar uma instância do plano Hardware dedicado do {{site.data.keyword.cloudant_short_notm}}
-após sua criação, provisionando uma ou mais instâncias do plano Padrão
-nela.
+nenhuma Credencial de serviço para isso. É possível usar uma instância do plano Dedicated
+Hardware do {{site.data.keyword.cloudant_short_notm}}
+após ela ser criada pelo fornecimento de uma ou mais instâncias de plano
+Standard nela.
 
-## Criando uma instância do plano Hardware dedicado do {{site.data.keyword.cloudant_short_notm}}
+## Criando uma instância de plano Dedicated Hardware do {{site.data.keyword.cloudant_short_notm}}  
 
 1.  Efetue login em sua conta do {{site.data.keyword.Bluemix_notm}}.<br/>
     O painel do {{site.data.keyword.Bluemix_notm}} pode ser localizado em:
@@ -107,6 +110,6 @@ ou no ambiente de Hardware dedicado que foi provisionado usando a lista suspensa
     Após alguns segundos, a instância é provisionada no ambiente que você selecionou.<br/>
     ![Provisionar instância padrão](../tutorials/images/create_button_provision_standard.png)
     
-8.  Obtenha suas Credenciais de serviço e acesse o Painel do {{site.data.keyword.cloudant_short_notm}} tal como você faz para uma instância de diversos locatários do {{site.data.keyword.cloudant_short_notm}}.
+8.  Obtenha suas Credenciais de serviço e acesse o Painel do {{site.data.keyword.cloudant_short_notm}} tal como você faz para uma instância de diversos locatários do {{site.data.keyword.cloudant_short_notm}}. 
     Veja mais informações sobre como localizar suas Credenciais de serviço [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials){:new_window}. 
      

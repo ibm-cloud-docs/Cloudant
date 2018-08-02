@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,23 +14,23 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# 创建简单 {{site.data.keyword.Bluemix_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：维护和故障诊断
+# 创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：维护和故障诊断
 
-本教程说明了如何维护在 {{site.data.keyword.Bluemix_notm}} 服务实例中托管的 {{site.data.keyword.Bluemix}} 应用程序。
+本教程说明了如何维护在 {{site.data.keyword.cloud_notm}} 服务实例中托管的 {{site.data.keyword.cloud}} 应用程序。
 {:shortdesc}
 
 <div id="maintenance"></div>
 
 ## 执行基本应用程序维护任务
 
-本部分教程说明了如何在 {{site.data.keyword.Bluemix_notm}} 上刷新、启动和停止 Python 应用程序。
+本部分教程说明了如何在 {{site.data.keyword.cloud_notm}} 上刷新、启动和停止 Python 应用程序。
 
 ### 查找应用程序的状态
 
-{{site.data.keyword.Bluemix_notm}} 服务实例内应用程序的状态会显示在仪表板上。
+{{site.data.keyword.cloud_notm}} 服务实例内应用程序的状态会显示在仪表板上。
 
 在以下示例中，`Cloudant Python` 应用程序未在运行，状态为`已停止`：<br/>
-![显示处于“已停止”状态的应用程序的仪表板的截屏](images/img0037.png)
+![显示“已停止”状态应用程序的仪表板的截屏](images/img0037.png)
 
 ### 启动应用程序
 
@@ -60,15 +60,15 @@ lastupdated: "2017-11-07"
 要上传全新版本的应用程序，只需遵循[上传过程](create_bmxapp_upload.html)即可。新版本应用程序将覆盖旧版本。
 
 >   **注**：如果启动上传时旧版本应用程序已在运行，
-    那么 {{site.data.keyword.Bluemix_notm}} 会首先自动停止该应用程序。
+    那么 {{site.data.keyword.cloud_notm}} 会首先自动停止该应用程序。
 
 
 
 ## 问题诊断和解决
 
-本部分教程提供了一些基本的故障诊断技巧，可帮助您识别、诊断和解决在开发和部署第一个 {{site.data.keyword.Bluemix_notm}} 应用程序时可能会遇到的一些问题。
+本部分教程提供了一些基本的故障诊断技巧，可帮助您识别、诊断和解决在开发和部署第一个 {{site.data.keyword.cloud_notm}} 应用程序时可能会遇到的一些问题。
 
-[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window} 提供了关于创建 {{site.data.keyword.Bluemix_notm}} 或 Cloud Foundry 应用程序的最佳做法的一些好建议。
+[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window} 提供了关于创建 {{site.data.keyword.cloud_notm}} 或 Cloud Foundry 应用程序的最佳做法的一些好建议。
 
 尤其是有关[避免写入本地文件系统 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window} 的建议非常谨慎。
 
@@ -79,21 +79,21 @@ lastupdated: "2017-11-07"
 
 ### 使用应用程序日志
 
-对 {{site.data.keyword.Bluemix_notm}} 应用程序问题进行诊断和解决时，最有用的资源是日志文件。
+对 {{site.data.keyword.cloud_notm}} 应用程序问题进行诊断和解决时，最有用的资源是日志文件。
 
-{{site.data.keyword.Bluemix_notm}} 应用程序的日志文件位于`日志`信息页面上：<br/>
+{{site.data.keyword.cloud_notm}} 应用程序的日志文件位于`日志`信息页面上：<br/>
 ![显示用于访问“日志”信息页面的链接的截屏](images/img0042.png)
 
-与大多数日志文件一样，{{site.data.keyword.Bluemix_notm}} 应用程序日志也包含有关所发生事件的详细信息以及发生时间。
+与大多数日志文件一样，{{site.data.keyword.cloud_notm}} 应用程序日志也包含有关所发生事件以及发生时间的详细信息。
 
 该日志还会确定所记录事件中涉及的组件。下表标明了主要组件：
 
-组件标签| 组件
+组件标签|组件
 ----------------|----------
-`API`           | Cloud Foundry 系统。
-`APP`           | 应用程序。
-`CELL`          | 在 {{site.data.keyword.Bluemix_notm}} 中保存应用程序的容器。
-`RTR`           | 用于将消息传递到应用程序或从应用程序接收消息的联网组件。
+`API`           |Cloud Foundry 系统。
+`APP`           |应用程序。
+`CELL`          |在 {{site.data.keyword.cloud_notm}} 中保存应用程序的容器。
+`RTR`           |用于将消息传递到应用程序或从应用程序接收消息的联网组件。
 
 例如，以下截屏包含许多典型事件：<br/>
 ![显示指示性日志信息的截屏](images/img0043.png)

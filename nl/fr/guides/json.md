@@ -51,7 +51,7 @@ JSON prend en charge les mêmes types de base que JavaScript :
 
 Les nombres peuvent être des entiers ou des valeurs en virgule flottante.
 
-_Exemple de nombre au format JSON  :_
+_Exemple de nombre au format JSON :_
 
 ```json
 123

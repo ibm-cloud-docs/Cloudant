@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-10-27"
+  years: 2017, 2018
+lastupdated: "2018-06-07"
 
 ---
 
@@ -23,8 +23,7 @@ com os outros recursos oferecidos pelo {{site.data.keyword.cloudant_short_notm}}
 para suportar os requisitos de Recuperação de desastre (DR) e de Alta disponibilidade (HA).
 
 Embora os dados sejam armazenados de forma redundante em um cluster do {{site.data.keyword.cloudant_short_notm}},
-é importante considerar medidas de backup extras.
-Por exemplo,
+é importante considerar medidas de backup extras. Por exemplo,
 o armazenamento de dados redundante não protege contra erros quando os dados são mudados.
 
 ## Introduzindo o CouchBackup
@@ -41,7 +40,8 @@ o pacote CouchBackup contém duas ferramentas de linha de comandos:
 1. `couchbackup`, que faz dump dos dados JSON de um banco de dados para um arquivo de texto de backup.
 2. `couchrestore`, que restaura dados de um arquivo de texto de backup para um banco de dados.
 
-<strong style="color:red;">Aviso!</strong> As ferramentas CouchBackup têm [limitações](#limitations).
+> **Aviso!** As ferramentas CouchBackup têm [limitações](#limitations).
+{:tip}
 
 ## Fazendo backup de seus dados do {{site.data.keyword.cloudant_short_notm}}
 
@@ -61,10 +61,12 @@ incluindo:
 * O uso de um arquivo de log para registrar o progresso de um backup.
 * A capacidade de continuar um backup interrompido.
   **Nota**: essa opção está disponível apenas com o arquivo de log do backup interrompido.
+  {:tip}
 * O envio do arquivo de texto de backup para um arquivo de saída nomeado,
 em vez de redirecionar a saída `stdout`.
 
-<strong style="color:red;">Aviso!</strong> As ferramentas CouchBackup têm [limitações](#limitations).
+> **Aviso!** As ferramentas CouchBackup têm [limitações](#limitations).
+{:tip}
 
 ## Restaurando os seus dados do {{site.data.keyword.cloudant_short_notm}}
 
@@ -85,11 +87,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 O [leia-me do npm ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")][npmreadme]{:new_window} fornece detalhes de outras opções de restauração.
 
-<strong style="color:red;">Aviso!</strong> As ferramentas CouchBackup têm [limitações](#limitations).
+> **Aviso!** As ferramentas CouchBackup têm [limitações](#limitations).
+{:tip}
 
 ## Limitações
 
-<strong style="color:red;">Aviso!</strong> As ferramentas CouchBackup têm as limitações a seguir: 
+> **Aviso!** As ferramentas CouchBackup têm as limitações a seguir: 
+{:tip}
 
 * As configurações `_security` não são submetidas a backup pelas ferramentas.
 * Os anexos não são submetidos a backup pelas ferramentas.
@@ -232,6 +236,7 @@ Esse código ilustra como você poderia usar a API da Região cruzada S3 para fa
 > **Nota**: um pré-requisito para o código é que você inicialize o objeto do cliente S3 para
 o {{site.data.keyword.IBM_notm}} Cloud Object Storage seguindo
 [estas instruções ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")][cosclient]{:new_window}.
+{:tip}
 
 ```javascript
 /*

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -149,10 +149,10 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**Hinweis:** Das Festlegen von _Q_ für Datenbanken ist für {{site.data.keyword.cloudant_short_notm}}-Datenbanken unter Bluemix nicht aktiviert.
+>	**Hinweis:** Das Festlegen von _Q_ für Datenbanken ist für {{site.data.keyword.cloudant_short_notm}}-Datenbanken unter {{site.data.keyword.cloud}} nicht aktiviert.
 	Der Wert _Q_ ist in den meisten `cloudant.com`Multi-Tenant-Clustern nicht verfügbar.
 
-Wenn Sie versuchen, den Wert _Q_ festzulegen, falls er nocht nicht verfügbar ist,
+Wenn Sie versuchen, den Wert _Q_ festzulegen, falls er noch nicht verfügbar ist,
 ist das Ergebnis eine [`403`-Antwort](../api/http.html#403) mit einem JSON-Hauptteil ähnlich dem folgenden:
 
 ```json

@@ -51,7 +51,7 @@ tutti i requisiti ISO 27001:
 
 {{site.data.keyword.IBM_notm}} fornisce un report SOC (Service Organization Controls) 2 di tipo 2
 per Cloudant. I report valutano i controlli operativi di IBM in base ai criteri
-stabiliti dai Trust Services Principles della American Institute of Certified Public Accountants (AICPA).
+stabiliti dai Trust Services Principles della American Institute of Certified Public Accountants (AICPA). 
 I Trust Services Principles definiscono i sistemi di controllo adeguati e stabiliscono gli standard di settore
 per i provider di servizi come IBM Cloud per salvaguardare le informazioni e i dati dei propri clienti.
 
@@ -62,7 +62,7 @@ un ticket di supporto con
 o inviare un'e-mail a
 [support@cloudant.com ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
 
-## GDPR (General Data Protection Regulation) 
+## Regolamento generale sulla protezione dei dati  (GDPR, General Data Protection Regulation) 
 
 Il GDPR cerca di creare un quadro normativo armonizzato in materia di protezione dei dati
 in tutta l'Unione Europea e mira a restituire ai cittadini il controllo dei propri dati personali,

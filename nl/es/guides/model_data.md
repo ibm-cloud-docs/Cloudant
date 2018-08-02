@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -35,9 +35,9 @@ Por el contrario, si va a actualizar un determinado documento menos de una vez c
 
 Generalmente, los modelos basados en datos inalterables requieren el uso de vistas para resumir los documentos que comprenden el estado actual. Cuando se realiza un cálculo previo de las vistas, el rendimiento de las aplicaciones no debería verse afectado.
 
-## ¿Por qué esto ayuda?
+## Por qué esto le ayuda a los datos inmutables 
 
-Tras nuestra interfaz `https://<account>.cloudant.com/` se encuentra una base de datos distribuida. 
+Detrás de nuestra interfaz `https://$ACCOUNT.cloudant.com/` se encuentra una base de datos distribuida. 
 Dentro del clúster, los documentos se empaquetan en varios fragmentos que colectivamente forman la base de datos. Estos fragmentos se distribuyen entre los nodos del clúster. Esto es lo que nos permite dar soporte a las bases de datos que ocupan terabytes.
 
 De forma predeterminada, además de la división de una base de datos en fragmentos, todos los fragmentos tienen tres copias, o réplicas de fragmentos, cada una de los cuales reside en un nodo diferente del clúster de la base de datos. 
@@ -48,12 +48,12 @@ Un patrón de actualizaciones inmediatas simultáneas también aumenta la probab
 
 Hemos descubierto que es más probable que se produzca este escenario de documentos en conflicto en actualizaciones con una frecuencia superior a un segundo, pero recomendamos documentos inalterables para proteger las actualizaciones de más de una vez cada diez segundos.
 
-## Utilización de vistas para realizar un cálculo previo de los resultados en lugar de calcularlos como índices de búsqueda
+## Utilizar vistas para precalcular resultados en lugar de índices de búsqueda
 
 En lugar de utilizar vistas como índices de búsqueda - "obtener todos los documentos que contengan `person`" - intente conseguir que la base de datos realice el trabajo. Por ejemplo, en lugar de recuperar diez mil documentos personales para calcular las horas combinadas trabajadas, utilice una vista con una clave compuesta para realizar este cálculo previo por año, mes, día, medio día y hora mediante la reducción incorporada `_sum`. 
 Ahorrará trabajo a la aplicación y permitirá que la base de datos se centre en dar servicio a muchas solicitudes pequeñas en lugar de tener que leer enormes cantidades de datos de disco para dar servicio a una sola solicitud de gran tamaño.
 
-## ¿Por qué esto ayuda?
+## Por qué esto le ayuda a utilizar vistas para precalcular los resultados
 
 Es un proceso muy sencillo. En primer lugar, tanto las correlaciones como las reducciones se calculan con anterioridad. Esto significa que solicitar el resultado de una función reduce constituye una operación barata, especialmente si se compara con la gran cantidad de ES necesaria para procesar cientos o incluso miles de documentos del almacenamiento en disco.
 
@@ -75,7 +75,7 @@ Como ejemplo, en un esquema relacional normalmente representaría los códigos e
 En {{site.data.keyword.cloudant_short_notm}}, almacenaría los códigos en una lista en cada documento. Luego utilizaría una vista para obtener los documentos con un determinado código [emitiendo cada código como una clave en la función de correlación de la vista](../api/creating_views.html). 
 Si se consulta una determinada clave en la vista se obtienen todos los documentos con dicho código.
 
-## ¿Por qué esto ayuda?
+## Por qué esto le ayuda con los datos no normalizados
 
 Todo depende del número de solicitudes HTTP que realice la aplicación. Abrir conexiones
 HTTP tiene un coste (especialmente HTTPS) y, aunque reutilizar conexiones ayuda, el hecho de realizar menos solicitudes en general aumenta la velocidad a la que la aplicación puede procesar los datos.
@@ -123,7 +123,7 @@ Es mejor desglosar las operaciones en distintos documentos que hacen referencia 
 
 Si emite el campo `"patient"` como clave en la vista, podrá consultar todas las operaciones correspondientes a un determinado paciente. Nuevamente se utilizan vistas para ayudar a componer una imagen completa de una determinada entidad a partir de distintos documentos, lo que ayuda a mantener un número bajo de solicitudes HTTP aunque se hayan dividido los datos correspondientes a una sola entidad modelada.
 
-## ¿Por qué esto ayuda?
+## Por qué esto le ayuda a evitar conflictos
 
 Evitar documentos en conflicto ayuda a agilizar muchas operaciones de las bases de datos de {{site.data.keyword.cloudant_short_notm}}. 
 Esto se debe a que hay un proceso que funciona fuera de la revisión principal actual utilizada cada vez que se lee el documento: recuperaciones de documentos individuales, llamadas con `include_docs=true`, creación de vistas, etc.
@@ -143,7 +143,7 @@ Cómo lo haga dependerá de cada aplicación, pero aquí encontrará algunas sug
 -   Evite invariables entre campos de documentos siempre que sea posible. Esto aumenta la probabilidad de que una sola operación de fusión, que tome el campo modificado de cada revisión de documento en conflicto, resulte adecuada. También ayuda a que el código de la aplicación sea más sencillo y potente.
 -   Permita que los documentos sean autónomos. La necesidad de recuperar otros documentos para conseguir una resolución correcta aumenta la latencia en la resolución de conflictos. También existe la posibilidad de que obtenga una versión de los otros documentos que no sea coherente con el documento que esté resolviendo, lo que dificulta la resolución correcta. Además, ¿qué pasa si los otros documentos también están en conflicto?
 
-## ¿Por qué esto ayuda?
+## Por qué esto le ayuda a resolver los conflictos integrados 
 
 Tal como se ha descrito anteriormente, los documentos muy conflictivos causan estragos en la base de datos. Incorporar desde el principio la capacidad para solucionar conflictos constituye una gran ayuda para evitar documentos conflictivos patológicos.
 

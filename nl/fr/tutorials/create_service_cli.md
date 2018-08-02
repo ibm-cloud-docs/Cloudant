@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -22,7 +22,7 @@ Ce tutoriel vous apprend à créer une instance de service
 ## Conditions prérequises
 
 Pour suivre ce tutoriel, vous devez d'abord installer les outils {{site.data.keyword.Bluemix_notm}} Cloud Foundry.
-Vous trouverez plus de détails sur l'installation de ces outils dans [ce tutoriel distinct](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits).
+Vous trouverez plus de détails sur l'installation de ces outils dans [ce tutoriel distinct](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits).
 
 > **Remarque** : Assurez-vous de bien installer les deux kits d'outils Cloud Foundry _et_ {{site.data.keyword.Bluemix_notm}}.
 
@@ -148,7 +148,7 @@ bx service create <service> <plan> <instance name>
 
 Supposons que vous souhaitez créer une instance d'un service
 {{site.data.keyword.cloudant_short_notm}} nommée `cs20170517a`
-avec le Plan `limité`.
+à l'aide du plan `limité`.
 
 Pour ce faire, utilisez une commande similaire à celle de l'exemple suivant :
 
@@ -168,7 +168,7 @@ OK
 ```
 {:pre}
 
-## Création des données d'identification de votre service {{site.data.keyword.cloudant_short_notm}} 
+## Création des données d'identification de votre service {{site.data.keyword.cloudant_short_notm}}
 
 Les applications qui requièrent un accès à votre service
 {{site.data.keyword.cloudant_short_notm}} doivent disposer des données d'identification nécessaires.
@@ -197,8 +197,8 @@ bx cf create-service-key <instance name> <credentials name>
 ```
 {:pre}
 
-Supposons que vous souhaitez créer les données d'identification de l'instance
-`cs20170517a` d'un service {{site.data.keyword.cloudant_short_notm}}, le nom des données d'identification
+Supposons que vous souhaitez créer des données d'identification pour l'instance `cs20170517a` d'un service
+{{site.data.keyword.cloudant_short_notm}}, le nom des données d'identification
 étant `creds20170517a`.
 
 Pour ce faire, utilisez une commande similaire à celle de l'exemple suivant :
@@ -220,7 +220,7 @@ OK
 ```
 {:pre}
 
-## Affichage de la liste des données d'identification de votre service {{site.data.keyword.cloudant_short_notm}} 
+## Affichage de la liste des données d'identification de votre service {{site.data.keyword.cloudant_short_notm}}
 
 Le format de la commande de base qui permet d'extraire les données d'identification
 d'une instance de service dans {{site.data.keyword.Bluemix_notm}} est le suivant :
@@ -260,7 +260,7 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 ```
 {:pre}
 
-## Utilisation de votre instance de service {{site.data.keyword.cloudant_short_notm}} 
+## Utilisation de votre instance de service {{site.data.keyword.cloudant_short_notm}}
 
 A ce stade, vous avez :
 

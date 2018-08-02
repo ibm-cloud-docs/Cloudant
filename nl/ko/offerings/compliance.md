@@ -38,12 +38,16 @@ HIPAA는 프로비저닝 시점에 요청되어야 하고 {{site.data.keyword.cl
 
 ## SOC 2 유형 2 인증
 
-{{site.data.keyword.IBM_notm}}은 Cloudant용 SOC(Service Organization Controls) 2 유형 2 보고서를 제공합니다. 이 보고서는 AICPA(American Institute of Certified Public Accountants) 신뢰 서비스 원칙에 의해 설정된 기준에 따라 IBM의 운영 관리 능력을 평가합니다. 신뢰 서비스 원칙은 적절한 관리 시스템을 정의하며, IBM Cloud와 같이 고객의 데이터 및 정보를 안전하게 보호하는 서비스 제공자에 대한 산업 표준을 확립합니다. 
+{{site.data.keyword.IBM_notm}}은 Cloudant용 SOC(Service Organization Controls) 2 유형 2 보고서를 제공합니다. 이 보고서는 AICPA(American Institute of Certified Public Accountants) 신뢰 서비스 원칙에 의해 설정된 기준에 따라 IBM의 운영 관리 능력을 평가합니다. 
+신뢰 서비스 원칙은 적절한 관리 시스템을 정의하며, IBM Cloud와 같이 고객의 데이터 및 정보를 안전하게 보호하는 서비스 제공자에 대한 산업 표준을 확립합니다.
 
 고객 포털에서 SOC 2 유형 2 보고서를 요청하거나 영업 담당자에게 문의할 수 있습니다. 
-또는 [IBM Cloud 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/support){:new_window}에서 지원 티켓을 열거나 [support@cloudant.com ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}으로 이메일을 보낼 수 있습니다. 
+또는 [IBM Cloud 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/support){:new_window}에서 지원 티켓을 열거나 [support@cloudant.com ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}으로 이메일을 보낼 수 있습니다.
 
-## GDPR(General Data Protection Regulation)  
+## 일반정보보호규정(GDPR) 
 
-GDPR은 전 세계 어디서나 개인 데이터의 '처리' 및 호스팅에 엄격한 규칙을 적용하면서, EU 전반에서 비슷한 데이터 보호 법 체계를 마련하고 사용자에게 개인 데이터의 제어권을 돌려주는 것을 목표로 합니다. 
-규정은 또한 EU 외부 및 내부에서 개인 데이터의 자유로운 이동과 관련한 규칙을 도입합니다. {{site.data.keyword.cloudant_short_notm}} 팀에서는 현재 GDPR에 대한 관련 활동을 작업하고 있으며 2018년 5월 25일 최종 기간까지 완전한 준수를 실현할 계획입니다. 
+GDPR은 전 세계 어디서나 개인정보의 '처리' 및 호스팅에 엄격한 규칙을 적용하면서,
+EU 전반에서 비슷한 데이터 보호 법 체계를 마련하고 사용자에게 개인정보의 제어권을
+돌려주는 것을 목표로 합니다. 규정은 또한 EU 외부 및 내부에서 개인정보의 자유로운
+이동과 관련한 규칙을 도입합니다. {{site.data.keyword.cloudant_short_notm}} 팀에서는
+현재 GDPR에 대한 관련 활동을 작업하고 있으며 2018년 5월 25일 최종 기간까지 완전한 준수를 실현할 계획입니다.

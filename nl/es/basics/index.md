@@ -23,13 +23,14 @@ y [Guías](../guides/acurl.html#authorized-curl-acurl-) se da por supuesto que t
 ## Conexión a {{site.data.keyword.cloudant_short_notm}}
 
 Para acceder a {{site.data.keyword.cloudant_short_notm}},
-debe tener una [cuenta de {{site.data.keyword.cloudant}}](../api/account.html) o una [cuenta de {{site.data.keyword.Bluemix}}](../offerings/bluemix.html).
+debe tener una [cuenta de {{site.data.keyword.cloudant_short_notm}}](../api/account.html),
+o una [cuenta de {{site.data.keyword.Bluemix}}](../offerings/bluemix.html).
 
 ## API HTTP
 
 Todas las solicitudes destinadas a {{site.data.keyword.cloudant_short_notm}} pasan por la web.
 Esto significa que cualquier sistema que se puede comunicar con la web, se puede comunicar con {{site.data.keyword.cloudant_short_notm}}.
-Todas las bibliotecas específicas de lenguaje para {{site.data.keyword.cloudant_short_notm}}  son en realidad derivadores que proporcionan comodidad y sutilezas lingüísticas que le ayudarán a trabajar con una simple API.
+Todas las bibliotecas específicas de lenguaje para {{site.data.keyword.cloudant_short_notm}} son en realidad derivadores que proporcionan comodidad y sutilezas lingüísticas que le ayudarán a trabajar con una simple API.
 Muchos usuarios optan por utilizar directamente bibliotecas HTTP para trabajar con {{site.data.keyword.cloudant_short_notm}}.
 
 Encontrará detalles sobre la forma en que {{site.data.keyword.cloudant_short_notm}} utiliza HTTP en el [tema sobre HTTP de la consulta de API](../api/http.html).

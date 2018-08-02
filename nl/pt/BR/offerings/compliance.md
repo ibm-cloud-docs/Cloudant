@@ -52,7 +52,7 @@ e atende a todos os requisitos para a ISO 27001:
 
 O {{site.data.keyword.IBM_notm}} fornece um relatório Service Organization Controls (SOC) 2 Tipo 2
 para o Cloudant. Os relatórios avaliam os controles operacionais da IBM de acordo com os critérios configurados
-pelos Princípios de Serviços de Confiança do American Institute of Certified Public Accountants (AICPA).
+pelos Princípios de Serviços de Confiança do American Institute of Certified Public Accountants (AICPA). 
 Os Princípios de Serviços de Confiança definem sistemas de controle adequados e estabelecem padrões de mercado
 para provedores de serviços, como o IBM Cloud, para proteger os dados de seus clientes e as informações.
 
@@ -67,5 +67,5 @@ ou pelo e-mail
 
 O GDPR busca criar uma estrutura de lei de proteção de dados harmonizados
 em toda a União Europeia e pretende devolver aos cidadãos o controle de seus dados pessoais, enquanto
-impõe regras rígidas sobre aqueles que hospedam e ‘processam’ esses dados, em qualquer lugar no mundo. A regulamentação também introduz regras relativas à livre circulação de dados pessoais dentro e fora da União Europeia. A equipe do {{site.data.keyword.cloudant_short_notm}} está atualmente trabalhando em atividades relacionadas para GDPR e pretende ser
+impõe regras rígidas sobre aqueles que hospedam e ‘processam’ esses dados, em qualquer lugar no mundo. A regulamentação também introduz regras relativas à livre circulação de dados pessoais dentro e fora da UE. A equipe do {{site.data.keyword.cloudant_short_notm}} está atualmente trabalhando em atividades relacionadas para GDPR e pretende ser
 totalmente compatível com o prazo de 25 de maio de 2018.

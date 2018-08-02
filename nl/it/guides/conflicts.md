@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-08-09"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -25,7 +25,7 @@ l'effetto potrebbe essere quello di introdurre disaccordo o "conflitti" su quale
 contenuto corretto e definitivo per il documento.
 
 {{site.data.keyword.cloudantfull}} cerca di aiutarti ad evitare i conflitti avvertendoti di potenziali problemi.
-Per farlo, restituisce una [risposta `409`](http.html#409) a una richiesta di aggiornamento problematica.
+Per farlo, restituisce una [risposta `409`](../api/http.html#http-status-codes) a una richiesta di aggiornamento problematica.
 Tuttavia,
 una risposta `409` potrebbe non essere ricevuta se l'aggiornamento del database è
 richiesto su un sistema che non è attualmente connesso alla rete.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,20 +14,20 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# 建立簡單的 {{site.data.keyword.Bluemix_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：上傳應用程式
+# 建立簡單的 {{site.data.keyword.cloud_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：上傳應用程式
 
-指導教學的這一節說明如何上傳 {{site.data.keyword.Bluemix}} 應用程式。
+指導教學的這一節說明如何上傳 {{site.data.keyword.cloud}} 應用程式。
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## 連接至 {{site.data.keyword.Bluemix_notm}}
+## 連接至 {{site.data.keyword.cloud_notm}}
 
-第一項作業是連接至 {{site.data.keyword.Bluemix_notm}}。
+第一項作業是連接至 {{site.data.keyword.cloud_notm}}。
 
-[{{site.data.keyword.Bluemix_notm}} 工具箱](create_bmxapp_appenv.html#toolkits)可協助您進行連線。
+[{{site.data.keyword.cloud_notm}} 工具箱](create_bmxapp_appenv.html#toolkits)可協助您進行連線。
 
-Cloud Foundry 需要知道用於進行 API 呼叫（例如，當您上傳應用程式時）的 URL。{{site.data.keyword.Bluemix_notm}} 工具箱使用 '`cf api`' 指令來管理 API 端點。[這裡提供了 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window} '`cf api`' 指令的相關資訊。
+Cloud Foundry 需要知道用於進行 API 呼叫（例如，當您上傳應用程式時）的 URL。{{site.data.keyword.cloud_notm}} 工具箱使用 '`cf api`' 指令來管理 API 端點。[這裡提供了 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window} '`cf api`' 指令的相關資訊。
 
 使用下列指令，以告知 Cloud Foundry 要使用的 URL：
 
@@ -52,17 +52,17 @@ Not logged in. Use 'bluemix login' to log in.
 
 Cloud Foundry 現在知道將 API 呼叫傳送到哪裏，以便管理應用程式。
 
-下一步是登入 {{site.data.keyword.Bluemix_notm}} 應用程式環境。您必須提供下列帳戶詳細資料：
+下一步是登入 {{site.data.keyword.cloud_notm}} 應用程式環境。您必須提供下列帳戶詳細資料：
 
 -   您的使用者名稱（其指定為 '`-u`' 參數）。
 -   您的組織名稱（其指定為 '`-o`' 參數）。
 -   您的空間（其指定為 '`-s`' 參數）。
 
 >   **附註**：當您透過 Web 瀏覽器登入時，
-    {{site.data.keyword.Bluemix_notm}} 儀表板上會提供帳戶詳細資料，如下列範例所示：<br/>
-    ![尋找 {{site.data.keyword.Bluemix_notm}} 帳戶詳細資料](images/img0035.png)
+    {{site.data.keyword.cloud_notm}} 儀表板上會提供帳戶詳細資料，如下列範例所示：<br/>
+    ![尋找 {{site.data.keyword.cloud_notm}} 帳戶詳細資料](images/img0035.png)
 
-使用與下列範例類似的指令來登入 {{site.data.keyword.Bluemix_notm}} 應用程式環境。請注意，系統會要求您輸入您的帳戶密碼。
+使用與下列範例類似的指令來登入 {{site.data.keyword.cloud_notm}} 應用程式環境。請注意，系統會要求您輸入您的帳戶密碼。
 
 ```sh
 bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
@@ -93,13 +93,13 @@ Space:          dev
 
 ## 上傳應用程式
 
-{{site.data.keyword.cloudant_short_notm}} Foundry 工具箱現在知道如何連接至 {{site.data.keyword.Bluemix_notm}} 環境。
+{{site.data.keyword.cloudant_short_notm}} Foundry 工具箱現在知道如何連接至 {{site.data.keyword.cloud_notm}} 環境。
 
-下一步是上傳應用程式本身。[資訊清單檔](create_bmxapp_appenv.html#manifest)中提供了 {{site.data.keyword.Bluemix_notm}} 應用程式的詳細資料。
+下一步是上傳應用程式本身。[資訊清單檔](create_bmxapp_appenv.html#manifest)中提供 {{site.data.keyword.cloud_notm}} 應用程式的詳細資料。
 
 已如[這裡](create_bmxapp_createapp.html#essential-files)所述，更新了指導教學應用程式的資訊清單檔。
 
-請使用與下列範例類似的指令來登入，以上傳 {{site.data.keyword.Bluemix_notm}} 應用程式。
+請使用與下列範例類似的指令來登入，以上傳 {{site.data.keyword.cloud_notm}} 應用程式。
 
 ```sh
 cf push "Cloudant Python"
@@ -165,7 +165,7 @@ App {{site.data.keyword.cloudant_short_notm}} Python was started using this comm
 
 應用程式會自動啟動。在啟動期間，會透過評估 [requirements.txt 檔案](create_bmxapp_appenv.html#requirements)的內容，進行檢查以確保符合所有需求。應用程式需要存取 {{site.data.keyword.cloudant_short_notm}} 程式庫，這是在建立應用程式時[指定](create_bmxapp_createapp.html#essential-files)。
 
-在您上傳並啟動應用程式之後，會執行一些簡單的系統檢查，確認對於 {{site.data.keyword.Bluemix_notm}} 而言，應用程式正確地在執行中。
+在您上傳並啟動應用程式之後，會執行一些簡單的系統檢查，確認對於 {{site.data.keyword.cloud_notm}} 而言，應用程式正確地在執行中。
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -186,7 +186,7 @@ buildpack: python 1.5.5
 
 ## 測試範例應用程式
 
-第一次建立「{{site.data.keyword.Bluemix_notm}} 應用程式」環境時，儀表板會在`路徑`直欄中包含應用程式的鏈結：<br/>
+第一次建立「{{site.data.keyword.cloud_notm}} 應用程式」環境時，儀表板會在`路徑`直欄中包含應用程式的鏈結：<br/>
 ![顯示應用程式之儀表板的擷取畫面](images/img0017.png)
 
 按一下鏈結會開啟瀏覽器視窗，以向在對應埠上接聽的應用程式要求一些資料。應用程式會傳回應用程式啟動時所產生日誌檔的內容，以作為回應：<br/>
@@ -199,7 +199,8 @@ buildpack: python 1.5.5
 請先開啟「{{site.data.keyword.cloudant_short_notm}} 儀表板」。在 {{site.data.keyword.cloudant_short_notm}} 服務頁面的`管理`標籤上，按一下`啟動`圖示：<br/>
 ![在 {{site.data.keyword.cloudant_short_notm}} 服務頁面上的「啟動」圖示](images/img0036.png)
 
-> **附註**：若要尋找 {{site.data.keyword.cloudant_short_notm}} 服務頁面，請參閱[「建立 {{site.data.keyword.cloudant_short_notm}} 實例」指導教學](create_service.html#locating-your-service-credentials)中的詳細資料。
+若要尋找 {{site.data.keyword.cloudant_short_notm}} 服務頁面，請參閱[建立 {{site.data.keyword.cloudant_short_notm}} 實例指導教學](create_service.html#locating-your-service-credentials)中的詳細資料。
+{: tip}
 
 儀表板開啟時，您可以看到應用程式已建立 '`databasedemo`' 資料庫：<br/>
 ![顯示新資料庫的「{{site.data.keyword.cloudant_short_notm}} 儀表板」](images/img0031.png)

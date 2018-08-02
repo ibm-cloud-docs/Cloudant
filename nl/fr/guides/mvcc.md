@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -31,7 +31,7 @@ Cette méthode active également la synchronisation entre les noeuds de base de 
 
 ## Révisions
 
-Chaque document d'une base de données {{site.data.keyword.cloudant_short_notm}} a une zone `_rev` indiquant son numéro de révision.
+Chaque document d'une base de données {{site.data.keyword.cloudant_short_notm}} comporte une zone `_rev` indiquant son numéro de révision.
 
 Un numéro de révision est ajouté à vos documents par le serveur lorsque vous les insérez ou les modifiez.
 Ce numéro est inclus dans la réponse du serveur lorsque vous modifiez ou lisez un document.

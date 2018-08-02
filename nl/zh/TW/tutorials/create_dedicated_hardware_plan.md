@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2017-11-07"
 
 本指導教學示範如何使用 {{site.data.keyword.Bluemix}} 儀表板來建立「{{site.data.keyword.cloudantfull}} 專用硬體方案」實例，並示範後續如何佈建一個以上的「標準方案」實例以在其上執行。 
 
-建立「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例會導致在專用硬體上佈建 {{site.data.keyword.cloudant_short_notm}} 環境，以供您單獨使用。會在 {{site.data.keyword.Bluemix_notm}} 儀表板中建立服務實例，但請注意，您無法直接存取「專用硬體方案」實例，而且它沒有任何「服務認證」。在建立 {{site.data.keyword.cloudant_short_notm}}「專用硬體方案」實例之後，您可以透過在其中佈建一個以上「標準方案」實例來使用它。
+建立「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例會導致在專用硬體上佈建 {{site.data.keyword.cloudant_short_notm}} 環境，以供您單獨使用。會在 {{site.data.keyword.Bluemix_notm}} 儀表板中建立服務實例，但請注意，您無法直接存取「專用硬體方案」實例，而且它沒有任何「服務認證」。在建立「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例之後，您可以透過在其中佈建一個以上「標準方案」實例來使用它。
 
 ## 建立 {{site.data.keyword.cloudant_short_notm}} 專用硬體方案實例
 

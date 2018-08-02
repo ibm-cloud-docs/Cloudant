@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Einfache {{site.data.keyword.cloudant_short_notm}}-Datenbank unter {{site.data.keyword.Bluemix_notm}} erstellen und befüllen
+# Einfache {{site.data.keyword.cloudant_short_notm}}-Datenbank unter {{site.data.keyword.cloud_notm}} erstellen und befüllen
 
 In diesem Lernprogramm erfahren Sie, wie Sie die [Python-Programmiersprache ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.python.org/){:new_window} verwenden, um
-eine {{site.data.keyword.cloudantfull}}-Datenbank in Ihrer {{site.data.keyword.Bluemix}}-Serviceinstanz zu erstellen und die Datenbank mit einer einfachen Sammlung von Daten zu befüllen.
+eine {{site.data.keyword.cloudantfull}}-Datenbank in Ihrer {{site.data.keyword.cloud_notm}}-Serviceinstanz zu erstellen und die Datenbank mit einer einfachen Sammlung von Daten zu befüllen.
 {:shortdesc}
 
 ## Voraussetzungen
@@ -43,8 +43,7 @@ Python 2.7.12
 
 ### Python-Clientbibliothek für {{site.data.keyword.cloudant_short_notm}}
 
-Es gibt eine [offiziell unterstützte Bibliothek](../libraries/supported.html#python), um Ihre Python-Anwendungen darin zu unterstützen, mit
-{{site.data.keyword.cloudant_short_notm}} unter {{site.data.keyword.Bluemix_notm}} zu arbeiten.
+Es gibt eine [offiziell unterstützte Bibliothek](../libraries/supported.html#python), um Ihre Python-Anwendungen darin zu unterstützen, mit {{site.data.keyword.cloudant_short_notm}} unter {{site.data.keyword.cloud_notm}} zu arbeiten.
 
 Sie sollten diese Bibliothek mit den [hier](../libraries/supported.html#python) bereitgestellten Anweisungen installieren.
 
@@ -63,7 +62,7 @@ cloudant==2.3.1
 ```
 {:codeblock}
 
-### {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter Bluemix
+### {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.cloud_notm}}
 
 Der Prozess der Erstellung einer passenden Serviceinstanz wird in [diesem Lernprogramm](create_service.html) beschrieben.
 
@@ -84,7 +83,7 @@ Informationen zum Suchen nach den Berechtigungsnachweisen für Ihre Serviceinsta
 
 In diesem Lernprogramm wird eine Serie von Python-Sprachanweisungen erstellt, passend für die folgenden Tasks:
 
-1.  [Verbindung mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.Bluemix_notm}}](#connecting-to-a-cloudant-service-instance-on-bluemix) herstellen.
+1.  [Verbindung mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.cloud}}](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud) herstellen.
 2.  [Datenbank in der Serviceinstanz erstellen](#creating-a-database-within-the-service-instance).
 3.  [Kleine Sammlung von Daten in Form von Dokumenten in der Datenbank speichern](#storing-a-small-collection-of-data-as-documents-within-the-database).
 4.  [Vollständige Liste der Dokumente abrufen](#retrieving-a-complete-list-of-the-documents).
@@ -105,7 +104,7 @@ Wir zeigen hier zwar einige Beispielprüfungen, um bestimmte Techniken zu erläu
 aber Sie sollten Ihre üblichen Best Practices einsetzen, um Warnungen oder Fehlerbedingungen zu prüfen
 und zu verarbeiten, die in Ihren Anwendungen auftreten. 
 
-## Verbindung mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.Bluemix_notm}} herstellen
+## Verbindung mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.cloud_notm}} herstellen
 
 Eine Python-Anwendung setzt voraus, dass die {{site.data.keyword.cloudant_short_notm}}-Clientbibliothekskomponenten eine Verbindung zur Serviceinstanz herstellen können.
 Diese Komponenten sind normale `import`-Anweisungen:
@@ -126,12 +125,13 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **Hinweis**: Die hier dargestellten Serviceberechtigungsnachweise
-    wurden definiert, als ein {{site.data.keyword.cloudant_short_notm}}-Service zu Demonstrationszwecken unter Bluemix erstellt wurde.
+Die hier dargestellten Serviceberechtigungsnachweise
+    wurden definiert, als ein {{site.data.keyword.cloudant_short_notm}}-Service zu Demonstrationszwecken unter {{site.data.keyword.cloud_notm}} erstellt wurde.
     Die Berechtigungsnachweise werden hier reproduziert, um zu zeigen, wie sie in einer Python-Anwendung verwendet würden.
     Der {{site.data.keyword.cloudant_short_notm}}-Service zu Demonstrationszwecken wurde inzwischen entfernt,
     deshalb werden diese Berechtigungsnachweise nicht funktionieren. Sie
     _müssen_ Ihre eigenen Serviceberechtigungsnachweise angaben und verwenden.
+{: tip}
 
 Sobald Sie die Python-Clientbibliothek in Ihrer Anwendung aktiviert
 und die Serviceberechtigungsnachweise angegeben haben, können Sie eine Verbindung mit der Serviceinstanz einrichten:
@@ -142,7 +142,7 @@ client.connect()
 ```
 {:codeblock}
 
-Zu diesem Zeitpunkt hat Ihre Python-Anwendung Zugriff auf die Serviceinstanz unter Bluemix.
+Zu diesem Zeitpunkt hat Ihre Python-Anwendung Zugriff auf die Serviceinstanz unter {{site.data.keyword.cloud_notm}}.
 
 ## Datenbank in der Serviceinstanz erstellen
 
@@ -258,11 +258,12 @@ Das Ergebnis entspricht dem folgenden Beispiel:
 ```
 {:codeblock}
 
->   **Hinweis**: Das Wesen von NoSQL-Datenbanken
+Das Wesen von NoSQL-Datenbanken
     wie {{site.data.keyword.cloudant_short_notm}} bedeutet, dass einfache
     Grundsätze wie 'das erste in einer Datenbank gespeicherte Dokument ist immer
     das erste zurückgegebene Dokument in einer Ergebnisliste' nicht zwangsläufig
     zutreffen.
+{: tip}
 
 ### Vollständiger Abruf eines Dokuments
 
@@ -408,9 +409,7 @@ client.disconnect()
 
 ## Vollständige Liste
 
-Der folgende Code ist ein vollständiges Python-Programm für den Zugriff auf eine
-{{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.Bluemix_notm}} und
-für das Ausführen einer typischen Serie von Tasks:
+Der folgende Code ist ein vollständiges Python-Programm für den Zugriff auf eine {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.cloud_notm}} und für das Ausführen einer typischen Serie von Tasks:
 
 1.  Verbindung mit der Serviceinstanz herstellen.
 2.  Datenbank in der Serviceinstanz erstellen.

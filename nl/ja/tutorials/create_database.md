@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# {{site.data.keyword.Bluemix_notm}} での単純 {{site.data.keyword.cloudant_short_notm}} データベースの作成とデータ取り込み
+# {{site.data.keyword.cloud_notm}} での単純 {{site.data.keyword.cloudant_short_notm}} データベースの作成とデータ取り込み
 
-このチュートリアルでは、[Python プログラミング言語 ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://www.python.org/){:new_window}
-を使用して、{{site.data.keyword.Bluemix}} サービス・インスタンスに {{site.data.keyword.cloudantfull}} データベースを作成し、
+このチュートリアルでは、[Python プログラミング言語 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){:new_window}
+を使用して、{{site.data.keyword.cloud_notm}} サービス・インスタンスに {{site.data.keyword.cloudantfull}} データベースを作成し、
 データベースに単純なデータ・コレクションを取り込む方法を示しています。
 {:shortdesc}
 
@@ -25,7 +25,7 @@ lastupdated: "2017-11-07"
 
 ### Python
 
-[Python プログラミング言語 ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://www.python.org/){:new_window}
+[Python プログラミング言語 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){:new_window}
 の現行インストール済み環境がシステムにインストールされていなければなりません。
 
 これを確認するには、プロンプトで以下のコマンドを実行します。
@@ -44,7 +44,7 @@ Python 2.7.12
 
 ### {{site.data.keyword.cloudant_short_notm}} の Python クライアント・ライブラリー
 
-Python アプリケーションが {{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}}
+Python アプリケーションが {{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloudant_short_notm}}
 と動作するための[公式サポート・ライブラリー](../libraries/supported.html#python)があります。
 
 [ここ](../libraries/supported.html#python)に示された手順を使用して、これをインストールしてください。
@@ -64,7 +64,7 @@ cloudant==2.3.1
 ```
 {:codeblock}
 
-### Bluemix 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンス
+### {{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンス
 
 適切なサービス・インスタンスを作成するためのプロセスについては、[別のチュートリアル](create_service.html)に説明があります。
 
@@ -75,7 +75,7 @@ cloudant==2.3.1
 `host`     | アプリケーションがサービス・インスタンスを検索するために使用するホスト名。
 `username` | アプリケーションがサービス・インスタンスにアクセスするために必要なユーザー名。
 `password` | アプリケーションがサービス・インスタンスにアクセスするために必要なパスワード。
-`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。 通常、443 で HTTPS アクセスを強制します。
+`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。通常、443 で HTTPS アクセスを強制します。
 `url`      | その他の資格情報を単一の URL に集約したストリング。アプリケーションによる使用に適しています。
 
 サービス・インスタンスのサービス資格情報の検索に関する情報は、
@@ -85,7 +85,7 @@ cloudant==2.3.1
 
 このチュートリアルでは、以下のタスクに適した一連の Python 言語命令を構築します。
 
-1.  [{{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスへの接続](#connecting-to-a-cloudant-service-instance-on-bluemix)。
+1.  [{{site.data.keyword.cloud}}](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud) 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスへの接続。
 2.  [サービス・インスタンス内のデータベースの作成](#creating-a-database-within-the-service-instance)。
 3.  [小さなデータ・コレクションをデータベース内の文書として保管](#storing-a-small-collection-of-data-as-documents-within-the-database)。
 4.  [文書の全リストを取得](#retrieving-a-complete-list-of-the-documents)。
@@ -103,7 +103,7 @@ cloudant==2.3.1
 手法を示すためにサンプルのチェックがいくつか以下に示されていますが、
 アプリケーションで発生する警告やエラー条件すべてをチェックして処理する通常のベスト・プラクティスを適用してください。 
 
-## {{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスへの接続
+## {{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスへの接続
 
 {{site.data.keyword.cloudant_short_notm}} クライアント・ライブラリー・コンポーネントがサービス・インスタンスに接続可能であることが、Python アプリケーションによって要求されます。
 これらのコンポーネントは、以下のように通常の `import` ステートメントとして指定されます。
@@ -124,13 +124,14 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **注**: ここで例に示したサービス資格情報は、
-    デモの {{site.data.keyword.cloudant_short_notm}} サービスが Bluemix で作成されたときに定義されたものです。
+ここで例に示したサービス資格情報は、
+    デモの {{site.data.keyword.cloudant_short_notm}} サービスが {{site.data.keyword.cloud_notm}} で作成されたときに定義されたものです。
     これらの資格情報は、Python アプリケーション内でどう使用されるかを示すためにここで再現されています。
     しかし、
     デモの {{site.data.keyword.cloudant_short_notm}} サービスはもう削除されているため、
     これらの資格情報は有効ではありません。
     _必ず_、ご自分のサービス資格情報を提供して使用してください。
+{: tip}
 
 アプリケーション内で Python クライアント・ライブラリーを有効にして、サービス資格情報を識別したら、
 サービス・インスタンスへの接続を確立できます。
@@ -142,7 +143,7 @@ client.connect()
 {:codeblock}
 
 この時点で、
-Python アプリケーションは、Bluemix 上のサービス・インスタンスにアクセスできます。
+Python アプリケーションは、{{site.data.keyword.cloud_notm}} 上のサービス・インスタンスにアクセスできます。
 
 ## サービス・インスタンス内でのデータベースの作成
 
@@ -257,8 +258,9 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
->   **注**: {{site.data.keyword.cloudant_short_notm}} などの NoSQL データベースの
+{{site.data.keyword.cloudant_short_notm}} などの NoSQL データベースの
     性質上、データベースに保管された最初の文書が結果リストで常に最初に戻されるという単純な概念は、必ずしも当てはまりません。
+{: tip}
 
 ### 文書の全取得
 
@@ -397,7 +399,7 @@ client.disconnect()
 
 ## 全プログラムの表示
 
-以下のコードは、{{site.data.keyword.Bluemix_notm}} 上の
+以下のコードは、{{site.data.keyword.cloud_notm}} 上の
 {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスにアクセスして、一般的な一連のタスクを実行するための完全な Python プログラムです。
 
 1.  サービス・インスタンスへの接続。
@@ -437,7 +439,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
+# Use the {{site.data.keyword.cloudant_short_notm}} library to create an {{site.data.keyword.cloudant_short_notm}} client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -500,7 +502,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
+# Use an {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

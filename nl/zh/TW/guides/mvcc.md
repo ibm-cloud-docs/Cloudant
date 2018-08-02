@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2017-11-06"
 
 因為 {{site.data.keyword.cloudant_short_notm}} 資料庫[最終會一致](cap_theorem.html)，所以這是必要項目，可防止因過期文件之間的同步化而導致節點之間造成不一致。
 
-多版本並行控制 (MVCC) 會啟用 {{site.data.keyword.cloudant_short_notm}} 資料庫的並行讀取及寫入權。
+「多版本並行控制 (MVCC)」會啟用 {{site.data.keyword.cloudant_short_notm}} 資料庫的並行讀取及寫入權。
 MVCC 是某種形式的[樂觀併行 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}。它會在 {{site.data.keyword.cloudant_short_notm}} 資料庫上進行更快速的讀取及寫入作業，因為不需要對讀取或寫入作業進行資料庫鎖定。
 MVCC 也會在 {{site.data.keyword.cloudant_short_notm}} 資料庫節點之間啟用同步化。
 

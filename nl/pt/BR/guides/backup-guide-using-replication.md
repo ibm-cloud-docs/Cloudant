@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -26,7 +26,7 @@ Os backups de banco de dados protegem seus dados contra perda ou danos em potenc
 {:shortdesc}
 
 É possível usar o recurso de replicação do {{site.data.keyword.cloudant_short_notm}} para criar um backup de banco de dados
-e armazená-lo em um cluster do {{site.data.keyword.cloudant_short_notm}}.
+e armazená-los em um cluster do {{site.data.keyword.cloudant_short_notm}}.
 Será possível, em seguida, restaurar dados,
 bancos de dados inteiros
 ou documentos JSON específicos
@@ -101,11 +101,9 @@ e `$DATABASE` é o nome da origem ou do banco de dados de destino.
 mas pode existir apenas em um.
 3.  Procure o campo `recorded_seq` do primeiro elemento
 na matriz do histórico localizada no documento de ponto de verificação.
-4.  Replique no novo banco de dados de backup incremental,
-configurando o [campo `since_seq`](../api/replication.html#the-since_seq-field)
-no documento de replicação para o valor
-do [campo `recorded_seq`](backup-guide.html#get-the-recorded_seq-value)
-localizado na etapa anterior.
+4.  Replique para o novo banco de dados de backup incremental,
+configurando o campo [`since_seq`](../api/replication.html#the-since_seq-field)
+no documento de replicação com o valor do campo `recorded_seq` localizado na etapa anterior.
 
 >   **Nota**: por definição, o uso da opção `since_seq` ignora o recurso de ponto de verificação normal. Somente use `since_seq` com cuidado. 
 
@@ -503,6 +501,7 @@ Certifique-se de que suas tarefas de replicação não iniciem no mesmo horário
 ## Precisa de ajuda?
 
 Replicação e backups podem ser complicados.
-Se você tiver problemas,
-verifique o [guia de replicação](replication_guide.html)
-ou entre em contato com a equipe de suporte [IBM {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.
+Se você tiver dificuldades,
+confira o [Guia de replicação](replication_guide.html)
+ou entre em contato com a
+[equipe de suporte do {{site.data.keyword.cloudant_short_notm}}![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.

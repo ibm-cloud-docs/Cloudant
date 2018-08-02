@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -18,8 +18,7 @@ lastupdated: "2017-11-07"
 그리고 애플리케이션이 데이터베이스와 함께 작동하도록 설정하는 데 필요한 필수 정보를 찾을 수 있는 위치를 보여줍니다.
 {:shortdesc}
 
-{{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 액세스하려면 [서비스 신임 정보](#the-service-credentials) 세트가 있어야 합니다.
-이 신임 정보는 서비스 인스턴스 작성 시 프로세스의 일부로서 생성됩니다.
+{{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 액세스하려면 [서비스 신임 정보](#the-service-credentials) 세트가 있어야 합니다. 이 신임 정보는 서비스 인스턴스 작성 시 프로세스의 일부로서 생성됩니다.
 
 {{site.data.keyword.cloudant_short_notm}} 계정에 액세스하여 언제든지 이러한 신임 정보를 찾아볼 수 있습니다.
 
@@ -70,8 +69,6 @@ lastupdated: "2017-11-07"
     따라서 이들 신임 정보는 더 이상 유효하지 않습니다. 사용자는
     _반드시_ 자신의 서비스 신임 정보를 제공하여 사용해야 합니다.
 
-
-
 ## 서비스 신임 정보
 
 >   **참고**: 서비스 신임 정보는 중요한 정보입니다.
@@ -82,13 +79,13 @@ lastupdated: "2017-11-07"
 
 서비스 신임 정보는 다섯 개의 필드로 구성됩니다.
 
-필드      | 용도
+필드      |용도
 -----------|--------
-`host`     | 애플리케이션이 서비스 인스턴스를 찾는 데 사용하는 호스트 이름입니다.
-`username` | 애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 사용자 이름입니다.
-`password` | 애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 비밀번호입니다.
-`port`     | 호스트의 서비스 인스턴스에 액세스하는 데 필요한 HTTP 포트 번호입니다. 보통 HTTPS 액세스를 강제하려는 경우에는 443이 사용됩니다.
-`url`      | 애플리케이션에서 사용하기에 적합하도록 기타 신임 정보를 하나의 URL로 통합하는 문자열입니다.
+`host`     |애플리케이션이 서비스 인스턴스를 찾는 데 사용하는 호스트 이름입니다.
+`username` |애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 사용자 이름입니다.
+`password` |애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 비밀번호입니다.
+`port`     |호스트의 서비스 인스턴스에 액세스하는 데 필요한 HTTP 포트 번호입니다. 보통 HTTPS 액세스를 강제하려는 경우에는 443이 사용됩니다.
+`url`      |애플리케이션에서 사용하기에 적합하도록 기타 신임 정보를 하나의 URL로 통합하는 문자열입니다.
 
 사용자의 서비스 인스턴스에 액세스할 수 있는 애플리케이션을 작성하려면 이러한 신임 정보가 필요합니다.
 
@@ -96,7 +93,8 @@ lastupdated: "2017-11-07"
 
 사용자는 언제든지 계정과 연관된 서비스의 신임 정보를 찾아볼 수 있습니다.
 
-1.  먼저 {{site.data.keyword.cloudant_short_notm}}에 로그인하십시오. {{site.data.keyword.Bluemix}} 대시보드는
+1.  먼저 {{site.data.keyword.cloudant_short_notm}}에 로그인하십시오.
+    {{site.data.keyword.Bluemix}} 대시보드는
     [http://bluemix.net ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://bluemix.net){:new_window}에 있습니다.
     사용자 이름 및 비밀번호를 사용하여 인증하면 {{site.data.keyword.Bluemix_notm}} 대시보드가 표시됩니다.<br/>
     ![{{site.data.keyword.Bluemix_notm}} 대시보드](images/img0001.png)

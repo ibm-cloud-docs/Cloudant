@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,34 +14,34 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Criando um aplicativo {{site.data.keyword.Bluemix_notm}} simples para acessar um banco de dados {{site.data.keyword.cloudant_short_notm}}: o ambiente de aplicativo
+# Criando um aplicativo {{site.data.keyword.cloud_notm}} simples para acessar um banco de dados do {{site.data.keyword.cloudant_short_notm}}: o ambiente de aplicativos
 
 Esta seção do tutorial descreve como configurar o ambiente de aplicativos que deve-se ter
-para criar um aplicativo {{site.data.keyword.Bluemix}}.
+para criar um aplicativo {{site.data.keyword.cloud}}.
 {:shortdesc}
 
 <div id="creating"></div>
 
-## Criando um ambiente de aplicativos do Bluemix
+## Criando um ambiente de aplicativos do {{site.data.keyword.cloud_notm}}
 
-1.  Efetue login em sua conta do {{site.data.keyword.Bluemix_notm}}.
-    O painel do {{site.data.keyword.Bluemix_notm}} pode ser localizado em:
+1.  Efetue login em sua conta do {{site.data.keyword.cloud_notm}}.
+    O painel do {{site.data.keyword.cloud_notm}} pode ser localizado em:
 [http://bluemix.net ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://bluemix.net){:new_window}.
     Após a autenticação com seu nome de usuário e senha,
-o painel do {{site.data.keyword.Bluemix_notm}} aparece:<br/>
-    ![Painel do {{site.data.keyword.Bluemix_notm}}](images/img0001.png)
+o painel do {{site.data.keyword.cloud_notm}} aparece:<br/>
+    ![Painel do {{site.data.keyword.cloud_notm}}](images/img0001.png)
 
 2.  Clique no link '`Catalog`':<br/>
-    ![Link do catálogo do {{site.data.keyword.Bluemix_notm}}](images/img0002.png)<br/>
-    Aparece uma lista dos serviços disponíveis no {{site.data.keyword.Bluemix_notm}}.
+    ![Link de catálogo do {{site.data.keyword.cloud_notm}}](images/img0002.png)<br/>
+    Aparece uma lista dos serviços disponíveis no {{site.data.keyword.cloud_notm}}.
 
 3.  Clique na entrada '`Cloud Foundry Apps`' sob o título `Apps`:<br/>
-    ![Apps Cloud Foundry do {{site.data.keyword.Bluemix_notm}}](images/img0012.png)<br/>
+    ![Aplicativos Cloud Foundry do {{site.data.keyword.cloud_notm}}](images/img0012.png)<br/>
     Aparece uma lista dos aplicativos Cloud Foundry
-disponíveis no {{site.data.keyword.Bluemix_notm}}.
+    disponíveis no {{site.data.keyword.cloud_notm}}.
 
 4.  Clique na entrada '`Python`':<br/>
-    ![App Python Cloud Foundry do {{site.data.keyword.Bluemix_notm}}](images/img0013.png)<br/>
+    ![Aplicativo Python Cloud Foundry do {{site.data.keyword.cloud_notm}}](images/img0013.png)<br/>
     Aparece um formulário '`Create a Cloud Foundry App`'.
 
 5.  Use o formulário '`Create a Cloud Foundry App`' para  especificar e criar o ambiente
@@ -50,11 +50,11 @@ para seu aplicativo Python Cloud Foundry.
 por exemplo, '`Cloudant Python`'.
     O nome do host é gerado para você automaticamente,
 embora seja possível customizá-lo:<br/>
-    ![Nomes dos apps Python Cloud Foundry do {{site.data.keyword.Bluemix_notm}}](images/img0014.png)<br/>
-    >   **Nota**: o nome do host deve ser exclusivo no domínio do {{site.data.keyword.Bluemix_notm}}. Neste exemplo, o domínio é '`mybluemix.net`', fornecendo um nome completo do host de '`Cloudant-Python.mybluemix.net`'.
+    ![Nomes de aplicativos Python Cloud Foundry do {{site.data.keyword.cloud_notm}}](images/img0014.png)<br/>
+    >   **Nota**: o nome do host deve ser exclusivo no domínio do {{site.data.keyword.cloud_notm}}. Neste exemplo, o domínio é '`mybluemix.net`', fornecendo um nome completo do host de '`Cloudant-Python.mybluemix.net`'.
 
 6.  Clique em '`Create`' para criar o ambiente de aplicativos:<br/>
-    ![Criar o app Python Cloud Foundry do {{site.data.keyword.Bluemix_notm}}](images/img0015.png)
+    ![Criar o aplicativo Python Cloud Foundry do {{site.data.keyword.cloud_notm}}](images/img0015.png)
 
 7.  Após uma curta pausa, a
 janela '`Getting Started`' para seu novo ambiente de aplicativos aparece.
@@ -63,36 +63,36 @@ janela '`Getting Started`' para seu novo ambiente de aplicativos aparece.
 conforme mostrado pelo ícone verde e o status `Your app is running`.
     O aplicativo é um programa 'pulsação',
 suficiente para mostrar que o novo ambiente de aplicativos está pronto para você usar.
-    Clique no link `Dashboard`' para retornar para o painel de sua conta do {{site.data.keyword.Bluemix_notm}}.<br/>
-    ![O novo app Python Cloud Foundry do {{site.data.keyword.Bluemix_notm}} pela primeira vez](images/img0016.png)
+    Clique no link `Dashboard`' para retornar para o painel de sua conta do {{site.data.keyword.cloud_notm}}.<br/>
+    ![O novo app Python Cloud Foundry do {{site.data.keyword.cloud_notm}} pela primeira vez](images/img0016.png)
 
 8.  Seu painel agora inclui o ambiente de aplicativos recém-criado:<br/>
-    ![O app Python Cloud Foundry básico do {{site.data.keyword.Bluemix_notm}} aparecendo no painel](images/img0017.png)
+    ![O app Python Cloud Foundry básico do {{site.data.keyword.cloud_notm}} aparecendo no painel](images/img0017.png)
 
-Agora você tem um ambiente de aplicativos do Python do {{site.data.keyword.Bluemix_notm}}
+Agora você tem um ambiente de aplicativos do Python do {{site.data.keyword.cloud_notm}},
 pronto para uso.
 
 Para trabalhar com uma instância de banco de dados do {{site.data.keyword.cloudant_short_notm}},
-a próxima etapa será criar uma 'conexão' entre o ambiente de aplicativos e a instância de banco de dados.
+a próxima etapa é criar uma 'conexão' entre o ambiente de aplicativos e a instância de banco de dados.
 
 <div id="connecting"></div>
 
-## Conectando aplicativos e serviços do Bluemix
+## Conectando aplicativos e serviços do {{site.data.keyword.cloud_notm}}
 
 Esta seção do tutorial explica como você conecta
-ambientes de aplicativos e serviços do {{site.data.keyword.Bluemix_notm}} usando
+ambientes de aplicativos e serviços do {{site.data.keyword.cloud_notm}} usando
 a área de configuração e gerenciamento de seu aplicativo.
 
-1.  No painel do {{site.data.keyword.Bluemix_notm}},
+1.  No painel do {{site.data.keyword.cloud_notm}},
 clique na entrada de seu aplicativo.<br/>
-    ![Selecionando seu aplicativo no painel do {{site.data.keyword.Bluemix_notm}}](images/img0018.png)<br/>
+    ![Selecionando seu aplicativo no painel do {{site.data.keyword.cloud_notm}}](images/img0018.png)<br/>
     >   **Nota**: evite a coluna '`Route`', pois clicar no link que está associado a seu aplicativo chama o aplicativo em vez de levá-lo para a área de configuração. Um local melhor para clicar é no nome de seu aplicativo.
 
     Aparece a área de visão geral de configuração e gerenciamento para seu aplicativo.
 
 2.  Para conectar o ambiente de aplicativos a outro serviço,
 clique no link '`Connections`':<br/>
-    ![Selecionando a configuração de conexão para seu aplicativo {{site.data.keyword.Bluemix_notm}}](images/img0019.png)<br/>
+    ![Selecionando a configuração de conexão para seu aplicativo {{site.data.keyword.cloud_notm}}](images/img0019.png)<br/>
     Aparece uma área para configurar uma conexão entre seu aplicativo e quaisquer outros serviços disponíveis em sua conta.
 
 3.  Um [pré-requisito](create_bmxapp_prereq.html#prerequisites) para esse tutorial é uma
@@ -122,16 +122,16 @@ que também força um aplicativo em execução a parar.
 
 O ambiente de aplicativos e a instância de banco de dados estão agora conectados.
 A próxima etapa é assegurar-se de que as ferramentas necessárias estejam instaladas para você
-trabalhar com aplicativos {{site.data.keyword.Bluemix_notm}}.
+trabalhar com aplicativos {{site.data.keyword.cloud_notm}}.
 
 <div id="toolkits"></div>
 
-## O Cloud Foundry e os kits de ferramentas de comandos do {{site.data.keyword.Bluemix_notm}}
+## Os kits de ferramentas de comandos do Cloud Foundry e {{site.data.keyword.cloud_notm}}
 
 Esta seção do tutorial descreve os kits de ferramentas que devem ser instalados para funcionar com
 seu ambiente,
 aplicativos
-e serviços do {{site.data.keyword.Bluemix_notm}}.
+e serviços do {{site.data.keyword.cloud_notm}}.
 
 O kit de ferramentas do [Cloud Foundry ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window}
 é uma coleção de ferramentas para trabalhar com aplicativos que são
@@ -139,11 +139,11 @@ implementados em um ambiente compatível com o Cloud Foundry.
 Use essas ferramentas para tarefas como a atualização de um aplicativo implementado
 ou para iniciar e parar um aplicativo em execução.
 
-O kit de ferramentas do {{site.data.keyword.Bluemix_notm}} fornece recursos extras
-que são necessários para trabalhar com aplicativos hospedados e em execução em um ambiente do {{site.data.keyword.Bluemix_notm}}.
+O kit de ferramentas do {{site.data.keyword.cloud_notm}} fornece recursos extras,
+que são necessários para trabalhar com aplicativos hospedados e em execução em um ambiente do {{site.data.keyword.cloud_notm}}.
 
 > **Nota**: assegure-se de instalar os kits de ferramentas do Cloud Foundry _e_
-do {{site.data.keyword.Bluemix_notm}}.
+do {{site.data.keyword.cloud_notm}}.
 
 Fazer download e instalar os kits de ferramentas é uma tarefa única.
 Se os kits de ferramentas já estiverem instalados e funcionando em seu sistema,
@@ -151,13 +151,13 @@ não será necessário fazer download deles novamente,
 a menos que sejam atualizados.
 
 Informações gerais sobre os kits de ferramentas estão disponíveis
-[aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/docs/cli/index.html){:new_window}.
+[aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](../getting-started.html#getting-started-with-cloudant){:new_window}.
 
 ### Instalando o kit de ferramentas do Cloud Foundry
 
 Algumas distribuições do sistema operacional possuem uma versão do kit de ferramentas do Cloud Foundry já disponível.
 Se a versão suportada for 6.11 ou superior,
-ela será compatível com o {{site.data.keyword.Bluemix_notm}} e poderá ser usada.
+ela será compatível com o {{site.data.keyword.cloud_notm}} e poderá ser usada.
 É possível verificar qual versão está instalada, executando [este teste](#checkCFversion).
 
 Como alternativa,
@@ -188,28 +188,28 @@ execute o comando a seguir em um prompt:
     ```
     {:codeblock}
     
-    >   **Nota**: a versão do kit de ferramentas do Cloud Foundry deverá ser 6.11 ou mais recente para compatibilidade com o {{site.data.keyword.Bluemix_notm}}.
+    >   **Nota**: a versão do kit de ferramentas do Cloud Foundry deverá ser 6.11 ou mais recente para compatibilidade com o {{site.data.keyword.cloud_notm}}.
 
-### Instalando o kit de ferramentas do Bluemix
+### Instalando o kit de ferramentas do {{site.data.keyword.cloud_notm}}
 
-Use as etapas a seguir para fazer download e instalar o kit de ferramentas do {{site.data.keyword.Bluemix_notm}} em seu sistema.
+Use as etapas a seguir para fazer download e instalar o kit de ferramentas do {{site.data.keyword.cloud_notm}} em seu sistema.
 
-1.  Um link para fazer download do kit de ferramentas do {{site.data.keyword.Bluemix_notm}} está disponível
-na janela '`Getting started`' de seu aplicativo:<br/>
+1.  Um link para fazer download do kit de ferramentas do {{site.data.keyword.cloud_notm}} está disponível
+na janela '`Introdução`' de seu aplicativo:<br/>
     ![Um link para fazer download do kit de ferramentas do Cloud Foundry](images/img0027.png)
 
-2.  Clicar no link leva você para uma
-[página de download ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://clis.ng.bluemix.net/ui/home.html){:new_window}:<br/>
-    ![A página de download do kit de ferramentas do Bluemix](images/img0028.png)
+2.  Clicar no link leva você para uma [página de download ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window}:<br/>
+    ![A página de download do kit de ferramentas do {{site.data.keyword.cloud_notm}}](images/img0028.png)
+
 
 3.  Faça download e execute o instalador apropriado para seu sistema.
 
     O instalador verifica para assegurar que você tenha uma versão adequada do kit de ferramentas do Cloud Foundry instalada.
     Se tudo estiver correto,
-o kit de ferramentas do {{site.data.keyword.Bluemix_notm}} será instalado em seu sistema.
+o kit de ferramentas do {{site.data.keyword.cloud_notm}} será instalado em seu sistema.
 
-4.  Para verificar se você tem um kit de ferramentas operacional no {{site.data.keyword.Bluemix_notm}},
-execute o comando a seguir em um prompt:
+4.  Para verificar se você tem um kit de ferramentas funcional do {{site.data.keyword.cloud_notm}},
+    execute o comando a seguir em um prompt:
     
     ```sh
     bluemix --version
@@ -223,28 +223,27 @@ execute o comando a seguir em um prompt:
     ```
     {:codeblock}
     
-As ferramentas que funcionarão com os aplicativos {{site.data.keyword.Bluemix_notm}} estão agora disponíveis.
+As ferramentas que funcionarão com os aplicativos {{site.data.keyword.cloud_notm}} estão agora disponíveis.
 A próxima etapa é obter os materiais 'iniciadores' para ajudá-lo a criar
-um aplicativo {{site.data.keyword.Bluemix_notm}}.
+um aplicativo {{site.data.keyword.cloud_notm}}.
 
 <div id="starter"></div>
 
 ## O aplicativo 'iniciador'
 
-Esta seção do tutorial descreve um aplicativo iniciador do {{site.data.keyword.Bluemix_notm}}
-e explica
-como customizá-lo para acessar
-uma instância de banco de dados do {{site.data.keyword.cloudant_short_notm}}.
+Essa seção do tutorial descreve um aplicativo iniciador do {{site.data.keyword.cloud_notm}}
+e explica como customizá-lo para acessar
+uma instância de banco de dados do
+{{site.data.keyword.cloudant_short_notm}}.
 
-Um aplicativo iniciador do {{site.data.keyword.Bluemix_notm}} é a coleção mínima possível
-de arquivos de origem e de configuração
-necessários para criar um aplicativo operacional do {{site.data.keyword.Bluemix_notm}}.
+Um aplicativo iniciador do {{site.data.keyword.cloud_notm}} é a coleção mínima possível
+de arquivos de origem e de configuração necessários
+para criar um aplicativo funcional do {{site.data.keyword.cloud_notm}}.
 Em alguns aspectos,
 é semelhante a um [aplicativo 'Hello World' ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){:new_window};
 suficiente apenas para mostrar que o sistema básico e a configuração estão funcionando corretamente.
 
-Um aplicativo iniciador do {{site.data.keyword.Bluemix_notm}} é um archive de arquivos de exemplo que
-deve ser modificado ou ampliado, conforme você desenvolve seu aplicativo {{site.data.keyword.Bluemix_notm}}.
+Um aplicativo iniciador do {{site.data.keyword.cloud_notm}} é um archive de arquivos de exemplo que deve ser modificado ou estendido à medida que você desenvolve seu aplicativo {{site.data.keyword.cloud_notm}}.
 
 Três arquivos especificamente são essenciais:
 
@@ -257,7 +256,7 @@ Três arquivos especificamente são essenciais:
 ### O arquivo '`Procfile`'
 
 O '`Procfile`' contém os detalhes
-que o {{site.data.keyword.Bluemix_notm}} precisa para executar seu aplicativo.
+que o {{site.data.keyword.cloud_notm}} precisa para executar seu aplicativo.
 
 Mais especificamente,
 um '`Procfile`' é um artefato do Cloud Foundry que
@@ -266,7 +265,7 @@ e o comando para executar o aplicativo.
 Mais informações sobre o '`Procfile`' estão disponíveis
 [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){:new_window}.
 
-O '`Procfile`' para um aplicativo iniciador Python do {{site.data.keyword.Bluemix_notm}}
+O '`Procfile`' para um aplicativo iniciador do Python do {{site.data.keyword.cloud_notm}}
 é semelhante ao exemplo a seguir:
 
 ```
@@ -296,7 +295,7 @@ atualize o '`Procfile`' para que o novo arquivo seja usado quando seu aplicativo
 O arquivo '`manifest.yml`' é uma descrição completa do aplicativo
 e do ambiente que ele requer para ser executado.
 
-O arquivo para um aplicativo iniciador Python do {{site.data.keyword.Bluemix_notm}} é semelhante ao exemplo a seguir:
+O arquivo para um aplicativo iniciador do Python do {{site.data.keyword.cloud_notm}} é semelhante ao exemplo a seguir:
 
 ```
 applications:
@@ -317,7 +316,7 @@ Três pontos são dignos de nota:
 -   Os valores '`domain`',
 '`name`'
 e '`host`' correspondiam aos valores inseridos quando
-o aplicativo {{site.data.keyword.Bluemix_notm}} era [criado](#creating).
+o aplicativo {{site.data.keyword.cloud_notm}} era [criado](#creating).
 -   O valor '`name`' é usado pelo kit de ferramentas do Cloud Foundry para identificar o aplicativo que você está administrando.
 -   O valor '`services`' confirma que a instância de banco de dados '`Cloudant Service 2017`'
 do {{site.data.keyword.cloudant_short_notm}} está conectada ao ambiente de aplicativos.
@@ -334,8 +333,7 @@ O arquivo '`requirements.txt`' especifica quaisquer componentes adicionais que s
 No aplicativo iniciador,
 o arquivo '`requirements.txt`' está vazio.
 
-No entanto,
-neste tutorial, o aplicativo Python acessa uma
+No entanto, neste tutorial o aplicativo Python acessa uma
 instância de banco de dados do {{site.data.keyword.cloudant_short_notm}}.
 Portanto,
 o aplicativo deve ser capaz de usar a

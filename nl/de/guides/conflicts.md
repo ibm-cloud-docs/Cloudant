@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-08-09"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -24,7 +24,7 @@ vorgenommen werden, kann dies zu abweichenden Einschätzungen (Konflikten) führ
 Kopie den aktuellen und gültigen Inhalt des Dokuments enthält.
 
 {{site.data.keyword.cloudantfull}} unterstützt die Vermeidung von Konflikten durch Warnungen vor potenziellen Problemen.
-Zu diesem Zweck wird eine [Antwort `409`](http.html#409) für eine problematische Aktualisierungsanforderung zurückgegeben.
+Zu diesem Zweck wird die Antwort [`409`](../api/http.html#http-status-codes) für eine problematische Aktualisierungsanforderung zurückgegeben.
 Eine solche Antwort `409` wird jedoch möglicherweise nicht empfangen, wenn die Datenbankaktualisierung in
 einem System angefordert wird, das gegenwärtig nicht mit dem Netz verbunden ist.
 Wenn sich die Datenbank beispielsweise auf einem mobilen Gerät befindet, das vorübergehend

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-05-24"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2018-02-15"
 # Cloudant.com
 
 > **Nota**: El plan compartido de {{site.data.keyword.cloudantfull}} se retirará el 31 de marzo de 2018. 
-A partir del 24 de julio de 2017, no se podrán crear cuentas de plan compartido nuevas en [https://cloudant.com/ ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/){:new_window}. 
+A partir del 24 de julio de 2017, no se podrán crear cuentas de plan compartido nuevas en la página de inicio de [{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/){:new_window}. 
 
 {{site.data.keyword.cloudant_short_notm}} es un sistema de base de datos como servicio (DBaaS) alojado y completamente gestionado. 
 Abarca todo el proceso desde la base hasta la solución global escalada, se ejecuta de forma continuada y maneja una gran variedad de tipos de datos, como [JSON](../basics/index.html#json),
@@ -46,14 +46,14 @@ Con el plan de empresa DBaaS de {{site.data.keyword.cloudant_short_notm}} tiene 
 Este plan le garantiza el rendimiento y la disponibilidad de la base de datos al utilizar clústeres DBaaS dedicados o hardware disponible en diversas ubicaciones de alojamiento.
 
 Los usuarios del plan de empresa que necesiten una cuenta de {{site.data.keyword.cloudant_short_notm}}
-nueva o adicional en uno de sus clústeres dedicados, podrán registrarse en [https://cloudant.com/enterprise-sign-up ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/enterprise-sign-up){:new_window},
+nueva o adicional en uno de sus clústeres dedicados, podrán registrarse en la [página de registro de cuentas de {{site.data.keyword.cloudant_short_notm}} Enterprise ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/enterprise-sign-up){:new_window},
 crear una cuenta utilizando el formulario y abrir una incidencia de soporte para solicitar el traslado de su cuenta a uno de los clústeres dedicados de {{site.data.keyword.cloudant_short_notm}} Enterprise. 
 
 ## Plan compartido
 {: #shared-plan}
 
 > **Nota**: El plan compartido de {{site.data.keyword.cloudant_short_notm}} se retirará el 31 de marzo de 2018. 
-A partir del 24 de julio de 2017, no se podrán crear cuentas de plan compartido nuevas en [https://cloudant.com/ ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/){:new_window}. 
+A partir del 24 de julio de 2017, no se podrán crear cuentas de plan compartido nuevas en cloudant.com. 
 
 Con el plan compartido de {{site.data.keyword.cloudant_short_notm}}, tiene acceso a todas las funciones de {{site.data.keyword.cloudant_short_notm}} DBaaS, a través de un clúster compartido o 'multiarrendatario'.
 

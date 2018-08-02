@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-04-28 -->
 
@@ -45,7 +46,9 @@ Por lo tanto, los datos están protegidos por la red y por las medidas de seguri
 - Autorización: se otorgan permisos de lectura, escritura y administración a bases de datos específicas.
 - Cifrado "al momento": todo el acceso a {{site.data.keyword.cloudant_short_notm}} se cifra mediante HTTPS.
 - Cifrado en reposo: los datos almacenados en disco en {{site.data.keyword.cloudant_short_notm}} se pueden cifrar.
-  > **Nota**: Los datos almacenados en una instancia de {{site.data.keyword.cloudant_short_notm}} siempre están cifrados.
+  Los datos almacenados en una instancia de {{site.data.keyword.cloudant_short_notm}} siempre están cifrados.
+  {: tip}
+  
 - Acceso a API: se accede a {{site.data.keyword.cloudant_short_notm}} mediante programación utilizando una API sobre HTTP seguro(HTTPS).
   Las claves de API se pueden generar mediante el panel de control de {{site.data.keyword.cloudant_short_notm}}.
 - Lista blanca de IP: los clientes de {{site.data.keyword.cloudant_short_notm}} de entornos dedicados para {{site.data.keyword.cloudant_short_notm}} Enterprise o

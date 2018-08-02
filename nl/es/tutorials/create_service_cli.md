@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -20,9 +20,9 @@ En esta guía de aprendizaje se muestra cómo crear una instancia de servicio de
 ## Requisitos previos
 
 Para seguir esta guía de aprendizaje, primero debe instalar las herramientas de {{site.data.keyword.Bluemix_notm}} Cloud Foundry.
-Encontrará los detalles para instalar las herramientas en [esta guía de aprendizaje](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits).
+Encontrará los detalles para instalar las herramientas en [esta guía de aprendizaje](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits).
 
-> **Nota**: Asegúrese de instalar los kits de herramientas de Cloud Foundry _y_  de {{site.data.keyword.Bluemix_notm}}.
+> **Nota**: Asegúrese de instalar los kits de herramientas de Cloud Foundry _y_ de {{site.data.keyword.Bluemix_notm}}.
 
 ## Identificación del punto final de API de {{site.data.keyword.Bluemix_notm}}
 
@@ -247,7 +247,7 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 Hasta el memento, ha hecho lo siguiente:
 
 1.  Ha creado una instancia de servicio de {{site.data.keyword.cloudant_short_notm}}
-dentro de {{site.data.keyword.Bluemix_notm}}.
+  dentro de {{site.data.keyword.Bluemix_notm}}.
 2.  Ha creado credenciales para la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}.
 3.  Ha recuperado las credenciales de la instancia de servicio, para que las pueda utilizar la aplicación.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -13,11 +13,21 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # Tutoriel de mise en route
 {: #getting-started-with-cloudant}
 
-Dans ce tutoriel de mise en route d'{{site.data.keyword.cloudantfull}}, nous allons utiliser le langage Python pour créer une base de données {{site.data.keyword.cloudant}} et la remplir avec une simple collection de données.
+Dans ce tutoriel de mise en route d'{{site.data.keyword.cloudantfull}}, nous allons utiliser le langage Python pour créer une base de données {{site.data.keyword.cloudant_short_notm}} et la remplir avec une simple collection de données.
 {:shortdesc}
+
+En plus de ce tutoriel, consultez nos tutoriels de travaux pratiques afin d'en apprendre davantage sur {{site.data.keyword.cloudant_short_notm}}. Ou, essayez l'un des tutoriels qui se concentre sur un langage spécifique : 
+
+- [Liberty for Java et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
+- [Node.js et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+- [Swift et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+
+Pour des tutoriels sur des langages plus spécifiques, consultez [Commencez à déployer votre première application![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/){:new_window}. 
 
 <div id="prerequisites"></div>
 
@@ -43,8 +53,8 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
 
 *	Installez la [bibliothèque Python](libraries/supported.html#python) pour que vos applications Python soient compatibles avec {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}.
 	
-	Pour vérifier que votre bibliothèque client a été installée correctement, saisissez la commande suivante à l'invite :
-	```sh
+	Pour vérifier que la bibliothèque client est correctement installée, exécutez la commande suivante à l'invite :
+```sh
 	pip freeze
 	```
 	{:pre}
@@ -156,7 +166,7 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
   ```
   {: codeblock}
 
-Notez que nous avons vérifié que chaque document avait bien été créé.
+Notez que nous nous assurons que chaque document a bien été créé.
 {: tip}
 
 ## Etape 4 : Extraction des données à l'aide de requêtes
@@ -203,12 +213,11 @@ Une extraction complète inclut également les données figurant _dans_ le docum
         }
     ]
     ```
-    {:screen}
+    {: codeblock}
 
-  > **Remarque** : De part leur nature, les bases de données NoSQL,
-  par exemple {{site.data.keyword.cloudant_short_notm}},
-  ne prennent pas forcément en compte des notions simples telles que le premier document stocké dans une base de données est toujours
-  le premier renvoyé dans la liste des résultats.
+  > **Remarque :** les notions simples, telles que le premier document stocké dans une
+base de données est toujours le premier à être renvoyé dans une liste de
+résultats, ne s'appliquent pas nécessairement à des bases de données NoSQL comme {{site.data.keyword.cloudant_short_notm}}.
 
 * Pour effectuer une extraction complète,
   demandez la liste de tous les documents de la base de données,
@@ -247,7 +256,7 @@ Une extraction complète inclut également les données figurant _dans_ le docum
     }
   ]
   ```
-  {:screen}
+  {: codeblock}
 
 ## Etape 5 : Extraction des données à l'aide du noeud final d'API {{site.data.keyword.cloudant_short_notm}}
 
@@ -318,7 +327,7 @@ Vous pouvez aussi demander la liste de tous les documents et de leur contenu en 
       "offset": 0
   }
   ```
-  {:screen}
+  {: codeblock}
 
 ## Etape 6 : Suppression de la base de données
 

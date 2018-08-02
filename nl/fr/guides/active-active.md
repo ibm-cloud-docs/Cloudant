@@ -206,7 +206,7 @@ Par exemple, dans une configuration de type 'Write-Primary, Read-Replica', toute
 *	Examinez la façon dont vos documents de conception et index sont déployés et mis à jour.
   Il peut être plus efficace d'automatiser ces tâches.
 
-## Basculement entre les régions {{site.data.keyword.cloudant_short_notm}} 
+## Basculement entre les régions {{site.data.keyword.cloudant_short_notm}}
 
 En règle générale, le processus de gestion d'un basculement entre les régions ou les centres de données est géré à un niveau supérieur au sein de votre liste d'applications, par exemple en configurant les changements de basculement de serveur d'application ou en équilibrant la charge.
 

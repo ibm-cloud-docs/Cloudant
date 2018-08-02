@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,23 +14,23 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Creazione di una semplice applicazione {{site.data.keyword.Bluemix_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: caricamento dell'applicazione
+# Creazione di una semplice applicazione {{site.data.keyword.cloud_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: caricamento dell'applicazione
 
 Questa sezione dell'esercitazione illustra come caricare
-un'applicazione {{site.data.keyword.Bluemix}}.
+un'applicazione {{site.data.keyword.cloud}}.
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## Connessione a {{site.data.keyword.Bluemix_notm}}
+## Connessione a {{site.data.keyword.cloud_notm}}
 
-La prima attività è di collegarsi a {{site.data.keyword.Bluemix_notm}}.
+La prima attività consiste nel connettersi a {{site.data.keyword.cloud_notm}}.
 
-Il toolkit [{{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#toolkits) ti aiuta ad effettuare il collegamento.
+Il toolkit [{{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#toolkits) ti aiuta a stabilire la connessione.
 
 Cloud Foundry deve conoscere l'URL da utilizzare per effettuare le chiamate API,
 ad esempio quando carichi un'applicazione.
-Il toolkit {{site.data.keyword.Bluemix_notm}} utilizza il comando '`cf api`' per gestire l'endpoint API.
+Il toolkit {{site.data.keyword.cloud_notm}} utilizza il comando '`cf api`' per gestire l'endpoint API.
 Ulteriori informazioni sul comando '`cf api`' sono
 [disponibili
 ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
@@ -58,20 +58,20 @@ Not logged in. Use 'bluemix login' to log in.
 
 Cloud Foundry ora conosce dove inviare le chiamate API per la gestione delle applicazioni.
 
-Il passo successivo è di accedere al tuo ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}}.
+Il passo successivo consiste nell'accedere al tuo ambiente dell'applicazione {{site.data.keyword.cloud_notm}}.
 Devi fornire i seguenti dettagli dell'account:
 
 -   Il tuo nome utente, specificato come il parametro '`-u`'.
 -   Il tuo nome dell'organizzazione, specificato come il parametro '`-o`'.
 -   Il tuo spazio, specificato come il parametro '`-s`'.
 
->   **Nota**: i dettagli dell'account sono disponibili nel tuo dashboard {{site.data.keyword.Bluemix_notm}},
+>   **Nota**: i dettagli dell'account sono disponibili nel tuo dashboard {{site.data.keyword.cloud_notm}},
     quando accedi tramite un browser web,
     come mostrato nel seguente esempio:<br/>
-    ![Ricerca dei tuoi dettagli dell'account {{site.data.keyword.Bluemix_notm}} ](images/img0035.png)
+    ![Ricerca dei tuoi dettagli dell'account {{site.data.keyword.cloud_notm}}](images/img0035.png)
 
 Utilizza un comando simile al seguente esempio per accedere al tuo ambiente dell'applicazione
-{{site.data.keyword.Bluemix_notm}}.
+{{site.data.keyword.cloud_notm}}.
 Tieni presente che ti viene richiesto di immettere la tua password dell'account.
 
 ```sh
@@ -103,17 +103,17 @@ Space:          dev
 
 ## Caricamento dell'applicazione
 
-Il toolkit {{site.data.keyword.cloudant_short_notm}} Foundry ora sa come connettersi all'ambiente {{site.data.keyword.Bluemix_notm}}.
+Il toolkit {{site.data.keyword.cloudant_short_notm}} Foundry ora sa come connettersi all'ambiente {{site.data.keyword.cloud_notm}}.
 
-Il passo successivo è di caricare l'applicazione stessa.
-I dettagli di un'applicazione {{site.data.keyword.Bluemix_notm}}
+Il passo successivo consiste nel caricare l'applicazione stessa.
+I dettagli di un'applicazione {{site.data.keyword.cloud_notm}}
 sono forniti nel [file manifest](create_bmxapp_appenv.html#manifest).
 
 Il file manifest per questa applicazione dell'esercitazione è stato aggiornato come descritto
 [qui](create_bmxapp_createapp.html#essential-files)
 
 Utilizza un comando simile al seguente esempio per accedere e per caricare la tua applicazione
-{{site.data.keyword.Bluemix_notm}}.
+{{site.data.keyword.cloud_notm}}.
 
 ```sh
 cf push "Cloudant Python"
@@ -131,7 +131,7 @@ OK
 {:codeblock}
 
 Il toolkit Cloud Foundry viene posizionato nel file manifest
-e inizia a preparare il caricamento dell'applicazione utilizzando i dettagli di collegamento
+e inizia a preparare il caricamento dell'applicazione utilizzando i dettagli di connessione
 e identificazione che hai fornito [precedentemente](#uploading).
 
 ```
@@ -189,7 +189,7 @@ che è stata [specificata](create_bmxapp_createapp.html#essential-files) quando 
 
 Dopo aver caricato e avviato l'applicazione,
 vengono eseguiti alcuni piccoli controlli di sistema per confermare che l'applicazione sia correttamente in esecuzione
-per quanto riguarda {{site.data.keyword.Bluemix_notm}}.
+per quanto riguarda {{site.data.keyword.cloud_notm}}.
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -210,7 +210,7 @@ buildpack: python 1.5.5
 
 ## Verifica dell'applicazione di esempio
 
-Quando l'ambiente dell'applicazione {{site.data.keyword.Bluemix_notm}} è stato creato per la prima volta,
+Quando l'ambiente dell'applicazione {{site.data.keyword.cloud_notm}} è stato creato per la prima volta,
 in dashboard ha incluso un link nella colonna `Route` dell'applicazione:<br/>
 ![Screenshot che mostra il dashboard dell'applicazione](images/img0017.png)
 
@@ -223,11 +223,12 @@ che era stato generato all'avvio dell'applicazione:<br/>
 I contenuti di questo file di log sono interessanti.
 L'ora di avvio e di fine sono chiaramente visualizzate.
 Nel mezzo,
-il log registra ogni dettaglio come informazioni sul collegamento
+il log registra ogni dettaglio come informazioni sulla connessione
 a {{site.data.keyword.cloudant_short_notm}} che è stato richiamato.
-I valori effettivi del collegamento non sono importanti.
-Il log visualizza che l'applicazione dell'esercitazione è stata in grado di individuare,
-richiamare e utilizzare questi valori per creare un nuovo documento nel database
+I valori effettivi della connessione non sono importanti.
+Il log visualizza che l'applicazione dell'esercitazione
+è stata in grado di individuare, richiamare e utilizzare
+questi valori per creare un nuovo documento nel database
 {{site.data.keyword.cloudant_short_notm}}.
 
 ### Conferma dei dettagli del database
@@ -237,9 +238,10 @@ Fai clic sull'icona `Launch` nella scheda `Manage` della pagina del servizio
 {{site.data.keyword.cloudant_short_notm}}:<br/>
 ![Icona Launch nella pagina del servizio {{site.data.keyword.cloudant_short_notm}} ](images/img0036.png)
 
-> **Nota**: per trovare la tua pagina del servizio {{site.data.keyword.cloudant_short_notm}},
+Per trovare la tua pagina del servizio {{site.data.keyword.cloudant_short_notm}},
   fai riferimento ai dettagli nell'esercitazione
   ['Creazione di un'istanza {{site.data.keyword.cloudant_short_notm}}'](create_service.html#locating-your-service-credentials).
+{: tip}
 
 Quando si apre la pagina del dashboard,
 puoi visualizzare che l'applicazione ha creato il database

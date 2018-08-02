@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -13,13 +13,23 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # 시작하기 튜토리얼
 {: #getting-started-with-cloudant}
 
 이 {{site.data.keyword.cloudantfull}} 시작하기 튜토리얼에서는
-Python을 사용하여 {{site.data.keyword.cloudant}} 데이터베이스를 작성하고
+Python을 사용하여 {{site.data.keyword.cloudant_short_notm}} 데이터베이스를 작성하고
 이 데이터베이스를 간단한 데이터 콜렉션으로 채웁니다.
 {:shortdesc}
+
+이 튜토리얼 외에도 {{site.data.keyword.cloudant_short_notm}}에 대해 더 많이 배울 수 있는 실무 튜토리얼을 참조하십시오. 또는 특정 언어에 중점을 둔 튜토리얼 중 하나를 시도해 보십시오.
+
+- [Liberty for Java 및 {{site.data.keyword.cloudant_short_notm}} ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
+- [Node.js 및 {{site.data.keyword.cloudant_short_notm}} ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+- [Swift 및 {{site.data.keyword.cloudant_short_notm}} ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+
+언어별 튜토리얼에 대한 자세한 정보는 [첫 번째 앱을 배치하여 시작하기 ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/){:new_window}를 참조하십시오. 
 
 <div id="prerequisites"></div>
 
@@ -163,7 +173,7 @@ Python을 사용하여 {{site.data.keyword.cloudant}} 데이터베이스를 작�
   ```
   {: codeblock}
 
-코드 예를 보면 각 문서가 작성되었는지 확인하는 것을 볼 수 있습니다.
+각 문서가 성공적으로 작성되었는지 확인하도록 알리십시오.
 {: tip}
 
 ## 4단계: 조회를 통한 데이터 검색
@@ -191,7 +201,7 @@ Python을 사용하여 {{site.data.keyword.cloudant}} 데이터베이스를 작�
     결과는 다음 예와 유사합니다.
     
     ```
-    [{u'value': {u'rev': u'1-106e76a2612ea13468b2f243ea75c9b1'}, u'id': u'14be111aac74534cf8d390eaa57db888', u'key': u'14be111aac74534cf8d390eaa57db888'}]
+        [{u'value': {u'rev': u'1-106e76a2612ea13468b2f243ea75c9b1'}, u'id': u'14be111aac74534cf8d390eaa57db888', u'key': u'14be111aac74534cf8d390eaa57db888'}]
     ```
     {:screen}
     
@@ -210,11 +220,10 @@ Python을 사용하여 {{site.data.keyword.cloudant}} 데이터베이스를 작�
         }
     ]
     ```
-    {:screen}
+    {: codeblock}
 
-  > **참고:** {{site.data.keyword.cloudant_short_notm}}와 같은
-  NoSQL 데이터베이스의 특성은 데이터베이스에 저장된 첫 번째 문서가 항상 결과 목록에서
-  처음으로 리턴된다는 단순한 생각이 언제나 옳은 것은 아님을 의미합니다.
+  > **참고:** 데이터베이스에 저장된 첫 번째 문서가 항상 결과 목록에서 처음으로 리턴된다는
+    단순한 생각이 {{site.data.keyword.cloudant_short_notm}} 등의 NoSQL 데이터베이스에 항상 적용되지는 않습니다.
 
 * 전체 검색을 수행하려면
   데이터베이스 내에 있는 모든 문서의 목록을 요청하고
@@ -253,11 +262,11 @@ Python을 사용하여 {{site.data.keyword.cloudant}} 데이터베이스를 작�
     }
   ]
   ```
-  {:screen}
+  {: codeblock}
 
 ## 5단계: {{site.data.keyword.cloudant_short_notm}} API 엔드포인트를 통한 데이터 검색
 
-{{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 엔드포인트](api/database.html#get-documents)를 호출하여 모든 문서와 해당 컨텐츠의 목록을 요청할 수도 있습니다. 
+{{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 엔드포인트](api/database.html#get-documents)를 호출하여 모든 문서와 해당 컨텐츠의 목록을 요청할 수도 있습니다.
 
 1. 접속할 엔드포인트, 그리고 호출과 함께 제공할 매개변수를 식별하십시오.
   ```python
@@ -323,7 +332,7 @@ Python을 사용하여 {{site.data.keyword.cloudant}} 데이터베이스를 작�
       "offset": 0
   }
   ```
-  {:screen}
+  {: codeblock}
 
 ## 6단계: 데이터베이스 삭제
 

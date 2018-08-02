@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-04-28 -->
 
@@ -41,10 +42,11 @@ lastupdated: "2017-11-06"
 - 鑑別：{{site.data.keyword.cloudant_short_notm}} 是使用 HTTP API 進行存取。如果 API 端點需要，便會針對 {{site.data.keyword.cloudant_short_notm}} 收到的每個 HTTPS 或 HTTP 要求鑑別使用者。
 - 授權：授與特定資料庫的讀取、寫入及管理許可權。
 - 「進行中」加密：對 {{site.data.keyword.cloudant_short_notm}} 的所有存取都會使用 HTTPS 加密。
-- 靜態加密：可以加密 {{site.data.keyword.cloudant_short_notm}} 中儲存在磁碟上的資料。
-  > **附註**：一律會加密 {{site.data.keyword.cloudant_short_notm}} 實例中所儲存的資料。
+- 靜態加密：可以加密 {{site.data.keyword.cloudant_short_notm}} 中儲存在磁碟上的資料。一律會加密 {{site.data.keyword.cloudant_short_notm}} 實例中所儲存的資料。
+  {: tip}
+  
 - API 存取：{{site.data.keyword.cloudant_short_notm}} 是使用 API 透過安全 HTTP (HTTPS)，以程式設計方式進行存取。可以使用 {{site.data.keyword.cloudant_short_notm}} 儀表板產生 API 金鑰。
-- IP 白名單：適用於「{{site.data.keyword.cloudant_short_notm}} 企業」或「{{site.data.keyword.Bluemix_notm}} 專用」之專用環境上的 {{site.data.keyword.cloudant_short_notm}} 客戶可以將 IP 位址設為白名單，以限制為只有指定的伺服器及使用者才能存取。請注意，IP 白名單不適用於「{{site.data.keyword.Bluemix_notm}} 公用」中的任何 {{site.data.keyword.cloudant_short_notm}} 方案。 
+- IP 白名單：適用於 {{site.data.keyword.cloudant_short_notm}} Enterprise 或 {{site.data.keyword.Bluemix_notm}} Dedicated 之專用環境上的 {{site.data.keyword.cloudant_short_notm}} 客戶可以將 IP 位址設為白名單，以限制為只有指定的伺服器及使用者才能存取。請注意，IP 白名單不適用於 {{site.data.keyword.Bluemix_notm}} Public 中的任何 {{site.data.keyword.cloudant_short_notm}} 方案。 
 - CORS：使用 {{site.data.keyword.cloudant_short_notm}} 儀表板，以啟用特定網域的 CORS 支援。
 
 ## 防止資料流失或毀損
@@ -52,4 +54,4 @@ lastupdated: "2017-11-06"
 {{site.data.keyword.cloudant_short_notm}} 具有數個特性，可協助您維護資料品質及可用性：
 
 - 備援及可延續資料儲存空間：依預設，{{site.data.keyword.cloudant_short_notm}} 會將磁碟上每份文件的三個副本儲存至叢集中的三個不同節點。儲存副本可確保不論是否發生失敗，都一定有一份資料的有效失效接手副本可用。
-- 資料抄寫及匯出：您可以在不同資料中心的叢集之間持續抄寫資料庫，或者抄寫至內部部署「{{site.data.keyword.cloudant_short_notm}} 本端」叢集或 Apache CouchDB。另一個選項是將資料從 {{site.data.keyword.cloudant_short_notm}}（以 JSON 格式）匯出至其他位置或來源（例如您自己的資料中心），以額外增加資料備援。
+- 資料抄寫及匯出：您可以在不同資料中心的叢集之間持續抄寫資料庫，或者抄寫至內部部署 {{site.data.keyword.cloudant_short_notm}} Local 叢集或 Apache CouchDB。另一個選項是將資料從 {{site.data.keyword.cloudant_short_notm}}（以 JSON 格式）匯出至其他位置或來源（例如您自己的資料中心），以額外增加資料備援。

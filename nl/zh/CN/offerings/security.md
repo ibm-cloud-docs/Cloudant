@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-04-28 -->
 
@@ -41,8 +42,9 @@ lastupdated: "2017-11-06"
 - 认证：{{site.data.keyword.cloudant_short_notm}} 使用 HTTP API 进行访问。如果 API 端点需要认证，那么针对 {{site.data.keyword.cloudant_short_notm}} 收到的每个 HTTPS 或 HTTP 请求，将对用户进行认证。
 - 授权：授予对特定数据库的读取、写入和管理许可权。
 - 动态加密：使用 HTTPS 对 {{site.data.keyword.cloudant_short_notm}} 的所有访问加密。
-- 静态加密：可以对 {{site.data.keyword.cloudant_short_notm}} 中存储在磁盘上的数据加密。
-  > **注**：存储在 {{site.data.keyword.cloudant_short_notm}} 实例中的数据始终会加密。
+- 静态加密：可以对 {{site.data.keyword.cloudant_short_notm}} 中存储在磁盘上的数据加密。始终都会对 {{site.data.keyword.cloudant_short_notm}} 实例中存储的数据进行加密。
+  {: tip}
+  
 - API 访问：{{site.data.keyword.cloudant_short_notm}} 使用基于安全 HTTP (HTTPS) 的 API 以编程方式访问。API 密钥可以使用 {{site.data.keyword.cloudant_short_notm}}“仪表板”生成。
 - IP 白名单：{{site.data.keyword.cloudant_short_notm}} Enterprise 或 {{site.data.keyword.Bluemix_notm}} Dedicated 的专用环境中的 {{site.data.keyword.cloudant_short_notm}} 客户可以将 IP 地址列入白名单，以仅限指定服务器和用户访问。请注意，IP 白名单仅适用于 {{site.data.keyword.Bluemix_notm}} Public 中的任何 {{site.data.keyword.cloudant_short_notm}} 套餐。 
 - CORS：使用 {{site.data.keyword.cloudant_short_notm}}“仪表板”针对特定域启用 CORS 支持。

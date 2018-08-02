@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -23,17 +23,18 @@ lastupdated: "2017-11-06"
 또는 [PouchDB ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://pouchdb.com/){:new_window}를 사용하여 {{site.data.keyword.cloudant_short_notm}} 계정 또는 모바일 디바이스를
 대상으로 복제할 수도 있습니다. 복제는 '일회성' 또는 지속적 오퍼레이션으로 단방향 또는 양방향으로 실행될 수 있으며, 매개변수를 사용하여 세밀하게 조정할 수 있습니다.
 
-{{site.data.keyword.cloudant_short_notm}}의 복제 프로토콜은 다양한 데이터베이스 및 라이브러리와 호환되므로 IoT(Internet of Things) 및 모바일 애플리케이션에 적합합니다. 
+{{site.data.keyword.cloudant_short_notm}}의 복제 프로토콜은 다양한 데이터베이스 및 라이브러리와 호환되므로 IoT(Internet of Things) 및 모바일 애플리케이션에 적합합니다.
 
-이 안내서에서는 {{site.data.keyword.cloudant_short_notm}}의 복제 기능을 소개하고, 일반적인 유스 케이스에 대해 알아보며, 애플리케이션에서 복제를 수행하는 방법을 보여줍니다. 
+이 안내서에서는 {{site.data.keyword.cloudant_short_notm}}의 복제 기능을 소개하고, 일반적인 유스 케이스에 대해 알아보며, 애플리케이션에서 복제를 수행하는 방법을 보여줍니다.
 
 ## 복제의 개념
 
-{{site.data.keyword.cloudant_short_notm}}는 HTTP API를 사용하는 분산 JSON 데이터 저장소입니다. {{site.data.keyword.cloudant_short_notm}}는 여러 클라우드 또는 사용자의 서버 랙에서 서비스로 실행될 수 있습니다.
+{{site.data.keyword.cloudant_short_notm}}는 HTTP API를 사용하는 분산 JSON 데이터 저장소입니다.
+{{site.data.keyword.cloudant_short_notm}}는 여러 클라우드 또는 사용자의 서버 랙에서 서비스로 실행될 수 있습니다.
 문서는 데이터베이스에 저장되며 {{site.data.keyword.cloudant_short_notm}}가 해당 데이터를 여러 노드에 분산시키는 경우 문서의 크기를 늘릴 수 있습니다.
 복제는 소스 데이터베이스에서 대상 데이터베이스로 데이터를 복제하는 것입니다.
 소스 및 대상 데이터베이스가 동일한 {{site.data.keyword.cloudant_short_notm}} 계정 또는 동일한 데이터 센터에
-속해야 할 필요는 없습니다. 
+속해야 할 필요는 없습니다.
 
 ![](../images/replication_guide_1.png)
 
@@ -67,7 +68,7 @@ lastupdated: "2017-11-06"
 
 ## 서로 다른 {{site.data.keyword.cloudant_short_notm}} 계정 간에 복제를 실행하는 방법
 
-복제의 소스 및 대상은 다음 예에 표시되어 있는 바와 같이 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다. 
+복제의 소스 및 대상은 다음 예에 표시되어 있는 바와 같이 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다.
 
 _복제의 소스 및 대상 URL 정의 예:_
 
@@ -101,12 +102,12 @@ _복제의 소스 및 대상 URL 정의 예:_
 복제를 시작하려면 `_replicator` 데이터베이스에 문서를 추가하십시오.
 이 문서는 원하는 복제를 나타내며 다음 필드를 포함합니다.
 
-필드           | 용도
+필드           |용도
 ----------------|--------
-`_id`           | `_id` 필드 제공은 선택사항이지만 복제 태스크를 식별하는 데 유용합니다. 값을 제공하지 않으면 {{site.data.keyword.cloudant_short_notm}}에서 이를 생성합니다. 
-`source`        | 로그인 신임 정보를 포함한 소스 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다. 
-`target`        | 로그인 신임 정보를 포함한 대상 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다. 
-`create_target` | (선택사항) 대상 데이터베이스가 아직 없는 경우 이 데이터베이스의 작성 여부를 결정합니다.
+`_id`           |`_id` 필드 제공은 선택사항이지만 복제 태스크를 식별하는 데 유용합니다. 값을 제공하지 않으면 {{site.data.keyword.cloudant_short_notm}}에서 이를 생성합니다.
+`source`        |로그인 신임 정보를 포함한 소스 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다.
+`target`        |로그인 신임 정보를 포함한 대상 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다.
+`create_target` |(선택사항) 대상 데이터베이스가 아직 없는 경우 이 데이터베이스의 작성 여부를 결정합니다.
 
 _HTTP를 사용한 복제 작업 시작 예:_
 
@@ -143,7 +144,7 @@ _원하는 복제를 나타내는 JSON 문서 예:_
 ## 복제가 변경사항 목록에 미치는 영향
 
 [`_changes` 엔드포인트](../api/database.html#get-changes)를 사용하여 문서에 수행된 변경사항의 목록을 가져올 수 있습니다.
-그러나 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 분산 특성은 `_changes` 피드에서 제공하는 응답이 단순히 특정 날짜 및 시간 이후 발생한 변경사항의 목록이 아님을 의미합니다. 
+그러나 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 분산 특성은 `_changes` 피드에서 제공하는 응답이 단순히 특정 날짜 및 시간 이후 발생한 변경사항의 목록이 아님을 의미합니다.
 
 [CAP 정리](cap_theorem.html)에는 {{site.data.keyword.cloudant_short_notm}}가 '결과적으로 일관된' 모델을 사용한다고 명시되어 있습니다.
 이 모델은 특정 문서에 대해 데이터베이스의 서로 다른 두 복제본을 동시에 요청하는 경우, 하나의 데이터베이스 사본이
@@ -162,7 +163,7 @@ _결과적으로_ 해당 데이터베이스 사본이 복제를 완료하므로 
 첫 번째 특성의 또 다른 영향은 변경사항 목록이 일치하는지 확인하기 위해 이전 변경을 '다시 살펴볼' 필요가 있을 수 있다는 것입니다.
 즉, 사용자는 변경사항 목록을 가져오기 위해 각 데이터베이스 사본이 일치하는 최신 변경사항부터 시작합니다.
 데이터베이스 사본 간 일치 지점은 {{site.data.keyword.cloudant_short_notm}} 내에서 데이터베이스 사본 간 복제의 동기화를 가능하게 하는
-[체크포인트](#checkpoints) 메커니즘을 사용하여 식별됩니다. 
+[체크포인트](#checkpoints) 메커니즘을 사용하여 식별됩니다.
 
 마지막으로, 두 번째 특성의 영향은 변경사항 목록에 표시되는 개별 변경사항이 다른 데이터베이스 사본에서 응답한 후속 요청에
 다른 순서로 표시될 수 있다는 점입니다.
@@ -209,11 +210,11 @@ _결과적으로_ 해당 데이터베이스 사본이 복제를 완료하므로 
 -   소스 측의 `_reader` 및 `_replicator` 액세스 권한
 -   대상 측의 `_reader` 및 `_writer` 액세스 권한
 
-API 키는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 데이터베이스별로 작성하고 구성할 수 있습니다. 
+API 키는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 데이터베이스별로 작성하고 구성할 수 있습니다.
 
 ![복제](../images/replication_guide_5.png)
 
-또한 {{site.data.keyword.cloudant_short_notm}} API를 사용하여 [프로그래밍 방식으로](../api/authorization.html#creating-api-keys) 작성할 수도 있습니다. 
+또한 {{site.data.keyword.cloudant_short_notm}} API를 사용하여 [프로그래밍 방식으로](../api/authorization.html#creating-api-keys) 작성할 수도 있습니다.
 
 ## 양방향 복제
 
@@ -231,7 +232,7 @@ API 키는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 데이�
 소스 데이터베이스에 대한 모든 후속 변경사항이 대상 데이터베이스에 실시간으로 전송됩니다.
 
 연속 복제는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 복제 태스크를 정의할 때 "`Make this replication continuous`" 선택란을 클릭하거나,
-{{site.data.keyword.cloudant_short_notm}} API에 ["`continuous`"](../api/replication.html#checkpoints) 플래그를 설정하여 트리거됩니다. 
+{{site.data.keyword.cloudant_short_notm}} API에 ["`continuous`"](../api/replication.html#checkpoints) 플래그를 설정하여 트리거됩니다.
 
 양방향 복제는 "`continuous`" 플래그를 설정하여 단방향 또는 양방향으로 지속되도록 설정할 수 있습니다.
 
@@ -269,7 +270,7 @@ _연속 복제를 정의하는 JSON 문서의 예:_
 
 ## 복제 모니터링
 
-{{site.data.keyword.cloudant_short_notm}}의 `_replicator` 데이터베이스 상태는 대시보드 또는 API를 사용하여 언제든지 확인할 수 있습니다. 
+{{site.data.keyword.cloudant_short_notm}}의 `_replicator` 데이터베이스 상태는 대시보드 또는 API를 사용하여 언제든지 확인할 수 있습니다.
 
 복제가 실패하는 경우 예를 들어, 인증 신임 정보가 올바르지 않은 경우에는 오류 상태가 `_replicator` 문서에 기록됩니다.
 또한, {{site.data.keyword.cloudant_short_notm}} 계정의 `/_active_tasks` 엔드포인트를 사용하여 진행 중인 복제 작업을 확인할 수도 있습니다.
@@ -330,24 +331,28 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 
 ## 기타 복제 유스 케이스
 
-복제가 {{site.data.keyword.cloudant_short_notm}} 대 {{site.data.keyword.cloudant_short_notm}} 데이터 전송에만 사용되는 것은 아닙니다. {{site.data.keyword.cloudant_short_notm}}의 복제 프로토콜은 실제 상황에서의 다양한 활용을 위해 다른 데이터베이스 및 라이브러리와 호환됩니다. 
+복제가 {{site.data.keyword.cloudant_short_notm}} 대 {{site.data.keyword.cloudant_short_notm}} 데이터 전송에만 사용되는 것은 아닙니다.
+{{site.data.keyword.cloudant_short_notm}}의 복제 프로토콜은 실제 상황에서의 다양한 활용을 위해 다른 데이터베이스 및 라이브러리와 호환됩니다.
 
 ### Apache CouchDB
 
 [Apache CouchDB ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://couchdb.apache.org/){:new_window}는
-{{site.data.keyword.cloudant_short_notm}}와 통신하는 오픈 소스 데이터베이스이며 간단한 설정을 통해 사용할 수 있습니다. 이 애플리케이션에는 다음 항목이 포함되어 있습니다.
+{{site.data.keyword.cloudant_short_notm}}와 통신하는 오픈 소스 데이터베이스이며 간단한 설정을 통해 사용할 수 있습니다.
+이 애플리케이션에는 다음 항목이 포함되어 있습니다.
 
 -   백업: {{site.data.keyword.cloudant_short_notm}}에서 사용자의 CouchDB 데이터베이스로 데이터를 복제하며
     아카이브 목적으로 매일 밤 데이터의 스냅샷을 작성합니다.
     안전하게 보관하기 위해 데이터를 [Amazon Glacier ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://aws.amazon.com/glacier/){:new_window}와 같은 백업 서비스에 전송합니다.
 -   로컬 우선 데이터 수집: 데이터를 로컬 Apache CouchDB에 먼저 기록한 후
-    이를 장기 보관, 집계 및 분석을 위해 {{site.data.keyword.cloudant_short_notm}}에 복제합니다. 
+    이를 장기 보관, 집계 및 분석을 위해 {{site.data.keyword.cloudant_short_notm}}에 복제합니다.
 
 ### PouchDB
 
 [PouchDB ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://pouchdb.com/){:new_window}는 브라우저와 {{site.data.keyword.cloudant_short_notm}} 간의
-양방향 데이터 복제를 허용하는 브라우저 내 오픈 소스 데이터베이스입니다. 클라이언트 측의 웹 브라우저에 데이터를 저장하면 인터넷 연결 없이도 웹 애플리케이션이 작동할 수 있습니다.
-PouchDB는 인터넷 연결이 있는 경우 {{site.data.keyword.cloudant_short_notm}} 대상으로 변경된 데이터를 동기화할 수 있습니다. 클라이언트 측에서 복제를 설정하려면 JavaScript 코드 행이 필요합니다.
+양방향 데이터 복제를 허용하는 브라우저 내 오픈 소스 데이터베이스입니다.
+클라이언트 측의 웹 브라우저에 데이터를 저장하면 인터넷 연결 없이도 웹 애플리케이션이 작동할 수 있습니다.
+PouchDB는 인터넷 연결이 있는 경우 {{site.data.keyword.cloudant_short_notm}} 대상으로 변경된 데이터를 동기화할 수 있습니다.
+클라이언트 측에서 복제를 설정하려면 JavaScript 코드 행이 필요합니다.
 
 _복제를 사용으로 설정하기 위해 PouchDB를 사용하는 JavaScript 예:_
 
@@ -361,7 +366,8 @@ db.sync(URL, { live: true });
 ### CloudantSync
 
 [CloudantSync ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/cloudant-sync-resources/){:new_window}는
-모바일 디바이스에 데이터를 저장하고 모바일 연결이 허용하는 경우 이를 {{site.data.keyword.cloudant_short_notm}}와 동기화할 수 있게 해 주는 iOS 및 Android용 라이브러리 세트입니다. [PouchDB](#pouchdb)와 마찬가지로,
+모바일 디바이스에 데이터를 저장하고 모바일 연결이 허용하는 경우 이를 {{site.data.keyword.cloudant_short_notm}}와 동기화할 수 있게 해 주는 iOS 및 Android용 라이브러리 세트입니다.
+[PouchDB](#pouchdb)와 마찬가지로,
 복제를 설정하려면 코드 행이 필요합니다.
 
 _복제를 사용으로 설정하기 위해 CloudantSync를 사용하는 JavaScript 예:_
@@ -376,7 +382,7 @@ replicator.start();
 ```
 {:codeblock}
 
-CloudantSync는 애플리케이션의 상태가 복제를 통해 {{site.data.keyword.cloudant_short_notm}}에 저장되지만, 오프라인에서의 사용을 위해 디바이스에서도 데이터가 사용 가능한 모바일 애플리케이션(iPhone 및 Android 게임 등)에서 널리 사용됩니다. 
+CloudantSync는 애플리케이션의 상태가 복제를 통해 {{site.data.keyword.cloudant_short_notm}}에 저장되지만, 오프라인에서의 사용을 위해 디바이스에서도 데이터가 사용 가능한 모바일 애플리케이션(iPhone 및 Android 게임 등)에서 널리 사용됩니다.
 
 ## 필터링된 복제
 
@@ -549,7 +555,7 @@ feed.follow();
 {:codeblock}
 
 `_changes` 데이터에 대한 프로그래밍 방식의 액세스는 직관적입니다.
-예를 들면, [{{site.data.keyword.cloudant_short_notm}} Node.js 라이브러리](../libraries/supported.html#node-js)를 사용하여 코드 행을 통해 변경사항을 추적합니다. 
+예를 들면, [{{site.data.keyword.cloudant_short_notm}} Node.js 라이브러리](../libraries/supported.html#node-js)를 사용하여 코드 행을 통해 변경사항을 추적합니다.
 
 예제 유스 케이스는 다음과 같습니다.
 
@@ -582,8 +588,6 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
     이는 데이터가 여러 {{site.data.keyword.cloudant_short_notm}} 노드로부터 리턴되며
     결과적으로 일관성 규칙이 적용되기 때문입니다.
 
-
-
 ## 복제의 위험성
 
 복제를 사용할 때는 몇 가지 사항을 고려해야 합니다.
@@ -596,8 +600,10 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 *   데이터베이스 "b"의 `_writer` 권한
 
 API 키는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서, 또는 [API를 통해](../api/authorization.html#creating-api-keys) 생성됩니다.
-각 키에는 특정 {{site.data.keyword.cloudant_short_notm}} 데이터베이스와 관련된 개별 권한을 부여할 수 있습니다. {{site.data.keyword.cloudant_short_notm}}는 복제 작업 중 "읽기" 부분에서 자신의 체크포인트 문서를 쓸 수 있어야 하며,
-그렇지 않으면 상태가 저장되지 않아 복제를 중지된 지점에서 재개할 수 없게 됩니다. 상태가 저장되지 않은 경우에는 대형 데이터 세트의 복제가 재개되는 경우
+각 키에는 특정 {{site.data.keyword.cloudant_short_notm}} 데이터베이스와 관련된 개별 권한을 부여할 수 있습니다.
+{{site.data.keyword.cloudant_short_notm}}는 복제 작업 중 "읽기" 부분에서 자신의 체크포인트 문서를 쓸 수 있어야 하며,
+그렇지 않으면 상태가 저장되지 않아 복제를 중지된 지점에서 재개할 수 없게 됩니다.
+상태가 저장되지 않은 경우에는 대형 데이터 세트의 복제가 재개되는 경우
 성능 문제가 발생할 수 있습니다.
 이는 체크포인트가 없는 경우 복제 프로세스가 재개될 때마다 처음부터 다시 시작하기 때문입니다.
 
@@ -617,7 +623,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 
 리턴되는 JSON에서 `disk_size` 값을 찾으십시오.
 이 값이 1GB가 넘는 크기를 나타내는 경우에는
-[IBM {{site.data.keyword.cloudant_short_notm}} 지원 팀 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하여 조언을 구하십시오. 
+[{{site.data.keyword.cloudant_short_notm}} 지원 팀 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하여 조언을 구하십시오. 
 
 다음 예에 표시된 바와 같이 개별 `_replicator` 문서의 충돌 여부를 확인할 수 있습니다.
 
@@ -657,7 +663,8 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 각 복제 작업은 서로 독립되어 있으며, 따라서 {{site.data.keyword.cloudant_short_notm}}는 사용자가 추가 복제 프로세스를 작성하는 것을 막지 않습니다.
 그러나 각 복제 태스크는 시스템 리소스를 사용합니다.
 
-{{site.data.keyword.cloudant_short_notm}} 대시보드의 "활성 복제"를 확인하여 진행 중인 원치 않는 복제 태스크가 있는지 확인할 수 있습니다. 더 이상 필요하지 않은 `_replicator` 문서는 삭제하십시오.
+{{site.data.keyword.cloudant_short_notm}} 대시보드의 "활성 복제"를 확인하여 진행 중인 원치 않는 복제 태스크가 있는지 확인할 수 있습니다.
+더 이상 필요하지 않은 `_replicator` 문서는 삭제하십시오.
 
 ## 복제 속도 조정
 
@@ -675,4 +682,4 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 *   성능에 대한 영향을 최소화하면서 복제를 실행하려면 `worker_processes` 및 `http_connections`를 1로 설정하는 것이 적절합니다.
 
 사용자의 유스 케이스에 대한 최적의 구성과 관련된 추가 지원을 받으려면
-[IBM {{site.data.keyword.cloudant_short_notm}} 지원 팀 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하십시오. 
+[{{site.data.keyword.cloudant_short_notm}} 지원 팀 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하십시오. 

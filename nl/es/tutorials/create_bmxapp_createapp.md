@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-03-07"
 
 # Creación de una aplicación sencilla de {{site.data.keyword.cloud_notm}} para acceder a una base de datos de {{site.data.keyword.cloudant_short_notm}}: el código
 
-En esta sección de la guía de aprendizaje se describe el código correspondiente a una aplicación de {{site.data.keyword.Bluemix}}.
+En esta sección de la guía de aprendizaje se describe el código correspondiente a una aplicación de {{site.data.keyword.cloud}}.
 {:shortdesc}
 
 <div id="theApp"></div>
@@ -27,9 +27,9 @@ Dispone de los siguientes componentes, listos para empezar a crear la aplicació
 
 -   [El lenguaje de programación Python](create_bmxapp_prereq.html#python).
 -   [Una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}](create_bmxapp_prereq.html#csi).
--   [Un entorno de aplicación de {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#creating).
--   Una [conexión](create_bmxapp_appenv.html#connecting) entre la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} y el entorno de aplicación de {{site.data.keyword.Bluemix_notm}}.
--   Los [kits de herramientas](create_bmxapp_appenv.html#toolkits) para gestionar las aplicaciones {{site.data.keyword.Bluemix_notm}} basadas en Cloud Foundry.
+-   [Un entorno de aplicación de {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#creating).
+-   Una [conexión](create_bmxapp_appenv.html#connecting) entre la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} y el entorno de aplicación de {{site.data.keyword.cloud_notm}}.
+-   Los [kits de herramientas](create_bmxapp_appenv.html#toolkits) para gestionar las aplicaciones {{site.data.keyword.cloud_notm}} basadas en Cloud Foundry.
 -   Un [paquete de aplicación 'de inicio'](create_bmxapp_appenv.html#starter), que contiene la configuración inicial y archivos de plantilla de código.
 
 >   **Nota**: En esta guía de aprendizaje no se pretende crear código Python _eficiente_.
@@ -69,7 +69,7 @@ Modifique los archivos de configuración de la siguiente manera:
       - <your database instance>
     ```
     {:codeblock}
-    >   **Nota**: Asegúrese de modificar los valores de '`domain`', '`name`', '`host`' y '`services`'. Son los valores especificados cuando se creó el [entorno de aplicación de {{site.data.keyword.Bluemix_notm}}](create_bmxapp_appenv.html#creating) y la [instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}](create_bmxapp_prereq.html#csi).
+    >   **Nota**: Asegúrese de modificar los valores de '`domain`', '`name`', '`host`' y '`services'. Son los valores especificados cuando se creó el [entorno de aplicación de {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#creating) y la [instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}](create_bmxapp_prereq.html#csi).
 
 3.  Edite el archivo '`requirements.txt`' para que contenga el texto siguiente:
     ```
@@ -177,12 +177,12 @@ target.write("\n====\n\n")
 
 #### Cómo trabajar con una instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}}
 
-La aplicación Python se ejecuta en un entorno de aplicación de {{site.data.keyword.Bluemix_notm}}.
+La aplicación Python se ejecuta en un entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 El entorno proporciona toda la información necesaria para que la aplicación acceda a los servicios conectados.
 La información se proporciona en una variable de entorno denominada '`VCAP_SERVICES`'.
 La aplicación puede acceder a esta variable y utilizarla para determinar los detalles de la conexión.
 
-La primera tarea consiste en asegurarse de que la aplicación se está ejecutando dentro del entorno de aplicación de {{site.data.keyword.Bluemix_notm}}.
+La primera tarea consiste en asegurarse de que la aplicación se está ejecutando dentro del entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 Para ello compruebe si existe la variable de entorno '`VCAP_SERVICES`':
 
 ```python
@@ -218,12 +218,12 @@ target.write("Got cloudantNoSQLDBData\n")
 ```
 {:codeblock}
 
-Es posible que haya varios servicios de {{site.data.keyword.Bluemix_notm}} conectados al entorno de aplicación.
+Es posible que haya varios servicios de {{site.data.keyword.cloud_notm}} conectados al entorno de aplicación.
 Las credenciales de cada servicio se muestran como elementos de una matriz.
 En esta guía de aprendizaje, solo [se ha creado una conexión de servicio](create_bmxapp_appenv.html#connecting).
 Por lo tanto, la aplicación accede al primer elemento (elemento 'cero').
 Cada elemento de servicio contiene las credenciales correspondientes a dicho servicio, expresadas como una lista indexada por los nombres de campo esenciales que se necesitan para acceder al servicio.
-Encontrará más información sobre los nombres de los campos en la [guía de aprendizaje](create_database.html#a-cloudant-service-instance-on-bluemix) que describe una tarea de ejemplo de creación de una base de datos.
+Encontrará más información sobre los nombres de los campos en la [guía de aprendizaje](create_database.html#pre-requisites) que describe una tarea de ejemplo de creación de una base de datos.
 
 ```python
 # Obtener una lista que contenga la información de conexión de {{site.data.keyword.cloudant_short_notm}}.
@@ -248,7 +248,7 @@ servicePassword = credentialsData['password']
 target.write("Got password: ")
 target.write(servicePassword)
 target.write("\n")
-# ... y el URL del servicio dentro de Bluemix.
+# ... y el URL del servicio dentro de {{site.data.keyword.cloud_notm}}.
 serviceURL = credentialsData['url']
 target.write("Got URL: ")
 target.write(serviceURL)
@@ -257,7 +257,7 @@ target.write("\n")
 {:codeblock}
 
 Ahora la aplicación tiene todos los detalles necesarios para crear una base de datos dentro de la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}.
-Esta tarea se describe con más detalle en la [guía de aprendizaje](create_database.html#a-cloudant-service-instance-on-bluemix) que describe la creación de una base de datos sencilla.
+Esta tarea se describe con más detalle en la [guía de aprendizaje](create_database.html#creating-a-database-within-the-service-instance) que describe la creación de una base de datos sencilla.
 
 La aplicación debe realizar estas tareas:
 
@@ -313,7 +313,7 @@ La última tarea consiste iniciar el servidor web dentro de la aplicación Pytho
 La única finalidad del servidor es devolver el archivo de registro bajo demanda.
 Este archivo de registro confirma que la aplicación Python ha completado correctamente las siguientes tareas:
 
-1.  Se ha ejecutado correctamente en el entorno de aplicación de {{site.data.keyword.Bluemix_notm}}.
+1.  Se ha ejecutado correctamente en el entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 2.  Ha determinado los detalles de las conexiones de servicio.
 3.  Ha conectado con una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}.
 4.  Ha creado una base de datos.
@@ -342,7 +342,7 @@ El siguiente paso de esta guía de aprendizaje es [cargar la aplicación](create
 
 ## Listado completo
 
-El código siguiente es el programa Python completo para acceder a una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}:
+El código siguiente es el programa Python completo para acceder a una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}}:
 
 ```python
 # Dejar disponibles los módulos de Python.
@@ -391,7 +391,7 @@ target.write("\n====\n\n")
 
 # Empezar a trabajar con la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}.
 
-# Comprobar que se está ejecutando en un entorno de aplicación de Bluemix.
+# Comprobar que se está ejecutando en un entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 if 'VCAP_SERVICES' in os.environ:
     # Comprobado; obtener la información de servicio.
     vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
@@ -417,7 +417,7 @@ if 'VCAP_SERVICES' in os.environ:
     target.write("Got password: ")
     target.write(servicePassword)
     target.write("\n")
-    # ... y el URL del servicio dentro de Bluemix.
+    # ... y el URL del servicio dentro de {{site.data.keyword.cloud_notm}}.
     serviceURL = credentialsData['url']
     target.write("Got URL: ")
     target.write(serviceURL)

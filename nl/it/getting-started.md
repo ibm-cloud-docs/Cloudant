@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -13,13 +13,23 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # Esercitazione introduttiva
 {: #getting-started-with-cloudant}
 
 In questa esercitazione introduttiva di {{site.data.keyword.cloudantfull}}
-useremo Python per creare un database {{site.data.keyword.cloudant}}
-e inserire in tale database una semplice raccolta di dati.
+usiamo Python per creare un database {{site.data.keyword.cloudant_short_notm}}
+e popolare tale database con una semplice raccolta di dati.
 {:shortdesc}
+
+Oltre a questa esercitazione, vedi le nostre esercitazioni pratiche che ti aiutano a conoscere meglio {{site.data.keyword.cloudant_short_notm}}. In alternativa, prova una delle esercitazioni dedicate a uno specifico linguaggio:
+
+- [Liberty for Java e {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
+- [Node.js e {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+- [Swift e {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+
+Per ulteriori esercitazioni specifiche per i linguaggi, consulta le informazioni contenute in [Inizia a distribuire la tua prima applicazione![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/){:new_window}. 
 
 <div id="prerequisites"></div>
 
@@ -32,13 +42,14 @@ di un'istanza del servizio {{site.data.keyword.cloudant}} e dei seguenti requisi
 *	Installa l'ultima versione del
 	[linguaggio di programmazione Python ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://www.python.org/){:new_window} sul tuo sistema.
 	
-	Per verificare la versione, immetti il seguente comando in un prompt:
+	Per verificare,
+esegui il seguente comando quando richiesto:
 	```sh
 	python --version
 	```
 	{:pre}
 	
-	Dovresti visualizzare un risultato simile al seguente:
+	Dovresti avere un risultato simile a:
 
 	```
 	Python 2.7.12
@@ -165,7 +176,7 @@ di un'istanza del servizio {{site.data.keyword.cloudant}} e dei seguenti requisi
   ```
   {: codeblock}
 
-Nota che controlliamo che ogni documento sia stato creato correttamente.
+Nota che eseguiamo un controllo per garantire che ciascun documento venga creato correttamente.
 {: tip}
 
 ## Passo 4: recupero di dati tramite query
@@ -213,13 +224,9 @@ Un recupero completo include anche i dati _all'interno_ di un documento.
         }
     ]
     ```
-    {:screen}
+    {: codeblock}
 
-  > **Nota:** la natura dei database NoSQL,
-  come ad esempio {{site.data.keyword.cloudant_short_notm}},
-  che indica che semplici nozioni come il primo documento memorizzato in un database è sempre
-  il primo ad essere restituito in un elenco di risultati,
-  non è necessariamente applicabile.
+  > **Nota:** semplici convenzioni, come ad esempio quella secondo la quale il primo documento archiviato in un database è sempre il primo restituito in un elenco di risultati, non sempre si applicano ai database NoSQL come {{site.data.keyword.cloudant_short_notm}}.
 
 * Per effettuare un recupero completo,
   richiedi un elenco di tutti i documenti all'interno del database
@@ -258,7 +265,7 @@ Un recupero completo include anche i dati _all'interno_ di un documento.
     }
   ]
   ```
-  {:screen}
+  {: codeblock}
 
 ## Passo 5: recupero dei dati attraverso l'endpoint API {{site.data.keyword.cloudant_short_notm}}
 
@@ -330,7 +337,7 @@ richiamando l'[endpoint `/_all_docs`](api/database.html#get-documents) {{site.da
       "offset": 0
   }
   ```
-  {:screen}
+  {: codeblock}
 
 ## Passo 6: elimina il database
 

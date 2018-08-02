@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -263,5 +263,5 @@ os documentos podem conter cópias de dados existentes em outras coletas
 para representar - em vez de depender - a junção de dados com uma chave estrangeira.
 Por exemplo,
 ao registrar o estado de uma cesta no momento da compra.
-Isso permite que o estado de uma ordem seja buscado por uma única chamada
+Isso permite que o estado de um pedido seja buscado por uma única chamada
 para uma visualização do {{site.data.keyword.cloudant_short_notm}} que agrupa documentos relacionados por `order_id`.

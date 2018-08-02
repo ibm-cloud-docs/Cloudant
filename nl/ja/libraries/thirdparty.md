@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -18,13 +18,13 @@ lastupdated: "2017-11-06"
 
 ## サード・パーティーのモバイル・ライブラリー
 
-Cloudant データベースの操作
+{{site.data.keyword.cloudant_short_notm}} データベースの操作
 
 -   [IBM Worklight Powered Native Objective-C iOS アプリ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window} ({{site.data.keyword.cloudant_short_notm}} アダプター付き)。
 
 ## C# / .NET
 
-[MyCouch![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/danielwertheim/mycouch){:new_window} は、.Net 用の非同期 CouchDB および {{site.data.keyword.cloudant_short_notm}} クライアントです。
+[MyCouch![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/danielwertheim/mycouch){:new_window} は、.Net 用の非同期 CouchDB および {{site.data.keyword.cloudant_short_notm}} クライアントです。
 
 ライブラリーをインストールするには、Package Manager コンソールを開き、以下を起動します。
 
@@ -33,19 +33,19 @@ install-package mycouch.cloudant
 ```
 {:codeblock}
 
-### ライブラリーおよびフレームワーク
+### C# / .NET のライブラリーおよびフレームワーク
 
--   [MyCouch ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/danielwertheim/mycouch){:new_window}。
--   [LoveSeat ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/soitgoes/LoveSeat){:new_window}。
--   [Divan ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/foretagsplatsen/Divan){:new_window}。
--   [Relax ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/arobson/Relax){:new_window}。
--   [Hammock ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](http://code.google.com/p/relax-net/){:new_window}。
--   [EasyCouchDB ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/hhariri/EasyCouchDB){:new_window}。
+-   [MyCouch ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/danielwertheim/mycouch){:new_window}。
+-   [LoveSeat ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/soitgoes/LoveSeat){:new_window}。
+-   [Divan ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/foretagsplatsen/Divan){:new_window}。
+-   [Relax ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/arobson/Relax){:new_window}。
+-   [Hammock ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://code.google.com/p/relax-net/){:new_window}。
+-   [EasyCouchDB ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/hhariri/EasyCouchDB){:new_window}。
 -   [Kanapes IDE ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://kanapeside.com/){:new_window} の `WDK.API.CouchDB`。
 
-### 例および解説
+### C# / .NET の例およびチュートリアル
 
--   [CRUD ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/cloudant/haengematte/tree/master/c%23){:new_window}。
+-   [CRUD ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/haengematte/tree/master/c%23){:new_window}。
 
 ## PHP
 
@@ -59,43 +59,43 @@ require_once('./src/Sag.php');
 ```
 {:codeblock}
 
-### ライブラリーおよびフレームワーク
+### PHP のライブラリーおよびフレームワーク
 
--   [sag ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/sbisbee/sag){:new_window}。
--   [Doctrine CouchDB Client ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/doctrine/couchdb-client){:new_window}。
+-   [sag ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/sbisbee/sag){:new_window}。
+-   [Doctrine CouchDB Client ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/doctrine/couchdb-client){:new_window}。
 -   [PHP-on-Couch ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/dready92/PHP-on-Couch){:new_window}。
 
-### 例および解説
+### PHP の例およびチュートリアル
 
--   [CRUD ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/cloudant/haengematte/tree/master/php){:new_window}。
+-   [CRUD ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/haengematte/tree/master/php){:new_window}。
 
 ## JavaScript
 
-[PouchDB ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](http://pouchdb.com/){:new_window} は、{{site.data.keyword.cloudant_short_notm}} と同期できる JavaScript データベースです。つまり、PouchDB を使用するだけで、アプリをオフライン対応にすることができます。
-詳細情報については、PouchDB に関する[ブログ投稿 ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://cloudant.com/blog/pouchdb){:new_window} を参照してください。
+[PouchDB ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://pouchdb.com/){:new_window} は、{{site.data.keyword.cloudant_short_notm}} と同期できる JavaScript データベースです。つまり、PouchDB を使用するだけで、アプリをオフライン対応にすることができます。
+詳細情報については、PouchDB に関する[ブログ投稿 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/blog/pouchdb){:new_window} を参照してください。
 
-PouchDB の取得、およびセットアップの詳細については、[PouchDB ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](http://pouchdb.com/){:new_window} を参照してください。
+PouchDB の取得、およびセットアップの詳細については、[PouchDB ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://pouchdb.com/){:new_window} を参照してください。
 
 >   **注**: PouchDB は、Node.js 用も入手できます。`npm install pouchdb`。
 
 >   **注**: PouchDB は、Bower でもインストールできます。`bower install pouchdb`。
 
-### ライブラリーおよびフレームワーク
+### JavaScript のライブラリーおよびフレームワーク
 
--   [Backbone.cloudant ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/cloudant-labs/backbone.cloudant){:new_window}。
+-   [Backbone.cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant-labs/backbone.cloudant){:new_window}。
     詳しくは、[ブログ投稿![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/blog/backbone-and-cloudant/){:new_window} を参照してください。
--   [sag.js ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/sbisbee/sag-js){:new_window}。
--   [PouchDB ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](http://pouchdb.com/){:new_window} - ブラウザー用 JavaScript データベース (オフライン同期付き)。
+-   [sag.js ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/sbisbee/sag-js){:new_window}。
+-   [PouchDB ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://pouchdb.com/){:new_window} - ブラウザー用 JavaScript データベース (オフライン同期付き)。
 
-### 例および解説
+### JavaScript の例およびチュートリアル
 
--   [CRUD![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} (jQuery を使用)。
+-   [CRUD![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window} (jQuery を使用)。
 -   [CSVtoCloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/michellephung/CSVtoCloudant){:new_window} - `.csv` ファイルを {{site.data.keyword.cloudant_short_notm}} にインポートするための UI。
     このアプリには、[ここ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://michellephung.github.io/CSVtoCloudant/){:new_window} からもアクセスできます。
--   [csv2couchdb ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/Mango-information-systems/csv2couchdb){:new_window} - `csv` ファイルを CouchDB/{{site.data.keyword.cloudant_short_notm}} にインポートするための Mango Systems からの UI。
+-   [csv2couchdb ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/Mango-information-systems/csv2couchdb){:new_window} - `csv` ファイルを CouchDB/{{site.data.keyword.cloudant_short_notm}} にインポートするための Mango Systems からの UI。
 -   [songblog ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/millayr/songblog){:new_window} - JQuery を使用するサンプル・アプリ。
--   [PouchDB Getting Started Guide![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](http://pouchdb.com/getting-started.html){:new_window} - ブラウザーから {{site.data.keyword.cloudant_short_notm}} または CouchDB に同期する、サンプル Todo アプリケーション。
--   [locationtracker![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/rajrsingh/locationtracker){:new_window} - PouchDB、CouchApp、および {{site.data.keyword.cloudant_short_notm}} を使用してロケーションを記録およびマップするサンプル・アプリ。
+-   [PouchDB Getting Started Guide![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://pouchdb.com/getting-started.html){:new_window} - ブラウザーから {{site.data.keyword.cloudant_short_notm}} または CouchDB に同期する、サンプル Todo アプリケーション。
+-   [locationtracker![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/rajrsingh/locationtracker){:new_window} - PouchDB、CouchApp、および {{site.data.keyword.cloudant_short_notm}} を使用してロケーションを記録およびマップするサンプル・アプリ。
 
 ## Ruby
 
@@ -108,13 +108,13 @@ gem install couchrest
 ```
 {:codeblock}
 
-### ライブラリーおよびフレームワーク
+### Ruby のライブラリーおよびフレームワーク
 
 [Ruby Toolbox ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ruby-toolbox.com/categories/couchdb_clients){:new_window} には多くの CouchDB クライアントがリストされています。
 
-### 例および解説
+### Ruby の例およびチュートリアル
 
--   [CRUD ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://github.com/cloudant/haengematte/tree/master/ruby){:new_window}。
+-   [CRUD ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/haengematte/tree/master/ruby){:new_window}。
 
 <div id="couchdb"></div>
 
@@ -152,7 +152,7 @@ meteor-couchdb API について詳しくは、[API リファレンス](../api/in
 
 [Apache Spark 用の Apache Bahir 拡張機能 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://bahir.apache.org/#home){:new_window} には、Apache Spark 用の {{site.data.keyword.cloudant_short_notm}} ライブラリーである `spark-sql-cloudant` コネクターが含まれています。
 
-spark-sql-cloudant コネクターは、[IBM Bluemix Apache Spark-as-a-Service ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} オファリングに既にロードされています。
+spark-sql-cloudant コネクターは、[{{site.data.keyword.cloud_notm}}Apache Spark-as-a-Service ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} オファリングに既にロードされています。
 どのスタンドアロン Spark クラスターでも使用可能です。
 
 詳しくは、[プロジェクト情報 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/apache/bahir/tree/master/sql-cloudant){:new_window} および [Apache Bahir spark-sql-cloudant の資料 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://bahir.apache.org/docs/spark/current/spark-sql-cloudant/){:new_window} を参照してください。

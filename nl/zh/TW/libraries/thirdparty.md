@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -18,7 +18,7 @@ lastupdated: "2017-11-06"
 
 ## 協力廠商行動程式庫
 
-使用 Cloudant 資料庫：
+使用 {{site.data.keyword.cloudant_short_notm}} 資料庫：
 
 -   搭配「{{site.data.keyword.cloudant_short_notm}} 配接器」的 [IBM Worklight Powered Native Objective-C iOS 應用程式 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){:new_window}。
 
@@ -33,7 +33,7 @@ install-package mycouch.cloudant
 ```
 {:codeblock}
 
-### 程式庫及架構
+### C#/.NET 的程式庫及架構
 
 -   [MyCouch ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/danielwertheim/mycouch){:new_window}。
 -   [LoveSeat ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/soitgoes/LoveSeat){:new_window}。
@@ -43,7 +43,7 @@ install-package mycouch.cloudant
 -   [EasyCouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/hhariri/EasyCouchDB){:new_window}。
 -   `WDK.API.CouchDB`，來自 [Kanapes IDE ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://kanapeside.com/){:new_window}。
 
-### 範例及指導教學
+### C#/.NET 的範例及指導教學
 
 -   [CRUD ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/haengematte/tree/master/c%23){:new_window}。
 
@@ -59,13 +59,13 @@ require_once('./src/Sag.php');
 ```
 {:codeblock}
 
-### 程式庫及架構
+### PHP 的程式庫及架構
 
 -   [sag ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/sbisbee/sag){:new_window}。
 -   [Doctrine CouchDB Client ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/doctrine/couchdb-client){:new_window}。
 -   [PHP-on-Couch ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/dready92/PHP-on-Couch){:new_window}。
 
-### 範例及指導教學
+### PHP 的範例及指導教學
 
 -   [CRUD ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/haengematte/tree/master/php){:new_window}。
 
@@ -80,13 +80,13 @@ require_once('./src/Sag.php');
 
 >   **附註**：也可以使用 Bower 來安裝 PouchDB：`bower install pouchdb`。
 
-### 程式庫及架構
+### JavaScript 的程式庫及架構
 
 -   [Backbone.cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant-labs/backbone.cloudant){:new_window}。如需相關資訊，請參閱[部落格文章 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/backbone-and-cloudant/){:new_window}。
 -   [sag.js ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/sbisbee/sag-js){:new_window}。
 -   [PouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/){:new_window} - 瀏覽器的 JavaScript 資料庫，具有離線同步化。
 
-### 範例及指導教學
+### JavaScript 的範例及指導教學
 
 -   使用 jQuery 的 [CRUD ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){:new_window}。
 -   [CSVtoCloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/michellephung/CSVtoCloudant){:new_window} - 用於將 `.csv` 檔案匯入至 {{site.data.keyword.cloudant_short_notm}} 的使用者介面。
@@ -107,11 +107,11 @@ gem install couchrest
 ```
 {:codeblock}
 
-### 程式庫及架構
+### Ruby 的程式庫及架構
 
 [Ruby Toolbox ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ruby-toolbox.com/categories/couchdb_clients){:new_window} 上列出許多 CouchDB 用戶端。
 
-### 範例及指導教學
+### Ruby 的範例及指導教學
 
 -   [CRUD ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/haengematte/tree/master/ruby){:new_window}。
 
@@ -135,7 +135,7 @@ couchdb-meteor 套件提供：
 -   序列化及解除序列化對 DDP 格式的更新。
 
 >   **附註**：由「{{site.data.keyword.cloudant_short_notm}} 查詢」使用且一開始由 {{site.data.keyword.cloudant_short_notm}} 開發的 JSON 查詢語法，會被提供回 Apache CouchDB 作為 2.0 版。
-    Apache CouchDB 2.0 版的預先建置的二進位檔還是無法使用。您可以搭配使用此模組與 {{site.data.keyword.cloudant_short_notm}} DBaaS 或「Cloudant 本端」，直到預先建置的二進位檔可供使用。
+    Apache CouchDB 2.0 版的預先建置的二進位檔還是無法使用。您可以搭配使用此模組與 {{site.data.keyword.cloudant_short_notm}} DBaaS 或 Cloudant Local，直到預先建置的二進位檔可供使用。
 
 若要配置 Apache CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 伺服器連線資訊，請將其 URL 當作 `COUCHDB_URL` 環境變數傳遞給 Meteor 伺服器處理程序：
 
@@ -150,7 +150,7 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 
 [Apache Spark 的 Apache Bahir 延伸 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://bahir.apache.org/#home){:new_window} 包括 `spark-sql-cloudant` 連接器，其為 Apache Spark 的 {{site.data.keyword.cloudant_short_notm}} 程式庫。
 
-spark-sql-cloudant 連接器已載入至 [IBM Bluemix Apache Spark-as-a-Service ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} 供應項目。
+spark-sql-cloudant 連接器已載入至 [{{site.data.keyword.cloud_notm}} Apache Spark-as-a-Service ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/apache-spark/){:new_window} 供應項目。
 它可與任何獨立式 Spark 叢集搭配使用。
 
 如需詳細資料，請參閱[專案資訊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/apache/bahir/tree/master/sql-cloudant){:new_window} 及 [Apache Bahir spark-sql-cloudant 文件 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://bahir.apache.org/docs/spark/current/spark-sql-cloudant/){:new_window}。

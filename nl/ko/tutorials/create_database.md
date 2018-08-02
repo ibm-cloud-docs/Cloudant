@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,11 +12,10 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# {{site.data.keyword.Bluemix_notm}}에서의 간단한 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 작성 및 채우기
+# {{site.data.keyword.cloud_notm}}에서의 간단한 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 작성 및 채우기
 
 이 튜토리얼은 [Python 프로그래밍 언어 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.python.org/){:new_window}를 사용하여
-{{site.data.keyword.Bluemix}} 서비스 인스턴스에 {{site.data.keyword.cloudantfull}} 데이터베이스를 작성하고 이 데이터베이스를 간단한 데이터 콜렉션으로 채우는 방법을 보여줍니다.
-{:shortdesc}
+{{site.data.keyword.cloud_notm}} 서비스 인스턴스에 {{site.data.keyword.cloudantfull}} 데이터베이스를 작성하고 이 데이터베이스를 간단한 데이터 콜렉션으로 채우는 방법을 보여줍니다. {:shortdesc}
 
 ## 전제조건
 
@@ -42,7 +41,7 @@ Python 2.7.12
 
 ### {{site.data.keyword.cloudant_short_notm}}용 Python 클라이언트 라이브러리
 
-Python 애플리케이션이 {{site.data.keyword.Bluemix_notm}}의 {{site.data.keyword.cloudant_short_notm}}와 함께 작동할 수 있게 해 주는
+Python 애플리케이션이 {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}}와 함께 작동할 수 있게 해 주는
 [공식 지원 라이브러리](../libraries/supported.html#python)가 있습니다.
 
 [여기](../libraries/supported.html#python)에 제공된 지시사항을 사용하여 이를 설치해야 합니다.
@@ -62,19 +61,19 @@ cloudant==2.3.1
 ```
 {:codeblock}
 
-### Bluemix의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스
+### {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스
 
 적절한 서비스 인스턴스를 작성하는 프로세스는 [이 튜토리얼](create_service.html)에 설명되어 있습니다.
 
 서비스 인스턴스에 대해 다음 서비스 신임 정보가 사용 가능한지 확인하십시오.
 
-필드      | 용도
+필드      |용도
 -----------|--------
-`host`     | 애플리케이션이 서비스 인스턴스를 찾는 데 사용하는 호스트 이름입니다.
-`username` | 애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 사용자 이름입니다.
-`password` | 애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 비밀번호입니다.
-`port`     | 호스트의 서비스 인스턴스에 액세스하는 데 필요한 HTTP 포트 번호입니다. 보통 HTTPS 액세스를 강제하려는 경우에는 443이 사용됩니다.
-`url`      | 애플리케이션에서 사용하기에 적합하도록 기타 신임 정보를 하나의 URL로 통합하는 문자열입니다.
+`host`     |애플리케이션이 서비스 인스턴스를 찾는 데 사용하는 호스트 이름입니다.
+`username` |애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 사용자 이름입니다.
+`password` |애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 비밀번호입니다.
+`port`     |호스트의 서비스 인스턴스에 액세스하는 데 필요한 HTTP 포트 번호입니다. 보통 HTTPS 액세스를 강제하려는 경우에는 443이 사용됩니다.
+`url`      |애플리케이션에서 사용하기에 적합하도록 기타 신임 정보를 하나의 URL로 통합하는 문자열입니다.
 
 서비스 인스턴스의 서비스 신임 정보를 찾는 데 대한 정보는 [여기](create_service.html#locating-your-service-credentials)에 있습니다.
 
@@ -82,7 +81,7 @@ cloudant==2.3.1
 
 이 튜토리얼에서는 다음 태스크에 적합한 일련의 Python 언어 명령을 빌드합니다.
 
-1.  [{{site.data.keyword.Bluemix_notm}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 연결합니다](#connecting-to-a-cloudant-service-instance-on-bluemix).
+1.  [{{site.data.keyword.cloud}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 연결합니다](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud).
 2.  [서비스 인스턴스 내에 데이터베이스를 작성합니다](#creating-a-database-within-the-service-instance).
 3.  [소량의 데이터 콜렉션을 문서로서 데이터베이스 내에 저장합니다](#storing-a-small-collection-of-data-as-documents-within-the-database).
 4.  [문서의 전체 목록을 검색합니다](#retrieving-a-complete-list-of-the-documents).
@@ -99,9 +98,10 @@ cloudant==2.3.1
 이 튜토리얼에서는 기법을 보여주기 위해 일부 검사 예를 보여주고 있으나, 사용자는 일반적인 우수 사례를 적용하여
 자신의 애플리케이션에서 발생한 모든 경고 및 오류 상태를 확인하고 처리해야 합니다. 
 
-## {{site.data.keyword.Bluemix_notm}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 연결
+## {{site.data.keyword.cloudant_short_notm}}{{site.data.keyword.cloud_notm}}의 서비스 인스턴스에 연결
 
-Python 애플리케이션이 서비스 인스턴스에 연결하려면 {{site.data.keyword.cloudant_short_notm}} 클라이언트 라이브러리 컴포넌트가 필요합니다. 이들 컴포넌트는 보통 `import`문으로 식별됩니다.
+Python 애플리케이션이 서비스 인스턴스에 연결하려면 {{site.data.keyword.cloudant_short_notm}} 클라이언트 라이브러리 컴포넌트가 필요합니다.
+이들 컴포넌트는 보통 `import`문으로 식별됩니다.
 
 ```python
 from cloudant.client import Cloudant
@@ -119,14 +119,13 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **참고**: 여기에 나와 있는 서비스 신임 정보는
-    데모 {{site.data.keyword.cloudant_short_notm}} 서비스가 Bluemix에 작성될 때 정의되었습니다.
+여기에 나와 있는 서비스 신임 정보
+데모 {{site.data.keyword.cloudant_short_notm}} 서비스가 {{site.data.keyword.cloud_notm}}에 작성될 때 정의되었습니다.
     이 신임 정보는 Python 애플리케이션에서 어떻게 사용되는지 사용자에게 보여주기 위해 여기서 다시 생성되었습니다.
     그러나 해당 데모 {{site.data.keyword.cloudant_short_notm}} 서비스는 현재 제거되었으며,
     따라서 이들 신임 정보는 작동하지 않습니다. 사용자는 _반드시_ 자신의
     서비스 신임 정보를 제공하여 사용해야 합니다.
-
-
+{: tip}
 
 애플리케이션 내에서 Python 클라이언트 라이브러리를 사용으로 설정하고 서비스 신임 정보를 식별한 후에는 서비스 인스턴스에 대한 연결을 설정할 수 있습니다.
 
@@ -136,7 +135,7 @@ client.connect()
 ```
 {:codeblock}
 
-이 시점에서, 사용자의 Python 애플리케이션은 Bluemix의 서비스 인스턴스에 대한 액세스 권한을 갖고 있습니다.
+이 시점에서, 사용자의 Python 애플리케이션은 {{site.data.keyword.cloud_notm}}의 서비스 인스턴스에 대한 액세스 권한을 갖고 있습니다.
 
 ## 서비스 인스턴스 내에 데이터베이스 작성
 
@@ -248,11 +247,12 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
->   **참고**: {{site.data.keyword.cloudant_short_notm}}와 같은
+{{site.data.keyword.cloudant_short_notm}}와 같은
     NoSQL 데이터베이스의 특성은
     데이터베이스에 저장된 첫 번째 문서가
     항상 결과 목록에서 처음으로 리턴된다는 단순한 생각이
-    언제나 옳은 것은 아님을 의미합니다. 
+    언제나 옳은 것은 아님을 의미합니다.
+{: tip}
 
 ### 문서의 전체 검색
 
@@ -295,10 +295,10 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 
 ## 직접 {{site.data.keyword.cloudant_short_notm}} API 엔드포인트 호출
 
-Python 애플리케이션 내에서 {{site.data.keyword.cloudant_short_notm}} API 엔드포인트에 대해 직접 작업을 수행할 수도 있습니다. 
+Python 애플리케이션 내에서 {{site.data.keyword.cloudant_short_notm}} API 엔드포인트에 대해 직접 작업을 수행할 수도 있습니다.
 
 이 코드 예에서는 다시 한 번 컨텐츠를 포함하는 모든 문서의 목록을 요청합니다.
-그러나 이번에는 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 엔드포인트](../api/database.html#get-documents)를 호출하여 이를 수행합니다. 
+그러나 이번에는 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 엔드포인트](../api/database.html#get-documents)를 호출하여 이를 수행합니다.
 
 먼저 접속할 엔드포인트, 그리고 호출과 함께 제공할 매개변수를 식별합니다.
 
@@ -389,7 +389,8 @@ client.disconnect()
 
 ## 전체 목록
 
-다음 코드는 {{site.data.keyword.Bluemix_notm}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 액세스하여 다음과 같은 일련의 일반 태스크를 수행하는 전체 Python 프로그램입니다.
+다음 코드는 {{site.data.keyword.cloud_notm}}의
+{{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 액세스하여 다음과 같은 일련의 일반 태스크를 수행하는 전체 Python 프로그램입니다.
 
 1.  서비스 인스턴스에 연결합니다.
 2.  서비스 인스턴스 내에 데이터베이스를 작성합니다.
@@ -428,7 +429,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
+# Use the {{site.data.keyword.cloudant_short_notm}} library to create an {{site.data.keyword.cloudant_short_notm}} client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -491,7 +492,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
+# Use an {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

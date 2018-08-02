@@ -21,7 +21,7 @@ lastupdated: "2018-02-15"
 
 ## {{site.data.keyword.cloudant_short_notm}} への接続
 
-{{site.data.keyword.cloudant_short_notm}} にアクセスするには、[{{site.data.keyword.cloudant}} アカウント](../api/account.html)または [{{site.data.keyword.Bluemix}} アカウント](../offerings/bluemix.html)が必要です。
+{{site.data.keyword.cloudant_short_notm}} にアクセスするには、[{{site.data.keyword.cloudant_short_notm}} アカウント](../api/account.html)または [{{site.data.keyword.Bluemix}} アカウント](../offerings/bluemix.html)が必要です。
 
 ## HTTP API
 

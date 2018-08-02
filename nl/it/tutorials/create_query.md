@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-02"
+lastupdated: "2018-06-20"
 
 ---
 {:new_window: target="_blank"}
@@ -10,6 +10,9 @@ lastupdated: "2018-03-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-06-13 -->
 
 # Creazione di una query {{site.data.keyword.cloudant_short_notm}}
 
@@ -31,7 +34,7 @@ Prima di cominciare, segui queste istruzioni per preparare l'esercitazione:
 1.  [Crea un account {{site.data.keyword.Bluemix}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Accedi al
   [dashboard {{site.data.keyword.Bluemix_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Crea un'istanza {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-cloudant-instance-on-bluemix).
+3.  [Crea una istanza {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance).
 4.  (Facoltativo) [Crea un alias acurl](../guides/acurl.html#authorized-curl-acurl-) per rendere più facile e veloce eseguire i comandi dalla riga di comando.
 5.  Sostituisci la variabile `$ACCOUNT` nei comandi inclusi negli esercizi con il nome utente che utilizzi per accedere al dashboard {{site.data.keyword.cloudant_short_notm}}.
   Se decidi di non configurare `acurl`,
@@ -73,11 +76,12 @@ database che utilizziamo in questa esercitazione.
 ![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.Bluemix_notm}}_
 
 1.  Apri l'istanza del servizio {{site.data.keyword.cloudant_short_notm}} che hai creato.
-2.  Seleziona la scheda Databases:
-
+2.  Nella pagina del servizio {{site.data.keyword.cloudant_short_notm}}, fai clic su **Launch**.
+    Viene aperta la scheda Databases.
+    
   ![Scheda Databases](../images/tabs.png)
-3.  Fai clic su **Create Database**.
-4.  Immetti `query-demo` e fai clic su **Create**.
+4.  Fai clic su **Create Database**.
+5.  Immetti `query-demo` e fai clic su **Create**.
 
   Viene automaticamente aperto il database `query-demo`.
 
@@ -240,17 +244,9 @@ che crei in questo esercizio contengono i dati che utilizzi per eseguire la quer
   ```
   {:codeblock}
 
-  Il database `query-demo` è stato creato. Puoi visualizzare i documenti nel pannello di destra.
+  Il database `query-demo` è stato popolato con cinque record. Puoi vedere i record dalla vista Table nella seguente acquisizione di schermo:
 
-  ![Documenti di esempio 1](../images/docs1.png)
-
-  ![Documenti di esempio 2](../images/docs2.png)
-
-  ![Documenti di esempio 3](../images/docs3.png)
-
-  ![Documenti di esempio 4](../images/docs4.png)
-
-  ![Documenti di esempio 5](../images/docs5.png)      
+  ![Documenti di esempio](../images/docs1.png)     
 
 ## Creazione di un indice
 
@@ -341,7 +337,7 @@ nel seguente elenco:
   ```
   {:codeblock}
 
-  L'indice è stato creato. Puoi visualizzarlo nel pannello di destra.
+  L'indice è stato creato. Puoi vedere l'indice nella seguente acquisizione di schermo:
 
   ![Indice query](../images/query-index1.png)
 
@@ -354,7 +350,7 @@ Le query ti permettono di estrarre i tuoi dati da {{site.data.keyword.cloudant_s
 e includere solo i dati che desideri.
 
 Questo esercizio ti mostra come scrivere ed eseguire una query semplice, una query con due campi
-e una query con un [operatore](../api/cloudant_query.html#cloudant_query.html#operators).
+e una query con due [operatori](../api/cloudant_query.html#cloudant_query.html#operators).
 Esegui la query con un operatore specificando almeno un campo e il suo valore corrispondente.
 La query utilizza quindi questo valore per ricercare delle corrispondenze nel database.
 
@@ -417,7 +413,7 @@ Questo esempio illustra come la query {{site.data.keyword.cloudant_short_notm}} 
 
 3.  Fai clic su **Run Query**.
 
-  I risultati della query vengono visualizzati nel pannello di destra.
+  Vengono visualizzati i risultati della query. Puoi vederli dalla vista Table nella seguente acquisizione di schermo:
 
   ![Risultato query 1](../images/dashboard_query1_results.png)
 
@@ -447,17 +443,9 @@ Gli ulteriori dettagli sono simili al seguente esempio:
 {
   ...
   "fields" : [
-    "lastname",
     "firstname",
-    "location"
-  ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
+      "lastname",
+      "location"
   ]
 }
 ```  
@@ -472,19 +460,11 @@ Gli ulteriori dettagli sono simili al seguente esempio:
       "lastname": "Brown",
       "location": "New York City, NY"
     },
-    "fields": [
-      "firstname",
-      "lastname",
-      "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]
+    "fields" : [
+     "firstname",
+     "lastname",
+     "location"
+  ]
   }
   ```
   {:codeblock}
@@ -500,12 +480,17 @@ Gli ulteriori dettagli sono simili al seguente esempio:
   {
     "docs": [
       {
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      },
+      {
         "firstname": "John",
         "lastname": "Brown",
         "location": "New York City, NY"
       },
       {
-        "firstname": "Sally",
+        "firstname": "Lois",
         "lastname": "Brown",
         "location": "New York City, NY"
       }
@@ -528,22 +513,14 @@ Gli ulteriori dettagli sono simili al seguente esempio:
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+    ] 
   }
   ```
   {:codeblock}
 
 3.  Fai clic su **Run Query**.
 
-  I risultati della query vengono visualizzati nel pannello di destra.
+  Vengono visualizzati i risultati della query. Puoi vederli dalla vista Table nella seguente acquisizione di schermo:
 
   ![Risultati query 2](../images/dashboard_query2_results.png)
 
@@ -567,16 +544,12 @@ Utilizziamo un'espressione selettore come il seguente esempio:
 ``` 
 {:codeblock}
 
-I risultati sono ordinati per cognome in ordine
-crescente in base ai valori nel parametro `sort`.
+I risultati sono ordinati per età in ordine crescente in base ai valori specificati nel parametro `sort`.
 
 ```json
     "sort": [
       {
         "age": "asc"   
-      },        
-      {
-        "lastname": "asc"
       }
     ] 
 ```  
@@ -601,10 +574,7 @@ crescente in base ai valori nel parametro `sort`.
    ],
     "sort": [
       {
-         "age": "asc"
-      },
-      {
-         "lastname": "asc"
+         "age": "asc"   
       }
    ],
    "use_index": "_design/partial-index"
@@ -649,10 +619,7 @@ crescente in base ai valori nel parametro `sort`.
    ],
     "sort": [
       {
-         "age": "asc"
-      },
-      {
-         "lastname": "asc"
+         "age": "asc"   
       }
    ],
    "use_index": "_design/partial-index"
@@ -662,7 +629,7 @@ crescente in base ai valori nel parametro `sort`.
 
 3.  Fai clic su **Run Query**.
 
-  I risultati della query vengono visualizzati nel pannello di destra.
+  Vengono visualizzati i risultati della query. Puoi vederli dalla vista Table nella seguente acquisizione di schermo:
 
   ![Risultati query 3](../images/dashboard_query3_results.png)
 

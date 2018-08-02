@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -52,7 +52,8 @@ moment en accédant à votre compte {{site.data.keyword.cloudant_short_notm}}.
     Dans cet exemple, le nom du service est `Cloudant Service 2017`:<br/>
     ![Nom et données d'identification du service {{site.data.keyword.cloudant_short_notm}}](images/img0005.png)
 
-6.  Par défaut, le service est créé avec le Plan de tarification limité, gratuit mais offrant des fonctions limitées. D'autres plans de tarification proposant davantage de fonctionnalités [sont disponibles](../offerings/bluemix.html).<br/>
+6.  Par défaut, le service est créé avec le Plan de tarification limité, gratuit mais offrant des fonctions limitées.
+    D'autres plans de tarification proposant davantage de fonctionnalités [sont disponibles](../offerings/bluemix.html).<br/>
     Pour créer le service, cliquez sur le bouton `Créer` :<br/>
     ![Créez le nom et les données d'identification du service {{site.data.keyword.cloudant_short_notm}}](images/img0006.png)
 
@@ -69,11 +70,11 @@ sur la liste déroulante `Afficher les données d'identification` :<br/>
     ![Données d'identification du service {{site.data.keyword.cloudant_short_notm}}](images/img0009.png)
 
 >   **Remarque** : Les données d'identification du service de ces exemples
-    ont été définies lors de la création d'un service {{site.data.keyword.cloudant_short_notm}} de démonstration sur {{site.data.keyword.cloudant_short_notm}}. Ces données d'identification sont reproduites ici pour illustrer la manière dont elles apparaissent dans le tableau de bord.
+    ont été définies lors de la création d'un service {{site.data.keyword.cloudant_short_notm}} de démonstration sur {{site.data.keyword.cloudant_short_notm}}.
+    Ces données d'identification sont reproduites ici pour illustrer la manière dont elles apparaissent dans le tableau de bord.
     Toutefois, le service {{site.data.keyword.cloudant_short_notm}} de démonstration ayant été retiré, elles ne sont plus
 valides. Vous _devez_ indiquer et utiliser vos propres
 données d'identification pour le service.
-
 
 ## Données d'identification du service
 
@@ -122,7 +123,8 @@ sur la liste déroulante `Afficher les données d'identification` :<br/>
     ![Données d'identification du service {{site.data.keyword.cloudant_short_notm}}](images/img0009.png)
 
 >   **Remarque** : Les données d'identification du service de ces exemples
-    ont été définies lors de la création d'un service {{site.data.keyword.cloudant_short_notm}} de démonstration sur {{site.data.keyword.cloudant_short_notm}}. Ces données d'identification sont reproduites ici pour illustrer la manière dont elles apparaissent dans le tableau de bord.
+    ont été définies lors de la création d'un service {{site.data.keyword.cloudant_short_notm}} de démonstration sur {{site.data.keyword.cloudant_short_notm}}.
+    Ces données d'identification sont reproduites ici pour illustrer la manière dont elles apparaissent dans le tableau de bord.
     Toutefois, le service {{site.data.keyword.cloudant_short_notm}} de démonstration ayant été retiré, elles ne sont plus
 valides. Vous _devez_ indiquer et utiliser vos propres
 données d'identification pour le service.

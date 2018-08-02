@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -27,15 +27,13 @@ Ein bedeutender Vorteil von {{site.data.keyword.Bluemix_notm}} ist, dass Sie Anw
 {{site.data.keyword.Bluemix_notm}} selbst erstellen und implementieren.
 Sie müssen keinen Server finden und warten, auf dem Ihre Anwendungen ausgeführt werden können.
 
-Wenn Sie bereits eine {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz in {{site.data.keyword.Bluemix_notm}} verwenden,
-ist es sinnvoll, Ihre Anwendungen ebenfalls dort zu installieren.
+Wenn Sie bereits eine {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz in {{site.data.keyword.Bluemix_notm}} verwenden, ist es sinnvoll, Ihre Anwendungen ebenfalls dort zu installieren.
 
 {{site.data.keyword.Bluemix_notm}}-Anwendungen werden typischerweise mithilfe von
 [Cloud Foundry-Technologie ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} erstellt.
 Cloud Foundry bietet eine Platform as a Service-Funktion (PaaS), die den Prozess der Erstellung von Anwendungen, die in einer Cloud-Umgebung implementiert und ausgeführt werden können, vereinfacht.
 
-[In einem anderen Lernprogramm](create_database.html) haben Sie erfahren, wie Sie eine eigenständige Python-Anwendung erstellen,
-die eine {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz in {{site.data.keyword.Bluemix_notm}} verwendet.
+[In einem anderen Lernprogramm](create_database.html) haben Sie erfahren, wie Sie eine eigenständige Python-Anwendung erstellen, die eine {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz in {{site.data.keyword.Bluemix_notm}} verwendet.
 In diesem Lernprogramm erstellen und richten Sie eine kleine Python-Anwendung ein, die in {{site.data.keyword.Bluemix_notm}} gehostet ist.
 Die Anwendung stellt eine Verbindung mit Ihrer {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz her und
 erstellt ein einzelnes, einfaches Dokument.
@@ -55,9 +53,7 @@ und zu verarbeiten, die in Ihren Anwendungen auftreten.
 
 ## Taskübersicht
 
-Um eine funktionierende Python-Anwendung unter {{site.data.keyword.Bluemix_notm}}
-zu erstellen, die auf eine {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz zugreift,
-müssen Sie die folgenden Tasks ausführen:
+Um eine funktionierende Python-Anwendung unter {{site.data.keyword.Bluemix_notm}} zu erstellen, die auf eine {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz zugreift, müssen Sie die folgenden Tasks ausführen:
 
 -   [Erstellen einer Python-Anwendungsumgebung unter {{site.data.keyword.Bluemix_notm}}. ](create_bmxapp_appenv.html#creating)
 -   [Sicherstellen, dass die Python-Anwendungsumgebung eine Verbindung mit einer {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz hat.](create_bmxapp_appenv.html#connecting)

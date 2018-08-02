@@ -49,20 +49,19 @@ müssen sich an den zuständigen Vertriebsbeauftragten wenden, um eine Geschäft
 
 {{site.data.keyword.IBM_notm}} stellt einen Service Organization Controls (SOC) 2 Type 2-Bericht
 für Cloudant bereit. In diesem Bericht werden die Betriebssteuerungen von IBM im Hinblick auf die von den
-American Institute of Certified Public Accountants (AICPA) Trust Services Principles festgelegten Kriterien ausgewertet.
+American Institute of Certified Public Accountants (AICPA) Trust Services Principles festgelegten Kriterien ausgewertet. 
 Die Trust Services Principles definieren adäquate Steuersysteme und legen Branchenstandards für
 Service-Provider wie IBM Cloud fest, um die Daten und Informationen ihrer Kunden zu sichern.
 
 Sie können einen SOC 2 Type 2-Bericht über das Kundenportal oder bei Ihrem
 Vertriebsbeauftragten anfordern. Alternativ können Sie ein Support-Ticket beim [IBM Cloud-Support ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/cloud/support){:new_window}
-öffnen oder eine E-Mail an [support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} senden.
+öffnen oder eine E-Mail an [support@cloudant.com ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window} senden.
 
-## Datenschutzgrundverordnung (DSGVO) 
+## Datenschutz-Grundverordnung (DSGVO) 
 
-Die DSGVO soll den Rahmen für ein harmonisiertes Datenschutzgesetz in der gesamten EU abstecken,
-um den Bürgern die Kontrolle über ihre personenbezogenen Daten zurückzugeben und zugleich strikte
-Regeln für das Hosting und die 'Verarbeitung' dieser Daten weltweit festzulegen. Darüber hinaus
-führt diese Verordnung Regeln für die freie Übertragung personenbezogener Daten innerhalb und
-außerhalb der EU ein. Das {{site.data.keyword.cloudant_short_notm}}-Team arbeitet gegenwärtig
-an zugehörigen Aktivitäten gemäß DSGVO mit dem Ziel, diese Verordnung bis zum Stichtag 25. Mail 2018
-vollständig einzuhalten.
+Mit der DSGVO (Datenschutz-Grundverordnung) soll in der gesamten EU ein harmonisierter Rechtsrahmen
+für den Datenschutz geschaffen werden, in dem Bürger wieder die Kontrolle über ihre personenbezogenen Daten übernehmen,
+während gleichzeitig denen, die diese Daten an einem beliebigen Standort weltweit hosten und 'verarbeiten' strikte Regeln auferlegt werden.
+Die Verordnung führt zudem Regeln in Bezug auf den freien Datenverkehr innerhalb und außerhalb der EU ein.
+Das {{site.data.keyword.cloudant_short_notm}}-Team arbeitet gegenwärtig an Aktivitäten im Zusammenhang mit der DSGVO mit dem Ziel,
+diese Verordnung bis zum Stichtag 25. Mail 2018 vollständig einzuhalten.

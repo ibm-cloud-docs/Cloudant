@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -73,7 +73,7 @@ lastupdated: "2017-05-04"
 2.  `/$DATABASE/_local/$REPLICATION_ID` でチェックポイント文書を開きます。ここで、`$REPLICATION_ID` は、前のステップで見つけた ID で、`$DATABASE` は、ソース・データベースまたはターゲット・データベースの名前です。
     この文書は、通常、両方のデータベースにありますが、1 つのデータベースのみに存在する場合もあります。
 3.  チェックポイント文書内で検出される履歴配列内の最初のエレメントの `recorded_seq` フィールドを検索します。
-4.  複製文書内の [`since_seq` フィールド](../api/replication.html#the-since_seq-field) を、前のステップで検出した [`recorded_seq` フィールド](backup-guide.html#get-the-recorded_seq-value)の値に設定して、新しい増分バックアップ・データベースに複製します。
+4.  複製文書内の [`since_seq` フィールド](../api/replication.html#the-since_seq-field) を、前のステップで検出した `recorded_seq` フィールドの値に設定して、新しい増分バックアップ・データベースに複製します。
 
 >   **注**: 定義により、`since_seq` オプションを使用すると、通常のチェックポイント機能がバイパスされます。 `since_seq` を使用する際には、必ず注意してください。 
 
@@ -431,4 +431,4 @@ _入出力優先順位を設定する JSON 文書の例:_
 ## ヘルプが必要ですか?
 
 複製およびバックアップは簡単ではありません。
-問題に遭遇したら、[複製ガイド](replication_guide.html)を確認するか、[IBM {{site.data.keyword.cloudant_short_notm}} サポート・チーム![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window}までお問い合わせください。
+問題に遭遇したら、[複製ガイド](replication_guide.html)を確認するか、[{{site.data.keyword.cloudant_short_notm}} サポート・チーム![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window}までお問い合わせください。

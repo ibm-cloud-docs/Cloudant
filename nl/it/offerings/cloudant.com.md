@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-05-24"
 
 ---
 
@@ -17,9 +17,9 @@ lastupdated: "2018-02-15"
 # Cloudant.com
 
 > **Nota**: il piano condiviso di {{site.data.keyword.cloudantfull}} verrà ritirato il 31 marzo 2018. 
-A partire dal 24 luglio 2017, non è possibile creare nuovi account di piano condiviso in [https://cloudant.com/ ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/){:new_window}. 
+A partire dal 24 luglio 2017, non è possibile creare nuovi account di piano condiviso nella home page [{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/){:new_window}. 
 
-{{site.data.keyword.cloudant_short_notm}} è un DBaaS (database-as-a-service) ospitato e completamente gestito.
+{{site.data.keyword.cloudant_short_notm}} è un DBaaS (database-as-a-service) ospitato e completamente gestito. 
 È stato creato da zero per ingrandirsi fino a un livello globale, essere eseguito senza interruzioni e gestire un'ampia varietà di tipi di dati
 come [JSON](../basics/index.html#json),
 [full-text](../api/cloudant_query.html#creating-an-index),
@@ -40,7 +40,7 @@ Viene offerto come [Piano condiviso](#shared-plan) o
 [Piano Enterprise (dedicato)](#enterprise-plan). {{site.data.keyword.cloudant_short_notm}}
 è anche disponibile come  [servizio {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/).
 
-> **Nota**: le offerte di Piano condiviso e Piano Enterprise (dedicato) di {{site.data.keyword.cloudant_short_notm}}  
+> **Nota**: le offerte di Piano condiviso e Piano Enterprise (dedicato) di {{site.data.keyword.cloudant_short_notm}} 
 non sono disponibili sul servizio {{site.data.keyword.cloud_notm}}.
 
 ## Piano Enterprise
@@ -53,17 +53,15 @@ singolo tenant.
 Questo piano ti fornisce tempo di funzionamento e prestazioni del database garantiti
 utilizzando l'hardware o i cluster DBaaS dedicati disponibili in varie ubicazioni di hosting.
 
-Se sei un utente del piano Enterprise che richiede un account {{site.data.keyword.cloudant_short_notm}}
-nuovo o aggiuntivo su uno dei tuoi cluster dedicati, devi registrarti in [https://cloudant.com/enterprise-sign-up ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/enterprise-sign-up){:new_window},
-creare un account utilizzando il modulo e aprire un ticket di supporto per richiedere che il tuo account venga spostato in uno
-dei cluster dedicati Enterprise {{site.data.keyword.cloudant_short_notm}}. 
+Per gli utenti del piano Enterprise che richiedono un account {{site.data.keyword.cloudant_short_notm}}
+nuovo o aggiuntivo su uno dei loro cluster dedicati, registrati nella [pagina di registrazione di un account {{site.data.keyword.cloudant_short_notm}} Enterprise ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/enterprise-sign-up){:new_window},
+crea un account utilizzando il modulo e apri un ticket di supporto per richiedere che il tuo account venga spostato a uno dei tuoi cluster dedicati {{site.data.keyword.cloudant_short_notm}} Enterprise. 
 
 ## Piano condiviso
 {: #shared-plan}
 
 > **Nota**: il piano condiviso di {{site.data.keyword.cloudant_short_notm}} verrà ritirato il 31 marzo 2018. 
-A partire dal 24 luglio 2017, non è possibile creare nuovi account di piano condiviso in
-[https://cloudant.com/ ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/){:new_window}. 
+A partire dal 24 luglio 2017, non è possibile creare nuovi account di piano condiviso su cloudant.com. 
 
 Con il piano condiviso di {{site.data.keyword.cloudant_short_notm}}, hai accesso a tutte le funzionalità
 DBaaS {{site.data.keyword.cloudant_short_notm}}, fornite tramite un cluster condiviso o a 'più tenant'.

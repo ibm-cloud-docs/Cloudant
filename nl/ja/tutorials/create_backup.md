@@ -15,7 +15,7 @@ lastupdated: "2017-11-07"
 # バックアップの作成
 
 このチュートリアルでは、
-[CouchBackup ![「外部リンク」アイコン](../images/launch-glyph.svg "「外部リンク」アイコン")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
+[CouchBackup ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
 コマンド・ライン・ユーティリティーを使用して、CouchDB または {{site.data.keyword.cloudant_short_notm}} インスタンスのバックアップおよびリストアを行う方法を示します。 CouchBackup はデータベースをファイルにバックアップします。 データベースで障害が発生した場合、バックアップ・ファイルを使用して情報を既存データベースにリストアできます。 
 {:shortdesc}
 
@@ -168,7 +168,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
     ```sh
     
     ================================================================================
-    Performing backup on https://****:****@myhost.cloudant.com/couchbackup-demo using configuration:
+    構成を使用した https://****:****@myhost.cloudant.com/couchbackup-demo でのバックアップの実行:
     {
         "bufferSize": 500,
         "log": "/var/folders/r7/vtctv4695hj_njxmr2hj4jyc0000gn/T/tmp-3132gHPWk9A9yGVe.tmp",
@@ -285,7 +285,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
     ```sh
     
     ================================================================================
-    Performing backup on https://****:****@myhost.cloudant.com/couchbackup-demo using configuration:
+    構成を使用した https://****:****@myhost.cloudant.com/couchbackup-demo でのバックアップの実行:
         {
           "bufferSize": 500,
           "log": "couchbackup-demo-backup.log",
@@ -293,7 +293,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
           "parallelism": 5
         }
     ================================================================================
-    Streaming changes to disk:
+    ストリーミングのディスクへの変更:
      batch 0
         [{"_id":"doc2","_rev":"1-2c5ee70689bb75af6f65b0335d1c92f4",
             "firstname":"John","lastname":"Brown","age":21,
@@ -372,7 +372,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
     ```sh
     
     ================================================================================
-    Performing restore on https://****:****@myhost.cloudant.com/couchbackup-demo-restore using configuration:
+    構成を使用した https://****:****@myhost.cloudant.com/couchbackup-demo-restore でのリストアの実行:
     {
       "bufferSize": 500,
       "parallelism": 5

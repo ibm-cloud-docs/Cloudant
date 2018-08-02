@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,11 +12,11 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creazione e popolamento di un semplice database {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}
+# Creazione e popolamento di un semplice database {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}
 
 Questa esercitazione illustra come utilizzare il [linguaggio di programmazione Python
 ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.python.org/){:new_window}
-per creare un database {{site.data.keyword.cloudantfull}} nella tua istanza del servizio {{site.data.keyword.Bluemix}}
+per creare un database {{site.data.keyword.cloudantfull}} nella tua istanza del servizio {{site.data.keyword.cloud_notm}}
 e popolarlo con una raccolta di dati semplice.
 {:shortdesc}
 
@@ -48,8 +48,8 @@ Python 2.7.12
 
 ### Libreria client Python per {{site.data.keyword.cloudant_short_notm}}
 
-Esiste una [libreria supportata ufficialmente](../libraries/supported.html#python) per abilitare le tue applicazioni Python ad utilizzare
-{{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.Bluemix_notm}}.
+Esiste una [libreria supportata ufficialmente](../libraries/supported.html#python) per abilitare le tue applicazioni Python a operare con un
+{{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}}.
 
 Devi installarla utilizzando le istruzioni fornite [qui](../libraries/supported.html#python).
 
@@ -62,15 +62,14 @@ pip freeze
 {:pre}
 
 Dovresti ottenere un elenco di tutti i moduli Python installati nel sistema.
-Controlla l'elenco,
-ricercando una voce {{site.data.keyword.cloudant_short_notm}} simile alla seguente:
+Esamina l'elenco e cerca una voce {{site.data.keyword.cloudant_short_notm}} simile alla seguente:
 
 ```
 cloudant==2.3.1
 ```
 {:codeblock}
 
-### Un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} su Bluemix
+### Un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}
 
 Il processo di creazione di un'istanza del servizio appropriata viene descritto in [questa esercitazione](create_service.html).
 
@@ -92,12 +91,12 @@ Le informazioni su come trovare le credenziali del servizio per la tua istanza d
 Questa esercitazione si basa su una serie di istruzioni del linguaggio Python,
 appropriate per le seguenti attività:
 
-1.  [Collegamento a un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.Bluemix_notm}}](#connecting-to-a-cloudant-service-instance-on-bluemix).
+1.  [Connessione a un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud}}](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud).
 2.  [Creazione di un database nell'istanza del servizio](#creating-a-database-within-the-service-instance).
 3.  [Archiviazione di una piccola raccolta di dati come documenti nel database](#storing-a-small-collection-of-data-as-documents-within-the-database).
 4.  [Richiamo di un elenco completo dei documenti](#retrieving-a-complete-list-of-the-documents).
 5.  [Eliminazione del database](#deleting-the-database).
-6.  [Chiusura del collegamento all'istanza del servizio](#closing-the-connection-to-the-service-instance).
+6.  [Chiusura della connessione all'istanza del servizio](#closing-the-connection-to-the-service-instance).
 
 Il codice Python specifico per ogni attività viene fornito come parte della descrizione dell'attività in questa esercitazione.
 
@@ -114,7 +113,7 @@ Alcuni controlli qui mostrati, illustrano le tecniche,
 ma dovresti utilizzare le procedure consigliate normali per il controllo e la gestione di tutte
 le avvertenze e le condizioni di errore riscontrate dalle tue proprie applicazioni. 
 
-## Connessione a un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}
+## Connessione a un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}
 
 Un'applicazione Python richiede che i componenti della libreria client {{site.data.keyword.cloudant_short_notm}}  siano in grado di connettersi all'istanza del servizio.
 Questi componenti sono identificati come istruzioni `import` normali:
@@ -135,17 +134,18 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **Nota**: le credenziali del servizio qui illustrate
-    sono state definite quando è stato creato un servizio dimostrativo {{site.data.keyword.cloudant_short_notm}} su Bluemix.
+Le credenziali del servizio qui illustrate
+    sono state definite quando è stato creato un servizio dimostrativo {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}.
     Le credenziali vengono riprodotte qui per mostrare come dovrebbero essere utilizzate in un'applicazione Python.
     Tuttavia,
     il servizio dimostrativo {{site.data.keyword.cloudant_short_notm}} è stato ora rimosso,
     per cui queste credenziali non funzioneranno;
     _devi_ fornire e utilizzare le tue proprie credenziali del servizio.
+{: tip}
 
 Una volta che hai abilitato la libreria client Python nella tua applicazione
 e identificato le credenziali del servizio,
-puoi stabilire un collegamento all'istanza del servizio:
+puoi stabilire una connessione all'istanza del servizio:
 
 ```python
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
@@ -154,11 +154,11 @@ client.connect()
 {:codeblock}
 
 A questo punto,
-la tua applicazione Python ha accesso all'istanza del servizio in Bluemix.
+la tua applicazione Python ha accesso all'istanza del servizio in {{site.data.keyword.cloud_notm}}.
 
 ## Creazione di un database nell'istanza del servizio
 
-Il passo successivo è di creare un database nell'istanza del servizio,
+Il passo successivo consiste nel creare un database nell'istanza del servizio,
 denominato `databasedemo`.
 
 Lo faremo definendo una variabile nell'applicazione Python:
@@ -276,11 +276,12 @@ Il risultato è simile al seguente esempio:
 ```
 {:codeblock}
 
->   **Nota**: la natura dei database NoSQL,
+La natura dei database NoSQL,
     come {{site.data.keyword.cloudant_short_notm}},
     indica che le semplici nozioni del primo documento memorizzato in un database
     che è sempre il primo restituito in un elenco di risultati,
     non vengono necessariamente applicate.
+{: tip}
 
 ### Richiamo completo di un documento
 
@@ -422,9 +423,9 @@ else:
 Abbiamo incluso la gestione di alcuni errori di base per illustrare come
 come potrebbero venire riscontrati e risolti dei problemi.
 
-## Chiusura del collegamento all'istanza del servizio
+## Chiusura della connessione all'istanza del servizio
 
-Il passo finale è di scollegare l'applicazione client Python dall'istanza del servizio:
+Il passo finale consiste nel disconnettere l'applicazione client Python dall'istanza del servizio:
 
 ```python
 client.disconnect()
@@ -433,19 +434,19 @@ client.disconnect()
 
 ## Elenco completo
 
-Il seguente codice è un programma Python completo per accedere all'istanza del servizio
-{{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.Bluemix_notm}}
+Il seguente codice è un programma Python completo per accedere a un'istanza del servizio
+{{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}}
 ed eseguire una serie di attività tipiche:
 
-1.  Collegamento all'istanza del servizio.
+1.  Connessione all'istanza del servizio.
 2.  Creazione di un database nell'istanza del servizio.
 3.  Archiviazione di una piccola raccolta di dati come documenti nel database.
 4.  Richiamo di un elenco completo dei documenti.
 5.  Eliminazione del database.
-6.  Chiusura del collegamento all'istanza del servizio.
+6.  Chiusura della connessione all'istanza del servizio.
 
 ```python
-# 1.  Collegamento all'istanza del servizio.
+# 1.  Connessione all'istanza del servizio.
 
 # Abilita le librerie Python obbligatorie.
 
@@ -477,7 +478,7 @@ print "===\n"
 # Utilizza la libreria {{site.data.keyword.cloudant_short_notm}} per creare un client {{site.data.keyword.cloudant_short_notm}}.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
-# Collegati al server
+# Connettiti al server
 client.connect()
 
 # 2.  Creazione di un database nell'istanza del servizio.
@@ -567,9 +568,9 @@ except CloudantException:
 else:
     print "'{0}' successfully deleted.\n".format(databaseName)
 
-# 6.  Chiusura del collegamento all'istanza del servizio.
+# 6.  Chiusura della connessione all'istanza del servizio.
 
-# Scollegati dal server
+# Disconnettiti dal server
 client.disconnect()
 
 # Termina la demo.

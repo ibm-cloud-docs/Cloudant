@@ -14,7 +14,8 @@ lastupdated: "2017-11-06"
 
 # Applications Couch
 
-{{site.data.keyword.cloudantfull}} peut héberger des données de fichiers RAW, notamment des images, et les distribuer sur HTTP, ce qui signifie qu'il peut héberger tous les fichiers statiques nécessaires à l'exécution d'un site Web, à l'instar d'un serveur Web. {:shortdesc}
+{{site.data.keyword.cloudantfull}} peut héberger des données de fichiers RAW, notamment des images, et les distribuer sur HTTP, ce qui signifie qu'il peut héberger tous les fichiers statiques nécessaires à l'exécution d'un site Web, à l'instar d'un serveur Web.
+{:shortdesc}
 
 Ces fichiers étant hébergés sur {{site.data.keyword.cloudant_short_notm}}, JavaScript côté client peut accéder aux bases de données {{site.data.keyword.cloudant_short_notm}}.
 Une application de ce type est considérée comme une architecture à deux niveaux, composée du client - généralement le navigateur - et de la base de données.

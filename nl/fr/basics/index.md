@@ -22,13 +22,16 @@ Les sections issues des [Bibliothèques client](../libraries/index.html#-client-
 
 ## Connexion à {{site.data.keyword.cloudant_short_notm}}
 
-Pour accéder à {{site.data.keyword.cloudant_short_notm}}, vous devez disposer d'un [compte {{site.data.keyword.cloudant}}](../api/account.html) ou d'un [compte {{site.data.keyword.Bluemix}}](../offerings/bluemix.html).
+Pour accéder à {{site.data.keyword.cloudant_short_notm}}, vous devez disposez d'un [compte {{site.data.keyword.cloudant_short_notm}} ](../api/account.html) ou d'un compte [{{site.data.keyword.Bluemix}}](../offerings/bluemix.html).
 
 ## API HTTP
 
-Toutes les demandes adressées à {{site.data.keyword.cloudant_short_notm}} sont acheminées sur le Web. Autrement dit, tout système connecté à Internet peut communiquer avec {{site.data.keyword.cloudant_short_notm}}. Toutes les bibliothèques de langue pour {{site.data.keyword.cloudant_short_notm}} ne sont en réalité que des encapsuleurs qui fournissent des commodités et subtilités d'ordre linguistique afin de vous aider à utiliser une API simple. Un grand nombre d'utilisateurs choisissent d'utiliser des bibliothèques HTTP brutes pour travailler avec {{site.data.keyword.cloudant_short_notm}}.
+Toutes les demandes adressées à {{site.data.keyword.cloudant_short_notm}} sont acheminées sur le Web.
+Autrement dit, tout système connecté à Internet peut communiquer avec {{site.data.keyword.cloudant_short_notm}}.
+Toutes les bibliothèques de langue pour {{site.data.keyword.cloudant_short_notm}} ne sont en réalité que des encapsuleurs qui fournissent des commodités et subtilités d'ordre linguistique afin de vous aider à utiliser une API simple.
+Un grand nombre d'utilisateurs choisissent d'utiliser des bibliothèques HTTP brutes pour travailler avec {{site.data.keyword.cloudant_short_notm}}.
 
-Pour en savoir plus sur la façon dont {{site.data.keyword.cloudant_short_notm}} utilise le protocole HTTP, consultez la  [rubrique HTTP sur la référence d'API](../api/http.html).
+Pour en savoir plus sur la façon dont {{site.data.keyword.cloudant_short_notm}} utilise le protocole HTTP, consultez la [rubrique HTTP sur la référence d'API](../api/http.html).
 
 Les méthodes de demande HTTP prises en charge par {{site.data.keyword.cloudant_short_notm}} sont les suivantes :
 
@@ -37,7 +40,8 @@ Les méthodes de demande HTTP prises en charge par {{site.data.keyword.cloudant_
     Demande l'élément spécifié.
     A l'instar des demandes HTTP standard,
     le format de l'URL définit les éléments renvoyés.
-    Avec {{site.data.keyword.cloudant_short_notm}}, il peut s'agir d'éléments statiques, de documents de base de données et d'informations sur la configuration et les statistiques. Dans la plupart des cas, les informations sont renvoyées sous forme de document JSON.
+    Avec {{site.data.keyword.cloudant_short_notm}}, il peut s'agir d'éléments statiques, de documents de base de données et d'informations sur la configuration et les statistiques.
+    Dans la plupart des cas, les informations sont renvoyées sous forme de document JSON.
 
 -   `HEAD`
 
@@ -135,4 +139,5 @@ Toutefois, la réplication continue implique de vérifier continuellement les mo
 Cette vérification nécessite des appels internes permanents, ce qui a des répercussions négatives sur les performances ou le coût d'utilisation de la base de données.
 
 >   **Remarque** : La réplication continue peut entraîner un grand nombre d'appels internes.
-    Ceci pourrait avoir un effet sur le coût pour les utilisateurs à service partagé des systèmes {{site.data.keyword.cloudant_short_notm}}. La réplication continue est désactivée par défaut.
+    Ceci pourrait avoir un effet sur le coût pour les utilisateurs à service partagé des systèmes {{site.data.keyword.cloudant_short_notm}}.
+    La réplication continue est désactivée par défaut.

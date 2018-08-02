@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-10-27"
+  years: 2017, 2018
+lastupdated: "2018-06-07"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2017-10-27"
 
 此錦囊妙計構成 [{{site.data.keyword.cloudantfull}} 災難回復手冊](disaster-recovery-and-backup.html)的一部分。如果您不熟悉本主題，並且想要瞭解其中的備份是否適合 {{site.data.keyword.cloudant_short_notm}} 為了支援「災難回復 (DR)」及「高可用性 (HA)」需求而提供的其他功能，則很值得從那裡開始。
 
-雖然資料是以備援方式儲存 {{site.data.keyword.cloudant_short_notm}} 叢集內，但是考量額外備份措施是很重要的。例如，備援資料儲存空間不會在資料變更時保護資料免於發生錯誤。
+雖然資料是以備援方式儲存在 {{site.data.keyword.cloudant_short_notm}} 叢集內，但是考量額外的備份措施仍然很重要。例如，備援資料儲存空間不會在資料變更時保護資料免於發生錯誤。
 
 ## 簡介 CouchBackup
 
@@ -30,7 +30,8 @@ lastupdated: "2017-10-27"
 1. `couchbackup`，可將資料庫中的 JSON 資料傾出至備份文字檔。
 2. `couchrestore`，可將備份文字檔中的資料還原至資料庫。
 
-<strong style="color:red;">警告！</strong>CouchBackup 工具具有[限制](#limitations)。
+> **警告！**CouchBackup 工具具有[限制](#limitations)。
+{:tip}
 
 ## 備份 {{site.data.keyword.cloudant_short_notm}} 資料
 
@@ -46,9 +47,11 @@ couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 * 設定資料庫名稱及 URL 的環境變數。
 * 使用日誌檔來記錄備份的進度。
 * 回復被岔斷備份的能力。**附註**：此選項只能與被岔斷備份的日誌檔搭配使用。
+  {:tip}
 * 傳送備份文字檔至具名輸出檔，而不是重新導向 `stdout` 輸出。
 
-<strong style="color:red;">警告！</strong>CouchBackup 工具具有[限制](#limitations)。
+> **警告！**CouchBackup 工具具有[限制](#limitations)。
+{:tip}
 
 ## 還原 {{site.data.keyword.cloudant_short_notm}} 資料
 
@@ -63,11 +66,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 [npm ReadMe ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")][npmreadme]{:new_window} 提供其他還原選項的詳細資料。
 
-<strong style="color:red;">警告！</strong>CouchBackup 工具具有[限制](#limitations)。
+> **警告！**CouchBackup 工具具有[限制](#limitations)。
+{:tip}
 
 ## 限制
 
-<strong style="color:red;">警告！</strong>CouchBackup 工具具有下列限制： 
+> **警告！**CouchBackup 工具具有下列限制： 
+{:tip}
 
 * `_security` 設定不是由這些工具備份。
 * 附件不是由這些工具備份。
@@ -159,7 +164,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 > **附註**：程式碼的必要條件為起始設定 {{site.data.keyword.IBM_notm}} Cloud Object Storage 的 S3 用戶端物件，方法為遵循
 [這些指示 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")][cosclient]{:new_window}。
 
-
+{:tip}
 
 ```javascript
 /*

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2017-11-06"
 将数据从一个数据库复制到另一个数据库可以在同一 {{site.data.keyword.cloudantfull}} 帐户内执行，也可以跨帐户和跨数据中心执行。
 {:shortdesc}
 
-甚至可以使用 [{{site.data.keyword.cloudant_short_notm}} Sync ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/product/cloudant-features/sync/){:new_window} 或 [PouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://pouchdb.com/){:new_window} 在 {{site.data.keyword.cloudant_short_notm}} 帐户和移动设备之间复制数据。复制可以单向或双向运行，作为“单次”或持续操作运行，也可以使用参数进行微调。
+甚至还可以使用 [{{site.data.keyword.cloudant_short_notm}} Sync ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/product/cloudant-features/sync/){:new_window} 或 [PouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://pouchdb.com/){:new_window} 将数据复制到 {{site.data.keyword.cloudant_short_notm}} 帐户和移动设备，或从中复制到其他位置。复制可以单向或双向运行，作为“单次”或持续操作运行，也可以使用参数进行微调。
 
 {{site.data.keyword.cloudant_short_notm}} 的复制协议与一系列其他数据库和库相兼容，因此非常适合物联网 (IoT) 和移动应用程序。
 
@@ -81,12 +81,12 @@ _定义复制的源 URL 和目标 URL 的示例：_
 
 每个 {{site.data.keyword.cloudant_short_notm}} 帐户都有一个名为 `_replicator` 的特殊数据库，可以在其中插入复制作业。将文档添加到 `_replicator` 数据库来启动复制。该文档描述所需的复制，并包含以下字段：
 
-字段            | 用途
+字段            |用途
 ----------------|--------
-`_id`           | 提供 `_id` 字段是可选的，但它有助于标识复制任务。如果未提供，{{site.data.keyword.cloudant_short_notm}} 会生成一个值。
-`source`        | 源 {{site.data.keyword.cloudant_short_notm}} 数据库的 URL，包含登录凭证。
-`target`        | 目标 {{site.data.keyword.cloudant_short_notm}} 数据库的 URL，包含登录凭证。
-`create_target` | （可选）确定在目标数据库尚不存在时是否加以创建。
+`_id`           |提供 `_id` 字段是可选的，但它有助于标识复制任务。如果未提供，{{site.data.keyword.cloudant_short_notm}} 会生成一个值。
+`source`        |源 {{site.data.keyword.cloudant_short_notm}} 数据库的 URL，包含登录凭证。
+`target`        |目标 {{site.data.keyword.cloudant_short_notm}} 数据库的 URL，包含登录凭证。
+`create_target` |（可选）确定在目标数据库尚不存在时是否加以创建。
 
 _使用 HTTP 启动复制作业的示例：_
 
@@ -532,7 +532,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 ```
 {:codeblock}
 
-在返回的 JSON 中，查找 `disk_size` 值。如果该值指示大小超过 1 GB，请联系 [IBM {{site.data.keyword.cloudant_short_notm}} 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window} 以获取进一步的建议。
+在返回的 JSON 中，查找 `disk_size` 值。如果该值指示大小超过 1 GB，请联系 [{{site.data.keyword.cloudant_short_notm}} 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window} 以获取进一步的建议。
 
 可以检查单个 `_replicator` 文档是否存在冲突，如以下示例所示：
 
@@ -582,4 +582,4 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 *   如果有许多微型文档，那么可以考虑增大 [`worker_process`](../api/advanced_replication.html#performance-related-options) 和 [`http_connections`](../api/advanced_replication.html#performance-related-options) 值。
 *   如果要在运行复制时尽可能减少影响，将 `worker_processes` 和 `http_connections` 设置为 1 可能比较适合。
 
-要获取有关用例最佳配置的进一步帮助，请联系 [IBM {{site.data.keyword.cloudant_short_notm}} 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。
+要获取有关您的用例的最佳配置的进一步帮助，请联系 [{{site.data.keyword.cloudant_short_notm}} 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。

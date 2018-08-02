@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2017
-lastupdated: "2017-05-04"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -55,7 +55,7 @@ lastupdated: "2017-05-04"
 1.  查找上次复制的检查点文档的标识。此标识存储在 `_replicator` 数据库中复制文档的 `_replication_id` 字段中。
 2.  打开 `/$DATABASE/_local/$REPLICATION_ID` 处的检查点文档，其中 `$REPLICATION_ID` 是在上一步中找到的标识，`$DATABASE` 是源或目标数据库的名称。该文档通常同时存在于两个数据库上，但也可能仅存在于一个数据库上。
 3.  在检查点文档中找到的 history 数组中，搜索第一个元素的 `recded_seq` 字段。
-4.  复制到新的增量备份数据库，将复制文档中的 [`since_seq` 字段](../api/replication.html#the-since_seq-field)设置为上一步中找到的 [`recded_seq` 字段](backup-guide.html#get-the-recorded_seq-value)的值。
+4.  复制到新的增量备份数据库，将复制文档中的 [`since_seq` 字段](../api/replication.html#the-since_seq-field)设置为上一步中找到的 `recded_seq` 字段的值。
 
 >   **注**：根据定义，使用 `since_seq` 选项会绕过常规检查点工具。因此，请谨慎使用 `since_seq`。 
 
@@ -396,4 +396,4 @@ _用于设置 IO 优先级的 JSON 文档的示例：_
 
 ## 需要帮助？
 
-复制和备份可能很棘手。如果遇到困难，请检查[复制指南](replication_guide.html)，或联系 [IBM {{site.data.keyword.cloudant_short_notm}} 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。
+复制和备份可能很棘手。如果遇到困难，请查看[复制指南](replication_guide.html)，或联系 [{{site.data.keyword.cloudant_short_notm}} 支持团队 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。

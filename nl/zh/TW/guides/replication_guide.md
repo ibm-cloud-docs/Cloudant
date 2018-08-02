@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -88,12 +88,12 @@ _定義抄寫來源及目標 URL 的範例：_
 每個 {{site.data.keyword.cloudant_short_notm}} 帳戶都有稱為 `_replicator` 的特殊資料庫，您在其中可以插入抄寫工作。
 將文件新增至 `_replicator` 資料庫，以開始抄寫。這份文件說明想要的抄寫，並包含下列欄位：
 
-欄位            | 用途
+欄位            |用途
 ----------------|--------
-`_id`           | 提供 `_id` 欄位是選用作業，但可以用於識別抄寫作業。如果您未提供值，則 {{site.data.keyword.cloudant_short_notm}} 會為您產生值。
-`source`        | 來源 {{site.data.keyword.cloudant_short_notm}} 資料庫的 URL（包括登入認證）。
-`target`        | 目的地 {{site.data.keyword.cloudant_short_notm}} 資料庫的 URL（包括登入認證）。
-`create_target` | （選用）判斷是否要建立不存在的目的地資料庫。
+`_id`           |提供 `_id` 欄位是選用作業，但可以用於識別抄寫作業。如果您未提供值，則 {{site.data.keyword.cloudant_short_notm}} 會為您產生值。
+`source`        |來源 {{site.data.keyword.cloudant_short_notm}} 資料庫的 URL（包括登入認證）。
+`target`        |目的地 {{site.data.keyword.cloudant_short_notm}} 資料庫的 URL（包括登入認證）。
+`create_target` |（選用）判斷是否要建立不存在的目的地資料庫。
 
 _使用 HTTP 開始抄寫工作的範例：_
 
@@ -554,7 +554,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 ```
 {:codeblock}
 
-在傳回的 JSON 中，尋找 `disk_size` 值。如果值指出超過 1 GB 的大小，請聯絡 [IBM {{site.data.keyword.cloudant_short_notm}} 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}，以取得進一步的建議。
+在傳回的 JSON 中，尋找 `disk_size` 值。如果值指出超過 1 GB 的大小，請與 [{{site.data.keyword.cloudant_short_notm}} 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window} 聯絡，以取得進一步的建議。
 
 您可以檢查個別 `_replicator` 文件是否有衝突，如下列範例中所示：
 
@@ -608,4 +608,4 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 *   如果您有許多小型文件，則可能會考慮增加 [`worker_process`](../api/advanced_replication.html#performance-related-options) 及 [`http_connections`](../api/advanced_replication.html#performance-related-options) 值。
 *   如果您要在影響最小的情況下執行抄寫，則可能適合將 `worker_processes` 及 `http_connections` 設為 1。
 
-如需使用案例最佳配置的進一步協助，請聯絡 [IBM {{site.data.keyword.cloudant_short_notm}} 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window}。
+如需使用案例最佳配置的進一步協助，請與 [{{site.data.keyword.cloudant_short_notm}} 支援團隊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){:new_window} 聯絡。

@@ -170,7 +170,8 @@ L'utilitaire CouchBackup sauvegarde votre base de données dans un fichier texte
     ```sh
     
     ================================================================================
-    Performing backup on https://****:****@myhost.cloudant.com/couchbackup-demo using configuration: {
+    Performing backup on https://****:****@myhost.cloudant.com/couchbackup-demo using configuration:
+    {
         "bufferSize": 500,
         "log": "/var/folders/r7/vtctv4695hj_njxmr2hj4jyc0000gn/T/tmp-3132gHPWk9A9yGVe.tmp",
         "mode": "full",

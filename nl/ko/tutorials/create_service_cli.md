@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -21,7 +21,7 @@ lastupdated: "2018-03-07"
 
 이 튜토리얼을 수행하려면 먼저 {{site.data.keyword.Bluemix_notm}} Cloud Foundry 도구를 설치해야 합니다.
 이 도구를 설치하는 데 대한 세부사항은
-[별도의 튜토리얼](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits)에 있습니다.
+[별도의 튜토리얼](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits)에 있습니다.
 
 > **참고**: Cloud Foundry 및 {{site.data.keyword.Bluemix_notm}} 툴킷을 _둘 다_ 설치했는지 확인하십시오.
 
@@ -176,13 +176,13 @@ OK
 
 서비스 신임 정보는 다섯 개의 필드로 구성됩니다.
 
-필드      | 용도
+필드      |용도
 -----------|--------
-`host`     | 애플리케이션이 서비스 인스턴스를 찾는 데 사용하는 호스트 이름입니다.
-`username` | 애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 사용자 이름입니다.
-`password` | 애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 비밀번호입니다.
-`port`     | 호스트의 서비스 인스턴스에 액세스하는 데 필요한 HTTP 포트 번호입니다. 보통 HTTPS 액세스를 강제하려는 경우에는 443이 사용됩니다.
-`url`      | 애플리케이션에서 사용하기에 적합하도록 기타 신임 정보를 하나의 URL로 통합하는 문자열입니다.
+`host`     |애플리케이션이 서비스 인스턴스를 찾는 데 사용하는 호스트 이름입니다.
+`username` |애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 사용자 이름입니다.
+`password` |애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 비밀번호입니다.
+`port`     |호스트의 서비스 인스턴스에 액세스하는 데 필요한 HTTP 포트 번호입니다. 보통 HTTPS 액세스를 강제하려는 경우에는 443이 사용됩니다.
+`url`      |애플리케이션에서 사용하기에 적합하도록 기타 신임 정보를 하나의 URL로 통합하는 문자열입니다.
 
 {{site.data.keyword.Bluemix_notm}} 내의 서비스 인스턴스에 대한 신임 정보를 작성하는 기본 명령 형식은 다음과 같습니다.
 

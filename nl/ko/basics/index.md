@@ -19,11 +19,11 @@ Cloudant를 처음 사용해 보는 경우에는 더 진행하기 전에 이 절
 
 [클라이언트 라이브러리](../libraries/index.html#-client-libraries),
 [API 참조](../api/index.html#-api-reference) 및
-[안내](../guides/acurl.html#authorized-curl-acurl-) 절은 사용자가 {{site.data.keyword.cloudantfull}}에 대한 기본 사항을 알고 있다고 가정하여 작성되었습니다. 
+[안내](../guides/acurl.html#authorized-curl-acurl-) 절은 사용자가 {{site.data.keyword.cloudantfull}}에 대한 기본 사항을 알고 있다고 가정하여 작성되었습니다.
 
 ## {{site.data.keyword.cloudant_short_notm}}에 연결
 
-{{site.data.keyword.cloudant_short_notm}}에 액세스하려면 [{{site.data.keyword.cloudant}} 계정](../api/account.html)
+{{site.data.keyword.cloudant_short_notm}}에 액세스하려면 [{{site.data.keyword.cloudant_short_notm}} 계정](../api/account.html)
 또는 [{{site.data.keyword.Bluemix}} 계정](../offerings/bluemix.html)이 있어야 합니다.
 
 ## HTTP API
@@ -32,11 +32,11 @@ Cloudant를 처음 사용해 보는 경우에는 더 진행하기 전에 이 절
 웹에 요청을 전달할 수 있는 모든 시스템은 {{site.data.keyword.cloudant_short_notm}}에 요청을 전달할 수 있음을 의미합니다.
 모든 {{site.data.keyword.cloudant_short_notm}}용 특정 언어 라이브러리는 단지 사용자가 단순한 API에 대해 작업할 수 있도록
 도움을 주기 위해 몇 가지 편의성과 언어적 편리성을 제공하는 랩퍼에 불과합니다.
-{{site.data.keyword.cloudant_short_notm}} 작업용 도구로 원시 HTTP 라이브러리를 선택하는 사용자도 많습니다. 
+{{site.data.keyword.cloudant_short_notm}} 작업용 도구로 원시 HTTP 라이브러리를 선택하는 사용자도 많습니다.
 
-{{site.data.keyword.cloudant_short_notm}}에서 HTTP를 사용하는 방식에 대한 구체적인 세부사항은 [API 참조의 HTTP 주제](../api/http.html)에 제공되어 있습니다. 
+{{site.data.keyword.cloudant_short_notm}}에서 HTTP를 사용하는 방식에 대한 구체적인 세부사항은 [API 참조의 HTTP 주제](../api/http.html)에 제공되어 있습니다.
 
-{{site.data.keyword.cloudant_short_notm}}는 다음 HTTP 요청 메소드를 지원합니다. 
+{{site.data.keyword.cloudant_short_notm}}는 다음 HTTP 요청 메소드를 지원합니다.
 
 -   `GET`
 
@@ -59,7 +59,7 @@ Cloudant를 처음 사용해 보는 경우에는 더 진행하기 전에 이 절
     `POST` 메소드는 값을 설정하고,
     문서를 업로드하고,
     문서 값을 설정하고,
-    몇 가지 관리 명령을 시작하는 데 사용됩니다. 
+    몇 가지 관리 명령을 시작하는 데 사용됩니다.
 
 -   `PUT`
 
@@ -69,7 +69,7 @@ Cloudant를 처음 사용해 보는 경우에는 더 진행하기 전에 이 절
     문서,
     보기,
     디자인 문서를 포함한
-    새 오브젝트를 작성하는 데 사용됩니다. 
+    새 오브젝트를 작성하는 데 사용됩니다.
 
 -   `DELETE`
 
@@ -119,14 +119,14 @@ JSON에 대한 자세한 정보는 [JSON 안내서](../guides/json.html)에서 �
 상호작용할 수 있습니다.
 클러스터에 속한 시스템들은 동일한 데이터 센터에 있어야 하지만
 데이터 센터 내의 '팟(Pod)'은 서로 다를 수 있습니다.
-서로 다른 팟(Pod)을 사용하면 {{site.data.keyword.cloudant_short_notm}}의 고가용성 특성이 향상됩니다. 
+서로 다른 팟(Pod)을 사용하면 {{site.data.keyword.cloudant_short_notm}}의 고가용성 특성이 향상됩니다.
 
 클러스터링의 장점은 추가 컴퓨팅 능력이 필요한 경우
 시스템만 추가하면 된다는 점입니다.
 이는 일반적으로 기존의 한 시스템을 확장하거나 업그레이드하는 것보다 비용 효율적이며 결함에 대한 내성이 더 높습니다.
 
 {{site.data.keyword.cloudant_short_notm}}와 분산 시스템 개념에 대한 자세한 정보는
-[CAP 정리](../guides/cap_theorem.html) 안내서를 참조하십시오. 
+[CAP 정리](../guides/cap_theorem.html) 안내서를 참조하십시오.
 
 ## 복제
 

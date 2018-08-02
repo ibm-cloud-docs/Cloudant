@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -12,11 +12,11 @@ lastupdated: "2017-11-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Criando e preenchendo um banco de dados {{site.data.keyword.cloudant_short_notm}} simples no {{site.data.keyword.Bluemix_notm}}
+# Criando e preenchendo um banco de dados {{site.data.keyword.cloudant_short_notm}} simples no {{site.data.keyword.cloud_notm}}
 
-Esse tutorial mostra como usar a [linguagem de programação Python ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.python.org/){:new_window} para
-criar um banco de dados {{site.data.keyword.cloudantfull}} na instância de serviço do {{site.data.keyword.Bluemix}}
-e preencher o banco de dados com uma coleção de dados simples.
+Este tutorial mostra como usar a [linguagem de programação Python ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.python.org/){:new_window} para
+criar um banco de dados do {{site.data.keyword.cloudantfull}} em sua instância de serviço do {{site.data.keyword.cloud_notm}}
+e preencher o banco de dados com uma coleção simples de dados.
 {:shortdesc}
 
 ## Pré-requisitos
@@ -46,8 +46,8 @@ Python 2.7.12
 
 ### Python Client Library para o {{site.data.keyword.cloudant_short_notm}}
 
-Há uma [biblioteca oficialmente suportada](../libraries/supported.html#python) para permitir que os aplicativos Python trabalhem com o
-{{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}.
+Há uma [biblioteca oficialmente suportada](../libraries/supported.html#python) para ativar seus aplicativos Python para trabalhar com um
+{{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud_notm}}.
 
 É necessário instalá-la usando as instruções fornecidas [aqui](../libraries/supported.html#python).
 
@@ -68,7 +68,7 @@ cloudant==2.3.1
 ```
 {:codeblock}
 
-### Uma instância de serviço do {{site.data.keyword.cloudant_short_notm}} no Bluemix
+### Uma instância de serviço do {{site.data.keyword.cloud_notm}} no {{site.data.keyword.cloudant_short_notm}}
 
 O processo para criar uma instância de serviço adequada é descrito [neste tutorial](create_service.html).
 
@@ -90,7 +90,7 @@ disponíveis [aqui](create_service.html#locating-your-service-credentials).
 Este tutorial constrói uma série de instruções da linguagem Python,
 adequadas para as tarefas a seguir:
 
-1.  [Conectando-se a uma instância de serviço do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}](#connecting-to-a-cloudant-service-instance-on-bluemix).
+1.  [Conectando-se a uma instância de serviço do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud}}](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud).
 2.  [Criando um banco de dados na instância de serviço](#creating-a-database-within-the-service-instance).
 3.  [Armazenando uma pequena coleção de dados como documentos no banco de dados](#storing-a-small-collection-of-data-as-documents-within-the-database).
 4.  [Recuperando uma lista completa dos documentos](#retrieving-a-complete-list-of-the-documents).
@@ -113,7 +113,7 @@ para ilustrar as técnicas,
 mas será necessário aplicar as melhores práticas normais para verificar e manipular todas as
 condições de aviso ou de erro encontradas por seus próprios aplicativos. 
 
-## Conectando-se a uma instância de serviço do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}
+## Conectando-se a uma instância de serviço do {{site.data.keyword.cloud_notm}} no {{site.data.keyword.cloudant_short_notm}}
 
 Um aplicativo Python requer que os componentes do {{site.data.keyword.cloudant_short_notm}} Client Library sejam capazes de se conectar à instância de serviço.
 Esses componentes são identificados como instruções `import` normais:
@@ -134,10 +134,11 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
->   **Nota**: as credenciais de serviço ilustradas aqui
-    foram definidas quando um serviço {{site.data.keyword.cloudant_short_notm}} de demonstração foi criado no Bluemix.
+As credenciais de serviço ilustradas aqui
+    foram definidos quando um serviço de demonstração do {{site.data.keyword.cloudant_short_notm}} foi criado no {{site.data.keyword.cloud_notm}}.
     As credenciais foram reproduzidas aqui para mostrar como seriam usadas em um aplicativo Python.
     No entanto, o serviço {{site.data.keyword.cloudant_short_notm}} de demonstração foi removido agora, então essas credenciais não funcionarão. Será _necessário_ fornecer e usar suas próprias credenciais de serviço.
+{: tip}
 
 Depois de ter ativado a biblioteca do cliente Python em seu aplicativo
 e identificado as credenciais de serviço,
@@ -150,7 +151,7 @@ client.connect()
 {:codeblock}
 
 Neste ponto,
-seu aplicativo Python tem acesso à instância de serviço no Bluemix.
+seu aplicativo Python tem acesso à instância de serviço no {{site.data.keyword.cloud_notm}}.
 
 ## Criando um banco de dados na instância de serviço
 
@@ -271,11 +272,12 @@ O resultado é semelhante ao exemplo a seguir:
 ```
 {:codeblock}
 
->   **Nota**: a natureza de bancos de dados NoSQL,
+A natureza de bancos de dados NoSQL,
     como {{site.data.keyword.cloudant_short_notm}},
     significa que noções simples do primeiro documento armazenado em um banco de dados
     sempre sendo o primeiro retornado em uma lista de resultados
     não se aplicam necessariamente.
+{: tip}
 
 ### Recuperação completa de um documento
 
@@ -427,9 +429,8 @@ client.disconnect()
 
 ## Listagem completa
 
-O código a seguir é um programa Python completo para acessar uma
-instância de serviço do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}
-e executar uma série típica de tarefas:
+O código a seguir é um programa Python completo para acessar uma instância de serviço do {{site.data.keyword.cloud_notm}} no {{site.data.keyword.cloudant_short_notm}}
+e executar uma série de tarefas típicas:
 
 1.  Conectando à instância de serviço.
 2.  Criando um banco de dados na instância de serviço.
@@ -468,7 +469,7 @@ sampleData = [
 # Start the demo.
 print "===\n"
 
-# Use the {{site.data.keyword.cloudant_short_notm}} library to create a {{site.data.keyword.cloudant_short_notm}} client.
+# Use the {{site.data.keyword.cloudant_short_notm}} library to create an {{site.data.keyword.cloudant_short_notm}} client.
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 
 # Connect to the server
@@ -531,7 +532,7 @@ print "Retrieved full document:\n{0}\n".format(result_collection[0])
 # Space out the results.
 print "----\n"
 
-# Use a {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
+# Use an {{site.data.keyword.cloudant_short_notm}} API endpoint to retrieve
 # all the documents in the database,
 # including their content.
 

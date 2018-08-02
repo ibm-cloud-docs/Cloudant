@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-11"
 
 ---
 
@@ -14,32 +14,33 @@ lastupdated: "2017-11-06"
 
 <!-- Acrolinx: 2017-02-23 -->
 
-# {{site.data.keyword.Bluemix_notm}} Dedicated
+# {{site.data.keyword.cloud_notm}} Dedicated
 
-O {{site.data.keyword.cloudantfull}} for (Bluemix Dedicated) é
-um complemento de compra opcional em um ambiente Bluemix Dedicated. O complemento opcional para
-{{site.data.keyword.cloudant_short_notm}} Dedicated no Bluemix Dedicated é precificado com base na capacidade de hardware
-alocado para o ambiente e pode ser comprado entrando em contato com o representante de vendas da {{site.data.keyword.IBM}}.  
+{{site.data.keyword.cloudantfull}} para ({{site.data.keyword.cloud}} Dedicated) é
+um complemento de compra opcional para um ambiente do {{site.data.keyword.cloud_notm}} Dedicated. O complemento opcional para
+{{site.data.keyword.cloudant_short_notm}} Dedicated no {{site.data.keyword.cloud_notm}} Dedicated é precificado com base na capacidade de hardware
+alocada para o ambiente e pode ser comprado entrando em contato com seu representante de vendas {{site.data.keyword.IBM}}.  
 
-Os clientes do Bluemix Dedicated também podem escolher usar o {{site.data.keyword.cloudant_short_notm}} no Bluemix Public
-por meio do catálogo organizado, incluindo as instâncias dos planos Lite e Padrão. Observe que
-os usuários do Bluemix Dedicado não são elegíveis para comprar o plano Hardware dedicado do
-catálogo Bluemix Public e deverão alavancar o {{site.data.keyword.cloudant_short_notm}} Dedicated no
-Bluemix Dedicated se o hardware dedicado for necessário.   
+Os clientes do {{site.data.keyword.cloud_notm}} Dedicated também podem optar por usar o {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud_notm}} Public
+por meio do catálogo organizado, incluindo as instâncias do plano Lite e Standard. Observe que
+usuários do {{site.data.keyword.cloud_notm}} Dedicated não são elegíveis para comprar o plano Dedicated
+Hardware do
+catálogo do {{site.data.keyword.cloud_notm}} Public e devem alavancar o {{site.data.keyword.cloudant_short_notm}} Dedicated no
+{{site.data.keyword.cloud_notm}} Dedicated se o hardware dedicado é necessário.   
 
-A captura de tela a seguir mostra um exemplo de catálogo do {{site.data.keyword.Bluemix_notm}} destacando a versão organizada do
-{{site.data.keyword.Bluemix_notm}} Public do {{site.data.keyword.cloudant_short_notm}} (à esquerda) e do ambiente {{site.data.keyword.cloudant_short_notm}} Dedicated (à direita).  
+A captura de tela a seguir mostra um exemplo de catálogo do {{site.data.keyword.cloud_notm}} destacando a versão organizada do
+{{site.data.keyword.cloud_notm}} Public do {{site.data.keyword.cloudant_short_notm}} (à esquerda) e do ambiente {{site.data.keyword.cloudant_short_notm}} Dedicated (à direita).  
 
 ![{{site.data.keyword.cloudant_short_notm}} catálogo](../images/bluemix_catalog.png)
 
 ## Capacidade de hardware 
 
-O {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}} Dedicated é comprado por meio de uma parte '{{site.data.keyword.Bluemix_notm}} Dedicated
+O {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud_notm}} Dedicated é comprado por meio de uma parte '{{site.data.keyword.cloud_notm}} Dedicated
 {{site.data.keyword.cloudant_short_notm}} 1.6 TB Capacity', que inclui um ambiente do {{site.data.keyword.cloudant_short_notm}} em cluster
 que consiste em três nós de banco de dados e dois balanceadores de carga. Cada nó de banco de dados
 contém 1,6 TB nos SSDs e, como todos os dados são armazenados em triplicidade, isso
 equivale a 1,6 TB de espaço exclusivo em disco no cluster. A expansão de um
-ambiente pode ser realizada comprando partes adicionais '{{site.data.keyword.Bluemix_notm}} Dedicated
+ambiente pode ser realizada comprando partes adicionais '{{site.data.keyword.cloud_notm}} Dedicated
 {{site.data.keyword.cloudant_short_notm}} 1.6TB Capacity', que podem ser usadas para expandir o
 cluster do {{site.data.keyword.cloudant_short_notm}} em múltiplos de três nós de banco de dados. Os clientes também podem
 escolher ter múltiplos ambientes do {{site.data.keyword.cloudant_short_notm}} separados em vez de
@@ -47,8 +48,8 @@ expandir um único ambiente.
 
 ## Locais e ocupação 
 
-O ambiente {{site.data.keyword.cloudant_short_notm}} Dedicated dentro de um ambiente {{site.data.keyword.Bluemix_notm}} Dedicated está no hardware
-que é designado para uso exclusivo pelo cliente do {{site.data.keyword.Bluemix_notm}} Dedicated. O cliente pode provisionar
+O ambiente do {{site.data.keyword.cloudant_short_notm}} Dedicated dentro de um ambiente do {{site.data.keyword.cloud_notm}} Dedicated está no hardware
+que é designado para uso exclusivo pelo cliente do {{site.data.keyword.cloud_notm}} Dedicated. O cliente pode provisionar
 uma ou mais instâncias do {{site.data.keyword.cloudant_short_notm}} no ambiente fornecido e cada instância do {{site.data.keyword.cloudant_short_notm}}
 compartilha os recursos de hardware subjacentes que compõem o ambiente {{site.data.keyword.cloudant_short_notm}}. 
 
@@ -56,11 +57,22 @@ compartilha os recursos de hardware subjacentes que compõem o ambiente {{site.d
 
 Todos os planos são fornecidos em servidores com criptografia de disco [em repouso
 ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/Data_at_rest). O acesso é pela conexão de rede pública e criptografado
-usando HTTPS. Para obter mais detalhes, veja [Segurança ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}.
+usando HTTPS. Para obter mais detalhes, consulte [Segurança ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](../offerings/security.html#security){:new_window}.
 A lista de bloqueio de IP está disponível sob solicitação para o Suporte do {{site.data.keyword.cloudant_short_notm}} e se aplicará a
 todo o ambiente {{site.data.keyword.cloudant_short_notm}}, e não no nível da instância. 
 
-O plano também oferece [Certificação de conformidade ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}.
+Se você precisar trazer sua própria chave (BYOK) para criptografia inativa, isso será ativado por meio do {{site.data.keyword.cloud}}
+Key Protect. O {{site.data.keyword.cloudant_short_notm}} suporta esse recurso para novas instâncias do {{site.data.keyword.cloudant_short_notm}}
+[plano Dedicated
+Hardware](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public)
+implementadas em todas as regiões. Primeiro, crie uma instância do plano Dedicated
+Hardware por meio do [Catálogo do {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/). Em seguida, envie um
+chamado de suporte e nossa equipe de suporte irá coordenar obtendo as chaves de criptografia inativa
+de sua nova instância do Dedicated
+Hardware gerenciadas por meio de sua instância do Key Protect. 
+
+O plano também oferece [Certificação de conformidade ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
+
 A conformidade do [HIPAA ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}
 está disponível mediante solicitação, portanto, solicite isso durante o processo de compra com um representante de vendas da {{site.data.keyword.IBM_notm}}. 
 

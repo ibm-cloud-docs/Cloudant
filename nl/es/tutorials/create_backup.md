@@ -166,7 +166,7 @@ El programa de utilidad CouchBackup hace una copia de seguridad de la base de da
     ```sh
     
     ================================================================================
-    Realización de copia de seguridad en https://****:****@myhost.cloudant.com/couchbackup-demo utilizando configuración:
+    Realización de copia de seguridad en https://****:****@myhost.cloudant.com/couchbackup-demo utilizando la configuración:
     {
         "bufferSize": 500,
         "log": "/var/folders/r7/vtctv4695hj_njxmr2hj4jyc0000gn/T/tmp-3132gHPWk9A9yGVe.tmp",
@@ -283,7 +283,7 @@ El mandato `couchbackup` utiliza estos parámetros para especificar la base de d
     ```sh
     
     ================================================================================
-    Realización de copia de seguridad en https://****:****@myhost.cloudant.com/couchbackup-demo utilizando configuración:
+    Realización de copia de seguridad en https://****:****@myhost.cloudant.com/couchbackup-demo utilizando la configuración:
     {
           "bufferSize": 500,
           "log": "couchbackup-demo-backup.log",
@@ -370,7 +370,7 @@ Esto significa que una base de datos que solo contiene documentos suprimidos no 
     ```sh
     
     ================================================================================
-    Realización de restauración en https://****:****@myhost.cloudant.com/couchbackup-demo-restore utilizando configuración:
+    Realización de restauración en https://****:****@myhost.cloudant.com/couchbackup-demo-restore utilizando la configuración:
     {
       "bufferSize": 500,
       "parallelism": 5

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-04-28 -->
 
@@ -53,14 +54,16 @@ Tier-1 クラウド・インフラストラクチャー・プロバイダーで�
   アクセスはすべて、HTTPS を使用して暗号化されます。
 - 保存状態での暗号化: {{site.data.keyword.cloudant_short_notm}} 内の
   ディスクに保管されるデータは、暗号化することができます。
-  > **注**: {{site.data.keyword.cloudant_short_notm}} インスタンスに保管されるデータは、常に暗号化されます。
+  {{site.data.keyword.cloudant_short_notm}} インスタンスに保管されるデータは、常に暗号化されます。
+{: tip}
+  
 - API アクセス: セキュア HTTP (HTTPS) 上で API を使用することによって、
   {{site.data.keyword.cloudant_short_notm}} はプログラムでアクセスされます。
   API キーは、{{site.data.keyword.cloudant_short_notm}} ダッシュボードを使用して
  生成できます。
 - IP ホワイトリスト登録: {{site.data.keyword.cloudant_short_notm}} Enterprise または
   {{site.data.keyword.Bluemix_notm}} Dedicated 用の専用環境の {{site.data.keyword.cloudant_short_notm}} のお客様は、
-  IP アドレスのホワイトリスト登録により、指定されたサーバーとユーザーにのみアクセスを制限することができます。IP ホワイトリスト登録は、
+  IP アドレスのホワイトリスト登録により、指定されたサーバーとユーザーにのみアクセスを制限することができます。 IP ホワイトリスト登録は、
   {{site.data.keyword.Bluemix_notm}} Public の {{site.data.keyword.cloudant_short_notm}} プランでは使用できないことに注意してください。 
 - CORS: {{site.data.keyword.cloudant_short_notm}} ダッシュボードを使用して、
   特定ドメインの CORS サポートを有効にします。

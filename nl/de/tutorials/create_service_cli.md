@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -22,7 +22,7 @@ In diesem Lernprogramm erfahren Sie, wie Sie eine {{site.data.keyword.cloudantfu
 Bevor Sie dieses Lernprogramm starten,
 müssen Sie die {{site.data.keyword.Bluemix_notm}} Cloud Foundry-Tools installieren.
 Details zur Installation der Tools finden Sie in
-[diesem separaten Lernprogramm](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits).
+[diesem separaten Lernprogramm](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits).
 
 > **Hinweis**: Stellen Sie sicher, dass Sie sowohl die Cloud Foundry-, _als auch_
   die {{site.data.keyword.Bluemix_notm}}-Toolkits installieren.
@@ -153,9 +153,7 @@ bx service create <service> <plan> <instanzname>
 ```
 {:pre}
 
-Angenommen, wir möchten eine Instanz eines
-{{site.data.keyword.cloudant_short_notm}}-Service mit dem `Lite`-Plan erstellen,
-wobei der Instanzname `cs20170517a` lautet.
+Angenommen, wir möchten eine Instanz eines {{site.data.keyword.cloudant_short_notm}}-Service mit dem `Lite`-Plan erstellen, wobei der Instanzname `cs20170517a` lautet.
 
 Führen Sie dazu einen Befehl ähnlich dem folgenden Beispiel aus:
 
@@ -202,9 +200,7 @@ bx cf create-service-key <instanzname> <name_der_berechtigungsnachweise>
 ```
 {:pre}
 
-Angenommen, wir möchten Berechtigungsnachweise für die `cs20170517a`-Instanz eines
-{{site.data.keyword.cloudant_short_notm}}-Service erstellen,
-wobei der Name für die Berechtigungsnachweise `creds20170517a` lautet.
+Angenommen, wir möchten Berechtigungsnachweise für die `cs20170517a`-Instanz eines {{site.data.keyword.cloudant_short_notm}}-Service erstellen, wobei der Name für die Berechtigungsnachweise `creds20170517a` lautet.
 
 Führen Sie dazu einen Befehl ähnlich dem folgenden Beispiel aus:
 
@@ -234,9 +230,7 @@ bx cf service-key <instanzname> <name_der_berechtigungsnachweise>
 ```
 {:pre}
 
-Angenommen, wir möchten Berechtigungsnachweise für die `cs20170517a`-Instanz eines
-{{site.data.keyword.cloudant_short_notm}}-Service abrufen,
-wobei der Name für die Berechtigungsnachweise `creds20170517a` lautet.
+Angenommen, wir möchten Berechtigungsnachweise für die `cs20170517a`-Instanz eines {{site.data.keyword.cloudant_short_notm}}-Service abrufen, wobei der Name für die Berechtigungsnachweise `creds20170517a` lautet.
 
 Führen Sie dazu einen Befehl ähnlich dem folgenden Beispiel aus:
 
@@ -271,8 +265,7 @@ An diesem Punkt haben Sie...
 2.  ...Berechtigungsnachweise für die {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz erstellt.
 3.  ...die Serviceinstanzberechtigungsnachweise abgerufen, damit diese für Ihre Anwendung verwendet werden können.
 
-Ein Lernprogramm, das Ihnen zeigt, wie Sie eine {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz verwenden können,
-ist [hier](create_database.html#context) verfügbar.
+Ein Lernprogramm, das Ihnen zeigt, wie Sie eine {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz verwenden können, ist [hier](create_database.html#context) verfügbar.
 Denken Sie daran, die Berechtigungsnachweise zu ersetzen, die Sie in diesem Lernprogramm erstellt haben.
 
 ## (Optional) Abschließendes Aufräumen
@@ -288,9 +281,7 @@ bx cf delete-service-key <instanzname> <name_der_berechtigungsnachweise>
 ```
 {:pre}
 
-Um beispielsweise die Berechtigungsnachweise namens `creds20170517a`
-aus der Instanz `cs20170517a` eines {{site.data.keyword.cloudant_short_notm}}-Service zu löschen,
-können Sie einen Befehl wie diesen absetzen:
+Um beispielsweise die Berechtigungsnachweise namens `creds20170517a` aus der Instanz `cs20170517a` eines {{site.data.keyword.cloudant_short_notm}}-Service zu löschen, können Sie einen Befehl wie diesen absetzen:
 
 ```sh
 bx cf delete-service-key cs20170517a creds20170517a
@@ -307,8 +298,7 @@ bx service delete <instanzname>
 ```
 {:pre}
 
-Um beispielsweise die Instanz `cs20170517a` eines {{site.data.keyword.cloudant_short_notm}}-Service zu löschen,
-können Sie einen Befehl wie diesen absetzen:
+Um beispielsweise die Instanz `cs20170517a` eines {{site.data.keyword.cloudant_short_notm}}-Service zu löschen, können Sie einen Befehl wie diesen absetzen:
 
 ```sh
 bx service delete cs20170517a

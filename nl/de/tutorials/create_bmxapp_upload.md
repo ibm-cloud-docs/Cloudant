@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,21 +14,21 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-11 -->
 
-# Einfache {{site.data.keyword.Bluemix_notm}}-Anwendung für den Zugriff auf eine {{site.data.keyword.cloudant_short_notm}}-Datenbank erstellen: Anwendung hochladen
+# Einfache {{site.data.keyword.cloud_notm}}-Anwendung für den Zugriff auf eine {{site.data.keyword.cloudant_short_notm}}-Datenbank erstellen: Anwendung hochladen
 
-In diesem Abschnitt des Lernprogramms wird beschrieben, wie Sie eine {{site.data.keyword.Bluemix}}-Anwendung hochladen.
+In diesem Abschnitt des Lernprogramms wird beschrieben, wie Sie eine {{site.data.keyword.cloud}}-Anwendung hochladen.
 {:shortdesc}
 
 <div id="uploading"></div>
 
-## Verbindung zu {{site.data.keyword.Bluemix_notm}} herstellen
+## Verbindung zu {{site.data.keyword.cloud_notm}} herstellen
 
-Die erste Task ist das Herstellen einer Verbindung mit {{site.data.keyword.Bluemix_notm}}.
+Die erste Task ist das Herstellen einer Verbindung mit {{site.data.keyword.cloud_notm}}.
 
-Das [{{site.data.keyword.Bluemix_notm}}-Toolkit](create_bmxapp_appenv.html#toolkits) unterstützt Sie dabei.
+Das [{{site.data.keyword.cloud_notm}}-Toolkit](create_bmxapp_appenv.html#toolkits) unterstützt Sie dabei.
 
 Cloud Foundry muss die URL kennen, die für API-Aufrufe verwendet werden soll, z. B. wenn Sie eine Anwendung hochladen.
-Das {{site.data.keyword.Bluemix_notm}}-Toolkit verwendet den Befehl `cf api`, um den API-Endpunkt zu verwalten.
+Das {{site.data.keyword.cloud_notm}}-Toolkit verwendet den Befehl `cf api`, um den API-Endpunkt zu verwalten.
 Weitere Informationen zum Befehl `cf api` sind
 [verfügbar ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
 
@@ -55,18 +55,18 @@ Not logged in. Use 'bluemix login' to log in.
 
 Cloud Foundry weiß jetzt, wohin API-Aufrufe zur Verwaltung von Anwendungen gesendet werden sollen.
 
-Der nächste Schritt besteht darin, sich bei Ihrer {{site.data.keyword.Bluemix_notm}}-Anwendungsumgebung anzumelden.
+Der nächste Schritt besteht darin, sich bei Ihrer {{site.data.keyword.cloud_notm}}-Anwendungsumgebung anzumelden.
 Sie müssen die folgenden Kontodetails angeben:
 
 -   Ihren Benutzernamen, angegeben als Parameter `-u`.
 -   Ihr Organisationsname, angegeben als Parameter `-o`.
 -   Ihr Bereich, angegeben als Parameter `-s`.
 
->   **Hinweis**: Die Kontodetails sind in Ihrem {{site.data.keyword.Bluemix_notm}}-Dashboard verfügbar,
+>   **Hinweis**: Die Kontodetails sind in Ihrem {{site.data.keyword.cloud_notm}}-Dashboard verfügbar,
     wenn Sie sich, wie im folgenden Beispiel gezeigt, über einen Web-Browser anmelden:<br/>
-    ![{{site.data.keyword.Bluemix_notm}}-Kontodetails suchen](images/img0035.png)
+    ![Ihre {{site.data.keyword.cloud_notm}}-Kontodetails suchen](images/img0035.png)
 
-Verwenden Sie einen Befehl ähnlich dem folgenden, um sich bei Ihrer {{site.data.keyword.Bluemix_notm}}-Anwendungsumgebung anzumelden.
+Verwenden Sie einen Befehl ähnlich dem folgenden, um sich bei Ihrer {{site.data.keyword.cloud_notm}}-Anwendungsumgebung anzumelden.
 Beachten Sie, dass Sie aufgefordert werden, Ihr Kontokennwort einzugeben.
 
 ```sh
@@ -98,14 +98,14 @@ Space:          dev
 
 ## Anwendung hochladen
 
-Das {{site.data.keyword.cloudant_short_notm}} Foundry-Toolkit weiß jetzt, wie es eine Verbindung zur {{site.data.keyword.Bluemix_notm}}-Umgebung herstellt.
+Das {{site.data.keyword.cloudant_short_notm}} Foundry-Toolkit weiß jetzt, wie es eine Verbindung zur {{site.data.keyword.cloud_notm}}-Umgebung herstellt.
 
 Der nächste Schritt besteht darin, die Anwendung selbst hochzuladen.
-Details einer {{site.data.keyword.Bluemix_notm}}-Anwendung werden in der [Manifestdatei](create_bmxapp_appenv.html#manifest) bereitgestellt.
+Details einer {{site.data.keyword.cloud_notm}}-Anwendung werden in der [Manifestdatei](create_bmxapp_appenv.html#manifest) bereitgestellt.
 
 Die Manifestdatei für die Lernprogrammanwendung wurde wie [hier](create_bmxapp_createapp.html#essential-files) beschrieben aktualisiert.
 
-Verwenden Sie einen Befehl ähnlich dem folgenden, um sich anzumelden und Ihre {{site.data.keyword.Bluemix_notm}}-Anwendung hochzuladen.
+Verwenden Sie einen Befehl ähnlich dem folgenden, um sich anzumelden und Ihre {{site.data.keyword.cloud_notm}}-Anwendung hochzuladen.
 
 ```sh
 cf push "Cloudant Python"
@@ -177,7 +177,7 @@ Die Anwendung erfordert Zugriff auf die {{site.data.keyword.cloudant_short_notm}
 die beim Erstellen der Anwendung [angegeben](create_bmxapp_createapp.html#essential-files) wurde.
 
 Nachdem Sie die Anwendung hochgeladen und gestartet haben,
-werden einige Systemprüfungen ausgeführt, um zu bestätigen, dass die Anwendung bezüglich {{site.data.keyword.Bluemix_notm}} ordnungsgemäß ausgeführt wird.
+werden einige Systemprüfungen ausgeführt, um zu bestätigen, dass die Anwendung bezüglich {{site.data.keyword.cloud_notm}} ordnungsgemäß ausgeführt wird.
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -198,7 +198,7 @@ buildpack: python 1.5.5
 
 ## Beispielanwendung testen
 
-Wenn die {{site.data.keyword.Bluemix_notm}}-Anwendungsumgebung das erste Mal erstellt wird,
+Wenn die {{site.data.keyword.cloud_notm}}-Anwendungsumgebung das erste Mal erstellt wird,
 enthält das Dashboard einen Link in der Spalte `Route` für die Anwendung:<br/>
 ![Screenshot des Dashboards für die Anwendung](images/img0017.png)
 
@@ -224,9 +224,10 @@ Klicken Sie auf das Symbol `Starten` auf der Registerkarte `Verwalten` der
 {{site.data.keyword.cloudant_short_notm}}-Serviceseite:<br/>
 ![Startsymbol auf der {{site.data.keyword.cloudant_short_notm}}-Serviceseite](images/img0036.png)
 
-> **Hinweis**: Wo Sie Ihre {{site.data.keyword.cloudant_short_notm}}-Serviceseite finden,
-  ist in den Details im
-  [Lernprogramm '{{site.data.keyword.cloudant_short_notm}}-Instanz erstellen' angegeben](create_service.html#locating-your-service-credentials).
+Wo Sie Ihre {{site.data.keyword.cloudant_short_notm}}-Serviceseite finden,
+ist in den Details im
+[Lernprogramm 'Eine {{site.data.keyword.cloudant_short_notm}}-Instanz erstellen' angegeben](create_service.html#locating-your-service-credentials).
+{: tip}
 
 Wenn das Dashboard geöffnet wird, können Sie sehen, dass die Anwendung
 die Datenbank `databasedemo` erstellt hat:<br/>

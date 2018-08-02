@@ -7,29 +7,65 @@ Cloudant NoSQL DB
 	{: .navgroup id="learn"}
 	getting-started.md
 	cloudant.md
+	offerings/bluemix.md
+	offerings/pricing.md
 
 	{: .topicgroup}
-	产品
-		offerings/bluemix.md
-		offerings/bluemix_dedicated.md
-		offerings/cloudant_local.md
-		offerings/cloudant.com.md
-
-	{: .topicgroup}
-    安全性与合规性
+    安全性和合规性
     	offerings/security.md
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
+		offerings/audit.md
+		offerings/gdpr.md
 
+	{: .topicgroup}
+	发行版信息
+		release_info/release_notes.md
+		release_info/differences_major_releases.md
+		release_info/deprecations.md
+
+	{: .topicgroup}
+    其他产品
+		offerings/bluemix_dedicated.md
+		offerings/cloudant_local.md
+		offerings/cloudant.com.md
+	{: .navgroup-end}
+	
 	{: .navgroup id="reference"}
     basics/index.md
 
 	{: .topicgroup}
-	样本应用程序
-		[使用 Ionic 和 Cloudant 的反馈移动应用程序](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
-		[Open Fridge](https://github.com/krook/openfridge)
-		[联机目录商店](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
+	API 参考
+		api/index.md
+		api/http.md
+		api/compare.md
+		api/account.md
+		api/authentication.md
+		api/authorization.md
+		api/cors.md
+		api/database.md
+		api/document.md
+		api/attachments.md
+		api/cloudant_query.md
+		api/design_documents.md
+		api/creating_views.md
+		api/using_views.md
+		api/search.md
+		api/cloudant-geo.md
+		api/replication.md
+		api/advanced_replication.md
+		api/active_tasks.md
+		api/advanced.md
+		api/monitoring.md
+		api/backup.md
 
+	{: .topicgroup}
+	样本应用程序
+		[Offline First 购物清单](https://developer.ibm.com/code/patterns/create-an-offline-first-shopping-list-progressive-web-app/)
+		[Open Fridge](https://github.com/krook/openfridge)
+		[使用 Core ML 和 Watson Visual Recognition 的 iOS 游戏](https://developer.ibm.com/code/patterns/build-an-ios-game-powered-by-core-ml-and-watson-visual-recognition/)
+		[使用 Watson Studio 的移动健康 app](https://developer.ibm.com/code/patterns/develop-web-based-mobile-health-app-uses-machine-learning/)
+		
 	{: .topicgroup}
 	库
 		libraries/index.md
@@ -64,7 +100,6 @@ Cloudant NoSQL DB
 		guides/acurl.md
 		guides/cap_theorem.md
 		guides/couchapps.md
-		guides/warehousing.md
 		guides/design_document_management.md
 		guides/mvcc.md
 		guides/transactions.md

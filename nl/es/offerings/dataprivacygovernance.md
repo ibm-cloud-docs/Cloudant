@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -21,7 +21,7 @@ _(Esta actualización sobre la privacidad y control de los datos de {{site.data.
 Como pionero en la provisión de un sistema de base de datos como servicio totalmente gestionada y distribuible a nivel global, {{site.data.keyword.cloudant_short_notm}} permite a los clientes localizar datos en cualquier región global de {{site.data.keyword.BluSoftlayer_full}} o AWS.
 Al proporcionar a los clientes un alto nivel de movilidad de los datos para dar servicio a las necesidades locales de los clientes, {{site.data.keyword.IBM}} y {{site.data.keyword.cloudant_short_notm}} se toman muy en serio la privacidad y el control de los datos.
 
-Para controlar el movimiento de datos entre la UE y EE.UU., {{site.data.keyword.cloudant_short_notm}} cumplía con los [acuerdos "Safe Harbour"![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://safeharbor.export.gov/companyinfo.aspx?id=29450){:new_window} entre EE.UU. y la UE y entre la UE y Suiza.
+Para controlar el movimiento de datos entre la UE y EE.UU., {{site.data.keyword.cloudant_short_notm}} cumplía con los [acuerdos "Safe Harbour"![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.export.gov/safeharbor_eu){:new_window} entre EE.UU. y la UE y entre la UE y Suiza.
 Después de la normativa de 2015 de la Corte de Justicia Europea que
 [invalidaba ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){:new_window}
 el acuerdo Safe Harbour,

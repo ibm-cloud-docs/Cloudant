@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-04-28 -->
 
@@ -62,7 +63,9 @@ leitura, gravação, a bancos de dados específicos.
 {{site.data.keyword.cloudant_short_notm}} é criptografado usando HTTPS.
 - Criptografia inativa: os dados armazenados em disco no
 {{site.data.keyword.cloudant_short_notm}} podem ser criptografados.
-  > **Nota**: os dados armazenados em uma instância do {{site.data.keyword.cloudant_short_notm}} são sempre criptografados.
+  Os dados que são armazenados em uma instância do {{site.data.keyword.cloudant_short_notm}} são sempre criptografados.
+  {: tip}
+  
 - Acesso à API: o {{site.data.keyword.cloudant_short_notm}} é acessado programaticamente
 usando uma API sobre HTTP seguro (HTTPS).
   As chaves API podem ser geradas usando

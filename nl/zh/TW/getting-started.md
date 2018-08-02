@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -13,11 +13,21 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # 入門指導教學
 {: #getting-started-with-cloudant}
 
-在此 {{site.data.keyword.cloudantfull}} 入門指導教學中，我們將使用 Python 來建立 {{site.data.keyword.cloudant}} 資料庫，並在該資料庫中移入一組簡單的資料。
+在此 {{site.data.keyword.cloudantfull}} 入門指導教學中，我們使用 Python 來建立 {{site.data.keyword.cloudant_short_notm}} 資料庫，並在該資料庫中移入一組簡單的資料。
 {:shortdesc}
+
+除了本指導教學之外，也請參閱上機指導教學，協助您進一步瞭解 {{site.data.keyword.cloudant_short_notm}}。或者，嘗試其中一個著重在特定語言的指導教學：
+
+- [Liberty for Java 及 {{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
+- [Node.js 及 {{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+- [Swift 及 {{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+
+如需其他語言特定指導教學，請參閱[從部署第一個應用程式開始 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/docs/){:new_window}。 
 
 <div id="prerequisites"></div>
 
@@ -93,9 +103,7 @@ lastupdated: "2017-11-02"
   databaseName = "<yourDatabaseName>"
   ```
   {: codeblock}
-  ... 其中 `<yourDatabaseName>` 是您想要提供給資料庫的名稱。
-
- 
+  ... 其中 `<yourDatabaseName>` 是您想要提供給資料庫的名稱。 
 
   > **附註：**資料庫名稱必須以字母開始，而且只能包括小寫字元 (a-z)、數字 (0-9)，以及下列任何字元：`_`、`$`、`(`、`)`、`+`、`-` 及 `/`。
 
@@ -156,7 +164,7 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-請注意，我們會確認已順利建立每一份文件。
+請注意，我們確認已順利建立每一份文件。
 {: tip}
 
 ## 步驟 4：透過查詢擷取資料
@@ -200,9 +208,9 @@ lastupdated: "2017-11-02"
         }
     ]
     ```
-    {:screen}
+    {: codeblock}
 
-  > **附註：**NoSQL 資料庫（例如 {{site.data.keyword.cloudant_short_notm}}）的本質意味著簡單記號（例如儲存在資料庫的第一份文件一律會是結果清單中傳回的第一個結果）不一定適用。
+  > **附註：**像是資料庫中儲存的第一份文件一定會是結果清單中傳回的第一份文件，這樣簡單的說法並不一定適用於 {{site.data.keyword.cloudant_short_notm}} 這類 NoSQL 資料庫。
 
 * 若要執行完整擷取，請要求一份包含資料庫內所有文件的清單，並提供 `include_docs` 選項，指定必須同時傳回文件內容。
   ```python
@@ -238,7 +246,7 @@ lastupdated: "2017-11-02"
     }
   ]
   ```
-  {:screen}
+  {: codeblock}
 
 ## 步驟 5：透過 {{site.data.keyword.cloudant_short_notm}} API 端點擷取資料
 
@@ -310,7 +318,7 @@ lastupdated: "2017-11-02"
       "offset": 0
   }
   ```
-  {:screen}
+  {: codeblock}
 
 ## 步驟 6：刪除資料庫
 

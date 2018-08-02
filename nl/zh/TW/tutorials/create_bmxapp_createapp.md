@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-03-07"
 
 # 建立簡單的 {{site.data.keyword.cloud_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：程式碼
 
-指導教學的這一節說明 {{site.data.keyword.Bluemix}} 應用程式的程式碼。
+指導教學的這一節說明 {{site.data.keyword.cloud}} 應用程式的程式碼。
 {:shortdesc}
 
 <div id="theApp"></div>
@@ -27,9 +27,9 @@ lastupdated: "2018-03-07"
 
 -   [Python 程式設計語言](create_bmxapp_prereq.html#python)。
 -   [{{site.data.keyword.cloudant_short_notm}} 資料庫實例](create_bmxapp_prereq.html#csi)。
--   [{{site.data.keyword.Bluemix_notm}} 應用程式環境](create_bmxapp_appenv.html#creating)。
--   {{site.data.keyword.cloudant_short_notm}} 資料庫實例與 {{site.data.keyword.Bluemix_notm}} 應用程式環境之間的[連線](create_bmxapp_appenv.html#connecting)。
--   用於管理以 Cloud Foundry 為基礎之 {{site.data.keyword.Bluemix_notm}} 應用程式的[工具箱](create_bmxapp_appenv.html#toolkits)。
+-   [{{site.data.keyword.cloud_notm}} 應用程式環境](create_bmxapp_appenv.html#creating)。
+-   {{site.data.keyword.cloudant_short_notm}} 資料庫實例與 {{site.data.keyword.cloud_notm}} 應用程式環境之間的[連線](create_bmxapp_appenv.html#connecting)。
+-   用於管理以 Cloud Foundry 為基礎之 {{site.data.keyword.cloud_notm}} 應用程式的[工具箱](create_bmxapp_appenv.html#toolkits)。
 -   [「入門範本」應用程式套件](create_bmxapp_appenv.html#starter)，其中包含起始配置及程式碼範本檔案。
 
 >   **附註**：本指導教學不會嘗試建立_有效率_ 的 Python 程式碼。
@@ -68,9 +68,7 @@ lastupdated: "2018-03-07"
       - <your database instance>
     ```
     {:codeblock}
-    >   **附註**：請確定修改 '`domain`'、'`name`'、'`host`' 及 '`services`' 值。它們是您在建立 [{{site.data.keyword.Bluemix_notm}} 應用程式環境](create_bmxapp_appenv.html#creating)及 [{{site.data.keyword.cloudant_short_notm}} 資料庫實例](create_bmxapp_prereq.html#csi)時所輸入的值。
-
-
+    >   **附註**：請確定修改 '`domain`'、'`name`'、'`host`' 及 '`services`' 值。它們是您在建立 [{{site.data.keyword.cloud_notm}} 應用程式環境](create_bmxapp_appenv.html#creating)及 [{{site.data.keyword.cloudant_short_notm}} 資料庫實例](create_bmxapp_prereq.html#csi)時所輸入的值。
 
 3.  編輯 '`requirements.txt`' 檔案，使其包含下列文字：
     ```
@@ -171,12 +169,12 @@ target.write("\n====\n\n")
 
 #### 使用 {{site.data.keyword.cloudant_short_notm}} 資料庫實例
 
-Python 應用程式是在 {{site.data.keyword.Bluemix_notm}} 應用程式環境內執行。此環境提供應用程式存取已連接服務的所有必要資訊。稱為 '`VCAP_SERVICES`' 的環境變數內會提供這項資訊。此變數可以供應用程式進行存取，並用來判斷連線詳細資料。
+Python 應用程式是在 {{site.data.keyword.cloud_notm}} 應用程式環境內執行。此環境提供應用程式存取已連接服務的所有必要資訊。稱為 '`VCAP_SERVICES`' 的環境變數內會提供這項資訊。此變數可以供應用程式進行存取，並用來判斷連線詳細資料。
 
-第一項作業是確保應用程式是在 {{site.data.keyword.Bluemix_notm}} 應用程式環境內執行。藉由測試是否有 '`VCAP_SERVICES`' 環境變數來進行確認：
+第一項作業是確保應用程式是在 {{site.data.keyword.cloud_notm}} 應用程式環境內執行。藉由測試是否有 '`VCAP_SERVICES`' 環境變數來進行確認：
 
 ```python
-# Check that we are running in a {{site.data.keyword.cloud_notm}} application environment.
+# Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
 ```
 {:codeblock}
@@ -206,7 +204,7 @@ target.write("Got cloudantNoSQLDBData\n")
 ```
 {:codeblock}
 
-數個 {{site.data.keyword.Bluemix_notm}} 服務可能已連接至應用程式環境。每一個服務的認證都會列為陣列元素。在本指導教學中，只[建立一個服務連線](create_bmxapp_appenv.html#connecting)。因此，應用程式會存取第一個元素（元素 '0'）。每一個服務元素都會包含該服務的認證，其以透過存取服務所需的基本欄位名稱進行編製索引的清單表示。在說明簡單資料庫建立作業的[指導教學](create_database.html#a-cloudant-service-instance-on-bluemix)中，會提供欄位名稱的相關資訊。
+數個 {{site.data.keyword.cloud_notm}} 服務可能已連接至應用程式環境。每一個服務的認證都會列為陣列元素。在本指導教學中，只[建立一個服務連線](create_bmxapp_appenv.html#connecting)。因此，應用程式會存取第一個元素（元素 '0'）。每一個服務元素都會包含該服務的認證，其以透過存取服務所需的基本欄位名稱進行編製索引的清單表示。在說明簡單資料庫建立作業的[指導教學](create_database.html#pre-requisites)中，會提供欄位名稱的相關資訊。
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -231,7 +229,7 @@ servicePassword = credentialsData['password']
 target.write("Got password: ")
 target.write(servicePassword)
 target.write("\n")
-# ... and the URL of the service within Bluemix.
+# ... and the URL of the service within {{site.data.keyword.cloud_notm}}.
 serviceURL = credentialsData['url']
 target.write("Got URL: ")
 target.write(serviceURL)
@@ -239,7 +237,7 @@ target.write("\n")
 ```
 {:codeblock}
 
-應用程式現在會有在 {{site.data.keyword.cloudant_short_notm}} 資料庫實例內建立資料庫所需的所有詳細資料。在說明簡單資料庫建立的[指導教學](create_database.html#a-cloudant-service-instance-on-bluemix)中，會詳述此作業。
+應用程式現在會有在 {{site.data.keyword.cloudant_short_notm}} 資料庫實例內建立資料庫所需的所有詳細資料。在說明簡單資料庫建立的[指導教學](create_database.html#creating-a-database-within-the-service-instance)中，會詳述此作業。
 
 應用程式必須執行這些作業：
 
@@ -293,7 +291,7 @@ target.close()
 
 最終作業是在 Python 應用程式內啟動 Web 伺服器。伺服器的唯一用途是在要求時傳回日誌檔。此日誌檔可確認 Python 應用程式已順利完成下列作業：
 
-1.  已在 {{site.data.keyword.Bluemix_notm}} 應用程式環境內順利執行。
+1.  已在 {{site.data.keyword.cloud_notm}} 應用程式環境內順利執行。
 2.  已判斷服務連線的詳細資料。
 3.  已連接至 {{site.data.keyword.cloudant_short_notm}} 資料庫實例。
 4.  已建立資料庫。
@@ -322,7 +320,7 @@ httpd.server_close()
 
 ## 完整清單
 
-下列程式碼用來存取 {{site.data.keyword.Bluemix_notm}} 上 {{site.data.keyword.cloudant_short_notm}} 服務實例的完整 Python 程式：
+下列程式碼是用來存取 {{site.data.keyword.cloud_notm}} 上 {{site.data.keyword.cloudant_short_notm}} 服務實例的完整 Python 程式：
 
 ```python
 # Make Python modules available.
@@ -371,7 +369,7 @@ target.write("\n====\n\n")
 
 # Start working with the {{site.data.keyword.cloudant_short_notm}} service instance.
 
-# Check that we are running in a Bluemix application environment.
+# Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
     # Yes we are, so get the service information.
     vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
@@ -397,7 +395,7 @@ if 'VCAP_SERVICES' in os.environ:
     target.write("Got password: ")
     target.write(servicePassword)
     target.write("\n")
-    # ... and the URL of the service within Bluemix.
+    # ... and the URL of the service within {{site.data.keyword.cloud_notm}}.
     serviceURL = credentialsData['url']
     target.write("Got URL: ")
     target.write(serviceURL)

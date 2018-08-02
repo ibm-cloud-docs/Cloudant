@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -36,7 +36,8 @@ CouchBackup은 데이터를 백업하는 데 있어서 더 강력하고 유연�
 
 ### 데이터 센터 정전 및 재해 복구
 
-클러스터 간의 [연속 복제](../api/replication.html#continuous-replication)는 {{site.data.keyword.cloudant_short_notm}} 클러스터가 완전히 사용 불가능한 상태가 아닌 경우에는 문제점에 대한 좋은 해결책입니다.
+클러스터 간의 [연속 복제](../api/replication.html#continuous-replication)는 {{site.data.keyword.cloudant_short_notm}} 클러스터가
+완전히 사용 불가능한 상태가 아닌 경우에는 문제점에 대한 좋은 해결책입니다.
 연속 복제는 '활성-수동' 모델입니다.
 모델의 '활성' 부분이 연속 복제입니다.
 모델의 '수동' 부분은 일반적으로 복제본이 애플리케이션의 요청에 응답하지 않도록 되어 있음을 나타냅니다.
@@ -86,7 +87,7 @@ CouchBackup은 데이터를 백업하는 데 있어서 더 강력하고 유연�
 <!--
 https://developer.ibm.com/clouddataservices/2016/03/22/simple-couchdb-and-cloudant-backup/
 
-A useful approach is to have couchbackup's snapshots placed on the Bluemix Object Storage service, as described here:
+A useful approach is to have couchbackup's snapshots placed on the {{site.data.keyword.cloud}} Object Storage service, as described here:
 
 https://developer.ibm.com/recipes/tutorials/object-storage-cloudant-backup/
 -->

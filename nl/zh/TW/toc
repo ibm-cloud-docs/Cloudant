@@ -7,30 +7,65 @@ Cloudant NoSQL DB
 	{: .navgroup id="learn"}
 	getting-started.md
 	cloudant.md
-
-	{: .topicgroup}
-	供應項目
-		offerings/bluemix.md
-		offerings/bluemix_dedicated.md
-		offerings/cloudant_local.md
-		offerings/cloudant.com.md
+	offerings/bluemix.md
+	offerings/pricing.md
 
 	{: .topicgroup}
     安全及法規遵循
     	offerings/security.md
     	offerings/compliance.md
     	offerings/dataprivacygovernance.md
-	{: .navgroup-end}
+		offerings/audit.md
+		offerings/gdpr.md
 
+	{: .topicgroup}
+	版本資訊
+		release_info/release_notes.md
+		release_info/differences_major_releases.md
+		release_info/deprecations.md
+
+	{: .topicgroup}
+    其他供應項目
+		offerings/bluemix_dedicated.md
+		offerings/cloudant_local.md
+		offerings/cloudant.com.md
+	{: .navgroup-end}
+	
 	{: .navgroup id="reference"}
     basics/index.md
 
 	{: .topicgroup}
-	範例應用程式
-		[使用 Ionic 及 Cloudant 的意見行動應用程式](https://github.com/IBM-Bluemix/feedbackapp-ionic-cloudant)
-		[Open Fridge](https://github.com/krook/openfridge)
-		[線上型錄商店](https://github.com/ibm-bluemix-mobile-services/mobiledashboard-storecatalog-backend)
+	API 參考資料
+		api/index.md
+		api/http.md
+		api/compare.md
+		api/account.md
+		api/authentication.md
+		api/authorization.md
+		api/cors.md
+		api/database.md
+		api/document.md
+		api/attachments.md
+		api/cloudant_query.md
+		api/design_documents.md
+		api/creating_views.md
+		api/using_views.md
+		api/search.md
+		api/cloudant-geo.md
+		api/replication.md
+		api/advanced_replication.md
+		api/active_tasks.md
+		api/advanced.md
+		api/monitoring.md
+		api/backup.md
 
+	{: .topicgroup}
+	範例應用程式
+		[Offline First 購物清單](https://developer.ibm.com/code/patterns/create-an-offline-first-shopping-list-progressive-web-app/)
+		[Open Fridge](https://github.com/krook/openfridge)
+		[具有 Core ML 及 Watson Visual Recognition 的 iOS 遊戲](https://developer.ibm.com/code/patterns/build-an-ios-game-powered-by-core-ml-and-watson-visual-recognition/)
+		[具有 Watson Studio 的行動性能應用程式](https://developer.ibm.com/code/patterns/develop-web-based-mobile-health-app-uses-machine-learning/)
+		
 	{: .topicgroup}
 	程式庫
 		libraries/index.md
@@ -65,7 +100,6 @@ Cloudant NoSQL DB
 		guides/acurl.md
 		guides/cap_theorem.md
 		guides/couchapps.md
-		guides/warehousing.md
 		guides/design_document_management.md
 		guides/mvcc.md
 		guides/transactions.md

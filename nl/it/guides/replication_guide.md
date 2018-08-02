@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -730,7 +730,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 Nel JSON restituito,
 cerca il valore `disk_size`.
 Se il valore indica una dimensione di oltre 1 GB,
-contatta il [team di supporto di IBM {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window} per ulteriori suggerimenti.
+contatta il [{{site.data.keyword.cloudant_short_notm}}team di supporto ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window} per ulteriori suggerimenti.
 
 Puoi controllare i conflitti di un singolo documento `_replicator`,
 come mostrato nel seguente esempio:
@@ -805,4 +805,4 @@ Ad esempio:
     l'impostazione di `worker_processes` e `http_connections` su 1 potrebbe essere appropriata.
 
 Per ulteriore assistenza sulla migliore configurazione per il tuo caso di utilizzo,
-contatta il [team di supporto di IBM {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
+contatta il [team di supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.

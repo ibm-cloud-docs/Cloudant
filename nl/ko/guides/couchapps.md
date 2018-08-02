@@ -29,16 +29,16 @@ CouchDB 커뮤니티에서는 이를 CouchApp이라고 합니다.
 데이터베이스는 데이터 저장 및 서비스에만 집중하도록 할 수 있습니다.
 
 CouchApps는 단순함이 장점이지만, 웹 앱에서 3계층 아키텍처의 성능을 필요로 하는 경우도 종종 발생합니다.
-각각 적절한 경우를 알아보겠습니다. 
+각각 적절한 경우를 알아보겠습니다.
 
 ## CouchApp이 적절한 경우
 
--   서버가 {{site.data.keyword.cloudant_short_notm}}에만 API를 제공합니다. 
--   {{site.data.keyword.cloudant_short_notm}}의 [쿠키 기반 인증](../api/authentication.html)을 사용해도 괜찮습니다. 
--   사용자 및 권한을 관리하는 데 {{site.data.keyword.cloudant_short_notm}}의 [`_users` 및 `_security`](../api/authorization.html) 데이터베이스를 사용해도 괜찮습니다. 
+-   서버가 {{site.data.keyword.cloudant_short_notm}}에만 API를 제공합니다.
+-   {{site.data.keyword.cloudant_short_notm}}의 [쿠키 기반 인증](../api/authentication.html)을 사용해도 괜찮습니다.
+-   사용자 및 권한을 관리하는 데 {{site.data.keyword.cloudant_short_notm}}의 [`_users` 및 `_security`](../api/authorization.html) 데이터베이스를 사용해도 괜찮습니다.
 -   cronjob 또는 기타 정기적 태스크를 스케줄할 필요가 없습니다.
 
-CouchApp을 시작하려면 [{{site.data.keyword.cloudant_short_notm}}의 애플리케이션 관리 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/app-management/){:new_window}를 읽으십시오. 
+CouchApp을 시작하려면 [{{site.data.keyword.cloudant_short_notm}}의 애플리케이션 관리 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/app-management/){:new_window}를 읽으십시오.
 
 ## 3계층 애플리케이션이 적절한 경우
 
@@ -47,4 +47,4 @@ CouchApp을 시작하려면 [{{site.data.keyword.cloudant_short_notm}}의 애플
 -   클라이언트 외부에서 정기적으로 실행되도록 태스크를 스케줄해야 합니다.
 
 사용자는 자신에게 가장 적합한 기술을 사용하여 서버 계층에 대한 쓰기를 수행할 수 있습니다.
-{{site.data.keyword.cloudant_short_notm}} 관련 작업에 필요한 라이브러리의 목록은 [여기](../libraries/index.html)에 있습니다. 
+{{site.data.keyword.cloudant_short_notm}} 관련 작업에 필요한 라이브러리의 목록은 [여기](../libraries/index.html)에 있습니다.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -14,7 +14,7 @@ lastupdated: "2017-11-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creazione di una semplice applicazione {{site.data.keyword.Bluemix_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: prerequisiti
+# Creazione di una semplice applicazione {{site.data.keyword.Bluemix_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: Prerequisiti
 
 Questa sezione dell'esercitazione illustra i prerequisiti per la creazione di un'applicazione {{site.data.keyword.Bluemix}}.
 {:shortdesc}
@@ -60,10 +60,9 @@ Questa esercitazione presuppone che hai già creato un'istanza del servizio deno
 ### Un'applicazione database {{site.data.keyword.cloudant_short_notm}}
 
 Un'esercitazione separata per la creazione di un'applicazione Python autonoma
-da utilizzare con l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}
+da utilizzare con un'istanza del servizio {{site.data.keyword.cloudant_short_notm}}
 è disponibile [qui](create_database.html).
-Introduce molti concetti utili per comprendere come creare e popolare un database
-{{site.data.keyword.cloudant_short_notm}}.
+Introduce diversi concetti utili per comprendere come creare e popolare un database {{site.data.keyword.cloudant_short_notm}}.
 
 Questa esercitazione presuppone che tu abbia familiarità con questi concetti.
 

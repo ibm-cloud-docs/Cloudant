@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -180,7 +180,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**Nota:** l'impostazione di _Q_ per i database non è abilitata per i database {{site.data.keyword.cloudant_short_notm}} su Bluemix.
+>	**Note:** l'impostazione _Q_ per i database non è abilitata per i database {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud}}.
 	Il valore _Q_ non è disponibile nella maggior parte dei cluster a più tenant di `cloudant.com`.
 
 Se tenti di impostare il valore _Q_ dove non è disponibile,

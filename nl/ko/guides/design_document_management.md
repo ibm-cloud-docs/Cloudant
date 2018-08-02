@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -98,7 +98,7 @@ _map 함수를 사용하여 보기를 정의하는 디자인 문서 예:_
 
 -   인덱스 구축은 비동기로 수행됩니다.
     {{site.data.keyword.cloudant_short_notm}}에서는 디자인 문서가 저장된 것을 확인하지만, 인덱스 구축 진행상태를 확인하기 위해서는
-    {{site.data.keyword.cloudant_short_notm}}의 [`_active_tasks`](../api/active_tasks.html) 엔드포인트를 폴링해야 합니다. 
+    {{site.data.keyword.cloudant_short_notm}}의 [`_active_tasks`](../api/active_tasks.html) 엔드포인트를 폴링해야 합니다.
 -   데이터가 많아질수록 인덱스가 준비되는 데 오랜 시간이 소요됩니다.
 -   첫 인덱스 빌드가 진행 중인 동안에는 _해당 인덱스에 대한 모든 조회가 차단됩니다_.
 -   보기를 조회하면 아직 증분 인덱싱되지 않은 모든 문서의 '맵핑'이 트리거됩니다.
@@ -187,7 +187,8 @@ _reduce 함수를 사용하는 디자인 문서 예_
 ### 디자인 문서 '이동 및 전환'
 
 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window}에
-기록되어 있는 또 다른 접근법은 {{site.data.keyword.cloudant_short_notm}}가 두 개의 동일한 디자인 문서가 있는 경우 이를 인식하고 이미 있는 보기를 다시 빌드하는 데 시간과 리소스를 낭비하는 않는다는 점을 이용합니다. 즉, 디자인 문서 `_design/fetch`의
+기록되어 있는 또 다른 접근법은 {{site.data.keyword.cloudant_short_notm}}가 두 개의 동일한 디자인 문서가 있는 경우 이를 인식하고 이미 있는 보기를 다시 빌드하는 데 시간과 리소스를 낭비하는 않는다는 점을 이용합니다.
+즉, 디자인 문서 `_design/fetch`의
 정확한 복제인 `_design/fetch_OLD`를 작성하면 두 엔드포인트는 재인덱싱을 트리거하지 않으면서 교환 가능하게 작동합니다.
 
 새 보기로 전환하는 프로시저는 다음과 같습니다.
@@ -212,7 +213,7 @@ npm install -g couchmigrate
 ```
 {:codeblock}
 
-`couchmigrate` 스크립트를 사용하려면 먼저 `COUCH_URL`이라는 환경 변수를 설정하여 CouchDB/{{site.data.keyword.cloudant_short_notm}} 인스턴스의 URL을 정의하십시오. 
+`couchmigrate` 스크립트를 사용하려면 먼저 `COUCH_URL`이라는 환경 변수를 설정하여 CouchDB/{{site.data.keyword.cloudant_short_notm}} 인스턴스의 URL을 정의하십시오.
 
 _{{site.data.keyword.cloudant_short_notm}} 인스턴스의 URL 정의:_
 
@@ -258,19 +259,19 @@ couchmigrate --db mydb --dd /path/to/my/dd.json
 보기를 조회할 때는 세 가지 선택사항이 있습니다.
 
 -   기본 동작은 응답을 리턴하기 전에 인덱스가 데이터베이스에 있는 최신 문서에 대해 최신 상태가 되도록 하는 것입니다.
-    사용자가 보기를 조회하면, {{site.data.keyword.cloudant_short_notm}}에서는 먼저 250개의 새 문서를 인덱싱한 후 응답을 리턴합니다. 
+    사용자가 보기를 조회하면, {{site.data.keyword.cloudant_short_notm}}에서는 먼저 250개의 새 문서를 인덱싱한 후 응답을 리턴합니다.
 -   대체 방법은 "`stale=ok`" 매개변수를 API 호출에 추가하는 것입니다.
     이 매개변수는 "최신 업데이트 여부는 상관없으니 이미 인덱싱된 데이터를 리턴하라"는 의미입니다.
     즉, "`stale=ok`"를 사용하여 보기를 조회하면 {{site.data.keyword.cloudant_short_notm}}에서는 추가 재인덱싱 없이
-    응답을 즉시 리턴합니다. 
+    응답을 즉시 리턴합니다.
 -   두 번째 대체 방법은 "`stale=update_after`" 매개변수를 API 호출에 추가하는 것입니다.
     이 매개변수는 "이미 인덱싱된 데이터를 리턴한 _후_, 새 문서를 재인덱싱하라"는 의미입니다.
     즉, "`stale=update_after`"를 사용하여 보기를 조회하면 {{site.data.keyword.cloudant_short_notm}}에서는 응답을 즉시 리턴한 후
-    새 데이터 인덱싱을 위한 백그라운드 태스크를 스케줄합니다. 
+    새 데이터 인덱싱을 위한 백그라운드 태스크를 스케줄합니다.
 
 "`stale=ok`" 또는 "`stale=update_after`"를 추가하는 것은 보기로부터 응답을 더 빨리 받는 좋은 방법이지만 데이터가 최신 상태가 아닐 수 있습니다. 
 
->   **참고**: 기본 동작은 {{site.data.keyword.cloudant_short_notm}} 클러스터에 속한 노드 전체에 로드를 균등하게 분배하는 것입니다. 
+>   **참고**: 기본 동작은 {{site.data.keyword.cloudant_short_notm}} 클러스터에 속한 노드 전체에 로드를 균등하게 분배하는 것입니다.
     대체 방법인 `stale=ok` 또는 `stale=update_after` 옵션을 사용하면 결과적으로 일관된 세트로부터
     일관된 결과를 리턴하기 위해 클러스터 노드의 특정 서브세트에 로드가 집중될 수 있습니다.
     이는 '`stale`' 매개변수가 모든 사용 사례에서 완벽한 해결책은 아님을 의미합니다.

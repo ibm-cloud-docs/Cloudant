@@ -33,15 +33,16 @@ Vos données sont ainsi protégées par le réseau et les mesures de sécurité 
 
 {{site.data.keyword.cloudant_short_notm}} est audité par une entreprise de sécurité tierce et répond à toutes les exigences de la norme ISO 27001 :
 
-* [{{site.data.keyword.Bluemix_notm}} Certificat d'enregistrement ISO 27001:2013 ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](ftp://public.dhe.ibm.com/cloud/bluemix/compliance/Bluemix_ISO27K1_WWCert_2016.pdf){:new_window} 
+* [{{site.data.keyword.Bluemix_notm}} Certificat d'enregistrement ISO 27001:2013 ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](ftp://public.dhe.ibm.com/cloud/bluemix/compliance/Bluemix_ISO27K1_WWCert_2016.pdf){:new_window}
 * [{{site.data.keyword.IBM_notm}} Certificat SaaS ISO 27001:2013 ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?subtype=ST&infotype=SA&htmlfid=KUJ12445USEN&attachment=KUJ12445USEN.PDF){:new_window}
 
-## Certification SOC 2 Type 2 
+## Certification SOC 2 Type 2
 
-{{site.data.keyword.IBM_notm}} fournit un rapport sur les contrôles d'organisation de service (SOC) 2 Type 2 pour Cloudant. Ces rapports évaluent les contrôles opérationnels d'IBM selon des critères définis par les principes Trust Services Principles de l'AICPA (American Institute of Certified Public Accountants). Ces derniers définissent les systèmes de contrôle adéquats et établissent les normes de l'industrie pour les fournisseurs de service, tels qu'IBM Cloud, afin de protéger les données et les informations de leurs clients. 
+{{site.data.keyword.IBM_notm}} fournit un rapport sur les contrôles d'organisation de service (SOC) 2 Type 2 pour Cloudant. Ces rapports évaluent les contrôles opérationnels d'IBM selon des critères définis par les principes Trust Services Principles de l'AICPA (American Institute of Certified Public Accountants). 
+Ces derniers définissent les systèmes de contrôle adéquats et établissent les normes de l'industrie pour les fournisseurs de service, tels qu'IBM Cloud, afin de protéger les données et les informations de leurs clients.
 
 Vous pouvez demander un rapport SOC 2 Type 2 à partir du portail client ou contacter votre ingénieur commercial. Vous pouvez également ouvrir un ticket de demande de service auprès du [support IBM Cloud ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/cloud/support){:new_window} ou envoyer un e-mail à [support@cloudant.com ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window}.
 
-## Règlement général sur la protection des données (GDPR) 
+## Règlement général sur la protection des données (RGPD) 
 
-Le GDPR cherche à créer un cadre juridique harmonisé pour la protection des données dans l'UE et vise à redonner aux citoyens le contrôle de leurs données personnelles, tout en imposant des règles strictes à ceux qui hébergent et 'traitent' ces données partout dans le monde. Ce règlement introduit également des règles relatives à la libre circulation des données à caractère personnel à l'intérieur et à l'extérieur de l'UE. L'équipe {{site.data.keyword.cloudant_short_notm}} travaille actuellement sur des activités connexes pour GDPR et a pleinement l'intention de se conformer à ce règlement avant la date limite du 25 mai 2018. 
+Le Règlement général sur la protection des données cherche à créer un cadre juridique harmonisé pour la protection des données dans l'UE et vise à redonner aux citoyens le contrôle de leurs données personnelles, tout en imposant des règles strictes à ceux qui hébergent et 'traitent' ces données partout dans le monde. Ce règlement introduit également des règles relatives à la libre circulation des données à caractère personnel à l'intérieur et à l'extérieur de l'UE. L'équipe {{site.data.keyword.cloudant_short_notm}} travaille actuellement sur des activités connexes pour pour le RGPD et a pleinement l'intention de se conformer à ce règlement avant la date limite du 25 mai 2018.

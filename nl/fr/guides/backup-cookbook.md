@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-10-27"
+  years: 2017, 2018
+lastupdated: "2018-06-07"
 
 ---
 
@@ -34,9 +34,10 @@ Outre la bibliothèque, le package CouchBackup contient deux outils de ligne de 
 1. `couchbackup`, qui vide les données JSON d'une base de données vers un fichier texte de sauvegarde.
 2. `couchrestore`, qui restaure les données d'un fichier texte de sauvegarde vers une base de données.
 
-<strong style="color:red;">Avertissement</strong> : Les outils CouchBackup présentent certaines [limites](#limitations).
+> **Avertissement** : Les outils CouchBackup présentent certaines [limites](#limitations).
+{:tip}
 
-## Sauvegarde des données {{site.data.keyword.cloudant_short_notm}} 
+## Sauvegarde des données {{site.data.keyword.cloudant_short_notm}}
 
 Vous pouvez procéder à une simple sauvegarde à l'aide de l'outil `couchbackup`.
 Pour sauvegarder la base de données `animaldb` vers un fichier texte appelé `backup.txt`, utilisez une commande similaire à l'exemple suivant :
@@ -52,9 +53,11 @@ Le fichier [npm readme ![Icône de lien externe](../images/launch-glyph.svg "Ic�
 * L'utilisation d'un fichier journal permettant d'enregistrer la progression d'une sauvegarde.
 * La possibilité de reprendre une sauvegarde interrompue.
   **Remarque** : Cette option est disponible uniquement avec le fichier journal associé à la sauvegarde interrompue.
+  {:tip}
 * L'envoi d'un fichier texte de sauvegarde vers un fichier de sortie spécifique, au lieu de réacheminer la sortie `stdout`.
 
-<strong style="color:red;">Avertissement</strong> : Les outils CouchBackup présentent certaines [limites](#limitations).
+> **Avertissement** : Les outils CouchBackup présentent certaines [limites](#limitations).
+{:tip}
 
 ## Restauration des données {{site.data.keyword.cloudant_short_notm}}
 
@@ -71,11 +74,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 Le [fichier readme npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmreadme]{:new_window} fournit des détails sur d'autres options de restauration.
 
-<strong style="color:red;">Avertissement</strong> : Les outils CouchBackup présentent certaines [limites](#limitations).
+> **Avertissement** : Les outils CouchBackup présentent certaines [limites](#limitations).
+{:tip}
 
 ## Limites
 
-<strong style="color:red;">Avertissement</strong> : Les limites des outils CouchBackup sont les suivantes : 
+> **Avertissement** : Les limites des outils CouchBackup sont les suivantes : 
+{:tip}
 
 * Les paramètres `_security` ne sont pas sauvegardés par les outils.
 * Les pièces jointes ne sont pas sauvegardées par les outils.
@@ -184,6 +189,7 @@ Ce code explique l'utilisation de l'interface de programmation Cross Region S3 �
 
 > **Remarque** : L'une des conditions préalables à l'utilisation de ce code est l'initialisation de l'objet client S3 pour {{site.data.keyword.IBM_notm}} Cloud Object Storage en suivant
 [ces instructions ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][cosclient]{:new_window}.
+{:tip}
 
 ```javascript
 /*

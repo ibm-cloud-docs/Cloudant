@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-10-27"
+  years: 2017, 2018
+lastupdated: "2018-06-07"
 
 ---
 
@@ -34,7 +34,8 @@ CouchBackup パッケージには、このライブラリーに加え、以下�
 1. `couchbackup`。データベースから JSON データをバックアップ・テキスト・ファイルにダンプします。
 2. `couchrestore`。バックアップ・テキスト・ファイルからデータをデータベースにリストアします。
 
-<strong style="color:red;">警告</strong>: CouchBackup ツールには[制限](#limitations)があります。
+> **警告**: CouchBackup ツールには[制限](#limitations)があります。
+{:tip}
 
 ## {{site.data.keyword.cloudant_short_notm}} データのバックアップ
 
@@ -52,9 +53,11 @@ couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 * ログ・ファイルを使用したバックアップの進行の記録。
 * 中断したバックアップを再開する機能。
   **注**: このオプションは、中断したバックアップのログ・ファイルを使用する場合にのみ使用可能です。
+{:tip}
 * `stdout` 出力のリダイレクトではなく、指定出力ファイルへのバックアップ・テキスト・ファイルの送信。
 
-<strong style="color:red;">警告</strong>: CouchBackup ツールには[制限](#limitations)があります。
+> **警告**: CouchBackup ツールには[制限](#limitations)があります。
+{:tip}
 
 ## {{site.data.keyword.cloudant_short_notm}} データのリストア
 
@@ -71,11 +74,13 @@ couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 
 [npm readme ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][npmreadme]{:new_window} に、他のリストア・オプションの詳細が示されています。
 
-<strong style="color:red;">警告</strong>: CouchBackup ツールには[制限](#limitations)があります。
+> **警告**: CouchBackup ツールには[制限](#limitations)があります。
+{:tip}
 
 ## 制限
 
-<strong style="color:red;">警告</strong>: CouchBackup ツールには、以下の制限があります。 
+> **警告**: CouchBackup ツールには、以下の制限があります。 
+{:tip}
 
 * `_security` の設定は、ツールによってバックアップされません。
 * 添付ファイルは、ツールによってバックアップされません。
@@ -183,6 +188,8 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 このコードでは、クロス地域 S3 API を使用してデータベースをオブジェクト・ストアにバックアップする方法を示します。
 
 > **注**: このコードの前提条件として、[この説明 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][cosclient]{:new_window} に従って、{{site.data.keyword.IBM_notm}} クラウド・オブジェクト・ストレージ用に S3 クライアント・オブジェクトを初期化します。
+
+{:tip}
 
 ```javascript
 /*

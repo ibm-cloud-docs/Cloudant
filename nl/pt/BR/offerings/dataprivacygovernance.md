@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-16"
 
 ---
 
@@ -25,9 +25,9 @@ Fornecendo aos clientes esses altos níveis de mobilidade de dados para atender 
 a {{site.data.keyword.IBM}}
 e o {{site.data.keyword.cloudant_short_notm}} levam a privacidade de dados e o controle a sério.
 
-Para controlar o movimento de dados da UE para os EUA,
-o {{site.data.keyword.cloudant_short_notm}} obedeceu às
-[Estruturas de Safe Harbour ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo") dos EUA - UE e EUA - Suíça](https://safeharbor.export.gov/companyinfo.aspx?id=29450){:new_window}.
+Para controlar o movimento de dados da UE para os Estados Unidos,
+o {{site.data.keyword.cloudant_short_notm}} cumpriu com as Diretrizes do Acordo
+[Safe Harbor entre os EUA e a União Europeia e entre a Suíça e a União Europeia ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.export.gov/safeharbor_eu){:new_window}.
 Após o despacho de 2015 do Tribunal Europeu de Justiça que
 [invalidou ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){:new_window}
 o acordo de Safe Harbour,

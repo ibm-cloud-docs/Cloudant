@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -244,7 +244,7 @@ Um das Script `couchmigrate` verwenden zu können, definieren Sie zunächst
 die URL der CouchDB/{{site.data.keyword.cloudant_short_notm}}-Instanz, indem Sie eine
 Umgebungsvariable namens `COUCH_URL` festlegen.
 
-_Definition der URL der {{site.data.keyword.cloudant_short_notm}}-Instanz:_
+_Definition der URL einer {{site.data.keyword.cloudant_short_notm}}-Instanz:_
 
 ```sh
 export COUCH_URL=http://127.0.0.1:5984

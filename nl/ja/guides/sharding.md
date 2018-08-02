@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -126,7 +126,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**注:** データベースでの _Q_ の設定は、Bluemix 上の {{site.data.keyword.cloudant_short_notm}} データベースでは有効になっていません。
+>	**注:** データベースでの _Q_ の設定は、{{site.data.keyword.cloud}} 上の {{site.data.keyword.cloudant_short_notm}} データベースでは有効になっていません。
 	_Q_ 値は、多くの `cloudant.com` マルチテナント・クラスターでは使用できません。
 
 使用可能でないところで _Q_ 値の設定を試行すると、その結果として、以下の例のような、JSON 本体を含む [`403` 応答](../api/http.html#403)が返されます。

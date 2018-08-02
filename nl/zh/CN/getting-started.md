@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-02"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -13,11 +13,21 @@ lastupdated: "2017-11-02"
 {:pre: .pre}
 {:tip: .tip}
 
+<!-- Acrolinx: 2017-04-28 -->
+
 # 入门教程
 {: #getting-started-with-cloudant}
 
-在本 {{site.data.keyword.cloudantfull}} 入门教程中，我们将使用 Python 来创建一个 {{site.data.keyword.cloudant}} 数据库，并使用简单的数据集合来填充该数据库。
+在本 {{site.data.keyword.cloudantfull}} 入门教程中，我们将使用 Python 来创建一个 {{site.data.keyword.cloudant_short_notm}} 数据库，并使用简单的数据集合来填充该数据库。
 {:shortdesc}
+
+除本教程外，还可以查看我们的实践教程，以了解有关 {{site.data.keyword.cloudant_short_notm}} 的更多信息。或者，尝试查看以下某个专注于特定语言的教程：
+
+- [Liberty for Java 和 {{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
+- [Node.js 和 {{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
+- [Swift 和 {{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+
+要获取更多特定于语言的教程，请参阅[开始部署第一个应用程序 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/){:new_window}。 
 
 <div id="prerequisites"></div>
 
@@ -43,7 +53,7 @@ lastupdated: "2017-11-02"
 
 *	安装 [Python 库](libraries/supported.html#python)，以支持 Python 应用程序在 {{site.data.keyword.Bluemix_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。
 	
-	要检查是否已成功安装客户机库，请在提示符处运行以下命令：
+	要检查是否已成功安装该客户机库，请在提示符处运行以下命令：
 	```sh
 	pip freeze
 	```
@@ -155,7 +165,7 @@ lastupdated: "2017-11-02"
   ```
   {: codeblock}
 
-请注意，我们会检查每个文档是否已成功创建。
+请注意，我们会检查以确保每个文档都已成功创建。
 {: tip}
 
 ## 第 4 步：通过查询检索数据
@@ -180,7 +190,7 @@ lastupdated: "2017-11-02"
     结果类似于以下示例：
     
     ```
-    [{u'value': {u'rev': u'1-106e76a2612ea13468b2f243ea75c9b1'}, u'id': u'14be111aac74534cf8d390eaa57db888', u'key': u'14be111aac74534cf8d390eaa57db888'}]
+        [{u'value': {u'rev': u'1-106e76a2612ea13468b2f243ea75c9b1'}, u'id': u'14be111aac74534cf8d390eaa57db888', u'key': u'14be111aac74534cf8d390eaa57db888'}]
     ```
     {:screen}
     
@@ -199,9 +209,9 @@ lastupdated: "2017-11-02"
         }
     ]
     ```
-    {:screen}
+    {: codeblock}
 
-  > **注：**NoSQL 数据库（例如 {{site.data.keyword.cloudant_short_notm}}）的性质意味着一些简单的概念（例如，数据库中存储的第一个文档始终是结果列表中返回的第一个文档）不一定适用。
+  > **注：**简单地认为数据库中存储的第一个文档始终是结果列表中返回的第一个文档，这种想法不一定适用于 NoSQL 数据库，如 {{site.data.keyword.cloudant_short_notm}}。
 
 * 要执行完整检索，请请求数据库中所有文档的列表，并通过提供 `include_docs` 选项来指定还必须返回文档内容。
   ```python
@@ -237,7 +247,7 @@ lastupdated: "2017-11-02"
     }
   ]
   ```
-  {:screen}
+  {: codeblock}
 
 ## 第 5 步：通过 {{site.data.keyword.cloudant_short_notm}} API 端点检索数据
 
@@ -308,7 +318,7 @@ lastupdated: "2017-11-02"
       "offset": 0
   }
   ```
-  {:screen}
+  {: codeblock}
 
 ## 第 6 步：删除数据库
 

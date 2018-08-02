@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-18"
 
 ---
 
@@ -14,8 +14,7 @@ lastupdated: "2017-11-06"
 
 # Meine Top-5-Tipps für das Modellieren Ihrer zu skalierenden Daten
 
-In diesem Artikel werden die feineren Aspekte der Modellierung Ihrer
-Anwendungsdaten besprochen, damit diese auch stark skaliert genutzt werden können.
+In diesem Artikel werden die feineren Aspekte der Modellierung Ihrer Anwendungsdaten besprochen, damit diese auch stark skaliert genutzt werden können.
 {:shortdesc}
 
 _(Dieser Leitfaden basiert auf einem Blog-Artikel von Mike Rhodes:
@@ -29,7 +28,7 @@ Wie immer umfasst eine erfolgreiche Modellierung das Erzielen einer Balance zwis
 
 Lassen Sie uns beginnen.
 
-## Unveränderliche Daten
+## Unveränderliche Daten in Betracht ziehen
 
 Wenn Sie Änderungen mit einer Rate von einmal pro Sekunde oder schneller vornehmen,
 ziehen Sie in Betracht, Ihre Dokumente unveränderlich zu machen. Dies reduziert die Gefahr, Konfliktdokumente zu erstellen, beträchtlich.
@@ -42,9 +41,9 @@ Normalerweise erfordern Datenmodelle auf Basis von unveränderlichen Daten die V
 um die Dokumente zusammenzufassen, die den aktuellen Status ausmachen. Da Ansichten vorab berechnet werden,
 sollte sich dies nicht negativ auf die Anwendungsleistung auswirken.
 
-## Gründe
+## Gründe, warum Sie nicht veränderbare Daten berücksichtigen sollten 
 
-Der `https://<account>.cloudant.com/`-Schnittstelle liegt eine verteilte Datenbank zugrunde. 
+Der `https://$ACCOUNT.cloudant.com/`-Schnittstelle liegt eine verteilte Datenbank zugrunde.
 Im Cluster werden Dokumente in einer Anzahl von Shards gruppiert, die zusammen die Datenbank bilden. Diese Shards werden dann über Knoten im Cluster verteilt. Auf diese Weise
 können Datenbanken mit vielen Terabyte unterstützt werden.
 
@@ -63,10 +62,10 @@ abgelehnt werden, weil es sich bei dem angegebenen Parameter `_rev` nicht um den
 zwingt Ihre Anwendung, einen neuen Versuch zu starten, und verzögert so die Verarbeitung.
 
 Wir haben festgestellt, dass dieses Konfliktdokument-Szenario sehr viel wahrscheinlicher eintritt,
-wenn Aktualisierungen häufiger ale einmal pro Sekunde vorgenommen werden, empfehlen aber zur Sicherheit bereits bei Aktualisierungen, die häufiger als einmal alle zehn Sekunden vorgenommen werden, unveränderliche Dokumente
+wenn Aktualisierungen häufiger als einmal pro Sekunde vorgenommen werden, empfehlen aber zur Sicherheit bereits bei Aktualisierungen, die häufiger als einmal alle zehn Sekunden vorgenommen werden, unveränderliche Dokumente
 zu verwenden.
 
-## Ansichten zum Vorabberechnen von Ergebnissen statt als Suchindizes verwenden
+## Ansichten anstelle von Suchindizes für die Vorberechnung von Ergebnissen verwenden
 
 Statt Ansichten als überbewertete Suchindizes zu verwenden ("alle Dokumente von `person` abrufen"), können Sie versuchen,
 die Datenbank für Sie arbeiten zu lassen. Statt beispielsweise alle zehntausend Personendokumente
@@ -75,7 +74,7 @@ dies mithilfe der integrierten 'reduce'-Funktion `_sum` nach Jahr, Monat, Tag un
 Sie ersparen Ihrer Anwendung Arbeit und ermöglichen der Datenbank, viele kleine Anforderungen zu verarbeiten,
 statt große Mengen an Daten von Platte zu lesen und in einer einzelnen Anforderung zu verarbeiten.
 
-## Gründe
+## Gründe, warum Sie Ansichten für die Vorberechnung von Ergebnissen verwenden sollten
 
 Es ist ganz einfach. Erstens werden sowohl 'map'- als auch 'reduce'-Funktionen vorab berechnet. Das heißt,
 die Frage nach dem Ergebnis einer 'reduce'-Funktion ist eine kostengünstige Operation, insbesondere im Vergleich zu den
@@ -93,9 +92,9 @@ dass die Zeit für den Datentransit möglichst kurz ist und dass die Ansichtsanf
 von Ansichten zur Vorabberechnung von zusammengefassten Daten ist eine Möglichkeit, dieses Ziel zu realisieren. So wird die
 Zeit, die Ihre Anwendung auf den Anschluss der Anforderung wartet, verkürzt.
 
-## Daten denormalisieren
+## Denormalisieren Ihrer Daten
 
-In relationalen Datenbanken ist das Normalisieren von Daten häufig die effizienteste Methode, Daten zu speichern. 
+In relationalen Datenbanken ist das Normalisieren von Daten häufig die effizienteste Methode, Daten zu speichern.
 Das ist sehr sinnvoll, wenn Sie JOINs verwenden können, um auf einfache Weise Daten aus mehreren Tabellen zu kombinieren. 
 In {{site.data.keyword.cloudant_short_notm}} benötigen Sie mit höherer Wahrscheinlichkeit eine HTTP-GET-Anforderung für die
 einzelnen Daten, d. h. indem Sie die Anzahl von Anforderungen reduzieren, die erforderlich sind, um ein umfassendes Bild
@@ -112,7 +111,7 @@ In {{site.data.keyword.cloudant_short_notm}} würden Sie Tags in einer Liste in 
 die Dokumente mit einem bestimmten Tag abzurufen, indem Sie [jeden Tag als Schlüssel in der 'map'-Funktion in Ihrer Ansicht ausgeben](../api/creating_views.html). 
 Die Abfrage der Ansicht nach einem bestimmten Schlüssel liefert anschließend alle Dokumente mit diesem Tag.
 
-## Gründe
+## Gründe, warum das Denormalisieren Ihrer Daten hilft
 
 Es läuft alles auf die Anzahl von HTTP-Anforderungen hinaus, die Ihre Anwendung stellt. Das Öffnen von HTTP-Verbindungen - insbesondere HTTPS - ist mit Kosten verbunden und auch wenn das Wiederverwenden von Verbindungen die
 Situation schon verbessert, wird vor allem das Stellen weniger Anforderungen die Rate, mit der Ihre Anwendung Daten verarbeiten kann, beschleunigen.
@@ -120,7 +119,7 @@ Situation schon verbessert, wird vor allem das Stellen weniger Anforderungen die
 Ein positiver Nebeneffekt ist, dass denormalisierte Dokumente und vorab berechnete Ansichten in vielen Fällen ermöglichen, dass Sie den
 Wert, den Ihre Anwendung benötigt, vorab generieren können statt während der Ausführung der Abfrage.
 
-## Konflikte mithilfe von differenzierteren Dokumenten vermeiden
+## Konflikte mit differenzierteren Dokumenten vermeiden
 
 Der folgende Rat widerspricht in gewisser Weise dem Vorschlag, Ihre Daten zu denormalisieren: Verwenden Sie
 differenzierte Dokumente, um die Wahrscheinlichkeit von Konflikten aufgrund gleichzeitig ausgeführter Änderungen zu senken. 
@@ -169,9 +168,9 @@ Operationen für einen bestimmten Patienten zu. Auch hier werden Ansichten verwe
 bestimmten Entität aus verschiedenen Dokumenten zu erstellen, wodurch die Anzahl von HTTP-Anforderungen auch dann
 niedrig bleibt, wenn die Daten für eine einzelne modellierte Entität aufgeteilt wurden.
 
-## Gründe
+## Gründe, warum dies Konflikte vermeidet
 
-Indem Sie Konfliktdokumente vermeiden, beschleunigen Sie viele Operationen in Ihren {{site.data.keyword.cloudant_short_notm}}-Datenbanken.
+Indem Sie Konfliktdokumente vermeiden, beschleunigen Sie viele Operationen in Ihren {{site.data.keyword.cloudant_short_notm}}-Datenbanken. 
 Grund dafür ist, dass es einen Prozess gibt, der die aktuell entscheidende Revision ermittelt, die immer verwendet wird, wenn das Dokument gelesen wird: einzelne Dokumentabrufe, Aufrufe mit `include_docs=true`, Ansichtserstellung usw.
 
 Die entscheidende Revision ist eine bestimmte Revision aus der Gesamtbaumstruktur des Dokuments. Machen Sie sich bewusst, dass
@@ -203,7 +202,7 @@ Wie Sie dies realisieren, ist sehr anwendungsspezifisch, aber wir können Ihnen 
     erhöht sich die Latenz bei der Konfliktlösung. Es besteht auch die Möglichkeit, dass die Version der anderen Dokumente, die Sie abrufen,
     nicht konsistent ist mit Ihrem Dokument, was eine fehlerfreie Konfliktlösung schwierig macht. Und was, wenn die anderen Dokumente ebenfalls Konflikte aufweisen?
 
-## Gründe
+## Gründe, warum dies die Integration einer Konfliktlösung unterstützt 
 
 Wie oben beschrieben, lasten Dokumente mit vielen Konflikten die Datenbank sehr aus. Die Integration
 einer Funktion zur frühen Konfliktlösung ist eine große Unterstützung beim Vermeiden einer pathologisch hohen Anzahl von Konfliktdokumenten.
@@ -212,8 +211,7 @@ einer Funktion zur frühen Konfliktlösung ist eine große Unterstützung beim V
 
 Diese Tipps zeigen verschiedene Arten, wie sich Modelldaten auf die Leistung Ihrer Anwendung auswirken. Der Datenspeicher von {{site.data.keyword.cloudant_short_notm}} hat einige charakteristische
 Merkmale, auf die Sie achten müssen und die Sie für sich nutzen können, um sicherzustellen, dass die
-Datenbankleistung mit dem Wachstum Ihrer Anwendung skaliert wird.
-Wir verstehen, dass ein Wechsel verwirrend sein kann, deshalb stehen wir Ihnen immer mit Rat und Tat zur Seite.
+Datenbankleistung mit dem Wachstum Ihrer Anwendung skaliert wird. Wir verstehen, dass ein Wechsel verwirrend sein kann, deshalb stehen wir Ihnen immer mit Rat und Tat zur Seite.
 
 Lesen Sie auch diese Diskussion über das
 [Datenmodell für Foundbite ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){:new_window}

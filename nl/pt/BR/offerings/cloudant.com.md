@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-05-24"
 
 ---
 
@@ -17,9 +17,9 @@ lastupdated: "2018-02-15"
 # Cloudant.com
 
 > **Nota**: O plano Compartilhado do {{site.data.keyword.cloudantfull}} torna-se obsoleto em 31 de março de 2018. 
-Desde 24 de julho de 2017, nenhuma conta nova de Plano compartilhado pode ser criada no [https://cloudant.com/ ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/){:new_window}. 
+A partir de 24 de julho de 2017, nenhuma nova conta do Plano Compartilhado poderá ser criada na página inicial do [{{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/){:new_window}. 
 
-{{site.data.keyword.cloudant_short_notm}} é um banco de dados como um serviço (DBaaS) hospedado e totalmente gerenciado.
+{{site.data.keyword.cloudant_short_notm}} é um banco de dados como um serviço (DBaaS) hospedado e totalmente gerenciado. 
 Ele foi construído do zero para escalar globalmente, executar sem interrupção e manipular uma grande variedade de tipos de dados
 como [JSON](../basics/index.html#json),
 [texto completo](../api/cloudant_query.html#creating-an-index)
@@ -53,16 +53,16 @@ de locatário único.
 Esse plano fornece desempenho e tempo de atividade de banco de dados assegurado,
 usando clusters DBaaS dedicados ou hardware disponível em vários locais de hospedagem.
 
-Para usuários do plano Corporativo que requerem uma conta nova ou adicional do {{site.data.keyword.cloudant_short_notm}}
-em um dos seus clusters dedicados, inscreva-se em [https://cloudant.com/enterprise-sign-up ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/enterprise-sign-up){:new_window},
-crie uma conta usando o formulário e abra um chamado de suporte para solicitar que sua conta seja movida para um dos
-seus clusters dedicados do {{site.data.keyword.cloudant_short_notm}} Corporativo. 
+Para usuários do plano Enterprise que requerem uma conta nova ou adicional do {{site.data.keyword.cloudant_short_notm}}
+em um de seus clusters dedicados, inscreva-se na página de inscrição da conta do [{{site.data.keyword.cloudant_short_notm}} Enterprise ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/enterprise-sign-up){:new_window},
+crie uma conta usando o formulário e abra um chamado de suporte para solicitar que sua conta seja movida para um de seus
+clusters dedicados do {{site.data.keyword.cloudant_short_notm}} Enterprise. 
 
 ## Plano compartilhado
 {: #shared-plan}
 
 > **Nota**: o Plano compartilhado do {{site.data.keyword.cloudant_short_notm}} torna-se obsoleto em 31 de março de 2018. 
-Desde 24 de julho de 2017, nenhuma conta nova de Plano compartilhado pode ser criada no [https://cloudant.com/ ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/){:new_window}. 
+A partir de 24 de julho de 2017, nenhuma nova conta do Plano Compartilhado poderá ser criada em cloudant.com. 
 
 Com o Plano compartilhado do {{site.data.keyword.cloudant_short_notm}}, você tem acesso a todos os
 recursos do {{site.data.keyword.cloudant_short_notm}} DBaaS, fornecidos por meio de um cluster compartilhado ou de 'diversos locatários'.

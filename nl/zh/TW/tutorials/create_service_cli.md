@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2018-03-07"
 
 ## 必要條件
 
-若要遵循本指導教學，您必須先安裝 {{site.data.keyword.Bluemix_notm}} Cloud Foundry 工具。[這個個別指導教學](create_bmxapp_appenv.html#the-cloud-foundry-and-bluemix-command-toolkits)提供了安裝工具的詳細資料。
+若要遵循本指導教學，您必須先安裝 {{site.data.keyword.Bluemix_notm}} Cloud Foundry 工具。[這個個別指導教學](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits)提供了安裝工具的詳細資料。
 
 > **附註**：請確定您同時安裝 Cloud Foundry _及_ {{site.data.keyword.Bluemix_notm}} 工具箱。
 
@@ -169,13 +169,13 @@ OK
 
 服務認證包含五個欄位：
 
-欄位       | 用途
+欄位       |用途
 -----------|--------
-`host`     | 應用程式用來尋找服務實例的主機名稱。
-`username` | 應用程式存取服務實例所需的使用者名稱。
-`password` | 應用程式存取服務實例所需的密碼。
-`port`     | 用來存取主機上服務實例的 HTTP 埠號。一般是 443，可強制執行 HTTPS 存取。
-`url`      | 將其他認證資訊聚集成單一 URL 的字串，適合供應用程式使用。
+`host`     |應用程式用來尋找服務實例的主機名稱。
+`username` |應用程式存取服務實例所需的使用者名稱。
+`password` |應用程式存取服務實例所需的密碼。
+`port`     |用來存取主機上服務實例的 HTTP 埠號。一般是 443，可強制執行 HTTPS 存取。
+`url`      |將其他認證資訊聚集成單一 URL 的字串，適合供應用程式使用。
 
 在 {{site.data.keyword.Bluemix_notm}} 內建立服務實例的認證的基本指令格式如下：
 
@@ -246,7 +246,7 @@ Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com..
 2.  已建立 {{site.data.keyword.cloudant_short_notm}} 服務實例的認證。
 3.  已擷取服務實例認證，因此應用程式可以使用它們。
 
-[這裡](create_database.html#context)提供顯示如何使用 {{site.data.keyword.cloudant_short_notm}} 服務實例的指導教學。請記得替換您已在本指導教學中建立的認證。
+[這裡](create_database.html#context)提供示範如何使用 {{site.data.keyword.cloudant_short_notm}} 服務實例的指導教學。請記得替換您已在本指導教學中建立的認證。
 
 ## （選用）後續整理
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -52,7 +52,7 @@ O número de réplicas (cópias de um shard) também é configurável.
 Na prática,
 a observação e a medição de muitos sistemas sugere que três réplicas é um número pragmático na maioria dos casos
 para atingir um bom balanceamento entre o desempenho e a segurança de dados.
-Seria excepcional e incomum para um sistema {{site.data.keyword.cloudant_short_notm}} usar uma contagem de réplicas diferente.
+Seria excepcional e incomum para um sistema {{site.data.keyword.cloudant_short_notm}} usar uma contagem de réplica diferente.
 
 ## Como a fragmentação afeta o desempenho?
 
@@ -179,7 +179,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {:codeblock}
 
->	**Nota:** a configuração de _Q_ para bancos de dados não está ativada para bancos de dados {{site.data.keyword.cloudant_short_notm}} no Bluemix.
+>	**Nota:** configurar _Q_ para bancos de dados não está ativado para bancos de dados {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud}}.
 	O valor _Q_ não está disponível na maioria dos clusters `cloudant.com` de diversos locatários.
 
 Se você tentar configurar o valor _Q_ quando ele não estiver disponível,

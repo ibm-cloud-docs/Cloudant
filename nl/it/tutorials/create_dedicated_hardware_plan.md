@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2017-11-07"
 
 # Creazione e utilizzo di un'istanza del piano hardware dedicato {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}
 
-Questa esercitazione illustra come creare un'istanza del piano hardware dedicato {{site.data.keyword.cloudantfull}}
+Questa esercitazione illustra come creare un'istanza del piano hardware {{site.data.keyword.cloudantfull}} dedicato
 utilizzando il dashboard {{site.data.keyword.Bluemix}} e mostra come eseguire il provisioning successivo di una o
 più istanze del piano Standard da eseguire su di esso. 
 
@@ -24,11 +24,11 @@ La creazione di un'istanza del piano hardware dedicato {{site.data.keyword.cloud
 di un ambiente {{site.data.keyword.cloudant_short_notm}} sull'hardware dedicato unicamente per utilizzo personale. Un'istanza
 del servizio viene creata nel dashboard {{site.data.keyword.Bluemix_notm}}, ma nota che non puoi
 accedere direttamente all'istanza del piano hardware dedicato e non avrai
-alcuna credenziale per tale servizio. Puoi utilizzare un'istanza del piano hardware dedicato {{site.data.keyword.cloudant_short_notm}}
-dopo averlo creato eseguendo su di esso il provisioning di una o più istanze del piano
+alcuna credenziale per tale servizio. Puoi utilizzare un'istanza del piano hardware {{site.data.keyword.cloudant_short_notm}} dedicato
+dopo che è stata creata eseguendo su di essa il provisioning di una o più istanze del piano
 Standard.
 
-## Creazione di un'istanza del piano hardware dedicato {{site.data.keyword.cloudant_short_notm}}
+## Creazione di un'istanza del piano hardware {{site.data.keyword.cloudant_short_notm}} dedicato
 
 1.  Accedi al tuo account {{site.data.keyword.Bluemix_notm}}.<br/>
     Il dashboard {{site.data.keyword.Bluemix_notm}} può essere trovato all'indirizzo:
@@ -107,6 +107,6 @@ Standard.
     Dopo alcuni secondi, viene eseguito il provisioning dell'istanza sull'ambiente che hai selezionato.<br/>
     ![Esegui provisioning dell'istanza standard](../tutorials/images/create_button_provision_standard.png)
     
-8.  Ottieni le tue credenziali del servizio e accedi al dashboard {{site.data.keyword.cloudant_short_notm}} come faresti per un'istanza {{site.data.keyword.cloudant_short_notm}} a più tenant.
+8.  Ottieni le tue credenziali del servizio e accedi al dashboard {{site.data.keyword.cloudant_short_notm}} come faresti per un'istanza {{site.data.keyword.cloudant_short_notm}} a più tenant. 
     Ulteriori informazioni su come individuare le tue credenziali del servizio sono disponibili [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials){:new_window}. 
      

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -44,7 +44,7 @@ Aquí se incluyen algunas comprobaciones de ejemplo para ilustrar las técnicas,
 
 ## Visión general de las tareas
 
-Para crear una aplicación Python que funcione en {{site.data.keyword.Bluemix_notm}} y que pueda acceder a una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}. debe realizar las tareas siguientes:
+Para crear una aplicación Python que funcione en {{site.data.keyword.Bluemix_notm}} y que pueda acceder a una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}, debe realizar las tareas siguientes:
 
 -   [Crear un entorno de aplicación de Python en {{site.data.keyword.Bluemix_notm}}.](create_bmxapp_appenv.html#creating)
 -   [Asegurarse de que el entorno de aplicación de Python tenga una 'conexión' con una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}. ](create_bmxapp_appenv.html#connecting)

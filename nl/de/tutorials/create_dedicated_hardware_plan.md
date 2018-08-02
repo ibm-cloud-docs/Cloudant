@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -16,16 +16,11 @@ lastupdated: "2017-11-07"
 
 # Instanz eines dedizierten {{site.data.keyword.cloudant_short_notm}}-Hardwareplans unter {{site.data.keyword.Bluemix_notm}} erstellen und nutzen
 
-In diesem Lernprogramm erfahren Sie, wie Sie eine Instanz eines dedizierten {{site.data.keyword.cloudantfull}}-Hardwareplans
-mit dem {{site.data.keyword.Bluemix}}-Dashboard erstellen und anschließend mindestens eine Standardplaninstanz
-bereitstellen können, die unter dieser Hardwareplaninstanz ausgeführt werden kann. 
+In diesem Lernprogramm erfahren Sie, wie Sie eine Instanz eines dedizierten {{site.data.keyword.cloudantfull}}-Hardwareplans mit dem {{site.data.keyword.Bluemix}}-Dashboard erstellen und anschließend mindestens eine Standardplaninstanz bereitstellen können, die unter dieser Hardwareplaninstanz ausgeführt werden kann. 
 
-Durch das Erstellen einer dedizierten {{site.data.keyword.cloudant_short_notm}}-Hardwareplaninstanz wird eine
-{{site.data.keyword.cloudant_short_notm}}-Umgebung auf dedizierter Hardware bereitgestellt, die nur Sie verwenden
-können. Dabei wird eine Serviceinstanz im {{site.data.keyword.Bluemix_notm}}-Dashboard erstellt, doch es ist zu beachten,
+Durch das Erstellen einer dedizierten {{site.data.keyword.cloudant_short_notm}}-Hardwareplaninstanz wird eine {{site.data.keyword.cloudant_short_notm}}-Umgebung auf dedizierter Hardware bereitgestellt, die nur Sie verwenden können. Dabei wird eine Serviceinstanz im {{site.data.keyword.Bluemix_notm}}-Dashboard erstellt, doch es ist zu beachten,
 dass Sie weder direkt auf die dedizierte Hardwareplaninstanz zugreifen können noch über zugehörige
-Serviceberechtigungsnachweise für diese Instanz verfügen. Um eine dedizierte {{site.data.keyword.cloudant_short_notm}}-Hardwareplaninstanz
-nach ihrer Erstellung zu verwenden, müssen Sie mindestens eine Standardplaninstanz unter der Hardwareplaninstanz bereitstellen.
+Serviceberechtigungsnachweise für diese Instanz verfügen. Um eine dedizierte {{site.data.keyword.cloudant_short_notm}}-Hardwareplaninstanz nach ihrer Erstellung zu verwenden, müssen Sie mindestens eine Standardplaninstanz unter der Hardwareplaninstanz bereitstellen.
 
 ## Dedizierte {{site.data.keyword.cloudant_short_notm}}-Hardwareplaninstanz erstellen
 
@@ -103,6 +98,6 @@ nach ihrer Erstellung zu verwenden, müssen Sie mindestens eine Standardplaninst
     Nach einigen Sekunden wird die Instanz in der ausgewählten Umgebung bereitgestellt.<br/>
     ![Standardinstanz bereitstellen](../tutorials/images/create_button_provision_standard.png)
     
-8.  Rufen Sie Ihren Serviceberechtigungsnachweis ab und greifen Sie auf das {{site.data.keyword.cloudant_short_notm}}-Dashboard zu wie bei einer {{site.data.keyword.cloudant_short_notm}}-Multi-Tenant-Instanz.
+8.  Rufen Sie Ihren Serviceberechtigungsnachweis ab und greifen Sie auf das {{site.data.keyword.cloudant_short_notm}}-Dashboard zu wie bei einer {{site.data.keyword.cloudant_short_notm}}-Multi-Tenant-Instanz. 
     Weitere Informationen zum Abrufen Ihres Serviceberechtigungsnachweises finden Sie [hier ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials){:new_window}. 
      

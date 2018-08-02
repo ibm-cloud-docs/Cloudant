@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-05-17"
 
 ---
 
@@ -19,7 +19,8 @@ lastupdated: "2017-11-06"
 Vos données sont importantes et précieuses.
 Vous devez les protéger afin de garantir leur sécurité,
 leur disponibilité et leur intégrité.
-{{site.data.keyword.cloudantfull}} permet de protéger vos données et de maintenir vos applications opérationnelles de plusieurs manières. {:shortdesc}
+{{site.data.keyword.cloudantfull}} permet de protéger vos données et de maintenir vos applications opérationnelles de plusieurs manières.
+{:shortdesc}
 
 Certaines de ces fonctions de protection sont automatiques.
 Pour les autres formes de protection,
@@ -50,6 +51,7 @@ Ensemble, les outils et les fonctions peuvent ensuite faire face à vos besoins 
 
 >	**Remarque** : Divers outils et fonctions fournissent plusieurs niveaux de protection.
 	Les différentes fonctions peuvent être plus ou moins adaptées à votre problème spécifique de haute disponibilité ou de reprise après incident.
+{:tip}
 
 {{site.data.keyword.cloudant_short_notm}} offre un certain nombre d'outils et de fonctions qui résolvent des questions générales :
 
@@ -146,7 +148,8 @@ Plus précisément, les outils pris en charge par {{site.data.keyword.cloudant_s
 *	Sauvegarder des bases de données entières dans un fichier, à des fins de traitement et de stockage hors site ultérieurs.
 *	Restaurer des bases de données entières à partir d'un état antérieur qui se trouve dans votre fichier de sauvegarde.
 
-<strong style="color:red;">Avertissement</strong> : Les outils pris en charge par {{site.data.keyword.cloudant_short_notm}} comportent les limites suivantes : 
+> **Avertissement** : Les outils pris en charge par {{site.data.keyword.cloudant_short_notm}} comportent les limites suivantes : 
+{:tip}
 
 *	Les paramètres `_security` ne sont pas sauvegardés par les outils.
 *	Les pièces jointes ne sont pas sauvegardées par les outils.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-07"
 
 ---
 
@@ -100,9 +100,9 @@ _複製のためのソース URL とターゲット URL の定義例:_
 複製を開始するには、`_replicator` データベースに文書を追加します。
 この文書は、実行する複製を記述し、以下のフィールドを含んでいます。
 
-フィールド           | 目的
+フィールド           |目的
 ----------------|--------
-`_id`           | `_id` フィールドの指定はオプションですが、複製タスクの識別に役立ちます。 指定しない場合は、{{site.data.keyword.cloudant_short_notm}} がユーザーの代わりに値を生成します。
+`_id`           |`_id` フィールドの指定はオプションですが、複製タスクの識別に役立ちます。指定しない場合は、{{site.data.keyword.cloudant_short_notm}} がユーザーの代わりに値を生成します。
 `source`        | ログイン資格情報を含めたソース {{site.data.keyword.cloudant_short_notm}} データベースの URL。
 `target`        | ログイン資格情報を含めた宛先 {{site.data.keyword.cloudant_short_notm}} データベースの URL。
 `create_target` | (オプション) 宛先データベースがまだ存在しない場合、作成するかどうかを決定します。
@@ -605,7 +605,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 {:codeblock}
 
 返された JSON で、`disk_size` 値を検索します。
-この値が 1 GB を超えるサイズを示している場合は、[IBM {{site.data.keyword.cloudant_short_notm}} サポート・チーム![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window} に連絡して、さらなるアドバイスを依頼してください。
+この値が 1 GB を超えるサイズを示している場合は、[{{site.data.keyword.cloudant_short_notm}} サポート・チーム![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window} に連絡して、さらなるアドバイスを依頼してください。
 
 以下の例に示すように、競合がないか個別の `_replicator` 文書を確認することができます。
 
@@ -662,4 +662,4 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 *   多くの小さい文書がある場合は、[`worker_process`](../api/advanced_replication.html#performance-related-options) および [`http_connections`](../api/advanced_replication.html#performance-related-options) の値を増加することを検討できます。
 *   インパクトを最小にして複製を実行したい場合は、`worker_processes` および `http_connections` を 1 に設定すると適切な可能性があります。
 
-お客様のユースケースに最良の構成についてさらに支援が必要な場合は、[IBM {{site.data.keyword.cloudant_short_notm}} サポート・チーム ![アイコン・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window} までお問い合わせください。
+お客様のユースケースに最良の構成についてさらに支援が必要な場合は、[{{site.data.keyword.cloudant_short_notm}} サポート・チーム ![アイコン・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window} までお問い合わせください。

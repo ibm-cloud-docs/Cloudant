@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-06-08"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-04-28 -->
 
@@ -59,10 +60,12 @@ per il controllo dell'accesso ai dati:
   scrittura,
   ammin a database specifici.
 - Crittografia "In elaborazione": tutto l'accesso a
-  {{site.data.keyword.cloudant_short_notm}} è codificato utilizzando HTTPS.
+  {{site.data.keyword.cloudant_short_notm}} è crittografato utilizzando HTTPS.
 - Crittografia a riposo: i dati archiviati sul disco in
-  {{site.data.keyword.cloudant_short_notm}} possono essere codificati.
-  > **Nota**: i dati archiviati in un'istanza {{site.data.keyword.cloudant_short_notm}} sono sempre codificati.
+  {{site.data.keyword.cloudant_short_notm}} possono essere crittografati.
+  I dati archiviati in un'istanza {{site.data.keyword.cloudant_short_notm}} sono sempre crittografati.
+  {: tip}
+  
 - Accesso API: è possibile accedere a {{site.data.keyword.cloudant_short_notm}} in modo programmatico
   utilizzando un'API su HTTP sicuro (HTTPS).
   Le chiavi API possono essere generate utilizzando il dashboard
@@ -91,4 +94,4 @@ per aiutarti a mantenere la disponibilità e la qualità dei dati:
   o Apache CouchDB.
   Un'altra opzione è di esportare i dati da
   {{site.data.keyword.cloudant_short_notm}} (nel formato JSON)
-  in altre ubicazioni o origini (come il tuo proprio data center) per la ridondanza dei dati aggiunti.
+  in altre ubicazioni o origini (come il tuo data center) per la ridondanza dei dati aggiunti.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-03-02"
+lastupdated: "2018-06-20"
 
 ---
 {:new_window: target="_blank"}
@@ -10,6 +10,9 @@ lastupdated: "2018-03-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-06-13 -->
 
 # Création d'une requête {{site.data.keyword.cloudant_short_notm}}
 
@@ -29,9 +32,10 @@ Avant de commencer, effectuez les étapes de préparation en vue du tutoriel en 
 1.  [Créez un compte {{site.data.keyword.Bluemix}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Connectez-vous au
   [{{site.data.keyword.Bluemix_notm}}tableau de bord ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Créez une instance {{site.data.keyword.cloudant_short_notm}} sur Bluemix {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-cloudant-instance-on-bluemix).
+3.  [Créez une instance {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance).
 4.  (Facultatif) [Créez un alias acurl](../guides/acurl.html#authorized-curl-acurl-) pour faciliter et accélérer l'exécution des commandes à partir de la ligne de commande.
-5.  Remplacez la variable `$ACCOUNT` dans les commandes incluses dans les exercices par le nom d'utilisateur employé pour la connexion au tableau de bord {{site.data.keyword.cloudant_short_notm}}. Si vous décidez de ne pas configurer `acurl`, utilisez l'URL suivante au lieu de celle fournie dans les exercices :
+5.  Remplacez la variable `$ACCOUNT` dans les commandes incluses dans les exercices par le nom d'utilisateur employé pour la connexion au tableau de bord {{site.data.keyword.cloudant_short_notm}}.
+  Si vous décidez de ne pas configurer `acurl`, utilisez l'URL suivante au lieu de celle fournie dans les exercices :
   ``` sh
   curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
   ```
@@ -65,12 +69,13 @@ paramètres qu'elle requiert, comme le nom d'utilisateur et le mot de passe.
 
 ![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}Tableau de bord _
 
-1.  Ouvrez l'instance de service {{site.data.keyword.cloudant_short_notm}} que vous avez créée. 
-2.  Sélectionnez l'onglet Databases :
-
-  ![Onlet Databases](../images/tabs.png)
-3.  Cliquez sur **Create Database**.
-4.  Entrez `query-demo` et cliquez sur **Create**.
+1.  Ouvrez l'instance de service {{site.data.keyword.cloudant_short_notm}} que vous avez créée.
+2.  Sur la page de service {{site.data.keyword.cloudant_short_notm}}, cliquez sur **Lancer**.
+    L'onglet Bases de données s'ouvre. 
+    
+  ![Onglet Databases](../images/tabs.png)
+4.  Cliquez sur **Créer une base de données**.
+5.  Entrez `query-demo` et cliquez sur **Créer**.
 
   La base de données `query-demo` s'ouvre automatiquement.
 
@@ -233,17 +238,9 @@ pour indiquer que les données sont incluses dans un fichier, est identifié par
   ```
   {:codeblock}
 
-  La base de données `query-demo` a été créée. Vous pouvez voir les documents dans le panneau de droite.
+  La base de données `query-demo` a été remplie avec cinq enregistrements. Ils sont visibles dans la vue Table dans la capture d'écran suivante :
 
-  ![Modèles de document 1](../images/docs1.png)
-
-  ![Modèles de document 2](../images/docs2.png)
-
-  ![Modèles de document 3](../images/docs3.png)
-
-  ![Modèles de document 4](../images/docs4.png)
-
-  ![Modèles de document 5](../images/docs5.png)      
+  ![Exemples de documents](../images/docs1.png)     
 
 ## Création d'un index
 
@@ -254,16 +251,16 @@ résultats. Un index permet de structurer les données et d'améliorer ainsi la 
 
 Vous pouvez utiliser l'index primaire fourni avec {{site.data.keyword.cloudant_short_notm}}, ou les index secondaires comme les vues
 (MapReduce), les index de recherche, les requêtes {{site.data.keyword.cloudant_short_notm}}
-Geospatial ou {{site.data.keyword.cloudant_short_notm}} Query comme indiqué dans la liste suivante : 
+Geospatial ou {{site.data.keyword.cloudant_short_notm}} Query comme indiqué dans la liste suivante :
 
 *	Index primaire : recherchez un document ou une liste de documents par ID.  
 *	[Vue](../api/creating_views.html#views-mapreduce-) : recherchez les informations de la base de données qui correspondent aux critères de recherche que vous indiquez, comme les comptages, les sommes, les moyennes et d'autres fonctions mathématiques. Les critères que vous recherchez sont spécifiés dans la définition de la vue. Les vues utilisent le paradigme MapReduce.
 *	[Index de recherche](../api/search.html#search) : recherchez une ou plusieurs zones, de grandes quantités de texte ou utilisez des caractères génériques, des correspondances partielles ou des facettes avec la [syntaxe de Lucene Query Parser ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
-*	[{{site.data.keyword.cloudant_short_notm}} Geospatial](../api/cloudant-geo.html#cloudant-geospatial) : recherchez des documents en fonction d'une relation spatiale. 
+*	[{{site.data.keyword.cloudant_short_notm}} Geospatial](../api/cloudant-geo.html#cloudant-geospatial) : recherchez des documents en fonction d'une relation spatiale.
 *	[{{site.data.keyword.cloudant_short_notm}} Query](../api/cloudant_query.html#query) : utilisez la syntaxe de requête de style Mongo pour rechercher des documents à l'aide d'opérateurs logiques. {{site.data.keyword.cloudant_short_notm}} Query combine une vue et un index de recherche. Ce tutoriel utilise {{site.data.keyword.cloudant_short_notm}} Query.
 
 > **Remarque :** Si aucun index défini correspondant à la requête spécifiée n'est disponible, {{site.data.keyword.cloudant_short_notm}}
-utilise l'index `_all_docs`.
+> utilise l'index `_all_docs`.
 
 
 ![Icône de la ligne de commande](../images/CommandLineIcon.png) _Ligne de commande_
@@ -335,7 +332,7 @@ utilise l'index `_all_docs`.
   ```
   {:codeblock}
 
-  L'index a été créé. Vous pouvez le voir dans le panneau de droite.
+  L'index a été créé. La capture d'écran suivante illustre cet index :
 
   ![Index de requête](../images/query-index1.png)
 
@@ -347,7 +344,7 @@ Les requêtes vous permettent d'extraire les données de {{site.data.keyword.clo
 votre recherche et ses résultats et n'y inclure que les données dont vous avez besoin.
 
 Cet exercice indique comment écrire et exécuter une requête simple, une
-requête avec deux zones et une requête avec un [opérateur](../api/cloudant_query.html#cloudant_query.html#operators).
+requête avec deux zones et une requête avec deux [opérateurs](../api/cloudant_query.html#cloudant_query.html#operators).
 Pour procéder à une requête avec un opérateur, spécifiez au moins une zone et sa valeur
 correspondante.
 La requête utilise ensuite cette valeur pour rechercher des correspondances dans la base
@@ -399,7 +396,7 @@ Cet exemple indique comment {{site.data.keyword.cloudant_short_notm}} Query util
 ![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}Tableau de bord _
 
 1.  Cliquez sur l'onglet **Query**.
-2.  Copiez et collez l'exemple JSON suivant dans la fenêtre {{site.data.keyword.cloudant_short_notm}} Query : 
+2.  Copiez et collez l'exemple JSON suivant dans la fenêtre {{site.data.keyword.cloudant_short_notm}} Query :
   ```json
    {
       "selector": {
@@ -412,7 +409,7 @@ Cet exemple indique comment {{site.data.keyword.cloudant_short_notm}} Query util
 
 3.  Cliquez sur **Run Query**.
 
-  Les résultats de la requête apparaissent dans le panneau de droite.
+  Les résultats de la requête s'affichent. Ils sont visibles dans la vue Table dans la capture d'écran suivante :
 
   ![Résultats de la requête 1](../images/dashboard_query1_results.png)
 
@@ -442,17 +439,9 @@ Les détails supplémentaires sont similaires à l'exemple suivant :
 {
   ...
   "fields": [
-    "lastname",
     "firstname",
-    "location"
-  ],
-  "sort" : [
-    {
-      "lastname": "asc"
-    },
-    {
-      "firstname": "asc"
-    }
+      "lastname",
+      "location"
   ]
 }
 ```  
@@ -468,18 +457,10 @@ Les détails supplémentaires sont similaires à l'exemple suivant :
       "location": "New York City, NY"
     },
     "fields": [
-      "firstname",
-      "lastname",
-      "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]
+     "firstname",
+     "lastname",
+     "location"
+  ]
   }
   ```
   {:codeblock}
@@ -495,12 +476,17 @@ Les détails supplémentaires sont similaires à l'exemple suivant :
   {
     "docs": [
       {
+        "firstname": "Sally",
+        "lastname": "Brown",
+        "location": "New York City, NY"
+      },
+      {
         "firstname": "John",
         "lastname": "Brown",
         "location": "New York City, NY"
       },
       {
-        "firstname": "Sally",
+        "firstname": "Lois",
         "lastname": "Brown",
         "location": "New York City, NY"
       }
@@ -512,7 +498,7 @@ Les détails supplémentaires sont similaires à l'exemple suivant :
 ![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}Tableau de bord _
 
 1.  Cliquez sur l'onglet **Query**.
-2.  Copiez et collez l'exemple JSON suivant dans la fenêtre {{site.data.keyword.cloudant_short_notm}} Query : 
+2.  Copiez et collez l'exemple JSON suivant dans la fenêtre {{site.data.keyword.cloudant_short_notm}} Query :
   ```json
   {
     "selector": {
@@ -523,22 +509,14 @@ Les détails supplémentaires sont similaires à l'exemple suivant :
       "firstname",
       "lastname",
       "location"
-    ],
-    "sort": [
-      {
-        "lastname": "asc"
-      },
-      {
-        "firstname": "asc"
-      }
-    ]  
+    ] 
   }
   ```
   {:codeblock}
 
 3.  Cliquez sur **Run Query**.
 
-  Les résultats de la requête apparaissent dans le panneau de droite.
+  Les résultats de la requête s'affichent. Ils sont visibles dans la vue Table dans la capture d'écran suivante :
 
   ![Résultats de la requête 2](../images/dashboard_query2_results.png)
 
@@ -562,16 +540,13 @@ Utilisez une expression selector similaire à l'exemple suivant :
 ``` 
 {:codeblock}
 
-Il sont triés par le nom dans l'ordre croissant des valeurs du paramètre `sort`.
+Il sont triés par âge dans l'ordre croissant des valeurs spécifiées au paramètre `sort`.
 
 
 ```json
     "sort": [
       {
         "age": "asc"   
-      },        
-      {
-        "lastname": "asc"
       }
     ] 
 ```  
@@ -587,19 +562,16 @@ Il sont triés par le nom dans l'ordre croissant des valeurs du paramètre `sort
          "$gt": 30
       },
     "lastname": {
-      "$eq": "Greene"
+         "$eq": "Greene"
     }
-  },
+   },
     "fields": [
       "age",
       "firstname"
    ],
     "sort": [
       {
-         "age": "asc"
-      },
-      {
-         "lastname": "asc"
+         "age": "asc"   
       }
    ],
    "use_index": "_design/partial-index"
@@ -627,7 +599,7 @@ Il sont triés par le nom dans l'ordre croissant des valeurs du paramètre `sort
 ![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}Tableau de bord _
 
 1.  Cliquez sur l'onglet **Query**.
-2.  Copiez et collez l'exemple JSON suivant dans la fenêtre {{site.data.keyword.cloudant_short_notm}} Query : 
+2.  Copiez et collez l'exemple JSON suivant dans la fenêtre {{site.data.keyword.cloudant_short_notm}} Query :
   ```json
 {
    "selector": {
@@ -635,19 +607,16 @@ Il sont triés par le nom dans l'ordre croissant des valeurs du paramètre `sort
          "$gt": 30
       },
     "lastname": {
-      "$eq": "Greene"
+         "$eq": "Greene"
     }
-  },
+   },
     "fields": [
       "age",
       "firstname"
    ],
     "sort": [
       {
-         "age": "asc"
-      },
-      {
-         "lastname": "asc"
+         "age": "asc"   
       }
    ],
    "use_index": "_design/partial-index"
@@ -657,7 +626,7 @@ Il sont triés par le nom dans l'ordre croissant des valeurs du paramètre `sort
 
 3.  Cliquez sur **Run Query**.
 
-  Les résultats de la requête apparaissent dans le panneau de droite.
+  Les résultats de la requête s'affichent. Ils sont visibles dans la vue Table dans la capture d'écran suivante :
 
   ![Résultats de la requête 3](../images/dashboard_query3_results.png)
 
