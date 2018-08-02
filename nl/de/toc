@@ -35,31 +35,6 @@ Cloudant NoSQL DB
     basics/index.md
 
 	{: .topicgroup}
-	API-Referenz
-		api/index.md
-		api/http.md
-		api/compare.md
-		api/account.md
-		api/authentication.md
-		api/authorization.md
-		api/cors.md
-		api/database.md
-		api/document.md
-		api/attachments.md
-		api/cloudant_query.md
-		api/design_documents.md
-		api/creating_views.md
-		api/using_views.md
-		api/search.md
-		api/cloudant-geo.md
-		api/replication.md
-		api/advanced_replication.md
-		api/active_tasks.md
-		api/advanced.md
-		api/monitoring.md
-		api/backup.md
-
-	{: .topicgroup}
 	Beispielapps
 		[Offline First-Einkaufsliste](https://developer.ibm.com/code/patterns/create-an-offline-first-shopping-list-progressive-web-app/)
 		[Open Fridge](https://github.com/krook/openfridge)
