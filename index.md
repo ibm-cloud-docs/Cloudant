@@ -17,7 +17,7 @@ lastupdated: "2018-08-03"
 {: #getting-started-with-cloudant}
 
 In this {{site.data.keyword.cloudantfull}} getting started tutorial
-we'll use Python to create a {{site.data.keyword.cloudant_short_notm}} database
+we'll use Python to create an {{site.data.keyword.cloudant_short_notm}} database
 and populate that database with a simple collection of data.
 {:shortdesc}
 
