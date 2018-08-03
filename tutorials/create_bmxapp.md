@@ -19,7 +19,7 @@ lastupdated: "2018-08-03"
 This tutorial shows you how to create an {{site.data.keyword.cloud}} application that uses the
 [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} to
 access an {{site.data.keyword.cloudantfull}} database,
-hosted in your {{site.data.keyword.cloud}} service instance.
+hosted in your {{site.data.keyword.cloud_notm}} service instance.
 {:shortdesc}
 
 ## Context

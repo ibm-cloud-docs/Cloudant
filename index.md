@@ -47,7 +47,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 
 *	Install the [Python library](libraries/supported.html#python)
 	to enable your Python applications to work with
-	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
+	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud}}.
 	
 	To check that you have the client library installed successfully,
 	run the following command at a prompt:
