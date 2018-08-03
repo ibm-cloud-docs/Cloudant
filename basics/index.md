@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-21"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -28,7 +28,7 @@ and [Guides](../guides/acurl.html#authorized-curl-acurl-) assume you know some b
 
 To access {{site.data.keyword.cloudant_short_notm}},
 you must have either an [{{site.data.keyword.cloudant_short_notm}} account](../api/account.html),
-or an [{{site.data.keyword.Bluemix}} account](../offerings/bluemix.html).
+or an [{{site.data.keyword.cloud}} account](../offerings/bluemix.html).
 
 ## HTTP API
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -57,7 +57,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 
 *	Install the [Python library](libraries/supported.html#python)
 	to enable your Python applications to work with
-	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}}.
+	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 	
 	To check that you installed the client library successfully,
 	run the following command at a prompt:
@@ -80,7 +80,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	```
 	{:pre}
 
-## Step 1: Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}
+## Step 1: Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
 1.	Run the '`import`' statements of the {{site.data.keyword.cloudant_short_notm}}
@@ -94,7 +94,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	{: codeblock}
 
 2.  Create a new {{site.data.keyword.cloudant_short_notm}} service credential:
-  <br>In the {{site.data.keyword.Bluemix_notm}} console, open the dashboard for your service instance.
+  <br>In the {{site.data.keyword.cloud_notm}} console, open the dashboard for your service instance.
   <br>In the left navigation, click `Service credentials`.
   <br>a. Click the `New credential` button.
   <br>![Create new service credentials](tutorials/images/img0050.png)

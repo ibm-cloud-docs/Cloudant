@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -12,10 +12,10 @@ lastupdated: "2018-06-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
+# Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
-service instance using the {{site.data.keyword.Bluemix}} dashboard,
+service instance using the {{site.data.keyword.cloud}} dashboard,
 and shows you where to find the essential information to enable your applications
 to work with the database.
 {:shortdesc}
@@ -29,24 +29,24 @@ You can find these credentials by accessing your {{site.data.keyword.cloudant_sh
 
 ## Creating a service instance
 
-1.  Log in to your {{site.data.keyword.Bluemix_notm}} account.<br/>
-    The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
+1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
+    The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [http://console.bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard without any service instances:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0001.png)
+    you are presented with the {{site.data.keyword.cloud_notm}} dashboard without any service instances:<br/>
+    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
 2.  Click the `Create resource` button:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} catalog link](images/img0002.png)<br/>
-    A list of the services available on {{site.data.keyword.Bluemix_notm}} appears.
+    ![{{site.data.keyword.cloud_notm}} catalog link](images/img0002.png)<br/>
+    A list of the services available on {{site.data.keyword.cloud_notm}} appears.
 
 3.  Click the `Data & Analytics` entry under the `Platform` heading:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} Data & Analytics services](images/img0003.png)<br/>
+    ![{{site.data.keyword.cloud_notm}} Data & Analytics services](images/img0003.png)<br/>
     A list of the Data & Analytics services
-    available on {{site.data.keyword.Bluemix_notm}} appears.
+    available on {{site.data.keyword.cloud_notm}} appears.
 
 4.  Click the {{site.data.keyword.cloudant_short_notm}} service:<br>
-    ![{{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)
+    ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)
 
 5.  In the service configuration window,
     enter a service name. Verify that the region/location, organization, and space selections are correct.
@@ -120,11 +120,11 @@ At any time,
 you can find the credentials for a service that is associated with your account.
 
 1.  Begin by logging in to {{site.data.keyword.cloudant_short_notm}}.
-    The {{site.data.keyword.Bluemix_notm}} dashboard can be found at:
+    The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.Bluemix_notm}} dashboard:<br/>
-    ![{{site.data.keyword.Bluemix_notm}} dashboard](images/img0053.png)
+    you are presented with the {{site.data.keyword.cloud_notm}} dashboard:<br/>
+    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0053.png)
 
 3.  In this example,
     we want to find the service credentials for the {{site.data.keyword.cloudant_short_notm}}

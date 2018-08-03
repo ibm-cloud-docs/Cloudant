@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -345,7 +345,7 @@ An API key is primarily used to enable applications to access a database,
 with a determined level of access control.
 
 All {{site.data.keyword.cloudant_short_notm}} instances that are deployed 
-from the {{site.data.keyword.Bluemix_notm}} Public Germany 
+from the {{site.data.keyword.cloud}} Public Germany 
 region are deployed in EU-managed environments. Any 
 {{site.data.keyword.cloudant_short_notm}} account or 
 API key that is generated outside of an EU-managed environment cannot be granted 

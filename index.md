@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -17,7 +17,7 @@ lastupdated: "2018-06-07"
 {: #getting-started-with-cloudant}
 
 In this {{site.data.keyword.cloudantfull}} getting started tutorial
-we'll use Python to create a {{site.data.keyword.cloudant}} database
+we'll use Python to create a {{site.data.keyword.cloudant_short_notm}} database
 and populate that database with a simple collection of data.
 {:shortdesc}
 
@@ -27,7 +27,7 @@ and populate that database with a simple collection of data.
 {: #prereqs}
 
 You'll need a [Bluemix account ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window},
-an instance of the {{site.data.keyword.cloudant}} service, and the following Python requirements:
+an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the following Python requirements:
 
 *	Install the latest version of the
 	[Python programming language ![External link icon](images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} on your system.
@@ -47,7 +47,7 @@ an instance of the {{site.data.keyword.cloudant}} service, and the following Pyt
 
 *	Install the [Python library](libraries/supported.html#python)
 	to enable your Python applications to work with
-	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.Bluemix_notm}}.
+	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud}}.
 	
 	To check that you have the client library installed successfully,
 	run the following command at a prompt:
@@ -70,7 +70,7 @@ an instance of the {{site.data.keyword.cloudant}} service, and the following Pyt
 	```
 	{:pre}
 
-## Step 1: Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.Bluemix_notm}}
+## Step 1: Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 
 1.	Run the following '`import`' statements of the {{site.data.keyword.cloudant_short_notm}}
 	Client Library components to enable your Python application to connect to
@@ -83,7 +83,7 @@ an instance of the {{site.data.keyword.cloudant}} service, and the following Pyt
 	{: codeblock}
 
 2. Identify the {{site.data.keyword.cloudant_short_notm}} service credentials:
-  1. In the {{site.data.keyword.Bluemix_notm}} console, open the dashboard for your service instance.
+  1. In the {{site.data.keyword.cloud_notm}} console, open the dashboard for your service instance.
   2. In the left navigation, click **`Service credentials`**.
   3. Click **`View credentials`** under **`ACTIONS`**.
 
