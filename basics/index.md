@@ -28,7 +28,7 @@ and [Guides](../guides/acurl.html#authorized-curl-acurl-) assume you know some b
 
 To access {{site.data.keyword.cloudant_short_notm}},
 you must have either an [{{site.data.keyword.cloudant_short_notm}} account](../api/account.html),
-or an [{{site.data.keyword.cloud_notm}} account](../offerings/bluemix.html).
+or an [{{site.data.keyword.cloud}} account](../offerings/bluemix.html).
 
 ## HTTP API
 

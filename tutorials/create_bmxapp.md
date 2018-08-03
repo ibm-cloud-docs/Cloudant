@@ -24,7 +24,7 @@ hosted in your {{site.data.keyword.cloud}} service instance.
 
 ## Context
 
-A significant advantage of {{site.data.keyword.cloud_notm}} is that you can create and deploy applications within
+A significant advantage of {{site.data.keyword.cloud}} is that you can create and deploy applications within
 {{site.data.keyword.cloud_notm}} itself.
 You do not have to find and maintain a server to run your applications.
 

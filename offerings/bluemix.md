@@ -134,7 +134,7 @@ for a monthly fee. You purchase a single dedicated hardware plan for a specific 
 and can provision one or more Standard plan instances on it. This plan is necessary for 
 HIPAA compliance and must be selected at provisioning time. 
 
-The Dedicated Hardware plan is not available to {{site.data.keyword.cloud_notm}} Dedicated customers and is only available for {{site.data.keyword.cloud_notm}} Public customers.
+The Dedicated Hardware plan is not available to {{site.data.keyword.cloud}} Dedicated customers and is only available for {{site.data.keyword.cloud_notm}} Public customers.
 {: tip}
 
 ## Provisioned throughput capacity
@@ -365,7 +365,7 @@ so request this environment as part of the [provisioning process](#provisioning-
 
 <div id="byok"></div>
 
-If you require bring-your-own-key (BYOK) for encryption-at-rest, this encryption is enabled by using {{site.data.keyword.cloud}} Key 
+If you require bring-your-own-key (BYOK) for encryption-at-rest, this encryption is enabled by using {{site.data.keyword.cloud_notm}} Key 
 Protect. {{site.data.keyword.cloudant_short_notm}} supports this feature for new {{site.data.keyword.cloudant_short_notm}} 
 [Dedicated Hardware plan](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public) 
 instances that are deployed in all regions. First, create an instance of the Dedicated 

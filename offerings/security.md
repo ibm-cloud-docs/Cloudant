@@ -31,7 +31,7 @@ to keep them running and growing non-stop,
 
 The {{site.data.keyword.cloudant_short_notm}} DBaaS is
 physically hosted on Tier-1 cloud infrastructure providers such as
-{{site.data.keyword.cloud_notm}} and Amazon.
+{{site.data.keyword.cloud}} and Amazon.
 Therefore,
 your data is protected by the network and physical security measures that are employed by those providers,
 including (but not limited to):
