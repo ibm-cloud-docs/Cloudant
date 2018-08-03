@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -12,24 +12,24 @@ lastupdated: "2018-06-07"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}} using the Cloud Foundry tools
+# Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}} using the Cloud Foundry tools
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
-service instance on {{site.data.keyword.Bluemix}}
+service instance on {{site.data.keyword.cloud}}
 using the Cloud Foundry tools.
 {:shortdesc}
 
 ## Prerequisites
 
 To follow this tutorial,
-you must first install the {{site.data.keyword.Bluemix_notm}} Cloud Foundry tools.
+you must first install the {{site.data.keyword.cloud_notm}} Cloud Foundry tools.
 Details for installing the tools are available in
 [this separate tutorial](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits).
 
 > **Note**: Ensure you install both the Cloud Foundry _and_
-  the {{site.data.keyword.Bluemix_notm}} toolkits.
+  the {{site.data.keyword.cloud_notm}} toolkits.
 
-## Identifying the {{site.data.keyword.Bluemix_notm}} API endpoint
+## Identifying the {{site.data.keyword.cloud_notm}} API endpoint
 
 Specify the target API endpoint for your Cloud Foundry commands;
 
@@ -49,17 +49,17 @@ Not logged in. Use 'bx login' to log in.
 ```
 {:pre}
 
-## Logging in to your {{site.data.keyword.Bluemix_notm}} account
+## Logging in to your {{site.data.keyword.cloud_notm}} account
 
 1.  Use the following command to start the login process for
-  your {{site.data.keyword.Bluemix_notm}} account:
+  your {{site.data.keyword.cloud_notm}} account:
   
   ```sh
   bx login
   ```
   {:codeblock}
   
-  {{site.data.keyword.Bluemix_notm}} replies by reminding you of the current
+  {{site.data.keyword.cloud_notm}} replies by reminding you of the current
   API endpoint,
   then asks for the email address of your account:
   
@@ -71,7 +71,7 @@ Not logged in. Use 'bx login' to log in.
   {:pre}
 
 2.  Enter the email address of your account.
-  {{site.data.keyword.Bluemix_notm}} then asks for the password for your account:
+  {{site.data.keyword.cloud_notm}} then asks for the password for your account:
   ```sh
   API endpoint: https://api.ng.bluemix.net
   
@@ -81,7 +81,7 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
   
-  {{site.data.keyword.Bluemix_notm}} validates your details,
+  {{site.data.keyword.cloud_notm}} validates your details,
   then summarizes the information about your login session:
   ```sh
   API endpoint: https://api.ng.bluemix.net
@@ -107,7 +107,7 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
 
-3.  You have now logged in to your {{site.data.keyword.Bluemix_notm}} account.
+3.  You have now logged in to your {{site.data.keyword.cloud_notm}} account.
 
 ## Choosing the {{site.data.keyword.cloudant_short_notm}} plan for your service
 
@@ -150,7 +150,7 @@ and includes a max of 1GB of encrypted data storage.   free
 ## Creating the {{site.data.keyword.cloudant_short_notm}} service
 
 The basic command format to create a service instance
-within {{site.data.keyword.Bluemix_notm}} is as follows:
+within {{site.data.keyword.cloud_notm}} is as follows:
 
 ```sh
 bx service create <service> <plan> <instance name>
@@ -203,7 +203,7 @@ Field      | Purpose
 `url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
 
 The basic command format to create credentials for a service instance
-within {{site.data.keyword.Bluemix_notm}} is as follows:
+within {{site.data.keyword.cloud_notm}} is as follows:
 
 ```sh
 bx cf create-service-key <instance name> <credentials name>
@@ -222,7 +222,7 @@ bx cf create-service-key cs20170517a creds20170517a
 {:codeblock}
 
 After receiving the request to create credentials for the service instance,
-{{site.data.keyword.Bluemix_notm}} responds with a message similar to the following example:
+{{site.data.keyword.cloud_notm}} responds with a message similar to the following example:
 
 ```sh
 Invoking 'cf create-service-key cs20170517a creds20170517a'...
@@ -235,7 +235,7 @@ OK
 ## Listing the service credentials for your {{site.data.keyword.cloudant_short_notm}} service
 
 The basic command format to retrieve the credentials for a service instance
-within {{site.data.keyword.Bluemix_notm}} is as follows:
+within {{site.data.keyword.cloud_notm}} is as follows:
 
 ```sh
 bx cf service-key <instance name> <credentials name>
@@ -254,7 +254,7 @@ bx cf service-key cs20170517a creds20170517a
 {:codeblock}
 
 After receiving the request to retrieve the credentials for the service instance,
-{{site.data.keyword.Bluemix_notm}} responds with a message similar to the following (abbreviated) example:
+{{site.data.keyword.cloud_notm}} responds with a message similar to the following (abbreviated) example:
 
 ```sh
 Invoking 'cf service-key cs20170517a creds20170517a'...
@@ -277,7 +277,7 @@ At this point,
 you have:
 
 1.  Created an {{site.data.keyword.cloudant_short_notm}} service
-  instance within {{site.data.keyword.Bluemix_notm}}.
+  instance within {{site.data.keyword.cloud_notm}}.
 2.  Created credentials for the {{site.data.keyword.cloudant_short_notm}} service instance.
 3.  Retrieved the service instance credentials, so that they can be used by your application.
 

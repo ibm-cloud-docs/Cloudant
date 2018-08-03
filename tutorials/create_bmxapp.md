@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -14,26 +14,26 @@ lastupdated: "2018-06-07"
 
 <!-- Acrolinx: 2017-01-10 -->
 
-# Creating a simple {{site.data.keyword.Bluemix_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database
+# Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database
 
-This tutorial shows you how to create an {{site.data.keyword.Bluemix}} application that uses the
+This tutorial shows you how to create an {{site.data.keyword.cloud}} application that uses the
 [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} to
 access an {{site.data.keyword.cloudantfull}} database,
-hosted in your {{site.data.keyword.Bluemix_notm}} service instance.
+hosted in your {{site.data.keyword.cloud}} service instance.
 {:shortdesc}
 
 ## Context
 
-A significant advantage of {{site.data.keyword.Bluemix_notm}} is that you can create and deploy applications within
-{{site.data.keyword.Bluemix_notm}} itself.
+A significant advantage of {{site.data.keyword.cloud_notm}} is that you can create and deploy applications within
+{{site.data.keyword.cloud_notm}} itself.
 You do not have to find and maintain a server to run your applications.
 
 If you are already using an {{site.data.keyword.cloudant_short_notm}} database instance
-within {{site.data.keyword.Bluemix_notm}},
+within {{site.data.keyword.cloud_notm}},
 it makes sense to have your applications there,
 too.
 
-{{site.data.keyword.Bluemix_notm}} applications are typically created by using
+{{site.data.keyword.cloud_notm}} applications are typically created by using
 [Cloud Foundry ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} technology.
 Cloud Foundry offers a Platform-as-a-Service (PaaS) capability
 that simplifies the process of creating applications that can be deployed and run
@@ -41,9 +41,9 @@ within a Cloud environment.
 
 [A separate tutorial](create_database.html) showed you how to create a stand-alone Python application
 that uses an {{site.data.keyword.cloudant_short_notm}}
-database instance within {{site.data.keyword.Bluemix_notm}}.
+database instance within {{site.data.keyword.cloud_notm}}.
 In this tutorial,
-you set up and create a small Python application hosted within {{site.data.keyword.Bluemix_notm}}.
+you set up and create a small Python application hosted within {{site.data.keyword.cloud_notm}}.
 The application connects to your {{site.data.keyword.cloudant_short_notm}} database instance,
 and creates a single,
 simple document.
@@ -66,13 +66,13 @@ warnings or error conditions that are encountered by your own applications.
 
 ## Task overview
 
-To create a working Python application on {{site.data.keyword.Bluemix_notm}}
+To create a working Python application on {{site.data.keyword.cloud_notm}}
 that can access an {{site.data.keyword.cloudant_short_notm}} database instance,
 you need to perform the following tasks:
 
--   [Create a Python application environment on {{site.data.keyword.Bluemix_notm}}.](create_bmxapp_appenv.html#creating)
+-   [Create a Python application environment on {{site.data.keyword.cloud_notm}}.](create_bmxapp_appenv.html#creating)
 -   [Ensure that the Python application environment has a 'connection' to an {{site.data.keyword.cloudant_short_notm}} database instance.](create_bmxapp_appenv.html#connecting)
--   [(One-off task) Download and install the Cloud Foundry and {{site.data.keyword.Bluemix_notm}} command line toolkits.](create_bmxapp_appenv.html#toolkits)
+-   [(One-off task) Download and install the Cloud Foundry and {{site.data.keyword.cloud_notm}} command line toolkits.](create_bmxapp_appenv.html#toolkits)
 -   [Download the 'starter' application.](create_bmxapp_appenv.html#starter)
 -   [Customize the starter application to create your own application for accessing the {{site.data.keyword.cloudant_short_notm}} database instance.](create_bmxapp_createapp.html#theApp)
 -   [Upload your application and test that it works.](create_bmxapp_upload.html#uploading)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-01"
+lastupdated: "2018-08-03"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-08-01"
 
 <!-- Acrolinx: 2018-06-05 -->
 
-# {{site.data.keyword.Bluemix_notm}} Public
+# {{site.data.keyword.cloud_notm}} Public
 {: #ibm-cloud-public}
 
 {{site.data.keyword.cloudantfull}} Public is {{site.data.keyword.cloudant_short_notm}}'s most 
@@ -134,7 +134,7 @@ for a monthly fee. You purchase a single dedicated hardware plan for a specific 
 and can provision one or more Standard plan instances on it. This plan is necessary for 
 HIPAA compliance and must be selected at provisioning time. 
 
-The Dedicated Hardware plan is not available to {{site.data.keyword.Bluemix_notm}} Dedicated customers and is only available for {{site.data.keyword.Bluemix_notm}} Public customers.
+The Dedicated Hardware plan is not available to {{site.data.keyword.cloud_notm}} Dedicated customers and is only available for {{site.data.keyword.cloud_notm}} Public customers.
 {: tip}
 
 ## Provisioned throughput capacity
@@ -329,7 +329,7 @@ errors is available [here](../api/replication.html#replication-errors).
 
 By default, all Lite and Standard plans are deployed on multi-tenant 
 environments. As part of your plan selection, you can choose from the 
-following {{site.data.keyword.Bluemix_notm}} Public regions:
+following {{site.data.keyword.cloud_notm}} Public regions:
 
 -   US East
 -   US South
@@ -339,10 +339,10 @@ following {{site.data.keyword.Bluemix_notm}} Public regions:
 
 Dedicated Hardware plan instances can be deployed in most 
 [{{site.data.keyword.IBM_notm}} data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
-See the drop-down menu in the {{site.data.keyword.Bluemix_notm}} catalog for an up-to-date list of available locations.
+See the drop-down menu in the {{site.data.keyword.cloud_notm}} catalog for an up-to-date list of available locations.
 
 &Dagger;All {{site.data.keyword.cloudant_short_notm}} instances that are deployed from the 
-{{site.data.keyword.Bluemix_notm}} Public Germany region 
+{{site.data.keyword.cloud_notm}} Public Germany region 
 deploy in EU-managed environments. Any {{site.data.keyword.cloudant_short_notm}} 
 account or API key that is generated 
 outside of an EU-managed environment cannot be granted access to an EU-managed 
@@ -355,7 +355,7 @@ All plans are provided on servers with
 [at-rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window} disk encryption.
 Access is encrypted over a network connection by using HTTPS.
 For more detail,
-see [{{site.data.keyword.Bluemix_notm}} Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}.
+see [{{site.data.keyword.cloud_notm}} Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}.
 
 The plans also offer
 [Security Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/cloudant-compliance/){:new_window}.
@@ -391,18 +391,18 @@ to explore all HA, DR, and backup considerations to meet your application requir
 {: #support}
 
 Support for Standard and Dedicated plan service instances is optional.
-It is provided by purchasing "{{site.data.keyword.Bluemix}} Standard Support".
+It is provided by purchasing "{{site.data.keyword.cloud_notm}} Standard Support".
 Support is not available for the Lite plan.
 
-A pricing calculator for {{site.data.keyword.Bluemix_notm}} Standard Support is available
+A pricing calculator for {{site.data.keyword.cloud_notm}} Standard Support is available
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/?direct=classic/#/pricing/cloudOEPaneId=pricing&paneId=pricingSheet){:new_window}.
 Information about the details of the Support Service Level Agreement (SLA) is available
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-03.ibm.com/software/sla/sladb.nsf/pdf/6606-08/$file/i126-6606-08_05-2016_en_US.pdf){:new_window}.
 
-## Provisioning an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}
+## Provisioning an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}
 {: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
 
-You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.Bluemix}} in two ways:
+You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} in two ways:
 
 - Using the Dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
 - Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.

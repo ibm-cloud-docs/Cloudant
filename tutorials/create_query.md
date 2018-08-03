@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-08-03"
 
 ---
 {:new_window: target="_blank"}
@@ -20,8 +20,8 @@ This tutorial demonstrates how to create a database, populate it
 with documents, create an index, and use the index to query the database.
 
 Exercises for both the ![Command line icon](../images/CommandLineIcon.png) _Command line_
-and ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_ are provided. The
-{{site.data.keyword.Bluemix}} Dashboard exercises give you a visual example of each task. You can follow the links
+and ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud}} Dashboard_ are provided. The
+{{site.data.keyword.cloud_notm}} Dashboard exercises give you a visual example of each task. You can follow the links
 throughout the tutorial for more information.
 
 To begin, you create the `query-demo` database and some documents that
@@ -31,10 +31,10 @@ contain the data for these exercises.
 
 Before you begin, follow these steps to prepare for the tutorial:
 
-1.  [Create an {{site.data.keyword.Bluemix}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
+1.  [Create an {{site.data.keyword.cloud_notm}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Log in to the
-  [{{site.data.keyword.Bluemix_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance).
+  [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+3.  [Create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](create_service.html#creating-a-service-instance).
 4.  (Optional) [Create an acurl alias](../guides/acurl.html#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
 5.  Replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to {{site.data.keyword.cloudant_short_notm}} Dashboard.
   If you decide not to set up `acurl`,
@@ -73,7 +73,7 @@ is the database that we use in this tutorial.
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
 1.  Open the {{site.data.keyword.cloudant_short_notm}} service instance that you created.
 2.  On {{site.data.keyword.cloudant_short_notm}} service page, click **Launch**.
@@ -177,7 +177,7 @@ that you create in this exercise contain the data that you use to query the `que
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
 1.  Click **`+`** and select **New Doc**. The 'New Document' window opens.
 2.  To create a document, copy the following sample text and replace the existing text in the new document.
@@ -311,7 +311,7 @@ in the following list:
 
 
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
 1.  Click **`+` > Query Indexes** on either the **All Documents** or **Design Documents** tab.
 2.  Paste the following sample JSON data into the **Index** field:
@@ -397,7 +397,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
 1.  Click the **Query** tab.
 2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
@@ -499,7 +499,7 @@ The extra details look like the following example:
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
 1.  Click the **Query** tab.
 2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
@@ -600,7 +600,7 @@ values specified in the `sort` parameter.
   ```
   {:codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
 1.  Click the **Query** tab.
 2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
