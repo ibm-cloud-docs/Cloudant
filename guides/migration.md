@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-09"
+lastupdated: "2018-08-13"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-08-09"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-05-07 -->
+<!-- Acrolinx: 2018-08-13 -->
 
 # Migrating to {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}
  
@@ -58,7 +58,7 @@ If you are using {{site.data.keyword.cloudant_short_notm}}, the {{site.data.keyw
 
 ![cloud dash](../images/ibmclouddashboard.png)
 
-You can also drill into a specific instance and look at the Plan tab. {{site.data.keyword.cloudant_short_notm}} instances on the deprecated Shared plan do not have a plan that is highlighted. An instance on the {{site.data.keyword.cloudant_short_notm}} Standard plan looks like this example: 
+You can also drill down into a specific instance and look at the Plan tab. {{site.data.keyword.cloudant_short_notm}} instances on the deprecated Shared plan do not have a plan that is highlighted. An instance on the {{site.data.keyword.cloudant_short_notm}} Standard plan looks like this example: 
 
 ![standard dash](../images/ibmcloud_instance_standard_plan.png)
 
