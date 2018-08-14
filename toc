@@ -102,7 +102,7 @@ IBM Cloudant NoSQL DB
 		guides/couchapps.md
 		guides/design_document_management.md
 		guides/iam.md
-		guides/resource_groups.md
+		guides/resource-groups.md
 		guides/mvcc.md
 		guides/transactions.md
 		guides/sharding.md
