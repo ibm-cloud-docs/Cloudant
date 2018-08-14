@@ -73,6 +73,12 @@ IBM Cloudant NoSQL DB
 		libraries/thirdparty.md
 	{: .navgroup-end}
 
+	{: .navgroup id="help"}
+	{: .topicgroup}
+	FAQS
+		faqs/faq-resource-groups.md
+	{: .navgroup-end}
+
 	{: .navgroup id="howto"}
 	{: .topicgroup}
 	Tutorials
