@@ -13,7 +13,7 @@ lastupdated: "2018-08-14"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2018-08-14 -->
 
 # How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?
 
