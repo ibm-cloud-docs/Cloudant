@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-13"
+lastupdated: "2018-08-14"
 
 ---
 
@@ -13,33 +13,33 @@ lastupdated: "2018-08-13"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-08-13 -->
+<!-- Acrolinx: 2018-08-14 -->
 
 # Migrating to {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}
  
-[{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant)'s database-as-a-service offering on [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud/) is a JSON document store that runs on multi-tenant clusters. The service is available with a choice of geographical locations with predictable costs, scalability, and a service level agreement (SLA).
+[{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant)'s database-as-a-service offering is a JSON document store that runs on multi-tenant clusters. The service is available with a choice of geographical locations with predictable costs, scalability, and a service level agreement (SLA).
 
 This document describes how to migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} from one of the following plans:
 
 Plan | Description
 -----|------------
 {{site.data.keyword.cloudant_short_notm}} Enterprise | Dedicated, single-tenant clusters
-{{site.data.keyword.cloudant_short_notm}} Shared Plan | A legacy pay-as-you-go, multi-tenant {{site.data.keyword.cloudant_short_notm}} service. The `cloudant.com` Shared plan was retired on March 2018. The {{site.data.keyword.cloudant_short_notm}} Shared plan on {{site.data.keyword.cloudant_short_notm}} was deprecated for new signups in October 2016 and is being retired in Q4 2018.
+{{site.data.keyword.cloudant_short_notm}} Shared Plan | A legacy pay-as-you-go, multi-tenant {{site.data.keyword.cloudant_short_notm}} service. The `cloudant.com` Shared plan was retired on March 2018. The {{site.data.keyword.cloudant_short_notm}} Shared plan was deprecated for new signups in October 2016 and is being retired in Q4 2018.
 {{site.data.keyword.cloudant_localfull}} | The self-hosted, packaged installation of {{site.data.keyword.cloudant_short_notm}}.
 Apache CouchDB | The self-hosted, open-source database on which {{site.data.keyword.cloudant_short_notm}} is based.
 
 ## What are the benefits of the {{site.data.keyword.cloudant_short_notm}} Lite and Standard plans?
 
-The Standard plan allows you to *reserve throughput capacity* for your database service, that is, to specify how much throughput your application's database is going to need to handle demand. Capacity is measured by using the following metrics:
+The Standard plan allows you to *reserve throughput capacity* for your database service, that is, to specify how much throughput your application's database is going to need to handle demand. The Standard plan also charges for the amount of storage you use. Capacity is measured by using the following metrics:
 
 Metric | Description
 -------|------------
 Lookups per second | The rate at which simple document fetches are performed, for example, retrieving a document by its `_id`.
-Writes per second | The rate at which data is written to the database. A 'write' counts as API calls dealing with document creation, update, or deletion.
+Writes per second | The rate at which data is written to the database. API calls dealing with document creation, update, or deletion count as 'writes'.
 Queries per second | The rate at which the database is queried, typically by accessing the `_find` endpoint or by using secondary MapReduce indices.
 Storage | The amount of disk space occupied by your JSON data, attachments, and secondary indices.
 
-As an example, the Lite plan offers 20 lookups per second, 10 writes per second, 5 queries per second, and 1 GB of storage for free. This plan is ideal when you are 'kicking the tires' of the product and during product development. When your application goes into production, you must switch to the Standard plan. The Standard plan's smallest package has 100 lookups per second, 50 writes per second, 5 queries per second, and 20 GB of storage (extra storage is charged by GB) for $76.65 per month. 
+As an example, the Lite plan offers 20 lookups per second, 10 writes per second, 5 queries per second, and 1 GB of storage for free. This plan is ideal when you are 'kicking the tires' of the product and during product development. When your application goes into production, you must switch to the Standard plan. The Standard plan's smallest package has 100 lookups per second, 50 writes per second, 5 queries per second, and 20 GB of storage (extra storage is charged by GB) for ~$76.65 USD per month. 
 
 By using the slider in the {{site.data.keyword.cloudant_short_notm}} dashboard, you can reserve a smaller or larger capacity for your {{site.data.keyword.cloudant_short_notm}} service whenever you need it:
 
@@ -54,7 +54,7 @@ If you exceed your quota of lookups, writes, and queries in a given second, the 
 
 ## Which type of {{site.data.keyword.cloudant_short_notm}} plan do I have?
 
-If you are using {{site.data.keyword.cloudant_short_notm}}, the {{site.data.keyword.cloudant_short_notm}} dashboard shows all your {{site.data.keyword.cloudant_short_notm}} instances along with a Plan column. The Lite, Standard, and Dedicated Hardware plans are called out specifically. Any {{site.data.keyword.cloudant_short_notm}} instance that is lacking a plan name in that column will be using the deprecated Shared plan. In the following example, the 'Cloudant NoSQL DB-ix' and 'Cloudant_NewConsole' instances are on the deprecated Shared plan. 
+If you are using {{site.data.keyword.cloudant_short_notm}}, the {{site.data.keyword.cloud_notm}} dashboard shows all your {{site.data.keyword.cloudant_short_notm}} instances along with a Plan column. The Lite, Standard, and Dedicated Hardware plans are called out specifically. Any {{site.data.keyword.cloudant_short_notm}} instance that is lacking a plan name in that column will be using the deprecated Shared plan. In the following example, the 'Cloudant NoSQL DB-ix' and 'Cloudant_NewConsole' instances are on the deprecated Shared plan. 
 
 ![cloud dash](../images/ibmclouddashboard.png)
 
@@ -80,7 +80,7 @@ If your Account tab already indicates that you are on the Standard plan, you do 
 
 Migrate from the free Lite plan to the Standard plan by following these steps: 
 
-1.  Go to the {{site.data.keyword.cloudant_short_notm}} dashboard.
+1.  Go to the {{site.data.keyword.cloud_notm}} dashboard.
 2.  Select the {{site.data.keyword.cloudant_short_notm}} instance you want to migrate. 
 3.  Select the **Plan** tab on the left navigation. 
 4.  From the list of pricing plans, select the **Standard** check box. 
@@ -98,15 +98,15 @@ Now, you are ready to go!
 
 Migration from the Shared or Enterprise plans to {{site.data.keyword.cloudant_short_notm}} Lite or Standard plans includes the following tasks, which are described in the following steps: 
 
-### Step 1: Sign up for {{site.data.keyword.cloudant_short_notm}}
+### Step 1: Sign up for {{site.data.keyword.cloud_notm}}
 
-If you have not signed up already, [sign up for an {{site.data.keyword.cloudant_short_notm}} account](https://www.ibm.com/cloud/). 
+If you have not signed up already, [sign up for an {{site.data.keyword.cloud_notm}} account](https://www.ibm.com/cloud/). 
 
 ### Step 2: Create an {{site.data.keyword.cloudant_short_notm}} instance
 
-After you log in to your {{site.data.keyword.cloudant_short_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. 
+After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. 
 
-![add {{site.data.keyword.cloudant_short_notm}}](../images/migrate4.png)
+![add {{site.data.keyword.cloudant_short_notm}} instance](../images/migrate-everything-else.png)
 
 You can find {{site.data.keyword.cloudant_short_notm}} in the Databases section of the catalog.
 
@@ -146,7 +146,7 @@ Frequently asked questions (FAQs) are published by the {{site.data.keyword.cloud
 
 ## Can I back up my data before doing anything?
 
-{{site.data.keyword.cloudant_short_notm}} recommends that you use the [couchbackup](../guides/backup-cookbook.html#cloudant-nosql-db-backup-and-recovery) utility to export data to disk. [{{site.data.keyword.cloudant_short_notm}} Object Storage](https://www.ibm.com/cloud/object-storage) is an inexpensive, scalable solution for storing the exported files. 
+{{site.data.keyword.cloudant_short_notm}} recommends that you use the [couchbackup](../guides/backup-cookbook.html#cloudant-nosql-db-backup-and-recovery) utility to export data to disk. [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage) is an inexpensive, scalable solution for storing the exported files. 
 
 ## Can I keep my `username.cloudant.com` domain and redirect it to the new service on {{site.data.keyword.cloudant_short_notm}}?
 
