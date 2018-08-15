@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-12"
+lastupdated: "2018-08-15"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-07-12"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2018-07-10 -->
+<!-- Acrolinx: 2018-08-15 -->
 
 # Release Notes
 {: #release-notes}
@@ -24,6 +24,18 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 {: #dedicated-hardware}
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 7137 (August 15, 2018)
+{: #build-7137-august-15-2018}
+
+- Improve validation of configuration parameters supplied by administrator.
+- While compaction is running, delete compaction files when database is deleted.
+- Improve sandboxing features.
+- Optimize authentication check.
+- Change semantics of status codes for delete database.
+- Support `conflicts: true` for queries to the `/{db}/_find` endpoint.
+- Preserve `update_seq` field across view compaction.
+
 
 ## Build 7084 (July 12, 2018)
 {: #build-7084-july-12-2018}
