@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-18"
+lastupdated: "2018-08-15"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-07-18"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2018-07-10 -->
+<!-- Acrolinx: 2018-08-15 -->
 
 # Release Notes
 {: #release-notes}
@@ -25,8 +25,8 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build XXXX (July, YY, 2018)
-{: #build-XXXX-july-YY-2018}
+## Build 7137 (August 15, 2018)
+{: #build-7137-august-15-2018}
 
 - Improve validation of configuration parameters supplied by administrator.
 - While compaction is running, delete compaction files when database is deleted.
