@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-14"
+lastupdated: "2018-08-15"
 
 ---
 
@@ -13,18 +13,42 @@ lastupdated: "2018-08-14"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-08-14 -->
+<!-- Acrolinx: 2018-08-15 -->
 
 # How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?
 
-## Why have some of my instances got space/org and some not?
+Since 16th July 2018, new {{site.data.keyword.cloudantfull}} resource instances have been provisioned into
+resource groups, rather than CloudFoundry spaces. This document covers common
+questions {{site.data.keyword.cloudant_short_notm}} have received about this transition.
 
-From $DATE, new instances are provisioned into resource groups...
+## Why do some instances have an organisation and space and others do not?
+
+Since 16th July 2018, new instances have been provisioned into resource groups
+rather than CloudFoundry spaces. Resource instances provisioned before this date
+will have an associated CloudFoundry organisation and space. Instances
+provisioned after this date will be associated with a resource group instead.
 
 ## Why can't I create new Standard plan instances on my Dedicated Hardware instances?
 
-Dedicated Hardware instances must be migrated to RC before new Standard plan instances can go on them.
+New Standard plan instances are provisioned into resource groups. In order to
+provision these instances onto a Dedicated Hardware instance, the Dedicated
+Hardware instance must first be migrated into a resource group.
+
+To do this, follow the [migrating a resource instance to a resource group](TDB) instructions.
+
+Once the Dedicated Hardware instance has been migrated to a resource group, it
+appears in the Location drop-down when provisioning Standard plans.
 
 ## How should I migrate my Dedicated Hardware instances and the Standard plan instances hosted on them?
 
-Suggested order: Dedicated Hardware then Standard Plan instances.
+In theory, instances can be migrated to resource groups in any order. In
+practice, we recommend the following order for Dedicated Hardware instances and
+the Standard plan instances hosted on them:
+
+1. Migrate Dedicated Hardware instances to a resource group. This allows new
+    Standard plan instances to be created on the Dedicated Hardware.
+2. Migrate Standard instances.
+
+Lite plan instances and Standard plan instances not hosted on Dedicated Hardware
+can be migrated at any time.
+{: tip}
