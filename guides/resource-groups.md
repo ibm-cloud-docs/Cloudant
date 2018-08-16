@@ -23,7 +23,7 @@ questions {{site.data.keyword.cloudant_short_notm}} support has received about t
 
 ## How do I migrate an existing instance to a resource group?
 
-To migrate a {{site.data.keyword.cloudant_short_notm}} instance from a CloudFoundry space to a resource group, follow [these instructions](TDB).
+To migrate an {{site.data.keyword.cloudant_short_notm}} instance from a CloudFoundry space to a resource group, follow [these instructions](TDB).
 
 You can migrate {{site.data.keyword.cloudant_short_notm}} instances on the following plans:
 
