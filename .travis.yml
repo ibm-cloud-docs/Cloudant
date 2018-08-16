@@ -1,0 +1,12 @@
+language: bash
+sudo: false
+
+before_script:
+  - mkdir -p master-rebase && cp -R .git master-rebase && cd master-rebase && git checkout -- .
+  - git remote add live git@github.com:IBM-Bluemix-Docs/Cloudant.git
+
+script:
+  - ../.build_tools/update_live.sh
+
+after_success:
+  - ../.build_tools/push_live.sh
