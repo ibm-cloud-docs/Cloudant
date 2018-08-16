@@ -111,5 +111,6 @@ IBM Cloudant NoSQL DB
 		guides/model_data.md
 		guides/replication_guide.md
 		guides/backup-guide-using-replication.md
+		guides/migration.md
 	{: .navgroup-end}
 
