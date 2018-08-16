@@ -31,7 +31,7 @@ You can migrate {{site.data.keyword.cloudant_short_notm}} instances on the follo
 - Standard
 - Dedicated Hardware
 
-## Is there downtime when migrating an instance to resource groups?
+## How much downtime occurs when you migrate an instance to a resource group?
 
 There is no downtime during the migration process.
 
