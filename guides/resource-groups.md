@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-08-16"
 
 ---
 
@@ -20,6 +20,20 @@ lastupdated: "2018-08-15"
 Since July 16, 2018, new {{site.data.keyword.cloudantfull}} resource instances have been provisioned into
 resource groups, rather than CloudFoundry spaces. This document covers common
 questions {{site.data.keyword.cloudant_short_notm}} support has received about this transition.
+
+## How do I migrate an existing instance to a resource group?
+
+To migrate a {{site.data.keyword.cloudant_short_notm}} instance from a CloudFoundry space to a resource group, follow [these instructions](TDB).
+
+You can migrate {{site.data.keyword.cloudant_short_notm}} instances on the following plans:
+
+- Lite
+- Standard
+- Dedicated Hardware
+
+## Is there downtime when migrating an instance to resource groups?
+
+There is no downtime during the migration process.
 
 ## Why do some instances have an organisation and space and others do not?
 
