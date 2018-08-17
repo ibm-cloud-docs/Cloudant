@@ -15,10 +15,9 @@ if [[ $TRAVIS_BRANCH == 'master' && $TRAVIS_PULL_REQUEST == 'false' ]]; then
     git checkout live/master
     git rebase origin/master
     ORIGIN_HEAD=`git log -1 --format="%H" origin/master`
-    LIVE_HEAD=`git log -1 --format="%H" live/master`
     HEAD=`git log -1 --format="%H"`
     git log --graph --decorate --oneline | head
-    if [[ "$ORIGIN_HEAD" == "$LIVE_HEAD" && "$LIVE_HEAD" == "$HEAD" ]]; then
+    if [[ "$ORIGIN_HEAD" == "$HEAD" ]]; then
         echo "  ==> All sanity checks pass"
         exit 0
     else
