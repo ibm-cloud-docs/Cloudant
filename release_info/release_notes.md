@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-15"
+lastupdated: "2018-08-17"
 
 ---
 
@@ -24,6 +24,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 {: #dedicated-hardware}
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 7138 (August 17, 2018)
+{: #build-7138-august-17-2018}
+
+- Upgrade to Erlang/OTP 20.
 
 ## Build 7137 (August 15, 2018)
 {: #build-7137-august-15-2018}
