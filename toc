@@ -2,7 +2,7 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="cloudant" audience="service" arm="366" href="/docs/services/Cloudant/getting-started.html"}
-IBM Cloudant NoSQL DB
+IBM Cloudant
 
 	{: .navgroup id="learn"}
 	getting-started.md
