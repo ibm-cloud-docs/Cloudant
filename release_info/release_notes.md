@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-17"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -12,7 +12,7 @@ lastupdated: "2018-08-17"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-<!-- Acrolinx: 2018-08-15 -->
+<!-- Acrolinx: 2018-09-10 -->
 
 # Release Notes
 {: #release-notes}
@@ -24,6 +24,13 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 {: #dedicated-hardware}
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 7205 (September 07, 2018)
+{: #build-7205-september-07-2018}
+
+- Refactor Mango query selectors to reduce the amount of traffic sent between nodes in the cluster.
+- Expose document update errors on concurrent document updates to client.
+- Fix `render_error` errors where the `req` object that is passed to the JavaScript list function is set to `noproc` atom.
 
 ## Build 7138 (August 17, 2018)
 {: #build-7138-august-17-2018}
