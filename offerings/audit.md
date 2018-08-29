@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-12"
+lastupdated: "2018-08-28"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-04-12"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-00-00 -->
 
@@ -41,8 +42,7 @@ and by whom.
 ## How to access Audit Logs for your account
 
 To request access to the audit logs for your account, contact 
-{{site.data.keyword.cloudant_short_notm}} support. Support will provide access to the 
-audit logs of interest.
+{{site.data.keyword.cloudant_short_notm}} support. Support provides a copy of the audit logs that are of interest to you.
 
 When contacting support, be sure to include:
 
