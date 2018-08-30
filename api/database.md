@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-08-30"
 
 ---
 
@@ -264,6 +264,7 @@ Argument            | Description                                               
 `deleted_conflicts` | Returns information about deleted conflicted revisions.                                         | yes      | boolean         | false
 `descending`        | Return the documents in descending key order.                                                   | yes      | boolean         | false
 `endkey`            | Stop returning records when the specified key is reached.                                       | yes      | string          |
+`endkey_docid` | Stop returning records when the specified document ID is reached. If `endkey` is not set, this argument is ignored. | yes | string |
 `include_docs`      | Include the full content of the documents in the return.                                        | yes      | boolean         | false
 `inclusive_end`     | Include rows whose key equals the '`endkey`' value.                                             | yes      | boolean         | true
 `key`               | Return only documents with IDs that match the specified key.                                    | yes      | string          |
@@ -274,6 +275,8 @@ Argument            | Description                                               
 `revs_info`         | Includes detailed information for all known document revisions.                                 | yes      | boolean         | false
 `skip`              | Skip this number of records before returning the results.                                       | yes      | numeric         | 0
 `startkey`          | Return records, starting with the specified key.                                                | yes      | string          |
+`startkey_docid` | Return records, starting with the specified document ID. If `startkey` is not set, this argument is ignored.  | yes | string |
+
 
 >	**Note**: Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
 
