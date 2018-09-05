@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-03"
+lastupdated: "2018-08-31"
 
 ---
 
@@ -30,8 +30,7 @@ change.  An optional [Dedicated Hardware plan](#dedicated-hardware-plan) is also
 additional monthly fee to run one or more of your Standard plan instances 
 on a dedicated hardware environment. The dedicated hardware environment 
 is for your sole use, and if a Dedicated Hardware plan instance is provisioned 
-within a US location, you can optionally select a [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
--compliant configuration.
+within a US location, you can optionally select a [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}-compliant configuration.
 
 The following table summarizes the provisioned throughput capacity and 
 disk space configuration for the Lite plan and a few examples for the 
@@ -394,10 +393,10 @@ Support for Standard and Dedicated plan service instances is optional.
 It is provided by purchasing "{{site.data.keyword.cloud_notm}} Standard Support".
 Support is not available for the Lite plan.
 
-A pricing calculator for {{site.data.keyword.cloud_notm}} Standard Support is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/?direct=classic/#/pricing/cloudOEPaneId=pricing&paneId=pricingSheet){:new_window}.
-Information about the details of the Support Service Level Agreement (SLA) is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-03.ibm.com/software/sla/sladb.nsf/pdf/6606-08/$file/i126-6606-08_05-2016_en_US.pdf){:new_window}.
+For more information about support plans, see the [{{site.data.keyword.cloud_notm}} Standard Support plans ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/support#944376){:new_window}. For more information about support, see the [{{site.data.keyword.IBM_notm}} support guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/home/pages/support-guide/){:new_window}.
+
+The support systems used for {{site.data.keyword.cloudant_short_notm}} do not offer features for the protection of content that contains Healthcare Information, health data, Protected Health Information, or data that is subject to additional regulatory requirements. As such, the Client must not enter or provide such data.
+{: tip}
 
 ## Provisioning an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}
 {: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
