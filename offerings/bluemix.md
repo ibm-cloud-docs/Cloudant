@@ -347,33 +347,12 @@ account or API key that is generated
 outside of an EU-managed environment cannot be granted access to an EU-managed 
 {{site.data.keyword.cloudant_short_notm}} instance.
 
-## Security, encryption, and compliance
-{: #security-encryption-and-compliance}
+## Authentication methods
+{: #authentication methods}
 
-All plans are provided on servers with
-[at-rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window} disk encryption.
-Access is encrypted over a network connection by using HTTPS.
-For more detail,
-see [{{site.data.keyword.cloud_notm}} Security ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}.
+{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, available authentication methods are either 'Use both legacy credentials and IAM' or 'Use only IAM'. For more details see the [IAM Guide](../guides/iam.md) or legacy [Authentication API doc](../api/authenitication.md).
 
-The plans also offer
-[Security Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/cloudant-compliance/){:new_window}.
-[HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}
-compliance requires a [Dedicated environment](#dedicated-hardware-plan),
-so request this environment as part of the [provisioning process](#provisioning-a-cloudant-instance-on-bluemix).
-
-<div id="byok"></div>
-
-If you require bring-your-own-key (BYOK) for encryption-at-rest, this encryption is enabled by using {{site.data.keyword.cloud_notm}} Key 
-Protect. {{site.data.keyword.cloudant_short_notm}} supports this feature for new {{site.data.keyword.cloudant_short_notm}} 
-[Dedicated Hardware plan](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public) 
-instances that are deployed in all regions. First, create an instance of the Dedicated 
-Hardware plan by using the [{{site.data.keyword.cloud_notm}} catalog](https://console.bluemix.net/catalog/). Then, submit a 
-support ticket, and our support team coordinates getting your new Dedicated Hardware instance's 
-encryption-at-rest encryption keys that are managed by your Key Protect instance.
-
-IP whitelisting is available for {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instances. Open a [support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} ticket to request IP whitelists for a specified set of IP or IP ranges. Note that IP whitelists apply to both the {{site.data.keyword.cloudant_short_notm}} user interface and Dashboard, so be mindful to include any {{site.data.keyword.cloudant_short_notm}} administrator IPs that need to access the {{site.data.keyword.cloudant_short_notm}} Dashboard directly. IP whitelisting is not available to {{site.data.keyword.cloudant_short_notm}} instances deployed on default multi-tenant environments. 
-
+After provisioning a {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when generating new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} Dashboard. {{site.data.keyword.cloudant_short_notm}} legacy username and password will also be included if this option was chosen during provisioning. 
 
 ## High availability, disaster recovery, and backup
 {: #high-availability-disaster-recovery-and-backup}
