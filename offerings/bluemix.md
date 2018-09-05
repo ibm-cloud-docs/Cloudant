@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-31"
+lastupdated: "2018-09-05"
 
 ---
 
@@ -350,9 +350,9 @@ outside of an EU-managed environment cannot be granted access to an EU-managed
 ## Authentication methods
 {: #authentication methods}
 
-{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, available authentication methods are either 'Use both legacy credentials and IAM' or 'Use only IAM'. For more details see the [IAM Guide](../guides/iam.md) or legacy [Authentication API doc](../api/authenitication.md).
+{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include 'Use both legacy credentials and IAM' or 'Use only IAM'. For more information, see the [IAM guide](../guides/iam.html){:new_window} or the legacy [Authentication API document](../api/authentication.html){:new_window}.
 
-After provisioning a {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when generating new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} Dashboard. {{site.data.keyword.cloudant_short_notm}} legacy username and password will also be included if this option was chosen during provisioning. 
+After provisioning an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when generating new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} Dashboard. If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy user name and password is also included. 
 
 ## High availability, disaster recovery, and backup
 {: #high-availability-disaster-recovery-and-backup}
