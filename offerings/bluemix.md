@@ -348,7 +348,7 @@ outside of an EU-managed environment cannot be granted access to an EU-managed
 {{site.data.keyword.cloudant_short_notm}} instance.
 
 ## Authentication methods
-{: #authentication methods}
+{: #authentication-methods}
 
 {{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include 'Use both legacy credentials and IAM' or 'Use only IAM'. For more information, see the [IAM guide](../guides/iam.html){:new_window} or the legacy [Authentication API document](../api/authentication.html){:new_window}.
 
