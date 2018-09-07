@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-14"
+lastupdated: "2018-09-06"
 
 ---
 
@@ -104,9 +104,9 @@ If you have not signed up already, [sign up for an {{site.data.keyword.cloud_not
 
 ### Step 2: Create an {{site.data.keyword.cloudant_short_notm}} instance
 
-After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. 
+After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. Click the `Create resource ` button on the dashboard and then `Databases`. For more information, see [how to create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](../tutorials/create_service.html#creating-an-ibm-cloudant-instance-on-ibm-cloud). 
 
-![add {{site.data.keyword.cloudant_short_notm}} instance](../images/migrate-everything-else.png)
+![add {{site.data.keyword.cloudant_short_notm}} instance](../tutorials/images/img0003.png)
 
 You can find {{site.data.keyword.cloudant_short_notm}} in the Databases section of the catalog.
 

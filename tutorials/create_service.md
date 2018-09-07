@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-08-03"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-08-03"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-08-20 -->
 
 # Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}
 
@@ -22,8 +25,7 @@ to work with the database.
 
 To access an {{site.data.keyword.cloudant_short_notm}} service instance,
 you require a set of [Service Credentials](#the-service-credentials).
-You create credentials when you create a service instance. You can create additional 
-credentials at any time. 
+You create credentials when you create a service instance. You can create additional credentials at any time. 
 
 You can find these credentials by accessing your {{site.data.keyword.cloudant_short_notm}} account.
 
@@ -40,68 +42,54 @@ You can find these credentials by accessing your {{site.data.keyword.cloudant_sh
     ![{{site.data.keyword.cloud_notm}} catalog link](images/img0002.png)<br/>
     A list of the services available on {{site.data.keyword.cloud_notm}} appears.
 
-3.  Click the `Data & Analytics` entry under the `Platform` heading:<br/>
-    ![{{site.data.keyword.cloud_notm}} Data & Analytics services](images/img0003.png)<br/>
-    A list of the Data & Analytics services
-    available on {{site.data.keyword.cloud_notm}} appears.
+3.  Click the `Databases` category and select the `Cloudant` service:<br/>
+    ![{{site.data.keyword.cloud_notm}} Databases services](images/img0003.png)<br/>
 
-4.  Click the {{site.data.keyword.cloudant_short_notm}} service:<br>
-    ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0004.png)
-
-5.  In the service configuration window,
-    enter a service name. Verify that the region/location, organization, and space selections are correct.
+4.  In the service configuration window,
+    enter a service name. Verify that the service name, region/location, resource group, and authentication method are correct.
     In this example,
-    the service name is `Cloudant NoSQL DB service`:<br/>
+    the service name is `Cloudant-o7`:<br/>
     ![{{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0005.png)
 
-6.  By default,
+5.  By default,
     the service is created by using the 'Lite' pricing plan,
     which is free but offers limited capacity.
-    Other pricing plans,
-    with greater capacity,
-    [are available](../offerings/bluemix.html).<br/>
+    Other [pricing plans](../offerings/bluemix.html),
+    with greater capacity are available.<br/>
     To create the service,
     click the `Create` button:<br/>
     ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0006.png)
 
-7.  A service page appears,
+6.  A service page appears,
     confirming that your new {{site.data.keyword.cloudant_short_notm}} service is available.
-    To access the connection information that your application needs to connect to the service,
+    To create the connection information that your application needs to connect to the service,
     click the `Service Credentials` tab:<br/>
-    ![Accessing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0007.png)
+    ![Creating the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0007.png)
 
-8.  Create a new {{site.data.keyword.cloudant_short_notm}} service credential:
-  <br>a. Click the `New credential` button.</br>
+7.  Create a new {{site.data.keyword.cloudant_short_notm}} service credential:
+  <br>a. Click the `New credential` button.
   <br>![Create new service credentials](images/img0050.png)
-  <br>b. Enter a name for the new credential in the Add new credential window, see below.
-  <br>c. (Optional) Add inline configuration parameters.
-  <br>d. Click the `Add` button. </br>
+  <br>b. Enter a name for the new credential in the Add new credential window. See image.
+  <br>c. Accept the Manager role.
+  <br>d. Create a new service ID or have one automatically generated for you. 
+  <br>d. (Optional) Add inline configuration parameters.
+  <br>e. Click the `Add` button. </br>
   <br>![Add a new service credential](images/img0051.png)
-  <br>Your new credential appears at the bottom of the page.
-  <br>e. Click `View credentials` under Actions. </br>
+  <br>Your new credential appears after the table.</br>
+  <br>f. Click `View credentials` under Actions.
   <br>![View all service credentials](images/img0052.png)
 
-9.  The Service Credentials details appear:<br/>
+8.  The details for the service credentials appear:<br/>
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
 
->   **Note**: The service credentials in these examples
-    were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}.
-    The credentials are reproduced here to show how they would appear in the dashboard.
-    However,
-    the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed,
-    so these credentials are no longer valid;
-    you _must_ supply and use your own service credentials.
+The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid; you _must_ supply and use your own service credentials.
+{: tip}
 
 ## The service credentials
 
->   **Note**: Service credentials are valuable.
-    If anyone or any application has access to the credentials,
-    they can effectively do whatever they want with the service instance,
-    for example they might create spurious data,
-    or delete valuable information.
-    Protect these credentials carefully.
-
-The service credentials consist of five fields:
+Service credentials are valuable. If anyone or any application has access to the credentials, they can effectively do whatever they want with the service instance, for example they might create spurious data,or delete valuable information. Protect these credentials carefully.
+    
+The service credentials consist of the following fields:
 
 Field      | Purpose
 -----------|--------
@@ -116,35 +104,35 @@ you need these credentials.
 
 ## Locating your service credentials
 
-At any time,
-you can find the credentials for a service that is associated with your account.
+At any time, you can find the credentials for a service that is associated with your account.
 
-1.  Begin by logging in to {{site.data.keyword.cloudant_short_notm}}.
+1.  Begin by logging in to {{site.data.keyword.cloud_notm}}.
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0053.png)
 
-3.  In this example,
+2.  In this example,
     we want to find the service credentials for the {{site.data.keyword.cloudant_short_notm}}
     service instance that was created earlier in the tutorial,
-    called `Cloudant NoSQL DB service`.
+    called `Cloudant-o7`.
     Click the corresponding row:<br/>
     ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png)
 
-3.  The Service Credentials window appears.
-    To see the credentials that are required to access the service,
-    click the `View Credentials` dropdown:<br/>
-    ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0008.png)
+3.  A service page appears,
+    confirming that your new {{site.data.keyword.cloudant_short_notm}} service is available.
+    To create the connection information that your application needs to connect to the service,
+    click the `Service Credentials` tab:<br/>
+    ![Creating the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0007.png)
 
-4.  The Service Credentials details appear:<br/>
+4.  To see the credentials that are required to access the service,
+    click `View Credentials`:<br/>
+    ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0052.png)
+
+5.  The details for the service credentials appear:<br/>
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
 
->   **Note**: The service credentials in these examples
-    were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}.
-    The credentials are reproduced here to show how they would appear in the dashboard.
-    However,
-    the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed,
-    so these credentials are no longer valid;
-    you _must_ supply and use your own service credentials.
+The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid; you _must_ supply and use your own service credentials.
+{: tip}
+

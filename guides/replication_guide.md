@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-04-20 -->
 
@@ -31,7 +32,7 @@ and can be finely tuned by using parameters.
 making it a great fit for Internet of Things (IoT) and mobile applications.
 
 This guide introduces {{site.data.keyword.cloudant_short_notm}}’s replication functions,
-discusses common use-cases,
+discusses common use cases,
 and shows how to make your application replicate successfully.
 
 ## What is Replication?
@@ -69,12 +70,12 @@ Complete the simple form:
 
 Using the form,
 define the source and target databases,
-then click "`Replicate`".
+then click `Start Replicatation`.
 
 ![replication3](../images/replication_guide_3.png)
 
-The status of each replication task can be seen in the "`All Replications`" section of the Dashboard.
-Each job changes state from "`Triggered`" to "`Complete`" as it progresses.
+The status of each replication task can be seen by clicking the `Replication` tab.
+Each job changes state from `Running` to `Completed` as it progresses.
 
 ![replication4](../images/replication_guide_4.png)
 
@@ -299,11 +300,11 @@ With continuous replication,
 data flows continuously.
 All subsequent changes to the source database are transmitted to the target database in real time.
 
-Continuous replication is triggered by clicking the "`Make this replication continuous`" check box when you define a replication task in the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-or by setting the ["`continuous`"](../api/replication.html#checkpoints) flag in the {{site.data.keyword.cloudant_short_notm}} API.
+Continuous replication is triggered by clicking the `Make this replication continuous` check box when you define a replication task in the {{site.data.keyword.cloudant_short_notm}} Dashboard,
+or by setting the [`continuous`](../api/replication.html#checkpoints) flag in the {{site.data.keyword.cloudant_short_notm}} API.
 
 Two-way replication can be made continuous in one or both of the directions,
-by setting the "`continuous`" flag.
+by setting the `continuous` flag.
 
 _Example of using HTTP to start a continuous replication:_
 
@@ -404,7 +405,7 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 ```
 {:codeblock}
 
-## Other replication use-cases
+## Other replication use cases
 
 Replication isn’t just for {{site.data.keyword.cloudant_short_notm}}-to-{{site.data.keyword.cloudant_short_notm}} data transfer.
 {{site.data.keyword.cloudant_short_notm}}’s replication protocol is compatible with other databases and libraries for various real-world applications.
@@ -686,10 +687,8 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ```
 {:codeblock}
 
->   **Note**: The ordering of documents within the `_changes` feed is not always the same.
-    In other words, changes might not appear in strict time order.
-    The reason is that data is returned from multiple {{site.data.keyword.cloudant_short_notm}} nodes,
-    and eventual consistency rules apply.
+    The ordering of documents within the `_changes` feed is not always the same. In other words, changes might not appear in strict time order. The reason is that data is returned from multiple {{site.data.keyword.cloudant_short_notm}} nodes, and eventual consistency rules apply.
+    {: tip}
 
 ## Replication Pitfalls
 
@@ -785,7 +784,7 @@ By default,
 {{site.data.keyword.cloudant_short_notm}} replication runs at an appropriate rate to get the data from the source to the target
 without adversely affecting performance.
 Choosing between replication rate and cluster performance for other tasks is a tradeoff.
-Your use-case might require faster replication at the expense of other {{site.data.keyword.cloudant_short_notm}} services.
+Your use case might require faster replication at the expense of other {{site.data.keyword.cloudant_short_notm}} services.
 Alternatively,
 you might require cluster performance to take priority,
 with replication treated as a background process.
@@ -804,5 +803,5 @@ For example:
 *   If you want to run replication with minimal impact,
     setting `worker_processes` and `http_connections` to 1 might be appropriate.
 
-For further assistance about the best configuration for your use-case,
+For further assistance about the best configuration for your use case,
 contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.

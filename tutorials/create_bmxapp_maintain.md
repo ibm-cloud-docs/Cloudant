@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-01-11 -->
 
@@ -36,26 +37,19 @@ The status of applications within your
 {{site.data.keyword.cloud_notm}} service instance is displayed on the dashboard.
 
 In the following example,
-The `Cloudant Python` application is not running,
-and has a `Stopped` state:<br/>
+The `Python Cloudant` application is not running,
+and has a `Stopped` state:
+
 ![Screen capture showing dashboard for the application in a 'stopped' state](images/img0037.png)
 
 ### Starting your application
 
->   **Note**: If you attempt to start the tutorial application
-    without first deleting the tutorial demonstration database,
-    the application cannot work correctly.
-    The application enters a cycle of attempting to start,
-    failing because the database exists,
-    stopping,
-    then attempting to start again.
-    To solve the problem,
-    [stop the application](#stopping-your-application),
-    then delete the tutorial demonstration database.
-    The application can then start successfully.
-
+If you attempt to start the tutorial application without first deleting the tutorial demonstration database, the application cannot work correctly. The application enters a cycle of attempting to start, failing because the database exists, stopping, then attempting to start again. To solve the problem, [stop the application](#stopping-your-application), then delete the tutorial demonstration database. The application can then start successfully.
+{: tip}
+    
 To start a stopped application,
-first click the application menu icon on the dashboard:<br/>
+first click the application menu icon on the dashboard:
+
 ![Screen capture showing dashboard with application management icon](images/img0038.png)
 
 Next,
@@ -66,7 +60,7 @@ click the `Start App` option in the menu:<br/>
 
 To stop a running application,
 first click the application menu icon on the dashboard:<br/>
-![Screen capture showing dashboard with application management icon](images/img0040.png)
+![Screen capture showing dashboard with application management icon](images/img0038.png)
 
 Next,
 click the `Stop App` option in the menu:<br/>
@@ -80,8 +74,8 @@ To upload a fresh version of your application,
 simply follow the [upload process](create_bmxapp_upload.html).
 The new version overwrites the older version of the application.
 
->   **Note**: If the older version of the application is already running when you start the upload,
-    {{site.data.keyword.cloud_notm}} automatically stops the application first.
+If the older version of the application is already running when you start the upload, {{site.data.keyword.cloud_notm}} automatically stops the application first.
+{: tip}
 
 ## Diagnosing and resolving problems
 
@@ -96,16 +90,10 @@ Cloud Foundry applications is
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}.
 
 In particular,
-the advice on
-[avoiding writes to the local file system ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}
-is prudent.
+the advice on [avoiding writes to the local file system ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window} is prudent.
 
->   **Note**: For reasons of simplicity,
-    this tutorial does write content to the local file system.
-    However,
-    the quantity of material is small.
-    It is not expected to persist,
-    and it is not 'mission critical'.
+For reasons of simplicity, this tutorial does write content to the local file system. However, the quantity of material is small. It is not expected to persist, and it is not 'mission critical'.
+{: tip}
 
 ### Using the application log
 

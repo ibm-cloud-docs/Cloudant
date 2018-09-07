@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-01-11 -->
 
@@ -64,10 +65,10 @@ You must supply the following account details:
 -   Your organization name, which is specified as the '`-o`' parameter.
 -   Your space, which is specified as the '`-s`' parameter.
 
->   **Note**: The account details are available on your {{site.data.keyword.cloud_notm}} dashboard,
-    when you log in through a web browser,
-    as shown in the following example:<br/>
-    ![Finding your {{site.data.keyword.cloud_notm}} account details](images/img0035.png)
+  The account details are available on your {{site.data.keyword.cloud_notm}} dashboard, when you log in through a web browser, as shown in the following example:
+  {: tip}
+
+  ![Finding your {{site.data.keyword.cloud_notm}} account details](images/img0035.png)
 
 Use a command similar to the following example to log in to your
 {{site.data.keyword.cloud_notm}} application environment.
@@ -209,26 +210,14 @@ buildpack: python 1.5.5
 
 ## Testing the sample application
 
-When the {{site.data.keyword.cloud_notm}} Application environment was first created,
-the dashboard included a link in the `Route` column for the application:<br/>
+Now, test your application and verify that it is running properly. 
+
+1.  Open the {{site.data.keyword.cloud_notm}} Dashboard. You can see the link to the application you created under Cloud Foundry Applications. Click `Cloudant CF app` to open the details page.</br>  
 ![Screenshot showing dashboard for the application](images/img0017.png)
 
-Clicking the link opens a browser window,
-requesting some data from the application that is listening at the corresponding port.
-The application responds by returning the contents of
-the log file that was generated as the application was starting:<br/>
-![Log file generated as the tutorial application started running](images/img0030.png)
+2.  On the `Cloudant CF app` details page, click `Routes` and click the `Cloudant-CF-app.mybluemix.net` link. Clicking this link opens a browser window that says, "Hello World! Thanks for creating a Python Starter Application." This window verifies that the application is running properly.<br/>
+![Cloudant CF app details page](images/img0030.png)
 
-The contents of this log file are interesting.
-The start and end times are clearly displayed.
-In between,
-the log records each of the details as the connection information
-for the {{site.data.keyword.cloudant_short_notm}} was retrieved.
-The actual values of the connection are not important.
-The log shows that the tutorial application was able to locate,
-retrieve,
-and use those values to create a new document in the 
-{{site.data.keyword.cloudant_short_notm}} database.
 
 ### Confirming the database details
 
@@ -238,8 +227,7 @@ Click the `Launch` icon on the `Manage` tab of the
 ![Launch icon on the {{site.data.keyword.cloudant_short_notm}} service page](images/img0036.png)
 
 To find your {{site.data.keyword.cloudant_short_notm}} service page,
-refer to the details in the
-['Creating an {{site.data.keyword.cloudant_short_notm}} instance' tutorial](create_service.html#locating-your-service-credentials).
+refer to the details in the [Creating an {{site.data.keyword.cloudant_short_notm}} instance tutorial](create_service.html#locating-your-service-credentials).
 {: tip}
 
 When the dashboard opens,

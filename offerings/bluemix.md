@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-05"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -30,7 +30,8 @@ change.  An optional [Dedicated Hardware plan](#dedicated-hardware-plan) is also
 additional monthly fee to run one or more of your Standard plan instances 
 on a dedicated hardware environment. The dedicated hardware environment 
 is for your sole use, and if a Dedicated Hardware plan instance is provisioned 
-within a US location, you can optionally select a [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}-compliant configuration.
+within a US location, you can optionally select a [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
+-compliant configuration.
 
 The following table summarizes the provisioned throughput capacity and 
 disk space configuration for the Lite plan and a few examples for the 
@@ -93,7 +94,7 @@ You can select which plan to use when you
 By default,
 the [Lite plan](#lite-plan) is selected.
 
-![{{site.data.keyword.cloudant_short_notm}} service instance plan selection](../images/fb87416a.png)
+![{{site.data.keyword.cloudant_short_notm}} service instance plan selection](../images/lite_pricing_plan.png)
 
 ### Lite plan
 {: #lite-plan}
@@ -352,7 +353,8 @@ outside of an EU-managed environment cannot be granted access to an EU-managed
 
 {{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include 'Use both legacy credentials and IAM' or 'Use only IAM'. For more information, see the [IAM guide](../guides/iam.html){:new_window} or the legacy [Authentication API document](../api/authentication.html){:new_window}.
 
-After provisioning an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when generating new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} Dashboard. If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy user name and password is also included. 
+After provisioning an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when generating new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} Dashboard. If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy user name and password is also included.
+
 
 ## High availability, disaster recovery, and backup
 {: #high-availability-disaster-recovery-and-backup}
