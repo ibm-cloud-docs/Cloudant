@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -101,8 +101,8 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   <br>b. Enter a name for the new credential in the Add new credential window, as shown in the following screen shot.
   <br>c. (Optional) Add inline configuration parameters.
   <br>d. Click the `Add` button. 
-  <br>Your credentials are added to the Service credentials table.
   <br>![Add a new service credential](tutorials/images/img0051.png)
+  <br>Your credentials are added to the Service credentials table.
   <br>e. Click `View credentials` under Actions. 
   <br>![View all service credentials](tutorials/images/img0052.png)
   <br>The details for the service credentials appear:

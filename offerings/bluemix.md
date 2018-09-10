@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -203,18 +203,18 @@ you must ensure that your application is able to handle a [`429`](../api/http.ht
 
 You can see details of the throughput capacity within the plans available for your account.
 You can select the level of provisioning that you want to use,
-through the Account tab of your {{site.data.keyword.cloudant_short_notm}} account Dashboard.
+through the Account tab of your {{site.data.keyword.cloudant_short_notm}} account dashboard.
 
-![Account Dashboard](../images/cloudant_capacity.png)
+![Account dashboard](../images/cloudant_capacity.png)
 
 To move to a different throughput capacity, select the provisioning you 
 want, then click `Update`. You are asked to confirm the change, 
 and reminded that the provisioning change can take up to 24 hours to 
 complete.
 
-![Account Dashboard](../images/cloudant_capacity_change.png)
+![Account dashboard](../images/cloudant_capacity_change.png)
 
-The size of the capacity increase is limited to 10 units (1000 lookups/second, 500 writes/second, and 50 queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} Dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+The size of the capacity increase is limited to 10 units (1000 lookups/second, 500 writes/second, and 50 queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
 {: tip}
 
 <div id="throughput"></div>
@@ -222,7 +222,7 @@ The size of the capacity increase is limited to 10 units (1000 lookups/second, 5
 ### Monitoring usage 
 {: #monitoring-usage}
 
-Information about your usage is available in the Current Operations pane of the Monitoring tab within your {{site.data.keyword.cloudant_short_notm}} Dashboard. 
+Information about your usage is available in the Current Operations pane of the Monitoring tab within your {{site.data.keyword.cloudant_short_notm}} dashboard. 
 
 ![Monitoring usage on the dashboard](../images/cloudant_usage.png)
 
@@ -233,7 +233,7 @@ and quantity of [stored data](#disk-space-included).
 Monitoring helps you recognize that a change to the provisioning in your plan might be advisable.
 For example,
 if you frequently approach the maximum number of database lookups,
-then you can modify the provisioning through the [Service pane](#servicetier) on the Account tab of the Dashboard.
+then you can modify the provisioning through the [Service pane](#servicetier) on the Account tab of the dashboard.
 
 ## Data usage
 {: #data-usage}
@@ -353,7 +353,7 @@ outside of an EU-managed environment cannot be granted access to an EU-managed
 
 {{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include 'Use both legacy credentials and IAM' or 'Use only IAM'. For more information, see the [IAM guide](../guides/iam.html){:new_window} or the legacy [Authentication API document](../api/authentication.html){:new_window}.
 
-After provisioning an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when generating new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} Dashboard. If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy user name and password is also included.
+After provisioning an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when generating new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} dashboard. If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy user name and password is also included.
 
 
 ## High availability, disaster recovery, and backup
@@ -362,8 +362,7 @@ After provisioning an {{site.data.keyword.cloudant_short_notm}} instance, the co
 To provide high availability (HA) and disaster recovery (DR) within a data center, all data is 
 stored in triplicate across three separate physical servers in a cluster. You can provision 
 accounts in multiple data centers, then use continuous data replication to provide HA/DR across 
-data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically backed up, but supported tools are  
-provided to handle backups. Review the 
+data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically backed up, but supported tools are provided to handle backups. Review the 
 [Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) 
 to explore all HA, DR, and backup considerations to meet your application requirements. 
 
@@ -371,8 +370,7 @@ to explore all HA, DR, and backup considerations to meet your application requir
 {: #support}
 
 Support for Standard and Dedicated plan service instances is optional.
-It is provided by purchasing "{{site.data.keyword.cloud_notm}} Standard Support".
-Support is not available for the Lite plan.
+It is provided by purchasing *{{site.data.keyword.cloud_notm}} Standard Support*. Support is not available for the Lite plan.
 
 For more information about support plans, see the [{{site.data.keyword.cloud_notm}} Standard Support plans ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/support#944376){:new_window}. For more information about support, see the [{{site.data.keyword.IBM_notm}} support guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/home/pages/support-guide/){:new_window}.
 
@@ -384,7 +382,7 @@ The support systems used for {{site.data.keyword.cloudant_short_notm}} do not of
 
 You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} in two ways:
 
-- Using the Dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
+- Using the dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
 - Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
  
 To create and leverage an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -212,19 +212,20 @@ buildpack: python 1.5.5
 
 Now, test your application and verify that it is running properly. 
 
-1.  Open the {{site.data.keyword.cloud_notm}} Dashboard. You can see the link to the application you created under Cloud Foundry Applications. Click `Cloudant CF app` to open the details page.</br>  
+1.  Open the {{site.data.keyword.cloud_notm}} Dashboard. You can see the link to the application you created under Cloud Foundry Applications. Click `Cloudant CF app` to open the details page.<br/>  
 ![Screenshot showing dashboard for the application](images/img0017.png)
 
-2.  On the `Cloudant CF app` details page, click `Routes` and click the `Cloudant-CF-app.mybluemix.net` link. Clicking this link opens a browser window that says, "Hello World! Thanks for creating a Python Starter Application." This window verifies that the application is running properly.<br/>
+2.  On the `Cloudant CF app` details page, click `Routes` and click the `Cloudant-CF-app.mybluemix.net` link. <br/>
 ![Cloudant CF app details page](images/img0030.png)
+
+3. A new brower window opens at https://cloudant-cf-app.mybluemix.net/. The message verifies that the application is running. It says, "Hello World! Thanks for creating a Python Starter Application."<br/>
+![Hello World! verified that the Cloudant CF app runs correctly](images/img0054.png)
 
 
 ### Confirming the database details
 
-Start by opening the {{site.data.keyword.cloudant_short_notm}} Dashboard.
-Click the `Launch` icon on the `Manage` tab of the 
-{{site.data.keyword.cloudant_short_notm}} service page:<br/>
-![Launch icon on the {{site.data.keyword.cloudant_short_notm}} service page](images/img0036.png)
+From the {{site.data.keyword.cloud_notm}} dashboard, open the {{site.data.keyword.cloudant_short_notm}} service instance that you created. Click the service instance. Go to the `Manage` tab, and click `Launch Cloudant Dashboard`.<br/>
+![Launch Cloudant dashboard on the {{site.data.keyword.cloudant_short_notm}} service page](images/img0036.png)
 
 To find your {{site.data.keyword.cloudant_short_notm}} service page,
 refer to the details in the [Creating an {{site.data.keyword.cloudant_short_notm}} instance tutorial](create_service.html#locating-your-service-credentials).

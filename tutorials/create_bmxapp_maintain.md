@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -36,8 +36,7 @@ your Python applications on {{site.data.keyword.cloud_notm}}.
 The status of applications within your
 {{site.data.keyword.cloud_notm}} service instance is displayed on the dashboard.
 
-In the following example,
-The `Python Cloudant` application is not running,
+In the following example, the `Python Cloudant` application is not running,
 and has a `Stopped` state:
 
 ![Screen capture showing dashboard for the application in a 'stopped' state](images/img0037.png)
@@ -100,7 +99,7 @@ For reasons of simplicity, this tutorial does write content to the local file sy
 The most useful resource for diagnosing and resolving problems with
 {{site.data.keyword.cloud_notm}} application is the log file.
 
-The log file for an {{site.data.keyword.cloud_notm}} application can be found on the `Logs` information page:<br/>
+The log file for an {{site.data.keyword.cloud_notm}} application can be found by clicking the `Logs` tab to open the logging information page:<br/>
 ![Screen capture showing the link to access the 'Logs' information page](images/img0042.png)
 
 Like most log files,
