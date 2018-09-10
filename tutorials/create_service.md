@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -115,22 +115,16 @@ At any time, you can find the credentials for a service that is associated with 
 
 2.  In this example,
     we want to find the service credentials for the {{site.data.keyword.cloudant_short_notm}}
-    service instance that was created earlier in the tutorial,
+    service instance that was created earlier in this tutorial,
     called `Cloudant-o7`.
     Click the corresponding row:<br/>
     ![Selecting the {{site.data.keyword.cloudant_short_notm}} service](images/img0011.png)
 
-3.  A service page appears,
-    confirming that your new {{site.data.keyword.cloudant_short_notm}} service is available.
-    To create the connection information that your application needs to connect to the service,
-    click the `Service Credentials` tab:<br/>
-    ![Creating the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0007.png)
-
-4.  To see the credentials that are required to access the service,
+3.  To see the credentials that are required to access the service,
     click `View Credentials`:<br/>
     ![Viewing the {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0052.png)
 
-5.  The details for the service credentials appear:<br/>
+4.  The details for the service credentials appear:<br/>
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
 
 The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid; you _must_ supply and use your own service credentials.

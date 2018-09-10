@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -91,11 +91,11 @@ the configuration and management area of your application.
 
 3.  A [prerequisite](create_bmxapp_prereq.html#prerequisites) for this tutorial is an
     existing {{site.data.keyword.cloudant_short_notm}} database instance.
-    Click `Create connection` to establish a connection between that database instance and your application:<br/>
+    Click `Create connection` to establish a connection between that service instance and your application:<br/>
     ![Connect to an existing database instance](images/img0020.png)<br/>
     A list of the existing service instances in your account appears.
 
-4.  Click the {{site.data.keyword.cloudant_short_notm}} database instance that you want to use.
+4.  Click the {{site.data.keyword.cloudant_short_notm}} service instance that you want to use.
     This tutorial uses the `Cloudant-service` instance:<br/>
     ![Choose the tutorial example database instance](images/img0021.png)
 

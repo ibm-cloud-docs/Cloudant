@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -180,7 +180,7 @@ _Example response:_
 
 CORS support is available in the {{site.data.keyword.cloudant_short_notm}} dashboard.
 
-You can update your CORS settings using the CORS tab within the dashboard:
+You can update your CORS settings by using the CORS tab within the dashboard:
 
 ![CORS dashboard illustration](../images/corsdashboard.png)
 

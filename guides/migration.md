@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-06"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -84,7 +84,6 @@ Migrate from the free Lite plan to the Standard plan by following these steps:
 2.  Select the {{site.data.keyword.cloudant_short_notm}} instance you want to migrate. 
 3.  Select the **Plan** tab on the left navigation. 
 4.  From the list of pricing plans, select the **Standard** check box. 
-See the following example:
 ![lite](../images/migrate3.png)
 5.  Click **Upgrade** at the bottom of the page.
 All of your existing data is retained for you.
@@ -104,11 +103,9 @@ If you have not signed up already, [sign up for an {{site.data.keyword.cloud_not
 
 ### Step 2: Create an {{site.data.keyword.cloudant_short_notm}} instance
 
-After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. Click the `Create resource ` button on the dashboard and then `Databases`. For more information, see [how to create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](../tutorials/create_service.html#creating-an-ibm-cloudant-instance-on-ibm-cloud). 
+After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site.data.keyword.cloudant_short_notm}} service. Click the `Create resource ` button on the dashboard and then click `Databases` and `Cloudant`. For more information, see [how to create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](../tutorials/create_service.html#creating-an-ibm-cloudant-instance-on-ibm-cloud). 
 
 ![add {{site.data.keyword.cloudant_short_notm}} instance](../tutorials/images/img0003.png)
-
-You can find {{site.data.keyword.cloudant_short_notm}} in the Databases section of the catalog.
 
 ### Step 3: Find out whether your application is ready for {{site.data.keyword.cloudant_short_notm}}
 

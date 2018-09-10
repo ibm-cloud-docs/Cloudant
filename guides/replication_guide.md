@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-10"
 
 ---
 
@@ -60,11 +60,11 @@ Any pre-existing data in the destination database remains.
 
 <div id="how-do-i-initiate-replication-via-the-dashboard-"></div>
 
-## How to start replication by using the Dashboard
+## How to start replication by using the dashboard
 
-The {{site.data.keyword.cloudant_short_notm}} Dashboard provides a convenient user-interface to trigger replication.
-Open the Replication tab of your {{site.data.keyword.cloudant_short_notm}} Dashboard and click the `New Replication` action button.
-Complete the simple form:
+The {{site.data.keyword.cloudant_short_notm}} dashboard provides a convenient user interface to trigger replication.
+Click the `Replication` tab on the {{site.data.keyword.cloudant_short_notm}} dashboard, and click `Start Replication`.
+Complete the form:
 
 ![replication2](../images/replication_guide_2.png)
 
@@ -273,7 +273,7 @@ In general,
 -   `_reader` and `_replicator` access at the source side.
 -   `_reader` and `_writer` access at the destination side.
 
-API keys can be created and configured within the {{site.data.keyword.cloudant_short_notm}} Dashboard,
+API keys can be created and configured within the {{site.data.keyword.cloudant_short_notm}} dashboard,
 on a per-database basis.
 
 ![replication](../images/replication_guide_5.png)
@@ -300,7 +300,7 @@ With continuous replication,
 data flows continuously.
 All subsequent changes to the source database are transmitted to the target database in real time.
 
-Continuous replication is triggered by clicking the `Make this replication continuous` check box when you define a replication task in the {{site.data.keyword.cloudant_short_notm}} Dashboard,
+Continuous replication is triggered by clicking the `Make this replication continuous` check box when you define a replication task in the {{site.data.keyword.cloudant_short_notm}} dashboard,
 or by setting the [`continuous`](../api/replication.html#checkpoints) flag in the {{site.data.keyword.cloudant_short_notm}} API.
 
 Two-way replication can be made continuous in one or both of the directions,
@@ -341,7 +341,7 @@ _Example of a JSON document that defines a continuous replication:_
 ## Monitoring replication
 
 You can check the status of {{site.data.keyword.cloudant_short_notm}}’s `_replicator` database at any time,
-by using the Dashboard or the API.
+by using the dashboard or the API.
 
 If replication failed,
 for example if the authentication credentials were invalid,
@@ -387,7 +387,7 @@ _Example response to requesting the status of a replication:_
 
 To stop an ongoing replication job,
 delete the replication document from the `_replicator` database,
-by using either the Dashboard or the API.
+by using either the dashboard or the API.
 
 _Example of using HTTP to cancel a replication:_
 
@@ -702,7 +702,7 @@ the credentials that are supplied must have:
 *   `_reader` and `_replicator` rights on database "a".
 *   `_writer` rights on database "b".
 
-API keys are generated in the {{site.data.keyword.cloudant_short_notm}} Dashboard or [through the API](../api/authorization.html#creating-api-keys).
+API keys are generated in the {{site.data.keyword.cloudant_short_notm}} dashboard or [through the API](../api/authorization.html#creating-api-keys).
 Each key can be given individual rights that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
 {{site.data.keyword.cloudant_short_notm}} must be able to write its checkpoint documents at the "read" end of replication,
 otherwise no state is saved and replication cannot resume from where it stopped.
@@ -774,7 +774,7 @@ Each replication job is independent of the other,
 so {{site.data.keyword.cloudant_short_notm}} does not prevent you from doing creating extra replication processes.
 However, each replication task uses up system resources.
 
-You can check your "active replications" in the {{site.data.keyword.cloudant_short_notm}} Dashboard
+You can check your "active replications" in the {{site.data.keyword.cloudant_short_notm}} dashboard
 to ensure that there are no unwanted replication tasks in progress.
 Delete any `_replicator` documents that are no longer needed.
 
