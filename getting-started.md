@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-03"
+lastupdated: "2018-09-07"
 
 ---
 
@@ -83,7 +83,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 ## Step 1: Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
-1.	Run the '`import`' statements of the {{site.data.keyword.cloudant_short_notm}}
+1.	Run the `import` statements of the {{site.data.keyword.cloudant_short_notm}}
 	Client Library components to enable your Python application to connect to
 	the {{site.data.keyword.cloudant_short_notm}} service instance.
 	```python
@@ -98,14 +98,14 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   <br>In the left navigation, click `Service credentials`.
   <br>a. Click the `New credential` button.
   <br>![Create new service credentials](tutorials/images/img0050.png)
-  <br>b. Enter a name for the new credential in the Add new credential window, see below.
+  <br>b. Enter a name for the new credential in the Add new credential window, as shown in the following screen shot.
   <br>c. (Optional) Add inline configuration parameters.
   <br>d. Click the `Add` button. 
   <br>Your credentials are added to the Service credentials table.
   <br>![Add a new service credential](tutorials/images/img0051.png)
-  <br>e. Click `View credentials` under ACTIONS. 
+  <br>e. Click `View credentials` under Actions. 
   <br>![View all service credentials](tutorials/images/img0052.png)
-  <br>The Service credentials details appear:
+  <br>The details for the service credentials appear:
    <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
    
 3.	Establish a connection to the service instance by running the following command.
@@ -222,7 +222,7 @@ A full retrieval also includes the data _within_ a document.
     ```
     {:screen}
     
-    The `u'` prefix is an indication that Python is displaying a Unicode string. 
+    The `u` prefix is an indication that Python is displaying a Unicode string. 
     {: tip}
 
     If we tidy the appearance a little, we can see that the minimal document details we got back are equivalent to this example:
