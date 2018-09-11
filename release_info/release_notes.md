@@ -25,6 +25,14 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 7276 (September 10, 2018)
+{: #build-7276-september-10-2018}
+
+- Fix couch_server:terminate/2
+- Reproduce race condition in couch_server
+- Fix couch_server concurrency error
+- 9f914a Allow disabling off-heap messages
+
 ## Build 7205 (September 07, 2018)
 {: #build-7205-september-07-2018}
 
