@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-07-05"
+lastupdated: "2018-09-14"
 
 ---
 
@@ -65,7 +65,7 @@ credentials or username/password combinations also include {{site.data.keyword.c
 
 ## Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
 
-Only new {{site.data.keyword.cloudant_short_notm}} service instances can be used with {{site.data.keyword.cloud_notm}} IAM.
+Only new {{site.data.keyword.cloudant_short_notm}} service instances can be used with {{site.data.keyword.cloud_notm}} IAM starting in late July 2018.
 
 All new {{site.data.keyword.cloudant_short_notm}} service instances are enabled to use IAM when provisioned. Optionally, you can also enable the legacy authentication mechanism.  When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the {{site.data.keyword.cloud_notm}} catalog, choose from the available authentication methods:
 
