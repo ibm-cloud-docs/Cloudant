@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-09-10"
+  years: 2015, 2018
+lastupdated: "2018-09-18"
 
 ---
 
@@ -24,6 +24,13 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 {: #dedicated-hardware}
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 7276 (September 18, 2018)
+{: #build-7276-september-18-2018}
+
+- Add a filter for databases that are being opened asynchronously to prevent exceptions when `couch_server` terminates.  
+- Fix `couch_server` concurrency error.
+- Add a configuration option to disable off-heap messages.
 
 ## Build 7205 (September 07, 2018)
 {: #build-7205-september-07-2018}
