@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-07"
+lastupdated: "2018-09-24"
 
 ---
 
@@ -18,8 +18,8 @@ lastupdated: "2018-09-07"
 # Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance 
-using the {{site.data.keyword.cloud}} dashboard, and shows you how to subsequently provision one or 
-more Standard plan instances to run on it. 
+that uses the {{site.data.keyword.cloud}} dashboard, and shows you how to subsequently provision one or 
+more Standard plan instances to run on it by using either the {{site.data.keyword.cloud_notm}} Catalog or the {{site.data.keyword.cloud_notm}} CLI. 
 
 Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance results in the provisioning 
 of an {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware for your sole use. A service 
@@ -115,5 +115,38 @@ instances on it.
     
 7.  Obtain your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
     
-    For more information, see [how to locate your service credentials ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials){:new_window}. 
+    For more information, see [how to locate your service credentials](../tutorials/create_service.html#locating-your-service-credentials){:new_window}. 
+    
+## Provisioning a Standard plan instance on a Dedicated Hardware environment with the {{site.data.keyword.cloud_notm}} CLI
+
+To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information about how to log in and set a target resource group, see [Logging in to your {{site.data.keyword.cloud_notm}} account](create_service_cli.html#logging-in-to-your-ibm-cloud-account){:new_window}. 
+
+To create an {{site.data.keyword.cloudant_short_notm}} Standard plan instance on your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment, the basic command format is as follows:
+
+
+Field | Description
+------|------------
+`NAME`| An arbitrary name you assign the instance.
+`SERVICE_NAME` | `cloudantnosqldb`
+`PLAN_NAME` | Standard plan
+`LOCATION` |  The location where you want to deploy, for example, us-south, us-east, or eu-gb. 
+
+See the following example command: 
+
+```sh
+ibmcloud resource service-instance-create NAME SERVICE_NAME SERVICE_PLAN_NAME LOCATION [-p, --parameters @JSON_FILE | JSON_STRING ]
+```
+
+{{site.data.keyword.cloudant_short_notm}} instances that are deployed on Dedicated Hardware environments take two more parameters:
+
+Parameter | Description
+----------|------------
+`environment_crn` | This parameter must be set to the CRN of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. You can determine what the CRN is by looking at the example CLI command in the Manage tab of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance in the {{site.data.keyword.cloud_notm}} Dashboard. Or you can determine what the CRN is by using the `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` command. 
+`legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide ![External link icon](../images/launch-glyph.svg "External link icon")](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){:new_window} for more details on choosing an authentication method.
+
+See the following example command: 
+
+```sh
+ibmcloud resource service-instance-create cloudant_on_ded_hardware_cli cloudantnosqldb standard us-south -p '{"environment_crn":"crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b43434444bb7e2abb0841ca25d28ee4c:301a3118-7678-4d99-b1b7-4d45cf5f7b29::","legacyCredentials":false}'
+```
      
