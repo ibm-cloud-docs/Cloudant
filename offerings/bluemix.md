@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-09-18"
 
 ---
 
@@ -90,7 +90,7 @@ Standard plan:
 {: #plans}
 
 You can select which plan to use when you
-[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-instance-on-bluemix).
+[provision your {{site.data.keyword.cloudant_short_notm}} service instance](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud).
 By default,
 the [Lite plan](#lite-plan) is selected.
 
@@ -99,42 +99,31 @@ the [Lite plan](#lite-plan) is selected.
 ### Lite plan
 {: #lite-plan}
 
-The Lite plan is free,
-but limits you to a maximum of 1 GB of data storage.
-Limits also apply to the provisioned throughput capacity for lookups,
-writes, and queries. 
+The Lite plan is free, and is designed for development and evaluation purposes. {{site.data.keyword.cloudant_short_notm}}'s full functionality is included, but Lite plan instances have a fixed amount of provisioned throughput capacity and data storage. The provisioned throughput capacity is fixed at 20 lookups/sec, 10 writes/sec, and 5 queries/sec, and data storage is capped at 1 GB. 
 
-Storage usage is checked daily. If you exceed your storage limit, HTTP requests to the account receive a 
+Storage usage is checked daily. If you exceed your 1-GB storage limit, requests to the {{site.data.keyword.cloudant_short_notm}} instance receive a 
 402 status code with the error message, "Account has exceeded its data usage quota. An upgrade to a paid plan is required."
-A banner also appears on the {{site.data.keyword.cloudant_short_notm}} dashboard to inform you. You can still read and delete data. However, to write new data, 
-you must either upgrade to a paid account or delete data and wait until the next check runs for your account to be reactivated. 
+A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard. You can still read and delete data. However, to write new data, you have two options. First, you can upgrade to a paid [Standard plan](#standard-plan) that removes the write limitation immediately. Alternatively, you can delete data so that your total storage falls under the 1-GB limit and wait until the next daily storage check runs for your instance to allow writes again. 
 
-If you would like to store more than one GB of data,
-or to have a greater throughput capacity,
-move to the [Standard plan](#standard-plan).
+If you want to store more than 1 GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
 ### Standard plan
 {: #standard-plan}
 
-The Standard plan includes 20 GB of data storage.
-If you store more than 20 GB,
-you are charged a defined cost per GB per hour.
-See the [pricing](../offerings/pricing.html#pricing){:new_window} information for the current cost.
-On the Standard plan,
-you can also change the amount of provisioned throughput capacity for lookups,
-writes,
-and queries.
+The {{site.data.keyword.cloudant_short_notm}} Standard plan is available to all paid {{site.data.keyword.cloud}} accounts, either as pay-as-you-go or subscription, and scales to meet the needs of your application. The Standard plan is priced based on two factors: the provisioned throughput capacity that is allocated and the amount of data that is stored in the instance. 
+
+Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 lookups/sec, 50 writes/sec, and 5 queries/sec equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down in increments of 100 lookups/sec, 50 writes/sec, and 5 queries/sec in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Costs are calculated for the provisioned throughput capacity that is allocated and not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you are charged a defined cost per GB per hour. 
+
+See the {{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](../offerings/pricing.html#pricing){:new_window} information for examples to estimate costs.
 
 ### Dedicated hardware plan
 {: #dedicated-hardware-plan}
 
-As an alternative, you can run your Standard plan instances on a dedicated hardware environment in 
-any [{{site.data.keyword.IBM}} data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 
-for a monthly fee. You purchase a single dedicated hardware plan for a specific location 
-and can provision one or more Standard plan instances on it. This plan is necessary for 
-HIPAA compliance and must be selected at provisioning time. 
+An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance is a bare metal {{site.data.keyword.cloudant_short_notm}} environment that is provisioned for the sole use of your {{site.data.keyword.cloudant_short_notm}} Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can be provisioned in any [{{site.data.keyword.IBM}} data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). This plan is necessary for HIPAA compliance and must be selected at provisioning time. Additionally, users of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can employ IP whitelisting and bring-your-own-key (BYOK) customer-managed encryption keys with IBM Key Protect. 
 
-The Dedicated Hardware plan is not available to {{site.data.keyword.cloud}} Dedicated customers and is only available for {{site.data.keyword.cloud_notm}} Public customers.
+You can provision one or more Standard plan instances, and the Dedicated Hardware environment expands or contracts as needed based on capacity and data that is used by the Standard plan instances. It is an add-on fixed price to the consumption pricing of {{site.data.keyword.cloudant_short_notm}} Standard plan instances. Billing is prorated daily, and there is a 1-month minimum duration to be charged for the environment. Provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan is asynchronous and can take 5-7 business days. To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance and provision a Standard plan instance on it, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](../tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window} tutorial. 
+
+The Dedicated Hardware plan is not available to {{site.data.keyword.cloud_notm}} Dedicated customers. The Dedicated Hardware plan is only available to {{site.data.keyword.cloud_notm}} Public customers.
 {: tip}
 
 ## Provisioned throughput capacity
