@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-01"
+lastupdated: "2018-09-21"
 
 ---
 
@@ -208,7 +208,7 @@ Content-Length: 42
 Content-Type: text/plain; charset=UTF-8
 Date: Mon, 11 Nov 2016 12:43:15 GMT
 server: CouchDB/1.0.2 (Erlang OTP/R14B)
-Set-Cookie: AuthSession="d2FybWFuYTo1ODI1QkM2NzpZelovo2epvx9cfaDdxJGNLuzBzw"; Expires=Sat, 12 Nov 2016 12:43:15 GMT; Max-Age=86400; Path=/; HttpOnly; Version=1
+Set-Cookie: AuthSession="d2FybWFuYTo1ODI1QkM2NzpZelovo2epvx9cfaDdxJGNLuzBzw"; Expires=Sat, 12-Nov-2016 12:43:15 GMT; Max-Age=86400; Path=/; HttpOnly; Version=1
 x-couch-request-id: a638431d
 ```
 {:codeblock}
@@ -236,7 +236,7 @@ _Example request for cookie information, by using HTTP:_
 
 ```http
 GET /_session HTTP/1.1
-Cookie: AuthSession="d2FybWFuYTo1ODI1QkM2NzpZelovo2epvx9cfaDdxJGNLuzBzw"; Expires=Sat, 12 Nov 2016 12:43:15 GMT; Max-Age=86400; Path=/; HttpOnly; Version=1
+Cookie: AuthSession="d2FybWFuYTo1ODI1QkM2NzpZelovo2epvx9cfaDdxJGNLuzBzw"; Expires=Sat, 12-Nov-2016 12:43:15 GMT; Max-Age=86400; Path=/; HttpOnly; Version=1
 Accept: application/json
 ```
 {:codeblock}
@@ -291,7 +291,7 @@ _Example cookie `DELETE` request, by using HTTP:_
 
 ```http
 DELETE /_session HTTP/1.1
-Cookie: AuthSession="d2FybWFuYTo1ODI1QkM2NzpZelovo2epvx9cfaDdxJGNLuzBzw"; Expires=Sat, 12 Nov 2016 12:43:15 GMT; Max-Age=86400; Path=/; HttpOnly; Version=1
+Cookie: AuthSession="d2FybWFuYTo1ODI1QkM2NzpZelovo2epvx9cfaDdxJGNLuzBzw"; Expires=Sat, 12-Nov-2016 12:43:15 GMT; Max-Age=86400; Path=/; HttpOnly; Version=1
 Accept: application/json
 ```
 {:codeblock}
@@ -317,7 +317,7 @@ Content-Length: 12
 Content-Type: application/json
 Date: Mon, 11 Nov 2016 14:06:12 GMT
 server: CouchDB/1.0.2 (Erlang OTP/R14B)
-Set-Cookie: AuthSession=""; Expires=Fri, 02 Jan 1970 00:00:00 GMT; Max-Age=0; Path=/; HttpOnly; Version=1
+Set-Cookie: AuthSession=""; Expires=Fri, 02-Jan-1970 00:00:00 GMT; Max-Age=0; Path=/; HttpOnly; Version=1
 x-couch-request-id: e02e0333
 ```
 {:codeblock}
