@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-31"
+lastupdated: "2018-09-25"
 
 ---
 
@@ -1125,7 +1125,7 @@ Sometimes it is useful to get the context in which a search term was mentioned
 so that you can display more emphasized results to a user.
 
 To get more emphasized results,
-add the `search_highlights` parameter to the search query.
+add the `highlight_fields` parameter to the search query.
 Specify the field names for which you would like excerpts,
 with the highlighted search term returned.
 
