@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -25,6 +25,13 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 7302 (September 25, 2018)
+{: #build-7302-september-25-2018}
+
+- Improve Mango Query so that mixed clusters return correct results during upgrades. 
+- Add a downgrade function to support future cluster purge releases.
+- Improve search black list.
+
 ## Build 7276 (September 18, 2018)
 {: #build-7276-september-18-2018}
 
@@ -35,7 +42,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 7205 (September 07, 2018)
 {: #build-7205-september-07-2018}
 
-- Refactor Mango query selectors to reduce the amount of traffic sent between nodes in the cluster.
+- Refactor Mango Query selectors to reduce the amount of traffic sent between nodes in the cluster.
 - Expose document update errors on concurrent document updates to client.
 - Fix `render_error` errors where the `req` object that is passed to the JavaScript list function is set to `noproc` atom.
 
