@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-18"
+lastupdated: "2018-09-26"
 
 ---
 
@@ -106,6 +106,9 @@ Storage usage is checked daily. If you exceed your 1-GB storage limit, requests 
 A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard. You can still read and delete data. However, to write new data, you have two options. First, you can upgrade to a paid [Standard plan](#standard-plan) that removes the write limitation immediately. Alternatively, you can delete data so that your total storage falls under the 1-GB limit and wait until the next daily storage check runs for your instance to allow writes again. 
 
 If you want to store more than 1 GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
+
+You are limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, any attempt to create a new Lite plan instance, or change a Standard plan instance to a Lite plan, returns the message, "You can only have one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan." 
+{: tip}
 
 ### Standard plan
 {: #standard-plan}
@@ -325,6 +328,7 @@ following {{site.data.keyword.cloud_notm}} Public regions:
 -   United Kingdom
 -   Sydney
 -   Germany&Dagger;
+-   AP North (Tokyo)
 
 Dedicated Hardware plan instances can be deployed in most 
 [{{site.data.keyword.IBM_notm}} data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
