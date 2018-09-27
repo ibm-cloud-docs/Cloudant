@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-02"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-08-02"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-03-16 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}}.com
 

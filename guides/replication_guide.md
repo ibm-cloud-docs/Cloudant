@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-10"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-09-10"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-04-20 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Replication
 

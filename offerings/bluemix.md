@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-09-26"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-05 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}} Public
 {: #ibm-cloud-public}

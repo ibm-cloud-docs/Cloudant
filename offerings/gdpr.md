@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-07-16"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-07-16"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-04-28 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # General Data Protection Regulation (GDPR)
 

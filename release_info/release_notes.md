@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-26"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-09-26"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2018-09-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Release Notes
 {: #release-notes}

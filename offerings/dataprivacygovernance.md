@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-05-16"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-02-01 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Data Privacy and Governance
 
