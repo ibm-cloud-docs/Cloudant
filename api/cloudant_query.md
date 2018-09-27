@@ -514,6 +514,7 @@ Design documents are not returned by `_find`.
 	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index.
 
 	For more information, see [Explain Plans](#explain-plans).
+-	**conflicts (optional, default: false)**: A Boolean value that indicates whether or not to include information about existing conflicts in the document.
 -   **execution_stats (optional, default: false)**: Use this option to find information 
 	about the query
     that was run. This information includes total key lookups, total document lookups (when `include_docs=true`
