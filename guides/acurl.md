@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-21"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-21"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-05-07 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Authorized curl: `acurl`
 

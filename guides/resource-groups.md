@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-08-17"
+lastupdated: "2018-09-27"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-08-17"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-08-15 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?
 
