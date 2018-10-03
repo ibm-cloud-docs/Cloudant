@@ -54,7 +54,7 @@ If you exceed your quota of lookups, writes, and queries in a given second, the 
 
 ## Which type of {{site.data.keyword.cloudant_short_notm}} plan do I have?
 
-If you are using {{site.data.keyword.cloudant_short_notm}}, the {{site.data.keyword.cloud_notm}} dashboard shows all your {{site.data.keyword.cloudant_short_notm}} instances along with a Plan column. The Lite, Standard, and Dedicated Hardware plans are called out specifically. Any {{site.data.keyword.cloudant_short_notm}} instance that is lacking a plan name in that column will be using the deprecated Shared plan. In the following example, the 'Cloudant NoSQL DB-ix' and 'Cloudant_NewConsole' instances are on the deprecated Shared plan. 
+If you are using {{site.data.keyword.cloudant_short_notm}}, the {{site.data.keyword.cloud_notm}} dashboard shows all your {{site.data.keyword.cloudant_short_notm}} instances along with a Plan column. The Lite, Standard, and Dedicated Hardware plans are called out specifically. Any {{site.data.keyword.cloudant_short_notm}} instance that shows the Shared Dedicated plan name is part of an {{site.data.keyword.cloudant_short_notm}} Dedicated environment and not part of the Public Shared plan. Any {{site.data.keyword.cloudant_short_notm}} instance that shows a Shared plan name or lacks a plan name in that column is using the deprecated Shared plan. In the following example, the 'Cloudant NoSQL DB-ix' and 'Cloudant_NewConsole' instances use the deprecated Shared plan.  
 
 ![cloud dash](../images/ibmclouddashboard.png)
 
@@ -95,7 +95,10 @@ Now, you are ready to go!
 
 ## Migrating everything else to {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan
 
-Migration from the Shared or Enterprise plans to {{site.data.keyword.cloudant_short_notm}} Lite or Standard plans includes the following tasks, which are described in the following steps: 
+Migration from the Shared or Enterprise plans to {{site.data.keyword.cloudant_short_notm}} Lite or Standard plans includes these tasks, which are described in the following steps. 
+
+You cannot directly change a Shared plan instance to a Lite or Standard plan instance. Migration requires that you create a new Lite or Standard plan instance and replicate the data over from the Shared plan instance. 
+{: tip}
 
 ### Step 1: Sign up for {{site.data.keyword.cloud_notm}}
 
