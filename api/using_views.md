@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-10-08"
 
 ---
 
@@ -11,8 +11,12 @@ lastupdated: "2018-09-27"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Using Views
+{: #using-views}
 
 Use views to search for content within a database that matches specific criteria.
 The criteria are specified within the view definition,
@@ -20,6 +24,7 @@ or supplied as arguments when you use the view.
 {:shortdesc}
 
 ## Querying a view
+{: #querying-a-view}
 
 To query a view,
 submit a `GET` request with the following format:
@@ -32,6 +37,7 @@ submit a `GET` request with the following format:
 The request runs the specified `view-name` from the specified `design-doc` design document within the database.
 
 ### Query Arguments
+{: #query-arguments}
 
 Argument         | Description | Optional | Type | Default | Supported values
 -----------------|-------------|----------|------|---------|-----------------
@@ -43,18 +49,26 @@ Argument         | Description | Optional | Type | Default | Supported values
 `group_level`    | Only applicable if the view uses complex keys: keys that are JSON arrays. Groups reduce results for the specified number of array fields. | yes | Numeric | | 
 `include_docs`   | Include the full content of the documents in the response. | yes | Boolean | false | 
 `inclusive_end`  | Include rows with the specified `endkey`. | yes | Boolean | true | 
-`key`            | Return only documents that match the specified key. **Note**: Keys are JSON values, and must be URL encoded. | yes | JSON strings or arrays | | 
-`keys`           | Return only documents that match the specified keys. **Note**: Keys are JSON values, and must be URL encoded. | yes | Array of JSON strings or arrays | |
+`key`            | Return only documents that match the specified key. Note that keys are JSON values, and must be URL encoded. | yes | JSON strings or arrays | | 
+`keys`           | Return only documents that match the specified keys. Note that keys are JSON values, and must be URL encoded. | yes | Array of JSON strings or arrays | |
 `limit`          | Limit the number of returned documents to the specified count. | yes | Numeric | | 
 `reduce`         | Use the `reduce` function. | yes | Boolean | true | 
 `skip`           | Skip this number of rows from the start. | yes | Numeric | 0 | 
 `stable`         | Prefer view results from a 'stable' set of shards. The results are from a view that is less likely to be updated soon. | yes | Boolean | false | 
-`stale`          | Allow the results from a stale view to be used. The request returns immediately, even if the view is not yet built. If this parameter is not given, a response is returned only after the view has been built. | yes | String | false | `ok`: Allow stale views.<br/>`update_after`: Allow stale views, but update them immediately after the request.
+`stale`          | Allow the results from a stale view to be used. The request returns immediately, even if the view is not yet built. If this parameter is not given, a response is returned only after the view has been built. | yes | String | false | 
 `startkey`       | Return records, starting with the specified key. | yes | String or JSON array | | 
 `startkey_docid` | Return records, starting with the specified document ID. | yes | String | |
- `update`        | Ensure that the view is updated before results are returned. | yes | String | `true` | `false`: Return results before updating the view.<br/>`true`: Return results after updating the view.<br/>`lazy`: Return the view results without waiting for an update, but update them immediately after the request.
+ `update`        | Ensure that the view is updated before results are returned. | yes | String | `true` 
 
->   **Note**: Using `include_docs=true` might have [performance implications](#include_docs_caveat).
+This table shows the supported values for the following arguments:
+
+Argument | Supported values
+---------|-----------------
+`stale` | `ok`: Allow stale views.<br/>`update_after`: Allow stale views, but update them immediately after the request.
+`update` | `true`: Return results after updating the view.<br/>`false`: Return results before updating the view.<br/>`lazy`: Return the view results without waiting for an update, but update them immediately after the request.
+
+Using `include_docs=true` might have [performance implications](#include_docs_caveat).
+{: tip}
 
 _Example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view:_
 
@@ -127,6 +141,7 @@ _Example response to request:_
 {:codeblock}
 
 ## Indexes
+{: #indexes}
 
 When a view is defined in a design document,
 a corresponding index is also created,
@@ -154,12 +169,8 @@ a 'fingerprint' of the view definition is created whenever the design document i
 If the fingerprint changes,
 then the view indexes are rebuilt.
 
->   **Note**: View index rebuilds occur whenever a change occurs to any one view
-    from all the views that are defined in the design document.
-    For example,
-    if you have a design document with three views,
-    and you update the design document,
-    all three view indexes within the design document are rebuilt.
+View index rebuilds occur whenever a change occurs to any one view from all the views that are defined in the design document. For example, if you have a design document with three views, and you update the design document, all three view indexes within the design document are rebuilt.
+{: tip}
 
 If the database was updated recently,
 the results might be delayed when the view is accessed.
@@ -183,10 +194,9 @@ a stale view might not return the most recent information.
 Nevertheless, a stale view returns the results of the view query quickly,
 by using an existing version of the index.
 
->   **Note**: If you want to save old index versions without incurring indexing
-	overhead, you can stop the search index from building by setting `"autoupdate":
-	{"indexes": false}`, or stop views from auto-updating by adding one of the 
-	following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`.
+If you want to save old index versions without incurring indexing overhead, you can stop the search index from building by setting `"autoupdate": {"indexes": false}`, or stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. See the following examples. 
+{: tip}
+
 ```json
 	{
 	    "_id": "_design/lookup",
@@ -210,9 +220,11 @@ by using an existing version of the index.
 	}
 ```
 
+
 <div id="accessing-a-stale-view"></div>
 
 ## View freshness
+{: #view-freshness}
 
 By default, all index results reflect the current state of the database. {{site.data.keyword.cloudantfull}} builds its indexes automatically and asynchronously in the background.
 This usually means the index is fully up-to-date 
@@ -232,6 +244,7 @@ Option   | Purpose                                                              
 `update` | Determine whether the view is updated before the results are returned. Possible values include `true`, `false`, and `lazy`.           | `true`
 
 ## Combining parameters
+{: #combining-parameters}
 
 When you specify `stable=true` with `update=false` or `update=lazy`,
 responses are consistent from request to request because a single,
@@ -248,6 +261,7 @@ When you use a stale view, the results return the existing version of the data i
 The results can be different from different nodes in the cluster.
 
 ### Parameters
+{: #parameters}
 
 The `stable` option indicates whether you would prefer to get results from a single,
 consistent set of shards. The `false` value means that all available shard replicas are queried. {{site.data.keyword.cloudant_short_notm}} uses the first response returned. 
@@ -266,6 +280,7 @@ meaning that the view is updated before results are returned. The `lazy` value m
 but that the view must then be updated anyway.
 
 ## Sorting Returned Rows
+{: #sorting-returned-rows}
 
 The data returned by a view query are in the form of an array.
 Each element within the array is sorted by using standard
@@ -287,8 +302,8 @@ Objects (according to the values of keys, in key order by using the order given 
 
 You can reverse the order of the returned view information by setting the `descending` query value `true`.
 
-> **Note**: When you issue a view request that specifies the `keys` parameter, 
-the results are returned in the same order as the supplied `keys` array. 
+When you issue a view request that specifies the `keys` parameter, the results are returned in the same order as the supplied `keys` array. 
+{: tip}
 
 _Example of using HTTP to request the last five records in reversed sort order:_
 
@@ -360,6 +375,7 @@ _Example response of requesting the last five records in reversed sort order:_
 {:codeblock}
 
 ## Specifying Start and End Keys
+{: #specifying-start-and-end-keys}
 
 The `startkey` and `endkey` query arguments can be used to specify the range of values
 that are returned when querying the view.
@@ -451,6 +467,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?d
 {:codeblock}
 
 ## Querying a view by using a list of keys
+{: #querying-a-view-by-using-a-list-of-keys}
 
 You can also run a query by providing a list of keys to use.
 
@@ -525,6 +542,7 @@ _Example response after running a query that uses a list of keys:_
 <div id="include_docs_caveat"></div>
 
 ## Multi-document Fetching
+{: #multi-document-fetching}
 
 Combining a `POST` request to a view with the `include_docs=true` query argument
 enables you to retrieve multiple documents from a database.
@@ -678,6 +696,7 @@ _Example (abbreviated) response, returning the full document for each recipe tha
 {:codeblock}
 
 ## Sending several queries to a view
+{: #sending-several-queries-to-a-view}
 
 To send several view queries in one request,
 use a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME`.
