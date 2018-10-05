@@ -9,6 +9,7 @@ IBM Cloudant
 	cloudant.md
 	offerings/bluemix.md
 	offerings/pricing.md
+	offerings/learning-center.md
 
 	{: .topicgroup}
     Security and Compliance
