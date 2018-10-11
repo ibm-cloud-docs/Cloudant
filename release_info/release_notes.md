@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-10-11"
 
 ---
 
@@ -25,6 +25,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 {: #dedicated-hardware}
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 7304 (October 11, 2018)
+{: #build-7304-october-11-2018}
+
+- The build is identical to 7302 but built on Erlang 17.5 instead of Erlang 20
 
 ## Build 7302 (September 25, 2018)
 {: #build-7302-september-25-2018}
