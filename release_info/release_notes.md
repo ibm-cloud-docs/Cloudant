@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-11"
+lastupdated: "2018-10-25"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-10-11"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2018-10-19 -->
 
 # Release Notes
 {: #release-notes}
@@ -26,6 +26,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
+## Build 7378 (October 18, 2018)
+{: #build-7378-october-18-2018}
+
+- Internal changes and bug fixes.
+
 ## Build 7304 (October 11, 2018)
 {: #build-7304-october-11-2018}
 
@@ -34,16 +39,27 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 7302 (September 25, 2018)
 {: #build-7302-september-25-2018}
 
-- Improve Mango Query so that mixed clusters return correct results during upgrades. 
+- Improve Mango Query so that mixed clusters return correct results during upgrades.
 - Add a downgrade function to support future cluster purge releases.
 - Improve search black list.
 
 ## Build 7276 (September 18, 2018)
 {: #build-7276-september-18-2018}
 
-- Add a filter for databases that are being opened asynchronously to prevent exceptions when `couch_server` terminates.  
+- Add a filter for databases that are being opened asynchronously to prevent exceptions when `couch_server` terminates.
 - Fix `couch_server` concurrency error.
 - Add a configuration option to disable off-heap messages.
+
+## TLS 1.3 Supported (September 13, 2018)
+{: #tls-1-3-supported-september-13-2018}
+
+From today we support TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
+
+We recommend that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}.
+(***In June 2019, {{site.data.keyword.cloudant_short_notm}} is retiring the use of older
+versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ will be supported.***)
+
+Find [more information on our Security page](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security).
 
 ## Build 7205 (September 07, 2018)
 {: #build-7205-september-07-2018}
@@ -74,12 +90,12 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 - Refactor code for `_stats` reducer.
 - Fix active size calculations for views.
-- Rewrite the `couch_key_tree` algorithm to reduce its computational complexity and avoid calling stemming when unnecessary.  
+- Rewrite the `couch_key_tree` algorithm to reduce its computational complexity and avoid calling stemming when unnecessary.
 - Change allocation strategy for message queue for each important process so it is not stored on the heap of that process.
 - Improvements to internal audit facility.
-- Any constant fields that are in the selector, and are part of the index, for example, {A: {$eq: 10}}, are inserted into the sort list if they are not already included. This method increases the chance that the best index is selected for the query, for example, index = [A, B], sort = [B], and selector = {A: 1}. The sort then becomes [A, B]. 
+- Any constant fields that are in the selector, and are part of the index, for example, {A: {$eq: 10}}, are inserted into the sort list if they are not already included. This method increases the chance that the best index is selected for the query, for example, index = [A, B], sort = [B], and selector = {A: 1}. The sort then becomes [A, B].
 
-<p class="tip">Only the fields that are in front of the current sort fields in the list are added.</p> 
+<p class="tip">Only the fields that are in front of the current sort fields in the list are added.</p>
 
 
 ## Build 7051 (June 29, 2018)
@@ -88,6 +104,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Add forward compatibility clause for `_stats` disk format change.
 - Add compatibility clause for attachment receiver to facilitate Erlang upgrade.
 - Improvements to internal audit facility.
+- Reduce the possibility that a race condition will occur between the time when closing a geo index is triggered by deleting a database and when a geo index is destroyed during compaction.
 
 ## Build 7014 (June 12, 2018)
 {: #build-7014-june-12-2018}
@@ -103,7 +120,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 {: #build-6919-may-14-2018}
 
 - Remove outdated dependencies.
-- Introduce new action, `DELETE`, on the `/_iam_session` endpoint, which invalidates the IAM session cookie. 
+- Introduce new action, `DELETE`, on the `/_iam_session` endpoint, which invalidates the IAM session cookie.
 
 ## Build 6909 (April 26, 2018)
 {: #build-6909-april-26-2018}
@@ -114,8 +131,8 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6900 (April 25, 2018)
 {: #build-6900-april-25-2018}
 
-- Improve validation of password schemes. 
-- In `_scheduler/docs`, set the value of the state field to `crashing` when the last event in the history was a crash. 
+- Improve validation of password schemes.
+- In `_scheduler/docs`, set the value of the state field to `crashing` when the last event in the history was a crash.
 - Support replication with IAM.
 - Disallow `_design/$DDOC/_rewrite` and `_design/$DDOC/_update` endpoints with IAM.
 
@@ -127,13 +144,13 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6875 (April 4, 2018)
 {: #build-6875-april-4-2018}
 
-- Improve error messages for {{site.data.keyword.cloudant_short_notm}} Query. 
+- Improve error messages for {{site.data.keyword.cloudant_short_notm}} Query.
 - New internal audit facility is added to the platform.
 
 ## Build 6870 (March 30, 2018)
 {: #build-6870-march-30-2018}
 
-- Fix how the `kill` command works when you terminate an operating system process. 
+- Fix how the `kill` command works when you terminate an operating system process.
 - Fix `_changes` endpoint shard substitution.
 - Fix compaction resumption for terminated compactions.
 
@@ -145,7 +162,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Prevent `chttpd` multipart zombie processes.
 - Avoid unconditional retries in replicator's HTTP client.
 - Update MochiWeb to version 2.17.
-- Introduce new `_dbs_info` endpoint to get information from a list of databases. See 
+- Introduce new `_dbs_info` endpoint to get information from a list of databases. See
 [Get database information for multiple databases](../api/database.html#get-database-information-for-multiple-databases).
 - Prepare for session support in replicator.
 
@@ -155,7 +172,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](../api/database.html#get-design-documents).
 - When you send a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
 - Remove headers from replication document on read.
-- If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response. 
+- If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response.
 - Change semantics of status codes for create database.
 
 ## Build 6620 (January 10, 2018)
@@ -166,7 +183,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 6600 (December 28, 2017)
 {: #build-6600-december-28-2017}
 
-- Query: fields that are referenced within `$or` operations are considered when {{site.data.keyword.cloudant_short_notm}} query determines the usable 
+- Query: fields that are referenced within `$or` operations are considered when {{site.data.keyword.cloudant_short_notm}} query determines the usable
 indexes for a particular selector.
 
 ## Build 6588 (December 7, 2017)
@@ -177,7 +194,7 @@ that is created on a new replication. You can now customize the cluster's defaul
 replicas to create.
 - A request to `/_scheduler` without specifying subsections `docs` or `jobs` now returns a `Not found` error.
 - A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request.`
-- For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in 
+- For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in
 JavaScript.
 - Added the header `Prefer: return=minimal` to return only essential headers. This header reduces the size of the request, which gives a performance improvement to non-browser clients.
 
@@ -185,7 +202,7 @@ JavaScript.
 {: #query-code-_find-code-endpoint}
 
 - {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){:new_window}.
-- The logic for determining whether a specific index is valid for a query changed, addressing a bug that might lead to incorrect results. 
+- The logic for determining whether a specific index is valid for a query changed, addressing a bug that might lead to incorrect results.
 - Queries that use text indexes no longer fail when `$exists`: `false` is used.
 - Partial indexes are now supported for both JSON and text indexes. For more information, see  [Creating a partial index](../api/cloudant_query.html#creating-a-partial-index) for more information.
 - Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [finding documents by using an index](../api/cloudant_query.html#finding-documents-by-using-an-index) for more information.
@@ -198,7 +215,7 @@ field is invalid for the current query. When this occurs, the `warning` field is
 
 - `POST` requests to the `_revs_diff` endpoint require either the `_reader` or `_replicator` role.
 - Add the `X-Frame-Options` header settings to prevent click jacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant/release_info/deprecations.html#x-frame-options-setting).
-- Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler).  
+- Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler).
 
 ## Build 6276 (July 4, 2017)
 {: #build-6276-july-4-2017}
