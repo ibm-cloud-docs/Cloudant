@@ -29,7 +29,7 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 ## Build 7304 (October 11, 2018)
 {: #build-7304-october-11-2018}
 
-- The build is identical to 7302 but built on Erlang 17.5 instead of Erlang 20
+- This build is identical to build 7302 except that it is built on Erlang 17.5 instead of Erlang 20.
 
 ## Build 7302 (September 25, 2018)
 {: #build-7302-september-25-2018}
