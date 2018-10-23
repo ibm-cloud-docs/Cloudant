@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-10-18"
 
 ---
 
@@ -117,15 +117,21 @@ See the [Plans ![External link icon](../images/launch-glyph.svg "External link i
 
 First, set your target Resource Group and region as shown in [General CLI (ibmcloud) commands ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/ibmcloud/bx_cli.html#ibmcloud_target){:new_window} under `ibmcloud target` by using the following format:
 
-```ibmcloud target [-r REGION_NAME] [-g RESOURCE_GROUP]```
+```sh
+ibmcloud target [-r REGION_NAME] [-g RESOURCE_GROUP]
+```
 
 For a list of regions, run this command:
 
-```ibmcloud regions```
+```sh
+ibmcloud regions
+```
 
 For a list of resource groups, run this command: 
 
-```ibmcloud resource groups```
+```sh
+ibmcloud resource groups
+```
 
 Second, to create a service instance, the basic command format within {{site.data.keyword.cloud_notm}} is as follows:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-10-18"
 
 ---
 
@@ -96,7 +96,7 @@ passed in JSON format and is called `legacyCredentials`.
 
 To provision an instance as _Use only IAM_ (recommended), run the following command:
 
-```
+```sh
 ic resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": false}
@@ -104,7 +104,7 @@ ic resource service-instance-create  "Instance Name" \
 
 To provision an instance as _Use both legacy credentials and IAM_, run the following command:
 
-```
+```sh
 ic resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": true}
@@ -209,13 +209,13 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 
 <tr>
 <td headers="mode">IAM</td>
-<td headers="advantages" valign="top"><ul><li>Manage access for many services by using one interface. Revoke access to a user globally.</i>
+<td headers="advantages" valign="top"><ul><li>Manage access for many services by using one interface. Revoke access to a user globally.</li>
 <li>Account-level API keys via service IDs.</li>
 <li>Easy-to-rotate credentials.</li>
 <li>Activity Tracker logs capture individual humans and services.</li>
 <li>IAM federates with other identity systems, like enterprise LDAP repositories.</li></ul>
 </td>
-<td headers="disadvantages"><ul><li>If you are not using {{site.data.keyword.cloudant_short_notm}}'s supported libraries, application changes are likely to be required to use IAM's API keys and access tokens.</i>
+<td headers="disadvantages"><ul><li>If you are not using {{site.data.keyword.cloudant_short_notm}}'s supported libraries, application changes are likely to be required to use IAM's API keys and access tokens.</li>
 <li>No database-level permissions (yet).</li>
 <li>No fine-grained permissions (for example, reader) (yet).</li>
 <li>Some endpoints are unavailable, see [Unavailable Endpoints](#unavailable-endpoints).</li>
@@ -232,7 +232,7 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 </ul>
 </td>
 <td headers="disadvantages">
-<ul><li>No account-level API keys; must use `root` credentials to manage databases.</i>
+<ul><li>No account-level API keys; must use `root` credentials to manage databases.</li>
 <li>Separate management of {{site.data.keyword.cloudant_short_notm}} credentials, so unable to get full overview of all access within centralised interface.</li>
 <li>Hard to implement credential rotation.</li>
 </ul>
