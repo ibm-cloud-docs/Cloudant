@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-10-22"
 
 ---
 
@@ -360,7 +360,7 @@ For anything but the most simple query, add the JSON to a data file and run it f
 ### Running a simple query
 
 This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query uses the `query-index` to find the
-`lastname` and filters the results in memory to find the `firstaname`.   
+`lastname` and filters the results in memory to find the `firstname`.   
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
