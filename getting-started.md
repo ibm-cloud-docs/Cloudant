@@ -69,14 +69,14 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	You will see a list of all the Python modules that are installed on your system. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
 
 	```
-	cloudant==2.3.1
+	cloudant==<version>
 	```
 	{:screen}
 	
 	If the `cloudant` module is not installed, install it by using a command similar to the following one:
 	
 	```
-	pip install cloudant==2.3.1
+	pip install cloudant
 	```
 	{:pre}
 
@@ -108,10 +108,18 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   <br>The details for the service credentials appear:
    <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
    
-3.	Establish a connection to the service instance by running the following command.
-	Replace your service credentials from the previous step:
+3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide ![External link icon](images/launch-glyph.svg "External link icon")](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-) for more details on either authentication type.
+
+	If you are using {{site.data.keyword.cloudant_short_notm}}  Legacy authentication, replace your service credentials from the previous step:
 	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
+	client.connect()
+	```
+	{: codeblock}
+	
+	If you are using IAM authentication, replace your service credentials from the previous step:
+	```python
+	client = Cloudant.iam("<username>", "<apikey>")
 	client.connect()
 	```
 	{: codeblock}
@@ -290,11 +298,11 @@ invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](a
 
 1. Identify the endpoint to contact, and any parameters to supply along with the call:
   ```python
-  end_point = '{0}/{1}'.format("<url>", databaseName + "/_all_docs")
+  end_point = '{0}/{1}'.format("client.server_url", databaseName + "/_all_docs")
   params = {'include_docs': 'true'}
   ```
   {: codeblock}
-  ... where `<url>` is the URL value from the service credentials you found in Step 1.
+  ... where `client.server_url` is the URL value from the service credentials you found in Step 1.
 
 2. Send the request to the service instance, and display the results:
   ```python
@@ -398,8 +406,7 @@ see the [{{site.data.keyword.cloudant_short_notm}} documentation](cloudant.html)
 
 The complete Python code listing is as follows. 
 Remember to replace the `<username>`,
-`<password>`,
-and `<url>` values with your service credentials.
+`<password>`, `<url>`, and `<apikey>` values with your service credentials.
 Similarly,
 replace the `<yourDatabaseName>` value with the name for your database.
 
@@ -408,7 +415,12 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 
+# {{site.data.keyword.cloudant_short_notm}} Legacy authentication
 client = Cloudant("<username>", "<password>", url="<url>")
+client.connect()
+
+# IAM Authentication (uncomment if needed, and comment out {{site.data.keyword.cloudant_short_notm}} Legacy authentication section above)
+client = Cloudant.iam("<username","<apikey>")
 client.connect()
 
 databaseName = "<yourDatabaseName>"
