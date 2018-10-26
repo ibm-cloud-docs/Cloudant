@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-10-30"
 
 ---
 
@@ -126,7 +126,7 @@ A successful response is similar to the following abbreviated example:
 > **Note**: Take careful note of the password.
   It is not possible to retrieve the password later.
 
-### Step 3: Grant access permission
+## Step 3: Grant access permission
 
 [Give the API Key permission](../api/authorization.html#modifying-permissions)
 to read and to write on both databases.
@@ -138,7 +138,7 @@ Use the {{site.data.keyword.cloudant_short_notm}} Dashboard,
 or alternatively see the [authorization](../api/authorization.html) information
 for details of how to grant permissions programmatically.
 
-### Step 4: Set up replications
+## Step 4: Set up replications
 
 Replications in {{site.data.keyword.cloudant_short_notm}} are always uni-directional:
 from one database to another database.
@@ -185,7 +185,7 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 > **Note:** If this step fails because the `_replicator` database doesn't exist,
   create it.
 
-### Step 5: Test your replication
+## Step 5: Test your replication
 
 Test the replication processes by creating,
 modifying,
@@ -194,7 +194,7 @@ and deleting documents in either database.
 After each change in one database,
 check that you can also see the change reflected in the other database.
 
-### Step 6: Configure your application
+## Step 6: Configure your application
 
 At this point,
 the databases are set up to remain synchronized with each other.
@@ -202,7 +202,7 @@ the databases are set up to remain synchronized with each other.
 The next decision is whether to use the databases in an
 [active-active](#active-active) or [active-passive](#active-passive) manner.
 
-#### Active-Active
+### Active-Active
 
 In an active-active configuration,
 different application instances can write to
@@ -227,7 +227,7 @@ Similarly,
 for applications that are hosted in DC2,
 you would set their {{site.data.keyword.cloudant_short_notm}} URL to `"https://myaccount-dc2.cloudant.com/mydb"`.
 
-#### Active-Passive
+### Active-Passive
 
 In an active-passive configuration,
 all instances of an application are configured to use a primary database.
@@ -246,7 +246,7 @@ a simple `GET` request that is sent to the main database endpoint normally retur
 If no response is received,
 it might indicate that a fail over is necessary.
 
-#### Other configurations
+### Other configurations
 
 You might consider other hybrid approaches for your configuration.
 
@@ -255,7 +255,7 @@ in a 'Write-Primary, Read-Replica' configuration,
 all writes go to one database,
 but the read load is spread among the replicas.
 
-### Step 7: Next steps
+## Step 7: Next steps
 
 * Consider monitoring the [replications](../api/advanced_replication.html) between the databases.
   Use the data to determine whether your configuration might be optimized further.
@@ -287,10 +287,11 @@ some possible options include:
   rather than a modification to the application settings.
   Many proxies have the capability to balance the load,
   based on user-defined health checks.
-* Use a global load balancer such as [Traffic Director ![External link icon](../images/launch-glyph.svg "External link icon")](http://dyn.com/traffic-director/){:new_window} to route to {{site.data.keyword.cloudant_short_notm}}.
+* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){:new_window} or [Dyn Traffic Director ![External link icon](../images/launch-glyph.svg "External link icon")](http://dyn.com/traffic-director/){:new_window} to route to {{site.data.keyword.cloudant_short_notm}}.
   This option requires a `CNAME` definition that routes to
   different {{site.data.keyword.cloudant_short_notm}} accounts,
   based on a health check or latency rule.
+
 
 ## Recovering from fail over
 
