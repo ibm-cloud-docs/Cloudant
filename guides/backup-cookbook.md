@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-10-30"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-10-24"
 <!-- Acrolinx: 2017-05-10 -->
 <!-- Update backup-guide.md with with any changes. -->
 
-# {{site.data.keyword.cloudant_short_notm}} backup and recovery
+# {{site.data.keyword.cloudant_short_notm}} Backup and Recovery
 
 This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](disaster-recovery-and-backup.html).
 It's worth starting there if you are new to the subject and want to understand where backup fits in

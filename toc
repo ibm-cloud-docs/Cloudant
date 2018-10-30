@@ -74,6 +74,8 @@ IBM Cloudant
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}
+	how-to.md
+
 	{: .topicgroup}
 	Tutorials
 		tutorials/create_service.md
