@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-26"
 
 ---
 
@@ -60,8 +60,8 @@ Legacy and {{site.data.keyword.cloud_notm}} IAM's access control mechanisms.
 ### API key notes
 
 In this document, wherever API keys are mentioned it refers to IAM API keys.
-{{site.data.keyword.cloudant_short_notm}} Legacy also has a concept of API keys, and all talk of {{site.data.keyword.cloudant_short_notm}} Legacy
-credentials or username/password combinations also include {{site.data.keyword.cloudant_short_notm}} API keys.
+{{site.data.keyword.cloudant_short_notm}} Legacy also has a concept of API keys, and any discussion about {{site.data.keyword.cloudant_short_notm}} Legacy 
+credentials or username/password combinations also includes {{site.data.keyword.cloudant_short_notm}} API keys. 
 
 ## Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
 
@@ -146,7 +146,7 @@ Each value in the previous JSON example should be interpreted as follows:
 - `iam_role_crn`: The IAM role that the IAM API key has.
 - `iam_serviceid_crn`: The CRN of service ID.
 - `url`: {{site.data.keyword.cloudant_short_notm}} service URL.
-- `username`: The service name of the {{site.data.keyword.cloudant_short_notm}} instance user in the URL.
+- `username`: The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
 When you select _Use both legacy credentials and IAM_, the service credentials that are generated contain both IAM and Legacy credentials, and look like the following example:
 
@@ -246,7 +246,7 @@ This section discusses how to use {{site.data.keyword.cloudant_short_notm}} with
 service instances by using IAM authentication and access control. It uses the
 details from the Service Credentials JSON example previously mentioned.
 
-{{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the client must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) documentation for more details.
+{{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the consuming application must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) documentation for more details.
 
 {{site.data.keyword.cloudant_short_notm}}'s official client libraries handle obtaining a token from an API key for you. If you access {{site.data.keyword.cloudant_short_notm}} directly by using an HTTP client rather than an {{site.data.keyword.cloudant_short_notm}} client library, you must handle exchanging and refreshing a time-limited access token by using an IAM API key with the IAM token service. After a token expires, {{site.data.keyword.cloudant_short_notm}} returns an HTTP `401` status code.
 

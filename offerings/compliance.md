@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-02"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-10-24"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2018-11-02 -->
 
 # Compliance
 
@@ -35,9 +35,8 @@ meets the required {{site.data.keyword.IBM_notm}} controls that are commensurate
 include the appropriate administrative, physical, and technical safeguards required of Business 
 Associates in 45 CFR Part 160 and Subparts A and C of Part 164. HIPAA must be requested at the 
 time of provisioning and applies to the {{site.data.keyword.cloudant_short_notm}} Enterprise plan, 
-{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}} Dedicated, 
-and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.data.keyword.cloud_notm}}
-representative to sign a Business Associate Addendum (BAA) agreement with {{site.data.keyword.IBM_notm}}.
+{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}} Dedicated plan, 
+and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.data.keyword.cloud_notm}}. Contact your sales representative to sign a Business Associate Addendum (BAA) agreement with {{site.data.keyword.IBM_notm}}.
 
 ## International Organization for Standardization (ISO)
 
