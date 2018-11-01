@@ -330,7 +330,7 @@ the application must be able to use the
 [{{site.data.keyword.cloudant_short_notm}} client library for Python applications](../libraries/supported.html#python).
 
 To enable the Python client library,
-modify the `requirements.txt` file to read:
+modify the `requirements.txt` file to contain the following text: ​​​
 ```
 cloudant==2.3.1
 ```

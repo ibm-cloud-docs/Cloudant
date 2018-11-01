@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-02"
 
 ---
 
@@ -75,18 +75,18 @@ The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and 
 If you have an account provisioned by {{site.data.keyword.cloud_notm}} (including a dedicated instance), 
 {{site.data.keyword.cloudant_short_notm}} _does not_ collect the personal data previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
 
-{{site.data.keyword.cloudant_short_notm}} processes limited client PI in the course of running the service and optimising 
-the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email for contacting clients as appropriate. Monitoring 
-client interactions with the {{site.data.keyword.cloudant_short_notm}} dashboard is the other way {{site.data.keyword.cloudant_short_notm}} processes PI.
+{{site.data.keyword.cloudant_short_notm}} processes limited customer PI in the course of running the service and optimising 
+the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email for contacting customers as appropriate. Monitoring 
+customer interactions with the {{site.data.keyword.cloudant_short_notm}} dashboard is the other way {{site.data.keyword.cloudant_short_notm}} processes PI.
 
 ### Restriction of processing
 
 {{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict 
-processing of client PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
+processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information associated 
-with the client as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
-ability to contact dedicated clients via email and provides an interface for clients to keep this 
-information up to date either directly, or via client configuration of their contact details 
+with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
+ability to contact dedicated customers via email and provides an interface for customers to keep this 
+information up to date either directly, or via customer configuration of their contact details 
 via their {{site.data.keyword.cloud_notm}} account details.
 
 ## Is our {{site.data.keyword.cloudant_short_notm}} database encrypted?
@@ -138,7 +138,7 @@ customer upon request.
 
 ### Service access to data
 
-{{site.data.keyword.cloudant_short_notm}} operations and support staff have access to client data 
+{{site.data.keyword.cloudant_short_notm}} operations and support staff have access to customer data 
 and can access it during 
 routine operations. This access is only done as required, in order to operate and support the service. 
 Access is also limited to a *need to know* basis and is logged, monitored, and audited.
@@ -163,7 +163,8 @@ Compaction runs automatically and periodically removes old revisions (deleted or
 from the database, by writing out only 'leaf' revisions to a new file. {{site.data.keyword.cloudant_short_notm}} keeps a history of 
 `_id` and `_rev` to enable replication, but not old document bodies.
 
-> **Note**: {{site.data.keyword.cloudant_short_notm}} does not expose the CouchDB compaction API.
+{{site.data.keyword.cloudant_short_notm}} does not expose the CouchDB compaction API.
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} does not guarantee that a database will be compacted in a specific time. 
 Compaction is done as a background process across 
@@ -186,7 +187,8 @@ important to understand that purged documents *cannot be recovered* by
 {{site.data.keyword.cloudant_short_notm}} once the 
 process is complete.
 
-> **Note**: The CouchDB purge API is not supported by {{site.data.keyword.cloudant_short_notm}}.
+The CouchDB purge API is not supported by {{site.data.keyword.cloudant_short_notm}}.
+{: tip}
 
 In the context of GDPR, purging is only required if PI is used in a document ID. It is a bad 
 idea for an `_id` to store PI for lots of reasons, but there are a handful of semi-valid use 
