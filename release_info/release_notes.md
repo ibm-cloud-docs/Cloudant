@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-25"
+lastupdated: "2018-11-05"
 
 ---
 
@@ -26,8 +26,8 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build 7378 (October 18, 2018)
-{: #build-7378-october-18-2018}
+## Build 7410 (November 04, 2018)
+{: #build-7410-november-04-2018}
 
 - Internal changes and bug fixes.
 
