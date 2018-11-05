@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-11-05"
 
 ---
 
@@ -130,19 +130,11 @@ The third, optional, parameter is a JavaScript object with the following fields:
     <td><code>index</code></td>
     <td>Whether the data is indexed,
     and if so,
-    how.
-    If set to <code>false</code> or <code>no</code>,
-    the data cannot be used for searches,
-    but can still be retrieved from the index if <code>store</code> is set to <code>true</code>.
-    For more information,
-    see <a href="#analyzers">Analyzers</a>.</td>
-    <td><code>analyzed</code>,
-    <code>analyzed_no_norms</code>,
-    <code>false</code>,
-    <code>no</code>,
-    <code>not_analyzed</code>,
-    <code>not_analyzed_no_norms</code></td>
-    <td><code>analyzed</code></td>
+    how. If set to <code>false</code>, the data cannot be used for searches, but can still be retrieved from the index if <code>store</code> is set to <code>true</code>. For more information, see <a href="#analyzers">Analyzers</a>.</td>
+    <td><code>true</code>,
+    <code>false</code>
+    </td>
+    <td><code>true</code></td>
 </tr>
 <tr>
     <td><code>store</code></td>
