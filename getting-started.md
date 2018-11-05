@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-05"
 
 ---
 
@@ -108,7 +108,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   <br>The details for the service credentials appear:
    <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
    
-3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide ![External link icon](images/launch-glyph.svg "External link icon")](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-) for more details on either authentication type.
+3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide ![External link icon](images/launch-glyph.svg "External link icon")](guides/iam.html#ibm-cloud-identity-and-access-management-iam-) for more details on either authentication type.
 
 	If you are using {{site.data.keyword.cloudant_short_notm}}  Legacy authentication, replace your service credentials from the previous step:
 	```python
