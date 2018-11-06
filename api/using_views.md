@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-08"
+lastupdated: "2018-11-08"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-10-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2018-11-06 -->
 
 # Using Views
 {: #using-views}
@@ -544,36 +544,27 @@ _Example response after running a query that uses a list of keys:_
 ## Multi-document Fetching
 {: #multi-document-fetching}
 
-Combining a `POST` request to a view with the `include_docs=true` query argument
-enables you to retrieve multiple documents from a database.
+Combining a `POST` request to a view with the `include_docs=true` query argument enables you to retrieve multiple documents from a database.
 
-For a client application,
-this technique is more efficient than using multiple [`GET`](#querying-a-view) API requests.
+For a client application, this technique is more efficient than using multiple [`GET`](#querying-a-view) API requests.
 
-However,
-`include_docs=true` might require extra processing time when compared to accessing the view on its own.
+However, `include_docs=true` might require extra processing time when compared to accessing the view on its own.
 
-The reason is that by using `include_docs=true` in a search,
-all of the result documents must be retrieved to construct the response for the client application.
-In effect,
-a whole series of document `GET` requests are run,
-each of which competes for resources with other application requests.
+The reason is that by using `include_docs=true` in a view query, all of the result documents must be retrieved to construct the response for the client application. In effect, a whole series of document `GET` requests are run, each of which competes for resources with other application requests.
 
-One way to mitigate this effect is by retrieving results directly from the Lucene index files.
-Do this by omitting `include_docs=true`.
-Instead,
-in your design document specify `store=true` and `index=false` on the fields you want retrieved by your query.
+One way to mitigate this effect is by retrieving results directly from the view index file. Do this by omitting `include_docs=true`. Instead, in the map function in a design document, emit the fields that are required as the value for the view index.
 
-For example,
-in your index function,
-you might use the following design specification:
+For example, in your map function, you might use the following design specification:
 
 ```javascript
-index("name", doc.name, {"store": true, "index": false});
+function(employee_doc) {
+    emit(employee_doc.number, {
+        employee_doc.training,
+        employee_doc.manager,
+        employee_doc.skills
+    });
+}
 ```
-{:codeblock}
-
-You might use the same approach for view indexes.
 
 _Example request using HTTP to obtain the full content of documents that match the listed keys:_
 
