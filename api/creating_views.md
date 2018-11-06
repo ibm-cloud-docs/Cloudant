@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-11-02"
 
 ---
 
@@ -117,6 +117,8 @@ _Example response from running the simple view query:_
 {:codeblock}
 
 ## Map function examples
+
+Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
 
 ### Indexing a field
 

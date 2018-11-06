@@ -43,9 +43,9 @@ _Example design document that defines a search index:_
 
 ## Index functions
 
-Attempting to index by using a data field that does not exist fails.
-To avoid this problem,
-use an appropriate [guard clause](#index-guard-clauses).
+Attempting to index by using a data field that does not exist fails. To avoid this problem, use an appropriate [guard clause](#index-guard-clauses).
+
+Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
 {: tip}
 
 Within a search index, do not index the same field name with more than one data type. If the 

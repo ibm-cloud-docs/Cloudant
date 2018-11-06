@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-10-30"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-09-27"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-03-01 -->
+<!-- Acrolinx: 2018-10-29 -->
 
 # Documents
 
@@ -22,11 +23,8 @@ Documents are containers for your data,
 and are the basis of the {{site.data.keyword.cloudantfull}} database.
 {:shortdesc}
 
-Documents are limited to a maximum size of 64 MB.
-
->   **Note**: If you are using a [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](../offerings/bluemix.html),
-    documents are limited to a maximum size of 1 MB.
-    Exceeding this limit causes a [`413` error](http.html#413).
+If you are using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](../offerings/bluemix.html), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](http.html#413).
+{: tip}
 
 All documents must have two fields:
 a unique `_id` field, and a `_rev` field.
@@ -35,8 +33,8 @@ The `_id` field is either created by you,
 or generated automatically as a
 [UUID ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){:new_window} by {{site.data.keyword.cloudant_short_notm}}.
 
->	**Note:** If you choose to specify the document `_id` field,
-	it must be limited to no more than 7168 characters (7k).
+If you choose to specify the document `_id` field, it must be limited to no more than 7168 characters (7k).
+{: tip}
 
 The `_rev` field is a revision number,
 and is [essential to the {{site.data.keyword.cloudant_short_notm}} replication protocol](../guides/mvcc.html).
@@ -186,8 +184,8 @@ _Example response after successfully creating a document:_
 ```
 {:codeblock}
 
->	**Note**: If the write [quorum](#quorum) cannot be met during an attempt to create a document,
-a [`202` response](http.html#202) is returned.
+If the write [quorum](#quorum) cannot be met during an attempt to create a document, a [`202` response](http.html#202) is returned.
+{: tip}
 
 ## Read
 
@@ -197,19 +195,10 @@ send a GET request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 If you do not know the `_id` for a particular document,
 you can [query the database](database.html#get-documents) for all documents.
 
->	**Note**: Due to the distributed,
-eventually consistent nature of {{site.data.keyword.cloudant_short_notm}},
-reads might return stale data.
-In particular,
-data that were written recently,
-even by the same client,
-might not be returned from a read request immediately following the write request.
-To work around this behavior,
-a client can cache the state of data locally.
-Caching also helps to keep request counts down,
-increase application performance,
-and decrease load on the database cluster.
-This behavior also applies to other read requests such as to MapReduce and search indexes.
+Due to the distributed, eventually consistent nature of {{site.data.keyword.cloudant_short_notm}}, reads might return stale data. In particular,
+data that were written recently, even by the same client, might not be returned from a read request immediately following the write request. To work around this behavior,
+a client can cache the state of data locally. Caching also helps to keep request counts down, increase application performance, and decrease load on the database cluster. This behavior also applies to other read requests such as to MapReduce and search indexes.
+{: tip}
 
 _Example of retrieving a document by using HTTP:_
 
@@ -299,15 +288,11 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 You can also use this `PUT` method to create a document,
 in which case you do not need to supply the most recent `_rev` value.
 
->   **Note**: If you fail to provide the most recent `_rev` when you attempt to update an existing document,
-    {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](http.html#409).
-    This error prevents you overwriting data that were changed by other processes.
-    If the write [quorum](#quorum) cannot be met, a [`202` response](http.html#202) is returned.
+If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](http.html#409). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum) cannot be met, a [`202` response](http.html#202) is returned.
+{: tip}
 
->   **Note**: Any document update can lead to a conflict,
-    especially when you replicate updated documents.
-    More information about avoiding and resolving conflicts is in
-    the [Document Versioning and MVCC guide](../guides/mvcc.html).
+Any document update can lead to a conflict, especially when you replicate updated documents. More information about avoiding and resolving conflicts is in the [Document Versioning and MVCC guide](../guides/mvcc.html).
+{: tip}
 
 _Example of using HTTP to update a document:_
 
@@ -391,20 +376,12 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 The response contains the ID and the new revision of the document,
 or an error message if the delete failed.
 
->	**Note**: If you fail to provide the most recent `_rev`,
-{{site.data.keyword.cloudant_short_notm}} responds with a [409 error](http.html#409).
-This error prevents you overwriting data that were changed by other clients.
-If the write [quorum](#quorum) cannot be met,
-a [`202` response](http.html#202) is returned.
+If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](http.html#409). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum) cannot be met, a [`202` response](http.html#202) is returned.
+{: tip}
 
->	**Note**: {{site.data.keyword.cloudant_short_notm}} does not completely delete the specified document.
-Instead,
-it leaves a [tombstone](#-tombstone-documents) with basic information about the document.
-The tombstone is required so that the delete action can be replicated to other copies of the database.
-Since the tombstones stay in the database indefinitely,
-creating new documents and deleting them increases the disk space usage of a database.
-They might also increase the query time for the primary index,
-which is used to look up documents by their ID.
+{{site.data.keyword.cloudant_short_notm}} does not completely delete the specified document. Instead, it leaves a [tombstone](#-tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
+creating new documents and deleting them increases the disk space usage of a database. They might also increase the query time for the primary index, which is used to look up documents by their ID.
+{: tip}
 
 _Example of using HTTP to delete a document:_
 
@@ -489,8 +466,8 @@ do the following steps:
 	When you are satisfied that everything is working correctly,
 	you might want to delete the old database.
 
->	**Note**: In general,
-try to design and implement your applications to do the minimum necessary amount of deletion.
+In general, try to design and implement your applications to do the minimum necessary amount of deletion.
+{: tip}
 
 _Example filter to exclude deleted documents during a replication:_
 
@@ -621,15 +598,12 @@ for example to be a new target for a replication,
 any clients that use the target database as a server _must_ work through _all_ the changes again,
 because the database sequence numbers are likely to be different.
 
->	**Note**: If you are using a `validate_doc_update` function,
-avoid replicating that function to clients.
-This rule is to prevent the possibility of unwanted side effects as a result of having the function present on the client.
+If you are using a `validate_doc_update` function, avoid replicating that function to clients. This rule is to prevent the possibility of unwanted side effects as a result of having the function present on the client.
+{: tip}
 
->	**Note**: [{{site.data.keyword.cloudant_short_notm}} Sync](../libraries/supported.html#mobile) libraries do not replicate design documents,
-so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
-However,
-other clients might replicate the design documents or `validate_doc_update` functions,
-potentially resulting in unwanted side effects.
+[{{site.data.keyword.cloudant_short_notm}} Sync](../libraries/supported.html#mobile) libraries do not replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
+However, other clients might replicate the design documents or `validate_doc_update` functions, potentially resulting in unwanted side effects.
+{: tip}
 
 ## Bulk Operations
 
@@ -643,7 +617,8 @@ you must provide the document ID,
 revision information,
 and new document values.
 
->	**Note:** A special case of bulk operations is the [`_bulk_get`](#the-_bulk_get-endpoint) endpoint.
+A special case of bulk operations is the [`_bulk_get`](#the-_bulk_get-endpoint) endpoint.
+{: tip}
 
 <div id="request-body"></div>
 
