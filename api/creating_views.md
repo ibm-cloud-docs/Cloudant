@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-02"
+lastupdated: "2018-11-08"
 
 ---
 
@@ -11,6 +11,8 @@ lastupdated: "2018-11-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+
+<!-- Acrolinx: 2018-05-31 -->
 
 <div id="working-with-views"></div>
 
@@ -118,7 +120,7 @@ _Example response from running the simple view query:_
 
 ## Map function examples
 
-Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
+The following sections describe indexing, complex keys, and reduce functions. 
 
 ### Indexing a field
 
@@ -332,6 +334,10 @@ but B-tree performance degrades
 dramatically. If your view works correctly with small data sets but quits 
 working when more data is added, you might have violated the growth rate 
 characteristic restriction. 
+
+### Execution environment
+
+Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
 
 ## Storing the view definition
 
