@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-07"
 
 ---
 
@@ -13,19 +13,22 @@ lastupdated: "2018-11-05"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-01-13 -->
+<!-- Acrolinx: 2018-10-30 -->
 
 # Search
 
-Search indexes,
-which are defined in design documents,
-allow databases to be queried by using
-[Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
+Search indexes enable you to query a database by using [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}. A search index uses one, or multiple, fields from your documents. You can use a search index to run queries, find documents based on the content they contain, or work with groups, facets, or geographical searches.
 {:shortdesc}
 
-Search indexes are defined by an index function,
-similar to a map function in [MapReduce views](creating_views.html#creating-views).
-The index function decides what data to index and store in the index.
+To create a search index, you add a JavaScript function to a design document in the database. An index builds after processing one search request and after the server detects a document update. The `index` function takes the following parameters: 
+
+1.  Field name - The name of the field you want to use when you query the index. If you set this parameter to `default`, then this field is queried if no field is specified in the query syntax.
+2.  Data that you want to index, for example, `doc.address.country`. 
+3.  (Optional) The third parameter includes the following fields: `boost`, `facet`, `index`, and `store`. These fields are described in more detail later.   
+
+By default, a search index response returns 25 rows. A result set from a search is limited to 200 rows. The number of rows that is returned can be changed by using the `limit` parameter. Each response includes a `bookmark` field. You can include the value of the `bookmark` field in later queries to look through the responses. 
+
+You can query the API by using one of the following methods: URI, {{site.data.keyword.cloudant_short_notm}} dashboard, curl, or a browser plug-in, such as Postman or RESTClient.
 
 _Example design document that defines a search index:_
 
