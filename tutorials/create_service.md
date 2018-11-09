@@ -39,7 +39,8 @@ to work with the database.
 3.  Click the `Databases` category and select the `Cloudant` service:<br/>
     ![{{site.data.keyword.cloud_notm}} Databases services](images/img0003.png)<br/>
 
-4.  In the service configuration window, enter a service name. Verify that the service name, region/location, resource group, and authentication method are correct. The authentication methods that are available include `Use only IAM` or `Use both legacy credentials and IAM`. For more information, see [authentication methods](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){:new_window}. 
+4.  In the service configuration window, enter a service name. Verify that the service name, region/location, resource group, and authentication method are correct. The authentication methods that are available include `Use only IAM` or `Use both legacy credentials and IAM`. For more information, see [authentication methods](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-)
+{:new_window}. 
     In this example, the service name is `Cloudant-o7`:<br/>
     ![{{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0005.png)
 
@@ -75,7 +76,8 @@ The service credentials in these examples were defined when a demonstration {{si
 
 Service credentials are valuable. If anyone or any application has access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
     
-{{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either `Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service credentials tab for your instance. For more information, see the [IAM guide](guides/iam.html#ibm-cloud-identity-and-access-management-iam-) and [legacy authentication](api/authentication.html#authentication) document for details about using either style of authentication.
+{{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either `Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials only if the `Use both legacy credentials and IAM` authentication method is chosen. The credentials display on the Service credentials tab for your instance. For more information, see the [IAM guide](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-)
+ and [legacy authentication](../api/authentication.html#authentication) document for details about using either style of authentication.
 
 The service credentials include the following fields:
 

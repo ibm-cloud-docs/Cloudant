@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-11-21"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-09-27"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2018-08-17 -->
 
 # Advanced replication
 {: #advanced-replication}
@@ -22,7 +22,7 @@ You can learn about advanced replication concepts and tasks, including maintaini
 {:shortdesc}
 
 You might also find it helpful to review details of the underlying
-[replication protocol ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/replication/protocol.html/){:new_window},
+[replication protocol ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/stable/replication/protocol.html){:new_window},
 and review the [Advanced Methods](advanced.html) material.
 
 ## Replication database maintenance
@@ -32,7 +32,7 @@ A replication database must be looked after like any other database.
 Without regular database maintenance,
 you might accumulate invalid documents that were caused by interruptions to the replication process.
 Having many invalid documents can result in an excess load on your cluster
-when the replicator process is restarted by {{site.data.keyword.cloudant_notm}} operations.
+when the replicator process is restarted by {{site.data.keyword.cloudantfull}} operations.
 
 The main action that you can do to maintain a replication database is to remove old documents.
 This action can be done by determining the age of documents,
@@ -45,7 +45,7 @@ The new {{site.data.keyword.cloudant_short_notm}} Replication Scheduler provides
 with the previous {{site.data.keyword.cloudant_short_notm}} replication mechanism.
 
 In particular,
-network usage during replication is more efficient. The scheduler factors in the current load for individual database nodes within a cluster
+network usage during replication is more efficient. The scheduler takes into account the current load for individual database nodes within a cluster
 when it determines the allocation of replication tasks.
 
 Finally,
@@ -90,7 +90,7 @@ The scheduler introduces two new endpoints:
 - [`/_scheduler/docs`](#the-_scheduler-docs-endpoint)
 - [`/_scheduler/jobs`](#the-_scheduler-jobs-endpoint)
 
-You can manage and determine replication status more quickly and easily when you use these endpoints.
+You can manage and determine replication status more quickly and easily by using these endpoints.
 
 The typical process for using the replication scheduler to manage and monitor replications is as follows:
 
@@ -126,7 +126,10 @@ Name      | Type                    | Description                               
 
 The endpoint uses document IDs as the primary identifier.
 This characteristic means that if you know the document ID,
-you can directly query that one particular document by using a `/_scheduler/docs/_replicator/$doc_id` query. The ID must be URL encoded. 
+you can directly query that one particular document by using a `/_scheduler/docs/_replicator/$doc_id` query. 
+
+The ID must be URL encoded. 
+{: tip}
 
 ### The `/_scheduler/jobs` endpoint
 {: #the-_scheduler-jobs-endpoint}
@@ -156,7 +159,10 @@ Name     | Type    | Description                                                
 #### The `/_scheduler/jobs/_replicator/$job_id` endpoint
 {: #the-_scheduler-jobs-_replicator-job_id-endpoint}
 
-The `/_scheduler/jobs/_replicator/$job_id` endpoint shows the state of a single replication task based on its replication ID. The ID must be URL encoded.
+The `/_scheduler/jobs/_replicator/$job_id` endpoint shows the state of a single replication task based on its replication ID. 
+
+The ID must be URL encoded.
+{: tip}
 
 ## Replication Status
 {: #replication-status}
@@ -177,7 +183,7 @@ the [replication document](#status-checking-by-using-the-replication-document) i
 You can use the replication scheduler to determine the status of replication. 
 
 To determine the current status of replication by using the replication scheduler,
-send a `GET` request to the `/_scheduler/docs` endpoint. See the following example. 
+send a `GET` request to the `/_scheduler/docs` endpoint.  
 
 _Example of using HTTP to get the replication status from the replication scheduler:_
 
@@ -220,7 +226,7 @@ _Example response (abbreviated) from the replication scheduler:_
 ```
 {:codeblock}
 
-The response that is received from the replication scheduler shows the history and current status of all replications.
+The response that is received from the replication scheduler shows the history and status of all replications.
 
 _Example of using the command line to find jobs with the `limit` and `skip` parameters:_
 
@@ -349,7 +355,7 @@ _Example response from using the `_job_id` parameter:_
 ```
 {:codeblock}
 
-The response that is received from the replication scheduler shows the history and current status of all replications.
+The response that is received from the replication scheduler shows the history and status of all replications.
 
 <div id="status-checking-using-the-replication-document"></div>
 
@@ -628,7 +634,7 @@ for admins,
 the `user_ctx` property can be used to trigger a replication on behalf of another user.
 This user context is passed to local target database document validation functions.
 
-The `user_ctx` property applies for local endpoints only.
+The `user_ctx` property applies to local endpoints only.
 {: tip}
 
 In summary,
@@ -700,7 +706,7 @@ see [here](attachments.html#performance-considerations).
 ## The `/_replicate` endpoint
 {: #the-_replicate-endpoint}
 
-It is preferable to use the [Replicator scheduler](#the-replication-scheduler) to manage replication.
+It is preferable to use the [replicator scheduler](#the-replication-scheduler) to manage replication.
 Details of why are provided [here](#avoiding-the-_replicate-endpoint).
 {: tip}
 

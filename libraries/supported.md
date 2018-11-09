@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-21"
 
 ---
 
@@ -16,8 +16,10 @@ lastupdated: "2018-10-24"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Supported client libraries
+{: #supported-client-libraries}
 
 ## Mobile
+{: #mobile}
 
 The {{site.data.keyword.cloudantfull}} Sync library is used to store,
 index,
@@ -36,6 +38,7 @@ An [overview ![External link icon](../images/launch-glyph.svg "External link ico
 Details of {{site.data.keyword.cloudant_short_notm}} Sync [resources ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/cloudant-sync-resources/){:new_window} are also available.
 
 ## Java
+{: #java}
 
 [java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){:new_window} is the official {{site.data.keyword.cloudantfull}} library for Java.
 
@@ -44,12 +47,15 @@ Information about installing the library by adding it as a dependency to your Ma
 along with details and examples of how to use the library.
 
 ### Libraries and frameworks for Java
+{: #libraries-and-frameworks-for-java}
 
 #### Supported library for Java
+{: #supported-library-for-java}
 
 -   [java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){:new_window}.
 
 #### Unsupported libraries for Java
+{: #unsupported-for-libraries-for-java}
 
 -   [ektorp ![External link icon](../images/launch-glyph.svg "External link icon")](https://helun.github.io/Ektorp/reference_documentation.html){:new_window}.
 -   [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){:new_window}.
@@ -58,15 +64,16 @@ along with details and examples of how to use the library.
 -   [Java Cloudant Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=CloudantJavaBPTemplate&fromCatalog=true){:new_window} boilerplate for {{site.data.keyword.cloud}}.
 
 ### Examples and tutorials for Java
+{: #examples-and-tutorials-for-java}
 
 -   [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/java){:new_window} with HTTP and JSON libraries.
 -   [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/java/CrudWithEktorp){:new_window} with ektorp library.
 -   [Building apps by using Java with {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud}}![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/building-apps-using-java-with-cloudant-on-ibm-bluemix/){:new_window}.
--   [Build a game app with Liberty, {{site.data.keyword.cloudant_short_notm}}, and Single Sign On ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/cloud/library/cl-multiservicegame-app/index.html?ca=drs-){:new_window} {{site.data.keyword.cloud_notm}} example.
 -   [Building a Java EE app on {{site.data.keyword.cloud_notm}} by using Watson and {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/bluemix/2014/10/17/building-java-ee-app-ibm-bluemix-using-watson-cloudant/){:new_window} {{site.data.keyword.cloud_notm}} example along with [YouTube video ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?feature=youtu.be&v=9AFMY6m0LIU&app=desktop){:new_window}.
 
 
 ## Node.js
+{: #node-js}
 
 [nodejs-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){:new_window}
 is the official {{site.data.keyword.cloudant_short_notm}} library for Node.js.
@@ -78,12 +85,15 @@ npm install cloudant
 {:codeblock}
 
 ### Libraries and frameworks for node.js
+{: #libraries-and-frameworks-for-node-js}
 
 #### Supported library for node.js
+{: #supported-library-for-node-js}
 
 -   [nodejs-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/cloudant){:new_window}).
 
 #### Unsupported libraries and frameworks for node.js
+{: #unsupported-libraries-and-frameworks-for-node-js}
 
 -   [sag-js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){:new_window}, which also works in the browser.
     See [saggingcouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/saggingcouch.com){:new_window} for more detail.
@@ -97,6 +107,7 @@ npm install cloudant
 -   [Mobile Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=mobileBackendStarter&fromCatalog=true){:new_window} - boiler plate for {{site.data.keyword.cloud_notm}} (Node.js, Security, Push, and Mobile Data/{{site.data.keyword.cloudant_short_notm}}).
 
 ### Examples and tutorials for node.js
+{: #examples-and-tutorials-for-node-js}
 
 -   [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/nodejs){:new_window}.
 -   [Cloudant-Uploader ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/garbados/Cloudant-Uploader){:new_window} - utility to upload `.csv` files to {{site.data.keyword.cloudant_short_notm}}.
@@ -109,16 +120,19 @@ npm install cloudant
 -   [Do it yourself: Build a remote surveillance application by using {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Raspberry Pi. ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/library/ba-remoteservpi-app/index.html){:new_window}.
 
 ## Python
+{: #python}
 
 A supported library for working with {{site.data.keyword.cloudant_short_notm}} by using Python is
 available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/python-cloudant){:new_window}.
 
->   **Note:** Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://pip.readthedocs.io/en/1.1/requirements.html){:new_window}.
+Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://pip.readthedocs.io/en/1.1/requirements.html){:new_window}.
+{: tip}
 
 Download the current library release [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://pypi.python.org/pypi/cloudant/){:new_window}.
 Learn more information about the Python language at [python.org ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/about/){:new_window}. 
 
 ## Swift
+{: #swift}
 
 A supported library is available for working with {{site.data.keyword.cloudant_short_notm}}.
 The library is called SwiftCloudant,
@@ -132,7 +146,7 @@ pod 'SwiftCloudant'
 {:codeblock}
 
 More information about SwiftCloudant,
-including details of installation and how to use the library to store,
+including details about installation and how to use the library to store,
 index,
 and query remote JSON data on {{site.data.keyword.cloudant_short_notm}},
 is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/swift-cloudant){:new_window}.
@@ -141,4 +155,5 @@ The library is an early release version.
 As such,
 it does not currently have complete {{site.data.keyword.cloudant_short_notm}} API coverage. 
 
->   **Note**: SwiftCloudant is not supported on iOS, and you cannot call it from Objective-C.
+SwiftCloudant is not supported on iOS, and you cannot call it from Objective-C.
+{: tip}

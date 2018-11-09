@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-11-09"
 
 ---
 
@@ -580,7 +580,7 @@ Removed for 96973.
 </tr>
 <tr>
 <td headers="endpoint&links"><code>POST&nbsp;/{db}/\_missing\_revs</code><p>
-<a href='advanced.html#-get-database-_missing_revs-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='advanced.html#-get-database_missing_revs-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/misc.html#post--db-\_missing\_revs' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/misc.html#post--db-\_missing\_revs' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td headers="description">Return the document revisions from the given list that do not exist in the database.</td>
