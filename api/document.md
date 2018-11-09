@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-30"
+lastupdated: "2018-11-09"
 
 ---
 
@@ -438,8 +438,7 @@ When the replication completes,
 the tombstones are no longer required.
 Automatic compaction helps ensure that only the minimal amount of data is retained and transferred during replication.
 Nevertheless,
-tombstone documents are not automatically removed,
-or 'purged'.
+tombstone documents are not automatically removed, or 'd'.
 
 Over time,
 as documents are created and deleted,
@@ -604,6 +603,162 @@ If you are using a `validate_doc_update` function, avoid replicating that functi
 [{{site.data.keyword.cloudant_short_notm}} Sync](../libraries/supported.html#mobile) libraries do not replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
 However, other clients might replicate the design documents or `validate_doc_update` functions, potentially resulting in unwanted side effects.
 {: tip}
+
+## Purge
+
+The {{site.data.keyword.cloudant_short_notm}} purge API is not available for customer use due to its potential impact to database functions such as indexing, replication, and the `_changes` feed. Customers who wish to purge documents must first read this documentation section to fully understand the ramifications of purging a document versus deleting it. In order to purge documents, customers must contact support with a list of document `_id` and `_rev` pairs.
+
+Unlike [deleting a document](#delete),
+purging a document removes all references to that document from the database.
+Following a purge,
+the affected documents are no longer available and cannot be listed by using the [`_all_docs`](database.html#get-documents)
+or [`_changes`](database.html#get-changes) commands.
+When you request a purge of a document,
+it does not matter whether a document still exists,
+or was [deleted](#delete) previously.
+
+A purge request must identify the `leaf` version of a document.
+In other words,
+you must specify the _last_ revision of a document.
+If you request a purge of an earlier revision of a document,
+while a more recent revision still exists,
+nothing happens.
+
+When a purge is requested,
+it affects the specified ('leaf') version of a document,
+_and_ all its predecessor versions.
+This effect is necessary to ensure that all references to the document can be removed from the database.
+However,
+if a document version is _also_ present within another revision branch,
+then the purging process halts before it removes the version that would 'orphan' the revision branch.
+
+<div id="sampleDocumentStructure"></div>
+
+For example,
+in the following diagram,
+an original document with revision value `1-7a7e4b29f3af401e69b6f86e4c26b727`
+was modified by two separate applications.
+These modifications resulted in two separate revision branches.
+
+![Document with two revision branches](../images/fb86021a.png)
+
+Suppose that a decision is taken to purge the document branch
+that ends in revision value `4-53b84f8bf5539a7fb7f8074d1f685e5e`.
+
+Beginning with the specified revision,
+all references to each 'ancestor' version of the document are removed from the database.
+However,
+the document with revision value `1-7a7e4b29f3af401e69b6f86e4c26b727` is
+an ancestor of revision `4-53b84f8bf5539a7fb7f8074d1f685e5e`
+_and_ revision `2-98e2b4ecd9a0da76fe8b83a83234ee71`.
+Therefore,
+document `1-7a7e4b29f3af401e69b6f86e4c26b727` is _not_ removed from the database.
+The resulting document structure looks like the following diagram.
+
+![Purged document with one remaining revision branches](../images/fb86021b.png)
+
+A subsequent request to purge the document with revision `2-98e2b4ecd9a0da76fe8b83a83234ee71`
+results in the removal of _all_ the revisions
+because no revision branches are left in an orphan state by the purge.
+
+### Deciding between purge or delete
+
+You might want to purge rather than delete a document for two reasons.
+
+1.  You want to remove a document that is not needed anymore.
+    Purging all leaf revisions of a document causes the complete purging of the document.
+    Purging enables the database to reclaim the disk space that is used by a document.
+    The disk space is reclaimed after the database runs an internal compaction task.
+2.  You want to get rid of conflicts.
+    If a document has several revision branches,
+    for example after two separate applications updated the document independently,
+    purging all but one of these branches leads to the partial purging of the document.
+    The document remains available in the database,
+    but in a new form without the purged branches and revisions.
+    A new record is created in the [`_changes`](database.html#get-changes) for this document.
+
+### Purging and replication
+
+Purging a document from a database might require corresponding changes to other copies of the database.
+
+Where the copy is a system-level replica of a database -
+an 'internal' replica -
+that was created automatically as part of the distributed nature of Cloudant,
+then a document purge from one copy is automatically replicated to the other copies.
+
+This automatic replication is made possible by an internal database purge record.
+The number of records that are stored is defined by a `purged_docs_limit` parameter.
+When a document purge is requested,
+the details of that request and its outcome are stored in the purge record.
+
+During a replication,
+the database purge records are reconciled to ensure that
+the details of which documents were purged are replicated correctly and automatically.
+
+However,
+if you created your own or 'external' copy of a database,
+perhaps where the copy contains a subset of information from the original database,
+then a document purge is not automatically replicated.
+This is because the 'subset' database is not an 'internal' replica of the original database.
+Therefore,
+if you request a document purge in a database,
+you must consider whether a corresponding document purge is also requested for the other 'external' databases.
+
+This check is especially important when a document purge removes all revisions of a document.
+Replication between databases depends on the information in the `_changes` feed.
+If all revisions of a document within a database are purged,
+no information about the document appears within the `_changes` feed.
+Therefore,
+after all revisions of a document are purged from within a database,
+automatic replication of the purge might not be possible by using the `_changes` feed alone.
+
+The safest approach after you request a document purge is to specifically request the corresponding purge on all other external copies of the database. A purge request for a document that was already purged has no effect. In particular, no error is generated if the document was already purged.
+{: tip}
+
+### Purging and indexes
+
+Database indexes,
+including [views](using_views.html),
+[search](search.html),
+and [geo](cloudant-geo.html) indexes,
+are automatically updated for all purge requests.
+All indexes support multiple purge requests,
+and should never need to be rebuilt because of a purge request.
+
+Depending on which documents are affected by a purge request,
+it might not be necessary to update an index:
+
+-	If a document is not changed as a result of a purge request,
+	no change is needed for indexes that include the document.
+-	If a document is removed,
+	or the remaining 'winning' revision of the document changes,
+	as a result of a purge request,
+	then any index that originally included the document as part of the index scope is updated.
+
+In particular,
+if a purge request applies to a document that has more than one revision branch,
+and after the purge a different document revision applies - or 'wins' - rather than the one originally used in an index,
+then the index is updated.
+
+For example,
+looking at the [earlier revision branch structure](#sampleDocumentStructure),
+an index might include document revision `4-53b84f8bf5539a7fb7f8074d1f685e5e`.
+After the purge,
+revision `2-98e2b4ecd9a0da76fe8b83a83234ee71` remains.
+Therefore,
+the index is updated by using revision `2-98e2b4ecd9a0da76fe8b83a83234ee71`.
+
+There are several possible indexes within a database,
+including the MapReduce View ([`_view`](using_views.html)),
+the Search Index ([`_search`](search.html)),
+and the Geospatial Index ([`_geo`](cloudant-geo.html)).
+Each index keeps its own purge sequence record.
+The purge sequence record stored for an index can be much smaller than the database's purge sequence record.
+
+### Database compaction after a purge
+
+Storage space that was used by purged documents is reclaimed automatically when a database compaction runs.
+
 
 ## Bulk Operations
 
