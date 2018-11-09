@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-30"
+lastupdated: "2018-11-08"
 
 ---
 
@@ -15,9 +15,9 @@ lastupdated: "2018-10-30"
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Configuring {{site.data.keyword.cloudant_short_notm}} for Cross Region Disaster Recovery
+# Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery
 
-The [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](disaster-recovery-and-backup.html)
+The [{{site.data.keyword.cloudant_short_notm}} disaster recovery guide](disaster-recovery-and-backup.html)
 explains that one way to enable disaster recovery is to use
 [{{site.data.keyword.cloudantfull}} replication to create redundancy across regions.
 

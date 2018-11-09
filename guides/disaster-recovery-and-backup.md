@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-08"
 
 ---
 
@@ -15,7 +15,7 @@ lastupdated: "2018-10-24"
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Disaster Recovery and Backup
+# Disaster recovery and backup
 
 Your data is important and valuable.
 You want to protect your data,
