@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-21"
 
 ---
 
@@ -48,7 +48,7 @@ By using the slider in the {{site.data.keyword.cloudant_short_notm}} dashboard, 
 The amount that you can change the throughput capacity is limited to a maximum of 10 units per change (notice the 'change limit' point on the slider) with a maximum of one change per hour. Changes downward are unlimited in magnitude, but still subject to the time limit.
 {: tip}
 
-You are billed on the highest capacity that is selected in any given hourly window. Your database throughput can scale up to deal with seasonal demands and scale down again for the quiet times. At all times, your monthly bill is predictable; upgrades are automatic; and your SLA is [99.95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm-6627-03).
+You are billed on the highest capacity that is selected in any given hourly window. Your database throughput can scale up to deal with seasonal demands and scale down again for the quiet times. At all times, your monthly bill is predictable; upgrades are automatic; and your SLA is [99.95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument).
 
 If you exceed your quota of lookups, writes, and queries in a given second, the {{site.data.keyword.cloudant_short_notm}} cluster responds with an `HTTP 429` response. Your application might retry the request later - our official libraries offer the option of retrying such requests with an exponential back off. 
 
@@ -134,7 +134,7 @@ Conduct load and functional testing on your application to ensure that there are
 
 ### Step 6: Ready to move to the new instance?
 
-When you are ready to move to the new instance, update your application with the new auto-generated account URL and credentials for the {{site.data.keyword.cloudant_short_notm}} instance. For more information, see the [provisioning tutorial](../tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix) about how to obtain the service credentials for an {{site.data.keyword.cloudant_short_notm}} instance.
+When you are ready to move to the new instance, update your application to use  the new account URL and credentials for the {{site.data.keyword.cloudant_short_notm}} instance. For more information, see the [provisioning tutorial](../tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix) about how to obtain the service credentials for an {{site.data.keyword.cloudant_short_notm}} instance.
 
 ### Step 7: Turn off the old service
 

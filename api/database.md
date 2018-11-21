@@ -918,8 +918,8 @@ _Example response that is received after a database is deleted successfully:_
 ## Backing up your data
 
 You must protect your data by taking good quality backups.
-An overview of backing up your data is [available](backup.html),
-with more detailed information in the [backup guide](../guides/backup-guide.html).
+An overview of backing up your data is [available](..guides/backup-cookbook.html),
+with more detailed information in the [backup guide](../guides/backup-guide-using-replication.html).
 
 <!--
 Removed for 96973.
