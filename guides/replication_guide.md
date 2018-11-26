@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-26"
 
 ---
 
@@ -16,6 +16,7 @@ lastupdated: "2018-10-24"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Replication
+{: #replication}
 
 Data can be copied from one database to another in the same {{site.data.keyword.cloudantfull}} account,
 across accounts and across data centers.
@@ -36,6 +37,7 @@ discusses common use cases,
 and shows how to make your application replicate successfully.
 
 ## What is Replication?
+{: #what-is-replication}
 
 {{site.data.keyword.cloudant_short_notm}} is a distributed JSON data store with an HTTP API.
 {{site.data.keyword.cloudant_short_notm}} can be run as a service on multiple clouds,
@@ -82,6 +84,7 @@ Each job changes state from `Running` to `Completed` as it progresses.
 <div id="how-do-i-run-replication-across-different-cloudant-accounts-"></div>
 
 ## How to run replication across different {{site.data.keyword.cloudant_short_notm}} accounts
+{: #how-to-run-replication-across-different-ibm-cloudant-accounts}
 
 The source and target of a replication are URLs of {{site.data.keyword.cloudant_short_notm}} databases,
 as shown in the following example.
@@ -104,6 +107,7 @@ and you must be authorized to write to the target.
 <div id="do-i-run-replication-on-the-source-or-the-destination-"></div>
 
 ## Is replication run on the source or the destination?
+{: #is-replication-run-on-the-source-or-the-destination}
 
 Replication can be started at either the source or the destination end.
 This choice means that you can decide whether account A is pushing data to account B,
@@ -117,6 +121,7 @@ The decision as to which device starts replication is yours.
 <div id="how-do-i-initiate-replication-via-the-cloudant-api-"></div>
 
 ## How to start replication by using the {{site.data.keyword.cloudant_short_notm}} API
+{: #how-to-start-replication-by-using-the-ibm-cloudant-api}
 
 Every {{site.data.keyword.cloudant_short_notm}} account has a special database that is called `_replicator`,
 into which replication jobs can be inserted.
@@ -164,6 +169,7 @@ _Example JSON document that describes the wanted replication:_
 {:codeblock}
 
 ## How does replication affect the list of changes?
+{: #how-does-replication-affect-the-list-of-changes-}
 
 You can get a list of changes made to a document by using
 the [`_changes` endpoint](../api/database.html#get-changes).
@@ -177,8 +183,8 @@ The [CAP Theorem](cap_theorem.html) discussion makes it clear that
 This model means that if you asked two different replicas of a database for a document,
 at the same time,
 you might get different results if one of the database copies is still waiting to finish replication.
-_Eventually_,
-the database copies complete their replication,
+Eventually,
+the database copies complete their replication
 so that all the changes to a document are present in each copy.
 
 This 'eventual consistency' model has two characteristics that affect a list of changes:
@@ -224,6 +230,7 @@ might vary between two different copies of the database.
 <div id="what-this-means-for-the-list-of-changes"></div>
 
 ### What 'eventual consistency' means for the list of changes
+{: #what-eventual-consistency-means-for-the-list-of-changes}
 
 When you request a list of changes,
 the response you get might vary depending on which database copy supplies the list.
@@ -245,6 +252,7 @@ Idempotency means that the application must be able safely to receive the same d
 and potentially if a different order for repeated requests.
 
 ## Checkpoints
+{: #checkpoints}
 
 Internally,
 the replication process writes its state in "checkpoint" documents that are stored
@@ -256,9 +264,10 @@ Checkpoint creation can be prevented by supplying the
 It is helpful to leave the feature on if your replication is to resume efficiently from its last known position.
 
 ## Permissions
+{: #permissions}
 
 Admin access is necessary to insert a document into the `_replicator` database.
-The login credentials that are supplied in the source and target parameters do not require full admin rights.
+The login credentials that are supplied in the source and target parameters do not require full admin permissions.
 It is sufficient if the credentials are able to:
 
 -   Write documents at the destination end.
@@ -281,6 +290,7 @@ on a per-database basis.
 They can also be created [programmatically](../api/authorization.html#creating-api-keys) by using the {{site.data.keyword.cloudant_short_notm}} API.
 
 ## Two-way replication
+{: #two-way-replication}
 
 Data can be copied in both directions in a process that is known as two-way replication or synchronization.
 You enable this synchronization by setting up two separate replication processes,
@@ -292,6 +302,7 @@ with data moved seamlessly in both directions.
 ![replication6](../images/replication_guide_6.png)
 
 ## Continuous replication
+{: #continuous-replication}
 
 So far,
 the discussion deals only with one-shot replication,
@@ -339,6 +350,7 @@ _Example of a JSON document that defines a continuous replication:_
 {:codeblock}
 
 ## Monitoring replication
+{: #monitoring-replication}
 
 You can check the status of {{site.data.keyword.cloudant_short_notm}}’s `_replicator` database at any time,
 by using the dashboard or the API.
@@ -383,7 +395,10 @@ _Example response to requesting the status of a replication:_
 ```
 {:codeblock}
 
+When you replicate, if any documents or attachments exceed the maximum limit on the target, replication fails. Each document write failure increases the replication statistic count in `doc_write_failures`. For this reason, you are urged to monitor that field.
+
 ## Canceling replication
+{: #canceling-replication}
 
 To stop an ongoing replication job,
 delete the replication document from the `_replicator` database,
@@ -407,10 +422,10 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 
 ## Other replication use cases
 
-Replication isn’t just for {{site.data.keyword.cloudant_short_notm}}-to-{{site.data.keyword.cloudant_short_notm}} data transfer.
 {{site.data.keyword.cloudant_short_notm}}’s replication protocol is compatible with other databases and libraries for various real-world applications.
 
 ### Apache CouchDB
+{: #apache-couchdb}
 
 [Apache CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){:new_window} is an open source database
 that can communicate with {{site.data.keyword.cloudant_short_notm}},
@@ -427,6 +442,7 @@ Applications include:
     and analysis.
 
 ### PouchDB
+{: #pouchdb}
 
 [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window} is an open source,
 in-browser database that allows data to be replicated in both directions between the browser and {{site.data.keyword.cloudant_short_notm}}.
@@ -445,6 +461,7 @@ db.sync(URL, { live: true });
 {:codeblock}
 
 ### CloudantSync
+{: #cloudantsync}
 
 [CloudantSync ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/cloudant-sync-resources/){:new_window} is a set of libraries
 for iOS and Android that allows data to be stored locally in a mobile device
@@ -470,6 +487,7 @@ where the application's state is persisted to {{site.data.keyword.cloudant_short
 but the data is also available on the device for offline use.
 
 ## Filtered Replication
+{: #filtered-replication}
 
 It is useful to be able to remove some data during the replication process,
 when you replicate one database to another.
@@ -483,6 +501,7 @@ Examples include:
 <div id="replication-filter-function"></div>
 
 ### Replication filter functions
+{: #replication-filter-functions}
 
 {{site.data.keyword.cloudant_short_notm}}’s filtered replication allows the definition of a JavaScript function that uses the return value
 to determine whether each document in a database is to be filtered or not.
@@ -547,6 +566,7 @@ _Example of a JSON document that defines a filtered replication:_
 {:codeblock}
 
 ## Changes feed
+{: #changes-feed}
 
 {{site.data.keyword.cloudant_short_notm}} publishes the adds,
 edits,
@@ -615,7 +635,7 @@ Authorization: ...
 ```
 {:codeblock}
 
-_Example (abbreviated) of using the command line to supply the `since` option to join a `_changes` feed at a known position,:_
+_Example (abbreviated) of using the command line to supply the `since` option to join a `_changes` feed at a known position:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -691,16 +711,26 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
     {: tip}
 
 ## Replication Pitfalls
+{: #replication-pitfalls}
+
+To replicate successfully, the sum of the document size and all attachment sizes must be less than the maximum request size of the target cluster. For example, if the maximum HTTP request size is 11 MB, then the following scenarios apply:
+
+Document size | Attachment size | Total size | Replicates?
+--------------|----------------------|------------|------------
+1 MB | Five 2-MB attachments | 11 MB | yes
+1 MB | One 10-MB attachment | 11 MB | yes
+0 MB | One hundred 1-MB attachments | 100 MB | no
 
 Several considerations apply when you use replication.
 
 ### Incorrect user permissions
+{: #incorrect-user-permissions}
 
 For replication to proceed optimally when you replicate from database "a" to database "b",
 the credentials that are supplied must have:
 
-*   `_reader` and `_replicator` rights on database "a".
-*   `_writer` rights on database "b".
+*   `_reader` and `_replicator` permissions on database "a".
+*   `_writer` permissions on database "b".
 
 API keys are generated in the {{site.data.keyword.cloudant_short_notm}} dashboard or [through the API](../api/authorization.html#creating-api-keys).
 Each key can be given individual rights that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
@@ -712,6 +742,7 @@ The reason is that without checkpoints,
 the replication process restarts from the beginning each time that it is resumed.
 
 ### Replication document is conflicted
+{: #replication-document-is-conflicted}
 
 Another consequence of setting user permissions incorrectly is that the `_replicator` document becomes conflicted.
 The `_replicator` document records the current state of the replication process.
@@ -767,8 +798,9 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 {:codeblock}
 
 ### Many simultaneous replications
+{: #many-simultaneous-replications}
 
-It is easy to forget that you previously set-up replication between two databases,
+It is easy to forget that you previously set up replication between two databases,
 and so create extra replication processes in error.
 Each replication job is independent of the other,
 so {{site.data.keyword.cloudant_short_notm}} does not prevent you from doing creating extra replication processes.
@@ -779,6 +811,7 @@ to ensure that there are no unwanted replication tasks in progress.
 Delete any `_replicator` documents that are no longer needed.
 
 ## Tuning replication speed
+{: #tuning-replication-speed}
 
 By default,
 {{site.data.keyword.cloudant_short_notm}} replication runs at an appropriate rate to get the data from the source to the target
