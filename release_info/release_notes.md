@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-05"
+lastupdated: "2018-11-27"
 
 ---
 
@@ -25,6 +25,17 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 {: #dedicated-hardware}
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build j7426 (November 15, 2018)
+{: #build-j7426-november-15-2018}
+
+- Include [CRN](/docs/overview/crn.html) in audit logs.
+- Replicator stability improvements.
+- Improve validation of `q` parameter on database creation. See [COUCHDB-1582 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1582){:new_window}.
+- Fix error in `_bulk_get` endpoint for the `_users` database. See [COUCHDB-1650 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1650){:new_window}.
+- Fix JavaScript URL rewrites hanging on `POST` or `PUT` requests. See [COUCHDB-1612 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1612){:new_window}.
+- Fix invalid `reduce` functions in {{site.data.keyword.cloudant_short_notm}} Query indexes that prevent indexing. See [COUCHDB-1666 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1666){:new_window}.
+- Internal bug fixes to data compression, search, and core database components.
 
 ## Build 7410 (November 04, 2018)
 {: #build-7410-november-04-2018}
