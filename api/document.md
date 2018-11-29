@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-09"
+lastupdated: "2018-11-29"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-11-09"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-10-29 -->
+<!-- Acrolinx: 2018-11-29 -->
 
 # Documents
 
@@ -681,79 +681,26 @@ You might want to purge rather than delete a document for two reasons.
 
 Purging a document from a database might require corresponding changes to other copies of the database.
 
-Where the copy is a system-level replica of a database -
-an 'internal' replica -
-that was created automatically as part of the distributed nature of Cloudant,
-then a document purge from one copy is automatically replicated to the other copies.
-
-This automatic replication is made possible by an internal database purge record.
-The number of records that are stored is defined by a `purged_docs_limit` parameter.
-When a document purge is requested,
-the details of that request and its outcome are stored in the purge record.
-
-During a replication,
-the database purge records are reconciled to ensure that
-the details of which documents were purged are replicated correctly and automatically.
-
-However,
-if you created your own or 'external' copy of a database,
-perhaps where the copy contains a subset of information from the original database,
-then a document purge is not automatically replicated.
-This is because the 'subset' database is not an 'internal' replica of the original database.
-Therefore,
-if you request a document purge in a database,
-you must consider whether a corresponding document purge is also requested for the other 'external' databases.
-
-This check is especially important when a document purge removes all revisions of a document.
-Replication between databases depends on the information in the `_changes` feed.
-If all revisions of a document within a database are purged,
-no information about the document appears within the `_changes` feed.
-Therefore,
-after all revisions of a document are purged from within a database,
-automatic replication of the purge might not be possible by using the `_changes` feed alone.
+When replicating a database within or between {{site.data.keyword.cloudant_short_notm}} accounts, or to a CouchDB instance outside {{site.data.keyword.cloudant_short_notm}}, document purges are not replicated to the target databases. In addition, if the database where the documents were purged is the target of a replication, then the purged documents can be re-created as a result of that replication. This is because purging removes all traces of the document from a database, which among other things makes it invisible to the replication process.
 
 The safest approach after you request a document purge is to specifically request the corresponding purge on all other external copies of the database. A purge request for a document that was already purged has no effect. In particular, no error is generated if the document was already purged.
-{: tip}
+
+To avoid these issues, a purge must be carried out on all copies of a database during a period where replication is stopped between affected databases. See the following example:
+
+1. Stop replications between all copies of the database with documents that require purging.
+2. Request documents be purged from all copies, and perform purges on CouchDB-hosted databases you manage.
+3. Reinstate the replications stopped in step 1.
 
 ### Purging and indexes
 
-Database indexes,
-including [views](using_views.html),
-[search](search.html),
-and [geo](cloudant-geo.html) indexes,
-are automatically updated for all purge requests.
-All indexes support multiple purge requests,
-and should never need to be rebuilt because of a purge request.
+Database indexes, including [views](using_views.html), [search](search.html), and [geo](cloudant-geo.html) indexes, are automatically updated during all purge operations. All indexes support multiple purge requests, and in particular do not need to be completely rebuilt because of a purge request.
 
-Depending on which documents are affected by a purge request,
-it might not be necessary to update an index:
+Indexes need updating only when:
 
--	If a document is not changed as a result of a purge request,
-	no change is needed for indexes that include the document.
--	If a document is removed,
-	or the remaining 'winning' revision of the document changes,
-	as a result of a purge request,
-	then any index that originally included the document as part of the index scope is updated.
+1. A document's winning revision changes as a result of a purge request.
+2. A document is completely removed as part of the purge request.
 
-In particular,
-if a purge request applies to a document that has more than one revision branch,
-and after the purge a different document revision applies - or 'wins' - rather than the one originally used in an index,
-then the index is updated.
-
-For example,
-looking at the [earlier revision branch structure](#sampleDocumentStructure),
-an index might include document revision `4-53b84f8bf5539a7fb7f8074d1f685e5e`.
-After the purge,
-revision `2-98e2b4ecd9a0da76fe8b83a83234ee71` remains.
-Therefore,
-the index is updated by using revision `2-98e2b4ecd9a0da76fe8b83a83234ee71`.
-
-There are several possible indexes within a database,
-including the MapReduce View ([`_view`](using_views.html)),
-the Search Index ([`_search`](search.html)),
-and the Geospatial Index ([`_geo`](cloudant-geo.html)).
-Each index keeps its own purge sequence record.
-The purge sequence record stored for an index can be much smaller than the database's purge sequence record.
+For example, looking at the earlier revision branch structure, an index might include document revision 4-53b84f8bf5539a7fb7f8074d1f685e5e. After the purge, revision 2-98e2b4ecd9a0da76fe8b83a83234ee71 remains. Therefore, the index is updated by using revision 2-98e2b4ecd9a0da76fe8b83a83234ee71.
 
 ### Database compaction after a purge
 
