@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-02"
 
 ---
 
@@ -27,16 +27,12 @@ to work with the database.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [http://console.bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
+    [http://console.bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://console.bluemix.net){:new_window}.
     After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.cloud_notm}} dashboard without any service instances:<br/>
+    you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click `Catalog` from the menu. <br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
-2.  Click the `Create resource` button:<br/>
-    ![{{site.data.keyword.cloud_notm}} catalog link](images/img0002.png)<br/>
-    A list of the services available on {{site.data.keyword.cloud_notm}} appears.
-
-3.  Click the `Databases` category and select the `Cloudant` service:<br/>
+2.  Click `Databases` from the left navigation and `Cloudant` from the list of database services:<br/>
     ![{{site.data.keyword.cloud_notm}} Databases services](images/img0003.png)<br/>
 
 4.  In the service configuration window, enter a service name. Verify that the service name, region/location, resource group, and authentication method are correct. The authentication methods that are available include `Use only IAM` or `Use both legacy credentials and IAM`. For more information, see [authentication methods](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-02"
 
 ---
 
@@ -29,30 +29,27 @@ for creating an {{site.data.keyword.cloud}} application.
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After you authenticate with your user name and password,
-    the {{site.data.keyword.cloud_notm}} dashboard appears:</br>
+    the {{site.data.keyword.cloud_notm}} dashboard appears. Click `Catalog` from the menu:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
-2.  Click the `Create resource` button:<br/>
-    ![{{site.data.keyword.cloud_notm}} create resource button](images/img0002.png)<br/>
-    A list of the services available on {{site.data.keyword.cloud_notm}} appears.
 
-3.  Click the `Compute` category:<br/>
+2.  Click the `Compute` category:<br/>
     ![{{site.data.keyword.cloud_notm}} Cloud Foundry Apps](images/img0012.png)<br/>
     A list of the various services and apps that are available on {{site.data.keyword.cloud_notm}} appears.
 
-4.  Scroll down to the `Cloud Foundry` section and click the `Python` entry:<br/>
+3.  Scroll down to the `Cloud Foundry` section and click the `Python` entry:<br/>
     ![{{site.data.keyword.cloud_notm}} Python App](images/img0013.png)<br/>
     A `Create a Cloud Foundry App` form appears.
 
-5.  Use the `Create a Cloud Foundry App` form to specify and create the environment for your Python Cloud Foundry application. Enter a name for your application, for example `Cloudant CF app`. The host name is generated for you automatically, although you can customize it:</br>
+4.  Use the `Create a Cloud Foundry App` form to specify and create the environment for your Python Cloud Foundry application. Enter a name for your application, for example `Cloudant CF app`. The host name is generated for you automatically, although you can customize it:</br>
     ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry App names](images/img0014.png)
     
     The host name must be unique within the {{site.data.keyword.cloud_notm}} domain. In this example, the domain is `mybluemix.net`, giving a full host name of `Cloudant-CF-app.mybluemix.net`.
     {: tip}
 
-6.  Click `Create` to create the application environment:</br>
+5.  Click `Create` to create the application environment:</br>
     ![Create the {{site.data.keyword.cloud_notm}} Python Cloud Foundry App](images/img0015.png)
 
-7.  After a short pause,
+6.  After a short pause,
     the `Getting Started` window for your new application environment appears.
     A test application is automatically created within the environment.
     The application is started automatically,
@@ -62,7 +59,7 @@ for creating an {{site.data.keyword.cloud}} application.
     Click the `Cloud Foundry apps` link to return to your {{site.data.keyword.cloud_notm}} dashboard.<br/>
     ![The new {{site.data.keyword.cloud_notm}} Python Cloud Foundry App running for the first time](images/img0016.png)
 
-8.  Your dashboard now includes the newly created application environment:<br/>
+7.  Your dashboard now includes the newly created application environment:<br/>
     ![The basic {{site.data.keyword.cloud_notm}} Python Cloud Foundry App appearing in the dashboard](images/img0017.png)
 
 You now have an {{site.data.keyword.cloud_notm}} Python application environment,

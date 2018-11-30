@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-30"
 
 ---
 
@@ -36,38 +36,28 @@ instances on it.
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.cloud_notm}} dashboard:<br/>
+    you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click `Catalog` from the menu:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
-2.  Click the `Create resource` button:<br/>
-    ![{{site.data.keyword.cloud_notm}} create resource button](images/img0002.png)<br/>
-    
-3.  See the {{site.data.keyword.cloud_notm}} catalog and services that are     available. Click the `Databases` category.
-    ![{{site.data.keyword.cloud_notm}} catalog](images/img0000.png)
+2.  Click `Databases` from the left menu and `Cloudant` from the list of database services.<br/>
+     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)<br/>
 
-4.  Click the {{site.data.keyword.cloudant_short_notm}} service:<br/>
-    ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)<br/>
-    The page for creating a service appears.
-
-5.  Select the `Dedicated Hardware` plan from the list of pricing plans at the bottom of the page:<br/>
+3.  Select the `Dedicated Hardware` plan from the list of pricing plans at the bottom of the page:<br/>
     ![Pricing plans](../tutorials/images/pricing_plan.png)
     
-6.  Fill out the following parameters at the top of the page: <br/>
+4.  Fill out the following parameters at the top of the page: <br/>
     -   Enter a service name.<br/>
     -   Specify the region/location where you want to deploy.<br/>
     -   Select a resource group.</br>
     -   Select a location for deployment.<br/>
-    -   Select `yes` or `no` to answer whether HIPAA is required.<br/>
-   
-    HIPAA is only valid for U.S. locations. {{site.data.keyword.IBM}} can provision a Dedicated or Bare Metal cluster to implement HIPAA controls. A cluster is only provisioned upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. This agreement is described in the Service Description terms. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
-    {: tip}
+    -   Select `yes` or `no` to answer whether HIPAA is required.<br/> 
     
-    You deploy and provision Standard plan instances in the same region and space.
+    HIPAA is only valid for U.S. locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only provisioned upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. See [Enabling the HIPAA Supported setting](https://console.bluemix.net/docs/account/account_settings.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
     {: tip}
 
     ![Configure dedicated hardware](../tutorials/images/select_deployment_location.png)
         
-7.  Click the `Create` button to start the provisioning process. <br/>
+5.  Click the `Create` button to start the provisioning process. <br/>
 
     Billing is prorated daily so make sure that you want to provision and pay for an environment before clicking the **Create** button.
     {: tip}
@@ -85,24 +75,20 @@ instances on it.
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
     After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.cloud_notm}} dashboard:<br/>
+    you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click `Catalog` from the menu:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
-2.  Click the `Create resource` button:<br/>
-    ![{{site.data.keyword.cloud_notm}} create resource](images/img0002.png)<br/>
-    A list of the services available on {{site.data.keyword.cloud_notm}} appears.
-
-3.  Click the `Databases` category and select the `Cloudant` service:<br/>
-    ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)</br>
+2.  Click `Databases` from the left menu and `Cloudant` from the list of database services.<br/>
+     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)<br/>
     The page for creating a service appears.<br/>  
 
-4.  Click `Standard` from the pricing plans. <br/>
+3.  Click `Standard` from the pricing plans. <br/>
     ![Standard pricing plan](../tutorials/images/standard_pricing_plan.png)
     
     You cannot provision a Lite plan instance on a Dedicated Hardware environment.
     {: tip}
     
-5.  Fill out the following parameters: <br/>
+4.  Fill out the following parameters: <br/>
     -   Enter a service name.<br/>
     -   Specify the region/location where you want to deploy. <br/>
     -   Select a resource group. </br>
@@ -110,11 +96,11 @@ instances on it.
     -   Select an environment.</br>
     ![Configure standard instance](../tutorials/images/select_environment.png)
     
-6.  Click the `Create` button.<br/>
+5.  Click the `Create` button.<br/>
     After a few seconds, the instance is provisioned on the environment you selected.<br/>
     ![Provision standard instance](../tutorials/images/create_button_provision_standard.png)
     
-7.  Obtain your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
+6.  Obtain your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
     
     For more information, see [how to locate your service credentials](../tutorials/create_service.html#locating-your-service-credentials){:new_window}. 
     
