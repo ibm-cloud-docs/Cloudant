@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-11-29"
 
 ---
 
@@ -11,12 +11,22 @@ lastupdated: "2018-09-27"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2018-11-29 -->
 
 # Virtual hosts
 
 Virtual hosts (vhosts) are a way to make {{site.data.keyword.cloudantfull}} serve data from a different domain
 than the one normally associated with your {{site.data.keyword.cloudant_short_notm}} account.
 {:shortdesc}
+
+## Removed support for virtual hosts (vhosts) (December 4, 2017)
+{: #disabled-vhosts-december-4-2017}
+
+On December 4th, 2017, {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality. Support for insecure HTTP connections was removed in favor of HTTPS only. As a result of turning off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
+
+## Vhost endpoints
 
 You can create as many vhosts as needed
 and point them to any endpoint in your {{site.data.keyword.cloudant_short_notm}} account.
