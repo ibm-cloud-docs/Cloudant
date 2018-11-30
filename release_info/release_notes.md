@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-11-27"
+lastupdated: "2018-11-30"
 
 ---
 
@@ -26,8 +26,8 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
 
-## Build j7426 (November 15, 2018)
-{: #build-j7426-november-15-2018}
+## Build 7426 (November 15, 2018)
+{: #build-7426-november-15-2018}
 
 - Include [CRN](/docs/overview/crn.html) in audit logs.
 - Replicator stability improvements.
