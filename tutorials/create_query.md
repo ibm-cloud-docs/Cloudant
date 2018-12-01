@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-29"
 
 ---
 
@@ -50,14 +50,8 @@ Before you begin, follow these steps to prepare for the tutorial:
 In this section, you create the `query-demo` [database](../api/database.html#create) that
 is the database that we use in this tutorial.
 
-> **Note:** In this tutorial,
-  we use the `acurl` alias rather than the `curl` command.
-  The `acurl` alias is created using steps described [here](../guides/acurl.html#authorized-curl-acurl-).
-  If you prefer to use the `curl` command,
-  or another method for invoking API endpoints,
-  substitute your command in the tutorial,
-  along with the parameters required by your command,
-  such as username and password.
+In this tutorial, we use the `acurl` alias rather than the `curl` command. The `acurl` alias is created using steps described [here](../guides/acurl.html#authorized-curl-acurl-). If you prefer to use the `curl` command, or another method for invoking API endpoints, substitute your command in the tutorial, along with the parameters required by your command, such as username and password.
+{: tip}
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -144,8 +138,8 @@ that you create in this exercise contain the data that you use to query the `que
   ```
   {:codeblock}
 
-  **Note:** Notice that the '`@`' symbol, used to indicate that the data
-  is included in a file, is identified by the supplied name.
+    **Note**: Notice that the '`@`' symbol, used to indicate that the data is included in a file, is identified by the supplied name.
+
 3.  Review the results:
   ```json
   [
@@ -255,18 +249,16 @@ that you create in this exercise contain the data that you use to query the `que
 the result is called the result set. When you submit a query to the view, your query searches
 the result set. An index is a way to structure data that improves retrieval time.
 
-You can use the primary index that comes with {{site.data.keyword.cloudant_short_notm}}, or secondary indexes like views
-(MapReduce), search indexes, {{site.data.keyword.cloudant_short_notm}} Geospatial queries, or {{site.data.keyword.cloudant_short_notm}} Query as described
-in the following list:
+We use {{site.data.keyword.cloudant_short_notm}} Query in this tutorial, which uses Mongo-style query syntax to search for documents by using logical operators. {{site.data.keyword.cloudant_short_notm}} Query is a combination of a view and a search index.
+
+When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner looks at the selector (your query) to determine the right index to choose from. If it does not find a suitable index, it uses the `_all_docs` special index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). In memory, we filter out the documents by the selector, which is why, even without an index, you can still query with various fields. Full table scans are expensive, and we recommend that you create an index. See a description of different types of indexes in the following list:
 
 *	Primary index – look up a document or list of documents by ID.  
 *	[View](../api/creating_views.html#views-mapreduce-) – search for information in the database that matches the search criteria that you specify, such as counts, sums, averages, and other mathematical functions. The criteria you can search is specified in the view's definition. Views use the MapReduce paradigm.
 *	[Search index](../api/search.html#search) – search one or more fields, large amounts of text, or use wildcards, fuzzy search, or facets with [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
-*	[{{site.data.keyword.cloudant_short_notm}} Geospatial](../api/cloudant-geo.html#cloudant-geospatial) – search for documents based on a spatial relationship.
-*	[{{site.data.keyword.cloudant_short_notm}} Query](../api/cloudant_query.html#query) – use Mongo-style query syntax to search for documents by using logical operators. {{site.data.keyword.cloudant_short_notm}} Query is a combination of a view and a search index. We use {{site.data.keyword.cloudant_short_notm}} Query in this tutorial.
 
-> **Note:** If there is no available defined index that matches the specified query, then {{site.data.keyword.cloudant_short_notm}}
-> uses the `_all_docs` index.
+If there is no available defined index that matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index.
+{: tip}
 
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
