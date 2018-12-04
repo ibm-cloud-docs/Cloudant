@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-09-27"
+lastupdated: "2018-12-04"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2018-09-27"
 # CORS
 
 [Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){:new_window} is a mechanism that allows resources
-such as JSON documents in a {{site.data.keyword.cloudantfull}} database to be requested
+such as JSON documents in an {{site.data.keyword.cloudantfull}} database to be requested
 from Javascript running on a website loaded from another domain.
 {:shortdesc}
 
