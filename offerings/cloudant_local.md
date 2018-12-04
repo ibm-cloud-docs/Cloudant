@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-10-24"
+lastupdated: "2018-11-12"
 
 ---
 
@@ -35,7 +35,7 @@ including:
 
 ## Support
 
-{{site.data.keyword.cloudant_short_notm}} support is able to provide assistance with the installation, set up, and proper usage of {{site.data.keyword.cloudant_local_notm}}. In the event of a performance issue or inconsistency, support is able to help troubleshoot. In the event of an outage, support can help diagnose the issue, but the responsibility for resolving the issue rests with the client team since we do not have access to client systems.
+{{site.data.keyword.cloudant_short_notm}} support is able to provide assistance with the installation, set up, and proper usage of {{site.data.keyword.cloudant_local_notm}}. In the event of a performance issue or inconsistency, support is able to help troubleshoot. In the event of an outage, support can help diagnose the issue, but the responsibility for resolving the issue rests with the customer team since we do not have access to customer systems.
 
 Adequate logs are necessary to provide proper assistance with any issue. To help troubleshooting begin as quickly as possible, you must include the output of the Weatherreport utility, as well as, any relevant logs, requests, and status codes when informing support of an issue. For more information, see the [Weatherreport utility ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_checking_health_cluster_with_weatherreport.html){:new_window}.
 
@@ -47,12 +47,12 @@ Assistance with common issues and outages can only be offered if the underlying 
 - Anything related to the API returning errors or unexpected results or performance
 
 {{site.data.keyword.cloudant_short_notm}} support does not cover the following issues:
-- Proprietary client-side tooling or workflow
+- Proprietary customer-side tooling or workflow
 - Network issues 
 - On-disk encryption 
 - Custom tooling or functionality
 
-For example, if the root cause is a client-owned server experiencing hardware issues, support cannot help. However, if the outage is due to {{site.data.keyword.cloudant_short_notm}} software itself, for example, if request slowdowns occur due to document conflicts, support can help the client resolve the issue.
+For example, if the root cause is a customer-owned server experiencing hardware issues, support cannot help. However, if the outage is due to {{site.data.keyword.cloudant_short_notm}} software itself, for example, if request slowdowns occur due to document conflicts, support can help the customer resolve the issue.
 
 Contact your Customer Success or Account Manager for further assistance with the following requests:
 - Performance tuning
