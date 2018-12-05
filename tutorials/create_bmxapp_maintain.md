@@ -39,7 +39,7 @@ your Python applications on {{site.data.keyword.cloud_notm}}.
 The status of applications within your
 {{site.data.keyword.cloud_notm}} service instance is displayed on the dashboard.
 
-In the following example, the `Python Cloudant` application is not running,
+In the following example, the `Cloudant CF app` application is not running,
 and has a `Stopped` state:
 
 ![Screen capture showing dashboard for the application in a 'stopped' state](images/img0037.png)
@@ -49,24 +49,13 @@ and has a `Stopped` state:
 If you attempt to start the tutorial application without first deleting the tutorial demonstration database, the application cannot work correctly. The application enters a cycle of attempting to start, failing because the database exists, stopping, then attempting to start again. To solve the problem, [stop the application](#stopping-your-application), then delete the tutorial demonstration database. The application can then start successfully.
 {: note}
     
-To start a stopped application,
-first click the application menu icon on the dashboard:
-
-![Screen capture showing dashboard with application management icon](images/img0038.png)
-
-Next,
-click the `Start App` option in the menu:<br/>
-![Screen capture showing 'Start App' option](images/img0039.png)
+To start a stopped application, click the `Start` option in the menu:<br/>
+![Screen capture showing 'Start' option](images/img0039.png)
 
 ### Stopping your application
 
-To stop a running application,
-first click the application menu icon on the dashboard:<br/>
-![Screen capture showing dashboard with application management icon](images/img0038.png)
-
-Next,
-click the `Stop App` option in the menu:<br/>
-![Screen capture showing 'Stop App' option](images/img0041.png)
+To stop a running application, click the `Stop` option in the menu:<br/>
+![Screen capture showing 'Stop' option](images/img0041.png)
 
 <div id="troubleshooting"></div>
 

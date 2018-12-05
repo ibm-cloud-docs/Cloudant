@@ -215,7 +215,7 @@ buildpack: python 1.5.5
 
 Now, test your application and verify that it is running properly. 
 
-1.  Open the {{site.data.keyword.cloud_notm}} Dashboard. You can see the link to the application you created under Cloud Foundry Applications. Click `Cloudant CF app` to open the details page.<br/>  
+1.  From the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your application. Under Cloud Foundry Apps, click `Cloudant CF app` to open the details page.<br/>  
 ![Screenshot showing dashboard for the application](images/img0017.png)
 
 2.  On the `Cloudant CF app` details page, click `Routes` and click the `Cloudant-CF-app.mybluemix.net` link. <br/>
@@ -227,7 +227,7 @@ Now, test your application and verify that it is running properly.
 
 ### Confirming the database details
 
-From the {{site.data.keyword.cloud_notm}} dashboard, open the {{site.data.keyword.cloudant_short_notm}} service instance that you created. Click the service instance. Go to the `Manage` tab, and click `Launch Cloudant Dashboard`.<br/>
+From the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your service instance. Go to the `Manage` tab, and click `Launch Cloudant Dashboard`.<br/>
 ![Launch Cloudant dashboard on the {{site.data.keyword.cloudant_short_notm}} service page](images/img0036.png)
 
 To find your {{site.data.keyword.cloudant_short_notm}} service page,

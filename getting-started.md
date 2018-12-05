@@ -97,7 +97,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	{: codeblock}
 
 2.  Create a new {{site.data.keyword.cloudant_short_notm}} service credential:
-  <br>In the {{site.data.keyword.cloud_notm}} console, open the dashboard for your service instance.
+  <br>In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your service instance.
   <br>In the left navigation, click `Service credentials`.
   <br>a. Click the `New credential` button.
   <br>![Create new service credentials](tutorials/images/img0050.png)
