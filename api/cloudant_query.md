@@ -27,7 +27,7 @@ lastupdated: "2019-01-03"
 
 If you know exactly what data you want to look for, or you want to keep storage and
 processing requirements to a minimum, you can specify how the index is created, by
-making it of type `json`. 
+making it of type `json`.
 
 But for maximum flexibility when you search for data, you would typically create
 an index of type `text`. Indexes of type `text` have a simple mechanism for automatically
@@ -49,25 +49,41 @@ You can create an index with one of the following types:
 
 To create a JSON index in the database `$DATABASE`,
 make a `POST` request to `/$DATABASE/_index` with a JSON object that describes the index in the request body.
-The `type` field of the JSON object must be set to `"json"`.
+The `type` field of the JSON object must be set to `"json"`. A JSON index may be partitioned or
+global; this is set using the `partitioned` field.
 
 _Example of using HTTP to request an index of type `JSON`:_
 
 ```http
-POST /db/_index HTTP/1.1
+POST /$DATABASE/_index HTTP/1.1
 Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of JSON object that requests an index that is called `foo-index`, for the field that is called `foo`:_
+_Example of a JSON object creating a partitioned index called `foo-partitioned-index`, for the field called `foo`:_
 
 ```json
 {
-	"index": {
-		"fields": ["foo"]
-	},
-	"name" : "foo-index",
-	"type" : "json"
+    "index": {
+        "fields": ["foo"]
+    },
+    "name" : "foo-partitioned-index",
+    "type" : "json",
+    "partitioned": true
+}
+```
+{:codeblock}
+
+_Example of a JSON object creating a global index called `bar-global-index`, for the field called `bar`:_
+
+```json
+{
+    "index": {
+        "fields": ["bar"]
+    },
+    "name" : "bar-global-index",
+    "type" : "json",
+    "partitioned": false
 }
 ```
 {: codeblock}
@@ -76,7 +92,7 @@ _Example of returned JSON, confirming that the index was created:_
 
 ```json
 {
-	"result": "created"
+    "result": "created"
 }
 ```
 {: codeblock}
@@ -105,8 +121,30 @@ _Example of returned JSON, confirming that the index was created:_
 <td headers="field"><p>name (optional)</p></td>
 <td headers="description"><p>Name of the index. If no name is provided, a name is generated automatically.</p></td>
 </tr>
+<tr>
+<td headers="field"><p>partitioned (optional, boolean)</p></td>
+<td headers="description"><p>Whether this index is partitioned. For more information, see [the `partitioned` field](#the-partitioned-field).</p></td>
+</tr>
 </tr>
 </table>
+
+#### The `partitioned` field
+
+This field sets whether the created index will be a partitioned or global index.
+
+The values of this field are as follows:
+
+Value  | Description           | Notes
+---------|---------------------|------------
+`true` | Create the index as partitioned.   | Can only be used in a partitioned database.
+`false`    | Create the index as global.  | Can be used in any database.
+
+The default follows the <code>partitioned</code> setting for the database:
+
+Database is partitioned | Default `partitioned` value | Allowed values
+---------|----------|---------
+Yes  | `true`  | `true`, `false`
+No   | `false` | `false`
 
 #### Return Codes
 {: #return-codes}
@@ -120,6 +158,8 @@ Code | Description
 {: #creating-a-type-text-index}
 
 When you create a single text index, it is a good practice to use the default values, but some useful index attributes can be modified.
+
+A `text` index may be partitioned or global; this is set using the `partitioned` field.
 
 For Full Text Indexes (FTIs), `type` must be set to `text`.
 {: tip}
@@ -139,43 +179,64 @@ you must put each text index into its own design document.
 For more information,
 see the [note about `text` indexes](#note-about-text-indexes).
 
-_Example of JSON document that requests index creation:_
+_Example of JSON document that requests a partitioned index creation:_
 
 ```json
 {
-	"index": {
-		"fields": [
-			{
-				"name": "Movie_name",
-				"type": "string"
-			}
-		]
-	},
-	"name": "Movie_name-text",
-	"type": "text"
+    "index": {
+        "fields": [
+            {
+                "name": "Movie_name",
+                "type": "string"
+            }
+        ]
+    },
+    "name": "Movie_name-text",
+    "type": "text",
+    "partitioned": true
 }
 ```
 {: codeblock}
 
-_Example of JSON document that requests creation of a more complex index:_
+_Example of JSON document that requests a global index creation:_
 
 ```json
 {
-	"type": "text",
-	"name": "my-index",
-	"ddoc": "my-index-design-doc",
-	"index": {
-		"default_field": {
-			"enabled": true,
-			"analyzer": "german"
-		},
-		"selector": {},
-		"fields": [
-			{"name": "married", "type": "boolean"},
-			{"name": "lastname", "type": "string"},
-			{"name": "year-of-birth", "type": "number"}
-		]
-	}
+    "index": {
+        "fields": [
+            {
+                "name": "Movie_name",
+                "type": "string"
+            }
+        ]
+    },
+    "name": "Movie_name-text",
+    "type": "text",
+    "partitioned": false
+}
+```
+{:codeblock}
+
+_Example of JSON document that requests creation of a more complex partitioned index:_
+
+```json
+{
+    "type": "text",
+    "name": "my-index",
+    "ddoc": "my-index-design-doc",
+    "index": {
+        "default_field": {
+            "enabled": true,
+            "analyzer": "german"
+        },
+        "selector": {},
+        "fields": [
+            {"name": "married", "type": "boolean"},
+            {"name": "lastname", "type": "string"},
+            {"name": "year-of-birth", "type": "number"}
+        ]
+    },
+    "partitioned": true
 }
 ```
 {: codeblock}
@@ -281,6 +342,24 @@ _Example JSON document with suggested settings to optimize performance on produc
 ```
 {: codeblock}
 
+#### The `partitioned` field
+
+This sets whether the created index will be a partitioned or global index.
+
+The values of this field are as follows:
+
+Value  | Description           | Notes
+---------|---------------------|------------
+`true` | Create the index as partitioned.   | Can only be used in a partitioned database.
+`false`    | Create the index as global.  | Can be used in any database.
+
+The default follows the <code>partitioned</code> setting for the database:
+
+Database is partitioned | Default `partitioned` value | Allowed values
+---------|----------|---------
+Yes  | `true`  | `true`, `false`
+No   | `false` | `false`
+
 ## Query Parameters
 {: #query-parameters}
 
@@ -334,7 +413,8 @@ Methods  | Path                | Description
 ---------|---------------------|------------
 `DELETE` | `/$DATABASE/_index` | Delete an index.
 `GET`    | `/$DATABASE/_index` | List all {{site.data.keyword.cloudant_short_notm}} Query indexes.
-`POST`   | `/$DATABASE/_find`  | Find documents by using an index.
+`POST`   | `/$DATABASE/_find`  | Find documents by using a global index.
+`POST`   | `/$DATABASE/_partition/$PARTITION_KEY/_find`  | Find documents by using a partitioned index.
 `POST`   | `/$DATABASE/_index` | Create an index.
 
 ## Creating a partial index
@@ -357,13 +437,13 @@ See an example query:
   }
 }
 ```
-Without a partial index, this query requires a full index scan to find 
-all the documents of `type`:`user` that do not have a status of `archived`. 
-This situation occurs because a normal index can be used to match contiguous rows, 
+Without a partial index, this query requires a full index scan to find
+all the documents of `type`:`user` that do not have a status of `archived`.
+This situation occurs because a normal index can be used to match contiguous rows,
 and the `$ne` operator cannot guarantee that.
 
-To improve response time, you can create an index that excludes documents 
-with `status`: { `$ne`: `archived` } at index time by using the 
+To improve response time, you can create an index that excludes documents
+with `status`: { `$ne`: `archived` } at index time by using the
 `partial_filter_selector` field:
 ```
 POST /db/_index HTTP/1.1
@@ -384,7 +464,7 @@ Host: localhost:5984
   "type" : "json"
 }
 ```
-Partial indexes are not currently used by the query planner unless specified 
+Partial indexes are not currently used by the query planner unless specified
 by a `use_index` field, so you must modify the original query:
 ```
 {
@@ -397,9 +477,9 @@ by a `use_index` field, so you must modify the original query:
   "use_index": "type-not-archived"
 }
 ```
-Technically, you do not need to include the filter on the `status` field in the 
-query selector. The partial index ensures that this value is always true. However, if you include the filter, it makes the intent of the selector clearer. It also makes it easier to take advantage of future improvements to query planning (for example, automatic selection of 
-partial indexes).  
+Technically, you do not need to include the filter on the `status` field in the
+query selector. The partial index ensures that this value is always true. However, if you include the filter, it makes the intent of the selector clearer. It also makes it easier to take advantage of future improvements to query planning (for example, automatic selection of
+partial indexes).
 
 ## List all {{site.data.keyword.cloudant_short_notm}} Query indexes
 {: #list-all-cloudant-nosql-db-query-indexes}
@@ -432,6 +512,7 @@ Design documents are discussed in more detail [here](design_documents.html).
 	-	**type**: Type of the index.
 		Currently, `json` is the only supported type.
 	-	**def**: Definition of the index that contains the indexed fields and the sort order: ascending or descending.
+    - **partitioned**: Whether the index is partitioned (`true`) or global (`false`).
 
 _Example of a response body with two indexes:_
 
@@ -447,7 +528,8 @@ _Example of a response body with two indexes:_
 					{"foo":"asc"},
 					{"bar":"asc"}
 				]
-			}
+			},
+			"partitioned": true
 		},
 		{
 			"ddoc": "_design/1f003ce73056238720c2e8f7da545390a8ea1dc5",
@@ -457,7 +539,8 @@ _Example of a response body with two indexes:_
 				"fields": [
 					{"baz":"desc"}
 				]
-			}
+			},
+			"partitioned": true
 		}
 	]
 }
@@ -484,9 +567,14 @@ _Example of a response body with two indexes:_
 {: #finding-documents-by-using-an-index}
 
 -	**Method**: `POST`
--	**URL Path**: `/$DATABASE/_find`
+-	**URL Paths**:
+    - `/$DATABASE/_find` (global query)
+    - `/$DATABASE/_partition/$PARTITION_KEY/_find` (partition query)
 -	**Response Body**: JSON object that describes the query results.
 -	**Roles**: `_reader`
+
+In the path, `$DATABASE` is the name of the database and `$PARTITION_KEY` is
+the name of the partition to query.
 
 Design documents are not returned by `_find`.
 {: tip}
@@ -510,7 +598,8 @@ Design documents are not returned by `_find`.
 	in which case the document that was found in the index is returned.
 	If set to a higher value,
 	each document is read from at least that many replicas before it is returned in the results.
-	The request is likely to take more time than using only the document that is stored locally with the index.
+	The request will take more time than using only the document that is stored locally with the index.
+    - `r` is **disallowed** when making a partition query.
 -	**bookmark (optional, default: null)**: A string that is used to specify which page of results you require.
 	Pagination is discussed in more detail [here](cloudant_query.html#pagination).
 -	**use_index (optional)**: Use this option to identify a specific index for query to run against,
@@ -518,10 +607,10 @@ Design documents are not returned by `_find`.
 
 	For more information, see [Explain Plans](#explain-plans).
 -	**conflicts (optional, default: false)**: A Boolean value that indicates whether or not to include information about existing conflicts in the document.
--   **execution_stats (optional, default: false)**: Use this option to find information 
+-   **execution_stats (optional, default: false)**: Use this option to find information
 	about the query
     that was run. This information includes total key lookups, total document lookups (when `include_docs=true`
-    is used), and total quorum document lookups (when Fabric document lookups are used). 	
+    is used), and total quorum document lookups (when Fabric document lookups are used).
 
 The `bookmark` field is used for paging through result sets.
 Every query returns an opaque string under the `bookmark` key that can then
@@ -529,7 +618,7 @@ be passed back in a query to get the next page of results.
 If any part of the query other than `bookmark` changes between requests,
 the results are undefined.
 
-The `limit` and `skip` values are exactly as you would expect.   
+The `limit` and `skip` values are exactly as you would expect.
 Although `skip` is available,
 it is not intended to be used for paging.
 The reason is that the `bookmark` feature is more efficient.
@@ -1588,7 +1677,7 @@ Combination or array logical operators, such as `$regex`, can
 result in a full database scan when you use indexes of type JSON,
 resulting in poor performance. Only equality operators, such as `$eq`,
 `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups. To ensure that indexes are used effectively, analyze the
-[explain plan](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans) for each query.  
+[explain plan](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans) for each query.
 {: tip}
 
 Most selector expressions work exactly as you would expect for the operator.

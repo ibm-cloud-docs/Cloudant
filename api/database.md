@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-01-23"
 
 ---
 
@@ -28,10 +28,56 @@ All documents must be contained in a database.
 A guide is [available](../guides/transactions.html),
 providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
+## Partitioned databases
+
+{{site.data.keyword.cloudant_short_notm}} supports two types of databases:
+
+- Partitioned
+- Non-partitioned
+
+A _partitioned_ database offers significant query performance and cost
+advantages but requires you to specify a logical partitioning of your data. The
+partitioning is specified as part of each document's ID. A partitioned database
+allows performing both global and partition queries.  Partition queries target
+queries at a single, given document partition, meaning they need to process less
+data to return results. Therefore, partition queries offer significant
+performance advantages, and will also often provide cost advantages over global
+queries. Global queries target the entire database leading to extra complexity,
+slower performance and increased cost -- but offer results drawing from all data.
+
+Alternatively, a _non-partitioned_ database might be created. This type of
+database can be easier to work with as no partitioning scheme needs to be
+defined, but only global secondary indexes can be created.
+
+{{site.data.keyword.cloudant_short_notm}} strongly recommends that you use a partitioned database for best long-term
+database performance where the data model allows for logical partitioning
+of documents.
+
+The partitioning type of a database is set at database creation time.  When
+creating a database, use the `partitioned` query string parameter to set whether
+the database is partitioned. The default for `partitioned` is `false`,
+maintaining backwards compatibility.
+
+The partitioning type cannot be changed for an existing database.
+
 ## Create
 
 To create a database,
-send a `PUT` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
+submit a `PUT` request with the following format:
+
+-   **Method**: `PUT /$DATABASE?partitioned=$BOOLEAN`
+-   **Request body**: None
+-   **Response**: Success or failure of operation.
+-   **Roles permitted**: `_admin`
+
+### Query Arguments
+{: #query-arguments}
+
+Argument         | Description | Optional | Type | Default | Supported values
+-----------------|-------------|----------|------|---------|-----------------
+`partitioned`      | Whether database is partitioned. | yes | Boolean | `false` | `true`, `false`
+
+### Database naming
 
 The database name must start with a lowercase letter,
 and contain only the following characters:
@@ -39,51 +85,50 @@ and contain only the following characters:
 -	Lowercase characters (a-z)
 -	Digits (0-9)
 -	Any of the characters _, $, (, ), +, -, and /
- 
-_Example of using HTTP to create a database:_
+
+### Examples
+
+_Using HTTP to create a partitioned database:_
 
 ```http
-PUT /$DATABASE HTTP/1.1
+PUT /$DATABASE?partitioned=true HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-_Example of using the command line to create a database:_
+_Using HTTP to create a non-partitioned database:_
+
+```http
+PUT /$DATABASE?partitioned=false HTTP/1.1
+HOST: $ACCOUNT.cloudant.com
+```
+{: codeblock}
+
+_Using the command line to create a partitioned database:_
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE -X PUT
+curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=true'
 ```
 {: codeblock}
 
-<!--
+_Using the command line to create a non-partitioned database:_
 
-_Example of using JavaScript to create a database:_
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-
-account.db.create($DATABASE, function (err, body, headers) {
-	if (!err) {
-		console.log('database created!');
-	}
-});
+```sh
+curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=false'
 ```
 {: codeblock}
-
--->
 
 <div id="response"></div>
 
 If creation succeeds, you get a [201 or 202 response](http.html#201).
-An error response uses 
+An error response uses
 the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
 201  | Database created successfully.
 202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
-403  | Invalid database name.
+400  | Invalid database name.
 412  | Database already exists.
 
 _Example response that is received after a database is created successfully:_
@@ -92,7 +137,7 @@ _Example response that is received after a database is created successfully:_
 HTTP/1.1 201 Created
 
 {
-	ok": true
+    "ok": true
 }
 ```
 {: codeblock}
@@ -115,7 +160,7 @@ on multi-tenant clusters.
 
 <div id="read"></div>
 
-## Getting database details 
+## Getting database details
 
 Sending a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE`
 returns details about the database,
@@ -373,11 +418,11 @@ _Example response after a request for all documents in a database:_
 
 ## Send multiple queries to a database
 
-This section describes how to send multiple queries to a database using `_all_docs` and `_view` endpoints. 
+This section describes how to send multiple queries to a database using `_all_docs` and `_view` endpoints.
 
 ### Send multiple queries to a database by using `_all_docs`
 
-To send multiple queries to a specific database, send a `POST` request to 
+To send multiple queries to a specific database, send a `POST` request to
 `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries`.
 
 _Example of using HTTP to send multiple queries to a database:_
@@ -394,14 +439,14 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries
 ```
 {: codeblock}
 
-`POST`ing to the `_all_docs/queries` endpoint runs multiple specified built-in view queries of all documents 
-in this database. This endpoint enables you to request multiple queries in a single request, instead 
-of multiple `POST /$DATABASE/_all_docs` requests. 
+`POST`ing to the `_all_docs/queries` endpoint runs multiple specified built-in view queries of all documents
+in this database. This endpoint enables you to request multiple queries in a single request, instead
+of multiple `POST /$DATABASE/_all_docs` requests.
 
-The request JSON object must have a `queries` field. It represents an array of query 
-objects with fields for the parameters of each individual view query to be run. 
-The field names and their meaning are the same as the query parameters of a regular 
-`_all_docs` request. 
+The request JSON object must have a `queries` field. It represents an array of query
+objects with fields for the parameters of each individual view query to be run.
+The field names and their meaning are the same as the query parameters of a regular
+`_all_docs` request.
 
 The results are returned by using the following response JSON object:
 
@@ -507,7 +552,7 @@ Multiple queries are also supported in `/$DATABASE/_local_docs/queries` and `/$D
 
 ### Send multiple view queries to a database by using `_view`
 
-To send multiple view queries to a specific database, send a `POST` request to 
+To send multiple view queries to a specific database, send a `POST` request to
 `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
 
 _Example of using HTTP to send multiple queries to a database:_
@@ -524,13 +569,13 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_view/$VIEW/queries
 ```
 {: codeblock}
 
-Multiple queries are supported with the `_view` endpoint, 
+Multiple queries are supported with the `_view` endpoint,
 `/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
 
-The request JSON object must have a `queries` field. It represents an array of query 
-objects with fields for the parameters of each individual view query to be executed. 
-The field names and their meaning are the same as the query parameters of a regular 
-`_view` request. 
+The request JSON object must have a `queries` field. It represents an array of query
+objects with fields for the parameters of each individual view query to be executed.
+The field names and their meaning are the same as the query parameters of a regular
+`_view` request.
 
 
 ## Get Changes
@@ -547,19 +592,19 @@ These responses are combined and returned to the original requesting client.
 
 `_changes` accepts several optional query arguments:
 
-Argument       | Description | Supported Values | Default 
+Argument       | Description | Supported Values | Default
 ---------------|-------------|------------------|---------
-`conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | boolean | false 
-`descending`   | Return the changes in sequential order. | boolean | false | 
+`conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | boolean | false
+`descending`   | Return the changes in sequential order. | boolean | false |
 `doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. See [API: GET / documentation](advanced.html#-get-) for more information. | A JSON array of document IDs | |
 `feed`         | Type of feed required. For details, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
 `filter`       | Name of [filter function](design_documents.html#filter-functions) to use to get updates. The filter is defined in a [design document](design_documents.html). | string | no filter
-`heartbeat`    | If there were no changes during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | any positive number | no heartbeat | 
+`heartbeat`    | If there were no changes during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | any positive number | no heartbeat |
 `include_docs` | Include the document as part of the result. | boolean | false |
-`limit`        | Maximum number of rows to return. | any non-negative number | none |  
-`seq_interval` | Specifies how frequently the `seq` value is included in the response. Set a higher value to increase the throughput of `_changes` and decrease the response size. **Note**: In non-continuous `_changes` mode, the `last_seq` value is always populated. | any positive number | 1 | 
-`since`        | Start the results from changes _after_ the specified sequence identifier. For details, see the [`since` information](#the-since-argument). | sequence identifier or `now` | 0 | 
-`style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` | 
+`limit`        | Maximum number of rows to return. | any non-negative number | none |
+`seq_interval` | Specifies how frequently the `seq` value is included in the response. Set a higher value to increase the throughput of `_changes` and decrease the response size. **Note**: In non-continuous `_changes` mode, the `last_seq` value is always populated. | any positive number | 1 |
+`since`        | Start the results from changes _after_ the specified sequence identifier. For details, see the [`since` information](#the-since-argument). | sequence identifier or `now` | 0 |
+`style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` |
 `timeout`      | Stop the response after waiting this number of milliseconds for data. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | any positive number | |
 
 Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
@@ -639,7 +684,7 @@ and that all changes are returned to the client as soon as possible after they o
 
 Each line in the continuous response is either empty or a JSON object that represents a single change.
 The option ensures that:
- 
+
 -   The format of the report entries reflects the continuous nature of the changes.
 -   Validity of the JSON output is maintained.
 

@@ -9,6 +9,7 @@ IBM Cloudant
 	cloudant.md
 	offerings/bluemix.md
 	offerings/pricing.md
+	offerings/restrictions.md
 	offerings/connecting.md
 	offerings/learning-center.md
 
@@ -25,7 +26,7 @@ IBM Cloudant
 		release_info/release_notes.md
 		release_info/differences_major_releases.md
 		release_info/deprecations.md
-	
+
 	{: .topicgroup}
 	Other offerings
 		offerings/bluemix_dedicated.md
@@ -66,7 +67,7 @@ IBM Cloudant
 		[Open Fridge](https://github.com/krook/openfridge)
 		[iOS game with Core ML and Watson Visual Recognition](https://developer.ibm.com/code/patterns/build-an-ios-game-powered-by-core-ml-and-watson-visual-recognition/)
 		[Mobile health app with Watson Studio](https://developer.ibm.com/code/patterns/develop-web-based-mobile-health-app-uses-machine-learning/)
-		
+
 	{: .topicgroup}
 	Libraries
 		libraries/index.md
@@ -100,21 +101,23 @@ IBM Cloudant
 
 	{: .topicgroup}
 	Guides
+		guides/database_partitioning.md
 		guides/acurl.md
+		guides/backup-guide-using-replication.md
 		guides/cap_theorem.md
+		guides/conflicts.md
 		guides/couchapps.md
 		guides/design_document_management.md
 		guides/iam.md
-		guides/resource-groups.md
-		guides/mvcc.md
-		guides/transactions.md
-		guides/sharding.md
 		guides/json.md
 		guides/managing_tasks.md
-		guides/conflicts.md
-		guides/model_data.md
-		guides/replication_guide.md
-		guides/backup-guide-using-replication.md
 		guides/migration.md
+		guides/model_data.md
+		guides/mvcc.md
+		guides/replication_guide.md
+		guides/resource-groups.md
+		guides/sharding.md
+		guides/transactions.md
 	{: .navgroup-end}
+
 
