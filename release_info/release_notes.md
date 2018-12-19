@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-10"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -25,6 +25,33 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 {: #dedicated-hardware}
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 7544 (December 2018)
+{: #build-7544-december-2018}
+
+- Fixed a problem where the replicator would sometimes reset statistics during
+    replications. This would affect values in the [replication status
+    information][build-7505-december-2018-5].
+     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-3]{:new_window}.
+- Fixed an issue with Cloudant Query where, after deleting a document, issuing
+    a `_find` request to a text index with `update=false` could return a
+    `500` response.
+    See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-4]{:new_window}.
+- You can now use `multipart/mixed` and `multipart/related` when using 
+    `_bulk_get`. See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-1]{:new_window}.
+- Fix a bug with total row count in the `_design_docs` handler.
+     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-2]{:new_window}.
+- Optimisations to the `_doc_id` and `_design_docs` replication filters.
+     See [issue ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-6]{:new_window}.
+- Fix a regression where long-running index jobs can fail.
+    
+
+[build-7505-december-2018-1]: https://github.com/apache/couchdb/pull/1195
+[build-7505-december-2018-2]: https://github.com/apache/couchdb/pull/1744
+[build-7505-december-2018-3]: https://github.com/apache/couchdb/pull/1722
+[build-7505-december-2018-4]: https://github.com/apache/couchdb/pull/1709
+[build-7505-december-2018-5]: https://console.bluemix.net/docs/services/Cloudant/api/advanced_replication.html#replication-status
+[build-7505-december-2018-6]: https://github.com/apache/couchdb/issues/1737
 
 ## Build 7426 (November 15, 2018)
 {: #build-7426-november-15-2018}
