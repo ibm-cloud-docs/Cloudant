@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-10"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -225,10 +225,8 @@ as long as you remember to remove the older versions at a later date!
 
 ### 'Move and switch' design documents
 
-Another approach,
-documented [here ![External link icon](../images/launch-glyph.svg "External link icon")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window},
-relies on the fact that {{site.data.keyword.cloudant_short_notm}} recognises when it has two identical design documents,
-and won't waste time and resources rebuilding views it already has.
+Another approach relies on the fact that {{site.data.keyword.cloudant_short_notm}} recognises when it has two identical design documents,
+and does not waste time and resources rebuilding views it already has.
 In other words,
 if we take our design document `_design/fetch` and create an exact duplicate `_design/fetch_OLD`,
 then both endpoints would work interchangeably without triggering any reindexing.

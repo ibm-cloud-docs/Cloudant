@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-10"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -63,7 +63,7 @@ Guide | Description
 [JSON](guides/json.html#json){:new_window} | A guide that describes how {{site.data.keyword.cloudant_short_notm}} uses the JavaScript Object Notation (JSON) for formatting the content and structure of the data and responses. 
 [Managing tasks](guides/managing_tasks.html#managing-tasks){:new_window} | A guide that describes how you can manage whether your tasks progress, or if they finish.
 [Conflicts](guides/conflicts.html#conflicts){:new_window} | A guide that describes how to find and resolve conflicts. 
-[Five tips for modelling your data to scale](guides/model_data.html#my-top-5-tips-for-modelling-your-data-to-scale){:new_window} | A guide that considers the finer points of modelling your application's data to work efficiently on a large scale.
+[Five tips for modelling your data to scale](guides/model_data.html#five-tips-for-modelling-your-data-to-scale){:new_window} | A guide that considers the finer points of modelling your application's data to work efficiently on a large scale.
 [Replication](guides/replication_guide.html#replication){:new_window} | A guide that introduces {{site.data.keyword.cloudant_short_notm}}’s replication functions, discusses common use cases, and shows how to make your application replicate successfully.
 [Replication incrementals](guides/backup-guide-using-replication.html#replication-incrementals){:new_window} | A guide that describes how to create and restore incremental backups. 
 [Migrating to {{site.data.keyword.cloudant_short_notm}}](guides/migration.html#migrating-to-ibm-cloudant-on-ibm-cloud){:new_window} | A guide that describes how to migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}}.

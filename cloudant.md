@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-10"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -44,7 +44,7 @@ tasks, and techniques.
 You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
-is [available](index.html),
+is [available](getting-started.html),
 along with [tutorials](tutorials/create_service.html#creating-a-service-instance) that describe tasks in more detail.
 More information about details such as authenticating with database instances,
 and querying data,
