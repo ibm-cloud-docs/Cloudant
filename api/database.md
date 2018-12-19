@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-12-10"
+lastupdated: "2018-12-19"
 
 ---
 
@@ -918,7 +918,7 @@ _Example response that is received after a database is deleted successfully:_
 ## Backing up your data
 
 You must protect your data by taking good quality backups.
-An overview of backing up your data is [available](..guides/backup-cookbook.html),
+An overview of backing up your data is [available](../guides/backup-cookbook.html),
 with more detailed information in the [backup guide](../guides/backup-guide-using-replication.html).
 
 <!--
