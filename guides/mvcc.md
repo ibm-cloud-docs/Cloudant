@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,22 +12,25 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Document Versioning and MVCC
 
-[Multi-version concurrency control (MVCC) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window}
+[Multi-version concurrency control (MVCC) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window}
 is how {{site.data.keyword.cloudantfull}} databases ensure that all of the nodes in a database's cluster contain
 only the [newest version](../api/document.html) of a document.
-{:shortdesc}
+{: shortdesc}
 
 Since {{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](cap_theorem.html),
 this is necessary to prevent inconsistencies arising between nodes
 as a result of synchronizing between outdated documents.
 
 Multi-Version Concurrency Control (MVCC) enables concurrent read and write access to an {{site.data.keyword.cloudant_short_notm}} database.
-MVCC is a form of [optimistic concurrency ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}.
+MVCC is a form of [optimistic concurrency ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}.
 It makes both read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because
 there is no need for database locking on either read or write operations.
 MVCC also enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
@@ -48,16 +51,13 @@ The two main uses of the revision number are to help:
 You must specify the previous `_rev` when [updating a document](../api/document.html#update)
 or else your request fails and returns a [409 error](../api/http.html#409).
 
->   **Note**: `_rev` should not be used to build a version control system.
-    The reason is that it is an internal value used by the server.
-    In addition,
-    older revisions of a document are transient,
-    and therefore removed regularly.
+`_rev` should not be used to build a version control system. The reason is that it is an internal value used by the server. In addition, older revisions of a document are transient, and therefore removed regularly.
+{: note}
 
 You can query a particular revision using its `_rev`,
 however,
 older revisions are regularly deleted by a process called
-[compaction ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Data_compaction){:new_window}.
+[compaction ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Data_compaction){: new_window}.
 A consequence of compaction is that
 you cannot rely on a successful response when querying a particular document revision
 using its `_rev` in order to obtain a history of revisions to your document.
@@ -88,7 +88,7 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 You could regularly query this view and resolve conflicts as needed,
 or query the view after each replication.
@@ -116,7 +116,7 @@ The first version of a document might look like the following example:
     "price": 650
 }
 ```
-{:codeblock}
+{: codeblock}
 
 As the document doesn't have a description yet,
 someone might add one:
@@ -132,7 +132,7 @@ _Second version of the document, created by adding a description:_
     "price": 650
 }
 ```
-{:codeblock}
+{: codeblock}
 
 At the same time, someone else - working with a replicated database - reduces the price:
 
@@ -147,7 +147,7 @@ _A different revision, conflicting with the previous one, because of different `
     "price": 600
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The two databases are then replicated.
 The difference in document versions results in a conflict.
@@ -161,7 +161,7 @@ _Example of finding documents with conflicts:_
 ```http
 http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response showing conflicting revisions affecting documents:_
 
@@ -175,7 +175,7 @@ _Example response showing conflicting revisions affecting documents:_
     "_conflicts":["2-61ae00e029d4f5edd2981841243ded13"]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The version with the changed price has been chosen arbitrarily as the latest version of the document
 and the conflict with another version is noted by providing the ID of that other version in the `_conflicts` array.
@@ -194,7 +194,7 @@ http://$ACCOUNT.cloudant.com/products/$_ID
 http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 http://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299
 ```
-{:codeblock}
+{: codeblock}
 
 Since the conflicting changes are for different fields of the document,
 it is easy to merge them.
@@ -207,7 +207,7 @@ other resolution strategies might be required:
 *   Sophisticated algorithms: for example, 3-way merges of text fields.
 
 For a practical example of how to implement a merge of changes,
-see [this project with sample code ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/deconflict){:new_window}.
+see [this project with sample code ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/deconflict){: new_window}.
 
 ### Upload the new revision
 
@@ -225,7 +225,7 @@ _An example document that merges changes from the two conflicting revisions:_
     "price": 600
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Delete old revisions
 
@@ -237,14 +237,14 @@ _Example request to delete an old document revision, using HTTP:_
 ```http
 DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request to delete an old document revision, using the command line:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121" -X DELETE
 ```
-{:codeblock}
+{: codeblock}
 
 At this point,
 conflicts affecting the document are resolved.

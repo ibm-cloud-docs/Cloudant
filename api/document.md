@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,16 +12,19 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-11-29 -->
 
 # Documents
 
 Documents are
-[JSON objects ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example){:new_window}.
+[JSON objects ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example){: new_window}.
 Documents are containers for your data,
 and are the basis of the {{site.data.keyword.cloudantfull}} database.
-{:shortdesc}
+{: shortdesc}
 
 If you are using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](../offerings/bluemix.html), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](http.html#413).
 {: tip}
@@ -31,7 +34,7 @@ a unique `_id` field, and a `_rev` field.
 
 The `_id` field is either created by you,
 or generated automatically as a
-[UUID ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){:new_window} by {{site.data.keyword.cloudant_short_notm}}.
+[UUID ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){: new_window} by {{site.data.keyword.cloudant_short_notm}}.
 
 If you choose to specify the document `_id` field, it must be limited to no more than 7168 characters (7k).
 {: tip}
@@ -54,7 +57,7 @@ _Example of JSON document that attempts to create a topmost field with an unders
 	"_top_level_field_name": "some data"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Error message that is returned when you attempt to create a topmost field with an underscore prefix:_
 
@@ -64,7 +67,7 @@ _Error message that is returned when you attempt to create a topmost field with 
 	"reason": "Bad special document member: _top_level_field_name"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 However,
 if the field name is for an object _nested within_ the document,
@@ -80,7 +83,7 @@ _Example of JSON document that attempts to create a field with an underscore pre
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example success message (abbreviated) returned when a nested field with an underscore prefix is created:_
 
@@ -91,7 +94,7 @@ _Example success message (abbreviated) returned when a nested field with an unde
 	"rev": "1-9ce...8d4"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 {{site.data.keyword.cloudant_short_notm}} uses an [eventually consistent](../guides/cap_theorem.html#consistency) model for data.
 This model means that under some conditions,
@@ -116,7 +119,7 @@ _Creating a document by using HTTP:_
 POST /$DATABASE HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Creating a document by using the command line:_
 
@@ -126,7 +129,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE \
 	-H "Content-Type: application/json" \
 	-d "$JSON"
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -143,7 +146,7 @@ db.insert($JSON, function (err, body, headers) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -160,7 +163,7 @@ _Example JSON document:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The response is a JSON document that contains the ID of the created document,
 the revision string,
@@ -168,7 +171,7 @@ and `"ok": true`.
 
 If you did not provide an `_id` field,
 {{site.data.keyword.cloudant_short_notm}} generates one automatically as a
-[UUID ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){:new_window}.
+[UUID ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){: new_window}.
 
 A failure to create the document results in a
 response that contains a description of the error.
@@ -182,7 +185,7 @@ _Example response after successfully creating a document:_
 	"rev":"1-2902191555"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 If the write [quorum](#quorum) cannot be met during an attempt to create a document, a [`202` response](http.html#202) is returned.
 {: tip}
@@ -198,21 +201,21 @@ you can [query the database](database.html#get-documents) for all documents.
 Due to the distributed, eventually consistent nature of {{site.data.keyword.cloudant_short_notm}}, reads might return stale data. In particular,
 data that were written recently, even by the same client, might not be returned from a read request immediately following the write request. To work around this behavior,
 a client can cache the state of data locally. Caching also helps to keep request counts down, increase application performance, and decrease load on the database cluster. This behavior also applies to other read requests such as to MapReduce and search indexes.
-{: tip}
+{: note}
 
 _Example of retrieving a document by using HTTP:_
 
 ```http
 GET /$DATABASE/$DOCUMENT_ID HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of retrieving a document by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -229,7 +232,7 @@ db.get($JSON._id, function (err, body, headers) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -250,7 +253,7 @@ _Example response:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Query Parameters
 
@@ -289,17 +292,17 @@ You can also use this `PUT` method to create a document,
 in which case you do not need to supply the most recent `_rev` value.
 
 If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](http.html#409). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum) cannot be met, a [`202` response](http.html#202) is returned.
-{: tip}
+{: note}
 
 Any document update can lead to a conflict, especially when you replicate updated documents. More information about avoiding and resolving conflicts is in the [Document Versioning and MVCC guide](../guides/mvcc.html).
-{: tip}
+{: note}
 
 _Example of using HTTP to update a document:_
 
 ```http
 PUT /$DATABASE/$DOCUMENT_ID HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to update a document, :_
 
@@ -310,7 +313,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID \
 	-H "Content-Type: application/json" \
 	-d "$JSON"
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -330,7 +333,7 @@ db.insert($JSON, $JSON._id, function (err, body, headers) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -349,7 +352,7 @@ _Example of JSON data that contains an updated document:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The response contains the ID and the new revision of the document,
 or an error message if the update failed.
@@ -363,7 +366,7 @@ _Example response after a successful update:_
 	"rev":"2-9176459034"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="document-delete"></div>
 
@@ -377,18 +380,18 @@ The response contains the ID and the new revision of the document,
 or an error message if the delete failed.
 
 If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](http.html#409). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum) cannot be met, a [`202` response](http.html#202) is returned.
-{: tip}
+{: note}
 
 {{site.data.keyword.cloudant_short_notm}} does not completely delete the specified document. Instead, it leaves a [tombstone](#-tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
 creating new documents and deleting them increases the disk space usage of a database. They might also increase the query time for the primary index, which is used to look up documents by their ID.
-{: tip}
+{: note}
 
 _Example of using HTTP to delete a document:_
 
 ```http
 DELETE /$DATABASE/$DOCUMENT_ID?rev=$REV HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to delete a document:_
 
@@ -396,7 +399,7 @@ _Example of using the command line to delete a document:_
 # make sure $JSON contains the correct `_rev` value!
 curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID?rev=$REV -X DELETE
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -414,7 +417,7 @@ db.destroy($JSON._id, $REV, function (err, body, headers) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -427,7 +430,7 @@ _Example response after a successful deletion request:_
 	"rev" : "3-2719fd4118"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## 'Tombstone' documents
 
@@ -478,7 +481,7 @@ _Example filter to exclude deleted documents during a replication:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Advanced removal of tombstone documents
 
@@ -496,7 +499,7 @@ the document that was deleted from the source database is not deleted from the t
 causing an inconsistency.
 
 A solution is to do more advanced removal of tombstones by using
-a [`validate_doc_update` function ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/1.6.1/couchapp/ddocs.html#validate-document-update-functions){:new_window}.
+a [`validate_doc_update` function ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/1.6.1/couchapp/ddocs.html#validate-document-update-functions){: new_window}.
 
 A `validate_doc_update` function is stored in a design document.
 The function is run every time that a document is updated in the database.
@@ -559,7 +562,7 @@ function(newDoc, oldDoc, userCtx) {
 	return; // Not strictly necessary, but clearer.
 }
 ```
-{:codeblock}
+{: codeblock}
 
 To use a `validate_doc_update` function to remove tombstone documents:
 
@@ -602,7 +605,7 @@ If you are using a `validate_doc_update` function, avoid replicating that functi
 
 [{{site.data.keyword.cloudant_short_notm}} Sync](../libraries/supported.html#mobile) libraries do not replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
 However, other clients might replicate the design documents or `validate_doc_update` functions, potentially resulting in unwanted side effects.
-{: tip}
+{: note}
 
 ## Purge
 
@@ -748,7 +751,7 @@ _Example of using HTTP to create, update, or delete multiple documents:_
 POST /$DATABASE/_bulk_docs HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to create, update, or delete multiple documents:_
 
@@ -758,7 +761,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs \
 	-H "Content-Type: application/json" \
 	-d "$JSON"
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -775,7 +778,7 @@ db.bulk($JSON, function (err, body) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -804,7 +807,7 @@ _Example JSON describing the update, creation, and deletion of three documents i
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="response"></div>
 
@@ -840,7 +843,7 @@ _Example response from a bulk request:_
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ### Inserting documents in bulk
 
@@ -884,7 +887,7 @@ _Example JSON for a bulk insert of three documents:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The return code from a successful bulk insertion is [`201`](http.html#201).
 The content of the returned structure indicates success
@@ -901,7 +904,7 @@ Date: Mon, 04 Mar 2013 14:06:20 GMT
 server: CouchDB/1.0.2 (Erlang OTP/R14B)
 x-couch-request-id: e8ff64d5
 ```
-{:codeblock}
+{: codeblock}
 
 The returned JSON contains a list of the documents that were created,
 including their revision and ID values.
@@ -930,7 +933,7 @@ _Example response content after successful bulk insert of two documents:_
   }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ### Updating Documents in Bulk
 
@@ -947,7 +950,7 @@ _Example of using HTTP to do a bulk update:_
 POST /$DATABASE/_bulk_docs HTTP/1.1
 Accept: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to do a bulk update:_
 
@@ -955,7 +958,7 @@ _Example of using the command line to do a bulk update:_
 curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs" \
 	-d @request.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON structure to request bulk update of documents:_
 
@@ -995,7 +998,7 @@ _Example JSON structure to request bulk update of documents:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The return JSON structure summarizes the updated documents,
 with the new revision and ID information.
@@ -1021,7 +1024,7 @@ _Example JSON structure that is returned after bulk update:_
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ### Bulk Documents Transaction Semantics
 
@@ -1061,7 +1064,7 @@ _Example bulk update response with errors:_
 	}
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ### Bulk Document Validation and Conflict Errors
 
@@ -1110,7 +1113,7 @@ _Example JavaScript to produce `forbidden` error as part of a validation functio
 ```javascript
 throw({forbidden: 'invalid recipe ingredient'});
 ```
-{:codeblock}
+{: codeblock}
 
 _Example error message from a validation function:_
 
@@ -1121,7 +1124,7 @@ _Example error message from a validation function:_
 	"reason" : "invalid recipe ingredient"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### The `_bulk_get` endpoint
 
@@ -1138,7 +1141,7 @@ _Example of using HTTP to do a bulk get of document information:_
 POST /$DATABASE/_bulk_get HTTP/1.1
 Accept: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to do a bulk update:_
 
@@ -1147,7 +1150,7 @@ curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_get" \
 	-H "Content-Type: application/json" \
 	-d @request.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a JSON object `POST`ed to the `_bulk_get` endpoint:_
 
@@ -1163,7 +1166,7 @@ _Example of a JSON object `POST`ed to the `_bulk_get` endpoint:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON structure that is returned after bulk get:_
 
@@ -1197,7 +1200,7 @@ _Example JSON structure that is returned after bulk get:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="quorum"></div>
 
@@ -1214,7 +1217,7 @@ contact {{site.data.keyword.cloudant_short_notm}} support.
 
 ## TTL - Time to Live
 
-[Time to Live ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Time_to_live){:new_window} (TTL) is a property of data,
+[Time to Live ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Time_to_live){: new_window} (TTL) is a property of data,
 where after a relative amount of time,
 or at an absolute time,
 the data is deemed to be expired.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-08-17 -->
 
@@ -19,10 +22,10 @@ lastupdated: "2019-01-02"
 {: #advanced-replication}
 
 You can learn about advanced replication concepts and tasks, including maintaining your replication database, scheduling and monitoring replications, authenticating during replication, and more.
-{:shortdesc}
+{: shortdesc}
 
 You might also find it helpful to review details of the underlying
-[replication protocol ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/stable/replication/protocol.html){:new_window},
+[replication protocol ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/stable/replication/protocol.html){: new_window},
 and review the [Advanced Methods](advanced.html) material.
 
 ## Replication database maintenance
@@ -170,9 +173,8 @@ The ID must be URL encoded.
 You can determine replication status by checking
 the [replication scheduler](#status-checking-by-using-the-replication-scheduler).
 
-The previous technique of checking replication status by inspecting
-the [replication document](#status-checking-by-using-the-replication-document) is still available.
-{: tip}
+The previous technique of checking replication status by inspecting the [replication document](#status-checking-by-using-the-replication-document) is still available.
+{: note}
 
 
 <div id="status-checking-using-the-replication-scheduler"></div>
@@ -191,14 +193,14 @@ _Example of using HTTP to get the replication status from the replication schedu
 GET /_scheduler/docs HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to get the replication status from the replication scheduler:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_scheduler/docs
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response (abbreviated) from the replication scheduler:_
 
@@ -224,7 +226,7 @@ _Example response (abbreviated) from the replication scheduler:_
   "total_rows": 1
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The response that is received from the replication scheduler shows the history and status of all replications.
 
@@ -233,7 +235,7 @@ _Example of using the command line to find jobs with the `limit` and `skip` para
 ```sh
 curl `https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1`
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response from using the `limit` and `skip` parameters:_
 
@@ -259,14 +261,14 @@ _Example response from using the `limit` and `skip` parameters:_
   ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to find jobs with the `states` parameter:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?states=crashing
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response from using the `states` parameter:_
 
@@ -292,14 +294,14 @@ _Example response from using the `states` parameter:_
   ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to find jobs with the `_doc_id` parameter:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response from using `doc_id` parameter:_
 
@@ -319,14 +321,14 @@ _Example response from using `doc_id` parameter:_
   "proxy": null
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to find jobs with the `_job_id` parameter:_
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_scheduler/jobs/68245f5954fa122e7768a4bfbfbd0d15+2bcontinuous'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response from using the `_job_id` parameter:_
 
@@ -353,7 +355,7 @@ _Example response from using the `_job_id` parameter:_
   "start_time": "2017-10-10T15:00:39Z"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The response that is received from the replication scheduler shows the history and status of all replications.
 
@@ -376,7 +378,7 @@ Field | Detail
 ------|-------
 `_replication_id` | This is the internal ID assigned to the replication. It is the same ID that appears in the output from `_active_tasks`.
 `_replication_state` | The current state of the replication.
-`_replication_state_time` | An [RFC 3339 ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ietf.org/rfc/rfc3339.txt){:new_window} compliant time stamp that reports when the current replication state defined in `_replication_state` was set.
+`_replication_state_time` | An [RFC 3339 ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ietf.org/rfc/rfc3339.txt){: new_window} compliant time stamp that reports when the current replication state defined in `_replication_state` was set.
 
 The possible values for the `_replication_state` are:
 
@@ -394,7 +396,7 @@ _Example replication document before it is `PUT` into `_replicator`:_
 	"create_target":  true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of automatic update to replication document, which is updated after replication starts:_
 
@@ -409,7 +411,7 @@ _Example of automatic update to replication document, which is updated after rep
 	"_replication_state_time": "2011-06-07T16:54:35+01:00"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 When the replication finishes,
 it updates the `_replication_state` field with the value `completed`,
@@ -428,7 +430,7 @@ _Example of automatic update to replication document, which is updated after rep
 	"_replication_state_time": "2011-06-07T16:56:21+01:00"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 A continuous replication can never have a `completed` state.
 
@@ -454,7 +456,7 @@ _Example of specifying user name and password values for accessing source and ta
 	"target": "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/db"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Filtered Replication
 {: #filtered-replication}
@@ -484,7 +486,7 @@ function(doc, req) {
 	return !!(doc.type && doc.type == "foo");
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Filters are stored under the topmost `filters` key of the design document.
 
@@ -498,7 +500,7 @@ _A simple example of storing a filter function in a design document:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 A filtered replication is started by using a JSON statement that identifies:
 
@@ -515,7 +517,7 @@ _Example JSON for starting a filtered replication:_
 	"filter": "myddoc/myfilter"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Arguments can be supplied to the filter function by
 including key:value pairs in the `query_params` field of the invocation.
@@ -532,10 +534,10 @@ _Example JSON for starting a filtered replication with supplied parameters:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
-The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector` ![External link icon](../images/launch-glyph.svg "External link icon")](replication.html#selector-field){:new_window} documentation.
-{: tip}
+The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector` ![External link icon](../images/launch-glyph.svg "External link icon")](replication.html#selector-field){: new_window} documentation.
+{: note}
 
 ## Named Document Replication
 {: #named-document-replication}
@@ -556,7 +558,7 @@ _Example replication of specific documents:_
 	"doc_ids": ["foo", "bar", "baz"]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Replicating through a proxy
 {: #replicating-through-a-proxy}
@@ -573,7 +575,7 @@ _Example showing replication through a proxy:_
 	"proxy": "http://my-proxy.com:8888"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## The `user_ctx` property and delegations
 {: #the-user_ctx-property-and-delegations}
@@ -618,7 +620,7 @@ _Example delegated replication document:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 For admins,
 the `user_ctx` property is optional.
@@ -635,7 +637,7 @@ the `user_ctx` property can be used to trigger a replication on behalf of anothe
 This user context is passed to local target database document validation functions.
 
 The `user_ctx` property applies to local endpoints only.
-{: tip}
+{: note}
 
 In summary,
 for admins the `user_ctx` property is optional,
@@ -668,7 +670,7 @@ by including them in the replication document.
 	The default value is 10 attempts.
 -   `socket_options` - A list of options to pass to the connection sockets.
 	The available options can be found in the
-	[documentation for the Erlang function setopts/2 of the `inet` module ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.erlang.org/doc/man/inet.html#setopts-2){:new_window}. 
+	[documentation for the Erlang function setopts/2 of the `inet` module ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.erlang.org/doc/man/inet.html#setopts-2){: new_window}. 
 	Default value is `[{keepalive, true},{nodelay, false}]`.
 -   `worker_batch_size` - Worker processes run batches of replication tasks,
 	where the batch size is defined by this parameter.
@@ -693,7 +695,7 @@ _Example of including performance options in a replication document:_
 	"http_connections": 30
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Attachments
 {: #attachments}
@@ -708,7 +710,7 @@ see [here](attachments.html#performance-considerations).
 
 It is preferable to use the [replicator scheduler](#the-replication-scheduler) to manage replication.
 Details of why are provided [here](#avoiding-the-_replicate-endpoint).
-{: tip}
+{: note}
 
 
 You can use this endpoint to request,
@@ -752,7 +754,7 @@ _Example instructions for using HTTP to start a replication through the `_replic
 POST /_replicate HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example instructions for using the command line to start a replication through the `_replicate` endpoint:_
 
@@ -760,7 +762,7 @@ _Example instructions for using the command line to start a replication through 
 curl -H 'Content-Type: application/json' -X POST "https://$ACCOUNT.cloudant.com/_replicate" -d @replication-doc.json
 # with the file replication-doc.json containing the required replication information.
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document that describes the required replication:_
 
@@ -770,7 +772,7 @@ _Example JSON document that describes the required replication:_
 	"target": "http://$ACCOUNT2:$PASSWORD2@example.org/example-target-database"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Return Codes
 {: #return-codes}
@@ -790,7 +792,7 @@ by `POST`ing the exact same JSON object but with the additional `cancel` propert
 
 If a replication is canceled,
 the request that initiated the replication fails with [error 500 (shutdown)](http.html#500).
-{: tip}
+{: note}
 
 The replication ID can be obtained from the original replication request if it is a continuous replication.
 Alternatively,
@@ -802,7 +804,7 @@ _Example of using HTTP to cancel a replication:_
 POST /_replicate HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to cancel a replication:_
 
@@ -810,7 +812,7 @@ _Example of using the command line to cancel a replication:_
 curl -H 'Content-Type: application/json' -X POST 'https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1' -d @replication-doc.json
 # the file replication-doc.json must be supplied.
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document that describes the replication to be canceled:_
 
@@ -821,13 +823,13 @@ _Example JSON document that describes the replication to be canceled:_
 	"cancel": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Avoiding the `/_replicate` endpoint
 {: #avoiding-the-_replicate-endpoint}
 
 Use the [`_replicator` scheduler](#the-replication-scheduler) instead of the `/_replicate` endpoint.
-{: tip}
+{: important}
 
 If a problem occurs during replication, such as a stall, timeout, or application crash,
 a replication that is defined within the `_replicator` database is automatically restarted by the system. Whereas, if you define a replication by sending a request to the `/_replicate` endpoint, it cannot be restarted by the system if a problem occurs because the replication request does not persist. In addition, replications that are defined in the `_replicator` database are easier to [monitor](advanced_replication.html#replication-status).

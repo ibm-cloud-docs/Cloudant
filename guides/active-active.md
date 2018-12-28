@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -44,13 +47,10 @@ It is helpful to remember:
 
 ## Before You Begin
 
-> **Note**: For an active-active deployment,
-  a strategy for managing conflicts must be in place.
-  Therefore, be sure to understand how [replication](../api/replication.html) and
-  [conflicts](mvcc.html#distributed-databases-and-conflicts) work
-  before you consider this architecture.
+For an active-active deployment, a strategy for managing conflicts must be in place. Therefore, be sure to understand how [replication](../api/replication.html) and [conflicts](mvcc.html#distributed-databases-and-conflicts) work before you consider this architecture.
+{: note}
 
-Contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}
+Contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}
 if you need help with how to model data to handle conflicts effectively.
 
 ## Overview
@@ -91,7 +91,7 @@ but using the same name is clearer.
 curl https://myaccount-dc1.cloudant.com/mydb -XPUT -u myaccount-dc1
 curl https://myaccount-dc2.cloudant.com/mydb -XPUT -u myaccount-dc2
 ```
-{:codeblock}
+{: codeblock}
 
 ## Step 2: Create an API key for your replications
 
@@ -110,7 +110,7 @@ the following command requests an API key for the account `myaccount-dc1`:
 ```sh
 $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-dc1
 ```
-{:codeblock}
+{: codeblock}
 
 A successful response is similar to the following abbreviated example:
 
@@ -121,10 +121,10 @@ A successful response is similar to the following abbreviated example:
   "key": "ble...igl"
 }
 ```
-{:codeblock}
+{: codeblock}
 
-> **Note**: Take careful note of the password.
-  It is not possible to retrieve the password later.
+Take careful note of the password. It is not possible to retrieve the password later.
+{: important}
 
 ## Step 3: Grant access permission
 
@@ -164,7 +164,7 @@ curl -XPOST 'https://myaccount-dc1.cloudant.com/_replicator'
 	"continuous": true
 }'
 ```
-{:codeblock}
+{: codeblock}
 
 Next,
 create a replication from database `myaccount-dc2.cloudant.com/mydb` to
@@ -180,10 +180,10 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 	"continuous": true
 }'
 ```
-{:codeblock}
+{: codeblock}
 
-> **Note:** If this step fails because the `_replicator` database doesn't exist,
-  create it.
+If this step fails because the `_replicator` database doesn't exist, create it.
+{: note}
 
 ## Step 5: Test your replication
 
@@ -280,14 +280,14 @@ However,
 if you decide that you do need an ability to manage fail over,
 some possible options include:
 
-* Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/greenmangaming/cloudant-nginx){:new_window}.
+* Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/greenmangaming/cloudant-nginx){: new_window}.
   Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance.
   This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}}
   instances that are used by applications can be handled through a modification to the proxy configuration
   rather than a modification to the application settings.
   Many proxies have the capability to balance the load,
   based on user-defined health checks.
-* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){:new_window} or [Dyn Traffic Director ![External link icon](../images/launch-glyph.svg "External link icon")](http://dyn.com/traffic-director/){:new_window} to route to {{site.data.keyword.cloudant_short_notm}}.
+* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} or [Dyn Traffic Director ![External link icon](../images/launch-glyph.svg "External link icon")](http://dyn.com/traffic-director/){: new_window} to route to {{site.data.keyword.cloudant_short_notm}}.
   This option requires a `CNAME` definition that routes to
   different {{site.data.keyword.cloudant_short_notm}} accounts,
   based on a health check or latency rule.
@@ -310,9 +310,8 @@ a typical list of checks to apply include:
 * [Replications](#replications)
 * [Indexes](#indexes)
 
-> **Note:** If you implement request rerouting or fail over based on a health test,
-  you might want to incorporate corresponding checks to avoid premature rerouting back to
-  a service instance that is still recovering.
+If you implement request rerouting or fail over based on a health test, you might want to incorporate corresponding checks to avoid premature rerouting back to a service instance that is still recovering.
+{: note}
 
 ### Replications
 
@@ -323,10 +322,8 @@ a typical list of checks to apply include:
 More information on [monitoring replication status](../api/advanced_replication.html#replication-status)
 is available.
 
-> **Note:** If a database is being changed continuously,
-  the replication status is unlikely to 0.
-  You must decide what status threshold is acceptable,
-  or that represents an error state.
+If a database is being changed continuously, the replication status is unlikely to 0. You must decide what status threshold is acceptable, or that represents an error state.
+{: note}
 
 ### Indexes
 

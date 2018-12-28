@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,13 +12,16 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-10-30 -->
 
 # Search
 
-Search indexes enable you to query a database by using [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}. A search index uses one, or multiple, fields from your documents. You can use a search index to run queries, find documents based on the content they contain, or work with groups, facets, or geographical searches.
-{:shortdesc}
+Search indexes enable you to query a database by using [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}. A search index uses one, or multiple, fields from your documents. You can use a search index to run queries, find documents based on the content they contain, or work with groups, facets, or geographical searches.
+{: shortdesc}
 
 To create a search index, you add a JavaScript function to a design document in the database. An index builds after processing one search request and after the server detects a document update. The `index` function takes the following parameters: 
 
@@ -42,21 +45,21 @@ _Example design document that defines a search index:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Index functions
 
 Attempting to index by using a data field that does not exist fails. To avoid this problem, use an appropriate [guard clause](#index-guard-clauses).
 
 Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
-{: tip}
+{: note}
 
 Within a search index, do not index the same field name with more than one data type. If the 
     same field name is indexed with different data types in the same search index function, 
     you might get an error when querying the search index that says the field "was indexed without 
     position data." For example, do not include both of these lines in the same search index function, 
     as they index the `myfield` field as two different data types: a string `"this is a string"` and a number `123`.
-{: tip}
+{: note}
 
 ```json
 index("myfield", "this is a string");
@@ -78,7 +81,7 @@ An example appears in the following query:
 ```
 query=color:red
 ```
-{:codeblock}
+{: codeblock}
 
 The Lucene field name `color` is the first parameter of the `index` function.
 
@@ -88,7 +91,7 @@ so another way of writing the query is as follows:
 ```
 q=color:red
 ```
-{:codeblock}
+{: codeblock}
 
 If the special value `"default"` is used when you define the name,
 you do not have to specify a field name at query time.
@@ -97,7 +100,7 @@ The effect is that the query can be simplified:
 ```
 query=red
 ```
-{:codeblock}
+{: codeblock}
 
 The second parameter is the data to be indexed. Keep the following information in mind when you index your data: 
 
@@ -174,7 +177,7 @@ function(doc) {
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Index Guard Clauses
 
@@ -193,7 +196,7 @@ if (doc.min_length) {
 	index("min_length", doc.min_length, {"store": true});
 }
 ```
-{:codeblock}
+{: codeblock}
 
 You might use the JavaScript '`typeof`' function to implement the guard clause test.
 If the field exists _and_ has the expected type,
@@ -221,7 +224,7 @@ if (typeof(doc.min_length) === 'number') {
 	index("min_length", doc.min_length, {"store": true});
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Use a generic guard clause test to ensure that the type of the candidate data field is defined.
 
@@ -233,7 +236,7 @@ if (typeof(doc.min_length) !== 'undefined') {
 	...
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Analyzers
 
@@ -248,7 +251,7 @@ Analyzer     | Description
 `email`      | Like the `standard` analyzer, but tries harder to match an email address as a complete token.
 `keyword`    | Input is not tokenized at all.
 `simple`     | Divides text at non-letters.
-`standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.unicode.org/reports/tr29/){:new_window}.
+`standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.unicode.org/reports/tr29/){: new_window}.
 `whitespace` | Divides text at white space boundaries.
 
 _Example analyzer document:_
@@ -264,12 +267,12 @@ _Example analyzer document:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Language-Specific Analyzers
 
 These analyzers omit common words in the specific language,
-and many also [remove prefixes and suffixes ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Stemming){:new_window}.
+and many also [remove prefixes and suffixes ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Stemming){: new_window}.
 The name of the language is also the name of the analyzer.
 
 *	`arabic`
@@ -279,7 +282,7 @@ The name of the language is also the name of the analyzer.
 *	`brazilian`
 *	`catalan`
 *	`cjk` (Chinese, Japanese, Korean)
-*	`chinese` ( [smartcn ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){:new_window} )
+*	`chinese` ( [smartcn ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: new_window} )
 *	`czech`
 *	`danish`
 *	`dutch`
@@ -294,11 +297,11 @@ The name of the language is also the name of the analyzer.
 *	`indonesian`
 *	`irish`
 *	`italian`
-*	`japanese` ( [kuromoji ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){:new_window} )
+*	`japanese` ( [kuromoji ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: new_window} )
 *	`latvian`
 *	`norwegian`
 *	`persian`
-*	`polish` ( [stempel ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){:new_window} )
+*	`polish` ( [stempel ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: new_window} )
 *	`portuguese`
 *	`romanian`
 *	`russian`
@@ -308,7 +311,7 @@ The name of the language is also the name of the analyzer.
 *	`turkish`
 
 Language-specific analyzers are optimized for the specified language. You cannot combine a generic analyzer with a language-specific analyzer. Instead, you might use a ['`perfield`' analyzer](#per-field-analyzers) to select different analyzers for different fields within the documents.
-{: tip}
+{: note}
 
 ### Per-Field Analyzers
 
@@ -334,7 +337,7 @@ _Example of defining different analyzers for different fields:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Stop Words
 
@@ -373,7 +376,7 @@ _Example of defining non-indexed ('stop') words:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Testing analyzer tokenization
 
@@ -387,7 +390,7 @@ POST /_search_analyze HTTP/1.1
 Content-Type: application/json
 {"analyzer":"keyword", "text":"ablanks@renovations.com"}
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to test the `keyword` analyzer:_
 
@@ -395,7 +398,7 @@ _Example of using the command line to test the `keyword` analyzer:_
 curl 'https://$ACCOUNT.cloudant.com/_search_analyze' -H 'Content-Type: application/json'
 	-d '{"analyzer":"keyword", "text":"ablanks@renovations.com"}'
 ```
-{:codeblock}
+{: codeblock}
 
 _Result of testing the `keyword` analyzer:_
 
@@ -406,7 +409,7 @@ _Result of testing the `keyword` analyzer:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using HTTP to test the `standard` analyzer:_
 
@@ -416,7 +419,7 @@ POST /_search_analyze HTTP/1.1
 Content-Type: application/json
 {"analyzer":"standard", "text":"ablanks@renovations.com"}
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to test the `standard` analyzer:_
 
@@ -424,7 +427,7 @@ _Example of using the command line to test the `standard` analyzer:_
 curl 'https://$ACCOUNT.cloudant.com/_search_analyze' -H 'Content-Type: application/json'
 	-d '{"analyzer":"standard", "text":"ablanks@renovations.com"}'
 ```
-{:codeblock}
+{: codeblock}
 
 _Result of testing the `standard` analyzer:_
 
@@ -436,7 +439,7 @@ _Result of testing the `standard` analyzer:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Queries
 
@@ -452,14 +455,14 @@ GET /$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\
 Content-Type: application/json
 Host: account.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _Example to using the command line to query an index:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1 \
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -478,7 +481,7 @@ db.search($DESIGN_ID, $SEARCH_INDEX, {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -677,10 +680,10 @@ Fields that are used for sorting must be indexed by the same indexer that is use
 </table>
 
 Do not combine the `bookmark` and `stale` options. These options constrain the choice of shard replicas to use for the response. When used together, the options might cause problems when contact is attempted with replicas that are slow or not available.
-{: tip}
+{: note}
 
 Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
-{: tip}
+{: important}
 
 ### Relevance
 
@@ -690,7 +693,7 @@ By default,
 the sorting order is determined by 'relevance'.
 
 Relevance is measured according to
-[Apache Lucene Scoring ![External link icon](../images/launch-glyph.svg "External link icon")](https://lucene.apache.org/core/3_6_0/scoring.html){:new_window}.
+[Apache Lucene Scoring ![External link icon](../images/launch-glyph.svg "External link icon")](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}.
 As an example,
 if you search a simple database for the word "`example`",
 two documents might contain the word.
@@ -725,14 +728,14 @@ POST /db/_design/ddoc/_search/searchname HTTP/1.1
 Content-Type: application/json
 Host: account.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to `POST` a search request:_
 
 ```sh
 curl 'https://account.cloudant.com/db/_design/ddoc/_search/searchname' -X POST -H 'Content-Type: application/json' -d @search.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document that contains a search request:_
 
@@ -743,12 +746,12 @@ _Example JSON document that contains a search request:_
     "limit": 3
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Query Syntax
 
 The {{site.data.keyword.cloudant_short_notm}} search query syntax is based on the
-[Lucene syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
+[Lucene syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}.
 Search queries take the form of `name:value` unless the name is omitted,
 in which case they use the default field,
 as demonstrated in the following examples:
@@ -786,7 +789,7 @@ diet:(herbivore OR omnivore) AND class:mammal
 // Return all results
 *:*
 ```
-{:codeblock}
+{: codeblock}
 
 Queries over multiple fields can be logically combined,
 and groups and fields can be further grouped.
@@ -802,7 +805,7 @@ For instance,
 `look~` finds the terms `book` and `took`.
 
 If the lower and upper bounds of a range query are both strings that contain only numeric digits, the bounds are treated as numbers not as strings. For example, if you search by using the query `mod_date:["20170101" TO "20171231"]`, the results include documents for which `mod_date` is between the numeric values 20170101 and 20171231, not between the strings "20170101" and "20171231".
-{: tip}
+{: note}
 
 You can alter the importance of a search term by adding `^` and a positive number.
 This alteration makes matches containing the term more or less relevant,
@@ -845,7 +848,7 @@ The following characters require escaping if you want to search on them:
 ```
 + - && || ! ( ) { } [ ] ^ " ~ * ? : \ /
 ```
-{:codeblock}
+{: codeblock}
 
 To escape one of these characters,
 use a preceding backslash character (`\`).
@@ -854,7 +857,7 @@ The response to a search query contains an `order` field for each of the results
 The `order` field is an array where the first element is the field or fields that are specified
 in the [`sort` parameter](#query-parameters).
 If no [`sort` parameter](#query-parameters) is included in the query,
-then the `order` field contains the [Lucene relevance score ![External link icon](../images/launch-glyph.svg "External link icon")](https://lucene.apache.org/core/3_6_0/scoring.html){:new_window}.
+then the `order` field contains the [Lucene relevance score ![External link icon](../images/launch-glyph.svg "External link icon")](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}.
 If you use the 'sort by distance' feature as described in [Geographical Searches](#geographical-searches),
 then the first element is the distance from a point.
 The distance is measured by using either kilometers or miles.
@@ -880,7 +883,7 @@ function(doc) {
     index("price", doc.price, {"facet": true});
 }
 ```
-{:codeblock}
+{: codeblock}
 
 To use facets,
 all the documents in the index must include all the fields that have faceting enabled.
@@ -900,7 +903,7 @@ if (typeof doc.town == "string" && typeof doc.name == "string") {
         index("name", doc.name, {facet: true});        
     }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Counts
 
@@ -917,14 +920,14 @@ You can check the type by using the '`typeof`' operator,
 and convert it by using the `parseInt`,
 `parseFloat`,
 or `.toString()` functions.
-{: tip}
+{: note}
 
 _Example of a query using the `counts` facet syntax:_ 
 
 ```http
 ?q=*:*&counts=["type"]
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response after using of the `counts` facet syntax:_
 
@@ -942,7 +945,7 @@ _Example response after using of the `counts` facet syntax:_
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### `drilldown`
 
@@ -974,14 +977,14 @@ You can check the type by using the '`typeof`' operator,
 and convert it by using the `parseInt`,
 `parseFloat`,
 or `.toString()` functions.
-{: tip}
+{: note}
 
 _Example of a request that uses faceted search for matching `ranges`:_
 
 ```http
 ?q=*:*&ranges={"price":{"cheap":"[0 TO 100]","expensive":"{100 TO Infinity}"}}
 ```
-{:codeblock}
+{: codeblock}
 
 _Example results after a `ranges` check on a faceted search:_
 
@@ -998,7 +1001,7 @@ _Example results after a `ranges` check on a faceted search:_
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Geographical searches
 
@@ -1036,7 +1039,7 @@ _Example geographical data:_
     "type":"city"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a design document that contains a search index for the geographic data:_
 
@@ -1049,7 +1052,7 @@ function(doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _An example of using HTTP for a query that sorts cities in the northern hemisphere by their distance to New York:_
 
@@ -1057,14 +1060,14 @@ _An example of using HTTP for a query that sorts cities in the northern hemisphe
 GET /examples/_design/cities-designdoc/_search/cities?q=lat:[0+TO+90]&sort="<distance,lon,lat,-74.0059,40.7127,km>" HTTP/1.1
 Host: $ACCOUNT.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _An example of using the command line for a query that sorts cities in the northern hemisphere by their distance to New York:_
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/examples/_design/cities-designdoc/_search/cities?q=lat:[0+TO+90]&sort="<distance,lon,lat,-74.0059,40.7127,km>"'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example (abbreviated) response, containing a list of northern hemisphere cities sorted by distance to New York:_
 
@@ -1112,7 +1115,7 @@ _Example (abbreviated) response, containing a list of northern hemisphere cities
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Highlighting Search Terms
 
@@ -1152,14 +1155,14 @@ GET /movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields
 HOST: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to search with highlighting enabled:_
 
 ```sh
 curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=\[\"movie_name\"\]&highlight_pre_tag=\"<b>\"&highlight_post_tag=\"</b>\"&highlights_size=30&highlights_number=2
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of highlighted search results:_
 
@@ -1173,7 +1176,7 @@ _Example of highlighted search results:_
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Search index metadata
 
@@ -1188,7 +1191,7 @@ _Example of using HTTP to request search index metadata:_
 ```http
 GET /$DATABASE/_design/$DDOC/_search_info/$INDEX_NAME HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to request search index metadata:_
 
@@ -1196,7 +1199,7 @@ _Example of using the command line to request search index metadata:_
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search_info/$INDEX_NAME" \
      -X GET
 ```
-{:codeblock}
+{: codeblock}
 
 The response contains information about your index,
 such as the number of documents in the index and the size of the index on disk.
@@ -1215,4 +1218,4 @@ _Example response after requesting search index metadata:_
     }
 }
 ```
-{:codeblock}
+{: codeblock}

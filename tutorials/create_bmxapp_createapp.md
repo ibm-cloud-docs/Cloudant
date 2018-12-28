@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-07"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -19,7 +22,7 @@ lastupdated: "2019-01-02"
 
 This section of the tutorial describes the code
 for an {{site.data.keyword.cloud}} application.
-{:shortdesc}
+{: shortdesc}
 
 <div id="theApp"></div>
 
@@ -36,16 +39,9 @@ ready to begin creating the application:
 -   The [toolkits](create_bmxapp_appenv.html#toolkits) for managing Cloud Foundry-based {{site.data.keyword.cloud_notm}} applications.
 -   A ['starter' application pack](create_bmxapp_appenv.html#starter), containing initial configuration and code template files.
 
->   **Note**: No attempt was made to create _efficient_ Python code for this tutorial.
-    The intention is to show simple and easy-to-understand working code
-    that you can learn from and apply for your own applications.
-    Also,
-    no attempt was made to address all possible checks or error conditions.
-    Some example checks are included to illustrate some of the techniques.
-    In your applications,
-    check for,
-    and deal with,
-    all warnings or error conditions.
+No attempt was made to create _efficient_ Python code for this tutorial. The intention is to show simple and easy-to-understand working code that you can learn from and apply for your own applications. Also, no attempt was made to address all possible checks or error conditions. Some example checks are included to illustrate some of the techniques. In your applications, check for, and deal with, all warnings or error conditions.
+{: tip}
+
 
 ### Essential files
 
@@ -63,7 +59,7 @@ Modify your configuration files as follows:
     ```
     web: python server.py
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  Edit the '`manifest.yml`' file so that it contains the following text:
     ```
@@ -78,14 +74,16 @@ Modify your configuration files as follows:
       services:
       - <your database instance>
     ```
-    {:codeblock}
-    >   **Note**: Ensure that you modify the '`domain`', '`name`', '`host`', and '`services`' values. They are the values that were entered when you created your [{{site.data.keyword.cloud_notm}} application environment](create_bmxapp_appenv.html#creating) and your [{{site.data.keyword.cloudant_short_notm}} database instance](create_bmxapp_prereq.html#csi).
+    {: codeblock}
+
+Ensure that you modify the '`domain`', '`name`', '`host`', and '`services`' values. They are the values that were entered when you created your [{{site.data.keyword.cloud_notm}} application environment](create_bmxapp_appenv.html#creating) and your [{{site.data.keyword.cloudant_short_notm}} database instance](create_bmxapp_prereq.html#csi).
+{: note}
 
 3.  Edit the '`requirements.txt`' file so that it contains the following text:
     ```
     cloudant==2.3.1
     ```
-    {:codeblock}
+    {: codeblock}
 
 ### The application code
 
@@ -108,7 +106,7 @@ import json
 # for formatting date and time values.
 from time import gmtime, strftime
 ```
-{:codeblock}
+{: codeblock}
 
 The application operates as a simple webserver,
 showing only one page:
@@ -126,9 +124,10 @@ except ImportError:
     from http.server import SimpleHTTPRequestHandler as Handler
     from http.server import HTTPServer as Server
 ```
-{:codeblock}
+{: codeblock}
 
->   **Note**: This code segment is provided as part of the ['starter' application pack](create_bmxapp_appenv.html#starter).
+This code segment is provided as part of the ['starter' application pack](create_bmxapp_appenv.html#starter).
+{: note}
 
 The application connects to the {{site.data.keyword.cloudant_short_notm}} database instance,
 so it must import the {{site.data.keyword.cloudant_short_notm}} Library components:
@@ -139,7 +138,7 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 ```
-{:codeblock}
+{: codeblock}
 
 The application creates a database within the {{site.data.keyword.cloudant_short_notm}} database instance.
 A name is required for the database:
@@ -148,7 +147,7 @@ A name is required for the database:
 # This is the name of the database we intend to create.
 databaseName = "databasedemo"
 ```
-{:codeblock}
+{: codeblock}
 
 The application records progress as it connects to the
 {{site.data.keyword.cloudant_short_notm}} database instance
@@ -169,7 +168,7 @@ except OSError:
     pass
 os.chdir('static')
 ```
-{:codeblock}
+{: codeblock}
 
 Next,
 create a simple HTML file.
@@ -182,7 +181,7 @@ target = open(filename, 'w')
 target.truncate()
 target.write("<html><head><title>{{site.data.keyword.cloudant_short_notm}} Python Demo</title></head><body><p>Log of Cloudant Python steps...</p><pre>")
 ```
-{:codeblock}
+{: codeblock}
 
 The first part of the log is a record of the current date and time.
 This record helps confirm that the database really is being freshly created:
@@ -193,7 +192,7 @@ target.write("====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n\n")
 ```
-{:codeblock}
+{: codeblock}
 
 #### Working with the {{site.data.keyword.cloudant_short_notm}} database instance
 
@@ -212,15 +211,10 @@ Check by testing for the presence of the '`VCAP_SERVICES`' environment variable:
 # Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
 ```
-{:codeblock}
+{: codeblock}
 
->   **Note**: The next sections of code are run only if the environment variable was found.
-    In Python,
-    this code is indented to indicate that it is the body of the test.
-    In this tutorial,
-    indentation is omitted from the code segments to save space.
-    However,
-    the [full listing](#complete-listing) shows the indentation correctly.
+The next sections of code are run only if the environment variable was found. In Python, this code is indented to indicate that it is the body of the test. In this tutorial, indentation is omitted from the code segments to save space. However, the [full listing](#complete-listing) shows the indentation correctly.
+{: note}
 
 Assuming that the variable is found,
 proceed to use the information.
@@ -233,7 +227,7 @@ vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
 # Log the fact that we successfully found some service information.
 target.write("Got vcap_servicesData\n")
 ```
-{:codeblock}
+{: codeblock}
 
 Next,
 look for information about the connected {{site.data.keyword.cloudant_short_notm}} database instance.
@@ -246,7 +240,7 @@ cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
 # Log the fact that we successfully found some {{site.data.keyword.cloudant_short_notm}} service information.
 target.write("Got cloudantNoSQLDBData\n")
 ```
-{:codeblock}
+{: codeblock}
 
 Several {{site.data.keyword.cloud_notm}} services might be connected to the application environment.
 The credentials for each service are listed as array elements.
@@ -267,7 +261,7 @@ credentialsData = credentials['credentials']
 # Log the fact that we successfully found the {{site.data.keyword.cloudant_short_notm}} values.
 target.write("Got credentialsData\n\n")
 ```
-{:codeblock}
+{: codeblock}
 
 Next,
 inspect the list and retrieve the essential values:
@@ -289,7 +283,7 @@ target.write("Got URL: ")
 target.write(serviceURL)
 target.write("\n")
 ```
-{:codeblock}
+{: codeblock}
 
 The application now has all the details necessary to create a database within the
 {{site.data.keyword.cloudant_short_notm}} database instance.
@@ -327,7 +321,7 @@ if myDatabaseDemo.exists():
 # All done - disconnect from the service instance.
 client.disconnect()
 ```
-{:codeblock}
+{: codeblock}
 
 #### Closing the log file
 
@@ -343,7 +337,7 @@ target.write("\n====\n")
 target.write("</pre></body></html>")
 target.close()
 ```
-{:codeblock}
+{: codeblock}
 
 #### Serving the log file
 
@@ -373,7 +367,7 @@ except KeyboardInterrupt:
   pass
 httpd.server_close()
 ```
-{:codeblock}
+{: codeblock}
 
 ## The next step
 
@@ -500,4 +494,4 @@ except KeyboardInterrupt:
   pass
 httpd.server_close()
 ```
-{:codeblock}
+{: codeblock}

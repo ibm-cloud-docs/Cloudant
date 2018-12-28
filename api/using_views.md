@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-11-06 -->
 
@@ -21,7 +24,7 @@ lastupdated: "2019-01-02"
 Use views to search for content within a database that matches specific criteria.
 The criteria are specified within the view definition,
 or supplied as arguments when you use the view.
-{:shortdesc}
+{: shortdesc}
 
 ## Querying a view
 {: #querying-a-view}
@@ -68,7 +71,7 @@ Argument | Supported values
 `update` | `true`: Return results after updating the view.<br/>`false`: Return results before updating the view.<br/>`lazy`: Return the view results without waiting for an update, but update them immediately after the request.
 
 Using `include_docs=true` might have [performance implications](#include_docs_caveat).
-{: tip}
+{: important}
 
 _Example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view:_
 
@@ -77,7 +80,7 @@ GET /$DATABASE/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to retrieve a list of the first five documents from a database,
 applying the user-created `by_title` view:_
@@ -86,7 +89,7 @@ applying the user-created `by_title` view:_
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5 \
      -H "Content-Type: application/json"
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response to request:_
 
@@ -138,7 +141,7 @@ _Example response to request:_
     "total_rows" : 2667
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Indexes
 {: #indexes}
@@ -170,7 +173,7 @@ If the fingerprint changes,
 then the view indexes are rebuilt.
 
 View index rebuilds occur whenever a change occurs to any one view from all the views that are defined in the design document. For example, if you have a design document with three views, and you update the design document, all three view indexes within the design document are rebuilt.
-{: tip}
+{: note}
 
 If the database was updated recently,
 the results might be delayed when the view is accessed.
@@ -195,7 +198,7 @@ Nevertheless, a stale view returns the results of the view query quickly,
 by using an existing version of the index.
 
 If you want to save old index versions without incurring indexing overhead, you can stop the search index from building by setting `"autoupdate": {"indexes": false}`, or stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. See the following examples. 
-{: tip}
+{: note}
 
 ```json
 	{
@@ -284,7 +287,7 @@ but that the view must then be updated anyway.
 
 The data returned by a view query are in the form of an array.
 Each element within the array is sorted by using standard
-[UTF-8 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/UTF-8){:new_window} sorting.
+[UTF-8 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/UTF-8){: new_window} sorting.
 The sort is applied to the key defined in the view function. 
 
 The basic order of output is as follows:
@@ -312,7 +315,7 @@ GET /$DATABASE/_design/$DDOC/_view/by_title?limit=5&descending=true HTTP/1.1
 Accept: application/json
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of requesting the last five records in reversed sort order, that uses the command line:_
 
@@ -320,7 +323,7 @@ _Example of requesting the last five records in reversed sort order, that uses t
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5&descending=true \
      -H "Content-Type: application/json"
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response of requesting the last five records in reversed sort order:_
 
@@ -372,7 +375,7 @@ _Example response of requesting the last five records in reversed sort order:_
     "total_rows" : 2667
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Specifying Start and End Keys
 {: #specifying-start-and-end-keys}
@@ -394,7 +397,7 @@ GET /recipes/_design/recipes/_view/by_ingredient?startkey="alpha"&endkey="beta" 
 Accept: application/json
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a query using the command line that includes `startkey` and `endkey` query arguments:_
 
@@ -402,7 +405,7 @@ _Example of a query using the command line that includes `startkey` and `endkey`
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?startkey="alpha"&endkey="beta" \
      -H "Content-Type: application/json"
 ```
-{:codeblock}
+{: codeblock}
 
 For example,
 if you have a database that returns 10 results when you use a `startkey` of `alpha` and an `endkey` of `beta`,
@@ -416,7 +419,7 @@ GET /recipes/_design/recipes/_view/by_ingredient?descending=true&startkey="beta"
 Accept: application/json
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example illustrating why reversing the order of `startkey` and `endkey` might not yield any results,
 that uses the command line:_
@@ -425,7 +428,7 @@ that uses the command line:_
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="beta"&endkey="alpha" \
      -H "Content-Type: application/json"
 ```
-{:codeblock}
+{: codeblock}
 
 The `endkey` of `beta` is seen before the `startkey` of `alpha`, resulting in an empty list.
 
@@ -440,7 +443,7 @@ therefore the returned result is empty:_
     "offset" : 21882
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The solution is to reverse not just the sort order,
 but also the `startkey` and `endkey` parameter values.
@@ -456,7 +459,7 @@ GET /recipes/_design/recipes/_view/by_ingredient?descending=true&startkey="egg"&
 Accept: application/json
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example that uses the command line to apply correct filtering and sorting:_
 
@@ -464,7 +467,7 @@ _Example that uses the command line to apply correct filtering and sorting:_
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="egg"&endkey="carrots" \
     -H "Content-Type: application/json"
 ```
-{:codeblock}
+{: codeblock}
 
 ## Querying a view by using a list of keys
 {: #querying-a-view-by-using-a-list-of-keys}
@@ -487,7 +490,7 @@ where the key for the view matches either `claret` or `clear apple juice`:_
 POST /$DATABASE/_design/$DDOC/_view/$VIEWNAME HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a request that returns all recipes,
 where the key for the view matches either `claret` or `clear apple juice`,
@@ -496,7 +499,7 @@ that uses the command line:_
 ```sh
 curl -X POST "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME" -d @request.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document that provides a list of keys to use in the query:_
 
@@ -508,7 +511,7 @@ _Example JSON document that provides a list of keys to use in the query:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The response contains the standard view information,
 but only documents where the keys match.
@@ -537,7 +540,7 @@ _Example response after running a query that uses a list of keys:_
     "offset" : 6324
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="include_docs_caveat"></div>
 
@@ -572,7 +575,7 @@ _Example request using HTTP to obtain the full content of documents that match t
 POST /recipes/_design/recipes/_view/by_ingredient?include_docs=true HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document that lists the keys to match:_
 
@@ -584,7 +587,7 @@ _Example JSON document that lists the keys to match:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request using the command line to obtain the full content of documents that match the listed keys:_
 
@@ -594,7 +597,7 @@ curl "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_i
     -H "Content-Type: application/json" \
     -d "{ "keys" : [ "claret", "clear apple juice" ] }"
 ```
-{:codeblock}
+{: codeblock}
 
 _Example (abbreviated) response, returning the full document for each recipe that matches a provided key:_
 
@@ -684,7 +687,7 @@ _Example (abbreviated) response, returning the full document for each recipe tha
     "total_rows" : 26484
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Sending several queries to a view
 {: #sending-several-queries-to-a-view}
@@ -707,7 +710,7 @@ _Example request using HTTP that contains several queries:_
 POST /$DATABASE/_design/$DDOC/_view/$VIEWNAME HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request containing several queries, that uses the command line:_
 
@@ -715,7 +718,7 @@ _Example request containing several queries, that uses the command line:_
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME -H 'Content-Type: application/json' -d @request-body.json
     # where request-body.json is a file containing JSON data describing the queries
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document that contains several queries:_
 
@@ -732,7 +735,7 @@ _Example JSON document that contains several queries:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response:_
 
@@ -804,4 +807,4 @@ _Example response:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}

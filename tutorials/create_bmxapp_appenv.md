@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-07"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -19,7 +22,7 @@ lastupdated: "2019-01-02"
 
 This section of the tutorial describes how to set up the application environment you must have
 for creating an {{site.data.keyword.cloud}} application.
-{:shortdesc}
+{: shortdesc}
 
 <div id="creating"></div>
 
@@ -27,7 +30,7 @@ for creating an {{site.data.keyword.cloud}} application.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
+    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){: new_window}.
     After you authenticate with your user name and password,
     the {{site.data.keyword.cloud_notm}} dashboard appears. Click `Catalog` from the menu:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
@@ -124,7 +127,7 @@ your {{site.data.keyword.cloud_notm}} environment,
 applications,
 and services.
 
-The [Cloud Foundry ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window}
+The [Cloud Foundry ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Cloud_Foundry){: new_window}
 toolkit is a collection of tools for working with applications that are
 deployed in a Cloud Foundry-compatible environment.
 Use these tools for tasks such as updating a deployed application,
@@ -142,7 +145,7 @@ you do not need to download them again,
 unless they are updated.
 
 General information about the toolkits is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](../getting-started.html#getting-started-with-cloudant){:new_window}.
+[here ![External link icon](../images/launch-glyph.svg "External link icon")](../getting-started.html#getting-started-with-cloudant){: new_window}.
 
 ### Installing the Cloud Foundry toolkit
 
@@ -168,7 +171,7 @@ use the following steps to download and install the Cloud Foundry toolkit on you
     ```sh
     cf --version
     ```
-    {:pre}
+    {: pre}
     
     Expect a result similar to the following output:
     
@@ -186,7 +189,7 @@ Use the following steps to download and install the {{site.data.keyword.cloud_no
 
 1.  Click `Getting started` to see information on downloading the {{site.data.keyword.cloud_notm}} admin CLI toolkit.
 
-2.  Click `CLI` to open the [Getting started with {{site.data.keyword.cloud_notm}} developer tools ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window} document.
+2.  Click `CLI` to open the [Getting started with {{site.data.keyword.cloud_notm}} developer tools ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){: new_window} document.
 
 3.  Follow the instructions on the page to download and run the appropriate installer for your system.
 
@@ -200,21 +203,22 @@ Use the following steps to download and install the {{site.data.keyword.cloud_no
     ```sh
     bluemix --version
     ```
-    {:pre}
+    {: pre}
     
     Expect a result similar to the following output:
     
     ```
     bluemix version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
     ```
-    {:codeblock}
+    {: codeblock}
     
 The tools to work with {{site.data.keyword.cloud_notm}} applications are now available.
 The next step is to obtain the 'starter' materials to help you create
 an {{site.data.keyword.cloud_notm}} application.
 
 After you install the command line interface, go back to the `Getting started` tab in the dashboard to download, modify, and redeploy your Cloud Foundry applications and service instances with the command line interface. 
-{: tip}
+{: note}
+
 
 <div id="starter"></div>
 
@@ -229,7 +233,7 @@ An {{site.data.keyword.cloud_notm}} starter application is the minimum possible 
 of source and configuration files
 necessary to create a working {{site.data.keyword.cloud_notm}} application.
 In some regards,
-it is similar to a ['Hello World' application ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){:new_window};
+it is similar to a ['Hello World' application ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){: new_window};
 sufficient only to show that the basic system and configuration is working correctly.
 
 An {{site.data.keyword.cloud_notm}} starter application is an archive of example files that
@@ -253,7 +257,7 @@ a `Procfile` is a Cloud Foundry artifact that
 defines an application process type,
 and the command to run the application.
 More information about `Procfile` is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){:new_window}.
+[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window}.
 
 The `Procfile` for an {{site.data.keyword.cloud_notm}} Python starter application
 looks similar to the following example:
@@ -261,7 +265,7 @@ looks similar to the following example:
 ```
 web: python server.py
 ```
-{:codeblock}
+{: codeblock}
 
 This example indicates that the application is a Python web application,
 and that it is started by running the command:
@@ -269,7 +273,7 @@ and that it is started by running the command:
 ```sh
 python server.py
 ```
-{:codeblock}
+{: codeblock}
 
 A starter `server.py` Python source file is included in the starter application archive.
 The `server.py` file is modified for your application.
@@ -299,7 +303,7 @@ applications:
   services:
   - Cloudant Service 2017
 ```
-{:codeblock}
+{: codeblock}
 
 Three points are worth noting:
 
@@ -334,7 +338,7 @@ modify the `requirements.txt` file to contain the following text: ​​​
 ```
 cloudant==2.3.1
 ```
-{:codeblock}
+{: codeblock}
 
 ## The next step
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,16 +12,19 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database
 
 This tutorial shows you how to create an {{site.data.keyword.cloud}} application that uses the
-[Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} to
+[Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} to
 access an {{site.data.keyword.cloudantfull}} database,
 hosted in your {{site.data.keyword.cloud_notm}} service instance.
-{:shortdesc}
+{: shortdesc}
 
 ## Context
 
@@ -35,7 +38,7 @@ it makes sense to have your applications there,
 too.
 
 {{site.data.keyword.cloud_notm}} applications are typically created by using
-[Cloud Foundry ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} technology.
+[Cloud Foundry ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Cloud_Foundry){: new_window} technology.
 Cloud Foundry offers a Platform-as-a-Service (PaaS) capability
 that simplifies the process of creating applications that can be deployed and run
 within a Cloud environment.

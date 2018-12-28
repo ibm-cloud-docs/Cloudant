@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -11,12 +11,18 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+
+<!-- Acrolinx: 2019 -->
 
 # API reference overview
 
 The {{site.data.keyword.cloudantfull}} API reference is intended to be a comprehensive and living catalog of {{site.data.keyword.cloudant_short_notm}}'s capabilities.
-Contributions are welcome through [{{site.data.keyword.cloudant_short_notm}} Labs on GitHub ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){:new_window}.
-{:shortdesc}
+Contributions are welcome through [{{site.data.keyword.cloudant_short_notm}} Labs on GitHub ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){: new_window}.
+{: shortdesc}
 
 ## For the cURL samples
 

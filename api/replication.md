@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -11,6 +11,10 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-04-25 -->
 
@@ -19,7 +23,7 @@ lastupdated: "2019-01-02"
 # Replication
 
 {{site.data.keyword.cloudantfull}} replication is the process that synchronizes ('syncs') the state of two databases.
-{:shortdesc}
+{: shortdesc}
 
 Any change that occurred in the source database is reproduced in the target database.
 You can create replications between any number of databases, either continuously or as a 'one off' task.
@@ -70,7 +74,7 @@ Accept: application/json
   "target" : "https://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/db",
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example error response if one of the requested databases for a replication does not exist:_
 
@@ -80,7 +84,7 @@ _Example error response if one of the requested databases for a replication does
   "reason" : "could not open http://$ACCOUNT.cloudant.com/ol1ka/"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="replication-database-maintenance"></div>
 
@@ -126,12 +130,13 @@ you `DELETE` the replication document.
 The fields that are supplied in the replication document are
 described in the [Replication document format](#replication-document-format).
 
-> **Note**: All design documents and `_local` documents added to the `/_replicator` database are ignored.
+All design documents and `_local` documents added to the `/_replicator` database are ignored.
+{: note}
 
 ## Replication document format
 
-> **Note**: You must use the *full* URL
-  when you specify the source and target databases in a replication document.
+You must use the *full* URL when you specify the source and target databases in a replication document.
+{: note}
 
 The format of the document that is used to describe a replication is as follows:
 
@@ -152,8 +157,8 @@ Field Name | Required | Description
 `use_checkpoints` | no | Indicate whether to create checkpoints. Checkpoints greatly reduce the time and resources that are needed for repeated replications. Setting this field to `false` removes the requirement for write access to the `source` database. Defaults to `true`.
 `user_ctx` | no | An object that contains the user name and optionally an array of roles, for example: `"user_ctx": {"name": "jane", "roles": ["admin"]} `. This object is needed for the replication to show up in the output of `/_active_tasks`.
 
-> **Note:** Optionally,
-replication documents can have a user-defined `_id`.
+Optionally, replication documents can have a user-defined `_id`.
+{: note}
 
 <div id="selector-field"></div>
 
@@ -187,7 +192,7 @@ _Example `selector` object in a replication document:_
   "continuous": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 If there is a problem with the replication request,
 an HTTP [`400`](http.html#400) error is returned.
@@ -199,7 +204,7 @@ The reason might be one of:
 - The selector object does not describe a valid {{site.data.keyword.cloudant_short_notm}} Query.
 
 More information about using a `selector` object is available in the
-[Apache CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/api/database/changes.html#selector){:new_window}.
+[Apache CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/api/database/changes.html#selector){: new_window}.
 
 _Example error response if the selector is not valid:_
 
@@ -209,7 +214,7 @@ _Example error response if the selector is not valid:_
   "reason": "<details of the problem>"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="since-seq-field"></div>
 
@@ -235,8 +240,8 @@ This field might be used for creating incremental copies of databases. To do thi
 4.  Set the `since_seq` field in the replication document to the value of the `recorded_seq` field.
 5.  Replicate to a new database.
 
-> **Note**: By definition, using `since_seq` disables the normal replication checkpointing facility,
-so use `since_seq` with caution.
+By definition, using `since_seq` disables the normal replication checkpointing facility, so use `since_seq` with caution.
+{: note}
 
 <div id="creating-replications"></div>
 
@@ -255,9 +260,8 @@ Replications are created in one of two ways:
   The JSON document has the same format as the JSON documents you store in the
   [`/_replicator`](#the-_replicator-database) database.
 
-> **Note**: The first method,
-where you store a replication document in the `_replicator` database,
-is the preferred approach.
+The first method, where you store a replication document in the `_replicator` database, is the preferred approach.
+{: note}
 
 To start a replication,
 add a [replication document](#replication-document-format) to the `_replicator` database.
@@ -268,7 +272,7 @@ _Example instructions for using HTTP to create a replication document:_
 PUT /_replicator/replication-doc HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example instructions for using the command line to create a replication document:_
 
@@ -276,7 +280,7 @@ _Example instructions for using the command line to create a replication documen
 curl -X PUT https://$ACCOUNT.cloudant.com/_replicator/replication-doc -H 'Content-Type: application/json' -d @replication-document.json
 #assuming replication-document.json is a json file with valid replication information.
 ```
-{:codeblock}
+{: codeblock}
 
 _Example replication document:_
 
@@ -288,7 +292,7 @@ _Example replication document:_
   "continuous": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Creating a target database during replication
 
@@ -312,7 +316,7 @@ Accept: application/json
   "target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT.cloudant.com/db",
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="-optional-creating-a-replication-to-two-bluemix-environments"></div>
 
@@ -325,7 +329,7 @@ the source database and target database names you provide must use the following
 ```http
 https://$ACCOUNT:$PASSWORD@$REMOTE_USERNAME.cloudant.com/$DATABASE_NAME
 ```
-{:codeblock}
+{: codeblock}
 
 You create the database within {{site.data.keyword.cloud}} by using the name: `$DATABASE_NAME`,
 and add it to the URL format.
@@ -359,14 +363,14 @@ _Example instructions for using HTTP to delete a replication document:_
 ```http
 DELETE /_replicator/replication-doc?rev=1-... HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example instructions for deleting a replication document, the command line:_
 
 ```sh
 curl -X DELETE https://$ACCOUNT.cloudant.com/_replicator/replication-doc?rev=1-...
 ```
-{:codeblock}
+{: codeblock}
 
 ## Monitoring a replication
 
@@ -395,14 +399,14 @@ _Example instructions for using HTTP to monitor a replication:_
 ```http
 GET /_active_tasks HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example instructions for using the command line to monitor a replication:_
 
 ```http
 curl https://$ACCOUNT.cloudant.com/_active_tasks
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -423,7 +427,7 @@ account.request(
 	}
 );
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -454,7 +458,7 @@ _Example response (abbreviated) after an active task request, including continuo
   }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response after an active task request, including single replication:_
 
@@ -480,7 +484,7 @@ _Example response after an active task request, including single replication:_
   }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ## Single Replication
 
@@ -525,7 +529,7 @@ POST /_replicate HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example instructions for using the command line to request a single replication:_
 
@@ -533,7 +537,7 @@ _Example instructions for using the command line to request a single replication
 curl -H 'Content-Type: application/json' -X POST 'https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1' -d @replication-doc.json
 # the file replication-doc.json must be supplied.
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document that describes a single replication between the source database `recipes` and the target database `recipes2`:_
 
@@ -543,7 +547,7 @@ _Example JSON document that describes a single replication between the source da
 	"target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/recipes2"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response that follows a request for a single replication:_
 
@@ -569,7 +573,7 @@ _Example response that follows a request for a single replication:_
 	"source_last_seq" : 1000
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Continuous Replication
 
@@ -591,10 +595,8 @@ Instead,
 the replication process continues to wait for further updates to the source database,
 and applies them to the target.
 
->	**Note**: Continuous replication forces checks to be made continuously on the source database.
-This results in an increasing number of database accesses,
-even if the source database content did not change.
-Database accesses are counted as part of the work that is done within a multi-tenant database configuration.
+Continuous replication forces checks to be made continuously on the source database. This results in an increasing number of database accesses, even if the source database content did not change. Database accesses are counted as part of the work that is done within a multi-tenant database configuration.
+{: note}
 
 _Example instructions for using HTTP to request continuous replication:_
 
@@ -603,7 +605,7 @@ POST /_replicate HTTP/1.1
 Content-Type: application/json
 Accept: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example instructions for using the command line to request continuous replication:_
 
@@ -611,7 +613,7 @@ _Example instructions for using the command line to request continuous replicati
 curl -H 'Content-Type: application/json' -X POST 'https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1' -d @replication-doc.json
 # the file replication-doc.json must be supplied.
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document that describes continuous replication between the source database `recipes` and the target database `recipes2`:_
 
@@ -622,18 +624,15 @@ _Example JSON document that describes continuous replication between the source 
 	"continuous": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Canceling Continuous Replication
 
 Cancel continuous replication by including the `cancel` field in the JSON request object,
 and setting the value to `true`.
 
->	**Note**: For the cancellation request to succeed,
-the structure of the request must be identical to the original request.
-In particular,
-if you requested continuous replication,
-the cancellation request must also contain the `continuous` field.
+For the cancellation request to succeed, the structure of the request must be identical to the original request. In particular, if you requested continuous replication, the cancellation request must also contain the `continuous` field.
+{: note}
 
 Requesting cancellation of a replication that does not exist results in a [404 error](http.html#404).
 
@@ -647,7 +646,7 @@ _Example replication request to create the target database if it does not exist,
 	"continuous" : true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request to cancel the replication, providing matching fields to the original request:_
 
@@ -660,7 +659,7 @@ _Example request to cancel the replication, providing matching fields to the ori
 	"target" : "http://$USERNAME2:$PASSWORD2@$ACCOUNT.cloudant.com/db"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 
 ## Replication errors
@@ -684,7 +683,7 @@ _Example of using HTTP to send a request to start a replication:_
 POST /_replicate HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to send a request to start a replication:_
 
@@ -692,7 +691,7 @@ _Example of using the command line to send a request to start a replication:_
 curl -H 'Content-Type: application/json' -X POST 'http://$ACCOUNT.cloudant.com/_replicate' -d @replication-doc.json
 # the file replication-doc.json describes the intended replication.
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document that describes the intended replication:_
 
@@ -704,7 +703,7 @@ _Example JSON document that describes the intended replication:_
 	"continuous": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response after the replication starts successfully:_
 
@@ -714,7 +713,7 @@ _Example response after the replication starts successfully:_
 	"_local_id": "0a81b645497e6270611ec3419767a584+continuous+create_target"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using HTTP to send a request to cancel a replication:_
 
@@ -722,7 +721,7 @@ _Example of using HTTP to send a request to cancel a replication:_
 POST /_replicate HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to send a request to cancel a replication:_
 
@@ -730,7 +729,7 @@ _Example of using the command line to send a request to cancel a replication:_
 curl -H 'Content-Type: application/json' -X POST http://$ACCOUNT.cloudant.com/_replicate -d @replication-doc.json
 # where the file replication-doc.json specifies the replication task to be canceled.
 ```
-{:codeblock}
+{: codeblock}
 
 _Example document that specifies the replication to be canceled:_
 
@@ -740,7 +739,7 @@ _Example document that specifies the replication to be canceled:_
 	"cancel": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response after successfully canceling the replication, indicated by the `"ok":true` content:_
 
@@ -750,4 +749,4 @@ _Example response after successfully canceling the replication, indicated by the
 	"_local_id": "0a81b645497e6270611ec3419767a584+continuous+create_target"
 }
 ```
-{:codeblock}
+{: codeblock}

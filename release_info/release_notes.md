@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,14 +12,17 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-10-19 -->
 
-# Release Notes
+# Release notes
 {: #release-notes}
 
 Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by build number.
-{:shortdesc}
+{: shortdesc}
 
 ## Dedicated hardware
 {: #dedicated-hardware}
@@ -32,17 +35,17 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 - Fixed a problem where the replicator would sometimes reset statistics during
     replications. This would affect values in the [replication status
     information][build-7505-december-2018-5].
-     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-3]{:new_window}.
+     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-3]{: new_window}.
 - Fixed an issue with Cloudant Query where, after deleting a document, issuing
     a `_find` request to a text index with `update=false` could return a
     `500` response.
-    See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-4]{:new_window}.
+    See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-4]{: new_window}.
 - You can now use `multipart/mixed` and `multipart/related` when using 
-    `_bulk_get`. See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-1]{:new_window}.
+    `_bulk_get`. See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-1]{: new_window}.
 - Fix a bug with total row count in the `_design_docs` handler.
-     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-2]{:new_window}.
+     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-2]{: new_window}.
 - Optimisations to the `_doc_id` and `_design_docs` replication filters.
-     See [issue ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-6]{:new_window}.
+     See [issue ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-6]{: new_window}.
 - Fix a regression where long-running index jobs can fail.
     
 
@@ -58,10 +61,10 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 - Include [CRN](/docs/overview/crn.html) in audit logs.
 - Replicator stability improvements.
-- Improve validation of `q` parameter on database creation. See [COUCHDB-1582 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1582){:new_window}.
-- Fix error in `_bulk_get` endpoint for the `_users` database. See [COUCHDB-1650 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1650){:new_window}.
-- Fix JavaScript URL rewrites hanging on `POST` or `PUT` requests. See [COUCHDB-1612 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1612){:new_window}.
-- Fix invalid `reduce` functions in {{site.data.keyword.cloudant_short_notm}} Query indexes that prevent indexing. See [COUCHDB-1666 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1666){:new_window}.
+- Improve validation of `q` parameter on database creation. See [COUCHDB-1582 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1582){: new_window}.
+- Fix error in `_bulk_get` endpoint for the `_users` database. See [COUCHDB-1650 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1650){: new_window}.
+- Fix JavaScript URL rewrites hanging on `POST` or `PUT` requests. See [COUCHDB-1612 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1612){: new_window}.
+- Fix invalid `reduce` functions in {{site.data.keyword.cloudant_short_notm}} Query indexes that prevent indexing. See [COUCHDB-1666 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1666){: new_window}.
 - Internal bug fixes to data compression, search, and core database components.
 
 ## Build 7410 (November 04, 2018)
@@ -195,7 +198,7 @@ Find [more information on our Security page](https://console.bluemix.net/docs/se
 ## Build 6761 (March 13, 2018)
 {: #build-6761-march-13-2018}
 
-- Ensure deterministic revisions for attachments. See [COUCHDB-3255 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-3255){:new_window}.
+- Ensure deterministic revisions for attachments. See [COUCHDB-3255 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-3255){: new_window}.
 - Add a pluggable storage engine.
 - Prevent `chttpd` multipart zombie processes.
 - Avoid unconditional retries in replicator's HTTP client.
@@ -239,7 +242,7 @@ JavaScript.
 ### Query (<code>_find</code> endpoint):
 {: #query-code-_find-code-endpoint}
 
-- {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){:new_window}.
+- {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}.
 - The logic for determining whether a specific index is valid for a query changed, addressing a bug that might lead to incorrect results.
 - Queries that use text indexes no longer fail when `$exists`: `false` is used.
 - Partial indexes are now supported for both JSON and text indexes. For more information, see  [Creating a partial index](../api/cloudant_query.html#creating-a-partial-index) for more information.
@@ -290,7 +293,7 @@ Now, the error is a 409 error with the following information: `{`error`:`not_fou
 
 - {{site.data.keyword.cloudant_short_notm}} is more tolerant of malformed user documents that are stored within the `_users` database.
   User documents must be structured and populated to comply with
-  [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
+  [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){: new_window}.
 
 ## Build 5638 (October 11, 2016)
 {: #build-5638-october-11-2016}

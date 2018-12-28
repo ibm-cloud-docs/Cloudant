@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,16 +12,21 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+
+<!-- Acrolinx: 2019 -->
 
 # CORS
 
-[Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){:new_window} is a mechanism that allows resources
+[Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){: new_window} is a mechanism that allows resources
 such as JSON documents in an {{site.data.keyword.cloudantfull}} database to be requested
 from Javascript running on a website loaded from another domain.
-{:shortdesc}
+{: shortdesc}
 
 These "cross-domain" requests would normally be forbidden by web browsers,
-due to the [same origin security policy ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Same-origin_policy){:new_window}.
+due to the [same origin security policy ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Same-origin_policy){: new_window}.
 
 CORS defines a way in which the browser and the server interact to determine whether or not to allow the request.
 For {{site.data.keyword.cloudant_short_notm}},
@@ -46,8 +51,8 @@ there are two use cases in which CORS might be a good solution.
 
 CORS is supported by all current versions of commonly used browsers.
 
->	**Note**: Versions of Microsoft Internet Explorer prior to version 10 offer partial support for CORS.
-Versions of Microsoft Internet Explorer prior to version 8 do not support CORS.
+Versions of Microsoft Internet Explorer prior to version 10 offer partial support for CORS. Versions of Microsoft Internet Explorer prior to version 8 do not support CORS.
+{: note}
 
 ## Security
 
@@ -104,7 +109,7 @@ PUT /_api/v2/user/config/cors HTTP/1.1
 Host: $ACCOUNT.cloudant.com
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request, using the command line:_ 
 
@@ -114,7 +119,7 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors \
 	-X PUT \
 	-T cors.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON file for setting the CORS configuration:_
 
@@ -128,7 +133,7 @@ _Example JSON file for setting the CORS configuration:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The response tells you whether the configuration has been updated successfully.
 
@@ -139,7 +144,7 @@ _Example response:_
 	"ok": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Reading the CORS configuration
 
@@ -151,14 +156,14 @@ _Example request to `GET` the current CORS configuration, using HTTP:_
 GET /_api/v2/user/config/cors HTTP/1.1
 Host: username.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request to `GET` the current CORS configuration, using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors
 ```
-{:codeblock}
+{: codeblock}
 
 The response is the current CORS configuration in a JSON document.
 
@@ -174,7 +179,7 @@ _Example response:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Dashboard
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,15 +12,18 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}
 
-This tutorial shows you how to use the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} to
+This tutorial shows you how to use the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} to
 create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.cloud_notm}} service instance,
 and populate the database with a simple collection of data.
-{:shortdesc}
+{: shortdesc}
 
 ## Pre-requisites
 
@@ -29,7 +32,7 @@ before you start working through the tutorial.
 
 ### Python
 
-You must have a current installation of the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window}
+You must have a current installation of the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window}
 installed on your system.
 
 To check this,
@@ -38,14 +41,14 @@ run the following command at a prompt:
 ```sh
 python --version
 ```
-{:pre}
+{: pre}
 
 You should get a result similar to:
 
 ```
 Python 2.7.12
 ```
-{:codeblock}
+{: codeblock}
 
 ### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
 
@@ -60,7 +63,7 @@ run the following command at a prompt:
 ```sh
 pip freeze
 ```
-{:pre}
+{: pre}
 
 You should get a list of all the Python modules installed on your system.
 Inspect the list,
@@ -69,7 +72,7 @@ looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the fo
 ```
 cloudant==2.3.1
 ```
-{:codeblock}
+{: codeblock}
 
 ### An {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 
@@ -126,7 +129,7 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 ```
-{:codeblock}
+{: codeblock}
 
 The application must have the [Service Credentials](create_service.html#locating-your-service-credentials) for the service:
 
@@ -135,7 +138,7 @@ serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
 servicePassword = "49c0c343d225623956157d94b25d574586f26d1211e8e589646b4713d5de4801"
 serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
-{:codeblock}
+{: codeblock}
 
 The service credentials illustrated here
     were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloud_notm}}.
@@ -144,7 +147,7 @@ The service credentials illustrated here
     the demonstration {{site.data.keyword.cloudant_short_notm}} service has been removed now,
     so these credentials will not work;
     you _must_ supply and use your own service credentials.
-{: tip}
+{:  tip}
 
 Once you have enabled the Python client library within your application,
 and identified the service credentials,
@@ -154,7 +157,7 @@ you can establish a connection to the service instance:
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 client.connect()
 ```
-{:codeblock}
+{: codeblock}
 
 At this point,
 your Python application has access to the service instance on {{site.data.keyword.cloud_notm}}.
@@ -169,14 +172,14 @@ We do this by defining a variable in the Python application:
 ```python
 databaseName = "databasedemo"
 ```
-{:codeblock}
+{: codeblock}
 
 We then create the database:
 
 ```python
 myDatabaseDemo = client.create_database(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 It is helpful to check that the database was created successfully:
 
@@ -184,7 +187,7 @@ It is helpful to check that the database was created successfully:
 if myDatabaseDemo.exists():
     print "'{0}' successfully created.\n".format(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 ## Storing a small collection of data as documents within the database
 
@@ -202,7 +205,7 @@ sampleData = [
     [5, "five", "freezing", 0]
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 Next,
 some ordinary Python code 'steps' through the data,
@@ -235,7 +238,7 @@ for document in sampleData:
     if newDocument.exists():
         print "Document '{0}' successfully created.".format(number)
 ```
-{:codeblock}
+{: codeblock}
 
 Notice that we check that each document was successfully created.
 
@@ -261,7 +264,7 @@ we request the first document retrieved from the database:
 result_collection = Result(myDatabaseDemo.all_docs)
 print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
-{:codeblock}
+{: codeblock}
 
 The result is similar to the following example:
 
@@ -276,12 +279,12 @@ The result is similar to the following example:
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 The nature of NoSQL databases,
     such as {{site.data.keyword.cloudant_short_notm}},
     means that simple notions of the first document stored in a database
-    always being the first one returned in a list of results,
+    always being the first document returned in a list of results,
     do not necessarily apply.
 {: tip}
 
@@ -303,7 +306,7 @@ we request the first document retrieved from the database:
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
 print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
-{:codeblock}
+{: codeblock}
 
 The result is similar to the following example:
 
@@ -326,7 +329,7 @@ The result is similar to the following example:
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ## Calling an {{site.data.keyword.cloudant_short_notm}} API endpoint directly
 
@@ -348,7 +351,7 @@ and any parameters to supply along with the call:
 end_point = '{0}/{1}'.format(serviceURL, databaseName + "/_all_docs")
 params = {'include_docs': 'true'}
 ```
-{:codeblock}
+{: codeblock}
 
 Next,
 we send the request to the service instance,
@@ -358,7 +361,7 @@ then display the results:
 response = client.r_session.get(end_point, params=params)
 print "{0}\n".format(response.json())
 ```
-{:codeblock}
+{: codeblock}
 
 The result is similar to the following _abbreviated_ example:
 
@@ -402,7 +405,7 @@ The result is similar to the following _abbreviated_ example:
     "offset": 0
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Deleting the database
 
@@ -420,7 +423,7 @@ except CloudantException:
 else:
     print "'{0}' successfully deleted.\n".format(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 We have included some basic error handling to illustrate how problems
 might be caught and addressed.
@@ -432,7 +435,7 @@ The final step is to disconnect the Python client application from the service i
 ```python
 client.disconnect()
 ```
-{:codeblock}
+{: codeblock}
 
 ## Complete listing
 
@@ -580,4 +583,4 @@ print "===\n"
 # Say good-bye.
 exit()
 ```
-{:codeblock}
+{: codeblock}

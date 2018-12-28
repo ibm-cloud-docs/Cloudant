@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -19,10 +22,10 @@ lastupdated: "2019-01-02"
 
 This article considers the finer 
 points of modelling your application's data to work efficiently on a large scale.
-{:shortdesc}
+{: shortdesc}
 
 _(This guide is based on a Blog article by Mike Rhodes:
-["My top 5 tips for modelling your data to scale" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window},
+["My top 5 tips for modelling your data to scale" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){: new_window},
 originally published December 17, 2013.)_
 
 The way you model data on {{site.data.keyword.cloudantfull}} will significantly impact how your application is able to 
@@ -151,7 +154,7 @@ For example, take a medical record containing a list of operations:
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 If Joe is unfortunate enough to be having a lot of operations at the same time, the many 
 concurrent updates to a document is likely to create conflicted documents, as described above. 
@@ -166,7 +169,7 @@ like the following two example:
     "surgery": "heart bypass"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ```json
 {
@@ -175,7 +178,7 @@ like the following two example:
     "surgery": "lumbar puncture"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Emitting the `"patient"` field as the key in your view would then allow querying for all 
 operations for a given patient. Again, views are used to help knit together a full picture of 
@@ -236,6 +239,6 @@ and to take advantage of, to make sure the database performance scales as your a
 grows. We understand the shift can be confusing, so we’re always on-hand to give advice.
 
 For further reading, see this discussion on the
-["data model for Foundbite" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){:new_window},
-or this ["example from our friends at Twilio" ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){:new_window}.
+["data model for Foundbite" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window},
+or this ["example from our friends at Twilio" ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
 

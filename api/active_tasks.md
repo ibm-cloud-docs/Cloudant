@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -11,6 +11,10 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -21,7 +25,7 @@ The `/_active_tasks` endpoint provides a list of the tasks that are running on t
 This list is often helpful when you are [monitoring](monitoring.html) the performance of your system.
 For more examples on using the `/_active_tasks` endpoint,
 see the [Managing tasks](../guides/managing_tasks.html) guide.
-{:shortdesc}
+{: shortdesc}
 
 ## Retrieving a list of active tasks
 {: #retrieving-a-list-of-active-tasks}
@@ -40,7 +44,7 @@ _Example request to retrieve list of active tasks, by using HTTP:_
 ```HTTP
 GET /_active_tasks HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request to retrieve list of active tasks, by using the command line:_
 
@@ -48,7 +52,7 @@ _Example request to retrieve list of active tasks, by using the command line:_
 curl https://$ACCOUNT.cloudant.com/_active_tasks \
 	-u $ACCOUNT
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -65,7 +69,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -170,7 +174,7 @@ containing details of currently running tasks:_
 	}
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ### Specific response fields for compaction tasks
 {: #specific-response-fields-for-compaction-tasks}

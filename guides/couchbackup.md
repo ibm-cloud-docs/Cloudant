@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -11,6 +11,10 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-02 -->
 
@@ -18,7 +22,7 @@ lastupdated: "2019-01-02"
 
 The distributed nature of {{site.data.keyword.cloudant}} provides an inherent form of data backup.
 CouchBackup is a command line tool that provides you with a more powerful and flexible way for you to back up your data.
-{:shortdesc}
+{: shortdesc}
 
 ## Overview
 
@@ -51,7 +55,8 @@ the data can be accessed from the clone.
 Alternatively,
 the data in the clone might be restored somewhere else by using [replication](../api/replication.html).
 
->	**Note:** Restoring a large database by replicating from a clone might take a long time.
+Restoring a large database by replicating from a clone might take a long time.
+{: important}
 
 ### High Availability, automatic fail-over, and geo-load balancing
 
@@ -62,8 +67,8 @@ any changes that are made to a database in cluster A are replicated to a databas
 Similarly,
 any changes that are made to the database in cluster B are replicated to the database in cluster A.
 
->	**Note:** This model can be set up by using the {{site.data.keyword.cloudant_short_notm}} dashboard.
-It does not require action by {{site.data.keyword.cloudant_short_notm}} support.
+This model can be set up by using the {{site.data.keyword.cloudant_short_notm}} dashboard. It does not require action by {{site.data.keyword.cloudant_short_notm}} support.
+{: note}
 
 With this model in place,
 you can design your database applications to 'fail over' to one of the clusters if some availability criteria is met.
@@ -77,7 +82,7 @@ Designing the client application to identify the 'closest' cluster and connect t
 would help the application performance.
 
 A tutorial explaining how to set up a multi-region application environment is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/cloud/library/cl-multi-region-bluemix-apps-with-cloudant-and-dyn-trs/index.html){:new_window}.
+[here ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/cloud/library/cl-multi-region-bluemix-apps-with-cloudant-and-dyn-trs/index.html){: new_window}.
 
 ### Accidental or malicious or data modification
 

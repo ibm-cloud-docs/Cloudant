@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,32 +12,35 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_local_notm}}
 
-[{{site.data.keyword.cloudantfull}} Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){:new_window} is a locally installed version of the {{site.data.keyword.cloudant_short_notm}} Database-as-a-Service (DBaaS) offering.
+[{{site.data.keyword.cloudantfull}} Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){: new_window} is a locally installed version of the {{site.data.keyword.cloudant_short_notm}} Database-as-a-Service (DBaaS) offering.
 
 {{site.data.keyword.cloudant_local_notm}} provides you with the same basic capabilities as the full {{site.data.keyword.cloudant_short_notm}} single-tenant offering,
 but hosted within your own data center.
 
 A more detailed overview of {{site.data.keyword.cloudant_local_notm}} is
-[available ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_cloudant_local_overview.html){:new_window}.
+[available ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_cloudant_local_overview.html){: new_window}.
 The
-[IBM Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){:new_window}
+[IBM Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){: new_window}
 provides information on many aspects of {{site.data.keyword.cloudant_local_notm}},
 including:
 
--   [Installation and Configuration ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_installing.html){:new_window}.
--   [Maintenance Tasks ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_maintenance_tasks_overview.html){:new_window}.
--   [Tuning replication parameters ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_tuning_parameters_replication_cases.html){:new_window}.
+-   [Installation and Configuration ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_installing.html){: new_window}.
+-   [Maintenance Tasks ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_maintenance_tasks_overview.html){: new_window}.
+-   [Tuning replication parameters ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_tuning_parameters_replication_cases.html){: new_window}.
 
 ## Support
 
 {{site.data.keyword.cloudant_short_notm}} support is able to provide assistance with the installation, set up, and proper usage of {{site.data.keyword.cloudant_local_notm}}. In the event of a performance issue or inconsistency, support is able to help troubleshoot. In the event of an outage, support can help diagnose the issue, but the responsibility for resolving the issue rests with the customer team since we do not have access to customer systems.
 
-Adequate logs are necessary to provide proper assistance with any issue. To help troubleshooting begin as quickly as possible, you must include the output of the Weatherreport utility, as well as, any relevant logs, requests, and status codes when informing support of an issue. For more information, see the [Weatherreport utility ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_checking_health_cluster_with_weatherreport.html){:new_window}.
+Adequate logs are necessary to provide proper assistance with any issue. To help troubleshooting begin as quickly as possible, you must include the output of the Weatherreport utility, as well as, any relevant logs, requests, and status codes when informing support of an issue. For more information, see the [Weatherreport utility ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_checking_health_cluster_with_weatherreport.html){: new_window}.
 
 Assistance with common issues and outages can only be offered if the underlying problem is within the scope of support. The following text describes the support that is available: 
 
@@ -59,7 +62,7 @@ Contact your Customer Success or Account Manager for further assistance with the
 - Design optimization
 - Capacity planning
 
-If you have any questions regarding our support policy, contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+If you have any questions regarding our support policy, contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 
 ### How to open a support ticket
 To get help with an {{site.data.keyword.cloudant_local_notm}} issue, open a support ticket with {{site.data.keyword.cloudant_short_notm}} support and include the following information:

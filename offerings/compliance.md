@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-11-02 -->
 
@@ -43,10 +46,10 @@ and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.
 {{site.data.keyword.cloudant_short_notm}} is audited by a third-party security firm
 and meets the following ISO requirements:
 
-* [{{site.data.keyword.cloud_notm}} ISO 27001 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/multimedia/saas_27k.pdf){:new_window}
-* [{{site.data.keyword.cloud_notm}} ISO 27017 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/us/en/it-services/pdf/ibmcloud_27017.pdf){:new_window}
-* [{{site.data.keyword.cloud_notm}} ISO 27018 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/multimedia/ibmcloud_27018.pdf){:new_window}
-* [Search all IBM ISO certificates ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-935.ibm.com/services/us/en/it-services/iso-management-system-certifications.html){:new_window}.
+* [{{site.data.keyword.cloud_notm}} ISO 27001 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/multimedia/saas_27k.pdf){: new_window}
+* [{{site.data.keyword.cloud_notm}} ISO 27017 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/us/en/it-services/pdf/ibmcloud_27017.pdf){: new_window}
+* [{{site.data.keyword.cloud_notm}} ISO 27018 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/multimedia/ibmcloud_27018.pdf){: new_window}
+* [Search all IBM ISO certificates ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-935.ibm.com/services/us/en/it-services/iso-management-system-certifications.html){: new_window}.
  
 ## SOC 2 Type 2 Certification
 
@@ -59,9 +62,9 @@ for service providers such as IBM Cloud to safeguard their customers' data and i
 You can request an SOC 2 Type 2 report from the customer portal 
 or contact your sales representative. Alternatively, you can open 
 a support ticket with 
-[IBM Cloud support ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/support){:new_window} 
+[IBM Cloud support ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/support){: new_window} 
 or email 
-[support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+[support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 
 ## General Data Protection Regulation (GDPR) 
 

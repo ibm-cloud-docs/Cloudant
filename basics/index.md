@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -11,6 +11,10 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
@@ -18,7 +22,7 @@ lastupdated: "2019-01-02"
 
 If it's your first time here,
 scan this section before you scroll further.
-{:shortdesc}
+{: shortdesc}
 
 The sections on [Client Libraries](../libraries/index.html#-client-libraries),
 [API Reference](../api/index.html#-api-reference),
@@ -104,7 +108,7 @@ _Example error message in response to an unsupported request:_
     "reason":"Only GET,HEAD allowed"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## JSON
 {: #json}
@@ -140,8 +144,8 @@ see the [CAP Theorem](../guides/cap_theorem.html) guide.
 ## Replication
 
 [Replication](../api/replication.html) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
-[CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){:new_window},
-[PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window},
+[CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){: new_window},
+[PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window},
 and other distributed databases.
 Replication synchronizes the state of two databases so that their contents are identical.
 
@@ -156,6 +160,6 @@ continuous replication means testing continuously for any source database change
 This testing requires continuous internal calls,
 which might impact performance or the cost of using the database.
 
->   **Note**: Continuous replication can result in a large number of internal calls.
-    This might affect costs for multi-tenant users of {{site.data.keyword.cloudant_short_notm}} systems.
-    Continuous replication is disabled by default.
+Continuous replication can result in many internal calls. These calls might affect costs for multi-tenant users of {{site.data.keyword.cloudant_short_notm}} systems. Continuous replication is disabled by default.
+{: note}
+

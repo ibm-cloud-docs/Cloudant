@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,13 +12,16 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Authorized curl: `acurl`
 
 _(This guide is based on a Blog article by Samantha Scharr: [
-"Authorized curl, a.k.a. acurl" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window},
+"Authorized curl, a.k.a. acurl" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){: new_window},
 originally published November 27, 2013.)_
 
 `acurl` is a handy alias that allows you to `curl` {{site.data.keyword.cloudantfull}} commands to URLs
@@ -40,7 +43,7 @@ All it takes is three simple steps:
 3.	[Activate the alias](#activate-the-alias).
 
 If you are using a Windows computer, you can specify your user name and password from the command line.
-{:tip}
+{: tip}
 
 ## Encode user name and password
 
@@ -52,7 +55,7 @@ The command to base64-encode some data is similar to the following example:
 ```python
 python -c 'import base64; print base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD")'
 ```
-{:codeblock}
+{: codeblock}
 
 We assume that the output is called `<OUTPUT-OF-BASE64>`.
 
@@ -62,19 +65,17 @@ if you use the command:
 ```python
 python -c 'import base64; print base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD")'
 ```
-{:codeblock}
+{: codeblock}
 
 You then get the following output:
 
 ```
 bXl1c2VybmFtZTpteXBhc3N3b3Jk
 ```
-{:codeblock}
+{: codeblock}
 
->	**Note**: Remember that your password is still stored in plain text on your computer;
-	base64-encoding is _not_ encryption.
-	If you use base64-encode on the same character sequence,
-	you always get the same corresponding character output sequence.
+Remember that your password is still stored in plain text on your computer; base64-encoding is _not_ encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
+{: note}
 
 ## Create an alias
 
@@ -86,7 +87,7 @@ Add the following line to your `~/.bashrc` or `~/.bash_profile`:
 ```sh
 alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BASE64>'"
 ```
-{:codeblock}
+{: codeblock}
 
 This alias adds an Authorization header instead of including the
 authorization credentials in the URL you enter on the command line.
@@ -105,7 +106,7 @@ Go ahead and run:
 ```sh
 acurl https://$ACCOUNT.cloudant.com/_all_dbs
 ```
-{:codeblock}
+{: codeblock}
 
 If you get the list of your databases back,
 awesome!

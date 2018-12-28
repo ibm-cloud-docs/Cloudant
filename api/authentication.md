@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -20,7 +23,7 @@ lastupdated: "2019-01-02"
 
 Authentication means proving who you are.
 It is typically done by providing your user credentials for verification.
-{:shortdesc}
+{: shortdesc}
 
 You can provide your credentials (authenticate) in two ways for {{site.data.keyword.cloudantfull}}:
 
@@ -32,10 +35,8 @@ Cookie authentication is similar to having a key to the door so that you can let
 Within {{site.data.keyword.cloudant_short_notm}},
 the key is a cookie that is named `AuthSession`.
 
-When you create or use performance-critical {{site.data.keyword.cloudant_short_notm}} applications,
-cookie authentication has more benefits when compared with Basic authentication.
-Therefore, use cookie authentication whenever possible.
-{: tip}
+When you create or use performance-critical {{site.data.keyword.cloudant_short_notm}} applications, cookie authentication has more benefits when compared with Basic authentication. Therefore, use cookie authentication whenever possible.
+{: note}
 
 ## Basic Authentication
 {: #basic-authentication}
@@ -45,7 +46,7 @@ pass your credentials as part of every request.
 You pass your credentials by adding an `Authorization` header to the request.
 
 The header contains the authentication scheme (`Basic`),
-followed by the [BASE64 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Base64){:new_window} encoding of a string created by concatenating:
+followed by the [BASE64 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Base64){: new_window} encoding of a string created by concatenating:
 
 -	Your user name
 -	The `:` character
@@ -60,14 +61,14 @@ _Example including basic authentication credentials in a request, by using HTTP:
 GET /db/document HTTP/1.1
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
-{:codeblock}
+{: codeblock}
 
 _Example including basic authentication credentials in a request, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -82,7 +83,7 @@ account.request(function (err, body) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -96,7 +97,7 @@ ping = account.get()
 print ping.status_code
 # Expected result code: 200
 ```
-{:codeblock}
+{: codeblock}
 
 ## Cookie authentication
 {: #cookie-authentication}
@@ -137,7 +138,7 @@ Content-Type: application/x-www-form-urlencoded
 Accept: */*
 name=USERNAME&password=PASSWORD
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of requesting a cookie, by using the command line:_
 
@@ -147,7 +148,7 @@ curl https://$ACCOUNT.cloudant.com/_session \
 	-c /path/to/cookiefile
 	-d "name=$ACCOUNT&password=$PASSWORD"
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -175,7 +176,7 @@ cloudant.auth($ACCOUNT, $PASSWORD, function (err, body, headers) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -194,7 +195,7 @@ all_dbs = account.all_dbs()
 print all_dbs.status_code
 # Expected result code: 401
 ```
-{:codeblock}
+{: codeblock}
 
 If the credentials you supply in your cookie request are valid,
 the response contains a cookie that remains active for 24 hours.
@@ -211,7 +212,7 @@ server: CouchDB/1.0.2 (Erlang OTP/R14B)
 Set-Cookie: AuthSession="d2FybWFuYTo1ODI1QkM2NzpZelovo2epvx9cfaDdxJGNLuzBzw"; Expires=Sat, 12-Nov-2016 12:43:15 GMT; Max-Age=86400; Path=/; HttpOnly; Version=1
 x-couch-request-id: a638431d
 ```
-{:codeblock}
+{: codeblock}
 
 _JSON part of response:_
 
@@ -222,7 +223,7 @@ _JSON part of response:_
 	"roles": []
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="getting-cookie-information"></div>
 
@@ -239,7 +240,7 @@ GET /_session HTTP/1.1
 Cookie: AuthSession="d2FybWFuYTo1ODI1QkM2NzpZelovo2epvx9cfaDdxJGNLuzBzw"; Expires=Sat, 12-Nov-2016 12:43:15 GMT; Max-Age=86400; Path=/; HttpOnly; Version=1
 Accept: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request for cookie information, by using the command line:_
 
@@ -248,7 +249,7 @@ curl https://$ACCOUNT.cloudant.com/_session \
 	-X GET \
 	-b /path/to/cookiefile
 ```
-{:codeblock}
+{: codeblock}
 
 The response contains the user name,
 the user's roles,
@@ -279,7 +280,7 @@ _Example response to request for cookie information:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Deleting a cookie
 {: #deleting-a-cookie}
@@ -294,7 +295,7 @@ DELETE /_session HTTP/1.1
 Cookie: AuthSession="d2FybWFuYTo1ODI1QkM2NzpZelovo2epvx9cfaDdxJGNLuzBzw"; Expires=Sat, 12-Nov-2016 12:43:15 GMT; Max-Age=86400; Path=/; HttpOnly; Version=1
 Accept: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example cookie `DELETE` request, by using the command line:_
 
@@ -303,7 +304,7 @@ curl https://$ACCOUNT.cloudant.com/_session \
 	-X DELETE \
 	-b /path/to/cookiefile
 ```
-{:codeblock}
+{: codeblock}
 
 The response confirms deletion of the session,
 and sets the `AuthSession` Cookie to `""`.
@@ -320,7 +321,7 @@ server: CouchDB/1.0.2 (Erlang OTP/R14B)
 Set-Cookie: AuthSession=""; Expires=Fri, 02-Jan-1970 00:00:00 GMT; Max-Age=0; Path=/; HttpOnly; Version=1
 x-couch-request-id: e02e0333
 ```
-{:codeblock}
+{: codeblock}
 
 _JSON part of response:_
 
@@ -329,4 +330,4 @@ _JSON part of response:_
 	"ok": true
 }
 ```
-{:codeblock}
+{: codeblock}

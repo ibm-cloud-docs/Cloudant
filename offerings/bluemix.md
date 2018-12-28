@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-07"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -22,6 +25,7 @@ lastupdated: "2019-01-02"
 feature-rich offering, receiving updates and new features first. Pricing is based on 
 your throughput and storage requirements, making it suitable for any 
 required load. 
+{: shortdesc}
 
 The free [Lite plan](#lite-plan) includes a fixed amount of 
 throughput capacity and data for development and evaluation purposes. The paid [Standard plan](#standard-plan) offers configurable provisioned throughput 
@@ -30,7 +34,7 @@ change.  An optional [Dedicated Hardware plan](#dedicated-hardware-plan) is also
 additional monthly fee to run one or more of your Standard plan instances 
 on a dedicated hardware environment. The dedicated hardware environment 
 is for your sole use, and if a Dedicated Hardware plan instance is provisioned 
-within a US location, you can optionally select a [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
+within a US location, you can optionally select a [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window} 
 -compliant configuration.
 
 The following table summarizes the provisioned throughput capacity and 
@@ -108,7 +112,7 @@ A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard
 If you want to store more than 1 GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
 You are limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, any attempt to create a new Lite plan instance, or change a Standard plan instance to a Lite plan, returns the message, "You can only have one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan." 
-{: tip}
+{: note}
 
 ### Standard plan
 {: #standard-plan}
@@ -117,17 +121,17 @@ The {{site.data.keyword.cloudant_short_notm}} Standard plan is available to all 
 
 Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 lookups/sec, 50 writes/sec, and 5 queries/sec equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down in increments of 100 lookups/sec, 50 writes/sec, and 5 queries/sec in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Costs are calculated for the provisioned throughput capacity that is allocated and is not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you are charged a defined cost per GB per hour. 
 
-See the {{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](../offerings/pricing.html#pricing){:new_window} information for examples to estimate costs.
+See the {{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](../offerings/pricing.html#pricing){: new_window} information for examples to estimate costs.
 
 ### Dedicated hardware plan
 {: #dedicated-hardware-plan}
 
 An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance is a bare metal {{site.data.keyword.cloudant_short_notm}} environment that is provisioned for the sole use of your {{site.data.keyword.cloudant_short_notm}} Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can be provisioned in any [{{site.data.keyword.IBM}} data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). This plan is necessary for HIPAA compliance and must be selected at provisioning time. Additionally, users of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can employ IP whitelisting and bring-your-own-key (BYOK) customer-managed encryption keys with IBM Key Protect. 
 
-You can provision one or more Standard plan instances, and the Dedicated Hardware environment expands or contracts as needed based on capacity and data that is used by the Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance has a fixed price that is an addition to the consumption pricing of any Standard plan instances deployed on it. Billing is prorated daily, and there is a 1-month minimum duration to be charged for the environment. Provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan is asynchronous and can take 5-7 business days. To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance and provision a Standard plan instance on it, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](../tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window} tutorial. 
+You can provision one or more Standard plan instances, and the Dedicated Hardware environment expands or contracts as needed based on capacity and data that is used by the Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance has a fixed price that is an addition to the consumption pricing of any Standard plan instances deployed on it. Billing is prorated daily, and there is a 1-month minimum duration to be charged for the environment. Provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan is asynchronous and can take 5-7 business days. To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance and provision a Standard plan instance on it, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](../tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){: new_window} tutorial. 
 
 The Dedicated Hardware plan is not available to {{site.data.keyword.cloud_notm}} Dedicated customers. The Dedicated Hardware plan is only available to {{site.data.keyword.cloud_notm}} Public customers.
-{: tip}
+{: important}
 
 ## Provisioned throughput capacity
 {: #provisioned-throughput-capacity}
@@ -171,7 +175,7 @@ Recent versions of the supported client libraries (for [Java](../libraries/suppo
 and [Python](../libraries/supported.html#python) languages) help you handle a `429` response.
 For example,
 the Java library generates a
-[`TooManyRequestsException` ![External link icon](../images/launch-glyph.svg "External link icon")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){:new_window} response.
+[`TooManyRequestsException` ![External link icon](../images/launch-glyph.svg "External link icon")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window} response.
 
 By default,
 the supported client libraries do not automatically attempt to retry
@@ -183,7 +187,7 @@ regularly transgressing the number of requests is a strong indicator
 for moving to a different plan configuration.
 
 If you are porting an existing application, it might not be able to handle a `429` response. As part of your migration verification, check that your application handles `429` responses correctly.
-{: tip}
+{: note}
 
 In summary,
 you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
@@ -206,8 +210,8 @@ complete.
 
 ![Account dashboard](../images/cloudant_capacity_change.png)
 
-The size of the capacity increase is limited to 10 units (1000 lookups/second, 500 writes/second, and 50 queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
-{: tip}
+The size of the capacity increase is limited to 10 units (1000 lookups/second, 500 writes/second, and 50 queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
+{: note}
 
 <div id="throughput"></div>
 
@@ -344,7 +348,7 @@ outside of an EU-managed environment cannot be granted access to an EU-managed
 ## Authentication methods
 {: #authentication-methods}
 
-{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include 'Use both legacy credentials and IAM' or 'Use only IAM'. For more information, see the [IAM guide](../guides/iam.html){:new_window} or the legacy [Authentication API document](../api/authentication.html){:new_window}.
+{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include 'Use both legacy credentials and IAM' or 'Use only IAM'. For more information, see the [IAM guide](../guides/iam.html){: new_window} or the legacy [Authentication API document](../api/authentication.html){: new_window}.
 
 After provisioning an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when generating new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} dashboard. If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy user name and password is also included.
 
@@ -365,20 +369,20 @@ to explore all HA, DR, and backup considerations to meet your application requir
 Support for Standard and Dedicated plan service instances is optional.
 It is provided by purchasing *{{site.data.keyword.cloud_notm}} Standard Support*. Support is not available for the Lite plan.
 
-For more information about support plans, see the [{{site.data.keyword.cloud_notm}} Standard Support plans ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/support#944376){:new_window}. For more information about support, see the [{{site.data.keyword.IBM_notm}} support guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/home/pages/support-guide/){:new_window}.
+For more information about support plans, see the [{{site.data.keyword.cloud_notm}} Standard Support plans ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/support#944376){: new_window}. For more information about support, see the [{{site.data.keyword.IBM_notm}} support guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/home/pages/support-guide/){: new_window}.
 
 The support systems used for {{site.data.keyword.cloudant_short_notm}} do not offer features for the protection of content that contains Healthcare Information, health data, Protected Health Information, or data that is subject to additional regulatory requirements. As such, the Client must not enter or provide such data.
-{: tip}
+{: note}
 
 ## Provisioning an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}
 {: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
 
 You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} in two ways:
 
-- Using the dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
-- Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
+- Using the dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){: new_window}.
+- Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){: new_window}.
  
-To create and leverage an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
+To create and leverage an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){: new_window}.
 
 
 

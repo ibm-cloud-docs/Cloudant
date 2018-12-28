@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,9 +12,11 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
-<!-- Update backup-guide.md with with any changes. -->
 
 # {{site.data.keyword.cloudant_short_notm}} Backup and Recovery
 
@@ -34,7 +36,7 @@ redundant data storage does not protect against mistakes when data is changed.
 The tool is called CouchBackup,
 and is open source.
 It is a `node.js` library,
-and is [available to install on npm ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{:new_window}.
+and is [available to install on npm ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{: new_window}.
 
 In addition to the library,
 the CouchBackup package contains two command line tools:
@@ -42,8 +44,8 @@ the CouchBackup package contains two command line tools:
 1. `couchbackup`, which dumps the JSON data from a database to a backup text file.
 2. `couchrestore`, which restores data from a backup text file to a database.
 
-> **Warning!** The CouchBackup tools have [limitations](#limitations).
-{:tip}
+The CouchBackup tools have [limitations](#limitations).
+{: important}
 
 ## Backing up your {{site.data.keyword.cloudant_short_notm}} data
 
@@ -54,21 +56,23 @@ you might use a command similar to the following example:
 ```sh
 couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 ```
-{:codeblock}
+{: codeblock}
 
-The [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{:new_window} details other options,
+The [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{: new_window} details other options,
 including:
 
 * Environment variables to set the names of the database and URL.
 * Using a log file to record the progress of a backup.
 * The ability to resume an interrupted backup.
-  **Note**: This option is only available with the log file for the interrupted backup.
-  {:tip}
+
+  This option is only available with the log file for the interrupted backup.
+  {: note}
+
 * Sending the backup text file to a named output file,
   rather than redirecting the `stdout` output.
 
-> **Warning!** The CouchBackup tools have [limitations](#limitations).
-{:tip}
+The CouchBackup tools have [limitations](#limitations).
+{: important}
 
 ## Restoring your {{site.data.keyword.cloudant_short_notm}} data
 
@@ -85,17 +89,17 @@ to restore the data that was backed up in the earlier example:
 ```sh
 couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 ```
-{:codeblock}
+{: codeblock}
 
-The [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{:new_window} provides details of other restore options.
+The [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{: new_window} provides details of other restore options.
 
-> **Warning!** The CouchBackup tools have [limitations](#limitations).
-{:tip}
+The CouchBackup tools have [limitations](#limitations).
+{: important}
 
 ## Limitations
 
-> **Warning!** The CouchBackup tools have the following limitations: 
-{:tip}
+The CouchBackup tools have the following limitations: 
+{: important}
 
 * `_security` settings are not backed up by the tools.
 * Attachments are not backed up by the tools.
@@ -113,7 +117,7 @@ The [npm readme ![External link icon](../images/launch-glyph.svg "External link 
 
 ## Using the tools
 
-The [npm page ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{:new_window}
+The [npm page ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{: new_window}
 details the basics of using the command line tools for backup and restore of data.
 The following examples show how to put those details into practice
 by describing the use of the tools for specific tasks.
@@ -132,7 +136,7 @@ or the library with application code,
 to enable backup from {{site.data.keyword.cloudant_short_notm}} databases as part of more complicated situations.
 A useful scenario is scheduling backups by using `cron`,
 and automatically uploading data to
-[Cloud Object Storage ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window}
+[Cloud Object Storage ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window}
 for long-term retention.
 
 ## Command line scripting examples
@@ -154,7 +158,7 @@ This capability is used to compress data within the stream.
 couchbackup --url "https://examples.cloudant.com" \
   --db "animaldb" | gzip > backup.gz
 ```
-{:codeblock}
+{: codeblock}
 
 In this example,
 the `gzip` tool accepts the backup data directly through its `stdin`,
@@ -170,7 +174,7 @@ for example:
 couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
   --db "animaldb" | gzip > backup.gz
 ```
-{:codeblock}
+{: codeblock}
 
 It is straightforward to extend the pipeline if you want to transform the data in other ways.
 For example,
@@ -191,7 +195,7 @@ as shown in the following example:
 couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
   --db "animaldb" > animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
 ```
-{:codeblock}
+{: codeblock}
 
 After you check the command to ensure it works correctly,
 it can be entered into a 'cron job':
@@ -208,7 +212,7 @@ A cron entry to do a daily backup is similar to the following example:
 ```sh
 0 5 * * * couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" --db "animaldb" > /path/to/folder/animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
 ```
-{:codeblock}
+{: codeblock}
 
 This cron entry creates a daily backup at 05:00.
 You can modify the cron pattern to do hourly, daily, weekly, or monthly backups as needed.
@@ -229,16 +233,15 @@ for example:
   your application can detect and address any error at the earliest opportunity.
 
 For more information,
-see the [npm page ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{:new_window}.
+see the [npm page ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{: new_window}.
 
 The following script sample shows how to combine the `couchbackup` library
 with use of {{site.data.keyword.IBM}} Cloud Object Storage.
 This code illustrates how you might use Cross Region S3 API to back up a database to an object store.
 
-> **Note**: A prerequisite for the code is that you initialize the S3 client object for
-  {{site.data.keyword.IBM_notm}} Cloud Object Storage by following
-[these instructions ![External link icon](../images/launch-glyph.svg "External link icon")][cosclient]{:new_window}.
-{:tip}
+A prerequisite for the code is that you initialize the S3 client object for {{site.data.keyword.IBM_notm}} Cloud Object Storage by following
+[these instructions ![External link icon](../images/launch-glyph.svg "External link icon")][cosclient]{: new_window}.
+{: note}
 
 ```javascript
 /*
@@ -298,7 +301,7 @@ function backupToS3(sourceUrl, s3Client, s3Bucket, s3Key, shallow) {
   });
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Other disaster recovery options
 

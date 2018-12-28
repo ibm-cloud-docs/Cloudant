@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -19,7 +22,7 @@ lastupdated: "2019-01-02"
 
 This section of the tutorial describes how to upload an
 {{site.data.keyword.cloud}} application.
-{:shortdesc}
+{: shortdesc}
 
 <div id="uploading"></div>
 
@@ -33,14 +36,14 @@ Cloud Foundry needs to know the URL to use for making API calls,
 for example when you upload an application.
 The {{site.data.keyword.cloud_notm}} toolkit uses the '`cf api`' command to manage the API endpoint.
 More information about the '`cf api`' command is
-[available ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
+[available ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){: new_window}.
 
 Use the following command to tell Cloud Foundry the URL to use:
 
 ```sh
 bluemix api https://api.ng.bluemix.net
 ```
-{:pre}
+{: pre}
 
 Expect a result similar to the following output:
 
@@ -54,7 +57,7 @@ API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
 Not logged in. Use 'bluemix login' to log in.
 ```
-{:codeblock}
+{: codeblock}
 
 Cloud Foundry now knows where to send API calls for managing applications.
 
@@ -77,7 +80,7 @@ Notice that you are asked to enter your account password.
 ```sh
 bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
-{:pre}
+{: pre}
 
 Expect a result similar to the following output:
 
@@ -99,7 +102,7 @@ User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
 Space:          dev
 ```
-{:codeblock}
+{: codeblock}
 
 ## Uploading the application
 
@@ -118,7 +121,7 @@ Use a command similar to the following example to log in to upload your
 ```sh
 cf push "Cloudant Python"
 ```
-{:pre}
+{: pre}
 
 A sequence of result messages is displayed.
 
@@ -128,7 +131,7 @@ Using manifest file /..../BMXDemo/manifest.yml
 Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{:codeblock}
+{: codeblock}
 
 The Cloud Foundry toolkit located the manifest file,
 and is preparing to upload the application by using the connection
@@ -144,7 +147,7 @@ OK
 Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{:codeblock}
+{: codeblock}
 
 The application was uploaded successfully,
 and a connection made with the {{site.data.keyword.cloudant_short_notm}} database instance.
@@ -178,7 +181,7 @@ OK
 
 App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
 ```
-{:codeblock}
+{: codeblock}
 
 The application starts automatically.
 As part of the startup,
@@ -206,7 +209,7 @@ buildpack: python 1.5.5
      state     since                    cpu    memory          disk           details
 #0   running   2016-12-22 03:59:21 PM   0.0%   49.9M of 128M   110.6M of 1G
 ```
-{:codeblock}
+{: codeblock}
 
 ## Testing the sample application
 
@@ -229,7 +232,7 @@ From the {{site.data.keyword.cloud_notm}} dashboard, open the {{site.data.keywor
 
 To find your {{site.data.keyword.cloudant_short_notm}} service page,
 refer to the details in the [Creating an {{site.data.keyword.cloudant_short_notm}} instance tutorial](create_service.html#locating-your-service-credentials).
-{: tip}
+{: note}
 
 When the dashboard opens,
 you can see that the application

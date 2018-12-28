@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -29,6 +32,7 @@ Information | Description
 `Action` | The action carried out (for example, document read).
 `Resource` | Details about the account, database, and document accessed or query made.
 `Timestamp` | A record of the time and data of the event. 
+{: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} audit logs can be used to understand:
 
@@ -37,7 +41,7 @@ and by whom.
 - What and when queries have been run, and by whom.
 - What a specific principal or user has accessed, updated, or deleted, and when.
 - What and when replication documents were created or deleted.
-{:shortdesc}
+
 
 ## How to access Audit Logs for your account
 

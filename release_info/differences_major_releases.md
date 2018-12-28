@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -21,7 +24,7 @@ lastupdated: "2019-01-02"
 Summary of the changes in behavior between the most recent version of 
 {{site.data.keyword.cloudantfull}} and CouchDB 1.6-based codebase. Information is added as newer {{site.data.keyword.cloudant_short_notm}} 
 versions are released.
-{:shortdesc}
+{: shortdesc}
 
 ## New features
 {: #new-features}
@@ -34,7 +37,7 @@ versions are released.
 ### Query 
 {: #query}
 
-- {{site.data.keyword.cloudant_short_notm}} Query uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){:new_window}.
+- {{site.data.keyword.cloudant_short_notm}} Query uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}.
  
 ### Response Content-Type
 {: #response-content-type}

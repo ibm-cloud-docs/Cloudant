@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -23,7 +26,7 @@ to help ensure it is secure,
 available,
 and maintains integrity.
 {{site.data.keyword.cloudantfull}} provides several ways to protect your data and help keep your applications operational.
-{:shortdesc}
+{: shortdesc}
 
 Some of these protection features are automatic.
 For other forms of protection,
@@ -63,9 +66,8 @@ you can apply the tools and features that help solve the generic needs.
 When put together,
 the tools and features can then address your HA or DR requirements.
 
->	**Note**: Different tools and features provide different levels of protection.
-	The different features might be more or less suitable for your specific HA or DR requirement.
-{:tip}
+Different tools and features provide different levels of protection. The different features might be more or less suitable for your specific HA or DR requirement.
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} provides a number of tools and features that address general requirements:
 
@@ -188,8 +190,8 @@ the tools supported by {{site.data.keyword.cloudant_short_notm}} help you to:
 	suitable for further processing and off-site storage.
 *	Restore complete databases from a previous state that is contained in your backup file.
 
-> **Warning!** The tools supported by {{site.data.keyword.cloudant_short_notm}} have the following limitations: 
-{:tip}
+The tools supported by {{site.data.keyword.cloudant_short_notm}} have the following limitations: 
+{: tip}
 
 *	`_security` settings are not backed up by the tools.
 *	Attachments are not backed up by the tools.
@@ -217,7 +219,7 @@ Example scenarios include:
 *	Migrating older data to cheaper storage, for more cost-effective retention.
 
 The backup tools consist of an open source node.js command line application and library.
-It is available [on NPM ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}.
+It is available [on NPM ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
 
 For ideas and examples that show how to integrate the tools into your data protection strategy,
 see the [Backup Cookbook guide](backup-cookbook.html).

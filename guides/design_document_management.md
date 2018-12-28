@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -11,11 +11,15 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 # Design Document Management
 
 *Article contributed by Glynn Bird, Developer Advocate at IBM Cloudant,
-[glynn@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:glynn@cloudant.com){:new_window}*
+[glynn@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:glynn@cloudant.com){: new_window}*
 
 {{site.data.keyword.cloudantfull}}'s scalable JSON data store has several querying mechanisms,
 all of which generate indices that are created and maintained separately to the core data.
@@ -47,7 +51,7 @@ _Example of a simple data document:_
     "ts": 1422358827
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Each data document includes a name,
 a body,
@@ -66,7 +70,7 @@ function(doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The function emits the document's timestamp so that we can use it as the key to the index;
 as we are not interested in the value in the index,
@@ -94,7 +98,7 @@ _Example design document that defines a view using a map function:_
     "language": "javascript"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The result is that our map code has been turned into a JSON-compatible string,
 and included in a Design Document.
@@ -142,9 +146,8 @@ even if some of the views remain unaltered.
 If MapReduce views must be altered independently of each other,
 place their definitions in separate design documents. 
 
->   **Note**: This behaviour does not apply to Lucene search indexes.
-    They can be altered within the same design document
-    without invalidating other unchanged indexes in the same document.
+This behavior does not apply to Lucene search indexes. They can be altered within the same design document without invalidating other unchanged indexes in the same document.
+{: note}
 
 ![Illustration of Design Document version change](../images/DesDocMan02.png)
 
@@ -178,7 +181,7 @@ _Example design document that uses a reduce function:_
     "language": "javascript"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 When this design document is saved,
 {{site.data.keyword.cloudant_short_notm}} completely invalidates the old index and begins building the new index from scratch,
@@ -256,7 +259,7 @@ _Command to install the Node.js `couchmigrate` script:_
 ```sh
 npm install -g couchmigrate
 ```
-{:codeblock}
+{: codeblock}
 
 To use the `couchmigrate` script,
 first define the URL of the CouchDB/{{site.data.keyword.cloudant_short_notm}} instance by setting an environment variable called `COUCH_URL`.
@@ -266,7 +269,7 @@ _Defining the URL of the an {{site.data.keyword.cloudant_short_notm}} instance:_
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
 ```
-{:codeblock}
+{: codeblock}
 
 The URL can be HTTP or HTTPS,
 and can include authentication credentials.
@@ -276,7 +279,7 @@ _Defining the URL of the {{site.data.keyword.cloudant_short_notm}} instance with
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 Assuming we have a design document in JSON format,
 stored in a file,
@@ -291,7 +294,7 @@ _Running the `couchmigrate` command:_
 ```sh
 couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
-{:pre}
+{: pre}
 
 The script coordinates the 'move and switch' procedure,
 waiting until the view is built before returning.
@@ -299,7 +302,7 @@ If the incoming design document is the same as the incumbent one,
 then the script returns almost immediately.
 
 The source code for the script is available here:
-[https://github.com/glynnbird/couchmigrate ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/couchmigrate){:new_window}.
+[https://github.com/glynnbird/couchmigrate ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/couchmigrate){: new_window}.
 
 <div id="stale"></div>
 
@@ -338,17 +341,8 @@ When querying the view, we have three choices:
 Adding "`stale=ok`" or "`stale=update_after`" can be a good way getting answers more quickly from a view,
 but at the expense of freshness. 
 
->   **Note**: The default behaviour distributes load evenly across nodes in the {{site.data.keyword.cloudant_short_notm}} cluster.
-    If you use the alternative `stale=ok` or `stale=update_after` options,
-    this might favor a subset of cluster nodes,
-    in order to return consistent results from across the eventually consistent set.
-    This means that the '`stale`' parameter isn't a perfect solution for all use-cases.
-    However,
-    it can be useful for providing timely responses on fast-changing data sets
-    if your application is happy to accept stale results.
-    If the rate of change of your data is small,
-    adding "`stale=ok`" or "`stale=update_after`" will not bring a performance benefit,
-    and might unevenly distribute the load on larger clusters.
+The default behaviour distributes load evenly across nodes in the {{site.data.keyword.cloudant_short_notm}} cluster. If you use the alternative `stale=ok` or `stale=update_after` options, this might favor a subset of cluster nodes, in order to return consistent results from across the eventually consistent set. This means that the '`stale`' parameter isn't a perfect solution for all use-cases. However, it can be useful for providing timely responses on fast-changing data sets if your application is happy to accept stale results. If the rate of change of your data is small, adding "`stale=ok`" or "`stale=update_after`" will not bring a performance benefit, and might unevenly distribute the load on larger clusters.
+{: note}
 
 Avoid using `stale=ok` or `stale=update_after` whenever possible.
 The reason is that the default behavior provides the freshest data,
@@ -358,7 +352,5 @@ If it is possible to make a client app aware that there is a large data processi
 then the app could switch to `stale=ok` temporarily during these times,
 then revert to the default behaviour afterwards.
 
->   **Note**: The `stale` option is still available,
-    but the more useful options `stable` and `update` are available and should be used instead.
-    For more details,
-    see [Accessing a stale view](../api/using_views.html#accessing-a-stale-view).
+The `stale` option is still available, but the more useful options `stable` and `update` are available and must be used instead. For more information, see [Accessing a stale view](../api/using_views.html#accessing-a-stale-view).
+{: note}

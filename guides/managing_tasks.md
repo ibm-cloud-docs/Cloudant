@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,13 +12,16 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Managing tasks
 
 Creating new indexes over lots of data or replicating a large database can take quite a while.
-{:shortdesc}
+{: shortdesc}
 
 So how can you determine whether your tasks are making progress,
 or if they have completed?
@@ -52,7 +55,7 @@ _Example of obtaining and formatting a list of active tasks:_
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Monitoring view builds and search indexes
 
@@ -83,14 +86,14 @@ _Example of finding all view indexing tasks by filtering for the `indexer` type:
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of finding all search indexing tasks by filtering for the `search_indexer` type:_
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example results after searching for view indexing tasks:_
 
@@ -108,7 +111,7 @@ _Example results after searching for view indexing tasks:_
     "design_document": "_design/ngrams"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Estimating the time to complete a task
 
@@ -120,9 +123,7 @@ and `total_changes` is 1,000,000,
 the task is expected to take 1,000,000 / 250 = 4,000 seconds,
 or about 66 minutes,to complete.
 
->   **Note**: Estimates of the time to complete an indexing task cannot be 100% accurate.
-    The actual time to complete the task depends on several factors,
-    including:
+Estimates of the time to complete an indexing task cannot be 100% accurate. The actual time to complete the task depends on the following factors:
 
 -   The time it takes to process each document.
     For instance,
@@ -131,14 +132,14 @@ or about 66 minutes,to complete.
 -   The size of the documents.
 -   The current workload on the cluster.
 
->   You should assume that these factors might combine to produce considerable inaccuracy in your estimate.
+You should assume that these factors might combine to produce considerable inaccuracy in your estimate.
 
 _Example of extracting the `changes_done` field using `jq`:_
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Monitoring replication
 
@@ -155,21 +156,21 @@ _Example of finding all replication tasks, by filtering for the `replication` ty
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of finding a specific replication task, by filtering for a known document identity:_
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of finding a specific replication task, by filtering for a known `replication_id`:_
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example result after searching for a replication task:_
 
@@ -196,7 +197,7 @@ _Example result after searching for a replication task:_
     "replication_id": "asfksdlfkjsadkfjsdalkfjas+continuous+create_target"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Troubleshooting
 
@@ -229,9 +230,8 @@ If that does not help,
 the replication might be stalled because the user accessing the source or target databases
 does not have write permissions.
 
->   **Note**: Replication makes use of [checkpoints](replication_guide.html#checkpoints).
-    This means that content already replicated and unchanged
-    does not have to be replicated again if the replication is restarted.
+Replication makes use of [checkpoints](replication_guide.html#checkpoints), which means that content that is already replicated and unchanged does not have to be replicated again if the replication is restarted.
+{: note}
 
 If you created the replication process by creating a document in the `_replicator` database,
 you can also check the status of the replication there.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-07"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -21,6 +24,7 @@ lastupdated: "2019-01-02"
 an optional purchase add-on to an {{site.data.keyword.cloud_notm}} Dedicated environment. The optional add-on for 
 {{site.data.keyword.cloudant_short_notm}} Dedicated in {{site.data.keyword.cloud_notm}} Dedicated is priced based on the hardware capacity 
 allocated to the environment and can be purchased by contacting your {{site.data.keyword.IBM}} sales representative.  
+{: shortdesc}
 
 {{site.data.keyword.cloud_notm}} Dedicated customers can also choose to use {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}} Public 
 via the syndicated catalog, including the Lite and Standard plan instances. Note that 
@@ -57,13 +61,13 @@ shares the underlying hardware resources that make up the {{site.data.keyword.cl
 
 All plans are provided on servers with [at rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest) 
 disk encryption. Access is over the public network connection and encrypted by 
-using HTTPS. For more detail, see [Security ![External link icon](../images/launch-glyph.svg "External link icon")](../offerings/security.html#security){:new_window}. 
+using HTTPS. For more detail, see [Security ![External link icon](../images/launch-glyph.svg "External link icon")](../offerings/security.html#security){: new_window}. 
 IP whitelisting is available on request to {{site.data.keyword.cloudant_short_notm}} Support and will apply to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level.  
 
-The plan also offers [Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
+The plan also offers [Compliance Certification ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){: new_window}. 
 
-[HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 
+[HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window} 
 compliance is available upon request, so request this during the purchase process with an {{site.data.keyword.IBM_notm}} sales representative. 
 
 ## High availability, disaster recovery, and backup 
@@ -72,5 +76,5 @@ To provide high availability (HA) and disaster recovery (DR) within a data cente
 across three separate physical servers in a cluster. When available, you can provision accounts in multiple locations, 
 then use continuous data replication to provide HA/DR across data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically 
 backed up, but supported tooling is provided to handle backups. Review the 
-[Disaster Recovery and Backup ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup){:new_window} guide
+[Disaster Recovery and Backup ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup){: new_window} guide
 to explore all HA, DR, and backup considerations to meet your application requirements.

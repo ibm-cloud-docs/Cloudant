@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-06-04 -->
 
@@ -20,7 +23,7 @@ lastupdated: "2019-01-02"
 
 {{site.data.keyword.cloudantfull}} Query is a declarative JSON querying syntax for
 {{site.data.keyword.cloudant_short_notm}} databases. {{site.data.keyword.cloudant_short_notm}} Query uses two types of indexes: `json` and `text`.
-{:shortdesc}
+{: shortdesc}
 
 If you know exactly what data you want to look for, or you want to keep storage and
 processing requirements to a minimum, you can specify how the index is created, by
@@ -54,7 +57,7 @@ _Example of using HTTP to request an index of type `JSON`:_
 POST /db/_index HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of JSON object that requests an index that is called `foo-index`, for the field that is called `foo`:_
 
@@ -67,7 +70,7 @@ _Example of JSON object that requests an index that is called `foo-index`, for t
 	"type" : "json"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of returned JSON, confirming that the index was created:_
 
@@ -76,7 +79,7 @@ _Example of returned JSON, confirming that the index was created:_
 	"result": "created"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### Request Body format
 {: #request-body-format}
@@ -152,7 +155,7 @@ _Example of JSON document that requests index creation:_
 	"type": "text"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of JSON document that requests creation of a more complex index:_
 
@@ -175,7 +178,7 @@ _Example of JSON document that requests creation of a more complex index:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `index` field
 {: #the-index-field}
@@ -188,7 +191,7 @@ use the simple syntax:
 ```json
 "index": {}
 ```
-{:codeblock}
+{: codeblock}
 
 The indexing process traverses all of the fields in all the documents in the database.
 
@@ -205,7 +208,7 @@ _Example of JSON document that requests creation of an index of all fields in al
 	"index": { }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `default_field` field
 {: #the-default-field-field}
@@ -276,7 +279,7 @@ _Example JSON document with suggested settings to optimize performance on produc
 	"index_array_lengths": false
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Query Parameters
 {: #query-parameters}
@@ -314,7 +317,7 @@ _Example JSON document that uses all available query parameters:_
 	"skip": 0
 	}
 ```
-{:codeblock}
+{: codeblock}
 
 ## Working with indexes
 {: #working-with-indexes}
@@ -337,7 +340,7 @@ Methods  | Path                | Description
 ## Creating a partial index
 {: #creating-a-partial-index}
 
-Cloudant Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){:new_window}
+Cloudant Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){: new_window}
 and the original example. 
 
 The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still compatible with an earlier version for text indexes only.
@@ -459,7 +462,7 @@ _Example of a response body with two indexes:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Deleting an index
 {: #deleting-an-index}
@@ -544,7 +547,7 @@ _Example request in JSON format, for finding documents by using an index:_
 	"skip": 0
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Response body
 {: #response-body}
@@ -574,7 +577,7 @@ _Example response when you use an index to find documents:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Selector Syntax
 {: #selector-syntax}
@@ -602,7 +605,7 @@ _Example of a simple selector:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 
 If you created a full text index by specifying `"type":"text"` when the index was created,
@@ -619,7 +622,7 @@ _An example of a simple selector for a full text index:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 You can create more complex selector expressions by combining operators.
 However,
@@ -650,7 +653,7 @@ _Example of a more complex selector:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Subfields
 {: #subfields}
@@ -671,7 +674,7 @@ _Example of a field and subfield selector, within a JSON object:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 An abbreviated equivalent uses a dot notation to combine the field and subfield names into a single name.
 
@@ -684,7 +687,7 @@ _Example of an equivalent field and subfield selector that uses dot notation:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Operators
 {: #operators}
@@ -709,7 +712,7 @@ Every explicit operator has the form:
 	"$operator": "argument"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 A selector without an explicit operator is considered to have an implicit operator.
 The exact implicit operator is determined by the structure of the selector expression.
@@ -740,7 +743,7 @@ _Example selector that uses an operator to match any document, where the `year` 
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 In the following example,
 a matching document must have a field that is called `director`,
@@ -753,7 +756,7 @@ _Example of the implicit equality operator:_
 	"director": "Lars von Trier"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 You can also make the equality operator explicit,
 as shown in the following example.
@@ -767,7 +770,7 @@ _Example of an explicit equality operator:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 In the following example that uses subfields,
 the field `imdb` in a matching document *must* also have
@@ -783,7 +786,7 @@ _Example of implicit operator that is applied to a subfield test:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 You can make the equality operator explicit.
 
@@ -798,7 +801,7 @@ _Example of an explicit equality operator:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a `$eq` operator that is used with full text indexing:_
 
@@ -817,7 +820,7 @@ _Example of a `$eq` operator that is used with full text indexing:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a `$eq` operator that is used with a database that is indexed on the field `year`:_
 
@@ -836,7 +839,7 @@ _Example of a `$eq` operator that is used with a database that is indexed on the
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 
 In the following example,
@@ -851,7 +854,7 @@ _Example of an implicit `$and` operator:_
 	"year": 2003
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="combined-expressions"></div>
 
@@ -875,7 +878,7 @@ _Example that uses explicit `$and` and `$eq` operators:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Explicit operators
 {: #explicit-operators}
@@ -930,7 +933,7 @@ _Example of using the $all operator:_
 	"limit": 10
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$allMatch` operator
 {: #the-allmatch-operator}
@@ -949,7 +952,7 @@ _Example of using the $allMatch operator:_
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$and` operator
 {: #the-and-operator}
@@ -982,7 +985,7 @@ _Example of using the $and operator:_
     "limit": 10
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$elemMatch` operator
 {: #the-elemmatch-operator}
@@ -1008,7 +1011,7 @@ _Example of using the $elemMatch operator:_
 	"limit": 10
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$nor` operator
 {: #the-nor-operator}
@@ -1038,7 +1041,7 @@ _Example of using the $nor operator:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$not` operator
 {: #the-not-operator}
@@ -1066,7 +1069,7 @@ _Example of using the $not operator:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$or` operator
 {: #the-or-operator}
@@ -1091,7 +1094,7 @@ _Example of using the $or operator:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Condition Operators
 {: #condition-operators}
@@ -1155,7 +1158,7 @@ _Example of using the `$lt` operator with full text indexing:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the `$lt` operator with a database that is indexed on the field `year`:_
 
@@ -1174,7 +1177,7 @@ _Example of using the `$lt` operator with a database that is indexed on the fiel
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$lte` operator
 {: #the-lte-operator}
@@ -1200,7 +1203,7 @@ _Example of using the `$lte` operator with full text indexing:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the `$lte` operator with a database that is indexed on the field `year`:_
 
@@ -1219,7 +1222,7 @@ _Example of using the `$lte` operator with a database that is indexed on the fie
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$eq` operator
 {: #the-eq-operator}
@@ -1243,7 +1246,7 @@ _Example of using the `$eq` operator with full text indexing:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the `$eq` operator with a database that is indexed on the field `year`:_
 
@@ -1262,7 +1265,7 @@ _Example of using the `$eq` operator with a database that is indexed on the fiel
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$ne` operator
 {: #the-ne-operator}
@@ -1290,7 +1293,7 @@ _Example of using the `$ne` operator with full text indexing:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the `$ne` operator with a primary index:_
 
@@ -1307,7 +1310,7 @@ _Example of using the `$ne` operator with a primary index:_
 	"limit": 10
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$gte` operator
 {: #the-gte-operator}
@@ -1333,7 +1336,7 @@ _Example of using the `$gte` operator with full text indexing:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the `$gte` operator with a database that is indexed on the field `year`:_
 
@@ -1352,7 +1355,7 @@ _Example of using the `$gte` operator with a database that is indexed on the fie
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$gt` operator
 {: #the-gt-operator}
@@ -1378,7 +1381,7 @@ _Example of using the `$gte` operator with full text indexing:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the `$gt` operator with a database that is indexed on the field `year`:_
 
@@ -1397,7 +1400,7 @@ _Example of using the `$gt` operator with a database that is indexed on the fiel
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$exists` operator
 {: #the-exists-operator}
@@ -1422,7 +1425,7 @@ _Example of using the $exists operator:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$type` operator
 {: #the-type-operator}
@@ -1445,7 +1448,7 @@ _Example of using the `$type` operator:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$in` operator
 {: #the-in-operator}
@@ -1469,7 +1472,7 @@ _Example of using the $in operator:_
 	"limit": 10
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$nin` operator
 {: #the-nin-operator}
@@ -1493,7 +1496,7 @@ _Example of using the $nin operator:_
 	"limit": 10
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$size` operator
 {: #the-size-operator}
@@ -1516,7 +1519,7 @@ _Example of using the `$size` operator:_
 	"limit": 25
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$mod` operator
 {: #the-mod-operator}
@@ -1529,9 +1532,9 @@ A query where the Divisor or Remainder is a non-integer returns a [404 status](h
 
 When you use negative integer values for the Divisor or Remainder,
 the {{site.data.keyword.cloudant_short_notm}} `$mod` operator behaves in a similar way to the
-[Erlang `rem` modulo operator ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/reference_manual/expressions.html){:new_window},
-or the [`%` operator in C ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){:new_window},
-and uses [truncated division ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Modulo_operation){:new_window}.
+[Erlang `rem` modulo operator ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/reference_manual/expressions.html){: new_window},
+or the [`%` operator in C ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: new_window},
+and uses [truncated division ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Modulo_operation){: new_window}.
 {: tip}
 
 _Example of using the `$mod` operator:_
@@ -1550,7 +1553,7 @@ _Example of using the `$mod` operator:_
 	"limit": 50
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `$regex` operator
 {: #the-regex-operator}
@@ -1575,7 +1578,7 @@ _Example of using the `$regex` operator:_
 	"limit": 10
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Creating selector expressions
 {: #creating-selector-expressions}
@@ -1594,13 +1597,13 @@ resulting in poor performance. Only equality operators, such as `$eq`,
 
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently _based_ on
-the [Perl Compatible Regular Expression (PCRE) library ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions){:new_window}.
+the [Perl Compatible Regular Expression (PCRE) library ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions){: new_window}.
 However,
 not all of the PCRE library is implemented.
 Additionally,
 some parts of the `$regex` operator go beyond what PCRE offers.
 For more information about what is implemented,
-see the [Erlang Regular Expression ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/man/re.html){:new_window} information.
+see the [Erlang Regular Expression ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/man/re.html){: new_window} information.
 
 ## Sort Syntax
 {: #sort-syntax}
@@ -1632,7 +1635,7 @@ _Example of simple sort syntax:_
 	}
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of simple sort, assuming default direction of 'ascending' for both fields:_
 
@@ -1641,7 +1644,7 @@ _Example of simple sort, assuming default direction of 'ascending' for both fiel
 	"fieldNameA", "fieldNameB"
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 A typical requirement is to search for some content by using a selector,
 then to sort the results according to the specified field,
@@ -1673,7 +1676,7 @@ for example:
 	"<fieldname>:string": "asc"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 If possible,
 an attempt is made to discover the field type based on the selector.
@@ -1713,7 +1716,7 @@ _Example of a simple query that uses sorting:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Filtering fields
 {: #filtering-fields}
@@ -1744,7 +1747,7 @@ _Example of selective retrieval of fields from matching documents:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Pagination
 {: #pagination}
@@ -1792,7 +1795,7 @@ and you want to use a selector similar to the following sample:
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 {{site.data.keyword.cloudant_short_notm}} Query uses the `text` type index because a `json` type index cannot satisfy the selector.
 
@@ -1806,7 +1809,7 @@ you might use a different selector with the same indexes:
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 In this example,
 {{site.data.keyword.cloudant_short_notm}} Query uses the `json` type index because both types of indexes can satisfy the selector.
@@ -1829,7 +1832,7 @@ Content-Type: application/json
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example that uses the command line to show how to identify the index that was used to answer a query:_
 
@@ -1844,7 +1847,7 @@ curl 'https://examples.cloudant.com/movies/_explain' \
 		}
 	}'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response that shows which index was used to answer a query:_
 
@@ -1895,7 +1898,7 @@ _Example response that shows which index was used to answer a query:_
 	"sort": "relevance"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 To instruct a query to use a specific index,
 add the `use_index` parameter to the query.
@@ -1916,7 +1919,7 @@ _Example query with instructions to use a specific index:_
 	"use_index": "_design/32372935e14bed00cc6db4fc9efca0f1537d34a8"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Note about `text` indexes
 {: #note-about-text-indexes}
@@ -1965,14 +1968,14 @@ _Example query to be converted:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _The corresponding Lucene query:_
 
 ```javascript
 (age_3anumber:{5 TO Infinity])
 ```
-{:codeblock}
+{: codeblock}
 
 ### A more complex example
 {: #a-more-complex-example}
@@ -2005,7 +2008,7 @@ _JSON query to be converted to Lucene:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The first part of the JSON query is straightforward to convert to Lucene;
 the test determines whether the `age` field has a numerical value greater than 5.
@@ -2058,7 +2061,7 @@ _Corresponding Lucene query. The '#' comments are not valid Lucene syntax, but h
 	)
 )
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="example-movies-demo-database"></div>
 
@@ -2087,7 +2090,7 @@ Content-Type: application/json
 	"use_checkpoints": false
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to obtain a copy of the {{site.data.keyword.cloudant_short_notm}} Query movie database:_
 
@@ -2102,7 +2105,7 @@ curl 'https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_replicator' \
 		"use_checkpoints": false
 	}'
 ```
-{:codeblock}
+{: codeblock}
 
 _Results after successful replication of the {{site.data.keyword.cloudant_short_notm}} Query movie database:_
 
@@ -2112,7 +2115,7 @@ _Results after successful replication of the {{site.data.keyword.cloudant_short_
 	"use_checkpoints": false
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Before you can search the content,
 it must be indexed by creating a text index for the documents.
@@ -2128,7 +2131,7 @@ Content-Type: application/json
 	"type": "text"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to create a _text_ index for your sample database:_
 
@@ -2138,7 +2141,7 @@ curl 'https://$ACCOUNT.cloudant.com/my-movies/_index' \
 	-H 'Content-Type: application/json' \
 	-d '{"index": {}, "type": "text"}'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response after a text index is created successfully:_
 
@@ -2147,7 +2150,7 @@ _Example response after a text index is created successfully:_
 	"result": "created"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The most obvious difference in the results you get when you use full text indexes is
 the inclusion of a large `bookmark` field.
@@ -2172,7 +2175,7 @@ Content-Type: application/json
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to search for a specific document within the database:_
 
@@ -2181,7 +2184,7 @@ curl -X POST -H "Content-Type: application/json" \
 	https://$ACCOUNT.cloudant.com/my-movies/_find \
 	-d '{"selector": {"Person_name":"Zoe Saldana"}}'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example result from the search:_
 
@@ -2205,7 +2208,7 @@ _Example result from the search:_
 	"bookmark": "g2wA ... Omo"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using HTTP for a slightly more complex search:_
 
@@ -2220,7 +2223,7 @@ Content-Type: application/json
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line for a slightly more complex search:_
 
@@ -2229,7 +2232,7 @@ curl -X POST -H "Content-Type: application/json" \
 	https://$ACCOUNT.cloudant.com/my-movies/_find \
 	-d '{"selector": {"Person_name":"Robert De Niro", "Movie_year": 1978}}'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example result from the search:_
 
@@ -2252,7 +2255,7 @@ _Example result from the search:_
 	"bookmark": "g2w ... c2o"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using HTTP to search within a range:_
 
@@ -2269,7 +2272,7 @@ Content-Type: application/json
   }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to search within a range:_
 
@@ -2278,7 +2281,7 @@ curl -X POST -H "Content-Type: application/json" \
 	https://$ACCOUNT.cloudant.com/my-movies/_find \
 	-d '{"selector": {"Person_name":"Robert De Niro", "Movie_year": { "$in": [1974, 2009]}}}'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example result from the search:_
 
@@ -2301,4 +2304,4 @@ _Example result from the search:_
 	"bookmark": "g2w ... c2o"
 }
 ```
-{:codeblock}
+{: codeblock}

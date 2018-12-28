@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -19,9 +22,9 @@ lastupdated: "2019-01-02"
 {: #attachments}
 
 Another way to store data is to use attachments.
-Attachments are Binary Large Object ([BLOB ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Binary_large_object){:new_window})
+Attachments are Binary Large Object ([BLOB ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Binary_large_object){: new_window})
 files that are contained within documents.
-{:shortdesc}
+{: shortdesc}
 
 The BLOB is stored in the `_attachments` component of the document.
 The BLOB holds data that includes:
@@ -32,18 +35,16 @@ The BLOB holds data that includes:
 
 Examples of BLOBs would be images and multimedia.
 
-If you include the attachment as an '[inline](#inline)' component of the overall JSON,
-the attachment content is represented by using BASE64 form.
-{: tip}
+If you include the attachment as an '[inline](#inline)' component of the overall JSON, the attachment content is represented by using BASE64 form.
+{: note}
 
-The content type corresponds to a [MIME type ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){:new_window}.
+The content type corresponds to a [MIME type ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}.
 For example,
 if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.
 
-It is a good idea to 
-keep attachments small in size and number because attachments can impact performance.
-{: tip}
+It is a good idea to keep attachments small in size and number because attachments can impact performance.
+{: important}
 
 ## Create / Update
 {: #create-update}
@@ -54,12 +55,11 @@ include the attachment as an '[inline](#inline)' component of the JSON content.
 To create a new attachment on an existing document,
 or to update an attachment on a document,
 make a PUT request with the document's most recent `_rev` to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
-The attachment's [content type ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){:new_window}
+The attachment's [content type ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}
 must be specified by using the `Content-Type` header.
 The `$ATTACHMENT` value is the name by which the attachment is associated with the document.
 
-You can create more than one attachment for a document by ensuring
-that the `$ATTACHMENT` value for each attachment is unique within the document.
+You can create more than one attachment for a document by ensuring that the `$ATTACHMENT` value for each attachment is unique within the document.
 {: tip}
 
 _Example instruction for creating or updating an attachment, by using HTTP:_
@@ -68,7 +68,7 @@ _Example instruction for creating or updating an attachment, by using HTTP:_
 PUT /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
 Content-Type: $$ATTACHMENT_MIME_TYPE
 ```
-{:codeblock}
+{: codeblock}
 
 _Example instruction for creating or updating an attachment, by using the command line:_
 
@@ -78,7 +78,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV \
 	 -H "Content-Type: $ATTACHMENT_MIME_TYPE" \
 	 --data-binary @$ATTACHMENT_FILEPATH
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -101,14 +101,13 @@ fs.readFile($FILEPATH, function (err, data) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
 The response contains the document ID and the new document revision.
 
-Attachments do not have their own revisions.
-Instead, when you update or create an attachment, it changes the revision of the document it is attached to. 
+Attachments do not have their own revisions. Instead, when you update or create an attachment, it changes the revision of the document it is attached to. 
 {: tip}
 
 _Example response:_
@@ -120,7 +119,7 @@ _Example response:_
 	"rev" : "9-247bb19a41bfd9bfdaf5ee6e2e05be74"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Read
 {: #read}
@@ -134,7 +133,7 @@ _Example of reading an attachment, by using HTTP:_
 ```http
 GET /$DATABASE/$DOCUMENT_ID/$ATTACHMENT HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of reading an attachment, by using the command line:_
 
@@ -143,7 +142,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT \
 	 -u $ACCOUNT blob_content.dat
 # store the response content into a file for further processing.
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -159,7 +158,7 @@ db.attachment.get($DOCUMENT_ID, $FILENAME, function (err, body) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -177,7 +176,7 @@ _Example of deleting an attachment, by using HTTP:_
 ```http
 DELETE /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of deleting an attachment, by using the command line:_
 
@@ -186,7 +185,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV \
 	-u $ACCOUNT \
 	-X DELETE
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -202,7 +201,7 @@ db.attachment.destroy($DOCUMENT_ID, $FILENAME, $REV, function (err, body) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -219,17 +218,17 @@ _Example response after a successful delete of an attachment:_
 	"rev": "3-aedfb06537c1d77a087eb295571f7fc9"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Inline
 {: #inline}
 
 Inline attachments are attachments that are included as part of the JSON content.
-The content must be provided by using [BASE64 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Base64){:new_window} representation,
+The content must be provided by using [BASE64 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Base64){: new_window} representation,
 as shown in the example.
 
 A full list of media types is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){:new_window}.
+[here ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}.
 
 _Example JSON document that includes an inline attachment of a jpeg image:_
 
@@ -245,7 +244,7 @@ _Example JSON document that includes an inline attachment of a jpeg image:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Performance considerations
 {: #performance-considerations}
@@ -258,7 +257,7 @@ having too many attachments can have an adverse performance impact during replic
 For example,
 if your application requires lots of images to be stored as attachments,
 or has large images,
-a better approach would be to use an alternative [BLOB ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Binary_large_object){:new_window}
+a better approach would be to use an alternative [BLOB ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Binary_large_object){: new_window}
 storage mechanism for the images.
 You might then use {{site.data.keyword.cloudant_short_notm}} to keep
 the image metadata,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -93,7 +96,7 @@ _Example document describing a purchase:_
     "total": 26.46
 }
 ```
-{:codeblock}
+{: codeblock}
 
 This document provides enough data for a purchase record to render a summary of an order on a web page,
 or an email,
@@ -156,7 +159,7 @@ _Example of a payment record:_
     "payment_reference": "Q88775662377224"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 In the previous example,
 the customer paid by supplying a credit card and redeeming a pre-paid voucher.
@@ -184,7 +187,7 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Using the built-in [`_sum` reducer](../api/creating_views.html#built-in-reduce-functions)
 enables you to produce output as a ledger of payment events.
@@ -212,7 +215,7 @@ _Example of using the built-in `_sum` reducer, queried with `?reduce=false`:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Alternatively,
 you could produce totals grouped by `order_id`.
@@ -229,7 +232,7 @@ _Example of totals grouped by `order_id`, with `?group_level=1`:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Since the view in previous example returns 0 for the order value,
 the result indicates that the order is fully paid.
