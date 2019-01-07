@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-07"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -65,7 +68,7 @@ At-rest encryption | All data that is stored in an {{site.data.keyword.cloudant_
 TLS | We recommend that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}. (***In June 2019, {{site.data.keyword.cloudant_short_notm}} support is retiring the use of older versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ will be supported.***) The certificate {{site.data.keyword.cloudant_short_notm}} uses for HTTPS connections is signed by a universally trusted Certificate Authority that is pre-trusted by all browsers, operating systems, and other software systems like the Java Development Kit (JDK). We commit to always publishing a valid (non-expired) TLS certificate signed by a universally trusted Certificate Authority. We cannot, however, coordinate changes with customers, and we do not commit to remaining with DigiCert. To ensure continuous access to the {{site.data.keyword.cloudant_short_notm}} service, customers are strongly discouraged from pinning the current certificate, which is subject to expiration and prompt rotation in the event of compromise. We instead recommend that customers use the default certificate bundles for their operating systems and browsers, which will ensure continued secure service through any certificate changes.
 Endpoints | All {{site.data.keyword.cloudant_short_notm}} instances are provided with external endpoints that are publically accessible. Dedicated Hardware environments provisioned after January 1, 2019 also add internal endpoints for all Standard plan instances deployed on them. Using internal endpoints allows customers to connect to an {{site.data.keyword.cloudant_short_notm}} instance through the internal {{site.data.keyword.cloud}} network to avoid upstream application traffic from going over the public network and incurring bandwidth charges. See [Service Endpoint documentation](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window} for more details on enabling Service Endpoints for your {{site.data.keyword.cloud}} account.
 IP whitelisting | {{site.data.keyword.cloudant_short_notm}} customers who have a dedicated {{site.data.keyword.cloudant_short_notm}} environment can whitelist IP addresses to restrict access to only specified servers and users. IP whitelisting is not available for any {{site.data.keyword.cloud_notm}} Public Lite/Standard plans that are deployed on multi-tenant environments. Open a support ticket to request IP whitelists for a specified set of IP or IP ranges. Note that IP whitelists apply to both the {{site.data.keyword.cloudant_short_notm}} API and Dashboard, so be mindful to include any administrator IPs that need to access the {{site.data.keyword.cloudant_short_notm}} Dashboard directly. 
-CORS | Enable CORS support for specific domains by using the {{site.data.keyword.cloudant_short_notm}} Dashboard or API. See the [CORS API documentation](../api/cors.html){:new_window} for more details.
+CORS | Enable CORS support for specific domains by using the {{site.data.keyword.cloudant_short_notm}} Dashboard or API. For more information, see the [CORS API documentation](../api/cors.html){:new_window}.
 
 <!--
 > **Note**: Your data is visible to the {{site.data.keyword.cloudant_short_notm}} 
