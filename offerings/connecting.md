@@ -131,7 +131,7 @@ If you use {{site.data.keyword.cloud_notm}} IAM authentication, you must first g
 {{site.data.keyword.cloud_notm}} IAM token to authenticate with a service's API](../../../iam/iam_apikeys_services.html#passing-an-ibm-cloud-iam-token-to-authenticate-with-a-service-s-api) 
 tutorial. 
 
-You cannot use an IAM token directly to authenticate against {{site.data.keyword.cloudant_short_notm}}.
+You cannot use an IAM API key directly to authenticate against {{site.data.keyword.cloudant_short_notm}}.
 {: note}
 
 ### Client Libraries
