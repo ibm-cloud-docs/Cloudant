@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -11,6 +11,10 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-24 -->
 
@@ -20,14 +24,14 @@ lastupdated: "2019-01-02"
 
 # CAP Theorem
 
-{{site.data.keyword.cloudantfull}} uses an ['Eventually Consistent' ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window} model.
-{:shortdesc}
+{{site.data.keyword.cloudantfull}} uses an ['Eventually Consistent' ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window} model.
+{: shortdesc}
 
 To understand how this model works,
 and why it is an essential part of using {{site.data.keyword.cloudant_short_notm}},
 consider what is meant by Consistency.
 
-Consistency is one of the four ['ACID' ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/ACID){:new_window} properties
+Consistency is one of the four ['ACID' ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/ACID){: new_window} properties
 that are necessary for transactions within a database to be processed and reported reliably.
 
 Additionally,
@@ -85,7 +89,7 @@ If the leader loses connection to the network,
 or can't communicate with many of the system's nodes,
 the remainder elects a new leader.
 This election process differs between systems,
-and can be a source of [significant problems ![External link icon](../images/launch-glyph.svg "External link icon")](http://aphyr.com/posts/284-call-me-maybe-mongodb){:new_window}.
+and can be a source of [significant problems ![External link icon](../images/launch-glyph.svg "External link icon")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}.
 
 {{site.data.keyword.cloudant_short_notm}} prioritizes availability and partition tolerance by employing a master-master setup,
 such that every node can accept both writes and reads to its portion of your data.
@@ -95,7 +99,7 @@ If a node becomes inaccessible,
 others can serve in its place while the network heals.
 This way,
 the system returns your data in a timely manner despite arbitrary node failure,
-and maintains [eventual consistency ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}.
+and maintains [eventual consistency ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}.
 The tradeoff in deprioritizing absolute consistency is that it takes time for all nodes to see the same data.
 As a result,
 some responses might contain old data while the new data propagates through the system.
@@ -117,7 +121,7 @@ A database that is engineered around the need to prioritize availability and eve
 is better suited to keeping your application online.
 The consistency of application data can be addressed after the fact.
 As Seth Gilbert and Nancy Lynch of MIT
-[conclude ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){:new_window},
+[conclude ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){: new_window},
 "most real-world systems today are forced to settle with returning 'most of the data, most of the time.'"
 
 ## Application availability versus consistency in the enterprise

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -19,6 +22,7 @@ lastupdated: "2019-01-02"
 
 This tutorial demonstrates how to create a database, populate it
 with documents, create an index, and use the index to query the database.
+{: shortdesc}
 
 Exercises for both the ![Command line icon](../images/CommandLineIcon.png) _Command line_
 and ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud}} Dashboard_ are provided. The
@@ -32,9 +36,9 @@ contain the data for these exercises.
 
 Before you begin, follow these steps to prepare for the tutorial:
 
-1.  [Create an {{site.data.keyword.cloud_notm}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window}.
+1.  [Create an {{site.data.keyword.cloud_notm}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){: new_window}.
 2.  Log in to the
-  [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+  [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){: new_window}.
 3.  [Create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](create_service.html#creating-a-service-instance).
 4.  (Optional) [Create an acurl alias](../guides/acurl.html#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
 5.  Replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to {{site.data.keyword.cloudant_short_notm}} Dashboard.
@@ -43,7 +47,7 @@ Before you begin, follow these steps to prepare for the tutorial:
   ``` sh
   curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
   ```
-  {:codeblock}
+  {: codeblock}
 
 ## Creating a database
 
@@ -59,14 +63,14 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
   ``` sh
   acurl https://$ACCOUNT.cloudant.com/query-demo -X PUT
   ```
-  {:codeblock}
+  {: codeblock}
 2.  Review the results:
   ```json
   {
     "ok": true
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
@@ -130,15 +134,16 @@ that you create in this exercise contain the data that you use to query the `que
     ]
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 2.  Run this command to create the documents:
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
   ```
-  {:codeblock}
+  {: codeblock}
 
-    **Note**: Notice that the '`@`' symbol, used to indicate that the data is included in a file, is identified by the supplied name.
+Notice that the '`@`' symbol, used to indicate that the data is included in a file, is identified by the supplied name.
+{: tip}
 
 3.  Review the results:
   ```json
@@ -170,7 +175,7 @@ that you create in this exercise contain the data that you use to query the `que
     }
   ]
   ```
-  {:codeblock}
+  {: codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
@@ -187,7 +192,7 @@ that you create in this exercise contain the data that you use to query the `que
     "_id": "doc1"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Repeat step 2 to add the remaining documents to the database.
 
@@ -201,7 +206,7 @@ that you create in this exercise contain the data that you use to query the `que
     "_id": "doc2"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
   _Third sample document_:
   ```json
@@ -213,7 +218,7 @@ that you create in this exercise contain the data that you use to query the `que
     "_id": "doc3"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
   _Fourth sample document_:
   ```json
@@ -225,7 +230,7 @@ that you create in this exercise contain the data that you use to query the `que
     "_id": "doc4"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
   _Fifth sample document_:
   ```json
@@ -237,7 +242,7 @@ that you create in this exercise contain the data that you use to query the `que
     "_id": "doc5"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
   The `query-demo` database was populated with five records. You can see the records from the Table view in the following screen capture:
 
@@ -255,7 +260,7 @@ When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner 
 
 *	Primary index – look up a document or list of documents by ID.  
 *	[View](../api/creating_views.html#views-mapreduce-) – search for information in the database that matches the search criteria that you specify, such as counts, sums, averages, and other mathematical functions. The criteria you can search is specified in the view's definition. Views use the MapReduce paradigm.
-*	[Search index](../api/search.html#search) – search one or more fields, large amounts of text, or use wildcards, fuzzy search, or facets with [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
+*	[Search index](../api/search.html#search) – search one or more fields, large amounts of text, or use wildcards, fuzzy search, or facets with [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}.
 
 If there is no available defined index that matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index.
 {: tip}
@@ -284,13 +289,13 @@ If there is no available defined index that matches the specified query, then {{
 		"type": "json"
 }
   ```
-  {:codeblock}
+  {: codeblock}
 
 2.  Run the following command to create an index:
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_index -X POST -H "Content-Type: application/json" -d \@query-index.dat
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Review the results:
   ```json
@@ -300,7 +305,7 @@ If there is no available defined index that matches the specified query, then {{
     "name":"query-index"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 
 
@@ -328,7 +333,7 @@ If there is no available defined index that matches the specified query, then {{
 		"type": "json"
 }
   ```
-  {:codeblock}
+  {: codeblock}
 
   The index was created. You can see the index in the following screen capture:
 
@@ -365,13 +370,13 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
          }        
     }       
   ```    
-  {:codeblock}
+  {: codeblock}
 
 2.  Run the following command to query the database:
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query1.dat
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Review the query results:
   ```json
@@ -388,7 +393,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
     ]
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
@@ -402,7 +407,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
          }        
    }
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Click **Run Query**.
 
@@ -424,7 +429,7 @@ that looks like the following example:
     }
   }
 ```
-{:codeblock}
+{: codeblock}
 
 We can tailor the results to meet our needs
 by adding more details within the selector expression.
@@ -442,7 +447,7 @@ The extra details look like the following example:
   ]
 }
 ```  
-{:codeblock}
+{: codeblock}
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -460,13 +465,13 @@ The extra details look like the following example:
   ]
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 2.  Run the following command to query the database:
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query2.dat
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Review the query results:
   ```json
@@ -490,7 +495,7 @@ The extra details look like the following example:
     ]
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
@@ -509,7 +514,7 @@ The extra details look like the following example:
     ] 
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Click **Run Query**.
 
@@ -535,7 +540,7 @@ We use a selector expression like the following example:
   }
 }
 ``` 
-{:codeblock}
+{: codeblock}
 
 The results are sorted by age in ascending order based on the 
 values specified in the `sort` parameter.
@@ -547,7 +552,7 @@ values specified in the `sort` parameter.
       }
     ] 
 ```  
-{:codeblock}
+{: codeblock}
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
 
@@ -574,13 +579,13 @@ values specified in the `sort` parameter.
    "use_index": "_design/partial-index"
 }
   ```
-  {:codeblock}
+  {: codeblock}
 
 2. Run this query:
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query3.dat
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Review the query results:
   ```json
@@ -591,7 +596,7 @@ values specified in the `sort` parameter.
 "bookmark": "g1AAAABCeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmFwOSHWiDkiSzb0oNTUvNSsLAEsmEeQ"
 }
   ```
-  {:codeblock}
+  {: codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
 
@@ -619,7 +624,7 @@ values specified in the `sort` parameter.
    "use_index": "_design/partial-index"
 }
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Click **Run Query**.
 

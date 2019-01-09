@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -11,6 +11,10 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -22,12 +26,12 @@ You access your account by using the address prefix
 `https://$ACCOUNT.cloudant.com`.
 Your {{site.data.keyword.cloudant_short_notm}} dashboard is always
 `https://$ACCOUNT.cloudant.com/dashboard.html`.
-{:shortdesc}
+{: shortdesc}
 
-If you don't yet have an account, [sign up ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/sign-up/){:new_window}.
+If you don't yet have an account, [sign up ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/sign-up/){: new_window}.
 
 ## Ping
-{: #ping}
+{:  #ping}
 
 To see whether your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.
@@ -40,14 +44,14 @@ _Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account
 GET / HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using the command line:_
 
 ```sh
 curl -u $ACCOUNT https://$ACCOUNT.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -62,7 +66,7 @@ account.request(function (err, body) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -75,12 +79,12 @@ ping = account.get()
 print ping.status_code
 # Expected return code: 200
 ```
-{:codeblock}
+{: codeblock}
 
 ## CORS
 {: #cors}
 
-[Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){:new_window} is a
+[Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){: new_window} is a
 mechanism that allows JavaScript from another domain to interact with data in
 your {{site.data.keyword.cloudant_short_notm}} account.
 

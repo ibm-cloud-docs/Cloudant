@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -21,6 +24,7 @@ lastupdated: "2019-01-02"
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance 
 that uses the {{site.data.keyword.cloud}} dashboard, and shows you how to subsequently provision one or 
 more Standard plan instances to run on it by using either the {{site.data.keyword.cloud_notm}} Catalog or the {{site.data.keyword.cloud_notm}} CLI. 
+{: shortdesc}
 
 Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance results in the provisioning 
 of an {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware for your sole use. A service 
@@ -34,7 +38,7 @@ instances on it.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
+    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){:new_window}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click `Catalog` from the menu:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
@@ -52,20 +56,20 @@ instances on it.
     -   Select a location for deployment.<br/>
     -   Select `yes` or `no` to answer whether HIPAA is required.<br/> 
     
-    HIPAA is only valid for U.S. locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only provisioned upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. See [Enabling the HIPAA Supported setting](https://console.bluemix.net/docs/account/account_settings.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
-    {: tip}
+    HIPAA is only valid for U.S. locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only provisioned upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. See [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
+    {: note}
 
     ![Configure dedicated hardware](../tutorials/images/select_deployment_location.png)
         
 5.  Click the `Create` button to start the provisioning process. <br/>
 
     Billing is prorated daily so make sure that you want to provision and pay for an environment before clicking the **Create** button.
-    {: tip}
+    {: note}
 
     ![Provision dedicated hardware](../tutorials/images/create_button_provision.png)
 
     During provisioning, a spinning wheel appears next to the instance in your {{site.data.keyword.cloud_notm}} dashboard. A request is sent to provision a Dedicated Hardware plan instance on bare metal servers. Provisioning time is asynchronous and can take up to 5 days. 
-    {: tip}   
+    {: note}   
 
     ![Provision dedicated hardware alternate version](../tutorials/images/create_button_provision2.png)
     
@@ -73,7 +77,7 @@ instances on it.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){:new_window}.
+    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){:new_window}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click `Catalog` from the menu:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
@@ -102,11 +106,11 @@ instances on it.
     
 6.  Obtain your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
     
-    For more information, see [how to locate your service credentials](../tutorials/create_service.html#locating-your-service-credentials){:new_window}. 
+    For more information, see [how to locate your service credentials](../tutorials/create_service.html#locating-your-service-credentials){: new_window}. 
     
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment with the {{site.data.keyword.cloud_notm}} CLI
 
-To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information about how to log in and set a target resource group, see [Logging in to your {{site.data.keyword.cloud_notm}} account](create_service_cli.html#logging-in-to-your-ibm-cloud-account){:new_window}. 
+To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information about how to log in and set a target resource group, see [Logging in to your {{site.data.keyword.cloud_notm}} account](create_service_cli.html#logging-in-to-your-ibm-cloud-account){: new_window}. 
 
 To create an {{site.data.keyword.cloudant_short_notm}} Standard plan instance on your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment, the basic command format is as follows:
 
@@ -129,7 +133,7 @@ ibmcloud resource service-instance-create NAME SERVICE_NAME SERVICE_PLAN_NAME LO
 Parameter | Description
 ----------|------------
 `environment_crn` | This parameter must be set to the CRN of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. You can determine what the CRN is by looking at the example CLI command in the Manage tab of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance in the {{site.data.keyword.cloud_notm}} Dashboard. Or you can determine what the CRN is by using the `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` command. 
-`legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide ![External link icon](../images/launch-glyph.svg "External link icon")](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){:new_window} for more details on choosing an authentication method.
+`legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide ![External link icon](../images/launch-glyph.svg "External link icon")](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){: new_window} for more details on choosing an authentication method.
 
 See the following example command: 
 

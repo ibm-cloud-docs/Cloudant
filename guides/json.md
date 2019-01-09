@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,15 +12,18 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # JSON
 
 The majority of requests and responses to and from {{site.data.keyword.cloudantfull}}
-use the [JavaScript Object Notation (JSON) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/JSON){:new_window}
+use the [JavaScript Object Notation (JSON) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/JSON){: new_window}
 for formatting the content and structure of the data and responses.
-{:shortdesc}
+{: shortdesc}
 
 In {{site.data.keyword.cloudant_short_notm}} databases,
 the JSON object is used to represent a variety of structures,
@@ -37,8 +40,7 @@ This is because JSON structures can be evaluated and used as JavaScript objects 
 JSON also integrates with the server-side JavaScript used within {{site.data.keyword.cloudant_short_notm}}.
 JSON documents are always UTF-8 encoded.
 
->   **Note**: Care should be taken to ensure that:
-
+Be careful to ensure that:
 -   Your JSON structures are valid.
     Invalid structures cause {{site.data.keyword.cloudant_short_notm}} to return an HTTP status code of [400 (bad request)](../api/http.html#400).
 -   You normalize strings in JSON documents retrieved from {{site.data.keyword.cloudant_short_notm}},
@@ -63,7 +65,7 @@ _Example of a number in JSON format:_
 ```json
 123
 ```
-{:codeblock}
+{: codeblock}
 
 ## Strings
 
@@ -74,7 +76,7 @@ _Example of a string in JSON format:_
 ```json
 "A String"
 ```
-{:codeblock}
+{: codeblock}
 
 ## Booleans
 
@@ -87,7 +89,7 @@ _Example of a boolean in JSON format:_
   "value": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Arrays
 
@@ -108,14 +110,14 @@ _Example of an array in JSON format:_
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of an array in JSON format (linear):_
 
 ```json
 [ "one", 2, "three", [], true, { "foo": "bar" } ]
 ```
-{:codeblock}
+{: codeblock}
 
 ## Objects
 
@@ -135,4 +137,4 @@ _Example of a JSON object:_
     "title" : "Chicken Coriander"
 }
 ```
-{:codeblock}
+{: codeblock}

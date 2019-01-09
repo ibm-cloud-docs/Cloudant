@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -21,7 +24,7 @@ lastupdated: "2019-01-02"
 These endpoints provide information about the state of the cluster,
 details about revision history,
 and other miscellaneous tasks.
-{:shortdesc}
+{: shortdesc}
 
 ## `GET /`
 {: #-get-}
@@ -35,12 +38,8 @@ The response is a JSON object that contains a welcome message and the version of
 The `version` field contains the CouchDB version the server is compatible with.
 The `vendor.version` field contains the build number of {{site.data.keyword.cloudantfull}}'s CouchDB implementation.
 
-For {{site.data.keyword.cloudant_short_notm}} versions before 2.0.0,
-you might see a `cloudant_build` field in the response,
-rather than a `vendor.version` field.
-In each case,
-the field contains the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
-{: tip}
+For {{site.data.keyword.cloudant_short_notm}} versions before 2.0.0, you might see a `cloudant_build` field in the response, rather than a `vendor.version` field. In each case, the field contains the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
+{: note}
 
 _Example request to get server meta information,by using HTTP:_
 
@@ -48,14 +47,14 @@ _Example request to get server meta information,by using HTTP:_
 GET / HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request to get server meta information, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -72,7 +71,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -92,7 +91,7 @@ _Example JSON response for {{site.data.keyword.cloudant_short_notm}} version 2.0
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON response for an older {{site.data.keyword.cloudant_short_notm}} version 1.0.2:_
 
@@ -103,13 +102,13 @@ _Example JSON response for an older {{site.data.keyword.cloudant_short_notm}} ve
 	"cloudant_build": "2660"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## `GET /_db_updates`
 {: #-get-_db_updates-}
 
 This endpoint is only available to customers with dedicated system accounts.
-{: tip}
+{: note}
 
 The `/_db_updates` endpoint returns a list of changes to databases,
 similar to a global [changes feed](database.html#get-changes).
@@ -137,7 +136,7 @@ _Example request to get a list of changes to the database, by using HTTP:_
 ```HTTP
 GET /_db_updates HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request to get a list of changes to the database, by using the command line:_
 
@@ -145,7 +144,7 @@ _Example request to get a list of changes to the database, by using the command 
 curl https://$ACCOUNT.cloudant.com/_db_updates \
 	-u $ACCOUNT
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -162,7 +161,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -179,7 +178,7 @@ _Example response:_
 	"last_seq": "673-g1AAAAJAeJyN0Et..."
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## `GET /$DATABASE/_shards`
 {: #-get-database-_shards-}
@@ -195,7 +194,7 @@ _Example request, by using HTTP:_
 ```HTTP
 GET /$DATABASE/_shards HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request, by using the command line:_
 
@@ -203,7 +202,7 @@ _Example request, by using the command line:_
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_shards \
 	-u $ACCOUNT
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -221,7 +220,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -253,7 +252,7 @@ _Example response:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## `GET /$DATABASE/_missing_revs`
 {: #-get-database_missing_revs-}
@@ -272,7 +271,7 @@ similar to the following example:
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request, by using HTTP:_
 
@@ -280,7 +279,7 @@ _Example request, by using HTTP:_
 GET /$DATABASE/_missing_revs HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request, by using the command line:_
 
@@ -291,7 +290,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_missing_revs \
 	 -H "Content-Type: application/json" \
 	 -d @request-body.json
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -312,7 +311,7 @@ function (err, body) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -327,7 +326,7 @@ _Example response:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## `POST /$DATABASE/_revs_diff`
 {: #-post-database-_revs_diff-}
@@ -347,7 +346,7 @@ similar to the following example:
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request, by using HTTP:_
 
@@ -355,7 +354,7 @@ _Example request, by using HTTP:_
 POST /$DATABASE/_revs_diff HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request, from the command line:_
 
@@ -365,7 +364,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_revs_diff \
 	-u $ACCOUNT \
 	-d "$JSON"
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -385,7 +384,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -404,25 +403,22 @@ _Example response:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## `GET /$DATABASE/_revs_limit`
 {: #-get-database-_revs_limit-}
 
 Gets the number of past revisions of a document that {{site.data.keyword.cloudant_short_notm}} retains.
 
-Although the documents that are associated with past revisions are automatically removed,
-"tombstones" remain with the `_rev` value for that revision.
-If a document has more revisions than the value of `_revs_limit`,
-{{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
-{: tip}
+Although the documents that are associated with past revisions are automatically removed, "tombstones" remain with the `_rev` value for that revision. If a document has more revisions than the value of `_revs_limit`, {{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
+{: note}
 
 _Example request, by using HTTP:_
 
 ```HTTP
 GET /$DATABASE/_revs_limit HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request, by using the command line:_
 
@@ -431,7 +427,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_revs_limit \
 	-X GET \
 	-u "$ACCOUNT:$PASSWORD"
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -448,7 +444,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -457,25 +453,22 @@ _Example response:_
 ```
 1000
 ```
-{:codeblock}
+{: codeblock}
 
 ## `PUT /$DATABASE/_revs_limit`
 {: #-put-database-_revs_limit-}
 
 Sets the maximum number of past revisions of a document that {{site.data.keyword.cloudant_short_notm}} retains.
 
-Although the documents that are associated with past revisions are automatically removed,
-"tombstones" remain with the `_rev` value for that revision.
-If a document has more revisions than the value of `_revs_limit`,
-{{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
-{: tip}
+Although the documents that are associated with past revisions are automatically removed, "tombstones" remain with the `_rev` value for that revision. If a document has more revisions than the value of `_revs_limit`, {{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
+{: note}
 
 _Example request, by using HTTP:_
 
 ```HTTP
 PUT /$DATABASE/_revs_limit HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request, by using the command line:_
 
@@ -485,7 +478,7 @@ curl https://$ACCOUNT.cloudant.com/_revs_limit \
 	-X PUT \
 	-d 500
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -504,7 +497,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -515,7 +508,7 @@ _Example response:_
 	"ok": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## `GET /_membership`
 {: #-get-_membership-}
@@ -535,7 +528,7 @@ _Example request to list nodes in the cluster, by using HTTP:_
 ```http
 GET /_membership HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request to list nodes in the cluster, by using the command line:_
 
@@ -543,7 +536,7 @@ _Example request to list nodes in the cluster, by using the command line:_
 curl https://$ACCOUNT.cloudant.com/_membership \
 	-u $ACCOUNT
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -560,7 +553,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -588,7 +581,7 @@ _Example response:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## `GET /_uuids`
 {: #-get-_uuids-}
@@ -609,7 +602,7 @@ _Example request for a single UUID, by using HTTP:_
 ```HTTP
 GET /_uuids HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request for a single UUID, by using the command line:_
 
@@ -617,7 +610,7 @@ _Example request for a single UUID, by using the command line:_
 curl https://$ACCOUNT.cloudant.com/_uuids \
 	-u $ACCOUNT
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -634,7 +627,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -647,14 +640,14 @@ _Example response to a request for a single UUID:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request for five UUIDs, by using HTTP:_
 
 ```HTTP
 GET /_uuids?count=5 HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request for five UUIDs, by using the command line:_
 
@@ -662,7 +655,7 @@ _Example request for five UUIDs, by using the command line:_
 curl https://$ACCOUNT.cloudant.com/_uuids?count=5 \
 	-u $ACCOUNT
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -679,7 +672,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -696,4 +689,4 @@ _Example response to a request for five UUIDs:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}

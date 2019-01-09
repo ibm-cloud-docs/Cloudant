@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-06-01 -->
 
@@ -21,7 +24,7 @@ lastupdated: "2019-01-02"
 After [authenticating](authentication.html),
 the next test is to decide whether you are allowed to do certain tasks.
 This decision is called authorization.
-{:shortdesc}
+{: shortdesc}
 
 When you authenticate with the {{site.data.keyword.cloudantfull}} system,
 it 'knows' who you are.
@@ -59,7 +62,8 @@ Role      | Description
 `_reader` | Read documents from the database.
 `_writer` | Create, update, and delete documents (except design documents) in the database.
 
->   **Note:** The `_reader` and `_writer` roles are exclusive. If a user has the `_writer` role, they cannot read documents that they create unless they _also_ have the `_reader` role.
+The `_reader` and `_writer` roles are exclusive. If a user has the `_writer` role, they cannot read documents that they create unless they _also_ have the `_reader` role.
+{: tip}
 
 You might want to assign more than one role.
 For example,
@@ -113,7 +117,7 @@ if the `nobody` user name is intentionally granted `_admin`,
 and `_writer` roles,
 but an authenticated user account such as `alexone` is granted only the `_reader` role. In this case, it is possible that an unauthenticated user might have a more powerful role than the authenticated `alexone` user. 
 
-It is important to understand that the `nobody` user name is _not_ way of providing a default set of permissions. Instead, the `nobody` user name is used to determine permissions for _unauthenticated_ users.
+It is important to understand that the `nobody` user name is _not_ a way of providing a default set of permissions. Instead, the `nobody` user name is used to determine permissions for _unauthenticated_ users.
 {: tip}
 
 ### Determining the role to assign
@@ -139,14 +143,14 @@ _Example of using an HTTP request to determine permissions:_
 ```http
 GET /_api/v2/db/$DATABASE/_security HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using a command line request to determine permissions:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -166,7 +170,7 @@ account.request({
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -202,7 +206,7 @@ _Example response to request for permissions:_
 	"_id": "_security"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Modifying Permissions
 {: #modifying-permissions}
@@ -220,7 +224,7 @@ _Example of using HTTP to send an authorization modification request:_
 PUT /_api/v2/db/$DATABASE/_security HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to send an authorization modification request:_
 
@@ -230,7 +234,7 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security \
 	-H "Content-Type: application/json" \
 	-d "$JSON"
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -253,7 +257,7 @@ account.request(
 	}
 );
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -289,7 +293,7 @@ _Example of an authorization modification request document:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The response indicates whether the update was successful.
 
@@ -300,7 +304,7 @@ _Example response after a successful authorization modification request:_
 	"ok" : true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 You must run the `GET` command first to retrieve the security object.
 Then,
@@ -322,7 +326,7 @@ _Example of an incorrect authorization modification request document:_
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## API keys
 {: #api-keys}
@@ -358,8 +362,8 @@ in an EU-managed environment, see
 ## Creating API Keys
 {: #creating-api-keys}
 
->	**Note**: An earlier method of generating API keys by `POST`ing to
-the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
+An earlier method of generating API keys by `POST`ing to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.
+{: deprecated}
 
 You can create an API key in two ways:
 
@@ -371,25 +375,22 @@ remember to record the key name and password.
 These values are both randomly generated,
 and cannot be retrieved if lost or forgotten.
 
->	**Note**: [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){:new_window}
-does not support API Keys.
-For a similar capability,
-create "CouchDB" style users,
-as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_db_security.html){:new_window}.
+[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){: new_window} does not support API Keys. For a similar capability, create "CouchDB" style users, as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_db_security.html){: new_window}.
+{: note}
 
 _Example of using an HTTP request to create an API key:_
 
 ```http
 POST https://$ACCOUNT.cloudant.com/_api/v2/api_keys HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to create an API key:_
 
 ```sh
 curl -X POST https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_api/v2/api_keys
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -411,7 +412,7 @@ account.request(
 	}
 );
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -426,7 +427,7 @@ _Example response to request for an API key:_
 	"key": "blentfortedsionstrindigl"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Using API keys
 {: #using-api-keys}
@@ -454,7 +455,7 @@ do the following steps:
 
 For an example of this process,
 see the blog article:
-[Using an {{site.data.keyword.cloudant_short_notm}} API Key with Multiple {{site.data.keyword.cloudant_short_notm}} Databases and Accounts ![External link icon](../images/launch-glyph.svg "External link icon")](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){:new_window}.
+[Using an {{site.data.keyword.cloudant_short_notm}} API Key with Multiple {{site.data.keyword.cloudant_short_notm}} Databases and Accounts ![External link icon](../images/launch-glyph.svg "External link icon")](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){: new_window}.
 
 ## Deleting API keys
 {: #deleting-api-keys}
@@ -499,11 +500,11 @@ The updated list _must omit_ the API key.
 {: #using-the-_users-database-with-cloudant-nosql-db}
 
 You can use the
-[`_users` database ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#authentication-database){:new_window}
+[`_users` database ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#authentication-database){: new_window}
 to manage roles in {{site.data.keyword.cloudant_short_notm}}.
 
 User documents that are stored in the `_users` database must be structured and populated to comply with
-[Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){:new_window}.
+[Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){: new_window}.
 
 In addition, you can disable the {{site.data.keyword.cloudant_short_notm}} authorization checks by setting the `couchdb_auth_only:true` parameter. 
 To disable {{site.data.keyword.cloudant_short_notm}} security,
@@ -516,7 +517,7 @@ _Example of using HTTP to submit a modification request:_
 PUT /$DATABASE/_security HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to submit a modification request:_
 
@@ -526,7 +527,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_security \
 	-H "Content-Type: application/json" \
 	-d @request-body.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example modification request, in JSON format:_
 
@@ -541,7 +542,7 @@ _Example modification request, in JSON format:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response:_
 
@@ -550,4 +551,4 @@ _Example response:_
 	"ok" : true
 }
 ```
-{:codeblock}
+{: codeblock}

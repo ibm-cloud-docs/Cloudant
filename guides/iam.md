@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-07-02 -->
 
@@ -19,7 +22,7 @@ lastupdated: "2019-01-02"
 
 {{site.data.keyword.cloud}} Identity and Access Management provides a unified
 approach to managing user identities, services, and access control.
-{:shortdesc}
+{: shortdesc}
 
 ## Introduction
 
@@ -30,7 +33,7 @@ to help you decide which to use. Then, we discuss how to use IAM within
 {{site.data.keyword.cloudant_short_notm}}'s client libraries and via HTTP calls. Finally, we end with a reference
 section that describes all of the IAM actions and roles available within {{site.data.keyword.cloudant_short_notm}}.
 
-See an overview of [IAM ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/iam/index.html#iamoverview){:new_window}, including how to:
+See an overview of [IAM ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/iam/index.html#iamoverview){: new_window}, including how to:
 
 - Manage user and service IDs.
 - Manage available credentials.
@@ -164,7 +167,7 @@ When you select _Use both legacy credentials and IAM_, the service credentials t
   "username": "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Each value in the previous JSON example should be interpreted as follows:
 

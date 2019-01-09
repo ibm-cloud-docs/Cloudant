@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-07"
 
 ---
 
@@ -12,15 +12,18 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
-<!-- Acrolinx: 2018-04-30 -->
+<!-- Acrolinx: 2019 -->
 
 # Databases
 
 {{site.data.keyword.cloudantfull}} databases contain JSON objects.
 These JSON objects are called [documents](document.html#documents).
 All documents must be contained in a database.
-{:shortdesc}
+{: shortdesc}
 
 A guide is [available](../guides/transactions.html),
 providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
@@ -50,14 +53,14 @@ _Example of using HTTP to create a database:_
 PUT /$DATABASE HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to create a database:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE -X PUT
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -73,7 +76,7 @@ account.db.create($DATABASE, function (err, body, headers) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -99,7 +102,7 @@ HTTP/1.1 201 Created
 	ok": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Database topology
 
@@ -113,8 +116,9 @@ For more information about modifying database configuration
 in a dedicated database environment,
 contact {{site.data.keyword.cloudant_short_notm}} support.
 
-> **Note**: It is not possible to modify the configuration that is used for databases
+It is not possible to modify the configuration that is used for databases
 on multi-tenant clusters.
+{: note}
 
 <div id="read"></div>
 
@@ -129,14 +133,14 @@ _Example of using HTTP to get database details:_
 ```http
 GET /$DATABASE HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to get database details:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE \
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -152,7 +156,7 @@ account.db.get($DATABASE, function (err, body, headers) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -195,7 +199,7 @@ _Example (abbreviated) response that contains database details:_
 	"instance_start_time": "0"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="get-databases"></div>
 
@@ -209,14 +213,14 @@ _Example of using HTTP to list all databases:_
 ```http
 GET /_all_dbs HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to list all databases:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_all_dbs \
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -232,7 +236,7 @@ account.db.list(function (err, body, headers) {
   }
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -249,7 +253,7 @@ _Example response:_
 	"locations"
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ## Get Documents
 
@@ -278,25 +282,25 @@ Argument            | Description                                               
 `startkey_docid` | Return records, starting with the specified document ID. If `startkey` is not set, this argument is ignored.  | yes | string |
 
 
->	**Note**: Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
+Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
+{: important}
 
->	**Note**: When you use the `keys` argument,
-    it might be easier to send a `POST` request rather than a `GET` request
-    if you require many strings to list the keys you want.
+When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require many strings to list the keys you want.
+{: note}
 
 _Example of using HTTP to list all documents in a database:_
 
 ```http
 GET /_all_docs HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to list all documents in a database,_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -313,7 +317,7 @@ db.list(function (err, body, headers) {
   }
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -322,14 +326,14 @@ _Example of using HTTP to list all documents in a database that match at least o
 ```http
 GET /_all_docs?keys=["somekey","someotherkey"] HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to list all documents in a database that match at least one of the specified keys:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs?keys=["somekey","someotherkey"]
 ```
-{:codeblock}
+{: codeblock}
 
 The response is a JSON object that contains all documents in the database that match the parameters.
 The following table describes the meaning of the individual fields:
@@ -372,7 +376,7 @@ _Example response after a request for all documents in a database:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Send multiple queries to a database
 
@@ -388,14 +392,14 @@ _Example of using HTTP to send multiple queries to a database:_
 ```http
 POST /_all_docs/queries HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to send multiple queries to a database,_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries
 ```
-{:codeblock}
+{: codeblock}
 
 `POST`ing to the `_all_docs/queries` endpoint runs multiple specified built-in view queries of all documents 
 in this database. This endpoint enables you to request multiple queries in a single request, instead 
@@ -436,7 +440,7 @@ Host: localhost:5984
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response for multiple queries:_
 ```json
@@ -503,10 +507,10 @@ Transfer-Encoding: chunked
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
-> **Note**: Multiple queries are also supported in `/$DATABASE/_local_docs/queries` and 
-`/$DATABASE/_design_docs/queries`, which is similar to `/$DATABASE/_all_docs/queries`. 
+Multiple queries are also supported in `/$DATABASE/_local_docs/queries` and `/$DATABASE/_design_docs/queries`, which is similar to `/$DATABASE/_all_docs/queries`. 
+{: note}
 
 ### Send multiple view queries to a database by using `_view`
 
@@ -518,14 +522,14 @@ _Example of using HTTP to send multiple queries to a database:_
 ```http
 POST /_view/$VIEW/queries HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to send multiple view queries to a database,_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_view/$VIEW/queries
 ```
-{:codeblock}
+{: codeblock}
 
 Multiple queries are supported with the `_view` endpoint, 
 `/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
@@ -565,22 +569,22 @@ Argument       | Description | Supported Values | Default
 `style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` | 
 `timeout`      | Stop the response after waiting this number of milliseconds for data. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | any positive number | |
 
->	**Note**: Using `include_docs=true` might have
-	[performance implications](using_views.html#include_docs_caveat).
+Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
+{: important}
 
 _Example of using HTTP to get a list of changes made to documents in a database:_
 
 ```http
 GET /$DATABASE/_changes HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to get a list of changes made to documents in a database_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_changes \
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -596,7 +600,7 @@ account.db.changes($DATABASE, function (err, body, headers) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -618,14 +622,8 @@ is explained in the
 
 <!-- Reset markdown parser -->
 
-<blockquote>
-<p><strong>Note</strong>: Any application that uses the <code>_changes</code> request <em>must</em> be able to process correctly a list of changes that might:
-<ul>
-<li>Have a different order for the changes that are listed in the response, when compared with an earlier request for the same information.</li>
-<li>Include changes that are considered to be before the change specified by the sequence identifier.</li>
-</ul>
-</p>
-</blockquote>
+Any application that uses the `_changes` request *must* be able to process correctly a list of changes that might: 1. Have a different order for the changes that are listed in the response, when compared with an earlier request for the same information. 2. Include changes that are considered to be before the change specified by the sequence identifier.
+{: tip}
 
 ### The `feed` argument
 
@@ -694,7 +692,7 @@ _Example (abbreviated) responses from a continuous changes feed:_
 	"deleted": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### The `filter` argument
 
@@ -706,12 +704,16 @@ several built-in filters available:
 *   `_design`: The `_design` filter accepts only changes to design documents.
 *   `_doc_ids`: This filter accepts only changes for documents whose ID is specified in the `doc_ids` parameter.
     
-    >   **Note**: The `_docs_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
+   The `_docs_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
+   {: note}
+
 *   `_selector`: Accepts only changes for documents that match a specified selector,
     which is defined by using the same [selector syntax](cloudant_query.html#selector-syntax) that is used
     for [`_find`](cloudant_query.html#finding-documents-using-an-index).
-    
-    >   **Note**: The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
+
+   The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
+   {: note}
+	
 *   `_view`: Enables use of an existing [map function](creating_views.html#a-simple-view) as the filter.
 
 ### The `since` argument
@@ -793,7 +795,7 @@ _Example (abbreviated) response to a `_changes` request:_
 	"pending": 0
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Important notes about `_changes`
 
@@ -814,7 +816,7 @@ _Example (abbreviated) response to a `_changes` request:_
 -	`_changes` reported by a shard are always presented in order.
 	But the ordering between all the contributing shards might appear to be different.
 	For more information,
-	see [this example ![External link icon](../images/launch-glyph.svg "External link icon")](https://gist.github.com/smithsz/30fb97662c549061e581){:new_window}.
+	see [this example ![External link icon](../images/launch-glyph.svg "External link icon")](https://gist.github.com/smithsz/30fb97662c549061e581){: new_window}.
 -	Sequence values are unique for a shard,
 	but might vary between shards.
 	This variation means that if you have sequence values from different shards,
@@ -838,14 +840,14 @@ POST /$DATABASE/_changes?filter=_selector HTTP/1.1
 Host: $ACCOUNT.cloudant.com
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to `POST` to the `_changes` endpoint:_
 
 ```sh
 curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector" -d @request.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a JSON object `POST`ed to the `_changes` endpoint:_
 
@@ -854,14 +856,15 @@ _Example of a JSON object `POST`ed to the `_changes` endpoint:_
 	"selector": {"z" : {"$gte" : 1}}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Deleting a database
 
 To delete a database and its contents,
 send a `DELETE` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
 
->	**Note**: No additional check is made to ensure that you really intended to delete the database ("Are you sure?").
+No additional check is made to ensure that you really intended to delete the database ("Are you sure?").
+{: note}
 
 _Example of using HTTP to delete an {{site.data.keyword.cloudant_short_notm}} database:_
 
@@ -869,7 +872,7 @@ _Example of using HTTP to delete an {{site.data.keyword.cloudant_short_notm}} da
 DELETE /$DATABASE HTTP/1.1
 Host: $ACCOUNT.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to delete an {{site.data.keyword.cloudant_short_notm}} database:_
 
@@ -877,7 +880,7 @@ _Example of using the command line to delete an {{site.data.keyword.cloudant_sho
 curl https://$ACCOUNT.cloudant.com/$DATABASE \
 	-X DELETE \
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -893,11 +896,11 @@ account.db.destroy($DATABASE, function (err, body, headers) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
-If deletion succeeds, you get a [200 or 202 response](../api/http.html#http-status-codes){:new_window}.
+If deletion succeeds, you get a [200 or 202 response](../api/http.html#http-status-codes){: new_window}.
 An error response uses the HTTP status code to indicate what went wrong.
 
 Code | Description
@@ -913,7 +916,7 @@ _Example response that is received after a database is deleted successfully:_
 	"ok": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Backing up your data
 

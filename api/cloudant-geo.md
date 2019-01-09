@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-06-04 -->
 
@@ -22,7 +25,7 @@ lastupdated: "2019-01-02"
 or '{{site.data.keyword.cloudant_short_notm}} Geo',
 combines the advanced geospatial queries of a Geographic Information System (GIS)
 with the flexibility and scalability of {{site.data.keyword.cloudant_short_notm}}'s database-as-a-service (DBaaS) capabilities.
-{:shortdesc}
+{: shortdesc}
 
 You can use {{site.data.keyword.cloudant_short_notm}} Geo to do the following tasks:
 
@@ -62,12 +65,12 @@ _Example of a relationship that uses a geospatial polygon:_
 ```
 relation=contains&g=POLYGON ((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
 ```
-{:codeblock}
+{: codeblock}
 
 The basic steps for working with geospatial data in {{site.data.keyword.cloudant_short_notm}} Geo are as follows:
 
 1.  Include a GeoJSON geometry object in your JSON document.
-	The geometry object can be of any type that is defined by the [GeoJSON specification ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){:new_window}.
+	The geometry object can be of any type that is defined by the [GeoJSON specification ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){: new_window}.
 2.  Index the geometry object that uses {{site.data.keyword.cloudant_short_notm}} Geo defined `st_index` function.
 3.  Search the indexed geometry object by using various geometries and geometric relationships.
 
@@ -112,12 +115,12 @@ To see the other results from your geospatial query,
 page through them by clicking the left or right arrows.
 
 More information on using {{site.data.keyword.cloudant_short_notm}} Geospatial is available through
-the [Learning Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.cloudant.com/learning-center#geo){:new_window}.
+the [Learning Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.cloudant.com/learning-center#geo){: new_window}.
 
 ## GeoJSON
 {: #geojson}
 
-[GeoJSON format ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){:new_window}
+[GeoJSON format ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){: new_window}
 is used to express the following various geographic data structures:
 
 -   `Point`
@@ -170,11 +173,11 @@ _An example GeoJSON document:_
 	..}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 More information about GeoJSON,
 including the full specification,
-is available at [http://geojson.org/ ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/){:new_window}.
+is available at [http://geojson.org/ ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/){: new_window}.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Geo Index
 {: #creating-a-cloudant-nosql-db-geo-index}
@@ -206,7 +209,7 @@ _An example {{site.data.keyword.cloudant_short_notm}} Geo design document, conta
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Geospatial indexing
 {: #geospatial-indexing}
@@ -216,7 +219,7 @@ Some algorithms are simple to understand and implement,
 but do not produce fast results.
 
 The basic algorithm that is used by {{site.data.keyword.cloudant_short_notm}} Geo
-is [R\*\_tree ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/R*_tree){:new_window}.
+is [R\*\_tree ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/R*_tree){: new_window}.
 Although it has a slightly higher resource requirement for building the index,
 the resulting index offers much better performance in responding to geospatial queries.
 
@@ -235,14 +238,14 @@ _Example request, by using HTTP:_
 GET /crimes/_design/geodd/_geo_info/geoidx HTTP/1.1
 Host: $ACCOUNT.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _Example request, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/crimes/_design/geodd/_geo_info/geoidx \
 ```
-{:codeblock}
+{: codeblock}
 
 The data that is returned within the `geo_index` portion of the JSON response includes
 the following fields:
@@ -265,7 +268,7 @@ _Example response in JSON format:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 If the design document that is intended to specify a geospatial index is invalid,
 an attempt to retrieve information about the index by using the `_geo_info` endpoint
@@ -287,7 +290,7 @@ _Example format for an {{site.data.keyword.cloudant_short_notm}} Geo API call:_
 ```http
 /$DATABASE/_design/$DDOCS/_geo/$INDEX_NAME?$QUERY_PARAMS
 ```
-{:codeblock}
+{: codeblock}
 
 ### Query Geometry
 {: #query-geometry}
@@ -307,35 +310,35 @@ _Example of a `bbox` query:_
 ```http
 ?bbox=-11.05987446,12.28339928,-101.05987446,62.28339928
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of an `ellipse` query:_
 
 ```http
 ?lat=-11.05987446&lon=12.28339928&rangex=200&rangey=100
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a `radius` query:_
 
 ```http
 ?lat=-11.05987446&lon=12.28339928&radius=100
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a `point` query:_
 
 ```http
 ?g=point(-71.0537124 42.3681995)
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a `polygon` query:_
 
 ```http
 ?g=polygon((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
 ```
-{:codeblock}
+{: codeblock}
 
 {{site.data.keyword.cloudant_short_notm}} Geo uses `intersects` as the default geometric relation when it runs a query with query geometry only.
 {: tip}
@@ -344,7 +347,7 @@ _Example of a `polygon` query:_
 {: #geometric-relation}
 
 {{site.data.keyword.cloudant_short_notm}} Geo works with geospatial relationships and follows
-the [DE-9IM specification ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/DE-9IM){:new_window} for geometric relations.
+the [DE-9IM specification ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/DE-9IM){: new_window} for geometric relations.
 This specification defines the different ways in which two geospatial objects are related to each other,
 if indeed they are related at all.
 
@@ -380,7 +383,7 @@ _An example of returning all geometries that are contained by a `polygon`:_
 ```http
 ?relation=contains&g=polygon((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
 ```
-{:codeblock}
+{: codeblock}
 
 ### Nearest neighbor search
 {: #nearest-neighbor-search}
@@ -401,7 +404,7 @@ _Example query to find nearest five crimes against a specific location:_
 ```http
 https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POINT(-71.0537124 42.3681995)&nearest=true&limit=5
 ```
-{:codeblock}
+{: codeblock}
 
 The `nearest=true` search can change the semantics of an {{site.data.keyword.cloudant_short_notm}} Geo search.
 For example,
@@ -438,7 +441,7 @@ _Example query to return results with `format=legacy`:_
 ```sh
 curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=legacy&lat=42.3397&lon=-71.07959&radius=10'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response to the query:_
 
@@ -453,14 +456,14 @@ _Example response to the query:_
 	"type": "FeatureCollection"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example query to return results with `format=view`:_
 
 ```sh
 curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=view&lat=42.3397&lon=-71.07959&radius=10'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response to the query:_
 
@@ -481,14 +484,14 @@ _Example response to the query:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example query to return results with `format=geojson` or `format=application/vnd.geo+json`:_
 
 ```sh
 curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=geojson&lat=42.3397&lon=-71.07959&radius=10'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response to the query:_
 
@@ -512,7 +515,7 @@ _Example response to the query:_
 	"type": "FeatureCollection"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Example: Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #example-querying-a-cloudant-nosql-db-geo-index}
@@ -541,7 +544,7 @@ _Example query to find documents that have a geospatial position within a circle
 ```sh
 curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?lat=42.3397&lon=-71.07959&radius=10&relation=contains&format=geojson'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response to the query:_
 
@@ -565,7 +568,7 @@ _Example response to the query:_
 	"type": "FeatureCollection"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### A polygon query
 {: #a-polygon-query}
@@ -583,7 +586,7 @@ _Example query to find documents that have a geospatial position within a polygo
 ```http
 https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POLYGON((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))&relation=contains&format=geojson
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response to the query:_
 
@@ -619,4 +622,4 @@ _Example response to the query:_
 	"type": "FeatureCollection"
 }
 ```
-{:codeblock}
+{: codeblock}

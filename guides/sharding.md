@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -109,7 +112,7 @@ to estimate an appropriate shard count.
 When you consider data size,
 an important consideration is the number of documents per shard.
 Each shard holds its documents in a large
-[B-tree ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/B-tree){:new_window}
+[B-tree ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/B-tree){: new_window}
 on disk.
 Indexes are stored in the same way.
 As more documents are added to a shard,
@@ -153,10 +156,10 @@ particularly for larger databases:
 *	For even larger databases,
 	consider manually sharding your data into several databases.
 	For such large databases,
-	contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} for advice.
+	contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window} for advice.
 
->	**Note:** The numbers in these guidelines are derived from observation and experience
-	rather than precise calculation.
+The numbers in these guidelines are derived from observation and experience rather than precise calculation.
+{: tip}
 
 <div id="API"></div>
 
@@ -179,10 +182,10 @@ The `q` parameter specifies that eight shards are created for the database.
 ```sh
 curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
-{:codeblock}
+{: codeblock}
 
->	**Note:** Setting _Q_ for databases is not enabled for {{site.data.keyword.cloudant_short_notm}} databases on {{site.data.keyword.cloud}}.
-	The _Q_ value is not available on most `cloudant.com` multi-tenant clusters.
+Setting _Q_ for databases is not enabled for {{site.data.keyword.cloudant_short_notm}} databases on {{site.data.keyword.cloud}}. The _Q_ value is not available on most `cloudant.com` multi-tenant clusters.
+{: note}
 
 If you attempt to set the _Q_ value where it is not available,
 the result is a [`403` response](../api/http.html#403) with a JSON body
@@ -194,18 +197,18 @@ similar to the following example:
 	"reason": "q is not configurable"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Setting the replica count
 
 In CouchDB version 2 onwards,
-you are allowed to [specify the replica count ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}
+you are allowed to [specify the replica count ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window}
 when you create a database.
 However,
 you are not allowed to change the replica count value from the default of 3.
 In particular,
 it is not possible to specify a different replica count value when you create a database.
-For further help, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+For further help, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 
 ### What are the _R_ and _W_ arguments?
 
@@ -230,10 +233,8 @@ because the coordinator can return a response more quickly.
 The reason is that the coordinator must wait only for a single response
 from any one of the replicas that host the appropriate shard.
 
->	**Note:** Reducing the _R_ value increases the likelihood that the response that is
-	returned is not based on the most up-to-date data
-	because of the [eventual consistency](cap_theorem.html) model used by {{site.data.keyword.cloudant_short_notm}}.
-	Using the default _R_ value helps mitigate this effect.
+If you reduce the _R_ value, it increases the likelihood that the response that is returned is not based on the most up-to-date data because of the [eventual consistency](cap_theorem.html) model used by {{site.data.keyword.cloudant_short_notm}}. Using the default _R_ value helps mitigate this effect.
+{: note}
 
 The default value for _R_ is _2_.
 This value corresponds to most of the replicas for a typical database that uses three shard replicas.
@@ -247,7 +248,8 @@ _W_ can be specified on single document write requests only.
 _W_ is similar to _R_,
 because it affects how many responses must be received by the coordinator before it replies to the client.
 
->	**Note:** _W_ does not affect the actual write behavior in any way.
+_W_ does not affect the actual write behavior in any way.
+{: note}
 
 The value of _W_ does not affect whether the document is written within the database or not.
 By specifying a _W_ value,

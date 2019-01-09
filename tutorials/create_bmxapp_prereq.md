@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -19,7 +22,7 @@ lastupdated: "2019-01-02"
 
 This section of the tutorial describes the prerequisites
 for creating an {{site.data.keyword.cloud}} application.
-{:shortdesc}
+{: shortdesc}
 
 ## Prerequisites
 
@@ -30,7 +33,7 @@ before you start working through the tutorial.
 
 For all but the simplest possible development work,
 it is much easier if you have a current installation of the
-[Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window}
+[Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window}
 on your system.
 
 To check,
@@ -39,14 +42,14 @@ run the following command at a prompt:
 ```sh
 python --version
 ```
-{:pre}
+{: pre}
 
 Expect a result similar to the following output:
 
 ```
 Python 2.7.12
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="csi"></div>
 

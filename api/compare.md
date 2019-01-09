@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-06-04 -->
 
@@ -21,15 +24,16 @@ This section provides a simple list of the {{site.data.keyword.cloudantfull}} (!
 CouchDB 2.0 (![CouchDB 2.0 Logo](../images/verySmallCouchDB2.png)),
 and CouchDB 1.6 (![CouchDB 1.6 Logo](../images/verySmallCouchDB1.png)) API endpoints and the methods for accessing them,
 showing you which endpoints are present in each service.
-{:shortdesc}
+{: shortdesc}
 
 Some CouchDB endpoints do not have {{site.data.keyword.cloudant_short_notm}} equivalents,
 because it would not be meaningful.
 Similarly,
 some {{site.data.keyword.cloudant_short_notm}} endpoints do not have CouchDB equivalents.
 
-> **Note**: While Cloudant is API-compliant with CouchDB, Cloudant does not support URL 
-rewrites via the JavaScript function.
+While {{site.data.keyword.cloudant_short_notm}} is API-compliant with CouchDB, {{site.data.keyword.cloudant_short_notm}} does not support URL 
+rewrites from the JavaScript function.
+{: note}
 
 For more information about a given endpoint on a service,
 click the corresponding icon.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -11,6 +11,12 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+
+<!-- Acrolinx: 2019 -->
 
 # Design Documents
 
@@ -18,7 +24,7 @@ Instead of storing data in a document,
 you might also have special documents that store other content,
 such as functions.
 The special documents are called "design documents".
-{:shortdesc}
+{: shortdesc}
 
 Design documents are [documents](document.html) that have an `_id` beginning with `_design/`.
 They can be read and updated in the same way as any other document in the database.
@@ -40,11 +46,8 @@ To distinguish between them,
 standard documents have an `_id` indicated by `$DOCUMENT_ID`,
 while design documents have an `_id` indicated by `$DESIGN_ID`.
 
->	**Note**: If a design document is updated,
-{{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version,
-and recreates the index from scratch.
-If you need to make changes to a design document for a larger database,
-have a look at the [Design Document Management Guide](../guides/design_document_management.html#managing-changes-to-a-design-document).
+If a design document is updated, {{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version, and recreates the index from scratch. If you need to make changes to a design document for a larger database, have a look at the [Design Document Management Guide](../guides/design_document_management.html#managing-changes-to-a-design-document).
+{: note}
 
 The structure of design document is as follows:
 
@@ -81,11 +84,11 @@ You can copy the latest version of a design document to a new document
 by specifying the base document and target document.
 The copy is requested using the `COPY` HTTP request.
 
->	**Note**: `COPY` is a non-standard HTTP command.
+`COPY` is a non-standard HTTP command.
+{: tip}
 
->	**Note**: Copying a design document does not automatically reconstruct the view indexes.
-Like other views,
-these are recreated the first time the new view is accessed.
+Copying a design document does not automatically reconstruct the view indexes. Like other views, these are recreated the first time the new view is accessed.
+{: note}
 
 The following example requests {{site.data.keyword.cloudant_short_notm}} to copy the design document `recipes` to the new design document `recipelist`,
 and produces a response containing the ID and revision of the new document.
@@ -97,7 +100,7 @@ COPY /recipes/_design/recipes HTTP/1.1
 Content-Type: application/json
 Destination: _design/recipelist
 ```
-{:codeblock}
+{: codeblock}
 
 _Example command to copy a design document, using the command line:_
 
@@ -107,7 +110,7 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 	-H 'Content-Type: application/json' \
 	-H 'Destination: _design/recipelist'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response to the copy request:_
 
@@ -117,7 +120,7 @@ _Example response to the copy request:_
 	"rev": "1-9c65296036141e575d32ba9c034dd3ee"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 
 ### The structure of the copy command
@@ -153,7 +156,7 @@ COPY /recipes/_design/recipes?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5 HTTP/1.1
 Content-Type: application/json
 Destination: _design/recipelist
 ```
-{:codeblock}
+{: codeblock}
 
 _Example command to copy a specific revision of the design document, using the command line:_
 
@@ -163,7 +166,7 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=1-e23b9e942c19e9
 	-H 'Content-Type: application/json' \
 	-H 'Destination: _design/recipelist'
 ```
-{:codeblock}
+{: codeblock}
 
 ### Copying to an existing design document
 
@@ -178,7 +181,7 @@ COPY /recipes/_design/recipes
 Content-Type: application/json
 Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee
 ```
-{:codeblock}
+{: codeblock}
 
 _Example command to overwrite an existing copy of the design document, using the command line:_
 
@@ -188,7 +191,7 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 	-H 'Content-Type: application/json' \
 	-H 'Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee'
 ```
-{:codeblock}
+{: codeblock}
 
 The return value is the ID and new revision of the copied document.
 
@@ -200,7 +203,7 @@ _Example response:_
 	"rev" : "2-55b6a1b251902a2c249b667dab1c6692"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Deleting a design document
 
@@ -216,7 +219,7 @@ _Example command to delete a design document, using HTTP:_
 ```http
 DELETE /recipes/_design/recipes?rev=2-ac58d589b37d01c00f45a4418c5a15a8 HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example command to delete a design document, using using the command line:_
 
@@ -224,7 +227,7 @@ _Example command to delete a design document, using using the command line:_
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=2-ac58d589b37d01c00f45a4418c5a15a8" \
      -X DELETE
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response, containing the deleted document ID and revision:_
 
@@ -235,7 +238,7 @@ _Example response, containing the deleted document ID and revision:_
 	"rev": "3-7a05370bff53186cb5d403f861aca154"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### The structure of the delete command
 
@@ -292,9 +295,10 @@ _Example JSON describing some rewrite rules:_
 	]
 }
 ```
-{:codeblock}
-> **Note**: While Cloudant is API-compliant with CouchDB, Cloudant does not support URL 
-rewrites via the JavaScript function.
+{: codeblock}
+
+While Cloudant is API-compliant with CouchDB, Cloudant does not support URL rewrites via the JavaScript function.
+{: note}
 
 ### Example rewrite rules
 
@@ -339,7 +343,7 @@ refer to the [search](search.html) section of this documentation.
 Functions in design documents are run on multiple nodes for each document,
 and might be run several times.
 To avoid inconsistencies,
-they need to be [idempotent ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning){:new_window},
+they need to be [idempotent ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning){: new_window},
 meaning they need to behave identically when run multiple times or on different nodes.
 In particular,
 you should avoid using functions that generate random numbers or return the current time.
@@ -356,12 +360,9 @@ You can add any query parameters to the request that would normally be used for 
 
 Instead of using a MapReduce index, you can also use `_all_docs`.
 
->	**Note**: The result of a list function is not stored.
-This means that the function is executed every time a request is made.
-As a consequence,
-using MapReduce functions might be more efficient.
-For web and mobile applications,
-consider whether any computations done in a list function would be better placed in the application tier.
+The result of a list function is not stored. This means that the function is executed every time a request is made. As a consequence,
+using MapReduce functions might be more efficient. For web and mobile applications, consider whether any computations done in a list function would be better placed in the application tier.
+{: note}
 
 When you define a list function,
 you use it by sending a `GET` request to
@@ -393,7 +394,7 @@ _Example design document referencing a list function, expressed using JSON:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a list function, in pseudo-code:_
 
@@ -421,21 +422,21 @@ function (head, req) {
 	send('</table></body></html>');
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example invocation of a list function, using HTTP:_
 
 ```http
 GET /$DATABASE/$DESIGN_ID/_list/$LIST_FUNCTION/$MAPREDUCE_INDEX HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example invocation of a list function, using the command line:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DESIGN_ID/_list/$LIST_FUNCTION/$MAPREDUCE_INDEX" \
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -452,7 +453,7 @@ db.view_with_list($DESIGN_ID, $MAPREDUCE_INDEX, $LIST_FUNCTION, function (err, b
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -491,12 +492,9 @@ They are used when you want to access {{site.data.keyword.cloudant_short_notm}} 
 and need data to be returned in a different format,
 such as HTML.
 
->	**Note**: The result of a show function is not stored.
-This means that the function is executed every time a request is made.
-As a consequence,
-using [map functions](creating_views.html#a-simple-view) might be more efficient.
-For web and mobile applications,
-consider whether any computations done in a show function would be better placed in the application tier.
+The result of a show function is not stored. This means that the function is executed every time a request is made. As a consequence,
+using [map functions](creating_views.html#a-simple-view) might be more efficient. For web and mobile applications, consider whether any computations done in a show function would be better placed in the application tier.
+{: note}
 
 Show functions require two arguments: `doc`, and [req](#req).
 
@@ -522,7 +520,7 @@ _Example of a design document with a show function:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a show function:_
 
@@ -535,7 +533,7 @@ function (doc, req) {
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a show function query, using HTTP:_
 
@@ -543,14 +541,14 @@ _Example of a show function query, using HTTP:_
 GET /$DATABASE/$DESIGN_ID/_show/$SHOW_FUNCTION/$DOCUMENT_ID HTTP/1.1
 Host: $ACCOUNT.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a show function query, using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_show/$SHOW_FUNCTION/$DOCUMENT_ID \
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -567,7 +565,7 @@ db.show($DESIGN_ID, $SHOW_FUNCTION, $DOCUMENT_ID, function (err, body) {
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -620,7 +618,7 @@ _Example of a design document with an update handler:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of an update handler:_
 
@@ -639,7 +637,7 @@ function(doc, req){
 	return [doc, 'Edited World!']
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of an update handler query, using HTTP:_
 
@@ -647,7 +645,7 @@ _Example of an update handler query, using HTTP:_
 POST /$DATABASE/$DESIGN_ID/_update/$UPDATE_HANDLER HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of an update handler query, using the command line:_
 
@@ -657,7 +655,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_update/$UPDATE_HAND
 	-H 'Content-Type: application/json' \
 	-d "$JSON"
 ```
-{:codeblock}
+{: codeblock}
 
 <!--
 
@@ -674,7 +672,7 @@ db.atomic($DESIGN_ID, $UPDATE_HANDLER, $DOCUMENT_ID, $JSON, function (err, body)
 	}
 });
 ```
-{:codeblock}
+{: codeblock}
 
 -->
 
@@ -690,8 +688,8 @@ If the function returns a `true` result when applied to a change,
 the change remains in the feed.
 This means that filter functions let you 'remove' or 'ignore' changes that you do not want to monitor.
 
->	**Note**: Filter functions can also be used to modify
-a [replication task](advanced_replication.html#filtered-replication).
+Filter functions can also be used to modify a [replication task](advanced_replication.html#filtered-replication).
+{: tip}
 
 Filter functions require two arguments: `doc` and [`req`](#req).
 
@@ -719,7 +717,7 @@ _Example design document containing a filter function:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a filter function:_
 
@@ -736,7 +734,7 @@ function(doc, req){
 	return true; // passed!
 }
 ```
-{:codeblock}
+{: codeblock}
 
 To apply a filter function to the changes feed,
 include the `filter` parameter in the `_changes` query,
@@ -747,14 +745,14 @@ _Example of an filter function applied to a `_changes` query, using HTTP:_
 ```http
 GET /$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of an filter function applied to a `_changes` query, using the command line:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION" \
 ```
-{:codeblock}
+{: codeblock}
 
 The `req` argument gives you access to aspects of the HTTP request using the `query` property.
 
@@ -763,14 +761,14 @@ _Example of supplying a `req` argument, using HTTP:
 ```http
 GET /$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION&status=new HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of supplying a `req` argument, using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION&status=new" \
 ```
-{:codeblock}
+{: codeblock}
 
 _Example filter using a supplied `req` argument:_
 
@@ -787,7 +785,7 @@ function(doc, req){
 	return true; // passed!
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Predefined filter functions
 
@@ -811,14 +809,14 @@ _Example application of the `_design` filter, using HTTP:_
 ```http
 GET /$DATABASE/_changes?filter=_design HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example application of the `_design` filter, using the command line:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_design" \
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response (abbreviated) after applying the `_design` filter:_
 
@@ -849,7 +847,7 @@ _Example response (abbreviated) after applying the `_design` filter:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `_doc_ids` filter
 
@@ -862,14 +860,14 @@ _Example application of the `_doc_ids` filter, using HTTP:_
 ```http
 POST /$DATABASE/_changes?filter=_doc_ids HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example application of the `_doc_ids` filter, using the command line:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_doc_ids" \
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document listing document IDs to match during filtering:_
 
@@ -880,7 +878,7 @@ _Example JSON document listing document IDs to match during filtering:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response (abbreviated) after filtering by `_docs_ids`:_
 
@@ -901,7 +899,7 @@ _Example response (abbreviated) after filtering by `_docs_ids`:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `_selector` filter
 
@@ -917,14 +915,14 @@ _Example application of the `_selector` filter, using HTTP:_
 ```http
 POST /$DATABASE/_changes?filter=_selector HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example application of the `_selector` filter, using the command line:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector" \
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document containing the selector expression to use during filtering:_
 
@@ -937,7 +935,7 @@ _Example JSON document containing the selector expression to use during filterin
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response (abbreviated) after filtering using a selector:_
 
@@ -978,7 +976,7 @@ _Example response (abbreviated) after filtering using a selector:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 #### The `_view` filter
 
@@ -992,14 +990,14 @@ _Example application of the `_view` filter, using HTTP:_
 ```http
 GET /$DATABASE/_changes?filter=_view&view=$DESIGNDOC/$VIEWNAME HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example application of the `_view` filter, using the command line:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_view&view=$DESIGNDOC/$VIEWNAME" \
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response (abbreviated) after filtering using a map function:_
 
@@ -1019,7 +1017,7 @@ _Example response (abbreviated) after filtering using a map function:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Update Validators
 
@@ -1037,8 +1035,8 @@ Argument  | Purpose
 `secObj`  | The [security object](authorization.html#viewing-permissions) for the database.
 `userCtx` | Context regardingthe currently authenticated user, such as `name` and `roles`.
 
->   **Note**: Update validators do not apply when a design document is updated by an admin user.
-    This is to ensure that admins can never accidentally lock themselves out.
+Update validators do not apply when a design document is updated by an admin user. This is to ensure that admins can never accidentally lock themselves out.
+{: tip}
 
 _Example design document with an update validator:_
 
@@ -1048,7 +1046,7 @@ _Example design document with an update validator:_
 	"validate_doc_update": "function(newDoc, oldDoc, userCtx, secObj) { ... }"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of an update validator:_
 
@@ -1059,7 +1057,7 @@ function(newDoc, oldDoc, userCtx, secObj) {
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response from an update validator:_
 
@@ -1069,7 +1067,7 @@ _Example response from an update validator:_
 	"reason": "Document must have an address."
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Retrieving information about a design document
 
@@ -1094,7 +1092,7 @@ using HTTP:_
 ```http
 GET /recipes/_design/recipesdd/_info HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of retrieving information about the `recipesdd` design document from within the `recipes` database,
 using the command line:_
@@ -1102,7 +1100,7 @@ using the command line:_
 ```sh
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipesdd/_info" \
 ```
-{:codeblock}
+{: codeblock}
 
 The individual fields in the JSON response are as follows:
 
@@ -1136,7 +1134,7 @@ _Example response in JSON format:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### The `_search_info` endpoint
 
@@ -1154,7 +1152,7 @@ defined within the `app` design document stored in the `foundbite` database, usi
 ```http
 GET /foundbite/_design/app/_search_info/description HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of getting information about the `description` search,
 defined within the `app` design document stored in the `foundbite` database, using the command line:_
@@ -1162,7 +1160,7 @@ defined within the `app` design document stored in the `foundbite` database, usi
 ```sh
 curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/description" \
 ```
-{:codeblock}
+{: codeblock}
 
 The individual fields in the returned JSON structure are as follows:
 
@@ -1190,4 +1188,4 @@ _Example response in JSON format:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-07"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -20,11 +23,11 @@ lastupdated: "2019-01-02"
 
 Data can be copied from one database to another in the same {{site.data.keyword.cloudantfull}} account,
 across accounts and across data centers.
-{:shortdesc}
+{: shortdesc}
 
 Data can even be replicated to and from an {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
-using [{{site.data.keyword.cloudant_short_notm}} Sync ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
-or [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window}.
+using [{{site.data.keyword.cloudant_short_notm}} Sync ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/sync/){: new_window}
+or [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window}.
 Replication can run in one direction or in both directions,
 as a 'single shot' or continuous operation,
 and can be finely tuned by using parameters.
@@ -97,7 +100,7 @@ _Example of defining source and target URLs for replication:_
     "target": "https://mysecondaccount.cloudant.com/b"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 The source and target do not need to be on the same account.
 The source and target database names do not need to match.
@@ -144,7 +147,7 @@ Content-Type: application/json
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to start a replication job:_
 
@@ -154,7 +157,7 @@ curl -X POST \
     'https://$ACCOUNT.cloudant.com/_replicator' \
     -d '@replication.json'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example JSON document that describes the wanted replication:_
 
@@ -166,7 +169,7 @@ _Example JSON document that describes the wanted replication:_
     "create_target": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## How does replication affect the list of changes?
 {: #how-does-replication-affect-the-list-of-changes-}
@@ -247,7 +250,7 @@ This point is identified by using checkpoints.
 
 Therefore,
 an application that uses the `_changes` feed must
-be ['idempotent' ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.eaipatterns.com/IdempotentReceiver.html){:new_window}.
+be ['idempotent' ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.eaipatterns.com/IdempotentReceiver.html){: new_window}.
 Idempotency means that the application must be able safely to receive the same data multiple times,
 and potentially if a different order for repeated requests.
 
@@ -325,7 +328,7 @@ Content-Type: application/json
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to start a continuous replication:_
 
@@ -335,7 +338,7 @@ curl -X POST \
     https://$ACCOUNT.cloudant.com/_replicator \
     -d @continuous-replication.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a JSON document that defines a continuous replication:_
 
@@ -347,7 +350,7 @@ _Example of a JSON document that defines a continuous replication:_
     "continuous": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Monitoring replication
 {: #monitoring-replication}
@@ -369,14 +372,14 @@ GET /_replicator/weekly_backup HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to monitor a replication process:_
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response to requesting the status of a replication:_
 
@@ -393,7 +396,7 @@ _Example response to requesting the status of a replication:_
     "_replication_id": "4514b08cb4c2ded7da9ab04a87182ceb"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 When you replicate, if any documents or attachments exceed the maximum limit on the target, replication fails. Each document write failure increases the replication statistic count in `doc_write_failures`. For this reason, you are urged to monitor that field.
 
@@ -411,14 +414,14 @@ DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1
 Host: $ACCOUNT.cloudant.com
 Authorization:
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to cancel a replication:_
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Other replication use cases
 
@@ -427,7 +430,7 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 ### Apache CouchDB
 {: #apache-couchdb}
 
-[Apache CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){:new_window} is an open source database
+[Apache CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){: new_window} is an open source database
 that can communicate with {{site.data.keyword.cloudant_short_notm}},
 and that requires minimal setup.
 Applications include:
@@ -435,7 +438,7 @@ Applications include:
 -   Backup: Replicate your data from {{site.data.keyword.cloudant_short_notm}} to your own CouchDB databases
     and take nightly snapshots of your data for archiving purposes.
     Send the data to a backup service such as
-    [Amazon Glacier ![External link icon](../images/launch-glyph.svg "External link icon")](https://aws.amazon.com/glacier/){:new_window} for safe keeping.
+    [Amazon Glacier ![External link icon](../images/launch-glyph.svg "External link icon")](https://aws.amazon.com/glacier/){: new_window} for safe keeping.
 -   Local-first data collection: Write your data to local Apache CouchDB first,
     then replicate it to {{site.data.keyword.cloudant_short_notm}} for long-term storage,
     aggregation,
@@ -444,7 +447,7 @@ Applications include:
 ### PouchDB
 {: #pouchdb}
 
-[PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){:new_window} is an open source,
+[PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window} is an open source,
 in-browser database that allows data to be replicated in both directions between the browser and {{site.data.keyword.cloudant_short_notm}}.
 Storing the data in a web browser on the client side allows web applications to function
 even without an internet connection.
@@ -458,12 +461,12 @@ var db = new PouchDB("myfirstdatabase");
 var URL = "https://u:p@username.cloudant.com/my_database");
 db.sync(URL, { live: true });
 ```
-{:codeblock}
+{: codeblock}
 
 ### CloudantSync
 {: #cloudantsync}
 
-[CloudantSync ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/cloudant-sync-resources/){:new_window} is a set of libraries
+[CloudantSync ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/cloudant-sync-resources/){: new_window} is a set of libraries
 for iOS and Android that allows data to be stored locally in a mobile device
 and synced with {{site.data.keyword.cloudant_short_notm}} when mobile connectivity permits.
 As with [PouchDB](#pouchdb),
@@ -479,7 +482,7 @@ Replicator replicator = ReplicatorFactory.oneway(ds, uri);
 // Fire-and-forget (there are easy ways to monitor the state too)
 replicator.start();
 ```
-{:codeblock}
+{: codeblock}
 
 CloudantSync is used widely in mobile applications,
 such as iPhone and Android games,
@@ -520,7 +523,7 @@ function(doc, req) {
     return true;
 }
 ```
-{:codeblock}
+{: codeblock}
 
 When a replication job starts,
 a filter function’s name is specified as a combination of the design document where it is stored,
@@ -537,7 +540,7 @@ Content-Type: application/json
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to start a filtered replication:_
 
@@ -547,7 +550,7 @@ curl -X POST \
     https://$ACCOUNT.cloudant.com/_replicator \
     -d @filtered-replication.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a JSON document that defines a filtered replication:_
 
@@ -563,7 +566,7 @@ _Example of a JSON document that defines a filtered replication:_
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Changes feed
 {: #changes-feed}
@@ -585,14 +588,14 @@ GET /$DATABASE/_changes?feed=continuous HTTP/1.1
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to query the changes feed:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
 ```
-{:codeblock}
+{: codeblock}
 
 The changes are described by using one line per change.
 Each change consists of:
@@ -619,7 +622,7 @@ _Example `_changes` feed:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="changes-feed-since"></div>
 
@@ -633,14 +636,14 @@ GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTT
 HOST: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Example (abbreviated) of using the command line to supply the `since` option to join a `_changes` feed at a known position:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="changes-feed-since-now"></div>
 
@@ -654,14 +657,14 @@ GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to supply `since=now` to join a `_changes` feed at the current moment in time:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using JavaScript to supply `since=now` to join a `_changes` feed at the current moment in time:_
 
@@ -672,7 +675,7 @@ feed.on('change', function (change) {
 })
 feed.follow();
 ```
-{:codeblock}
+{: codeblock}
 
 Accessing the `_changes` data programmatically is straightforward.
 For example,
@@ -698,17 +701,17 @@ GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydes
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to filter the changes feed:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
 ```
-{:codeblock}
+{: codeblock}
 
-    The ordering of documents within the `_changes` feed is not always the same. In other words, changes might not appear in strict time order. The reason is that data is returned from multiple {{site.data.keyword.cloudant_short_notm}} nodes, and eventual consistency rules apply.
-    {: tip}
+The ordering of documents within the `_changes` feed is not always the same. In other words, changes might not appear in strict time order. The reason is that data is returned from multiple {{site.data.keyword.cloudant_short_notm}} nodes, and eventual consistency rules apply.
+{: tip}
 
 ## Replication Pitfalls
 {: #replication-pitfalls}
@@ -755,12 +758,12 @@ You can check the size of your `_replicator` database by sending a `GET` request
 ```http
 GET https://$ACCOUNT.cloudant.com/_replicator
 ```
-{:codeblock}
+{: codeblock}
 
 In the returned JSON,
 look for the `disk_size` value.
 If the value indicates a size of over 1 GB,
-contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window} for further advice.
+contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window} for further advice.
 
 You can check an individual `_replicator` document for conflicts,
 as shown in the following example:
@@ -768,7 +771,7 @@ as shown in the following example:
 ```http
 GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="resetting-replicator-database"></div>
 
@@ -787,7 +790,7 @@ PUT /_replicator HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of using the command line to remove and re-create the `_replicator` database:_
 
@@ -795,7 +798,7 @@ _Example of using the command line to remove and re-create the `_replicator` dat
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'
 curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 ```
-{:codeblock}
+{: codeblock}
 
 ### Many simultaneous replications
 {: #many-simultaneous-replications}
@@ -837,4 +840,4 @@ For example:
     setting `worker_processes` and `http_connections` to 1 might be appropriate.
 
 For further assistance about the best configuration for your use case,
-contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.

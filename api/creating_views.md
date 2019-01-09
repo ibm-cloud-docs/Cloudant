@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -11,8 +11,12 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2019 -->
 
 <div id="working-with-views"></div>
 
@@ -22,7 +26,7 @@ lastupdated: "2019-01-02"
 
 Views are used to obtain data stored within a database.
 Views are written using Javascript functions.
-{:shortdesc}
+{: shortdesc}
 
 ## View concepts
 
@@ -60,8 +64,8 @@ The list consists of key and value pairs,
 where the key helps you identify the specific document and the value provides just the precise detail you want.
 The list also includes metadata such as the number of key:value pairs returned.
 
->   **Note**: The document `_id` is automatically included in each of the key:value pair result records.
-    This is to make it easier for the client to work with the results.
+The document `_id` is automatically included in each of the key:value pair result records. The document `_id` is included to make it easier for the client to work with the results.
+{: note}
 
 _Example of a simple view, using a map function:_
 
@@ -72,7 +76,7 @@ function(employee) {
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Sample data for demonstrating the simple view example:_
 
@@ -94,7 +98,7 @@ _Sample data for demonstrating the simple view example:_
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response from running the simple view query:_
 
@@ -116,7 +120,7 @@ _Example response from running the simple view query:_
   ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Map function examples
 
@@ -137,7 +141,7 @@ function(doc) {
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### An index for a one-to-many relationship
 
@@ -155,7 +159,7 @@ function(doc) {
 	}
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Complex Keys
 
@@ -197,7 +201,7 @@ function (keys, values, rereduce) {
 	return sum(values);
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Reduce functions must handle two cases:
 
@@ -278,7 +282,7 @@ _Example of the reply:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Map and reduce function restrictions
 
@@ -363,7 +367,7 @@ using HTTP:_
 PUT /$DATABASE/_design/training HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of `PUT`ting a view into a design document called `training`,
 using the command line:_
@@ -372,7 +376,7 @@ using the command line:_
 curl -X PUT https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/$DATABASE/_design/training --data-binary @view.def
 	# where the design document is stored in the file `view.def`
 ```
-{:codeblock}
+{: codeblock}
 
 _Example view definition:_
 
@@ -385,4 +389,4 @@ _Example view definition:_
 	}
 }
 ```
-{:codeblock}
+{: codeblock}

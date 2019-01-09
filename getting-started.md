@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -21,39 +24,39 @@ lastupdated: "2019-01-02"
 In this {{site.data.keyword.cloudantfull}} getting started tutorial,
 we use Python to create an {{site.data.keyword.cloudant_short_notm}} database
 and populate that database with a simple collection of data.
-{:shortdesc}
+{: shortdesc}
 
 In addition to this tutorial, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
 
-- [Liberty for Java and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
-- [Node.js and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
-- [Swift and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+- [Liberty for Java and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){: new_window}
+- [Node.js and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
+- [Swift and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-For more language-specific tutorials, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/){:new_window}. 
+For more language-specific tutorials, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/){: new_window}. 
 
 <div id="prerequisites"></div>
 
 ## Before you begin
 {: #prereqs}
 
-You need an [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){:new_window},
+You need an [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){: new_window},
 an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the following Python requirements:
 
 *	Install the most recent version of the
-	[Python programming language ![External link icon](images/launch-glyph.svg "External link icon")](https://www.python.org/){:new_window} on your system.
+	[Python programming language ![External link icon](images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} on your system.
 	
 	To check, run the following command at a prompt:
 	```sh
 	python --version
 	```
-	{:pre}
+	{: pre}
 	
 	You see a result similar to this one:
 
 	```
 	Python 2.7.12
 	```
-	{:screen}
+	{: screen}
 
 *	Install the [Python library](libraries/supported.html#python)
 	to enable your Python applications to work with
@@ -64,21 +67,21 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	```sh
 	pip freeze
 	```
-	{:pre}
+	{: pre}
 	
 	You will see a list of all the Python modules that are installed on your system. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
 
 	```
 	cloudant==<version>
 	```
-	{:screen}
+	{: screen}
 	
 	If the `cloudant` module is not installed, install it by using a command similar to the following one:
 	
 	```
 	pip install cloudant
 	```
-	{:pre}
+	{: pre}
 
 ## Step 1: Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
@@ -228,7 +231,7 @@ A full retrieval also includes the data _within_ a document.
     ```
     [{u'value': {u'rev': u'1-106e76a2612ea13468b2f243ea75c9b1'}, u'id': u'14be111aac74534cf8d390eaa57db888', u'key': u'14be111aac74534cf8d390eaa57db888'}]
     ```
-    {:screen}
+    {: screen}
     
     The `u` prefix is an indication that Python is displaying a Unicode string. 
     {: tip}
@@ -249,7 +252,7 @@ A full retrieval also includes the data _within_ a document.
     {: codeblock}
 
     The idea that the first document that is stored in a database is always the first document returned in a list of results does not always apply to NoSQL databases like {{site.data.keyword.cloudant_short_notm}}.
-    {: tip}
+    {: note}
 
 * To run a full retrieval,
   request a list of all documents within the database,
@@ -316,7 +319,7 @@ invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](a
   ```
   {u'rows': [{u'value': {u'rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}, u'id': u'0532feb6fd6180d79b842d871316c444', u'key': u'0532feb6fd6180d79b842d871316c444', u'doc': {u'temperatureField': 20, u'descriptionField': u'warm', u'numberField': 3, u'nameField': u'three', u'_id': u'0532feb6fd6180d79b842d871316c444', u'_rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}}, ... , {u'value': {u'rev': u'1-3f61736fa96473d358365ce1665e3d97'}, u'id': u'db396f77bbe12a567b09177b4accbdbc', u'key': u'db396f77bbe12a567b09177b4accbdbc', u'doc': {u'temperatureField': 0, u'descriptionField': u'freezing', u'numberField': 5, u'nameField': u'five', u'_id': u'db396f77bbe12a567b09177b4accbdbc', u'_rev': u'1-3f61736fa96473d358365ce1665e3d97'}}], u'total_rows': 5, u'offset': 0}
   ```
-  {:screen}
+  {: screen}
   
   We can tidy the appearance a little, and see that the _abbreviated_ details we got back are similar to this example:
   
@@ -395,7 +398,7 @@ client.disconnect()
 {: #next-steps}
 
 For more information about all {{site.data.keyword.cloudant_short_notm}} offerings,
-see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} site.
+see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} site.
 
 For more details and tutorials about {{site.data.keyword.cloudant_short_notm}} concepts,
 tasks, and techniques,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-11 -->
 
@@ -20,7 +23,7 @@ lastupdated: "2019-01-02"
 This tutorial shows you how to maintain an
 {{site.data.keyword.cloud}} application,
 hosted in your {{site.data.keyword.cloud_notm}} service instance.
-{:shortdesc}
+{: shortdesc}
 
 <div id="maintenance"></div>
 
@@ -44,7 +47,7 @@ and has a `Stopped` state:
 ### Starting your application
 
 If you attempt to start the tutorial application without first deleting the tutorial demonstration database, the application cannot work correctly. The application enters a cycle of attempting to start, failing because the database exists, stopping, then attempting to start again. To solve the problem, [stop the application](#stopping-your-application), then delete the tutorial demonstration database. The application can then start successfully.
-{: tip}
+{: note}
     
 To start a stopped application,
 first click the application menu icon on the dashboard:
@@ -86,10 +89,10 @@ your first {{site.data.keyword.cloud_notm}} applications.
 
 A good source of advice on best practice for creating {{site.data.keyword.cloud_notm}} or
 Cloud Foundry applications is
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}.
+[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
 
 In particular,
-the advice on [avoiding writes to the local file system ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window} is prudent.
+the advice on [avoiding writes to the local file system ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window} is prudent.
 
 For reasons of simplicity, this tutorial does write content to the local file system. However, the quantity of material is small. It is not expected to persist, and it is not 'mission critical'.
 {: tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,15 +12,18 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
-<!-- Acrolinx: 2018-06-13 -->
+<!-- Acrolinx: 2018-06-01 -->
 
 # Overview
 
-The online documentation for {{site.data.keyword.cloudantfull}} intends to help you get going quickly. For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} product page ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
-{:shortdesc}
+The online documentation for {{site.data.keyword.cloudantfull}} intends to help you get going quickly. For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} product page ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+{: shortdesc}
 
-[{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){:new_window}
+[{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){: new_window}
 is a document-oriented database as a service (DBaaS).
 It stores data as documents in JSON format.
 It is built with scalability,
@@ -33,15 +36,14 @@ and geospatial indexing.
 The replication capabilities make it easy to keep data in sync between database clusters,
 desktop PCs,
 and mobile devices.
-{:shortdesc}
 
 For more information about other {{site.data.keyword.cloudant_short_notm}} offerings,
-see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} site.
+see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} site.
 The online documentation that is provided here gives you
 details about {{site.data.keyword.cloudant_short_notm}} concepts,
 tasks, and techniques.
 
-You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
+You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){: new_window}.
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
 is [available](getting-started.html),
@@ -88,4 +90,4 @@ We're also open about our documentation.
 If it's not working for you,
 it's not working for us.
 You can make contributions or share suggestions through
-{{site.data.keyword.cloudant_short_notm}} Labs on [GitHub ![External link icon](images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){:new_window}.
+{{site.data.keyword.cloudant_short_notm}} Labs on [GitHub ![External link icon](images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){: new_window}.

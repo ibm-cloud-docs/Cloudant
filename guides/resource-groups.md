@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -23,7 +26,7 @@ questions {{site.data.keyword.cloudant_short_notm}} support has received about t
 
 ## How do I migrate an existing instance to a resource group?
 
-To migrate an {{site.data.keyword.cloudant_short_notm}} instance from a Cloud Foundry space to a resource group, see [Migrating Cloud Foundry service instances and apps to a resource group](https://console.bluemix.net/docs/resources/instance_migration.html#migrate){:new_window}.
+To migrate an {{site.data.keyword.cloudant_short_notm}} instance from a Cloud Foundry space to a resource group, see [Migrating Cloud Foundry service instances and apps to a resource group](https://console.bluemix.net/docs/resources/instance_migration.html#migrate){: new_window}.
 
 You can migrate {{site.data.keyword.cloudant_short_notm}} instances on the following plans:
 
@@ -48,7 +51,7 @@ New Standard plan instances are provisioned into resource groups. In order to
 provision these instances onto a Dedicated Hardware instance, the Dedicated
 Hardware instance must first be migrated into a resource group.
 
-For more information about how to do this, see [Migrating Cloud Foundry service instances and apps to a resource group](https://console.bluemix.net/docs/resources/instance_migration.html#migrate){:new_window}.
+For more information about how to do this, see [Migrating Cloud Foundry service instances and apps to a resource group](https://console.bluemix.net/docs/resources/instance_migration.html#migrate){: new_window}.
 
 Once the Dedicated Hardware instance has been migrated to a resource group, it
 appears in the Location drop-down menu when provisioning Standard plans.

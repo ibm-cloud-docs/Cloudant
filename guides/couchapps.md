@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -11,6 +11,10 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
@@ -21,7 +25,7 @@ like images,
 and serve them over HTTP,
 meaning it can host all the static files necessary to run a website,
 and host them just like a web server.
-{:shortdesc}
+{: shortdesc}
 
 Because these files would be hosted on {{site.data.keyword.cloudant_short_notm}},
 the client-side JavaScript could access {{site.data.keyword.cloudant_short_notm}} databases.
@@ -58,7 +62,7 @@ When is each appropriate?
 -   You don't need to schedule cronjobs or other regular tasks.
 
 To get started with CouchApps,
-read [Managing applications on {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/app-management/){:new_window}.
+read [Managing applications on {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/app-management/){: new_window}.
 
 ## A 3-tier application is appropriate if...
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-04"
 
 ---
 
@@ -12,6 +12,9 @@ lastupdated: "2019-01-02"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -19,12 +22,11 @@ lastupdated: "2019-01-02"
 
 # Replication incrementals
 
->	**Note**: This guide contains older or 'deprecated' guidance on {{site.data.keyword.cloudantfull}} backup.
-	For current backup guidance,
-    see the [Disaster Recovery and Backup](disaster-recovery-and-backup.html) guide.
+This guide contains older or 'deprecated' guidance on {{site.data.keyword.cloudantfull}} backup. For current backup guidance, see the [Disaster Recovery and Backup](disaster-recovery-and-backup.html) guide.
+{: deprecated}
 
 Database backups protect your data against potential loss or corruption.
-{:shortdesc}
+{: shortdesc}
 
 You can use the {{site.data.keyword.cloudant_short_notm}} replication facility to create a database backup,
 and store it on an {{site.data.keyword.cloudant_short_notm}} cluster.
@@ -71,11 +73,9 @@ you run daily 'incremental' backups,
 backing up _only_ what changed in the database since the last backup.
 This replication becomes a daily backup.
 
->   **Note**: You can configure a backup to trigger at regular intervals.
-    However,
-    each interval must be 24 hours or more.
-    In other words,
-    you can run daily backups but not hourly backups.
+You can configure a backup to trigger at regular intervals.
+However, each interval must be 24 hours or more. In other words, you can run daily backups but not hourly backups.
+{: note}
 
 ## Creating an incremental backup
 
@@ -106,7 +106,8 @@ do the following steps:
     setting the [`since_seq` field](../api/replication.html#the-since_seq-field)
     in the replication document to the value of the `recorded_seq` field found in the previous step.
 
->   **Note**: By definition, using the `since_seq` option bypasses the normal checkpointing facility. Only use `since_seq` with caution. 
+By definition, using the `since_seq` option bypasses the normal checkpointing facility. Only use `since_seq` with caution. 
+{: note}
 
 ## Restoring a database
 
@@ -140,13 +141,13 @@ This example shows how to:
 $ url='https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com'
 $ ct='Content-Type: application-json'
 ```
-{:codeblock}
+{: codeblock}
 
 Assume that you need to back up one database.
 You want to create a full backup on Monday,
 and an incremental backup on Tuesday.
 
-You can use the `curl` and [`jq` ![External link icon](../images/launch-glyph.svg "External link icon")](http://stedolan.github.io/jq/){:new_window}
+You can use the `curl` and [`jq` ![External link icon](../images/launch-glyph.svg "External link icon")](http://stedolan.github.io/jq/){: new_window}
 commands to run these operations.
 In practice,
 you might use any HTTP client.
@@ -170,7 +171,7 @@ PUT /original HTTP/1.1
 PUT /backup-monday HTTP/1.1
 PUT /backup-tuesday HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Example showing how to check that you have three databases to use in this example,
 by using the command line:_
@@ -180,7 +181,7 @@ $ curl -X PUT "${url}/original"
 $ curl -X PUT "${url}/backup-monday"
 $ curl -X PUT "${url}/backup-tuesday"
 ```
-{:codeblock}
+{: codeblock}
 
 ### Step 2: Create the `_replicator` database
 
@@ -191,14 +192,14 @@ _Creating the `_replicator` database by using HTTP:_
 ```http
 PUT /_replicator HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Creating the `_replicator` database by using the command line:_
 
 ```sh
 curl -X PUT "${url}/_replicator"
 ```
-{:pre}
+{: pre}
 
 ### Step 3: Back up the entire (original) database
 
@@ -212,7 +213,7 @@ _Running a full backup on Monday by using HTTP:_
 PUT /_replicator/full-backup-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Running a full backup on Monday by using the command line:_
 
@@ -220,7 +221,7 @@ _Running a full backup on Monday by using the command line:_
 $ curl -X PUT "${url}/_replicator/full-backup-monday" -H "$ct" -d @backup-monday.json
 # where backup-monday.json describes the backup.
 ```
-{:codeblock}
+{: codeblock}
 
 _JSON document that describes the full backup:_
  
@@ -231,7 +232,7 @@ _JSON document that describes the full backup:_
     "target": "${url}/backup-monday"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="step-4-get-checkpoint-id"></div>
 
@@ -261,14 +262,14 @@ _Getting the checkpoint ID to help find the `recorded_seq` value, by using HTTP:
 GET /_replicator/full-backup-monday HTTP/1.1
 # Search for the value of _replication_id
 ```
-{:codeblock}
+{: codeblock}
 
 _Getting the checkpoint ID to help find the `recorded_seq` value, by using the command line:_
 
 ```sh
 replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replication_id')
 ```
-{:pre}
+{: pre}
 
 <div id="step-5-get-recorded_seq-value"></div>
 
@@ -288,14 +289,14 @@ _Getting the `recorded_seq` from original database by using HTTP:_
 GET /original/_local/${replication_id} HTTP/1.1
 # Search for the first value of recorded_seq in the history array
 ```
-{:codeblock}
+{: codeblock}
 
 _Getting the `recorded_seq` from original database by using the command line:_
 
 ```sh
 recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history[0].recorded_seq')
 ```
-{:pre}
+{: pre}
 
 ### Step 6: Run an incremental backup
 
@@ -314,14 +315,14 @@ _Running Tuesday's incremental backup by using HTTP:_
 PUT /_replicator/incr-backup-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Running Tuesday's incremental backup by using the command line:_
 
 ```sh
 curl -X PUT "${url}/_replicator/incr-backup-tuesday" -H "${ct}" -d @backup-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _JSON document that describes Tuesday's incremental backup:_
  
@@ -333,7 +334,7 @@ _JSON document that describes Tuesday's incremental backup:_
     "since_seq": "${recorded_seq}"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Step 7: Restore the Monday backup
 
@@ -352,14 +353,14 @@ _Restoring from the `backup-monday` database by using HTTP:_
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Restoring from the `backup-monday` database by using the command line:_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _JSON document that describes the restore:_
  
@@ -371,15 +372,15 @@ _JSON document that describes the restore:_
     "create_target": true  
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Step 8: Restore the Tuesday backup
 
 To restore Tuesday's database,
 you first replicate from `backup-tuesday` and then from `backup-monday`.
 
->   **Note**: The order is not a typographical error;
-    the intention really _is_ to restore from Tuesday and _then_ Monday.
+The order is not a typographical error; the intention really _is_ to restore from Tuesday and _then_ Monday.
+{: tip}
 
 You might restore in chronological sequence,
 but by using the reverse order,
@@ -392,14 +393,14 @@ _Restoring Tuesday's backup, getting the most recent changes first, by using HTT
 PUT /_replicator/restore-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Restoring Tuesday's backup, getting the most recent changes first, by using the command line:_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-tuesday" -H "$ct" -d @restore-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _JSON document that requests restoration of the Tuesday backup:_
  
@@ -411,7 +412,7 @@ _JSON document that requests restoration of the Tuesday backup:_
     "create_target": true  
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Complete the recovery by restoring Monday's backup last by using HTTP:_
 
@@ -419,14 +420,14 @@ _Complete the recovery by restoring Monday's backup last by using HTTP:_
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Complete the recovery by restoring Monday's backup last by using the command line:_
 
 ```http
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _JSON document that requests restoration of the Monday backup:_
  
@@ -437,7 +438,7 @@ _JSON document that requests restoration of the Monday backup:_
     "target": "${url}/restore"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Suggestions
 
@@ -479,7 +480,7 @@ _Example of JSON document that sets the IO priority:_
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 <div id="design-documents"></div>
 
@@ -505,4 +506,4 @@ Replication and backups can be tricky.
 If you get stuck,
 check out the [replication guide](replication_guide.html),
 or contact the
-[{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){:new_window}.
+[{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.

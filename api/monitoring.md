@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-01-03"
 
 ---
 
@@ -11,16 +11,22 @@ lastupdated: "2019-01-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+
+<!-- Acrolinx: 2019 -->
 
 # Monitoring an {{site.data.keyword.cloudant_short_notm}} cluster
 
-> **Important**: The monitoring API is only available to {{site.data.keyword.cloudantfull}} Enterprise 
-customers with dedicated clusters and not to {{site.data.keyword.cloud}} Public customers.
+The monitoring API is only available to {{site.data.keyword.cloudantfull}} Enterprise customers with dedicated clusters and not to {{site.data.keyword.cloud}} Public customers.
+{: important}
 
 A key part of ensuring best performance,
 or troubleshooting any problems,
 is monitoring the affected system.
-{:shortdesc}
+{: shortdesc}
 
 You want to be able to answer the question:
 "In what way has the system behavior changed as a result of any configuration or application modifications?"
@@ -34,8 +40,8 @@ which is described in more detail [here](active_tasks.html).
 For more detailed system information,
 you make use of the cluster monitoring API.
 
->	**Note**: The cluster monitoring API is not available for
-[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](../offerings/cloudant_local.html#cloudant-local).
+The cluster monitoring API is not available for [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](../offerings/cloudant_local.html#cloudant-local).
+{: note}
 
 ## Monitoring metrics overview
 
@@ -63,7 +69,7 @@ All requests to the monitoring API have the following form:
 ```sh
 curl -u [ADMIN_USER] https://[ADMIN_USER].cloudant.com/_api/v2/monitoring/[END_POINT]?cluster=[CLUSTER][&format=(json|raw)]
 ```
-{:codeblock}
+{: codeblock}
 
 The fields are described in the following table:
 
@@ -97,19 +103,12 @@ for example:
 ```
 sumSeries(net.cloudant.mycustomer001.db*.df.srv.used)
 ```
-{:codeblock}
+{: codeblock}
 
 The results include cluster-level data.
 
->   **Note**: {{site.data.keyword.cloudant_short_notm}} stores the queried data at the following resolutions:
-
--   10 seconds for the past 24 hours.
--   1 minute for the past 7 days.
--   1 hour for the past 2 years.
-
->   As a result,
-    and to ensure that {{site.data.keyword.cloudant_short_notm}} always stores the higher resolution interval length,
-    deltas on the boundary of these resolutions are trimmed by one interval's length.
+{{site.data.keyword.cloudant_short_notm}} stores the queried data at the following resolutions: 10 seconds for the past 24 hours; 1 minute for the past 7 days; and 1 hour for the past 2 years. As a result, and to ensure that {{site.data.keyword.cloudant_short_notm}} always stores the higher resolution interval length, deltas on the boundary of these resolutions are trimmed by one interval's length.
+{: note}
 
 ### With `format=json` (default)
 
@@ -122,7 +121,7 @@ _Example monitoring request for disk use data returned in `JSON` format:_
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=myclustername&format=json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example result after requesting disk use data in `JSON` format:_
 
@@ -150,7 +149,7 @@ _Example result after requesting disk use data in `JSON` format:_
 	}
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ### With `format=raw`
 
@@ -172,7 +171,7 @@ _Example monitoring request for disk use data returned in `raw` format:_
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=myclustername&format=raw
 ```
-{:codeblock}
+{: codeblock}
 
 _Example result after requesting disk use data in `raw` format:_
 
@@ -180,7 +179,7 @@ _Example result after requesting disk use data in `raw` format:_
 sumSeries(net.cloudant.mycustomer001.db*.df.srv.used),1391019780,1391020080,60|344708448256.0,345318227968.0,346120126464.0,346716471296.0,175483256832.0
 sumSeries(net.cloudant.mycustomer001.db*.df.srv.free),1391019780,1391020080,60|6.49070326579e+12,6.4896982057e+12,6.48884414054e+12,6.48801589658e+12,4.32277107507e+12
 ```
-{:codeblock}
+{: codeblock}
 
 ## Monitoring endpoints
 
@@ -206,7 +205,7 @@ _Example showing how to obtain a list of the currently supported monitoring end 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring
 ```
-{:codeblock}
+{: codeblock}
 
 _Example response, listing the available monitoring end points:_
 
@@ -239,7 +238,7 @@ _Example response, listing the available monitoring end points:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Examples of monitoring requests
 
@@ -370,7 +369,7 @@ _Example of a `disk_use` monitoring request:_
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=myclustername&format=json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example results (abbreviated) from a `disk_use` monitoring request:_
 
@@ -426,7 +425,7 @@ _Example results (abbreviated) from a `disk_use` monitoring request:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### kv_emits
 
@@ -435,7 +434,7 @@ _Example of a `kv_emits` monitoring request:_
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/kv_emits?cluster=myclustername&format=json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example results (abbreviated) from a `kv_emits` monitoring request:_
 
@@ -469,7 +468,7 @@ _Example results (abbreviated) from a `kv_emits` monitoring request:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### map_doc
 
@@ -478,7 +477,7 @@ _Example of a `map_doc` monitoring request:_
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/map_doc?cluster=myclustername&format=json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example results (abbreviated) from a `map_doc` monitoring request:_
 
@@ -512,7 +511,7 @@ _Example results (abbreviated) from a `map_doc` monitoring request:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### network
 
@@ -556,7 +555,7 @@ _Example of a `rate/status_code` monitoring request:_
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rate/status_code?cluster=myclustername&format=json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example results (abbreviated) from a `rate/status_code` monitoring request:_
 
@@ -640,7 +639,7 @@ _Example results (abbreviated) from a `rate/status_code` monitoring request:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### rate/verb
 
@@ -649,7 +648,7 @@ _Example of a `rate/verb` monitoring request:_
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rate/verb?cluster=myclustername&format=json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example results (abbreviated) from a `rate/verb` monitoring request:_
 
@@ -769,7 +768,7 @@ _Example results (abbreviated) from a `rate/verb` monitoring request:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### response_time
 
@@ -778,7 +777,7 @@ _Example of a `response_time` monitoring request:_
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/response_time?cluster=myclustername&format=json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example results (abbreviated) from a `response_time` monitoring request:_
 
@@ -915,7 +914,7 @@ _Example results (abbreviated) from a `response_time` monitoring request:_
   ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### rps
 
@@ -924,7 +923,7 @@ _Example of an `rps` monitoring request:_
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rps?cluster=myclustername&format=json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example results (abbreviated) from an `rps` monitoring request:_
 
@@ -954,7 +953,7 @@ _Example results (abbreviated) from an `rps` monitoring request:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### wps
 
@@ -963,7 +962,7 @@ _Example of a `wps` monitoring request:_
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/wps?cluster=myclustername&format=json
 ```
-{:codeblock}
+{: codeblock}
 
 _Example results (abbreviated) from a `wps` monitoring request:_
 
@@ -993,4 +992,4 @@ _Example results (abbreviated) from a `wps` monitoring request:_
 	]
 }
 ```
-{:codeblock}
+{: codeblock}
