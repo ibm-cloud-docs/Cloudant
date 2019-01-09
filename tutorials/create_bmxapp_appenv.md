@@ -28,11 +28,11 @@ for creating an {{site.data.keyword.cloud}} application.
 
 ## Creating an {{site.data.keyword.cloud_notm}} application environment
 
-1.  Log in to your {{site.data.keyword.cloud_notm}} account.
+1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [http://bluemix.net ![External link icon](../images/launch-glyph.svg "External link icon")](http://bluemix.net){: new_window}.
+    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){: new_window}.
     After you authenticate with your user name and password,
-    the {{site.data.keyword.cloud_notm}} dashboard appears. Click `Catalog` from the menu:<br/>
+    the {{site.data.keyword.cloud_notm}} dashboard appears. Click `Catalog` from the menu: <br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
 2.  Click the `Compute` category:<br/>
@@ -62,35 +62,31 @@ for creating an {{site.data.keyword.cloud}} application.
     Click the `Cloud Foundry apps` link to return to your {{site.data.keyword.cloud_notm}} dashboard.<br/>
     ![The new {{site.data.keyword.cloud_notm}} Python Cloud Foundry App running for the first time](images/img0016.png)
 
-7.  Your dashboard now includes the newly created application environment:<br/>
+7.  Your resource list now includes the newly created application environment:<br/>
     ![The basic {{site.data.keyword.cloud_notm}} Python Cloud Foundry App appearing in the dashboard](images/img0017.png)
 
-You now have an {{site.data.keyword.cloud_notm}} Python application environment,
-ready to use.
+You now have an {{site.data.keyword.cloud_notm}} Python application environment that is ready to use.
 
 To work with an {{site.data.keyword.cloudant_short_notm}} database instance,
-the next step is to create a 'connection' between the application environment and the database instance.
+create a 'connection' between the application environment and the database instance.
 
 <div id="connecting"></div>
 
 ## Connecting {{site.data.keyword.cloud_notm}} applications and services
 
 This section of the tutorial explains how you connect
-{{site.data.keyword.cloud_notm}} application environments and services by using
-the configuration and management area of your application.
+{{site.data.keyword.cloud_notm}} application environments and services by using the configuration and management area of your application.
 
-1.  From your {{site.data.keyword.cloud_notm}} dashboard,
-    click the entry for your application.<br/>
-    ![Selecting your application on the {{site.data.keyword.cloud_notm}} dashboard](images/img0018.png)</br>
+1.  In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your service instance. <br/>
+    ![Selecting your application on the {{site.data.keyword.cloud_notm}} dashboard](images/img0017.png)</br>
     The configuration and management overview area for your application appears.
 
 2.  To connect the application environment to another service,
-    click the `Connections` link:<br/>
+    click the `Connections` tab:<br/>
     ![Selecting the connection configuration for your {{site.data.keyword.cloud_notm}} application](images/img0019.png)<br/>
     An area appears for configuring a connection between your application and any other services available within your account.
 
-3.  A [prerequisite](create_bmxapp_prereq.html#prerequisites) for this tutorial is an
-    existing {{site.data.keyword.cloudant_short_notm}} database instance.
+3.  A [prerequisite](create_bmxapp_prereq.html#prerequisites) for this           tutorial is an existing {{site.data.keyword.cloudant_short_notm}}            database instance.
     Click `Create connection` to establish a connection between that service instance and your application:<br/>
     ![Connect to an existing database instance](images/img0020.png)<br/>
     A list of the existing service instances in your account appears.

@@ -57,11 +57,11 @@ If you exceed your quota of lookups, writes, and queries in a given second, the 
 
 ## Which type of {{site.data.keyword.cloudant_short_notm}} plan do I have?
 
-If you are using {{site.data.keyword.cloudant_short_notm}}, the {{site.data.keyword.cloud_notm}} dashboard shows all your {{site.data.keyword.cloudant_short_notm}} instances along with a Plan column. The Lite, Standard, and Dedicated Hardware plans are called out specifically. Any {{site.data.keyword.cloudant_short_notm}} instance that shows the Shared Dedicated plan name is part of an {{site.data.keyword.cloudant_short_notm}} Dedicated environment and not part of the Public Shared plan. Any {{site.data.keyword.cloudant_short_notm}} instance that shows a Shared plan name or lacks a plan name in that column is using the deprecated Shared plan. In the following example, the 'Cloudant NoSQL DB-ix' and 'Cloudant_NewConsole' instances use the deprecated Shared plan.  
+If you are using {{site.data.keyword.cloudant_short_notm}}, go to the {{site.data.keyword.cloud_notm}} dashboard, and click the **Menu** icon > **Resource List** to see all your service instances. 
 
 ![cloud dash](../images/ibmclouddashboard.png)
 
-You can also drill down into a specific instance and look at the Plan tab. {{site.data.keyword.cloudant_short_notm}} instances on the deprecated Shared plan do not have a plan that is highlighted. An instance on the {{site.data.keyword.cloudant_short_notm}} Standard plan looks like this example: 
+You can also drill down into a specific instance and look at the Plan tab for more information. {{site.data.keyword.cloudant_short_notm}} instances on the deprecated Shared plan do not have a plan that is highlighted. An instance on the {{site.data.keyword.cloudant_short_notm}} Standard plan looks like this example: 
 
 ![standard dash](../images/ibmcloud_instance_standard_plan.png)
 
@@ -69,7 +69,7 @@ You can also open the {{site.data.keyword.cloudant_short_notm}} dashboard, and c
 
 ![lite plan](../images/migrate1.png)
 
-If you are using a legacy `cloudant.com` account, you can log in to your {{site.data.keyword.cloudant_short_notm}} dashboard and go to the Account tab. A legacy `cloudant.com` Shared plan has a Usage tab with graphs and billing estimates for the current month, like the following example:
+If you are using a legacy `cloudant.com` account, you can log in to your {{site.data.keyword.cloudant_short_notm}} dashboard, and go to the Account tab. A legacy `cloudant.com` Shared plan has a Usage tab with graphs and billing estimates for the current month, like the following example:
 
 ![shared plan](../images/cloudantcom_sharedplan_usage.png)
 
@@ -84,11 +84,12 @@ If your Account tab already indicates that you are on the Standard plan, you do 
 Migrate from the free Lite plan to the Standard plan by following these steps: 
 
 1.  Go to the {{site.data.keyword.cloud_notm}} dashboard.
-2.  Select the {{site.data.keyword.cloudant_short_notm}} instance you want to migrate. 
-3.  Select the **Plan** tab on the left navigation. 
-4.  From the list of pricing plans, select the **Standard** check box. 
+2.  Go to the **Menu** icon > **Resource List** to see all your service instances. 
+3.  Select the {{site.data.keyword.cloudant_short_notm}} instance you want to migrate. 
+4.  Select the **Plan** tab on the left navigation. 
+5.  From the list of pricing plans, select the **Standard** check box. 
 ![lite](../images/migrate3.png)
-5.  Click **Upgrade** at the bottom of the page.
+6.  Click **Upgrade** at the bottom of the page.
 All of your existing data is retained for you.
 
 Adjust your capacity by using the Throughput Capacity slider to increase or decrease capacity as needed.

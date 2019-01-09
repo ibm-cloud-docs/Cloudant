@@ -40,7 +40,7 @@ instances on it.
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){:new_window}.
     After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click `Catalog` from the menu:<br/>
+    you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
 2.  Click `Databases` from the left menu and `Cloudant` from the list of database services.<br/>
@@ -53,6 +53,7 @@ instances on it.
     -   Enter a service name.<br/>
     -   Specify the region/location where you want to deploy.<br/>
     -   Select a resource group.</br>
+    -   Add a tag. 
     -   Select a location for deployment.<br/>
     -   Select `yes` or `no` to answer whether HIPAA is required.<br/> 
     
@@ -79,7 +80,7 @@ instances on it.
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){:new_window}.
     After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click `Catalog` from the menu:<br/>
+    you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
 2.  Click `Databases` from the left menu and `Cloudant` from the list of database services.<br/>
@@ -96,6 +97,7 @@ instances on it.
     -   Enter a service name.<br/>
     -   Specify the region/location where you want to deploy. <br/>
     -   Select a resource group. </br>
+    -   Add a tag. 
     -   Select an authentication method.</br>
     -   Select an environment.</br>
     ![Configure standard instance](../tutorials/images/select_environment.png)
