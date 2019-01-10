@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-09"
 
 ---
 
@@ -38,7 +38,7 @@ instances on it.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){:new_window}.
+    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){: new_window}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
@@ -78,7 +78,7 @@ instances on it.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){:new_window}.
+    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){: new_window}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
@@ -129,6 +129,7 @@ See the following example command:
 ```sh
 ibmcloud resource service-instance-create NAME SERVICE_NAME SERVICE_PLAN_NAME LOCATION [-p, --parameters @JSON_FILE | JSON_STRING ]
 ```
+{: codeblock}
 
 {{site.data.keyword.cloudant_short_notm}} instances that are deployed on Dedicated Hardware environments take two more parameters:
 
@@ -142,4 +143,140 @@ See the following example command:
 ```sh
 ibmcloud resource service-instance-create cloudant_on_ded_hardware_cli cloudantnosqldb standard us-south -p '{"environment_crn":"crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b43434444bb7e2abb0841ca25d28ee4c:301a3118-7678-4d99-b1b7-4d45cf5f7b29::","legacyCredentials":false}'
 ```
-     
+{: codeblock}
+
+## Creating credentials for your {{site.data.keyword.cloudant_short_notm}} service
+
+Applications that require access to your {{site.data.keyword.cloudant_short_notm}} service
+must have the necessary credentials.
+
+Service credentials are valuable. If anyone or any application has access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
+{: important}
+
+For more information about the fields included in the service credentials, see the [IAM guide](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){: new_window}.
+
+The basic command format to create credentials for a service instance
+within {{site.data.keyword.cloud_notm}} is as follows:
+
+```sh
+ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [--enable-internal-service-endpoint true]
+```
+{: pre}
+
+The fields are described in the following table:
+
+Field | Description
+------|------------
+`NAME` | Arbitrary name that you give the service credentials. 
+`ROLE_NAME` | This field currently allows the Manager role only.
+`SERVICE_INSTANCE_NAME` | The name you give to your {{site.data.keyword.cloudant_short_notm}} instance.
+`enable-internal-service-endpoint` | An optional field to populate the url field in the Service Credentials with an internal endpoint to connect to the service over the {{site.data.keyword.cloud_notm}} internal network. Omit this field to populate the url with an external endpoint that is publicly accessible. Only applies to Standard plan instances deployed on Dedicated Hardware environments that support internal endpoints. Command will result in a 400 error if the environment doesn't support internal endpoints. 
+
+If you want to create credentials for the `cs20170517a` instance of
+an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`), you create these credentials by using a command similar to the following example:
+
+```sh
+ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a
+```
+{: codeblock}
+
+After receiving the request to create credentials for the service instance, {{site.data.keyword.cloud_notm}} responds with a message similar to the following example:
+
+```sh
+Creating service key in resource group default of account John Does's Account as john.doe@email.com...
+OK
+Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+                  
+Name:          creds_for_cs20170517a   
+ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a   
+Created At:    Tue Sep 18 19:58:38 UTC 2018   
+State:         active   
+Credentials:                                   
+               iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a      
+               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager      
+               url:                      https://f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com      
+               username:                 f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix      
+               port:                     443      
+               apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX      
+               host:                     f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com      
+               iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::      
+               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e      
+               password:                 581138...7d48d61 
+```
+{: pre}
+
+If you want to create credentials for the `cs20170517a` instance of
+an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`) and you want to populate the url with the internal endpoint, you create these credentials by using a command similar to the following example:
+
+```sh
+ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a --enable-internal-service-endpoint true
+```
+{: codeblock}
+
+After receiving the request to create credentials for the service instance, {{site.data.keyword.cloud_notm}} responds with a message similar to the following example:
+
+```sh
+Creating service key in resource group default of account John Does's Account as john.doe@email.com...
+OK
+Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+                  
+Name:          creds_for_cs20170517a   
+ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a   
+Created At:    Tue Jan 02 19:58:38 UTC 2019   
+State:         active   
+Credentials:                                   
+               iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a      
+               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager      
+               url:                      https://2624fed5-e53e-41de-a85b-3c7d7636886f-bluemix.private.cloudantnosqldb.appdomain.cloud      
+               username:                 f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix          
+               apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX      
+               host:                     2624fed5-e53e-41de-a85b-3c7d7636886f-bluemix.private.cloudantnosqldb.appdomain.cloud      
+               iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::      
+               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e       
+```
+{: pre}
+
+## Listing the service credentials for your {{site.data.keyword.cloudant_short_notm}} service
+
+The basic command format to retrieve the credentials for a service instance
+within {{site.data.keyword.cloud_notm}} is as follows:
+
+```sh
+ibmcloud resource service-key KEY_NAME
+```
+{: codeblock}
+
+In this example, we want to retrieve credentials for the `cs20170517a` instance of
+an {{site.data.keyword.cloudant_short_notm}} service
+(where the name for the credentials is `creds_for_cs20170517a`), you retrieve the credentials by using a command similar to the following example:
+
+```sh
+ibmcloud resource service-key creds_for_cs20170517b
+```
+{: codeblock}
+
+After receiving the request to retrieve the credentials for the service instance,
+{{site.data.keyword.cloud_notm}} responds with a message similar to the following (abbreviated) example:
+
+```sh
+Retrieving service key in resource group default of account John Does's Account as john.doe@email.com...
+OK
+Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+                  
+Name:          creds_for_cs20170517a   
+ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a   
+Created At:    Tue Sep 18 19:58:38 UTC 2018   
+State:         active   
+Credentials:                                   
+               iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a      
+               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager      
+               url:                      https://f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com      
+               username:                 f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix      
+               port:                     443      
+               apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX      
+               host:                     f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com      
+               iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::      
+               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e      
+               password:                 581138...7d48d61 
+```
+{: pre}
