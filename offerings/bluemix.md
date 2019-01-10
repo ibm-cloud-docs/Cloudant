@@ -18,12 +18,12 @@ lastupdated: "2019-01-09"
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.cloud_notm}} Public
+# Plans & Provisioning
 {: #ibm-cloud-public}
 
 {{site.data.keyword.cloudantfull}} Public is {{site.data.keyword.cloudant_short_notm}}'s most 
 feature-rich offering, receiving updates and new features first. Pricing is based on 
-your throughput and storage requirements, making it suitable for any 
+provisioned throughput capacity allocated and data storage used, making it suitable for any 
 required load. 
 {: shortdesc}
 
@@ -36,59 +36,6 @@ on a dedicated hardware environment. The dedicated hardware environment
 is for your sole use, and if a Dedicated Hardware plan instance is provisioned 
 within a US location, you can optionally select a [HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window} 
 -compliant configuration.
-
-The following table summarizes the provisioned throughput capacity and 
-disk space configuration for the Lite plan and a few examples for the 
-Standard plan:
-
-<div id="maxtable"></div>
-
-<table>
-
-<tr>
-<th id="capacity-config-plan">Plan</th><th id="lite">Lite</th><th id="standard" colspan='4'>Standard</th>
-</tr>
-<tr>
-<th id="base-priceperhour" headers="capacity-config-plan">Base Price (per hour)</td>
-<td headers="lite base-priceperhour">$0.00</td>
-<td headers="standard base-priceperhour" colspan='4'>See <a href="../offerings/pricing.html#pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
-</tr>
-<tr>
-<th id="provisionedthroughputcapacity-lookupspersecond" headers="capacity-config-plan">Provisioned Throughput Capacity (Lookups per second)</td>
-<td headers="lite provisionedthroughputcapacity-lookupspersecond-lite">20</td>
-<td headers="standard provisionedthroughputcapacity-lookupspersecond">100</td>
-<td headers="standard provisionedthroughputcapacity-lookupspersecond">1,000</td>
-<td headers="standard provisionedthroughputcapacity-lookupspersecond">5,000</td>
-<td headers="standard provisionedthroughputcapacity-lookupspersecond">20,000</td>
-</tr>
-<tr>
-<th id="provisionedthroughputcapacity-writespersecond" headers="capacity-config-plan">Provisioned Throughput Capacity (Writes per second)</td>
-<td headers="lite provisionedthroughputcapacity-writespersecond">10</td>
-<td headers="standard provisionedthroughputcapacity-writespersecond">50</td>
-<td headers="standard provisionedthroughputcapacity-writespersecond">500</td>
-<td headers="standard provisionedthroughputcapacity-writespersecond">2,500</td>
-<td headers="standard provisionedthroughputcapacity-writespersecond">10,000</td>
-</tr>
-<tr>
-<th id="provisionedthroughputcapacity-queriespersecond" headers="capacity-config-plan">Provisioned Throughput Capacity (Queries per second)</td>
-<td headers="lite provisionedthroughputcapacity-queriespersecond">5</td>
-<td headers="standard provisionedthroughputcapacity-queriespersecond">5</td>
-<td headers="standard provisionedthroughputcapacity-queriespersecond">50</td>
-<td headers="standard provisionedthroughputcapacity-queriespersecond">250</td>
-<td headers="standard provisionedthroughputcapacity-queriespersecond">1,000</td>
-</tr>
-<tr>
-<th id="diskspaceincluded" headers="capacity-config-plan">Disk Space Included</td>
-<td headers="lite diskspaceincluded">1 GB</td>
-<td headers="standard diskspaceincluded" colspan='4'>20 GB</td>
-</tr>
-<tr>
-<th id="diskoveragepergbhour" headers="capacity-config-plan">Disk Overage (per GB/hour)</td>
-<td headers="lite diskoveragepergbhour">Not available</td>
-<td headers="standard diskoveragepergbhour" colspan='4'>See <a href="../offerings/pricing.html#pricing" target="_blank">pricing details <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>.</td>
-</tr>
-
-</table>
 
 ## Plans
 {: #plans}
