@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-11"
 
 ---
 
@@ -20,10 +20,10 @@ lastupdated: "2019-01-03"
 
 # Overview
 
-The online documentation for {{site.data.keyword.cloudantfull}} intends to help you get going quickly. For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} product page ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+The online documentation for {{site.data.keyword.cloudantfull}} intends to help you get going quickly. For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} product page ![External link icon](images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window}.
 {: shortdesc}
 
-[{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){: new_window}
+[{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=qdMTLK2vYoI){: new_window}
 is a document-oriented database as a service (DBaaS).
 It stores data as documents in JSON format.
 It is built with scalability,
