@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-11"
 
 ---
 
@@ -16,17 +16,20 @@ lastupdated: "2019-01-03"
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-01-11 -->
 
 # Pricing
 {: #pricing}
 
-{{site.data.keyword.cloudantfull}} allows tuning to scale up and down your provisioned throughput 
-capacity, which is a reserved number of lookups, writes, and queries each second allocated to 
-an instance. The throughput capacity level is the maximum usage level. If you attempt to 
-exceed the reserved capacity, you get an HTTP 429 status code that indicates the 
-application is trying to exceed its provisioned throughput capacity allowance.
+{{site.data.keyword.cloudantfull}} is priced based on the provisioned throughput capacity you allocate for your instance, and the amount of data storage consumed. {{site.data.keyword.cloudant_short_notm}} allows you to scale your provisioned throughput capacity up and down, and pay pro-rated hourly. The provisioned throughput capacity is a reserved number of lookups per second, writes per second, and queries per second allocated to an instance. The throughput capacity setting is the maximum usage level for a given second. If you attempt to exceed the reserved capacity for either lookups, writes, or queries, you get an HTTP 429 status code that indicates the application is trying to exceed its provisioned throughput capacity allowance.
 
+The following table shows example hourly pricing for a variety of provisioned throughput capacity settings. You can toggle the capacity in granular blocks of 100 lookups/sec, 50 writes/sec, and 5 queries/sec on an hourly basis. An approximate monthly cost is also shown for each setting assuming an average of 730 hours in a month. The prices shown are in USD. You can use the {{site.data.keyword.cloud_notm}} pricing calculator to see estimated costs in other currencies by clicking on the `Add to estimate` button from the {{site.data.keyword.cloudant_short_notm}} catalog tile.
+
+![pricing spreadsheet](../images/pricing_spreadsheet.png)
+
+You can launch the {{site.data.keyword.cloudant_short_notm}} **Dashboard** > **Account** > **Capacity** tab to view and change the provisioned throughput capacity and see the hourly and approximate monthly costs: 
+
+![slider](../images/migrate2.gif)
 
 ## Pricing Examples 
 {: #pricing-examples}
@@ -51,7 +54,7 @@ The capacity slider shows the hourly cost of the provisioned throughput capacity
 
 Example equation: 
 
-- $0.105 per hour 1 block of 100 lookups/sec, 50 writes/sec, and 5 queries/sec provisioned throughput capacity * 730 hours (approximate hours in a month)
+- $0.105 per hour "*" 1 block (of 100 lookups/sec, 50 writes/sec, and 5 queries/sec provisioned throughput capacity) "*" 730 hours (approximate hours in a month)
 - Total = $76.65
 
 Lookups, writes, and queries cannot be scaled independently. Use the slider to select the number of blocks of provisioned throughput capacity based on the maximum limit of either lookups/sec, writes/sec, or queries/sec required for your application. For example, if your application requires 1,000 lookups per second, use the slider to select the capacity that offers 1,000 lookups/sec, 500 writes/sec, and 50 queries/sec, even if you do not need the corresponding number of writes or queries.
@@ -60,8 +63,8 @@ Lookups, writes, and queries cannot be scaled independently. Use the slider to s
 
 How do you estimate the total cost for provisioned throughput capacity per month of 1,000 lookups, 500 writes, and 50 queries? 
 
-- $0.105 per hour 10 blocks of 100 lookups/sec, 50 writes/sec, and 5 queries/sec provisioned throughput capacity * 730 hours (approximate hours in a month)
-- Alternatively the slider shows you the provisioned throughput capacity of 1000 lookups/sec, 500 writes/sec, and 50 queries/sec costs $1.050/hour * 730 hours
+- $0.105 per hour "*" 10 blocks (of 100 lookups/sec, 50 writes/sec, and 5 queries/sec provisioned throughput capacity) "*" 730 hours (approximate hours in a month)
+- Alternatively the slider shows you the provisioned throughput capacity of 1000 lookups/sec, 500 writes/sec, and 50 queries/sec costs $1.050/hour "*" 730 hours
 - Total = $766.50
 
 ## Data Usage 
@@ -71,13 +74,16 @@ What about pricing for data overage, how does that work?
 
 Plan | Storage included | Overage limit
 -----|------------------|--------------
-Lite | 1 GB |  Your account is blocked from writing new data until you delete enough data to be under the 1 GB limit, or upgrade to a higher plan.
+Lite | 1 GB |  Your account is blocked from writing new data until you delete enough data to be under the 1-GB limit, or upgrade to a higher plan.
 Standard | 20 GB | Additional storage costs $0.0014 per GB per hour, which is approximately $1/GB per month.
+
+## {{site.data.keyword.cloud_notm}} Usage Dashboard 
+{: #usage-dashboard}
 
 How does data display in the {{site.data.keyword.cloud_notm}} Usage Dashboard?
 
-This view shows the totals for usage that are accrued during this month, and so, shows only costs for the month so far. The Estimated Total reflects the bill so far for the month. By the end of the month, you see your average capacity for the month, which is your total monthly bill. The `STORAGE_MANAGED_PER_MONTH` field shows only the amount higher than the 20 GB included, so in the following example, you see approximately 40 GB of data total in the account.  
+This view shows the totals for usage that are accrued during this month.  The Estimated Total reflects the bill so far for the month. It will only show the hourly costs accrued up to that point. By the end of the month, you see your average provisioned throughput capacity for the month reflected in the `LOOKUPS_PER_MONTH`, `WRITES_PER_MONTH` and `QUERIES_PER_MONTH` fields. The `STORAGE_MANAGED_PER_MONTH` field shows only the storage charged and doesn't include the 20 GB that are included in the Standard plan. In the following example, a quantity of 20+ GB reflects that there was an average of 40 GB of data in the instance for the month. When you use less than 20 GB of storage, the display shows 0 GB since you did not go over the limit.   
 
 ![{{site.data.keyword.cloudant_short_notm}} Dashboard usage metrics view with higher STORAGE MANAGED PER MONTH](../images/usage-dashboard1.png)
 
-When you use less than 20 GB of storage, the display shows 0 GB since you did not go over the limit.
+
