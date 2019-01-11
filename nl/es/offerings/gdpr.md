@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2018-04-28 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Reglamento General de Protección de Datos (RGPD)
 
@@ -38,24 +39,22 @@ para GDPR:
  * Identidad/estado civil
  * Vida personal
  * Vida profesional
- * Información económica y financiera
  * Datos de ubicación
  * Conectividad/datos de dispositivo
 
 **Datos personales confidenciales**, restringidos a:
-  * Datos sanitarios, se aplican condiciones adicionales que se cubren en una descripción de servicio
+  * Datos de estado, se aplican condiciones adicionales que se cubren en la [descripción de servicio del clúster dedicado de {{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){:new_window} y la [descripción de servicio adicional de {{site.data.keyword.cloud}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6627-04/$file/i126-6627-04_04-2018_en_US.pdf){:new_window}
 
-Si está almacenando datos de cuidado sanitario, *debe* completar las tareas siguientes:
+Si está almacenando datos de servicios sanitarios, *debe* completar las tareas siguientes:
  - Notifique a {{site.data.keyword.cloudant_short_notm}} antes de escribir ningún dato.
  - Solicite un clúster dedicado compatible con HIPAA.
 
-Para obtener más información sobre las clasificaciones soportadas de datos personales, consulte los
-[requisitos del sistema detallados de {{site.data.keyword.cloudant_short_notm}} en 2. Datos personales ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
+Para obtener más información sobre las clasificaciones soportadas de datos personales, consulte los [Data Sheet Addendum (DSA) en 2. Datos personales ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
 
 ## Datos sobre mí
 
 {{site.data.keyword.cloudant_short_notm}} registra algunos datos sobre sus usuarios y es un Controlador de datos para dichos datos de
-Información personal (PI). Los datos que grabamos dependen del tipo de cuenta que tenga.
+Información personal (PI). Los datos que {{site.data.keyword.cloudant_short_notm}} registra dependen del tipo de cuenta que tenga.
 
 Si tiene un clúster de {{site.data.keyword.cloudant_short_notm}} dedicado/clúster de {{site.data.keyword.cloudant_short_notm}}
 Enterprise, grabamos datos
@@ -66,21 +65,20 @@ Enterprise, disponemos de:
  * Nombre
  * Correo electrónico
 
-Los datos que tenemos se pueden ver y actualizar a través del panel de control de {{site.data.keyword.cloudant_short_notm}}.
+Los datos que {{site.data.keyword.cloudant_short_notm}} contiene pueden visualizarse y actualizarse mediante el panel de control de {{site.data.keyword.cloudant_short_notm}}.
 
 Si tiene una cuenta suministrada por {{site.data.keyword.cloud_notm}} (incluida una instancia dedicada),
 {{site.data.keyword.cloudant_short_notm}} _no_ recopila los datos personales mencionados anteriormente. Estos datos los guarda {{site.data.keyword.cloud_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} procesa PI de clientes limitados en el curso de la ejecución del servicio y la optimización
-de la experiencia del usuario. Utilizamos el correo electrónico para ponernos en contacto con los clientes según corresponda. La supervisión
-de las interacciones del cliente con el panel de control de {{site.data.keyword.cloudant_short_notm}} es la otra forma en la que procesamos PI.
+de la experiencia del usuario. {{site.data.keyword.cloudant_short_notm}} utiliza el correo electrónico para contactar clientes según corresponda. La supervisión de las interacciones del cliente con el panel de control de {{site.data.keyword.cloudant_short_notm}} es la otra forma en la que {{site.data.keyword.cloudant_short_notm}} procesa PI.
 
 ### Restricción del proceso
 
-Enviamos los datos de interacción del panel de control a Segment. Es posible pedir a {{site.data.keyword.cloudant_short_notm}} que restrinja
+{{site.data.keyword.cloudant_short_notm}} envía datos de interacción del panel de control a Segment. Es posible pedir a {{site.data.keyword.cloudant_short_notm}} que restrinja
 el proceso de la PI del cliente de esta forma mediante una [solicitud de soporte de {{site.data.keyword.cloudant_short_notm}}](mailto:support@cloudant.com). Al
 recibir dicha solicitud, {{site.data.keyword.cloudant_short_notm}} suprime la información asociada
-con el cliente tal como se envía a Segment, e impide que se envíen más datos. Tenemos que conservar la
+con el cliente tal como se envía a Segment, e impide que se envíen más datos. {{site.data.keyword.cloudant_short_notm}} debe conservar la
 posibilidad de ponernos en contacto con los clientes dedicados a través del correo electrónico y proporcionar una interfaz para que los clientes mantengan esta información actualizada ya sea directamente, o a través de la configuración del cliente de sus detalles de contacto
 a través de sus detalles de cuenta de {{site.data.keyword.cloud_notm}}.
 
@@ -90,16 +88,13 @@ Todos los clústeres tienen un sistema de archivos cifrado (cifrado en reposo) u
 visibles para nuestras operaciones y equipos de soporte (consultar a continuación).
 
 Para los datos confidenciales, lo que determine debe permanecer invisible para {{site.data.keyword.cloudant_short_notm}},
-debe cifrar o proteger (pseudonomizar) los datos antes de enviárnoslos. Debe evitar
-el uso de PI para un `_id` de documentos, ya que estos siempre están visibles y se graban en los registros de acceso.
+debe cifrar o proteger (pseudonomizar) los datos antes de enviárnoslos. Debe evitar utilizar PI como `_id` de documento en sus URL, por ejemplo, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, puesto que son siempre visibles y se escriben en los registros de acceso.
 
 ## Ubicaciones de datos
 
-Las ubicaciones donde {{site.data.keyword.cloudant_short_notm}} procesa los datos personales estarán disponibles,
-y se mantendrán actualizadas, a través del DPA (Data Sheet Addendum).
+Las ubicaciones en las que {{site.data.keyword.cloudant_short_notm}} procesa datos personales estarán disponibles y se mantendrán al día, a través de DSA.
 
-Para obtener más información sobre las ubicaciones de datos, consulte los
-[requisitos del sistema detallados de {{site.data.keyword.cloudantfull}} en 7. {{site.data.keyword.IBM_notm}} Alojamiento y procesamiento de ubicaciones ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
+Para obtener más información sobre ubicaciones de datos, consulte [DSA en 7. {{site.data.keyword.IBM_notm}} Alojamiento y procesamiento de ubicaciones ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
 
 ## Seguridad de servicios
 
@@ -109,13 +104,12 @@ Como usuario de {{site.data.keyword.cloudant_short_notm}}, debería:
 
  * Utilizar la configuración de CORS predeterminada para evitar el acceso inesperado.
  * Utilizar claves de API de forma liberal, de forma que tales componentes puedan tener 'el mínimo acceso con privilegios', que se puede acoplar con el registro de auditoría. Esta práctica le permite comprender quién ha accedido a qué datos.
- * Cifra o proteja (pseudonomice) los datos confidenciales antes de enviárnoslos.
+ * Cifre o proteja (pseudonomice) datos confidenciales que considera que deben permanecer invisibles en {{site.data.keyword.cloudant_short_notm}}.
 
 ### Medidas de seguridad física y ambiental
 
 La seguridad física de nuestros centros de datos está gestionada mediante los proveedores de nuestra infraestructura: SoftLayer,
-AWS y 21Vianet. Todos tienen certificaciones auditadas externamente para su seguridad física. No proporcionaremos
-más detalles de los controles de seguridad física en su lugar en nuestros centros de datos.
+AWS y 21Vianet. Todos tienen certificaciones auditadas externamente para su seguridad física. {{site.data.keyword.cloudant_short_notm}} no proporcionará más detalles sobre los controles de seguridad física en su lugar de nuestros centros de datos.
 
 La seguridad física de las ubicaciones de la oficina utilizadas por nuestro personal se gestiona mediante {{site.data.keyword.IBM_notm}} Corporate. 
 Los detalles de certificación y los informes de testificación (p.ej., ISO y SOC2) se pueden proporcionar al
@@ -125,7 +119,7 @@ cliente cuando lo solicite.
 
 Las Medidas técnicas y organizativas (TOM) están empleadas por {{site.data.keyword.cloudant_short_notm}}
 para garantizar la seguridad de los
-datos personales. Tenemos certificaciones auditadas externamente para los controles que utilizamos. 
+datos personales. {{site.data.keyword.cloudant_short_notm}} contiene certificaciones auditadas externamente para los controles que {{site.data.keyword.cloudant_short_notm}} utiliza. 
 Los detalles de certificación y los informes de testificación (p.ej., ISO y SOC2) se pueden proporcionar al
 cliente cuando lo solicite.
 
@@ -149,18 +143,17 @@ Para obtener más información sobre la supresión de marcadores de exclusión, 
 ### ¿Cuándo se elimina un documento suprimido?
 
 La compactación se ejecuta automáticamente y elimina periódicamente las revisiones antiguas (suprimidas o de otra forma)
-de la base de datos, escribiendo solo revisiones 'hoja' en un archivo nuevo. Mantenemos un historial de
-`_id` y `_rev` para habilitar la réplica, pero no los cuerpos de documentos antiguos.
+de la base de datos, escribiendo solo revisiones 'hoja' en un archivo nuevo. {{site.data.keyword.cloudant_short_notm}} mantiene un historial de `_id` y `_rev` para habilitar la réplica, pero no los cuerpos de documentos antiguos.
 
 > **Nota**: {{site.data.keyword.cloudant_short_notm}} no expone la API de compactación de CouchDB.
 
-No garantizamos que una base de datos se compacte en un momento específico. Los clústeres pueden alojar
-más de 10000 cuentas, cada una de las cuales contiene muchas bases de datos. La compactación se realiza como un proceso en segundo plano en todo el clúster, y las bases de datos siempre se están compactando; no hay ninguna garantía de que sean
+{{site.data.keyword.cloudant_short_notm}} no garantiza que una base de datos se compacte en un momento específico. 
+La compactación se realiza como un proceso en segundo plano en todo el nivel de almacenamiento y las bases de datos siempre se están compactando; no hay ninguna garantía de que sean
 los datos que acaba de suprimir/cambiar.
 
 {{site.data.keyword.cloudant_short_notm}} está aceptando las solicitudes *Derecho a olvidarse* mediante
 [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO) ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window}. 
-Cuando se realiza una solicitud *Derecho a olvidarse* a partir de la {{site.data.keyword.IBM_notm}} DPO, verificamos la solicitud, activamos explícitamente la compactación de la base de datos y verificamos que se ha producido la compactación.
+Cuando se realiza una solicitud *Derecho a olvidarse* a partir de la {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifica la solicitud, activa explícitamente la compactación de la base de datos y verifica que se ha producido la compactación.
 Al final de este proceso, la única versión del documento es su marcador de exclusión (`_id`, `_rev`, `_deleted`, y los campos que incluya allí la aplicación).
 
 ### Eliminación de marcadores de exclusión
@@ -183,7 +176,7 @@ Si un documento necesita eliminación mediante una solicitud *Derecho a olvidars
 
 1. Archive una solicitud con la [{{site.data.keyword.IBM_notm}} DPO ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window} para solicitar la depuración de valores de `_id` de documentos específicos junto con el motivo.
 1. Al recibir una solicitud formal por parte de la {{site.data.keyword.IBM_notm}} DPO, las operaciones de {{site.data.keyword.cloudant_short_notm}}
-verifican la solicitud para confirmar que el `id` contenga PI. No depuramos los datos que no tienen PI en el `_id`. 
+verifican la solicitud para confirmar que el `id` contenga PI. {{site.data.keyword.cloudant_short_notm}} no depura los datos que no tienen PI en el `_id`. 
 1. {{site.data.keyword.cloudant_short_notm}} desencadena la acción de depuración para eliminar de forma permanente los datos solicitados.
 
 Este proceso solo se utiliza para solicitudes de supresión de emergencia (por ejemplo, *derecho a
@@ -197,8 +190,8 @@ en la depuración normal por parte del equipo de operaciones de {{site.data.keyw
 1. La solicitud es para más de 100 documentos.
 
 Incluso con la depuración, PI en el campo `_id` se filtrará en lugares que no desea, como por ejemplo
-registros de {{site.data.keyword.cloudant_short_notm}}, por lo que se debe evitar. Tenemos una razón empresarial para conservar estos registros y no se eliminarán
-las líneas de registro que contienen valores de `_id` de documento.
+registros de {{site.data.keyword.cloudant_short_notm}}, por lo que se debe evitar. 
+{{site.data.keyword.cloudant_short_notm}} tiene una razón empresarial para conservar estos registros y no se eliminarán las líneas de registro que contienen valores de `_id` de documento.
 
 ### ¿Y si se suprime una base de datos?
 

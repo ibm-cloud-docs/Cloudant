@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-10-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -12,16 +13,15 @@ lastupdated: "2018-06-20"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-13 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Criando uma consulta do {{site.data.keyword.cloudant_short_notm}}
 
 Este tutorial demonstra como criar um banco de dados, preenchê-lo
 com documentos, criar um índice e usar o índice para consultar o banco de dados.
 
-Exercícios para a ![Ícone de linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
-e o ![Ícone de painel](../images/DashboardIcon.png) _Painel do {{site.data.keyword.Bluemix_notm}}_ são fornecidos. Os
-exercícios do Painel do {{site.data.keyword.Bluemix}} fornecem um exemplo visual de cada tarefa. É possível seguir os links
+Os exercícios para a ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_ e o ![Ícone do painel](../images/DashboardIcon.png) _Painel do {{site.data.keyword.cloud}}_ são fornecidos. Os
+exercícios do Painel do {{site.data.keyword.cloud_notm}} fornecem um exemplo visual de cada tarefa. É possível seguir os links
 ao longo do tutorial para obter mais informações.
 
 Para começar, você cria o banco de dados `query-demo` e alguns documentos que
@@ -31,10 +31,9 @@ contêm os dados para esses exercícios.
 
 Antes de iniciar, siga estas etapas para se preparar para o tutorial:
 
-1.  [Criar uma conta do {{site.data.keyword.Bluemix}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/registration/){:new_window}.
-2.  Efetue login no
-  [Painel do {{site.data.keyword.Bluemix_notm}}![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Criar uma instância do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance).
+1.  [Crie uma conta {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo") ](https://console.ng.bluemix.net/registration/){:new_window}.
+2.  Efetue login no Painel do [ {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo") ](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+3.  [Crie uma instância do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud_notm}}](create_service.html#creating-a-service-instance).
 4.  (Opcional) [Crie um alias acurl](../guides/acurl.html#authorized-curl-acurl-) para facilitar e acelerar a execução de comandos por meio da linha de comandos.
 5.  Substitua a variável `$ACCOUNT` nos comandos que são incluídos nos exercícios com o nome do usuário que você usa para efetuar login no Painel do {{site.data.keyword.cloudant_short_notm}}.
   Se você decidir não configurar o `acurl`,
@@ -73,7 +72,7 @@ como username e password.
   ```
   {:codeblock}
 
-![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
+![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
 1.  Abra a instância de serviço do {{site.data.keyword.cloudant_short_notm}} que você criou.
 2.  Na {{site.data.keyword.cloudant_short_notm}} página de serviço, clique em **Ativar**.
@@ -177,7 +176,7 @@ estão incluídos em um arquivo é identificado pelo nome fornecido.
   ```
   {:codeblock}
 
-![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
+![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
 1.  Clique em **`+`** e selecione **Novo doc**. A janela 'Novo documento' é aberta.
 2.  Para criar um documento, copie o texto de amostra a seguir e substitua o texto existente no novo documento.
@@ -305,7 +304,7 @@ na lista a seguir:
 
 
 
-![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
+![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
 1.  Clique em **`+` > Índices de consulta** na guia **Todos os documentos** ou **Documentos de design**.
 2.  Cole os dados JSON de amostra a seguir no campo **Índice**:
@@ -385,7 +384,7 @@ Esse exemplo demonstra como o {{site.data.keyword.cloudant_short_notm}} Query us
   ```
   {:codeblock}
 
-![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
+![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
 1.  Clique na guia **Consulta**.
 2.  Copie e cole a JSON de amostra a seguir na janela do {{site.data.keyword.cloudant_short_notm}} Query:
@@ -487,7 +486,7 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
   ```
   {:codeblock}
 
-![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
+![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
 1.  Clique na guia **Consulta**.
 2.  Copie e cole a JSON de amostra a seguir na janela do {{site.data.keyword.cloudant_short_notm}} Query:
@@ -582,7 +581,7 @@ valores especificados no parâmetro `sort`.
   ```
   {:codeblock}
 
-![Ícone de painel](../images/DashboardIcon.png) Painel do _{{site.data.keyword.Bluemix_notm}}_
+![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
 1.  Clique na guia **Consulta**.
 2.  Copie e cole a JSON de amostra a seguir na janela do {{site.data.keyword.cloudant_short_notm}} Query:

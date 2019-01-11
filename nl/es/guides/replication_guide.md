@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-20 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Réplica
 
@@ -46,20 +47,20 @@ Los datos preexistentes en la base de datos de destino permanecen.
 
 <div id="how-do-i-initiate-replication-via-the-dashboard-"></div>
 
-## Cómo iniciar la réplica mediante el panel de control
+## Cómo iniciar la réplica utilizando el panel de control
 
-El panel de control de {{site.data.keyword.cloudant_short_notm}} ofrece una interfaz de usuario adecuada para activar la réplica.
-Abra el separador Réplica del panel de control de {{site.data.keyword.cloudant_short_notm}} y pulse el botón de acción `Nueva réplica`.
-Complete el sencillo formulario:
+El panel de control de {{site.data.keyword.cloudant_short_notm}} proporciona una interfaz de usuario adecuada para activar la réplica.
+Pulse el separador `Réplica` en el panel de control de {{site.data.keyword.cloudant_short_notm}} y pulse `Iniciar réplica`.
+Complete el formulario:
 
 ![replication2](../images/replication_guide_2.png)
 
-Mediante el formulario, defina las bases de datos de origen y de destino y pulse "`Replicar`".
+Utilizando el formulario, defina las bases de datos de origen y destino y, a continuación, haga clic en `Iniciar réplica`.
 
 ![replication3](../images/replication_guide_3.png)
 
-El estado de cada tarea de réplica se puede ver en la sección "`Todas las réplicas`" del panel de control.
-El estado de cada trabajo pasa de "`Activado`" a "`Completado`" a medida que se procesa.
+El estado de cada tarea de réplica se puede ver pulsando el separador `Réplica`.
+Cada job modifica el estado de `En ejecución` a `Completado` a medida que se procesa.
 
 ![replication4](../images/replication_guide_4.png)
 
@@ -233,9 +234,9 @@ Hasta ahora, solo se ha tratado el tema de la réplica única, que finaliza cuan
 En una réplica continua, los datos fluyen constantemente.
 Los cambios siguientes en la base de datos de origen se transmiten a la base de datos de destino en tiempo real.
 
-La réplica continua se activa pulsando el recuadro de selección "`Convertir esta réplica en continua`" cuando se define una tarea de réplica en el panel de control de {{site.data.keyword.cloudant_short_notm}} o estableciendo el distintivo ["`continuous`"](../api/replication.html#checkpoints) en la API de {{site.data.keyword.cloudant_short_notm}} API.
+La réplica continua se activa pulsando el recuadro de selección `Convertir esta réplica en continua` cuando se define una tarea de réplica en el panel de control de {{site.data.keyword.cloudant_short_notm}} o estableciendo el distintivo [`continuous`](../api/replication.html#checkpoints) en la API de {{site.data.keyword.cloudant_short_notm}} API.
 
-La réplica bidireccional se puede convertir en continua en una o en ambas direcciones mediante el distintivo "`continuous`".
+La réplica bidireccional se puede convertir en continua en una o en ambas direcciones mediante el distintivo `continuous`.
 
 _Ejemplo de utilización de HTTP para iniciar una réplica continua: _
 
@@ -579,10 +580,9 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ```
 {:codeblock}
 
->   **Nota**: El orden de los documentos dentro del canal de información `_changes` no siempre es el mismo.
-    Es decir, es posible que los cambios no aparezcan en estricto orden cronológico.
-    El motivo es que los datos se devuelven desde varios nodos de {{site.data.keyword.cloudant_short_notm}},
+    El orden de los documentos dentro del canal de información `_changes` no siempre es el mismo. Es decir, es posible que los cambios no aparezcan en estricto orden cronológico. El motivo es que los datos se devuelven desde varios nodos de {{site.data.keyword.cloudant_short_notm}},
 y se aplican reglas de coherencia final.
+    {: tip}
 
 ## Inconvenientes de la réplica
 

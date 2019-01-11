@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.cloud_notm}} アプリケーションの作成: アプリケーションのアップロード
 
@@ -62,9 +63,10 @@ Not logged in. Use 'bluemix login' to log in.
 -   組織名。「`-o`」パラメーターで指定します。
 -   スペース。「`-s`」パラメーターで指定します。
 
->   **注**: アカウント詳細は、Web ブラウザーでのログイン時に、次の例のように
-     {{site.data.keyword.cloud_notm}} ダッシュボードで入手できます。<br/>
-    ![{{site.data.keyword.cloud_notm}} アカウント詳細の表示](images/img0035.png)
+  アカウント詳細は、Web ブラウザーでのログイン時に、次の例のように {{site.data.keyword.cloud_notm}} ダッシュボードで入手できます。
+  {: tip}
+
+  ![ {{site.data.keyword.cloud_notm}} アカウント詳細の表示](images/img0035.png)
 
 次の例のようなコマンドを使用して、
 {{site.data.keyword.cloud_notm}} アプリケーション環境にログインします。
@@ -204,31 +206,25 @@ buildpack: python 1.5.5
 
 ## サンプル・アプリケーションのテスト
 
-{{site.data.keyword.cloud_notm}} アプリケーション環境が最初に作成されたときに、
-ダッシュボードでアプリケーションの`「経路」`列にリンクが組み込まれます。<br/>
+次に、アプリケーションをテストして、正しく実行されていることを確認します。 
+
+1.  {{site.data.keyword.cloud_notm}} ダッシュボードを開きます。Cloud Foundry アプリケーションの下に、作成したアプリケーションへのリンクが表示されています。「`Cloudant CF アプリ`」をクリックして詳細ページを開きます。<br/>  
 ![アプリケーションのダッシュボードのスクリーン・ショット](images/img0017.png)
 
-このリンクをクリックすると、ブラウザー・ウィンドウが開き、
-該当ポートで listen しているアプリケーションからデータを要求します。
-アプリケーションは、アプリケーション開始中に生成されたログ・ファイルの内容を戻して応答します。<br/>
-![チュートリアル・アプリケーションの実行開始時に生成されたログ・ファイル](images/img0030.png)
+2.  「`Cloudant CF アプリ`」の詳細ページで、「`経路`」をクリックし、`Cloudant-CF-app.mybluemix.net` リンクをクリックします。<br/>
+![Cloudant CF アプリの詳細ページ](images/img0030.png)
 
-このログ・ファイルの内容に注目してください。
-開始時刻と終了時刻が明確に表示されています。
-その間に、
-{{site.data.keyword.cloudant_short_notm}} の接続情報が取得された際の各詳細がログに記録されています。
-接続の実際の値は重要ではありません。
-チュートリアル・アプリケーションがそうした値を検出、取得、使用でき、
-{{site.data.keyword.cloudant_short_notm}} データベースに新しい文書を作成したことが、ログに示されています。
+3. https://cloudant-cf-app.mybluemix.net/ で新しいブラウザー・ウィンドウが開きます。メッセージが、アプリケーションが実行中であることを確認します。メッセージの内容は、「Hello World! Thanks for creating a Python Starter Application」になります。<br/>
+![Hello World! が Cloudant CF アプリが正しく実行されていることを確認](images/img0054.png)
+
 
 ### データベース詳細の確認
 
-まず、{{site.data.keyword.cloudant_short_notm}} ダッシュボードを開きます。
-{{site.data.keyword.cloudant_short_notm}} サービス・ページの`「管理」`タブで`「起動 (Launch)」`アイコンをクリックします。<br/>
-![{{site.data.keyword.cloudant_short_notm}} サービス・ページの「起動 (Launch)」アイコン](images/img0036.png)
+{{site.data.keyword.cloud_notm}} ダッシュボードから、作成した {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスを開きます。サービス・インスタンスをクリックします。 「`管理`」タブに移動し、「`Cloudant ダッシュボードの起動」`をクリックします。<br/>
+![{{site.data.keyword.cloudant_short_notm}} サービス・ページでの Cloudant ダッシュボードの起動](images/img0036.png)
 
 {{site.data.keyword.cloudant_short_notm}} サービス・ページを探すには、
-  [「{{site.data.keyword.cloudant_short_notm}} インスタンスの作成」のチュートリアル](create_service.html#locating-your-service-credentials)で
+  [{{site.data.keyword.cloudant_short_notm}} インスタンスの作成のチュートリアル](create_service.html#locating-your-service-credentials)で
 詳細を参照してください。
 {: tip}
 

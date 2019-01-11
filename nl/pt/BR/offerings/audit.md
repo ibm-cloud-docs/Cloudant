@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-12"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-04-12"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2018-00-00 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Log de auditoria
 
@@ -24,7 +25,7 @@ registra as seguintes informações sobre cada solicitação de HTTP:
 
 Informações | Descrição
 ------------|------------
-`Proprietário` | Credenciais da conta, chave API ou credenciais do IAM do IBM Cloud.
+`Proprietário` | Credenciais da conta, chave de API ou credenciais do IAM do IBM Cloud.
 `Ação` | A ação realizada (por exemplo, leitura de documentos).
 `Recurso` | Detalhes sobre a conta, banco de dados e documento acessado ou consulta feita.
 `Registro de data e hora` | Um registro do tempo e dos dados do evento. 
@@ -41,8 +42,7 @@ quando e por quem.
 ## Como acessar Logs de Auditoria para sua conta
 
 Para solicitar acesso aos logs de auditoria para a sua conta, entre em contato
-com o suporte do {{site.data.keyword.cloudant_short_notm}}. O suporte fornecerá acesso aos
-logs de auditoria de interesse.
+com o suporte do {{site.data.keyword.cloudant_short_notm}}. O suporte fornece uma cópia dos logs de auditoria que são de seu interesse.
 
 Ao contatar o suporte, certifique-se de incluir:
 

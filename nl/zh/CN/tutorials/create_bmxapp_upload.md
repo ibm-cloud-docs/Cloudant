@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：上传应用程序
 
@@ -54,13 +55,14 @@ Not logged in. Use 'bluemix login' to log in.
 
 下一步是登录到 {{site.data.keyword.cloud_notm}} 应用程序环境。必须提供以下帐户详细信息：
 
--   您的用户名，指定为“`-u`”参数的值。
--   您的组织名称，指定为“`-o`”参数的值。
--   您的空间，指定为“`-s`”参数的值。
+-   您的用户名，指定为“`-u`”参数。
+-   您的组织名称，指定为“`-o`”参数。
+-   您的空间，指定为“`-s`”参数。
 
->   **注**：通过 Web 浏览器登录时，帐户详细信息会在 {{site.data.keyword.cloud_notm}} 
-仪表板上提供，如以下示例所示：<br/>
-    ![查找 {{site.data.keyword.cloud_notm}} 帐户详细信息](images/img0035.png)
+  通过 Web 浏览器登录时，帐户详细信息会在 {{site.data.keyword.cloud_notm}}“仪表板”上提供，如以下示例所示：
+  {: tip}
+
+  ![查找 {{site.data.keyword.cloud_notm}} 帐户详细信息](images/img0035.png)
 
 使用类似于以下示例的命令登录到 {{site.data.keyword.cloud_notm}} 应用程序环境。请注意，系统会要求您输入帐户密码。
 
@@ -95,18 +97,18 @@ Space:          dev
 
 现在，{{site.data.keyword.cloudant_short_notm}} Foundry 工具箱知道如何连接到 {{site.data.keyword.cloud_notm}} 环境。
 
-下一步是上传应用程序本身。{{site.data.keyword.cloud_notm}} 应用程序的详细信息在[清单文件](create_bmxapp_appenv.html#manifest)中提供。
+下一步是上传应用程序本身。在[清单文件](create_bmxapp_appenv.html#manifest)中提供了 {{site.data.keyword.cloud_notm}} 应用程序的详细信息。
 
-教程应用程序的清单文件已更新，如[此处](create_bmxapp_createapp.html#essential-files)所述
+教程应用程序的清单文件已更新，如[此处](create_bmxapp_createapp.html#essential-files)所述。
 
-使用类似于以下示例的命令登录以上传 {{site.data.keyword.cloud_notm}} 应用程序。
+使用类似于以下示例的命令登录，以上传 {{site.data.keyword.cloud_notm}} 应用程序。
 
 ```sh
 cf push "Cloudant Python"
 ```
 {:pre}
 
-这将显示一个结果消息序列。
+这将显示一系列结果消息。
 
 ```
 Using manifest file /..../BMXDemo/manifest.yml
@@ -116,7 +118,7 @@ OK
 ```
 {:codeblock}
 
-Cloud Foundry 工具箱已找到清单文件，并正在准备使用您[先前](#uploading)提供的连接和标识详细信息来上传应用程序。
+Cloud Foundry 工具箱已找到清单文件，正在准备使用您[先前](#uploading)提供的连接和标识详细信息来上传应用程序。
 
 ```
 Using route Cloudant-Python.mybluemix.net
@@ -130,7 +132,7 @@ OK
 ```
 {:codeblock}
 
-应用程序已成功上传，并已与 {{site.data.keyword.cloudant_short_notm}} 数据库实例建立了连接。
+应用程序已成功上传，并与 {{site.data.keyword.cloudant_short_notm}} 数据库实例建立了连接。
 
 ```
 Starting app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -163,9 +165,9 @@ App {{site.data.keyword.cloudant_short_notm}} Python was started using this comm
 ```
 {:codeblock}
 
-应用程序会自动启动。在启动过程中，会通过评估 [requirements.txt 文件](create_bmxapp_appenv.html#requirements)的内容进行检查，以确保满足所有需求。应用程序需要对创建应用程序时[指定](create_bmxapp_createapp.html#essential-files)的 {{site.data.keyword.cloudant_short_notm}} 库的访问权。
+应用程序会自动启动。在启动过程中，会通过评估 [requirements.txt 文件](create_bmxapp_appenv.html#requirements)的内容来进行检查，以确保满足所有需求。应用程序需要对创建应用程序时[指定](create_bmxapp_createapp.html#essential-files)的 {{site.data.keyword.cloudant_short_notm}} 库的访问权。
 
-上传并启动应用程序后，会运行一些简单的系统检查，以确认对于 {{site.data.keyword.cloud_notm}} 而言，应用程序是否运行正常。
+上传并启动应用程序后，会运行一些简单的系统检查，以确认对于 {{site.data.keyword.cloud_notm}} 而言应用程序是否运行正常。
 
 ```
 Showing health and status for app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
@@ -186,18 +188,22 @@ buildpack: python 1.5.5
 
 ## 测试样本应用程序
 
-首次创建 {{site.data.keyword.cloud_notm}} 应用程序环境时，仪表板的`路径`列中包含该应用程序的链接：<br/>
+现在，测试应用程序并验证它是否正常运行。 
+
+1.  打开 {{site.data.keyword.cloud_notm}}“仪表板”。在“Cloud Foundry 应用程序”下，可以看到已创建应用程序的链接。单击 `Cloudant CF 应用程序`以打开详细信息页面。<br/>  
 ![显示应用程序的仪表板的屏幕快照](images/img0017.png)
 
-单击此链接将打开浏览器窗口，并向正在侦听相应端口的应用程序请求一些数据。应用程序通过返回其启动时生成的日志文件内容进行响应：<br/>
-![在教程应用程序开始运行时生成的日志文件](images/img0030.png)
+2.  在 `Cloudant CF 应用程序`详细信息页面上，单击`路径`，然后单击 `Cloudant-CF-app.mybluemix.net` 链接。<br/>
+![Cloudant CF 应用程序详细信息页面](images/img0030.png)
 
-此日志文件的内容很有意思。日志明确显示了开始时间和结束时间。在这两个时间之间，日志记录了检索 {{site.data.keyword.cloudant_short_notm}} 的连接信息时的每个详细信息。连接的实际值并不重要。日志表明教程应用程序能够找到、检索和使用这些值，在 {{site.data.keyword.cloudant_short_notm}} 数据库中创建新文档。
+3. 这将打开一个新的浏览器窗口：https://cloudant-cf-app.mybluemix.net/。以下消息用于验证应用程序是否正在运行。消息内容为：“Hello World! Thanks for creating a Python Starter Application.”<br/>
+![Hello World! 已验证 Cloudant CF 应用程序运行正常](images/img0054.png)
+
 
 ### 确认数据库详细信息
 
-首先打开 {{site.data.keyword.cloudant_short_notm}}“仪表板”。单击 {{site.data.keyword.cloudant_short_notm}} 服务页面中`管理`选项卡上的`启动`图标：<br/>
-![{{site.data.keyword.cloudant_short_notm}} 服务页面上的“启动”图标](images/img0036.png)
+在 {{site.data.keyword.cloud_notm}}“仪表板”中，打开已创建的 {{site.data.keyword.cloudant_short_notm}} 服务实例。单击服务实例。转至`管理`选项卡，然后单击`启动 Cloudant 仪表板`。<br/>
+![{{site.data.keyword.cloudant_short_notm}} 服务页面上的“启动 Cloudant 仪表板”](images/img0036.png)
 
 要找到 {{site.data.keyword.cloudant_short_notm}} 服务页面，请参阅[“创建 {{site.data.keyword.cloudant_short_notm}} 实例”教程](create_service.html#locating-your-service-credentials)中的详细信息。
 {: tip}

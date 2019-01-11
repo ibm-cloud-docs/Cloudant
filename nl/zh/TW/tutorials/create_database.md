@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 在 {{site.data.keyword.cloud_notm}} 上建立簡單的 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中
 
@@ -25,7 +28,7 @@ lastupdated: "2018-06-07"
 
 您必須已在系統上安裝現行 [Python 程式設計語言 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window} 安裝。
 
-若要檢查這項作業，請在提示中執行下列指令：
+若要檢查這項作業，請在提示執行下列指令：
 
 ```sh
 python --version
@@ -45,14 +48,14 @@ Python 2.7.12
 
 您應該使用[這裡](../libraries/supported.html#python)所提供的指示來安裝此項目。
 
-若要確認您已順利安裝用戶端程式庫，請在提示中執行下列指令：
+若要確認您已順利安裝用戶端程式庫，請在提示執行下列指令：
 
 ```sh
 pip freeze
 ```
 {:pre}
 
-您應該會得到系統上所有已安裝 Python 模組的清單。請檢查清單，找出與下列內容類似的 {{site.data.keyword.cloudant_short_notm}} 項目：
+您應該會得到系統上所有已安裝 Python 模組的清單。請檢查清單，並找出與下列內容類似的 {{site.data.keyword.cloudant_short_notm}} 項目：
 
 ```
 cloudant==2.3.1
@@ -73,7 +76,7 @@ cloudant==2.3.1
 `port`     |用來存取主機上服務實例的 HTTP 埠號。一般是 443，可強制執行 HTTPS 存取。
 `url`      |將其他認證資訊聚集成單一 URL 的字串，適合供應用程式使用。
 
-[這裡](create_service.html#locating-your-service-credentials)提供尋找服務實例的服務認證的相關資訊。
+[這裡](create_service.html#locating-your-service-credentials)提供尋找服務實例可用服務認證的相關資訊。
 
 ## 環境定義
 
@@ -90,14 +93,13 @@ cloudant==2.3.1
 
 指導教學結尾（[這裡](#complete-listing)）會提供執行所有作業的完整 Python 程式。
 
-本指導教學不會嘗試建立_有效率_ 的 Python 程式碼；本指導教學是為了示範簡單易懂的可運作程式碼，方便您從中學習並應用於自己的應用程式。
+本指導教學不會嘗試建立_有效率_ 的 Python 程式碼；本指導教學是為了示範簡單易懂且可運作的程式碼，方便您從中學習並應用於自己的應用程式。
 
-此外，也不會嘗試處理所有可能的檢查或錯誤狀況。這裡顯示一些範例檢查來說明技巧，但您應該應用正常的最佳作法來檢查及處理您自己的應用程式所發生的所有警告或錯誤狀況。 
+此外，也不會嘗試處理所有可能的檢查或錯誤狀況。這裡顯示一些範例檢查來說明技巧，但您應該應用正常的最佳作法來檢查及處理您自己的應用程式遇到的所有警告或錯誤狀況。 
 
 ## 在 {{site.data.keyword.cloud_notm}} 上連接至 {{site.data.keyword.cloudant_short_notm}} 服務實例
 
-Python 應用程式需要「{{site.data.keyword.cloudant_short_notm}} 用戶端程式庫」元件能夠連接至服務實例。
-這些元件識別為一般 `import` 陳述式：
+Python 應用程式要求「{{site.data.keyword.cloudant_short_notm}} 用戶端程式庫」元件得要能夠連接至服務實例。這些元件識別為一般 `import` 陳述式：
 
 ```python
 from cloudant.client import Cloudant
@@ -115,7 +117,8 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
-這裡說明的服務認證是在 {{site.data.keyword.cloudant_short_notm}} 上建立示範 {{site.data.keyword.cloud_notm}} 服務時定義的。我們在這裡重新產生認證，是要示範如何將它們用於 Python 應用程式中。不過，現在已移除示範 {{site.data.keyword.cloudant_short_notm}} 服務，因此這些認證將不會運作；您_必須_ 提供及使用您自己的服務認證。
+這裡說明的服務認證
+是在 {{site.data.keyword.cloudant_short_notm}} 上建立示範 {{site.data.keyword.cloud_notm}} 服務時所定義。我們在這裡重新產生認證，是要示範如何將它們用於 Python 應用程式中。不過，現在已移除示範 {{site.data.keyword.cloudant_short_notm}} 服務，因此這些認證將無法運作；您_必須_ 提供及使用自己的服務認證。
 {: tip}
 
 您在應用程式內啟用 Python 用戶端程式庫並識別服務認證之後，就可以建立與服務實例的連線：
@@ -156,7 +159,7 @@ if myDatabaseDemo.exists():
 
 ## 將小型資料集合當成文件儲存在資料庫內
 
-我們現在要在資料庫中儲存小型的簡單資料集合。
+我們現在要在資料庫中儲存小而簡單的資料集合。
 
 首先，我們識別一些資料：
 
@@ -171,7 +174,7 @@ sampleData = [
 ```
 {:codeblock}
 
-接下來，某個一般 Python 程式碼會「逐步」執行資料，並將它轉換為 JSON 文件。每一份文件都會儲存在資料庫中：
+接下來，某個一般的 Python 程式碼會「逐步」執行資料，並將它轉換為 JSON 文件。每一份文件都會儲存在資料庫中：
 
 ```python
 # Create documents using the sample data.
@@ -209,9 +212,9 @@ for document in sampleData:
 
 ### 文件的最小擷取
 
-為了執行最小擷取，我們會先要求資料庫內的所有文件清單。此清單會以陣列傳回。我們接著可以顯示陣列中元素的內容。
+為了執行最小擷取，我們先要求資料庫內所有文件的清單。此清單會以陣列傳回。接著可以顯示陣列中元素的內容。
 
-在範例程式碼中，我們要求從資料庫中擷取的第一份文件：
+在範例程式碼中，我們要求從資料庫擷取的第一份文件：
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs)
@@ -234,14 +237,15 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-NoSQL 資料庫（例如 {{site.data.keyword.cloudant_short_notm}}）的本質表示，像是資料庫中儲存的第一份文件一定會是結果清單中傳回的第一份文件，這樣簡單的說法並不一定適用。
+NoSQL 資料庫（例如 {{site.data.keyword.cloudant_short_notm}}）的本質
+表示，像是資料庫中儲存的第一份文件一定會是結果清單中傳回的第一份文件，這樣簡單的說法並不一定適用。
 {: tip}
 
 ### 文件的完整擷取
 
-為了執行完整擷取，我們會要求資料庫內的所有文件清單，並額外指定也必須傳回文件內容。作法是使用 `include_docs` 選項。結果依然會以陣列傳回。我們接著可以顯示陣列中元素的詳細資料，而這次會包括資料庫的完整內容。 
+為了執行完整擷取，我們要求資料庫內所有文件的清單，並額外指定也必須傳回文件內容。作法是使用 `include_docs` 選項。結果依然會以陣列傳回。接著可以顯示陣列中元素的詳細資料，而這次會包含文件的完整內容。 
 
-我們依然要求從資料庫中擷取的第一份文件：
+我們依然要求從資料庫擷取的第一份文件：
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
@@ -276,9 +280,9 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 
 我們也可以直接從 Python 應用程式內使用 {{site.data.keyword.cloudant_short_notm}} API 端點。
 
-在此範例程式碼中，我們再次要求所有文件的清單（包括其內容）。不過，這一次的作法是呼叫 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 端點](../api/database.html#get-documents)。
+在此範例程式碼中，我們再次要求所有文件的清單，並包含其內容。不過，這一次的作法是呼叫 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 端點](../api/database.html#get-documents)。
 
-首先，我們會識別要聯絡的端點，以及與呼叫一起提供的任何參數：
+首先，我們識別要聯絡的端點，以及要與呼叫一起提供的任何參數：
 
 ```python
 end_point = '{0}/{1}'.format(serviceURL, databaseName + "/_all_docs")
@@ -294,14 +298,15 @@ print "{0}\n".format(response.json())
 ```
 {:codeblock}
 
-結果類似下列_簡短_ 範例：
+結果類似下列_縮短的_ 範例：
 
 ```json
 {
     "rows": [
         {
-            "value": {
-          "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
+            "value":
+            {
+              "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
             },
             "id": "14746fe384c7e2f06f7295403df89187",
             "key": "14746fe384c7e2f06f7295403df89187",
@@ -340,7 +345,7 @@ print "{0}\n".format(response.json())
 
 ## 刪除資料庫
 
-當我們不再使用資料庫時，可以將它刪除。
+當我們完成使用資料庫之後，可以將它刪除。
 
 這是一個簡單的步驟，如下列範例 Python 程式碼中所示：
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -64,7 +64,7 @@ También puede incluir un 'equilibrio de carga' geográfico en el diseño de la 
 Por ejemplo, una aplicación cliente utilizada en un área geográfica espera obtener un mejor rendimiento cuando la aplicación accede a datos almacenados en un clúster de un área geográfica 'cercana'.
 Si se diseña la aplicación cliente de modo que identifique el clúster 'más cercano' y se conecte a dicho clúster para consultas de bases de datos, aumenta el rendimiento de la aplicación.
 
-Encontrará una guía de aprendizaje en la que se explica cómo configurar un entorno de aplicación de varias regiones [aquí![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/developerworks/cloud/library/cl-multi-region-bluemix-apps-with-cloudant-and-dyn-trs/index.html){:new_window}.
+Encontrará una guía de aprendizaje en la que se explica cómo configurar un entorno de aplicación de varias regiones [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/developerworks/cloud/library/cl-multi-region-bluemix-apps-with-cloudant-and-dyn-trs/index.html){:new_window}.
 
 ### Modificación de datos accidental o maliciosa
 

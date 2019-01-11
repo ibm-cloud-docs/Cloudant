@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,13 +11,14 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# Einfache {{site.data.keyword.Bluemix_notm}}-Anwendung für den Zugriff auf eine {{site.data.keyword.cloudant_short_notm}}-Datenbank erstellen: Voraussetzungen
+# Einfache {{site.data.keyword.cloud_notm}}-Anwendung für den Zugriff auf eine {{site.data.keyword.cloudant_short_notm}}-Datenbank erstellen: Voraussetzungen
 
 In diesem Abschnitt des Lernprogramms wird die Voraussetzungen
-für die Erstellung einer {{site.data.keyword.Bluemix}}-Anwendung beschrieben.
+für die Erstellung einer {{site.data.keyword.cloud}}-Anwendung beschrieben.
 {:shortdesc}
 
 ## Voraussetzungen
@@ -46,7 +47,7 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.Bluemix_notm}}
+### {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.cloud_notm}}
 
 Ein separates Lernprogramm für die Erstellung einer {{site.data.keyword.cloudantfull}}-Serviceinstanz namens `Cloudant Service 2017` ist [hier](create_service.html) verfügbar.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.cloud_notm}} アプリケーションの作成: アプリケーション環境
 
@@ -28,39 +29,35 @@ lastupdated: "2018-06-07"
     {{site.data.keyword.cloud_notm}} ダッシュボードは、
     [http://bluemix.net ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://bluemix.net){:new_window} にあります。
     ユーザー名とパスワードで認証すると、
-    {{site.data.keyword.cloud_notm}} ダッシュボードが表示されます。<br/>
+    {{site.data.keyword.cloud_notm}} ダッシュボードが表示されます。</br>
     ![{{site.data.keyword.cloud_notm}} ダッシュボード](images/img0001.png)
-
-2.  「`カタログ`」リンクをクリックします。<br/>
-    ![{{site.data.keyword.cloud_notm}} カタログ・リンク](images/img0002.png)<br/>
+2.  以下の「`リソースの作成`」ボタンをクリックします。<br/>
+    ![{{site.data.keyword.cloud_notm}} リソースの作成ボタン](images/img0002.png)<br/>
     {{site.data.keyword.cloud_notm}} で使用可能なサービスのリストが表示されます。
 
-3.  「`アプリ`」の見出しの下で「`Cloud Foundry アプリ`」項目をクリックします。<br/>
+3.  以下のように「`コンピュート`」カテゴリーをクリックします。<br/>
     ![{{site.data.keyword.cloud_notm}} Cloud Foundry アプリ](images/img0012.png)<br/>
-    {{site.data.keyword.cloud_notm}} で使用可能な Cloud Foundry アプリケーションのリストが表示されます。
+{{site.data.keyword.cloud_notm}} で使用可能なさまざまなサービスおよびアプリのリストが表示されます。
 
-4.  「`Python`」項目をクリックします。<br/>
-    ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry アプリ](images/img0013.png)<br/>
-    「`Cloud Foundry アプリの作成`」フォームが表示されます。
+4.  「`Cloud Foundry`」セクションにスクロールダウンし、以下の「`Python`」項目をクリックします。<br/>
+    ![{{site.data.keyword.cloud_notm}} Python アプリ](images/img0013.png)<br/>
+    `Cloud Foundry アプリの作成` フォームが表示されます。
 
-5.  「`Cloud Foundry アプリの作成`」フォームを使用して、
-    Python Cloud Foundry アプリケーションの環境を指定して作成します。
-    アプリケーションの名前を入力します
-    (例えば、「`Cloudant Python`」など)。
-    ホスト名は自動で生成されますが、カスタマイズすることも可能です。<br/>
-    ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry アプリ名](images/img0014.png)<br/>
-    >   **注**: ホスト名は、{{site.data.keyword.cloud_notm}} ドメイン内で固有でなければなりません。 この例では、ドメイン名が「`mybluemix.net`」で、完全なホスト名は「`Cloudant-Python.mybluemix.net`」になります。
+5.  `Cloud Foundry アプリの作成` フォームを使用して、 Python Cloud Foundry アプリケーションの環境を指定して作成します。 アプリケーションの名前を入力します。例えば、`Cloudant CF app` など。ホスト名は自動で生成されますが、カスタマイズすることも可能です。</br>
+    ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry アプリ名](images/img0014.png)
+    
+    ホスト名は、{{site.data.keyword.cloud_notm}} ドメイン内で固有でなければなりません。この例では、ドメイン名が `mybluemix.net` で、完全なホスト名は `Cloudant-CF-app.mybluemix.net` になります。
+    {: tip}
 
-6.  「`作成`」をクリックして、アプリケーション環境を作成します。<br/>
+6.  `作成` をクリックして、アプリケーション環境を作成します。</br>
     ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry アプリの作成](images/img0015.png)
 
 7.  しばらく間をおいて、
-    新しいアプリケーション環境の「`開始`」ウィンドウが表示されます。
+    新しいアプリケーション環境の`開始`ウィンドウが表示されます。
     環境内にテスト・アプリケーションが自動的に作成されます。
-    アプリケーションが自動的に開始され、
-    緑色のアイコンと「`アプリは実行中です`」の状況で示されます。
+    緑色のアイコンと「`実行中`」状況で示されるように、アプリケーションが自動的に開始されます。
     このアプリケーションは、新しいアプリケーション環境が作動可能で使用できることを示すのに十分な「ハートビート」プログラムです。
-    「`ダッシュボード`」リンクをクリックして、{{site.data.keyword.cloud_notm}} アカウント・ダッシュボードに戻ります。<br/>
+    「`Cloud Foundry アプリ`」リンクをクリックして、{{site.data.keyword.cloud_notm}} ダッシュボードに戻ります。<br/>
     ![新しい {{site.data.keyword.cloud_notm}} Python Cloud Foundry アプリが初めて実行されています](images/img0016.png)
 
 8.  新しく作成されたアプリケーション環境が、ダッシュボードに含まれています。<br/>
@@ -79,34 +76,33 @@ lastupdated: "2018-06-07"
 {{site.data.keyword.cloud_notm}} アプリケーション環境とサービスを接続する方法を説明します。
 
 1.  {{site.data.keyword.cloud_notm}} ダッシュボードから、アプリケーションのエントリーをクリックします。<br/>
-    ![{{site.data.keyword.cloud_notm}} ダッシュボードでのアプリケーションの選択](images/img0018.png)<br/>
-    >   **注**: 「`経路`」列は避けてください。アプリケーションに関連付けられたリンクをクリックすると、構成エリアに進まずに、アプリケーションが起動されます。 なるべくアプリケーションの名前の上をクリックしてください。
-
+    ![{{site.data.keyword.cloud_notm}} ダッシュボードでのアプリケーションの選択](images/img0018.png)</br>
     アプリケーションの構成および管理の概要エリアが表示されます。
 
 2.  アプリケーション環境を別のサービスに接続するには、
-    「`接続`」リンクをクリックします。<br/>
+    `接続`リンクをクリックします。<br/>
     ![{{site.data.keyword.cloud_notm}} アプリケーションの接続構成の選択](images/img0019.png)<br/>
     アプリケーションと、アカウント内で使用可能な他のサービスとの接続を構成するエリアが表示されます。
 
 3.  このチュートリアルでは、既存の {{site.data.keyword.cloudant_short_notm}}
     データベース・インスタンスが[前提条件](create_bmxapp_prereq.html#prerequisites)です。
-    「`既存に接続`」をクリックして、そのデータベース・インスタンスとアプリケーション間の接続を確立します。<br/>
+    `接続の作成`をクリックして、そのサービス・インスタンスとアプリケーション間の接続を確立します。<br/>
     ![既存データベース・インスタンスへの接続](images/img0020.png)<br/>
     アカウントの既存サービス・インスタンスのリストが表示されます。
 
 4.  使用する {{site.data.keyword.cloudant_short_notm}} データベース・インスタンスをクリックします。
-    このチュートリアルでは、「`Cloudant Service 2017`」のインスタンスを使用します。<br/>
+    このチュートリアルでは、以下のように `Cloudant-service` インスタンスを使用します。<br/>
     ![チュートリアルのサンプルのデータベース・インスタンスを選択](images/img0021.png)
 
 5.  本当にデータベース・インスタンスをアプリケーションに接続するか、確認を求められます。
-    「`接続`」をクリックして、接続することを確定します。<br>
+    `接続`をクリックして、接続することを確定します。<br>
     ![データベース・インスタンスへの接続の確認](images/img0022.png)
 
-6.  アプリケーションのサービス接続を変更すると、構成全体に影響します。
-    変更にはアプリケーションの「再ステージ」が必要で、これには実行中アプリケーションの停止が必要です。
-    「再ステージ」に進む準備ができているかを確認するウィンドウが表示されます。
-    「`再ステージ`」をクリックして続行します。<br/>
+6.  続行する前に、サービス ID とアクセス役割をカスタマイズするように求められます。「`接続`」をクリックして続行します。
+    ![アプリケーションの再ステージングの確認](images/img0022b.png)
+
+6.  アプリケーションのサービス接続を変更すると、構成全体に影響します。 変更にはアプリケーションの「再ステージ」が必要で、これには実行中アプリケーションの停止が必要です。 「再ステージ」に進む準備ができているかを確認するウィンドウが表示されます。
+    `再ステージ`をクリックして続行します。<br/>
     ![アプリケーションの再ステージの確認](images/img0023.png)
 
 7.  サービス接続ページが再表示されます。
@@ -131,8 +127,8 @@ lastupdated: "2018-06-07"
 {{site.data.keyword.cloud_notm}} ツールキットでは、
 {{site.data.keyword.cloud_notm}} 環境内でホストされて実行中のアプリケーションの処理に必要な、追加の機能が提供されます。
 
-> **注**: Cloud Foundry _および_
-  {{site.data.keyword.cloud_notm}} の両方のツールキットを必ずインストールしてください。
+Cloud Foundry _および_{{site.data.keyword.cloud_notm}} の両方のツールキットを必ずインストールしてください。
+{: tip}
 
 ツールキットのダウンロードとインストールは、一回限りのタスクです。
 ツールキットがシステムに既にインストールされて動作していれば、
@@ -149,16 +145,15 @@ lastupdated: "2018-06-07"
 
 あるいは、Cloud Foundry ツールキットをシステムにダウンロードしてインストールするには、以下の手順を使用します。 
 
-1.  Cloud Foundry ツールキットをダウンロードするリンクは、アプリケーション環境の「`開始`」ウィンドウにあります。<br/>
-    ![Cloud Foundry ツールキットのダウンロード・リンク](images/img0025.png)
+1.  「`開始`」をクリックして、Cloud Foundry ツールキットのダウンロードに関する情報を表示します。
 
-2.  リンクをクリックすると、
-    [GitHub のダウンロード・ページ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudfoundry/cli/releases){:new_window} に移動します。<br/>
-    ![GitHub の Cloud Foundry ツールキットのダウンロード・ページ](images/img0026.png)
+2.  「`CLI`」をクリックします。このリンクをクリックすると、{{site.data.keyword.cloud_notm}} Developer Tools (CLI and Dev Tools) の資料が表示されます。
 
-3.  システムのインストーラーの最新バージョンをダウンロードして実行します。
+3.  「`Cloud Foundry CLI プラグイン`」をクリックし、次に「`{{site.data.keyword.cloud_notm}} 管理 CLI`」をクリックします。 
 
-4.  <div id='checkCFversion'></div>有効な Cloud Foundry ツールキットがあるかを確認するには、
+4.  ページの指示に従って、ご使用システム用の最新バージョンのインストーラーをダウンロードして実行します。
+
+5.  <div id='checkCFversion'></div>有効な Cloud Foundry ツールキットがあるかを確認するには、
     プロンプトで以下のコマンドを実行します。
 
     ```sh
@@ -173,21 +168,18 @@ lastupdated: "2018-06-07"
     ```
     {:codeblock}
     
-    >   **注**: {{site.data.keyword.cloud_notm}} との互換性のために、Cloud Foundry ツールキットは、バージョン 6.11 以降でなければなりません。
+    {{site.data.keyword.cloud_notm}} との互換性のために、Cloud Foundry ツールキットは、バージョン 6.11 以降でなければなりません。
+    {: tip}
 
 ### {{site.data.keyword.cloud_notm}} ツールキットのインストール
 
 {{site.data.keyword.cloud_notm}} ツールキットをシステムにダウンロードしてインストールするには、以下の手順を使用します。
 
-1.  {{site.data.keyword.cloud_notm}} ツールキットをダウンロードするリンクは、アプリケーションの「`開始`」ウィンドウにあります。<br/>
-    ![Cloud Foundry ツールキットのダウンロード・リンク](images/img0027.png)
+1.  「`開始`」をクリックして、{{site.data.keyword.cloud_notm}} 管理 CLI ツールキットのダウンロードに関する情報を表示します。
 
-2.  リンクをクリックすると、
-    [ダウンロード・ページ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window} に移動します。<br/>
-    ![{{site.data.keyword.cloud_notm}} ツールキットのダウンロード・ページ](images/img0028.png)
+2.  「`CLI`」をクリックして、「[{{site.data.keyword.cloud_notm}} Developer Tools の概説![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window}」資料を開きます。
 
-
-3.  システムの適切なインストーラーをダウンロードして実行します。
+3.  ページの指示に従って、ご使用のシステムに適切なインストーラーをダウンロードして実行します。
 
     インストーラーは、Cloud Foundry ツールキットの適切なバージョンがインストールされているか、確認します。
     状況がすべて適切であれば、{{site.data.keyword.cloud_notm}} ツールキットがシステムにインストールされます。
@@ -210,6 +202,9 @@ lastupdated: "2018-06-07"
 {{site.data.keyword.cloud_notm}} アプリケーションを処理するためのツールが使用可能になりました。
 次のステップでは、{{site.data.keyword.cloud_notm}} アプリケーションの作成に利用できる「スターター」のマテリアルを入手します。
 
+コマンド・ライン・インターフェースをインストールしたら、ダッシュボードの「`開始`」タブに戻り、コマンド・ライン・インターフェースを使用して Cloud Foundry アプリケーションおよびサービス・インスタンスをダウンロード、変更、および再デプロイします。
+{: tip}
+
 <div id="starter"></div>
 
 ## 「スターター」アプリケーション
@@ -229,22 +224,22 @@ lastupdated: "2018-06-07"
 
 特に、以下の 3 つのファイルが重要です。
 
--   [「`Procfile`」](#procfile)
--   [「`manifest.yml`」](#manifest)
--   [「`requirements.txt`」](#requirements)
+-   [`Procfile`](#procfile)
+-   [`manifest.yml`](#manifest)
+-   [`requirements.txt`](#requirements)
 
 <div id="procfile"></div>
 
-### 「`Procfile`」ファイル
+### `Procfile` ファイル
 
-「`Procfile`」には、アプリケーションの実行に {{site.data.keyword.cloud_notm}} が必要とする詳細情報が含まれます。
+`Procfile` には、アプリケーションの実行に {{site.data.keyword.cloud_notm}} が必要とする詳細情報が含まれます。
 
 もっと具体的に言うと、
-「`Procfile`」は、アプリケーション・プロセス・タイプとアプリケーション実行コマンドを定義する Cloud Foundry 成果物です。
-「`Procfile`」に関する詳細については、
+`Procfile` は、アプリケーション・プロセス・タイプとアプリケーション実行コマンドを定義する Cloud Foundry 成果物です。
+`Procfile` に関する詳細については、
 [こちら ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){:new_window}を参照してください。
 
-{{site.data.keyword.cloud_notm}} Python スターター・アプリケーションの「`Procfile`」は、以下のサンプルのようなものです。
+{{site.data.keyword.cloud_notm}} Python スターター・アプリケーションの `Procfile` は、以下のサンプルのようなものです。
 
 ```
 web: python server.py
@@ -259,17 +254,17 @@ python server.py
 ```
 {:codeblock}
 
-スターターの Python ソース・ファイル「`server.py`」は、スターター・アプリケーションのアーカイブに含まれています。
-アプリケーションに合わせて、「`server.py`」ファイルを変更します。
+スターターの Python ソース・ファイル `server.py` は、スターター・アプリケーションのアーカイブに含まれています。
+アプリケーションに合わせて、`server.py` ファイルを変更します。
 あるいは、全く新しい Python ソース・ファイルを作成し、
 アプリケーションの開始時にそのファイルが使用されるように、
-「`Procfile`」を更新します。
+`Procfile` を更新します。
 
 <div id="manifest"></div>
 
-### 「`manifest.yml`」ファイル
+### `manifest.yml` ファイル
 
-「`manifest.yml`」ファイルは、アプリケーションと、その実行に必要な環境についてすべて記述したものです。
+`manifest.yml` ファイルは、アプリケーションと、その実行に必要な環境についてすべて記述したものです。
 
 {{site.data.keyword.cloud_notm}} Python スターター・アプリケーションのファイルは、以下のサンプルのようなものです。
 
@@ -289,24 +284,24 @@ applications:
 
 ここで、3 つの点に注目してください。
 
--   「`domain`」、
-    「`name`」、
-    「`host`」の値は、
+-   `domain`、
+    `name`、
+    `host` の値は、
     {{site.data.keyword.cloud_notm}} アプリケーションの[作成](#creating)時に入力された値に対応します。
--   「`name`」の値は、管理されているアプリケーションを識別するために Cloud Foundry ツールキットが使用します。
--   「`services`」の値は、「`Cloudant Service 2017`」の
+-   `name` の値は、管理されているアプリケーションを識別するために Cloud Foundry ツールキットが使用します。
+-   `services` の値は、`Cloudant Service 2017` の
     {{site.data.keyword.cloudant_short_notm}} データベース・インスタンスがアプリケーション環境に接続されることを確定します。
 
-通常、「`manifest.yml`」ファイルの変更は不要ですが、
+通常、`manifest.yml` ファイルの変更は不要ですが、
 アプリケーションの動作にその存在が必要な理由を理解すると役立ちます。
 
 <div id="requirements"></div>
 
-### 「`requirements.txt`」ファイル
+### `requirements.txt` ファイル
 
-「`requirements.txt`」ファイルは、アプリケーションの動作に必要な追加のコンポーネントを指定します。
+`requirements.txt` ファイルは、アプリケーションの動作に必要な追加のコンポーネントを指定します。
 
-スターター・アプリケーションで、「`requirements.txt`」ファイルは空です。
+スターター・アプリケーションで、`requirements.txt` ファイルは空です。
 
 ただし、このチュートリアルの Python アプリケーションは、
 {{site.data.keyword.cloudant_short_notm}} データベース・インスタンスにアクセスします。
@@ -314,7 +309,7 @@ applications:
 [Python アプリケーションの {{site.data.keyword.cloudant_short_notm}} クライアント・ライブラリー](../libraries/supported.html#python)を使用することが可能でなければなりません。
 
 Python クライアント・ライブラリーを有効にするには、
-「`requirements.txt`」ファイルを以下のように変更します。
+`requirements.txt` ファイルを以下のように変更します。
 ```
 cloudant==2.3.1
 ```

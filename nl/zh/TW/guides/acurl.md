@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-01-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 授權的 curl：`acurl`
 
@@ -27,6 +30,9 @@ _（本手冊是以 Samantha Scharr 所撰寫的部落格文章為基礎：[
 1.	[對使用者名稱和密碼進行編碼](#encode-username-and-password)。
 2.	[建立別名](#create-an-alias)。
 3.	[啟動別名](#activate-the-alias)。
+
+如果您使用的是 Windows 電腦，則可以從指令行指定您的使用者名稱和密碼。
+{:tip}
 
 ## 對使用者名稱和密碼進行編碼
 

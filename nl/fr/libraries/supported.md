@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-03-06 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Bibliothèques client prises en charge
 
@@ -54,7 +54,7 @@ Des informations relatives à l'installation de la bibliothèque en l'ajoutant e
 
 ### Exemples et tutoriels pour Java
 
--   [Create, read, update, and delete ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/java){:new_window} with HTTP and JSON libraries. 
+-   [Create, read, update, and delete ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/java){:new_window} with HTTP and JSON libraries.
 -   [Create, read, update, and delete ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/java/CrudWithEktorp){:new_window} with ektorp library.
 -   [Building apps by using Java with {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud}}![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/building-apps-using-java-with-cloudant-on-ibm-bluemix/){:new_window}.
 -   [Build a game app with Liberty, {{site.data.keyword.cloudant_short_notm}}, and Single Sign On ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/developerworks/cloud/library/cl-multiservicegame-app/index.html?ca=drs-){:new_window} {{site.data.keyword.cloud_notm}} example.
@@ -76,7 +76,7 @@ npm install cloudant
 
 #### Bibliothèque prise en charge pour node.js
 
--   [nodejs-cloudant ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.npmjs.org/package/cloudant){:new_window}).
+-   [nodejs-cloudant ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.npmjs.com/package/@cloudant/cloudant){:new_window}).
 
 #### Bibliothèques et infrastructures non prises en charge pour node.js
 

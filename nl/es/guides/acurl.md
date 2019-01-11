@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-01-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Curl autorizado: `acurl`
 
@@ -18,7 +21,7 @@ _(Esta guía se basa en un artículo del blog de Samantha Scharr: [
 "Authorized curl, a.k.a. acurl" ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window},
 publicado por primera vez el 27 de noviembre de 2013)._
 
-`acurl` es un alias que le permite ejecutar por `curl` mandatos de {{site.data.keyword.cloudantfull}} a URL sin tener que escribir su nombre y contraseña en cada solicitud.
+`acurl` es un alias práctico que le permite ejecutar por `curl` mandatos de {{site.data.keyword.cloudantfull}} a URL sin tener que escribir su nombre y contraseña en cada solicitud.
 Esto significa que un simple `GET` emitido a una base de datos ya no se tiene que escribir como `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`, sino como `https://$ACCOUNT.cloudant.com/foo`.
 
 Esto no solo evita la incomodidad de escribir URL largos, sino que el alias `acurl` también ofrece mayor seguridad.
@@ -30,9 +33,12 @@ Solo hay que seguir tres sencillos pasos:
 2.	[Cree un alias](#create-an-alias)
 3.	[Active el alias](#activate-the-alias).
 
-## Codificar nombre de usuario y contraseña
+Si está utilizando un ordenador Windows, puede especificar el nombre de usuario y la contraseña desde la línea de mandatos.
+{:tip}
 
-Primero codificamos en base64 su nombre de usuario y contraseña de {{site.data.keyword.cloudant_short_notm}}.
+## Codifique el nombre de usuario y contraseña
+
+Primero, codificamos en base64 el nombre de usuario y contraseña de {{site.data.keyword.cloudant_short_notm}}.
 Esto nos devuelve una secuencia de caracteres base64.
 
 El mandato para codificar datos en base64 es parecido al del siguiente ejemplo:

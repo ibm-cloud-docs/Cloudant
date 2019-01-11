@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-18"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-05-18"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Minhas 5 principais dicas para modelar seus dados para escala
 
@@ -47,7 +50,7 @@ prejudicar o desempenho do aplicativo.
 
 ## Por que isso ajuda você a considerar dados imutáveis 
 
-Atrás de nossa interface `https://$ACCOUNT.cloudant.com/` há um banco de dados distribuído.
+Atrás de nossa interface `https://$ACCOUNT.cloudant.com/` há um banco de dados distribuído. 
 Dentro do cluster, os documentos são depositados em vários shards que formam coletivamente o
 banco de dados. Esses shards são então distribuídos entre os nós no cluster. Isso é o que nos
 permite suportar bancos de dados com muitos terabytes de tamanho.

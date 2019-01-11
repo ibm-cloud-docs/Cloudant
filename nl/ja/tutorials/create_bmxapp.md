@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,34 +11,35 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.Bluemix_notm}} アプリケーションの作成
+# {{site.data.keyword.cloud_notm}} データベースにアクセスする単純な {{site.data.keyword.cloudant_short_notm}} アプリケーションの作成
 
 このチュートリアルでは、
 [Python プログラミング言語 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){:new_window}
-を使用して、{{site.data.keyword.Bluemix_notm}} サービス・インスタンスでホストされた {{site.data.keyword.cloudantfull}} データベースにアクセスする
-{{site.data.keyword.Bluemix}} アプリケーションを作成する方法を示します。
+を使用して、{{site.data.keyword.cloud_notm}} サービス・インスタンスでホストされた {{site.data.keyword.cloudantfull}} データベースにアクセスする
+{{site.data.keyword.cloud}} アプリケーションを作成する方法を示します。
 {:shortdesc}
 
 ## コンテキスト
 
-{{site.data.keyword.Bluemix_notm}} の大きな利点の 1 つとして、
-{{site.data.keyword.Bluemix_notm}} 自体の中でアプリケーションを作成してデプロイすることが可能です。
+{{site.data.keyword.cloud}} の大きな利点の 1 つとして、
+{{site.data.keyword.cloud_notm}} 自体の中でアプリケーションを作成してデプロイすることが可能です。
 アプリケーションを実行するためのサーバーを探して保守する必要はありません。
 
-{{site.data.keyword.Bluemix_notm}} 内で {{site.data.keyword.cloudant_short_notm}} データベース・インスタンスを既に使用している場合は、
+{{site.data.keyword.cloudant_short_notm}} 内で {{site.data.keyword.cloud_notm}} データベース・インスタンスを既に使用している場合は、
 そこにアプリケーションを置くのも妥当です。
 
-{{site.data.keyword.Bluemix_notm}} アプリケーションは通常、
+{{site.data.keyword.cloud_notm}} アプリケーションは通常、
 [Cloud Foundry ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} テクノロジーを使用して作成されます。
 Cloud Foundry では Platform-as-a-Service (PaaS) 機能を提供しており、これにより、クラウド環境内でデプロイして実行可能なアプリケーションを作成するプロセスが単純化されます。
 
-{{site.data.keyword.Bluemix_notm}} 内の {{site.data.keyword.cloudant_short_notm}}
+{{site.data.keyword.cloudant_short_notm}} 内の {{site.data.keyword.cloud_notm}}
 データベース・インスタンスを使用するスタンドアロン Python アプリケーションの作成方法は、
 [別のチュートリアル](create_database.html)に示されています。
-このチュートリアルでは、{{site.data.keyword.Bluemix_notm}} 内でホストされる小さな
+このチュートリアルでは、{{site.data.keyword.cloud_notm}} 内でホストされる小さな
 Python アプリケーションをセットアップして作成します。
 このアプリケーションでは、{{site.data.keyword.cloudant_short_notm}} データベース・インスタンスに接続し、
 1 つの単純な文書を作成します。
@@ -56,12 +57,12 @@ Python アプリケーションをセットアップして作成します。
 
 ## タスクの概要
 
-{{site.data.keyword.cloudant_short_notm}} データベース・インスタンスにアクセスできる実際の Python アプリケーションを
-{{site.data.keyword.Bluemix_notm}} で作成するには、以下のタスクを実行する必要があります。
+{{site.data.keyword.cloud_notm}} データベース・インスタンスにアクセスできる実際の Python アプリケーションを
+{{site.data.keyword.cloudant_short_notm}} で作成するには、以下のタスクを実行する必要があります。
 
--   [{{site.data.keyword.Bluemix_notm}} で Python アプリケーション環境を作成します。](create_bmxapp_appenv.html#creating)
+-   [{{site.data.keyword.cloud_notm}} で Python アプリケーション環境を作成します。](create_bmxapp_appenv.html#creating)
 -   [Python アプリケーション環境に、{{site.data.keyword.cloudant_short_notm}} データベース・インスタンスへの「接続」があることを確認します。](create_bmxapp_appenv.html#connecting)
--   [(一回限りのタスク) Cloud Foundry と {{site.data.keyword.Bluemix_notm}} のコマンド・ライン・ツールキットをダウンロードしてインストールします。](create_bmxapp_appenv.html#toolkits)
+-   [(一回限りのタスク) Cloud Foundry と {{site.data.keyword.cloud_notm}} のコマンド・ライン・ツールキットをダウンロードしてインストールします。](create_bmxapp_appenv.html#toolkits)
 -   [スターター・アプリケーションをダウンロードします。](create_bmxapp_appenv.html#starter)
 -   [スターター・アプリケーションをカスタマイズして、{{site.data.keyword.cloudant_short_notm}} データベース・インスタンスにアクセスする独自のアプリケーションを作成します。](create_bmxapp_createapp.html#theApp)
 -   [アプリケーションをアップロードして、動作するかテストします。](create_bmxapp_upload.html#uploading)

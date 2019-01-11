@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-02"
+  years: 2017, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2017-11-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-22 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Configuración de {{site.data.keyword.cloudant_short_notm}} para la recuperación tras desastre entre regiones
 
@@ -232,7 +233,7 @@ Como directriz general, esta es la lista de las comprobaciones típicas:
 * [Réplicas](#replications)
 * [Índices](#indexes)
 
-> **Nota:** Si implementa un redireccionamiento de solicitudes o una migración tras error en función de una prueba de estado, puede resultar aconsejable incorporar comprobaciones correspondientes para evitar un redireccionamiento prematuro a una instancia de servicio que aún se está recuperando.
+> **Nota:** Si implementa una redirección de solicitudes o una migración tras error en función de una prueba de estado, puede resultar aconsejable incorporar comprobaciones correspondientes para evitar una redirección prematura a una instancia de servicio que aún se está recuperando.
 
 ### Réplicas
 

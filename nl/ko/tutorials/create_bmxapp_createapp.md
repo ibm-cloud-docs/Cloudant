@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.cloud_notm}} 애플리케이션 작성: 코드
 
@@ -220,11 +221,11 @@ target.write("Got cloudantNoSQLDBData\n")
 {:codeblock}
 
 애플리케이션 환경에는 여러 {{site.data.keyword.cloud_notm}} 서비스가 연결될 수 있습니다.
-각 서비스의 신임 정보는 배열 요소로 나열됩니다.
+각 서비스의 인증 정보는 배열 요소로 나열됩니다.
 이 튜토리얼에서는 하나의 [서비스 연결만 작성되었습니다](create_bmxapp_appenv.html#connecting).
 따라서 애플리케이션은 첫 번째 요소(요소 '0')에 액세스합니다.
 각 서비스 요소는 서비스에 액세스하는 데 필요한 필수 필드 이름으로 인덱스화된 목록으로 표현된,
-해당 서비스의 신임 정보를 포함합니다.
+해당 서비스의 인증 정보를 포함합니다.
 필드 이름에 대한 자세한 정보는 간단한 데이터베이스 작성 태스크를 설명하는
 [튜토리얼](create_database.html#pre-requisites)에 제공되어 있습니다.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-03-06 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 支持的客户机库
 
@@ -70,7 +70,7 @@ npm install cloudant
 
 #### 支持的 Node.js 库
 
--   [nodejs-cloudant ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.npmjs.org/package/cloudant){:new_window})。
+-   [nodejs-cloudant ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.npmjs.com/package/@cloudant/cloudant){:new_window})。
 
 #### 不支持的 Node.js 库和框架
 

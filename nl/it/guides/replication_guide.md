@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-20 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Replica
 
@@ -30,13 +31,12 @@ e può essere ottimizzata utilizzando i parametri.
 Il protocollo di replica di {{site.data.keyword.cloudant_short_notm}} è compatibile con una gamma di altri database e librerie
 il che lo rende particolarmente adatto per le applicazioni Internet of Things (IoT) e mobili.
 
-Questa guida introduce le funzioni di replica {{site.data.keyword.cloudant_short_notm}},
-descrive i casi di utilizzo comuni
-e mostra come eseguire la replica della tua applicazione correttamente.
+Questa guida introduce le funzioni di replica di {{site.data.keyword.cloudant_short_notm}},
+descrive i casi di utilizzo comuni e mostra come eseguire la replica della tua applicazione correttamente.
 
 ## Cos'è la replica?
 
-{{site.data.keyword.cloudant_short_notm}} è un archivio dati JSON distribuito con una API HTTP.
+{{site.data.keyword.cloudant_short_notm}} è un archivio dati JSON distribuito con un'API HTTP.
 {{site.data.keyword.cloudant_short_notm}} può essere eseguito come servizio su più cloud
 o nel tuo rack di server.
 I documenti vengono memorizzati nei database e possono raggiungere qualsiasi dimensione poiché {{site.data.keyword.cloudant_short_notm}} frammenta i suoi dati in molti nodi.
@@ -62,19 +62,17 @@ Rimane qualsiasi dato preesistente nel database di destinazione.
 ## Come avviare la replica utilizzando il dashboard
 
 Il dashboard {{site.data.keyword.cloudant_short_notm}} fornisce una pratica interfaccia utente per attivare la replica.
-Apri la scheda Replica del tuo dashboard {{site.data.keyword.cloudant_short_notm}} e fai clic sul pulsante di azione `Nuova replica`.
-Completa il semplice modulo:
+Fai clic sulla scheda `Replication` nel dashboard {{site.data.keyword.cloudant_short_notm}} e fai clic su `Start Replication`.
+Completa il modulo:
 
 ![replica2](../images/replication_guide_2.png)
 
-Utilizzando il modulo,
-definisci i database di origine e di destinazione
-e fai quindi clic su "`Replica`".
+Utilizzando il modulo, definisci i database di origine e di destinazione e fai quindi clic su `Start Replication`.
 
 ![replica3](../images/replication_guide_3.png)
 
-Lo stato di ogni attività di replica può essere visualizzato nella sezione "`Tutte le repliche`" del dashboard.
-Ogni lavoro modifica lo stato da "`Attivato`" a "`Completo`" man mano che avanza.
+Lo stato di ogni attività di replica può essere visualizzato facendo clic sulla scheda `Replication`.
+Lo stato di ogni lavoro viene modificato da `Running` a `Completed` man mano che avanza.
 
 ![replica4](../images/replication_guide_4.png)
 
@@ -299,11 +297,11 @@ Con la replica continua,
 i dati fluiscono continuamente.
 Tutte le modifiche successive apportate al database di origine vengono trasmesse al database di destinazione in tempo reale.
 
-La replica continua viene attivata facendo clic sulla casella di spunta "`Rendi questa replica continua`" quando definisci un'attività di replica nel dashboard {{site.data.keyword.cloudant_short_notm}}
-o impostando l'indicatore ["`continuous`"](../api/replication.html#checkpoints) nell'API {{site.data.keyword.cloudant_short_notm}}.
+La replica continua viene attivata facendo clic sulla casella di spunta `Make this replication continuous` quando definisci un'attività di replica nel dashboard {{site.data.keyword.cloudant_short_notm}}
+o impostando l'indicatore [`continuous`](../api/replication.html#checkpoints) nell'API {{site.data.keyword.cloudant_short_notm}}.
 
 La replica a due vie può essere resa continua in una o entrambe le direzioni,
-impostando l'indicatore "`continuous`".
+impostando l'indicatore `continuous`.
 
 _Esempio di utilizzo di HTTP per avviare una replica continua:_
 
@@ -339,8 +337,7 @@ _Esempio di documento JSON che definisce una replica continua:_
 
 ## Monitoraggio della replica
 
-Puoi controllare lo stato del database `_replicator` di {{site.data.keyword.cloudant_short_notm}} in qualsiasi momento,
-utilizzando il dashboard o l'API.
+Puoi controllare lo stato del database `_replicator` di {{site.data.keyword.cloudant_short_notm}} in qualsiasi momento utilizzando il dashboard oppure l'API.
 
 Se la replica non è riuscita,
 ad esempio perché le credenziali di autenticazione non erano valide,
@@ -445,7 +442,7 @@ db.sync(URL, { live: true });
 
 ### CloudantSync
 
-[CloudantSync ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/cloudant-sync-resources/){:new_window} è un insieme di librerie
+[CloudantSync ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/cloudant-sync-resources/){:new_window} è una serie di librerie
 per iOS e Android che consente di memorizzare i dati localmente in un dispositivo mobile
 e di sincronizzarli con  {{site.data.keyword.cloudant_short_notm}} quando la connettività mobile lo consente.
 Come con [PouchDB](#pouchdb),
@@ -686,10 +683,9 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ```
 {:codeblock}
 
->   **Nota**: l'ordine dei documenti nel feed `_changes` non è sempre lo stesso.
-    In altre parole, le modifiche potrebbero non essere visualizzate in un rigoroso ordine di tempo.
-    Il motivo è che i dati vengono restituiti da più nodi {{site.data.keyword.cloudant_short_notm}}
+    L'ordine dei documenti nel feed `_changes` non è sempre lo stesso.In altre parole, le modifiche potrebbero non essere visualizzate in un rigoroso ordine di tempo. Il motivo è che i dati vengono restituiti da più nodi {{site.data.keyword.cloudant_short_notm}}
     e si applicano le regole della consistenza eventuale.
+    {: tip}
 
 ## Insidie della replica
 
@@ -775,8 +771,7 @@ Ogni lavoro di replica è indipendente dall'altro,
 pertanto {{site.data.keyword.cloudant_short_notm}} non ti impedisce di creare processi di replica aggiuntivi.
 Tuttavia, ogni attività di replica consuma le risorse del sistema.
 
-Puoi controllare le tue "repliche attive" nel dashboard {{site.data.keyword.cloudant_short_notm}}
-per garantire che non ci siano attività di replica indesiderate in corso.
+Puoi controllare le tue "repliche attive" nel dashboard {{site.data.keyword.cloudant_short_notm}} per garantire che non ci siano attività di replica indesiderate in corso.
 Elimina tutti i documenti `_replicator` che non sono più necessari.
 
 ## Ottimizzazione della velocità di replica

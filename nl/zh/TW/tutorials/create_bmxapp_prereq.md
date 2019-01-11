@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,23 +11,24 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# 建立簡單的 {{site.data.keyword.Bluemix_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：必要條件
+# 建立簡單的 {{site.data.keyword.cloud_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：必要條件
 
-指導教學的這一節說明用於建立 {{site.data.keyword.Bluemix}} 應用程式的必要條件。
+指導教學的這一節說明用於建立 {{site.data.keyword.cloud}} 應用程式的必要條件。
 {:shortdesc}
 
 ## 必要條件
 
-請確定您已有下列資源或資訊，然後才開始進行本指導教學。
+請確定您已準備好下列資源或資訊，然後才開始進行本指導教學。
 
 ### Python
 
 針對最簡單的可能開發工作以外的所有開發工作，如果您的系統上有現行 [Python 程式設計語言 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window} 安裝，則會較為簡單。
 
-若要檢查，請在提示中執行下列指令：
+若要檢查，請在提示執行下列指令：
 
 ```sh
 python --version
@@ -43,7 +44,7 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例
+### {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例
 
 [這裡](create_service.html)提供用於建立 {{site.data.keyword.cloudantfull}} 服務實例（稱為 '`Cloudant Service 2017`'）的個別指導教學。
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-20 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Réplication
 
@@ -30,8 +31,7 @@ Le protocole de réplication de {{site.data.keyword.cloudant_short_notm}} est co
 ce qui fait qu'il est totalement adapté à IoT (Internet of Things) et aux applications mobiles.
 
 Ce guide présente les fonctions de réplication de {{site.data.keyword.cloudant_short_notm}},
-décrit les cas d'utilisation communs et indique comment effectuer
-la réplication de votre application.
+décrit les cas d'utilisation communs et indique comment effectuer la réplication de votre application.
 
 ## Qu'est-ce que la réplication ?
 
@@ -57,22 +57,22 @@ Toutes les données pré-existantes dans la base de données cible sont conserv�
 
 <div id="how-do-i-initiate-replication-via-the-dashboard-"></div>
 
-## Comment démarrer la réplication en utilisant le tableau de bord ?
+## Comment démarrer la réplication à l'aide du tableau de bord ?
 
-Le tableau de bord {{site.data.keyword.cloudant_short_notm}} inclut une interface permettant de déclencher la réplication.
-Ouvrez l'onglet Replication du tableau de bord {{site.data.keyword.cloudant_short_notm}} puis cliquez sur le bouton `New Replication`.
-Renseignez le formulaire suivant :
+Le tableau de bord {{site.data.keyword.cloudant_short_notm}} inclut une interface utilisateur pratique permettant de déclencher la réplication.
+Cliquez sur l'onglet `Replication` du tableau de bord {{site.data.keyword.cloudant_short_notm}}, puis sur `Start Replication`.
+Remplissez le formulaire :
 
 ![réplication2](../images/replication_guide_2.png)
 
 A l'aide du formulaire,
-définissez les bases de données source et cible
-puis cliquez sur "`Replicate`".
+définissez les bases de données source et cible,
+puis cliquez sur `Start Replication`.
 
 ![réplication3](../images/replication_guide_3.png)
 
-Le statut de chaque tâche de réplication s'affiche dans la section "`All Replications`" du tableau de bord.
-Chaque travail passe de l'état "`Triggered`" à l'état "`Complete`" lors de sa progression.
+Le statut de la tâche de réplication s'affiche en cliquant sur l'onglet `Replication`.
+Chaque travail progresse et passe de l'état `Running` à l'état `Completed`.
 
 ![réplication4](../images/replication_guide_4.png)
 
@@ -270,7 +270,7 @@ vous [créez des clés d'API](../api/authorization.html#creating-api-keys) ayant
 -   un accès `_reader` et `_replicator` au niveau de la source.
 -   un accès `_reader` et `_writer` au niveau de la cible.
 
-Les clés d'API peuvent être créées et configurées dans le tableau de bord {{site.data.keyword.cloudant_short_notm}},
+Les clés d'API peuvent être créées et configurées sur le tableau de bord {{site.data.keyword.cloudant_short_notm}},
 pour chaque base de données.
 
 ![réplication](../images/replication_guide_5.png)
@@ -297,12 +297,12 @@ Avec la réplication continue,
 les données transitent de manière continue.
 Toutes les modifications ultérieures apportées à la base de données source sont transmises à la base de données cible en temps réel.
 
-Pour déclencher la réplication continue, il suffit de cliquer sur la case à cocher
-"`Make this replication continuous`" lorsque vous définissez une tâche de réplication dans le tableau de bord {{site.data.keyword.cloudant_short_notm}},
-ou en définissant l'indicateur ["`continuous`"](../api/replication.html#checkpoints) dans l'API {{site.data.keyword.cloudant_short_notm}}.
+Pour déclencher la réplication continue, il suffit de cliquer sur la case
+`Make this replication continuous` lorsque vous définissez une tâche de réplication dans le tableau de bord {{site.data.keyword.cloudant_short_notm}},
+ou en définissant l'indicateur [`continuous`](../api/replication.html#checkpoints) dans l'API {{site.data.keyword.cloudant_short_notm}}.
 
-La réplication bidirectionnelle peut devenir continue dans un sens ou les deux,
-en définissant l'indicateur "`continuous`".
+La réplication bidirectionnelle peut être rendue continue dans un sens ou les deux,
+en définissant l'indicateur `continuous`.
 
 _Utilisation de HTTP pour démarrer une réplication continue - Exemple :_
 
@@ -339,7 +339,7 @@ _Exemple de document JSON définissant une réplication continue :_
 ## Surveillance de la réplication
 
 Vous pouvez vérifier le statut de la base de données `_replicator` de {{site.data.keyword.cloudant_short_notm}} à tout moment,
-en utilisant le tableau de bord ou l'API.
+à l'aide du tableau de bord ou de l'API.
 
 Si la réplication échoue,
 par exemple lorsque les données d'authentification ne sont pas valides,
@@ -385,7 +385,7 @@ _Réponse suite à la demande du statut d'une réplication - Exemple :_
 
 Pour arrêter un travail de réplication en cours,
 supprimez le document de réplication dans la base de données `_replicator`,
-en utilisant le tableau de bord ou l'API.
+à l'aide du tableau de bord ou de l'API.
 
 _Utilisation de HTTP pour annuler une réplication - Exemple :_
 
@@ -403,7 +403,7 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 ```
 {:codeblock}
 
-## Autres cas d'utilisation de réplication
+## Autres cas d'utilisation de la réplication
 
 La réplication ne concerne pas uniquement le transfert de données de {{site.data.keyword.cloudant_short_notm}} vers {{site.data.keyword.cloudant_short_notm}}.
 Le protocole de réplication de {{site.data.keyword.cloudant_short_notm}} est compatible avec d'autres bases de données et bibliothèques pour différentes applications du monde réel.
@@ -684,10 +684,9 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ```
 {:codeblock}
 
->   **Remarque** : L'ordre des documents dans le flux `_changes` n'est pas toujours le même.
-    Autrement dit, les modifications peuvent ne pas apparaître dans un ordre temporel strict.
-    Cela est dû au fait que les données sont renvoyés à partir de plusieurs noeuds {{site.data.keyword.cloudant_short_notm}} et
+    L'ordre des documents dans le flux `_changes` n'est pas toujours le même. Autrement dit, les modifications peuvent ne pas apparaître dans un ordre temporel strict. Cela est dû au fait que les données sont renvoyés à partir de plusieurs noeuds {{site.data.keyword.cloudant_short_notm}} et
     que les règles de cohérence finale s'appliquent.
+    {: tip}
 
 ## Inconvénients de la réplication
 
@@ -802,5 +801,5 @@ Par exemple :
 *   Si vous souhaitez exécuter la réplication avec un faible impact,
     attribuer la valeur 1 à `worker_processes` et `http_connections` peut être approprié.
 
-Pour obtenir de l'aide supplémentaire sur la meilleure configuration à utiliser pour votre scénario d'utilisation,
+Pour obtenir de l'aide supplémentaire sur la meilleure configuration à utiliser pour votre cas d'utilisation,
 contactez l'[équipe de support {{site.data.keyword.cloudant_short_notm}}![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window}.

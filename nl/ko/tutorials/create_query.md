@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-10-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -12,14 +13,14 @@ lastupdated: "2018-06-20"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-13 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} 조회 작성
 
 이 튜토리얼에서는 데이터베이스를 작성하고, 이를 문서로 채우고, 인덱스를 작성하고, 인덱스를 사용하여 데이터베이스를 조회하는 방법을 보여줍니다.
 
-![명령행 아이콘](../images/CommandLineIcon.png) _명령행_과 ![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_를
-사용하는 실습이 모두 제공됩니다. {{site.data.keyword.Bluemix}} 대시보드 실습은 사용자에게 각 태스크에 대한 시각적 예를 제공합니다. 자세한 정보를 얻으려는 경우에는 튜토리얼 전체에 제공된 링크를 따라 이동할 수 있습니다.
+![명령행 아이콘](../images/CommandLineIcon.png) _명령행_과 ![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.cloud}} 대시보드_를
+사용하는 실습이 모두 제공됩니다. {{site.data.keyword.cloud_notm}} 대시보드 실습은 사용자에게 각 태스크에 대한 시각적 예를 제공합니다. 자세한 정보를 얻으려는 경우에는 튜토리얼 전체에 제공된 링크를 따라 이동할 수 있습니다.
 
 먼저, 사용자는 `query-demo` 데이터베이스와 이러한 실습에 필요한 데이터를 포함하는 몇 가지 문서를 작성합니다.
 
@@ -27,9 +28,9 @@ lastupdated: "2018-06-20"
 
 시작하기 전에 다음 단계에 따라 튜토리얼을 진행할 준비를 하십시오.
 
-1.  [{{site.data.keyword.Bluemix}} 계정 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.ng.bluemix.net/registration/){:new_window}을 작성하십시오. 
-2.  [{{site.data.keyword.Bluemix_notm}} 대시보드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}에 로그인하십시오.
-3.  [{{site.data.keyword.Bluemix_notm}}에 {{site.data.keyword.cloudant_short_notm}} 인스턴스를 작성하십시오](create_service.html#creating-a-service-instance).
+1.  [{{site.data.keyword.cloud_notm}} 계정을 작성 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.ng.bluemix.net/registration/){:new_window}하십시오. 
+2.  [{{site.data.keyword.cloud_notm}} 대시보드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}에 로그인하십시오.
+3.  [{{site.data.keyword.cloud_notm}}에 {{site.data.keyword.cloudant_short_notm}} 인스턴스를 작성](create_service.html#creating-a-service-instance)하십시오. 
 4.  (선택사항) 명령행에서 더 쉽고 빠르게 명령을 실행할 수 있도록 [acurl 별명을 작성하십시오](../guides/acurl.html#authorized-curl-acurl-).
 5.  실습에 포함된 명령의 `$ACCOUNT` 변수를 {{site.data.keyword.cloudant_short_notm}} 대시보드에 로그인할 때 사용하는 사용자 이름으로 대체하십시오.
   `acurl`을 설정하지 않기로 결정하는 경우에는 실습에 제공된 URL 대신 다음 URL을 사용하십시오.
@@ -62,7 +63,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_
+![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 대시보드_
 
 1.  작성한 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 여십시오.
 2.  {{site.data.keyword.cloudant_short_notm}} 서비스 페이지에서 **시작**을 클릭하십시오.
@@ -164,7 +165,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_
+![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 대시보드_
 
 1.  **`+`**를 클릭하고 **새 문서**를 선택하십시오. '새 문서' 창이 열립니다.
 2.  문서를 작성하려면 다음 샘플 텍스트를 복사하여 새 문서의 기존 텍스트를 대체하십시오.
@@ -294,7 +295,7 @@ lastupdated: "2018-06-20"
 
 
 
-![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_
+![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 대시보드_
 
 1.  **모든 문서** 또는 **디자인 문서** 탭에서 **`+` > 조회 인덱스**를 클릭하십시오.
 2.  다음 샘플 JSON 데이터를 **인덱스** 필드에 붙여넣으십시오.
@@ -331,7 +332,8 @@ lastupdated: "2018-06-20"
 조회를 통해 {{site.data.keyword.cloudant_short_notm}}에서 데이터를 추출할 수 있습니다. 잘 작성된 [조회](../api/cloudant_query.html#query)는 검색 범위를 좁히며 결과에 사용자가 원하는 결과만 포함됩니다.
 
 이 실습에서는 간단한 조회를 작성하고 실행하는 방법, 두 개의 필드를 사용하여 조회하는 방법 및 두 개의
-[연산자](../api/cloudant_query.html#cloudant_query.html#operators)를 사용하여 조회하는 방법을 보여줍니다. 사용자는 하나 이상의 필드와 해당 값을 지정함으로써 연산자를 사용하여 조회할 수 있습니다.
+[연산자](../api/cloudant_query.html#cloudant_query.html#operators)를 사용하여 조회하는 방법을 보여줍니다.
+사용자는 하나 이상의 필드와 해당 값을 지정함으로써 연산자를 사용하여 조회할 수 있습니다.
 조회는 그 후 이 값을 사용하여 데이터베이스에서 일치 항목을 검색합니다.
 
 가장 간단한 조회를 위해서는 JSON을 데이터 파일에 추가하고 이를 명령행에서 실행하십시오.
@@ -376,7 +378,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_
+![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 대시보드_
 
 1.  **조회** 탭을 클릭하십시오.
 2.  다음 샘플 JSON을 복사하여 {{site.data.keyword.cloudant_short_notm}} 조회 창에 붙여넣으십시오.
@@ -476,7 +478,7 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
   ```
   {:codeblock}
 
-![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_
+![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 대시보드_
 
 1.  **조회** 탭을 클릭하십시오.
 2.  다음 샘플 JSON을 복사하여 {{site.data.keyword.cloudant_short_notm}} 조회 창에 붙여넣으십시오.
@@ -520,7 +522,7 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
 ``` 
 {:codeblock}
 
-결과는 `sort` 매개변수에서 지정된 값에 따라 연령 기준으로 오름차순으로 정렬됩니다. 
+결과는 `sort` 매개변수에서 지정된 값에 따라 연령 기준으로 오름차순으로 정렬됩니다.
 
 ```json
     "sort": [
@@ -575,7 +577,7 @@ selector 표현식에 세부사항을 추가하여 필요에 맞게 결과를 �
   ```
   {:codeblock}
 
-![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 대시보드_
+![대시보드 아이콘](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 대시보드_
 
 1.  **조회** 탭을 클릭하십시오.
 2.  다음 샘플 JSON을 복사하여 {{site.data.keyword.cloudant_short_notm}} 조회 창에 붙여넣으십시오.

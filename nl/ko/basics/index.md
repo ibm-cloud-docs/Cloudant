@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,8 @@ lastupdated: "2018-02-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+
+<!-- Acrolinx: 2018-05-07 -->
 
 # {{site.data.keyword.cloudant_short_notm}} 기본 사항
 
@@ -24,7 +26,7 @@ Cloudant를 처음 사용해 보는 경우에는 더 진행하기 전에 이 절
 ## {{site.data.keyword.cloudant_short_notm}}에 연결
 
 {{site.data.keyword.cloudant_short_notm}}에 액세스하려면 [{{site.data.keyword.cloudant_short_notm}} 계정](../api/account.html)
-또는 [{{site.data.keyword.Bluemix}} 계정](../offerings/bluemix.html)이 있어야 합니다.
+또는 [{{site.data.keyword.cloud}} 계정](../offerings/bluemix.html)이 있어야 합니다.
 
 ## HTTP API
 

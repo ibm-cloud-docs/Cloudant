@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,8 @@ lastupdated: "2018-02-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+
+<!-- Acrolinx: 2018-05-07 -->
 
 # {{site.data.keyword.cloudant_short_notm}} 基本觀念
 
@@ -21,7 +23,7 @@ lastupdated: "2018-02-15"
 
 ## 連接至 {{site.data.keyword.cloudant_short_notm}}
 
-若要存取 {{site.data.keyword.cloudant_short_notm}}，您必須具有 [{{site.data.keyword.cloudant_short_notm}} 帳戶](../api/account.html)或 [{{site.data.keyword.Bluemix}} 帳戶](../offerings/bluemix.html)。
+若要存取 {{site.data.keyword.cloudant_short_notm}}，您必須具有 [{{site.data.keyword.cloudant_short_notm}} 帳戶](../api/account.html)或 [{{site.data.keyword.cloud}} 帳戶](../offerings/bluemix.html)。
 
 ## HTTP API
 

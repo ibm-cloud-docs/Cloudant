@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-05-17"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -195,8 +196,7 @@ adequado para processamento posterior e armazenamento externo.
 *	Os backups não são capturas instantâneas do "momento" precisamente exatas.
 	O motivo é que os documentos no banco de dados são recuperados em lotes,
 mas outros aplicativos podem estar atualizando documentos ao mesmo tempo.
-	Portanto,
-os dados no banco de dados podem mudar entre as vezes em que os primeiros e últimos lotes são lidos.
+	Portanto, os dados no banco de dados podem mudar entre as vezes em que o primeiro e o último lotes são lidos.
 *	Os documentos de design retidos por definições do índice remissivo são submetidos a backup,
 mas quando os dados são restaurados, os índices devem ser reconstruídos.
 	Essa reconstrução poderá levar um período de tempo considerável,

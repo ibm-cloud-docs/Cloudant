@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Creazione e popolamento di un semplice database {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}
 
@@ -364,7 +367,8 @@ Il risultato è simile al seguente esempio _abbreviated_:
 {
     "rows": [
         {
-            "value": {
+            "value":
+            {
               "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
             },
             "id": "14746fe384c7e2f06f7295403df89187",

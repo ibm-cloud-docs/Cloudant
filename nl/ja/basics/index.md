@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,8 @@ lastupdated: "2018-02-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+
+<!-- Acrolinx: 2018-05-07 -->
 
 # {{site.data.keyword.cloudant_short_notm}} の基本
 
@@ -21,7 +23,7 @@ lastupdated: "2018-02-15"
 
 ## {{site.data.keyword.cloudant_short_notm}} への接続
 
-{{site.data.keyword.cloudant_short_notm}} にアクセスするには、[{{site.data.keyword.cloudant_short_notm}} アカウント](../api/account.html)または [{{site.data.keyword.Bluemix}} アカウント](../offerings/bluemix.html)が必要です。
+{{site.data.keyword.cloudant_short_notm}} にアクセスするには、[{{site.data.keyword.cloudant_short_notm}} アカウント](../api/account.html)または [{{site.data.keyword.cloud}} アカウント](../offerings/bluemix.html)が必要です。
 
 ## HTTP API
 

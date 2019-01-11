@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.cloud_notm}} アプリケーションの作成: コード
 
@@ -52,13 +53,13 @@ lastupdated: "2018-06-07"
 構成ファイルを次のように変更します。
 
 1.  「`Procfile`」ファイルを編集して、次のテキストを含めます。
-```
+    ```
     web: python server.py
     ```
     {:codeblock}
 
 2.  「`manifest.yml`」ファイルを編集して、次のテキストを含めます。
-```
+    ```
     applications:
     - path: .
       memory: 128M
@@ -71,10 +72,10 @@ lastupdated: "2018-06-07"
       - <データベース・インスタンス>
     ```
     {:codeblock}
-    >   **注**: 必ず、`「domain」`、`「name」`、`「host」`、および`「services」の値を変更してください。これらは、[{{site.data.keyword.cloud_notm}} アプリケーション環境](create_bmxapp_appenv.html#creating)と [{{site.data.keyword.cloudant_short_notm}} データベース・インスタンス](create_bmxapp_prereq.html#csi)の作成時に入力した値です。
+    >   **注**: 必ず、`「domain」`、`「name」`、`「host」`、および`「services」の値を変更してください。 これらは、[{{site.data.keyword.cloud_notm}} アプリケーション環境](create_bmxapp_appenv.html#creating)と [{{site.data.keyword.cloudant_short_notm}} データベース・インスタンス](create_bmxapp_prereq.html#csi)の作成時に入力した値です。
 
 3.  「`requirements.txt`」ファイルを編集して、次のテキストを含めます。
-```
+    ```
     cloudant==2.3.1
     ```
     {:codeblock}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-04-28 -->
+<!-- Acrolinx: 2018-05-31 -->
 
 # Tutorial Introdução
 {: #getting-started-with-cloudant}
@@ -36,19 +36,18 @@ Para obter tutoriais específicos da linguagem, consulte [Introdução à implem
 ## Antes de iniciar
 {: #prereqs}
 
-Você precisará de uma [conta do Bluemix ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/registration/){:new_window},
-uma instância do serviço {{site.data.keyword.cloudant}} e os requisitos de Python a seguir:
+É necessária uma [conta do {{site.data.keyword.cloud}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo") ](https://console.ng.bluemix.net/registration/){:new_window}, uma instância do serviço do {{site.data.keyword.cloudant_short_notm}} e os requisitos do Python a seguir:
 
-*	Instale a versão mais recente da
-[linguagem de programação Python ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://www.python.org/){:new_window} em seu sistema.
+*	Instale a versão mais recente da [linguagem de programação Python ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo") ](https://www.python.org/){:new_window} em seu sistema.
 	
-	Para verificar isso, execute o comando a seguir em um prompt:
+	Para verificar,
+execute o seguinte comando em um prompt:
 	```sh
 	python --version
 	```
 	{:pre}
 	
-	Você deverá ter um resultado semelhante a:
+	Você vê um resultado semelhante a este:
 
 	```
 	Python 2.7.12
@@ -57,34 +56,32 @@ uma instância do serviço {{site.data.keyword.cloudant}} e os requisitos de Pyt
 
 *	Instale a [biblioteca do Python](libraries/supported.html#python)
 para permitir que os aplicativos Python trabalhem com o
-{{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.Bluemix_notm}}.
+{{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud_notm}}.
 	
-	Para verificar se a biblioteca do cliente foi instalada com sucesso,
-execute o comando a seguir em um prompt:
+	Para verificar se você instalou a biblioteca do cliente com êxito, execute o comando a seguir em um prompt:
 	```sh
 	pip freeze
 	```
 	{:pre}
 	
-	É necessário obter uma lista de todos os módulos Python instalados no sistema. Inspecione a lista, procurando uma entrada do {{site.data.keyword.cloudant_short_notm}} semelhante à seguinte:
+	Você verá uma lista de todos os módulos Python que estão instalados em seu sistema. Inspecione a lista, procurando uma entrada do {{site.data.keyword.cloudant_short_notm}} semelhante à seguinte:
 
 	```
 	cloudant==2.3.1
 	```
 	{:screen}
 	
-	Se o módulo do `cloudant` não estiver instalado, instale-o usando um comando semelhante ao seguinte:
+	Se o módulo `cloudant` não estiver instalado, instale-o usando um comando semelhante ao seguinte:
 	
 	```
 	pip install cloudant==2.3.1
 	```
 	{:pre}
 
-## Etapa 1: conecte-se à sua instância de serviço do {{site.data.keyword.Bluemix_notm}} no {{site.data.keyword.cloudant_short_notm}}
+## Etapa 1: Conectar-se à instância de serviço do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud_notm}}
+{: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
-1.	Execute as instruções '`import`' a seguir dos componentes da Biblioteca do cliente do {{site.data.keyword.cloudant_short_notm}}
-para permitir que o aplicativo Python se conecte
-à instância de serviço do {{site.data.keyword.cloudant_short_notm}}.
+1.	Execute as instruções de `import` dos componentes da Biblioteca do cliente do {{site.data.keyword.cloudant_short_notm}} para permitir que o aplicativo Python se conecte à instância de serviço do {{site.data.keyword.cloudant_short_notm}}.
 	```python
 	from cloudant.client import Cloudant
 	from cloudant.error import CloudantException
@@ -92,11 +89,21 @@ para permitir que o aplicativo Python se conecte
 	```
 	{: codeblock}
 
-2. Identifique as credenciais de serviço do {{site.data.keyword.cloudant_short_notm}}:
-  1. No console do {{site.data.keyword.Bluemix_notm}}, abra o painel para sua instância de serviço.
-  2. Na navegação à esquerda, clique em **`Service credentials`**.
-  3. Clique em **`View credentials`** em **`ACTIONS`**.
-
+2.  Crie uma nova credencial de serviço  {{site.data.keyword.cloudant_short_notm}} :
+  <br>No console do {{site.data.keyword.cloud_notm}}, abra o painel para sua instância de serviço.
+  <br>Na navegação à esquerda, clique em `Service credentials`.
+  <br>a. Clique no botão  ` Nova credencial ` .
+  <br>![Criar novas credenciais de serviço](tutorials/images/img0050.png)
+  <br>b. Insira um nome para a nova credencial na janela Incluir nova credencial, conforme mostrado na captura de tela a seguir.
+  <br>c. (Opcional) Inclua parâmetros de configuração sequenciais.
+  <br>d. Clique no botão  ` Incluir ` . 
+  <br>![Incluir uma nova credencial de serviço](tutorials/images/img0051.png)
+  <br>Suas credenciais são incluídas na tabela Credenciais de serviço.
+  <br>e. Clique em `Visualizar credenciais` em Ações.
+  <br>![Visualizar todas as credenciais de serviço](tutorials/images/img0052.png)
+  <br>Os detalhes das credenciais de serviço aparecem:
+   <br>![As credenciais de serviço do {{site.data.keyword.cloudant_short_notm}}](tutorials/images/img0009.png)
+   
 3.	Estabeleça uma conexão com a instância de serviço executando o comando a seguir.
 	Substitua suas credenciais de serviço da etapa anterior:
 	```python
@@ -107,6 +114,7 @@ para permitir que o aplicativo Python se conecte
 
 
 ## Etapa 2: crie um banco de dados
+{: #step-2-create-a-database}
 
 1. Defina uma variável no aplicativo Python:
   ```python
@@ -115,7 +123,8 @@ para permitir que o aplicativo Python se conecte
   {: codeblock}
   ... em que `<yourDatabaseName>` é o nome que você gostaria de dar ao banco de dados. 
 
-  > **Nota:** o nome do banco de dados deve começar com uma letra e pode incluir apenas caracteres minúsculos (a - z), numerais (0 - 9) e qualquer um dos caracteres a seguir `_`, `$`, `(`, `)`, `+`, `-` e `/`.
+  O nome do banco de dados deve começar com uma letra e pode incluir apenas caracteres minúsculos (a - z), numerais (0 - 9) e qualquer um dos caracteres a seguir `_`, `$`, `(`, `)`, `+`, `-` e `/`.
+  {: tip}
 
 2. Crie o banco de dados:
   ```python
@@ -123,7 +132,7 @@ para permitir que o aplicativo Python se conecte
   ```
   {: codeblock}
 
-3. Confirme se o banco de dados foi criado com sucesso:
+3. Confirme se o banco de dados foi criado com êxito:
   ```python
   if myDatabase.exists():
       print "'{0}' successfully created.\n".format(databaseName)
@@ -131,6 +140,7 @@ para permitir que o aplicativo Python se conecte
   {: codeblock}
 
 ## Etapa 3: armazene uma pequena coleção de dados como documentos dentro do banco de dados
+{: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
 
 1. Defina uma coleção de dados:
   ```python
@@ -148,7 +158,7 @@ para permitir que o aplicativo Python se conecte
   Cada documento é armazenado no banco de dados:
 
   ```python
-  # Create documents using the sample data.
+  # Create documents by using the sample data.
   # Go through each row in the array
   for document in sampleData:
     # Retrieve the fields in each row.
@@ -166,7 +176,7 @@ para permitir que o aplicativo Python se conecte
         "temperatureField": temperature
     }
 
-    # Create a document using the Database API.
+    # Create a document by using the database API.
     newDocument = myDatabase.create_document(jsonDocument)
 
     # Check that the document exists in the database.
@@ -175,13 +185,13 @@ para permitir que o aplicativo Python se conecte
   ```
   {: codeblock}
 
-Observe que nós asseguramos a criação bem-sucedida de cada documento.
-{: tip}
+  Observe que nós asseguramos a criação bem-sucedida de cada documento.
+  {: tip}
 
 ## Etapa 4: recuperando dados por meio de consultas
+{: #step-4-retrieving-data-through-queries}
 
-Neste ponto,
-uma pequena coleção de dados foi armazenada como documentos no banco de dados.
+Uma pequena coleta de dados foi armazenada como documentos dentro do banco de dados.
 É possível executar uma recuperação mínima ou completa desses dados do banco de dados.
 Uma recuperação mínima obtém os dados básicos _sobre_ um documento.
 Uma recuperação completa também inclui os dados _dentro_ de um documento.
@@ -208,9 +218,10 @@ Uma recuperação completa também inclui os dados _dentro_ de um documento.
     ```
     {:screen}
     
-    > **Nota:** o prefixo `u'` é simplesmente uma indicação de que o Python está exibindo uma sequência Unicode. 
-    
-    Se arrumarmos um pouco a aparência, poderemos ver que os detalhes mínimos do documento retornados são equivalentes a isto:
+    O prefixo `u` é uma indicação de que o Python está exibindo uma sequência Unicode.
+    {: tip}
+
+    Se arrumarmos a aparência um pouco, poderemos ver que os detalhes mínimos do documento que temos de volta são equivalentes a este exemplo:
     
     ```json
     [
@@ -225,14 +236,10 @@ Uma recuperação completa também inclui os dados _dentro_ de um documento.
     ```
     {: codeblock}
 
-  > **Nota:** noções simples, como o fato de o primeiro documento armazenado em um banco de dados ser sempre
-o primeiro retornado em uma lista de resultados, nem sempre se aplicam a bancos de dados NoSQL, como o
-{{site.data.keyword.cloudant_short_notm}}.
+    A ideia de que o primeiro documento armazenado em um banco de dados é sempre o primeiro documento retornado em uma lista de resultados nem sempre se aplica a bancos de dados NoSQL como o {{site.data.keyword.cloudant_short_notm}}.
+    {: tip}
 
-* Para executar uma recuperação completa,
-solicite uma lista de todos os documentos no banco de dados
-e especifique que o conteúdo do documento também deve ser retornado
-fornecendo a opção `include_docs`.
+* Para executar uma recuperação completa, solicite uma lista de todos os documentos dentro do banco de dados e especifique que o conteúdo do documento também deve ser retornado fornecendo a opção `include_docs`.
   ```python
   result_collection = Result(myDatabase.all_docs, include_docs=True)
   print "Retrieved full document:\n{0}\n".format(result_collection[0])
@@ -245,7 +252,7 @@ fornecendo a opção `include_docs`.
   ```
   {: screen}
   
-  Se arrumarmos um pouco a aparência, poderemos ver que os detalhes completos do documento retornados são equivalentes a isto:
+  Se arrumarmos a aparência um pouco, poderemos ver que os detalhes completos do documento que temos de volta são equivalentes a este exemplo:
   
   ```json
   [
@@ -269,6 +276,7 @@ fornecendo a opção `include_docs`.
   {: codeblock}
 
 ## Etapa 5: recuperando dados por meio do terminal de API do {{site.data.keyword.cloudant_short_notm}}
+{: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
 Também é possível solicitar uma lista de todos os documentos e seus conteúdos
 chamando o [terminal `/_all_docs`](api/database.html#get-documents) do {{site.data.keyword.cloudant_short_notm}}.
@@ -281,8 +289,7 @@ chamando o [terminal `/_all_docs`](api/database.html#get-documents) do {{site.da
   {: codeblock}
   ... em que `<url>` é o valor da URL das credenciais de serviço localizadas na Etapa 1.
 
-2. Envie a solicitação para a instância de serviço
-e, em seguida, exiba os resultados:
+2. Envie a solicitação para a instância de serviço e exiba os resultados:
   ```python
   response = client.r_session.get(end_point, params=params)
   print "{0}\n".format(response.json())
@@ -296,7 +303,7 @@ e, em seguida, exiba os resultados:
   ```
   {:screen}
   
-  Podemos arrumar um pouco a aparência e ver que os detalhes _abreviados_ retornados são semelhantes a isto:
+  Podemos arrumar a aparência um pouco e ver que os detalhes _abreviados_ que nós temos de volta são semelhantes a este exemplo:
   
   ```json
   {
@@ -341,6 +348,7 @@ e, em seguida, exiba os resultados:
   {: codeblock}
 
 ## Etapa 6: exclua o banco de dados
+{: #step-6-delete-the-database}
 
 Quando tiver concluído com o banco de dados,
 ele poderá ser excluído.
@@ -355,10 +363,10 @@ else:
 ```
 {: codeblock}
 
-Incluímos alguma manipulação de erros básica
-para ilustrar como os problemas podem ser capturados e direcionados.
+Incluímos alguma manipulação de erros básica para mostrar como resolver problemas e abordar problemas em potencial.
 
 ## Etapa 7: feche a conexão com a instância de serviço
+{: #step-7-close-the-connection-to-the-service-instance}
 
 A etapa final é desconectar o aplicativo cliente Python da instância de serviço:
 
@@ -368,16 +376,16 @@ client.disconnect()
 {: codeblock}
 
 ## Etapas Seguintes
+{: #next-steps}
 
-Para obter mais informações sobre todas as ofertas do {{site.data.keyword.cloudant_short_notm}},
-veja o site principal do [{{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
+Para obter mais informações sobre todas as ofertas do {{site.data.keyword.cloudant_short_notm}}, consulte o site principal [{{site.data.keyword.cloudant_short_notm}}![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
 
-Para obter mais detalhes e tutoriais sobre conceitos, tarefas e técnicas do {{site.data.keyword.cloudant_short_notm}},
-veja a [documentação do {{site.data.keyword.cloudant_short_notm}}](cloudant.html).
+Para obter mais detalhes e tutoriais sobre conceitos, tarefas e técnicas do {{site.data.keyword.cloudant_short_notm}}, consulte a [documentação do {{site.data.keyword.cloudant_short_notm}}](cloudant.html).
 
 ## Apêndice: listagem completa de códigos do Python
+{: #appendix-complete-python-code-listing}
 
-A listagem completa de códigos do Python é como a seguir.
+A listagem completa de códigos do Python é como a seguir. 
 Lembre-se de substituir os valores `<username>`,
 `<password>`
 e `<url>` por suas credenciais de serviço.

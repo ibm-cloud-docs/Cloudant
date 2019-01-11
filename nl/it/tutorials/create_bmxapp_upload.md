@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Creazione di una semplice applicazione {{site.data.keyword.cloud_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: caricamento dell'applicazione
 
@@ -65,10 +66,10 @@ Devi fornire i seguenti dettagli dell'account:
 -   Il tuo nome dell'organizzazione, specificato come il parametro '`-o`'.
 -   Il tuo spazio, specificato come il parametro '`-s`'.
 
->   **Nota**: i dettagli dell'account sono disponibili nel tuo dashboard {{site.data.keyword.cloud_notm}},
-    quando accedi tramite un browser web,
-    come mostrato nel seguente esempio:<br/>
-    ![Ricerca dei tuoi dettagli dell'account {{site.data.keyword.cloud_notm}}](images/img0035.png)
+  I dettagli dell'account sono disponibili nel nostro dashboard {{site.data.keyword.cloud_notm}} quando accedi tramite un browser web, come mostrato nel seguente esempio:
+  {: tip}
+
+  ![Ricerca dei tuoi dettagli dell'account {{site.data.keyword.cloud_notm}}](images/img0035.png)
 
 Utilizza un comando simile al seguente esempio per accedere al tuo ambiente dell'applicazione
 {{site.data.keyword.cloud_notm}}.
@@ -210,37 +211,24 @@ buildpack: python 1.5.5
 
 ## Verifica dell'applicazione di esempio
 
-Quando l'ambiente dell'applicazione {{site.data.keyword.cloud_notm}} è stato creato per la prima volta,
-in dashboard ha incluso un link nella colonna `Route` dell'applicazione:<br/>
+Esegui ora un test della tua applicazione e verifica che sia in esecuzione correttamente. 
+
+1.  Apri il dashboard {{site.data.keyword.cloud_notm}}. Puoi vedere il link all'applicazione che hai creato in Applicazioni Cloud Foundry. Fai clic su `Cloudant CF app` per aprire la pagina dei dettagli.<br/>  
 ![Screenshot che mostra il dashboard dell'applicazione](images/img0017.png)
 
-Facendo clic sul link viene aperta una nuova finestra,
-che richiede alcuni dati dall'applicazione elencata nella porta corrispondente.
-L'applicazione risponde restituendo i contenuti del file di log
-che era stato generato all'avvio dell'applicazione:<br/>
-![File di log generato quando l'applicazione dell'esercitazione ha iniziato l'esecuzione](images/img0030.png)
+2.  Nella pagina dei dettagli `Cloudant CF app`, fai clic su `Routes` e fai clic sul link `Cloudant-CF-app.mybluemix.net`.<br/>
+![Pagina dei dettagli Cloudant CF app](images/img0030.png)
 
-I contenuti di questo file di log sono interessanti.
-L'ora di avvio e di fine sono chiaramente visualizzate.
-Nel mezzo,
-il log registra ogni dettaglio come informazioni sulla connessione
-a {{site.data.keyword.cloudant_short_notm}} che è stato richiamato.
-I valori effettivi della connessione non sono importanti.
-Il log visualizza che l'applicazione dell'esercitazione
-è stata in grado di individuare, richiamare e utilizzare
-questi valori per creare un nuovo documento nel database
-{{site.data.keyword.cloudant_short_notm}}.
+3. Una nuova finestra del browser viene aperta all'indirizzo https://cloudant-cf-app.mybluemix.net/. Il messaggio verifica che l'applicazione sia in esecuzione. Dice: "Hello World! Thanks for creating a Python Starter Application."<br/>
+![Hello World! ha verificato che l'applicazione Cloudant CF fosse in esecuzione correttamente](images/img0054.png)
+
 
 ### Conferma dei dettagli del database
 
-Inizia aprendo il dashboard {{site.data.keyword.cloudant_short_notm}}.
-Fai clic sull'icona `Launch` nella scheda `Manage` della pagina del servizio
-{{site.data.keyword.cloudant_short_notm}}:<br/>
-![Icona Launch nella pagina del servizio {{site.data.keyword.cloudant_short_notm}} ](images/img0036.png)
+Dal dashboard {{site.data.keyword.cloud_notm}}, apri l'istanza del servizio {{site.data.keyword.cloudant_short_notm}} che hai creato. Fai clic sull'istanza del servizio. Vai alla scheda `Manage` e fai clic su `Launch Cloudant Dashboard`.<br/>
+![Avvio del dashboard Cloudant nella pagina del servizio {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
 
-Per trovare la tua pagina del servizio {{site.data.keyword.cloudant_short_notm}},
-  fai riferimento ai dettagli nell'esercitazione
-  ['Creazione di un'istanza {{site.data.keyword.cloudant_short_notm}}'](create_service.html#locating-your-service-credentials).
+Per trovare la tua pagina del servizio {{site.data.keyword.cloudant_short_notm}}, fai riferimento ai dettagli nell'esercitazione [Creazione di un'istanza {{site.data.keyword.cloudant_short_notm}}](create_service.html#locating-your-service-credentials).
 {: tip}
 
 Quando si apre la pagina del dashboard,

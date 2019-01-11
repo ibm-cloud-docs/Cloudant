@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,8 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+
+<!-- Acrolinx: 2018-05-07 -->
 
 # CouchApps
 

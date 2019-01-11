@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-12"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-04-12"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2018-00-00 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Registro de auditoría
 
@@ -40,7 +41,7 @@ Los registros de auditoría de {{site.data.keyword.cloudant_short_notm}} se pued
 ## Cómo acceder a registros de auditoría para su cuenta
 
 Para solicitar el acceso a los registros de auditoría para la cuenta, póngase en contacto
-con el soporte de {{site.data.keyword.cloudant_short_notm}}. El soporte proporcionará acceso a los registros de auditoría de su interés.
+con el soporte de {{site.data.keyword.cloudant_short_notm}}. El soporte proporciona una copia de los registros de auditoria que son de interés para usted.
 
 Al ponerse en contacto con el soporte, asegúrese de incluir:
 

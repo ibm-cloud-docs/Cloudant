@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-10-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -12,7 +13,7 @@ lastupdated: "2018-06-20"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-13 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}}-Abfrage erstellen
 
@@ -20,8 +21,8 @@ In diesem Lernprogramm erfahren Sie, wie Sie eine Datenbank erstellen, mit Dokum
 füllen, einen Index erstellen und mit diesem die Datenbank abfragen.
 
 Es werden Übungen für die ![Symbol für Befehlszeile](../images/CommandLineIcon.png) _Befehlszeile_
-und für das ![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}-Dashboard_ zur Verfügung gestellt. Die
-Übungen für das {{site.data.keyword.Bluemix}}-Dashboard liefern Ihnen ein visuelles Beispiel für jede Task. Im gesamten Lernprogramm können Sie auf die Links klicken, um
+und für das ![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.cloud}}-Dashboard_ zur Verfügung gestellt. Die
+Übungen für das {{site.data.keyword.cloud_notm}}-Dashboard liefern Ihnen ein visuelles Beispiel für jede Task. Im gesamten Lernprogramm können Sie auf die Links klicken, um
 weitere Informationen zu erhalten.
 
 Sie beginnen, indem Sie die Datenbank `query-demo` erstellen, sowie ein paar Dokumente, die
@@ -31,10 +32,10 @@ die Daten für diese Übungen enthalten.
 
 Führen Sie zunächst die folgenden Schritte aus, um sich auf das Lernprogramm vorzubereiten:
 
-1.  [Erstellen Sie ein {{site.data.keyword.Bluemix}}-Konto ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/registration/){:new_window}.
+1.  [Erstellen Sie ein {{site.data.keyword.cloud_notm}}-Konto ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Melden Sie sich beim
-  [{{site.data.keyword.Bluemix_notm}}-Dashboard ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window} an.
-3.  [Erstellen Sie eine {{site.data.keyword.cloudant_short_notm}}-Instanz unter {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance).
+  [{{site.data.keyword.cloud_notm}}-Dashboard ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window} an.
+3.  [Erstellen Sie eine {{site.data.keyword.cloudant_short_notm}}-Instanz unter {{site.data.keyword.cloud_notm}}](create_service.html#creating-a-service-instance).
 4.  (Optional) [Erstellen Sie einen Alias 'acurl'](../guides/acurl.html#authorized-curl-acurl-), um einfacher und schneller Befehle über die Befehlszeile ausführen zu können.
 5.  Ersetzen Sie die Variable `$ACCOUNT` in den Befehlen, die in den Übungen enthalten sind, durch den Benutzernamen, den Sie verwenden, um sich beim {{site.data.keyword.cloudant_short_notm}}-Dashboard anzumelden.
   Wenn Sie sich entscheiden, `acurl` nicht einzurichten,
@@ -73,7 +74,7 @@ es sich um die Datenbank, die wir in diesem Lernprogramm verwenden.
   ```
   {:codeblock}
 
-![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}-Dashboard_
+![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}-Dashboard_
 
 1.  Öffnen Sie die {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz, die Sie erstellt haben.
 2.  Klicken Sie auf der {{site.data.keyword.cloudant_short_notm}}-Serviceseite auf **Starten**.
@@ -176,7 +177,7 @@ die Sie in dieser Übung erstellen, enthalten die Daten, mit denen Sie die Daten
   ```
   {:codeblock}
 
-![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}-Dashboard_
+![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}-Dashboard_
 
 1.  Klicken Sie auf **`+`** und wählen Sie **Neues Dokument** aus. Das Fenster 'Neues Dokument' wird geöffnet.
 2.  Um ein Dokument zu erstellen, kopieren Sie den folgenden Beispieltext und ersetzen den vorhandenen Text in dem neuen Dokument.
@@ -308,7 +309,7 @@ wie Ansichten (MapReduce), Suchindizes, {{site.data.keyword.cloudant_short_notm}
 
 
 
-![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}-Dashboard_
+![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}-Dashboard_
 
 1.  Klicken Sie auf **`+` > Abfrageindizes** auf der Registerkarte **Alle Dokumente** oder auf der Registerkarte **Entwurfsdokumente**.
 2.  Fügen Sie die folgenden JSON-Beispieldaten in das Feld **Index** ein:
@@ -393,7 +394,7 @@ um das Element `lastname` zu suchen, und die Ergebnisse im Speicher filtert, um 
   ```
   {:codeblock}
 
-![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}-Dashboard_
+![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}-Dashboard_
 
 1.  Klicken Sie auf die Registerkarte **Abfrage**.
 2.  Kopieren Sie die folgenden JSON-Beispieldaten und fügen Sie sie in das {{site.data.keyword.cloudant_short_notm}} Query-Fenster ein:
@@ -492,7 +493,7 @@ Die zusätzlichen Details entsprechen dem folgenden Beispiel:
   ```
   {:codeblock}
 
-![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}-Dashboard_
+![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}-Dashboard_
 
 1.  Klicken Sie auf die Registerkarte **Abfrage**.
 2.  Kopieren Sie die folgenden JSON-Beispieldaten und fügen Sie sie in das {{site.data.keyword.cloudant_short_notm}} Query-Fenster ein:
@@ -592,7 +593,7 @@ Die Ergebnisse werden in aufsteigender Reihenfolge nach Alter sortiert, basieren
   ```
   {:codeblock}
 
-![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}-Dashboard_
+![Symbol für Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}-Dashboard_
 
 1.  Klicken Sie auf die Registerkarte **Abfrage**.
 2.  Kopieren Sie die folgenden JSON-Beispieldaten und fügen Sie sie in das {{site.data.keyword.cloudant_short_notm}} Query-Fenster ein:

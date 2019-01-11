@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-02"
+  years: 2017, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2017-11-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-22 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 교차 지역 재해 복구를 위한 {{site.data.keyword.cloudant_short_notm}} 구성
 

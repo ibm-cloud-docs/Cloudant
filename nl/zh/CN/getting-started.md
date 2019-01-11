@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-04-28 -->
+<!-- Acrolinx: 2018-05-31 -->
 
 # 入门教程
 {: #getting-started-with-cloudant}
@@ -34,24 +34,24 @@ lastupdated: "2018-06-08"
 ## 准备工作
 {: #prereqs}
 
-您将需要 [Bluemix 帐户 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/registration/){:new_window} 以及 {{site.data.keyword.cloudant}} 服务的实例，并满足以下 Python 需求：
+您需要 [{{site.data.keyword.cloud}} 帐户 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/registration/){:new_window} 以及 {{site.data.keyword.cloudant_short_notm}} 服务的实例，并满足以下 Python 需求：
 
 *	在系统上安装最新版本的 [Python 编程语言 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://www.python.org/){:new_window}。
 	
-	要检查版本，请在提示符处运行以下命令：
+	要检查 Python，请在提示符处运行以下命令：
 	```sh
 	python --version
 	```
 	{:pre}
 	
-	您应该会获得类似于以下内容的结果：
+	您会看到类似于以下内容的结果：
 
 	```
 	Python 2.7.12
 	```
 	{:screen}
 
-*	安装 [Python 库](libraries/supported.html#python)，以支持 Python 应用程序在 {{site.data.keyword.Bluemix_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。
+*	安装 [Python 库](libraries/supported.html#python)，以支持 Python 应用程序在 {{site.data.keyword.cloud_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。
 	
 	要检查是否已成功安装该客户机库，请在提示符处运行以下命令：
 	```sh
@@ -59,7 +59,7 @@ lastupdated: "2018-06-08"
 	```
 	{:pre}
 	
-	您应该会获得系统上安装的所有 Python 模块的列表。检查该列表，查找类似于以下内容的 {{site.data.keyword.cloudant_short_notm}} 条目：
+	您会看到系统上安装的所有 Python 模块的列表。检查该列表，查找类似于以下内容的 {{site.data.keyword.cloudant_short_notm}} 条目：
 
 	```
 	cloudant==2.3.1
@@ -73,9 +73,10 @@ lastupdated: "2018-06-08"
 	```
 	{:pre}
 
-## 第 1 步：连接到 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
+## 第 1 步：连接到 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
+{: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
-1.	运行 {{site.data.keyword.cloudant_short_notm}} 客户机库组件的以下“`import`”语句，以支持 Python 应用程序连接到 {{site.data.keyword.cloudant_short_notm}} 服务实例。
+1.	运行 {{site.data.keyword.cloudant_short_notm}} 客户机库组件的 `import` 语句，以支持 Python 应用程序连接到 {{site.data.keyword.cloudant_short_notm}} 服务实例。
 	```python
 	from cloudant.client import Cloudant
 	from cloudant.error import CloudantException
@@ -83,11 +84,20 @@ lastupdated: "2018-06-08"
 	```
 	{: codeblock}
 
-2. 识别 {{site.data.keyword.cloudant_short_notm}} 服务凭证：
-  1. 在 {{site.data.keyword.Bluemix_notm}} 控制台中，打开服务实例的仪表板。
-  2. 在左侧导航中，单击**`服务凭证`**。
-  3. 单击**`操作`**下的**`查看凭证`**。
-
+2.  创建新的 {{site.data.keyword.cloudant_short_notm}} 服务凭证：
+  <br>在 {{site.data.keyword.cloud_notm}} 控制台中，打开服务实例的仪表板。
+  <br>在左侧导航中，单击`服务凭证`。<br>a. 单击`新建凭证`按钮。
+  <br>![创建新的服务凭证](tutorials/images/img0050.png)
+  <br>b. 在“添加新凭证”窗口中，输入新凭证的名称，如以下屏幕快照所示。
+  <br>c.（可选）添加内联配置参数。
+  <br>d. 单击`添加`按钮。
+  <br>![添加新的服务凭证](tutorials/images/img0051.png)
+  <br>您的凭证会添加到服务凭证表中。
+  <br>e. 单击“操作”下的`查看凭证`。
+  <br>![查看所有服务凭证](tutorials/images/img0052.png)
+  <br>这将显示服务凭证的详细信息：
+  <br>![{{site.data.keyword.cloudant_short_notm}} 服务凭证](tutorials/images/img0009.png)
+   
 3.	通过运行以下命令，建立与服务实例的连接。替换为先前步骤中获得的服务凭证：
 	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
@@ -97,6 +107,7 @@ lastupdated: "2018-06-08"
 
 
 ## 第 2 步：创建数据库
+{: #step-2-create-a-database}
 
 1. 在 Python 应用程序中定义变量：
   ```python
@@ -106,7 +117,8 @@ lastupdated: "2018-06-08"
   ... 其中，`<yourDatabaseName>` 是您希望为数据库提供的名称。
  
 
-  > **注：**数据库名称必须以字母开头，并且只能包含小写字符 (a-z)、数字 (0-9) 以及以下任意字符：`_`、`$`、`(`、`)`、`+`、`-` 和 `/`。
+  数据库名称必须以字母开头，并且只能包含小写字符 (a-z)、数字 (0-9) 以及以下任意字符：`_`、`$`、`(`、`)`、`+`、`-` 和 `/`。
+  {: tip}
 
 2. 创建数据库：
   ```python
@@ -122,6 +134,7 @@ lastupdated: "2018-06-08"
   {: codeblock}
 
 ## 第 3 步：将很小的数据集合存储为数据库中的文档
+{: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
 
 1. 定义数据的集合：
   ```python
@@ -138,7 +151,7 @@ lastupdated: "2018-06-08"
 2. 使用 Python 代码“逐步”完成数据，并将其转换为 JSON 文档。每个文档都存储在数据库中：
 
   ```python
-  # Create documents using the sample data.
+  # Create documents by using the sample data.
   # Go through each row in the array
   for document in sampleData:
     # Retrieve the fields in each row.
@@ -156,7 +169,7 @@ lastupdated: "2018-06-08"
         "temperatureField": temperature
     }
 
-    # Create a document using the Database API.
+    # Create a document by using the database API.
     newDocument = myDatabase.create_document(jsonDocument)
 
     # Check that the document exists in the database.
@@ -165,14 +178,15 @@ lastupdated: "2018-06-08"
   ```
   {: codeblock}
 
-请注意，我们会检查以确保每个文档都已成功创建。
-{: tip}
+  请注意，我们会检查以确保每个文档都已成功创建。
+  {: tip}
 
 ## 第 4 步：通过查询检索数据
+{: #step-4-retrieving-data-through-queries}
 
-此时，一个小型数据集合已存储为数据库中的文档。您可以在数据库中对这些数据执行最少检索或完整检索。最少检索可获取_有关_文档的基本数据。完整检索还会包含文档_内_的数据。
+一个小型数据集合已存储为数据库中的文档。您可以在数据库中对这些数据执行最少检索或完整检索。最少检索可获取_有关_文档的基本数据。完整检索还会包含文档_内_的数据。
 
-* 要执行最少检索，请执行以下操作：
+* 要运行最少检索，请执行以下操作：
   1. 首先，请求数据库中所有文档的列表。
     ```python
     result_collection = Result(myDatabase.all_docs)
@@ -190,13 +204,14 @@ lastupdated: "2018-06-08"
     结果类似于以下示例：
     
     ```
-        [{u'value': {u'rev': u'1-106e76a2612ea13468b2f243ea75c9b1'}, u'id': u'14be111aac74534cf8d390eaa57db888', u'key': u'14be111aac74534cf8d390eaa57db888'}]
+    [{u'value': {u'rev': u'1-106e76a2612ea13468b2f243ea75c9b1'}, u'id': u'14be111aac74534cf8d390eaa57db888', u'key': u'14be111aac74534cf8d390eaa57db888'}]
     ```
     {:screen}
     
-    > **注：**`u'` 前缀仅指示 Python 显示的是 Unicode 字符串。 
-    
-    如果我们对显示内容做进一步整理，可以看到返回的最少文档详细信息与以下内容相同：
+    `u` 前缀指示 Python 显示的是 Unicode 字符串。
+    {: tip}
+
+    如果我们对显示内容做进一步整理，可以看到返回的最少文档详细信息与以下示例相同：
     
     ```json
     [
@@ -211,9 +226,10 @@ lastupdated: "2018-06-08"
     ```
     {: codeblock}
 
-  > **注：**简单地认为数据库中存储的第一个文档始终是结果列表中返回的第一个文档，这种想法不一定适用于 NoSQL 数据库，如 {{site.data.keyword.cloudant_short_notm}}。
+    认为数据库中存储的第一个文档始终是结果列表中返回的第一个文档，这种想法不一定适用于 NoSQL 数据库，如 {{site.data.keyword.cloudant_short_notm}}。
+    {: tip}
 
-* 要执行完整检索，请请求数据库中所有文档的列表，并通过提供 `include_docs` 选项来指定还必须返回文档内容。
+* 要运行完整检索，请在数据库中请求所有文档的列表，并通过提供 `include_docs` 选项来指定还必须返回文档内容。
   ```python
   result_collection = Result(myDatabase.all_docs, include_docs=True)
   print "Retrieved full document:\n{0}\n".format(result_collection[0])
@@ -226,7 +242,7 @@ lastupdated: "2018-06-08"
   ```
   {: screen}
   
-  如果我们对显示内容做进一步整理，可以看到返回的完整文档详细信息与以下内容相同：
+  如果我们对显示内容做进一步整理，可以看到返回的完整文档详细信息与以下示例相同：
   
   ```json
   [
@@ -250,6 +266,7 @@ lastupdated: "2018-06-08"
   {: codeblock}
 
 ## 第 5 步：通过 {{site.data.keyword.cloudant_short_notm}} API 端点检索数据
+{: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
 您还可以通过调用 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 端点](api/database.html#get-documents)来请求所有文档及其内容的列表。
 
@@ -269,14 +286,14 @@ lastupdated: "2018-06-08"
   ```
   {: codeblock}
 
-  结果类似于以下 _abbreviated_ 示例：
+  结果类似于以下_缩略的_示例：
   
   ```
   {u'rows': [{u'value': {u'rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}, u'id': u'0532feb6fd6180d79b842d871316c444', u'key': u'0532feb6fd6180d79b842d871316c444', u'doc': {u'temperatureField': 20, u'descriptionField': u'warm', u'numberField': 3, u'nameField': u'three', u'_id': u'0532feb6fd6180d79b842d871316c444', u'_rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}}, ... , {u'value': {u'rev': u'1-3f61736fa96473d358365ce1665e3d97'}, u'id': u'db396f77bbe12a567b09177b4accbdbc', u'key': u'db396f77bbe12a567b09177b4accbdbc', u'doc': {u'temperatureField': 0, u'descriptionField': u'freezing', u'numberField': 5, u'nameField': u'five', u'_id': u'db396f77bbe12a567b09177b4accbdbc', u'_rev': u'1-3f61736fa96473d358365ce1665e3d97'}}], u'total_rows': 5, u'offset': 0}
   ```
   {:screen}
   
-  我们可以对显示内容做进一步整理，可以看到返回的 _abbreviated_ 详细信息与以下内容相同：
+  我们可以稍微整理一下显示内容，可看到获得的详细信息（_缩略版_）类似于以下示例：
   
   ```json
   {
@@ -321,6 +338,7 @@ lastupdated: "2018-06-08"
   {: codeblock}
 
 ## 第 6 步：删除数据库
+{: #step-6-delete-the-database}
 
 完成对数据库的操作后，可以将其删除。
 
@@ -334,9 +352,10 @@ else:
 ```
 {: codeblock}
 
-我们已经包含了一些基本的错误处理，以说明可如何捕获并解决问题。
+我们提供了一些基本的错误处理，向您展示如何对潜在问题进行故障诊断并予以解决。
 
 ## 第 7 步：关闭与服务实例的连接
+{: #step-7-close-the-connection-to-the-service-instance}
 
 最后一步是断开 Python 客户机应用程序与服务实例的连接：
 
@@ -346,14 +365,16 @@ client.disconnect()
 {: codeblock}
 
 ## 后续步骤
+{: #next-steps}
 
-有关所有 {{site.data.keyword.cloudant_short_notm}} 产品的更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}}![外部链接图标](images/launch-glyph.svg "外部链接图标")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} 主站点。
+有关所有 {{site.data.keyword.cloudant_short_notm}} 产品的更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} 主站点。
 
 有关 {{site.data.keyword.cloudant_short_notm}} 概念、任务和方法的更多详细信息和教程，请参阅 [{{site.data.keyword.cloudant_short_notm}} 文档](cloudant.html)。
 
-## 附录：完整的 Python 代码清单
+## 附录：完整的 Python 代码列表
+{: #appendix-complete-python-code-listing}
 
-完整的 Python 代码清单如下所示。请务必将 `<username>`,
+完整的 Python 代码列表如下所示。请务必将 `<username>`,
 `<password>` 和 `<url>` 值替换为您的服务凭证。同样，将 `<yourDatabaseName>` 值替换为您的数据库的名称。
 
 ```python

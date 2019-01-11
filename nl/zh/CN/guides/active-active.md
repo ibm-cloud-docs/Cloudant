@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-02"
+  years: 2017, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2017-11-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-22 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 配置 {{site.data.keyword.cloudant_short_notm}} 用于跨区域灾难恢复
 
@@ -82,7 +83,7 @@ $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-d
 ```
 {:codeblock}
 
-成功的响应类似于以下省略的示例：
+成功的响应类似于以下缩略的示例：
 
 ```json
 {
@@ -196,7 +197,7 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 
 如果无法访问单个 {{site.data.keyword.cloudant_short_notm}} 实例，请避免在该实例重新变为可访问后，立即将流量重定向回该实例。原因是密集型任务（例如，同步来自任何同级的数据库状态，以及确保索引是最新的）需要一些时间才能完成。
 
-使用一种机制来监视这些任务会很有帮助，可帮助确定数据库何时处于合适的状态，能够处理生产流量。
+使用一种机制来监视这些任务会很有帮助，有助于确定数据库何时处于合适的状态，能够处理生产流量。
 
 作为指南，适用的典型检查列表包括：
 

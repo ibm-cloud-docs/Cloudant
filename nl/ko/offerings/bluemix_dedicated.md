@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,26 +11,27 @@ lastupdated: "2018-05-11"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-02-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}} 데디케이티드
 
 {{site.data.keyword.cloud}} 데디케이티드용 {{site.data.keyword.cloudantfull}}는 {{site.data.keyword.cloud_notm}}
 데디케이티드 환경의 추가 기능으로 선택적 구매가 가능합니다. {{site.data.keyword.cloud_notm}} 데디케이티드의
 {{site.data.keyword.cloudant_short_notm}} 데디케이티드용 추가 기능 옵션은 환경에 할당된 하드웨어
-용량을 기반으로 가격이 책정되며 사용자의 {{site.data.keyword.IBM}} 영업 담당자에게 문의하여 구매할 수 있습니다.   
+용량을 기반으로 가격이 책정되며 사용자의 {{site.data.keyword.IBM}} 영업 담당자에게 문의하여 구매할 수 있습니다.  
 
-{{site.data.keyword.cloud_notm}} 데디케이티드 고객은 라이트 및 표준 플랜 인스턴스를 비롯하여 신디케이트된
+{{site.data.keyword.cloud_notm}} 데디케이티드 고객은 Lite 및 표준 플랜 인스턴스를 비롯하여 신디케이트된
 카탈로그를 통해 {{site.data.keyword.cloud_notm}} 퍼블릭 환경에서 {{site.data.keyword.cloudant_short_notm}}를 사용하도록
 선택할 수도 있습니다. {{site.data.keyword.cloud_notm}} 데디케이티드 사용자는
 {{site.data.keyword.cloud_notm}} 퍼블릭 카탈로그에서 데디케이티드 하드웨어 플랜을 구매할 수 없으며
 데디케이티드 하드웨어가 필요한 경우 {{site.data.keyword.cloud_notm}} 데디케이티드의
-{{site.data.keyword.cloudant_short_notm}} 데디케이티드를 활용해야 함을 참고하십시오.    
+{{site.data.keyword.cloudant_short_notm}} 데디케이티드를 활용해야 함을 참고하십시오.   
 
 아래 스크린샷은 {{site.data.keyword.cloudant_short_notm}}의 {{site.data.keyword.cloud_notm}} 퍼블릭 신디케이티드 버전(왼쪽)과
 {{site.data.keyword.cloudant_short_notm}} 데디케이티드 환경(오른쪽)을 강조표시한
-{{site.data.keyword.cloud_notm}} 카탈로그의 예를 보여줍니다.   
+{{site.data.keyword.cloud_notm}} 카탈로그의 예를 보여줍니다.  
 
 ![{{site.data.keyword.cloudant_short_notm}} 카탈로그](../images/bluemix_catalog.png)
 
@@ -50,18 +51,7 @@ lastupdated: "2018-05-11"
 ## 보안, 암호화 및 규제 준수 
 
 모든 플랜에서 서버에 [저장 시 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://en.wikipedia.org/wiki/Data_at_rest) 디스크 암호화를 제공합니다. 공용 네트워크 연결을 통해 액세스하고 HTTPS를 사용하여 암호화됩니다. 세부사항은 [보안 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](../offerings/security.html#security){:new_window}을 참조하십시오. 
-IP 화이트리스트 지정은 {{site.data.keyword.cloudant_short_notm}} 지원에 요청 시 사용 가능하며 인스턴스 레벨이 아닌 전체 {{site.data.keyword.cloudant_short_notm}} 환경에 적용됩니다. 
-
-저장 시 암호화(encryption-at-rest)에 대한 BYOK(Bring-Your-Own-Key)를 요구하는 경우,
-{{site.data.keyword.cloud}} 키 보호를
-사용하여 이를 사용하도록 설정할 수 있습니다. {{site.data.keyword.cloudant_short_notm}}에서는
-모든 지역에 배치된 새 {{site.data.keyword.cloudant_short_notm}}
-[데디케이티드 하드웨어 플랜](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public)
-인스턴스에 대해 이 기능을 지원합니다. 먼저
-[{{site.data.keyword.cloud_notm}} 카탈로그](https://console.bluemix.net/catalog/)를
-통해 데디케이티드 하드웨어 플랜의 인스턴스를 작성하십시오. 그런 다음
-지원 티켓을 제출하면 당사 지원 팀이 사용자의 키 보호 인스턴스를 통해 관리되는
-새 데디케이티드 하드웨어 인스턴스의 저장 시 암호화(encryption-at-rest) 암호화 키 가져오기를 조율합니다. 
+IP 화이트리스트 지정은 {{site.data.keyword.cloudant_short_notm}} 지원에 요청 시 사용 가능하며 인스턴스 레벨이 아닌 전체 {{site.data.keyword.cloudant_short_notm}} 환경에 적용됩니다.  
 
 플랜은 [규제 준수 인증 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}도 제공합니다. 
 

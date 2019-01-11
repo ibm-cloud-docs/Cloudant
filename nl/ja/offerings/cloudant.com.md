@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-24"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,30 +11,34 @@ lastupdated: "2018-05-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-03-16 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# Cloudant.com
+# {{site.data.keyword.cloudant_short_notm}}.com
 
-> **注**: {{site.data.keyword.cloudantfull}} Shared プランは、2018 年 3 月 31 日に廃止されます。 
-2017 年 7 月 24 日現在、[{{site.data.keyword.cloudant_short_notm}} ホーム・ページ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/){:new_window} で新しい Shared プランのアカウントを作成することはできません。 
+{{site.data.keyword.cloudantfull}} Shared プランは、2018 年 3 月 31 日に廃止されます。 
+2017 年 7 月 24 日現在、[Cloudant 製品ページ](https://cloudant.com){:new_window}から作成できる新しい Shared プラン・アカウントはありません。
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} は、ホスティングされる完全管理の Database as a Service (DBaaS) です。 
-これは、グローバルにスケーリングを実行し、ノンストップで稼働し、[JSON](../basics/index.html#json)、[フルテキスト](../api/cloudant_query.html#creating-an-index)、および[地理情報](../api/cloudant-geo.html)などの多様なデータ・タイプを処理するように、基礎から構築されました。
+これは、グローバルにスケーリングを実行し、ノンストップで稼働し、[JSON](../basics/index.html#json){:new_window}、[フルテキスト](../api/cloudant_query.html#creating-an-index){:new_window}、および[地理情報](../api/cloudant-geo.html){:new_window}などの多様なデータ・タイプを処理するように、基礎から構築されました。
 
 {{site.data.keyword.cloudant_short_notm}} は、読み取りおよび書き込みの並行処理のために最適化された運用データ・ストアで、
 高可用性とデータの耐久性を実現します。
 
-[JSON](../basics/index.html#json) データ処理用の [HTTP API](../basics/index.html#http-api)、
+[JSON](../basics/index.html#json){:new_window} データ処理用の [HTTP API](../basics/index.html#http-api){:new_window}、
 24 時間の運用サポートおよび保守を提供します。 
 {{site.data.keyword.cloudant_short_notm}} は、[Apache CouchDB ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://couchdb.apache.org/){:new_window}
 をベースとしており、マルチテナント、専用、インストール済みの各種サービスとして提供されます。
 
-> **注**: 本文書内の通貨の値はすべて米国ドル ($) です。
+本文書内の通貨の値はすべて米国ドル ($) です。
+{: tip}
 
-[Shared プラン](#shared-plan)または [Enterprise (Dedicated) プラン](#enterprise-plan)として提供されます。 {{site.data.keyword.cloudant_short_notm}} は、[{{site.data.keyword.cloud}} サービス](https://www.ibm.com/cloud/)としても利用可能です。
+[Shared プラン](#shared-plan){:new_window}または [Enterprise (Dedicated) プラン](#enterprise-plan){:new_window}として提供されます。 {{site.data.keyword.cloudant_short_notm}} は、[{{site.data.keyword.cloud}} サービス](https://www.ibm.com/cloud/){:new_window}としても利用可能です。
 
-> **注**: {{site.data.keyword.cloudant_short_notm}} の Shared プランと Enterprise (Dedicated) プランのオファリングは、{{site.data.keyword.cloud_notm}} サービスでは利用できません。
+{{site.data.keyword.cloudant_short_notm}} の Shared プランと Enterprise (Dedicated) プランのオファリングは、{{site.data.keyword.cloud_notm}} サービスでは利用できません。
+{: tip}
 
 ## Enterprise プラン
 {: #enterprise-plan}
@@ -48,13 +52,14 @@ lastupdated: "2018-05-24"
 ## Shared プラン
 {: #shared-plan}
 
-> **注**: {{site.data.keyword.cloudant_short_notm}} Shared プランは、2018 年 3 月 31 日に廃止されます。 
-2017 年 7 月 24 日現在、cloudant.com で新しい Shared プランのアカウントを作成することはできません。 
+{{site.data.keyword.cloudant_short_notm}} Shared プランは、2018 年 3 月 31 日に廃止されます。 
+2017 年 7 月 24 日現在、[{{site.data.keyword.cloudant_short_notm}} Web サイト](https://cloudant.com){:new_window} で作成できる新しい Shared プラン・アカウントはありません。
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} Shared プランでは、
 共有、つまり「マルチテナント」のクラスターを通して提供されるすべての {{site.data.keyword.cloudant_short_notm}} DBaaS 機能にアクセスできます。
 
-料金は、月々の使用量に基づいて課金されます。 月々の使用量が $50.00 未満の場合、料金は無料です (2016 年 8 月現在)。 [ここ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/assets/terms.pdf){:new_window} でご利用条件を確認してください。 
+料金は、月々の使用量に基づいて課金されます。 月々の使用量が $50.00 未満の場合、料金は無料です (2016 年 8 月現在)。 詳しくは、[{{site.data.keyword.cloudant_short_notm}} Shared Plan Terms of Service ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/assets/terms.pdf){:new_window} を参照してください。 
    
       
          

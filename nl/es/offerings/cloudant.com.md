@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-24"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,32 +11,34 @@ lastupdated: "2018-05-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-03-16 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# Cloudant.com
+# {{site.data.keyword.cloudant_short_notm}}.com
 
-> **Nota**: El plan compartido de {{site.data.keyword.cloudantfull}} se retirará el 31 de marzo de 2018. 
-A partir del 24 de julio de 2017, no se podrán crear cuentas de plan compartido nuevas en la página de inicio de [{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/){:new_window}. 
+El plan compartido de {{site.data.keyword.cloudantfull}} se retirará el 31 de marzo de 2018. 
+A partir del 24 de julio de 2017, no se podrán crear cuentas de plan compartido nuevas en la página del producto [Cloudant](https://cloudant.com){:new_window}. 
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} es un sistema de base de datos como servicio (DBaaS) alojado y completamente gestionado. 
-Abarca todo el proceso desde la base hasta la solución global escalada, se ejecuta de forma continuada y maneja una gran variedad de tipos de datos, como [JSON](../basics/index.html#json),
-[texto completo](../api/cloudant_query.html#creating-an-index)
-y datos [geoespaciales](../api/cloudant-geo.html).
+Abarca todo el proceso desde la base hasta la solución global escalada, se ejecuta de forma continuada y maneja una gran variedad de tipos de datos, como [JSON](../basics/index.html#json){:new_window},
+[texto completo](../api/cloudant_query.html#creating-an-index){:new_window}
+y datos [geoespaciales](../api/cloudant-geo.html){:new_window}.
 
 {{site.data.keyword.cloudant_short_notm}} es un almacén de datos operativos optimizado para manejar lecturas y escrituras simultáneas y proporcionar alta disponibilidad y durabilidad de datos.
 
-Ofrece una [API HTTP](../basics/index.html#http-api) para trabajar con datos [JSON](../basics/index.html#json) y soporte y mantenimiento operativos de 24 horas. 
+Ofrece una [API HTTP](../basics/index.html#http-api){:new_window} para trabajar con datos [JSON](../basics/index.html#json){:new_window} y soporte y mantenimiento operativos de 24 horas. 
 {{site.data.keyword.cloudant_short_notm}} se basa en [Apache CouchDB ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://couchdb.apache.org/){:new_window},
 y se suministra en diversos servicios multiarrendatario, dedicados e instalados.
 
-> **Nota**: Todos los valores monetarios de este documento están en dólares americanos ($).
+Todos los valores de divisa de este documento están en dólares americanos ($).
+{: tip}
 
-Se suministra como [Plan compartido](#shared-plan) o como [Plan de empresa (Dedicado)](#enterprise-plan). {{site.data.keyword.cloudant_short_notm}}
-también está disponible como un [servicio de {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/).
+Se suministra como [Plan compartido](#shared-plan){:new_window} o como [Plan de empresa (Dedicado)](#enterprise-plan){:new_window}. {{site.data.keyword.cloudant_short_notm}} también está disponible como servicio de [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud/){:new_window}.
 
-> **Nota**: Las ofertas del plan compartido y el plan de empresa (dedicado) de {{site.data.keyword.cloudant_short_notm}} 
-no están disponibles en el servicio {{site.data.keyword.cloud_notm}}.
+Las ofertas del plan compartido y el plan de empresa (dedicado) de {{site.data.keyword.cloudant_short_notm}} no están disponibles en el servicio de {{site.data.keyword.cloud_notm}}.
+{: tip}
 
 ## Plan de empresa
 {: #enterprise-plan}
@@ -52,12 +54,13 @@ crear una cuenta utilizando el formulario y abrir una incidencia de soporte para
 ## Plan compartido
 {: #shared-plan}
 
-> **Nota**: El plan compartido de {{site.data.keyword.cloudant_short_notm}} se retirará el 31 de marzo de 2018. 
-A partir del 24 de julio de 2017, no se podrán crear cuentas de plan compartido nuevas en cloudant.com. 
+El plan compartido de {{site.data.keyword.cloudant_short_notm}} se retirará el 31 de marzo de 2018. 
+A partir del 24 de julio de 2017, no se podrán crear cuentas de plan compartido nuevas en el sitio web de [{{site.data.keyword.cloudant_short_notm}}](https://cloudant.com){:new_window}. 
+{: tip}
 
 Con el plan compartido de {{site.data.keyword.cloudant_short_notm}}, tiene acceso a todas las funciones de {{site.data.keyword.cloudant_short_notm}} DBaaS, a través de un clúster compartido o 'multiarrendatario'.
 
-Los precios se calculan con base en el uso mensual. No se aplican cargos y el uso mensual está por debajo de 50,00 $ (datos de agosto de 2016). Consulte los términos [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/assets/terms.pdf){:new_window}. 
+Los precios se calculan con base en el uso mensual. No se aplican cargos si el uso mensual está por debajo de 50,00 $ (datos de agosto de 2016). Para obtener más información, consulte los [términos de servicio del plan compartido de {{site.data.keyword.cloudant_short_notm}}![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/assets/terms.pdf){:new_window}. 
    
       
          

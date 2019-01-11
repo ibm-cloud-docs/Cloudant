@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,15 +13,15 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-04-28 -->
+<!-- Acrolinx: 2018-05-31 -->
 
 # Tutoriel de mise en route
 {: #getting-started-with-cloudant}
 
-Dans ce tutoriel de mise en route d'{{site.data.keyword.cloudantfull}}, nous allons utiliser le langage Python pour créer une base de données {{site.data.keyword.cloudant_short_notm}} et la remplir avec une simple collection de données.
+Dans ce tutoriel de mise en route d'{{site.data.keyword.cloudantfull}}, nous allons utiliser le langage Python pour créer une base de données {{site.data.keyword.cloudant_short_notm}} et la remplir avec une collection simple de données.
 {:shortdesc}
 
-En plus de ce tutoriel, consultez nos tutoriels de travaux pratiques afin d'en apprendre davantage sur {{site.data.keyword.cloudant_short_notm}}. Ou, essayez l'un des tutoriels qui se concentre sur un langage spécifique : 
+En plus de ce tutoriel, consultez nos tutoriels de travaux pratiques afin d'en apprendre davantage sur {{site.data.keyword.cloudant_short_notm}}. Ou, essayez l'un des tutoriels qui se concentre sur un langage spécifique :
 
 - [Liberty for Java et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
 - [Node.js et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
@@ -34,9 +34,9 @@ Pour des tutoriels sur des langages plus spécifiques, consultez [Commencez à d
 ## Avant de commencer
 {: #prereqs}
 
-Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/registration/){:new_window}, une instance de service {{site.data.keyword.cloudant}}, et respecter les exigences Python suivantes :
+Vous devez posséder un [compte {{site.data.keyword.cloud}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/registration/){:new_window}, une instance du service {{site.data.keyword.cloudant_short_notm}} et respecter les exigences Python suivantes :
 
-*	Installez la dernière version du [langage de programmation Python ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://www.python.org/){:new_window} sur votre système.
+*	Installez la version la plus récente du [langage de programmation Python ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://www.python.org/){:new_window} sur votre système.
 	
 	Pour savoir si vous disposez d'une telle installation, exécutez la commande suivante à l'invite :
 	```sh
@@ -44,38 +44,40 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
 	```
 	{:pre}
 	
-	Vous devez obtenir un résultat similaire à ce qui suit :
+	Un résultat similaire à celui-ci s'affiche :
 
 	```
 	Python 2.7.12
 	```
 	{:screen}
 
-*	Installez la [bibliothèque Python](libraries/supported.html#python) pour que vos applications Python soient compatibles avec {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}.
+*	Installez la [bibliothèque Python](libraries/supported.html#python) pour que vos applications Python soient compatibles avec {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}.
 	
-	Pour vérifier que la bibliothèque client est correctement installée, exécutez la commande suivante à l'invite :
-```sh
+	Pour vérifier que vous avez installé la bibliothèque client correctement,
+exécutez la commande suivante à l'invite :
+	```sh
 	pip freeze
 	```
 	{:pre}
 	
-	Vous devez obtenir la liste de tous les modules Python installés sur votre système. Examinez cette liste en recherchant une entrée {{site.data.keyword.cloudant_short_notm}} similaire à l'entrée suivante :
+	Vous verrez une liste de tous les modules Python installés sur votre système. Inspectez la liste et recherchez une entrée {{site.data.keyword.cloudant_short_notm}} similaire à celle-ci :
 
 	```
 	cloudant==2.3.1
 	```
 	{:screen}
 	
-	Si le module `cloudant` n'est pas installé, installez-le à l'aide d'une commande semblable à la commande :
+	Si le module `cloudant` n'est pas installé, installez-le à l'aide d'une commande similaire à la commande ci-dessous :
 	
 	```
 	pip install cloudant==2.3.1
 	```
 	{:pre}
 
-## Etape 1 : Connexion à votre instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}
+## Etape 1 : Connexion à votre instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}
+{: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
-1.	Exécutez les instructions '`import`' suivantes des composants Bibliothèque client {{site.data.keyword.cloudant_short_notm}} pour que votre application Python puisse se connecter à votre instance de service {{site.data.keyword.cloudant_short_notm}}.
+1.	Exécutez les instructions '`import`' des composants Bibliothèque client {{site.data.keyword.cloudant_short_notm}} pour que votre application Python puisse se connecter à votre instance de service {{site.data.keyword.cloudant_short_notm}}.
 	```python
 	from cloudant.client import Cloudant
 	from cloudant.error import CloudantException
@@ -83,11 +85,21 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
 	```
 	{: codeblock}
 
-2. Identifiez les données d'identification du service {{site.data.keyword.cloudant_short_notm}} :
-  1. Dans la console {{site.data.keyword.Bluemix_notm}}, ouvrez le tableau de bord de votre instance de service.
-  2. Dans le volet de navigation gauche, cliquez sur **`Données d'identification pour le service`**.
-  3. Cliquez sur **`Afficher les données d'identification`** sous **`ACTIONS`**.
-
+2.  Créez de nouvelles données d'identification pour le service {{site.data.keyword.cloudant_short_notm}} :
+  <br>Dans la console {{site.data.keyword.cloud_notm}}, ouvrez le tableau de bord de votre instance de service.
+  <br>Dans le volet de navigation gauche, cliquez sur `Données d'identification pour le service`.
+  <br>a. Cliquez sur le bouton `Nouvelles données d'identification`.
+  <br>![Créer de nouvelles données d'identification de service](tutorials/images/img0050.png)
+  <br>b. Entrez un nom pour les nouvelles données d'identification dans la fenêtre Ajouter de nouvelles données d'identification, comme illustré dans la capture d'écran suivante.
+  <br>c. Ajoutez des paramètres de configuration en ligne (facultatif).
+  <br>d. Cliquez sur le bouton `Ajouter`.
+  <br>![Ajouter de nouvelles données d'identification de service](tutorials/images/img0051.png)
+  <br>Vos données d'identification sont ajoutées à la table Données d'identification pour le service.
+  <br>e. Cliquez sur `Afficher les données d'identification` sous Actions.
+  <br>![Afficher toutes les données d'identification pour le service](tutorials/images/img0052.png)
+  <br>Les détails des données d'identification du service s'affichent :
+   <br>![Données d'identification du service {{site.data.keyword.cloudant_short_notm}}](tutorials/images/img0009.png)
+   
 3.	Etablissez une connexion à l'instance de service en exécutant la commande ci-dessous.
 	Utilisez les données d'identification de l'étape précédente :
 	```python
@@ -98,6 +110,7 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
 
 
 ## Etape 2 : Création d'une base de données
+{: #step-2-create-a-database}
 
 1. Définissez une variable dans l'application Python :
   ```python
@@ -106,7 +119,8 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
   {: codeblock}
   ... où `<yourDatabaseName>` désigne le nom que vous souhaitez attribuer à votre base de données. 
 
-  > **Remarque** : Le nom de la base de données doit commencer par une lettre et doit comprendre uniquement des caractères en minuscules (a-z), des chiffres (0-9) ainsi que les caractères spéciaux `_`, `$`, `(`, `)`, `+`, `-` et `/`.
+  Le nom de la base de données doit commencer par une lettre et peut uniquement inclure des caractères en minuscules (a-z), des chiffres (0-9) ainsi que les caractères spéciaux `_`, `$`, `(`, `)`, `+`, `-` et `/`.
+  {: tip}
 
 2. Créez la base de données :
   ```python
@@ -114,7 +128,7 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
   ```
   {: codeblock}
 
-3. Vérifiez que la base de données a été correctement créée :
+3. Confirmez que la base de données a été créée correctement :
   ```python
   if myDatabase.exists():
       print "'{0}' successfully created.\n".format(databaseName)
@@ -122,6 +136,7 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
   {: codeblock}
 
 ## Etape 3 : Stockage d'une petite collection de données sous forme de documents dans la base de données
+{: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
 
 1. Définissez une collection de données :
   ```python
@@ -139,7 +154,7 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
   Chaque document est stocké dans la base de données :
 
   ```python
-  # Create documents using the sample data.
+  # Create documents by using the sample data.
   # Go through each row in the array
   for document in sampleData:
     # Retrieve the fields in each row.
@@ -157,7 +172,7 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
         "temperatureField": temperature
     }
 
-    # Create a document using the Database API.
+    # Create a document by using the database API.
     newDocument = myDatabase.create_document(jsonDocument)
 
     # Check that the document exists in the database.
@@ -166,17 +181,18 @@ Vous devez posséder un [compte Bluemix![Icône de lien externe](images/launch-g
   ```
   {: codeblock}
 
-Notez que nous nous assurons que chaque document a bien été créé.
-{: tip}
+  Notez que nous nous assurons que chaque document a bien été créé.
+  {: tip}
 
 ## Etape 4 : Extraction des données à l'aide de requêtes
+{: #step-4-retrieving-data-through-queries}
 
-A ce stade, une petite collection de données a été stockée sous forme de documents dans la base de données.
+Une petite collection de données a été stockée sous forme de documents dans la base de données.
 Vous pouvez procéder à l'extraction complète ou partielle des données de la base de données.
 Une extraction partielle récupère les données de base _concernant_ un document.
 Une extraction complète inclut également les données figurant _dans_ le document.
 
-* Pour effectuer une extraction partielle :
+* Pour exécuter une extraction partielle :
   1. Commencez par demander la liste de tous les documents de la base de données.
     ```python
     result_collection = Result(myDatabase.all_docs)
@@ -198,9 +214,10 @@ Une extraction complète inclut également les données figurant _dans_ le docum
     ```
     {:screen}
     
-    > **Remarque** : Le préfixe `u'` indique simplement que Python affiche une chaîne Unicode. 
-    
-    En ordonnant légèrement l'apparence, les détails minimaux du document s'affichent comme suit :
+    Le préfixe `u` indique que Python affiche une chaîne Unicode.
+    {: tip}
+
+    Si nous arrangeons un peu l'apparence, nous voyons que les détails minimaux du document que nous avons obtenus sont semblables à cet exemple :
     
     ```json
     [
@@ -215,13 +232,12 @@ Une extraction complète inclut également les données figurant _dans_ le docum
     ```
     {: codeblock}
 
-  > **Remarque :** les notions simples, telles que le premier document stocké dans une
-base de données est toujours le premier à être renvoyé dans une liste de
-résultats, ne s'appliquent pas nécessairement à des bases de données NoSQL comme {{site.data.keyword.cloudant_short_notm}}.
+    La règle selon laquelle le premier document stocké dans la base de données est toujours le premier document renvoyé dans une liste de résultats ne s'applique pas toujours aux bases de données NoSQL comme {{site.data.keyword.cloudant_short_notm}}.
+    {: tip}
 
-* Pour effectuer une extraction complète,
-  demandez la liste de tous les documents de la base de données,
-  et spécifiez que le contenu des documents doit également être renvoyé
+* Pour exécuter une extraction complète,
+  demandez la liste de tous les documents de la base de données
+  et spécifiez que le contenu du document doit également être renvoyé
   à l'aide de l'option `include_docs`.
   ```python
   result_collection = Result(myDatabase.all_docs, include_docs=True)
@@ -235,7 +251,7 @@ résultats, ne s'appliquent pas nécessairement à des bases de données NoSQL c
   ```
   {: screen}
   
-  En ordonnant légèrement l'apparence, les détails complets du document s'affichent comme suit :
+  Si nous arrangeons un peu l'apparence, nous pouvons voir que les détails complets du document que nous avons obtenus sont équivalents à cet exemple :
   
   ```json
   [
@@ -259,6 +275,7 @@ résultats, ne s'appliquent pas nécessairement à des bases de données NoSQL c
   {: codeblock}
 
 ## Etape 5 : Extraction des données à l'aide du noeud final d'API {{site.data.keyword.cloudant_short_notm}}
+{: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
 Vous pouvez aussi demander la liste de tous les documents et de leur contenu en appelant le noeud final {{site.data.keyword.cloudant_short_notm}} [`/_all_docs`](api/database.html#get-documents).
 
@@ -270,8 +287,7 @@ Vous pouvez aussi demander la liste de tous les documents et de leur contenu en 
   {: codeblock}
   ... où `<url>` désigne la valeur d'URL associée aux données d'identification du service obtenues à l'étape 1.
 
-2. Envoyez la demande à l'instance de service,
-  puis affichez les résultats :
+2. Envoyez la demande à l'instance de service et affichez les résultats :
   ```python
   response = client.r_session.get(end_point, params=params)
   print "{0}\n".format(response.json())
@@ -285,7 +301,7 @@ Vous pouvez aussi demander la liste de tous les documents et de leur contenu en 
   ```
   {:screen}
   
-  En ordonnant légèrement l'apparence, les détails _abrégés_ s'affichent comme suit :
+  Si nous arrangeons un peu l'apparence, nous voyons que les détails _abrégés_ que nous avons obtenus sont semblables à cet exemple :
   
   ```json
   {
@@ -330,6 +346,7 @@ Vous pouvez aussi demander la liste de tous les documents et de leur contenu en 
   {: codeblock}
 
 ## Etape 6 : Suppression de la base de données
+{: #step-6-delete-the-database}
 
 Lorsque vous n'avez plus besoin de la base de données, vous pouvez la supprimer.
 
@@ -343,9 +360,10 @@ else:
 ```
 {: codeblock}
 
-Un traitement d'erreurs de base a été inclus pour illustrer la manière dont les problèmes peuvent être interceptés et résolus.
+Nous avons inclus quelques notions de base sur la gestion des erreurs pour vous montrer comment dépanner et résoudre les problèmes potentiels.
 
 ## Etape 7 : Déconnexion de l'instance de service
+{: #step-7-close-the-connection-to-the-service-instance}
 
 L'étape finale consiste à déconnecter l'application client Python de l'instance de service :
 
@@ -355,14 +373,16 @@ client.disconnect()
 {: codeblock}
 
 ## Etapes suivantes
+{: #next-steps}
 
-Pour plus d'informations sur les offres de {{site.data.keyword.cloudant_short_notm}}, consultez le site officiel de [{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
+Pour en savoir plus sur toutes les offres {{site.data.keyword.cloudant_short_notm}}, consultez le site officiel de [{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
 
-Pour obtenir des détails et tutoriels complémentaires sur les concepts, tâches et techniques de {{site.data.keyword.cloudant_short_notm}}, consultez la [documentation {{site.data.keyword.cloudant_short_notm}}](cloudant.html).
+Pour tout renseignement complémentaire ou tutoriel sur les concepts, tâches et techniques de {{site.data.keyword.cloudant_short_notm}}, consultez la [documentation {{site.data.keyword.cloudant_short_notm}}](cloudant.html).
 
-## Annexe : Liste complète de code Python
+## Annexe : Liste complète du code Python
+{: #appendix-complete-python-code-listing}
 
-Vous trouverez ci-dessous la liste complète du code Python.
+Vous trouverez ci-dessous la liste complète du code Python. 
 Pensez à remplacer les valeurs `<username>`,
 `<password>` et `<url>` par les données d'identification de votre service.
 De même, remplacez la valeur `<yourDatabaseName>` par le nom de votre base de données.

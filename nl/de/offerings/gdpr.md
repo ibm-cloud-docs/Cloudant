@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,16 +11,15 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2018-04-28 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Datenschutz-Grundverordnung (DSGVO)
 
 Mit der DSGVO (Datenschutz-Grundverordnung) soll in der gesamten EU ein harmonisierter Rechtsrahmen
 für den Datenschutz geschaffen werden, in dem Bürger wieder die Kontrolle über ihre personenbezogenen Daten übernehmen,
-während gleichzeitig denen, die diese Daten an einem beliebigen Standort weltweit hosten und 'verarbeiten' strikte Regeln auferlegt werden.
-Die Verordnung führt zudem Regeln in Bezug auf den freien Datenverkehr
-innerhalb und außerhalb der EU ein. 
+während gleichzeitig denen, die diese Daten an einem beliebigen Standort weltweit hosten und 'verarbeiten' strikte Regeln auferlegt werden. Die Verordnung führt zudem Regeln in Bezug auf den freien Datenverkehr innerhalb und außerhalb der EU ein. 
 
 Mit der [Datenschutz-Grundverordnung ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.eugdpr.org/){:new_window}
 können sich {{site.data.keyword.cloudantfull}}-Kunden darauf verlassen, dass das
@@ -32,62 +31,59 @@ eigene interne Datengovernanceanforderungen zu erfüllen.
 
 ## Informationen zur auditfähigen Steuerung des Zugriffs auf {{site.data.keyword.cloudant_short_notm}}
 
-Informationen zu Audits finden Sie in [Auditprotokollierung](../offerings/audit.html#audit-logging){:new_window}. 
+Informationen zur Protokollierung finden Sie in [Prüfprotokollierung](../offerings/audit.html#audit-logging){:new_window}. 
 
 ## Unterstützte Klassifizierungen personenbezogener Daten
 
-Die folgenden Kategorien personenbezogener Daten werden im Rahmen der DSGVO von
-{{site.data.keyword.cloudant_short_notm}} unterstützt:
+Die folgenden Kategorien personenbezogener Daten werden im Rahmen der DSGVO von {{site.data.keyword.cloudant_short_notm}}
+unterstützt:
 
 **Personenbezogene Daten**, wie zum Beispiel:
  * Identität/Personenstand
  * Privatleben
  * Berufsleben
- * Wirtschafts- und Finanzdaten
  * Standortdaten
  * Verbindungs-/Gerätedaten
 
 **Sensible personenbezogene Daten**, beschränkt auf:
-  * Gesundheitsdaten, zusätzliche Bedingungen sind in einer Servicebeschreibung abgedeckt
+  * Für Informationen zum Gesundheitszustand gelten zusätzliche Bedingungen, die in der [Beschreibung der dedizierten {{site.data.keyword.cloudant_short_notm}}-Cluster-Services ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){:new_window} und in der [Beschreibung der zusätzlichen {{site.data.keyword.cloud}}-Services ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6627-04/$file/i126-6627-04_04-2018_en_US.pdf){:new_window} behandelt werden.
 
-Wenn Sie Gesundheitsdaten speichern, *müssen* Sie die folgenden Schritte ausführen:
+Wenn Sie Gesundheitsdaten speichern, *müssen* Sie die folgenden Tasks ausführen:
  - {{site.data.keyword.cloudant_short_notm}} benarichtigen, bevor Daten erfasst werden.
  - Einen mit HIPAA konformen dedizierten Cluster anfordern.
 
-Weitere Informationen zu den unterstützten Klassifizierungen personenbezogener Daten finden Sie in den detaillierten
-[{{site.data.keyword.cloudant_short_notm}}-Systemvoraussetzungen unter "2. Personenbezogene Daten" ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
+Weitere Informationen zu den unterstützten Klassifizierungen personenbezogener Daten finden Sie im
+[Data Sheet Addendum (DSA) unter '2. Personenbezogene Daten' ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
 
 ## Personenbezogene Daten
 
 {{site.data.keyword.cloudant_short_notm}} erfasst bestimmte Daten über die Nutzer
-und stellt damit einen Verantwortlichen für diese personenbezogenen Daten dar. Die erfassten Daten sind vom jeweiligen Kontotyp abhängig.
+und stellt damit einen Verantwortlichen für diese personenbezogenen Daten dar. Die von {{site.data.keyword.cloudant_short_notm}} erfassten Daten sind vom jeweiligen Kontotyp abhängig.
 
 Wenn Sie über einen {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} Enterprise Cluster verfügen,
 erfassen wir Ihre personenbezogenen Daten und gelten somit als Verantwortlicher
-für Ihre Daten im Sinne der DSGVO.
+für Ihre Daten im Sinne der DSGVO. 
 Wenn Sie über einen {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} Enterprise Cluster verfügen,
 erfassen wir die folgendenden Daten:
 
  * Name
  * E-Mail-Adresse
 
-Die erfassten Daten können über das {{site.data.keyword.cloudant_short_notm}}-Dashboard angezeigt und aktualisiert werden.
+Die von {{site.data.keyword.cloudant_short_notm}} erfassten Daten können über das {{site.data.keyword.cloudant_short_notm}}-Dashboard angezeigt und aktualisiert werden.
 
 Wenn Sie über ein von {{site.data.keyword.cloud_notm}} (mit dedizierter Instanz) bereitgestelltes Konto verfügen,
 erfasst {{site.data.keyword.cloudant_short_notm}} _keine_ der oben angeführten personenbezogenen Daten. Diese Daten werden von {{site.data.keyword.cloud_notm}} gespeichert.
 
-{{site.data.keyword.cloudant_short_notm}} verarbeitet in begrenztem Umfang personenbezogene Daten des Kunden
-während der Ausführung des Services und nutzt sie zur Optimierung der Benutzerschnittstelle. E-Mail-Adressen werden bei Bedarf zur Kontaktaufahme mit dem Kunden verwendet. Darüber hinaus werden
-personenbezogene Daten dazu verwendet, Kundeninteraktionen mit dem {{site.data.keyword.cloudant_short_notm}}-Dashboard zu überwachen.
+{{site.data.keyword.cloudant_short_notm}} verarbeitet in begrenztem Umfang personenbezogene Daten des Kunden während der Ausführung des Services und nutzt sie zur Optimierung der Benutzerschnittstelle. In {{site.data.keyword.cloudant_short_notm}} werden E-Mail-Adressen bei Bedarf zur Kontaktaufahme mit den Kunden verwendet. Auch bei der Überwachung der Kundeninteraktionen mit dem {{site.data.keyword.cloudant_short_notm}}-Dashboard werden von {{site.data.keyword.cloudant_short_notm}} personenbezogene Daten verarbeitet.
 
 ### Einschränkung der Verarbeitung
 
-Daten zu Dashboardinteraktionen werden an Segment gesendet. Es ist möglich, bei {{site.data.keyword.cloudant_short_notm}} eine Einschränkung
+Daten zu Dashboardinteraktionen werden von {{site.data.keyword.cloudant_short_notm}} an Segment gesendet. Es ist möglich, bei {{site.data.keyword.cloudant_short_notm}} eine Einschränkung
 dieser Verarbeitung personenbezogener Kundendaten über eine [{{site.data.keyword.cloudant_short_notm}} Support-Anforderung](mailto:support@cloudant.com) anzufordern. Nach Erhalt einer solchen Anforderung löscht
-{{site.data.keyword.cloudant_short_notm}} die Daten des Kunden, die an Segment gesendet wurden, und verhindert das Senden weiterer Daten. Wir müssen jedoch dedizierte Kunden
-weiterhin per E-Mail kontaktieren können und bieten eine Schnittstelle für Kunden an, um diese Daten entweder direkt oder
-über die Clientkonfiguration ihrer {{site.data.keyword.cloud_notm}}-Kontaktdetails
-über die Kontodetails auf dem neuesten Stand zu halten.
+{{site.data.keyword.cloudant_short_notm}} die Daten des Kunden, die an Segment gesendet wurden, und verhindert das Senden weiterer Daten. {{site.data.keyword.cloudant_short_notm}} muss jedoch dedizierte Kunden
+weiterhin per E-Mail kontaktieren können und bietet eine Schnittstelle für Kunden an, um diese Daten entweder direkt oder
+über die Kundenkonfiguration ihrer Kontaktdetails
+über die {{site.data.keyword.cloud_notm}}-Kontodetails auf dem neuesten Stand zu halten.
 
 ## Verschlüsselung der {{site.data.keyword.cloudant_short_notm}}-Datenbank
 
@@ -95,16 +91,17 @@ Alle Cluster verfügen über ein verschlüsseltes Dateisystem (Verschlüsselung 
 sind für unsere Operations- und Support-Teams (siehe unten) sichtbar.
 
 Sie müssen sensible Daten, die für {{site.data.keyword.cloudant_short_notm}} nicht einsehbar sein sollen,
-verschlüsseln oder anderweitig schützen (pseudonymisieren), bevor Sie sie an uns senden. Verwenden Sie keine personenbezogene Daten
-in der Angabe der `_id` eines Dokuments, da diese Angaben stets sichtbar sind und in die Zugriffsprotokolle geschrieben werden.
+verschlüsseln oder anderweitig schützen (pseudonymisieren), bevor Sie sie an uns senden. Verwenden Sie keine personenbezogenen Daten als Dokument-ID
+(`_id`) in Ihren URLs (z. B. `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`), da diese Angaben stets sichtbar sind und in die Zugriffsprotokolle geschrieben werden.
 
 ## Datenspeicherstandorte
 
-Standorte, an denen {{site.data.keyword.cloudant_short_notm}} personenbezogene Daten verarbeitet, werden über die
-Ergänzenden Bedingungen zur Auftragsverarbeitung (EB-AV) veröffentlicht und regelmäßig aktualisiert.
+Standorte, an denen {{site.data.keyword.cloudant_short_notm}} personenbezogene Daten verarbeitet, werden über DSA
+zur Verfügung gestellt und regelmäßig aktualisiert.
 
-Weitere Informationen zu den Datenspeicherstandorten finden Sie in den detaillierten
-[{{site.data.keyword.cloudantfull}}-Systemvoraussetzungen unter "7. {{site.data.keyword.IBM_notm}} Standorte für das Hosting und die Verarbeitung" ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
+Weitere Informationen zu den Datenspeicherstandorten finden Sie im
+[DSA unter '7. {{site.data.keyword.IBM_notm}} Standorte für das Hosting und die Verarbeitung' ![Symbol für externenLink](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){:new_window}.
+
 
 ## Servicesicherheit
 
@@ -112,29 +109,29 @@ Weitere Informationen zu den Datenspeicherstandorten finden Sie in den detaillie
 
 Als Nutzer von {{site.data.keyword.cloudant_short_notm}} sollten Sie Folgendes tun:
 
- * Verwenden Sie die CORS-Standardkonfiguration, um einen nicht erwarteten Zugriff zu verhindern. 
- * Verwenden Sie API-Schlüssel, wann immer möglich, sodass Komponenten über Zugriff 'mit möglichst niedriger Berechtigungsstufe' in Verbindung mit dem Auditprotokoll verfügen. Mit diesem Verfahren wissen Sie, wer auf welche Daten zugreift.
- * Verschlüsseln oder schützen (pseudonymisieren) Sie alle sensiblen Daten, bevor Sie sie an uns senden. 
+ * Verwenden Sie die CORS-Standardkonfiguration, um einen nicht erwarteten Zugriff zu verhindern.
+ * Verwenden Sie API-Schlüssel, wann immer möglich, sodass Komponenten über Zugriff 'mit möglichst niedriger Berechtigungsstufe' in Verbindung mit dem Prüfprotokoll verfügen. Mit diesem Verfahren wissen Sie, wer auf welche Daten zugreift.
+ * Verschlüsseln oder schützen (pseudonymisieren) Sie sensible Daten, die für {{site.data.keyword.cloudant_short_notm}} unsichtbar bleiben müssen.
 
 ### Physische Sicherheitsmaßnahmen und Sicherheitsmaßnahmen für die Umgebung
 
 Die physische Sicherheit unserer Rechenzentren übernehmen unsere Infrastrukturanbieter: SoftLayer,
 AWS und 21Vianet. Alle besitzen extern geprüfte Zertifizierungen für ihre physische Sicherheit. Weitere Details
-zu den physischen Sicherheitsmaßnahmen in unseren Rechenzentren werden nicht bereitgestellt.
+zu den physischen Sicherheitsmaßnahmen in den Rechenzentren werden von {{site.data.keyword.cloudant_short_notm}} nicht bereitgestellt.
 
-Die physische Sicherheit der von unseren Mitarbeitern genutzten Bürostandorte wird von der {{site.data.keyword.IBM_notm}} Corporation übernommen.
+Die physische Sicherheit der von unseren Mitarbeitern genutzten Bürostandorte wird von der {{site.data.keyword.IBM_notm}} Corporation übernommen. 
 Zertifizierungsdetails und Beglaubigungsberichte (d. h. ISO und SOC2) können dem Kunden auf Anfrage zur Verfügung gestellt werden.
 
 ### Technische und organisatorische Maßnahmen
 
 Technische und organisatorische Maßnahmen werden von {{site.data.keyword.cloudant_short_notm}} eingesetzt,
-um die Sicherheit personenbezogener Daten zu gewährleisten. Wir verfügen über extern geprüfte Zertifizierungen für die von uns eingesetzten Kontrollmechanismen.
+um die Sicherheit personenbezogener Daten zu gewährleisten. {{site.data.keyword.cloudant_short_notm}} verfügt über extern geprüfte Zertifizierungen für die von {{site.data.keyword.cloudant_short_notm}} eingesetzten Kontrollmechanismen.
 Zertifizierungsdetails und Beglaubigungsberichte (d. h. ISO und SOC2) können dem Kunden auf Anfrage zur Verfügung gestellt werden.
 
 ### Servicezugriff auf Daten
 
 Mitarbeiter der Operations- und Support-Teams von {{site.data.keyword.cloudant_short_notm}} verfügen über
-Zugriff auf Kundendaten und können bei Routineoperationen darauf zugreifen. Dieser Zugriff erfolgt nur nach Bedarf, um den Service zu betreiben und zu unterstützen.
+Zugriff auf Kundendaten und können bei Routineoperationen darauf zugreifen. Dieser Zugriff erfolgt nur nach Bedarf, um den Service zu betreiben und zu unterstützen. 
 Darüber hinaus ist der Zugriff auf den *begründeten Informationsbedarf* beschränkt und wird protokolliert, überwacht und geprüft.
 
 ## Daten löschen
@@ -154,28 +151,26 @@ Weitere Informationen zum Löschen von Tombstones finden Sie in [Einfaches Entfe
 ### Entfernen eines gelöschtes Dokuments
 
 Die Komprimierung wird automatisch ausgeführt und entfernt regelmäßig alte (gelöschte oder andere) Revisionen aus der Datenbank,
-indem nur 'Leaf'-Revisionen in eine neue Datei geschrieben werden. Die Angaben `_id` und `_rev` werden
-in einem Verlaufsprotokoll dokumentiert, um die Replikation zu ermöglichen. Alte Dokumenthauptteile werden jedoch nicht gespeichert.
+indem nur 'Leaf'-Revisionen in eine neue Datei geschrieben werden. Die Angaben für `_id` und `_rev` werden
+von {{site.data.keyword.cloudant_short_notm}} in einem Verlaufsprotokoll dokumentiert, um die Replikation zu ermöglichen. Alte Dokumenthauptteile werden jedoch nicht gespeichert.
 
 > **Hinweis**: {{site.data.keyword.cloudant_short_notm}} macht die CouchDB-Komprimierungs-API nicht zugänglich.
 
-Es kann nicht garantiert werden, dass eine Datenbank in einem bestimmten Zeitraum komprimiert wird. Cluster können mehr als 10.000 Konten umfassen
-und jedes Konto kann zahlreiche Datenbanken enthalten. Die Komprimierung wird im gesamten Cluster als Hintergrundprozess ausgeführt
+Es kann von {{site.data.keyword.cloudant_short_notm}} nicht garantiert werden, dass eine Datenbank in einem bestimmten Zeitraum komprimiert wird. Die Komprimierung wird im Speichertier als Hintergrundprozess ausgeführt
 und Datenbanken werden kontinuierlich komprimiert. Eine Garantie, dass die Daten betroffen sind, die Sie soeben gelöscht/geändert haben,
 kann nicht gegeben werden.
 
 {{site.data.keyword.cloudant_short_notm}} akzeptiert Anforderungen hinsichtlich des *Rechts auf Vergessen*
-über den [{{site.data.keyword.IBM_notm}} Datenschutzbeauftragten (Data Privacy Officer, DPO) ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window}.
+über den [{{site.data.keyword.IBM_notm}} Datenschutzbeauftragten (Data Privacy Officer, DPO) ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window}. 
 Wenn eine Anforderung hinsichtlich des *Rechts auf Vergessen* über den {{site.data.keyword.IBM_notm}} Datenschutzbeauftragten gestellt wird,
-wird diese verifiziert; anschließend wird die Datenbankkomprimierung explizit ausgelöst und sichergestellt, dass die Komprimierung erfolgt ist.
+wird diese von {{site.data.keyword.cloudant_short_notm}} verifiziert; anschließend wird die Datenbankkomprimierung explizit ausgelöst und sichergestellt, dass die Komprimierung erfolgt ist.
 Am Ende dieses Prozesses bleibt als einzige Version des Dokuments der zugehörige Tombstone erhalten
 (`_id`, `_rev`, `_deleted` sowie alle Felder, die Ihre Anwendung hier einbezieht).
 
 ### Tombstones entfernen
 
 {{site.data.keyword.cloudant_short_notm}} kann bei Bedarf alle Referenzen und Daten für ein Dokument
-vollständig entfernen. Diese Aufgabe ist ein vom Operator verwalteter Prozess, der als Bereinigung bezeichnet wird.
-Bevor eine Bereinigung von Dokumenten angefordert wird, muss Klarheit darüber bestehen,
+vollständig entfernen. Diese Aufgabe ist ein vom Operator verwalteter Prozess, der als Bereinigung bezeichnet wird. Bevor eine Bereinigung von Dokumenten angefordert wird, muss Klarheit darüber bestehen,
 dass bereinigte Dokumente nach Abschluss des Prozesses von {{site.data.keyword.cloudant_short_notm}}
 *nicht wiederhergestellt* werden können.
 
@@ -190,14 +185,12 @@ Wenn ein Dokument aufgrund einer Anforderung hinsichtlich des *Rechts auf Verges
 
 1. Senden Sie eine Anforderung an den [{{site.data.keyword.IBM_notm}} Datenschutzbeauftragten ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://w3-03.ibm.com/ibm/privacy/index.html){:new_window}, in der Sie angeben, dass bestimmte `_id`-Dokumentwerte bereinigt werden sollen. Geben Sie auch den Grund hierfür an.
 1. Nach Erhalt der formellen Anforderung durch den {{site.data.keyword.IBM_notm}} Datenschutzbeauftragten verifizieren die Mitarbeiter des
-{{site.data.keyword.cloudant_short_notm}}-Operations-Teams die Anforderung, um zu bestätigen, dass die `id` personenbezogene Daten enthält.
-Es werden keine Daten bereinigt, deren `_id` keine personenbezogenen Daten enthält. 
+{{site.data.keyword.cloudant_short_notm}}-Operations-Teams die Anforderung, um zu bestätigen, dass die `id` personenbezogene Daten enthält. Es werden von {{site.data.keyword.cloudant_short_notm}} keine Daten bereinigt, deren `_id` keine personenbezogenen Daten enthält. 
 1. {{site.data.keyword.cloudant_short_notm}} löst den Bereinigungsvorgang aus, um die angeforderten Daten dauerhaft zu entfernen.
 
 Dieser Prozess ist nur für Löschanforderungen in Notfällen (z. B. für das *Recht auf Vergessen*) vorgesehen
 und darf nicht als langfristige Lösung eingesetzt werden. Wenn in Ihrer Anwendung bewusst personenbezogene Daten in Dokument-IDs verwendet werden,
-muss sie so geändert werden, dass diese personenbezogenen Daten pseudonymisiert oder aus den Dokument-IDs entfernt werden.
-Für eine regelmäßige Bereinigung steht das {{site.data.keyword.cloudant_short_notm}}-Operations-Team nicht zur Verfügung.
+muss sie so geändert werden, dass diese personenbezogenen Daten pseudonymisiert oder aus den Dokument-IDs entfernt werden. Für eine regelmäßige Bereinigung steht das {{site.data.keyword.cloudant_short_notm}}-Operations-Team nicht zur Verfügung. 
 Deshalb lehnt {{site.data.keyword.cloudant_short_notm}} die folgenden Bereinigungsanforderungen ab:
 
 1. Eine Anforderung einer regelmäßigen Bereinigung, zum Beispiel *alle 30 Tage*.
@@ -205,8 +198,9 @@ Deshalb lehnt {{site.data.keyword.cloudant_short_notm}} die folgenden Bereinigun
 
 Selbst bei einer Bereinigung kann es vorkommen, dass personenbezogene Daten im Feld `_id`
 an anderen unerwünschten Stellen (z. B. in den {{site.data.keyword.cloudant_short_notm}}-Protokollen) auftauchen.
-Deshalb sollten personenbezogene Daten in diesen Feldern vermieden werden. Es besteht ein geschäftsbezogener Grund, dass diese Protokolle von uns gespeichert werden.
-Protokollzeilen, die `_id`-Dokumentwerte enthalten, werden daher von uns nicht entfernt.
+Deshalb sollten personenbezogene Daten in diesen Feldern vermieden werden. 
+Es besteht für {{site.data.keyword.cloudant_short_notm}} ein geschäftsbezogener Grund, dass diese Protokolle von uns gespeichert werden.
+Protokollzeilen, die `_id`-Dokumentwerte enthalten, werden daher nicht entfernt.
 
 
 ### Löschen einer Datenbank

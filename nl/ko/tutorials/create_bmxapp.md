@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,29 +11,34 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.Bluemix_notm}} 애플리케이션 작성
+# {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.cloud_notm}} 애플리케이션 작성
 
-이 튜토리얼에서는 {{site.data.keyword.Bluemix_notm}} 서비스 인스턴스에서 호스팅되는 {{site.data.keyword.cloudantfull}} 데이터베이스에 액세스하기 위해
+이 튜토리얼은 {{site.data.keyword.cloud}} 서비스 인스턴스에서 호스팅되는
+{{site.data.keyword.cloudantfull}} 데이터베이스에 액세스하기 위해
 [Python 프로그래밍 언어 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.python.org/){:new_window}를
-사용하는 {{site.data.keyword.Bluemix}} 애플리케이션을 작성하는 방법을 보여줍니다.
+사용하는 {{site.data.keyword.cloud_notm}} 애플리케이션을 작성하는 방법을 보여줍니다.
 {:shortdesc}
 
 ## 내용
 
-{{site.data.keyword.Bluemix_notm}}의 주요 이점은 {{site.data.keyword.Bluemix_notm}} 자체 내에서 애플리케이션을 작성하고 배치할 수 있다는 점입니다.
+{{site.data.keyword.cloud}}의 주요 이점은 {{site.data.keyword.cloud_notm}} 자체 내에서 애플리케이션을 작성하고 배치할 수 있다는 점입니다.
 애플리케이션을 실행할 서버를 찾고 유지보수할 필요가 없습니다.
 
-{{site.data.keyword.Bluemix_notm}} 내의 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스를 이미 사용하고 있는 경우에는 여기에 애플리케이션을 배치하는 것이 좋습니다.
+{{site.data.keyword.cloud_notm}} 내의
+{{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스를
+이미 사용하고 있는 경우에는 여기에 애플리케이션을 배치하는 것이 좋습니다. 
 
-{{site.data.keyword.Bluemix_notm}} 애플리케이션은 일반적으로 [Cloud Foundry ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} 기술을 사용하여 작성됩니다.
+{{site.data.keyword.cloud_notm}} 애플리케이션은 일반적으로 [Cloud Foundry ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} 기술을 사용하여 작성됩니다.
 Cloud Foundry는 클라우드 환경 내에서 배치되어 실행될 수 있는 애플리케이션을 작성하는 프로세스를 단순화시키는 PaaS(Platform as a Service) 기능을 제공합니다.
 
-[별도의 튜토리얼](create_database.html)에서는 {{site.data.keyword.Bluemix_notm}} 내의 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스를 사용하는
+[별도의 튜토리얼](create_database.html)에서는
+{{site.data.keyword.cloud_notm}} 내의 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스를 사용하는
 독립형 Python 애플리케이션을 작성하는 방법을 보여주었습니다.
-이 튜토리얼에서는 {{site.data.keyword.Bluemix_notm}} 내에서 호스팅되는 작은 Python 애플리케이션을 설정하고 작성합니다.
+이 튜토리얼에서는 {{site.data.keyword.cloud_notm}} 내에서 호스팅되는 작은 Python 애플리케이션을 설정하고 작성합니다.
 이 애플리케이션은 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스에 연결하여 간단한 문서를 하나 작성합니다.
 
 각 태스크에 해당하는 Python 코드가 이 튜토리얼의 일부로서 제공되었습니다.
@@ -47,11 +52,11 @@ Cloud Foundry는 클라우드 환경 내에서 배치되어 실행될 수 있는
 
 ## 태스크 개요
 
-{{site.data.keyword.Bluemix_notm}}에서 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스에 액세스할 수 있는, 작동하는 Python 애플리케이션을 작성하려면 다음 태스크를 수행해야 합니다.
+{{site.data.keyword.cloud_notm}}에서 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스에 액세스할 수 있는, 작동하는 Python 애플리케이션을 작성하려면 다음 태스크를 수행해야 합니다.
 
--   [{{site.data.keyword.Bluemix_notm}}에 Python 애플리케이션 환경을 작성합니다. ](create_bmxapp_appenv.html#creating)
+-   [{{site.data.keyword.cloud_notm}}에 Python 애플리케이션 환경을 작성합니다. ](create_bmxapp_appenv.html#creating)
 -   [Python 애플리케이션 환경이 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스에 '연결'되도록 합니다. ](create_bmxapp_appenv.html#connecting)
--   [(일회성 태스크) Cloud Foundry 및 {{site.data.keyword.Bluemix_notm}} 명령행 툴킷을 다운로드하여 설치합니다. ](create_bmxapp_appenv.html#toolkits)
+-   [(일회성 태스크) Cloud Foundry 및 {{site.data.keyword.cloud_notm}} 명령행 툴킷을 다운로드하여 설치합니다. ](create_bmxapp_appenv.html#toolkits)
 -   ['스타터' 애플리케이션을 다운로드합니다. ](create_bmxapp_appenv.html#starter)
 -   [스타터 애플리케이션을 사용자 정의하여 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스에 액세스하기 위한 고유 애플리케이션을 작성합니다. ](create_bmxapp_createapp.html#theApp)
 -   [애플리케이션을 업로드하고 작동하는지 테스트합니다. ](create_bmxapp_upload.html#uploading)

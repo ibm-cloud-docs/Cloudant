@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 创建备份
 
@@ -153,7 +156,7 @@ export COUCH_URL=https://username:password@myhost.cloudant.com
 
 CouchBackup 实用程序将数据库备份到文本文件，以保留数据并使其更易复原。 
 
-1.  运行 `couchbackup` 命令将数据库的内容定向到文本文件。 
+1.  运行 `couchbackup` 命令，将数据库的内容定向到文本文件。 
  
     ```sh
     couchbackup --db couchbackup-demo > couchbackup-demo-backup.txt
@@ -270,7 +273,7 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
 *   `--resume` = `true`
 
 
-1.  运行 `couchbackup` 命令创建日志文件。 
+1.  运行 `couchbackup` 命令以创建日志文件。 
     
     ```sh
     couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log > couchbackup-demo-backup-log.txt
@@ -347,7 +350,7 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
 可以使用 `couchrestore` 命令，通过 `couchbackup-demo-backup.txt` 文件将数据复原到新的空数据库。 
 
 > **注**：复原备份仅支持复原到空数据库。如果删除数据库中的所有 
-文档，文档删除记录仍然会存在，用于保持复制一致性。这意味着仅包含已删除文档的数据库不会被视为空数据库，因此无法在复原备份时用作目标。
+文档，文档删除记录仍然会存在，用于保持复制一致性。这意味着仅包含已删除文档的数据库不会被视为空数据库，因此无法在复原备份时将其用作目标。
 
 
 1.  （先决条件）创建一个新的空数据库，以便可以在其中复原数据。

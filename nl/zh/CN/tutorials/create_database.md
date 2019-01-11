@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 在 {{site.data.keyword.cloud_notm}} 上创建并填充简单 {{site.data.keyword.cloudant_short_notm}} 数据库
 
@@ -41,7 +44,7 @@ Python 2.7.12
 
 ### {{site.data.keyword.cloudant_short_notm}} 的 Python 客户机库
 
-有一个[官方支持的库](../libraries/supported.html#python)，能使 Python 应用程序与 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 配合使用。
+有一个[官方支持的库](../libraries/supported.html#python)，它支持 Python 应用程序在 {{site.data.keyword.cloud_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。
 
 您应该使用[此处](../libraries/supported.html#python)提供的指示信息安装此库。
 
@@ -296,7 +299,7 @@ print "{0}\n".format(response.json())
 ```
 {:codeblock}
 
-结果类似于以下 _abbreviated_ 示例：
+结果类似于以下_缩略的_示例：
 
 ```json
 {
@@ -367,9 +370,9 @@ client.disconnect()
 ```
 {:codeblock}
 
-## 完整清单
+## 完整列表
 
-以下代码是用于访问 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例并执行一系列典型任务的完整 Python 程序：
+以下代码是一个完整的 Python 程序，用于访问 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例并执行一系列典型任务：
 
 1.  连接到服务实例。
 2.  在服务实例中创建数据库。

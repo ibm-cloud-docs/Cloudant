@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-20 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 複製
 
@@ -48,17 +49,19 @@ lastupdated: "2018-06-07"
 ## ダッシュボードを使用した複製の開始方法
 
 {{site.data.keyword.cloudant_short_notm}} ダッシュボードには、複製をトリガーするための便利なユーザー・インターフェースが提供されています。
-{{site.data.keyword.cloudant_short_notm}} ダッシュボードの「Replication」タブを開き、`New Replication` アクション・ボタンをクリックします。
-次のシンプルなフォームに入力します。
+{{site.data.keyword.cloudant_short_notm}} ダッシュボードで`「複製 (Replication)」`タブをクリックし、`「複製の開始 (Start Replication)」`をクリックします。
+次のフォームに入力します。
 
 ![複製 2](../images/replication_guide_2.png)
 
-このフォームを使用して、ソース・データベースとターゲット・データベースを定義し、「`Replicate`」をクリックします。
+このフォームを使用して、
+ソース・データベースとターゲット・データベースを定義し、
+`「複製の開始 (Start Replicatation)」`をクリックします。
 
 ![複製 3](../images/replication_guide_3.png)
 
-各複製タスクの状況は、ダッシュボードの「`All Replications`」セクションで確認できます。
-各ジョブは、進行するにしたがって「`Triggered`」から「`Complete`」に状態が変化します。
+各複製タスクの状況は、`「複製 (Replication)」`タブをクリックすることで確認できます。
+各ジョブは、進行するにしたがって`「実行中」`から`「完了」`に状態が変化します。
 
 ![複製 4](../images/replication_guide_4.png)
 
@@ -100,9 +103,9 @@ _複製のためのソース URL とターゲット URL の定義例:_
 複製を開始するには、`_replicator` データベースに文書を追加します。
 この文書は、実行する複製を記述し、以下のフィールドを含んでいます。
 
-フィールド           |目的
+フィールド           | 目的
 ----------------|--------
-`_id`           |`_id` フィールドの指定はオプションですが、複製タスクの識別に役立ちます。指定しない場合は、{{site.data.keyword.cloudant_short_notm}} がユーザーの代わりに値を生成します。
+`_id`           | `_id` フィールドの指定はオプションですが、複製タスクの識別に役立ちます。 指定しない場合は、{{site.data.keyword.cloudant_short_notm}} がユーザーの代わりに値を生成します。
 `source`        | ログイン資格情報を含めたソース {{site.data.keyword.cloudant_short_notm}} データベースの URL。
 `target`        | ログイン資格情報を含めた宛先 {{site.data.keyword.cloudant_short_notm}} データベースの URL。
 `create_target` | (オプション) 宛先データベースがまだ存在しない場合、作成するかどうかを決定します。
@@ -224,9 +227,9 @@ API キーは、データベースごとを基本として {{site.data.keyword.c
 継続的複製では、データは継続的にフローします。
 ソース・データベースに対するすべての後続変更が、リアルタイムでターゲット・データベースに転送されます。
 
-継続的複製は、{{site.data.keyword.cloudant_short_notm}} ダッシュボードで複製タスクを定義する時に「`Make this replication continuous`」チェック・ボックスをクリックするか、{{site.data.keyword.cloudant_short_notm}} API で ["`continuous`"](../api/replication.html#checkpoints) フラグを設定することによってトリガーされます。
+継続的複製は、{{site.data.keyword.cloudant_short_notm}} ダッシュボードで複製タスクを定義する時に `Make this replication continuous` チェック・ボックスをクリックするか、{{site.data.keyword.cloudant_short_notm}} API で ["`continuous`"](../api/replication.html#checkpoints) フラグを設定することによってトリガーされます。
 
-両方向複製は、「`continuous`」フラグを設定することにより、1 方向または両方向で継続させることができます。
+両方向複製は、`continuous` フラグを設定することにより、1 方向または両方向で継続させることができます。
 
 _HTTP を使用した継続的複製の開始例:_
 
@@ -569,9 +572,8 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ```
 {:codeblock}
 
->   **注**: `_changes` フィード内の文書の順序は常に同じではありません。
-    つまり、変更は、厳密な時間順序で現れない可能性があります。
-    この理由は、複数の {{site.data.keyword.cloudant_short_notm}} ノードからデータが返され、結果整合性のルールが適用されるからです。
+    `_changes` フィード内の文書の順序は常に同じではありません。 つまり、変更は、厳密な時間順序で現れない可能性があります。 この理由は、複数の {{site.data.keyword.cloudant_short_notm}} ノードからデータが返され、結果整合性のルールが適用されるからです。
+    {: tip}
 
 ## 複製の落とし穴
 

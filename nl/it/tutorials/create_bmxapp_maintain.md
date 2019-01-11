@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-01-11 -->
 
@@ -34,26 +35,22 @@ Python in {{site.data.keyword.cloud_notm}}.
 Lo stato delle applicazioni nella tua istanza del servizio
 {{site.data.keyword.cloud_notm}} viene visualizzato nel dashboard.
 
-Nel seguente esempio,
-l'applicazione `Cloudant Python` non è in esecuzione e
-ha lo stato `Arrestato`:<br/>
+Nel seguente esempio, l'applicazione `Python Cloudant` non è in esecuzione e ha lo stato `Stopped`:
+
 ![Acquisizione schermo che mostra il dashboard per l'applicazione nello stato 'arrestato' ](images/img0037.png)
 
 ### Avvio della tua applicazione
 
->   **Nota**: se provi ad avviare l'applicazione dell'esercitazione
-    senza prima eliminare il database dimostrativo dell'esercitazione,
-    l'applicazione non può funzionare correttamente.
-    L'applicazione entra in un ciclo di tentativi di avvio,
+Se provi ad avviare l'applicazione di esercitazione senza prima eliminare il database dimostrativo dell'esercitazione, l'applicazione non può funzionare correttamente. L'applicazione entra in un ciclo di tentativi di avvio,
     errore perché il database esiste,
     arresto,
-    quindi un altro tentativo di avvio.
-    Per risolvere il problema,
+    quindi un altro tentativo di avvio. Per risolvere il problema,
     [arresta l'applicazione](#stopping-your-application),
-    quindi elimina il database dimostrativo dell'esercitazione.
-    L'applicazione può quindi avviarsi correttamente.
+    quindi elimina il database dimostrativo dell'esercitazione. L'applicazione può quindi avviarsi correttamente.
+{: tip}
+    
+Per avviare un'applicazione arrestata, fai prima clic sull'icona del menu dell'applicazione nel dashboard:
 
-Per avviare un'applicazione arrestata, fai prima clic sull'icona del menu dell'applicazione nel dashboard:<br/>
 ![Acquisizione schermo che mostra il dashboard con l'icona di gestione dell'applicazione](images/img0038.png)
 
 Successivamente,
@@ -64,7 +61,7 @@ fai clic sull'opzione `Start App` nel menu:<br/>
 
 Per arrestare un'applicazione in esecuzione,
 fai prima clic sull'icona del menu dell'applicazione nel dashboard:<br/>
-![Acquisizione schermo che mostra il dashboard con l'icona di gestione dell'applicazione](images/img0040.png)
+![Acquisizione schermo che mostra il dashboard con l'icona di gestione dell'applicazione](images/img0038.png)
 
 Successivamente,
 fai clic sull'opzione `Stop App` nel menu:<br/>
@@ -78,8 +75,8 @@ Per caricare una nuova versione della tua applicazione,
 segui semplicemente il [processo di caricamento](create_bmxapp_upload.html).
 La nuova versione sovrascrive la versione precedente dell'applicazione.
 
->   **Nota**: se la vecchia versione dell'applicazione è già in esecuzione quando avvii il caricamento,
-    {{site.data.keyword.cloud_notm}} prima arresta automaticamente l'applicazione.
+Se la versione meno recente dell'applicazione è già in esecuzione quando avvii il caricamento, {{site.data.keyword.cloud_notm}} prima arresta automaticamente l'applicazione.
+{: tip}
 
 ## Diagnostica e risoluzione dei problemi
 
@@ -99,19 +96,17 @@ il consiglio per
 ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}
 è cauto.
 
->   **Nota**: per motivi di semplicità,
-    questa esercitazione scrive il contenuto nel file system locale.
-    Tuttavia,
-    la quantità di materiale è piccola.
-    Non è pensata per essere conservata
+Per motivi di semplicità, questa esercitazione non scrive contenuto nel file system locale. Tuttavia,
+    la quantità di materiale è piccola. Non è pensata per essere conservata
     e non è di 'importanza critica'.
+{: tip}
 
 ### Utilizzo del log dell'applicazione
 
 La risorsa più utile per la diagnostica e la risoluzione dei problemi con l'applicazione
 {{site.data.keyword.cloud_notm}} è il file di log.
 
-Il file di log per un'applicazione {{site.data.keyword.cloud_notm}} può essere trovato nella pagina delle informazioni `Logs`:<br/>
+Il file di log per un'applicazione {{site.data.keyword.cloud_notm}} può essere trovato facendo clic sulla scheda `Logs` per aprire la pagina delle informazioni sulla registrazione nei log:<br/>
 ![Acquisizione schermo che mostra il link per accedere alla pagina delle informazioni 'Logs' ](images/img0042.png)
 
 Come la maggior parte dei file di log,

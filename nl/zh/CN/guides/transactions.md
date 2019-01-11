@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 在 {{site.data.keyword.cloudant_short_notm}} 中将相关文档分组在一起
 
@@ -139,7 +142,7 @@ function (doc) {
 
 使用内置 [`_sum` reducer](../api/creating_views.html#built-in-reduce-functions) 可将输出生成为付款事件的分类帐。
 
-_使用内置 `sum` reducer 的示例（使用 `?reduce=false` 进行查询）_：_
+_使用内置 `_sum` reducer 的示例（使用 `?reduce=false` 进行查询）：_
 
 ```json
 {

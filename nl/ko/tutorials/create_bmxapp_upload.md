@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.cloud_notm}} 애플리케이션 작성: 애플리케이션 업로드
 
@@ -61,9 +62,10 @@ Not logged in. Use 'bluemix login' to log in.
 -   '`-o`' 매개변수로 지정되는 조직 이름
 -   '`-s`' 매개변수로 지정되는 영역 이름
 
->   **참고**: 계정 세부사항은 {{site.data.keyword.cloud_notm}} 대시보드에 있으며,
-    이는 웹 브라우저를 통해 로그인한 경우 다음 예에 표시된 것과 같습니다.<br/>
-    ![{{site.data.keyword.cloud_notm}} 계정 세부사항 찾기](images/img0035.png)
+  계정 세부사항은 다음 예에 표시된 바와 같이, 웹 브라우저를 통해 로그인했을 때 {{site.data.keyword.cloud_notm}} 대시보드에서 볼 수 있습니다.
+  {: tip}
+
+  ![{{site.data.keyword.cloud_notm}} 계정 세부사항 찾기](images/img0035.png)
 
 다음 예와 유사한 명령을 사용하여 {{site.data.keyword.cloud_notm}} 애플리케이션 환경에 로그인하십시오.
 사용자는 계정 비밀번호를 입력하라는 요구를 받습니다.
@@ -197,30 +199,25 @@ buildpack: python 1.5.5
 
 ## 샘플 애플리케이션 테스트
 
-{{site.data.keyword.cloud_notm}} 애플리케이션 환경이 처음으로 작성될 때, 대시보드에는 애플리케이션의 `Route` 열에 대한 링크가 포함되었습니다.<br/>
+이제 애플리케이션을 테스트하여 올바르게 실행되는지 확인하십시오.  
+
+1.  {{site.data.keyword.cloud_notm}} 대시보드를 여십시오. Cloud Foundry 애플리케이션 아래에서 작성한 애플리케이션에 대한 링크를 볼 수 있습니다. `Cloudant CF app`을 클릭하여 세부사항 페이지를 여십시오. <br/>  
 ![애플리케이션의 대시보드를 보여주는 스크린샷](images/img0017.png)
 
-이 링크를 클릭하면 해당 포트를 청취하고 있는 애플리케이션으로부터 몇 가지 데이터를 요구하는 브라우저 창이 열립니다.
-애플리케이션은 시작 시에 생성된 로그 파일의 컨텐츠를 리턴하여 응답합니다.<br/>
-![튜토리얼 애플리케이션 실행 시작 시에 생성된 로그 파일](images/img0030.png)
+2.  `Cloudant CF app` 세부사항 페이지에서 `Routes`를 클릭하고 `Cloudant-CF-app.mybluemix.net` 링크를 클릭하십시오. <br/>
+![Cloudant CF app 세부사항 페이지](images/img0030.png)
 
-이 로그 파일의 컨텐츠는 흥미롭습니다.
-시작 및 종료 시간이 분명히 표시되어 있습니다.
-그 사이의 로그에는 {{site.data.keyword.cloudant_short_notm}}의 연결 정보 검색에 대한
-각 세부사항이 기록되어 있습니다.
-연결의 실제 값은 중요하지 않습니다.
-이 로그는 튜토리얼 애플리케이션이 {{site.data.keyword.cloudant_short_notm}} 데이터베이스에
-새 문서를 작성하기 위해 이러한 값을 찾고, 검색하고, 사용할 수 있었음을 보여줍니다.
+3. 주소가 https://cloudant-cf-app.mybluemix.net/으로 지정된 새 브라우저 창이 열립니다. 메시지가 애플리케이션이 실행 중임을 확인합니다. 이 메시지는 "Hello World! Thanks for creating a Python Starter Application."입니다. <br/>
+![Hello World! 메시지가 Cloudant CF app이 올바르게 실행 중임을 확인함](images/img0054.png)
+
 
 ### 데이터베이스 세부사항 확인
 
-{{site.data.keyword.cloudant_short_notm}} 대시보드를 열어 시작하십시오.
-{{site.data.keyword.cloudant_short_notm}} 서비스 페이지의 `Manage` 탭에 있는
-`Launch` 아이콘을 클릭하십시오.<br/>
-![{{site.data.keyword.cloudant_short_notm}} 서비스 페이지의 Launch 아이콘](images/img0036.png)
+{{site.data.keyword.cloud_notm}} 대시보드에서 사용자가 작성한 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 여십시오. 서비스 인스턴스를 클릭하십시오. `Manage` 탭으로 이동하여 `Launch Cloudant Dashboard`를 클릭하십시오. <br/>
+![{{site.data.keyword.cloudant_short_notm}} 서비스 페이지에서 Cloudant 대시보드 실행](images/img0036.png)
 
 {{site.data.keyword.cloudant_short_notm}} 서비스 페이지를 찾으려면
-['{{site.data.keyword.cloudant_short_notm}} 인스턴스 작성' 튜토리얼](create_service.html#locating-your-service-credentials)에 있는 세부사항을 참조하십시오.
+[{{site.data.keyword.cloudant_short_notm}} 인스턴스 작성 튜토리얼](create_service.html#locating-your-service-credentials)에 있는 세부사항을 참조하십시오.
 {: tip}
 
 대시보드가 열리면 '`databasedemo`' 데이터베이스를 작성한 애플리케이션을 볼 수 있습니다.<br/>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,10 +11,11 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2018-06-05 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.Bluemix_notm}} público
+# {{site.data.keyword.cloud_notm}} público
 {: #ibm-cloud-public}
 
 {{site.data.keyword.cloudantfull}} público es la oferta de {{site.data.keyword.cloudant_short_notm}} más rica en características que primero recibe actualizaciones y nuevas características. El precio se basa en los requisitos de rendimiento y almacenamiento, lo que hace que sea adecuada para cualquier carga necesaria. 
@@ -29,18 +30,18 @@ plan Estándar:
 
 <div id="maxtable"></div>
 
-<table border='1'>
+<table>
 
 <tr>
-<th id="plans">Planes</th><th id="lite">Lite</th><th id="standard" colspan='4'>Estándar</th>
+<th id="capacity-config-plan">Plan</th><th id="lite">Lite</th><th id="standard" colspan='4'>Estándar</th>
 </tr>
 <tr>
-<th id="base-priceperhour" headers="plans">Precio base (por hora)</td>
+<th id="base-priceperhour" headers="capacity-config-plan">Precio base (por hora)</td>
 <td headers="lite base-priceperhour">0,00 $</td>
 <td headers="standard base-priceperhour" colspan='4'>Consulte los <a href="../offerings/pricing.html#pricing" target="_blank">detalles sobre precios <img src="../images/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>.</td>
 </tr>
 <tr>
-<th id="provisionedthroughputcapacity-lookupspersecond" headers="plans">Capacidad de rendimiento suministrada (búsquedas por segundo)</td>
+<th id="provisionedthroughputcapacity-lookupspersecond" headers="capacity-config-plan">Capacidad de rendimiento suministrada (búsquedas por segundo)</td>
 <td headers="lite provisionedthroughputcapacity-lookupspersecond-lite">20</td>
 <td headers="standard provisionedthroughputcapacity-lookupspersecond">100</td>
 <td headers="standard provisionedthroughputcapacity-lookupspersecond">1.000</td>
@@ -48,7 +49,7 @@ plan Estándar:
 <td headers="standard provisionedthroughputcapacity-lookupspersecond">20.000</td>
 </tr>
 <tr>
-<th id="provisionedthroughputcapacity-writespersecond" headers="plans">Capacidad de rendimiento suministrada (escrituras por segundo)</td>
+<th id="provisionedthroughputcapacity-writespersecond" headers="capacity-config-plan">Capacidad de rendimiento suministrada (escrituras por segundo)</td>
 <td headers="lite provisionedthroughputcapacity-writespersecond">10</td>
 <td headers="standard provisionedthroughputcapacity-writespersecond">50</td>
 <td headers="standard provisionedthroughputcapacity-writespersecond">500</td>
@@ -56,7 +57,7 @@ plan Estándar:
 <td headers="standard provisionedthroughputcapacity-writespersecond">10.000</td>
 </tr>
 <tr>
-<th id="provisionedthroughputcapacity-queriespersecond" headers="plans">Capacidad de rendimiento suministrada (consultas por segundo)</td>
+<th id="provisionedthroughputcapacity-queriespersecond" headers="capacity-config-plan">Capacidad de rendimiento suministrada (consultas por segundo)</td>
 <td headers="lite provisionedthroughputcapacity-queriespersecond">5</td>
 <td headers="standard provisionedthroughputcapacity-queriespersecond">5</td>
 <td headers="standard provisionedthroughputcapacity-queriespersecond">50</td>
@@ -64,12 +65,12 @@ plan Estándar:
 <td headers="standard provisionedthroughputcapacity-queriespersecond">1.000</td>
 </tr>
 <tr>
-<th headers="diskspaceincluded" headers="plans">Espacio de disco incluido</td>
+<th id="diskspaceincluded" headers="capacity-config-plan">Espacio de disco incluido</td>
 <td headers="lite diskspaceincluded">1 GB</td>
 <td headers="standard diskspaceincluded" colspan='4'>20 GB</td>
 </tr>
 <tr>
-<th headers="diskoveragepergbhour" headers="plans">Excedente de disco (por GB/hora)</td>
+<th id="diskoveragepergbhour" headers="capacity-config-plan">Excedente de disco (por GB/hora)</td>
 <td headers="lite diskoveragepergbhour">No disponible</td>
 <td headers="standard diskoveragepergbhour" colspan='4'>Consulte los <a href="../offerings/pricing.html#pricing" target="_blank">detalles sobre precios <img src="../images/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>.</td>
 </tr>
@@ -79,39 +80,41 @@ plan Estándar:
 ## Planes
 {: #plans}
 
-Puede seleccionar el plan que desea utilizar cuando [suministre su instancia de servicio de {{site.data.keyword.cloudant_short_notm}}](#provisioning-a-cloudant-instance-on-bluemix).
+Puede seleccionar el plan que desea utilizar cuando [suministre su instancia de servicio de {{site.data.keyword.cloudant_short_notm}}](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud).
 De forma predeterminada, se selecciona el [plan Lite](#lite-plan).
 
-![Selección del plan de la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}](../images/fb87416a.png)
+![Selección del plan de instancia de servicio de {{site.data.keyword.cloudant_short_notm}}](../images/lite_pricing_plan.png)
 
 ### Plan Lite
 {: #lite-plan}
 
-El plan Lite es gratuito, pero le limita a un máximo de 1 GB de almacenamiento de datos.
-También impone límites en cuanto a la capacidad del rendimiento suministrado para búsquedas, escrituras y consultas. 
+El plan Lite es gratuito y está diseñado para propósitos de desarrollo y evaluación. Se incluye la funcionalidad completa de {{site.data.keyword.cloudant_short_notm}}, pero las instancias del plan Lite tienen una cantidad fija de rendimiento suministrada y de almacenamiento de datos. La capacidad de rendimiento suministrada se fija en 20 búsquedas/seg, 10 escrituras/seg, 5 consultas/seg y el almacenamiento de datos se limita a 1 GB. 
 
-El uso de almacenamiento se comprueba a diario. Si supera el límite de almacenamiento, las solicitudes HTTP a la cuenta reciben un código de estado 402 con un mensaje de error que indica que "la cuenta ha superado su cuota de uso de datos. Es necesario actualizar a un plan de pago."
-También aparece una cabecera en el panel de control de {{site.data.keyword.cloudant_short_notm}} que le informa sobre esta situación. Puede seguir leyendo y suprimiendo datos. Pero, para escribir datos nuevos, debe actualizar a una cuenta de pago o suprimir datos y esperar hasta que se ejecute la siguiente comprobación para que se reactive la cuenta. 
+El uso de almacenamiento se comprueba a diario. Si supera el límite de almacenamiento de 1 GB, las solicitudes a la instancia de {{site.data.keyword.cloudant_short_notm}} reciben un código de estado 402 con un mensaje de error que indica "La cuenta ha superado su cuota de uso de datos. Es necesario actualizar a un plan de pago."
+También aparece un banner en el panel de control de {{site.data.keyword.cloudant_short_notm}}. Puede seguir leyendo y suprimiendo datos. Sin embargo, para escribir nuevos datos, tiene dos opciones. En primer lugar, puede actualizar a un [plan estándar](#standard-plan) pagado que elimina la limitación de grabación de forma inmediata. De forma alternativa, puede suprimir datos para que el almacenamiento total esté comprendido en el límite de 1 GB, y esperar a que se ejecute la siguiente comprobación de almacenamiento diario para que la instancia vuelva a permitir las escrituras. 
 
-Si desea almacenar más de un GB de datos, o desea obtener una capacidad de rendimiento superior, pase a un [plan Estándar](#standard-plan).
+Si desea almacenar más de 1 GB de datos o poder escalar la capacidad de rendimiento suministrada, pase a un [plan estándar](#standard-plan).
+
+Está limitado a una instancia de plan Lite de {{site.data.keyword.cloudant_short_notm}} por cuenta de {{site.data.keyword.cloud_notm}}. Si ya dispone de una instancia del plan Lite, cualquier intento de crear una nueva o de cambiar de una instancia del plan estándar a una del plan Lite devuelve el mensaje "Solo puede tener una instancia del plan Lite por servicio. Para crear una nueva instancia, suprima la instancia del plan Lite existente o seleccione un plan de pago". 
+{: tip}
 
 ### Plan Estándar
 {: #standard-plan}
 
-El plan Estándar incluye 20 GB de almacenamiento de datos.
-Si almacena más de 20 GB, se le facturará un coste definido por GB por hora.
-Consulte la información de [precios](../offerings/pricing.html#pricing){:new_window} para el coste actual.
-En el plan Estándar, también puede cambiar la cantidad de capacidad del rendimiento suministrado para búsquedas, escrituras y consultas.
+El plan estándar de {{site.data.keyword.cloudant_short_notm}} está disponible para todas las cuentas de {{site.data.keyword.cloud}} de pago, ya sean de pago según uso o suscripción, y escala para satisfacer las necesidades de la aplicación. El precio del plan estándar se basa en dos factores: la capacidad de rendimiento suministrada que se asigna y la cantidad de datos que se almacenan en la instancia. 
+
+El establecimiento de precios es por hora prorrateada con una capacidad de rendimiento suministrado de 10 búsquedas/seg, 50 escrituras/seg y 5 consultas/seg equivalentes a un coste inicial en dólares de 0,105/hora. Puede aumentar o disminuir la capacidad de rendimiento suministrado de 100 búsquedas/seg, 50 escrituras/seg y 5 consultas/seg en el panel de control de {{site.data.keyword.cloudant_short_notm}}. Se calculan los costes de la capacidad de rendimiento suministrado que se asigna y no del volumen medido de las solicitudes. El plan Estándar incluye 20 GB de almacenamiento de datos. Si almacena más de 20 GB, se le facturará un coste definido por GB por hora. 
+
+Consulte la calculador de tarifas de {{site.data.keyword.cloud_notm}} para el establecimiento de precios en distintas capacidades y monedas, y la información sobre el [establecimiento de precios](../offerings/pricing.html#pricing){:new_window} para obtener ejemplos y estimar costes.
 
 ### Plan de hardware dedicado
 {: #dedicated-hardware-plan}
 
-Como alternativa, puede ejecutar las instancias del plan Estándar en un entorno de hardware dedicado en
-cualquier centro de datos de [{{site.data.keyword.IBM}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud-computing/bluemix/data-centers)
-por una cuota mensual. Puede adquirir un único plan de hardware dedicado para una ubicación específica
-y puede suministrar una o varias instancias del plan Estándar. Este plan es necesario para la conformidad de HIPAA y se debe seleccionar en el tiempo de suministro. 
+Una instancia de plan de hardware de {{site.data.keyword.cloudant_short_notm}} dedicado es un entorno nativo de {{site.data.keyword.cloudant_short_notm}} que se suministra para el uso exclusivo de las instancias del plan estándar de {{site.data.keyword.cloudant_short_notm}}. Es posible suministrar un entorno de plan de hardware de {{site.data.keyword.cloudant_short_notm}} dedicado en cualquier centro de datos de [{{site.data.keyword.IBM}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud-computing/bluemix/data-centers). Este plan es necesario para la conformidad de HIPAA y se debe seleccionar en el tiempo de suministro. Además, los usuarios de un entorno del plan Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} pueden emplear las claves de cifrado gestionadas por el cliente de BYOK (Bring-Your-Own-Key) y de lista blanca de IP con IBM Key Protect. 
 
-El plan de hardware dedicado no está disponible para los clientes de {{site.data.keyword.Bluemix_notm}} dedicado y solo está disponible para los clientes de {{site.data.keyword.Bluemix_notm}} público.
+Puede suministrar una o varias instancias del plan estándar, y el entorno de hardware dedicado se expandirá o contraerá según sea necesario en función de la capacidad y los datos que utilizan las instancias del plan estándar. Se trata de un precio fijo adicional al precio de consumo de las instancias del plan estándar de {{site.data.keyword.cloudant_short_notm}}. La facturación se prorratea diariamente, y hay una duración mínima de 1 mes que se cargará en el entorno. El suministro de un plan de Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} es asíncrono y puede tardar entre 5 y 7 días hábiles. Para crear una instancia del plan de Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} y suministrarle una instancia del plan estándar, siga la guía de aprendizaje [Creación y optimización de una instancia del plan de Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](../tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}. 
+
+El plan de Hardware dedicado no está disponible para los clientes de {{site.data.keyword.cloud_notm}} dedicado. Solo está disponible para los clientes de {{site.data.keyword.cloud_notm}} público.
 {: tip}
 
 ## Capacidad de rendimiento suministrado
@@ -159,7 +162,7 @@ En resumen, debe asegurarse de que la aplicación es capaz de manejar una respue
 {: #viewing-and-changing-capacity}
 
 Puede ver los detalles de la capacidad de rendimiento de los planes disponibles para su cuenta.
-Puede seleccionar el nivel de suministro que desea utilizar, a través del separador Cuenta del panel de control de la cuenta de {{site.data.keyword.cloudant_short_notm}}.
+Puede seleccionar el nivel de suministro que desea utilizar mediante el separador Cuenta del panel de control de la cuenta de {{site.data.keyword.cloudant_short_notm}}.
 
 ![Panel de control de la cuenta](../images/cloudant_capacity.png)
 
@@ -168,12 +171,15 @@ desee y pulse `Actualizar`. Se le solicitará que confirme el cambio y se le rec
 
 ![Panel de control de la cuenta](../images/cloudant_capacity_change.png)
 
+El tamaño del aumento de capacidad se limita a 10 unidades (1000 búsquedas/seg, 500 escrituras/seg y 50 consultas/seg) por cambio. Las reducciones no están limitadas por el número de unidades. Cualquier cambio en la capacidad, ya sea un aumento o una reducción, se limita a una vez por hora. Si necesita más capacidad de la que hay disponible en el panel de control de {{site.data.keyword.cloudant_short_notm}}, póngase en contacto con el soporte de [{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){:new_window}.
+{: tip}
+
 <div id="throughput"></div>
 
 ### Supervisión del uso 
 {: #monitoring-usage}
 
-Encontrará información sobre el uso en el panel Operaciones actuales del separador Supervisión en el panel de control de {{site.data.keyword.cloudant_short_notm}}. 
+Hay disponible información acerca del uso en el panel Operaciones actuales del separador Supervisión en el panel de control de {{site.data.keyword.cloudant_short_notm}}. 
 
 ![Supervisión del uso en el panel de control](../images/cloudant_usage.png)
 
@@ -194,16 +200,28 @@ Se utiliza tanto para los datos y como para almacenamiento de índices.
 ### Excedente de disco
 {: #disk-overage}
 
-En todas las instancias de servicio del plan Estándar y Lite se supervisa el espacio de disco utilizado.
-Si la cuenta utiliza más de la cantidad de almacenamiento que se suministra en la configuración del plan, se considera que hay un 'desbordamiento'.
-Un desbordamiento hace que la cuenta se facture al precio indicado por cada GB adicional utilizado por encima de la asignación del plan.
+Todos los planes Lite y estándar incluyen espacio de disco, que se utiliza para datos JSON, archivos adjuntos e índices. En todos los planes Estándar y Lite se supervisa el espacio de disco utilizado. Cuando utiliza más datos de los que asigna el plan, puede prever que se apliquen las condiciones descritas en la tabla siguiente:
 
-La cantidad adicional de dinero que debe pagar por utilizar más espacio de disco que el que se proporciona en el plan se denomina 'excedente'.
-El excedente se calcula por hora.
-No se puede desbordar el espacio de disco disponible en el plan Lite.
+<table>
 
-Por ejemplo, supongamos que la instancia del plan Estándar aumenta el uso de disco a 107 GB durante medio día (12 horas).
-Este cambio significa que la instancia ha causado un desbordamiento de 87 GB por encima de la asignación del plan de 20 GB, durante 12 horas.
+<tr>
+<th id="disk-overage-plan">Plan</th><th id="description">Descripción</th>
+</tr>
+<tr>
+<th headers="standard-plan">Estándar</td>
+<td headers="description"><p>
+<ul><li>Si la cuenta utiliza más de la cantidad de almacenamiento que se asigna en la configuración del plan, se considera que hay un 'desbordamiento'. Un desbordamiento hace que la cuenta se facture al precio indicado por cada GB adicional utilizado por encima de la asignación del plan.</li>
+<li>La cantidad adicional de dinero que debe pagar para utilizar más espacio de disco que el que se proporciona en el plan se denomina 'excedente'. Un excedente se calcula por hora.</li></ul></p></td>
+</tr>
+<tr>
+<th headers="lite-plan">Lite</td>
+<td headers="description"><p>
+<ul><li>El uso de disco está limitado en el plan Lite. Una vez alcanzado el límite, no podrá escribir nuevos datos. Para escribir datos nuevos, debe actualizar al plan estándar o suprimir datos y esperar hasta que se ejecute la siguiente comprobación para que se reactive la cuenta.</p>
+</li></ul></td>
+</tr>
+</table>
+
+Por ejemplo, supongamos que el plan estándar aumenta el uso de disco a 107 GB durante medio día (12 horas). Este cambio significa que la instancia ha causado un desbordamiento de 87 GB por encima de la asignación del plan de 20 GB, durante 12 horas.
 Por lo tanto, se le facturaría un cargo de excedente de 87 GB x 12 horas = 1044 GB horas correspondiente a este espacio adicional.
 
 El excedente se calcula utilizando el número máximo de GB por encima de la asignación del plan durante una hora determinada dentro del ciclo de facturación.
@@ -259,64 +277,54 @@ replican en la base de datos de destino. Puede encontrar más información sobre
 ## Ubicaciones y arrendamiento
 {: #locations-and-tenancy}
 
-De forma predeterminada, todos los planes Lite y estándar se despliegan en entornos multiarrendatario. Como parte de la selección del plan, puede elegir entre las siguientes regiones de {{site.data.keyword.Bluemix_notm}} Público:
+De forma predeterminada, todos los planes Lite y estándar se despliegan en entornos multiarrendatario. Como parte de la selección del plan, puede elegir entre las siguientes regiones de {{site.data.keyword.cloud_notm}} Público:
 
--   EE.UU. Este
--   EE.UU. Sur
+-   EE.UU. este
+-   EE.UU. sur
 -   Reino Unido
 -   Sídney
 -   Alemania&Dagger;
+-   AP norte (Tokio)
 
 Las instancias del plan de hardware dedicado pueden desplegarse en la mayoría de las [ubicaciones de centros de datos de {{site.data.keyword.IBM_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
-Consulte el menú desplegable en el catálogo de {{site.data.keyword.Bluemix_notm}} para obtener una lista actualizada de las ubicaciones disponibles.
+Consulte el menú desplegable en el catálogo de {{site.data.keyword.cloud_notm}} para obtener una lista actualizada de las ubicaciones disponibles.
 
 &Dagger;Todas las instancias de {{site.data.keyword.cloudant_short_notm}} que se despliegan desde la
-región Alemania de {{site.data.keyword.Bluemix_notm}} público
+región Alemania de {{site.data.keyword.cloud_notm}} público
 se despliegan en entornos gestionados por la UE. No se podrá otorgar acceso a cualquier cuenta o clave de API de {{site.data.keyword.cloudant_short_notm}} generada
 fuera de un entorno gestionado por la UE a una instancia de
 {{site.data.keyword.cloudant_short_notm}} gestionada por la UE.
 
-## Seguridad, cifrado y conformidad
-{: #security-encryption-and-compliance}
+## Métodos de autenticación
+{: #authentication-methods}
 
-Todos los planes se suministran en servidores con cifrado de disco [en reposo ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window}.
-El acceso se cifra sobre una conexión de red mediante HTTPS.
-Para obtener más destalles, consulte [Seguridad de {{site.data.keyword.Bluemix_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}.
+Se accede a {{site.data.keyword.cloudant_short_notm}} utilizando una API HTTPS. Si el punto final de la API lo requiere, se autentica al usuario para cada solicitud HTTPS que {{site.data.keyword.cloudant_short_notm}} recibe. Durante el suministro, los métodos de autenticación disponibles incluyen 'Utilizar credenciales heredadas y de IAM' o 'Utilizar solo IAM'. Para obtener más información, consulte la [guía de IAM](../guides/iam.html){:new_window} o el [documento de la API de autenticación](../api/authentication.html){:new_window} heredada.
 
-Los planes también ofrecen un [Certificado de conformidad de seguridad![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/product/cloudant-features/cloudant-compliance/){:new_window}.
-La conformidad [HIPAA ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}
-necesita un [entorno dedicado](#dedicated-hardware-plan), de modo que debe solicitar este entorno como parte del [proceso de suministro](#provisioning-a-cloudant-instance-on-bluemix).
+Después de suministrar una instancia de {{site.data.keyword.cloudant_short_notm}}, es posible buscar el URL de conexión y los detalles de autorización de IAM al generar nuevas credenciales en el separador Credenciales de servicio del panel de control de {{site.data.keyword.cloud_notm}}. Si selecciona esta opción durante el suministro, también se incluirán el nombre de usuario y la contraseña de {{site.data.keyword.cloudant_short_notm}} heredados.
 
-<div id="byok"></div>
-
-Si necesita BYOK (Bring-Your-Own-Key) para el cifrado en reposo, este cifrado se habilita utilizando {{site.data.keyword.cloud}} Key
-Protect. {{site.data.keyword.cloudant_short_notm}} da soporte a esta característica para nuevas instancias del [plan de hardware dedicado](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public)
-de {{site.data.keyword.cloudant_short_notm}} desplegadas en todas las regiones. En primer lugar, cree una instancia del plan de hardware dedicado utilizando el [catálogo de {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/). A continuación, envíe una
-incidencia de soporte y nuestro equipo de soporte coordinará la obtención de las claves de cifrado en reposo de la nueva instancia de hardware dedicado
-gestionadas mediante la instancia de Key Protect.
 
 ## Alta disponibilidad, recuperación de desastres y copia de seguridad
 {: #high-availability-disaster-recovery-and-backup}
 
-Para proporcionar alta disponibilidad (HA) y recuperación en caso de error (DR) en un centro de datos, todos los datos se almacenan por triplicado en tres servidores físicos distintos de un clúster. Puede suministrar cuentas en varios centros de datos y utilizar la réplica de datos continua para proporcionar HA/DR entre los centros de datos. No se hace copia de seguridad automática de los datos de {{site.data.keyword.cloudant_short_notm}}, pero se proporcionan herramientas soportadas  
-para gestionar las copias de seguridad. Revise [Guía de copia de seguridad y recuperación tras desastre ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) para explorar las consideraciones sobre HA, DR y copias de seguridad para cumplir con los requisitos de la aplicación.. 
+Para proporcionar alta disponibilidad (HA) y recuperación en caso de error (DR) en un centro de datos, todos los datos se almacenan por triplicado en tres servidores físicos distintos de un clúster. Puede suministrar cuentas en varios centros de datos y utilizar la réplica de datos continua para proporcionar HA/DR entre los centros de datos. No se realiza una copia de seguridad automática de {{site.data.keyword.cloudant_short_notm}}, pero se proporcionan las herramientas soportadas para gestionar las copias de seguridad. Revise [Guía de copia de seguridad y recuperación tras desastre ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) para explorar las consideraciones sobre HA, DR y copias de seguridad para cumplir con los requisitos de la aplicación.. 
 
 ## Soporte
 {: #support}
 
 El soporte correspondientes a las instancias de servicio del plan Estándar y Dedicado es opcional.
-Se suministra cuando se adquiere el "Soporte estándar de {{site.data.keyword.Bluemix}}".
-El soporte no está disponible para el plan Lite.
+Se suministra cuando se adquiere el soporte estándar de *{{site.data.keyword.cloud_notm}}*. El soporte no está disponible para el plan Lite.
 
-Dispone de una calculadora de precios para el soporte Estándar de {{site.data.keyword.Bluemix_notm}} [aquí![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/?direct=classic/#/pricing/cloudOEPaneId=pricing&paneId=pricingSheet){:new_window}.
-Encontrará información sobre los detalles del Acuerdo de nivel de servicio de soporte (SLA) [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://www-03.ibm.com/software/sla/sladb.nsf/pdf/6606-08/$file/i126-6606-08_05-2016_en_US.pdf){:new_window}.
+Para obtener más información acerca de los planes de soporte, consulte Planes de soporte estándar de [{{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/support#944376){:new_window}. Para obtener más información sobre el soporte, consulte [Guía de soporte de {{site.data.keyword.IBM_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/support/home/pages/support-guide/){:new_window}.
 
-## Suministro de una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}
+Los sistemas de soporte utilizados para {{site.data.keyword.cloudant_short_notm}} no ofrecen funciones de protección de contenido que incluya información sanitaria, datos sobre la salud, información protegida sobre salud, ni otros datos sujetos a requisitos normativos adicionales. Por lo tanto, el cliente no debe especificar o proporcionar dichos datos.
+{: tip}
+
+## Suministro de una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}}
 {: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
 
-Puede suministrar una instancia de los planes Lite o Estándar de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix}} de dos formas:
+Puede suministrar una instancia de los planes Lite o Estándar de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}} de dos formas:
 
-- Mediante el panel de control. Encontrará una guía de aprendizaje en la que se describe el proceso [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
+- Utilización del panel de control. Encontrará una guía de aprendizaje en la que se describe el proceso [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
 - Mediante la herramienta de mandatos de Cloud Foundry. Encontrará una guía de aprendizaje en la que se describe el proceso [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
  
 Para crear y optimizar una instancia del plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}}, siga la guía de aprendizaje en la que se describe el proceso [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.

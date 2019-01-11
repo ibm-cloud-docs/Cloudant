@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-10-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -12,14 +13,14 @@ lastupdated: "2018-06-20"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-13 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Creación de una consulta de {{site.data.keyword.cloudant_short_notm}}
 
 En esta guía de aprendizaje se muestra cómo crear una base de datos, llenarla con documentos, crear un índice y utilizar el índice para consultar la base de datos.
 
 Se proporcionan ejercicios para la ![Icono de línea de mandatos](../images/CommandLineIcon.png) _línea de mandatos_
-y el ![Icono de panel de control](../images/DashboardIcon.png) panel de control de _{{site.data.keyword.Bluemix_notm}}_. Los ejercicios del panel de control de {{site.data.keyword.Bluemix}} muestran un ejemplo visual de cada tarea. Puede seguir los enlaces de la guía de aprendizaje para obtener más información.
+y el ![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.cloud}} panel de control_. Los ejercicios del panel de control de {{site.data.keyword.cloud_notm}} muestran un ejemplo visual de cada tarea. Puede seguir los enlaces de la guía de aprendizaje para obtener más información.
 
 Para empezar, cree la base de datos `query-demo` y algunos documentos que contengan los datos para estos ejercicios.
 
@@ -27,9 +28,9 @@ Para empezar, cree la base de datos `query-demo` y algunos documentos que conten
 
 Antes de empezar, siga estos pasos para prepararse para la guía de aprendizaje:
 
-1.  [Cree una cuenta de {{site.data.keyword.Bluemix}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/registration/){:new_window}.
-2.  Inicie sesión en el [panel de control de {{site.data.keyword.Bluemix_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Cree una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance).
+1.  [Cree una {{site.data.keyword.cloud_notm}} cuenta ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/registration/){:new_window}.
+2.  Inicie sesión en el [panel de control de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+3.  [Cree una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}}](create_service.html#creating-a-service-instance).
 4.  (Opcional) [Cree un alias acurl](../guides/acurl.html#authorized-curl-acurl-) para que sea más fácil y más rápido ejecutar mandatos desde la línea de mandatos.
 5.  Sustituya la variable `$ACCOUNT` de los mandatos que figuran en los ejercicios por el nombre de usuario que utiliza para iniciar sesión en el panel de control de {{site.data.keyword.cloudant_short_notm}}.
   Si decide no configurar `acurl`, utilice el siguiente URL en lugar del que se proporciona en los ejercicios:
@@ -61,7 +62,7 @@ En esta sección, creará la [base de datos](../api/database.html#create) `query
   ```
   {:codeblock}
 
-![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Panel de control_
+![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Panel de control_
 
 1.  Abra la instancia de servicio de {{site.data.keyword.cloudant_short_notm}} que ha creado.
 2.  En la página de servicio de {{site.data.keyword.cloudant_short_notm}}, pulse **Iniciar**.
@@ -163,7 +164,7 @@ Los [documentos](../api/document.html#documents) que cree en este ejercicio cont
   ```
   {:codeblock}
 
-![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Panel de control_
+![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Panel de control_
 
 1.  Pulse **`+`** y seleccione **Nuevo doc**. Se abre la ventana 'Nuevo documento'.
 2.  Para crear un documento, copie el texto de ejemplo siguiente y sustituya el texto existente en el nuevo documento.
@@ -242,7 +243,7 @@ Puede utilizar el índice primario que se suministra con {{site.data.keyword.clo
 
 *	Índice primario – buscar un documento o lista de documentos por ID.  
 *	[Vista](../api/creating_views.html#views-mapreduce-) – buscar en la base de datos información que coincida con los criterios de búsqueda que especifique, como recuentos, sumas, promedios y otras funciones matemáticas. Los criterios de búsqueda se pueden especificar en la definición de la vista. Las vistas utilizan el paradigma MapReduce.
-*	[Índice de búsqueda](../api/search.html#search) – buscar uno o varios campos, grandes cantidades de texto o utilizar caracteres comodín, búsqueda aproximada o facetas con la [sintaxis del analizador de consultas de Lucene![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
+*	[Índice de búsqueda](../api/search.html#search) – buscar uno o varios campos, grandes cantidades de texto o utilizar caracteres comodín, búsqueda aproximada o facetas con la [sintaxis del analizador de consultas de Lucene ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
 *	[{{site.data.keyword.cloudant_short_notm}} Geospatial](../api/cloudant-geo.html#cloudant-geospatial) – buscar documentos en función de una relación espacial.
 *	[{{site.data.keyword.cloudant_short_notm}} Query](../api/cloudant_query.html#query) – utilizar la sintaxis de consulta de tipo Mongo para buscar documentos utilizando operadores lógicos. {{site.data.keyword.cloudant_short_notm}} Query es una combinación de una vista y un índice de búsqueda. En esta guía de aprendizaje se utiliza {{site.data.keyword.cloudant_short_notm}} Query.
 
@@ -293,7 +294,7 @@ Puede utilizar el índice primario que se suministra con {{site.data.keyword.clo
 
 
 
-![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Panel de control_
+![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Panel de control_
 
 1.  Pulse **`+` > Índices de búsqueda** en el separador **Todos los documentos** o **Documentos de diseño**.
 2.  Pegue los siguientes datos JSON de ejemplo en el campo **Índice**:
@@ -375,7 +376,7 @@ En este ejemplo se muestra cómo utiliza {{site.data.keyword.cloudant_short_notm
   ```
   {:codeblock}
 
-![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Panel de control_
+![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Panel de control_
 
 1.  Pulse el separador **Consulta**.
 2.  Copie y pegue los siguientes datos JSON de ejemplo en la ventana de {{site.data.keyword.cloudant_short_notm}} Query:
@@ -474,7 +475,7 @@ Los detalles adicionales se parecen a los del siguiente ejemplo:
   ```
   {:codeblock}
 
-![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Panel de control_
+![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Panel de control_
 
 1.  Pulse el separador **Consulta**.
 2.  Copie y pegue los siguientes datos JSON de ejemplo en la ventana de {{site.data.keyword.cloudant_short_notm}} Query:
@@ -574,7 +575,7 @@ valores especificados en el parámetro `sort`.
   ```
   {:codeblock}
 
-![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} Panel de control_
+![Icono de panel de control](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Panel de control_
 
 1.  Pulse el separador **Consulta**.
 2.  Copie y pegue los siguientes datos JSON de ejemplo en la ventana de {{site.data.keyword.cloudant_short_notm}} Query:

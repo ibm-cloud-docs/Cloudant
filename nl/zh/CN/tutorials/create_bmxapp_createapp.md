@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：代码
 
@@ -79,7 +80,7 @@ lastupdated: "2018-06-07"
 
 ### 应用程序代码
 
-下一步是使用应用程序代码。下面描述了每个部分，并提供了相应代码。应用程序代码的[完整清单](#complete-listing)位于本部分教程末尾。
+下一步是使用应用程序代码。下面描述了每个部分，并提供了相应代码。应用程序代码的[完整列表](#complete-listing)位于本部分教程末尾。
 
 #### 入门
 
@@ -181,7 +182,7 @@ if 'VCAP_SERVICES' in os.environ:
 {:codeblock}
 
 >   **注**：仅当找到该环境变量时，才会运行代码的下一部分。
-在 Python 中，此代码会缩进，以指示其是测试的主体。在本教程中，省略了代码段中的缩进以节省空间。但是，[完整清单](#complete-listing)正确显示了缩进。
+在 Python 中，此代码会缩进，以指示其是测试的主体。在本教程中，省略了代码段中的缩进以节省空间。但是，[完整列表](#complete-listing)正确显示了缩进。
 
 假定找到了该变量，将继续使用其中的信息。首先装入变量中存储的 JSON 数据，然后在新的“日志文件”中记录事件：
 
@@ -317,7 +318,7 @@ httpd.server_close()
 
 本教程中的下一步是[上传应用程序](create_bmxapp_upload.html)以进行测试。
 
-## 完整清单
+## 完整列表
 
 以下代码是用于访问 {{site.data.keyword.cloud_notm}} 上 {{site.data.keyword.cloudant_short_notm}} 服务实例的完整 Python 程序：
 

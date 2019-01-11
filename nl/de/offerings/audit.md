@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-12"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-04-12"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2018-00-00 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Prüfprotokollierung
 
@@ -36,7 +37,7 @@ Informationen | Beschreibung
 
 ## Vorgehensweise beim Zugriff auf Prüfprotokolle für Ihr Konto
 
-Um Zugriff auf die Prüfprotokolle für Ihr Konto anzufordern, wenden Sie sich an den {{site.data.keyword.cloudant_short_notm}}-Support. Der Support gewährt Ihnen Zugriff auf die gewünschten Prüfprotokolle.
+Um Zugriff auf die Prüfprotokolle für Ihr Konto anzufordern, wenden Sie sich an den {{site.data.keyword.cloudant_short_notm}}-Support. Der Support stellt eine Kopie der Prüfprotokolle bereit, die für Sie von Interesse sind.
 
 Wenn Sie beim Support Unterstützung anfordern, stellen Sie Folgendes bereit:
 

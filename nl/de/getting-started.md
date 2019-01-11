@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-04-28 -->
+<!-- Acrolinx: 2018-05-31 -->
 
 # Lernprogramm 'Einführung'
 {: #getting-started-with-cloudant}
@@ -34,19 +34,19 @@ Weitere sprachspezifische Lernprogramme finden Sie unter [Stellen Sie nun Ihre e
 ## Vorbereitende Schritte
 {: #prereqs}
 
-Sie müssen ein [Bluemix-Konto ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/registration/){:new_window},
-eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python-Anforderungen aufweisen:
+Sie benötigen ein [{{site.data.keyword.cloud}}-Konto ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/registration/){:new_window} und
+eine Instanz des {{site.data.keyword.cloudant_short_notm}}-Service. Außerdem müssen die folgenden Python-Anforderungen erfüllt werden:
 
-*	Installieren Sie die aktuelle Version der
+*	Installieren Sie die aktuellste Version der
 	[Python-Programmiersprache ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://www.python.org/){:new_window} auf Ihrem System.
 	
-	Führen Sie den folgenden Befehl an einer Eingabeaufforderung aus, um dies zu prüfen:
+	Prüfen Sie dies, indem Sie den folgenden Befehl an einer Eingabeaufforderung ausführen:
 	```sh
 	python --version
 	```
 	{:pre}
 	
-	Ihr Ergebnis sollte ungefähr wie folgt aussehen:
+	Das folgende oder ein ähnliches Ergebnis wird angezeigt:
 
 	```
 	Python 2.7.12
@@ -55,7 +55,7 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
 
 *	Installieren Sie die [Python-Bibliothek](libraries/supported.html#python),
 	um Ihre Python-Anwendungen für die Arbeit mit
-	{{site.data.keyword.cloudant_short_notm}} unter {{site.data.keyword.Bluemix_notm}} zu aktivieren.
+	{{site.data.keyword.cloudant_short_notm}} unter {{site.data.keyword.cloud_notm}} zu aktivieren.
 	
 	Um sicherzustellen, dass Sie die Clientbibliothek erfolgreich installiert haben,
 	führen Sie den folgenden Befehl an einer Eingabeaufforderung aus:
@@ -64,7 +64,7 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
 	```
 	{:pre}
 	
-	Sie sollten eine Liste aller Python-Module erhalten, die auf Ihrem System installiert sind. Suchen Sie in der Liste nach einem {{site.data.keyword.cloudant_short_notm}}-Eintrag ähnlich dem folgenden:
+	Das System zeigt eine Liste aller Python-Module an, die auf Ihrem System installiert sind. Suchen Sie in der Liste nach einem {{site.data.keyword.cloudant_short_notm}}-Eintrag ähnlich dem folgenden:
 
 	```
 	cloudant==2.3.1
@@ -78,9 +78,10 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
 	```
 	{:pre}
 
-## Schritt 1: Stellen Sie eine Verbindung mit Ihrer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.Bluemix_notm}} her.
+## Schritt 1: Stellen Sie eine Verbindung mit Ihrer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.cloud_notm}} her.
+{: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
-1.	Führen Sie die folgenden `import`-Anweisungen der {{site.data.keyword.cloudant_short_notm}}-Clientbibliothekskomponenten
+1.	Führen Sie die `import`-Anweisungen der {{site.data.keyword.cloudant_short_notm}}-Clientbibliothekskomponenten
 	aus, damit Ihre Python-Anwendung eine Verbindung mit der {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz herstellen kann.
 	```python
 	from cloudant.client import Cloudant
@@ -89,11 +90,21 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
 	```
 	{: codeblock}
 
-2. Ermitteln Sie die {{site.data.keyword.cloudant_short_notm}}-Serviceberechtigungsnachweise:
-  1. Öffnen Sie in der {{site.data.keyword.Bluemix_notm}}-Konsole das Dashboard für Ihre Serviceinstanz.
-  2. Klicken Sie in der linken Navigation auf **`Serviceberechtigungsnachweise`**.
-  3. Klicken Sie unter **`AKTIONEN`** auf **`Berechtigungsnachweise anzeigen`**.
-
+2.  Erstellen Sie einen neuen {{site.data.keyword.cloudant_short_notm}}-Serviceberechtigungsnachweis:
+  <br>Öffnen Sie in der {{site.data.keyword.cloud_notm}}-Konsole das Dashboard für Ihre Serviceinstanz.
+  <br>Klicken Sie in der linken Navigation auf `Serviceberechtigungsnachweise`.
+  <br>a. Klicken Sie auf die Schaltfläche `Neuer Berechtigungsnachweis`.
+  <br>![Neue Serviceberechtigungsnachweise erstellen](tutorials/images/img0050.png)
+  <br>b. Geben Sie wie im folgenden Screenshot dargestellt im Fenster 'Neuen Berechtigungsnachweis hinzufügen' einen Namen für den neuen Berechtigungsnachweis ein.
+  <br>c. (Optional) Fügen Sie Inline-Konfigurationsparameter hinzu.
+  <br>d. Klicken Sie auf die Schaltfläche `Hinzufügen`.
+  <br>![Neuen Serviceberechtigungsnachweis hinzufügen](tutorials/images/img0051.png)
+  <br>Ihre Berechtigungsnachweise werden zur Tabelle 'Serviceberechtigungsnachweise' hinzugefügt.
+  <br>e. Klicken Sie unter 'Aktionen' auf `Berechtigungsnachweise anzeigen`.
+  <br>![Alle Serviceberechtigungsnachweise anzeigen](tutorials/images/img0052.png)
+  <br>Daraufhin werden die Details zu den Serviceberechtigungsnachweisen angezeigt:
+   <br>![Die {{site.data.keyword.cloudant_short_notm}}](tutorials/images/img0009.png)
+   
 3.	Richten Sie eine Verbindung mit der Serviceinstanz ein, indem Sie den folgenden Befehl ausführen.
 	Ersetzen Sie die Serviceberechtigungsnachweise aus dem vorherigen Schritt:
 	```python
@@ -104,6 +115,7 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
 
 
 ## Schritt 2: Erstellen Sie eine Datenbank.
+{: #step-2-create-a-database}
 
 1. Definieren Sie eine Variable in der Python-Anwendung:
   ```python
@@ -112,7 +124,8 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
   {: codeblock}
   Dabei ist `<yourDatabaseName>` der Name, den Sie Ihrer Datenbank geben möchten. 
 
-  > **Hinweis:** Der Datenbankname muss mit einem Buchstaben beginnen und kann nur Kleinbuchstaben (a-z), Zahlen (0-9) und alle folgenden Zeichen enthalten: `_`, `$`, `(`, `)`, `+`, `-` und `/`.
+  Der Datenbankname muss mit einem Buchstaben beginnen und kann nur Kleinbuchstaben (a-z), Zahlen (0-9) und alle folgenden Zeichen enthalten: `_`, `$`, `(`, `)`, `+`, `-` und `/`.
+  {: tip}
 
 2. Erstellen Sie die Datenbank:
   ```python
@@ -120,7 +133,7 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
   ```
   {: codeblock}
 
-3. Bestätigen Sie, dass die Datenbank erfolgreich erstellt wurde:
+3. Vergewissern Sie sich, dass die Datenbank erfolgreich erstellt wurde:
   ```python
   if myDatabase.exists():
       print "'{0}' successfully created.\n".format(databaseName)
@@ -128,6 +141,7 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
   {: codeblock}
 
 ## Schritt 3: Speichern Sie eine kleine Datensammlung in Form von Dokumenten in der Datenbank.
+{: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
 
 1. Definieren Sie eine Datensammlung:
   ```python
@@ -172,12 +186,13 @@ eine Instanz des {{site.data.keyword.cloudant}}-Service und die folgenden Python
   ```
   {: codeblock}
 
-Beachten Sie, dass wir prüfen, ob jedes Dokument erfolgreich erstellt wurde.
-{: tip}
+  Beachten Sie, dass wir prüfen, ob jedes Dokument erfolgreich erstellt wurde.
+  {: tip}
 
 ## Schritt 4: Rufen Sie Daten über Abfragen ab.
+{: #step-4-retrieving-data-through-queries}
 
-Zu diesem Zeitpunkt wurde eine kleine Datensammlung in Form von Dokumenten in der Datenbank gespeichert.
+Eine kleine Datensammlung wurde als Dokumente in der Datenbank gespeichert.
 Sie können einen minimalen oder einen vollständigen Abruf dieser Daten aus der Datenbank ausführen.
 Ein minimaler Abruf ruft die grundlegenden Daten _über_ ein Dokument ab.
 Ein vollständiger Abruf schließt auch die Daten _in_ einem Dokument ein.
@@ -204,9 +219,10 @@ Ein vollständiger Abruf schließt auch die Daten _in_ einem Dokument ein.
     ```
     {:screen}
     
-    > **Hinweis:** Das Präfix `u'` ist lediglich ein Hinweis darauf, dass Python eine Unicode-Zeichenfolge anzeigt. 
-    
-    Wenn man die weniger wichtigen Informationen außer Acht lässt, lauten die zurückgegebenen minimalen Dokumentdetails wie folgt:
+    Das Präfix `u` ist ein Hinweis darauf, dass Python eine Unicode-Zeichenfolge anzeigt.
+    {: tip}
+
+    Wenn die weniger wichtigen Informationen außer Acht gelassen werden, lauten die zurückgegebenen minimalen Dokumentdetails wie folgt:
     
     ```json
     [
@@ -221,11 +237,12 @@ Ein vollständiger Abruf schließt auch die Daten _in_ einem Dokument ein.
     ```
     {: codeblock}
 
-  > **Hinweis:** Einfache Grundsätze wie "Das erste in einer Datenbank gespeicherte Dokument ist immer das erste zurückgegebene Dokument in einer Ergebnisliste" treffen nicht immer auf NoSQL-Datenbanken wie {{site.data.keyword.cloudant_short_notm}} zu.
+    Das Konzept, dass das erste in einer Datenbank gespeicherte Dokument auch immer als erstes Dokument in einer Ergebnisliste zurückgegeben wird, gilt in NoSQL-Datenbanken wie {{site.data.keyword.cloudant_short_notm}} nicht immer.
+    {: tip}
 
 * Um einen vollständigen Abruf auszuführen,
   fordern Sie eine Liste aller Dokumente in der Datenbank an
-  und geben dabei mithilfe der Option `include_docs` an, dass der Dokumentinhalt ebenfalls zurückgegeben
+  und geben Sie dabei mithilfe der Option `include_docs` an, dass der Dokumentinhalt ebenfalls zurückgegeben
   werden soll.
   ```python
   result_collection = Result(myDatabase.all_docs, include_docs=True)
@@ -239,7 +256,7 @@ Ein vollständiger Abruf schließt auch die Daten _in_ einem Dokument ein.
   ```
   {: screen}
   
-  Wenn man die weniger wichtigen Informationen außer Acht lässt, lauten die zurückgegebenen vollständigen Dokumentdetails wie folgt:
+  Wenn die weniger wichtigen Informationen außer Acht gelassen werden, lauten die zurückgegebenen vollständigen Dokumentdetails wie folgt:
   
   ```json
   [
@@ -263,6 +280,7 @@ Ein vollständiger Abruf schließt auch die Daten _in_ einem Dokument ein.
   {: codeblock}
 
 ## Schritt 5: Rufen Sie Daten über den {{site.data.keyword.cloudant_short_notm}}-API-Endpunkt ab.
+{: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
 Sie können auch eine Liste aller Dokumente und deren Inhalt anfordern, indem Sie den
 {{site.data.keyword.cloudant_short_notm}}-Endpunkt [`/_all_docs`](api/database.html#get-documents) aufrufen.
@@ -275,8 +293,7 @@ Sie können auch eine Liste aller Dokumente und deren Inhalt anfordern, indem Si
   {: codeblock}
   Dabei ist `<url>` der URL-Wert, den Sie in den Serviceberechtigungsnachweisen in Schritt 1 gefunden haben.
 
-2. Senden Sie die Anforderung an die Serviceinstanz
-  und zeigen Sie dann die Ergebnisse an:
+2. Senden Sie die Anforderung an die Serviceinstanz und zeigen Sie die Ergebnisse an:
   ```python
   response = client.r_session.get(end_point, params=params)
   print "{0}\n".format(response.json())
@@ -290,7 +307,7 @@ Sie können auch eine Liste aller Dokumente und deren Inhalt anfordern, indem Si
   ```
   {:screen}
   
-  Wenn man die weniger wichtigen Informationen außer Acht lässt, lauten die _abgekürzten_ Details wie folgt:
+  Wenn die weniger wichtigen Informationen außer Acht gelassen werden, lauten die _abgekürzten_ Details wie folgt:
   
   ```json
   {
@@ -335,6 +352,7 @@ Sie können auch eine Liste aller Dokumente und deren Inhalt anfordern, indem Si
   {: codeblock}
 
 ## Schritt 6: Löschen Sie die Datenbank.
+{: #step-6-delete-the-database}
 
 Wenn Sie die Arbeit an der Datenbank abgeschlossen haben, kann sie gelöscht werden.
 
@@ -348,10 +366,11 @@ else:
 ```
 {: codeblock}
 
-Wir haben einige grundlegende Fehlerbehandlungsschritte eingeschlossen,
-um zu veranschaulichen, wie Probleme entstehen und gelöst werden können.
+Es wurden einige grundlegende Fehlerbehandlungsschritte eingeschlossen,
+um zu veranschaulichen, wie potenzielle Probleme behoben und gelöst werden können.
 
 ## Schritt 7: Trennen Sie die Verbindung zur Serviceinstanz.
+{: #step-7-close-the-connection-to-the-service-instance}
 
 Der letzte Schritt ist das Trennen der Verbindung zwischen der Python-Clientanwendung und der Serviceinstanz.
 
@@ -361,16 +380,17 @@ client.disconnect()
 {: codeblock}
 
 ## Nächste Schritte
+{: #next-steps}
 
-Weitere Informationen zu allen {{site.data.keyword.cloudant_short_notm}}-Angeboten finden Sie
-auf der [{{site.data.keyword.cloudant_short_notm}}-Homepage ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
+Weitere Informationen zu allen {{site.data.keyword.cloudant_short_notm}}-Angeboten finden Sie auf der [{{site.data.keyword.cloudant_short_notm}}-Homepage ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
 
 Weitere Details und Lernprogramme zu {{site.data.keyword.cloudant_short_notm}}-Konzepten,
 -Tasks und -Techniken finden Sie in der [{{site.data.keyword.cloudant_short_notm}}-Dokumentation](cloudant.html).
 
 ## Anhang: Vollständige Liste von Python-Code
+{: #appendix-complete-python-code-listing}
 
-Die vollständige Liste von Python-Code lautet wie folgt.
+Die vollständige Liste von Python-Code lautet wie folgt. 
 Denken Sie daran, die Werte `<username>`,
 `<password>`
 und `<url>` durch Ihre Serviceberechtigungsnachweise zu ersetzen.

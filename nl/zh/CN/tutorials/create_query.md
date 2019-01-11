@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-10-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -12,13 +13,13 @@ lastupdated: "2018-06-20"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-13 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 创建 {{site.data.keyword.cloudant_short_notm}} 查询
 
 本教程演示了如何创建数据库、使用文档填充数据库、创建索引以及使用索引来查询数据库。
 
-提供了针对 ![“命令行”图标](../images/CommandLineIcon.png) _命令行_和 ![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}“仪表板”_的练习。{{site.data.keyword.Bluemix}}“仪表板”练习将为每个任务提供一个直观示例。您可以访问本教程中的链接来了解更多信息。
+提供了针对 ![“命令行”图标](../images/CommandLineIcon.png) _命令行_和 ![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.cloud}}“仪表板”_的练习。{{site.data.keyword.cloud_notm}}“仪表板”练习将为每个任务提供一个直观示例。您可以访问本教程中的链接来了解更多信息。
 
 首先，创建 `query-demo` 数据库以及一些包含这些练习数据的文档。
 
@@ -26,9 +27,9 @@ lastupdated: "2018-06-20"
 
 开始之前，请执行以下步骤以准备使用本教程：
 
-1.  [创建 {{site.data.keyword.Bluemix}} 帐户 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/registration/){:new_window}。
-2.  登录到 [{{site.data.keyword.Bluemix_notm}} 仪表板 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}。
-3.  [在 {{site.data.keyword.Bluemix_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例](create_service.html#creating-a-service-instance)。
+1.  [创建 {{site.data.keyword.cloud_notm}} 帐户 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/registration/){:new_window}。
+2.  登录到 [{{site.data.keyword.cloud_notm}}“仪表板”![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}。
+3.  [在 {{site.data.keyword.cloud_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例](create_service.html#creating-a-service-instance)。
 4.  （可选）[创建 acurl 别名](../guides/acurl.html#authorized-curl-acurl-)，以便更快、更轻松地通过命令行运行命令。
 5.  将练习中包含的命令中的 `$ACCOUNT` 变量替换为您用于登录到 {{site.data.keyword.cloudant_short_notm}}“仪表板”的用户名。如果决定不设置 `acurl`，请使用以下 URL，而不要使用练习中提供的 URL：
   ``` sh
@@ -57,7 +58,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}“仪表板”_
 
 1.  打开已创建的 {{site.data.keyword.cloudant_short_notm}} 服务实例。
 2.  在 {{site.data.keyword.cloudant_short_notm}} 服务页面上，单击**启动**。这将打开“数据库”选项卡。
@@ -158,7 +159,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}“仪表板”_
 
 1.  单击 **`+`**，然后选择**新建文档**。这将打开“新建文档”窗口。
 2.  要创建文档，请复制以下样本文本，并替换新文档中的现有文本。
@@ -288,7 +289,7 @@ lastupdated: "2018-06-20"
 
 
 
-![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}“仪表板”_
 
 1.  单击**所有文档**或**设计文档**选项卡上的 **`+` > 查询索引**。
 2.  将以下样本 JSON 数据粘贴到**索引**字段中：
@@ -324,7 +325,7 @@ lastupdated: "2018-06-20"
 
 通过查询，可以从 {{site.data.keyword.cloudant_short_notm}} 中抽取数据。编写良好的[查询](../api/cloudant_query.html#query)可以缩小搜索范围，并且搜索结果仅包括所需的数据。
 
-本练习说明了如何编写和运行简单的查询、具有两个字段的查询以及具有[运算符](../api/cloudant_query.html#cloudant_query.html#operators)的查询。使用具有运算符的查询时，请至少指定一个字段及其对应的值。然后，查询将使用此值在数据库中搜索匹配项。
+此练习说明了如何编写和运行简单的查询、具有两个字段的查询以及具有两个[运算符](../api/cloudant_query.html#cloudant_query.html#operators)的查询。使用具有运算符的查询时，请至少指定一个字段及其对应的值。然后，查询将使用此值在数据库中搜索匹配项。
 
 除了最简单的查询外，对于其他查询，请向数据文件添加 JSON，并通过命令行运行查询。
 
@@ -368,7 +369,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}“仪表板”_
 
 1.  单击**查询**选项卡。
 2.  将以下样本 JSON 复制并粘贴到“{{site.data.keyword.cloudant_short_notm}} 查询”窗口中：
@@ -464,7 +465,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}“仪表板”_
 
 1.  单击**查询**选项卡。
 2.  将以下样本 JSON 复制并粘贴到“{{site.data.keyword.cloudant_short_notm}} 查询”窗口中：
@@ -497,7 +498,7 @@ lastupdated: "2018-06-20"
 ```json
 {
   "selector": {
-            "age": {
+      "age": {
       "$gt": 30
     },
     "lastname": {
@@ -561,7 +562,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 仪表板_
+![“仪表板”图标](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}“仪表板”_
 
 1.  单击**查询**选项卡。
 2.  将以下样本 JSON 复制并粘贴到“{{site.data.keyword.cloudant_short_notm}} 查询”窗口中：

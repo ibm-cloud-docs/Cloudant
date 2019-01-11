@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2017-11-06"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-11-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 클라이언트 라이브러리
 
@@ -29,8 +32,8 @@ lastupdated: "2017-11-06"
 지원되는 라이브러리란 사용자가 라이브러리의 최신 버전에서 재현할 수 있는 특정 문제점이
 발생할 때 {{site.data.keyword.cloudant_short_notm}}에 문의할 수 있는 라이브러리입니다.
 
-[써드파티](thirdparty.html#third-party-client-libraries)에 의해 작성된 기타 클라이언트 라이브러리는 더 이상 공식적으로 지원되지 않습니다.
+[서드파티](thirdparty.html#third-party-client-libraries)에 의해 작성된 기타 클라이언트 라이브러리는 더 이상 공식적으로 지원되지 않습니다.
 
->   **참고**: 써드파티 클라이언트 라이브러리는 {{site.data.keyword.cloudant_short_notm}}에 의해 유지보수되거나 지원되지 않습니다.
-써드파티 라이브러리와 관련하여 재현할 수 있는 특정 문제점이 발생하는 경우에는
+>   **참고**: 서드파티 클라이언트 라이브러리는 {{site.data.keyword.cloudant_short_notm}}에 의해 유지보수되거나 지원되지 않습니다.
+서드파티 라이브러리와 관련하여 재현할 수 있는 특정 문제점이 발생하는 경우에는
 라이브러리 유지보수자에게 지원을 요청해야 합니다.

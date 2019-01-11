@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-01-16"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-01-16"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-28 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Conformidad
 
@@ -21,23 +22,26 @@ El servicio se basa en los mejores estándares de la industria, incluido ISO 270
 
 ## Sistemas físicos de nivel superior
 
-{{site.data.keyword.cloudant_short_notm}} DBaaS se aloja físicamente en proveedores de infraestructura de nube de nivel 1 como {{site.data.keyword.Bluemix}} y Amazon.
+{{site.data.keyword.cloudant_short_notm}} DBaaS se aloja físicamente en proveedores de infraestructura de nube de nivel 1 como {{site.data.keyword.cloud}} y Amazon.
 Por lo tanto, los datos están protegidos por la red y por las medidas de seguridad física que emplean estos proveedores.
 
 ## HIPAA
 
-Cuando {{site.data.keyword.cloudant_short_notm}} se despliega en un hardware dedicado de {{site.data.keyword.Bluemix_notm}},
+Cuando {{site.data.keyword.cloudant_short_notm}} se despliega en un hardware dedicado de {{site.data.keyword.cloud_notm}},
 cumple con los controles obligatorios de {{site.data.keyword.IBM_notm}} que están en consonancia con los requisitos de seguridad y de reglas de privacidad del acta de la Ley de Transferencia y Responsabilidad de Seguro Médico (HIPAA) de 1996. Estos requisitos incluyen la protección técnica, física y administrativa adecuada que imponen Business Associates en 45 CFR Parte 160 y Subpartes A y C de Parte 164. La HIPAA debe solicitarse en el momento del suministro y se aplica al plan {{site.data.keyword.cloudant_short_notm}} Enterprise,
-{{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}} dedicado y al plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}} público. Los clientes deberán ponerse en contacto con su representante de ventas para firmar un acuerdo Business Associate Addendum (BAA) con {{site.data.keyword.IBM_notm}}.
+{{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}} dedicado,
+y al plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}} en el representante de {{site.data.keyword.cloud_notm}}
+para firmar un acuerdo de Business Associate Addendum (BAA) con {{site.data.keyword.IBM_notm}}.
 
 ## International Organization for Standardization (ISO)
 
-{{site.data.keyword.cloudant_short_notm}} es auditada por una empresa de seguridad de otro proveedor y cumple con todos los requisitos
-de ISO 27001:
+{{site.data.keyword.cloudant_short_notm}} la audita una empresa de seguridad de otro proveedor y cumple con todos los requisitos de ISO:
 
-* [{{site.data.keyword.Bluemix_notm}} Certificado de registro ISO 27001:2013![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](ftp://public.dhe.ibm.com/cloud/bluemix/compliance/Bluemix_ISO27K1_WWCert_2016.pdf){:new_window}
-* [{{site.data.keyword.IBM_notm}} Certificado de SaaS ISO 27001:2013![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www-01.ibm.com/common/ssi/cgi-bin/ssialias?subtype=ST&infotype=SA&htmlfid=KUJ12445USEN&attachment=KUJ12445USEN.PDF){:new_window}
-
+* [{{site.data.keyword.cloud_notm}} ISO 27001 ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")]](https://www-935.ibm.com/services/multimedia/saas_27k.pdf){:new_window}
+* [{{site.data.keyword.cloud_notm}} ISO 27017 ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")]](https://www-935.ibm.com/services/us/en/it-services/pdf/ibmcloud_27017.pdf){:new_window}
+* [{{site.data.keyword.cloud_notm}} ISO 27018 ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")]](https://www-935.ibm.com/services/multimedia/ibmcloud_27018.pdf){:new_window}
+* [Buscar todos los certificados ISO de IBM ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www-935.ibm.com/services/us/en/it-services/iso-management-system-certifications.html){:new_window}.
+ 
 ## Certificado SOC 2 de tipo 2
 
 {{site.data.keyword.IBM_notm}} proporciona un informe de Service Organization Controls (SOC) de tipo 2 para Cloudant. Los informes evalúan los controles operativos de IBM de acuerdo con los criterios establecidos por los llamados Trust Services Principles del American Institute of Certified Public Accountants (AICPA). 

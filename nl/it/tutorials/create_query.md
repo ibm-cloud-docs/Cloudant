@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-10-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -12,16 +13,16 @@ lastupdated: "2018-06-20"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-13 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Creazione di una query {{site.data.keyword.cloudant_short_notm}}
 
 Questa esercitazione illustra come creare un database, popolarlo
 con documenti, creare un indice e utilizzare l'indice per eseguire la query del database.
 
-Vengono forniti esercizi per la ![Icona Riga di comando](../images/CommandLineIcon.png) _Riga di comando_
-e il ![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.Bluemix_notm}}_. Gli
- esercizi per il dashboard {{site.data.keyword.Bluemix}} ti forniscono un esempio visivo di ogni attività. Puoi seguire i link
+Vengono forniti esercizi sia per la ![Icona Riga di comando](../images/CommandLineIcon.png) _Riga di comando_
+che per il ![Icona Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.cloud}} Dashboard_. Gli
+ esercizi per il dashboard {{site.data.keyword.cloud_notm}} ti forniscono un esempio visivo di ogni attività. Puoi seguire i link
 nell'esercitazione per ulteriori informazioni.
 
 Per iniziare, crea il database `query-demo` e alcuni documenti che contengono
@@ -31,10 +32,10 @@ i dati per queste esercitazioni.
 
 Prima di cominciare, segui queste istruzioni per preparare l'esercitazione:
 
-1.  [Crea un account {{site.data.keyword.Bluemix}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/registration/){:new_window}.
+1.  [Crea un account {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/registration/){:new_window}.
 2.  Accedi al
-  [dashboard {{site.data.keyword.Bluemix_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Crea una istanza {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance).
+  [dashboard {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+3.  [Crea una istanza {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}](create_service.html#creating-a-service-instance).
 4.  (Facoltativo) [Crea un alias acurl](../guides/acurl.html#authorized-curl-acurl-) per rendere più facile e veloce eseguire i comandi dalla riga di comando.
 5.  Sostituisci la variabile `$ACCOUNT` nei comandi inclusi negli esercizi con il nome utente che utilizzi per accedere al dashboard {{site.data.keyword.cloudant_short_notm}}.
   Se decidi di non configurare `acurl`,
@@ -73,7 +74,7 @@ database che utilizziamo in questa esercitazione.
   ```
   {:codeblock}
 
-![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.Bluemix_notm}}_
+![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.cloud_notm}}_
 
 1.  Apri l'istanza del servizio {{site.data.keyword.cloudant_short_notm}} che hai creato.
 2.  Nella pagina del servizio {{site.data.keyword.cloudant_short_notm}}, fai clic su **Launch**.
@@ -177,7 +178,7 @@ che crei in questo esercizio contengono i dati che utilizzi per eseguire la quer
   ```
   {:codeblock}
 
-![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.Bluemix_notm}}_
+![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.cloud_notm}}_
 
 1.  Fai clic su **`+`** e seleziona **New Doc**. Viene aperta la finestra 'New Document'.
 2.  Per creare un documento, copia il seguente testo di esempio e sostituisci il testo nel nuovo documento.
@@ -311,7 +312,7 @@ nel seguente elenco:
 
 
 
-![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.Bluemix_notm}}_
+![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.cloud_notm}}_
 
 1.  Fai clic su **`+` > Query Indexes** sulla scheda **All Documents** o **Design Documents**.
 2.  Incolla i seguenti dati JSON di esempio nel campo **Index**:
@@ -397,7 +398,7 @@ Questo esempio illustra come la query {{site.data.keyword.cloudant_short_notm}} 
   ```
   {:codeblock}
 
-![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.Bluemix_notm}}_
+![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.cloud_notm}}_
 
 1.  Fai clic sulla scheda **Query**.
 2.  Copia e incolla il seguente JSON di esempio nella finestra della query {{site.data.keyword.cloudant_short_notm}}:
@@ -499,7 +500,7 @@ Gli ulteriori dettagli sono simili al seguente esempio:
   ```
   {:codeblock}
 
-![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.Bluemix_notm}}_
+![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.cloud_notm}}_
 
 1.  Fai clic sulla scheda **Query**.
 2.  Copia e incolla il seguente JSON di esempio nella finestra della query {{site.data.keyword.cloudant_short_notm}}:
@@ -599,7 +600,7 @@ I risultati sono ordinati per età in ordine crescente in base ai valori specifi
   ```
   {:codeblock}
 
-![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.Bluemix_notm}}_
+![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.cloud_notm}}_
 
 1.  Fai clic sulla scheda **Query**.
 2.  Copia e incolla il seguente JSON di esempio nella finestra della query {{site.data.keyword.cloudant_short_notm}}:

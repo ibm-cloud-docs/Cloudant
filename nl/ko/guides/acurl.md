@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-01-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 권한 부여된 curl: `acurl`
 
@@ -18,7 +21,8 @@ _(이 안내서는 2013년 11월 27일에 공개된 Samantha Scharr의 블로그
 "Authorized curl, a.k.a. acurl" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window}을
 기반으로 하고 있습니다.)_
 
-`acurl`은 모든 요청에 대해 사용자 이름 및 비밀번호를 입력하지 않고 {{site.data.keyword.cloudantfull}} 명령을 URL에 `curl` 할 수 있게 해 주는 편리한 별명입니다.
+`acurl`은 모든 요청에 대해 사용자 이름 및 비밀번호를 입력할 필요 없이
+{{site.data.keyword.cloudantfull}} 명령을 URL에 `curl`로 전송할 수 있게 해 주는 편리한 별명입니다.
 이는 데이터베이스에 대한 단순 `GET` 요청을 더 이상 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`라 입력할 필요없이
 `https://$ACCOUNT.cloudant.com/foo`만 사용하면 됨을 의미합니다.
 
@@ -31,6 +35,9 @@ HTTPS를 강제함으로써 비밀번호가 네트워크를 통해 일반 텍스
 1.	[사용자 이름 및 비밀번호 인코딩](#encode-username-and-password)
 2.	[별명 작성](#create-an-alias)
 3.	[별명 활성화](#activate-the-alias)
+
+Windows 컴퓨터를 사용하고 있는 경우에는 명령행에서 사용자 이름 및 비밀번호를 지정할 수 있습니다.
+{:tip}
 
 ## 사용자 이름 및 비밀번호 인코딩
 
@@ -67,7 +74,7 @@ bXl1c2VybmFtZTpteXBhc3N3b3Jk
 
 ## 별명 작성
 
-이제 `curl` 명령을 작성할 때마다 신임 정보를 입력할 필요가 없도록 이러한 신임 정보를 포함하는 `curl`의 별명을 작성합니다.
+이제 `curl` 명령을 작성할 때마다 인증 정보를 입력할 필요가 없도록 이러한 인증 정보를 포함하는 `curl`의 별명을 작성합니다.
 
 `~/.bashrc` 또는 `~/.bash_profile`에 다음 행을 추가하십시오.
 
@@ -76,8 +83,8 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 ```
 {:codeblock}
 
-이 별명은 사용자가 명령행에 입력하는 URL에 권한 부여 신임 정보를 포함시키는 대신 권한 부여 헤더를 추가합니다.
-또한 HTTPS 사용이 자동 설정되며, 이는 전송 중에 사용자의 데이터 및 신임 정보를 암호화하고
+이 별명은 사용자가 명령행에 입력하는 URL에 권한 부여 인증 정보를 포함시키는 대신 권한 부여 헤더를 추가합니다.
+또한 HTTPS 사용이 자동 설정되며, 이는 전송 중에 사용자의 데이터 및 인증 정보를 암호화하고
 사용자가 {{site.data.keyword.cloudant_short_notm}} 시스템에 연결하고 있는지 확인하는 데 도움을 주므로 일반 HTTP를 사용하는 것보다 훨씬 바람직합니다.
 
 ## 별명 활성화

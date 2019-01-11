@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-20 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Replikation
 
@@ -28,9 +29,9 @@ und sie kann mithilfe von Parametern optimiert werden.
 Das Replikationsprotokoll von {{site.data.keyword.cloudant_short_notm}} ist mit einer Reihe von anderen Datenbanken
 und Bibliotheken kompatibel, was es zu einer hervorragenden Ergänzung des Internet of Things (IoT) und mobiler Anwendungen macht.
 
-Dieser Leitfaden führt Sie in die Replikationsfunktionen von {{site.data.keyword.cloudant_short_notm}}ein,
-bespricht gängige Anwendungsfälle und zeigt, wie Sie Ihre Anwendung einrichten können, damit sie
-erfolgreich repliziert.
+Dieser Leitfaden führt Sie in die Replikationsfunktionen von {{site.data.keyword.cloudant_short_notm}} ein,
+erläutert gängige Anwendungsfälle und zeigt, wie Sie Ihre Anwendung einrichten können, damit sie die Replikation
+erfolgreich durchführen kann.
 
 ## Was ist Replikation?
 
@@ -55,21 +56,21 @@ Alle bereits vorhandenen Daten in der Zieldatenbank bleiben bestehen.
 
 <div id="how-do-i-initiate-replication-via-the-dashboard-"></div>
 
-## Replikation über das Dashboard starten
+## Vorgehensweise zum Starten der Replikation über das Dashboard
 
-Das {{site.data.keyword.cloudant_short_notm}}-Dashboard stellt eine komfortable Benutzerschnittstelle zum Starten der Replikation bereit.
-Öffnen Sie die Registerkarte 'Replikation' in Ihrem {{site.data.keyword.cloudant_short_notm}}-Dashboard und klicken Sie auf die Aktionsschaltfläche `Neue Replikation`.
-Füllen Sie das einfache Formular aus:
+Das {{site.data.keyword.cloudant_short_notm}}-Dashboard stellt eine komfortable Benutzerschnittstelle zum Auslösen der Replikation bereit.
+Klicken Sie auf die Registerkarte `Replikation` im {{site.data.keyword.cloudant_short_notm}}-Dashboard und dann auf `Replikation starten`.
+Füllen Sie das Formular aus:
 
 ![Replikation2](../images/replication_guide_2.png)
 
-Definieren Sie mithilfe des Formulars die Quellen- und Zieldatenbanken,
-und klicken Sie dann auf `Replizieren`.
+Definieren Sie mithilfe des Formulars die Quellen- und Zieldatenbanken
+und klicken Sie dann auf `Replikation starten`.
 
 ![Replikation3](../images/replication_guide_3.png)
 
-Der Status der einzelnen Replikationstasks kann im Abschnitt `Alle Replikationen` des Dashboards angezeigt werden.
-Die Statusangaben der einzelnen Jobs ändern sich im Laufe der Zeit von `Ausgelöst` in `Abgeschlossen`.
+Der Status der einzelnen Replikationstasks kann angezeigt werden, indem Sie auf die Registerkarte `Replikation` klicken.
+Die Statusangaben der einzelnen Jobs ändern sich im Zeitverlauf von `Aktiv` in `Abgeschlossen`.
 
 ![Replikation4](../images/replication_guide_4.png)
 
@@ -268,13 +269,13 @@ die fertiggestellt ist, wenn alle Quellendaten in die Zieldatenbank geschrieben 
 Bei einer fortlaufenden Replikation fließen die Daten kontinuierlich.
 Alle nachfolgenden Änderungen an der Quellendatenbank werden in Echtzeit in die Zieldatenbank übertragen.
 
-Eine fortlaufende Replikation wird ausgelöst, indem Sie das Kontrollkästchen `Diese Replikation fortlaufend machen`
-aktivieren, wenn Sie eine Replikationstask im {{site.data.keyword.cloudant_short_notm}}-Dashboard definieren,
+Eine fortlaufende Replikation wird ausgelöst, indem Sie auf das Kontrollkästchen klicken, mit dem Sie die `Replikation als fortlaufend definieren` können,
+wenn Sie eine Replikationstask im {{site.data.keyword.cloudant_short_notm}}-Dashboard definieren,
 oder indem Sie das Flag [`continuous`](../api/replication.html#checkpoints) in der
 {{site.data.keyword.cloudant_short_notm}}-API festlegen.
 
-Eine bidirektionale Replikation kann in eine der beiden Richtungen als fortlaufend definiert werden,
-indem Sie das Flag `fortlaufend` festlegen.
+Eine bidirektionale Replikation kann in eine der beiden Richtungen oder in beiden Richtungen als fortlaufend definiert werden,
+indem Sie das Flag `continuous` festlegen.
 
 _Beispiel für die Verwendung von HTTP zum Starten einer kontinuierlichen Replikation:_
 
@@ -640,10 +641,9 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ```
 {:codeblock}
 
->   **Hinweis**: Die Reihenfolge von Dokumenten im Feed `_changes` ist nicht immer gleich.
-    Mit anderen Worten: Änderungen werden nicht unbedingt in streng zeitlicher Reihenfolge angezeigt.
-    Grund ist, dass Daten von mehreren {{site.data.keyword.cloudant_short_notm}}-Knoten zurückgegeben werden
+    Die Reihenfolge von Dokumenten im Feed `_changes` ist nicht immer gleich. Mit anderen Worten: Änderungen werden nicht unbedingt in streng zeitlicher Reihenfolge angezeigt. Grund ist, dass Daten von mehreren {{site.data.keyword.cloudant_short_notm}}-Knoten zurückgegeben werden
     und möglicherweise Konsistenzregeln gelten.
+    {: tip}
 
 ## Replikationsprobleme
 

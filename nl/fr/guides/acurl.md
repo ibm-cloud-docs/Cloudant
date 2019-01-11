@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-01-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Commande curl autorisée : `acurl`
 
@@ -25,13 +28,16 @@ Plus besoin d'avoir peur des personnes qui regardent par-dessus votre épaule lo
 
 Il vous suffit pour cela d'exécuter les trois étapes suivantes :
 
-1.	[Codage de votre nom d'utilisateur et mot de passe](#encode-username-and-password)
+1.	[Codage de votre nom d'utilisateur et de votre mot de passe](#encode-username-and-password)
 2.	[Création d'un alias](#create-an-alias)
 3.	[Activation de l'alias](#activate-the-alias).
 
-## Codage de votre nom d'utilisateur et mot de passe
+Si vous utilisez un ordinateur Windows, vous pouvez spécifier votre nom d'utilisateur et votre mot de passe dans la ligne de commande.
+{:tip}
 
-Nous codons tout d'abord votre nom d'utilisateur et mot de passe {{site.data.keyword.cloudant_short_notm}} en base64.
+## Codage du nom d'utilisateur et du mot de passe
+
+Nous commençons par coder votre nom d'utilisateur et votre mot de passe {{site.data.keyword.cloudant_short_notm}} en base64.
 Nous obtenons ainsi une séquence de caractères en base64.
 
 Pour ce faire, la commande utilisée est similaire à l'exemple suivant :

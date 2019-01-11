@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # バックアップの作成
 
@@ -293,7 +296,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
           "parallelism": 5
         }
     ================================================================================
-    ストリーミングのディスクへの変更:
+    Streaming changes to disk:
      batch 0
         [{"_id":"doc2","_rev":"1-2c5ee70689bb75af6f65b0335d1c92f4",
             "firstname":"John","lastname":"Brown","age":21,

@@ -1,14 +1,15 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="cloudant" audience="service" arm="366" href="/docs/services/Cloudant/getting-started.html" path="services/Cloudant"}
-Cloudant NoSQL DB
+{: .toc subcollection="cloudant" audience="service" arm="366" href="/docs/services/Cloudant/getting-started.html"}
+IBM Cloudant
 
 	{: .navgroup id="learn"}
 	getting-started.md
 	cloudant.md
 	offerings/bluemix.md
 	offerings/pricing.md
+	offerings/learning-center.md
 
 	{: .topicgroup}
     Sicherheit und Compliance
@@ -17,14 +18,14 @@ Cloudant NoSQL DB
     	offerings/dataprivacygovernance.md
 		offerings/audit.md
 		offerings/gdpr.md
-
+	
 	{: .topicgroup}
-    Andere Angebote
+	Andere Angebote
 		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
 		offerings/cloudant.com.md
 	{: .navgroup-end}
-	
+
 	{: .navgroup id="reference"}
     basics/index.md
 
@@ -65,11 +66,13 @@ Cloudant NoSQL DB
 		guides/backup-cookbook.md
 
 	{: .topicgroup}
-	Anleitungen
+	Leitfäden
 		guides/acurl.md
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/design_document_management.md
+		guides/iam.md
+		guides/resource-groups.md
 		guides/mvcc.md
 		guides/transactions.md
 		guides/sharding.md
@@ -79,4 +82,6 @@ Cloudant NoSQL DB
 		guides/model_data.md
 		guides/replication_guide.md
 		guides/backup-guide-using-replication.md
+		guides/migration.md
 	{: .navgroup-end}
+

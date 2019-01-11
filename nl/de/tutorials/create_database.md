@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Einfache {{site.data.keyword.cloudant_short_notm}}-Datenbank unter {{site.data.keyword.cloud_notm}} erstellen und befüllen
 
@@ -395,7 +398,7 @@ else:
 ```
 {:codeblock}
 
-Wir haben einige grundlegende Fehlerbehandlungsschritte eingeschlossen,
+Es wurden einige grundlegende Fehlerbehandlungsschritte eingeschlossen,
 um zu veranschaulichen, wie Probleme entstehen und gelöst werden können.
 
 ## Verbindung mit der Serviceinstanz trennen

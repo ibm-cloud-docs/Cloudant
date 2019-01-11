@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Creación de una aplicación sencilla de {{site.data.keyword.cloud_notm}} para acceder a una base de datos de {{site.data.keyword.cloudant_short_notm}}: carga de la aplicación
 
@@ -62,9 +63,10 @@ Debe proporcionar los siguientes detalles de la cuenta:
 -   El nombre de la organización, que se especifica en el parámetro '`-o`'.
 -   El espacio, que se especifica en el parámetro '`-s`'.
 
->   **Nota**: Los detalles de la cuenta están disponibles en el panel de control de {{site.data.keyword.cloud_notm}},
-    cuando se inicia una sesión mediante un navegador web, tal como se muestra en el siguiente ejemplo:<br/>
-    ![Búsqueda de los detalles de la cuenta de {{site.data.keyword.cloud_notm}}](images/img0035.png)
+  Los detalles de cuenta están disponibles en el panel de control de {{site.data.keyword.cloud_notm}}, cuando inicie sesión mediante un navegador web, como se muestra en el ejemplo siguiente:
+  {: tip}
+
+  ![Búsqueda de los detalles de cuenta de {{site.data.keyword.cloud_notm}}](images/img0035.png)
 
 Utilice un mandato parecido al del siguiente ejemplo para iniciar una sesión en el entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 Tenga en cuenta que se le solicitará que especifique la contraseña de su cuenta.
@@ -194,28 +196,26 @@ buildpack: python 1.5.5
 
 ## Prueba de la aplicación de ejemplo
 
-Cuando se ha creado por primera vez el entorno de aplicación de {{site.data.keyword.cloud_notm}}, el panel de control ha incluido un enlace en la columna `Ruta` correspondiente a la aplicación:<br/>
+Ahora, pruebe la aplicación y verifique que se está ejecutando correctamente. 
+
+1.  Abra el panel de control de {{site.data.keyword.cloud_notm}}. Puede ver el enlace a la aplicación que ha creado en Cloud Foundry Applications. Pulse `Cloudant CF app` para abrir la página de detalles.<br/>  
 ![Captura de pantalla que muestra el panel de control correspondiente a la aplicación](images/img0017.png)
 
-Si se pulsa el enlace, se abre una ventana del navegador que solicita ciertos datos de la aplicación que está a la escucha en el puerto correspondiente.
-La aplicación responde devolviendo el contenido del archivo de registro que se ha generado cuando se ha iniciado la aplicación:<br/>
-![Archivo de registro generado cuando se ha empezado a ejecutar la aplicación de la guía de aprendizaje](images/img0030.png)
+2.  En la página de detalles de `Cloudant CF app`, pulse `Rutas` y seleccione el enlace `Cloudant-CF-app.mybluemix.net`. <br/>
+![página de detalles de Cloudant CF app](images/img0030.png)
 
-El contenido de este archivo de registro es interesante.
-Se muestra claramente la hora de inicio y de finalización.
-Entre medio, el registro registra cada uno de los detalles a medida que se va recuperando la información de conexión correspondiente a {{site.data.keyword.cloudant_short_notm}}.
-Los valores reales de la conexión no son importantes.
-El registro muestra que la aplicación de la guía de aprendizaje ha podido localizar, recuperar y utilizar esos valores para crear un nuevo documento en la base de datos de {{site.data.keyword.cloudant_short_notm}}.
+3. Se abrirá una nueva ventana del navegador en https://cloudant-cf-app.mybluemix.net/. El mensaje verifica que la aplicación se está ejecutando. Dice, "Hello world! Gracias por crear una aplicación de inicio de Python."<br/>
+![Hello World! ha verificado que la app Cloudant CF se ejecuta correctamente](images/img0054.png)
+
 
 ### Confirmación de los detalles de la base de datos
 
-Empiece por abrir el panel de control de {{site.data.keyword.cloudant_short_notm}}.
-Pulse el icono `Iniciar` del separador `Gestionar` de la página de servicio de {{site.data.keyword.cloudant_short_notm}}:<br/>
-![Icono Iniciar de la página de servicio de {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
+En el panel de control de {{site.data.keyword.cloud_notm}}, abra la instancia de servicio de {{site.data.keyword.cloudant_short_notm}} que ha creado. Pulse la instancia de servicio. Vaya al separador `Gestionar` y pulse `Iniciar el panel de control de Cloudant`.<br/>
+![Iniciar el panel de control de Cloudant en la página de servicio de {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
 
 Para encontrar la página de servicio de {{site.data.keyword.cloudant_short_notm}},
 consulte los detalles de la guía de aprendizaje
-['Creación de una instancia de {{site.data.keyword.cloudant_short_notm}}'](create_service.html#locating-your-service-credentials).
+[Creación de una instancia de {{site.data.keyword.cloudant_short_notm}}](create_service.html#locating-your-service-credentials).
 {: tip}
 
 Cuando se abra el panel de control, verá que la aplicación ha creado la base de datos '`databasedemo`':<br/>

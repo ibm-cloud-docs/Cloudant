@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,12 +11,13 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.Bluemix_notm}} アプリケーションの作成: 前提条件
+# {{site.data.keyword.cloud_notm}} データベースにアクセスする単純な {{site.data.keyword.cloudant_short_notm}} アプリケーションの作成: 前提条件
 
-チュートリアルのこのセクションでは、{{site.data.keyword.Bluemix}} アプリケーションを作成するための前提条件について説明します。
+チュートリアルのこのセクションでは、{{site.data.keyword.cloud}} アプリケーションを作成するための前提条件について説明します。
 {:shortdesc}
 
 ## 前提条件
@@ -45,7 +46,7 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### {{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンス
+### {{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンス
 
 {{site.data.keyword.cloudantfull}} サービス・インスタンス
 「`Cloudant Service 2017`」の作成については、[別のチュートリアル](create_service.html)を参照してください。

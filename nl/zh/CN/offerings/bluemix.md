@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,10 +11,11 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2018-06-05 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.Bluemix_notm}} Public
+# {{site.data.keyword.cloud_notm}} Public
 {: #ibm-cloud-public}
 
 {{site.data.keyword.cloudantfull}} Public 是 {{site.data.keyword.cloudant_short_notm}} 的功能最丰富的产品，最先接收更新和新功能。定价基于吞吐量和存储需求，使得此产品适用于任何所需负载。 
@@ -25,18 +26,18 @@ lastupdated: "2018-06-07"
 
 <div id="maxtable"></div>
 
-<table border='1'>
+<table>
 
 <tr>
-<th id="plans">套餐</th><th id="lite">轻量</th><th id="standard" colspan='4'>标准</th>
+<th id="capacity-config-plan">套餐</th><th id="lite">轻量</th><th id="standard" colspan='4'>标准</th>
 </tr>
 <tr>
-<th id="base-priceperhour" headers="plans">基础价格（每小时）</td>
+<th id="base-priceperhour" headers="capacity-config-plan">基础价格（每小时）</td>
 <td headers="lite base-priceperhour">0.00 美元</td>
 <td headers="standard base-priceperhour" colspan='4'>请参阅<a href="../offerings/pricing.html#pricing" target="_blank">定价详细信息 <img src="../images/launch-glyph.svg" alt="外部链接图标" title="外部链接图标"></a>。</td>
 </tr>
 <tr>
-<th id="provisionedthroughputcapacity-lookupspersecond" headers="plans">供应的吞吐量容量（每秒查找数）</td>
+<th id="provisionedthroughputcapacity-lookupspersecond" headers="capacity-config-plan">供应的吞吐量容量（每秒查找数）</td>
 <td headers="lite provisionedthroughputcapacity-lookupspersecond-lite">20</td>
 <td headers="standard provisionedthroughputcapacity-lookupspersecond">100</td>
 <td headers="standard provisionedthroughputcapacity-lookupspersecond">1,000</td>
@@ -44,7 +45,7 @@ lastupdated: "2018-06-07"
 <td headers="standard provisionedthroughputcapacity-lookupspersecond">20,000</td>
 </tr>
 <tr>
-<th id="provisionedthroughputcapacity-writespersecond" headers="plans">供应的吞吐量容量（每秒写入数）</td>
+<th id="provisionedthroughputcapacity-writespersecond" headers="capacity-config-plan">供应的吞吐量容量（每秒写入数）</td>
 <td headers="lite provisionedthroughputcapacity-writespersecond">10</td>
 <td headers="standard provisionedthroughputcapacity-writespersecond">50</td>
 <td headers="standard provisionedthroughputcapacity-writespersecond">500</td>
@@ -52,7 +53,7 @@ lastupdated: "2018-06-07"
 <td headers="standard provisionedthroughputcapacity-writespersecond">10,000</td>
 </tr>
 <tr>
-<th id="provisionedthroughputcapacity-queriespersecond" headers="plans">供应的吞吐量容量（每秒查询数）</td>
+<th id="provisionedthroughputcapacity-queriespersecond" headers="capacity-config-plan">供应的吞吐量容量（每秒查询数）</td>
 <td headers="lite provisionedthroughputcapacity-queriespersecond">5</td>
 <td headers="standard provisionedthroughputcapacity-queriespersecond">5</td>
 <td headers="standard provisionedthroughputcapacity-queriespersecond">50</td>
@@ -60,12 +61,12 @@ lastupdated: "2018-06-07"
 <td headers="standard provisionedthroughputcapacity-queriespersecond">1,000</td>
 </tr>
 <tr>
-<th headers="diskspaceincluded" headers="plans">包含的磁盘空间</td>
+<th id="diskspaceincluded" headers="capacity-config-plan">包含的磁盘空间</td>
 <td headers="lite diskspaceincluded">1 GB</td>
 <td headers="standard diskspaceincluded" colspan='4'>20 GB</td>
 </tr>
 <tr>
-<th headers="diskoveragepergbhour" headers="plans">磁盘超额费（每 GB/小时）</td>
+<th id="diskoveragepergbhour" headers="capacity-config-plan">磁盘超额费（每 GB/小时）</td>
 <td headers="lite diskoveragepergbhour">不可用</td>
 <td headers="standard diskoveragepergbhour" colspan='4'>请参阅<a href="../offerings/pricing.html#pricing" target="_blank">定价详细信息 <img src="../images/launch-glyph.svg" alt="外部链接图标" title="外部链接图标"></a>。</td>
 </tr>
@@ -75,30 +76,39 @@ lastupdated: "2018-06-07"
 ## 套餐
 {: #plans}
 
-您可以选择[供应 {{site.data.keyword.cloudant_short_notm}} 服务实例](#provisioning-a-cloudant-instance-on-bluemix)时要使用的套餐。缺省情况下，选择了[轻量套餐](#lite-plan)。
+您可以选择[供应 {{site.data.keyword.cloudant_short_notm}} 服务实例](#provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud)时要使用的套餐。缺省情况下，选择了[轻量套餐](#lite-plan)。
 
-![{{site.data.keyword.cloudant_short_notm}} 服务实例套餐选择](../images/fb87416a.png)
+![{{site.data.keyword.cloudant_short_notm}} 服务实例套餐选择](../images/lite_pricing_plan.png)
 
 ### 轻量套餐
 {: #lite-plan}
 
-轻量套餐是免费的，但最大数据存储限制为 1 GB。此外，针对查找、写入和查询操作供应的吞吐量容量也有限制。 
+轻量套餐是免费的，旨在用于开发和评估目的。轻量套餐包含 {{site.data.keyword.cloudant_short_notm}} 的完整功能，但轻量套餐实例供应的吞吐量容量和数据存储量固定不变。供应的吞吐量容量固定为 20 次查找/秒、10 次写入/秒以及 5 次查询/秒，数据存储量的上限为 1 GB。 
 
-每天都会检查存储使用情况。如果超过了存储限制，那么对帐户的 HTTP 请求将收到 402 状态码，错误消息为“帐户超过了其数据使用量配额。需要升级到付费套餐。”另外，还会在 {{site.data.keyword.cloudant_short_notm}}“仪表板”上显示相应的通知条幅。您仍可以读取和删除数据。但是，要写入新数据，必须升级到付费帐户，或者删除数据，然后等待下一次运行检查以重新激活帐户。 
+每天都会检查存储使用情况。如果超过了 1 GB 的存储限制，那么对 {{site.data.keyword.cloudant_short_notm}} 实例的请求将收到 402 状态码，错误消息为“帐户超过了其数据使用量配额。需要升级到付费套餐。”另外，还会在 {{site.data.keyword.cloudant_short_notm}}“仪表板”上显示相应的条幅。您仍可以读取和删除数据。但是，要写入新数据，您有两个选择。第一个选择是，您可以升级到付费[标准套餐](#standard-plan)，此套餐会立即除去写操作限制。另一个选择是，您可以删除数据，使总存储量低于 1 GB 限制，然后等待下一次运行日常存储量检查，以便实例再次允许写操作。 
 
-如果要存储的数据多于 1 GB，或者希望拥有更大的吞吐量容量，请移至[标准套餐](#standard-plan)。
+如果要存储的数据多于 1 GB，或者希望有能力扩展供应的吞吐量容量，请移至[标准套餐](#standard-plan)。
+
+对于每个 {{site.data.keyword.cloud_notm}} 帐户，您只能有一个 {{site.data.keyword.cloudant_short_notm}} 轻量套餐实例。如果您已经有一个轻量套餐实例，那么创建新的轻量套餐实例或将标准套餐实例更改为轻量套餐的任何尝试都会返回消息：“每个服务只能有一个轻量套餐实例。要创建新实例，请删除现有轻量套餐实例，或选择付费套餐。”
+{: tip}
 
 ### 标准套餐
 {: #standard-plan}
 
-标准套餐包含 20 GB 的数据存储。如果存储的数据超过 20 GB，那么超出部分将按定义的每 GB/小时成本收费。有关当前成本，请参阅[定价](../offerings/pricing.html#pricing){:new_window}信息。在标准套餐上，还可以更改针对查找、写入和查询操作供应的吞吐量容量。
+{{site.data.keyword.cloudant_short_notm}} 标准套餐可供所有付费 {{site.data.keyword.cloud}} 帐户（即，现买现付或预订帐户）使用，并可根据应用程序的需要进行扩展。标准套餐的定价基于以下两个因素：分配的供应吞吐量容量和实例中存储的数据量。 
+
+定价依据比例按小时收费，供应的起始吞吐量容量为 100 次查找/秒、50 次写入/秒和 5 次查询/秒，即起始成本为 0.105 美元/小时。您可以在 {{site.data.keyword.cloudant_short_notm}}“仪表板”中以 100 次查找/秒、50 次写入/秒和 5 次查询/秒为增量，增大或减小供应的吞吐量容量。根据分配的供应吞吐量容量（而不是根据计量的请求量）计算成本。标准套餐包含 20 GB 的数据存储。如果存储的数据超过 20 GB，那么超出部分将按定义的每 GB/小时成本收费。 
+
+请参阅 {{site.data.keyword.cloud_notm}} 定价计算器以获取不同容量和货币的定价，并参阅[定价](../offerings/pricing.html#pricing){:new_window}信息以获取成本估算示例。
 
 ### 专用硬件套餐
 {: #dedicated-hardware-plan}
 
-作为替代方法，可以在任何 [{{site.data.keyword.IBM}} 数据中心 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 中的专用硬件环境上运行标准套餐实例，这需要每月付费。您可以为特定位置购买一个专用硬件套餐，然后在其上供应一个或多个标准套餐实例。要符合 HIPAA，需要使用此套餐，在供应时必须加以选择。 
+{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例是一种裸机 {{site.data.keyword.cloudant_short_notm}} 环境，为了使 {{site.data.keyword.cloudant_short_notm}} 标准套餐实例可供您专用而供应。{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐环境可以在任何 [{{site.data.keyword.IBM}} 数据中心 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 供应。要符合 HIPAA，需要使用此套餐，在供应时必须加以选择。此外，{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐环境的用户可以利用 IP 白名单以及 IBM Key Protect 的自带密钥 (BYOK) 客户管理的加密密钥。 
 
-专用硬件套餐不适用于 {{site.data.keyword.Bluemix_notm}} Dedicated 客户，仅适用于 {{site.data.keyword.Bluemix_notm}} Public 客户。
+您可以供应一个或多个标准套餐实例，专用硬件环境将根据标准套餐实例使用的容量和数据按需进行扩展或收缩。这是 {{site.data.keyword.cloudant_short_notm}} 标准套餐实例使用量定价的附加固定价格。计费依据比例按天收取，该环境的起步价为 1 个月的费用。供应 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐是异步执行的，需要 5 到 7 个工作日。要创建 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例并在其上供应标准套餐实例，请遵循[在 {{site.data.keyword.cloud_notm}} 上创建和利用 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](../tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window} 教程。 
+
+专用硬件套餐不适用于 {{site.data.keyword.cloud_notm}} Dedicated 客户。专用硬件套餐仅适用于 {{site.data.keyword.cloud_notm}} Public 客户。
 {: tip}
 
 ## 供应的吞吐量容量
@@ -146,6 +156,9 @@ lastupdated: "2018-06-07"
 
 ![帐户仪表板](../images/cloudant_capacity_change.png)
 
+容量增加的大小限制为每次更改 10 个单位（1000 次查找/秒、500 次写入/秒和 50 次查询/秒）。减少容量时不受单位数的限制。对容量的任何更改（增加或减少）限制为每小时一次。如果需要的容量大于 {{site.data.keyword.cloudant_short_notm}}“仪表板”上提供的容量，请联系 [{{site.data.keyword.cloudant_short_notm}} 支持人员 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){:new_window}。
+{: tip}
+
 <div id="throughput"></div>
 
 ### 监视使用情况 
@@ -170,11 +183,28 @@ lastupdated: "2018-06-07"
 ### 磁盘超额费
 {: #disk-overage}
 
-将监视所有标准和轻量套餐服务实例的已用磁盘空间。如果帐户使用的存储量超过套餐配置中提供的存储量，那么会将其视为“溢出”。溢出会导致对超过套餐分配量所使用的每个额外 GB，按指示价格向该帐户计费。
+所有标准套餐和轻量套餐都包含用于 JSON 数据、附件和索引的磁盘空间。系统会监视所有标准套餐和轻量套餐使用的磁盘空间。当使用的数据多于套餐分配量时，说明可能存在下表中描述的条件：
 
-因使用超过套餐中所提供量的磁盘空间而必须支付的额外金额称为“超额费”。超额费按小时计算。在轻量套餐中，无法溢出可用磁盘空间。
+<table>
 
-例如，假定标准套餐实例的磁盘使用量增加到半天（12 小时）107 GB。此变化意味着在 12 小时内，相对于 20 GB 套餐分配量，该实例的溢出量为 87 GB。因此，对于该额外空间，超额费的计费公式是：87 GB x 12 小时 = 1044 GB 小时。
+<tr>
+<th id="disk-overage-plan">套餐</th><th id="description">描述</th>
+</tr>
+<tr>
+<th headers="standard-plan">标准</td>
+<td headers="description"><p>
+<ul><li>如果帐户使用的存储量超过套餐配置中分配的存储量，那么会将其视为“溢出”。溢出会导致对超过套餐分配量所使用的每个额外 GB，按指示价格向该帐户计费。</li>
+<li>因使用的磁盘空间超过套餐中所提供量而必须支付的额外金额称为“超额费”。超额费按小时计算。</li></ul></p></td>
+</tr>
+<tr>
+<th headers="lite-plan">轻量</td>
+<td headers="description"><p>
+<ul><li>轻量套餐的磁盘使用量有上限。达到上限后，即无法再写入新数据。要写入新数据，必须升级到标准套餐，或者删除数据，然后等待下一次运行检查以重新激活帐户。</p>
+</li></ul></td>
+</tr>
+</table>
+
+例如，假定标准套餐的磁盘使用量增加到半天（12 小时）107 GB。此变化意味着在 12 小时内，相对于 20 GB 套餐分配量，该实例的溢出量为 87 GB。因此，对于该额外空间，超额费的计费公式是：87 GB x 12 小时 = 1044 GB 小时。
 
 超额费是使用计费周期的特定小时内超过套餐分配量的最大 GB 数计算得来的。
 
@@ -213,49 +243,49 @@ lastupdated: "2018-06-07"
 ## 位置和租户
 {: #locations-and-tenancy}
 
-缺省情况下，在多租户环境上部署所有轻量和标准套餐。在套餐选择过程中，可以从以下 {{site.data.keyword.Bluemix_notm}} Public 区域中进行选择：
+缺省情况下，在多租户环境上部署所有轻量和标准套餐。在套餐选择过程中，可以从以下 {{site.data.keyword.cloud_notm}} Public 区域中进行选择：
 
 -   美国东部
 -   美国南部
 -   英国
 -   悉尼
 -   德国&Dagger;
+-   亚太地区北部（东京）
 
 可以在大多数 [{{site.data.keyword.IBM_notm}} 数据中心位置 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 中部署专用硬件套餐实例。
-请参阅 {{site.data.keyword.Bluemix_notm}}“目录”中的下拉菜单以获取可用位置的最新列表。
+请参阅 {{site.data.keyword.cloud_notm}}“目录”中的下拉菜单以获取可用位置的最新列表。
 
-&Dagger;所有从 {{site.data.keyword.Bluemix_notm}} Public 德国区域部署的 {{site.data.keyword.cloudant_short_notm}} 实例都会部署在欧盟管理的环境中。在欧盟管理的环境外部生成的任何 {{site.data.keyword.cloudant_short_notm}} 帐户或 API 密钥，都无法获得对欧盟管理的 {{site.data.keyword.cloudant_short_notm}} 实例的访问权。
+&Dagger;所有从 {{site.data.keyword.cloud_notm}} Public 德国区域部署的 {{site.data.keyword.cloudant_short_notm}} 实例都会部署在欧盟管理的环境中。在欧盟管理的环境外部生成的任何 {{site.data.keyword.cloudant_short_notm}} 帐户或 API 密钥，都无法获得对欧盟管理的 {{site.data.keyword.cloudant_short_notm}} 实例的访问权。
 
-## 安全性、加密和合规性
-{: #security-encryption-and-compliance}
+## 认证方法
+{: #authentication-methods}
 
-所有套餐都在使用[静态 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Data_at_rest){:new_window} 磁盘加密的服务器上提供。访问会通过使用 HTTPS 的网络连接进行加密。有关更多详细信息，请参阅[{{site.data.keyword.Bluemix_notm}} 安全性 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security){:new_window}。
+{{site.data.keyword.cloudant_short_notm}} 使用 HTTPS API 进行访问。如果 API 端点需要认证，那么会针对 {{site.data.keyword.cloudant_short_notm}} 收到的每个 HTTPS 请求，对用户进行认证。在供应期间，可用的认证方法包括“使用旧凭证和 IAM”或“仅使用 IAM”。有关更多信息，请参阅 [IAM 指南](../guides/iam.html){:new_window}或旧[认证 API 文档](../api/authentication.html){:new_window}。
 
-套餐还提供了[安全合规性认证 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/product/cloudant-features/cloudant-compliance/){:new_window}。[HIPAA ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window} 合规性需要[专用环境](#dedicated-hardware-plan)，因此请在[供应过程](#provisioning-a-cloudant-instance-on-bluemix)中请求此环境。
+供应 {{site.data.keyword.cloudant_short_notm}} 实例之后，在 {{site.data.keyword.cloud_notm}}“仪表板”的“服务凭证”选项卡中生成新凭证时，可以找到连接 URL 和 IAM 授权详细信息。如果在供应期间选择了此选项，那么还将包含 {{site.data.keyword.cloudant_short_notm}} 的旧用户名和密码。
 
-<div id="byok"></div>
-
-如果需要使用自带密钥 (BYOK) 进行静态加密，可以通过 {{site.data.keyword.cloud}} Key Protect 启用此加密功能。{{site.data.keyword.cloudant_short_notm}} 支持此功能用于在所有区域中部署的新 {{site.data.keyword.cloudant_short_notm}} [专用硬件套餐](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public)实例。首先，通过 [{{site.data.keyword.cloud_notm}} 目录](https://console.bluemix.net/catalog/)创建一个专用硬件套餐实例。然后，提交支持凭单，我们的支持团队随后会协调获取您的新专用硬件实例的静态加密密钥，这些密钥由 Key Protect 实例进行管理。
 
 ## 高可用性、灾难恢复和备份
 {: #high-availability-disaster-recovery-and-backup}
 
-为了在数据中心内提供高可用性 (HA) 和灾难恢复 (DR)，所有数据将一式三份存储在集群中的三个单独的物理服务器上。您可以在多个数据中心内供应帐户，然后使用持续数据复制跨数据中心提供 HA/DR。{{site.data.keyword.cloudant_short_notm}} 数据不会自动备份，但您可以使用支持的工具  
-来处理备份。查看[灾难恢复和备份指南 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)，以探究所有 HA、DR 和备份注意事项来满足应用程序需求。 
+为了在数据中心内提供高可用性 (HA) 和灾难恢复 (DR)，所有数据将一式三份存储在集群中的三个单独的物理服务器上。您可以在多个数据中心内供应帐户，然后使用持续数据复制跨数据中心提供 HA/DR。{{site.data.keyword.cloudant_short_notm}} 数据不会自动备份，但提供了支持的工具来处理备份。查看[灾难恢复和备份指南 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)，以探究所有 HA、DR 和备份注意事项来满足应用程序需求。 
 
 ## 支持
 {: #support}
 
-对标准套餐和专用套餐服务实例的支持是可选的，通过购买“{{site.data.keyword.Bluemix}} 标准支持”来提供支持。对于轻量套餐不提供支持。
+对标准套餐和专用套餐服务实例的支持是可选的，这可通过购买 *{{site.data.keyword.cloud_notm}} 标准支持*来提供。对于轻量套餐不提供支持。
 
-[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.ng.bluemix.net/?direct=classic/#/pricing/cloudOEPaneId=pricing&paneId=pricingSheet){:new_window} 提供了 针对 {{site.data.keyword.Bluemix_notm}} 标准支持的定价计算器。[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://www-03.ibm.com/software/sla/sladb.nsf/pdf/6606-08/$file/i126-6606-08_05-2016_en_US.pdf){:new_window} 提供了有关支持服务级别协议 (SLA) 的详细信息。
+有关支持套餐的更多信息，请参阅 [{{site.data.keyword.cloud_notm}} 标准支持套餐 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/support#944376){:new_window}。有关支持的更多信息，请参阅 [{{site.data.keyword.IBM_notm}} 支持指南 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/support/home/pages/support-guide/){:new_window}。
 
-## 在 {{site.data.keyword.Bluemix_notm}} 上供应 {{site.data.keyword.cloudant_short_notm}} 实例
+用于 {{site.data.keyword.cloudant_short_notm}} 的支持系统不提供相关功能来保护包含以下各项的内容：医疗保健信息、运行状况数据、受保护的运行状况信息或受其他法规需求约束的数据。因此，客户不得输入或提供此类数据。
+{: tip}
+
+## 在 {{site.data.keyword.cloud_notm}} 上供应 {{site.data.keyword.cloudant_short_notm}} 实例
 {: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
 
-可以通过以下两种方式在 {{site.data.keyword.Bluemix}} 上供应 {{site.data.keyword.cloudant_short_notm}} 轻量或标准套餐实例：
+可以通过以下两种方式在 {{site.data.keyword.cloud_notm}} 上供应 {{site.data.keyword.cloudant_short_notm}} 轻量或标准套餐实例：
 
-- 使用“仪表板”。[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window} 提供了描述此过程的教程。
+- 使用仪表板。[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window} 提供了描述此过程的教程。
 - 使用 Cloud Foundry 命令工具。[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window} 提供了描述此过程的教程。
  
 要创建和利用 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例，请遵循[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window} 描述此过程的教程。

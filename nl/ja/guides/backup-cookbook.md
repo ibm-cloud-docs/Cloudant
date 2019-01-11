@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 <!-- Update backup-guide.md with with any changes. -->
 
 # {{site.data.keyword.cloudant_short_notm}} バックアップおよびリカバリー
@@ -53,7 +54,7 @@ couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 * ログ・ファイルを使用したバックアップの進行の記録。
 * 中断したバックアップを再開する機能。
   **注**: このオプションは、中断したバックアップのログ・ファイルを使用する場合にのみ使用可能です。
-{:tip}
+  {:tip}
 * `stdout` 出力のリダイレクトではなく、指定出力ファイルへのバックアップ・テキスト・ファイルの送信。
 
 > **警告**: CouchBackup ツールには[制限](#limitations)があります。
@@ -188,7 +189,6 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 このコードでは、クロス地域 S3 API を使用してデータベースをオブジェクト・ストアにバックアップする方法を示します。
 
 > **注**: このコードの前提条件として、[この説明 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][cosclient]{:new_window} に従って、{{site.data.keyword.IBM_notm}} クラウド・オブジェクト・ストレージ用に S3 クライアント・オブジェクトを初期化します。
-
 {:tip}
 
 ```javascript

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-20 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 复制
 
@@ -39,15 +40,15 @@ lastupdated: "2018-06-07"
 
 ## 如何使用仪表板来启动复制
 
-{{site.data.keyword.cloudant_short_notm}}“仪表板”提供了一个用户界面，可方便地触发复制。打开 {{site.data.keyword.cloudant_short_notm}}“仪表板”的“复制”选项卡，然后单击`新建复制`操作按钮。填写简单的表单：
+{{site.data.keyword.cloudant_short_notm}}“仪表板”提供了一个用户界面，可方便地触发复制。单击 {{site.data.keyword.cloudant_short_notm}}“仪表板”上的`复制`选项卡，然后单击`启动复制`。填写以下表单：
 
 ![复制 2](../images/replication_guide_2.png)
 
-使用该表单定义源数据库和目标数据库，然后单击“`复制`”。
+使用该表单定义源数据库和目标数据库，然后单击`启动复制`。
 
 ![复制 3](../images/replication_guide_3.png)
 
-每个复制任务的状态都可以在“仪表板”的“`所有复制`”部分中查看。随着每个作业的进展，其状态将从“`已触发`”更改为“`完成`”。
+通过单击`复制`选项卡，可以查看每个复制任务的状态。随着每个作业的进展，其状态将从`正在运行`更改为`完成`。
 
 ![复制 4](../images/replication_guide_4.png)
 
@@ -133,9 +134,9 @@ _用于描述所需复制的示例 JSON 文档：_
 
 第一个特征的一个结果是，请求更改列表时，请求特定时间点之后的更改列表没有意义。原因是更改列表可能由不同的数据库副本提供，从而产生不同时间的文档更新。但是，请求特定更改（通过使用序列标识来指定）之后的更改列表_是_有意义的。
 
-第一个特征的额外结果是，可能需要“回顾”先前的更改以就更改列表达成一致。换言之，要获取更改列表，您将从数据库副本达成一致的最新更改开始。在 {{site.data.keyword.cloudant_short_notm}} 中，数据库副本之间的一致点使用[检查点](#checkpoints)机制进行确认，该机制支持同步数据库副本之间的复制。
+第一个特征的额外结果是，可能需要“回顾”先前的更改以就更改列表达成一致。换言之，要获取更改列表，您将从数据库副本达成一致的最新更改开始。在 {{site.data.keyword.cloudant_short_notm}} 中，数据库副本之间的一致点使用[检查点](#checkpoints)机制进行确定，该机制支持同步数据库副本之间的复制。
 
-最后，第二个特征的一个结果是，在不同数据库副本所应答的后续请求中，更改列表中显示的各个更改可能会以不同顺序显示。换言之，初始更改列表可能按 `A`、`B`、`C` 的顺序报告更改。但后续更改列表可能按 `C`、`A`、`B` 的顺序报告更改。所有更改都会列出，但顺序不同。造成这种差异的原因是，复制期间接收更改的顺序可能在数据库的两个不同副本中不同。
+最后，第二个特征的一个结果是，在不同数据库副本所应答的后续请求中，更改列表中显示的各个更改可能会以不同顺序显示。换言之，初始更改列表可能按 `A`、`B`、`C` 的顺序报告更改。但后续更改列表可能按 `C`、`A`、`B` 的顺序报告更改。所有更改都会列出，但顺序不同。造成这种差异的原因是，在复制期间数据库两个不同副本收到更改的顺序可能不同。
 
 <div id="what-this-means-for-the-list-of-changes"></div>
 
@@ -179,9 +180,9 @@ _用于描述所需复制的示例 JSON 文档：_
 
 到目前为止，讨论仅涉及的是单次复制，它在所有源数据都写入目标数据库之后即完成。通过持续复制，数据可持续流动。对源数据库的所有后续更改都将实时传输到目标数据库。
 
-通过在 {{site.data.keyword.cloudant_short_notm}}“仪表板”中定义复制任务时单击“`使此复制成为持续的`”复选框，或通过在 {{site.data.keyword.cloudant_short_notm}} API 中设置[“`continuous`](../api/replication.html#checkpoints)”标志，可触发持续复制。
+通过在 {{site.data.keyword.cloudant_short_notm}}“仪表板”中定义复制任务时单击`使此复制成为持续的`复选框，或通过在 {{site.data.keyword.cloudant_short_notm}} API 中设置 [`continuous`](../api/replication.html#checkpoints) 标志，可触发持续复制。
 
-通过设置“`continuous`”标志，可使双向复制在一个方向或两个方向持续进行。
+通过设置 `continuous` 标志，可使双向复制在一个方向或两个方向持续进行。
 
 _使用 HTTP 启动持续复制的示例：_
 
@@ -217,7 +218,7 @@ _用于定义持续复制的 JSON 文档的示例：_
 
 ## 监视复制
 
-可以使用“仪表板”或 API 随时检查 {{site.data.keyword.cloudant_short_notm}} 的 `_replicator` 数据库的状态。
+可以使用仪表板或 API 随时检查 {{site.data.keyword.cloudant_short_notm}} 的 `_replicator` 数据库的状态。
 
 如果复制失败（例如，如果认证凭证无效），那么错误状态将记录在 `_replicator` 文档中。此外，可以使用 {{site.data.keyword.cloudant_short_notm}} 帐户的 `/_active_tasks` 端点来查看进行中的复制工作。[此处](../api/active_tasks.html)提供了更多详细信息。
 
@@ -256,7 +257,7 @@ _请求复制状态的示例响应：_
 
 ## 取消复制
 
-要停止正在进行的复制作业，请使用“仪表板”或 API 从 `_replicator` 数据库中删除复制文档。
+要停止正在进行的复制作业，请使用仪表板或 API 从 `_replicator` 数据库中删除复制文档。
 
 _使用 HTTP 取消复制的示例：_
 
@@ -409,9 +410,9 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
 
 要查看文档主体本身，请将 `&include_docs=true` 附加到 curl 命令。
 
-每个更改使用以下（省略版）示例中显示的格式来描述。
+使用以下示例（缩略版）中显示的格式来描述每个更改。
 
-_示例 `changes` 订阅源：__
+_`_changes` 订阅源示例：_
 
 ```json
 {
@@ -430,7 +431,7 @@ _示例 `changes` 订阅源：__
 
 要从已知位置连接 changes 订阅源，请传递 [`since` 自变量](../api/database.html#the-since-argument)以及要从其开始的序号。
 
-_使用 HTTP 提供 `since` 选项以在已知位置连接 `changes` 订阅源的示例（省略版）：__
+_使用 HTTP 提供 `since` 选项在已知位置连接 `_changes` 订阅源的示例（缩略版）：_
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
@@ -439,7 +440,7 @@ Authorization: ...
 ```
 {:codeblock}
 
-_使用命令行提供 `since` 选项以在已知位置连接 `changes` 订阅源的示例（省略版）：__
+_使用命令行提供 `since` 选项在已知位置连接 `_changes` 订阅源的示例（缩略版）：_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -450,7 +451,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 
 要在此刻重新连接 changes 订阅源，请设置 `since=now`。
 
-_使用 HTTP 提供 `since=now` 以在此刻连接 `changes` 订阅源的示例：__
+_使用 HTTP 提供 `since=now` 以在此刻连接 `_changes` 订阅源的示例：_
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
@@ -459,14 +460,14 @@ Authorization: ...
 ```
 {:codeblock}
 
-_使用命令行提供 `since=now` 以在此刻连接 `changes` 订阅源的示例：__
+_使用命令行提供 `since=now` 以在此刻连接 `_changes` 订阅源的示例：_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {:codeblock}
 
-_使用 JavaScript 提供 `since=now` 以在此刻连接 `changes` 订阅源的示例：__
+_使用 JavaScript 提供 `since=now` 以在此刻连接 `_changes` 订阅源的示例：_
 
 ```javascript
 var feed = db.follow({since: "now", include_docs: true})
@@ -505,8 +506,8 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ```
 {:codeblock}
 
->   **注**：`_changes` 订阅源中文档的顺序并不总是相同的。
-换言之，更改可能不会按严格的时间顺序显示。原因是数据是从多个 {{site.data.keyword.cloudant_short_notm}} 节点返回的，并且最终一致性规则适用。
+    `_changes` 订阅源中文档的顺序并不总是相同。换言之，更改可能不会按严格的时间顺序显示。原因是数据是从多个 {{site.data.keyword.cloudant_short_notm}} 节点返回的，并且最终一致性规则适用。
+    {: tip}
 
 ## 复制易犯错误
 
@@ -545,7 +546,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 
 如果要取消所有复制并从全新的干净 `_replicator` 数据库开始，请删除并重新创建 `replicator` 数据库。
 
-_使用 HTTP 除去并重新创建 `replicator` 数据库的示例：__
+_使用 HTTP 除去并重新创建 `_replicator` 数据库的示例：_
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -558,7 +559,7 @@ Authorization: ...
 ```
 {:codeblock}
 
-_使用命令行除去并重新创建 `replicator` 数据库的示例：__
+_使用命令行除去并重新创建 `_replicator` 数据库的示例：_
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'

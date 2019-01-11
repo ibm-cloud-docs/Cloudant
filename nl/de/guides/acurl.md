@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-01-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Authorized curl: `acurl`
 
@@ -19,7 +22,7 @@ _(Dieser Leitfaden basiert auf einem Blogartikel von Samantha Scharr: [
 ursprünglich veröffentlicht am 27. November 2013.)_
 
 `acurl` ist ein praktischer Alias, mit dem Sie {{site.data.keyword.cloudantfull}}-Befehle an URLs
-übertragen (`curl`) können, ohne für jede Anforderung Ihren Benutzernamen und Ihr Kennwort eingeben zu  müssen.
+übertragen (`curl`) können, ohne für jede Anforderung Ihren Benutzernamen und Ihr Kennwort eingeben zu müssen.
 Das bedeutet, dass eine simple `GET`-Anforderung an eine Datenbank nicht länger als
 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo` geschrieben werden muss,
 sondern einfach `https://$ACCOUNT.cloudant.com/foo` verwendet werden kann.
@@ -33,9 +36,12 @@ Es müssen nur drei einfache Schritte ausgeführt werden:
 2.	[Alias erstellen](#create-an-alias)
 3.	[Alias aktivieren](#activate-the-alias).
 
+Wenn Sie einen Windows-Computer verwenden, können Sie Ihren Benutzernamen und Ihr Kennwort in der Befehlszeile angeben.
+{:tip}
+
 ## Benutzernamen und Kennwort verschlüsseln
 
-Zunächst verschlüsseln wir Ihren {{site.data.keyword.cloudant_short_notm}}-Benutzernamen und Ihr Kennwort mit Base64-Codierung.
+Zunächst werden Ihr {{site.data.keyword.cloudant_short_notm}}-Benutzername und Ihr zugehöriges Kennwort mit der Base64-Codierung verschlüsselt.
 Dies liefert uns eine Base64-Zeichenfolge als Ausgabe.
 
 Der Befehl zum Verschlüsseln mancher Daten mit Base64-Codierung entspricht dem folgenden Beispiel:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Einfache {{site.data.keyword.cloud_notm}}-Anwendung für den Zugriff auf eine {{site.data.keyword.cloudant_short_notm}}-Datenbank erstellen: Anwendung hochladen
 
@@ -62,9 +63,10 @@ Sie müssen die folgenden Kontodetails angeben:
 -   Ihr Organisationsname, angegeben als Parameter `-o`.
 -   Ihr Bereich, angegeben als Parameter `-s`.
 
->   **Hinweis**: Die Kontodetails sind in Ihrem {{site.data.keyword.cloud_notm}}-Dashboard verfügbar,
-    wenn Sie sich, wie im folgenden Beispiel gezeigt, über einen Web-Browser anmelden:<br/>
-    ![Ihre {{site.data.keyword.cloud_notm}}-Kontodetails suchen](images/img0035.png)
+  Die Kontodetails sind in Ihrem {{site.data.keyword.cloud_notm}}-Dashboard verfügbar, wenn Sie sich über einen Web-Browser anmelden. Dieser Sachverhalt wird im folgenden Beispiel dargestellt:
+  {: tip}
+
+  ![Ihre {{site.data.keyword.cloud_notm}}-Kontodetails suchen](images/img0035.png)
 
 Verwenden Sie einen Befehl ähnlich dem folgenden, um sich bei Ihrer {{site.data.keyword.cloud_notm}}-Anwendungsumgebung anzumelden.
 Beachten Sie, dass Sie aufgefordert werden, Ihr Kontokennwort einzugeben.
@@ -198,35 +200,26 @@ buildpack: python 1.5.5
 
 ## Beispielanwendung testen
 
-Wenn die {{site.data.keyword.cloud_notm}}-Anwendungsumgebung das erste Mal erstellt wird,
-enthält das Dashboard einen Link in der Spalte `Route` für die Anwendung:<br/>
+Testen Sie Ihre Anwendung jetzt und stellen Sie sicher, dass sie ordnungsgemäß ausgeführt wird. 
+
+1.  Öffnen Sie das {{site.data.keyword.cloud_notm}}-Dashboard. Unter 'Cloud Foundry-Anwendungen' können Sie nun den Link zu der Anwendung sehen, die Sie erstellt haben. Klicken Sie auf `Cloudant Cloud Foundry-App`, um die Detailseite zu öffnen.<br/>  
 ![Screenshot des Dashboards für die Anwendung](images/img0017.png)
 
-Wenn Sie auf den Link klicken, wird ein Browserfenster geöffnet,
-das Daten von der Anwendung anfordert, die am entsprechenden Port empfangsbereit ist.
-Die Anwendung reagiert, indem der Inhalt der Protokolldatei zurückgegeben wird,
-die beim Start der Anwendung generiert wurde:<br/>
-![Beim Start der Lernprogrammanwendung generierte Protokolldatei](images/img0030.png)
+2.  Klicken Sie auf der Detailseite für `Cloudant Cloud Foundry-App` auf `Routen` und dann auf den Link `Cloudant-CF-app.mybluemix.net`. <br/>
+![Detailseite für 'Cloudant Cloud Foundry-App'](images/img0030.png)
 
-Der Inhalt dieser Protokolldatei ist interessant.
-Die Start- und Endzeiten sind deutlich hervorgehoben.
-Dazwischen zeichnet das Protokoll alle Details auf, während die Verbindungsinformationen
-für {{site.data.keyword.cloudant_short_notm}} abgerufen wurden.
-Die tatsächlichen Werte der Verbindung sind nicht wichtig.
-Das Protokoll zeigt, dass die Lernprogrammanwendung diese Werte finden,
-abrufen und verwenden konnte, um ein neues Dokument in der
-{{site.data.keyword.cloudant_short_notm}}-Datenbank abzurufen.
+3. Daraufhin wird unter der Adresse 'https://cloudant-cf-app.mybluemix.net/' ein neues Browserfenster geöffnet. In der Nachricht wird bestätigt, dass die Anwendung aktiv
+ist. Sie enthält den folgenden Text. "Hello World! Thanks for creating a Python Starter Application."<br/>
+![Hello World! hat überprüft, dass 'Cloudant Cloud Foundry-App' korrekt ausgeführt wird](images/img0054.png)
+
 
 ### Datenbankdetails bestätigen
 
-Beginnen Sie, indem Sie das {{site.data.keyword.cloudant_short_notm}}-Dashboard öffnen.
-Klicken Sie auf das Symbol `Starten` auf der Registerkarte `Verwalten` der
-{{site.data.keyword.cloudant_short_notm}}-Serviceseite:<br/>
-![Startsymbol auf der {{site.data.keyword.cloudant_short_notm}}-Serviceseite](images/img0036.png)
+Öffnen Sie im {{site.data.keyword.cloud_notm}}-Dashboard die {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz, die Sie erstellt haben. Klicken Sie auf die Serviceinstanz. Rufen Sie die Registerkarte `Verwalten` auf und klicken Sie dann auf `Cloudant-Dashboard starten`.<br/>
+!['Cloudant-Dashboard starten' auf der {{site.data.keyword.cloudant_short_notm}}-Serviceseite](images/img0036.png)
 
-Wo Sie Ihre {{site.data.keyword.cloudant_short_notm}}-Serviceseite finden,
-ist in den Details im
-[Lernprogramm 'Eine {{site.data.keyword.cloudant_short_notm}}-Instanz erstellen' angegeben](create_service.html#locating-your-service-credentials).
+Informationen zum Suchen Ihrer {{site.data.keyword.cloudant_short_notm}}-Serviceseite finden Sie in den Einzelangaben im
+[Lernprogramm zum Erstellen einer {{site.data.keyword.cloudant_short_notm}}-Instanz](create_service.html#locating-your-service-credentials).
 {: tip}
 
 Wenn das Dashboard geöffnet wird, können Sie sehen, dass die Anwendung

@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-10-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -12,26 +13,26 @@ lastupdated: "2018-06-20"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-13 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 建立 {{site.data.keyword.cloudant_short_notm}} 查詢
 
 本指導教學示範如何建立資料庫、將文件移入其中、建立索引，然後使用索引來查詢資料庫。
 
-同時提供 ![「指令行」圖示](../images/CommandLineIcon.png) _指令行_ 及 ![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_ 的練習。「{{site.data.keyword.Bluemix}} 儀表板」練習可提供每一個作業的視覺化範例。您可以遵循整個指導教學的鏈結，以取得相關資訊。
+同時提供 ![「指令行」圖示](../images/CommandLineIcon.png) _指令行_ 及 ![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.cloud}} 儀表板_ 的練習。「{{site.data.keyword.cloud_notm}} 儀表板」練習可提供每一個作業的視覺化範例。您可以遵循整個指導教學裡的鏈結，以取得相關資訊。
 
-首先，您可以建立 `query-demo` 資料庫，以及包含這些練習資料的一些文件。
+首先，您會建立 `query-demo` 資料庫，以及包含這些練習之資料的一些文件。
 
 ## 假設
 
 開始之前，請遵循下列步驟，以準備執行指導教學：
 
-1.  [建立 {{site.data.keyword.Bluemix}} 帳戶 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/registration/){:new_window}。
-2.  登入 [{{site.data.keyword.Bluemix_notm}} 儀表板 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}。
-3.  [在 {{site.data.keyword.Bluemix_notm}} 上建立 {{site.data.keyword.cloudant_short_notm}} 實例](create_service.html#creating-a-service-instance)。
-4.  （選用）[建立 acurl 別名](../guides/acurl.html#authorized-curl-acurl-)，以從指令行更輕鬆且更快速地執行指令。
+1.  [建立 {{site.data.keyword.cloud_notm}} 帳戶 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/registration/){:new_window}。
+2.  登入 [{{site.data.keyword.cloud_notm}} 儀表板 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}。
+3.  [在 {{site.data.keyword.cloud_notm}} 上建立 {{site.data.keyword.cloudant_short_notm}} 實例](create_service.html#creating-a-service-instance)。
+4.  （選用）[建立 acurl 別名](../guides/acurl.html#authorized-curl-acurl-)，以便能從指令行更輕鬆且更快速地執行指令。
 5.  將練習中所含指令中的 `$ACCOUNT` 變數，取代為您用來登入「{{site.data.keyword.cloudant_short_notm}} 儀表板」的使用者名稱。
-  如果您決定不要設定 `acurl`，請使用下列 URL，而不是練習中所提供的 URL：
+  如果您決定不要設定 `acurl`，請使用下列 URL，而不要使用練習中所提供的 URL：
   ``` sh
   curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
   ```
@@ -41,7 +42,7 @@ lastupdated: "2018-06-20"
 
 在本節中，您會建立 `query-demo` [資料庫](../api/database.html#create)，這是本指導教學中所使用的資料庫。
 
-> **附註：**在本指導教學中，我們使用 `acurl` 別名，而不是 `curl` 指令。`acurl` 別名是使用[這裡](../guides/acurl.html#authorized-curl-acurl-)所說明的步驟建立。如果您偏好使用 `curl` 指令或另一種方法來呼叫 API 端點，請替換指導教學中的指令，以及指令所需的參數（例如使用者名稱及密碼）。
+> **附註：**在本指導教學中，我們使用 `acurl` 別名，而不是 `curl` 指令。`acurl` 別名是使用[這裡](../guides/acurl.html#authorized-curl-acurl-)說明的步驟所建立。如果您偏好使用 `curl` 指令或另一種方法來呼叫 API 端點，請替換指導教學中的指令，以及指令所需的參數（例如使用者名稱及密碼）。
 
 ![「指令行」圖示](../images/CommandLineIcon.png) _指令行_
 
@@ -58,7 +59,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 儀表板_
 
 1.  開啟您已建立的 {{site.data.keyword.cloudant_short_notm}} 服務實例。
 2.  在 {{site.data.keyword.cloudant_short_notm}} 服務頁面上，按一下**啟動**。即會開啟「資料庫」標籤。
@@ -71,7 +72,7 @@ lastupdated: "2018-06-20"
 
 ## 在資料庫中建立文件
 
-您在此練習中建立的[文件](../api/document.html#documents)會包含您用來在稍後練習中查詢 `query-demo` 資料庫的資料。
+您在此練習中建立的[文件](../api/document.html#documents)，會包含您用來在稍後練習中查詢 `query-demo` 資料庫的資料。
 
 ![「指令行」圖示](../images/CommandLineIcon.png) _指令行_
 
@@ -159,7 +160,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 儀表板_
 
 1.  按一下 **`+`**，然後選取**新建文件**。即會開啟「新建文件」視窗。
 2.  若要建立文件，請複製下列範例文字，並取代新文件中的現有文字。
@@ -289,7 +290,7 @@ lastupdated: "2018-06-20"
 
 
 
-![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 儀表板_
 
 1.  按一下**所有文件**或**設計文件**標籤上的 **`+` > 查詢索引**。
 2.  將下列範例 JSON 資料貼入**索引**欄位中：
@@ -369,7 +370,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 儀表板_
 
 1.  按一下**查詢**標籤。
 2.  複製下列範例 JSON，並將其貼入「{{site.data.keyword.cloudant_short_notm}} 查詢」視窗：
@@ -465,7 +466,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 儀表板_
 
 1.  按一下**查詢**標籤。
 2.  複製下列範例 JSON，並將其貼入「{{site.data.keyword.cloudant_short_notm}} 查詢」視窗：
@@ -562,7 +563,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} 儀表板_
+![「儀表板」圖示](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} 儀表板_
 
 1.  按一下**查詢**標籤。
 2.  複製下列範例 JSON，並將其貼入「{{site.data.keyword.cloudant_short_notm}} 查詢」視窗：

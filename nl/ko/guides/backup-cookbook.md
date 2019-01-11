@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 <!-- Update backup-guide.md with with any changes. -->
 
 # {{site.data.keyword.cloudant_short_notm}} 백업 및 복구
@@ -151,7 +152,7 @@ couchbackup --url "https://examples.cloudant.com" \
 `stdout`을 통해 출력합니다.
 결과 압축 데이터 스트림은 그 후 `backup.gz` 파일로 경로 재지정되어 기록됩니다.
 
-데이터베이스에서 사용자에게 액세스 신임 정보를 제공하도록 요구하는 경우에는
+데이터베이스에서 사용자에게 액세스 인증 정보를 제공하도록 요구하는 경우에는
 `https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com` 양식의 URL을 사용하십시오.
 예를 들면 다음과 같습니다.
 

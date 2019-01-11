@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-04-28 -->
+<!-- Acrolinx: 2018-05-31 -->
 
 # チュートリアルの概説
 {: #getting-started-with-cloudant}
@@ -21,7 +21,7 @@ lastupdated: "2018-06-08"
 この {{site.data.keyword.cloudantfull}} チュートリアルの概説では、Python を使用して、{{site.data.keyword.cloudant_short_notm}} データベースを作成し、そのデータベースにシンプルなデータ・コレクションを取り込みます。
 {:shortdesc}
 
-このチュートリアルに加えて、{{site.data.keyword.cloudant_short_notm}} について詳しく知りたい場合に役立つ実践チュートリアルを参照してください。または、特定の言語に焦点を当てたチュートリアルの 1 つを試してみてください。
+このチュートリアルに加えて、{{site.data.keyword.cloudant_short_notm}} について詳しく知りたい場合に役立つ実践チュートリアルを参照してください。 または、特定の言語に焦点を当てたチュートリアルの 1 つを試してみてください。
 
 - [Liberty for Java および {{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
 - [Node.js および {{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
@@ -34,33 +34,34 @@ lastupdated: "2018-06-08"
 ## 始める前に
 {: #prereqs}
 
-[Bluemix アカウント ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/registration/){:new_window} および {{site.data.keyword.cloudant}} サービスのインスタンスが必要であり、また以下の Python 要件が満たされている必要があります。
+[{{site.data.keyword.cloud}} アカウント ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/registration/){:new_window} および {{site.data.keyword.cloudant_short_notm}} サービスのインスタンスが必要であり、また以下の Python 要件が満たされている必要があります。
 
-*	最新バージョンの [Python プログラミング言語 ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){:new_window} をシステムにインストールします。
+*	最新バージョンの
+	[Python プログラミング言語 ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){:new_window} をシステムにインストールします。
 	
-	これを確認するには、プロンプトで以下のコマンドを実行します。
- ```sh
+	確認するには、プロンプトで以下のコマンドを実行します。
+	```sh
 	python --version
 	```
 	{:pre}
 	
-	以下のような結果が表示されます。
+	次のような結果が表示されます。
 
 	```
 	Python 2.7.12
 	```
 	{:screen}
 
-*	[Python ライブラリー](libraries/supported.html#python)をインストールして、Python アプリケーションで {{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}} を処理できるようにします。
+*	[Python ライブラリー](libraries/supported.html#python)をインストールして、Python アプリケーションで {{site.data.keyword.cloudant_short_notm}} 上の {{site.data.keyword.cloud_notm}} を処理できるようにします。
 	
 	クライアント・ライブラリーが正常にインストールされたことを確認するには、
 プロンプトで以下のコマンドを実行します。
- ```sh
+	```sh
 	pip freeze
 	```
 	{:pre}
 	
-	システムにインストールされているすべての Python モジュールのリストが表示されます。 リストを調べ、以下のような {{site.data.keyword.cloudant_short_notm}} 項目を探します。
+	システムにインストールされているすべての Python モジュールのリストが表示されます。リストを調べ、以下のような {{site.data.keyword.cloudant_short_notm}} 項目を探します。
 
 	```
 	cloudant==2.3.1
@@ -74,24 +75,34 @@ lastupdated: "2018-06-08"
 	```
 	{:pre}
 
-## ステップ 1: {{site.data.keyword.Bluemix_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスに接続する
+## ステップ 1: {{site.data.keyword.cloudant_short_notm}} 上の {{site.data.keyword.cloud_notm}} サービス・インスタンスに接続する
+{: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
-1.	{{site.data.keyword.cloudant_short_notm}} クライアント・ライブラリー・コンポーネントの以下の「`import`」ステートメントを実行して、Python アプリケーションが {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスに接続できるようにします。
- ```python
+1.	{{site.data.keyword.cloudant_short_notm}} クライアント・ライブラリー・コンポーネントの `import` ステートメントを実行して、Python アプリケーションが {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスに接続できるようにします。
+	```python
 	from cloudant.client import Cloudant
 	from cloudant.error import CloudantException
 	from cloudant.result import Result, ResultByKey
 	```
 	{: codeblock}
 
-2. 以下のように、{{site.data.keyword.cloudant_short_notm}} サービス資格情報を確認します。
-  1. {{site.data.keyword.Bluemix_notm}} コンソールで、サービス・インスタンスのダッシュボードを開きます。
-  2. 左ナビゲーションで、**`「サービス資格情報」`**をクリックします。
-  3. **`「アクション」`**の下の**`「資格情報の表示」`**をクリックします。
-
+2.  以下のようにして、新規の {{site.data.keyword.cloudant_short_notm}} サービス資格情報を作成します。
+  <br>{{site.data.keyword.cloud_notm}} コンソールで、サービス・インスタンスのダッシュボードを開きます。
+  <br>左ナビゲーションで、`「サービス資格情報」`をクリックします。
+  <br>a. `「新規資格情報」`ボタンをクリックします。
+  <br>![新規サービス資格情報の作成](tutorials/images/img0050.png)
+  <br>b. 次のスクリーン・ショットに示されているように、「新規資格情報の追加」ウィンドウで新規資格情報の名前を入力します。
+  <br>c. (オプション) インライン構成パラメーターを追加します。
+  <br>d. `「追加」`ボタンをクリックします。 
+  <br>![新規サービス資格情報の追加](tutorials/images/img0051.png)
+  <br>資格情報が「サービス資格情報」テーブルに追加されます。
+  <br>e.「アクション」で`「資格情報の表示」`をクリックします。
+  <br>![すべてのサービス資格情報の表示](tutorials/images/img0052.png)
+  <br>以下のようにサービス資格情報の詳細が表示されます。<br>![{{site.data.keyword.cloudant_short_notm}} サービス資格情報](tutorials/images/img0009.png)
+   
 3.	以下のコマンドを実行して、サービス・インスタンスへの接続を確立します。
 	前のステップで確認したサービス資格情報に置き換えてください。
- ```python
+	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
 	client.connect()
 	```
@@ -99,6 +110,7 @@ lastupdated: "2018-06-08"
 
 
 ## ステップ 2: データベースを作成する
+{: #step-2-create-a-database}
 
 1. 以下のように、Python アプリケーションで変数を定義します。
   ```python
@@ -107,7 +119,8 @@ lastupdated: "2018-06-08"
   {: codeblock}
   ... ここで、`<yourDatabaseName>` は、データベースに付ける名前です。 
 
-  > **注:** データベース名は、文字で始まる必要があり、小文字 (a から z)、数字 (0 から 9)、記号 `_`、`$`、`(``)`、`+`、`-`、および `/` のみを含むことができます。
+  データベース名は、文字で始まる必要があり、小文字 (a から z)、数字 (0 から 9)、記号 `_`、`$`、`(`、 `)`、`+`、`-`、および `/` のみを含むことができます。
+  {: tip}
 
 2. 以下のように、データベースを作成します。
   ```python
@@ -123,6 +136,7 @@ lastupdated: "2018-06-08"
   {: codeblock}
 
 ## ステップ 3: データベース内に文書として小規模なデータ・コレクションを保管する
+{: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
 
 1. 以下のように、データ・コレクションを定義します。
   ```python
@@ -140,7 +154,7 @@ lastupdated: "2018-06-08"
   各文書は、以下のようにデータベースに保管されます。
 
   ```python
-  # Create documents using the sample data.
+  # Create documents by using the sample data.
   # Go through each row in the array
   for document in sampleData:
     # Retrieve the fields in each row.
@@ -158,7 +172,7 @@ lastupdated: "2018-06-08"
         "temperatureField": temperature
     }
 
-    # Create a document using the Database API.
+    # Create a document by using the database API.
     newDocument = myDatabase.create_document(jsonDocument)
 
     # Check that the document exists in the database.
@@ -167,12 +181,13 @@ lastupdated: "2018-06-08"
   ```
   {: codeblock}
 
-各文書が正常に作成されたかを確認することに注意してください。
-{: tip}
+  各文書が正常に作成されたかを確認することに注意してください。
+  {: tip}
 
 ## ステップ 4: 照会を介してデータを取得する
+{: #step-4-retrieving-data-through-queries}
 
-この時点で、小規模なデータ・コレクションがデータベース内に文書として保管されています。
+小規模なデータ・コレクションがデータベース内に文書として保管されました。
 データベースからのそのデータの最小限の取得または完全な取得を実行します。
 最小限の取得では、文書_に関する_ 基本データを取得します。
 完全な取得では、文書_内の_ データも含まれます。
@@ -199,9 +214,10 @@ lastupdated: "2018-06-08"
     ```
     {:screen}
     
-    > **注:** `u'` 接頭部は、単に Python が Unicode ストリングを表示していることを示す標識です。 
-    
-    外観を少々整えると、返された最小限の文書明細が以下に相当することが分かります。
+    `u` 接頭部は、Python が Unicode ストリングを表示していることを示す標識です。 
+    {: tip}
+
+    外観を少々整えると、返された最小限の文書明細が以下の例に相当することが分かります。
     
     ```json
     [
@@ -216,7 +232,8 @@ lastupdated: "2018-06-08"
     ```
     {: codeblock}
 
-  > **注:** {{site.data.keyword.cloudant_short_notm}} などの NoSQL データベースには、データベースに保管された最初の文書が常に結果のリストで返される最初のものであるなどのシンプルな概念が必ずしも当てはまるとは限りません。
+    {{site.data.keyword.cloudant_short_notm}} などの NoSQL データベースでは、データベースに保管されている最初の文書が、結果のリストでは最初に返されない場合もあるため注意が必要です。
+    {: tip}
 
 * 完全な取得を実行するには、データベース内のすべての文書のリストを要求し、`include_docs` オプションを指定することで、文書の内容も返す必要があることを指定します。
   ```python
@@ -231,7 +248,7 @@ lastupdated: "2018-06-08"
   ```
   {: screen}
   
-  外観を少々整えると、返された完全な文書明細が以下に相当することが分かります。
+  外観を少々整えると、返された完全な文書明細が以下の例に相当することが分かります。
   
   ```json
   [
@@ -255,6 +272,7 @@ lastupdated: "2018-06-08"
   {: codeblock}
 
 ## ステップ 5: {{site.data.keyword.cloudant_short_notm}} API エンドポイントを介してデータを取得する
+{: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` エンドポイント](api/database.html#get-documents)を呼び出すことで、すべての文書のリストとその内容を要求することもできます。
 
@@ -280,7 +298,7 @@ lastupdated: "2018-06-08"
   ```
   {:screen}
   
-  外観を少々整えると、返された明細 (_一部省略_) が、以下のようなものであることが分かります。
+  外観を少々整えると、返された明細 (_一部省略_) が、以下の例のようなものであることが分かります。
   
   ```json
   {
@@ -324,6 +342,7 @@ lastupdated: "2018-06-08"
   {: codeblock}
 
 ## ステップ 6: データベースを削除する
+{: #step-6-delete-the-database}
 
 データベースの処理が終わったら、データベースを削除できます。
 
@@ -337,9 +356,11 @@ else:
 ```
 {: codeblock}
 
-問題を検出して対処する方法を示すために、基本的なエラー処理が組み込まれています。
+潜在的な問題のトラブルシューティング方法および対処方法を示すために、
+基本的なエラー処理を組み込みました。
 
 ## ステップ 7: サービス・インスタンスへの接続を閉じる
+{: #step-7-close-the-connection-to-the-service-instance}
 
 最終ステップとして、以下のように、Python クライアント・アプリケーションをサービス・インスタンスから切断します。
 
@@ -349,14 +370,17 @@ client.disconnect()
 {: codeblock}
 
 ## 次のステップ
+{: #next-steps}
 
-すべての {{site.data.keyword.cloudant_short_notm}} オファリングについて詳しくは、メインの [{{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} サイトを参照してください。
+すべての {{site.data.keyword.cloudant_short_notm}} オファリングについて詳しくは、
+メインの [{{site.data.keyword.cloudant_short_notm}}![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} サイトを参照してください。
 
 {{site.data.keyword.cloudant_short_notm}} の概念、タスク、および技法に関する詳細およびチュートリアルについては、[{{site.data.keyword.cloudant_short_notm}} 資料](cloudant.html)を参照してください。
 
 ## 付録: 完全な Python コード・リスト
+{: #appendix-complete-python-code-listing}
 
-完全な Python コード・リストは、以下のとおりです。
+完全な Python コード・リストは、以下のとおりです。 
 必ず、`<username>`、`<password>`、および `<url>` の値をご使用のサービス資格情報に置き換えてください。
 同様に、`<yourDatabaseName>` の値をご使用のデータベースの名前に置き換えてください。
 

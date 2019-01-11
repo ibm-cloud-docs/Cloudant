@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Criando um aplicativo {{site.data.keyword.cloud_notm}} para acessar um banco de dados do {{site.data.keyword.cloudant_short_notm}}: fazendo upload do aplicativo
 
@@ -64,10 +65,10 @@ Deve-se fornecer os detalhes de conta a seguir:
 -   O nome de sua organização, especificado como o parâmetro '`-o`'.
 -   Seu espaço, especificado como o parâmetro '`-s`'.
 
->   **Nota**: os detalhes da conta ficam disponíveis no painel do {{site.data.keyword.cloud_notm}}
-    ao efetuar login por meio de um navegador da web,
-conforme mostrado no exemplo a seguir:<br/>
-    ![Localizando seus detalhes da conta do {{site.data.keyword.cloud_notm}}](images/img0035.png)
+  Os detalhes da conta estão disponíveis em seu painel do {{site.data.keyword.cloud_notm}}, quando você efetua login por meio de um navegador da web, conforme mostrado no exemplo a seguir:
+  {: tip}
+
+  ![Localizando os detalhes da conta do {{site.data.keyword.cloud_notm}}](images/img0035.png)
 
 Use um comando semelhante ao exemplo a seguir para efetuar login no
 ambiente de aplicativos do {{site.data.keyword.cloud_notm}}.
@@ -209,37 +210,24 @@ buildpack: python 1.5.5
 
 ## Testando o aplicativo de amostra
 
-Quando o ambiente de aplicativos do {{site.data.keyword.cloud_notm}} foi criado pela primeira vez,
-o painel incluía um link na coluna `Route` para o aplicativo:<br/>
+Agora, teste seu aplicativo e verifique se ele está sendo executado corretamente. 
+
+1.  Abra o Painel do  {{site.data.keyword.cloud_notm}} . É possível ver o link para o aplicativo criado em Aplicativos Cloud Foundry. Clique em `App Cloudant CF` para abrir a página de detalhes.<br/>  
 ![Captura de tela mostrando o painel do aplicativo](images/img0017.png)
 
-Clicar no link abre uma janela do navegador,
-que solicita alguns dados do aplicativo que está atendendo na porta correspondente.
-O aplicativo responde retornando o conteúdo do
-arquivo de log que foi gerado quando o aplicativo estava sendo iniciado:<br/>
-![Arquivo de log gerado quando a execução do aplicativo tutorial foi iniciada](images/img0030.png)
+2.  Na página de detalhes do `App Cloudant CF`, clique em `Rotas` e clique no link `Cloudant-CF-app.mybluemix.net`. <br/>
+![Cloudant CF app details page](images/img0030.png)
 
-O conteúdo desse arquivo de log é interessante.
-Os horários de início e de encerramento são claramente exibidos.
-No meio,
-o log registra cada um dos detalhes conforme as informações de conexão
-para o {{site.data.keyword.cloudant_short_notm}} são recuperadas.
-Os valores reais da conexão não são importantes.
-O log mostra que o aplicativo tutorial foi capaz de localizar,
-recuperar
-e usar esses valores para criar um novo documento no
-banco de dados {{site.data.keyword.cloudant_short_notm}}.
+3. Uma nova janela do navegador é aberta em https://cloudant-cf-app.mybluemix.net/. A mensagem verifica se o aplicativo está em execução. Ele diz, " Hello World! Obrigado por criar um Aplicativo iniciador Python."<br/>
+![O Hello World! verificou que o app Cloudant CF está sendo executado corretamente](images/img0054.png)
+
 
 ### Confirmando os detalhes do banco de dados
 
-Comece abrindo o Painel do {{site.data.keyword.cloudant_short_notm}}.
-Clique no ícone `Launch` na guia `Manage` da
-página do serviço {{site.data.keyword.cloudant_short_notm}}:<br/>
-![Ícone Ativar na página do serviço {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
+No painel do {{site.data.keyword.cloud_notm}}, abra a instância de serviço do {{site.data.keyword.cloudant_short_notm}} que você criou. Clique na instância de serviço. Acesse a guia `Gerenciar` e clique em `Ativar painel do Cloudant`.<br/>
+![Ativar painel do Cloudant na página de serviço do {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
 
-Para localizar sua página de serviço do {{site.data.keyword.cloudant_short_notm}},
-consulte os detalhes no tutorial
-['Criando uma instância do {{site.data.keyword.cloudant_short_notm}}'](create_service.html#locating-your-service-credentials).
+Para localizar sua página de serviço do {{site.data.keyword.cloudant_short_notm}}, consulte os detalhes no tutorial [Criando uma instância do {{site.data.keyword.cloudant_short_notm}}](create_service.html#locating-your-service-credentials).
 {: tip}
 
 Quando o painel for aberto,

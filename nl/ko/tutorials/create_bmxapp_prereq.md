@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,12 +11,13 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.Bluemix_notm}} 애플리케이션 작성: 전제조건
+# {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.cloud_notm}} 애플리케이션 작성: 전제조건
 
-이 튜토리얼 섹션에서는 {{site.data.keyword.Bluemix}} 애플리케이션 작성을 위한 전제조건을 설명합니다.
+이 튜토리얼 섹션에서는 {{site.data.keyword.cloud}} 애플리케이션 작성을 위한 전제조건을 설명합니다.
 {:shortdesc}
 
 ## 전제조건
@@ -44,7 +45,7 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### {{site.data.keyword.Bluemix_notm}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스
+### {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스
 
 '`Cloudant Service 2017`'이라는 {{site.data.keyword.cloudantfull}} 서비스 인스턴스를 작성하는
 별도의 튜토리얼은 [여기](create_service.html)에 있습니다.

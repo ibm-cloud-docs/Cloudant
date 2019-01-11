@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017
-lastupdated: "2017-11-02"
+  years: 2017, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2017-11-02"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-22 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Configurando o {{site.data.keyword.cloudant_short_notm}} para recuperação de desastre de região cruzada
 
@@ -92,19 +93,19 @@ curl https://myaccount-dc2.cloudant.com/mydb -XPUT -u myaccount-dc2
 ```
 {:codeblock}
 
-## Etapa 2: criar uma chave API para suas replicações
+## Etapa 2: criar uma chave de API para suas replicações
 
-É uma boa ideia usar uma [chave API](../api/authorization.html#api-keys) para replicações contínuas.
+É uma boa ideia usar uma [chave de API](../api/authorization.html#api-keys) para replicações contínuas.
 A vantagem é que, se os detalhes de sua conta primária mudarem,
 por exemplo, após uma reconfiguração de senha,
 suas replicações poderão continuar inalteradas.
 
 As chaves API não são ligadas a uma única conta.
-Essa característica significa que uma única chave API pode ser criada e,
+Essa característica significa que uma única chave de API pode ser criada e,
 em seguida, receber permissões adequadas do banco de dados para ambas as contas.
 
 Por exemplo,
-o comando a seguir solicita uma chave API para a conta `myaccount-dc1`:
+o comando a seguir solicita uma chave de API para a conta `myaccount-dc1`:
 
 ```sh
 $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-dc1
@@ -127,7 +128,7 @@ Uma resposta bem-sucedida será semelhante ao exemplo abreviado a seguir:
 
 ### Etapa 3: conceder permissão de acesso
 
-[Forneça à chave API permissão](../api/authorization.html#modifying-permissions)
+[Forneça à chave de API permissão](../api/authorization.html#modifying-permissions)
 para ler e gravar nos bancos de dados.
 
 Se você também desejar replicar índices,
@@ -147,7 +148,7 @@ são necessárias duas replicações,
 uma para cada direção.
 
 É criada uma replicação em cada conta,
-que usa a Chave API criada [anteriormente](#step-2-create-an-api-key-for-your-replications).
+que usa a Chave de API criada [anteriormente](#step-2-create-an-api-key-for-your-replications).
 
 Primeiramente,
 crie uma replicação do banco de dados `myaccount-dc1.cloudant.com/mydb` para
