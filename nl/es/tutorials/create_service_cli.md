@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,25 +11,25 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-# Creación de una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}} mediante las herramientas de Cloud Foundry
+<!-- Acrolinx: 2018-08-20 -->
 
-En esta guía de aprendizaje se muestra cómo crear una instancia de servicio de {{site.data.keyword.cloudantfull}} en {{site.data.keyword.Bluemix}} mediante las herramientas de Cloud Foundry.
+# Creación de una instancia de {{site.data.keyword.cloudant_short_notm}} en la CLI de {{site.data.keyword.cloud_notm}} {{site.data.keyword.cloud_notm}}
+
+Esta guía de aprendizaje muestra cómo crear una instancia de servicio de {{site.data.keyword.cloudantfull}} en {{site.data.keyword.cloud}} mediante la CLI de {{site.data.keyword.cloud_notm}}.
 {:shortdesc}
 
-## Requisitos previos
+## Requisitos previos 
 
-Para seguir esta guía de aprendizaje, primero debe instalar las herramientas de {{site.data.keyword.Bluemix_notm}} Cloud Foundry.
-Encontrará los detalles para instalar las herramientas en [esta guía de aprendizaje](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits).
+Para seguir esta guía de aprendizaje, primero debe instalar las herramientas de desarrollador de la CLI de {{site.data.keyword.cloud_notm}}. Para obtener más información sobre la instalación de herramientas, consulte la guía de aprendizaje [Iniciación a la CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/cli/index.html#overview){:new_window}.
 
-> **Nota**: Asegúrese de instalar los kits de herramientas de Cloud Foundry _y_ de {{site.data.keyword.Bluemix_notm}}.
+## Identificación del punto final de API de {{site.data.keyword.cloud_notm}}
 
-## Identificación del punto final de API de {{site.data.keyword.Bluemix_notm}}
-
-Especifique el punto final de API de destino para los mandatos de Cloud Foundry;
+Especifique el punto final de API de destino para los mandatos de {{site.data.keyword.cloud_notm}}:
 
 ```sh
-bx api https://api.ng.bluemix.net
+ibmcloud api https://api.ng.bluemix.net
 ```
 {:codeblock}
 
@@ -40,20 +40,22 @@ Setting api endpoint to https://api.ng.bluemix.net...
 OK
 
 API endpoint: https://api.ng.bluemix.net (API version: 2.54.0)
-Not logged in. Use 'bx login' to log in.
+Not logged in. Utilice 'ibmcloud login' para iniciar sesión.
 ```
 {:pre}
 
-## Inicio de sesión en su cuenta de {{site.data.keyword.Bluemix_notm}}
+## Inicio de sesión en su cuenta de {{site.data.keyword.cloud_notm}}
 
-1.  Utilice el mandato siguiente para iniciar el proceso de inicio de sesión para su cuenta de {{site.data.keyword.Bluemix_notm}}:
+El siguiente ejemplo describe el proceso de inicio de sesión. Si utiliza un ID de usuario federado, es importante que cambie a un código de acceso de una sola vez (`ibmcloud login --sso`) o utilice una clave de API (`ibmcloud --apikey key o @key_file`) para la autenticación. Para obtener más información sobre cómo iniciar sesión mediante la CLI, consulte [Mandatos de CLI (ibmcloud) generales ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/cli/reference/ibmcloud/bx_cli.html#ibmcloud_login){:new_window} en `ibmcloud login`. 
+
+1.  Inicie el proceso de inicio de sesión para su cuenta de {{site.data.keyword.cloud_notm}} utilizando el mandato siguiente:
   
   ```sh
-  bx login
+  ibmcloud login
   ```
   {:codeblock}
   
-  {{site.data.keyword.Bluemix_notm}} responde recordándole el punto final de API actual y luego le solicita la dirección de correo electrónico de su cuenta:
+  {{site.data.keyword.cloud_notm}} responde recordándole el punto final de API actual y le solicita la dirección de correo electrónico de su cuenta:
   
   ```sh
   API endpoint: https://api.ng.bluemix.net
@@ -62,8 +64,8 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
 
-2.  Especifique la dirección de correo electrónico de su cuenta.
-  Luego {{site.data.keyword.Bluemix_notm}} le solicita la contraseña de su cuenta:
+2.  Especifique la dirección de correo electrónico de su cuenta y, a continuación, especifique la contraseña:
+
   ```sh
   API endpoint: https://api.ng.bluemix.net
   
@@ -73,7 +75,8 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
   
-  {{site.data.keyword.Bluemix_notm}} valida los detalles y resume la información sobre su sesión de inicio de sesión:
+  {{site.data.keyword.cloud_notm}} valida los detalles y resume la información sobre su sesión de inicio de sesión:
+
   ```sh
   API endpoint: https://api.ng.bluemix.net
   
@@ -98,68 +101,70 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
 
-3.  Ha iniciado una sesión en su cuenta de {{site.data.keyword.Bluemix_notm}}.
+3.  Ha iniciado una sesión en su cuenta de {{site.data.keyword.cloud_notm}}.
 
 ## Elección del plan de {{site.data.keyword.cloudant_short_notm}} para su servicio
 
-Obtenga una lista de todas las ofertas de servicio disponibles.
-Filtre la lista de modo que solo coincida con los servicios de {{site.data.keyword.cloudant_short_notm}}:
-
-```sh
-bx service offerings | grep -i Cloudant
-```
-{:codeblock}
-
-El resultado es una lista de los servicios de {{site.data.keyword.cloudant_short_notm}} disponibles para su cuenta, incluidos los planes específicos que puede seleccionar:
-
-```sh
-cloudantNoSQLDB   Lite, Standard*
-```
-{:pre}
-
-**Opcional**: Para ver más detalles sobre los planes, utilice el siguiente mandato:
-
-```sh
-bx cf marketplace -s cloudantNoSQLDB
-```
-{:codeblock}
-
-El resultado es un resumen de los planes disponibles, similar al de la respuesta de ejemplo de la siguiente sección (detalles correspondientes a mayo de 2017):
-
-```
-Lite
-El plan Lite proporciona acceso a todas las funciones de {{site.data.keyword.cloudant_short_notm}} para desarrollo y evaluación.
-El plan tiene una cantidad establecida de capacidad de rendimiento suministrada e incluye un máximo de
-1 GB de almacenamiento libre de datos cifrados.
-```
+Consulte la sección [Planes ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#plans){:new_window} de la documentación para obtener detalles sobre cómo utilizar los planes Estándar o Lite de {{site.data.keyword.cloudant_short_notm}}.
 {:pre}
 
 ## Creación del servicio {{site.data.keyword.cloudant_short_notm}}
 
-El formato básico del mandato para crear una instancia de servicio dentro de {{site.data.keyword.Bluemix_notm}} es el siguiente:
+{{site.data.keyword.cloudant_short_notm}} utiliza Grupos de recursos para el suministro de nuevas instancias en lugar de organizaciones y espacios de Cloud Foundry. Todavía es posible desplegar las instancias de {{site.data.keyword.cloudant_short_notm}} que se han suministrado anteriormente en organizaciones y espacios de Cloud Foundry. Para obtener más información, consulte la guía [¿Cómo funciona IBM Cloudant con grupos de recursos de IBM Cloud?![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/services/Cloudant/guides/resource-groups.html#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){:new_window} .
+
+En primer lugar, establezca el grupo de recursos de destino y la región como se muestra en [Mandatos de CLI (ibmcloud) generales ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/cli/reference/ibmcloud/bx_cli.html#ibmcloud_target){:new_window} en `ibmcloud target` utilizando el formato siguiente:
 
 ```sh
-bx service create <service> <plan> <instance name>
+ibmcloud target [-r REGION_NAME] [-g RESOURCE_GROUP]
+```
+
+Para obtener una lista de regiones, ejecute este mandato:
+
+```sh
+ibmcloud regions
+```
+
+Para obtener una lista de grupos de recursos, ejecute este mandato: 
+
+```sh
+ibmcloud resource groups
+```
+
+En segundo lugar, para crear una instancia de servicio, el formato de mandato básico en {{site.data.keyword.cloud_notm}} es el siguiente:
+
+```sh
+ibmcloud resource service-instance-create NAME SERVICE_NAME|SERVICE_ID SERVICE_PLAN_NAME|SERVICE_PLAN_ID LOCATION [-p, --parameters @JSON_FILE | JSON_STRING ]
 ```
 {:pre}
 
-Supongamos que queremos crear una instancia de un servicio de {{site.data.keyword.cloudant_short_notm}} utilizando el plan `Lite`, donde el nombre de la instancia es `cs20170517a`.
+Los campos se describen en la tabla siguiente: 
 
-Para ello, utilice un mandato como el del siguiente ejemplo:
+
+Campo | Descripción
+------|------------
+`NAME` | Nombre arbitrario que le proporciona a la instancia. 
+`SERVICE_NAME` | `cloudantnosqldb`
+`PLAN_NAME` | Plan Lite o plan Estándar.
+`LOCATION` | La ubicación en la que desea realizar el despliegue: AP norte, Alemania, Global, Sídney, Reino Unido, EE.UU. este o EE.UU. sur. 
+`legacyCredentials` | El valor predeterminado es true. Este campo determina si la instancia usa credenciales heredadas y de IAM o si solo utiliza credenciales de IAM. 
+
+Para obtener más información sobre la elección de un método de autenticación, consulte la [guía de IAM](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){:new_window}.
+
+En este ejemplo, queremos crear una instancia de un servicio de {{site.data.keyword.cloudant_short_notm}} utilizando el plan `Lite` (en el que el nombre de instancia es `cs20170517a` en la ubicación EE.UU. sur y utiliza solo credenciales de IAM); cree la instancia utilizando un mandato similar al del ejemplo siguiente:
 
 ```sh
-bx service create cloudantNoSQLDB Lite cs20170517a
+ibmcloud resource service-instance-create cs20170517a cloudantnosqldb lite us-south -p '{"legacyCredentials": false}'
 ```
 {:codeblock}
 
-Después de crear la instancia de servicio, el sistema responde con un mensaje parecido al siguiente:
+Después de crear la instancia de servicio, {{site.data.keyword.cloud_notm}} responde con un mensaje parecido al siguiente:
 
 ```sh
-Invoking 'cf create-service cloudantNoSQLDB Lite cs20170517a'...
-
-Creating service instance cs20170517a in org J.Doe@email.com / space dev as J.Doe@email.com...
+Creating service instance cs20170517a in resource group default of account John Does's Account as j.doe@email.com...
 OK
-
+Service instance cs20170517a was created.
+Name          Location   State    Type               Tags
+cs20170517a   us-south   active   service_instance  
 ```
 {:pre}
 
@@ -167,92 +172,109 @@ OK
 
 Las aplicaciones que requieren acceso al servicio de {{site.data.keyword.cloudant_short_notm}} deben tener las credenciales necesarias.
 
->   **Nota**: Las credenciales de servicio son muy valiosas.
-    Si alguna persona o alguna aplicación tiene acceso a las credenciales, puede hacer lo que quiera con la instancia de servicio; por ejemplo, podría crear datos falsos o suprimir información importante.
-    Proteja bien estas credenciales.
+Las credenciales de servicio son muy valiosas. Si alguna persona o alguna aplicación tiene acceso a las credenciales, puede hacer lo que quiera con la instancia de servicio. Por ejemplo, podría crear datos falsos o suprimir información importante. Proteja bien estas credenciales.
+{: tip}
 
-Las credenciales de servicio constan de cinco campos:
+Para obtener más información sobre los campos incluidos en las credenciales de servicio, consulte la [guía de IAM](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){:new_window}.
 
-Campo      | Finalidad
------------|--------
-`host`     | El nombre de host que utilizan las aplicaciones para localizar la instancia de servicio.
-`username` | El nombre de usuario que necesitan las aplicaciones para acceder a la instancia de servicio.
-`password` | La contraseña que necesitan las aplicaciones para acceder a la instancia de servicio.
-`port`     | El número de puerto HTTP para acceder a la instancia de servicio en el host. Normalmente es 443 para forzar el acceso HTTPS.
-`url`      | Una serie que agrega la otra información de credenciales en un URL único, adecuado para que lo utilicen las aplicaciones.
-
-El formato básico del mandato para crear credenciales para una instancia de servicio dentro de {{site.data.keyword.Bluemix_notm}} es el siguiente:
+El formato básico del mandato para crear credenciales para una instancia de servicio dentro de {{site.data.keyword.cloud_notm}} es el siguiente:
 
 ```sh
-bx cf create-service-key <instance name> <credentials name>
+ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME
 ```
 {:pre}
 
-Supongamos que queremos crear credenciales para la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}}, donde el nombre de las credenciales es `creds20170517a`.
+Los campos se describen en la tabla siguiente:
 
-Para ello, utilice un mandato como el del siguiente ejemplo:
+Campo | Descripción
+------|------------
+`NAME` | Nombre arbitrario que le proporciona a las credenciales de servicio. 
+`ROLE_NAME` | Actualmente, este campo permite únicamente el rol de gestor.
+`SERVICE_INSTANCE_NAME` | El nombre que le proporciona a la instancia de {{site.data.keyword.cloudant_short_notm}}. 
+
+Si desea crear credenciales para la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}} (en el que el nombre para las credenciales es `creds_for_cs20170517a`), cree las credenciales utilizando un mandato similar al del ejemplo siguiente:
 
 ```sh
-bx cf create-service-key cs20170517a creds20170517a
+ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a
 ```
 {:codeblock}
-
-Después de recibir la solicitud para crear credenciales para la instancia de servicio, {{site.data.keyword.Bluemix_notm}} responde con un mensaje parecido al siguiente:
+Después de recibir la solicitud para crear credenciales para la instancia de servicio, {{site.data.keyword.cloud_notm}} responde con un mensaje parecido al siguiente:
 
 ```sh
-Invoking 'cf create-service-key cs20170517a creds20170517a'...
-
-Creating service key creds20170517a for service instance cs20170517a as J.Doe@email.com...
+Creating service key in resource group default of account John Does's Account as john.doe@email.com...
 OK
+Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+                  
+Name:          creds_for_cs20170517a
+ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a 
+Created At:    Tue Sep 18 19:58:38 UTC 2018
+State:         active
+Credentials:
+               iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a
+               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager
+               url:                      https://f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com 
+               username:                 f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix
+               port:                     443
+               apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX
+               host:                     f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
+               iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::
+               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e
+               password:                 581138...7d48d61 
 ```
 {:pre}
 
 ## Listado de las credenciales de servicio para el servicio de {{site.data.keyword.cloudant_short_notm}}
 
-El formato básico del mandato para recuperar credenciales para una instancia de servicio dentro de {{site.data.keyword.Bluemix_notm}} es el siguiente:
+El formato básico del mandato para recuperar credenciales para una instancia de servicio dentro de {{site.data.keyword.cloud_notm}} es el siguiente:
 
 ```sh
-bx cf service-key <instance name> <credentials name>
+ibmcloud resource service-key KEY_NAME
 ```
 {:pre}
 
-Supongamos que queremos recuperar credenciales para la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}}, donde el nombre de las credenciales es `creds20170517a`.
-
-Para ello, utilice un mandato como el del siguiente ejemplo:
+En este ejemplo, queremos recuperar las credenciales de la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}}
+(en el que el nombre de las credenciales es `creds_for_cs20170517a`); recupere las credenciales utilizando un mandato similar al del ejemplo siguiente:
 
 ```sh
-bx cf service-key cs20170517a creds20170517a
+ibmcloud resource service-key creds_for_cs20170517b
 ```
 {:codeblock}
 
-Después de recibir la solicitud para recuperar las credenciales para la instancia de servicio, {{site.data.keyword.Bluemix_notm}} responde con un mensaje (abreviado) parecido al siguiente:
+Después de recibir la solicitud para recuperar las credenciales para la instancia de servicio, {{site.data.keyword.cloud_notm}} responde con un mensaje (abreviado) parecido al siguiente:
 
 ```sh
-Invoking 'cf service-key cs20170517a creds20170517a'...
-
-Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com...
-
-{
- "host": "946...46f-bluemix.cloudant.com",
- "password": "4eb...eb5",
- "port": 443,
- "url": "https://946...46f-bluemix:4eb...eb5@946...46f-bluemix.cloudant.com",
- "username": "946...46f-bluemix"
-}
+Retrieving service key in resource group default of account John Does's Account as john.doe@email.com...
+OK
+Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+                  
+Name:          creds_for_cs20170517a
+ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a 
+Created At:    Tue Sep 18 19:58:38 UTC 2018
+State:         active
+Credentials:
+               iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a
+               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager
+               url:                      https://f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com 
+               username:                 f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix
+               port:                     443
+               apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX
+               host:                     f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
+               iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::
+               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e
+               password:                 581138...7d48d61 
 ```
 {:pre}
 
 ## Utilización de la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}
 
-Hasta el memento, ha hecho lo siguiente:
+Ya ha finalizado con las tareas siguientes:
 
 1.  Ha creado una instancia de servicio de {{site.data.keyword.cloudant_short_notm}}
-  dentro de {{site.data.keyword.Bluemix_notm}}.
+  dentro de {{site.data.keyword.cloud_notm}}.
 2.  Ha creado credenciales para la instancia de servicio de {{site.data.keyword.cloudant_short_notm}}.
 3.  Ha recuperado las credenciales de la instancia de servicio, para que las pueda utilizar la aplicación.
 
-Encontrará una guía de aprendizaje que muestra cómo utilizar una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} [aquí](create_database.html#context).
-No olvide sustituir las credenciales que ha creado en esta guía de aprendizaje.
+Para obtener más información, consulte la guía de aprendizaje [Cómo crear y rellenar una base de datos de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}}](../tutorials/create_database.html#context){:new_window} que muestra cómo utilizar una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} desde una aplicación Python utilizando las credenciales heredadas. No olvide sustituir las credenciales que ha creado en esta guía de aprendizaje.
 
 ## (Opcional) Ordenación posterior
 
@@ -263,31 +285,30 @@ La siguiente lista de mandatos le puede ayudar a ordenar el entorno de desarroll
 Para suprimir un conjunto de credenciales de servicio, utilice un mandato como el siguiente:
 
 ```sh
-bx cf delete-service-key <instance name> <credentials name>
+ibmcloud resource service-key-delete KEY_NAME
 ```
 {:pre}
 
-Por ejemplo, para suprimir las credenciales denominadas `creds20170517a`
-de la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}}, puede utilizar un mandato como el siguiente:
+Por ejemplo, para suprimir las credenciales denominadas `creds_for_cs20170517a`, utilice un mandato como el siguiente:
 
 ```sh
-bx cf delete-service-key cs20170517a creds20170517a
+ibmcloud resource service-key-delete creds_for_cs20170517a
 ```
 {:pre}
 
 ### Supresión de una instancia de servicio
 
-Para suprimir una instancia de servicio, utilice un mandato parecido al siguiente:
+Para suprimir una instancia de servicio, utilice un mandato como el siguiente:
 
 ```sh
-bx service delete <instance name>
+ibmcloud resource service-instance-delete SERVICE_INSTANCE_NAME
 ```
 {:pre}
 
-Por ejemplo, para suprimir la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}}, puede utilizar un mandato como este:
+Por ejemplo, para suprimir la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}}, utilice un mandato como el siguiente:
 
 ```sh
-bx service delete cs20170517a
+ibmcloud resource service-instance-delete cs20170517a
 ```
 {:pre}
 

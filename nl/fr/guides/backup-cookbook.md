@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 <!-- Update backup-guide.md with with any changes. -->
 
 # Sauvegarde et reprise {{site.data.keyword.cloudant_short_notm}}

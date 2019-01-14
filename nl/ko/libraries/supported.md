@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-03-06 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 지원되는 클라이언트 라이브러리
 
@@ -63,7 +63,7 @@ Java용 공식 {{site.data.keyword.cloudantfull}} 라이브러리입니다.
 -   [ektorp 라이브러리를 사용한 작성, 읽기, 업데이트 및 삭제 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/haengematte/tree/master/java/CrudWithEktorp){:new_window}
 -   [Java와 {{site.data.keyword.cloud}}의 {{site.data.keyword.cloudant_short_notm}}를 사용한 앱 빌드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/building-apps-using-java-with-cloudant-on-ibm-bluemix/){:new_window}
 -   [Liberty, {{site.data.keyword.cloudant_short_notm}} 및 싱글 사인온을 사용한 게임 앱 빌드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://www.ibm.com/developerworks/cloud/library/cl-multiservicegame-app/index.html?ca=drs-){:new_window} {{site.data.keyword.cloud_notm}} 예제
--   [Watson 및 {{site.data.keyword.cloudant_short_notm}}를 사용하여 {{site.data.keyword.cloud_notm}}에 Java EE 앱 빌드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://developer.ibm.com/bluemix/2014/10/17/building-java-ee-app-ibm-bluemix-using-watson-cloudant/){:new_window} {{site.data.keyword.cloud_notm}} 예제와 [YouTube 동영상 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.youtube.com/watch?feature=youtu.be&v=9AFMY6m0LIU&app=desktop){:new_window}
+-   [Watson 및 {{site.data.keyword.cloudant_short_notm}}를 사용하여 {{site.data.keyword.cloud_notm}}에 Java EE 앱 빌드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://developer.ibm.com/bluemix/2014/10/17/building-java-ee-app-ibm-bluemix-using-watson-cloudant/){:new_window} {{site.data.keyword.cloud_notm}} 예제와 [유튜브 동영상 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.youtube.com/watch?feature=youtu.be&v=9AFMY6m0LIU&app=desktop){:new_window}
 
 
 ## Node.js
@@ -81,7 +81,7 @@ npm install cloudant
 
 #### 지원되는 node.js용 라이브러리
 
--   [nodejs-cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/nodejs-cloudant){:new_window}([npm ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.npmjs.org/package/cloudant){:new_window})
+-   [nodejs-cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/nodejs-cloudant){:new_window}([npm ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.npmjs.com/package/@cloudant/cloudant){:new_window})
 
 #### 지원되지 않는 node.js용 라이브러리 및 프레임워크
 
@@ -103,7 +103,7 @@ npm install cloudant
 -   [couchimport ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/glynnbird/couchimport){:new_window} - `.csv` 또는 `.tsv` 파일을 CouchDB 또는 {{site.data.keyword.cloudant_short_notm}}로 가져오는 유틸리티입니다.
 -   [{{site.data.keyword.cloud_notm}} 및 Node.js 시작하기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://thoughtsoncloud.com/2014/07/getting-started-ibm-bluemix-node-js/){:new_window}
 -   [{{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}} 및 Node.js의 클라우드 모임 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://gigadom.wordpress.com/2014/08/15/a-cloud-medley-with-ibm-bluemix-cloudant-db-and-node-js/){:new_window}
--   [{{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}}를 사용한 간단한 단어 게임 앱 빌드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://www.ibm.com/developerworks/cloud/library/cl-guesstheword-app/index.html?ca=drs-){:new_window} - Node.js를 사용합니다. 
+-   [{{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}}를 사용한 간단한 단어 게임 앱 빌드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://www.ibm.com/developerworks/cloud/library/cl-guesstheword-app/index.html?ca=drs-){:new_window} - Node.js를 사용합니다.
 -   [실시간 SMS 투표 앱 빌드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html){:new_window} - Node.js, Twilio 및 {{site.data.keyword.cloudant_short_notm}}를 사용하는, 여섯 부분으로 구성된 튜토리얼입니다.
 -   [다중 계층 Windows Azure 웹 애플리케이션 빌드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ampower.me/article/CouchDB/Tutorial-Building-a-Multi-Tier-Windows-Azure-Web-application-use-Cloudants-Couchdb-as-a-Service-node-94-409665?eqs=Z2NWNlltTmlUWStWcHdEWENWc3UxdmowREpiMjlGUVpKajJOZGJpSlVkemlPS2oxa0YxZE5BPT0=){:new_window} - {{site.data.keyword.cloudant_short_notm}}, Node.js, CORS 및 Grunt를 사용합니다.
 -   [직접 해보기: {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}} 및 Raspberry Pi를 사용한 원격 감시 앱 빌드 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://www.ibm.com/developerworks/library/ba-remoteservpi-app/index.html){:new_window}

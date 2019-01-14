@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-15"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,17 +11,16 @@ lastupdated: "2018-06-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-06-13 -->
 
 # Panoramica
 
-Questo sito è la documentazione in linea relativa a [{{site.data.keyword.cloudantfull}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}
-ed è interamente pensato per aiutarti a procedere rapidamente.
+La documentazione online per {{site.data.keyword.cloudantfull}} è concepita per aiutarti a iniziare a lavorare rapidamente. Per ulteriori informazioni su {{site.data.keyword.cloudant_short_notm}}, vedi la pagina del prodotto [{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
 {:shortdesc}
 
-[{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){:new_window}
-è un DBaaS (document-oriented DataBase as a Service).
+[{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){:new_window} è un DBaaS (database as a service) orientato ai documenti.
 Consente di memorizzare i dati come documenti in formato JSON.
 È creato tenendo presente la scalabilità,
 l'alta disponibilità
@@ -35,11 +34,12 @@ tra i cluster di database, i PC desktop e i dispositivi mobili.
 {:shortdesc}
 
 Per ulteriori informazioni su altre offerte {{site.data.keyword.cloudant_short_notm}},
-consulta il sito principale di [{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.La documentazione in linea qui fornita ti offre
+consulta il sito principale di [{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
+La documentazione in linea qui fornita ti offre
 dettagli sui concetti, sulle attività e sulle tecniche di
 {{site.data.keyword.cloudant_short_notm}}.
 
-Puoi avviare il servizio {{site.data.keyword.cloudant_short_notm}} dal dashboard [{{site.data.keyword.Bluemix}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
+Puoi avviare il servizio {{site.data.keyword.cloudant_short_notm}} dal dashboard [{{site.data.keyword.cloud}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
 
 È [disponibile](index.html)
 una 'guida rapida' per cominciare a lavorare con {{site.data.keyword.cloudant_short_notm}}

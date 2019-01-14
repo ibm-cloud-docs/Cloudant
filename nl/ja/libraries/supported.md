@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-03-06 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # サポート対象のクライアント・ライブラリー
 
@@ -75,7 +75,7 @@ npm install cloudant
 
 #### node.js のサポートされるライブラリー
 
--   [nodejs-cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.org/package/cloudant){:new_window})。
+-   [nodejs-cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/@cloudant/cloudant){:new_window})。
 
 #### node.js のサポートされないライブラリーおよびフレームワーク
 

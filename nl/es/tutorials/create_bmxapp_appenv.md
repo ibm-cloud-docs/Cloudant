@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Creación de una aplicación sencilla de {{site.data.keyword.cloud_notm}} para acceder a una base de datos de {{site.data.keyword.cloudant_short_notm}}: el entorno de aplicación
 
@@ -25,35 +26,35 @@ En esta sección de la guía de aprendizaje se describe cómo configurar el ento
 
 1.  Inicie una sesión en su cuenta de {{site.data.keyword.cloud_notm}}.
     Encontrará el panel de control de {{site.data.keyword.cloud_notm}} en: [http://bluemix.net ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://bluemix.net){:new_window}.
-    Después de autenticarse con su nombre de usuario y contraseña, aparece el panel de control de {{site.data.keyword.cloud_notm}}:<br/>
+    Después de autenticarse con su nombre de usuario y contraseña, aparece el panel de control de {{site.data.keyword.cloud_notm}}:</br>
     ![Panel de control de {{site.data.keyword.cloud_notm}}](images/img0001.png)
-
-2.  Pulse el enlace '`Catálogo`':<br/>
-    ![Enlace del catálogo de {{site.data.keyword.cloud_notm}}](images/img0002.png)<br/>
+2.  Pulse el botón `Crear recurso`:<br/>
+    ![botón de crear recurso de {{site.data.keyword.cloud_notm}}](images/img0002.png)<br/>
     Aparecerá una lista de los servicios disponibles en {{site.data.keyword.cloud_notm}}.
 
-3.  Pulse la entrada '`Apps de Cloud Foundry`' bajo la cabecera `Apps`:<br/>
+3.  Haga clic en la categoría `Cálculo`:<br/>
     ![Apps de {{site.data.keyword.cloud_notm}} Cloud Foundry](images/img0012.png)<br/>
-    Aparecerán las aplicaciones de Cloud Foundry disponibles en {{site.data.keyword.cloud_notm}}.
+    Aparecerá una lista de varios servicios y apps que están disponibles en {{site.data.keyword.cloud_notm}}.
 
-4.  Pulse la entrada '`Python`':<br/>
-    ![App de {{site.data.keyword.cloud_notm}} Python Cloud Foundry](images/img0013.png)<br/>
-    Aparece un formulario '`Crear una app de Cloud Foundry`'.
+4.  Desplácese hacia abajo a la sección `Cloud Foundry` y pulse la entrada `Python`:<br/>
+    ![App Python de {{site.data.keyword.cloud_notm}}](images/img0013.png)<br/>
+    Aparecerá el formulario `Crear una app de Cloud Foundry`.
 
-5.  Utilice el formulario '`Crear una app de Cloud Foundry`' para especificar y crear el entorno para la aplicación Python Cloud Foundry.
-    Especifique un nombre para la aplicación, por ejemplo '`Cloudant Python`'.
-    El nombre de host se genera automáticamente, pero se puede personalizar:<br/>
-    ![Nombres de app de {{site.data.keyword.cloud_notm}} Python Cloud Foundry](images/img0014.png)<br/>
-    >   **Nota**: El nombre de host debe ser exclusivo dentro del dominio de {{site.data.keyword.cloud_notm}}. En este ejemplo, el dominio es '`mybluemix.net`', lo que da lugar al nombre completo de host '`Cloudant-Python.mybluemix.net`'.
+5.  Utilice el formulario `Crear una app de Cloud Foundry` para especificar y crear un entorno en su aplicación Python de Cloud Foundry. Especifique un nombre para su aplicación, por ejemplo `app Cloudant CF`. El nombre de host se genera automáticamente, pero se puede personalizar:</br>
+    ![Nombres de app de {{site.data.keyword.cloud_notm}} Python Cloud Foundry](images/img0014.png)
+    
+    El nombre de host debe ser exclusivo en el dominio de {{site.data.keyword.cloud_notm}}. En este ejemplo, el dominio es `mybluemix.net`, lo que da lugar al nombre completo de host `Cloudant-CF-app.mybluemix.net`.
+    {: tip}
 
-6.  Pulse '`Crear`' para crear el entorno de aplicación:<br/>
+6.  Pulse `Crear` para crear el entorno de aplicación:</br>
     ![Cree la app de {{site.data.keyword.cloud_notm}} Python Cloud Foundry](images/img0015.png)
 
-7.  Después de una breve pausa, aparece la ventana '`Iniciación`' para el nuevo entorno de aplicación.
+7.  Después de una breve pausa, aparecerá la ventana `Iniciación` de su nuevo entorno de aplicación.
     Dentro del entorno se crea automáticamente una aplicación de prueba.
-    La aplicación se inicia automáticamente, tal como muestra el icono verde y el estado `La app se está ejecutando`.
+    La aplicación se inicia automáticamente,
+    como muestran el icono verde y el estado `En ejecución`.
     La aplicación es un programa de 'latido', suficiente para mostrar que el nuevo entorno de aplicación está listo para que lo utilice.
-    Pulse el enlace `Panel de control` para volver al panel de control de su cuenta de {{site.data.keyword.cloud_notm}}.<br/>
+    Pulse el enlace `apps de Cloud Foundry` para volver al panel de control de {{site.data.keyword.cloud_notm}}.<br/>
     ![La nueva app de {{site.data.keyword.cloud_notm}} Python Cloud Foundry en ejecución por primera vez](images/img0016.png)
 
 8.  Ahora el panel de control incluye el entorno de aplicación recién creado:<br/>
@@ -70,32 +71,32 @@ Para trabajar con una instancia de base de datos de {{site.data.keyword.cloudant
 En esta sección de la guía de aprendizaje se explica cómo conectar entornos de aplicación y servicios de {{site.data.keyword.cloud_notm}} mediante el área de configuración y gestión de la aplicación.
 
 1.  En el panel de control de {{site.data.keyword.cloud_notm}}, pulse la entrada correspondiente a la aplicación.<br/>
-    ![Selección de la aplicación en el panel de control de {{site.data.keyword.cloud_notm}}](images/img0018.png)<br/>
-    >   **Nota**: Evite la columna '`Ruta`', ya que si se pulsa el enlace asociado a la aplicación, se invoca la aplicación en lugar de ir al área de configuración. Es mejor pulsar en el nombre de la aplicación.
-
+    ![Selección de la aplicación en el panel de control de {{site.data.keyword.cloud_notm}}](images/img0018.png)</br>
     Aparece el área de visión general de configuración y gestión correspondiente a la aplicación.
 
-2.  Para conectar el entorno de aplicación a otro servicio, pulse el enlace '`Conexiones`':<br/>
+2.  Para conectar el entorno de aplicación a otro servicio,
+    pulse el enlace `Conexiones`:<br/>
     ![Selección de la configuración de conexión para la aplicación de {{site.data.keyword.cloud_notm}}](images/img0019.png)<br/>
     Aparece un área para configurar una conexión entre la aplicación y otros servicios disponibles en la cuenta.
 
 3.  Un [requisito previo](create_bmxapp_prereq.html#prerequisites) de esta guía de aprendizaje es una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} existente.
-    Pulse '`Conectar existente`' para establecer una conexión entre la instancia de base de datos y la aplicación:<br/>
+    Pulse `Crear conexión` para establecer una conexión entre la instancia de servicio y la aplicación:<br/>
     ![Conectar con una instancia de base de datos existente](images/img0020.png)<br/>
     Aparece una lista de las instancias de servicio existentes.
 
-4.  Pulse la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} que desea utilizar.
-    En esta guía de aprendizaje se utiliza la instancia '`Cloudant Service 2017`':<br/>
+4.  Pulse en la instancia de servicio de {{site.data.keyword.cloudant_short_notm}} que desea utilizar.
+    La guía de aprendizaje utiliza la instancia `Cloudant-service`:<br/>
     ![Elegir la instancia de base de datos de ejemplo de la guía de aprendizaje](images/img0021.png)
 
 5.  Se le solicitará que confirme que realmente desea conectar la instancia de base de datos a la aplicación.
-    Pulse '`Conectar`' para conectar la conexión:<br>
+    Pulse `Conectar` para confirmar la conexión:<br>
     ![Confirmar conexión con la instancia de base de datos](images/img0022.png)
 
-6.  La modificación de las conexiones de servicio de una aplicación afecta a su configuración general.
-    La modificación requiere que se 'vuelva a transferir' la aplicación, lo que también fuerza la detención de una aplicación en ejecución.
-    Aparece una ventana para que confirme que está listo para 'volver a transferir' para continuar.
-    Pulse '`Volver a transferir`' para continuar:<br/>
+6.  Antes de continuar, se le solicita que personalice el ID de servicio y el rol de acceso. Pulse `Conectar` para continuar.
+![Confirmar 'volver a transferir' de la aplicación](images/img0022b.png)
+
+6.  La modificación de las conexiones de servicio de una aplicación afecta a su configuración general. La modificación requiere que se 'vuelva a transferir' la aplicación, lo que también fuerza la detención de una aplicación en ejecución. Aparece una ventana para que confirme que está listo para 'volver a transferir' para continuar.
+    Pulse `Volver a transferir` para continuar:<br/>
     ![Confirmar transferencia de la aplicación](images/img0023.png)
 
 7.  Vuelve a aparecer la página de conexiones de servicio.
@@ -116,7 +117,8 @@ Utilice estas herramientas para tareas como actualizar una aplicación desplegad
 
 El kit de herramientas de {{site.data.keyword.cloud_notm}} proporciona funciones adicionales, que se necesitan para trabajar con aplicaciones alojadas y en ejecución en un entorno de {{site.data.keyword.cloud_notm}}.
 
-> **Nota**: Asegúrese de instalar los kits de herramientas de Cloud Foundry _y_ de {{site.data.keyword.cloud_notm}}.
+Asegúrese de instalar los kits de herramientas de Cloud Foundry _y_{{site.data.keyword.cloud_notm}}.
+{: tip}
 
 La descarga e instalación de los kits de herramientas es una tarea única.
 Si los kits de herramientas ya están instalados y en funcionamiento en el sistema, no es necesario que los vuelva a descargar, a menos que se hayan actualizado.
@@ -131,15 +133,16 @@ Para comprobar la versión instalada, ejecute [esta prueba](#checkCFversion).
 
 Como alternativa, siga los pasos siguientes para descargar e instalar el kit de herramientas de Cloud Foundry en el sistema: 
 
-1.  Encontrará un enlace para descargar el kit de herramientas de Cloud Foundry en la ventana '`Iniciación`' del entorno de aplicación:<br/>
-    ![Un enlace para descargar el kit de herramientas de Cloud Foundry](images/img0025.png)
+1.  Pulse `Iniciación` para ver información sobre cómo descargar el kit de herramientas de Cloud Foundry.
 
-2.  Si pulsa en el enlace, aparecerá en la [página de descargas de GitHub ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://github.com/cloudfoundry/cli/releases){:new_window}:<br/>
-    ![la página de descarga del kit de herramientas de Cloud Foundry de GitHub](images/img0026.png)
+2.  Pulse `CLI`. El enlace le lleva a la documentación de las herramientas de desarrollador de {{site.data.keyword.cloud_notm}} (herramientas CLI y desarrollo).
 
-3.  Descargue y ejecute la versión más reciente del instalador correspondiente a su sistema.
+3.  Pulse `Plugins de CLI de Cloud Foundry` y, a continuación, `CLI de administración de {{site.data.keyword.cloud_notm}}`. 
 
-4.  <div id='checkCFversion'></div>Para comprobar que tiene un kit de herramientas de Cloud Foundry que funciona, ejecute el siguiente mandato en un indicador:
+4.  Siga las instrucciones de la página para descargar y ejecutar la versión más reciente del instalador para su sistema.
+
+5.  <div id='checkCFversion'></div>Para comprobar que tiene un kit de herramientas de Cloud Foundry que funciona,
+    ejecute el siguiente mandato en un indicador:
 
     ```sh
     cf --version
@@ -153,20 +156,18 @@ Como alternativa, siga los pasos siguientes para descargar e instalar el kit de 
     ```
     {:codeblock}
     
-    >   **Nota**: La versión del kit de herramientas de Cloud Foundry debe ser 6.11 o más reciente por motivos de compatibilidad con {{site.data.keyword.cloud_notm}}.
+    La versión del kit de herramientas de Cloud Foundry debe ser 6.11 o una más reciente por motivos de compatibilidad con {{site.data.keyword.cloud_notm}}.
+    {: tip}
 
 ### Instalación del kit de herramientas de {{site.data.keyword.cloud_notm}}
 
 Siga los pasos siguientes para descargar e instalar el kit de herramientas de {{site.data.keyword.cloud_notm}} en el sistema.
 
-1.  Encontrará un enlace para descargar el kit de herramientas de {{site.data.keyword.cloud_notm}} en la ventana '`Iniciación`' de la aplicación:<br/>
-    ![Un enlace para descargar el kit de herramientas de Cloud Foundry](images/img0027.png)
+1.  Pulse `Iniciación` para ver información sobre cómo descargar el kit de herramientas de CLI de administración de {{site.data.keyword.cloud_notm}}.
 
-2.  Si pulsa en el enlace, aparecerá en la [página de descargas ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window}:<br/>
-    ![La página de descarga del kit de herramientas de {{site.data.keyword.cloud_notm}}](images/img0028.png)
+2.  Pulse `CLI` para abrir el documento [Iniciación a las herramientas de desarrollador de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){:new_window}.
 
-
-3.  Descargue y ejecute el instalador adecuado para el sistema.
+3.  Siga las instrucciones de la página para descargar y ejecutar el instalador adecuado para el sistema.
 
     El instalador realiza una comprobación para asegurarse de que tiene instalada una versión adecuada del kit de herramientas de Cloud Foundry.
     Si todo es correcto, el kit de herramientas de {{site.data.keyword.cloud_notm}} se instala en el sistema.
@@ -188,6 +189,9 @@ Siga los pasos siguientes para descargar e instalar el kit de herramientas de {{
 Ahora ya dispone de las herramientas para trabajar con aplicaciones {{site.data.keyword.cloud_notm}}.
 El siguiente paso consiste en obtener el material de 'inicio' para ayudarle a crear una aplicación {{site.data.keyword.cloud_notm}}.
 
+Después de instalar la interfaz de línea de mandatos, vuelva al separador `Iniciación` en el panel de control para descargar, modificar y volver a desplegar aplicaciones e instancias de servicio de Cloud Foundry con la interfaz de línea de mandatos. 
+{: tip}
+
 <div id="starter"></div>
 
 ## La aplicación 'de inicio'
@@ -202,21 +206,22 @@ Una aplicación de inicio de {{site.data.keyword.cloud_notm}} es un archivador d
 
 En concreto hay tres archivos esenciales:
 
--   ['`Procfile`'](#procfile)
--   ['`manifest.yml`'](#manifest)
--   ['`requirements.txt`'](#requirements)
+-   [`Procfile`](#procfile)
+-   [`manifest.yml`](#manifest)
+-   [`requirements.txt`](#requirements)
 
 <div id="procfile"></div>
 
-### El archivo '`Procfile`'
+### El archivo `Procfile`
 
-El archivo '`Procfile`' contiene los detalles que necesita {{site.data.keyword.cloud_notm}} para ejecutar la aplicación.
+`Procfile` contiene los detalles que {{site.data.keyword.cloud_notm}} necesita para ejecutar la aplicación.
 
 En concreto, un archivo
-'`Procfile`' es un artefacto de Cloud Foundry que define el tipo de proceso de una aplicación y el mandato para ejecutar la aplicación.
-Encontrará más información sobre '`Procfile`' [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){:new_window}.
+`Procfile` es un artefacto de Cloud Foundry que define el tipo de proceso de una aplicación y el mandato para ejecutar la aplicación.
+Encontrará más información sobre `Procfile`
+[aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){:new_window}.
 
-El archivo '`Procfile`' correspondiente a una aplicación de inicio de {{site.data.keyword.cloud_notm}} Python se parece al del siguiente ejemplo:
+El `Procfile` de una aplicación de inicio de Python de {{site.data.keyword.cloud_notm}} es similar al del siguiente ejemplo:
 
 ```
 web: python server.py
@@ -230,17 +235,16 @@ python server.py
 ```
 {:codeblock}
 
-Se incluye un archivo de origen de Python '`server.py`' de inicio en el archivador de la aplicación de inicio.
-El archivo '`server.py`' se modifica para la aplicación.
+Un archivo de origen de Python `server.py` se incluye en el archivo de la aplicación de inicio.
+El archivo `server.py` se modifica para la aplicación.
 También puede crear un archivo de origen de Python completamente nuevo.
-A continuación, actualice el archivo
-'`Procfile`' para que se utilice el archivo nuevo cuando se inicie la aplicación.
+A continuación, actualice `Procfile` para que el archivo nuevo se utilice cuando se inicie la aplicación.
 
 <div id="manifest"></div>
 
-### El archivo '`manifest.yml`'
+### El archivo `manifest.yml`
 
-El archivo '`manifest.yml`' es una descripción completa de la aplicación y del entorno que necesita para ejecutarse.
+El archivo `manifest.yml` es una descripción completa de la aplicación y del entorno que necesita para ejecutarse.
 
 El archivo correspondiente a una aplicación de inicio de Python de {{site.data.keyword.cloud_notm}} se parece al del siguiente ejemplo:
 
@@ -260,27 +264,28 @@ applications:
 
 Vale la pena resaltar tres puntos:
 
--   Los valores '`domain`',
-    '`name`', y '`host`' corresponden a los valores especificados cuando se [creó](#creating) la aplicación {{site.data.keyword.cloud_notm}}.
--   El kit de herramientas de Cloud Foundry utiliza el valor '`name`' para identificar la aplicación que va a administrar.
--   El valor '`services`' confirma que la instancia '`Cloudant Service 2017`' de la base de datos de {{site.data.keyword.cloudant_short_notm}} está conectada al entorno de aplicación.
+-   Los valores `domain`,
+    `name`,
+    y `host` corresponden a los valores que se han especificado cuando la aplicación de {{site.data.keyword.cloud_notm}} se [creó](#creating).
+-   El valor `name` lo utiliza el kit de herramientas de Cloud Foundry para identificar la aplicación que está administrando.
+-   El valor `services` confirma que la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} `Cloudant Service 2017`
+     está conectada al entorno de aplicación.
 
-Normalmente no es necesario modificar el archivo '`manifest.yml`', pero resulta útil para comprender por qué debe estar presente para que la aplicación funcione.
+Normalmente, no es necesario modificar el archivo de `manifest.yml`, pero resulta útil para comprender por qué debe estar presente para que la aplicación funcione.
 
 <div id="requirements"></div>
 
-### El archivo '`requirements.txt`'
+### El archivo `requirements.txt`
 
-El archivo '`requirements.txt`' especifica los componentes adicionales necesarios para que la aplicación funcione.
+El archivo `requirements.txt` especifica los componentes adicionales que son necesarios para que la aplicación funcione.
 
-En la aplicación de inicio, el archivo '`requirements.txt`' está vacío.
+En la aplicación de inicio, el archivo `requirements.txt` está vacío.
 
 Sin embargo, en esta guía de aprendizaje la aplicación
 Python accede a una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}.
-Por lo tanto, la aplicación debe ser capaz de utilizar la biblioteca de cliente de [{{site.data.keyword.cloudant_short_notm}} correspondiente a las aplicaciones Python](../libraries/supported.html#python).
+Por lo tanto, la aplicación debe ser capaz de utilizar la [biblioteca de cliente de {{site.data.keyword.cloudant_short_notm}} correspondiente a las aplicaciones Python](../libraries/supported.html#python).
 
-Para habilitar la biblioteca de cliente de Python, modifique el archivo
-'`requirements.txt`' para que quede así:
+Para habilitar la biblioteca de cliente de Python, modifique el archivo `requirements.txt` para que quede así:
 ```
 cloudant==2.3.1
 ```

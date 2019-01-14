@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-15"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,16 +11,17 @@ lastupdated: "2018-06-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-06-13 -->
 
 # Visión general
 
-Este sitio es la documentación en línea para el [{{site.data.keyword.cloudantfull}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}, pensada para ayudarle a utilizar el producto con agilidad.
+La documentación en línea para {{site.data.keyword.cloudantfull}} pretende ayudarle a utilizar el producto con agilidad. Para obtener más información acerca de {{site.data.keyword.cloudant_short_notm}}, consulte la página del producto de [{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
 {:shortdesc}
 
 [{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){:new_window}
-es un producto DataBase as a Service (DBaaS) orientado a documentos.
+es una DBaaS (DataBase as a Service) orientada a documentos.
 Almacena los datos como documentos en formato JSON.
 Para su creación, se tienen en cuenta la escalabilidad, la alta disponibilidad y la durabilidad.
 Incluye una amplia gama de opciones de indexación, como MapReduce,
@@ -34,7 +35,7 @@ consulte el sitio principal de [{{site.data.keyword.cloudant_short_notm}} ![Icon
 La documentación en línea que se proporciona aquí ofrece
 detalles sobre los conceptos, tareas y técnicas de {{site.data.keyword.cloudant_short_notm}}.
 
-Puede iniciar el servicio {{site.data.keyword.cloudant_short_notm}} desde el panel de control de [{{site.data.keyword.Bluemix}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
+Puede iniciar el servicio {{site.data.keyword.cloudant_short_notm}} desde el panel de control de [{{site.data.keyword.cloud}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window}.
 
 [Dispone](index.html) de una 'guía rápida de iniciación' para comenzar a utilizar {{site.data.keyword.cloudant_short_notm}},
 junto con [guías de aprendizaje](tutorials/create_service.html#creating-a-service-instance) más detalladas que describen las tareas.

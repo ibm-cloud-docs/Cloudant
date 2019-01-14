@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-15"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,13 +11,13 @@ lastupdated: "2018-06-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-06-13 -->
 
 # 概要
 
-このサイトは、[{{site.data.keyword.cloudantfull}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} のオンライン資料であり、
-すべてお客様がすぐに開始できるようにするためのものです。
+{{site.data.keyword.cloudantfull}} のオンライン資料の目的は、素早く処理を行えるよう支援することです。{{site.data.keyword.cloudant_short_notm}} について詳しくは、[{{site.data.keyword.cloudant_short_notm}}の製品ページ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}を参照してください。
 {:shortdesc}
 
 [{{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){:new_window} は、文書指向の DataBase as a Service (DBaaS) です。
@@ -38,7 +38,7 @@ JSON フォーマットの文書としてデータを保管します。
 {{site.data.keyword.cloudant_short_notm}} の概念、タスク、
 および技法について詳しく説明しています。
 
-{{site.data.keyword.cloudant_short_notm}} サービスは、[{{site.data.keyword.Bluemix}} ダッシュボード ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window} から開始できます。
+{{site.data.keyword.cloudant_short_notm}} サービスは、[{{site.data.keyword.cloud}} ダッシュボード ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window} から開始できます。
 
 タスクについて詳細に説明した[チュートリアル](tutorials/create_service.html#creating-a-service-instance)とともに、{{site.data.keyword.cloudant_short_notm}} を稼働するための「クイック・スタート」が[利用可能です](index.html)。
 データベース・インスタンスでの認証やデータの照会などの詳細に関する追加情報については、[API リファレンス](api/index.html)を参照してください。
@@ -57,10 +57,12 @@ JSON フォーマットの文書としてデータを保管します。
 示した詳細な記事コレクション。
 *	[ガイド](guides/acurl.html#authorized-curl-acurl-): このガイドでは、
 ユース・ケースや複雑なアクティビティーと問題に関する詳細を
-示します。このガイドでは、{{site.data.keyword.cloudant_short_notm}} データベースの仕組みの背後にある重要な概念についても説明しています。
+示します。
+	このガイドでは、{{site.data.keyword.cloudant_short_notm}} データベースの仕組みの背後にある重要な概念についても説明しています。
 *	[{{site.data.keyword.cloudant_short_notm}} の基本](basics/index.html): {{site.data.keyword.cloudant_short_notm}} も NoSQL データベース一般も使用したことがない場合、基本に関するこの簡単な概要説明をざっと目を通してから、
- 詳細にお進みください。ここでは、{{site.data.keyword.cloudant_short_notm}} について知っておく必要がある最重要事項が説明されています。
- 資料の残りの部分では、この基本が分かっていることが前提となっています。
+ 詳細にお進みください。
+	ここでは、{{site.data.keyword.cloudant_short_notm}} について知っておく必要がある最重要事項が説明されています。
+	資料の残りの部分では、この基本が分かっていることが前提となっています。
 *	[{{site.data.keyword.cloudant_short_notm}} API リファレンス](api/index.html): API リファレンスは、{{site.data.keyword.cloudant_short_notm}} 機能の包括的で有効なカタログです。
 	{{site.data.keyword.cloudant_short_notm}} で実行できることに関する詳細があります。
 *	サンプル・アプリケーション: サンプル・アプリケーションには、Offline First ショッピング・リスト、Open Fridge、Core ML および Watson Visual Recognition を使用した iOS ゲーム、および Watson Studio を使用したモバイル・ヘルス・アプリケーションがあります。 

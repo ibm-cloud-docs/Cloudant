@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,12 +11,13 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# Creación de una aplicación sencilla de {{site.data.keyword.Bluemix_notm}} para acceder a una base de datos de {{site.data.keyword.cloudant_short_notm}}: requisitos previos
+# Creación de una aplicación sencilla de {{site.data.keyword.cloud_notm}} para acceder a una base de datos de {{site.data.keyword.cloudant_short_notm}}: requisitos previos
 
-En esta sección de la guía de aprendizaje se describen los requisitos previos para crear una aplicación de {{site.data.keyword.Bluemix}}.
+En esta sección de la guía de aprendizaje se describen los requisitos previos para crear una aplicación de {{site.data.keyword.cloud}}.
 {:shortdesc}
 
 ## Requisitos previos
@@ -25,8 +26,7 @@ Asegúrese de tener los siguientes recursos o información preparados antes de e
 
 ### Python
 
-Para todo menos para el trabajo de desarrollo más simple posible, es mucho más sencillo si tiene una instalación actualizada del [lenguaje de programación Python![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window}
-en su sistema.
+Para todo menos para el trabajo de desarrollo más simple posible, es mucho más sencillo si tiene una instalación actualizada del [lenguaje de programación Python ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window} en su sistema.
 
 Para comprobarlo, ejecute el siguiente mandato:
 
@@ -44,7 +44,7 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### Una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.Bluemix_notm}}
+### Una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}}
 
 Puede consultar otra guía de aprendizaje para crear una instancia de servicio de {{site.data.keyword.cloudantfull}} denominada '`Cloudant Service 2017`' [aquí](create_service.html).
 

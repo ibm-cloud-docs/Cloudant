@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,12 +11,15 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-# 써드파티 클라이언트 라이브러리
+<!-- Acrolinx: 2017-05-10 -->
 
->   **참고**: 써드파티 클라이언트 라이브러리는 {{site.data.keyword.cloudantfull}}에 의해 유지보수되거나 지원되지 않습니다.
+# 서드파티 클라이언트 라이브러리
 
-## 써드파티 모바일 라이브러리
+>   **참고**: 서드파티 클라이언트 라이브러리는 {{site.data.keyword.cloudantfull}}에 의해 유지보수되거나 지원되지 않습니다.
+
+## 서드파티 모바일 라이브러리
 
 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 관련 작업:
 

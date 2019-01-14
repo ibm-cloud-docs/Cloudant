@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-01-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Curl autorizzato: `acurl`
 
@@ -36,9 +39,12 @@ Servono solo tre semplici passi:
 2.	[Crea un alias](#create-an-alias)
 3.	[Attiva l'alias](#activate-the-alias).
 
+Se stai utilizzando un computer Windows, puoi specificare i tuoi nome utente e password dalla riga di comando.
+{:tip}
+
 ## Codifica nome utente e password
 
-In primo luogo, codifichiamo in base64 il tuo nome utente e password {{site.data.keyword.cloudant_short_notm}}.
+In primo luogo, codifichiamo in base64 il tuo nome utente e la tua password {{site.data.keyword.cloudant_short_notm}}.
 Questo ci dà una sequenza di caratteri in base64 come output.
 
 Il comando per codificare in base64 alcuni dati è simile al seguente esempio:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-05-17"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-05-17"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -180,7 +181,7 @@ Assicurati di controllare e verificare i backup per essere sicuro che siano comp
 {{site.data.keyword.cloudant_short_notm}} supporta strumenti che consentono il dump del contenuto JSON nei database a un file
 e il successivo ripristino dei database da questi file.
 
-In particolare,
+Specificamente,
 gli strumenti supportati da {{site.data.keyword.cloudant_short_notm}} ti aiutano a:
 
 *	Eseguire il backup di database completi in un file,

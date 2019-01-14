@@ -1,14 +1,15 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="cloudant" audience="service" arm="366" href="/docs/services/Cloudant/getting-started.html" path="services/Cloudant"}
-Cloudant NoSQL DB
+{: .toc subcollection="cloudant" audience="service" arm="366" href="/docs/services/Cloudant/getting-started.html"}
+IBM Cloudant
 
 	{: .navgroup id="learn"}
 	getting-started.md
 	cloudant.md
 	offerings/bluemix.md
 	offerings/pricing.md
+	offerings/learning-center.md
 
 	{: .topicgroup}
     セキュリティーおよびコンプライアンス
@@ -17,9 +18,9 @@ Cloudant NoSQL DB
     	offerings/dataprivacygovernance.md
 		offerings/audit.md
 		offerings/gdpr.md
-
+	
 	{: .topicgroup}
-    その他のオファリング
+	その他のオファリング
 		offerings/bluemix_dedicated.md
 		offerings/cloudant_local.md
 		offerings/cloudant.com.md
@@ -34,7 +35,7 @@ Cloudant NoSQL DB
 		[Open Fridge](https://github.com/krook/openfridge)
 		[Core ML および Watson Visual Recognition を使用した iOS ゲーム](https://developer.ibm.com/code/patterns/build-an-ios-game-powered-by-core-ml-and-watson-visual-recognition/)
 		[Watson Studio を使用したモバイル・ヘルス・アプリケーション](https://developer.ibm.com/code/patterns/develop-web-based-mobile-health-app-uses-machine-learning/)
-
+		
 	{: .topicgroup}
 	ライブラリー
 		libraries/index.md
@@ -70,6 +71,8 @@ Cloudant NoSQL DB
 		guides/cap_theorem.md
 		guides/couchapps.md
 		guides/design_document_management.md
+		guides/iam.md
+		guides/resource-groups.md
 		guides/mvcc.md
 		guides/transactions.md
 		guides/sharding.md
@@ -79,4 +82,6 @@ Cloudant NoSQL DB
 		guides/model_data.md
 		guides/replication_guide.md
 		guides/backup-guide-using-replication.md
+		guides/migration.md
 	{: .navgroup-end}
+

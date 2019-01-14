@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-01-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 授权 curl：`acurl`
 
@@ -25,6 +28,9 @@ _（本指南基于 Samantha Scharr 的博客文章：[“授权 curl，又名 a
 1.	[对用户名和密码编码](#encode-username-and-password)。
 2.	[创建别名](#create-an-alias)。
 3.	[激活别名](#activate-the-alias)。
+
+如果使用的是 Windows 计算机，那么可以通过命令行指定您的用户名和密码。
+{:tip}
 
 ## 对用户名和密码编码
 

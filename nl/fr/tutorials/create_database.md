@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Création et remplissage d'une base de données {{site.data.keyword.cloudant_short_notm}} simple sur {{site.data.keyword.cloud_notm}}
 
@@ -222,9 +225,9 @@ Notez que nous avons vérifié que chaque document avait bien été créé.
 A ce stade, une petite collection de données a été stockée sous forme de documents dans la base de données.
 Vous pouvez maintenant effectuer une série de requêtes illustrant les différents modes d'extraction des données à partir de la base de données.
 
-### Extraction minimale d'un document
+### Extraction partielle d'un document
 
-Pour procéder à une extraction minimale, demandez tout d'abord la liste de
+Pour procéder à une extraction partielle, commencez par demander la liste de
 tous les documents figurant dans la base de données.
 Cette liste est renvoyée sous forme de tableau.
 Vous pouvez ensuite afficher le contenu d'un élément du tableau.

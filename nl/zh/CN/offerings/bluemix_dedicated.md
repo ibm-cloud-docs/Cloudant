@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,18 +11,19 @@ lastupdated: "2018-05-11"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-02-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}} Dedicated
 
-{{site.data.keyword.cloudantfull}} for ({{site.data.keyword.cloud}} Dedicated) 是适用于 {{site.data.keyword.cloud_notm}} Dedicated 环境的一个可选购附加组件。该可选购附加组件适用于 {{site.data.keyword.cloud_notm}} Dedicated 中的 {{site.data.keyword.cloudant_short_notm}} Dedicated，其定价基于分配给环境的硬件容量，您可以联系 {{site.data.keyword.IBM}} 销售代表来进行购买。  
+{{site.data.keyword.cloudantfull}} for {{site.data.keyword.cloud}} Dedicated 是适用于 {{site.data.keyword.cloud_notm}} Dedicated 环境的一个可选购附加组件。该可选购附加组件适用于 {{site.data.keyword.cloud_notm}} Dedicated 中的 {{site.data.keyword.cloudant_short_notm}} Dedicated，其定价基于分配给环境的硬件容量，您可以联系 {{site.data.keyword.IBM}} 销售代表来进行购买。  
 
 {{site.data.keyword.cloud_notm}} Dedicated 客户还可选择通过联合目录在 {{site.data.keyword.cloud_notm}} Public 中使用 {{site.data.keyword.cloudant_short_notm}}，包括轻量套餐实例和标准套餐实例。请注意，{{site.data.keyword.cloud_notm}} Dedicated 用户不能从 {{site.data.keyword.cloud_notm}} Public 目录购买专用硬件套餐，如果需要使用专用硬件，应该利用 {{site.data.keyword.cloud_notm}} Dedicated 上的 {{site.data.keyword.cloudant_short_notm}} Dedicated。   
 
 以下屏幕快照显示了 {{site.data.keyword.cloud_notm}}“目录”示例，其中突出显示了 {{site.data.keyword.cloudant_short_notm}}（左）和 {{site.data.keyword.cloudant_short_notm}} Dedicated 环境（右）的 {{site.data.keyword.cloud_notm}} Public 联合版本。  
 
-![{{site.data.keyword.cloudant_short_notm}} 目录](../images/bluemix_catalog.png)
+![{{site.data.keyword.cloudant_short_notm}}“目录”](../images/bluemix_catalog.png)
 
 ## 硬件容量 
 
@@ -34,9 +35,7 @@ lastupdated: "2018-05-11"
 
 ## 安全性、加密和合规性 
 
-所有套餐都在使用[静态 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Data_at_rest) 磁盘加密的服务器上提供。访问通过公共网络连接进行，并且使用 HTTPS 进行了加密。有关更多详细信息，请参阅[安全性 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](../offerings/security.html#security){:new_window}。IP 白名单在向 {{site.data.keyword.cloudant_short_notm}} 支持请求时提供，并且将应用于整个 {{site.data.keyword.cloudant_short_notm}} 环境，而不是实例级别。 
-
-如果需要使用自带密钥 (BYOK) 进行静态加密，可以通过 {{site.data.keyword.cloud}} Key Protect 启用此加密功能。{{site.data.keyword.cloudant_short_notm}} 支持此功能用于在所有区域中部署的新 {{site.data.keyword.cloudant_short_notm}} [专用硬件套餐](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public)实例。首先，通过 [{{site.data.keyword.cloud_notm}} 目录](https://console.bluemix.net/catalog/)创建一个专用硬件套餐实例。然后，提交支持凭单，我们的支持团队随后会协调获取您的新专用硬件实例的静态加密密钥，这些密钥由 Key Protect 实例进行管理。 
+所有套餐都在使用[静态 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Data_at_rest) 磁盘加密的服务器上提供。访问通过公共网络连接进行，并且使用 HTTPS 进行了加密。有关更多详细信息，请参阅[安全性 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](../offerings/security.html#security){:new_window}。IP 白名单在向 {{site.data.keyword.cloudant_short_notm}} 支持请求时提供，并且将应用于整个 {{site.data.keyword.cloudant_short_notm}} 环境，而不是实例级别。  
 
 此套餐还提供了[合规性认证 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}。 
 

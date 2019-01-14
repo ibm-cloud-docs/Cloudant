@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,50 +11,54 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-# Cloud Foundry 도구를 사용하여 {{site.data.keyword.Bluemix_notm}}에 {{site.data.keyword.cloudant_short_notm}} 인스턴스 작성
+<!-- Acrolinx: 2018-08-20 -->
 
-이 튜토리얼에서는 Cloud Foundry 도구를 사용하여 {{site.data.keyword.Bluemix}}에 {{site.data.keyword.cloudantfull}} 서비스 인스턴스를 작성하는 방법을 보여줍니다.
+# {{site.data.keyword.cloud_notm}} CLI를 사용하여 {{site.data.keyword.cloud_notm}}에 {{site.data.keyword.cloudant_short_notm}} 인스턴스 작성
+
+이 튜토리얼에서는 {{site.data.keyword.cloud_notm}} CLI를 사용하여 {{site.data.keyword.cloud}}에
+{{site.data.keyword.cloudantfull}} 서비스 인스턴스를 작성하는 방법을 보여줍니다.
 {:shortdesc}
 
-## 전제조건
+## 전제조건 
 
-이 튜토리얼을 수행하려면 먼저 {{site.data.keyword.Bluemix_notm}} Cloud Foundry 도구를 설치해야 합니다.
-이 도구를 설치하는 데 대한 세부사항은
-[별도의 튜토리얼](create_bmxapp_appenv.html#the-cloud-foundry-and-ibm-cloud-command-toolkits)에 있습니다.
+이 튜토리얼을 수행하려면 먼저 {{site.data.keyword.cloud_notm}} CLI 개발자 도구를 설치해야 합니다. 도구 설치에 대한 자세한 정보는 [Getting started with the {{site.data.keyword.cloud_notm}} CLI ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/cli/index.html#overview){:new_window} 튜토리얼을 참조하십시오. 
 
-> **참고**: Cloud Foundry 및 {{site.data.keyword.Bluemix_notm}} 툴킷을 _둘 다_ 설치했는지 확인하십시오.
+## {{site.data.keyword.cloud_notm}} API 엔드포인트 식별
 
-## {{site.data.keyword.Bluemix_notm}} API 엔드포인트 식별
-
-Cloud Foundry 명령의 대상 API 엔드포인트를 지정하십시오.
+{{site.data.keyword.cloud_notm}} 명령의 대상 API 엔드포인트를 지정하십시오. 
 
 ```sh
-bx api https://api.ng.bluemix.net
+ibmcloud api https://api.ng.bluemix.net
 ```
 {:codeblock}
 
-결과는 사용자가 올바르게 엔드포인트를 식별했음을 확인합니다.
+결과는 사용자가 올바르게 엔드포인트를 식별했음을 확인합니다. 
 
 ```sh
 Setting api endpoint to https://api.ng.bluemix.net...
 OK
 
 API endpoint: https://api.ng.bluemix.net (API version: 2.54.0)
-Not logged in. Use 'bx login' to log in.
+Not logged in. Use 'ibmcloud login' to log in.
 ```
 {:pre}
 
-## {{site.data.keyword.Bluemix_notm}} 계정에 로그인
+## {{site.data.keyword.cloud_notm}} 계정에 로그인
 
-1.  다음 명령을 사용하여 {{site.data.keyword.Bluemix_notm}} 계정의 로그인 프로세스를 시작하십시오.
+다음 예는 로그인 프로세스를 나타냅니다. 연합 사용자 ID를 사용하고 있는 경우에는 일회성 패스코드(`ibmcloud login --sso`)로 전환하거나 API 키(`ibmcloud --apikey key or @key_file`)를 사용하여 인증하는 것이 중요합니다. CLI를 사용한 로그인 방법에 대한 자세한 정보는 [General CLI (ibmcloud) commands ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/cli/reference/ibmcloud/bx_cli.html#ibmcloud_login){:new_window}의 `ibmcloud login`을 참조하십시오.  
+
+1.  다음 명령을 사용하여
+  {{site.data.keyword.cloud_notm}} 계정의 로그인 프로세스를 시작하십시오. 
   
   ```sh
-  bx login
+  ibmcloud login
   ```
   {:codeblock}
   
-  {{site.data.keyword.Bluemix_notm}}는 사용자에게 응답하면서 현재 API 엔드포인트를 알려준 후, 계정의 이메일 주소를 묻습니다.
+  {{site.data.keyword.cloud_notm}}는 사용자에게 응답하면서
+현재 API 엔드포인트를 알려준 후, 계정의 이메일 주소를 묻습니다. 
   
   ```sh
   API endpoint: https://api.ng.bluemix.net
@@ -63,8 +67,8 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
 
-2.  사용자 계정의 이메일 주소를 입력하십시오.
-  그 후 {{site.data.keyword.Bluemix_notm}}는 계정의 비밀번호를 묻습니다.
+2.  계정의 이메일 주소를 입력한 후 비밀번호를 입력하십시오. 
+
   ```sh
   API endpoint: https://api.ng.bluemix.net
   
@@ -74,7 +78,8 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
   
-  {{site.data.keyword.Bluemix_notm}}가 세부사항을 유효성 검증한 후 로그인 세션에 대한 정보를 요약합니다.
+  {{site.data.keyword.cloud_notm}}가 세부사항을 유효성 검증한 후 로그인 세션에 대한 정보를 요약합니다. 
+
   ```sh
   API endpoint: https://api.ng.bluemix.net
   
@@ -99,196 +104,223 @@ Not logged in. Use 'bx login' to log in.
   ```
   {:pre}
 
-3.  이제 {{site.data.keyword.Bluemix_notm}} 계정에 로그인했습니다.
+3.  {{site.data.keyword.cloud_notm}} 계정에 로그인했습니다. 
 
 ## 서비스에 대한 {{site.data.keyword.cloudant_short_notm}} 플랜 선택
 
-모든 사용 가능한 오퍼링의 목록을 얻으십시오.
-{{site.data.keyword.cloudant_short_notm}} 서비스에만 일치하도록 목록을 필터링하십시오.
-
-```sh
-bx service offerings | grep -i Cloudant
-```
-{:codeblock}
-
-결과는 선택할 수 있는 특정 플랜을 포함한, 계정에서 사용 가능한 {{site.data.keyword.cloudant_short_notm}} 서비스의 목록입니다.
-
-```sh
-cloudantNoSQLDB   Lite, Standard*
-```
-{:pre}
-
-**선택사항**: 플랜의 세부사항을 보려면 다음 명령을 사용하십시오.
-
-```sh
-bx cf marketplace -s cloudantNoSQLDB
-```
-{:codeblock}
-
-결과는 응답 예의 다음 섹션과 유사한, 사용 가능한 플랜의 요약입니다(세부사항은 2017년 5월의 것임).
-
-```
-Lite
-The Lite plan provides access to the full functionality of {{site.data.keyword.cloudant_short_notm}} for development and evaluation.
-The plan has a set amount of provisioned throughput capacity as shown
-and includes a max of 1GB of encrypted data storage.   free
-```
+{{site.data.keyword.cloudant_short_notm}} Lite 또는 표준 플랜의 사용에 대한 세부사항은 문서의 [Plans ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#plans){:new_window} 섹션을 참조하십시오.
 {:pre}
 
 ## {{site.data.keyword.cloudant_short_notm}} 서비스 작성
 
-{{site.data.keyword.Bluemix_notm}} 내에 서비스 인스턴스를 작성하는 기본 명령 형식은 다음과 같습니다.
+{{site.data.keyword.cloudant_short_notm}}는 새 인스턴스를 프로비저닝하는 데 Cloud Foundry 조직 및 영역을 사용하지 않고 리소스 그룹을 사용합니다. 이전에 프로비저닝된 {{site.data.keyword.cloudant_short_notm}} 인스턴스는 여전히 Cloud Foundry 조직 및 영역에 배치될 수 있습니다. 자세한 정보는 [How does IBM Cloudant work with IBM Cloud Resource Groups? ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/services/Cloudant/guides/resource-groups.html#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){:new_window} 안내서를 참조하십시오. 
+
+먼저 [General CLI (ibmcloud) commands ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.bluemix.net/docs/cli/reference/ibmcloud/bx_cli.html#ibmcloud_target){:new_window}의 `ibmcloud target`에 표시되어 있는 바와 같이 다음 명령을 사용하여 대상 리소스 그룹 및 지역을 설정하십시오. 
 
 ```sh
-bx service create <service> <plan> <instance name>
+ibmcloud target [-r REGION_NAME] [-g RESOURCE_GROUP]
+```
+
+지역 목록을 보려면 다음 명령을 실행하십시오. 
+
+```sh
+ibmcloud regions
+```
+
+리소스 그룹 목록을 보려면 다음 명령을 실행하십시오.  
+
+```sh
+ibmcloud resource groups
+```
+
+두 번째로, {{site.data.keyword.cloud_notm}} 내에서 서비스 인스턴스를 작성하기 위한 기본 명령 형식은 다음과 같습니다. 
+
+```sh
+ibmcloud resource service-instance-create NAME SERVICE_NAME|SERVICE_ID SERVICE_PLAN_NAME|SERVICE_PLAN_ID LOCATION [-p, --parameters @JSON_FILE | JSON_STRING ]
 ```
 {:pre}
 
-`Lite` 플랜을 사용하여 {{site.data.keyword.cloudant_short_notm}} 서비스의 인스턴스를 작성하려 하며, 인스턴스 이름은 `cs20170517a`인 경우를 가정해 보십시오.
+각 필드는 다음 표에 설명되어 있습니다.  
 
-다음 예와 유사한 명령을 사용하여 이를 수행하십시오.
+
+필드 |설명
+------|------------
+`NAME` | 사용자가 인스턴스에 지정하는 임의의 이름입니다. 
+`SERVICE_NAME` | `cloudantnosqldb`
+`PLAN_NAME` | Lite 플랜 또는 표준 플랜입니다. 
+`LOCATION` | 배치할 위치(아시아/태평양 북부, 독일, 글로벌, 시드니, 영국, 미국 동부 또는 미국 남부)입니다. 
+`legacyCredentials` | 기본값은 true입니다. 이 필드는 인스턴스가 레거시 및 IAM 인증 정보를 둘 다 사용하는지, 또는 IAM 인증 정보만 사용하는지 결정합니다. 
+
+인증 방법 선택에 대한 자세한 정보는 [IAM 안내서](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){:new_window}를 참조하십시오. 
+
+이 예에서는 `Lite` 플랜을 사용하여 {{site.data.keyword.cloudant_short_notm}} 서비스의 인스턴스를 작성할 것입니다(여기서 인스턴스 이름은 미국 남부 위치의 `cs20170517a`이며 IAM 인증 정보만 사용함). 이 인스턴스는 다음 예와 유사한 명령을 사용하여 작성합니다. 
 
 ```sh
-bx service create cloudantNoSQLDB Lite cs20170517a
+ibmcloud resource service-instance-create cs20170517a cloudantnosqldb lite us-south -p '{"legacyCredentials": false}'
 ```
 {:codeblock}
 
-서비스 인스턴스를 작성하고 나면 다음 예와 유사한 메시지가 응답합니다.
+서비스 인스턴스를 작성하고 나면 {{site.data.keyword.cloud_notm}}가
+다음 예와 유사한 메시지로 응답합니다. 
 
 ```sh
-Invoking 'cf create-service cloudantNoSQLDB Lite cs20170517a'...
-
-Creating service instance cs20170517a in org J.Doe@email.com / space dev as J.Doe@email.com...
+Creating service instance cs20170517a in resource group default of account John Does's Account as j.doe@email.com...
 OK
-
+Service instance cs20170517a was created.
+Name          Location   State    Type               Tags   
+cs20170517a   us-south   active   service_instance  
 ```
 {:pre}
 
-## {{site.data.keyword.cloudant_short_notm}} 서비스의 신임 정보 작성
+## {{site.data.keyword.cloudant_short_notm}} 서비스의 인증 정보 작성
 
-{{site.data.keyword.cloudant_short_notm}} 서비스에 액세스해야 하는 애플리케이션에는 필요한 신임 정보가 있어야 합니다.
+{{site.data.keyword.cloudant_short_notm}} 서비스에 액세스해야 하는 애플리케이션에는 필요한 인증 정보가 있어야 합니다.
 
->   **참고**: 서비스 신임 정보는 중요한 정보입니다.
-    신임 정보에 대한 액세스 권한이 있는 모든 사용자 또는 애플리케이션은
-    가짜 데이터를 작성하거나 중요 정보를 삭제하는 등, 서비스 인스턴스에 대해
-    사실상 모든 작업을 수행할 수 있습니다.
-    이러한 신임 정보는 주의하여 보호하십시오.
+서비스 인증 정보는 중요한 정보입니다. 인증 정보에 대한 액세스 권한이 있는 모든 사용자 또는 애플리케이션은 서비스 인스턴스에 대해 사실상 어떤 작업이든 수행할 수 있습니다. 예를 들면, 가짜 데이터를 작성하거나 중요 정보를 삭제할 수 있습니다. 이러한 인증 정보는 주의하여 보호하십시오.
+{: tip}
 
-서비스 신임 정보는 다섯 개의 필드로 구성됩니다.
+서비스 인증 정보에 포함된 필드에 대한 자세한 정보는 [IAM 안내서](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){:new_window}를 참조하십시오. 
 
-필드      |용도
------------|--------
-`host`     |애플리케이션이 서비스 인스턴스를 찾는 데 사용하는 호스트 이름입니다.
-`username` |애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 사용자 이름입니다.
-`password` |애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 비밀번호입니다.
-`port`     |호스트의 서비스 인스턴스에 액세스하는 데 필요한 HTTP 포트 번호입니다. 보통 HTTPS 액세스를 강제하려는 경우에는 443이 사용됩니다.
-`url`      |애플리케이션에서 사용하기에 적합하도록 기타 신임 정보를 하나의 URL로 통합하는 문자열입니다.
-
-{{site.data.keyword.Bluemix_notm}} 내의 서비스 인스턴스에 대한 신임 정보를 작성하는 기본 명령 형식은 다음과 같습니다.
+{{site.data.keyword.cloud_notm}} 내의 서비스 인스턴스에 대한 인증 정보를 작성하는 기본 명령 형식은 다음과 같습니다.
 
 ```sh
-bx cf create-service-key <instance name> <credentials name>
+ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME
 ```
 {:pre}
 
-{{site.data.keyword.cloudant_short_notm}} 서비스의 `cs20170517a` 인스턴스에 대한 신임 정보를 작성하려 하며, 신임 정보의 이름이 `creds20170517a`인 경우를 가정해 보십시오.
+각 필드는 다음 표에 설명되어 있습니다. 
 
-다음 예와 유사한 명령을 사용하여 이를 수행하십시오.
+필드 |설명
+------|------------
+`NAME` | 사용자가 서비스 인증 정보에 지정하는 임의의 이름입니다. 
+`ROLE_NAME` | 이 필드는 현재 관리자 역할만 허용합니다 .
+`SERVICE_INSTANCE_NAME` | 사용자가 {{site.data.keyword.cloudant_short_notm}} 인스턴스에 지정하는 이름입니다. 
+
+{{site.data.keyword.cloudant_short_notm}} 서비스의 `cs20170517a` 인스턴스에 대한
+인증 정보(여기서 인증 정보의 이름은 `creds_for_cs20170517a`)를 작성하려는 경우에는 다음 예와 유사한 명령을 사용하여 이러한 인증 정보를 작성할 수 있습니다. 
 
 ```sh
-bx cf create-service-key cs20170517a creds20170517a
+ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a
 ```
 {:codeblock}
-
-서비스 인스턴스에 대한 신임 정보 작성 요청을 수신하고 나면 {{site.data.keyword.Bluemix_notm}}는 다음 예와 유사한 메시지로 응답합니다.
+서비스 인스턴스에 대한 인증 정보 작성 요청을 수신하고 나면 {{site.data.keyword.cloud_notm}}는 다음 예와 유사한 메시지로 응답합니다.
 
 ```sh
-Invoking 'cf create-service-key cs20170517a creds20170517a'...
-
-Creating service key creds20170517a for service instance cs20170517a as J.Doe@email.com...
+Creating service key in resource group default of account John Does's Account as john.doe@email.com...
 OK
+Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+                  
+Name:          creds_for_cs20170517a   
+ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a   
+Created At:    Tue Sep 18 19:58:38 UTC 2018   
+State:         active   
+Credentials:                                   
+               iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a      
+               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager      
+               url:                      https://f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com      
+               username:                 f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix      
+               port:                     443      
+               apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX      
+               host:                     f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com      
+               iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::      
+               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e      
+               password:                 581138...7d48d61 
 ```
 {:pre}
 
-## {{site.data.keyword.cloudant_short_notm}} 서비스에 대한 신임 정보 나열
+## {{site.data.keyword.cloudant_short_notm}} 서비스에 대한 인증 정보 나열
 
-{{site.data.keyword.Bluemix_notm}} 내의 서비스 인스턴스에 대한 신임 정보를 검색하는 기본 명령 형식은 다음과 같습니다.
+{{site.data.keyword.cloud_notm}} 내의 서비스 인스턴스에 대한 인증 정보를 검색하는 기본 명령 형식은 다음과 같습니다.
 
 ```sh
-bx cf service-key <instance name> <credentials name>
+ibmcloud resource service-key KEY_NAME
 ```
 {:pre}
 
-{{site.data.keyword.cloudant_short_notm}} 서비스의 `cs20170517a` 인스턴스에 대한 신임 정보를 검색하려 하며, 신임 정보의 이름이 `creds20170517a`인 경우를 가정해 보십시오.
-
-다음 예와 유사한 명령을 사용하여 이를 수행하십시오.
+이 예에서는 {{site.data.keyword.cloudant_short_notm}} 서비스의 `cs20170517a` 인스턴스에 대한
+인증 정보(여기서 인증 정보의 이름은 `creds_for_cs20170517a`)를 검색할 것이며,
+사용자는 다음 예와 유사한 명령을 사용하여 해당 인증 정보를 검색할 수 있습니다. 
 
 ```sh
-bx cf service-key cs20170517a creds20170517a
+ibmcloud resource service-key creds_for_cs20170517b
 ```
 {:codeblock}
 
-서비스 인스턴스에 대한 신임 정보 검색 요청을 수신하고 나면 {{site.data.keyword.Bluemix_notm}}는 다음 예(축약됨)와 유사한 메시지로 응답합니다.
+서비스 인스턴스에 대한 인증 정보 검색 요청을 수신하고 나면 {{site.data.keyword.cloud_notm}}는 다음 예(축약됨)와 유사한 메시지로 응답합니다.
 
 ```sh
-Invoking 'cf service-key cs20170517a creds20170517a'...
-
-Getting key creds20170517a for service instance cs20170517a as J.Doe@email.com...
-
-{
- "host": "946...46f-bluemix.cloudant.com",
- "password": "4eb...eb5",
- "port": 443,
- "url": "https://946...46f-bluemix:4eb...eb5@946...46f-bluemix.cloudant.com",
- "username": "946...46f-bluemix"
-}
+Retrieving service key in resource group default of account John Does's Account as john.doe@email.com...
+OK
+Service key crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a was created.
+                  
+Name:          creds_for_cs20170517a   
+ID:            crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42223455bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3:resource-key:621ffde2-ea10-4318-b297-d6d849cec48a   
+Created At:    Tue Sep 18 19:58:38 UTC 2018   
+State:         active   
+Credentials:                                   
+               iam_apikey_name:          auto-generated-apikey-621ffde2-ea10-4318-b297-d6d849cec48a      
+               iam_role_crn:             crn:v1:bluemix:public:iam::::serviceRole:Manager      
+               url:                      https://f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com      
+               username:                 f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix      
+               port:                     443      
+               apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX      
+               host:                     f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com      
+               iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::      
+               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e      
+               password:                 581138...7d48d61 
 ```
 {:pre}
 
 ## {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스 사용
 
-이 시점에서 사용자가 수행한 작업은 다음과 같습니다.
+이제까지 다음 태스크를 완료했습니다. 
 
-1.  {{site.data.keyword.Bluemix_notm}} 내에 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 작성했습니다.
-2.  {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 대한 신임 정보를 작성했습니다.
+1.  {{site.data.keyword.cloud_notm}} 내에
+  {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 작성했습니다. 
+2.  {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 대한 인증 정보를 작성했습니다.
 3.  애플리케이션에서 사용할 수 있도록 이 서비스 인스턴스를 검색했습니다.
 
-{{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 사용하는 방법을 보여주는 튜토리얼은 [여기](create_database.html#context)에 있습니다.
-이 튜토리얼에서 작성한 신임 정보를 대체해야 한다는 점을 기억하십시오.
+자세한 정보는 레거시 인증 정보를 사용하여 Python 애플리케이션에서 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 사용하는 방법을 보여주는 [{{site.data.keyword.cloud_notm}}에서의 간단한 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 작성 및 채우기](../tutorials/create_database.html#context){:new_window} 튜토리얼을 참조하십시오. 이 튜토리얼에서 작성한 인증 정보를 대체해야 한다는 점을 기억하십시오.
 
 ## (선택사항) 사후 정리 작업
 
 다음의 간단한 명령 목록은 개발 환경을 정리하는 데 유용합니다.
 
-### 서비스 신임 정보 삭제
+### 서비스 인증 정보 삭제
 
-서비스 신임 정보 세트를 삭제하려면 다음과 유사한 명령을 사용하십시오.
+서비스 인증 정보 세트를 삭제하려면
+다음과 유사한 명령을 사용하십시오. 
 
 ```sh
-bx cf delete-service-key <instance name> <credentials name>
+ibmcloud resource service-key-delete KEY_NAME
 ```
 {:pre}
 
-예를 들어, {{site.data.keyword.cloudant_short_notm}} 서비스의 `cs20170517a` 인스턴스에서 `creds20170517a`라는 신임 정보를 삭제하려면 다음과 같은 명령을 사용하십시오.
+예를 들어,
+`creds_for_cs20170517a`라는 인증 정보를 삭제하려면 다음과 같은 명령을 사용하십시오. 
 
 ```sh
-bx cf delete-service-key cs20170517a creds20170517a
+ibmcloud resource service-key-delete creds_for_cs20170517a
 ```
 {:pre}
 
 ### 서비스 인스턴스 삭제
 
-서비스 인스턴스를 삭제하려면 다음과 유사한 명령을 사용하십시오.
+서비스 인스턴스를 삭제하려면
+다음과 유사한 명령을 사용하십시오. 
 
 ```sh
-bx service delete <instance name>
+ibmcloud resource service-instance-delete SERVICE_INSTANCE_NAME
 ```
 {:pre}
 
-예를 들어, {{site.data.keyword.cloudant_short_notm}} 서비스의 `cs20170517a` 인스턴스를 삭제하려면 다음과 같은 명령을 사용하십시오.
+예를 들어, For example,
+{{site.data.keyword.cloudant_short_notm}} 서비스의
+`cs20170517a` 인스턴스를 삭제하려면
+다음과 같은 명령을 사용하십시오. 
 
 ```sh
-bx service delete cs20170517a
+ibmcloud resource service-instance-delete cs20170517a
 ```
 {:pre}
 

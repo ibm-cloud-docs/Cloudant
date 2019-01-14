@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-04-28 -->
+<!-- Acrolinx: 2018-05-31 -->
 
 # 入門指導教學
 {: #getting-started-with-cloudant}
@@ -34,24 +34,24 @@ lastupdated: "2018-06-08"
 ## 開始之前
 {: #prereqs}
 
-您需要 [Bluemix 帳戶 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/registration/){:new_window}、{{site.data.keyword.cloudant}} 服務的實例，以及下列 Python 需求：
+您需要 [{{site.data.keyword.cloud}} 帳戶 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/registration/){:new_window}、{{site.data.keyword.cloudant_short_notm}} 服務的實例，以及下列 Python 需求：
 
-*	請在您的系統上安裝最新版的 [Python 程式設計語言 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window}。
+*	在您的系統上安裝最新版的	[Python 程式設計語言 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){:new_window}。
 	
-	若要檢查此情況，請在提示中執行下列指令：
+	若要檢查，請在提示執行下列指令：
 	```sh
 	python --version
 	```
 	{:pre}
 	
-	您應該會獲得與下面類似的結果：
+	您會看到與以下內容類似的結果：
 
 	```
 	Python 2.7.12
 	```
 	{:screen}
 
-*	安裝 [Python 程式庫](libraries/supported.html#python)，讓您的 Python 應用程式可在 {{site.data.keyword.Bluemix_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。
+*	安裝 [Python 程式庫](libraries/supported.html#python)，讓您的 Python 應用程式可在 {{site.data.keyword.cloud_notm}} 上使用	{{site.data.keyword.cloudant_short_notm}}。
 	
 	若要確認您已順利安裝用戶端程式庫，請在提示中執行下列指令：
 	```sh
@@ -59,7 +59,7 @@ lastupdated: "2018-06-08"
 	```
 	{:pre}
 	
-	您應該會獲得一份清單，其中列出所有已安裝在系統上的 Python 模組。請檢查清單，找出與下列內容類似的 {{site.data.keyword.cloudant_short_notm}} 項目：
+	您將會看到一份列出系統上所有已安裝 Python 模組的清單。請檢查清單，找出與下列內容類似的 {{site.data.keyword.cloudant_short_notm}} 項目：
 
 	```
 	cloudant==2.3.1
@@ -73,9 +73,10 @@ lastupdated: "2018-06-08"
 	```
 	{:pre}
 
-## 步驟 1：連接至 {{site.data.keyword.Bluemix_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例
+## 步驟 1：連接至 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例
+{: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
-1.	執行「{{site.data.keyword.cloudant_short_notm}} 用戶端程式庫」元件的下列 '`import`' 陳述式，讓您的 Python 應用程式可以連接至 {{site.data.keyword.cloudant_short_notm}} 服務實例。
+1.	執行「{{site.data.keyword.cloudant_short_notm}}	用戶端程式庫」元件的 `import` 陳述式，讓您的 Python 應用程式可以連接至 {{site.data.keyword.cloudant_short_notm}} 服務實例。
 	```python
 	from cloudant.client import Cloudant
 	from cloudant.error import CloudantException
@@ -83,11 +84,20 @@ lastupdated: "2018-06-08"
 	```
 	{: codeblock}
 
-2. 識別 {{site.data.keyword.cloudant_short_notm}} 服務認證：
-  1. 在 {{site.data.keyword.Bluemix_notm}} 主控台中，開啟服務實例的儀表板。
-  2. 在左導覽中，按一下**`服務認證`**。
-  3. 按一下**`動作`**下的**`檢視認證`**。
-
+2.  建立新的 {{site.data.keyword.cloudant_short_notm}} 服務認證：
+  <br>在 {{site.data.keyword.cloud_notm}} 主控台中，開啟服務實例的儀表板。
+  <br>在左導覽中，按一下`服務認證`。<br>a. 按一下`新建認證`按鈕。
+  <br>![建立新的服務認證](tutorials/images/img0050.png)
+  <br>b. 在「新增認證」視窗中，輸入新認證的名稱（如下列擷取畫面所示）。
+  <br>c.（選用）新增線型配置參數。
+  <br>d. 按一下`新增`按鈕。
+  <br>![新增服務認證](tutorials/images/img0051.png)
+  <br>您的認證會新增至「服務認證」表格。
+  <br>e. 按一下「動作」下的`檢視認證`。
+  <br>![檢視所有服務認證](tutorials/images/img0052.png)
+  <br>即會出現服務認證的詳細資料：
+   <br>![{{site.data.keyword.cloudant_short_notm}} 服務認證](tutorials/images/img0009.png)
+   
 3.	執行下列指令來建立服務實例的連線。取代來自前一個步驟的服務認證：
 	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
@@ -97,6 +107,7 @@ lastupdated: "2018-06-08"
 
 
 ## 步驟 2：建立資料庫
+{: #step-2-create-a-database}
 
 1. 在 Python 應用程式中定義一個變數：
   ```python
@@ -105,7 +116,8 @@ lastupdated: "2018-06-08"
   {: codeblock}
   ... 其中 `<yourDatabaseName>` 是您想要提供給資料庫的名稱。 
 
-  > **附註：**資料庫名稱必須以字母開始，而且只能包括小寫字元 (a-z)、數字 (0-9)，以及下列任何字元：`_`、`$`、`(`、`)`、`+`、`-` 及 `/`。
+  資料庫名稱必須以字母開始，而且只能包括小寫字元 (a-z)、數字 (0-9)，以及下列任何字元：`_`、`$`、`(`、`)`、`+`、`-` 及 `/`。
+  {: tip}
 
 2. 建立資料庫：
   ```python
@@ -121,6 +133,7 @@ lastupdated: "2018-06-08"
   {: codeblock}
 
 ## 步驟 3：將一小組資料儲存為資料庫內的文件
+{: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
 
 1. 定義一組資料：
   ```python
@@ -137,7 +150,7 @@ lastupdated: "2018-06-08"
 2. 使用 Python 程式碼來「逐步」處理資料，並將它轉換為 JSON 文件。每一份文件都會儲存在資料庫中：
 
   ```python
-  # Create documents using the sample data.
+  # Create documents by using the sample data.
   # Go through each row in the array
   for document in sampleData:
     # Retrieve the fields in each row.
@@ -155,7 +168,7 @@ lastupdated: "2018-06-08"
         "temperatureField": temperature
     }
 
-    # Create a document using the Database API.
+    # Create a document by using the database API.
     newDocument = myDatabase.create_document(jsonDocument)
 
     # Check that the document exists in the database.
@@ -164,12 +177,14 @@ lastupdated: "2018-06-08"
   ```
   {: codeblock}
 
-請注意，我們確認已順利建立每一份文件。
-{: tip}
+  請注意，我們確認已順利建立每一份文件。
+  {: tip}
 
 ## 步驟 4：透過查詢擷取資料
+{: #step-4-retrieving-data-through-queries}
 
-此時，已將一小組資料儲存為資料庫內的文件。您可以從資料庫中執行該資料的最小或完整擷取。最小擷取會取得_關於_ 文件的基本資料。完整擷取則也會包括文件_內_ 的資料。
+已將小型資料集合當成文件儲存在資料庫內。
+您可以從資料庫中執行該資料的最小或完整擷取。最小擷取會取得_關於_ 文件的基本資料。完整擷取則也會包括文件_內_ 的資料。
 
 * 若要執行最小擷取，請執行下列動作：
   1. 首先，要求一份包含資料庫內所有文件的清單。
@@ -193,9 +208,10 @@ lastupdated: "2018-06-08"
     ```
     {:screen}
     
-    > **附註：**`u'` 字首僅是指出 Python 正在顯示 Unicode 字串。 
-    
-    如果我們稍微整理外觀，可以看到獲得的最小文件明細如下所示：
+    `u` 字首指出 Python 顯示的是 Unicode 字串。
+    {: tip}
+
+    如果我們稍微整理外觀，就可以看到所獲得的最小文件詳細資料如下列範例所示：
     
     ```json
     [
@@ -210,9 +226,10 @@ lastupdated: "2018-06-08"
     ```
     {: codeblock}
 
-  > **附註：**像是資料庫中儲存的第一份文件一定會是結果清單中傳回的第一份文件，這樣簡單的說法並不一定適用於 {{site.data.keyword.cloudant_short_notm}} 這類 NoSQL 資料庫。
+    資料庫中儲存的第一份文件一定會是結果清單中傳回的第一份文件，這個概念並不一定適用於 {{site.data.keyword.cloudant_short_notm}} 這類 NoSQL 資料庫。
+    {: tip}
 
-* 若要執行完整擷取，請要求一份包含資料庫內所有文件的清單，並提供 `include_docs` 選項，指定必須同時傳回文件內容。
+* 若要執行完整擷取，請要求一份包含資料庫內所有文件的清單，並提供 `include_docs` 選項，以指定必須同時傳回文件內容。
   ```python
   result_collection = Result(myDatabase.all_docs, include_docs=True)
   print "Retrieved full document:\n{0}\n".format(result_collection[0])
@@ -225,7 +242,7 @@ lastupdated: "2018-06-08"
   ```
   {: screen}
   
-  如果我們稍微整理外觀，可以看到獲得的完整文件明細如下所示：
+  如果我們稍微整理外觀，就可以看到所獲得的完整文件詳細資料如下列範例所示：
   
   ```json
   [
@@ -249,6 +266,7 @@ lastupdated: "2018-06-08"
   {: codeblock}
 
 ## 步驟 5：透過 {{site.data.keyword.cloudant_short_notm}} API 端點擷取資料
+{: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
 您也可以呼叫 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 端點](api/database.html#get-documents)，要求一份包含所有文件及其內容的清單。
 
@@ -262,7 +280,7 @@ lastupdated: "2018-06-08"
 
 
 
-2. 將要求傳送至服務實例，然後顯示結果：
+2. 將要求傳送至服務實例，並顯示結果：
   ```python
   response = client.r_session.get(end_point, params=params)
   print "{0}\n".format(response.json())
@@ -276,7 +294,7 @@ lastupdated: "2018-06-08"
   ```
   {:screen}
   
-  我們可以稍微整理外觀，就可以看到獲得的_縮寫_ 詳細資料如下所示：
+  我們可以稍微整理外觀，就可以看到所獲得的_縮寫_ 詳細資料如下列範例所示：
   
   ```json
   {
@@ -321,6 +339,7 @@ lastupdated: "2018-06-08"
   {: codeblock}
 
 ## 步驟 6：刪除資料庫
+{: #step-6-delete-the-database}
 
 不再使用資料庫時，可以將它刪除。
 
@@ -334,25 +353,28 @@ else:
 ```
 {: codeblock}
 
-我們已包含一些基本錯誤處理，來說明如何捕捉及解決問題。
+我們已併入部分基本錯誤處理，用來顯示如何疑難排解及處理潛在問題。
 
 ## 步驟 7：關閉服務實例的連線
+{: #step-7-close-the-connection-to-the-service-instance}
 
 最終步驟是中斷 Python 用戶端應用程式與服務實例的連線：
 
 ```python
 client.disconnect()
+
 ```
 {: codeblock}
 
 ## 後續步驟
+{: #next-steps}
 
 如需所有 {{site.data.keyword.cloudant_short_notm}} 供應項目的相關資訊，請參閱主要 [{{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} 網站。
 
-
-如需有關 {{site.data.keyword.cloudant_short_notm}} 概念、作業及技術的其他詳細資料和指導教學，請參閱 [{{site.data.keyword.cloudant_short_notm}} 文件](cloudant.html)。
+如需 {{site.data.keyword.cloudant_short_notm}} 概念、作業及技術的詳細資料和指導教學，請參閱 [{{site.data.keyword.cloudant_short_notm}} 文件](cloudant.html)。
 
 ## 附錄：完整的 Python 程式碼清單
+{: #appendix-complete-python-code-listing}
 
 完整的 Python 程式碼清單如下。請記得將 `<username>`、`<password>` 及 `<url>` 值取代為您的服務認證。同樣地，將 `<yourDatabaseName>` 值取代為您的資料庫名稱。
 

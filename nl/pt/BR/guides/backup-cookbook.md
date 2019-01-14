@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 <!-- Update backup-guide.md with with any changes. -->
 
 # Backup e recuperação do {{site.data.keyword.cloudant_short_notm}}
@@ -23,7 +24,8 @@ com os outros recursos oferecidos pelo {{site.data.keyword.cloudant_short_notm}}
 para suportar os requisitos de Recuperação de desastre (DR) e de Alta disponibilidade (HA).
 
 Embora os dados sejam armazenados de forma redundante em um cluster do {{site.data.keyword.cloudant_short_notm}},
-é importante considerar medidas de backup extras. Por exemplo,
+é importante considerar medidas de backup extras.
+Por exemplo,
 o armazenamento de dados redundante não protege contra erros quando os dados são mudados.
 
 ## Introduzindo o CouchBackup

@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-10-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -12,15 +13,14 @@ lastupdated: "2018-06-20"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-13 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Création d'une requête {{site.data.keyword.cloudant_short_notm}}
 
 Ce tutoriel indique comment créer une base de données, la remplir de documents, créer un index et utiliser ce dernier pour interroger la base de données.
 
-Des exercices concernant à la fois la _ligne de commande_ ![Icône de ligne de commande](../images/CommandLineIcon.png) et
-le _tableau de bord {{site.data.keyword.Bluemix_notm}}_ ![Icône de tableau de bord](../images/DashboardIcon.png) sont fournis. Les
-exercices du tableau de bord {{site.data.keyword.Bluemix}} vous donnent un exemple visuel de chaque
+Des exercices sont fournis pour la _ligne de commande_ ![icône de la ligne de commande](../images/CommandLineIcon.png) et le _tableau de bord {{site.data.keyword.cloud}}_ ![icône du tableau de bord](../images/DashboardIcon.png). Les
+exercices du tableau de bord {{site.data.keyword.cloud_notm}} vous donnent un exemple visuel de chaque
 tâche. Pour plus d'informations, vous pouvez suivre les liens tout au long du tutoriel.
 
 Commencez par créer la base de données `query-demo` et certains documents qui contiennent les données nécessaires à ces exercices.
@@ -29,10 +29,9 @@ Commencez par créer la base de données `query-demo` et certains documents qui 
 
 Avant de commencer, effectuez les étapes de préparation en vue du tutoriel en procédant comme suit :
 
-1.  [Créez un compte {{site.data.keyword.Bluemix}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/registration/){:new_window}.
-2.  Connectez-vous au
-  [{{site.data.keyword.Bluemix_notm}}tableau de bord ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Créez une instance {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance).
+1.  [Créez un compte {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/registration/){:new_window}.
+2.  Connectez-vous au [tableau de bord {{site.data.keyword.cloud_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
+3.  [Créez une instance {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}](create_service.html#creating-a-service-instance).
 4.  (Facultatif) [Créez un alias acurl](../guides/acurl.html#authorized-curl-acurl-) pour faciliter et accélérer l'exécution des commandes à partir de la ligne de commande.
 5.  Remplacez la variable `$ACCOUNT` dans les commandes incluses dans les exercices par le nom d'utilisateur employé pour la connexion au tableau de bord {{site.data.keyword.cloudant_short_notm}}.
   Si vous décidez de ne pas configurer `acurl`, utilisez l'URL suivante au lieu de celle fournie dans les exercices :
@@ -67,11 +66,11 @@ paramètres qu'elle requiert, comme le nom d'utilisateur et le mot de passe.
   ```
   {:codeblock}
 
-![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}Tableau de bord _
+![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}Tableau de bord _
 
 1.  Ouvrez l'instance de service {{site.data.keyword.cloudant_short_notm}} que vous avez créée.
 2.  Sur la page de service {{site.data.keyword.cloudant_short_notm}}, cliquez sur **Lancer**.
-    L'onglet Bases de données s'ouvre. 
+    L'onglet Bases de données s'ouvre.
     
   ![Onglet Databases](../images/tabs.png)
 4.  Cliquez sur **Créer une base de données**.
@@ -171,7 +170,7 @@ pour indiquer que les données sont incluses dans un fichier, est identifié par
   ```
   {:codeblock}
 
-![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}Tableau de bord _
+![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}Tableau de bord _
 
 1.  Cliquez sur **`+`** et sélectionnez **New Doc**. La fenêtre 'New Document' apparaît.
 2.  Pour créer un document, copiez le texte exemple suivant et remplacez le texte existant dans le nouveau document.
@@ -306,7 +305,7 @@ Geospatial ou {{site.data.keyword.cloudant_short_notm}} Query comme indiqué dan
 
 
 
-![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}Tableau de bord _
+![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}Tableau de bord _
 
 1.  Cliquez sur **`+` > Query Indexes** sur l'onglet **All Documents** ou **Design Documents**.
 2.  Collez l'exemple de données JSON suivant dans la zone **Index** :
@@ -393,7 +392,7 @@ Cet exemple indique comment {{site.data.keyword.cloudant_short_notm}} Query util
   ```
   {:codeblock}
 
-![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}Tableau de bord _
+![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}Tableau de bord _
 
 1.  Cliquez sur l'onglet **Query**.
 2.  Copiez et collez l'exemple JSON suivant dans la fenêtre {{site.data.keyword.cloudant_short_notm}} Query :
@@ -495,7 +494,7 @@ Les détails supplémentaires sont similaires à l'exemple suivant :
   ```
   {:codeblock}
 
-![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}Tableau de bord _
+![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}Tableau de bord _
 
 1.  Cliquez sur l'onglet **Query**.
 2.  Copiez et collez l'exemple JSON suivant dans la fenêtre {{site.data.keyword.cloudant_short_notm}} Query :
@@ -541,7 +540,6 @@ Utilisez une expression selector similaire à l'exemple suivant :
 {:codeblock}
 
 Il sont triés par âge dans l'ordre croissant des valeurs spécifiées au paramètre `sort`.
-
 
 ```json
     "sort": [
@@ -596,7 +594,7 @@ Il sont triés par âge dans l'ordre croissant des valeurs spécifiées au param
   ```
   {:codeblock}
 
-![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}}Tableau de bord _
+![Icône de tableau de bord](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}}Tableau de bord _
 
 1.  Cliquez sur l'onglet **Query**.
 2.  Copiez et collez l'exemple JSON suivant dans la fenêtre {{site.data.keyword.cloudant_short_notm}} Query :

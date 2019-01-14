@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-18"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-05-18"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # I miei 5 suggerimenti principali per modellare i tuoi dati in scala
 
@@ -23,7 +26,7 @@ _(Questa guida si basa su un articolo del blog di  Mike Rhodes:
 originariamente pubblicato il 17 dicembre 2013.)_
 
 Il modo in cui modelli i tuoi dati in {{site.data.keyword.cloudantfull}} influirà in modo significativo sul modo in cui la tua applicazione è in
-grado di scalare. Il nostro modello di dati sottostante differisce sostanzialmente da un modello relazionale
+grado di eseguire il ridimensionamento. Il nostro modello di dati sottostante differisce sostanzialmente da un modello relazionale
 e ignorare questa distinzione può essere la causa di problemi di prestazioni in futuro.
 
 Come sempre, una modellazione corretta comporta il raggiungimento di un equilibrio tra la facilità d'uso
@@ -47,7 +50,7 @@ ciò non dovrebbe influire negativamente sulle prestazioni dell'applicazione.
 
 ## Perché ti aiuta considerare dati immutabili 
 
-Dietro la nostra interfaccia `https://$ACCOUNT.cloudant.com/` è presente un database distribuito.
+Dietro la nostra interfaccia `https://$ACCOUNT.cloudant.com/` è presente un database distribuito. 
 All'interno del cluster, i documenti vengono suddivisi in una serie di frammenti che, collettivamente, formano
 il database. Questi frammenti vengono quindi distribuiti tra i nodi nel cluster. Questo è ciò che
 ci permette di supportare i database di molti terabyte di dimensioni.

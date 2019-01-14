@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Creación de versiones de documentos y MVCC
 
@@ -44,7 +47,7 @@ Debe especificar el valor `_rev` anterior cuando [actualice un documento](../api
     El motivo es que es un valor interno que utiliza el servidor.
     Además, las versiones anteriores de un documento son transitorias y por lo tanto se eliminan a intervalos regulares.
 
-Puede consultar una determinara revisión utilizando su valor `_rev`; sin embargo, un proceso denominado [compactación ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://en.wikipedia.org/wiki/Data_compaction){:new_window} elimina las revisiones antiguas a intervalos regulares.
+Puede consultar una determinara revisión utilizando su valor `_rev`; sin embargo, un proceso denominado [compactación ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://en.wikipedia.org/wiki/Data_compaction){:new_window} suprime las revisiones antiguas a intervalos regulares.
 Una consecuencia de la compactación es que no puede esperar una respuesta correcta cuando consulte una determinada revisión de un documento utilizando su `_rev` para obtener un historial de las revisiones del documento.
 Si necesita un historial de versiones de sus documentos, una solución es [crear un nuevo documento](../api/document.html#documentCreate) para cada revisión.
 

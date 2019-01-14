@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,8 @@ lastupdated: "2018-02-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+
+<!-- Acrolinx: 2018-05-07 -->
 
 # Informações básicas do {{site.data.keyword.cloudant_short_notm}}
 
@@ -24,9 +26,7 @@ e [Guias](../guides/acurl.html#authorized-curl-acurl-) presumem que você saiba 
 
 ## Conectando-se ao {{site.data.keyword.cloudant_short_notm}}
 
-Para acessar o {{site.data.keyword.cloudant_short_notm}},
-deve-se ter uma conta do [{{site.data.keyword.cloudant_short_notm}}](../api/account.html)
-ou uma conta do [{{site.data.keyword.Bluemix}}](../offerings/bluemix.html).
+Para acessar o {{site.data.keyword.cloudant_short_notm}}, deve-se ter uma [conta do {{site.data.keyword.cloudant_short_notm}}](../api/account.html) ou uma [conta do {{site.data.keyword.cloud}}](../offerings/bluemix.html).
 
 ## API HTTP
 

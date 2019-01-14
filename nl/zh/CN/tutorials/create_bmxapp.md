@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,23 +11,24 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# 创建简单 {{site.data.keyword.Bluemix_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库
+# 创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库
 
-本教程说明了如何创建 {{site.data.keyword.Bluemix}} 应用程序，以使用 [Python 编程语言![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){:new_window} 来访问{{site.data.keyword.Bluemix_notm}} 服务实例中托管的 {{site.data.keyword.cloudantfull}} 数据库。
+本教程说明了如何创建 {{site.data.keyword.cloud}} 应用程序，以使用 [Python 编程语言 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){:new_window} 来访问 {{site.data.keyword.cloud_notm}} 服务实例中托管的 {{site.data.keyword.cloudantfull}} 数据库。
 {:shortdesc}
 
 ## 上下文
 
-{{site.data.keyword.Bluemix_notm}} 的一个重大优势是可以在 {{site.data.keyword.Bluemix_notm}} 自身中创建和部署应用程序。您不必去寻找并维护服务器来运行应用程序。
+{{site.data.keyword.cloud}} 的一个重大优势是可以在 {{site.data.keyword.cloud_notm}} 自身中创建和部署应用程序。您不必去寻找并维护服务器来运行应用程序。
 
-如果已在 {{site.data.keyword.Bluemix_notm}} 中使用 {{site.data.keyword.cloudant_short_notm}} 数据库实例，那么也可以将应用程序放在同一位置。
+如果已在 {{site.data.keyword.cloud_notm}} 中使用 {{site.data.keyword.cloudant_short_notm}} 数据库实例，那么也可以将应用程序放在同一位置。
 
-{{site.data.keyword.Bluemix_notm}} 应用程序通常是使用 [Cloud Foundry ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} 技术创建的。Cloud Foundry 提供了平台即服务 (PaaS) 功能，用于简化可在云环境中部署和运行的应用程序的创建过程。
+{{site.data.keyword.cloud_notm}} 应用程序通常是使用 [Cloud Foundry ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Cloud_Foundry){:new_window} 技术创建的。Cloud Foundry 提供了平台即服务 (PaaS) 功能，用于简化可在云环境中部署和运行的应用程序的创建过程。
 
-[此处的单独教程](create_database.html)说明了如何创建独立 Python 应用程序以在 {{site.data.keyword.Bluemix_notm}} 中使用 {{site.data.keyword.cloudant_short_notm}} 数据库实例。在本教程中，您将设置并创建在 {{site.data.keyword.Bluemix_notm}} 中托管的小型 Python 应用程序。应用程序将连接到 {{site.data.keyword.cloudant_short_notm}} 数据库实例，并创建单个简单文档。
+[另一个教程](create_database.html)描述了如何创建独立的 Python 应用程序以在 {{site.data.keyword.cloud_notm}} 中使用 {{site.data.keyword.cloudant_short_notm}} 数据库实例。在本教程中，您将设置并创建在 {{site.data.keyword.cloud_notm}} 中托管的小型 Python 应用程序。应用程序将连接到 {{site.data.keyword.cloudant_short_notm}} 数据库实例，并创建单个简单文档。
 
 本教程中提供了特定于每个任务的 Python 代码。[此处](create_bmxapp_createapp.html#complete-listing)教程中提供了完整的 Python 程序，充分演示了这些概念。
 
@@ -37,11 +38,11 @@ lastupdated: "2018-06-07"
 
 ## 任务概述
 
-要在 {{site.data.keyword.Bluemix_notm}} 上创建可正常运行的 Python 应用程序以便访问 {{site.data.keyword.cloudant_short_notm}} 数据库实例，需要执行以下任务：
+要在 {{site.data.keyword.cloud_notm}} 上创建可正常运行的 Python 应用程序以便访问 {{site.data.keyword.cloudant_short_notm}} 数据库实例，需要执行以下任务：
 
--   [在 {{site.data.keyword.Bluemix_notm}} 上创建 Python 应用程序环境](create_bmxapp_appenv.html#creating)。
+-   [在 {{site.data.keyword.cloud_notm}} 上创建 Python 应用程序环境](create_bmxapp_appenv.html#creating)。
 -   [确保 Python 应用程序环境具有与 {{site.data.keyword.cloudant_short_notm}} 数据库实例的“连接”](create_bmxapp_appenv.html#connecting)。
--   [（一次性任务）下载并安装 Cloud Foundry 和 {{site.data.keyword.Bluemix_notm}} 命令行工具箱](create_bmxapp_appenv.html#toolkits)。
+-   [（一次性任务）下载并安装 Cloud Foundry 和 {{site.data.keyword.cloud_notm}} 命令行工具箱](create_bmxapp_appenv.html#toolkits)。
 -   [下载“入门模板”应用程序](create_bmxapp_appenv.html#starter)。
 -   [定制入门模板应用程序，以创建自己的应用程序来访问 {{site.data.keyword.cloudant_short_notm}} 数据库实例](create_bmxapp_createapp.html#theApp)。
 -   [上传应用程序并测试其是否正常运行](create_bmxapp_upload.html#uploading)。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,18 +11,19 @@ lastupdated: "2018-05-11"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-02-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}} Dedicated
 
 {{site.data.keyword.cloudantfull}} for ({{site.data.keyword.cloud}} Dedicated) は、
-オプションで購入する {{site.data.keyword.cloud_notm}} Dedicated 環境のアドオンです。{{site.data.keyword.cloud_notm}} Dedicated の {{site.data.keyword.cloudant_short_notm}} Dedicated 用のオプションのアドオンは、
+オプションで購入する {{site.data.keyword.cloud_notm}} Dedicated 環境のアドオンです。 {{site.data.keyword.cloud_notm}} Dedicated の {{site.data.keyword.cloudant_short_notm}} Dedicated 用のオプションのアドオンは、
 環境に割り振られたハードウェア容量に基づいて価格設定されており、
 {{site.data.keyword.IBM}} 営業担当員に問い合わせることで購入できます。  
 
 {{site.data.keyword.cloud_notm}} Dedicated のお客様は、ライト・プラン・インスタンスと標準プラン・インスタンスを含め、
-シンジケートされたカタログを介して {{site.data.keyword.cloud_notm}} Public で {{site.data.keyword.cloudant_short_notm}} を使用することを選択することもできます。{{site.data.keyword.cloud_notm}} Dedicated ユーザーは、
+シンジケートされたカタログを介して {{site.data.keyword.cloud_notm}} Public で {{site.data.keyword.cloudant_short_notm}} を使用することを選択することもできます。 {{site.data.keyword.cloud_notm}} Dedicated ユーザーは、
 {{site.data.keyword.cloud_notm}} Public カタログから専用ハードウェア・プランを購入する資格を持っておらず、
 専用ハードウェアが必要な場合は {{site.data.keyword.cloud_notm}} Dedicated で {{site.data.keyword.cloudant_short_notm}} Dedicated を
 活用する必要があることに注意してください。   
@@ -36,26 +37,18 @@ lastupdated: "2018-05-11"
 
 {{site.data.keyword.cloud_notm}} Dedicated 内の {{site.data.keyword.cloudant_short_notm}} は、「{{site.data.keyword.cloud_notm}} Dedicated
 {{site.data.keyword.cloudant_short_notm}} 1.6 TB の容量」部分から購入します。
-これには、3 つのデータベース・ノードと 2 つのロード・バランサーからなるクラスター化された {{site.data.keyword.cloudant_short_notm}} 環境が含まれています。各データベース・ノードは SSD の 1.6 TB を含んでいます。すべてのデータが三重に保管されるため、これはクラスター全体の固有ディスク・スペースの 1.6 TB に相当します。 環境を拡張するには、追加の「{{site.data.keyword.cloud_notm}} Dedicated
+これには、3 つのデータベース・ノードと 2 つのロード・バランサーからなるクラスター化された {{site.data.keyword.cloudant_short_notm}} 環境が含まれています。 各データベース・ノードは SSD の 1.6 TB を含んでいます。すべてのデータが三重に保管されるため、これはクラスター全体の固有ディスク・スペースの 1.6 TB に相当します。 環境を拡張するには、追加の「{{site.data.keyword.cloud_notm}} Dedicated
 {{site.data.keyword.cloudant_short_notm}} 1.6TB 容量」部分を購入します。これは、3 つのデータベース・ノードの倍数で {{site.data.keyword.cloudant_short_notm}} クラスターを拡張するために使用できます。 お客様は、単一の環境を拡張するのではなく、複数の別個の {{site.data.keyword.cloudant_short_notm}} 環境を使用するように選択することもできます。
 
 ## ロケーションとテナンシー 
 
 {{site.data.keyword.cloud_notm}} Dedicated 環境内の {{site.data.keyword.cloudant_short_notm}} Dedicated 環境は、
-{{site.data.keyword.cloud_notm}} Dedicated のお客様専用として指定されたハードウェア上にあります。お客様は、特定の環境で {{site.data.keyword.cloudant_short_notm}} の 1 つ以上のインスタンスをプロビジョンでき、{{site.data.keyword.cloudant_short_notm}} の各インスタンスが、{{site.data.keyword.cloudant_short_notm}} 環境を構成する基礎となるハードウェア・リソースを共有します。 
+{{site.data.keyword.cloud_notm}} Dedicated のお客様専用として指定されたハードウェア上にあります。 お客様は、特定の環境で {{site.data.keyword.cloudant_short_notm}} の 1 つ以上のインスタンスをプロビジョンでき、{{site.data.keyword.cloudant_short_notm}} の各インスタンスが、{{site.data.keyword.cloudant_short_notm}} 環境を構成する基礎となるハードウェア・リソースを共有します。 
 
 ## セキュリティー、暗号化、およびコンプライアンス 
 
 すべてのプランは、[保存されたデータ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://en.wikipedia.org/wiki/Data_at_rest) のディスク暗号化を使用してサーバー上に提供されます。 アクセスはパブリックネットワーク接続経由で行われ、HTTPS を使用して暗号化されます。 詳しくは、[Security ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](../offerings/security.html#security){:new_window} を参照してください。 
-IP ホワイトリスト登録は、{{site.data.keyword.cloudant_short_notm}} サポートへの要求で使用可能になり、インスタンス・レベルではなく {{site.data.keyword.cloudant_short_notm}} 環境全体に適用されます。 
-
-保存時の暗号化で BYOK (Bring-Your-Own-Key) が必要な場合、それは、
-{{site.data.keyword.cloud}} の鍵の保護によって有効化されます。{{site.data.keyword.cloudant_short_notm}} では、
-すべての地域でデプロイされる新しい {{site.data.keyword.cloudant_short_notm}}
-[専用ハードウェア・プラン](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public)・インスタンスでこの機能をサポートします。まず、
-[{{site.data.keyword.cloud_notm}} カタログ](https://console.bluemix.net/catalog/)から、専用ハードウェア・プラン・インスタンスを作成します。次に、
-サポート・チケットを送信します。新規専用ハードウェア・インスタンスの保存時の暗号化用の暗号鍵の取得をサポート・チームが調整します。
-この暗号鍵は、鍵の保護インスタンスで管理されます。 
+IP ホワイトリスト登録は、{{site.data.keyword.cloudant_short_notm}} サポートへの要求で使用可能になり、インスタンス・レベルではなく {{site.data.keyword.cloudant_short_notm}} 環境全体に適用されます。  
 
 これらのプランは、[コンプライアンス認証 ![ 外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window} も提供しています。 
 

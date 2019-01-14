@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-20 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Replicação
 
@@ -30,9 +31,7 @@ e pode ser finamente ajustada usando parâmetros.
 O protocolo de replicação do {{site.data.keyword.cloudant_short_notm}} é compatível com um intervalo de outros bancos de dados e bibliotecas,
 tornando-o um bom ajuste para Internet of Things (IoT) e aplicativos móveis.
 
-Este guia apresenta as funções de replicação do {{site.data.keyword.cloudant_short_notm}},
-discute casos de uso comuns
-e mostra como fazer seu aplicativo replicar com sucesso.
+Este guia apresenta as funções de replicação do {{site.data.keyword.cloudant_short_notm}}, discute casos de uso comuns e mostra como fazer seu aplicativo ser replicado com êxito.
 
 ## O que é replicação?
 
@@ -59,22 +58,20 @@ Os dados preexistentes no banco de dados de destino permanecem.
 
 <div id="how-do-i-initiate-replication-via-the-dashboard-"></div>
 
-## Como iniciar a replicação usando o Painel
+## Como iniciar a replicação usando o painel
 
-O Painel do {{site.data.keyword.cloudant_short_notm}} fornece uma interface com o usuário conveniente para acionar a replicação.
-Abra a guia Replicação do Painel do {{site.data.keyword.cloudant_short_notm}} e clique no botão de ação `Nova replicação`.
-Preencha o formulário simples:
+O painel do {{site.data.keyword.cloudant_short_notm}} fornece uma interface com o usuário conveniente para acionar a replicação.
+Clique na guia `Replicação` no painel do {{site.data.keyword.cloudant_short_notm}} e clique em `Iniciar replicação`.
+Preencha o formulário:
 
 ![replication2](../images/replication_guide_2.png)
 
-Usando o formulário,
-defina os bancos de dados de origem e de destino e,
-em seguida, clique em "`Replicate`".
+Usando o formulário, defina os bancos de dados de origem e de destino e, em seguida, clique em `Iniciar replicação`.
 
 ![replication3](../images/replication_guide_3.png)
 
-O status de cada tarefa de replicação pode ser visto na seção "`All Replications`" do Painel.
-Cada tarefa muda o estado de "`Triggered`" para "`Complete`" à medida que progride.
+O status de cada tarefa de replicação pode ser visto clicando na guia `Replicação`.
+Cada tarefa muda de estado de `Em execução` para `Concluída` à medida que ela progride.
 
 ![replication4](../images/replication_guide_4.png)
 
@@ -272,8 +269,7 @@ Em geral,
 -   Acesso `_reader` e `_replicator` no lado de origem.
 -   Acesso `_reader` e `_writer` no lado de destino.
 
-As chaves API podem ser criadas e configuradas no Painel do {{site.data.keyword.cloudant_short_notm}},
-em uma base por banco de dados.
+As chaves API podem ser criadas e configuradas dentro do painel do {{site.data.keyword.cloudant_short_notm}}, em uma base por banco de dados.
 
 ![replicação](../images/replication_guide_5.png)
 
@@ -299,11 +295,10 @@ Com a replicação contínua,
 os dados fluem continuamente.
 Todas as mudanças subsequentes no banco de dados de origem são transmitidas para o banco de dados de destino em tempo real.
 
-A replicação contínua é acionada clicando na caixa de seleção "`Tornar esta replicação contínua`" quando você define uma tarefa de replicação no Painel do {{site.data.keyword.cloudant_short_notm}}
-ou configurando a sinalização ["`continuous`"](../api/replication.html#checkpoints) na API do {{site.data.keyword.cloudant_short_notm}}.
+A replicação contínua é acionada clicando na caixa de seleção `Tornar esta replicação contínua` quando você define uma tarefa de replicação no painel do {{site.data.keyword.cloudant_short_notm}}
+ou configurando a sinalização [`contínua`](../api/replication.html#checkpoints) na API do {{site.data.keyword.cloudant_short_notm}}.
 
-A replicação em duas vias pode se tornar contínua em uma ou em ambas as direções,
-configurando a sinalização "`continuous`".
+A replicação em duas vias pode se tornar contínua em uma ou em ambas as direções, configurando a sinalização como `contínua`.
 
 _Exemplo de como usar HTTP para iniciar uma replicação contínua:_
 
@@ -339,8 +334,7 @@ _Exemplo de um documento JSON que define uma replicação contínua:_
 
 ## Monitorando a replicação
 
-É possível verificar o status do banco de dados `_replicator` do {{site.data.keyword.cloudant_short_notm}} a qualquer momento,
-usando o Painel ou a API.
+É possível verificar o status do banco de dados `_replicator` do {{site.data.keyword.cloudant_short_notm}} a qualquer momento, usando o painel ou a API.
 
 Se a replicação tiver falhado,
 por exemplo, em razão de as credenciais de autenticação serem inválidas,
@@ -384,9 +378,7 @@ _Exemplo de resposta para solicitar o status de uma replicação:_
 
 ## Cancelando a replicação
 
-Para parar uma tarefa de replicação contínua,
-exclua o documento de replicação do banco de dados `_replicator`
-usando o Painel ou a API.
+Para parar uma tarefa de replicação em andamento, exclua o documento de replicação do banco de dados `_replicator`, usando o painel ou a API.
 
 _Exemplo de como usar HTTP para cancelar uma replicação:_
 
@@ -686,10 +678,9 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ```
 {:codeblock}
 
->   **Nota**: a ordenação de documentos no feed `_changes` nem sempre é a mesma.
-    Em outras palavras, as mudanças podem não aparecer em ordem estrita de tempo.
-    A razão é que os dados são retornados de múltiplos nós do {{site.data.keyword.cloudant_short_notm}}
+    A ordenação de documentos dentro do feed `_changes` não é sempre a mesma. Em outras palavras, as mudanças podem não aparecer em ordem estrita de tempo. A razão é que os dados são retornados de múltiplos nós do {{site.data.keyword.cloudant_short_notm}}
     e as regras de consistência eventual se aplicam.
+    {: tip}
 
 ## Armadilhas da replicação
 
@@ -703,7 +694,7 @@ as credenciais fornecidas deverão ter:
 *   Os direitos `_reader` e `_replicator` no banco de dados "a".
 *   Os direitos `_writer` no banco de dados "b".
 
-As chaves API são geradas no Painel do {{site.data.keyword.cloudant_short_notm}} ou [por meio da API](../api/authorization.html#creating-api-keys).
+As chaves API são geradas no painel do {{site.data.keyword.cloudant_short_notm}} ou [por meio da API](../api/authorization.html#creating-api-keys).
 Cada chave pode receber direitos individuais que se relacionam a um banco de dados {{site.data.keyword.cloudant_short_notm}} específico.
 O {{site.data.keyword.cloudant_short_notm}} deve ser capaz de gravar seus documentos de ponto de verificação na extremidade de "leitura" da replicação,
 caso contrário, nenhum estado é salvo e a replicação não pode continuar de onde parou.
@@ -775,8 +766,7 @@ Cada tarefa de replicação é independente da outra,
 então o {{site.data.keyword.cloudant_short_notm}} não evita a criação de processos extras de replicação.
 No entanto, cada tarefa de replicação esgota os recursos do sistema.
 
-É possível verificar suas "replicações ativas" no Painel do {{site.data.keyword.cloudant_short_notm}}
-para assegurar que não haja tarefas de replicação indesejadas em andamento.
+É possível verificar suas "replicações ativas" no painel do {{site.data.keyword.cloudant_short_notm}} para assegurar que não haja tarefas de replicação indesejadas em andamento.
 Exclua os documentos `_replicator` que não são mais necessários.
 
 ## Ajustando a velocidade de replicação
@@ -804,5 +794,4 @@ poderá considerar aumentar os valores
 *   Se desejar executar a replicação com impacto mínimo,
 a configuração de `worker_processes` e `http_connections` como 1 poderá ser apropriada.
 
-Para obter assistência adicional sobre a melhor configuração para seu caso de uso,
-entre em contato com a equipe de suporte do [{{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.
+Para obter assistência adicional sobre a melhor configuração para seu caso de uso, entre em contato com a [equipe de suporte do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.

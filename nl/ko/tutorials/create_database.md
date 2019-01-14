@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,11 +11,15 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}}에서의 간단한 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 작성 및 채우기
 
 이 튜토리얼은 [Python 프로그래밍 언어 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.python.org/){:new_window}를 사용하여
-{{site.data.keyword.cloud_notm}} 서비스 인스턴스에 {{site.data.keyword.cloudantfull}} 데이터베이스를 작성하고 이 데이터베이스를 간단한 데이터 콜렉션으로 채우는 방법을 보여줍니다. {:shortdesc}
+{{site.data.keyword.cloud_notm}} 서비스 인스턴스에 {{site.data.keyword.cloudantfull}} 데이터베이스를 작성하고 이 데이터베이스를 간단한 데이터 콜렉션으로 채우는 방법을 보여줍니다.
+{:shortdesc}
 
 ## 전제조건
 
@@ -65,7 +69,7 @@ cloudant==2.3.1
 
 적절한 서비스 인스턴스를 작성하는 프로세스는 [이 튜토리얼](create_service.html)에 설명되어 있습니다.
 
-서비스 인스턴스에 대해 다음 서비스 신임 정보가 사용 가능한지 확인하십시오.
+서비스 인스턴스에 대해 다음 서비스 인증 정보가 사용 가능한지 확인하십시오.
 
 필드      |용도
 -----------|--------
@@ -73,9 +77,9 @@ cloudant==2.3.1
 `username` |애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 사용자 이름입니다.
 `password` |애플리케이션이 서비스 인스턴스에 액세스하는 데 필요한 비밀번호입니다.
 `port`     |호스트의 서비스 인스턴스에 액세스하는 데 필요한 HTTP 포트 번호입니다. 보통 HTTPS 액세스를 강제하려는 경우에는 443이 사용됩니다.
-`url`      |애플리케이션에서 사용하기에 적합하도록 기타 신임 정보를 하나의 URL로 통합하는 문자열입니다.
+`url`      |애플리케이션에서 사용하기에 적합하도록 기타 인증 정보를 하나의 URL로 통합하는 문자열입니다.
 
-서비스 인스턴스의 서비스 신임 정보를 찾는 데 대한 정보는 [여기](create_service.html#locating-your-service-credentials)에 있습니다.
+서비스 인스턴스의 서비스 인증 정보를 찾는 데 대한 정보는 [여기](create_service.html#locating-your-service-credentials)에 있습니다.
 
 ## 내용
 
@@ -110,7 +114,7 @@ from cloudant.result import Result, ResultByKey
 ```
 {:codeblock}
 
-애플리케이션에는 서비스의 [서비스 신임 정보](create_service.html#locating-your-service-credentials)가 있어야 합니다.
+애플리케이션에는 서비스의 [서비스 인증 정보](create_service.html#locating-your-service-credentials)가 있어야 합니다.
 
 ```python
 serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
@@ -119,15 +123,15 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {:codeblock}
 
-여기에 나와 있는 서비스 신임 정보
+여기에 나와 있는 서비스 인증 정보
 데모 {{site.data.keyword.cloudant_short_notm}} 서비스가 {{site.data.keyword.cloud_notm}}에 작성될 때 정의되었습니다.
-    이 신임 정보는 Python 애플리케이션에서 어떻게 사용되는지 사용자에게 보여주기 위해 여기서 다시 생성되었습니다.
+    이 인증 정보는 Python 애플리케이션에서 어떻게 사용되는지 사용자에게 보여주기 위해 여기서 다시 생성되었습니다.
     그러나 해당 데모 {{site.data.keyword.cloudant_short_notm}} 서비스는 현재 제거되었으며,
-    따라서 이들 신임 정보는 작동하지 않습니다. 사용자는 _반드시_ 자신의
-    서비스 신임 정보를 제공하여 사용해야 합니다.
+    따라서 이들 인증 정보는 작동하지 않습니다. 사용자는 _반드시_ 자신의
+    서비스 인증 정보를 제공하여 사용해야 합니다.
 {: tip}
 
-애플리케이션 내에서 Python 클라이언트 라이브러리를 사용으로 설정하고 서비스 신임 정보를 식별한 후에는 서비스 인스턴스에 대한 연결을 설정할 수 있습니다.
+애플리케이션 내에서 Python 클라이언트 라이브러리를 사용으로 설정하고 서비스 인증 정보를 식별한 후에는 서비스 인스턴스에 대한 연결을 설정할 수 있습니다.
 
 ```python
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)

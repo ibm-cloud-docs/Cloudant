@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-18"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-05-18"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Cinq conseils fondamentaux pour la modélisation de vos données
 
@@ -47,7 +50,7 @@ aucune conséquence sur les performances de l'application.
 
 ## En quoi cela vous aide-t-il de prendre en compte les données non modifiables 
 
-Derrière notre interface `https://$ACCOUNT.cloudant.com/` se trouve une base de données répartie.
+Derrière notre interface `https://$ACCOUNT.cloudant.com/` se trouve une base de données répartie. 
 Dans le cluster, les documents sont placés dans des fragments qui collectivement forment la
 base de données. Ces fragments sont ensuite répartis entre les noeuds du cluster. Ainsi, il est possible
 de prendre en charge des bases de données de plusieurs téraoctets.

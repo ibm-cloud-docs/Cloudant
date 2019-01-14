@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-15 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Comment les données sont-elles stockées dans {{site.data.keyword.cloudant_short_notm}} ?
 
@@ -181,7 +182,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 {:codeblock}
 
 >	**Remarque :** la définition de _Q_ pour les bases de données n'est pas activée pour les bases de données {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud}}.
-La valeur _Q_ n'est pas disponible sur la plupart des clusters à service partagé `cloudant.com`.
+	La valeur _Q_ n'est pas disponible sur la plupart des clusters à service partagé `cloudant.com`.
 
 Si vous tentez de définir la valeur _Q_ alors qu'elle est indisponible,
 une réponse [`403` est générée](../api/http.html#403) avec un corps JSON

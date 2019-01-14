@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,12 +11,13 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-10 -->
+<!-- Acrolinx: 2017-05-10 -->
 
-# Création d'une application {{site.data.keyword.Bluemix_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}} : conditions prérequises
+# Création d'une application {{site.data.keyword.cloud_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}} : conditions prérequises
 
-Cette section du tutoriel décrit les conditions prérequises pour la création d'une application {{site.data.keyword.Bluemix}}.
+Cette section du tutoriel décrit les conditions prérequises pour la création d'une application {{site.data.keyword.cloud}}.
 {:shortdesc}
 
 ## Conditions prérequises
@@ -44,7 +45,7 @@ Python 2.7.12
 
 <div id="csi"></div>
 
-### Instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.Bluemix_notm}}
+### Instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}
 
 Un tutoriel distinct de création d'une instance de service {{site.data.keyword.cloudantfull}} nommée
 '`Cloudant Service 2017`' est disponible [ici](create_service.html).

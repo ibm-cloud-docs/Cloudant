@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-03-06 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 支援的用戶端程式庫
 
@@ -71,7 +71,7 @@ npm install cloudant
 
 #### 支援的 node.js 程式庫
 
--   [nodejs-cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/nodejs-cloudant){:new_window}（[npm ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.npmjs.org/package/cloudant){:new_window}）。
+-   [nodejs-cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/nodejs-cloudant){:new_window}（[npm ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.npmjs.com/package/@cloudant/cloudant){:new_window}）。
 
 #### 不支援的 node.js 程式庫及架構
 

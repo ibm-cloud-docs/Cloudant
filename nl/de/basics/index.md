@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-02-15"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,8 @@ lastupdated: "2018-02-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+
+<!-- Acrolinx: 2018-05-07 -->
 
 # {{site.data.keyword.cloudant_short_notm}}-Grundlagen
 
@@ -23,7 +25,7 @@ Die Abschnitte [Clientbibliotheken](../libraries/index.html#-client-libraries),
 
 ## Verbindung zu {{site.data.keyword.cloudant_short_notm}} herstellen
 
-Für den Zugriff auf {{site.data.keyword.cloudant_short_notm}} müssen Sie entweder über ein [{{site.data.keyword.cloudant_short_notm}}-Konto](../api/account.html) oder ein [{{site.data.keyword.Bluemix}}-Konto](../offerings/bluemix.html) verfügen.
+Für den Zugriff auf {{site.data.keyword.cloudant_short_notm}} müssen Sie entweder über ein [{{site.data.keyword.cloudant_short_notm}}-Konto](../api/account.html) oder ein [{{site.data.keyword.cloud}}-Konto](../offerings/bluemix.html) verfügen.
 
 ## HTTP-API
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-15"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,16 +11,17 @@ lastupdated: "2018-06-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-06-13 -->
 
 # Übersicht
 
-Diese Site ist die Onlinedokumentation für [{{site.data.keyword.cloudantfull}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}, die Ihnen einen schnellen Einstieg ermöglichen soll.
+Die Onlinedokumentation für {{site.data.keyword.cloudantfull}} dient dazu, Ihnen die schnelle Einarbeitung in die Benutzung des Produkts zu erleichtern. Weitere Informationen zu {{site.data.keyword.cloudant_short_notm}} finden auf der [{{site.data.keyword.cloudant_short_notm}}-Produktseite ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
 {:shortdesc}
 
 [{{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){:new_window}
-ist eine dokumentorientierte DataBase as a Service (DBaaS).
+ist eine dokumentorientierte DBaaS-Datenbank (DBaaS = Database as a Service).
 Sie speichert Daten in Form von Dokumenten im JSON-Format.
 Diese Datenbank integriert Skalierbarkeit, Hochverfügbarkeit und Dauerhaftigkeit.
 Sie bietet vielfältige Indexierungsoptionen wie 'MapReduce', '{{site.data.keyword.cloudantfull}} Query', 'full-text' und 'geospatial'.
@@ -29,9 +30,10 @@ Datensynchronisierung zwischen Datenbankclustern, Desktop-PCs
 und mobilen Geräten möglich.
 {:shortdesc}
 
-Weitere Informationen zu anderen {{site.data.keyword.cloudant_short_notm}}-Angeboten finden Sie auf der [{{site.data.keyword.cloudant_short_notm}}-Homepage ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}. Die hier bereitgestellte Onlinedokumentation liefert Ihnen Details zu {{site.data.keyword.cloudant_short_notm}}-Konzepten, -Tasks und -Techniken.
+Weitere Informationen zu anderen {{site.data.keyword.cloudant_short_notm}}-Angeboten finden Sie auf der [{{site.data.keyword.cloudant_short_notm}}-Homepage ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
+Die hier bereitgestellte Onlinedokumentation liefert Ihnen Details zu {{site.data.keyword.cloudant_short_notm}}-Konzepten, -Tasks und -Techniken.
 
-Sie können den {{site.data.keyword.cloudant_short_notm}}-Service über das [{{site.data.keyword.Bluemix}}-Dashboard ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window} starten.
+Sie können den {{site.data.keyword.cloudant_short_notm}}-Service über das [{{site.data.keyword.cloud}}-Dashboard ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window} starten.
 
 Neben ausführlicheren [Lernprogrammen](tutorials/create_service.html#creating-a-service-instance) ist ein Schnelleinstieg in {{site.data.keyword.cloudant_short_notm}} [verfügbar](index.html).
 Weitere Informationen zu Details wie der Authentifizierung bei Datenbankinstanzen und der Abfrage von Daten sind in der [API-Referenz](api/index.html) verfügbar.

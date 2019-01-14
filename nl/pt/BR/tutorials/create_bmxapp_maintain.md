@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-01-11 -->
 
@@ -35,27 +36,23 @@ seus aplicativos Python no {{site.data.keyword.cloud_notm}}.
 O status de aplicativos dentro da
 instância de serviço do {{site.data.keyword.cloud_notm}} é exibido no painel.
 
-No exemplo a seguir,
-o aplicativo `Cloudant Python` não está em execução
-e tem um estado `Stopped`:<br/>
+No exemplo a seguir, o aplicativo `Python Cloudant` não está em execução e possui um estado `Pausado`:
+
 ![Captura de tela mostrando o painel do aplicativo em um estado 'stopped'](images/img0037.png)
 
 ### Iniciando seu aplicativo
 
->   **Nota**: se você tentar iniciar o aplicativo tutorial
-    sem primeiro excluir o banco de dados de demonstração do tutorial,
-o aplicativo não poderá funcionar corretamente.
-    O aplicativo entrará em um ciclo de tentativa de iniciar,
+Se você tentar iniciar o aplicativo do tutorial sem primeiro excluir o banco de dados de demonstração do tutorial, o aplicativo não poderá funcionar corretamente. O aplicativo entrará em um ciclo de tentativa de iniciar,
 falhando, porque o banco de dados existe,
 parando e,
-em seguida, tentando iniciar novamente.
-    Para resolver o problema,
+em seguida, tentando iniciar novamente. Para resolver o problema,
 [pare o aplicativo](#stopping-your-application)
-e exclua o banco de dados de demonstração do tutorial.
-    O aplicativo poderá então iniciar com sucesso.
-
+e exclua o banco de dados de demonstração do tutorial. O aplicativo poderá então iniciar com sucesso.
+{: tip}
+    
 Para iniciar um aplicativo interrompido,
-primeiro clique no ícone de menu do aplicativo no painel:<br/>
+primeiro clique no ícone de menu do aplicativo no painel:
+
 ![Captura de tela mostrando o painel com o ícone de gerenciamento de aplicativo](images/img0038.png)
 
 Em seguida,
@@ -66,7 +63,7 @@ clique na opção `Start App` no menu:<br/>
 
 Para parar um aplicativo em execução,
 primeiro clique no ícone de menu do aplicativo no painel:<br/>
-![Captura de tela mostrando o painel com o ícone de gerenciamento de aplicativo](images/img0040.png)
+![Captura de tela mostrando o painel com o ícone de gerenciamento de aplicativo](images/img0038.png)
 
 Em seguida,
 clique na opção `Stop App` no menu:<br/>
@@ -80,8 +77,8 @@ Para fazer upload de uma nova versão do aplicativo,
 basta seguir o [processo de upload](create_bmxapp_upload.html).
 A nova versão sobrescreve a versão mais antiga do aplicativo.
 
->   **Nota**: se a versão mais antiga do aplicativo já estiver em execução quando você iniciar o upload,
-    o {{site.data.keyword.cloud_notm}} parará automaticamente o aplicativo primeiro.
+Se a versão mais antiga do aplicativo já estiver em execução quando você iniciar o upload, o {{site.data.keyword.cloud_notm}} interromperá automaticamente o aplicativo primeiro.
+{: tip}
 
 ## Diagnosticando e resolvendo problemas
 
@@ -100,19 +97,17 @@ o conselho sobre como
 [evitar gravações no sistema de arquivos local ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}
 é prudente.
 
->   **Nota**: por razões de simplicidade,
-    este tutorial grava o conteúdo no sistema de arquivos local.
-    No entanto,
-a quantidade de material é pequena.
-    Não se espera persistência
+Por razões de simplicidade, esse tutorial grava conteúdo no sistema de arquivos local. No entanto,
+a quantidade de material é pequena. Não se espera persistência
 e não é 'essencial'.
+{: tip}
 
 ### Usando o log do aplicativo
 
 O recurso mais útil para diagnosticar e resolver problemas com o
 aplicativo {{site.data.keyword.cloud_notm}} é o arquivo de log.
 
-O arquivo de log para um aplicativo {{site.data.keyword.cloud_notm}} pode ser localizado na página de informações `Logs`:<br/>
+O arquivo de log para um aplicativo {{site.data.keyword.cloud_notm}} pode ser localizado ao clicar na guia `Logs` para abrir a página de informações de criação de log:<br/>
 ![Captura de tela mostrando o link para acessar a página de informações 'Logs'](images/img0042.png)
 
 Como a maioria dos arquivos de log,

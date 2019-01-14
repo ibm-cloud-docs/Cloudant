@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-24"
+  years: 2015, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -65,7 +65,7 @@ mentre la propagazione attraverso il sistema continua 'dietro le quinte".
 Un database può esporre solo due di questi tre attributi sia per ragioni teoriche che pratiche.
 Un database che privilegia la consistenza e la disponibilità è semplice:
 un singolo nodo memorizza una singola copia dei tuoi dati.
-Ma questo modello è difficile da scalare in quanto per ottenere maggiori prestazioni devi aggiornare il nodo
+Ma questo modello è difficile da ridimensionare in quanto per ottenere maggiori prestazioni devi aggiornare il nodo
 anziché utilizzare nodi aggiuntivi.
 Inoltre,
 anche un minimo errore di sistema può arrestare un sistema a singolo nodo

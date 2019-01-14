@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-12"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-04-12"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2018-00-00 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 审计日志记录
 
@@ -36,7 +37,7 @@ lastupdated: "2018-04-12"
 
 ## 如何访问帐户的审计日志
 
-要请求访问帐户的审计日志，请联系 {{site.data.keyword.cloudant_short_notm}} 支持人员。支持人员会提供相关审计日志的访问权。
+要请求访问帐户的审计日志，请联系 {{site.data.keyword.cloudant_short_notm}} 支持人员。支持人员可提供您关注的审计日志的副本。
 
 联系支持人员时，请务必提供以下信息：
 

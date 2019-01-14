@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2018
-lastupdated: "2018-05-16"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-05-16"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-02-01 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 数据隐私和管理
 
@@ -35,6 +36,6 @@ _（本“{{site.data.keyword.cloudantfull}} 数据隐私和管理更新”最�
 -   [Amazon ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://aws.amazon.com/compliance/){:new_window}
 -   [{{site.data.keyword.BluSoftlayer_notm}} ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://www.softlayer.com/compliance){:new_window}
 
-在最近一次表决中通过了新的[一般数据保护条例 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){:new_window} 后，{{site.data.keyword.cloudant_short_notm}} 客户不仅需要知道 {{site.data.keyword.cloudant_short_notm}} 团队了解并遵从新实行的数据隐私标准和法规，还需要知道 {{site.data.keyword.IBM_notm}} 有更广泛的能力，可提供综合解决方案套件，帮助各种规模的企业满足自己的内部数据监管需求。
+在最近一次表决中通过了新的[一般数据保护条例 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){:new_window} 后，{{site.data.keyword.cloudant_short_notm}} 客户不仅需要知道 {{site.data.keyword.cloudant_short_notm}} 团队了解并遵从新实行的数据隐私标准和法规，还需要知道 {{site.data.keyword.IBM_notm}} 有更广泛的能力，可提供综合解决方案套件，帮助各种规模的企业满足自己的内部数据管理需求。
 
 如果您对欧洲的数据保护法即将发生的变动以及它们有可能对您的企业产生什么影响有进一步的疑问，或者想讨论 {{site.data.keyword.IBM_notm}} 可以如何为您的信息管理和合规性工作提供支持，请联系客户成功团队：[cdscsm@us.ibm.com ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:cdscsm@us.ibm.com){:new_window}。 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-11"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-11"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-03-16 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_local_notm}}
 
@@ -28,6 +29,37 @@ Das [IBM Knowledge Center ![Symbol für externen Link](../images/launch-glyph.sv
 -   [Replikationsparameter optimieren ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_tuning_parameters_replication_cases.html){:new_window}.
 
 ## Support
+
+Der {{site.data.keyword.cloudant_short_notm}}-Support kann Unterstützung bei der Installation, der Einrichtung und der ordnungsgemäßen Nutzung von {{site.data.keyword.cloudant_local_notm}} bereitstellen. Bei Auftreten eines Leistungsproblems oder einer Inkonsistenz bietet der Support Unterstützung bei der
+Fehlerbehebung. Im Falle eines Systemausfalls unterstützt der Support Sie bei der Fehlerdiagnose. Die Verantwortlichkeit für die Behebung des Problems verbleibt jedoch beim Kundenteam, da IBM nicht über Zugriff auf die Systeme des Kunden verfügt.
+
+Zur Bereitstellung einer wirkungsvollen Unterstützung bei der Problembehebung sind die entsprechenden Protokolle erforderlich. Um mit der Fehlerbehebung möglichst zeitnah beginnen zu können, müssen Sie die Ausgabe des Dienstprogramms Weatherreport sowie alle relevanten Protokolle, Anforderungen und Statuscodes einreichen, wenn Sie sich wegen eines Problems an den Support wenden. Weitere Informationen zu diesem Thema finden Sie unter dem Thema [Dienstprogramm
+Weatherreport ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_checking_health_cluster_with_weatherreport.html){:new_window}.
+
+Unterstützung bei allgemeinen Problemen und Systemausfällen kann nur dann angeboten werden, wenn das zugrunde liegende Problem durch die Leistungen des Supports abgedeckt
+wird. Im folgenden Text wird die Unterstützung beschrieben, die verfügbar ist: 
+
+Der {{site.data.keyword.cloudant_short_notm}}-Support gilt für die folgenden Probleme:
+- Korrekte Installation
+- Einrichtung
+- Probleme in Zusammenhang mit Fehlermeldungen der API, nicht erwartungsgemäßen Ergebnissen oder der Leistung
+
+Der {{site.data.keyword.cloudant_short_notm}}-Support gilt nicht für die folgenden Probleme:
+- Proprietäre kundenseitige Tools oder Arbeitsabläufe
+- Netzprobleme 
+- Verschlüsselung auf Platten 
+- Kundenspezifische Tools oder Funktionen
+
+Wenn die Ursache eines Fehlers z. B. auf einen Server des Kunden zurückzuführen ist, auf dem ein Hardwareproblem aufgetreten ist, dann kann der Support keine Unterstützung bieten. Wurde ein Ausfall jedoch von der {{site.data.keyword.cloudant_short_notm}}-Software selbst verursacht, z. B. durch Leistungsminderungen bei der Verarbeitung von Anforderungen aufgrund von Dokumentkonflikten, dann kann der Support den Kunden bei der Behebung des Problems unterstützen.
+
+Wenden Sie sich an den zuständigen Kundenunterstützungs- oder Kontomanager, um weitere Unterstützung für die folgenden Anforderungen zu erhalten:
+- Leistungsoptimierung
+- Entwurfsoptimierung
+- Kapazitätsplanung
+
+Bei Fragen zur IBM Supportrichtlinie wenden Sie sich an das [{{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}.
+
+### Vorgehensweise zum Öffnen eines Support-Tickets
 Um Unterstützung bei einem {{site.data.keyword.cloudant_local_notm}}-Problem anzufordern, öffnen Sie ein Support-Ticket beim {{site.data.keyword.cloudant_short_notm}}-Support und geben Sie folgende Informationen an:
 
 1. Schreiben Sie eine E-Mail, um eine [{{site.data.keyword.cloudant_short_notm}}-Support-Anforderung](mailto:support@cloudant.com) zu öffnen.
@@ -42,3 +74,4 @@ Um Unterstützung bei einem {{site.data.keyword.cloudant_local_notm}}-Problem an
     - Detaillierte Beschreibung des Problems, einschließlich die Bedingungen, als das Problem auftrat, sowie Informationen zu den letzten Änderungen
     - Protokolle oder Ausgaben (wenn verfügbar), die mit der Diagnose, Reproduktion und Untersuchung des Problems helfen
 4. Wenn der Support Ihre E-Mail erhält, wird ein Ansprechpartner des Support-Teams mit Ihnen Kontakt aufnehmen.
+

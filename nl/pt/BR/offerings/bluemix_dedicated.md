@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-05-11"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-02-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}} Dedicated
 
@@ -57,19 +58,9 @@ compartilha os recursos de hardware subjacentes que compõem o ambiente {{site.d
 
 Todos os planos são fornecidos em servidores com criptografia de disco [em repouso
 ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/Data_at_rest). O acesso é pela conexão de rede pública e criptografado
-usando HTTPS. Para obter mais detalhes, consulte [Segurança ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](../offerings/security.html#security){:new_window}.
+usando HTTPS. Para obter mais detalhes, consulte [Segurança ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](../offerings/security.html#security){:new_window}. 
 A lista de bloqueio de IP está disponível sob solicitação para o Suporte do {{site.data.keyword.cloudant_short_notm}} e se aplicará a
-todo o ambiente {{site.data.keyword.cloudant_short_notm}}, e não no nível da instância. 
-
-Se você precisar trazer sua própria chave (BYOK) para criptografia inativa, isso será ativado por meio do {{site.data.keyword.cloud}}
-Key Protect. O {{site.data.keyword.cloudant_short_notm}} suporta esse recurso para novas instâncias do {{site.data.keyword.cloudant_short_notm}}
-[plano Dedicated
-Hardware](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public)
-implementadas em todas as regiões. Primeiro, crie uma instância do plano Dedicated
-Hardware por meio do [Catálogo do {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/). Em seguida, envie um
-chamado de suporte e nossa equipe de suporte irá coordenar obtendo as chaves de criptografia inativa
-de sua nova instância do Dedicated
-Hardware gerenciadas por meio de sua instância do Key Protect. 
+todo o ambiente {{site.data.keyword.cloudant_short_notm}}, e não no nível da instância.  
 
 O plano também oferece [Certificação de conformidade ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
 

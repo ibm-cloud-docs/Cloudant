@@ -2,9 +2,10 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-20"
+lastupdated: "2018-10-24"
 
 ---
+
 {:new_window: target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
@@ -12,14 +13,14 @@ lastupdated: "2018-06-20"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-13 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} 照会の作成
 
 このチュートリアルでは、データベースを作成して文書を取り込み、索引を作成してデータベースの照会に使用する方法を示します。
 
 ![「コマンド・ライン」アイコン](../images/CommandLineIcon.png) _コマンド・ライン_
-と ![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} ダッシュボード_ の両方の演習が用意されています。 {{site.data.keyword.Bluemix}} ダッシュボードの演習では、各タスクの視覚的な例が示されています。 チュートリアル内のリンクをクリックすると、詳細が得られます。
+と ![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.cloud}} ダッシュボード_ の両方の演習が用意されています。 {{site.data.keyword.cloud_notm}} ダッシュボードの演習では、各タスクの視覚的な例が示されています。 チュートリアル内のリンクをクリックすると、詳細が得られます。
 
 まず、`query-demo` データベースと、以下の演習用のデータが入ったいくつかの文書を作成します。
 
@@ -27,9 +28,9 @@ lastupdated: "2018-06-20"
 
 始める前に、次の手順に従って、チュートリアルの準備をします。
 
-1.  [{{site.data.keyword.Bluemix}} アカウント ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン") を作成します](https://console.ng.bluemix.net/registration/){:new_window}。
-2.  [{{site.data.keyword.Bluemix_notm}} ダッシュボード ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window} にログインします。
-3.  [{{site.data.keyword.cloudant_short_notm}} インスタンスを {{site.data.keyword.Bluemix_notm}}](create_service.html#creating-a-service-instance)で作成します。
+1.  [{{site.data.keyword.cloud_notm}} アカウント ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン") を作成します](https://console.ng.bluemix.net/registration/){:new_window}。
+2.  [{{site.data.keyword.cloud_notm}} ダッシュボード ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window} にログインします。
+3.  [{{site.data.keyword.cloudant_short_notm}} インスタンスを {{site.data.keyword.cloud_notm}}](create_service.html#creating-a-service-instance)で作成します。
 4.  (オプション) コマンド・ラインから簡単・迅速にコマンドを実行できるように、[acurl 別名を作成します](../guides/acurl.html#authorized-curl-acurl-)。
 5.  演習内に含まれるコマンドの `$ACCOUNT` 変数を、{{site.data.keyword.cloudant_short_notm}} ダッシュボードへのログインに使用するユーザー名に置き換えます。
   `acurl` をセットアップしない場合は、
@@ -64,7 +65,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} ダッシュボード_
+![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} ダッシュボード_
 
 1.  作成した {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスを開きます。
 2.  {{site.data.keyword.cloudant_short_notm}} サービス・ページで、**「起動 (Launch)」**をクリックします。
@@ -166,7 +167,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} ダッシュボード_
+![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} ダッシュボード_
 
 1.  **`+`** をクリックして**「新規文書 (New Doc)」**を選択します。 「新規文書 (New Document)」ウィンドウが開きます。
 2.  文書を作成するために、次のサンプル・テキストをコピーして、新規文書内の既存テキストを置き換えます。
@@ -233,7 +234,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-  `query-demo` データベースには、5 つのレコードが取り込まれました。以下の画面キャプチャーのテーブル・ビューでレコードを確認できます。
+  `query-demo` データベースには、5 つのレコードが取り込まれました。 以下の画面キャプチャーのテーブル・ビューでレコードを確認できます。
 
   ![サンプル文書](../images/docs1.png)     
 
@@ -297,7 +298,7 @@ lastupdated: "2018-06-20"
 
 
 
-![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} ダッシュボード_
+![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} ダッシュボード_
 
 1.  **「すべての文書 (All Documents)」**または**「設計文書」**のいずれかのタブで
 **`+` > 照会索引**をクリックします。
@@ -382,7 +383,7 @@ lastupdated: "2018-06-20"
   ```
   {:codeblock}
 
-![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} ダッシュボード_
+![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} ダッシュボード_
 
 1.  **「照会」**タブをクリックします。
 2.  以下のサンプル JSON をコピーして {{site.data.keyword.cloudant_short_notm}} 照会ウィンドウに貼り付けます。
@@ -398,7 +399,7 @@ lastupdated: "2018-06-20"
 
 3.  **「照会の実行」**をクリックします。
 
-  照会結果が表示されます。以下の画面キャプチャーのテーブル・ビューでそれを確認できます。
+  照会結果が表示されます。 以下の画面キャプチャーのテーブル・ビューでそれを確認できます。
 
   ![照会 1 の結果](../images/dashboard_query1_results.png)
 
@@ -479,7 +480,7 @@ selector 式の詳細を追加することで、ニーズを満たすように�
   ```
   {:codeblock}
 
-![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} ダッシュボード_
+![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} ダッシュボード_
 
 1.  **「照会」**タブをクリックします。
 2.  以下のサンプル JSON をコピーして {{site.data.keyword.cloudant_short_notm}} 照会ウィンドウに貼り付けます。
@@ -500,7 +501,7 @@ selector 式の詳細を追加することで、ニーズを満たすように�
 
 3.  **「照会の実行」**をクリックします。
 
-  照会結果が表示されます。以下の画面キャプチャーのテーブル・ビューでそれを確認できます。
+  照会結果が表示されます。 以下の画面キャプチャーのテーブル・ビューでそれを確認できます。
 
   ![照会 2 の結果](../images/dashboard_query2_results.png)
 
@@ -580,7 +581,7 @@ age (年齢) の昇順でソートされます。
   ```
   {:codeblock}
 
-![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.Bluemix_notm}} ダッシュボード_
+![「ダッシュボード」アイコン](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} ダッシュボード_
 
 1.  **「照会」**タブをクリックします。
 2.  以下のサンプル JSON をコピーして {{site.data.keyword.cloudant_short_notm}} 照会ウィンドウに貼り付けます。
@@ -610,7 +611,7 @@ age (年齢) の昇順でソートされます。
 
 3.  **「照会の実行」**をクリックします。
 
-  照会結果が表示されます。以下の画面キャプチャーのテーブル・ビューでそれを確認できます。
+  照会結果が表示されます。 以下の画面キャプチャーのテーブル・ビューでそれを確認できます。
 
   ![照会 3 の結果](../images/dashboard_query3_results.png)
 

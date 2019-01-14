@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-20 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 抄寫
 
@@ -43,17 +44,18 @@ lastupdated: "2018-06-07"
 
 ## 如何使用儀表板開始抄寫
 
-「{{site.data.keyword.cloudant_short_notm}} 儀表板」提供一種便利的使用者介面來觸發抄寫。
-開啟「{{site.data.keyword.cloudant_short_notm}} 儀表板」的「抄寫」標籤，然後按一下`新建抄寫`動作按鈕。
-請完成簡單表單：
+{{site.data.keyword.cloudant_short_notm}} 儀表板提供一種便利的使用者介面來觸發抄寫。
+按一下 {{site.data.keyword.cloudant_short_notm}} 儀表板上的`抄寫`標籤，然後按一下`開始抄寫`。
+請完成下列表單：
 
 ![抄寫 2](../images/replication_guide_2.png)
 
-使用此表單，定義來源及目標資料庫，然後按一下`抄寫`。
+使用此表單，定義來源及目標資料庫，然後按一下`開始抄寫`。
 
 ![抄寫 3](../images/replication_guide_3.png)
 
-每一個抄寫作業的狀態都可以顯示在「儀表板」的`所有抄寫`區段中。每一個進行中工作的狀態都會從`已觸發`變更為`完成`。
+按一下`抄寫`標籤，即可顯示每個抄寫作業的狀態。
+每個進行中工作的狀態都會從`執行中`變更為`已完成`。
 
 ![抄寫 4](../images/replication_guide_4.png)
 
@@ -172,7 +174,7 @@ _說明想要的抄寫的範例 JSON 文件：_
 -   來源端的 `_reader` 及 `_replicator` 存取權。
 -   目的地端的 `_reader` 及 `_writer` 存取權。
 
-根據每個資料庫，可以在「{{site.data.keyword.cloudant_short_notm}} 儀表板」內建立及配置 API 金鑰。
+根據每個資料庫，可以在 {{site.data.keyword.cloudant_short_notm}} 儀表板內建立及配置 API 金鑰。
 
 ![抄寫](../images/replication_guide_5.png)
 
@@ -188,9 +190,9 @@ _說明想要的抄寫的範例 JSON 文件：_
 
 到目前為止，討論只涉及一次性抄寫，而這會在將所有來源資料寫入目標資料庫時完成。使用持續抄寫，資料會持續流動。來源資料庫的所有後續變更都會即時傳輸至目標資料庫。
 
-當您在「{{site.data.keyword.cloudant_short_notm}} 儀表板」中定義抄寫作業時按一下`將此抄寫設為持續`勾選框，或在 {{site.data.keyword.cloudant_short_notm}} API 中設定 ["`continuous`"](../api/replication.html#checkpoints) 旗標，即會觸發持續抄寫。
+當您在 {{site.data.keyword.cloudant_short_notm}} 儀表板中定義抄寫作業時按一下`將此抄寫設為持續`勾選框，或在 {{site.data.keyword.cloudant_short_notm}} API 中設定 [`continuous`](../api/replication.html#checkpoints) 旗標，即會觸發持續抄寫。
 
-設定 "`continuous`" 旗標，即可以單向或雙向持續進行雙向抄寫。
+設定 `continuous` 旗標，即可以單向或雙向持續進行雙向抄寫。
 
 _使用 HTTP 開始持續抄寫的範例：_
 
@@ -226,7 +228,7 @@ _定義持續抄寫的 JSON 文件的範例：_
 
 ## 監視抄寫
 
-您隨時可以使用「儀表板」或 API 來檢查 {{site.data.keyword.cloudant_short_notm}} `_replicator` 資料庫的狀態。
+您隨時可以使用儀表板或 API 來檢查 {{site.data.keyword.cloudant_short_notm}} `_replicator` 資料庫的狀態。
 
 如果抄寫失敗（例如，如果鑑別認證無效），則錯誤狀態會記錄在 `_replicator` 文件中。此外，也可以使用 {{site.data.keyword.cloudant_short_notm}} 帳戶的 `/_active_tasks` 端點來查看進行中的抄寫工作。
 [這裡](../api/active_tasks.html)提供其他詳細資料。
@@ -266,7 +268,7 @@ _要求抄寫狀態的範例回應：_
 
 ## 取消抄寫
 
-若要停止進行中的抄寫工作，請使用「儀表板」或 API 刪除 `_replicator` 資料庫中的抄寫文件。
+若要停止進行中的抄寫工作，請使用儀表板或 API 刪除 `_replicator` 資料庫中的抄寫文件。
 
 _使用 HTTP 取消抄寫的範例：_
 
@@ -524,8 +526,8 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ```
 {:codeblock}
 
->   **附註**：`_changes` 資訊來源內的文件排序不一定都相同。
-    換句話說，可能不會以嚴格的時間順序來顯示變更。原因在於資料是從多個 {{site.data.keyword.cloudant_short_notm}} 節點傳回，並套用最終一致性規則。
+    `_changes` 資訊來源內的文件排序不一定都相同。換句話說，可能不會以嚴格的時間順序來顯示變更。原因在於資料是從多個 {{site.data.keyword.cloudant_short_notm}} 節點傳回，並套用最終一致性規則。
+    {: tip}
 
 ## 抄寫陷阱
 
@@ -538,7 +540,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 *   資料庫 "a" 的 `_reader` 及 `_replicator` 權限。
 *   資料庫 "b" 的 `_writer` 權限。
 
-API 金鑰是在「{{site.data.keyword.cloudant_short_notm}} 儀表板」中或[透過 API](../api/authorization.html#creating-api-keys) 所產生。
+API 金鑰是在 {{site.data.keyword.cloudant_short_notm}} 儀表板中或[透過 API](../api/authorization.html#creating-api-keys) 所產生。
 每一個金鑰都可以獲指派與特定 {{site.data.keyword.cloudant_short_notm}} 資料庫相關的個別權限。
 {{site.data.keyword.cloudant_short_notm}} 必須可以寫入其在抄寫「讀取」端的檢查點文件，否則，不會儲存任何狀態，而且無法從其停止位置繼續抄寫。
 如果未儲存狀態，可能會在繼續抄寫大型資料集時導致發生效能問題。原因在於沒有檢查點，抄寫處理程序在每次繼續時，都會從頭重新開始。
@@ -565,9 +567,9 @@ GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 
 <div id="resetting-replicator-database"></div>
 
-如果您要取消所有抄寫，並以全新的 `_replicator` 資料庫開始，請在刪除後重建 `replicator` 資料庫。
+如果您要取消所有抄寫，並以全新的 `_replicator` 資料庫開始，請在刪除後重建 `_replicator` 資料庫。
 
-_使用 HTTP 移除並重建 `_replicator` 資料庫的範例：
+_使用 HTTP 移除並重建 `_replicator` 資料庫的範例：_
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -580,7 +582,7 @@ Authorization: ...
 ```
 {:codeblock}
 
-_使用指令行移除並重建 `_replicator` 資料庫的範例：
+_使用指令行移除並重建 `_replicator` 資料庫的範例：_
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'
@@ -593,8 +595,7 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 很容易忘記您先前已在兩個資料庫之間設定抄寫，因而錯誤地建立額外的抄寫處理程序。每一個抄寫工作都彼此獨立，因此 {{site.data.keyword.cloudant_short_notm}} 不會讓您無法建立額外的抄寫處理程序。
 不過，每一個抄寫作業都會消耗系統資源。
 
-您可以檢查「{{site.data.keyword.cloudant_short_notm}} 儀表板」中的「作用中抄寫」，確定沒有不想要的抄寫作業正在進行中。
-刪除任何不再需要的 `_replicator` 文件。
+您可以檢查 {{site.data.keyword.cloudant_short_notm}} 儀表板中的「作用中抄寫」，確定沒有不想要的抄寫作業正在進行中。刪除任何不再需要的 `_replicator` 文件。
 
 ## 調整抄寫速度
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-04-20 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # 복제
 
@@ -21,11 +22,14 @@ lastupdated: "2018-06-07"
 
 데이터는 [{{site.data.keyword.cloudant_short_notm}} Sync ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/product/cloudant-features/sync/){:new_window}
 또는 [PouchDB ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://pouchdb.com/){:new_window}를 사용하여 {{site.data.keyword.cloudant_short_notm}} 계정 또는 모바일 디바이스를
-대상으로 복제할 수도 있습니다. 복제는 '일회성' 또는 지속적 오퍼레이션으로 단방향 또는 양방향으로 실행될 수 있으며, 매개변수를 사용하여 세밀하게 조정할 수 있습니다.
+대상으로 복제할 수도 있습니다.
+복제는 '일회성' 또는 지속적 오퍼레이션으로 단방향 또는 양방향으로 실행될 수 있으며, 매개변수를 사용하여 세밀하게 조정할 수 있습니다.
 
 {{site.data.keyword.cloudant_short_notm}}의 복제 프로토콜은 다양한 데이터베이스 및 라이브러리와 호환되므로 IoT(Internet of Things) 및 모바일 애플리케이션에 적합합니다.
 
-이 안내서에서는 {{site.data.keyword.cloudant_short_notm}}의 복제 기능을 소개하고, 일반적인 유스 케이스에 대해 알아보며, 애플리케이션에서 복제를 수행하는 방법을 보여줍니다.
+이 안내서는 {{site.data.keyword.cloudant_short_notm}}의
+복제 기능을 소개하고, 일반적인 유스 케이스에 대해 알아보며,
+애플리케이션에서 복제를 수행하는 방법을 보여줍니다. 
 
 ## 복제의 개념
 
@@ -49,18 +53,20 @@ lastupdated: "2018-06-07"
 
 ## 대시보드를 사용하여 복제를 시작하는 방법
 
-{{site.data.keyword.cloudant_short_notm}} 대시보드에서는 복제를 트리거할 수 있는 편리한 사용자 인터페이스를 제공합니다.
-{{site.data.keyword.cloudant_short_notm}} 대시보드의 복제 탭을 열고 `New Replication` 조치 단추를 클릭하십시오.
-다음과 같은 간단한 양식을 완료하십시오.
+{{site.data.keyword.cloudant_short_notm}} 대시보드는 복제를 트리거할 수 있는 편리한 사용자 인터페이스를 제공합니다.
+{{site.data.keyword.cloudant_short_notm}} 대시보드의 `Replication` 탭을 클릭하고 `Start Replication`을 클릭하십시오.
+다음 양식을 완료하십시오. 
 
 ![복제 2](../images/replication_guide_2.png)
 
-이 양식을 사용하여 소스 및 대상 데이터베이스를 정의한 후 "`Replicate`"를 클릭하십시오.
+이 양식을 사용하여
+소스 및 대상 데이터베이스를 정의한 후
+`Start Replicatation`을 클릭하십시오. 
 
 ![복제 3](../images/replication_guide_3.png)
 
-각 복제 태스크의 상태는 대시보드의 "`All Replications`" 섹션에서 볼 수 있습니다.
-각 작업의 상태는 진행됨에 따라 "`Triggered`"에서 "`Complete`"로 변경됩니다.
+각 복제 태스크의 상태는 `Replication` 탭을 클릭하여 볼 수 있습니다.
+각 작업의 상태는 진행됨에 따라 `Running`에서 `Completed`로 변경됩니다. 
 
 ![복제 4](../images/replication_guide_4.png)
 
@@ -105,8 +111,8 @@ _복제의 소스 및 대상 URL 정의 예:_
 필드           |용도
 ----------------|--------
 `_id`           |`_id` 필드 제공은 선택사항이지만 복제 태스크를 식별하는 데 유용합니다. 값을 제공하지 않으면 {{site.data.keyword.cloudant_short_notm}}에서 이를 생성합니다.
-`source`        |로그인 신임 정보를 포함한 소스 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다.
-`target`        |로그인 신임 정보를 포함한 대상 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다.
+`source`        |로그인 인증 정보를 포함한 소스 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다.
+`target`        |로그인 인증 정보를 포함한 대상 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다.
 `create_target` |(선택사항) 대상 데이터베이스가 아직 없는 경우 이 데이터베이스의 작성 여부를 결정합니다.
 
 _HTTP를 사용한 복제 작업 시작 예:_
@@ -197,8 +203,8 @@ _결과적으로_ 해당 데이터베이스 사본이 복제를 완료하므로 
 ## 권한
 
 `_replicator` 데이터베이스에 문서를 삽입하려면 관리자 액세스 권한이 필요합니다.
-소스 및 대상 매개변수에 제공된 로그인 신임 정보는 전체 관리자 권한을 필요로 하지 않습니다.
-이 신임 정보로 다음 작업을 수행할 수 있으면 충분합니다.
+소스 및 대상 매개변수에 제공된 로그인 인증 정보는 전체 관리자 권한을 필요로 하지 않습니다.
+이 인증 정보로 다음 작업을 수행할 수 있으면 충분합니다.
 
 -   대상 데이터베이스에 문서를 기록합니다.
 -   두 데이터베이스 모두에 체크포인트 문서를 기록합니다.
@@ -210,7 +216,8 @@ _결과적으로_ 해당 데이터베이스 사본이 복제를 완료하므로 
 -   소스 측의 `_reader` 및 `_replicator` 액세스 권한
 -   대상 측의 `_reader` 및 `_writer` 액세스 권한
 
-API 키는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 데이터베이스별로 작성하고 구성할 수 있습니다.
+API 키는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 데이터베이스별로
+작성하고 구성할 수 있습니다. 
 
 ![복제](../images/replication_guide_5.png)
 
@@ -231,10 +238,11 @@ API 키는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 데이�
 연속 복제를 사용하면 데이터가 지속적으로 이동하게 됩니다.
 소스 데이터베이스에 대한 모든 후속 변경사항이 대상 데이터베이스에 실시간으로 전송됩니다.
 
-연속 복제는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 복제 태스크를 정의할 때 "`Make this replication continuous`" 선택란을 클릭하거나,
-{{site.data.keyword.cloudant_short_notm}} API에 ["`continuous`"](../api/replication.html#checkpoints) 플래그를 설정하여 트리거됩니다.
+연속 복제는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 복제 태스크를 정의할 때 `Make this replication continuous` 선택란을 클릭하거나,
+{{site.data.keyword.cloudant_short_notm}} API에 [`continuous`](../api/replication.html#checkpoints) 플래그를 설정하여 트리거됩니다. 
 
-양방향 복제는 "`continuous`" 플래그를 설정하여 단방향 또는 양방향으로 지속되도록 설정할 수 있습니다.
+양방향 복제는 `continuous` 플래그를 설정하여
+단방향 또는 양방향으로 지속되도록 설정할 수 있습니다. 
 
 _HTTP를 사용한 연속 복제 시작 예:_
 
@@ -270,9 +278,10 @@ _연속 복제를 정의하는 JSON 문서의 예:_
 
 ## 복제 모니터링
 
-{{site.data.keyword.cloudant_short_notm}}의 `_replicator` 데이터베이스 상태는 대시보드 또는 API를 사용하여 언제든지 확인할 수 있습니다.
+{{site.data.keyword.cloudant_short_notm}}의 `_replicator` 데이터베이스 상태는 대시보드 또는 API를 사용하여
+언제든지 확인할 수 있습니다. 
 
-복제가 실패하는 경우 예를 들어, 인증 신임 정보가 올바르지 않은 경우에는 오류 상태가 `_replicator` 문서에 기록됩니다.
+복제가 실패하는 경우 예를 들어, 인증 인증 정보가 올바르지 않은 경우에는 오류 상태가 `_replicator` 문서에 기록됩니다.
 또한, {{site.data.keyword.cloudant_short_notm}} 계정의 `/_active_tasks` 엔드포인트를 사용하여 진행 중인 복제 작업을 확인할 수도 있습니다.
 세부사항은 [여기](../api/active_tasks.html)에 있습니다.
 
@@ -311,7 +320,9 @@ _복제 상태 요청에 대한 응답 예:_
 
 ## 복제 취소
 
-진행 중인 복제 작업을 중지하려면 대시보드 또는 API를 사용하여 `_replicator` 데이터베이스에서 복제 문서를 삭제하십시오.
+진행 중인 복제 작업을 중지하려면
+대시보드 또는 API를 사용하여 `_replicator` 데이터베이스에서
+복제 문서를 삭제하십시오. 
 
 _HTTP를 사용한 복제 취소 예:_
 
@@ -583,10 +594,8 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ```
 {:codeblock}
 
->   **참고**: `_changes` 피드 내 문서의 순서 지정이 항상 동일하지는 않습니다.
-    즉, 변경사항이 정확한 시간 순서대로 표시되지 않을 수 있습니다.
-    이는 데이터가 여러 {{site.data.keyword.cloudant_short_notm}} 노드로부터 리턴되며
-    결과적으로 일관성 규칙이 적용되기 때문입니다.
+    `_changes` 피드 내 문서의 순서 지정이 항상 동일하지는 않습니다.     즉, 변경사항이 정확한 시간 순서대로 표시되지 않을 수 있습니다. 이는 데이터가 여러 {{site.data.keyword.cloudant_short_notm}} 노드로부터 리턴되며 결과적으로 일관성 규칙이 적용되기 때문입니다.
+    {: tip}
 
 ## 복제의 위험성
 
@@ -594,7 +603,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 
 ### 올바르지 않은 사용자 권한
 
-데이터베이스 "a"에서 데이터베이스 "b"로 복제할 때 복제가 최적의 상태로 진행되도록 하려면 제공되는 신임 정보에 다음 항목이 포함되어 있어야 합니다.
+데이터베이스 "a"에서 데이터베이스 "b"로 복제할 때 복제가 최적의 상태로 진행되도록 하려면 제공되는 인증 정보에 다음 항목이 포함되어 있어야 합니다.
 
 *   데이터베이스 "a"의 `_reader` 및 `_replicator` 권한
 *   데이터베이스 "b"의 `_writer` 권한
@@ -623,7 +632,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 
 리턴되는 JSON에서 `disk_size` 값을 찾으십시오.
 이 값이 1GB가 넘는 크기를 나타내는 경우에는
-[{{site.data.keyword.cloudant_short_notm}} 지원 팀 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하여 조언을 구하십시오. 
+[{{site.data.keyword.cloudant_short_notm}} 지원 팀 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하여 조언을 구하십시오.
 
 다음 예에 표시된 바와 같이 개별 `_replicator` 문서의 충돌 여부를 확인할 수 있습니다.
 
@@ -663,7 +672,8 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 각 복제 작업은 서로 독립되어 있으며, 따라서 {{site.data.keyword.cloudant_short_notm}}는 사용자가 추가 복제 프로세스를 작성하는 것을 막지 않습니다.
 그러나 각 복제 태스크는 시스템 리소스를 사용합니다.
 
-{{site.data.keyword.cloudant_short_notm}} 대시보드의 "활성 복제"를 확인하여 진행 중인 원치 않는 복제 태스크가 있는지 확인할 수 있습니다.
+{{site.data.keyword.cloudant_short_notm}} 대시보드의 "활성 복제"를 확인하여
+진행 중인 원치 않는 복제 태스크가 있는지 확인할 수 있습니다.
 더 이상 필요하지 않은 `_replicator` 문서는 삭제하십시오.
 
 ## 복제 속도 조정

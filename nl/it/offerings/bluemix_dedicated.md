@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-05-11"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-02-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}} dedicato
 
@@ -23,9 +24,9 @@ assegnata all'ambiente e può essere acquistato contattando il tuo responsabile 
 
 I clienti di {{site.data.keyword.cloud_notm}} dedicato possono anche scegliere di utilizzare {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}} pubblico
 attraverso il catalogo diffuso, incluse le istanze del piano Lite e Standard. Nota che
-gli utenti di {{site.data.keyword.cloud_notm}} dedicato non possono acquistare il piano hardware dedicato dal
-catalogo {{site.data.keyword.cloud_notm}} pubblico e devono avvalersi di {{site.data.keyword.cloudant_short_notm}} dedicato su
-{{site.data.keyword.cloud_notm}} dedicato nel caso in cui sia richiesto l'hardware dedicato.   
+gli utenti di {{site.data.keyword.cloud_notm}} Dedicato non possono acquistare il piano Hardware dedicato dal
+catalogo {{site.data.keyword.cloud_notm}} Pubblico e devono avvalersi di {{site.data.keyword.cloudant_short_notm}} Dedicato su
+{{site.data.keyword.cloud_notm}} Dedicato nel caso in cui sia richiesto l'hardware dedicato.   
 
 La seguente schermata mostra un esempio di catalogo {{site.data.keyword.cloud_notm}} che evidenzia la versione diffusa da {{site.data.keyword.cloud_notm}} pubblico
 di {{site.data.keyword.cloudant_short_notm}} (a sinistra) e l'ambiente di {{site.data.keyword.cloudant_short_notm}} dedicato (a destra).  
@@ -54,12 +55,7 @@ Tutti i piani vengono forniti sui server con la crittografia del disco [inattiva
 ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Data_at_rest). L'accesso avviene tramite la connessione alla rete pubblica e crittografato
 mediante HTTPS. Per ulteriori dettagli, vedi [Sicurezza ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](../offerings/security.html#security){:new_window}. 
 La whitelist IP è disponibile su richiesta al supporto {{site.data.keyword.cloudant_short_notm}} e si applicherà
-all'intero ambiente {{site.data.keyword.cloudant_short_notm}} e non al livello di istanza. 
-
-Se ne hai bisogno per la crittografia dei dati inattivi, BYOK (bring-your-own-key) viene abilitato tramite {{site.data.keyword.cloud}} Key
-Protect. {{site.data.keyword.cloudant_short_notm}} supporta questa funzione per le nuove istanze {{site.data.keyword.cloudant_short_notm}}
-[Piano hardware dedicato](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public)
-distribuite in tutte le regioni. Innanzitutto, crea un'istanza del piano hardware dedicato tramite il [catalogo {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/). Inoltra quindi un ticket di supporto; il nostro team di supporto coordinerà l'ottenimento delle chiavi di crittografia dei dati inattivi della tua istanza di hardware dedicato che sono gestite tramite la tua istanza Key Protect. 
+all'intero ambiente {{site.data.keyword.cloudant_short_notm}} e non al livello di istanza.  
 
 Il piano offre anche la [Certificazione di conformità![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
 

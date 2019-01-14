@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-01-11 -->
 
@@ -29,18 +30,17 @@ En esta sección de la guía de aprendizaje se explica cómo renovar, iniciar y 
 
 El estado de aplicaciones dentro de la instancia de servicio de {{site.data.keyword.cloud_notm}} se muestra en el panel de control.
 
-En el ejemplo siguiente, la aplicación `Cloudant Python` no se está ejecutando y tiene el estado `Detenido`:<br/>
+En el ejemplo siguiente, la aplicación `Python Cloudant` no se está ejecutando y tiene el estado `Detenido`:
+
 ![Captura de pantalla que muestra el panel de control de la aplicación en estado 'detenido'](images/img0037.png)
 
 ### Inicio de la aplicación
 
->   **Nota**: Si intenta iniciar la aplicación de la guía de aprendizaje
-    sin suprimir antes la base de datos de demostración de la guía de aprendizaje, la aplicación no funcionará correctamente.
-    La aplicación entra en un ciclo en el que intenta iniciarse, pero no puede porque la base de datos existe, se detiene y luego intenta iniciarse de nuevo.
-    Para resolver el problema, [detenga la aplicación](#stopping-your-application) y, a continuación, suprima la base de datos de demostración de la guía de aprendizaje.
-    Luego podrá iniciar correctamente la aplicación.
+Si intenta iniciar la aplicación de guía de aprendizaje sin suprimir primero la base de datos de demostración de la guía de aprendizaje, la aplicación no funcionará correctamente. La aplicación entra en un ciclo en el que intenta iniciarse, pero no puede porque la base de datos existe, se detiene y luego intenta iniciarse de nuevo. Para resolver el problema, [detenga la aplicación](#stopping-your-application) y, a continuación, suprima la base de datos de demostración de la guía de aprendizaje. Luego podrá iniciar correctamente la aplicación.
+{: tip}
+    
+Para iniciar una aplicación detenida, primero pulse el icono del menú de la aplicación en el panel de control:
 
-Para iniciar una aplicación detenida, primero pulse el icono del menú de la aplicación en el panel de control:<br/>
 ![Captura de pantalla que muestra el panel de control con el icono de gestión de aplicaciones](images/img0038.png)
 
 A continuación, pulse la opción `Iniciar app` en el menú:<br/>
@@ -49,7 +49,7 @@ A continuación, pulse la opción `Iniciar app` en el menú:<br/>
 ### Detención de la aplicación
 
 Para detener una aplicación en ejecución, primero pulse el icono del menú de la aplicación en el panel de control:<br/>
-![Captura de pantalla que muestra el panel de control con el icono de gestión de aplicaciones](images/img0040.png)
+![Captura de pantalla que muestra el panel de control con el icono de gestión de aplicaciones](images/img0038.png)
 
 A continuación, pulse la opción `Detener app` en el menú:<br/>
 ![Captura de pantalla que muestra la opción 'Detener app'](images/img0041.png)
@@ -61,8 +61,8 @@ A continuación, pulse la opción `Detener app` en el menú:<br/>
 Para cargar una nueva versión de la aplicación, simplemente siga el [proceso de carga](create_bmxapp_upload.html).
 La nueva versión sobrescribe la versión anterior de la aplicación.
 
->   **Nota**: Si la versión anterior de la aplicación ya se está ejecutando cuando se inicia la carga,
-    {{site.data.keyword.cloud_notm}} detiene primero automáticamente la primera.
+Si ya se está ejecutando la versión anterior de la aplicación cuando inicia la carga, {{site.data.keyword.cloud_notm}} detiene automáticamente la aplicación primero.
+{: tip}
 
 ## Diagnóstico y resolución de problemas
 
@@ -73,16 +73,14 @@ Encontrará una buena fuente de asesoramiento sobre prácticas recomendadas para
 
 En concreto, se recomienda [evitar escribir en el sistema de archivos local ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}.
 
->   **Nota**: Para simplificar,
-    en esta guía de aprendizaje no se escribe contenido en el sistema de archivos local.
-    Sin embargo, la cantidad de material es pequeña.
-    No se espera que se conserve y no constituye 'información básica'.
+Para simplificar, esta guía de aprendizaje escribe contenido al sistema de archivos local. Sin embargo, la cantidad de material es pequeña. No se espera que se conserve y no constituye 'información básica'.
+{: tip}
 
 ### Utilización del registro de aplicación
 
 El recurso más útil para diagnosticar y resolver problemas con la aplicación de {{site.data.keyword.cloud_notm}} es el archivo de registro.
 
-Encontrará el archivo de registro correspondiente a una aplicación de {{site.data.keyword.cloud_notm}} en la página de información de `Registros`:<br/>
+Encontrará el archivo de registro de una aplicación de {{site.data.keyword.cloud_notm}} pulsando el separador `Registro` para abrir la página de información de registro:<br/>
 ![Captura de pantalla que muestra el enlace para acceder a la página de información de 'Registros'](images/img0042.png)
 
 Al igual que la mayoría de los archivos de registro, un registro de aplicación de {{site.data.keyword.cloud_notm}} contiene detalles sobre los sucesos que se han producido y cuándo se han producido.

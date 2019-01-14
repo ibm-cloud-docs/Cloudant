@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-03-06 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Unterstützte Clientbibliotheken
 
@@ -65,7 +65,7 @@ mit Details und Beispielen zur Verwendung der Bibliothek verfügbar.
 -   [Erstellen, Lesen, Aktualisieren und Löschen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant/haengematte/tree/master/java){:new_window} mit HTTP- und JSON-Bibliotheken.
 -   [Erstellen, Lesen, Aktualisieren und Löschen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant/haengematte/tree/master/java/CrudWithEktorp){:new_window} mit der 'ektorp'-Bibliothek.
 -   [Apps mithilfe von Java mit {{site.data.keyword.cloudant_short_notm}} unter {{site.data.keyword.cloud}} erstellen![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/building-apps-using-java-with-cloudant-on-ibm-bluemix/){:new_window}.
--   [Spiele-App mit Liberty, {{site.data.keyword.cloudant_short_notm}} und Single Sign On erstellen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/developerworks/cloud/library/cl-multiservicegame-app/index.html?ca=drs-){:new_window} {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloud_notm}}-Beispiel.
+-   [Spiele-App mit Liberty, {{site.data.keyword.cloudant_short_notm}} und Single Sign On erstellen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/developerworks/cloud/library/cl-multiservicegame-app/index.html?ca=drs-){:new_window} {{site.data.keyword.cloud_notm}}-Beispiel.
 -   [Java EE-App unter {{site.data.keyword.cloud_notm}} mithilfe von Watson und {{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://developer.ibm.com/bluemix/2014/10/17/building-java-ee-app-ibm-bluemix-using-watson-cloudant/){:new_window} erstellen, {{site.data.keyword.cloud_notm}}-Beispiel mit [YouTube-Video ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.youtube.com/watch?feature=youtu.be&v=9AFMY6m0LIU&app=desktop){:new_window}.
 
 
@@ -85,7 +85,7 @@ npm install cloudant
 
 #### Unterstützte Bibliothek für node.js
 
--   [nodejs-cloudant ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.npmjs.org/package/cloudant){:new_window}).
+-   [nodejs-cloudant ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.npmjs.com/package/@cloudant/cloudant){:new_window}).
 
 #### Nicht unterstützte Bibliotheken und Frameworks für node.js
 

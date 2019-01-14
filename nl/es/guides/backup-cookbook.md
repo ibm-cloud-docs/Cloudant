@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 <!-- Update backup-guide.md with with any changes. -->
 
 # Copia de seguridad y recuperación de {{site.data.keyword.cloudant_short_notm}}
@@ -130,7 +131,7 @@ couchbackup --url "https://examples.cloudant.com" \
 {:codeblock}
 
 En este ejemplo, la herramienta `gzip` acepta los datos de copia de seguridad directamente a través de `stdin`, comprime los datos y los emite mediante `stdout`.
-Luego la corriente de datos comprimidos resultante se redirecciona y se escribe en un archivo llamado `backup.gz`.
+Luego la corriente de datos comprimidos resultante se redirige y se escribe en un archivo llamado `backup.gz`.
 
 Si la base de datos requiere que especifique credenciales de acceso, utilice un URL con el formato `https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com`,
 como por ejemplo:

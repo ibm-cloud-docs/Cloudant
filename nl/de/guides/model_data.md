@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-18"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-05-18"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Meine Top-5-Tipps für das Modellieren Ihrer zu skalierenden Daten
 
@@ -43,7 +46,7 @@ sollte sich dies nicht negativ auf die Anwendungsleistung auswirken.
 
 ## Gründe, warum Sie nicht veränderbare Daten berücksichtigen sollten 
 
-Der `https://$ACCOUNT.cloudant.com/`-Schnittstelle liegt eine verteilte Datenbank zugrunde.
+Der `https://$ACCOUNT.cloudant.com/`-Schnittstelle liegt eine verteilte Datenbank zugrunde. 
 Im Cluster werden Dokumente in einer Anzahl von Shards gruppiert, die zusammen die Datenbank bilden. Diese Shards werden dann über Knoten im Cluster verteilt. Auf diese Weise
 können Datenbanken mit vielen Terabyte unterstützt werden.
 
@@ -94,7 +97,7 @@ Zeit, die Ihre Anwendung auf den Anschluss der Anforderung wartet, verkürzt.
 
 ## Denormalisieren Ihrer Daten
 
-In relationalen Datenbanken ist das Normalisieren von Daten häufig die effizienteste Methode, Daten zu speichern.
+In relationalen Datenbanken ist das Normalisieren von Daten häufig die effizienteste Methode, Daten zu speichern. 
 Das ist sehr sinnvoll, wenn Sie JOINs verwenden können, um auf einfache Weise Daten aus mehreren Tabellen zu kombinieren. 
 In {{site.data.keyword.cloudant_short_notm}} benötigen Sie mit höherer Wahrscheinlichkeit eine HTTP-GET-Anforderung für die
 einzelnen Daten, d. h. indem Sie die Anzahl von Anforderungen reduzieren, die erforderlich sind, um ein umfassendes Bild

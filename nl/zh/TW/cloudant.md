@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-15"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,21 +11,23 @@ lastupdated: "2018-06-15"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2018-06-13 -->
 
 # 概觀
 
-此網站是 [{{site.data.keyword.cloudantfull}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} 的線上文件，全部旨在協助您快速開始使用。
+{{site.data.keyword.cloudantfull}} 線上文件的目的是要協助您快速進行。如需 {{site.data.keyword.cloudant_short_notm}} 的相關資訊，請參閱 [{{site.data.keyword.cloudant_short_notm}} 產品頁面 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}。
 {:shortdesc}
 
-[{{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){:new_window} 是文件導向的「資料庫即服務 (DBaaS)」。它會將資料儲存為 JSON 格式的文件。我們在建置它時，謹記著可擴充性、高可用性和延續性。它具備各種檢索選項，包括 MapReduce、{{site.data.keyword.cloudantfull}} 查詢、全文檢索及地理空間檢索。抄寫功能讓您能輕鬆保持資料庫叢集、桌上型電腦和行動裝置之間的資料同步。
+[{{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://www.youtube.com/watch?v=xfO3m1I3SKg&feature=youtu.be){:new_window} 是文件導向的「資料庫即服務 (DBaaS)」。
+它會將資料儲存為 JSON 格式的文件。我們在建置它時，謹記著可擴充性、高可用性和延續性。它具備各種檢索選項，包括 MapReduce、{{site.data.keyword.cloudantfull}} 查詢、全文檢索及地理空間檢索。抄寫功能讓您能輕鬆保持資料庫叢集、桌上型電腦和行動裝置之間的資料同步。
 {:shortdesc}
 
 如需其他 {{site.data.keyword.cloudant_short_notm}} 供應項目的相關資訊，請參閱主要 [{{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window} 網站。
 此處所提供的線上文件，提供有關 {{site.data.keyword.cloudant_short_notm}} 概念、作業及技術的詳細資料。
 
-您可以從 [{{site.data.keyword.Bluemix}} 儀表板 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window} 啟動 {{site.data.keyword.cloudant_short_notm}} 服務。
+您可以從 [{{site.data.keyword.cloud}} 儀表板 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){:new_window} 啟動 {{site.data.keyword.cloudant_short_notm}} 服務。
 
 [提供](index.html)利用 {{site.data.keyword.cloudant_short_notm}} 開始進行的「快速入門」，以及更詳細說明作業的[指導教學](tutorials/create_service.html#creating-a-service-instance)。
 在 [API 參考資料](api/index.html)中提供利用資料庫實例進行鑑別及查詢資料這類詳細資料的相關資訊。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-04-28 -->
+<!-- Acrolinx: 2018-05-31 -->
 
 # Esercitazione introduttiva
 {: #getting-started-with-cloudant}
@@ -36,11 +36,10 @@ Per ulteriori esercitazioni specifiche per i linguaggi, consulta le informazioni
 ## Prima di iniziare
 {: #prereqs}
 
-Avrai bisogno di un [account Bluemix ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/registration/){:new_window},
-di un'istanza del servizio {{site.data.keyword.cloudant}} e dei seguenti requisiti Python:
+Hai bisogno di un account [{{site.data.keyword.cloud}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://console.ng.bluemix.net/registration/){:new_window},
+un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} e dei seguenti requisiti Python:
 
-*	Installa l'ultima versione del
-	[linguaggio di programmazione Python ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://www.python.org/){:new_window} sul tuo sistema.
+*	Installa la versione più recente del [linguaggio di programmazione Python ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://www.python.org/){:new_window} sul tuo sistema.
 	
 	Per verificare,
 esegui il seguente comando quando richiesto:
@@ -49,7 +48,7 @@ esegui il seguente comando quando richiesto:
 	```
 	{:pre}
 	
-	Dovresti avere un risultato simile a:
+	Vedi un risultato simile al seguente:
 
 	```
 	Python 2.7.12
@@ -58,33 +57,33 @@ esegui il seguente comando quando richiesto:
 
 *	Installa la [libreria Python](libraries/supported.html#python)
 	per abilitare le tue applicazioni Python a utilizzare
-	{{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}.
+	{{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}.
 	
-	Per verificare di aver installato correttamente la libreria client,
-	immetti il seguente comando in un prompt:
+	Per verificare di avere installato correttamente la libreria client, esegui questo comando in un prompt:
 	```sh
 	pip freeze
 	```
 	{:pre}
 	
-	Dovresti ottenere un elenco di tutti i moduli Python installati sul sistema. Esamina l'elenco e cerca una voce {{site.data.keyword.cloudant_short_notm}} simile alla seguente:
+	Vedrai un elenco di tutti i moduli Python installati sul tuo sistema. Esamina l'elenco, cercando una voce {{site.data.keyword.cloudant_short_notm}} simile alla seguente:
 
 	```
 	cloudant==2.3.1
 	```
 	{:screen}
 	
-	Se il modulo `cloudant` non è installato, installalo utilizzando un comando simile a questo:
+	Se il modulo `cloudant` non è installato, installalo utilizzando un comando simile al seguente:
 	
 	```
 	pip install cloudant==2.3.1
 	```
 	{:pre}
 
-## Passo 1: connetti la tua istanza del servizio {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.Bluemix_notm}}
+## Passo 1: connetti la tua istanza del servizio {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}
+{: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
-1.	Immetti le seguenti istruzioni '`import`' dei componenti della libreria client {{site.data.keyword.cloudant_short_notm}}
-	per abilitare la connessione tra la tua applicazione Python e l'istanza del servizio
+1.	Esegui le istruzioni `import` dei componenti della libreria client {{site.data.keyword.cloudant_short_notm}}
+	per abilitare la tua applicazione Python a stabilire una connessione all'istanza del servizio
 	{{site.data.keyword.cloudant_short_notm}}.
 	```python
 	from cloudant.client import Cloudant
@@ -93,11 +92,21 @@ esegui il seguente comando quando richiesto:
 	```
 	{: codeblock}
 
-2. Identifica le credenziali del servizio {{site.data.keyword.cloudant_short_notm}}:
-  1. Nella console {{site.data.keyword.Bluemix_notm}}, apri il dashboard per la tua istanza del servizio.
-  2. Dal menu di navigazione di sinistra, fai clic su **`Credenziali del servizio`**.
-  3. Fai clic su **`Visualizza credenziali`** sotto **`AZIONI`**.
-
+2.  Crea una nuova credenziale del servizio {{site.data.keyword.cloudant_short_notm}}:
+  <br>Nella console {{site.data.keyword.cloud_notm}}, apri il dashboard per la tua istanza del servizio.
+  <br>Dal menu di navigazione di sinistra, fai clic su `Credenziali del servizio`.
+  <br>a. Fai clic sul pulsante `Nuova credenziale`.
+  <br>![Crea nuove credenziali del servizio](tutorials/images/img0050.png)
+  <br>b. Immetti un nome per la nuova credenziale nella finestra Aggiungi nuova credenziale, come mostrato nella seguente acquisizione di schermo.
+  <br>c. (Facoltativo) Aggiungi i parametri di configurazione incorporati.
+  <br>d. Fai clic sul pulsante `Aggiungi`.
+  <br>![Aggiungi una nuova credenziale del servizio](tutorials/images/img0051.png)
+  <br>Le tue credenziali vengono aggiunte alla tabella Credenziali del servizio.
+  <br>e. Fai clic su `Visualizza credenziali` in Azioni.
+  <br>![Visualizza tutte le credenziali del servizio](tutorials/images/img0052.png)
+  <br>Vengono visualizzati i dettagli per le credenziali del servizio:
+   <br>![Le credenziali del servizio {{site.data.keyword.cloudant_short_notm}}](tutorials/images/img0009.png)
+   
 3.	Stabilisci una connessione all'istanza del servizio immettendo il seguente comando:
 	Sostituisci le credenziali del servizio dal passo precedente:
 	```python
@@ -108,6 +117,7 @@ esegui il seguente comando quando richiesto:
 
 
 ## Passo 2: crea un database
+{: #step-2-create-a-database}
 
 1. Definisci una variabile nell'applicazione Python:
   ```python
@@ -116,7 +126,8 @@ esegui il seguente comando quando richiesto:
   {: codeblock}
   ... dove `<yourDatabaseName>` è il nome che vuoi fornire al tuo database. 
 
-  > **Nota:** il nome database deve iniziare con una lettera e può includere solo caratteri minuscoli (a-z), numeri (0-9) e uno qualsiasi dei seguenti caratteri `_`, `$`, `(`, `)`, `+`, `-` e `/`.
+  Il nome database deve iniziare con una lettera e può includere caratteri minuscoli (a-z), numeri (0-9) e uno qualsiasi dei seguenti caratteri `_`, `$`, `(`, `)`, `+`, `-` e `/`.
+  {: tip}
 
 2. Crea il database:
   ```python
@@ -124,7 +135,7 @@ esegui il seguente comando quando richiesto:
   ```
   {: codeblock}
 
-3. Conferma che il database sia stato creato correttamente:
+3. Conferma che il database è stato creato correttamente:
   ```python
   if myDatabase.exists():
       print "'{0}' successfully created.\n".format(databaseName)
@@ -132,6 +143,7 @@ esegui il seguente comando quando richiesto:
   {: codeblock}
 
 ## Passo 3: memorizza come documenti una piccola raccolta di dati all'interno del database
+{: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
 
 1. Definisci una raccolta di dati:
   ```python
@@ -149,7 +161,7 @@ esegui il seguente comando quando richiesto:
   Ogni documento viene memorizzato nel database:
 
   ```python
-  # Create documents using the sample data.
+  # Create documents by using the sample data.
   # Go through each row in the array
   for document in sampleData:
     # Retrieve the fields in each row.
@@ -167,7 +179,7 @@ esegui il seguente comando quando richiesto:
         "temperatureField": temperature
     }
 
-    # Create a document using the Database API.
+    # Create a document by using the database API.
     newDocument = myDatabase.create_document(jsonDocument)
 
     # Check that the document exists in the database.
@@ -176,18 +188,18 @@ esegui il seguente comando quando richiesto:
   ```
   {: codeblock}
 
-Nota che eseguiamo un controllo per garantire che ciascun documento venga creato correttamente.
-{: tip}
+  Nota che eseguiamo un controllo per garantire che ciascun documento venga creato correttamente.
+  {: tip}
 
 ## Passo 4: recupero di dati tramite query
+{: #step-4-retrieving-data-through-queries}
 
-A questo punto,
-una piccola raccolta di dati è stata memorizzata in forma di documenti all'interno del database.
+Una piccola raccolta di dati è stata archiviata come documenti nel database.
 Puoi effettuare un recupero minimo o completo di tali dati dal database.
 Un recupero minimo ottiene i dati di base _relativi_ a un documento.
 Un recupero completo include anche i dati _all'interno_ di un documento.
 
-* Per effettuare un recupero minimo:
+* Per eseguire un richiamo minimo:
   1. Per prima cosa, richiedi un elenco di tutti i documenti nel database.
     ```python
     result_collection = Result(myDatabase.all_docs)
@@ -209,9 +221,10 @@ Un recupero completo include anche i dati _all'interno_ di un documento.
     ```
     {:screen}
     
-    > **Nota:** il prefisso `u'` è semplicemente un'indicazione che Python sta visualizzando una stringa Unicode. 
-    
-    Se ordiniamo un po' l'aspetto, possiamo vedere che i dettagli minimi del documento che abbiamo ottenuto sono equivalenti a quanto segue:
+    Il prefisso `u` è un'indicazione che Python sta visualizzando una stringa Unicode.
+    {: tip}
+
+    Se ordiniamo un po' l'aspetto, possiamo vedere che i dettagli minimi del documento che abbiamo ottenuto sono equivalenti a questo esempio:
     
     ```json
     [
@@ -226,11 +239,12 @@ Un recupero completo include anche i dati _all'interno_ di un documento.
     ```
     {: codeblock}
 
-  > **Nota:** semplici convenzioni, come ad esempio quella secondo la quale il primo documento archiviato in un database è sempre il primo restituito in un elenco di risultati, non sempre si applicano ai database NoSQL come {{site.data.keyword.cloudant_short_notm}}.
+    L'idea che il primo documento archiviato in un database sia sempre il primo documento restituito in un elenco di risultati non si applica sempre ai database NoSQL come {{site.data.keyword.cloudant_short_notm}}.
+    {: tip}
 
-* Per effettuare un recupero completo,
-  richiedi un elenco di tutti i documenti all'interno del database
-  e specifica che deve essere restituito anche il contenuto del documento
+* Per eseguire un richiamo completo,
+  richiedi un elenco di tutti i documenti nel database e
+  specifica che anche il contenuto del documento deve essere restituito
   fornendo l'opzione `include_docs`.
   ```python
   result_collection = Result(myDatabase.all_docs, include_docs=True)
@@ -244,7 +258,7 @@ Un recupero completo include anche i dati _all'interno_ di un documento.
   ```
   {: screen}
   
-  Se ordiniamo un po' l'aspetto, possiamo vedere che i dettagli completi del documento che abbiamo ottenuto sono equivalenti a quanto segue:
+  Se ordiniamo un po' l'aspetto, possiamo vedere che i dettagli completi del documento che abbiamo ottenuto sono equivalenti a questo esempio:
   
   ```json
   [
@@ -268,6 +282,7 @@ Un recupero completo include anche i dati _all'interno_ di un documento.
   {: codeblock}
 
 ## Passo 5: recupero dei dati attraverso l'endpoint API {{site.data.keyword.cloudant_short_notm}}
+{: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
 Puoi anche richiedere un elenco di tutti i documenti e il loro contenuto
 richiamando l'[endpoint `/_all_docs`](api/database.html#get-documents) {{site.data.keyword.cloudant_short_notm}}.
@@ -280,8 +295,7 @@ richiamando l'[endpoint `/_all_docs`](api/database.html#get-documents) {{site.da
   {: codeblock}
   ... dove `<url>` è il valore URL indicato nelle credenziali del servizio che hai trovato nel passo 1.
 
-2. Invia la richiesta all'istanza del servizio,
-  quindi visualizza i risultati:
+2. Invia la richiesta all'istanza di servizio e visualizza i risultati:
   ```python
   response = client.r_session.get(end_point, params=params)
   print "{0}\n".format(response.json())
@@ -295,7 +309,7 @@ richiamando l'[endpoint `/_all_docs`](api/database.html#get-documents) {{site.da
   ```
   {:screen}
   
-  Possiamo ordinare un po' l'aspetto e vedere che i dettagli _abbreviati_ che abbiamo ottenuto sono simili a quanto segue:
+  Possiamo ordinare un po' l'aspetto e vedere che i dettagli _abbreviati_ che abbiamo ottenuto sono simili al seguente esempio:
   
   ```json
   {
@@ -340,6 +354,7 @@ richiamando l'[endpoint `/_all_docs`](api/database.html#get-documents) {{site.da
   {: codeblock}
 
 ## Passo 6: elimina il database
+{: #step-6-delete-the-database}
 
 Una volta terminato di utilizzare il database,
 è possibile eliminarlo.
@@ -354,10 +369,10 @@ else:
 ```
 {: codeblock}
 
-Abbiamo incluso una parte di gestione degli errori di base
-per illustrare in che modo rilevare ed affrontare i problemi.
+Abbiamo incluso della gestione degli errori di base per mostrarti come risolvere potenziali problemi e come occuparsene.
 
 ## Passo 7: chiudi la connessione all'istanza del servizio
+{: #step-7-close-the-connection-to-the-service-instance}
 
 Il passo finale consiste nel disconnettere l'applicazione client Python dall'istanza del servizio:
 
@@ -367,17 +382,18 @@ client.disconnect()
 {: codeblock}
 
 ## Passi successivi
+{: #next-steps}
 
 Per ulteriori informazioni su tutte le offerte {{site.data.keyword.cloudant_short_notm}},
 consulta il sito principale di [{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
 
 Per ulteriori dettagli ed esercitazioni su concetti, attività e tecniche di {{site.data.keyword.cloudant_short_notm}},
-vedi la
-[documentazione di {{site.data.keyword.cloudant_short_notm}}](cloudant.html).
+vedi la [documentazione di {{site.data.keyword.cloudant_short_notm}}](cloudant.html).
 
 ## Appendice: elenco completo di codice Python
+{: #appendix-complete-python-code-listing}
 
-L'elenco completo di codice Python è il seguente.
+L'elenco completo di codice Python è il seguente. 
 Ricordati di sostituire i valori `<username>`,
 `<password>`,
 e `<url>` con le tue credenziali del servizio.

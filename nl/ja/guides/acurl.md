@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-01-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 許可済み curl: `acurl`
 
@@ -27,6 +30,9 @@ _(このガイドは、Samantha Scharr によるブログ記事[『Authorized cu
 1.	[ユーザー名とパスワードをエンコードする](#encode-username-and-password)
 2.	[別名を作成する](#create-an-alias)
 3.	[別名をアクティブ化する](#activate-the-alias)
+
+Windows コンピューターを使用している場合、コマンド・ラインからユーザー名とパスワードを指定できます。
+{:tip}
 
 ## ユーザー名とパスワードをエンコードする
 

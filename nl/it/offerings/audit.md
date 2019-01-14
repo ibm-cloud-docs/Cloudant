@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-04-12"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-04-12"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2018-00-00 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Registrazione di controllo
 
@@ -36,7 +37,7 @@ I log di controllo {{site.data.keyword.cloudant_short_notm}} possono essere util
 
 ## Come accedere ai log di controllo per il tuo account
 
-Per richiedere l'accesso ai log di controllo per il tuo account, contatta il supporto {{site.data.keyword.cloudant_short_notm}}. Il supporto fornirà l'accesso ai log di controllo di interesse.
+Per richiedere l'accesso ai log di controllo per il tuo account, contatta il supporto {{site.data.keyword.cloudant_short_notm}}. Il supporto fornisce una copia dei log di controllo di interesse per te.
 
 Quando contatti il supporto, assicurati di includere:
 

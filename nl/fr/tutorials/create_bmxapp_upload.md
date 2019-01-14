@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-01-11 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Création d'une application {{site.data.keyword.cloud_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}} : téléchargement de l'application
 
@@ -61,9 +62,10 @@ Vous devez indiquer les détails du compte suivants :
 -   Votre nom d'organisation, spécifié en tant que paramètre '`-o`'.
 -   Votre espace, spécifié en tant que paramètre '`-s`'.
 
->   **Remarque** : Les détails du compte sont disponibles dans votre tableau de bord {{site.data.keyword.cloud_notm}}
-    lorsque vous vous connectez via un navigateur Web, comme indiqué dans l'exemple suivant :<br/>
-    ![Recherche des détails du compte {{site.data.keyword.cloud_notm}}](images/img0035.png)
+  Les détails du compte sont disponibles sur votre tableau de bord {{site.data.keyword.cloud_notm}} lorsque vous vous connectez via un navigateur Web, comme illustré dans l'exemple ci-dessous :
+  {: tip}
+
+  ![Recherche des détails de votre compte {{site.data.keyword.cloud_notm}}](images/img0035.png)
 
 Utilisez une commande similaire à l'exemple suivant pour vous connecter à votre environnement d'application {{site.data.keyword.cloud_notm}}.
 Vous êtes invité à entrer le mot de passe de votre compte.
@@ -198,31 +200,25 @@ buildpack: python 1.5.5
 
 ## Test du modèle d'application
 
-Lorsque l'environnement d'application {{site.data.keyword.cloud_notm}}
-est créé pour la première fois, le tableau de bord inclut un lien dans la colonne `Route` de l'application:<br/>
+Testez maintenant votre application et vérifiez qu'elle fonctionne correctement. 
+
+1.  Ouvrez le tableau de bord {{site.data.keyword.cloud_notm}}. Le lien vers l'application que vous avez créée s'affiche sous Applications Cloud Foundry. Cliquez sur `Cloudant CF app` pour ouvrir la page d'information détaillée.<br/>  
 ![Capture d'écran représentant le tableau de bord de l'application](images/img0017.png)
 
-Cliquez sur ce lien pour ouvrir une fenêtre de navigateur qui demande certaines
-données à l'application à l'écoute sur le port correspondant.
-L'application répond en renvoyant le contenu du fichier journal généré lors de son démarrage :<br/>
-![Fichier journal généré au démarrage de l'application du tutoriel](images/img0030.png)
+2.  Sur la page d'information détaillée `Cloudant CF app`, cliquez sur `Routes` puis cliquez sur le lien `Cloudant-CF-app.mybluemix.net`. <br/>
+![Page d'information détaillée d'application Cloudant CF](images/img0030.png)
 
-Le contenu de ce fichier journal est intéressant.
-Les heures de début et de fin apparaissent clairement.
-Dans cet intervalle, le journal enregistre chaque détail au fur et à mesure de
-l'extraction des informations de connexion de {{site.data.keyword.cloudant_short_notm}}.
-Les valeurs réelles de la connexion ne sont pas importantes.
-Le journal indique que l'application du tutoriel a pu localiser, extraire et utiliser ces
-valeurs pour créer un document dans la base de données {{site.data.keyword.cloudant_short_notm}}.
+3. Une nouvelle fenêtre de navigateur s'ouvre à l'adresse https://cloudant-cf-app.mybluemix.net/. Le message vérifie que l'application est en cours. Il dit "Hello World! Thanks for creating a Python Starter Application."<br/>
+![Hello World! a vérifié que l'application Cloudant CF fonctionne correctement](images/img0054.png)
+
 
 ### Confirmation des détails de la base de données
 
-Commencez par ouvrir le tableau de bord {{site.data.keyword.cloudant_short_notm}}.
-Cliquez sur l'icône `Lancer` de l'onglet `Gérer` sur la page du service {{site.data.keyword.cloudant_short_notm}} :<br/>
-![Icône Lancer sur la page du service {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
+Dans le tableau de bord {{site.data.keyword.cloud_notm}}, ouvrez l'instance de service {{site.data.keyword.cloudant_short_notm}} que vous avez créée. Cliquez sur l'instance de service. Accédez à l'onglet `Gérer` et cliquez sur `Lancer le tableau de bord Cloudant`.<br/>
+![Lancer le tableau de bord Cloudant sur la page de service {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
 
-Pour trouver la page de votre service {{site.data.keyword.cloudant_short_notm}}, reportez-vous aux informations détaillées
-indiquées dans le [tutoriel Création d'une instance {{site.data.keyword.cloudant_short_notm}}](create_service.html#locating-your-service-credentials).
+Pour trouver votre page de service {{site.data.keyword.cloudant_short_notm}},
+reportez-vous aux informations détaillées contenues dans le tutoriel [Création d'une instance {{site.data.keyword.cloudant_short_notm}}](create_service.html#locating-your-service-credentials).
 {: tip}
 
 Lorsque le tableau de bord s'affiche, vous pouvez voir que l'application a créé la
@@ -233,10 +229,10 @@ La base de données contient un seul document, créé par l'application.
 Pour vérifier la présence du document, cliquez sur le nom de la base de données dans le
 tableau de bord.
 La liste des options pour la base de données s'affiche.
-Lorsque vous sélectionnez l'onglet `All documents`, les détails d'un seul document s'affichent :<br/>
+Lorsque vous sélectionnez l'onglet `Tous les documents`, les détails d'un seul document s'affichent :<br/>
 ![Un document dans la nouvelle base de données](images/img0032.png)
 
-Pour afficher le contenu du document, cliquez sur l'icône `Edit` représentée par un crayon :<br/>
+Pour afficher le contenu du document, cliquez sur l'icône `Editer` représentée par un crayon :<br/>
 ![Détails du document](images/img0033.png)
 
 Lorsque le contenu du document apparaît, vous pouvez voir chaque zone créée par

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-11"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-05-11"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-02-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}} dedicado
 
@@ -45,12 +46,7 @@ comparte los recursos de hardware subyacentes que forman el entorno {{site.data.
 ## Seguridad, cifrado y conformidad 
 
 Todos los planes se proporcionan en servidores con el cifrado de disco [en reposo ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://en.wikipedia.org/wiki/Data_at_rest). El acceso se encuentra en la conexión de red publica y está cifrado mediante HTTPS. Para obtener más detalles, consulte [Seguridad ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](../offerings/security.html#security){:new_window}. 
-La lista blanca de IP está disponible bajo demanda para el equipo de soporte de {{site.data.keyword.cloudant_short_notm}} y se aplicará a todo el entorno {{site.data.keyword.cloudant_short_notm}} y no a nivel de instancia. 
-
-Si necesita BYOK (Bring-Your-Own-Key) para el cifrado en reposo, esto se habilita a través de {{site.data.keyword.cloud}} Key
-Protect. {{site.data.keyword.cloudant_short_notm}} da soporte a esta característica para las nuevas instancias del [plan de hardware dedicado](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public) de {{site.data.keyword.cloudant_short_notm}} desplegadas en todas las regiones. En primer lugar, cree una instancia del plan de hardware dedicado
-a través del [Catálogo de {{site.data.keyword.cloud_notm}}](https://console.bluemix.net/catalog/). A continuación, envíe una incidencia de soporte y nuestro equipo de soporte coordinará la obtención de las claves de cifrado en reposo de la nueva instancia de hardware dedicado
-gestionadas mediante la instancia de Key Protect. 
+La lista blanca de IP está disponible bajo demanda para el equipo de soporte de {{site.data.keyword.cloudant_short_notm}} y se aplicará a todo el entorno {{site.data.keyword.cloudant_short_notm}} y no a nivel de instancia.  
 
 El plan también ofrece un [Compliance Certificado ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.bluemix.net/docs/services/Cloudant/offerings/compliance.html#cloudant-security-compliance){:new_window}. 
 

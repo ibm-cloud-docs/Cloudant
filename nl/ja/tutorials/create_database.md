@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}} での単純 {{site.data.keyword.cloudant_short_notm}} データベースの作成とデータ取り込み
 
@@ -75,7 +78,7 @@ cloudant==2.3.1
 `host`     | アプリケーションがサービス・インスタンスを検索するために使用するホスト名。
 `username` | アプリケーションがサービス・インスタンスにアクセスするために必要なユーザー名。
 `password` | アプリケーションがサービス・インスタンスにアクセスするために必要なパスワード。
-`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。通常、443 で HTTPS アクセスを強制します。
+`port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。 通常、443 で HTTPS アクセスを強制します。
 `url`      | その他の資格情報を単一の URL に集約したストリング。アプリケーションによる使用に適しています。
 
 サービス・インスタンスのサービス資格情報の検索に関する情報は、

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 文档版本控制和 MVCC
 
@@ -39,7 +42,7 @@ lastupdated: "2018-06-07"
 
 
 
-可以使用相应的 `_rev` 来查询特定修订版，但是旧修订版会被名为 [compaction ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://en.wikipedia.org/wiki/Data_compaction){:new_window} 的进程定期删除。compaction 的一个结果是，使用相应的 `_rev` 来查询特定文档修订版以获取文档修订版的历史记录时，响应不一定会成功。如果需要文档的版本历史记录，解决方案是对每个修订版[创建新文档](../api/document.html#documentCreate)。
+可以使用相应的 `_rev` 来查询特定修订版，但是较旧的修订版会被称为[压缩 ![外链接图标](../images/launch-glyph.svg "外部链接图标")](http://en.wikipedia.org/wiki/Data_compaction){:new_window} 的进程定期删除。压缩的一个结果是，使用相应的 `_rev` 来查询特定文档修订版以获取文档修订版的历史记录时，响应不一定会成功。如果需要文档的版本历史记录，解决方案是对每个修订版[创建新文档](../api/document.html#documentCreate)。
 
 ## 分布式数据库和冲突
 

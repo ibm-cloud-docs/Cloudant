@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,8 +11,9 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-<!-- Acrolinx: 2017-05-23 -->
+<!-- Acrolinx: 2017-05-10 -->
 <!-- Update backup-guide.md with with any changes. -->
 
 # {{site.data.keyword.cloudant_short_notm}}-Sicherung und -Wiederherstellung
@@ -111,9 +112,9 @@ Das CouchBackup-Paket bietet zwei Möglichkeiten zur Verwendung seiner Kernfunkt
 
 Verwenden Sie entweder das Befehlszeilen-Sicherungstool oder die Bibliothek mit Anwendungscode,
 um Sicherungen aus {{site.data.keyword.cloudant_short_notm}}-Datenbanken als Teil komplexerer Situationen zuzulassen.
-Ein nützliches Szenario ist das Planen von Sicherungen mithilfe von `cron` und das automatische Hochladen von Daten in den
-[Cloudobjektspeicher ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window}
-für eine langfristige Aufbewahrung.
+Ein nützliches Szenario ist das Planen von Sicherungen mithilfe von `cron` und das automatische Hochladen von Daten in
+[Cloud Object Storage ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window}
+zur langfristigen Aufbewahrung.
 
 ## Beispiele für das Befehlszeilenscripting
 
@@ -200,11 +201,11 @@ Die Bibliothek kann in komplexeren Szenarios wie den folgenden hilfreich sein:
 
 Weitere Informationen finden Sie auf der [npm-Seite ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{:new_window}.
 
-Das folgende Beispielscript zeigt, wie die Bibliothek `couchbackup` unter Verwendung von {{site.data.keyword.IBM}} Cloud-Objektspeicher kombiniert werden kann.
+Das folgende Beispielscript zeigt, wie die Bibliothek `couchbackup` mit {{site.data.keyword.IBM}} Cloud Object Storage kombiniert werden kann.
 Dieser Code stellt dar, wie Sie die regionsübergreifende S3-API zum Sichern einer Datenbank in einem Objektspeicher verwenden können.
 
 > **Hinweis**: Eine Voraussetzung für den Code ist die Initialisierung des S3-Clientobjekts für
-  {{site.data.keyword.IBM_notm}} Cloud-Objektspeicher anhand
+  {{site.data.keyword.IBM_notm}} Cloud Object Storage anhand
 [dieser Anweisungen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][cosclient]{:new_window}.
 {:tip}
 

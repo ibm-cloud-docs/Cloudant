@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-05-18"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,13 +11,16 @@ lastupdated: "2018-05-18"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Mis 5 mejores consejos para modelar los datos que desea escalar
 
 En este artículo se habla sobre cómo modelar los datos de la aplicación para que funcionen de forma eficiente a gran escala.
 {:shortdesc}
 
-(Esta guía se basa en el artículo del Blog de Mike Rhodes:
+_(Esta guía se basa en el artículo del Blog de Mike Rhodes:
 ["My top 5 tips for modelling your data to scale" (Mis 5 mejores consejos para modelar los datos que desea escalar) ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window},
 publicado originalmente el 17 de diciembre de 2013.)_
 

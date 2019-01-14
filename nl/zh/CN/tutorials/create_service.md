@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,90 +11,97 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
-# 在 {{site.data.keyword.Bluemix_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例
+<!-- Acrolinx: 2018-09-19 -->
 
-本教程说明了如何使用 {{site.data.keyword.Bluemix}}“仪表板”来创建 {{site.data.keyword.cloudantfull}} 服务实例，以及在何处可找到支持应用程序使用数据库的基本信息。
-{:shortdesc}
+# 在 {{site.data.keyword.cloud_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例
 
-要访问 {{site.data.keyword.cloudant_short_notm}} 服务实例，您需要一组[服务凭证](#the-service-credentials)。在创建服务实例的过程中会生成这些凭证。
-
-您还可以通过访问自己的 {{site.data.keyword.cloudant_short_notm}} 帐户，随时查找这些凭证。
+本教程说明了如何使用 {{site.data.keyword.cloud}}“仪表板”来创建 {{site.data.keyword.cloudantfull}} 服务实例，以及在何处可找到支持应用程序使用数据库的基本信息。
+{:shortdesc} 
 
 ## 创建服务实例
 
-1.  登录到 {{site.data.keyword.Bluemix_notm}} 帐户。<br/>
-{{site.data.keyword.Bluemix_notm}}“仪表板”位于 [http://bluemix.net ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://bluemix.net){:new_window}。使用用户名和密码进行认证后，将显示 {{site.data.keyword.Bluemix_notm}}“仪表板”：<br/>
-    ![{{site.data.keyword.Bluemix_notm}}“仪表板”](images/img0001.png)
+1.  登录到 {{site.data.keyword.cloud_notm}} 帐户。<br/>
+在以下地址可找到 {{site.data.keyword.cloud_notm}}“仪表板”：[http://console.bluemix.net ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://bluemix.net){:new_window}。使用用户名和密码进行认证后，将显示不包含任何服务实例的 {{site.data.keyword.cloud_notm}}“仪表板”：<br/>
+    ![{{site.data.keyword.cloud_notm}}“仪表板”](images/img0001.png)
 
-2.  单击`目录`链接：<br/>
-    ![{{site.data.keyword.Bluemix_notm}}“目录”链接](images/img0002.png)<br/>
-这将显示 {{site.data.keyword.Bluemix_notm}} 上可用服务的列表。
+2.  单击`创建资源`按钮：<br/>
+    ![{{site.data.keyword.cloud_notm}}“目录”链接](images/img0002.png)<br/>
+这将显示 {{site.data.keyword.cloud_notm}} 上可用服务的列表。
 
-3.  单击`服务`标题下的`数据和分析`条目：<br/>
-    ![{{site.data.keyword.Bluemix_notm}}“数据和分析”服务](images/img0003.png)<br/>
-这将显示 {{site.data.keyword.Bluemix_notm}} 上可用“数据和分析”服务的列表。
+3.  单击`数据库`类别，然后选择 `Cloudant` 服务：<br/>
+    ![{{site.data.keyword.cloud_notm}} 数据库服务](images/img0003.png)<br/>
 
-4.  单击 {{site.data.keyword.cloudant_short_notm}} 服务：<br>
-    ![ {{site.data.keyword.Bluemix_notm}} {{site.data.keyword.cloudant_short_notm}} 服务选择](images/img0004.png)
-
-5.  在“服务配置”窗口中，输入服务名称。在此示例中，服务名称为 `Cloudant Service 2017`：<br/>
+4.  在“服务配置”窗口中，输入服务名称。验证服务名称、区域/位置、资源组和认证方法是否正确。可用的认证方法包括`仅使用 IAM` 或`使用旧凭证和 IAM`。有关更多信息，请参阅[认证方法](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){:new_window}。在此示例中，服务名称为 `Cloudant-o7`：<br/>
     ![{{site.data.keyword.cloudant_short_notm}} 服务名称和凭证](images/img0005.png)
 
-6.  缺省情况下，将使用“轻量”价格套餐来创建服务，这是免费套餐，提供的容量有限。另外[提供](../offerings/bluemix.html)了容量更大的其他价格套餐。<br/>
-要创建服务，请单击`创建`按钮：<br/>
+5.  缺省情况下，将使用“轻量”价格套餐来创建服务，这是免费套餐，但其中供应的吞吐量容量和数据存储量固定不变。如果您有付费 {{site.data.keyword.cloud_notm}} 帐户，那么还可以选择付费“标准”套餐，以便可以根据需要切换供应吞吐量容量和扩展数据使用量。有关价格套餐的更多信息，请参阅[套餐](../offerings/bluemix.html#plans){:new_window}。要创建服务，请单击`创建`按钮：<br/>
     ![创建 {{site.data.keyword.cloudant_short_notm}} 服务名称和凭证](images/img0006.png)
 
-7.  这将显示服务页面，确认新的 {{site.data.keyword.cloudant_short_notm}} 服务是否可用。要访问应用程序连接到服务所需的连接信息，请单击`服务凭证`选项卡：<br/>
-    ![访问 {{site.data.keyword.cloudant_short_notm}} 服务凭证](images/img0007.png)
+6.  这将显示服务页面，在其中确认新的 {{site.data.keyword.cloudant_short_notm}} 服务是否可用。要创建应用程序连接到服务所需的连接信息，请单击`服务凭证`选项卡：<br/>
+    ![创建 {{site.data.keyword.cloudant_short_notm}} 服务凭证](images/img0007.png)
 
-8.  这将显示“服务凭证”窗口。要查看访问服务所需的凭证，请单击`查看凭证`下拉列表：<br/>
-    ![查看 {{site.data.keyword.cloudant_short_notm}} 服务凭证](images/img0008.png)
+7.  创建新的 {{site.data.keyword.cloudant_short_notm}} 服务凭证：
+  <br>a. 单击`新建凭证`按钮。
+  <br>![创建新的服务凭证](images/img0050.png)
+  <br>b. 在“添加新凭证”窗口中，输入新凭证的名称。请参阅图像。
+  <br>c. 接受“管理员”角色。
+  <br>d. 创建新的服务标识，或者让系统自动生成服务标识。
+  <br>d.（可选）添加内联配置参数。请注意，{{site.data.keyword.cloudant_short_notm}} 服务凭证当前未使用此参数，因此请将其忽略。
+  <br>e. 单击`添加`按钮。</br>
+  <br>![添加新的服务凭证](images/img0051.png)
+  <br>新凭证将显示在表之后。</br>
+  <br>f. 单击“操作”下的`查看凭证`。
+  <br>![查看所有服务凭证](images/img0052.png)
 
-9.  这将显示服务凭证的详细信息。<br/>
+8.  这将显示服务凭证的详细信息：<br/>
     ![{{site.data.keyword.cloudant_short_notm}} 服务凭证](images/img0009.png)
 
->   **注**：这些示例中的服务凭证
-是在 {{site.data.keyword.cloudant_short_notm}} 上创建演示 {{site.data.keyword.cloudant_short_notm}} 服务时定义的。在此重现这些凭证，是为了说明这些凭证在仪表板中的显示方式。但是，现在已除去了演示 {{site.data.keyword.cloudant_short_notm}} 服务，因此这些凭证不再有效；您_必须_提供并使用自己的服务凭证。
-
+这些示例中的服务凭证是在 {{site.data.keyword.cloudant_short_notm}} 上创建演示 {{site.data.keyword.cloudant_short_notm}} 服务时定义的。在此重现这些凭证，是为了显示这些凭证在仪表板中的外观。但是，演示 {{site.data.keyword.cloudant_short_notm}} 服务已除去，因此这些凭证不再有效。您_必须_提供并使用自己的服务凭证。
+{: tip}
 
 ## 服务凭证
 
->   **注**：服务凭证十分重要。
-如果任何人或任何应用程序有权访问凭证，那么就能使用服务实例有效地执行所需的一切操作，例如可以创建伪造数据或删除宝贵的信息。因此，请谨慎保护这些凭证。
+服务凭证十分重要。如果任何人或任何应用程序有权访问凭证，那么就能使用服务实例有效地执行所需的一切操作。例如，可能会创建虚假数据，或删除有价值的信息。因此，请谨慎保护这些凭证。
 
 
+    
+{{site.data.keyword.cloudant_short_notm}} 在供应时提供了两种认证方法：`仅使用 IAM` 或`使用旧凭证和 IAM`。仅当选择了`使用旧凭证和 IAM` 认证方法时，才能查看有关旧凭证的详细信息。凭证会显示在实例的“服务凭证”选项卡上。有关更多信息，请参阅 [IAM 指南](guides/iam.html#ibm-cloud-identity-and-access-management-iam-)和[旧认证](api/authentication.html#authentication)文档，以获取有关使用任一种认证方式的详细信息。
 
-服务凭证由五个字段组成：
+服务凭证包含以下字段：
 
 字段       |用途
------------|--------
-`host`     |应用程序用于查找服务实例的主机名。
-`username` |应用程序访问服务实例所需的用户名。
-`password` |应用程序访问服务实例所需的密码。
-`port`     |用于访问主机上服务实例的 HTTP 端口号。通常为 443，可强制执行 HTTPS 访问。
-`url`      |将其他凭证信息聚集到单个 URL 中（使其适合应用程序使用）的字符串。
+------|--------
+`username` |URL 中服务实例用户的服务名称。此字段还用作管理用户名。
+`password` |应用程序访问服务实例所需的旧凭证密码。仅当选择了`使用旧凭证和 IAM` 选项时，此字段才会显示。
+`host`     |应用程序用于查找服务实例的主机名。仅当选择了`使用旧凭证和 IAM` 选项时，此字段才会显示。
+`port`     |用于访问主机上服务实例的 HTTPS 端口号。此端口为 443，因为 {{site.data.keyword.cloudant_short_notm}} 只允许 HTTPS 访问。仅当选择了`使用旧凭证和 IAM` 选项时，此字段才会显示。
+`url`|用于访问 {{site.data.keyword.cloudant_short_notm}} 实例的 HTTPS URL。如果选择了`使用旧凭证和 IAM` 选项，那么还会包含嵌入的旧用户名和密码。
+`apikey`|IAM API 密钥。
+`iam_apikey_description`|IAM API 密钥的描述。
+`iam_apikey_name`|IAM API 密钥的标识。
+`iam_role_crn`|IAM API 密钥具有的 IAM 角色。
+`iam_serviceid_crn`|服务标识的 CRN。
 
-要创建可以访问服务实例的应用程序，您需要这些凭证。
+要创建可访问服务实例的应用程序，您需要这些凭证。
 
 ## 查找服务凭证
 
 您可以随时查找与帐户关联的服务的凭证。
 
-1.  首先，请登录到 {{site.data.keyword.cloudant_short_notm}}。{{site.data.keyword.Bluemix}}“仪表板”位于 [http://bluemix.net ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://bluemix.net){:new_window}。使用用户名和密码进行认证后，将显示 {{site.data.keyword.Bluemix_notm}}“仪表板”：<br/>
-    ![{{site.data.keyword.Bluemix_notm}}“仪表板”](images/img0001.png)
+1.  首先，登录到 {{site.data.keyword.cloud_notm}}。在以下地址可找到 {{site.data.keyword.cloud_notm}}“仪表板”：[http://bluemix.net ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://bluemix.net){:new_window}。使用用户名和密码进行认证后，将显示 {{site.data.keyword.cloud_notm}}“仪表板”：<br/>
+    ![{{site.data.keyword.cloud_notm}}“仪表板”](images/img0053.png)
 
-2.  向下滚动“仪表板”，直至到达列出所有服务的部分：<br/>
-    ![{{site.data.keyword.Bluemix_notm}} 的服务列表](images/img0010.png)
-
-3.  在此示例中，我们希望查找先前在教程中创建的 {{site.data.keyword.cloudant_short_notm}} 服务实例（名为 `Cloudant Service 2017`）的服务凭证。单击对应的行：<br/>
+2.  在此示例中，我们希望查找在本教程先前部分中创建的 {{site.data.keyword.cloudant_short_notm}} 服务实例（名为 `Cloudant-o7`）的服务凭证。单击对应的行：<br/>
     ![选择 {{site.data.keyword.cloudant_short_notm}} 服务](images/img0011.png)
 
-3.  这将显示“服务凭证”窗口。要查看访问服务所需的凭证，请单击`查看凭证`下拉列表：<br/>
-    ![查看 {{site.data.keyword.cloudant_short_notm}} 服务凭证](images/img0008.png)
+3.  要查看访问服务所需的凭证，请单击`查看凭证`：<br/>
+    ![查看 {{site.data.keyword.cloudant_short_notm}} 服务凭证](images/img0052.png)
 
-4.  这将显示服务凭证的详细信息。<br/>
+4.  这将显示服务凭证的详细信息：<br/>
     ![{{site.data.keyword.cloudant_short_notm}} 服务凭证](images/img0009.png)
 
->   **注**：这些示例中的服务凭证
-是在 {{site.data.keyword.cloudant_short_notm}} 上创建演示 {{site.data.keyword.cloudant_short_notm}} 服务时定义的。在此重现这些凭证，是为了说明这些凭证在仪表板中的显示方式。但是，现在已除去了演示 {{site.data.keyword.cloudant_short_notm}} 服务，因此这些凭证不再有效；您_必须_提供并使用自己的服务凭证。
+这些示例中的服务凭证是在 {{site.data.keyword.cloudant_short_notm}} 上创建演示 {{site.data.keyword.cloudant_short_notm}} 服务时定义的。在此重现这些凭证，是为了显示这些凭证在仪表板中的外观。但是，演示 {{site.data.keyword.cloudant_short_notm}} 服务已除去，因此这些凭证不再有效。您_必须_提供并使用自己的服务凭证。
+{: tip}
+

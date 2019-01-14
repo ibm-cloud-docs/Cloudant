@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -222,9 +222,9 @@ export COUCH_URL=http://127.0.0.1:5984
 ```
 {:codeblock}
 
-이 URL은 HTTP 또는 HTTPS일 수 있으며 인증 신임 정보를 포함할 수 있습니다.
+이 URL은 HTTP 또는 HTTPS일 수 있으며 인증 인증 정보를 포함할 수 있습니다.
 
-_인증 신임 정보를 포함하는 {{site.data.keyword.cloudant_short_notm}} 인스턴스의 URL 정의:_
+_인증 인증 정보를 포함하는 {{site.data.keyword.cloudant_short_notm}} 인스턴스의 URL 정의:_
 
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com

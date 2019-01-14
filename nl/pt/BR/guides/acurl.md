@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2017
-lastupdated: "2017-01-06"
+  years: 2015, 2018
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-01-06"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Curl autorizado: `acurl`
 
@@ -18,8 +21,7 @@ _(Este guia se baseia em um artigo do Blog de Samantha Scharr: [
 "Curl autorizado, também conhecido como acurl" ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){:new_window},
 publicado originalmente em 27 de novembro de 2013.)_
 
-`acurl` é um alias prático que permite usar `curl` de comandos do {{site.data.keyword.cloudantfull}} para URLs
-sem ter que inserir seu nome do usuário e senha para cada solicitação.
+`acurl` é um alias útil que permite executar `curl` de comandos {{site.data.keyword.cloudantfull}} para URLs sem ter que inserir seu nome de usuário e senha para cada solicitação.
 Isso significa que um simples `GET` para um banco de dados não precisa mais ser gravado como
 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`;
 em vez disso, basta usar `https://$ACCOUNT.cloudant.com/foo`.
@@ -32,13 +34,16 @@ ele garante que sua senha não seja enviada em texto sem formatação pela rede,
 
 São necessárias apenas três etapas simples:
 
-1.	[Codificar o nome do usuário e a senha](#encode-username-and-password).
+1.	[ Codificar nome de usuário e senha ](#encode-username-and-password).
 2.	[Criar um alias](#create-an-alias)
 3.	[Ativar o alias](#activate-the-alias).
 
-## Codificar o nome do usuário e a senha
+Se você estiver usando um computador Windows, será possível especificar seu nome de usuário e senha por meio da linha de comandos.
+{:tip}
 
-Primeiro, codificamos em base64 seu nome do usuário e senha do {{site.data.keyword.cloudant_short_notm}}.
+## Codificar nome de usuário e senha
+
+Primeiro, codificamos seu nome de usuário e senha do {{site.data.keyword.cloudant_short_notm}} com base64.
 Isso nos dá uma sequência de caracteres base64 como saída.
 
 O comando para codificar alguns dados com base64 é semelhante ao exemplo a seguir:

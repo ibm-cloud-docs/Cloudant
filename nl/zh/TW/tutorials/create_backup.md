@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2017-11-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,9 @@ lastupdated: "2017-11-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # 建立備份
 
@@ -138,7 +141,7 @@ npm install -g @cloudant/couchbackup
     
 ## 設定環境變數
 
-您可以使用環境變數或指令行選項，來指定您要使用 CouchBackup 的 CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 實例的 URL 及資料庫。 
+您可以使用環境變數或指令行選項，來指定您要搭配使用 CouchBackup 的 CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 實例的 URL 及資料庫。 
 
 在本指導教學中，我們會設定 `COUCH_URL`，並使用 `--db` 參數來指定資料庫。 
 
@@ -346,11 +349,11 @@ CouchBackup 公用程式會將資料庫備份至文字檔來保留資料，並�
 
 您可以使用 `couchrestore` 指令，將資料從 `couchbackup-demo-backup.txt` 檔案還原至新的空白資料庫。 
 
-> **附註**：只有在還原至空白資料庫時，才支援還原備份。如果您刪除資料庫中的所有文件，則基於抄寫一致性目的，仍會保留文件刪除記錄。這表示不會將只包含已刪除文件的資料庫視為空資料庫，因此不能用來作為還原備份時的目標。
+> **附註**：只有在還原至空白資料庫時，才支援還原備份。如果您刪除資料庫中的所有文件，則基於抄寫一致性目的，仍會保留文件刪除記錄。這表示不會將只包含已刪除文件的資料庫視為空白資料庫，因此不能用來作為還原備份時的目標。
 
 
 
-1.  （必要條件）建立新的空資料庫，以便在其中還原資料。
+1.  （必要條件）建立新的空白資料庫，以便在其中還原資料。
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo-restore -X PUT

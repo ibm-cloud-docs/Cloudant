@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,12 +13,12 @@ lastupdated: "2018-06-07"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2018-06-07 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Preisstruktur
 {: #pricing}
 
-Mit {{site.data.keyword.cloudantfull}} können Sie die bereitgestellte Durchsatzkapazität nach oben und unten skalieren, die eine reservierte Anzahl von Suchvorgängen, Schreibvorgängen und Abfragen für jede einer Instanz zugewiesene Sekunde darstellt. Die Durchsatzkapazität ist die maximale Nutzungsstufe. Wenn Sie versuchen, die reservierte Kapazität zu überschreiten, erhalten Sie einen HTTP 429-Statuscode, der angibt, dass die Anwendung versucht, die bereitgestellte Durchsatzkapazität zu überschreiten. 
+Mit {{site.data.keyword.cloudantfull}} können Sie die bereitgestellte Durchsatzkapazität nach oben und unten skalieren, die eine reservierte Anzahl von Suchvorgängen, Schreibvorgängen und Abfragen für jede einer Instanz zugewiesene Sekunde darstellt. Die Durchsatzkapazität ist die maximale Nutzungsstufe. Wenn Sie versuchen, die reservierte Kapazität zu überschreiten, erhalten Sie einen HTTP 429-Statuscode, der angibt, dass die Anwendung versucht, die bereitgestellte Durchsatzkapazität zu überschreiten.
 
 
 ## Preisbeispiele 
@@ -26,11 +26,11 @@ Mit {{site.data.keyword.cloudantfull}} können Sie die bereitgestellte Durchsatz
 
 Nehmen wir an, Sie erstellen mit {{site.data.keyword.cloudant_short_notm}} eine mobile App und kennen Ihre benötigte Kapazität noch nicht. In diesem Fall empfehlen wir, mit der niedrigsten bereitgestellten Durchsatzkapazität zu beginnen und sie je nach Bedarf im Laufe der Zeit zu erhöhen, je nachdem, wie viel Kapazität Ihre Anwendung benötigt. {{site.data.keyword.cloudant_short_notm}}-Rechnungen werden anteilmäßig pro Stunde berechnet. Die Änderung der bereitgestellten Durchsatzkapazität verursacht keine Ausfallzeiten. 
 
-Beispiel für die mobile App: Sie beginnen mit der minimalen bereitgestellten Durchsatzkapazität für den Standardplan, die 100 Suchvorgänge/Sek., 50 Schreibvorgänge/Sek. und 5 Abfragen/Sek. enthält. Die Kosten für diese Kapazität betragen 0,105 US-Dollar pro Stunde. Die 100 Suchvorgänge/Sek., 50 Schreibvorgänge/Sek. und 5 Abfragen/Sek. sind ein Block bereitgestellter Durchsatzkapazität. Wenn Sie nach oben (oder unten) skalieren müssen, können Sie diese Kapazitätsblöcke schrittweise skalieren. Unter der Voraussetzung, dass die Instanz weniger als die 20 GB Speicherkapazität hat, die im Standardplan enthalten ist, entstehen keine Speicherkosten. Auf der Registerkarte {{site.data.keyword.cloudant_short_notm}} Dashboard > Konto > Kapazität sieht die Einstellung für die bereitgestellte Durchsatzkapazität wie in diesem Screenshot aus:
+Beispiel für die mobile App: Sie beginnen mit der minimalen bereitgestellten Durchsatzkapazität für den Standard-Plan, die 100 Suchvorgänge/Sek., 50 Schreibvorgänge/Sek. und 5 Abfragen/Sek. enthält. Die Kosten für diese Kapazität betragen 0,105 US-Dollar pro Stunde. Die 100 Suchvorgänge/Sek., 50 Schreibvorgänge/Sek. und 5 Abfragen/Sek. sind ein Block bereitgestellter Durchsatzkapazität. Wenn Sie nach oben (oder unten) skalieren müssen, können Sie diese Kapazitätsblöcke schrittweise skalieren. Unter der Voraussetzung, dass die Instanz weniger als die 20 GB Speicherkapazität hat, die im Standard-Plan enthalten ist, entstehen keine Speicherkosten. Auf der Registerkarte {{site.data.keyword.cloudant_short_notm}} Dashboard > Konto > Kapazität sieht die Einstellung für die bereitgestellte Durchsatzkapazität wie in diesem Screenshot aus:
 
 ![{{site.data.keyword.cloudant_short_notm}} Dashboard mit Registerkarte für die Kapazität](../images/cloudant-dashboard.png)
 
-Der Kapazitätsschieberegler zeigt die Kosten pro Stunde der bereitgestellten Durchsatzkapazität von 100 Suchvorgängen/Sek., 50 Schreibvorgängen/Sek. und 5 Abfragen/Sek. in US-Dollar für 0,105 US-Dollar/Stunde an. Der Schieberegler zeigt Kosten pro Monat von etwa 76,65 US-Dollar an. Der monatliche Betrag ist eine Schätzung, die auf durchschnittliche 730 Stunden pro Monat basiert. Die Kosten pro Monat können leicht variieren, je nachdem, wie hoch die Anzahl der Stunden im Monat ist. 
+Der Kapazitätsschieberegler zeigt die Kosten pro Stunde der bereitgestellten Durchsatzkapazität von 100 Suchvorgängen/Sek., 50 Schreibvorgängen/Sek. und 5 Abfragen/Sek. in US-Dollar für 0,105 US-Dollar/Stunde an. Der Schieberegler zeigt Kosten pro Monat von etwa 76,65 US-Dollar an. Der monatliche Betrag ist eine Schätzung, die auf durchschnittliche 730 Stunden pro Monat basiert. Die Kosten pro Monat können leicht variieren, je nachdem, wie hoch die Anzahl der Stunden im Monat ist.
 
 Beispielgleichung: 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2018
-lastupdated: "2018-06-08"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -13,7 +13,7 @@ lastupdated: "2018-06-08"
 {:pre: .pre}
 {:tip: .tip}
 
-<!-- Acrolinx: 2017-03-06 -->
+<!-- Acrolinx: 2017-05-10 -->
 
 # Bibliotecas do cliente suportadas
 
@@ -83,7 +83,7 @@ npm install cloudant
 
 #### Biblioteca suportada para node.js
 
--   [nodejs-cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.npmjs.org/package/cloudant){:new_window}).
+-   [nodejs-cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/nodejs-cloudant){:new_window} ([npm ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.npmjs.com/package/@cloudant/cloudant){:new_window}).
 
 #### Bibliotecas e estruturas não suportadas para node.js
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,10 +11,13 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Cómo crear y llenar una base de datos de {{site.data.keyword.cloudant_short_notm}} sencilla en {{site.data.keyword.cloud_notm}}
 
-En esta guía de aprendizaje se muestra cómo utilizar el [lenguaje de programación Python![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window} para crear una base de datos de {{site.data.keyword.cloudantfull}} en la instancia de servicio de {{site.data.keyword.cloud_notm}} y llenar la base de datos con una sencilla colección de datos.
+En esta guía de aprendizaje se muestra cómo utilizar el [lenguaje de programación Python ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window} para crear una base de datos de {{site.data.keyword.cloudantfull}} en la instancia de servicio de {{site.data.keyword.cloud_notm}} y llenar la base de datos con una sencilla colección de datos.
 {:shortdesc}
 
 ## Requisitos previos
@@ -23,7 +26,7 @@ Asegúrese de tener los siguientes recursos o información preparados antes de e
 
 ### Python
 
-Debe tener una instalación actualizada del [lenguaje de programación Python![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window}
+Debe tener una instalación actualizada del [lenguaje de programación Python ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.python.org/){:new_window}
 en su sistema.
 
 Para comprobarlo, ejecute el siguiente mandato:
@@ -229,8 +232,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-El resultado es parecido al del
-siguiente ejemplo:
+El resultado es parecido al del siguiente ejemplo:
 
 ```json
 [
@@ -246,14 +248,12 @@ siguiente ejemplo:
 {:codeblock}
 
 La naturaleza de bases de datos NoSQL,
-    como {{site.data.keyword.cloudant_short_notm}},
-implica que no necesariamente se aplican las nociones más sencillas, como que el primer documento almacenado en una base de datos es siempre el primero que se devuelve en una lista de resultados.
+    como {{site.data.keyword.cloudant_short_notm}}, implica que no necesariamente se aplican las nociones más sencillas, como que el primer documento almacenado en una base de datos es siempre el primero que se devuelve en una lista de resultados.
 {: tip}
 
 ### Recuperación completa de un documento
 
-Para realizar una recuperación completa,
-solicitamos una lista de todos los documentos de la base de datos y además especificamos que también se debe devolver el contenido del documento.
+Para realizar una recuperación completa, solicitamos una lista de todos los documentos de la base de datos y además especificamos que también se debe devolver el contenido del documento.
 Para ello utilizamos la opción `include_docs`.
 Como antes, los resultados se devuelven como una matriz.
 Ahora podemos mostrar los detalles de un elemento de la matriz, esta vez incluyendo el contenido completo del documento. 
@@ -266,8 +266,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {:codeblock}
 
-El resultado es parecido al del
-siguiente ejemplo:
+El resultado es parecido al del siguiente ejemplo:
 
 ```json
 [
@@ -295,7 +294,7 @@ siguiente ejemplo:
 También podemos trabajar directamente con los puntos finales de la API de {{site.data.keyword.cloudant_short_notm}}, desde una aplicación Python.
 
 En este código de ejemplo, volvemos a solicitar una lista de todos los documentos, incluido su contenido.
-Esta vez, sin embargo, lo hacemos invocando el punto final [`/_all_docs` de {{site.data.keyword.cloudant_short_notm}}](../api/database.html#get-documents).
+Esta vez, sin embargo, lo hacemos invocando el punto final [`/_all_docs`](../api/database.html#get-documents) de {{site.data.keyword.cloudant_short_notm}}.
 
 En primer lugar identificamos el punto final con el que vamos a establecer contacto y los parámetros que se deben suministrar junto con la llamada:
 

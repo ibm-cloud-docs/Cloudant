@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2018
-lastupdated: "2018-06-07"
+lastupdated: "2018-10-24"
 
 ---
 
@@ -11,6 +11,7 @@ lastupdated: "2018-06-07"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
 
 <!-- Acrolinx: 2017-01-11 -->
 
@@ -31,22 +32,21 @@ starten und stoppen.
 
 Der Status von Anwendungen in Ihrer {{site.data.keyword.cloud_notm}}-Serviceinstanz wird im Dashboard angezeigt.
 
-Im folgenden Beispiel wird die `Cloudant Python`-Anwendung nicht ausgeführt und hat den Status `Gestoppt`:<br/>
+Im folgenden Beispiel wird die Anwendung `Python Cloudant` nicht ausgeführt und hat den Status `Gestoppt`:
+
 ![Screenshot des Dashboards für die Anwendung mit dem Status 'Gestoppt'](images/img0037.png)
 
 ### Anwendung starten
 
->   **Hinweis**: Wenn Sie versuchen, die Lernprogrammanwendung zu starten,
-    ohne zunächst die Beispieldatenbank des Lernprogramms zu löschen,
-    kann die Anwendung nicht ordnungsgemäß funktionieren.
-    Die Anwendung versucht, zu starten, schlägt fehl, weil die Datenbank vorhanden ist,
-    wird gestoppt und versucht dann erneut, zu starten usw.
-    Beheben Sie dieses Problem, indem Sie die
+Wenn Sie versuchen, die Lernprogrammanwendung zu starten, ohne zunächst die Beispieldatenbank des Lernprogramms zu löschen, kann die Anwendung nicht ordnungsgemäß
+funktionieren. Die Anwendung versucht, zu starten, schlägt fehl, weil die Datenbank vorhanden ist,
+    wird gestoppt und versucht dann erneut, zu starten usw. Beheben Sie dieses Problem, indem Sie die
     [Anwendung stoppen](#stopping-your-application)
-    und dann die Beispieldatenbank des Lernprogramms löschen.
-    Anschließend kann die Anwendung erfolgreich gestartet werden.
+    und dann die Beispieldatenbank des Lernprogramms löschen. Anschließend kann die Anwendung erfolgreich gestartet werden.
+{: tip}
+    
+Um eine gestoppte Anwendung zu starten, klicken Sie zunächst auf das Symbol für das Anwendungsmenü im Dashboard:
 
-Um eine gestoppte Anwendung zu starten, klicken Sie zunächst auf das Symbol für das Anwendungsmenü im Dashboard:<br/>
 ![Screenshot des Dashboards mit einem Symbol für das Anwendungsmanagement](images/img0038.png)
 
 Klicken Sie dann auf die Option `App starten` im Menü:<br/>
@@ -55,7 +55,7 @@ Klicken Sie dann auf die Option `App starten` im Menü:<br/>
 ### Anwendung stoppen
 
 Um eine aktive Anwendung zu stoppen, klicken Sie zunächst auf das Symbol für das Anwendungsmenü im Dashboard:<br/>
-![Screenshot des Dashboards mit einem Symbol für das Anwendungsmanagement](images/img0040.png)
+![Screenshot des Dashboards mit einem Symbol für das Anwendungsmanagement](images/img0038.png)
 
 Klicken Sie dann auf die Option `App stoppen` im Menü:<br/>
 ![Screenshot der Option 'App stoppen'](images/img0041.png)
@@ -68,8 +68,8 @@ Um eine neue Version Ihrer Anwendung hochzuladen,
 befolgen Sie einfach den [Uploadprozess](create_bmxapp_upload.html).
 Die neue Version überschreibt die ältere Version der Anwendung.
 
->   **Hinweis**: Wenn die ältere Version der Anwendung bereits aktiv ist, wenn Sie den Upload starten,
-    stoppt {{site.data.keyword.cloud_notm}} die Anwendung zuerst automatisch.
+Wenn die ältere Version der Anwendung bereits aktiv ist, wenn Sie mit dem Hochladen beginnen, dann stoppt {{site.data.keyword.cloud_notm}} automatisch zuerst die Ausführung der Anwendung.
+{: tip}
 
 ## Probleme diagnostizieren und beheben
 
@@ -84,18 +84,16 @@ Insbesondere der Vorschlag,
 [Schreibvorgänge in das lokale Dateisystem zu vermeiden ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window},
 ist sinnvoll.
 
->   **Hinweis**: Aus Gründen der Einfachheit
-    schreibt dieses Lernprogramm Inhalte in das lokale Dateisystem.
-    Aber die Menge der Daten ist klein.
-    Sie sind nicht dafür gedacht, dauerhaft erhalten zu bleiben,
+Zur Vereinfachung schreibt dieses Lernprogramm Inhalte in das lokale Dateisystem. Aber die Menge der Daten ist klein. Sie sind nicht dafür gedacht, dauerhaft erhalten zu bleiben,
     und sie sind nicht geschäftskritisch.
+{: tip}
 
 ### Anwendungsprotokoll verwenden
 
 Die nützlichste Ressource für die Diagnose und Behebung von Problemen mit
 der {{site.data.keyword.cloud_notm}}-Anwendung ist die Protokolldatei.
 
-Die Protokolldatei für eine {{site.data.keyword.cloud_notm}}-Anwendung finden Sie auf der Informationsseite `Protokolle`:<br/>
+Die Protokolldatei für eine {{site.data.keyword.cloud_notm}}-Anwendung finden Sie, indem Sie auf die Registerkarte `Protokolle` klicken, um die Informationsseite für die Protokollierung zu öffnen:<br/>
 ![Screenshot mit dem Link zur Informationsseite 'Protokolle'](images/img0042.png)
 
 Wie bei den meisten Protokolldateien enthält ein {{site.data.keyword.cloud_notm}}-Anwendungsprotokoll Details dazu, welche Ereignisse wann und wo aufgetreten sind.
