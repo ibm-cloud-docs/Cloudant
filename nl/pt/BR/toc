@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="cloudant" audience="service" arm="366" href="/docs/services/Cloudant/getting-started.html"}
+{: .toc subcollection="cloudant" audience="service" arm="366" href="/docs/services/Cloudant/getting-started.html" path="services/Cloudant"}
 IBM Cloudant
 
 	{: .navgroup id="learn"}
@@ -18,7 +18,7 @@ IBM Cloudant
     	offerings/dataprivacygovernance.md
 		offerings/audit.md
 		offerings/gdpr.md
-	
+
 	{: .topicgroup}
 	Outras ofertas
 		offerings/bluemix_dedicated.md
@@ -35,7 +35,7 @@ IBM Cloudant
 		[Open Fridge](https://github.com/krook/openfridge)
 		[Jogo do iOS com Core ML e Watson Visual Recognition](https://developer.ibm.com/code/patterns/build-an-ios-game-powered-by-core-ml-and-watson-visual-recognition/)
 		[Aplicativo de saúde móvel com Watson Studio](https://developer.ibm.com/code/patterns/develop-web-based-mobile-health-app-uses-machine-learning/)
-		
+
 	{: .topicgroup}
 	Bibliotecas
 		libraries/index.md
@@ -84,4 +84,3 @@ IBM Cloudant
 		guides/backup-guide-using-replication.md
 		guides/migration.md
 	{: .navgroup-end}
-
