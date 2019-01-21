@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-21"
 
 ---
 
@@ -441,9 +441,8 @@ Writer | None.
 
 ## Troubleshooting
 
-If you are having trouble using IAM to authenticate when making requests to your
-{{site.data.keyword.cloudant_short_notm}} service instance, check the following.
+If you are having trouble using IAM to authenticate when making requests to your {{site.data.keyword.cloudant_short_notm}} service instance, verify your account as shown in the next section.
 
 ### Ensure your account is IAM enabled
 
-You must raise a support ticket to confirm that a service instance is IAM enabled.
+You must open a support ticket to confirm that a service instance is IAM enabled.
