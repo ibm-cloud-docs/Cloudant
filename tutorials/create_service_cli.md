@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-29"
 
 ---
 
@@ -154,7 +154,8 @@ Field | Description
 `LOCATION` | The location where you want to deploy: AP North, Germany, Global, Sydney, United Kingdom, US East, or US South. 
 `legacyCredentials` | Defaults to true. This field dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. 
 
-For more information about choosing an authentication method, see the [IAM guide](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){: new_window}.
+For more information about choosing an authentication method, see the [IAM guide](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){: new_window}. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
+{: important}
 
 In this example, we want to create an instance of an {{site.data.keyword.cloudant_short_notm}} service by using the `Lite` plan (where the instance name is `cs20170517a` in the US-South location and uses IAM credentials only), you create this instance by using a command similar to the following example:
 
