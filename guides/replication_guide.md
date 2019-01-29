@@ -75,9 +75,12 @@ Complete the form:
 
 ![replication2](../images/replication_guide_2.png)
 
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](../api/authorization.html#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](docs/services/Cloudant/guides/iam.html){: new_window} or the legacy [Authentication API document](../api/authentication.html){: new_window} and the legacy [Authorization API document](../api/authorization.html){: new_window}.
+{: important}
+
 Using the form,
 define the source and target databases,
-then click `Start Replicatation`.
+then click `Start Replication`.
 
 ![replication3](../images/replication_guide_3.png)
 
@@ -293,6 +296,9 @@ on a per-database basis.
 ![replication](../images/replication_guide_5.png)
 
 They can also be created [programmatically](../api/authorization.html#creating-api-keys) by using the {{site.data.keyword.cloudant_short_notm}} API.
+
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](../api/authorization.html#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](docs/services/Cloudant/guides/iam.html){: new_window} or the legacy [Authentication API document](../api/authentication.html){: new_window} and the legacy [Authorization API document](../api/authorization.html){: new_window}.
+{: important}
 
 ## Two-way replication
 {: #two-way-replication}
