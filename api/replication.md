@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-30"
 
 ---
 
@@ -21,6 +21,7 @@ lastupdated: "2019-01-03"
 <div id="ReplicationAPI"></div>
 
 # Replication
+{: #replication-api}
 
 {{site.data.keyword.cloudantfull}} replication is the process that synchronizes ('syncs') the state of two databases.
 {: shortdesc}
@@ -43,6 +44,7 @@ _and_ that all documents that are deleted from the source databases are also
 deleted from the destination database (if they existed there).
 
 ## Replication Operation
+{: #replication-operation}
 
 Replication has two forms: push or pull replication:
 
@@ -89,6 +91,7 @@ _Example error response if one of the requested databases for a replication does
 <div id="replication-database-maintenance"></div>
 
 ## Important notes
+{: #important-notes}
 
 * A new and more powerful [replication scheduler](advanced_replication.html#the-replication-scheduler)
   changes the previous behavior of the {{site.data.keyword.cloudant_short_notm}} replication mechanisms.
@@ -109,10 +112,14 @@ _Example error response if one of the requested databases for a replication does
   just like any other valuable data store.
   For more information,
   see [replication database maintenance](advanced_replication.html#replication-database-maintenance).
+  
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](../api/authorization.html#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](docs/services/Cloudant/guides/iam.html){: new_window} or the legacy [Authentication API document](../api/authentication.html){: new_window} and the legacy [Authorization API document](../api/authorization.html){: new_window}.
+{: important}
 
 <div id="replicator-database"></div>
 
 ## The `_replicator` database
+{: #the-_replicator-database}
 
 The `_replicator` database is a special database within your account,
 where you can `PUT` or `POST` replication documents to specify the replications you want.
@@ -134,6 +141,7 @@ All design documents and `_local` documents added to the `/_replicator` database
 {: note}
 
 ## Replication document format
+{: #replication-document-format}
 
 You must use the *full* URL when you specify the source and target databases in a replication document.
 {: note}
@@ -148,6 +156,7 @@ Field Name | Required | Description
 `target` | yes | Identifies the database to copy revisions to. Same format and interpretation as source. Does not have to be the same value as the `source` field.
 `continuous` | no | Continuously syncs state from the `source` to the `target`, stopping only when deleted.
 `create_target` | no | A value of `true` tells the replicator to create the `target` database if it does not exist.
+`create_target_params` | no | Provides a way to customize the target database that is created on a new replication. You can also customize the cluster's default values for the number of shards and replicas to create. 
 `doc_ids` | no | Array of document IDs; if given, only these documents are replicated.
 `filter` | no | Name of a [filter function](design_documents.html#filter-functions), defined in a design document. The filter function determines which documents get replicated. Using the `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option where possible.
 `proxy` | no | Proxy server URL.
@@ -163,6 +172,7 @@ Optionally, replication documents can have a user-defined `_id`.
 <div id="selector-field"></div>
 
 ### The `selector` field
+{: #the-selector-field}
 
 If you do not want to replicate the entire contents of a database,
 you can specify a simple filter in the `selector` field.
@@ -219,6 +229,7 @@ _Example error response if the selector is not valid:_
 <div id="since-seq-field"></div>
 
 ### The `since_seq` field
+{: #the-since_seq-field}
 
 If you do not want to replicate the entire contents of a database,
 you can specify a 'replication sequence value' in the `since_seq` field.
@@ -246,6 +257,7 @@ By definition, using `since_seq` disables the normal replication checkpointing f
 <div id="creating-replications"></div>
 
 ## Creating a replication
+{: #creating-a-replication}
 
 Replications are created in one of two ways:
 
@@ -295,6 +307,7 @@ _Example replication document:_
 {: codeblock}
 
 ### Creating a target database during replication
+{: #creating-a-target-database-during-replication}
 
 If your user credentials allow it,
 you can create the target database during replication by adding the `create_target` field to the request object.
@@ -321,6 +334,7 @@ Accept: application/json
 <div id="-optional-creating-a-replication-to-two-bluemix-environments"></div>
 
 ### Creating a replication within an {{site.data.keyword.cloud_notm}} environment
+{: #creating-a-replication-within-an-ibm-cloud-environment}
 
 You can replicate an {{site.data.keyword.cloudant_short_notm}} database to one or more {{site.data.keyword.cloud}} environments.
 When you set up the replication job for each environment,
@@ -339,6 +353,7 @@ Do not copy the `URL` field from the `VCAP_SERVICES` environment variable.
 <div id="cancelling-a-replication"></div>
 
 ## Canceling a replication
+{: #canceling-a-replication}
 
 To cancel a replication,
 [delete its replication document](document.html#delete) from the `_replicator` database.
@@ -373,6 +388,7 @@ curl -X DELETE https://$ACCOUNT.cloudant.com/_replicator/replication-doc?rev=1-.
 {: codeblock}
 
 ## Monitoring a replication
+{: #monitoring-a-replication}
 
 To monitor replicators currently in process,
 a simple method is to make a `GET` request to `https://$ACCOUNT.cloudant.com/_active_tasks`.
@@ -487,6 +503,7 @@ _Example response after an active task request, including single replication:_
 {: codeblock}
 
 ## Single Replication
+{: #single-replication}
 
 Replication of a database means that the two databases,
 the 'source' and the 'target',
@@ -576,6 +593,7 @@ _Example response that follows a request for a single replication:_
 {: codeblock}
 
 ## Continuous Replication
+{: #continuous-replication}
 
 By default,
 the synchronization of a database during replication happens one time when the replicate request is made.
@@ -627,6 +645,7 @@ _Example JSON document that describes continuous replication between the source 
 {: codeblock}
 
 ### Canceling Continuous Replication
+{: #canceling-continuous-replication}
 
 Cancel continuous replication by including the `cancel` field in the JSON request object,
 and setting the value to `true`.
@@ -663,6 +682,7 @@ _Example request to cancel the replication, providing matching fields to the ori
 
 
 ## Replication errors
+{: #replication-errors}
 
 When replicating to a target cluster with these size [limits](../offerings/bluemix.html#request-and-document-size-limits), 
 documents which exceed any of the limits will 
@@ -673,6 +693,7 @@ not replicate. If replication is not continuous, and has already completed, the 
 counter can be found in the replication document's `_replication_stats` object.
 
 ## Example replication sequence
+{: #example-replication-sequence}
 
 The following examples go through all the steps of creating a replication task,
 then canceling it.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-01-30"
 
 ---
 
@@ -18,8 +18,10 @@ lastupdated: "2019-01-07"
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Replication
-{: #replication}
+<div id="replication"></div>
+
+# Replication guide
+{: #replication-guide}
 
 Data can be copied from one database to another in the same {{site.data.keyword.cloudantfull}} account,
 across accounts and across data centers.
