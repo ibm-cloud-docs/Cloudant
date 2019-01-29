@@ -1024,9 +1024,7 @@ _Example of using the $nor operator:_
 {
 	"selector": {
 		"year": {
-			"$gte": 1900
-		},
-		"year": {
+			"$gte": 1900,
 			"$lte": 1910
 		},
 		"$nor": [
@@ -1054,9 +1052,7 @@ _Example of using the $not operator:_
 {
 	"selector": {
 		"year": {
-			"$gte": 1900
-		},
-		"year": {
+			"$gte": 1900,
 			"$lte": 1903
 		},
 		"$not": {
