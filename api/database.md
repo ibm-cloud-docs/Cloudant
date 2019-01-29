@@ -28,13 +28,6 @@ All documents must be contained in a database.
 A guide is [available](../guides/transactions.html),
 providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
-A more complex database application,
-involving extra storage,
-processing,
-and analytics tasks,
-is referred to as a [warehouse](../guides/warehousing.html).  
-Warehouses are also supported by {{site.data.keyword.cloudant_short_notm}}.
-
 ## Create
 
 To create a database,
