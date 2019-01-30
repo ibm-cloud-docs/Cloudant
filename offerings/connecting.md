@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-01-09"
+lastupdated: "2019-01-29"
 
 ---
 
@@ -104,6 +104,9 @@ credentials tab for your instance. For more information, see the
 [IAM guide](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-)
  and [legacy authentication](../api/authentication.html#authentication) document for details about using 
  either style of authentication.
+ 
+The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls for authentication whenever possible. If you are using {{site.data.keyword.cloudant_short_notm}} legacy authentication, it is recommended that you use [API keys](../api/authorization.html#api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
+{: important}
 
 ## {{site.data.keyword.cloudant_short_notm}} Dashboard
 
