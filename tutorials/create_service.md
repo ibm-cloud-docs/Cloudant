@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-01-29"
 
 ---
 
@@ -42,6 +42,9 @@ to work with the database.
 {: new_window}. 
     In this example, the service name is `Cloudant-o7`:<br/>
     ![{{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0005.png)
+    
+The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
+{: important}
 
 4.  By default, the service is created by using the 'Lite' pricing plan, which is free but comes with a fixed amount of provisioned throughput capacity and data storage. If you have a paid {{site.data.keyword.cloud_notm}} account, you can also choose the paid 'Standard' plan so you can toggle the provisioned throughput capacity and scale data usage as needed. For more information about pricing plans, see [Plans](../offerings/bluemix.html#plans){: new_window}. To create the service, click the `Create` button: <br/>
     ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0006.png)
