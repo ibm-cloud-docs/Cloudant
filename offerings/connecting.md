@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-01-29"
+lastupdated: "2019-01-31"
 
 ---
 
@@ -25,7 +25,7 @@ lastupdated: "2019-01-29"
 - Service credentials
 - Authentication
 - Accessing the {{site.data.keyword.cloudant_short_notm}} Dashboard
-- Programmatically accessing {{site.data.keyword.cloudant_short_notm}} via [curl ![External link icon](images/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window} or client libraries 
+- Programmatically accessing {{site.data.keyword.cloudant_short_notm}} via [curl ![External link icon](../images/launch-glyph.svg "External link icon")](https://curl.haxx.se/){: new_window} or client libraries 
 {: shortdesc}
 
 ## Endpoints
