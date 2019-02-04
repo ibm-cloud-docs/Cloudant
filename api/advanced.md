@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -405,107 +405,28 @@ _Example response:_
 ```
 {: codeblock}
 
-## `GET /$DATABASE/_revs_limit`
-{: #-get-database-_revs_limit-}
+### Response structure
+{: #response-structure}
 
-Gets the number of past revisions of a document that {{site.data.keyword.cloudant_short_notm}} retains.
-
-Although the documents that are associated with past revisions are automatically removed, "tombstones" remain with the `_rev` value for that revision. If a document has more revisions than the value of `_revs_limit`, {{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
-{: note}
-
-_Example request, by using HTTP:_
-
-```HTTP
-GET /$DATABASE/_revs_limit HTTP/1.1
-```
-{: codeblock}
-
-_Example request, by using the command line:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_revs_limit \
-	-X GET \
-	-u "$ACCOUNT:$PASSWORD"
-```
-{: codeblock}
-
-<!--
-
-_Example request, using Javascript:_
-
-```javascript
-var nano = require('nano');
-var account = nano('https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com');
-account.request({
-	path: '_revs_limit'
-}, function (err, body) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
-
-_Example response:_
-
-```
-1000
-```
-{: codeblock}
-
-## `PUT /$DATABASE/_revs_limit`
-{: #-put-database-_revs_limit-}
-
-Sets the maximum number of past revisions of a document that {{site.data.keyword.cloudant_short_notm}} retains.
-
-Although the documents that are associated with past revisions are automatically removed, "tombstones" remain with the `_rev` value for that revision. If a document has more revisions than the value of `_revs_limit`, {{site.data.keyword.cloudant_short_notm}} deletes the tombstones of the oldest revisions.
-{: note}
-
-_Example request, by using HTTP:_
-
-```HTTP
-PUT /$DATABASE/_revs_limit HTTP/1.1
-```
-{: codeblock}
-
-_Example request, by using the command line:_
-
-```sh
-curl https://$ACCOUNT.cloudant.com/_revs_limit \
-	-u $ACCOUNT \
-	-X PUT \
-	-d 500
-```
-{: codeblock}
-
-<!--
-
-_Example request, using Javascript:_
-
-```javascript
-var nano = require('nano');
-var account = nano('https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com');
-account.request({
-	path: '_revs_limit',
-	body: '500',
-	method: 'PUT'
-}, function (err, body) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
+Field name      | Description
+----------------|------------------------------------------------------------------
+`cluster_nodes` | Array of node names (strings) of the active nodes in the cluster.
+`all_nodes`     | Array of nodes names (strings) of all nodes in the cluster.
 
 _Example response:_
 
 ```json
 {
-	"ok": true
+	"cluster_nodes": [
+		"dbcore@db1.testy004.cloudant.net",
+		"dbcore@db2.testy004.cloudant.net",
+		"dbcore@db3.testy004.cloudant.net"
+	],
+	"all_nodes": [
+		"dbcore@db1.testy004.cloudant.net",
+		"dbcore@db2.testy004.cloudant.net",
+		"dbcore@db3.testy004.cloudant.net"
+	]
 }
 ```
 {: codeblock}
@@ -555,33 +476,8 @@ account.request({
 ```
 {: codeblock}
 
--->
+--->
 
-### Response structure
-{: #response-structure}
-
-Field name      | Description
-----------------|------------------------------------------------------------------
-`cluster_nodes` | Array of node names (strings) of the active nodes in the cluster.
-`all_nodes`     | Array of nodes names (strings) of all nodes in the cluster.
-
-_Example response:_
-
-```json
-{
-	"cluster_nodes": [
-		"dbcore@db1.testy004.cloudant.net",
-		"dbcore@db2.testy004.cloudant.net",
-		"dbcore@db3.testy004.cloudant.net"
-	],
-	"all_nodes": [
-		"dbcore@db1.testy004.cloudant.net",
-		"dbcore@db2.testy004.cloudant.net",
-		"dbcore@db3.testy004.cloudant.net"
-	]
-}
-```
-{: codeblock}
 
 ## `GET /_uuids`
 {: #-get-_uuids-}
