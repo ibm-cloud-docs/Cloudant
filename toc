@@ -101,23 +101,23 @@ IBM Cloudant
 
 	{: .topicgroup}
 	Guides
-		guides/database_partitioning.md
 		guides/acurl.md
-		guides/backup-guide-using-replication.md
 		guides/cap_theorem.md
 		guides/conflicts.md
 		guides/couchapps.md
+		guides/database_partitioning.md
 		guides/design_document_management.md
+		guides/mvcc.md
+		guides/model_data.md
+		guides/transactions.md
+		guides/resource-groups.md
+		guides/sharding.md
 		guides/iam.md
 		guides/json.md
 		guides/managing_tasks.md
 		guides/migration.md
-		guides/model_data.md
-		guides/mvcc.md
 		guides/replication_guide.md
-		guides/resource-groups.md
-		guides/sharding.md
-		guides/transactions.md
+		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
 
 
