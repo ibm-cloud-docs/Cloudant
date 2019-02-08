@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-08"
 
 ---
 
@@ -28,6 +28,11 @@ Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by bu
 {: #dedicated-hardware}
 
 A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
+
+## Build 7668 (January 2019)
+{: #build-7668-january-2019}
+
+- Allow `limit` when using `POST` for search.
 
 ## Build 7544 (December 2018)
 {: #build-7544-december-2018}
