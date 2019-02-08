@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-29"
+lastupdated: "2019-02-06"
 
 ---
 
@@ -80,27 +80,50 @@ You can provision one or more Standard plan instances, and the Dedicated Hardwar
 The Dedicated Hardware plan is not available to {{site.data.keyword.cloud_notm}} Dedicated customers. The Dedicated Hardware plan is only available to {{site.data.keyword.cloud_notm}} Public customers.
 {: important}
 
-## Provisioned throughput capacity
-{: #provisioned-throughput-capacity}
+## Event types
+{: #event-types}
 
-Throughput provision is identified and measured as one of the following types of events:
+Each request to {{site.data.keyword.cloudant_short_notm}} is charged based on
+the operations it carries out. Each HTTP request consumes operations of a
+specific type. The type of operations for a request can be determined from the
+request path.
 
-1.	A lookup,
-    which is a read of a specific document,
+The operation types are:
+
+1.	_Lookups_,
+    which are:
+    1. A read of a specific document,
     based on the `_id` of the document.
-2.	A write,
-    which is the creation,
+    2. A _partitioned_ query,
+        which is a request that is made to an {{site.data.keyword.cloudant_short_notm}} 
+        query endpoint within the `_partition` namespace in the request path,
+        including the following types:
+        -	Primary Index ([`_all_docs`](../api/database.html#get-documents))
+        -	MapReduce View ([`_view`](../api/creating_views.html#using-views))
+        -	Search Index ([`_search`](../api/search.html#queries))
+        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
+    
+        The number of lookup operations consumed by a partitioned query request
+        varies depending on the results returned.
+2.	_Writes_,
+    which are creation,
     modification,
-    or deletion of an individual document,
-    or any update due to an index build.
-3.	A query,
-    which is a request that is made to one of the {{site.data.keyword.cloudant_short_notm}} query endpoints,
+    or deletion of individual documents.
+3.	_Queries_ to global indexes,
+        which are requests made to an {{site.data.keyword.cloudant_short_notm}} 
+        query endpoint **not** within the `_partition` namespace,
     including the following types:
 	-	Primary Index ([`_all_docs`](../api/database.html#get-documents))
 	-	MapReduce View ([`_view`](../api/creating_views.html#using-views))
 	-	Search Index ([`_search`](../api/search.html#queries))
 	-	Geospatial Index ([`_geo`](../api/cloudant-geo.html#querying-a-cloudant-geo-index))
 	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
+
+## Provisioned throughput capacity
+{: #provisioned-throughput-capacity}
+
+Throughput provision is identified and measured as events of the following
+operation types: _Lookup_, _Write_, _Query_.
 
 The measurement of throughput is a simple count of the number of events of each type,
 per second,
@@ -110,8 +133,8 @@ requests are rejected until the number of events within the sliding window
 no longer exceeds the number that is provisioned.
 It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
-For example, the Standard plan is provisioned for 200 lookups per second. Your account might make a maximum of 200 lookup requests during a consecutive period of 1,000 milliseconds (1 second). Subsequent lookup requests made during the sliding 1,000-millisecond period
-are rejected until the number of lookup requests in that period drops to less than 200 again.
+For example, the Standard plan is provisioned for 200 lookups per second. Your account might consume a maximum of 200 lookup events during a consecutive period of 1,000 milliseconds (1 second). Subsequent lookup requests made during the sliding 1,000-millisecond period
+are rejected until the number of lookup events in that period drops to less than 200 again.
 
 When a request is rejected because the number of events is exceeded,
 applications receive a [`429` Too Many Requests](../api/http.html#429)
@@ -138,6 +161,60 @@ If you are porting an existing application, it might not be able to handle a `42
 
 In summary,
 you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
+
+### Consumption of Lookup operations by partitioned queries
+{: #consumption-of-lookup-operations-by-partitioned-queries}
+
+Partitioned query requests consume a variable number of lookup operations
+depending on the results returned. Consumption is based on two axes:
+
+1. The number of rows read from the index involved in the query.
+1. The number of documents read from the database, if any, during the execution
+    of the query.
+    
+#### `_all_docs`, view and search queries
+
+Each block of 100 rows read from the index consumes 1 lookup operation. In
+addition, each document read from the database during execution of a query
+consumes 1 lookup unit.
+
+The number of rows read from the index is the same as the number of results
+returned. Documents are only read from the database when `include_docs=true` is
+passed as a query string parameter during the query request.
+
+Example costs are shown in the table below.
+
+| Number of results | Include documents | Total Lookup consumption | Consumption for rows read | Consumption for documents read |
+|--------------|----------------|-------------|---------------------| --- |
+| 199      | No     | **2** | 2 | 0 |
+| 199      | Yes     | **201** | 2 | 199 |
+| 301      | No     | **4** | 4 | 0 |
+| 301      | Yes     | **305** | 4 | 301 |
+
+Reducing use of `include_docs=true` is key for reducing lookup consumption for
+partitioned `_all_docs`, view, and search queries.
+
+#### {{site.data.keyword.cloudant_short_notm}} Query
+
+For {{site.data.keyword.cloudant_short_notm}} Query requests, the number of consumed lookup operations for index
+rows read relates to the rows read from the underlying index _before_ filtering
+occurs based on parts of the selector that cannot be satisfied by the index.
+This means that the rows read value, and therefore consumed lookup units, can be
+higher than the number of eventual results you receive.
+
+In addition, {{site.data.keyword.cloudant_short_notm}} Query must read the document for every row returned by the
+underlying index so it is able to execute further filtering required by the
+selector passed to the query.
+
+| Number of results | Number of rows returned by index | Total Lookup consumption | Consumption for rows read | Consumption for documents read |
+|--------------|----------------|-------------|---------------------| --- |
+| 5      | 199     | **201** | 2 | 199 |
+| 199      | 199     | **201** | 2 | 199 |
+| 5      | 301     | **305** | 4 | 301 |
+| 301      | 301     | **305** | 4 | 301 |
+
+Using appropriate indexes is key for reducing lookup consumption for partitioned
+{{site.data.keyword.cloudant_short_notm}} Query queries.
 
 <div id="servicetier"></div>
 

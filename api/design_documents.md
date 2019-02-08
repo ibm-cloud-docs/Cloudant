@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-23"
 
 ---
 
@@ -31,28 +31,44 @@ They can be read and updated in the same way as any other document in the databa
 {{site.data.keyword.cloudantfull}} reads specific fields and values of design documents as functions.
 Design documents are used to [build indexes](#indexes), [validate updates](#update-validators), and [format query results](#list-functions).
 
+Each design document defines either _partitioned_ or _global_ indexes,
+controlled via the `options.partitioned` field. A _partitioned_ index allows
+only queries over a single data partition in a partitioned database. A _global_
+index allows querying over all data within a database, at a cost of latency and
+throughput over a partitioned index.
+
 ## Creating or updating a design document
 
 -	**Method**: `PUT /$DATABASE/_design/design-doc`
 -	**Request**: JSON of the design document information
 -	**Response**: JSON status
--	**Roles permitted**: `_design`
+-	**Roles permitted**: `_admin`, `_design`
 
 To create a design document, upload it to the specified database.
-   
+
 In these examples,
 `$VARIABLES` might refer to standard or design documents.
 To distinguish between them,
 standard documents have an `_id` indicated by `$DOCUMENT_ID`,
 while design documents have an `_id` indicated by `$DESIGN_ID`.
 
-If a design document is updated, {{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version, and recreates the index from scratch. If you need to make changes to a design document for a larger database, have a look at the [Design Document Management Guide](../guides/design_document_management.html#managing-changes-to-a-design-document).
-{: note}
+A design document's ID never contains a partition key regardless of the
+database's partitioning type. This is because the indexes contained within
+a design document apply to all partitions in a partitioned database.
+
+If a design document is updated,
+{{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version,
+and recreates the index from scratch.
+If you need to make changes to a design document for a larger database,
+have a look at the [Design Document Management Guide](../guides/design_document_management.html#managing-changes-to-a-design-document).
 
 The structure of design document is as follows:
 
--	**`_id`**: Design Document ID
+-	**`_id`**: Design Document ID. This ID is _always_ prefixed `_design` and
+    _never_ contains a partition key, regardless of database partitioning type.
 -	**`_rev`**: Design Document Revision
+-   **options**: Contains options for this design document.
+    -   **partitioned (optional, boolean)**: Whether this design document describes partitioned or global indexes. For more inforamtion, see [The `options.partitioned` field](#the-options-partitioned-field).
 -	**views (optional)**: An object describing MapReduce views.
 	-	**viewname** (one for each view): View Definition.
 		-	**map**: Map Function for the view.
@@ -73,10 +89,36 @@ The structure of design document is as follows:
 				Field names in the object correspond to field names in the index, that is, the first parameter of the index function.
 				The values of the fields are the languages to be used, for example `english`.
 		-	**index**: Function that handles the indexing.
--	**shows (optional)**: Show functions.
+-	**rewrites (optional, disallowed when `partitioned` is `true`)**: Rewrite functions.
 	-	**function name** (one for each function): Function definition.
--	**lists (optional)**: List functions.
+-	**lists (optional, disallowed when `partitioned` is `true`)**: List functions.
 	-	**function name** (one for each function): Function definition.
+-	**shows (optional, disallowed when `partitioned` is `true`)**: Show functions.
+	-	**function name** (one for each function): Function definition.
+-	**updates (optional, disallowed when `partitioned` is `true`)**: Update functions.
+	-	**function name** (one for each function): Function definition.
+-	**filters (optional, disallowed when `partitioned` is `true`)**: Filter functions.
+	-	**function name** (one for each function): Function definition.
+-	**validate_doc_update (optional, disallowed when `partitioned` is `true`)**: Update validation function.
+
+
+### The `options.partitioned` field
+
+This field sets whether the created indexes will be a partitioned or global index.
+
+The values of this field are as follows:
+
+Value  | Description           | Notes
+---------|---------------------|------------
+`true` | Create the index as partitioned.   | Can only be used in a partitioned database.
+`false`    | Create the index as global.  | Can be used in any database.
+
+The default follows the <code>partitioned</code> setting for the database:
+
+Database is partitioned | Default `partitioned` value | Allowed values
+---------|----------|---------
+Yes  | `true`  | `true`, `false`
+No   | `false` | `false`
 
 ## Copying a Design Document
 
@@ -266,6 +308,9 @@ These are discussed in more detail [here](creating_views.html).
 A design document can contain rules for URL rewriting, by using an array in the `rewrites` field.
 Requests that match the rewrite rules must have a URL path that starts with `/$DATABASE/_design/doc/_rewrite`.
 
+Design documents with `options.partitioned` set to `true` cannot contain a `rewrites` field.
+{: tip}
+
 Each rule is a JSON object with 4 fields:
 
 Field    | Description
@@ -349,6 +394,9 @@ In particular,
 you should avoid using functions that generate random numbers or return the current time.
 
 ## List Functions
+
+Design documents with `options.partitioned` set to `true` cannot contain a `lists` field.
+{: tip}
 
 Use list functions to customize the format of
 [MapReduce](using_views.html#using-views) query results.
@@ -486,6 +534,9 @@ Field            | Description
 
 ## Show Functions
 
+Design documents with `options.partitioned` set to `true` cannot contain a `shows` field.
+{: tip}
+
 Show functions are similar to [list functions](#list-functions),
 but are used to format individual documents.
 They are used when you want to access {{site.data.keyword.cloudant_short_notm}} directly from a browser,
@@ -570,6 +621,9 @@ db.show($DESIGN_ID, $SHOW_FUNCTION, $DOCUMENT_ID, function (err, body) {
 -->
 
 ## Update Handlers
+
+Design documents with `options.partitioned` set to `true` cannot contain a `updates` field.
+{: tip}
 
 Update handlers are custom functions that create or update a document.
 They are used for tasks such as providing server-side modification timestamps,
@@ -677,6 +731,9 @@ db.atomic($DESIGN_ID, $UPDATE_HANDLER, $DOCUMENT_ID, $JSON, function (err, body)
 -->
 
 ## Filter Functions
+
+Design documents with `options.partitioned` set to `true` cannot contain a `filters` field.
+{: tip}
 
 Filter functions are design documents that enable you to filter
 the [changes feed](database.html#get-changes).
@@ -1021,6 +1078,9 @@ _Example response (abbreviated) after filtering using a map function:_
 
 ## Update Validators
 
+Design documents with `options.partitioned` set to `true` cannot contain a `validate_doc_update` field.
+{: tip}
+
 Update validators determine whether a document should be written to disk when insertions and updates are attempted.
 They do not require a query because they implicitly run during this process.
 If a change is rejected,
@@ -1077,9 +1137,9 @@ design documents: [`_info`](#the-_info-endpoint) and [`_search_info`](#the-_sear
 ### The `_info` endpoint
 
 The `_info` endpoint returns information about a given design document,
-including the index,
-index size,
-and current status of the design document and associated index information.
+including the view index,
+view index size,
+and current status of the design document and associated view index information.
 
 -	**Method**: `GET /db/_design/design-doc/_info`
 -	**Request**: None

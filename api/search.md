@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-23"
 
 ---
 
@@ -23,13 +23,13 @@ lastupdated: "2019-01-03"
 Search indexes enable you to query a database by using [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}. A search index uses one, or multiple, fields from your documents. You can use a search index to run queries, find documents based on the content they contain, or work with groups, facets, or geographical searches.
 {: shortdesc}
 
-To create a search index, you add a JavaScript function to a design document in the database. An index builds after processing one search request and after the server detects a document update. The `index` function takes the following parameters: 
+To create a search index, you add a JavaScript function to a design document in the database. An index builds after processing one search request or after the server detects a document update. The `index` function takes the following parameters:
 
 1.  Field name - The name of the field you want to use when you query the index. If you set this parameter to `default`, then this field is queried if no field is specified in the query syntax.
-2.  Data that you want to index, for example, `doc.address.country`. 
-3.  (Optional) The third parameter includes the following fields: `boost`, `facet`, `index`, and `store`. These fields are described in more detail later.   
+2.  Data that you want to index, for example, `doc.address.country`.
+3.  (Optional) The third parameter includes the following fields: `boost`, `facet`, `index`, and `store`. These fields are described in more detail later.
 
-By default, a search index response returns 25 rows. A result set from a search is limited to 200 rows. The number of rows that is returned can be changed by using the `limit` parameter. Each response includes a `bookmark` field. You can include the value of the `bookmark` field in later queries to look through the responses. 
+By default, a search index response returns 25 rows. The number of rows that is returned can be changed by using the `limit` parameter. However, a result set from a search is limited to 200 rows. Each response includes a `bookmark` field. You can include the value of the `bookmark` field in later queries to look through the responses.
 
 You can query the API by using one of the following methods: URI, {{site.data.keyword.cloudant_short_notm}} dashboard, curl, or a browser plug-in, such as Postman or RESTClient.
 
@@ -47,6 +47,11 @@ _Example design document that defines a search index:_
 ```
 {: codeblock}
 
+## Search index partitioning type
+
+A search index will inherit the partitioning type from the `options.partitioned`
+field of the design document that contains it.
+
 ## Index functions
 
 Attempting to index by using a data field that does not exist fails. To avoid this problem, use an appropriate [guard clause](#index-guard-clauses).
@@ -54,10 +59,10 @@ Attempting to index by using a data field that does not exist fails. To avoid th
 Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
 {: note}
 
-Within a search index, do not index the same field name with more than one data type. If the 
-    same field name is indexed with different data types in the same search index function, 
-    you might get an error when querying the search index that says the field "was indexed without 
-    position data." For example, do not include both of these lines in the same search index function, 
+Within a search index, do not index the same field name with more than one data type. If the
+    same field name is indexed with different data types in the same search index function,
+    you might get an error when querying the search index that says the field "was indexed without
+    position data." For example, do not include both of these lines in the same search index function,
     as they index the `myfield` field as two different data types: a string `"this is a string"` and a number `123`.
 {: note}
 
@@ -102,7 +107,7 @@ query=red
 ```
 {: codeblock}
 
-The second parameter is the data to be indexed. Keep the following information in mind when you index your data: 
+The second parameter is the data to be indexed. Keep the following information in mind when you index your data:
 
 - This data must be only a string, number, or boolean. Other types will cause an error to be thrown by the index function call.
 - If an error is thrown when running your function, for this reason or others, the document will not be added to that search index.
@@ -350,10 +355,10 @@ The `keyword`, `simple`, and `whitespace` analyzers do not support stop words.
 The default stop words for the `standard` analyzer are included in the following list:
 
 ```json
- "a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", 
- "in", "into", "is", "it", "no", "not", "of", "on", "or", "such", 
- "that", "the", "their", "then", "there", "these", "they", "this", 
- "to", "was", "will", "with" 
+ "a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if",
+ "in", "into", "is", "it", "no", "not", "of", "on", "or", "such",
+ "that", "the", "their", "then", "there", "these", "they", "this",
+ "to", "was", "will", "with"
  ```
 
 _Example of defining non-indexed ('stop') words:_
@@ -443,58 +448,61 @@ _Result of testing the `standard` analyzer:_
 
 ## Queries
 
-After you create an index,
-you can query it with a `GET` request to
-`https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME`.
+After you create a search index, you can query it.
+
+- Issue a partition query using:
+    ```
+    GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME
+    ```
+- Issue a global query using:
+    ```
+    GET /$DATABASE/_design/$DDOC/_search/$INDEX_NAME
+    ```
+
 Specify your search by using the `query` parameter.
 
-_Example of using HTTP to query an index:_
+_Example of using HTTP to query a partitioned index:_
 
 ```http
-GET /$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1 HTTP/1.1
+GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query="*:*"&limit=1 HTTP/1.1
+Content-Type: application/json
+Host: account.cloudant.com
+```
+{:codeblock}
+
+_Example of using HTTP to query a global index:_
+
+```http
+GET /$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query="*:*"&limit=1 HTTP/1.1
 Content-Type: application/json
 Host: account.cloudant.com
 ```
 {: codeblock}
 
-_Example to using the command line to query an index:_
+_Example of using the command line to query a partitioned index:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1 \
+```
+{: codeblock}
+
+_Example of using the command line to query a global index:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1 \
 ```
 {: codeblock}
 
-<!--
-
-_Example of using JavaScript to query an index:_
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-var db = account.use($DATABASE);
-
-db.search($DESIGN_ID, $SEARCH_INDEX, {
-	q: $QUERY
-}, function (err, body, headers) {
-	if (!err) {
-		console.log(body);
-	}
-});
-```
-{: codeblock}
-
--->
-
 ### Query Parameters
 
 You must enable [faceting](#faceting) before you can use the following parameters:
 -	`counts`
 -	`drilldown`
-    
+
 <table border='1'>
 
 <tr>
-<th>Argument</th><th>Description</th><th>Optional</th><th>Type</th><th>Supported Values</th>
+<th>Argument</th><th>Description</th><th>Optional</th><th>Type</th><th>Supported Values</th><th>Partition query</th>
 </tr>
 <tr>
 <td><code>bookmark</code></td>
@@ -505,6 +513,8 @@ you get a response with an empty rows array and the same bookmark,
 confirming the end of the result list.</td>
 <td>yes</td>
 <td>string</td>
+<td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>counts</code></td>
@@ -515,6 +525,7 @@ The response contains counts for each unique value of this field name among the 
 <td>yes</td>
 <td>JSON</td>
 <td>A JSON array of field names.</td>
+<td>no</td>
 </tr>
 <tr>
 <td><code>drilldown</code></td>
@@ -524,10 +535,11 @@ The search matches only documents containing the value that was provided in the 
 It differs from using <code>"fieldname:value"</code> in
 the <code>q</code> parameter only in that the values are not analyzed.
 <a href="#faceting">Faceting</a> must be enabled for this parameter to function.</td>
-<td>yes</td>
+<td>no</td>
 <td>JSON</td>
 <td>A JSON array with two elements:
 the field name and the value.</td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>group_field</code></td>
@@ -536,6 +548,7 @@ the field name and the value.</td>
 <td>String</td>
 <td>A string that contains the name of a string field.
 Fields containing other data such as numbers, objects, or arrays cannot be used.</td>
+<td>no</td>
 </tr>
 <tr>
 <td><code>group_limit</code></td>
@@ -544,6 +557,7 @@ This field can be used only if <code>group_field</code> is specified.</td>
 <td>yes</td>
 <td>Numeric</td>
 <td></td>
+<td>no</td>
 </tr>
 <tr>
 <td><code>group_sort</code></td>
@@ -553,6 +567,7 @@ The default sort order is relevance.</td>
 <td>JSON</td>
 <td>This field can have the same values as the sort field,
 so single fields and arrays of fields are supported.</td>
+<td>no</td>
 </tr>
 <tr>
 <td><code>highlight_fields</code></td>
@@ -562,6 +577,7 @@ the result object contains a <code>highlights</code> field with an entry for eac
 <td>yes</td>
 <td>Array of strings</td>
 <td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>highlight_pre_tag</code></td>
@@ -569,6 +585,7 @@ the result object contains a <code>highlights</code> field with an entry for eac
 <td>yes, defaults to <code>&lt;em&gt;</code></td>
 <td>String</td>
 <td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>highlight_post_tag</code></td>
@@ -576,6 +593,7 @@ the result object contains a <code>highlights</code> field with an entry for eac
 <td>yes, defaults to <code>&lt;/em&gt;</code></td>
 <td>String</td>
 <td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>highlight_number</code></td>
@@ -585,6 +603,7 @@ longer fragments are returned.</td>
 <td>yes, defaults to 1</td>
 <td>Numeric</td>
 <td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>highlight_size</code></td>
@@ -592,6 +611,7 @@ longer fragments are returned.</td>
 <td>yes, defaults to 100 characters</td>
 <td>Numeric</td>
 <td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>include_docs</code></td>
@@ -599,6 +619,7 @@ longer fragments are returned.</td>
 <td>yes</td>
 <td>Boolean</td>
 <td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>include_fields</code></td>
@@ -607,6 +628,7 @@ Any fields that are included must be indexed with the <code>store:true</code> op
 <td>yes, the default is all fields</td>
 <td>Array of strings</td>
 <td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>limit</code></td>
@@ -616,6 +638,7 @@ this parameter limits the number of documents per group.</td>
 <td>yes</td>
 <td>Numeric</td>
 <td>The limit value can be any positive integer number up to and including 200.</td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>q</code></td>
@@ -624,6 +647,7 @@ Runs a Lucene query.</td>
 <td>no</td>
 <td>string or number</td>
 <td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>query</code></td>
@@ -631,6 +655,7 @@ Runs a Lucene query.</td>
 <td>no</td>
 <td>string or number</td>
 <td></td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>ranges</code></td>
@@ -645,6 +670,7 @@ for example <code>"[0 TO 10]"</code></td>
 <td>JSON</td>
 <td>The value must be an object with fields that have objects as their values.
 These objects must have strings with ranges as their field values.</td>
+<td>no</td>
 </tr>
 <tr>
 <td><code>sort</code></td>
@@ -669,6 +695,7 @@ Some examples are <code>"foo"</code>,
 "bar&lt;string&gt;"]</code>.
 String fields that are used for sorting must not be analyzed fields.
 Fields that are used for sorting must be indexed by the same indexer that is used for the search query.</td>
+<td>yes</td>
 </tr>
 <tr>
 <td><code>stale</code></td>
@@ -676,6 +703,7 @@ Fields that are used for sorting must be indexed by the same indexer that is use
 <td>yes</td>
 <td>string</td>
 <td>ok</td>
+<td>yes</td>
 </tr>
 </table>
 
@@ -756,7 +784,7 @@ Search queries take the form of `name:value` unless the name is omitted,
 in which case they use the default field,
 as demonstrated in the following examples:
 
-> Example search query expressions:
+_Example search query expressions:_
 
 ```
 // Birds
@@ -843,6 +871,9 @@ making it quick and easy to get the next set of results.
 The response never includes a bookmark if the [`"group_field"` parameter](#query-parameters) is included in the search query.
 {: tip}
 
+The `group_field`, `group_limit` and `group_sort` options are only available when making global queries.
+{: tip}
+
 The following characters require escaping if you want to search on them:
 
 ```
@@ -900,12 +931,15 @@ _Example `if` statement to verify that the required fields exist in each documen
 ```javascript
 if (typeof doc.town == "string" && typeof doc.name == "string") {
         index("town", doc.town, {facet: true});
-        index("name", doc.name, {facet: true});        
+        index("name", doc.name, {facet: true});
     }
 ```
 {: codeblock}
 
 ### Counts
+
+The `counts` option is only available when making global queries.
+{: tip}
 
 The `counts` facet syntax takes a list of fields,
 and returns the number of query results for each unique value of each named field.
@@ -922,7 +956,7 @@ and convert it by using the `parseInt`,
 or `.toString()` functions.
 {: note}
 
-_Example of a query using the `counts` facet syntax:_ 
+_Example of a query using the `counts` facet syntax:_
 
 ```http
 ?q=*:*&counts=["type"]
@@ -949,6 +983,9 @@ _Example response after using of the `counts` facet syntax:_
 
 ### `drilldown`
 
+The `drilldown` option is only available when making global queries.
+{: tip}
+
 You can restrict results to documents with a dimension equal to the specified label.
 Restrict the results by adding `drilldown=["dimension","label"]` to a search query.
 You can include multiple `drilldown` parameters to restrict results along multiple dimensions.
@@ -961,6 +998,9 @@ if the analyzer did not index a stop word like `"a"`,
 using `drilldown` returns it when you specify `drilldown=["key","a"]`.
 
 ### Ranges
+
+The `ranges` option is only available when making global queries.
+{: tip}
 
 The `range` facet syntax reuses the standard Lucene syntax for ranges
 to return counts of results that fit into each specified category.
