@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-29"
+lastupdated: "2019-02-11"
 
 ---
 
@@ -33,17 +33,17 @@ To follow this tutorial, you must first install the {{site.data.keyword.cloud_no
 Specify the target API endpoint for your {{site.data.keyword.cloud_notm}} commands:
 
 ```sh
-ibmcloud api https://api.ng.bluemix.net
+ibmcloud api https://api.us-south.cf.cloud.ibm.com
 ```
 {: codeblock}
 
 The result confirms that you correctly identified the endpoint:
 
 ```sh
-Setting api endpoint to https://api.ng.bluemix.net...
+Setting api endpoint to https://api.us-south.cf.cloud.ibm.com...
 OK
 
-API endpoint: https://api.ng.bluemix.net (API version: 2.54.0)
+API endpoint: https://api.us-south.cf.cloud.ibm.com (API version: 2.54.0)
 Not logged in. Use 'ibmcloud login' to log in.
 ```
 {: pre}
@@ -64,7 +64,7 @@ The following example describes the login process. If you are using a federated 
   API endpoint, and asks for the email address of your account:
   
   ```sh
-  API endpoint: https://api.ng.bluemix.net
+  API endpoint: https://api.us-south.cf.cloud.ibm.com
   
   Email>
   ```
@@ -73,7 +73,7 @@ The following example describes the login process. If you are using a federated 
 2.  Enter the email address of your account, and then enter your password:
 
   ```sh
-  API endpoint: https://api.ng.bluemix.net
+  API endpoint: https://api.us-south.cf.cloud.ibm.com
   
   Email> J.Doe@email.com
   
@@ -84,7 +84,7 @@ The following example describes the login process. If you are using a federated 
   {{site.data.keyword.cloud_notm}} validates your details and summarizes the information about your login session:
 
   ```sh
-  API endpoint: https://api.ng.bluemix.net
+  API endpoint: https://api.us-south.cf.cloud.ibm.com
   
   Email> J.Doe@email.com
   
@@ -98,7 +98,7 @@ The following example describes the login process. If you are using a federated 
   
   Targeted space dev
   
-  API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
+  API endpoint:   https://api.us-south.cf.cloud.ibm.com (API version: 2.54.0)
   Region:         us-south
   User:           j.doe@email.com
   Account:        J DOE's Account (707...a32)

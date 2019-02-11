@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-11"
 
 ---
 
@@ -41,19 +41,19 @@ More information about the '`cf api`' command is
 Use the following command to tell Cloud Foundry the URL to use:
 
 ```sh
-bluemix api https://api.ng.bluemix.net
+bluemix api https://api.us-south.cf.cloud.ibm.com
 ```
 {: pre}
 
 Expect a result similar to the following output:
 
 ```
-Invoking 'cf api https://api.ng.bluemix.net'...
+Invoking 'cf api https://api.us-south.cf.cloud.ibm.com'...
 
-Setting api endpoint to https://api.ng.bluemix.net...
+Setting api endpoint to https://api.us-south.cf.cloud.ibm.com...
 OK
 
-API endpoint:   https://api.ng.bluemix.net
+API endpoint:   https://api.us-south.cf.cloud.ibm.com
 API version:    2.54.0
 Not logged in. Use 'bluemix login' to log in.
 ```
@@ -87,7 +87,7 @@ Expect a result similar to the following output:
 ```
 Invoking 'cf login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev'...
 
-API endpoint: https://api.ng.bluemix.net
+API endpoint: https://api.us-south.cf.cloud.ibm.com
 
 Password> 
 Authenticating...
@@ -97,7 +97,7 @@ Targeted org Adrian.Warman@uk.ibm.com
 
 Targeted space dev
                 
-API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
+API endpoint:   https://api.us-south.cf.cloud.ibm.com (API version: 2.54.0)
 User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
 Space:          dev
