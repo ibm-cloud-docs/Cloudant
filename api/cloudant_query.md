@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-11"
 
 ---
 
@@ -441,6 +441,9 @@ Without a partial index, this query requires a full index scan to find
 all the documents of `type`:`user` that do not have a status of `archived`.
 This situation occurs because a normal index can be used to match contiguous rows,
 and the `$ne` operator cannot guarantee that.
+
+[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local) ](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html) does not support partial indexes.
+{: note}
 
 To improve response time, you can create an index that excludes documents
 with `status`: { `$ne`: `archived` } at index time by using the
