@@ -99,10 +99,10 @@ the choice of a partition key is very important. A partition key must have:
 
 Let's look at some use cases and some good and bad choices for a partition key.
 
-| Use case                   | Description                 | Partition Key | Good or bad                                                                                                      |
+| Use case                   | Description                 | Partition Key | Effectiveness                                                                                                  |
 |----------------------------|-----------------------------|---------------|------------------------------------------------------------------------------------------------------------------|
+| E-commerce system - orders | One document per order     | order_id      | Neutral - one document per partition is fine, but it does not provide the benefits of Partition Queries.          |
 | E-commerce system - orders | One document per order     | user_id       | Good - all of a user's orders will be kept together.                                                             |
-| E-commerce system - orders | One document per order     | order_id      | Bad - one document per partition isn't helpful.                                                                  |
 | E-commerce system - orders | One document per order      | status        | Bad - grouping orders by a handful of status values (provisional, paid, refunded, cancelled) will create too few over-large partitions.  |
 | Blogging platform          | One document per blog post | author_id     | Good - as long as there are many authors. Easy to query each author's posts.                                     |
 | IOT - sensor readings      | One document per reading    | device_id     | Good - if there are many devices. Make sure that one device is not producing many more readings than the others. |
