@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -600,20 +600,6 @@ Removed for 96973.
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/misc.html#post--db-\_revs\_diff' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/misc.html#post--db-\_revs\_diff' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td headers="description">Given a set of document/revision IDs, return the subset of those that do not correspond to revisions stored in the database.</td>
-</tr>
-<tr>
-<td headers="endpoint&links"><code>GET&nbsp;/{db}/\_revs\_limit</code><p>
-<a href='advanced.html#-get-database-_revs_limit-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
-<a href='http://docs.couchdb.org/en/2.0.0/api/database/misc.html#get--db-\_revs\_limit' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
-<a href='http://docs.couchdb.org/en/1.6.0/api/database/misc.html#get--db-\_revs\_limit' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Get the number of document revisions tracked.</td>
-</tr>
-<tr>
-<td headers="endpoint&links"><code>PUT&nbsp;/{db}/\_revs\_limit</code><p>
-<a href='advanced.html#-put-database-_revs_limit-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
-<a href='http://docs.couchdb.org/en/2.0.0/api/database/misc.html#put--db-\_revs\_limit' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
-<a href='http://docs.couchdb.org/en/1.6.0/api/database/misc.html#put--db-\_revs\_limit' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Set the maximum number of document revisions tracked.</td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>GET&nbsp;/{db}/\_security</code><p>
