@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-30"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -113,7 +113,7 @@ _Example error response if one of the requested databases for a replication does
   For more information,
   see [replication database maintenance](advanced_replication.html#replication-database-maintenance).
   
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](../api/authorization.html#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](docs/services/Cloudant/guides/iam.html){: new_window} or the legacy [Authentication API document](../api/authentication.html){: new_window} and the legacy [Authorization API document](../api/authorization.html){: new_window}.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](../api/authorization.html#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](../guides/iam.html){: new_window} or the legacy [Authentication API document](../api/authentication.html){: new_window} and the legacy [Authorization API document](../api/authorization.html){: new_window}.
 {: important}
 
 <div id="replicator-database"></div>
