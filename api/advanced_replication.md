@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-12"
 
 ---
 
@@ -662,12 +662,11 @@ by including them in the replication document.
 	the effective number of connections that are used corresponds to this parameter's value.
 	Default value is 20.
 -   `retries_per_request` - The maximum number of retries per request.
-	Before a retry,
-	the replicator waits for a short period before it repeats the request.
+	Before a retry, the replicator waits for a short period before it repeats the request.
 	This period doubles between each consecutive retry attempt,
-	and never goes beyond 5 minutes.
+	and never goes beyond 5 minutes. 
 	The minimum value before the first retry attempt is 0.25 seconds.
-	The default value is 10 attempts.
+	The default value is 10 attempts. Note that the `retries_per_request` option has no limit for a `_changes` feed request.
 -   `socket_options` - A list of options to pass to the connection sockets.
 	The available options can be found in the
 	[documentation for the Erlang function setopts/2 of the `inet` module ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.erlang.org/doc/man/inet.html#setopts-2){: new_window}. 
