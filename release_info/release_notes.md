@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-14"
+lastupdated: "2019-02-15"
 
 ---
 
@@ -24,10 +24,44 @@ lastupdated: "2019-02-14"
 Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by build number.
 {: shortdesc}
 
+## New features
+{: #new-features}
+
+### Partition Query (February 2019)
+{: #partition-query-february-2019}
+
+The new Partition Query feature provides a new way to structure
+data in {{site.data.keyword.cloudant_short_notm}}, which offers both cost savings and performance gains for your
+applications.
+
+For more information, see the following link:
+
+- Read the [guide to partition query](../guides/database_partitioning.html).
+
+### Dedicated Hardware (June 2017)
+{: #dedicated-hardware}
+
+A new Dedicated Hardware plan is available.
+
+For more information, see the following links:
+
+- See our [post on the {{site.data.keyword.cloud}} Blog](https://www.ibm.com/blogs/bluemix/2017/06/cloudant-available-dedicated-environments-improved-sla-bluemix-public/){: new_window} introducing the new plan.
+- Read about the [Dedicated Hardware plan](../offerings/bluemix.html#dedicated-plan){: new_window}.
+
+### Replication scheduler
+{: #replication-scheduler}
+
+The new replication scheduler has several improvements and enhancements. Learn more about the replication scheduler.
+
+## Build 7681 (February 2019)
+{: #build-7681-february-2019}
+
+- Partition query bug fixes.
+
 ## Build 7668 (January 2019)
 {: #build-7668-january-2019}
 
-- This build introduces a new feature, [Partition Query](/docs/services/Cloudant/guides/database_partitioning.html).
+- This build introduces a new feature, [Partition Query](../guides/database_partitioning.html).
 - Allow `limit` when using `POST` for search.
 
 ## Build 7544 (December 2018)
