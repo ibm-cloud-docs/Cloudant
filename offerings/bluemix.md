@@ -50,7 +50,7 @@ the [Lite plan](#lite-plan) is selected.
 ### Lite plan
 {: #lite-plan}
 
-The Lite plan is free, and is designed for development and evaluation purposes. {{site.data.keyword.cloudant_short_notm}}'s full functionality is included, but Lite plan instances have a fixed amount of provisioned throughput capacity and data storage. The provisioned throughput capacity is fixed at 20 lookups/sec, 10 writes/sec, and 5 queries/sec, and data storage is capped at 1 GB. 
+The Lite plan is free, and is designed for development and evaluation purposes. {{site.data.keyword.cloudant_short_notm}}'s full functionality is included, but Lite plan instances have a fixed amount of provisioned throughput capacity and data storage. The provisioned throughput capacity is fixed at 20 reads/sec, 10 writes/sec, and 5 global queries/sec, and data storage is capped at 1 GB. 
 
 Storage usage is checked daily. If you exceed your 1-GB storage limit, requests to the {{site.data.keyword.cloudant_short_notm}} instance receive a 
 402 status code with the error message, "Account has exceeded its data usage quota. An upgrade to a paid plan is required."
@@ -66,7 +66,7 @@ You are limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan insta
 
 The {{site.data.keyword.cloudant_short_notm}} Standard plan is available to all paid {{site.data.keyword.cloud}} accounts, either as pay-as-you-go or subscription, and scales to meet the needs of your application. The Standard plan is priced based on two factors: the provisioned throughput capacity that is allocated and the amount of data that is stored in the instance. 
 
-Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 lookups/sec, 50 writes/sec, and 5 queries/sec equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down in increments of 100 lookups/sec, 50 writes/sec, and 5 queries/sec in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Costs are calculated for the provisioned throughput capacity that is allocated and is not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you are charged a defined cost per GB per hour. 
+Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 reads/sec, 50 writes/sec, and 5 global queries/sec equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down in increments of 100 reads/sec, 50 writes/sec, and 5 global queries/sec in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Costs are calculated for the provisioned throughput capacity that is allocated and is not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you are charged a defined cost per GB per hour. 
 
 See the {{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](/docs/services/Cloudant/offerings/pricing.html#pricing){: new_window} information for examples to estimate costs.
 
@@ -80,27 +80,45 @@ You can provision one or more Standard plan instances, and the Dedicated Hardwar
 The Dedicated Hardware plan is not available to {{site.data.keyword.cloud_notm}} Dedicated customers. The Dedicated Hardware plan is only available to {{site.data.keyword.cloud_notm}} Public customers.
 {: important}
 
-## Provisioned throughput capacity
-{: #provisioned-throughput-capacity}
+## Event types
+{: #event-types}
 
 Throughput provision is identified and measured as one of the following types of events:
 
-1.	A lookup,
-    which is a read of a specific document,
+1.	_Reads_,
+    (formerly called lookups) which are:
+    1. A read of a specific document,
     based on the `_id` of the document.
-2.	A write,
-    which is the creation,
+    2. A _partitioned_ query,
+        which is a request that is made to an {{site.data.keyword.cloudant_short_notm}} 
+        query endpoint within the `_partition` namespace in the request path,
+        including the following types:
+        -	Primary Index ([`_all_docs`](../api/database.html#get-documents))
+        -	MapReduce View ([`_view`](../api/creating_views.html#using-views))
+        -	Search Index ([`_search`](../api/search.html#queries))
+        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
+    
+        The number of read operations consumed by a partitioned query request
+        varies depending on the results returned.
+2.	_Writes_,
+    which are creation,
     modification,
-    or deletion of an individual document,
-    or any update due to an index build.
-3.	A query,
-    which is a request that is made to one of the {{site.data.keyword.cloudant_short_notm}} query endpoints,
+    or deletion of individual documents.
+3.	_Global Queries_ to global indexes (formerly called queries),
+        which are requests made to an {{site.data.keyword.cloudant_short_notm}} 
+        query endpoint **not** within the `_partition` namespace,
     including the following types:
-	-	Primary Index ([`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents))
-	-	MapReduce View ([`_view`](/docs/services/Cloudant/api/creating_views.html#using-views))
-	-	Search Index ([`_search`](/docs/services/Cloudant/api/search.html#queries))
-	-	Geospatial Index ([`_geo`](/docs/services/Cloudant/api/cloudant-geo.html#querying-a-cloudant-geo-index))
-	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index))
+	-	Primary Index ([`_all_docs`](../api/database.html#get-documents))
+	-	MapReduce View ([`_view`](../api/creating_views.html#using-views))
+	-	Search Index ([`_search`](../api/search.html#queries))
+	-	Geospatial Index ([`_geo`](../api/cloudant-geo.html#querying-a-cloudant-geo-index))
+	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
+
+## Provisioned throughput capacity
+{: #provisioned-throughput-capacity}
+
+Throughput provision is identified and measured as events of the following
+operation types: _Read_, _Write_, _Global Query_.
 
 The measurement of throughput is a simple count of the number of events of each type,
 per second,
@@ -110,8 +128,8 @@ requests are rejected until the number of events within the sliding window
 no longer exceeds the number that is provisioned.
 It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
-For example, the Standard plan is provisioned for 200 lookups per second. Your account might make a maximum of 200 lookup requests during a consecutive period of 1,000 milliseconds (1 second). Subsequent lookup requests made during the sliding 1,000-millisecond period
-are rejected until the number of lookup requests in that period drops to less than 200 again.
+For example, the Standard plan is provisioned for 200 reads per second. Your account might consume a maximum of 200 read events during a consecutive period of 1,000 milliseconds (1 second). Subsequent read requests made during the sliding 1,000-millisecond period
+are rejected until the number of read events in that period drops to less than 200 again.
 
 When a request is rejected because the number of events is exceeded,
 applications receive a [`429` Too Many Requests](/docs/services/Cloudant/api/http.html#http-status-codes)
@@ -137,7 +155,61 @@ If you are porting an existing application, it might not be able to handle a `42
 {: note}
 
 In summary,
-you must ensure that your application is able to handle a [`429`](/docs/services/Cloudant/api/http.html#http-status-codes) response correctly.
+you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
+
+### Consumption of Read operations by partitioned queries
+{: #consumption-of-lookup-operations-by-partitioned-queries}
+
+Partitioned query requests consume a variable number of read operations
+depending on the results returned. Consumption is based on two axes:
+
+1. The number of rows read from the index involved in the query.
+1. The number of documents read from the database, if any, during the execution
+    of the query.
+    
+#### `_all_docs`, view and search queries
+
+Each block of 100 rows read from the index consumes 1 read operation. In
+addition, each document read from the database during execution of a query
+consumes 1 read unit.
+
+The number of rows read from the index is the same as the number of results
+returned. Documents are only read from the database when `include_docs=true` is
+passed as a query string parameter during the query request.
+
+Example costs are shown in the table below.
+
+| Number of results | Include documents | Total Read consumption | Consumption for rows read | Consumption for documents read |
+|--------------|----------------|-------------|---------------------| --- |
+| 199      | No     | **2** | 2 | 0 |
+| 199      | Yes     | **201** | 2 | 199 |
+| 301      | No     | **4** | 4 | 0 |
+| 301      | Yes     | **305** | 4 | 301 |
+
+Reducing use of `include_docs=true` is key for reducing read consumption for
+partitioned `_all_docs`, view, and search queries.
+
+#### {{site.data.keyword.cloudant_short_notm}} Query
+
+For {{site.data.keyword.cloudant_short_notm}} Query requests, the number of consumed read operations for index
+rows read relates to the rows read from the underlying index _before_ filtering
+occurs based on parts of the selector that cannot be satisfied by the index.
+This means that the rows read value, and therefore consumed read units, can be
+higher than the number of eventual results you receive.
+
+In addition, {{site.data.keyword.cloudant_short_notm}} Query must read the document for every row returned by the
+underlying index so it is able to execute further filtering required by the
+selector passed to the query.
+
+| Number of results | Number of rows returned by index | Total Read consumption | Consumption for rows read | Consumption for documents read |
+|--------------|----------------|-------------|---------------------| --- |
+| 5      | 199     | **201** | 2 | 199 |
+| 199      | 199     | **201** | 2 | 199 |
+| 5      | 301     | **305** | 4 | 301 |
+| 301      | 301     | **305** | 4 | 301 |
+
+Using appropriate indexes is key for reducing read consumption for partitioned
+{{site.data.keyword.cloudant_short_notm}} Query queries.
 
 <div id="servicetier"></div>
 
@@ -157,7 +229,7 @@ complete.
 
 ![Account dashboard](../images/cloudant_capacity_change.png)
 
-The size of the capacity increase is limited to 10 units (1000 lookups/second, 500 writes/second, and 50 queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
+The size of the capacity increase is limited to 10 units (1000 reads/second, 500 writes/second, and 50 global queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 {: note}
 
 <div id="throughput"></div>
@@ -175,7 +247,7 @@ and quantity of [stored data](#disk-space-included).
 
 Monitoring helps you recognize that a change to the provisioning in your plan might be advisable.
 For example,
-if you frequently approach the maximum number of database lookups,
+if you frequently approach the maximum number of database reads,
 then you can modify the provisioning through the [Service pane](#servicetier) on the Account tab of the dashboard.
 
 ## Data usage
