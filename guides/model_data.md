@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -123,7 +123,7 @@ documents with a given tag.
 
 In {{site.data.keyword.cloudant_short_notm}}, you'd store tags in a list in each document. You would then use a view to get the 
 documents with a given tag by 
-[emitting each tag as a key in your view's map function](../api/creating_views.html). 
+[emitting each tag as a key in your view's map function](/docs/services/Cloudant/api/creating_views.html). 
 Querying the view for a given key will then provide all the documents with that tag.
 
 ## Why this helps you de-normalize your data
