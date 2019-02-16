@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -62,7 +62,7 @@ is available at:
 [www.ibm.com/cloud/datacenters ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/cloud/datacenters){: new_window}.
 
 More information about {{site.data.keyword.cloudant_short_notm}}'s overall standards compliance can be found
-[here](compliance.html).
+[here](/docs/services/Cloudant/offerings/compliance.html).
 Similar information can be found for these IaaS business partners:
 
 -   [Amazon ![External link icon](../images/launch-glyph.svg "External link icon")](https://aws.amazon.com/compliance/){: new_window}

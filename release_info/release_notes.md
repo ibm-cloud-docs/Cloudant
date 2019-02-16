@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-08"
+lastupdated: "2019-02-14"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2019-02-08"
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2018-10-19 -->
+<!-- Acrolinx: 2018-11-20 -->
 
 # Release notes
 {: #release-notes}
@@ -24,14 +24,10 @@ lastupdated: "2019-02-08"
 Changes and updates to {{site.data.keyword.cloudantfull}} that are grouped by build number.
 {: shortdesc}
 
-## Dedicated hardware
-{: #dedicated-hardware}
-
-A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is available.
-
 ## Build 7668 (January 2019)
 {: #build-7668-january-2019}
 
+- This build introduces a new feature, [Partition Query](/docs/services/Cloudant/guides/database_partitioning.html).
 - Allow `limit` when using `POST` for search.
 
 ## Build 7544 (December 2018)
@@ -39,27 +35,19 @@ A new [Dedicated service instance](../offerings/bluemix.html#dedicated-plan) is 
 
 - Fixed a problem where the replicator would sometimes reset statistics during
     replications. This would affect values in the [replication status
-    information][build-7505-december-2018-5].
-     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-3]{: new_window}.
+    information](/docs/services/Cloudant/api/advanced_replication.html#replication-status).
+     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/couchdb/pull/1722){: new_window}.
 - Fixed an issue with Cloudant Query where, after deleting a document, issuing
     a `_find` request to a text index with `update=false` could return a
     `500` response.
-    See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-4]{: new_window}.
+    See [PR ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/couchdb/pull/1709){: new_window}.
 - You can now use `multipart/mixed` and `multipart/related` when using 
-    `_bulk_get`. See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-1]{: new_window}.
+    `_bulk_get`. See [PR ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/couchdb/pull/1195){: new_window}.
 - Fix a bug with total row count in the `_design_docs` handler.
-     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-2]{: new_window}.
+     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/couchdb/pull/1744){: new_window}.
 - Optimisations to the `_doc_id` and `_design_docs` replication filters.
-     See [issue ![External link icon](../images/launch-glyph.svg "External link icon")][build-7505-december-2018-6]{: new_window}.
+     See [issue ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/couchdb/issues/1737){: new_window}.
 - Fix a regression where long-running index jobs can fail.
-    
-
-[build-7505-december-2018-1]: https://github.com/apache/couchdb/pull/1195
-[build-7505-december-2018-2]: https://github.com/apache/couchdb/pull/1744
-[build-7505-december-2018-3]: https://github.com/apache/couchdb/pull/1722
-[build-7505-december-2018-4]: https://github.com/apache/couchdb/pull/1709
-[build-7505-december-2018-5]: https://console.bluemix.net/docs/services/Cloudant/api/advanced_replication.html#replication-status
-[build-7505-december-2018-6]: https://github.com/apache/couchdb/issues/1737
 
 ## Build 7426 (November 15, 2018)
 {: #build-7426-november-15-2018}
@@ -209,13 +197,13 @@ Find [more information on our Security page](https://console.bluemix.net/docs/se
 - Avoid unconditional retries in replicator's HTTP client.
 - Update MochiWeb to version 2.17.
 - Introduce new `_dbs_info` endpoint to get information from a list of databases. See
-[Get database information for multiple databases](../api/database.html#get-database-information-for-multiple-databases).
+[Get database information for multiple databases](/docs/services/Cloudant/api/database.html#get-database-information-for-multiple-databases).
 - Prepare for session support in replicator.
 
 ## Build 6656 (February 15, 2018)
 {: #build-6656-february-15-2018}
 
-- Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](../api/database.html#get-design-documents).
+- Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](/docs/services/Cloudant/api/database.html#get-design-documents).
 - When you send a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
 - Remove headers from replication document on read.
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response.
@@ -250,9 +238,9 @@ JavaScript.
 - {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}.
 - The logic for determining whether a specific index is valid for a query changed, addressing a bug that might lead to incorrect results.
 - Queries that use text indexes no longer fail when `$exists`: `false` is used.
-- Partial indexes are now supported for both JSON and text indexes. For more information, see  [Creating a partial index](../api/cloudant_query.html#creating-a-partial-index) for more information.
-- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [finding documents by using an index](../api/cloudant_query.html#finding-documents-by-using-an-index) for more information.
-- [Pagination](../api/cloudant_query.html#pagination) is supported by using the bookmark field. Bookmarks are enabled for all index types.
+- Partial indexes are now supported for both JSON and text indexes. For more information, see  [Creating a partial index](/docs/services/Cloudant/api/cloudant_query.html#creating-a-partial-index) for more information.
+- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [finding documents by using an index](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index) for more information.
+- [Pagination](/docs/services/Cloudant/api/cloudant_query.html#pagination) is supported by using the bookmark field. Bookmarks are enabled for all index types.
 - `_find` now falls back to any valid index if the value specified in the `use_index`
 field is invalid for the current query. When this occurs, the `warning` field is populated in the query response.
 
@@ -284,8 +272,8 @@ Now, the error is a 409 error with the following information: `{`error`:`not_fou
   A fix was introduced so that the replication document is not updated unless the reason for the error changes.
 - If the design document that is intended to specify a geospatial index is invalid,
   an attempt to retrieve information about the index by using
-  the [`_geo_info` endpoint](../api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
-  results in an [HTTP `404`](../api/http.html#404) response.
+  the [`_geo_info` endpoint](/docs/services/Cloudant/api/cloudant-geo.html#obtaining-information-about-a-cloudant-geo-index)
+  results in an [HTTP `404`](/docs/services/Cloudant/api/http.html#http-status-codes) response.
 - Added support for the `$allmatch` operator.
 
 ## Build 5834 (February 13, 2017)

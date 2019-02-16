@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -29,7 +29,7 @@ versions are released.
 ## New features
 {: #new-features}
 
-- The new replication scheduler has several improvements and enhancements. Learn more about the [replication scheduler](../api/advanced_replication.html#the-replication-scheduler).
+- The new replication scheduler has several improvements and enhancements. Learn more about the [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler).
  
 ## Incompatibilities
 {: #incompatibilities}

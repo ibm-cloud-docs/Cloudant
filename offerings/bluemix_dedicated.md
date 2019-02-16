@@ -61,7 +61,7 @@ shares the underlying hardware resources that make up the {{site.data.keyword.cl
 
 All plans are provided on servers with [at rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest) 
 disk encryption. Access is over the public network connection and encrypted by 
-using HTTPS. For more detail, see [Security ![External link icon](../images/launch-glyph.svg "External link icon")](../offerings/security.html#security){: new_window}. 
+using HTTPS. For more detail, see [Security ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/offerings/security.html#security){: new_window}. 
 IP whitelisting is available on request to {{site.data.keyword.cloudant_short_notm}} Support and will apply to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level.  
 
