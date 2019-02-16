@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-28"
 
 ---
 
@@ -272,7 +272,7 @@ _Example response in JSON format:_
 
 If the design document that is intended to specify a geospatial index is invalid,
 an attempt to retrieve information about the index by using the `_geo_info` endpoint
-results in an [HTTP `404`](http.html#404) response.
+results in an [HTTP `404`](/docs/services/Cloudant/api/Cloudant?topic=cloudant-http#404) response.
 {: tip}
 
 ## Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
@@ -581,7 +581,7 @@ For example,
 you might provide a polygon description as the geometric object,
 and then request that the query return details of documents within the database that are contained by the polygon.
 
-_Example query to find documents that have a geospatial position within a polygon:
+_Example query to find documents that have a geospatial position within a polygon:_
 
 ```http
 https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POLYGON((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))&relation=contains&format=geojson

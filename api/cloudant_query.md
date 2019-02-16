@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-11"
+lastupdated: "2019-02-04"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2019-01-11"
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2018-06-04 -->
+<!-- Acrolinx: 2018-08-17 -->
 
 # Query
 {: #query}
@@ -72,7 +72,7 @@ _Example of a JSON object creating a partitioned index called `foo-partitioned-i
     "partitioned": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of a JSON object creating a global index called `bar-global-index`, for the field called `bar`:_
 
@@ -106,7 +106,7 @@ _Example of returned JSON, confirming that the index was created:_
 <th id="field">Field</th><th id="description" colspan='4'>Description</th>
 </tr>
 <tr>
-<td headers="field" align="center" valign="top"><p>index:</p></td>
+<td headers="field" align="center" valign="top"><p>index</p></td>
 <td headers="description"><p>fields:<p style="margin-left: 20px">A JSON array of field names that uses the <a href="https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#sort-syntax">sort syntax</a>. Nested fields are also allowed, for example, <code>"person.name"</code>.</p></p></td>
 </tr>
 <tr>
@@ -123,12 +123,13 @@ _Example of returned JSON, confirming that the index was created:_
 </tr>
 <tr>
 <td headers="field"><p>partitioned (optional, boolean)</p></td>
-<td headers="description"><p>Whether this index is partitioned. For more information, see [the `partitioned` field](#the-partitioned-field).</p></td>
+<td headers="description"><p>Whether this index is partitioned. See below.</p></td>
 </tr>
 </tr>
 </table>
 
 #### The `partitioned` field
+{: #section1-the-partitioned-field}
 
 This field sets whether the created index will be a partitioned or global index.
 
@@ -215,7 +216,7 @@ _Example of JSON document that requests a global index creation:_
     "partitioned": false
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Example of JSON document that requests creation of a more complex partitioned index:_
 
@@ -286,7 +287,7 @@ Key        | Description
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
 Later,
 the index can be queried by using the `$text` operator.
-See the [{{site.data.keyword.cloudant_short_notm}} Search documentation](search.html#analyzers) for alternative analyzers.
+See the [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant/api/Cloudant?topic=cloudant-search#analyzers) for alternative analyzers.
 You might choose to use an alternative analyzer when documents are indexed in languages other than English,
 or when you have other special requirements for the analyzer such as matching email addresses.
 
@@ -326,8 +327,7 @@ You might prefer to set the `index_array_lengths` field to `false` if:
 	or not completely under your control.
 	As a result, it is difficult to estimate the impact of the extra processing that is needed to determine and store the array lengths.
 
-The [`$size` operator](#the-size-operator) requires the `index_array_lengths` field is set to `true`,
-otherwise the operator cannot work.
+The [`$size` operator](#the-size-operator) requires that the `index_array_lengths` field be set to `true`. Otherwise, the operator cannot work.
 {: tip}
 
 _Example JSON document with suggested settings to optimize performance on production systems:_
@@ -343,6 +343,7 @@ _Example JSON document with suggested settings to optimize performance on produc
 {: codeblock}
 
 #### The `partitioned` field
+{: #section2-the-partitioned-field}
 
 This sets whether the created index will be a partitioned or global index.
 
@@ -374,7 +375,7 @@ such as wildcards,
 fuzzy matches,
 or proximity detection.
 For more information,
-see [{{site.data.keyword.cloudant_short_notm}} Search documentation](search.html#search).
+see [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant/api/Cloudant?topic=cloudant-search).
 The `$text` operator applies to all strings found in the document.
 If you place this operator in the context of a field name, it is invalid.
 
@@ -442,11 +443,11 @@ all the documents of `type`:`user` that do not have a status of `archived`.
 This situation occurs because a normal index can be used to match contiguous rows,
 and the `$ne` operator cannot guarantee that.
 
-[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local) ](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html) does not support partial indexes.
+[{{site.data.keyword.cloudant_localfull}} (Cloudant Local)](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html) does not support partial indexes.
 {: note}
 
-To improve response time, you can create an index that excludes documents
-with `status`: { `$ne`: `archived` } at index time by using the
+To improve response time, you can create an index that excludes documents 
+with `status`: { `$ne`: `archived` } at index time by using the 
 `partial_filter_selector` field:
 ```
 POST /db/_index HTTP/1.1
@@ -502,7 +503,7 @@ Design documents are regular documents that have an ID starting with `_design/`.
 They can be retrieved and modified in the same way as any other document,
 although these actions are not usually necessary when you use {{site.data.keyword.cloudant_short_notm}} Query.
 
-Design documents are discussed in more detail [here](design_documents.html).
+Design documents are discussed in more detail [here](/docs/services/Cloudant/api/Cloudant?topic=cloudant-design-documents).
 
 ### Response body format for listing all {{site.data.keyword.cloudant_short_notm}} Query indexes
 {: #response-body-format-for-listing-all-IBM-cloudant-query-indexes}
@@ -604,11 +605,9 @@ Design documents are not returned by `_find`.
 	The request will take more time than using only the document that is stored locally with the index.
     - `r` is **disallowed** when making a partition query.
 -	**bookmark (optional, default: null)**: A string that is used to specify which page of results you require.
-	Pagination is discussed in more detail [here](cloudant_query.html#pagination).
+	Pagination is discussed in more detail [here](#pagination).
 -	**use_index (optional)**: Use this option to identify a specific index for query to run against,
-	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index.
-
-	For more information, see [Explain Plans](#explain-plans).
+	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index. For more information, see [Explain Plans](#explain-plans).
 -	**conflicts (optional, default: false)**: A Boolean value that indicates whether or not to include information about existing conflicts in the document.
 -   **execution_stats (optional, default: false)**: Use this option to find information
 	about the query
@@ -1212,7 +1211,7 @@ Object        | `$exists` | Boolean              | Check whether the field exist
 Array         | `$in`     | Array of JSON values | The document field must exist in the list provided.
               | `$nin`    | Array of JSON values | The document field must not exist in the list provided.
               | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields cannot match this condition.
-Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](http.html#404). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
+Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/services/Cloudant/api/Cloudant?topic=cloudant-http#404). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
               | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression.
 
 Regular expressions do not work with indexes,
@@ -1616,7 +1615,7 @@ The `$mod` operator matches documents where the expression (`field % Divisor == 
 and only when the document field is an integer.
 The Divisor and Remainder must be integers.
 They can be positive or negative integers.
-A query where the Divisor or Remainder is a non-integer returns a [404 status](http.html#404).
+A query where the Divisor or Remainder is a non-integer returns a [404 status](/docs/services/Cloudant/api/Cloudant?topic=cloudant-http#404).
 
 When you use negative integer values for the Divisor or Remainder,
 the {{site.data.keyword.cloudant_short_notm}} `$mod` operator behaves in a similar way to the
@@ -1680,7 +1679,7 @@ Combination or array logical operators, such as `$regex`, can
 result in a full database scan when you use indexes of type JSON,
 resulting in poor performance. Only equality operators, such as `$eq`,
 `$gt`, `$gte`, `$lt`, and `$lte` (but not `$ne`), enable index lookups. To ensure that indexes are used effectively, analyze the
-[explain plan](https://console.bluemix.net/docs/services/Cloudant/api/cloudant_query.html#explain-plans) for each query.
+[explain plan](#explain-plans) for each query.  
 {: tip}
 
 Most selector expressions work exactly as you would expect for the operator.
@@ -1850,6 +1849,8 @@ The presence of a bookmark doesn’t guarantee more results. You can test whethe
 you are at the end of the result set by comparing the number of results that are returned with the page size
 requested. If the results returned < limit, no more results were returned in the result set.
 {: tip}
+
+
 
 ## Explain Plans
 {: #explain-plans}

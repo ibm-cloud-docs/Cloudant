@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-23"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -26,49 +26,33 @@ such as functions.
 The special documents are called "design documents".
 {: shortdesc}
 
-Design documents are [documents](document.html) that have an `_id` beginning with `_design/`.
+Design documents are [documents](/docs/services/Cloudant/api/document.html) that have an `_id` beginning with `_design/`.
 They can be read and updated in the same way as any other document in the database.
 {{site.data.keyword.cloudantfull}} reads specific fields and values of design documents as functions.
 Design documents are used to [build indexes](#indexes), [validate updates](#update-validators), and [format query results](#list-functions).
-
-Each design document defines either _partitioned_ or _global_ indexes,
-controlled via the `options.partitioned` field. A _partitioned_ index allows
-only queries over a single data partition in a partitioned database. A _global_
-index allows querying over all data within a database, at a cost of latency and
-throughput over a partitioned index.
 
 ## Creating or updating a design document
 
 -	**Method**: `PUT /$DATABASE/_design/design-doc`
 -	**Request**: JSON of the design document information
 -	**Response**: JSON status
--	**Roles permitted**: `_admin`, `_design`
+-	**Roles permitted**: `_design`
 
 To create a design document, upload it to the specified database.
-
+   
 In these examples,
 `$VARIABLES` might refer to standard or design documents.
 To distinguish between them,
 standard documents have an `_id` indicated by `$DOCUMENT_ID`,
 while design documents have an `_id` indicated by `$DESIGN_ID`.
 
-A design document's ID never contains a partition key regardless of the
-database's partitioning type. This is because the indexes contained within
-a design document apply to all partitions in a partitioned database.
-
-If a design document is updated,
-{{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version,
-and recreates the index from scratch.
-If you need to make changes to a design document for a larger database,
-have a look at the [Design Document Management Guide](../guides/design_document_management.html#managing-changes-to-a-design-document).
+If a design document is updated, {{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version, and recreates the index from scratch. If you need to make changes to a design document for a larger database, have a look at the [Design Document Management Guide](/docs/services/Cloudant/guides/design_document_management.html#managing-changes-to-a-design-document).
+{: note}
 
 The structure of design document is as follows:
 
--	**`_id`**: Design Document ID. This ID is _always_ prefixed `_design` and
-    _never_ contains a partition key, regardless of database partitioning type.
+-	**`_id`**: Design Document ID
 -	**`_rev`**: Design Document Revision
--   **options**: Contains options for this design document.
-    -   **partitioned (optional, boolean)**: Whether this design document describes partitioned or global indexes. For more inforamtion, see [The `options.partitioned` field](#the-options-partitioned-field).
 -	**views (optional)**: An object describing MapReduce views.
 	-	**viewname** (one for each view): View Definition.
 		-	**map**: Map Function for the view.
@@ -89,36 +73,10 @@ The structure of design document is as follows:
 				Field names in the object correspond to field names in the index, that is, the first parameter of the index function.
 				The values of the fields are the languages to be used, for example `english`.
 		-	**index**: Function that handles the indexing.
--	**rewrites (optional, disallowed when `partitioned` is `true`)**: Rewrite functions.
+-	**shows (optional)**: Show functions.
 	-	**function name** (one for each function): Function definition.
--	**lists (optional, disallowed when `partitioned` is `true`)**: List functions.
+-	**lists (optional)**: List functions.
 	-	**function name** (one for each function): Function definition.
--	**shows (optional, disallowed when `partitioned` is `true`)**: Show functions.
-	-	**function name** (one for each function): Function definition.
--	**updates (optional, disallowed when `partitioned` is `true`)**: Update functions.
-	-	**function name** (one for each function): Function definition.
--	**filters (optional, disallowed when `partitioned` is `true`)**: Filter functions.
-	-	**function name** (one for each function): Function definition.
--	**validate_doc_update (optional, disallowed when `partitioned` is `true`)**: Update validation function.
-
-
-### The `options.partitioned` field
-
-This field sets whether the created indexes will be a partitioned or global index.
-
-The values of this field are as follows:
-
-Value  | Description           | Notes
----------|---------------------|------------
-`true` | Create the index as partitioned.   | Can only be used in a partitioned database.
-`false`    | Create the index as global.  | Can be used in any database.
-
-The default follows the <code>partitioned</code> setting for the database:
-
-Database is partitioned | Default `partitioned` value | Allowed values
----------|----------|---------
-Yes  | `true`  | `true`, `false`
-No   | `false` | `false`
 
 ## Copying a Design Document
 
@@ -301,15 +259,12 @@ _Example response, containing the deleted document ID and revision:_
 ## Views
 
 An important use of design documents is for creating views.
-These are discussed in more detail [here](creating_views.html).
+These are discussed in more detail [here](/docs/services/Cloudant/api/creating_views.html).
 
 ## Rewrite rules
 
 A design document can contain rules for URL rewriting, by using an array in the `rewrites` field.
 Requests that match the rewrite rules must have a URL path that starts with `/$DATABASE/_design/doc/_rewrite`.
-
-Design documents with `options.partitioned` set to `true` cannot contain a `rewrites` field.
-{: tip}
 
 Each rule is a JSON object with 4 fields:
 
@@ -365,23 +320,23 @@ Rule                                                           | URL            
 All queries operate on pre-defined indexes defined in design documents.
 These indexes are:
 
-*	[Search](search.html)
-*	[MapReduce](creating_views.html)
+*	[Search](/docs/services/Cloudant/api/search.html)
+*	[MapReduce](/docs/services/Cloudant/api/creating_views.html)
 
 For example,
 to create a design document used for searching,
 you must ensure that two conditions are true:
 
 1.	You have identified the document as a design document by having an `_id` starting with `_design/`.
-2.	A [search index](search.html) has been created within the document
-	by [updating](document.html#update) the document with the appropriate field
-	or by [creating](document.html#create) a new document containing the search index.
+2.	A [search index](/docs/services/Cloudant/api/search.html) has been created within the document
+	by [updating](/docs/services/Cloudant/api/document.html#update) the document with the appropriate field
+	or by [creating](/docs/services/Cloudant/api/document.html#create) a new document containing the search index.
 
 As soon as the search index design document exists and the index has been built,
 you can make queries using it.
 
 For more information about search indexing,
-refer to the [search](search.html) section of this documentation.
+refer to the [search](/docs/services/Cloudant/api/search.html) section of this documentation.
 
 ### General notes on functions in design documents
 
@@ -395,11 +350,8 @@ you should avoid using functions that generate random numbers or return the curr
 
 ## List Functions
 
-Design documents with `options.partitioned` set to `true` cannot contain a `lists` field.
-{: tip}
-
 Use list functions to customize the format of
-[MapReduce](using_views.html#using-views) query results.
+[MapReduce](/docs/services/Cloudant/api/using_views.html#using-views) query results.
 A good example of their use is when you want to access {{site.data.keyword.cloudant_short_notm}} directly from a browser,
 and need data to be returned in a different format,
 such as HTML.
@@ -430,7 +382,7 @@ It enables you to create list functions that are more dynamic,
 because they are based on additional factors such as query parameters or the user context.
 
 The values within the `req` argument are similar to the query parameters described
-[here](cloudant_query.html#query-parameters).
+[here](/docs/services/Cloudant/api/cloudant_query.html#query-parameters).
 
 _Example design document referencing a list function, expressed using JSON:_
 
@@ -528,14 +480,11 @@ Field            | Description
 `query`          | URL query parameters object. Multiple keys are not supported, therefore the last duplicate key overrides the others.
 `requested_path` | List of actual requested path section.
 `raw_path`       | Raw requested path string.
-`secObj`         | The database's [security object](authorization.html#viewing-permissions)
+`secObj`         | The database's [security object](/docs/services/Cloudant/api/authorization.html#viewing-permissions)
 `userCtx`        | Context about the currently authenticated user, specifically their `name` and `roles` within the current database.
 `uuid`           | A generated UUID.
 
 ## Show Functions
-
-Design documents with `options.partitioned` set to `true` cannot contain a `shows` field.
-{: tip}
 
 Show functions are similar to [list functions](#list-functions),
 but are used to format individual documents.
@@ -544,7 +493,7 @@ and need data to be returned in a different format,
 such as HTML.
 
 The result of a show function is not stored. This means that the function is executed every time a request is made. As a consequence,
-using [map functions](creating_views.html#a-simple-view) might be more efficient. For web and mobile applications, consider whether any computations done in a show function would be better placed in the application tier.
+using [map functions](/docs/services/Cloudant/api/creating_views.html#a-simple-view) might be more efficient. For web and mobile applications, consider whether any computations done in a show function would be better placed in the application tier.
 {: note}
 
 Show functions require two arguments: `doc`, and [req](#req).
@@ -621,9 +570,6 @@ db.show($DESIGN_ID, $SHOW_FUNCTION, $DOCUMENT_ID, function (err, body) {
 -->
 
 ## Update Handlers
-
-Design documents with `options.partitioned` set to `true` cannot contain a `updates` field.
-{: tip}
 
 Update handlers are custom functions that create or update a document.
 They are used for tasks such as providing server-side modification timestamps,
@@ -732,11 +678,8 @@ db.atomic($DESIGN_ID, $UPDATE_HANDLER, $DOCUMENT_ID, $JSON, function (err, body)
 
 ## Filter Functions
 
-Design documents with `options.partitioned` set to `true` cannot contain a `filters` field.
-{: tip}
-
 Filter functions are design documents that enable you to filter
-the [changes feed](database.html#get-changes).
+the [changes feed](/docs/services/Cloudant/api/database.html#get-changes).
 They work by applying tests to each of the objects included in the changes feed.
 
 If any of the function tests fail,
@@ -745,7 +688,7 @@ If the function returns a `true` result when applied to a change,
 the change remains in the feed.
 This means that filter functions let you 'remove' or 'ignore' changes that you do not want to monitor.
 
-Filter functions can also be used to modify a [replication task](advanced_replication.html#filtered-replication).
+Filter functions can also be used to modify a [replication task](/docs/services/Cloudant/api/advanced_replication.html#filtered-replication).
 {: tip}
 
 Filter functions require two arguments: `doc` and [`req`](#req).
@@ -850,8 +793,8 @@ A number of predefined filter functions are available:
 
 *	[`_design`](#the-_design-filter): accepts only changes to design documents.
 *	[`_doc_ids`](#the-_doc_ids-filter): accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
-*	[`_selector`](#the-_selector-filter): accepts only changes for documents which match a specified selector, defined using the same [selector syntax](cloudant_query.html#selector-syntax) used for [`_find`](cloudant_query.html#finding-documents-using-an-index).
-*	[`_view`](#the-_view-filter): allows you to use an existing [map function](creating_views.html#a-simple-view) as the filter.
+*	[`_selector`](#the-_selector-filter): accepts only changes for documents which match a specified selector, defined using the same [selector syntax](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax) used for [`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index).
+*	[`_view`](#the-_view-filter): allows you to use an existing [map function](/docs/services/Cloudant/api/creating_views.html#a-simple-view) as the filter.
 
 #### The `_design` filter
 
@@ -961,11 +904,11 @@ _Example response (abbreviated) after filtering by `_docs_ids`:_
 #### The `_selector` filter
 
 The `_selector` filter accepts only changes for documents which match a specified selector,
-defined using the same [selector syntax](cloudant_query.html#selector-syntax) used
-for [`_find`](cloudant_query.html#finding-documents-using-an-index).
+defined using the same [selector syntax](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax) used
+for [`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index).
 
 For more examples showing use of this filter,
-see the information on [selector syntax](cloudant_query.html#selector-syntax).
+see the information on [selector syntax](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax).
 
 _Example application of the `_selector` filter, using HTTP:_
 
@@ -1037,7 +980,7 @@ _Example response (abbreviated) after filtering using a selector:_
 
 #### The `_view` filter
 
-The `_view` filter allows you to use an existing [map function](creating_views.html#a-simple-view) as the filter.
+The `_view` filter allows you to use an existing [map function](/docs/services/Cloudant/api/creating_views.html#a-simple-view) as the filter.
 
 If the map function emits any output as a result of processing a given document,
 then the filter considers the document to be allowed and so includes it in the list of documents that have changed.
@@ -1078,9 +1021,6 @@ _Example response (abbreviated) after filtering using a map function:_
 
 ## Update Validators
 
-Design documents with `options.partitioned` set to `true` cannot contain a `validate_doc_update` field.
-{: tip}
-
 Update validators determine whether a document should be written to disk when insertions and updates are attempted.
 They do not require a query because they implicitly run during this process.
 If a change is rejected,
@@ -1092,7 +1032,7 @@ Argument  | Purpose
 ----------|--------
 `newDoc`  | The version of the document passed in the request.
 `oldDoc`  | The version of the document currently in the database, or `null` if there is none.
-`secObj`  | The [security object](authorization.html#viewing-permissions) for the database.
+`secObj`  | The [security object](/docs/services/Cloudant/api/authorization.html#viewing-permissions) for the database.
 `userCtx` | Context regardingthe currently authenticated user, such as `name` and `roles`.
 
 Update validators do not apply when a design document is updated by an admin user. This is to ensure that admins can never accidentally lock themselves out.
@@ -1137,9 +1077,9 @@ design documents: [`_info`](#the-_info-endpoint) and [`_search_info`](#the-_sear
 ### The `_info` endpoint
 
 The `_info` endpoint returns information about a given design document,
-including the view index,
-view index size,
-and current status of the design document and associated view index information.
+including the index,
+index size,
+and current status of the design document and associated index information.
 
 -	**Method**: `GET /db/_design/design-doc/_info`
 -	**Request**: None
