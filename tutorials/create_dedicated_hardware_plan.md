@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-09"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -47,7 +47,7 @@ instances on it.
      ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)<br/>
 
 3.  Select the `Dedicated Hardware` plan from the list of pricing plans at the bottom of the page:<br/>
-    ![Pricing plans](../tutorials/images/pricing_plan.png)
+    ![Pricing plans](/docs/services/Cloudant/tutorials/images/pricing_plan.png)
     
 4.  Fill out the following parameters at the top of the page: <br/>
     -   Enter a service name.<br/>
@@ -60,19 +60,19 @@ instances on it.
     HIPAA is only valid for U.S. locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only provisioned upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. See [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
     {: note}
 
-    ![Configure dedicated hardware](../tutorials/images/select_deployment_location.png)
+    ![Configure dedicated hardware](/docs/services/Cloudant/tutorials/images/select_deployment_location.png)
         
 5.  Click the `Create` button to start the provisioning process. <br/>
 
     Billing is prorated daily so make sure that you want to provision and pay for an environment before clicking the **Create** button.
     {: note}
 
-    ![Provision dedicated hardware](../tutorials/images/create_button_provision.png)
+    ![Provision dedicated hardware](/docs/services/Cloudant/tutorials/images/create_button_provision.png)
 
     During provisioning, a spinning wheel appears next to the instance in your {{site.data.keyword.cloud_notm}} dashboard. A request is sent to provision a Dedicated Hardware plan instance on bare metal servers. Provisioning time is asynchronous and can take up to 5 days. 
     {: note}   
 
-    ![Provision dedicated hardware alternate version](../tutorials/images/create_button_provision2.png)
+    ![Provision dedicated hardware alternate version](/docs/services/Cloudant/tutorials/images/create_button_provision2.png)
     
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment
 
@@ -88,7 +88,7 @@ instances on it.
     The page for creating a service appears.<br/>  
 
 3.  Click `Standard` from the pricing plans. <br/>
-    ![Standard pricing plan](../tutorials/images/standard_pricing_plan.png)
+    ![Standard pricing plan](/docs/services/Cloudant/tutorials/images/standard_pricing_plan.png)
     
     You cannot provision a Lite plan instance on a Dedicated Hardware environment.
     {: tip}
@@ -100,19 +100,19 @@ instances on it.
     -   Add a tag. 
     -   Select an authentication method.</br>
     -   Select an environment.</br>
-    ![Configure standard instance](../tutorials/images/select_environment.png)
+    ![Configure standard instance](/docs/services/Cloudant/tutorials/images/select_environment.png)
     
 5.  Click the `Create` button.<br/>
     After a few seconds, the instance is provisioned on the environment you selected.<br/>
-    ![Provision standard instance](../tutorials/images/create_button_provision_standard.png)
+    ![Provision standard instance](/docs/services/Cloudant/tutorials/images/create_button_provision_standard.png)
     
 6.  Obtain your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
     
-    For more information, see [how to locate your service credentials](../tutorials/create_service.html#locating-your-service-credentials){: new_window}. 
+    For more information, see [how to locate your service credentials](/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials){: new_window}. 
     
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment with the {{site.data.keyword.cloud_notm}} CLI
 
-To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information about how to log in and set a target resource group, see [Logging in to your {{site.data.keyword.cloud_notm}} account](create_service_cli.html#logging-in-to-your-ibm-cloud-account){: new_window}. 
+To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information about how to log in and set a target resource group, see [Logging in to your {{site.data.keyword.cloud_notm}} account](/docs/services/Cloudant/tutorials/create_service_cli.html#logging-in-to-your-ibm-cloud-account){: new_window}. 
 
 To create an {{site.data.keyword.cloudant_short_notm}} Standard plan instance on your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment, the basic command format is as follows:
 
@@ -136,7 +136,7 @@ ibmcloud resource service-instance-create NAME SERVICE_NAME SERVICE_PLAN_NAME LO
 Parameter | Description
 ----------|------------
 `environment_crn` | This parameter must be set to the CRN of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. You can determine what the CRN is by looking at the example CLI command in the Manage tab of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance in the {{site.data.keyword.cloud_notm}} Dashboard. Or you can determine what the CRN is by using the `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` command. 
-`legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide ![External link icon](../images/launch-glyph.svg "External link icon")](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){: new_window} for more details on choosing an authentication method.
+`legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/guides/iam.html#ibm-cloud-identity-and-access-management-iam-){: new_window} for more details on choosing an authentication method.
 
 See the following example command: 
 
@@ -153,7 +153,7 @@ must have the necessary credentials.
 Service credentials are valuable. If anyone or any application has access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
 {: important}
 
-For more information about the fields included in the service credentials, see the [IAM guide](../guides/iam.html#ibm-cloud-identity-and-access-management-iam-){: new_window}.
+For more information about the fields included in the service credentials, see the [IAM guide](/docs/services/Cloudant/guides/iam.html#ibm-cloud-identity-and-access-management-iam-){: new_window}.
 
 The basic command format to create credentials for a service instance
 within {{site.data.keyword.cloud_notm}} is as follows:

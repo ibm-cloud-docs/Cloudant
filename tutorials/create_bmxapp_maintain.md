@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -62,7 +62,7 @@ To stop a running application, click the `Stop` option in the menu:<br/>
 ### Uploading a fresh version of your application
 
 To upload a fresh version of your application,
-simply follow the [upload process](create_bmxapp_upload.html).
+simply follow the [upload process](/docs/services/Cloudant/tutorials/create_bmxapp_upload.html).
 The new version overwrites the older version of the application.
 
 If the older version of the application is already running when you start the upload, {{site.data.keyword.cloud_notm}} automatically stops the application first.
