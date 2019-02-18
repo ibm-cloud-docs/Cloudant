@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-06"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -68,62 +68,39 @@ The {{site.data.keyword.cloudant_short_notm}} Standard plan is available to all 
 
 Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 lookups/sec, 50 writes/sec, and 5 queries/sec equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down in increments of 100 lookups/sec, 50 writes/sec, and 5 queries/sec in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Costs are calculated for the provisioned throughput capacity that is allocated and is not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you are charged a defined cost per GB per hour. 
 
-See the {{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](../offerings/pricing.html#pricing){: new_window} information for examples to estimate costs.
+See the {{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](/docs/services/Cloudant/offerings/pricing.html#pricing){: new_window} information for examples to estimate costs.
 
 ### Dedicated hardware plan
 {: #dedicated-hardware-plan}
 
 An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance is a bare metal {{site.data.keyword.cloudant_short_notm}} environment that is provisioned for the sole use of your {{site.data.keyword.cloudant_short_notm}} Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can be provisioned in any [{{site.data.keyword.IBM}} data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). This plan is necessary for HIPAA compliance and must be selected at provisioning time. Users of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can employ IP whitelisting and bring-your-own-key (BYOK) customer-managed encryption keys with {{site.data.keyword.IBM_notm}} Key Protect. Additionally, Dedicated Hardware environments provisioned after January 1, 2019 include internal endpoints for all Standard plan instances deployed on them. Using internal endpoints allows customers to connect to an {{site.data.keyword.cloudant_short_notm}} instance through the internal {{site.data.keyword.cloud}} network to avoid upstream application traffic from going over the public network and incurring bandwidth charges. For more information, see [Service Endpoint documentation](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window} for more details on enabling Service Endpoints for your {{site.data.keyword.cloud}} account.
 
-You can provision one or more Standard plan instances, and the Dedicated Hardware environment expands or contracts as needed based on capacity and data that is used by the Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance has a fixed price that is an addition to the consumption pricing of any Standard plan instances deployed on it. Billing is prorated daily, and there is a 1-month minimum duration to be charged for the environment. Provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan is asynchronous and can take 5-7 business days. To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance and provision a Standard plan instance on it, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](../tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){: new_window} tutorial. 
+You can provision one or more Standard plan instances, and the Dedicated Hardware environment expands or contracts as needed based on capacity and data that is used by the Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance has a fixed price that is an addition to the consumption pricing of any Standard plan instances deployed on it. Billing is prorated daily, and there is a 1-month minimum duration to be charged for the environment. Provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan is asynchronous and can take 5-7 business days. To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance and provision a Standard plan instance on it, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){: new_window} tutorial. 
 
 The Dedicated Hardware plan is not available to {{site.data.keyword.cloud_notm}} Dedicated customers. The Dedicated Hardware plan is only available to {{site.data.keyword.cloud_notm}} Public customers.
 {: important}
 
-## Event types
-{: #event-types}
-
-Each request to {{site.data.keyword.cloudant_short_notm}} is charged based on
-the operations it carries out. Each HTTP request consumes operations of a
-specific type. The type of operations for a request can be determined from the
-request path.
-
-The operation types are:
-
-1.	_Lookups_,
-    which are:
-    1. A read of a specific document,
-    based on the `_id` of the document.
-    2. A _partitioned_ query,
-        which is a request that is made to an {{site.data.keyword.cloudant_short_notm}} 
-        query endpoint within the `_partition` namespace in the request path,
-        including the following types:
-        -	Primary Index ([`_all_docs`](../api/database.html#get-documents))
-        -	MapReduce View ([`_view`](../api/creating_views.html#using-views))
-        -	Search Index ([`_search`](../api/search.html#queries))
-        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
-    
-        The number of lookup operations consumed by a partitioned query request
-        varies depending on the results returned.
-2.	_Writes_,
-    which are creation,
-    modification,
-    or deletion of individual documents.
-3.	_Queries_ to global indexes,
-        which are requests made to an {{site.data.keyword.cloudant_short_notm}} 
-        query endpoint **not** within the `_partition` namespace,
-    including the following types:
-	-	Primary Index ([`_all_docs`](../api/database.html#get-documents))
-	-	MapReduce View ([`_view`](../api/creating_views.html#using-views))
-	-	Search Index ([`_search`](../api/search.html#queries))
-	-	Geospatial Index ([`_geo`](../api/cloudant-geo.html#querying-a-cloudant-geo-index))
-	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
-
 ## Provisioned throughput capacity
 {: #provisioned-throughput-capacity}
 
-Throughput provision is identified and measured as events of the following
-operation types: _Lookup_, _Write_, _Query_.
+Throughput provision is identified and measured as one of the following types of events:
+
+1.	A lookup,
+    which is a read of a specific document,
+    based on the `_id` of the document.
+2.	A write,
+    which is the creation,
+    modification,
+    or deletion of an individual document,
+    or any update due to an index build.
+3.	A query,
+    which is a request that is made to one of the {{site.data.keyword.cloudant_short_notm}} query endpoints,
+    including the following types:
+	-	Primary Index ([`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents))
+	-	MapReduce View ([`_view`](/docs/services/Cloudant/api/creating_views.html#using-views))
+	-	Search Index ([`_search`](/docs/services/Cloudant/api/search.html#queries))
+	-	Geospatial Index ([`_geo`](/docs/services/Cloudant/api/cloudant-geo.html#querying-a-cloudant-geo-index))
+	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index))
 
 The measurement of throughput is a simple count of the number of events of each type,
 per second,
@@ -133,16 +110,16 @@ requests are rejected until the number of events within the sliding window
 no longer exceeds the number that is provisioned.
 It might help to think of the sliding 1-second window as being any consecutive period of 1,000 milliseconds.
 
-For example, the Standard plan is provisioned for 200 lookups per second. Your account might consume a maximum of 200 lookup events during a consecutive period of 1,000 milliseconds (1 second). Subsequent lookup requests made during the sliding 1,000-millisecond period
-are rejected until the number of lookup events in that period drops to less than 200 again.
+For example, the Standard plan is provisioned for 200 lookups per second. Your account might make a maximum of 200 lookup requests during a consecutive period of 1,000 milliseconds (1 second). Subsequent lookup requests made during the sliding 1,000-millisecond period
+are rejected until the number of lookup requests in that period drops to less than 200 again.
 
 When a request is rejected because the number of events is exceeded,
-applications receive a [`429` Too Many Requests](../api/http.html#429)
+applications receive a [`429` Too Many Requests](/docs/services/Cloudant/api/http.html#http-status-codes)
 response.
 
-Recent versions of the supported client libraries (for [Java](../libraries/supported.html#java),
-[Node.js](../libraries/supported.html#node-js),
-and [Python](../libraries/supported.html#python) languages) help you handle a `429` response.
+Recent versions of the supported client libraries (for [Java](/docs/services/Cloudant/libraries/supported.html#java),
+[Node.js](/docs/services/Cloudant/libraries/supported.html#node-js),
+and [Python](/docs/services/Cloudant/libraries/supported.html#python) languages) help you handle a `429` response.
 For example,
 the Java library generates a
 [`TooManyRequestsException` ![External link icon](../images/launch-glyph.svg "External link icon")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window} response.
@@ -160,61 +137,7 @@ If you are porting an existing application, it might not be able to handle a `42
 {: note}
 
 In summary,
-you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
-
-### Consumption of Lookup operations by partitioned queries
-{: #consumption-of-lookup-operations-by-partitioned-queries}
-
-Partitioned query requests consume a variable number of lookup operations
-depending on the results returned. Consumption is based on two axes:
-
-1. The number of rows read from the index involved in the query.
-1. The number of documents read from the database, if any, during the execution
-    of the query.
-    
-#### `_all_docs`, view and search queries
-
-Each block of 100 rows read from the index consumes 1 lookup operation. In
-addition, each document read from the database during execution of a query
-consumes 1 lookup unit.
-
-The number of rows read from the index is the same as the number of results
-returned. Documents are only read from the database when `include_docs=true` is
-passed as a query string parameter during the query request.
-
-Example costs are shown in the table below.
-
-| Number of results | Include documents | Total Lookup consumption | Consumption for rows read | Consumption for documents read |
-|--------------|----------------|-------------|---------------------| --- |
-| 199      | No     | **2** | 2 | 0 |
-| 199      | Yes     | **201** | 2 | 199 |
-| 301      | No     | **4** | 4 | 0 |
-| 301      | Yes     | **305** | 4 | 301 |
-
-Reducing use of `include_docs=true` is key for reducing lookup consumption for
-partitioned `_all_docs`, view, and search queries.
-
-#### {{site.data.keyword.cloudant_short_notm}} Query
-
-For {{site.data.keyword.cloudant_short_notm}} Query requests, the number of consumed lookup operations for index
-rows read relates to the rows read from the underlying index _before_ filtering
-occurs based on parts of the selector that cannot be satisfied by the index.
-This means that the rows read value, and therefore consumed lookup units, can be
-higher than the number of eventual results you receive.
-
-In addition, {{site.data.keyword.cloudant_short_notm}} Query must read the document for every row returned by the
-underlying index so it is able to execute further filtering required by the
-selector passed to the query.
-
-| Number of results | Number of rows returned by index | Total Lookup consumption | Consumption for rows read | Consumption for documents read |
-|--------------|----------------|-------------|---------------------| --- |
-| 5      | 199     | **201** | 2 | 199 |
-| 199      | 199     | **201** | 2 | 199 |
-| 5      | 301     | **305** | 4 | 301 |
-| 301      | 301     | **305** | 4 | 301 |
-
-Using appropriate indexes is key for reducing lookup consumption for partitioned
-{{site.data.keyword.cloudant_short_notm}} Query queries.
+you must ensure that your application is able to handle a [`429`](/docs/services/Cloudant/api/http.html#http-status-codes) response correctly.
 
 <div id="servicetier"></div>
 
@@ -335,14 +258,14 @@ Individual Document Size | 1 MB
 Single Attachment Size | 10 MB
 Request Body Size | 11 MB
 
-Exceeding any of these limits results in a [413 response](../api/http.html#413).
+Exceeding any of these limits results in a [413 response](/docs/services/Cloudant/api/http.html#http-status-codes).
 
 It is recommended that you store binary attachments, or large JSON blobs, 
 in object storage and save a link to the location in an {{site.data.keyword.cloudant_short_notm}} JSON document.   
 
 When you replicate, documents or attachments larger than these limits do not 
 replicate to the target database. More information about how to detect replication
-errors is available [here](../api/replication.html#replication-errors).
+errors is available [here](/docs/services/Cloudant/api/replication.html#replication-errors).
 
 ## Locations and tenancy
 {: #locations-and-tenancy}
@@ -372,11 +295,11 @@ outside of an EU-managed environment cannot be granted access to an EU-managed
 ## Authentication methods
 {: #authentication-methods}
 
-{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include 'Use both legacy credentials and IAM' or 'Use only IAM'. For more information, see the [IAM guide](../guides/iam.html){: new_window} or the legacy [Authentication API document](../api/authentication.html){: new_window}.
+{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include 'Use both legacy credentials and IAM' or 'Use only IAM'. For more information, see the [IAM guide](/docs/services/Cloudant/guides/iam.html){: new_window} or the legacy [Authentication API document](/docs/services/Cloudant/api/authentication.html){: new_window}.
 
 After provisioning an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when generating new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} dashboard. If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy user name and password is also included.
 
-The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls for authentication whenever possible. If you are using {{site.data.keyword.cloudant_short_notm}} legacy authentication, it is recommended that you use [API keys](../api/authorization.html#api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
+The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls for authentication whenever possible. If you are using {{site.data.keyword.cloudant_short_notm}} legacy authentication, it is recommended that you use [API keys](/docs/services/Cloudant/api/authorization.html#api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
 {: important}
 
 ## High availability, disaster recovery, and backup
