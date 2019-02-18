@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -31,13 +31,13 @@ for an {{site.data.keyword.cloud}} application.
 The following components are now in place,
 ready to begin creating the application:
 
--   [The Python programming language](create_bmxapp_prereq.html#python).
--   [An {{site.data.keyword.cloudant_short_notm}} database instance](create_bmxapp_prereq.html#csi).
--   [An {{site.data.keyword.cloud_notm}} application environment](create_bmxapp_appenv.html#creating).
--   A [connection](create_bmxapp_appenv.html#connecting) between the {{site.data.keyword.cloudant_short_notm}} database instance
+-   [The Python programming language](/docs/services/Cloudant/tutorials/create_bmxapp_prereq.html#python).
+-   [An {{site.data.keyword.cloudant_short_notm}} database instance](/docs/services/Cloudant/tutorials/create_bmxapp_prereq.html#csi).
+-   [An {{site.data.keyword.cloud_notm}} application environment](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#creating).
+-   A [connection](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#connecting) between the {{site.data.keyword.cloudant_short_notm}} database instance
     and the {{site.data.keyword.cloud_notm}} application environment.
--   The [toolkits](create_bmxapp_appenv.html#toolkits) for managing Cloud Foundry-based {{site.data.keyword.cloud_notm}} applications.
--   A ['starter' application pack](create_bmxapp_appenv.html#starter), containing initial configuration and code template files.
+-   The [toolkits](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#toolkits) for managing Cloud Foundry-based {{site.data.keyword.cloud_notm}} applications.
+-   A ['starter' application pack](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#starter), containing initial configuration and code template files.
 
 No attempt was made to create _efficient_ Python code for this tutorial. The intention is to show simple and easy-to-understand working code that you can learn from and apply for your own applications. Also, no attempt was made to address all possible checks or error conditions. Some example checks are included to illustrate some of the techniques. In your applications, check for, and deal with, all warnings or error conditions.
 {: tip}
@@ -46,11 +46,11 @@ No attempt was made to create _efficient_ Python code for this tutorial. The int
 ### Essential files
 
 Your application requires three configuration files and one source file,
-all available in the ['starter' application pack](create_bmxapp_appenv.html#starter):
+all available in the ['starter' application pack](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#starter):
  
--   ['`Procfile`'](create_bmxapp_appenv.html#procfile)
--   ['`manifest.yml`'](create_bmxapp_appenv.html#manifest)
--   ['`requirements.txt`'](create_bmxapp_appenv.html#requirements)
+-   ['`Procfile`'](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#procfile)
+-   ['`manifest.yml`'](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#manifest)
+-   ['`requirements.txt`'](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#requirements)
 -   The application source file, which is described in this section of the tutorial.
 
 Modify your configuration files as follows:
@@ -76,7 +76,7 @@ Modify your configuration files as follows:
     ```
     {: codeblock}
 
-Ensure that you modify the '`domain`', '`name`', '`host`', and '`services`' values. They are the values that were entered when you created your [{{site.data.keyword.cloud_notm}} application environment](create_bmxapp_appenv.html#creating) and your [{{site.data.keyword.cloudant_short_notm}} database instance](create_bmxapp_prereq.html#csi).
+Ensure that you modify the '`domain`', '`name`', '`host`', and '`services`' values. They are the values that were entered when you created your [{{site.data.keyword.cloud_notm}} application environment](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#creating) and your [{{site.data.keyword.cloudant_short_notm}} database instance](/docs/services/Cloudant/tutorials/create_bmxapp_prereq.html#csi).
 {: note}
 
 3.  Edit the '`requirements.txt`' file so that it contains the following text:
@@ -126,7 +126,7 @@ except ImportError:
 ```
 {: codeblock}
 
-This code segment is provided as part of the ['starter' application pack](create_bmxapp_appenv.html#starter).
+This code segment is provided as part of the ['starter' application pack](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#starter).
 {: note}
 
 The application connects to the {{site.data.keyword.cloudant_short_notm}} database instance,
@@ -245,13 +245,13 @@ target.write("Got cloudantNoSQLDBData\n")
 Several {{site.data.keyword.cloud_notm}} services might be connected to the application environment.
 The credentials for each service are listed as array elements.
 In this tutorial,
-only one [service connection was created](create_bmxapp_appenv.html#connecting).
+only one [service connection was created](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#connecting).
 Therefore,
 the application accesses the first element (element 'zero').
 Each service element contains the credentials for that service,
 expressed as a list indexed by the essential field names that are needed to access the service.
 More information about the field names is provided in the
-[tutorial](create_database.html#pre-requisites) that describes a simple database creation task.
+[tutorial](/docs/services/Cloudant/tutorials/create_database.html#pre-requisites) that describes a simple database creation task.
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -288,7 +288,7 @@ target.write("\n")
 The application now has all the details necessary to create a database within the
 {{site.data.keyword.cloudant_short_notm}} database instance.
 This task is described in more detail in the
-[tutorial](create_database.html#creating-a-database-within-the-service-instance) that describes simple database creation.
+[tutorial](/docs/services/Cloudant/tutorials/create_database.html#creating-a-database-within-the-service-instance) that describes simple database creation.
 
 The application must do these tasks:
 
@@ -353,7 +353,7 @@ This log file confirms that the Python application successfully completed the fo
 6.  Replied with the log of events when requested.
 
 The code for starting the Python web server is included as part of the
-['starter' application pack](create_bmxapp_appenv.html#starter):
+['starter' application pack](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#starter):
 
 ```python
 # Start up the simple Python web server application,
@@ -371,7 +371,7 @@ httpd.server_close()
 
 ## The next step
 
-The next step in the tutorial is to [upload the application](create_bmxapp_upload.html) for testing purposes.
+The next step in the tutorial is to [upload the application](/docs/services/Cloudant/tutorials/create_bmxapp_upload.html) for testing purposes.
 
 ## Complete listing
 

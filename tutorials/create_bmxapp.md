@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -43,7 +43,7 @@ Cloud Foundry offers a Platform-as-a-Service (PaaS) capability
 that simplifies the process of creating applications that can be deployed and run
 within a Cloud environment.
 
-[A separate tutorial](create_database.html) showed you how to create a stand-alone Python application
+[A separate tutorial](/docs/services/Cloudant/tutorials/create_database.html) showed you how to create a stand-alone Python application
 that uses an {{site.data.keyword.cloudant_short_notm}}
 database instance within {{site.data.keyword.cloud_notm}}.
 In this tutorial,
@@ -56,7 +56,7 @@ Python code specific to each task is provided as part of this tutorial.
 A complete Python program,
 sufficient to demonstrate the concepts,
 is provided in the tutorial,
-[here](create_bmxapp_createapp.html#complete-listing).
+[here](/docs/services/Cloudant/tutorials/create_bmxapp_createapp.html#complete-listing).
 
 No attempt was made to create _efficient_ Python code for this tutorial;
 the intention is to show simple and easy-to-understand working code
@@ -74,26 +74,26 @@ To create a working Python application on {{site.data.keyword.cloud_notm}}
 that can access an {{site.data.keyword.cloudant_short_notm}} database instance,
 you need to perform the following tasks:
 
--   [Create a Python application environment on {{site.data.keyword.cloud_notm}}.](create_bmxapp_appenv.html#creating)
--   [Ensure that the Python application environment has a 'connection' to an {{site.data.keyword.cloudant_short_notm}} database instance.](create_bmxapp_appenv.html#connecting)
--   [(One-off task) Download and install the Cloud Foundry and {{site.data.keyword.cloud_notm}} command line toolkits.](create_bmxapp_appenv.html#toolkits)
--   [Download the 'starter' application.](create_bmxapp_appenv.html#starter)
--   [Customize the starter application to create your own application for accessing the {{site.data.keyword.cloudant_short_notm}} database instance.](create_bmxapp_createapp.html#theApp)
--   [Upload your application and test that it works.](create_bmxapp_upload.html#uploading)
--   [Perform basic application maintenance tasks.](create_bmxapp_maintain.html#maintenance)
--   [Diagnose and resolve problems (troubleshooting).](create_bmxapp_maintain.html#troubleshooting)
+-   [Create a Python application environment on {{site.data.keyword.cloud_notm}}.](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#creating)
+-   [Ensure that the Python application environment has a 'connection' to an {{site.data.keyword.cloudant_short_notm}} database instance.](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#connecting)
+-   [(One-off task) Download and install the Cloud Foundry and {{site.data.keyword.cloud_notm}} command line toolkits.](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#toolkits)
+-   [Download the 'starter' application.](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#starter)
+-   [Customize the starter application to create your own application for accessing the {{site.data.keyword.cloudant_short_notm}} database instance.](/docs/services/Cloudant/tutorials/create_bmxapp_createapp.html#theApp)
+-   [Upload your application and test that it works.](/docs/services/Cloudant/tutorials/create_bmxapp_upload.html#uploading)
+-   [Perform basic application maintenance tasks.](/docs/services/Cloudant/tutorials/create_bmxapp_maintain.html#maintenance)
+-   [Diagnose and resolve problems (troubleshooting).](/docs/services/Cloudant/tutorials/create_bmxapp_maintain.html#troubleshooting)
 
 ## Tutorial structure
 
 The tutorial consists of five sections:
 
-1.  [Pre-requisites](create_bmxapp_prereq.html)
-2.  [The Application Environment](create_bmxapp_appenv.html)
-3.  [Creating your Application](create_bmxapp_createapp.html)
-4.  [Uploading and running your Application](create_bmxapp_upload.html)
-5.  [Maintaining and troubleshooting your Application](create_bmxapp_maintain.html)
+1.  [Pre-requisites](/docs/services/Cloudant/tutorials/create_bmxapp_prereq.html)
+2.  [The Application Environment](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html)
+3.  [Creating your Application](/docs/services/Cloudant/tutorials/create_bmxapp_createapp.html)
+4.  [Uploading and running your Application](/docs/services/Cloudant/tutorials/create_bmxapp_upload.html)
+5.  [Maintaining and troubleshooting your Application](/docs/services/Cloudant/tutorials/create_bmxapp_maintain.html)
 
 ## The next step
 
 To begin the tutorial,
-start by [checking the Pre-requisites](create_bmxapp_prereq.html).
+start by [checking the Pre-requisites](/docs/services/Cloudant/tutorials/create_bmxapp_prereq.html).

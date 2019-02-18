@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-11"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -30,7 +30,7 @@ This section of the tutorial describes how to upload an
 
 The first task is to connect to {{site.data.keyword.cloud_notm}}.
 
-The [{{site.data.keyword.cloud_notm}} toolkit](create_bmxapp_appenv.html#toolkits) helps you to make the connection.
+The [{{site.data.keyword.cloud_notm}} toolkit](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#toolkits) helps you to make the connection.
 
 Cloud Foundry needs to know the URL to use for making API calls,
 for example when you upload an application.
@@ -41,19 +41,19 @@ More information about the '`cf api`' command is
 Use the following command to tell Cloud Foundry the URL to use:
 
 ```sh
-bluemix api https://api.us-south.cf.cloud.ibm.com
+bluemix api https://api.ng.bluemix.net
 ```
 {: pre}
 
 Expect a result similar to the following output:
 
 ```
-Invoking 'cf api https://api.us-south.cf.cloud.ibm.com'...
+Invoking 'cf api https://api.ng.bluemix.net'...
 
-Setting api endpoint to https://api.us-south.cf.cloud.ibm.com...
+Setting api endpoint to https://api.ng.bluemix.net...
 OK
 
-API endpoint:   https://api.us-south.cf.cloud.ibm.com
+API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
 Not logged in. Use 'bluemix login' to log in.
 ```
@@ -87,7 +87,7 @@ Expect a result similar to the following output:
 ```
 Invoking 'cf login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev'...
 
-API endpoint: https://api.us-south.cf.cloud.ibm.com
+API endpoint: https://api.ng.bluemix.net
 
 Password> 
 Authenticating...
@@ -97,7 +97,7 @@ Targeted org Adrian.Warman@uk.ibm.com
 
 Targeted space dev
                 
-API endpoint:   https://api.us-south.cf.cloud.ibm.com (API version: 2.54.0)
+API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
 User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
 Space:          dev
@@ -110,10 +110,10 @@ The {{site.data.keyword.cloudant_short_notm}} Foundry toolkit now knows how to c
 
 The next step is to upload the application itself.
 Details of an {{site.data.keyword.cloud_notm}} application
-are provided in the [manifest file](create_bmxapp_appenv.html#manifest).
+are provided in the [manifest file](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#manifest).
 
 The manifest file for the tutorial application was updated
-as described [here](create_bmxapp_createapp.html#essential-files)
+as described [here](/docs/services/Cloudant/tutorials/create_bmxapp_createapp.html#essential-files)
 
 Use a command similar to the following example to log in to upload your
 {{site.data.keyword.cloud_notm}} application.
@@ -186,9 +186,9 @@ App {{site.data.keyword.cloudant_short_notm}} Python was started using this comm
 The application starts automatically.
 As part of the startup,
 a check is made to ensure that all requirements are met,
-by evaluating the contents of the [requirements.txt file](create_bmxapp_appenv.html#requirements).
+by evaluating the contents of the [requirements.txt file](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#requirements).
 The application requires access to the {{site.data.keyword.cloudant_short_notm}} library,
-which was [specified](create_bmxapp_createapp.html#essential-files) when the application was created.
+which was [specified](/docs/services/Cloudant/tutorials/create_bmxapp_createapp.html#essential-files) when the application was created.
 
 After you upload and start the application,
 some simple system checks are run to confirm that the application is running correctly
@@ -221,7 +221,7 @@ Now, test your application and verify that it is running properly.
 2.  On the `Cloudant CF app` details page, click `Routes` and click the `Cloudant-CF-app.mybluemix.net` link. <br/>
 ![Cloudant CF app details page](images/img0030.png)
 
-3. A new browser window opens at `https://cloudant-cf-app.mybluemix.net/`. The message verifies that the application is running. It says, "Hello World! Thanks for creating a Python Starter Application."<br/>
+3. A new brower window opens at https://cloudant-cf-app.mybluemix.net/. The message verifies that the application is running. It says, "Hello World! Thanks for creating a Python Starter Application."<br/>
 ![Hello World! verified that the Cloudant CF app runs correctly](images/img0054.png)
 
 
@@ -231,7 +231,7 @@ From the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > *
 ![Launch Cloudant dashboard on the {{site.data.keyword.cloudant_short_notm}} service page](images/img0036.png)
 
 To find your {{site.data.keyword.cloudant_short_notm}} service page,
-refer to the details in the [Creating an {{site.data.keyword.cloudant_short_notm}} instance tutorial](create_service.html#locating-your-service-credentials).
+refer to the details in the [Creating an {{site.data.keyword.cloudant_short_notm}} instance tutorial](/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials).
 {: note}
 
 When the dashboard opens,
@@ -263,7 +263,7 @@ This value corresponds to the time that was recorded within the
 
 ## The next step
 
-The next step in the tutorial is to [operate and maintain the application](create_bmxapp_maintain.html),
+The next step in the tutorial is to [operate and maintain the application](/docs/services/Cloudant/tutorials/create_bmxapp_maintain.html),
 for example when you start,
 stop,
 and debug the application.

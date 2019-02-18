@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -52,10 +52,10 @@ Python 2.7.12
 
 ### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
 
-There is an [officially supported library](../libraries/supported.html#python) to enable your Python applications to work with an
+There is an [officially supported library](/docs/services/Cloudant/libraries/supported.html#python) to enable your Python applications to work with an
 {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 
-You should install this using the instructions provided [here](../libraries/supported.html#python).
+You should install this using the instructions provided [here](/docs/services/Cloudant/libraries/supported.html#python).
 
 To check that you have the client library installed successfully,
 run the following command at a prompt:
@@ -76,7 +76,7 @@ cloudant==2.3.1
 
 ### An {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 
-The process for creating a suitable service instance is described in [this tutorial](create_service.html).
+The process for creating a suitable service instance is described in [this tutorial](/docs/services/Cloudant/tutorials/create_service.html).
 
 Ensure that you have the following Service Credentials available for your service instance:
 
@@ -89,7 +89,7 @@ Field      | Purpose
 `url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
 
 Information on finding the service credentials for your service instance is
-available [here](create_service.html#locating-your-service-credentials).
+available [here](/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials).
 
 ## Context
 
@@ -131,7 +131,7 @@ from cloudant.result import Result, ResultByKey
 ```
 {: codeblock}
 
-The application must have the [Service Credentials](create_service.html#locating-your-service-credentials) for the service:
+The application must have the [Service Credentials](/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials) for the service:
 
 ```python
 serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
@@ -341,7 +341,7 @@ we again request a list of all the documents,
 including their content.
 This time,
 however,
-we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](../api/database.html#get-documents).
+we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/services/Cloudant/api/database.html#get-documents).
 
 First,
 we identify the endpoint to contact,

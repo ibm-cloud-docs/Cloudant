@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -56,7 +56,7 @@ Python 2.7.12
 ### An {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 
 A separate tutorial for creating an {{site.data.keyword.cloudantfull}} service instance called
-'`Cloudant Service 2017`' is available [here](create_service.html).
+'`Cloudant Service 2017`' is available [here](/docs/services/Cloudant/tutorials/create_service.html).
 
 This tutorial assumes that you have already created a service instance called
 '`Cloudant Service 2017`'.
@@ -65,11 +65,11 @@ This tutorial assumes that you have already created a service instance called
 
 A separate tutorial for creating a stand-alone Python application
 to work with an {{site.data.keyword.cloudant_short_notm}}
-service instance is available [here](create_database.html).
+service instance is available [here](/docs/services/Cloudant/tutorials/create_database.html).
 It introduces a number of concepts that are helpful for understanding how to create and populate an {{site.data.keyword.cloudant_short_notm}} database.
 
 This tutorial assumes that you are familiar with those concepts.
 
 ## The next step
 
-The next step in the tutorial is to [create the application environment](create_bmxapp_appenv.html).
+The next step in the tutorial is to [create the application environment](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html).
