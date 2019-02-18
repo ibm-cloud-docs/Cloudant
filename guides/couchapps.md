@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -56,8 +56,8 @@ When is each appropriate?
 
 -   Your server would have only provided an API to {{site.data.keyword.cloudant_short_notm}} anyway.
 -   You're OK using {{site.data.keyword.cloudant_short_notm}}'s
-    [cookie-based authentication](../api/authentication.html).
--   You're OK using {{site.data.keyword.cloudant_short_notm}}'s [`_users` and `_security`](../api/authorization.html)
+    [cookie-based authentication](/docs/services/Cloudant/api/authentication.html).
+-   You're OK using {{site.data.keyword.cloudant_short_notm}}'s [`_users` and `_security`](/docs/services/Cloudant/api/authorization.html)
     databases to manage users and permissions.
 -   You don't need to schedule cronjobs or other regular tasks.
 
@@ -74,4 +74,4 @@ read [Managing applications on {{site.data.keyword.cloudant_short_notm}} ![Exter
 
 You can write your server layer using whatever technologies work best
 for you.
-A list of libraries for working with {{site.data.keyword.cloudant_short_notm}} is [available](../libraries/index.html).
+A list of libraries for working with {{site.data.keyword.cloudant_short_notm}} is [available](/docs/services/Cloudant/libraries/index.html).

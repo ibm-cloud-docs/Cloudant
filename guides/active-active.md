@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -20,7 +20,7 @@ lastupdated: "2019-01-03"
 
 # Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery
 
-The [{{site.data.keyword.cloudant_short_notm}} disaster recovery guide](disaster-recovery-and-backup.html)
+The [{{site.data.keyword.cloudant_short_notm}} disaster recovery guide](/docs/services/Cloudant/guides/disaster-recovery-and-backup.html)
 explains that one way to enable disaster recovery is to use
 [{{site.data.keyword.cloudantfull}} replication to create redundancy across regions.
 
@@ -47,7 +47,7 @@ It is helpful to remember:
 
 ## Before You Begin
 
-For an active-active deployment, a strategy for managing conflicts must be in place. Therefore, be sure to understand how [replication](../api/replication.html) and [conflicts](mvcc.html#distributed-databases-and-conflicts) work before you consider this architecture.
+For an active-active deployment, a strategy for managing conflicts must be in place. Therefore, be sure to understand how [replication](/docs/services/Cloudant/api/replication.html) and [conflicts](/docs/services/Cloudant/guides/mvcc.html#distributed-databases-and-conflicts) work before you consider this architecture.
 {: note}
 
 Contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}
@@ -78,7 +78,7 @@ the basic steps are as follows:
 
 ## Step 1: Create your databases
 
-[Create the databases](../api/database.html#create) that you want to replicate between
+[Create the databases](/docs/services/Cloudant/api/database.html#create) that you want to replicate between
 within each account.
 
 In this example,
@@ -95,7 +95,7 @@ curl https://myaccount-dc2.cloudant.com/mydb -XPUT -u myaccount-dc2
 
 ## Step 2: Create an API key for your replications
 
-It is a good idea to use an [API key](../api/authorization.html#api-keys) for continuous replications.
+It is a good idea to use an [API key](/docs/services/Cloudant/api/authorization.html#api-keys) for continuous replications.
 The advantage is that if your primary account details change,
 for example after a password reset,
 your replications can continue unchanged.
@@ -128,14 +128,14 @@ Take careful note of the password. It is not possible to retrieve the password l
 
 ## Step 3: Grant access permission
 
-[Give the API Key permission](../api/authorization.html#modifying-permissions)
+[Give the API Key permission](/docs/services/Cloudant/api/authorization.html#modifying-permissions)
 to read and to write on both databases.
 
 If you also want to replicate indexes,
 assign admin permissions.
 
 Use the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-or alternatively see the [authorization](../api/authorization.html) information
+or alternatively see the [authorization](/docs/services/Cloudant/api/authorization.html) information
 for details of how to grant permissions programmatically.
 
 ## Step 4: Set up replications
@@ -242,7 +242,7 @@ A simple test of whether a fail over is required would be to
 use the main database endpoint as a 'heartbeat.
 For example,
 a simple `GET` request that is sent to the main database endpoint normally returns
-[details about the database](../api/database.html#getting-database-details).
+[details about the database](/docs/services/Cloudant/api/database.html#getting-database-details).
 If no response is received,
 it might indicate that a fail over is necessary.
 
@@ -257,7 +257,7 @@ but the read load is spread among the replicas.
 
 ## Step 7: Next steps
 
-* Consider monitoring the [replications](../api/advanced_replication.html) between the databases.
+* Consider monitoring the [replications](/docs/services/Cloudant/api/advanced_replication.html) between the databases.
   Use the data to determine whether your configuration might be optimized further.
 *	Consider how your design documents and indexes are deployed and updated.
   You might find it more efficient to automate these tasks.
@@ -319,7 +319,7 @@ If you implement request rerouting or fail over based on a health test, you migh
 * Do any replications need restarting?
 * How many pending changes are still waiting for replication into the database?
 
-More information on [monitoring replication status](../api/advanced_replication.html#replication-status)
+More information on [monitoring replication status](/docs/services/Cloudant/api/advanced_replication.html#replication-status)
 is available.
 
 If a database is being changed continuously, the replication status is unlikely to 0. You must decide what status threshold is acceptable, or that represents an error state.
@@ -328,6 +328,6 @@ If a database is being changed continuously, the replication status is unlikely 
 ### Indexes
 
 * Are the indexes sufficiently up-to-date?
-  Check this using the [active tasks](../api/active_tasks.html) endpoint.
+  Verify this by using the [active tasks](/docs/services/Cloudant/api/active_tasks.html) endpoint.
 * Test the level of 'index readiness' by sending a query to the index,
   and deciding whether it returns within an acceptable time.

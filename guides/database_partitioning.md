@@ -51,7 +51,7 @@ The partitioning type cannot be changed for an existing database.
 ## Database shards
 
 Before reading this document, you must understand the
-[sharding concept](../guides/sharding.html) within {{site.data.keyword.cloudant_short_notm}}.
+[sharding concept](/docs/services/Cloudant/guides/sharding.html) within {{site.data.keyword.cloudant_short_notm}}.
 
 ## Non-partitioned databases
 

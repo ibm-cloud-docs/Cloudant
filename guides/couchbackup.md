@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -43,7 +43,7 @@ there are other use cases where you might want enhanced backup of data.
 
 ### Data Center outage and Disaster Recovery
 
-[Continuous replication](../api/replication.html#continuous-replication) between clusters is a good solution to the problem of
+[Continuous replication](/docs/services/Cloudant/api/replication.html#continuous-replication) between clusters is a good solution to the problem of
 when an {{site.data.keyword.cloudant_short_notm}} cluster is not completely available.
 Continuous replication is an 'active-passive' model.
 The 'active' part of the model is the continuous replication.
@@ -53,7 +53,7 @@ the replica is primarily used as a clone of the original database.
 If necessary,
 the data can be accessed from the clone.
 Alternatively,
-the data in the clone might be restored somewhere else by using [replication](../api/replication.html).
+the data in the clone might be restored somewhere else by using [replication](/docs/services/Cloudant/api/replication.html).
 
 Restoring a large database by replicating from a clone might take a long time.
 {: important}

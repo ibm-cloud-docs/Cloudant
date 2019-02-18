@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -31,7 +31,7 @@ the effect might be to introduce disagreement or 'conflicts' as to what is the c
 definitive content for the document.
 
 {{site.data.keyword.cloudantfull}} tries to help you avoid conflicts by warning you of potential problems.
-It does this by returning a [`409` response](../api/http.html#http-status-codes) to a problematic update request.
+It warns you by returning a [`409` response](/docs/services/Cloudant/api/http.html#http-status-codes) to a problematic update request.
 However,
 a `409` response might not be received if the database update is requested on a
 system that is not currently connected to the network.
@@ -121,7 +121,7 @@ function (doc) {
 ```
 
 To find conflicts for multiple documents in a database,
-write a [view](../api/creating_views.html).
+write a [view](/docs/services/Cloudant/api/creating_views.html).
 Using a map function such as the example provided,
 you can find all the revisions for every document with a conflict.
 
@@ -134,10 +134,10 @@ you might query the view after each replication to identify and resolve conflict
 
 Once you've found a conflict, you can resolve it by following 4 steps:
 
-1.	[Get](conflicts.html#get-conflicting-revisions) the conflicting revisions.
-2.	[Merge](conflicts.html#merge-the-changes) them in your application or ask the user what they want to do.
-3.	[Upload](conflicts.html#upload-the-new-revision) the new revision.
-4.	[Delete](conflicts.html#delete-old-revisions) the old revisions.
+1.	[Get](#get-conflicting-revisions) the conflicting revisions.
+2.	[Merge](#merge-the-changes) them in your application or ask the user what they want to do.
+3.	[Upload](#upload-the-new-revision) the new revision.
+4.	[Delete](#delete-old-revisions) the old revisions.
 
 <div></div>
 
@@ -318,4 +318,4 @@ When the older versions of a document are deleted,
 the conflicts associated with that document are marked as resolved.
 You can verify that no conflicts remain by requesting the document again,
 with the `conflicts` parameter set to true,
-[as before](conflicts.html#finding-conflicts).
+[as before](#finding-conflicts).

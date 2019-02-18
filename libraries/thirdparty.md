@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -166,7 +166,7 @@ The couchdb-meteor package provides:
 -   Distributed Data Protocol (DDP) RPC endpoints that update data from clients connected locally.
 -   Serialization and deserialization of updates to the DDP format.
 
-The JSON query syntax used by {{site.data.keyword.cloudant_short_notm}} Query, and initially developed by {{site.data.keyword.cloudant_short_notm}}, was contributed back to Apache CouchDB for version 2.0. Pre-built binaries for Apache CouchDB version 2.0 are not yet available. You can use this module with {{site.data.keyword.cloudant_short_notm}} DBaaS or {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local) until the pre-built binaries are available.
+The JSON query syntax used by {{site.data.keyword.cloudant_short_notm}} Query, and initially developed by {{site.data.keyword.cloudant_short_notm}}, was contributed back to Apache CouchDB for version 2.0. Pre-built binaries for Apache CouchDB version 2.0 are not yet available. You can use this module with {{site.data.keyword.cloudant_short_notm}} DBaaS or Cloudant Local until the pre-built binaries are available.
 {: note}
 
 To configure the Apache CouchDB or {{site.data.keyword.cloudant_short_notm}} server connection information,
@@ -177,7 +177,7 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {: codeblock}
 
-See the [API Reference](../api/index.html) for more information about meteor-couchdb APIs. 
+See the [API Reference](/docs/services/Cloudant/api/index.html) for more information about meteor-couchdb APIs. 
 
 ## Apache Spark
 
