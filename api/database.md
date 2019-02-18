@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-23"
+lastupdated: "2019-01-31"
 
 ---
 
@@ -21,63 +21,17 @@ lastupdated: "2019-01-23"
 # Databases
 
 {{site.data.keyword.cloudantfull}} databases contain JSON objects.
-These JSON objects are called [documents](document.html#documents).
+These JSON objects are called [documents](/docs/services/Cloudant/api/document.html#documents).
 All documents must be contained in a database.
 {: shortdesc}
 
-A guide is [available](../guides/transactions.html),
+A guide is [available](/docs/services/Cloudant/guides/transactions.html),
 providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
-
-## Partitioned databases
-
-{{site.data.keyword.cloudant_short_notm}} supports two types of databases:
-
-- Partitioned
-- Non-partitioned
-
-A _partitioned_ database offers significant query performance and cost
-advantages but requires you to specify a logical partitioning of your data. The
-partitioning is specified as part of each document's ID. A partitioned database
-allows performing both global and partition queries.  Partition queries target
-queries at a single, given document partition, meaning they need to process less
-data to return results. Therefore, partition queries offer significant
-performance advantages, and will also often provide cost advantages over global
-queries. Global queries target the entire database leading to extra complexity,
-slower performance and increased cost -- but offer results drawing from all data.
-
-Alternatively, a _non-partitioned_ database might be created. This type of
-database can be easier to work with as no partitioning scheme needs to be
-defined, but only global secondary indexes can be created.
-
-{{site.data.keyword.cloudant_short_notm}} strongly recommends that you use a partitioned database for best long-term
-database performance where the data model allows for logical partitioning
-of documents.
-
-The partitioning type of a database is set at database creation time.  When
-creating a database, use the `partitioned` query string parameter to set whether
-the database is partitioned. The default for `partitioned` is `false`,
-maintaining backwards compatibility.
-
-The partitioning type cannot be changed for an existing database.
 
 ## Create
 
 To create a database,
-submit a `PUT` request with the following format:
-
--   **Method**: `PUT /$DATABASE?partitioned=$BOOLEAN`
--   **Request body**: None
--   **Response**: Success or failure of operation.
--   **Roles permitted**: `_admin`
-
-### Query Arguments
-{: #query-arguments}
-
-Argument         | Description | Optional | Type | Default | Supported values
------------------|-------------|----------|------|---------|-----------------
-`partitioned`      | Whether database is partitioned. | yes | Boolean | `false` | `true`, `false`
-
-### Database naming
+send a `PUT` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
 
 The database name must start with a lowercase letter,
 and contain only the following characters:
@@ -85,50 +39,51 @@ and contain only the following characters:
 -	Lowercase characters (a-z)
 -	Digits (0-9)
 -	Any of the characters _, $, (, ), +, -, and /
-
-### Examples
-
-_Using HTTP to create a partitioned database:_
+ 
+_Example of using HTTP to create a database:_
 
 ```http
-PUT /$DATABASE?partitioned=true HTTP/1.1
+PUT /$DATABASE HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-_Using HTTP to create a non-partitioned database:_
-
-```http
-PUT /$DATABASE?partitioned=false HTTP/1.1
-HOST: $ACCOUNT.cloudant.com
-```
-{: codeblock}
-
-_Using the command line to create a partitioned database:_
+_Example of using the command line to create a database:_
 
 ```sh
-curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=true'
+curl https://$ACCOUNT.cloudant.com/$DATABASE -X PUT
 ```
 {: codeblock}
 
-_Using the command line to create a non-partitioned database:_
+<!--
 
-```sh
-curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=false'
+_Example of using JavaScript to create a database:_
+
+```javascript
+var nano = require('nano');
+var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
+
+account.db.create($DATABASE, function (err, body, headers) {
+	if (!err) {
+		console.log('database created!');
+	}
+});
 ```
 {: codeblock}
+
+-->
 
 <div id="response"></div>
 
-If creation succeeds, you get a [201 or 202 response](http.html#201).
-An error response uses
+If creation succeeds, you get a [201 or 202 response](/docs/services/Cloudant/api/http.html#http-status-codes).
+An error response uses 
 the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
 201  | Database created successfully.
 202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
-400  | Invalid database name.
+403  | Invalid database name.
 412  | Database already exists.
 
 _Example response that is received after a database is created successfully:_
@@ -137,7 +92,7 @@ _Example response that is received after a database is created successfully:_
 HTTP/1.1 201 Created
 
 {
-    "ok": true
+	ok": true
 }
 ```
 {: codeblock}
@@ -160,7 +115,7 @@ on multi-tenant clusters.
 
 <div id="read"></div>
 
-## Getting database details
+## Getting database details 
 
 Sending a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE`
 returns details about the database,
@@ -313,14 +268,14 @@ Argument            | Description                                               
 `keys`              | Return only documents with IDs that match one of the specified keys.                            | yes      | list of strings |
 `limit`             | Limit the number of returned documents to the specified number.                                 | yes      | numeric         |
 `meta`              | Short-hand combination of all three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | yes | boolean | false
-`r`                 | Specify the [read quorum](document.html#quorum---writing-and-reading-data) value.               | yes      | numeric         | 2
+`r`                 | Specify the [read quorum](/docs/services/Cloudant/api/document.html#quorum-writing-and-reading-data) value.               | yes      | numeric         | 2
 `revs_info`         | Includes detailed information for all known document revisions.                                 | yes      | boolean         | false
 `skip`              | Skip this number of records before returning the results.                                       | yes      | numeric         | 0
 `startkey`          | Return records, starting with the specified key.                                                | yes      | string          |
 `startkey_docid` | Return records, starting with the specified document ID. If `startkey` is not set, this argument is ignored.  | yes | string |
 
 
-Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
+Using `include_docs=true` might have [performance implications](/docs/services/Cloudant/api/using_views.html#multi-document-fetching).
 {: important}
 
 When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require many strings to list the keys you want.
@@ -418,11 +373,11 @@ _Example response after a request for all documents in a database:_
 
 ## Send multiple queries to a database
 
-This section describes how to send multiple queries to a database using `_all_docs` and `_view` endpoints.
+This section describes how to send multiple queries to a database using `_all_docs` and `_view` endpoints. 
 
 ### Send multiple queries to a database by using `_all_docs`
 
-To send multiple queries to a specific database, send a `POST` request to
+To send multiple queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries`.
 
 _Example of using HTTP to send multiple queries to a database:_
@@ -439,14 +394,14 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries
 ```
 {: codeblock}
 
-`POST`ing to the `_all_docs/queries` endpoint runs multiple specified built-in view queries of all documents
-in this database. This endpoint enables you to request multiple queries in a single request, instead
-of multiple `POST /$DATABASE/_all_docs` requests.
+`POST`ing to the `_all_docs/queries` endpoint runs multiple specified built-in view queries of all documents 
+in this database. This endpoint enables you to request multiple queries in a single request, instead 
+of multiple `POST /$DATABASE/_all_docs` requests. 
 
-The request JSON object must have a `queries` field. It represents an array of query
-objects with fields for the parameters of each individual view query to be run.
-The field names and their meaning are the same as the query parameters of a regular
-`_all_docs` request.
+The request JSON object must have a `queries` field. It represents an array of query 
+objects with fields for the parameters of each individual view query to be run. 
+The field names and their meaning are the same as the query parameters of a regular 
+`_all_docs` request. 
 
 The results are returned by using the following response JSON object:
 
@@ -552,7 +507,7 @@ Multiple queries are also supported in `/$DATABASE/_local_docs/queries` and `/$D
 
 ### Send multiple view queries to a database by using `_view`
 
-To send multiple view queries to a specific database, send a `POST` request to
+To send multiple view queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
 
 _Example of using HTTP to send multiple queries to a database:_
@@ -569,13 +524,13 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_view/$VIEW/queries
 ```
 {: codeblock}
 
-Multiple queries are supported with the `_view` endpoint,
+Multiple queries are supported with the `_view` endpoint, 
 `/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
 
-The request JSON object must have a `queries` field. It represents an array of query
-objects with fields for the parameters of each individual view query to be executed.
-The field names and their meaning are the same as the query parameters of a regular
-`_view` request.
+The request JSON object must have a `queries` field. It represents an array of query 
+objects with fields for the parameters of each individual view query to be executed. 
+The field names and their meaning are the same as the query parameters of a regular 
+`_view` request. 
 
 
 ## Get Changes
@@ -592,22 +547,22 @@ These responses are combined and returned to the original requesting client.
 
 `_changes` accepts several optional query arguments:
 
-Argument       | Description | Supported Values | Default
+Argument       | Description | Supported Values | Default 
 ---------------|-------------|------------------|---------
-`conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | boolean | false
-`descending`   | Return the changes in sequential order. | boolean | false |
-`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. See [API: GET / documentation](advanced.html#-get-) for more information. | A JSON array of document IDs | |
+`conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | boolean | false 
+`descending`   | Return the changes in sequential order. | boolean | false | 
+`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. See [API: GET / documentation](/docs/services/Cloudant/api/advanced.html#-get-) for more information. | A JSON array of document IDs | |
 `feed`         | Type of feed required. For details, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
-`filter`       | Name of [filter function](design_documents.html#filter-functions) to use to get updates. The filter is defined in a [design document](design_documents.html). | string | no filter
-`heartbeat`    | If there were no changes during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | any positive number | no heartbeat |
+`filter`       | Name of [filter function](/docs/services/Cloudant/api/design_documents.html#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/services/Cloudant/api/design_documents.html). | string | no filter
+`heartbeat`    | If there were no changes during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | any positive number | no heartbeat | 
 `include_docs` | Include the document as part of the result. | boolean | false |
-`limit`        | Maximum number of rows to return. | any non-negative number | none |
-`seq_interval` | Specifies how frequently the `seq` value is included in the response. Set a higher value to increase the throughput of `_changes` and decrease the response size. **Note**: In non-continuous `_changes` mode, the `last_seq` value is always populated. | any positive number | 1 |
-`since`        | Start the results from changes _after_ the specified sequence identifier. For details, see the [`since` information](#the-since-argument). | sequence identifier or `now` | 0 |
-`style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` |
+`limit`        | Maximum number of rows to return. | any non-negative number | none |  
+`seq_interval` | Specifies how frequently the `seq` value is included in the response. Set a higher value to increase the throughput of `_changes` and decrease the response size. **Note**: In non-continuous `_changes` mode, the `last_seq` value is always populated. | any positive number | 1 | 
+`since`        | Start the results from changes _after_ the specified sequence identifier. For details, see the [`since` information](#the-since-argument). | sequence identifier or `now` | 0 | 
+`style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` | 
 `timeout`      | Stop the response after waiting this number of milliseconds for data. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | any positive number | |
 
-Using `include_docs=true` might have [performance implications](using_views.html#include_docs_caveat).
+Using `include_docs=true` might have [performance implications](/docs/services/Cloudant/api/using_views.html#multi-document-fetching).
 {: important}
 
 _Example of using HTTP to get a list of changes made to documents in a database:_
@@ -656,7 +611,7 @@ _But_ you might also get changes that were made before the change indicated by t
 The reason these extra changes are included,
 along with the implications for applications,
 is explained in the
-[replication guide](../guides/replication_guide.html#how-does-replication-affect-the-list-of-changes?).
+[replication guide](/docs/services/Cloudant/guides/replication_guide.html#how-does-replication-affect-the-list-of-changes-).
 
 <!-- Reset markdown parser -->
 
@@ -684,7 +639,7 @@ and that all changes are returned to the client as soon as possible after they o
 
 Each line in the continuous response is either empty or a JSON object that represents a single change.
 The option ensures that:
-
+ 
 -   The format of the report entries reflects the continuous nature of the changes.
 -   Validity of the JSON output is maintained.
 
@@ -735,7 +690,7 @@ _Example (abbreviated) responses from a continuous changes feed:_
 ### The `filter` argument
 
 The `filter` argument designates a pre-defined
-[filter function](design_documents.html#filter-functions) to apply to the changes feed.
+[filter function](/docs/services/Cloudant/api/design_documents.html#filter-functions) to apply to the changes feed.
 Additionally,
 several built-in filters available:
 
@@ -746,13 +701,13 @@ several built-in filters available:
    {: note}
 
 *   `_selector`: Accepts only changes for documents that match a specified selector,
-    which is defined by using the same [selector syntax](cloudant_query.html#selector-syntax) that is used
-    for [`_find`](cloudant_query.html#finding-documents-using-an-index).
+    which is defined by using the same [selector syntax](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax) that is used
+    for [`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index).
 
    The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
    {: note}
 	
-*   `_view`: Enables use of an existing [map function](creating_views.html#a-simple-view) as the filter.
+*   `_view`: Enables use of an existing [map function](/docs/services/Cloudant/api/creating_views.html#a-simple-view) as the filter.
 
 ### The `since` argument
 
@@ -795,7 +750,7 @@ more than one time if you make a `_changes` request several times.
 
 More information about the behavior of the `_changes` response is
 provided in the
-[replication guide](../guides/replication_guide.html#how-does-replication-affect-the-list-of-changes?).
+[replication guide](/docs/services/Cloudant/guides/replication_guide.html#how-does-replication-affect-the-list-of-changes-).
 
 <div id="changes_responses"></div>
 
@@ -938,7 +893,7 @@ account.db.destroy($DATABASE, function (err, body, headers) {
 
 -->
 
-If deletion succeeds, you get a [200 or 202 response](../api/http.html#http-status-codes){: new_window}.
+If deletion succeeds, you get a [200 or 202 response](/docs/services/Cloudant/api/http.html#http-status-codes){: new_window}.
 An error response uses the HTTP status code to indicate what went wrong.
 
 Code | Description
@@ -959,8 +914,8 @@ _Example response that is received after a database is deleted successfully:_
 ## Backing up your data
 
 You must protect your data by taking good quality backups.
-An overview of backing up your data is [available](../guides/backup-cookbook.html),
-with more detailed information in the [backup guide](../guides/backup-guide-using-replication.html).
+An overview of backing up your data is [available](/docs/services/Cloudant/guides/backup-cookbook.html),
+with more detailed information in the [backup guide](/docs/services/Cloudant/guides/backup-guide-using-replication.html).
 
 <!--
 Removed for 96973.
@@ -970,7 +925,7 @@ Removed for 96973.
 Virtual hosts (vhosts) are a way to make {{site.data.keyword.cloudant_short_notm}} serve data from a different domain
 than the one normally associated with your {{site.data.keyword.cloudant_short_notm}} account.
 
-More information is available [here](vhosts.html).
+More information is available [here](/docs/services/Cloudant/api/vhosts.html).
 -->
 
 ## Creating database applications
@@ -980,8 +935,8 @@ you might also have client-side application code in documents within the databas
 The application code is typically written by using JavaScript.
 Two-tier combinations of data and client code,
 which is stored within a database,
-are called [CouchApps](../guides/couchapps.html).
+are called [CouchApps](/docs/services/Cloudant/guides/couchapps.html).
 
 More information about CouchApps,
 and to help you decide whether they are a good match for your application,
-is [available](../guides/couchapps.html).
+is [available](/docs/services/Cloudant/guides/couchapps.html).

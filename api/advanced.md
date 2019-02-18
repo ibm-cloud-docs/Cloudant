@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-01-30"
 
 ---
 
@@ -19,7 +19,7 @@ lastupdated: "2019-02-04"
 <!-- Acrolinx: 2018-05-31 -->
 
 # Advanced
-{: #advanced}
+{: #advanced-api}
 
 These endpoints provide information about the state of the cluster,
 details about revision history,
@@ -111,15 +111,15 @@ This endpoint is only available to customers with dedicated system accounts.
 {: note}
 
 The `/_db_updates` endpoint returns a list of changes to databases,
-similar to a global [changes feed](database.html#get-changes).
+similar to a global [changes feed](/docs/services/Cloudant/api/Cloudant?topic=cloudant-databases#get-changes).
 Changes can be either updates to an existing database,
 creation of a new database,
 or deletion of a database.
 Like the changes feed,
 the `/_db_updates` endpoint is not guaranteed to return changes in the correct order,
 and might contain changes more than once.
-Polling modes for this endpoint work like the polling modes for
-[the changes feed](database.html#get-changes).
+Polling modes for this endpoint work like the polling modes for the
+[changes feed](/docs/services/Cloudant/api/Cloudant?topic=cloudant-databases#get-changes).
 
 
 Argument | Description | Optional | Type | Default | Supported Values
@@ -476,8 +476,33 @@ account.request({
 ```
 {: codeblock}
 
---->
+-->
 
+### Response structure
+{: #response-structure}
+
+Field name      | Description
+----------------|------------------------------------------------------------------
+`cluster_nodes` | Array of node names (strings) of the active nodes in the cluster.
+`all_nodes`     | Array of nodes names (strings) of all nodes in the cluster.
+
+_Example response:_
+
+```json
+{
+	"cluster_nodes": [
+		"dbcore@db1.testy004.cloudant.net",
+		"dbcore@db2.testy004.cloudant.net",
+		"dbcore@db3.testy004.cloudant.net"
+	],
+	"all_nodes": [
+		"dbcore@db1.testy004.cloudant.net",
+		"dbcore@db2.testy004.cloudant.net",
+		"dbcore@db3.testy004.cloudant.net"
+	]
+}
+```
+{: codeblock}
 
 ## `GET /_uuids`
 {: #-get-_uuids-}

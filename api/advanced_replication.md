@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2019-02-12"
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2018-08-17 -->
+<!-- Acrolinx: 2018-12-10 -->
 
 # Advanced replication
 {: #advanced-replication}
@@ -26,7 +26,7 @@ You can learn about advanced replication concepts and tasks, including maintaini
 
 You might also find it helpful to review details of the underlying
 [replication protocol ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/stable/replication/protocol.html){: new_window},
-and review the [Advanced Methods](advanced.html) material.
+and review the [Advanced Methods](/docs/services/Cloudant/api/advanced.html) material.
 
 ## Replication database maintenance
 {: #replication-database-maintenance}
@@ -39,7 +39,7 @@ when the replicator process is restarted by {{site.data.keyword.cloudantfull}} o
 
 The main action that you can do to maintain a replication database is to remove old documents.
 This action can be done by determining the age of documents,
-and [deleting them](document.html#delete) if they are no longer needed.
+and [deleting them](/docs/services/Cloudant/api/Cloudant?topic=cloudant-documents#delete) if they are no longer needed.
 
 ## The replication scheduler
 {: #the-replication-scheduler}
@@ -48,7 +48,7 @@ The new {{site.data.keyword.cloudant_short_notm}} Replication Scheduler provides
 with the previous {{site.data.keyword.cloudant_short_notm}} replication mechanism.
 
 In particular,
-network usage during replication is more efficient. The scheduler takes into account the current load for individual database nodes within a cluster
+network usage during replication is more efficient. The scheduler accounts for the current load for individual database nodes within a cluster
 when it determines the allocation of replication tasks.
 
 Finally,
@@ -59,12 +59,12 @@ and consists of seven distinct states:
   The replication was added to the scheduler,
   but is not yet initialized or scheduled to run.
   The status occurs when a new or updated replication document is stored within
-  the [`_replicator` database](replication.html#the-_replicator-database). 
+  the [`_replicator` database](/docs/services/Cloudant/api/replication.html#the-_replicator-database). 
 2.  `error`:
   The replication cannot be turned into a job.
   This error might be caused in several different ways.
   For example,
-  the replication must be [filtered](design_documents.html#filter-functions),
+  the replication must be [filtered](/docs/services/Cloudant/api/Cloudant?topic=cloudant-design-documents#filter-functions),
   but it was not possible to fetch the filter code from the source database.
 3.  `pending`:
   The replication job is scheduled to run,
@@ -76,7 +76,7 @@ and consists of seven distinct states:
   The job is automatically retried later.
 6.  `completed`:
   The replication job completed.
-  This state does not apply to [continuous replications](replication.html#continuous-replication).
+  This state does not apply to [continuous replications](/docs/services/Cloudant/api/replication.html#continuous-replication).
 7.  `failed`:
   The replication job failed.
   The failure is permanent.
@@ -97,8 +97,8 @@ You can manage and determine replication status more quickly and easily by using
 
 The typical process for using the replication scheduler to manage and monitor replications is as follows:
 
-1.  Create a [replication document](replication.html#replication-document-format) that describes the needed replication,
-    and store the document in the [replicator database](replication.html#the-_replicator-database).
+1.  Create a [replication document](/docs/services/Cloudant/api/replication.html#replication-document-format) that describes the needed replication,
+    and store the document in the [replicator database](/docs/services/Cloudant/api/replication.html#the-_replicator-database).
 2.  Monitor the status of the replication by using the `/_scheduler/docs` endpoint.
 
 ### The `/_scheduler/docs` endpoint
@@ -106,8 +106,8 @@ The typical process for using the replication scheduler to manage and monitor re
 
 The `/_scheduler/docs` endpoint provides a monitoring capability.
 Use it to determine the status of a replication that is described by a replication document.
-The status of a replication can be 1 of 7 possible states,
-as described [previously](#the-replication-scheduler).
+The status of a replication can be one of seven possible states,
+as described in [the replication scheduler](#the-replication-scheduler) section.
 
 #### Query parameters for the `/_scheduler/docs` endpoint
 {: #query-parameters-for-the-_scheduler-docs-endpoint}
@@ -171,7 +171,7 @@ The ID must be URL encoded.
 {: #replication-status}
 
 You can determine replication status by checking
-the [replication scheduler](#status-checking-by-using-the-replication-scheduler).
+the [replication scheduler](/docs/services//Cloudant/api/advanced_replication.html#status-checking-by-using-the-replication-scheduler).
 
 The previous technique of checking replication status by inspecting the [replication document](#status-checking-by-using-the-replication-document) is still available.
 {: note}
@@ -184,7 +184,7 @@ The previous technique of checking replication status by inspecting the [replica
 
 You can use the replication scheduler to determine the status of replication. 
 
-To determine the current status of replication by using the replication scheduler,
+To determine the status of replication by using the replication scheduler,
 send a `GET` request to the `/_scheduler/docs` endpoint.  
 
 _Example of using HTTP to get the replication status from the replication scheduler:_
@@ -441,7 +441,7 @@ A continuous replication can never have a `completed` state.
 
 In any production application, security of the source and target databases is essential.
 In order for replication to proceed, authentication is necessary to access the databases.
-In addition, checkpoints for replication are [enabled by default](replication.html#checkpoints),
+In addition, checkpoints for replication are [enabled by default](/docs/services/Cloudant/api/replication.html#replication-document-format),
 which means that replicating the source database requires write access.
 
 To enable authentication during replication,
@@ -467,7 +467,7 @@ include one or more filter functions in a design document on the source.
 You can then tell the replicator to use these filter functions.
 
 Filtering documents during replication is similar to the process of
-[filtering the `_changes` feed](design_documents.html#filter-functions).
+[filtering the `_changes` feed](/docs/services/Cloudant/api/Cloudant?topic=cloudant-design-documents#filter-functions).
 {: tip}
 
 A filter function takes two arguments:
@@ -536,7 +536,7 @@ _Example JSON for starting a filtered replication with supplied parameters:_
 ```
 {: codeblock}
 
-The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector` ![External link icon](../images/launch-glyph.svg "External link icon")](replication.html#selector-field){: new_window} documentation.
+The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector`](/docs/services/Cloudant/api/replication.html#the-selector-field){: new_window} documentation.
 {: note}
 
 ## Named Document Replication
@@ -662,11 +662,12 @@ by including them in the replication document.
 	the effective number of connections that are used corresponds to this parameter's value.
 	Default value is 20.
 -   `retries_per_request` - The maximum number of retries per request.
-	Before a retry, the replicator waits for a short period before it repeats the request.
+	Before a retry,
+	the replicator waits for a short period before it repeats the request.
 	This period doubles between each consecutive retry attempt,
-	and never goes beyond 5 minutes. 
+	and never goes beyond 5 minutes.
 	The minimum value before the first retry attempt is 0.25 seconds.
-	The default value is 10 attempts. Note that the `retries_per_request` option has no limit for a `_changes` feed request.
+	The default value is 10 attempts.
 -   `socket_options` - A list of options to pass to the connection sockets.
 	The available options can be found in the
 	[documentation for the Erlang function setopts/2 of the `inet` module ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.erlang.org/doc/man/inet.html#setopts-2){: new_window}. 
@@ -702,7 +703,7 @@ _Example of including performance options in a replication document:_
 Having large numbers of attachments on documents might cause an adverse effect on replication performance.
 
 For more information about the effect of attachments on replication performance,
-see [here](attachments.html#performance-considerations).
+see [here](/docs/services/Cloudant/api/Cloudant?topic=cloudant-attachments#performance-considerations).
 
 ## The `/_replicate` endpoint
 {: #the-_replicate-endpoint}
@@ -732,8 +733,8 @@ and other options.
 
 Except for the `cancel` field,
 the fields in the JSON document that is supplied to the `_replicate` endpoint are identical to those fields in
-a replication document that is stored in the [`_replicator` database](replication.html#replicator-database).
-The JSON document uses the [replication document format](replication.html#replication-document-format).
+a replication document that is stored in the [`_replicator` database](/docs/services/Cloudant/api/replication.html#the-_replicator-database).
+The JSON document uses the [replication document format](/docs/services/Cloudant/api/Cloudant?topic=cloudant-replication-api#replication-document-format).
 
 The fields of the JSON request are as follows:
 
@@ -790,12 +791,12 @@ A replication that is triggered by `POST`ing to `/_replicate` can be canceled
 by `POST`ing the exact same JSON object but with the additional `cancel` property set to `true`.
 
 If a replication is canceled,
-the request that initiated the replication fails with [error 500 (shutdown)](http.html#500).
+the request that initiated the replication fails with [error 500 (shutdown)](/docs/services/Cloudant/api/http#500).
 {: note}
 
 The replication ID can be obtained from the original replication request if it is a continuous replication.
 Alternatively,
-the replication ID can be obtained from [`/_active_tasks`](active_tasks.html).
+the replication ID can be obtained from [`/_active_tasks`](/docs/services/Cloudant/api/Cloudant?topic=cloudant-active-tasks).
 
 _Example of using HTTP to cancel a replication:_
 
@@ -831,4 +832,4 @@ Use the [`_replicator` scheduler](#the-replication-scheduler) instead of the `/_
 {: important}
 
 If a problem occurs during replication, such as a stall, timeout, or application crash,
-a replication that is defined within the `_replicator` database is automatically restarted by the system. Whereas, if you define a replication by sending a request to the `/_replicate` endpoint, it cannot be restarted by the system if a problem occurs because the replication request does not persist. In addition, replications that are defined in the `_replicator` database are easier to [monitor](advanced_replication.html#replication-status).
+a replication that is defined within the `_replicator` database is automatically restarted by the system. Whereas, if you define a replication by sending a request to the `/_replicate` endpoint, it cannot be restarted by the system if a problem occurs because the replication request does not persist. In addition, replications that are defined in the `_replicator` database are easier to [monitor](#replication-status).

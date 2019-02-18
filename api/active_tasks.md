@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-25"
 
 ---
 
@@ -21,10 +21,8 @@ lastupdated: "2019-01-03"
 # Active tasks
 {: #active-tasks}
 
-The `/_active_tasks` endpoint provides a list of the tasks that are running on the server.
-This list is often helpful when you are [monitoring](monitoring.html) the performance of your system.
-For more examples on using the `/_active_tasks` endpoint,
-see the [Managing tasks](../guides/managing_tasks.html) guide.
+The `/_active_tasks` endpoint provides a list of the tasks that are running on the server. This list is often helpful when you are [monitoring](/docs/services/Cloudant/api/Cloudant?topic=cloudant-monitoring-an-ibm-cloudant-cluster) the performance of your system. For more examples on using the `/_active_tasks` endpoint,
+see the [Managing tasks](/docs/services/Cloudant/guides/Cloudant?topic=cloudant-managing-tasks) guide.
 {: shortdesc}
 
 ## Retrieving a list of active tasks

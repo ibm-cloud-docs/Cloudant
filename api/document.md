@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-23"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-01-23"
 <!-- Acrolinx: 2018-11-29 -->
 
 # Documents
+{: #documents}
 
 Documents are
 [JSON objects ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example){: new_window}.
@@ -26,65 +27,23 @@ Documents are containers for your data,
 and are the basis of the {{site.data.keyword.cloudantfull}} database.
 {: shortdesc}
 
-If you are using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](../offerings/bluemix.html), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](http.html#413).
+If you are using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/services/Cloudant/offerings/bluemix.html), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](/docs/services/Cloudant/api/http.html#http-status-codes).
 {: tip}
 
-{{site.data.keyword.cloudant_short_notm}} uses an [eventually consistent](../guides/cap_theorem.html#consistency) model for data.
-This model means that under some conditions,
-it is possible that if your application writes or updates a document,
-followed immediately by a read of the same document,
-older document content is retrieved.
-In other words,
-your application would see the document content as it was *before* the write or update occurred.
-For more information about this model,
-see the topic on [Consistency](../guides/cap_theorem.html#consistency).
-
-## Document fields
-
 All documents must have two fields:
+a unique `_id` field, and a `_rev` field.
 
-- A unique `_id` field. The `_id` field is detailed in the next section.
-- A `_rev` field. The `_rev` field is a revision identifier,
-    and is [essential to the {{site.data.keyword.cloudant_short_notm}} replication protocol](../guides/mvcc.html).
-
-In addition to these two mandatory fields, documents can generally contain any
-other content that can be described by using JSON, subject to some caveats
-detailed in the following sections.
-
-### Document IDs
-
-The format of a document ID differs depending on whether a database is
-partitioned or not. When a database is partitioned, the partition key for
-each document is defined as part of the document ID as detailed in the next section.
-
-#### IDs in partitioned databases
-
-When using a partitioned database, the document ID specifies both the _partition key_ and the _document key_. These are specified by splitting the document ID
-into two parts separated by a colon:
-
-```
-$PARTITION_KEY:$DOCUMENT_KEY
-```
-
-The `$PARTITION_KEY` may be the same between documents. The `$DOCUMENT_KEY`
-must be unique within each partition. That is, overall the entire document
-ID must be unique within a database. A document key may contain further
-colon characters.
-
-#### IDs in non-partitioned databases
-
-For non-partitioned databases, the `_id` field is either created by you, or
-generated automatically as a [UUID ![External link
-icon](../images/launch-glyph.svg "External link
-icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){:new_window}
-by {{site.data.keyword.cloudant_short_notm}}.
+The `_id` field is either created by you,
+or generated automatically as a
+[UUID ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){: new_window} by {{site.data.keyword.cloudant_short_notm}}.
 
 If you choose to specify the document `_id` field, it must be limited to no more than 7168 characters (7k).
 {: tip}
 
-As with partitioned databases, the document ID must be unique within a database.
-
-### Field name restrictions
+The `_rev` field is a revision number,
+and is [essential to the {{site.data.keyword.cloudant_short_notm}} replication protocol](/docs/services/Cloudant/guides/mvcc.html).
+In addition to these two mandatory fields,
+documents can generally contain any other content that can be described by using JSON.
 
 Field names that begin with the underscore character (`_`) are reserved in {{site.data.keyword.cloudant_short_notm}}.
 This rule means that you cannot normally have your own field names that begin with an underscore.
@@ -138,6 +97,16 @@ _Example success message (abbreviated) returned when a nested field with an unde
 ```
 {: codeblock}
 
+{{site.data.keyword.cloudant_short_notm}} uses an [eventually consistent](/docs/services/Cloudant/guides/cap_theorem.html) model for data.
+This model means that under some conditions,
+it is possible that if your application writes or updates a document,
+followed immediately by a read of the same document,
+older document content is retrieved.
+In other words,
+your application would see the document content as it was *before* the write or update occurred.
+For more information about this model,
+see the topic on [Consistency](/docs/services/Cloudant/guides/cap_theorem.html).
+
 <div id="documentCreate"></div>
 
 ## Create
@@ -163,23 +132,26 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE \
 ```
 {: codeblock}
 
-_Example JSON document in a partitioned database with a partition key of `fruit`
-and a document key of `apple`:_
+<!--
 
-```json
-{
-	"_id": "fruit:apple",
-	"item": "Malus domestica",
-	"prices": {
-		"Fresh Mart": 1.59,
-		"Price Max": 5.99,
-		"Apples Express": 0.79
+_Creating a document, using Javascript:_
+
+```javascript
+var nano = require('nano');
+var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
+var db = account.use($DATABASE);
+
+db.insert($JSON, function (err, body, headers) {
+	if (!err) {
+		console.log(body);
 	}
-}
+});
 ```
 {: codeblock}
 
-_Example JSON document in a non-partitioned database with a document ID `apple`:_
+-->
+
+_Example JSON document:_
 
 ```json
 {
@@ -216,7 +188,7 @@ _Example response after successfully creating a document:_
 ```
 {: codeblock}
 
-If the write [quorum](#quorum) cannot be met during an attempt to create a document, a [`202` response](http.html#202) is returned.
+If the write [quorum](#quorum) cannot be met during an attempt to create a document, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
 {: tip}
 
 ## Read
@@ -224,11 +196,8 @@ If the write [quorum](#quorum) cannot be met during an attempt to create a docum
 To retrieve a document,
 send a GET request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 
-Recall that for a partitioned database the `$DOCUMENT_ID` will be formed of
-a partition key part and a document key part.
-
 If you do not know the `_id` for a particular document,
-you can [query the database](database.html#get-documents) for all documents.
+you can [query the database](/docs/services/Cloudant/api/database.html#get-documents) for all documents.
 
 Due to the distributed, eventually consistent nature of {{site.data.keyword.cloudant_short_notm}}, reads might return stale data. In particular,
 data that were written recently, even by the same client, might not be returned from a read request immediately following the write request. To work around this behavior,
@@ -248,6 +217,25 @@ _Example of retrieving a document by using the command line:_
 curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID
 ```
 {: codeblock}
+
+<!--
+
+_Example of retrieving a document, using Javascript:_
+
+```javascript
+var nano = require('nano');
+var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
+var db = account.use($DATABASE);
+
+db.get($JSON._id, function (err, body, headers) {
+	if (!err) {
+		console.log(body);
+	}
+});
+```
+{: codeblock}
+
+-->
 
 The response contains the document that you requested,
 or a description of the error if the document cannot be retrieved.
@@ -293,7 +281,7 @@ Name                | Type | Description | Default
 ## Read Many
 
 To fetch more than one document at a time,
-[query the database](database.html#get-documents)
+[query the database](/docs/services/Cloudant/api/database.html#get-documents)
 by using the `include_docs` option.
 
 ## Update
@@ -304,13 +292,10 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 You can also use this `PUT` method to create a document,
 in which case you do not need to supply the most recent `_rev` value.
 
-Recall that for a partitioned database the `$DOCUMENT_ID` will be formed of
-a partition key part and a document key part.
-
-If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](http.html#409). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum) cannot be met, a [`202` response](http.html#202) is returned.
+If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum) cannot be met, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
 {: note}
 
-Any document update can lead to a conflict, especially when you replicate updated documents. More information about avoiding and resolving conflicts is in the [Document Versioning and MVCC guide](../guides/mvcc.html).
+Any document update can lead to a conflict, especially when you replicate updated documents. More information about avoiding and resolving conflicts is in the [Document Versioning and MVCC guide](/docs/services/Cloudant/guides/mvcc.html).
 {: note}
 
 _Example of using HTTP to update a document:_
@@ -330,6 +315,28 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID \
 	-d "$JSON"
 ```
 {: codeblock}
+
+<!--
+
+_Example of updating a document, using Javascript:_
+
+```javascript
+var nano = require('nano');
+var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
+var db = account.use($DATABASE);
+
+// make sure $JSON contains the correct `_rev` value!
+$JSON._rev = $REV;
+
+db.insert($JSON, $JSON._id, function (err, body, headers) {
+	if (!err) {
+		console.log(body);
+	}
+});
+```
+{: codeblock}
+
+-->
 
 _Example of JSON data that contains an updated document:_
 
@@ -370,13 +377,10 @@ To delete a document,
 send a `DELETE` request with the document's most recent `_rev` in the query string,
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 
-Recall that for a partitioned database the `$DOCUMENT_ID` will be formed of
-a partition key part and a document key part.
-
 The response contains the ID and the new revision of the document,
 or an error message if the delete failed.
 
-If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](http.html#409). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum) cannot be met, a [`202` response](http.html#202) is returned.
+If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum) cannot be met, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
 {: note}
 
 {{site.data.keyword.cloudant_short_notm}} does not completely delete the specified document. Instead, it leaves a [tombstone](#-tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
@@ -397,6 +401,26 @@ _Example of using the command line to delete a document:_
 curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID?rev=$REV -X DELETE
 ```
 {: codeblock}
+
+<!--
+
+_Example of a delete request, using Javascript:_
+
+```javascript
+var nano = require('nano');
+var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
+var db = account.use($DATABASE);
+
+// make sure $JSON contains the correct `_rev` value!
+db.destroy($JSON._id, $REV, function (err, body, headers) {
+	if (!err) {
+		console.log(body);
+	}
+});
+```
+{: codeblock}
+
+-->
 
 _Example response after a successful deletion request:_
 
@@ -436,7 +460,7 @@ do the following steps:
 
 1.	Create a database to hold the required documents.
 	The new database is intended to hold all documents _except_ the tombstone documents.
-2.	Set up a [filtered replication](advanced_replication.html#filtered-replication) to
+2.	Set up a [filtered replication](/docs/services/Cloudant/api/advanced_replication.html#filtered-replication) to
 	replicate documents from the original database to the new database.
 	Configure the filter so that documents with the '`_deleted`' attribute are not replicated.
 3.	When replication is complete,
@@ -580,7 +604,7 @@ because the database sequence numbers are likely to be different.
 If you are using a `validate_doc_update` function, avoid replicating that function to clients. This rule is to prevent the possibility of unwanted side effects as a result of having the function present on the client.
 {: tip}
 
-[{{site.data.keyword.cloudant_short_notm}} Sync](../libraries/supported.html#mobile) libraries do not replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
+[{{site.data.keyword.cloudant_short_notm}} Sync](/docs/services/Cloudant/libraries/supported.html#mobile) libraries do not replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
 However, other clients might replicate the design documents or `validate_doc_update` functions, potentially resulting in unwanted side effects.
 {: note}
 
@@ -591,8 +615,8 @@ The {{site.data.keyword.cloudant_short_notm}} purge API is not available for cus
 Unlike [deleting a document](#delete),
 purging a document removes all references to that document from the database.
 Following a purge,
-the affected documents are no longer available and cannot be listed by using the [`_all_docs`](database.html#get-documents)
-or [`_changes`](database.html#get-changes) commands.
+the affected documents are no longer available and cannot be listed by using the [`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents)
+or [`_changes`](/docs/services/Cloudant/api/database.html#get-changes) commands.
 When you request a purge of a document,
 it does not matter whether a document still exists,
 or was [deleted](#delete) previously.
@@ -655,7 +679,7 @@ You might want to purge rather than delete a document for two reasons.
     purging all but one of these branches leads to the partial purging of the document.
     The document remains available in the database,
     but in a new form without the purged branches and revisions.
-    A new record is created in the [`_changes`](database.html#get-changes) for this document.
+    A new record is created in the [`_changes`](/docs/services/Cloudant/api/database.html#get-changes) for this document.
 
 ### Purging and replication
 
@@ -673,7 +697,7 @@ To avoid these issues, a purge must be carried out on all copies of a database d
 
 ### Purging and indexes
 
-Database indexes, including [views](using_views.html), [search](search.html), and [geo](cloudant-geo.html) indexes, are automatically updated during all purge operations. All indexes support multiple purge requests, and in particular do not need to be completely rebuilt because of a purge request.
+Database indexes, including [views](/docs/services/Cloudant/api/using_views.html), [search](/docs/services/Cloudant/api/search.html), and [geo](/docs/services/Cloudant/api/cloudant-geo.html) indexes, are automatically updated during all purge operations. All indexes support multiple purge requests, and in particular do not need to be completely rebuilt because of a purge request.
 
 Indexes need updating only when:
 
@@ -721,9 +745,6 @@ Field      | Description                           | Type    | Optional
 `_id`      | Document ID                           | String  | Optional only for new documents.
 `_rev`     | Document revision                     | String  | Mandatory for updates and deletes, not used for new documents.
 `_deleted` | Whether the document must be deleted. | Boolean | Yes
-
-Recall that for a partitioned database the `_id` field will be formed of
-a partition key part and a document key part.
 
 _Example of using HTTP to create, update, or delete multiple documents:_
 
@@ -869,7 +890,7 @@ _Example JSON for a bulk insert of three documents:_
 ```
 {: codeblock}
 
-The return code from a successful bulk insertion is [`201`](http.html#201).
+The return code from a successful bulk insertion is [`201`](/docs/services/Cloudant/api/http.html#http-status-codes).
 The content of the returned structure indicates success
 or other information messages on a per-document basis.
 
@@ -985,12 +1006,12 @@ with the new revision and ID information.
 
 _Example JSON structure that is returned after bulk update:_
 
-```json
+```json                              
 [
     {
         "ok":true,
         "id":"96f898f0-f6ff-4a9b-aac4-503992f31b01",
-        "rev":"2-ff7b85665c4c297838963c80ecf481a3"
+        "rev":"2-ff7b85665c4c297838963c80ecf481a3"  
     },
     {
         "ok":true,
@@ -1008,7 +1029,7 @@ _Example JSON structure that is returned after bulk update:_
 
 ### Bulk Documents Transaction Semantics
 
-If your request receives a [`202` response](http.html#202),
+If your request receives a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes),
 the only certainty is that _some_ of the document tasks were processed completely.
 The response body contains the list of documents that were successfully inserted or updated during the process.
 
@@ -1109,7 +1130,7 @@ _Example error message from a validation function:_
 ### The `_bulk_get` endpoint
 
 You might need to access all the available information about multiple documents.
-The `_bulk_get` endpoint is similar to the [`_all_docs`](database.html#get-documents) endpoint,
+The `_bulk_get` endpoint is similar to the [`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents) endpoint,
 but returns information about the requested documents only.
 
 Like the `_bulk_docs` endpoint,
@@ -1151,9 +1172,9 @@ _Example of a JSON object `POST`ed to the `_bulk_get` endpoint:_
 _Example JSON structure that is returned after bulk get:_
 
 ```json
-{
-	"results": [
-		{
+{                                                         
+	"results": [                                                         
+		{                                                         
 			"id": "doc01",
 			"docs": [
 				{
@@ -1185,6 +1206,7 @@ _Example JSON structure that is returned after bulk get:_
 <div id="quorum"></div>
 
 ## Quorum - writing and reading data
+{: #quorum-writing-and-reading-data}
 
 In a distributed system,
 it is possible that a request might take some time to complete.

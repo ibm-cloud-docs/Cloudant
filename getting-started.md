@@ -58,7 +58,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	```
 	{: screen}
 
-*	Install the [Python library](libraries/supported.html#python)
+*	Install the [Python library](/docs/services/Cloudant/libraries/supported.html#python)
 	to enable your Python applications to work with
 	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 	
@@ -100,18 +100,18 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   <br>In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your service instance.
   <br>In the left navigation, click `Service credentials`.
   <br>a. Click the `New credential` button.
-  <br>![Create new service credentials](tutorials/images/img0050.png)
+  <br>![Create new service credentials](/docs/services/Cloudant/tutorials/images/img0050.png)
   <br>b. Enter a name for the new credential in the Add new credential window, as shown in the following screen shot.
   <br>c. (Optional) Add inline configuration parameters.
   <br>d. Click the `Add` button. 
-  <br>![Add a new service credential](tutorials/images/img0051.png)
+  <br>![Add a new service credential](/docs/services/Cloudant/tutorials/images/img0051.png)
   <br>Your credentials are added to the Service credentials table.
   <br>e. Click `View credentials` under Actions. 
-  <br>![View all service credentials](tutorials/images/img0052.png)
+  <br>![View all service credentials](/docs/services/Cloudant/tutorials/images/img0052.png)
   <br>The details for the service credentials appear:
-   <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
+   <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](/docs/services/Cloudant/tutorials/images/img0009.png)
    
-3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide ![External link icon](images/launch-glyph.svg "External link icon")](guides/iam.html#ibm-cloud-identity-and-access-management-iam-) for more details on either authentication type.
+3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide ![External link icon](images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/guides/iam.html#ibm-cloud-identity-and-access-management-iam-) for more details on either authentication type.
 
 	If you are using {{site.data.keyword.cloudant_short_notm}} Legacy authentication, replace your service credentials from the previous step:
 	```python
@@ -297,7 +297,7 @@ A full retrieval also includes the data _within_ a document.
 {: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
 You can also request a list of all documents and their contents by
-invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](api/database.html#get-documents).
+invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/services/Cloudant/api/database.html#get-documents).
 
 1. Identify the endpoint to contact, and any parameters to supply along with the call:
   ```python
@@ -400,9 +400,7 @@ client.disconnect()
 For more information about all {{site.data.keyword.cloudant_short_notm}} offerings,
 see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} site.
 
-For more details and tutorials about {{site.data.keyword.cloudant_short_notm}} concepts,
-tasks, and techniques,
-see the [{{site.data.keyword.cloudant_short_notm}} documentation](cloudant.html).
+For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/services/Cloudant/cloudant.html).
 
 ## Appendix: Complete Python code listing
 {: #appendix-complete-python-code-listing}

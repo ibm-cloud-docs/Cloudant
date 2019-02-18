@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-01"
 
 ---
 
@@ -24,15 +24,15 @@ If it's your first time here,
 scan this section before you scroll further.
 {: shortdesc}
 
-The sections on [Client Libraries](../libraries/index.html#-client-libraries),
-[API Reference](../api/index.html#-api-reference),
-and [Guides](../guides/acurl.html#authorized-curl-acurl-) assume you know some basic things about {{site.data.keyword.cloudantfull}}.
+The sections on [Client Libraries](/docs/services/Cloudant/libraries/index.html#client-libraries),
+[API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview),
+and [Guides](/docs/services/Cloudant/guides/acurl.html#authorized-curl-acurl-) assume you know some basic things about {{site.data.keyword.cloudantfull}}.
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 
 To access {{site.data.keyword.cloudant_short_notm}},
-you must have either an [{{site.data.keyword.cloudant_short_notm}} account](../api/account.html),
-or an [{{site.data.keyword.cloud}} account](../offerings/bluemix.html).
+you must have either an [{{site.data.keyword.cloudant_short_notm}} account](/docs/services/Cloudant/api/account.html),
+or an [{{site.data.keyword.cloud}} account](/docs/services/Cloudant/offerings/bluemix.html).
 
 ## HTTP API
 
@@ -43,7 +43,7 @@ some convenience and linguistic niceties to help you work with a simple API.
 Many users choose to use raw HTTP libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 
 Specific details about how {{site.data.keyword.cloudant_short_notm}} uses HTTP are
-provided in the [HTTP topic of the API Reference](../api/http.html).
+provided in the [HTTP topic of the API Reference](/docs/services/Cloudant/api/http.html).
 
 {{site.data.keyword.cloudant_short_notm}} supports the following HTTP request methods:
 
@@ -97,7 +97,7 @@ If the client (such as some web browsers) does not support using these HTTP meth
 ### Method not allowed error
 
 If you use an unsupported HTTP request type with a URL that does not support the specified type,
-a [405](../api/http.html#405) error is returned,
+a [405](/docs/services/Cloudant/api/http.html#http-status-codes) error is returned,
 listing the supported HTTP methods, as shown in the following example.
 
 _Example error message in response to an unsupported request:_
@@ -122,7 +122,7 @@ and audio,
 are called BLOBs (Binary Large OBjects),
 and can be stored as attachments associated with documents.
 
-More information about JSON can be found in the [JSON Guide](../guides/json.html).
+For more information about JSON, see the [JSON Guide](/docs/services/Cloudant/guides/json.html).
 
 <div id="distributed"></div>
 
@@ -139,11 +139,11 @@ you just add more machines.
 This is often more cost-effective and fault-tolerant than scaling up or enhancing an existing single machine.
 
 For more information about {{site.data.keyword.cloudant_short_notm}} and distributed system concepts,
-see the [CAP Theorem](../guides/cap_theorem.html) guide.
+see the [CAP Theorem](/docs/services/Cloudant/guides/cap_theorem.html) guide.
 
 ## Replication
 
-[Replication](../api/replication.html) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
+[Replication](/docs/services/Cloudant/api/replication.html) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
 [CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){: new_window},
 [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window},
 and other distributed databases.

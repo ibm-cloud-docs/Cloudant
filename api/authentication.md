@@ -27,8 +27,8 @@ It is typically done by providing your user credentials for verification.
 
 You can provide your credentials (authenticate) in two ways for {{site.data.keyword.cloudantfull}}:
 
--	[Basic authentication](#basic-authentication).
--	[Cookie authentication](#cookie-authentication).
+-	[Basic authentication](/docs/services/Cloudant/api/authentication.html#basic-authentication)
+-	[Cookie authentication](/docs/services/Cloudant/api/authentication.html#cookie-authentication)
 
 Basic authentication is similar to showing an ID at a door to be checked every time that you want to enter.
 Cookie authentication is similar to having a key to the door so that you can let yourself in whenever you want.

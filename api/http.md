@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-01-31"
 
 ---
 
@@ -229,6 +229,7 @@ ETags cannot currently be used with views or lists,
 since the ETags returned from those requests are just random numbers that change on every request.
 
 ## HTTP Status Codes
+{: #http-status-codes}
 
 With the interface to {{site.data.keyword.cloudant_short_notm}} working through HTTP,
 error codes and statuses are reported using a combination of the HTTP status code number,
@@ -237,36 +238,12 @@ and corresponding data in the body of the response data.
 A list of the error codes returned by {{site.data.keyword.cloudant_short_notm}} and generic descriptions of the related errors are as follows.
 The meaning of different status codes for specific request types are provided in the corresponding API call reference.
 
-<div id="201"></div>
-
-<div id="202"></div>
-
-<div id="304"></div>
-
-<div id="400"></div>
-
-<div id="403"></div>
-
-<div id="404"></div>
-
-<div id="405"></div>
-
-<div id="409"></div>
-
-<div id="413"></div>
-
-<div id="429"></div>
-
-<div id="500"></div>
-
-<div id="503"></div>
-
 
 Code                                    | Meaning
 ----------------------------------------|--------
 `200 - OK`                              | Request completed successfully.
 `201 - Created`                         | Resource created or updated successfully. The resource could be a database or a document, for example.
-`202 - Accepted`                        | Request has been accepted, but the [quorum](document.html#quorum) for the operation was not met.
+`202 - Accepted`                        | Request has been accepted, but the [quorum](/docs/services/Cloudant/api/document.html#quorum) for the operation was not met.
 `304 - Not Modified`                    | The content requested has not been modified. This is used with the [ETag](#etag) system to identify the version of information returned.
 `400 - Bad Request`                     | Bad request structure. The error can indicate an error with the request URL, path or headers. Differences in the supplied MD5 hash and content also trigger this error, as this may indicate message corruption.
 `401 - Unauthorized`                    | The item requested was not available using the supplied authorization, or authorization was not supplied.
