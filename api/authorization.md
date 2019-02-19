@@ -82,8 +82,8 @@ The focused roles are as follows:
 
 Role          | Description                                                                                   | API Endpoints
 --------------|-----------------------------------------------------------------------------------------------|--------------
-`_design`     | Allows create, read, modify, or delete access to design documents.                            | [`_design`](/docs/services/Cloudant/api/Cloudant?topic=cloudant-design-documents), [`_find`](/docs/services/Cloudant/api/Cloudant?topic=cloudant-query#finding-documents-using-an-index), [`_index`](/docs/services/Cloudant/api/Cloudant?topic=cloudant-query#working-with-indexes)
-`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/docs/services/Cloudant/api/Cloudant?topic=cloudant-replication-api#the-since_seq-field), [`_replicate`](/docs/services/Cloudant/api/Cloudant?topic=cloudant-advanced-replication#the-_replicate-endpoint), [`_replicator`](/docs/services/Cloudant/api/Cloudant?topic=cloudant-replication-api#the-_replicator-database)
+`_design`     | Allows create, read, modify, or delete access to design documents.                            | [`_design`](/docs/services/Cloudant/api/design-documents.html), [`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-using-an-index), [`_index`](/docs/services/Cloudant/api/cloudant_query.html#working-with-indexes)
+`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/docs/services/Cloudant/api/replication.html#the-since_seq-field), [`_replicate`](/docs/services/Cloudant/api/advanced-replication.html#the-_replicate-endpoint), [`_replicator`](/docs/services/Cloudant/api/replication.html#the-_replicator-database)
 `_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint.                          | [`_security`](/docs/services/Cloudant/api/authorization.html#viewing-permissions)
 
 The nature of the access that is granted depends on the specific API endpoint.

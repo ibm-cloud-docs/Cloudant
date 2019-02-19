@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Client Libraries
+{: #client-libraries}
 
 Client libraries are the tools that let you develop your own applications
 to work with {{site.data.keyword.cloudantfull}} databases.
@@ -40,3 +41,4 @@ Other client libraries have been created by
 
 Third-party client libraries are not maintained or supported by {{site.data.keyword.cloudant_short_notm}}. If you encounter a specific, reproducible problem with a third-party library, contact the library maintainer for assistance.
 {: note}
+

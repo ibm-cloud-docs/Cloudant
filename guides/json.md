@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # JSON
+{: #json}
 
 The majority of requests and responses to and from {{site.data.keyword.cloudantfull}}
 use the [JavaScript Object Notation (JSON) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/JSON){: new_window}
@@ -29,11 +30,7 @@ In {{site.data.keyword.cloudant_short_notm}} databases,
 the JSON object is used to represent a variety of structures,
 including all documents in a database.
 
-Parsing JSON into a JavaScript object is supported through the `JSON.parse()` function in JavaScript,
-or through various [libraries](/docs/services/Cloudant/libraries/index.html)
-that perform the parsing of the content into a JavaScript object for you.
-[Libraries](/docs/services/Cloudant/libraries/index.html) for parsing and generating JSON
-are available for many major programming languages.
+Parsing JSON into a JavaScript object is supported through the `JSON.parse()` function in JavaScript, or through various [libraries](/docs/services/Cloudant/libraries/index.html#client-libraries) that perform the parsing of the content into a JavaScript object for you. Libraries for parsing and generating JSON are available for many major programming languages.
 
 JSON is used because it is the simplest and easiest solution for working with data using a web browser.
 This is because JSON structures can be evaluated and used as JavaScript objects within the web browser environment.
@@ -53,6 +50,7 @@ JSON supports the same basic types as supported by JavaScript:
 -   [Objects](#objects)
 
 ## Numbers
+{: #numbers}
 
 Numbers can be integer or floating point values.
 
@@ -64,6 +62,7 @@ _Example of a number in JSON format:_
 {: codeblock}
 
 ## Strings
+{: #strings}
 
 String should be enclosed by double-quotes. Strings support Unicode characters and backslash escaping.
 
@@ -75,6 +74,7 @@ _Example of a string in JSON format:_
 {: codeblock}
 
 ## Booleans
+{: #booleans}
 
 A `true` or `false` value.
 
@@ -88,6 +88,7 @@ _Example of a boolean in JSON format:_
 {: codeblock}
 
 ## Arrays
+{: #arrays}
 
 A list of values enclosed in brackets. The values enclosed can be any valid JSON.
 
@@ -116,6 +117,7 @@ _Example of an array in JSON format (linear):_
 {: codeblock}
 
 ## Objects
+{: #objects}
 
 A set of key/value pairs,
 such as an associative array,

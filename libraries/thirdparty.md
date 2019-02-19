@@ -177,7 +177,7 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {: codeblock}
 
-See the [API Reference](/docs/services/Cloudant/api/index.html) for more information about meteor-couchdb APIs. 
+See the [API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview) for more information about meteor-couchdb APIs. 
 
 ## Apache Spark
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -256,7 +256,7 @@ You start by finding the checkpoint ID value.
 This value is stored in the `_replication_id` field of the replication document,
 within the `_replicator` database.
 
-_Getting the checkpoint ID to help find the `recorded_seq` value, by using HTTP:_
+*Getting the checkpoint ID to help find the `recorded_seq` value, by using HTTP:*
 
 ```http
 GET /_replicator/full-backup-monday HTTP/1.1
@@ -264,7 +264,7 @@ GET /_replicator/full-backup-monday HTTP/1.1
 ```
 {: codeblock}
 
-_Getting the checkpoint ID to help find the `recorded_seq` value, by using the command line:_
+*Getting the checkpoint ID to help find the `recorded_seq` value, by using the command line:*
 
 ```sh
 replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replication_id')
@@ -283,7 +283,7 @@ within the original database.
 You now have the `recorded_seq` value.
 This value identifies the last document that was replicated from the original database.
 
-_Getting the `recorded_seq` from original database by using HTTP:_
+*Getting the `recorded_seq` from original database by using HTTP:*
 
 ```http
 GET /original/_local/${replication_id} HTTP/1.1
@@ -291,7 +291,7 @@ GET /original/_local/${replication_id} HTTP/1.1
 ```
 {: codeblock}
 
-_Getting the `recorded_seq` from original database by using the command line:_
+*Getting the `recorded_seq` from original database by using the command line:*
 
 ```sh
 recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history[0].recorded_seq')
@@ -504,6 +504,6 @@ Make sure that your replication jobs do not begin at the same time.
 
 Replication and backups can be tricky.
 If you get stuck,
-check out the [replication guide/docs/services/Cloudant/guides/replication_guide.html),
+check out the [replication guide](/docs/services/Cloudant/guides/replication_guide.html),
 or contact the
 [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.

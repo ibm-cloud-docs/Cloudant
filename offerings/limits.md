@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-06"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -24,7 +24,7 @@ lastupdated: "2019-02-06"
 {{site.data.keyword.cloudant_short_notm}} databases are subject to the following limits that pertain to its usage:
 
 ## Databases
-{: #databases}
+{: #databases-overview}
 
 |Description|Limit|
 |--|--|
@@ -33,7 +33,7 @@ lastupdated: "2019-02-06"
 
 
 ## Indexes
-{: #indexes}
+{: #indexes-overview}
 
 |Description|Limit|
 |--|--|
@@ -41,7 +41,7 @@ lastupdated: "2019-02-06"
 |# partition indexes|10|
 
 ## Request payload
-{: #request-payload}
+{: #request-payload-overview}
 
 |Description|Limit|
 |--|--|

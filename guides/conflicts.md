@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -317,5 +317,5 @@ specifying the revisions to delete.
 When the older versions of a document are deleted,
 the conflicts associated with that document are marked as resolved.
 You can verify that no conflicts remain by requesting the document again,
-with the `conflicts` parameter set to true,
-[as before](#finding-conflicts).
+with the `conflicts` parameter set to true, use
+[find conflicts](#finding-conflicts) as before.

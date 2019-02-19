@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -19,10 +19,10 @@ lastupdated: "2019-01-03"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Authorized curl: `acurl`
+{: #authorized-curl-acurl-}
 
 _(This guide is based on a Blog article by Samantha Scharr: [
-"Authorized curl, a.k.a. acurl" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/authorized-curl-a-k-a-acurl/){: new_window},
-originally published November 27, 2013.)_
+"Authorized curl, a.k.a. acurl", originally published November 27, 2013.)_
 
 `acurl` is a handy alias that allows you to `curl` {{site.data.keyword.cloudantfull}} commands to URLs
 without having to enter your user name and password for every request.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -50,7 +50,7 @@ is [available](/docs/services/Cloudant/getting-started.html),
 along with [tutorials](/docs/services/Cloudant/tutorials/create_service.html#creating-a-service-instance) that describe tasks in more detail.
 More information about details such as authenticating with database instances,
 and querying data,
-is available in the [API reference](/docs/services/Cloudant/api/index.html).
+is available in the [API reference](/docs/services/Cloudant/api/index.html#api-reference-overview).
 
 <div id="contents"></div>
 
@@ -69,15 +69,15 @@ is available in the [API reference](/docs/services/Cloudant/api/index.html).
 *	[Guides](/docs/services/Cloudant/guides/acurl.html#authorized-curl-acurl-): The guides go into detail about
 	use cases and more complex activities and problems.
 	The guides also explore some of the important concepts behind the mechanics of an {{site.data.keyword.cloudant_short_notm}} database.
-*	[{{site.data.keyword.cloudant_short_notm}} Basics](/docs/services/Cloudant/basics/index.html): If you have never 		used {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in general,
+*	[{{site.data.keyword.cloudant_short_notm}} Basics](/docs/services/Cloudant/basics/index.html#ibm-cloudant-basics): If you have never 		used {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in general,
 	scan this quick introduction to the basics before you read further.
 	It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}.
 	The rest of the documentation assumes that you know these basics.
-*	[{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/services/Cloudant/api/index.html): The API reference is a
+*	[{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview): The API reference is a
 	comprehensive and living catalog of the {{site.data.keyword.cloudant_short_notm}} capabilities.
 	You can find detailed information about the things you can do with {{site.data.keyword.cloudant_short_notm}}.
 *	Sample apps: The sample applications include: Offline First shopping list, Open Fridge, iOS game with Core ML and Watson Visual Recognition, and Mobile health app with Watson Studio. 
-*	[Client Libraries](/docs/services/Cloudant/libraries/index.html): Client libraries are toolkits that
+*	[Client Libraries](/docs/services/Cloudant/libraries/index.html#client-libraries): Client libraries are toolkits that
 	help you develop your own applications,
 	ready to work with {{site.data.keyword.cloudant_short_notm}} databases.
 

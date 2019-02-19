@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -66,7 +66,8 @@ a support ticket with
 or email 
 [support@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 
-## General Data Protection Regulation (GDPR) 
+## General Data Protection Regulation (GDPR)
+{: #general-data-protection-regulation-gdpr-overview}
 
 The GDPR seeks to create a harmonized data protection law 
 framework across the EU and aims to give citizens back the control of their personal data, whilst 

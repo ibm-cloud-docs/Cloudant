@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # General Data Protection Regulation (GDPR)
+{: #general-data-protection-regulation-gdpr-}
 
 The GDPR seeks to create a harmonized data protection law framework across the EU and aims 
 to give citizens back the control of their personal data, while imposing strict rules on 
@@ -84,8 +85,7 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} dashboa
 
 ### Restriction of processing
 
-{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict 
-processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
+{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information associated 
 with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
 ability to contact dedicated customers via email and provides an interface for customers to keep this 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -37,7 +37,7 @@ The `jq` command-line JSON processor is used to process the JSON response.
 
 Since this is a task-focused tutorial,
 it covers only what is essential to accomplish this task.
-Please refer to the [API reference](/docs/services/Cloudant/api/index.html) for a complete guide to the available options.
+Please refer to the [API reference](/docs/services/Cloudant/api/index.html#api-reference-overview) for a complete guide to the available options.
 
 ## curl and jq basics
 
@@ -48,7 +48,7 @@ and pipe the output to `jq`.
 `jq` lets you filter a list of documents by their field values.
 This makes it easier to get all replication documents,
 or the details of just one particular view indexing task.
-The [API reference](/docs/services/Cloudant/api/index.html) has more information about the options.
+The API reference has more information about the options.
 
 _Example of obtaining and formatting a list of active tasks:_
 

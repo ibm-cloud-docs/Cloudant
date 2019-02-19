@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -69,7 +69,5 @@ service instance is available [here](/docs/services/Cloudant/tutorials/create_da
 It introduces a number of concepts that are helpful for understanding how to create and populate an {{site.data.keyword.cloudant_short_notm}} database.
 
 This tutorial assumes that you are familiar with those concepts.
-
-## The next step
 
 The next step in the tutorial is to [create the application environment](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html).

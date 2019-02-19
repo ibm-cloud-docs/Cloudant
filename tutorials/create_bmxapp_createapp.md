@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -46,11 +46,11 @@ No attempt was made to create _efficient_ Python code for this tutorial. The int
 ### Essential files
 
 Your application requires three configuration files and one source file,
-all available in the ['starter' application pack](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#starter):
+all available in the [`starter` application pack](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#starter):
  
--   ['`Procfile`'](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#procfile)
--   ['`manifest.yml`'](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#manifest)
--   ['`requirements.txt`'](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#requirements)
+-   [`Procfile`](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#the-procfile-file)
+-   [`manifest.yml`](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#the-manifest.yml-file)
+-   [`requirements.txt`](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#the-requirements.txt-file)
 -   The application source file, which is described in this section of the tutorial.
 
 Modify your configuration files as follows:
@@ -251,7 +251,7 @@ the application accesses the first element (element 'zero').
 Each service element contains the credentials for that service,
 expressed as a list indexed by the essential field names that are needed to access the service.
 More information about the field names is provided in the
-[tutorial](/docs/services/Cloudant/tutorials/create_database.html#pre-requisites) that describes a simple database creation task.
+[tutorial](/docs/services/Cloudant/tutorials/create_database.html#prerequisites) that describes a simple database creation task.
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -368,8 +368,6 @@ except KeyboardInterrupt:
 httpd.server_close()
 ```
 {: codeblock}
-
-## The next step
 
 The next step in the tutorial is to [upload the application](/docs/services/Cloudant/tutorials/create_bmxapp_upload.html) for testing purposes.
 

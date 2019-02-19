@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -19,18 +19,21 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}
+{: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}
 
 This tutorial shows you how to use the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} to
 create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.cloud_notm}} service instance,
 and populate the database with a simple collection of data.
 {: shortdesc}
 
-## Pre-requisites
+## Prerequisites
+{: prerequisites}
 
 Ensure that you have the following resources or information ready,
 before you start working through the tutorial.
 
 ### Python
+{: #python}
 
 You must have a current installation of the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window}
 installed on your system.
@@ -51,6 +54,7 @@ Python 2.7.12
 {: codeblock}
 
 ### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
+{: #python-client-library-for-ibm-cloudant}
 
 There is an [officially supported library](/docs/services/Cloudant/libraries/supported.html#python) to enable your Python applications to work with an
 {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
@@ -75,6 +79,7 @@ cloudant==2.3.1
 {: codeblock}
 
 ### An {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
+{: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
 The process for creating a suitable service instance is described in [this tutorial](/docs/services/Cloudant/tutorials/create_service.html).
 
@@ -92,14 +97,15 @@ Information on finding the service credentials for your service instance is
 available [here](/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials).
 
 ## Context
+{: #context}
 
 This tutorial builds up a series of Python language instructions,
 suitable for the following tasks:
 
-1.  [Connecting to an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud}}](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud).
+1.  [Connecting to an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud}}](#connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud).
 2.  [Creating a database within the service instance](#creating-a-database-within-the-service-instance).
 3.  [Storing a small collection of data as documents within the database](#storing-a-small-collection-of-data-as-documents-within-the-database).
-4.  [Retrieving a complete list of the documents](#retrieving-a-complete-list-of-the-documents).
+4.  [Retrieving data](#retrieving-data).
 5.  [Deleting the database](#deleting-the-database).
 6.  [Closing the connection to the service instance](#closing-the-connection-to-the-service-instance).
 
@@ -120,6 +126,7 @@ but you should apply normal best practices for checking and handling all
 warning or error conditions encountered by your own applications. 
 
 ## Connecting to an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
+{: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
 A Python application requires the {{site.data.keyword.cloudant_short_notm}} Client Library components to be able to connect to the service instance.
 These components are identified as normal `import` statements:
@@ -163,6 +170,7 @@ At this point,
 your Python application has access to the service instance on {{site.data.keyword.cloud_notm}}.
 
 ## Creating a database within the service instance
+{: #creating-a-database-within-the-service-instance}
 
 The next step is to create a database within the service instance,
 called `databasedemo`.
@@ -190,6 +198,7 @@ if myDatabaseDemo.exists():
 {: codeblock}
 
 ## Storing a small collection of data as documents within the database
+{: #storing-a-small-collection-of-data-as-documents-within-the-database}
 
 We now want to store a small,
 simple collection of data in the database.
@@ -243,6 +252,7 @@ for document in sampleData:
 Notice that we check that each document was successfully created.
 
 ## Retrieving data
+{: #retrieving-data}
 
 At this point,
 a small collection of data
@@ -251,6 +261,7 @@ We can now perform a series of queries,
 illustrating different ways of retrieving data from the database.
 
 ### A minimal retrieval of a document
+{: #a-minimal-retrieval-of-a-document}
 
 To perform a minimal retrieval,
 we first request a list of all documents within the database.
@@ -289,6 +300,7 @@ The nature of NoSQL databases,
 {: tip}
 
 ### Full retrieval of a document
+{: #full-retrieval-of-a-document}
 
 To perform a full retrieval,
 we request a list of all documents within the database,
@@ -332,6 +344,7 @@ The result is similar to the following example:
 {: codeblock}
 
 ## Calling an {{site.data.keyword.cloudant_short_notm}} API endpoint directly
+{: #calling-an-ibm-cloudant-api-endpoint-directly}
 
 We can also work with the {{site.data.keyword.cloudant_short_notm}} API endpoints directly,
 from within a Python application.
@@ -408,6 +421,7 @@ The result is similar to the following _abbreviated_ example:
 {: codeblock}
 
 ## Deleting the database
+{: #deleting-the-database}
 
 When we have finished with the database,
 it can be deleted.
@@ -429,6 +443,7 @@ We have included some basic error handling to illustrate how problems
 might be caught and addressed.
 
 ## Closing the connection to the service instance
+{: #closing-the-connection-to-the-service-instance}
 
 The final step is to disconnect the Python client application from the service instance:
 
@@ -438,6 +453,7 @@ client.disconnect()
 {: codeblock}
 
 ## Complete listing
+{: #complete-listing}
 
 The following code is a complete Python program to access an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}},
 and perform a typical series of tasks:

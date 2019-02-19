@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -207,7 +207,7 @@ other resolution strategies might be required:
 *   Sophisticated algorithms: for example, 3-way merges of text fields.
 
 For a practical example of how to implement a merge of changes,
-see [this project with sample code ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/deconflict){: new_window}.
+see this project with [sample code ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/deconflict){: new_window}.
 
 ### Upload the new revision
 

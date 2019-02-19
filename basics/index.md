@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -19,14 +19,17 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2018-05-07 -->
 
 # {{site.data.keyword.cloudant_short_notm}} Basics
+{: #ibm-cloudant-basics}
 
 If it's your first time here,
 scan this section before you scroll further.
 {: shortdesc}
 
-The sections on [Client Libraries](/docs/services/Cloudant/libraries/index.html#client-libraries),
-[API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview),
-and [Guides](/docs/services/Cloudant/guides/acurl.html#authorized-curl-acurl-) assume you know some basic things about {{site.data.keyword.cloudantfull}}.
+To understand the information on the following topics, we assume that you know some basic things about {{site.data.keyword.cloudantfull}}: 
+
+- [Client Libraries](/docs/services/Cloudant/libraries/index.html#client-libraries)
+- [API Reference](/docs/services/Cloudant/api/index.html##api-reference-overview)
+- [Guides](acurl.html#authorized-curl-acurl-)
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 
@@ -42,8 +45,7 @@ All language-specific libraries for {{site.data.keyword.cloudant_short_notm}} ar
 some convenience and linguistic niceties to help you work with a simple API.
 Many users choose to use raw HTTP libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 
-Specific details about how {{site.data.keyword.cloudant_short_notm}} uses HTTP are
-provided in the [HTTP topic of the API Reference](/docs/services/Cloudant/api/http.html).
+For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP ](/docs/services/Cloudant/api/http.html) in the API reference.
 
 {{site.data.keyword.cloudant_short_notm}} supports the following HTTP request methods:
 
@@ -111,7 +113,7 @@ _Example error message in response to an unsupported request:_
 {: codeblock}
 
 ## JSON
-{: #json}
+{: #json-overview}
 
 {{site.data.keyword.cloudant_short_notm}} stores documents using JSON (JavaScript Object Notation) encoding,
 so anything encoded into JSON can be stored as a document.
@@ -122,7 +124,7 @@ and audio,
 are called BLOBs (Binary Large OBjects),
 and can be stored as attachments associated with documents.
 
-For more information about JSON, see the [JSON Guide](/docs/services/Cloudant/guides/json.html).
+More information about JSON can be found in the [JSON Guide](/docs/services/Cloudant/guides/json.html).
 
 <div id="distributed"></div>
 

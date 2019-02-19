@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -87,13 +87,11 @@ you need to perform the following tasks:
 
 The tutorial consists of five sections:
 
-1.  [Pre-requisites](/docs/services/Cloudant/tutorials/create_bmxapp_prereq.html)
+1.  [Prerequisites](/docs/services/Cloudant/tutorials/create_bmxapp_prereq.html)
 2.  [The Application Environment](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html)
 3.  [Creating your Application](/docs/services/Cloudant/tutorials/create_bmxapp_createapp.html)
 4.  [Uploading and running your Application](/docs/services/Cloudant/tutorials/create_bmxapp_upload.html)
 5.  [Maintaining and troubleshooting your Application](/docs/services/Cloudant/tutorials/create_bmxapp_maintain.html)
 
-## The next step
-
 To begin the tutorial,
-start by [checking the Pre-requisites](/docs/services/Cloudant/tutorials/create_bmxapp_prereq.html).
+start by [checking the prerequisites](/docs/services/Cloudant/tutorials/create_bmxapp_prereq.html).

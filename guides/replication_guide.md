@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -370,8 +370,7 @@ If replication failed,
 for example if the authentication credentials were invalid,
 then the error state is recorded in the `_replicator` document.
 In addition,
-the {{site.data.keyword.cloudant_short_notm}} account's `/_active_tasks` endpoint can be used to see replication work as it progresses.
-More details are available [here](/docs/services/Cloudant/api/active_tasks.html).
+the {{site.data.keyword.cloudant_short_notm}} account's [`/_active_tasks` endpoint](/docs/services/Cloudant/api/active_tasks.html) can be used to see replication work as it progresses.
 
 _Example of using HTTP to monitor a replication process:_
 
@@ -743,7 +742,7 @@ the credentials that are supplied must have:
 *   `_reader` and `_replicator` permissions on database "a".
 *   `_writer` permissions on database "b".
 
-API keys are generated in the {{site.data.keyword.cloudant_short_notm}} dashboard or [through the API](/docs/services/Cloudant/api/authorization.html#creating-api-keys).
+API keys are generated in the {{site.data.keyword.cloudant_short_notm}} dashboard or through the [API](/docs/services/Cloudant/api/authorization.html#creating-api-keys).
 Each key can be given individual rights that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
 {{site.data.keyword.cloudant_short_notm}} must be able to write its checkpoint documents at the "read" end of replication,
 otherwise no state is saved and replication cannot resume from where it stopped.
@@ -833,9 +832,7 @@ Alternatively,
 you might require cluster performance to take priority,
 with replication treated as a background process.
 
-Advanced replication API options are [available](/docs/services/Cloudant/api/advanced_replication.html),
-which enable an increase or decrease in the amount of computing power that is used during replication.
-For example:
+[Advanced replication API options](/docs/services/Cloudant/api/advanced_replication.html) are available, which enable an increase or decrease in the amount of computing power that is used during replication. For example:
 
 *   If your documents contain attachments,
     you might want to consider reducing the batch_size and increasing the worker_processes,
