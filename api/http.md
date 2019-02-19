@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -38,10 +38,10 @@ you should be as specific as possible.
 
 The supported HTTP request headers include:
 
-*	[`Accept`](#accept)
-*	[`Content-Type`](#content-type)
-*	[`Content-Encoding`](#content-encoding)
-*	[`If-None-Match`](#if-none-match)
+*	`Accept`
+*	`Content-Type`
+*	`Content-Encoding`
+*	`If-None-Match`
 
 #### Accept
 
@@ -168,11 +168,11 @@ The `If-None-Match` header is optional.
 You might send it to determine whether a document has been modified since it was last read or updated.
 The value of the `If-None-Match` header should match the last [`Etag`](#etag) value received.
 If the value matches the current revision of the document,
-the server sends a [`304 Not Modified`](#304) status code,
+the server sends a [`304 Not Modified`](#http-status-codes) status code,
 and the response itself has no body.
 
 If the document has been modified,
-you should get a normal [`200` response](#200),
+you should get a normal [`200` response](#http-status-codes),
 provided the document still exists and no other errors occurred.
 
 ### Response headers
@@ -184,10 +184,10 @@ The list of response headers important to {{site.data.keyword.cloudant_short_not
 
 The supported HTTP response headers include:
 
-*	[`Cache-Control`](#cache-control)
-*	[`Content-Length`](#content-length)
-*	[`Content-Type`](#content-type)
-*	[`Etag`](#etag)
+*	`Cache-Control`
+*	`Content-Length`
+*	`Content-Type`
+*	`Etag`
 
 The {{site.data.keyword.cloudant_short_notm}} design document API and the functions when returning HTML (for example as part of a show or list)
 enable you to include custom HTTP headers through the `headers` field of the return object.
@@ -204,10 +204,6 @@ This is used to ensure that the dynamic nature of the content is correctly updat
 
 The `Content-Length` header reports the length in bytes of the returned content.
 
-<div id="content-type-response"></div>
-
-<div id="content-type-field"></div>
-
 #### Content-Type for response headers
 
 The `Content-Type` header specifies the MIME type of the returned data.
@@ -223,7 +219,7 @@ or the response from a show function.
 For documents,
 the value is identical to the revision of the document.
 The value can be used with an `If-None-Match` request header
-to get a [`304 Not Modified`](#304) response if the revision is still current.
+to get a [`304 Not Modified`](#http-status-codes) response if the revision is still current.
 
 ETags cannot currently be used with views or lists,
 since the ETags returned from those requests are just random numbers that change on every request.

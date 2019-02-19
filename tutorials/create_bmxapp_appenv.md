@@ -218,7 +218,7 @@ After you install the command line interface, go back to the `Getting started` t
 
 <div id="starter"></div>
 
-## The 'starter' application
+## The `starter` application
 
 This section of the tutorial describes an {{site.data.keyword.cloud_notm}}
 starter application,
@@ -237,13 +237,14 @@ you must modify or extend as you develop your {{site.data.keyword.cloud_notm}} a
 
 Three files in particular are essential:
 
--   [`Procfile`](#procfile)
--   [`manifest.yml`](#manifest)
--   [`requirements.txt`](#requirements)
+-   [`Procfile`](#the-procfile-file)
+-   [`manifest.yml`](#the-manifest.yml-file)
+-   [`requirements.txt`](#the-requirements.txt-file)
 
 <div id="procfile"></div>
 
 ### The `Procfile` file
+{: #the-procfile-file}
 
 The `Procfile` contains the details
 that {{site.data.keyword.cloud_notm}} needs to run your application.
@@ -278,9 +279,8 @@ create an entirely new Python source file.
 Then,
 update the `Procfile` so that the new file is used when your application starts.
 
-<div id="manifest"></div>
-
 ### The `manifest.yml` file
+{: #the-manifest.yml-file}
 
 The `manifest.yml` file is a full description of the application,
 and of the environment it requires to run.
@@ -317,6 +317,7 @@ however it is helpful to understand why it must be present for your application 
 <div id="requirements"></div>
 
 ### The `requirements.txt` file
+{: #the-requirements.txt-file}
 
 The `requirements.txt` file specifies any additional components that are required for your application to work.
 
@@ -335,7 +336,5 @@ modify the `requirements.txt` file to contain the following text: ​​​
 cloudant==2.3.1
 ```
 {: codeblock}
-
-## The next step
 
 The next step in the tutorial is to [create the application](/docs/services/Cloudant/tutorials/create_bmxapp_createapp.html).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -124,7 +124,7 @@ Additionally, it is worth noting that the maximum individual document size is 1 
 
 ### Step 4: Migrate data from the old service to the new service 
 
-Set up continuous replications from your existing service to your {{site.data.keyword.cloudant_short_notm}} account. For more information, see the [Replication guide](/docs/services/Cloudant/guides/replication_guide.html#replication) and [API documentation](/docs/services/Cloudant/api/replication.html#replication) about how to set up and monitor replication tasks.
+Set up continuous replications from your existing service to your {{site.data.keyword.cloudant_short_notm}} account. For more information, see the [Replication guide](/docs/services/Cloudant/guides/replication_guide.html#replication) and [API documentation](/docs/services/Cloudant/basics/index.html##ibm-cloudant-basics) about how to set up and monitor replication tasks.
 
 Alternatively, check out the [`couchreplicate`](https://www.npmjs.com/package/couchreplicate) tool, which is a command-line utility that helps you coordinate the transfer of data from one {{site.data.keyword.cloudant_short_notm}} account to another. It sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
 

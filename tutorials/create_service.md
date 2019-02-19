@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -38,8 +38,7 @@ to work with the database.
 2.  Click `Databases` from the left navigation and `Cloudant` from the list of database services:<br/>
     ![{{site.data.keyword.cloud_notm}} Databases services](images/img0003.png)<br/>
 
-3.  In the service configuration window, enter a service name. Verify that the service name, region/location, resource group, and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `Use only IAM` or `Use both legacy credentials and IAM`. For more information, see [authentication methods](/docs/services/Cloudant/guides/iam.html#ibm-cloud-identity-and-access-management-iam-)
-{: new_window}. 
+3.  In the service configuration window, enter a service name. Verify that the service name, region/location, resource group, and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `Use only IAM` or `Use both legacy credentials and IAM`. For more information, see [authentication methods](/docs/services/Cloudant/guides/iam.html#ibm-cloud-identity-and-access-management-iam-){: new_window}. 
     In this example, the service name is `Cloudant-o7`:<br/>
     ![{{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0005.png)
     

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -96,6 +96,7 @@ Field | Purpose
 `iam_serviceid_crn`	| The CRN of the service ID.
 
 ## Authentication
+{: #authentication-overview}
 
 {{site.data.keyword.cloudant_short_notm}} has two authentication methods available at provisioning time, either 
 `Use only IAM` or `Use both legacy credentials and IAM`. You can see the details about your legacy credentials in the 
@@ -138,6 +139,7 @@ You cannot use an IAM API key directly to authenticate against {{site.data.keywo
 {: note}
 
 ### Client Libraries
+{: #client-libraries-overview}
 
 {{site.data.keyword.cloudant_short_notm}} has official client libraries for Java, Node.js, Python, Swift, and Mobile. For more information, see the [client libraries documentation](/docs/services/Cloudant/libraries/index.html#client-libraries) to access the libraries, and see examples for connecting to an {{site.data.keyword.cloudant_short_notm}}
 instance from each. 

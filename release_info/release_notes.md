@@ -93,7 +93,7 @@ We recommend that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.c
 (***In June 2019, {{site.data.keyword.cloudant_short_notm}} is retiring the use of older
 versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ will be supported.***)
 
-Find [more information on our Security page](https://console.bluemix.net/docs/services/Cloudant/offerings/security.html#security).
+Find more information on our [Security page](/docs/services/Cloudant/offerings/security.html#security).
 
 ## Build 7205 (September 07, 2018)
 {: #build-7205-september-07-2018}
@@ -197,7 +197,7 @@ Find [more information on our Security page](https://console.bluemix.net/docs/se
 - Avoid unconditional retries in replicator's HTTP client.
 - Update MochiWeb to version 2.17.
 - Introduce new `_dbs_info` endpoint to get information from a list of databases. See
-[Get database information for multiple databases](/docs/services/Cloudant/api/database.html#get-database-information-for-multiple-databases).
+[Get a list of all databases in the account](/docs/services/Cloudant/api/database.html#get-a-list-of-all-databases-in-the-account).
 - Prepare for session support in replicator.
 
 ## Build 6656 (February 15, 2018)

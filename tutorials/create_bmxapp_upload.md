@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -260,8 +260,6 @@ In particular,
 the `rightNow` field has the date and time the document was created.
 This value corresponds to the time that was recorded within the
 [application log file](#testing-the-sample-application).
-
-## The next step
 
 The next step in the tutorial is to [operate and maintain the application](/docs/services/Cloudant/tutorials/create_bmxapp_maintain.html),
 for example when you start,

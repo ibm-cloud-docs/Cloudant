@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-03"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-01-03"
 <!-- Acrolinx: 2019 -->
 
 # CORS
+{: #cors}
 
 [Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){: new_window} is a mechanism that allows resources
 such as JSON documents in an {{site.data.keyword.cloudantfull}} database to be requested

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-25"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -82,10 +82,10 @@ print ping.status_code
 {: codeblock}
 
 ## CORS
-{: #cors}
+{: #cors-overview}
 
 [Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){: new_window} is a
 mechanism that allows JavaScript from another domain to interact with data in
 your {{site.data.keyword.cloudant_short_notm}} account.
 
-More information about CORS and {{site.data.keyword.cloudant_short_notm}} is available [here](/docs/services/Cloudant/api/Cloudant?topic=cloudant-cors).
+For more information about CORS and {{site.data.keyword.cloudant_short_notm}}, see [CORS](/docs/services/Cloudant/api/cors.html).
