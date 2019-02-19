@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -316,6 +316,7 @@ Rule                                                           | URL            
 `{"from": "/a", "to": "/some/:foo" }`                          | `/$DATABASE/_design/doc/_rewrite/a?foo=b` | `$DATABASE/_design/doc/some/b&foo=b`     | `foo = b`
 
 ## Indexes
+{: #indexes-design-docs}
 
 All queries operate on pre-defined indexes defined in design documents.
 These indexes are:
@@ -496,15 +497,15 @@ The result of a show function is not stored. This means that the function is exe
 using [map functions](/docs/services/Cloudant/api/creating_views.html#a-simple-view) might be more efficient. For web and mobile applications, consider whether any computations done in a show function would be better placed in the application tier.
 {: note}
 
-Show functions require two arguments: `doc`, and [req](#req).
+Show functions require two arguments: `doc`, and [`req`](#req).
 
 `doc` is the document requested by the show function.
 
-The [`req`](#req) argument contains additional information about the request.
+The `req` argument contains additional information about the request.
 It enables you to create show functions that are more dynamic,
 because they are based on additional factors such as query parameters or the user context.
 
-The [`req`](#req) argument corresponds to that used in a [list function](#list-functions).
+The `req` argument corresponds to that used in a list function.
 
 When you have defined a show function,
 you query it by sending a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_show/$SHOW_FUNCTION/$DOCUMENT_ID`,
@@ -575,18 +576,18 @@ Update handlers are custom functions that create or update a document.
 They are used for tasks such as providing server-side modification timestamps,
 and performing document updates to individual fields without the latest revision.
 
-Update handlers require two arguments: `doc` and [req](#req).
+Update handlers require two arguments: `doc` and [`req`](#req).
 
 If a document ID is provided in the request to the update handler,
 then `doc` is the document corresponding to that ID.
 If no ID is provided,
 `doc` is `null`.
 
-The [`req`](#req) argument contains additional information about the request.
+The `req` argument contains additional information about the request.
 It enables you to create update handlers that are more dynamic,
 because they are based on additional factors such as query parameters or the user context.
 
-The [`req`](#req) argument corresponds to that used in a [list function](#list-functions).
+The `req` argument corresponds to that used in a [list function](#list-functions).
 
 Update handler functions must return an array of two elements.
 The first element is the document to save,
@@ -705,7 +706,7 @@ In many filter function use cases,
 however,
 only the `doc` parameter is used.
 
-The [`req`](#req) argument corresponds to that used in a [list function](#list-functions).
+The `req` argument corresponds to that used in a [list function](#list-functions).
 
 _Example design document containing a filter function:_
 
@@ -908,7 +909,7 @@ defined using the same [selector syntax](/docs/services/Cloudant/api/cloudant_qu
 for [`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index).
 
 For more examples showing use of this filter,
-see the information on [selector syntax](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax).
+see the information on selector syntax.
 
 _Example application of the `_selector` filter, using HTTP:_
 

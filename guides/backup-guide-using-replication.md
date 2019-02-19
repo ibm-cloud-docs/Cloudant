@@ -187,14 +187,14 @@ $ curl -X PUT "${url}/backup-tuesday"
 
 If it does not exist, create the `_replicator` database.
 
-_Creating the `_replicator` database by using HTTP:_
+*Creating the `_replicator` database by using HTTP:*
 
 ```http
 PUT /_replicator HTTP/1.1
 ```
 {: codeblock}
 
-_Creating the `_replicator` database by using the command line:_
+*Creating the `_replicator` database by using the command line:*
 
 ```sh
 curl -X PUT "${url}/_replicator"

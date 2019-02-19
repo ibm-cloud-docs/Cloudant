@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -24,7 +24,7 @@ This article considers the finer
 points of modelling your application's data to work efficiently on a large scale.
 {: shortdesc}
 
-_(This guide is based on a Blog article by Mike Rhodes: ["My top 5 tips for modelling your data to scale" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){: new_window}, originally published December 17, 2013.)_
+*(This guide is based on a Blog article by Mike Rhodes: ["My top 5 tips for modelling your data to scale" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/), originally published December 17, 2013.)*
 
 The way you model data on {{site.data.keyword.cloudantfull}} will significantly impact how your application is able to 
 scale. Our underlying data model differs substantially from a relational model, and ignoring 
