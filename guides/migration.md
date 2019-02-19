@@ -37,12 +37,12 @@ The Standard plan allows you to *reserve throughput capacity* for your database 
 
 Metric | Description
 -------|------------
-Lookups per second | The rate at which simple document fetches are performed, for example, retrieving a document by its `_id`.
+Reads per second | The rate at which simple document fetches are performed, for example, retrieving a document by its `_id`, or queries against a partitioned database using a partition key.
 Writes per second | The rate at which data is written to the database. API calls dealing with document creation, update, or deletion count as 'writes'.
-Queries per second | The rate at which the database is queried, typically by accessing the `_find` endpoint or by using secondary MapReduce indices.
+Global Queries per second | The rate at which the database is queried using global indexes, typically by accessing the `_find` endpoint or by using secondary MapReduce, search, or geospatial indices.
 Storage | The amount of disk space occupied by your JSON data, attachments, and secondary indices.
 
-As an example, the Lite plan offers 20 lookups per second, 10 writes per second, 5 queries per second, and 1 GB of storage for free. This plan is ideal when you are 'kicking the tires' of the product and during product development. When your application goes into production, you must switch to the Standard plan. The Standard plan's smallest package has 100 lookups per second, 50 writes per second, 5 queries per second, and 20 GB of storage (extra storage is charged by GB) for ~$76.65 USD per month. 
+As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5 global queries per second, and 1 GB of storage for free. This plan is ideal when you are 'kicking the tires' of the product and during product development. When your application goes into QA or production, switch to the Standard plan to scale the instance. The Standard plan's smallest capacity has 100 reads per second, 50 writes per second, 5 global queries per second, and 20 GB of storage (extra storage is charged by GB) for ~USD$76.65 per month. 
 
 By using the slider in the {{site.data.keyword.cloudant_short_notm}} dashboard, you can reserve a smaller or larger capacity for your {{site.data.keyword.cloudant_short_notm}} service whenever you need it:
 
@@ -53,7 +53,7 @@ The amount that you can change the throughput capacity is limited to a maximum o
 
 You are billed on the highest capacity that is selected in any given hourly window. Your database throughput can scale up to deal with seasonal demands and scale down again for the quiet times. At all times, your monthly bill is predictable; upgrades are automatic; and your SLA is [99.95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument).
 
-If you exceed your quota of lookups, writes, and queries in a given second, the {{site.data.keyword.cloudant_short_notm}} cluster responds with an `HTTP 429` response. Your application might retry the request later - our official libraries offer the option of retrying such requests with an exponential back off. 
+If you exceed your quota of reads, writes, and global queries in a given second, the {{site.data.keyword.cloudant_short_notm}} API responds with an `HTTP 429 too many requests` response. Your application might retry the request later - our official libraries offer the option of retrying such requests with an exponential back off. 
 
 ## Which type of {{site.data.keyword.cloudant_short_notm}} plan do I have?
 
