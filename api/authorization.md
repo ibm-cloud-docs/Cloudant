@@ -21,7 +21,7 @@ lastupdated: "2019-02-19"
 # Authorization
 {: #authorization}
 
-After [authenticating](/docs/services/Cloudant/api/Cloudant?topic=cloudant-authentication),
+After [authenticating](/docs/services/Cloudant/api/authentication.html),
 the next test is to decide whether you are allowed to do certain tasks.
 This decision is called authorization.
 {: shortdesc}
@@ -356,7 +356,7 @@ API key that is generated outside of an EU-managed environment cannot be granted
 access to an EU-managed {{site.data.keyword.cloudant_short_notm}} instance. 
 For more information about {{site.data.keyword.cloudant_short_notm}} 
 in an EU-managed environment, see 
-[Locations and tenancy](/docs/services/Cloudant/offerings/Cloudant?topic=cloudant-ibm-cloud-public#locations-and-tenancy).
+[Locations and tenancy](/docs/services/Cloudant/offerings/bluemix.html#locations-and-tenancy).
 {: tip}
 
 ## Creating API Keys

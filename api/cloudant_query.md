@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-20"
 
 ---
 
@@ -287,7 +287,7 @@ Key        | Description
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
 Later,
 the index can be queried by using the `$text` operator.
-See the [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant/api/Cloudant?topic=cloudant-search#analyzers) for alternative analyzers.
+See the [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant/api/search.html#analyzers) for alternative analyzers.
 You might choose to use an alternative analyzer when documents are indexed in languages other than English,
 or when you have other special requirements for the analyzer such as matching email addresses.
 
@@ -375,7 +375,7 @@ such as wildcards,
 fuzzy matches,
 or proximity detection.
 For more information,
-see [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant/api/Cloudant?topic=cloudant-search).
+see [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant/api/search.html).
 The `$text` operator applies to all strings found in the document.
 If you place this operator in the context of a field name, it is invalid.
 
@@ -503,7 +503,7 @@ Design documents are regular documents that have an ID starting with `_design/`.
 They can be retrieved and modified in the same way as any other document,
 although these actions are not usually necessary when you use {{site.data.keyword.cloudant_short_notm}} Query.
 
-Design documents are discussed in more detail [here](/docs/services/Cloudant/api/Cloudant?topic=cloudant-design-documents).
+Design documents are discussed in more detail [here](/docs/services/Cloudant/api/design-documents.html).
 
 ### Response body format for listing all {{site.data.keyword.cloudant_short_notm}} Query indexes
 {: #response-body-format-for-listing-all-IBM-cloudant-query-indexes}
@@ -1615,7 +1615,7 @@ The `$mod` operator matches documents where the expression (`field % Divisor == 
 and only when the document field is an integer.
 The Divisor and Remainder must be integers.
 They can be positive or negative integers.
-A query where the Divisor or Remainder is a non-integer returns a [404 status](/docs/services/Cloudant/api/Cloudant?topic=cloudant-http#404).
+A query where the Divisor or Remainder is a non-integer returns a [404 status](/docs/services/Cloudant/api/http.html#http-status-codes).
 
 When you use negative integer values for the Divisor or Remainder,
 the {{site.data.keyword.cloudant_short_notm}} `$mod` operator behaves in a similar way to the

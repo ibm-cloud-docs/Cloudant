@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-20"
 
 ---
 
@@ -39,7 +39,7 @@ when the replicator process is restarted by {{site.data.keyword.cloudantfull}} o
 
 The main action that you can do to maintain a replication database is to remove old documents.
 This action can be done by determining the age of documents,
-and [deleting them](/docs/services/Cloudant/api/Cloudant?topic=cloudant-documents#delete) if they are no longer needed.
+and [deleting them](/docs/services/Cloudant/api/document.html#delete) if they are no longer needed.
 
 ## The replication scheduler
 {: #the-replication-scheduler}
@@ -64,7 +64,7 @@ and consists of seven distinct states:
   The replication cannot be turned into a job.
   This error might be caused in several different ways.
   For example,
-  the replication must be [filtered](/docs/services/Cloudant/api/Cloudant?topic=cloudant-design-documents#filter-functions),
+  the replication must be [filtered](/docs/services/Cloudant/api/design-documents.html#filter-functions),
   but it was not possible to fetch the filter code from the source database.
 3.  `pending`:
   The replication job is scheduled to run,
@@ -171,7 +171,7 @@ The ID must be URL encoded.
 {: #replication-status}
 
 You can determine replication status by checking
-the [replication scheduler](/docs/services//Cloudant/api/advanced_replication.html#status-checking-by-using-the-replication-scheduler).
+the [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#status-checking-by-using-the-replication-scheduler).
 
 The previous technique of checking replication status by inspecting the [replication document](#status-checking-by-using-the-replication-document) is still available.
 {: note}
@@ -467,7 +467,7 @@ include one or more filter functions in a design document on the source.
 You can then tell the replicator to use these filter functions.
 
 Filtering documents during replication is similar to the process of
-[filtering the `_changes` feed](/docs/services/Cloudant/api/Cloudant?topic=cloudant-design-documents#filter-functions).
+[filtering the `_changes` feed](/docs/services/Cloudant/api/design-documents.html#filter-functions).
 {: tip}
 
 A filter function takes two arguments:
@@ -703,7 +703,7 @@ _Example of including performance options in a replication document:_
 Having large numbers of attachments on documents might cause an adverse effect on replication performance.
 
 For more information about the effect of attachments on replication performance,
-see [here](/docs/services/Cloudant/api/Cloudant?topic=cloudant-attachments#performance-considerations).
+see [here](/docs/services/Cloudant/api/attachments.html#performance-considerations).
 
 ## The `/_replicate` endpoint
 {: #the-_replicate-endpoint}
@@ -734,7 +734,7 @@ and other options.
 Except for the `cancel` field,
 the fields in the JSON document that is supplied to the `_replicate` endpoint are identical to those fields in
 a replication document that is stored in the [`_replicator` database](/docs/services/Cloudant/api/replication.html#the-_replicator-database).
-The JSON document uses the [replication document format](/docs/services/Cloudant/api/Cloudant?topic=cloudant-replication-api#replication-document-format).
+The JSON document uses the [replication document format](/docs/services/Cloudant/api/replication.html#replication-document-format).
 
 The fields of the JSON request are as follows:
 
@@ -791,12 +791,12 @@ A replication that is triggered by `POST`ing to `/_replicate` can be canceled
 by `POST`ing the exact same JSON object but with the additional `cancel` property set to `true`.
 
 If a replication is canceled,
-the request that initiated the replication fails with [error 500 (shutdown)](/docs/services/Cloudant/api/http#500).
+the request that initiated the replication fails with [error 500 (shutdown)](/docs/services/Cloudant/api/http.html#http-status-codes).
 {: note}
 
 The replication ID can be obtained from the original replication request if it is a continuous replication.
 Alternatively,
-the replication ID can be obtained from [`/_active_tasks`](/docs/services/Cloudant/api/Cloudant?topic=cloudant-active-tasks).
+the replication ID can be obtained from [`/_active_tasks`](/docs/services/Cloudant/api/active-tasks.html).
 
 _Example of using HTTP to cancel a replication:_
 
