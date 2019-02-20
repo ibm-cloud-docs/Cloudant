@@ -1211,7 +1211,7 @@ Object        | `$exists` | Boolean              | Check whether the field exist
 Array         | `$in`     | Array of JSON values | The document field must exist in the list provided.
               | `$nin`    | Array of JSON values | The document field must not exist in the list provided.
               | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields cannot match this condition.
-Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/services/Cloudant/api/Cloudant?topic=cloudant-http#404). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
+Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/services/Cloudant/api/http.html#http-status-codes). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
               | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression.
 
 Regular expressions do not work with indexes,

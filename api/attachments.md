@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-30"
+lastupdated: "2019-02-19"
 
 ---
 
@@ -169,7 +169,7 @@ To delete an attachment,
 make a `DELETE` request with the document's most recent `_rev`
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 If you do not supply the most recent `_rev`,
-the response is a [409 error](/docs/services/Cloudant/api/Cloudant?topic=cloudant-http#409).
+the response is a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes).
 
 _Example of deleting an attachment, by using HTTP:_
 
