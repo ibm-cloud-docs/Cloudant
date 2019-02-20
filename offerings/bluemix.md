@@ -93,10 +93,10 @@ Throughput provision is identified and measured as one of the following types of
         which is a request that is made to an {{site.data.keyword.cloudant_short_notm}} 
         query endpoint within the `_partition` namespace in the request path,
         including the following types:
-        -	Primary Index ([`_all_docs`](../api/database.html#get-documents))
-        -	MapReduce View ([`_view`](../api/creating_views.html#using-views))
-        -	Search Index ([`_search`](../api/search.html#queries))
-        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
+        -	Primary Index ([`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents))
+        -	MapReduce View ([`_view`](/docs/services/Cloudant/api/creating_views.html#using-views))
+        -	Search Index ([`_search`](/docs/services/Cloudant/api/search.html#queries))
+        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-using-an-index))
     
         The number of read operations consumed by a partitioned query request
         varies depending on the results returned.
@@ -108,11 +108,11 @@ Throughput provision is identified and measured as one of the following types of
         which are requests made to an {{site.data.keyword.cloudant_short_notm}} 
         query endpoint **not** within the `_partition` namespace,
     including the following types:
-	-	Primary Index ([`_all_docs`](../api/database.html#get-documents))
-	-	MapReduce View ([`_view`](../api/creating_views.html#using-views))
-	-	Search Index ([`_search`](../api/search.html#queries))
-	-	Geospatial Index ([`_geo`](../api/cloudant-geo.html#querying-a-cloudant-geo-index))
-	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
+	-	Primary Index ([`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents))
+	-	MapReduce View ([`_view`](/docs/services/Cloudant/api/creating_views.html#using-views))
+	-	Search Index ([`_search`](/docs/services/Cloudant/api/search.html#queries))
+	-	Geospatial Index ([`_geo`](/docs/services/Cloudant/api/cloudant-geo.html#querying-a-cloudant-geo-index))
+	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-using-an-index))
 
 ## Provisioned throughput capacity
 {: #provisioned-throughput-capacity}
@@ -155,7 +155,7 @@ If you are porting an existing application, it might not be able to handle a `42
 {: note}
 
 In summary,
-you must ensure that your application is able to handle a [`429`](../api/http.html#429) response correctly.
+you must ensure that your application is able to handle a [`429`](/docs/services/Cloudant/api/http.html#http-status-codes) response correctly.
 
 ### Consumption of Read operations by partitioned queries
 {: #consumption-of-lookup-operations-by-partitioned-queries}
