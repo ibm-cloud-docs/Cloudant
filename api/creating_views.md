@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-04"
+lastupdated: "2019-02-20"
 
 ---
 
@@ -341,6 +341,7 @@ restrictions also makes it possible for indexes to spread across machines and re
 at query time.
 
 ### Document partitioning
+{: #document-partitioning}
 
 Due to sharding, there are
 no guarantees that the output of any two specific map functions will be passed to
@@ -371,10 +372,12 @@ working when more data is added, you might have violated the growth rate
 characteristic restriction.
 
 ### Execution environment
+{: #execution-environment}
 
 Your indexing functions operate in a memory-constrained environment where the document itself forms a part of the memory that is used in that environment. Your code's stack and document must fit inside this memory. Documents are limited to a maximum size of 64 MB.
 
 ### No JavaScript reducers when `options.partitioned` is `true`
+{: #no-javascript-reducers-when-options.partitioned-is-true-}
 
 Design documents with `options.partitioned` set to `true` cannot contain JavaScript
 reduce functions, only built-ins Erlang reducers such as `_stats`.

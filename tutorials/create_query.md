@@ -51,7 +51,7 @@ Before you begin, follow these steps to prepare for the tutorial:
 
 ## Creating a database
 
-In this section, you create the `query-demo` [database](/docs/services/Cloudant/api/database.html#create) that
+In this section, you create the `query-demo` [database](/docs/services/Cloudant/api/database.html#create-database) that
 is the database that we use in this tutorial.
 
 In this tutorial, we use the `acurl` alias rather than the `curl` command. The `acurl` alias is created using steps described [here](/docs/services/Cloudant/guides/acurl.html#authorized-curl-acurl-). If you prefer to use the `curl` command, or another method for invoking API endpoints, substitute your command in the tutorial, along with the parameters required by your command, such as username and password.

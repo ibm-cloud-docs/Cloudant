@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-20"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-01-31"
 <!-- Acrolinx: 2019 -->
 
 # Databases
+{: #databases}
 
 {{site.data.keyword.cloudantfull}} databases contain JSON objects.
 These JSON objects are called [documents](/docs/services/Cloudant/api/document.html#documents).
@@ -29,6 +30,7 @@ A guide is [available](/docs/services/Cloudant/guides/transactions.html),
 providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
 ## Create
+{: #create-database}
 
 To create a database,
 send a `PUT` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
@@ -98,6 +100,7 @@ HTTP/1.1 201 Created
 {: codeblock}
 
 ### Database topology
+{: #database-topology}
 
 It is possible to modify the configuration of a sharding topology for a
 database on dedicated database clusters.
@@ -116,6 +119,7 @@ on multi-tenant clusters.
 <div id="read"></div>
 
 ## Getting database details 
+{: #getting-database-details}
 
 Sending a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE`
 returns details about the database,
@@ -197,6 +201,7 @@ _Example (abbreviated) response that contains database details:_
 <div id="get-databases"></div>
 
 ## Get a list of all databases in the account
+{: #get-a-list-of-all-databases-in-the-account}
 
 To list all the databases in an account,
 send a `GET` request to `https://$ACCOUNT.cloudant.com/_all_dbs`.
@@ -249,6 +254,7 @@ _Example response:_
 {: codeblock}
 
 ## Get Documents
+{: #get-documents}
 
 To list all the documents in a database,
 send a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs`.
@@ -372,10 +378,12 @@ _Example response after a request for all documents in a database:_
 {: codeblock}
 
 ## Send multiple queries to a database
+{: #send-multiple-queries-to-a-database}
 
 This section describes how to send multiple queries to a database using `_all_docs` and `_view` endpoints. 
 
 ### Send multiple queries to a database by using `_all_docs`
+{: #send-multiple-queries-to-a-database-by-using-_all_docs}
 
 To send multiple queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries`.
@@ -506,6 +514,7 @@ Multiple queries are also supported in `/$DATABASE/_local_docs/queries` and `/$D
 {: note}
 
 ### Send multiple view queries to a database by using `_view`
+{: #send-multiple-view-queries-to-a-database-by-using-_view}
 
 To send multiple view queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
@@ -534,6 +543,7 @@ The field names and their meaning are the same as the query parameters of a regu
 
 
 ## Get Changes
+{: #get-changes}
 
 Sending a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_changes`
 returns a list of changes that were made to documents in the database,
@@ -598,6 +608,7 @@ account.db.changes($DATABASE, function (err, body, headers) {
 -->
 
 ### Changes in a distributed database
+{: #changes-in-a-distributed-database}
 
 {{site.data.keyword.cloudant_short_notm}} databases are distributed.
 They have shard and fault-tolerant characteristics.
@@ -619,6 +630,7 @@ Any application that uses the `_changes` request *must* be able to process corre
 {: tip}
 
 ### The `feed` argument
+{: #the-feed-argument}
 
 The `feed` argument changes how {{site.data.keyword.cloudant_short_notm}} sends the response.
 By default,
@@ -688,6 +700,7 @@ _Example (abbreviated) responses from a continuous changes feed:_
 {: codeblock}
 
 ### The `filter` argument
+{: #the-filter-argument}
 
 The `filter` argument designates a pre-defined
 [filter function](/docs/services/Cloudant/api/design_documents.html#filter-functions) to apply to the changes feed.
@@ -710,6 +723,7 @@ several built-in filters available:
 *   `_view`: Enables use of an existing [map function](/docs/services/Cloudant/api/creating_views.html#a-simple-view) as the filter.
 
 ### The `since` argument
+{: #the-since-argument}
 
 Use the `since` argument to get a list of changes that occurred _after_ a specified sequence identifier.
 If the `since` identifier is 0 (the default),
@@ -755,6 +769,7 @@ provided in the
 <div id="changes_responses"></div>
 
 ### Responses from the `_changes` request
+{: #responses-from-the-_changes-request}
 
 The response from a `_changes` request is a JSON object that contains
 a list of the changes that were made to documents within the database.
@@ -791,6 +806,7 @@ _Example (abbreviated) response to a `_changes` request:_
 {: codeblock}
 
 ### Important notes about `_changes`
+{: #important-notes-about-_changes}
 
 -	The results that are returned by `_changes` are partially ordered.
 	In other words,
@@ -818,6 +834,7 @@ _Example (abbreviated) response to a `_changes` request:_
 <div id="post"></div>
 
 ### Using `POST` to get changes
+{: #using-post-to-get-changes}
 
 Instead of `GET`,
 you can also use `POST` to query the changes feed.
@@ -852,6 +869,7 @@ _Example of a JSON object `POST`ed to the `_changes` endpoint:_
 {: codeblock}
 
 ## Deleting a database
+{: #deleting-a-database}
 
 To delete a database and its contents,
 send a `DELETE` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
@@ -912,6 +930,7 @@ _Example response that is received after a database is deleted successfully:_
 {: codeblock}
 
 ## Backing up your data
+{: #backing-up-your-data}
 
 You must protect your data by taking good quality backups.
 An overview of backing up your data is [available](/docs/services/Cloudant/guides/backup-cookbook.html),
@@ -929,6 +948,7 @@ More information is available [here](/docs/services/Cloudant/api/vhosts.html).
 -->
 
 ## Creating database applications
+{: #creating-database-applications}
 
 In addition to data stored in documents within the database,
 you might also have client-side application code in documents within the database.
