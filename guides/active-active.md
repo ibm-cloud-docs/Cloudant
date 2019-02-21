@@ -54,6 +54,7 @@ Contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon]
 if you need help with how to model data to handle conflicts effectively.
 
 ## Overview
+{: #overview-active-active}
 
 In the following material,
 a bidirectional replication is created.

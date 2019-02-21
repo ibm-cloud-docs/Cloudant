@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -32,12 +32,14 @@ To understand the information on the following topics, we assume that you know s
 - [Guides](acurl.html#authorized-curl-acurl-)
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
+{: #connecting-to-ibm-cloudant}
 
 To access {{site.data.keyword.cloudant_short_notm}},
 you must have either an [{{site.data.keyword.cloudant_short_notm}} account](/docs/services/Cloudant/api/account.html),
 or an [{{site.data.keyword.cloud}} account](/docs/services/Cloudant/offerings/bluemix.html).
 
 ## HTTP API
+{: #http-api}
 
 All requests to {{site.data.keyword.cloudant_short_notm}} go over the web.
 This means any system that can speak to the web can speak to {{site.data.keyword.cloudant_short_notm}}.
@@ -97,6 +99,7 @@ If the client (such as some web browsers) does not support using these HTTP meth
 `POST` can be used instead with the `X-HTTP-Method-Override` request header set to the actual HTTP method.
 
 ### Method not allowed error
+{: #method-not-allowed-error}
 
 If you use an unsupported HTTP request type with a URL that does not support the specified type,
 a [405](/docs/services/Cloudant/api/http.html#http-status-codes) error is returned,
@@ -129,6 +132,7 @@ More information about JSON can be found in the [JSON Guide](/docs/services/Clou
 <div id="distributed"></div>
 
 ## Distributed Systems
+{: #distributed-systems}
 
 {{site.data.keyword.cloudant_short_notm}}'s API enables you to interact with a collaboration of numerous machines,
 called a cluster.
@@ -144,6 +148,7 @@ For more information about {{site.data.keyword.cloudant_short_notm}} and distrib
 see the [CAP Theorem](/docs/services/Cloudant/guides/cap_theorem.html) guide.
 
 ## Replication
+{: #replication-basics}
 
 [Replication](/docs/services/Cloudant/api/replication.html) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
 [CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){: new_window},

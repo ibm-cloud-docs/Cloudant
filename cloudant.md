@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2018-06-01 -->
 
 # Overview
+{: #overview}
 
 The online documentation for {{site.data.keyword.cloudantfull}} intends to help you get going quickly. For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} product page ![External link icon](images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window}.
 {: shortdesc}
@@ -55,6 +56,7 @@ is available in the [API reference](/docs/services/Cloudant/api/index.html#api-r
 <div id="contents"></div>
 
 ## Documentation Contents
+{: #documentation-contents}
 
 *	[Getting started tutorial](/docs/services/Cloudant/getting-started.html#getting-started-with-cloudant): Learn how to create an {{site.data.keyword.cloudantfull}} database and populate that database with a simple collection of data by using Python.
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public): Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
@@ -83,6 +85,7 @@ is available in the [API reference](/docs/services/Cloudant/api/index.html#api-r
 
 
 ## Contribute
+{: #contribute}
 
 {{site.data.keyword.cloudant_short_notm}} is built on best-of-class open source technologies,
 and we're committed to the technology we rely on.
