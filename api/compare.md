@@ -267,7 +267,7 @@ Removed for 96973.
 </tr>
 <tr>
 <td headers="endpoint&links"><code>PUT&nbsp;/{db}</code><p>
-<a href='/docs/services/Cloudant/api/database.html#create' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='/docs/services/Cloudant/api/database.html#create-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/common.html#put--db' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/common.html#put--db' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td headers="description">Create a new database.<p>Database names must start with a lowercase letter and contain only the following characters: Lowercase characters (a-z), Digits (0-9), Any of the characters \_, $, (, ), +, -, and /</p></td>

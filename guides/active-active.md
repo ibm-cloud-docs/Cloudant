@@ -78,7 +78,7 @@ the basic steps are as follows:
 
 ## Step 1: Create your databases
 
-[Create the databases](/docs/services/Cloudant/api/database.html#create) that you want to replicate between
+[Create the databases](/docs/services/Cloudant/api/database.html#create-database) that you want to replicate between
 within each account.
 
 In this example,

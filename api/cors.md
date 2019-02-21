@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-20"
 
 ---
 
@@ -49,6 +49,7 @@ there are two use cases in which CORS might be a good solution.
 	The effect is that scripts running on their website are able to access your {{site.data.keyword.cloudant_short_notm}} database.
 
 ## Browser support
+{: #browser-support}
 
 CORS is supported by all current versions of commonly used browsers.
 
@@ -56,6 +57,7 @@ Versions of Microsoft Internet Explorer prior to version 10 offer partial suppor
 {: note}
 
 ## Security
+{: #security-overview}
 
 Storing sensitive data in databases that can be accessed using CORS is a potential security risk.
 When you place a domain in the list of allowed origins,
@@ -80,6 +82,7 @@ To reduce the risk:
 	and do not have security vulnerabilities.
 
 ## Configuration endpoints
+{: #configuration-endpoints}
 
 Method | Path                        | Description
 -------|-----------------------------|------------
@@ -87,6 +90,7 @@ Method | Path                        | Description
 `PUT`  | `/_api/v2/user/config/cors` | Changes the CORS configuration.
 
 ## JSON format
+{: #json-format}
 
 -	**enable_cors**: boolean value to turn CORS on or off.
 -	**allow_credentials**: boolean value to allow authentication credentials.
@@ -99,6 +103,7 @@ Method | Path                        | Description
 	so you have to specify all subdomains used. See the following example request.
 
 ## Setting the CORS configuration
+{: #setting-the-cors-configuration}
 
 `PUT`ting a JSON document with the example structure to `/_api/v2/user/config/cors` sets the CORS configuration.
 The configuration applies to all databases and all account level endpoints in your account.
@@ -148,6 +153,7 @@ _Example response:_
 {: codeblock}
 
 ## Reading the CORS configuration
+{: #reading-the-cors-configuration}
 
 You can find out the current CORS configuration by sending a `GET` to the `/_api/v2/user/config/cors` endpoint.
 
@@ -183,6 +189,7 @@ _Example response:_
 {: codeblock}
 
 ## Dashboard
+{: #dashboard}
 
 CORS support is available in the {{site.data.keyword.cloudant_short_notm}} dashboard.
 

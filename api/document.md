@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -110,6 +110,7 @@ see the topic on [Consistency](/docs/services/Cloudant/guides/cap_theorem.html).
 <div id="documentCreate"></div>
 
 ## Create
+{: #create-document}
 
 To create a document,
 send a `POST` request with the document's JSON content to `https://$ACCOUNT.cloudant.com/$DATABASE`.
@@ -192,6 +193,7 @@ If the write [quorum](#quorum) cannot be met during an attempt to create a docum
 {: tip}
 
 ## Read
+{: #read}
 
 To retrieve a document,
 send a GET request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
@@ -257,6 +259,7 @@ _Example response:_
 {: codeblock}
 
 ### Query Parameters
+{: #query-parameters}
 
 You can add some query parameters to the URL,
 for example `/mydatabase/doc?attachments=true&conflicts=true`.
@@ -279,12 +282,14 @@ Name                | Type | Description | Default
 `revs_info`         | boolean | Includes detailed information for all known document revisions. | false
 
 ## Read Many
+{: #read-many}
 
 To fetch more than one document at a time,
 [query the database](/docs/services/Cloudant/api/database.html#get-documents)
 by using the `include_docs` option.
 
 ## Update
+{: #update}
 
 To update a document,
 send a `PUT` request with the updated JSON content *and* the latest `_rev` value
@@ -372,6 +377,7 @@ _Example response after a successful update:_
 <div id="document-delete"></div>
 
 ## Delete
+{: #delete}
 
 To delete a document,
 send a `DELETE` request with the document's most recent `_rev` in the query string,
@@ -434,6 +440,7 @@ _Example response after a successful deletion request:_
 {: codeblock}
 
 ## 'Tombstone' documents
+{: #tombstone-documents}
 
 Tombstone documents are small documents that are retained in place within a database when the original document is deleted.
 Their purpose is to allow the deletion to be replicated.
@@ -454,6 +461,7 @@ To reduce these effects,
 you might want to remove the tombstones.
 
 ### Simple removal of 'tombstone' documents
+{: #simple-removal-of-tombstone-documents}
 
 To remove tombstones manually,
 do the following steps:
@@ -485,6 +493,7 @@ _Example filter to exclude deleted documents during a replication:_
 {: codeblock}
 
 ### Advanced removal of tombstone documents
+{: #advanced-removal-of-tombstone-documents}
 
 The [simple removal technique](#simple-removal-of-tombstone-documents) works well,
 if documents are not being updated in the source database while the replication takes place.
@@ -589,6 +598,7 @@ if they must be applied to the target database.
 This check helps ensure correct replication of the deletion.
 
 ### Performance implications of tombstone removal
+{: #performance-implications-of-tombstone-removal}
 
 Tombstones are used for more consistent deletion of documents from databases.
 This purpose is especially important for mobile devices:
@@ -609,6 +619,7 @@ However, other clients might replicate the design documents or `validate_doc_upd
 {: note}
 
 ## Purge
+{: #purge}
 
 The {{site.data.keyword.cloudant_short_notm}} purge API is not available for customer use due to its potential impact to database functions such as indexing, replication, and the `_changes` feed. Customers who wish to purge documents must first read this documentation section to fully understand the ramifications of purging a document versus deleting it. In order to purge documents, customers must contact support with a list of document `_id` and `_rev` pairs.
 
@@ -666,6 +677,7 @@ results in the removal of _all_ the revisions
 because no revision branches are left in an orphan state by the purge.
 
 ### Deciding between purge or delete
+{: #deciding-between-purge-or-delete}
 
 You might want to purge rather than delete a document for two reasons.
 
@@ -682,6 +694,7 @@ You might want to purge rather than delete a document for two reasons.
     A new record is created in the [`_changes`](/docs/services/Cloudant/api/database.html#get-changes) for this document.
 
 ### Purging and replication
+{: #purging-and-replication}
 
 Purging a document from a database might require corresponding changes to other copies of the database.
 
@@ -696,6 +709,7 @@ To avoid these issues, a purge must be carried out on all copies of a database d
 3. Reinstate the replications stopped in step 1.
 
 ### Purging and indexes
+{: #purging-and-indexes}
 
 Database indexes, including [views](/docs/services/Cloudant/api/using_views.html), [search](/docs/services/Cloudant/api/search.html), and [geo](/docs/services/Cloudant/api/cloudant-geo.html) indexes, are automatically updated during all purge operations. All indexes support multiple purge requests, and in particular do not need to be completely rebuilt because of a purge request.
 
@@ -707,11 +721,13 @@ Indexes need updating only when:
 For example, looking at the earlier revision branch structure, an index might include document revision 4-53b84f8bf5539a7fb7f8074d1f685e5e. After the purge, revision 2-98e2b4ecd9a0da76fe8b83a83234ee71 remains. Therefore, the index is updated by using revision 2-98e2b4ecd9a0da76fe8b83a83234ee71.
 
 ### Database compaction after a purge
+{: #database-compaction-after-a-purge}
 
 Storage space that was used by purged documents is reclaimed automatically when a database compaction runs.
 
 
 ## Bulk Operations
+{: #bulk-operations}
 
 Use the bulk document API to create and update multiple documents at the same time within a single request.
 The basic operation is similar to creating or updating a single document,
@@ -729,6 +745,7 @@ A special case of bulk operations is the [`_bulk_get`](#the-_bulk_get-endpoint) 
 <div id="request-body"></div>
 
 ### Bulk request structure
+{: #bulk-request-structure}
 
 For both inserts and updates the basic structure of the JSON document in the request is the same:
 
@@ -813,6 +830,7 @@ _Example JSON describing the update, creation, and deletion of three documents i
 <div id="response"></div>
 
 ### Bulk request responses
+{: #bulk-request-responses}
 
 The HTTP status code that is received in response indicates whether the request was fully or partially successful.
 In the response body itself,
@@ -847,6 +865,7 @@ _Example response from a bulk request:_
 {: codeblock}
 
 ### Inserting documents in bulk
+{: #inserting-documents-in-bulk}
 
 To insert documents in bulk into a database,
 you need to supply a JSON structure with the array of documents that you want to add to the database.
@@ -937,6 +956,7 @@ _Example response content after successful bulk insert of two documents:_
 {: codeblock}
 
 ### Updating Documents in Bulk
+{: #updating-documents-in-bulk}
 
 The bulk document update procedure is similar to the insertion procedure,
 except that you must specify the document ID and current revision for every document in the bulk update JSON string.
@@ -1028,6 +1048,7 @@ _Example JSON structure that is returned after bulk update:_
 {: codeblock}
 
 ### Bulk Documents Transaction Semantics
+{: #bulk-documents-transaction-semantics}
 
 If your request receives a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes),
 the only certainty is that _some_ of the document tasks were processed completely.
@@ -1068,6 +1089,7 @@ _Example bulk update response with errors:_
 {: codeblock}
 
 ### Bulk Document Validation and Conflict Errors
+{: #bulk-document-validation-and-conflict-errors}
 
 The JSON returned by the `_bulk_docs` operation consists of an array of JSON structures,
 one for each document in the original submission.
@@ -1095,6 +1117,7 @@ you must check the `error` field to determine error type and course of action.
 The error is one of [`conflict`](#conflict) or [`forbidden`](#forbidden).
 
 #### `conflict`
+{: #conflict}
 
 The document as submitted is in conflict.
 If you used the default bulk transaction mode,
@@ -1105,6 +1128,7 @@ Conflict resolution of documents added by using the bulk docs interface is ident
 to the resolution procedures used when you resolve conflict errors during replication.
 
 #### `forbidden`
+{: #forbidden}
 
 Entries with this error type indicate that the validation routine that was applied
 to the document during submission returned an error.
@@ -1128,6 +1152,7 @@ _Example error message from a validation function:_
 {: codeblock}
 
 ### The `_bulk_get` endpoint
+{: #the-_bulk_get-endpoint}
 
 You might need to access all the available information about multiple documents.
 The `_bulk_get` endpoint is similar to the [`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents) endpoint,
@@ -1218,6 +1243,7 @@ For help to understand quorum settings and their implications on dedicated {{sit
 contact {{site.data.keyword.cloudant_short_notm}} support.
 
 ## TTL - Time to Live
+{: #ttl-time-to-live}
 
 [Time to Live ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Time_to_live){: new_window} (TTL) is a property of data,
 where after a relative amount of time,

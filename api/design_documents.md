@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-20"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2019 -->
 
 # Design Documents
+{: #design-documents}
 
 Instead of storing data in a document,
 you might also have special documents that store other content,
@@ -32,6 +33,7 @@ They can be read and updated in the same way as any other document in the databa
 Design documents are used to [build indexes](#indexes), [validate updates](#update-validators), and [format query results](#list-functions).
 
 ## Creating or updating a design document
+{: #creating-or-updating-a-design-document}
 
 -	**Method**: `PUT /$DATABASE/_design/design-doc`
 -	**Request**: JSON of the design document information
@@ -79,6 +81,7 @@ The structure of design document is as follows:
 	-	**function name** (one for each function): Function definition.
 
 ## Copying a Design Document
+{: #copying-a-design-document}
 
 You can copy the latest version of a design document to a new document
 by specifying the base document and target document.
@@ -124,6 +127,7 @@ _Example response to the copy request:_
 
 
 ### The structure of the copy command
+{: #the-structure-of-the-copy-command}
 
 -	**Method**: `COPY /$DATABASE/_design/design-doc`
 -	**Request**: None
@@ -143,6 +147,7 @@ The source design document is specified on the request line,
 with the `Destination` HTTP Header of the request specifying the target document.
 
 ### Copying from a specific revision
+{: #copying-from-a-specific-revision}
 
 To copy from a specific version,
 add the `rev` argument to the query string.
@@ -169,6 +174,7 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=1-e23b9e942c19e9
 {: codeblock}
 
 ### Copying to an existing design document
+{: #copying-to-an-existing-design-document}
 
 To overwrite or copy to an existing document,
 specify the current revision string for the target document,
@@ -206,6 +212,7 @@ _Example response:_
 {: codeblock}
 
 ## Deleting a design document
+{: #deleting-a-design-document}
 
 You can delete an existing design document.
 Deleting a design document also deletes all of the associated view indexes,
@@ -241,6 +248,7 @@ _Example response, containing the deleted document ID and revision:_
 {: codeblock}
 
 ### The structure of the delete command
+{: #the-structure-of-the-delete-command}
 
 -	**Method**: `DELETE /db/_design/design-doc`
 -	**Request**: None
@@ -257,11 +265,13 @@ _Example response, containing the deleted document ID and revision:_
 		-	**Optional**: yes
 
 ## Views
+{: #view-design-documents}
 
 An important use of design documents is for creating views.
 These are discussed in more detail [here](/docs/services/Cloudant/api/creating_views.html).
 
 ## Rewrite rules
+{: #rewrite-rules}
 
 A design document can contain rules for URL rewriting, by using an array in the `rewrites` field.
 Requests that match the rewrite rules must have a URL path that starts with `/$DATABASE/_design/doc/_rewrite`.
@@ -301,6 +311,7 @@ While Cloudant is API-compliant with CouchDB, Cloudant does not support URL rewr
 {: note}
 
 ### Example rewrite rules
+{: #example-rewrite-rules}
 
 The following table has some more examples of rewriting URL components:
 
@@ -331,7 +342,7 @@ you must ensure that two conditions are true:
 1.	You have identified the document as a design document by having an `_id` starting with `_design/`.
 2.	A [search index](/docs/services/Cloudant/api/search.html) has been created within the document
 	by [updating](/docs/services/Cloudant/api/document.html#update) the document with the appropriate field
-	or by [creating](/docs/services/Cloudant/api/document.html#create) a new document containing the search index.
+	or by [creating](/docs/services/Cloudant/api/document.html#create-document) a new document containing the search index.
 
 As soon as the search index design document exists and the index has been built,
 you can make queries using it.
@@ -340,6 +351,7 @@ For more information about search indexing,
 refer to the [search](/docs/services/Cloudant/api/search.html) section of this documentation.
 
 ### General notes on functions in design documents
+{: #general-notes-on-functions-in-design-documents}
 
 Functions in design documents are run on multiple nodes for each document,
 and might be run several times.
@@ -350,6 +362,7 @@ In particular,
 you should avoid using functions that generate random numbers or return the current time.
 
 ## List Functions
+{: #list-functions}
 
 Use list functions to customize the format of
 [MapReduce](/docs/services/Cloudant/api/using_views.html#using-views) query results.
@@ -459,6 +472,7 @@ db.view_with_list($DESIGN_ID, $MAPREDUCE_INDEX, $LIST_FUNCTION, function (err, b
 -->
 
 ### head
+{: #head}
 
 Field        | Description
 -------------|-------------
@@ -466,6 +480,7 @@ Field        | Description
 `total_rows` | Number of documents in the view
 
 ### req
+{: #req}
 
 Field            | Description
 -----------------|-------------
@@ -486,6 +501,7 @@ Field            | Description
 `uuid`           | A generated UUID.
 
 ## Show Functions
+{: #show-functions}
 
 Show functions are similar to [list functions](#list-functions),
 but are used to format individual documents.
@@ -571,6 +587,7 @@ db.show($DESIGN_ID, $SHOW_FUNCTION, $DOCUMENT_ID, function (err, body) {
 -->
 
 ## Update Handlers
+{: #update-handlers}
 
 Update handlers are custom functions that create or update a document.
 They are used for tasks such as providing server-side modification timestamps,
@@ -678,6 +695,7 @@ db.atomic($DESIGN_ID, $UPDATE_HANDLER, $DOCUMENT_ID, $JSON, function (err, body)
 -->
 
 ## Filter Functions
+{: #filter-functions}
 
 Filter functions are design documents that enable you to filter
 the [changes feed](/docs/services/Cloudant/api/database.html#get-changes).
@@ -789,6 +807,7 @@ function(doc, req){
 {: codeblock}
 
 ### Predefined filter functions
+{: #predefined-filter-functions}
 
 A number of predefined filter functions are available:
 
@@ -798,6 +817,7 @@ A number of predefined filter functions are available:
 *	[`_view`](#the-_view-filter): allows you to use an existing [map function](/docs/services/Cloudant/api/creating_views.html#a-simple-view) as the filter.
 
 #### The `_design` filter
+{: #the-_design-filter}
 
 The `_design` filter accepts changes only for design documents within the requested database.
 
@@ -851,6 +871,7 @@ _Example response (abbreviated) after applying the `_design` filter:_
 {: codeblock}
 
 #### The `_doc_ids` filter
+{: #the-_doc_ids-filter}
 
 The `_doc-ids` filter accepts only changes for documents with specified IDs.
 The IDs are specified in a `doc_ids` parameter,
@@ -903,6 +924,7 @@ _Example response (abbreviated) after filtering by `_docs_ids`:_
 {: codeblock}
 
 #### The `_selector` filter
+{: #the-_selector-filter}
 
 The `_selector` filter accepts only changes for documents which match a specified selector,
 defined using the same [selector syntax](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax) used
@@ -980,6 +1002,7 @@ _Example response (abbreviated) after filtering using a selector:_
 {: codeblock}
 
 #### The `_view` filter
+{: #the-_view-filter}
 
 The `_view` filter allows you to use an existing [map function](/docs/services/Cloudant/api/creating_views.html#a-simple-view) as the filter.
 
@@ -1021,6 +1044,7 @@ _Example response (abbreviated) after filtering using a map function:_
 {: codeblock}
 
 ## Update Validators
+{: #update-validators}
 
 Update validators determine whether a document should be written to disk when insertions and updates are attempted.
 They do not require a query because they implicitly run during this process.
@@ -1071,11 +1095,13 @@ _Example response from an update validator:_
 {: codeblock}
 
 ## Retrieving information about a design document
+{: #retrieving-information-about-a-design-document}
 
 There are two endpoints available that provide you with more information about
 design documents: [`_info`](#the-_info-endpoint) and [`_search_info`](#the-_search_info-endpoint).
 
 ### The `_info` endpoint
+{: #the-_info-endpoint}
 
 The `_info` endpoint returns information about a given design document,
 including the index,
@@ -1138,6 +1164,7 @@ _Example response in JSON format:_
 {: codeblock}
 
 ### The `_search_info` endpoint
+{: #the-_search_info-endpoint}
 
 The `_search_info` endpoint returns information about a specified search
 that is defined within a given design document.

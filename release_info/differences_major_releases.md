@@ -74,7 +74,7 @@ JavaScript.
 -   It is an error to pass `startkey` and `endkey` parameters to a view if it is impossible for any row to match. For example, when the `startkey` parameter is greater than the `endkey` parameter for `descending=false`, or when the `startkey` parameter is less than the `endkey` parameter for `descending=true`, {{site.data.keyword.cloudant_short_notm}} returns the `400 Bad Request` error.
 -   When `dbcopy` is configured in a view document, it is automatically transformed to the `options` field in a design document. 
 
-### Design documents changes
+### Design documents
 {: #design-documents-changes}
 
 -   Stricter validation of design documents. This validation is not expected to cause problems with existing design documents, but malformed design documents fail to save.
