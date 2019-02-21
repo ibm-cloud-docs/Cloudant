@@ -147,6 +147,11 @@ Database is partitioned | Default `partitioned` value | Allowed values
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
 
+It's important to reiterate that the default `partitioned` value is `true`
+for indexes created in a partitioned database. This means the index *cannot*
+be used to satisfy global queries.
+{: important}
+
 #### Return Codes
 {: #return-codes}
 
