@@ -46,7 +46,7 @@ A new Dedicated Hardware plan is available.
 For more information, see the following links:
 
 - See our [post on the {{site.data.keyword.cloud}} Blog](https://www.ibm.com/blogs/bluemix/2017/06/cloudant-available-dedicated-environments-improved-sla-bluemix-public/){: new_window} introducing the new plan.
-- Read about the [Dedicated Hardware plan](/docs/services/Cloudant/offerings/bluemix.html#dedicated-plan){: new_window}.
+- Read about the [Dedicated Hardware plan](/docs/services/Cloudant/offerings/bluemix.html#dedicated-hardware-plan){: new_window}.
 
 ### Replication scheduler
 {: #replication-scheduler}
