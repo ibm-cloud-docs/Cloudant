@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -65,6 +65,7 @@ The data returned is provided in JSON format by default.
 You can specify a `raw` format if you prefer.
 
 ## Syntax of the monitoring request
+{: #syntax-of-the-monitoring-request}
 
 All requests to the monitoring API have the following form:
 
@@ -93,6 +94,7 @@ Field      | Default value
 `START`    | The current time.
 
 ### Results format
+{: #results-format}
 
 By default,
 the monitoring results are returned in [`JSON` format](#with-format-json-default-).
@@ -113,6 +115,7 @@ The results include cluster-level data.
 {: note}
 
 ### With `format=json` (default)
+{: #with-format=json-default}
 
 Unless you specify otherwise,
 the metric data returned is in JSON format.
@@ -154,6 +157,7 @@ _Example result after requesting disk use data in `JSON` format:_
 {: codeblock}
 
 ### With `format=raw`
+{: #with-format=raw}
 
 The `raw` format data contains a series of text strings,
 identifying the name of the metric and associated values.
@@ -184,6 +188,7 @@ sumSeries(net.cloudant.mycustomer001.db*.df.srv.free),1391019780,1391020080,60|6
 {: codeblock}
 
 ## Monitoring endpoints
+{: #monitoring-endpoints}
 
 To list all of the currently supported monitoring end points,
 make a request to the `monitoring` endpoint.
@@ -243,8 +248,10 @@ _Example response, listing the available monitoring end points:_
 {: codeblock}
 
 ## Examples of monitoring requests
+{: #examples-of-monitoring-requests}
 
 ### connections
+{: #connections}
 
 _Example of a `connections` monitoring request:_
 
@@ -365,6 +372,7 @@ The response includes a data series for the following connection states:
 You must explicitly specify the load balancer in the request.
 
 ### disk_use
+{: #disk_use}
 
 _Example of a `disk_use` monitoring request:_
 
@@ -430,6 +438,7 @@ _Example results (abbreviated) from a `disk_use` monitoring request:_
 {: codeblock}
 
 ### kv_emits
+{: #kv_emits}
 
 _Example of a `kv_emits` monitoring request:_
 
@@ -473,6 +482,7 @@ _Example results (abbreviated) from a `kv_emits` monitoring request:_
 {: codeblock}
 
 ### map_doc
+{: #map_doc}
 
 _Example of a `map_doc` monitoring request:_
 
@@ -516,6 +526,7 @@ _Example results (abbreviated) from a `map_doc` monitoring request:_
 {: codeblock}
 
 ### network
+{: #network}
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustername&node=myloadbalancername&format=json
@@ -551,6 +562,7 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/network?cluster=myclustern
 You must explicitly specify the load balancer in the request. 
 
 ### rate/status_code
+{: #rate-status_code}
 
 _Example of a `rate/status_code` monitoring request:_
 
@@ -644,6 +656,7 @@ _Example results (abbreviated) from a `rate/status_code` monitoring request:_
 {: codeblock}
 
 ### rate/verb
+{: #rate-verb}
 
 _Example of a `rate/verb` monitoring request:_
 
@@ -773,6 +786,7 @@ _Example results (abbreviated) from a `rate/verb` monitoring request:_
 {: codeblock}
 
 ### response_time
+{: #response_time}
 
 _Example of a `response_time` monitoring request:_
 
@@ -919,6 +933,7 @@ _Example results (abbreviated) from a `response_time` monitoring request:_
 {: codeblock}
 
 ### rps
+{: #rps}
 
 _Example of an `rps` monitoring request:_
 
@@ -958,6 +973,7 @@ _Example results (abbreviated) from an `rps` monitoring request:_
 {: codeblock}
 
 ### wps
+{: #wps}
 
 _Example of a `wps` monitoring request:_
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -19,10 +19,12 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2018-11-08 -->
 
 # About
+{: #about}
 
 The tutorials, recovery and backup instructions, and guides provide information about basic and advanced tasks that you use in {{site.data.keyword.cloudantfull}}.  
 
 ## Tutorials
+{: #tutorials}
 
 Tutorial | Description 
 ---------|-------------
@@ -42,6 +44,7 @@ Tutorial | Description
 
 
 ## Recovery and backup
+{: #recovery-and-backup}
 
 Guide | Description
 ------|------------
@@ -51,6 +54,7 @@ Guide | Description
 
 
 ## Guides
+{: #guides}
 
 Guide | Description
 ------|------------

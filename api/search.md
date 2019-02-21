@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-31"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-01-31"
 <!-- Acrolinx: 2018-10-30 -->
 
 # Search
+{: #search}
 
 Search indexes enable you to query a database by using [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}. A search index uses one, or multiple, fields from your documents. You can use a search index to run queries, find documents based on the content they contain, or work with groups, facets, or geographical searches.
 {: shortdesc}
@@ -48,6 +49,7 @@ _Example design document that defines a search index:_
 {: codeblock}
 
 ## Index functions
+{: #index-functions}
 
 Attempting to index by using a data field that does not exist fails. To avoid this problem, use an appropriate [guard clause](#index-guard-clauses).
 
@@ -180,6 +182,7 @@ function(doc) {
 {: codeblock}
 
 ### Index Guard Clauses
+{: #index-guard-clauses}
 
 The `index` function requires the name of the data field to index as the second parameter.
 However,
@@ -239,6 +242,7 @@ if (typeof(doc.min_length) !== 'undefined') {
 {: codeblock}
 
 ## Analyzers
+{: #analyzers}
 
 Analyzers are settings that define how to recognize terms within text.
 Analyzers can be helpful if you need to [index multiple languages](#language-specific-analyzers).
@@ -270,6 +274,7 @@ _Example analyzer document:_
 {: codeblock}
 
 ### Language-Specific Analyzers
+{: #language-specific-analyzers}
 
 These analyzers omit common words in the specific language,
 and many also [remove prefixes and suffixes ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Stemming){: new_window}.
@@ -314,6 +319,7 @@ Language-specific analyzers are optimized for the specified language. You cannot
 {: note}
 
 ### Per-Field Analyzers
+{: #per-field-analyzers}
 
 The '`perfield`' analyzer configures multiple analyzers for different fields.
 
@@ -340,6 +346,7 @@ _Example of defining different analyzers for different fields:_
 {: codeblock}
 
 ### Stop Words
+{: #stop-words}
 
 Stop words are words that do not get indexed.
 You define them within a design document by turning the analyzer string into an object.
@@ -379,6 +386,7 @@ _Example of defining non-indexed ('stop') words:_
 {: codeblock}
 
 ### Testing analyzer tokenization
+{: #testing-analyzer-tokenization}
 
 You can test the results of analyzer tokenization by posting sample data to the `_search_analyze` endpoint.
 
@@ -442,6 +450,7 @@ _Result of testing the `standard` analyzer:_
 {: codeblock}
 
 ## Queries
+{: #queries}
 
 After you create an index,
 you can query it with a `GET` request to
@@ -486,6 +495,7 @@ db.search($DESIGN_ID, $SEARCH_INDEX, {
 -->
 
 ### Query Parameters
+{: #query-parameters}
 
 You must enable [faceting](#faceting) before you can use the following parameters:
 -	`counts`
@@ -686,6 +696,7 @@ Using `include_docs=true` might have [performance implications](/docs/services/C
 {: important}
 
 ### Relevance
+{: #relevance}
 
 When more than one result might be returned,
 it is possible for them to be sorted.
@@ -714,6 +725,7 @@ and also include ordering by relevance in your search results,
 use the special fields `-<score>` or `<score>` within the `sort` parameter.
 
 ### POSTing search queries
+{: #posting-search-queries}
 
 Instead of using the `GET` HTTP method,
 you can also use `POST`.
@@ -749,6 +761,7 @@ _Example JSON document that contains a search request:_
 {: codeblock}
 
 ## Query Syntax
+{: #query-syntax}
 
 The {{site.data.keyword.cloudant_short_notm}} search query syntax is based on the
 [Lucene syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}.
@@ -867,6 +880,7 @@ It is used for troubleshooting purposes only.
 {: tip}
 
 ## Faceting
+{: #faceting}
 
 {{site.data.keyword.cloudant_short_notm}} Search also supports faceted searching,
 enabling discovery of aggregate information about matches quickly and easily.
@@ -906,6 +920,7 @@ if (typeof doc.town == "string" && typeof doc.name == "string") {
 {: codeblock}
 
 ### Counts
+{: #counts}
 
 The `counts` facet syntax takes a list of fields,
 and returns the number of query results for each unique value of each named field.
@@ -948,6 +963,7 @@ _Example response after using of the `counts` facet syntax:_
 {: codeblock}
 
 ### `drilldown`
+{: #drilldown}
 
 You can restrict results to documents with a dimension equal to the specified label.
 Restrict the results by adding `drilldown=["dimension","label"]` to a search query.
@@ -961,6 +977,7 @@ if the analyzer did not index a stop word like `"a"`,
 using `drilldown` returns it when you specify `drilldown=["key","a"]`.
 
 ### Ranges
+{: #ranges}
 
 The `range` facet syntax reuses the standard Lucene syntax for ranges
 to return counts of results that fit into each specified category.
@@ -1004,6 +1021,7 @@ _Example results after a `ranges` check on a faceted search:_
 {: codeblock}
 
 ## Geographical searches
+{: #geographical-searches}
 
 In addition to searching by the content of textual fields,
 you can also sort your results by their distance from a geographic coordinate.
@@ -1118,6 +1136,7 @@ _Example (abbreviated) response, containing a list of northern hemisphere cities
 {: codeblock}
 
 ## Highlighting Search Terms
+{: #highlighting-search-terms}
 
 Sometimes it is useful to get the context in which a search term was mentioned
 so that you can display more emphasized results to a user.
@@ -1179,6 +1198,7 @@ _Example of highlighted search results:_
 {: codeblock}
 
 ## Search index metadata
+{: #search-index-metadata}
 
 To retrieve information about a search index,
 you send a `GET` request to the `_search_info` endpoint,

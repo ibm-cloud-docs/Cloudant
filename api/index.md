@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -25,7 +25,8 @@ The {{site.data.keyword.cloudantfull}} API reference is intended to be a compreh
 Contributions are welcome through [{{site.data.keyword.cloudant_short_notm}} Labs on GitHub ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){: new_window}.
 {: shortdesc}
 
-## For the cURL samples
+## For the curl samples
+{: #for-the-curl-samples}
 
 There are three ways you can supply the username and password data for a request.
 

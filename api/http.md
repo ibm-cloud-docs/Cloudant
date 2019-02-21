@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -19,12 +19,14 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2019 -->
 
 # HTTP
+{: #http}
 
 This section provides details of the [HTTP Headers](#http-headers)
 and [HTTP Status Codes](#http-status-codes) you need to know when using {{site.data.keyword.cloudantfull}}.
 {: shortdesc}
 
 ## HTTP Headers
+{: #http-headers}
 
 Because {{site.data.keyword.cloudant_short_notm}} uses HTTP for all external communication,
 you need to ensure that the correct HTTP request headers are supplied and processed on retrieval.
@@ -35,6 +37,7 @@ To reduce the likelihood of problems or unexpected behavior,
 you should be as specific as possible.
 
 ### Request headers
+{: #request-headers}
 
 The supported HTTP request headers include:
 
@@ -44,6 +47,7 @@ The supported HTTP request headers include:
 *	`If-None-Match`
 
 #### Accept
+{: #accept}
 
 The `Accept` header specifies the list of potential data types returned by the server that would be
 accepted and understood by the client.
@@ -114,6 +118,7 @@ Cache-Control: must-revalidate
 {: codeblock}
 
 #### Content-Type for request headers
+{: #content-type-for-request-headers}
 
 The `Content-Type` header specifies the content type of the information being supplied within the request.
 The specification uses MIME type specifications.
@@ -129,6 +134,7 @@ MIME type for the attachment or binary (`application/octet-stream`).
 The use of the `Content-type` on a request is highly recommended.
 
 #### Content-Encoding
+{: #content-encoding}
 
 The `Content-Encoding` header specifies the encoding of the request body.
 Supported values are `gzip` and `deflate`.
@@ -163,6 +169,7 @@ curl https://example.cloudant.com/db/doc \
 {: codeblock}
 
 #### If-None-Match
+{: #if-none-match}
 
 The `If-None-Match` header is optional.
 You might send it to determine whether a document has been modified since it was last read or updated.
@@ -176,6 +183,7 @@ you should get a normal [`200` response](#http-status-codes),
 provided the document still exists and no other errors occurred.
 
 ### Response headers
+{: #response-headers}
 
 Response headers are returned by the server when sending back content.
 They include a number of different fields,
@@ -193,6 +201,7 @@ The {{site.data.keyword.cloudant_short_notm}} design document API and the functi
 enable you to include custom HTTP headers through the `headers` field of the return object.
 
 #### Cache-Control
+{: #cache-control}
 
 The `Cache-Control` HTTP response header provides a suggestion for client caching mechanisms
 on how to treat the returned information.
@@ -201,10 +210,12 @@ which indicates that the information should be revalidated if possible.
 This is used to ensure that the dynamic nature of the content is correctly updated.
 
 #### Content-Length
+{: #content-length}
 
 The `Content-Length` header reports the length in bytes of the returned content.
 
 #### Content-Type for response headers
+{: #content-type-for-response-headers}
 
 The `Content-Type` header specifies the MIME type of the returned data.
 For most request,
@@ -213,6 +224,7 @@ All text is encoded in Unicode (UTF-8),
 which is explicitly stated in the returned `Content-Type` as `text/plain;charset=utf-8`.
 
 #### Etag
+{: #etag}
 
 The `Etag` header is used to show the revision for a document,
 or the response from a show function.
@@ -233,7 +245,6 @@ and corresponding data in the body of the response data.
 
 A list of the error codes returned by {{site.data.keyword.cloudant_short_notm}} and generic descriptions of the related errors are as follows.
 The meaning of different status codes for specific request types are provided in the corresponding API call reference.
-
 
 Code                                    | Meaning
 ----------------------------------------|--------

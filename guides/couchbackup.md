@@ -25,6 +25,7 @@ CouchBackup is a command line tool that provides you with a more powerful and fl
 {: shortdesc}
 
 ## Overview
+{: #overview-couchbackup}
 
 The distributed benefits of {{site.data.keyword.cloudant_short_notm}} are achieved by using clusters.
 In a cluster,
