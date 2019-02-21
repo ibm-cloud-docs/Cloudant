@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-15"
+lastupdated: "2019-02-21"
 
 ---
 
@@ -36,7 +36,7 @@ applications.
 
 For more information, see the following link:
 
-- Read the [guide to partition query](../guides/database_partitioning.html).
+- Read the [guide to partition query](/docs/services/Cloudant/guides/database_partitioning.html).
 
 ### Dedicated Hardware (June 2017)
 {: #dedicated-hardware}
@@ -46,7 +46,7 @@ A new Dedicated Hardware plan is available.
 For more information, see the following links:
 
 - See our [post on the {{site.data.keyword.cloud}} Blog](https://www.ibm.com/blogs/bluemix/2017/06/cloudant-available-dedicated-environments-improved-sla-bluemix-public/){: new_window} introducing the new plan.
-- Read about the [Dedicated Hardware plan](../offerings/bluemix.html#dedicated-plan){: new_window}.
+- Read about the [Dedicated Hardware plan](/docs/services/Cloudant/offerings/bluemix.html#dedicated-plan){: new_window}.
 
 ### Replication scheduler
 {: #replication-scheduler}
@@ -61,7 +61,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## Build 7668 (January 2019)
 {: #build-7668-january-2019}
 
-- This build introduces a new feature, [Partition Query](../guides/database_partitioning.html).
+- This build introduces a new feature, [Partition Query](/docs/services/Cloudant/guides/database_partitioning.html).
 - Allow `limit` when using `POST` for search.
 
 ## Build 7544 (December 2018)
