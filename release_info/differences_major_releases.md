@@ -25,11 +25,6 @@ Summary of the changes in behavior between the most recent version of
 {{site.data.keyword.cloudantfull}} and CouchDB 1.6-based codebase. Information is added as newer {{site.data.keyword.cloudant_short_notm}} 
 versions are released.
 {: shortdesc}
-
-## New features
-{: #new-features}
-
-- The new replication scheduler has several improvements and enhancements. Learn more about the [replication scheduler](/docs/services/Cloudant/api/advanced_replication.html#the-replication-scheduler).
  
 ## Incompatibilities
 {: #incompatibilities}
