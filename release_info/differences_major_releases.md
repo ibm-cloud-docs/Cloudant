@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-26"
 
+keywords: query, response content-type, attachments, disabled javascript constructors, active tasks, views, design documents, authentication, user documents, replication, result set
+
+subcollection: cloudant
+
 ---
 
 {:new_window: target="_blank"}

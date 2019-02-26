@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-26"
 
+keywords: create database, create documents, create index, create query, run query, fields, operators
+
+subcollection: cloudant
+
 ---
 
 {:new_window: target="_blank"}

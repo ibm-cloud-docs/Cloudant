@@ -2,7 +2,11 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-25"
+
+keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
+
+subcollection: cloudant
 
 ---
 

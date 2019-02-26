@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-25"
+
+keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
+
+subcollection: cloudant
 
 ---
 
@@ -15,6 +19,8 @@ lastupdated: "2019-02-26"
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Design Document Management
 {: #design-document-management}

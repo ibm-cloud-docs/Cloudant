@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-25"
+
+keywords: couchapp, 3-tier application
+
+subcollection: cloudant
 
 ---
 

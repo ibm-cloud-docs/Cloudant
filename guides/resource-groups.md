@@ -4,6 +4,10 @@ copyright:
   years: 2015, 2019
 lastupdated: "2019-02-26"
 
+keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
+
+subcollection: cloudant
+
 ---
 
 {:new_window: target="_blank"}

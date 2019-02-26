@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-20"
+lastupdated: "2019-02-25"
+
+keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
+
+subcollection: cloudant
 
 ---
 

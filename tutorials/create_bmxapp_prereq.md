@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-26"
 
+keywords: python, create service instance, create stand-alone python application
+
+subcollection: cloudant
+
 ---
 
 {:new_window: target="_blank"}
@@ -60,10 +64,10 @@ Python 2.7.12
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
 A separate tutorial for creating an {{site.data.keyword.cloudantfull}} service instance called
-'`Cloudant Service 2017`' is available [here](/docs/services/Cloudant/tutorials/create_service.html).
+'`Cloudant-o7`' is available [here](/docs/services/Cloudant/tutorials/create_service.html).
 
 This tutorial assumes that you have already created a service instance called
-'`Cloudant Service 2017`'.
+'`Cloudant-o7`'.
 
 ### An {{site.data.keyword.cloudant_short_notm}} database application
 {: #an-ibm-cloudant-database-application}

@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-25"
+
+keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
+
+subcollection: cloudant
 
 ---
 

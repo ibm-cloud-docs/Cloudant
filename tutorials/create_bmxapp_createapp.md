@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-26"
 
+keywords: create application, complete python program, log files, work with ibm cloudant database instance
+
+subcollection: cloudant
+
 ---
 
 {:new_window: target="_blank"}

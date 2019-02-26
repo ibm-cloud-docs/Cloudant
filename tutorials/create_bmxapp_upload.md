@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-26"
 
+keywords: connect to ibm cloud, upload application, test sample application, confirm database details
+
+subcollection: cloudant
+
 ---
 
 {:new_window: target="_blank"}
