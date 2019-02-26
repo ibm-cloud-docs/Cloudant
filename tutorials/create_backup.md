@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating a backup
+{: #creating-a-backup}
 
 This tutorial demonstrates how to use the 
 [CouchBackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} command-line 
@@ -28,6 +29,7 @@ restore the information to an existing database.
 {: shortdesc}
 
 ## Before you begin
+{: #before-you-begin}
 
 Install CouchBackup by running the `install` command. 
 
@@ -37,6 +39,7 @@ npm install -g @cloudant/couchbackup
 {: codeblock}
 
 ## Creating a database
+{: #creating-a-database}
 
 Create a sample `couchbackup-demo` database
 for use in this tutorial.
@@ -58,6 +61,7 @@ for use in this tutorial.
     {: codeblock}
 
 ## Creating documents in the database
+{: #creating-documents-in-the-database}
 
 The documents that you create in this exercise contain the data that you 
 back up and restore in later exercises. 
@@ -149,6 +153,7 @@ back up and restore in later exercises.
     {: codeblock}
     
 ## Setting an environment variable
+{: #setting-an-environment-variable}
 
 You can use environment variables or command-line options to specify the 
 URL and database for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance that you want to work 
@@ -164,6 +169,7 @@ export COUCH_URL=https://username:password@myhost.cloudant.com
 {: codeblock}
 
 ## Backing up a database
+{: #backing-up-a-database}
 
 The CouchBackup utility backs up your database to a text file to preserve 
 your data and make it easier to restore. 
@@ -275,6 +281,7 @@ your data and make it easier to restore.
     {: codeblock}
 
 ## Creating a log file
+{: #creating-a-log-file}
 
 A log file records the progress of your backup. With CouchBackup, you use the `--log` parameter 
 to create the log file. You can also use it to restart a backup from where it stopped 
@@ -362,6 +369,7 @@ log file, and resume option.
     {: codeblock}
     
 ##  Restoring from a backup text file
+{: #restoring-from-a-backup-text-file}
 
 From the `couchbackup-demo-backup.txt` file, you can restore your data to a new, empty database using 
 the `couchrestore` command. 

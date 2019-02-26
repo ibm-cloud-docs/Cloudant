@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,16 +19,19 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2018-08-20 -->
 
 # Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}} by using the {{site.data.keyword.cloud_notm}} CLI
+{: #creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli}
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} service instance on {{site.data.keyword.cloud}}
 by using the {{site.data.keyword.cloud_notm}} CLI.
 {: shortdesc}
 
 ## Prerequisites 
+{: #prerequisites}
 
 To follow this tutorial, you must first install the {{site.data.keyword.cloud_notm}} CLI developer tools. For more information about installing the tools, see the [Getting started with the {{site.data.keyword.cloud_notm}} CLI ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/index.html#overview){: new_window} tutorial.
 
 ## Identifying the {{site.data.keyword.cloud_notm}} API endpoint
+{: #identifying-the-ibm-cloud-api-endpoint}
 
 Specify the target API endpoint for your {{site.data.keyword.cloud_notm}} commands:
 
@@ -49,6 +52,7 @@ Not logged in. Use 'ibmcloud login' to log in.
 {: pre}
 
 ## Logging in to your {{site.data.keyword.cloud_notm}} account
+{: #logging-in-to-your-ibm-cloud-account}
 
 The following example describes the login process. If you are using a federated user ID, it is important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in using the CLI, see [General CLI (ibmcloud) commands ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/ibmcloud/bx_cli.html#ibmcloud_login){: new_window} under `ibmcloud login`. 
 
@@ -110,11 +114,13 @@ The following example describes the login process. If you are using a federated 
 3.  You are now logged in to your {{site.data.keyword.cloud_notm}} account.
 
 ## Choosing the {{site.data.keyword.cloudant_short_notm}} plan for your service
+{: #choosing-the-ibm-cloudant-plan-for-your-service}
 
 See the [Plans ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#plans){: new_window} section of the documentation for details on using the {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan.
 {: pre}
 
 ## Creating the {{site.data.keyword.cloudant_short_notm}} service
+{: #creating-the-ibm-cloudant-service}
 
 {{site.data.keyword.cloudant_short_notm}} uses Resource Groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that are provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does IBM Cloudant work with IBM Cloud Resource Groups? ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/resource-groups.html#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} guide.
 
@@ -177,6 +183,7 @@ cs20170517a   us-south   active   service_instance
 {: pre}
 
 ## Creating credentials for your {{site.data.keyword.cloudant_short_notm}} service
+{: #creating-credentials-for-your-ibm-cloudant-service}
 
 Applications that require access to your {{site.data.keyword.cloudant_short_notm}} service
 must have the necessary credentials.
@@ -236,6 +243,7 @@ Credentials:
 {: pre}
 
 ## Listing the service credentials for your {{site.data.keyword.cloudant_short_notm}} service
+{: #listing-the-service-credentials-for-your-ibm-cloudant-service}
 
 The basic command format to retrieve the credentials for a service instance
 within {{site.data.keyword.cloud_notm}} is as follows:
@@ -281,6 +289,7 @@ Credentials:
 {: pre}
 
 ## Using your {{site.data.keyword.cloudant_short_notm}} service instance
+{: #using-your-ibm-cloudant-service-instance}
 
 Now, you are finished with the following tasks:
 
@@ -292,10 +301,12 @@ Now, you are finished with the following tasks:
 For more information, see the [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant/tutorials/create_database.html#context){: new_window} tutorial that shows you how to use an {{site.data.keyword.cloudant_short_notm}} service instance from a Python application by using legacy credentials. Remember to substitute the credentials you created in this tutorial.
 
 ## (Optional) Tidying up afterward
+{: #-optional-tidying-up-afterward}
 
 The following short list of commands might be helpful in tidying up your development environment.
 
 ### Deleting service credentials
+{: #deleting-service-credentials}
 
 To delete a set of service credentials,
 use a command like this one:
@@ -314,6 +325,7 @@ ibmcloud resource service-key-delete creds_for_cs20170517a
 {: pre}
 
 ### Deleting a service instance
+{: #deleting-a-service-instance}
 
 To delete a service instance,
 use a command like this one:

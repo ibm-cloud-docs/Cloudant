@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: uploading the application
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application}
 
 This section of the tutorial describes how to upload an
 {{site.data.keyword.cloud}} application.
@@ -27,6 +28,7 @@ This section of the tutorial describes how to upload an
 <div id="uploading"></div>
 
 ## Connecting to {{site.data.keyword.cloud_notm}}
+{: #connecting-to-ibm-cloud}
 
 The first task is to connect to {{site.data.keyword.cloud_notm}}.
 
@@ -105,6 +107,7 @@ Space:          dev
 {: codeblock}
 
 ## Uploading the application
+{: #uploading-the-application}
 
 The {{site.data.keyword.cloudant_short_notm}} Foundry toolkit now knows how to connect to the {{site.data.keyword.cloud_notm}} environment.
 
@@ -212,6 +215,7 @@ buildpack: python 1.5.5
 {: codeblock}
 
 ## Testing the sample application
+{: #testing-the-sample-application}
 
 Now, test your application and verify that it is running properly. 
 
@@ -226,6 +230,7 @@ Now, test your application and verify that it is running properly.
 
 
 ### Confirming the database details
+{: #confirming-the-database-details}
 
 From the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your service instance. Go to the `Manage` tab, and click `Launch Cloudant Dashboard`.<br/>
 ![Launch Cloudant dashboard on the {{site.data.keyword.cloudant_short_notm}} service page](images/img0036.png)

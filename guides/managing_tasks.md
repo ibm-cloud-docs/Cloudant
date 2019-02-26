@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Managing tasks
+{: #managing-tasks}
 
 Creating new indexes over lots of data or replicating a large database can take quite a while.
 {: shortdesc}
@@ -40,6 +41,7 @@ it covers only what is essential to accomplish this task.
 Please refer to the [API reference](/docs/services/Cloudant/api/index.html#api-reference-overview) for a complete guide to the available options.
 
 ## curl and jq basics
+{: #curl-and-jq-basics}
 
 To get all active tasks and format the output nicely,
 call your account using `curl`,
@@ -58,6 +60,7 @@ curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 {: codeblock}
 
 ## Monitoring view builds and search indexes
+{: #monitoring-view-builds-and-search-indexes}
 
 View indexes are rebuilt when a design document is updated.
 An update to any one of the views causes all the views in the document to be rebuilt.
@@ -114,6 +117,7 @@ _Example results after searching for view indexing tasks:_
 {: codeblock}
 
 ## Estimating the time to complete a task
+{: #estimating-the-time-to-complete-a-task}
 
 To estimate the time needed until the indexing task is complete,
 monitor the number of `changes_done` and compare this value to `total_changes`.
@@ -142,6 +146,7 @@ curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 {: codeblock}
 
 ## Monitoring replication
+{: #monitoring-replication}
 
 To find all replication tasks,
 pipe the `curl` output to `jq`,
@@ -200,8 +205,10 @@ _Example result after searching for a replication task:_
 {: codeblock}
 
 ## Troubleshooting
+{: #troubleshooting}
 
 ### Is a task stuck?
+{: #is-a-task-stuck-}
 
 For a one-off,
 non-continuous replication,
@@ -222,6 +229,7 @@ or updated in,
 the database.
 
 ### What to do about a stuck task?
+{: #what-to-do-about-a-stuck-task-}
 
 To resolve a stalled replication,
 you might have to [cancel the replication process](/docs/services/Cloudant/api/replication.html#cancelling-a-replication) and start it again.

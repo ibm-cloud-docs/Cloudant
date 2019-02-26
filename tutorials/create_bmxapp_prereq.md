@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,17 +19,20 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: Prerequisites
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites}
 
 This section of the tutorial describes the prerequisites
 for creating an {{site.data.keyword.cloud}} application.
 {: shortdesc}
 
 ## Prerequisites
+{: #prerequisites}
 
 Ensure that you have the following resources or information ready
 before you start working through the tutorial.
 
 ### Python
+{: #python}
 
 For all but the simplest possible development work,
 it is much easier if you have a current installation of the
@@ -54,6 +57,7 @@ Python 2.7.12
 <div id="csi"></div>
 
 ### An {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
+{: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
 A separate tutorial for creating an {{site.data.keyword.cloudantfull}} service instance called
 '`Cloudant Service 2017`' is available [here](/docs/services/Cloudant/tutorials/create_service.html).
@@ -62,6 +66,7 @@ This tutorial assumes that you have already created a service instance called
 '`Cloudant Service 2017`'.
 
 ### An {{site.data.keyword.cloudant_short_notm}} database application
+{: #an-ibm-cloudant-database-application}
 
 A separate tutorial for creating a stand-alone Python application
 to work with an {{site.data.keyword.cloudant_short_notm}}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-01-04"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-01-04"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Disaster recovery and backup
+{: #disaster-recovery-and-backup}
 
 Your data is important and valuable.
 You want to protect your data,
@@ -36,6 +37,7 @@ help you to create your own high availability and disaster recovery capabilities
 This document provides an overview of the automatic capabilities and supported tools that are offered by {{site.data.keyword.cloudant_short_notm}}.
 
 ## Types and levels of protection
+{: #types-and-levels-of-protection}
 
 The type of protection you might want depends on the problem you are trying to solve.
 
@@ -76,6 +78,7 @@ Different tools and features provide different levels of protection. The differe
 3.	Point in time snapshot backup for point-in-time restore, by using 'traditional' [Database Backup and Recovery](#database-backup-and-recovery).
 
 ## In-Region Automatic Data Redundancy
+{: #in-region-automatic-data-redundancy}
 
 Within a single {{site.data.keyword.cloudant_short_notm}} account,
 data is stored in triplicate by using internal and automatic processes.
@@ -113,6 +116,7 @@ in-region data redundancy enables a High Availability capability
 by providing tolerance for failures that affect single systems within the region.
 
 ## Cross-Region Redundancy for Disaster Recovery
+{: #cross-region-redundancy-for-disaster-recovery}
 
 The {{site.data.keyword.cloudant_short_notm}} replication feature helps you build a flexible disaster recovery capability into your applications.
 The main way to enable disaster recovery is to use {{site.data.keyword.cloudant_short_notm}} replication to create redundancy across regions.
@@ -161,6 +165,7 @@ However,
 your applications must be able to 'fail over' to copies of your data that are stored in other regions.
 
 ## Database Backup and Recovery
+{: #database-backup-and-recovery}
 
 [In-Region Automatic Data Redundancy](#in-region-automatic-data-redundancy) provides applications with high availability access to data.
 [Cross-Region Redundancy for Disaster Recovery](#cross-region-redundancy-for-disaster-recovery) provides applications with a means of recovering from a disaster.
@@ -208,6 +213,7 @@ The tools supported by {{site.data.keyword.cloudant_short_notm}} have the follow
 <div id="conclusion"></div>
 
 ## Next steps
+{: #next-steps}
 
 You can develop applications that build on basic {{site.data.keyword.cloudant_short_notm}} functions and supported tools
 to enable more complex data protection strategies.

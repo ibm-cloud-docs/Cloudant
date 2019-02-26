@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Document Versioning and MVCC
+{: #document-versioning-and-mvcc}
 
 [Multi-version concurrency control (MVCC) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window}
 is how {{site.data.keyword.cloudantfull}} databases ensure that all of the nodes in a database's cluster contain
@@ -36,6 +37,7 @@ there is no need for database locking on either read or write operations.
 MVCC also enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
 
 ## Revisions
+{: #revisions}
 
 Every document in an {{site.data.keyword.cloudant_short_notm}} database has a `_rev` field indicating its revision number.
 
@@ -65,6 +67,7 @@ If you need a version history of your documents,
 a solution is to [create a new document](/docs/services/Cloudant/api/document.html#documentCreate) for each revision.
 
 ## Distributed Databases and Conflicts
+{: #distributed-databases-and-conflicts}
 
 Distributed databases work without a constant connection to the main database on {{site.data.keyword.cloudant_short_notm}},
 which is itself distributed,
@@ -94,6 +97,7 @@ You could regularly query this view and resolve conflicts as needed,
 or query the view after each replication.
 
 ## How to resolve conflicts
+{: #how-to-resolve-conflicts}
 
 Once you've found a conflict,
 you can resolve it in 4 steps.
@@ -153,6 +157,7 @@ The two databases are then replicated.
 The difference in document versions results in a conflict.
 
 ### Get conflicting revisions
+{: #get-conflicting-revisions}
 
 You identify documents with with conflicts by using the `conflicts=true` option.
 
@@ -183,6 +188,7 @@ In most cases this array has only one element,
 but there might be many conflicting revisions.
 
 ### Merge the changes
+{: #merge-the-changes}
 
 To compare the revisions to see what has been changed,
 your application gets all of the versions from the database.
@@ -210,6 +216,7 @@ For a practical example of how to implement a merge of changes,
 see this project with [sample code ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/deconflict){: new_window}.
 
 ### Upload the new revision
+{: #upload-the-new-revision}
 
 The next step is to create a document that resolves the conflicts,
 and update the database with it.
@@ -228,6 +235,7 @@ _An example document that merges changes from the two conflicting revisions:_
 {: codeblock}
 
 ### Delete old revisions
+{: #delete-old-revisions}
 
 Finally,
 you delete the old revisions by sending a `DELETE` request to the URLs with the revision we want to delete.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database}
 
 This tutorial shows you how to create an {{site.data.keyword.cloud}} application that uses the
 [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} to
@@ -27,6 +28,7 @@ hosted in your {{site.data.keyword.cloud_notm}} service instance.
 {: shortdesc}
 
 ## Context
+{: #context}
 
 A significant advantage of {{site.data.keyword.cloud}} is that you can create and deploy applications within
 {{site.data.keyword.cloud_notm}} itself.
@@ -69,6 +71,7 @@ but you should apply normal best practices for checking and handling all
 warnings or error conditions that are encountered by your own applications.
 
 ## Task overview
+{: #task-overview}
 
 To create a working Python application on {{site.data.keyword.cloud_notm}}
 that can access an {{site.data.keyword.cloudant_short_notm}} database instance,
@@ -84,6 +87,7 @@ you need to perform the following tasks:
 -   [Diagnose and resolve problems (troubleshooting).](/docs/services/Cloudant/tutorials/create_bmxapp_maintain.html#troubleshooting)
 
 ## Tutorial structure
+{: #tutorial-structure}
 
 The tutorial consists of five sections:
 

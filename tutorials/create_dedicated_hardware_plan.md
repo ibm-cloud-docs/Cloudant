@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -20,6 +20,7 @@ lastupdated: "2019-02-01"
 
 
 # Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}
+{: #creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud}
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance 
 that uses the {{site.data.keyword.cloud}} dashboard, and shows you how to subsequently provision one or 
@@ -35,6 +36,7 @@ plan instance after it is created by provisioning one or more Standard plan
 instances on it.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance
+{: #creating-an-ibm-cloudant-dedicated-hardware-plan-instance}
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
@@ -75,6 +77,7 @@ instances on it.
     ![Provision dedicated hardware alternate version](/docs/services/Cloudant/tutorials/images/create_button_provision2.png)
     
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment
+{: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
@@ -111,6 +114,7 @@ instances on it.
     For more information, see [how to locate your service credentials](/docs/services/Cloudant/tutorials/create_service.html#locating-your-service-credentials){: new_window}. 
     
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment with the {{site.data.keyword.cloud_notm}} CLI
+{: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment-with-the-ibm-cloud-cli}
 
 To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information about how to log in and set a target resource group, see [Logging in to your {{site.data.keyword.cloud_notm}} account](/docs/services/Cloudant/tutorials/create_service_cli.html#logging-in-to-your-ibm-cloud-account){: new_window}. 
 
@@ -146,6 +150,7 @@ ibmcloud resource service-instance-create cloudant_on_ded_hardware_cli cloudantn
 {: codeblock}
 
 ## Creating credentials for your {{site.data.keyword.cloudant_short_notm}} service
+{: #creating-credentials-for-your-ibm-cloudant-service}
 
 Applications that require access to your {{site.data.keyword.cloudant_short_notm}} service
 must have the necessary credentials.
@@ -237,6 +242,7 @@ Credentials:
 {: pre}
 
 ## Listing the service credentials for your {{site.data.keyword.cloudant_short_notm}} service
+{: #listing-the-service-credentials-for-your-ibm-cloudant-service}
 
 The basic command format to retrieve the credentials for a service instance
 within {{site.data.keyword.cloud_notm}} is as follows:

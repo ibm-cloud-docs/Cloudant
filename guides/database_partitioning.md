@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-11"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -49,11 +49,13 @@ maintaining backwards compatibility.
 The partitioning type cannot be changed for an existing database.
 
 ## Database shards
+{: #database-shards}
 
 Before reading this document, you must understand the
 [sharding concept](/docs/services/Cloudant/guides/sharding.html) within {{site.data.keyword.cloudant_short_notm}}.
 
 ## Non-partitioned databases
+{: #non-partitioned-databases}
 
 A non-partitioned database is the older type of {{site.data.keyword.cloudant_short_notm}} database, and the one
 that will be familiar if you have used CouchDB or {{site.data.keyword.cloudant_short_notm}} previously.
@@ -67,6 +69,7 @@ A non-partitioned database offers only global querying, described in more
 detail below.
 
 ## Partitioned databases
+{: #partitioned-databases}
 
 A partitioned database is the newer type of {{site.data.keyword.cloudant_short_notm}} database. Within a
 partitioned database, documents are formed into logical partitions by use
@@ -85,6 +88,7 @@ As partitioned databases offer the advantages of both global and partition
 querying, {{site.data.keyword.cloudant_short_notm}} recommends new applications take advantage of them.
 
 ## What makes a good partition key?
+{: #what-makes-a-good-partition-key-}
 
 If you're thinking of using {{site.data.keyword.cloudant_short_notm}}'s new *partitioned database* feature, then
 the choice of a partition key is very important. A partition key must have:
@@ -114,6 +118,7 @@ choice, for example, a database of users storing email addresses, password hashe
 normal non-partitioned database must be used instead.
 
 ## Querying
+{: #querying}
 
 This section describes which of {{site.data.keyword.cloudant_short_notm}}'s query types are available
 for global and partition queries, along with a brief overview of the
@@ -121,6 +126,7 @@ underlying querying mechanism to allow you to select which query mechanism
 is best for each query your application needs to make.
 
 ### Global querying
+{: #global-querying}
 
 You can make global queries to the following index types:
 
@@ -137,6 +143,7 @@ might involve buffering data and delaying the response to the client if, for
 example, data requires sorting.
 
 ### Partition querying
+{: #partition-querying}
 
 You can make partition queries to the following index types:
 
@@ -161,6 +168,7 @@ this number remains small, increasing data size has no effect on query latency,
 unlike global queries.
 
 ## Example: partitioning IoT reading data
+{: #example-partitioning-iot-reading-data}
 
 This discussion is quite abstract; let's make it concrete with an example. We'll
 take the Internet of Things domain and look at using {{site.data.keyword.cloudant_short_notm}} as a historian for
@@ -218,6 +226,7 @@ Let's take a look at how this works out. We'll look at four queries:
 1. Readings for today for a specific device.
 
 ### Creating the database
+{: #creating-the-database}
 
 We'll use a database called `readings` and an account called
 `acme`. To create this as a partitioned database, pass `true` as the
@@ -228,6 +237,7 @@ curl -XPUT 'https://acme.cloudant.com/readings?partitioned=true'
 ```
 
 ### Document structure
+{: #document-struture}
 
 First, let's define a simple document format to work with:
 
@@ -251,6 +261,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 ```
 
 ### Creating indexes
+{: #creating-indexes}
 
 For the above queries, we'll need two indexes:
 
@@ -258,6 +269,7 @@ For the above queries, we'll need two indexes:
 2. A partitioned index mapping device IDs to readings.
 
 #### Creating a global view index
+{: #creating-a-global-view-index}
 
 A view index is the most efficient way to do the simple device ID to
 infrastructure ID mapping. To define it, upload a design document with
@@ -285,6 +297,7 @@ curl -XPOST https://acme.cloudant.com/readings -d @view.json
 ```
 
 #### Creating a partitioned {{site.data.keyword.cloudant_short_notm}} Query index
+{: #creating-a-paritioned-ibm-cloudant-query-index}
 
 To return the readings for a given device from a partition, we can use an
 {{site.data.keyword.cloudant_short_notm}} Query index. For this, we `POST` to `_index` with an index definition
@@ -343,6 +356,7 @@ curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index2.json
 ```
 
 ### Making queries
+{: #making-queries}
 
 Overall, we want to make four queries:
 
@@ -352,6 +366,7 @@ Overall, we want to make four queries:
 1. Readings for today for a specific device.
 
 #### Finding all readings for a piece of infrastructure
+{: #finding-all-readings-for-a-piece-of-infrastructure}
 
 As our partitions are infrastructure-based, we can use `_all_docs` for a
 partition. For example, querying for all readings for the `bridge-1234`
@@ -363,6 +378,7 @@ curl -XGET \
 ```
 
 #### Finding recent readings for a piece of infrastructure
+{: #finding-recent-readings-for-a piece-of-infrastructure}
 
 This query needs to use the partitioned `timestamped-readings` index. We can
 issue a query to the partition to get the readings for today:
@@ -386,6 +402,7 @@ curl -XPOST \
 ```
 
 #### Finding the infrastructure ID for a device
+{: #finding-the-infrastructure-id-for-a-device}
 
 The two queries we've yet to perform are:
 
@@ -427,6 +444,7 @@ We have our partition key in the `value` field of the included row:
 `bridge-9876`.
 
 #### Querying for all results for a device
+{: #querying-for-all-results-for-a-device}
 
 To get the results for a device, we issue a partition query for the device
 within the `bridge-9876` partition. A standard {{site.data.keyword.cloudant_short_notm}} Query selector is
@@ -453,6 +471,7 @@ curl -XPOST \
 ```
 
 #### Querying for recent results for a device
+{: #querying-for-recent-results-for-a-device}
 
 To get the results for a device, we issue a partition query for the device
 within the `bridge-9876` partition. The selector is only slightly more

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating an {{site.data.keyword.cloudant_short_notm}} Query
+{: #creating-an-ibm-cloudant-query}
 
 This tutorial demonstrates how to create a database, populate it
 with documents, create an index, and use the index to query the database.
@@ -33,6 +34,7 @@ To begin, you create the `query-demo` database and some documents that
 contain the data for these exercises.
 
 ## Assumptions
+{: ##assumptions}
 
 Before you begin, follow these steps to prepare for the tutorial:
 
@@ -50,6 +52,7 @@ Before you begin, follow these steps to prepare for the tutorial:
   {: codeblock}
 
 ## Creating a database
+{: #creating-a-database}
 
 In this section, you create the `query-demo` [database](/docs/services/Cloudant/api/database.html#create-database) that
 is the database that we use in this tutorial.
@@ -85,6 +88,7 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
   The `query-demo` database automatically opens.
 
 ## Creating documents in the database
+{: #creating-documents-in-the-database}
 
 The [documents](/docs/services/Cloudant/api/document.html#documents)
 that you create in this exercise contain the data that you use to query the `query-demo` database in later exercises.
@@ -249,6 +253,7 @@ Notice that the '`@`' symbol, used to indicate that the data is included in a fi
   ![Sample documents](../images/docs1.png)     
 
 ## Creating an index
+{: #creating-an-index}
 
 {{site.data.keyword.cloudant_short_notm}} provides views and indexes to query the database. A view runs a query that is saved to the database, and
 the result is called the result set. When you submit a query to the view, your query searches
@@ -314,7 +319,7 @@ If there is no available defined index that matches the specified query, then {{
 1.  Click **`+` > Query Indexes** on either the **All Documents** or **Design Documents** tab.
 2.  Paste the following sample JSON data into the **Index** field:
   ```json
-{
+  {
 	"index": {
 		"fields": [
 			"age",
@@ -331,7 +336,7 @@ If there is no available defined index that matches the specified query, then {{
 	},
   		"ddoc": "partial-index",
 		"type": "json"
-}
+  }
   ```
   {: codeblock}
 
@@ -342,6 +347,7 @@ If there is no available defined index that matches the specified query, then {{
 
 
 ## Creating a query
+{: #creating-a-query}
 
 Queries allow you to extract your data from {{site.data.keyword.cloudant_short_notm}}. A well-written
 [query](/docs/services/Cloudant/api/cloudant_query.html#query) can narrow your search and
@@ -355,6 +361,7 @@ The query then uses this value to search the database for matches.
 For anything but the most simple query, add the JSON to a data file and run it from the command line.
 
 ### Running a simple query
+{: #running-a-simple-query}
 
 This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query uses the `query-index` to find the
 `lastname` and filters the results in memory to find the `firstname`.   
@@ -416,6 +423,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
   ![Query 1 results](../images/dashboard_query1_results.png)
 
 ### Running a query with two fields
+{: #running-a-query-with-two-fields}
 
 This example uses two fields to find everyone that is named `Brown` who lives in `New York City, NY`.
 
@@ -523,6 +531,7 @@ The extra details look like the following example:
   ![Query 2 results](../images/dashboard_query2_results.png)
 
 ### Running a query with operators
+{: #running-a-query-with-operators}
 
 In this example, the `$eq` (equal) and `$gt` (greater than) operators are used to search
 for documents that contain the last name `Greene` and an age that is greater than `30`.
@@ -558,7 +567,7 @@ values specified in the `sort` parameter.
 
 1.  Copy the following sample JSON to a file named `query3.dat`.
   ```json
-{
+  {
    "selector": {
       "age": {
          "$gt": 30
@@ -577,7 +586,7 @@ values specified in the `sort` parameter.
       }
    ],
    "use_index": "_design/partial-index"
-}
+  }
   ```
   {: codeblock}
 
@@ -589,12 +598,12 @@ values specified in the `sort` parameter.
 
 3.  Review the query results:
   ```json
-{"docs":[
+  {"docs":[
      {"age":35,"firstname":"Greg"},
      {"age":44,"firstname":"Anna"}
    ],
-"bookmark": "g1AAAABCeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmFwOSHWiDkiSzb0oNTUvNSsLAEsmEeQ"
-}
+  "bookmark": "g1AAAABCeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmFwOSHWiDkiSzb0oNTUvNSsLAEsmEeQ"
+  }
   ```
   {: codeblock}
 
@@ -603,7 +612,7 @@ values specified in the `sort` parameter.
 1.  Click the **Query** tab.
 2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
   ```json
-{
+  {
    "selector": {
       "age": {
          "$gt": 30
@@ -622,7 +631,7 @@ values specified in the `sort` parameter.
       }
    ],
    "use_index": "_design/partial-index"
-}
+  }
   ```
   {: codeblock}
 

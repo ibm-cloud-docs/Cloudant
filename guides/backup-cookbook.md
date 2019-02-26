@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} Backup and Recovery
+{: #ibm-cloudant-backup-and-recovery}
 
 This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/services/Cloudant/guides/disaster-recovery-and-backup.html).
 It's worth starting there if you are new to the subject and want to understand where backup fits in
@@ -31,6 +32,7 @@ For example,
 redundant data storage does not protect against mistakes when data is changed.
 
 ## Introducing CouchBackup
+{: #introducing-couchbackup}
 
 {{site.data.keyword.cloudant_short_notm}} provides a supported tool for snapshot backup and restore.
 The tool is called CouchBackup,
@@ -48,6 +50,7 @@ The CouchBackup tools have [limitations](#limitations).
 {: important}
 
 ## Backing up your {{site.data.keyword.cloudant_short_notm}} data
+{: #backing-up-your-ibm-cloudant-data}
 
 You can do a simple backup by using the `couchbackup` tool.
 To back up the `animaldb` database to a text file called `backup.txt`,
@@ -75,6 +78,7 @@ The CouchBackup tools have [limitations](#limitations).
 {: important}
 
 ## Restoring your {{site.data.keyword.cloudant_short_notm}} data
+{: #restoring-your-ibm-cloudant-data}
 
 To restore your data,
 use the `couchrestore` tool.
@@ -97,6 +101,7 @@ The CouchBackup tools have [limitations](#limitations).
 {: important}
 
 ## Limitations
+{: #limitations}
 
 The CouchBackup tools have the following limitations: 
 {: important}
@@ -116,6 +121,7 @@ The CouchBackup tools have the following limitations:
   depending on how much data is restored.
 
 ## Using the tools
+{: #using-the-tools}
 
 The [npm page ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{: new_window}
 details the basics of using the command line tools for backup and restore of data.
@@ -140,6 +146,7 @@ and automatically uploading data to
 for long-term retention.
 
 ## Command line scripting examples
+{: #command-line-scripting-examples}
 
 Two requirements are frequently encountered:
 
@@ -148,6 +155,7 @@ Two requirements are frequently encountered:
 * Creating a backup of a database automatically, [at regular intervals](#hourly-or-daily-backups-using-cron).
 
 ### Compressing a backup file
+{: #compressing-a-backup-file}
 
 The `couchbackup` tool can write a backup file to disk directly,
 or stream the backup to `stdout`.
@@ -184,6 +192,7 @@ you might want to write the data directly to an object store service,
 by using their command line tools.
 
 ### Hourly or daily backups that use `cron`
+{: #hourly-or-daily-backups-that-use-cron-}
 
 The `cron` scheduling tool can be set up to take snapshots of data at regular intervals
 
@@ -218,6 +227,7 @@ This cron entry creates a daily backup at 05:00.
 You can modify the cron pattern to do hourly, daily, weekly, or monthly backups as needed.
 
 ## Using CouchBackup as a library
+{: #using-couchbackup-as-a-library}
 
 The `couchbackup` and `couchrestore` command line tools are wrappers around a library
 that can be used in your own node.js applications.
@@ -304,6 +314,7 @@ function backupToS3(sourceUrl, s3Client, s3Bucket, s3Key, shallow) {
 {: codeblock}
 
 ## Other disaster recovery options
+{: #other-disaster-recovery-options}
 
 Return to the [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](/docs/services/Cloudant/guides/disaster-recovery-and-backup.html)
 to find out about the other features {{site.data.keyword.cloudant_short_notm}}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2018-05-07 -->
 
 # CouchApps
+{: #couchapps}
 
 {{site.data.keyword.cloudantfull}} can host raw file data,
 like images,
@@ -53,6 +54,7 @@ but frequently a web app will need the power of a 3-tier architecture.
 When is each appropriate?
 
 ## A CouchApp is appropriate if...
+{: #a-couchapp-is-appropriate-if-}
 
 -   Your server would have only provided an API to {{site.data.keyword.cloudant_short_notm}} anyway.
 -   You're OK using {{site.data.keyword.cloudant_short_notm}}'s
@@ -65,6 +67,7 @@ To get started with CouchApps,
 read [Managing applications on {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/app-management/){: new_window}.
 
 ## A 3-tier application is appropriate if...
+{: #a-3-tier-application-is-appropriate-if-}
 
 -   You need finer-grained permissions than the `_security` database
     allows.
