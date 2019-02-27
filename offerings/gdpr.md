@@ -39,10 +39,12 @@ comprehensive suite of solutions
 to assist businesses of all sizes with their own internal data governance requirements.
 
 ## How do I audit access to {{site.data.keyword.cloudant_short_notm}}?
+{: #how-do-i-audit-access-to-ibm-cloudant-}
 
 You can find information about auditing in [Audit logging](/docs/services/Cloudant/offerings/audit.html#audit-logging){: new_window}. 
 
 ## Supported classifications of Personal Data
+{: #supported-classifications-of-personal-data}
 
 The following categories of Personal Data are supported by {{site.data.keyword.cloudant_short_notm}} 
 for GDPR:
@@ -65,6 +67,7 @@ For more information about supported classifications of Personal Data, see the
 [Data Sheet Addendum (DSA) under 2. Personal Data ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}.
 
 ## Data about me
+{: #data-about-me}
 
 {{site.data.keyword.cloudant_short_notm}} records some data about its users, and is a Data Controller for said 
 Personal Information (PI) data. The data that {{site.data.keyword.cloudant_short_notm}} records depends on the type of account you have.
@@ -88,6 +91,7 @@ the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email 
 customer interactions with the {{site.data.keyword.cloudant_short_notm}} dashboard is the other way {{site.data.keyword.cloudant_short_notm}} processes PI.
 
 ### Restriction of processing
+{: #restriction-of-processing}
 
 {{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information associated 
@@ -97,6 +101,7 @@ information up to date either directly, or via customer configuration of their c
 via their {{site.data.keyword.cloud_notm}} account details.
 
 ## Is our {{site.data.keyword.cloudant_short_notm}} database encrypted?
+{: #is-our-ibm-cloudant-database-encrypted-}
 
 All clusters have an encrypted file system (encryption at rest) using Linux Unified Key Setup (LUKS). Data in the database is 
 visible to our operations and support teams (see below).
@@ -107,6 +112,7 @@ using PI as a document `_id` in your URLs, for example, `https://$ACCOUNT.clouda
 as these are always visible and written to the access logs.
 
 ## Data locations
+{: #data-locations}
 
 Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data will be 
 made available, and kept up to date, via the DSA.
@@ -115,8 +121,10 @@ For more information about data locations, see the
 [DSA under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}.
 
 ## Service security
+{: #service-security}
 
 ### Using {{site.data.keyword.cloudant_short_notm}} securely
+{: #using-ibm-cloudant-securely}
 
 As a user of {{site.data.keyword.cloudant_short_notm}}, you should:
 
@@ -125,6 +133,7 @@ As a user of {{site.data.keyword.cloudant_short_notm}}, you should:
  * Encrypt or otherwise protect (pseudonymise) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
 
 ### Physical And Environmental Security Measures
+{: #physical-and-environmental-security-measures}
 
 Physical security of our data centers is handled by our infrastructure providers: {{site.data.keyword.cloud}}, 
 AWS, and 21Vianet. All hold externally audited certifications for their physical security. {{site.data.keyword.cloudant_short_notm}} 
@@ -136,6 +145,7 @@ Certification details and attestation reports (i.e., ISO and SOC2) can be provid
 customer upon request.
 
 ### Technical and Organisational Measures
+{: #technical-and-organisational-measures}
 
 Technical and Organisational Measures (TOMs) are employed by {{site.data.keyword.cloudant_short_notm}} 
 to ensure the security of 
@@ -144,6 +154,7 @@ Certification details and attestation reports (i.e., ISO and SOC2) can be provid
 customer upon request.
 
 ### Service access to data
+{: #service-access-to-data}
 
 {{site.data.keyword.cloudant_short_notm}} operations and support staff have access to customer data 
 and can access it during 
@@ -151,8 +162,10 @@ routine operations. This access is only done as required, in order to operate an
 Access is also limited to a *need to know* basis and is logged, monitored, and audited.
 
 ## Deletion of data
+{: #deletion-of-data}
 
 ### Deleting a document
+{: #deleting-a-document}
 
 When a document is deleted, the database creates a 'tombstone.' What the tombstone contains depends 
 on how you delete it:
@@ -165,6 +178,7 @@ circumstances, for example, when recording why a document was deleted in its tom
 For more information on deleting tombstones, see [Simple removal of 'tombstone' documents](/docs/services/Cloudant/api/document.html#-tombstone-documents){: new_window}.
 
 ### When is a deleted document removed?
+{: #when-is-a-deleted-document-removed-}
 
 Compaction runs automatically and periodically removes old revisions (deleted or otherwise) 
 from the database, by writing out only 'leaf' revisions to a new file. {{site.data.keyword.cloudant_short_notm}} keeps a history of 
@@ -186,6 +200,7 @@ At the end of this process, the only version of the document is its tombstone
 (`_id`, `_rev`, `_deleted`, and any fields your application includes there).
 
 ### Removal of tombstones
+{: #when-is-a-deleted-document-removed-}
 
 {{site.data.keyword.cloudant_short_notm}} can completely remove all references and data for a 
 document when required. This task is 
@@ -225,6 +240,7 @@ Even with purge, PI in the `_id` field leaks into places you do not want it, suc
 will not remove log lines containing document `_id` values.
 
 ### What about deleting a database?
+{: #what-about-deleting-a-database-}
 
 Deleting a database puts it into a trash can for up to 48h, after which it is removed from the 
 file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases; this task is the 

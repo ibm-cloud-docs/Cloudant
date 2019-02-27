@@ -23,6 +23,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # Data Privacy and Governance
+{: #data-privacy-and-governance}
 
 _(This {{site.data.keyword.cloudantfull}} Data Privacy and Governance Update was originally published April 20, 2016.)_
 

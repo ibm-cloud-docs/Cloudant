@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -23,6 +23,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}} Dedicated
+{: #ibm-cloud-dedicated}
 
 {{site.data.keyword.cloudantfull}} for ({{site.data.keyword.cloud}} Dedicated) is 
 an optional purchase add-on to an {{site.data.keyword.cloud_notm}} Dedicated environment. The optional add-on for 
@@ -42,6 +43,7 @@ syndicated version of {{site.data.keyword.cloudant_short_notm}} (left) and the {
 ![{{site.data.keyword.cloudant_short_notm}} catalog](../images/bluemix_catalog.png)
 
 ## Hardware capacity 
+{: #hardware-capacity}
 
 {{site.data.keyword.cloudant_short_notm}} within {{site.data.keyword.cloud_notm}} Dedicated is purchased via an '{{site.data.keyword.cloud_notm}} Dedicated 
 {{site.data.keyword.cloudant_short_notm}} 1.6 TB Capacity' part, which includes a clustered {{site.data.keyword.cloudant_short_notm}} environment 
@@ -55,6 +57,7 @@ choose to have multiple separate {{site.data.keyword.cloudant_short_notm}} envir
 expanding a single environment.
 
 ## Locations and Tenancy 
+{: #locations-and-tenancy}
 
 The {{site.data.keyword.cloudant_short_notm}} Dedicated environment within an {{site.data.keyword.cloud_notm}} Dedicated environment is on hardware 
 that is designated for sole use by the {{site.data.keyword.cloud_notm}} Dedicated customer. The customer can provision 
@@ -62,6 +65,7 @@ one or more instances of {{site.data.keyword.cloudant_short_notm}} on the given 
 shares the underlying hardware resources that make up the {{site.data.keyword.cloudant_short_notm}} environment. 
 
 ## Security, Encryption, and Compliance 
+{: #security-encryption-and-compliance}
 
 All plans are provided on servers with [at rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest) 
 disk encryption. Access is over the public network connection and encrypted by 
@@ -75,6 +79,7 @@ The plan also offers [Compliance Certification ![External link icon](../images/l
 compliance is available upon request, so request this during the purchase process with an {{site.data.keyword.IBM_notm}} sales representative. 
 
 ## High availability, disaster recovery, and backup 
+{: #high-availability-disaster-recovery-and-backup}
 
 To provide high availability (HA) and disaster recovery (DR) within a data center, all data is stored in triplicate 
 across three separate physical servers in a cluster. When available, you can provision accounts in multiple locations, 
