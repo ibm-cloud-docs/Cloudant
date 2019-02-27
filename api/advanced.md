@@ -405,8 +405,8 @@ _Example response:_
 ```
 {: codeblock}
 
-### Response structure
-{: #response-structure}
+### Response structure for `POST /$DATABASE/_revs_diff`
+{: #response-structure-post-database-_revs_diff}
 
 Field name      | Description
 ----------------|------------------------------------------------------------------
@@ -478,8 +478,8 @@ account.request({
 
 -->
 
-### Response structure
-{: #response-structure}
+### Response structure `GET /_membership`
+{: #response-structure-get-membership}
 
 Field name      | Description
 ----------------|------------------------------------------------------------------
