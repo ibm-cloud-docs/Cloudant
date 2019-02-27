@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,17 +19,20 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Third-party client libraries
+{: #third-party-client-libraries}
 
 Third-party client libraries are not maintained or supported by {{site.data.keyword.cloudantfull}}.
 {: shortdesc}
 
 ## Third-party mobile libraries
+{: #third-party-mobile-libraries}
 
 Working with an {{site.data.keyword.cloudant_short_notm}} database:
 
 -   [IBM Worklight Powered Native Objective-C iOS Apps ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.tricedesigns.com/2014/11/17/ibm-worklight-powered-native-objective-c-ios-apps/){: new_window} with an {{site.data.keyword.cloudant_short_notm}} Adapter.
 
 ## C# / .NET
+{: #c-net}
 
 [MyCouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danielwertheim/mycouch){: new_window}
 is an asynchronous CouchDB and {{site.data.keyword.cloudant_short_notm}} client for .Net.
@@ -44,6 +47,7 @@ install-package mycouch.cloudant
 {: codeblock}
 
 ### Libraries and frameworks for C# / .NET
+{: #libraries-and-frameworks-for-c-net}
 
 -   [MyCouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danielwertheim/mycouch){: new_window}.
 -   [LoveSeat ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/soitgoes/LoveSeat){: new_window}.
@@ -54,10 +58,12 @@ install-package mycouch.cloudant
 -   `WDK.API.CouchDB` from [Kanapes IDE ![External link icon](../images/launch-glyph.svg "External link icon")](http://kanapeside.com/){: new_window}.
 
 ### Examples and tutorials for C# / .NET
+{: #examples-and-tutorials-for-c-net}
 
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}.
 
 ## PHP
+{: #php}
 
 [Sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){: new_window} is PHP's CouchDB and {{site.data.keyword.cloudant_short_notm}} client.
 [Sag.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window} is Sag's JavaScript counterpart.
@@ -72,16 +78,19 @@ require_once('./src/Sag.php');
 {: codeblock}
 
 ### Libraries and frameworks for PHP
+{: #libraries-and-frameworks-for-php}
 
 -   [sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){: new_window}.
 -   [Doctrine CouchDB Client ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/doctrine/couchdb-client){: new_window}.
 -   [PHP-on-Couch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dready92/PHP-on-Couch){: new_window}.
 
 ### Examples and tutorials for PHP
+{: #examples-and-tutorials-for-php}
 
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/php){: new_window}.
 
 ## JavaScript
+{: #javascript}
 
 [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window} is a JavaScript database that can sync with {{site.data.keyword.cloudant_short_notm}},
 meaning you can make your apps offline-ready just by using PouchDB.
@@ -99,6 +108,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 {: note}
 
 ### Libraries and frameworks for JavaScript
+{: #libraries-and-frameworks-for-javascript}
 
 -   [Backbone.cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}.
     See the [blog post ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/backbone-and-cloudant/){: new_window} for more information.
@@ -107,6 +117,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
     with offline synchronization.
 
 ### Examples and tutorials for JavaScript
+{: #examples-and-tutorials-for-javascript}
 
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){: new_window} using jQuery.
 -   [CSVtoCloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/michellephung/CSVtoCloudant){: new_window} -
@@ -123,6 +134,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
     and {{site.data.keyword.cloudant_short_notm}}.
 
 ## Ruby
+{: #ruby}
 
 [CouchRest ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/couchrest/couchrest){: new_window} is a CouchDB and {{site.data.keyword.cloudant_short_notm}} client
 with extensions for working with Rails using [CouchRest Model ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/couchrest/couchrest_model){: new_window}.
@@ -136,17 +148,20 @@ gem install couchrest
 {: codeblock}
 
 ### Libraries and frameworks for Ruby
+{: #libraries-and-frameworks-for-ruby}
 
 There are many CouchDB clients listed on
 [Ruby Toolbox ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ruby-toolbox.com/categories/couchdb_clients){: new_window}.
 
 ### Examples and tutorials for Ruby
+{: #examples-and-tutorials-for-ruby}
 
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/ruby){: new_window}.
 
 <div id="couchdb"></div>
 
 ## Meteor
+{: #meteor}
 
 [cloudant:couchdb ![External link icon](../images/launch-glyph.svg "External link icon")](https://atmospherejs.com/cloudant/couchdb){: new_window} is the
 {{site.data.keyword.cloudant_short_notm}} library for the `couchdb-meteor` package.
@@ -180,6 +195,7 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 See the [API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview) for more information about meteor-couchdb APIs. 
 
 ## Apache Spark
+{: #apache-spark}
 
 The [Apache Bahir extensions for Apache Spark  ![External link icon](../images/launch-glyph.svg "External link icon")](http://bahir.apache.org/#home){: new_window}
 include a `spark-sql-cloudant` connector that is the {{site.data.keyword.cloudant_short_notm}} library for Apache Spark.

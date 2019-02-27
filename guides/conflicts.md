@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2018-05-07 -->
 
 # Conflicts
+{: #conflicts}
 
 In distributed databases,
 where copies of data might be stored in more than one location,
@@ -101,6 +102,7 @@ conflicts:
 </table>
 
 ## Finding conflicts
+{: #finding-conflicts}
 
 To find any conflicts that might be affecting a document,
 add the query parameter `conflicts=true` when retrieving a document.
@@ -131,6 +133,7 @@ Alternatively,
 you might query the view after each replication to identify and resolve conflicts immediately.
 
 ## How to resolve conflicts
+{: #how-to-resolve-conflicts}
 
 Once you've found a conflict, you can resolve it by following 4 steps:
 
@@ -199,6 +202,7 @@ it might not be clear which of the two alternative versions of the document is c
 This is a conflict scenario.
 
 ## Get conflicting revisions
+{: #get-conflicting-revisions}
 
 To find any conflicting revisions for a document,
 retrieve that document as normal,
@@ -240,6 +244,7 @@ but it is possible for there to be many conflicting revisions,
 each of which is listed in the array.
 
 ## Merge the changes
+{: #merge-the-changes}
 
 Your application must identify all the potential changes,
 and reconcile them,
@@ -283,6 +288,7 @@ such as:
 For a practical example of how to implement these changes, see [this project with sample code](https://github.com/glynnbird/deconflict).
 
 ## Upload the new revision
+{: #upload-the-new-revision}
 
 > Final revision, after resolving and merging changes from the previous conflicting revisions.
 
@@ -301,6 +307,7 @@ you create a document containing the current and definitive data.
 This fresh document is uploaded into the database.
 
 ## Delete old revisions
+{: #delete-old-revisions}
 
 > Example requests to delete the old revisions.
 

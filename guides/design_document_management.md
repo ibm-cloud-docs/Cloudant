@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -17,6 +17,7 @@ lastupdated: "2019-02-19"
 {:deprecated: .deprecated}
 
 # Design Document Management
+{: #design-document-management}
 
 *Article contributed by Glynn Bird, Developer Advocate at IBM Cloudant,
 [glynn@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:glynn@cloudant.com){: new_window}*
@@ -134,6 +135,7 @@ It's worth remembering at this point that:
     for exceptions to this rule.
 
 ## Multiple views in the same design document
+{: #multiple-views-in-the-same-design-document}
 
 If we define several views in the same design document,
 then they are built efficiently at the same time.
@@ -209,10 +211,12 @@ then we might well encounter a deployment dilemma:
     while version 2 expects a 'reduced' count of results.
 
 ## Coordinating changes to Design Documents
+{: #coordinating-changes-to-design-documents}
 
 There are two ways of dealing with this change control problem.
 
-### Versioned design documents 
+### Versioned design documents
+{: #versioned-design-documents}
 
 One solution is to use versioned design document names:
 
@@ -228,6 +232,7 @@ Using versioned design documents is a simple way to manage change control in you
 as long as you remember to remove the older versions at a later date!
 
 ### 'Move and switch' design documents
+{: #-move-and-switch-design-documents}
 
 Another approach relies on the fact that {{site.data.keyword.cloudant_short_notm}} recognises when it has two identical design documents,
 and does not waste time and resources rebuilding views it already has.
@@ -250,6 +255,7 @@ The procedure to switch to the new view is this:
 7.  Delete Design Document `_design/fetch_OLD`.
 
 ## Move and Switch tooling
+{: #move-and-switch-tooling}
 
 There is a command-line Node.js script that automates the 'move and switch' procedure,
 called '`couchmigrate`'.
@@ -308,6 +314,7 @@ The source code for the script is available here:
 <div id="stale"></div>
 
 ## The '`stale`' parameter
+{: #the-stale-parameter}
 
 If an index is complete,
 but new records are added into the database,

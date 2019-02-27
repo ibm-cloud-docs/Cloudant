@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Five tips for modelling your data to scale
+{: #five-tips-for-modelling-your-data-to-scale}
 
 This article considers the finer 
 points of modelling your application's data to work efficiently on a large scale.
@@ -36,6 +37,7 @@ performance characteristics you're hoping to achieve.
 Without further ado, let’s jump in.
 
 ## Consider immutable data
+{: #consider-immutable-data}
 
 If you are changing the same piece of state at a rate of once per second or more, consider 
 making your documents immutable. This significantly decreases the chance that you’ll create 
@@ -50,6 +52,7 @@ the documents which comprise the current state. As views are precomputed, this s
 adversely affect application performance.
 
 ## Why this helps you consider immutable data 
+{: #why-this-helps-you-consider-immutable-data}
 
 Behind our `https://$ACCOUNT.cloudant.com/` interface is a distributed database. 
 Within the cluster, documents are bucketed into a number of shards which collectively form the 
@@ -75,6 +78,7 @@ for updates more often than once a second, but recommend immutable documents for
 more than once every ten seconds to be on the safe side.
 
 ## Use views to pre-calculate results rather than as search indexes
+{: #use-views-to-pre-calculate-results-rather-than-as-search-indexes}
 
 Rather than using views as glorified search indexes - "get me all `person` documents" - try 
 to get the database to do work for you. For example, rather than retrieving all ten thousand 
@@ -85,6 +89,7 @@ small requests rather than reading huge amounts of data from disk to service a s
 request.
 
 ## Why this helps you use views to pre-calculate results
+{: #why-this-helps-you-use-views-to-pre-calculate-results}
 
 It's quite straightforward. First, note that both maps and reduces are precomputed. This means 
 that asking for the result of a reduce function is a cheap operation, particularly when 
@@ -105,6 +110,7 @@ the power of views to precompute aggregate data is one way to achieve this aim. 
 decreases the time your application spends waiting for the request to complete.
 
 ## De-normalise your data
+{: #de-normalise-your-data}
 
 In relational databases, normalising data is often the most efficient way to store data. 
 This makes a lot of sense when you can use JOINs to easily combine data from multiple tables. 
@@ -125,6 +131,7 @@ documents with a given tag by
 Querying the view for a given key will then provide all the documents with that tag.
 
 ## Why this helps you de-normalize your data
+{: #why-this-helps-you-de-normalize-your-data}
 
 It all comes down to the number of HTTP requests your application makes. There's a cost to 
 opening HTTP connections - particularly HTTPS - and, while re-using connections helps, making 
@@ -135,6 +142,7 @@ value your application requires generated ahead of time, rather than being const
 fly at query time.
 
 ## Avoid conflicts by using finer-grained documents
+{: #avoid-conflicts-by-using-finer-grained-documents}
 
 In tension with the advice to de-normalise your data is this next piece of advice: use 
 fine-grained documents to reduce the chance of concurrent modifications creating conflicts. 
@@ -184,6 +192,7 @@ a given entity from separate documents, helping to keep the number of HTTP reque
 though we’ve split up the data for a single modeled entity.
 
 ## Why this helps you avoid conflicts
+{: #why-this-helps-you-avoid-conflicts}
 
 Avoiding conflicted documents helps speed up many operations on your {{site.data.keyword.cloudant_short_notm}} databases. 
 This is because there’s a process which works out the current winning revision used each time 
@@ -204,6 +213,7 @@ reached, particularly if the conflicts are not resolved, it becomes very time-co
 memory-intensive to walk the document tree.
 
 ## Build in conflict resolution
+{: #build-in-conflict-resolution}
 
 In an eventually consistent system like {{site.data.keyword.cloudant_short_notm}}, conflicts will eventually happen. As 
 described above, this is a price of our scalability and data resilience.
@@ -224,12 +234,14 @@ How you do this is very application specific, but here's a few tips:
     making correct resolution difficult. And what if the other documents are conflicted?
 
 ## Why this helps you build in conflict resolution 
+{: #why-this-helps-you-build-in-conflict-resolution}
 
 As described above, heavily conflicted documents exert a heavy toll on the database. Building 
 in the capability to resolve conflicts from the beginning is a great help in avoiding 
 pathologically conflicted documents.
 
 ## Summary
+{: #summary}
 
 These tips demonstrate some of the ways modeling data will affect your application’s 
 performance. {{site.data.keyword.cloudant_short_notm}}’s data store has some specific characteristics, both to watch out for 

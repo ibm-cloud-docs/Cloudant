@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -34,6 +34,7 @@ extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the d
 {{site.data.keyword.dashdbshort_notm}} table.
 
 ### Extracting {{site.data.keyword.dashdbshort_notm}} login information for stopped Warehouse Jobs
+{: #extracting-db2-warehouse-on-cloud-login-information-for-stopped-warehouse-jobs}
 
 Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need the URL and credentials. This information is located in the warehouser document. 
 
@@ -122,6 +123,7 @@ For more information, you can also read this
 - On December 4th, 2017, {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality. Support for insecure HTTP connections was removed in favor of HTTPS only. As a result of turning off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
 
 ## Error handling
+{: #error-handling}
 
 - If you rely on 500 replies for your application, you might have issues. To fix the problem, 
 update your application to rely on 400 responses. 
@@ -131,12 +133,14 @@ you will have issues. To fix this problem, change the application to handle the 
 from view requests.  
 
 ## Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
+{: #incompatibility-between-couchdb-version-1-6-and-ibm-cloudant-version-2-0-0}
 
 - An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter 
 in the request body is ignored while the parameter in the request URL is respected. In recent versions of 
 {{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body is not ignored.
 
 ## Revised error message
+{: #revised-error-message}
 
 - The error message that occurs when you attempt to put a document attachment with a non-existent revision has changed to a 409 error with the following information:
 
@@ -156,6 +160,7 @@ and it is breaking your service, you must enable CORS, [Setting the CORS configu
 to the list of allowed `origins`.
 
 ## `dbcopy` (February 4, 2016)
+{: #-dbcopy-february-4-2016-}
 
 - The `dbcopy` feature can cause problems under some circumstances.
   Information about the feature has been removed from the documentation.

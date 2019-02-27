@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -23,6 +23,7 @@ lastupdated: "2019-02-01"
 <div id="consistency"></div>
 
 # CAP Theorem
+{: #cap-theorem}
 
 {{site.data.keyword.cloudantfull}} uses an ['Eventually Consistent' ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window} model.
 {: shortdesc}
@@ -78,6 +79,7 @@ To endure,
 the system must become more sophisticated.
 
 ## Tradeoffs in Partition Tolerance
+{: #tradeoffs-in-partition-tolerance}
 
 A database that prioritizes consistency and partition tolerance commonly employs a
 <a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">master-slave <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a>
@@ -105,6 +107,7 @@ As a result,
 some responses might contain old data while the new data propagates through the system.
 
 ## Changing the approach
+{: #changing-the-approach}
 
 Maintaining one consistent view of data is logical and easy to understand
 because a relational database does this work for you.
@@ -125,6 +128,7 @@ As Seth Gilbert and Nancy Lynch of MIT
 "most real-world systems today are forced to settle with returning 'most of the data, most of the time.'"
 
 ## Application availability versus consistency in the enterprise
+{: #application-availability-versus-consistency-in-the-enterprise}
 
 A look at popular web-based services shows that people already expect high availability,
 and happily trade this availability for eventually consistent data,
@@ -152,6 +156,7 @@ productivity loss,
 and missed opportunities.
 
 ## From theory to implementation
+{: #from-theory-to-implementation}
 
 Addressing high availability is vital for cloud applications.
 Otherwise,

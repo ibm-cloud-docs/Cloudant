@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: the code
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code}
 
 This section of the tutorial describes the code
 for an {{site.data.keyword.cloud}} application.
@@ -27,6 +28,7 @@ for an {{site.data.keyword.cloud}} application.
 <div id="theApp"></div>
 
 ## Creating your application
+{: #creating-your-application}
 
 The following components are now in place,
 ready to begin creating the application:
@@ -44,6 +46,7 @@ No attempt was made to create _efficient_ Python code for this tutorial. The int
 
 
 ### Essential files
+{: #essential-files}
 
 Your application requires three configuration files and one source file,
 all available in the [`starter` application pack](/docs/services/Cloudant/tutorials/create_bmxapp_appenv.html#starter):
@@ -86,6 +89,7 @@ Ensure that you modify the '`domain`', '`name`', '`host`', and '`services`' valu
     {: codeblock}
 
 ### The application code
+{: #the-application-code}
 
 The next step is to work on the application code.
 Each section is described and the code is presented.
@@ -93,6 +97,7 @@ A [complete listing](#complete-listing) of the application code
 is at the end of this section of the tutorial.
 
 #### Getting started
+{: #getting-started}
 
 The Python application requires some basic components to function.
 They are imported as follows:
@@ -195,6 +200,7 @@ target.write("\n====\n\n")
 {: codeblock}
 
 #### Working with the {{site.data.keyword.cloudant_short_notm}} database instance
+{: #working-with-the-ibm-cloudant-database-instance}
 
 The Python application runs within an {{site.data.keyword.cloud_notm}} application environment.
 The environment provides all the necessary information for the application to access connected services.
@@ -324,6 +330,7 @@ client.disconnect()
 {: codeblock}
 
 #### Closing the log file
+{: #closing-the-log-file}
 
 The next step is to finish the log file,
 ready to serve it using a simple Python web server within the application:
@@ -340,6 +347,7 @@ target.close()
 {: codeblock}
 
 #### Serving the log file
+{: #serving-the-log-file}
 
 The final task is to start the web server within the Python application.
 The sole purpose of the server is to return the log file on request.
@@ -372,6 +380,7 @@ httpd.server_close()
 The next step in the tutorial is to [upload the application](/docs/services/Cloudant/tutorials/create_bmxapp_upload.html) for testing purposes.
 
 ## Complete listing
+{: #complete-listing}
 
 The following code is the complete Python program to access an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}:
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: the application environment
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment}
 
 This section of the tutorial describes how to set up the application environment you must have
 for creating an {{site.data.keyword.cloud}} application.
@@ -27,6 +28,7 @@ for creating an {{site.data.keyword.cloud}} application.
 <div id="creating"></div>
 
 ## Creating an {{site.data.keyword.cloud_notm}} application environment
+{: #creating-an-ibm-cloud-application-environment}
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
@@ -73,6 +75,7 @@ create a 'connection' between the application environment and the database insta
 <div id="connecting"></div>
 
 ## Connecting {{site.data.keyword.cloud_notm}} applications and services
+{: #connecting-ibm-cloud-applications-and-services}
 
 This section of the tutorial explains how you connect
 {{site.data.keyword.cloud_notm}} application environments and services by using the configuration and management area of your application.
@@ -117,6 +120,7 @@ work with {{site.data.keyword.cloud_notm}} applications.
 <div id="toolkits"></div>
 
 ## The Cloud Foundry and {{site.data.keyword.cloud_notm}} command toolkits
+{: #the-cloud-foundry-and-ibm-cloud-command-toolkits}
 
 This section of the tutorial describes the toolkits that must be installed to work with
 your {{site.data.keyword.cloud_notm}} environment,
@@ -144,6 +148,7 @@ General information about the toolkits is available
 [here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/getting-started.html#getting-started-with-cloudant){: new_window}.
 
 ### Installing the Cloud Foundry toolkit
+{: #installing-the-cloud-foundry-toolkit}
 
 Some operating system distributions have a version of the Cloud Foundry toolkit available already.
 If the version supported is 6.11 or better,
@@ -180,6 +185,7 @@ use the following steps to download and install the Cloud Foundry toolkit on you
     {: tip}
 
 ### Installing the {{site.data.keyword.cloud_notm}} toolkit
+{: #installing-the-ibm-cloud-toolkit}
 
 Use the following steps to download and install the {{site.data.keyword.cloud_notm}} toolkit on your system.
 
@@ -219,6 +225,7 @@ After you install the command line interface, go back to the `Getting started` t
 <div id="starter"></div>
 
 ## The `starter` application
+{: #the-starter-application}
 
 This section of the tutorial describes an {{site.data.keyword.cloud_notm}}
 starter application,

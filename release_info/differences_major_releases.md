@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -16,7 +16,7 @@ lastupdated: "2019-02-19"
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019 -->
 
 # Differences between major {{site.data.keyword.cloudant_short_notm}} releases
 {: #differences-between-major-cloudant-nosql-db-releases}

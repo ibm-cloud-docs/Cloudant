@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-01-11 -->
 
 # Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: maintaining and troubleshooting
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting}
 
 This tutorial shows you how to maintain an
 {{site.data.keyword.cloud}} application,
@@ -28,6 +29,7 @@ hosted in your {{site.data.keyword.cloud_notm}} service instance.
 <div id="maintenance"></div>
 
 ## Performing basic application maintenance tasks
+{: #performing-basic-application-maintenance-tasks}
 
 This section of the tutorial explains how to refresh,
 start,
@@ -35,6 +37,7 @@ and stop,
 your Python applications on {{site.data.keyword.cloud_notm}}.
 
 ### Finding the status of your application
+{: #finding-the-status-of-your-application}
 
 The status of applications within your
 {{site.data.keyword.cloud_notm}} service instance is displayed on the dashboard.
@@ -45,6 +48,7 @@ and has a `Stopped` state:
 ![Screen capture showing dashboard for the application in a 'stopped' state](images/img0037.png)
 
 ### Starting your application
+{: #starting-your-application}
 
 If you attempt to start the tutorial application without first deleting the tutorial demonstration database, the application cannot work correctly. The application enters a cycle of attempting to start, failing because the database exists, stopping, then attempting to start again. To solve the problem, [stop the application](#stopping-your-application), then delete the tutorial demonstration database. The application can then start successfully.
 {: note}
@@ -53,6 +57,7 @@ To start a stopped application, click the `Start` option in the menu:<br/>
 ![Screen capture showing 'Start' option](images/img0039.png)
 
 ### Stopping your application
+{: #stopping-your-application}
 
 To stop a running application, click the `Stop` option in the menu:<br/>
 ![Screen capture showing 'Stop' option](images/img0041.png)
@@ -60,6 +65,7 @@ To stop a running application, click the `Stop` option in the menu:<br/>
 <div id="troubleshooting"></div>
 
 ### Uploading a fresh version of your application
+{: #uploading-a-fresh-version-of-your-application}
 
 To upload a fresh version of your application,
 simply follow the [upload process](/docs/services/Cloudant/tutorials/create_bmxapp_upload.html).
@@ -69,6 +75,7 @@ If the older version of the application is already running when you start the up
 {: tip}
 
 ## Diagnosing and resolving problems
+{: #diagnosing-and-resolving-problems}
 
 This section of the tutorial provides some basic troubleshooting tips to help
 you identify,
@@ -87,6 +94,7 @@ For reasons of simplicity, this tutorial does write content to the local file sy
 {: tip}
 
 ### Using the application log
+{: #using-the-application-log}
 
 The most useful resource for diagnosing and resolving problems with
 {{site.data.keyword.cloud_notm}} application is the log file.
@@ -145,5 +153,6 @@ and provides as much detail as possible.
 You must then apply normal application troubleshooting procedures to resolve the problem.
 
 ## End of tutorial
+{: #end-of-tutorial}
 
 The tutorial is complete.

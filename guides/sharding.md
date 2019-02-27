@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,8 +19,10 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # How is data stored in {{site.data.keyword.cloudant_short_notm}}?
+{: #how-is-data-stored-in-ibm-cloudant-}
 
 ## Concepts
+{: #concepts}
 
 Every database in {{site.data.keyword.cloudantfull}} is formed of one or more distinct _shards_,
 where the number of shards is referred to as _Q_.
@@ -59,6 +61,7 @@ to achieve a good balance between performance and data safety.
 It would be exceptional and unusual for an {{site.data.keyword.cloudant_short_notm}} system to use a different replica count.
 
 ## How does sharding affect performance?
+{: #how-does-sharding-affect-performance-}
 
 The number of shards for a database is configurable
 because it affects database performance in a number of ways.
@@ -164,8 +167,10 @@ The numbers in these guidelines are derived from observation and experience rath
 <div id="API"></div>
 
 ## Working with shards
+{: #working-with-shards}
 
 ### Setting shard count
+{: #setting-shard-count}
 
 The number of shards,
 _Q_,
@@ -200,6 +205,7 @@ similar to the following example:
 {: codeblock}
 
 ### Setting the replica count
+{: #setting-the-replica-count}
 
 In CouchDB version 2 onwards,
 you are allowed to [specify the replica count ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window}
@@ -211,6 +217,7 @@ it is not possible to specify a different replica count value when you create a 
 For further help, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 
 ### What are the _R_ and _W_ arguments?
+{: #what-are-the-_r_-and-_w_-arguments-}
 
 Some requests can have arguments that affect the coordinator's behavior when it answers the request.
 These arguments are known as _R_ and _W_ after their names in the request query string.
@@ -223,6 +230,7 @@ For example,
 specifying either _R_ or _W_ does not alter consistency for the read or write.
 
 #### What is _R_?
+{: #what-is-_r_-}
 
 The _R_ argument can be specified on single document requests only.
 _R_ affects how many responses must be received by the coordinator before it replies to the client.
@@ -242,6 +250,7 @@ If the database has a number of replicas that is higher or lower than 3,
 the default value for _R_ changes correspondingly.
 
 #### What is _W_?
+{: #what-is-_w_-}
 
 _W_ can be specified on single document write requests only.
 

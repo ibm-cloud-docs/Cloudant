@@ -68,6 +68,7 @@ Any pre-existing data in the destination database remains.
 <div id="how-do-i-initiate-replication-via-the-dashboard-"></div>
 
 ## How to start replication by using the dashboard
+{: #how-to-start-replication-by-using-the-dashboard}
 
 The {{site.data.keyword.cloudant_short_notm}} dashboard provides a convenient user interface to trigger replication.
 Click the `Replication` tab on the {{site.data.keyword.cloudant_short_notm}} dashboard, and click `Start Replication`.
@@ -431,6 +432,7 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 {: codeblock}
 
 ## Other replication use cases
+{: #other-replication-use-cases}
 
 {{site.data.keyword.cloudant_short_notm}}’s replication protocol is compatible with other databases and libraries for various real-world applications.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -46,6 +46,7 @@ If you are using a Windows computer, you can specify your user name and password
 {: tip}
 
 ## Encode user name and password
+{: #encode-user-name-and-password}
 
 First we base64-encode your {{site.data.keyword.cloudant_short_notm}} user name and password.
 This gives us a base64 character sequence as output.
@@ -78,6 +79,7 @@ Remember that your password is still stored in plain text on your computer; base
 {: note}
 
 ## Create an alias
+{: #create-an-alias}
 
 Now we create an alias for `curl` that includes these credentials so we don’t have to enter them
 every time we write a `curl` command.
@@ -95,10 +97,12 @@ It also forces the use of HTTPS which we strongly recommend over plain HTTP
 as it encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
 
 ## Activate the alias
+{: #activate-the-alias}
 
 Now start a new shell or run `source ~/.bash_profile` (or `~/.bashrc` if you used that) to make the alias functional.
 
 ## Testing `acurl`
+{: #testing-acurl-}
 
 Now let's make sure everything is set up correctly.
 Go ahead and run:

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-01"
 <!-- Acrolinx: 2017-05-10 -->
 
 # Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}
+{: grouping-related-documents-together-in-ibm-cloudant}
 
 Traditionally,
 e-commerce systems are built with relational databases.
@@ -117,6 +118,7 @@ typically at the point when they enter the "checkout" phase on the website,
 a purchase order record is created similar to the previous example. 
 
 ## Generating your own unique identifiers (UUIDs)
+{: #generating-your-own-unique-identifiers-uuids-}
 
 In a relational database,
 sequential "auto incrementing" numbers are often used,
@@ -132,6 +134,7 @@ The same endpoint can be used to generate multiple ids by adding a `count` param
 for example, `/_uuids?count=10`.
 
 ## Recording payments
+{: #recording-payments}
 
 When the customer successfully pays for their items,
 additional records are added to the database to record the order.
@@ -243,6 +246,7 @@ is good practice in {{site.data.keyword.cloudant_short_notm}},
 since it avoids the possibility of creating conflicts when multiple processes modify the same document simultaneously.
 
 ## Adding additional documents
+{: #adding-additional-documents}
 
 You could add other,
 separate documents to the database to record the following state changes as the order is provisioned and dispatched:
@@ -257,6 +261,7 @@ Therefore,
 it is not necessary to modify the core purchase document.
 
 ## Advantages of storing purchase orders in {{site.data.keyword.cloudant_short_notm}}
+{: #advantages-of-storing-purchase-orders-in-ibm-cloudant}
 
 Using {{site.data.keyword.cloudant_short_notm}} to store purchase order information allows an ordering system to be highly available and scalable,
 enabling you to deal with large volumes of data and high rates of concurrent access.

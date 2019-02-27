@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -19,6 +19,7 @@ lastupdated: "2019-02-19"
 <!-- Acrolinx: 2018-09-19 -->
 
 # Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}
+{: #creating-an-ibm-cloudant-instance-on-ibm-cloud}
 
 This tutorial shows you how to create an {{site.data.keyword.cloudantfull}}
 service instance using the {{site.data.keyword.cloud}} dashboard,
@@ -27,6 +28,7 @@ to work with the database.
 {: shortdesc} 
 
 ## Creating a service instance
+{: #creating-a-service-instance}
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
@@ -74,6 +76,7 @@ The service credentials in these examples were defined when a demonstration {{si
 {: note}
 
 ## The service credentials
+{: #the-service-credentials}
 
 Service credentials are valuable. If anyone or any application has access to the credentials, they can effectively do whatever they want with the service instance. For example, they might create spurious data, or delete valuable information. Protect these credentials carefully.
     
@@ -98,6 +101,7 @@ Field | Purpose
 To create an application that can access your service instance, you need these credentials.
 
 ## Locating your service credentials
+{: #locating-your-service-credentials}
 
 At any time, you can find the credentials for a service that is associated with your account.
 

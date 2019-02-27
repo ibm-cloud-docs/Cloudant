@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-26"
 
 ---
 
@@ -21,6 +21,7 @@ lastupdated: "2019-02-19"
 <div id="back-up-your-data-using-replication"></div>
 
 # Replication incrementals
+{: #replication-incrementals}
 
 This guide contains older or 'deprecated' guidance on {{site.data.keyword.cloudantfull}} backup. For current backup guidance, see the [Disaster Recovery and Backup](/docs/services/Cloudant/guides/disaster-recovery-and-backup.html) guide.
 {: deprecated}
@@ -45,6 +46,7 @@ In this way,
 a backup can preserve the state of your database at a selected time.
 
 ## Incremental backups
+{: #incremental-backups}
 
 If you are an Enterprise customer,
 a daily incremental backup capability is [available/docs/services/Cloudant/guides/disaster-recovery-and-backup.html).
@@ -78,6 +80,7 @@ However, each interval must be 24 hours or more. In other words, you can run dai
 {: note}
 
 ## Creating an incremental backup
+{: #creating-an-incremental-backup}
 
 Incremental backups save only the differences or 'deltas' between backups.
 Every 24 hours,
@@ -110,6 +113,7 @@ By definition, using the `since_seq` option bypasses the normal checkpointing fa
 {: note}
 
 ## Restoring a database
+{: #restoring-a-database}
 
 To restore a database from incremental backups,
 you replicate each incremental backup to a new database,
