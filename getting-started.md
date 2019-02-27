@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing
 
@@ -37,8 +37,6 @@ In addition to this tutorial, see our hands-on tutorials that help you learn mor
 - [Swift and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
 For more language-specific tutorials, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/){: new_window}. 
-
-<div id="prerequisites"></div>
 
 ## Before you begin
 {: #prereqs}

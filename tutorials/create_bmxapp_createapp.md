@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-27"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -28,8 +28,6 @@ subcollection: cloudant
 This section of the tutorial describes the code
 for an {{site.data.keyword.cloud}} application.
 {: shortdesc}
-
-<div id="theApp"></div>
 
 ## Creating your application
 {: #creating-your-application}

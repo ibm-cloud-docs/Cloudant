@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-27"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -28,8 +28,6 @@ subcollection: cloudant
 This section of the tutorial describes how to upload an
 {{site.data.keyword.cloud}} application.
 {: shortdesc}
-
-<div id="uploading"></div>
 
 ## Connecting to {{site.data.keyword.cloud_notm}}
 {: #connecting-to-ibm-cloud}

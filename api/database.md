@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -79,8 +79,6 @@ account.db.create($DATABASE, function (err, body, headers) {
 
 -->
 
-<div id="response"></div>
-
 If creation succeeds, you get a [201 or 202 response](/docs/services/Cloudant/api/http.html#http-status-codes).
 An error response uses 
 the HTTP status code to indicate what went wrong.
@@ -119,8 +117,6 @@ contact {{site.data.keyword.cloudant_short_notm}} support.
 It is not possible to modify the configuration that is used for databases
 on multi-tenant clusters.
 {: note}
-
-<div id="read"></div>
 
 ## Getting database details 
 {: #getting-database-details}
@@ -201,8 +197,6 @@ _Example (abbreviated) response that contains database details:_
 }
 ```
 {: codeblock}
-
-<div id="get-databases"></div>
 
 ## Get a list of all databases in the account
 {: #get-a-list-of-all-databases-in-the-account}
@@ -646,8 +640,6 @@ If you set `feed=longpoll`,
 requests sent to the server remain open until changes are reported.
 This option helps when monitoring changes continuously.
 
-<div id="continuous-feed"></div>
-
 If you set `feed=continuous`,
 new changes are reported without closing the connection.
 This option means that the database connection stays open until explicitly closed,
@@ -770,8 +762,6 @@ More information about the behavior of the `_changes` response is
 provided in the
 [replication guide](/docs/services/Cloudant/guides/replication_guide.html#how-does-replication-affect-the-list-of-changes-).
 
-<div id="changes_responses"></div>
-
 ### Responses from the `_changes` request
 {: #responses-from-the-_changes-request}
 
@@ -834,8 +824,6 @@ _Example (abbreviated) response to a `_changes` request:_
 	but might vary between shards.
 	This variation means that if you have sequence values from different shards,
 	you cannot assume that the same sequence value refers to the same document within the different shards.
-
-<div id="post"></div>
 
 ### Using `POST` to get changes
 {: #using-post-to-get-changes}

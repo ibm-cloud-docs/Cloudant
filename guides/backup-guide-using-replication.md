@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -21,8 +21,6 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
-
-<div id="back-up-your-data-using-replication"></div>
 
 # Replication incrementals
 {: #replication-incrementals}
@@ -140,8 +138,6 @@ This example shows how to:
 3.  Set up and run an incremental backup.
 4.  Restore a backup.
 
-<div id="constants-used-in-this-guide"></div>
-
 ### Constants that are used here
 
 ```sh
@@ -159,8 +155,6 @@ You can use the `curl` and [`jq` ![External link icon](../images/launch-glyph.sv
 commands to run these operations.
 In practice,
 you might use any HTTP client.
-
-<div id="step-1-check-you-have-three-databases"></div>
 
 ### Step 1: Check that you have three databases
 
@@ -242,8 +236,6 @@ _JSON document that describes the full backup:_
 ```
 {: codeblock}
 
-<div id="step-4-get-checkpoint-id"></div>
-
 ### Step 4: Prepare incremental backup part 1 - Get checkpoint ID
 
 On Tuesday,
@@ -278,8 +270,6 @@ GET /_replicator/full-backup-monday HTTP/1.1
 replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replication_id')
 ```
 {: pre}
-
-<div id="step-5-get-recorded_seq-value"></div>
 
 ### Step 5: Prepare incremental backup part 2 - Get `recorded_seq` value
 
@@ -489,8 +479,6 @@ _Example of JSON document that sets the IO priority:_
 }
 ```
 {: codeblock}
-
-<div id="design-documents"></div>
 
 ### Backing up design documents
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -114,8 +114,6 @@ When returned,
 the resulting document contains a `_conflicts` array,
 which includes a list of all the conflicting revisions.
 
-<div></div>
-
 > Example map function to find document conflicts:
 
 ```
@@ -146,8 +144,6 @@ Once you've found a conflict, you can resolve it by following 4 steps:
 3.	[Upload](#upload-the-new-revision) the new revision.
 4.	[Delete](#delete-old-revisions) the old revisions.
 
-<div></div>
-
 > Example document - the first version.
 
 ```json
@@ -164,8 +160,6 @@ Let's consider an example of how this can be done.
 Suppose you have a database of products for an online shop.
 The first version of a document might look like the example provided.
 
-<div></div>
-
 > Second version (first revision) of the document, adding a description.
 
 ```json
@@ -180,8 +174,6 @@ The first version of a document might look like the example provided.
 
 The document doesn't have a description yet,
 so someone might add one.
-
-<div></div>
 
 > _Alternative_ second version, introducing a price reduction data change to the first version of the document.
 
@@ -215,7 +207,6 @@ similar to the following example:
 
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
-<div></div>
 
 > Example response to document retrieval, showing conflicting revisions
 

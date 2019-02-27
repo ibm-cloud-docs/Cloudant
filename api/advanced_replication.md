@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication 
 
@@ -179,9 +179,6 @@ the [replication scheduler](/docs/services/Cloudant/api/advanced_replication.htm
 
 The previous technique of checking replication status by inspecting the [replication document](#status-checking-by-using-the-replication-document) is still available.
 {: note}
-
-
-<div id="status-checking-using-the-replication-scheduler"></div>
 
 ### Status checking by using the replication scheduler
 {: #status-checking-by-using-the-replication-scheduler}
@@ -363,8 +360,6 @@ _Example response from using the `_job_id` parameter:_
 
 The response that is received from the replication scheduler shows the history and status of all replications.
 
-<div id="status-checking-using-the-replication-document"></div>
-
 ### Status checking by using the replication document
 {: #status-checking-by-using-the-replication-document}
 
@@ -437,8 +432,6 @@ _Example of automatic update to replication document, which is updated after rep
 {: codeblock}
 
 A continuous replication can never have a `completed` state.
-
-<div id="authentication"></div>
 
 ## Authentication during replication
 {: #authentication-during-replication}

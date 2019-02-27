@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: authentication, basic authentication, cookie authentication
 
@@ -228,8 +228,6 @@ _JSON part of response:_
 }
 ```
 {: codeblock}
-
-<div id="getting-cookie-information"></div>
 
 ### Getting cookie-authenticated information
 {: #getting-cookie-authenticated-information}

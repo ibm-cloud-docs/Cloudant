@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-27"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -57,8 +57,6 @@ Expect a result similar to the following output:
 Python 2.7.12
 ```
 {: codeblock}
-
-<div id="csi"></div>
 
 ### An {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}

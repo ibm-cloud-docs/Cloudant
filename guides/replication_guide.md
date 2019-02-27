@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -21,8 +21,6 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
-
-<div id="replication"></div>
 
 # Replication guide
 {: #replication-guide}
@@ -69,8 +67,6 @@ The source database remains unaltered by replication,
 apart from checkpoint data that is written to it to allow partial replications to resume from the last known position.
 Any pre-existing data in the destination database remains.
 
-<div id="how-do-i-initiate-replication-via-the-dashboard-"></div>
-
 ## How to start replication by using the dashboard
 {: #how-to-start-replication-by-using-the-dashboard}
 
@@ -94,8 +90,6 @@ Each job changes state from `Running` to `Completed` as it progresses.
 
 ![replication4](../images/replication_guide_4.png)
 
-<div id="how-do-i-run-replication-across-different-cloudant-accounts-"></div>
-
 ## How to run replication across different {{site.data.keyword.cloudant_short_notm}} accounts
 {: #how-to-run-replication-across-different-ibm-cloudant-accounts}
 
@@ -117,8 +111,6 @@ The source and target database names do not need to match.
 You must be authorized to access both the source and target,
 and you must be authorized to write to the target.
 
-<div id="do-i-run-replication-on-the-source-or-the-destination-"></div>
-
 ## Is replication run on the source or the destination?
 {: #is-replication-run-on-the-source-or-the-destination}
 
@@ -130,8 +122,6 @@ it might not be possible to run replication in either configuration,
 for example when one account is behind a firewall.
 Replication happens over HTTP or HTTPS and so no non-standard ports need be opened.
 The decision as to which device starts replication is yours.
-
-<div id="how-do-i-initiate-replication-via-the-cloudant-api-"></div>
 
 ## How to start replication by using the {{site.data.keyword.cloudant_short_notm}} API
 {: #how-to-start-replication-by-using-the-ibm-cloudant-api}
@@ -239,8 +229,6 @@ All the changes are listed,
 but in a different order.
 This difference is because the sequence of changes that are received during replication
 might vary between two different copies of the database.
-
-<div id="what-this-means-for-the-list-of-changes"></div>
 
 ### What 'eventual consistency' means for the list of changes
 {: #what-eventual-consistency-means-for-the-list-of-changes}
@@ -514,8 +502,6 @@ Examples include:
 -   Segregating data into smaller chunks,
     such as storing UK data in one database and US data in another.
 
-<div id="replication-filter-function"></div>
-
 ### Replication filter functions
 {: #replication-filter-functions}
 
@@ -637,8 +623,6 @@ _Example `_changes` feed:_
 ```
 {: codeblock}
 
-<div id="changes-feed-since"></div>
-
 To join the changes feed from a known position,
 pass a [`since` argument](/docs/services/Cloudant/api/database.html#the-since-argument) with the sequence number you want to start from.
 
@@ -657,8 +641,6 @@ _Example (abbreviated) of using the command line to supply the `since` option to
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
 ```
 {: codeblock}
-
-<div id="changes-feed-since-now"></div>
 
 To rejoin the changes feed from the current moment in time,
 set `since=now`.
@@ -701,8 +683,6 @@ Example use cases might be:
     such as sending a customer email.
 -   Update an in-memory database to record live counts of activity.
 -   Writing data to a text file to push data into an SQL database.
-
-<div id="changes-feed-filtering"></div>
 
 The changes feed can be filtered with a filter function,
 by using a similar technique to [filtering during replication](#filtered-replication).
@@ -785,8 +765,6 @@ as shown in the following example:
 GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 ```
 {: codeblock}
-
-<div id="resetting-replicator-database"></div>
 
 If you want to cancel all replications and start with a new,
 clean `_replicator` database,

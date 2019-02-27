@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-27"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -161,8 +161,6 @@ There are many CouchDB clients listed on
 {: #examples-and-tutorials-for-ruby}
 
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/ruby){: new_window}.
-
-<div id="couchdb"></div>
 
 ## Meteor
 {: #meteor}

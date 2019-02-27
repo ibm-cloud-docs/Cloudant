@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: couchbackup, data center outage, disaster recovery, high availability, automatic fail over, geo-load balancing, accidental or malicious data modification
 
@@ -44,8 +44,6 @@ from within a cluster without losing data.
 However,
 even with these HA and DR characteristics,
 there are other use cases where you might want enhanced backup of data.
-
-<div id="activepassive"></div>
 
 ### Data Center outage and Disaster Recovery
 {: #data-center-outage-and-disaster-recovery}

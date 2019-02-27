@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -215,8 +215,6 @@ selector passed to the query.
 Using appropriate indexes is key for reducing read consumption for partitioned
 {{site.data.keyword.cloudant_short_notm}} Query queries.
 
-<div id="servicetier"></div>
-
 ### Viewing and changing capacity
 {: #viewing-and-changing-capacity}
 
@@ -235,8 +233,6 @@ complete.
 
 The size of the capacity increase is limited to 10 units (1000 reads/second, 500 writes/second, and 50 global queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 {: note}
-
-<div id="throughput"></div>
 
 ### Monitoring usage 
 {: #monitoring-usage}

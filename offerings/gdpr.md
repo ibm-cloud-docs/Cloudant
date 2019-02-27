@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -126,7 +126,7 @@ As a user of {{site.data.keyword.cloudant_short_notm}}, you should:
 
 ### Physical And Environmental Security Measures
 
-Physical security of our data centers is handled by our infrastructure providers: SoftLayer, 
+Physical security of our data centers is handled by our infrastructure providers: {{site.data.keyword.cloud}}, 
 AWS, and 21Vianet. All hold externally audited certifications for their physical security. {{site.data.keyword.cloudant_short_notm}} 
 will not be providing further details of the physical security controls in place at our data 
 centers.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -61,8 +61,6 @@ Removed for 96973.
 </p></td><td>Delete a virtual host.</td>
 </tr>
 -->
-
-<div id="comparetable"></div>
 
 <table>
 
