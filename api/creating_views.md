@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: views, mapreduce, concepts, index partitioning type, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning
 
@@ -21,10 +21,6 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 
 <!-- Acrolinx: 2019 -->
-
-<div id="working-with-views"></div>
-
-<div id="creating-views"></div>
 
 # Views (MapReduce)
 {: #views-mapreduce}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-27"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -146,8 +146,6 @@ and use this information to guide the future selection of an appropriate number 
 Testing with representative data and request patterns is essential for better estimation of good _Q_ values.
 Be prepared for production experience to alter those expectations.
 
-<div id="summary"></div>
-
 The following simple guidelines might be helpful during the early planning stages.
 Remember to validate your proposed configuration by testing with representative data,
 particularly for larger databases:
@@ -167,8 +165,6 @@ particularly for larger databases:
 
 The numbers in these guidelines are derived from observation and experience rather than precise calculation.
 {: tip}
-
-<div id="API"></div>
 
 ## Working with shards
 {: #working-with-shards}

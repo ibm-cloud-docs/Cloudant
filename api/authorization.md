@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: authorization, roles, permissions, _users database
 
@@ -497,8 +497,6 @@ To remove the API key,
 send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/docs/services/Cloudant/api/authorization.html#creating-api-keys).
 Provide an updated list of the user names that have access permission.
 The updated list _must omit_ the API key.
-
-<div id="enabling-the-_users-database-with-cloudant"></div>
 
 ## Using the `_users` database with {{site.data.keyword.cloudant_short_notm}}
 {: #using-the-_users-database-with-cloudant-nosql-db}

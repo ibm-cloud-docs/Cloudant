@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-27"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -70,9 +70,6 @@ _Example response when you search for information in the warehouser document:_
 ```
 
 The information returned in the previous example is described in the following list:
-
-
-<div id="warehouser-fields"></div>
 
 <table border='1'>
 

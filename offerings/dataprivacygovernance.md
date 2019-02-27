@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -28,7 +28,7 @@ _(This {{site.data.keyword.cloudantfull}} Data Privacy and Governance Update was
 
 As a pioneer in the provision of a fully managed and globally distributable Database-as-a-Service,
 {{site.data.keyword.cloudant_short_notm}} allows customers to locate data in any
-global {{site.data.keyword.BluSoftlayer_full}} or AWS region.
+global {{site.data.keyword.cloud}} or AWS region.
 By providing customers with such high levels of data mobility to serve the local needs of customers,
 {{site.data.keyword.IBM}},
 and {{site.data.keyword.cloudant_short_notm}} take data privacy and governance seriously.
@@ -70,7 +70,7 @@ More information about {{site.data.keyword.cloudant_short_notm}}'s overall stand
 Similar information can be found for these IaaS business partners:
 
 -   [Amazon ![External link icon](../images/launch-glyph.svg "External link icon")](https://aws.amazon.com/compliance/){: new_window}
--   [{{site.data.keyword.BluSoftlayer_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.softlayer.com/compliance){: new_window}
+-   [{{site.data.keyword.cloud}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/compliance){: new_window}
 
 Following the recent vote in favor of new
 [General Data Protection Regulations ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){: new_window},

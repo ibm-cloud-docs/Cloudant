@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -110,8 +110,6 @@ In other words,
 your application would see the document content as it was *before* the write or update occurred.
 For more information about this model,
 see the topic on [Consistency](/docs/services/Cloudant/guides/cap_theorem.html).
-
-<div id="documentCreate"></div>
 
 ## Create
 {: #create-document}
@@ -377,8 +375,6 @@ _Example response after a successful update:_
 }
 ```
 {: codeblock}
-
-<div id="document-delete"></div>
 
 ## Delete
 {: #delete}
@@ -651,8 +647,6 @@ However,
 if a document version is _also_ present within another revision branch,
 then the purging process halts before it removes the version that would 'orphan' the revision branch.
 
-<div id="sampleDocumentStructure"></div>
-
 For example,
 in the following diagram,
 an original document with revision value `1-7a7e4b29f3af401e69b6f86e4c26b727`
@@ -746,8 +740,6 @@ and new document values.
 A special case of bulk operations is the [`_bulk_get`](#the-_bulk_get-endpoint) endpoint.
 {: tip}
 
-<div id="request-body"></div>
-
 ### Bulk request structure
 {: #bulk-request-structure}
 
@@ -757,7 +749,6 @@ Field  | Description             | Type             | Optional
 -------|-------------------------|------------------|---------
 `docs` | Bulk Documents Document | Array of objects | no
 
-<div id="object-in-docs-array"></div>
 
 Each `docs` array object has the following structure:
 
@@ -830,8 +821,6 @@ _Example JSON describing the update, creation, and deletion of three documents i
 }
 ```
 {: codeblock}
-
-<div id="response"></div>
 
 ### Bulk request responses
 {: #bulk-request-responses}
@@ -1106,8 +1095,6 @@ Field  | Description             | Type
 -------|-------------------------|-----
 `docs` | Bulk Documents Document | Array of objects
 
-<div id="fields-of-objects-in-docs-array"></div>
-
 Each `docs` array object has the following structure:
 
 Field    | Description                        | Type
@@ -1231,8 +1218,6 @@ _Example JSON structure that is returned after bulk get:_
 }
 ```
 {: codeblock}
-
-<div id="quorum"></div>
 
 ## Quorum - writing and reading data
 {: #quorum-writing-and-reading-data}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-27"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -28,8 +28,6 @@ subcollection: cloudant
 This section of the tutorial describes how to set up the application environment you must have
 for creating an {{site.data.keyword.cloud}} application.
 {: shortdesc}
-
-<div id="creating"></div>
 
 ## Creating an {{site.data.keyword.cloud_notm}} application environment
 {: #creating-an-ibm-cloud-application-environment}
@@ -76,8 +74,6 @@ You now have an {{site.data.keyword.cloud_notm}} Python application environment 
 To work with an {{site.data.keyword.cloudant_short_notm}} database instance,
 create a 'connection' between the application environment and the database instance.
 
-<div id="connecting"></div>
-
 ## Connecting {{site.data.keyword.cloud_notm}} applications and services
 {: #connecting-ibm-cloud-applications-and-services}
 
@@ -120,8 +116,6 @@ This section of the tutorial explains how you connect
 The application environment and the database instance are now connected.
 The next step is to ensure that the necessary tools are installed for you to
 work with {{site.data.keyword.cloud_notm}} applications.
-
-<div id="toolkits"></div>
 
 ## The Cloud Foundry and {{site.data.keyword.cloud_notm}} command toolkits
 {: #the-cloud-foundry-and-ibm-cloud-command-toolkits}
@@ -170,7 +164,7 @@ use the following steps to download and install the Cloud Foundry toolkit on you
 
 4.  Follow the instructions on the page to download and run the most recent version of the installer for your system.
 
-5.  <div id='checkCFversion'></div>To check that you have a working Cloud Foundry toolkit,
+5.  To check that you have a working Cloud Foundry toolkit,
     run the following command at a prompt:
 
     ```sh
@@ -225,9 +219,6 @@ an {{site.data.keyword.cloud_notm}} application.
 After you install the command line interface, go back to the `Getting started` tab in the dashboard to download, modify, and redeploy your Cloud Foundry applications and service instances with the command line interface. 
 {: note}
 
-
-<div id="starter"></div>
-
 ## The `starter` application
 {: #the-starter-application}
 
@@ -251,8 +242,6 @@ Three files in particular are essential:
 -   [`Procfile`](#the-procfile-file)
 -   [`manifest.yml`](#the-manifest.yml-file)
 -   [`requirements.txt`](#the-requirements.txt-file)
-
-<div id="procfile"></div>
 
 ### The `Procfile` file
 {: #the-procfile-file}
@@ -324,8 +313,6 @@ Three points are worth noting:
 
 You do not normally need to modify the `manifest.yml` file,
 however it is helpful to understand why it must be present for your application to work.
-
-<div id="requirements"></div>
 
 ### The `requirements.txt` file
 {: #the-requirements.txt-file}

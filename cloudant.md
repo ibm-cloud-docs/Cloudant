@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: links to documentation, how to contribute
 
@@ -56,8 +56,6 @@ along with [tutorials](/docs/services/Cloudant/tutorials/create_service.html#cre
 More information about details such as authenticating with database instances,
 and querying data,
 is available in the [API reference](/docs/services/Cloudant/api/index.html#api-reference-overview).
-
-<div id="contents"></div>
 
 ## Documentation Contents
 {: #documentation-contents}

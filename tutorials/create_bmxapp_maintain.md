@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-27"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -29,8 +29,6 @@ This tutorial shows you how to maintain an
 {{site.data.keyword.cloud}} application,
 hosted in your {{site.data.keyword.cloud_notm}} service instance.
 {: shortdesc}
-
-<div id="maintenance"></div>
 
 ## Performing basic application maintenance tasks
 {: #performing-basic-application-maintenance-tasks}
@@ -65,8 +63,6 @@ To start a stopped application, click the `Start` option in the menu:<br/>
 
 To stop a running application, click the `Stop` option in the menu:<br/>
 ![Screen capture showing 'Stop' option](images/img0041.png)
-
-<div id="troubleshooting"></div>
 
 ### Uploading a fresh version of your application
 {: #uploading-a-fresh-version-of-your-application}

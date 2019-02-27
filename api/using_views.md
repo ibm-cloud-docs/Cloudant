@@ -227,9 +227,6 @@ If you want to save old index versions without incurring indexing overhead, you 
 	}
 ```
 
-
-<div id="accessing-a-stale-view"></div>
-
 ## View freshness
 {: #view-freshness}
 
@@ -545,8 +542,6 @@ _Example response after running a query that uses a list of keys:_
 }
 ```
 {: codeblock}
-
-<div id="include_docs_caveat"></div>
 
 ## Multi-document Fetching
 {: #multi-document-fetching}

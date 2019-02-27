@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -213,8 +213,6 @@ The tools supported by {{site.data.keyword.cloudant_short_notm}} have the follow
 	but when data is restored the indexes must be rebuilt.
 	This rebuilding might take a considerable amount of time,
 	depending on how much data is restored.
-
-<div id="conclusion"></div>
 
 ## Next steps
 {: #next-steps}

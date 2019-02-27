@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -21,10 +21,6 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-24 -->
-
-<div id="cap_theorem"></div>
-
-<div id="consistency"></div>
 
 # CAP Theorem
 {: #cap-theorem}

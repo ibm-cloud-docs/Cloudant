@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -574,8 +574,6 @@ _Example of a response body with two indexes:_
 -	**Request Body**: None
 -	**Roles**: `_writer`
 
-<div id="finding-documents-using-an-index"></div>
-
 ## Finding documents by using an index
 {: #finding-documents-by-using-an-index}
 
@@ -955,8 +953,6 @@ _Example of an implicit `$and` operator:_
 }
 ```
 {: codeblock}
-
-<div id="combined-expressions"></div>
 
 You can make both the `$and` operator and the equality operator explicit.
 
@@ -2041,8 +2037,6 @@ then the match is considered a success.
 Like Cloudant Search indexes, Cloudant Query indexes of `type: text` are limited to 200 results when queried.
 {: tip}
 
-<div id="selector-translation"></div>
-
 ### Selector conversion
 {: #selector-conversion}
 
@@ -2160,8 +2154,6 @@ _Corresponding Lucene query. The '#' comments are not valid Lucene syntax, but h
 )
 ```
 {: codeblock}
-
-<div id="example-movies-demo-database"></div>
 
 ## Example: Movies demonstration database
 {: #example-movies-demonstration-database}

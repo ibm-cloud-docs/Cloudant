@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -316,8 +316,6 @@ then the script returns almost immediately.
 
 The source code for the script is available here:
 [https://github.com/glynnbird/couchmigrate ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/couchmigrate){: new_window}.
-
-<div id="stale"></div>
 
 ## The '`stale`' parameter
 {: #the-stale-parameter}

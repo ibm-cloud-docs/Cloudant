@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -132,8 +132,6 @@ are called BLOBs (Binary Large OBjects),
 and can be stored as attachments associated with documents.
 
 More information about JSON can be found in the [JSON Guide](/docs/services/Cloudant/guides/json.html).
-
-<div id="distributed"></div>
 
 ## Distributed Systems
 {: #distributed-systems}

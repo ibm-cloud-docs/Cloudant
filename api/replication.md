@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
 
@@ -21,8 +21,6 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-04-25 -->
-
-<div id="ReplicationAPI"></div>
 
 # Replication
 {: #replication-api}
@@ -92,8 +90,6 @@ _Example error response if one of the requested databases for a replication does
 ```
 {: codeblock}
 
-<div id="replication-database-maintenance"></div>
-
 ## Important notes
 {: #important-notes}
 
@@ -119,8 +115,6 @@ _Example error response if one of the requested databases for a replication does
   
 For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/services/Cloudant/api/authorization.html#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/services/Cloudant/guides/iam.html){: new_window} or the legacy [Authentication API document](/docs/services/Cloudant/api/authentication.html){: new_window} and the legacy [Authorization API document](/docs/services/Cloudant/api/authorization.html){: new_window}.
 {: important}
-
-<div id="replicator-database"></div>
 
 ## The `_replicator` database
 {: #the-_replicator-database}
@@ -152,8 +146,6 @@ You must use the *full* URL when you specify the source and target databases in 
 
 The format of the document that is used to describe a replication is as follows:
 
-<div id="checkpoints"></div>
-
 Field Name | Required | Description
 -----------|----------|-------------
 `source` | yes | Identifies the database to copy revisions from. Can be a database URL, or an object whose url property contains the full URL of the database.
@@ -172,8 +164,6 @@ Field Name | Required | Description
 
 Optionally, replication documents can have a user-defined `_id`.
 {: note}
-
-<div id="selector-field"></div>
 
 ### The `selector` field
 {: #the-selector-field}
@@ -230,8 +220,6 @@ _Example error response if the selector is not valid:_
 ```
 {: codeblock}
 
-<div id="since-seq-field"></div>
-
 ### The `since_seq` field
 {: #the-since_seq-field}
 
@@ -257,8 +245,6 @@ This field might be used for creating incremental copies of databases. To do thi
 
 By definition, using `since_seq` disables the normal replication checkpointing facility, so use `since_seq` with caution.
 {: note}
-
-<div id="creating-replications"></div>
 
 ## Creating a replication
 {: #creating-a-replication}
@@ -335,8 +321,6 @@ Accept: application/json
 ```
 {: codeblock}
 
-<div id="-optional-creating-a-replication-to-two-bluemix-environments"></div>
-
 ### Creating a replication within an {{site.data.keyword.cloud_notm}} environment
 {: #creating-a-replication-within-an-ibm-cloud-environment}
 
@@ -352,9 +336,6 @@ https://$ACCOUNT:$PASSWORD@$REMOTE_USERNAME.cloudant.com/$DATABASE_NAME
 You create the database within {{site.data.keyword.cloud}} by using the name: `$DATABASE_NAME`,
 and add it to the URL format.
 Do not copy the `URL` field from the `VCAP_SERVICES` environment variable.
-
-<div id="delete"></div>
-<div id="cancelling-a-replication"></div>
 
 ## Canceling a replication
 {: #canceling-a-replication}

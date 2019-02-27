@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -214,9 +214,6 @@ Further description of the advantages and disadvantages of each approach follows
 Overall, {{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. However, there
 are disadvantages to the approach, primarily, if you have an existing application
 or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported client library.
-
-
-<div id="advantages-disadvantages"></div>
 
 <table>
 
