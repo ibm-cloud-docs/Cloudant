@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -385,7 +385,7 @@ To provide high availability (HA) and disaster recovery (DR) within a data cente
 stored in triplicate across three separate physical servers in a cluster. You can provision 
 accounts in multiple data centers, then use continuous data replication to provide HA/DR across 
 data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically backed up, but supported tools are provided to handle backups. Review the 
-[Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) 
+[Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) 
 to explore all HA, DR, and backup considerations to meet your application requirements. 
 
 ## Support
@@ -404,10 +404,10 @@ The support systems used for {{site.data.keyword.cloudant_short_notm}} do not of
 
 You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} in two ways:
 
-- Using the dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){: new_window}.
-- Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){: new_window}.
+- Using the dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){: new_window}.
+- Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){: new_window}.
  
-To create and leverage an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){: new_window}.
+To create and leverage an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){: new_window}.
 
 
 

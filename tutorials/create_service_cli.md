@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-27"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -120,13 +120,13 @@ The following example describes the login process. If you are using a federated 
 ## Choosing the {{site.data.keyword.cloudant_short_notm}} plan for your service
 {: #choosing-the-ibm-cloudant-plan-for-your-service}
 
-See the [Plans ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/offerings/bluemix.html#plans){: new_window} section of the documentation for details on using the {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan.
+See the [Plans ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/offerings/bluemix.html#plans){: new_window} section of the documentation for details on using the {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan.
 {: pre}
 
 ## Creating the {{site.data.keyword.cloudant_short_notm}} service
 {: #creating-the-ibm-cloudant-service}
 
-{{site.data.keyword.cloudant_short_notm}} uses Resource Groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that are provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does IBM Cloudant work with IBM Cloud Resource Groups? ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/services/Cloudant/guides/resource-groups.html#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} guide.
+{{site.data.keyword.cloudant_short_notm}} uses Resource Groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that are provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does IBM Cloudant work with IBM Cloud Resource Groups? ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/guides/resource-groups.html#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} guide.
 
 First, set your target Resource Group and region as shown in [General CLI (ibmcloud) commands ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/ibmcloud/bx_cli.html#ibmcloud_target){: new_window} under `ibmcloud target` by using the following format:
 

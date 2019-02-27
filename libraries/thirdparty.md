@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-27"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -205,7 +205,7 @@ The [Apache Bahir extensions for Apache Spark  ![External link icon](../images/l
 include a `spark-sql-cloudant` connector that is the {{site.data.keyword.cloudant_short_notm}} library for Apache Spark.
 
 The spark-sql-cloudant connector is already loaded into the
-[{{site.data.keyword.cloud_notm}} Apache Spark-as-a-Service ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/apache-spark/){: new_window} offering.
+[{{site.data.keyword.cloud_notm}} Apache Spark-as-a-Service ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/apache-spark/){: new_window} offering.
 It can be used with any stand-alone Spark cluster.
 
 See the [project information ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/bahir/tree/master/sql-cloudant){: new_window}
