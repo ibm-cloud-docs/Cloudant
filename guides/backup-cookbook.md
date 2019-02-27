@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-25"
+
+keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
+
+subcollection: cloudant
 
 ---
 

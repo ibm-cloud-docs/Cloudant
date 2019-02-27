@@ -2,7 +2,11 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-25"
+
+keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption
+
+subcollection: cloudant
 
 ---
 

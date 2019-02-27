@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-20"
+lastupdated: "2019-02-25"
+
+keywords: create database, database topology, send multiple queries to a database, working with databases
+
+subcollection: cloudant
 
 ---
 

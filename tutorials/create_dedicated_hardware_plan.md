@@ -4,6 +4,10 @@ copyright:
   years: 2015, 2019
 lastupdated: "2019-02-26"
 
+keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
+
+subcollection: cloudant
+
 ---
 
 {:new_window: target="_blank"}
@@ -17,7 +21,6 @@ lastupdated: "2019-02-26"
 {:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
-
 
 # Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}
 {: #creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud}

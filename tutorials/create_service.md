@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-26"
 
+keywords: create service instance, service credentials, locate service credentials
+
+subcollection: cloudant
+
 ---
 
 {:new_window: target="_blank"}

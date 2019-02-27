@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-25"
+
+keywords: create, update, read, delete, inline, performance considerations
+
+subcollection: cloudant
 
 ---
 

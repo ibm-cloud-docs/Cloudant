@@ -2,7 +2,11 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-19"
+lastupdated: "2019-02-25"
+
+keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries
+
+subcollection: cloudant
 
 ---
 

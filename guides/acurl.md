@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-02-25"
+
+keywords: encode user name, encode password, create alias, activate alias, test acurl
+
+subcollection: cloudant
 
 ---
 

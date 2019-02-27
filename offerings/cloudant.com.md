@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-25"
+
+keywords: enterprise plan, database-as-a-service
+
+subcollection: cloudant
 
 ---
 

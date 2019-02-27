@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-20"
+lastupdated: "2019-02-25"
+
+keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication 
+
+subcollection: cloudant
 
 ---
 

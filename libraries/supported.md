@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-01-07"
+lastupdated: "2019-02-25"
+
+keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
+
+subcollection: cloudant
 
 ---
 

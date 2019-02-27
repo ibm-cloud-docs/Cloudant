@@ -2,7 +2,11 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-02-01"
+lastupdated: "2019-02-25"
+
+keywords: data privacy, move data from eu to us, transfer personal data outside eu
+
+subcollection: cloudant
 
 ---
 

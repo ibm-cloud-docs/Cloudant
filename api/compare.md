@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-12"
+lastupdated: "2019-02-25"
+
+keywords: links, couchdb endpoints, ibm cloudant endpoints
+
+subcollection: cloudant
 
 ---
 

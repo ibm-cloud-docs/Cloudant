@@ -4,6 +4,10 @@ copyright:
   years: 2017, 2019
 lastupdated: "2019-02-26"
 
+keywords: create applications, deploy applications, create simple application
+
+subcollection: cloudant
+
 ---
 
 {:new_window: target="_blank"}

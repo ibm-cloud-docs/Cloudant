@@ -2,7 +2,11 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-20"
+lastupdated: "2019-02-25"
+
+keywords: advanced endpoints, cluster information, revision history
+
+subcollection: cloudant
 
 ---
 
@@ -405,8 +409,8 @@ _Example response:_
 ```
 {: codeblock}
 
-### Response structure for `POST /$DATABASE/_revs_diff`
-{: #response-structure-post-database-_revs_diff}
+### Response structure
+{: #response-structure-_revs_diff}
 
 Field name      | Description
 ----------------|------------------------------------------------------------------
@@ -478,8 +482,8 @@ account.request({
 
 -->
 
-### Response structure `GET /_membership`
-{: #response-structure-get-membership}
+### Response structure
+{: #response-structure-_membership}
 
 Field name      | Description
 ----------------|------------------------------------------------------------------
