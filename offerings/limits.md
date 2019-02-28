@@ -51,7 +51,7 @@ subcollection: cloudant
 |--|--|
 |total request size|10 MB|
 |document size|1 MB|
-|attachment size|1 MB|
+|attachment size|10 MB|
 
 ## Request timeouts
 {: #request-timeouts}
