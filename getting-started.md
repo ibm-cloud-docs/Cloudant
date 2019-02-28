@@ -32,16 +32,16 @@ and populate that database with a simple collection of data.
 
 In addition to this tutorial, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
 
-- [Liberty for Java and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){: new_window}
-- [Node.js and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
-- [Swift and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
+- [Liberty for Java and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https:///cloud.ibm.com/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){: new_window}
+- [Node.js and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https:///cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
+- [Swift and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https:///cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-For more language-specific tutorials, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/){: new_window}. 
+For more language-specific tutorials, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https:///cloud.ibm.com/docs/){: new_window}. 
 
 ## Before you begin
 {: #prereqs}
 
-You need an [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){: new_window},
+You need an [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https:///cloud.ibm.com/registration/){: new_window},
 an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the following Python requirements:
 
 *	Install the most recent version of the

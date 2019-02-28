@@ -48,7 +48,7 @@ The online documentation that is provided here gives you
 details about {{site.data.keyword.cloudant_short_notm}} concepts,
 tasks, and techniques.
 
-You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db/){: new_window}.
+You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https:///cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window}.
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
 is [available](/docs/services/Cloudant/getting-started.html),
@@ -64,7 +64,7 @@ is available in the [API reference](/docs/services/Cloudant/api/index.html#api-r
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public): Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
 *	[Pricing](/docs/services/Cloudant/offerings/pricing.html#pricing): An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 
 *	[Security and Compliance](/docs/services/Cloudant/offerings/security.html#security): A collection of articles that describe the {{site.data.keyword.cloudant_short_notm}} position on security, compliance, data privacy and governance, audit logging, and General Data Protection Regulation (GDPR).
-*	[Release information](https://console.bluemix.net/docs/services/Cloudant/release_info/release_notes.html#release-notes): Release-related information that includes release notes, what changed between major releases, and deprecations. 
+*	[Release information](/docs/services/Cloudant/release_info/release_notes.html#release-notes): Release-related information that includes release notes, what changed between major releases, and deprecations. 
 *	[Other offerings](/docs/services/Cloudant/offerings/bluemix_dedicated.html#ibm-cloud-dedicated): In addition to {{site.data.keyword.cloud_notm}} Public, {{site.data.keyword.cloudant_short_notm}} is available
 	in various offerings,
 	all described in here.

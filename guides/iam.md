@@ -39,7 +39,7 @@ to help you decide which to use. Then, we discuss how to use IAM within
 {{site.data.keyword.cloudant_short_notm}}'s client libraries and via HTTP calls. Finally, we end with a reference
 section that describes all of the IAM actions and roles available within {{site.data.keyword.cloudant_short_notm}}.
 
-See an overview of [IAM ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/iam/index.html#iamoverview){: new_window}, including how to:
+See an overview of [IAM ![External link icon](../images/launch-glyph.svg "External link icon")](https:///cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window}, including how to:
 
 - Manage user and service IDs.
 - Manage available credentials.
@@ -263,7 +263,7 @@ This section discusses how to use {{site.data.keyword.cloudant_short_notm}} with
 service instances by using IAM authentication and access control. It uses the
 details from the Service Credentials JSON example previously mentioned.
 
-{{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the consuming application must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) documentation for more details.
+{{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the consuming application must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key ![External link icon](../images/launch-glyph.svg "External link icon")](https:///cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) documentation for more details.
 
 {{site.data.keyword.cloudant_short_notm}}'s official client libraries handle obtaining a token from an API key for you. If you access {{site.data.keyword.cloudant_short_notm}} directly by using an HTTP client rather than an {{site.data.keyword.cloudant_short_notm}} client library, you must handle exchanging and refreshing a time-limited access token by using an IAM API key with the IAM token service. After a token expires, {{site.data.keyword.cloudant_short_notm}} returns an HTTP `401` status code.
 

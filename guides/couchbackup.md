@@ -88,7 +88,7 @@ Designing the client application to identify the 'closest' cluster and connect t
 would help the application performance.
 
 A tutorial explaining how to set up a multi-region application environment is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/cloud/library/cl-multi-region-bluemix-apps-with-cloudant-and-dyn-trs/index.html){: new_window}.
+[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/developerworks/cloud/library/cl-multi-region-bluemix-apps-with-cloudant-and-dyn-trs/index.html){: new_window}.
 
 ### Accidental or malicious or data modification
 {: #accidental-or-malicious-or-data-modification}

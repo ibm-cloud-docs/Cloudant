@@ -153,7 +153,7 @@ Conduct load and functional testing on your application to ensure that there are
 ### Step 6: Ready to move to the new instance?
 {: #step-6-ready-to-move-to-the-new-instance-}
 
-When you are ready to move to the new instance, update your application to use  the new account URL and credentials for the {{site.data.keyword.cloudant_short_notm}} instance. For more information, see the [provisioning tutorial](/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix) about how to obtain the service credentials for an {{site.data.keyword.cloudant_short_notm}} instance.
+When you are ready to move to the new instance, update your application to use  the new account URL and credentials for the {{site.data.keyword.cloudant_short_notm}} instance. For more information, see the [provisioning tutorial](/docs/services/Cloudant/tutorials/create_service.html#creating-an-ibm-cloudant-instance-on-ibm-cloud) about how to obtain the service credentials for an {{site.data.keyword.cloudant_short_notm}} instance.
 
 ### Step 7: Turn off the old service
 {: #step-7-turn-off-the-old-service}
