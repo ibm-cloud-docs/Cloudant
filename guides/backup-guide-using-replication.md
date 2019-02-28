@@ -130,6 +130,7 @@ Any documents older than a copy already present in the new database are skipped.
 
 
 ## An example
+{: #an-example}
 
 This example shows how to:
 
@@ -139,6 +140,7 @@ This example shows how to:
 4.  Restore a backup.
 
 ### Constants that are used here
+{: #constants-that-are-used-here}
 
 ```sh
 # save base URL and the content type in shell variables
@@ -157,6 +159,7 @@ In practice,
 you might use any HTTP client.
 
 ### Step 1: Check that you have three databases
+{: #step-1-check-that-you-have-three-databases}
 
 For this example,
 you require three databases:
@@ -186,6 +189,7 @@ $ curl -X PUT "${url}/backup-tuesday"
 {: codeblock}
 
 ### Step 2: Create the `_replicator` database
+{: #step-2-create-the-_replicator-database}
 
 If it does not exist, create the `_replicator` database.
 
@@ -204,6 +208,7 @@ curl -X PUT "${url}/_replicator"
 {: pre}
 
 ### Step 3: Back up the entire (original) database
+{: #step-3-back-up-the-entire-original-database}
 
 On Monday,
 you want to back up all your data for the first time.
@@ -237,6 +242,7 @@ _JSON document that describes the full backup:_
 {: codeblock}
 
 ### Step 4: Prepare incremental backup part 1 - Get checkpoint ID
+{: #step-4-prepare-incremental-backup-part-1-get-checkpoint-id}
 
 On Tuesday,
 you want to do an incremental backup,
@@ -272,6 +278,7 @@ replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replica
 {: pre}
 
 ### Step 5: Prepare incremental backup part 2 - Get `recorded_seq` value
+{: #step-5-prepare-incremental-backup-part-2-get-recorded_seq-value}
 
 After you get the checkpoint ID,
 use it to get the `recorded_seq` value.
@@ -297,6 +304,7 @@ recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history
 {: pre}
 
 ### Step 6: Run an incremental backup
+{: #step-6-run-an-incremental-backup}
 
 Now that you have the checkpoint ID and `recorded_seq`,
 you can start Tuesday's incremental backup.
@@ -335,6 +343,7 @@ _JSON document that describes Tuesday's incremental backup:_
 {: codeblock}
 
 ### Step 7: Restore the Monday backup
+{: #step-7-restore-the-monday-backup}
 
 To restore from a backup,
 you replicate the initial full backup,
@@ -373,6 +382,7 @@ _JSON document that describes the restore:_
 {: codeblock}
 
 ### Step 8: Restore the Tuesday backup
+{: #step-8-restore-the-tuesday-backup}
 
 To restore Tuesday's database,
 you first replicate from `backup-tuesday` and then from `backup-monday`.
@@ -439,12 +449,14 @@ _JSON document that requests restoration of the Monday backup:_
 {: codeblock}
 
 ## Suggestions
+{: #suggestions}
 
 While the previous information outlines the basic backup process,
 each application needs its own requirements and strategies for backups.
 The following suggestions might be helpful.
 
 ### Scheduling backups
+{: #scheduling-backups}
 
 Replication jobs can significantly increase the load on a cluster.
 If you are backing up several databases,
@@ -452,6 +464,7 @@ it is best to stagger the replication jobs for different times,
 or to a time when the cluster is less busy.
 
 #### Changing the IO priority of a backup
+{: #changing-the-io-priority-of-a-backup}
 
 You can change the priority of backup jobs
 by adjusting the value of the `x-cloudant-io-priority` field within the replication document.
@@ -481,6 +494,7 @@ _Example of JSON document that sets the IO priority:_
 {: codeblock}
 
 ### Backing up design documents
+{: #backing-up-design-documents}
 
 If you include design documents in your backup,
 indexes are created on the backup destination.
@@ -490,6 +504,7 @@ use a filter function with your replications to filter out design documents.
 You might also use this filter function to exclude other documents that are not wanted.
 
 ### Backing up multiple databases
+{: #backing-up-multiple-databases}
 
 If your application uses one database per user,
 or allows each user to create several databases,
@@ -497,6 +512,7 @@ you need to create a backup job for each new database.
 Make sure that your replication jobs do not begin at the same time.
 
 ## Need help?
+{: #need-help-}
 
 Replication and backups can be tricky.
 If you get stuck,

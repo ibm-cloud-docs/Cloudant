@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -23,7 +23,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # Audit logging
-
+{: #audit-logging}
 
 Audit logging records the {{site.data.keyword.cloudantfull}} principals who have 
 accessed data stored in {{site.data.keyword.cloudant_short_notm}}. For all HTTP API 
@@ -48,6 +48,7 @@ and by whom.
 
 
 ## How to access Audit Logs for your account
+{: #how-to-access-audit-logs-for-your-account}
 
 To request access to the audit logs for your account, contact 
 {{site.data.keyword.cloudant_short_notm}} support. Support provides a copy of the audit logs that are of interest to you.

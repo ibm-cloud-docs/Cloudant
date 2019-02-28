@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries
 
@@ -23,6 +23,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2018-07-02 -->
 
 # Connecting
+{: #connecting}
 
 {{site.data.keyword.cloudantfull}} is accessed through an HTTP API. This document describes the different parts you use to connect to {{site.data.keyword.cloudant_short_notm}}:
 - Endpoints
@@ -33,6 +34,7 @@ subcollection: cloudant
 {: shortdesc}
 
 ## Endpoints
+{: #endpoints}
 
 {{site.data.keyword.cloudant_short_notm}} is accessed through HTTP API endpoints. The endpoints for an instance are 
 shown in both the URL field of the Service Credentials generated for the instance, and in the **Account** > **Settings** tab of the 
@@ -60,6 +62,7 @@ de810d0e-763f-46a6-ae88-50823dc85581-bluemix, and resulting example external end
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud. 
 
 ## Service credentials
+{: #service-credentials}
 
 To generate service credentials for {{site.data.keyword.cloudant_short_notm}} via the {{site.data.keyword.cloud_notm}}
 Dashboard, see the [Creating an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant/tutorials/create_service.html) tutorial. To generate service credentials from 
@@ -114,6 +117,7 @@ The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM a
 {: important}
 
 ## {{site.data.keyword.cloudant_short_notm}} Dashboard
+{: #ibm-cloudant-dashboard}
 
 You can open the {{site.data.keyword.cloudant_short_notm}} Dashboard for your instance by going to the Manage tab of 
 the {{site.data.keyword.cloud_notm}} Dashboard instance details page. You can use either the `Launch` or `Launch Cloudant Dashboard`
@@ -126,8 +130,10 @@ button to open the Dashboard in a new browser tab. The {{site.data.keyword.cloud
 - View and update account information like provisioned throughput capacity, announcements, CORS, and settings
 
 ## Programmatic Access
+{: #programmatic-access}
 
 ### Command Line (curl)
+{: #command-line-curl-}
 
 You can leverage the curl command line utility to access the {{site.data.keyword.cloudant_short_notm}} HTTPS API. 
 

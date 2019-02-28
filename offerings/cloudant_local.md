@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: capabilities, support, file support ticket
 
@@ -23,6 +23,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_local_notm}}
+{: #ibm-cloudant-local}
 
 [{{site.data.keyword.cloudantfull}} Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){: new_window} is a locally installed version of the {{site.data.keyword.cloudant_short_notm}} Database-as-a-Service (DBaaS) offering.
 
@@ -41,6 +42,7 @@ including:
 -   [Tuning replication parameters ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_tuning_parameters_replication_cases.html){: new_window}.
 
 ## Support
+{: #support}
 
 {{site.data.keyword.cloudant_short_notm}} support is able to provide assistance with the installation, set up, and proper usage of {{site.data.keyword.cloudant_local_notm}}. In the event of a performance issue or inconsistency, support is able to help troubleshoot. In the event of an outage, support can help diagnose the issue, but the responsibility for resolving the issue rests with the customer team since we do not have access to customer systems.
 
@@ -69,6 +71,8 @@ Contact your Customer Success or Account Manager for further assistance with the
 If you have any questions regarding our support policy, contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 
 ### How to open a support ticket
+{: #how-to-open-a-support-ticket}
+
 To get help with an {{site.data.keyword.cloudant_local_notm}} issue, open a support ticket with {{site.data.keyword.cloudant_short_notm}} support and include the following information:
 
 1. Create an email to open an [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com).

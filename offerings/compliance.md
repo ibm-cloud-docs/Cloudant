@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-02-27"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -23,12 +23,14 @@ subcollection: cloudant
 <!-- Acrolinx: 2018-11-02 -->
 
 # Compliance
+{: #compliance}
 
 {{site.data.keyword.cloudantfull}} provides a trustworthy and secure cloud database system.
 The service is built on best-in-industry standards,
 including ISO 27001:2013.
 
 ## Top-tier Physical systems
+{: #top-tier-physical-systems}
 
 The {{site.data.keyword.cloudant_short_notm}} DBaaS is physically hosted
 on Tier-1 cloud infrastructure providers such as {{site.data.keyword.cloud}} and Amazon.
@@ -36,6 +38,7 @@ Therefore,
 your data is protected by the network and physical security measures that are employed by these providers.
 
 ## HIPAA
+{: #hipaa}
 
 {{site.data.keyword.cloudant_short_notm}}, when deployed on dedicated hardware on {{site.data.keyword.cloud_notm}}, 
 meets the required {{site.data.keyword.IBM_notm}} controls that are commensurate with the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Security and Privacy Rule requirements. These requirements 
@@ -46,6 +49,7 @@ time of provisioning and applies to the {{site.data.keyword.cloudant_short_notm}
 and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.data.keyword.cloud_notm}}. Contact your sales representative to sign a Business Associate Addendum (BAA) agreement with {{site.data.keyword.IBM_notm}}.
 
 ## International Organization for Standardization (ISO)
+{: #international-organization-for-standardization-iso-}
 
 {{site.data.keyword.cloudant_short_notm}} is audited by a third-party security firm
 and meets the following ISO requirements:
@@ -56,6 +60,7 @@ and meets the following ISO requirements:
 * [Search all IBM ISO certificates ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-935.ibm.com/services/us/en/it-services/iso-management-system-certifications.html){: new_window}.
  
 ## SOC 2 Type 2 Certification
+{: #soc-2-type-2-certification}
 
 {{site.data.keyword.IBM_notm}} provides a Service Organization Controls (SOC) 2 Type 2 report 
 for Cloudant. The reports evaluate IBM's operational controls according to the criteria set 

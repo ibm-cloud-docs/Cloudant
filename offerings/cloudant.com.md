@@ -23,6 +23,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}}.com
+{: #ibm-cloudant.com}
 
 The {{site.data.keyword.cloudantfull}} Shared Plan is being retired on 31 March 2018. 
 As of  24 July 2017, no new Shared Plan accounts can be created from the [Cloudant product page](https://cloudant.com){: new_window}. 
