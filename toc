@@ -49,6 +49,7 @@ IBM Cloudant
 		api/database.md
 		api/document.md
 		api/attachments.md
+		api/capacity.md
 		api/cloudant_query.md
 		api/design_documents.md
 		api/creating_views.md
