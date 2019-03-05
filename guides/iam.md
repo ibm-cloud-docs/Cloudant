@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-05"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -382,7 +382,7 @@ ACCOUNT = "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 def get_access_token(api_key):
     """Retrieve an access token from the IAM token service."""
     token_response = requests.post(
-        "https://iam.bluemix.net/oidc/token",
+        "https://iam.cloud.ibm.com/identity/token",
         data={
             "grant_type": "urn:ibm:params:oauth:grant-type:apikey",
             "response_type": "cloud_iam",
