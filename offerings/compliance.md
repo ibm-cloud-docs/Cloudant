@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-05"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -51,14 +51,13 @@ and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.
 ## International Organization for Standardization (ISO)
 {: #international-organization-for-standardization-iso-}
 
-{{site.data.keyword.cloudant_short_notm}} is audited by a third-party security firm
-and meets the following ISO requirements:
-
-* [{{site.data.keyword.cloud_notm}} ISO 27001 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/multimedia/saas_27k.pdf){: new_window}
-* [{{site.data.keyword.cloud_notm}} ISO 27017 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/us/en/it-services/pdf/ibmcloud_27017.pdf){: new_window}
-* [{{site.data.keyword.cloud_notm}} ISO 27018 ![External link icon](../images/launch-glyph.svg "External link icon")]](https://www-935.ibm.com/services/multimedia/ibmcloud_27018.pdf){: new_window}
-* [Search all IBM ISO certificates ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-935.ibm.com/services/us/en/it-services/iso-management-system-certifications.html){: new_window}.
+{{site.data.keyword.cloudant_short_notm}} and {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster are audited by a third-party security firm and meet ISO 27001, ISO 27017, and ISO 27018 requirements. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Compliance page]( https://www.ibm.com/cloud/compliance) for links to the certificates. The following descriptions on the {{site.data.keyword.cloudant_short_notm}} Compliance page cover the {{site.data.keyword.cloudant_short_notm}} service and respective certifications:
  
+- {{site.data.keyword.cloud_notm}} Services (PaaS and SaaS) certified cloud product listing
+- {{site.data.keyword.cloud_notm}} Services (PaaS and SaaS) certificate - ISO 27001
+- {{site.data.keyword.cloud_notm}} Services (PaaS and SaaS) certificate - ISO 27017
+- {{site.data.keyword.cloud_notm}} Services (PaaS and SaaS) certificate - ISO 27018
+
 ## SOC 2 Type 2 Certification
 {: #soc-2-type-2-certification}
 
@@ -81,6 +80,4 @@ or email
 The GDPR seeks to create a harmonized data protection law 
 framework across the EU and aims to give citizens back the control of their personal data, whilst 
 imposing strict rules on those hosting and ‘processing’ this data, anywhere in the world. The 
-Regulation also introduces rules relating to the free movement of personal data within and outside 
-the EU. The {{site.data.keyword.cloudant_short_notm}} team is currently working on related activities for GDPR and fully intends to 
-be compliant by the deadline of May 25, 2018.
+Regulation also introduces rules relating to the free movement of personal data within and outside the EU. For more information, see the [{{site.data.keyword.IBM_notm}} privacy statement](https://www.ibm.com/privacy/).
