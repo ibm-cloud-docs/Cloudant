@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-05"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -67,6 +67,11 @@ The new replication scheduler has several improvements and enhancements. Learn m
 
 - This build introduces a new feature, [Partition Query](/docs/services/Cloudant/guides/database_partitioning.html).
 - Allow `limit` when using `POST` for search.
+
+## Build 7631 (January 2019)
+{: #build-7631-january 2019}
+
+-   Internal changes and bug fixes.
 
 ## Build 7544 (December 2018)
 {: #build-7544-december-2018}
