@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-06"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -137,7 +137,7 @@ It's worth remembering at this point that:
     _any queries made against that index will block_.
 -   Querying a view triggers the 'mapping' of any documents that haven't yet been incrementally indexed.
     This ensures we get an up-to-date view of the data.
-    See the following ['`stale`' parameter](#stale) discussion,
+    See the following ['`stale`' parameter](#the-stale-parameter) discussion,
     for exceptions to this rule.
 
 ## Multiple views in the same design document

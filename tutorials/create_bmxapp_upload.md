@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-06"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -40,7 +40,7 @@ Cloud Foundry needs to know the URL to use for making API calls,
 for example when you upload an application.
 The {{site.data.keyword.cloud_notm}} toolkit uses the '`cf api`' command to manage the API endpoint.
 More information about the '`cf api`' command is
-[available ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){: new_window}.
+[available ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}.
 
 Use the following command to tell Cloud Foundry the URL to use:
 
@@ -140,7 +140,7 @@ OK
 
 The Cloud Foundry toolkit located the manifest file,
 and is preparing to upload the application by using the connection
-and identification details you provided [earlier](#uploading).
+and identification details you provided [earlier](#uploading-the-application).
 
 ```
 Using route Cloudant-Python.mybluemix.net
@@ -227,7 +227,7 @@ Now, test your application and verify that it is running properly.
 2.  On the `Cloudant CF app` details page, click `Routes` and click the `Cloudant-CF-app.mybluemix.net` link. <br/>
 ![Cloudant CF app details page](images/img0030.png)
 
-3. A new brower window opens at https://cloudant-cf-app.mybluemix.net/. The message verifies that the application is running. It says, "Hello World! Thanks for creating a Python Starter Application."<br/>
+3. A new brower window opens at `https://cloudant-cf-app.mybluemix.net/`. The message verifies that the application is running. It says, "Hello World! Thanks for creating a Python Starter Application."<br/>
 ![Hello World! verified that the Cloudant CF app runs correctly](images/img0054.png)
 
 

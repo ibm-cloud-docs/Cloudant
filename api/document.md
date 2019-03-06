@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-06"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -191,7 +191,7 @@ _Example response after successfully creating a document:_
 ```
 {: codeblock}
 
-If the write [quorum](#quorum) cannot be met during an attempt to create a document, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
+If the write [quorum](#quorum-writing-and-reading-data) cannot be met during an attempt to create a document, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
 {: tip}
 
 ## Read
@@ -299,7 +299,7 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 You can also use this `PUT` method to create a document,
 in which case you do not need to supply the most recent `_rev` value.
 
-If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum) cannot be met, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
+If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) cannot be met, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
 {: note}
 
 Any document update can lead to a conflict, especially when you replicate updated documents. More information about avoiding and resolving conflicts is in the [Document Versioning and MVCC guide](/docs/services/Cloudant/guides/mvcc.html).
@@ -386,10 +386,10 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 The response contains the ID and the new revision of the document,
 or an error message if the delete failed.
 
-If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum) cannot be met, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
+If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum-writing-and-reading-data) cannot be met, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
 {: note}
 
-{{site.data.keyword.cloudant_short_notm}} does not completely delete the specified document. Instead, it leaves a [tombstone](#-tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
+{{site.data.keyword.cloudant_short_notm}} does not completely delete the specified document. Instead, it leaves a [tombstone](#tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
 creating new documents and deleting them increases the disk space usage of a database. They might also increase the query time for the primary index, which is used to look up documents by their ID.
 {: note}
 
@@ -832,7 +832,7 @@ you get an array with detailed information for each document in the request.
 Code | Description
 -|-
 `201` | The request did succeed, but this success does not imply all documents were updated. Inspect the response body to determine the status of each requested change, and [address any problems](#bulk-document-validation-and-conflict-errors).
-`202` | For at least one document, the write [quorum](#quorum) was not met.
+`202` | For at least one document, the write [quorum](#quorum-writing-and-reading-data) was not met.
 
 _Example response from a bulk request:_
 
@@ -1244,7 +1244,7 @@ The data itself might be deleted or moved to an alternative (archive) location.
 
 The reason is that {{site.data.keyword.cloudant_short_notm}} documents are only 'soft' deleted,
 not deleted.
-The soft deletion involves replacing the original document with a [smaller record](#-tombstone-documents).
+The soft deletion involves replacing the original document with a [smaller record](#tombstone-documents).
 This small record or 'tombstone' is required for replication purposes;
 it helps ensure that the correct revision to use can be identified during replication.
 

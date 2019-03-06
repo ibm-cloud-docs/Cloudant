@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-06"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -151,7 +151,7 @@ General information about the toolkits is available
 Some operating system distributions have a version of the Cloud Foundry toolkit available already.
 If the version supported is 6.11 or better,
 it is compatible with {{site.data.keyword.cloud_notm}} and can be used.
-You can check what version is installed by running [this test](#checkCFversion).
+You can check what version is installed by running the following command.
 
 Alternatively,
 use the following steps to download and install the Cloud Foundry toolkit on your system: 
@@ -189,7 +189,7 @@ Use the following steps to download and install the {{site.data.keyword.cloud_no
 
 1.  Click `Getting started` to see information on downloading the {{site.data.keyword.cloud_notm}} admin CLI toolkit.
 
-2.  Click `CLI` to open the [Getting started with {{site.data.keyword.cloud_notm}} developer tools ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.bluemix.net/docs/cli/reference/bluemix_cli/get_started.html#getting-started){: new_window} document.
+2.  Click `CLI` to open the [Getting started with {{site.data.keyword.cloud_notm}} developer tools ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli#getting-started){: new_window} document.
 
 3.  Follow the instructions on the page to download and run the appropriate installer for your system.
 
@@ -306,7 +306,7 @@ Three points are worth noting:
 -   The `domain`,
     `name`,
     and `host` values correspond to the values entered when
-    your {{site.data.keyword.cloud_notm}} application was [created](#creating).
+    your {{site.data.keyword.cloud_notm}} application was [created](#creating-an-ibm-cloud-application-environment).
 -   The `name` value is used by the Cloud Foundry toolkit to identify the application you are administering.
 -   The `services` value confirms that the `Cloudant Service 2017`
     {{site.data.keyword.cloudant_short_notm}} database instance is connected to the application environment.

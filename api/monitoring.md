@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-06"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -101,9 +101,9 @@ Field      | Default value
 {: #results-format}
 
 By default,
-the monitoring results are returned in [`JSON` format](#with-format-json-default-).
+the monitoring results are returned in [`JSON` format](#with-format=json-default).
 If you prefer,
-you can choose to receive the results in [`raw` format](#with-format-raw-).
+you can choose to receive the results in [`raw` format](#with-format=raw).
 
 The results include a text string that identifies the metric stored on the server providing the API capability,
 for example:

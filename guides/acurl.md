@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-06"
 
 keywords: encode user name, encode password, create alias, activate alias, test acurl
 
@@ -42,8 +42,8 @@ it makes sure your password isn’t sent in plain text over the network by enfor
 
 All it takes is three simple steps:
 
-1.	[Encode user name and password](#encode-username-and-password).
-2.	[Create an alias](#create-an-alias)
+1.	[Encode user name and password](#encode-user-name-and-password).
+2.	[Create an alias](#create-an-alias).
 3.	[Activate the alias](#activate-the-alias).
 
 If you are using a Windows computer, you can specify your user name and password from the command line.

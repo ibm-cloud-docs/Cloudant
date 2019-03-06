@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-08"
 
 keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries
 
@@ -142,7 +142,7 @@ If you use {{site.data.keyword.cloudant_short_notm}} legacy authentication, see 
 password to access the {{site.data.keyword.cloudant_short_notm}} API with curl as shown in the API reference examples.
 
 If you use {{site.data.keyword.cloud_notm}} IAM authentication, you must first get an {{site.data.keyword.cloud_notm}} IAM token by using an API key. Then, you pass the IAM token to the {{site.data.keyword.cloudant_short_notm}} instance to authenticate. See [Passing an 
-{{site.data.keyword.cloud_notm}} IAM token to authenticate with a service's API](/docs/services/iam/iam_apikeys_services.html#passing-an-ibm-cloud-iam-token-to-authenticate-with-a-service-s-api) 
+{{site.data.keyword.cloud_notm}} IAM token to authenticate with a service's API](https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window} 
 tutorial. 
 
 You cannot use an IAM API key directly to authenticate against {{site.data.keyword.cloudant_short_notm}}.

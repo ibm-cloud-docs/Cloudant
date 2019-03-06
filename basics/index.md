@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-06"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -32,8 +32,8 @@ scan this section before you scroll further.
 To understand the information on the following topics, we assume that you know some basic things about {{site.data.keyword.cloudantfull}}: 
 
 - [Client Libraries](/docs/services/Cloudant/libraries/index.html#client-libraries)
-- [API Reference](/docs/services/Cloudant/api/index.html##api-reference-overview)
-- [Guides](acurl.html#authorized-curl-acurl-)
+- [API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview)
+- [Guides](/docs/services/Cloudant/guides/acurl.html#authorized-curl-acurl-)
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant}
