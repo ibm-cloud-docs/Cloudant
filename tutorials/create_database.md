@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-03-07"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -37,7 +37,7 @@ Ensure that you have the following resources or information ready,
 before you start working through the tutorial.
 
 ### Python
-{: #python}
+{: #python-create-database}
 
 You must have a current installation of the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window}
 installed on your system.
@@ -82,8 +82,8 @@ cloudant==2.3.1
 ```
 {: codeblock}
 
-### An {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
-{: #an-ibm-cloudant-service-instance-on-ibm-cloud}
+### Creating an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
+{: #creating-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
 The process for creating a suitable service instance is described in [this tutorial](/docs/services/Cloudant/tutorials/create_service.html).
 
@@ -115,8 +115,7 @@ suitable for the following tasks:
 
 Python code specific to each task is provided as part of the task description in this tutorial.
 
-A complete Python program to perform all the tasks is provided at the end of the tutorial,
-[here](#complete-listing).
+For information about the complete Python program to perform all the tasks, see the [complete listing](#complete-listing).
 
 No attempt has been made to create _efficient_ Python code for this tutorial;
 the intention is to show simple and easy-to-understand working code

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-07"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -374,8 +374,8 @@ After provisioning an {{site.data.keyword.cloudant_short_notm}} instance, the co
 The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls for authentication whenever possible. If you are using {{site.data.keyword.cloudant_short_notm}} legacy authentication, it is recommended that you use [API keys](/docs/services/Cloudant/api/authorization.html#api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
 {: important}
 
-## High availability, disaster recovery, and backup
-{: #high-availability-disaster-recovery-and-backup}
+## High availability, disaster recovery, and backup in a data center
+{: #high-availability-disaster-recovery-and-backup-in-a-data-center}
 
 To provide high availability (HA) and disaster recovery (DR) within a data center, all data is 
 stored in triplicate across three separate physical servers in a cluster. You can provision 
@@ -384,8 +384,8 @@ data centers. {{site.data.keyword.cloudant_short_notm}} data is not automaticall
 [Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) 
 to explore all HA, DR, and backup considerations to meet your application requirements. 
 
-## Support
-{: #support}
+## {{site.data.keyword.cloud_notm}} Support
+{: #ibm-cloud-support}
 
 Support for Standard and Dedicated plan service instances is optional.
 It is provided by purchasing *{{site.data.keyword.cloud_notm}} Standard Support*. Support is not available for the Lite plan.

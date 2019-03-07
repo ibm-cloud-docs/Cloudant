@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-07"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -200,7 +200,7 @@ At the end of this process, the only version of the document is its tombstone
 (`_id`, `_rev`, `_deleted`, and any fields your application includes there).
 
 ### Removal of tombstones
-{: #when-is-a-deleted-document-removed-}
+{: #removal-of-tombstones}
 
 {{site.data.keyword.cloudant_short_notm}} can completely remove all references and data for a 
 document when required. This task is 

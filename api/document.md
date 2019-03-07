@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-07"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -195,7 +195,7 @@ If the write [quorum](#quorum-writing-and-reading-data) cannot be met during an 
 {: tip}
 
 ## Read
-{: #read}
+{: #read-document}
 
 To retrieve a document,
 send a GET request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
@@ -261,7 +261,7 @@ _Example response:_
 {: codeblock}
 
 ### Query Parameters
-{: #query-parameters}
+{: #query-parameters-document}
 
 You can add some query parameters to the URL,
 for example `/mydatabase/doc?attachments=true&conflicts=true`.
@@ -376,8 +376,8 @@ _Example response after a successful update:_
 ```
 {: codeblock}
 
-## Delete
-{: #delete}
+## Delete a document
+{: #delete-a-document}
 
 To delete a document,
 send a `DELETE` request with the document's most recent `_rev` in the query string,

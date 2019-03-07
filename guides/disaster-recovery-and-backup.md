@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-07"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -214,8 +214,8 @@ The tools supported by {{site.data.keyword.cloudant_short_notm}} have the follow
 	This rebuilding might take a considerable amount of time,
 	depending on how much data is restored.
 
-## Next steps
-{: #next-steps}
+## Next steps with your data protection strategies
+{: #next-steps-with-your-data-protection-strategies}
 
 You can develop applications that build on basic {{site.data.keyword.cloudant_short_notm}} functions and supported tools
 to enable more complex data protection strategies.

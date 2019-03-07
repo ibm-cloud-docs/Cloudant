@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-07"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -126,7 +126,7 @@ _Example response:_
 {: codeblock}
 
 ## Read
-{: #read}
+{: #read-attachments}
 
 To retrieve an attachment,
 make a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
@@ -166,8 +166,8 @@ db.attachment.get($DOCUMENT_ID, $FILENAME, function (err, body) {
 
 -->
 
-## Delete
-{: #delete}
+## Delete an attachment
+{: #delete-an-attachment)
 
 To delete an attachment,
 make a `DELETE` request with the document's most recent `_rev`

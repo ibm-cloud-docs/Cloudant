@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-07"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -71,8 +71,8 @@ How do you estimate the total cost for provisioned throughput capacity per month
 - Alternatively the slider shows you the provisioned throughput capacity of 1000 reads/sec, 500 writes/sec, and 50 global queries/sec costs $1.050/hour \* 730 hours
 - Total = $766.50
 
-## Data Usage 
-{: #data-usage}
+## Data Usage Pricing
+{: #data-usage-pricing}
 
 What about pricing for data overage, how does that work?
 

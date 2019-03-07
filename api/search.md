@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-07"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -499,7 +499,7 @@ db.search($DESIGN_ID, $SEARCH_INDEX, {
 -->
 
 ### Query Parameters
-{: #query-parameters}
+{: #query-parameters-search}
 
 You must enable [faceting](#faceting) before you can use the following parameters:
 -	`counts`

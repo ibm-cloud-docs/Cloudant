@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-07"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -305,8 +305,8 @@ with data moved seamlessly in both directions.
 
 ![replication6](../images/replication_guide_6.png)
 
-## Continuous replication
-{: #continuous-replication}
+## Discussion about continuous replication
+{: #discussion-about-continuous-replication}
 
 So far,
 the discussion deals only with one-shot replication,
@@ -353,8 +353,8 @@ _Example of a JSON document that defines a continuous replication:_
 ```
 {: codeblock}
 
-## Monitoring replication
-{: #monitoring-replication}
+## Monitoring replication status
+{: #monitoring-replication-status}
 
 You can check the status of {{site.data.keyword.cloudant_short_notm}}’s `_replicator` database at any time,
 by using the dashboard or the API.
@@ -490,8 +490,8 @@ such as iPhone and Android games,
 where the application's state is persisted to {{site.data.keyword.cloudant_short_notm}} by replication,
 but the data is also available on the device for offline use.
 
-## Filtered Replication
-{: #filtered-replication}
+## Filtered Replications
+{: #filtered-replications}
 
 It is useful to be able to remove some data during the replication process,
 when you replicate one database to another.

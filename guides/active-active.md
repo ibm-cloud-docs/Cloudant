@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-07"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -50,8 +50,8 @@ It is helpful to remember:
 * {{site.data.keyword.cloudant_short_notm}} does not monitor individual replications.
   Your own strategy for detecting failed replications and restarting them is advisable.
 
-## Before You Begin
-{: #before-you-begin}
+## Before you begin an active-active deployment
+{: #before-you-begin-an-active-active-deployment}
 
 For an active-active deployment, a strategy for managing conflicts must be in place. Therefore, be sure to understand how [replication](/docs/services/Cloudant/api/replication.html) and [conflicts](/docs/services/Cloudant/guides/mvcc.html#distributed-databases-and-conflicts) work before you consider this architecture.
 {: note}

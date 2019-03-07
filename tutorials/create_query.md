@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-08"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -42,9 +42,9 @@ contain the data for these exercises.
 
 Before you begin, follow these steps to prepare for the tutorial:
 
-1.  [Create an {{site.data.keyword.cloud_notm}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/registration/){: new_window}.
+1.  [Create an {{site.data.keyword.cloud_notm}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/registration){: new_window}.
 2.  Log in to the
-  [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){: new_window}.
+  [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}.
 3.  [Create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant/tutorials/create_service.html#creating-a-service-instance).
 4.  (Optional) [Create an acurl alias](/docs/services/Cloudant/guides/acurl.html#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
 5.  Replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to {{site.data.keyword.cloudant_short_notm}} Dashboard.
@@ -55,8 +55,8 @@ Before you begin, follow these steps to prepare for the tutorial:
   ```
   {: codeblock}
 
-## Creating a database
-{: #creating-a-database}
+## Creating the `query-demo` database
+{: #creating-the-query-demo-database}
 
 In this section, you create the `query-demo` [database](/docs/services/Cloudant/api/database.html#create-database) that
 is the database that we use in this tutorial.
@@ -256,8 +256,8 @@ Notice that the '`@`' symbol, used to indicate that the data is included in a fi
 
   ![Sample documents](../images/docs1.png)     
 
-## Creating an index
-{: #creating-an-index}
+## Creating an index to query the database
+{: #creating-an-index-to-query-the-database}
 
 {{site.data.keyword.cloudant_short_notm}} provides views and indexes to query the database. A view runs a query that is saved to the database, and
 the result is called the result set. When you submit a query to the view, your query searches

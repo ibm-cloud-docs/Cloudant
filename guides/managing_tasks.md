@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-07"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -208,8 +208,8 @@ _Example result after searching for a replication task:_
 ```
 {: codeblock}
 
-## Troubleshooting
-{: #troubleshooting}
+## Troubleshooting stuck tasks
+{: #troubleshooting-stuck-tasks}
 
 ### Is a task stuck?
 {: #is-a-task-stuck-}
