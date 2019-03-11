@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-06"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -248,7 +248,7 @@ and quantity of [stored data](#disk-space-included).
 Monitoring helps you recognize that a change to the provisioning in your plan might be advisable.
 For example,
 if you frequently approach the maximum number of database reads,
-then you can modify the provisioning through the [Service pane](#servicetier) on the Account tab of the dashboard.
+then you can modify the provisioning through the [Capacity pane](#viewing-and-changing-capacity) on the Account tab of the dashboard.
 
 ## Data usage
 {: #data-usage}

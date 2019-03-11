@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-07"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -111,7 +111,7 @@ _Example of returned JSON, confirming that the index was created:_
 </tr>
 <tr>
 <td headers="field" align="center" valign="top"><p>index</p></td>
-<td headers="description"><p>fields:<p style="margin-left: 20px">A JSON array of field names that uses the <a href="https:///cloud.ibm.com/docs/services/Cloudant/api/cloudant_query.html#sort-syntax">sort syntax</a>. Nested fields are also allowed, for example, <code>"person.name"</code>.</p></p></td>
+<td headers="description"><p>fields:<p style="margin-left: 20px">A JSON array of field names that uses the <a href="https://cloud.ibm.com/docs/services/Cloudant/api/cloudant_query.html#sort-syntax">sort syntax</a>. Nested fields are also allowed, for example, <code>"person.name"</code>.</p></p></td>
 </tr>
 <tr>
 <td headers="field"><p>ddoc (optional)</p></td>
@@ -2155,8 +2155,8 @@ _Corresponding Lucene query. The '#' comments are not valid Lucene syntax, but h
 ```
 {: codeblock}
 
-## Example: Movies demonstration database
-{: #example-movies-demonstration-database}
+## Example: Movies demo database
+{: #example-movies-demo-database}
 
 To describe full text indexes,
 it is helpful to have a large collection of data to work with.

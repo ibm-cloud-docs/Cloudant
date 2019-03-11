@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-06"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -34,7 +34,7 @@ The special documents are called "design documents".
 Design documents are [documents](/docs/services/Cloudant/api/document.html) that have an `_id` beginning with `_design/`.
 They can be read and updated in the same way as any other document in the database.
 {{site.data.keyword.cloudantfull}} reads specific fields and values of design documents as functions.
-Design documents are used to [build indexes](#indexes), [validate updates](#update-validators), and [format query results](#list-functions).
+Design documents are used to [build indexes](#indexes-design-docs), [validate updates](#update-validators), and [format query results](#list-functions).
 
 ## Creating or updating a design document
 {: #creating-or-updating-a-design-document}

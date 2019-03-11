@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-06"
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
 
@@ -157,8 +157,8 @@ Field Name | Required | Description
 `filter` | no | Name of a [filter function](/docs/services/Cloudant/api/design_documents.html#filter-functions), defined in a design document. The filter function determines which documents get replicated. Using the `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option where possible.
 `proxy` | no | Proxy server URL.
 `query_params` | no | A field that contains key:value pairs, for use in [filter function](/docs/services/Cloudant/api/design_documents.html#filter-functions).
-`selector` | no | Provide a simple filter to select the documents that are included in the replication. Using the `selector` option provides performance benefits when compared with using the `filter` option. For more information, see the [`selector`](#selector-field) documentation.
-`since_seq` | no | Override the incremental nature of replication. More information about `since_seq` is available [here](#since-seq-field).
+`selector` | no | Provide a simple filter to select the documents that are included in the replication. Using the `selector` option provides performance benefits when compared with using the `filter` option. For more information, see the [`selector`](#the-selector-field) documentation.
+`since_seq` | no | Override the incremental nature of replication. For more information, see the [`since_seq`](#the-since_seq-field) documentation.
 `use_checkpoints` | no | Indicate whether to create checkpoints. Checkpoints greatly reduce the time and resources that are needed for repeated replications. Setting this field to `false` removes the requirement for write access to the `source` database. Defaults to `true`.
 `user_ctx` | no | An object that contains the user name and optionally an array of roles, for example: `"user_ctx": {"name": "jane", "roles": ["admin"]} `. This object is needed for the replication to show up in the output of `/_active_tasks`.
 
@@ -234,7 +234,7 @@ rather than from the very beginning.
 This field might be used for creating incremental copies of databases. To do this:
 
 1.  Find the ID of the checkpoint document for the last replication.
-  It is stored in the `_replication_id` field of the replication document in the [`_replicator` database](#replicator-database).
+  It is stored in the `_replication_id` field of the replication document in the [`_replicator` database](#the-_replicator-database).
 2.  Open the checkpoint document at `/$DATABASE/_local/$REPLICATION_ID`,
   where `$REPLICATION_ID` is the ID you found in the previous step,
   and `$DATABASE` is the name of the source or the target database.

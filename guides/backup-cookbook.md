@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-06"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -155,8 +155,8 @@ for long-term retention.
 Two requirements are frequently encountered:
 
 * Saving disk space,
-  by ['zipping' the backup](#zipping-a-backup-file) file as it is created.
-* Creating a backup of a database automatically, [at regular intervals](#hourly-or-daily-backups-using-cron).
+  by ['zipping' the backup](#compressing-a-backup-file) file as it is created.
+* Creating a backup of a database automatically, [at regular intervals](#hourly-or-daily-backups-that-use-cron-).
 
 ### Compressing a backup file
 {: #compressing-a-backup-file}

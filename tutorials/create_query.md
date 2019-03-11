@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-03-06"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -358,7 +358,7 @@ Queries allow you to extract your data from {{site.data.keyword.cloudant_short_n
 its results to include only the data you want.
 
 This exercise shows you how to write and run a simple query, query with two fields,
-and query with two [operators](/docs/services/Cloudant/api/cloudant_query.html#cloudant_query.html#operators).
+and query with two [operators](/docs/services/Cloudant/api/cloudant_query.html#operators).
 You query with an operator by specifying at least one field and its corresponding value.
 The query then uses this value to search the database for matches.
 

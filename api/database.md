@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-06"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -805,7 +805,7 @@ _Example (abbreviated) response to a `_changes` request:_
 -	The results that are returned by `_changes` are partially ordered.
 	In other words,
 	the order might not be preserved for multiple calls.
-	You might decide to get a current list by using `_changes` and including the [`last_seq` value](#changes_responses).
+	You might decide to get a current list by using `_changes` and including the [`last_seq` value](#get-changes).
 	The resulting list provides the starting point for subsequent `_changes` lists that use the `since` query argument.
 -	Although shard copies of the same range contain the same data,
 	their `_changes` history is often unique.
