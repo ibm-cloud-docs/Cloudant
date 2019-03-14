@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-07"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication 
 
@@ -694,8 +694,8 @@ _Example of including performance options in a replication document:_
 ```
 {: codeblock}
 
-## Attachments
-{: #attachments}
+## The effect of large attachments 
+{: #the-effect-of-large-attachments}
 
 Having large numbers of attachments on documents might cause an adverse effect on replication performance.
 
@@ -772,7 +772,7 @@ _Example JSON document that describes the required replication:_
 {: codeblock}
 
 ### Return Codes
-{: #return-codes}
+{: #return-codes-adv-replication}
 
 Code  | Description
 ------|------------

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-07"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -56,8 +56,8 @@ environment can be accomplished by purchasing additional '{{site.data.keyword.cl
 choose to have multiple separate {{site.data.keyword.cloudant_short_notm}} environments rather than 
 expanding a single environment.
 
-## Locations and Tenancy 
-{: #locations-and-tenancy}
+## Locations and Tenancy in a dedicated environment
+{: #locations-and-tenancy-in-a-dedicated-environment}
 
 The {{site.data.keyword.cloudant_short_notm}} Dedicated environment within an {{site.data.keyword.cloud_notm}} Dedicated environment is on hardware 
 that is designated for sole use by the {{site.data.keyword.cloud_notm}} Dedicated customer. The customer can provision 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-03-07"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
 
@@ -32,8 +32,8 @@ the database to a file. If the database fails, you can use the backup file to
 restore the information to an existing database. 
 {: shortdesc}
 
-## Before you begin
-{: #before-you-begin}
+## Before you begin to install CouchBackup
+{: #before-you-begin-to-install-couchbackup}
 
 Install CouchBackup by running the `install` command. 
 
@@ -42,8 +42,8 @@ npm install -g @cloudant/couchbackup
 ```
 {: codeblock}
 
-## Creating a database
-{: #creating-a-database}
+## Creating a sample database
+{: #creating-a-sample-database}
 
 Create a sample `couchbackup-demo` database
 for use in this tutorial.
@@ -64,8 +64,8 @@ for use in this tutorial.
     ```
     {: codeblock}
 
-## Creating documents in the database
-{: #creating-documents-in-the-database}
+## Creating documents in the sample database
+{: #creating-documents-in-the-sample-database}
 
 The documents that you create in this exercise contain the data that you 
 back up and restore in later exercises. 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-07"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -95,7 +95,7 @@ Ensure that you modify the '`domain`', '`name`', '`host`', and '`services`' valu
 
 The next step is to work on the application code.
 Each section is described and the code is presented.
-A [complete listing](#complete-listing) of the application code
+A [complete listing](#complete-python-program) of the application code
 is at the end of this section of the tutorial.
 
 #### Getting started
@@ -221,7 +221,7 @@ if 'VCAP_SERVICES' in os.environ:
 ```
 {: codeblock}
 
-The next sections of code are run only if the environment variable was found. In Python, this code is indented to indicate that it is the body of the test. In this tutorial, indentation is omitted from the code segments to save space. However, the [full listing](#complete-listing) shows the indentation correctly.
+The next sections of code are run only if the environment variable was found. In Python, this code is indented to indicate that it is the body of the test. In this tutorial, indentation is omitted from the code segments to save space. However, the [full listing](#complete-python-program) shows the indentation correctly.
 {: note}
 
 Assuming that the variable is found,
@@ -381,8 +381,8 @@ httpd.server_close()
 
 The next step in the tutorial is to [upload the application](/docs/services/Cloudant/tutorials/create_bmxapp_upload.html) for testing purposes.
 
-## Complete listing
-{: #complete-listing}
+## Complete Python program
+{: #complete-python-program}
 
 The following code is the complete Python program to access an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}:
 

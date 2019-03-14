@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-03-07"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -152,8 +152,8 @@ ibmcloud resource service-instance-create cloudant_on_ded_hardware_cli cloudantn
 ```
 {: codeblock}
 
-## Creating credentials for your {{site.data.keyword.cloudant_short_notm}} service
-{: #creating-credentials-for-your-ibm-cloudant-service}
+## Creating the credentials for your {{site.data.keyword.cloudant_short_notm}} service
+{: #creating-the-credentials-for-your-ibm-cloudant-service}
 
 Applications that require access to your {{site.data.keyword.cloudant_short_notm}} service
 must have the necessary credentials.

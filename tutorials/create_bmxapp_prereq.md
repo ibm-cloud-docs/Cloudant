@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-07"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -36,7 +36,7 @@ Ensure that you have the following resources or information ready
 before you start working through the tutorial.
 
 ### Python
-{: #python}
+{: #python-create-bmxapp-prereq}
 
 For all but the simplest possible development work,
 it is much easier if you have a current installation of the

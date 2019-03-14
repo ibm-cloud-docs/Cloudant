@@ -100,8 +100,8 @@ function (doc) {
 You could regularly query this view and resolve conflicts as needed,
 or query the view after each replication.
 
-## How to resolve conflicts
-{: #how-to-resolve-conflicts}
+## Steps to resolve conflicts
+{: #steps-to-resolve-conflicts}
 
 Once you've found a conflict,
 you can resolve it in 4 steps.

@@ -157,7 +157,7 @@ be used to satisfy global queries.
 {: important}
 
 #### Return Codes
-{: #return-codes}
+{: #return-codes-cloudant-query}
 
 Code | Description
 -----|------------
@@ -370,8 +370,8 @@ Database is partitioned | Default `partitioned` value | Allowed values
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
 
-## Query Parameters
-{: #query-parameters}
+## {{site.data.keyword.cloudant_short_notm}} Query Parameters
+{: #ibm-cloudant-query-parameters}
 
 The format of the `selector` field is as described in the [selector syntax](#selector-syntax),
 except for the new `$text` operator.

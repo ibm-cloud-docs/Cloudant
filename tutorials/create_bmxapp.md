@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-03-07"
 
 keywords: create applications, deploy applications, create simple application
 
@@ -31,8 +31,8 @@ access an {{site.data.keyword.cloudantfull}} database,
 hosted in your {{site.data.keyword.cloud_notm}} service instance.
 {: shortdesc}
 
-## Context
-{: #context}
+## Advantages of {{site.data.keyword.cloud_notm}}
+{: #advantages-of-ibm-cloud}
 
 A significant advantage of {{site.data.keyword.cloud}} is that you can create and deploy applications within
 {{site.data.keyword.cloud_notm}} itself.
@@ -62,7 +62,7 @@ Python code specific to each task is provided as part of this tutorial.
 A complete Python program,
 sufficient to demonstrate the concepts,
 is provided in the tutorial,
-[here](/docs/services/Cloudant/tutorials/create_bmxapp_createapp.html#complete-listing).
+[here](/docs/services/Cloudant/tutorials/create_bmxapp_createapp.html#complete-python-program).
 
 No attempt was made to create _efficient_ Python code for this tutorial;
 the intention is to show simple and easy-to-understand working code
@@ -88,7 +88,7 @@ you need to perform the following tasks:
 -   [Customize the starter application to create your own application for accessing the {{site.data.keyword.cloudant_short_notm}} database instance.](/docs/services/Cloudant/tutorials/create_bmxapp_createapp.html#theApp)
 -   [Upload your application and test that it works.](/docs/services/Cloudant/tutorials/create_bmxapp_upload.html#uploading)
 -   [Perform basic application maintenance tasks.](/docs/services/Cloudant/tutorials/create_bmxapp_maintain.html#maintenance)
--   [Diagnose and resolve problems (troubleshooting).](/docs/services/Cloudant/tutorials/create_bmxapp_maintain.html#troubleshooting)
+-   [Diagnose and resolve problems (troubleshooting).](/docs/services/Cloudant/tutorials/create_bmxapp_maintain.html#diagnosing-and-resolving-problems)
 
 ## Tutorial structure
 {: #tutorial-structure}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-07"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -127,7 +127,7 @@ npm install cloudant
 -   [Do it yourself: Build a remote surveillance application by using {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Raspberry Pi. ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.ibm.com/developerworks/library/ba-remoteservpi-app/index.html){: new_window}.
 
 ## Python
-{: #python}
+{: #python-supported}
 
 A supported library for working with {{site.data.keyword.cloudant_short_notm}} by using Python is
 available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/python-cloudant){: new_window}.

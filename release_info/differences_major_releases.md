@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-03-07"
 
 keywords: query, response content-type, attachments, disabled javascript constructors, active tasks, views, design documents, authentication, user documents, replication, result set
 
@@ -33,8 +33,8 @@ versions are released.
 ## Incompatibilities
 {: #incompatibilities}
 
-### Query
-{: #query-changes}
+### Query and index selection
+{: #query-and-index-selection}
 
 - {{site.data.keyword.cloudant_short_notm}} Query uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}.
  
@@ -47,8 +47,8 @@ responses was `text/plain` unless the client explicitly stated `Accept: applicat
 In newer releases, and for all future releases, the 
 response content-type is `application/json`. 
 
-### Attachments
-{: #attachments-changes}
+### Default response format
+{: #default-response-format}
 
 <ul><li>Change in default response format for retrieving documents that use `attachments=true` query string parameter. 
 <p>A call to retrieve a document and its attachment (<code>GET /db/doc?attachments=true</code>) can return data in either a JSON or <code>multipart/related</code> format. An explicit <code>Accept</code> is used to switch between the two.</p>
