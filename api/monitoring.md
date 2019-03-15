@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-15"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -40,12 +40,12 @@ you need data.
 The data comes from monitoring the system.
 
 Monitoring the system while it replicates can be performed using the `_active_tasks` endpoint,
-which is described in more detail [here](/docs/services/Cloudant/api/active_tasks.html).
+which is described in more detail [here](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks).
 
 For more detailed system information,
 you make use of the cluster monitoring API.
 
-The cluster monitoring API is not available for [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](/docs/services/Cloudant/offerings/cloudant_local.html).
+The cluster monitoring API is not available for [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-local#ibm-cloudant-local).
 {: note}
 
 ## Monitoring metrics overview

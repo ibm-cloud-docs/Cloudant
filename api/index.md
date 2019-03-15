@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-15"
 
 keywords: curl samples, reference
 
@@ -62,7 +62,7 @@ There are three ways you can supply the username and password data for a request
 
 An alternative approach is to use a hashed version of your username and password combination,
 and supply that data in your cURL command.
-The guide on [Authorized curl](/docs/services/Cloudant/guides/acurl.html)
+The guide on [Authorized curl](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)
 explains how to create a more complex`acurl` command that makes use of this technique,
 enabling you to enter commands such as:<br/>
 `acurl https://$ACCOUNT.cloudant.com`
