@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-03-15"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -27,10 +27,10 @@ subcollection: cloudant
 
 [Multi-version concurrency control (MVCC) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window}
 is how {{site.data.keyword.cloudantfull}} databases ensure that all of the nodes in a database's cluster contain
-only the [newest version](/docs/services/Cloudant/api/document.html) of a document.
+only the [newest version](/docs/services/Cloudant?topic=cloudant-documents#documents) of a document.
 {: shortdesc}
 
-Since {{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/services/Cloudant/guides/cap_theorem.html),
+Since {{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem),
 this is necessary to prevent inconsistencies arising between nodes
 as a result of synchronizing between outdated documents.
 
@@ -54,8 +54,8 @@ The two main uses of the revision number are to help:
 1.  Determine what documents must be replicated between servers.
 2.  Confirm that a client is trying to modify the latest version of a document.
 
-You must specify the previous `_rev` when [updating a document](/docs/services/Cloudant/api/document.html#update)
-or else your request fails and returns a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes).
+You must specify the previous `_rev` when [updating a document](/docs/services/Cloudant?topic=cloudant-documents#update)
+or else your request fails and returns a [409 error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
 `_rev` should not be used to build a version control system. The reason is that it is an internal value used by the server. In addition, older revisions of a document are transient, and therefore removed regularly.
 {: note}
@@ -68,7 +68,7 @@ A consequence of compaction is that
 you cannot rely on a successful response when querying a particular document revision
 using its `_rev` in order to obtain a history of revisions to your document.
 If you need a version history of your documents,
-a solution is to [create a new document](/docs/services/Cloudant/api/document.html#documentCreate) for each revision.
+a solution is to [create a new document](/docs/services/Cloudant?topic=cloudant-documents#create-document) for each revision.
 
 ## Distributed Databases and Conflicts
 {: #distributed-databases-and-conflicts}
@@ -78,7 +78,7 @@ which is itself distributed,
 so updates based on the same previous version can still be in conflict.
 
 To find conflicts,
-add the query parameter [`conflicts=true`](/docs/services/Cloudant/api/database.html#get-changes) when retrieving a document.
+add the query parameter [`conflicts=true`](/docs/services/Cloudant?topic=cloudant-databases#get-changes) when retrieving a document.
 The response contains a `_conflicts` array with all conflicting revisions.
 
 To find conflicts for multiple documents in a database,

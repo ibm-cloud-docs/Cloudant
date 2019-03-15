@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-15"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -25,7 +25,7 @@ subcollection: cloudant
 # {{site.data.keyword.cloudant_short_notm}} Backup and Recovery
 {: #ibm-cloudant-backup-and-recovery}
 
-This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/services/Cloudant/guides/disaster-recovery-and-backup.html).
+This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 It's worth starting there if you are new to the subject and want to understand where backup fits in
 with the other capabilities that {{site.data.keyword.cloudant_short_notm}} offers
 to support Disaster Recovery (DR) and High Availability (HA) requirements.
@@ -240,7 +240,7 @@ The library is useful for more complicated scenarios,
 for example:
 
 * Backing up several databases in one task.
-  You might do this backup by identifying all the databases by using the [`_all_dbs`](/docs/services/Cloudant/guides/database.html#get-databases) call,
+  You might do this backup by identifying all the databases by using the [`_all_dbs`](/docs/services/Cloudant?topic=cloudant-databases#get-a-list-of-all-databases-in-the-account) call,
   then doing a backup of each database individually.
 * Longer pipelines increase the risk of errors.
   By using the CouchBackup library,
@@ -320,7 +320,7 @@ function backupToS3(sourceUrl, s3Client, s3Bucket, s3Key, shallow) {
 ## Other disaster recovery options
 {: #other-disaster-recovery-options}
 
-Return to the [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](/docs/services/Cloudant/guides/disaster-recovery-and-backup.html)
+Return to the [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
 to find out about the other features {{site.data.keyword.cloudant_short_notm}}
 offers for a full disaster recovery setup.
 

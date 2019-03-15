@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-26"
+lastupdated: "2019-03-15"
 
 keywords: generate uuid, record payments, add additional documents, advantages
 
@@ -132,7 +132,7 @@ longer UUIDs are used to ensure that documents are stored with their own unique 
 
 To create a unique identifier for use in your application,
 such as an `order_id`,
-call the [`GET _uuids` endpoint](/docs/services/Cloudant/api/advanced.html#-get-_uuids-) on the {{site.data.keyword.cloudant_short_notm}} API.
+call the [`GET _uuids` endpoint](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_uuids-) on the {{site.data.keyword.cloudant_short_notm}} API.
 The database generates an identifier for you.
 The same endpoint can be used to generate multiple ids by adding a `count` parameter,
 for example, `/_uuids?count=10`.
@@ -196,7 +196,7 @@ function (doc) {
 ```
 {: codeblock}
 
-Using the built-in [`_sum` reducer](/docs/services/Cloudant/api/creating_views.html#built-in-reduce-functions)
+Using the built-in [`_sum` reducer](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)
 enables you to produce output as a ledger of payment events.
 
 _Example of using the built-in `_sum` reducer, queried with `?reduce=false`:_

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-15"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -132,7 +132,7 @@ The basic steps in creating cross-region redundancy are:
 2.  Create databases in each region as needed.
 3.  For databases that must be stored with cross-region redundancy, set up bidirectional continuous replications between the corresponding databases in each account.
 4.  Design and implement your applications so that data requests are routed depending on whether your environment is an Active-Passive or Active-Active configuration.
-  A detailed guide to setting this up is [available](/docs/services/Cloudant/guides/active-active.html).
+  A detailed guide to setting this up is [available](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery).
 
 When you design your applications to work with data across multiple regions,
 consider the following points:
@@ -142,7 +142,7 @@ consider the following points:
   This configuration is referred to as an 'Active-Active' method.
   It is characterized by the concurrent use of multiple copies of data.
   Applications that work within an active-active configuration must have
-  a [strategy for handling conflicts](/docs/services/Cloudant/guides/mvcc.html#distributed-databases-and-conflicts) to avoid problems with multiple copies of data.
+  a [strategy for handling conflicts](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#distributed-databases-and-conflicts) to avoid problems with multiple copies of data.
 * Applications can request data from a single region by default.
   If the region is not available,
   the application can switch to requesting data from another region.
@@ -230,4 +230,4 @@ The backup tools consist of an open source node.js command line application and 
 It is available [on NPM ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
 
 For ideas and examples that show how to integrate the tools into your data protection strategy,
-see the [Backup Cookbook guide](/docs/services/Cloudant/guides/backup-cookbook.html).
+see the [Backup Cookbook guide](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

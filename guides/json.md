@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-15"
 
 keywords: numbers, strings, booleans, arrays, objects
 
@@ -34,7 +34,7 @@ In {{site.data.keyword.cloudant_short_notm}} databases,
 the JSON object is used to represent a variety of structures,
 including all documents in a database.
 
-Parsing JSON into a JavaScript object is supported through the `JSON.parse()` function in JavaScript, or through various [libraries](/docs/services/Cloudant/libraries/index.html#client-libraries) that perform the parsing of the content into a JavaScript object for you. Libraries for parsing and generating JSON are available for many major programming languages.
+Parsing JSON into a JavaScript object is supported through the `JSON.parse()` function in JavaScript, or through various [libraries](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries) that perform the parsing of the content into a JavaScript object for you. Libraries for parsing and generating JSON are available for many major programming languages.
 
 JSON is used because it is the simplest and easiest solution for working with data using a web browser.
 This is because JSON structures can be evaluated and used as JavaScript objects within the web browser environment.

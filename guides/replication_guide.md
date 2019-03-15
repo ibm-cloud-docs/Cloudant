@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-15"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -76,7 +76,7 @@ Complete the form:
 
 ![replication2](../images/replication_guide_2.png)
 
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/services/Cloudant/api/authorization.html#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/services/Cloudant/guides/iam.html){: new_window} or the legacy [Authentication API document](/docs/services/Cloudant/api/authentication.html){: new_window} and the legacy [Authorization API document](/docs/services/Cloudant/api/authorization.html){: new_window}.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} or the legacy [Authentication API document](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} and the legacy [Authorization API document](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}.
 {: important}
 
 Using the form,
@@ -175,13 +175,13 @@ _Example JSON document that describes the wanted replication:_
 {: #how-does-replication-affect-the-list-of-changes-}
 
 You can get a list of changes made to a document by using
-the [`_changes` endpoint](/docs/services/Cloudant/api/database.html#get-changes).
+the [`_changes` endpoint](/docs/services/Cloudant?topic=cloudant-databases#get-changes).
 However,
 the distributed nature of {{site.data.keyword.cloudant_short_notm}} databases
 means that the response that is provided by the `_changes` feed
 cannot be a simple list of changes that occurred after a particular date and time.
 
-The [CAP Theorem](/docs/services/Cloudant/guides/cap_theorem.html) discussion makes it clear that
+The [CAP Theorem](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem) discussion makes it clear that
 {{site.data.keyword.cloudant_short_notm}} uses an 'eventually consistent' model.
 This model means that if you asked two different replicas of a database for a document,
 at the same time,
@@ -261,7 +261,7 @@ in both the source and destination databases.
 Checkpoints allow a replication task to be resumed from where it stopped,
 without having to start from the beginning.
 Checkpoint creation can be prevented by supplying the
-[`"use_checkpoints": false`](/docs/services/Cloudant/api/replication.html#checkpoints) option when you request replication.
+[`"use_checkpoints": false`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) option when you request replication.
 It is helpful to leave the feature on if your replication is to resume efficiently from its last known position.
 
 ## Permissions
@@ -278,7 +278,7 @@ It is sufficient if the credentials are able to:
 This permission allows checkpoint documents to be created,
 but does not allow the creation of ordinary documents in a database.
 In general,
-[create API keys](/docs/services/Cloudant/api/authorization.html#creating-api-keys) that have:
+[create API keys](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) that have:
 
 -   `_reader` and `_replicator` access at the source side.
 -   `_reader` and `_writer` access at the destination side.
@@ -288,9 +288,9 @@ on a per-database basis.
 
 ![replication](../images/replication_guide_5.png)
 
-They can also be created [programmatically](/docs/services/Cloudant/api/authorization.html#creating-api-keys) by using the {{site.data.keyword.cloudant_short_notm}} API.
+They can also be created [programmatically](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) by using the {{site.data.keyword.cloudant_short_notm}} API.
 
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/services/Cloudant/api/authorization.html#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/services/Cloudant/guides/iam.html){: new_window} or the legacy [Authentication API document](/docs/services/Cloudant/api/authentication.html){: new_window} and the legacy [Authorization API document](/docs/services/Cloudant/api/authorization.html){: new_window}.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} or the legacy [Authentication API document](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} and the legacy [Authorization API document](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}.
 {: important}
 
 ## Two-way replication
@@ -316,7 +316,7 @@ data flows continuously.
 All subsequent changes to the source database are transmitted to the target database in real time.
 
 Continuous replication is triggered by clicking the `Make this replication continuous` check box when you define a replication task in the {{site.data.keyword.cloudant_short_notm}} dashboard,
-or by setting the [`continuous`](/docs/services/Cloudant/api/replication.html#checkpoints) flag in the {{site.data.keyword.cloudant_short_notm}} API.
+or by setting the [`continuous`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) flag in the {{site.data.keyword.cloudant_short_notm}} API.
 
 Two-way replication can be made continuous in one or both of the directions,
 by setting the `continuous` flag.
@@ -363,7 +363,7 @@ If replication failed,
 for example if the authentication credentials were invalid,
 then the error state is recorded in the `_replicator` document.
 In addition,
-the {{site.data.keyword.cloudant_short_notm}} account's [`/_active_tasks` endpoint](/docs/services/Cloudant/api/active_tasks.html) can be used to see replication work as it progresses.
+the {{site.data.keyword.cloudant_short_notm}} account's [`/_active_tasks` endpoint](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) can be used to see replication work as it progresses.
 
 _Example of using HTTP to monitor a replication process:_
 
@@ -507,8 +507,8 @@ Examples include:
 
 {{site.data.keyword.cloudant_short_notm}}’s filtered replication allows the definition of a JavaScript function that uses the return value
 to determine whether each document in a database is to be filtered or not.
-[Filter functions](/docs/services/Cloudant/api/design_documents.html#filter-functions) are stored
-in [design documents](/docs/services/Cloudant/api/design_documents.html).
+[Filter functions](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) are stored
+in [design documents](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents).
 
 The following example is a filter function that allows only non-deleted documents to be replicated.
 
@@ -573,7 +573,7 @@ _Example of a JSON document that defines a filtered replication:_
 {{site.data.keyword.cloudant_short_notm}} publishes the adds,
 edits,
 and deletes affecting a database through a single HTTP feed from
-the [`_changes` endpoint](/docs/services/Cloudant/api/database.html#get-changes).
+the [`_changes` endpoint](/docs/services/Cloudant?topic=cloudant-databases#get-changes).
 This feed can be used by your application to trigger events.
 You can access the feed by using HTTP or `curl`,
 as shown in the examples.
@@ -624,7 +624,7 @@ _Example `_changes` feed:_
 {: codeblock}
 
 To join the changes feed from a known position,
-pass a [`since` argument](/docs/services/Cloudant/api/database.html#the-since-argument) with the sequence number you want to start from.
+pass a [`since` argument](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument) with the sequence number you want to start from.
 
 _Example (abbreviated) of using HTTP to supply the `since` option to join a `_changes` feed at a known position:_
 
@@ -674,7 +674,7 @@ feed.follow();
 
 Accessing the `_changes` data programmatically is straightforward.
 For example,
-use the [{{site.data.keyword.cloudant_short_notm}} Node.js library](/docs/services/Cloudant/libraries/supported.html#node-js)
+use the [{{site.data.keyword.cloudant_short_notm}} Node.js library](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)
 to follow changes with a few lines of code.
 
 Example use cases might be:
@@ -728,7 +728,7 @@ the credentials that are supplied must have:
 *   `_reader` and `_replicator` permissions on database "a".
 *   `_writer` permissions on database "b".
 
-API keys are generated in the {{site.data.keyword.cloudant_short_notm}} dashboard or through the [API](/docs/services/Cloudant/api/authorization.html#creating-api-keys).
+API keys are generated in the {{site.data.keyword.cloudant_short_notm}} dashboard or through the [API](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys).
 Each key can be given individual rights that relate to a specific {{site.data.keyword.cloudant_short_notm}} database.
 {{site.data.keyword.cloudant_short_notm}} must be able to write its checkpoint documents at the "read" end of replication,
 otherwise no state is saved and replication cannot resume from where it stopped.
@@ -816,15 +816,15 @@ Alternatively,
 you might require cluster performance to take priority,
 with replication treated as a background process.
 
-[Advanced replication API options](/docs/services/Cloudant/api/advanced_replication.html) are available, which enable an increase or decrease in the amount of computing power that is used during replication. For example:
+[Advanced replication API options](/docs/services/Cloudant?topic=cloudant-advanced-replication#advanced-replication) are available, which enable an increase or decrease in the amount of computing power that is used during replication. For example:
 
 *   If your documents contain attachments,
     you might want to consider reducing the batch_size and increasing the worker_processes,
     to accommodate larger documents in smaller batches.
 *   If you have many tiny documents,
     then you might consider increasing the
-    [`worker_process`](/docs/services/Cloudant/api/advanced_replication.html#performance-related-options) and
-    [`http_connections`](/docs/services/Cloudant/api/advanced_replication.html#performance-related-options) values.
+    [`worker_process`](/docs/services/Cloudant?topic=cloudant-advanced-replication#performance-related-options) and
+    [`http_connections`](/docs/services/Cloudant?topic=cloudant-advanced-replication#performance-related-options) values.
 *   If you want to run replication with minimal impact,
     setting `worker_processes` and `http_connections` to 1 might be appropriate.
 
