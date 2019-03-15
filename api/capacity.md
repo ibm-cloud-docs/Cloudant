@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-11"
+lastupdated: "2019-03-15"
 
 keywords: provisioned throughput capacity, api 
 
@@ -165,7 +165,7 @@ _Example JSON response:_
 ## View the current consumption of provisioned throughput capacity used
 {: #view-current-capacity-consumption}
 
-Use a GET to the `_api/v2/user/current/throughput` endpoint to see the current consumption of provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. The current consumption will show the quantities of reads, writes, and global queries being conducted against the instance for that given second. 
+Use a GET to the `_api/v2/user/current/throughput` endpoint to see the current consumption of provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. The current consumption will show the quantities of reads, writes, and global queries being conducted against the instance for that given second. When using this endpoint, it is best practice to aggregate this data continuously over time to get a more comprehensive view of a Cloudant instance's throughput consumption patterns. 
 
 -   **Method**: `GET`
 -   **Path**: `_api/v2/user/current/throughput`
