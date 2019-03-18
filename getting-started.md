@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-03-22"
 
-keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing
+keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
 subcollection: cloudant
 
@@ -60,11 +60,11 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	```
 	{: screen}
 
-*	Install the [Python library](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported)
+*	Install the Python library
 	to enable your Python applications to work with
 	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 	
-	To check that you installed the client library successfully,
+	To check the client library is already installed,
 	run the following command at a prompt:
 	```sh
 	pip freeze
@@ -84,6 +84,8 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	pip install cloudant
 	```
 	{: pre}
+  
+  For more information about the Python library, see the [supported platforms](/docs/services/Cloudant/libraries/supported.html#python) documentation. 
 
 ## Step 1: Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
@@ -98,8 +100,8 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	```
 	{: codeblock}
 
-2.  Create a new {{site.data.keyword.cloudant_short_notm}} service credential:
-  <br>In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your service instance.
+2.  Create an {{site.data.keyword.cloudant_short_notm}} service credential:
+  <br>In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your {{site.data.keyword.cloudant_short_notm}} service instance.
   <br>In the left navigation, click `Service credentials`.
   <br>a. Click the `New credential` button.
   <br>![Create new service credentials](/docs/services/Cloudant/tutorials/images/img0050.png)
@@ -135,13 +137,14 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 
 1. Define a variable in the Python application:
   ```python
-  databaseName = "<yourDatabaseName>"
+  databaseName = "<your-database-name>"
   ```
   {: codeblock}
-  ... where `<yourDatabaseName>` is the name you would like to give your database. 
+
+  ... where `<your-database-name>` is the name you would like to give your database. 
 
   The database name must begin with a letter and can include only lowercase characters (a-z), numerals (0-9), and any of the following characters `_`, `$`, `(`, `)`, `+`, `-`, and `/`.
-  {: tip}
+  {: warning}
 
 2. Create the database:
   ```python
@@ -183,7 +186,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
     name = document[1]
     description = document[2]
     temperature = document[3]
-
+    #
     # Create a JSON document that represents
     # all the data in the row.
     jsonDocument = {
@@ -192,10 +195,10 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
         "descriptionField": description,
         "temperatureField": temperature
     }
-
+    #
     # Create a document by using the database API.
     newDocument = myDatabase.create_document(jsonDocument)
-
+    #
     # Check that the document exists in the database.
     if newDocument.exists():
         print "Document '{0}' successfully created.".format(number)
@@ -367,8 +370,21 @@ invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/
   ```
   {: codeblock}
 
-## Step 6: Delete the database
-{: #step-6-delete-the-database}
+## (optional) Step 6: See database information on the {{site.data.keyword.cloudant_short_notm}} dashboard
+{: #optional-step-6-ibm-cloudant-dashboard}
+
+Follow these steps to see your database and documents on the {{site.data.keyword.cloudant_short_notm}} dashboard. 
+
+1.  Log in to your IBM Cloud account.
+    The IBM Cloud dashboard can be found at: https://cloud.ibm.com/. After authenticating with your user name and password, you are presented with the IBM Cloud dashboard.
+2.  Click **Services** in the Resource summary pane to see your {{site.data.keyword.cloudant_short_notm}} service instances. 
+3.  Click the service instance whose details you want to see.
+4.  Click **Launch Cloudant Dashboard**. 
+    When the dashboard opens, you can see the databases associated with your service.
+
+
+## Step 7: Delete the database
+{: #step-7-delete-the-database}
 
 When you are finished with the database,
 it can be deleted.
@@ -386,8 +402,8 @@ else:
 We included some basic error handling
 to show you how to troubleshoot and address potential issues.
 
-## Step 7: Close the connection to the service instance
-{: #step-7-close-the-connection-to-the-service-instance}
+## Step 8: Close the connection to the service instance
+{: #step-8-close-the-connection-to-the-service-instance}
 
 The final step is to disconnect the Python client application from the service instance:
 
