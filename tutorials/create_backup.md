@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-19"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
 
@@ -412,6 +412,6 @@ Restoring a backup is only supported when restoring into an empty database. If y
     {: codeblock}
 
 Now, you have backed up and restored a database and created a log file. See the {{site.data.keyword.cloudant_short_notm}} Documentation 
-for more information about [disaster recovery and backup](/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
-[configuring {{site.data.keyword.cloudant_short_notm}} for cross region disaster recovery](/docs/services/Cloudant/guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery),
-and [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/services/Cloudant/guides/backup-cookbook.html#cloudant-backup-and-recovery).  
+for more information about [disaster recovery and backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup),
+[configuring {{site.data.keyword.cloudant_short_notm}} for cross region disaster recovery](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery),
+and [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).  

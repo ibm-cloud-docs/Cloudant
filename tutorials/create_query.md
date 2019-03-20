@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-08"
+lastupdated: "2019-03-19"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -45,8 +45,8 @@ Before you begin, follow these steps to prepare for the tutorial:
 1.  [Create an {{site.data.keyword.cloud_notm}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/registration){: new_window}.
 2.  Log in to the
   [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}.
-3.  [Create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant/tutorials/create_service.html#creating-a-service-instance).
-4.  (Optional) [Create an acurl alias](/docs/services/Cloudant/guides/acurl.html#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
+3.  [Create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-service-instance).
+4.  (Optional) [Create an acurl alias](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
 5.  Replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to {{site.data.keyword.cloudant_short_notm}} Dashboard.
   If you decide not to set up `acurl`,
   use the following URL instead of the one provided in the exercises:
@@ -58,10 +58,10 @@ Before you begin, follow these steps to prepare for the tutorial:
 ## Creating the `query-demo` database
 {: #creating-the-query-demo-database}
 
-In this section, you create the `query-demo` [database](/docs/services/Cloudant/api/database.html#create-database) that
+In this section, you create the `query-demo` [database](/docs/services/Cloudant?topic=cloudant-databases#create-database) that
 is the database that we use in this tutorial.
 
-In this tutorial, we use the `acurl` alias rather than the `curl` command. The `acurl` alias is created using steps described [here](/docs/services/Cloudant/guides/acurl.html#authorized-curl-acurl-). If you prefer to use the `curl` command, or another method for invoking API endpoints, substitute your command in the tutorial, along with the parameters required by your command, such as username and password.
+In this tutorial, we use the `acurl` alias rather than the `curl` command. The `acurl` alias is created using steps described [here](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). If you prefer to use the `curl` command, or another method for invoking API endpoints, substitute your command in the tutorial, along with the parameters required by your command, such as username and password.
 {: tip}
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
@@ -94,7 +94,7 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
 ## Creating documents in the database
 {: #creating-documents-in-the-database}
 
-The [documents](/docs/services/Cloudant/api/document.html#documents)
+The [documents](/docs/services/Cloudant?topic=cloudant-documents#documents)
 that you create in this exercise contain the data that you use to query the `query-demo` database in later exercises.
 
 ![Command Line icon](../images/CommandLineIcon.png) _Command line_
@@ -268,8 +268,8 @@ We use {{site.data.keyword.cloudant_short_notm}} Query in this tutorial, which u
 When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner looks at the selector (your query) to determine the right index to choose from. If it does not find a suitable index, it uses the `_all_docs` special index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). In memory, we filter out the documents by the selector, which is why, even without an index, you can still query with various fields. Full table scans are expensive, and we recommend that you create an index. See a description of different types of indexes in the following list:
 
 *	Primary index – look up a document or list of documents by ID.  
-*	[View](/docs/services/Cloudant/api/creating_views.html#views-mapreduce-) – search for information in the database that matches the search criteria that you specify, such as counts, sums, averages, and other mathematical functions. The criteria you can search is specified in the view's definition. Views use the MapReduce paradigm.
-*	[Search index](/docs/services/Cloudant/api/search.html#search) – search one or more fields, large amounts of text, or use wildcards, fuzzy search, or facets with [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}.
+*	[View](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) – search for information in the database that matches the search criteria that you specify, such as counts, sums, averages, and other mathematical functions. The criteria you can search is specified in the view's definition. Views use the MapReduce paradigm.
+*	[Search index](/docs/services/Cloudant?topic=cloudant-search#search) – search one or more fields, large amounts of text, or use wildcards, fuzzy search, or facets with [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}.
 
 If there is no available defined index that matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index.
 {: tip}
@@ -354,11 +354,11 @@ If there is no available defined index that matches the specified query, then {{
 {: #creating-a-query}
 
 Queries allow you to extract your data from {{site.data.keyword.cloudant_short_notm}}. A well-written
-[query](/docs/services/Cloudant/api/cloudant_query.html#query) can narrow your search and
+[query](/docs/services/Cloudant?topic=cloudant-query#query) can narrow your search and
 its results to include only the data you want.
 
 This exercise shows you how to write and run a simple query, query with two fields,
-and query with two [operators](/docs/services/Cloudant/api/cloudant_query.html#operators).
+and query with two [operators](/docs/services/Cloudant?topic=cloudant-query#operators).
 You query with an operator by specifying at least one field and its corresponding value.
 The query then uses this value to search the database for matches.
 
@@ -431,7 +431,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
 
 This example uses two fields to find everyone that is named `Brown` who lives in `New York City, NY`.
 
-We describe the search by using a ['selector' expression](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax)
+We describe the search by using a ['selector' expression](/docs/services/Cloudant?topic=cloudant-query#selector-syntax)
 that looks like the following example:
 ```json
   {
@@ -645,4 +645,4 @@ values specified in the `sort` parameter.
 
   ![Query 3 results](../images/dashboard_query3_results.png)
 
-For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} Documentation](/docs/services/Cloudant/cloudant.html#overview).
+For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} Documentation](/docs/services/Cloudant?topic=cloudant-overview#overview).
