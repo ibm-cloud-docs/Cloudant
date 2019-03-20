@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-18"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -72,14 +72,14 @@ The {{site.data.keyword.cloudant_short_notm}} Standard plan is available to all 
 
 Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 reads/sec, 50 writes/sec, and 5 global queries/sec equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down in increments of 100 reads/sec, 50 writes/sec, and 5 global queries/sec in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Costs are calculated for the provisioned throughput capacity that is allocated and is not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you are charged a defined cost per GB per hour. 
 
-See the {{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](/docs/services/Cloudant/offerings/pricing.html#pricing){: new_window} information for examples to estimate costs.
+See the {{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](/docs/services/Cloudant?topic=cloudant-pricing#pricing){: new_window} information for examples to estimate costs.
 
 ### Dedicated hardware plan
 {: #dedicated-hardware-plan}
 
 An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance is a bare metal {{site.data.keyword.cloudant_short_notm}} environment that is provisioned for the sole use of your {{site.data.keyword.cloudant_short_notm}} Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can be provisioned in any [{{site.data.keyword.IBM}} data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud-computing/bluemix/data-centers). This plan is necessary for HIPAA compliance and must be selected at provisioning time. Users of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can employ IP whitelisting and bring-your-own-key (BYOK) customer-managed encryption keys with {{site.data.keyword.IBM_notm}} Key Protect. Additionally, Dedicated Hardware environments provisioned after January 1, 2019 include internal endpoints for all Standard plan instances deployed on them. Using internal endpoints allows customers to connect to an {{site.data.keyword.cloudant_short_notm}} instance through the internal {{site.data.keyword.cloud}} network to avoid upstream application traffic from going over the public network and incurring bandwidth charges. For more information, see [Service Endpoint documentation](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window} for more details on enabling Service Endpoints for your {{site.data.keyword.cloud}} account.
 
-You can provision one or more Standard plan instances, and the Dedicated Hardware environment expands or contracts as needed based on capacity and data that is used by the Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance has a fixed price that is an addition to the consumption pricing of any Standard plan instances deployed on it. Billing is prorated daily, and there is a 1-month minimum duration to be charged for the environment. Provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan is asynchronous and can take 5-7 business days. To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance and provision a Standard plan instance on it, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){: new_window} tutorial. 
+You can provision one or more Standard plan instances, and the Dedicated Hardware environment expands or contracts as needed based on capacity and data that is used by the Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance has a fixed price that is an addition to the consumption pricing of any Standard plan instances deployed on it. Billing is prorated daily, and there is a 1-month minimum duration to be charged for the environment. Provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan is asynchronous and can take 5-7 business days. To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance and provision a Standard plan instance on it, follow the [Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} tutorial. 
 
 The Dedicated Hardware plan is not available to {{site.data.keyword.cloud_notm}} Dedicated customers. The Dedicated Hardware plan is only available to {{site.data.keyword.cloud_notm}} Public customers.
 {: important}
@@ -97,10 +97,10 @@ Throughput provision is identified and measured as one of the following types of
         which is a request that is made to an {{site.data.keyword.cloudant_short_notm}} 
         query endpoint within the `_partition` namespace in the request path,
         including the following types:
-        -	Primary Index ([`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents))
-        -	MapReduce View ([`_view`](/docs/services/Cloudant/api/creating_views.html#using-views))
-        -	Search Index ([`_search`](/docs/services/Cloudant/api/search.html#queries))
-        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-using-an-index))
+        -	Primary Index ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
+        -	MapReduce View ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
+        -	Search Index ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
+        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
     
         The number of read operations consumed by a partitioned query request
         varies depending on the results returned.
@@ -112,11 +112,11 @@ Throughput provision is identified and measured as one of the following types of
         which are requests made to an {{site.data.keyword.cloudant_short_notm}} 
         query endpoint **not** within the `_partition` namespace,
     including the following types:
-	-	Primary Index ([`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents))
-	-	MapReduce View ([`_view`](/docs/services/Cloudant/api/creating_views.html#using-views))
-	-	Search Index ([`_search`](/docs/services/Cloudant/api/search.html#queries))
-	-	Geospatial Index ([`_geo`](/docs/services/Cloudant/api/cloudant-geo.html#querying-a-cloudant-geo-index))
-	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-using-an-index))
+	-	Primary Index ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
+	-	MapReduce View ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
+	-	Search Index ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
+	-	Geospatial Index ([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-geo-index))
+	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
 
 ## Provisioned throughput capacity
 {: #provisioned-throughput-capacity}
@@ -136,12 +136,12 @@ For example, the Standard plan is provisioned for 200 reads per second. Your acc
 are rejected until the number of read events in that period drops to less than 200 again.
 
 When a request is rejected because the number of events is exceeded,
-applications receive a [`429` Too Many Requests](/docs/services/Cloudant/api/http.html#http-status-codes)
+applications receive a [`429` Too Many Requests](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)
 response.
 
-Recent versions of the supported client libraries (for [Java](/docs/services/Cloudant/libraries/supported.html#java),
-[Node.js](/docs/services/Cloudant/libraries/supported.html#node-js),
-and [Python](/docs/services/Cloudant/libraries/supported.html#python) languages) help you handle a `429` response.
+Recent versions of the supported client libraries (for [Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java),
+[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js),
+and [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supportedn) languages) help you handle a `429` response.
 For example,
 the Java library generates a
 [`TooManyRequestsException` ![External link icon](../images/launch-glyph.svg "External link icon")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window} response.
@@ -159,7 +159,7 @@ If you are porting an existing application, it might not be able to handle a `42
 {: note}
 
 In summary,
-you must ensure that your application is able to handle a [`429`](/docs/services/Cloudant/api/http.html#http-status-codes) response correctly.
+you must ensure that your application is able to handle a [`429`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) response correctly.
 
 ### Consumption of Read operations by partitioned queries
 {: #consumption-of-lookup-operations-by-partitioned-queries}
@@ -330,14 +330,14 @@ Individual Document Size | 1 MB
 Single Attachment Size | 10 MB
 Request Body Size | 11 MB
 
-Exceeding any of these limits results in a [413 response](/docs/services/Cloudant/api/http.html#http-status-codes).
+Exceeding any of these limits results in a [413 response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
 It is recommended that you store binary attachments, or large JSON blobs, 
 in object storage and save a link to the location in an {{site.data.keyword.cloudant_short_notm}} JSON document.   
 
 When you replicate, documents or attachments larger than these limits do not 
 replicate to the target database. More information about how to detect replication
-errors is available [here](/docs/services/Cloudant/api/replication.html#replication-errors).
+errors is available [here](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors).
 
 ## Locations and tenancy
 {: #locations-and-tenancy}
@@ -367,11 +367,11 @@ outside of an EU-managed environment cannot be granted access to an EU-managed
 ## Authentication methods
 {: #authentication-methods}
 
-{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include 'Use both legacy credentials and IAM' or 'Use only IAM'. For more information, see the [IAM guide](/docs/services/Cloudant/guides/iam.html){: new_window} or the legacy [Authentication API document](/docs/services/Cloudant/api/authentication.html){: new_window}.
+{{site.data.keyword.cloudant_short_notm}} is accessed by using an HTTPS API. Where the API endpoint requires it, the user is authenticated for every HTTPS request {{site.data.keyword.cloudant_short_notm}} receives. During provisioning, the available authentication methods include 'Use both legacy credentials and IAM' or 'Use only IAM'. For more information, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-l){: new_window} or the legacy [Authentication API document](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}.
 
 After provisioning an {{site.data.keyword.cloudant_short_notm}} instance, the connection URL and IAM authorization details can be found when generating new credentials in the Service Credentials tab of the {{site.data.keyword.cloud_notm}} dashboard. If you chose this option during provisioning, the {{site.data.keyword.cloudant_short_notm}} legacy user name and password is also included.
 
-The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls for authentication whenever possible. If you are using {{site.data.keyword.cloudant_short_notm}} legacy authentication, it is recommended that you use [API keys](/docs/services/Cloudant/api/authorization.html#api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
+The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls for authentication whenever possible. If you are using {{site.data.keyword.cloudant_short_notm}} legacy authentication, it is recommended that you use [API keys](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} rather than account-level credentials for programmatic access and replication jobs. 
 {: important}
 
 ## High availability, disaster recovery, and backup in a data center
@@ -381,7 +381,7 @@ To provide high availability (HA) and disaster recovery (DR) within a data cente
 stored in triplicate across three separate physical servers in a cluster. You can provision 
 accounts in multiple data centers, then use continuous data replication to provide HA/DR across 
 data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically backed up, but supported tools are provided to handle backups. Review the 
-[Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup) 
+[Disaster Recovery and Backup guide ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-authorization#api-keys) 
 to explore all HA, DR, and backup considerations to meet your application requirements. 
 
 ## {{site.data.keyword.cloud_notm}} Support
@@ -400,10 +400,10 @@ The support systems used for {{site.data.keyword.cloudant_short_notm}} do not of
 
 You can provision an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} in two ways:
 
-- Using the dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){: new_window}.
-- Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){: new_window}.
+- Using the dashboard. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window}.
+- Using the Cloud Foundry command tool. A tutorial that describes the process is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window}.
  
-To create and leverage an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){: new_window}.
+To create and leverage an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, follow the tutorial describing the process [here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window}.
 
 
 

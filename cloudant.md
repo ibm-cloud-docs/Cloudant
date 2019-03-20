@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-15"
 
 keywords: links to documentation, how to contribute
 
@@ -51,37 +51,37 @@ tasks, and techniques.
 You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window}.
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
-is [available](/docs/services/Cloudant/getting-started.html),
-along with [tutorials](/docs/services/Cloudant/tutorials/create_service.html#creating-a-service-instance) that describe tasks in more detail.
+is [available](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant),
+along with [tutorials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) that describe tasks in more detail.
 More information about details such as authenticating with database instances,
 and querying data,
-is available in the [API reference](/docs/services/Cloudant/api/index.html#api-reference-overview).
+is available in the [API reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview).
 
 ## Documentation Contents
 {: #documentation-contents}
 
-*	[Getting started tutorial](/docs/services/Cloudant/getting-started.html#getting-started-with-cloudant): Learn how to create an {{site.data.keyword.cloudantfull}} database and populate that database with a simple collection of data by using Python.
-*	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant/offerings/bluemix.html#ibm-cloud-public): Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
-*	[Pricing](/docs/services/Cloudant/offerings/pricing.html#pricing): An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 
-*	[Security and Compliance](/docs/services/Cloudant/offerings/security.html#security): A collection of articles that describe the {{site.data.keyword.cloudant_short_notm}} position on security, compliance, data privacy and governance, audit logging, and General Data Protection Regulation (GDPR).
-*	[Release information](/docs/services/Cloudant/release_info/release_notes.html#release-notes): Release-related information that includes release notes, what changed between major releases, and deprecations. 
-*	[Other offerings](/docs/services/Cloudant/offerings/bluemix_dedicated.html#ibm-cloud-dedicated): In addition to {{site.data.keyword.cloud_notm}} Public, {{site.data.keyword.cloudant_short_notm}} is available
+*	[Getting started tutorial](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant): Learn how to create an {{site.data.keyword.cloudantfull}} database and populate that database with a simple collection of data by using Python.
+*	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
+*	[Pricing](/docs/services/Cloudant?topic=cloudant-pricing#pricing): An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 
+*	[Security and Compliance](/docs/services/Cloudant?topic=cloudant-security#security): A collection of articles that describe the {{site.data.keyword.cloudant_short_notm}} position on security, compliance, data privacy and governance, audit logging, and General Data Protection Regulation (GDPR).
+*	[Release information](/docs/services/Cloudant?topic=cloudant-release-notes#release-notes): Release-related information that includes release notes, what changed between major releases, and deprecations. 
+*	[Other offerings](/docs/services/Cloudant?topic=cloudant-ibm-cloud-dedicated#ibm-cloud-dedicated): In addition to {{site.data.keyword.cloud_notm}} Public, {{site.data.keyword.cloudant_short_notm}} is available
 	in various offerings,
 	all described in here.
-* [Tutorials](/docs/services/Cloudant/tutorials/create_service.html#creating-a-service-instance): A detailed collection of articles,
+* [Tutorials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud): A detailed collection of articles,
   showing you how to perform key tasks by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
-*	[Guides](/docs/services/Cloudant/guides/acurl.html#authorized-curl-acurl-): The guides go into detail about
+*	[Guides](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-): The guides go into detail about
 	use cases and more complex activities and problems.
 	The guides also explore some of the important concepts behind the mechanics of an {{site.data.keyword.cloudant_short_notm}} database.
-*	[{{site.data.keyword.cloudant_short_notm}} Basics](/docs/services/Cloudant/basics/index.html#ibm-cloudant-basics): If you have never 		used {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in general,
+*	[{{site.data.keyword.cloudant_short_notm}} Basics](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics): If you have never 		used {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in general,
 	scan this quick introduction to the basics before you read further.
 	It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}.
 	The rest of the documentation assumes that you know these basics.
-*	[{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview): The API reference is a
+*	[{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview): The API reference is a
 	comprehensive and living catalog of the {{site.data.keyword.cloudant_short_notm}} capabilities.
 	You can find detailed information about the things you can do with {{site.data.keyword.cloudant_short_notm}}.
 *	Sample apps: The sample applications include: Offline First shopping list, Open Fridge, iOS game with Core ML and Watson Visual Recognition, and Mobile health app with Watson Studio. 
-*	[Client Libraries](/docs/services/Cloudant/libraries/index.html#client-libraries): Client libraries are toolkits that
+*	[Client Libraries](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries): Client libraries are toolkits that
 	help you develop your own applications,
 	ready to work with {{site.data.keyword.cloudant_short_notm}} databases.
 

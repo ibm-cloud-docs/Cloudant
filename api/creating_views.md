@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-03-18"
 
 keywords: views, mapreduce, concepts, index partitioning type, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning
 
@@ -37,8 +37,7 @@ A view can selectively filter documents.
 It can speed up searching for content.
 It can be used to 'pre-process' the results before they are returned to the client.
 
-Views are simply Javascript functions,
-defined within the `views` field of a design document.
+Views are simply Javascript functions, defined within the `views` field of a design document.
 When you use a view,
 or more accurately when you run a query by using your view,
 the system applies the JavaScript function to every document in the database.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-18"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -157,7 +157,7 @@ The `X-Frame-Options` setting is a response header that controls whether an HTTP
 You can configure this option based on your CORS settings. If CORS is enabled, `X-Frame-Options` are automatically enabled and send the response header, `X-Frame-Options: DENY`, by default. If a request HOST header matches the URL listed in the origins section of CORS, an `X-Frame-Options: ALLOW-FROM URL` response header is returned.
  
 This change might impact customers who are accessing the database directly from the browser. If you see the error message, "X-Frame-Options: DENY", 
-and it is breaking your service, you must enable CORS, [Setting the CORS configuration](/docs/services/Cloudant/api/cors.html#setting-the-cors-configuration). After you enable CORS, add the value of the HOST header that you send in the request 
+and it is breaking your service, you must enable CORS, [Setting the CORS configuration](/docs/services/Cloudant?topic=cloudant-cors#setting-the-cors-configuration). After you enable CORS, add the value of the HOST header that you send in the request 
 to the list of allowed `origins`.
 
 ## `dbcopy` (February 4, 2016)

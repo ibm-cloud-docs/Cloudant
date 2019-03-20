@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-18"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -41,7 +41,7 @@ to assist businesses of all sizes with their own internal data governance requir
 ## How do I audit access to {{site.data.keyword.cloudant_short_notm}}?
 {: #how-do-i-audit-access-to-ibm-cloudant-}
 
-You can find information about auditing in [Audit logging](/docs/services/Cloudant/offerings/audit.html#audit-logging){: new_window}. 
+You can find information about auditing in [Audit logging](/docs/services/Cloudant?topic=cloudant-audit-logging#audit-logging){: new_window}. 
 
 ## Supported classifications of Personal Data
 {: #supported-classifications-of-personal-data}
@@ -175,7 +175,7 @@ on how you delete it:
 the tombstone includes what you set in the document body. This practice can be useful in some 
 circumstances, for example, when recording why a document was deleted in its tombstone.
 
-For more information on deleting tombstones, see [Simple removal of 'tombstone' documents](/docs/services/Cloudant/api/document.html#-tombstone-documents){: new_window}.
+For more information on deleting tombstones, see [Simple removal of 'tombstone' documents](/docs/services/Cloudant?topic=cloudant-documents#tombstone-documents){: new_window}.
 
 ### When is a deleted document removed?
 {: #when-is-a-deleted-document-removed-}
@@ -246,7 +246,7 @@ Deleting a database puts it into a trash can for up to 48h, after which it is re
 file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases; this task is the 
 *responsibility of the customer*. You must ensure all copies of your 
 database are removed from your system. For more information, see 
-[{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/services/Cloudant/guides/backup-cookbook.html#cloudant-nosql-db-backup-and-recovery){: new_window}. 
+[{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: new_window}. 
 
 If you need additional help, contact 
 [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com).

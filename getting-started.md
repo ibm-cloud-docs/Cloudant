@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-15"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing
 
@@ -60,7 +60,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	```
 	{: screen}
 
-*	Install the [Python library](/docs/services/Cloudant/libraries/supported.html#python)
+*	Install the [Python library](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported)
 	to enable your Python applications to work with
 	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 	
@@ -113,7 +113,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   <br>The details for the service credentials appear:
    <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](/docs/services/Cloudant/tutorials/images/img0009.png)
    
-3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide ![External link icon](images/launch-glyph.svg "External link icon")](/docs/services/Cloudant/guides/iam.html#ibm-cloud-identity-and-access-management-iam-) for more details on either authentication type.
+3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide ![External link icon](images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) for more details on either authentication type.
 
 	If you are using {{site.data.keyword.cloudant_short_notm}} Legacy authentication, replace your service credentials from the previous step:
 	```python
@@ -299,7 +299,7 @@ A full retrieval also includes the data _within_ a document.
 {: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
 You can also request a list of all documents and their contents by
-invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/services/Cloudant/api/database.html#get-documents).
+invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/services/Cloudant?topic=cloudant-databases#get-documents).
 
 1. Identify the endpoint to contact, and any parameters to supply along with the call:
   ```python
@@ -402,7 +402,7 @@ client.disconnect()
 For more information about all {{site.data.keyword.cloudant_short_notm}} offerings,
 see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} site.
 
-For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/services/Cloudant/cloudant.html).
+For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/services/Cloudant?topic=cloudant-overview#overview).
 
 ## Appendix: Complete Python code listing
 {: #appendix-complete-python-code-listing}
