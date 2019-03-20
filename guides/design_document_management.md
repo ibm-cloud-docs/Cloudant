@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-15"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -40,7 +40,7 @@ non-blocking write throughput.
 -   Search Indexes are constructed using Apache Lucene to allow free-text search,
     faceting and complex ad-hoc queries
 
-{{site.data.keyword.cloudant_short_notm}}'s [search indexes](/docs/services/Cloudant/api/search.html) and [MapReduce views](/docs/services/Cloudant/api/creating_views.html)
+{{site.data.keyword.cloudant_short_notm}}'s [search indexes](/docs/services/Cloudant?topic=cloudant-search#search) and [MapReduce views](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)
 are configured by adding Design Documents to a database.
 Design Documents are JSON documents which contain the instructions on how the view or index is to be built.
 Let's take a simple example.
@@ -63,7 +63,7 @@ _Example of a simple data document:_
 Each data document includes a name,
 a body,
 and a timestamp.
-We want to create a [MapReduce view](/docs/services/Cloudant/api/creating_views.html) to sort our documents by timestamp.
+We want to create a [MapReduce view](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) to sort our documents by timestamp.
 
 We can do this by creating a Map function,
 similar to the following example.
@@ -130,7 +130,7 @@ It's worth remembering at this point that:
 -   The construction of an index happens asynchronously.
     {{site.data.keyword.cloudant_short_notm}} confirms that our Design Document has been saved,
     but to check on the progress on the construction of our index,
-    we have to poll {{site.data.keyword.cloudant_short_notm}}'s [`_active_tasks`](/docs/services/Cloudant/api/active_tasks.html) endpoint.
+    we have to poll {{site.data.keyword.cloudant_short_notm}}'s [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) endpoint.
 -   The more data we have,
     the longer it takes before the index is ready.
 -   While the initial index build is in progress,
@@ -364,5 +364,5 @@ If it is possible to make a client app aware that there is a large data processi
 then the app could switch to `stale=ok` temporarily during these times,
 then revert to the default behaviour afterwards.
 
-The `stale` option is still available, but the more useful options `stable` and `update` are available and must be used instead. For more information, see [Accessing a stale view](/docs/services/Cloudant/api/using_views.html#accessing-a-stale-view).
+The `stale` option is still available, but the more useful options `stable` and `update` are available and must be used instead. For more information, see [Accessing a stale view](/docs/services/Cloudant?topic=cloudant-using-views#view-freshness).
 {: note}

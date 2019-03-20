@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-15"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -31,16 +31,16 @@ scan this section before you scroll further.
 
 To understand the information on the following topics, we assume that you know some basic things about {{site.data.keyword.cloudantfull}}: 
 
-- [Client Libraries](/docs/services/Cloudant/libraries/index.html#client-libraries)
-- [API Reference](/docs/services/Cloudant/api/index.html#api-reference-overview)
-- [Guides](/docs/services/Cloudant/guides/acurl.html#authorized-curl-acurl-)
+- [Client Libraries](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries)
+- [API Reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)
+- [Guides](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant}
 
 To access {{site.data.keyword.cloudant_short_notm}},
-you must have either an [{{site.data.keyword.cloudant_short_notm}} account](/docs/services/Cloudant/api/account.html),
-or an [{{site.data.keyword.cloud}} account](/docs/services/Cloudant/offerings/bluemix.html).
+you must have either an [{{site.data.keyword.cloudant_short_notm}} account](/docs/services/Cloudant?topic=cloudant-account#account),
+or an [{{site.data.keyword.cloud}} account](docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public).
 
 ## HTTP API
 {: #http-api}
@@ -51,7 +51,7 @@ All language-specific libraries for {{site.data.keyword.cloudant_short_notm}} ar
 some convenience and linguistic niceties to help you work with a simple API.
 Many users choose to use raw HTTP libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 
-For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP ](/docs/services/Cloudant/api/http.html) in the API reference.
+For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP ](/docs/services/Cloudant?topic=cloudant-http#http) in the API reference.
 
 {{site.data.keyword.cloudant_short_notm}} supports the following HTTP request methods:
 
@@ -106,7 +106,7 @@ If the client (such as some web browsers) does not support using these HTTP meth
 {: #method-not-allowed-error}
 
 If you use an unsupported HTTP request type with a URL that does not support the specified type,
-a [405](/docs/services/Cloudant/api/http.html#http-status-codes) error is returned,
+a [405](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) error is returned,
 listing the supported HTTP methods, as shown in the following example.
 
 _Example error message in response to an unsupported request:_
@@ -131,7 +131,7 @@ and audio,
 are called BLOBs (Binary Large OBjects),
 and can be stored as attachments associated with documents.
 
-More information about JSON can be found in the [JSON Guide](/docs/services/Cloudant/guides/json.html).
+More information about JSON can be found in the [JSON Guide](/docs/services/Cloudant?topic=cloudant-json#json).
 
 ## Distributed Systems
 {: #distributed-systems}
@@ -147,12 +147,12 @@ you just add more machines.
 This is often more cost-effective and fault-tolerant than scaling up or enhancing an existing single machine.
 
 For more information about {{site.data.keyword.cloudant_short_notm}} and distributed system concepts,
-see the [CAP Theorem](/docs/services/Cloudant/guides/cap_theorem.html) guide.
+see the [CAP Theorem](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem) guide.
 
 ## Replication
 {: #replication-basics}
 
-[Replication](/docs/services/Cloudant/api/replication.html) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
+[Replication](/docs/services/Cloudant?topic=cloudant-replication-api#replication-api) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
 [CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){: new_window},
 [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window},
 and other distributed databases.
