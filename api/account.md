@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-14"
 
 keywords: account, ping account, cors
 
@@ -40,7 +40,7 @@ If you don't yet have an account, [sign up ![External link icon](../images/launc
 To see whether your {{site.data.keyword.cloudant_short_notm}} account is accessible,
 make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspelled your account name,
-you might get a [503 'service unavailable' error](/docs/services/Cloudant/api/Cloudant?topic=cloudant-http#http-status-codes).
+you might get a [503 'service unavailable' error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
 _Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using HTTP:_
 
@@ -92,4 +92,4 @@ print ping.status_code
 mechanism that allows JavaScript from another domain to interact with data in
 your {{site.data.keyword.cloudant_short_notm}} account.
 
-For more information about CORS and {{site.data.keyword.cloudant_short_notm}}, see [CORS](/docs/services/Cloudant/api/cors.html).
+For more information about CORS and {{site.data.keyword.cloudant_short_notm}}, see [CORS](/docs/services/Cloudant?topic=cloudant-cors#cors).

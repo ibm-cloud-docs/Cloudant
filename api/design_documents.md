@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-15"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -31,7 +31,7 @@ such as functions.
 The special documents are called "design documents".
 {: shortdesc}
 
-Design documents are [documents](/docs/services/Cloudant/api/document.html) that have an `_id` beginning with `_design/`.
+Design documents are [documents](/docs/services/Cloudant?topic=cloudant-documents#documents) that have an `_id` beginning with `_design/`.
 They can be read and updated in the same way as any other document in the database.
 {{site.data.keyword.cloudantfull}} reads specific fields and values of design documents as functions.
 Design documents are used to [build indexes](#indexes-design-docs), [validate updates](#update-validators), and [format query results](#list-functions).
@@ -52,7 +52,7 @@ To distinguish between them,
 standard documents have an `_id` indicated by `$DOCUMENT_ID`,
 while design documents have an `_id` indicated by `$DESIGN_ID`.
 
-If a design document is updated, {{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version, and recreates the index from scratch. If you need to make changes to a design document for a larger database, have a look at the [Design Document Management Guide](/docs/services/Cloudant/guides/design_document_management.html#managing-changes-to-a-design-document).
+If a design document is updated, {{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version, and recreates the index from scratch. If you need to make changes to a design document for a larger database, have a look at the [Design Document Management Guide](/docs/services/Cloudant?topic=cloudant-design-document-management#managing-changes-to-a-design-document).
 {: note}
 
 The structure of design document is as follows:
@@ -272,7 +272,7 @@ _Example response, containing the deleted document ID and revision:_
 {: #view-design-documents}
 
 An important use of design documents is for creating views.
-These are discussed in more detail [here](/docs/services/Cloudant/api/creating_views.html).
+These are discussed in more detail [here](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce).
 
 ## Rewrite rules
 {: #rewrite-rules}
@@ -336,23 +336,23 @@ Rule                                                           | URL            
 All queries operate on pre-defined indexes defined in design documents.
 These indexes are:
 
-*	[Search](/docs/services/Cloudant/api/search.html)
-*	[MapReduce](/docs/services/Cloudant/api/creating_views.html)
+*	[Search](/docs/services/Cloudant?topic=cloudant-search#search)
+*	[MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)
 
 For example,
 to create a design document used for searching,
 you must ensure that two conditions are true:
 
 1.	You have identified the document as a design document by having an `_id` starting with `_design/`.
-2.	A [search index](/docs/services/Cloudant/api/search.html) has been created within the document
-	by [updating](/docs/services/Cloudant/api/document.html#update) the document with the appropriate field
-	or by [creating](/docs/services/Cloudant/api/document.html#create-document) a new document containing the search index.
+2.	A [search index](/docs/services/Cloudant?topic=cloudant-search#search) has been created within the document
+	by [updating](/docs/services/Cloudant?topic=cloudant-documents#update) the document with the appropriate field
+	or by [creating](/docs/services/Cloudant?topic=cloudant-documents#create-document) a new document containing the search index.
 
 As soon as the search index design document exists and the index has been built,
 you can make queries using it.
 
 For more information about search indexing,
-refer to the [search](/docs/services/Cloudant/api/search.html) section of this documentation.
+refer to the [search](/docs/services/Cloudant?topic=cloudant-search#search) section of this documentation.
 
 ### General notes on functions in design documents
 {: #general-notes-on-functions-in-design-documents}
@@ -369,7 +369,7 @@ you should avoid using functions that generate random numbers or return the curr
 {: #list-functions}
 
 Use list functions to customize the format of
-[MapReduce](/docs/services/Cloudant/api/using_views.html#using-views) query results.
+[MapReduce](/docs/services/Cloudant?topic=cloudant-using-views#using-views) query results.
 A good example of their use is when you want to access {{site.data.keyword.cloudant_short_notm}} directly from a browser,
 and need data to be returned in a different format,
 such as HTML.
@@ -400,7 +400,7 @@ It enables you to create list functions that are more dynamic,
 because they are based on additional factors such as query parameters or the user context.
 
 The values within the `req` argument are similar to the query parameters described
-[here](/docs/services/Cloudant/api/cloudant_query.html#query-parameters).
+[here](/docs/services/Cloudant?topic=cloudant-query#ibm-cloudant-query-parameters).
 
 _Example design document referencing a list function, expressed using JSON:_
 
@@ -500,7 +500,7 @@ Field            | Description
 `query`          | URL query parameters object. Multiple keys are not supported, therefore the last duplicate key overrides the others.
 `requested_path` | List of actual requested path section.
 `raw_path`       | Raw requested path string.
-`secObj`         | The database's [security object](/docs/services/Cloudant/api/authorization.html#viewing-permissions)
+`secObj`         | The database's [security object](/docs/services/Cloudant?topic=cloudant-authorization#viewing-permissions)
 `userCtx`        | Context about the currently authenticated user, specifically their `name` and `roles` within the current database.
 `uuid`           | A generated UUID.
 
@@ -514,7 +514,7 @@ and need data to be returned in a different format,
 such as HTML.
 
 The result of a show function is not stored. This means that the function is executed every time a request is made. As a consequence,
-using [map functions](/docs/services/Cloudant/api/creating_views.html#a-simple-view) might be more efficient. For web and mobile applications, consider whether any computations done in a show function would be better placed in the application tier.
+using [map functions](/docs/services/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) might be more efficient. For web and mobile applications, consider whether any computations done in a show function would be better placed in the application tier.
 {: note}
 
 Show functions require two arguments: `doc`, and [`req`](#req).
@@ -702,7 +702,7 @@ db.atomic($DESIGN_ID, $UPDATE_HANDLER, $DOCUMENT_ID, $JSON, function (err, body)
 {: #filter-functions}
 
 Filter functions are design documents that enable you to filter
-the [changes feed](/docs/services/Cloudant/api/database.html#get-changes).
+the [changes feed](/docs/services/Cloudant?topic=cloudant-databases#get-changes).
 They work by applying tests to each of the objects included in the changes feed.
 
 If any of the function tests fail,
@@ -711,7 +711,7 @@ If the function returns a `true` result when applied to a change,
 the change remains in the feed.
 This means that filter functions let you 'remove' or 'ignore' changes that you do not want to monitor.
 
-Filter functions can also be used to modify a [replication task](/docs/services/Cloudant/api/advanced_replication.html#filtered-replication).
+Filter functions can also be used to modify a [replication task](/docs/services/Cloudant?topic=cloudant-advanced-replication#filtered-replication).
 {: tip}
 
 Filter functions require two arguments: `doc` and [`req`](#req).
@@ -817,8 +817,8 @@ A number of predefined filter functions are available:
 
 *	[`_design`](#the-_design-filter): accepts only changes to design documents.
 *	[`_doc_ids`](#the-_doc_ids-filter): accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
-*	[`_selector`](#the-_selector-filter): accepts only changes for documents which match a specified selector, defined using the same [selector syntax](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax) used for [`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index).
-*	[`_view`](#the-_view-filter): allows you to use an existing [map function](/docs/services/Cloudant/api/creating_views.html#a-simple-view) as the filter.
+*	[`_selector`](#the-_selector-filter): accepts only changes for documents which match a specified selector, defined using the same [selector syntax](/docs/services/Cloudant?topic=cloudant-query#selector-syntax) used for [`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
+*	[`_view`](#the-_view-filter): allows you to use an existing [map function](/docs/services/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) as the filter.
 
 #### The `_design` filter
 {: #the-_design-filter}
@@ -931,8 +931,8 @@ _Example response (abbreviated) after filtering by `_docs_ids`:_
 {: #the-_selector-filter}
 
 The `_selector` filter accepts only changes for documents which match a specified selector,
-defined using the same [selector syntax](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax) used
-for [`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index).
+defined using the same [selector syntax](/docs/services/Cloudant?topic=cloudant-query#selector-syntax) used
+for [`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
 
 For more examples showing use of this filter,
 see the information on selector syntax.
@@ -1008,7 +1008,7 @@ _Example response (abbreviated) after filtering using a selector:_
 #### The `_view` filter
 {: #the-_view-filter}
 
-The `_view` filter allows you to use an existing [map function](/docs/services/Cloudant/api/creating_views.html#a-simple-view) as the filter.
+The `_view` filter allows you to use an existing [map function](/docs/services/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) as the filter.
 
 If the map function emits any output as a result of processing a given document,
 then the filter considers the document to be allowed and so includes it in the list of documents that have changed.
@@ -1061,7 +1061,7 @@ Argument  | Purpose
 ----------|--------
 `newDoc`  | The version of the document passed in the request.
 `oldDoc`  | The version of the document currently in the database, or `null` if there is none.
-`secObj`  | The [security object](/docs/services/Cloudant/api/authorization.html#viewing-permissions) for the database.
+`secObj`  | The [security object](/docs/services/Cloudant?topic=cloudant-authorization#viewing-permissions) for the database.
 `userCtx` | Context regardingthe currently authenticated user, such as `name` and `roles`.
 
 Update validators do not apply when a design document is updated by an admin user. This is to ensure that admins can never accidentally lock themselves out.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-15"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -111,7 +111,7 @@ _Example of returned JSON, confirming that the index was created:_
 </tr>
 <tr>
 <td headers="field" align="center" valign="top"><p>index</p></td>
-<td headers="description"><p>fields:<p style="margin-left: 20px">A JSON array of field names that uses the <a href="https://cloud.ibm.com/docs/services/Cloudant/api/cloudant_query.html#sort-syntax">sort syntax</a>. Nested fields are also allowed, for example, <code>"person.name"</code>.</p></p></td>
+<td headers="description"><p>fields:<p style="margin-left: 20px">A JSON array of field names that uses the <a href="#sort-syntax">sort syntax</a>. Nested fields are also allowed, for example, <code>"person.name"</code>.</p></p></td>
 </tr>
 <tr>
 <td headers="field"><p>ddoc (optional)</p></td>
@@ -296,7 +296,7 @@ Key        | Description
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
 Later,
 the index can be queried by using the `$text` operator.
-See the [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant/api/search.html#analyzers) for alternative analyzers.
+See the [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant?topic=cloudant-search#analyzers) for alternative analyzers.
 You might choose to use an alternative analyzer when documents are indexed in languages other than English,
 or when you have other special requirements for the analyzer such as matching email addresses.
 
@@ -384,7 +384,7 @@ such as wildcards,
 fuzzy matches,
 or proximity detection.
 For more information,
-see [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant/api/search.html).
+see [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant?topic=cloudant-search#search).
 The `$text` operator applies to all strings found in the document.
 If you place this operator in the context of a field name, it is invalid.
 
@@ -512,7 +512,7 @@ Design documents are regular documents that have an ID starting with `_design/`.
 They can be retrieved and modified in the same way as any other document,
 although these actions are not usually necessary when you use {{site.data.keyword.cloudant_short_notm}} Query.
 
-Design documents are discussed in more detail [here](/docs/services/Cloudant/api/design-documents.html).
+Design documents are discussed in more detail [here](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents).
 
 ### Response body format for listing all {{site.data.keyword.cloudant_short_notm}} Query indexes
 {: #response-body-format-for-listing-all-IBM-cloudant-query-indexes}
@@ -1216,7 +1216,7 @@ Object        | `$exists` | Boolean              | Check whether the field exist
 Array         | `$in`     | Array of JSON values | The document field must exist in the list provided.
               | `$nin`    | Array of JSON values | The document field must not exist in the list provided.
               | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields cannot match this condition.
-Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/services/Cloudant/api/http.html#http-status-codes). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
+Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/services/Cloudant?topic=cloudant-http#http-status-codes). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
               | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression.
 
 Regular expressions do not work with indexes,
@@ -1620,7 +1620,7 @@ The `$mod` operator matches documents where the expression (`field % Divisor == 
 and only when the document field is an integer.
 The Divisor and Remainder must be integers.
 They can be positive or negative integers.
-A query where the Divisor or Remainder is a non-integer returns a [404 status](/docs/services/Cloudant/api/http.html#http-status-codes).
+A query where the Divisor or Remainder is a non-integer returns a [404 status](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
 When you use negative integer values for the Divisor or Remainder,
 the {{site.data.keyword.cloudant_short_notm}} `$mod` operator behaves in a similar way to the

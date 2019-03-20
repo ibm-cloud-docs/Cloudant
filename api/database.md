@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-03-15"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -26,11 +26,11 @@ subcollection: cloudant
 {: #databases}
 
 {{site.data.keyword.cloudantfull}} databases contain JSON objects.
-These JSON objects are called [documents](/docs/services/Cloudant/api/document.html#documents).
+These JSON objects are called [documents](/docs/services/Cloudant?topic=cloudant-documents#documents).
 All documents must be contained in a database.
 {: shortdesc}
 
-A guide is [available](/docs/services/Cloudant/guides/transactions.html),
+A guide is [available](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant),
 providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
 ## Create
@@ -79,7 +79,7 @@ account.db.create($DATABASE, function (err, body, headers) {
 
 -->
 
-If creation succeeds, you get a [201 or 202 response](/docs/services/Cloudant/api/http.html#http-status-codes).
+If creation succeeds, you get a [201 or 202 response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 An error response uses 
 the HTTP status code to indicate what went wrong.
 
@@ -272,14 +272,14 @@ Argument            | Description                                               
 `keys`              | Return only documents with IDs that match one of the specified keys.                            | yes      | list of strings |
 `limit`             | Limit the number of returned documents to the specified number.                                 | yes      | numeric         |
 `meta`              | Short-hand combination of all three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | yes | boolean | false
-`r`                 | Specify the [read quorum](/docs/services/Cloudant/api/document.html#quorum-writing-and-reading-data) value.               | yes      | numeric         | 2
+`r`                 | Specify the [read quorum](/docs/services/Cloudant?topic=cloudant-documents#quorum-writing-and-reading-data) value.               | yes      | numeric         | 2
 `revs_info`         | Includes detailed information for all known document revisions.                                 | yes      | boolean         | false
 `skip`              | Skip this number of records before returning the results.                                       | yes      | numeric         | 0
 `startkey`          | Return records, starting with the specified key.                                                | yes      | string          |
 `startkey_docid` | Return records, starting with the specified document ID. If `startkey` is not set, this argument is ignored.  | yes | string |
 
 
-Using `include_docs=true` might have [performance implications](/docs/services/Cloudant/api/using_views.html#multi-document-fetching).
+Using `include_docs=true` might have [performance implications](/docs/services/Cloudant?topic=cloudant-using-views#multi-document-fetching).
 {: important}
 
 When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require many strings to list the keys you want.
@@ -559,9 +559,9 @@ Argument       | Description | Supported Values | Default
 ---------------|-------------|------------------|---------
 `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | boolean | false 
 `descending`   | Return the changes in sequential order. | boolean | false | 
-`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. See [API: GET / documentation](/docs/services/Cloudant/api/advanced.html#-get-) for more information. | A JSON array of document IDs | |
+`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. See [API: GET / documentation](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-) for more information. | A JSON array of document IDs | |
 `feed`         | Type of feed required. For details, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
-`filter`       | Name of [filter function](/docs/services/Cloudant/api/design_documents.html#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/services/Cloudant/api/design_documents.html). | string | no filter
+`filter`       | Name of [filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents). | string | no filter
 `heartbeat`    | If there were no changes during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | any positive number | no heartbeat | 
 `include_docs` | Include the document as part of the result. | boolean | false |
 `limit`        | Maximum number of rows to return. | any non-negative number | none |  
@@ -570,7 +570,7 @@ Argument       | Description | Supported Values | Default
 `style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` | 
 `timeout`      | Stop the response after waiting this number of milliseconds for data. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | any positive number | |
 
-Using `include_docs=true` might have [performance implications](/docs/services/Cloudant/api/using_views.html#multi-document-fetching).
+Using `include_docs=true` might have [performance implications](/docs/services/Cloudant?topic=cloudant-using-views#multi-document-fetching).
 {: important}
 
 _Example of using HTTP to get a list of changes made to documents in a database:_
@@ -620,7 +620,7 @@ _But_ you might also get changes that were made before the change indicated by t
 The reason these extra changes are included,
 along with the implications for applications,
 is explained in the
-[replication guide](/docs/services/Cloudant/guides/replication_guide.html#how-does-replication-affect-the-list-of-changes-).
+[replication guide](/docs/services/Cloudant?topic=cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
 
 <!-- Reset markdown parser -->
 
@@ -699,7 +699,7 @@ _Example (abbreviated) responses from a continuous changes feed:_
 {: #the-filter-argument}
 
 The `filter` argument designates a pre-defined
-[filter function](/docs/services/Cloudant/api/design_documents.html#filter-functions) to apply to the changes feed.
+[filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) to apply to the changes feed.
 Additionally,
 several built-in filters available:
 
@@ -710,13 +710,13 @@ several built-in filters available:
    {: note}
 
 *   `_selector`: Accepts only changes for documents that match a specified selector,
-    which is defined by using the same [selector syntax](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax) that is used
-    for [`_find`](/docs/services/Cloudant/api/cloudant_query.html#finding-documents-by-using-an-index).
+    which is defined by using the same [selector syntax](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) that is used
+    for [`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
 
    The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
    {: note}
 	
-*   `_view`: Enables use of an existing [map function](/docs/services/Cloudant/api/creating_views.html#a-simple-view) as the filter.
+*   `_view`: Enables use of an existing [map function](/docs/services/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) as the filter.
 
 ### The `since` argument
 {: #the-since-argument}
@@ -760,7 +760,7 @@ more than one time if you make a `_changes` request several times.
 
 More information about the behavior of the `_changes` response is
 provided in the
-[replication guide](/docs/services/Cloudant/guides/replication_guide.html#how-does-replication-affect-the-list-of-changes-).
+[replication guide](/docs/services/Cloudant?topic=cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
 
 ### Responses from the `_changes` request
 {: #responses-from-the-_changes-request}
@@ -903,7 +903,7 @@ account.db.destroy($DATABASE, function (err, body, headers) {
 
 -->
 
-If deletion succeeds, you get a [200 or 202 response](/docs/services/Cloudant/api/http.html#http-status-codes){: new_window}.
+If deletion succeeds, you get a [200 or 202 response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes){: new_window}.
 An error response uses the HTTP status code to indicate what went wrong.
 
 Code | Description
@@ -925,8 +925,8 @@ _Example response that is received after a database is deleted successfully:_
 {: #backing-up-your-data}
 
 You must protect your data by taking good quality backups.
-An overview of backing up your data is [available](/docs/services/Cloudant/guides/backup-cookbook.html),
-with more detailed information in the [backup guide](/docs/services/Cloudant/guides/backup-guide-using-replication.html).
+An overview of backing up your data is [available](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery),
+with more detailed information in the [backup guide](/docs/services/Cloudant?topic=cloudant-replication-incrementals#replication-incrementals).
 
 <!--
 Removed for 96973.
@@ -936,7 +936,6 @@ Removed for 96973.
 Virtual hosts (vhosts) are a way to make {{site.data.keyword.cloudant_short_notm}} serve data from a different domain
 than the one normally associated with your {{site.data.keyword.cloudant_short_notm}} account.
 
-More information is available [here](/docs/services/Cloudant/api/vhosts.html).
 -->
 
 ## Creating database applications
@@ -947,8 +946,8 @@ you might also have client-side application code in documents within the databas
 The application code is typically written by using JavaScript.
 Two-tier combinations of data and client code,
 which is stored within a database,
-are called [CouchApps](/docs/services/Cloudant/guides/couchapps.html).
+are called [CouchApps](/docs/services/Cloudant?topic=cloudant-couchapps#couchapps).
 
-More information about CouchApps,
+For more information about CouchApps,
 and to help you decide whether they are a good match for your application,
-is [available](/docs/services/Cloudant/guides/couchapps.html).
+is [available](/docs/services/Cloudant?topic=cloudant-couchapps#couchapps).

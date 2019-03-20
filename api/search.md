@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-15"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -696,7 +696,7 @@ Fields that are used for sorting must be indexed by the same indexer that is use
 Do not combine the `bookmark` and `stale` options. These options constrain the choice of shard replicas to use for the response. When used together, the options might cause problems when contact is attempted with replicas that are slow or not available.
 {: note}
 
-Using `include_docs=true` might have [performance implications](/docs/services/Cloudant/api/using_views.html#multi-document-fetching).
+Using `include_docs=true` might have [performance implications](/docs/services/Cloudant?topic=cloudant-using-views#multi-document-fetching).
 {: important}
 
 ### Relevance

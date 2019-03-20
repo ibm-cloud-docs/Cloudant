@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-15"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -31,7 +31,7 @@ Documents are containers for your data,
 and are the basis of the {{site.data.keyword.cloudantfull}} database.
 {: shortdesc}
 
-If you are using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/services/Cloudant/offerings/bluemix.html), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](/docs/services/Cloudant/api/http.html#http-status-codes).
+If you are using an [{{site.data.keyword.cloudant_short_notm}} service on {{site.data.keyword.cloud}}](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public), documents are limited to a maximum size of 1 MB. Exceeding this limit causes a [`413` error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 {: tip}
 
 All documents must have two fields:
@@ -45,7 +45,7 @@ If you choose to specify the document `_id` field, it must be limited to no more
 {: tip}
 
 The `_rev` field is a revision number,
-and is [essential to the {{site.data.keyword.cloudant_short_notm}} replication protocol](/docs/services/Cloudant/guides/mvcc.html).
+and is [essential to the {{site.data.keyword.cloudant_short_notm}} replication protocol](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
 In addition to these two mandatory fields,
 documents can generally contain any other content that can be described by using JSON.
 
@@ -101,7 +101,7 @@ _Example success message (abbreviated) returned when a nested field with an unde
 ```
 {: codeblock}
 
-{{site.data.keyword.cloudant_short_notm}} uses an [eventually consistent](/docs/services/Cloudant/guides/cap_theorem.html) model for data.
+{{site.data.keyword.cloudant_short_notm}} uses an [eventually consistent](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem) model for data.
 This model means that under some conditions,
 it is possible that if your application writes or updates a document,
 followed immediately by a read of the same document,
@@ -109,7 +109,7 @@ older document content is retrieved.
 In other words,
 your application would see the document content as it was *before* the write or update occurred.
 For more information about this model,
-see the topic on [Consistency](/docs/services/Cloudant/guides/cap_theorem.html).
+see the topic on [Consistency](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem).
 
 ## Create
 {: #create-document}
@@ -191,7 +191,7 @@ _Example response after successfully creating a document:_
 ```
 {: codeblock}
 
-If the write [quorum](#quorum-writing-and-reading-data) cannot be met during an attempt to create a document, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
+If the write [quorum](#quorum-writing-and-reading-data) cannot be met during an attempt to create a document, a [`202` response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) is returned.
 {: tip}
 
 ## Read
@@ -201,7 +201,7 @@ To retrieve a document,
 send a GET request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 
 If you do not know the `_id` for a particular document,
-you can [query the database](/docs/services/Cloudant/api/database.html#get-documents) for all documents.
+you can [query the database](/docs/services/Cloudant?topic=cloudant-databases#get-documents) for all documents.
 
 Due to the distributed, eventually consistent nature of {{site.data.keyword.cloudant_short_notm}}, reads might return stale data. In particular,
 data that were written recently, even by the same client, might not be returned from a read request immediately following the write request. To work around this behavior,
@@ -287,7 +287,7 @@ Name                | Type | Description | Default
 {: #read-many}
 
 To fetch more than one document at a time,
-[query the database](/docs/services/Cloudant/api/database.html#get-documents)
+[query the database](/docs/services/Cloudant?topic=cloudant-databases#get-documents)
 by using the `include_docs` option.
 
 ## Update
@@ -299,10 +299,10 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 You can also use this `PUT` method to create a document,
 in which case you do not need to supply the most recent `_rev` value.
 
-If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) cannot be met, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
+If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) cannot be met, a [`202` response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) is returned.
 {: note}
 
-Any document update can lead to a conflict, especially when you replicate updated documents. More information about avoiding and resolving conflicts is in the [Document Versioning and MVCC guide](/docs/services/Cloudant/guides/mvcc.html).
+Any document update can lead to a conflict, especially when you replicate updated documents. More information about avoiding and resolving conflicts is in the [Document Versioning and MVCC guide](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
 {: note}
 
 _Example of using HTTP to update a document:_
@@ -386,7 +386,7 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`.
 The response contains the ID and the new revision of the document,
 or an error message if the delete failed.
 
-If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum-writing-and-reading-data) cannot be met, a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes) is returned.
+If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes). This error prevents you overwriting data that were changed by other clients. If the write [quorum](#quorum-writing-and-reading-data) cannot be met, a [`202` response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) is returned.
 {: note}
 
 {{site.data.keyword.cloudant_short_notm}} does not completely delete the specified document. Instead, it leaves a [tombstone](#tombstone-documents) with basic information about the document. The tombstone is required so that the delete action can be replicated to other copies of the database. Since the tombstones stay in the database indefinitely,
@@ -468,7 +468,7 @@ do the following steps:
 
 1.	Create a database to hold the required documents.
 	The new database is intended to hold all documents _except_ the tombstone documents.
-2.	Set up a [filtered replication](/docs/services/Cloudant/api/advanced_replication.html#filtered-replication) to
+2.	Set up a [filtered replication](/docs/services/Cloudant?topic=cloudant-advanced-replication#filtered-replication) to
 	replicate documents from the original database to the new database.
 	Configure the filter so that documents with the '`_deleted`' attribute are not replicated.
 3.	When replication is complete,
@@ -614,7 +614,7 @@ because the database sequence numbers are likely to be different.
 If you are using a `validate_doc_update` function, avoid replicating that function to clients. This rule is to prevent the possibility of unwanted side effects as a result of having the function present on the client.
 {: tip}
 
-[{{site.data.keyword.cloudant_short_notm}} Sync](/docs/services/Cloudant/libraries/supported.html#mobile) libraries do not replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
+[{{site.data.keyword.cloudant_short_notm}} Sync](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#mobile) libraries do not replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
 However, other clients might replicate the design documents or `validate_doc_update` functions, potentially resulting in unwanted side effects.
 {: note}
 
@@ -626,8 +626,8 @@ The {{site.data.keyword.cloudant_short_notm}} purge API is not available for cus
 Unlike [deleting a document](#delete),
 purging a document removes all references to that document from the database.
 Following a purge,
-the affected documents are no longer available and cannot be listed by using the [`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents)
-or [`_changes`](/docs/services/Cloudant/api/database.html#get-changes) commands.
+the affected documents are no longer available and cannot be listed by using the [`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents)
+or [`_changes`](/docs/services/Cloudant?topic=cloudant-databases#get-changes) commands.
 When you request a purge of a document,
 it does not matter whether a document still exists,
 or was [deleted](#delete) previously.
@@ -689,7 +689,7 @@ You might want to purge rather than delete a document for two reasons.
     purging all but one of these branches leads to the partial purging of the document.
     The document remains available in the database,
     but in a new form without the purged branches and revisions.
-    A new record is created in the [`_changes`](/docs/services/Cloudant/api/database.html#get-changes) for this document.
+    A new record is created in the [`_changes`](/docs/services/Cloudant?topic=cloudant-databases#get-changes) for this document.
 
 ### Purging and replication
 {: #purging-and-replication}
@@ -709,7 +709,7 @@ To avoid these issues, a purge must be carried out on all copies of a database d
 ### Purging and indexes
 {: #purging-and-indexes}
 
-Database indexes, including [views](/docs/services/Cloudant/api/using_views.html), [search](/docs/services/Cloudant/api/search.html), and [geo](/docs/services/Cloudant/api/cloudant-geo.html) indexes, are automatically updated during all purge operations. All indexes support multiple purge requests, and in particular do not need to be completely rebuilt because of a purge request.
+Database indexes, including [views](/docs/services/Cloudant?topic=cloudant-using-views#using-views), [search](/docs/services/Cloudant?topic=cloudant-search#search), and [geo](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial) indexes, are automatically updated during all purge operations. All indexes support multiple purge requests, and in particular do not need to be completely rebuilt because of a purge request.
 
 Indexes need updating only when:
 
@@ -902,7 +902,7 @@ _Example JSON for a bulk insert of three documents:_
 ```
 {: codeblock}
 
-The return code from a successful bulk insertion is [`201`](/docs/services/Cloudant/api/http.html#http-status-codes).
+The return code from a successful bulk insertion is [`201`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 The content of the returned structure indicates success
 or other information messages on a per-document basis.
 
@@ -1043,7 +1043,7 @@ _Example JSON structure that is returned after bulk update:_
 ### Bulk Documents Transaction Semantics
 {: #bulk-documents-transaction-semantics}
 
-If your request receives a [`202` response](/docs/services/Cloudant/api/http.html#http-status-codes),
+If your request receives a [`202` response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes),
 the only certainty is that _some_ of the document tasks were processed completely.
 The response body contains the list of documents that were successfully inserted or updated during the process.
 
@@ -1146,7 +1146,7 @@ _Example error message from a validation function:_
 {: #the-_bulk_get-endpoint}
 
 You might need to access all the available information about multiple documents.
-The `_bulk_get` endpoint is similar to the [`_all_docs`](/docs/services/Cloudant/api/database.html#get-documents) endpoint,
+The `_bulk_get` endpoint is similar to the [`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents) endpoint,
 but returns information about the requested documents only.
 
 Like the `_bulk_docs` endpoint,

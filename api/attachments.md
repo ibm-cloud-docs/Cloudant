@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-03-15"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -39,7 +39,7 @@ The BLOB holds data that includes:
 
 Examples of BLOBs would be images and multimedia.
 
-If you include the attachment as an '[inline](/docs/services/Cloudant/api/attachments.html#inline)' component of the overall JSON, the attachment content is represented by using BASE64 form.
+If you include the attachment as an [inline](/docs/services/Cloudant?topic=cloudant-attachments#inline) component of the overall JSON, the attachment content is represented by using BASE64 form.
 {: note}
 
 The content type corresponds to a [MIME type ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}.
@@ -53,8 +53,7 @@ It is a good idea to keep attachments small in size and number because attachmen
 ## Create / Update
 {: #create-update}
 
-To create a new attachment at the same time as creating a new document,
-include the attachment as an '[inline](/docs/services/Cloudant/api/attachments.html#inline)' component of the JSON content.
+To create a new attachment at the same time as creating a new document, include the attachment as an [inline](/docs/services/Cloudant?topic=cloudant-attachments#inline) component of the JSON content.
 
 To create a new attachment on an existing document,
 or to update an attachment on a document,
@@ -173,7 +172,7 @@ To delete an attachment,
 make a `DELETE` request with the document's most recent `_rev`
 to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 If you do not supply the most recent `_rev`,
-the response is a [409 error](/docs/services/Cloudant/api/http.html#http-status-codes).
+the response is a [409 error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
 _Example of deleting an attachment, by using HTTP:_
 
