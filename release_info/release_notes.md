@@ -115,7 +115,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## Build 7426 (November 15, 2018)
 {: #build-7426-november-15-2018}
 
-- Include [CRN](/docs/overview/crn.html) in audit logs.
+- Include [CRN](/docs/overview?topic=overview-crn) in audit logs.
 - Replicator stability improvements.
 - Improve validation of `q` parameter on database creation. See [COUCHDB-1582 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1582){: new_window}.
 - Fix error in `_bulk_get` endpoint for the `_users` database. See [COUCHDB-1650 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1650){: new_window}.

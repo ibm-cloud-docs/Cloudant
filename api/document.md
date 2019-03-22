@@ -622,14 +622,14 @@ However, other clients might replicate the design documents or `validate_doc_upd
 
 The {{site.data.keyword.cloudant_short_notm}} purge API is not available for customer use due to its potential impact to database functions such as indexing, replication, and the `_changes` feed. Customers who wish to purge documents must first read this documentation section to fully understand the ramifications of purging a document versus deleting it. In order to purge documents, customers must contact support with a list of document `_id` and `_rev` pairs.
 
-Unlike [deleting a document](#delete),
+Unlike [deleting a document](#delete-a-document),
 purging a document removes all references to that document from the database.
 Following a purge,
 the affected documents are no longer available and cannot be listed by using the [`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents)
 or [`_changes`](/docs/services/Cloudant?topic=cloudant-databases#get-changes) commands.
 When you request a purge of a document,
 it does not matter whether a document still exists,
-or was [deleted](#delete) previously.
+or was [deleted](#delete-a-document) previously.
 
 A purge request must identify the `leaf` version of a document.
 In other words,

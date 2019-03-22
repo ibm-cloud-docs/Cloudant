@@ -878,7 +878,7 @@ Use `*:*` to return all results.
 Result sets from searches are limited to 200 rows,
 and return 25 rows by default.
 The number of rows that are returned can be changed
-by using the [`limit` parameter](#query-parameters).
+by using the [`limit` parameter](#query-parameters-search).
 
 If the search query does _not_ specify the `"group_field"` argument,
 the response contains a bookmark.
@@ -886,7 +886,7 @@ If this bookmark is later provided as a URL parameter,
 the response skips the rows that were seen already,
 making it quick and easy to get the next set of results.
 
-The response never includes a bookmark if the [`"group_field"` parameter](#query-parameters) is included in the search query.
+The response never includes a bookmark if the [`"group_field"` parameter](#query-parameters-search) is included in the search query.
 {: tip}
 
 The `group_field`, `group_limit`, and `group_sort` options are only available when making global queries.
@@ -904,8 +904,8 @@ use a preceding backslash character (`\`).
 
 The response to a search query contains an `order` field for each of the results.
 The `order` field is an array where the first element is the field or fields that are specified
-in the [`sort` parameter](#query-parameters).
-If no [`sort` parameter](#query-parameters) is included in the query,
+in the [`sort` parameter](#query-parameters-search).
+If no [`sort` parameter](#query-parameters-search) is included in the query,
 then the `order` field contains the [Lucene relevance score ![External link icon](../images/launch-glyph.svg "External link icon")](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}.
 If you use the 'sort by distance' feature as described in [Geographical Searches](#geographical-searches),
 then the first element is the distance from a point.
