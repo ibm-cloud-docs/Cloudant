@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-03-27"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -38,8 +38,7 @@ requires you to specify a logical partitioning of your data. This is described
 more below.
 
 Alternatively, a _non-partitioned_ database can be created. This type of
-database can be easier to work with as no partitioning scheme needs to be
-defined, but only global secondary indexes can be created.
+database can be easier to work with as no partitioning scheme needs to be defined, but only global secondary indexes can be created.
 
 {{site.data.keyword.cloudant_short_notm}} strongly recommends that you use a partitioned database for best long-term
 database performance where the data model allows for logical partitioning
@@ -305,9 +304,11 @@ curl -XPOST https://acme.cloudant.com/readings -d @view.json
 
 To return the readings for a given device from a partition, we can use an
 {{site.data.keyword.cloudant_short_notm}} Query index. For this, we `POST` to `_index` with an index definition
-that includes the `partitioned` field set to `true`. Note that for Query index
-definitions that the `partitioned` field is not nested inside an `options`
+that includes the `partitioned` field set to `true`. 
+
+For Query index definitions, the `partitioned` field is not nested inside an `options`
 object.
+{: note}
 
 For our queries, we need two partitioned indexes:
 

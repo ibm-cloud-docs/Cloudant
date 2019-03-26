@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-03-26"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -33,11 +33,51 @@ All documents must be contained in a database.
 A guide is [available](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant),
 providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
+## Partitioned databases
+{: #partitioned-databases}
+
+{{site.data.keyword.cloudant_short_notm}} supports two types of databases:
+
+-	Partitioned
+-	Non-partitioned
+
+A *partitioned* database offers significant query performance and cost advantages but requires you to specify a logical partitioning of your data. The partitioning is specified as part of each document's ID. A partitioned database allows performing both global and partition queries. Partition queries target queries at a single, given document partition, meaning they need to process less data to return results. Therefore, partition queries offer significant performance advantages, and will also often provide cost advantages over global queries. Global queries target the entire database leading to extra complexity, slower performance and increased cost -- but offer results drawing from all data.
+
+Alternatively, a *non-partitioned* database might be created. This type of database can be easier to work with as no partitioning scheme needs to be defined, but only global secondary indexes can be created.
+
+{{site.data.keyword.cloudant_short_notm}} strongly recommends that you use a partitioned database for best long-term database performance where the data model allows for logical partitioning of documents.
+
+The partitioning type of a database is set at database creation time. When creating a database, use the `partitioned` query string parameter to set whether the database is partitioned. The default for `partitioned` is `false`, maintaining backwards compatibility.
+
+The partitioning type cannot be changed for an existing database.
+
+To create a database, submit a PUT request with the following format:
+
+Method: PUT /$DATABASE?partitioned=$BOOLEAN
+Request body: None
+Response: Success or failure of operation.
+Roles permitted: _admin
+
+
 ## Create
 {: #create-database}
 
 To create a database,
-send a `PUT` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
+submit a `PUT` request with the following format:
+
+-   **Method**: `PUT /$DATABASE?partitioned=$BOOLEAN`
+-   **Request body**: None
+-   **Response**: Success or failure of operation.
+-   **Roles permitted**: `_admin`
+
+### Query Arguments
+{: #query-arguments}
+
+Argument         | Description | Optional | Type | Default | Supported values
+-----------------|-------------|----------|------|---------|-----------------
+`partitioned`      | Whether database is partitioned. | yes | Boolean | `false` | `true`, `false`
+
+### Database naming
 
 The database name must start with a lowercase letter,
 and contain only the following characters:
@@ -45,49 +85,48 @@ and contain only the following characters:
 -	Lowercase characters (a-z)
 -	Digits (0-9)
 -	Any of the characters _, $, (, ), +, -, and /
- 
-_Example of using HTTP to create a database:_
+
+### Examples
+
+_Using HTTP to create a partitioned database:_
 
 ```http
-PUT /$DATABASE HTTP/1.1
+PUT /$DATABASE?partitioned=true HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-_Example of using the command line to create a database:_
+_Using HTTP to create a non-partitioned database:_
+
+```http
+PUT /$DATABASE?partitioned=false HTTP/1.1
+HOST: $ACCOUNT.cloudant.com
+```
+{: codeblock}
+
+_Using the command line to create a partitioned database:_
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE -X PUT
+curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=true'
 ```
 {: codeblock}
 
-<!--
+_Using the command line to create a non-partitioned database:_
 
-_Example of using JavaScript to create a database:_
-
-```javascript
-var nano = require('nano');
-var account = nano("https://"+$ACCOUNT+":"+$PASSWORD+"@"+$ACCOUNT+".cloudant.com");
-
-account.db.create($DATABASE, function (err, body, headers) {
-	if (!err) {
-		console.log('database created!');
-	}
-});
+```sh
+curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=false'
 ```
 {: codeblock}
 
--->
-
-If creation succeeds, you get a [201 or 202 response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
-An error response uses 
+If creation succeeds, you get a [201 or 202 response](http.html#201).
+An error response uses
 the HTTP status code to indicate what went wrong.
 
 Code | Description
 -----|------------
 201  | Database created successfully.
 202  | The database was successfully created on some nodes, but the number of nodes is less than the write quorum.
-403  | Invalid database name.
+400  | Invalid database name.
 412  | Database already exists.
 
 _Example response that is received after a database is created successfully:_
@@ -96,7 +135,7 @@ _Example response that is received after a database is created successfully:_
 HTTP/1.1 201 Created
 
 {
-	ok": true
+    "ok": true
 }
 ```
 {: codeblock}

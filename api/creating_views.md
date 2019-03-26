@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-03-26"
 
 keywords: views, mapreduce, concepts, index partitioning type, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning
 
@@ -193,10 +193,7 @@ For more information, see [Using Views](/docs/services/Cloudant?topic=cloudant-u
 ## Reduce functions
 {: #reduce-functions}
 
-Design documents with `partitioned` set to `true` cannot contain JavaScript reduce functions, only built-ins.
-{: tip}
-
-Design documents with `options.partitioned` set to `true` cannot contain JavaScript reduce functions, only built-ins.
+Design documents with `options.partitioned` set to `true` cannot contain custom JavaScript reduce functions, only built-in reduces are allowed. 
 {: tip}
 
 If a view has a reduce function,
@@ -214,7 +211,7 @@ Reduce functions are passed three arguments in the following order:
 -	values
 -	rereduce
 
-A description of the reduce functions follows below.
+A description of the reduce functions is shown in the following example.
 
 _Example of a reduce function:_
 
@@ -266,9 +263,7 @@ Function | Description
 `_count` | Produces the row count for a specific key. The values can be any valid JSON.
 `_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric.
 `_sum`   | Produces the sum of all values for a key. The values must be numeric.
-`_approx_count_distinct` | Approximates the number of distinct keys in a view index using a variant of the [HyperLogLog][hl] algorithm.
-
-[hl]: https://en.wikipedia.org/wiki/HyperLogLog
+`_approx_count_distinct` | Approximates the number of distinct keys in a view index using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog) algorithm.
 
 By feeding the results of `reduce` functions back into the `reduce` function,
 MapReduce is able to split up the analysis of huge data sets into discrete,
@@ -346,7 +341,7 @@ Due to sharding, there are
 no guarantees that the output of any two specific map functions will be passed to
 the same instance of a reduce call, so you should not rely on any ordering. Your
 reduce function must consider all the values passed to it and return the correct
-answer irrespective of ordering. Cloudant is also guaranteed to call your reduce
+answer irrespective of ordering. {{site.data.keyword.cloudant_short_notm}} is also guaranteed to call your reduce
 function with `rereduce=true` at query time even if it did not need to do so when
 building the index, so it is essential that your function works correctly in that
 case (`rereduce=true` means that the keys parameter is `null` and the values array is

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-03-27"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -36,46 +36,75 @@ or supplied as arguments when you use the view.
 To query a view,
 submit a `GET` request with the following format:
 
--   **Method**: `GET /$DATABASE/_design/$DDOC/_view/$VIEW-NAME`
+-   **Method**:
+    - Issue a partition query using:
+        ```
+        GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$INDEX_NAME
+        ```
+    - Issue a global query using:
+        ```
+        GET /$DATABASE/_design/$DDOC/_view/$VIEW-NAME
+        ```
 -   **Request**: None
--   **Response**: JSON of the documents that are returned by the view
+-   **Response**: JSON of the documents that are returned by the view.
 -   **Roles permitted**: `_reader`
 
-The request runs the specified `view-name` from the specified `design-doc` design document within the database.
+The request runs either:
+
+- The specified `view-name` from the specified `design-doc` design document
+    within the database.
+- The specified `view-name` from the specified `design-doc` design document
+    within the database, constrained to results within a given data partition.
+
+The examples in this document vary between partition and global queries for
+illustrative purposes, but unless otherwise noted, modifying the path to
+embed or remove the partition name will work for any view query type.
 
 ### Query Arguments
 {: #query-arguments}
 
-Argument         | Description | Optional | Type | Default | Supported values
------------------|-------------|----------|------|---------|-----------------
-`conflicts`      | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | yes | Boolean | false |
-`descending`     | Return the documents in 'descending by key' order. | yes | Boolean | false | 
-`endkey`         | Stop returning records when the specified key is reached. | yes | String or JSON array | | 
-`endkey_docid`   | Stop returning records when the specified document ID is reached. | yes | String | | 
-`group`          | Using the `reduce` function, group the results to a group or single row. | yes | Boolean | false | 
-`group_level`    | Only applicable if the view uses complex keys: keys that are JSON arrays. Groups reduce results for the specified number of array fields. | yes | Numeric | | 
-`include_docs`   | Include the full content of the documents in the response. | yes | Boolean | false | 
-`inclusive_end`  | Include rows with the specified `endkey`. | yes | Boolean | true | 
-`key`            | Return only documents that match the specified key. Note that keys are JSON values, and must be URL encoded. | yes | JSON strings or arrays | | 
-`keys`           | Return only documents that match the specified keys. Note that keys are JSON values, and must be URL encoded. | yes | Array of JSON strings or arrays | |
-`limit`          | Limit the number of returned documents to the specified count. | yes | Numeric | | 
-`reduce`         | Use the `reduce` function. | yes | Boolean | true | 
-`skip`           | Skip this number of rows from the start. | yes | Numeric | 0 | 
-`stable`         | Prefer view results from a 'stable' set of shards. The results are from a view that is less likely to be updated soon. | yes | Boolean | false | 
-`stale`          | Allow the results from a stale view to be used. The request returns immediately, even if the view is not yet built. If this parameter is not given, a response is returned only after the view has been built. | yes | String | false | 
-`startkey`       | Return records, starting with the specified key. | yes | String or JSON array | | 
-`startkey_docid` | Return records, starting with the specified document ID. | yes | String | |
- `update`        | Ensure that the view is updated before results are returned. | yes | String | `true` 
+Global queries can use all query arguments. Partition queries can only use the
+subset indicated in the table.
+
+Argument         | Description | Optional | Type | Default | Supported values | Partition query
+-----------------|-------------|----------|------|---------|------------------|-----------------
+`conflicts`      | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | yes | Boolean | false || no
+`descending`     | Return the documents in 'descending by key' order. | yes | Boolean | false | | yes
+`endkey`         | Stop returning records when the specified key is reached. | yes | String or JSON array | | | yes
+`endkey_docid`   | Stop returning records when the specified document ID is reached. | yes | String | | | yes
+`group`          | Using the `reduce` function, group the results to a group or single row. | yes | Boolean | false | | yes
+`group_level`    | Only applicable if the view uses complex keys: keys that are JSON arrays. Groups reduce results for the specified number of array fields. | yes | Numeric | | | yes
+`include_docs`   | Include the full content of the documents in the response. | yes | Boolean | false | | yes
+`inclusive_end`  | Include rows with the specified `endkey`. | yes | Boolean | true | | yes
+`key`            | Return only documents that match the specified key. Note that keys are JSON values, and must be URL encoded. | yes | JSON strings or arrays | | | yes
+`keys`           | Return only documents that match the specified keys. Note that keys are JSON values, and must be URL encoded. | yes | Array of JSON strings or arrays | || yes
+`limit`          | Limit the number of returned documents to the specified count. | yes | Numeric | | | yes
+`reduce`         | Use the `reduce` function. | yes | Boolean | true | | yes
+`skip`           | Skip this number of rows from the start. | yes | Numeric | 0 | | yes
+`stable`         | Prefer view results from a 'stable' set of shards. The results are from a view that is less likely to be updated soon. | yes | Boolean | false | | no
+`stale`          | Allow the results from a stale view to be used. The request returns immediately, even if the view is not yet built. If this parameter is not given, a response is returned only after the view has been built. | yes | String | false | | no
+`startkey`       | Return records, starting with the specified key. | yes | String or JSON array | | | yes
+`startkey_docid` | Return records, starting with the specified document ID. | yes | String | || yes
+ `update`        | Ensure that the view is updated before results are returned. | yes | String | `true` | yes
 
 This table shows the supported values for the following arguments:
 
 Argument | Supported values
 ---------|-----------------
 `stale` | `ok`: Allow stale views.<br/>`update_after`: Allow stale views, but update them immediately after the request.
-`update` | `true`: Return results after updating the view.<br/>`false`: Return results before updating the view.<br/>`lazy`: Return the view results without waiting for an update, but update them immediately after the request.
+`update` | `true`: Return results after updating the view.<br/>`false`: Return results without updating the view.<br/>`lazy`: Return the view results without waiting for an update, but update them immediately after the request.
 
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}
+
+_Example of using HTTP to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view:_
+
+```http
+GET /$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+```
+{:codeblock}
 
 _Example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view:_
 
@@ -85,6 +114,14 @@ Accept: application/json
 Content-Type: application/json
 ```
 {: codeblock}
+
+_Example of using the command line to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view:_
+
+```sh
+curl https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5 \
+     -H "Content-Type: application/json"
+```
+{:codeblock}
 
 _Example of using the command line to retrieve a list of the first five documents from a database,
 applying the user-created `by_title` view:_
@@ -176,8 +213,8 @@ a 'fingerprint' of the view definition is created whenever the design document i
 If the fingerprint changes,
 then the view indexes are rebuilt.
 
-View index rebuilds occur whenever a change occurs to any one view from all the views that are defined in the design document. For example, if you have a design document with three views, and you update the design document, all three view indexes within the design document are rebuilt.
-{: note}
+View index rebuilds occur whenever a change occurs to any one view from all the views that are defined in the design document. For example, if you have a design document with three views, and you update the design document, all three view indexes within the design document are rebuilt. If you need to make changes to a design document for a larger database, have a look at the [Design Document Management Guide](/docs/services/Cloudant?topic=cloudant-design-document-management#managing-changes-to-a-design-document).
+{: tip}
 
 If the database was updated recently,
 the results might be delayed when the view is accessed.
@@ -192,17 +229,10 @@ Creating the view definition in the design document
 causes incremental updates to the index when the documents or inserted.
 
 If speed of response is more important than having up-to-date data,
-an alternative is to allow users to access an old version of the view index.
-In effect,
-the user has an immediate response from 'stale' index content,
-rather than waiting for the index to be updated.
-Depending on the document contents,
-a stale view might not return the most recent information.
-Nevertheless, a stale view returns the results of the view query quickly,
-by using an existing version of the index.
+an alternative is to allow users to access an old version of the view index. To do this, use the `update` query string parameter when making a view query.
 
-If you want to save old index versions without incurring indexing overhead, you can stop the search index from building by setting `"autoupdate": {"indexes": false}`, or stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. See the following examples. 
-{: note}
+If you want to save old index versions without incurring indexing overhead, you can stop all indexes from building by setting `"autoupdate": {"indexes": false}`, or stop views from auto-updating by adding one of the following options to a design document. You can stop all index types from indexing if you set `"autoupdate": false`. See the following examples. 
+{: tip}
 
 ```json
 	{
@@ -232,37 +262,22 @@ If you want to save old index versions without incurring indexing overhead, you 
 
 By default, all index results reflect the current state of the database. {{site.data.keyword.cloudantfull}} builds its indexes automatically and asynchronously in the background.
 This usually means the index is fully up-to-date 
-when you query it. If this is not the case, we call the database "stale" and the remaining updates are made when you query the index. 
+when you query it. If this is not the case, we call the index "stale" and, by default, the remaining updates are made when you query the index. 
 The results of your query include these updates. {{site.data.keyword.cloudant_short_notm}} builds three copies of every index in 
 alignment with the three copies of your primary data.
 
 {{site.data.keyword.cloudant_short_notm}} supplies better results and
-performance with the defaults for these parameters. If the performance of your view and your application can tolerate inconsistent results when queried with the 
-default `stale=false` setting, use `stable=false&update=false`. These settings avoid directing all queries to a single copy of 
+performance with the defaults for these parameters. If the performance of your view and your application can tolerate inconsistent results when queried, use `stable=false&update=false`. These settings avoid directing all queries to a single copy of 
 your index, which would, in effect, reduce some aspects of performance to a third of what it should be.
 
 Option   | Purpose                                                                                                                               | Default value
 ---------|---------------------------------------------------------------------------------------------------------------------------------------|--------------
 `stable` | Determine whether view results are obtained from a consistent or 'stable' set of shards. Possible values include `true`, and `false`. | `false`
-`stale`  | Determine whether results from a stale view are permitted. Possible values include `false`, `ok`, and `update_after`.                 | `false`
 `update` | Determine whether the view is updated before the results are returned. Possible values include `true`, `false`, and `lazy`.           | `true`
 
-## Combining parameters
-{: #combining-parameters}
-
-When you specify `stable=true` with `update=false` or `update=lazy`,
-responses are consistent from request to request because a single,
-consistent set of shards is used to respond to the query.
-However, when one of the shards is heavily loaded or slow to respond,
-the response time is adversely affected.
-
-When the default `stable=false` value applies,
-and you use either `update=false` or `update=lazy`,
-indexes between shard replicas are no longer synchronized.
-The results are different based on which replica responds first. 
-
-When you use a stale view, the results return the existing version of the data in the view index without waiting for an update. 
-The results can be different from different nodes in the cluster.
+The defaults are suitable for most applications. For better performance and
+availability, use `stable=false&update=false`. For better result stability
+across queries, use `stable=true&update=true`. See the next section for more detail.
 
 ### Parameters
 {: #parameters}
@@ -273,15 +288,35 @@ The benefit is that the response is not delayed when an individual shard replica
 By contrast, setting `stable=true` forces the database to use a single,
 consistent set of shards to respond to the query.
 
-The `stale` option allows the results from a stale view to be used. The option makes the request return immediately,
-even if the view is still building. If this parameter is not given, or the value `false` is supplied, a response is returned only after the view is built.
-The value `ok` allows stale views. The value `update_after` allows stale views
-but updates them immediately after a response to the request is provided.
-
 The `update` option indicates whether you are prepared to accept
 view results without waiting for the view to be updated. The default value is `true`,
 meaning that the view is updated before results are returned. The `lazy` value means that the results are returned before the view is updated,
 but that the view must then be updated anyway.
+
+### Combining parameters
+{: #combining-parameters}
+
+When you specify `stable=true` with `update=false` or `update=lazy`,
+responses are consistent from request to request because a single,
+consistent set of shards is used to respond to the query.
+However, when one of the shards is heavily loaded or slow to respond,
+the response time is adversely affected.
+
+When the default `stable=false` value applies,
+and you use any value for `update`, results are different based on which replica 
+responds first.
+
+### Deprecated option: `stale`
+{: #deprecated-option-stale}
+
+The `stale` option is deprecated and is replaced by `stable` and `update`, which
+allow controlling the two orthogonal behaviours caused by `stale` separately.
+
+`stable` value   | Equivalent using `stable` and `update`
+---------|-----------------------------------------------
+`false`  | `stable=false`, `update=true`
+`ok`  | `stable=true`, `update=false`
+`update_after`  | `stable=false`, `update=lazy`
 
 ## Sorting Returned Rows
 {: #sorting-returned-rows}
@@ -391,7 +426,7 @@ filtering is applied by using the `startkey` and `endkey` query arguments.
 The combination of sorting and filtering means that it is possible to have empty view results because
 the sorting and filtering do not make sense when combined.
 
-_Example of using HTTP to make a query that includes `startkey` and `endkey` query arguments:_
+_Example of using HTTP to make a global query that includes `startkey` and `endkey` query arguments:_
 
 ```http
 GET /recipes/_design/recipes/_view/by_ingredient?startkey="alpha"&endkey="beta" HTTP/1.1
@@ -400,7 +435,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of a query using the command line that includes `startkey` and `endkey` query arguments:_
+_Example of a global query using the command line that includes `startkey` and `endkey` query arguments:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?startkey="alpha"&endkey="beta" \
@@ -433,9 +468,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?d
 
 The `endkey` of `beta` is seen before the `startkey` of `alpha`, resulting in an empty list.
 
-_Example showing that the view request returns no entries,
-because `alpha` is alphabetically before `beta`,
-therefore the returned result is empty:_
+_Example showing that the global view query returns no entries, because `alpha` is alphabetically before `beta`, therefore the returned result is empty:_
 
 ```json
 {
@@ -453,7 +486,7 @@ The following example shows correct filtering and reversing the order of output,
 by using the `descending` query argument,
 and reversing the `startkey` and `endkey` query arguments.
 
-_Example that uses HTTP to apply correct filtering and sorting:_
+_Example that uses HTTP to apply correct filtering and sorting to a global query:_
 
 ```http
 GET /recipes/_design/recipes/_view/by_ingredient?descending=true&startkey="egg"&endkey="carrots" HTTP/1.1
@@ -462,7 +495,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example that uses the command line to apply correct filtering and sorting:_
+_Example that uses the command line to apply correct filtering and sorting to a global query:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="egg"&endkey="carrots" \
@@ -493,7 +526,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of a request that returns all recipes,
+_Example of a global query that returns all recipes,
 where the key for the view matches either `claret` or `clear apple juice`,
 that uses the command line:_
 
@@ -568,10 +601,10 @@ function(employee_doc) {
 }
 ```
 
-_Example request using HTTP to obtain the full content of documents that match the listed keys:_
+_Example request using HTTP to obtain the full content of documents that match the listed keys within the `british` partition:_
 
 ```http
-POST /recipes/_design/recipes/_view/by_ingredient?include_docs=true HTTP/1.1
+POST /recipes/_partition/british/_design/recipes/_view/by_ingredient?include_docs=true HTTP/1.1
 Content-Type: application/json
 ```
 {: codeblock}
@@ -588,10 +621,10 @@ _Example JSON document that lists the keys to match:_
 ```
 {: codeblock}
 
-_Example request using the command line to obtain the full content of documents that match the listed keys:_
+_Example request using the command line to obtain the full content of documents that match the listed keys within the `british` partition:_
 
 ```sh
-curl "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?include_docs=true"
+curl "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_partition/british/_design/$DDOC/_view/by_ingredient?include_docs=true"
     -X POST \
     -H "Content-Type: application/json" \
     -d "{ "keys" : [ "claret", "clear apple juice" ] }"
@@ -690,6 +723,9 @@ _Example (abbreviated) response, returning the full document for each recipe tha
 
 ## Sending several queries to a view
 {: #sending-several-queries-to-a-view}
+
+Multiple queries are only available when making global queries.
+{: tip}
 
 To send several view queries in one request,
 use a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME`.

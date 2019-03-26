@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-03-26"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -127,7 +127,7 @@ _Example of returned JSON, confirming that the index was created:_
 </tr>
 <tr>
 <td headers="field"><p>partitioned (optional, boolean)</p></td>
-<td headers="description"><p>Whether this index is partitioned. See below.</p></td>
+<td headers="description"><p>Whether this index is partitioned. For more information, see [the `partitioned` field](#section1-the-partitioned-field).</p></td>
 </tr>
 </tr>
 </table>
@@ -491,8 +491,7 @@ by a `use_index` field, so you must modify the original query:
 }
 ```
 Technically, you do not need to include the filter on the `status` field in the
-query selector. The partial index ensures that this value is always true. However, if you include the filter, it makes the intent of the selector clearer. It also makes it easier to take advantage of future improvements to query planning (for example, automatic selection of
-partial indexes).
+query selector. The partial index ensures that this value is always true. However, if you include the filter, it makes the intent of the selector clearer. It also makes it easier to take advantage of future improvements to query planning (for example, automatic selection of partial indexes).
 
 ## List all {{site.data.keyword.cloudant_short_notm}} Query indexes
 {: #list-all-cloudant-nosql-db-query-indexes}
@@ -604,12 +603,7 @@ Design documents are not returned by `_find`.
 	Use this parameter to specify which fields of an object must be returned.
 	If it is omitted,
 	the entire object is returned.
--	**r (optional, default: 1)**: The read quorum that is needed for the result.
-	The value defaults to 1,
-	in which case the document that was found in the index is returned.
-	If set to a higher value,
-	each document is read from at least that many replicas before it is returned in the results.
-	The request will take more time than using only the document that is stored locally with the index.
+-	**r (optional, default: 1)**: The read quorum used when reading documents required when processing a query. The value defaults to 1, in which case, the document is read from the primary data co-located with the index. If set to a higher value, the document must also be retrieved from at least _r-1_ other primary data replicas before results can be processed. This will increase query latency as the replicas reside on separate machines. In practice, this option should hardly ever be changed from the default.
     - `r` is **disallowed** when making a partition query.
 -	**bookmark (optional, default: null)**: A string that is used to specify which page of results you require.
 	Pagination is discussed in more detail [here](#pagination).
