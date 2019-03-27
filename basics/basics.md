@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-03-18"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 

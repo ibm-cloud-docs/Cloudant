@@ -35,11 +35,11 @@ IBM Cloudant
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
-    basics/index.md
+    basics/basics.md
 
 	{: .topicgroup}
 	API Reference
-		api/index.md
+		api/overview.md
 		api/http.md
 		api/compare.md
 		api/account.md
@@ -71,7 +71,7 @@ IBM Cloudant
 
 	{: .topicgroup}
 	Libraries
-		libraries/index.md
+		libraries/client-libraries.md
 		libraries/supported.md
 		libraries/thirdparty.md
 	{: .navgroup-end}
