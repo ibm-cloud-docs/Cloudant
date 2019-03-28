@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-03-28"
 
 keywords: links to documentation, how to contribute
 
@@ -61,6 +61,7 @@ is available in the [API reference](/docs/services/Cloudant?topic=cloudant-api-r
 {: #documentation-contents}
 
 *	[Getting started tutorial](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant): Learn how to create an {{site.data.keyword.cloudantfull}} database and populate that database with a simple collection of data by using Python.
+*	[{{site.data.keyword.cloudant_short_notm}} blog ![External link icon](images/launch-glyph.svg "External link icon")](https://blog.cloudant.com/): Read blogs on a variety of topics, including {{site.data.keyword.cloudant_short_notm}} fundamentals, removing conflicts, generating sample data, partitioned databases, and more. 
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
 *	[Pricing](/docs/services/Cloudant?topic=cloudant-pricing#pricing): An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 
 *	[Security and Compliance](/docs/services/Cloudant?topic=cloudant-security#security): A collection of articles that describe the {{site.data.keyword.cloudant_short_notm}} position on security, compliance, data privacy and governance, audit logging, and General Data Protection Regulation (GDPR).
