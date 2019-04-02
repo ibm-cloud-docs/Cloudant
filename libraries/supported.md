@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-04-02"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -100,7 +100,7 @@ npm install cloudant
 -   [nodejs-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){: new_window} ([npm ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/cloudant){: new_window}).
 
 #### Unsupported libraries and frameworks for node.js
-{: #unsupported-libraries-and-frameworks-for-node-js}
+{: #unsupported-libraries-and-frameworks-for-node-js-supported}
 
 -   [sag-js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}, which also works in the browser.
     See [saggingcouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/saggingcouch.com){: new_window} for more detail.

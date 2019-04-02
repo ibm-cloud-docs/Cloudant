@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-28"
+lastupdated: "2019-04-02"
 
 keywords: links to documentation, how to contribute
 
@@ -51,7 +51,7 @@ tasks, and techniques.
 You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window}.
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
-is [available](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant),
+is [available](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started),
 along with [tutorials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) that describe tasks in more detail.
 More information about details such as authenticating with database instances,
 and querying data,
@@ -60,7 +60,7 @@ is available in the [API reference](/docs/services/Cloudant?topic=cloudant-api-r
 ## Documentation Contents
 {: #documentation-contents}
 
-*	[Getting started tutorial](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant): Learn how to create an {{site.data.keyword.cloudantfull}} database and populate that database with a simple collection of data by using Python.
+*	[Getting started tutorial](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started): Learn how to create an {{site.data.keyword.cloudantfull}} database and populate that database with a simple collection of data by using Python.
 *	[{{site.data.keyword.cloudant_short_notm}} blog ![External link icon](images/launch-glyph.svg "External link icon")](https://blog.cloudant.com/): Read blogs on a variety of topics, including {{site.data.keyword.cloudant_short_notm}} fundamentals, removing conflicts, generating sample data, partitioned databases, and more. 
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
 *	[Pricing](/docs/services/Cloudant?topic=cloudant-pricing#pricing): An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 

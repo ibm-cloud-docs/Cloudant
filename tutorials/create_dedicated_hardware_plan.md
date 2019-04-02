@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-04-02"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -43,7 +43,7 @@ instances on it.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){: new_window}.
+    [`https://cloud.ibm.com/` ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){: new_window}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
