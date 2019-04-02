@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-04-02"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -116,7 +116,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
     with offline synchronization.
 
 ### Examples and tutorials for PouchDB
-{: #examples-and-tutorials-for-javascript}
+{: #examples-and-tutorials-for-pouchdb}
 
 -   [PouchDB Getting Started Guide ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/getting-started.html){: new_window} -
     example Todo application that syncs from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
@@ -129,7 +129,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 {: #node-js}
 
 ### Unsupported libraries and frameworks for node.js
-{: #unsupported-libraries-and-frameworks-for-node-js}
+{: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
 -   [sag-js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}, which also works in the browser.
     See [saggingcouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/saggingcouch.com){: new_window} for more detail.
@@ -170,8 +170,8 @@ require_once('./src/Sag.php');
 ## Python
 {: #python}
 
-### Unsupported libraries and frameworks for node.js
-{: #unsupported-libraries-and-frameworks-for-node-js}
+### Unsupported libraries and frameworks for Python
+{: #unsupported-libraries-and-frameworks-for-python}
 
 -   [requests ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.python-requests.org/en/master/){: new_window}.
 

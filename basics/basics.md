@@ -40,7 +40,7 @@ To understand the information on the following topics, we assume that you know s
 
 To access {{site.data.keyword.cloudant_short_notm}},
 you must have either an [{{site.data.keyword.cloudant_short_notm}} account](/docs/services/Cloudant?topic=cloudant-account#account),
-or an [{{site.data.keyword.cloud}} account](docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public).
+or an [{{site.data.keyword.cloud}} account](/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public).
 
 ## HTTP API
 {: #http-api}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-02"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -23,7 +23,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2018-05-31 -->
 
 # Getting started tutorial
-{: #getting-started-with-cloudant}
+{: #getting-started}
 
 In this {{site.data.keyword.cloudantfull}} getting started tutorial,
 we use Python to create an {{site.data.keyword.cloudant_short_notm}} database

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-04-02"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -143,7 +143,7 @@ you do not need to download them again,
 unless they are updated.
 
 General information about the toolkits is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant){: new_window}.
+[here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window}.
 
 ### Installing the Cloud Foundry toolkit
 {: #installing-the-cloud-foundry-toolkit}

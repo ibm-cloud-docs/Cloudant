@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-04-02"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -99,7 +99,7 @@ A [complete listing](#complete-python-program) of the application code
 is at the end of this section of the tutorial.
 
 #### Getting started
-{: #getting-started}
+{: #getting-started-create_bmxapp_createapp}
 
 The Python application requires some basic components to function.
 They are imported as follows:
@@ -301,7 +301,7 @@ This task is described in more detail in the
 The application must do these tasks:
 
 1.  Establishes a connection to the database instance.
-2.  Creates a database with the name provided [earlier](#getting-started).
+2.  Creates a database with the name provided [earlier](#getting-started-create_bmxapp_createapp).
 3.  Creates a JSON document that contains the current date and time.
 4.  Stores the JSON document in the database.
 5.  Confirms that the document was stored safely.
