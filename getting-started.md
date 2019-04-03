@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-03"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -104,16 +104,16 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   <br>In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your {{site.data.keyword.cloudant_short_notm}} service instance.
   <br>In the left navigation, click `Service credentials`.
   <br>a. Click the `New credential` button.
-  <br>![Create new service credentials](/docs/services/Cloudant/tutorials/images/img0050.png)
+  <br>![Create new service credentials](tutorials/images/img0050.png)
   <br>b. Enter a name for the new credential in the Add new credential window, as shown in the following screen shot.
   <br>c. (Optional) Add inline configuration parameters.
   <br>d. Click the `Add` button. 
-  <br>![Add a new service credential](/docs/services/Cloudant/tutorials/images/img0051.png)
+  <br>![Add a new service credential](tutorials/images/img0051.png)
   <br>Your credentials are added to the Service credentials table.
   <br>e. Click `View credentials` under Actions. 
-  <br>![View all service credentials](/docs/services/Cloudant/tutorials/images/img0052.png)
+  <br>![View all service credentials](tutorials/images/img0052.png)
   <br>The details for the service credentials appear:
-   <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](/docs/services/Cloudant/tutorials/images/img0009.png)
+   <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
    
 3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide ![External link icon](images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) for more details on either authentication type.
 

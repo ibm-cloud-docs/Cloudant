@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-03"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -52,7 +52,7 @@ instances on it.
      ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)<br/>
 
 3.  Select the `Dedicated Hardware` plan from the list of pricing plans at the bottom of the page:<br/>
-    ![Pricing plans](/docs/services/Cloudant/tutorials/images/pricing_plan.png)
+    ![Pricing plans](images/pricing_plan.png)
     
 4.  Fill out the following parameters at the top of the page: <br/>
     -   Enter a service name.<br/>
@@ -65,19 +65,19 @@ instances on it.
     HIPAA is only valid for U.S. locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only provisioned upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. See [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
     {: note}
 
-    ![Configure dedicated hardware](/docs/services/Cloudant/tutorials/images/select_deployment_location.png)
+    ![Configure dedicated hardware](images/select_deployment_location.png)
         
 5.  Click the `Create` button to start the provisioning process. <br/>
 
     Billing is prorated daily so make sure that you want to provision and pay for an environment before clicking the **Create** button.
     {: note}
 
-    ![Provision dedicated hardware](/docs/services/Cloudant/tutorials/images/create_button_provision.png)
+    ![Provision dedicated hardware](images/create_button_provision.png)
 
     During provisioning, a spinning wheel appears next to the instance in your {{site.data.keyword.cloud_notm}} dashboard. A request is sent to provision a Dedicated Hardware plan instance on bare metal servers. Provisioning time is asynchronous and can take up to 5 days. 
     {: note}   
 
-    ![Provision dedicated hardware alternate version](/docs/services/Cloudant/tutorials/images/create_button_provision2.png)
+    ![Provision dedicated hardware alternate version](images/create_button_provision2.png)
     
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
@@ -94,7 +94,7 @@ instances on it.
     The page for creating a service appears.<br/>  
 
 3.  Click `Standard` from the pricing plans. <br/>
-    ![Standard pricing plan](/docs/services/Cloudant/tutorials/images/standard_pricing_plan.png)
+    ![Standard pricing plan](images/standard_pricing_plan.png)
     
     You cannot provision a Lite plan instance on a Dedicated Hardware environment.
     {: tip}
@@ -106,11 +106,11 @@ instances on it.
     -   Add a tag. 
     -   Select an authentication method.</br>
     -   Select an environment.</br>
-    ![Configure standard instance](/docs/services/Cloudant/tutorials/images/select_environment.png)
+    ![Configure standard instance](images/select_environment.png)
     
 5.  Click the `Create` button.<br/>
     After a few seconds, the instance is provisioned on the environment you selected.<br/>
-    ![Provision standard instance](/docs/services/Cloudant/tutorials/images/create_button_provision_standard.png)
+    ![Provision standard instance](images/create_button_provision_standard.png)
     
 6.  Obtain your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
     
