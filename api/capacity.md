@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-03"
 
 keywords: provisioned throughput capacity, api 
 
@@ -20,7 +20,7 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2019 -->
 
 # Capacity
 {: #capacity}
@@ -34,7 +34,6 @@ to do the following tasks:
 - View the current consumption of provisioned throughput capacity used.
 
 See the [provisioned throughput capacity](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#provisioned-throughput-capacity) documentation for detailed information on how capacity is allocated and consumed in {{site.data.keyword.cloudant_short_notm}} as well as how to view and change the capacity in the UI. 
-
 
 ## View the current and target provisioned throughput capacity setting
 {: #view-current-and-target-capacity-setting}
@@ -169,8 +168,7 @@ Use a GET to the `_api/v2/user/current/throughput` endpoint to see the current c
 
 -   **Method**: `GET`
 -   **Path**: `_api/v2/user/current/throughput`
--   **Response**: The current consumption of provsioned throughput capacity consumed, broken down by the number of  
-reads, writes, and global queries
+-   **Response**: The current consumption of provisioned throughput capacity consumed, broken down by the number of reads, writes, and global queries.
 -   **Roles permitted**: `_admin`
 
 _Example request to retrieve the current consumption of capacity, by using HTTP:_
