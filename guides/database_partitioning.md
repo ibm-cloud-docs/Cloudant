@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-04-16"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -72,7 +72,7 @@ A non-partitioned database offers only global querying, described in more
 detail below.
 
 ## Partitioned databases
-{: #partitioned-databases}
+{: #partitioned-databases-database-partitioning}
 
 A partitioned database is the newer type of {{site.data.keyword.cloudant_short_notm}} database. Within a
 partitioned database, documents are formed into logical partitions by use

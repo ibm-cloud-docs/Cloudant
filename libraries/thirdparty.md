@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-16"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -60,10 +60,10 @@ install-package mycouch.cloudant
 -   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}.
 
 ## Java
-{: #java}
+{: #java-thirdparty}
 
 ### Unsupported libraries for Java
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-thirdparty}
 
 -   [ektorp ![External link icon](../images/launch-glyph.svg "External link icon")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
 -   [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){: new_window}.
@@ -126,7 +126,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
     and {{site.data.keyword.cloudant_short_notm}}.
 
 ## Node.js
-{: #node-js}
+{: #node-js-thirdparty}
 
 ### Unsupported libraries and frameworks for node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}

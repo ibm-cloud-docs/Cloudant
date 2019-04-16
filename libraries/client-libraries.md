@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-04-16"
 
 keywords: develop applications, supported library, third-party library
 
@@ -20,24 +20,24 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-01-15 -->
 
 # Client Libraries
 {: #client-libraries}
 
-Client libraries are the tools that let you develop your own applications
+Client libraries are the tools that you use to develop your own applications
 to work with {{site.data.keyword.cloudantfull}} databases.
 {: shortdesc}
 
 The following client libraries are formally [supported](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#supported-client-libraries) by {{site.data.keyword.cloudant_short_notm}}.
 
 -	[Mobile](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#mobile)
--	[Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java)
--	[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)
+-	[Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported)
+-	[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)
 -	[Swift](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#swift)
 
 A supported library is one where you can contact {{site.data.keyword.cloudant_short_notm}} if you encounter a specific,
-reproducible problem in the latest version of the library.
+reproducible problem in the current version of the library.
 
 Other client libraries have been created by
 [third parties](/docs/services/Cloudant?topic=cloudant-third-party-client-libraries#third-party-client-libraries) or are no longer officially supported.

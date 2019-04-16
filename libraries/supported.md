@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-16"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -45,7 +45,7 @@ An [overview ![External link icon](../images/launch-glyph.svg "External link ico
 Details of {{site.data.keyword.cloudant_short_notm}} Sync [resources ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/cloudant-sync-resources/){: new_window} are also available.
 
 ## Java
-{: #java}
+{: #java-supported}
 
 [java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){: new_window} is the official {{site.data.keyword.cloudantfull}} library for Java.
 
@@ -62,7 +62,7 @@ along with details and examples of how to use the library.
 -   [java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){: new_window}.
 
 #### Unsupported libraries for Java
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-supported}
 
 -   [ektorp ![External link icon](../images/launch-glyph.svg "External link icon")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
 -   [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){: new_window}.
@@ -80,7 +80,7 @@ along with details and examples of how to use the library.
 
 
 ## Node.js
-{: #node-js}
+{: #node-js-supported}
 
 [nodejs-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){: new_window}
 is the official {{site.data.keyword.cloudant_short_notm}} library for Node.js.

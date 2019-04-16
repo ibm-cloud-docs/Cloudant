@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-04-16"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -34,7 +34,7 @@ A guide is [available](/docs/services/Cloudant?topic=cloudant-grouping-related-d
 providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
 ## Partitioned databases
-{: #partitioned-databases}
+{: #partitioned-databases-database}
 
 {{site.data.keyword.cloudant_short_notm}} supports two types of databases:
 
@@ -71,7 +71,7 @@ submit a `PUT` request with the following format:
 -   **Roles permitted**: `_admin`
 
 ### Query Arguments
-{: #query-arguments}
+{: #query-arguments-database}
 
 Argument         | Description | Optional | Type | Default | Supported values
 -----------------|-------------|----------|------|---------|-----------------

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-04-16"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -30,7 +30,7 @@ for creating an {{site.data.keyword.cloud}} application.
 {: shortdesc}
 
 ## Prerequisites
-{: #prerequisites}
+{: #prerequisites-create_bmxapp_prereq}
 
 Ensure that you have the following resources or information ready
 before you start working through the tutorial.

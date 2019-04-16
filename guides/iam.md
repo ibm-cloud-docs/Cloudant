@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-04-16"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -285,7 +285,7 @@ service instances:
 The following code snippets require these versions.
 
 ### Java
-{: #java}
+{: #java-iam}
 
 Requires [java-cloudant](https://github.com/cloudant/java-cloudant), 2.13.0+.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-04-16"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -61,7 +61,7 @@ illustrative purposes, but unless otherwise noted, modifying the path to
 embed or remove the partition name will work for any view query type.
 
 ### Query Arguments
-{: #query-arguments}
+{: #query-arguments-using_views}
 
 Global queries can use all query arguments. Partition queries can only use the
 subset indicated in the table.

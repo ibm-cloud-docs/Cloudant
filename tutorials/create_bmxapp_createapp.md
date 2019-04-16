@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-04-16"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -259,7 +259,7 @@ the application accesses the first element (element 'zero').
 Each service element contains the credentials for that service,
 expressed as a list indexed by the essential field names that are needed to access the service.
 More information about the field names is provided in the
-[tutorial](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites) that describes a simple database creation task.
+[tutorial](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites-create_database) that describes a simple database creation task.
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.

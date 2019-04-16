@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-15"
+lastupdated: "2019-04-16"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -89,7 +89,7 @@ This section of the tutorial explains how you connect
     ![Selecting the connection configuration for your {{site.data.keyword.cloud_notm}} application](images/img0019.png)<br/>
     An area appears for configuring a connection between your application and any other services available within your account.
 
-3.  A [prerequisite](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites) for this tutorial is an existing {{site.data.keyword.cloudant_short_notm}} database instance.
+3.  A [prerequisite](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites-create_bmxapp_prereq) for this tutorial is an existing {{site.data.keyword.cloudant_short_notm}} database instance.
     Click `Create connection` to establish a connection between that service instance and your application:<br/>
     ![Connect to an existing database instance](images/img0020.png)<br/>
     A list of the existing service instances in your account appears.

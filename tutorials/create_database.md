@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-04-16"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -31,7 +31,7 @@ and populate the database with a simple collection of data.
 {: shortdesc}
 
 ## Prerequisites
-{: prerequisites}
+{: #prerequisites-create_database}
 
 Ensure that you have the following resources or information ready,
 before you start working through the tutorial.
