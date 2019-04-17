@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-16"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -674,7 +674,7 @@ feed.follow();
 
 Accessing the `_changes` data programmatically is straightforward.
 For example,
-use the [{{site.data.keyword.cloudant_short_notm}} Node.js library](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)
+use the [{{site.data.keyword.cloudant_short_notm}} Node.js library](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)
 to follow changes with a few lines of code.
 
 Example use cases might be:

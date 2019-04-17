@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-04-16"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -140,10 +140,9 @@ When a request is rejected because the number of events is exceeded,
 applications receive a [`429` Too Many Requests](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)
 response.
 
-Recent versions of the supported client libraries (for [Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java),
-[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js),
-and [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported) languages) help you handle a `429` response.
-For example,
+Recent versions of the supported client libraries (for [Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported),
+[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported),
+and [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported) languages) help you handle a `429` response. For example,
 the Java library generates a
 [`TooManyRequestsException` ![External link icon](../images/launch-glyph.svg "External link icon")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window} response.
 
