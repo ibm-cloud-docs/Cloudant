@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-03-22"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -685,7 +685,7 @@ Example use cases might be:
 -   Writing data to a text file to push data into an SQL database.
 
 The changes feed can be filtered with a filter function,
-by using a similar technique to [filtering during replication](#filtered-replication).
+by using a similar technique to [filtering during replication](#filtered-replications).
 
 _Example of using HTTP to filter the changes feed:_
 

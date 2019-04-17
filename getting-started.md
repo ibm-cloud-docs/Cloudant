@@ -36,12 +36,12 @@ In addition to this tutorial, see our hands-on tutorials that help you learn mor
 - [Node.js and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
 - [Swift and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-For more language-specific tutorials, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/){: new_window}. 
+For more language-specific tutorials, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs){: new_window}. 
 
 ## Before you begin
 {: #prereqs}
 
-You need an [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https:///cloud.ibm.com/registration/){: new_window},
+You need an [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/registration/){: new_window},
 an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the following Python requirements:
 
 *	Install the most recent version of the
@@ -416,7 +416,7 @@ client.disconnect()
 {: #next-steps}
 
 For more information about all {{site.data.keyword.cloudant_short_notm}} offerings,
-see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} site.
+see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window} site.
 
 For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/services/Cloudant?topic=cloudant-overview#overview).
 

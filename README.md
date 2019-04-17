@@ -14,6 +14,7 @@ The setup is managed by Bluemix Documentation team.
 
 https://wcp-ace-docs-jenkins.swg-devops.com/job/Docs-build/job/Docs-build-Cloudant/
 
+
 ## Travis
 
 Travis is used to keep github.com and github.ibm.com repositories in sync.
@@ -25,5 +26,5 @@ https://travis.ibm.com/Bluemix-Docs
 
 Please use https://github.ibm.com/Bluemix-Docs/Cloudant/ for contributions to the documentation. Pushes to https://github.com/IBM-Bluemix-Docs/Cloudant are only allowed by members of the documentation team. See [Documentation Update Process](https://github.ibm.com/Bluemix-Docs/Cloudant/wiki/Documentation-Update-Process) for instructions. 
 
-If you are not an IBM employee and want to make a documentation contribution, go to the [IBM Cloudant documentation](https://console.bluemix.net/docs/services/Cloudant/getting-started.html#getting-started) and click `Feedback` on the page where you want to comment. 
+If you are not an IBM employee and want to make a documentation contribution, go to the [IBM Cloudant documentation](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started-with-cloudant) and click `Feedback` on the page where you want to comment. 
 

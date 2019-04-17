@@ -43,12 +43,12 @@ desktop PCs,
 and mobile devices.
 
 For more information about other {{site.data.keyword.cloudant_short_notm}} offerings,
-see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} site.
+see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window} site.
 The online documentation that is provided here gives you
 details about {{site.data.keyword.cloudant_short_notm}} concepts,
 tasks, and techniques.
 
-You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window}.
+You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}.
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
 is [available](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started),

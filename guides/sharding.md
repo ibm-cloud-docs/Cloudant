@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-03-22"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -193,7 +193,7 @@ Setting _Q_ for databases is not enabled for {{site.data.keyword.cloudant_short_
 {: note}
 
 If you attempt to set the _Q_ value where it is not available,
-the result is a [`403` response](/docs/services/Cloudant/api/http.html#http-status-codes) with a JSON body
+the result is a [`403` response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) with a JSON body
 similar to the following example:
 
 ```json
@@ -241,7 +241,7 @@ because the coordinator can return a response more quickly.
 The reason is that the coordinator must wait only for a single response
 from any one of the replicas that host the appropriate shard.
 
-If you reduce the _R_ value, it increases the likelihood that the response that is returned is not based on the most up-to-date data because of the [eventual consistency](/docs/services/Cloudant/guides/cap_theorem.html) model used by {{site.data.keyword.cloudant_short_notm}}. Using the default _R_ value helps mitigate this effect.
+If you reduce the _R_ value, it increases the likelihood that the response that is returned is not based on the most up-to-date data because of the [eventual consistency](/docs/services/Cloudant?topic=cloudant-cap-theorem) model used by {{site.data.keyword.cloudant_short_notm}}. Using the default _R_ value helps mitigate this effect.
 {: note}
 
 The default value for _R_ is _2_.
