@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-04-17"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -51,7 +51,7 @@ All documents must have two fields:
 
 - A unique `_id` field. The `_id` field is detailed in the next section.
 - A `_rev` field. The `_rev` field is a revision identifier,
-    and is [essential to the {{site.data.keyword.cloudant_short_notm}} replication protocol](../guides/mvcc.html).
+    and is [essential to the {{site.data.keyword.cloudant_short_notm}} replication protocol](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
 
 In addition to these two mandatory fields, documents can generally contain any
 other content that can be described by using JSON, subject to some caveats
