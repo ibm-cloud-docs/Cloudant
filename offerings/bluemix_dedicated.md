@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-04-16"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -40,7 +40,7 @@ via the syndicated catalog, including the Lite and Standard plan instances. Note
 The screenshot below shows an example {{site.data.keyword.cloud_notm}} catalog highlighting the {{site.data.keyword.cloud_notm}} Public 
 syndicated version of {{site.data.keyword.cloudant_short_notm}} (left) and the {{site.data.keyword.cloudant_short_notm}} Dedicated environment (right).  
 
-![{{site.data.keyword.cloudant_short_notm}} catalog](../images/bluemix_catalog.png)
+![{{site.data.keyword.cloudant_short_notm}} catalog](../images/ibmcloud_catalog.png)
 
 ## Hardware capacity 
 {: #hardware-capacity}
