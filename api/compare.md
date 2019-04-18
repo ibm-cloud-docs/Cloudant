@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-17"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -646,7 +646,7 @@ Removed for 96973.
 </tr>
 <tr>
 <td headers="endpoint&links"><code>PUT&nbsp;/{db}/{docid}</code><p>
-<a href='/services/Cloudant?topic=cloudant-documents#update' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
+<a href='/docs/services/Cloudant?topic=cloudant-documents#update' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/document/common.html#put--db-docid' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/document/common.html#put--db-docid' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
 </p></td><td headers="description">Create a new named document or create a new revision of the existing document.</td>

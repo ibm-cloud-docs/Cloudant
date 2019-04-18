@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-16"
+lastupdated: "2019-04-17"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -118,7 +118,7 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=false'
 ```
 {: codeblock}
 
-If creation succeeds, you get a [201 or 202 response](http.html#201).
+If creation succeeds, you get a [201 or 202 response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 An error response uses
 the HTTP status code to indicate what went wrong.
 
