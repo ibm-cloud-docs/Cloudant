@@ -25,9 +25,6 @@ subcollection: cloudant
 # Database partitioning
 {: #database-partitioning}
 
-The {{site.data.keyword.cloudant_short_notm}} partitioned database feature is currently in beta mode. Partition databases should not be used for production application usage. This feature is being rolled out across all {{site.data.keyword.cloudant_short_notm}} environments and will be generally available in the coming weeks.
-{: important}
-
 {{site.data.keyword.cloudantfull}} supports two types of databases:
 
 - Partitioned
