@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-04-19"
 
 keywords: provisioned throughput capacity, api 
 
@@ -33,7 +33,10 @@ to do the following tasks:
 - Set the target provisioned throughput capacity setting.
 - View the current consumption of provisioned throughput capacity used.
 
-See the [provisioned throughput capacity](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#provisioned-throughput-capacity) documentation for detailed information on how capacity is allocated and consumed in {{site.data.keyword.cloudant_short_notm}} as well as how to view and change the capacity in the UI. 
+See the [provisioned throughput capacity](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#provisioned-throughput-capacity) documentation for detailed information on how capacity is allocated and consumed in {{site.data.keyword.cloudant_short_notm}} as well as how to view and change the capacity in the UI.
+
+The Capacity API requires either {{site.data.keyword.cloudant_short_notm}} legacy auth admin role or IAM Manager role to access the API endpoints. The curl examples below are omitting the authentication aspect for simplicity. See the [authentication overview](/docs/services/Cloudant?topic=cloudant-connecting#authentication-overview) section for more details on using both types of authentication.  
+{: note}
 
 ## View the current and target provisioned throughput capacity setting
 {: #view-current-and-target-capacity-setting}
@@ -43,7 +46,6 @@ Use a GET to the `_api/v2/user/capacity/throughput` endpoint to see what amount 
 -   **Method**: `GET`
 -   **Path**: `_api/v2/user/capacity/throughput`
 -   **Response**: Both the current and target capacity setting. Each includes the number of capacity blocks and total reads/sec, writes/sec, and global queries/sec of throughput capacity.
--   **Roles permitted**: `_admin`
 
 _Example request to retrieve the current and target capacity, by using HTTP:_
 
@@ -56,7 +58,6 @@ _Example request to retrieve the current and target capacity, by using the comma
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput \
-	-u $ACCOUNT
 ```
 {: codeblock}
 
@@ -99,7 +100,6 @@ Use a PUT to the `_api/v2/user/capacity/throughput` endpoint to set the target p
 -   **Method**: `PUT`
 -   **Path**: `_api/v2/user/capacity/throughput`
 -   **Response**: Both the current and target capacity setting, including the number of capacity blocks and total reads/sec, writes/sec, and global queries/sec.
--   **Roles permitted**: `_admin`
 
 _Example request to set the target capacity, by using HTTP:_
 
@@ -122,7 +122,7 @@ _Example request to set the target capacity, by using the command line:_
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput \
-	-u $ACCOUNT \
+	-X PUT \
   -H 'Content-Type: application/json' \
   -d '{"blocks": NUMBER_OF_BLOCKS}'
 ```
@@ -169,7 +169,6 @@ Use a GET to the `_api/v2/user/current/throughput` endpoint to see the current c
 -   **Method**: `GET`
 -   **Path**: `_api/v2/user/current/throughput`
 -   **Response**: The current consumption of provisioned throughput capacity consumed, broken down by the number of reads, writes, and global queries.
--   **Roles permitted**: `_admin`
 
 _Example request to retrieve the current consumption of capacity, by using HTTP:_
 
@@ -182,7 +181,6 @@ _Example request to retrieve the current consumption of capacity, by using the c
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/user/current/throughput \
-	-u $ACCOUNT
 ```
 {: codeblock}
 
