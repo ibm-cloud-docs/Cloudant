@@ -57,6 +57,11 @@ For more information, see the following links:
 
 The new replication scheduler has several improvements and enhancements. Learn more about the replication scheduler.
 
+## Build 8058 (April 2019)
+{: #build-8058-april-2019}
+
+- Fixed bug in `ibrowse` http client which left dead process IDs in the connection pool, and, in some cases, caused persistent IAM-based replication failures.
+
 ## Build 8052 (April 2019)
 {: #build-8052-april-2019}
 
