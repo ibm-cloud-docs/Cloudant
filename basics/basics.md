@@ -39,7 +39,7 @@ To understand the information on the following topics, we assume that you know s
 {: #connecting-to-ibm-cloudant}
 
 To access {{site.data.keyword.cloudant_short_notm}},
-you must have either an [{{site.data.keyword.cloudant_short_notm}} account](https://),
+you must have either an [{{site.data.keyword.cloudant_short_notm}} account](/docs/services/Cloudant?topic=cloudant-ibm-cloudant.com#enterprise-plan),
 or an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/login).
 
 ## HTTP API
