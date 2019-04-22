@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-22"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -142,8 +142,7 @@ If the toolkits are already installed and working on your system,
 you do not need to download them again,
 unless they are updated.
 
-General information about the toolkits is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window}.
+For more information about the toolkits, see the [Getting started ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} tutorial.
 
 ### Installing the Cloud Foundry toolkit
 {: #installing-the-cloud-foundry-toolkit}
@@ -250,11 +249,9 @@ The `Procfile` contains the details
 that {{site.data.keyword.cloud_notm}} needs to run your application.
 
 More specifically,
-a `Procfile` is a Cloud Foundry artifact that
-defines an application process type,
+a `Procfile` is a Cloud Foundry artifact that defines an application process type,
 and the command to run the application.
-More information about `Procfile` is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window}.
+For more information about the `Procfile`, see [About Procfiles ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window} in the Cloud Foundry Documentation.
 
 The `Procfile` for an {{site.data.keyword.cloud_notm}} Python starter application
 looks similar to the following example:
@@ -308,7 +305,7 @@ Three points are worth noting:
     and `host` values correspond to the values entered when
     your {{site.data.keyword.cloud_notm}} application was [created](#creating-an-ibm-cloud-application-environment).
 -   The `name` value is used by the Cloud Foundry toolkit to identify the application you are administering.
--   The `services` value confirms that the `Cloudant Service 2017`
+-   The `services` value confirms that the `Cloudant-o7`
     {{site.data.keyword.cloudant_short_notm}} database instance is connected to the application environment.
 
 You do not normally need to modify the `manifest.yml` file,

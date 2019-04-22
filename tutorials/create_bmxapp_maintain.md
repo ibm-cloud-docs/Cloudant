@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-04-22"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -83,9 +83,9 @@ diagnose,
 and resolve some problems that you might encounter when you develop and deploy
 your first {{site.data.keyword.cloud_notm}} applications.
 
-A good source of advice on best practice for creating {{site.data.keyword.cloud_notm}} or
+A good source of advice on best practices for creating {{site.data.keyword.cloud_notm}} or
 Cloud Foundry applications is
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
+[Considerations for Designing and Running an App in the Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
 
 In particular,
 the advice on [avoiding writes to the local file system ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window} is prudent.

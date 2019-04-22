@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-04-22"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -266,7 +266,7 @@ use the simple syntax:
 
 The indexing process traverses all of the fields in all the documents in the database.
 
-An example of creating a text index for all fields in all documents in a database is [available](#example-movies-demo-database).
+You can see an example of creating a text index for all fields in all documents in a database in the [example movies demo database](#example-movies-demo-database).
 
 Take care when you index all fields in all documents for large data sets, as it might be a resource-consuming activity.
 {: tip}
@@ -511,7 +511,7 @@ Design documents are regular documents that have an ID starting with `_design/`.
 They can be retrieved and modified in the same way as any other document,
 although these actions are not usually necessary when you use {{site.data.keyword.cloudant_short_notm}} Query.
 
-Design documents are discussed in more detail [here](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents).
+For more information about design documents, see [Design documents](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents).
 
 ### Response body format for listing all {{site.data.keyword.cloudant_short_notm}} Query indexes
 {: #response-body-format-for-listing-all-IBM-cloudant-query-indexes}
@@ -606,7 +606,7 @@ Design documents are not returned by `_find`.
 -	**r (optional, default: 1)**: The read quorum used when reading documents required when processing a query. The value defaults to 1, in which case, the document is read from the primary data co-located with the index. If set to a higher value, the document must also be retrieved from at least _r-1_ other primary data replicas before results can be processed. This will increase query latency as the replicas reside on separate machines. In practice, this option should hardly ever be changed from the default.
     - `r` is **disallowed** when making a partition query.
 -	**bookmark (optional, default: null)**: A string that is used to specify which page of results you require.
-	Pagination is discussed in more detail [here](#pagination).
+	For more information about pagination, see [Pagination](#pagination).
 -	**use_index (optional)**: Use this option to identify a specific index for query to run against,
 	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index. For more information, see [Explain Plans](#explain-plans).
 -	**conflicts (optional, default: false)**: A Boolean value that indicates whether or not to include information about existing conflicts in the document.

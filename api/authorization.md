@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-22"
 
 keywords: authorization, roles, permissions, _users database
 
@@ -455,7 +455,7 @@ The database does not have to be in the same account as the account used for gen
 To give an existing API key permissions to access a database in another account,
 do the following steps:
 
-1.  Retrieve the existing security permissions for the database, as described [here](/docs/services/Cloudant?topic=cloudant-authorization#viewing-permissions).
+1.  Retrieve the existing [security permissions](/docs/services/Cloudant?topic=cloudant-authorization#viewing-permissions) for the database.
 2.  [Add](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions) the details of the API key to the database security permissions, along with the [roles](/docs/services/Cloudant?topic=cloudant-authorization#roles) required.
 
 For an example of this process,

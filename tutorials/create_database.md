@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-16"
+lastupdated: "2019-04-22"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -94,8 +94,7 @@ Field      | Purpose
 `port`     | The HTTP port number for accessing the service instance on the host. Normally 443 to force HTTPS access.
 `url`      | A string aggregating the other credential information into a single URL, suitable for use by applications.
 
-Information on finding the service credentials for your service instance is
-available [here](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+For more information about finding the service credentials for your service instance, see [Locating your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
 ## Context
 {: #context}

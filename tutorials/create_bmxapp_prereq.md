@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-16"
+lastupdated: "2019-04-25"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -61,19 +61,17 @@ Python 2.7.12
 ### An {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-A separate tutorial for creating an {{site.data.keyword.cloudantfull}} service instance called
-'`Cloudant-o7`' is available [here](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud).
+A separate tutorial for [creating an {{site.data.keyword.cloudantfull}} service instance on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) creates a service instance called
+'`Cloudant-o7`'. 
 
-This tutorial assumes that you have already created a service instance called
-'`Cloudant-o7`'.
+This tutorial assumes that you have already created a service instance called '`Cloudant-o7`'.
 
 ### An {{site.data.keyword.cloudant_short_notm}} database application
 {: #an-ibm-cloudant-database-application}
 
-A separate tutorial for creating a stand-alone Python application
+A separate tutorial for [creating a stand-alone Python application
 to work with an {{site.data.keyword.cloudant_short_notm}}
-service instance is available [here](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud).
-It introduces a number of concepts that are helpful for understanding how to create and populate an {{site.data.keyword.cloudant_short_notm}} database.
+service instance] (/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) is also available. It introduces a number of concepts that are helpful for understanding how to create and populate an {{site.data.keyword.cloudant_short_notm}} database.
 
 This tutorial assumes that you are familiar with those concepts.
 

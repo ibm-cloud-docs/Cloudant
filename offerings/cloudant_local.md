@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-04-22"
 
 keywords: capabilities, support, file support ticket
 
@@ -30,8 +30,8 @@ subcollection: cloudant
 {{site.data.keyword.cloudant_local_notm}} provides you with the same basic capabilities as the full {{site.data.keyword.cloudant_short_notm}} single-tenant offering,
 but hosted within your own data center.
 
-A more detailed overview of {{site.data.keyword.cloudant_local_notm}} is
-[available ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_cloudant_local_overview.html){: new_window}.
+For more information, see the 
+[{{site.data.keyword.cloudant_local_notm}} overview![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.install.doc/topics/clinstall_cloudant_local_overview.html){: new_window}.
 The
 [IBM Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/en/SSTPQH_1.1.0/com.ibm.cloudant.local.doc/SSTPQH_1.1.0_welcome.html){: new_window}
 provides information on many aspects of {{site.data.keyword.cloudant_local_notm}},

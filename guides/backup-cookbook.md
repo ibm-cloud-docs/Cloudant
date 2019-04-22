@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-22"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -42,7 +42,7 @@ redundant data storage does not protect against mistakes when data is changed.
 The tool is called CouchBackup,
 and is open source.
 It is a `node.js` library,
-and is [available to install on npm ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{: new_window}.
+and you can install it on [npm ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{: new_window}.
 
 In addition to the library,
 the CouchBackup package contains two command line tools:

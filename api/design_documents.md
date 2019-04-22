@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-04-22"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -298,8 +298,7 @@ _Example response, containing the deleted document ID and revision:_
 ## Views
 {: #view-design-documents}
 
-An important use of design documents is for creating views.
-These are discussed in more detail [here](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce).
+An important use of design documents is for creating views. For more information about creating views, see [Views (MapReduce)](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce).
 
 ## Rewrite rules
 {: #rewrite-rules}
@@ -432,8 +431,7 @@ The `req` argument contains additional information about the request.
 It enables you to create list functions that are more dynamic,
 because they are based on additional factors such as query parameters or the user context.
 
-The values within the `req` argument are similar to the query parameters described
-[here](/docs/services/Cloudant?topic=cloudant-query#ibm-cloudant-query-parameters).
+The values within the `req` argument are similar to the following [query parameters](/docs/services/Cloudant?topic=cloudant-query#ibm-cloudant-query-parameters).
 
 _Example design document referencing a list function, expressed using JSON:_
 

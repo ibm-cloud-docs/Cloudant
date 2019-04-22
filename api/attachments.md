@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-22"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -230,8 +230,7 @@ Inline attachments are attachments that are included as part of the JSON content
 The content must be provided by using [BASE64 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Base64){: new_window} representation,
 as shown in the example.
 
-A full list of media types is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}.
+A full list of media types is available in this article about [media types ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}.
 
 _Example JSON document that includes an inline attachment of a jpeg image:_
 
