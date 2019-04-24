@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-16"
+lastupdated: "2019-04-24"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -275,19 +275,19 @@ service instances:
 
 | Library | Recommended |
 | --- | --- |
-| [java-cloudant](https://github.com/cloudant/java-cloudant) | 2.13.0+ |
-| [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant) | 2.3.0+ |
-| [python-cloudant](https://github.com/cloudant/python-cloudant) | 2.9.0+ |
-| [couchbackup](https://github.com/cloudant/couchbackup/) | 2.3.1+ |
-| [CDTDatastore](https://github.com/cloudant/cdtdatastore/) | 2.0.3+ |
-| [sync-android](https://github.com/cloudant/sync-android/) | 2.2.0+ |
+| [java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){: new_window} | 2.13.0+ |
+| [nodejs-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){: new_window} | 2.3.0+ |
+| [python-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/python-cloudant){: new_window} | 2.9.0+ |
+| [couchbackup ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/couchbackup/){: new_window} | 2.3.1+ |
+| [CDTDatastore ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/cdtdatastore/){: new_window} | 2.0.3+ |
+| [sync-android ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/sync-android/){: new_window} | 2.2.0+ |
 
 The following code snippets require these versions.
 
 ### Java
 {: #java-iam}
 
-Requires [java-cloudant](https://github.com/cloudant/java-cloudant), 2.13.0+.
+Requires [java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){: new_window}, 2.13.0+.
 
 Use the `iamApiKey()` method to create a database client with an IAM API key:
 
@@ -317,7 +317,7 @@ public class App
 ### Node.js
 {: #node.js}
 
-Requires [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant), 2.3.0+.
+Requires [nodejs-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){: new_window}, 2.3.0+.
 
 Use the `iamauth` plug-in to create a database client with an IAM API key:
 
@@ -342,7 +342,7 @@ cloudant.db.list(function(err, body) {
 ### Python
 {: #python}
 
-Requires [python-cloudant](https://github.com/cloudant/python-cloudant), 2.9.0+.
+Requires [python-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/python-cloudant){: new_window}, 2.9.0+.
 
 Use the `Cloudant.iam(account_name, api_key, **kwargs)` method to create a
 database client with an IAM API key:

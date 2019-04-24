@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-04-24"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -120,7 +120,7 @@ The following example describes the login process. If you are using a federated 
 ## Choosing the {{site.data.keyword.cloudant_short_notm}} plan for your service
 {: #choosing-the-ibm-cloudant-plan-for-your-service}
 
-See the [Plans ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window} section of the documentation for details on using the {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan.
+See the [Plans](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans) section of the documentation for details on using the {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan.
 {: pre}
 
 ## Creating the {{site.data.keyword.cloudant_short_notm}} service

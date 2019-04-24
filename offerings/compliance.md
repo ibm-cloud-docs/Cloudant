@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-04-24"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -51,7 +51,7 @@ and {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan on {{site.
 ## International Organization for Standardization (ISO)
 {: #international-organization-for-standardization-iso-}
 
-{{site.data.keyword.cloudant_short_notm}} and {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster are audited by a third-party security firm and meet ISO 27001, ISO 27017, and ISO 27018 requirements. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Compliance page]( https://www.ibm.com/cloud/compliance) for links to the certificates. The following descriptions on the {{site.data.keyword.cloudant_short_notm}} Compliance page cover the {{site.data.keyword.cloudant_short_notm}} service and respective certifications:
+{{site.data.keyword.cloudant_short_notm}} and {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster are audited by a third-party security firm and meet ISO 27001, ISO 27017, and ISO 27018 requirements. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Compliance page ![External link icon](../images/launch-glyph.svg "External link icon")]( https://www.ibm.com/cloud/compliance){: new_window} for links to the certificates. The following descriptions on the {{site.data.keyword.cloudant_short_notm}} Compliance page cover the {{site.data.keyword.cloudant_short_notm}} service and respective certifications:
  
 - {{site.data.keyword.cloud_notm}} Services (PaaS and SaaS) certified cloud product listing
 - {{site.data.keyword.cloud_notm}} Services (PaaS and SaaS) certificate - ISO 27001
@@ -80,4 +80,4 @@ or email
 The GDPR seeks to create a harmonized data protection law 
 framework across the EU and aims to give citizens back the control of their personal data, whilst 
 imposing strict rules on those hosting and ‘processing’ this data, anywhere in the world. The 
-Regulation also introduces rules relating to the free movement of personal data within and outside the EU. For more information, see the [{{site.data.keyword.IBM_notm}} privacy statement](https://www.ibm.com/privacy/).
+Regulation also introduces rules relating to the free movement of personal data within and outside the EU. For more information, see the [{{site.data.keyword.IBM_notm}} privacy statement ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/privacy/){: new_window}.

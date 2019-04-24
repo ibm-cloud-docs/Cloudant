@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-15"
+lastupdated: "2019-04-24"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -49,7 +49,7 @@ A new Dedicated Hardware plan is available.
 
 For more information, see the following links:
 
-- See our [post on the {{site.data.keyword.cloud}} Blog](https://www.ibm.com/blogs/bluemix/2017/06/cloudant-available-dedicated-environments-improved-sla-bluemix-public/){: new_window} introducing the new plan.
+- See our [post on the {{site.data.keyword.cloud}} Blog ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2017/06/cloudant-available-dedicated-environments-improved-sla-bluemix-public/){: new_window} introducing the new plan.
 - Read about the [Dedicated Hardware plan](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#dedicated-hardware-plan){: new_window}.
 
 ### Replication scheduler

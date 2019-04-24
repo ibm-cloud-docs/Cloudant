@@ -93,7 +93,7 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} dashboa
 ### Restriction of processing
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
+{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}. Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information associated 
 with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
 ability to contact dedicated customers via email and provides an interface for customers to keep this 

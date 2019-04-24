@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-04-25"
 
 keywords: views, mapreduce, concepts, index partitioning type, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning
 
@@ -263,7 +263,7 @@ Function | Description
 `_count` | Produces the row count for a specific key. The values can be any valid JSON.
 `_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric.
 `_sum`   | Produces the sum of all values for a key. The values must be numeric.
-`_approx_count_distinct` | Approximates the number of distinct keys in a view index using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog) algorithm.
+`_approx_count_distinct` | Approximates the number of distinct keys in a view index using a variant of the [HyperLogLog ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/HyperLogLog){: new_window} algorithm.
 
 By feeding the results of `reduce` functions back into the `reduce` function,
 MapReduce is able to split up the analysis of huge data sets into discrete,
