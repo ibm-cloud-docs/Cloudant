@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-26"
+
+keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
+
+subcollection: cloudant
 
 ---
 
@@ -12,16 +16,19 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.cloud_notm}} pubblico
+# Piani e provisioning
 {: #ibm-cloud-public}
 
 {{site.data.keyword.cloudantfull}} pubblico è l'offerta più ricca di funzionalità di {{site.data.keyword.cloudant_short_notm}},
-che riceve per prima gli aggiornamenti e le nuove funzioni. Il prezzo si basa
-sui tuoi requisiti di capacità produttiva e di archiviazione, rendendolo adatto a qualsiasi
-carico richiesto. 
+che riceve per prima gli aggiornamenti e le nuove funzioni. Il prezzo si basa sulla capacità produttiva fornita assegnata
+e sull'archiviazione dati utilizzata, rendendolo adatto a qualsiasi carico richiesto.
+{: shortdesc}
 
 Il [piano Lite](#lite-plan) gratuito include una quantità fissa di
 capacità produttiva e dati per scopi di sviluppo e di valutazione. Il [piano Standard](#standard-plan) a pagamento offre capacità produttiva fornita e archiviazione
@@ -29,60 +36,7 @@ dati configurabili a un prezzo che si adatta al variare dei requisiti della tua
 applicazione.  È inoltre disponibile un [piano Hardware dedicato](#dedicated-hardware-plan) per
 una tariffa mensile aggiuntiva per l'esecuzione di una o più delle tue istanze del piano Standard
 in un ambiente Hardware dedicato. Se viene eseguito il provisioning
-di un'istanza del piano dedicato in un'Ubicazione US, puoi facoltativamente selezionare una configurazione conforme a [HIPAA ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){:new_window}.
-
-La seguente tabella riepiloga la configurazione della capacità
-produttiva fornita e dello spazio su
-disco per il piano Lite ed alcuni esempi per il piano Standard:
-
-<div id="maxtable"></div>
-
-<table>
-
-<tr>
-<th id="capacity-config-plan">Piano</th><th id="lite">Lite</th><th id="standard" colspan='4'>Standard</th>
-</tr>
-<tr>
-<th id="base-priceperhour" headers="capacity-config-plan">Prezzo di base (per ora)</td>
-<td headers="lite base-priceperhour">$0,00</td>
-<td headers="standard base-priceperhour" colspan='4'>Consulta <a href="../offerings/pricing.html#pricing" target="_blank">Dettagli dei prezzi <img src="../images/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno"></a>.</td>
-</tr>
-<tr>
-<th id="provisionedthroughputcapacity-lookupspersecond" headers="capacity-config-plan">Capacità produttiva fornita (ricerche al secondo)</td>
-<td headers="lite provisionedthroughputcapacity-lookupspersecond-lite">20</td>
-<td headers="standard provisionedthroughputcapacity-lookupspersecond">100</td>
-<td headers="standard provisionedthroughputcapacity-lookupspersecond">1.000</td>
-<td headers="standard provisionedthroughputcapacity-lookupspersecond">5.000</td>
-<td headers="standard provisionedthroughputcapacity-lookupspersecond">20.000</td>
-</tr>
-<tr>
-<th id="provisionedthroughputcapacity-writespersecond" headers="capacity-config-plan">Capacità produttiva fornita (scritture al secondo)</td>
-<td headers="lite provisionedthroughputcapacity-writespersecond">10</td>
-<td headers="standard provisionedthroughputcapacity-writespersecond">50</td>
-<td headers="standard provisionedthroughputcapacity-writespersecond">500</td>
-<td headers="standard provisionedthroughputcapacity-writespersecond">2.500</td>
-<td headers="standard provisionedthroughputcapacity-writespersecond">10.000</td>
-</tr>
-<tr>
-<th id="provisionedthroughputcapacity-queriespersecond" headers="capacity-config-plan">Capacità produttiva fornita (query al secondo)</td>
-<td headers="lite provisionedthroughputcapacity-queriespersecond">5</td>
-<td headers="standard provisionedthroughputcapacity-queriespersecond">5</td>
-<td headers="standard provisionedthroughputcapacity-queriespersecond">50</td>
-<td headers="standard provisionedthroughputcapacity-queriespersecond">250</td>
-<td headers="standard provisionedthroughputcapacity-queriespersecond">1.000</td>
-</tr>
-<tr>
-<th id="diskspaceincluded" headers="capacity-config-plan">Spazio disco incluso</td>
-<td headers="lite diskspaceincluded">1 GB</td>
-<td headers="standard diskspaceincluded" colspan='4'>20 GB</td>
-</tr>
-<tr>
-<th id="diskoveragepergbhour" headers="capacity-config-plan">Eccedenza disco (per GB/ora)</td>
-<td headers="lite diskoveragepergbhour">Non disponibile</td>
-<td headers="standard diskoveragepergbhour" colspan='4'>Consulta <a href="../offerings/pricing.html#pricing" target="_blank">Dettagli dei prezzi <img src="../images/launch-glyph.svg" alt="Icona link esterno" title="Icona link esterno"></a>.</td>
-</tr>
-
-</table>
+di un'istanza del piano dedicato in un'Ubicazione US, puoi facoltativamente selezionare una configurazione conforme a [HIPAA ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window}.
 
 ## Piani
 {: #plans}
@@ -97,7 +51,7 @@ Per impostazione predefinita,
 ### Piano Lite
 {: #lite-plan}
 
-Il piano Lite è gratuito ed è progettato per scopi di sviluppo e valutazione. Viene inclusa la funzionalità completa di {{site.data.keyword.cloudant_short_notm}} ma le istanze del piano Lite vengono fornite con una quantità fissa di archiviazione di dati e di capacità produttiva. La capacità produttiva fornita è fissa a 20 ricerche/secondo, 10 scritture/secondo e 5 query/secondo e l'archiviazione dei dati ha un limite massimo di 1 GB. 
+Il piano Lite è gratuito ed è progettato per scopi di sviluppo e valutazione. Viene inclusa la funzionalità completa di {{site.data.keyword.cloudant_short_notm}} ma le istanze del piano Lite vengono fornite con una quantità fissa di archiviazione di dati e di capacità produttiva. La capacità produttiva fornita è fissa a 20 letture/secondo, 10 scritture/secondo e 5 query globali/secondo e l'archiviazione dei dati ha un limite massimo di 1 GB.  
 
 L'utilizzo dell'archiviazione viene controllato giornalmente. Se superi il limite di archiviazione di 1 GB, le richieste all'istanza {{site.data.keyword.cloudant_short_notm}} ricevono
 un codice di stato 402 con il messaggio di errore, "Account has exceeded its data usage quota. An upgrade to a paid plan is required".
@@ -105,51 +59,70 @@ Viene anche visualizzato un banner nel dashboard {{site.data.keyword.cloudant_sh
 
 Se vuoi archiviare più di 1 GB di dati o poter ridimensionare la capacità produttiva fornita, passa al [piano Standard](#standard-plan).
 
-Sei limitato a una singola istanza del piano {{site.data.keyword.cloudant_short_notm}} Lite per ogni account {{site.data.keyword.cloud_notm}}. Se già hai un'istanza del piano Lite, qualsiasi tentativo di creare una nuova istanza del piano Lite o di modificare un'istanza del piano Standard in un piano Lite restituisce il messaggio "You can only have one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan".
-{: tip}
+Sei limitato a una singola istanza del piano {{site.data.keyword.cloudant_short_notm}} Lite per ogni account {{site.data.keyword.cloud_notm}}. Se già hai un'istanza del piano Lite, qualsiasi tentativo di creare una nuova istanza del piano Lite o di modificare un'istanza del piano Standard in un piano Lite restituisce il messaggio "You can only have one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan". 
+{: note}
 
 ### Piano Standard
 {: #standard-plan}
 
 Il piano {{site.data.keyword.cloudant_short_notm}} Standard è disponibile per tutti gli account {{site.data.keyword.cloud}} a pagamento, come pagamento a consumo o sottoscrizione, ed esegue il ridimensionamento per soddisfare le esigenze della tua applicazione. Il prezzo del piano Standard è basato su due fattori: la capacità produttiva fornita che viene assegnata e la quantità di dati archiviata nell'istanza. 
 
-Il prezzo è su base oraria proporzionale con una capacità produttiva iniziale fornita di 100 ricerche/secondo, 50 scritture/secondo e 5 query/secondo equivalenti a un costo iniziale di USD $0,105/ora. Puoi commutare la capacità produttiva fornita a crescere o a decrescere in incrementi di 100 ricerche/secondo, 50 scritture/secondo e 5 query/secondo nel dashboard {{site.data.keyword.cloudant_short_notm}}. I costi sono calcolati per la capacità produttiva fornita assegnata e non sul volume di richieste misurato. Il piano Standard include 20 GB di archiviazione dati. Se archivi più di 20 GB,
+Il prezzo è su base oraria proporzionale con una capacità produttiva iniziale fornita di 100 letture/secondo, 50 scritture/secondo e 5 query globali/secondo equivalenti a un costo iniziale di USD $0,105/ora. Puoi commutare la capacità produttiva fornita a crescere o a decrescere in incrementi di 100 letture/secondo, 50 scritture/secondo e 5 query globali/secondo nel dashboard {{site.data.keyword.cloudant_short_notm}}. I costi sono calcolati per la capacità produttiva fornita assegnata e non sul volume di richieste misurato. Il piano Standard include 20 GB di archiviazione dati. Se archivi più di 20 GB,
 ti viene addebitato un costo definito per GB per ora. 
 
-Vedi il calcolatore del prezzo {{site.data.keyword.cloud_notm}} per il prezzo a diverse capacità e valute e le informazioni sui [prezzi](../offerings/pricing.html#pricing){:new_window} per degli esempi per la stima dei costi.
+Vedi il calcolatore del prezzo {{site.data.keyword.cloud_notm}} per il prezzo a diverse capacità e valute e le informazioni sui [prezzi](/docs/services/Cloudant?topic=cloudant-pricing#pricing){: new_window} per degli esempi per la stima dei costi.
 
 ### Piano Hardware dedicato
 {: #dedicated-hardware-plan}
 
 Un'istanza del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato è un ambiente {{site.data.keyword.cloudant_short_notm}} bare metal fornito per l'utilizzo esclusivo delle tue istanze del piano {{site.data.keyword.cloudant_short_notm}} Standard. Il provisioning di un ambiente del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato può essere eseguito in qualsiasi [data center {{site.data.keyword.IBM}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud-computing/bluemix/data-centers). Questo piano è necessario per
-la conformità HIPAA e deve essere selezionato al momento del provisioning. Inoltre, gli utenti di un ambiente del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato possono utilizzare l'inserimento in whitelist degli IP e le chiavi di crittografia gestite dai clienti BYOK (bring-your-own-key) con IBM Key Protect. 
+la conformità HIPAA e deve essere selezionato al momento del provisioning. Gli utenti di un ambiente del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato possono utilizzare l'inserimento in whitelist degli IP e le chiavi di crittografia dai clienti BYOK (bring-your-own-key) con {{site.data.keyword.IBM_notm}} Key Protect. Inoltre, gli ambienti Hardware dedicato forniti dopo il 1° gennaio 2019 includono endpoint interni per tutte le istanze del piano Standard sviluppate con essi. L'utilizzo di endpoint interni consente ai clienti di collegarsi a un'istanza {{site.data.keyword.cloudant_short_notm}} tramite la rete {{site.data.keyword.cloud}} interna per evitare che il traffico dell'applicazione di upstream passi attraverso la rete pubblica e comporti addebiti di larghezza di banda. Per ulteriori informazioni, vedi la [documentazione dell'endpoint del servizio ](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window} per ulteriori dettagli sull'abilitazione degli endpoint del servizio per il tuo account {{site.data.keyword.cloud}}.
 
-Puoi eseguire il provisioning di una o più istanze del piano Standard e l'ambiente Hardware dedicato viene espanso o contratto come necessario in base alla capacità e ai dati utilizzati dalle istanze del piano Standard. Si tratta di un'opzione aggiuntiva al prezzo di consumo delle istanze del piano {{site.data.keyword.cloudant_short_notm}} Standard. La fatturazione è ripartita proporzionalmente quotidianamente e c'è una durata minima di 1 mese da addebitare per l'ambiente. Il provisioning di un piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato è asincrono e può impiegare 5-7 giorni lavorativi. Per creare un'istanza del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato ed eseguire il provisioning di un'istanza del piano Standard su di essa, attieniti all'esercitazione [Creazione e utilizzo di un'istanza del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato su {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](../tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}. 
+Puoi eseguire il provisioning di una o più istanze del piano Standard e l'ambiente Hardware dedicato viene espanso o contratto come necessario in base alla capacità e ai dati utilizzati dalle istanze del piano Standard. Un'istanza del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato ha un prezzo fisso che costituisce un'aggiunta al prezzo al consumo delle istanze del piano Standard distribuite in esso. La fatturazione è ripartita proporzionalmente quotidianamente e c'è una durata minima di 1 mese da addebitare per l'ambiente. Il provisioning di un piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato è asincrono e può impiegare 5-7 giorni lavorativi. Per creare un'istanza del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato ed eseguire il provisioning di un'istanza del piano Standard su di essa, attieniti all'esercitazione [Creazione e utilizzo di un'istanza del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato su {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window}. 
 
 Il piano Hardware dedicato non è disponibile per i clienti {{site.data.keyword.cloud_notm}} Dedicato. Il piano Hardware dedicato è disponibile solo per i clienti {{site.data.keyword.cloud_notm}} Pubblico.
-{: tip}
+{: important}
+
+## Tipi di evento
+{: #event-types}
+
+Il provisioning di capacità produttiva viene identificato e misurato come uno dei seguenti tipi di eventi:
+
+1.	_Letture_,
+    (in precedenza chiamate ricerche) che sono:
+    1. Una lettura di uno specifico documento,
+    in base a `_id` del documento.
+    2. Una query _partizionata_, che è una
+        richiesta effettuata a un endpoint di query {{site.data.keyword.cloudant_short_notm}}
+        all'interno dello spazio dei nomi `_partition` nel percorso della richiesta,
+        inclusi i seguenti tipi:
+        -	Indice primario ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
+        -	Vista MapReduce ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
+        -	Indice di ricerca ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
+        -	Query {{site.data.keyword.cloudant_short_notm}} ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+    
+        Il numero di operazioni di lettura consumate da una richiesta di query partizionata
+        varia in base ai risultati restituiti.
+2.	_Scritture_,
+    che sono operazioni di creazione,
+    modifica
+    o eliminazione di singoli documenti.
+3.	_Query globali_ a indici globali (in precedenza chiamate query),
+        che sono richieste effettuate a un endpoint di query {{site.data.keyword.cloudant_short_notm}}
+        che **non** si trova all'interno dello spazio dei nomi `_partition`,
+    inclusi i seguenti tipi:
+	-	Indice primario ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
+	-	Vista MapReduce ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
+	-	Indice di ricerca ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
+	-	Indice geospaziale ([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-geo-index))
+	-	Query {{site.data.keyword.cloudant_short_notm}} ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+
 
 ## Capacità produttiva fornita
 {: #provisioned-throughput-capacity}
 
-Il provisioning di capacità produttiva viene identificato e misurato come uno dei seguenti tipi di eventi:
-
-1.	Una ricerca,
-    che consiste di una lettura di un documento specifico,
-    in base a `_id` del documento.
-2.	Una scrittura,
-    che consiste di una creazione,
-    una modifica o
-    un'eliminazione di un documento individuale
-    o di una qualsiasi modifica a causa di una creazione dell'indice.
-3.	Una query,
-    che consiste in una richiesta effettuata a uno degli endpoint di query {{site.data.keyword.cloudant_short_notm}},
-    inclusi i seguenti tipi:
-	-	Indice primario ([`_all_docs`](../api/database.html#get-documents))
-	-	Vista MapReduce ([`_view`](../api/creating_views.html#using-views))
-	-	Indice di ricerca ([`_search`](../api/search.html#queries))
-	-	Indice geospaziale ([`_geo`](../api/cloudant-geo.html#querying-a-cloudant-geo-index))
-	-	Query {{site.data.keyword.cloudant_short_notm}} ([`_find`](../api/cloudant_query.html#finding-documents-using-an-index))
+Il provisioning effettivo viene identificato e misurato come eventi dei seguenti tipi
+di operazione: _Lettura_, _Scrittura_, _Query globale_.
 
 La misurazione della capacità produttiva è un conteggio semplice del numero di eventi di ogni tipo,
 al secondo,
@@ -159,17 +132,17 @@ le richieste vengono rifiutate finché il numero di eventi nella finestra tempor
 non supererà più il numero di provisioning.
 Potrebbe essere utile pensare alla finestra temporale scorrevole di 1 secondo come a un periodo consecutivo di 1.000 millisecondi.
 
-Ad esempio, il piano Standard ha un provisioning per 200 ricerche al secondo. Il tuo account può eseguire un massimo di 200 richieste di ricerca durante un periodo consecutivo di 1.000 millisecondi (1 secondo). Le seguenti richieste di ricerca effettuate durante il periodo di 1.000 secondi della finestra temporale di scorrimento,
-vengono rifiutate finché il numero di richieste di ricerca scende nuovamente a meno di 200.
+Ad esempio, il piano Standard ha un provisioning per 200 letture al secondo. Il tuo account potrebbe consumare massimo 200 eventi di lettura durante un periodo consecutivo di 1.000 millisecondi (1 secondo). Le richieste di lettura successive effettuate durante il periodo di 1.000 millisecondi della finestra temporale
+vengono rifiutate fino a quando il numero di eventi di lettura in tale periodo scende nuovamente a meno di 200. 
 
 Quando una richiesta viene rifiutata perché il numero di eventi viene superato,
 le applicazioni ricevono una risposta [`429` Too Many
-Requests](../api/http.html#429)
+Requests](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)
 
-Le versioni recenti delle librerie client supportate (per linguaggi [Java](../libraries/supported.html#java),
-[Node.js](../libraries/supported.html#node-js),
-e [Python](../libraries/supported.html#python)) ti aiutano a gestire una risposta `429`.
-Ad esempio, la libreria Java genera una risposta [`TooManyRequestsException` ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){:new_window}.
+Le versioni recenti delle librerie client supportate (per linguaggi [Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java),
+[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js),
+e [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supportedn)) ti aiutano a gestire una risposta `429`.
+Ad esempio, la libreria Java genera una risposta [`TooManyRequestsException` ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window}.
 
 Per impostazione predefinita,
 le librerie client supportate non tentano automaticamente di ritentare una richiesta
@@ -182,11 +155,61 @@ a una configurazione del piano diversa.
 
 Se stai trasferendo un'applicazione esistente, potrebbe non essere in grado di gestire una risposta `429`. Come parte della verifica della migrazione,
     controlla che la tua applicazione gestisca la risposta `429` correttamente.
-{: tip}
+{: note}
 
-In sintesi,devi assicurarti che la tua applicazione possa gestire una risposta [`429`](../api/http.html#429) correttamente.
+In sintesi,devi assicurarti che la tua applicazione possa gestire una risposta [`429`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) correttamente.
 
-<div id="servicetier"></div>
+### Consumo delle operazioni di lettura da parte delle query partizionate
+{: #consumption-of-lookup-operations-by-partitioned-queries}
+
+Le richieste di query partizionate consumano un numero variabile di operazioni di lettura
+a seconda dei risultati restituiti. Il consumo si basa su due assi: 
+
+1. Il numero di righe lette dall'indice coinvolto nella query.
+1. Il numero di documenti letti dal database, se presenti, durante l'esecuzione
+    della query.
+    
+#### Query `_all_docs`, di visualizzazione e di ricerca
+
+Ciascun blocco di 100 righe lette dall'indice consuma un'operazione di lettura. Inoltre,
+ciascun documento letto dal database durante l'esecuzione di una query consuma un'unità di lettura. 
+
+Il numero di righe lette dall'indice è lo stesso dei risultati
+restituiti. I documenti vengono solamente letti dal database quando `include_docs=true`
+viene passato come un parametro della stringa di query durante la richiesta di query.
+
+Nella tabella riportata di seguito vengono mostrati costi di esempio. 
+
+| Numero di risultati | Includi documenti | Consumo lettura totale | Consumo per righe lette | Consumo per documenti letti |
+|--------------|----------------|-------------|---------------------| --- |
+| 199      | No     | **2** | 2 | 0 |
+| 199      | Sì     | **201** | 2 | 199      |
+| 301      | No     | **4** | 4 | 0 |
+| 301      | Sì     | **305** | 4 | 301      |
+
+La riduzione dell'uso di `include_docs=true` è la chiave per ridurre il consumo di lettura per le
+query `_all_docs`, di visualizzazione e di ricerca partizionate. 
+
+#### {{site.data.keyword.cloudant_short_notm}} Query
+
+Per le richieste {{site.data.keyword.cloudant_short_notm}} Query, il numero di operazioni di lettura consumate per le
+righe di indice lette si correla alle righe lette dall'indice sottostante _prima_ che venga eseguito il filtraggio
+in base alle parti del selettore che non possono essere soddisfatte dall'indice.
+Ciò significa che il valore delle righe lette, e quindi delle unità di lettura consumate, può essere più alto
+del numero dei risultati eventuali che ricevi. 
+
+Inoltre, {{site.data.keyword.cloudant_short_notm}} Query deve leggere il documento per ogni riga restituita dall'indice
+sottostante in modo da poter eseguire un ulteriore filtraggio richiesto dal selettore passato alla query.
+
+| Numero di risultati | Numero di righe restituite dall'indice | Consumo lettura totale | Consumo per righe lette | Consumo per documenti letti |
+|--------------|----------------|-------------|---------------------| --- |
+| 5      | 199      | **201** | 2 | 199      |
+| 199      | 199      | **201** | 2 | 199      |
+| 5      | 301      | **305** | 4 | 301      |
+| 301      | 301      | **305** | 4 | 301      |
+
+L'utilizzo di indici appropriati è la chiave per ridurre il consumo di lettura delle query
+{{site.data.keyword.cloudant_short_notm}} Query partizionate.
 
 ### Visualizzazione e modifica della capacità
 {: #viewing-and-changing-capacity}
@@ -201,10 +224,8 @@ provisioning necessità di 24 per essere completata.
 
 ![Dashboard dell'account](../images/cloudant_capacity_change.png)
 
-La dimensione dell'aumento di capacità è limitata a 10 unità (1000 ricerche/secondo, 500 scritture/secondo e 50 query/secondo) per ogni modifica. Le diminuzioni non sono limitate dal numero di unità. Qualsiasi variazione della capacità, sia nel caso di un aumento che in quello di una diminuzione, è limitata a una volta all'ora. Se hai bisogno di più capacità di quella disponibile nel dashboard {{site.data.keyword.cloudant_short_notm}}, contatta il [supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
-{: tip}
-
-<div id="throughput"></div>
+La dimensione dell'aumento di capacità è limitata a 10 unità (1000 letture/secondo, 500 scritture/secondo e 50 query globali/secondo) per ogni modifica. Le diminuzioni non sono limitate dal numero di unità. Qualsiasi variazione della capacità, sia nel caso di un aumento che in quello di una diminuzione, è limitata a una volta all'ora. Se hai bisogno di più capacità di quella disponibile nel dashboard {{site.data.keyword.cloudant_short_notm}}, contatta il [supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){: new_window}.
+{: note}
 
 ### Monitoraggio dell'utilizzo 
 {: #monitoring-usage}
@@ -219,8 +240,8 @@ e la quantità di [dati archiviati](#disk-space-included).
 
 Il monitoraggio ti aiuta a riconoscere se una modifica al provisioning nel tuo piano potrebbe essere consigliabile.
 Ad esempio,
-se raggiungi frequentemente il numero massimo di ricerche database,
-puoi procedere a modificare il provisioning tramite il [Pannello del servizio](#servicetier) nella scheda Account del dashboard.
+se raggiungi frequentemente il numero massimo di letture database,
+puoi modificare il provisioning tramite il [pannello della capacità](#viewing-and-changing-capacity) nella scheda Account del dashboard.
 
 ## Utilizzo dei dati
 {: #data-usage}
@@ -244,8 +265,7 @@ Tutti i piani Standard e Lite includono lo spazio su disco, che viene utilizzato
 <tr>
 <th headers="standard-plan">Standard</td>
 <td headers="description"><p>
-<ul><li>Se l'account utilizza più della quantità di archiviazione assegnata nella tua configurazione del piano, viene considerato in 'overflow'.
-L'overflow comporta che l'account viene addebitato al prezzo indicato per ogni ulteriore GB utilizzato oltre l'assegnazione del piano.</li>
+<ul><li>Se l'account utilizza più della quantità di archiviazione assegnata nella tua configurazione del piano, viene considerato in 'overflow'. L'overflow comporta che l'account viene addebitato al prezzo indicato per ogni ulteriore GB utilizzato oltre l'assegnazione del piano.</li>
 <li>L'importo supplementare che devi pagare per utilizzare più spazio su disco di quanto ne venga fornito nel piano è detto 'eccedenza'. Un'eccedenza viene calcolata su una base oraria.</li></ul></p></td>
 </tr>
 <tr>
@@ -303,11 +323,11 @@ Dimensione documento singolo | 1 MB
 Dimensione allegato singolo | 10 MB
 Dimensione corpo della richiesta | 11 MB
 
-Superare uno di questi limiti determina una [risposta 413](../api/http.html#413).
+Superare uno di questi limiti determina una [risposta 413](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
 Si consiglia di archiviare gli allegati binari, o blob JSON di grandi dimensioni, nell'archivio oggetti e di salvare un link all'ubicazione in un documento JSON {{site.data.keyword.cloudant_short_notm}}.   
 
-Quando esegui una replica, dei documenti o degli allegati di dimensioni superiori a questi limiti non viene eseguita la replica nel database di destinazione. Ulteriori informazioni su come rilevare errori di replica sono disponibili [qui](../api/replication.html#replication-errors).
+Quando esegui una replica, dei documenti o degli allegati di dimensioni superiori a questi limiti non viene eseguita la replica nel database di destinazione. Ulteriori informazioni su come rilevare errori di replica sono disponibili [qui](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors).
 
 ## Ubicazioni e locazione
 {: #locations-and-tenancy}
@@ -316,58 +336,62 @@ Per impostazione predefinita, tutti i piani Lite e Standard vengono distribuiti 
 più tenant. Come parte della tua selezione del piano,
 puoi scegliere tra le seguenti regioni di {{site.data.keyword.cloud_notm}} pubblico:
 
--   Stati Uniti Est
--   Stati Uniti Sud
--   Regno Unito
+-   Washington DC
+-   Dallas
+-   Londra
 -   Sydney
--   Germania&Dagger;
--   Asia Pacifico Nord (Tokyo)
+-   Francoforte&Dagger;
+-   Tokyo
 
 Le istanze del piano Hardware dedicato possono essere distribuite nella maggior parte delle
-[ubicazioni di data center {{site.data.keyword.IBM_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud-computing/bluemix/data-centers).
+[ubicazioni di data center {{site.data.keyword.IBM_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
 Vedi il menu a discesa nel catalogo {{site.data.keyword.cloud_notm}} per un elenco aggiornato di ubicazioni disponibili.
 
-&Dagger;Tutte le istanze {{site.data.keyword.cloudant_short_notm}} distribuite dalla regione Germania {{site.data.keyword.cloud_notm}} pubblica vengono distribuite in ambienti gestiti dall'UE. Agli account {{site.data.keyword.cloudant_short_notm}}
+&Dagger;Tutte le istanze {{site.data.keyword.cloudant_short_notm}} distribuite dalla regione
+di Francoforte {{site.data.keyword.cloud_notm}} pubblica vengono distribuite negli ambienti
+gestiti dall'UE. Agli account {{site.data.keyword.cloudant_short_notm}}
 o alle chiavi API generati fuori da un ambiente gestito dall'UE non può essere concesso l'accesso a un'istanza {{site.data.keyword.cloudant_short_notm}} gestita dall'UE.
 
 ## Metodi di autenticazione
 {: #authentication-methods}
 
- Si accede a {{site.data.keyword.cloudant_short_notm}} utilizzando un'API HTTPS. Dove l'endpoint API lo richiede, l'utente viene autenticato per ogni richiesta HTTPS che
-{{site.data.keyword.cloudant_short_notm}} riceve. Durante il provisioning, i metodi di autenticazione disponibili includono 'Use both legacy credentials and IAM' o 'Use only IAM'. Per ulteriori informazioni, consulta la [guida IAM](../guides/iam.html){:new_window} oppure il [documento dell'API di autenticazione ](../api/authentication.html){:new_window} legacy.
+Si accede a {{site.data.keyword.cloudant_short_notm}} utilizzando un'API HTTPS. Dove l'endpoint API lo richiede, l'utente viene autenticato per ogni richiesta HTTPS che
+{{site.data.keyword.cloudant_short_notm}} riceve. Durante il provisioning, i metodi di autenticazione disponibili includono 'Use both legacy credentials and IAM' o 'Use only IAM'. Per ulteriori informazioni, consulta la [guida IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-l){: new_window} oppure il [documento dell'API di autenticazione ](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} legacy.
 
 Dopo il provisioning di un'istanza {{site.data.keyword.cloudant_short_notm}}, i dettagli dell'URL di connessione e dell'autorizzazione IAM sono disponibili quando si generano nuove credenziali nella scheda Credenziali del servizio del dashboard {{site.data.keyword.cloud_notm}}. Se hai scelto questa opzione durante il provisioning, sono inclusi anche il nome utente e la password {{site.data.keyword.cloudant_short_notm}} legacy.
 
+Il team {{site.data.keyword.cloudant_short_notm}} ti consiglia di utilizzare i controlli di accesso IAM per l'autenticazione quando possibile. Se stai utilizzando l'autenticazione legacy {{site.data.keyword.cloudant_short_notm}}, ti consigliamo di utilizzare le [chiavi API](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} invece delle credenziali a livello di account per l'accesso programmatico e i lavori di replica.
+{: important}
 
-## Alta disponibilità, ripristino di emergenza e backup
-{: #high-availability-disaster-recovery-and-backup}
+## Alta disponibilità, ripristino di emergenza e backup in un data center
+{: #high-availability-disaster-recovery-and-backup-in-a-data-center}
 
 Per fornire alta disponibilità (HA) e ripristino di emergenza (DR) all'interno di un data center, tutti i dati
 vengono archiviati in triplice copia in tre server fisici separati in un cluster. Puoi eseguire il provisioning degli account in più data center,
 quindi utilizzare la replica dei dati continua per fornire HA/DR ai data center. Il backup dei dati {{site.data.keyword.cloudant_short_notm}} non viene eseguito automaticamente ma vengono forniti strumenti supportati per gestire i backup. Consulta la
-[guida Ripristino di emergenza e backup ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)
+[guida Ripristino di emergenza e backup ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-authorization#api-keys)
 per esplorare tutte le considerazioni su HA, DR e backup per soddisfare i requisiti dell'applicazione. 
 
-## Supporto
-{: #support}
+## {{site.data.keyword.cloud_notm}} Supporto
+{: #ibm-cloud-support}
 
 Il supporto per le istanze del servizio standard e dedicata è facoltativo.
 Viene fornito acquistando il supporto standard *{{site.data.keyword.cloud_notm}}*. Il supporto non è disponibile per il piano Lite.
 
-Per ulteriori informazioni sui piani di supporto, vedi i [piani di supporto standard {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud/support#944376){:new_window}. Per ulteriori informazioni sul supporto, vedi la [guida di supporto {{site.data.keyword.IBM_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/support/home/pages/support-guide/){:new_window}.
+Per ulteriori informazioni sui piani di supporto, vedi i [piani di supporto Standard {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud/support#944376){: new_window}. Per ulteriori informazioni sul supporto, vedi la [guida di supporto {{site.data.keyword.IBM_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/support/home/pages/support-guide/){: new_window}.
 
 I sistemi di supporto utilizzati per {{site.data.keyword.cloudant_short_notm}} non offrono funzioni per la protezione del contenuto che contiene informazioni sanitarie, dati sanitari, informazioni sanitarie protette (in inglese PHI, Protected Health Information) o dati soggetti a ulteriori requisiti normativi. Pertanto, il cliente non deve immettere o fornire tali dati.
-{: tip}
+{: note}
 
 ## Provisioning di un'istanza {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}
 {: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
 
 Puoi eseguire il provisioning di un'istanza del piano Lite o Standard {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}} in due modi:
 
-- Utilizzando il dashboard. Un'esercitazione che descrive il processo è disponibile [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-cloudant-instance-on-bluemix){:new_window}.
-- Utilizzando lo strumento di comando Cloud Foundry. Un'esercitazione che descrive il processo è disponibile [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_service_cli.html#creating-a-cloudant-instance-on-bluemix-using-the-cloud-foundry-tools){:new_window}.
+- Utilizzando il dashboard. Un'esercitazione che descrive il processo è disponibile [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window}.
+- Utilizzando lo strumento di comando Cloud Foundry. Un'esercitazione che descrive il processo è disponibile [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window}.
  
-Per creare, e avvalerti di, un'istanza del piano hardware {{site.data.keyword.cloudant_short_notm}} dedicato, segui l'esercitazione che descrive il processo [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://console.bluemix.net/docs/services/Cloudant/tutorials/create_dedicated_hardware_plan.html#creating-and-leveraging-a-cloudant-dedicated-hardware-plan-instance-on-bluemix){:new_window}.
+Per creare, e avvalerti di, un'istanza del piano hardware {{site.data.keyword.cloudant_short_notm}} dedicato, segui l'esercitazione che descrive il processo [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window}.
 
 
 

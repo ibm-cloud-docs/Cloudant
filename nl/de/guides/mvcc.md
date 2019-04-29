@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
+
+subcollection: cloudant
 
 ---
 
@@ -12,25 +16,30 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Dokumentversionssteuerung und MVCC
+{: #document-versioning-and-mvcc}
 
-Mit [Multiversion Concurrency Control (MVCC) ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window}
-stellen {{site.data.keyword.cloudantfull}}-Datenbanken sicher, dass alle Knoten in einem Datenbankcluster nur die [aktuelle Version](../api/document.html) eines Dokuments enthalten.
-{:shortdesc}
+Mit [Multiversion Concurrency Control (MVCC) ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window}
+stellen {{site.data.keyword.cloudantfull}}-Datenbanken sicher, dass alle Knoten in einem Datenbankcluster nur die [aktuelle Version](/docs/services/Cloudant?topic=cloudant-documents#documents) eines Dokuments enthalten.
+{: shortdesc}
 
-Da {{site.data.keyword.cloudant_short_notm}}-Datenbanken [sukzessive konsistent](cap_theorem.html) sind,
+Da {{site.data.keyword.cloudant_short_notm}}-Datenbanken [sukzessive konsistent](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem) sind,
 ist dies notwendig, um Inkonsistenzen zwischen Knoten infolge einer Synchronisierung veralteter Dokumente zu vermeiden.
 
 Multiversion Concurrency Control (MVCC) ermöglicht gleichzeitigen Lese- und Schreibzugriff auf eine {{site.data.keyword.cloudant_short_notm}}-Datenbank.
-MVCC ist eine Form von [Optimistic Concurrency ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}.
+MVCC ist eine Form von [Optimistic Concurrency ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}.
 Sie beschleunigt sowohl das Lesen als auch das Schreiben von Operationen in {{site.data.keyword.cloudant_short_notm}}-Datenbanken, weil es
 keinen Grund für Datenbanksperren gibt.
 MVCC ermöglicht auch eine Synchronisierung zwischen {{site.data.keyword.cloudant_short_notm}}-Datenbankknoten.
 
 ## Revisionen
+{: #revisions}
 
 Jedes Dokument in einer {{site.data.keyword.cloudant_short_notm}}-Datenbank hat ein Feld `_rev`, in dem die zugehörige Revisionsnummer angegeben ist.
 
@@ -43,29 +52,29 @@ Die zwei Hauptzwecke der Revisionsnummer sind:
 1.  Bestimmen, welche Dokumente zwischen Servern repliziert werden müssen.
 2.  Bestätigen, dass ein Client versucht, die aktuelle Version eines Dokuments zu ändern.
 
-Sie müssen die frühere Revisionsnummer (`_rev`) angeben, wenn Sie ein [Dokument aktualisieren](../api/document.html#update),
-sonst schlägt Ihre Anforderung fehl und gibt einen [409-Fehler](../api/http.html#409) zurück.
+Sie müssen die frühere Revisionsnummer (`_rev`) angeben, wenn Sie ein [Dokument aktualisieren](/docs/services/Cloudant?topic=cloudant-documents#update),
+sonst schlägt Ihre Anforderung fehl und gibt einen [409-Fehler](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) zurück.
 
->   **Hinweis**: `_rev` sollte nicht verwendet werden, um ein System zur Versionssteuerung zu erstellen.
-    Es handelt sich um einen internen Wert, der vom Server verwendet wird.
-    Außerdem sind ältere Revisionen eines Dokuments transient
+`_rev` sollte nicht verwendet werden, um ein System zur Versionssteuerung zu erstellen. Es handelt sich um einen internen Wert, der vom Server verwendet wird. Außerdem sind ältere Revisionen eines Dokuments transient
     und werden deshalb regelmäßig gelöscht.
+{: note}
 
 Sie können eine bestimmte Revision mithilfe des zugehörigen `_rev`-Werts abfragen,
 ältere Revisionen werden jedoch regelmäßig von einem Prozess namens
-[Datenverdichtung ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://en.wikipedia.org/wiki/Data_compaction){:new_window} gelöscht.
+[Datenverdichtung ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://en.wikipedia.org/wiki/Data_compaction){: new_window} gelöscht.
 Eine Konsequenz der Verdichtung ist, dass Sie nicht davon ausgehen können, eine erfolgreiche Antwort zu empfangen,
 wenn Sie eine bestimmte Dokumentrevision unter Angabe von `_rev` abfragen, um den Verlauf der Revisionen Ihres Dokuments abzurufen.
 Wenn Sie einen Versionsverlauf Ihrer Dokumente benötigen,
-sollten Sie für jede Revision [ein neues Dokument erstellen](../api/document.html#documentCreate).
+sollten Sie für jede Revision [ein neues Dokument erstellen](/docs/services/Cloudant?topic=cloudant-documents#create-document).
 
 ## Verteilte Datenbanken und Konflikte
+{: #distributed-databases-and-conflicts}
 
 Verteilte Datenbanken arbeiten ohne konstante Verbindung zur Hauptdatenbank unter {{site.data.keyword.cloudant_short_notm}},
 die selbst ebenfalls verteilt ist, deshalb können Aktualisierungen, die auf derselben früheren Version basieren,
 trotzdem in Konflikt zueinander stehen.
 
-Um Konflikte zu finden, fügen Sie beim Abrufen eines Dokuments den Abfrageparameter [`conflicts=true`](../api/database.html#get-changes) hinzu.
+Um Konflikte zu finden, fügen Sie beim Abrufen eines Dokuments den Abfrageparameter [`conflicts=true`](/docs/services/Cloudant?topic=cloudant-databases#get-changes) hinzu.
 Die Antwort enthält ein Array `_conflicts` mit allen in Konflikt stehenden Revisionen.
 
 Schreiben Sie eine Ansicht, um Konflikte für mehrere Dokumente in einer Datenbank zu finden.
@@ -81,12 +90,13 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Sie können diese Ansicht regelmäßig abfragen und Konflikte bei Bedarf lösen,
 oder Sie können die Ansicht nach jeder Replikation abfragen.
 
-## Vorgehensweise beim Lösen von Konflikten
+## Vorgehensweise zum Lösen von Konflikten
+{: #steps-to-resolve-conflicts}
 
 Sobald Sie einen Konflikt gefunden haben,
 können Sie ihn in 4 Schritten lösen.
@@ -109,7 +119,7 @@ Die erste Version eines Dokuments kann dem folgenden Beispiel ähneln:
     "price": 650
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Da das Dokument noch keine Beschreibung hat,
 kann ein Benutzer eine hinzufügen:
@@ -125,7 +135,7 @@ _Zweite Version des Dokuments, erstellt durch Hinzufügen einer Beschreibung:_
     "price": 650
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Zur gleichen Zeit setzt ein anderer Benutzer, der mit einer replizierten Datenbank arbeitet, den Preis herab:
 
@@ -140,12 +150,13 @@ _Eine andere Revision, die mit der vorherigen aufgrund von unterschiedlichen `pr
     "price": 600
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Die beiden Datenbanken werden dann repliziert.
 Die Abweichungen in den Dokumentversionen führen zu einem Konflikt.
 
 ### Konfliktrevisionen abrufen
+{: #get-conflicting-revisions}
 
 Sie können Dokumente mit Konflikten mithilfe der Option `conflicts=true` ermitteln.
 
@@ -154,7 +165,7 @@ _Beispiel für das Suchen von Dokumenten mit Konflikten:_
 ```http
 http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispielantwort mit Konfliktrevisionen, die sich auf Dokumente auswirken:_
 
@@ -168,12 +179,13 @@ _Beispielantwort mit Konfliktrevisionen, die sich auf Dokumente auswirken:_
     "_conflicts":["2-61ae00e029d4f5edd2981841243ded13"]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Die Version mit dem geänderten Preis wurde beliebig ausgesucht als aktuelle Version des Dokuments und auf den Konflikt mit einer anderen Version wird hingewiesen, indem die ID dieser anderen Version im Array `_conflicts` angegeben wird.
 In den meisten Fällen hat dieses Array nur ein Element, aber es kann viele Konfliktrevisionen geben.
 
 ### Änderungen zusammenführen
+{: #merge-the-changes}
 
 Um mithilfe eines Vergleichs der Revisionen zu sehen, was geändert wurde,
 ruft Ihre Anwendung alle Versionen aus der Datenbank ab.
@@ -185,7 +197,7 @@ http://$ACCOUNT.cloudant.com/products/$_ID
 http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 http://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299
 ```
-{:codeblock}
+{: codeblock}
 
 Da sich die in Konflikt stehenden Änderungen auf verschiedene Felder des Dokuments beziehen,
 können sie einfach zusammengeführt werden.
@@ -197,10 +209,11 @@ Lösungsstrategien erforderlich:
 *   Benutzereingriff: Berichten Sie Konflikte an Benutzer und lassen Sie sie entscheiden, welche Lösung die passende ist.
 *   Hoch entwickelte Algorithmen: beispielsweise 3-Wege-Zusammenführungen von Textfeldern.
 
-Ein praktisches Beispiel für die Implementierung einer Zusammenführung von Änderungen finden Sie in
-[diesem Projekt mit Beispielcode ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/glynnbird/deconflict){:new_window}.
+Ein praktisches Beispiel zum Implementieren einer Zusammenführung von Änderungen finden Sie
+in diesem Projekt mit [Beispielcode ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/glynnbird/deconflict){: new_window}.
 
 ### Neue Revision hochladen
+{: #upload-the-new-revision}
 
 Der nächste Schritt besteht darin, ein Dokument zu erstellen, in dem die Konflikte gelöst sind, und die Datenbank damit zu aktualisieren.
 
@@ -215,9 +228,10 @@ _Ein Beispieldokument, das Änderungen aus den zwei Konfliktrevisionen zusammenf
     "price": 600
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Alte Revisionen löschen
+{: #delete-old-revisions}
 
 Schließlich löschen Sie die alten Revisionen, indem Sie eine `DELETE`-Anforderung an die URLs mit der zu löschenden Revision senden.
 
@@ -226,14 +240,14 @@ _Beispielanforderung zum Löschen einer alten Dokumentrevision, unter Verwendung
 ```http
 DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispielanforderung zum Löschen einer alten Dokumentrevision, über die Befehlszeile:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121" -X DELETE
 ```
-{:codeblock}
+{: codeblock}
 
 An diesem Punkt sind die Konflikte, die sich auf das Dokument auswirken, gelöst.
 Sie können dies überprüfen, indem Sie das Dokument erneut mit `GET` abrufen, wobei der Parameter

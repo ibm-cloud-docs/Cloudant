@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: create database, create documents, create index, create query, run query, fields, operators
+
+subcollection: cloudant
 
 ---
 
@@ -12,13 +16,18 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Criando uma consulta do {{site.data.keyword.cloudant_short_notm}}
+{: #creating-an-ibm-cloudant-query}
 
 Este tutorial demonstra como criar um banco de dados, preenchê-lo
 com documentos, criar um índice e usar o índice para consultar o banco de dados.
+{: shortdesc}
 
 Os exercícios para a ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_ e o ![Ícone do painel](../images/DashboardIcon.png) _Painel do {{site.data.keyword.cloud}}_ são fornecidos. Os
 exercícios do Painel do {{site.data.keyword.cloud_notm}} fornecem um exemplo visual de cada tarefa. É possível seguir os links
@@ -28,34 +37,35 @@ Para começar, você cria o banco de dados `query-demo` e alguns documentos que
 contêm os dados para esses exercícios.
 
 ## Suposições
+{: ##assumptions}
 
 Antes de iniciar, siga estas etapas para se preparar para o tutorial:
 
-1.  [Crie uma conta {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo") ](https://console.ng.bluemix.net/registration/){:new_window}.
-2.  Efetue login no Painel do [ {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo") ](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db){:new_window}.
-3.  [Crie uma instância do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud_notm}}](create_service.html#creating-a-service-instance).
-4.  (Opcional) [Crie um alias acurl](../guides/acurl.html#authorized-curl-acurl-) para facilitar e acelerar a execução de comandos por meio da linha de comandos.
+1.  [Crie uma conta do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/registration){: new_window}.
+2.  Efetue login no
+[ painel do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}.
+3.  [Crie uma instância do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-service-instance).
+4.  (Opcional) [Crie um alias acurl](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) para facilitar e acelerar a execução de comandos por meio da linha de comandos.
 5.  Substitua a variável `$ACCOUNT` nos comandos que são incluídos nos exercícios com o nome do usuário que você usa para efetuar login no Painel do {{site.data.keyword.cloudant_short_notm}}.
   Se você decidir não configurar o `acurl`,
 use a URL a seguir, em vez daquela fornecida nos exercícios:
   ``` sh
   curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
   ```
-  {:codeblock}
+  {: codeblock}
 
-## Criando um banco de dados
+## Criando o banco de dados `query-demo`
+{: #creating-the-query-demo-database}
 
-Nesta seção, você criará o [banco de dados](../api/database.html#create) `query-demo` que
-é o banco de dados usado neste tutorial.
+Nesta seção, você criará o [banco de dados](/docs/services/Cloudant?topic=cloudant-databases#create-database) `query-demo`, que
+é o banco de dados que usaremos neste tutorial.
 
-> **Nota:** neste tutorial,
-usamos o alias `acurl`, em vez do comando `curl`.
-  O alias `acurl` é criado usando as etapas descritas [aqui](../guides/acurl.html#authorized-curl-acurl-).
-  Se você preferir usar o comando `curl`
+Neste tutorial, usaremos o alias `acurl` em vez do comando `curl`. O alias `acurl` é criado usando as etapas descritas [aqui](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). Se você preferir usar o comando `curl`
 ou outro método para chamar terminais de API,
 substitua seu comando no tutorial
 junto aos parâmetros requeridos por seu comando,
 como username e password.
+{: tip}
 
 ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
 
@@ -63,14 +73,14 @@ como username e password.
   ``` sh
   acurl https://$ACCOUNT.cloudant.com/query-demo -X PUT
   ```
-  {:codeblock}
+  {: codeblock}
 2.  Revise os resultados:
   ```json
   {
     "ok": true
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
@@ -85,8 +95,9 @@ como username e password.
   O banco de dados `query-demo` é aberto automaticamente.
 
 ## Criando documentos no banco de dados
+{: #creating-documents-in-the-database}
 
-Os [documentos](../api/document.html#documents)
+Os [documentos](/docs/services/Cloudant?topic=cloudant-documents#documents)
 criados neste exercício contêm os dados usados para consultar o banco de dados `query-demo` em exercícios posteriores.
 
 ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
@@ -134,16 +145,17 @@ criados neste exercício contêm os dados usados para consultar o banco de dados
     ]
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 2.  Execute este comando para criar os documentos:
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
   ```
-  {:codeblock}
+  {: codeblock}
 
-  **Nota:** observe que o símbolo '`@`' usado para indicar que os dados
-estão incluídos em um arquivo é identificado pelo nome fornecido.
+Observe que o símbolo '`@`', usado para indicar que os dados estão incluídos em um arquivo, é identificado pelo nome fornecido.
+{: tip}
+
 3.  Revise os resultados:
   ```json
   [
@@ -174,7 +186,7 @@ estão incluídos em um arquivo é identificado pelo nome fornecido.
     }
   ]
   ```
-  {:codeblock}
+  {: codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
@@ -191,7 +203,7 @@ estão incluídos em um arquivo é identificado pelo nome fornecido.
     "_id": "doc1"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Repita a etapa 2 para incluir os documentos restantes no banco de dados.
 
@@ -205,7 +217,7 @@ estão incluídos em um arquivo é identificado pelo nome fornecido.
     "_id": "doc2"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
   _Terceiro documento de amostra_:
   ```json
@@ -217,7 +229,7 @@ estão incluídos em um arquivo é identificado pelo nome fornecido.
     "_id": "doc3"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
   _Quarto documento de amostra_:
   ```json
@@ -229,7 +241,7 @@ estão incluídos em um arquivo é identificado pelo nome fornecido.
     "_id": "doc4"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
   _Quinto documento de amostra_:
   ```json
@@ -241,30 +253,29 @@ estão incluídos em um arquivo é identificado pelo nome fornecido.
     "_id": "doc5"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
   O banco de dados `query-demo` foi preenchido com cinco registros. É possível ver os registros da visualização de Tabela na captura de tela a seguir:
 
   ![Documentos de amostra](../images/docs1.png)     
 
-## Criando um índice
+## Criando um índice para consultar o banco de dados
+{: #creating-an-index-to-query-the-database}
 
 O {{site.data.keyword.cloudant_short_notm}} fornece visualizações e índices para consultar o banco de dados. Uma visualização executa uma consulta que é salva no banco de dados e
 o resultado é chamado de conjunto de resultados. Ao enviar uma consulta para a visualização, sua consulta procura
 o conjunto de resultados. Um índice é uma maneira de estruturar dados que melhoram o tempo de recuperação.
 
-É possível usar o índice primário fornecido com o {{site.data.keyword.cloudant_short_notm}} ou os índices secundários como visualizações
-(MapReduce), índices de procura, consultas geoespaciais do {{site.data.keyword.cloudant_short_notm}} ou {{site.data.keyword.cloudant_short_notm}} Query conforme descrito
-na lista a seguir:
+Usamos o {{site.data.keyword.cloudant_short_notm}} Query neste tutorial, que usa a sintaxe de consulta no estilo Mongo para procurar por documentos usando operadores lógicos. O {{site.data.keyword.cloudant_short_notm}} Query é uma combinação de uma visualização e um índice de procura.
+
+Quando você usa {{site.data.keyword.cloudant_short_notm}}Consulta, o planejador de consulta examino o seletor (sua consulta) para determinar o índice correto a partir do. Se ele não localizar um índice adequado, usará o índice especial `_all_docs`, que consulta documentos por ID. No pior cenário de caso, ele retorna todos os documentos por ID (varredura de tabela integral). Na memória, filtramos os documentos pelo seletor, que é o motivo pelo qual, mesmo sem um índice, ainda é possível consultar vários campos. As varreduras de tabela completas são caras e recomendamos que você crie um índice. Consulte uma descrição de diferentes tipos de índices na lista a seguir:
 
 *	Índice primário - consultar um documento ou uma lista de documentos por ID.  
-*	[Visualização](../api/creating_views.html#views-mapreduce-) – procurar informações no banco de dados que correspondem aos critérios de procura especificados, como contagens, somas, médias e outras funções matemáticas. Os critérios que podem ser procurados são especificados na definição da visualização. As visualizações usam o paradigma MapReduce.
-*	[Índice de procura](../api/search.html#search) – procure um ou mais campos, grandes quantias de texto ou use curingas, procura difusa ou máscaras com a [Sintaxe do analisador sintático de consulta Lucene ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){:new_window}.
-*	[{{site.data.keyword.cloudant_short_notm}} Geospatial](../api/cloudant-geo.html#cloudant-geospatial) – procure documentos com base em um relacionamento espacial.
-*	[{{site.data.keyword.cloudant_short_notm}} Query](../api/cloudant_query.html#query) – use a sintaxe da consulta de estilo Mongo para procurar documentos usando operadores locais. O {{site.data.keyword.cloudant_short_notm}} Query é uma combinação de uma visualização e um índice de procura. Usamos o {{site.data.keyword.cloudant_short_notm}} Query neste tutorial.
+*	[Visualização](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) – procurar informações no banco de dados que correspondem aos critérios de procura especificados, como contagens, somas, médias e outras funções matemáticas. Os critérios que podem ser procurados são especificados na definição da visualização. As visualizações usam o paradigma MapReduce.
+*	[Índice de procura](/docs/services/Cloudant?topic=cloudant-search#search) – procure um ou mais campos, grandes quantias de texto ou use curingas, procura difusa ou máscaras com a [Sintaxe do analisador sintático de consulta Lucene ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}.
 
-> **Nota:** se não houver um índice definido disponível que corresponda à consulta especificada, o {{site.data.keyword.cloudant_short_notm}}
-> usará o índice `_all_docs`.
+Se não houver nenhum índice definido disponível que corresponda à consulta especificada, o {{site.data.keyword.cloudant_short_notm}} usará o índice `_all_docs`.
+{: tip}
 
 
 ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
@@ -284,13 +295,13 @@ na lista a seguir:
 	}, 		"ddoc": "partial-index", 		"type": "json"
 }
   ```
-  {:codeblock}
+  {: codeblock}
 
 2.  Execute o comando a seguir para criar um índice:
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_index -X POST -H "Content-Type: application/json" -d \@query-index.dat
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Revise os resultados:
   ```json
@@ -300,7 +311,7 @@ na lista a seguir:
     "name":"query-index"
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 
 
@@ -309,7 +320,7 @@ na lista a seguir:
 1.  Clique em **`+` > Índices de consulta** na guia **Todos os documentos** ou **Documentos de design**.
 2.  Cole os dados JSON de amostra a seguir no campo **Índice**:
   ```json
-{
+  {
 	"index": {
 		"fields": [
 			"age", 			"lastname"
@@ -319,10 +330,12 @@ na lista a seguir:
 			}, "lastname": {
 				"$eq": "Greene" }
 		}
-	}, 		"ddoc": "partial-index", 		"type": "json"
-}
+	},
+  		"ddoc": "partial-index",
+		"type": "json"
+  }
   ```
-  {:codeblock}
+  {: codeblock}
 
   O índice foi criado. É possível ver o índice na captura de tela a seguir:
 
@@ -331,22 +344,24 @@ na lista a seguir:
 
 
 ## Criando uma consulta
+{: #creating-a-query}
 
 As consultas permitem extrair seus dados do {{site.data.keyword.cloudant_short_notm}}. Uma
-[consulta](../api/cloudant_query.html#query) bem escrita pode limitar sua procura e
+[consulta](/docs/services/Cloudant?topic=cloudant-query#query) bem escrita pode limitar sua procura e
 seus resultados para incluir apenas os dados desejados.
 
 Este exercício mostra como gravar e executar uma consulta simples, uma consulta com dois campos
-e uma consulta com dois [operadores](../api/cloudant_query.html#cloudant_query.html#operators).
+e uma consulta com dois [operadores](/docs/services/Cloudant?topic=cloudant-query#operators).
 Você consulta com um operador especificando pelo menos um campo e seu valor correspondente.
 A consulta então usará esse valor para procurar correspondências no banco de dados.
 
 Para qualquer coisa, exceto a consulta mais simples, inclua o JSON em um arquivo de dados e execute-o por meio da linha de comandos.
 
 ### Executando uma consulta simples
+{: #running-a-simple-query}
 
-Esse exemplo demonstra como o {{site.data.keyword.cloudant_short_notm}} Query usa o `query-index` para localizar o
-`lastname` e filtra os resultados na memória para localizar o `firstaname`.   
+Este exemplo demonstra como o {{site.data.keyword.cloudant_short_notm}} Query usa o `query-index` para localizar o
+`lastname` e filtra os resultados na memória para localizar o `firstname`.   
 
 ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
 
@@ -359,13 +374,13 @@ Esse exemplo demonstra como o {{site.data.keyword.cloudant_short_notm}} Query us
          }        
     }       
   ```    
-  {:codeblock}
+  {: codeblock}
 
 2.  Execute o comando a seguir para consultar o banco de dados:
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query1.dat
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Revise os resultados da consulta:
   ```json
@@ -382,7 +397,7 @@ Esse exemplo demonstra como o {{site.data.keyword.cloudant_short_notm}} Query us
     ]
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
@@ -396,7 +411,7 @@ Esse exemplo demonstra como o {{site.data.keyword.cloudant_short_notm}} Query us
          }        
    }
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Clique em **Executar consulta**.
 
@@ -405,10 +420,11 @@ Esse exemplo demonstra como o {{site.data.keyword.cloudant_short_notm}} Query us
   ![Resultados da consulta 1](../images/dashboard_query1_results.png)
 
 ### Executando uma consulta com dois campos
+{: #running-a-query-with-two-fields}
 
 Este exemplo usa dois campos para localizar todos que tenham o nome `Brown` e que vivem em `New York, NY`.
 
-Descrevemos a procura usando uma [expressão 'selector'](../api/cloudant_query.html#selector-syntax),
+Descrevemos a procura usando uma [expressão 'selector'](/docs/services/Cloudant?topic=cloudant-query#selector-syntax),
 que é semelhante ao exemplo a seguir:
 ```json
   {
@@ -418,7 +434,7 @@ que é semelhante ao exemplo a seguir:
     }
   }
 ```
-{:codeblock}
+{: codeblock}
 
 Podemos customizar os resultados para atender as nossas necessidades
 incluindo mais detalhes dentro da expressão selector.
@@ -436,7 +452,7 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
   ]
 }
 ```  
-{:codeblock}
+{: codeblock}
 
 ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
 
@@ -454,13 +470,13 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
   ]
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 2.  Execute o comando a seguir para consultar o banco de dados:
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query2.dat
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Revise os resultados da consulta:
   ```json
@@ -484,7 +500,7 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
     ]
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
@@ -503,7 +519,7 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
     ] 
   }
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Clique em **Executar consulta**.
 
@@ -512,6 +528,7 @@ Os detalhes extras são semelhantes ao exemplo a seguir:
   ![Resultados da consulta 2](../images/dashboard_query2_results.png)
 
 ### Executando uma consulta com operadores
+{: #running-a-query-with-operators}
 
 Neste exemplo, os operadores `$eq` (igual) e `$gt` (maior que) são usados para procurar
 documentos que contêm o sobrenome `Greene` e uma idade maior que `30`.
@@ -527,7 +544,7 @@ Usamos uma expressão selector como o exemplo a seguir:
   }
 }
 ``` 
-{:codeblock}
+{: codeblock}
 
 Os resultados são classificados por idade em ordem crescente com base nos
 valores especificados no parâmetro `sort`.
@@ -539,13 +556,13 @@ valores especificados no parâmetro `sort`.
       }
     ] 
 ```  
-{:codeblock}
+{: codeblock}
 
 ![Ícone da linha de comandos](../images/CommandLineIcon.png) _Linha de comandos_
 
 1.  Copie o JSON de amostra a seguir em um arquivo chamado `query3.dat`.
   ```json
-{
+  {
    "selector": {
       "age": {
          "$gt": 30
@@ -559,34 +576,35 @@ valores especificados no parâmetro `sort`.
       {
          "age": "asc"   
       }
-   ], "use_index": "_design/partial-index"
-}
+   ],
+   "use_index": "_design/partial-index"
+  }
   ```
-  {:codeblock}
+  {: codeblock}
 
 2. Execute esta consulta:
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query3.dat
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Revise os resultados da consulta:
   ```json
-{"docs":[
+  {"docs":[
      {"age":35,"firstname":"Greg"},
      {"age":44,"firstname":"Anna"}
    ],
-"bookmark": "g1AAAABCeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmFwOSHWiDkiSzb0oNTUvNSsLAEsmEeQ"
-}
+  "bookmark": "g1AAAABCeJzLYWBgYMpgSmHgKy5JLCrJTq2MT8lPzkzJBYqzAFkmIDkOmFwOSHWiDkiSzb0oNTUvNSsLAEsmEeQ"
+  }
   ```
-  {:codeblock}
+  {: codeblock}
 
 ![Dashboard icon](../images/DashboardIcon.png)  _ {{site.data.keyword.cloud_notm}}  Painel _
 
 1.  Clique na guia **Consulta**.
 2.  Copie e cole a JSON de amostra a seguir na janela do {{site.data.keyword.cloudant_short_notm}} Query:
   ```json
-{
+  {
    "selector": {
       "age": {
          "$gt": 30
@@ -600,10 +618,11 @@ valores especificados no parâmetro `sort`.
       {
          "age": "asc"   
       }
-   ], "use_index": "_design/partial-index"
-}
+   ],
+   "use_index": "_design/partial-index"
+  }
   ```
-  {:codeblock}
+  {: codeblock}
 
 3.  Clique em **Executar consulta**.
 
@@ -611,4 +630,4 @@ valores especificados no parâmetro `sort`.
 
   ![Resultados da consulta 3](../images/dashboard_query3_results.png)
 
-Para obter mais informações sobre o {{site.data.keyword.cloudant_short_notm}}, veja a [Documentação do {{site.data.keyword.cloudant_short_notm}}](../cloudant.html#overview).
+Para obter mais informações sobre o {{site.data.keyword.cloudant_short_notm}}, consulte a [Documentação do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-overview#overview).

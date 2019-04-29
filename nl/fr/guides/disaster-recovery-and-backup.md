@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
+
+subcollection: cloudant
 
 ---
 
@@ -12,16 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Reprise après incident et sauvegarde
+{: #disaster-recovery-and-backup}
 
 Vos données sont importantes et précieuses.
 Vous devez les protéger afin de garantir leur sécurité,
 leur disponibilité et leur intégrité.
 {{site.data.keyword.cloudantfull}} permet de protéger vos données et de maintenir vos applications opérationnelles de plusieurs manières.
-{:shortdesc}
+{: shortdesc}
 
 Certaines de ces fonctions de protection sont automatiques.
 Pour les autres formes de protection,
@@ -30,6 +38,7 @@ Pour les autres formes de protection,
 Le présent document fournit un aperçu des fonctions automatiques et des outils compatibles qui sont mis à votre disposition par {{site.data.keyword.cloudant_short_notm}}.
 
 ## Types et niveaux de protection
+{: #types-and-levels-of-protection}
 
 Le type de protection susceptible de vous intéresser dépend du problème que vous souhaitez résoudre.
 
@@ -50,9 +59,8 @@ La réponse aux exigences de haute disponibilité et de reprise après incident 
 Une fois que vous avez identifié vos besoins, vous pouvez appliquez les outils et les fonctions qui permettent de résoudre les besoins génériques.
 Ensemble, les outils et les fonctions peuvent ensuite faire face à vos besoins de haute disponibilité ou de reprise après incident.
 
->	**Remarque** : Divers outils et fonctions fournissent plusieurs niveaux de protection.
-	Les différentes fonctions peuvent être plus ou moins adaptées à votre problème spécifique de haute disponibilité ou de reprise après incident.
-{:tip}
+Divers outils et fonctions fournissent plusieurs niveaux de protection. Les différentes fonctions peuvent être plus ou moins adaptées à votre problème spécifique de haute disponibilité ou de reprise après incident.
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} offre un certain nombre d'outils et de fonctions qui résolvent des questions générales :
 
@@ -61,6 +69,7 @@ Ensemble, les outils et les fonctions peuvent ensuite faire face à vos besoins 
 3.	La sauvegarde par image instantanée à un "moment donné" pour la restauration jusqu'à un point de cohérence, à l'aide de la méthode traditionnelle de [Sauvegarde et reprise de base de données](#database-backup-and-recovery).
 
 ## Redondance automatique de données dans une seule région
+{: #in-region-automatic-data-redundancy}
 
 Au sein d'un seul et même compte {{site.data.keyword.cloudant_short_notm}}, les données sont stockées en trois exemplaires à l'aide de processus internes et automatiques.
 Aucune action n'est nécessaire pour activer cette réplication de données interne.
@@ -86,6 +95,7 @@ Pour fournir une protection de "l'historique" de vos données, par exemple pour 
 En résumé, la redondance de données dans une seule région active la fonctionnalité de haute disponibilité en assurant la tolérance aux pannes qui affectent des systèmes uniques au sein de la région.
 
 ## Redondance inter-région pour la reprise après incident
+{: #cross-region-redundancy-for-disaster-recovery}
 
 La fonctionnalité de réplication de {{site.data.keyword.cloudant_short_notm}} vous aide à concevoir une fonction de reprise après incident flexible dans vos applications.
 Le principal moyen d'activer la reprise après incident est d'utiliser la réplication de {{site.data.keyword.cloudant_short_notm}} pour créer une redondance entre régions.
@@ -97,7 +107,7 @@ Les principales étapes de la création d'une redondance entre régions sont les
 2.  Créer des bases de données dans chaque région selon les besoins.
 3.  Pour les bases de données devant être stockées à l'aide de la redondance inter-région, configurer des réplications continues bidirectionnelles entre les bases de données correspondantes dans chaque compte.
 4.  Concevoir et implémenter vos applications pour que les demandes de données soient acheminées selon que votre environnement ait une configuration "active-passive" ou "active-active".
-  Un guide de configuration détaillé est [disponible](active-active.html).
+  Un guide de configuration détaillé est [disponible](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery).
 
 Lorsque vous configurez vos applications pour qu'elles fonctionnent avec des données provenant de plusieurs régions, tenez compte des points suivants :
 
@@ -105,7 +115,7 @@ Lorsque vous configurez vos applications pour qu'elles fonctionnent avec des don
   Cette proximité permet de réduire les temps d'attente des réseaux et d'améliorer les temps de réponse.
   C'est ce que l'on appelle la méthode "active-active".
   Elle se caractérise par l'utilisation simultanée de plusieurs exemplaires de données.
-  Les applications qui s'exécutent dans une configuration active-active doivent disposer d'une [stratégie de gestion des conflits](mvcc.html#distributed-databases-and-conflicts) afin d'éviter les problèmes liés aux multiples copies de données.
+  Les applications qui s'exécutent dans une configuration active-active doivent disposer d'une [stratégie de gestion des conflits](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#distributed-databases-and-conflicts) afin d'éviter les problèmes liés aux multiples copies de données.
 * Les applications peuvent demander des données provenant d'une seule région par défaut.
   Si la région n'est pas disponible,
   l'application bascule la demande vers une autre région.
@@ -129,6 +139,7 @@ La réplication de {{site.data.keyword.cloudant_short_notm}} garantit la synchro
 Toutefois, vos applications doivent pouvoir "basculer" vers les copies de données qui sont stockées dans d'autres régions.
 
 ## Sauvegarde et reprise de base de données
+{: #database-backup-and-recovery}
 
 La [redondance automatique de données dans une seule région](#in-region-automatic-data-redundancy) offre aux applications un accès à haute disponibilité aux données.
 La [redondance inter-région pour la reprise après incident](#cross-region-redundancy-for-disaster-recovery) assure aux applications une fonctionnalité de reprise après incident.
@@ -149,8 +160,8 @@ Plus précisément, les outils pris en charge par {{site.data.keyword.cloudant_s
 *	Sauvegarder des bases de données entières dans un fichier, à des fins de traitement et de stockage hors site ultérieurs.
 *	Restaurer des bases de données entières à partir d'un état antérieur qui se trouve dans votre fichier de sauvegarde.
 
-> **Avertissement** : Les outils pris en charge par {{site.data.keyword.cloudant_short_notm}} comportent les limites suivantes : 
-{:tip}
+Les outils pris en charge par {{site.data.keyword.cloudant_short_notm}} comportent les limites suivantes : 
+{: tip}
 
 *	Les paramètres `_security` ne sont pas sauvegardés par les outils.
 *	Les pièces jointes ne sont pas sauvegardées par les outils.
@@ -160,9 +171,8 @@ Plus précisément, les outils pris en charge par {{site.data.keyword.cloudant_s
 *	Les définitions d'index contiennent les documents de conception qui sont sauvegardés, mais lorsque les données sont restaurées, les index doivent être régénérés.
 	Cette opération peut prendre un temps considérable en fonction du volume de données à restaurer.
 
-<div id="conclusion"></div>
-
-## Etapes suivantes
+## Prochaines étapes de votre stratégie de protection des données
+{: #next-steps-with-your-data-protection-strategies}
 
 Vous pouvez développer des applications basées sur les fonctions {{site.data.keyword.cloudant_short_notm}} de base et les outils pris en charge pour créer des stratégies de protection des données plus complexes.
 
@@ -173,6 +183,6 @@ Exemples de scénarios :
 *	Migration de données anciennes vers une solution de stockage moins onéreuse, pour un meilleur rapport coût-efficacité
 
 Les outils de sauvegarde se composent d'une application de ligne de commande et d'une bibliothèque node.js.
-Ils sont disponibles [sur NPM ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}.
+Ils sont disponibles [sur NPM ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
 
-Pour obtenir des idées et des exemples expliquant les modalités d'intégration de ces outils dans votre stratégie de protection des données, voir le [manuel d'instructions relatives aux sauvegardes](backup-cookbook.html).
+Pour obtenir des idées et des exemples expliquant les modalités d'intégration de ces outils dans votre stratégie de protection des données, voir le [manuel d'instructions relatives aux sauvegardes](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
+
+subcollection: cloudant
 
 ---
 
@@ -11,17 +15,22 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
 # Conflictos
+{: #conflicts}
 
 En bases de datos distribuidas en las que las copias de datos pueden almacenarse en más de una ubicación, la red natural y las características del sistema pueden indicar que los cambios realizados en un documento almacenado en una ubicación no se puedan actualizar o replicar instantáneamente en otras partes de la base de datos.
 
 En otras palabras, si se realizan actualizaciones independientes en otras copias de documentos, el efecto puede provocar desacuerdos o 'conflictos' con respecto a cuál es el contenido definitivo y correcto del documento.
 
 {{site.data.keyword.cloudantfull}} intenta ayudarle a evitar conflictos advirtiéndole de posibles problemas.
-Lo hace devolviendo una [respuesta `409`](../api/http.html#http-status-codes) a una solicitud de actualización problemática.
+Le avisa devolviendo una [respuesta `409`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) a una solicitud de actualización problemática.
 Sin embargo, es posible que no se reciba la respuesta `409` si se solicita la actualización de la base de datos en un sistema que actualmente no está conectado a la red.
 Por ejemplo, la base de datos puede estar en un dispositivo móvil desconectado temporalmente de Internet, lo que hace imposible comprobar si se han realizado otras actualizaciones potencialmente conflictivas en ese momento.
 
@@ -76,11 +85,10 @@ Las prácticas siguientes sugeridas pueden ayudarle a decidir cuándo comprobar 
 </table>
 
 ## Búsqueda de conflictos
+{: #finding-conflicts}
 
 Para buscar conflictos que puedan afectar a un documento, añada el parámetro de consulta `conflicts=true` cuando reciba un documento.
 Cuando se devuelve, el documento resultante contiene una matriz `_conflicts`, que incluye una lista de todas las revisiones conflictivas.
-
-<div></div>
 
 > Ejemplo de una función de correlación para buscar conflictos de documento:
 
@@ -92,22 +100,21 @@ function (doc) {
 }
 ```
 
-Para buscar los conflictos correspondientes a varios documentos de una base de datos, escriba una [vista](../api/creating_views.html).
+Para buscar los conflictos correspondientes a varios documentos de una base de datos, escriba una [vista](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce).
 Utilizando una función de correlación como la del ejemplo proporcionado podrá encontrar todas las revisiones para cada documento con un conflicto.
 
 Cuando tenga dicha vista, puede utilizarla para buscar y resolver conflictos según sea necesario.
 De forma alternativa, puede consultar la vista después de cada réplica para identificar y resolver conflictos inmediatamente.
 
 ## Cómo resolver conflictos
+{: #how-to-resolve-conflicts}
 
 Cuando encuentre un conflicto, puede resolverlo siguiendo 4 pasos:
 
-1.	[Obtenga](conflicts.html#get-conflicting-revisions) las revisiones conflictivas.
-2.	[Fusiónelas](conflicts.html#merge-the-changes) en la aplicación o pregunte al usuario qué desea hacer.
-3.	[Cargue](conflicts.html#upload-the-new-revision) la nueva revisión.
-4.	[Suprima](conflicts.html#delete-old-revisions) las versiones antiguas.
-
-<div></div>
+1.	[Obtenga](#get-conflicting-revisions) las revisiones conflictivas.
+2.	[Fusiónelas](#merge-the-changes) en la aplicación o pregunte al usuario qué desea hacer.
+3.	[Cargue](#upload-the-new-revision) la nueva revisión.
+4.	[Suprima](#delete-old-revisions) las versiones antiguas.
 
 > Ejemplo de la primera versión de un documento.
 
@@ -125,8 +132,6 @@ Veamos un ejemplo de cómo hacerlo.
 Supongamos que tiene una base de datos de productos de una tienda en línea.
 Es posible que la primera versión de un documento se parezca a la del ejemplo proporcionado.
 
-<div></div>
-
 > Segunda versión (primera revisión) del documento, que añade una descripción.
 
 ```json
@@ -140,8 +145,6 @@ Es posible que la primera versión de un documento se parezca a la del ejemplo p
 ```
 
 El documento todavía no tiene ninguna descripción, por lo que es posible que alguien la añada.
-
-<div></div>
 
 > Segunda versión _alternativa_ que presenta un cambio de datos de reducción de precios en la primera versión del documento.
 
@@ -163,12 +166,12 @@ Más adelante, cuando las dos bases de datos se replican, puede no quedar claro 
 Este es un caso de ejemplo de conflicto.
 
 ## Obtenga las revisiones conflictivas
+{: #get-conflicting-revisions}
 
 Para encontrar revisiones conflictivas en un documento, recupere el documento de la forma habitual, pero incluya el parámetro `conflicts=true`, igual que en el ejemplo siguiente:
 
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
-<div></div>
 
 > Ejemplo de respuesta a la recuperación de documentos que muestra revisiones conflictivas
 
@@ -195,6 +198,7 @@ Los detalles conflictivos del documento se marcan en la matriz `_conflicts`.
 A menudo, verá que la matriz solo tiene un elemento, pero es posible que existan muchas revisiones conflictivas, cada una de las cuales se lista en la matriz.
 
 ## Fusiones los cambios
+{: #merge-the-changes}
 
 La aplicación debe identificar todos los cambios potenciales y reconciliarlos, fusionando de manera efectiva las actualizaciones correctas y válidas para producir una única versión no conflictiva del documento.
 
@@ -202,8 +206,7 @@ Para comparar las revisiones e identificar qué ha cambiado, la aplicación debe
 Tal como se ha descrito anteriormente, empezaremos recuperando un documento y los detalles de las versiones conflictivas.
 Para ello, utilizamos un mandato similar al siguiente, que también solicita la matriz `_conflicts`:
 
-`http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
-`
+`http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
 Esta recuperación nos proporciona la versión actual del documento que almacenamos _y_ una lista del resto de los documentos conflictivos que deben recuperarse, por ejemplo `...rev=2-61ae00e029d4f5edd2981841243ded13` y `...rev=1-7438df87b632b312c53a08361a7c3299`.
 También se recupera y almacena cada una de las otras versiones conflictivas, por ejemplo:
@@ -225,6 +228,7 @@ Le recomendamos elegir diversas estrategias de resolución de conflictos distint
 Para ver un ejemplo práctico sobre cómo implementar los cambios, consulte [este proyecto con código de ejemplo](https://github.com/glynnbird/deconflict).
 
 ## Cargue la nueva revisión
+{: #upload-the-new-revision}
 
 > Revisión final después de resolver y fusionar los cambios a partir de revisiones conflictivas previas.
 
@@ -242,6 +246,7 @@ Después de evaluar y resolver los conflictos, cree un documento que contenga lo
 El nuevo documento se carga a la base de datos.
 
 ## Suprima las revisiones antiguas
+{: #delete-old-revisions}
 
 > Ejemplo de solicitudes para suprimir revisiones antiguas.
 
@@ -255,4 +260,4 @@ El último paso es suprimir las revisiones antiguas.
 Para ello, envíe un solicitud `DELETE`, especificando las revisiones que desea suprimir.
 
 Cuando se suprimen las versiones antiguas de un documento, los conflictos asociados con dicho documento se marcan como resueltos.
-Puede verificar que no hay conflictos restantes solicitando el documento de nuevo con el parámetro `conflicts` establecido en true [igual que antes](conflicts.html#finding-conflicts).
+Puede verificar que no hay conflictos restantes solicitando el documento de nuevo con el parámetro `conflicts` establecido en true y utilizando [find conflicts](#finding-conflicts) igual que antes.

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
+
+subcollection: cloudant
 
 ---
 
@@ -12,15 +16,19 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Recuperación en caso de error y copia de Seguridad
+# Recuperación tras desastre y copia de seguridad
+{: #disaster-recovery-and-backup}
 
 Sus datos son importantes y valiosos.
 Desea proteger sus datos para garantizar que están seguros y disponibles y que mantienen su integridad.
 {{site.data.keyword.cloudantfull}} proporciona varias maneras de proteger los datos y de ayudar a mantener operativas sus aplicaciones.
-{:shortdesc}
+{: shortdesc}
 
 Algunas de estas características de protección son automáticas.
 Para otras formas de protección, {{site.data.keyword.cloudant_short_notm}} le proporciona herramientas que le ayudarán a crear sus propias funciones de alta disponibilidad y recuperación en caso de error.
@@ -28,6 +36,7 @@ Para otras formas de protección, {{site.data.keyword.cloudant_short_notm}} le p
 Este documento proporciona una visión general de las funciones automáticas y herramientas soportadas que ofrece {{site.data.keyword.cloudant_short_notm}}.
 
 ## Tipos y niveles de protección
+{: #types-and-levels-of-protection}
 
 El tipo de protección que elija dependerá del problema que esté intentando solucionar.
 
@@ -47,9 +56,8 @@ El proceso para solucionar los requisitos de HA o DR suele comenzar por simplifi
 Cuando identifique sus requisitos, podrá aplicar las herramientas y características que ayuden a solucionarlos.
 Una vez combinadas, las herramientas y características pueden dar una solución a sus requisitos de HA o DR.
 
->	**Nota**: Las distintas herramientas y características proporcionan distintos niveles de protección.
-	Las distintas características pueden resultar más o menos adecuadas para su requisito específico de HA o DR.
-{:tip}
+Las distintas herramientas y características proporcionan distintos niveles de protección. Las distintas características pueden resultar más o menos adecuadas para su requisito específico de HA o DR.
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} proporciona una serie de herramientas y características que abordan requisitos generales:
 
@@ -58,6 +66,7 @@ Una vez combinadas, las herramientas y características pueden dar una solución
 3.	Copia de seguridad de instantánea en un punto en el tiempo para restauración en un punto en el tiempo, mediante una [copia de seguridad y recuperación de bases de datos](#database-backup-and-recovery) 'tradicional'.
 
 ## Redundancia automática de datos en región
+{: #in-region-automatic-data-redundancy}
 
 Dentro de una sola cuenta de {{site.data.keyword.cloudant_short_notm}},
 los datos se almacenan por triplicado mediante procesos internos y automáticos.
@@ -84,6 +93,7 @@ Para ofrecer protección del 'historial' de datos, por ejemplo para permitir la 
 En resumen, la redundancia de datos en región ofrece la función de alta disponibilidad al proporcionar tolerancia de errores que afectan a sistemas individuales dentro de la región.
 
 ## Redundancia entre regiones para la recuperación en caso de error
+{: #cross-region-redundancy-for-disaster-recovery}
 
 La característica de réplica de {{site.data.keyword.cloudant_short_notm}} le ayuda a incorporar en las aplicaciones un sistema flexible de recuperación en caso de error.
 El método principal para habilitar la recuperación en caso de error consiste en utilizar la réplica de {{site.data.keyword.cloudant_short_notm}} para crear redundancia entre regiones.
@@ -95,7 +105,7 @@ Los principales pasos a seguir para crear una redundancia entre regiones son los
 2.  Cree las bases de datos que necesite en cada región.
 3.  Para las bases de datos que se deban almacenar con redundancia entre regiones, configure réplicas continuas bidireccionales entre las bases de datos correspondientes en cada cuenta.
 4.  Diseñe e implemente sus aplicaciones para que las solicitudes de datos se direccionen en función de si el entorno tiene una configuración de tipo activo-pasivo o activo-activo.
-  Está [disponible](active-active.html) una guía detallada para configurar este diseño.
+  Está [disponible](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery) una guía detallada para configurar este diseño.
 
 Cuando diseñe sus aplicaciones para que funcionen con datos entre varias regiones, tenga en cuenta lo siguiente:
 
@@ -103,7 +113,7 @@ Cuando diseñe sus aplicaciones para que funcionen con datos entre varias region
   Este uso de proximidad puede reducir la latencia de la red y mejorar los tiempos de respuesta.
   Esta configuración recibe el nombre de método 'Activo-Activo'.
   Se caracteriza por el uso simultáneo de varias copias de los datos.
-  Las aplicaciones que funcionan en una configuración de tipo activo-activo deben tener una [estrategia para gestionar conflictos](mvcc.html#distributed-databases-and-conflicts) a fin de evitar los problemas derivados de tener varias copias de los datos.
+  Las aplicaciones que funcionan en una configuración de tipo activo-activo deben tener una [estrategia para gestionar conflictos](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#distributed-databases-and-conflicts) a fin de evitar los problemas derivados de tener varias copias de los datos.
 * Las aplicaciones pueden solicitar datos de una sola región de forma predeterminada.
   Si la región no está disponible, la aplicación puede conmutar la solicitud de los datos a otra región.
   Esta configuración recibe el nombre de método 'Activo-Pasivo'.
@@ -120,6 +130,7 @@ La réplica de {{site.data.keyword.cloudant_short_notm}} garantiza la sincroniza
 Sin embargo, las aplicaciones deben poder 'migrar en caso de error' a copias de los datos almacenadas en otras regiones.
 
 ## Copia de seguridad y recuperación de bases de datos
+{: #database-backup-and-recovery}
 
 La [redundancia automática de datos en región](#in-region-automatic-data-redundancy) ofrece a las aplicaciones acceso de alta disponibilidad a los datos.
 La [redundancia entre regiones para la recuperación en caso de error](#cross-region-redundancy-for-disaster-recovery) ofrece a las aplicaciones un método para recuperarse después de un error.
@@ -140,8 +151,8 @@ Concretamente, las herramientas que admite {{site.data.keyword.cloudant_short_no
 *	Hacer copia de seguridad de bases de datos enteras en un archivo, adecuado para su proceso y almacenamiento externo.
 *	Restaurar bases de datos enteras a partir de un estado anterior contenido en el archivo de copia de seguridad.
 
-> **Aviso** Las herramientas que admite {{site.data.keyword.cloudant_short_notm}} tienen las siguientes limitaciones: 
-{:tip}
+Las herramientas que admite {{site.data.keyword.cloudant_short_notm}} tienen las siguientes limitaciones: 
+{: tip}
 
 *	Las herramientas no hacen copia de seguridad de los valores de `_security`.
 *	Las herramientas no hacen copia de seguridad de los archivos adjuntos.
@@ -151,9 +162,8 @@ Concretamente, las herramientas que admite {{site.data.keyword.cloudant_short_no
 *	Las definiciones de índice contienen documentos de diseño de los que se ha hecho copia de seguridad, pero cuando se restauran los datos los índices se deben volver a crear.
 	Esta reconstrucción puede tardar una cantidad de tiempo considerable, en función de la cantidad de datos que se restauren.
 
-<div id="conclusion"></div>
-
-## Siguientes pasos
+## Próximos pasos con las estrategias de protección de datos
+{: #next-steps-with-your-data-protection-strategies}
 
 Puede desarrollar aplicaciones que se basen en las funciones básicas de {{site.data.keyword.cloudant_short_notm}} y en las herramientas admitidas para desarrollar estrategias de protección de datos más complejas.
 
@@ -164,6 +174,6 @@ Ejemplos de escenarios:
 *	Migración de datos antiguos a un tipo de almacenamiento más barato, para conservar los datos de manera asequible.
 
 Las herramientas de copia seguridad constan de una aplicación de línea de mandatos node.js de código abierto y de una biblioteca.
-Están disponibles [en NPM ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}.
+Están disponibles [en NPM ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
 
-Para ver ideas y ejemplos que muestran cómo integrar las herramientas en su estrategia de protección de datos, consulte la [guía de copia de seguridad](backup-cookbook.html).
+Para ver ideas y ejemplos que muestran cómo integrar las herramientas en su estrategia de protección de datos, consulte la [guía de copia de seguridad](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

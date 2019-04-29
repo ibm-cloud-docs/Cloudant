@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
+
+subcollection: cloudant
 
 ---
 
@@ -12,28 +16,34 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Criando um backup
+{: #creating-a-backup}
 
 Esse tutorial demonstra como usar o
-utilitário de linha de comandos [CouchBackup ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
+utilitário de linha de comandos [CouchBackup ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}
 para fazer backup e restaurar uma instância do CouchDB ou do {{site.data.keyword.cloudant_short_notm}}. O CouchBackup faz backup
 do banco de dados em um arquivo. Se o banco de dados falhar, será possível usar o arquivo de backup para
 restaurar as informações para um banco de dados existente. 
-{:shortdesc}
+{: shortdesc}
 
-## Antes de iniciar
+## Antes de começar a instalar o CouchBackup
+{: #before-you-begin-to-install-couchbackup}
 
 Instale o CouchBackup executando o comando `install`. 
 
 ```sh
 npm install -g @cloudant/couchbackup
 ```
-{:codeblock}
+{: codeblock}
 
-## Criando um banco de dados
+## Criando um banco de dados de amostra
+{: #creating-a-sample-database}
 
 Crie um banco de dados `couchbackup-demo` de amostra
 para uso neste tutorial.
@@ -43,7 +53,7 @@ para uso neste tutorial.
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo -X PUT
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  Revise os resultados.
     
@@ -52,9 +62,10 @@ para uso neste tutorial.
       "ok": true
     }
     ```
-    {:codeblock}
+    {: codeblock}
 
-## Criando documentos no banco de dados
+## Criando documentos no banco de dados de amostra
+{: #creating-documents-in-the-sample-database}
 
 Os documentos criados neste exercício contêm os dados dos quais você
 fará backup e restaurará em exercícios posteriores. 
@@ -103,14 +114,14 @@ fará backup e restaurará em exercícios posteriores.
         ]
     }
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  Execute este comando para criar os documentos:
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  Revise os resultados.
     
@@ -143,9 +154,10 @@ fará backup e restaurará em exercícios posteriores.
       }
     ]
     ```
-    {:codeblock}
+    {: codeblock}
     
 ## Configurando uma variável de ambiente
+{: #setting-an-environment-variable}
 
 É possível usar variáveis de ambiente e opções de linha de comandos para especificar a
 URL e o banco de dados para a instância do CouchDB ou do {{site.data.keyword.cloudant_short_notm}} que você deseja trabalhar
@@ -158,9 +170,10 @@ Configure a variável de ambiente `COUCH_URL` para especificar a URL para a inst
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 ## Fazendo backup de um banco de dados
+{: #backing-up-a-database}
 
 O utilitário CouchBackup faz backup do banco de dados em um arquivo de texto para preservar
 seus dados e facilitar a restauração. 
@@ -170,7 +183,7 @@ seus dados e facilitar a restauração.
     ```sh
     couchbackup --db couchbackup-demo > couchbackup-demo-backup.txt
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  Revise os resultados. 
     
@@ -190,7 +203,7 @@ seus dados e facilitar a restauração.
         couchbackup:backup written 0  docs:  5 Time 0.604 +0ms
         couchbackup:backup finished { total: 5 } +4ms
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  Verifique o diretório para ver se o arquivo `couchbackup-demo-backup.txt` foi criado. 
 4.  Abra o arquivo e revise a lista de documentos submetidos a backup por meio do banco de dados.  
@@ -269,9 +282,10 @@ seus dados e facilitar a restauração.
         }
     ]
     ```
-    {:codeblock}
+    {: codeblock}
 
 ## Criando um arquivo de log
+{: #creating-a-log-file}
 
 Um arquivo de log registra o progresso de seu backup. Com CouchBackup, você usará o parâmetro `--log`
 para criar o arquivo de log. Também será possível utilizá-lo para reiniciar um backup de onde ele tiver parado
@@ -290,7 +304,7 @@ o arquivo de log e a opção de continuação.
     ```sh
     couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log > couchbackup-demo-backup-log.txt
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  Revise os resultados.
         
@@ -330,7 +344,7 @@ o arquivo de log e a opção de continuação.
                 couchbackup:backup written 0  docs:  5 Time 0.621 +0ms
                 couchbackup:backup finished { total: 5 } +4ms
     ```
-    {:codeblock}
+    {: codeblock}
 
 3.  Abra o arquivo de log `couchbackup-demo-backup.log` e revise as ações executadas
 durante o backup ou a restauração.  
@@ -356,31 +370,31 @@ durante o backup ou a restauração.
         CcHonxO68GjenPxeyopyrXW86mg-HFz9NZiQh1FUhUefOhzMIg
     :d batch0
     ```
-    {:codeblock}
+    {: codeblock}
     
 ##  Restaurando de um arquivo de texto de backup
+{: #restoring-from-a-backup-text-file}
 
 No arquivo `couchbackup-demo-backup.txt`, será possível restaurar seus dados em um novo banco de dados vazio usando
 o comando `couchrestore`. 
 
-> **Nota**: a restauração de um backup será suportada apenas quando a restauração ocorrer em um banco de dados vazio. Se você excluir todos 
-os documentos de um banco de dados, os registros de exclusão de documento ainda estarão presentes para propósitos de consistência de replicação. 
-Isso significa que um banco de dados que contém apenas documentos excluídos não é considerado vazio e, portanto, não poderá ser usado
-como o destino durante a restauração de um backup.
+A restauração de um backup é suportada somente ao restaurar em um banco de dados vazio. Se você excluir todos os documentos de um banco de dados, os registros de exclusão de documento ainda estarão presentes para propósitos de consistência de replicação. Isso significa que um banco de dados que contém apenas documentos excluídos não é considerado vazio e, portanto, não poderá ser usado
+como o destino durante a restauração de um backup. 
+{: tip}
 
 1.  (Pré-requisito) Crie um novo banco de dados vazio no qual seja possível restaurar seus dados.
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo-restore -X PUT
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  Execute o comando `couchrestore`.
     
     ```sh
     cat couchbackup-demo-backup.txt | couchrestore --db couchbackup-demo-restore
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  Revise os resultados. 
     
@@ -396,9 +410,9 @@ como o destino durante a restauração de um backup.
       couchbackup:restore restored 5 +0ms
       couchbackup:restore finished { total: 5 } +1ms
     ```
-    {:codeblock}
+    {: codeblock}
 
-Agora você executou backup, restaurou um banco de dados e criou um arquivo de log. Veja a Documentação do {{site.data.keyword.cloudant_short_notm}}
-para obter mais informações sobre o [recuperação de desastre e backup](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
-[configurando o {{site.data.keyword.cloudant_short_notm}} para recuperação de desastre de região cruzada](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)
-e [backup e recuperação do {{site.data.keyword.cloudant_short_notm}}](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  
+Agora você executou backup, restaurou um banco de dados e criou um arquivo de log. Consulte a Documentação do {{site.data.keyword.cloudant_short_notm}}
+para obter informações adicionais sobre [recuperação de desastre e backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup),
+[configuração do {{site.data.keyword.cloudant_short_notm}} para recuperação de desastre de região cruzada](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)
+e [backup e recuperação do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).  

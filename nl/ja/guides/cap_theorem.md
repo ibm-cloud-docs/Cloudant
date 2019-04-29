@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
+
+subcollection: cloudant
 
 ---
 
@@ -11,21 +15,22 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-24 -->
 
-<div id="cap_theorem"></div>
-
-<div id="consistency"></div>
-
 # CAP 定理
+{: #cap-theorem}
 
-{{site.data.keyword.cloudantfull}} は、[「結果整合性」![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window} モデルを使用しています。
-{:shortdesc}
+{{site.data.keyword.cloudantfull}} は、[「結果整合性」![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window} モデルを使用しています。
+{: shortdesc}
 
 このモデルがどのように機能し、なぜ {{site.data.keyword.cloudant_short_notm}} を使用するうえで不可欠な部分なのかを理解するために、整合性が何を意味しているかを考えてみます。
 
-整合性は、データベース内のトランザクションを確実に処理および報告するために必要な 4 つの[「ACID」![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://en.wikipedia.org/wiki/ACID){:new_window}プロパティーの 1 つです。
+整合性は、データベース内のトランザクションを確実に処理および報告するために必要な 4 つの[「ACID」![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://en.wikipedia.org/wiki/ACID){: new_window}プロパティーの 1 つです。
 
 さらに、整合性は、
 <a href="http://en.wikipedia.org/wiki/CAP_Theorem" target="_blank">「CAP」<img src="../images/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン"></a>定理における 3 つの属性の 1 つでもあります。
@@ -51,21 +56,23 @@ lastupdated: "2018-10-24"
 これらの問題に対応するには、システムがより洗練される必要があります。
 
 ## 分断耐性でのトレードオフ
+{: #tradeoffs-in-partition-tolerance}
 
 整合性と分断耐性を優先するデータベースは、通常、<a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">「マスター - スレーブ」<img src="../images/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン"></a>のセットアップを採用しています。このセットアップでは、システム内の多くのノードのうちの 1 台がリーダーとして選出されます。
 そのリーダーだけがデータ書き込みを承認でき、2 次ノードはすべて、リーダーからデータを複製して読み取りを処理します。
 リーダーがネットワークへの接続を失ったり、そのシステムのノードの多くと通信できなくなったりすると、残りのノードは新しいリーダーを選出します。
-この選出プロセスはシステム間で異なり、[重大な問題![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://aphyr.com/posts/284-call-me-maybe-mongodb){:new_window}の原因となる可能性があります。
+この選出プロセスはシステム間で異なり、[重大な問題![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}の原因となる可能性があります。
 
 {{site.data.keyword.cloudant_short_notm}} は、「マスター - マスター」セットアップを採用して、可用性と分断耐性を優先しています。そのため、すべてのノードが、そのノードのデータ割り当て部分に対する書き込みと読み取りの両方を受け入れることができます。
 複数のノードに、データの各割り当て部分のコピーが含まれています。
 各ノードは、他のノードのデータをコピーします。
 あるノードがアクセス不能になると、ネットワークが回復する間、他のノードが代わりにサービスを提供できます。
-このようにして、システムは、不測のノード障害が発生してもタイムリーにデータを返し、[結果整合性![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}を維持します。
+このようにして、システムは、不測のノード障害が発生してもタイムリーにデータを返し、[結果整合性![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}を維持します。
 絶対的整合性の優先順位を下げた場合のトレードオフは、すべてのノードで同じデータが表示されるまでに時間がかかることです。
 その結果として、新しいデータがシステムで伝搬する間に、一部の応答に古いデータが含まれることがあります。
 
 ## アプローチの変更
+{: #changing-the-approach}
 
 1 つの整合したデータ・ビューを維持することは理にかなっており、容易に理解できます。なぜなら、リレーショナル・データベースはユーザーの代わりにこの作業を実行しているからです。
 データベース・システムと対話する、Web ベースのサービスはこのように振る舞うことが期待されています。
@@ -76,9 +83,10 @@ lastupdated: "2018-10-24"
 大規模で使用頻度が高いシステムでは、システムの一部で障害が発生する確率が高くなります。
 可用性と結果整合性を優先要件として設計されたデータベースは、アプリケーションの接続を維持することに、より適しています。
 アプリケーション・データの整合性の対処は事後に行うことができます。
-MIT の Seth Gilbert および Nancy Lynch は、「今日の現実世界の多くのシステムは、『ほとんどの場合、ほとんどのデータ』を返すということで解決せざるを得えない」という[結論![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){:new_window}を出しています。
+MIT の Seth Gilbert および Nancy Lynch は、「今日の現実世界の多くのシステムは、『ほとんどの場合、ほとんどのデータ』を返すということで解決せざるを得えない」という[結論![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){: new_window}を出しています。
 
 ## 企業におけるアプリケーションの可用性対整合性
+{: #application-availability-versus-consistency-in-the-enterprise}
 
 人気のある Web ベースのサービスを見ると、人々が既に高可用性を期待しており、多くの場合そうしていることに気付かずに、喜んでこの可用性を結果整合データと交換していることが示されています。
 
@@ -96,6 +104,7 @@ ATM について考えてみましょう。不整合の銀行データが原因�
 組織は、ユーザーの不満、生産性の損失、および逃した好機などのダウン時間のコストについて考える必要があります。
 
 ## 理論から実装へ
+{: #from-theory-to-implementation}
 
 高可用性についての取り組みは、クラウド・アプリケーションにとって不可欠です。
 この取り組みを行わなければ、事業が拡大していくにつれて、全体的なデータベース整合性は大きなボトルネックとして残ります。

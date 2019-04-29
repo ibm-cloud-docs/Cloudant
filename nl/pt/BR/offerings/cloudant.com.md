@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-18"
+
+keywords: enterprise plan, database-as-a-service
+
+subcollection: cloudant
 
 ---
 
@@ -12,38 +16,43 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} .com
+{: #ibm-cloudant.com}
 
-O plano Compartilhado do {{site.data.keyword.cloudantfull}} tornou-se obsoleto em 31 de março de 2018.
-A partir de 24 de julho de 2017, nenhuma nova conta do plano Compartilhado pode ser criada na [página de produto do Cloudant](https://cloudant.com){:new_window}.
-{: tip}
+O plano Compartilhado do {{site.data.keyword.cloudantfull}} tornou-se obsoleto em 31 de março de 2018. 
+A partir de 24 de julho de 2017, nenhuma nova conta do plano Compartilhado pode ser criada na [página de produto do Cloudant](https://cloudant.com){: new_window}. 
+{: deprecated}
 
 {{site.data.keyword.cloudant_short_notm}} é um banco de dados como um serviço (DBaaS) hospedado e totalmente gerenciado. 
 Ele foi construído do zero para escalar globalmente, executar sem interrupção e manipular uma grande variedade de tipos de dados
-como [JSON](../basics/index.html#json){:new_window},
-[texto completo](../api/cloudant_query.html#creating-an-index){:new_window}
-e [geoespacial](../api/cloudant-geo.html){:new_window}.
+como [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview){: new_window},
+[texto completo](/docs/services/Cloudant?topic=cloudant-query#creating-an-index){: new_window}
+e [geoespacial](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial){: new_window}.
 
 O {{site.data.keyword.cloudant_short_notm}} é um armazenamento de dados operacionais otimizado para manipular leituras
 e gravações simultâneas, além de permitir alta disponibilidade e durabilidade de dados.
 
-Ele fornece uma [API HTTP](../basics/index.html#http-api){:new_window} para trabalhar com os dados [JSON](../basics/index.html#json){:new_window}
+Ele fornece uma [API HTTP](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#http-api){: new_window} para trabalhar com os dados [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview){: new_window}
 e 24 horas de suporte e manutenção operacionais. 
 O {{site.data.keyword.cloudant_short_notm}} é baseado no
-[Apache CouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://couchdb.apache.org/){:new_window}
+[Apache CouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://couchdb.apache.org/){: new_window}
 e é entregue como vários serviços dedicados, instalados e de diversos locatários.
 
 Todos os valores de moeda neste documento estão em dólares dos EUA (USD).
 {: tip}
 
-Ele é oferecido como um [Plano compartilhado](#shared-plan){:new_window} ou um
-[Plano corporativo (dedicado)](#enterprise-plan){:new_window}. O {{site.data.keyword.cloudant_short_notm}} também está disponível como um [serviço {{site.data.keyword.cloud}}](https://www.ibm.com/cloud/){:new_window}.
+Ele é oferecido como um [Plano compartilhado](#shared-plan){: new_window} ou um
+[Plano corporativo (dedicado)](#enterprise-plan){: new_window}. O {{site.data.keyword.cloudant_short_notm}}
+também está disponível como um serviço [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud/){: new_window}.
 
 As ofertas do Plano Compartilhado e Corporativo (Dedicado) do {{site.data.keyword.cloudant_short_notm}} não estão disponíveis no serviço {{site.data.keyword.cloud_notm}}.
-{: tip}
+{: important}
 
 ## Plano corporativo
 {: #enterprise-plan}
@@ -56,22 +65,22 @@ Esse plano fornece desempenho e tempo de atividade de banco de dados assegurado,
 usando clusters DBaaS dedicados ou hardware disponível em vários locais de hospedagem.
 
 Para usuários do plano Enterprise que requerem uma conta nova ou adicional do {{site.data.keyword.cloudant_short_notm}}
-em um de seus clusters dedicados, inscreva-se na página de inscrição da conta do [{{site.data.keyword.cloudant_short_notm}} Enterprise ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/enterprise-sign-up){:new_window},
+em um de seus clusters dedicados, inscreva-se na página de inscrição da conta do [{{site.data.keyword.cloudant_short_notm}} Enterprise ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/enterprise-sign-up){: new_window},
 crie uma conta usando o formulário e abra um chamado de suporte para solicitar que sua conta seja movida para um de seus
 clusters dedicados do {{site.data.keyword.cloudant_short_notm}} Enterprise. 
 
 ## Plano compartilhado
 {: #shared-plan}
 
-O {{site.data.keyword.cloudant_short_notm}} plano Compartilhado tornou-se obsoleto em 31 de março de 2018.
-A partir de 24 de julho de 2017, nenhuma nova conta de Plano Compartilhado pode ser criada no [website do {{site.data.keyword.cloudant_short_notm}}](https://cloudant.com){:new_window}.
-{: tip}
+O {{site.data.keyword.cloudant_short_notm}} plano Compartilhado tornou-se obsoleto em 31 de março de 2018. 
+A partir de 24 de julho de 2017, nenhuma nova conta do plano Shared poderá ser criada no [website do {{site.data.keyword.cloudant_short_notm}}](https://cloudant.com){: new_window}.
+{: deprecated}
 
 Com o Plano compartilhado do {{site.data.keyword.cloudant_short_notm}}, você tem acesso a todos os
 recursos do {{site.data.keyword.cloudant_short_notm}} DBaaS, fornecidos por meio de um cluster compartilhado ou de 'diversos locatários'.
 
 A precificação é medida
-com base em seu uso mensal. Nenhum encargo se aplica se o seu uso mensal é de US$ 50,00 (até agosto de 2016). Para obter mais informações, consulte os [Termos de serviço do {{site.data.keyword.cloudant_short_notm}} Compartilhado ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/assets/terms.pdf){:new_window}. 
+com base em seu uso mensal. Nenhum encargo se aplica se o seu uso mensal é de US$ 50,00 (até agosto de 2016). Para obter mais informações, consulte os [Termos de serviço do plano Shared do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/assets/terms.pdf){: new_window}. 
    
       
          

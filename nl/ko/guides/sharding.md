@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-02-27"
+
+keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
+
+subcollection: cloudant
 
 ---
 
@@ -12,12 +16,17 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 데이터가 {{site.data.keyword.cloudant_short_notm}}에 저장되는 방식
+{: #how-is-data-stored-in-ibm-cloudant-}
 
 ## 개념
+{: #concepts}
 
 {{site.data.keyword.cloudantfull}}내의 모든 데이터베이스는 하나 이상의 개별 _샤드_로 구성되어 있으며, 샤드의 수는 _Q_로 표현됩니다.
 샤드는 데이터베이스의 개별 문서 서브세트입니다.
@@ -52,6 +61,7 @@ _Q_의 기본값은 클러스터에 따라 다릅니다.
 {{site.data.keyword.cloudant_short_notm}} 시스템에서 다른 복제본 개수를 사용하는 것은 일반적이지 않은, 예외적인 경우입니다.
 
 ## 샤딩이 성능에 미치는 영향
+{: #how-does-sharding-affect-performance-}
 
 데이터베이스의 샤드 수는 다양하게 데이터베이스 성능에 영향을 주므로 구성 가능합니다.
 
@@ -90,7 +100,7 @@ _Q_의 기본값은 클러스터에 따라 다릅니다.
 
 데이터 크기에 대한 중요 고려사항은 샤드당 문서 수입니다.
 갹 샤드는 해당 문서를 디스크에 있는
-큰 [B-트리![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://en.wikipedia.org/wiki/B-tree){:new_window}에 저장합니다.
+큰 [B-트리![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://en.wikipedia.org/wiki/B-tree){: new_window}에 저장합니다.
 인덱스도 동일한 방식으로 저장됩니다.
 샤드에 추가되는 문서가 늘어남에 따라 일반적인 문서 검색 또는 조회 중에 B-트리 순회에 사용되는 단계 수도 증가합니다.
 이러한 '깊이 증가'는
@@ -108,8 +118,6 @@ _Q_의 기본값은 클러스터에 따라 다릅니다.
 대표 데이터 및 요청 패턴을 테스트하는 것은 적절한 _Q_ 값을 예상하는 데 있어서 필수적입니다.
 프로덕션 환경에서는 이러한 예상값을 변경할 준비가 되어 있어야 합니다.
 
-<div id="summary"></div>
-
 간단한 다음 가이드라인은 초기 계획 단계에서 유용합니다.
 계획된 구성(특히 대형 데이터베이스의 경우)을 대표 데이터에 대해 테스트하여 유효성을 검증하는 것을 잊지 마십시오.
 
@@ -122,15 +130,16 @@ _Q_의 기본값은 클러스터에 따라 다릅니다.
 *	이보다 더 큰 데이터베이스의 경우에는 데이터를 수동으로 여러 데이터베이스로
 	샤딩하는 것을 고려하십시오.
 	이렇게 큰 데이터베이스의 경우에는
-	[{{site.data.keyword.cloudant_short_notm}} 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하여 조언을 구하십시오.
+	[{{site.data.keyword.cloudant_short_notm}} 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){: new_window}에 문의하여 조언을 구하십시오.
 
->	**참고:** 이러한 가이드라인의 숫자는 정확한 계산이 아니라 관찰 및 경험을 통해 파악된 숫자입니다.
-
-<div id="API"></div>
+이러한 가이드라인의 숫자는 정확한 계산이 아니라 관찰 및 경험을 통해 파악됩니다.
+{: tip}
 
 ## 샤드 관련 작업
+{: #working-with-shards}
 
 ### 샤드 개수 설정
+{: #setting-shard-count}
 
 데이터베이스의 샤드 수 _Q_는 데이터베이스가 작성될 때 설정됩니다.
 _Q_ 값은 나중에 변경할 수 없습니다.
@@ -143,12 +152,12 @@ _Q_ 값은 나중에 변경할 수 없습니다.
 ```sh
 curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
-{:codeblock}
+{: codeblock}
 
->	**참고:** {{site.data.keyword.cloud}}의 {{site.data.keyword.cloudant_short_notm}} 데이터베이스에서는 데이터베이스의 _Q_ 설정이 사용으로 설정되어 있지 않습니다.
-	대부분의 `cloudant.com` 멀티 테넌트 클러스터에서는 _Q_ 값을 사용할 수 없습니다.
+{{site.data.keyword.cloud}}의 {{site.data.keyword.cloudant_short_notm}} 데이터베이스에서는 데이터베이스의 _Q_ 설정이 사용으로 설정되어 있지 않습니다. 대부분의 `cloudant.com` 멀티 테넌트 클러스터에서는 _Q_ 값을 사용할 수 없습니다.
+{: note}
 
-_Q_ 값이 사용 불가능한 경우에 이 값을 설정하려 시도하면 JSON 본문이 다음 예와 같은 [`403` 응답](../api/http.html#403)을 수신하게 됩니다.
+_Q_ 값이 사용 불가능한 경우에 이 값을 설정하려 시도하면 JSON 본문이 다음 예와 같은 [`403` 응답](/docs/services/Cloudant/api/http.html#http-status-codes)을 수신하게 됩니다.
 
 ```json
 {
@@ -156,17 +165,19 @@ _Q_ 값이 사용 불가능한 경우에 이 값을 설정하려 시도하면 JS
 	"reason": "q is not configurable"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### 복제본 개수 설정
+{: #setting-the-replica-count}
 
 CouchDB 버전 2 이상에서는 데이터베이스를 작성할 때
-[복제본 개수 지정 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}을 수행할 수 있습니다.
+[복제본 개수 지정 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window}을 수행할 수 있습니다.
 그러나 복사본 개수 값을 기본값인 3에서 변경할 수는 없습니다.
 특히, 데이터베이스를 작성할 때는 다른 복제본 개수 값을 지정할 수 없습니다.
-추가적인 도움을 받으려면 [{{site.data.keyword.cloudant_short_notm}} 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하십시오.
+추가적인 도움을 받으려면 [{{site.data.keyword.cloudant_short_notm}} 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){: new_window}에 문의하십시오.
 
 ### _R_ 및 _W_ 인수에 대한 정보
+{: #what-are-the-_r_-and-_w_-arguments-}
 
 일부 요청은 조정자가 요청에 응답할 때의 동작에 영향을 줄 수 있는 인수를 포함할 수 있습니다.
 이러한 인수를 요청 조회 문자열의 해당 인수 이름에 따라 _R_ 및 _W_라 합니다.
@@ -177,6 +188,7 @@ CouchDB 버전 2 이상에서는 데이터베이스를 작성할 때
 예를 들어, _R_ 또는 _W_ 지정은 읽기 또는 쓰기의 일관성을 변경하지 않습니다.
 
 #### _R_의 개념
+{: #what-is-_r_-}
 
 _R_ 인수는 단일 문서 요청에만 지정할 수 있습니다.
 _R_은 조정자가 클라이언트에 응답하기 전에 수신해야 하는 응답의 수에 영향을 줍니다.
@@ -185,20 +197,22 @@ _R_은 조정자가 클라이언트에 응답하기 전에 수신해야 하는 �
 _R_을 _1_로 설정하면 조정자가 응답을 더 빨리 리턴할 수 있으므로 전체 응답 시간이 향상될 수 있습니다.
 이는 해당 샤드를 호스팅하는 복제본으로부터 하나의 응답만 기다리면 되기 때문입니다.
 
->	**참고:** {{site.data.keyword.cloudant_short_notm}}에서 사용하는 [결과적 일관성](cap_theorem.html) 모델로 인해, _R_ 값을 줄이면 리턴되는 응답이 최신 데이터가 아닐 가능성이 높아집니다.
-	기본 _R_ 값을 사용하면 이 효과를 완화시키는 데 도움이 됩니다.
+{{site.data.keyword.cloudant_short_notm}}에서 사용하는 [결과적 일관성](/docs/services/Cloudant/guides/cap_theorem.html) 모델로 인해, _R_ 값을 줄이면 리턴되는 응답이 최신 데이터를 기반으로 하지 않을 가능성이 높아집니다.	기본 _R_ 값을 사용하면 이 효과를 완화시키는 데 도움이 됩니다.
+{: note}
 
 _R_의 기본값은 _2_입니다.
 이 값은 세 개의 샤드 복제본을 사용하는 일반적인 데이터베이스의 대부분의 복제본에 해당됩니다.
 데이터베이스에 3개보다 많거나 적은 수의 복제본이 있는 경우 _R_의 기본값은 이에 맞춰 변경됩니다.
 
 #### _W_의 개념
+{: #what-is-_w_-}
 
 _W_는 단일 문서 쓰기 요청에만 지정할 수 있습니다.
 
 _W_는 조정자가 클라이언트에 응답하기 전에 수신해야 하는 응답의 수에 영향을 주므로 _R_과 유사합니다.
 
->	**참고:** _W_는 실제 쓰기 동작에 전혀 영향을 주지 않습니다.
+_W_는 실제 쓰기 동작에 전혀 영향을 주지 않습니다.
+{: note}
 
 _W_의 값은 문서의 데이터베이스 내 기록 여부에 영향을 주지 않습니다.
 _W_ 값을 지정하면

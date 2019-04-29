@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
+
+subcollection: cloudant
 
 ---
 
@@ -12,35 +16,43 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-07-02 -->
 
 # {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)
+{: #ibm-cloud-identity-and-access-management-iam-}
 
 {{site.data.keyword.cloud}} Identity and Access Management 提供一種統一的方法來管理使用者身分、服務及存取控制。
-{:shortdesc}
+{: shortdesc}
 
 ## 簡介
+{: #introduction}
 
 本文件說明 {{site.data.keyword.cloudantfull}} 與 {{site.data.keyword.cloud_notm}} Identity and Access Management 的整合。它會討論 {{site.data.keyword.cloudant_short_notm}} Legacy 存取控制與 {{site.data.keyword.cloud_notm}} IAM 存取控制之間的差異。接著，它會查看各個的優缺點，協助您決定使用哪一個。然後，我們會討論如何在 {{site.data.keyword.cloudant_short_notm}} 的用戶端程式庫內以及透過 HTTP 呼叫來使用 IAM。最後，我們以參照小節作為結尾，其中說明 {{site.data.keyword.cloudant_short_notm}} 內所有可用的 IAM 動作及角色。
 
-請參閱 [IAM ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/docs/iam/index.html#iamoverview){:new_window} 概觀，包括如何：
+請參閱 [IAM ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window} 概觀，包括如何：
 
 - 管理使用者及服務 ID。
 - 管理可用的認證。
 - 使用容許及撤銷對 {{site.data.keyword.cloudant_short_notm}} 服務實例之存取權的 IAM 存取原則。
 
 ## {{site.data.keyword.cloudant_short_notm}} Legacy 與 IAM 存取控制之間的差異
+{: #differences-between-ibm-cloudant-legacy-and-iam-access-controls}
 
 下節提供 {{site.data.keyword.cloudant_short_notm}} Legacy 與 {{site.data.keyword.cloud_notm}} IAM 存取控制機制之間差異的簡要概觀。
 
 ### {{site.data.keyword.cloud_notm}} Identity and Access Management
+{: #ibm-cloud-identity-and-access-management}
 
 - 跨 {{site.data.keyword.cloud_notm}} 的集中管理存取管理。
 - 容許使用者或服務使用同一組認證（例如，相同的使用者名稱/密碼或 IAM API 金鑰）來存取許多不同的資源。
 - 您可以將帳戶管理功能（例如，建立新的資料庫）的存取權授與給 IAM API 金鑰。
 
 ### {{site.data.keyword.cloudant_short_notm}} Legacy
+{: #ibm-cloudant-legacy}
 
 - 對 {{site.data.keyword.cloudant_short_notm}} 而言是唯一的。
 - 每個服務實例的存取權都需要它自己的一組認證。
@@ -48,11 +60,13 @@ lastupdated: "2018-10-24"
 - {{site.data.keyword.cloudant_short_notm}} API 金鑰只能獲授與資料庫層次的許可權。
 
 ### API 金鑰注意事項
+{: #api-key-notes}
 
 在本文件中，只要提及 API 金鑰，指的就是 IAM API 金鑰。
-{{site.data.keyword.cloudant_short_notm}} Legacy 也有 API 金鑰的概念，而所有關於 {{site.data.keyword.cloudant_short_notm}} Legacy 認證或使用者名稱/密碼組合的討論也包含 {{site.data.keyword.cloudant_short_notm}} API 金鑰在內。
+{{site.data.keyword.cloudant_short_notm}} Legacy 也有 API 金鑰的概念，而且任何關於 {{site.data.keyword.cloudant_short_notm}} Legacy 認證或使用者名稱/密碼組合的討論也包含 {{site.data.keyword.cloudant_short_notm}} API 金鑰在內。 
 
 ## 使用 {{site.data.keyword.cloudant_short_notm}} 啟用 IAM
+{: #enabling-iam-with-ibm-cloudant}
 
 從 2018 年 7 月下旬開始，只有新的 {{site.data.keyword.cloudant_short_notm}} 服務實例才能與 {{site.data.keyword.cloud_notm}} IAM 搭配使用。
 
@@ -62,6 +76,7 @@ lastupdated: "2018-10-24"
 2. **僅使用 IAM**：此模式表示僅透過服務連結及認證產生來提供 IAM 認證。
 
 ### {{site.data.keyword.cloudant_short_notm}} API 金鑰及_僅使用 IAM_
+{: #ibm-cloudant-api-keys-and-_use-only-iam_}
 
 您可以使用 {{site.data.keyword.cloudant_short_notm}} API 金鑰與 IAM，但**不建議如此使用**。提出此建議的原因是 {{site.data.keyword.cloudant_short_notm}} API 金鑰及許可權無法透過 IAM 原則介面顯示或管理，因此使得無法進行全面的存取管理。
 
@@ -73,12 +88,13 @@ lastupdated: "2018-10-24"
 具體而言，仍然可以使用 {{site.data.keyword.cloudant_short_notm}} API 金鑰來管理資料庫存取。必須使用 HTTP API 來產生及配置這些認證。
 
 ### 使用指令行佈建
+{: #provisioning-by-using-the-command-line}
 
 當您從指令行佈建新的 {{site.data.keyword.cloudant_short_notm}} 實例時，請提供 `ic` 工具的選項，方法是使用 `-p` 參數來啟用或停用帳戶的舊式認證。選項會以 JSON 格式傳遞，稱為 `legacyCredentials`。
 
 若要將實例佈建為_僅使用 IAM_（建議），請執行下列指令：
 
-```
+```sh
 ic resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": false}
@@ -86,13 +102,14 @@ ic resource service-instance-create  "Instance Name" \
 
 若要將實例佈建為_同時使用 Legacy 認證及 IAM_，請執行下列指令：
 
-```
+```sh
 ic resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": true}
 ```
 
 ### 每個選項的服務認證 JSON 範例
+{: #service-credential-json-examples-for-each-option}
 
 選擇_僅使用 IAM_ 或_同時使用 Legacy 認證及 IAM_ 存取控制會影響在連結及產生服務認證時，如何將認證提供給應用程式。在主要 {{site.data.keyword.cloud_notm}} IAM 介面內產生認證時，該介面中會顯示產生的 API 金鑰。
 
@@ -122,7 +139,7 @@ ic resource service-instance-create  "Instance Name" \
 - `iam_role_crn`：IAM API 金鑰具有的 IAM 角色。
 - `iam_serviceid_crn`：服務 ID 的 CRN。
 - `url`：{{site.data.keyword.cloudant_short_notm}} 服務 URL。
-- `username`：URL 中 {{site.data.keyword.cloudant_short_notm}} 實例使用者的服務名稱。
+- `username`：內部 {{site.data.keyword.cloudant_short_notm}} 帳戶名稱。
 
 當您選取_同時使用 Legacy 認證及 IAM_ 時，產生的服務認證會同時包含 IAM 及 Legacy 認證，並且與下列範例類似：
 
@@ -140,7 +157,7 @@ ic resource service-instance-create  "Instance Name" \
   "username": "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 前一個 JSON 範例中的每個值應該解譯如下：
 
@@ -156,6 +173,7 @@ ic resource service-instance-create  "Instance Name" \
 - `username`：{{site.data.keyword.cloudant_short_notm}} Legacy 認證使用者名稱。
 
 ## 我應該使用_僅使用 IAM_ 還是_同時使用 Legacy 認證及 IAM_？
+{: #should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
 
 如果可能的話，建議選擇_僅使用 IAM_。使用 {{site.data.keyword.cloud_notm}} IAM 的主要優點包括：
 
@@ -165,11 +183,9 @@ ic resource service-instance-create  "Instance Name" \
 每種方法的優缺點進一步說明如下。
 
 ### 兩種存取控制機制的優缺點
+{: #advantages-and-disadvantages-of-the-two-access-control-mechanisms}
 
 整體而言，{{site.data.keyword.cloud_notm}} IAM 是建議的鑑別模型。不過，此方法有其缺點，主要是，如果您具有現有的應用程式，或無法使用 {{site.data.keyword.cloudant_short_notm}} 支援之用戶端程式庫的情況。
-
-
-<div id="advantages-disadvantages"></div>
 
 <table>
 
@@ -181,12 +197,15 @@ ic resource service-instance-create  "Instance Name" \
 
 <tr>
 <td headers="mode">IAM</td>
-<td headers="advantages" valign="top"><ul><li>使用一個介面，來管理許多服務的存取權。整體地撤銷使用者存取權。<li>透過服務 ID 的帳戶層次 API 金鑰。
+<td headers="advantages" valign="top"><ul><li>使用一個介面，來管理許多服務的存取權。整體地撤銷使用者存取權。</li>
+<li>透過服務 ID 的帳戶層次 API 金鑰。
+</li>
 <li>容易輪替的認證。</li>
 <li>Activity Tracker 日誌會擷取個人及服務。</li>
 <li>IAM 會與其他身分系統（例如企業 LDAP 儲存庫）聯合。</li></ul>
 </td>
 <td headers="disadvantages"><ul><li>如果您未使用 {{site.data.keyword.cloudant_short_notm}} 支援的程式庫，則可能需要變更應用程式，才能使用 IAM 的 API 金鑰及存取記號。
+</li>
 <li>（目前）沒有資料庫層次許可權。</li>
 <li>（目前）沒有精細許可權（例如，讀者）。</li>
 <li>部分端點無法使用，請參閱[無法使用的端點](#unavailable-endpoints)。</li>
@@ -203,7 +222,8 @@ ic resource service-instance-create  "Instance Name" \
 </ul>
 </td>
 <td headers="disadvantages">
-<ul><li>沒有帳戶層次 API 金鑰；必須使用 `root` 認證才能管理資料庫。<li>分別管理 {{site.data.keyword.cloudant_short_notm}} 認證，因此無法在集中化介面內取得所有存取權的完整概觀。</li>
+<ul><li>沒有帳戶層次 API 金鑰；必須使用 `root` 認證才能管理資料庫。</li>
+<li>分別管理 {{site.data.keyword.cloudant_short_notm}} 認證，因此無法在集中化介面內取得所有存取權的完整概觀。</li>
 <li>難以實作認證輪替。</li>
 </ul>
 </td>
@@ -211,14 +231,16 @@ ic resource service-instance-create  "Instance Name" \
 </table>
 
 ## 使用 IAM 認證向實例提出要求
+{: #making-requests-to-instances-by-using-iam-credentials}
 
 本節討論如何使用 IAM 鑑別和存取控制，來搭配使用 {{site.data.keyword.cloudant_short_notm}} 與服務實例。它會使用先前提及之服務認證 JSON 範例的詳細資料。
 
-{{site.data.keyword.cloud_notm}} IAM 要求先將 IAM API 金鑰換成限時存取記號，再提出資源或服務的要求。然後，存取記號會內含在服務的 `Authorization` HTTP 標頭中。存取記號到期時，用戶端必須處理從 IAM 記號服務取得新的存取記號。如需相關資訊，請參閱[使用 API 金鑰取得 {{site.data.keyword.cloud_notm}} IAM 記號 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) 文件，以取得更多詳細資料。
+{{site.data.keyword.cloud_notm}} IAM 要求先將 IAM API 金鑰換成限時存取記號，再提出資源或服務的要求。然後，存取記號會內含在服務的 `Authorization` HTTP 標頭中。存取記號到期時，消費端應用程式必須處理從 IAM 記號服務取得新的存取記號。如需相關資訊，請參閱[使用 API 金鑰取得 {{site.data.keyword.cloud_notm}} IAM 記號 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) 文件，以取得更多詳細資料。
 
 {{site.data.keyword.cloudant_short_notm}} 的正式用戶端程式庫會處理為您從 API 金鑰取得記號。如果您使用 HTTP 用戶端直接存取 {{site.data.keyword.cloudant_short_notm}}，而不是使用 {{site.data.keyword.cloudant_short_notm}} 用戶端程式庫，則必須搭配使用 IAM API 金鑰與 IAM 記號服務來處理交換及重新整理限時存取記號。記號到期之後，{{site.data.keyword.cloudant_short_notm}} 會傳回 HTTP `401` 狀態碼。
 
 ### 必要的用戶端程式庫版本
+{: #required-client-library-versions}
 
 針對已啟用 IAM 的 {{site.data.keyword.cloudant_short_notm}} 服務實例，請最少搭配使用下列用戶端程式庫版本：
 
@@ -234,6 +256,7 @@ ic resource service-instance-create  "Instance Name" \
 下列程式碼 Snippet 需要這些版本。
 
 ### Java
+{: #java}
 
 需要 [java-cloudant](https://github.com/cloudant/java-cloudant) 2.13.0+。
 
@@ -263,6 +286,7 @@ public class App
 ```
 
 ### Node.js
+{: #node.js}
 
 需要 [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant) 2.3.0+。
 
@@ -286,6 +310,7 @@ cloudant.db.list(function(err, body) {
 ```
 
 ### Python
+{: #python}
 
 需要 [python-cloudant](https://github.com/cloudant/python-cloudant) 2.9.0+。
 
@@ -303,6 +328,7 @@ print client.all_dbs()
 ```
 
 ### 使用 HTTP 用戶端存取
+{: #access-by-using-http-client}
 
 {{site.data.keyword.cloud_notm}} IAM 要求先將 IAM API 金鑰換成限時存取記號，再提出資源或服務的要求。然後，存取記號會內含在服務的 `Authorization` HTTP 標頭中。存取記號到期時，用戶端必須處理從 IAM 記號服務取得新的存取記號。
 
@@ -321,7 +347,7 @@ ACCOUNT = "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 def get_access_token(api_key):
     """Retrieve an access token from the IAM token service."""
     token_response = requests.post(
-        "https://iam.bluemix.net/oidc/token",
+        "https://iam.cloud.ibm.com/identity/token",
         data={
             "grant_type": "urn:ibm:params:oauth:grant-type:apikey",
             "response_type": "cloud_iam",
@@ -364,10 +390,12 @@ if __name__ == "__main__":
 ```
 
 ## 參考資料
+{: #reference}
 
 本節包含完整的 {{site.data.keyword.cloudant_short_notm}} IAM 動作清單，以及每個 IAM 系統角色所容許的動作。
 
 ### {{site.data.keyword.cloudant_short_notm}} 動作
+{: #ibm-cloudant-actions}
 
 動作 | 說明
 -------|------------
@@ -378,6 +406,7 @@ if __name__ == "__main__":
 `cloudantnosqldb.sapi.userinfo` | 存取 `/_api/v2/user`。
 
 #### 無法使用的端點
+{: #unavailable-endpoints}
 
 下列端點無法用於使用 IAM 授權的要求：
 
@@ -387,6 +416,7 @@ if __name__ == "__main__":
 雖然設計文件可以包含更新功能，但是使用者無法呼叫它們。
 
 ### 將 {{site.data.keyword.cloudant_short_notm}} 動作對映至 IAM 角色
+{: #mapping-of-ibm-cloudant-actions-to-iam-roles}
 
 只有「管理員」角色使用者及服務才能存取 {{site.data.keyword.cloudant_short_notm}} 資料。
 
@@ -397,9 +427,10 @@ if __name__ == "__main__":
 撰寫者 | 無。
 
 ## 疑難排解
-
-如果您在向 {{site.data.keyword.cloudant_short_notm}} 服務實例提出要求時，使用 IAM 進行鑑別發生問題，請檢查下列項目。
+{: #troubleshooting}
+如果您在向 {{site.data.keyword.cloudant_short_notm}} 服務實例提出要求時，使用 IAM 進行鑑別發生問題，請驗證您的帳戶是否如下節所示。
 
 ### 確定帳戶已啟用 IAM
+{: #ensure-your-account-is-iam-enabled}
 
-您必須發出支援問題單，確認服務實例已啟用 IAM。
+您必須開立支援問題單，確認服務實例已啟用 IAM。

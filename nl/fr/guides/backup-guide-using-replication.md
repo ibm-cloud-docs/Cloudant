@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
+
+subcollection: cloudant
 
 ---
 
@@ -12,18 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-<div id="back-up-your-data-using-replication"></div>
-
 # Incrémentiels de réplication
+{: #replication-incrementals}
 
->	**Remarque** : Le présent guide contient des informations anciennes, voire obsolètes, sur les sauvegardes {{site.data.keyword.cloudantfull}}.
-	Pour obtenir les dernières recommandations en matière de sauvegarde, consultez le guide [Reprise après incident et sauvegarde](disaster-recovery-and-backup.html).
+Le présent guide contient des informations anciennes, voire obsolètes, sur les sauvegardes {{site.data.keyword.cloudantfull}}. Pour obtenir les dernières recommandations en matière de sauvegarde, consultez le guide [Reprise après incident et sauvegarde](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
+{: deprecated}
 
 Les sauvegardes de base de données protègent vos données contre les risques de perte ou d'altération.
-{:shortdesc}
+{: shortdesc}
 
 Vous pouvez utiliser la fonction de réplication {{site.data.keyword.cloudant_short_notm}} pour créer une sauvegarde de base de données,
 et la stocker sur un cluster de {{site.data.keyword.cloudant_short_notm}}.
@@ -40,9 +46,10 @@ Il s'agit en fait d'un enregistrement de la base de données telle qu'elle étai
 De cette manière, une sauvegarde peut préserver l'état de votre base de données à un moment donné.
 
 ## Sauvegardes incrémentielles
+{: #incremental-backups}
 
 Si vous êtes un client d'entreprise,
-une fonction de sauvegarde incrémentielle quotidienne est [mise à votre disposition](disaster-recovery-and-backup.html).
+une fonction de sauvegarde incrémentielle quotidienne est [mise à votre disposition](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 
 Si vous n'êtes pas un client d'entreprise,
 ou si préférez créer vos propres sauvegardes,
@@ -67,13 +74,14 @@ vous exécutez des sauvegardes "incrémentielles" quotidiennes,
 en sauvegardant _uniquement_ les éléments ayant été modifiés depuis la dernière sauvegarde.
 Cette réplication est alors appelée sauvegarde quotidienne.
 
->   **Remarque** : Vous pouvez configurer une sauvegarde de telle sorte qu'elle se déclenche à intervalles réguliers.
-    Toutefois,
-    chaque intervalle doit être d'au moins 24 heures.
-    En d'autres termes,
+Vous pouvez configurer une sauvegarde pour qu'elle se déclenche à intervalles réguliers.
+Toutefois,
+    chaque intervalle doit être d'au moins 24 heures. En d'autres termes,
     il vous est possible d'effectuer des sauvegardes quotidiennes mais pas horaires.
+{: note}
 
 ## Création d'une sauvegarde incrémentielle
+{: #creating-an-incremental-backup}
 
 Les sauvegardes incrémentielles sauvegardent uniquement les différences ou "deltas" entre les sauvegardes.
 Toutes les 24 heures,
@@ -97,13 +105,14 @@ Pour créer une sauvegarde incrémentielle, procédez comme suit :
     mais il peut aussi se trouver sur une seule.
 3.  Recherchez la zone `recorded_seq` associée au premier élément
     du tableau d'historique qui se trouve dans le document de point de contrôle.
-4.  Procédez à la réplication vers la nouvelle base de données de sauvegarde incrémentielle,
-    en affectant à la zone [`since_seq`](../api/replication.html#the-since_seq-field)
+4.  Procédez à la réplication vers la nouvelle base de données de sauvegarde incrémentielle, en affectant à la zone [`since_seq`](/docs/services/Cloudant?topic=cloudant-replication-api#the-since_seq-field)
     du document de réplication la valeur de la zone `recorded_seq` identifiée à l'étape précédente.
 
->   **Remarque** : Par définition, l'utilisation de l'option `since_seq` ignore l'option normale d'utilisation de point de contrôle. Utilisez le paramètre `since_seq` avec prudence. 
+Par définition, l'utilisation de l'option `since_seq` ignore l'option normale d'utilisation de point de contrôle. Utilisez le paramètre `since_seq` avec prudence. 
+{: note}
 
 ## Restauration d'une base de données
+{: #restoring-a-database}
 
 Pour restaurer une base de données à partir de sauvegardes incrémentielles,
 répliquez chaque sauvegarde incrémentielle vers une nouvelle base de données,
@@ -116,6 +125,7 @@ Tous les documents antérieurs à une copie présente dans la nouvelle base de d
 
 
 ## Exemple
+{: #an-example}
 
 L'exemple ci-dessous vous montre comment :
 
@@ -124,27 +134,25 @@ L'exemple ci-dessous vous montre comment :
 3.  Configurer et exécuter une sauvegarde incrémentielle
 4.  Restaurer une sauvegarde
 
-<div id="constants-used-in-this-guide"></div>
-
 ### Constantes utilisées dans cet exemple
+{: #constants-that-are-used-here}
 
 ```sh
 # save base URL and the content type in shell variables
 $ url='https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com'
 $ ct='Content-Type: application-json'
 ```
-{:codeblock}
+{: codeblock}
 
 Supposons que vous deviez sauvegarder une base de données.
 Vous voulez créer une sauvegarde intégrale le lundi,
 et une sauvegarde incrémentielle le mardi.
 
-Vous pouvez utiliser les commandes `curl` et [`jq` ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://stedolan.github.io/jq/){:new_window} pour exécuter ces opérations.
+Vous pouvez utiliser les commandes `curl` et [`jq` ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://stedolan.github.io/jq/){: new_window} pour exécuter ces opérations.
 Dans la pratique, vous pouvez utiliser n'importe quel client HTTP.
 
-<div id="step-1-check-you-have-three-databases"></div>
-
 ### Etape 1 : Vérification de l'existence de trois bases de données
+{: #step-1-check-that-you-have-three-databases}
 
 Pour cet exemple,
 vous avez besoin de trois bases de données :
@@ -161,7 +169,7 @@ PUT /original HTTP/1.1
 PUT /backup-monday HTTP/1.1
 PUT /backup-tuesday HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Exemple illustrant comment vérifier que vous disposez de trois bases de données pour cet exemple, à l'aide de la ligne de commande :_
 
@@ -170,27 +178,29 @@ $ curl -X PUT "${url}/original"
 $ curl -X PUT "${url}/backup-monday"
 $ curl -X PUT "${url}/backup-tuesday"
 ```
-{:codeblock}
+{: codeblock}
 
 ### Etape 2 : Création de la base de données `_replicator`
+{: #step-2-create-the-_replicator-database}
 
 Créez la base de données `_replicator` si besoin.
 
-_Création de la base de données `_replicator` à l'aide du protocole HTTP :_
+*Création de la base de données `_replicator` en utilisant HTTP :*
 
 ```http
 PUT /_replicator HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
-_Création de la base de données `_replicator` à l'aide de la ligne de commande :_
+*Création de la base de données `_replicator` en utilisant la ligne de commande :*
 
 ```sh
 curl -X PUT "${url}/_replicator"
 ```
-{:pre}
+{: pre}
 
 ### Etape 3 : Sauvegarde de la totalité de la base de données (d'origine)
+{: #step-3-back-up-the-entire-original-database}
 
 Le lundi,
 vous voulez sauvegarder l'ensemble de vos données pour la première fois.
@@ -202,7 +212,7 @@ _Exécution d'une sauvegarde intégrale le lundi à l'aide du protocole HTTP :_
 PUT /_replicator/full-backup-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Exécution d'une sauvegarde intégrale le lundi à l'aide de la ligne de commande :_
 
@@ -210,7 +220,7 @@ _Exécution d'une sauvegarde intégrale le lundi à l'aide de la ligne de comman
 $ curl -X PUT "${url}/_replicator/full-backup-monday" -H "$ct" -d @backup-monday.json
 # where backup-monday.json describes the backup.
 ```
-{:codeblock}
+{: codeblock}
 
 _Document JSON décrivant la sauvegarde intégrale :_
  
@@ -221,11 +231,10 @@ _Document JSON décrivant la sauvegarde intégrale :_
     "target": "${url}/backup-monday"
 }
 ```
-{:codeblock}
-
-<div id="step-4-get-checkpoint-id"></div>
+{: codeblock}
 
 ### Etape 4 : Préparation de la sauvegarde incrémentielle - Partie 1 : Obtention de l'ID de point de contrôle
+{: #step-4-prepare-incremental-backup-part-1-get-checkpoint-id}
 
 Le mardi,
 vous voulez effectuer une sauvegarde incrémentielle,
@@ -245,24 +254,23 @@ Commencez par identifier la valeur d'ID de point de contrôle.
 Cette valeur se trouve dans la zone `_replication_id` du document de réplication,
 dans la base de données `_replicator`.
 
-_Obtention de l'ID de point de contrôle permettant de trouver la valeur `recorded_seq`, à l'aide du protocole HTTP :_
+*Obtention de l'ID de point de contrôle permettant de trouver la valeur `recorded_seq`, à l'aide du protocole HTTP :*
 
 ```http
 GET /_replicator/full-backup-monday HTTP/1.1
 # Search for the value of _replication_id
 ```
-{:codeblock}
+{: codeblock}
 
-_Obtention de l'ID de point de contrôle permettant de trouver la valeur `recorded_seq`, à l'aide de la ligne de commande :_
+*Obtention de l'ID de point de contrôle permettant de trouver la valeur `recorded_seq`, à l'aide de la ligne de commande :*
 
 ```sh
 replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replication_id')
 ```
-{:pre}
-
-<div id="step-5-get-recorded_seq-value"></div>
+{: pre}
 
 ### Etape 5 : Préparation de la sauvegarde incrémentielle - Partie 2 : Obtention de la valeur `recorded_seq`
+{: #step-5-prepare-incremental-backup-part-2-get-recorded_seq-value}
 
 Une fois l'ID de point de contrôle récupéré,
 utilisez-le pour obtenir la valeur `recorded_seq`.
@@ -271,22 +279,23 @@ Cette valeur se trouve dans le premier élément du tableau d'historique dans le
 Vous connaissez désormais la valeur `recorded_seq`.
 Celle-ci identifie le dernier document ayant été répliqué depuis la base de données d'origine.
 
-_Obtention de la valeur `recorded_seq` à partir de la base de données d'origine, à l'aide du protocole HTTP :_
+*Obtention de la valeur `recorded_seq` à partir de la base de données d'origine, à l'aide du protocole HTTP :*
 
 ```http
 GET /original/_local/${replication_id} HTTP/1.1
 # Search for the first value of recorded_seq in the history array
 ```
-{:codeblock}
+{: codeblock}
 
-_Obtention de la valeur `recorded_seq` à partir de la base de données d'origine, à l'aide de la ligne de commande :_
+*Obtention de la valeur `recorded_seq` à partir de la base de données d'origine, à l'aide de la ligne de commande :*
 
 ```sh
 recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history[0].recorded_seq')
 ```
-{:pre}
+{: pre}
 
 ### Etape 6 : Exécution d'une sauvegarde incrémentielle
+{: #step-6-run-an-incremental-backup}
 
 Maintenant que vous connaissez l'ID de point de contrôle et la valeur `recorded_seq`,
 vous pouvez démarrer la sauvegarde incrémentielle du mardi.
@@ -303,14 +312,14 @@ _Exécution de la sauvegarde incrémentielle du mardi à l'aide du protocole HTT
 PUT /_replicator/incr-backup-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Exécution de la sauvegarde incrémentielle du mardi à l'aide de la ligne de commande :_
 
 ```sh
 curl -X PUT "${url}/_replicator/incr-backup-tuesday" -H "${ct}" -d @backup-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _Document JSON décrivant la sauvegarde incrémentielle du mardi :_
  
@@ -322,9 +331,10 @@ _Document JSON décrivant la sauvegarde incrémentielle du mardi :_
     "since_seq": "${recorded_seq}"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Etape 7 : Restauration de la sauvegarde du lundi
+{: #step-7-restore-the-monday-backup}
 
 Pour procéder à la restauration depuis une sauvegarde, vous répliquez la sauvegarde intégrale initiale, ainsi que les sauvegardes incrémentielles, vers une nouvelle base de données.
 
@@ -337,14 +347,14 @@ _Restauration à partir de la base de données `backup-monday` à l'aide du prot
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Restauration de la base de données `backup-monday` à l'aide de la ligne de commande :_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _Document JSON décrivant la restauration :_
  
@@ -356,15 +366,16 @@ _Document JSON décrivant la restauration :_
     "create_target": true  
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Etape 8 : Restauration de la sauvegarde du mardi
+{: #step-8-restore-the-tuesday-backup}
 
 Pour restaurer la base de données du mardi,
 procédez d'abord à la réplication à partir de la base de données `backup-tuesday`, puis à partir de la base de données `backup-monday`.
 
->   **Remarque** : L'ordre donné est le bon ;
-    il s'agit _bien_ de restaurer à partir du mardi et _ensuite_ à partir du lundi.
+L'ordre ci-dessus n'est pas une erreur ; il s'agit _bien_ de restaurer à partir du mardi et _ensuite_ à partir du lundi.
+{: tip}
 
 Vous pouvez effectuer une restauration dans l'ordre chronologique,
 mais en utilisant une séquence inverse,
@@ -377,14 +388,14 @@ _Restauration de la sauvegarde du mardi, avec obtention des changements les plus
 PUT /_replicator/restore-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Restauration de la sauvegarde du mardi, avec obtention des changements les plus récents en premier, à l'aide de la ligne de commande :_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-tuesday" -H "$ct" -d @restore-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _Document JSON demandant une restauration de la sauvegarde du mardi :_
  
@@ -396,7 +407,7 @@ _Document JSON demandant une restauration de la sauvegarde du mardi :_
     "create_target": true  
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Fin de la reprise avec la restauration de la dernière sauvegarde du lundi, à l'aide du protocole HTTP :_
 
@@ -404,14 +415,14 @@ _Fin de la reprise avec la restauration de la dernière sauvegarde du lundi, à 
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Fin de la reprise avec la restauration de la dernière sauvegarde du lundi à l'aide de la ligne de commande :_
 
 ```http
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _Document JSON demandant une restauration de la sauvegarde du lundi :_
  
@@ -422,15 +433,17 @@ _Document JSON demandant une restauration de la sauvegarde du lundi :_
     "target": "${url}/restore"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Suggestions
+{: #suggestions}
 
 Bien que les informations précédentes évoquent l'aspect général du processus de sauvegarde,
 chaque application a ses propres exigences et stratégies de sauvegarde.
 Les suggestions ci-après peuvent vous être utiles.
 
 ### Planification des sauvegardes
+{: #scheduling-backups}
 
 Les travaux de réplication peuvent augmenter de manière significative la charge d'un cluster.
 Si vous sauvegardez plusieurs bases de données,
@@ -438,6 +451,7 @@ il est préférable d'échelonner les travaux de réplication,
 ou de choisir un moment où le cluster est moins occupé.
 
 #### Modification de la priorité IO d'une sauvegarde
+{: #changing-the-io-priority-of-a-backup}
 
 Vous pouvez changer la priorité des tâches de sauvegarde en ajustant la valeur de la zone `x-cloudant-io-priority` dans le document de réplication.
 
@@ -462,11 +476,10 @@ _Exemple de document JSON définissant la priorité IO :_
     }
 }
 ```
-{:codeblock}
-
-<div id="design-documents"></div>
+{: codeblock}
 
 ### Sauvegarde de documents de conception
+{: #backing-up-design-documents}
 
 Si vous intégrez des documents de conception dans votre sauvegarde,
 les index sont créés sur la destination de sauvegarde.
@@ -476,6 +489,7 @@ utilisez la fonction de filtre de vos réplications pour ignorer les documents d
 Vous pouvez également utiliser cette fonction de filtre pour exclure d'autres documents indésirables.
 
 ### Sauvegarde de plusieurs bases de données
+{: #backing-up-multiple-databases}
 
 Si votre application utilise une base de données par utilisateur,
 ou autorise chaque utilisateur à créer plusieurs bases de données,
@@ -483,7 +497,7 @@ vous devez créer une tâche de sauvegarde pour chaque nouvelle base de données
 Assurez-vous que les travaux de réplication ne commencent pas en même temps.
 
 ## Besoin d'aide ?
+{: #need-help-}
 
 Les opérations de réplication et de sauvegarde peuvent s'avérer complexes.
-Si vous n'y arrivez pas,
-consultez le [guide de réplication](replication_guide.html) ou contactez l'[équipe de support d'{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window}.
+Si vous n'y arrivez pas, consultez le [guide de réplication](/docs/services/Cloudant?topic=cloudant-replication-guide#replication-guide) ou contactez l'[équipe de support d'{{site.data.keyword.cloudant_short_notm}}![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){: new_window}.

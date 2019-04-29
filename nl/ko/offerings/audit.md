@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: principal, action, resource, timestamp, access audit logs
+
+subcollection: cloudant
 
 ---
 
@@ -12,11 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 감사 로깅
-
+{: #audit-logging}
 
 감사 로깅은 {{site.data.keyword.cloudant_short_notm}}에 저장된 데이터에 액세스한
 {{site.data.keyword.cloudantfull}} 프린시펄을 기록합니다. {{site.data.keyword.cloudant_short_notm}}에
@@ -29,6 +36,7 @@ lastupdated: "2018-10-24"
 `조치` | 수행되는 조치(예: 문서 읽기).
 `리소스` | 액세스되는 계정, 데이터베이스 및 문서 또는 수행되는 조회에 대한 세부사항.
 `시간소인` | 시간 레코드 및 이벤트 데이터. 
+{: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} 감사 로그를 사용하여 다음을 파악할 수 있습니다.
 
@@ -36,11 +44,12 @@ lastupdated: "2018-10-24"
 - 조회를 실행한 대상, 시기 및 주체
 - 특정 프린시펄 또는 사용자가 액세스, 업데이트 또는 삭제한 대상 및 시기
 - 복제 문서가 작성되거나 삭제된 대상 및 시기
-{:shortdesc}
+
 
 ## 계정에 대한 감사 로그에 액세스하는 방법
+{: #how-to-access-audit-logs-for-your-account}
 
-계정의 감사 로그에 대한 액세스를 요청하려면 {{site.data.keyword.cloudant_short_notm}} 지원에 문의하십시오. 지원은 사용자가 원하는 감사 로그의 사본을 제공합니다. 
+계정의 감사 로그에 대한 액세스를 요청하려면 {{site.data.keyword.cloudant_short_notm}} 지원에 문의하십시오. 지원은 사용자가 원하는 감사 로그의 사본을 제공합니다.
 
 지원 팀에 문의할 때 다음 사항을 포함해야 합니다.
 

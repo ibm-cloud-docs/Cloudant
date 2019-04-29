@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
+
+subcollection: cloudant
 
 ---
 
@@ -12,16 +16,21 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-07-02 -->
 
 # {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)
+{: #ibm-cloud-identity-and-access-management-iam-}
 
 {{site.data.keyword.cloud}} Identity and Access Management (IAM) bietet einen einheitlichen Ansatz zur Verwaltung von Benutzeridentitäten,
 Services und der Zugriffssteuerung.
-{:shortdesc}
+{: shortdesc}
 
 ## Einführung
+{: #introduction}
 
 In diesem Dokument wird die Integration von {{site.data.keyword.cloudantfull}} mit {{site.data.keyword.cloud_notm}} Identity and
 Access Management beschrieben. Des Weiteren werden hier die Unterschiede zwischen den traditionellen Zugriffssteuerungsmechanismen von {{site.data.keyword.cloudant_short_notm}} und den {{site.data.keyword.cloud_notm}} IAM-Zugriffssteuerungsmechanismen erläutert. Anschließend werden die Vor- und Nachteile der verschiedenen Konzepte gegenübergestellt,
@@ -29,17 +38,19 @@ um Ihnen die Entscheidung darüber, welches sich für den Einsatz auf Ihrem Syst
 {{site.data.keyword.cloudant_short_notm}}-Clientbibliotheken und über HTTP-Aufrufe diskutiert. Zum Abschluss folgt ein Referenzabschnitt, in dem alle IAM-Aktionen
 und -Rollen beschrieben werden, die in {{site.data.keyword.cloudant_short_notm}} zur Verfügung stehen.
 
-Sie erhalten einen Übersicht zu [IAM ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/docs/iam/index.html#iamoverview){:new_window} einschließlich einer Beschreibung zur Ausführung der folgenden Schritte:
+Sie erhalten einen Übersicht zu [IAM ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window} einschließlich einer Beschreibung zur Ausführung der folgenden Schritte:
 
 - Verwaltung von Benutzer- und Service-IDs.
 - Verwaltung der verfügbaren Berechtigungsnachweise.
 - Verwendung der IAM-Zugriffsrichtlinien, mit denen der Zugriff auf die {{site.data.keyword.cloudant_short_notm}}-Serviceinstanzen erteilt und entzogen werden kann.
 
 ## Unterschiede zwischen traditionellen {{site.data.keyword.cloudant_short_notm}}-Zugriffssteuerungsmechanismen und den IAM-Zugriffssteuerungsmechanismen
+{: #differences-between-ibm-cloudant-legacy-and-iam-access-controls}
 
 Im folgenden Abschnitt finden Sie eine kurze Übersicht zu den Unterschieden zwischen den traditionellen {{site.data.keyword.cloudant_short_notm}}-Zugriffssteuerungsmechanismen und den {{site.data.keyword.cloud_notm}} IAM-Zugriffssteuerungsmechanismen.
 
 ### {{site.data.keyword.cloud_notm}} Identity and Access Management
+{: #ibm-cloud-identity-and-access-management}
 
 - Zentral verwaltetes Zugriffsmanagement für {{site.data.keyword.cloud_notm}}.
 - Zugriffsmöglichkeit für Benutzer oder Services auf zahlreiche unterschiedliche Ressourcen mithilfe der gleichen Gruppe von
@@ -48,6 +59,7 @@ Im folgenden Abschnitt finden Sie eine kurze Übersicht zu den Unterschieden zwi
   erteilt werden.
 
 ### Traditionelle Version von {{site.data.keyword.cloudant_short_notm}}
+{: #ibm-cloudant-legacy}
 
 - Nur für {{site.data.keyword.cloudant_short_notm}}.
 - Für den Zugriff auf die verschiedenen Serviceinstanzen sind eigene Berechtigungsnachweisgruppen erforderlich.
@@ -56,20 +68,24 @@ Im folgenden Abschnitt finden Sie eine kurze Übersicht zu den Unterschieden zwi
 - {{site.data.keyword.cloudant_short_notm}}-API-Schlüsseln können nur Berechtigungen auf Datenbankebene erteilt werden.
 
 ### Hinweise zu API-Schlüsseln
+{: #api-key-notes}
 
 Im vorliegenden Dokument bezieht sich die Verwendung des Begriffs 'API-Schlüssel' auf die IAM-API-Schlüssel.
-Die traditionelle Version von {{site.data.keyword.cloudant_short_notm}} verfügt ebenfalls über ein Konzept für API-Schlüssel. Wird der Begriff 'traditionelle {{site.data.keyword.cloudant_short_notm}}-Berechtigungsnachweise' oder werden Kombinationen aus Benutzername und Kennwort verwendet, so bezieht dies auch die {{site.data.keyword.cloudant_short_notm}}-API-Schlüssel ein.
+Die traditionelle Version von {{site.data.keyword.cloudant_short_notm}}verfügt ebenfalls über ein Konzept für API-Schlüssel. Die Verwendung des Begriffs 'traditionelle {{site.data.keyword.cloudant_short_notm}}-Berechtigungsnachweise'
+oder 'Kombinationen aus Benutzername und Kennwort' schließt auch {{site.data.keyword.cloudant_short_notm}}-API-Schlüssel mit ein. 
 
 ## IAM mit {{site.data.keyword.cloudant_short_notm}} aktivieren
+{: #enabling-iam-with-ibm-cloudant}
 
 Nur neue {{site.data.keyword.cloudant_short_notm}}-Serviceinstanzen können mit der {{site.data.keyword.cloud_notm}} IAM-Version von Ende Juli 2018 verwendet werden.
 
-Alle neuen {{site.data.keyword.cloudant_short_notm}}-Serviceinstanzen können IAM verwenden, wenn dieses Produkt bereitgestellt wird. Optional können Sie auch die traditionellen Authentifizierungsmechanismen aktivieren. Wenn Sie eine neue {{site.data.keyword.cloudant_short_notm}}-Instanz aus dem {{site.data.keyword.cloud_notm}}-Katalog bereitstellen, dann wählen Sie eine der verfügbaren Authentifizierungsmethoden aus:
+Alle neuen {{site.data.keyword.cloudant_short_notm}}-Serviceinstanzen können IAM verwenden, wenn dieses Produkt bereitgestellt wird. Optional können Sie auch die traditionellen Authentifizierungsmechanismen aktivieren.  Wenn Sie eine neue {{site.data.keyword.cloudant_short_notm}}-Instanz aus dem {{site.data.keyword.cloud_notm}}-Katalog bereitstellen, dann wählen Sie eine der verfügbaren Authentifizierungsmethoden aus:
 
 1. **Traditionelle Berechtigungsnachweise und IAM-Berechtigungsnachweise verwenden**: In diesem Modus können sowohl IAM-Berechtigungsnachweise als auch traditionelle Berechtigungsnachweise verwendet werden, um auf das Konto zuzugreifen. Sowohl IAM-Berechtigungsnachweisgruppen als auch traditionelle Berechtigungsnachweisgruppen werden für alle Anwendungen bereitgestellt, die über eine Bindung zum Konto und den generierten Serviceberechtigungsnachweisen verfügen.
 2. **Nur IAM verwenden**: In diesem Modus werden ausschließlich IAM-Berechtigungsnachweise über die Servicebindung und die Berechtigungsnachweisgenerierung bereitgestellt.
 
 ### {{site.data.keyword.cloudant_short_notm}}-API-Schlüssel und _Nur IAM verwenden_
+{: #ibm-cloudant-api-keys-and-_use-only-iam_}
 
 Die Verwendung von {{site.data.keyword.cloudant_short_notm}}-API-Schlüsseln zusammen mit IAM ist zwar möglich, wird jedoch **nicht empfohlen**. Diese Empfehlung wird deshalb ausgesprochen, weil {{site.data.keyword.cloudant_short_notm}}-API-Schlüssel und die entsprechenden Berechtigungen nicht in der IAM-Richtlinienschnittstelle angezeigt werden können und auch nicht über diese Schnittstelle verwaltet werden können, wodurch ein ganzheitliches Zugriffsmanagement nicht möglich ist.
 
@@ -83,13 +99,14 @@ Insbesondere ist festzuhalten, dass {{site.data.keyword.cloudant_short_notm}}-AP
 können. Diese Berechtigungsnachweise müssen über die HTTP-API generiert und konfiguriert werden.
 
 ### Bereitstellung über die Befehlszeile
+{: #provisioning-by-using-the-command-line}
 
 Wenn Sie eine neue {{site.data.keyword.cloudant_short_notm}}-Instanz über die Befehlszeile bereitstellen, dann müssen Sie eine Option für das Tool `ic`
 angeben. Hierzu wird der Parameter `-p` verwendet, mit dem die traditionellen Berechtigungsnachweise für ein Konto aktiviert oder inaktiviert werden können. Die Option wird im JSON-Format übergeben und trägt die Bezeichnung `legacyCredentials`.
 
 Führen Sie den folgenden Befehl aus, um eine Instanz unter Verwendung des Modus _Nur IAM verwenden_ (empfohlen) bereitzustellen:
 
-```
+```sh
 ic resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": false}
@@ -97,13 +114,14 @@ ic resource service-instance-create  "Instance Name" \
 
 Führen Sie den folgenden Befehl aus, um eine Instanz unter Verwendung des Modus _Traditionelle Berechtigungsnachweise und IAM-Berechtigungsnachweise verwenden_ bereitzustellen:
 
-```
+```sh
 ic resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": true}
 ```
 
 ### JSON-Beispiele für Serviceberechtigungsnachweise für beide Optionen
+{: #service-credential-json-examples-for-each-option}
 
 Die Entscheidung für den Zugriffssteuerungsmodus _Nur IAM verwenden_ oder den Zugriffssteuerungsmodus _Traditionelle Berechtigungsnachweise und IAM-Berechtigungsnachweise verwenden_ wirkt sich darauf aus, wie Berechtigungsnachweise an Ihre Anwendung übergeben werden, wenn Serviceberechtigungsnachweise gebunden und generiert
 werden. Werden die Berechtigungsnachweise in der primären {{site.data.keyword.cloud_notm}} IAM-Schnittstelle generiert, dann werden die
@@ -137,7 +155,7 @@ Die einzelnen Werte im hier angegebenen JSON-Beispiel haben folgende Bedeutung:
 - `iam_role_crn`: Die IAM-Rolle, die dem IAM-API-Schlüssel zugeordnet wurde.
 - `iam_serviceid_crn`: Der CRN der Service-ID.
 - `url`: Die {{site.data.keyword.cloudant_short_notm}}-Service-URL.
-- `username`: Der Servicename des Benutzers der {{site.data.keyword.cloudant_short_notm}}-Instanz in der URL.
+- `username`: Der interne {{site.data.keyword.cloudant_short_notm}}-Kontoname.
 
 Wenn Sie _Traditionelle Berechtigungsnachweise und IAM-Berechtigungsnachweise verwenden_ auswählen, dann enthalten die generierten Serviceberechtigungsnachweise sowohl IAM-Berechtigungsnachweise als auch traditionelle Berechtigungsnachweise und werden wie folgt dargestellt:
 
@@ -155,7 +173,7 @@ Wenn Sie _Traditionelle Berechtigungsnachweise und IAM-Berechtigungsnachweise ve
   "username": "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Die einzelnen Werte im hier angegebenen JSON-Beispiel haben folgende Bedeutung:
 
@@ -171,6 +189,7 @@ Die einzelnen Werte im hier angegebenen JSON-Beispiel haben folgende Bedeutung:
 - `username`: Der Benutzername für die traditionellen {{site.data.keyword.cloudant_short_notm}}-Berechtigungsnachweise.
 
 ## Soll ich _Nur IAM verwenden_ oder _Traditionelle Berechtigungsnachweise und IAM-Berechtigungsnachweise verwenden_ benutzen?
+{: #should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
 
 Sofern möglich, sollten Sie _Nur IAM verwenden_ benutzen. Die Verwendung von {{site.data.keyword.cloud_notm}} IAM bietet die folgenden Vorteile:
 
@@ -181,11 +200,9 @@ Sofern möglich, sollten Sie _Nur IAM verwenden_ benutzen. Die Verwendung von {{
 Im Folgenden werden weitere Vor- und Nachteile der beiden Ansätze erläutert.
 
 ### Vor- und Nachteile der beiden Zugriffssteuerungsmechanismen
+{: #advantages-and-disadvantages-of-the-two-access-control-mechanisms}
 
 Insgesamt lässt sich festhalten, dass {{site.data.keyword.cloud_notm}} IAM das empfohlene Authentifizierungsmodell darstellt. Allerdings birgt dieser Ansatz auch Nachteile. Dies gilt insbesondere dann, wenn bereits eine Anwendung vorhanden ist oder wenn Sie keine von {{site.data.keyword.cloudant_short_notm}} unterstützte Clientbibliothek verwenden können.
-
-
-<div id="advantages-disadvantages"></div>
 
 <table>
 
@@ -197,13 +214,13 @@ Insgesamt lässt sich festhalten, dass {{site.data.keyword.cloud_notm}} IAM das 
 
 <tr>
 <td headers="mode">IAM-Modus</td>
-<td headers="advantages" valign="top"><ul><li>Zugriffsmanagement für zahlreiche Services über eine Schnittstelle. Möglichkeit zum globalen Entziehen des Zugriffs für einen Benutzer.
-<li>API-Schlüssel auf Kontoebene über Service-IDs.
+<td headers="advantages" valign="top"><ul><li>Zugriffsmanagement für zahlreiche Services über eine Schnittstelle. Möglichkeit zum globalen Entziehen des Zugriffs für einen Benutzer.</li>
+<li>API-Schlüssel auf Kontoebene über Service-IDs.</li>
 <li>Einfacher turnusmäßiger Wechsel der Berechtigungsnachweise.</li>
 <li>Activity Tracker-Protokolle zur Erfassung einzelner Personen und Services.</li>
 <li>Föderation von IAM mit anderen Identitätssystemen wie z. B. den LDAP-Repositorys von Unternehmen.</li></ul>
 </td>
-<td headers="disadvantages"><ul><li>Wenn Sie nicht mit den von {{site.data.keyword.cloudant_short_notm}} unterstützten Bibliotheken arbeiten, dann müssen voraussichtlich Anwendungsänderungen durchgeführt werden, um die API-Schlüssel und Zugriffstokens von IAM verwenden zu können.
+<td headers="disadvantages"><ul><li>Wenn Sie nicht mit den von {{site.data.keyword.cloudant_short_notm}} unterstützten Bibliotheken arbeiten, dann müssen voraussichtlich Anwendungsänderungen durchgeführt werden, um die API-Schlüssel und Zugriffstokens von IAM verwenden zu können.</li>
 <li>Noch keine Berechtigungen auf Datenbankebene.</li>
 <li>Noch keine differenzierten Berechtigungen (z. B. für Leseberechtigte).</li>
 <li>Nichtverfügbarkeit bestimmter Endpunkte (siehe [Nicht verfügbare Endpunkte](#unavailable-endpoints)).</li>
@@ -220,7 +237,7 @@ Insgesamt lässt sich festhalten, dass {{site.data.keyword.cloud_notm}} IAM das 
 </ul>
 </td>
 <td headers="disadvantages">
-<ul><li>Keine API-Schlüssel auf Kontoebene. Zur Verwalung der Datenbanken müssen Rootberechtigungsnachweise (`root`) verwendet werden.
+<ul><li>Keine API-Schlüssel auf Kontoebene. Zur Verwalung der Datenbanken müssen Rootberechtigungsnachweise (`root`) verwendet werden.</li>
 <li>Separates Management von {{site.data.keyword.cloudant_short_notm}}-Berechtigungsnachweisen, sodass kein vollständiger Überblick über den gesamten Zugriff in einer zentralen Schnittstelle besteht.</li>
 <li>Schwierige Implementierung des turnusmäßigen Wechsels der Berechtigungsnachweise.</li>
 </ul>
@@ -229,15 +246,17 @@ Insgesamt lässt sich festhalten, dass {{site.data.keyword.cloud_notm}} IAM das 
 </table>
 
 ## Anforderungen an Instanzen mithilfe von IAM-Berechtigungsnachweisen absetzen
+{: #making-requests-to-instances-by-using-iam-credentials}
 
 Im vorliegenden Abschnitt wird beschrieben, wie {{site.data.keyword.cloudant_short_notm}} mit Serviceinstanzen verwendet werden kann, indem die IAM-Authentifizierung und -Zugriffssteuerung eingesetzt wird. Dabei wird auf die Details aus dem JSON-Beispiel für Serviceberechtigungsnachweise Bezug genommen, das bereits dargestellt
 wurde.
 
-Bei {{site.data.keyword.cloud_notm}} IAM muss ein IAM-API-Schlüssel gegen ein Zugriffstoken mit zeitlich begrenzter Gültigkeit ausgetauscht werden, bevor eine Anforderung an eine Ressource oder einen Service abgesetzt werden kann. Das Zugriffstoken wird daraufhin in den HTTP-Header für die Autorisierung (`Authorization`) des Service eingebunden. Läuft die Gültigkeit des Zugriffstokens ab, dann muss der Kunde über den IAM-Token-Service ein neues Token anfordern. Weitere Einzelheiten hierzu finden Sie in der Dokumentation zum [Anfordern eines {{site.data.keyword.cloud_notm}} IAM-Tokens mit einem API-Schlüssel ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey).
+Bei {{site.data.keyword.cloud_notm}} IAM muss ein IAM-API-Schlüssel gegen ein Zugriffstoken mit zeitlich begrenzter Gültigkeit ausgetauscht werden, bevor eine Anforderung an eine Ressource oder einen Service abgesetzt werden kann. Das Zugriffstoken wird daraufhin in den HTTP-Header für die Autorisierung (`Authorization`) des Service eingebunden. Wenn das Zugriffstoken abläuft, muss die konsumierende Anwendung über den IAM-Token-Service ein neues Token anfordern. Weitere Einzelheiten hierzu finden Sie in der Dokumentation zum [Anfordern eines {{site.data.keyword.cloud_notm}} IAM-Tokens mit einem API-Schlüssel ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey).
 
 Die offiziellen {{site.data.keyword.cloudant_short_notm}}-Clientbibliotheken dienen zum Anfordern eines Tokens über einen API-Schlüssel. Wenn Sie direkt über einen HTTP-Client auf {{site.data.keyword.cloudant_short_notm}} zugreifen und nicht über eine {{site.data.keyword.cloudant_short_notm}}-Clientbibliothek, dann müssen Sie den Austausch und die Aktualisierung eines Zugriffstokens mit zeitlich begrenzter Gültigkeit mithilfe eines IAM-API-Schlüssels über den IAM-Token-Service durchführen. Nach Ablauf eines Tokens gibt {{site.data.keyword.cloudant_short_notm}} den HTTP-Statuscode `401` zurück.
 
 ### Erforderliche Clientbibliotheksversionen
+{: #required-client-library-versions}
 
 Für IAM-fähige {{site.data.keyword.cloudant_short_notm}}-Serviceinstanzen benötigen Sie mindestens die folgenden Versionen der Clientbibliothek:
 
@@ -253,6 +272,7 @@ Für IAM-fähige {{site.data.keyword.cloudant_short_notm}}-Serviceinstanzen ben�
 Für die folgenden Code-Snippets sind diese Versionen erforderlich.
 
 ### Java
+{: #java}
 
 Erfordert [java-cloudant](https://github.com/cloudant/java-cloudant), 2.13.0+.
 
@@ -282,6 +302,7 @@ public class App
 ```
 
 ### Node.js
+{: #node.js}
 
 Erfordert [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant), 2.3.0+.
 
@@ -306,6 +327,7 @@ cloudant.db.list(function(err, body) {
 ```
 
 ### Python
+{: #python}
 
 Erfordert [python-cloudant](https://github.com/cloudant/python-cloudant), 2.9.0+.
 
@@ -323,8 +345,9 @@ print client.all_dbs()
 ```
 
 ### Zugriff über HTTP-Client durchführen
+{: #access-by-using-http-client}
 
-Bei {{site.data.keyword.cloud_notm}} IAM muss ein IAM-API-Schlüssel gegen ein Zugriffstoken mit zeitlich begrenzter Gültigkeit ausgetauscht werden, bevor eine Anforderung an eine Ressource oder einen Service abgesetzt werden kann. Daraufhin wird das Zugriffstoken in den HTTP-Header für die Autorisierung (`Authorization`) des Service eingebunden. Läuft die Gültigkeit des Zugriffstokens ab, dann muss der Kunde über den IAM-Token-Service ein neues Token anfordern. 
+Bei {{site.data.keyword.cloud_notm}} IAM muss ein IAM-API-Schlüssel gegen ein Zugriffstoken mit zeitlich begrenzter Gültigkeit ausgetauscht werden, bevor eine Anforderung an eine Ressource oder einen Service abgesetzt werden kann. Daraufhin wird das Zugriffstoken in den HTTP-Header für die Autorisierung (`Authorization`) des Service eingebunden. Läuft die Gültigkeit des Zugriffstokens ab, dann muss der Kunde über den IAM-Token-Service ein neues Token anfordern.
 
 Wie bereits erwähnt, ist zur Verwendung von {{site.data.keyword.cloud_notm}} IAM zuerst der Austausch eines {{site.data.keyword.IBM_notm}}-API-Schlüssels gegen ein Zugriffstoken mit zeitlich begrenzter Gültigkeit erforderlich. Anschließend wird das Token zur Authentifizierung bei der {{site.data.keyword.cloudant_short_notm}}-API verwendet.
 
@@ -341,7 +364,7 @@ ACCOUNT = "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 def get_access_token(api_key):
     """Retrieve an access token from the IAM token service."""
     token_response = requests.post(
-        "https://iam.bluemix.net/oidc/token",
+        "https://iam.cloud.ibm.com/identity/token",
         data={
             "grant_type": "urn:ibm:params:oauth:grant-type:apikey",
             "response_type": "cloud_iam",
@@ -384,10 +407,12 @@ if __name__ == "__main__":
 ```
 
 ## Referenz
+{: #reference}
 
 In diesem Abschnitt ist eine vollständige Liste der IAM-Aktionen von {{site.data.keyword.cloudant_short_notm}} enthalten. Außerdem erhalten Sie hier Informationen zu den für die einzelnen IAM-Systemrollen zulässigen Aktionen.
 
 ### {{site.data.keyword.cloudant_short_notm}}-Aktionen
+{: #ibm-cloudant-actions}
 
 Aktion | Beschreibung
 -------|------------
@@ -398,6 +423,7 @@ Aktion | Beschreibung
 `cloudantnosqldb.sapi.userinfo` | Zugriff auf `/_api/v2/user`.
 
 #### Nicht verfügbare Endpunkte
+{: #unavailable-endpoints}
 
 Die folgenden Endpunkte stehen für Anforderungen, die mit IAM autorisiert wurden, nicht zur Verfügung:
 
@@ -407,20 +433,22 @@ Obwohl Entwurfsdokumente möglicherweise Rewrite-Handler enthalten, können dies
 Obwohl Entwurfsdokumente möglicherweise Update-Funktionen enthalten, können diese von Benutzern nicht aufgerufen werden.
 
 ### Zuordnung zwischen {{site.data.keyword.cloudant_short_notm}}-Aktionen und IAM-Rollen herstellen
+{: #mapping-of-ibm-cloudant-actions-to-iam-roles}
 
 Nur Benutzer, denen die Rolle 'Manager' zugeordnet wurde, sowie die entsprechenden Services können auf {{site.data.keyword.cloudant_short_notm}}-Daten zugreifen.
 
 Rolle | Zulässige Aktionen
 -----|----------------
-Manager | Alle dokumentierten Aktionen. 
-Leseberechtigter | Keine. 
-Schreibberechtigter | Keine. 
+Manager | Alle dokumentierten Aktionen.
+Leseberechtigter | Keine.
+Schreibberechtigter | Keine.
 
 ## Fehlerbehebung
-
-Wenn auf Ihrem System Probleme bei der Verwendung von IAM zur Authentifizierung auftreten, wenn Sie Anforderungen an die
-{{site.data.keyword.cloudant_short_notm}}-Serviceinstanz absetzen, dann überprüfen Sie Folgendes.
+{: #troubleshooting}
+Wenn in Ihrem System Probleme bei der Authentifizierung mit IAM  auftreten, während Sie Anforderungen an Ihre {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz
+absetzen, überprüfen Sie Ihr Konto, wie im nächsten Abschnitt angegeben. 
 
 ### IAM-Fähigkeit Ihres Kontos sicherstellen
+{: #ensure-your-account-is-iam-enabled}
 
-Sie müssen ein Support-Ticket öffnen, um zu bestätigen, dass eine Serviceinstanz IAM-fähig ist.
+Sie müssen eine Support-Ticket öffnen, um zu überprüfen, dass eine Serviceinstanz IAM-fähig ist.

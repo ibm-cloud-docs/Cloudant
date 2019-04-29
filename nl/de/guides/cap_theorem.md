@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
+
+subcollection: cloudant
 
 ---
 
@@ -11,23 +15,24 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-24 -->
 
-<div id="cap_theorem"></div>
-
-<div id="consistency"></div>
-
 # CAP-Theorem
+{: #cap-theorem}
 
-{{site.data.keyword.cloudantfull}} verwendet ein ['Eventually Consistent'-Modell ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}, d. h. ein Modell, das sukzessive Konsistenz realisiert.
-{:shortdesc}
+{{site.data.keyword.cloudantfull}} verwendet ein ['Eventually Consistent'-Modell ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}, d. h. ein Modell, das sukzessive Konsistenz realisiert.
+{: shortdesc}
 
 Um zu verstehen, wie dieses Modell funktioniert und warum es ein wesentlicher Teil der Arbeit
 mit {{site.data.keyword.cloudant_short_notm}} ist, führen Sie sich vor Augen,
 was unter dem Begriff der Konsistenz verstanden wird.
 
-Konsistenz ist eine der vier ['ACID'-Eigenschaften ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://en.wikipedia.org/wiki/ACID){:new_window},
+Konsistenz ist eine der vier ['ACID'-Eigenschaften ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://en.wikipedia.org/wiki/ACID){: new_window},
 die erforderlich sind, damit Transaktionen in einer Datenbank zuverlässig verarbeitet und berichtet werden.
 
 Darüber hinaus ist Konsistenz eines der drei Attribute im
@@ -65,6 +70,7 @@ wobei jeder Nachrichtenverlust mit erheblichem Datenverlust einhergeht.
 Um stabil zu laufen, muss das System weiter entwickelt werden.
 
 ## Kompromisse bei der Partitionstoleranz
+{: #tradeoffs-in-partition-tolerance}
 
 Eine Datenbank, die Konsistenz und Partitionstoleranz priorisiert, nutzt eine
 <a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">Master/Slave-Konfiguration <img src="../images/launch-glyph.svg" alt="Symbol für externen Link" title="Symbol für externen Link"></a>,
@@ -75,7 +81,7 @@ Wenn der führende Knoten die Verbindung zum Netz verliert
 oder mit vielen anderen Knoten im System nicht kommunizieren kann,
 wählen die restlichen Knoten einen neuen führenden Knoten.
 Dieser Auswahlprozess unterscheidet sich zwischen Systemen und
-kann zu [signifikanten Problemen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://aphyr.com/posts/284-call-me-maybe-mongodb){:new_window} führen.
+kann zu [signifikanten Problemen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window} führen.
 
 {{site.data.keyword.cloudant_short_notm}} priorisiert Verfügbarkeit und Partitionstoleranz durch den Einsatz
 einer Master/Master-Konfiguration, sodass jeder Knoten sowohl Schreib- als auch Lesevorgänge für die eigenen
@@ -84,11 +90,12 @@ Mehrere Knoten enthalten Kopien der einzelnen Teile Ihrer Daten.
 Jeder Knoten kopiert Daten anderer Knoten.
 Wenn auf einen Knoten nicht mehr zugegriffen werden kann, können andere seine Funktion
 übernehmen, während das Netz repariert wird.
-Auf diese Weise gibt das System trotz Knotenausfalls Ihre Daten zeitnah zurück und behält die [sukzessive erreichte Konsistenz ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window} bei.
+Auf diese Weise gibt das System trotz Knotenausfalls Ihre Daten zeitnah zurück und behält die [sukzessive erreichte Konsistenz ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window} bei.
 Der Kompromiss, den Sie eingehen, wenn Sie der Konsistenz keine höchste Priorität einräumen, besteht darin, dass es eine Weile dauert, bis alle Knoten dieselben Daten anzeigen.
 Dies hat zur Folge, dass manche Antworten möglicherweise alte Daten enthalten, während die neuen Daten noch im System weitergegeben werden.
 
 ## Methode ändern
+{: #changing-the-approach}
 
 Eine konsistente Ansicht von Daten beizubehalten, ist logisch und einleuchtend, weil eine relationale Datenbank diese Arbeit für Sie übernimmt.
 Die Erwartung ist, dass webbasierte Services, die mit diesen Datenbanksystemen interagieren, sich genauso verhalten.
@@ -101,10 +108,11 @@ Eine Datenbank, bei deren Entwicklung Verfügbarkeit und sukzessive erreichte Ko
 eignet sich deutlich besser, eine ununterbrochene Verfügbarkeit Ihrer Anwendung zu realisieren.
 Um die Konsistenz von Anwendungsdaten kann sich im Anschluss gekümmert werden.
 Wie Seth Gilbert und Nancy Lynch vom MIT
-[feststellten ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){:new_window},
+[feststellten ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){: new_window},
 sind die realistischsten Systeme heute gezwungen, sich damit zufrieden zu geben, dass "meistens die meisten Daten" zurückgegeben werden.
 
 ## Anwendungsverfügbarkeit versus Konsistenz im Unternehmen
+{: #application-availability-versus-consistency-in-the-enterprise}
 
 Ein Blick auf beliebte webbasierte Systeme zeigt, dass Benutzer Hochverfügbarkeit erwarten
 und dabei gerne Abstriche machen bezüglich der vollständigen Konsistenz von Daten, oftmals ohne
@@ -128,6 +136,7 @@ HTTP-Caches und DNS sind weitere Beispiele.
 Organisationen müssen den Preis für Ausfallzeiten wie Frustration der Benutzer, Produktivitätsverluste und entgangene Geschäftschancen einkalkulieren.
 
 ## Von der Theorie zur Umsetzung
+{: #from-theory-to-implementation}
 
 Hochverfügbarkeit ist ein zentraler Aspekt für Cloudanwendungen.
 Eine globale Datenbankkonsistenz wird auch bei zunehmender Skalierung weiterhin ein bedeutender Hemmschuh bleiben.

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
+
+subcollection: cloudant
 
 ---
 
@@ -12,26 +16,32 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # バックアップの作成
+{: #creating-a-backup}
 
 このチュートリアルでは、
-[CouchBackup ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
+[CouchBackup ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}
 コマンド・ライン・ユーティリティーを使用して、CouchDB または {{site.data.keyword.cloudant_short_notm}} インスタンスのバックアップおよびリストアを行う方法を示します。 CouchBackup はデータベースをファイルにバックアップします。 データベースで障害が発生した場合、バックアップ・ファイルを使用して情報を既存データベースにリストアできます。 
-{:shortdesc}
+{: shortdesc}
 
-## 始める前に
+## CouchBackup のインストールを開始する前に、以下の作業を行います。
+{: #before-you-begin-to-install-couchbackup}
 
 `install` コマンドを実行して、CouchBackup をインストールします。 
 
 ```sh
 npm install -g @cloudant/couchbackup
 ```
-{:codeblock}
+{: codeblock}
 
-## データベースの作成
+## サンプル・データベースの作成
+{: #creating-a-sample-database}
 
 このチュートリアルで使用するサンプルの `couchbackup-demo` データベースを作成します。
 
@@ -40,7 +50,7 @@ npm install -g @cloudant/couchbackup
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo -X PUT
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  結果を確認します。
     
@@ -49,9 +59,10 @@ npm install -g @cloudant/couchbackup
       "ok": true
     }
     ```
-    {:codeblock}
+    {: codeblock}
 
-## データベース内の文書の作成
+## サンプル・データベースの文書の作成
+{: #creating-documents-in-the-sample-database}
 
 この演習で作成する文書には、後の演習でバックアップおよびリストするデータが含まれます。 
 
@@ -99,14 +110,14 @@ npm install -g @cloudant/couchbackup
         ]
     }
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  次のコマンドを実行して、文書を作成します。
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  結果を確認します。
     
@@ -139,9 +150,10 @@ npm install -g @cloudant/couchbackup
     }
     ]
     ```
-    {:codeblock}
+    {: codeblock}
     
 ## 環境変数の設定
+{: #setting-an-environment-variable}
 
 環境変数またはコマンド・ライン・オプションを使用して、CouchBackup で処理する
 CouchDB または {{site.data.keyword.cloudant_short_notm}} インスタンスの URL とデータベースを指定できます。 
@@ -153,9 +165,10 @@ CouchDB または {{site.data.keyword.cloudant_short_notm}} インスタンス�
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 ## データベースのバックアップ
+{: #backing-up-a-database}
 
 CouchBackup ユーティリティーでは、データを保持してリストアしやすくするために、データベースをテキスト・ファイルにバックアップします。 
 
@@ -164,7 +177,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
     ```sh
     couchbackup --db couchbackup-demo > couchbackup-demo-backup.txt
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  結果を確認します。 
     
@@ -184,7 +197,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
         couchbackup:backup written 0  docs:  5 Time 0.604 +0ms
         couchbackup:backup finished { total: 5 } +4ms
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  ディレクトリーをチェックして、`couchbackup-demo-backup.txt` ファイルが作成されていることを確認します。 
 4.  ファイルを開き、データベースからバックアップした文書のリストを確認します。  
@@ -263,9 +276,10 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
         }
     ]
     ```
-    {:codeblock}
+    {: codeblock}
 
 ## ログ・ファイルの作成
+{: #creating-a-log-file}
 
 バックアップの進行状況は、ログ・ファイルに記録されます。 CouchBackup では、`--log` パラメーターを使用して、ログ・ファイルを作成します。 また、バックアップが前に停止した位置から再開することや、出力ファイル名を指定することもできます。 
 
@@ -281,7 +295,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
     ```sh
     couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log > couchbackup-demo-backup-log.txt
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  結果を確認します。
         
@@ -321,7 +335,7 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
                 couchbackup:backup written 0  docs:  5 Time 0.621 +0ms
                 couchbackup:backup finished { total: 5 } +4ms
     ```
-    {:codeblock}
+    {: codeblock}
 
 3.  ログ・ファイル `couchbackup-demo-backup.log` を開き、バックアップまたはリストア中に実行されたアクションを確認します。  
     
@@ -346,29 +360,29 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
         CcHonxO68GjenPxeyopyrXW86mg-HFz9NZiQh1FUhUefOhzMIg
     :d batch0
     ```
-    {:codeblock}
+    {: codeblock}
     
 ##  バックアップ・テキスト・ファイルからのリストア
+{: #restoring-from-a-backup-text-file}
 
 `couchbackup-demo-backup.txt` ファイルから、`couchrestore` コマンドを使用して空の新規データベースにデータをリストアできます。 
 
-> **注**: バックアップのリストアは、空のデータベースにリストアする場合にのみサポートされます。 データベースから文書をすべて削除しても、
-複製の整合性の目的で、文書削除レコードが存在します。 
-つまり、削除済み文書のみを含むデータベースは空とは見なされず、バックアップをリストアする際のターゲットとして使用できません。
+バックアップのリストアは、空のデータベースにリストアする場合にのみサポートされます。 データベースから文書をすべて削除しても、複製の整合性の目的で、文書削除レコードが存在します。 つまり、削除済み文書のみを含むデータベースは空とは見なされず、バックアップをリストアする際のターゲットとして使用できません。 
+{: tip}
 
 1.  (前提条件) データをリストア可能な空の新規データベースを作成します。
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo-restore -X PUT
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  `couchrestore` コマンドを実行します。
     
     ```sh
     cat couchbackup-demo-backup.txt | couchrestore --db couchbackup-demo-restore
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  結果を確認します。 
     
@@ -384,8 +398,8 @@ CouchBackup ユーティリティーでは、データを保持してリスト�
       couchbackup:restore restored 5 +0ms
       couchbackup:restore finished { total: 5 } +1ms
     ```
-    {:codeblock}
+    {: codeblock}
 
-これで、データベースのバックアップとリストアが完了し、ログ・ファイルが作成されました。 [災害復旧およびバックアップ](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)、
-[クロス地域災害復旧のための {{site.data.keyword.cloudant_short_notm}} の構成](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)、
-[{{site.data.keyword.cloudant_short_notm}} バックアップおよびリカバリー](../guides/backup-cookbook.html#cloudant-backup-and-recovery)について詳しくは、{{site.data.keyword.cloudant_short_notm}} の資料を参照してください。  
+これで、データベースのバックアップとリストアが完了し、ログ・ファイルが作成されました。 [災害復旧およびバックアップ](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)、
+[クロス地域災害復旧のための {{site.data.keyword.cloudant_short_notm}} の構成](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)、
+[{{site.data.keyword.cloudant_short_notm}} バックアップおよびリカバリー](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)について詳しくは、{{site.data.keyword.cloudant_short_notm}} の資料を参照してください。  

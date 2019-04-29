@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: generate uuid, record payments, add additional documents, advantages
+
+subcollection: cloudant
 
 ---
 
@@ -12,10 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Raggruppamento di documenti correlati in {{site.data.keyword.cloudant_short_notm}}
+{: grouping-related-documents-together-in-ibm-cloudant}
 
 Tradizionalmente,
 i sistemi di e-commerce vengono creati con i database relazionali.
@@ -93,7 +101,7 @@ _Documento di esempio che descrive un acquisto:_
     "total": 26.46
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Questo documento fornisce dati sufficienti affinché un record di acquisto rappresenti un riepilogo di un ordine su una pagina web,
 o una e-mail,
@@ -114,6 +122,7 @@ generalmente nel momento in cui passa alla fase di "checkout" sul sito web,
 viene creato un record di ordine di acquisto simile all'esempio precedente. 
 
 ## Generazione dei tuoi identificativi univoci (UUID)
+{: #generating-your-own-unique-identifiers-uuids-}
 
 In un database relazionale,
 spesso vengono utilizzati i numeri sequenziali con "incremento automatico",
@@ -123,12 +132,13 @@ vengono utilizzati UUID più lunghi per garantire che i documenti vengano memori
 
 Per creare un identificativo univoco da utilizzare nella tua applicazione,
 ad esempio un `order_id`,
-richiama l'[endpoint `GET _uuids`](../api/advanced.html#-get-_uuids-) sull'API {{site.data.keyword.cloudant_short_notm}}.
+richiama l'[endpoint `GET _uuids`](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_uuids-) sull'API {{site.data.keyword.cloudant_short_notm}}.
 Il database genera un identificativo per te.
 È possibile utilizzare lo stesso endpoint per generare più ID aggiungendo un parametro `count`,
 ad esempio, `/_uuids?count=10`.
 
 ## Registrazione dei pagamenti
+{: #recording-payments}
 
 Quando il cliente paga correttamente i propri articoli
 al database vengono aggiunti ulteriori record per registrare l'ordine.
@@ -156,7 +166,7 @@ _Esempio di record di pagamento:_
     "payment_reference": "Q88775662377224"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Nell'esempio precedente,
 il cliente ha pagato fornendo una carta di credito e riscattando un buono prepagato.
@@ -184,9 +194,9 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
-L'utilizzo del [riduttore `_sum`](../api/creating_views.html#built-in-reduce-functions) integrato
+L'utilizzo del [riduttore `_sum`](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions) integrato
 ti consente di produrre l'output in forma di registro degli eventi di pagamento.
 
 _Esempio di utilizzo del riduttore `_sum` integrato, con la query `?reduce=false`:_
@@ -212,7 +222,7 @@ _Esempio di utilizzo del riduttore `_sum` integrato, con la query `?reduce=false
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 In alternativa,
 puoi produrre i totali raggruppati per `order_id`.
@@ -229,7 +239,7 @@ _Esempio di totali raggruppati per `order_id`, con `?group_level=1`:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Poiché la vista nell'esempio precedente restituisce 0 per il valore dell'ordine,
 il risultato indica che l'ordine è interamente pagato.
@@ -240,6 +250,7 @@ ossia uno per l'ordine e uno per ogni pagamento,
 in quanto evita la possibilità di creare conflitti quando più processi modificano contemporaneamente lo stesso documento.
 
 ## Aggiunta di altri documenti
+{: #adding-additional-documents}
 
 Puoi aggiungere altri
 documenti separati al database per registrare le seguenti modifiche dello stato quando l'ordine viene fornito e spedito:
@@ -254,6 +265,7 @@ Pertanto,
 non è necessario modificare il documento di acquisto principale.
 
 ## Vantaggi di memorizzare gli ordini di acquisto in {{site.data.keyword.cloudant_short_notm}}
+{: #advantages-of-storing-purchase-orders-in-ibm-cloudant}
 
 L'utilizzo di {{site.data.keyword.cloudant_short_notm}} per memorizzare le informazioni sugli ordini di acquisto consente a un sistema di gestione degli ordini di essere altamente disponibile e scalabile,
 il che ti permette di gestire grandi volumi di dati ed elevati livelli di accesso simultaneo.

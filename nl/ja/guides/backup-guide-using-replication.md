@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
+
+subcollection: cloudant
 
 ---
 
@@ -12,18 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-<div id="back-up-your-data-using-replication"></div>
-
 # 増分複製
+{: #replication-incrementals}
 
->	**注**: このガイドには、{{site.data.keyword.cloudantfull}} のバックアップに関する古い、または「非推奨の」ガイダンスが含まれています。
-	現在のバックアップのガイダンスについては、『[災害復旧およびバックアップ](disaster-recovery-and-backup.html)』のガイドを参照してください。
+このガイドには、{{site.data.keyword.cloudantfull}} のバックアップに関する古い、または「非推奨の」ガイダンスが含まれています。 現在のバックアップのガイダンスについては、『[災害復旧およびバックアップ](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)』のガイドを参照してください。
+{: deprecated}
 
 データベース・バックアップは、潜在的な損失または破損からデータを保護します。
-{:shortdesc}
+{: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} の複製機能を使用してデータベース・バックアップを作成し、それを {{site.data.keyword.cloudant_short_notm}} クラスターに保管することができます。
 これにより以後、データ、データベース全体、または特定の JSON 文書を、それらのバックアップから実動クラスターにリストアできます。
@@ -35,8 +41,9 @@ lastupdated: "2018-10-24"
 このような方法で、バックアップは、選択した時刻のデータベースの状態を保存することができます。
 
 ## 増分バックアップ
+{: #incremental-backups}
 
-企業のお客様の場合、毎日の増分バックアップ機能を[使用できます](disaster-recovery-and-backup.html)。
+企業のお客様の場合、毎日の増分バックアップ機能を[使用できます](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)。
 
 企業のお客様でない場合、または独自のバックアップを作成することを希望するお客様の場合は、{{site.data.keyword.cloudant_short_notm}} の複製機能を使用してデータベース・バックアップを作成することができます。
 
@@ -52,11 +59,12 @@ lastupdated: "2018-10-24"
 最初のバックアップ後は、毎日の「増分」バックアップを実行し、前回のバックアップ以降にデータベース内で変更された部分_だけ_をバックアップします。
 この複製が毎日のバックアップになります。
 
->   **注**: 一定間隔でトリガーされるようにバックアップを構成することができます。
-    ただし、それぞれの間隔は 24 時間以上でなければなりません。
-    つまり、毎日のバックアップを実行することはできますが、毎時のバックアップは実行できません。
+一定間隔でトリガーされるようにバックアップを構成することができます。
+ただし、それぞれの間隔は 24 時間以上でなければなりません。 つまり、毎日のバックアップを実行することはできますが、毎時のバックアップは実行できません。
+{: note}
 
 ## 増分バックアップの作成
+{: #creating-an-incremental-backup}
 
 増分バックアップは、バックアップ間の差分、つまり「デルタ」のみを保存します。
 24 時間ごとに、ソース・データベースがターゲット・データベースに複製されます。
@@ -74,11 +82,13 @@ lastupdated: "2018-10-24"
 2.  `/$DATABASE/_local/$REPLICATION_ID` でチェックポイント文書を開きます。ここで、`$REPLICATION_ID` は、前のステップで見つけた ID で、`$DATABASE` は、ソース・データベースまたはターゲット・データベースの名前です。
     この文書は、通常、両方のデータベースにありますが、1 つのデータベースのみに存在する場合もあります。
 3.  チェックポイント文書内で検出される履歴配列内の最初のエレメントの `recorded_seq` フィールドを検索します。
-4.  複製文書内の [`since_seq` フィールド](../api/replication.html#the-since_seq-field) を、前のステップで検出した `recorded_seq` フィールドの値に設定して、新しい増分バックアップ・データベースに複製します。
+4.  複製文書内の [`since_seq` フィールド](/docs/services/Cloudant?topic=cloudant-replication-api#the-since_seq-field) を、前のステップで検出した `recorded_seq` フィールドの値に設定して、新しい増分バックアップ・データベースに複製します。
 
->   **注**: 定義により、`since_seq` オプションを使用すると、通常のチェックポイント機能がバイパスされます。 `since_seq` を使用する際には、必ず注意してください。 
+定義により、`since_seq` オプションを使用すると、通常のチェックポイント機能がバイパスされます。 `since_seq` を使用する際には、必ず注意してください。 
+{: note}
 
 ## データベースのリストア
+{: #restoring-a-database}
 
 増分バックアップからデータベースをリストアするには、最新の増分から開始して各増分バックアップを新しいデータベースに複製します。
 
@@ -88,6 +98,7 @@ lastupdated: "2018-10-24"
 
 
 ## 例
+{: #an-example}
 
 この例は、以下の実行方法を示します。
 
@@ -96,26 +107,24 @@ lastupdated: "2018-10-24"
 3.  増分バックアップをセットアップし、実行する。
 4.  バックアップをリストアする。
 
-<div id="constants-used-in-this-guide"></div>
-
 ### ここで使用される定数
+{: #constants-that-are-used-here}
 
 ```sh
 # ベース URL とコンテンツ・タイプをシェル変数に保存する
 $ url='https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com'
 $ ct='Content-Type: application-json'
 ```
-{:codeblock}
+{: codeblock}
 
 1 つのデータベースをバックアップする必要があると仮定します。
 月曜日にフルバックアップを作成し、火曜日に増分バックアップを作成したいと考えています。
 
-`curl` コマンドと [`jq` ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://stedolan.github.io/jq/){:new_window} コマンドを使用してこれらの操作を実行できます。
+`curl` コマンドと [`jq` ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://stedolan.github.io/jq/){: new_window} コマンドを使用してこれらの操作を実行できます。
 実際には、任意の HTTP クライアントを使用する場合があります。
 
-<div id="step-1-check-you-have-three-databases"></div>
-
 ### ステップ 1: 3 つのデータベースがあることを確認する
+{: #step-1-check-that-you-have-three-databases}
 
 この例では、次の 3 つのデータベースが必要です。
 
@@ -129,36 +138,38 @@ PUT /original HTTP/1.1
 PUT /backup-monday HTTP/1.1
 PUT /backup-tuesday HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
-コマンド・ラインを使用して、この例で使用する 3 つのデータベースかあるかどうかを確認する方法を示す例:
+コマンド・ラインを使用して、この例で使用する 3 つのデータベースかあるかどうかを確認する方法を示す例:_
 
 ```sh
 $ curl -X PUT "${url}/original"
 $ curl -X PUT "${url}/backup-monday"
 $ curl -X PUT "${url}/backup-tuesday"
 ```
-{:codeblock}
+{: codeblock}
 
 ### ステップ 2: `_replicator` データベースを作成する
+{: #step-2-create-the-_replicator-database}
 
 存在しない場合、`_replicator` データベースを作成します。
 
-_HTTP を使用した `_replicator` データベースの作成:
+*HTTP を使用した `_replicator` データベースの作成:*
 
 ```http
 PUT /_replicator HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
-_コマンド・ラインを使用した `_replicator` データベースの作成:
+*コマンド・ラインを使用した `_replicator` データベースの作成:*
 
 ```sh
 curl -X PUT "${url}/_replicator"
 ```
-{:pre}
+{: pre}
 
 ### ステップ 3: (元の) データベース全体をバックアップする
+{: #step-3-back-up-the-entire-original-database}
 
 月曜日に、すべてのデータを初めてバックアップしたいと考えています。
 `original` から `backup-monday` にすべてを複製して、このバックアップを作成します。
@@ -169,7 +180,7 @@ _HTTP を使用して月曜日にフルバックアップを実行:_
 PUT /_replicator/full-backup-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _コマンド・ラインを使用して月曜日にフルバックアップを実行:_
 
@@ -177,7 +188,7 @@ _コマンド・ラインを使用して月曜日にフルバックアップを�
 $ curl -X PUT "${url}/_replicator/full-backup-monday" -H "$ct" -d @backup-monday.json
 # where backup-monday.json describes the backup.
 ```
-{:codeblock}
+{: codeblock}
 
 _このフルバックアップを記述する JSON 文書:_
  
@@ -188,11 +199,10 @@ _このフルバックアップを記述する JSON 文書:_
     "target": "${url}/backup-monday"
 }
 ```
-{:codeblock}
-
-<div id="step-4-get-checkpoint-id"></div>
+{: codeblock}
 
 ### ステップ 4: 増分バックアップを準備する「パート 1 - チェックポイント ID の取得」
+{: #step-4-prepare-incremental-backup-part-1-get-checkpoint-id}
 
 火曜日には、もう 1 度フルバックアップを実行するのではなく、増分バックアップを実行したいと考えています。
 
@@ -207,24 +217,23 @@ _このフルバックアップを記述する JSON 文書:_
 チェックポイント ID 値の検出から開始します。
 この値は、`_replicator` データベース内の複製文書の `_replication_id` フィールドに保管されています。.
 
-_HTTP を使用して、`recorded_seq` 値の検出に役立つチェックポイント ID を取得:_
+*HTTP を使用して、`recorded_seq` 値の検出に役立つチェックポイント ID を取得:*
 
 ```http
 GET /_replicator/full-backup-monday HTTP/1.1
 # Search for the value of _replication_id
 ```
-{:codeblock}
+{: codeblock}
 
-_コマンド・ラインを使用して、`recorded_seq` 値の検出に役立つチェックポイント ID を取得:_
+*コマンド・ラインを使用して、`recorded_seq` 値の検出に役立つチェックポイント ID を取得:*
 
 ```sh
 replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replication_id')
 ```
-{:pre}
-
-<div id="step-5-get-recorded_seq-value"></div>
+{: pre}
 
 ### ステップ 5: 増分バックアップを準備する「パート 2 - `recorded_seq` 値の取得」
+{: #step-5-prepare-incremental-backup-part-2-get-recorded_seq-value}
 
 チェックポイント ID を取得したら、それを使用して `recorded_seq` 値を取得します。
 この値は、元のデータベース内の `/_local/${replication_id}` 文書の履歴配列の最初のエレメントにあります。
@@ -232,22 +241,23 @@ replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replica
 これで、`recorded_seq` 値を取得しました。
 この値は、元のデータベースから複製された最後の文書を識別します。
 
-_HTTP を使用して元のデータベースから `recorded_seq` を取得:_
+*HTTP を使用して元のデータベースから `recorded_seq` を取得:*
 
 ```http
 GET /original/_local/${replication_id} HTTP/1.1
 # 履歴配列内の recorded_seq の最初の値を検索する
 ```
-{:codeblock}
+{: codeblock}
 
-_コマンド・ラインを使用して元のデータベースから `recorded_seq` を取得:_
+*コマンド・ラインを使用して元のデータベースから `recorded_seq` を取得:*
 
 ```sh
 recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history[0].recorded_seq')
 ```
-{:pre}
+{: pre}
 
 ### ステップ 6: 増分バックアップを実行する
+{: #step-6-run-an-incremental-backup}
 
 これで、チェックポイント ID と `recorded_seq` を取得したので、火曜日の増分バックアップを開始できます。
 このバックアップは、最後の複製_以降_に行われたすべての文書変更を複製します。
@@ -261,14 +271,14 @@ _HTTP を使用して火曜日の増分バックアップを実行:_
 PUT /_replicator/incr-backup-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _コマンド・ラインを使用して火曜日の増分バックアップを実行:_
 
 ```sh
 curl -X PUT "${url}/_replicator/incr-backup-tuesday" -H "${ct}" -d @backup-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _火曜日の増分バックアップを記述する JSON 文書:_
  
@@ -280,9 +290,10 @@ _火曜日の増分バックアップを記述する JSON 文書:_
     "since_seq": "${recorded_seq}"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### ステップ 7: 月曜日のバックアップをリストアする
+{: #step-7-restore-the-monday-backup}
 
 バックアップからリストアするには、初期のフルバックアップ、およびすべての増分バックアップを新しいデータベースに複製します。
 
@@ -294,14 +305,14 @@ _HTTP を使用して `backup-monday` データベースからリストア:_
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _コマンド・ラインを使用して `backup-monday` データベースからリストア:_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _このリストアを記述する JSON 文書:_
  
@@ -313,14 +324,15 @@ _このリストアを記述する JSON 文書:_
     "create_target": true  
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### ステップ 8: 火曜日のバックアップをリストアする
+{: #step-8-restore-the-tuesday-backup}
 
 火曜日のデータベースをリストアするには、`backup-tuesday` から最初に複製し、次に `backup-monday` から複製します。
 
->   **注**: この順番はタイプミスではありません。
-    実際、火曜日からリストアし、_次に_月曜日をリストアするという順序で_間違いありません_。
+この順序はタイプミスではありません。火曜日からリストアし、_次に_月曜日をリストアするという順序で_間違いありません_。
+{: tip}
 
 日時順にリストアすることもできますが、逆の順序を使用することにより、火曜日に更新された文書のターゲット・データベースへの書き込みは 1 回のみで済みます。
 月曜日のデータベースに保管されている文書の古いバージョンは無視されます。
@@ -331,14 +343,14 @@ _HTTP を使用し、最新の変更を最初に取得して火曜日のバッ�
 PUT /_replicator/restore-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _コマンド・ラインを使用し、最新の変更を最初に取得して火曜日のバックアップをリストア:_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-tuesday" -H "$ct" -d @restore-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _火曜日のバックアップのリストアを要求する JSON 文書:_
  
@@ -350,7 +362,7 @@ _火曜日のバックアップのリストアを要求する JSON 文書:_
     "create_target": true  
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _HTTP を使用し、月曜日のバックアップを最後にリストアしてリカバリーを完了:_
 
@@ -358,14 +370,14 @@ _HTTP を使用し、月曜日のバックアップを最後にリストアし�
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _コマンド・ラインを使用し、月曜日のバックアップを最後にリストアしてリカバリーを完了:_
 
 ```http
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _月曜日のバックアップのリストアを要求する JSON 文書:_
  
@@ -376,19 +388,22 @@ _月曜日のバックアップのリストアを要求する JSON 文書:_
     "target": "${url}/restore"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## 提案
+{: #suggestions}
 
 前の情報で、基本的なバックアップ・プロセスの概要について説明しましたが、各アプリケーションには、バックアップのためのそれぞれ独自の要件と戦略が必要です。
 以下の提案をお役立てください。
 
 ### バックアップのスケジューリング
+{: #scheduling-backups}
 
 複製ジョブは、クラスターの負荷を大幅に増加する可能性があります。
 複数のデータベースをバックアップする場合は、複製ジョブが別々の時間に行われるように、またはクラスターがあまりビジーでない時間に行われるように調整することをお勧めします。
 
 #### バックアップの入出力優先順位の変更
+{: #changing-the-io-priority-of-a-backup}
 
 バックアップ・ジョブの優先順位は、複製文書内の `x-cloudant-io-priority` フィールドの値を調整することによって変更できます。
 
@@ -413,11 +428,10 @@ _入出力優先順位を設定する JSON 文書の例:_
     }
 }
 ```
-{:codeblock}
-
-<div id="design-documents"></div>
+{: codeblock}
 
 ### 設計文書のバックアップ
+{: #backing-up-design-documents}
 
 バックアップに設計文書を含めると、バックアップ宛先に索引が作成されます。
 これを実施すると、バックアップ・プロセスをスローダウンさせ、不要なディスク・スペースを使用します。
@@ -425,11 +439,13 @@ _入出力優先順位を設定する JSON 文書の例:_
 また、このフィルター関数を使用して、その他の不要な文書も除外できます。
 
 ### 複数のデータベースのバックアップ
+{: #backing-up-multiple-databases}
 
 アプリケーションが、ユーザーごとに 1 つのデータベースを使用している場合、または各ユーザーが複数のデータベースを作成することを許可している場合は、新しいデータベースごとにバックアップ・ジョブを作成する必要があります。
 複製ジョブが同時に開始されないようにしてください。
 
 ## ヘルプが必要ですか?
+{: #need-help-}
 
 複製およびバックアップは簡単ではありません。
-問題に遭遇したら、[複製ガイド](replication_guide.html)を確認するか、[{{site.data.keyword.cloudant_short_notm}} サポート・チーム![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window}までお問い合わせください。
+問題に遭遇したら、[複製ガイド](/docs/services/Cloudant?topic=cloudant-replication-guide#replication-guide)を確認するか、[{{site.data.keyword.cloudant_short_notm}} サポート・チーム![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){: new_window}までお問い合わせください。

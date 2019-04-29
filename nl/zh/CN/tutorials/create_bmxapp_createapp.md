@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-04-02"
+
+keywords: create application, complete python program, log files, work with ibm cloudant database instance
+
+subcollection: cloudant
 
 ---
 
@@ -12,39 +16,43 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：代码
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code}
 
 本部分教程描述了 {{site.data.keyword.cloud}} 应用程序的代码。
-{:shortdesc}
-
-<div id="theApp"></div>
+{: shortdesc}
 
 ## 创建应用程序
+{: #creating-your-application}
 
 现在，以下组件已准备就绪，可以随时开始创建应用程序：
 
--   [Python 编程语言](create_bmxapp_prereq.html#python)。
--   [{{site.data.keyword.cloudant_short_notm}} 数据库实例](create_bmxapp_prereq.html#csi)。
--   [{{site.data.keyword.cloud_notm}} 应用程序环境](create_bmxapp_appenv.html#creating)。
--   {{site.data.keyword.cloudant_short_notm}} 数据库实例与 {{site.data.keyword.cloud_notm}} 应用程序环境之间的[连接](create_bmxapp_appenv.html#connecting)。
--   用于管理基于 Cloud Foundry 的 {{site.data.keyword.cloud_notm}} 应用程序的[工具箱](create_bmxapp_appenv.html#toolkits)。
--   [“入门模板”应用程序包](create_bmxapp_appenv.html#starter)，其中包含初始配置和代码模板文件。
+-   [Python 编程语言](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#python-create-bmxapp-prereq)。
+-   [{{site.data.keyword.cloudant_short_notm}} 数据库实例](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#an-ibm-cloudant-database-application)。
+-   [{{site.data.keyword.cloud_notm}} 应用程序环境](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment)。
+-   {{site.data.keyword.cloudant_short_notm}} 数据库实例与 {{site.data.keyword.cloud_notm}} 应用程序环境之间的[连接](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services)。
+-   用于管理基于 Cloud Foundry 的 {{site.data.keyword.cloud_notm}} 应用程序的[工具箱](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits)。
+-   [“入门模板”应用程序包](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application)，其中包含初始配置和代码模板文件。
 
->   **注**：我们没有尝试为本教程创建_高效_ Python 代码。
-本教程的目的是为了说明简单易懂的有效代码，方便您从中学习并应用于自己的应用程序。此外，我们也未尝试解决所有可能的检查或错误条件。教程中包含一些示例检查，用于说明某些方法。请检查并处理您应用程序中的所有警告或错误条件。
+没有尝试为本教程创建_高效_的 Python 代码。本教程的目的是为了说明简单易懂的有效代码，方便您从中学习并应用于自己的应用程序。此外，我们也未尝试解决所有可能的检查或错误条件。教程中包含一些示例检查，用于说明某些方法。请检查并处理您应用程序中的所有警告或错误条件。
 
+{: tip}
 
 
 ### 基本文件
+{: #essential-files}
 
-应用程序需要三个配置文件和一个源文件；[“入门模板”应用程序包](create_bmxapp_appenv.html#starter)中提供了所有这些文件：
+应用程序需要三个配置文件和一个源文件，[`入门模板`应用程序包](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application)中提供了所有这些文件：
  
--   [“`Procfile`”](create_bmxapp_appenv.html#procfile)
--   [“`manifest.yml`”](create_bmxapp_appenv.html#manifest)
--   [“`requirements.txt`”](create_bmxapp_appenv.html#requirements)
+-   [`Procfile`](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-procfile-file)
+-   [`manifest.yml`](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-manifest.yml-file)
+-   [`requirements.txt`](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-requirements.txt-file)
 -   应用程序源文件，在本部分教程中对其进行了描述。
 
 按如下所示，修改配置文件：
@@ -53,7 +61,7 @@ lastupdated: "2018-10-24"
     ```
     web: python server.py
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  编辑“`manifest.yml`”文件，使其包含以下文本：
     ```
@@ -68,21 +76,24 @@ lastupdated: "2018-10-24"
       services:
       - <your database instance>
     ```
-    {:codeblock}
-    >   **注**：务必修改“`domain`”、“`name`”、“`host`”和“`services`”值。这些是您在创建 [{{site.data.keyword.cloud_notm}} 应用程序环境](create_bmxapp_appenv.html#creating)和 [{{site.data.keyword.cloudant_short_notm}} 数据库实例](create_bmxapp_prereq.html#csi)时输入的值。
+    {: codeblock}
 
+确保修改“`domain`”、“`name`”、“`host`”和“`services`”值。这些是您在创建 [{{site.data.keyword.cloud_notm}} 应用程序环境](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment)和 [{{site.data.keyword.cloudant_short_notm}} 数据库实例](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)时输入的值。
+{: note}
 
 3.  编辑“`requirements.txt`”文件，使其包含以下文本：
     ```
     cloudant==2.3.1
     ```
-    {:codeblock}
+    {: codeblock}
 
 ### 应用程序代码
+{: #the-application-code}
 
-下一步是使用应用程序代码。下面描述了每个部分，并提供了相应代码。应用程序代码的[完整列表](#complete-listing)位于本部分教程末尾。
+下一步是使用应用程序代码。下面描述了每个部分，并提供了相应代码。应用程序代码的[完整列表](#complete-python-program)位于本部分教程末尾。
 
 #### 入门
+{: #getting-started-create_bmxapp_createapp}
 
 Python 应用程序需要一些基本组件才能运行。按如下所示，导入这些组件：
 
@@ -95,7 +106,7 @@ import json
 # for formatting date and time values.
 from time import gmtime, strftime
 ```
-{:codeblock}
+{: codeblock}
 
 应用程序作为简单的 Web 服务器运行，并仅显示一个页面：即包含连接到 {{site.data.keyword.cloudant_short_notm}} 数据库实例和创建数据库的结果的日志。
 
@@ -110,9 +121,10 @@ except ImportError:
     from http.server import SimpleHTTPRequestHandler as Handler
     from http.server import HTTPServer as Server
 ```
-{:codeblock}
+{: codeblock}
 
->   **注**：此代码段作为[“入门模板”应用程序包](create_bmxapp_appenv.html#starter)的一部分提供。
+此代码段作为[“入门模板”应用程序包](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application)的一部分提供。
+{: note}
 
 因为应用程序连接到 {{site.data.keyword.cloudant_short_notm}} 数据库实例，所以必须导入 {{site.data.keyword.cloudant_short_notm}} Library 组件：
 
@@ -122,7 +134,7 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 ```
-{:codeblock}
+{: codeblock}
 
 应用程序在 {{site.data.keyword.cloudant_short_notm}} 数据库实例中创建数据库。数据库名称是必需的：
 
@@ -130,7 +142,7 @@ from cloudant.result import Result, ResultByKey
 # This is the name of the database we intend to create.
 databaseName = "databasedemo"
 ```
-{:codeblock}
+{: codeblock}
 
 应用程序在连接到 {{site.data.keyword.cloudant_short_notm}} 数据库实例并创建数据库时记录进度。记录采用日志文件的形式，该文件会存储在可由 Python Web 服务器访问的文件夹中。
 
@@ -146,7 +158,7 @@ except OSError:
     pass
 os.chdir('static')
 ```
-{:codeblock}
+{: codeblock}
 
 接下来，创建一个简单的 HTML 文件。该文件将包含应用程序创建数据库时每个活动的日志：
 
@@ -157,7 +169,7 @@ target = open(filename, 'w')
 target.truncate()
 target.write("<html><head><title>{{site.data.keyword.cloudant_short_notm}} Python Demo</title></head><body><p>Log of Cloudant Python steps...</p><pre>")
 ```
-{:codeblock}
+{: codeblock}
 
 日志的第一部分是当前日期和时间的记录。此记录可帮助确认数据库是否真是新创建的：
 
@@ -167,9 +179,10 @@ target.write("====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n\n")
 ```
-{:codeblock}
+{: codeblock}
 
 #### 使用 {{site.data.keyword.cloudant_short_notm}} 数据库实例
+{: #working-with-the-ibm-cloudant-database-instance}
 
 Python 应用程序在 {{site.data.keyword.cloud_notm}} 应用程序环境中运行。该环境提供了应用程序用于访问已连接服务的所有必要信息。这些信息在名为“`VCAP_SERVICES`”的环境变量中提供。此变量可由应用程序访问，并用于确定连接详细信息。
 
@@ -179,10 +192,10 @@ Python 应用程序在 {{site.data.keyword.cloud_notm}} 应用程序环境中运
 # Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
 ```
-{:codeblock}
+{: codeblock}
 
->   **注**：仅当找到该环境变量时，才会运行代码的下一部分。
-在 Python 中，此代码会缩进，以指示其是测试的主体。在本教程中，省略了代码段中的缩进以节省空间。但是，[完整列表](#complete-listing)正确显示了缩进。
+仅当找到该环境变量时，才会运行代码的后续部分。在 Python 中，此代码会缩进，以指示其是测试的主体。在本教程中，省略了代码段中的缩进以节省空间。但是，[完整列表](#complete-python-program)正确显示了缩进。
+{: note}
 
 假定找到了该变量，将继续使用其中的信息。首先装入变量中存储的 JSON 数据，然后在新的“日志文件”中记录事件：
 
@@ -192,7 +205,7 @@ vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
 # Log the fact that we successfully found some service information.
 target.write("Got vcap_servicesData\n")
 ```
-{:codeblock}
+{: codeblock}
 
 接下来，查找有关已连接 {{site.data.keyword.cloudant_short_notm}} 数据库实例的信息。同样，将该事件记录在“日志文件”中：
 
@@ -202,9 +215,9 @@ cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
 # Log the fact that we successfully found some {{site.data.keyword.cloudant_short_notm}} service information.
 target.write("Got cloudantNoSQLDBData\n")
 ```
-{:codeblock}
+{: codeblock}
 
-多个 {{site.data.keyword.cloud_notm}} 服务可能连接到应用程序环境。每个服务的凭证都将作为数组元素列出。在本教程中，仅创建了一个[服务连接](create_bmxapp_appenv.html#connecting)。因此，应用程序会访问第一个元素（元素“零”）。每个服务元素都包含该服务的凭证，并表示为按访问该服务所需的必需字段名称建立索引的列表。在介绍简单数据库创建任务的[教程](create_database.html#pre-requisites)中，提供了有关字段名称的更多信息。
+多个 {{site.data.keyword.cloud_notm}} 服务可能连接到应用程序环境。每个服务的凭证都将作为数组元素列出。在本教程中，仅创建了一个[服务连接](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services)。因此，应用程序会访问第一个元素（元素“零”）。每个服务元素都包含该服务的凭证，并表示为按访问该服务所需的必需字段名称建立索引的列表。在介绍简单数据库创建任务的[教程](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites)中，提供了有关字段名称的更多信息。
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -214,7 +227,7 @@ credentialsData = credentials['credentials']
 # Log the fact that we successfully found the {{site.data.keyword.cloudant_short_notm}} values.
 target.write("Got credentialsData\n\n")
 ```
-{:codeblock}
+{: codeblock}
 
 接下来，检查列表并检索基本值：
 
@@ -235,14 +248,14 @@ target.write("Got URL: ")
 target.write(serviceURL)
 target.write("\n")
 ```
-{:codeblock}
+{: codeblock}
 
-现在，应用程序具有在 {{site.data.keyword.cloudant_short_notm}} 数据库实例中创建数据库所必需的所有详细信息。在介绍简单数据库创建的[教程](create_database.html#creating-a-database-within-the-service-instance)中，更详细地说明了此任务。
+现在，该应用程序拥有了在 {{site.data.keyword.cloudant_short_notm}} 数据库实例中创建数据库所需的全部详细信息。在介绍简单数据库创建的[教程](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance)中，更详细地说明了此任务。
 
 应用程序还必须执行以下任务：
 
 1.  建立与数据库实例的连接。
-2.  使用[先前](#getting-started)提供的名称来创建数据库。
+2.  使用[先前](#getting-started-create_bmxapp_createapp)提供的名称来创建数据库。
 3.  创建包含当前日期和时间的 JSON 文档。
 4.  将 JSON 文档存储在数据库中。
 5.  确认文档已安全存储。
@@ -270,9 +283,10 @@ if myDatabaseDemo.exists():
 # All done - disconnect from the service instance.
 client.disconnect()
 ```
-{:codeblock}
+{: codeblock}
 
 #### 关闭日志文件
+{: #closing-the-log-file}
 
 下一步是完成日志文件，准备好在应用程序中使用简单 Python Web 服务器提供此文件：
 
@@ -285,9 +299,10 @@ target.write("\n====\n")
 target.write("</pre></body></html>")
 target.close()
 ```
-{:codeblock}
+{: codeblock}
 
 #### 提供日志文件
+{: #serving-the-log-file}
 
 最后一个任务是在 Python 应用程序中启动 Web 服务器。该服务器的唯一用途是在请求时返回日志文件。此日志文件可确认 Python 应用程序是否已成功完成以下任务：
 
@@ -298,7 +313,7 @@ target.close()
 5.  已在数据库中创建文档。
 6.  已在请求时使用事件日志回复。
 
-[“入门模板”应用程序包](create_bmxapp_appenv.html#starter)中包含了用于启动 Python Web 服务器的代码：
+[“入门模板”应用程序包](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application)中包含了用于启动 Python Web 服务器的代码：
 
 ```python
 # Start up the simple Python web server application,
@@ -312,13 +327,12 @@ except KeyboardInterrupt:
   pass
 httpd.server_close()
 ```
-{:codeblock}
+{: codeblock}
 
-## 下一步
+本教程中的下一步是[上传应用程序](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application)以进行测试。
 
-本教程中的下一步是[上传应用程序](create_bmxapp_upload.html)以进行测试。
-
-## 完整列表
+## 完整的 Python 程序
+{: #complete-python-program}
 
 以下代码是用于访问 {{site.data.keyword.cloud_notm}} 上 {{site.data.keyword.cloudant_short_notm}} 服务实例的完整 Python 程序：
 
@@ -439,4 +453,4 @@ except KeyboardInterrupt:
   pass
 httpd.server_close()
 ```
-{:codeblock}
+{: codeblock}

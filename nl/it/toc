@@ -9,13 +9,15 @@ IBM Cloudant
 	cloudant.md
 	offerings/bluemix.md
 	offerings/pricing.md
+	offerings/limits.md
+	offerings/connecting.md
 	offerings/learning-center.md
 
 	{: .topicgroup}
-    Sicurezza e conformità
-    	offerings/security.md
-    	offerings/compliance.md
-    	offerings/dataprivacygovernance.md
+	Sicurezza e conformità
+		offerings/security.md
+		offerings/compliance.md
+		offerings/dataprivacygovernance.md
 		offerings/audit.md
 		offerings/gdpr.md
 
@@ -27,7 +29,7 @@ IBM Cloudant
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
-    basics/index.md
+	basics/basics.md
 
 	{: .topicgroup}
 	Applicazioni di esempio
@@ -38,12 +40,14 @@ IBM Cloudant
 
 	{: .topicgroup}
 	Librerie
-		libraries/index.md
+		libraries/client-libraries.md
 		libraries/supported.md
 		libraries/thirdparty.md
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}
+	how-to.md
+
 	{: .topicgroup}
 	Esercitazioni
 		tutorials/create_service.md
@@ -69,18 +73,19 @@ IBM Cloudant
 	Guide
 		guides/acurl.md
 		guides/cap_theorem.md
+		guides/conflicts.md
 		guides/couchapps.md
+		guides/database_partitioning.md
 		guides/design_document_management.md
-		guides/iam.md
-		guides/resource-groups.md
 		guides/mvcc.md
+		guides/model_data.md
 		guides/transactions.md
+		guides/resource-groups.md
 		guides/sharding.md
+		guides/iam.md
 		guides/json.md
 		guides/managing_tasks.md
-		guides/conflicts.md
-		guides/model_data.md
+		guides/migration.md
 		guides/replication_guide.md
 		guides/backup-guide-using-replication.md
-		guides/migration.md
 	{: .navgroup-end}

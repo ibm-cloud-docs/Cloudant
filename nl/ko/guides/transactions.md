@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: generate uuid, record payments, add additional documents, advantages
+
+subcollection: cloudant
 
 ---
 
@@ -12,10 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}}에서 관련 문서 그룹화
+{: grouping-related-documents-together-in-ibm-cloudant}
 
 전통적으로 전자상거래 시스템은 관계형 데이터베이스를 사용하여 빌드되어 왔습니다.
 이러한 데이터베이스는 일반적으로 결합된 몇 가지 테이블을 사용하여
@@ -77,7 +85,7 @@ _특정 구매를 나타내는 문서 예:_
     "total": 26.46
 }
 ```
-{:codeblock}
+{: codeblock}
 
 이 문서는 추가 레코드를 가져오지 않고 주문에 대한 요약을 웹 페이지 또는 이메일에 렌더링하는 데 필요한 구매 레코드에 대해 충분한 데이터를 제공합니다.
 다음 항목을 포함한 주문의 주요 세부사항을 확인하십시오.
@@ -92,16 +100,18 @@ _특정 구매를 나타내는 문서 예:_
 고객이 발주할 때(일반적으로 웹 사이트의 "결제" 단계에 들어가는 시점), 이전 예와 유사한 구매 주문 레코드가 작성됩니다. 
 
 ## 고유 ID(UUID) 생성
+{: #generating-your-own-unique-identifiers-uuids-}
 
 관계형 데이터베이스에서는 종종 순차적 "자동 증가" 숫자가 사용되지만, 서버 클러스터에 데이터가 분산되는 분산 데이터베이스에서는 문서가 고유 ID를 사용하여 저장되도록 하기 위해 더 긴 UUID가 사용됩니다.
 
 `order_id`와 같이 애플리케이션에서 사용할 고유 ID를 작성하려면 {{site.data.keyword.cloudant_short_notm}} API의
-[`GET _uuids` 엔드포인트](../api/advanced.html#-get-_uuids-)를 호출하십시오.
+[`GET _uuids` 엔드포인트](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_uuids-)를 호출하십시오.
 데이터베이스가 사용자를 대신하여 ID를 생성합니다.
 이 엔드포인트는 `count` 매개변수를 추가함으로써(예: `/_uuids?count=10`)
 여러 ID를 생성하는 경우에도 사용할 수 있습니다.
 
 ## 지불 기록
+{: #recording-payments}
 
 고객이 품목에 대해 지불을 완료하면 주문을 기록하기 위해 추가 레코드가 데이터베이스에 추가됩니다.
 
@@ -128,7 +138,7 @@ _지불 레코드의 예:_
     "payment_reference": "Q88775662377224"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 이전 예에서, 고객은 신용카드 및 선불 바우처를 사용하여 지불을 수행했습니다.
 두 지불의 총액은 주문의 금액으로 합산됩니다.
@@ -155,9 +165,9 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
-기본 제공 [`_sum` reducer](../api/creating_views.html#built-in-reduce-functions)를 사용하면 지불 이벤트의 원장으로 출력을 생성할 수 있습니다.
+기본 제공 [`_sum` reducer](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)를 사용하면 지불 이벤트의 원장으로 출력을 생성할 수 있습니다.
 
 _`?reduce=false`로 조회된 기본 제공 `_sum` reduce 함수의 사용에 대한 예:_
 
@@ -182,7 +192,7 @@ _`?reduce=false`로 조회된 기본 제공 `_sum` reduce 함수의 사용에 �
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 또는, `order_id`로 그룹화된 총액을 생성할 수 있습니다.
 
@@ -198,13 +208,14 @@ _`?group_level=1`을 사용하여 `order_id`로 그룹화된 총액의 예:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 이전 예의 보기가 주문 값에 대해 0을 리턴하므로, 결과는 주문이 전액 지불되었음을 표시합니다.
 이는 양의 구매 주문 총액이 음의 지불 금액을 상쇄시키기 때문입니다.
 주문에 대한 문서 및 각 지불에 대한 문서와 같이 이벤트를 여러 개별 문서로 기록하면 여러 프로세스가 동일한 문서를 동시에 수정할 때 충돌이 발생할 가능성이 없어지므로 {{site.data.keyword.cloudant_short_notm}}에서는 이 작업 방식을 사용하는 것이 좋습니다.
 
 ## 추가 문서 추가
+{: #adding-additional-documents}
 
 주문이 처리되어 배송됨에 따라 다음 상태 변경사항을 기록하기 위해 별도의 문서를 추가할 수 있습니다.
 
@@ -216,6 +227,7 @@ _`?group_level=1`을 사용하여 `order_id`로 그룹화된 총액의 예:_
 따라서 주 구매 문서를 수정할 필요는 없습니다.
 
 ## {{site.data.keyword.cloudant_short_notm}}에 구매 주문을 저장하는 것의 장점
+{: #advantages-of-storing-purchase-orders-in-ibm-cloudant}
 
 {{site.data.keyword.cloudant_short_notm}}를 사용하여 구매 주문 정보를 저장하면 고가용성 및 확장성을 갖춘 주문 시스템을 구축함으로써 많은 양의 데이터와 동시 액세스를 처리할 수 있습니다.
 한 번만 기록되는 별도의 문서에 데이터를 모델링함으로써, 여러 개별 프로세스가 동일한 문서에 동시 액세스하는 등과 같이 문서가 충돌하는 상황을 방지할 수 있습니다.

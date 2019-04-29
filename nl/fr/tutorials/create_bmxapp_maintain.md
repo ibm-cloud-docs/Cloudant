@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
+
+subcollection: cloudant
 
 ---
 
@@ -12,80 +16,78 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-11 -->
 
 # Création d'une application {{site.data.keyword.cloud_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}} : maintenance et traitement des incidents
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting}
 
 Ce tutoriel vous explique comment effectuer des opérations de maintenance sur une
 application {{site.data.keyword.cloud}} hébergée dans votre instance de service {{site.data.keyword.cloud_notm}}.
-{:shortdesc}
-
-<div id="maintenance"></div>
+{: shortdesc}
 
 ## Tâches de maintenance de base sur une application
+{: #performing-basic-application-maintenance-tasks}
 
 Cette section du tutoriel explique comment actualiser, démarrer et arrêter vos applications Python sur {{site.data.keyword.cloud_notm}}.
 
 ### Recherche du statut de votre application
+{: #finding-the-status-of-your-application}
 
 Le statut des applications d'une instance de service {{site.data.keyword.cloud_notm}} apparaît sur le tableau de bord.
 
-Dans l'exemple suivant, l'application `Python Cloudant` n'est pas en cours d'exécution
-et se trouve à l'état `Arrêté` :
+Dans l'exemple suivant, l'`application Cloudant CF` ne s'exécute pas et se trouve à l'état `Arrêté` :
 
 ![Capture d'écran montrant le tableau de bord de l'application dans un état Arrêté](images/img0037.png)
 
 ### Démarrage de votre application
+{: #starting-your-application}
 
 Si vous tentez de démarrer l'application de tutoriel sans supprimer au préalable la base de données de démonstration du tutoriel, l'application ne peut pas fonctionner correctement. L'application entre dans un cycle dans lequel elle tente de démarrer, échoue car la
 base de données existe, s'arrête et tente à nouveau de démarrer. Pour résoudre ce
 problème, [arrêtez l'application](#stopping-your-application) puis
 supprimez la base de données de démonstration du tutoriel. L'application peut ensuite démarrer avec succès.
-{: tip}
+{: note}
     
-Pour démarrer une application arrêtée, cliquez d'abord sur l'icône du menu de
-l'application dans le tableau de bord :
-
-![Capture d'écran représentant le tableau de bord avec l'icône de gestion de l'application](images/img0038.png)
-
-Cliquez ensuite sur l'option `Démarrer l'application` dans le menu :<br/>
-![Capture d'écran montrant l'option 'Démarrer l'application'](images/img0039.png)
+Pour démarrer une application arrêtée, cliquez sur l'option `Démarrer` du menu :<br/>
+![Capture d'écran montrant l'option Démarrer](images/img0039.png)
 
 ### Arrêt de votre application
+{: #stopping-your-application}
 
-Pour arrêter une application en cours d'exécution, cliquez d'abord sur l'icône du menu de l'application dans le tableau de bord :<br/>
-![Capture d'écran représentant le tableau de bord avec l'icône de gestion de l'application](images/img0038.png)
-
-Cliquez ensuite sur l'option `Arrêter l'application` dans le menu :<br/>
-![Capture d'écran montrant l'option 'Arrêter l'application'](images/img0041.png)
-
-<div id="troubleshooting"></div>
+Pour arrêter une application en cours d'exécution, cliquez sur l'option `Arrêter` du menu :<br/>
+![Capture d'écran montrant l'option Arrêter](images/img0041.png)
 
 ### Téléchargement d'une version actualisée de votre application
+{: #uploading-a-fresh-version-of-your-application}
 
-Pour télécharger une version actualisée de votre application, suivez simplement le [processus de téléchargement](create_bmxapp_upload.html).
+Pour télécharger une version actualisée de votre application, suivez simplement le [processus de téléchargement](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application).
 La nouvelle version remplace l'ancienne version de l'application.
 
 Si la version antérieure de l'application est déjà en cours d'exécution lorsque vous entamez le téléchargement, {{site.data.keyword.cloud_notm}} commence d'abord par arrêter automatiquement l'application.
 {: tip}
 
 ## Diagnostic et résolution des problèmes
+{: #diagnosing-and-resolving-problems}
 
 Cette section du tutoriel fournit quelques conseils en matière de traitement des
 incidents pour vous aider à identifier, diagnostiquer et résoudre certains problèmes que
 vous êtes susceptible de rencontrer au cours du développement et du déploiement de vos
 premières applications {{site.data.keyword.cloud_notm}}.
 
-Des conseils et les meilleures pratiques en matière de création d'applications {{site.data.keyword.cloud_notm}} ou Cloud Foundry sont disponibles [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}.
+Des conseils et les meilleures pratiques en matière de création d'applications {{site.data.keyword.cloud_notm}} ou Cloud Foundry sont disponibles [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
 
-En particulier, il est prudent de suivre le conseil qui permet d'[éviter les écritures sur le système de fichiers local ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}.
+En particulier, il est prudent de suivre le conseil qui permet d'[éviter les écritures sur le système de fichiers local ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window}.
 
 Pour des raisons de simplicité, ce tutoriel écrit des contenus dans le système de fichiers local. Le volume
 ainsi écrit est toutefois faible. Il n'est pas censé persister et n'est pas considéré comme 'indispensable à la mission'.
 {: tip}
 
 ### Utilisation du journal de l'application
+{: #using-the-application-log}
 
 La ressource la plus utile pour le diagnostic et la résolution des problèmes liés
 à une application {{site.data.keyword.cloud_notm}} est le fichier journal.
@@ -136,5 +138,6 @@ En effet, le journal indique le composant ayant rencontré un problème et fourn
 Vous devez ensuite appliquer les procédures de traitement des incidents normales afin de résoudre le problème.
 
 ## Fin du tutoriel
+{: #end-of-tutorial}
 
 Le tutoriel est terminé.

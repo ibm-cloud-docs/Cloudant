@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
+
+subcollection: cloudant
 
 ---
 
@@ -12,34 +16,40 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-11 -->
 
 # Creazione di una semplice applicazione {{site.data.keyword.cloud_notm}} per accedere a un database {{site.data.keyword.cloudant_short_notm}}: manutenzione e risoluzione dei problemi
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting}
 
 Questa esercitazione illustra come conservare un'applicazione
 {{site.data.keyword.cloud}},
 ospitata nella tua istanza del servizio {{site.data.keyword.cloud_notm}}.
-{:shortdesc}
-
-<div id="maintenance"></div>
+{: shortdesc}
 
 ## Esecuzione delle attività di manutenzione dell'applicazione di base
+{: #performing-basic-application-maintenance-tasks}
 
 Questa sezione dell'esercitazione illustra come aggiornare,
 avviare e arrestare la tua applicazione
 Python in {{site.data.keyword.cloud_notm}}.
 
 ### Trovare lo stato della tua applicazione
+{: #finding-the-status-of-your-application}
 
 Lo stato delle applicazioni nella tua istanza del servizio
 {{site.data.keyword.cloud_notm}} viene visualizzato nel dashboard.
 
-Nel seguente esempio, l'applicazione `Python Cloudant` non è in esecuzione e ha lo stato `Stopped`:
+Nel seguente esempio, l'applicazione `Cloudant CF app` non è in esecuzione e ha uno
+stato `Stopped`:
 
 ![Acquisizione schermo che mostra il dashboard per l'applicazione nello stato 'arrestato' ](images/img0037.png)
 
 ### Avvio della tua applicazione
+{: #starting-your-application}
 
 Se provi ad avviare l'applicazione di esercitazione senza prima eliminare il database dimostrativo dell'esercitazione, l'applicazione non può funzionare correttamente. L'applicazione entra in un ciclo di tentativi di avvio,
     errore perché il database esiste,
@@ -47,38 +57,29 @@ Se provi ad avviare l'applicazione di esercitazione senza prima eliminare il dat
     quindi un altro tentativo di avvio. Per risolvere il problema,
     [arresta l'applicazione](#stopping-your-application),
     quindi elimina il database dimostrativo dell'esercitazione. L'applicazione può quindi avviarsi correttamente.
-{: tip}
+{: note}
     
-Per avviare un'applicazione arrestata, fai prima clic sull'icona del menu dell'applicazione nel dashboard:
-
-![Acquisizione schermo che mostra il dashboard con l'icona di gestione dell'applicazione](images/img0038.png)
-
-Successivamente,
-fai clic sull'opzione `Start App` nel menu:<br/>
-![Acquisizione schermo che mostra l'opzione 'Start App' ](images/img0039.png)
+Per avviare un'applicazione arrestata, fai clic sull'opzione `Start` nel menu:<br/>
+![Acquisizione schermo che mostra l'opzione 'Start'](images/img0039.png)
 
 ### Arresto della tua applicazione
+{: #stopping-your-application}
 
-Per arrestare un'applicazione in esecuzione,
-fai prima clic sull'icona del menu dell'applicazione nel dashboard:<br/>
-![Acquisizione schermo che mostra il dashboard con l'icona di gestione dell'applicazione](images/img0038.png)
-
-Successivamente,
-fai clic sull'opzione `Stop App` nel menu:<br/>
-![Acquisizione schermo che mostra l'opzione 'Stop App' ](images/img0041.png)
-
-<div id="troubleshooting"></div>
+Per arrestare un'applicazione in esecuzione, fai clic sull'opzione `Stop` nel menu:<br/>
+![Acquisizione schermo che mostra l'opzione 'Stop'](images/img0041.png)
 
 ### Caricamento di una nuova versione della tua applicazione.
+{: #uploading-a-fresh-version-of-your-application}
 
 Per caricare una nuova versione della tua applicazione,
-segui semplicemente il [processo di caricamento](create_bmxapp_upload.html).
+segui semplicemente il [processo di caricamento](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application).
 La nuova versione sovrascrive la versione precedente dell'applicazione.
 
 Se la versione meno recente dell'applicazione è già in esecuzione quando avvii il caricamento, {{site.data.keyword.cloud_notm}} prima arresta automaticamente l'applicazione.
 {: tip}
 
 ## Diagnostica e risoluzione dei problemi
+{: #diagnosing-and-resolving-problems}
 
 Questa sezione dell'esercitazione fornisce alcuni suggerimenti sulla risoluzione dei problemi di base per aiutarti
 a identificare, diagnosticare
@@ -88,12 +89,12 @@ le tue prime applicazioni {{site.data.keyword.cloud_notm}}.
 Una buona fonte di consigli sulle procedure consigliate per la creazione delle applicazioni {{site.data.keyword.cloud_notm}} o
 Cloud Foundry è
 [qui
-![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}.
+![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
 
 In particolare,
 il consiglio per
 [evitare le scritture sul file system locale
-![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}
+![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window}
 è cauto.
 
 Per motivi di semplicità, questa esercitazione non scrive contenuto nel file system locale. Tuttavia,
@@ -102,6 +103,7 @@ Per motivi di semplicità, questa esercitazione non scrive contenuto nel file sy
 {: tip}
 
 ### Utilizzo del log dell'applicazione
+{: #using-the-application-log}
 
 La risorsa più utile per la diagnostica e la risoluzione dei problemi con l'applicazione
 {{site.data.keyword.cloud_notm}} è il file di log.
@@ -159,5 +161,6 @@ e fornisce più dettagli possibile.
 Devi quindi applicare le normali procedure di risoluzione dei problemi per risolverlo.
 
 ## Fine dell'esercitazione
+{: #end-of-tutorial}
 
 L'esercitazione è completa.

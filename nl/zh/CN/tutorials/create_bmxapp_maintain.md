@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
+
+subcollection: cloudant
 
 ---
 
@@ -12,71 +16,71 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-11 -->
 
 # 创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：维护和故障诊断
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting}
 
 本教程说明了如何维护在 {{site.data.keyword.cloud_notm}} 服务实例中托管的 {{site.data.keyword.cloud}} 应用程序。
-{:shortdesc}
-
-<div id="maintenance"></div>
+{: shortdesc}
 
 ## 执行基本应用程序维护任务
+{: #performing-basic-application-maintenance-tasks}
 
 本部分教程说明了如何在 {{site.data.keyword.cloud_notm}} 上刷新、启动和停止 Python 应用程序。
 
 ### 查找应用程序的状态
+{: #finding-the-status-of-your-application}
 
 {{site.data.keyword.cloud_notm}} 服务实例内应用程序的状态会显示在仪表板上。
 
-在以下示例中，`Python Cloudant` 应用程序未在运行，状态为`已停止`：
+在以下示例中，`Cloudant CF app` 应用程序未在运行，状态为`已停止`：
 
 ![显示“已停止”状态应用程序的仪表板的截屏](images/img0037.png)
 
 ### 启动应用程序
+{: #starting-your-application}
 
 如果未先删除教程演示数据库就尝试启动教程应用程序，那么该应用程序无法正常工作。应用程序会陷入循环：尝试启动、因数据库存在而失败、停止、接着重试启动。要解决此问题，请[停止应用程序](#stopping-your-application)，然后删除教程演示数据库。随后，该应用程序就可以成功启动。
 
-{: tip}
+{: note}
     
-要启动已停止的应用程序，请先单击仪表板上的“应用程序菜单”图标：
-
-![显示具有应用程序管理图标的仪表板的截屏](images/img0038.png)
-
-接下来，单击该菜单中的`启动应用程序`选项：<br/>
-![显示“启动应用程序”选项的截屏](images/img0039.png)
+要启动已停止的应用程序，请单击该菜单中的`启动`选项：<br/>
+![显示“启动”选项的截屏](images/img0039.png)
 
 ### 停止应用程序
+{: #stopping-your-application}
 
-要停止正在运行的应用程序，请先单击仪表板上的“应用程序菜单”图标：<br/>
-![显示具有应用程序管理图标的仪表板的截屏](images/img0038.png)
-
-接下来，单击该菜单中的`停止应用程序`选项：<br/>
-![显示“停止应用程序”选项的截屏](images/img0041.png)
-
-<div id="troubleshooting"></div>
+要停止正在运行的应用程序，请单击该菜单中的`停止`选项：<br/>
+![显示“停止”选项的截屏](images/img0041.png)
 
 ### 上传全新版本的应用程序
+{: #uploading-a-fresh-version-of-your-application}
 
-要上传全新版本的应用程序，只需遵循[上传过程](create_bmxapp_upload.html)即可。新版本应用程序将覆盖旧版本。
+要上传全新版本的应用程序，只需遵循[上传过程](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application)即可。新版本应用程序将覆盖旧版本。
 
 如果开始上传时旧版应用程序已在运行，那么 {{site.data.keyword.cloud_notm}} 会先自动停止该应用程序。
 {: tip}
 
 ## 问题诊断和解决
+{: #diagnosing-and-resolving-problems}
 
 本部分教程提供了一些基本的故障诊断技巧，可帮助您识别、诊断和解决在开发和部署第一个 {{site.data.keyword.cloud_notm}} 应用程序时可能会遇到的一些问题。
 
-[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window} 提供了关于创建 {{site.data.keyword.cloud_notm}} 或 Cloud Foundry 应用程序的最佳做法的一些好建议。
+[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window} 提供了关于创建 {{site.data.keyword.cloud_notm}} 或 Cloud Foundry 应用程序的最佳做法的一些好建议。
 
-尤其是有关[避免写入本地文件系统 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window} 的建议非常谨慎。
+尤其是有关[避免写入本地文件系统 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window} 的建议非常谨慎。
 
 为了简单起见，本教程将一些内容写入了本地文件系统。但是，写入的数据量很小。预计不会持久存储，而且不属于“关键任务”。
 
 {: tip}
 
 ### 使用应用程序日志
+{: #using-the-application-log}
 
 对 {{site.data.keyword.cloud_notm}} 应用程序问题进行诊断和解决时，最有用的资源是日志文件。
 
@@ -118,5 +122,6 @@ lastupdated: "2018-10-24"
 事实上，日志会显示哪个组件遇到了问题，并尽可能多地提供详细信息。然后，必须应用标准应用程序故障诊断过程来解决问题。
 
 ## 教程结束
+{: #end-of-tutorial}
 
 本教程已完成。

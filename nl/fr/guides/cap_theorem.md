@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
+
+subcollection: cloudant
 
 ---
 
@@ -11,23 +15,24 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-24 -->
 
-<div id="cap_theorem"></div>
-
-<div id="consistency"></div>
-
 # Théorème CAP
+{: #cap-theorem}
 
-{{site.data.keyword.cloudantfull}} s'appuie sur le modèle de cohérence ['Cohérence finale' ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}.
-{:shortdesc}
+{{site.data.keyword.cloudantfull}} s'appuie sur le modèle de cohérence ['Cohérence finale' ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}.
+{: shortdesc}
 
 Pour comprendre comment fonctionne ce modèle,
 et pourquoi il représente un aspect essentiel de l'utilisation de {{site.data.keyword.cloudant_short_notm}},
 considérons tout d'abord ce que l'on entend par Cohérence.
 
-La cohérence est l'une des quatre propriétés ['ACID' ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/ACID){:new_window} nécessaires pour traiter correctement les transactions d'une base de données.
+La cohérence est l'une des quatre propriétés ['ACID' ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/ACID){: new_window} nécessaires pour traiter correctement les transactions d'une base de données.
 
 En outre, la cohérence correspond à l'un des trois attributs du théorème
 <a href="http://en.wikipedia.org/wiki/CAP_Theorem" target="_blank">'CAP' <img src="../images/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe"></a>.
@@ -55,22 +60,24 @@ En outre, le moindre incident système peut arrêter un système à noeud unique
 Pour durer, le système doit devenir plus pointu.
 
 ## Compromis au niveau de la tolérance au partitionnement
+{: #tradeoffs-in-partition-tolerance}
 
 Une base de données qui met l'accent sur la cohérence et la tolérance au partitionnement utilise généralement une architecture
 <a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">maître-esclave <img src="../images/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe"></a> dans laquelle un noeud du système joue le rôle de maître.
 Seul le maître peut approuver les écritures de données, alors que les autres noeuds répliquent les données à partir du maître pour gérer les lectures.
 Si le maître perd sa connexion au réseau, ou s'il ne parvient pas à communiquer avec un grand nombre de noeuds du système, un nouveau maître est choisi.
-Ce processus de sélection est différent d'un système à l'autre, et peut être source de [problèmes majeurs![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://aphyr.com/posts/284-call-me-maybe-mongodb){:new_window}.
+Ce processus de sélection est différent d'un système à l'autre, et peut être source de [problèmes majeurs![External link icon](../images/launch-glyph.svg "External link icon")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}.
 
 {{site.data.keyword.cloudant_short_notm}} met l'accent sur la disponibilité et la tolérance au partitionnement en s'appuyant sur une topologie maître-maître, de sorte que chaque noeud puisse accepter les écritures et les lectures sur sa partie de vos données.
 Les noeuds multiples comportent une copie de chaque partie de vos données.
 Chaque noeud copie les données avec d'autres noeuds.
 Si un noeud n'est plus accessible, d'autres peuvent prendre sa place le temps que le réseau soit rétabli.
-De cette manière, le système renvoie vos données en temps voulu malgré une défaillance de noeud arbitraire et préserve une [cohérence finale ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}.
+De cette manière, le système renvoie vos données en temps voulu malgré une défaillance de noeud arbitraire et préserve une [cohérence finale ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}.
 Le compromis visant à faire passer la cohérence absolue au second plan découle du délai nécessaire pour que tous les noeuds voient les mêmes données.
 Par conséquent, certaines réponses peuvent contenir d'anciennes données, tandis que les nouvelles données sont propagées sur le système.
 
 ## Changement d'approche
+{: #changing-the-approach}
 
 La conservation d'une vue cohérente des données est logique et facile à comprendre, car une base de données relationnelle se charge de le faire pour vous.
 On s'attend donc que les services Web qui interagissent avec les systèmes de base de données en fassent de même.
@@ -81,10 +88,11 @@ En fait, la cohérence n'est pas nécessairement essentielle pour un grand nombr
 Avec un système très utilisé, il existe une forte probabilité qu'une partie de ce système tombe en panne.
 Une base de données conçue autour de la nécessité d'accorder la priorité à la disponibilité et à la cohérence finale est mieux adaptée pour maintenir l'application en ligne.
 La cohérence des données d'application peut être abordée après coup.
-Comme Seth Gilbert et Nancy Lynch de l'institut MIT [concluent ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){:new_window},
+Comme Seth Gilbert et Nancy Lynch de l'institut MIT [concluent ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){: new_window},
 "la plupart des systèmes du monde réel doivent se contenter de renvoyer la plupart des données, la plupart du temps."
 
 ## Disponibilité d'application et cohérence dans l'entreprise
+{: #application-availability-versus-consistency-in-the-enterprise}
 
 Si l'on examine les services Web les plus populaires, il ressort que les utilisateurs s'attendent déjà à une haute disponibilité et échangent bien volontiers cette disponibilité contre des données cohérentes finales sans même s'en rendre compte.
 
@@ -103,6 +111,7 @@ Pensez aux systèmes de panier en ligne, aux caches HTTP et autres serveurs de n
 Les organisations doivent prendre en compte le coût du temps d'indisponibilité lié à la frustration des utilisateurs, à la perte de productivité et aux opportunités manquées.
 
 ## De la théorie à la pratique
+{: #from-theory-to-implementation}
 
 Il est essentiel de relever le défi de la haute disponibilité pour les applications en cloud.
 Sinon, la cohérence de base de données globale reste un goulot d'étranglement lorsque vous procédez aux mises à niveau.

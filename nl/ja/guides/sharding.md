@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-02-27"
+
+keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
+
+subcollection: cloudant
 
 ---
 
@@ -12,12 +16,17 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # データはどのように {{site.data.keyword.cloudant_short_notm}} に保管されるか?
+{: #how-is-data-stored-in-ibm-cloudant-}
 
 ## 概念
+{: #concepts}
 
 {{site.data.keyword.cloudantfull}} 内のすべてのデータベースは、1 つ以上の異なる_シャード_で形成されています。ここでは、シャードの数を _Q_ と呼びます。
 シャードは、データベースからの異なる文書サブセットです。
@@ -48,6 +57,7 @@ _Q_ のデフォルト値は、さまざまなクラスターによって異な�
 {{site.data.keyword.cloudant_short_notm}} システムで、異なるレプリカ・カウントが使用されることは例外的であり、珍しいことです。
 
 ## シャーディングはパフォーマンスにどのような影響を与えるか?
+{: #how-does-sharding-affect-performance-}
 
 データベースのシャードの数は構成可能です。その理由は、それがさまざまな方法でデータベースのパフォーマンスに影響を与えるからです。
 
@@ -79,9 +89,9 @@ _Q_ のデフォルト値は、さまざまなクラスターによって異な�
 したがって、索引作成のみを検討しても、適切なシャード・カウントを見積もるのに十分な情報は提供されません。
 
 データ・サイズを検討する際、重要な考慮事項は、1 つのシャード当たりの文書数です。
-各シャードは、ディスク上の大きな [B ツリー![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://en.wikipedia.org/wiki/B-tree){:new_window}内に文書を保持します。
+各シャードは、ディスク上の大きな [B ツリー![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://en.wikipedia.org/wiki/B-tree){: new_window}内に文書を保持します。
 索引は同じ方法で保管されます。
-シャードに追加される文書の数が増加するにしたがって、標準的な文書検索または照会中に B ツリーの全探索に使用されるステップの数が増加します。
+シャードに追加される文書の数が増加するにしたがって、標準的な文書ルックアップまたは照会中に B ツリーの全探索に使用されるステップの数が増加します。
 この「深さの増加」により、キャッシュまたはディスクから読み取らなければならないデータの量が増加するため、要求がスローダウンする傾向があります。
 
 一般に、1 つのシャードにつき 1000 万個を超える文書を持たないようにしてください。
@@ -95,8 +105,6 @@ _Q_ のデフォルト値は、さまざまなクラスターによって異な�
 代表的なデータと要求のパターンを使用してテストを行うことは、適切な _Q_ 値をより的確に見積もるために不可欠です。
 実動経験により、こうした予想は修正される可能性があることに留意してください。
 
-<div id="summary"></div>
-
 以下のシンプルな指針は、初期の計画立案段階で役立つ可能性があります。
 処理した構成は、特に大規模なデータベースの場合、代表的なデータを使用してテストを行って、必ず検証するようにしてください。
 
@@ -104,15 +112,16 @@ _Q_ のデフォルト値は、さまざまなクラスターによって異な�
 *	数 GB または数百万個の文書のデータベースの場合、シャード・カウントは 1 桁 (例えば、8) で問題ない可能性が高くなります。
 *	何千万から何億個もの文書を持つ、または何十 GB ものサイズの大規模なデータベースの場合は、16 のシャードを使用するようにデータベースを構成することを検討してください。
 *	それより大規模なデータベースの場合は、データを複数のデータベースに手動でシャーディングすることを検討してください。
-	そのような大規模なデータベースの場合は、[{{site.data.keyword.cloudant_short_notm}} サポート![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window} にアドバイスを依頼してください。
+	そのような大規模なデータベースの場合は、[{{site.data.keyword.cloudant_short_notm}} サポート![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){: new_window} にアドバイスを依頼してください。
 
->	**注:** これらの指針における数値は、正確な計算ではなく、観察と経験から導き出されたものです。
-
-<div id="API"></div>
+これらの指針における数値は、正確な計算ではなく、観察と経験から導き出されたものです。
+{: tip}
 
 ## シャードの操作
+{: #working-with-shards}
 
 ### シャード・カウントの設定
+{: #setting-shard-count}
 
 データベースのシャードの数である _Q_ は、データベースの作成時に設定されます。
 この _Q_ 値は後で変更できません。
@@ -125,12 +134,12 @@ _Q_ のデフォルト値は、さまざまなクラスターによって異な�
 ```sh
 curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
-{:codeblock}
+{: codeblock}
 
->	**注:** データベースでの _Q_ の設定は、{{site.data.keyword.cloud}} 上の {{site.data.keyword.cloudant_short_notm}} データベースでは有効になっていません。
-	_Q_ 値は、多くの `cloudant.com` マルチテナント・クラスターでは使用できません。
+データベースでの _Q_ の設定は、{{site.data.keyword.cloud}} 上の {{site.data.keyword.cloudant_short_notm}} データベースでは有効になっていません。 _Q_ 値は、多くの `cloudant.com` マルチテナント・クラスターでは使用できません。
+{: note}
 
-使用可能でないところで _Q_ 値の設定を試行すると、その結果として、以下の例のような、JSON 本体を含む [`403` 応答](../api/http.html#403)が返されます。
+使用可能でないところで _Q_ 値の設定を試行すると、その結果として、以下の例のような、JSON 本体を含む [`403` 応答](/docs/services/Cloudant/api/http.html#http-status-codes)が返されます。
 
 ```json
 {
@@ -138,16 +147,18 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 	"reason": "q is not configurable"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### レプリカ・カウントの設定
+{: #setting-the-replica-count}
 
-CouchDB バージョン 2 以降、データベースを作成する際に[レプリカ・カウントの指定![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window} が許可されるようになりました。
+CouchDB バージョン 2 以降、データベースを作成する際に[レプリカ・カウントの指定![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window} が許可されるようになりました。
 ただし、デフォルトの 3 からレプリカ・カウント値を変更することは許可されません。
 特に、データベースを作成する際に異なるレプリカ・カウント値を指定することはできません。
-さらなる支援が必要な場合は、[{{site.data.keyword.cloudant_short_notm}} サポート![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){:new_window} までお問い合わせください。
+さらなる支援が必要な場合は、[{{site.data.keyword.cloudant_short_notm}} サポート![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){: new_window} までお問い合わせください。
 
 ### _R_ 引数および _W_ 引数とは?
+{: #what-are-the-_r_-and-_w_-arguments-}
 
 いくつかの要求は、要求に応答する時にコーディネーターの動作に影響を与える引数を持つことができます。
 これらの引数は、要求照会ストリングでのそれらの名前を取って _R_ および _W_ として知られます。
@@ -158,6 +169,7 @@ CouchDB バージョン 2 以降、データベースを作成する際に[レ�
 例えば、_R_ または _W_ のいずれかを指定しても、読み取りまたは書き込みの整合性が変更されることはありません。
 
 #### _R_ とは?
+{: #what-is-_r_-}
 
 _R_ 引数は、単一の文書要求にのみ指定できます。
 _R_ は、クライアントに応答する前にコーディネーターによって受信されなければならない応答の数に影響を与えます。
@@ -166,20 +178,22 @@ _R_ は、クライアントに応答する前にコーディネーターによ�
 _R_ を _1_ に設定すると、コーディネーターがより素早く応答を返せるため、全体的な応答時間が向上する可能性があります。
 この理由は、コーディネーターが待たなければならないのは、適切なシャードをホストしているいずれかのレプリカからの単一の応答のみであるためです。
 
->	**注:** _R_ 値を削減すると、{{site.data.keyword.cloudant_short_notm}} によって使用されている[結果整合性](cap_theorem.html)モデルのため、返される応答が最新データに基づいていない可能性が高くなります。
-	デフォルトの _R_ 値を使用すると、この効果を軽減するのに役立ちます。
+_R_ 値を削減すると、返される応答が最新データに基づいていない可能性が高くなります。これは、{{site.data.keyword.cloudant_short_notm}} によって使用されている[結果整合性](/docs/services/Cloudant/guides/cap_theorem.html)モデルのためです。デフォルトの _R_ 値を使用すると、この効果を軽減するのに役立ちます。
+{: note}
 
 _R_ のデフォルト値は _2_ です。
 この値は、3 つのシャード・レプリカを使用する標準的データベースのレプリカの多くに対応しています。
 データベースが持っているレプリカの数が 3 より多い場合や 3 より少ない場合は、_R_ のデフォルト値もそれに対応して変化します。
 
 #### _W_ とは?
+{: #what-is-_w_-}
 
 _W_ は、単一の文書書き込み要求にのみ指定できます。
 
 _W_ は、クライアントに応答する前にコーディネーターによって受信される必要がある応答の数に影響を与えるため、_R_ に似ています。
 
->	**注:** _W_ が実際の書き込み動作に影響を与えることは決してありません。
+_W_ が実際の書き込み動作に影響を与えることは決してありません。
+{: note}
 
 _W_ の値は、データベース内に文書が書き込まれるかどうかには影響しません。
 _W_ 値を指定することにより、クライアントは応答で HTTP 状況コードを調べて、_W_ レプリカがコーディネーターに応答したかどうかを判断することができます。

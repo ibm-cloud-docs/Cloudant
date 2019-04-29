@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
+
+subcollection: cloudant
 
 ---
 
@@ -11,18 +15,22 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
 # 競合
+{: #conflicts}
 
 データのコピーが複数の場所に保管される可能性がある分散データベースでは、ネットワークとシステムは、本来、ある場所に保管された文書に対して変更が行われても、データベースの他の部分の更新や複製を即時に行うことができないという特質があります。
 
 つまり、独立した更新が文書のさまざまなコピーに行われる場合、何が文書の正しい最終的な内容であるかに関して不一致、つまり「競合」が生じることになる場合があります。
 
 {{site.data.keyword.cloudantfull}} は、潜在的な問題を警告することで競合が回避されるようにします。
-これを実現するために、問題のある更新要求に [`409` 応答](../api/http.html#http-status-codes)が返されます。
-ただし、ネットワークに現在接続されていないシステムでデータベース更新が要求された場合、`409` 応答が表示されないことがあります。
+問題のある更新要求に [`409` 応答](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)を返すことで警告が出されます。ただし、ネットワークに現在接続されていないシステムでデータベース更新が要求された場合、`409` 応答が表示されないことがあります。
 例えば、データベースが、インターネットから一時的に切断されたモバイル・デバイス上にある場合、競合する可能性がある他の更新が行われたかどうかを確認することはその時点では不可能です。
 
 競合状態になっている文書を要求した場合、{{site.data.keyword.cloudant_short_notm}} は予期したとおりに文書を返します。
@@ -76,11 +84,10 @@ lastupdated: "2018-10-24"
 </table>
 
 ## 競合の検出
+{: #finding-conflicts}
 
 文書に影響を与える可能性がある競合を検出するには、文書の取得時に照会パラメーター `conflicts=true` を追加します。
 返される結果の文書には `_conflicts` 配列が含まれており、これには競合するすべてのリビジョンのリストが入っています。
-
-<div></div>
 
 > 文書の競合を検出するためのマップ関数の例:
 
@@ -92,22 +99,21 @@ function(doc) {
 }
 ```
 
-データベース内の複数の文書の競合を検出するには、[ビュー](../api/creating_views.html)を作成します。
+データベース内の複数の文書の競合を検出するには、[ビュー](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)を作成します。
 示されている例のようなマップ関数を使用すると、競合のあるすべての文書のすべてのリビジョンを検出できます。
 
 このようなビューがある場合、これを使用して、必要に応じて競合を検出して解決することができます。
 または、複製が行われるたびにビューを照会して、競合を即時に特定して解決することができます。
 
 ## 競合の解決方法
+{: #how-to-resolve-conflicts}
 
 競合を検出したら、以下の 4 ステップで解決することができます。
 
-1.	競合するリビジョンを[取得](conflicts.html#get-conflicting-revisions)する。
-2.	それらをアプリケーション内で[マージ](conflicts.html#merge-the-changes)するか、ユーザーにどうしたいか尋ねる。
-3.	新しいリビジョンを[アップロード](conflicts.html#upload-the-new-revision)する。
-4.	古いリビジョンを[削除](conflicts.html#delete-old-revisions)する。
-
-<div></div>
+1.	競合するリビジョンを[取得](#get-conflicting-revisions)する。
+2.	それらをアプリケーション内で[マージ](#merge-the-changes)するか、ユーザーにどうしたいか尋ねる。
+3.	新しいリビジョンを[アップロード](#upload-the-new-revision)する。
+4.	古いリビジョンを[削除](#delete-old-revisions)する。
 
 > 文書の例 - 最初のバージョン。
 
@@ -125,8 +131,6 @@ function(doc) {
 オンラインショップ用の商品のデータベースがあると仮定します。
 文書の最初のバージョンは、示されている例のようになります。
 
-<div></div>
-
 > 説明が追加された、文書の第 2 バージョン (最初のリビジョン)。
 
 ```json
@@ -140,8 +144,6 @@ function(doc) {
 ```
 
 この文書にはまだ説明がないため、他のユーザーが説明を追加する場合があります。
-
-<div></div>
 
 > 文書の最初のバージョンに値下げデータの変更が行われた_別の_ 第 2 バージョン。
 
@@ -163,6 +165,7 @@ function(doc) {
 これが競合シナリオです。
 
 ## 競合するリビジョンの取得
+{: #get-conflicting-revisions}
 
 文書の競合するリビジョンを検出するには、
 通常どおりその文書を取得しますが、
@@ -171,7 +174,6 @@ function(doc) {
 
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
-<div></div>
 
 > 競合するリビジョンを示す、文書の取得に対する応答例
 
@@ -200,6 +202,7 @@ function(doc) {
 それぞれのリビジョンは、その配列にリストされます。
 
 ## 変更のマージ
+{: #merge-the-changes}
 
 アプリケーションは、可能性がある変更をすべて識別して調整することで、正しい有効な更新を効率的にマージすることにより、その文書の競合しない単一のバージョンを生成する必要があります。
 
@@ -229,6 +232,7 @@ function(doc) {
 これらの変更を実装する方法の実例については、[サンプル・コードを含むこのプロジェクト](https://github.com/glynnbird/deconflict)を参照してください。
 
 ## 新しいリビジョンのアップロード
+{: #upload-the-new-revision}
 
 > 解決し、前の競合するリビジョンからの変更をマージした、最終リビジョン。
 
@@ -247,6 +251,7 @@ function(doc) {
 この新しい文書がデータベースにアップロードされます。
 
 ## 古いリビジョンの削除
+{: #delete-old-revisions}
 
 > 古いリビジョンを削除するための要求の例。
 
@@ -261,4 +266,4 @@ DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6
 
 文書の古いバージョンが削除されると、その文書に
 関連付けられた競合には解決済みのマークが付けられます。
-[前述のように](conflicts.html#finding-conflicts) `conflicts` パラメーターを true に設定して文書を再度要求することで、競合が残っていないことを検証することができます。
+競合が残っていないことを検証するには、`conflicts` パラメーターを true に設定して文書を再度要求します。前述のように[競合の検出](#finding-conflicts)を使用します。

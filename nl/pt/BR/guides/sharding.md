@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-02-27"
+
+keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
+
+subcollection: cloudant
 
 ---
 
@@ -12,12 +16,17 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Como os dados são armazenados no {{site.data.keyword.cloudant_short_notm}}?
+{: #how-is-data-stored-in-ibm-cloudant-}
 
 ## Conceitos
+{: #concepts}
 
 Cada banco de dados no {{site.data.keyword.cloudantfull}} é formado de um ou mais _shards_ distintos,
 em que o número de shards é referido como _Q_.
@@ -56,6 +65,7 @@ para atingir um bom balanceamento entre o desempenho e a segurança de dados.
 Seria excepcional e incomum para um sistema {{site.data.keyword.cloudant_short_notm}} usar uma contagem de réplica diferente.
 
 ## Como a fragmentação afeta o desempenho?
+{: #how-does-sharding-affect-performance-}
 
 O número de shards para um banco de dados é configurável
 porque afeta o desempenho do banco de dados de várias maneiras.
@@ -109,7 +119,7 @@ para estimar uma contagem de shard apropriada.
 Ao considerar o tamanho dos dados,
 uma consideração importante é o número de documentos por shard.
 Cada shard retém seus documentos em uma grande
-[árvore B ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/B-tree){:new_window}
+[árvore B ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/B-tree){: new_window}
 no disco.
 Os índices são armazenados da mesma maneira.
 Conforme mais documentos são incluídos em um shard,
@@ -136,8 +146,6 @@ e usar essas informações para orientar a futura seleção de um número apropr
 Testar com dados representativos e padrões de solicitação é essencial para uma melhor estimativa de bons valores _Q_.
 Esteja preparado para uma experiência de produção para alterar essas expectativas.
 
-<div id="summary"></div>
-
 As diretrizes simples a seguir podem ser úteis durante os estágios de planejamento iniciais.
 Lembre-se de validar sua configuração proposta testando com dados representativos,
 especificamente para bancos de dados maiores:
@@ -152,16 +160,17 @@ então há pouca necessidade de mais de um único shard.
 considere configurar seu banco de dados para usar 16 shards.
 *	Para bancos de dados ainda maiores,
 considere fragmentar manualmente seus dados em vários bancos de dados.
-	Para esses bancos de dados grandes, entre em contato com o [suporte do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window} para avisos.
+	Para bancos de dados grandes assim,
+entre em contato com [suporte do {{site.data.keyword.cloudant_short_notm}}![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){: new_window} para obter conselhos.
 
->	**Nota:** os números nestas diretrizes são derivados de observação e experiência,
-em vez de cálculo preciso.
-
-<div id="API"></div>
+Os números destas orientações derivam da observação e da experiência, e não de cálculos exactos.
+{: tip}
 
 ## Trabalhando com shards
+{: #working-with-shards}
 
 ### Configurando a contagem de shards
+{: #setting-shard-count}
 
 O número de shards,
 _Q_,
@@ -178,13 +187,13 @@ O parâmetro `q` especifica que oito shards foram criados para o banco de dados.
 ```sh
 curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
-{:codeblock}
+{: codeblock}
 
->	**Nota:** configurar _Q_ para bancos de dados não está ativado para bancos de dados {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud}}.
-	O valor _Q_ não está disponível na maioria dos clusters `cloudant.com` de diversos locatários.
+A configuração de _Q_ para bancos de dados não está ativada para bancos de dados do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud}}. O valor _Q_ não está disponível na maioria dos clusters `cloudant.com` de diversos locatários.
+{: note}
 
-Se você tentar configurar o valor _Q_ quando ele não estiver disponível,
-o resultado será uma [resposta `403`](../api/http.html#403) com um corpo JSON
+Se você tentar configurar o valor _Q_ onde ele não está disponível,
+o resultado será uma [resposta `403`](/docs/services/Cloudant/api/http.html#http-status-codes) com um corpo JSON
 semelhante ao exemplo a seguir:
 
 ```json
@@ -193,20 +202,22 @@ semelhante ao exemplo a seguir:
 	"reason": "q is not configurable"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Configurando a contagem de réplicas
+{: #setting-the-replica-count}
 
 No CouchDB versão 2 em diante,
-você tem permissão para [especificar a contagem de réplicas ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}
+você tem permissão para [especificar a contagem de réplicas ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window}
 ao criar um banco de dados.
 No entanto,
 não tem permissão para mudar o valor da contagem de réplicas do padrão de 3.
 Especificamente,
 não é possível especificar um valor de contagem de réplicas diferente ao criar um banco de dados.
-Para obter ajuda adicional, entre em contato com o [suporte do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){:new_window}.
+Para obter ajuda adicional, entre em contato com o [suporte do {{site.data.keyword.cloudant_short_notm}}![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){: new_window}.
 
 ### Quais são os argumentos _R_ e _W_?
+{: #what-are-the-_r_-and-_w_-arguments-}
 
 Algumas solicitações podem ter argumentos que afetam o comportamento do coordenador quando ele responde à solicitação.
 Esses argumentos são conhecidos como _R_ e _W_ após seus nomes na sequência de consultas da solicitação.
@@ -219,6 +230,7 @@ Por exemplo,
 especificar _R_ ou _W_ não altera a consistência para a leitura ou gravação.
 
 #### O que é _R_?
+{: #what-is-_r_-}
 
 O argumento _R_ pode ser especificado somente em solicitações de documento único.
 _R_ afeta a quantia de respostas que devem ser recebidas pelo coordenador antes de ele responder ao cliente.
@@ -229,8 +241,8 @@ porque o coordenador pode retornar uma resposta mais rapidamente.
 O motivo é que o coordenador deve aguardar apenas uma única resposta
 de qualquer uma das réplicas que hospedam o shard apropriado.
 
->	**Nota:** reduzindo o valor _R_ aumenta a probabilidade de que a resposta retornada não se baseie nos dados mais atualizados por causa do modelo de [consistência eventual](cap_theorem.html) usado pelo {{site.data.keyword.cloudant_short_notm}}.
-	Usar o valor _R_ padrão ajuda a minimizar esse efeito.
+Se você reduzir o valor _R_, ele aumentará a probabilidade de que a resposta que é retornada não seja baseada nos dados mais atualizados por causa do modelo de [consistência eventual](/docs/services/Cloudant/guides/cap_theorem.html)usado pelo {{site.data.keyword.cloudant_short_notm}}. Usar o valor _R_ padrão ajuda a minimizar esse efeito.
+{: note}
 
 O valor padrão para _R_ é _2_.
 Esse valor corresponde à maioria das réplicas para um banco de dados típico que usa três réplicas de shard.
@@ -238,13 +250,15 @@ Se o banco de dados tiver um número de réplicas maior ou menor que 3,
 o valor padrão para _R_ mudará de forma correspondente.
 
 #### O que é _W_?
+{: #what-is-_w_-}
 
 _W_ pode ser especificado somente em solicitações de gravação de documento único.
 
 _W_ é semelhante a _R_,
 porque afeta a quantia de respostas que devem ser recebidas pelo coordenador antes de ele responder ao cliente.
 
->	**Nota:** _W_ não afeta o comportamento de gravação real de nenhuma forma.
+O _W_ não afeta o comportamento de gravação real de nenhuma maneira.
+{: note}
 
 O valor de _W_ não afeta se o documento é gravado no banco de dados ou não.
 Ao especificar um valor _W_,

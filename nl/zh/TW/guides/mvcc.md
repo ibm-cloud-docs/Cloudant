@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
+
+subcollection: cloudant
 
 ---
 
@@ -12,21 +16,26 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 文件版本化及 MVCC
+{: #document-versioning-and-mvcc}
 
-[多版本並行控制 (MVCC) ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window} 是 {{site.data.keyword.cloudantfull}} 資料庫確定資料庫叢集中的所有節點都只包含文件[最新版本](../api/document.html)的方式。
-{:shortdesc}
+[多版本並行控制 (MVCC) ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window} 是 {{site.data.keyword.cloudantfull}} 資料庫確定資料庫叢集中的所有節點都只包含文件[最新版本](/docs/services/Cloudant?topic=cloudant-documents#documents)的方式。
+{: shortdesc}
 
-因為 {{site.data.keyword.cloudant_short_notm}} 資料庫[最終會一致](cap_theorem.html)，所以這是必要項目，可防止因過期文件之間的同步化而導致節點之間造成不一致。
+因為 {{site.data.keyword.cloudant_short_notm}} 資料庫[最終會一致](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem)，所以這是必要項目，可防止因過期文件之間的同步化而導致節點之間造成不一致。
 
 「多版本並行控制 (MVCC)」會啟用 {{site.data.keyword.cloudant_short_notm}} 資料庫的並行讀取及寫入權。
-MVCC 是某種形式的[樂觀併行 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}。它會在 {{site.data.keyword.cloudant_short_notm}} 資料庫上進行更快速的讀取及寫入作業，因為不需要對讀取或寫入作業進行資料庫鎖定。
+MVCC 是某種形式的[樂觀併行 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}。它會在 {{site.data.keyword.cloudant_short_notm}} 資料庫上進行更快速的讀取及寫入作業，因為不需要對讀取或寫入作業進行資料庫鎖定。
 MVCC 也會在 {{site.data.keyword.cloudant_short_notm}} 資料庫節點之間啟用同步化。
 
 ## 修訂
+{: #revisions}
 
 {{site.data.keyword.cloudant_short_notm}} 資料庫中的每份文件都會有指出其修訂號碼的 `_rev` 欄位。
 
@@ -37,20 +46,19 @@ MVCC 也會在 {{site.data.keyword.cloudant_short_notm}} 資料庫節點之間�
 1.  判定必須在伺服器之間抄寫的文件。
 2.  確認用戶端正在嘗試修改最新版本的文件。
 
-您必須在[更新文件](../api/document.html#update)時指定前一個 `_rev`，否則您的要求會失敗，並傳回 [409 錯誤](../api/http.html#409)。
+您必須在[更新文件](/docs/services/Cloudant?topic=cloudant-documents#update)時指定前一個 `_rev`，否則您的要求會失敗，並傳回 [409 錯誤](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)。
 
->   **附註**：不應該使用 `_rev` 來建置版本控制系統。
-    原因是它為伺服器所使用的內部值。此外，較舊的文件修訂是暫時項目，因此會定期予以移除。
+不應該使用 `_rev` 來建置版本控制系統。原因是它為伺服器所使用的內部值。此外，較舊的文件修訂是暫時項目，因此會定期予以移除。
+{: note}
 
-
-
-您可以使用 `_rev` 來查詢特定修訂，不過，稱為[壓縮 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Data_compaction){:new_window} 的處理程序會定期刪除較舊的修訂。壓縮的結果是使用 `_rev` 查詢特定文件修訂以取得您文件的修訂歷程時，您無法依賴成功回應。如果您需要文件的版本歷程，則解決方案是針對每一個修訂[建立新的文件](../api/document.html#documentCreate)。
+您可以使用 `_rev` 來查詢特定修訂，不過，稱為[壓縮 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Data_compaction){: new_window} 的處理程序會定期刪除較舊的修訂。壓縮的結果是使用 `_rev` 查詢特定文件修訂以取得您文件的修訂歷程時，您無法依賴成功回應。如果您需要文件的版本歷程，則解決方案是針對每一個修訂[建立新的文件](/docs/services/Cloudant?topic=cloudant-documents#create-document)。
 
 ## 分散式資料庫及衝突
+{: #distributed-databases-and-conflicts}
 
 分散式資料庫是在未持續連線至 {{site.data.keyword.cloudant_short_notm}} 上本身為分散式的主要資料庫的情況下運作，因此根據相同舊版本的更新仍然可能會發生衝突。
 
-若要尋找衝突，請在擷取文件時新增查詢參數 [`conflicts=true`](../api/database.html#get-changes)。回應包含具有所有衝突修訂的 `_conflicts` 陣列。
+若要尋找衝突，請在擷取文件時新增查詢參數 [`conflicts=true`](/docs/services/Cloudant?topic=cloudant-databases#get-changes)。回應包含具有所有衝突修訂的 `_conflicts` 陣列。
 
 若要尋找資料庫中多份文件的衝突，請撰寫視圖。
 
@@ -65,11 +73,12 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 您可以定期查詢此視圖，並視需要解決衝突，或在每一次抄寫之後查詢視圖。
 
-## 如何解決衝突
+## 解決衝突的步驟
+{: #steps-to-resolve-conflicts}
 
 在您找到衝突之後，可以使用 4 個步驟進行解決。
 
@@ -89,7 +98,7 @@ function (doc) {
     "price": 650
 }
 ```
-{:codeblock}
+{: codeblock}
 
 文件還沒有說明時，可能會有人新增說明：
 
@@ -104,7 +113,7 @@ _透過新增說明所建立的文件的第二個版本：_
     "price": 650
 }
 ```
-{:codeblock}
+{: codeblock}
 
 同時，其他人（使用抄寫的資料庫）會降低價格：
 
@@ -119,11 +128,12 @@ _因不同 `price` 值而與前一個修訂衝突的不同修訂：_
     "price": 600
 }
 ```
-{:codeblock}
+{: codeblock}
 
 接著會抄寫兩個資料庫。文件版本中的差異會導致衝突。
 
 ### 取得衝突修訂
+{: #get-conflicting-revisions}
 
 您可以使用 `conflicts=true` 選項來識別發生衝突的文件。
 
@@ -132,7 +142,7 @@ _尋找發生衝突的文件的範例：_
 ```http
 http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
 ```
-{:codeblock}
+{: codeblock}
 
 _顯示影響文件的衝突修訂的範例回應：_
 
@@ -146,11 +156,12 @@ _顯示影響文件的衝突修訂的範例回應：_
     "_conflicts":["2-61ae00e029d4f5edd2981841243ded13"]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 已任意選擇具有已變更價格的版本，因為文件的最新版本以及與另一個版本的衝突的標記方式是在 `_conflicts` 陣列中提供該其他版本的 ID。在大部分情況下，此陣列只有一個元素，但可能會有許多衝突修訂。
 
 ### 合併變更
+{: #merge-the-changes}
 
 若要比較修訂以查看變更內容，您的應用程式會從資料庫中取得所有版本。
 
@@ -161,7 +172,7 @@ http://$ACCOUNT.cloudant.com/products/$_ID
 http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 http://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299
 ```
-{:codeblock}
+{: codeblock}
 
 因為衝突變更是針對文件的不同欄位，所以很容易就可以合併它們。
 
@@ -171,9 +182,10 @@ http://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c329
 *   使用者人為介入：向使用者報告衝突，並讓他們決定最佳解決方案。
 *   更準確的演算法：例如，文字欄位的 3 方合併。
 
-如需如何實作變更合併的實際範例，請參閱[這個含有範例程式碼的專案 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/glynnbird/deconflict){:new_window}。
+如需如何實作變更合併的實際範例，請參閱這個含有[範例程式碼 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/glynnbird/deconflict){: new_window} 的專案。
 
 ### 上傳新的修訂
+{: #upload-the-new-revision}
 
 下一步是建立可解決衝突的文件，並使用它來更新資料庫。
 
@@ -188,9 +200,10 @@ _合併兩個衝突修訂的變更的範例文件：_
     "price": 600
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### 刪除舊的修訂
+{: #delete-old-revisions}
 
 最後，您可以將 `DELETE` 要求傳送至含有我們要刪除之修訂的 URL，來刪除舊的修訂。
 
@@ -199,13 +212,13 @@ _使用 HTTP 刪除舊文件修訂的範例要求：_
 ```http
 DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 ```
-{:codeblock}
+{: codeblock}
 
 _使用指令行刪除舊文件修訂的範例要求：_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121" -X DELETE
 ```
-{:codeblock}
+{: codeblock}
 
 此時，即會解決影響文件的衝突。驗證這項作業的方式是將 `conflicts` 參數設為 `true` 來重新 `GET`（取得）文件。

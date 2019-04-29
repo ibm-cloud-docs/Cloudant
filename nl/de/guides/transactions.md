@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: generate uuid, record payments, add additional documents, advantages
+
+subcollection: cloudant
 
 ---
 
@@ -12,10 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Zugehörige Dokumente in {{site.data.keyword.cloudant_short_notm}} gruppieren
+{: grouping-related-documents-together-in-ibm-cloudant}
 
 Herkömmlicherweise werden E-Commerce-Systeme mit relationalen Datenbanken erstellt.
 Diese Datenbanken verwenden üblicherweise eine Reihe von verknüpften Tabellen zur Aufzeichnung von Umsätzen, Kundendetails, gekauften Produkten und Informationen zur Zustellungsverfolgung.
@@ -79,7 +87,7 @@ _Beispieldokument für einen Einkauf:_
     "total": 26.46
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Dieses Dokument liefert genug Daten zu einem Einkaufsdatensatz, um eine Zusammenfassung einer Bestellung auf einer Webseite anzugeben oder in einer E-Mail,
 ohne zusätzliche Datensätze abrufen zu müssen.
@@ -98,18 +106,20 @@ zu dem Zeitpunkt, als er auf der Website in die Check-out-Phase eintritt,
 ein Bestellungsdatensatz ähnlich dem vorherigen Beispiel erzeugt. 
 
 ## Eindeutige IDs generieren
+{: #generating-your-own-unique-identifiers-uuids-}
 
 In einer relationalen Datenbank werden die sequenziellen, autoinkrementellen Zahlen oft verwendet,
 aber in verteilten Datenbanken, in denen Daten über ein Cluster von Servern verteilt sind, werden längere
 eindeutige IDs verwendet, um sicherzustellen, dass Dokumente mit ihrer eigenen eindeutigen ID gespeichert werden.
 
-Um eindeutige IDs für die Verwendung in Ihrer Anwendung zu erstellen, z. B. eine
-`order_id`, rufen Sie den Endpunkt [`GET _uuids`](../api/advanced.html#-get-_uuids-)
-in der {{site.data.keyword.cloudant_short_notm}}-API auf.
+Um eine eindeutige ID für die Verwendung in Ihrer Anwendung zu erstellen (z. B. eine
+Bestell-ID (`order_id`), rufen Sie den
+[Endpunkt `GET _uuids`](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_uuids-) in der {{site.data.keyword.cloudant_short_notm}}-API auf.
 Die Datenbank generiert eine ID für Sie.
 Derselbe Endpunkt kann zum Generieren mehrerer IDs verwendet werden, indem ein Parameter `count` hinzugefügt wird, z. B. `/_uuids?count=10`.
 
 ## Aufzeichnen von Zahlungen
+{: #recording-payments}
 
 Wenn der Kunde erfolgreich seine Artikel kauft,
 werden zusätzliche Datensätze zur Datenbank hinzugefügt, um die Bestellung aufzuzeichnen.
@@ -137,7 +147,7 @@ _Beispiel eines Zahlungsdatensatzes:_
     "payment_reference": "Q88775662377224"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Im vorherigen Beispiel hat der Kunde mit einer Kreditkarte bezahlt und einen Gutschein eingelöst.
 Die Summe der beiden Zahlungen ergibt den Betrag der Bestellung.
@@ -164,10 +174,10 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
-Mithilfe der integrierten ['reduce'-Funktion `_sum`](../api/creating_views.html#built-in-reduce-functions)
-können Sie eine Ausgabe in Form eines Hauptbuchs von Zahlungsereignissen erzeugen.
+Mithilfe der integrierten ['reduce'-Funktion `_sum`](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)
+können Sie eine Ausgabe in Form eines Hauptbuchs für Zahlungsereignisse erstellen.
 
 _Beispiel für die Verwendung der integrierten 'reduce'-Funktion `_sum`, abgefragt mit `?reduce=false`:_
 
@@ -192,7 +202,7 @@ _Beispiel für die Verwendung der integrierten 'reduce'-Funktion `_sum`, abgefra
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Alternativ könnten Sie Gesamtwerte nach `order_id` erzeugen.
 
@@ -208,7 +218,7 @@ _Beispiel von nach `order_id` gruppierten Gesamtsummen, mit `?group_level=1`:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Da die Ansicht im vorherigen Beispiel für den Bestellwert '0' zurückgibt, zeigt das Ergebnis an, dass die Bestellung vollständig bezahlt wurde.
 Der positive Wert des Einkaufsauftrags wird durch die negativen Zahlungsbeträge ausgeglichen.
@@ -217,6 +227,7 @@ hat sich in {{site.data.keyword.cloudant_short_notm}} bewährt, da es Konflikte 
 wenn mehrere Prozesse dasselbe Dokument gleichzeitig ändern.
 
 ## Zusätzliche Dokumente hinzufügen
+{: #adding-additional-documents}
 
 Sie könnten weitere separate Dokumente zur Datenbank hinzufügen, um die folgenden Statusänderungen aufzuzeichnen, während die Bestellung bereitgestellt und versendet wird:
 
@@ -229,6 +240,7 @@ jedes Dokument.
 Deshalb ist es nicht erforderlich, das zentrale Einkaufsdokument zu ändern.
 
 ## Vorteile des Speicherns von Bestellungen mit {{site.data.keyword.cloudant_short_notm}}
+{: #advantages-of-storing-purchase-orders-in-ibm-cloudant}
 
 Das Speichern von Bestellinformationen mit {{site.data.keyword.cloudant_short_notm}} macht ein Bestellsystem
 hoch verfügbar und skalierbar, d. h. Sie können große Mengen von Daten und viele parallele Zugriffe verarbeiten.

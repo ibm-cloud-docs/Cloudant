@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
+
+subcollection: cloudant
 
 ---
 
@@ -12,50 +16,54 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}}에서의 간단한 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 작성 및 채우기
+{: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}
 
-이 튜토리얼은 [Python 프로그래밍 언어 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.python.org/){:new_window}를 사용하여
+이 튜토리얼은 [Python 프로그래밍 언어 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.python.org/){: new_window}를 사용하여
 {{site.data.keyword.cloud_notm}} 서비스 인스턴스에 {{site.data.keyword.cloudantfull}} 데이터베이스를 작성하고 이 데이터베이스를 간단한 데이터 콜렉션으로 채우는 방법을 보여줍니다.
-{:shortdesc}
+{: shortdesc}
 
-## 전제조건
+## 선행 조건
+{: prerequisites}
 
 이 튜토리얼을 시작하기 전에 다음 리소스 또는 정보가 준비되어 있는지 확인하십시오.
 
 ### Python
+{: #python-create-database}
 
-시스템에 [Python 프로그래밍 언어 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.python.org/){:new_window}의 현재 버전이 설치되어 있어야 합니다.
+시스템에 [Python 프로그래밍 언어 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.python.org/){: new_window}의 현재 버전이 설치되어 있어야 합니다.
 
 이를 확인하려면 프롬프트에서 다음 명령을 실행하십시오.
 
 ```sh
 python --version
 ```
-{:pre}
+{: pre}
 
 다음과 유사한 결과를 얻게 됩니다.
 
 ```
 Python 2.7.12
 ```
-{:codeblock}
+{: codeblock}
 
 ### {{site.data.keyword.cloudant_short_notm}}용 Python 클라이언트 라이브러리
+{: #python-client-library-for-ibm-cloudant}
 
-Python 애플리케이션이 {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}}와 함께 작동할 수 있게 해 주는
-[공식 지원 라이브러리](../libraries/supported.html#python)가 있습니다.
-
-[여기](../libraries/supported.html#python)에 제공된 지시사항을 사용하여 이를 설치해야 합니다.
+Python 애플리케이션이 {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}}와 함께 작동할 수 있게 해 주는 [공식 지원 라이브러리](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported)가 있습니다. 제공된 지시사항을 사용하여 설치하십시오. 
 
 클라이언트 라이브러리를 설치했는지 확인하려면 프롬프트에서 다음 명령을 실행하십시오.
 
 ```sh
 pip freeze
 ```
-{:pre}
+{: pre}
 
 시스템에 설치된 모든 Python 모듈의 목록이 표시됩니다.
 목록을 확인하여 다음과 유사한 {{site.data.keyword.cloudant_short_notm}} 항목을 찾으십시오.
@@ -63,11 +71,12 @@ pip freeze
 ```
 cloudant==2.3.1
 ```
-{:codeblock}
+{: codeblock}
 
-### {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스
+### {{site.data.keyword.cloud_notm}}에서 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스 작성
+{: #creating-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-적절한 서비스 인스턴스를 작성하는 프로세스는 [이 튜토리얼](create_service.html)에 설명되어 있습니다.
+적절한 서비스 인스턴스를 작성하는 프로세스는 [이 튜토리얼](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)에 설명되어 있습니다.
 
 서비스 인스턴스에 대해 다음 서비스 인증 정보가 사용 가능한지 확인하십시오.
 
@@ -79,22 +88,23 @@ cloudant==2.3.1
 `port`     |호스트의 서비스 인스턴스에 액세스하는 데 필요한 HTTP 포트 번호입니다. 보통 HTTPS 액세스를 강제하려는 경우에는 443이 사용됩니다.
 `url`      |애플리케이션에서 사용하기에 적합하도록 기타 인증 정보를 하나의 URL로 통합하는 문자열입니다.
 
-서비스 인스턴스의 서비스 인증 정보를 찾는 데 대한 정보는 [여기](create_service.html#locating-your-service-credentials)에 있습니다.
+서비스 인스턴스의 서비스 인증 정보를 찾는 데 대한 정보는 [여기](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)에 있습니다.
 
 ## 내용
+{: #context}
 
 이 튜토리얼에서는 다음 태스크에 적합한 일련의 Python 언어 명령을 빌드합니다.
 
-1.  [{{site.data.keyword.cloud}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 연결합니다](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud).
+1.  [{{site.data.keyword.cloud}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 연결합니다](#connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud).
 2.  [서비스 인스턴스 내에 데이터베이스를 작성합니다](#creating-a-database-within-the-service-instance).
 3.  [소량의 데이터 콜렉션을 문서로서 데이터베이스 내에 저장합니다](#storing-a-small-collection-of-data-as-documents-within-the-database).
-4.  [문서의 전체 목록을 검색합니다](#retrieving-a-complete-list-of-the-documents).
+4.  [데이터를 검색합니다.](#retrieving-data).
 5.  [데이터베이스를 삭제합니다](#deleting-the-database).
 6.  [서비스 인스턴스에 대한 연결을 닫습니다](#closing-the-connection-to-the-service-instance).
 
 각 태스크를 위한 특정 Python 코드는 이 튜토리얼에서 해당 태스크 설명의 일부로 제공되어 있습니다.
 
-모든 태스크를 수행하기 위한 전체 Python 프로그램은 튜토리얼의 끝([여기](#complete-listing))에 제공되어 있습니다.
+모든 태스크를 수행하기 위한 전체 Python 프로그램은 [전체 목록](#complete-listing)을 참조하십시오.
 
 이 튜토리얼의 Python 코드를 작성하는 데 있어서 _효율성_은 고려되지 않았습니다. 이 코드의 의도는 참조하여 자신의 애플리케이션에 적용할 수 있는, 간단하고 이해하기 쉬운 작동 코드를 보여주는 것입니다.
 
@@ -103,6 +113,7 @@ cloudant==2.3.1
 자신의 애플리케이션에서 발생한 모든 경고 및 오류 상태를 확인하고 처리해야 합니다. 
 
 ## {{site.data.keyword.cloudant_short_notm}}{{site.data.keyword.cloud_notm}}의 서비스 인스턴스에 연결
+{: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
 Python 애플리케이션이 서비스 인스턴스에 연결하려면 {{site.data.keyword.cloudant_short_notm}} 클라이언트 라이브러리 컴포넌트가 필요합니다.
 이들 컴포넌트는 보통 `import`문으로 식별됩니다.
@@ -112,16 +123,16 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 ```
-{:codeblock}
+{: codeblock}
 
-애플리케이션에는 서비스의 [서비스 인증 정보](create_service.html#locating-your-service-credentials)가 있어야 합니다.
+애플리케이션에는 서비스의 [서비스 인증 정보](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)가 있어야 합니다.
 
 ```python
 serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
 servicePassword = "49c0c343d225623956157d94b25d574586f26d1211e8e589646b4713d5de4801"
 serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
-{:codeblock}
+{: codeblock}
 
 여기에 나와 있는 서비스 인증 정보
 데모 {{site.data.keyword.cloudant_short_notm}} 서비스가 {{site.data.keyword.cloud_notm}}에 작성될 때 정의되었습니다.
@@ -129,7 +140,7 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
     그러나 해당 데모 {{site.data.keyword.cloudant_short_notm}} 서비스는 현재 제거되었으며,
     따라서 이들 인증 정보는 작동하지 않습니다. 사용자는 _반드시_ 자신의
     서비스 인증 정보를 제공하여 사용해야 합니다.
-{: tip}
+{:  tip}
 
 애플리케이션 내에서 Python 클라이언트 라이브러리를 사용으로 설정하고 서비스 인증 정보를 식별한 후에는 서비스 인스턴스에 대한 연결을 설정할 수 있습니다.
 
@@ -137,11 +148,12 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 client.connect()
 ```
-{:codeblock}
+{: codeblock}
 
 이 시점에서, 사용자의 Python 애플리케이션은 {{site.data.keyword.cloud_notm}}의 서비스 인스턴스에 대한 액세스 권한을 갖고 있습니다.
 
 ## 서비스 인스턴스 내에 데이터베이스 작성
+{: #creating-a-database-within-the-service-instance}
 
 다음 단계는 서비스 인스턴스 내에 `databasedemo`라는 데이터베이스를 작성하는 것입니다.
 
@@ -150,14 +162,14 @@ client.connect()
 ```python
 databaseName = "databasedemo"
 ```
-{:codeblock}
+{: codeblock}
 
 그 후 데이터베이스를 작성합니다.
 
 ```python
 myDatabaseDemo = client.create_database(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 다음과 같이 데이터베이스가 작성되었는지 확인하는 것이 좋습니다.
 
@@ -165,9 +177,10 @@ myDatabaseDemo = client.create_database(databaseName)
 if myDatabaseDemo.exists():
     print "'{0}' successfully created.\n".format(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 ## 소량의 데이터 콜렉션을 문서로서 데이터베이스 내에 저장
+{: #storing-a-small-collection-of-data-as-documents-within-the-database}
 
 이제 소량의 간단한 데이터 콜렉션을 데이터베이스에 저장합니다.
 
@@ -182,7 +195,7 @@ sampleData = [
     [5, "five", "freezing", 0]
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 그 다음에는 일반 Python 코드가 데이터를 '단계적으로' JSON 문서로 변환합니다.
 각 문서는 데이터베이스에 저장됩니다.
@@ -213,16 +226,18 @@ for document in sampleData:
     if newDocument.exists():
         print "Document '{0}' successfully created.".format(number)
 ```
-{:codeblock}
+{: codeblock}
 
 코드 예를 보면 각 문서가 작성되었는지 확인하는 것을 볼 수 있습니다.
 
 ## 데이터 검색
+{: #retrieving-data}
 
 이 시점에는 소량의 데이터 콜렉션이 문서로서 데이터베이스 내에 저장되어 있습니다.
 이제 데이터베이스로부터 데이터를 검색하는 다양한 방법을 보여주는 일련의 조회를 수행할 수 있습니다.
 
 ### 문서의 최소 검색
+{: #a-minimal-retrieval-of-a-document}
 
 최소 검색을 수행하기 위해서는 먼저 데이터베이스 내 모든 문서의 목록을 요청합니다.
 이 목록은 배열로 리턴됩니다.
@@ -234,7 +249,7 @@ for document in sampleData:
 result_collection = Result(myDatabaseDemo.all_docs)
 print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
-{:codeblock}
+{: codeblock}
 
 결과는 다음 예와 유사합니다.
 
@@ -249,16 +264,17 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
-{{site.data.keyword.cloudant_short_notm}}와 같은
-    NoSQL 데이터베이스의 특성은
-    데이터베이스에 저장된 첫 번째 문서가
-    항상 결과 목록에서 처음으로 리턴된다는 단순한 생각이
-    언제나 옳은 것은 아님을 의미합니다.
+NoSQL 데이터베이스의 네이처, 
+    예를 들어, {{site.data.keyword.cloudant_short_notm}}는
+    데이터베이스에 저장된 첫 번째 문서가 항상 결과 목록에서
+    처음으로 리턴된다는 단순한 생각이 언제나 옳은 것은 아님을
+    의미합니다.
 {: tip}
 
 ### 문서의 전체 검색
+{: #full-retrieval-of-a-document}
 
 전체 검색을 수행하기 위해서는 데이터베이스 내 모든 문서의 목록을 요청하고, 추가로 문서 컨텐츠 또한 리턴되어야 함을 지정합니다.
 이는 `include_docs` 옵션을 사용하여 수행합니다.
@@ -272,7 +288,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
 print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
-{:codeblock}
+{: codeblock}
 
 결과는 다음 예와 유사합니다.
 
@@ -282,27 +298,28 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
         "value": {
           "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
         },
-        "id": "14746fe384c7e2f06f7295403df89187",
-        "key": "14746fe384c7e2f06f7295403df89187",
-        "doc": {
+            "id": "14746fe384c7e2f06f7295403df89187",
+            "key": "14746fe384c7e2f06f7295403df89187",
+            "doc": {
             "temperatureField": 10,
-            "descriptionField": "cold",
-            "numberField": 4,
-            "nameField": "four",
-            "_id": "14746fe384c7e2f06f7295403df89187",
-            "_rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
-        }
+                "descriptionField": "cold",
+                "numberField": 4,
+                "nameField": "four",
+                "_id": "14746fe384c7e2f06f7295403df89187",
+                "_rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
+            }
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ## 직접 {{site.data.keyword.cloudant_short_notm}} API 엔드포인트 호출
+{: #calling-an-ibm-cloudant-api-endpoint-directly}
 
 Python 애플리케이션 내에서 {{site.data.keyword.cloudant_short_notm}} API 엔드포인트에 대해 직접 작업을 수행할 수도 있습니다.
 
 이 코드 예에서는 다시 한 번 컨텐츠를 포함하는 모든 문서의 목록을 요청합니다.
-그러나 이번에는 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 엔드포인트](../api/database.html#get-documents)를 호출하여 이를 수행합니다.
+그러나 이번에는 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 엔드포인트](/docs/services/Cloudant?topic=cloudant-databases#get-documents)를 호출하여 이를 수행합니다.
 
 먼저 접속할 엔드포인트, 그리고 호출과 함께 제공할 매개변수를 식별합니다.
 
@@ -310,7 +327,7 @@ Python 애플리케이션 내에서 {{site.data.keyword.cloudant_short_notm}} AP
 end_point = '{0}/{1}'.format(serviceURL, databaseName + "/_all_docs")
 params = {'include_docs': 'true'}
 ```
-{:codeblock}
+{: codeblock}
 
 그 다음에는 서비스 인스턴스에 요청을 전송한 후 결과를 표시합니다.
 
@@ -318,7 +335,7 @@ params = {'include_docs': 'true'}
 response = client.r_session.get(end_point, params=params)
 print "{0}\n".format(response.json())
 ```
-{:codeblock}
+{: codeblock}
 
 결과는 다음 _축약된_ 예와 유사합니다.
 
@@ -362,9 +379,10 @@ print "{0}\n".format(response.json())
     "offset": 0
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## 데이터베이스 삭제
+{: #deleting-the-database}
 
 데이터베이스 작업을 완료한 후에는 이를 삭제할 수 있습니다.
 
@@ -378,20 +396,22 @@ except CloudantException:
 else:
     print "'{0}' successfully deleted.\n".format(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 여기에는 문제점을 발견하고 해결하는 방법을 보여주는 몇 가지 기본 오류 처리 방법이 포함되어 있습니다.
 
 ## 서비스 인스턴스에 대한 연결 닫기
+{: #closing-the-connection-to-the-service-instance}
 
 마지막 단계는 서비스 인스턴스로부터 Python 클라이언트 애플리케이션의 연결을 끊는 것입니다.
 
 ```python
 client.disconnect()
 ```
-{:codeblock}
+{: codeblock}
 
 ## 전체 목록
+{: #complete-listing}
 
 다음 코드는 {{site.data.keyword.cloud_notm}}의
 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 액세스하여 다음과 같은 일련의 일반 태스크를 수행하는 전체 Python 프로그램입니다.
@@ -537,4 +557,4 @@ print "===\n"
 # Say good-bye.
 exit()
 ```
-{:codeblock}
+{: codeblock}

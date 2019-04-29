@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
+
+subcollection: cloudant
 
 ---
 
@@ -12,14 +16,18 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Configurazione di {{site.data.keyword.cloudant_short_notm}} per il ripristino di emergenza in più regioni
+{: #configuring-ibm-cloudant-for-cross-region-disaster-recovery}
 
-La [guida al ripristino di emergenza di {{site.data.keyword.cloudant_short_notm}}](disaster-recovery-and-backup.html)
+La [guida al ripristino di emergenza di {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
 spiega che un modo per abilitare il ripristino di emergenza è quello di utilizzare la replica
-{{site.data.keyword.cloudantfull}} per creare ridondanza in più regioni.
+[{{site.data.keyword.cloudantfull}} per creare ridondanza in più regioni. 
 
 Puoi configurare la replica in {{site.data.keyword.cloudant_short_notm}} utilizzando una topologia 'attivo-attivo'
 o 'attivo-passivo' tra i data center.
@@ -42,18 +50,19 @@ uno in ogni regioni:
 * {{site.data.keyword.cloudant_short_notm}} non monitora le singole repliche.
   È consigliabile utilizzare la nostra strategia per individuare le repliche non riuscite e riavviarle.
 
-## Prima di iniziare
+## Prima di iniziare una distribuzione attivo-attivo
+{: #before-you-begin-an-active-active-deployment}
 
-> **Nota**: per una distribuzione attivo-attivo,
-  è necessario adottare una strategia per la gestione dei conflitti.
-  Pertanto, assicurati di capire come funzionino la [replica](../api/replication.html) e i
-  [conflitti](mvcc.html#distributed-databases-and-conflicts)
+Per una distribuzione attivo-attivo, è necessario adottare una strategia per la gestione dei conflitti. Pertanto, assicurati di capire come funzionino la [replica](/docs/services/Cloudant?topic=cloudant-replication-api#replication-api) e i
+  [conflitti](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc)
   prima di considerare questa architettura.
+{: note}
 
-Contatta il [supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}
+Contatta il [supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){: new_window}
 se hai bisogno di aiuto su come modellare i dati per gestire efficacemente i conflitti.
 
 ## Panoramica
+{: #overview-active-active}
 
 Nel seguente materiale
 viene creata una replica bidirezionale.
@@ -77,8 +86,9 @@ la procedura di base è la seguente:
   o attivo-passivo dei database.
 
 ## Passo 1: crea i tuoi database
+{: #step-1-create-your-databases}
 
-[Crea i database](../api/database.html#create) tra cui vuoi eseguire la replica
+[Crea i database](/docs/services/Cloudant?topic=cloudant-databases#create-database) tra cui vuoi eseguire la replica
 all'interno di ciascun account.
 
 In questo esempio,
@@ -91,11 +101,12 @@ ma utilizzando lo stesso nome è più comprensibile.
 curl https://myaccount-dc1.cloudant.com/mydb -XPUT -u myaccount-dc1
 curl https://myaccount-dc2.cloudant.com/mydb -XPUT -u myaccount-dc2
 ```
-{:codeblock}
+{: codeblock}
 
 ## Passo 2: crea una chiave API per le tue repliche
+{: #step-2-create-an-api-key-for-your-replications}
 
-È una buona idea utilizzare una [chiave API](../api/authorization.html#api-keys) per le repliche continue.
+È una buona idea utilizzare una [chiave API](/docs/services/Cloudant?topic=cloudant-authorization#api-keys) per le repliche continue.
 Il vantaggio è che se i dettagli del tuo account primario cambiano,
 ad esempio dopo una reimpostazione della password,
 le repliche possono continuare invariate.
@@ -110,7 +121,7 @@ il seguente comando richiede una chiave API per l'account `myaccount-dc1`:
 ```sh
 $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-dc1
 ```
-{:codeblock}
+{: codeblock}
 
 Una risposta positiva è simile al seguente esempio abbreviato:
 
@@ -121,24 +132,26 @@ Una risposta positiva è simile al seguente esempio abbreviato:
   "key": "ble...igl"
 }
 ```
-{:codeblock}
+{: codeblock}
 
-> **Nota**: prendi attentamente nota della password.
-  Non è possibile recuperare la password in seguito.
+Prendi attentamente nota della password. Non è possibile recuperare la password in seguito.
+{: important}
 
-### Passo 3: concedi l'autorizzazione di accesso
+## Passo 3: concedi l'autorizzazione di accesso
+{: #step-3-grant-access-permission}
 
-[Concedi l'autorizzazione per la chiave API](../api/authorization.html#modifying-permissions)
+[Concedi l'autorizzazione per la chiave API](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)
 per leggere e scrivere su entrambi i database.
 
 Se vuoi replicare anche gli indici,
 assegna le autorizzazioni di amministratore.
 
 Utilizza il Dashboard {{site.data.keyword.cloudant_short_notm}}
-o, in alternativa, consulta le informazioni sulle [autorizzazioni](../api/authorization.html)
+o, in alternativa, consulta le informazioni sulle [autorizzazioni](/docs/services/Cloudant?topic=cloudant-authorization#authorization)
 per dettagli su come concedere le autorizzazioni in modo programmatico.
 
-### Passo 4: imposta le repliche
+## Passo 4: imposta le repliche
+{: #step-4-set-up-replications}
 
 Le repliche in {{site.data.keyword.cloudant_short_notm}} sono sempre unidirezionali:
 da un database a un altro database.
@@ -164,7 +177,7 @@ curl -XPOST 'https://myaccount-dc1.cloudant.com/_replicator'
 	"continuous": true
 }'
 ```
-{:codeblock}
+{: codeblock}
 
 Quindi,
 crea una replica dal database `myaccount-dc2.cloudant.com/mydb` al
@@ -180,12 +193,13 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 	"continuous": true
 }'
 ```
-{:codeblock}
+{: codeblock}
 
-> **Nota:** se questo passo non riesce perché il database `_replicator` non esiste,
-  crea il database.
+Se questo passo non riesce perché il database `_replicator` non esiste, crealo.
+{: note}
 
-### Passo 5: verifica la tua replica
+## Passo 5: verifica la tua replica
+{: #step-5-test-your-replication}
 
 Verifica i processi di replica creando,
 modificando ed
@@ -194,7 +208,8 @@ eliminando i documenti in entrambi i database.
 Dopo ogni modifica in un database,
 verifica che sia possibile vedere la modifica applicata anche nell'altro database.
 
-### Passo 6: configura la tua applicazione
+## Passo 6: configura la tua applicazione
+{: #step-6-configure-your-application}
 
 A questo punto,
 i database sono impostati per rimanere sincronizzati tra di loro.
@@ -202,7 +217,8 @@ i database sono impostati per rimanere sincronizzati tra di loro.
 La decisione successiva è quella di scegliere se utilizzare i database in modo
 [attivo-attivo](#active-active) o [attivo-passivo](#active-passive).
 
-#### Attivo-attivo
+### Attivo-attivo
+{: #active-active}
 
 In una configurazione attivo-attivo,
 diverse istanze dell'applicazione possono scrivere in diversi
@@ -227,7 +243,8 @@ Allo stesso modo,
 per le applicazioni ospitate in DC2,
 imposterai il loro URL {{site.data.keyword.cloudant_short_notm}} su `"https://myaccount-dc2.cloudant.com/mydb"`.
 
-#### Attivo-passivo
+### Attivo-passivo
+{: #active-passive}
 
 In una configurazione attivo-passivo,
 tutte le istanze di un'applicazione sono configurate per utilizzare un database primario.
@@ -242,11 +259,12 @@ Un semplice test per stabilire se è necessario un failover potrebbe essere quel
 di utilizzare l'endpoint del database principale come 'heartbeat'.
 Ad esempio,
 una semplice richiesta `GET` inviata all'endpoint del database principale normalmente restituisce i
-[dettagli sul database](../api/database.html#getting-database-details).
+[dettagli sul database](/docs/services/Cloudant?topic=cloudant-databases#getting-database-details).
 Se non viene ricevuta alcuna risposta,
 ciò potrebbe indicare che è necessario un failover.
 
-#### Altre configurazioni
+### Altre configurazioni
+{: #other-configurations}
 
 Potresti considerare altri approcci ibridi per la tua configurazione.
 
@@ -255,14 +273,16 @@ in una configurazione 'Write-Primary, Read-Replica',
 tutte le scritture vanno in un database,
 ma il carico di lettura viene diffuso tra le repliche.
 
-### Passo 7: passi successivi
+## Passo 7: passi successivi
+{: #step-7-next-steps}
 
-* Valuta la possibilità di monitorare le [repliche](../api/advanced_replication.html) tra i database.
+* Valuta la possibilità di monitorare le [repliche](/docs/services/Cloudant?topic=cloudant-advanced-replication#advanced-replication) tra i database.
   Utilizza i dati per determinare se la tua configurazione potrebbe essere ottimizzata ulteriormente.
 *	Considera in che modo vengono distribuiti e aggiornati i documenti di progettazione e gli indici.
   Potrebbe essere un modo più efficiente per automatizzare queste attività.
 
 ## Failover tra le regioni {{site.data.keyword.cloudant_short_notm}}
+{: #failing-over-between-ibm-cloudant-regions}
 
 Generalmente,
 il processo di gestione di un failover tra regioni o data center viene gestito a livello superiore all'interno del tuo stack dell'applicazione,
@@ -280,19 +300,21 @@ Tuttavia,
 se stabilisci che hai bisogno della capacità di gestire i failover,
 alcune opzioni possibili includono:
 
-* Metti il tuo [proxy HTTP davanti a {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/greenmangaming/cloudant-nginx){:new_window}.
+* Metti il tuo [proxy HTTP davanti a {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/greenmangaming/cloudant-nginx){: new_window}.
   Configura l'applicazione per parlare con il proxy anziché con l'istanza {{site.data.keyword.cloudant_short_notm}}.
   Questa configurazione significa che l'attività di modifica delle istanze {{site.data.keyword.cloudant_short_notm}}
   utilizzate dalle applicazioni può essere gestita tramite una modifica alla configurazione proxy
   anziché una modifica alle impostazioni dell'applicazione.
   Molti proxy hanno la capacità di bilanciare il carico,
   in base ai controlli di integrità definiti dall'utente.
-* Utilizza un programma di bilanciamento del carico globale come [Traffic Director ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://dyn.com/traffic-director/){:new_window} da indirizzare a {{site.data.keyword.cloudant_short_notm}}.
+* Utilizza un programma di bilanciamento del carico globale come [{{site.data.keyword.cloud}} Internet Services ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} o [Dyn Traffic Director ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://dyn.com/traffic-director/){: new_window} per l'indirizzamento a {{site.data.keyword.cloudant_short_notm}}.
   Questa opzione richiede una definizione `CNAME` che indirizzi a
   diversi account {{site.data.keyword.cloudant_short_notm}}
    sulla base di un controllo di integrità o una regola di latenza.
 
+
 ## Ripristino da un failover
+{: #recovering-from-fail-over}
 
 Se una singola istanza di {{site.data.keyword.cloudant_short_notm}} non è raggiungibile,
 evita di reindirizzare il traffico verso di essa non appena diventa di nuovo disponibile.
@@ -309,27 +331,26 @@ un tipico elenco dei controlli da applicare comprende:
 * [Repliche](#replications)
 * [Indici](#indexes)
 
-> **Nota:** se implementi il reinstradamento delle richieste o il failover in base a un test di integrità,
-  potresti voler incorporare i controlli corrispondenti per evitare un reinstradamento prematuro
-  a un'istanza del servizio che è ancora in fase di ripristino.
+Se implementi il reinstradamento delle richieste o il failover in base a un test di integrità, potresti voler incorporare i controlli corrispondenti per evitare un reinstradamento prematuro a un'istanza del servizio che è ancora in fase di ripristino.
+{: note}
 
 ### Repliche
+{: #replications}
 
 * Ci sono repliche in uno stato di errore?
 * È necessario riavviare alcune repliche?
 * Quante modifiche in sospeso sono ancora in attesa della replica nel database?
 
 Sono disponibili ulteriori informazioni sul [monitoraggio dello stato di
-replica](../api/advanced_replication.html#replication-status).
+replica](/docs/services/Cloudant?topic=cloudant-advanced-replication#replication-status).
 
-> **Nota:** se un database viene modificato continuamente,
-  è improbabile che lo stato di replica sia 0.
-  Devi decidere quale soglia di stato sia accettabile
-  o rappresenti uno stato di errore.
+Se un database viene modificato continuamente, è improbabile che lo stato di replica sia 0. Devi decidere quale soglia di stato sia accettabile o rappresenti uno stato di errore.
+{: note}
 
 ### Indici
+{: #indexes}
 
 * Gli indici sono sufficientemente aggiornati?
-  Controlla utilizzando l'endpoint [Attività in corso](../api/active_tasks.html).
+  Verificalo utilizzando l'endpoint [Attività in corso](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks).
 * Verifica il livello di 'disponibilità dell'indice' inviando una query all'indice
   e decidendo se risponde entro un tempo accettabile.

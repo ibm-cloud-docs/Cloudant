@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-18"
+
+keywords: couchapp, 3-tier application
+
+subcollection: cloudant
 
 ---
 
@@ -11,15 +15,20 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
 # CouchApps
+{: #couchapps}
 
 {{site.data.keyword.cloudantfull}} kann unformatierte Dateidaten, z. B. Bilder,
 hosten und über HTTP bereitstellen, d. h. es kann alle statischen Dateien hosten, die zum Ausführen
 einer Website erforderlich sind, genau wie ein Web-Server.
-{:shortdesc}
+{: shortdesc}
 
 Da diese Dateien unter {{site.data.keyword.cloudant_short_notm}} gehostet würden,
 könnte das clientseitige JavaScript auf {{site.data.keyword.cloudant_short_notm}}-Datenbanken zugreifen.
@@ -46,23 +55,25 @@ aber Web-Apps benötigen regelmäßig die Unterstützung einer dreistufigen Arch
 Wann eignet sich was?
 
 ## Eine CouchApp eignet sich, wenn...
+{: #a-couchapp-is-appropriate-if-}
 
 -   Ihr Server sowieso nur eine API für {{site.data.keyword.cloudant_short_notm}} bereitgestellt hätte.
--   Sie damit einverstanden sind, die [cookiebasierte Authentifizierung](../api/authentication.html)
+-   Sie damit einverstanden sind, die [cookiebasierte Authentifizierung](/docs/services/Cloudant?topic=cloudant-authentication#cookie-authentication)
     von {{site.data.keyword.cloudant_short_notm}} zu verwenden.
 -   Sie damit einverstanden sind, die {{site.data.keyword.cloudant_short_notm}}-Datenbanken
-    [`_users` und `_security`](../api/authorization.html)
+    [`_users` und `_security`](/docs/services/Cloudant?topic=cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db)
     zum Verwalten von Benutzern und Berechtigungen zu verwenden.
 -   Sie keine Cron-Jobs oder andere regelmäßige Tasks planen müssen.
 
 Eine Einführung in CouchApps finden Sie im Kapitel zum
-[Verwalten von Anwendungen unter {{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/app-management/){:new_window}.
+[Verwalten von Anwendungen unter {{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/app-management/){: new_window}.
 
 ## Eine dreistufige Anwendung eignet sich, wenn...
+{: #a-3-tier-application-is-appropriate-if-}
 
 -   Sie differenziertere Berechtigungen benötigen, als die Datenbank `_security` zulässt.
 -   Sie eine andere Authentifizierungsmethode als die Basisauthentifizierung oder die Cookieauthentifizierung benötigen, z. B. Oauth oder ein Drittanbieter-Anmeldesystem.
 -   Sie die regelmäßige Ausführung von Tasks außerhalb des Clients planen müssen.
 
 Sie können Ihre Serverebene mit einer beliebigen gewünschten Technologie schreiben.
-Eine Liste der Bibliotheken für die Arbeit mit {{site.data.keyword.cloudant_short_notm}} ist [verfügbar](../libraries/index.html).
+Eine Liste der Bibliotheken zum Arbeiten mit {{site.data.keyword.cloudant_short_notm}} ist auf der Seite für [{{site.data.keyword.cloudant_short_notm}}-Grundlagen](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries) verfügbar.

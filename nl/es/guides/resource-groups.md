@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
+
+subcollection: cloudant
 
 ---
 
@@ -12,16 +16,21 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # ¿Cómo funciona {{site.data.keyword.cloudant_short_notm}} con los grupos de recursos de {{site.data.keyword.cloud_notm}}?
+{: #how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-}
 
 A partir del 16 de julio de 2018, se han suministrado nuevas instancias de recurso de {{site.data.keyword.cloudantfull}} en grupos de recursos, en lugar de en espacios de Cloud Foundry. Este documento cubre las preguntas comunes que el soporte de {{site.data.keyword.cloudant_short_notm}} ha recibido acerca de esta transición.
 
 ## ¿Cómo puedo migrar una instancia existente a un grupo de recursos?
+{: #how-do-i-migrate-an-existing-instance-to-a-resource-group-}
 
-Para migrar una instancia de {{site.data.keyword.cloudant_short_notm}} de un espacio de Cloud Foundry a un grupo de recursos, consulte [Migración de instancias de servicio y apps de Cloud Foundry a un grupo de recursos](https://console.bluemix.net/docs/resources/instance_migration.html#migrate){:new_window}.
+Para migrar una instancia de {{site.data.keyword.cloudant_short_notm}} de un espacio de Cloud Foundry a un grupo de recursos, consulte [Migración de instancias de servicio y apps de Cloud Foundry a un grupo de recursos](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
 
 Puede migrar instancias de {{site.data.keyword.cloudant_short_notm}} en los planes siguientes:
 
@@ -30,22 +39,26 @@ Puede migrar instancias de {{site.data.keyword.cloudant_short_notm}} en los plan
 - Hardware dedicado
 
 ## ¿Cuánto tiempo de inactividad se produce al migrar una instancia a un grupo de recursos?
+{: #how-much-downtime-occurs-when-you-migrate-an-instance-to-a-resource-group-}
 
 No existe el tiempo de inactividad durante el proceso de migración.
 
 ## ¿Por qué algunas instancias disponen de una organización y un espacio y otras no?
+{: #why-do-some-instances-have-an-organisation-and-space-and-others-do-not-}
 
 A partir del 16 de julio de 2018, se han suministrado nuevas instancias en grupos de recursos en lugar de en espacios de Cloud Foundry. Las instancias de recursos suministradas antes de esta fecha tienen asociada una organización y espacio de Cloud Foundry. En su lugar, las instancias suministradas después de esta fecha se asociarán con un grupo de recursos.
 
 ## ¿Por qué no puedo crear nuevas instancias del plan Estándar en mis instancias de hardware dedicado?
+{: #why-can-t-i-create-new-standard-plan-instances-on-my-dedicated-hardware-instances-}
 
 Las nuevas instancias del plan Estándar se suministran en grupos de recursos. Para poder suministrar dichas instancias en una instancia de hardware dedicado, la instancia de hardware dedicado debe migrarse primero a un grupo de recursos.
 
-Para obtener más información sobre cómo hacerlo, consulte [Migración de instancias de servicio y apps de Cloud Foundry a un grupo de recursos](https://console.bluemix.net/docs/resources/instance_migration.html#migrate){:new_window}.
+Para obtener más información sobre cómo hacerlo, consulte [Migración de instancias de servicio y apps de Cloud Foundry a un grupo de recursos](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
 
 Cuando la instancia de hardware dedicado se haya migrado a un grupo de recursos, aparecerá en el menú desplegable Ubicación al suministrar planes Estándar.
 
 ## ¿Cómo debo migrar mis instancias de hardware dedicado y las instancias del plan estándar que se alojan en las mismas?
+{: #how-should-i-migrate-my-dedicated-hardware-instances-and-the-standard-plan-instances-hosted-on-them-}
 
 En teoría, las instancias pueden migrarse a grupos de recursos en cualquier orden. En la práctica, recomendamos el orden siguiente para las instancias de hardware dedicado y las instancias de plan Estándar que se alojan en las mismas:
 

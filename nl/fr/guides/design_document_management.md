@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
+
+subcollection: cloudant
 
 ---
 
@@ -11,11 +15,18 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Gestion des documents de conception
+{: #design-document-management}
 
 *Article signé par Glynn Bird, responsable des produits développeurs chez IBM Cloudant,
-[glynn@cloudant.com ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:glynn@cloudant.com){:new_window}*
+[glynn@cloudant.com ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:glynn@cloudant.com){: new_window}*
 
 Le magasin de données JSON évolutif de {{site.data.keyword.cloudantfull}} possède plusieurs mécanismes d'interrogation, chacun générant des index qui sont créés et conservés séparément dans les données coeur.
 L'indexation n'est pas réalisée immédiatement lorsque le document est sauvegardé.
@@ -24,7 +35,7 @@ Elle est prévue pour plus tard afin d'offrir un débit d'écriture non-bloquant
 -   Les vues MapReduce sont des index dans l'ensemble de données avec des paires clé-valeur stockées dans un arbre B afin d'être plus rapidement extraites par la clé ou la plage de clés
 -   Les index de recherche sont construits à l'aide d'Apache Lucene pour permettre la recherche de texte libre, la création de facettes et les requêtes ad hoc complexes
 
-Les [index de recherche](../api/search.html) et les [vues MapReduce](../api/creating_views.html) de {{site.data.keyword.cloudant_short_notm}} sont configurés en ajoutant des documents de conception à une base de données.
+Les [index de recherche](/docs/services/Cloudant?topic=cloudant-search#search) et les [vues MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) de {{site.data.keyword.cloudant_short_notm}} sont configurés en ajoutant des documents de conception à une base de données.
 Les documents de conception sont des documents JSON qui contiennent des instructions sur la façon dont la vue ou l'index doivent être créés.
 Prenons un exemple simple.
 Supposons que nous disposons d'une simple collection de documents de données, similaire à l'exemple suivant.
@@ -40,10 +51,10 @@ _Exemple d'un simple document de données :_
     "ts": 1422358827
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Chaque document de données comporte un nom, un corps de texte et un horodatage.
-Nous voulons créer une [vue MapReduce](../api/creating_views.html) pour trier les documents par horodatage.
+Nous voulons créer une [vue MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) pour trier les documents par horodatage.
 
 Pour ce faire, nous pouvons créer une fonction de mappe, similaire à l'exemple suivant.
 
@@ -56,7 +67,7 @@ function(doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 La fonction émet l'horodatage du document pour que nous puissions l'utiliser comme clé d'index.
 Sachant que la valeur de l'index ne nous intéresse pas,
@@ -82,7 +93,7 @@ _Exemple de document de conception définissant une vue à l'aide d'une fonction
     "language": "javascript"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Le résultat est que notre code de mappage a été converti en une chaîne compatible JSON, puis il a été inclus dans un document de conception.
 
@@ -101,16 +112,17 @@ Il convient à ce stade de rappeler les points suivants :
 -   La construction d'un index est asynchrone.
     {{site.data.keyword.cloudant_short_notm}} confirme l'enregistrement du document de conception,
     mais si nous voulons vérifier l'avancement de la construction de notre index,
-    nous devons interroger le noeud final [`_active_tasks`](../api/active_tasks.html) de {{site.data.keyword.cloudant_short_notm}}.
+    nous devons interroger le noeud final [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) de {{site.data.keyword.cloudant_short_notm}}.
 -   Plus nous avons de données,
     et plus long sera le délai avant que l'index ne soit prêt.
 -   Pendant le procédé de génération d'index initial,
     _toutes les requêtes sur cet index seront bloquées_.
 -   L'interrogation d'une vue déclenche le "mappage" des documents qui n'ont pas encore été indexés de manière incrémentielle.
     De cette façon, la vue des données est à jour.
-    Consultez la discussion suivante sur le paramètre d'expiration ['`stale`'](#stale) pour en savoir plus sur les exceptions à cette règle.
+    Consultez la discussion suivante sur le paramètre d'expiration ['`stale`'](#the-stale-parameter) pour en savoir plus sur les exceptions à cette règle.
 
 ## Vues multiples dans un même document de conception
+{: #multiple-views-in-the-same-design-document}
 
 Si nous définissons plusieurs vues dans un même document de conception,
 celles-ci sont générées efficacement et en même temps.
@@ -122,13 +134,14 @@ _invalide toutes les vues MapReduce existantes_ définies dans ce document et ce
 Si les vues MapReduce doivent être modifiées indépendamment les unes des autres,
 placez leurs définitions dans des documents de conception séparés. 
 
->   **Remarque** : Ce comportement ne s'applique pas aux index de recherche Lucene.
-    Ces derniers peuvent être modifiés dans le même document de conception
+Ce comportement ne s'applique pas aux index de recherche Lucene. Ces derniers peuvent être modifiés dans le même document de conception
     sans invalider d'autres index qui, eux, n'ont pas été modifiés au sein du même document.
+{: note}
 
 ![Illustration du changement de version d'un document de conception](../images/DesDocMan02.png)
 
 ## Gestion des changements dans un document de conception
+{: #managing-changes-to-a-design-document}
 
 Imaginons que nous souhaitions un jour changer la conception de notre vue.
 Au lieu de retourner le résultat de l'horodatage actuel, nous allons exclusivement nous intéresser au nombre de documents remplissant les critères.
@@ -155,7 +168,7 @@ _Exemple de document de conception utilisant une fonction de réduction :_
     "language": "javascript"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Lorsque ce document de conception est sauvegardé,
 {{site.data.keyword.cloudant_short_notm}} invalide totalement l'ancien index et commence à générer le nouvel index à partir de zéro,
@@ -182,10 +195,12 @@ une difficulté peut surgir au niveau du déploiement :
     tandis que la version 2 s'attend à avoir un nombre de résultats "réduit".
 
 ## Coordination des changements dans les documents de conception
+{: #coordinating-changes-to-design-documents}
 
 Il existe deux façons de traiter ce problème de contrôle des changements.
 
-### Documents de conception avec version 
+### Documents de conception avec version
+{: #versioned-design-documents}
 
 Une solution consiste à utiliser des noms de documents de conception avec version :
 
@@ -201,8 +216,9 @@ L'utilisation de documents de conception avec version constitue une manière sim
 tant que vous pensez à supprimer les anciennes versions ultérieurement !
 
 ### Documents de conception "Move and Switch" (Progresser et basculer)
+{: #-move-and-switch-design-documents}
 
-Une autre approche, documentée [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window}, repose sur le fait que {{site.data.keyword.cloudant_short_notm}} reconnaît lorsque deux documents de conception sont identiques, et ne perd pas de temps ni de ressources inutilement à reconstruire des vues qu'il possède déjà.
+Une autre approche repose sur le fait que {{site.data.keyword.cloudant_short_notm}} reconnaît quand deux documents de conception sont identiques et qu'il ne perd donc pas inutilement du temps ou des ressources à reconstruire des vues qu'il possède déjà.
 En d'autres termes,
 si nous prenons notre document de conception `_design/fetch` et que nous créons une réplique exacte `_design/fetch_OLD`, les deux noeuds finaux fonctionnent de manière interchangeable sans déclencher de réindexation.
 
@@ -221,6 +237,7 @@ La procédure de basculement vers la nouvelle vue est la suivante :
 7.  Supprimez le document de conception `_design/fetch_OLD`.
 
 ## Outils conçus pour la procédure "Move and Switch" (Progresser et basculer)
+{: #move-and-switch-tooling}
 
 Un script de ligne commande Node.js appelé '`couchmigrate`' permet d'automatiser la procédure "Move and Switch".
 Pour l'installer, suivez la procédure ci-dessous.
@@ -230,7 +247,7 @@ _Commande permettant d'installer le script `couchmigrate` Node.js :_
 ```sh
 npm install -g couchmigrate
 ```
-{:codeblock}
+{: codeblock}
 
 Pour utiliser le script `couchmigrate`,
 définissez tout d'abord l'adresse URL de l'instance CouchDB/{{site.data.keyword.cloudant_short_notm}} en déterminant la variable d'environnement appelée `COUCH_URL`.
@@ -240,7 +257,7 @@ _Définition de l'adresse URL de l'instance {{site.data.keyword.cloudant_short_n
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
 ```
-{:codeblock}
+{: codeblock}
 
 L'URL peut être de type HTTP ou HTTPS,
 et peut inclure les données d'authentification.
@@ -250,7 +267,7 @@ _Définition de l'adresse URL de l'instance {{site.data.keyword.cloudant_short_n
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 En admettant que nous disposions d'un document de conception au format JSON,
 stocké dans un fichier,
@@ -265,18 +282,17 @@ _Exécution de la commande `couchmigrate` :_
 ```sh
 couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
-{:pre}
+{: pre}
 
 Le script coordonne la procédure "move and switch" (déplacer et basculer) en attendant que la vue soit générée avant le retour.
 Si le document de conception entrant est identique à celui d'origine,
 le script est retourné presque immédiatement.
 
 Le code source du script est disponible ici :
-[https://github.com/glynnbird/couchmigrate ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/glynnbird/couchmigrate){:new_window}.
-
-<div id="stale"></div>
+[https://github.com/glynnbird/couchmigrate ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/glynnbird/couchmigrate){: new_window}.
 
 ## Paramètre '`stale`'
+{: #the-stale-parameter}
 
 Si un index est terminé,
 mais que de nouveaux enregistrements sont ajoutés à la base de données,
@@ -308,21 +324,17 @@ Lorsque nous interrogeons la vue, trois choix s'offrent à nous :
 
 L'ajout du paramètre "`stale=ok`" ou "`stale=update_after`" peut être un bon moyen d'obtenir une réponse rapide de la vue, mais au détriment de données actualisées. 
 
->   **Remarque** : Le comportement par défaut répartit équitablement la charge entre les noeuds du cluster de {{site.data.keyword.cloudant_short_notm}}.
-    Si vous utilisez l'option `stale=ok` ou `stale=update_after`,
+Le comportement par défaut répartit équitablement la charge entre les noeuds du cluster de {{site.data.keyword.cloudant_short_notm}}. Si vous utilisez l'option `stale=ok` ou `stale=update_after`,
     celle-ci peut favoriser un sous-ensemble de noeuds du cluster,
-    afin de renvoyer des résultats cohérents depuis l'ensemble de cohérence finale.
-    Cela signifie que le paramètre '`stale`' n'est pas adapté à tous les cas d'utilisation.
-    Il peut toutefois se révéler utile pour obtenir des réponses rapides sur des ensembles de données en perpétuel changement, si votre application accepte des résultats périmés.
-    Si le taux de changement de vos données est faible,
+    afin de renvoyer des résultats cohérents depuis l'ensemble de cohérence finale. Cela signifie que le paramètre '`stale`' n'est pas adapté à tous les cas d'utilisation. Il peut toutefois se révéler utile pour obtenir des réponses rapides sur des ensembles de données en perpétuel changement, si votre application accepte des résultats périmés. Si le taux de changement de vos données est faible,
     l'ajout du paramètre "`stale=ok`" ou "`stale=update_after`" ne présente aucun avantage,
     et risque même de répartir inégalement la charge sur des clusters plus importants.
+{: note}
 
 Evitez d'utiliser le paramètre `stale=ok` ou `stale=update_after` dans la mesure du possible.
 La raison en est que le comportement par défaut fournit les données les plus récentes,
 et les distribue au sein du cluster.
 S'il est possible d'indiquer à une application client qu'une longue tâche de traitement de données est en cours d'exécution (pendant une mise à jour de données non formatées, par exemple), l'application peut basculer temporairement vers le paramètre `stale=ok` pendant ces périodes, puis revenir au comportement par défaut par la suite.
 
->   **Remarque** : L'option `stale` est toujours disponible,
-    mais les options les plus utiles `stable` et `update` sont aussi disponibles et doivent être privilégiées.
-    Pour plus de détails, voir [Accès à une vue périmée](../api/using_views.html#accessing-a-stale-view).
+L'option `stale` est toujours disponible, mais les options les plus utiles, `stable` et `update`, sont également disponibles et leur utilisation doit être privilégiée. Pour plus d'informations, voir [Accessing a stale view](/docs/services/Cloudant?topic=cloudant-using-views#view-freshness).
+{: note}

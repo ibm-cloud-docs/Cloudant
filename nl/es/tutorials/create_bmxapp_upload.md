@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: connect to ibm cloud, upload application, test sample application, confirm database details
+
+subcollection: cloudant
 
 ---
 
@@ -12,33 +16,36 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creación de una aplicación sencilla de {{site.data.keyword.cloud_notm}} para acceder a una base de datos de {{site.data.keyword.cloudant_short_notm}}: carga de la aplicación
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application}
 
 En esta sección de la guía de aprendizaje se describe cómo cargar una aplicación de {{site.data.keyword.cloud}}.
-{:shortdesc}
-
-<div id="uploading"></div>
+{: shortdesc}
 
 ## Conexión a {{site.data.keyword.cloud_notm}}
+{: #connecting-to-ibm-cloud}
 
 La primera tarea es conectarse a {{site.data.keyword.cloud_notm}}.
 
-El [kit de herramientas de {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#toolkits) le ayuda a realizar la conexión.
+El [kit de herramientas de {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits) le ayuda a realizar la conexión.
 
 Cloud Foundry necesita saber el URL que debe utilizar para realizar llamadas de API, por ejemplo cuando carga una aplicación.
 El kit de herramientas de {{site.data.keyword.cloud_notm}} utiliza el mandato '`cf api`' para gestionar el punto final de la API.
 Para ver más información sobre el mandato'`cf api`', consulte
-[aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
+[aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}.
 
 Utilice el siguiente mandato para indicar a Cloud Foundry el URL que debe utilizar:
 
 ```sh
 bluemix api https://api.ng.bluemix.net
 ```
-{:pre}
+{: pre}
 
 El resultado se debería parecer al siguiente:
 
@@ -52,7 +59,7 @@ API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
 Not logged in. Use 'bluemix login' to log in.
 ```
-{:codeblock}
+{: codeblock}
 
 Ahora Cloud Foundry sabe dónde enviar las llamadas de API para gestionar aplicaciones.
 
@@ -74,7 +81,7 @@ Tenga en cuenta que se le solicitará que especifique la contraseña de su cuent
 ```sh
 bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
-{:pre}
+{: pre}
 
 El resultado se debería parecer al siguiente:
 
@@ -96,23 +103,22 @@ User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
 Space:          dev
 ```
-{:codeblock}
+{: codeblock}
 
 ## Carga de la aplicación
+{: #uploading-the-application}
 
 Ahora, el kit de herramientas de {{site.data.keyword.cloudant_short_notm}} Foundry sabe cómo conectar con el entorno de {{site.data.keyword.cloud_notm}}.
 
 El siguiente paso consiste en cargar la aplicación propiamente dicha.
-Encontrará los detalles de una aplicación de {{site.data.keyword.cloud_notm}} en el [archivo de manifiesto](create_bmxapp_appenv.html#manifest).
-
-El archivo de manifiesto correspondiente a la aplicación de la guía de aprendizaje se ha actualizado tal como se describe [aquí](create_bmxapp_createapp.html#essential-files)
+Encontrará los detalles de una aplicación de {{site.data.keyword.cloud_notm}} en el [archivo de manifiesto](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-manifest.yml-file).
 
 Utilice un mandato parecido al del siguiente ejemplo para iniciar una sesión para cargar la aplicación de {{site.data.keyword.cloud_notm}}.
 
 ```sh
 cf push "Cloudant Python"
 ```
-{:pre}
+{: pre}
 
 Se muestra una secuencia de mensajes de resultados.
 
@@ -122,9 +128,9 @@ Using manifest file /..../BMXDemo/manifest.yml
 Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{:codeblock}
+{: codeblock}
 
-El kit de herramientas de Cloud Foundry ha localizado el archivo de manifiesto y se prepara para cargar la aplicación utilizando los detalles de la conexión y de identificación que ha especificado [anteriormente](#uploading).
+El kit de herramientas de Cloud Foundry ha localizado el archivo de manifiesto y se prepara para cargar la aplicación utilizando los detalles de la conexión y de identificación que ha especificado [anteriormente](#uploading-the-application).
 
 ```
 Using route Cloudant-Python.mybluemix.net
@@ -136,7 +142,7 @@ OK
 Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{:codeblock}
+{: codeblock}
 
 La aplicación se ha cargado correctamente y se ha establecido una conexión con la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}.
 
@@ -169,11 +175,10 @@ OK
 
 App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
 ```
-{:codeblock}
+{: codeblock}
 
 La aplicación se inicia automáticamente.
-Como parte del inicio, se realiza una comprobación para garantizar que se cumplen todos los requisitos, mediante la evaluación del contenido del [archivo requirements.txt](create_bmxapp_appenv.html#requirements).
-La aplicación necesita acceso a la biblioteca de {{site.data.keyword.cloudant_short_notm}}, que se [ha especificado](create_bmxapp_createapp.html#essential-files) cuando se ha creado la aplicación.
+Como parte del inicio, se realiza una comprobación para garantizar que se cumplen todos los requisitos, mediante la evaluación del contenido del [archivo requirements.txt](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-requirements.txt-file).
 
 Después de cargar e iniciar la aplicación, se ejecutan algunas comprobaciones sencillas del sistema para confirmar que la aplicación se ejecuta correctamente en lo referente a {{site.data.keyword.cloud_notm}}.
 
@@ -192,31 +197,33 @@ buildpack: python 1.5.5
      state     since                    cpu    memory          disk           details
 #0   running   2016-12-22 03:59:21 PM   0.0%   49.9M of 128M   110.6M of 1G
 ```
-{:codeblock}
+{: codeblock}
 
 ## Prueba de la aplicación de ejemplo
+{: #testing-the-sample-application}
 
 Ahora, pruebe la aplicación y verifique que se está ejecutando correctamente. 
 
-1.  Abra el panel de control de {{site.data.keyword.cloud_notm}}. Puede ver el enlace a la aplicación que ha creado en Cloud Foundry Applications. Pulse `Cloudant CF app` para abrir la página de detalles.<br/>  
+1.  En el panel de control de {{site.data.keyword.cloud_notm}}, vaya al icono **Menú** > **Lista de recursos** y abra su aplicación. En Apps de Cloud Foundry, pulse `Cloudant CF app` para abrir la página de detalles.<br/>  
 ![Captura de pantalla que muestra el panel de control correspondiente a la aplicación](images/img0017.png)
 
 2.  En la página de detalles de `Cloudant CF app`, pulse `Rutas` y seleccione el enlace `Cloudant-CF-app.mybluemix.net`. <br/>
 ![página de detalles de Cloudant CF app](images/img0030.png)
 
-3. Se abrirá una nueva ventana del navegador en https://cloudant-cf-app.mybluemix.net/. El mensaje verifica que la aplicación se está ejecutando. Dice, "Hello world! Gracias por crear una aplicación de inicio de Python."<br/>
+3. Se abrirá una nueva ventana de navegador en `https://cloudant-cf-app.mybluemix.net/`. El mensaje verifica que la aplicación se está ejecutando. Dice, "Hello world! Gracias por crear una aplicación de inicio de Python."<br/>
 ![Hello World! ha verificado que la app Cloudant CF se ejecuta correctamente](images/img0054.png)
 
 
 ### Confirmación de los detalles de la base de datos
+{: #confirming-the-database-details}
 
-En el panel de control de {{site.data.keyword.cloud_notm}}, abra la instancia de servicio de {{site.data.keyword.cloudant_short_notm}} que ha creado. Pulse la instancia de servicio. Vaya al separador `Gestionar` y pulse `Iniciar el panel de control de Cloudant`.<br/>
+En el panel de control de {{site.data.keyword.cloud_notm}}, vaya al icono **Menú** > **Lista de recursos** y abra su instancia de servicio. Vaya al separador `Gestionar` y pulse `Iniciar el panel de control de Cloudant`.<br/>
 ![Iniciar el panel de control de Cloudant en la página de servicio de {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
 
 Para encontrar la página de servicio de {{site.data.keyword.cloudant_short_notm}},
 consulte los detalles de la guía de aprendizaje
-[Creación de una instancia de {{site.data.keyword.cloudant_short_notm}}](create_service.html#locating-your-service-credentials).
-{: tip}
+[Creación de una instancia de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+{: note}
 
 Cuando se abra el panel de control, verá que la aplicación ha creado la base de datos '`databasedemo`':<br/>
 ![El panel de control de {{site.data.keyword.cloudant_short_notm}} que muestra la nueva base de datos](images/img0031.png)
@@ -235,6 +242,4 @@ Cuando aparezca el contenido del documento, podrá ver cada uno de los campos qu
 En concreto, el campo `rightNow` contiene la fecha y hora en que se ha creado el documento.
 Este valor corresponde a la hora que se ha registrado en el [archivo de registro de la aplicación](#testing-the-sample-application).
 
-## El paso siguiente
-
-El siguiente paso de esta guía de aprendizaje es [utilizar y mantener la aplicación](create_bmxapp_maintain.html), por ejemplo cuando se inicia, se detiene o se depura la aplicación.
+El siguiente paso de esta guía de aprendizaje es [utilizar y mantener la aplicación](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting), por ejemplo cuando se inicia, se detiene o se depura la aplicación.

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
+
+subcollection: cloudant
 
 ---
 
@@ -11,11 +15,18 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Gestione dei documenti di progettazione
+{: #design-document-management}
 
 *Articolo fornito da Glynn Bird, Developer Advocate presso IBM Cloudant,
-[glynn@cloudant.com ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:glynn@cloudant.com){:new_window}*
+[glynn@cloudant.com ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:glynn@cloudant.com){: new_window}*
 
 L'archivio dati JSON scalabile di {{site.data.keyword.cloudantfull}} ha diversi meccanismi di query,
 ognuno dei quali genera degli indici creati e gestiti separatamente dai dati principali.
@@ -29,7 +40,7 @@ non bloccante più veloce.
 -   Gli indici di ricerca sono costruiti utilizzando Apache Lucene per consentire la ricerca a testo libero,
     sfaccettatura e query ad hoc complesse
 
-Gli [indici di ricerca](../api/search.html) e le [viste MapReduce](../api/creating_views.html) di {{site.data.keyword.cloudant_short_notm}}
+Gli [indici di ricerca](/docs/services/Cloudant?topic=cloudant-search#search) e le [viste MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) di {{site.data.keyword.cloudant_short_notm}}
 vengono configurati aggiungendo documenti di progettazione a un database.
 I documenti di progettazione sono documenti JSON che contengono istruzioni su come costruire la vista o l'indice.
 Facciamo un semplice esempio.
@@ -47,12 +58,12 @@ _Esempio di un semplice documento di dati:_
     "ts": 1422358827
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Ogni documento di dati include un nome,
 un corpo
 e una data/ora.
-Vogliamo creare una [vista MapReduce](../api/creating_views.html) per ordinare i nostri documenti per data/ora.
+Vogliamo creare una [vista MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) per ordinare i nostri documenti per data/ora.
 
 Possiamo farlo creando una funzione di mappa,
 simile al seguente esempio.
@@ -66,7 +77,7 @@ function(doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 La funzione emette la data/ora del documento in modo che possiamo utilizzarla come chiave dell'indice;
 poiché non siamo interessati al valore dell'indice,
@@ -94,7 +105,7 @@ _Documento di progettazione di esempio che definisce una vista utilizzando una f
     "language": "javascript"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Il risultato è che il nostro codice della mappa è stato restituito in una stringa compatibile con JSON
 e incluso in un documento di progettazione.
@@ -119,17 +130,18 @@ A questo punto, è bene ricordare che:
 -   La costruzione di un indice avviene in modo asincrono:
     {{site.data.keyword.cloudant_short_notm}} conferma che il nostro documento di progettazione è stato salvato,
     ma per controllare l'avanzamento della costruzione del nostro indice,
-    dobbiamo eseguire il polling dell'endpoint [`_active_tasks`](../api/active_tasks.html) di {{site.data.keyword.cloudant_short_notm}}.
+    dobbiamo eseguire il polling dell'endpoint [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) di {{site.data.keyword.cloudant_short_notm}}.
 -   Più dati abbiamo,
     più tempo richiederà il completamento dell'indice.
 -   Mentre la creazione dell'indice iniziale è in corso,
     _qualsiasi query eseguita in tale indice verrà bloccata_.
 -   L'esecuzione di query in una vista attiva la 'mappatura' dei documenti che non sono stati ancora indicizzati in modo incrementale.
     Ciò garantisce di ottenere una vista aggiornata dei dati.
-    Vedi la seguente discussione sul [parametro '`stale`'](#stale)
+    Vedi la seguente discussione sul [parametro '`stale`'](#the-stale-parameter)
     per le eccezioni a questa regola.
 
 ## Più viste nello stesso documento di progettazione
+{: #multiple-views-in-the-same-design-document}
 
 Se definiamo più viste nello stesso documento di progettazione,
 queste vengono create in modo efficiente nello stesso momento.
@@ -142,13 +154,14 @@ anche se alcune delle viste rimangono inalterate.
 Se le viste MapReduce devono essere modificate indipendentemente l'una dall'altra,
 inserisci le loro definizioni in documenti di progettazione separati. 
 
->   **Nota**: questo comportamento non si applica a indici di ricerca Lucene.
-    Questi possono essere modificati all'interno dello stesso documento di progettazione
+Questo comportamento non si applica a indici di ricerca Lucene. Questi possono essere modificati all'interno dello stesso documento di progettazione
     senza invalidare altri indici non modificati nello stesso documento.
+{: note}
 
 ![Illustrazione della modifica alla versione del documento di progettazione](../images/DesDocMan02.png)
 
 ## Gestione delle modifiche a un documento di progettazione
+{: #managing-changes-to-a-design-document}
 
 Immagina che in un prossimo futuro decidiamo di modificare la progettazione della nostra vista.
 Adesso,
@@ -178,7 +191,7 @@ _Documento di progettazione di esempio che utilizza una funzione di riduzione:_
     "language": "javascript"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Quando questo documento di progettazione viene salvato,
 {{site.data.keyword.cloudant_short_notm}} invalida completamente il vecchio indice e inizia a creare il nuovo indice da zero,
@@ -205,10 +218,12 @@ potremmo rilevare un dilemma di distribuzione:
     mentre la versione 2 prevede un numero 'ridotto' di risultati.
 
 ## Coordinamento delle modifiche ai documenti di progettazione
+{: #coordinating-changes-to-design-documents}
 
 Ci sono due modi per affrontare questo problema di controllo delle modifiche.
 
-### Documenti di progettazione forniti di versione 
+### Documenti di progettazione forniti di versione
+{: #versioned-design-documents}
 
 Una soluzione consiste nell'utilizzare nomi di documenti di progettazione forniti di versione:
 
@@ -224,11 +239,10 @@ L'utilizzo dei documenti di progettazione forniti di versione è un modo semplic
 purché ti ricordi di rimuovere successivamente le versioni precedenti.
 
 ### 'Sposta e passa' i documenti di progettazione
+{: #-move-and-switch-design-documents}
 
-Un altro approccio,
-documentato [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window},
-si basa sul fatto che {{site.data.keyword.cloudant_short_notm}} riconosce quando dispone di due documenti di progettazione identici
-e non sprecherà tempo e risorse per ricostruire le viste già esistenti.
+Un altro approccio si basa sul fatto che {{site.data.keyword.cloudant_short_notm}} riconosce quando dispone di
+due documenti di progettazione identici e non sprecherà tempo e risorse per ricostruire le viste già esistenti.
 In altre parole,
 se prendiamo il nostro documento di progettazione `_design/fetch` e creiamo un duplicato esatto `_design/fetch_OLD`,
 entrambi gli endpoint funzioneranno in modo intercambiabile senza attivare alcuna reindicizzazione.
@@ -248,6 +262,7 @@ La procedura per passare alla nuova vista è la seguente:
 7.  Elimina il documento di progettazione `_design/fetch_OLD`.
 
 ## Strumenti per lo spostamento e il passaggio
+{: #move-and-switch-tooling}
 
 Esiste uno script Node.js della riga di comando che automatizza la procedura di 'sposta e passa'
 chiamato'`couchmigrate`'.
@@ -258,7 +273,7 @@ _Comando per installare lo script Node.js `couchmigrate`:_
 ```sh
 npm install -g couchmigrate
 ```
-{:codeblock}
+{: codeblock}
 
 Per utilizzare lo script `couchmigrate`,
 per prima cosa definisci l'URL dell'istanza CouchDB/{{site.data.keyword.cloudant_short_notm}} impostando una variabile di ambiente denominata `COUCH_URL`.
@@ -268,7 +283,7 @@ _Definizione dell'URL di una istanza {{site.data.keyword.cloudant_short_notm}}_
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
 ```
-{:codeblock}
+{: codeblock}
 
 L'URL può essere HTTP o HTTPS
 e può includere le credenziali di autenticazione.
@@ -278,7 +293,7 @@ _Definizione dell'URL dell'istanza {{site.data.keyword.cloudant_short_notm}} con
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 Supponendo di avere un documento di progettazione in formato JSON,
 memorizzato in un file,
@@ -293,7 +308,7 @@ _Esecuzione del comando `couchmigrate`:_
 ```sh
 couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
-{:pre}
+{: pre}
 
 Lo script coordina la procedura di 'sposta e passa'
 e attende che la vista venga creata prima di restituire il risultato.
@@ -301,11 +316,10 @@ Se il documento di progettazione in entrata è uguale a quello precedente,
 allora lo script restituisce immediatamente il risultato.
 
 Il codice sorgente per lo script è disponibile qui:
-[https://github.com/glynnbird/couchmigrate ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/glynnbird/couchmigrate){:new_window}.
-
-<div id="stale"></div>
+[https://github.com/glynnbird/couchmigrate ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/glynnbird/couchmigrate){: new_window}.
 
 ## Parametro '`stale`'
+{: #the-stale-parameter}
 
 Se un indice è completo
 ma nel database vengono aggiunti nuovi record,
@@ -340,17 +354,14 @@ Quando si eseguono query nella vista, abbiamo tre scelte:
 L'aggiunta di "`stale=ok`" o "`stale=update_after`" può essere un buon modo per ottenere le risposte più rapidamente da una vista,
 ma a scapito dell'aggiornamento. 
 
->   **Nota**: il comportamento predefinito distribuisce il carico uniformemente tra i nodi del cluster {{site.data.keyword.cloudant_short_notm}}.
-    Se utilizzi le opzioni alternative `stale=ok` o `stale=update_after`,
+Il comportamento predefinito distribuisce il carico uniformemente tra i nodi nel cluster {{site.data.keyword.cloudant_short_notm}}. Se utilizzi le opzioni alternative `stale=ok` o `stale=update_after`,
     questo potrebbe favorire un sottoinsieme di nodi del cluster
-    al fine di restituire risultati consistenti da tutta la serie con consistenza eventuale.
-    Questo significa che il parametro '`stale`' non è una soluzione perfetta per tutti i casi di utilizzo.
-    Tuttavia,
+    al fine di restituire risultati consistenti da tutta la serie con consistenza eventuale. Questo significa che il parametro '`stale`' non è una soluzione perfetta per tutti i casi di utilizzo. Tuttavia,
     può essere utile per fornire risposte tempestive sulle serie di dati che cambiano velocemente,
-    se la tua applicazione accetta favorevolmente i risultati obsoleti.
-    Se la frequenza di modifica dei tuoi dati è bassa,
+    se la tua applicazione accetta favorevolmente i risultati obsoleti. Se la frequenza di modifica dei tuoi dati è bassa,
     l'aggiunta di "`stale=ok`" o "`stale=update_after`" non porterà un miglioramento delle prestazioni
     e potrebbe distribuire in modo non uniforme il carico su cluster più grandi.
+{: note}
 
 Evita di utilizzare `stale=ok` o `stale=update_after` dove possibile.
 Il motivo è che il comportamento predefinito fornisce i dati più recenti
@@ -360,7 +371,5 @@ Se è possibile far sapere a un'applicazione client che è in corso un'attività
 l'applicazione potrebbe passare temporaneamente a `stale=ok` durante quei momenti
 e quindi tornare al comportamento predefinito in seguito.
 
->   **Nota**: l'opzione `stale` è ancora disponibile,
-    ma sono disponibili anche le opzioni `stable` e `update` più utili che si consiglia di utilizzare al suo posto.
-    Per ulteriori dettagli,
-    vedi [Accesso a una vista obsoleta](../api/using_views.html#accessing-a-stale-view).
+L'opzione `stale` è ancora disponibile, ma sono disponibili anche le opzioni più utili `stable` e `update` che devono essere utilizzate al suo posto. Per ulteriori informazioni, vedi [Accesso a una vista obsoleta](/docs/services/Cloudant?topic=cloudant-using-views#view-freshness).
+{: note}

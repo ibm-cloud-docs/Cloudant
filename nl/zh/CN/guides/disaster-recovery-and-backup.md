@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
+
+subcollection: cloudant
 
 ---
 
@@ -12,21 +16,26 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 灾难恢复和备份
+{: #disaster-recovery-and-backup}
 
 您的数据十分重要，也非常宝贵。
 您希望保护数据，以帮助确保数据安全、可用并保持完整性。
 {{site.data.keyword.cloudantfull}} 提供了多种方法来保护您的数据，并帮助您的应用程序保持正常运行。
-{:shortdesc}
+{: shortdesc}
 
 其中一些保护功能是自动执行的。对于其他形式的保护，{{site.data.keyword.cloudant_short_notm}} 为您提供了支持的工具，帮助您创建自己的高可用性和灾难恢复能力。
 
 本文档概述了 {{site.data.keyword.cloudant_short_notm}} 提供的自动功能和支持的工具。
 
 ## 保护的类型和级别
+{: #types-and-levels-of-protection}
 
 您可能需要的保护类型取决于要尝试解决的问题。
 
@@ -36,8 +45,8 @@ lastupdated: "2018-10-24"
 
 要满足您的 HA 或 DR 需求，往往需要首先将问题简化为更通用的需求。确定您的需求时，可以应用各种工具和功能来帮助解决通用需求。随后，将这些工具和功能组合在一起，就能满足您的 HA 或 DR 需求。
 
->	**注**：不同的工具和功能将提供不同级别的保护。不同的功能可能或多或少适合您的特定 HA 或 DR 需求。
-{:tip}
+不同的工具和功能将提供不同级别的保护。不同的功能可能或多或少适合您的特定 HA 或 DR 需求。
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} 提供了用于满足通用需求的若干工具和功能：
 
@@ -46,6 +55,7 @@ lastupdated: "2018-10-24"
 3.	用于时间点复原的时间点快照备份，使用“传统”的[数据库备份和恢复](#database-backup-and-recovery)。
 
 ## 区域内自动数据冗余
+{: #in-region-automatic-data-redundancy}
 
 在单个 {{site.data.keyword.cloudant_short_notm}} 帐户中，数据使用内部和自动过程存储为一式三份。您不需要执行任何操作来启用这种内部数据复制。
 
@@ -65,6 +75,7 @@ lastupdated: "2018-10-24"
 总之，区域内数据冗余通过对影响该区域内单个系统的故障提供容错功能，支持“高可用性”功能。
 
 ## 针对灾难恢复的跨区域冗余
+{: #cross-region-redundancy-for-disaster-recovery}
 
 {{site.data.keyword.cloudant_short_notm}} 复制功能可帮助您在应用程序中构建灵活的灾难恢复能力。支持灾难恢复的主要方法是使用 {{site.data.keyword.cloudant_short_notm}} 复制来跨区域创建冗余。结果是，应用程序能够容许一个或多个区域不可用的情况。
 
@@ -73,11 +84,11 @@ lastupdated: "2018-10-24"
 1.  在两个或两个以上的区域中创建 {{site.data.keyword.cloudant_short_notm}} 帐户。
 2.  根据需要在每个区域中创建数据库。
 3.  对于必须使用跨区域冗余存储的数据库，在每个帐户中的对应数据库之间设置双向持续复制。
-4.  设计并实现应用程序，以便根据环境是“主动/被动”还是“主动/主动”配置，对数据请求进行路由。[提供了](active-active.html)设置此项的详细指南。
+4.  设计并实现应用程序，以便根据环境是“主动/被动”还是“主动/主动”配置，对数据请求进行路由。[提供了](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)设置此项的详细指南。
 
 将应用程序设计为使用跨多个区域的数据时，请考虑以下几点：
 
-* 应用程序可以将请求发送到托管位置离自己物理位置最近的数据库。使用这种邻近性可以缩短网络等待时间和响应时间。此配置称为“主动/主动”方法。它的特征是同时使用多个数据副本。在“主动/主动”配置中运行的应用程序必须具有[冲突处理策略](mvcc.html#distributed-databases-and-conflicts)，以避免发生与多个数据副本相关的问题。
+* 应用程序可以将请求发送到托管位置离自己物理位置最近的数据库。使用这种邻近性可以缩短网络等待时间和响应时间。此配置称为“主动/主动”方法。它的特征是同时使用多个数据副本。在“主动/主动”配置中运行的应用程序必须具有[冲突处理策略](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#distributed-databases-and-conflicts)，以避免发生与多个数据副本相关的问题。
 * 缺省情况下，应用程序可以向单个区域请求数据。如果该区域不可用，那么应用程序可以切换为向另一个区域请求数据。此配置称为“主动/被动”方法。它的特点是一次仅主动使用一组数据。
 * 应用程序可使用混合配置，其中单个帐户用于所有数据写请求，而其他位置专用于只读请求。对于读操作，此配置被视为“主动/主动”。
 * 在灾难场景中，应用程序必须重新路由数据请求，以访问在仍处于联机状态的区域中托管的帐户。此需求意味着应用程序必须能够检测到某个区域丢失，然后重新路由数据请求。
@@ -85,6 +96,7 @@ lastupdated: "2018-10-24"
 总之，跨区域冗余与高可用性功能类似，但适用于会影响整个区域的故障。但是，将应用程序配置为与交叉冗余配置正确配合使用，可提供真正的灾难恢复能力。原因是如果一个区域中的数据在一定时间内不可用，应用程序仍然可以继续运行。{{site.data.keyword.cloudant_short_notm}} 复制可帮助确保区域之间的数据同步。不过，应用程序必须能够“故障转移”到存储在其他区域中的数据副本。
 
 ## 数据库备份和恢复
+{: #database-backup-and-recovery}
 
 [区域内自动数据冗余](#in-region-automatic-data-redundancy)为应用程序提供了对数据的高可用性访问。[针对灾难恢复的跨区域冗余](#cross-region-redundancy-for-disaster-recovery)为应用程序提供了灾难恢复方法。但是，这两种能力都只专注于保持对数据_当前_副本的访问。
 
@@ -99,17 +111,16 @@ lastupdated: "2018-10-24"
 *	将完整数据库备份到适合进一步处理和非现场存储的文件。
 *	从备份文件中包含的先前状态复原完整数据库。
 
-> **警告！**{{site.data.keyword.cloudant_short_notm}} 支持的工具存在以下限制： 
-{:tip}
+{{site.data.keyword.cloudant_short_notm}} 支持的工具存在以下限制：
+{: tip}
 
 *	工具不会备份 `_security` 设置。
 *	工具不会备份附件。
 *	备份不是完全准确的“时间点”快照。原因是数据库中的文档是批量检索的，而其他应用程序可能在同时更新文档。因此，在读取第一批和最后一批之间的这段时间内，数据库中的数据可能会更改。
 *	会备份保存有索引定义的设计文档，但复原数据时，必须重建索引。此重建操作可能需要相当长的时间，具体取决于复原的数据量。
 
-<div id="conclusion"></div>
-
-## 后续步骤
+## 数据保护策略的后续步骤
+{: #next-steps-with-your-data-protection-strategies}
 
 您可以开发基于基本 {{site.data.keyword.cloudant_short_notm}} 功能和受支持工具构建的应用程序，以支持更复杂的数据保护策略。
 
@@ -119,6 +130,6 @@ lastupdated: "2018-10-24"
 *	存储多个先前文档状态，以允许从过去很久以前的时间进行复原。
 *	将较旧的数据迁移到更便宜的存储器，从而实现更经济的保留。
 
-备份工具由开放式源代码 node.js 命令行应用程序和库组成。它[在 NPM ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} 上可用。
+备份工具由开放式源代码 node.js 命令行应用程序和库组成。它[在 NPM ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} 上可用。
 
-有关说明如何将工具集成到数据保护策略中的构想和示例，请参阅[备份手册指南](backup-cookbook.html)。
+有关说明如何将工具集成到数据保护策略中的构想和示例，请参阅[备份手册指南](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)。

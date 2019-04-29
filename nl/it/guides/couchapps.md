@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-18"
+
+keywords: couchapp, 3-tier application
+
+subcollection: cloudant
 
 ---
 
@@ -11,17 +15,22 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
 # CouchApps
+{: #couchapps}
 
 {{site.data.keyword.cloudantfull}} può ospitare dati di file non elaborati,
 come le immagini,
 e servirli su HTTP,
 il che significa che può ospitare tutti i file statici necessari per eseguire un sito web
 e ospitarli proprio come un server web.
-{:shortdesc}
+{: shortdesc}
 
 Poiché questi file saranno ospitati su {{site.data.keyword.cloudant_short_notm}},
 JavaScript lato client potrà accedere ai database {{site.data.keyword.cloudant_short_notm}}.
@@ -49,18 +58,20 @@ ma spesso un'applicazione web richiederà la potenza di un'architettura a 3 live
 Come scegliere quella appropriata?
 
 ## Una CouchApp è appropriata se...
+{: #a-couchapp-is-appropriate-if-}
 
 -   Il tuo server ha fornito solo un'API a {{site.data.keyword.cloudant_short_notm}}.
--   Utilizzi l'[autenticazione basata su cookie](../api/authentication.html) di
+-   Utilizzi l'[autenticazione basata su cookie](/docs/services/Cloudant?topic=cloudant-authentication#cookie-authentication) di
     {{site.data.keyword.cloudant_short_notm}}.
--   Utilizzi i database [`_users` e `_security`](../api/authorization.html) di {{site.data.keyword.cloudant_short_notm}}
+-   Utilizzi i database [`_users` e `_security`](/docs/services/Cloudant?topic=cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db) di {{site.data.keyword.cloudant_short_notm}}
     per gestire gli utenti e le autorizzazioni.
 -   Non hai bisogno di pianificare lavori CRON o altre attività regolari.
 
 Per iniziare a utilizzare le CouchApp,
-consulta [Gestione di applicazioni su {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/app-management/){:new_window}.
+consulta [Gestione di applicazioni su {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/app-management/){: new_window}.
 
 ## Un'applicazione a 3 livelli è appropriata se...
+{: #a-3-tier-application-is-appropriate-if-}
 
 -   Hai bisogno di autorizzazioni più dettagliate rispetto a quelle consentite dal database
     `_security`.
@@ -70,4 +81,4 @@ consulta [Gestione di applicazioni su {{site.data.keyword.cloudant_short_notm}} 
 
 Puoi scrivere il tuo livello di server utilizzando le tecnologie più adatte alle tue
 esigenze.
-È [disponibile](../libraries/index.html) un elenco di librerie per lavorare con {{site.data.keyword.cloudant_short_notm}}.
+È disponibile un elenco di librerie per lavorare con {{site.data.keyword.cloudant_short_notm}} nella pagina [Principi di base {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries).

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
+
+subcollection: cloudant
 
 ---
 
@@ -12,13 +16,18 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 교차 지역 재해 복구를 위한 {{site.data.keyword.cloudant_short_notm}} 구성
+{: #configuring-ibm-cloudant-for-cross-region-disaster-recovery}
 
-[{{site.data.keyword.cloudant_short_notm}} 재해 복구 안내서](disaster-recovery-and-backup.html)는
-재해 복구를 가능하게 하는 방법 중 하나가 {{site.data.keyword.cloudantfull}} 복제를 사용하여 여러 지역에 중복성을 구축하는 것임을 설명합니다.
+[{{site.data.keyword.cloudant_short_notm}} 재해 복구 안내서](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)는
+재해 복구를 가능하게 하는 방법 중 하나가 {{site.data.keyword.cloudantfull}} 복제를 사용하여
+여러 지역에 중복성을 구축하는 것임을 설명합니다.
 
 데이터 센터 간에 '활성-활성' 또는 '활성-수동' 토폴로지를 사용하여 {{site.data.keyword.cloudant_short_notm}}에 복제를 구성할 수 있습니다.
 
@@ -34,16 +43,17 @@ lastupdated: "2018-10-24"
 * {{site.data.keyword.cloudant_short_notm}}는 개별 복제를 모니터하지 않습니다.
   사용자는 스스로 실패한 복제를 발견하고 이를 다시 시작하는 데 필요한 전략을 세워야 합니다.
 
-## 시작하기 전에
+## 활성-활성 배치를 시작하기 전에
+{: #before-you-begin-an-active-active-deployment}
 
-> **참고**: 활성-활성 배치의 경우에는 충돌을 관리하는 전략이 있어야 합니다.
-  따라서 이 아키텍처를 고려하기 전에는 [복제](../api/replication.html)와
-  [충돌](mvcc.html#distributed-databases-and-conflicts)이 어떻게 작동하는지 이해하고 있어야 합니다.
+활성-활성 배치의 경우에는 충돌을 관리하는 전략이 있어야 합니다. 따라서 이 아키텍처를 고려하기 전에는 [복제](/docs/services/Cloudant?topic=cloudant-replication-api#replication-api)와 [충돌](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc)이 어떻게 작동하는지 이해하고 있어야 합니다.
+{: note}
 
 충돌을 효과적으로 처리하기 위해 데이터를 모델링하는 방법에 대해 도움이 필요한 경우에는
-[{{site.data.keyword.cloudant_short_notm}} 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){:new_window}에 문의하십시오.
+[{{site.data.keyword.cloudant_short_notm}} 지원 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){: new_window}에 문의하십시오.
 
 ## 개요
+{: #overview-active-active}
 
 다음 자료에서는 양방향 복제가 작성됩니다.
 이 구성을 통해 두 데이터베이스가 활성-활성 토폴로지로 작동할 수 있습니다.
@@ -63,8 +73,9 @@ lastupdated: "2018-10-24"
 6. 데이터베이스의 활성-활성 또는 활성-수동 사용을 위해 애플리케이션 및 인프라를 구성합니다.
 
 ## 1단계: 데이터베이스 작성
+{: #step-1-create-your-databases}
 
-각 계정 사이에 복제할 [데이터베이스를 작성하십시오](../api/database.html#create).
+각 계정 사이에 복제할 [데이터베이스를 작성하십시오](/docs/services/Cloudant?topic=cloudant-databases#create-database).
 
 이 예에서는 `mydb`라는 데이터베이스가 작성됩니다.
 
@@ -74,11 +85,12 @@ lastupdated: "2018-10-24"
 curl https://myaccount-dc1.cloudant.com/mydb -XPUT -u myaccount-dc1
 curl https://myaccount-dc2.cloudant.com/mydb -XPUT -u myaccount-dc2
 ```
-{:codeblock}
+{: codeblock}
 
 ## 2단계: 복제를 위한 API 키 작성
+{: #step-2-create-an-api-key-for-your-replications}
 
-연속 복제에는 [API 키](../api/authorization.html#api-keys)를 사용하는 것이 좋습니다.
+연속 복제에는 [API 키](/docs/services/Cloudant?topic=cloudant-authorization#api-keys)를 사용하는 것이 좋습니다.
 API 키의 장점은 비밀번호가 재설정되는 등과 같이 기본 계정 세부사항이 변경되더라도 복제를 변경하지 않고 계속할 수 있다는 점입니다.
 
 API 키는 하나의 계정에 종속되지 않습니다.
@@ -90,7 +102,7 @@ API 키는 하나의 계정에 종속되지 않습니다.
 ```sh
 $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-dc1
 ```
-{:codeblock}
+{: codeblock}
 
 성공적인 응답은 다음 축약된 예와 유사합니다.
 
@@ -101,20 +113,22 @@ $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-d
   "key": "ble...igl"
 }
 ```
-{:codeblock}
+{: codeblock}
 
-> **참고**: 비밀번호를 주의하여 기록하십시오.
-  이 비밀번호는 나중에 검색할 수 없습니다.
+비밀번호에 주의하십시오. 이 비밀번호는 나중에 검색할 수 없습니다.
+{: important}
 
-### 3단계: 액세스 권한 부여
+## 3단계: 액세스 권한 부여
+{: #step-3-grant-access-permission}
 
-두 데이터베이스에서 모두 읽고 쓸 수 있도록 [API 키에 권한을 부여하십시오](../api/authorization.html#modifying-permissions).
+두 데이터베이스에서 모두 읽고 쓸 수 있도록 [API 키에 권한을 부여하십시오](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions).
 
 인덱스를 복제하려는 경우에는 관리자 권한을 지정하십시오.
 
-{{site.data.keyword.cloudant_short_notm}} 대시보드를 사용하거나, 프로그래밍 방식으로 권한을 부여하는 방법의 세부사항에 대해 [권한 부여](../api/authorization.html) 정보를 참조하십시오.
+{{site.data.keyword.cloudant_short_notm}} 대시보드를 사용하거나, 프로그래밍 방식으로 권한을 부여하는 방법의 세부사항에 대해 [권한 부여](/docs/services/Cloudant?topic=cloudant-authorization#authorization) 정보를 참조하십시오.
 
-### 4단계: 복제 설정
+## 4단계: 복제 설정
+{: #step-4-set-up-replications}
 
 {{site.data.keyword.cloudant_short_notm}}에서의 복제는 항상 단방향(한 데이터베이스에서 다른 데이터베이스로)입니다.
 따라서 두 데이터베이스 간에 복제를 수행하려면 각 방향에 대해 하나씩, 두 개의 복제가 필요합니다.
@@ -133,7 +147,7 @@ curl -XPOST 'https://myaccount-dc1.cloudant.com/_replicator'
 	"continuous": true
 }'
 ```
-{:codeblock}
+{: codeblock}
 
 그 다음에는 데이터베이스 `myaccount-dc2.cloudant.com/mydb`에서 데이터베이스 `myaccount-dc1.cloudant.com/mydb`로의 복제를 작성하십시오.
 
@@ -147,23 +161,27 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 	"continuous": true
 }'
 ```
-{:codeblock}
+{: codeblock}
 
-> **참고:** `_replicator` 데이터베이스가 없어 이 단계가 실패하는 경우에는 이를 작성하십시오.
+`_replicator` 데이터베이스가 없어 이 단계가 실패하는 경우에는 이를 작성하십시오.
+{: note}
 
-### 5단계: 복제 테스트
+## 5단계: 복제 테스트
+{: #step-5-test-your-replication}
 
 두 데이터베이스에서 문서를 작성하고, 수정하고 삭제하여 복제 프로세스를 테스트하십시오.
 
 한 데이터베이스의 각 변경 후에, 해당 변경이 다른 데이터베이스에 반영되는지 확인하십시오.
 
-### 6단계: 애플리케이션 구성
+## 6단계: 애플리케이션 구성
+{: #step-6-configure-your-application}
 
 이 시점에서, 두 데이터베이스는 설정되어 서로 동기화된 상태를 유지합니다.
 
 다음 의사결정은 데이터베이스를 [활성-활성](#active-active) 방식으로 사용할지, 또는 [활성-수동](#active-passive) 방식으로 사용할지 결정하는 것입니다.
 
-#### 활성-활성
+### 활성-활성
+{: #active-active}
 
 활성-활성 구성에서는 서로 다른 애플리케이션 인스턴스가 서로 다른 데이터베이스에 데이터를 기록할 수 있습니다.
 
@@ -180,7 +198,8 @@ DC1에서 호스팅되는 애플리케이션의 경우에는 이들의 {{site.da
 `"https://myaccount-dc1.cloudant.com/mydb"`로 설정하는 것이 적절합니다.
 마찬가지로, DC2에서 호스팅되는 애플리케이션의 경우에는 {{site.data.keyword.cloudant_short_notm}} URL을 `"https://myaccount-dc2.cloudant.com/mydb"`로 설정합니다.
 
-#### 활성-수동
+### 활성-수동
+{: #active-passive}
 
 활성-수동 구성에서는 애플리케이션의 모든 인스턴스가 기본 데이터베이스를 사용하도록 구성됩니다.
 그러나 상황에 따라 애플리케이션은 다른 백업 데이터베이스로 장애 복구할 수 있습니다.
@@ -188,23 +207,26 @@ DC1에서 호스팅되는 애플리케이션의 경우에는 이들의 {{site.da
 
 장애 복구의 필요 여부에 대한 간단한 테스트는 기본 데이터베이스 엔드포인트를 '하트비트'로 사용하는 것입니다.
 예를 들면, 기본 데이터베이스 엔드포인트에 전송된 단순 `GET` 요청은 일반적으로
-[데이터베이스의 세부사항](../api/database.html#getting-database-details)을 리턴합니다.
+[데이터베이스의 세부사항](/docs/services/Cloudant?topic=cloudant-databases#getting-database-details)을 리턴합니다.
 응답이 수신되지 않는 경우 이는 장애 복구가 필요함을 나타낼 수 있습니다.
 
-#### 기타 구성
+### 기타 구성
+{: #other-configurations}
 
 구성에 대해 다른 하이브리드 접근법을 고려할 수도 있습니다.
 
 예를 들어, '쓰기-기본, 읽기-복제본' 구성에서는 모든 쓰기가 하나의 데이터베이스에 전송되지만 읽기 로드는 복제본 간에 분산됩니다.
 
-### 7단계: 다음 단계
+## 7단계: 다음 단계
+{: #step-7-next-steps}
 
-* 데이터베이스 간 [복제](../api/advanced_replication.html)를 모니터하는 것을 고려하십시오.
+* 데이터베이스 간 [복제](/docs/services/Cloudant?topic=cloudant-advanced-replication#advanced-replication)를 모니터하는 것을 고려하십시오.
   모니터링 데이터를 사용하여 구성을 추가로 최적화할 수 있는지 판별하십시오.
 *	디자인 문서 및 인덱스가 배치되어 업데이트되는 방식을 고려하십시오.
   이러한 태스크를 자동화하는 것이 더 효율적일 수 있습니다.
 
 ## {{site.data.keyword.cloudant_short_notm}} 지역 간 장애 복구
+{: #failing-over-between-ibm-cloudant-regions}
 
 일반적으로 지역 또는 데이터 센터 간 장애 복구 관리의 프로세스는 애플리케이션 서버 장애 복구 변경사항 구성 또는 로드 밸런싱 등과 같이 애플리케이션 스택의 상부에서 처리됩니다.
 
@@ -214,15 +236,17 @@ DC1에서 호스팅되는 애플리케이션의 경우에는 이들의 {{site.da
 
 그러나 장애 복구를 관리하는 기능이 필요한 경우에는 다음과 같은 몇 가지 옵션을 사용할 수 있습니다.
 
-* [{{site.data.keyword.cloudant_short_notm}} 앞에 고유의 HTTP 프록시 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/greenmangaming/cloudant-nginx){:new_window}를 삽입합니다.
+* [{{site.data.keyword.cloudant_short_notm}} 앞에 고유의 HTTP 프록시 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/greenmangaming/cloudant-nginx){: new_window}를 삽입하십시오.
   {{site.data.keyword.cloudant_short_notm}} 인스턴스가 아니라 프록시와 통신하도록 애플리케이션을 구성하십시오.
   이 구성은 애플리케이션이 사용하는 {{site.data.keyword.cloudant_short_notm}} 인스턴스의 변경 태스크를
   애플리케이션 설정 수정 대신 프록시 구성 수정을 통해 처리할 수 있음을 의미합니다.
   많은 프록시에는 사용자 정의 상태 검사에 따라 로드 밸런싱을 수행하는 기능이 있습니다.
-* [Traffic Director ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://dyn.com/traffic-director/){:new_window}와 같은 글로벌 로드 밸런서를 사용하여 {{site.data.keyword.cloudant_short_notm}}로 라우팅합니다.
+* [{{site.data.keyword.cloud}} Internet Services ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} 또는 [Dyn Traffic Director ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://dyn.com/traffic-director/){: new_window}와 같은 글로벌 로드 밸런서를 사용하여 {{site.data.keyword.cloudant_short_notm}}로 라우팅하십시오.
   이 옵션은 상태 검사 또는 대기 시간 규칙에 따라 다른 {{site.data.keyword.cloudant_short_notm}} 계정으로 라우팅하는 `CNAME` 정의를 필요로 합니다.
 
+
 ## 장애 복구
+{: #recovering-from-fail-over}
 
 하나의 {{site.data.keyword.cloudant_short_notm}} 인스턴스가 도달 불가능한 경우에는
 이 인스턴스가 다시 도달 가능 상태가 된 직후 여기에 트래픽을 경로 재지정하지 않도록 하십시오.
@@ -236,21 +260,24 @@ DC1에서 호스팅되는 애플리케이션의 경우에는 이들의 {{site.da
 * [복제](#replications)
 * [인덱스](#indexes)
 
-> **참고:** 상태 검사에 따른 요청 다시 라우팅 또는 장애 복구를 구현하는 경우에는 아직 복구 중인 서비스 인스턴스로 다시 라우팅하지 않도록 하는 해당 검사를 포함시키는 것이 좋습니다.
+상태 검사에 따른 요청 다시 라우팅 또는 장애 복구를 구현하는 경우에는 아직 복구 중인 서비스 인스턴스로 다시 라우팅하지 않도록 하는 해당 검사를 포함시키는 것이 좋습니다.
+{: note}
 
 ### 복제
+{: #replications}
 
 * 오류 상태인 복제가 있습니까?
 * 다시 시작이 필요한 복제가 있습니까?
 * 몇 개의 보류 변경사항이 데이터베이스에서 복제를 기다리고 있습니까?
 
-복제 상태 모니터링에 대한 자세한 정보는 [여기](../api/advanced_replication.html#replication-status)에 있습니다.
+복제 상태 모니터링에 대한 자세한 정보는 [여기](/docs/services/Cloudant?topic=cloudant-advanced-replication#replication-status)에 있습니다.
 
-> **참고:** 데이터베이스가 지속적으로 변경되고 있는 경우에는 복제 상태가 0이 아닐 가능성이 높습니다.
-  어떤 상태 임계값이 허용 가능한지, 또는 오류 상태를 나타내는지는 사용자가 결정해야 합니다.
+데이터베이스가 지속적으로 변경되고 있는 경우에는 복제 상태가 0이 아닐 가능성이 높습니다. 어떤 상태 임계값이 허용 가능한지 또는 오류 상태를 나타내는지는 사용자가 결정해야 합니다.
+{: note}
 
 ### 인덱스
+{: #indexes}
 
 * 인덱스가 충분히 최신 상태입니까?
-  [활성 태스크](../api/active_tasks.html) 엔드포인트를 사용하여 이를 검사하십시오.
+  [활성 태스크](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) 엔드포인트를 사용하여 이를 확인하십시오.
 * 인덱스에 조회를 전송하고, 허용 가능한 시간 내에 리턴되는지 판별하여 '인덱스 준비 상태'의 레벨을 테스트하십시오.

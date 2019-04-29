@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
+
+subcollection: cloudant
 
 ---
 
@@ -12,10 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Recuperação de desastre e backup
+{: #disaster-recovery-and-backup}
 
 Seus dados são importantes e valiosos.
 Você deseja proteger seus dados
@@ -23,7 +31,7 @@ para ajudar a assegurar que sejam seguros,
 disponíveis
 e mantenham a integridade.
 O {{site.data.keyword.cloudantfull}} fornece várias maneiras de proteger seus dados e ajudar a manter seus aplicativos operacionais.
-{:shortdesc}
+{: shortdesc}
 
 Alguns desses recursos de proteção são automáticos.
 Para outras formas de proteção,
@@ -33,6 +41,7 @@ ajudam a criar seus próprios recursos de alta disponibilidade e recuperação d
 Este documento fornece uma visão geral dos recursos automáticos e das ferramentas suportadas que são oferecidos pelo {{site.data.keyword.cloudant_short_notm}}.
 
 ## Tipos e níveis de proteção
+{: #types-and-levels-of-protection}
 
 O tipo de proteção que você pode desejar depende do problema que está tentando resolver.
 
@@ -63,9 +72,8 @@ será possível aplicar as ferramentas e os recursos que ajudam a resolver as ne
 Quando em conjunto,
 as ferramentas e os recursos podem então tratar dos requisitos de HA ou DR.
 
->	**Nota**: diferentes ferramentas e recursos fornecem diferentes níveis de proteção.
-	Os diferentes recursos podem ser mais ou menos adequados para seu requisito específico de HA ou DR.
-{:tip}
+Diferentes ferramentas e recursos fornecem diferentes níveis de proteção. Os diferentes recursos podem ser mais ou menos adequados para seu requisito específico de HA ou DR.
+{: tip}
 
 O {{site.data.keyword.cloudant_short_notm}} fornece várias ferramentas e recursos que tratam de requisitos gerais:
 
@@ -74,6 +82,7 @@ O {{site.data.keyword.cloudant_short_notm}} fornece várias ferramentas e recurs
 3.	Backup de captura instantânea do momento para restauração do momento usando o [Backup e recuperação de banco de dados](#database-backup-and-recovery) 'tradicional'.
 
 ## Redundância automática de dados na região
+{: #in-region-automatic-data-redundancy}
 
 Em uma única conta do {{site.data.keyword.cloudant_short_notm}},
 os dados são armazenados em triplicidade usando processos internos e automáticos.
@@ -111,6 +120,7 @@ a redundância de dados na região permite um recurso de Alta disponibilidade,
 fornecendo tolerância para falhas que afetam sistemas únicos dentro da região.
 
 ## Redundância entre regiões para recuperação de desastre
+{: #cross-region-redundancy-for-disaster-recovery}
 
 O recurso de replicação do {{site.data.keyword.cloudant_short_notm}} ajuda a construir um recurso de recuperação de desastre flexível em seus aplicativos.
 A principal maneira de ativar a recuperação de desastre é usar a replicação do {{site.data.keyword.cloudant_short_notm}} para criar redundância entre regiões.
@@ -122,7 +132,7 @@ As etapas básicas para criar redundância entre regiões são:
 2.  Criar bancos de dados em cada região, conforme necessário.
 3.  Para bancos de dados que devem ser armazenados com redundância entre regiões, configurar replicações contínuas bidirecionais entre os bancos de dados correspondentes em cada conta.
 4.  Projetar e implementar seus aplicativos para que as solicitações de dados sejam roteadas dependendo se seu ambiente for uma configuração Ativa/Passiva ou Ativa/Ativa.
-  Um guia detalhado para configurar isso está [disponível](active-active.html).
+  Um guia detalhado para configurar isso está [disponível](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery).
 
 Ao projetar seus aplicativos para funcionar com dados em múltiplas regiões,
 considere os pontos a seguir:
@@ -132,7 +142,7 @@ considere os pontos a seguir:
   Essa configuração é referida como um método 'Ativo/Ativo'.
   Ela é caracterizada pelo uso simultâneo de múltiplas cópias de dados.
   Os aplicativos que funcionam em uma configuração ativa/ativa devem ter
-uma [estratégia para manipular conflitos](mvcc.html#distributed-databases-and-conflicts) para evitar problemas com múltiplas cópias de dados.
+uma [estratégia para manipular conflitos](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#distributed-databases-and-conflicts) para evitar problemas com múltiplas cópias de dados.
 * Os aplicativos podem solicitar dados de uma única região por padrão.
   Se a região não estiver disponível,
 o aplicativo poderá alternar para solicitar dados de outra região.
@@ -159,6 +169,7 @@ No entanto,
 seus aplicativos deverão ser capazes de 'executar failover' para cópias de seus dados armazenadas em outras regiões.
 
 ## Backup e recuperação de banco de dados
+{: #database-backup-and-recovery}
 
 A [redundância automática de dados na região](#in-region-automatic-data-redundancy) fornece aos aplicativos acesso de alta disponibilidade aos dados.
 A [redundância entre regiões para recuperação de desastre](#cross-region-redundancy-for-disaster-recovery) fornece aos aplicativos um meio de recuperação de um desastre.
@@ -188,8 +199,8 @@ as ferramentas suportadas pelo {{site.data.keyword.cloudant_short_notm}} ajudam 
 adequado para processamento posterior e armazenamento externo.
 *	Restaurar bancos de dados completos de um estado anterior contido em seu arquivo de backup.
 
-> **Aviso!** As ferramentas suportadas pelo {{site.data.keyword.cloudant_short_notm}} tem as limitações a seguir: 
-{:tip}
+As ferramentas suportadas pelo {{site.data.keyword.cloudant_short_notm}} tem as limitações a seguir: 
+{: tip}
 
 *	As configurações `_security` não são submetidas a backup pelas ferramentas.
 *	Os anexos não são submetidos a backup pelas ferramentas.
@@ -202,9 +213,8 @@ mas quando os dados são restaurados, os índices devem ser reconstruídos.
 	Essa reconstrução poderá levar um período de tempo considerável,
 dependendo da quantidade de dados restaurada.
 
-<div id="conclusion"></div>
-
-## Etapas Seguintes
+## Próximas etapas com suas estratégias de proteção de dados
+{: #next-steps-with-your-data-protection-strategies}
 
 É possível desenvolver aplicativos que constroem funções básicas do {{site.data.keyword.cloudant_short_notm}} e ferramentas suportadas
 para ativar estratégias mais complexas de proteção de dados.
@@ -216,7 +226,7 @@ Os cenários de exemplo incluem:
 *	Migração de dados mais antigos para armazenamento mais barato, para retenção com custo mais reduzido.
 
 As ferramentas de backup consistem em um aplicativo e uma biblioteca de linha de comandos node.js de software livre.
-Elas estão disponíveis [no NPM ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}.
+Elas estão disponíveis [no NPM ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
 
 Para ter ideias e exemplos que mostram como integrar as ferramentas em sua estratégia de proteção de dados,
-veja o [Guia de cookbook de backup](backup-cookbook.html).
+veja o [Guia de cookbook de backup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
+
+subcollection: cloudant
 
 ---
 
@@ -12,26 +16,32 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Sicherung erstellen
+{: #creating-a-backup}
 
-Dieses Lernprogramm zeigt, wie das Befehlszeilendienstprogramm [CouchBackup ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}
+Dieses Lernprogramm zeigt, wie das Befehlszeilendienstprogramm [CouchBackup ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}
 verwendet werden kann, um eine CouchDB- oder {{site.data.keyword.cloudant_short_notm}}-Instanz zu sichern und wiederherzustellen. CouchBackup sichert die Datenbank in einer Datei. Falls die Datenbank ausfällt, können Sie die Sicherungsdatei verwenden, um
 die Informationen in einer vorhandenen Datenbank wiederherzustellen. 
-{:shortdesc}
+{: shortdesc}
 
-## Vorbereitende Schritte
+## Vorbereitende Schritte für die Installation von CouchBackup
+{: #before-you-begin-to-install-couchbackup}
 
 Installieren Sie CouchBackup, indem Sie den Befehl `install` ausführen. 
 
 ```sh
 npm install -g @cloudant/couchbackup
 ```
-{:codeblock}
+{: codeblock}
 
-## Datenbank erstellen
+## Beispieldatenbank erstellen
+{: #creating-a-sample-database}
 
 Erstellen Sie eine einfache `couchbackup-demo`-Datenbank für
 die Verwendung in diesem Lernprogramm.
@@ -41,7 +51,7 @@ die Verwendung in diesem Lernprogramm.
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo -X PUT
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  Überprüfen Sie die Ergebnisse.
     
@@ -50,9 +60,10 @@ die Verwendung in diesem Lernprogramm.
       "ok": true
     }
     ```
-    {:codeblock}
+    {: codeblock}
 
-## Dokumente in der Datenbank erstellen
+## Dokumente in der Beispieldatenbank erstellen
+{: #creating-documents-in-the-sample-database}
 
 Die Dokumente, die Sie in dieser Übung erstellen, enthalten die Daten, die Sie in späteren Übungen sichern und wiederherstellen können. 
 
@@ -100,14 +111,14 @@ Die Dokumente, die Sie in dieser Übung erstellen, enthalten die Daten, die Sie 
         ]
     }
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  Führen Sie diesen Befehl aus, um die Dokumente zu erstellen:
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  Überprüfen Sie die Ergebnisse.
     
@@ -140,9 +151,10 @@ Die Dokumente, die Sie in dieser Übung erstellen, enthalten die Daten, die Sie 
       }
     ]
     ```
-    {:codeblock}
+    {: codeblock}
     
 ## Umgebungsvariable festlegen
+{: #setting-an-environment-variable}
 
 Sie können Umgebungsvariablen oder Befehlszeilenoptionen verwenden, um die
 URL und die Datenbank für die CouchDB- oder {{site.data.keyword.cloudant_short_notm}}-Instanz anzugeben, die mit
@@ -155,9 +167,10 @@ Legen Sie die Umgebungsvariable `COUCH_URL` fest, um die URL für die CouchDB- o
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 ## Datenbank sichern
+{: #backing-up-a-database}
 
 Das CouchBackup-Dienstprogramm sichert Ihre Datenbank in eine Textdatei, um Ihre Daten
 zu erhalten und einfacher wiederherstellen zu können. 
@@ -167,7 +180,7 @@ zu erhalten und einfacher wiederherstellen zu können.
     ```sh
     couchbackup --db couchbackup-demo > couchbackup-demo-backup.txt
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  Überprüfen Sie die Ergebnisse. 
     
@@ -187,7 +200,7 @@ zu erhalten und einfacher wiederherstellen zu können.
         couchbackup:backup written 0  docs:  5 Time 0.604 +0ms
         couchbackup:backup finished { total: 5 } +4ms
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  Prüfen Sie das Verzeichnis, um sicherzustellen, dass die Datei `couchbackup-demo-backup.txt` erstellt wurde. 
 4.  Öffnen Sie die Datei und lesen Sie die Liste der Dokumente, die aus der Datenbank gesichert wurden.  
@@ -266,9 +279,10 @@ zu erhalten und einfacher wiederherstellen zu können.
         }
     ]
     ```
-    {:codeblock}
+    {: codeblock}
 
 ## Protokolldatei erstellen
+{: #creating-a-log-file}
 
 Eine Protokolldatei zeichnet den Fortschritt Ihrer Sicherung auf. Mit CouchBackup verwenden Sie den Parameter `--log`, um die Protokolldatei zu erstellen. Sie können das Tool auch verwenden, um eine Sicherung ab dem Punkt neu zu starten, an dem sie gestoppt wurde, und den Namen der Ausgabedatei anzugeben. 
 
@@ -284,7 +298,7 @@ Der Befehl `couchbackup` verwendet diese Parameter, um die Datenbank, Protokolld
     ```sh
     couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log > couchbackup-demo-backup-log.txt
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  Überprüfen Sie die Ergebnisse.
         
@@ -324,7 +338,7 @@ Der Befehl `couchbackup` verwendet diese Parameter, um die Datenbank, Protokolld
                 couchbackup:backup written 0  docs:  5 Time 0.621 +0ms
                 couchbackup:backup finished { total: 5 } +4ms
     ```
-    {:codeblock}
+    {: codeblock}
 
 3.  Öffnen Sie die Protokolldatei, `couchbackup-demo-backup.log`, und überprüfen Sie die Aktionen, die
     während der Sicherung oder Wiederherstellung ausgeführt wurden.  
@@ -350,29 +364,29 @@ Der Befehl `couchbackup` verwendet diese Parameter, um die Datenbank, Protokolld
         CcHonxO68GjenPxeyopyrXW86mg-HFz9NZiQh1FUhUefOhzMIg
     :d batch0
     ```
-    {:codeblock}
+    {: codeblock}
     
 ##  Aus einer Sicherungstextdatei wiederherstellen
+{: #restoring-from-a-backup-text-file}
 
 Aus der Datei `couchbackup-demo-backup.txt` können Sie Ihre Daten mithilfe des Befehls `couchrestore` in einer neuen, leeren Datenbank wiederherstellen. 
 
-> **Hinweis**: Das Wiederherstellen einer Sicherung wird nur unterstützt, wenn das Ziel eine leere Datenbank ist. Wenn Sie alle 
-Dokumente aus einer Datenbank löschen, sind Datensätze zur Dokumentlöschung weiterhin aus Konsistenzgründen vorhanden. 
-Das heißt, dass eine Datenbank, die nur gelöschte Dokumente enthält, nicht als leer betrachtet wird und deshalb nicht als Ziel für die Wiederherstellung einer Sicherung verwendet werden kann.
+Das Wiederherstellen einer Sicherung wird nur unterstützt, wenn das Ziel eine leere Datenbank ist. Wenn Sie alle Dokumente aus einer Datenbank löschen, sind die Datensätze zur Dokumentlöschung aus Konsistenzgründen weiterhin vorhanden. Das heißt, dass eine Datenbank, die nur gelöschte Dokumente enthält, nicht als leer betrachtet wird und deshalb nicht als Ziel für die Wiederherstellung einer Sicherung verwendet werden kann. 
+{: tip}
 
 1.  (Voraussetzung) Erstellen Sie eine neue, leere Datenbank, in der Sie Ihre Daten wiederherstellen können.
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo-restore -X PUT
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  Führen Sie den Befehl `couchrestore` aus.
     
     ```sh
     cat couchbackup-demo-backup.txt | couchrestore --db couchbackup-demo-restore
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  Überprüfen Sie die Ergebnisse. 
     
@@ -388,9 +402,9 @@ Das heißt, dass eine Datenbank, die nur gelöschte Dokumente enthält, nicht al
       couchbackup:restore restored 5 +0ms
       couchbackup:restore finished { total: 5 } +1ms
     ```
-    {:codeblock}
+    {: codeblock}
 
 Jetzt haben Sie eine Datenbank gesichert und wiederhergestellt und dazu eine Protokolldatei erstellt. In der {{site.data.keyword.cloudant_short_notm}}-Dokumentation
-finden Sie weitere Informationen zur [Disaster-Recovery und Sicherung](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup),
-zur [Konfiguration von {{site.data.keyword.cloudant_short_notm}} für regionsübergreifende Disaster-Recovery](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)
-und zur [{{site.data.keyword.cloudant_short_notm}}-Sicherung und -Wiederherstellung](../guides/backup-cookbook.html#cloudant-backup-and-recovery).  
+finden Sie weitere Informationen zur [Disaster-Recovery und Sicherung](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup),
+zur [Konfiguration von {{site.data.keyword.cloudant_short_notm}} für regionsübergreifende Disaster-Recovery](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)
+und zur [{{site.data.keyword.cloudant_short_notm}}-Sicherung und -Wiederherstellung](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).  

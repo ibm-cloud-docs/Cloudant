@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-18"
+
+keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
+
+subcollection: cloudant
 
 ---
 
@@ -12,17 +16,21 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Gerenciando Tarefas
+# Gerenciando tarefas
+{: #managing-tasks}
 
 Criar novos índices sobre muitos dados ou replicar um banco de dados grande pode levar muito tempo.
-{:shortdesc}
+{: shortdesc}
 
 Portanto, como é possível determinar se suas tarefas estão progredindo
 ou se foram concluídas?
-O [terminal `_active_tasks`](../api/active_tasks.html) fornece informações sobre todas as tarefas em andamento.
+O [terminal `_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) fornece informações sobre todas as tarefas em andamento.
 No entanto,
 se você iniciar muitas tarefas,
 algumas delas poderão ser planejadas para execução posterior e não aparecerão sob `_active_tasks`
@@ -34,9 +42,10 @@ O processador JSON da linha de comandos `jq` é usado para processar a resposta 
 
 Como este é um tutorial focado em tarefas,
 ele cobre apenas o que é essencial para realizar essa tarefa.
-Consulte a [referência de API](../api/index.html) para obter um guia completo para as opções disponíveis.
+Para obter mais informações, consulte a [Referência de API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) para obter um guia completo para as opções disponíveis.
 
 ## Informações básicas de curl e jq
+{: #curl-and-jq-basics}
 
 Para obter todas as tarefas ativas e formatar a saída adequadamente,
 chame sua conta usando `curl`
@@ -45,16 +54,17 @@ e canalize a saída como `jq`.
 `jq` permite filtrar uma lista de documentos por seus valores de campo.
 Isso facilita obter todos os documentos de replicação
 ou os detalhes apenas de uma tarefa de indexação de visualização específica.
-A [referência de API](../api/index.html) tem mais informações sobre as opções.
+A referência de API possui mais informações sobre as opções.
 
 _Exemplo de como obter e formatar uma lista de tarefas ativas:_
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Monitorando construções de visualização e índices de procura
+{: #monitoring-view-builds-and-search-indexes}
 
 Os índices de visualização são reconstruídos quando um documento de design é atualizado.
 Uma atualização em qualquer uma das visualizações faz com que todas as visualizações no documento sejam reconstruídas.
@@ -83,14 +93,14 @@ _Exemplo de como localizar todas as tarefas de indexação de visualização, fi
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Exemplo de como localizar todas as tarefas de indexação de procura, filtrando pelo tipo `search_indexer`:_
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Exemplo de resultados depois de procurar tarefas de indexação de visualização:_
 
@@ -108,9 +118,10 @@ _Exemplo de resultados depois de procurar tarefas de indexação de visualizaç�
     "design_document": "_design/ngrams"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Estimando o tempo para concluir uma tarefa
+{: #estimating-the-time-to-complete-a-task}
 
 Para estimar o tempo necessário até que a tarefa de indexação seja concluída,
 monitore o número de `changes_done` e compare esse valor com `total_changes`.
@@ -120,9 +131,7 @@ e `total_changes` for 1.000.000,
 a tarefa deverá levar 1.000.000 / 250 = 4.000 segundos
 ou aproximadamente 66 minutos, para ser concluída.
 
->   **Nota**: as estimativas do tempo para concluir uma tarefa de indexação não podem ser 100% precisas.
-    O tempo real para concluir a tarefa depende de vários fatores,
-incluindo:
+Estimativas do tempo para concluir uma tarefa de indexação não podem ser 100% precisas. O tempo real para concluir a tarefa depende dos fatores a seguir:
 
 -   O tempo que leva para processar cada documento.
     Por exemplo,
@@ -131,16 +140,17 @@ e só emitir novas entradas de índice para um tipo.
 -   O tamanho dos documentos.
 -   A carga de trabalho atual no cluster.
 
->   Você deve supor que esses fatores podem ser combinados para produzir imprecisão considerável em sua estimativa.
+Você deve supor que esses fatores podem ser combinados para produzir imprecisão considerável em sua estimativa.
 
 _Exemplo de como extrair o campo `changes_done` usando `jq`:_
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Monitorando a replicação
+{: #monitoring-replication}
 
 Para localizar todas as tarefas de replicação,
 canalize a saída `curl` como `jq`
@@ -155,21 +165,21 @@ _Exemplo de como localizar todas as tarefas de replicação, filtrando pelo tipo
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Exemplo de como localizar uma tarefa de replicação específica, filtrando por uma identidade de documento conhecida:_
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Exemplo de como localizar uma tarefa de replicação específica, filtrando por um `replication_id` conhecido:_
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Exemplo de resultado depois de procurar uma tarefa de replicação:_
 
@@ -196,11 +206,13 @@ _Exemplo de resultado depois de procurar uma tarefa de replicação:_
     "replication_id": "asfksdlfkjsadkfjsdalkfjas+continuous+create_target"
 }
 ```
-{:codeblock}
+{: codeblock}
 
-## Solucionando problemas
+## Resolução de problemas de tarefas paradas
+{: #troubleshooting-stuck-tasks}
 
 ### Uma tarefa está presa?
+{: #is-a-task-stuck-}
 
 Para uma replicação
 única, não contínua,
@@ -221,17 +233,17 @@ ou atualizado
 no banco de dados.
 
 ### O que fazer com uma tarefa presa?
+{: #what-to-do-about-a-stuck-task-}
 
 Para resolver uma replicação paralisada,
-talvez você tenha que [cancelar o processo de replicação](../api/replication.html#cancelling-a-replication) e iniciá-lo novamente.
+talvez você tenha que [cancelar o processo de replicação](/docs/services/Cloudant?topic=cloudant-replication-api#canceling-a-replication) e iniciá-lo novamente.
 
 Se isso não ajudar,
 a replicação poderá estar paralisada porque o usuário que acessa os bancos de dados de origem ou de destino
 não tem permissões de gravação.
 
->   **Nota**: a replicação usa [pontos de verificação](replication_guide.html#checkpoints).
-    Isso significa que o conteúdo já replicado e não mudado
-não precisará ser replicado novamente se a replicação for reiniciada.
+A replicação faz uso de [pontos de verificação](/docs/services/Cloudant?topic=cloudant-replication-guide#checkpoints), o que significa que o conteúdo que já está replicado e inalterado não precisará ser replicado novamente se a replicação for reiniciada.
+{: note}
 
 Se você tiver criado o processo de replicação criando um documento no banco de dados `_replicator`,
 também poderá verificar o status da replicação lá.
