@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-23"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -211,6 +211,8 @@ Field                 | Description
 `purge_seq`           | The number of purge operations on the database.
 `sizes`               | A JSON object, containing `file`, `external`, and `active` sizes. `active` is the size in bytes of data that are stored internally (excluding old revisions). `external` is the size in bytes of decompressed user data. This value is the billable data size. The `other/data_size` field is an alias for the `external` field. `file` is the size in bytes of data that are stored on the disk. Indexes are not included in the calculation. The `disk_size` field is an alias for the `file` field. This size includes data that are waiting for compaction.
 `update_seq`          | An opaque string that describes the state of the database. Do not rely on this string for counting the number of updates.
+`partitioned_indexes` | A JSON object that only appears if the database is partitioned. `count` is the number of partitioned indexes. `indexes` list the type of partitioned indexes, and `limit` shows the maximum number of allowed partitioned indexes.
+
 
 _Example (abbreviated) response that contains database details:_
 
@@ -232,7 +234,15 @@ _Example (abbreviated) response that contains database details:_
 	"disk_size": 46114703224,
 	"disk_format_version": 6,
 	"compact_running": true,
-	"instance_start_time": "0"
+	"instance_start_time": "0",
+	"partitioned_indexes": {
+		"count": 7,
+		"indexes": {
+			"search": 1,
+			"view": 6
+		},
+		"limit": 10
+	}
 }
 ```
 {: codeblock}
