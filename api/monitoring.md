@@ -40,7 +40,7 @@ you need data.
 The data comes from monitoring the system.
 
 Monitoring the system while it replicates can be performed using the `_active_tasks` endpoint,
-which is described in more detail [here](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks).
+which is described in more detail in [Active tasks](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks).
 
 For more detailed system information,
 you make use of the cluster monitoring API.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-25"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -34,13 +34,7 @@ This section of the tutorial describes how to upload an
 
 The first task is to connect to {{site.data.keyword.cloud_notm}}.
 
-The [{{site.data.keyword.cloud_notm}} toolkit](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits) helps you to make the connection.
-
-Cloud Foundry needs to know the URL to use for making API calls,
-for example when you upload an application.
-The {{site.data.keyword.cloud_notm}} toolkit uses the '`cf api`' command to manage the API endpoint.
-More information about the '`cf api`' command is
-[available ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}.
+The {{site.data.keyword.cloud_notm}} CLI needs to know which URL to use for making API calls. For example, when you upload an application, the {{site.data.keyword.cloud_notm}} toolkit uses the `ibmcloud api` command to manage the API endpoint. For more information about the `ibmcloud api` command, see [Getting started with the {{site.data.keyword.cloud_notm}} CLI ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
 Use the following command to tell Cloud Foundry the URL to use:
 

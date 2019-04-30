@@ -4,6 +4,7 @@ copyright:
   years: 2015, 2019
 lastupdated: "2019-04-24"
 
+
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
 
 subcollection: cloudant
@@ -107,7 +108,7 @@ _Example error response if one of the requested databases for a replication does
   It is not automatically created if it does not exist.
   Add `"create_target":true` to the JSON document that describes the replication
   if the target database does not exist before replication.
-  More information about creating the target database is available [here](#creating-a-target-database-during-replication).
+  For more information about creating the target database, see [Creating a target database during replication](#creating-a-target-database-during-replication).
 * Replicator databases must be maintained and looked after,
   just like any other valuable data store.
   For more information,

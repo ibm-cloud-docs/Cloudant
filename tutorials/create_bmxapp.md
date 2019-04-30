@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-04-22"
 
 keywords: create applications, deploy applications, create simple application
 
@@ -61,8 +61,7 @@ simple document.
 Python code specific to each task is provided as part of this tutorial.
 A complete Python program,
 sufficient to demonstrate the concepts,
-is provided in the tutorial,
-[here](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program).
+is provided in the [Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program) tutorial.
 
 No attempt was made to create _efficient_ Python code for this tutorial;
 the intention is to show simple and easy-to-understand working code

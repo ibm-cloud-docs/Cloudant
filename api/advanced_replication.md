@@ -700,15 +700,14 @@ _Example of including performance options in a replication document:_
 Having large numbers of attachments on documents might cause an adverse effect on replication performance.
 
 For more information about the effect of attachments on replication performance,
-see [here](/docs/services/Cloudant?topic=cloudant-attachments#performance-considerations).
+see [Performance considerations](/docs/services/Cloudant?topic=cloudant-attachments#performance-considerations).
 
 ## The `/_replicate` endpoint
 {: #the-_replicate-endpoint}
 
 It is preferable to use the [replicator scheduler](#the-replication-scheduler) to manage replication.
-Details of why are provided [here](#avoiding-the-_replicate-endpoint).
+For more information about using the replicator scheduler to manage replication, see  [Avoiding the `/_replicate` endpoint](#avoiding-the-_replicate-endpoint).
 {: note}
-
 
 You can use this endpoint to request,
 configure,

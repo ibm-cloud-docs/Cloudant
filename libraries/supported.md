@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-16"
+lastupdated: "2019-04-25"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -49,9 +49,8 @@ Details of {{site.data.keyword.cloudant_short_notm}} Sync [resources ![External 
 
 [java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){: new_window} is the official {{site.data.keyword.cloudantfull}} library for Java.
 
-Information about installing the library by adding it as a dependency to your Maven or Gradle builds is available
-[here ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window},
-along with details and examples of how to use the library.
+For more information about installing the library by adding it as a dependency to your Maven or Gradle builds, and to see details and examples of how to use the library, see 
+[Installation and Usage ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}.
 
 ### Libraries and frameworks for Java
 {: #libraries-and-frameworks-for-java}
@@ -130,13 +129,13 @@ npm install cloudant
 {: #python-supported}
 
 A supported library for working with {{site.data.keyword.cloudant_short_notm}} by using Python is
-available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/python-cloudant){: new_window}.
+available in the Github repository [cloudant/python-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/python-cloudant){: new_window}.
 
-Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}.
+Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see instructions for the [requirements files ![External link icon](../images/launch-glyph.svg "External link icon")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}.
 {: tip}
 
-Download the current library release [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://pypi.python.org/pypi/cloudant/){: new_window}.
-Learn more information about the Python language at [python.org ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/about/){: new_window}. 
+Download the current library release from [pypi.python.org ![External link icon](../images/launch-glyph.svg "External link icon")](https://pypi.python.org/pypi/cloudant/){: new_window}.
+For more information about the Python language, see [python.org ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/about/){: new_window}. 
 
 ## Swift
 {: #swift}
@@ -152,11 +151,11 @@ pod 'SwiftCloudant'
 ```
 {: codeblock}
 
-More information about SwiftCloudant,
+For more information about SwiftCloudant,
 including details about installation and how to use the library to store,
 index,
 and query remote JSON data on {{site.data.keyword.cloudant_short_notm}},
-is available [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/swift-cloudant){: new_window}.
+see the Github repository [cloudant/swift-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/swift-cloudant){: new_window}.
 
 The library is an early release version.
 As such,

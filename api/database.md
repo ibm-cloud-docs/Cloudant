@@ -30,8 +30,7 @@ These JSON objects are called [documents](/docs/services/Cloudant?topic=cloudant
 All documents must be contained in a database.
 {: shortdesc}
 
-A guide is [available](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant),
-providing an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
+The [Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant) guide provides an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
 ## Partitioned databases
 {: #partitioned-databases-database}
@@ -868,7 +867,7 @@ _Example (abbreviated) response to a `_changes` request:_
 -	`_changes` reported by a shard are always presented in order.
 	But the ordering between all the contributing shards might appear to be different.
 	For more information,
-	see [this example ![External link icon](../images/launch-glyph.svg "External link icon")](https://gist.github.com/smithsz/30fb97662c549061e581){: new_window}.
+	see [A Changes Feed Example ![External link icon](../images/launch-glyph.svg "External link icon")](https://gist.github.com/smithsz/30fb97662c549061e581){: new_window}.
 -	Sequence values are unique for a shard,
 	but might vary between shards.
 	This variation means that if you have sequence values from different shards,
@@ -974,8 +973,7 @@ _Example response that is received after a database is deleted successfully:_
 {: #backing-up-your-data}
 
 You must protect your data by taking good quality backups.
-An overview of backing up your data is [available](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery),
-with more detailed information in the [backup guide](/docs/services/Cloudant?topic=cloudant-replication-incrementals#replication-incrementals).
+For more information, see an [overview](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) of backing up your data, and see even more details in the [Backup guide](/docs/services/Cloudant?topic=cloudant-replication-incrementals#replication-incrementals).
 
 <!--
 Removed for 96973.
@@ -999,4 +997,4 @@ are called [CouchApps](/docs/services/Cloudant?topic=cloudant-couchapps#couchapp
 
 For more information about CouchApps,
 and to help you decide whether they are a good match for your application,
-is [available](/docs/services/Cloudant?topic=cloudant-couchapps#couchapps).
+see [CouchApps](/docs/services/Cloudant?topic=cloudant-couchapps#couchapps).
