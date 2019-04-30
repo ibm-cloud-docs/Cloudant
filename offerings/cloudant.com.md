@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-04-26"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -26,30 +26,29 @@ subcollection: cloudant
 {: #ibm-cloudant.com}
 
 The {{site.data.keyword.cloudantfull}} Shared Plan is being retired on 31 March 2018. 
-As of  24 July 2017, no new Shared Plan accounts can be created from the [Cloudant product page](https://cloudant.com){: new_window}. 
+As of  24 July 2017, no new Shared Plan accounts can be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://cloudant.com){: new_window}. 
 {: deprecated}
 
 {{site.data.keyword.cloudant_short_notm}} is a hosted and fully-managed database-as-a-service (DBaaS). 
 It was built from the ground up to scale globally, run non-stop, and handle a wide variety of data types 
-like [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview){: new_window},
-[full-text](/docs/services/Cloudant?topic=cloudant-query#creating-an-index){: new_window},
-and [geospatial](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial){: new_window}.
+like [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview),
+[full-text](/docs/services/Cloudant?topic=cloudant-query#creating-an-index),
+and [geospatial](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial).
 
 {{site.data.keyword.cloudant_short_notm}} is an operational data store optimized to handle concurrent 
 reads and writes, and enable high availability and data durability.
 
-It provides an [HTTP API](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#http-api){: new_window} for working with your 
-[JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview){: new_window} data, and 24-hour operational support and maintenance. 
+It provides an [HTTP API](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#http-api) for working with your 
+[JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview) data, and 24-hour operational support and maintenance. 
 {{site.data.keyword.cloudant_short_notm}} is based on 
-[Apache CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){: new_window}, 
-and is delivered as various multi-tenant, dedicated, and installed services.
+[Apache CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){: new_window}, and is delivered as various multi-tenant, dedicated, and installed services.
 
 All currency values in this document are in US dollars ($).
 {: tip}
 
-It is offered as either a [Shared Plan](#shared-plan){: new_window} or an 
-[Enterprise (Dedicated) Plan](#enterprise-plan){: new_window}. {{site.data.keyword.cloudant_short_notm}} 
-is also available as an [{{site.data.keyword.cloud}} service](https://www.ibm.com/cloud/){: new_window}.
+It is offered as either a [Shared Plan](#shared-plan) or an 
+[Enterprise (Dedicated) Plan](#enterprise-plan). {{site.data.keyword.cloudant_short_notm}} 
+is also available as an [{{site.data.keyword.cloud}} service ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/){: new_window}.
 
 The {{site.data.keyword.cloudant_short_notm}} Shared Plan and Enterprise (Dedicated) Plan 
 offerings are not available on the {{site.data.keyword.cloud_notm}} service.
@@ -74,7 +73,7 @@ create an account using the form, and open a support ticket to request that your
 {: #shared-plan}
 
 The {{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on March 31, 2018. 
-As of July 24th, 2017, no new Shared Plan accounts can be created on the [{{site.data.keyword.cloudant_short_notm}} website](https://cloudant.com){: new_window}. 
+As of July 24th, 2017, no new Shared Plan accounts can be created on the [{{site.data.keyword.cloudant_short_notm}} website ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com){: new_window}. 
 {: deprecated}
 
 With the {{site.data.keyword.cloudant_short_notm}} Shared Plan, you have access to all the 

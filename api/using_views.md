@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-16"
+lastupdated: "2019-04-24"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -97,7 +97,7 @@ Argument | Supported values
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}
 
-_Example of using HTTP to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view:_
+*Example of using HTTP to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view:*
 
 ```http
 GET /$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
@@ -106,7 +106,7 @@ Content-Type: application/json
 ```
 {:codeblock}
 
-_Example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view:_
+*Example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view:*
 
 ```http
 GET /$DATABASE/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
@@ -115,7 +115,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of using the command line to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view:_
+*Example of using the command line to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5 \
@@ -132,7 +132,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=
 ```
 {: codeblock}
 
-_Example response to request:_
+*Example response to request:*
 
 ```json
 {
