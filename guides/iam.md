@@ -208,7 +208,7 @@ If possible, _Use only IAM_ is preferred. The major advantages for using
 
 Further description of the advantages and disadvantages of each approach follows.
 
-### Advantages and Disadvantages of the two access control mechanisms
+### Advantages and disadvantages of the two access control mechanisms
 {: #advantages-and-disadvantages-of-the-two-access-control-mechanisms}
 
 Overall, {{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. However, there
@@ -441,7 +441,7 @@ Action | Description
 `cloudantnosqldb.sapi.apikeys` | Access `/_api/v2/api_keys`.
 `cloudantnosqldb.sapi.userinfo` | Access `/_api/v2/user`.
 
-#### Unavailable Endpoints
+#### Unavailable endpoints
 {: #unavailable-endpoints}
 
 The following endpoints are unavailable to requests authorized with IAM:

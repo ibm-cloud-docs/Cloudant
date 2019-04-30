@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-23"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2018-05-07 -->
 
-# {{site.data.keyword.cloudant_short_notm}} Basics
+# {{site.data.keyword.cloudant_short_notm}} basics
 {: #ibm-cloudant-basics}
 
 If it's your first time here,
@@ -133,7 +133,7 @@ and can be stored as attachments associated with documents.
 
 More information about JSON can be found in the [JSON Guide](/docs/services/Cloudant?topic=cloudant-json#json).
 
-## Distributed Systems
+## Distributed systems
 {: #distributed-systems}
 
 {{site.data.keyword.cloudant_short_notm}}'s API enables you to interact with a collaboration of numerous machines,

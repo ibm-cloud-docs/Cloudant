@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-25"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -128,7 +128,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 ## Node.js
 {: #node-js-thirdparty}
 
-### Unsupported libraries and frameworks for node.js
+### Unsupported libraries and frameworks for Node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
 -   [sag-js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}, which also works in the browser.
@@ -173,7 +173,7 @@ require_once('./src/Sag.php');
 ### Unsupported libraries and frameworks for Python
 {: #unsupported-libraries-and-frameworks-for-python}
 
--   [requests ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.python-requests.org/en/master/){: new_window}.
+-   [Requests ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.python-requests.org/en/master/){: new_window}.
 
 ## Ruby
 {: #ruby}

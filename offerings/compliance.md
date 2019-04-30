@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-04-25"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -29,7 +29,7 @@ subcollection: cloudant
 The service is built on best-in-industry standards,
 including ISO 27001:2013.
 
-## Top-tier Physical systems
+## Top-tier physical systems
 {: #top-tier-physical-systems}
 
 The {{site.data.keyword.cloudant_short_notm}} DBaaS is physically hosted

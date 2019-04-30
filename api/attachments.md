@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-04-23"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -50,7 +50,7 @@ you specify the attachment MIME type as `image/jpeg`.
 It is a good idea to keep attachments small in size and number because attachments can impact performance.
 {: important}
 
-## Create / Update
+## Create / update
 {: #create-update}
 
 To create a new attachment at the same time as creating a new document, include the attachment as an [inline](/docs/services/Cloudant?topic=cloudant-attachments#inline) component of the JSON content.

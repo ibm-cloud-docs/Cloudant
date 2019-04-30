@@ -56,7 +56,7 @@ environment can be accomplished by purchasing additional '{{site.data.keyword.cl
 choose to have multiple separate {{site.data.keyword.cloudant_short_notm}} environments rather than 
 expanding a single environment.
 
-## Locations and Tenancy in a dedicated environment
+## Locations and tenancy in a Dedicated environment
 {: #locations-and-tenancy-in-a-dedicated-environment}
 
 The {{site.data.keyword.cloudant_short_notm}} Dedicated environment within an {{site.data.keyword.cloud_notm}} Dedicated environment is on hardware 
@@ -64,7 +64,7 @@ that is designated for sole use by the {{site.data.keyword.cloud_notm}} Dedicate
 one or more instances of {{site.data.keyword.cloudant_short_notm}} on the given environment, and each instance of {{site.data.keyword.cloudant_short_notm}} 
 shares the underlying hardware resources that make up the {{site.data.keyword.cloudant_short_notm}} environment. 
 
-## Security, Encryption, and Compliance 
+## Security, encryption, and compliance 
 {: #security-encryption-and-compliance}
 
 All plans are provided on servers with [at rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest) 

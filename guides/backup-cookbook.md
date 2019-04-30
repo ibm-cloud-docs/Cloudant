@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-04-25"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.cloudant_short_notm}} Backup and Recovery
+# {{site.data.keyword.cloudant_short_notm}} backup and recovery
 {: #ibm-cloudant-backup-and-recovery}
 
 This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
@@ -156,7 +156,7 @@ Two requirements are frequently encountered:
 
 * Saving disk space,
   by ['zipping' the backup](#compressing-a-backup-file) file as it is created.
-* Creating a backup of a database automatically, [at regular intervals](#hourly-or-daily-backups-that-use-cron-).
+* Creating a backup of a database automatically, at [regular intervals](#hourly-or-daily-backups-that-use-cron-).
 
 ### Compressing a backup file
 {: #compressing-a-backup-file}
@@ -253,8 +253,7 @@ The following script sample shows how to combine the `couchbackup` library
 with use of {{site.data.keyword.IBM}} Cloud Object Storage.
 This code illustrates how you might use Cross Region S3 API to back up a database to an object store.
 
-A prerequisite for the code is that you initialize the S3 client object for {{site.data.keyword.IBM_notm}} Cloud Object Storage by following
-[these instructions ![External link icon](../images/launch-glyph.svg "External link icon")][cosclient]{: new_window}.
+A prerequisite for the code is that you initialize the S3 client object for {{site.data.keyword.IBM_notm}} Cloud Object Storage by following the instructiosn in [{{site.data.keyword.cloud_notm}} Object Storage - S3 API Intro ![External link icon](../images/launch-glyph.svg "External link icon")][cosclient]{: new_window}.
 {: note}
 
 ```javascript

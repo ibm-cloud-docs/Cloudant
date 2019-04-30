@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-04-25"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2019 -->
 
-# Design Documents
+# Design documents
 {: #design-documents}
 
 {{site.data.keyword.cloudantfull}} reads specific fields and values of design documents as functions.
@@ -51,13 +51,13 @@ while design documents have an `_id` indicated by `$DESIGN_ID`.
 A design document's ID never contains a partition key regardless of the
 database's partitioning type. This is because the indexes contained within a design document apply to all partitions in a partitioned database.
 
-If a design document is updated, {{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version, and recreates the index from scratch. If you need to make changes to a design document for a larger database, have a look at the [Design Document Management Guide](/docs/services/Cloudant?topic=cloudant-design-document-management#managing-changes-to-a-design-document).
+If a design document is updated, {{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version, and recreates the index from scratch. If you need to make changes to a design document for a larger database, have a look at the [Design document management guide](/docs/services/Cloudant?topic=cloudant-design-document-management#managing-changes-to-a-design-document).
 {: note}
 
 The structure of design document is as follows:
 
--	**`_id`**: Design Document ID. This ID is _always_ prefixed `_design` and _never_ contains a partition key, regardless of database partitioning type.
--	**`_rev`**: Design Document Revision
+-	**`_id`**: Design document ID. This ID is _always_ prefixed `_design` and _never_ contains a partition key, regardless of database partitioning type.
+-	**`_rev`**: Design document revision
 -	**options**: Contains options for this design document.
     -   **partitioned (optional, boolean)**: Whether this design document describes partitioned or global indexes. For more inforamtion, see [The `options.partitioned` field](#the-options-partitioned-field).
 -	**views (optional)**: An object describing MapReduce views.
@@ -111,7 +111,7 @@ Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
 
 
-## Copying a Design Document
+## Copying a design document
 {: #copying-a-design-document}
 
 You can copy the latest version of a design document to a new document
@@ -394,7 +394,7 @@ meaning they need to behave identically when run multiple times or on different 
 In particular,
 you should avoid using functions that generate random numbers or return the current time.
 
-## List Functions
+## List functions
 {: #list-functions}
 
 Design documents with `options.partitioned` set to `true` cannot contain a `lists` field.
@@ -506,7 +506,7 @@ db.view_with_list($DESIGN_ID, $MAPREDUCE_INDEX, $LIST_FUNCTION, function (err, b
 
 -->
 
-### head
+### `head`
 {: #head}
 
 Field        | Description
@@ -514,7 +514,7 @@ Field        | Description
 `offset`     | Offset where the document list started
 `total_rows` | Number of documents in the view
 
-### req
+### `req`
 {: #req}
 
 Field            | Description
@@ -535,7 +535,7 @@ Field            | Description
 `userCtx`        | Context about the currently authenticated user, specifically their `name` and `roles` within the current database.
 `uuid`           | A generated UUID.
 
-## Show Functions
+## Show functions
 {: #show-functions}
 
 Design documents with `options.partitioned` set to `true` cannot contain a `shows` field.
@@ -624,7 +624,7 @@ db.show($DESIGN_ID, $SHOW_FUNCTION, $DOCUMENT_ID, function (err, body) {
 
 -->
 
-## Update Handlers
+## Update handlers
 {: #update-handlers}
 
 Design documents with `options.partitioned` set to `true` cannot contain a `updates` field.
@@ -735,7 +735,7 @@ db.atomic($DESIGN_ID, $UPDATE_HANDLER, $DOCUMENT_ID, $JSON, function (err, body)
 
 -->
 
-## Filter Functions
+## Filter functions
 {: #filter-functions}
 
 Design documents with `options.partitioned` set to `true` cannot contain a `filters` field.
@@ -1087,7 +1087,7 @@ _Example response (abbreviated) after filtering using a map function:_
 ```
 {: codeblock}
 
-## Update Validators
+## Update validators
 {: #update-validators}
 
 Design documents with `options.partitioned` set to `true` cannot contain a `validate_doc_update` field.
@@ -1178,7 +1178,7 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipesdd/_info" \
 
 The individual fields in the JSON response are as follows:
 
--	**name**: Name or ID of Design Document.
+-	**name**: Name or ID of design document.
 -	**view_index**: View Index
 	-	**compact_running**: Indicates whether a compaction routine is currently running on the view.
 	-	**disk_size**: Size in bytes of the view as stored on disk.
@@ -1239,7 +1239,7 @@ curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/descripti
 
 The individual fields in the returned JSON structure are as follows:
 
--	**name**: Name or ID of the Search within the Design Document.
+-	**name**: Name or ID of the Search within the design document.
 -	**search_index**: The Search Index
 	-	**pending_seq**: The sequence number of changes in the database that have reached the Lucene index,
 		both in memory and on disk.

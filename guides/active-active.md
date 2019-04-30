@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-04-25"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -138,7 +138,7 @@ Take careful note of the password. It is not possible to retrieve the password l
 ## Step 3: Grant access permission
 {: #step-3-grant-access-permission}
 
-[Give the API Key permission](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)
+Give the API Key [permission](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)
 to read and to write on both databases.
 
 If you also want to replicate indexes,
@@ -215,7 +215,7 @@ the databases are set up to remain synchronized with each other.
 The next decision is whether to use the databases in an
 [active-active](#active-active) or [active-passive](#active-passive) manner.
 
-### Active-Active
+### Active-active
 {: #active-active}
 
 In an active-active configuration,
@@ -241,7 +241,7 @@ Similarly,
 for applications that are hosted in DC2,
 you would set their {{site.data.keyword.cloudant_short_notm}} URL to `"https://myaccount-dc2.cloudant.com/mydb"`.
 
-### Active-Passive
+### Active-passive
 {: #active-passive}
 
 In an active-passive configuration,

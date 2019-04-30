@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-04-25"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -81,14 +81,14 @@ Enterprise cluster, we have your:
  * Name
  * Email
 
-The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and updated via the {{site.data.keyword.cloudant_short_notm}} dashboard.
+The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and updated via the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 If you have an account provisioned by {{site.data.keyword.cloud_notm}} (including a dedicated instance), 
 {{site.data.keyword.cloudant_short_notm}} _does not_ collect the personal data previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} processes limited customer PI in the course of running the service and optimising 
 the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email for contacting customers as appropriate. Monitoring 
-customer interactions with the {{site.data.keyword.cloudant_short_notm}} dashboard is the other way {{site.data.keyword.cloudant_short_notm}} processes PI.
+customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboard is the other way {{site.data.keyword.cloudant_short_notm}} processes PI.
 
 ### Restriction of processing
 {: #restriction-of-processing}
@@ -132,7 +132,7 @@ As a user of {{site.data.keyword.cloudant_short_notm}}, you should:
  * Use API keys liberally, such that components can have 'least privileged access,' coupled with the audit log. This practice allows you to understand who accessed which data.
  * Encrypt or otherwise protect (pseudonymise) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
 
-### Physical And Environmental Security Measures
+### Physical and environmental security measures
 {: #physical-and-environmental-security-measures}
 
 Physical security of our data centers is handled by our infrastructure providers: {{site.data.keyword.cloud}}, 
@@ -144,8 +144,8 @@ Physical security of the office locations used by our personnel is handled by {{
 Certification details and attestation reports (i.e., ISO and SOC2) can be provided to the 
 customer upon request.
 
-### Technical and Organisational Measures
-{: #technical-and-organisational-measures}
+### Technical and Organizational Measures
+{: #technical-and-organizational-measures}
 
 Technical and Organisational Measures (TOMs) are employed by {{site.data.keyword.cloudant_short_notm}} 
 to ensure the security of 

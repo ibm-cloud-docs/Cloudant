@@ -30,7 +30,7 @@ You can learn about advanced replication concepts and tasks, including maintaini
 
 You might also find it helpful to review details of the underlying
 [replication protocol ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/stable/replication/protocol.html){: new_window},
-and review the [Advanced Methods](/docs/services/Cloudant?topic=cloudant-advanced-api#advanced-api) material.
+and review the [Advanced methods](/docs/services/Cloudant?topic=cloudant-advanced-api#advanced-api) material.
 
 ## Replication database maintenance
 {: #replication-database-maintenance}
@@ -455,7 +455,7 @@ _Example of specifying user name and password values for accessing source and ta
 ```
 {: codeblock}
 
-## Filtered Replication
+## Filtered replication
 {: #filtered-replication}
 
 Sometimes you do not want to transfer all documents from source to target.
@@ -536,7 +536,7 @@ _Example JSON for starting a filtered replication with supplied parameters:_
 The `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option whenever possible. For more information, see the [`selector`](/docs/services/Cloudant?topic=cloudant-replication-api#the-selector-field){: new_window} documentation.
 {: note}
 
-## Named Document Replication
+## Named document replication
 {: #named-document-replication}
 
 Sometimes you do not want to replicate documents.
@@ -770,7 +770,7 @@ _Example JSON document that describes the required replication:_
 ```
 {: codeblock}
 
-### Return Codes
+### Return codes
 {: #return-codes-adv-replication}
 
 Code  | Description

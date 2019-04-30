@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-04-25"
 
 keywords: account, ping account, cors
 
@@ -28,7 +28,7 @@ subcollection: cloudant
 Your account is your entry point for the {{site.data.keyword.cloudantfull}} API.
 You access your account by using the address prefix
 `https://$ACCOUNT.cloudant.com`.
-Your {{site.data.keyword.cloudant_short_notm}} dashboard is always
+Your {{site.data.keyword.cloudant_short_notm}} Dashboard is always
 `https://$ACCOUNT.cloudant.com/dashboard.html`.
 {: shortdesc}
 

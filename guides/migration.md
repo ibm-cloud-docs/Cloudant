@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-04-25"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -50,7 +50,7 @@ Storage | The amount of disk space occupied by your JSON data, attachments, and 
 
 As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5 global queries per second, and 1 GB of storage for free. This plan is ideal when you are 'kicking the tires' of the product and during product development. When your application goes into QA or production, switch to the Standard plan to scale the instance. The Standard plan's smallest capacity has 100 reads per second, 50 writes per second, 5 global queries per second, and 20 GB of storage (extra storage is charged by GB) for ~USD$76.65 per month. 
 
-By using the slider in the {{site.data.keyword.cloudant_short_notm}} dashboard, you can reserve a smaller or larger capacity for your {{site.data.keyword.cloudant_short_notm}} service whenever you need it:
+By using the slider in the {{site.data.keyword.cloudant_short_notm}} Dashboard, you can reserve a smaller or larger capacity for your {{site.data.keyword.cloudant_short_notm}} service whenever you need it:
 
 ![slider](../images/migrate2.gif)
 
@@ -72,11 +72,11 @@ You can also drill down into a specific instance and look at the Plan tab for mo
 
 ![standard dash](../images/ibmcloud_instance_standard_plan.png)
 
-You can also open the {{site.data.keyword.cloudant_short_notm}} dashboard, and click the **Account** tab. A Lite plan looks like the following example:
+You can also open the {{site.data.keyword.cloudant_short_notm}} Dashboard, and click the **Account** tab. A Lite plan looks like the following example:
 
 ![lite plan](../images/migrate1.png)
 
-If you are using a legacy `cloudant.com` account, you can log in to your {{site.data.keyword.cloudant_short_notm}} dashboard, and go to the Account tab. A legacy `cloudant.com` Shared plan has a Usage tab with graphs and billing estimates for the current month, like the following example:
+If you are using a legacy `cloudant.com` account, you can log in to your {{site.data.keyword.cloudant_short_notm}} Dashboard, and go to the Account tab. A legacy `cloudant.com` Shared plan has a Usage tab with graphs and billing estimates for the current month, like the following example:
 
 ![shared plan](../images/cloudantcom_sharedplan_usage.png)
 
@@ -178,4 +178,4 @@ No, it is not possible to keep your domain. You must plan to update your applica
 ## Who do I contact if I have questions?
 {: #who-do-i-contact-if-i-have-questions-}
 
-Contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com) or open a ticket from within the {{site.data.keyword.cloudant_short_notm}} dashboard if you have any questions about migration. {{site.data.keyword.cloudant_short_notm}} support is happy to provide more details.
+Contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com) or open a ticket from within the {{site.data.keyword.cloudant_short_notm}} Dashboard if you have any questions about migration. {{site.data.keyword.cloudant_short_notm}} support is happy to provide more details.

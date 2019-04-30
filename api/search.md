@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-04-25"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -36,7 +36,7 @@ To create a search index, you add a JavaScript function to a design document in 
 
 By default, a search index response returns 25 rows. The number of rows that is returned can be changed by using the `limit` parameter. However, a result set from a search is limited to 200 rows. Each response includes a `bookmark` field. You can include the value of the `bookmark` field in later queries to look through the responses.
 
-You can query the API by using one of the following methods: URI, {{site.data.keyword.cloudant_short_notm}} dashboard, curl, or a browser plug-in, such as Postman or RESTClient.
+You can query the API by using one of the following methods: URI, {{site.data.keyword.cloudant_short_notm}} Dashboard, curl, or a browser plug-in, such as Postman or RESTClient.
 
 _Example design document that defines a search index:_
 
@@ -191,7 +191,7 @@ function(doc) {
 ```
 {: codeblock}
 
-### Index Guard Clauses
+### Index guard clauses
 {: #index-guard-clauses}
 
 The `index` function requires the name of the data field to index as the second parameter.
@@ -283,7 +283,7 @@ _Example analyzer document:_
 ```
 {: codeblock}
 
-### Language-Specific Analyzers
+### Language-specific analyzers
 {: #language-specific-analyzers}
 
 These analyzers omit common words in the specific language,
@@ -328,7 +328,7 @@ The name of the language is also the name of the analyzer.
 Language-specific analyzers are optimized for the specified language. You cannot combine a generic analyzer with a language-specific analyzer. Instead, you might use a ['`perfield`' analyzer](#per-field-analyzers) to select different analyzers for different fields within the documents.
 {: note}
 
-### Per-Field Analyzers
+### Per-field analyzers
 {: #per-field-analyzers}
 
 The '`perfield`' analyzer configures multiple analyzers for different fields.
@@ -355,7 +355,7 @@ _Example of defining different analyzers for different fields:_
 ```
 {: codeblock}
 
-### Stop Words
+### Stop words
 {: #stop-words}
 
 Stop words are words that do not get indexed.
@@ -793,7 +793,7 @@ _Example JSON document that contains a search request:_
 ```
 {: codeblock}
 
-## Query Syntax
+## Query syntax
 {: #query-syntax}
 
 The {{site.data.keyword.cloudant_short_notm}} search query syntax is based on the
@@ -907,7 +907,7 @@ The `order` field is an array where the first element is the field or fields tha
 in the [`sort` parameter](#query-parameters-search).
 If no [`sort` parameter](#query-parameters-search) is included in the query,
 then the `order` field contains the [Lucene relevance score ![External link icon](../images/launch-glyph.svg "External link icon")](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}.
-If you use the 'sort by distance' feature as described in [Geographical Searches](#geographical-searches),
+If you use the 'sort by distance' feature as described in [Geographical searches](#geographical-searches),
 then the first element is the distance from a point.
 The distance is measured by using either kilometers or miles.
 
@@ -1180,7 +1180,7 @@ _Example (abbreviated) response, containing a list of northern hemisphere cities
 ```
 {: codeblock}
 
-## Highlighting Search Terms
+## Highlighting search terms
 {: #highlighting-search-terms}
 
 Sometimes it is useful to get the context in which a search term was mentioned

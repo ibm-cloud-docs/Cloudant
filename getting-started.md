@@ -370,10 +370,10 @@ invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/
   ```
   {: codeblock}
 
-## (optional) Step 6: See database information on the {{site.data.keyword.cloudant_short_notm}} dashboard
+## (optional) Step 6: See database information on the {{site.data.keyword.cloudant_short_notm}} Dashboard
 {: #optional-step-6-ibm-cloudant-dashboard}
 
-Follow these steps to see your database and documents on the {{site.data.keyword.cloudant_short_notm}} dashboard. 
+Follow these steps to see your database and documents on the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
 
 1.  Log in to your IBM Cloud account.
     The IBM Cloud dashboard can be found at: https://cloud.ibm.com/. After authenticating with your user name and password, you are presented with the IBM Cloud dashboard.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-04-23"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -78,7 +78,7 @@ while any message loss means significant data loss.
 To endure,
 the system must become more sophisticated.
 
-## Tradeoffs in Partition Tolerance
+## Tradeoffs in partition tolerance
 {: #tradeoffs-in-partition-tolerance}
 
 A database that prioritizes consistency and partition tolerance commonly employs a

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-23"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Document Versioning and MVCC
+# Document versioning and MVCC
 {: #document-versioning-and-mvcc}
 
 [Multi-version concurrency control (MVCC) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window}
@@ -70,7 +70,7 @@ using its `_rev` in order to obtain a history of revisions to your document.
 If you need a version history of your documents,
 a solution is to [create a new document](/docs/services/Cloudant?topic=cloudant-documents#create-document) for each revision.
 
-## Distributed Databases and Conflicts
+## Distributed databases and conflicts
 {: #distributed-databases-and-conflicts}
 
 Distributed databases work without a constant connection to the main database on {{site.data.keyword.cloudant_short_notm}},

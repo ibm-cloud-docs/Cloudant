@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-04-23"
 
 keywords: authorization, roles, permissions, _users database
 
@@ -134,7 +134,7 @@ If the tasks are for a specific aspect,
 such as working with design documents or security settings,
 then assign a focused role, such as `_design` or `_security`.
 
-## Viewing Permissions
+## Viewing permissions
 {: #viewing-permissions}
 
 To see who has permissions to read,
@@ -212,7 +212,7 @@ _Example response to request for permissions:_
 ```
 {: codeblock}
 
-## Modifying Permissions
+## Modifying permissions
 {: #modifying-permissions}
 
 To modify who has permissions to read,
@@ -364,7 +364,7 @@ in an EU-managed environment, see
 {: tip}
 
 
-## Creating API Keys
+## Creating API keys
 {: #creating-api-keys}
 
 An earlier method of generating API keys by `POST`ing to the `https://cloudant.com/api/generate_api_key` endpoint is deprecated.

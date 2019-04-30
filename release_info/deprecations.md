@@ -37,7 +37,7 @@ for tutorials on
 extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
 {{site.data.keyword.dashdbshort_notm}} table.
 
-### Extracting {{site.data.keyword.dashdbshort_notm}} login information for stopped Warehouse Jobs
+### Extracting {{site.data.keyword.dashdbshort_notm}} login information for stopped warehouse jobs
 {: #extracting-db2-warehouse-on-cloud-login-information-for-stopped-warehouse-jobs}
 
 Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need the URL and credentials. This information is located in the warehouser document. 

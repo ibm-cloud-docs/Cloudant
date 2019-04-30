@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-23"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -22,20 +22,20 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Five tips for modelling your data to scale
-{: #five-tips-for-modelling-your-data-to-scale}
+# Five tips for modeling your data to scale
+{: #five-tips-for-modeling-your-data-to-scale}
 
 This article considers the finer 
-points of modelling your application's data to work efficiently on a large scale.
+points of modeling your application's data to work efficiently on a large scale.
 {: shortdesc}
 
-*(This guide is based on a Blog article by Mike Rhodes: ["My top 5 tips for modelling your data to scale" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/), originally published December 17, 2013.)*
+*(This guide is based on a Blog article by Mike Rhodes: ["My top 5 tips for modeling your data to scale" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/), originally published December 17, 2013.)*
 
 The way you model data on {{site.data.keyword.cloudantfull}} will significantly impact how your application is able to 
 scale. Our underlying data model differs substantially from a relational model, and ignoring 
 this distinction can be the cause of performance issues down the road.
 
-As always, successful modelling involves achieving a balance between ease of use vs. the 
+As always, successful modeling involves achieving a balance between ease of use vs. the 
 performance characteristics you're hoping to achieve.
 
 Without further ado, let’s jump in.
@@ -225,7 +225,7 @@ described above, this is a price of our scalability and data resilience.
 Structuring your data in such a way that resolving conflicts is quick and need not involve 
 operator assistance will help keep your databases humming along smoothly. The ability to 
 automatically resolve conflicts without your users needing to be involved will significantly 
-improve their experience too and hopefully reduce the support burden on your organisation.
+improve their experience too and hopefully reduce the support burden on your organization.
 
 How you do this is very application specific, but here's a few tips:
 

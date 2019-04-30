@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-04-25"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -44,7 +44,7 @@ Since this is a task-focused tutorial,
 it covers only what is essential to accomplish this task.
 For more information, see the [API reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) for a complete guide to the available options.
 
-## curl and jq basics
+## `curl` and `jq` basics
 {: #curl-and-jq-basics}
 
 To get all active tasks and format the output nicely,
@@ -56,7 +56,7 @@ This makes it easier to get all replication documents,
 or the details of just one particular view indexing task.
 The API reference has more information about the options.
 
-_Example of obtaining and formatting a list of active tasks:_
+*Example of obtaining and formatting a list of active tasks:*
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
@@ -88,21 +88,21 @@ In each case,
 the results of searching for a list of indexing tasks is a list of JSON objects:
 one for each of the active tasks found.
 
-_Example of finding all view indexing tasks by filtering for the `indexer` type:_
+*Example of finding all view indexing tasks by filtering for the `indexer` type:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-_Example of finding all search indexing tasks by filtering for the `search_indexer` type:_
+*Example of finding all search indexing tasks by filtering for the `search_indexer` type:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-_Example results after searching for view indexing tasks:_
+*Example results after searching for view indexing tasks:*
 
 ```json
 {
@@ -142,7 +142,7 @@ Estimates of the time to complete an indexing task cannot be 100% accurate. The 
 
 You should assume that these factors might combine to produce considerable inaccuracy in your estimate.
 
-_Example of extracting the `changes_done` field using `jq`:_
+*Example of extracting the `changes_done` field using `jq`:*
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -160,28 +160,28 @@ To make it easier to select the information about a replication process from the
 start the replication process by creating a document in the `_replicator` database,
 and set its `_id` field to a known value.
 
-_Example of finding all replication tasks, by filtering for the `replication` type:_
+*Example of finding all replication tasks, by filtering for the `replication` type:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-_Example of finding a specific replication task, by filtering for a known document identity:_
+*Example of finding a specific replication task, by filtering for a known document identity:*
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-_Example of finding a specific replication task, by filtering for a known `replication_id`:_
+*Example of finding a specific replication task, by filtering for a known `replication_id`:*
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-_Example result after searching for a replication task:_
+*Example result after searching for a replication task:*
 
 ```json
 {

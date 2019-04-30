@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-04-24"
 
 keywords: links to documentation, how to contribute
 
@@ -56,7 +56,7 @@ along with [tutorials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cl
 For more information about details such as authenticating with database instances,
 and querying data, see the [API reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview).
 
-## Documentation Contents
+## Documentation contents
 {: #documentation-contents}
 
 *	[Getting started tutorial](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started): Learn how to create an {{site.data.keyword.cloudantfull}} database and populate that database with a simple collection of data by using Python.

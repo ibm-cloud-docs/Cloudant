@@ -46,7 +46,7 @@ all active documents in the source database are also in the destination or 'targ
 _and_ that all documents that are deleted from the source databases are also
 deleted from the destination database (if they existed there).
 
-## Replication Operation
+## Replication operation
 {: #replication-operation}
 
 Replication has two forms: push or pull replication:
@@ -155,7 +155,7 @@ Field Name | Required | Description
 `create_target` | no | A value of `true` tells the replicator to create the `target` database if it does not exist.
 `create_target_params` | no | Provides a way to customize the target database that is created on a new replication. You can also customize the cluster's default values for the number of shards and replicas to create. 
 `doc_ids` | no | Array of document IDs; if given, only these documents are replicated.
-`filter` | no | Name of a [filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions), defined in a design document. The filter function determines which documents get replicated. Using the `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option where possible.
+`filter` | no | Name of a [filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions), defined in a design document. The filter function determines which documents get replicated. Using the `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option when possible.
 `proxy` | no | Proxy server URL.
 `query_params` | no | A field that contains key:value pairs, for use in [filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions).
 `selector` | no | Provide a simple filter to select the documents that are included in the replication. Using the `selector` option provides performance benefits when compared with using the `filter` option. For more information, see the [`selector`](#the-selector-field) documentation.
@@ -171,7 +171,7 @@ Optionally, replication documents can have a user-defined `_id`.
 
 If you do not want to replicate the entire contents of a database,
 you can specify a simple filter in the `selector` field.
-The filter takes the form of a [{{site.data.keyword.cloudant_short_notm}} Query](/docs/services/Cloudant?topic=cloudant-query#query) selector object.
+The filter takes the form of an [{{site.data.keyword.cloudant_short_notm}} Query](/docs/services/Cloudant?topic=cloudant-query#query) selector object.
 
 Using a selector object provides performance benefits when compared with using a
 [filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions).
@@ -349,7 +349,7 @@ you can cancel the replication by sending a revised JSON document to the `/_repl
 The revised document should be identical to the orginal replication request,
 but have an additional `"cancel":true` field.
 For more details,
-see the [The `/_replicate` endpoint](/docs/services/Cloudant?topic=cloudant-advanced-replication#the-_replicate-endpoint).
+see [The `/_replicate` endpoint](/docs/services/Cloudant?topic=cloudant-advanced-replication#the-_replicate-endpoint).
 
 If the replication is in an [`error` state](/docs/services/Cloudant?topic=cloudant-advanced-replication#replication-status),
 the replicator makes repeated attempts to achieve a successful replication.
@@ -488,7 +488,7 @@ _Example response after an active task request, including single replication:_
 ```
 {: codeblock}
 
-## Single Replication
+## Single replication
 {: #single-replication}
 
 Replication of a database means that the two databases,
@@ -578,7 +578,7 @@ _Example response that follows a request for a single replication:_
 ```
 {: codeblock}
 
-## Continuous Replication
+## Continuous replication
 {: #continuous-replication}
 
 By default,
@@ -630,7 +630,7 @@ _Example JSON document that describes continuous replication between the source 
 ```
 {: codeblock}
 
-### Canceling Continuous Replication
+### Canceling continuous replication
 {: #canceling-continuous-replication}
 
 Cancel continuous replication by including the `cancel` field in the JSON request object,
