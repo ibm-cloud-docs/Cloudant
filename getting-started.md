@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-03"
+lastupdated: "2019-04-26"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -115,7 +115,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   <br>The details for the service credentials appear:
    <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
    
-3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide ![External link icon](images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) for more details on either authentication type.
+3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. For more information about either authentication type, see the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 	If you are using {{site.data.keyword.cloudant_short_notm}} Legacy authentication, replace your service credentials from the previous step:
 	```python

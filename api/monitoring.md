@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-24"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -792,14 +792,14 @@ _Example results (abbreviated) from a `rate/verb` monitoring request:_
 ### response_time
 {: #response_time}
 
-_Example of a `response_time` monitoring request:_
+*Example of a `response_time` monitoring request:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/monitoring/response_time?cluster=myclustername&format=json
 ```
 {: codeblock}
 
-_Example results (abbreviated) from a `response_time` monitoring request:_
+*Example results (abbreviated) from a `response_time` monitoring request:*
 
 ```json
 {

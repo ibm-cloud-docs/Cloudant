@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-04-24"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
