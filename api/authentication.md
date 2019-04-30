@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-23"
 
 keywords: authentication, basic authentication, cookie authentication
 
@@ -42,7 +42,7 @@ the key is a cookie that is named `AuthSession`.
 When you create or use performance-critical {{site.data.keyword.cloudant_short_notm}} applications, cookie authentication has more benefits when compared with Basic authentication. Therefore, use cookie authentication whenever possible.
 {: note}
 
-## Basic Authentication
+## Basic authentication
 {: #basic-authentication}
 
 To use Basic authentication,

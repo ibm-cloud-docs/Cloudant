@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-25"
 
 keywords: http headers, response headers, http status codes
 
@@ -25,11 +25,11 @@ subcollection: cloudant
 # HTTP
 {: #http}
 
-This section provides details of the [HTTP Headers](#http-headers)
-and [HTTP Status Codes](#http-status-codes) you need to know when using {{site.data.keyword.cloudantfull}}.
+This section provides details of the [HTTP headers](#http-headers)
+and [HTTP status codes](#http-status-codes) you need to know when using {{site.data.keyword.cloudantfull}}.
 {: shortdesc}
 
-## HTTP Headers
+## HTTP headers
 {: #http-headers}
 
 Because {{site.data.keyword.cloudant_short_notm}} uses HTTP for all external communication,
@@ -69,7 +69,7 @@ If the `Accept` header is not supplied,
 then the server assumes the`*/*` MIME type,
 which means that the client accepts all formats.
 
-_Example of sending a request without an explicit `Accept` header, or when specifying `*/*`:
+*Example of sending a request without an explicit `Accept` header, or when specifying `*/*`:
 
 ```http
 GET /recipes HTTP/1.1
@@ -78,7 +78,7 @@ Accept: */*
 ```
 {: codeblock}
 
-_Example of a returned header when the client is assumed to accept all formats:_
+*Example of a returned header when the client is assumed to accept all formats*
 
 The returned content type is `text/plain` even though the information returned by the request is in JSON format.
 {: note}
@@ -101,7 +101,7 @@ For example,
 if you explicitly request `application/json` in the `Accept` of a request,
 the returned HTTP headers use this value in the returned `Content-type` field.
 
-_Example request that explicitly specifies the `Accept` header:_
+*Example request that explicitly specifies the `Accept` header*
 
 ```http
 GET /recipes HTTP/1.1
@@ -110,7 +110,7 @@ Accept: application/json
 ```
 {: codeblock}
 
-_Example of the headers returned in response, including the `application/json` content type:_
+*Example of the headers returned in response, including the `application/json` content type*
 
 ```
 Server: CouchDB/1.0.2 (Erlang OTP/R14B)
@@ -135,7 +135,7 @@ In particular,
 when uploading attachments the type should be the corresponding
 MIME type for the attachment or binary (`application/octet-stream`).
 
-The use of the `Content-type` on a request is highly recommended.
+The use of the `Content-Type` on a request is highly recommended.
 
 #### Content-Encoding
 {: #content-encoding}
@@ -145,7 +145,7 @@ Supported values are `gzip` and `deflate`.
 If the header is used,
 the request body must be encoded using the corresponding format.
 
-_Example of creating a gzipped request body:_
+*Example of creating a gzipped request body*
 
 ```sh
 # create gzipped document
@@ -153,7 +153,7 @@ echo '{"foo":"bar"}' | gzip >doc.gzip
 ```
 {: codeblock}
 
-_Example of sending a gzip-encoded request body to create a document, using HTTP:_
+*Example of sending a gzip-encoded request body to create a document, using HTTP*
 
 ```http
 PUT /db/doc HTTP/1.1
@@ -162,7 +162,7 @@ Content-Encoding: gzip
 ```
 {: codeblock}
 
-_Example of sending a gzip-encoded request body to create a document, using the command line:_
+*Example of sending a gzip-encoded request body to create a document, using the command line*
 
 ```sh
 curl https://example.cloudant.com/db/doc \
@@ -240,7 +240,7 @@ to get a [`304 Not Modified`](#http-status-codes) response if the revision is st
 ETags cannot currently be used with views or lists,
 since the ETags returned from those requests are just random numbers that change on every request.
 
-## HTTP Status Codes
+## HTTP status codes
 {: #http-status-codes}
 
 With the interface to {{site.data.keyword.cloudant_short_notm}} working through HTTP,
@@ -258,7 +258,7 @@ Code                                    | Meaning
 `304 - Not Modified`                    | The content requested has not been modified. This is used with the [ETag](#etag) system to identify the version of information returned.
 `400 - Bad Request`                     | Bad request structure. The error can indicate an error with the request URL, path or headers. Differences in the supplied MD5 hash and content also trigger this error, as this may indicate message corruption.
 `401 - Unauthorized`                    | The item requested was not available using the supplied authorization, or authorization was not supplied.
-`402 - Payment required`                | Either the data quota on the Lite plan was exceeded, or the account is in arrears. You can delete data or upgrade to the standard plan, or bring the account up to date.
+`402 - Payment required`                | Either the data quota on the Lite plan was exceeded, or the account is in arrears. You can delete data or upgrade to the Standard plan, or bring the account up to date.
 `403 - Forbidden`                       | The requested item or operation is forbidden.
 `404 - Not Found`                       | The requested resource could not be found. The content includes further information as a JSON object, if available. The structure contains two keys, `error` and `reason`, similar to the following example: `{ "error":"not_found", "reason":"no_db_file" }`
 `405 - Resource Not Allowed`            | A request was made using an invalid HTTP request type for the URL requested. For example, you have requested a `PUT` when a `POST` is required. Errors of this type can also be triggered by invalid URL strings.

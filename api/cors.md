@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-04-25"
 
 keywords: cors, security, configuration endpoints, json format, dashboard
 
@@ -195,7 +195,7 @@ _Example response:_
 ## Dashboard
 {: #dashboard}
 
-CORS support is available in the {{site.data.keyword.cloudant_short_notm}} dashboard.
+CORS support is available in the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 You can update your CORS settings by using the CORS tab within the dashboard:
 

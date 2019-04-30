@@ -277,7 +277,7 @@ _Example response:_
 ```
 {: codeblock}
 
-### Query Parameters
+### Query parameters
 {: #query-parameters-document}
 
 You can add some query parameters to the URL,
@@ -300,7 +300,7 @@ Name                | Type | Description | Default
 `revs`              | boolean | Includes list of all known document revisions. | false
 `revs_info`         | boolean | Includes detailed information for all known document revisions. | false
 
-## Read Many
+## Read many
 {: #read-many}
 
 To fetch more than one document at a time,
@@ -321,7 +321,7 @@ Recall that for a partitioned database the `$DOCUMENT_ID` will be formed of a pa
 If you fail to provide the most recent `_rev` when you attempt to update an existing document, {{site.data.keyword.cloudant_short_notm}} responds with a [409 error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes). This error prevents you overwriting data that were changed by other processes. If the write [quorum](#quorum-writing-and-reading-data) cannot be met, a [`202` response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) is returned.
 {: note}
 
-Any document update can lead to a conflict, especially when you replicate updated documents. More information about avoiding and resolving conflicts is in the [Document Versioning and MVCC guide](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
+Any document update can lead to a conflict, especially when you replicate updated documents. For more information about avoiding and resolving conflicts, see the [Document versioning and MVCC guide](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
 {: note}
 
 _Example of using HTTP to update a document:_
@@ -723,7 +723,7 @@ For example, looking at the earlier revision branch structure, an index might in
 Storage space that was used by purged documents is reclaimed automatically when a database compaction runs.
 
 
-## Bulk Operations
+## Bulk operations
 {: #bulk-operations}
 
 Use the bulk document API to create and update multiple documents at the same time within a single request.
@@ -926,11 +926,11 @@ including their revision and ID values.
 
 The content and structure of the returned JSON depends on the transaction semantics that are used for the bulk update.
 For more information,
-see [Bulk Documents Transaction Semantics](#bulk-documents-transaction-semantics).
+see [Bulk documents transaction semantics](#bulk-documents-transaction-semantics).
 
 Conflicts and validation errors that occur when you update documents in bulk must be handled separately.
 For more information,
-see [Bulk Document Validation and Conflict Errors](#bulk-document-validation-and-conflict-errors).
+see [Bulk document validation and conflict errors](#bulk-document-validation-and-conflict-errors).
 
 _Example response content after successful bulk insert of two documents:_
 
@@ -950,7 +950,7 @@ _Example response content after successful bulk insert of two documents:_
 ```
 {: codeblock}
 
-### Updating Documents in Bulk
+### Updating documents in bulk
 {: #updating-documents-in-bulk}
 
 The bulk document update procedure is similar to the insertion procedure,
@@ -1042,7 +1042,7 @@ _Example JSON structure that is returned after bulk update:_
 ```
 {: codeblock}
 
-### Bulk Documents Transaction Semantics
+### Bulk documents transaction semantics
 {: #bulk-documents-transaction-semantics}
 
 If your request receives a [`202` response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes),
@@ -1083,7 +1083,7 @@ _Example bulk update response with errors:_
 ```
 {: codeblock}
 
-### Bulk Document Validation and Conflict Errors
+### Bulk document validation and conflict errors
 {: #bulk-document-validation-and-conflict-errors}
 
 The JSON returned by the `_bulk_docs` operation consists of an array of JSON structures,
@@ -1233,7 +1233,7 @@ completes successfully.
 For help to understand quorum settings and their implications on dedicated {{site.data.keyword.cloudant_short_notm}} systems,
 contact {{site.data.keyword.cloudant_short_notm}} support.
 
-## TTL - Time to Live
+## TTL - time to live
 {: #ttl-time-to-live}
 
 [Time to Live ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Time_to_live){: new_window} (TTL) is a property of data,

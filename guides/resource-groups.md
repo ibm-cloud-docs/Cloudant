@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-04-25"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -45,12 +45,12 @@ You can migrate {{site.data.keyword.cloudant_short_notm}} instances on the follo
 
 There is no downtime during the migration process.
 
-## Why do some instances have an organisation and space and others do not?
-{: #why-do-some-instances-have-an-organisation-and-space-and-others-do-not-}
+## Why do some instances have an organization and space and others do not?
+{: #why-do-some-instances-have-an-organization-and-space-and-others-do-not-}
 
 Since July 16, 2018, new instances have been provisioned into resource groups
 rather than Cloud Foundry spaces. Resource instances provisioned before this date
-have an associated Cloud Foundry organisation and space. Instances
+have an associated Cloud Foundry organization and space. Instances
 provisioned after this date will be associated with a resource group instead.
 
 ## Why can't I create new Standard plan instances on my Dedicated Hardware instances?

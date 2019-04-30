@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-04-25"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -126,9 +126,9 @@ See the [Plans](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans) s
 ## Creating the {{site.data.keyword.cloudant_short_notm}} service
 {: #creating-the-ibm-cloudant-service}
 
-{{site.data.keyword.cloudant_short_notm}} uses Resource Groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that are provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does IBM Cloudant work with IBM Cloud Resource Groups? ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} guide.
+{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that are provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups? ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} guide.
 
-First, set your target Resource Group and region as shown in [General CLI (ibmcloud) commands ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window} under `ibmcloud target` by using the following format:
+First, set your target resource group and region as shown in [General CLI (ibmcloud) commands ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window} under `ibmcloud target` by using the following format:
 
 ```sh
 ibmcloud target [-r REGION_NAME] [-g RESOURCE_GROUP]

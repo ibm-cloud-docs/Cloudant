@@ -174,7 +174,7 @@ function(doc) {
 ```
 {: codeblock}
 
-### Complex Keys
+### Complex keys
 {: #complex-keys}
 
 Keys are not limited to simple values.
@@ -188,7 +188,7 @@ then results can be reduced to a single value or by year,
 month,
 or day.
 
-For more information, see [Using Views](/docs/services/Cloudant?topic=cloudant-using-views#using-views).
+For more information, see [Using views](/docs/services/Cloudant?topic=cloudant-using-views#using-views).
 
 ## Reduce functions
 {: #reduce-functions}

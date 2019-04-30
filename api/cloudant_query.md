@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-04-25"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -156,7 +156,7 @@ for indexes created in a partitioned database. This means the index *cannot*
 be used to satisfy global queries.
 {: important}
 
-#### Return Codes
+#### Return codes
 {: #return-codes-cloudant-query}
 
 Code | Description
@@ -295,8 +295,7 @@ Key        | Description
 
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
 Later,
-the index can be queried by using the `$text` operator.
-See the [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant?topic=cloudant-search#analyzers) for alternative analyzers.
+the index can be queried by using the `$text` operator. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant?topic=cloudant-search#analyzers) for alternative analyzers.
 You might choose to use an alternative analyzer when documents are indexed in languages other than English,
 or when you have other special requirements for the analyzer such as matching email addresses.
 
@@ -608,7 +607,7 @@ Design documents are not returned by `_find`.
 -	**bookmark (optional, default: null)**: A string that is used to specify which page of results you require.
 	For more information about pagination, see [Pagination](#pagination).
 -	**use_index (optional)**: Use this option to identify a specific index for query to run against,
-	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index. For more information, see [Explain Plans](#explain-plans).
+	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index. For more information, see [Explain plans](#explain-plans).
 -	**conflicts (optional, default: false)**: A Boolean value that indicates whether or not to include information about existing conflicts in the document.
 -   **execution_stats (optional, default: false)**: Use this option to find information
 	about the query
@@ -671,7 +670,7 @@ _Example response when you use an index to find documents:_
 ```
 {: codeblock}
 
-## Selector Syntax
+## Selector syntax
 {: #selector-syntax}
 
 The {{site.data.keyword.cloudant_short_notm}} Query language is expressed as a JSON object that describes documents of interest.
@@ -809,7 +808,7 @@ Every explicit operator has the form:
 A selector without an explicit operator is considered to have an implicit operator.
 The exact implicit operator is determined by the structure of the selector expression.
 
-## Implicit Operators
+## Implicit operators
 {: #implicit-operators}
 
 The two implicit operators are:
@@ -977,7 +976,7 @@ All operators,
 apart from the `$eq` (equality) and `$and` and operators,
 must be stated explicitly.
 
-## Combination Operators
+## Combination operators
 {: #combination-operators}
 
 Combination operators are used to combine selectors.
@@ -1182,7 +1181,7 @@ _Example of using the $or operator:_
 ```
 {: codeblock}
 
-## Condition Operators
+## Condition operators
 {: #condition-operators}
 
 Condition operators are specific to a field,
@@ -1691,7 +1690,7 @@ some parts of the `$regex` operator go beyond what PCRE offers.
 For more information about what is implemented,
 see the [Erlang Regular Expression ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/man/re.html){: new_window} information.
 
-## Sort Syntax
+## Sort syntax
 {: #sort-syntax}
 
 The `sort` field contains a list of field name and direction pairs,
@@ -1851,7 +1850,7 @@ requested. If the results returned < limit, no more results were returned in the
 
 
 
-## Explain Plans
+## Explain plans
 {: #explain-plans}
 
 {{site.data.keyword.cloudant_short_notm}} Query chooses which index to use for responding to a query,

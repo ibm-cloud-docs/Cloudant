@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-04-25"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Design Document Management
+# Design document management
 {: #design-document-management}
 
 *Article contributed by Glynn Bird, Developer Advocate at IBM Cloudant,
@@ -41,8 +41,8 @@ non-blocking write throughput.
     faceting and complex ad-hoc queries
 
 {{site.data.keyword.cloudant_short_notm}}'s [search indexes](/docs/services/Cloudant?topic=cloudant-search#search) and [MapReduce views](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)
-are configured by adding Design Documents to a database.
-Design Documents are JSON documents which contain the instructions on how the view or index is to be built.
+are configured by adding design documents to a database.
+Design documents are JSON documents which contain the instructions on how the view or index is to be built.
 Let's take a simple example.
 Assume we have a simple collection of data documents,
 similar to the following example.
@@ -85,7 +85,7 @@ as we are not interested in the value in the index,
 The effect is to provide a time-ordered index into the document set.
 
 We are going to call this view "`by_ts`"
-and put it into a Design Document called "`fetch`",
+and put it into a design document called "`fetch`",
 like the following example.
 
 _Example design document that defines a view using a map function:_
@@ -108,9 +108,9 @@ _Example design document that defines a view using a map function:_
 {: codeblock}
 
 The result is that our map code has been turned into a JSON-compatible string,
-and included in a Design Document.
+and included in a design document.
 
-Once the Design Document is saved,
+Once the design document is saved,
 {{site.data.keyword.cloudant_short_notm}} triggers server-side processes to build the `fetch/by_ts` view.
 It does this by iterating over every document in the database,
 and sending each one to the Javascript map function.
@@ -128,7 +128,7 @@ as shown in the following diagram:
 It's worth remembering at this point that:
 
 -   The construction of an index happens asynchronously.
-    {{site.data.keyword.cloudant_short_notm}} confirms that our Design Document has been saved,
+    {{site.data.keyword.cloudant_short_notm}} confirms that our design document has been saved,
     but to check on the progress on the construction of our index,
     we have to poll {{site.data.keyword.cloudant_short_notm}}'s [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) endpoint.
 -   The more data we have,
@@ -157,7 +157,7 @@ place their definitions in separate design documents.
 This behavior does not apply to Lucene search indexes. They can be altered within the same design document without invalidating other unchanged indexes in the same document.
 {: note}
 
-![Illustration of Design Document version change](../images/DesDocMan02.png)
+![Illustration of design document version change](../images/DesDocMan02.png)
 
 ## Managing changes to a design document
 {: #managing-changes-to-a-design-document}
@@ -205,10 +205,10 @@ If we have an application that is accessing this view _in real-time_,
 then we might well encounter a deployment dilemma:
 
 -   Version 1 of our code,
-    which relied on the original Design Document,
+    which relied on the original design document,
     might no longer work because the old view has been invalidated.
 -   Version 2 of our code,
-    which uses the new Design Document,
+    which uses the new design document,
     can't be released immediately,
     because the new view will not have finished building yet,
     especially if there are many documents in the database.
@@ -216,7 +216,7 @@ then we might well encounter a deployment dilemma:
     version 1 expects a list of matching documents,
     while version 2 expects a 'reduced' count of results.
 
-## Coordinating changes to Design Documents
+## Coordinating changes to design documents
 {: #coordinating-changes-to-design-documents}
 
 There are two ways of dealing with this change control problem.
@@ -234,7 +234,7 @@ One solution is to use versioned design document names:
 -   We are now ready to release the code that depends on the second view.
 -   Delete `_design/fetchv1` when we are sure it is no longer needed.
 
-Using versioned design documents is a simple way to manage change control in your Design Documents,
+Using versioned design documents is a simple way to manage change control in your design documents,
 as long as you remember to remove the older versions at a later date!
 
 ### 'Move and switch' design documents
@@ -257,10 +257,10 @@ The procedure to switch to the new view is this:
     to ensure that it starts to build.
 4.  Poll the `_active_tasks` endpoint and wait until the index has finished building.
 5.  Put a duplicate copy of the new design document into `_design/fetch`.
-6.  Delete Design Document `_design/fetch_NEW`.
-7.  Delete Design Document `_design/fetch_OLD`.
+6.  Delete design document `_design/fetch_NEW`.
+7.  Delete design document `_design/fetch_OLD`.
 
-## Move and Switch tooling
+## Move and switch tooling
 {: #move-and-switch-tooling}
 
 There is a command-line Node.js script that automates the 'move and switch' procedure,
@@ -300,7 +300,7 @@ we can then run the migrate command.
 
 In this example,
 `db` specifies the name of the database to change,
-and `dd` specifies the path to our Design Document file.
+and `dd` specifies the path to our design document file.
 
 _Running the `couchmigrate` command:_
 

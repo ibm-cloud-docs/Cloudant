@@ -69,7 +69,7 @@ submit a `PUT` request with the following format:
 -   **Response**: Success or failure of operation.
 -   **Roles permitted**: `_admin`
 
-### Query Arguments
+### Query arguments
 {: #query-arguments-database}
 
 Argument         | Description | Optional | Type | Default | Supported values
@@ -299,7 +299,7 @@ _Example response:_
 ```
 {: codeblock}
 
-## Get Documents
+## Get documents
 {: #get-documents}
 
 To list all the documents in a database,
@@ -588,7 +588,7 @@ The field names and their meaning are the same as the query parameters of a regu
 `_view` request. 
 
 
-## Get Changes
+## Get changes
 {: #get-changes}
 
 Sending a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_changes`

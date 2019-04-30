@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Plans & Provisioning
+# Plans & provisioning
 {: #ibm-cloud-public}
 
 {{site.data.keyword.cloudantfull}} Public is {{site.data.keyword.cloudant_short_notm}}'s most 
@@ -74,7 +74,7 @@ Pricing is pro-rated hourly with a starting provisioned throughput capacity of 1
 
 See the {{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](/docs/services/Cloudant?topic=cloudant-pricing#pricing){: new_window} information for examples to estimate costs.
 
-### Dedicated hardware plan
+### Dedicated Hardware plan
 {: #dedicated-hardware-plan}
 
 An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance is a bare metal {{site.data.keyword.cloudant_short_notm}} environment that is provisioned for the sole use of your {{site.data.keyword.cloudant_short_notm}} Standard plan instances. An {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can be provisioned in any [{{site.data.keyword.IBM}} data center ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/data-centers/){:new_window}. This plan is necessary for HIPAA compliance and must be selected at provisioning time. Users of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment can employ IP whitelisting and bring-your-own-key (BYOK) customer-managed encryption keys with {{site.data.keyword.IBM_notm}} Key Protect. Additionally, Dedicated Hardware environments provisioned after January 1, 2019 include internal endpoints for all Standard plan instances deployed on them. Using internal endpoints allows customers to connect to an {{site.data.keyword.cloudant_short_notm}} instance through the internal {{site.data.keyword.cloud}} network to avoid upstream application traffic from going over the public network and incurring bandwidth charges. For more information, see [Service Endpoint documentation ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window} for more details on enabling Service Endpoints for your {{site.data.keyword.cloud}} account.
@@ -161,7 +161,7 @@ If you are porting an existing application, it might not be able to handle a `42
 In summary,
 you must ensure that your application is able to handle a [`429`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) response correctly.
 
-### Consumption of Read operations by partitioned queries
+### Consumption of read operations by partitioned queries
 {: #consumption-of-lookup-operations-by-partitioned-queries}
 
 Partitioned query requests consume a variable number of read operations
@@ -231,13 +231,13 @@ complete.
 
 ![Account dashboard](../images/cloudant_capacity_change.png)
 
-The size of the capacity increase is limited to 10 units (1000 reads/second, 500 writes/second, and 50 global queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
+The size of the capacity increase is limited to 10 units (1000 reads/second, 500 writes/second, and 50 global queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} Dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 {: note}
 
 ### Monitoring usage 
 {: #monitoring-usage}
 
-Information about your usage is available in the Current Operations pane of the Monitoring tab within your {{site.data.keyword.cloudant_short_notm}} dashboard. 
+Information about your usage is available in the Current Operations pane of the Monitoring tab within your {{site.data.keyword.cloudant_short_notm}} Dashboard. 
 
 ![Monitoring usage on the dashboard](../images/cloudant_usage.png)
 

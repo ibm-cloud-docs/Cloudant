@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-16"
+lastupdated: "2019-04-22"
 
 keywords: develop applications, supported library, third-party library
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2019-01-15 -->
 
-# Client Libraries
+# Client libraries
 {: #client-libraries}
 
 Client libraries are the tools that you use to develop your own applications

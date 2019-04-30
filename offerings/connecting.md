@@ -121,7 +121,7 @@ The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM a
 
 You can open the {{site.data.keyword.cloudant_short_notm}} Dashboard for your instance by going to the Manage tab of 
 the {{site.data.keyword.cloud_notm}} Dashboard instance details page. You can use either the `Launch` or `Launch Cloudant Dashboard`
-button to open the Dashboard in a new browser tab. The {{site.data.keyword.cloudant_short_notm}} Dashboard allows you to do the following tasks:
+button to open the dashboard in a new browser tab. The {{site.data.keyword.cloudant_short_notm}} Dashboard allows you to do the following tasks:
 
 - Monitor your current consumption of the instance
 - Perform CRUD (create, read, update, delete) on {{site.data.keyword.cloudant_short_notm}} databases, documents, and indexes
@@ -129,10 +129,10 @@ button to open the Dashboard in a new browser tab. The {{site.data.keyword.cloud
 - View active tasks
 - View and update account information like provisioned throughput capacity, announcements, CORS, and settings
 
-## Programmatic Access
+## Programmatic access
 {: #programmatic-access}
 
-### Command Line (curl)
+### Command line (curl)
 {: #command-line-curl-}
 
 You can leverage the curl command line utility to access the {{site.data.keyword.cloudant_short_notm}} HTTPS API. 
@@ -148,7 +148,7 @@ tutorial.
 You cannot use an IAM API key directly to authenticate against {{site.data.keyword.cloudant_short_notm}}.
 {: note}
 
-### Client Libraries
+### Client libraries
 {: #client-libraries-overview}
 
 {{site.data.keyword.cloudant_short_notm}} has official client libraries for Java, Node.js, Python, Swift, and Mobile. For more information, see the [client libraries documentation](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries) to access the libraries, and see examples for connecting to an {{site.data.keyword.cloudant_short_notm}}

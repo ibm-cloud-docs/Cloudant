@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-04-25"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -67,9 +67,9 @@ Guide | Description
 [Conflicts](/docs/services/Cloudant?topic=cloudant-conflicts#conflicts){: new_window} | A guide that describes how to find and resolve conflicts. 
 [CouchApps](/docs/services/Cloudant?topic=cloudant-couchapps#couchapps){: new_window} | A guide that describes what constitutes a CouchApp.
 [Database partitioning](/docs/services/Cloudant?topic=cloudant-database-partitioning#database-partitioning) | A guide that describes partitioned databases and how to use them. 
-[Design Document Management](/docs/services/Cloudant?topic=cloudant-design-document-management#design-document-management){: new_window} | A guide that describes what a design document is and how to work with one in {{site.data.keyword.cloudant_short_notm}}.
-[Document Versioning and MVCC](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc){: new_window} | A guide that describes multi-version concurrency control (MVCC) and how it works with {{site.data.keyword.cloudant_short_notm}} databases to ensure that all of the nodes in a database's cluster contain only the newest version of a document.
-[Five tips for modelling your data to scale](/docs/services/Cloudant?topic=cloudant-five-tips-for-modelling-your-data-to-scale#five-tips-for-modelling-your-data-to-scale){: new_window} | A guide that considers the finer points of modelling your application's data to work efficiently on a large scale.
+[Design document management](/docs/services/Cloudant?topic=cloudant-design-document-management#design-document-management){: new_window} | A guide that describes what a design document is and how to work with one in {{site.data.keyword.cloudant_short_notm}}.
+[Document versioning and MVCC](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc){: new_window} | A guide that describes multi-version concurrency control (MVCC) and how it works with {{site.data.keyword.cloudant_short_notm}} databases to ensure that all of the nodes in a database's cluster contain only the newest version of a document.
+[Five tips for modeling your data to scale](/docs/services/Cloudant?topic=cloudant-five-tips-for-modeling-your-data-to-scale#five-tips-for-modeling-your-data-to-scale){: new_window} | A guide that considers the finer points of modeling your application's data to work efficiently on a large scale.
 [Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant){: new_window} | A guide that outlines some of the factors that are involved in building an e-commerce system that takes advantage of {{site.data.keyword.cloudant_short_notm}}'s strengths, by using concepts that are applicable to many other domains.
 [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} | A guide that covers common questions {{site.data.keyword.cloudant_short_notm}} support receives about this transition.
 [How is data stored in {{site.data.keyword.cloudant_short_notm}}?](/docs/services/Cloudant?topic=cloudant-how-is-data-stored-in-ibm-cloudant-#how-is-data-stored-in-ibm-cloudant-){: new_window} | A guide that describes sharding and how it works in {{site.data.keyword.cloudant_short_notm}}.

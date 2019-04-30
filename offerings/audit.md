@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-04-23"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -47,7 +47,7 @@ and by whom.
 - What and when replication documents were created or deleted.
 
 
-## How to access Audit Logs for your account
+## How to access audit logs for your account
 {: #how-to-access-audit-logs-for-your-account}
 
 To request access to the audit logs for your account, contact 

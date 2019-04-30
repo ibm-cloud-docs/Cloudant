@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-04-23"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 {: #security}
 
 
-## {{site.data.keyword.cloudant_short_notm}} DBaaS Data Protection and Security
+## {{site.data.keyword.cloudant_short_notm}} DBaaS data protection and security
 {: #ibm-cloudant-dbaas-data-protection-and-security}
 
 Protecting application data for large-scale web and mobile apps can be complex,
@@ -37,7 +37,7 @@ to keep them running and growing non-stop,
 {{site.data.keyword.cloudantfull}} also ensures your data stays secure and protected.
 {: shortdesc}
 
-## Top-Tier Physical Platforms
+## Top-tier physical platforms
 {: #top-tier-physical-platforms}
 
 The {{site.data.keyword.cloudant_short_notm}} DBaaS is
@@ -58,7 +58,7 @@ including (but not limited to):
 More details about the certifications are available in the [Compliance information](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
 {: tip}
 
-## Secure Access Control
+## Secure access control
 {: #secure-access-control}
 
 {{site.data.keyword.cloudant_short_notm}} has a multitude of built-in security features,
@@ -97,7 +97,7 @@ CORS | Enable CORS support for specific domains by using the {{site.data.keyword
 > appropriate for {{site.data.keyword.cloudant_short_notm}} to store your data.
 -->
 
-## Protection Against Data Loss or Corruption
+## Protection against data loss or corruption
 {: #protection-against-data-loss-or-corruption}
 
 {{site.data.keyword.cloudant_short_notm}} has a number of features

@@ -54,7 +54,7 @@ The {{site.data.keyword.cloudant_short_notm}} Shared Plan and Enterprise (Dedica
 offerings are not available on the {{site.data.keyword.cloud_notm}} service.
 {: important}
 
-## Enterprise Plan
+## Enterprise plan
 {: #enterprise-plan}
 
 With the {{site.data.keyword.cloudant_short_notm}} DBaaS Enterprise Plan, you have access to all the 
@@ -69,7 +69,7 @@ account on one of their dedicated clusters, sign up on the [{{site.data.keyword.
 create an account using the form, and open a support ticket to request that your account be moved to one of your 
 {{site.data.keyword.cloudant_short_notm}} Enterprise dedicated clusters. 
 
-## Shared Plan
+## Shared plan
 {: #shared-plan}
 
 The {{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on March 31, 2018. 

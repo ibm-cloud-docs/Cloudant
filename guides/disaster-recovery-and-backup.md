@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-04-25"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -77,11 +77,11 @@ Different tools and features provide different levels of protection. The differe
 
 {{site.data.keyword.cloudant_short_notm}} provides a number of tools and features that address general requirements:
 
-1.	Data redundancy within a single region, also known as [In-Region Automatic Data Redundancy](#in-region-automatic-data-redundancy).
-2.	Cross-region data redundancy and failover, also known as [Cross-Region Redundancy for Disaster Recovery](#cross-region-redundancy-for-disaster-recovery).
-3.	Point in time snapshot backup for point-in-time restore, by using 'traditional' [Database Backup and Recovery](#database-backup-and-recovery).
+1.	Data redundancy within a single region, also known as [In-region automatic data redundancy](#in-region-automatic-data-redundancy).
+2.	Cross-region data redundancy and failover, also known as [Cross-region redundancy for disaster recovery](#cross-region-redundancy-for-disaster-recovery).
+3.	Point in time snapshot backup for point-in-time restore, by using 'traditional' [Database backup and recovery](#database-backup-and-recovery).
 
-## In-Region Automatic Data Redundancy
+## In-region automatic data redundancy
 {: #in-region-automatic-data-redundancy}
 
 Within a single {{site.data.keyword.cloudant_short_notm}} account,
@@ -109,17 +109,17 @@ In-region automatic data redundancy is limited to:
 2.	Maintaining current data.
 
 To provide protection across more than the single region associated with your account,
-use [Cross-Region Redundancy for Disaster Recovery](#cross-region-redundancy-for-disaster-recovery).
+use [Cross-region redundancy for disaster recovery](#cross-region-redundancy-for-disaster-recovery).
 
 To provide protection for the 'history' of your data,
 for example to enable auditing of changes that are made to data by applications,
-use data snapshots that are created by [Database Backup and Recovery](#database-backup-and-recovery) tools.
+use data snapshots that are created by [Database backup and recovery](#database-backup-and-recovery) tools.
 
 In summary,
 in-region data redundancy enables a High Availability capability
 by providing tolerance for failures that affect single systems within the region.
 
-## Cross-Region Redundancy for Disaster Recovery
+## Cross-region redundancy for disaster recovery
 {: #cross-region-redundancy-for-disaster-recovery}
 
 The {{site.data.keyword.cloudant_short_notm}} replication feature helps you build a flexible disaster recovery capability into your applications.
@@ -168,11 +168,11 @@ The reason is that the applications can continue working if the data in one regi
 However,
 your applications must be able to 'fail over' to copies of your data that are stored in other regions.
 
-## Database Backup and Recovery
+## Database backup and recovery
 {: #database-backup-and-recovery}
 
-[In-Region Automatic Data Redundancy](#in-region-automatic-data-redundancy) provides applications with high availability access to data.
-[Cross-Region Redundancy for Disaster Recovery](#cross-region-redundancy-for-disaster-recovery) provides applications with a means of recovering from a disaster.
+[In-region automatic data redundancy](#in-region-automatic-data-redundancy) provides applications with high availability access to data.
+[Cross-region redundancy for disaster recovery](#cross-region-redundancy-for-disaster-recovery) provides applications with a means of recovering from a disaster.
 However,
 both of these capabilities focus on maintaining access only to the _current_ copy of your data.
 
@@ -227,7 +227,7 @@ Example scenarios include:
 *	Migrating older data to cheaper storage, for more cost-effective retention.
 
 The backup tools consist of an open source node.js command line application and library.
-It is available [on NPM ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
+It is available on [NPM ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
 
 For ideas and examples that show how to integrate the tools into your data protection strategy,
-see the [Backup Cookbook guide](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).
+see the [{{site.data.keyword.cloudant_short_notm}} backup and recovery guide](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

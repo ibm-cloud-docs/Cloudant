@@ -1,8 +1,7 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-03-15"
+  years: 2015, 201954"
 
 keywords: geospatial, geojson, geo index, querying, query geometry, geometric relation
 
@@ -78,10 +77,10 @@ The basic steps for working with geospatial data in {{site.data.keyword.cloudant
 2.  Index the geometry object that uses {{site.data.keyword.cloudant_short_notm}} Geo defined `st_index` function.
 3.  Search the indexed geometry object by using various geometries and geometric relationships.
 
-## Using {{site.data.keyword.cloudant_short_notm}} Geospatial through the Dashboard
+## Using {{site.data.keyword.cloudant_short_notm}} Geospatial through the dashboard
 {: #using-cloudant-nosql-db-geospatial-through-the-dashboard}
 
-You can use the Dashboard to do several geospatial tasks:
+You can use the dashboard to do several geospatial tasks:
 
 *	Visualization of data that is stored in spatial indexes.
 *	Spatial query construction.
@@ -95,7 +94,7 @@ follow these steps:
 
 1.	Select the database that contains spatially indexed data.
 2.	Select the Design Documents menu.
-3.	Select the Design Document that contains the definition of the spatial index.
+3.	Select the design document that contains the definition of the spatial index.
 	A 'Geospatial Indexes' menu appears for the spatial index.
 4.	Select the Geospatial Index for your data.
 	A map view appears,
@@ -118,8 +117,7 @@ up to a maximum of 200 at a time.
 To see the other results from your geospatial query,
 page through them by clicking the left or right arrows.
 
-More information on using {{site.data.keyword.cloudant_short_notm}} Geospatial is available through
-the [Learning Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.cloudant.com/learning-center#geo){: new_window}.
+For more information about using {{site.data.keyword.cloudant_short_notm}} Geospatial, go to the [Learning Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.cloudant.com/learning-center#geo){: new_window}.
 
 ## GeoJSON
 {: #geojson}
@@ -179,11 +177,11 @@ _An example GeoJSON document:_
 ```
 {: codeblock}
 
-More information about GeoJSON,
+For more information about GeoJSON,
 including the full specification,
-is available at [http://geojson.org/ ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/){: new_window}.
+go to [http://geojson.org/ ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/){: new_window}.
 
-## Creating an {{site.data.keyword.cloudant_short_notm}} Geo Index
+## Creating an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #creating-a-cloudant-nosql-db-geo-index}
 
 To make it easier to work with {{site.data.keyword.cloudant_short_notm}} Geo documents,
@@ -296,7 +294,7 @@ _Example format for an {{site.data.keyword.cloudant_short_notm}} Geo API call:_
 ```
 {: codeblock}
 
-### Query Geometry
+### Query geometry
 {: #query-geometry}
 
 A query geometry parameter must be provided for an {{site.data.keyword.cloudant_short_notm}} Geo search.
@@ -347,7 +345,7 @@ _Example of a `polygon` query:_
 {{site.data.keyword.cloudant_short_notm}} Geo uses `intersects` as the default geometric relation when it runs a query with query geometry only.
 {: tip}
 
-### Geometric Relation
+### Geometric relation
 {: #geometric-relation}
 
 {{site.data.keyword.cloudant_short_notm}} Geo works with geospatial relationships and follows
@@ -420,7 +418,7 @@ by using the `nearest=true` search,
 the results include all GeoJSON documents in the database whose order is measured by the distance to the query point.
 {: tip}
 
-### Result Set
+### Result set
 {: #result-set}
 
 You can use the following parameters to deal with the returned result set, 
@@ -435,7 +433,7 @@ Parameter      | Description
 `skip`         | Skip this number of records before {{site.data.keyword.cloudant_short_notm}} Geo search starts to return the results. The default value is 0.
 `stale=ok`     | Speeds up responses by not waiting to complete index rebuilds or updates between database cluster nodes.
 
-#### Format Parameter Examples
+#### Format parameter examples
 {: #format-parameter-examples}
 
 These examples show the available results based on the options you specify for the format parameter.
@@ -524,7 +522,7 @@ _Example response to the query:_
 ## Example: Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #example-querying-a-cloudant-nosql-db-geo-index}
 
-### Simple Circle
+### Simple circle
 {: #simple-circle}
 
 This simple example demonstrates how {{site.data.keyword.cloudant_short_notm}} Geo can find documents that are considered to have a geospatial
