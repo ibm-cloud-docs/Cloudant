@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: generate uuid, record payments, add additional documents, advantages
+
+subcollection: cloudant
 
 ---
 
@@ -12,10 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Regroupement des documents liés dans {{site.data.keyword.cloudant_short_notm}}
+{: grouping-related-documents-together-in-ibm-cloudant}
 
 Généralement,
 les systèmes de commerce électronique sont générés avec des bases de données relationnelles.
@@ -92,7 +100,7 @@ _Document décrivant un achat - Exemple :_
     "total": 26.46
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Ce document inclut suffisamment de données pour qu'un enregistrement d'achat affiche un récapitulatif d'une commande sur une page Web,
 ou dans un message électronique
@@ -113,6 +121,7 @@ généralement lorsqu'il se trouve en phase de "réservation" sur le site Web,
 un enregistrement de commande d'achat est créé, similaire à l'exemple précédent. 
 
 ## Génération de vos propres identificateurs uniques (UUID)
+{: #generating-your-own-unique-identifiers-uuids-}
 
 Dans une base de données relationnelle,
 des numéros séquentiels à incrémentation automatique sont souvent utilisés,
@@ -120,14 +129,13 @@ mais dans des bases de données réparties,
 où les données se trouvent dans différents clusters de serveurs,
 des UUID plus longs permettent de garantir que les documents sont stockés avec leur propre ID unique.
 
-Pour créer un identificateur unique à utiliser dans votre application,
-tel `order_id`,
-appelez le noeud final [`GET _uuids`](../api/advanced.html#-get-_uuids-) sur l'API {{site.data.keyword.cloudant_short_notm}}.
+Pour créer un identificateur unique à utiliser dans votre application, tel `order_id`, appelez le noeud final [`GET _uuids`](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_uuids-) sur l'API {{site.data.keyword.cloudant_short_notm}}.
 La base de données génère un identificateur pour vous.
 Le même noeud final peut être utilisé pour générer plusieurs ID en ajoutant un paramètre `count`,
 par exemple, `/_uuids?count=10`.
 
 ## Enregistrement des règlements
+{: #recording-payments}
 
 Lorsque le client paie ses articles,
 des enregistrements supplémentaires sont ajoutés à la base de données afin d'enregistrer la commande.
@@ -155,7 +163,7 @@ _Enregistrement de règlement - Exemple :_
     "payment_reference": "Q88775662377224"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Dans l'exemple précédent,
 le client a payé en fournissant des informations de carte de crédit et en validant un bon prépayé.
@@ -183,10 +191,9 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
-L'utilisation du réducteur [`_sum`](../api/creating_views.html#built-in-reduce-functions) intégré
-vous permet de générer un registre des événements de règlement.
+L'utilisation du réducteur [`_sum`](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions) vous permet de générer un registre des événements de règlement.
 
 _Utilisation du réducteur `_sum` intégré, interrogé avec `?reduce=false` - Exemple :_
 
@@ -211,7 +218,7 @@ _Utilisation du réducteur `_sum` intégré, interrogé avec `?reduce=false` - E
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Vous pouvez également
 générer des totaux regroupés par `order_id`.
@@ -228,7 +235,7 @@ _Totaux regroupés par `order_id` avec `?group_level=1` - Exemple :_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Etant donné que la vue dans l'exemple précédent renvoie 0 pour la valeur de commande,
 le résultat indique que la commande a été entièrement payée.
@@ -236,6 +243,7 @@ Cela est dû au fait que le total de bon de commande positif annule les montants
 L'enregistrement d'événements en tant que documents séparés (un pour la commande et un pour chaque règlement) est une pratique recommandée dans {{site.data.keyword.cloudant_short_notm}} car cela évite la probabilité de création de conflits lorsque plusieurs processus modifient le même document en même temps.
 
 ## Ajout de documents supplémentaires
+{: #adding-additional-documents}
 
 Vous pouvez ajouter d'autres
 documents séparés à la base de données pour enregistrer les modifications d'état suivants lorsque la commande est mise à disposition et distribuée :
@@ -249,6 +257,7 @@ C'est pourquoi,
 il n'est pas nécessaire de modifier le document d'achat principal.
 
 ## Avantages du stockage des bons de commande dans {{site.data.keyword.cloudant_short_notm}}
+{: #advantages-of-storing-purchase-orders-in-ibm-cloudant}
 
 En utilisant {{site.data.keyword.cloudant_short_notm}} pour stocker des informations de bon de commande, le système de commande est hautement disponible et évolutif.
 Ainsi, vous pouvez traiter une grande quantité de données et un nombre important d'accès simultanés.

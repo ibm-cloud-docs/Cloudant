@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-18"
+
+keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption
+
+subcollection: cloudant
 
 ---
 
@@ -12,11 +16,15 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 安全性
 {: #security}
+
 
 ## {{site.data.keyword.cloudant_short_notm}} DBaaS 数据保护和安全性
 {: #ibm-cloudant-dbaas-data-protection-and-security}
@@ -24,7 +32,7 @@ lastupdated: "2018-10-24"
 保护大型 Web 和移动应用程序的应用程序数据可能是很复杂的工作，尤其是使用了分布式数据库和 NoSQL 数据库的情况。
 
 {{site.data.keyword.cloudantfull}} 不仅能减少维护数据库的工作，使数据库保持正常运行和不间断增长，同时还确保您的数据始终安全并受到保护。
-{:shortdesc}
+{: shortdesc}
 
 ## 顶层物理平台
 {: #top-tier-physical-platforms}
@@ -37,8 +45,8 @@ lastupdated: "2018-10-24"
 - 服务器加固。
 - 通过 {{site.data.keyword.cloudant_short_notm}}，您能在 SLA 和成本需求变化时，灵活地选择或切换使用不同的提供者。
 
-有关认证的更多详细信息在[合规信息](compliance.html)中提供。
-{:tip}
+有关认证的更多详细信息在[合规信息](/docs/services/Cloudant?topic=cloudant-compliance#compliance)中提供。
+{: tip}
 
 ## 安全访问控制
 {: #secure-access-control}
@@ -47,12 +55,16 @@ lastupdated: "2018-10-24"
 
 功能|描述
 --------|------------
-认证|{{site.data.keyword.cloudant_short_notm}} 使用 HTTPS API 进行访问。如果 API 端点需要认证，那么会针对 {{site.data.keyword.cloudant_short_notm}} 收到的每个 HTTPS 请求，对用户进行认证。{{site.data.keyword.cloudant_short_notm}} 支持旧凭证和 IAM 访问控制。有关更多信息，请参阅 [IAM 指南](../guides/iam.html){:new_window}或旧[认证 API 文档](../api/authentication.html){:new_window}。
-授权|{{site.data.keyword.cloudant_short_notm}} 支持旧凭证和 IAM 访问控制。有关更多信息，请参阅 [IAM 指南](../guides/iam.html){:new_window}和旧[授权 API 文档](../api/authorization.html){:new_window}。
-“动态”加密|使用 HTTPS 加密对 {{site.data.keyword.cloudant_short_notm}} 的所有访问。
+认证|{{site.data.keyword.cloudant_short_notm}} 使用 HTTPS API 进行访问。如果 API 端点需要认证，那么会针对 {{site.data.keyword.cloudant_short_notm}} 收到的每个 HTTPS 请求，对用户进行认证。{{site.data.keyword.cloudant_short_notm}} 支持旧凭证和 IAM 访问控制。有关更多信息，请参阅 [IAM 指南](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}或旧[认证 API 文档](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}。
+授权|{{site.data.keyword.cloudant_short_notm}} 支持旧凭证和 IAM 访问控制。{{site.data.keyword.cloudant_short_notm}} 团队建议您尽可能使用 IAM 访问控制进行认证。使用 {{site.data.keyword.cloudant_short_notm}} 旧认证时，建议您对编程方式的访问和复制作业使用 [API 密钥](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}，而不是帐户级别的凭证。有关更多信息，请参阅 [IAM 指南](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}或者旧[认证 API 文档](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}以及旧[授权 API 文档](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}。
+
 静态加密|对 {{site.data.keyword.cloudant_short_notm}} 实例中存储的所有数据进行静态加密。如果需要使用自带密钥 (BYOK) 进行静态加密，可以通过 {{site.data.keyword.cloud_notm}} Key Protect 启用此功能。{{site.data.keyword.cloudant_short_notm}} 支持此功能用于在所有区域中部署的新 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例。首先，使用{{site.data.keyword.cloud_notm}}“目录”创建一个专用硬件套餐实例。然后，提交支持凭单。我们的支持团队随后会协调获取您的新专用硬件实例的静态加密密钥，这些密钥由 Key Protect 实例进行管理。
+“动态”加密|使用 HTTPS 加密对 {{site.data.keyword.cloudant_short_notm}} 的所有访问。
+TLS | 我们建议您对 {{site.data.keyword.cloudant_short_notm}} 的所有访问使用 TLS 1.2 或 1.3。（***在 2019 年 6 月，{{site.data.keyword.cloudant_short_notm}} 支持不再使用旧版本（TLS 1.0 和 1.1），仅支持 TLS 1.2 及更高版本。***）{{site.data.keyword.cloudant_short_notm}} 用于 HTTPS 连接的证书由普遍可信认证中心（受到所有浏览器、操作系统以及 Java Development Kit (JDK) 之类的其他软件系统的预先信任）进行签名。我们承诺始终发布由普遍可信认证中心进行签名的有效（非过期）TLS 证书。但是，我们无法与客户协调变更，并且我们不承诺一直保留 DigiCert。为了确保连续访问 {{site.data.keyword.cloudant_short_notm}} 服务，强烈建议客户不要锁定当前证书，因为它会到期，并且一旦被泄露，将迅速轮换。我们建议客户改为使用其操作系统和浏览器的缺省证书捆绑软件，这将确保任何证书变更时服务能够安全地连续使用。
+端点|所有 {{site.data.keyword.cloudant_short_notm}} 实例随附了可公共访问的外部端点。2019 年 1 月 1 日之后供应的专用硬件环境还为其上部署的所有标准套餐实例添加了内部端点。使用内部端点将允许客户通过内部 {{site.data.keyword.cloud}} 网络连接到 {{site.data.keyword.cloudant_short_notm}} 实例，以避免上游应用程序流量通过公用网络传输并产生带宽费用。请参阅
+[服务端点文档](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window}，以获取为您的 {{site.data.keyword.cloud}} 帐户启用服务端点的更多详细信息。
 IP 白名单|具有专用 {{site.data.keyword.cloudant_short_notm}} 环境的 {{site.data.keyword.cloudant_short_notm}} 客户可以将 IP 地址列入白名单，以仅限指定服务器和用户访问。IP 白名单对于部署在多租户环境中的任何 {{site.data.keyword.cloud_notm}} Public 轻量/标准套餐都不可用。请开具支持凭单，以请求一组指定 IP 或 IP 范围的 IP 白名单。请注意，IP 白名单同时适用于 {{site.data.keyword.cloudant_short_notm}} API 和“仪表板”，因此请注意包含需要直接访问 {{site.data.keyword.cloudant_short_notm}}“仪表板”的任何管理员 IP。
-CORS|使用 {{site.data.keyword.cloudant_short_notm}}“仪表板”针对特定域启用 CORS 支持。
+CORS|使用 {{site.data.keyword.cloudant_short_notm}} 仪表板或 API 对特定域启用 CORS 支持。有关更多信息，请参阅 [CORS API 文档](/docs/services/Cloudant?topic=cloudant-cors#cors){:new_window}。
 
 <!--
 > **Note**: Your data is visible to the {{site.data.keyword.cloudant_short_notm}} 

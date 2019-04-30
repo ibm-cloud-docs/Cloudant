@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
+
+subcollection: cloudant
 
 ---
 
@@ -12,27 +16,32 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Versão de documento e MVCC
+{: #document-versioning-and-mvcc}
 
-[Multi-version concurrency control (MVCC) ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){:new_window}
+[Multi-version concurrency control (MVCC) ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window}
 é como os bancos de dados {{site.data.keyword.cloudantfull}} asseguram que todos os nós no cluster de um banco de dados contenham
-somente a [versão mais recente](../api/document.html) de um documento.
-{:shortdesc}
+somente a [versão mais recente](/docs/services/Cloudant?topic=cloudant-documents#documents) de um documento.
+{: shortdesc}
 
-Como os bancos de dados {{site.data.keyword.cloudant_short_notm}} são [eventualmente consistentes](cap_theorem.html),
+Como os bancos de dados {{site.data.keyword.cloudant_short_notm}} são [eventualmente consistentes](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem),
 isso é necessário para evitar que surjam inconsistências entre os nós
 como resultado da sincronização entre documentos desatualizados.
 
 O Multi-Version Concurrency Control (MVCC) permite o acesso simultâneo de leitura e gravação a um banco de dados do {{site.data.keyword.cloudant_short_notm}}.
-MVCC é uma forma de [simultaneidade otimista ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){:new_window}.
+MVCC é uma forma de [simultaneidade otimista ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}.
 Ele torna as operações de leitura e gravação nos bancos de dados {{site.data.keyword.cloudant_short_notm}} mais rápidas porque
 não há necessidade de bloqueio do banco de dados nas operações de leitura ou gravação.
 O MVCC também permite sincronização entre os nós de banco de dados {{site.data.keyword.cloudant_short_notm}}.
 
 ## Revisões
+{: #revisions}
 
 Todo documento em um banco de dados do {{site.data.keyword.cloudant_short_notm}} tem um campo `_rev` indicando o seu número da revisão.
 
@@ -45,33 +54,33 @@ Os dois principais usos do número de revisão são para ajudar a:
 1.  Determinar quais documentos devem ser replicados entre os servidores.
 2.  Confirmar que um cliente está tentando modificar a versão mais recente de um documento.
 
-Deve-se especificar o `_rev` anterior ao [atualizar um documento](../api/document.html#update)
-ou então sua solicitação falhará e retornará um [erro 409](../api/http.html#409).
+Deve-se especificar o `_rev` anterior ao [atualizar um documento](/docs/services/Cloudant?topic=cloudant-documents#update)
+ou então sua solicitação falhará e retornará um [erro 409](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
->   **Nota**: `_rev` não deve ser usado para construir um sistema de controle de versão.
-    O motivo é que ele é um valor interno usado pelo servidor.
-    Além disso,
+`_rev` não deve ser usado para construir um sistema de controle de versão. O motivo é que ele é um valor interno usado pelo servidor. Além disso,
 revisões mais antigas de um documento são temporárias
 e, portanto, removidas regularmente.
+{: note}
 
 É possível consultar uma revisão específica usando seu `_rev`,
 no entanto,
 as revisões mais antigas são excluídas regularmente por um processo chamado
-[compactação ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Data_compaction){:new_window}.
+[compactação ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Data_compaction){: new_window}.
 Uma consequência da compactação é que
 não será possível confiar em uma resposta bem-sucedida ao consultar uma revisão de documento específica
 usando seu `_rev` para obter um histórico de revisões para seu documento.
 Se você precisar de um histórico de versões de seus documentos,
-uma solução será [criar um novo documento](../api/document.html#documentCreate) para cada revisão.
+uma solução será [criar um novo documento](/docs/services/Cloudant?topic=cloudant-documents#create-document) para cada revisão.
 
 ## Bancos de dados distribuídos e conflitos
+{: #distributed-databases-and-conflicts}
 
 Os bancos de dados distribuídos funcionam sem uma conexão constante com o banco de dados principal no {{site.data.keyword.cloudant_short_notm}},
 que é por si só distribuído,
 portanto as atualizações baseadas na mesma versão anterior ainda podem estar em conflito.
 
 Para localizar conflitos,
-inclua o parâmetro de consulta [`conflicts=true`](../api/database.html#get-changes) ao recuperar um documento.
+inclua o parâmetro de consulta [`conflicts=true`](/docs/services/Cloudant?topic=cloudant-databases#get-changes) ao recuperar um documento.
 A resposta contém uma matriz `_conflicts` com todas as revisões conflitantes.
 
 Para localizar conflitos para múltiplos documentos em um banco de dados,
@@ -88,12 +97,13 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Você poderia consultar regularmente essa visualização e resolver conflitos conforme necessário
 ou consultar a visualização após cada replicação.
 
-## Como resolver conflitos
+## Etapas para resolver conflitos
+{: #steps-to-resolve-conflicts}
 
 Depois de ter localizado um conflito,
 será possível resolvê-lo em 4 etapas.
@@ -116,7 +126,7 @@ A primeira versão de um documento pode ser semelhante ao exemplo a seguir:
     "price": 650
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Como o documento ainda não tem uma descrição,
 alguém poderia incluir uma:
@@ -132,7 +142,7 @@ _Segunda versão do documento, criada incluindo uma descrição:_
     "price": 650
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Ao mesmo tempo, outra pessoa - trabalhando com um banco de dados replicado - reduz o preço:
 
@@ -147,12 +157,13 @@ _Uma revisão diferente, em conflito com a anterior, por causa do valor `price` 
     "price": 600
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Os dois bancos de dados são então replicados.
 A diferença em versões do documento resulta em um conflito.
 
 ### Obter revisões conflitantes
+{: #get-conflicting-revisions}
 
 Você identificará documentos com conflitos usando a opção `conflicts=true`.
 
@@ -161,7 +172,7 @@ _Exemplo de localização de documentos com conflitos:_
 ```http
 http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
 ```
-{:codeblock}
+{: codeblock}
 
 _Exemplo de resposta mostrando revisões conflitantes que afetam os documentos:_
 
@@ -175,7 +186,7 @@ _Exemplo de resposta mostrando revisões conflitantes que afetam os documentos:_
     "_conflicts":["2-61ae00e029d4f5edd2981841243ded13"]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 A versão com o preço mudado foi escolhida arbitrariamente como a versão mais recente do documento
 e o conflito com outra versão é indicado fornecendo o ID dessa outra versão na matriz `_conflicts`.
@@ -183,6 +194,7 @@ Na maioria dos casos, essa matriz possui apenas um elemento,
 mas pode haver muitas revisões conflitantes.
 
 ### Mesclar as mudanças
+{: #merge-the-changes}
 
 Para comparar as revisões e ver o que mudou,
 seu aplicativo obtém todas as versões do banco de dados.
@@ -194,7 +206,7 @@ http://$ACCOUNT.cloudant.com/products/$_ID
 http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 http://$ACCOUNT.cloudant.com/products/$_ID?rev=1-7438df87b632b312c53a08361a7c3299
 ```
-{:codeblock}
+{: codeblock}
 
 Como as mudanças conflitantes são para campos diferentes do documento,
 é fácil mesclá-las.
@@ -207,9 +219,10 @@ outras estratégias de resolução podem ser necessárias:
 *   Algoritmos sofisticados: por exemplo, mesclagens em 3 vias de campos de texto.
 
 Para obter um exemplo prático de como implementar uma mesclagem de mudanças,
-veja [este projeto com o código de amostra ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/glynnbird/deconflict){:new_window}.
+consulte este projeto com o [código de amostra ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/glynnbird/deconflict){: new_window}.
 
 ### Fazer upload da nova revisão
+{: #upload-the-new-revision}
 
 A próxima etapa será criar um documento que resolva os conflitos
 e atualizar o banco de dados com ele.
@@ -225,9 +238,10 @@ _Um documento de exemplo que mescla as mudanças das duas revisões conflitantes
     "price": 600
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Excluir revisões antigas
+{: #delete-old-revisions}
 
 Por fim,
 você excluirá as revisões antigas enviando uma solicitação `DELETE` para as URLs com a revisão que desejamos excluir.
@@ -237,14 +251,14 @@ _Exemplo de solicitação para excluir uma revisão de documento antiga, usando 
 ```http
 DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 ```
-{:codeblock}
+{: codeblock}
 
 _Exemplo de solicitação para excluir uma revisão de documento antiga, usando a linha de comandos:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121" -X DELETE
 ```
-{:codeblock}
+{: codeblock}
 
 Neste ponto,
 os conflitos que afetam o documento são resolvidos.

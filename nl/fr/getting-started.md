@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-04-02"
+
+keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
+
+subcollection: cloudant
 
 ---
 
@@ -12,67 +16,70 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-31 -->
 
 # Tutoriel de mise en route
-{: #getting-started-with-cloudant}
+{: #getting-started}
 
 Dans ce tutoriel de mise en route d'{{site.data.keyword.cloudantfull}}, nous allons utiliser le langage Python pour créer une base de données {{site.data.keyword.cloudant_short_notm}} et la remplir avec une collection simple de données.
-{:shortdesc}
+{: shortdesc}
 
 En plus de ce tutoriel, consultez nos tutoriels de travaux pratiques afin d'en apprendre davantage sur {{site.data.keyword.cloudant_short_notm}}. Ou, essayez l'un des tutoriels qui se concentre sur un langage spécifique :
 
-- [Liberty for Java et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){:new_window}
-- [Node.js et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){:new_window}
-- [Swift et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/runtimes/swift/getting-started.html#getting-started-tutorial){:new_window}
+- [Liberty for Java et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){: new_window}
+- [Node.js et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
+- [Swift et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-Pour des tutoriels sur des langages plus spécifiques, consultez [Commencez à déployer votre première application![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.bluemix.net/docs/){:new_window}. 
-
-<div id="prerequisites"></div>
+Pour des tutoriels sur des langages plus spécifiques, consultez [Commencez à déployer votre première application![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/){: new_window}. 
 
 ## Avant de commencer
 {: #prereqs}
 
-Vous devez posséder un [compte {{site.data.keyword.cloud}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://console.ng.bluemix.net/registration/){:new_window}, une instance du service {{site.data.keyword.cloudant_short_notm}} et respecter les exigences Python suivantes :
+Vous devez posséder un [compte {{site.data.keyword.cloud}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https:///cloud.ibm.com/registration/){: new_window},
+une instance du service {{site.data.keyword.cloudant_short_notm}} et respecter les exigences Python suivantes :
 
-*	Installez la version la plus récente du [langage de programmation Python ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://www.python.org/){:new_window} sur votre système.
+*	Installez la version la plus récente du [langage de programmation Python ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://www.python.org/){: new_window} sur votre système.
 	
 	Pour savoir si vous disposez d'une telle installation, exécutez la commande suivante à l'invite :
 	```sh
 	python --version
 	```
-	{:pre}
+	{: pre}
 	
 	Un résultat similaire à celui-ci s'affiche :
 
 	```
 	Python 2.7.12
 	```
-	{:screen}
+	{: screen}
 
-*	Installez la [bibliothèque Python](libraries/supported.html#python) pour que vos applications Python soient compatibles avec {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}.
+*	Installez la bibliothèque Python pour permettre à vos applications Python de fonctionner avec {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}.
 	
-	Pour vérifier que vous avez installé la bibliothèque client correctement,
-exécutez la commande suivante à l'invite :
+	Pour vérifier que la bibliothèque client est déjà installée, exécutez la commande suivante à l'invite :
 	```sh
 	pip freeze
 	```
-	{:pre}
+	{: pre}
 	
 	Vous verrez une liste de tous les modules Python installés sur votre système. Inspectez la liste et recherchez une entrée {{site.data.keyword.cloudant_short_notm}} similaire à celle-ci :
 
 	```
-	cloudant==2.3.1
+	cloudant==<version>
 	```
-	{:screen}
+	{: screen}
 	
 	Si le module `cloudant` n'est pas installé, installez-le à l'aide d'une commande similaire à la commande ci-dessous :
 	
 	```
-	pip install cloudant==2.3.1
+	pip install cloudant
 	```
-	{:pre}
+	{: pre}
+  
+  Pour plus d'informations sur la bibliothèque Python prise en charge, voir la documentation relative aux [plateformes prises en charge](/docs/services/Cloudant/libraries/supported.html#python). 
 
 ## Etape 1 : Connexion à votre instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
@@ -85,25 +92,33 @@ exécutez la commande suivante à l'invite :
 	```
 	{: codeblock}
 
-2.  Créez de nouvelles données d'identification pour le service {{site.data.keyword.cloudant_short_notm}} :
-  <br>Dans la console {{site.data.keyword.cloud_notm}}, ouvrez le tableau de bord de votre instance de service.
+2.  Créez des données d'identification pour le service {{site.data.keyword.cloudant_short_notm}} :
+  <br>Dans le tableau de bord {{site.data.keyword.cloud_notm}}, accédez à l'icône **Menu** > **Liste de ressources** et ouvrez votre instance de service {{site.data.keyword.cloudant_short_notm}}.
   <br>Dans le volet de navigation gauche, cliquez sur `Données d'identification pour le service`.
   <br>a. Cliquez sur le bouton `Nouvelles données d'identification`.
-  <br>![Créer de nouvelles données d'identification de service](tutorials/images/img0050.png)
+  <br>![Créer de nouvelles données d'identification pour le service](/docs/services/Cloudant/tutorials/images/img0050.png)
   <br>b. Entrez un nom pour les nouvelles données d'identification dans la fenêtre Ajouter de nouvelles données d'identification, comme illustré dans la capture d'écran suivante.
   <br>c. Ajoutez des paramètres de configuration en ligne (facultatif).
-  <br>d. Cliquez sur le bouton `Ajouter`.
-  <br>![Ajouter de nouvelles données d'identification de service](tutorials/images/img0051.png)
+  <br>d. Cliquez sur le bouton `Ajouter`. 
+  <br>![Ajouter de nouvelles données d'identification de service](/docs/services/Cloudant/tutorials/images/img0051.png)
   <br>Vos données d'identification sont ajoutées à la table Données d'identification pour le service.
-  <br>e. Cliquez sur `Afficher les données d'identification` sous Actions.
-  <br>![Afficher toutes les données d'identification pour le service](tutorials/images/img0052.png)
+  <br>e. Cliquez sur `Afficher les données d'identification` sous Actions. 
+  <br>![Afficher toutes les données d'identification pour le service](/docs/services/Cloudant/tutorials/images/img0052.png)
   <br>Les détails des données d'identification du service s'affichent :
-   <br>![Données d'identification du service {{site.data.keyword.cloudant_short_notm}}](tutorials/images/img0009.png)
+   <br>![Données d'identification pour le service {{site.data.keyword.cloudant_short_notm}} ](/docs/services/Cloudant/tutorials/images/img0009.png)
    
-3.	Etablissez une connexion à l'instance de service en exécutant la commande ci-dessous.
-	Utilisez les données d'identification de l'étape précédente :
+3.	Etablissez une connexion à l'instance de service {{site.data.keyword.cloudant_short_notm}}. Le mécanisme à utiliser dépend de l'authentification dont vous vous servez - authentification {{site.data.keyword.cloud_notm}} IAM ou {{site.data.keyword.cloudant_short_notm}} Legacy. Voir le [guide {{site.data.keyword.cloud_notm}} IAM (Identity and Access Management) ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) pour plus de détails sur le choix de la méthode d'authentification.
+
+	Si vous utilisez l'authentification {{site.data.keyword.cloudant_short_notm}} Legacy, modifiez en conséquence les données d'identification de service de l'étape précédente :
 	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
+	client.connect()
+	```
+	{: codeblock}
+	
+	Si vous utilisez l'authentification IAM, modifiez en conséquence les données d'identification de service de l'étape précédente :
+	```python
+	client = Cloudant.iam("<username>", "<apikey>")
 	client.connect()
 	```
 	{: codeblock}
@@ -114,13 +129,14 @@ exécutez la commande suivante à l'invite :
 
 1. Définissez une variable dans l'application Python :
   ```python
-  databaseName = "<yourDatabaseName>"
+  databaseName = "<your-database-name>"
   ```
   {: codeblock}
-  ... où `<yourDatabaseName>` désigne le nom que vous souhaitez attribuer à votre base de données. 
+
+  ... où `<your-database-name>` désigne le nom que vous souhaitez attribuer à votre base de données. 
 
   Le nom de la base de données doit commencer par une lettre et peut uniquement inclure des caractères en minuscules (a-z), des chiffres (0-9) ainsi que les caractères spéciaux `_`, `$`, `(`, `)`, `+`, `-` et `/`.
-  {: tip}
+  {: warning}
 
 2. Créez la base de données :
   ```python
@@ -162,7 +178,7 @@ exécutez la commande suivante à l'invite :
     name = document[1]
     description = document[2]
     temperature = document[3]
-
+    #
     # Create a JSON document that represents
     # all the data in the row.
     jsonDocument = {
@@ -171,10 +187,10 @@ exécutez la commande suivante à l'invite :
         "descriptionField": description,
         "temperatureField": temperature
     }
-
+    #
     # Create a document by using the database API.
     newDocument = myDatabase.create_document(jsonDocument)
-
+    #
     # Check that the document exists in the database.
     if newDocument.exists():
         print "Document '{0}' successfully created.".format(number)
@@ -212,9 +228,9 @@ Une extraction complète inclut également les données figurant _dans_ le docum
     ```
     [{u'value': {u'rev': u'1-106e76a2612ea13468b2f243ea75c9b1'}, u'id': u'14be111aac74534cf8d390eaa57db888', u'key': u'14be111aac74534cf8d390eaa57db888'}]
     ```
-    {:screen}
+    {: screen}
     
-    Le préfixe `u` indique que Python affiche une chaîne Unicode.
+    Le préfixe `u` indique que Python affiche une chaîne Unicode. 
     {: tip}
 
     Si nous arrangeons un peu l'apparence, nous voyons que les détails minimaux du document que nous avons obtenus sont semblables à cet exemple :
@@ -233,7 +249,7 @@ Une extraction complète inclut également les données figurant _dans_ le docum
     {: codeblock}
 
     La règle selon laquelle le premier document stocké dans la base de données est toujours le premier document renvoyé dans une liste de résultats ne s'applique pas toujours aux bases de données NoSQL comme {{site.data.keyword.cloudant_short_notm}}.
-    {: tip}
+    {: note}
 
 * Pour exécuter une extraction complète,
   demandez la liste de tous les documents de la base de données
@@ -277,15 +293,15 @@ Une extraction complète inclut également les données figurant _dans_ le docum
 ## Etape 5 : Extraction des données à l'aide du noeud final d'API {{site.data.keyword.cloudant_short_notm}}
 {: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
-Vous pouvez aussi demander la liste de tous les documents et de leur contenu en appelant le noeud final {{site.data.keyword.cloudant_short_notm}} [`/_all_docs`](api/database.html#get-documents).
+Vous pouvez aussi demander la liste de tous les documents et de leur contenu en appelant le noeud final {{site.data.keyword.cloudant_short_notm}} [`/_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents).
 
 1. Identifiez le noeud final à contacter, ainsi que tous les paramètres à renseigner parallèlement à l'appel :
   ```python
-  end_point = '{0}/{1}'.format("<url>", databaseName + "/_all_docs")
+  end_point = '{0}/{1}'.format("client.server_url", databaseName + "/_all_docs")
   params = {'include_docs': 'true'}
   ```
   {: codeblock}
-  ... où `<url>` désigne la valeur d'URL associée aux données d'identification du service obtenues à l'étape 1.
+  ... où `client.server_url` désigne la valeur d'URL associée aux données d'identification du service obtenues à l'étape 1.
 
 2. Envoyez la demande à l'instance de service et affichez les résultats :
   ```python
@@ -299,7 +315,7 @@ Vous pouvez aussi demander la liste de tous les documents et de leur contenu en 
   ```
   {u'rows': [{u'value': {u'rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}, u'id': u'0532feb6fd6180d79b842d871316c444', u'key': u'0532feb6fd6180d79b842d871316c444', u'doc': {u'temperatureField': 20, u'descriptionField': u'warm', u'numberField': 3, u'nameField': u'three', u'_id': u'0532feb6fd6180d79b842d871316c444', u'_rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}}, ... , {u'value': {u'rev': u'1-3f61736fa96473d358365ce1665e3d97'}, u'id': u'db396f77bbe12a567b09177b4accbdbc', u'key': u'db396f77bbe12a567b09177b4accbdbc', u'doc': {u'temperatureField': 0, u'descriptionField': u'freezing', u'numberField': 5, u'nameField': u'five', u'_id': u'db396f77bbe12a567b09177b4accbdbc', u'_rev': u'1-3f61736fa96473d358365ce1665e3d97'}}], u'total_rows': 5, u'offset': 0}
   ```
-  {:screen}
+  {: screen}
   
   Si nous arrangeons un peu l'apparence, nous voyons que les détails _abrégés_ que nous avons obtenus sont semblables à cet exemple :
   
@@ -345,8 +361,21 @@ Vous pouvez aussi demander la liste de tous les documents et de leur contenu en 
   ```
   {: codeblock}
 
-## Etape 6 : Suppression de la base de données
-{: #step-6-delete-the-database}
+## (Facultatif) Etape 6 : Affichage des informations de base de données sur le tableau de bord {{site.data.keyword.cloudant_short_notm}}
+{: #optional-step-6-ibm-cloudant-dashboard}
+
+Procédez comme suit pour voir votre base de documents et les documents associés sur le tableau de bord {{site.data.keyword.cloudant_short_notm}}. 
+
+1.  Connectez-vous à votre compte IBM Cloud.
+    Le tableau de bord IBM Cloud se trouve sur : https://cloud.ibm.com/. Une fois que vous vous êtes identifié avec votre nom d'utilisateur et votre mot de passe, le tableau de bord IBM Cloud s'affiche.
+2.  Cliquez sur **Services** dans le panneau Récapitulatif des ressources pour voir vos instances de service {{site.data.keyword.cloudant_short_notm}}. 
+3.  Cliquez sur l'instance de service dont vous voulez voir les détails.
+4.  Cliquez sur **Lancer le tableau de bord Cloudant**.
+    Quand le tableau de bord s'affiche, vous pouvez voir les bases de données associées à votre service.
+
+
+## Etape 7 : Suppression de la base de données
+{: #step-7-delete-the-database}
 
 Lorsque vous n'avez plus besoin de la base de données, vous pouvez la supprimer.
 
@@ -362,8 +391,8 @@ else:
 
 Nous avons inclus quelques notions de base sur la gestion des erreurs pour vous montrer comment dépanner et résoudre les problèmes potentiels.
 
-## Etape 7 : Déconnexion de l'instance de service
-{: #step-7-close-the-connection-to-the-service-instance}
+## Etape 8 : Fermeture de la connexion à l'instance de service
+{: #step-8-close-the-connection-to-the-service-instance}
 
 L'étape finale consiste à déconnecter l'application client Python de l'instance de service :
 
@@ -375,16 +404,16 @@ client.disconnect()
 ## Etapes suivantes
 {: #next-steps}
 
-Pour en savoir plus sur toutes les offres {{site.data.keyword.cloudant_short_notm}}, consultez le site officiel de [{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){:new_window}.
+Pour en savoir plus sur toutes les offres {{site.data.keyword.cloudant_short_notm}}, consultez le site officiel de [{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
 
-Pour tout renseignement complémentaire ou tutoriel sur les concepts, tâches et techniques de {{site.data.keyword.cloudant_short_notm}}, consultez la [documentation {{site.data.keyword.cloudant_short_notm}}](cloudant.html).
+Pour plus d'informations, voir les tutoriels, les concepts, les tâches et les techniques {{site.data.keyword.cloudant_short_notm}} dans la documentation [{{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-overview#overview).
 
 ## Annexe : Liste complète du code Python
 {: #appendix-complete-python-code-listing}
 
 Vous trouverez ci-dessous la liste complète du code Python. 
 Pensez à remplacer les valeurs `<username>`,
-`<password>` et `<url>` par les données d'identification de votre service.
+`<password>`, `<url>` et `<apikey>` par les données d'identification de votre service.
 De même, remplacez la valeur `<yourDatabaseName>` par le nom de votre base de données.
 
 ```python
@@ -392,7 +421,12 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 
+# {{site.data.keyword.cloudant_short_notm}} Legacy authentication
 client = Cloudant("<username>", "<password>", url="<url>")
+client.connect()
+
+# IAM Authentication (uncomment if needed, and comment out {{site.data.keyword.cloudant_short_notm}} Legacy authentication section above)
+client = Cloudant.iam("<username","<apikey>")
 client.connect()
 
 databaseName = "<yourDatabaseName>"

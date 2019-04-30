@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: generate uuid, record payments, add additional documents, advantages
+
+subcollection: cloudant
 
 ---
 
@@ -12,10 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} での関連文書のグループ化
+{: grouping-related-documents-together-in-ibm-cloudant}
 
 従来の方法では、e-コマース・システムは、リレーショナル・データベースを使用して構築されます。
 これらのデータベースは、通常、結合された多くのテーブルを使用して、売上、顧客の詳細情報、購入された商品、および配達追跡の情報を記録します。
@@ -74,7 +82,7 @@ _購入を記述する文書の例:_
     "total": 26.46
 }
 ```
-{:codeblock}
+{: codeblock}
 
 この文書は、追加レコードを取り出さずに、Web ページまたは E メールでオーダーの要約をレンダリングするのに十分なデータを購入レコードに提供します。
 特に以下に示すような、オーダーについての主な詳細に注目してください。
@@ -89,14 +97,16 @@ _購入を記述する文書の例:_
 お客様が注文する時 (通常、Web サイトで「チェックアウト」段階に入った時点) に、前述の例に似た購入オーダー・レコードが作成されます。 
 
 ## 独自の固有 ID (UUID) の生成
+{: #generating-your-own-unique-identifiers-uuids-}
 
 リレーショナル・データベースでは、順次「自動増分」番号がよく使用されますが、サーバー・クラスターにデータが分散される分散データベースでは、文書がそれぞれ独自の固有 ID によって保管されることを確実にするために、長い UUID が使用されます。
 
-アプリケーションで使用する固有 ID (例えば、`order_id`) を作成するには、{{site.data.keyword.cloudant_short_notm}} API で [`GET _uuids` エンドポイント](../api/advanced.html#-get-_uuids-)を呼び出します。
+アプリケーションで使用する固有 ID (例えば、`order_id`) を作成するには、{{site.data.keyword.cloudant_short_notm}} API で [`GET _uuids` エンドポイント](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_uuids-)を呼び出します。
 データベースが、ユーザーのために ID を生成します。
 `count` パラメーター (例えば、`/_uuids?count=10`) を追加することにより、同じエンドポイントを使用して複数の ID を生成できます。
 
 ## 支払いの記録
+{: #recording-payments}
 
 お客様がアイテムの支払いを正常に行うと、オーダーを記録するための追加レコードがデータベースに追加されます。
 
@@ -123,7 +133,7 @@ _支払いレコードの例:_
     "payment_reference": "Q88775662377224"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 前の例で、お客様は、クレジットカードの提供とプリペイド・バウチャーの交換によって支払いを行いました。
 2 つの支払いの合計はオーダーの金額分となりました。
@@ -150,9 +160,9 @@ function(doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
-組み込まれている [`_sum` reducer](../api/creating_views.html#built-in-reduce-functions) を使用すると、支払いイベントの台帳として出力を生成することができます。
+組み込まれている [`_sum` reducer](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions) を使用すると、支払いイベントの台帳として出力を生成することができます。
 
 _組み込まれている `_sum` reducer を使用して `?reduce=false` で照会する例:_
 
@@ -177,7 +187,7 @@ _組み込まれている `_sum` reducer を使用して `?reduce=false` で照�
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 あるいは、`order_id` でグループ化された合計額を作成することもできます。
 
@@ -193,13 +203,14 @@ _`?group_level=1` を使用して、`order_id` でグループ化された合計
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 前の例のビューはオーダー値として 0 を返しているので、この結果は、オーダーが全額支払われていることを示しています。
 この理由は、正の購入オーダーの合計が、負の支払い金額を相殺しているためです。
 イベントを別々の文書 (オーダー用の文書とそれぞれの支払い用の文書) として記録することは、{{site.data.keyword.cloudant_short_notm}} では良い慣習です。なぜなら、それにより、複数のプロセスが同じ文書を同時に変更した時に競合が発生する可能性が回避されるからです。
 
 ## 追加文書の追加
+{: #adding-additional-documents}
 
 他の別々の文書をデータベースに追加して、オーダーがプロビジョンおよび発送された時に以下の状態変更を記録することができます。
 
@@ -211,6 +222,7 @@ _`?group_level=1` を使用して、`order_id` でグループ化された合計
 したがって、コアとなる購入文書を変更する必要はありません。
 
 ## {{site.data.keyword.cloudant_short_notm}} に購入オーダーを保管することの利点
+{: #advantages-of-storing-purchase-orders-in-ibm-cloudant}
 
 {{site.data.keyword.cloudant_short_notm}} を使用して購入オーダー情報を保管することにより、オーダー・システムの可用性およびスケーラビリティーを高め、大量のボリュームのデータの処理および高い同時アクセス率に対処することが可能になります。
 1 回のみ書き込まれる別々の文書内にデータをモデル化することにより、別々のプロセスによって同一文書への同時アクセスが行われた時などに、文書の競合が発生しないことを確実にできます。

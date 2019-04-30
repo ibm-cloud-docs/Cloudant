@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
+
+subcollection: cloudant
 
 ---
 
@@ -12,18 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-<div id="back-up-your-data-using-replication"></div>
-
 # Inkrementelle Replikation
+{: #replication-incrementals}
 
->	**Hinweis**: Dieser Leitfaden enthält ältere oder veraltete Informationen zur {{site.data.keyword.cloudantfull}}-Sicherung.
-	Aktuelle Informationen zu Sicherungen finden Sie im Leitfaden [Disaster-Recovery und Sicherung](disaster-recovery-and-backup.html).
+Dieser Leitfaden enthält alte oder nicht mehr verwendete Informationen zur {{site.data.keyword.cloudantfull}}-Sicherung. Aktuelle Informationen zu Sicherungen finden Sie im Leitfaden [Disaster-Recovery und Sicherung](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
+{: deprecated}
 
 Datenbanksicherungen schützen Ihre Daten vor Verlust oder Beschädigung.
-{:shortdesc}
+{: shortdesc}
 
 Sie können die {{site.data.keyword.cloudant_short_notm}}-Replikationsfunktion verwenden, um eine Datenbanksicherung zu erstellen und sie in einem {{site.data.keyword.cloudant_short_notm}}-Cluster zu speichern.
 Dann können Sie Daten, gesamte Datenbanken oder bestimmte JSON-Dokumente aus diesen Sicherungen
@@ -38,8 +44,9 @@ Stattdessen ist er eine Aufzeichnung der Datenbank, nachdem bestimmte
 Auf diese Weise kann eine Sicherung den Zustand Ihrer Datenbank zu einem bestimmten Zeitpunkt beibehalten.
 
 ## Inkrementelle Sicherungen
+{: #incremental-backups}
 
-Wenn Sie ein Unternehmenskunde sind, ist eine tägliche inkrementelle Sicherungsfunktionalität [verfügbar](disaster-recovery-and-backup.html).
+Wenn Sie ein Unternehmenskunde sind, ist eine tägliche inkrementelle Sicherungsfunktionalität [verfügbar](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 
 Wenn Sie kein Unternehmenskunde sind oder lieber Ihre eigenen Sicherungen erstellen möchten,
 können Sie die {{site.data.keyword.cloudant_short_notm}}-Replikationsfunktion verwenden, um eine Datenbanksicherung zu erstellen.
@@ -59,13 +66,14 @@ Nach der ersten Sicherung führen Sie tägliche inkrementelle Sicherungen durch,
 wobei _nur_ gesichert wird, was sich in der Datenbank seit der letzten Sicherung geändert hat.
 Diese Replikation wird eine tägliche Sicherung.
 
->   **Hinweis**: Sie können eine Sicherung so konfigurieren, dass sie in bestimmten Intervallen ausgelöst wird.
-    Die Intervalle müssen jedoch mindestens
-    24 Stunden auseinander liegen.
-    Mit anderen Worten: Sie können tägliche Sicherungen
+Sie können eine Sicherung so konfigurieren, dass sie in bestimmten Zeitabständen ausgelöst wird.
+Die Intervalle müssen jedoch mindestens
+    24 Stunden auseinander liegen. Mit anderen Worten: Sie können tägliche Sicherungen
     durchführen, aber keine stündlichen.
+{: note}
 
 ## Inkrementelle Sicherung erstellen
+{: #creating-an-incremental-backup}
 
 Inkrementelle Sicherungen sichern nur die Unterschiede, bzw. das Delta zwischen einzelnen Sicherungen.
 Alle 24 Stunden wird die Quellendatenbank in eine Zieldatenbank repliziert.
@@ -85,11 +93,15 @@ Führen Sie die folgenden Schritte aus, um eine inkrementelle Sicherung zu erste
     und `$DATABASE` der Name der Quellen- oder Zieldatenbank.
     Das Dokument existiert üblicherweise in beiden Datenbanken, kann aber auch nur in einer zu finden sein.
 3.  Suchen Sie nach dem Feld `recorded_seq` des ersten Elements im Verlaufsarray, das im Prüfpunktdokument gefunden wird.
-4.  Replizieren Sie in die neue inkrementelle Sicherungsdatenbank, wobei Sie das Feld [`since_seq`](../api/replication.html#the-since_seq-field) im Replikationsdokument auf den Wert des Felds `recorded_seq` setzen, den Sie im vorherigen Schritt ausfindig gemacht haben.
+4.  Replizieren Sie in die neue inkrementelle Sicherungsdatenbank,
+    indem Sie das [Feld `since_seq`](/docs/services/Cloudant?topic=cloudant-replication-api#the-since_seq-field)
+    im Replikationsdokument auf den Wert des Felds `recorded_seq` setzen, den Sie im vorherigen Schritt ermittelt haben.
 
->   **Hinweis**: Definitionsgemäß umgeht die Verwendung der Option `since_seq` das normale Prüfpunktverfahren. Verwenden Sie `since_seq` deshalb nur mit großer Vorsicht. 
+Definitionsgemäß wird bei Verwendung der Option `since_seq` das normale Prüfpunktverfahren umgangen. Verwenden Sie `since_seq` deshalb nur mit großer Vorsicht. 
+{: note}
 
 ## Datenbank wiederherstellen
+{: #restoring-a-database}
 
 Um eine Datenbank aus inkrementellen Sicherungen wiederherzustellen,
 replizieren Sie jede inkrementelle Sicherung in eine neue Datenbank,
@@ -101,6 +113,7 @@ Alle Dokumente, die älter sind als eine bereits in der neuen Datenbank vorhande
 
 
 ## Beispiel
+{: #an-example}
 
 Das vorliegende Beispiel veranschaulicht Folgendes:
 
@@ -109,27 +122,25 @@ Das vorliegende Beispiel veranschaulicht Folgendes:
 3.  Einrichten und Ausführen einer inkrementellen Sicherung.
 4.  Wiederherstellen einer Sicherung.
 
-<div id="constants-used-in-this-guide"></div>
-
 ### Verwendete Konstanten
+{: #constants-that-are-used-here}
 
 ```sh
 # Basis-URL und Inhaltstyp in Shellvariablen speichern
 $ url='https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com'
 $ ct='Content-Type: application-json'
 ```
-{:codeblock}
+{: codeblock}
 
 Angenommen, Sie müssen nur eine Datenbank sichern.
 Sie möchten eine vollständige Sicherung am Montag erstellen und eine inkrementelle Sicherung am Dienstag.
 
-Sie können die Befehle `curl` und [`jq` ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://stedolan.github.io/jq/){:new_window}
+Sie können die Befehle `curl` und [`jq` ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://stedolan.github.io/jq/){: new_window}
 absetzen, um diese Operationen auszuführen.
 In der Praxis können Sie jeden beliebigen HTTP-Client verwenden.
 
-<div id="step-1-check-you-have-three-databases"></div>
-
 ### Schritt 1: Stellen Sie sicher, dass Sie drei Datenbanken haben.
+{: #step-1-check-that-you-have-three-databases}
 
 In diesem Beispiel benötigen Sie drei Datenbanken:
 
@@ -145,7 +156,7 @@ PUT /original HTTP/1.1
 PUT /backup-monday HTTP/1.1
 PUT /backup-tuesday HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel, wie Sie prüfen, ob Sie drei Datenbanken haben,
 über die Befehlszeile:_
@@ -155,27 +166,29 @@ $ curl -X PUT "${url}/original"
 $ curl -X PUT "${url}/backup-monday"
 $ curl -X PUT "${url}/backup-tuesday"
 ```
-{:codeblock}
+{: codeblock}
 
 ### Schritt 2: Erstellen Sie die Datenbank `_replicator`.
+{: #step-2-create-the-_replicator-database}
 
 Falls sie nicht vorhanden ist, erstellen Sie die Datenbank `_replicator`.
 
-_Erstellen der Datenbank `_replicator` unter Verwendung von HTTP:_
+*Datenbank `_replicator` unter Verwendung von HTTP erstellen:*
 
 ```http
 PUT /_replicator HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
-_Erstellen der Datenbank `_replicator` über die Befehlszeile:_
+*Datenbank `_replicator` über die Befehlszeile erstellen:*
 
 ```sh
 curl -X PUT "${url}/_replicator"
 ```
-{:pre}
+{: pre}
 
 ### Schritt 3: Sichern Sie die gesamte (ursprüngliche) Datenbank.
+{: #step-3-back-up-the-entire-original-database}
 
 Am Montag möchten Sie erstmalig eine Sicherung aller Ihrer Daten durchführen.
 Erstellen Sie diese Sicherung, indem Sie alles von `original` nach `backup-monday` replizieren.
@@ -186,7 +199,7 @@ _Ausführen einer vollständigen Sicherung am Montag unter Verwendung von HTTP:_
 PUT /_replicator/full-backup-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Ausführen einer vollständigen Sicherung am Montag über die Befehlszeile:_
 
@@ -194,7 +207,7 @@ _Ausführen einer vollständigen Sicherung am Montag über die Befehlszeile:_
 $ curl -X PUT "${url}/_replicator/full-backup-monday" -H "$ct" -d @backup-monday.json
 # Dabei beschreibt backup-monday.json die Sicherung.
 ```
-{:codeblock}
+{: codeblock}
 
 _JSON-Dokument, das die vollständige Sicherung beschreibt:_
  
@@ -205,11 +218,10 @@ _JSON-Dokument, das die vollständige Sicherung beschreibt:_
     "target": "${url}/backup-monday"
 }
 ```
-{:codeblock}
-
-<div id="step-4-get-checkpoint-id"></div>
+{: codeblock}
 
 ### Schritt 4: Bereiten Sie Teil 1 der inkrementellen Sicherung vor - Prüfpunkt-ID abrufen.
+{: #step-4-prepare-incremental-backup-part-1-get-checkpoint-id}
 
 Am Dienstag möchten Sie eine statt
 einer weiteren vollständigen Sicherung eine
@@ -228,24 +240,23 @@ Sie beginnen, indem Sie den Prüfpunkt-ID-Wert suchen.
 Dieser Wert ist im Feld `_replication_id` des Replikationsdokuments
 in der Datenbank `_replicator` gespeichert.
 
-_Abrufen der Prüfpunkt-ID, um den Wert `recorded_seq` ausfindig zu machen, unter Verwendung von HTTP:_
+*Abrufen der Prüfpunkt-ID, um den Wert `recorded_seq` ausfindig zu machen, unter Verwendung von HTTP:*
 
 ```http
 GET /_replicator/full-backup-monday HTTP/1.1
 # Nach dem Wert von _replication_id suchen
 ```
-{:codeblock}
+{: codeblock}
 
-_Abrufen der Prüfpunkt-ID, um den Wert `recorded_seq` ausfindig zu machen, über die Befehlszeile:_
+*Abrufen der Prüfpunkt-ID, um den Wert `recorded_seq` ausfindig zu machen, über die Befehlszeile:*
 
 ```sh
 replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replication_id')
 ```
-{:pre}
-
-<div id="step-5-get-recorded_seq-value"></div>
+{: pre}
 
 ### Schritt 5: Bereiten Sie Teil 2 der inkrementellen Sicherung vor - Wert `recorded_seq` abrufen.
+{: #step-5-prepare-incremental-backup-part-2-get-recorded_seq-value}
 
 Nachdem Sie die Prüfpunkt-ID herausgefunden haben,
 verwenden Sie sie, um den Wert `recorded_seq` abzurufen.
@@ -255,22 +266,23 @@ in der ursprünglichen Datenbank.
 Sie kennen jetzt den Wert `recorded_seq`.
 Dieser Wert gibt das letzte Dokument an, das aus der ursprünglichen Datenbank repliziert wurde.
 
-_Abrufen des Werts `recorded_seq` aus der ursprünglichen Datenbank, unter Verwendung von HTTP:_
+*Abrufen des Werts `recorded_seq` aus der ursprünglichen Datenbank, unter Verwendung von HTTP:*
 
 ```http
 GET /original/_local/${replication_id} HTTP/1.1
 # Nach dem ersten Wert von recorded_seq im Verlaufsarray suchen
 ```
-{:codeblock}
+{: codeblock}
 
-_Abrufen des Werts `recorded_seq` aus der ursprünglichen Datenbank, über die Befehlszeile:_
+*Abrufen des Werts `recorded_seq` aus der ursprünglichen Datenbank, über die Befehlszeile:*
 
 ```sh
 recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history[0].recorded_seq')
 ```
-{:pre}
+{: pre}
 
 ### Schritt 6: Führen Sie eine inkrementelle Sicherung durch.
+{: #step-6-run-an-incremental-backup}
 
 Jetzt kennen Sie die Prüfpunkt-ID und den Wert `recorded_seq`
 und können die für Dienstag geplante inkrementelle Sicherung starten.
@@ -285,14 +297,14 @@ _Ausführen der für Dienstag geplanten inkrementellen Sicherung, unter Verwendu
 PUT /_replicator/incr-backup-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Ausführen der für Dienstag geplanten inkrementellen Sicherung, über die Befehlszeile:_
 
 ```sh
 curl -X PUT "${url}/_replicator/incr-backup-tuesday" -H "${ct}" -d @backup-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _JSON-Dokument, das die für Dienstag geplante inkrementelle Sicherung beschreibt:_
  
@@ -304,9 +316,10 @@ _JSON-Dokument, das die für Dienstag geplante inkrementelle Sicherung beschreib
     "since_seq": "${recorded_seq}"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Schritt 7: Stellen Sie die Sicherung vom Montag wieder her.
+{: #step-7-restore-the-monday-backup}
 
 Um eine Sicherung wiederherzustellen, replizieren Sie die ursprüngliche vollständige Sicherung
 und alle inkrementellen Sicherungen in eine neue Datenbank.
@@ -320,14 +333,14 @@ _Wiederherstellung aus der Datenbank `backup-monday`, unter Verwendung von HTTP:
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Wiederherstellung aus der Datenbank `backup-monday`, über die Befehlszeile:_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _JSON-Dokument, das die Wiederherstellung beschreibt:_
  
@@ -339,15 +352,16 @@ _JSON-Dokument, das die Wiederherstellung beschreibt:_
     "create_target": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Schritt 8: Stellen Sie Sicherung vom Dienstag wieder her.
+{: #step-8-restore-the-tuesday-backup}
 
 Um die Datenbank vom Dienstag wiederherzustellen,
 führen Sie zuerst eine Replikation aus `backup-tuesday` und dann aus `backup-monday` durch.
 
->   **Hinweis**: Die Reihenfolge ist kein Schreibfehler;
-    es _ist_ Absicht, erst den Zustand vom Dienstag und _dann_ vom Montag wiederherzustellen.
+Die Reihenfolge ist kein Schreibfehler. Es ist _tatsächlich_ beabsichtigt, erst den Zustand vom Dienstag und _danach_ den vom Montag wiederherzustellen.
+{: tip}
 
 Sie können auch in chronologischer Reihenfolge wiederherstellen, aber indem Sie in umgekehrter Richtung vorgehen,
 müssen Dokumente, die am Dienstag aktualisiert wurden, nur ein Mal in die Zieldatenbank geschrieben werden.
@@ -359,14 +373,14 @@ _Wiederherstellen der Sicherung vom Dienstag, jüngste Änderungen zuerst, unter
 PUT /_replicator/restore-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Wiederherstellen der Sicherung vom Dienstag, jüngste Änderungen zuerst, über die Befehlszeile:_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-tuesday" -H "$ct" -d @restore-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _JSON-Dokument, das die Wiederherstellung der Sicherung vom Dienstag anfordert:_
  
@@ -378,7 +392,7 @@ _JSON-Dokument, das die Wiederherstellung der Sicherung vom Dienstag anfordert:_
     "create_target": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Abschließen der Wiederherstellung, Sicherung vom Montag zuletzt, unter Verwendung von HTTP:_
 
@@ -386,14 +400,14 @@ _Abschließen der Wiederherstellung, Sicherung vom Montag zuletzt, unter Verwend
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Abschließen der Wiederherstellung, Sicherung vom Montag zuletzt, über die Befehlszeile:_
 
 ```http
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _JSON-Dokument, das die Wiederherstellung der Sicherung vom Montag anfordert:_
  
@@ -404,21 +418,24 @@ _JSON-Dokument, das die Wiederherstellung der Sicherung vom Montag anfordert:_
     "target": "${url}/restore"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Vorschläge
+{: #suggestions}
 
 Die bisherigen Informationen haben sich auf den grundlegenden Sicherungsprozess bezogen,
 aber jede Anwendung hat eigene Anforderungen und Strategien für Sicherungen.
 Die folgenden Vorschläge können Hilfestellung leisten.
 
 ### Sicherungen planen
+{: #scheduling-backups}
 
 Replikationsjobs können die Auslastung eines Clusters deutlich intensivieren.
 Wenn Sie mehrere Datenbanken unterstützen,
 empfehlen wir, die Replikationsjobs zu staffeln, d. h. zu unterschiedlichen Zeitpunkten auszuführen, oder sie zu einem Zeitpunkt auszuführen, an dem der Cluster weniger beschäftigt ist.
 
 #### Ein-/Ausgabe-Priorität einer Sicherung ändern
+{: #changing-the-io-priority-of-a-backup}
 
 Sie können die Priorität von Sicherungsjobs ändern, indem Sie den Wert des Felds
 `x-cloudant-io-priority` im Replikationsdokument anpassen.
@@ -444,11 +461,10 @@ _Beispiel eines JSON-Dokuments, das die Ein-/Ausgabe-Priorität festlegt:_
     }
 }
 ```
-{:codeblock}
-
-<div id="design-documents"></div>
+{: codeblock}
 
 ### Entwurfsdokumente sichern
+{: #backing-up-design-documents}
 
 Wenn Sie Entwurfsdokumente in Ihre Sicherung einschließen,
 werden Indizes auf dem Sicherungsziel erstellt.
@@ -458,12 +474,14 @@ verwenden Sie eine Filterfunktion mit Ihren Replikationen, um Entwurfsdokumente 
 Mit der Filterfunktion können Sie auch andere Dokumente ausschließen, die nicht gewünscht sind.
 
 ### Mehrere Datenbanken sichern
+{: #backing-up-multiple-databases}
 
 Wenn Ihre Anwendung eine Datenbank pro Benutzer verwendet oder Benutzern ermöglicht, verschiedene Datenbanken zu erstellen,
 müssen Sie für jede neue Datenbank einen Sicherungsjob erstellen.
 Stellen Sie sicher, dass Ihre Replikationsjobs nicht gleichzeitig beginnen.
 
 ## Brauchen Sie Hilfe?
+{: #need-help-}
 
 Replikation und Sicherungen können heikel sein.
-Wenn Sie nicht weiterkommen, lesen Sie den [Leitfaden zur Replikation](replication_guide.html), oder wenden Sie sich an das [{{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}.
+Wenn Sie nicht weiterkommen, lesen Sie den [Leitfaden zur Replikation](/docs/services/Cloudant?topic=cloudant-replication-guide#replication-guide), oder wenden Sie sich an das [{{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){: new_window}.

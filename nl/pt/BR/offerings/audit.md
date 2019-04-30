@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: principal, action, resource, timestamp, access audit logs
+
+subcollection: cloudant
 
 ---
 
@@ -12,11 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Log de auditoria
-
+{: #audit-logging}
 
 A criação de log de auditoria registra os proprietários do {{site.data.keyword.cloudantfull}} que têm
 acessado dados armazenados no {{site.data.keyword.cloudant_short_notm}}. Para todo o acesso da
@@ -29,6 +36,7 @@ Informações | Descrição
 `Ação` | A ação realizada (por exemplo, leitura de documentos).
 `Recurso` | Detalhes sobre a conta, banco de dados e documento acessado ou consulta feita.
 `Registro de data e hora` | Um registro do tempo e dos dados do evento. 
+{: shortdesc}
 
 Os logs de auditoria do {{site.data.keyword.cloudant_short_notm}} podem ser usados para entender:
 
@@ -37,9 +45,10 @@ quando e por quem.
 - Quais consultas foram executadas, quando e por quem.
 - O que um proprietário ou usuário específico acessou, atualizou ou excluiu e quando.
 - Quais documentos de replicação foram criados ou excluídos e quando.
-{:shortdesc}
+
 
 ## Como acessar Logs de Auditoria para sua conta
+{: #how-to-access-audit-logs-for-your-account}
 
 Para solicitar acesso aos logs de auditoria para a sua conta, entre em contato
 com o suporte do {{site.data.keyword.cloudant_short_notm}}. O suporte fornece uma cópia dos logs de auditoria que são de seu interesse.

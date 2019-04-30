@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-18"
+
+keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption
+
+subcollection: cloudant
 
 ---
 
@@ -12,11 +16,15 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # セキュリティー
 {: #security}
+
 
 ## {{site.data.keyword.cloudant_short_notm}} DBaaS データの保護とセキュリティー
 {: #ibm-cloudant-dbaas-data-protection-and-security}
@@ -24,7 +32,7 @@ lastupdated: "2018-10-24"
 大規模な Web アプリやモバイル・アプリのアプリケーション・データの保護は、特に分散データベースおよび NoSQL データベースの場合、複雑である可能性があります。
 
 {{site.data.keyword.cloudantfull}} は、データベースの継続的な稼働およびノンストップの拡大のためにデータベース保守作業を削減するとともに、データの安全と保護を確保します。
-{:shortdesc}
+{: shortdesc}
 
 ## 最上位層の物理プラットフォーム
 {: #top-tier-physical-platforms}
@@ -40,8 +48,8 @@ Tier-1 クラウド・インフラストラクチャー・プロバイダーで�
 - {{site.data.keyword.cloudant_short_notm}} では、SLA やコスト要件の変化に伴って、
 異なるプロバイダーの間で柔軟に選択や切り替えができます。
 
-証明書に関する詳細は、[準拠情報](compliance.html)にあります。
-{:tip}
+証明書に関する詳細は、[準拠情報](/docs/services/Cloudant?topic=cloudant-compliance#compliance)にあります。
+{: tip}
 
 ## セキュアなアクセス制御
 {: #secure-access-control}
@@ -52,16 +60,18 @@ Tier-1 クラウド・インフラストラクチャー・プロバイダーで�
 --------|------------
 認証 | {{site.data.keyword.cloudant_short_notm}} には、HTTPS API を使用してアクセスします。 API エンドポイントによって要求されれば、
   {{site.data.keyword.cloudant_short_notm}} が受け取るすべての HTTPS 要求
-  についてユーザーが認証されます。 {{site.data.keyword.cloudant_short_notm}} は、レガシーと IAM の両方のアクセス制御をサポートしています。詳しくは、『[IAM ガイド](../guides/iam.html){:new_window}』またはレガシー『[認証 API 文書](../api/authentication.html){:new_window}』を参照してください。
- 許可 |{{site.data.keyword.cloudant_short_notm}} は、レガシーと IAM の両方のアクセス制御をサポートしています。詳しくは、『[IAM ガイド](../guides/iam.html){:new_window}』およびレガシー『[許可 API 文書](../api/authorization.html){:new_window}』を参照してください。
-「伝送時」の暗号化 | {{site.data.keyword.cloudant_short_notm}} へのすべてのアクセスは HTTPS を使用して暗号化されます。
-保存時の暗号化 | {{site.data.keyword.cloudant_short_notm}} インスタンスに保管されているすべてのデータは、保存時に暗号化されます。保存時の暗号化で BYOK (Bring-Your-Own-Key) が必要な場合、この暗号化は、{{site.data.keyword.cloud_notm}} 鍵の保護を使用して有効化されます。{{site.data.keyword.cloudant_short_notm}} では、
+  についてユーザーが認証されます。 {{site.data.keyword.cloudant_short_notm}} は、レガシーと IAM の両方のアクセス制御をサポートしています。 詳しくは、『[IAM ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}』またはレガシー『[認証 API 文書](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}』を参照してください。
+許可 | {{site.data.keyword.cloudant_short_notm}} は、レガシーと IAM の両方のアクセス制御をサポートしています。 {{site.data.keyword.cloudant_short_notm}} チームでは、可能な場合は認証に IAM アクセス制御を使用することをお勧めしています。{{site.data.keyword.cloudant_short_notm}} のレガシー認証を使用している場合、 プログラマチック・アクセスと複製ジョブを行う際にはアカウント・レベルの資格情報ではなく [API キー](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}を使用することをお勧めします。
+詳しくは、[IAM ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} またはレガシー『[認証 API 文書](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}』およびレガシー『[認可 API 文書](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}』を参照してください。
+保存時の暗号化 | {{site.data.keyword.cloudant_short_notm}} インスタンスに保管されているすべてのデータは、保存時に暗号化されます。 保存時の暗号化で BYOK (Bring-Your-Own-Key) が必要な場合、この暗号化は、{{site.data.keyword.cloud_notm}} 鍵の保護を使用して有効化されます。 {{site.data.keyword.cloudant_short_notm}} では、
 すべての地域でデプロイされる新しい {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスでこの機能をサポートします。 まず、{{site.data.keyword.cloud_notm}} カタログを使用して、専用ハードウェア・プラン・インスタンスを作成します。 次に、
 サポート・チケットを送信します。 新規専用ハードウェア・インスタンスの保存時の暗号化用の暗号鍵の取得をサポート・チームが調整します。
 この暗号鍵は、鍵の保護インスタンスによって管理されます。
-IP ホワイトリスティング | 専用の {{site.data.keyword.cloudant_short_notm}} 環境がある {{site.data.keyword.cloudant_short_notm}} のお客様は、IP アドレスのホワイトリスト登録により、指定したサーバーおよびユーザーのみにアクセスを制限することができます。IP ホワイトリスティングは、マルチテナント環境にデプロイされている {{site.data.keyword.cloud_notm}} Public のライト・プラン/標準プランでは使用できません。指定した IP セットまたは IP 範囲の IP ホワイトリストを要求するには、サポート・チケットをオープンしてください。IP ホワイトリストは、{{site.data.keyword.cloudant_short_notm}} API およびダッシュボードの両方に適用されるため、{{site.data.keyword.cloudant_short_notm}} ダッシュボードに直接アクセスする必要がある管理者 IP を含めるときは注意してください。
-CORS | {{site.data.keyword.cloudant_short_notm}} ダッシュボードを使用して、
-  特定ドメインの CORS サポートを有効にします。
+「伝送時」の暗号化 | {{site.data.keyword.cloudant_short_notm}} へのすべてのアクセスは HTTPS を使用して暗号化されます。
+TLS | {{site.data.keyword.cloudant_short_notm}} にアクセスする場合には必ず TLS 1.2 または 1.3 を使用することを推奨します。(***2019 年 6 月に、{{site.data.keyword.cloudant_short_notm}} サポートは旧バージョン (TLS 1.0 および 1.1) の使用を廃止します。この時点からは TLS 1.2 以降のみがサポートされます。***) {{site.data.keyword.cloudant_short_notm}} が HTTPS 接続のために使用する証明書は、すべてのブラウザー、オペレーティング・システム、および Java Development Kit (JDK) などその他のソフトウェア・システムによって信頼されている、世界的に信用されている認証局によって署名されます。IBM は、世界的に信用されている認証局により署名された有効な (期限切れではない) TLS 証明書を常に発行するようにコミットしています。ただし、IBM はお客様と変更を調整することはできません。また DigiCert を引き続き使用することにはコミットしていません。{{site.data.keyword.cloudant_short_notm}} サービスに継続してアクセスできるようにするために、現行の証明書をピン留めしないようにお客様に強く推奨します。ピン留めしないことで有効期限が適用され、セキュリティー侵害の発生時にはローテーションが要求されます。代わりに、お客様のオペレーティング・システムとブラウザー用のデフォルトの証明書バンドルを使用することをお勧めします。これにより、証明書が変更された場合でもセキュアなサービスの継続が保証されます。
+エンドポイント |すべての {{site.data.keyword.cloudant_short_notm}} インスタンスは、パブリック・ネットワークでアクセス可能な外部エンドポイントで提供されます。2019 年 1 月 1 日以降にプロビジョンされる専用ハードウェア環境には、その環境にデプロイされているすべての標準プラン・インスタンスに内部エンドポイントも追加されます。内部エンドポイントを使用すると内部 {{site.data.keyword.cloud}} ネットワークを経由して {{site.data.keyword.cloudant_short_notm}} インスタンスに接続できるため、アップストリーム・アプリケーション・トラフィックがパブリック・ネットワークを通過することで発生する帯域幅のコストを低減できます。ご使用の {{site.data.keyword.cloud}} アカウントのサービス・エンドポイントを使用可能にする方法の詳細は、[サービス・エンドポイントの資料](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window}を参照してください。
+IP ホワイトリスティング | 専用の {{site.data.keyword.cloudant_short_notm}} 環境がある {{site.data.keyword.cloudant_short_notm}} のお客様は、IP アドレスのホワイトリスト登録により、指定したサーバーおよびユーザーのみにアクセスを制限することができます。 IP ホワイトリスティングは、マルチテナント環境にデプロイされている {{site.data.keyword.cloud_notm}} Public のライト・プラン/標準プランでは使用できません。 指定した IP セットまたは IP 範囲の IP ホワイトリストを要求するには、サポート・チケットをオープンしてください。 IP ホワイトリストは、{{site.data.keyword.cloudant_short_notm}} API およびダッシュボードの両方に適用されるため、{{site.data.keyword.cloudant_short_notm}} ダッシュボードに直接アクセスする必要がある管理者 IP を含めるときは注意してください。 
+CORS | {{site.data.keyword.cloudant_short_notm}} ダッシュボードまたは API を使用して、特定ドメインの CORS サポートを有効にします。 詳しくは、[CORS API の資料](/docs/services/Cloudant?topic=cloudant-cors#cors){:new_window}を参照してください。
 
 <!--
 > **Note**: Your data is visible to the {{site.data.keyword.cloudant_short_notm}} 

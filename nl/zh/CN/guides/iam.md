@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
+
+subcollection: cloudant
 
 ---
 
@@ -12,35 +16,43 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-07-02 -->
 
 # {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)
+{: #ibm-cloud-identity-and-access-management-iam-}
 
 {{site.data.keyword.cloud}} Identity and Access Management 提供了统一的方法来管理用户身份、服务和访问控制。
-{:shortdesc}
+{: shortdesc}
 
 ## 简介
+{: #introduction}
 
 本文档描述了 {{site.data.keyword.cloudantfull}} 与 {{site.data.keyword.cloud_notm}} Identity and Access Management 的集成。文档中讨论了 {{site.data.keyword.cloudant_short_notm}} 的旧访问控制和 {{site.data.keyword.cloud_notm}} IAM 访问控制之间的差异。随后，探讨了两种访问控制的优缺点，以帮助您决定要使用哪种访问控制。接着，讨论了如何在 {{site.data.keyword.cloudant_short_notm}} 的客户机库内以及通过 HTTP 调用来使用 IAM。最后以参考部分结尾，此部分描述了 {{site.data.keyword.cloudant_short_notm}} 中提供的所有 IAM 操作和角色。
 
-请参阅 [IAM ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/iam/index.html#iamoverview){:new_window} 概述，其中包含以下操作的指南：
+请参阅 [IAM ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window} 概述，其中包含以下操作的指南：
 
 - 管理用户和服务标识。
 - 管理可用的凭证。
 - 使用 IAM 访问策略来允许和撤销对 {{site.data.keyword.cloudant_short_notm}} 服务实例的访问权。
 
 ## {{site.data.keyword.cloudant_short_notm}} 旧访问控制与 IAM 访问控制之间的差异
+{: #differences-between-ibm-cloudant-legacy-and-iam-access-controls}
 
 以下部分简要概述了 {{site.data.keyword.cloudant_short_notm}} 旧访问控制机制与 {{site.data.keyword.cloud_notm}} IAM 访问控制机制之间的差异。
 
 ### {{site.data.keyword.cloud_notm}} Identity and Access Management
+{: #ibm-cloud-identity-and-access-management}
 
 - 跨 {{site.data.keyword.cloud_notm}} 集中管理访问管理。
 - 允许用户或服务使用同一组凭证（例如，相同的用户名/密码或 IAM API 密钥）来访问许多不同的资源。
 - 可以授予 IAM API 密钥对帐户管理功能（例如，创建新数据库）的访问权。
 
 ### {{site.data.keyword.cloudant_short_notm}} 旧访问控制
+{: #ibm-cloudant-legacy}
 
 - 对 {{site.data.keyword.cloudant_short_notm}} 唯一。
 - 对每个服务实例的访问都需要该服务自己的一组凭证。
@@ -48,10 +60,12 @@ lastupdated: "2018-10-24"
 - 只能在数据库级别向 {{site.data.keyword.cloudant_short_notm}} API 密钥授予许可权。
 
 ### API 密钥说明
+{: #api-key-notes}
 
-在本文档中，凡是提到 API 密钥的地方，都是指 IAM API 密钥。{{site.data.keyword.cloudant_short_notm}} 旧访问控制也有 API 密钥的概念，并且所有提及 {{site.data.keyword.cloudant_short_notm}} 旧凭证或用户名/密码组合的地方也包含 {{site.data.keyword.cloudant_short_notm}} API 密钥。
+在本文档中，凡是提到 API 密钥的地方，都是指 IAM API 密钥。{{site.data.keyword.cloudant_short_notm}} 旧访问控制也有 API 密钥的概念，并且关于 {{site.data.keyword.cloudant_short_notm}} 旧访问控制的凭证或用户名/密码组合的任何讨论也包含 {{site.data.keyword.cloudant_short_notm}} API 密钥。 
 
 ## 启用 {{site.data.keyword.cloudant_short_notm}} 的 IAM
+{: #enabling-iam-with-ibm-cloudant}
 
 从 2018 年 7 月底开始，只有新的 {{site.data.keyword.cloudant_short_notm}} 服务实例可以与 {{site.data.keyword.cloud_notm}} IAM 配合使用。
 
@@ -61,6 +75,7 @@ lastupdated: "2018-10-24"
 2. **仅使用 IAM**：此方式意味着仅通过服务绑定和凭证生成来提供 IAM 凭证。
 
 ### {{site.data.keyword.cloudant_short_notm}} API 密钥和_仅使用 IAM_
+{: #ibm-cloudant-api-keys-and-_use-only-iam_}
 
 可以将 {{site.data.keyword.cloudant_short_notm}} API 密钥与 IAM 一起使用，但**建议不要这样做**。做出此建议是因为 {{site.data.keyword.cloudant_short_notm}} API 密钥和许可权不可见，或者不可通过 IAM 策略接口进行管理，因此无法实现整体访问管理。
 
@@ -72,12 +87,13 @@ lastupdated: "2018-10-24"
 尤其是，{{site.data.keyword.cloudant_short_notm}} API 密钥仍可用于管理数据库访问。必须使用 HTTP API 来生成和配置这些凭证。
 
 ### 使用命令行进行供应
+{: #provisioning-by-using-the-command-line}
 
 通过命令行供应新的 {{site.data.keyword.cloudant_short_notm}} 实例时，请使用 `-p` 参数为 `ic` 工具提供一个选项，用于启用或禁用帐户的旧凭证。该选项以 JSON 格式传递，名为 `legacyCredentials`。
 
 要以_仅使用 IAM_（建议）方式供应实例，请运行以下命令：
 
-```
+```sh
 ic resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": false}
@@ -85,13 +101,14 @@ ic resource service-instance-create  "Instance Name" \
 
 要以_同时使用旧凭证和 IAM_ 方式供应实例，请运行以下命令：
 
-```
+```sh
 ic resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": true}
 ```
 
 ### 每个选项的服务凭证 JSON 示例
+{: #service-credential-json-examples-for-each-option}
 
 是选择_仅使用 IAM_ 还是选择_同时使用旧凭证和 IAM_ 访问控制，会影响绑定和生成服务凭证时如何将凭证传递到应用程序。在主 {{site.data.keyword.cloud_notm}} IAM 界面中生成凭证时，生成的 API 密钥会显示在该界面中。
 
@@ -121,7 +138,7 @@ ic resource service-instance-create  "Instance Name" \
 - `iam_role_crn`：IAM API 密钥具有的 IAM 角色。
 - `iam_serviceid_crn`：服务标识的 CRN。
 - `url`：{{site.data.keyword.cloudant_short_notm}} 服务 URL。
-- `username`：URL 中 {{site.data.keyword.cloudant_short_notm}} 实例用户的服务名称。
+- `username`：内部 {{site.data.keyword.cloudant_short_notm}} 帐户名称。
 
 选择_同时使用旧凭证和 IAM_ 时，生成的服务凭证同时包含 IAM 和旧凭证，类似于以下示例：
 
@@ -139,7 +156,7 @@ ic resource service-instance-create  "Instance Name" \
   "username": "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 上面 JSON 示例中的每个值应按如下所示进行解释：
 
@@ -155,6 +172,7 @@ ic resource service-instance-create  "Instance Name" \
 - `username`：{{site.data.keyword.cloudant_short_notm}} 旧凭证用户名。
 
 ## 应该使用_仅使用 IAM_ 还是_同时使用旧凭证和 IAM_？
+{: #should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
 
 如果可能，请首选_仅使用 IAM_。使用 {{site.data.keyword.cloud_notm}} IAM 的主要优点包括：
 
@@ -164,11 +182,9 @@ ic resource service-instance-create  "Instance Name" \
 下面进一步描述了每种方法的优缺点。
 
 ### 两种访问控制机制的优缺点
+{: #advantages-and-disadvantages-of-the-two-access-control-mechanisms}
 
 总体而言，{{site.data.keyword.cloud_notm}} IAM 是建议的认证模型。但是，该方法也存在一些缺点，主要是在您有现有应用程序或无法使用 {{site.data.keyword.cloudant_short_notm}} 支持的客户机库的情况下。
-
-
-<div id="advantages-disadvantages"></div>
 
 <table>
 
@@ -180,12 +196,15 @@ ic resource service-instance-create  "Instance Name" \
 
 <tr>
 <td headers="mode">IAM</td>
-<td headers="advantages" valign="top"><ul><li>使用一个接口管理多个服务的访问权。全局撤销用户访问权。<li>通过服务标识使用帐户级别的 API 密钥。<li>易于轮换的凭证。</li>
+<td headers="advantages" valign="top"><ul><li>使用一个接口管理多个服务的访问权。全局撤销用户访问权。</li>
+<li>通过服务标识使用帐户级别的 API 密钥。</li>
+<li>易于轮换的凭证。</li>
 <li>Activity Tracker 日志会捕获个人和服务。</li>
 <li>IAM 可与其他身份系统（例如，企业 LDAP 存储库）联合。</li></ul>
 </td>
-<td headers="disadvantages"><ul><li>如果使用的不是 {{site.data.keyword.cloudant_short_notm}} 支持的库，那么可能需要更改应用程序才能使用 IAM 的 API 密钥和访问令牌。<li>无数据库级别许可权（尚未提供）。</li>
-<li>无细颗粒度许可权（例如，读者）（尚未提供）。</li>
+<td headers="disadvantages"><ul><li>如果使用的不是 {{site.data.keyword.cloudant_short_notm}} 支持的库，那么可能需要更改应用程序才能使用 IAM 的 API 密钥和访问令牌。</li>
+<li>无数据库级别许可权（尚未提供）。</li>
+<li>无细颗粒度许可权（例如，读取者）（尚未提供）。</li>
 <li>某些端点不可用，请参阅[不可用端点](#unavailable-endpoints)。</li>
 <li>无法将数据库指定为“public”，即，不要求授权用户进行访问。</li></ul>
 </td>
@@ -196,11 +215,12 @@ ic resource service-instance-create  "Instance Name" \
 <td headers="advantages">
 <ul><li>无需更改现有应用程序或客户机库依赖性。</li>
 <li>数据库级别许可权。</li>
-<li>细颗粒度角色（读者、作者）。</li>
+<li>细颗粒度角色（读取者、写入者）。</li>
 </ul>
 </td>
 <td headers="disadvantages">
-<ul><li>没有帐户级别 API 密钥；必须使用 `root` 凭证来管理数据库。<li>单独管理 {{site.data.keyword.cloudant_short_notm}} 凭证，因此无法在集中界面中获取所有访问权的完整概览。</li>
+<ul><li>没有帐户级别 API 密钥；必须使用 `root` 凭证来管理数据库。</li>
+<li>单独管理 {{site.data.keyword.cloudant_short_notm}} 凭证，因此无法在集中界面中获取所有访问权的完整概览。</li>
 <li>难以实现凭证轮换。</li>
 </ul>
 </td>
@@ -208,14 +228,16 @@ ic resource service-instance-create  "Instance Name" \
 </table>
 
 ## 使用 IAM 凭证对实例发出请求
+{: #making-requests-to-instances-by-using-iam-credentials}
 
 此部分讨论了如何通过 IAM 认证和访问控制将 {{site.data.keyword.cloudant_short_notm}} 与服务实例配合使用。这将使用先前提到的服务凭证 JSON 示例中的详细信息。
 
-在对资源或服务发出请求之前，{{site.data.keyword.cloud_notm}} IAM 需要用 IAM API 密钥交换有时间限制的访问令牌。然后，该访问令牌会包含在服务的 `Authorization` HTTP 头中。访问令牌到期后，客户机必须负责从 IAM 令牌服务获取新的令牌。有关更多信息，请参阅[使用 API 密钥获取 {{site.data.keyword.cloud_notm}} IAM 令牌 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) 文档以获取更多详细信息。
+在对资源或服务发出请求之前，{{site.data.keyword.cloud_notm}} IAM 需要用 IAM API 密钥交换有时间限制的访问令牌。然后，该访问令牌会包含在服务的 `Authorization` HTTP 头中。访问令牌到期后，使用应用程序必须负责从 IAM 令牌服务获取新的令牌。有关更多信息，请参阅[使用 API 密钥获取 {{site.data.keyword.cloud_notm}} IAM 令牌 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) 文档以获取更多详细信息。
 
 {{site.data.keyword.cloudant_short_notm}} 的官方客户机库负责为您从 API 密钥中获取令牌。如果是使用 HTTP 客户机而不是 {{site.data.keyword.cloudant_short_notm}} 客户机库来直接访问 {{site.data.keyword.cloudant_short_notm}}，那么您必须负责通过将 IAM API 密钥用于 IAM 令牌服务，以交换和刷新有时间限制的访问令牌。令牌到期后，{{site.data.keyword.cloudant_short_notm}} 将返回 HTTP `401` 状态码。
 
 ### 必需的客户机库版本
+{: #required-client-library-versions}
 
 至少将以下客户机库版本与启用 IAM 的 {{site.data.keyword.cloudant_short_notm}} 服务实例配合使用：
 
@@ -231,6 +253,7 @@ ic resource service-instance-create  "Instance Name" \
 以下代码片段需要这些版本。
 
 ### Java
+{: #java}
 
 需要 [java-cloudant](https://github.com/cloudant/java-cloudant) 2.13.0+。
 
@@ -260,6 +283,7 @@ public class App
 ```
 
 ### Node.js
+{: #node.js}
 
 需要 [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant) 2.3.0+。
 
@@ -284,6 +308,7 @@ cloudant.db.list(function(err, body) {
 ```
 
 ### Python
+{: #python}
 
 需要 [python-cloudant](https://github.com/cloudant/python-cloudant) 2.9.0+。
 
@@ -301,6 +326,7 @@ print client.all_dbs()
 ```
 
 ### 使用 HTTP 客户机进行访问
+{: #access-by-using-http-client}
 
 在对资源或服务发出请求之前，{{site.data.keyword.cloud_notm}} IAM 需要用 IAM API 密钥交换有时间限制的访问令牌。然后，该访问令牌会包含在服务的 `Authorization` HTTP 头中。访问令牌到期后，客户机必须负责从 IAM 令牌服务获取新的令牌。
 
@@ -319,7 +345,7 @@ ACCOUNT = "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 def get_access_token(api_key):
     """Retrieve an access token from the IAM token service."""
     token_response = requests.post(
-        "https://iam.bluemix.net/oidc/token",
+        "https://iam.cloud.ibm.com/identity/token",
         data={
             "grant_type": "urn:ibm:params:oauth:grant-type:apikey",
             "response_type": "cloud_iam",
@@ -362,10 +388,12 @@ if __name__ == "__main__":
 ```
 
 ## 参考
+{: #reference}
 
 此部分包含 {{site.data.keyword.cloudant_short_notm}} IAM 操作的完整列表以及允许每个 IAM 系统角色执行的操作。
 
 ### {{site.data.keyword.cloudant_short_notm}} 操作
+{: #ibm-cloudant-actions}
 
 操作|描述
 -------|------------
@@ -376,28 +404,31 @@ if __name__ == "__main__":
 `cloudantnosqldb.sapi.userinfo`|访问 `/_api/v2/user`。
 
 #### 不可用端点
+{: #unavailable-endpoints}
 
 以下端点不可用于通过 IAM 授权的请求：
 
-- HTTP 重写处理程序：`/db/_design/design-doc/_rewrite/path`. <br>
+- HTTP 重写处理程序：`/db/_design/design-doc/_rewrite/path`。<br>
 虽然设计文档可以包含重写处理程序，但用户无法对其进行调用。
 - 更新处理程序：`POST /{db}/_design/{ddoc}/_update/{func}`。<br>
 虽然设计文档可以包含更新函数，但用户无法对其进行调用。
 
 ### {{site.data.keyword.cloudant_short_notm}} 操作到 IAM 角色的映射
+{: #mapping-of-ibm-cloudant-actions-to-iam-roles}
 
-只有“管理员”角色的用户和服务才能访问 {{site.data.keyword.cloudant_short_notm}} 数据。
+只有“管理者”角色的用户和服务才能访问 {{site.data.keyword.cloudant_short_notm}} 数据。
 
 角色|允许执行的操作
 -----|----------------
-管理员|所有记录的操作。
-读者|无。
-作者|无。
+管理者|所有记录的操作。
+读取者|无。
+写入者|无。
 
 ## 故障诊断
-
-如果向 {{site.data.keyword.cloudant_short_notm}} 服务实例发出请求时使用 IAM 进行认证遇到问题，请检查以下内容。
+{: #troubleshooting}
+如果向 {{site.data.keyword.cloudant_short_notm}} 服务实例发出请求时使用 IAM 进行认证遇到问题，请验证您的帐户，如下一部分所示。
 
 ### 确保您的帐户启用了 IAM
+{: #ensure-your-account-is-iam-enabled}
 
-您必须提交支持凭单以确认服务实例启用了 IAM。
+您必须开具支持凭单以确认服务实例启用了 IAM。

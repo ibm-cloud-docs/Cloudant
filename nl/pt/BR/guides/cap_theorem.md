@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
+
+subcollection: cloudant
 
 ---
 
@@ -11,23 +15,24 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-24 -->
 
-<div id="cap_theorem"></div>
-
-<div id="consistency"></div>
-
 # Teorema CAP
+{: #cap-theorem}
 
-O {{site.data.keyword.cloudantfull}} usa um modelo ['Eventualmente consistente' ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}.
-{:shortdesc}
+O {{site.data.keyword.cloudantfull}} usa um modelo ['Eventualmente consistente' ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}.
+{: shortdesc}
 
 Para entender como esse modelo funciona
 e porque é uma parte essencial do uso do {{site.data.keyword.cloudant_short_notm}},
 considere o que se entende por Consistência.
 
-Consistência é uma das quatro propriedades ['ACID' ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/ACID){:new_window}
+Consistência é uma das quatro propriedades ['ACID' ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/ACID){: new_window}
 necessárias para que transações dentro de um banco de dados sejam processadas e relatadas de forma confiável.
 
 Além disso,
@@ -73,6 +78,7 @@ Para suportar,
 o sistema deve se tornar mais sofisticado.
 
 ## Trocas na Tolerância de partição
+{: #tradeoffs-in-partition-tolerance}
 
 Um banco de dados que prioriza consistência e tolerância de partição geralmente emprega uma
 configuração <a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">mestre-escravo <img src="../images/launch-glyph.svg" alt="Ícone de link externo" title="Ícone de link externo"></a>,
@@ -83,7 +89,7 @@ Se o líder perder a conexão com a rede
 ou não puder se comunicar com vários dos nós do sistema,
 o restante elegerá um novo líder.
 Este processo de eleição difere entre os sistemas
-e pode ser uma origem de [problemas significativos ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://aphyr.com/posts/284-call-me-maybe-mongodb){:new_window}.
+e pode ser uma origem de [problemas significativos ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}.
 
 O {{site.data.keyword.cloudant_short_notm}} prioriza a disponibilidade e a tolerância de partição empregando uma configuração mestre/mestre,
 para que cada nó possa aceitar gravações e leituras para sua parte dos seus dados.
@@ -93,12 +99,13 @@ Se um nó se tornar inacessível,
 outros poderão entregar em seu lugar, enquanto a rede sana o problema.
 Dessa forma,
 o sistema retornará seus dados em tempo hábil apesar de falha arbitrária do nó
-e manterá a [consistência eventual ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}.
+e manterá a [consistência eventual ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}.
 A troca em despriorizar a consistência absoluta é que leva tempo para todos os nós verem os mesmos dados.
 Como resultado,
 algumas respostas podem conter dados antigos enquanto os novos dados são propagados pelo sistema.
 
 ## Mudando a abordagem
+{: #changing-the-approach}
 
 A manutenção de uma visualização consistente de dados é lógica e fácil de entender,
 porque um banco de dados relacional faz esse trabalho para você.
@@ -115,10 +122,11 @@ Um banco de dados planejado em torno da necessidade de priorizar a disponibilida
 é mais adequado para manter seu aplicativo on-line.
 A consistência de dados do aplicativo pode ser tratada após o fato.
 Conforme Seth Gilbert e Nancy Lynch da MIT
-[concluem ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){:new_window},
+[concluem ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){: new_window},
 "boa parte dos sistemas do mundo real hoje em dia é forçada a resolver retornando 'a maioria dos dados, na maioria das vezes'".
 
 ## Disponibilidade do aplicativo versus consistência na empresa
+{: #application-availability-versus-consistency-in-the-enterprise}
 
 Um olhar nos serviços populares baseados na web mostra que as pessoas já esperam alta disponibilidade
 e trocam muito bem essa disponibilidade por dados eventualmente consistentes,
@@ -146,6 +154,7 @@ perda de produtividade
 e oportunidades perdidas.
 
 ## Da teoria à implementação
+{: #from-theory-to-implementation}
 
 Tratar a alta disponibilidade é vital para aplicativos em nuvem.
 Caso contrário,

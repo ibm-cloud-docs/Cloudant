@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-18"
+
+keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
+
+subcollection: cloudant
 
 ---
 
@@ -12,17 +16,21 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Gestione di attività
+{: #managing-tasks}
 
 La creazione di nuovi indici su grandi quantità di dati o la replica di un database di grandi dimensioni può richiedere molto tempo.
-{:shortdesc}
+{: shortdesc}
 
 Quindi come puoi determinare se le tue attività stanno avanzando o
 se sono state completate?
-L'[endpoint `_active_tasks` ](../api/active_tasks.html) fornisce informazioni su tutte le attività in corso.
+L'[endpoint `_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) fornisce informazioni su tutte le attività in corso.
 Tuttavia,
 se avvii molte attività,
 è possibile pianificare alcune di queste per l'esecuzione in un secondo momento e non essere visualizzate in `_active_tasks`
@@ -34,9 +42,10 @@ Il processore JSON della riga di comando `jq` viene utilizzato per elaborare la 
 
 Poiché questa è un'esercitazione incentrata sull'attività,
 descrive solo le operazioni fondamentali per completare questa attività.
-Consulta la [Guida di riferimento API](../api/index.html) per una guida completa alle opzioni disponibili.
+Per ulteriori informazioni, vedi la [guida di riferimento API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) per una guida completa alle opzioni disponibili. 
 
 ## Principi di base di curl e jq
+{: #curl-and-jq-basics}
 
 Per ottenere tutte le attività in corso e formattare bene l'output,
 richiama il tuo account utilizzando `curl`
@@ -45,16 +54,17 @@ e passa l'output a `jq`.
 `jq` ti consente di filtrare un elenco di documenti in base ai loro valori di campo.
 Questo semplifica il richiamo di tutti i documenti di replica
 o dei dettagli di una particolare attività di indicizzazione delle viste.
-La [Guida di riferimento API](../api/index.html) contiene ulteriori informazioni sulle opzioni.
+La guida di riferimento API contiene ulteriori informazioni sulle opzioni. 
 
 _Esempio di acquisizione e formattazione di un elenco di attività in corso:_
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Monitoraggio delle creazioni delle viste e degli indici di ricerca
+{: #monitoring-view-builds-and-search-indexes}
 
 Gli indici delle viste vengono ricreati quando un documento di progettazione viene aggiornato.
 Un aggiornamento a una qualsiasi delle viste provoca la ricostruzione di tutte le viste nel documento.
@@ -83,14 +93,14 @@ _Esempio di ricerca di tutte le attività di indicizzazione delle viste, filtran
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Esempio di ricerca di tutte le attività di indicizzazione della ricerca, filtrandole per il tipo `search_indexer`:_
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Risultati di esempio dopo la ricerca delle attività di indicizzazione delle viste:_
 
@@ -108,9 +118,10 @@ _Risultati di esempio dopo la ricerca delle attività di indicizzazione delle vi
     "design_document": "_design/ngrams"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Stima del tempo per completare un'attività
+{: #estimating-the-time-to-complete-a-task}
 
 Per stimare il tempo necessario per completare l'attività di indicizzazione,
 monitora il numero di `changes_done` e confronta questo valore con `total_changes`.
@@ -120,9 +131,7 @@ e `total_changes` è 1.000.000,
 si prevede che il completamento dell'attività richiederà 1.000.000 / 250 = 4.000 secondi,
 o all'incirca 66 minuti.
 
->   **Nota**: le stime del tempo per completare un'attività di indicizzazione non possono essere esatte al 100% .
-    Il tempo effettivo per completare l'attività dipende da diversi fattori,
-    tra cui:
+Le stime del tempo per completare un'attività di indicizzazione non possono essere esatte al 100% . Il tempo effettivo per completare l'attività dipende dai seguenti fattori: 
 
 -   Il tempo impiegato per elaborare ogni documento.
     Ad esempio,
@@ -131,16 +140,17 @@ o all'incirca 66 minuti.
 -   La dimensione dei documenti.
 -   Il carico di lavoro corrente sul cluster.
 
->   Tieni presente che questi fattori potrebbero combinarsi e produrre una notevole imprecisione sulla tua stima.
+Tieni presente che questi fattori potrebbero combinarsi e produrre una notevole imprecisione sulla tua stima.
 
 _Esempio di estrazione del campo `changes_done` utilizzando `jq`:_
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Monitoraggio della replica
+{: #monitoring-replication}
 
 Per trovare tutte le attività di replica,
 passa l'output `curl` a `jq`
@@ -155,21 +165,21 @@ _Esempio di ricerca di tutte le attività di replica, filtrandole per il tipo `r
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Esempio di ricerca di una specifica attività di replica, filtrando per un'identità di documento nota:_
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Esempio di ricerca di una specifica attività di replica, filtrando per un `replication_id` noto:_
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Risultato di esempio dopo la ricerca di un'attività di replica:_
 
@@ -196,11 +206,13 @@ _Risultato di esempio dopo la ricerca di un'attività di replica:_
     "replication_id": "asfksdlfkjsadkfjsdalkfjas+continuous+create_target"
 }
 ```
-{:codeblock}
+{: codeblock}
 
-## Risoluzione dei problemi
+## Risoluzione dei problemi di attività bloccate
+{: #troubleshooting-stuck-tasks}
 
 ### Un'attività è bloccata?
+{: #is-a-task-stuck-}
 
 Per una replica unica e
 non continua,
@@ -221,17 +233,17 @@ o aggiornati nel
 database.
 
 ### Cosa fare con un'attività bloccata?
+{: #what-to-do-about-a-stuck-task-}
 
 Per risolvere una replica bloccata,
-potresti dover [annullare il processo di replica](../api/replication.html#cancelling-a-replication) e avviarlo di nuovo.
+potresti dover [annullare il processo di replica](/docs/services/Cloudant?topic=cloudant-replication-api#canceling-a-replication) e avviarlo di nuovo.
 
 Se ciò non aiuta,
 la replica potrebbe essere bloccata perché l'utente che accede ai database di origine o di destinazione
 non dispone delle autorizzazioni di scrittura.
 
->   **Nota**: la replica utilizza i [checkpoint](replication_guide.html#checkpoints).
-    Ciò significa che il contenuto già replicato e invariato
-    non deve essere replicato nuovamente se la replica viene riavviata.
+La replica utilizza i [checkpoint](/docs/services/Cloudant?topic=cloudant-replication-guide#checkpoints), ciò significa che il contenuto già replicato e invariato non deve essere replicato nuovamente se la replica viene riavviata.
+{: note}
 
 Se hai iniziato il processo di replica creando un documento nel database `_replicator`,
 puoi anche controllare lo stato della replica da lì.

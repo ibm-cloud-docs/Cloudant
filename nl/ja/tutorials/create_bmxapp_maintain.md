@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
+
+subcollection: cloudant
 
 ---
 
@@ -12,67 +16,65 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-11 -->
 
 # {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.cloud_notm}} アプリケーションの作成: 保守とトラブルシューティング
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting}
 
 このチュートリアルでは、{{site.data.keyword.cloud_notm}} サービス・インスタンスでホストされた
 {{site.data.keyword.cloud}} アプリケーションを保守する方法を示します。
-{:shortdesc}
-
-<div id="maintenance"></div>
+{: shortdesc}
 
 ## 基本的なアプリケーション保守タスクの実行
+{: #performing-basic-application-maintenance-tasks}
 
 チュートリアルのこのセクションでは、
 {{site.data.keyword.cloud_notm}} で Python アプリケーションを最新表示、開始、停止する方法を説明します。
 
 ### アプリケーションの状況の判別
+{: #finding-the-status-of-your-application}
 
 {{site.data.keyword.cloud_notm}} サービス・インスタンス内のアプリケーションの状況は、ダッシュボードに表示されます。
 
-以下の例で、`Python Cloudant` アプリケーションは実行中ではなく、`「停止」` 状態です。
+以下の例で、`「Cloudant CF アプリ」`アプリケーションは実行中ではなく、
+`「停止」` 状態です。
 
 ![「停止」状態のアプリケーションのダッシュボードを示した画面キャプチャー](images/img0037.png)
 
 ### アプリケーションの開始
+{: #starting-your-application}
 
 チュートリアルのデモ・データベースを先に削除せずにチュートリアルのアプリケーションを開始しようとすると、アプリケーションは正しく動作できません。 アプリケーションは、開始を試行し、データベースが存在するために失敗し、
     停止し、再び開始を試行することを繰り返します。 この問題を解決するには、
     [アプリケーションを停止し](#stopping-your-application)、
     チュートリアルのデモ・データベースを削除してください。 それにより、アプリケーションは正常に開始できるようになります。
-{: tip}
+{: note}
     
-停止しているアプリケーションを開始するには、
-まず、ダッシュボードでアプリケーション・メニューのアイコンをクリックします。
-
-![アプリケーション管理アイコンを含むダッシュボードの画面キャプチャー](images/img0038.png)
-
-次に、メニューの`「アプリの開始」`オプションをクリックします。<br/>
-![「アプリの開始」オプションの画面キャプチャー](images/img0039.png)
+停止されたアプリケーションを開始するには、メニューの`「開始」`オプションをクリックします。<br/>
+![「開始」オプションを示す画面キャプチャー](images/img0039.png)
 
 ### アプリケーションの停止
+{: #stopping-your-application}
 
-実行中のアプリケーションを停止するには、
-まず、ダッシュボードでアプリケーション・メニューのアイコンをクリックします。<br/>
-![アプリケーション管理アイコンを含むダッシュボードの画面キャプチャー](images/img0038.png)
-
-次に、メニューの`「アプリの停止」`オプションをクリックします。<br/>
-![「アプリの停止」オプションの画面キャプチャー](images/img0041.png)
-
-<div id="troubleshooting"></div>
+実行中のアプリケーションを停止するには、メニューで`「停止」`オプションをクリックします。<br/>
+![「停止」オプションを示す画面キャプチャー](images/img0041.png)
 
 ### アプリケーションの新たなバージョンのアップロード
+{: #uploading-a-fresh-version-of-your-application}
 
 アプリケーションの新たなバージョンをアップロードするには、
-[アップロード・プロセス](create_bmxapp_upload.html)に従ってください。
+[アップロード・プロセス](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application)に従ってください。
 アプリケーションの新バージョンによって、旧バージョンが上書きされます。
 
 アップロードを開始したときにアプリケーションの旧バージョンが既に実行中の場合、{{site.data.keyword.cloud_notm}} はまず、アプリケーションを自動的に停止します。
 {: tip}
 
 ## 問題の診断と解決
+{: #diagnosing-and-resolving-problems}
 
 チュートリアルのこのセクションでは、初めて
 {{site.data.keyword.cloud_notm}}
@@ -81,16 +83,17 @@ lastupdated: "2018-10-24"
 
 {{site.data.keyword.cloud_notm}} または
 Cloud Foundry アプリケーション作成時のベスト・プラクティスに関するアドバイスを入手するには、
-[該当サイト![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window} を参照してください。
+[該当サイト![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window} を参照してください。
 
 特に、
-[ローカル・ファイル・システムに書き込まないようにする ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}
+[ローカル・ファイル・システムに書き込まないようにする ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window}
 のは賢明なアドバイスです。
 
 このチュートリアルでは、単純にするために、ローカル・ファイル・システムにコンテンツを書き込んでいます。 ただし、マテリアルの量は小規模です。 永続化は予期されず、「ミッション・クリティカル」ではありません。
 {: tip}
 
 ### アプリケーション・ログの使用
+{: #using-the-application-log}
 
 {{site.data.keyword.cloud_notm}} アプリケーションでの問題を診断して解決するために最も役立つリソースは、ログ・ファイルです。
 
@@ -139,5 +142,6 @@ Cloud Foundry アプリケーション作成時のベスト・プラクティス
 この後、通常のアプリケーション・トラブルシューティング手順を適用して、問題を解決してください。
 
 ## チュートリアルの終わり
+{: #end-of-tutorial}
 
 これでチュートリアルは完了です。

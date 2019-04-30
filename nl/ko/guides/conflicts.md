@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
+
+subcollection: cloudant
 
 ---
 
@@ -11,17 +15,22 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
 # 충돌
+{: #conflicts}
 
 둘 이상의 위치에 데이터 사본이 저장되어 있는 분산 데이터베이스의 경우 기본적인 네트워크 및 시스템 특성상 한 위치에 저장된 문서를 변경하면 데이터베이스의 다른 사본을 즉각 업데이트하거나 복제하지 못할 수 있습니다.
 
 즉, 문서의 여러 사본에 독립적인 업데이트를 수행하면 문서의 정확한 최종 컨텐츠에 '충돌'이나 불일치가 생길 수 있습니다.
 
 {{site.data.keyword.cloudantfull}}는 잠재적 문제점을 사용자에게 경고하여 충돌을 방지하도록 도와줍니다.
-이를 위해 문제가 있는 업데이트 요청에 [`409` 응답](../api/http.html#http-status-codes)을 리턴합니다.
+문제가 있는 업데이트 요청에 대한 [`409` 응답](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)을 리턴하여 경고합니다.
 그러나 `409` 응답은 네트워크에 현재 연결되어 있지 않은 시스템에서 데이터베이스 업데이트가 요청된 경우에는 수신되지 않을 수도 있습니다.
 예를 들어 인터넷에 연결이 일시적으로 끊긴 모바일 디바이스에 데이터베이스가 있다면 그 시점에서 기타 잠재적으로 충돌할 수 있는 업데이트가 수행되었는지를 확인하는 것은 불가능합니다.
 
@@ -46,41 +55,40 @@ lastupdated: "2018-10-24"
 <tr>
 <td>항상 네트워크에 연결(예: 서버)</td>
 <td>자주</td>
-<td>예</td>
+<td>Y</td>
 <td>-</td>
 </tr>
 <tr>
 <td>항상 네트워크에 연결</td>
 <td>가끔</td>
 <td>-</td>
-<td>예</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>자주 네트워크에 연결되지만 항상은 아님(예: 랩탑)</td>
 <td>자주</td>
 <td>-</td>
-<td>예</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>자주 네트워크에 연결되지만 항상은 아님</td>
 <td>가끔</td>
 <td>-</td>
-<td>예</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>가끔 네트워크에 연결(예: 태블릿)</td>
 <td>자주</td>
 <td>-</td>
-<td>예</td>
+<td>Y</td>
 </tr>
 </table>
 
 ## 충돌 찾기
+{: #finding-conflicts}
 
 문서에 영향을 줄 수 있는 충돌을 찾으려면 문서를 검색할 때 조회 매개변수 `conflicts=true`를 추가하십시오.
 리턴된 결과 문서는 `_conflicts` 배열을 포함하며 이 배열에는 충돌하는 모든 개정판의 목록이 있습니다.
-
-<div></div>
 
 > 문서 충돌을 찾기 위한 맵핑 기능 예:
 
@@ -92,22 +100,21 @@ function (doc) {
 }
 ```
 
-데이터베이스 내 여러 문서의 충돌을 찾으려면 [보기](../api/creating_views.html)를 작성하십시오.
+데이터베이스 내 여러 문서의 충돌을 찾으려면 [보기](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)를 작성하십시오.
 제공된 예와 같이 맵핑 기능을 사용하여 충돌이 있는 모든 문서에 대한 모든 개정판을 찾을 수 있습니다.
 
 이러한 보기가 있으면 필요에 따라 이를 사용하여 충돌을 찾고 해결할 수 있습니다.
 또는 충돌을 식별하고 즉시 해결하기 위해 각 복제 후에 보기를 조회할 수 있습니다.
 
 ## 충돌을 해결하는 방법
+{: #how-to-resolve-conflicts}
 
 충돌을 찾은 후에는 다음 네 단계로 해결할 수 있습니다.
 
-1.	충돌하는 개정판을 [가져옵니다](conflicts.html#get-conflicting-revisions).
-2.	개정판을 애플리케이션에 [병합](conflicts.html#merge-the-changes)하거나 사용자에게 무엇을 수행할지 묻습니다.
-3.	새 개정판을 [업로드](conflicts.html#upload-the-new-revision)합니다.
-4.	이전 개정판을 [삭제](conflicts.html#delete-old-revisions)합니다.
-
-<div></div>
+1.	충돌하는 개정판을 [가져옵니다](#get-conflicting-revisions).
+2.	개정판을 애플리케이션에 [병합](#merge-the-changes)하거나 사용자에게 무엇을 수행할지 묻습니다.
+3.	새 개정판을 [업로드](#upload-the-new-revision)합니다.
+4.	이전 개정판을 [삭제](#delete-old-revisions)합니다.
 
 > 예제 문서 - 첫 번째 버전
 
@@ -125,8 +132,6 @@ function (doc) {
 온라인 상점의 제품에 대한 데이터베이스가 있다고 가정해 보십시오.
 문서의 첫 번째 버전은 다음 예와 같습니다.
 
-<div></div>
-
 > 문서의 두 번째 버전(첫 번째 개정판)은 설명을 추가한 것입니다.
 
 ```json
@@ -140,8 +145,6 @@ function (doc) {
 ```
 
 문서에 설명이 아직 없으므로, 누군가가 설명을 추가할 수 있습니다.
-
-<div></div>
 
 > _대체_ 두 번째 버전은 문서의 첫 번째 버전에 가격 인하 데이터 변경을 도입합니다.
 
@@ -163,12 +166,12 @@ function (doc) {
 이것이 충돌 시나리오입니다.
 
 ## 충돌하는 개정판 가져오기
+{: #get-conflicting-revisions}
 
 문서의 충돌 개정판을 찾으려면 평상시대로 문서를 검색하되 다음 예제와 유사하게 `conflicts=true` 매개변수를 포함시키십시오.
 
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
-<div></div>
 
 > 충돌 개정판을 보여주는 문서 검색에 대한 응답 예
 
@@ -194,6 +197,7 @@ function (doc) {
 종종 배열에 하나의 요소만 있는 경우가 있지만 여기에 다수의 충돌 개정판이 있을 수 있으며 이러한 충돌 개정판 각각이 배열에 나열됩니다.
 
 ## 변경사항 병합
+{: #merge-the-changes}
 
 사용자의 애플리케이션은 모든 잠재적 변경사항을 식별하고 올바르고 유효한 업데이트를 효율적으로 병합하여 조정함으로써 충돌 없는 단일 문서 버전을 생성해야 합니다.
 
@@ -224,6 +228,7 @@ function (doc) {
 이러한 변경사항을 구현하는 방법에 대한 실제 예는 [샘플 코드가 포함된 프로젝트](https://github.com/glynnbird/deconflict)를 참조하십시오.
 
 ## 새 개정판 업로드
+{: #upload-the-new-revision}
 
 > 이전 충돌 개정판에서 변경사항을 병합하여 충돌을 해결한 최종 개정판입니다.
 
@@ -241,6 +246,7 @@ function (doc) {
 이 신규 문서가 데이터베이스에 업로드됩니다.
 
 ## 이전 개정판 삭제
+{: #delete-old-revisions}
 
 > 이전 개정판 삭제 요청 예
 
@@ -254,4 +260,6 @@ DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6
 `DELETE` 요청에 삭제할 개정판을 지정하고 전송하여 이를 수행합니다.
 
 문서의 이전 버전이 삭제되면 해당 문서와 연관된 충돌이 해결된 것으로 표시됩니다.
-[앞에서처럼](conflicts.html#finding-conflicts) `conflicts` 매개변수를 true로 설정하여 문서를 다시 요청함으로써 남아 있는 충돌이 없는지 확인할 수 있습니다.
+문서를 다시 요청하여 충돌이 남아 있지 않음을 확인할 수 있으며,
+`conflicts` 매개변수가 true로 설정된 경우에는 이전처럼
+[충돌 찾기](#finding-conflicts)를 사용하십시오.

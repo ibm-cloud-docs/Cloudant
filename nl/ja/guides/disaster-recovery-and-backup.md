@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
+
+subcollection: cloudant
 
 ---
 
@@ -12,15 +16,19 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# 災害復旧およびバックアップ
+# 災害復旧とバックアップ
+{: #disaster-recovery-and-backup}
 
 データは重要であり貴重です。
 お客様はデータを保護して、データの安全性、可用性、および保全性の維持の確保に役立てたいと考えます。
 {{site.data.keyword.cloudantfull}} には、お客様のデータを保護し、アプリケーションを稼働させ続けるうえで役立ついくつかの方法が用意されています。
-{:shortdesc}
+{: shortdesc}
 
 これらの保護機能のいくつかは自動機能です。
 他の形式の保護について、{{site.data.keyword.cloudant_short_notm}} では、お客様独自の高可用性機能および災害復旧機能の作成に役立つサポート対象ツールを用意しています。
@@ -28,6 +36,7 @@ lastupdated: "2018-10-24"
 本書では、{{site.data.keyword.cloudant_short_notm}} で提供されている自動機能とサポート対象ツールの概要を提供します。
 
 ## 保護のタイプとレベル
+{: #types-and-levels-of-protection}
 
 必要な保護のタイプは、解決しようとしている問題によって決まります。
 
@@ -47,9 +56,8 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 要件を特定したら、一般的なニーズの解決に役立つツールと機能を適用することができます。
 ツールと機能を組み合わせることにより、HA 要件または DR 要件の対処が可能になります。
 
->	**注**: ツールおよび機能が異なれば、提供される保護のレベルも異なります。
-	さまざまな機能は、ユーザーの特定の HA 要件または DR 要件に多かれ少なかれ適している可能性があります。
-{:tip}
+ツールおよび機能が異なれば、提供される保護のレベルも異なります。 さまざまな機能は、ユーザーの特定の HA 要件または DR 要件に多かれ少なかれ適している可能性があります。
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} には、以下のように一般的な要件に対処する数多くのツールおよび機能が用意されています。
 
@@ -58,6 +66,7 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 3.	「従来型の」[データベースのバックアップおよびリカバリー](#database-backup-and-recovery)を使用した、ポイント・イン・タイム・リストアのためのポイント・イン・タイム・スナップショット・バックアップ。
 
 ## リージョン内自動データ冗長性
+{: #in-region-automatic-data-redundancy}
 
 単一の {{site.data.keyword.cloudant_short_notm}} アカウント内で、データは内部プロセスと自動プロセスを使用して三重に保管されます。
 ユーザーは、この内部データ複製を使用可能にするために何もする必要はありません。
@@ -83,6 +92,7 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 要約すると、リージョン内データ冗長性は、リージョン内の単一システムに影響を与える障害に対する許容度を提供することにより、高可用性機能を使用可能にします。
 
 ## 災害復旧のためのクロスリージョン冗長性
+{: #cross-region-redundancy-for-disaster-recovery}
 
 {{site.data.keyword.cloudant_short_notm}} の複製機能は、柔軟な災害復旧機能をアプリケーションに組み込むのに役立ちます。
 災害復旧を使用可能にするための主な方法は、{{site.data.keyword.cloudant_short_notm}} 複製を使用して、複数のリージョンにわたる冗長性を作成するというものです。
@@ -94,7 +104,7 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 2.  必要に応じて各リージョンにデータベースを作成する。
 3.  クロスリージョン冗長性を使用して保管する必要があるデータベースについては、各アカウント内の対応するデータベース間の継続的双方向複製をセットアップする。
 4.  ユーザーの環境が「アクティブ - パッシブ」構成か、または「アクティブ - アクティブ」構成かに応じてデータが経路指定されるように、アプリケーションを設計および実装する。
-  これをセットアップするための詳細なガイドが[使用可能](active-active.html)です。
+  これをセットアップするための詳細なガイドが[使用可能](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)です。
 
 複数のリージョンにわたるデータを処理するようアプリケーションを設計する場合は、以下の点を考慮してください。
 
@@ -102,7 +112,7 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
   この隣接性の使用により、ネットワーク待ち時間を削減し、応答時間を改善できます。
   この構成は、「アクティブ - アクティブ」方式と呼ばれます。
   これは、データの複数コピーの同時使用によって特徴付けられています。
-  「アクティブ - アクティブ」構成内で機能するアプリケーションは、複数のデータ・コピーに関する問題を回避するために、[競合を処理するための戦略](mvcc.html#distributed-databases-and-conflicts)を持つ必要があります。
+  「アクティブ - アクティブ」構成内で機能するアプリケーションは、複数のデータ・コピーに関する問題を回避するために、[競合を処理するための戦略](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#distributed-databases-and-conflicts)を持つ必要があります。
 * デフォルトで、アプリケーションは単一リージョンからデータを要求できます。
   そのリージョンが使用可能でない場合、アプリケーションは別のリージョンからデータを要求するよう切り替えることができます。
   この構成は、「アクティブ - パッシブ」方式と呼ばれます。
@@ -119,6 +129,7 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 ただし、アプリケーションは、他のリージョンに保管されているデータのコピーに「フェイルオーバー」できる必要があります。
 
 ## データベースのバックアップとリカバリー
+{: #database-backup-and-recovery}
 
 [リージョン内自動データ冗長性](#in-region-automatic-data-redundancy)は、データへの高可用性アクセスをアプリケーションに提供します。
 [災害復旧のためにクロスリージョン冗長性](#cross-region-redundancy-for-disaster-recovery)は、災害からの復旧手段をアプリケーションに提供します。
@@ -139,8 +150,8 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 *	完全なデータベースを、さらなる処理およびオフサイト・ストレージに適したファイルにバックアップする。
 *	バックアップ・ファイルに含まれている前の状態から完全なデータベースをリストアする。
 
-> **警告**: {{site.data.keyword.cloudant_short_notm}} でサポートされているツールには以下の制限があります。 
-{:tip}
+{{site.data.keyword.cloudant_short_notm}} でサポートされているツールには以下の制限があります。 
+{: tip}
 
 *	`_security` の設定は、ツールによってバックアップされません。
 *	添付ファイルは、ツールによってバックアップされません。
@@ -150,9 +161,8 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 *	索引定義が保持する設計文書はバックアップされるが、データがリストアされる時、索引は再作成しなければならない。
 	リストアされるデータの量に応じて、この再作成にはかなりの時間がかかる可能性があります。
 
-<div id="conclusion"></div>
-
-## 次のステップ
+## データ保護戦略の次のステップ
+{: #next-steps-with-your-data-protection-strategies}
 
 基本的な {{site.data.keyword.cloudant_short_notm}} 機能およびサポート対象ツールで構築されるアプリケーションを開発して、もっと複雑なデータ保護戦略を可能にすることができます。
 
@@ -163,6 +173,6 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 *	保存のコスト効率を上げるために、古いデータを安価なストレージにマイグレーションする。
 
 バックアップ・ツールは、オープン・ソースの node.js コマンド・ライン・アプリケーションとライブラリーで構成されています。
-[NPM ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} から入手可能です。
+[NPM ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} から入手可能です。
 
-データ保護戦略へのツールの組み込み方法を示すアイデアと例については、[バックアップのクックブック・ガイド](backup-cookbook.html)を参照してください。
+データ保護戦略へのツールの組み込み方法を示すアイデアと例については、[バックアップのクックブック・ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)を参照してください。

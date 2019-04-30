@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
+
+subcollection: cloudant
 
 ---
 
@@ -12,17 +16,19 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Meine Top-5-Tipps für das Modellieren Ihrer zu skalierenden Daten
+# Fünf Tipps zum Modellieren Ihrer zu skalierenden Daten
+{: #five-tips-for-modelling-your-data-to-scale}
 
 In diesem Artikel werden die feineren Aspekte der Modellierung Ihrer Anwendungsdaten besprochen, damit diese auch stark skaliert genutzt werden können.
-{:shortdesc}
+{: shortdesc}
 
-_(Dieser Leitfaden basiert auf einem Blog-Artikel von Mike Rhodes:
-["My top 5 tips for modelling your data to scale" ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window},
-ursprünglich veröffentlicht am 17. Dezember 2013.)_
+*(Dieser Leitfaden basiert auf dem Blog-Artikel von Mike Rhodes: ["My top 5 tips for modelling your data to scale" ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/), der ursprünglich am 17. Dezember 2013 veröffentlicht wurde.)*
 
 Die Art, wie Sie Daten unter {{site.data.keyword.cloudantfull}} modellieren, wirkt sich beträchtlich darauf aus, wie Ihre Anwendung skaliert werden kann. Unser zugrunde liegendes Datenmodell unterscheidet sich grundlegend von einem relationalen Modell. Wenn dieser Unterschied
 nicht berücksichtigt wird, können Leistungsprobleme die Folge sein.
@@ -32,6 +38,7 @@ Wie immer umfasst eine erfolgreiche Modellierung das Erzielen einer Balance zwis
 Lassen Sie uns beginnen.
 
 ## Unveränderliche Daten in Betracht ziehen
+{: #consider-immutable-data}
 
 Wenn Sie Änderungen mit einer Rate von einmal pro Sekunde oder schneller vornehmen,
 ziehen Sie in Betracht, Ihre Dokumente unveränderlich zu machen. Dies reduziert die Gefahr, Konfliktdokumente zu erstellen, beträchtlich.
@@ -45,6 +52,7 @@ um die Dokumente zusammenzufassen, die den aktuellen Status ausmachen. Da Ansich
 sollte sich dies nicht negativ auf die Anwendungsleistung auswirken.
 
 ## Gründe, warum Sie nicht veränderbare Daten berücksichtigen sollten 
+{: #why-this-helps-you-consider-immutable-data}
 
 Der `https://$ACCOUNT.cloudant.com/`-Schnittstelle liegt eine verteilte Datenbank zugrunde. 
 Im Cluster werden Dokumente in einer Anzahl von Shards gruppiert, die zusammen die Datenbank bilden. Diese Shards werden dann über Knoten im Cluster verteilt. Auf diese Weise
@@ -69,6 +77,7 @@ wenn Aktualisierungen häufiger als einmal pro Sekunde vorgenommen werden, empfe
 zu verwenden.
 
 ## Ansichten anstelle von Suchindizes für die Vorberechnung von Ergebnissen verwenden
+{: #use-views-to-pre-calculate-results-rather-than-as-search-indexes}
 
 Statt Ansichten als überbewertete Suchindizes zu verwenden ("alle Dokumente von `person` abrufen"), können Sie versuchen,
 die Datenbank für Sie arbeiten zu lassen. Statt beispielsweise alle zehntausend Personendokumente
@@ -78,6 +87,7 @@ Sie ersparen Ihrer Anwendung Arbeit und ermöglichen der Datenbank, viele kleine
 statt große Mengen an Daten von Platte zu lesen und in einer einzelnen Anforderung zu verarbeiten.
 
 ## Gründe, warum Sie Ansichten für die Vorberechnung von Ergebnissen verwenden sollten
+{: #why-this-helps-you-use-views-to-pre-calculate-results}
 
 Es ist ganz einfach. Erstens werden sowohl 'map'- als auch 'reduce'-Funktionen vorab berechnet. Das heißt,
 die Frage nach dem Ergebnis einer 'reduce'-Funktion ist eine kostengünstige Operation, insbesondere im Vergleich zu den
@@ -96,6 +106,7 @@ von Ansichten zur Vorabberechnung von zusammengefassten Daten ist eine Möglichk
 Zeit, die Ihre Anwendung auf den Anschluss der Anforderung wartet, verkürzt.
 
 ## Denormalisieren Ihrer Daten
+{: #de-normalise-your-data}
 
 In relationalen Datenbanken ist das Normalisieren von Daten häufig die effizienteste Methode, Daten zu speichern. 
 Das ist sehr sinnvoll, wenn Sie JOINs verwenden können, um auf einfache Weise Daten aus mehreren Tabellen zu kombinieren. 
@@ -111,10 +122,11 @@ verwenden eine verbundene Tabelle, um Tags mit ihren zugehörigen Dokumenten zu 
 Dokumenten mit einem bestimmten Tag ermöglicht.
 
 In {{site.data.keyword.cloudant_short_notm}} würden Sie Tags in einer Liste in jedem Dokument speichern. Dann würden Sie eine Ansicht verwenden, um
-die Dokumente mit einem bestimmten Tag abzurufen, indem Sie [jeden Tag als Schlüssel in der 'map'-Funktion in Ihrer Ansicht ausgeben](../api/creating_views.html). 
+die Dokumente mit einem bestimmten Tag abzurufen, indem Sie [jeden Tag als Schlüssel in der 'map'-Funktion in Ihrer Ansicht ausgeben](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce). 
 Die Abfrage der Ansicht nach einem bestimmten Schlüssel liefert anschließend alle Dokumente mit diesem Tag.
 
 ## Gründe, warum das Denormalisieren Ihrer Daten hilft
+{: #why-this-helps-you-de-normalize-your-data}
 
 Es läuft alles auf die Anzahl von HTTP-Anforderungen hinaus, die Ihre Anwendung stellt. Das Öffnen von HTTP-Verbindungen - insbesondere HTTPS - ist mit Kosten verbunden und auch wenn das Wiederverwenden von Verbindungen die
 Situation schon verbessert, wird vor allem das Stellen weniger Anforderungen die Rate, mit der Ihre Anwendung Daten verarbeiten kann, beschleunigen.
@@ -123,6 +135,7 @@ Ein positiver Nebeneffekt ist, dass denormalisierte Dokumente und vorab berechne
 Wert, den Ihre Anwendung benötigt, vorab generieren können statt während der Ausführung der Abfrage.
 
 ## Konflikte mit differenzierteren Dokumenten vermeiden
+{: #avoid-conflicts-by-using-finer-grained-documents}
 
 Der folgende Rat widerspricht in gewisser Weise dem Vorschlag, Ihre Daten zu denormalisieren: Verwenden Sie
 differenzierte Dokumente, um die Wahrscheinlichkeit von Konflikten aufgrund gleichzeitig ausgeführter Änderungen zu senken. 
@@ -140,7 +153,7 @@ Beispiel: Eine Krankenakte mit einer Liste von Operationen:
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Wenn Joe das Pech hat, mehrere Operationen gleichzeitig über sich ergehen lassen zu müssen, führen die
 vielen gleichzeitig vorgenommenen Aktualisierungen an einem Dokument wahrscheinlich zu Konfliktdokumenten, wie oben beschrieben. 
@@ -155,7 +168,7 @@ hochladen:
     "surgery": "heart bypass"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ```json
 {
@@ -164,7 +177,7 @@ hochladen:
     "surgery": "lumbar puncture"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Die Ausgabe des Felds `"patient"` als Schlüssel in Ihrer Ansicht ließe dann die Abfrage aller
 Operationen für einen bestimmten Patienten zu. Auch hier werden Ansichten verwendet, um ein Gesamtbild einer
@@ -172,6 +185,7 @@ bestimmten Entität aus verschiedenen Dokumenten zu erstellen, wodurch die Anzah
 niedrig bleibt, wenn die Daten für eine einzelne modellierte Entität aufgeteilt wurden.
 
 ## Gründe, warum dies Konflikte vermeidet
+{: #why-this-helps-you-avoid-conflicts}
 
 Indem Sie Konfliktdokumente vermeiden, beschleunigen Sie viele Operationen in Ihren {{site.data.keyword.cloudant_short_notm}}-Datenbanken. 
 Grund dafür ist, dass es einen Prozess gibt, der die aktuell entscheidende Revision ermittelt, die immer verwendet wird, wenn das Dokument gelesen wird: einzelne Dokumentabrufe, Aufrufe mit `include_docs=true`, Ansichtserstellung usw.
@@ -188,6 +202,7 @@ Aber wenn ein pathologisches Maß erreicht wird, insbesondere wenn die Konflikte
 der einzelnen Äste einer Dokumentbaumstruktur zeitaufwändig und speicherintensiv.
 
 ## Integrierte Konfliktlösung
+{: #build-in-conflict-resolution}
 
 In einem sukzessive konsistenten System wie {{site.data.keyword.cloudant_short_notm}} lassen sich Konflikte nicht vermeiden. Dies ist
 der Preis für Skalierbarkeit und Datenausfallsicherheit.
@@ -206,17 +221,19 @@ Wie Sie dies realisieren, ist sehr anwendungsspezifisch, aber wir können Ihnen 
     nicht konsistent ist mit Ihrem Dokument, was eine fehlerfreie Konfliktlösung schwierig macht. Und was, wenn die anderen Dokumente ebenfalls Konflikte aufweisen?
 
 ## Gründe, warum dies die Integration einer Konfliktlösung unterstützt 
+{: #why-this-helps-you-build-in-conflict-resolution}
 
 Wie oben beschrieben, lasten Dokumente mit vielen Konflikten die Datenbank sehr aus. Die Integration
 einer Funktion zur frühen Konfliktlösung ist eine große Unterstützung beim Vermeiden einer pathologisch hohen Anzahl von Konfliktdokumenten.
 
 ## Zusammenfassung
+{: #summary}
 
 Diese Tipps zeigen verschiedene Arten, wie sich Modelldaten auf die Leistung Ihrer Anwendung auswirken. Der Datenspeicher von {{site.data.keyword.cloudant_short_notm}} hat einige charakteristische
 Merkmale, auf die Sie achten müssen und die Sie für sich nutzen können, um sicherzustellen, dass die
 Datenbankleistung mit dem Wachstum Ihrer Anwendung skaliert wird. Wir verstehen, dass ein Wechsel verwirrend sein kann, deshalb stehen wir Ihnen immer mit Rat und Tat zur Seite.
 
 Lesen Sie auch diese Diskussion über das
-[Datenmodell für Foundbite ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){:new_window}
-oder sehen Sie sich dieses [Beispiel von unseren Freunden bei Twilio ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){:new_window} an.
+[Datenmodell für Foundbite ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}
+oder sehen Sie sich dieses [Beispiel von unseren Freunden bei Twilio ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window} an.
 

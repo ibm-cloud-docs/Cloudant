@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
+
+subcollection: cloudant
 
 ---
 
@@ -11,21 +15,22 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-24 -->
 
-<div id="cap_theorem"></div>
-
-<div id="consistency"></div>
-
 # CAP 정리
+{: #cap-theorem}
 
-{{site.data.keyword.cloudantfull}}에서는 ['결과적으로 일관된' ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window} 모델을 사용합니다.
-{:shortdesc}
+{{site.data.keyword.cloudantfull}}에서는 ['결과적으로 일관된' ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window} 모델을 사용합니다.
+{: shortdesc}
 
 이 모델이 작동하는 방식과 이 모델이 {{site.data.keyword.cloudant_short_notm}} 사용에 있어서 필수적인 부분인 이유를 이해하려면 일관성의 의미를 이해해야 합니다.
 
-일관성은 데이터베이스 내의 트랜잭션을 신뢰할 수 있는 방식으로 처리하고 보고하는 데 필요한 네 가지 ['ACID' ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://en.wikipedia.org/wiki/ACID){:new_window}
+일관성은 데이터베이스 내의 트랜잭션을 신뢰할 수 있는 방식으로 처리하고 보고하는 데 필요한 네 가지 ['ACID' ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://en.wikipedia.org/wiki/ACID){: new_window}
 특성 중 하나입니다.
 
 또한, 일관성은
@@ -59,6 +64,7 @@ lastupdated: "2018-10-24"
 고장에 대처하려면 시스템이 더 정교해져야 합니다.
 
 ## 파티션 장애 내성을 우선하여 발생하는 단점
+{: #tradeoffs-in-partition-tolerance}
 
 일관성 및 파티션 장애 내성을 우선하는 데이터는 보통
 <a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">마스터-슬레이브 <img src="../images/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘"></a>
@@ -66,17 +72,18 @@ lastupdated: "2018-10-24"
 오직 리더만 데이터 쓰기를 승인할 수 있으며, 모든 보조 노드는 리더로부터 데이터를 복제하여 읽기를 처리합니다.
 해당 리더의 네트워크 연결이 끊어지거나 시스템의 다른 노드와 통신할 수 없게 되는 경우에는 나머지 노드가 새 리더를 선출합니다.
 이 선출 프로세스는 시스템마다 다르며,
-[심각한 문제점 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://aphyr.com/posts/284-call-me-maybe-mongodb){:new_window}의 원인이 될 수 있습니다.
+[심각한 문제점 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}의 원인이 될 수 있습니다.
 
 {{site.data.keyword.cloudant_short_notm}}에서는 마스터-마스터 설정을 사용하여 가용성 및 파티션 장애 내성을 우선하며, 이 설정에서는 모든 노드가 데이터 일부에 대한 쓰기 및 읽기를 허용할 수 있습니다.
 여러 노드가 각 데이터 부분의 사본을 포함합니다.
 각 노드는 다른 노드의 데이터를 복사합니다.
 하나의 노드가 액세스 불가능해지면 네트워크가 복구되는 동안 다른 노드가 그 역할을 대신할 수 있습니다.
-이 방식에서는 임의의 노드 장애가 발생해도 시스템이 데이터를 적시에 리턴하며 [결과적 일관성 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}을 유지합니다.
+이 방식에서는 임의의 노드 장애가 발생해도 시스템이 데이터를 적시에 리턴하며 [결과적 일관성 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}을 유지합니다.
 절대 일관성을 포기함으로써 발생하는 단점은 모든 노드가 동일한 데이터를 보게 되기까지 시간이 소요된다는 점입니다.
 따라서, 새 데이터가 시스템 전체로 전파되는 동안 일부 응답은 이전 데이터를 포함할 수 있습니다.
 
 ## 접근법 변경
+{: #changing-the-approach}
 
 하나의 일관된 데이터 보기를 유지하는 것은 관계형 데이터베이스가 이 작업을 대신 수행해 주므로 논리적이며 이해하기 쉽습니다.
 보통은 데이터베이스 시스템과 상호작용하는 웹 기반 서비스가 이러한 방식으로 동작할 것으로 예상됩니다.
@@ -89,10 +96,11 @@ lastupdated: "2018-10-24"
 가용성과 결과적 일관성을 우선하는 필요성을 중심으로 설계된 데이터베이스가 애플리케이션을
 온라인 상태로 유지하는 데 더 적합합니다.
 애플리케이션 데이터의 일관성 문제는 사후에 처리할 수 있습니다.
-MIT의 Seth Gilbert와 Nancy Lynch가 내린 [결론 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){:new_window}은
+MIT의 Seth Gilbert와 Nancy Lynch가 내린 [결론 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){: new_window}은
 "오늘날 실생활에서 사용되고 있는 대부분의 시스템이 '대부분의 데이터를 대부분의 경우에' 리턴하는 것으로 만족하도록 강요당하고 있다"라는 것입니다.
 
 ## 엔터프라이즈 입장에서의 애플리케이션 가용성 대 일관성
+{: #application-availability-versus-consistency-in-the-enterprise}
 
 인기 웹 기반 서비스에 대한 연구는 사람들은 이미 고가용성을 기대하고 있으며, 보통 자신이 그렇게 행동하고 있음을 깨닫지 못한 상태에서 결과적으로 일관된 데이터를 위해 이 가용성을 기꺼이 포기할 것임을 보여줍니다.
 
@@ -111,6 +119,7 @@ ATM을 생각해 보십시오. 일관되지 않은 금융 데이터가 초과인
 조직에서는 사용자의 실망, 생산성 손실 및 놓친 기회와 같이 가동 중단 시간으로 인해 발생하는 비용을 고려해야 합니다.
 
 ## 이론에서 구현으로
+{: #from-theory-to-implementation}
 
 클라우드 애플리케이션에서는 고가용성을 구현하는 것이 매우 중요합니다.
 그렇지 않은 경우에는 글로벌 데이터베이스 일관성이 스케일링에서 주요 장애물로 남게 됩니다.

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
+
+subcollection: cloudant
 
 ---
 
@@ -11,10 +15,15 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
 # Conflitti
+{: #conflicts}
 
 Nei database distribuiti,
 in cui le copie dei dati potrebbero essere archiviate in più di una posizione,
@@ -27,7 +36,7 @@ l'effetto potrebbe essere quello di introdurre disaccordo o "conflitti" su quale
 contenuto corretto e definitivo per il documento.
 
 {{site.data.keyword.cloudantfull}} cerca di aiutarti ad evitare i conflitti avvertendoti di potenziali problemi.
-Per farlo, restituisce una [risposta `409`](../api/http.html#http-status-codes) a una richiesta di aggiornamento problematica.
+Ti avvisa restituendo una [risposta `409`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) a una richiesta di aggiornamento problematica.
 Tuttavia,
 una risposta `409` potrebbe non essere ricevuta se l'aggiornamento del database è
 richiesto su un sistema che non è attualmente connesso alla rete.
@@ -97,14 +106,13 @@ conflitti:
 </table>
 
 ## Ricerca di conflitti
+{: #finding-conflicts}
 
 Per trovare eventuali conflitti che potrebbero influenzare un documento,
 aggiungi il parametro di query `conflicts=true` durante il recupero di un documento.
 Quando viene restituito,
 il documento risultante contiene un array `_conflicts`
 che include un elenco di tutte le revisioni in conflitto.
-
-<div></div>
 
 > Funzione di mappa di esempio per trovare conflitti del documento:
 
@@ -117,7 +125,7 @@ function (doc) {
 ```
 
 Per trovare conflitti per più documenti in un database,
-scrivi una [vista](../api/creating_views.html).
+scrivi una [vista](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce).
 Utilizzando una funzione di mappa come nell'esempio fornito,
 puoi trovare tutte le revisioni per ogni documento con un conflitto.
 
@@ -127,15 +135,14 @@ In alternativa,
 puoi eseguire una query nella vista dopo ogni replica per identificare e risolvere immediatamente i conflitti.
 
 ## Come risolvere i conflitti
+{: #how-to-resolve-conflicts}
 
 Una volta che hai trovato un conflitto, puoi risolverlo seguendo 4 passi:
 
-1.	[Ottieni](conflicts.html#get-conflicting-revisions) le revisioni in conflitto.
-2.	[Unisci](conflicts.html#merge-the-changes) le revisioni nella tua applicazione o chiedi all'utente cosa vuole fare.
-3.	[Carica](conflicts.html#upload-the-new-revision) la nuova revisione.
-4.	[Elimina](conflicts.html#delete-old-revisions) le vecchie revisioni.
-
-<div></div>
+1.	[Ottieni](#get-conflicting-revisions) le revisioni in conflitto.
+2.	[Unisci](#merge-the-changes) le revisioni nella tua applicazione o chiedi all'utente cosa vuole fare.
+3.	[Carica](#upload-the-new-revision) la nuova revisione.
+4.	[Elimina](#delete-old-revisions) le vecchie revisioni.
 
 > Documento di esempio: la prima versione.
 
@@ -153,8 +160,6 @@ Facciamo un esempio di come effettuare queste operazioni.
 Supponi di avere un database di prodotti per un negozio online.
 La prima versione di un documento potrebbe essere simile all'esempio fornito.
 
-<div></div>
-
 > Seconda versione (prima revisione) del documento, che aggiunge una descrizione.
 
 ```json
@@ -169,8 +174,6 @@ La prima versione di un documento potrebbe essere simile all'esempio fornito.
 
 Il documento non ha ancora una descrizione,
 pertanto qualcuno potrebbe aggiungerne una.
-
-<div></div>
 
 > Seconda versione _alternativa_, che introduce una modifica dei dati di riduzione del prezzo alla prima versione del documento.
 
@@ -195,6 +198,7 @@ potrebbe non essere chiaro quale delle due versioni alternative del documento si
 Questo è uno scenario di conflitto.
 
 ## Ottieni le revisioni in conflitto
+{: #get-conflicting-revisions}
 
 Per trovare eventuali revisioni in conflitto per un documento
 recupera tale documento come al solito,
@@ -203,7 +207,6 @@ come nel seguente esempio:
 
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
-<div></div>
 
 > Risposta di esempio al recupero del documento, che mostra revisioni in conflitto
 
@@ -236,6 +239,7 @@ ma è possibile che ci siano molte revisioni in conflitto,
 ognuna delle quali è elencata nell'array.
 
 ## Unisci le modifiche
+{: #merge-the-changes}
 
 La tua applicazione deve identificare tutte le potenziali modifiche
 e riconciliarle,
@@ -280,6 +284,7 @@ come ad esempio:
 Per un esempio pratico di come implementare queste modifiche, vedi [questo progetto con il codice di esempio](https://github.com/glynnbird/deconflict).
 
 ## Carica la nuova revisione
+{: #upload-the-new-revision}
 
 > Revisione finale, dopo aver risolto e unito le modifiche delle precedenti revisioni in conflitto.
 
@@ -298,6 +303,7 @@ creerai un documento contenente i dati correnti e definitivi.
 Questo nuovo documento viene caricato nel database.
 
 ## Elimina le vecchie revisioni
+{: #delete-old-revisions}
 
 > Richieste di esempio per eliminare le vecchie revisioni.
 
@@ -314,5 +320,5 @@ specificando le revisioni da eliminare.
 Quando le versioni precedenti di un documento vengono eliminate,
 i conflitti associati a quel documento vengono contrassegnati come risolti.
 Puoi verificare che non rimangano conflitti richiedendo nuovamente il documento,
-con il parametro `conflicts` impostato su true,
-[come in precedenza](conflicts.html#finding-conflicts).
+con il parametro `conflicts` impostato su true, utilizza la
+[ricerca dei conflitti](#finding-conflicts) come in precedenza.

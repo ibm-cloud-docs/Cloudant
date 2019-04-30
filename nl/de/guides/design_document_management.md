@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
+
+subcollection: cloudant
 
 ---
 
@@ -11,11 +15,18 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Entwurfsdokumentmanagement
+{: #design-document-management}
 
 *Beitrag von Glynn Bird, Developer Advocate bei IBM Cloudant,
-[glynn@cloudant.com ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:glynn@cloudant.com){:new_window}*
+[glynn@cloudant.com ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:glynn@cloudant.com){: new_window}*
 
 Der skalierbare JSON-Datenspeicher von {{site.data.keyword.cloudantfull}} verfügt über verschiedene Abfragemechanismen,
 die allesamt Indizes generieren, die separat von den Kerndaten erstellt und verwaltet werden.
@@ -27,7 +38,7 @@ nicht blockierenden Schreibdurchsatz zu erzielen.
 -   Suchindizes werden mithilfe von Apache Lucene erstellt, um eine Suche nach Text mit freiem Format,
     Facettierung und komplexe Ad-hoc-Abfragen zuzulassen.
 
-Die {{site.data.keyword.cloudant_short_notm}}-[Suchindizes](../api/search.html) und [MapReduce-Ansichten](../api/creating_views.html)
+Die {{site.data.keyword.cloudant_short_notm}}-[Suchindizes](/docs/services/Cloudant?topic=cloudant-search#search) und [MapReduce-Ansichten](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)
 werden durch Hinzufügen von Entwurfsdokumenten zu einer Datenbank konfiguriert.
 Entwurfsdokumente sind JSON-Dokumente, die die Anweisungen dazu enthalten, wie die Ansicht oder der Index erstellt werden sollen.
 Einfaches Beispiel:
@@ -45,10 +56,10 @@ _Beispiel eines einfachen Datendokuments:_
     "ts": 1422358827
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Jedes Datendokument enthält einen Namen, einen Hauptteil und eine Zeitmarke.
-Wir möchten eine [MapReduce-Ansicht](../api/creating_views.html) erstellen, um unsere Dokumente nach Zeitmarke zu sortieren.
+Wir möchten eine [MapReduce-Ansicht](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) erstellen, um unsere Dokumente nach Zeitmarke zu sortieren.
 
 Dafür erstellen wird eine 'map'-Funktion ähnlich dem folgenden Beispiel.
 
@@ -61,7 +72,7 @@ function(doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Die Funktion gibt die Zeitmarke des Dokuments aus, sodass sie als Schlüssel für den Index genutzt werden kann.
 Da wir nicht an dem Wert im Index interessiert sind, wird `null` ausgegeben.
@@ -87,7 +98,7 @@ _Beispiel eines Entwurfsdokuments, das eine Ansicht mithilfe einer 'map'-Funktio
     "language": "javascript"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Der 'map'-Code wurde in eine JSON-kompatible Zeichenfolge umgewandelt und in ein Entwurfsdokument eingefügt.
 
@@ -109,16 +120,16 @@ An dieser Stelle möchten wir Sie an Folgendes erinnern:
 -   Die Erstellung eines Index vollzieht sich asynchron.
     {{site.data.keyword.cloudant_short_notm}} bestätigt, dass unser Entwurfsdokument gespeichert wurde,
     aber um den Fortschritt bei der Erstellung des Index zu prüfen, müssen wir den
-    {{site.data.keyword.cloudant_short_notm}}-Endpunkt [`_active_tasks`](../api/active_tasks.html) abfragen.
+    {{site.data.keyword.cloudant_short_notm}}-Endpunkt [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) abfragen.
 -   Je mehr Daten vorhanden sind, desto länger dauert es, bis der Index bereit ist.
 -   Während der anfänglichen Indexerstellung werden
     _alle Abfragen des Index blockiert_.
 -   Die Abfrage einer Ansicht löst die Zuordnung aller Dokumente aus, die noch nicht inkrementell indiziert wurden.
     So wird sichergestellt, dass die Ansicht der Daten aktuell ist.
-    In der folgenden Diskussion des [Parameters `stale`](#stale) erfahren Sie, welche
-    Ausnahmen für diese Regel gelten.
+    Ausnahmen von dieser Regel finden Sie in der folgenden Erläuterung des [Parameters `stale`](#the-stale-parameter).
 
 ## Mehrere Ansichten in demselben Entwurfsdokument
+{: #multiple-views-in-the-same-design-document}
 
 Wenn wir verschiedene Ansichten in demselben Entwurfsdokument definieren,
 werden sie effektiv zum selben Zeitpunkt erstellt.
@@ -128,13 +139,14 @@ _alle vorhandenen MapReduce-Ansichten_, die in diesem Dokument definiert sind, u
 
 Falls MapReduce-Ansichten unabhängig voneinander geändert werden müssen, platzieren Sie ihre Definitionen in verschiedene Entwurfsdokumente. 
 
->   **Hinweis**: Dieses Verhalten gilt nicht für Lucene-Suchindizes.
-    Sie können innerhalb desselben Entwurfsdokuments geändert werden,
+Dieses Verhalten gilt nicht für Lucene-Suchindizes. Sie können innerhalb desselben Entwurfsdokuments geändert werden,
     ohne dass andere, nicht geänderte Indizes in demselben Dokument ungültig werden.
+{: note}
 
 ![Abbildung der Versionsänderung eines Entwurfsdokuments](../images/DesDocMan02.png)
 
 ## Änderungen an einem Entwurfsdokument verwalten
+{: #managing-changes-to-a-design-document}
 
 Angenommen, zu einem bestimmten Zeitpunkt in der Zukunft möchten wir das Design unserer Ansicht ändern.
 Aber statt zum eigentlichen Zeitmarkenergebnis zurückzukehren,
@@ -162,7 +174,7 @@ _Beispiel eines Entwurfsdokuments, das eine 'reduce'-Funktion verwendet:_
     "language": "javascript"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Wenn dieses Entwurfsdokument gespeichert wird, macht
 {{site.data.keyword.cloudant_short_notm}} den alten Index vollständig ungültig und startet die
@@ -188,10 +200,12 @@ kommt es zu einem Bereitstellungsdilemma:
     während Version 2 eine durch die 'reduce'-Funktion bearbeitete Anzahl von Ergebnissen erwartet.
 
 ## Änderungen an Entwurfsdokumenten koordinieren
+{: #coordinating-changes-to-design-documents}
 
 Es gibt zwei Arten, mit diesem Änderungsmanagementproblem umzugehen.
 
-### Versionierte Entwurfsdokumente 
+### Versionierte Entwurfsdokumente
+{: #versioned-design-documents}
 
 Eine Lösung ist, versionierte Entwurfsdokumentnamen zu verwenden:
 
@@ -206,12 +220,10 @@ Die Verwendung versionierter Entwurfsdokumente ist eine einfache Methode für da
 vorausgesetzt, Sie denken daran, die älteren Versionen zu einem späteren Zeitpunkt zu entfernen.
 
 ### Entwurfsdokumente verschieben und wechseln
+{: #-move-and-switch-design-documents}
 
-Eine andere Methode die
-[hier ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window}
-beschrieben ist, verlässt sich darauf, dass {{site.data.keyword.cloudant_short_notm}} erkennt, wenn zwei identische Entwurfsdokumente
-vorhanden sind, und keine Zeit und Ressourcen dafür verschwendet, bereits vorhandene Ansichten
-ein zweites Mal zu erstellen.
+Eine andere Methode basiert darauf, dass {{site.data.keyword.cloudant_short_notm}} erkennt, wenn zwei identische Entwurfsdokumente
+vorliegen, und keine Zeit und Ressourcen dafür verschwendet, bereits vorhandene Ansichten erneut zu erstellen.
 Mit anderen Worten: Wenn wir von unserem Entwurfsdokument `_design/fetch` ein exaktes Duplikat `_design/fetch_OLD` erstellen,
 funktionieren beide Endpunkte austauschbar, ohne eine erneute Indexierung auszulösen.
 
@@ -229,6 +241,7 @@ So wechseln Sie zur neuen Ansicht:
 7.  Löschen Sie das Entwurfsdokument `_design/fetch_OLD`.
 
 ## Tools für das Verschieben und Wechseln
+{: #move-and-switch-tooling}
 
 Es gibt ein Node.js-Befehlszeilenscript namens `couchmigrate`, das die Prozedur des Verschiebens und Wechselns automatisiert.
 Es kann wie folgt installiert werden.
@@ -238,7 +251,7 @@ _Befehl für die Installation des Node.js-Scripts `couchmigrate`:_
 ```sh
 npm install -g couchmigrate
 ```
-{:codeblock}
+{: codeblock}
 
 Um das Script `couchmigrate` verwenden zu können, definieren Sie zunächst
 die URL der CouchDB/{{site.data.keyword.cloudant_short_notm}}-Instanz, indem Sie eine
@@ -249,7 +262,7 @@ _Definition der URL einer {{site.data.keyword.cloudant_short_notm}}-Instanz:_
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
 ```
-{:codeblock}
+{: codeblock}
 
 Die URL kann HTTP oder HTTPS sein und Authentifizierungsnachweise enthalten.
 
@@ -258,7 +271,7 @@ _Definition der URL der {{site.data.keyword.cloudant_short_notm}}-Instanz mit Au
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 Angenommen, wir verfügen über ein Entwurfsdokument im JSON-Format,
 das in einer Datei gespeichert ist. Dann können wir den Befehl zum Migrieren
@@ -273,7 +286,7 @@ _Ausführen des Befehls `couchmigrate`:_
 ```sh
 couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
-{:pre}
+{: pre}
 
 Das Script koordiniert die Prozedur des Verschiebens und Wechselns,
 wobei es wartet, bis die Ansicht erstellt ist, bevor es zurückkehrt.
@@ -281,11 +294,10 @@ Falls das eingehende Entwurfsdokument dem etablierten entspricht,
 kehrt das Script praktisch sofort zurück.
 
 Den Quellcode für das Script finden Sie hier:
-[https://github.com/glynnbird/couchmigrate ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/glynnbird/couchmigrate){:new_window}.
-
-<div id="stale"></div>
+[https://github.com/glynnbird/couchmigrate ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://github.com/glynnbird/couchmigrate){: new_window}.
 
 ## Parameter `stale`
+{: #the-stale-parameter}
 
 Falls ein Index abgeschlossen wurde, aber neue Datensätze zur
 Datenbank hinzugefügt werden, wird das Update des Index im Hintergrund
@@ -319,16 +331,13 @@ Bei der Abfrage der Ansicht haben wir drei Möglichkeiten:
 `stale=ok` oder `stale=update_after` hinzuzufügen, kann eine gute Methode sein, Antworten schneller von einer Ansicht zu bekommen,
 aber sie geht auf Kosten der Aktualität der Daten. 
 
->   **Hinweise**: Das Standardverhalten verteilt die Arbeitslast gleichmäßig auf die Konten im {{site.data.keyword.cloudant_short_notm}}-Cluster.
-    Wenn Sie die alternativen Optionen `stale=ok` oder `stale=update_after` nutzen,
+Im Standardverhalten wird die Arbeitslast gleichmäßig auf die Zugriffsknoten im {{site.data.keyword.cloudant_short_notm}}-Cluster verteilt. Wenn Sie die alternativen Optionen `stale=ok` oder `stale=update_after` nutzen,
     wird unter Umständen eine Untergruppe von Clusterknoten bevorzugt bedient,
-    um konsistente Ergebnisse aus einer sukzessive konsistenten Gruppe zurückzugeben.
-    Das bedeutet, dass der Parameter `stale` keine perfekte Lösung für alle Anwendungsszenarios ist.
-    Er kann jedoch nützlich sein beim Bereitstellen zeitgerechter Antworten zu sich schnell ändernden Datengruppen,
-    wenn Ihre Anwendung nicht aktuelle Ergebnisse akzeptiert.
-    Wenn sich Ihre Daten nicht so häufig ändern,
+    um konsistente Ergebnisse aus einer sukzessive konsistenten Gruppe zurückzugeben. Das bedeutet, dass der Parameter `stale` keine perfekte Lösung für alle Anwendungsszenarios ist. Er kann jedoch nützlich sein beim Bereitstellen zeitgerechter Antworten zu sich schnell ändernden Datengruppen,
+    wenn Ihre Anwendung nicht aktuelle Ergebnisse akzeptiert. Wenn sich Ihre Daten nicht so häufig ändern,
     bietet `stale=ok` oder `stale=update_after` keinen entscheidenden Leistungsvorteil
     und verteilt die Arbeitslast unter Umständen ungleichmäßig in größeren Clustern.
+{: note}
 
 Vermeiden Sie wann immer möglich, `stale=ok` oder `stale=update_after` zu verwenden.
 Das Standardverhalten stellt die aktuellsten Daten bereit und verteilt sie im gesamten Cluster.
@@ -336,6 +345,5 @@ Wenn es möglich ist, eine Client-App darauf aufmerksam zu machen, dass eine umf
 (beispielsweise eine regelmäßige Massendatenaktualisierung), könnte die App während dieser Zeit temporär zu `stale=ok` wechseln
 und anschließend zum Standardverhalten zurückkehren.
 
->   **Hinweis**: Die Option `stale` ist noch verfügbar,
-    aber die leistungsfähigeren Optionen `stable` und `update` sollten stattdessen verwendet werden.
-    Genauere Angaben finden Sie unter [Auf eine veraltete Ansicht zugreifen](../api/using_views.html#accessing-a-stale-view).
+Obwohl die Option `stale` weiterhin verfügbar ist, müssen stattdessen die hilfreicheren Optionen `stable` und `update` verwendet werden. Weitere Informationen finden Sie im Abschnitt [Auf eine veraltete Ansicht zugreifen](/docs/services/Cloudant?topic=cloudant-using-views#view-freshness).
+{: note}

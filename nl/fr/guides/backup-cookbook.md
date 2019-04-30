@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
+
+subcollection: cloudant
 
 ---
 
@@ -12,33 +16,38 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
-<!-- Update backup-guide.md with with any changes. -->
 
-# Sauvegarde et reprise {{site.data.keyword.cloudant_short_notm}}
+# Sauvegarde et reprise de {{site.data.keyword.cloudant_short_notm}}
+{: #ibm-cloudant-backup-and-recovery}
 
-Le présent manuel d'instructions fait partie du [guide de reprise après incident {{site.data.keyword.cloudantfull}}](disaster-recovery-and-backup.html).
+Le présent manuel d'instructions fait partie du [guide de reprise après incident {{site.data.keyword.cloudantfull}}](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 Cela vaut vraiment la peine de commencer par la lecture de celui-ci si vous n'êtes pas familier du sujet et que vous souhaitez comprendre comment fonctionne la sauvegarde avec d'autres fonctionnalités offertes par {{site.data.keyword.cloudant_short_notm}} pour répondre aux exigences de reprise après incident et de haute disponibilité.
 
 Bien que les données soient stockées de manière redondante dans un cluster {{site.data.keyword.cloudant_short_notm}}, il est important d'envisager des mesures de sauvegarde supplémentaires.
 Par exemple, le stockage redondant de données ne protège pas contre les risques d'erreur lorsque des données sont modifiées.
 
 ## Introduction à CouchBackup
+{: #introducing-couchbackup}
 
 {{site.data.keyword.cloudant_short_notm}} fournit un outil pris en charge de sauvegarde et de restauration par image instantanée,
 à savoir CouchBackup, un outil open source.
-Celui-ci contient une bibliothèque `node.js` qui est [disponible pour être installée sur npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{:new_window}.
+Celui-ci contient une bibliothèque `node.js` qui est [disponible pour être installée sur npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{: new_window}.
 
 Outre la bibliothèque, le package CouchBackup contient deux outils de ligne de commande :
 
 1. `couchbackup`, qui vide les données JSON d'une base de données vers un fichier texte de sauvegarde.
 2. `couchrestore`, qui restaure les données d'un fichier texte de sauvegarde vers une base de données.
 
-> **Avertissement** : Les outils CouchBackup présentent certaines [limites](#limitations).
-{:tip}
+Les outils CouchBackup présentent certaines [limites](#limitations).
+{: important}
 
 ## Sauvegarde des données {{site.data.keyword.cloudant_short_notm}}
+{: #backing-up-your-ibm-cloudant-data}
 
 Vous pouvez procéder à une simple sauvegarde à l'aide de l'outil `couchbackup`.
 Pour sauvegarder la base de données `animaldb` vers un fichier texte appelé `backup.txt`, utilisez une commande similaire à l'exemple suivant :
@@ -46,21 +55,24 @@ Pour sauvegarder la base de données `animaldb` vers un fichier texte appelé `b
 ```sh
 couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 ```
-{:codeblock}
+{: codeblock}
 
-Le fichier [npm readme ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmreadme]{:new_window} contient des informations sur d'autres options, telles que :
+Le fichier [npm readme ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmreadme]{: new_window} contient des informations sur d'autres options, telles que :
 
 * Les variables d'environnement permettant de définir le nom de la base de données et son adresse URL.
 * L'utilisation d'un fichier journal permettant d'enregistrer la progression d'une sauvegarde.
 * La possibilité de reprendre une sauvegarde interrompue.
-  **Remarque** : Cette option est disponible uniquement avec le fichier journal associé à la sauvegarde interrompue.
-  {:tip}
+
+  Cette option est disponible uniquement avec le fichier journal associé à la sauvegarde interrompue.
+  {: note}
+
 * L'envoi d'un fichier texte de sauvegarde vers un fichier de sortie spécifique, au lieu de réacheminer la sortie `stdout`.
 
-> **Avertissement** : Les outils CouchBackup présentent certaines [limites](#limitations).
-{:tip}
+Les outils CouchBackup présentent certaines [limites](#limitations).
+{: important}
 
 ## Restauration des données {{site.data.keyword.cloudant_short_notm}}
+{: #restoring-your-ibm-cloudant-data}
 
 Pour restaurer vos données, utilisez l'outil `couchrestore`.
 Exécutez `couchrestore` pour importer le fichier de sauvegarde dans une nouvelle base de données {{site.data.keyword.cloudant_short_notm}}.
@@ -71,17 +83,18 @@ Par exemple, pour restaurer les données qui ont été sauvegardées dans l'exem
 ```sh
 couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 ```
-{:codeblock}
+{: codeblock}
 
-Le [fichier readme npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmreadme]{:new_window} fournit des détails sur d'autres options de restauration.
+Le [fichier readme npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmreadme]{: new_window} fournit des détails sur d'autres options de restauration.
 
-> **Avertissement** : Les outils CouchBackup présentent certaines [limites](#limitations).
-{:tip}
+Les outils CouchBackup présentent certaines [limites](#limitations).
+{: important}
 
 ## Limites
+{: #limitations}
 
-> **Avertissement** : Les limites des outils CouchBackup sont les suivantes : 
-{:tip}
+Les limites des outils CouchBackup sont les suivantes : 
+{: important}
 
 * Les paramètres `_security` ne sont pas sauvegardés par les outils.
 * Les pièces jointes ne sont pas sauvegardées par les outils.
@@ -93,8 +106,9 @@ Le [fichier readme npm ![Icône de lien externe](../images/launch-glyph.svg "Ic�
   La régénération peut prendre énormément de temps en fonction du volume de données restaurées.
 
 ## Utilisation des outils
+{: #using-the-tools}
 
-La [page npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{:new_window} fournit des informations détaillées sur les bases de l'utilisation des outils de ligne de commande destinés à la sauvegarde et la restauration de données.
+La [page npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{: new_window} fournit des informations détaillées sur les bases de l'utilisation des outils de ligne de commande destinés à la sauvegarde et la restauration de données.
 Les exemples suivants illustrent les modalités de mise en pratique en décrivant l'utilisation des outils pour des tâches spécifiques.
 
 Le package CouchBackup fournit deux façons d'utiliser ses fonctions principales.
@@ -105,16 +119,18 @@ Le package CouchBackup fournit deux façons d'utiliser ses fonctions principales
   La bibliothèque permet de créer et de déployer des processus de sauvegarde beaucoup plus complexes, tels que l'identification dynamique des bases de données à sauvegarder.
 
 Utilisez soit l'outil de sauvegarde de ligne de commande, soit la bibliothèque avec le code de l'application, pour activer la sauvegarde depuis les bases de données {{site.data.keyword.cloudant_short_notm}} dans les situations plus complexes.
-Un scénario utile permet de planifier les sauvegardes à l'aide de la tâche `cron`, et de télécharger automatiquement les données vers [Cloud Object Storage ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window} à des fins de conservation à long terme.
+Un scénario utile permet de planifier les sauvegardes à l'aide de la tâche `cron`, et de télécharger automatiquement les données vers [Cloud Object Storage ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window} à des fins de conservation à long terme.
 
 ## Exemples de scripts en ligne de commande
+{: #command-line-scripting-examples}
 
 Deux exigences sont souvent rencontrées :
 
-* Economiser de l'espace disque en ['compressant' le fichier de sauvegarde](#zipping-a-backup-file) lors de sa création.
-* Créer une sauvegarde de base de données automatique, [à intervalles réguliers](#hourly-or-daily-backups-using-cron).
+* Economiser de l'espace disque en ['compressant' le fichier de sauvegarde](#compressing-a-backup-file) lors de sa création.
+* Créer une sauvegarde de base de données automatique, [à intervalles réguliers](#hourly-or-daily-backups-that-use-cron-).
 
 ### Compression d'un fichier de sauvegarde
+{: #compressing-a-backup-file}
 
 L'outil `couchbackup` peut écrire un fichier de sauvegarde directement sur le disque ou transférer la sauvegarde vers `stdout`.
 Le transfert vers `stdout` permet de transformer les données avant de les écrire sur le disque.
@@ -124,7 +140,7 @@ Cette opération est utilisée pour compresser les données dans le flux.
 couchbackup --url "https://examples.cloudant.com" \
   --db "animaldb" | gzip > backup.gz
 ```
-{:codeblock}
+{: codeblock}
 
 Dans cet exemple, l'outil `gzip` accepte les données de sauvegarde directement via `stdin`, les compresse puis les diffuse via `stdout`.
 Le flux de données compressées est ensuite redirigé et écrit dans un fichier `backup.gz`.
@@ -135,13 +151,14 @@ Si la base de données vous demande de fournir les données d'identification d'a
 couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
   --db "animaldb" | gzip > backup.gz
 ```
-{:codeblock}
+{: codeblock}
 
 Il est relativement simple d'étendre le pipeline si vous souhaitez transformer les données d'une autre manière.
 Par exemple, vous pouvez choisir de chiffrer les données avant qu'elles ne soient écrites sur le disque.
 Vous pouvez également vouloir écrire les données directement vers un service de conteneur d'objets, à l'aide des outils de ligne de commande.
 
 ### Sauvegardes horaires ou quotidiennes utilisant `cron`
+{: #hourly-or-daily-backups-that-use-cron-}
 
 L'outil de planification `cron` peut être configuré de manière à prendre une image instantanée des données à intervalles réguliers.
 
@@ -151,7 +168,7 @@ Un point de départ utile est d'obtenir `couchbackup` pour écrire une sauvegard
 couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
   --db "animaldb" > animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
 ```
-{:codeblock}
+{: codeblock}
 
 Après avoir vérifié le bon fonctionnement de la commande, vous pouvez la saisir dans un "travail cron" :
 
@@ -167,30 +184,30 @@ Une entrée cron chargée de la sauvegarde quotidienne est similaire à l'exempl
 ```sh
 0 5 * * * couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" --db "animaldb" > /path/to/folder/animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
 ```
-{:codeblock}
+{: codeblock}
 
 Cette entrée cron crée une sauvegarde quotidienne à 05:00.
 Vous pouvez modifier le modèle cron de manière à effectuer des sauvegardes horaires, quotidiennes, hebdomadaires ou mensuelles, selon vos besoins.
 
 ## Utilisation de CouchBackup en tant que bibliothèque
+{: #using-couchbackup-as-a-library}
 
 Les outils de ligne de commande `couchbackup` et `couchrestore` sont des encapsuleurs placés autour d'une bibliothèque qui peuvent être utilisés dans vos propres applications node.js.
 
 La bibliothèque est très utile pour les scénarios plus complexes, par exemple :
 
 * Sauvegarde de plusieurs bases de données en une seule tâche.
-  Vous pouvez effectuer cette sauvegarde en identifiant l'ensemble des bases de données à l'aide de l'appel [`_all_dbs`](../api/database.html#get-databases), puis en sauvegardant individuellement chaque base de données.
+  Vous pouvez effectuer cette sauvegarde en identifiant l'ensemble des bases de données à l'aide de l'appel [`_all_dbs`](/docs/services/Cloudant?topic=cloudant-databases#get-a-list-of-all-databases-in-the-account), puis en sauvegardant individuellement chaque base de données.
 * Les pipelines plus longs augmentent le risque d'erreur.
   En utilisant la bibliothèque CouchBackup, votre application peut détecter et corriger les erreurs dans les plus brefs délais.
 
-Pour plus d'informations, consultez la [page npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{:new_window}.
+Pour plus d'informations, consultez la [page npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{: new_window}.
 
 L'exemple de script ci-dessous décrit comment combiner la bibliothèque `couchbackup` à une utilisation d'{{site.data.keyword.IBM}} Cloud Object Storage.
 Ce code explique l'utilisation de l'interface de programmation Cross Region S3 à des fins de sauvegarde d'une base de données dans un conteneur d'objets.
 
-> **Remarque** : L'une des conditions préalables à l'utilisation de ce code est l'initialisation de l'objet client S3 pour {{site.data.keyword.IBM_notm}} Cloud Object Storage en suivant
-[ces instructions ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][cosclient]{:new_window}.
-{:tip}
+L'une des conditions préalables à l'utilisation de ce code est l'initialisation de l'objet client S3 pour {{site.data.keyword.IBM_notm}} Cloud Object Storage en suivant [ces instructions ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][cosclient]{: new_window}.
+{: note}
 
 ```javascript
 /*
@@ -250,11 +267,12 @@ function backupToS3(sourceUrl, s3Client, s3Bucket, s3Key, shallow) {
   });
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Autres options de reprise après incident
+{: #other-disaster-recovery-options}
 
-Revenez au [guide de reprise après incident {{site.data.keyword.cloudant_short_notm}}](disaster-recovery-and-backup.html) pour en savoir plus sur les autres configurations complètes de reprise après incident offertes par {{site.data.keyword.cloudant_short_notm}}.
+Revenez au [guide de reprise après incident {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) pour en savoir plus sur les autres configurations complètes de reprise après incident offertes par {{site.data.keyword.cloudant_short_notm}}.
 
 [npmpackage]: https://www.npmjs.com/package/@cloudant/couchbackup
 [npmreadme]: https://github.com/cloudant/couchbackup/blob/master/README.md

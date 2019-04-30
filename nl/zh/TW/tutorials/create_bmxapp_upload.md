@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: connect to ibm cloud, upload application, test sample application, confirm database details
+
+subcollection: cloudant
 
 ---
 
@@ -12,30 +16,33 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 建立簡單的 {{site.data.keyword.cloud_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫：上傳應用程式
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application}
 
 指導教學的這一節說明如何上傳 {{site.data.keyword.cloud}} 應用程式。
-{:shortdesc}
-
-<div id="uploading"></div>
+{: shortdesc}
 
 ## 連接至 {{site.data.keyword.cloud_notm}}
+{: #connecting-to-ibm-cloud}
 
 第一項作業是連接至 {{site.data.keyword.cloud_notm}}。
 
-[{{site.data.keyword.cloud_notm}} 工具箱](create_bmxapp_appenv.html#toolkits)可協助您進行連線。
+[{{site.data.keyword.cloud_notm}} 工具箱](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits)可協助您進行連線。
 
-Cloud Foundry 需要知道用於進行 API 呼叫（例如，當您上傳應用程式時）的 URL。{{site.data.keyword.cloud_notm}} 工具箱使用 '`cf api`' 指令來管理 API 端點。[這裡提供了 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window} '`cf api`' 指令的相關資訊。
+Cloud Foundry 需要知道用於進行 API 呼叫（例如，當您上傳應用程式時）的 URL。{{site.data.keyword.cloud_notm}} 工具箱使用 '`cf api`' 指令來管理 API 端點。[這裡提供了 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window} '`cf api`' 指令的相關資訊。
 
 使用下列指令，以告知 Cloud Foundry 要使用的 URL：
 
 ```sh
 bluemix api https://api.ng.bluemix.net
 ```
-{:pre}
+{: pre}
 
 預期結果類似下列輸出：
 
@@ -49,7 +56,7 @@ API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
 Not logged in. Use 'bluemix login' to log in.
 ```
-{:codeblock}
+{: codeblock}
 
 Cloud Foundry 現在知道將 API 呼叫傳送到哪裏，以便管理應用程式。
 
@@ -69,7 +76,7 @@ Cloud Foundry 現在知道將 API 呼叫傳送到哪裏，以便管理應用程�
 ```sh
 bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
-{:pre}
+{: pre}
 
 預期結果類似下列輸出：
 
@@ -91,22 +98,21 @@ User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
 Space:          dev
 ```
-{:codeblock}
+{: codeblock}
 
 ## 上傳應用程式
+{: #uploading-the-application}
 
 {{site.data.keyword.cloudant_short_notm}} Foundry 工具箱現在知道如何連接至 {{site.data.keyword.cloud_notm}} 環境。
 
-下一步是上傳應用程式本身。[資訊清單檔](create_bmxapp_appenv.html#manifest)中提供 {{site.data.keyword.cloud_notm}} 應用程式的詳細資料。
-
-已如[這裡](create_bmxapp_createapp.html#essential-files)所述，更新了指導教學應用程式的資訊清單檔。
+下一步是上傳應用程式本身。[資訊清單檔](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-manifest.yml-file)中提供 {{site.data.keyword.cloud_notm}} 應用程式的詳細資料。
 
 請使用與下列範例類似的指令進行登入，以上傳 {{site.data.keyword.cloud_notm}} 應用程式。
 
 ```sh
 cf push "Cloudant Python"
 ```
-{:pre}
+{: pre}
 
 即會顯示一系列的結果訊息。
 
@@ -116,9 +122,9 @@ Using manifest file /..../BMXDemo/manifest.yml
 Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{:codeblock}
+{: codeblock}
 
-Cloud Foundry 工具箱已找到資訊清單檔，並且準備好使用您[稍早](#uploading)提供的連線及識別詳細資料來上傳應用程式。
+Cloud Foundry 工具箱已找到資訊清單檔，並且準備好使用您[稍早](#uploading-the-application)提供的連線及識別詳細資料來上傳應用程式。
 
 ```
 Using route Cloudant-Python.mybluemix.net
@@ -130,7 +136,7 @@ OK
 Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{:codeblock}
+{: codeblock}
 
 已順利上傳應用程式，並與 {{site.data.keyword.cloudant_short_notm}} 資料庫實例進行連線。
 
@@ -163,9 +169,9 @@ OK
 
 App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
 ```
-{:codeblock}
+{: codeblock}
 
-應用程式會自動啟動。在啟動期間，會透過評估 [requirements.txt 檔案](create_bmxapp_appenv.html#requirements)的內容，進行檢查以確保符合所有需求。應用程式需要存取 {{site.data.keyword.cloudant_short_notm}} 程式庫，這是在建立應用程式時[指定](create_bmxapp_createapp.html#essential-files)。
+應用程式會自動啟動。在啟動期間，會透過評估 [requirements.txt 檔案](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-requirements.txt-file)的內容，進行檢查以確保符合所有需求。
 
 在您上傳並啟動應用程式之後，會執行一些簡單的系統檢查，確認對於 {{site.data.keyword.cloud_notm}} 而言，應用程式正確地在執行中。
 
@@ -184,29 +190,31 @@ buildpack: python 1.5.5
      state     since                    cpu    memory          disk           details
 #0   running   2016-12-22 03:59:21 PM   0.0%   49.9M of 128M   110.6M of 1G
 ```
-{:codeblock}
+{: codeblock}
 
 ## 測試範例應用程式
+{: #testing-the-sample-application}
 
 現在，請測試您的應用程式，並驗證其適當地執行。 
 
-1.  開啟「{{site.data.keyword.cloud_notm}} 儀表板」。您可以在「Cloud Foundry 應用程式」下看到所建立之應用程式的鏈結。按一下 `Cloudant CF 應用程式`，以開啟詳細資料頁面。<br/>  
+1.  從 {{site.data.keyword.cloud_notm}} 儀表板中，移至**功能表**圖示 > **資源清單**，然後開啟您的應用程式。在「Cloud Foundry 應用程式」下，按一下 `Cloudant CF 應用程式`，以開啟詳細資料頁面。<br/>  
 ![顯示應用程式之儀表板的擷取畫面](images/img0017.png)
 
 2.  在 `Cloudant CF 應用程式`詳細資料頁面上，按一下`路徑`，然後按一下 `Cloudant-CF-app.mybluemix.net` 鏈結。<br/>
 ![Cloudant CF 應用程式詳細資料頁面](images/img0030.png)
 
-3. 即會在 https://cloudant-cf-app.mybluemix.net/ 開啟新的瀏覽器視窗。訊息會驗證應用程式正在執行。其指出 "Hello World! Thanks for creating a Python Starter Application."<br/>
+3. 即會在 `https://cloudant-cf-app.mybluemix.net/` 開啟新的瀏覽器視窗。訊息會驗證應用程式正在執行。其指出 "Hello World! Thanks for creating a Python Starter Application."<br/>
 ![Hello World! 已驗證 Cloudant CF 應用程式正確地執行](images/img0054.png)
 
 
 ### 確認資料庫詳細資料
+{: #confirming-the-database-details}
 
-從 {{site.data.keyword.cloud_notm}} 儀表板，開啟您所建立的 {{site.data.keyword.cloudant_short_notm}} 服務實例。按一下服務實例。移至`管理`標籤，然後按一下`啟動 Cloudant 儀表板`。<br/>
+從 {{site.data.keyword.cloud_notm}} 儀表板中，移至**功能表**圖示 > **資源清單**，然後開啟您的服務實例。移至`管理`標籤，然後按一下`啟動 Cloudant 儀表板`。<br/>
 ![在 {{site.data.keyword.cloudant_short_notm}} 服務頁面上啟動 Cloudant 儀表板](images/img0036.png)
 
-若要尋找 {{site.data.keyword.cloudant_short_notm}} 服務頁面，請參閱[建立 {{site.data.keyword.cloudant_short_notm}} 實例指導教學](create_service.html#locating-your-service-credentials)中的詳細資料。
-{: tip}
+若要尋找 {{site.data.keyword.cloudant_short_notm}} 服務頁面，請參閱[建立 {{site.data.keyword.cloudant_short_notm}} 實例指導教學](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)中的詳細資料。
+{: note}
 
 儀表板開啟時，您可以看到應用程式已建立 '`databasedemo`' 資料庫：<br/>
 ![顯示新資料庫的「{{site.data.keyword.cloudant_short_notm}} 儀表板」](images/img0031.png)
@@ -221,6 +229,4 @@ buildpack: python 1.5.5
 ![文件內的欄位](images/img0034.png)<br/>
 特別值得一提的是，`rightNow` 欄位具有建立文件的日期和時間。此值對應於[應用程式日誌檔](#testing-the-sample-application)內已記錄的時間。
 
-## 下一步
-
-指導教學中的下一步是[操作及維護應用程式](create_bmxapp_maintain.html)，例如，當您啟動、停止及除錯應用程式時。
+指導教學中的下一步是[操作及維護應用程式](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting)，例如，當您啟動、停止及除錯應用程式時。

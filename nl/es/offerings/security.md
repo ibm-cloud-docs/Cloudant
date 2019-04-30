@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-18"
+
+keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption
+
+subcollection: cloudant
 
 ---
 
@@ -12,11 +16,15 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Seguridad
 {: #security}
+
 
 ## Protección y seguridad de los datos de {{site.data.keyword.cloudant_short_notm}} DBaaS
 {: #ibm-cloudant-dbaas-data-protection-and-security}
@@ -25,7 +33,7 @@ La protección de datos de las aplicaciones de la web a gran escala y de apps pa
 y NoSQL.
 
 Además de reducir el esfuerzo necesario para mantener las bases de datos para que estén en activo y en crecimiento continuo, {{site.data.keyword.cloudantfull}} también garantiza la protección de los datos.
-{:shortdesc}
+{: shortdesc}
 
 ## Plataformas físicas de nivel superior
 {: #top-tier-physical-platforms}
@@ -39,8 +47,8 @@ Por lo tanto, los datos están protegidos por la red y por las medidas de seguri
 - Recuerdo del servidor.
 - {{site.data.keyword.cloudant_short_notm}} le ofrece la flexibilidad de elegir o conmutar entre distintos proveedores a medida que cambiar su SLA y sus requisitos de coste.
 
-Encontrará más información sobre las certificaciones disponibles en el apartado sobre [Información de conformidad](compliance.html).
-{:tip}
+Encontrará más información sobre las certificaciones disponibles en el apartado sobre [Información de conformidad](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
+{: tip}
 
 ## Control de acceso seguro
 {: #secure-access-control}
@@ -49,13 +57,19 @@ Encontrará más información sobre las certificaciones disponibles en el aparta
 
 Característica | Descripción
 --------|------------
-Autenticación | Se accede a {{site.data.keyword.cloudant_short_notm}} utilizando una API HTTPS. Si el punto final de la API lo requiere, se autentica al usuario para cada solicitud HTTPS que {{site.data.keyword.cloudant_short_notm}} recibe. {{site.data.keyword.cloudant_short_notm}} admite los controles de acceso IAM y los heredados. Para obtener más información, consulte la [guía de IAM](../guides/iam.html){:new_window} o el [documento de la API de autenticación](../api/authentication.html){:new_window} heredada.
-Autorización | {{site.data.keyword.cloudant_short_notm}} admite los controles de acceso IAM y los heredados. Para obtener más información, consulte la [guía de IAM](../guides/iam.html){:new_window} o el [documento de la API de autorización](../api/authorization.html){:new_window} heredada.
-Cifrado "al momento" | Todo el acceso a {{site.data.keyword.cloudant_short_notm}} está cifrado mediante HTTPS.
+Autenticación | Se accede a {{site.data.keyword.cloudant_short_notm}} utilizando una API HTTPS. Si el punto final de la API lo requiere, se autentica al usuario para cada solicitud HTTPS que {{site.data.keyword.cloudant_short_notm}} recibe. {{site.data.keyword.cloudant_short_notm}} admite los controles de acceso IAM y los heredados. Para obtener más información, consulte la [guía de IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} o el [documento de la API de autenticación](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} heredada.
+Autorización | {{site.data.keyword.cloudant_short_notm}} admite los controles de acceso IAM y los heredados. El equipo de {{site.data.keyword.cloudant_short_notm}} recomienda el uso de controles de acceso de IAM para la autenticación siempre que sea posible. Si utiliza la autenticación heredada de {{site.data.keyword.cloudant_short_notm}}, se recomienda que utilice
+[claves de API](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} en lugar de credenciales a nivel de cuenta para el acceso mediante programación y los trabajos de réplica. Para obtener más información, consulte la [guía de IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} o el [documento de la API de autenticación](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} heredada y el [documento de la API de autorización](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window} heredada.
 Cifrado en reposo | Todos los datos que se almacenan en una instancia de {{site.data.keyword.cloudant_short_notm}} se han cifrado en reposo. Si necesita BYOK (Bring-Your-Own-Key) para el cifrado en reposo, este se habilita utilizando {{site.data.keyword.cloud_notm}} Key
 Protect. {{site.data.keyword.cloudant_short_notm}} da soporte a esta característica para nuevas instancias del plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}} desplegadas en todas las regiones. En primer lugar, cree una instancia del plan de hardware dedicado utilizando el catálogo de {{site.data.keyword.cloud_notm}}. A continuación, envíe una incidencia de soporte. Nuestro equipo de soporte coordina la obtención de las claves de cifrado cifradas en reposo de la instancia de hardware dedicado que están gestionadas por la instancia de Key Protect.
+Cifrado "al momento" | Todo el acceso a {{site.data.keyword.cloudant_short_notm}} está cifrado mediante HTTPS.
+TLS | Se recomienda utilizar TLS 1.2 o 1.3 para todo el acceso a {{site.data.keyword.cloudant_short_notm}}. (***En junio de 2019, el soporte de {{site.data.keyword.cloudant_short_notm}} retirará el uso de versiones anteriores (TLS 1.0 y 1.1), con lo cual solo se admitirá TLS 1.2+ a partir de ese momento***). El certificado que utiliza
+{{site.data.keyword.cloudant_short_notm}} para las conexiones HTTPS se firma mediante una emisora de certificados de confianza universal en la que confían previamente todos los navegadores, sistemas operativos y demás sistemas de software como el kit de desarrollo de Java (JDK). Nos comprometemos a publicar siempre un certificado TLS válido (no caducado) firmado por una entidad emisora de certificados de aceptación universal. No obstante, no podemos coordinar cambios con los clientes, y no nos comprometemos a permanecer con DigiCert. Para garantizar el acceso continuo al servicio de
+{{site.data.keyword.cloudant_short_notm}}, no se recomienda a los clientes en ningún caso que fijen el certificado actual, que tiene una caducidad y se solicitará su rotación en el caso de que se vea comprometido. En su lugar, se recomienda que los clientes utilicen los paquetes de certificados predeterminados para sus sistemas operativos y navegadores, que garantizarán un servicio seguro continuo aunque se produzcan cambios en los certificados.
+Puntos finales | Todas las instancias de {{site.data.keyword.cloudant_short_notm}} se proporcionan con puntos finales externos accesibles públicamente. Los entornos de hardware dedicado suministrados después del 1 de enero de 2019 añaden también puntos finales internos para todas las instancias del plan Estándar desplegadas en ellos. El uso de puntos finales internos permite que los clientes puedan conectarse a una instancia de {{site.data.keyword.cloudant_short_notm}} a través de la red interna de {{site.data.keyword.cloud}} para evitar que el tráfico de aplicación en sentido ascendente pase a través de la red pública y se incurra en cargos de ancho de banda. Consulte la [documentación del punto final de servicio](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window} para obtener más detalles sobre cómo habilitar puntos finales de servicio para la cuenta de
+{{site.data.keyword.cloud}}.
 Lista blanca de IP | Los clientes de {{site.data.keyword.cloudant_short_notm}} que disponen de un entorno de {{site.data.keyword.cloudant_short_notm}} dedicado pueden elaborar una lista blanca de direcciones IP para restringir el acceso solo a los servidores y usuarios especificados. La lista blanca de IP no está disponible para ningún plan estándar/Lite público de {{site.data.keyword.cloud_notm}} desplegado en un entorno multiarrendatario. Abra una incidencia de soporte para solicitar listas blancas de IP para un conjunto especificado de IP o rangos de IP. Tenga en cuenta que las listas blancas de IP se aplican al panel de control y a la API de {{site.data.keyword.cloudant_short_notm}}, por lo que debe contemplar añadir cualquier IP de administrador que deba acceder al panel de control de {{site.data.keyword.cloudant_short_notm}} directamente. 
-CORS | Habilitar el soporte CORS para determinados dominios mediante el panel de control de {{site.data.keyword.cloudant_short_notm}}.
+CORS | Habilitar el soporte CORS para determinados dominios mediante la API o el panel de control de {{site.data.keyword.cloudant_short_notm}}. Para obtener más información, consulte la [Documentación de la API de CORS](/docs/services/Cloudant?topic=cloudant-cors#cors){:new_window}.
 
 <!--
 > **Note**: Your data is visible to the {{site.data.keyword.cloudant_short_notm}} 

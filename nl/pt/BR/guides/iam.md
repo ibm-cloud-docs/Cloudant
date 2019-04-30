@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-06"
+
+keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
+
+subcollection: cloudant
 
 ---
 
@@ -12,35 +16,43 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-07-02 -->
 
 # {{site.data.keyword.cloud_notm}}  Gerenciamento de Identidade e Acesso (IAM)
+{: #ibm-cloud-identity-and-access-management-iam-}
 
 O {{site.data.keyword.cloud}} Identity and Access Management fornece uma abordagem unificada para gerenciar identidades do usuário, serviços e controle de acesso.
-{:shortdesc}
+{: shortdesc}
 
 ## Introdução
+{: #introduction}
 
 Este documento descreve a integração do {{site.data.keyword.cloudantfull}} ao {{site.data.keyword.cloud_notm}} Identity and Access Management. Ele discute as diferenças entre os controles de acesso do {{site.data.keyword.cloudant_short_notm}} Legacy e os controles de acesso do {{site.data.keyword.cloud_notm}} IAM. Em seguida, analisa as vantagens e desvantagens de cada um para ajudá-lo a decidir qual usar. Depois, discutiremos como usar o IAM dentro das bibliotecas do cliente do {{site.data.keyword.cloudant_short_notm}} e por meio de chamadas HTTP. Finalmente, terminaremos com uma seção de referência que descreve todas as ações e funções do IAM disponíveis no {{site.data.keyword.cloudant_short_notm}}.
 
-Consulte uma visão geral do [IAM ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo") ](https://console.bluemix.net/docs/iam/index.html#iamoverview){:new_window}, incluindo como:
+Consulte uma visão geral do IAM do [ ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window}, incluindo como:
 
 - Gerenciar IDs do usuário e de serviço.
 - Gerenciar credenciais disponíveis.
 - Usar as políticas de acesso do IAM que permitem e revogam o acesso às instâncias de serviço do {{site.data.keyword.cloudant_short_notm}}.
 
 ## Diferenças entre os controles de acesso do {{site.data.keyword.cloudant_short_notm}} Legacy e do IAM
+{: #differences-between-ibm-cloudant-legacy-and-iam-access-controls}
 
 A seção a seguir fornece uma breve visão geral das diferenças entre os mecanismos de controle de acesso do {{site.data.keyword.cloudant_short_notm}} Legacy e do {{site.data.keyword.cloud_notm}} IAM.
 
 ### {{site.data.keyword.cloud_notm}}  Gerenciamento de Identidade e Acesso
+{: #ibm-cloud-identity-and-access-management}
 
 - Gerenciamento de acesso gerenciado centralmente em  {{site.data.keyword.cloud_notm}}.
 - Permitir que um usuário ou serviço acesse vários recursos diferentes usando o mesmo conjunto de credenciais (por exemplo, o mesmo nome de usuário/senha ou chave de API do IAM).
 - As chaves da API do IAM podem ter acesso concedido a funções de gerenciamento de contas, como criar novos bancos de dados.
 
 ### {{site.data.keyword.cloudant_short_notm}}  Legado
+{: #ibm-cloudant-legacy}
 
 - Exclusivo para  {{site.data.keyword.cloudant_short_notm}}.
 - O acesso a cada instância de serviço requer seu próprio conjunto de credenciais.
@@ -48,20 +60,24 @@ A seção a seguir fornece uma breve visão geral das diferenças entre os mecan
 - {{site.data.keyword.cloudant_short_notm}} As chaves API podem receber permissões apenas em um nível de banco de dados.
 
 ### Notas chave da API
+{: #api-key-notes}
 
 Neste documento, sempre que as chaves API forem mencionadas, elas se referirão às chaves da API do IAM.
-O {{site.data.keyword.cloudant_short_notm}} Legacy também possui um conceito de chaves API e todas as conversas de credenciais do {{site.data.keyword.cloudant_short_notm}} Legacy ou combinações de nome de usuário/senha também incluem as chaves API do {{site.data.keyword.cloudant_short_notm}}.
+O {{site.data.keyword.cloudant_short_notm}} Legacy também tem um conceito de chaves de API e qualquer discussão sobre combinações de credenciais ou nome de usuário/senha do {{site.data.keyword.cloudant_short_notm}}
+Legacy também inclui as chaves de API do {{site.data.keyword.cloudant_short_notm}}. 
 
 ## Ativando o IAM com  {{site.data.keyword.cloudant_short_notm}}
+{: #enabling-iam-with-ibm-cloudant}
 
 Somente novas instâncias de serviço do {{site.data.keyword.cloudant_short_notm}} podem ser usadas com o {{site.data.keyword.cloud_notm}} IAM a partir do final de julho de 2018.
 
-Todas as novas instâncias de serviço do {{site.data.keyword.cloudant_short_notm}} estão ativadas para usar o IAM quando provisionado. Opcionalmente, também é possível ativar o mecanismo de autenticação anterior. Quando você provisionar uma nova instância do {{site.data.keyword.cloudant_short_notm}} do catálogo do {{site.data.keyword.cloud_notm}}, escolha dentre os métodos de autenticação disponíveis:
+Todas as novas instâncias de serviço do {{site.data.keyword.cloudant_short_notm}} estão ativadas para usar o IAM quando provisionado. Opcionalmente, também é possível ativar o mecanismo de autenticação anterior.  Quando você provisionar uma nova instância do {{site.data.keyword.cloudant_short_notm}} do catálogo do {{site.data.keyword.cloud_notm}}, escolha dentre os métodos de autenticação disponíveis:
 
 1. **Use as credenciais anteriores e o IAM**: esse modo significa que as credenciais do IAM e do Legacy podem ser usadas para acessar a conta. Em particular, os conjuntos de credenciais do IAM e do Legacy são fornecidos para todos os aplicativos ligados às credenciais de conta e de serviço geradas.
 2. **Usar apenas o IAM**: este modo significa que apenas as credenciais do IAM são fornecidas por meio da ligação de serviço e geração de credencial.
 
 ### {{site.data.keyword.cloudant_short_notm}}  Chaves de API e  _ Usar apenas IAM _
+{: #ibm-cloudant-api-keys-and-_use-only-iam_}
 
 O uso de chaves API do {{site.data.keyword.cloudant_short_notm}} com o IAM é possível, mas **não recomendado**. Essa recomendação é feita porque as permissões e as chaves API do {{site.data.keyword.cloudant_short_notm}} não são visíveis ou gerenciáveis por meio da interface de política do IAM, tornando impossível o gerenciamento de acesso holístico.
 
@@ -73,12 +89,13 @@ A opção entre _Usar apenas o IAM_ ou _Usar as credenciais anteriores e o IAM_ 
 Em particular, as chaves API {{site.data.keyword.cloudant_short_notm}} ainda podem ser usadas para gerenciar o acesso ao banco de dados. Essas credenciais devem ser geradas e configuradas usando a API HTTP.
 
 ### Fornecendo Usando a Linha de Comandos
+{: #provisioning-by-using-the-command-line}
 
 Ao provisionar uma nova instância do {{site.data.keyword.cloudant_short_notm}} por meio da linha de comandos, forneça uma opção para a ferramenta `ic` usando o parâmetro `-p` para ativar ou desativar as credenciais anteriores para uma conta. A opção é transmitida no formato JSON e é chamada de `legacyCredentials`.
 
 Para fornecer uma instância como _Usar apenas o IAM_ (recomendado), execute o comando a seguir:
 
-```
+```sh
 ic resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": false}
@@ -86,13 +103,14 @@ ic resource service-instance-create  "Instance Name" \
 
 Para provisionar uma instância como _Usar as credenciais anteriores e o IAM_, execute o comando a seguir:
 
-```
+```sh
 ic resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": true}
 ```
 
 ### Exemplos de JSON da credencial de serviço para cada opção
+{: #service-credential-json-examples-for-each-option}
 
 A opção entre o controle de acesso _Usar apenas o IAM_ e _Usar as credenciais anteriores e o IAM_ afeta como as credenciais serão entregues ao seu aplicativo ao ligar e gerar credenciais de serviço. Ao gerar credenciais dentro da interface primária do {{site.data.keyword.cloud_notm}} IAM, as chaves API são mostradas nessa interface quando são geradas.
 
@@ -119,7 +137,7 @@ Cada valor no exemplo de JSON prévio deve ser interpretado da seguinte forma:
 - `iam_role_crn`: a função do IAM que a chave de API do IAM tem.
 - ` iam_serviceid_crn `: O CRN do ID do serviço.
 - ` url `:  {{site.data.keyword.cloudant_short_notm}}  URL de serviço.
-- `username`: o nome do serviço do usuário da instância do {{site.data.keyword.cloudant_short_notm}} na URL.
+- `username`: o nome interno da conta do {{site.data.keyword.cloudant_short_notm}}.
 
 Quando você seleciona _Usar as credenciais anteriores e o IAM_, as credenciais de serviço que são geradas contêm as credenciais do IAM e do Legacy e se parecem com o exemplo a seguir:
 
@@ -134,7 +152,7 @@ Quando você seleciona _Usar as credenciais anteriores e o IAM_, as credenciais 
   "username": "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Cada valor no exemplo de JSON prévio deve ser interpretado da seguinte forma:
 
@@ -150,6 +168,7 @@ Cada valor no exemplo de JSON prévio deve ser interpretado da seguinte forma:
 - ` username `: O nome do usuário da credencial  {{site.data.keyword.cloudant_short_notm}}  Legacy.
 
 ## Devo usar _Usar apenas o IAM_ ou _Usar as credenciais anteriores e o IAM_?
+{: #should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
 
 Se possível, _Usar apenas o IAM_ é preferencial. As principais vantagens de uso do {{site.data.keyword.cloud_notm}} IAM incluem:
 
@@ -159,11 +178,9 @@ Se possível, _Usar apenas o IAM_ é preferencial. As principais vantagens de us
 A seguir, uma descrição mais aprofundada das vantagens e desvantagens de cada abordagem.
 
 ### Vantagens e desvantagens dos dois mecanismos de controle de acesso
+{: #advantages-and-disadvantages-of-the-two-access-control-mechanisms}
 
 Em geral, o {{site.data.keyword.cloud_notm}} IAM é o modelo de autenticação recomendado. No entanto, há desvantagens para a abordagem, principalmente se você tem um aplicativo existente ou não pode usar uma biblioteca de cliente suportada pelo {{site.data.keyword.cloudant_short_notm}}.
-
-
-<div id="advantages-disadvantages"></div>
 
 <table>
 
@@ -175,13 +192,13 @@ Em geral, o {{site.data.keyword.cloud_notm}} IAM é o modelo de autenticação r
 
 <tr>
 <td headers="mode">IAM</td>
-<td headers="advantages" valign="top"><ul><li>Gerenciar o acesso para muitos serviços usando uma interface. Revogar acesso a um usuário globalmente.
-<li>Chaves de API no nível da conta por meio de IDs de serviço
+<td headers="advantages" valign="top"><ul><li>Gerenciar o acesso para muitos serviços usando uma interface. Revogar acesso a um usuário globalmente.</li>
+<li>Chaves de API no nível da conta por meio de IDs de serviço</li>
 <li>Credenciais fáceis de girar.</li>
 <li>Os logs do Activity Tracker capturam humanos e serviços.</li>
 <li>O IAM é federado com outros sistemas de identidade, como repositórios LDAP corporativos.</li></ul>
 </td>
-<td headers="disadvantages"><ul><li>Se você não estiver usando as bibliotecas suportadas do {{site.data.keyword.cloudant_short_notm}}, as mudanças do aplicativo provavelmente serão necessárias para usar as chaves API e os tokens de acesso do IAM.
+<td headers="disadvantages"><ul><li>Se você não estiver usando as bibliotecas suportadas do {{site.data.keyword.cloudant_short_notm}}, as mudanças do aplicativo provavelmente serão necessárias para usar as chaves API e os tokens de acesso do IAM.</li>
 <li>Nenhuma permissão de nível do banco de dados (ainda).</li>
 <li>Nenhuma permissão de baixa granularidade (por exemplo, leitor) (ainda).</li>
 <li>Alguns terminais estão indisponíveis, consulte [Terminais indisponíveis](#unavailable-endpoints).</li>
@@ -198,7 +215,7 @@ Em geral, o {{site.data.keyword.cloud_notm}} IAM é o modelo de autenticação r
 </ul>
 </td>
 <td headers="disadvantages">
-<ul><li>Nenhuma chave de API no nível da conta. Deve-se usar credenciais `root` para gerenciar bancos de dados.
+<ul><li>Nenhuma chave de API no nível da conta. Deve-se usar credenciais `root` para gerenciar bancos de dados.</li>
 <li>Gerenciamento separado de credenciais do {{site.data.keyword.cloudant_short_notm}}, portanto, incapaz de obter uma visão geral completa de todo o acesso dentro da interface centralizada.</li>
 <li>É difícil implementar a rotação de credencial.</li>
 </ul>
@@ -207,14 +224,16 @@ Em geral, o {{site.data.keyword.cloud_notm}} IAM é o modelo de autenticação r
 </table>
 
 ## Fazendo solicitações para instâncias usando credenciais do IAM
+{: #making-requests-to-instances-by-using-iam-credentials}
 
 Esta seção discute como usar o {{site.data.keyword.cloudant_short_notm}} com instâncias de serviço usando a autenticação do IAM e o controle de acesso. Ela usa os detalhes do exemplo JSON de Credenciais de serviço anteriormente mencionado.
 
-O {{site.data.keyword.cloud_notm}} IAM requer que uma chave de API do IAM seja trocada por um token de acesso com limite de tempo antes que você faça uma solicitação para um recurso ou um serviço. O token de acesso é, então, incluído no cabeçalho de HTTP `Authorization` para o serviço. Quando o token de acesso expirar, o cliente deverá obter um novo por meio do serviço de token do IAM. Para obter mais informações, consulte [Obtendo um token do {{site.data.keyword.cloud_notm}} IAM usando uma documentação de chave de API ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.bluemix.net/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) para obter mais detalhes.
+O {{site.data.keyword.cloud_notm}} IAM requer que uma chave de API do IAM seja trocada por um token de acesso com limite de tempo antes que você faça uma solicitação para um recurso ou um serviço. O token de acesso é, então, incluído no cabeçalho de HTTP `Authorization` para o serviço. Quando o token de acesso expira, o aplicativo de consumo deve manipular a obtenção de um novo por meio do serviço de token do IAM. Para obter mais informações, consulte [Obtendo um token do {{site.data.keyword.cloud_notm}} IAM usando uma documentação de chave de API ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) para obter mais detalhes.
 
 As bibliotecas de clientes oficiais do {{site.data.keyword.cloudant_short_notm}} tratam de obter um token de uma chave de API para você. Se você acessar o {{site.data.keyword.cloudant_short_notm}} diretamente usando um cliente HTTP em vez de uma biblioteca do cliente {{site.data.keyword.cloudant_short_notm}}, a troca e a atualização de um token de acesso com limite de tempo deverão ser manipuladas usando uma chave de API do IAM com o serviço de token do IAM. Depois que um token expirar, o {{site.data.keyword.cloudant_short_notm}} retorna um código de status HTTP `401`.
 
 ### Versões necessárias da biblioteca do cliente
+{: #required-client-library-versions}
 
 Use no mínimo as versões de biblioteca do cliente a seguir com instâncias de serviço do {{site.data.keyword.cloudant_short_notm}} ativadas para o IAM:
 
@@ -230,6 +249,7 @@ Use no mínimo as versões de biblioteca do cliente a seguir com instâncias de 
 Os fragmentos de código a seguir requerem essas versões.
 
 ### Componente
+{: #java}
 
 Requer  [ java-cloudant ](https://github.com/cloudant/java-cloudant), 2.13.0 +.
 
@@ -257,6 +277,7 @@ aplicativo de classe pública {
 ```
 
 ### Node.js
+{: #node.js}
 
 Requer [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant), 2.3.0+.
 
@@ -278,6 +299,7 @@ var cloudant = new Cloudant({
 ```
 
 ### Python
+{: #python}
 
 Requer  [ python-cloudant ](https://github.com/cloudant/python-cloudant), 2.9.0 +.
 
@@ -295,6 +317,7 @@ imprimir client.all_dbs ()
 ```
 
 ### Acesso usando o cliente HTTP
+{: #access-by-using-http-client}
 
 O {{site.data.keyword.cloud_notm}} IAM requer que uma chave de API do IAM seja trocada por um token de acesso com limite de tempo antes que você faça uma solicitação para um recurso ou um serviço. O token de acesso é, então, incluído no cabeçalho de HTTP `Authorization` para o serviço. Quando o token de acesso expirar, o cliente deverá obter um novo por meio do serviço de token do IAM.
 
@@ -313,7 +336,7 @@ ACCOUNT = "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 def get_access_token(api_key):
     """Retrieve an access token from the IAM token service."""
     token_response = requests.post(
-        "https://iam.bluemix.net/oidc/token",
+        "https://iam.cloud.ibm.com/identity/token",
         data={
             "grant_type": "urn:ibm:params:oauth:grant-type:apikey",
             "response_type": "cloud_iam",
@@ -356,20 +379,23 @@ if __name__ == "__main__":
 ```
 
 ## Referência
+{: #reference}
 
 Esta seção contém uma lista completa das ações do IAM do {{site.data.keyword.cloudant_short_notm}} e quais delas são permitidas para cada função do sistema IAM.
 
 ### {{site.data.keyword.cloudant_short_notm}}  ações
+{: #ibm-cloudant-actions}
 
 Ação | Descrição
 -------|------------
 `cloudant.db.any` | Acesse qualquer terminal de banco de dados (aqueles cujo caminho não se inicia com `/_api`).
-`cloudantnosqldb.sapi.dbsecurity` | Acesse  ` /_api/v2/db/<path:db>/_security `.
+`cloudantnosqldb.sapi.dbsecurity` | Acesse `/_api/v2/db/<path:db>/_security`.
 `cloudantnosqldb.sapi.usercors` | Acesse `/_api/v2/user/config/cors/`.
 `cloudantnosqldb.sapi.apikeys` | Acesse  ` /_api/v2/api_keys `.
 `cloudantnosqldb.sapi.userinfo` | Acesse  ` /_api/v2/user `.
 
 #### Terminais Indisponíveis
+{: #unavailable-endpoints}
 
 Os terminais a seguir estão indisponíveis para solicitações autorizadas com o IAM:
 
@@ -379,6 +405,7 @@ Embora os documentos de design possam conter manipuladores de regravação, os u
 Embora os documentos de design possam conter funções de atualização, os usuários não podem chamá-los.
 
 ### Mapeamento de  {{site.data.keyword.cloudant_short_notm}}  ações para funções do IAM
+{: #mapping-of-ibm-cloudant-actions-to-iam-roles}
 
 Somente usuários e serviços da função de Gerenciador podem acessar dados do {{site.data.keyword.cloudant_short_notm}}.
 
@@ -389,9 +416,10 @@ Leitor | Nenhuma.
 Transcritor | Nenhuma.
 
 ## Solucionando problemas
-
-Se você estiver tendo problemas ao usar o IAM para se autenticar ao fazer solicitações para a instância de serviço do {{site.data.keyword.cloudant_short_notm}}, verifique os itens a seguir.
+{: #troubleshooting}
+Se você estiver tendo problemas ao usar o IAM para autenticar-se ao fazer solicitações para a instância de serviço do {{site.data.keyword.cloudant_short_notm}}, verifique sua conta conforme mostrado na próxima seção.
 
 ### Assegure-se de que sua conta esteja ativada pelo IAM
+{: #ensure-your-account-is-iam-enabled}
 
-Deve-se criar um chamado de suporte para confirmar se uma instância de serviço está ativada para o IAM.
+Deve-se abrir um chamado de suporte para confirmar que uma instância de serviço está ativada para o IAM.

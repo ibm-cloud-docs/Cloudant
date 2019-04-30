@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
+
+subcollection: cloudant
 
 ---
 
@@ -12,16 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Replikation
+# Leitfaden zur Replikation
+{: #replication-guide}
 
 Daten können aus einer Datenbank in eine andere Datenbank im selben {{site.data.keyword.cloudantfull}}-Konto, über Konten
 und Rechenzentren hinweg, kopiert werden.
-{:shortdesc}
+{: shortdesc}
 
-Daten können sogar zwischen einem {{site.data.keyword.cloudant_short_notm}}-Konto und einem mobilen Gerät repliziert werden - mithilfe von [{{site.data.keyword.cloudant_short_notm}} Sync ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/product/cloudant-features/sync/){:new_window} oder [PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){:new_window}.
+Daten können sogar zwischen einem {{site.data.keyword.cloudant_short_notm}}-Konto und einem mobilen Gerät repliziert werden - mithilfe von [{{site.data.keyword.cloudant_short_notm}} Sync ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/product/cloudant-features/sync/){: new_window} oder [PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){: new_window}.
 Die Replikation kann in einer oder in beiden Richtungen erfolgen,
 als einmalige oder kontinuierliche Operation,
 und sie kann mithilfe von Parametern optimiert werden.
@@ -34,6 +42,7 @@ erläutert gängige Anwendungsfälle und zeigt, wie Sie Ihre Anwendung einrichte
 erfolgreich durchführen kann.
 
 ## Was ist Replikation?
+{: #what-is-replication}
 
 {{site.data.keyword.cloudant_short_notm}} ist ein verteilter JSON-Datenspeicher mit einer HTTP-API.
 {{site.data.keyword.cloudant_short_notm}} kann als Service in mehreren Clouds oder in Ihrem
@@ -54,9 +63,8 @@ Die Quellendatenbank bleibt durch die Replikation unverändert,
 abgesehen von Prüfpunktdaten, die in die Datenbank geschrieben werden, damit partielle Replikationen an der letzten bekannten Position fortgesetzt werden können.
 Alle bereits vorhandenen Daten in der Zieldatenbank bleiben bestehen.
 
-<div id="how-do-i-initiate-replication-via-the-dashboard-"></div>
-
 ## Vorgehensweise zum Starten der Replikation über das Dashboard
+{: #how-to-start-replication-by-using-the-dashboard}
 
 Das {{site.data.keyword.cloudant_short_notm}}-Dashboard stellt eine komfortable Benutzerschnittstelle zum Auslösen der Replikation bereit.
 Klicken Sie auf die Registerkarte `Replikation` im {{site.data.keyword.cloudant_short_notm}}-Dashboard und dann auf `Replikation starten`.
@@ -64,8 +72,9 @@ Füllen Sie das Formular aus:
 
 ![Replikation2](../images/replication_guide_2.png)
 
-Definieren Sie mithilfe des Formulars die Quellen- und Zieldatenbanken
-und klicken Sie dann auf `Replikation starten`.
+Aus Sicherheitsgründen empfiehlt das {{site.data.keyword.cloudant_short_notm}}-Team, dass Sie für Replikationsjobs IAM-API-Schlüssel oder [API-Schlüssel](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} der traditionellen {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden und keine Berechtigungsnachweise auf Kontoebene. Weitere Informationen hierzu finden Sie im [IAM-Leitfaden](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} oder in der traditionellen Version des [Dokuments für die Authentifizierungs-API](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} und in der traditionellen Version des [Dokuments für die Berechtigungs-API](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}.{: important}
+
+Definieren Sie mithilfe des Formulars die Quellen- und Zieldatenbanken und klicken Sie dann auf`Replikation starten`.
 
 ![Replikation3](../images/replication_guide_3.png)
 
@@ -74,9 +83,8 @@ Die Statusangaben der einzelnen Jobs ändern sich im Zeitverlauf von `Aktiv` in 
 
 ![Replikation4](../images/replication_guide_4.png)
 
-<div id="how-do-i-run-replication-across-different-cloudant-accounts-"></div>
-
 ## Replikation über verschiedene {{site.data.keyword.cloudant_short_notm}}-Konten ausführen
+{: #how-to-run-replication-across-different-ibm-cloudant-accounts}
 
 Die Quelle und das Ziel einer Replikation sind URLs von {{site.data.keyword.cloudant_short_notm}}-Datenbanken,
 wie im folgenden Beispiel gezeigt.
@@ -89,16 +97,15 @@ _Beispiel für das Definieren der Quellen- und Ziel-URLs für die Replikation:_
     "target": "https://mysecondaccount.cloudant.com/b"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Die Quelle und das Ziel müssen sich nicht in demselben Konto befinden.
 Die Quellen- und Zieldatenbankennamen müssen nicht übereinstimmen.
 Sie müssen berechtigt sein, sowohl auf die Quelle, als auch auf das Ziel zuzugreifen,
 und Sie müssen berechtigt sein, in das Ziel zu schreiben.
 
-<div id="do-i-run-replication-on-the-source-or-the-destination-"></div>
-
 ## Wird Replikation in der Quelle oder im Ziel ausgeführt?
+{: #is-replication-run-on-the-source-or-the-destination}
 
 Die Replikation kann entweder in der Quelle oder im Ziel gestartet werden.
 Das heißt, Sie entscheiden, ob Konto A Daten nach Konto B schiebt oder Konto B Daten von Konto A abruft.
@@ -106,9 +113,8 @@ In manchen Fällen kann es unmöglich sein, die Replikation überhaupt auszufüh
 Die Replikation wird über HTTP oder HTTPS ausgeführt, deshalb müssen vom Standard abweichende Ports geöffnet werden.
 Sie treffen die Entscheidung, welches Gerät die Replikation startet.
 
-<div id="how-do-i-initiate-replication-via-the-cloudant-api-"></div>
-
 ## Replikation mithilfe der {{site.data.keyword.cloudant_short_notm}}-API starten
+{: #how-to-start-replication-by-using-the-ibm-cloudant-api}
 
 Jedes {{site.data.keyword.cloudant_short_notm}}-Konto hat eine spezielle Datenbank namens `_replicator`,
 in die Replikationsjobs eingefügt werden können.
@@ -130,7 +136,7 @@ Content-Type: application/json
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Verwendung einer Befehlszeile zum Starten eines Replikationsjobs:_
 
@@ -140,7 +146,7 @@ curl -X POST \
     'https://$ACCOUNT.cloudant.com/_replicator' \
     -d '@replication.json'
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für ein JSON-Dokument, das die gewünschte Replikation beschreibt:_
 
@@ -152,22 +158,23 @@ _Beispiel für ein JSON-Dokument, das die gewünschte Replikation beschreibt:_
     "create_target": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Wie wirkt sich die Replikation auf die Liste von Änderungen aus?
+{: #how-does-replication-affect-the-list-of-changes-}
 
 Sie können eine Liste der Änderungen, die an einem Dokument vorgenommen wurden, mithilfe des
-Endpunkts [`_changes` abrufen](../api/database.html#get-changes).
+Endpunkts [`_changes` abrufen](/docs/services/Cloudant?topic=cloudant-databases#get-changes).
 Allerdings führt die verteilte Struktur von {{site.data.keyword.cloudant_short_notm}}-Datenbanken
 dazu, dass die vom Feed `_changes` bereitgestellte Antwort
 keine einfache Liste von Änderungen sein kann, die nach einem bestimmten Datum und einer bestimmten Uhrzeit ausgeführt wurden.
 
-Die Besprechung des [CAP-Theorems](cap_theorem.html) macht deutlich, dass
+Die Besprechung des [CAP-Theorems](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem) macht deutlich, dass
 {{site.data.keyword.cloudant_short_notm}} ein sukzessive konsistentes Modell einsetzt.
 Das heißt in der Praxis: Wenn Sie zwei verschiedene Replikate einer Datenbank zum selben Zeitpunkt nach einem Dokument fragen,
 erhalten Sie unter Umständen verschiedene Ergebnisse, falls die Replikation einer der Datenbankkopien noch aussteht oder noch nicht abgeschlossen ist.
-Die Replikation der Datenbanken wird _sukzessive_ abgeschlossen,
-damit alle Änderungen an einem Dokument in allen Kopien widergespiegelt werden.
+Die Replikation der Datenbanken wird sukzessive abgeschlossen, damit alle
+Änderungen an einem Dokument in allen Kopien widergespiegelt werden. 
 
 Dieses Modell der sukzessiven Konsistenz hat zwei Merkmale, die sich auf eine Liste von Änderungen auswirken:
 
@@ -200,9 +207,8 @@ Alle Änderungen sind aufgeführt, aber in einer anderen Reihenfolge.
 Der Unterschied kommt dadurch zustande, dass die Abfolge von Änderungen, die während der Replikation
 empfangen werden, zwischen verschiedenen Kopien der Datenbank abweichen kann.
 
-<div id="what-this-means-for-the-list-of-changes"></div>
-
 ### Auswirkung der sukzessiven Konsistenz auf die Liste von Änderungen
+{: #what-eventual-consistency-means-for-the-list-of-changes}
 
 Wenn Sie eine Liste von Änderungen anfordern, kann die Antwort abhängig davon variieren, von welcher Datenbankkopie die Liste bereitgestellt wird.
 
@@ -214,22 +220,24 @@ Um diese Konsistenz zu erzielen, muss die Datenbankkopie die Liste von Änderung
 ab dem Punkt beginnen, an dem alle Kopien identisch waren.
 Dieser Punkt wird mithilfe von Prüfpunkten angegeben.
 
-Deshalb muss eine Anwendung, die den Feed `_changes` verwendet, [idempotent ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.eaipatterns.com/IdempotentReceiver.html){:new_window} sein.
+Deshalb muss eine Anwendung, die den Feed `_changes` verwendet, [idempotent ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.eaipatterns.com/IdempotentReceiver.html){: new_window} sein.
 Idempotenz bedeutet, dass die Anwendung dieselben Daten sicher mehrfach und für wiederholte Anforderungen potenziell in einer anderen Reihenfolge empfangen kann.
 
 ## Prüfpunkte
+{: #checkpoints}
 
 Intern schreibt der Replikationsprozess seinen Status in Prüfpunktdokumente, die sowohl
 in den Quellen- als auch in den Zieldatenbanken gespeichert werden.
 Prüfpunkte lassen zu, dass eine Replikationstask ab dem Punkt fortgesetzt wird, an der sie gestoppt wurde.
 Das Erstellen von Prüfpunkten kann vermieden werden, indem Sie die Option
-[`"use_checkpoints": false`](../api/replication.html#checkpoints) angeben, wenn Sie Replikation anfordern.
+[`"use_checkpoints": false`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) angeben, wenn Sie Replikation anfordern.
 Es ist sinnvoll, die Funktion aktiviert zu lassen, wenn Ihre Replikation effizienterweise an ihrer zuletzt bekannten Position fortgesetzt werden soll.
 
 ## Berechtigungen
+{: #permissions}
 
 Administratorzugriff ist erforderlich, um ein Dokument in die Datenbank `_replicator` einzufügen.
-Die Anmeldeberechtigungen, die in den Quellen- und Zielparametern angegeben sind, benötigen keine umfassenden Admin-Rechte.
+Die Anmeldeberechtigungsnachweise, die in den Quellen- und Zielparametern angegebenen sind, benötigen keine umfassenden Administratorberechtigungen.
 Es reicht aus, wenn die Berechtigungsnachweise Folgendes dürfen:
 
 -   Dokumente im Ziel schreiben.
@@ -239,7 +247,7 @@ Es reicht aus, wenn die Berechtigungsnachweise Folgendes dürfen:
 Mit dieser Berechtigung können Prüfpunktdokumente erstellt werden,
 aber keine normalen Dokumente in einer Datenbank.
 Allgemein sollten Sie
-[API-Schlüssel erstellen](../api/authorization.html#creating-api-keys) mit:
+[API-Schlüssel erstellen](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) mit:
 
 -   `_reader`- und `_replicator`-Zugriff auf Quellenseite.
 -   `_reader`- und `_writer`-Zugriff auf Zielseite.
@@ -249,9 +257,12 @@ konfiguriert werden.
 
 ![Replikation](../images/replication_guide_5.png)
 
-Sie können auch [programmgesteuert](../api/authorization.html#creating-api-keys) mithilfe der {{site.data.keyword.cloudant_short_notm}}-API erstellt werden.
+Sie können auch [programmgesteuert](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) mithilfe der {{site.data.keyword.cloudant_short_notm}}-API erstellt werden.
+
+Aus Sicherheitsgründen empfiehlt das {{site.data.keyword.cloudant_short_notm}}-Team, dass Sie für Replikationsjobs IAM-API-Schlüssel oder [API-Schlüssel](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys){: new_window} der traditionellen {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden und keine Berechtigungsnachweise auf Kontoebene. Weitere Informationen hierzu finden Sie im [IAM-Leitfaden](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} oder in der früheren Version des [Dokuments für die Berechtigungs-API](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} und in einer früheren Version des [Dokuments für die Berechtigungs-API](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}.{: important}
 
 ## Bidirektionale Replikation
+{: #two-way-replication}
 
 Daten können in einem Prozess, der als bidirektionale Replikation oder Synchronisierung bekannt ist, in beide Richtungen kopiert werden.
 Sie aktivieren diese Synchronisierung, indem Sie zwei separate Replikationsprozesse einrichten,
@@ -262,7 +273,8 @@ bewegt werden.
 
 ![Replikation6](../images/replication_guide_6.png)
 
-## Fortlaufende Replikation
+## Erörterung der fortlaufenden Replikation
+{: #discussion-about-continuous-replication}
 
 Bisher haben wir uns nur mit der Einmalreplikation befasst,
 die fertiggestellt ist, wenn alle Quellendaten in die Zieldatenbank geschrieben sind.
@@ -271,7 +283,7 @@ Alle nachfolgenden Änderungen an der Quellendatenbank werden in Echtzeit in die
 
 Eine fortlaufende Replikation wird ausgelöst, indem Sie auf das Kontrollkästchen klicken, mit dem Sie die `Replikation als fortlaufend definieren` können,
 wenn Sie eine Replikationstask im {{site.data.keyword.cloudant_short_notm}}-Dashboard definieren,
-oder indem Sie das Flag [`continuous`](../api/replication.html#checkpoints) in der
+oder indem Sie das Flag [`continuous`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) in der
 {{site.data.keyword.cloudant_short_notm}}-API festlegen.
 
 Eine bidirektionale Replikation kann in eine der beiden Richtungen oder in beiden Richtungen als fortlaufend definiert werden,
@@ -285,7 +297,7 @@ Content-Type: application/json
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Verwendung der Befehlszeile zum Starten einer fortlaufenden Replikation:_
 
@@ -295,7 +307,7 @@ curl -X POST \
     https://$ACCOUNT.cloudant.com/_replicator \
     -d @continuous-replication.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für ein JSON-Dokument, das eine fortlaufende Replikation definiert:_
 
@@ -307,16 +319,17 @@ _Beispiel für ein JSON-Dokument, das eine fortlaufende Replikation definiert:_
     "continuous": true
 }
 ```
-{:codeblock}
+{: codeblock}
 
-## Replikation überwachen
+## Replikationsstatus überwachen
+{: #monitoring-replication-status}
 
 Sie können den Status der {{site.data.keyword.cloudant_short_notm}}-Datenbank `_replicator` jederzeit mithilfe
 des Dashboards oder der API prüfen.
 
 Wenn die Replikation fehlschlägt, z. B. falls die Authentifizierungsnachweise ungültig sind, wird der Fehlerstatus im Dokument `_replicator` aufgezeichnet.
-Darüber hinaus kann der Endpunkt `/_active_tasks` des {{site.data.keyword.cloudant_short_notm}}-Kontos verwendet werden, um den Fortschritt der Replikation zu sehen.
-Weitere Details sind [hier](../api/active_tasks.html) verfügbar.
+Darüber hinaus kann der Endpunkt [`/_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks)
+des {{site.data.keyword.cloudant_short_notm}}-Kontos verwendet werden, um den Fortschritt der Replikation zu verfolgen.
 
 _Beispiel für die Verwendung von HTTP zum Überwachen eines Replikationsprozesses:_
 
@@ -325,14 +338,14 @@ GET /_replicator/weekly_backup HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Verwendung der Befehlszeile zum Überwachen eines Replikationsprozesses:_
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispielantwort auf die Anforderung des Status einer Replikation:_
 
@@ -349,9 +362,12 @@ _Beispielantwort auf die Anforderung des Status einer Replikation:_
     "_replication_id": "4514b08cb4c2ded7da9ab04a87182ceb"
 }
 ```
-{:codeblock}
+{: codeblock}
+
+Wenn beim Replizieren Dokumente oder Anhänge den maximalen Grenzwert für das Ziel überschreiten, schlägt die Replikation fehl. Jeder Schreibfehler für ein Dokument erhöht den Zähler für die Replikationsstatistik in `doc_write_failures`. Aus diesem Grund wird dringend empfohlen, dieses Feld zu überwachen. 
 
 ## Replikation abbrechen
+{: #canceling-replication}
 
 Um einen laufenden Replikationsjob zu stoppen, löschen Sie das
 Replikationsdokument entweder über das Dashboard oder über die API aus der Datenbank `_replicator`.
@@ -363,36 +379,38 @@ DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1
 Host: $ACCOUNT.cloudant.com
 Authorization:
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Verwendung der Befehlszeile zum Abbrechen einer Replikation:_
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Weitere Replikationsanwendungsfälle
+{: #other-replication-use-cases}
 
-Die Replikation dient nicht nur zur Datenübertragung von {{site.data.keyword.cloudant_short_notm}}-Instanz zu {{site.data.keyword.cloudant_short_notm}}-Instanz.
 Das Replikationsprotokoll von {{site.data.keyword.cloudant_short_notm}} ist kompatibel mit anderen Datenbanken und Bibliotheken für verschiedene in der Praxis eingesetzte Anwendungen.
 
 ### Apache CouchDB
+{: #apache-couchdb}
 
-[Apache CouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://couchdb.apache.org/){:new_window} ist eine Open-Source-Datenbank,
+[Apache CouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://couchdb.apache.org/){: new_window} ist eine Open-Source-Datenbank,
 die mit {{site.data.keyword.cloudant_short_notm}} kommunizieren kann und nur eine minimale Konfiguration erfordert.
 Anwendungen sind:
 
 -   Sicherung: Replizieren Sie Ihre Daten aus {{site.data.keyword.cloudant_short_notm}} in Ihre eigenen CouchDB-Datenbanken
     und erstellen Sie nächtliche Momentaufnahmen Ihrer Daten für Archivierungszwecke.
     Senden Sie die Daten zur Aufbewahrung an einen Sicherungsservice, z. B.
-    [Amazon Glacier ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://aws.amazon.com/glacier/){:new_window}.
+    [Amazon Glacier ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://aws.amazon.com/glacier/){: new_window}.
 -   Zuerst lokale Datenerfassung: Schreiben Sie Ihre Daten zunächst in die lokale Apache CouchDB-Instanz,
     replizieren Sie sie dann für eine Langzeitspeicherung, -aggregation und -analyse nach {{site.data.keyword.cloudant_short_notm}}.
 
 ### PouchDB
+{: #pouchdb}
 
-[PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){:new_window} ist eine
+[PouchDB ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://pouchdb.com/){: new_window} ist eine
 Open-Source-, In-Browser-Datenbank, die es ermöglicht, Daten bidirektional zwischen dem Browser und {{site.data.keyword.cloudant_short_notm}} zu replizieren.
 Dank des Speicherns von Daten in einem Web-Browser auf Clientseite können Webanwendungen auch ohne Internetverbindung funktionieren.
 PouchDB kann alle geänderten Daten mit {{site.data.keyword.cloudant_short_notm}} synchronisieren, wenn eine Internetverbindung besteht.
@@ -405,11 +423,12 @@ var db = new PouchDB("myfirstdatabase");
 var URL = "https://u:p@username.cloudant.com/my_database");
 db.sync(URL, { live: true });
 ```
-{:codeblock}
+{: codeblock}
 
 ### CloudantSync
+{: #cloudantsync}
 
-[CloudantSync ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/cloudant-sync-resources/){:new_window} ist eine
+[CloudantSync ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/cloudant-sync-resources/){: new_window} ist eine
 Bibliothekengruppe für iOS und Android, mit der Daten lokal auf mobilen Geräten gespeichert und
 mit {{site.data.keyword.cloudant_short_notm}} synchronisiert werden können, wenn das mobile Gerät verbunden ist.
 Wie bei [PouchDB](#pouchdb) auch, müssen für die Konfiguration der Replikation einige Zeilen Code geschrieben werden.
@@ -424,13 +443,14 @@ Replicator replicator = ReplicatorFactory.oneway(ds, uri);
 // Fire-and-forget (mit einfachen Möglichkeiten, den Status zu überwachen)
 replicator.start();
 ```
-{:codeblock}
+{: codeblock}
 
 CloudantSync wird häufig in mobilen Anwendungen wie iPhone- und Android-Spielen verwendet,
 wobei der Status der Anwendung in {{site.data.keyword.cloudant_short_notm}} dauerhaft eingetragen wird,
 aber die Daten können auf dem Gerät auch offline verwendet werden.
 
-## Gefilterte Replikation
+## Gefilterte Replikationen
+{: #filtered-replications}
 
 Es ist nützlich, Daten während des Replikationsprozesses entfernen zu können,
 wenn Sie eine Datenbank in eine andere replizieren.
@@ -440,13 +460,12 @@ Beispiele hierfür sind:
     wodurch die Zieldatenbank kleiner als die Quelle ist.
 -   Unterteilen von Daten in kleinere Blöcke, z. B. Speichern von Daten aus Großbritannien in einer Datenbank und von Daten aus USA in einer anderen.
 
-<div id="replication-filter-function"></div>
-
 ### Replikationsfilterfunktionen
+{: #replication-filter-functions}
 
 Die gefilterte Replikation in {{site.data.keyword.cloudant_short_notm}} ermöglicht die Definition einer JavaScript-Funktion, die den
 Rückgabewert verwendet, um zu bestimmen, ob die einzelnen Dokumente in einer Datenbank gefiltert werden sollen oder nicht.
-[Filterfunktionen](../api/design_documents.html#filter-functions) werden in [Entwurfsdokumenten](../api/design_documents.html) gespeichert.
+[Filterfunktionen](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) werden in [Entwurfsdokumenten](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents) gespeichert.
 
 Das folgende Beispiel ist eine Filterfunktion, die nur die Replikation von nicht gelöschten Dokumenten zulässt.
 
@@ -460,7 +479,7 @@ function(doc, req) {
     return true;
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Wenn ein Replikationsjob gestartet wird,
 wird der Name einer Filterfunktion als Kombination des Entwurfsdokuments, in dem der Job gespeichert ist,
@@ -477,7 +496,7 @@ Content-Type: application/json
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Verwendung der Befehlszeile zum Starten einer gefilterten Replikation:_
 
@@ -487,7 +506,7 @@ curl -X POST \
     https://$ACCOUNT.cloudant.com/_replicator \
     -d @filtered-replication.json
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für ein JSON-Dokument, das eine gefilterte Replikation definiert wird:_
 
@@ -503,13 +522,14 @@ _Beispiel für ein JSON-Dokument, das eine gefilterte Replikation definiert wird
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Feed mit Änderungen
+{: #changes-feed}
 
 {{site.data.keyword.cloudant_short_notm}} veröffentlicht die Hinzufügungen, Bearbeitungen
-und Löschungen, die sich auf die Datenbank auswirken, über einen einzelnen HTTP-Feed vom Endpunkt
-[`_changes`](../api/database.html#get-changes).
+und Löschungen, die sich auf die Datenbank auswirken, über einen einzelnen HTTP-Feed
+vom Endpunkt [`_changes`](/docs/services/Cloudant?topic=cloudant-databases#get-changes).
 Dieser Feed kann von Ihrer Anwendung verwendet werden, um Ereignisse auszulösen.
 Sie können auf den Feed mithilfe von HTTP oder `curl` zugreifen,
 wie in den Beispielen gezeigt.
@@ -523,14 +543,14 @@ GET /$DATABASE/_changes?feed=continuous HTTP/1.1
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Verwendung der Befehlszeile zum Abfragen des Feeds mit den Änderungen:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
 ```
-{:codeblock}
+{: codeblock}
 
 Die Änderungen werden in Form von einer Zeile pro Änderung beschrieben.
 Jede Änderung besteht aus:
@@ -556,12 +576,10 @@ _Beispielfeed mit Änderungen (`_changes`):_
     ]
 }
 ```
-{:codeblock}
-
-<div id="changes-feed-since"></div>
+{: codeblock}
 
 Um den Feed mit Änderungen an einer bekannten Position zu öffnen,
-übergeben Sie ein [`since`-Argument](../api/database.html#the-since-argument) mit der Sequenznummer, ab der Sie starten möchten.
+übergeben Sie ein [`since`-Argument](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument) mit der Sequenznummer, ab der Sie starten möchten.
 
 _(Abgekürztes) Beispiel für die Verwendung von HTTP zum Angeben der `since`-Option, um einen `_changes`-Feed an einer bestimmten Position zu öffnen:_
 
@@ -570,16 +588,14 @@ GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTT
 HOST: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
-_(Abgekürztes) Beispiel für die Verwendung der Befehlszeile zum Angeben der `since`-Option, um einen `_changes`-Feed an einer bestimmten Position zu öffnen:_
+_(Abgekürztes) Beispiel für die Verwendung der Befehlszeile zum Angeben der Option `since`, um einen Feed `_changes` an einer bestimmten Position zu öffnen:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
 ```
-{:codeblock}
-
-<div id="changes-feed-since-now"></div>
+{: codeblock}
 
 Um den Feed mit Änderungen an der aktuellen Position wieder zu öffnen, legen Sie `since=now` fest.
 
@@ -590,14 +606,14 @@ GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Verwendung der Befehlszeile zum Angeben von `since=now`, um einen `_changes`-Feed an der aktuellen Position zu öffnen:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Verwendung von JavaScript zum Angeben von `since=now`, um einen `_changes`-Feed an der aktuellen Position zu öffnen:_
 
@@ -608,10 +624,10 @@ feed.on('change', function (change) {
 })
 feed.follow();
 ```
-{:codeblock}
+{: codeblock}
 
 Der programmgesteuerte Zugriff auf die `_changes`-Daten ist einfach.
-Verwenden Sie z. B. die [{{site.data.keyword.cloudant_short_notm}}-Bibliothek 'Node.js'](../libraries/supported.html#node-js),
+Verwenden Sie z. B. die [{{site.data.keyword.cloudant_short_notm}}-Bibliothek 'Node.js'](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js),
 um Änderungen mit wenigen Zeilen Code zu verfolgen.
 
 Mögliche Beispielanwendungsfälle:
@@ -619,8 +635,6 @@ Mögliche Beispielanwendungsfälle:
 -   Hinzufügen von Elementen zu einer Nachrichtenwarteschlange, um Aktionen in Ihrer Anwendung auszulösen, z. B. das Senden von Kunden-E-Mail.
 -   Aktualisieren einer speicherinternen Datenbank, um zeitnah die Zahl von Aktivitäten aufzuzeichnen.
 -   Schreiben von Daten in eine Textdatei, um Daten per Push-Operation in eine SQL-Datenbank zu übertragen.
-
-<div id="changes-feed-filtering"></div>
 
 Der Feed mit Änderungen kann mit einer Filterfunktion gefiltert werden,
 unter Einsatz einer ähnlichen Technik wie beim [Filtern während der Replikation](#filtered-replication).
@@ -632,32 +646,42 @@ GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydes
 Host: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Verwendung der Befehlszeile zum Filtern des Feeds mit Änderungen:_
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
 ```
-{:codeblock}
+{: codeblock}
 
-    Die Reihenfolge von Dokumenten im Feed `_changes` ist nicht immer gleich. Mit anderen Worten: Änderungen werden nicht unbedingt in streng zeitlicher Reihenfolge angezeigt. Grund ist, dass Daten von mehreren {{site.data.keyword.cloudant_short_notm}}-Knoten zurückgegeben werden
+Die Reihenfolge von Dokumenten im Feed `_changes` ist nicht immer gleich. Mit anderen Worten: Änderungen werden nicht unbedingt in streng zeitlicher Reihenfolge angezeigt. Grund ist, dass Daten von mehreren {{site.data.keyword.cloudant_short_notm}}-Knoten zurückgegeben werden
     und möglicherweise Konsistenzregeln gelten.
-    {: tip}
+{: tip}
 
 ## Replikationsprobleme
+{: #replication-pitfalls}
+
+Für eine erfolgreiche Replikation muss die Summe aus Dokumentgröße und allen Anhangsgrößen kleiner als die maximale Anforderungsgröße des Zielclusters sein. Wenn die maximale HTTP-Anforderungsgröße beispielsweise 11 MB beträgt, gelten die folgenden Szenarios:
+
+Dokumentgröße | Anhangsgröße | Gesamtgröße | Replikation möglich?
+--------------|----------------------|------------|------------
+1 MB | Fünf 2-MB-Anhänge | 11 MB | Ja
+1 MB | Ein 10-MB-Anhang | 11 MB | Ja
+0 MB | Einhundert 1-MB-Anhänge | 100 MB | Nein
 
 Bei der Verwendung von Replikation müssen verschiedene Aspekte berücksichtigt werden.
 
 ### Falsche Benutzerberechtigungen
+{: #incorrect-user-permissions}
 
 Damit die Replikation optimal ausgeführt wird, wenn Sie von Datenbank "a" nach Datenbank "b" replizieren,
 müssen die bereitgestellten Berechtigungsnachweise Folgendes aufweisen:
 
-*   `_reader`- und `_replicator`-Berechtigungen für Datenbank "a".
-*   `_writer`-Berechtigungen für Datenbank "b".
+*   Berechtigungen `_reader` und `_replicator` für Datenbank 'a'.
+*   Berechtigungen `_writer` für Datenbank 'b'.
 
-API-Schlüssel werden im {{site.data.keyword.cloudant_short_notm}}-Dashboard oder [über die API](../api/authorization.html#creating-api-keys) generiert.
+API-Schlüssel werden im {{site.data.keyword.cloudant_short_notm}}-Dashboard oder über die [API](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) generiert.
 Jedem Schlüssel können individuelle Berechtigungen zugewiesen werden, die sich auf eine bestimmte {{site.data.keyword.cloudant_short_notm}}-Datenbank beziehen.
 {{site.data.keyword.cloudant_short_notm}} muss die zugehörigen Prüfpunktdokumente nach dem Lesevorgang der Replikation
 schreiben können, sonst wird kein Status gespeichert und die Replikation kann nicht ab dem Punkt fortgesetzt werden, an dem
@@ -666,6 +690,7 @@ Wird der Status nicht gespeichert, kann dies zu Leistungsproblemen führen, wenn
 Denn ohne Prüfpunkte wird der Replikationsprozess jedes Mal von vorne gestartet.
 
 ### Replikationsdokument enthält Konflikte
+{: #replication-document-is-conflicted}
 
 Eine andere Folge der falschen Angabe von Benutzerberechtigungen ist, dass das Dokument `_replicator` Konflikte enthält.
 Das Dokument `_replicator` zeichnet den aktuellen Status des Replikationsprozesses auf.
@@ -677,10 +702,10 @@ Sie können die Größe Ihrer Datenbank `_replicator` prüfen, indem Sie eine `G
 ```http
 GET https://$ACCOUNT.cloudant.com/_replicator
 ```
-{:codeblock}
+{: codeblock}
 
 Suchen Sie in der zurückgegebenen JSON nach dem Wert `disk_size`.
-Wenn der Wert größer als 1 GB ist, wenden Sie sich an das [{{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window} für weitere Hilfestellung.
+Wenn der Wert größer als 1 GB ist, wenden Sie sich an das [{{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){: new_window} für weitere Hilfestellung.
 
 Sie können ein einzelnes `_replicator`-Dokument auf Konflikte prüfen,
 wie im folgenden Beispiel gezeigt:
@@ -688,9 +713,7 @@ wie im folgenden Beispiel gezeigt:
 ```http
 GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 ```
-{:codeblock}
-
-<div id="resetting-replicator-database"></div>
+{: codeblock}
 
 Wenn Sie alle Replikationen abbrechen und mit einer neuen
 sauberen Datenbank `_replicator` starten möchten,
@@ -707,7 +730,7 @@ PUT /_replicator HTTP/1.1
 HOST: $ACCOUNT.cloudant.com
 Authorization: ...
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Verwendung der Befehlszeile zum Entfernen und erneuten Erstellen der Datenbank `_replicator`:_
 
@@ -715,11 +738,13 @@ _Beispiel für die Verwendung der Befehlszeile zum Entfernen und erneuten Erstel
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'
 curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 ```
-{:codeblock}
+{: codeblock}
 
 ### Viele gleichzeitige Replikationen
+{: #many-simultaneous-replications}
 
-Es wird leicht vergessen, die Sie bereits die Replikation zwischen zwei Datenbanken eingerichtet haben, und so aus Versehen zusätzliche Replikationsprozesse erstellen.
+Es wird leicht vergessen, dass Sie bereits die Replikation zwischen zwei Datenbanken eingerichtet haben,
+und so aus Versehen zusätzliche Replikationsprozesse erstellen.
 Jeder Replikationsjob ist unabhängig von den anderen, deshalb hindert {{site.data.keyword.cloudant_short_notm}}
 Sie nicht daran, zusätzliche Replikationsprozesse zu erstellen.
 Aber jede Replikationstask verbraucht Systemressourcen.
@@ -729,6 +754,7 @@ prüfen, um sicherzustellen, dass keine unerwünschten Replikationstasks ausgef�
 Löschen Sie alle `_replicator`-Dokumente, die nicht mehr benötigt werden.
 
 ## Replikationsgeschwindigkeit optimieren
+{: #tuning-replication-speed}
 
 Standardmäßig werden {{site.data.keyword.cloudant_short_notm}}-Replikationen mit einer angemessenen
 Geschwindigkeit ausgeführt, um die Daten von der Quelle zum Ziel zu übertragen, ohne dass sich dies negativ auf
@@ -737,18 +763,16 @@ Die Entscheidung zwischen Replikationsrate und Clusterleistung für andere Tasks
 Ihr Anwendungsfall macht vielleicht eine schnellere Replikation auf Kosten anderer {{site.data.keyword.cloudant_short_notm}}-Services erforderlich.
 Oder die Clusterleistung muss Vorrang vor der im Hintergrund ausgeführten Replikation bekommen.
 
-Erweiterte Replikations-API-Optionen sind [verfügbar](../api/advanced_replication.html),
-die eine Zunahme oder Abnahme der während der Replikation genutzten Rechenleistung ermöglichen.
-Beispiel:
+[Erweiterte API-Optionen für die Replikation](/docs/services/Cloudant?topic=cloudant-advanced-replication#advanced-replication) ermöglichen eine Zunahme oder Abnahme der während der Replikation genutzten Rechenleistung. Beispiel:
 
 *   Wenn Ihre Dokumente Anhänge enthalten,
     sollten Sie darüber nachdenken, die Stapelgröße (batch_size) zu reduzieren und die Anzahl der Worker-Prozesse (worker_processes) zu erhöhen,
     um größere Dokumente in kleineren Stapeln zusammenzufassen.
 *   Wenn Sie viele sehr kleine Dokumente haben,
     sollten Sie darüber nachdenken, die Werte für
-    [`worker_processes`](../api/advanced_replication.html#performance-related-options) und
-    [`http_connections`](../api/advanced_replication.html#performance-related-options) zu erhöhen.
+    [`worker_processes`](/docs/services/Cloudant?topic=cloudant-advanced-replication#performance-related-options) und
+    [`http_connections`](/docs/services/Cloudant?topic=cloudant-advanced-replication#performance-related-options) zu erhöhen.
 *   Wenn Sie eine Replikation mit minimalen Auswirkungen durchführen möchten,
     können Sie `worker_processes` und `http_connections` auf 1 festlegen.
 
-Weitere Hilfestellung zur besten Konfiguration für Ihren Anwendungsfall erhalten Sie vom [{{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}.
+Weitere Hilfestellung zur besten Konfiguration für Ihren Anwendungsfall erhalten Sie vom [{{site.data.keyword.cloudant_short_notm}}-Support-Team ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){: new_window}.

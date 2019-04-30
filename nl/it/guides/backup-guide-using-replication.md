@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
+
+subcollection: cloudant
 
 ---
 
@@ -12,19 +16,21 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-<div id="back-up-your-data-using-replication"></div>
-
 # Incrementi di replica
+{: #replication-incrementals}
 
->	**Nota**: questa guida contiene istruzioni vecchie o 'obsolete' sul backup {{site.data.keyword.cloudantfull}}.
-	Per le istruzioni di backup aggiornate,
-    consulta la guida [Ripristino di emergenza e backup](disaster-recovery-and-backup.html).
+Questa guida contiene istruzioni vecchie o 'obsolete' sul backup {{site.data.keyword.cloudantfull}}. Per le istruzioni di backup aggiornate,
+    consulta la guida [Ripristino di emergenza e backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
+{: deprecated}
 
 I backup del database proteggono i tuoi dati da eventuali perdite o danneggiamenti.
-{:shortdesc}
+{: shortdesc}
 
 Puoi utilizzare la funzione di replica {{site.data.keyword.cloudant_short_notm}} per creare un backup del database
 e memorizzarlo su un cluster {{site.data.keyword.cloudant_short_notm}}.
@@ -43,9 +49,10 @@ In questo modo,
 un backup può conservare lo stato del tuo database in un momento selezionato.
 
 ## Backup incrementali
+{: #incremental-backups}
 
 Se sei un cliente aziendale,
-è [disponibile](disaster-recovery-and-backup.html) una funzionalità di backup incrementale.
+è [disponibile](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) una funzionalità di backup incrementale.
 
 Se non sei un cliente aziendale,
 o se preferisci creare i tuoi propri backup,
@@ -71,13 +78,14 @@ esegui dei backup 'incrementali' giornalieri,
 copiando _solo _ ciò che è stato modificato nel database dall'ultimo backup.
 Questa replica diventa un backup giornaliero.
 
->   **Nota**: puoi configurare un backup da attivare a intervalli regolari.
-    Tuttavia,
-    ogni intervallo deve essere di almeno 24 ore.
-    In altre parole,
+Puoi configurare un backup da attivare a intervalli regolari.
+Tuttavia,
+    ogni intervallo deve essere di almeno 24 ore. In altre parole,
     puoi eseguire backup giornalieri ma non backup orari.
+{: note}
 
 ## Creazione di un backup incrementale
+{: #creating-an-incremental-backup}
 
 I backup incrementali salvano solo le differenze o 'delta' tra i backup.
 Ogni 24 ore,
@@ -103,13 +111,14 @@ completa la seguente procedura:
 3.  Cerca il campo `recorded_seq` del primo elemento
     nell'array di cronologia che si trova nel documento di checkpoint.
 4.  Esegui la replica nel nuovo database di backup incrementale,
-    impostando il [campo `since_seq`](../api/replication.html#the-since_seq-field)
-    nel documento di replica sul valore del campo `recorded_seq`
-    trovato nel passo precedente.
+    impostando il [campo `since_seq`](/docs/services/Cloudant?topic=cloudant-replication-api#the-since_seq-field)
+    nel documento di replica sul valore del campo `recorded_seq` trovato nel passo precedente.
 
->   **Nota**: per definizione, l'utilizzo dell'opzione `since_seq` ignora la normale funzione di checkpoint. Utilizza `since_seq` con cautela. 
+Per definizione, l'utilizzo dell'opzione `since_seq` ignora la normale funzione di checkpoint. Utilizza `since_seq` con cautela. 
+{: note}
 
 ## Ripristino di un database
+{: #restoring-a-database}
 
 Per ripristinare un database dai backup incrementali,
 dovrai replicare ogni backup incrementale in un nuovo database,
@@ -124,6 +133,7 @@ Tutti i documenti più vecchi di una copia già presente nel nuovo database veng
 
 
 ## Un esempio
+{: #an-example}
 
 Questo esempio mostra come:
 
@@ -132,29 +142,27 @@ Questo esempio mostra come:
 3.  Impostare ed eseguire un backup incrementale.
 4.  Ripristinare un backup.
 
-<div id="constants-used-in-this-guide"></div>
-
 ### Costanti utilizzate qui
+{: #constants-that-are-used-here}
 
 ```sh
 # save base URL and the content type in shell variables
 $ url='https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com'
 $ ct='Content-Type: application-json'
 ```
-{:codeblock}
+{: codeblock}
 
 Supponiamo che tu debba eseguire il backup di un database.
 Vuoi creare un backup completo il lunedì
 e un backup incrementale il martedì.
 
-Puoi utilizzare i comandi `curl` e [`jq` ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://stedolan.github.io/jq/){:new_window}
+Puoi utilizzare i comandi `curl` e [`jq` ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://stedolan.github.io/jq/){: new_window}
 per effettuare queste operazioni.
 In pratica,
 potresti utilizzare qualsiasi client HTTP.
 
-<div id="step-1-check-you-have-three-databases"></div>
-
 ### Passo 1: controlla di avere tre database
+{: #step-1-check-that-you-have-three-databases}
 
 Per questo esempio,
 hai bisogno di tre database:
@@ -171,7 +179,7 @@ PUT /original HTTP/1.1
 PUT /backup-monday HTTP/1.1
 PUT /backup-tuesday HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Esempio che mostra come controllare di avere tre database da utilizzare in questo esempio,
 utilizzando la riga di comando:_
@@ -181,27 +189,29 @@ $ curl -X PUT "${url}/original"
 $ curl -X PUT "${url}/backup-monday"
 $ curl -X PUT "${url}/backup-tuesday"
 ```
-{:codeblock}
+{: codeblock}
 
 ### Passo 2: crea il database `_replicator`
+{: #step-2-create-the-_replicator-database}
 
 Se non esiste, crea il database `_replicator`.
 
-_Creazione del database `_replicator` utilizzando HTTP:_
+*Creazione del database `_replicator` utilizzando HTTP:*
 
 ```http
 PUT /_replicator HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
-_Creazione del database `_replicator` utilizzando la riga di comando:_
+*Creazione del database `_replicator` utilizzando la riga di comando:*
 
 ```sh
 curl -X PUT "${url}/_replicator"
 ```
-{:pre}
+{: pre}
 
 ### Passo 3: backup dell'intero database (originale)
+{: #step-3-back-up-the-entire-original-database}
 
 Il lunedì
 vuoi eseguire il backup di tutti i tuoi dati per la prima volta.
@@ -213,7 +223,7 @@ _Esecuzione di un backup completo di lunedì utilizzando HTTP:_
 PUT /_replicator/full-backup-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Esecuzione di un backup completo di lunedì utilizzando la riga di comando:_
 
@@ -221,7 +231,7 @@ _Esecuzione di un backup completo di lunedì utilizzando la riga di comando:_
 $ curl -X PUT "${url}/_replicator/full-backup-monday" -H "$ct" -d @backup-monday.json
 # where backup-monday.json describes the backup.
 ```
-{:codeblock}
+{: codeblock}
 
 _Documento JSON che descrive il backup completo:_
  
@@ -232,11 +242,10 @@ _Documento JSON che descrive il backup completo:_
     "target": "${url}/backup-monday"
 }
 ```
-{:codeblock}
-
-<div id="step-4-get-checkpoint-id"></div>
+{: codeblock}
 
 ### Passo 4: preparazione del backup incrementale parte 1 - Ottieni l'ID checkpoint
+{: #step-4-prepare-incremental-backup-part-1-get-checkpoint-id}
 
 Il martedì,
 vuoi effettuare un backup incrementale
@@ -256,24 +265,23 @@ Inizia ricercando il valore del'ID checkpoint.
 Questo valore è memorizzato nel campo `_replication_id` del documento di replica,
 all'interno del database `_replicator`.
 
-_Acquisizione dell'ID checkpoint per aiutare a trovare il valore `recorded_seq`, utilizzando HTTP:_
+*Acquisizione dell'ID checkpoint per aiutare a trovare il valore `recorded_seq`, utilizzando HTTP:*
 
 ```http
 GET /_replicator/full-backup-monday HTTP/1.1
 # Search for the value of _replication_id
 ```
-{:codeblock}
+{: codeblock}
 
-_Acquisizione dell'ID checkpoint per aiutare a trovare il valore `recorded_seq`, utilizzando la riga di comando:_
+*Acquisizione dell'ID checkpoint per aiutare a trovare il valore `recorded_seq`, utilizzando la riga di comando:*
 
 ```sh
 replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replication_id')
 ```
-{:pre}
-
-<div id="step-5-get-recorded_seq-value"></div>
+{: pre}
 
 ### Passo 5:  preparazione del backup incrementale parte 2 - Ottieni il valore `recorded_seq`
+{: #step-5-prepare-incremental-backup-part-2-get-recorded_seq-value}
 
 Dopo aver ottenuto l'ID checkpoint,
 utilizzalo per acquisire il valore `recorded_seq`.
@@ -283,22 +291,23 @@ all'interno del database originale.
 Adesso disponi del valore `recorded_seq`.
 Questo valore identifica l'ultimo documento che è stato replicato dal database originale.
 
-_Acquisizione di `recorded_seq` dal database originale utilizzando HTTP:_
+*Acquisizione di `recorded_seq` dal database originale utilizzando HTTP:*
 
 ```http
 GET /original/_local/${replication_id} HTTP/1.1
 # Search for the first value of recorded_seq in the history array
 ```
-{:codeblock}
+{: codeblock}
 
-_Acquisizione di `recorded_seq` dal database originale utilizzando la riga di comando:_
+*Acquisizione di `recorded_seq` dal database originale utilizzando la riga di comando:*
 
 ```sh
 recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history[0].recorded_seq')
 ```
-{:pre}
+{: pre}
 
 ### Passo 6: esegui un backup incrementale
+{: #step-6-run-an-incremental-backup}
 
 Ora che hai l'ID checkpoint e il valore `recorded_seq`,
 puoi avviare il backup incrementale del martedì.
@@ -315,14 +324,14 @@ _Esecuzione del backup incrementale di martedì utilizzando HTTP:_
 PUT /_replicator/incr-backup-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Esecuzione del backup incrementale di martedì utilizzando la riga di comando:_
 
 ```sh
 curl -X PUT "${url}/_replicator/incr-backup-tuesday" -H "${ct}" -d @backup-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _Documento JSON che descrive il backup incrementale di martedì:_
  
@@ -334,9 +343,10 @@ _Documento JSON che descrive il backup incrementale di martedì:_
     "since_seq": "${recorded_seq}"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Passo 7: ripristina il backup di lunedì
+{: #step-7-restore-the-monday-backup}
 
 Per eseguire il ripristino da un backup,
 replica il backup completo iniziale
@@ -353,14 +363,14 @@ _Ripristino dal database `backup-monday` utilizzando HTTP:_
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Ripristino dal database `backup-monday` utilizzando la riga di comando:_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _Documento JSON che descrive il ripristino:_
  
@@ -372,15 +382,16 @@ _Documento JSON che descrive il ripristino:_
     "create_target": true  
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Passo 8: ripristina il backup di martedì
+{: #step-8-restore-the-tuesday-backup}
 
 Per ripristinare il database di martedì,
 devi prima eseguire la replica da `backup-tuesday` e poi da `backup-monday`.
 
->   **Nota**: l'ordine non è un errore tipografico;
-    l'intenzione _è_ davvero quella di ripristinare da martedì e _poi_ da lunedì.
+L'ordine non è un errore tipografico; l'intenzione _è_ davvero quella di ripristinare da martedì e _poi_ da lunedì.
+{: tip}
 
 Potresti ripristinare in sequenza cronologica,
 ma utilizzando l'ordine inverso,
@@ -393,14 +404,14 @@ _Ripristino del backup di martedì, ottenendo per prime le modifiche più recent
 PUT /_replicator/restore-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Ripristino del backup di martedì, ottenendo per prime le modifiche più recenti, utilizzando la riga di comando:_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-tuesday" -H "$ct" -d @restore-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _Documento JSON che richiede il ripristino del backup di martedì:_
  
@@ -412,7 +423,7 @@ _Documento JSON che richiede il ripristino del backup di martedì:_
     "create_target": true  
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Completa il recupero ripristinando il backup di lunedì utilizzando HTTP:_
 
@@ -420,14 +431,14 @@ _Completa il recupero ripristinando il backup di lunedì utilizzando HTTP:_
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Completa il recupero ripristinando il backup di lunedì utilizzando la riga di comando:_
 
 ```http
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _Documento JSON che richiede il ripristino del backup di lunedì:_
  
@@ -438,15 +449,17 @@ _Documento JSON che richiede il ripristino del backup di lunedì:_
     "target": "${url}/restore"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Suggerimenti
+{: #suggestions}
 
 Mentre le informazioni precedenti descrivono il processo di backup di base,
 ogni applicazione ha bisogno di propri requisiti e strategie per i backup.
 I seguenti suggerimenti potrebbero essere utili.
 
 ### Pianificazione dei backup
+{: #scheduling-backups}
 
 I lavori di replica possono aumentare significativamente il carico su un cluster.
 Se devi eseguire il backup di più database,
@@ -454,6 +467,7 @@ Se devi eseguire il backup di più database,
 o in un momento in cui il cluster è meno occupato.
 
 #### Modifica della priorità IO di un backup
+{: #changing-the-io-priority-of-a-backup}
 
 Puoi modificare la priorità dei lavori di backup
 cambiando il valore del campo `x-cloudant-io-priority` all'interno del documento di replica.
@@ -480,11 +494,10 @@ _Esempio di documento JSON che imposta la priorità IO:_
     }
 }
 ```
-{:codeblock}
-
-<div id="design-documents"></div>
+{: codeblock}
 
 ### Backup dei documenti di progettazione
+{: #backing-up-design-documents}
 
 Se includi i documenti di progettazione nel tuo backup,
 gli indici vengono creati sulla destinazione del backup.
@@ -494,6 +507,7 @@ utilizza una funzione di filtro con le tue repliche per filtrare i documenti di 
 Puoi anche utilizzare questa funzione di filtro per escludere altri documenti non desiderati.
 
 ### Backup di più database
+{: #backing-up-multiple-databases}
 
 Se la tua applicazione utilizza un database per utente
 o consente a ciascun utente di creare diversi database,
@@ -501,9 +515,10 @@ dovrai creare un lavoro di backup per ogni nuovo database.
 Assicurati che i tuoi lavori di replica non inizino nello stesso momento.
 
 ## Ti serve aiuto?
+{: #need-help-}
 
 La replica e i backup possono essere complicati.
 Se non sai come procedere,
-consulta la [guida della replica](replication_guide.html)
+consulta la [guida della replica](/docs/services/Cloudant?topic=cloudant-replication-guide#replication-guide)
 o contatta il
-[team di supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
+[team di supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){: new_window}.

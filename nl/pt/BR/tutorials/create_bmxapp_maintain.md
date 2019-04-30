@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
+
+subcollection: cloudant
 
 ---
 
@@ -12,19 +16,22 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-11 -->
 
 # Criando um aplicativo {{site.data.keyword.cloud_notm}} simples para acessar um banco de dados do {{site.data.keyword.cloudant_short_notm}}: manutenção e resolução de problemas
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting}
 
 Este tutorial mostra como manter um
 aplicativo {{site.data.keyword.cloud}},
 hospedado em sua instância de serviço do {{site.data.keyword.cloud_notm}}.
-{:shortdesc}
-
-<div id="maintenance"></div>
+{: shortdesc}
 
 ## Executando tarefas básicas de manutenção do aplicativo
+{: #performing-basic-application-maintenance-tasks}
 
 Esta seção do tutorial explica como atualizar,
 iniciar
@@ -32,15 +39,18 @@ e parar
 seus aplicativos Python no {{site.data.keyword.cloud_notm}}.
 
 ### Localizando o status de seu aplicativo
+{: #finding-the-status-of-your-application}
 
 O status de aplicativos dentro da
 instância de serviço do {{site.data.keyword.cloud_notm}} é exibido no painel.
 
-No exemplo a seguir, o aplicativo `Python Cloudant` não está em execução e possui um estado `Pausado`:
+No exemplo a seguir, o aplicativo `Cloudant CF app` não está em execução
+e tem um estado `Stopped`:
 
 ![Captura de tela mostrando o painel do aplicativo em um estado 'stopped'](images/img0037.png)
 
 ### Iniciando seu aplicativo
+{: #starting-your-application}
 
 Se você tentar iniciar o aplicativo do tutorial sem primeiro excluir o banco de dados de demonstração do tutorial, o aplicativo não poderá funcionar corretamente. O aplicativo entrará em um ciclo de tentativa de iniciar,
 falhando, porque o banco de dados existe,
@@ -48,39 +58,29 @@ parando e,
 em seguida, tentando iniciar novamente. Para resolver o problema,
 [pare o aplicativo](#stopping-your-application)
 e exclua o banco de dados de demonstração do tutorial. O aplicativo poderá então iniciar com sucesso.
-{: tip}
+{: note}
     
-Para iniciar um aplicativo interrompido,
-primeiro clique no ícone de menu do aplicativo no painel:
-
-![Captura de tela mostrando o painel com o ícone de gerenciamento de aplicativo](images/img0038.png)
-
-Em seguida,
-clique na opção `Start App` no menu:<br/>
-![Captura de tela mostrando a opção 'Start App'](images/img0039.png)
+Para iniciar um aplicativo parado, clique na opção `Iniciar`no menu:<br/>
+![Screen capture showing 'Start' option](images/img0039.png)
 
 ### Parando seu aplicativo
+{: #stopping-your-application}
 
-Para parar um aplicativo em execução,
-primeiro clique no ícone de menu do aplicativo no painel:<br/>
-![Captura de tela mostrando o painel com o ícone de gerenciamento de aplicativo](images/img0038.png)
-
-Em seguida,
-clique na opção `Stop App` no menu:<br/>
-![Captura de tela mostrando a opção 'Stop App'](images/img0041.png)
-
-<div id="troubleshooting"></div>
+Para parar um aplicativo em execução, clique na opção `Parar`no menu:<br/>
+![Screen capture showing 'Stop' option](images/img0041.png)
 
 ### Fazendo upload de uma nova versão do aplicativo
+{: #uploading-a-fresh-version-of-your-application}
 
 Para fazer upload de uma nova versão do aplicativo,
-basta seguir o [processo de upload](create_bmxapp_upload.html).
+basta seguir o [processo de upload](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application).
 A nova versão sobrescreve a versão mais antiga do aplicativo.
 
 Se a versão mais antiga do aplicativo já estiver em execução quando você iniciar o upload, o {{site.data.keyword.cloud_notm}} interromperá automaticamente o aplicativo primeiro.
 {: tip}
 
 ## Diagnosticando e resolvendo problemas
+{: #diagnosing-and-resolving-problems}
 
 Esta seção do tutorial fornece algumas dicas básicas de resolução de problemas para ajudar
 a identificar,
@@ -90,11 +90,11 @@ seus primeiros aplicativos {{site.data.keyword.cloud_notm}}.
 
 Uma boa fonte de conselhos sobre as melhores práticas para criar aplicativos {{site.data.keyword.cloud_notm}} ou
 Cloud Foundry está
-[aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}.
+[aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
 
 Especificamente,
 o conselho sobre como
-[evitar gravações no sistema de arquivos local ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}
+[evitar gravações no sistema de arquivos local ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window}
 é prudente.
 
 Por razões de simplicidade, esse tutorial grava conteúdo no sistema de arquivos local. No entanto,
@@ -103,12 +103,13 @@ e não é 'essencial'.
 {: tip}
 
 ### Usando o log do aplicativo
+{: #using-the-application-log}
 
 O recurso mais útil para diagnosticar e resolver problemas com o
 aplicativo {{site.data.keyword.cloud_notm}} é o arquivo de log.
 
-O arquivo de log para um aplicativo {{site.data.keyword.cloud_notm}} pode ser localizado ao clicar na guia `Logs` para abrir a página de informações de criação de log:<br/>
-![Captura de tela mostrando o link para acessar a página de informações 'Logs'](images/img0042.png)
+O arquivo de log para um aplicativo {{site.data.keyword.cloud_notm}}pode ser localizado ao clicar na guia `Logs`para abrir a página de informações de criação de log:<br/>
+![Screen capture showing the link to access the 'Logs' information page](images/img0042.png)
 
 Como a maioria dos arquivos de log,
 um log do aplicativo {{site.data.keyword.cloud_notm}} contém detalhes sobre quais eventos ocorreram
@@ -125,8 +126,8 @@ Rótulo do componente | Componente
 `RTR`           | Os componentes de rede transportam mensagens de ou para seu aplicativo.
 
 Por exemplo,
-a captura de tela a seguir inclui vários eventos típicos:<br/>
-![Captura de tela mostrando informação de log indicativa](images/img0043.png)
+a captura de tela a seguir inclui um número de eventos típicos:<br/>
+![Screen capture showing indicative log information](images/img0043.png)
 
 Observe os eventos nos horários a seguir:
 
@@ -147,11 +148,11 @@ sem remover o banco de dados antes,
 o aplicativo falhará e reiniciará repetidamente.
 
 É possível ver esse efeito na captura de tela a seguir:<br/>
-![Captura de tela mostrando informações de erro no log](images/img0044.png)
+![Screen capture showing error information within the log](images/img0044.png)
 
-Às 14h31min23s,
+Às 2h31min23s,
 o aplicativo detectou um problema:<br/>
-`"Database {0} already exists".format(dbname)`
+`"Banco de dados { 0 } já existe". format (dbname)`
 
 As mensagens restantes são o que se espera de qualquer aplicativo Python que encontra um problema.
 
@@ -161,5 +162,6 @@ e fornece o máximo de detalhes possível.
 Deve-se então aplicar os procedimentos normais de resolução de problemas do aplicativo para resolver o problema.
 
 ## Término do tutorial
+{: #end-of-tutorial}
 
 O tutorial está completo.

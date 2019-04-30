@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-02-27"
+
+keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
+
+subcollection: cloudant
 
 ---
 
@@ -12,12 +16,17 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Comment les données sont-elles stockées dans {{site.data.keyword.cloudant_short_notm}} ?
+{: #how-is-data-stored-in-ibm-cloudant-}
 
 ## Concepts
+{: #concepts}
 
 Chaque base de données dans {{site.data.keyword.cloudantfull}} se compose d'un ou de plusieurs _fragments_ distincts,
 le nombre de fragments est appelé _Q_.
@@ -56,6 +65,7 @@ pour atteindre un équilibre entre les performances et la sécurité des donnée
 Il est exceptionnel et inhabituel qu'un système {{site.data.keyword.cloudant_short_notm}} utilise un autre nombre de répliques.
 
 ## En quoi la fragmentation affecte-t-elle les performances ?
+{: #how-does-sharding-affect-performance-}
 
 Le nombre de fragments d'une base de données est configurable car
 il affecte les performances de cette dernière de plusieurs manières.
@@ -109,7 +119,7 @@ pour estimer un nombre de fragments approprié.
 Lors de l'estimation de la taille des données, il est important
 de prendre en compte le nombre de documents par fragment.
 Les documents de chaque fragment se trouvent dans une
-[arborescence B ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/B-tree){:new_window}
+[arborescence B ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/B-tree){: new_window}
 de grande taille sur disque.
 Les index sont stockés de la même manière.
 Plus le nombre de documents ajoutés à un fragment est important,
@@ -136,8 +146,6 @@ et d'utiliser ces informations lors de la sélection ultérieure du nombre appro
 Pour une meilleure estimation des valeurs _Q_ appropriées, il est primordial d'effectuer des tests avec des données représentatives et des schémas de demande.
 Attendez-vous à ce qu'une expérience en production réelle produise des résultats différents.
 
-<div id="summary"></div>
-
 Les instructions simples suivantes peuvent vous être utiles lors des premières étapes de planification.
 Pensez à valider votre configuration proposée en la testant avec des données représentatives,
 particulièrement pour les bases de données de grande taille :
@@ -153,16 +161,16 @@ particulièrement pour les bases de données de grande taille :
 *	Pour les bases de données encore plus importantes,
 	fragmentez manuellement vos données dans plusieurs bases de données.
 	Pour de telles bases de données,
-	contactez le [{{site.data.keyword.cloudant_short_notm}}support ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window} pour obtenir des conseils.
+	contactez le [{{site.data.keyword.cloudant_short_notm}}support ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){: new_window} pour obtenir des conseils.
 
->	**Remarque :** Les chiffres proposés dans ces instructions sont dérivés de l'observation et de l'expérience
-	et non de calculs précis.
-
-<div id="API"></div>
+Les chiffres proposés dans ces instructions sont dérivés de l'observation et de l'expérience et non de calculs précis.
+{: tip}
 
 ## Utilisation de fragments
+{: #working-with-shards}
 
 ### Définition du nombre de fragments
+{: #setting-shard-count}
 
 Le nombre de fragments,
 _Q_,
@@ -179,13 +187,13 @@ Le paramètre `q` indique que huit fragments sont créés pour la base de donné
 ```sh
 curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
-{:codeblock}
+{: codeblock}
 
->	**Remarque :** la définition de _Q_ pour les bases de données n'est pas activée pour les bases de données {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud}}.
-	La valeur _Q_ n'est pas disponible sur la plupart des clusters à service partagé `cloudant.com`.
+La définition de _Q_ pour les bases de données n'est pas activée pour les bases de données {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud}}. La valeur _Q_ n'est pas disponible sur la plupart des clusters à service partagé `cloudant.com`.
+{: note}
 
 Si vous tentez de définir la valeur _Q_ alors qu'elle est indisponible,
-une réponse [`403` est générée](../api/http.html#403) avec un corps JSON
+une réponse [`403` est générée](/docs/services/Cloudant/api/http.html#http-status-codes) avec un corps JSON
 similaire à l'exemple suivant :
 
 ```json
@@ -194,20 +202,22 @@ similaire à l'exemple suivant :
 	"reason": "q is not configurable"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Définition du nombre de répliques
+{: #setting-the-replica-count}
 
 Depuis la version 2 de CouchDB,
-vous êtes autorisé à [spécifier le nombre de répliques ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}
+vous êtes autorisé à [spécifier le nombre de répliques ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window}
 lorsque vous créez une base de données.
 Toutefois,
 vous n'êtes pas autorisé à changer la valeur par défaut du nombre de répliques qui est égale à 3.
 Plus particulièrement,
 il n'est pas possible d'indiquer un nombre de répliques différent lorsque vous créez une base de données.
-Pour obtenir de l'aide supplémentaire, contactez le [support {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){:new_window}.
+Pour obtenir de l'aide supplémentaire, contactez le [support {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){: new_window}.
 
 ### Que sont les arguments _R_ et _W_ ?
+{: #what-are-the-_r_-and-_w_-arguments-}
 
 Certaines demandes peuvent avoir des arguments qui affectent le comportement du coordinateur lorsqu'il répond à la demande.
 Ces arguments sont appelés _R_ et _W_ d'après leurs noms dans la chaîne de requête de demande.
@@ -220,6 +230,7 @@ Par exemple,
 le fait de spécifier _R_ ou _W_ ne modifie en rien la cohérence pour la lecture ou l'écriture.
 
 #### Qu'est-ce que l'argument _R_ ?
+{: #what-is-_r_-}
 
 L'argument _R_ peut être spécifié uniquement pour les demandes de document unique.
 _R_ définit le nombre de réponses devant être reçues par le coordinateur avant qu'il ne réponde au client.
@@ -230,10 +241,8 @@ le coordinateur peut renvoyer une réponse plus rapidement.
 Cela est dû au fait que le coordinateur doit attendre une réponse d'une des
 répliques qui hébergent le fragment approprié.
 
->	**Remarque :** Le fait de réduire la valeur _R_ augmente la probabilité que la réponse
-	renvoyée ne s'appuie pas sur les dernières données en raison du
-	modèle de [cohérence finale](cap_theorem.html) utilisé par {{site.data.keyword.cloudant_short_notm}}.
-	L'utilisation de la valeur _R_ par défaut permet d'atténuer cet effet.
+Le fait de réduire la valeur _R_ augmente la probabilité que la réponse renvoyée ne s'appuie pas sur les dernières données en raison du modèle de [cohérence finale](/docs/services/Cloudant/guides/cap_theorem.html)  utilisé par {{site.data.keyword.cloudant_short_notm}}. L'utilisation de la valeur _R_ par défaut permet d'atténuer cet effet.
+{: note}
 
 La valeur par défaut de _R_ est _2_.
 Cette valeur correspond à la plupart des répliques pour une base de données standard qui utilise trois répliques de fragment.
@@ -241,13 +250,15 @@ Si la base de données a un nombre de répliques supérieur ou inférieur à 3,
 la valeur par défaut de _R_ change en fonction.
 
 #### Qu'est-ce que l'argument _W_ ?
+{: #what-is-_w_-}
 
 _W_ peut être uniquement spécifié pour les demandes d'écriture de document unique.
 
 _W_ est similaire à _R_,
 car il définit le nombre de réponses devant être reçues par le coordinateur avant qu'il ne réponde au client.
 
->	**Remarque :** _W_ n'a aucune conséquence sur les comportements réels d'écriture.
+_W_ n'a aucune conséquence sur les comportements réels d'écriture.
+{: note}
 
 La valeur _W_ n'a aucune conséquence sur le fait que le document soit placé dans la base de données ou non.
 En spécifiant une valeur _W_,

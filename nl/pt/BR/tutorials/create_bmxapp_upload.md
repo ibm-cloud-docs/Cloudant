@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: connect to ibm cloud, upload application, test sample application, confirm database details
+
+subcollection: cloudant
 
 ---
 
@@ -12,35 +16,38 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Criando um aplicativo {{site.data.keyword.cloud_notm}} para acessar um banco de dados do {{site.data.keyword.cloudant_short_notm}}: fazendo upload do aplicativo
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application}
 
 Esta seção do tutorial descreve como fazer upload de um
 aplicativo {{site.data.keyword.cloud}}.
-{:shortdesc}
-
-<div id="uploading"></div>
+{: shortdesc}
 
 ## Conectando-se ao {{site.data.keyword.cloud_notm}}
+{: #connecting-to-ibm-cloud}
 
 A primeira tarefa é se conectar ao {{site.data.keyword.cloud_notm}}.
 
-O [kit de ferramentas do {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#toolkits) ajuda você a fazer a conexão.
+O [kit de ferramentas do {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits) ajuda a fazer a conexão.
 
 O Cloud Foundry precisa saber a URL a ser usada para fazer chamadas API,
 por exemplo, ao fazer upload de um aplicativo.
 O kit de ferramentas do {{site.data.keyword.cloud_notm}} usa o comando '`cf api`' para gerenciar o terminal de API.
 Mais informações sobre o comando '`cf api`' estão
-[disponíveis![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}.
+[disponíveis![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}.
 
 Use o comando a seguir para informar ao Cloud Foundry a URL a ser usada:
 
 ```sh
 bluemix api https://api.ng.bluemix.net
 ```
-{:pre}
+{: pre}
 
 Espere um resultado semelhante à saída a seguir:
 
@@ -54,7 +61,7 @@ API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
 Not logged in. Use 'bluemix login' to log in.
 ```
-{:codeblock}
+{: codeblock}
 
 Agora o Cloud Foundry sabe onde enviar chamadas API para gerenciar aplicativos.
 
@@ -77,7 +84,7 @@ Observe que você é solicitado a inserir a senha de sua conta.
 ```sh
 bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
-{:pre}
+{: pre}
 
 Espere um resultado semelhante à saída a seguir:
 
@@ -99,18 +106,16 @@ User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
 Space:          dev
 ```
-{:codeblock}
+{: codeblock}
 
 ## Fazendo upload do aplicativo
+{: #uploading-the-application}
 
 O kit de ferramentas do {{site.data.keyword.cloudant_short_notm}} Foundry agora sabe como se conectar ao ambiente {{site.data.keyword.cloud_notm}}.
 
 A próxima etapa é fazer upload do próprio aplicativo.
 Detalhes de um aplicativo {{site.data.keyword.cloud_notm}}
-são fornecidos no [arquivo manifest](create_bmxapp_appenv.html#manifest).
-
-O arquivo manifest para o aplicativo tutorial foi atualizado
-conforme descrito [aqui](create_bmxapp_createapp.html#essential-files)
+são fornecidos no [arquivo manifest](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-manifest.yml-file).
 
 Use um comando semelhante ao exemplo a seguir para efetuar login para fazer upload do
 aplicativo {{site.data.keyword.cloud_notm}}.
@@ -118,7 +123,7 @@ aplicativo {{site.data.keyword.cloud_notm}}.
 ```sh
 cf push "Cloudant Python"
 ```
-{:pre}
+{: pre}
 
 Uma sequência de mensagens de resultado é exibida.
 
@@ -128,11 +133,11 @@ Using manifest file /..../BMXDemo/manifest.yml
 Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{:codeblock}
+{: codeblock}
 
 O kit de ferramentas do Cloud Foundry localizou o arquivo manifest
 e está se preparando para fazer upload do aplicativo usando os detalhes de
-conexão e identificação fornecidos [anteriormente](#uploading).
+conexão e identificação fornecidos [anteriormente](#uploading-the-application).
 
 ```
 Using route Cloudant-Python.mybluemix.net
@@ -144,7 +149,7 @@ OK
 Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{:codeblock}
+{: codeblock}
 
 O aplicativo foi transferido por upload com sucesso
 e uma conexão feita com a instância de banco de dados do {{site.data.keyword.cloudant_short_notm}}.
@@ -178,14 +183,12 @@ OK
 
 App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
 ```
-{:codeblock}
+{: codeblock}
 
 O aplicativo é iniciado automaticamente.
 Como parte da inicialização,
 é feita uma verificação para assegurar que todos os requisitos sejam atendidos,
-avaliando o conteúdo do [arquivo requirements.txt](create_bmxapp_appenv.html#requirements).
-O aplicativo requer acesso à biblioteca do {{site.data.keyword.cloudant_short_notm}},
-que foi [especificada](create_bmxapp_createapp.html#essential-files) durante a criação do aplicativo.
+avaliando o conteúdo do [arquivo requirements.txt](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-requirements.txt-file).
 
 Depois que você faz upload e inicia o aplicativo,
 algumas verificações simples do sistema são executadas para confirmar que o aplicativo está sendo executado corretamente,
@@ -206,60 +209,61 @@ buildpack: python 1.5.5
      state     since                    cpu    memory          disk           details
 #0   running   2016-12-22 03:59:21 PM   0.0%   49.9M of 128M   110.6M of 1G
 ```
-{:codeblock}
+{: codeblock}
 
 ## Testando o aplicativo de amostra
+{: #testing-the-sample-application}
 
 Agora, teste seu aplicativo e verifique se ele está sendo executado corretamente. 
 
-1.  Abra o Painel do  {{site.data.keyword.cloud_notm}} . É possível ver o link para o aplicativo criado em Aplicativos Cloud Foundry. Clique em `App Cloudant CF` para abrir a página de detalhes.<br/>  
+1.  No painel do {{site.data.keyword.cloud_notm}}, acesse o ícone de **Menu** > **Lista de recursos**e abra seu aplicativo. Em Cloud Foundry Apps, clique em `app Cloudant CF`para abrir a página de detalhes.<br/>  
 ![Captura de tela mostrando o painel do aplicativo](images/img0017.png)
 
-2.  Na página de detalhes do `App Cloudant CF`, clique em `Rotas` e clique no link `Cloudant-CF-app.mybluemix.net`. <br/>
+2.  Na página de detalhes do `aplicativo de CF Cloudant`, clique em `Rotas`e clique no link `Cloudant-CF-app.mybluemix.net`. <br/>
 ![Cloudant CF app details page](images/img0030.png)
 
-3. Uma nova janela do navegador é aberta em https://cloudant-cf-app.mybluemix.net/. A mensagem verifica se o aplicativo está em execução. Ele diz, " Hello World! Obrigado por criar um Aplicativo iniciador Python."<br/>
-![O Hello World! verificou que o app Cloudant CF está sendo executado corretamente](images/img0054.png)
+3. Uma nova janela do navegador é aberta em `https://cloudant-cf-app.mybluemix.net/`. A mensagem verifica se o aplicativo está em execução. Ele diz, "Hello World! Obrigado por criar um Aplicativo Python Starter."<br/>
+![Hello World! verificou se o aplicativo Cloudant CF executa corretamente](images/img0054.png)
 
 
 ### Confirmando os detalhes do banco de dados
+{: #confirming-the-database-details}
 
-No painel do {{site.data.keyword.cloud_notm}}, abra a instância de serviço do {{site.data.keyword.cloudant_short_notm}} que você criou. Clique na instância de serviço. Acesse a guia `Gerenciar` e clique em `Ativar painel do Cloudant`.<br/>
-![Ativar painel do Cloudant na página de serviço do {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
+No painel do {{site.data.keyword.cloud_notm}}, acesse o ícone de **Menu** > **Lista de recursos**e abra a sua instância de serviço. Acesse a guia `Gerenciar`e clique em `Ativar Cloudant Dashboard`.<br/>
+![Launch Cloudant dashboard on the {{site.data.keyword.cloudant_short_notm}} service page](images/img0036.png)
 
-Para localizar sua página de serviço do {{site.data.keyword.cloudant_short_notm}}, consulte os detalhes no tutorial [Criando uma instância do {{site.data.keyword.cloudant_short_notm}}](create_service.html#locating-your-service-credentials).
-{: tip}
+Para localizar sua página de serviço do {{site.data.keyword.cloudant_short_notm}},
+consulte os detalhes no tutorial [Criando uma instância do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+{: note}
 
 Quando o painel for aberto,
-será possível ver que o aplicativo
+você pode ver que o aplicativo
 criou o banco de dados '`databasedemo`':<br/>
-![O Painel do {{site.data.keyword.cloudant_short_notm}} mostrando o novo banco de dados](images/img0031.png)
+![The {{site.data.keyword.cloudant_short_notm}} Dashboard showing the new database](images/img0031.png)
 
 O banco de dados contém um único documento,
 criado pelo aplicativo.
 Para verificar a presença do documento,
 clique no nome do banco de dados dentro do painel.
 Aparece uma lista de opções para o banco de dados.
-Quando você seleciona a guia `All documents`,
-aparecem detalhes para um único documento:<br/>
-![Um único documento dentro do novo banco de dados](images/img0032.png)
+Quando você seleciona a guia `Todos os documentos`,
+os detalhes de um único documento aparecem:<br/>
+![A single document within the new database](images/img0032.png)
 
 Para ver o conteúdo do documento,
-clique no ícone `Edit`,
+clique no ícone `Editar`,
 que aparece como uma imagem de um lápis:<br/>
-![Detalhes do documento](images/img0033.png)
+![Details of the document](images/img0033.png)
 
 Quando o conteúdo do documento aparecer,
-será possível ver cada um dos campos criados pelo aplicativo tutorial.<br/>
-![Os campos dentro do documento](images/img0034.png)<br/>
-Especificamente,
-o campo `rightNow` tem a data e hora em que o documento foi criado.
+é possível ver cada um dos campos que foram criados pelo aplicativo do tutorial.<br/>
+![The fields within the document](images/img0034.png)<br/>
+Em especial,
+o campo `rightNow`possui a data e a hora em que o documento foi criado.
 Esse valor corresponde ao tempo que foi registrado no
 [arquivo de log do aplicativo](#testing-the-sample-application).
 
-## A próxima etapa
-
-A próxima etapa no tutorial é [operar e manter o aplicativo](create_bmxapp_maintain.html),
+A próxima etapa no tutorial é [operar e manter o aplicativo](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting),
 por exemplo, quando você iniciar,
 parar
 e depurar o aplicativo.

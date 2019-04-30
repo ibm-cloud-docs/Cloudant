@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-18"
+
+keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
+
+subcollection: cloudant
 
 ---
 
@@ -12,16 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Tasks verwalten
+{: #managing-tasks}
 
 Das Erstellen neuer Indizes aus vielen Daten bzw. das Replizieren einer umfangreichen Datenbank kann ziemlich lange dauern.
-{:shortdesc}
+{: shortdesc}
 
 Wie können Sie also feststellen, ob Ihre Tasks Fortschritte machen oder ob sie abgeschlossen wurden?
-Der [Endpunkt `_active_tasks`](../api/active_tasks.html) liefert Informationen zu allen aktiven Tasks.
+Der [Endpunkt `_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) liefert Informationen zu allen aktiven Tasks.
 Wenn Sie jedoch viele Tasks starten, sind manche möglicherweise für eine spätere Ausführung geplant und werden erst unter `_active_tasks` angezeigt, wenn sie tatsächlich gestartet wurden.
 
 In diesem Leitfaden erfahren Sie, wie Sie mit dem Endpunkt `_active_tasks` Tasks mit langer Laufzeit überwachen können.
@@ -29,25 +37,27 @@ Der Befehl `curl` wird verwendet, um auf den Endpunkt zuzugreifen.
 Der JSON-Befehlszeilenprozessor `jq` wird verwendet, um die JSON-Antwort zu verarbeiten.
 
 Da dies ein taskorientiertes Lernprogramm ist, werden nur die Bereiche abgedeckt, die zum Ausführen der Task relevant sind.
-Umfassende Informationen zu den verfügbaren Optionen finden Sie in der [API-Referenz](../api/index.html).
+Umfassende Informationen zu den verfügbaren Optionen finden Sie in der [API-Referenz](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview). 
 
 ## Grundlegende Informationen zu 'curl' und 'jq'
+{: #curl-and-jq-basics}
 
 Um alle aktiven Tasks abzurufen und die Ausgabe ansprechend zu formatieren,
 rufen Sie Ihr Konto mithilfe von `curl` auf und leiten Sie die Ausgabe per Pipe an `jq` weiter.
 
 Mit `jq` können Sie eine Liste von Dokumenten nach ihren Feldwerten filtern.
 Dies vereinfacht das Abrufen aller Replikationsdokumente oder der Details einer bestimmten Ansichtsindexierungstask.
-Die [API-Referenz](../api/index.html) enthält weitere Informationen zu diesen Optionen.
+Die API-Referenz enthält weitere Informationen zu diesen Optionen. 
 
 _Beispiel für das Abrufen und Formatieren einer Liste von aktiven Tasks_
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Überwachung von Ansichts-Builds und Suchindizes
+{: #monitoring-view-builds-and-search-indexes}
 
 Ansichtsindizes werden neu erstellt, wenn ein Entwurfsdokument aktualisiert wird.
 Eine Aktualisierung einer Ansicht löst die Neuerstellung aller Ansichten in dem Dokument aus.
@@ -74,14 +84,14 @@ _Beispiel für das Suchen aller Indexierungstasks durch Filtern nach dem Typ `in
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für das Suchen aller Indexierungstasks durch Filtern nach dem Typ `search_indexer`:_
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispielergebnisse der Suche nach Ansichtsindexierungstasks:_
 
@@ -99,18 +109,17 @@ _Beispielergebnisse der Suche nach Ansichtsindexierungstasks:_
     "design_document": "_design/ngrams"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Zeit bis zur Fertigstellung einer Task schätzen
+{: #estimating-the-time-to-complete-a-task}
 
 Sie können die Zeit bis zur Fertigstellung der Indexierungstask schätzen,
 indem Sie die Anzahl von vorgenommenen Änderungen (`changes_done`) mit der Gesamtzahl von Änderungen (`total_changes`) vergleichen.
 Wenn `changes_done` sich um 250 pro Sekunde erhöht und `total_changes` 1.000.000 ist,
 dauert die Task voraussichtlich 1.000.000 / 250 = 4.000 Sekunden, bzw. ca. 66 Minuten.
 
->   **Hinweis**: Schätzungen der Zeit bis zur Fertigstellung einer Task sind nie hundertprozentig akkurat.
-    Die tatsächliche Zeit bis zur Fertigstellung der Task hängt von verschiedenen Faktoren ab,
-    darunter:
+Schätzungen der Zeit bis zur Fertigstellung einer Task sind nie absolut genau. Die tatsächliche Zeit bis zur Fertigstellung der Task hängt von den folgenden Faktoren ab:
 
 -   Die Zeit für die Verarbeitung der einzelnen Dokumente.
     Beispielsweise kann eine Ansicht zuerst den Typ eines
@@ -119,16 +128,17 @@ dauert die Task voraussichtlich 1.000.000 / 250 = 4.000 Sekunden, bzw. ca. 66 Mi
 -   Die Größe der Dokumente.
 -   Die aktuelle Auslastung des Clusters.
 
->   Gehen Sie davon aus, dass diese Faktoren zusammengenommen eine beträchtliche Abweichung von Ihrer Schätzung bedeuten können.
+Gehen Sie davon aus, dass diese Faktoren zusammengenommen eine beträchtliche Abweichung von Ihrer Schätzung bedeuten können.
 
 _Beispiel für das Extrahieren des Felds `changes_done` mithilfe von `jq`:_
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Replikation überwachen
+{: #monitoring-replication}
 
 Um alle Replikationstasks zu finden,
 leiten Sie die `curl`-Ausgabe über eine Pipe an `jq` weiter
@@ -143,21 +153,21 @@ _Beispiel für das Suchen aller Replikationstasks durch Filtern nach dem Typ `re
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Suche nach einer bestimmten Replikationstask durch Filtern nach einer bekannten Dokument-ID:_
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispiel für die Suche nach einer bestimmten Replikationstask durch Filtern nach einer bekannten Replikations-ID (`replication_id`):_
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Beispielergebnis der Suche nach einer Replikationstask:_
 
@@ -184,11 +194,13 @@ _Beispielergebnis der Suche nach einer Replikationstask:_
     "replication_id": "asfksdlfkjsadkfjsdalkfjas+continuous+create_target"
 }
 ```
-{:codeblock}
+{: codeblock}
 
-## Fehlerbehebung
+## Fehlerbehebung für blockierte Tasks
+{: #troubleshooting-stuck-tasks}
 
 ### Ist eine Task blockiert?
+{: #is-a-task-stuck-}
 
 Für eine einmalige, nicht fortlaufende Replikation, bei der die Quellendatenbank
 während der Replikation nicht drastisch aktualisiert wird, gibt der Wert `changes_pending` an,
@@ -204,15 +216,16 @@ kann dies darauf hinweisen, dass die Replikation nicht mit der Menge von Daten m
 der Datenbank hinzugefügt oder darin aktualisiert werden.
 
 ### Was tun bei einer blockierten Task?
+{: #what-to-do-about-a-stuck-task-}
 
 Um eine blockierte Replikation zu beheben,
-müssen Sie möglicherweise den [Replikationsprozess abbrechen](../api/replication.html#cancelling-a-replication) und erneut starten.
+müssen Sie möglicherweise den [Replikationsprozess abbrechen](/docs/services/Cloudant?topic=cloudant-replication-api#canceling-a-replication) und erneut starten.
 
 Wenn dies nicht hilft, wurde die Replikation möglicherweise blockiert, weil der Benutzer, der auf die Quellen-
 und Zieldatenbanken zugreift, nicht über Schreibberechtigung verfügt.
 
->   **Hinweis**: Replikation nutzt [Prüfpunkte](replication_guide.html#checkpoints).
-    Das heißt, der bereits replizierte und unveränderte Inhalt muss nicht erneut repliziert werden, wenn die Replikation erneut gestartet wird.
+Die Replikation nutzt [Prüfpunkte](/docs/services/Cloudant?topic=cloudant-replication-guide#checkpoints). Dies bedeutet, dass bereits replizierte und nicht veränderte Inhalte nicht erneut repliziert werden müssen, wenn die Replikation erneut gestartet wird.
+{: note}
 
 Wenn Sie den Replikationsprozess durch Erstellen eines Dokuments in der Datenbank `_replicator` gestartet haben,
 können Sie den Status der Replikation auch dort prüfen.

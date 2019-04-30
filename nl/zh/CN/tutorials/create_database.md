@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
+
+subcollection: cloudant
 
 ---
 
@@ -12,59 +16,65 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 在 {{site.data.keyword.cloud_notm}} 上创建并填充简单 {{site.data.keyword.cloudant_short_notm}} 数据库
+{: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}
 
-本教程说明了如何使用 [Python 编程语言 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){:new_window} 在 {{site.data.keyword.cloud_notm}} 服务实例中创建 {{site.data.keyword.cloudantfull}} 数据库，并使用简单的数据集合来填充该数据库。
-{:shortdesc}
+本教程说明了如何使用 [Python 编程语言 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){: new_window} 在 {{site.data.keyword.cloud_notm}} 服务实例中创建 {{site.data.keyword.cloudantfull}} 数据库，并使用简单的数据集合来填充该数据库。
+{: shortdesc}
 
 ## 先决条件
+{: prerequisites}
 
 在开始学习本教程之前，请确保以下资源或信息已准备就绪。
 
 ### Python
+{: #python-create-database}
 
-必须在系统上安装最新版本的 [Python 编程语言 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){:new_window}。
+必须在系统上安装最新版本的 [Python 编程语言 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/){: new_window}。
 
 要检查版本，请在提示符处运行以下命令：
 
 ```sh
 python --version
 ```
-{:pre}
+{: pre}
 
 您应该会获得类似于以下内容的结果：
 
 ```
 Python 2.7.12
 ```
-{:codeblock}
+{: codeblock}
 
 ### {{site.data.keyword.cloudant_short_notm}} 的 Python 客户机库
+{: #python-client-library-for-ibm-cloudant}
 
-有一个[官方支持的库](../libraries/supported.html#python)，它支持 Python 应用程序在 {{site.data.keyword.cloud_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。
-
-您应该使用[此处](../libraries/supported.html#python)提供的指示信息安装此库。
+有一个[官方支持的库](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported)，它支持 Python 应用程序在 {{site.data.keyword.cloud_notm}} 上使用 {{site.data.keyword.cloudant_short_notm}}。使用所提供的指示信息进行安装。 
 
 要检查是否已成功安装该客户机库，请在提示符处运行以下命令：
 
 ```sh
 pip freeze
 ```
-{:pre}
+{: pre}
 
 您应该会获得系统上安装的所有 Python 模块的列表。检查该列表，查找类似于以下内容的 {{site.data.keyword.cloudant_short_notm}} 条目：
 
 ```
 cloudant==2.3.1
 ```
-{:codeblock}
+{: codeblock}
 
-### {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
+### 在 {{site.data.keyword.cloud_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 服务实例
+{: #creating-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-[本教程](create_service.html)中描述了创建适用服务实例的过程。
+[本教程](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)中描述了创建适用服务实例的过程。
 
 确保有以下服务凭证可用于服务实例：
 
@@ -76,28 +86,30 @@ cloudant==2.3.1
 `port`     |用于访问主机上服务实例的 HTTP 端口号。通常为 443，可强制执行 HTTPS 访问。
 `url`      |将其他凭证信息聚集到单个 URL 中（使其适合应用程序使用）的字符串。
 
-[此处](create_service.html#locating-your-service-credentials)提供了有关查找服务实例的服务凭证的信息。
+[此处](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)提供了有关查找服务实例的服务凭证的信息。
 
 ## 上下文
+{: #context}
 
 本教程构建了一系列 Python 语言指示信息，适用于以下任务：
 
-1.  [连接到 {{site.data.keyword.cloud}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud)。
+1.  [连接到 {{site.data.keyword.cloud}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例](#connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud)。
 2.  [在服务实例中创建数据库](#creating-a-database-within-the-service-instance)。
 3.  [将一个小型数据集合存储为数据库中的文档](#storing-a-small-collection-of-data-as-documents-within-the-database)。
-4.  [检索文档的完整列表](#retrieving-a-complete-list-of-the-documents)。
+4.  [检索数据](#retrieving-data)。
 5.  [删除数据库](#deleting-the-database)。
 6.  [关闭与服务实例的连接](#closing-the-connection-to-the-service-instance)。
 
 在本教程的任务描述中提供了特定于每个任务的 Python 代码。
 
-本教程末尾（[此处](#complete-listing)）提供了用于执行所有任务的完整 Python 程序。
+有关用于执行所有任务的完整 Python 程序的信息，请参阅[完整的列表](#complete-listing)。
 
 我们没有尝试为本教程创建_高效_ Python 代码；本教程的目的是为了说明简单易懂的有效代码，方便您从中学习并应用于自己的应用程序。
 
 此外，我们也未尝试解决所有可能的检查或错误条件。教程中显示了一些示例检查，用于说明各种方法，但您应该应用标准最佳实践来检查和处理自己的应用程序遇到的所有警告或错误条件。 
 
 ## 连接到 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例
+{: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
 Python 应用程序需要 {{site.data.keyword.cloudant_short_notm}} 客户机库组件才能连接到服务实例。这些组件通过标准 `import` 语句确定：
 
@@ -106,20 +118,20 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 ```
-{:codeblock}
+{: codeblock}
 
-应用程序必须具有服务的[服务凭证](create_service.html#locating-your-service-credentials)：
+应用程序必须具有服务的[服务凭证](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)：
 
 ```python
 serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
 servicePassword = "49c0c343d225623956157d94b25d574586f26d1211e8e589646b4713d5de4801"
 serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
-{:codeblock}
+{: codeblock}
 
 此处说明的服务凭证
 是在 {{site.data.keyword.cloudant_short_notm}} 上创建演示 {{site.data.keyword.cloud_notm}} 服务时定义的。在此重现这些凭证，是为了说明如何在 Python 应用程序中使用这些凭证。但是，现在已除去了演示 {{site.data.keyword.cloudant_short_notm}} 服务，因此这些凭证不再有效；您_必须_提供并使用自己的服务凭证。
-{: tip}
+{:  tip}
 
 只要在应用程序中启了 Python 客户机库并确定了服务凭证，就可以建立与服务实例的连接：
 
@@ -127,11 +139,12 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 client.connect()
 ```
-{:codeblock}
+{: codeblock}
 
 此时，Python 应用程序已有权访问 {{site.data.keyword.cloud_notm}} 上的服务实例。
 
 ## 在服务实例中创建数据库
+{: #creating-a-database-within-the-service-instance}
 
 下一步是在服务实例中创建名为 `databasedemo` 的数据库。
 
@@ -140,14 +153,14 @@ client.connect()
 ```python
 databaseName = "databasedemo"
 ```
-{:codeblock}
+{: codeblock}
 
 然后，创建数据库：
 
 ```python
 myDatabaseDemo = client.create_database(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 有必要检查是否已成功创建数据库：
 
@@ -155,9 +168,10 @@ myDatabaseDemo = client.create_database(databaseName)
 if myDatabaseDemo.exists():
     print "'{0}' successfully created.\n".format(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 ## 将一个小型数据集合存储为数据库中的文档
+{: #storing-a-small-collection-of-data-as-documents-within-the-database}
 
 现在，我们希望在数据库中存储一个简单的小型数据集合。
 
@@ -172,7 +186,7 @@ sampleData = [
     [5, "five", "freezing", 0]
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 接下来，一些常用 Python 代码会“逐步”处理数据，并将其转换为 JSON 文档。每个文档都存储在数据库中：
 
@@ -202,16 +216,18 @@ for document in sampleData:
     if newDocument.exists():
         print "Document '{0}' successfully created.".format(number)
 ```
-{:codeblock}
+{: codeblock}
 
 请注意，我们会检查每个文档是否已成功创建。
 
 
 ## 检索数据
+{: #retrieving-data}
 
 此时，一个小型数据集合已存储为数据库中的文档。现在，我们可以执行一系列查询，说明在数据库中检索数据的不同方法。
 
 ### 文档最少检索
+{: #a-minimal-retrieval-of-a-document}
 
 要执行最少检索，首先请求数据库中所有文档的列表。此列表会作为数组返回。然后，可以显示数组中元素的内容。
 
@@ -221,7 +237,7 @@ for document in sampleData:
 result_collection = Result(myDatabaseDemo.all_docs)
 print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
-{:codeblock}
+{: codeblock}
 
 结果类似于以下示例：
 
@@ -236,13 +252,14 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 NoSQL 数据库
-（如 {{site.data.keyword.cloudant_short_notm}}）的性质意味着，简单地认为数据库中存储的第一个文档始终是结果列表中返回的第一个文档，这种想法不一定适用。
+（如 {{site.data.keyword.cloudant_short_notm}}）的性质意味着，并不能简单地认为数据库中存储的第一个文档始终是结果列表中返回的第一个文档。
 {: tip}
 
 ### 文档完整检索
+{: #full-retrieval-of-a-document}
 
 为了执行完整检索，我们将请求数据库中所有文档的列表，此外将指定还必须返回文档内容。我们使用 `include_docs` 选项来执行此操作。与先前一样，结果也将作为数组返回。然后，可以显示数组中元素的详细信息，这次包含的是文档的完整内容。 
 
@@ -252,7 +269,7 @@ NoSQL 数据库
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
 print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
-{:codeblock}
+{: codeblock}
 
 结果类似于以下示例：
 
@@ -261,27 +278,28 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
     {
         "value": {
           "rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
-        },
-        "id": "14746fe384c7e2f06f7295403df89187",
-        "key": "14746fe384c7e2f06f7295403df89187",
-        "doc": {
-            "temperatureField": 10,
-            "descriptionField": "cold",
-            "numberField": 4,
-            "nameField": "four",
-            "_id": "14746fe384c7e2f06f7295403df89187",
-            "_rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
+            },
+            "id": "14746fe384c7e2f06f7295403df89187",
+            "key": "14746fe384c7e2f06f7295403df89187",
+            "doc": {
+                "temperatureField": 10,
+                "descriptionField": "cold",
+                "numberField": 4,
+                "nameField": "four",
+                "_id": "14746fe384c7e2f06f7295403df89187",
+                "_rev": "1-b2c48b89f48f1dc172d4db3f17ff6b9a"
+            }
         }
-    }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ## 直接调用 {{site.data.keyword.cloudant_short_notm}} API 端点
+{: #calling-an-ibm-cloudant-api-endpoint-directly}
 
 我们还可以在 Python 应用程序中直接使用 {{site.data.keyword.cloudant_short_notm}} API 端点。
 
-在此示例代码中，我们将再次请求包含所有文档（包括其内容）的列表。但是，这次是通过调用 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 端点](../api/database.html#get-documents)来执行此操作。
+在此示例代码中，我们将再次请求包含所有文档（包括其内容）的列表。但是，这次是通过调用 {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` 端点](/docs/services/Cloudant?topic=cloudant-databases#get-documents)来执行此操作。
 
 首先，确定要联系的端点，以及要随调用一起提供的任何参数：
 
@@ -289,7 +307,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 end_point = '{0}/{1}'.format(serviceURL, databaseName + "/_all_docs")
 params = {'include_docs': 'true'}
 ```
-{:codeblock}
+{: codeblock}
 
 接下来，向服务实例发送请求，然后显示的结果如下：
 
@@ -297,7 +315,7 @@ params = {'include_docs': 'true'}
 response = client.r_session.get(end_point, params=params)
 print "{0}\n".format(response.json())
 ```
-{:codeblock}
+{: codeblock}
 
 结果类似于以下_缩略的_示例：
 
@@ -341,9 +359,10 @@ print "{0}\n".format(response.json())
     "offset": 0
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## 删除数据库
+{: #deleting-the-database}
 
 完成对数据库的操作后，可以将其删除。
 
@@ -357,20 +376,22 @@ except CloudantException:
 else:
     print "'{0}' successfully deleted.\n".format(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 我们已经包含了一些基本的错误处理，以说明可如何捕获并解决问题。
 
 ## 关闭与服务实例的连接
+{: #closing-the-connection-to-the-service-instance}
 
 最后一步是断开 Python 客户机应用程序与服务实例的连接：
 
 ```python
 client.disconnect()
 ```
-{:codeblock}
+{: codeblock}
 
 ## 完整列表
+{: #complete-listing}
 
 以下代码是一个完整的 Python 程序，用于访问 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服务实例并执行一系列典型任务：
 
@@ -515,4 +536,4 @@ print "===\n"
 # Say good-bye.
 exit()
 ```
-{:codeblock}
+{: codeblock}

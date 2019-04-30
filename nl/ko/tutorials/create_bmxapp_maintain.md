@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
+
+subcollection: cloudant
 
 ---
 
@@ -12,77 +16,77 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-11 -->
 
 # {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.cloud_notm}} 애플리케이션 작성: 유지보수 및 문제점 해결
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting}
 
 이 튜토리얼에서는 {{site.data.keyword.cloud_notm}} 서비스 인스턴스에서 호스팅되는 {{site.data.keyword.cloud}} 애플리케이션을 유지보수하는 방법을 보여줍니다.
-{:shortdesc}
-
-<div id="maintenance"></div>
+{: shortdesc}
 
 ## 기본 애플리케이션 유지보수 태스크 수행
+{: #performing-basic-application-maintenance-tasks}
 
 이 튜토리얼 섹션에서는 {{site.data.keyword.cloud_notm}}에서 Python 애플리케이션을 새로 고치고, 시작하고, 중지하는 방법을 설명합니다.
 
 ### 애플리케이션의 상태 찾기
+{: #finding-the-status-of-your-application}
 
 {{site.data.keyword.cloud_notm}} 서비스 인스턴스에 있는 애플리케이션의 상태는 대시보드에 표시됩니다.
 
-다음 예에서 `Python Cloudant` 애플리케이션은 실행 중이 아니며
-`Stopped` 상태입니다. 
+다음 예에서 `Cloudant CF app` 애플리케이션은 실행 중이 아니며
+`Stopped` 상태입니다.
 
 !['Stopped' 상태인 애플리케이션의 대시보드를 보여주는 화면 캡처](images/img0037.png)
 
 ### 애플리케이션 시작
+{: #starting-your-application}
 
 튜토리얼 데모 데이터베이스를 먼저 삭제하지 않고 튜토리얼 애플리케이션을 시작하려 하면 애플리케이션이 올바르게 작동하지 않습니다. 이 애플리케이션은 시작하려 시도하고, 데이터베이스가 있어 실패하고, 중지된 후 다시 시작하려 시도하는 순환 상태에 빠지게 됩니다. 이 문제점을 해결하려면 [애플리케이션을 중지](#stopping-your-application)한 후 튜토리얼 데모 데이터베이스를 삭제하십시오. 이렇게 하면 애플리케이션이 시작됩니다.
-{: tip}
+{: note}
     
-중지된 애플리케이션을 시작하려면 먼저 대시보드의 애플리케이션 메뉴 아이콘을 클릭하십시오.
-
-![애플리케이션 관리 아이콘이 있는 대시보드를 보여주는 화면 캡처](images/img0038.png)
-
-그 다음에는 메뉴의 `Start App` 옵션을 클릭하십시오.<br/>
-!['Start App' 옵션을 보여주는 화면 캡처](images/img0039.png)
+중지된 애플리케이션을 시작하려면 메뉴에서 `Start` 옵션을 클릭하십시오.<br/>
+!['Start' 옵션을 표시하는 화면 캡처](images/img0039.png)
 
 ### 애플리케이션 중지
+{: #stopping-your-application}
 
-실행 중인 애플리케이션을 중지하려면 먼저 대시보드의 애플리케이션 메뉴 아이콘을 클릭하십시오.<br/>
-![애플리케이션 관리 아이콘이 있는 대시보드를 보여주는 화면 캡처](images/img0038.png)
-
-그 다음에는 메뉴의 `Stop App` 옵션을 클릭하십시오.<br/>
-!['Stop App' 옵션을 보여주는 화면 캡처](images/img0041.png)
-
-<div id="troubleshooting"></div>
+실행 중인 애플리케이션을 중지하려면 메뉴에서 `Stop` 옵션을 클릭하십시오.<br/>
+!['Stop' 옵션을 표시하는 화면 캡처](images/img0041.png)
 
 ### 애플리케이션의 새 버전 업로드
+{: #uploading-a-fresh-version-of-your-application}
 
-애플리케이션의 새 버전을 업로드하려는 경우에는 [업로드 프로세스](create_bmxapp_upload.html)를 따르기만 하면 됩니다.
+애플리케이션의 새 버전을 업로드하려는 경우에는 [업로드 프로세스](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application)를 따르기만 하면 됩니다.
 애플리케이션의 새 버전이 이전 버전을 겹쳐씁니다.
 
 업로드를 시작할 때 애플리케이션의 이전 버전이 이미 실행 중인 경우 {{site.data.keyword.cloud_notm}}는 먼저 애플리케이션을 자동으로 중지합니다.
 {: tip}
 
 ## 문제점 진단 및 해결
+{: #diagnosing-and-resolving-problems}
 
 이 튜토리얼 섹션에서는 첫 {{site.data.keyword.cloud_notm}} 애플리케이션을 개발하고 배치할 때 발생할 수 있는 여러 문제점을 식별하고, 진단하고, 해결하는 데 도움을 주는 몇 가지 기본적인 문제점 해결 팁을 제공합니다.
 
 {{site.data.keyword.cloud_notm}} 또는 Cloud Foundry 애플리케이션 작성의 우수 사례에 대한 유용한 조언은
-[여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){:new_window}에서 얻을 수 있습니다.
+[여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}에서 얻을 수 있습니다.
 
-특히 [로컬 파일 시스템에 대한 쓰기 발생 방지 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){:new_window}에
+특히 [로컬 파일 시스템에 대한 쓰기 발생 방지 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window}에
 대한 조언이 유용합니다.
 
 내용을 단순하게 하기 위해, 이 튜토리얼에서는 로컬 파일 시스템에 컨텐츠를 기록합니다. 그러나 그 자료의 양은 적습니다. 이 컨텐츠는 지속적인 것이 아니며 '미션 필수적'이지 않습니다.
 {: tip}
 
 ### 애플리케이션 로그 사용
+{: #using-the-application-log}
 
 {{site.data.keyword.cloud_notm}} 애플리케이션의 문제점을 진단하고 해결하는 데 있어서 가장 유용한 리소스는 로그 파일입니다.
 
-{{site.data.keyword.cloud_notm}} 애플리케이션에 대한 로그 파일은 `Logs` 탭을 클릭해 로깅 정보 페이지를 열어 찾을 수 있습니다. <br/>
+{{site.data.keyword.cloud_notm}} 애플리케이션에 대한 로그 파일은 `Logs` 탭을 클릭해 로깅 정보 페이지를 열어 찾을 수 있습니다.<br/>
 !['Logs' 정보 페이지에 액세스하는 링크를 보여주는 화면 캡처](images/img0042.png)
 
 대부분의 로그 파일과 마찬가지로, {{site.data.keyword.cloud_notm}} 애플리케이션 로그에는 발생한 이벤트와 발생 시점에 대한 세부사항이 포함되어 있습니다.
@@ -126,5 +130,6 @@ lastupdated: "2018-10-24"
 사용자는 그 후 일반적인 문제점 해결 프로시저를 적용하여 문제점을 해결해야 합니다.
 
 ## 튜토리얼의 끝
+{: #end-of-tutorial}
 
 튜토리얼을 마쳤습니다.

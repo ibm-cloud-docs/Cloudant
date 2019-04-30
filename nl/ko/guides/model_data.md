@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
+
+subcollection: cloudant
 
 ---
 
@@ -12,17 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 스케일링을 위한 데이터 모델링에 대한 다섯 가지 팁
+{: #five-tips-for-modelling-your-data-to-scale}
 
 이 문서에서는 대형 스케일에서 효율적으로 작동하도록
 애플리케이션의 데이터를 모델링하는 데 있어서 중요한 점을 다룹니다.
-{:shortdesc}
+{: shortdesc}
 
-_(아 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글: ["My top 5 tips for modelling your data to scale" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window}을
-기반으로 하고 있습니다.)_
+*(이 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글: ["My top 5 tips for modelling your data to scale" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/)을 기반으로 하고 있습니다.*
 
 {{site.data.keyword.cloudantfull}}에서 데이터를 모델링하는 방식은 애플리케이션의 스케일링 능력에 크게 영향을 줍니다. 기본 데이터 모델은 관계형 모델과 상당히 다르며, 이 차이를 무시하면 나중에 성능 문제가 발생할 수 있습니다.
 
@@ -31,6 +38,7 @@ _(아 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글
 본론으로 들어갑시다.
 
 ## 불변 데이터 고려
+{: #consider-immutable-data}
 
 동일한 상태를 초당 한 번 이상의 비율로 변경하는 경우에는 문서를 불변으로 설정하는 것을 고려하십시오. 이는 충돌하는 문서를 작성할 확률을 상당히 줄여 줍니다.
 
@@ -39,6 +47,7 @@ _(아 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글
 일반적으로, 불변 데이터를 기반으로 하는 데이터 모델은 현재 상태를 구성하는 문서를 요약하기 위해 보기를 사용해야 합니다. 보기는 사전 계산되므로 이는 애플리케이션 성능에 악영향을 주지 않습니다.
 
 ## 불변 데이터 고려가 유용한 이유 
+{: #why-this-helps-you-consider-immutable-data}
 
 `https://$ACCOUNT.cloudant.com/` 인터페이스 너머에는 분산 데이터베이스가 있습니다. 
 클러스터 내에는 문서가 몇 개의 샤드로 나뉘어 저장되어 있으며 이들은 모여서 데이터베이스를 구성합니다. 이러한 샤드는 클러스터 내의 노드에 분산됩니다. 이것이 테라바이트 크기의 데이터베이스를 사용할 수 있게 해 주는 기술입니다.
@@ -54,6 +63,7 @@ _(아 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글
 10초마다 한 번 이상 발생하는 업데이트에 대해서는 안전을 위해 불변 문서를 사용하는 것이 좋습니다.
 
 ## 보기를 검색 인덱스로 사용하기 보다 결과 미리 채우기
+{: #use-views-to-pre-calculate-results-rather-than-as-search-indexes}
 
 보기를 조금 더 좋은 검색 인덱스로 사용("모든 `person` 문서 가져오기" 등)하기보다, 데이터베이스가 사용자를 대신하여 작업을 수행하도록 하십시오. 예를 들면, 10,000명에 대한 문서를 모두 검색하여 이들의 합산된 작업 시간을 계산하기보다, `_sum`
 기본 제공 reduce 함수를 사용하여 연도, 월, 일, 반일 및 시간별로 사전 계산하도록 복합 키가 포함된 보기를 사용하십시오. 
@@ -61,6 +71,7 @@ _(아 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글
 여러 개의 작은 요청을 서비스하는 데 집중할 수 있습니다.
 
 ## 보기를 사용하여 결과를 미리 채우는 것이 유용한 이유
+{: #why-this-helps-you-use-views-to-pre-calculate-results}
 
 이 이유는 직관적입니다. 먼저, map 및 reduce 함수는 모두 사전 계산된다는 점을 생각해 보십시오. 이는 reduce 함수의 결과 요청이 가벼운 오퍼레이션(특히 디스크 스토리지로부터 수백 또는 수천 개의 문서를
 스트리밍하는 데 필요한 막대한 양의 IO에 비교할 때)임을 의미합니다.
@@ -74,6 +85,7 @@ _(아 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글
 개괄적으로 말하면, 목표는 보기 요청이 각 샤드로부터 최소한의 데이터를 요구하도록 함으로써 데이터 전송 및 최종 결과 결합 시간을 최소화하는 것입니다. 보기를 사용하여 집계 데이터를 사전 계산하는 것은 이 목표를 달성하는 한 가지 방법입니다. 이는 애플리케이션이 요청이 완료되기를 대기하는 시간을 확실히 줄여줍니다.
 
 ## 데이터 비표준화
+{: #de-normalise-your-data}
 
 관계형 데이터베이스에서, 데이터 표준화는 보통 데이터를 저장하는 가장 효율적인 방법입니다. 
 이는 JOIN을 사용하여 여러 테이블의 데이터를 쉽게 결합할 수 있는 경우에 해당됩니다. 
@@ -85,11 +97,12 @@ _(아 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글
 예를 들어, 관계형 스키마에서는 보통 태그를 별도의 테이블에 두고 연결 테이블을 사용하여 태그와 해당 연관된 문서를 결합함으로써
 특정 태그를 포함하는 모든 문서를 빠르게 찾을 수 있도록 합니다.
 
-{{site.data.keyword.cloudant_short_notm}}에서는 각 문서에서 목록으로 태그를 저장합니다. 사용자는 그 후 [각 태그를 보기의 map 함수의 키로 생성함으로써](../api/creating_views.html)
+{{site.data.keyword.cloudant_short_notm}}에서는 각 문서에서 목록으로 태그를 저장합니다. 사용자는 그 후 [각 태그를 보기의 map 함수의 키로 생성함으로써](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)
 보기를 사용하여 특정 태그를 포함하는 문서를 가져옵니다. 
 특정 키에 대해 보기를 조회하면 해당 태그를 포함하는 모든 문서가 제공됩니다.
 
 ## 데이터 비표준화가 유용한 이유
+{: #why-this-helps-you-de-normalize-your-data}
 
 결국 중요한 것은 애플리케이션이 작성하는 HTTP 요청의 수입니다. HTTP 연결(특히 HTTPS)을 열기 위해서는 추가로 작업을 수행해야 하며,
 연결을 다시 사용하는 것은 도움이 되지만, 결국에는 적은 요청을 작성하는 것이 애플리케이션에서 데이터를 처리하는 속도를 높이는 방법입니다.
@@ -97,8 +110,9 @@ _(아 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글
 비표준화된 문서와 사전 계산된 보기의 추가적인 이점은 애플리케이션에서 필요로 하는 값을 조회 시에 급히 생성하는 대신 미리 생성할 수 있다는 점입니다.
 
 ## 세분화된 문서를 사용하여 충돌 방지
+{: #avoid-conflicts-by-using-finer-grained-documents}
 
-데이터를 비표준화하는 것만큼 중요한 다음 조언은 세분화된 문서를 사용하여 동시 수정이 충돌을 발생시킬 확률을 줄이라는 것입니다.
+데이터를 비표준화하는 것만큼 중요한 다음 조언은 세분화된 문서를 사용하여 동시 수정이 충돌을 발생시킬 확률을 줄이라는 것입니다. 
 이는 데이터를 표준화하는 것과 유사합니다. HTTP 요청의 수를 줄이는 것과 충돌을 방지하는 것 사이에는 균형을 잡아야 합니다.
 
 예를 들면, 수술 목록을 포함하는 의료 기록이 있습니다.
@@ -112,7 +126,7 @@ _(아 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Joe가 불행하게도 여러 수술을 동시에 받아야 하는 경우, 하나의 문서에 대한 많은 동시 업데이트는 위에 설명되어 있는 바와 같이 충돌하는 문서를 발생시킬 수 있습니다. 
 Joe의 개인 문서를 참조하는 여러 문서로 이러한 수술을 나눈 후 보기를 사용하여 이들 항목을 연결하는 것이 좋습니다. 각 수술을 나타내기 위해, 사용자는 다음 두 가지 예와 같은 문서를 업로드합니다.
@@ -124,7 +138,7 @@ Joe의 개인 문서를 참조하는 여러 문서로 이러한 수술을 나눈
     "surgery": "heart bypass"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ```json
 {
@@ -133,11 +147,12 @@ Joe의 개인 문서를 참조하는 여러 문서로 이러한 수술을 나눈
     "surgery": "lumbar puncture"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 `"patient"` 필드를 보기에 키로서 생성하면 특정 환자의 모든 수술을 조회할 수 있습니다. 반복되는 이야기지만, 보기는 여러 개별 문서로부터 특정 엔티티의 전체상을 결합하는 데 도움을 주기 위해 사용되며, 하나의 모델링된 엔티티의 데이터를 분할한 상태에서도 HTTP 요청의 수를 줄이는 데 도움을 줍니다.
 
 ## 충돌 방지가 유용한 이유
+{: #why-this-helps-you-avoid-conflicts}
 
 충돌하는 문서가 발생하는 것을 방지하면 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 많은 오퍼레이션의 속도가 향상됩니다. 
 이는 문서를 읽을 때마다 사용되는, 현재 최우선 개정판을 판별하는 프로세스(하나의 문서를 검색하고,
@@ -150,6 +165,7 @@ Joe의 개인 문서를 참조하는 여러 문서로 이러한 수술을 나눈
 그러나 심각한 오류 레벨에 도달하면(특히 충돌이 해결되지 않은 경우) 문서 트리를 순회하는 데 굉장히 오랜 시간과 많은 메모리가 소요됩니다.
 
 ## 충돌 해결 빌드
+{: #build-in-conflict-resolution}
 
 {{site.data.keyword.cloudant_short_notm}}와 같은 결과적으로 일관된 시스템에서는 충돌이 발생할 수밖에 없습니다. 위에서 설명한 바와 같이, 이는 확장성과 데이터 복원성을 우선한 대가입니다.
 
@@ -164,16 +180,18 @@ Joe의 개인 문서를 참조하는 여러 문서로 이러한 수술을 나눈
     일치하지 않는 다른 문서의 버전을 가져와 해결이 더 어려워질 가능성도 있습니다. 검색해야 하는 다른 문서 또한 충돌하고 있는 경우도 문제가 될 수 있습니다.
 
 ## 충돌 해결 빌드가 유용한 이유 
+{: #why-this-helps-you-build-in-conflict-resolution}
 
 위에서 설명한 바와 같이, 충돌이 심한 문서는 데이터베이스의 성능에 큰 악영향을 줍니다. 처음부터 충돌을 해결하는 기능을
 사용하여 빌드하면 심각하게 충돌하는 문서가 발생하는 것을 방지하는 데 큰 도움이 됩니다.
 
 ## 요약
+{: #summary}
 
 이러한 팁은 데이터 모델링이 애플리케이션의 성능에 영향을 미치는 몇 가지 방식을 보여줍니다. {{site.data.keyword.cloudant_short_notm}}의 데이터 저장소에는 애플리케이션의 확장에 따라 데이터베이스 성능이 스케일링되도록 하기 위해
 주의하며 이용해야 하는 몇 가지 구체적인 특성이 있습니다. 이러한 전환은 혼란스러울 수 있으며, IBM에서는 이에 대해 항상 도움을 줄 준비가 되어 있습니다.
 
-추가적인 내용은 ["Foundbite의 데이터 모델" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){:new_window},
-또는 ["Twilio에서 작성한 예" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){:new_window}의
+추가적인 내용은 ["Foundbite의 데이터 모델" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window},
+또는 ["Twilio에서 작성한 예" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}의
 해설을 참조하십시오.
 

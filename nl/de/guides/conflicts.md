@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
+
+subcollection: cloudant
 
 ---
 
@@ -11,10 +15,15 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
 # Konflikte
+{: #conflicts}
 
 Wenn in verteilten Datenbanken gegebenenfalls Kopien der Daten an mehreren Positionen
 gespeichert werden, können die Kenndaten des Netzes und/oder das Systems dafür sorgen, dass
@@ -26,7 +35,7 @@ vorgenommen werden, kann dies zu abweichenden Einschätzungen (Konflikten) führ
 Kopie den aktuellen und gültigen Inhalt des Dokuments enthält.
 
 {{site.data.keyword.cloudantfull}} unterstützt die Vermeidung von Konflikten durch Warnungen vor potenziellen Problemen.
-Zu diesem Zweck wird die Antwort [`409`](../api/http.html#http-status-codes) für eine problematische Aktualisierungsanforderung zurückgegeben.
+Zu diesem Zweck wird die [Antwort `409`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) für eine problematische Aktualisierungsanforderung zurückgegeben.
 Eine solche Antwort `409` wird jedoch möglicherweise nicht empfangen, wenn die Datenbankaktualisierung in
 einem System angefordert wird, das gegenwärtig nicht mit dem Netz verbunden ist.
 Wenn sich die Datenbank beispielsweise auf einem mobilen Gerät befindet, das vorübergehend
@@ -90,13 +99,12 @@ den geeigneten Zeitpunkt für die Erkennung und Behebung von Konflikte zu identi
 </table>
 
 ## Konflikte erkennen
+{: #finding-conflicts}
 
 Um Konflikte zu erkennen, die sich auf ein Dokument auswirken können,
 fügen Sie beim Abrufen eines Dokuments den Abfrageparameter `conflicts=true` hinzu.
 Das resultierende Dokument enthält ein Array `_conflicts`
 mit einer Liste aller Revisionen, für die Konflikte bestehen.
-
-<div></div>
 
 > Beispiel einer 'map'-Funktion zum Erkennen von Dokumentkonflikten:
 
@@ -108,7 +116,7 @@ function (doc) {
 }
 ```
 
-Schreiben Sie eine [Ansicht](../api/creating_views.html), um Konflikte für
+Schreiben Sie eine [Ansicht](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce), um Konflikte für
 mehrere Dokumente in einer Datenbank zu finden.
 Mithilfe einer 'map'-Funktion wie im vorliegenden Beispiel können Sie alle Revisionen
 für jedes Dokument finden, für die ein Konflikt besteht.
@@ -119,15 +127,14 @@ Alternativ können Sie die Ansicht nach jeder Replikation abfragen,
 um Konflikte sofort zu erkennen und zu Lösen.
 
 ## Vorgehensweise beim Lösen von Konflikten
+{: #how-to-resolve-conflicts}
 
 Sobald Sie einen Konflikt gefunden haben, können Sie ihn mit den folgenden 4 Schritten lösen:
 
-1.	[Abrufen](conflicts.html#get-conflicting-revisions) der in Konflikt stehenden Revisionen
-2.	[Zusammenführen](conflicts.html#merge-the-changes) der Revisionen in Ihrer Anwendung oder Befragen des Benutzers nach seinen Präferenzen
-3.	[Hochladen](conflicts.html#upload-the-new-revision) der neuen Revision
-4.	[Löschen](conflicts.html#delete-old-revisions) alter Revisionen
-
-<div></div>
+1.	[Abrufen](#get-conflicting-revisions) der in Konflikt stehenden Revisionen.
+2.	[Zusammenführen](#merge-the-changes) der Revisionen in Ihrer Anwendung oder Befragen des Benutzers nach seinen Präferenzen
+3.	[Hochladen](#upload-the-new-revision) der neuen Revision.
+4.	[Löschen](#delete-old-revisions) alter Revisionen
 
 > Beispieldokument - erste Revision
 
@@ -145,8 +152,6 @@ Sehen wir uns ein Beispiel dafür an.
 Angenommen, Sie haben eine Datenbank mit Produkten für einen Onlineshop.
 Die erste Version eines Dokuments kann dem angegebenen Beispiel ähneln:
 
-<div></div>
-
 > Zweite Version (erste Revision) des Dokuments, in der eine Beschreibung hinzugefügt wird:
 
 ```json
@@ -161,8 +166,6 @@ Die erste Version eines Dokuments kann dem angegebenen Beispiel ähneln:
 
 Da das Dokument noch nicht über eine Beschreibung verfügt, kann ein Benutzer
 eine Beschreibung hinzufügen.
-
-<div></div>
 
 > _Alternative_ zweite Version, in der andere Preissenkungsdaten als in der ersten Dokumentversion eingeführt werden.
 
@@ -185,6 +188,7 @@ nicht eindeutig klar, welche der beiden verschiedenen Dokumentversionen korrekt 
 Ein Konfliktszenario ist entstanden.
 
 ## Konfliktrevisionen abrufen
+{: #get-conflicting-revisions}
 
 Um alle Konfliktrevisionen für ein Dokument zu finden, rufen Sie das
 Dokument wie gewohnt ab und fügen Sie dabei den Parameter `conflicts=true`
@@ -192,7 +196,6 @@ ein, wie im folgenden Beispiel gezeigt:
 
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
-<div></div>
 
 > Beispielantwort für Dokumentabruf mit Konfliktrevisionen:
 
@@ -224,6 +227,7 @@ können mehrere Konfliktrevisionen vorhanden sein, die alle in dem Array
 aufgelistet werden.
 
 ## Änderungen zusammenführen
+{: #merge-the-changes}
 
 Ihre Anwendung muss alle potenziellen Änderungen identifizieren und
 abgleichen, indem die korrekten und gültigen Aktualisierungen zu einer
@@ -266,6 +270,7 @@ zurückgreifen:
 Ein praktisches Beispiel für die Implementierung dieser Änderungen finden Sie in [diesem Projekt mit Beispielcode](https://github.com/glynnbird/deconflict).
 
 ## Neue Revision hochladen
+{: #upload-the-new-revision}
 
 > Finale Revision nach dem Auflösen und Zusammenführen der Änderungen aus den vorherigen, in Konflikt stehenden Revisionen.
 
@@ -284,6 +289,7 @@ Dokument, das die aktuellen und verbindlichen Daten enthält.
 Dieses aktuelle Dokument wird in die Datenbank hochgeladen.
 
 ## Alte Revisionen löschen
+{: #delete-old-revisions}
 
 > Beispielanforderungen zum Löschen alter Revisionen.
 
@@ -299,6 +305,6 @@ die zu löschenden Revisionen angegeben sind.
 
 Nach dem Löschen der älteren Versionen eines Dokuments werden die
 zugehörigen Konflikte für das Dokument als gelöst (behoben) markiert.
-Sie können überprüfen, dass keine Konflikte mehr bestehen, indem Sie das Dokument
-erneut anfordern und dabei den Parameter `conflicts` auf 'true'
-setzen, [wie oben dargestellt](conflicts.html#finding-conflicts).
+Sie können überprüfen, dass keine Konflikte mehr bestehen, indem Sie das
+Dokument erneut anfordern und dabei den Parameter `conflicts` auf 'true'
+setzen, [wie oben dargestellt](#finding-conflicts).

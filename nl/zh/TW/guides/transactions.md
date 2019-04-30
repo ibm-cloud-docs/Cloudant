@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: generate uuid, record payments, add additional documents, advantages
+
+subcollection: cloudant
 
 ---
 
@@ -12,10 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 在 {{site.data.keyword.cloudant_short_notm}} 中將相關文件分組在一起
+{: grouping-related-documents-together-in-ibm-cloudant}
 
 傳統上，電子商務系統是使用關聯式資料庫所建置。這些資料庫一般會使用結合在一起的數張表格來記錄銷售量、客戶詳細資料、所購買的產品以及交付追蹤資訊。關聯式資料庫提供高度一致性，表示應用程式開發人員可以將其應用程式建置為資料庫的強項，包括在集合之間使用結合、記錄物件狀態的列舉，以及保證原子作業的資料庫交易。
 
@@ -70,7 +78,7 @@ _說明購買的範例文件：_
     "total": 26.46
 }
 ```
-{:codeblock}
+{: codeblock}
 
 此文件針對購買記錄提供足夠的資料，以在網頁或電子郵件上呈現訂單摘要，而不需要提取其他記錄。請注意訂單的重要詳細資料，特別是：
 
@@ -83,13 +91,15 @@ _說明購買的範例文件：_
 客戶下單時（一般是他們進入網站上的「結帳」階段時），會建立與先前範例類似的採購單記錄。 
 
 ## 產生您自己的唯一 ID (UUID)
+{: #generating-your-own-unique-identifiers-uuids-}
 
 在關聯式資料庫中，通常會使用循序「自動增量」數目，但在資料分散到伺服器叢集的分散式資料庫中，會使用較長的 UUID 來確保文件使用其自己的唯一 ID 進行儲存。
 
-若要建立用於應用程式中的唯一 ID（例如 `order_id`），請在 {{site.data.keyword.cloudant_short_notm}} API 上呼叫 [`GET _uuids` 端點](../api/advanced.html#-get-_uuids-)。
+若要建立用於應用程式中的唯一 ID（例如 `order_id`），請在 {{site.data.keyword.cloudant_short_notm}} API 上呼叫 [`GET _uuids` 端點](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_uuids-)。
 資料庫會為您產生 ID。新增 `count` 參數（例如，`/_uuids?count=10`），即可使用相同的端點來產生多個 ID。
 
 ## 記錄付款
+{: #recording-payments}
 
 客戶順利支付其項目時，會在資料庫中新增其他記錄來記錄訂單。
 
@@ -116,7 +126,7 @@ _付款記錄範例：_
     "payment_reference": "Q88775662377224"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 在前一個範例中，客戶的支付方式是提供信用卡並兌換預付憑單。兩個付款的總計加起來就是訂單的金額。每一個付款都會當成不同的文件寫入至 {{site.data.keyword.cloudant_short_notm}}。
 
@@ -140,9 +150,9 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
-使用內建 [`_sum` 減少器](../api/creating_views.html#built-in-reduce-functions)可讓您產生輸出作為付款事件的分類帳。
+使用內建 [`_sum` 減少器](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)可讓您產生輸出作為付款事件的分類帳。
 
 _使用內建 `_sum` 減少器並使用 `?reduce=false` 查詢的範例：
 
@@ -167,7 +177,7 @@ _使用內建 `_sum` 減少器並使用 `?reduce=false` 查詢的範例：
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 或者，您可以產生依 `order_id` 分組的總計。
 
@@ -183,11 +193,12 @@ _依 `order_id` 分組且 `?group_level=1` 的總計範例：_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 因為前一個範例中的視圖傳回 0 作為訂單值，所以結果指出已完整支付訂單。原因是正數的採購單總計扺消了負數的付款金額。在 {{site.data.keyword.cloudant_short_notm}} 中，將事件記錄為不同的文件（一個是用於訂單，一個是用於每個付款）是不錯的作法，因為它可避免在多個處理程序同時修改相同文件時產生衝突的可能性。
 
 ## 新增其他文件
+{: #adding-additional-documents}
 
 因為已佈建及分派訂單，所以您可以將其他不同的文件新增至資料庫來記錄下列狀態變更：
 
@@ -199,6 +210,7 @@ _依 `order_id` 分組且 `?group_level=1` 的總計範例：_
 因此，不需要修改核心購買文件。
 
 ## 將採購單儲存在 {{site.data.keyword.cloudant_short_notm}} 中的優點
+{: #advantages-of-storing-purchase-orders-in-ibm-cloudant}
 
 使用 {{site.data.keyword.cloudant_short_notm}} 來儲存採購單資訊可容許訂購系統高度可用且可擴充，以讓您處理大量資料以及因應高並行存取率。
 透過在僅寫入一次的不同文件中建立資料模型，即可確定文件絕不會衝突，例如在不同的處理程序並行存取相同文件的期間。

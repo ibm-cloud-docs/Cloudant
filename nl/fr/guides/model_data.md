@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
+
+subcollection: cloudant
 
 ---
 
@@ -12,18 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Cinq conseils fondamentaux pour la modélisation de vos données
+# Cinq conseils pour la modélisation de vos données
+{: #five-tips-for-modelling-your-data-to-scale}
 
 Cet article présente les points principaux de
 modélisation des données d'application pour un fonctionnement efficace à grande échelle.
-{:shortdesc}
+{: shortdesc}
 
-_(Ce guide s'inspire d'un article de blogue de Mike Rhodes,
-["My top 5 tips for modelling your data to scale" ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window}
-publié le 17 décembre 2013.)_
+*(Ce guide s'inspire d'un article de blogue de Mike Rhodes : ["My Top 5 Tips for Modeling Data to Scale" ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/), publié le 17 décembre 2013.)*
 
 La façon dont vous modélisez vos données dans {{site.data.keyword.cloudantfull}} impacte de manière significative
 la possibilité d'évolution de votre application. Notre modèle de données sous-jacent est très différent d'un modèle relationnel et ne pas tenir compte
@@ -35,6 +41,7 @@ performances souhaitées.
 Sans attendre, passons directement au vif du sujet.
 
 ## Prise en compte des données non modifiables
+{: #consider-immutable-data}
 
 Si vous changez un état toutes les secondes ou plus souvent, pensez à
 rendre vos documents non modifiables. Ainsi, vous réduisez considérablement le risque de création
@@ -49,6 +56,7 @@ qui résument les documents indiquant l'état en cours. Comme les vues sont pré
 aucune conséquence sur les performances de l'application.
 
 ## En quoi cela vous aide-t-il de prendre en compte les données non modifiables 
+{: #why-this-helps-you-consider-immutable-data}
 
 Derrière notre interface `https://$ACCOUNT.cloudant.com/` se trouve une base de données répartie. 
 Dans le cluster, les documents sont placés dans des fragments qui collectivement forment la
@@ -74,6 +82,7 @@ Nous avons détecté que ce scénario de conflit de documents a plus de risque d
 pour les mises à jour survenant à des fréquences supérieures à dix secondes pour des raisons de sécurité.
 
 ## Utilisation de vues pour précalculer des résultats plutôt que comme des index de recherche
+{: #use-views-to-pre-calculate-results-rather-than-as-search-indexes}
 
 Au lieu d'utiliser systématiquement des vues comme index de recherche ("extraction de tous les documents `person`"), essayez
 de laisser la base de données effectuer le travail pour vous. Par exemple, au lieu d'extraire un grand nombre de
@@ -84,6 +93,7 @@ grand nombre de petites demandes au lieu de lire de grandes quantités de donné
 demande de grande taille.
 
 ## En quoi cela vous aide-t-il d'utiliser des vues pour pré-calculer des résultats
+{: #why-this-helps-you-use-views-to-pre-calculate-results}
 
 L'avantage de cette méthode est évident : tout d'abord, les mappes et les réductions
 sont pré-calculées. Cela signifie
@@ -105,6 +115,7 @@ vous pouvez notamment utiliser la puissance des vues afin de précalculer les do
 l'exécution de la demande est réduite.
 
 ## Dénormalisation de vos données
+{: #de-normalise-your-data}
 
 Dans les bases de données relationnelles, la normalisation des données constitue souvent la meilleure méthode de stockage pour les données. 
 Ce choix est d'autant plus judicieux lorsque vous pouvez utiliser des opérations JOIN pour associer facilement des données provenant de plusieurs tables. 
@@ -122,10 +133,11 @@ balise spécifique.
 
 Dans {{site.data.keyword.cloudant_short_notm}}, vous stockez les balises dans une liste pour chaque document. Vous utilisez ensuite une vue pour extraire les
 documents ayant une balise spécifique en
-[émettant chaque balise en tant que clé dans la fonction de mappe de votre vue](../api/creating_views.html). 
+[émettant chaque balise en tant que clé dans la fonction de mappe de votre vue](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce). 
 Le fait de demander une clé spécifique dans la vue permet d'obtenir tous les documents ayant cette balise.
 
 ## En quoi cela vous aide-t-il de dénormaliser vos données
+{: #why-this-helps-you-de-normalize-your-data}
 
 Le nombre de demandes HTTP effectuées par votre application. Chaque ouverture
 de connexion HTTP génère un coût (plus particulièrement pour HTTPS). Si une réutilisation des connexions peut
@@ -136,6 +148,7 @@ demandée par votre application soit générée à l'avance au lieu d'être cons
 demande.
 
 ## Prévention des conflits à l'aide de documents à granularité fin
+{: #avoid-conflicts-by-using-finer-grained-documents}
 
 Outre la dénormalisation de vos données, nous vous recommandons d'utiliser
 des documents à granularité fine pour réduire le risque de modifications simultanées créant des conflits. 
@@ -153,7 +166,7 @@ Utilisons par exemple un enregistrement médical contenant une liste d'opératio
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Si Joe subit beaucoup d'opérations en même temps, le nombre de mises à jour
 simultanées élevé apportées à un même document peut créer des documents conflictuels, comme cela est décrit ci-dessus. 
@@ -168,7 +181,7 @@ similaires aux exemples suivants :
     "surgery": "heart bypass"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ```json
 {
@@ -177,7 +190,7 @@ similaires aux exemples suivants :
     "surgery": "lumbar puncture"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Le fait d'émettre la zone `"patient"` en tant que clé dans votre vue vous permet alors de demander toutes
 les opérations pour un patient spécifique. Les vues permettent de créer une image complète d'une entité spécifique
@@ -185,6 +198,7 @@ les opérations pour un patient spécifique. Les vues permettent de créer une i
 les données d'une entité modélisée ont été fractionnées.
 
 ## En quoi cela vous aide-t-il d'éviter les conflits
+{: #why-this-helps-you-avoid-conflicts}
 
 En évitant les documents en conflit, vous accélérez le traitement d'un grand nombre d'opérations sur vos bases de données {{site.data.keyword.cloudant_short_notm}}. 
 Cela est dû au fait qu'il existe un processus qui résout la révision gagnante en cours utilisée dès
@@ -205,6 +219,7 @@ très élevé, particulièrement si les conflits ne sont pas résolus, le parcou
 utiliser un grand nombre de ressources.
 
 ## Intégration de la résolution de conflit
+{: #build-in-conflict-resolution}
 
 Dans un système cohérent ({{site.data.keyword.cloudant_short_notm}}, par exemple) des conflits peuvent survenir. Comme
 décrit ci-dessus, c'est là l'inconvénient de l'évolutivité et de la résilience des données.
@@ -225,11 +240,13 @@ La façon de procéder dépend de vos applications mais voici quelques conseils 
     l'opération, sans parler de la possibilité que les autres documents peuvent être en conflit.
 
 ## En quoi cela vous aide-t-il d'intégrer la résolution de conflit 
+{: #why-this-helps-you-build-in-conflict-resolution}
 
 Comme décrit ci-dessus, les documents en conflit constituent un lourd handicap pour la base de données. Intégrer la possibilité
 de résoudre les conflits dès qu'ils apparaissent permet d'éviter d'avoir des documents en conflit.
 
 ## Récapitulatif
+{: #summary}
 
 Ces conseils présentent comment la modélisation de données peut avoir des conséquences sur les
 performances de votre application. Le magasin de données de {{site.data.keyword.cloudant_short_notm}} a des caractéristiques spécifiques (certaines constituant des
@@ -237,6 +254,6 @@ inconvénients, d'autres des avantages) permettant de garantir que les performan
 croissance de votre application. Nous avons conscience que cela peut être déstabilisant mais sommes toujours à votre écoute et prêts à vous donner des conseils.
 
 Pour plus d'informations, voir le site
-présentant le [modèle de données de Foundbite ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){:new_window}
-ou la page [présentant un exemple de Twilio![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){:new_window}.
+présentant le [modèle de données de Foundbite ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}
+ou la page [présentant un exemple de Twilio![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
 

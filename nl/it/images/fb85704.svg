@@ -19,7 +19,7 @@
    class="st20"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
    sodipodi:docname="fb85704.svg"><metadata
      id="metadata306"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
@@ -32,17 +32,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1027"
+     inkscape:window-width="1547"
+     inkscape:window-height="985"
      id="namedview304"
      showgrid="false"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="431.86268"
-     inkscape:cy="249.77709"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g20" /><v:documentProperties
+     inkscape:zoom="1"
+     inkscape:cx="365.86309"
+     inkscape:cy="402.92285"
+     inkscape:window-x="103"
+     inkscape:window-y="24"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="shape21-56" /><v:documentProperties
      v:langID="1033"
      v:viewMarkup="false"><v:userDefs><v:ud
          v:nameU="msvNoAutoConnect"
@@ -290,8 +290,8 @@
          class="st6"
          v:langID="1033"
          id="text46"
-         style="font-size:10.00003242px;line-height:0%;font-family:Tahoma;fill:#000000">Avvio<v:paragraph
-   v:horizAlign="1" /><v:tabList /></text>
+         style="font-size:10.00003242px;line-height:0%;font-family:Tahoma;fill:#000000"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Inizializzazione</text>
 </g><g
        id="shape4-13"
        v:mID="4"
@@ -335,7 +335,7 @@
            id="tspan3898"
            x="64.814575"
            y="753.0105"
-           style="font-size:10px;line-height:1.25">Crea il lavoro</tspan><tspan
+           style="font-size:10px;line-height:1.25">Crea lavoro</tspan><tspan
            sodipodi:role="line"
            id="tspan3900"
            x="64.814575"
@@ -378,8 +378,8 @@
          class="st6"
          v:langID="1033"
          id="text72"
-         style="font-size:10.00003242px;line-height:0%;font-family:Tahoma;fill:#000000">In attesa<v:paragraph
-   v:horizAlign="1" /><v:tabList /></text>
+         style="font-size:10.00003242px;line-height:0%;font-family:Tahoma;fill:#000000"><v:paragraph
+   v:horizAlign="1" /><v:tabList />In sospeso</text>
 </g><g
        id="shape7-26"
        v:mID="7"
@@ -417,8 +417,8 @@
          class="st6"
          v:langID="1033"
          id="text84"
-         style="font-size:10.00003242px;line-height:0%;font-family:Tahoma;fill:#000000">In esecuzione<v:paragraph
-   v:horizAlign="1" /><v:tabList /></text>
+         style="font-size:10.00003242px;line-height:0%;font-family:Tahoma;fill:#000000"><v:paragraph
+   v:horizAlign="1" /><v:tabList />In esecuzione</text>
 </g><g
        id="shape8-32"
        v:mID="8"
@@ -456,8 +456,8 @@
          class="st6"
          v:langID="1033"
          id="text96"
-         style="font-size:10.00003242px;line-height:0%;font-family:Tahoma;fill:#000000">Arresto anomalo<v:paragraph
-   v:horizAlign="1" /><v:tabList /></text>
+         style="font-size:10.00003242px;line-height:0%;font-family:Tahoma;fill:#000000"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Arresto anomalo</text>
 </g><g
        id="shape9-38"
        v:mID="9"
@@ -576,13 +576,13 @@
          class="st9"
          id="rect130"
          style="fill:#ffffff;stroke:#ed7d31;stroke-width:2.5" /><text
-         x="3.8999996"
+         x="15.9"
          y="775.71997"
          class="st6"
          v:langID="1033"
          id="text132"
-         style="font-size:10.00003242px;line-height:0%;font-family:Tahoma;fill:#000000">Non riuscito<v:paragraph
-   v:horizAlign="1" /><v:tabList /></text>
+         style="font-size:10.00003242px;line-height:0%;font-family:Tahoma;fill:#000000"><v:paragraph
+   v:horizAlign="1" /><v:tabList />Non riuscito</text>
 </g><g
        id="shape21-56"
        v:mID="21"
@@ -626,14 +626,14 @@
            id="tspan3636"
            x="46.82"
            y="753.42999"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Pianifica</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">Pianifica </tspan><tspan
            sodipodi:role="line"
            id="tspan3638"
            x="46.82"
            y="767.17999"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start">nuovo lavoro</tspan></text>
 <path
-         style="fill:#000000;fill-opacity:0.94208512;fill-rule:evenodd;stroke:#000000;stroke-width:0.87225002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleOutL)"
+         style="fill:#000000;fill-opacity:0.94208506;fill-rule:evenodd;stroke:#000000;stroke-width:0.87225002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#TriangleOutL)"
          d="M -57.127198,650.60679 6.4462306,734.04943"
          id="path7821"
          inkscape:connector-curvature="0"
@@ -739,7 +739,7 @@
            id="tspan3880"
            x="76"
            y="598.97455"
-           style="font-size:9px;line-height:1.25">stato (riprova)</tspan><tspan
+           style="font-size:9px;line-height:1.25">Stato (nuovo tentativo)</tspan><tspan
            sodipodi:role="line"
            id="tspan3882"
            x="76"
@@ -1155,7 +1155,7 @@
            id="tspan3646"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle"
            x="48.468136"
-           y="769.93256">Esegui POST a</tspan><tspan
+           y="769.93256">POST a</tspan><tspan
            sodipodi:role="line"
            id="tspan3648"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;line-height:125%;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle"

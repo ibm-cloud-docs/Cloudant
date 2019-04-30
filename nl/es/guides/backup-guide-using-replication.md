@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
+
+subcollection: cloudant
 
 ---
 
@@ -12,18 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-<div id="back-up-your-data-using-replication"></div>
-
 # Incrementales de réplica
+{: #replication-incrementals}
 
->	**Nota**: Esta guía contiene información antigua o 'en desuso' sobre la copia de seguridad de {{site.data.keyword.cloudantfull}}.
-	Para ver una guía actualizada sobre la copia de seguridad, consulte la guía de [Recuperación en caso de error y copia de seguridad](disaster-recovery-and-backup.html).
+Esta guía contiene información antigua o 'en desuso' sobre la copia de seguridad de {{site.data.keyword.cloudantfull}}. Para ver una guía actualizada sobre la copia de seguridad, consulte la guía de [Recuperación en caso de error y copia de seguridad](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
+{: deprecated}
 
 Las copias de seguridad de las bases de datos protegen los datos frente a una posible pérdida o daño de los datos.
-{:shortdesc}
+{: shortdesc}
 
 Puede utilizar el recurso de réplica de {{site.data.keyword.cloudant_short_notm}} para crear una copia de seguridad de la base de datos y guardarla en un clúster de {{site.data.keyword.cloudant_short_notm}}.
 Luego puede restaurar datos, bases de datos enteras o documentos JSON específicos desde dichas copias de seguridad en el clúster de producción.
@@ -36,8 +42,9 @@ Es un registro de la base de datos tal como estaba después de que se produjeran
 De este modo, una copia de seguridad puede conservar el estado de la base de datos en un momento seleccionado.
 
 ## Copias de seguridad incrementales
+{: #incremental-backups}
 
-Si es un cliente de empresa, [dispone](disaster-recovery-and-backup.html) de la función de copia de seguridad incremental diaria.
+Si es un cliente de empresa, [dispone](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) de la función de copia de seguridad incremental diaria.
 
 Si no es un cliente de empresa, o si prefiere crear sus propias copias de seguridad, puede utilizar el recurso de réplica de {{site.data.keyword.cloudant_short_notm}} para crear una copia de seguridad de la base de datos.
 
@@ -53,11 +60,12 @@ Inicialmente, debe crear una copia de seguridad de toda la base de datos.
 Tras la primera copia de seguridad, ejecute copias de seguridad 'incrementales' copiando _solo_ lo que se ha modificado en la base de datos desde la última copia de seguridad.
 Esta réplica se convierte en una copia de seguridad diaria.
 
->   **Nota**: Puede configurar que se active una copia de seguridad a intervalos regulares.
-    Sin embargo, cada intervalo debe ser de 24 horas o más.
-    Es decir, puede ejecutar copias diarias, pero no copias cada hora.
+Puede configurar que se active una copia de seguridad a intervalos regulares.
+Sin embargo, cada intervalo debe ser de 24 horas o más. Es decir, puede ejecutar copias diarias, pero no copias cada hora.
+{: note}
 
 ## Creación de una copia de seguridad incremental
+{: #creating-an-incremental-backup}
 
 Las copias de seguridad incrementales solo guardan las diferencias o 'deltas' entre copias de seguridad.
 Cada 24 horas, se realiza una réplica de la base de datos de origen en una base de datos de destino.
@@ -77,12 +85,14 @@ Para crear una copia de seguridad incremental, siga los pasos siguientes:
     El documento suele existir en ambas bases de datos, pero es posible que solo esté en una.
 3.  Busque el campo `recorded_seq` del primer elemento de la matriz histórica que se encuentra en el documento de punto de comprobación.
 4.  Cree una réplica en la nueva base de datos de copia de seguridad incremental,
-    estableciendo el [campo `since_seq`](../api/replication.html#the-since_seq-field)
+    estableciendo el [campo `since_seq`](/docs/services/Cloudant?topic=cloudant-replication-api#the-since_seq-field)
     del documento de réplica en el valor del campo `recorded_seq` del paso anterior.
 
->   **Nota**: Por definición, el uso de la opción `since_seq` omite el recurso normal de establecimiento de un punto de comprobación. Utilice `since_seq` con cuidado. 
+Por definición, el uso de la opción `since_seq` omite el recurso normal de establecimiento de un punto de comprobación. Utilice `since_seq` con cuidado. 
+{: note}
 
 ## Restauración de una base de datos
+{: #restoring-a-database}
 
 Para restaurar una base de datos de copias de seguridad incrementales, debe crear una réplica de cada copia de seguridad incremental en una nueva base, empezando por el incremento más reciente.
 
@@ -92,6 +102,7 @@ Los documentos más antiguos que una copia ya existente en la nueva base de dato
 
 
 ## Un ejemplo
+{: #an-example}
 
 En este ejemplo se muestra cómo:
 
@@ -100,28 +111,26 @@ En este ejemplo se muestra cómo:
 3.  Configurar y ejecutar una copia de seguridad incremental.
 4.  Restaurar una copia de seguridad.
 
-<div id="constants-used-in-this-guide"></div>
-
 ### Constantes que se utilizan aquí
+{: #constants-that-are-used-here}
 
 ```sh
 # guardar URL base y el tipo de contenido en variables de shell
 $ url='https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com'
 $ ct='Content-Type: application-json'
 ```
-{:codeblock}
+{: codeblock}
 
 Supongamos que tiene que hacer una copia de seguridad de una base de datos.
 Desea crear una copia de seguridad completa el lunes y una copia de seguridad incremental el martes.
 
-Puede utilizar los mandatos `curl` y [`jq` ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://stedolan.github.io/jq/){:new_window}
+Puede utilizar los mandatos `curl` y [`jq` ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://stedolan.github.io/jq/){: new_window}
 para ejecutar estas operaciones.
 En la práctica, puede utilizar cualquier cliente
 HTTP.
 
-<div id="step-1-check-you-have-three-databases"></div>
-
 ### Paso 1: Compruebe que tiene tres bases de datos
+{: #step-1-check-that-you-have-three-databases}
 
 Para este ejemplo, necesita tres bases de datos:
 
@@ -135,7 +144,7 @@ PUT /original HTTP/1.1
 PUT /backup-monday HTTP/1.1
 PUT /backup-tuesday HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
 _Ejemplo que muestra cómo comprobar que tiene tres bases de datos para utilizarlas en este ejemplo, utilizando la línea de mandatos:_
 
@@ -144,27 +153,29 @@ $ curl -X PUT "${url}/original"
 $ curl -X PUT "${url}/backup-monday"
 $ curl -X PUT "${url}/backup-tuesday"
 ```
-{:codeblock}
+{: codeblock}
 
 ### Paso 2: Cree la base de datos `_replicator`
+{: #step-2-create-the-_replicator-database}
 
 Si no existe, cree la base de datos `_replicator`.
 
-_Creación de la base de datos `_replicator` mediante HTTP:_
+*Creación de la base de datos `_replicator` utilizando HTTP:*
 
 ```http
 PUT /_replicator HTTP/1.1
 ```
-{:codeblock}
+{: codeblock}
 
-_Creación de la base de datos `_replicator` mediante la línea de mandatos:_
+*Creación de la base de datos `_replicator` utilizando la línea de mandatos:*
 
 ```sh
 curl -X PUT "${url}/_replicator"
 ```
-{:pre}
+{: pre}
 
 ### Paso 3: Haga una copia de seguridad de toda la base de datos (original)
+{: #step-3-back-up-the-entire-original-database}
 
 El lunes desea hacer una copia de seguridad de todos los datos por primera vez.
 Para crear esta copia de seguridad, realice una réplica de todo lo comprendido entre `original` y `backup-monday`.
@@ -175,15 +186,15 @@ _Ejecución de una copia de seguridad completa el lunes mediante HTTP:_
 PUT /_replicator/full-backup-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
-_Ejecución de una copia de seguridad completa el lunes mediante la línea de mandatos: _
+_Ejecución de una copia de seguridad completa el lunes mediante la línea de mandatos:_
 
 ```sh
 $ curl -X PUT "${url}/_replicator/full-backup-monday" -H "$ct" -d @backup-monday.json
 # donde backup-monday.json describe la copia de seguridad.
 ```
-{:codeblock}
+{: codeblock}
 
 _Documento JSON que describe la copia de seguridad completa:_
  
@@ -194,11 +205,10 @@ _Documento JSON que describe la copia de seguridad completa:_
     "target": "${url}/backup-monday"
 }
 ```
-{:codeblock}
-
-<div id="step-4-get-checkpoint-id"></div>
+{: codeblock}
 
 ### Paso 4: Prepare la copia de seguridad incremental parte 1 - Obtenga el ID de punto de comprobación
+{: #step-4-prepare-incremental-backup-part-1-get-checkpoint-id}
 
 El martes desea realizar una copia de seguridad incremental, en lugar de otra copia de seguridad completa.
 
@@ -213,24 +223,23 @@ Después de obtener estos valores, puede ejecutar la copia de seguridad incremen
 Comienza buscando el valor del ID de punto de comprobación.
 Este valor está guardado en el campo `_replication_id` del documento de réplica que se encuentra en la base de datos `_replicator`.
 
-_Obtención del ID de punto de comprobación para buscar el valor de `recorded_seq` mediante HTTP:_
+*Obtención del ID de punto de comprobación para buscar el valor de `recorded_seq` mediante HTTP:*
 
 ```http
 GET /_replicator/full-backup-monday HTTP/1.1
 # Buscar el valor de _replication_id
 ```
-{:codeblock}
+{: codeblock}
 
-_Obtención del ID de punto de comprobación para buscar el valor de `recorded_seq` mediante la línea de mandatos: _
+*Obtención del ID de punto de comprobación para buscar el valor de `recorded_seq` mediante la línea de mandatos:*
 
 ```sh
 replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replication_id')
 ```
-{:pre}
-
-<div id="step-5-get-recorded_seq-value"></div>
+{: pre}
 
 ### Paso 5: Prepare la copia de seguridad incremental parte 2 - Obtenga el valor de `recorded_seq`
+{: #step-5-prepare-incremental-backup-part-2-get-recorded_seq-value}
 
 Después de obtener el ID del punto de comprobación, utilícelo para obtener el valor de `recorded_seq`.
 Este valor se encuentra en el primer elemento de la matriz histórica en el documento `/_local/${replication_id}`, dentro de la base de datos original.
@@ -238,22 +247,23 @@ Este valor se encuentra en el primer elemento de la matriz histórica en el docu
 Ahora tiene el valor de `recorded_seq`.
 Este valor identifica el último documento del que se ha realizado una réplica desde la base de datos original.
 
-_Obtención del valor de `recorded_seq` de la base de datos original mediante HTTP:_
+*Obtención del valor de `recorded_seq` de la base de datos original mediante HTTP:*
 
 ```http
 GET /original/_local/${replication_id} HTTP/1.1
 # Buscar el primer valor de recorded_seq en la matriz histórica
 ```
-{:codeblock}
+{: codeblock}
 
-_Obtención del valor de `recorded_seq` de la base de datos original mediante la línea de mandatos:_
+*Obtención del valor de `recorded_seq` de la base de datos original mediante la línea de mandatos:*
 
 ```sh
 recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history[0].recorded_seq')
 ```
-{:pre}
+{: pre}
 
 ### Paso 6: Ejecute una copia de seguridad incremental
+{: #step-6-run-an-incremental-backup}
 
 Ahora que tiene el ID de punto de comprobación y `recorded_seq`, puede comenzar copia de seguridad incremental del martes.
 Esta copia de seguridad realiza una réplica de todos del documento realizados _desde_ la última réplica.
@@ -267,14 +277,14 @@ _Ejecución de la copia de seguridad incremental del martes mediante HTTP:_
 PUT /_replicator/incr-backup-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
-_Ejecución de la copia de seguridad incremental del martes mediante la línea de mandatos: _
+_Ejecución de la copia de seguridad incremental del martes mediante la línea de mandatos:_
 
 ```sh
 curl -X PUT "${url}/_replicator/incr-backup-tuesday" -H "${ct}" -d @backup-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _Documento JSON que describe la copia de seguridad incremental del martes:_
  
@@ -286,9 +296,10 @@ _Documento JSON que describe la copia de seguridad incremental del martes:_
     "since_seq": "${recorded_seq}"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Paso 7: Restaure la copia del lunes
+{: #step-7-restore-the-monday-backup}
 
 Para restaurar los datos de una copia de seguridad, haga una réplica de la copia de seguridad completa inicial y de cualquier copia de seguridad incremental en una nueva base de datos.
 
@@ -300,16 +311,16 @@ _Restauración de los datos de la base de datos `backup-monday` mediante HTTP:_
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
-_Restauración de los datos de la base de datos `backup-monday` mediante la línea de mandatos: _
+_Restauración de los datos de la base de datos `backup-monday` mediante la línea de mandatos:_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
-_Documento JSON que describe la restauración: _
+_Documento JSON que describe la restauración:_
  
 ```json
 {
@@ -319,14 +330,16 @@ _Documento JSON que describe la restauración: _
     "create_target": true  
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Paso 8: Restaure la copia de seguridad del martes
+{: #step-8-restore-the-tuesday-backup}
 
 Para restaurar la base de datos del martes, primero cree una réplica de `backup-tuesday` y luego de `backup-monday`.
 
->   **Nota**: El orden no es un error tipográfico;
-    la idea _es_ restaurar los datos del martes y _luego_ los del lunes.
+El orden no es un error tipográfico; la intención _es_ realmente restaurar el martes (Tuesday) y
+_después_ el lunes (Monday).
+{: tip}
 
 Puede restaurar en secuencia cronológica, pero, si utiliza el orden inverso, los documentos actualizados el martes solo se tienen que escribir en la base de datos de destino una vez.
 Las versiones más antiguas del documento guardadas en la base de datos del lunes se pasan por alto.
@@ -337,14 +350,14 @@ _Restauración de la copia de seguridad del martes, obteniendo primero los cambi
 PUT /_replicator/restore-tuesday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Restauración de la copia de seguridad del martes, obteniendo primero los cambios más recientes, mediante la línea de mandatos:_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-tuesday" -H "$ct" -d @restore-tuesday.json
 ```
-{:pre}
+{: pre}
 
 _Documento JSON que solicita la restauración de la copia de seguridad del martes:_
  
@@ -356,7 +369,7 @@ _Documento JSON que solicita la restauración de la copia de seguridad del marte
     "create_target": true  
 }
 ```
-{:codeblock}
+{: codeblock}
 
 _Finalice la recuperación mediante la restauración, en último lugar, de la copia de seguridad del lunes mediante HTTP:_
 
@@ -364,14 +377,14 @@ _Finalice la recuperación mediante la restauración, en último lugar, de la co
 PUT /_replicator/restore-monday HTTP/1.1
 Content-Type: application/json
 ```
-{:codeblock}
+{: codeblock}
 
 _Finalice la recuperación mediante la restauración, en último lugar, de la copia de seguridad del lunes mediante la línea de mandatos:_
 
 ```http
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
-{:pre}
+{: pre}
 
 _Documento JSON que solicita la restauración de la copia de seguridad del lunes:_
  
@@ -382,19 +395,22 @@ _Documento JSON que solicita la restauración de la copia de seguridad del lunes
     "target": "${url}/restore"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Sugerencias
+{: #suggestions}
 
 Aunque en la información anterior se describe el proceso de copia de seguridad básico, cada aplicación necesita sus propios requisitos y estrategias para copias de seguridad.
 Las siguientes sugerencias pueden ser de utilidad.
 
 ### Planificación de copias de seguridad
+{: #scheduling-backups}
 
 Los trabajos de réplica pueden aumentar significativamente la carga en un clúster.
 Si está haciendo copia de seguridad de varias bases de datos, es mejor planificar los trabajos de réplica a distintas horas o en un momento en que el clúster esté menos ocupado.
 
 #### Cambio de la prioridad de ES de una copia de seguridad
+{: #changing-the-io-priority-of-a-backup}
 
 Puede cambiar la prioridad de los trabajos de copia de seguridad ajustando el valor del campo `x-cloudant-io-priority` en el documento de réplica.
 
@@ -419,11 +435,10 @@ _Ejemplo de documento JSON que establece la prioridad de ES:_
     }
 }
 ```
-{:codeblock}
-
-<div id="design-documents"></div>
+{: codeblock}
 
 ### Copia de seguridad de documentos de diseño
+{: #backing-up-design-documents}
 
 Si incluye documentos de diseño en su copia de seguridad, se crean índices en el destino de la copia de seguridad.
 Esta práctica ralentiza el proceso de copia de seguridad y utiliza cantidades innecesarias de espacio de disco.
@@ -431,13 +446,15 @@ Si no necesita índices en su sistema de copia de seguridad, utilice una funció
 También puede utilizar esta función de filtro para excluir otros documentos que no desee.
 
 ### Copia de seguridad de varias bases de datos
+{: #backing-up-multiple-databases}
 
 Si la aplicación utiliza una base de datos por usuario o permite que cada usuario cree varias bases de datos, debe crear un trabajo de copia de seguridad para cada nueva base de datos.
 Asegúrese de que los trabajos de réplica no comiencen a la vez.
 
 ## ¿Necesita ayuda?
+{: #need-help-}
 
 Las réplicas y copias de seguridad pueden ser complicadas.
-Si se atasca, consulte la [guía de réplica](replication_guide.html),
+Si se atasca, consulte la [guía de réplica](/docs/services/Cloudant?topic=cloudant-replication-guide#replication-guide),
 o póngase en contacto con el equipo de soporte de
-[{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){:new_window}.
+[{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){: new_window}.

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
+
+subcollection: cloudant
 
 ---
 
@@ -11,17 +15,22 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
 # 冲突
+{: #conflicts}
 
 在分布式数据库中，数据副本可能存储在多个位置，自然网络和系统特征可能意味着对一个位置中存储的文档进行的更改无法立即更新或复制到数据库的其他部分。
 
 换句话说，如果对文档的不同副本独立进行了更新，那么对于文档内容如何才算正确、明确，可能会产生分歧或“冲突”。
 
 {{site.data.keyword.cloudantfull}} 尝试通过向您提醒潜在问题来帮助避免冲突。
-为此，它将向有问题的更新请求返回 [`409` 响应](../api/http.html#http-status-codes)。
+它将向有问题的更新请求返回 [`409` 响应](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)，以向您发出警告。
 但是，如果在当前未连接到网络的系统上请求数据库更新，那么可能不会收到 `409` 响应。
 例如，数据库所在的移动设备可能暂时断开了与因特网的连接，导致在此时间段内无法检查是否执行了其他可能冲突的更新。
 
@@ -76,10 +85,9 @@ lastupdated: "2018-10-24"
 </table>
 
 ## 查找冲突
+{: #finding-conflicts}
 
 要查找可能影响文档的任何冲突，请在检索文档时添加查询参数 `conflicts=true`。返回时，生成的文档包含 `_conflicts` 数组，其中包含所有冲突版本的列表。
-
-<div></div>
 
 > 用于查找文档冲突的示例 map 函数：
 
@@ -91,21 +99,20 @@ function (doc) {
 }
 ```
 
-要在数据库中查找多个文档的冲突，请编写[视图](../api/creating_views.html)。使用 map 函数（例如，提供的示例），可以查找存在冲突的每个文档的所有修订版。
+要在数据库中查找多个文档的冲突，请编写[视图](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)。使用 map 函数（例如，提供的示例），可以查找存在冲突的每个文档的所有修订版。
 
 如果您有此类视图，可以将其用于根据需要查找和解决冲突。
 或者，可以在每次复制后查询视图来立即识别和解决冲突。
 
 ## 如何解决冲突
+{: #how-to-resolve-conflicts}
 
 一旦找到了冲突，就可以通过以下 4 个步骤解决该冲突：
 
-1.	[获取](conflicts.html#get-conflicting-revisions)冲突修订版。
-2.	在应用程序中将其[合并](conflicts.html#merge-the-changes)，或者询问用户希望执行什么操作。
-3.	[上传](conflicts.html#upload-the-new-revision)新修订版。
-4.	[删除](conflicts.html#delete-old-revisions)旧修订版。
-
-<div></div>
+1.	[获取](#get-conflicting-revisions)冲突修订版。
+2.	在应用程序中将其[合并](#merge-the-changes)，或者询问用户希望执行什么操作。
+3.	[上传](#upload-the-new-revision)新修订版。
+4.	[删除](#delete-old-revisions)旧修订版。
 
 > 示例文档 - 第一个版本。
 
@@ -121,8 +128,6 @@ function (doc) {
 
 下面来看如何解决冲突的示例。假设您拥有一家在线商店的产品数据库。文档的第一个版本可能类似于提供的示例。
 
-<div></div>
-
 > 文档的第二个版本（第一个修订版），添加描述。
 
 ```json
@@ -136,8 +141,6 @@ function (doc) {
 ```
 
 由于文档尚未包含描述，因此可能有人会添加描述。
-
-<div></div>
 
 > _备用_的第二个版本，引入了对文档第一个版本进行的降价数据更改。
 
@@ -157,12 +160,12 @@ function (doc) {
 这是冲突场景。
 
 ## 获取冲突修订版
+{: #get-conflicting-revisions}
 
 要查找文档的任何冲突修订版，请正常检索该文档，但包含 `conflicts=true` 参数，与以下示例类似：
 
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
-<div></div>
 
 > 显示冲突修订版的示例文档检索响应
 
@@ -187,6 +190,7 @@ function (doc) {
 通常，您可能会发现该数组仅有一个元素，但是也可能有很多冲突修订版，每个修订版都在该数组中列出。
 
 ## 合并更改
+{: #merge-the-changes}
 
 您的应用程序必须识别和协调所有可能的更改，从而有效合并正确、有效的更新，以生成文档的单个非冲突版本。
 
@@ -215,6 +219,7 @@ function (doc) {
 有关如何实现这些更改的实用示例，请参阅[此项目及样本代码](https://github.com/glynnbird/deconflict)。
 
 ## 上传新修订版
+{: #upload-the-new-revision}
 
 > 解决并合并来自先前冲突修订版的更改后的最终修订版。
 
@@ -232,6 +237,7 @@ function (doc) {
 这一全新文档将上传到数据库。
 
 ## 删除旧修订版
+{: #delete-old-revisions}
 
 > 用于删除旧修订版的示例请求。
 
@@ -245,4 +251,4 @@ DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6
 为此，您将发送 `DELETE` 请求并指定要删除的修订版。
 
 删除文档的较旧版本时，会将与该文档关联的冲突标记为已解决。
-可以通过将 `conflicts` 参数设置为 true（[如之前一样](conflicts.html#finding-conflicts)）来再次请求该文档，从而验证是否不再有任何冲突。
+可以通过将 `conflicts` 参数设置为 true 来再次请求该文档，像以前一样使用[查找冲突](#finding-conflicts)，从而验证是否不再有任何冲突。

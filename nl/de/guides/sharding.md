@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-02-27"
+
+keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
+
+subcollection: cloudant
 
 ---
 
@@ -12,12 +16,17 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Wie werden Daten in {{site.data.keyword.cloudant_short_notm}} gespeichert?
+{: #how-is-data-stored-in-ibm-cloudant-}
 
 ## Konzepte
+{: #concepts}
 
 Jede Datenbank in {{site.data.keyword.cloudantfull}} setzt sich aus einem oder mehreren
 unterschiedlichen _Shards_ zusammen. Die Anzahl dieser Shards wird mit
@@ -52,6 +61,7 @@ um eine gute Balance zwischen Leistung und Datensicherheit zu erzielen.
 Es wäre sehr ungewöhnlich für ein {{site.data.keyword.cloudant_short_notm}}-System, eine andere Anzahl von Replikaten zu verwenden.
 
 ## Wie wirkt sich Sharding auf die Leistung aus?
+{: #how-does-sharding-affect-performance-}
 
 Die Anzahl von Shards für eine Datenbank ist konfigurierbar, weil sie sich auf verschiedene Weise auf die Datenbankleistung auswirken kann.
 
@@ -90,7 +100,7 @@ Deshalb liefert die Indexierung alleine nicht genug Informationen, um eine angem
 
 Wenn Sie die Datenmenge in Betracht ziehen, ist vor allem die Anzahl von Dokumenten pro Shard von Belang.
 In jedem Shard sind die Dokumente in einem großen
-[B-Tree ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://en.wikipedia.org/wiki/B-tree){:new_window}
+[B-Tree ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://en.wikipedia.org/wiki/B-tree){: new_window}
 auf Platte gespeichert.
 Indizes werden auf dieselbe Weise gespeichert.
 Je mehr Dokumente zu einem Shard hinzugefügt werden, nimmt die Anzahl
@@ -111,8 +121,6 @@ Trotzdem ist es für eine spezifische Datenbank oft nützlich, erkannte Anforder
 Tests mit repräsentativen Daten und Anforderungsmustern sind wichtig, um realistische _Q_-Werte zu schätzen.
 Aber stellen Sie sich darauf ein, dass die Praxis Sie eines Besseren belehren wird.
 
-<div id="summary"></div>
-
 Die folgenden einfachen Richtlinien sind möglicherweise in frühen Planungsphasen hilfreich.
 Denken Sie daran, Ihre vorgeschlagene Konfiguration zu überprüfen, indem Sie Tests mit repräsentativen Daten durchführen,
 insbesondere für große Datenbanken:
@@ -125,15 +133,16 @@ insbesondere für große Datenbanken:
 *	Bei größeren Datenbanken, die eine Anzahl von Dokumenten im zwei- bis dreistelligen Millionenbereich aufbewahren, also eine Größe im zweistelligen GB-Bereich haben,
 	sollten Sie Ihre Datenbank für die Verwendung von 16 Shards konfigurieren.
 *	Und bei noch größeren Datenbanken sollten Sie Ihre Daten auf mehrere Datenbanken verteilen.
-	Wenden Sie sich in diesem Fall an den [{{site.data.keyword.cloudant_short_notm}}-Support ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}.
+	Wenden Sie sich in diesem Fall an den [{{site.data.keyword.cloudant_short_notm}}-Support ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){: new_window}.
 
->	**Hinweis:** Die in diesem Leitfaden angegebenen Zahlen sind eher Beobachtungs- und Erfahrungswerte als präzise Berechnungen.
-
-<div id="API"></div>
+Die in diesem Leitfaden angegebenen Zahlen basieren auf Beobachtungen und Erfahrungswerten und nicht auf exakten Berechnungen.
+{: tip}
 
 ## Mit Shards arbeiten
+{: #working-with-shards}
 
 ### Shardanzahl festlegen
+{: #setting-shard-count}
 
 Die Anzahl von Shards, _Q_,
 für eine Datenbank wird festgelegt, wenn die Datenbank erstellt wird.
@@ -148,13 +157,13 @@ Der Parameter `q` gibt an, dass acht Shards für die Datenbank erstellt werden.
 ```sh
 curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
-{:codeblock}
+{: codeblock}
 
->	**Hinweis:** Das Festlegen von _Q_ für Datenbanken ist für {{site.data.keyword.cloudant_short_notm}}-Datenbanken unter {{site.data.keyword.cloud}} nicht aktiviert.
-	Der Wert _Q_ ist in den meisten `cloudant.com`Multi-Tenant-Clustern nicht verfügbar.
+Das Festlegen von _Q_ für Datenbanken ist für {{site.data.keyword.cloudant_short_notm}}-Datenbanken unter {{site.data.keyword.cloud}} nicht aktiviert. Der Wert _Q_ ist in den meisten `cloudant.com`Multi-Tenant-Clustern nicht verfügbar.
+{: note}
 
 Wenn Sie versuchen, den Wert _Q_ festzulegen, falls er noch nicht verfügbar ist,
-ist das Ergebnis eine [`403`-Antwort](../api/http.html#403) mit einem JSON-Hauptteil ähnlich dem folgenden:
+ist das Ergebnis eine [`403`-Antwort](/docs/services/Cloudant/api/http.html#http-status-codes) mit einem JSON-Hauptteil ähnlich dem folgenden:
 
 ```json
 {
@@ -162,17 +171,19 @@ ist das Ergebnis eine [`403`-Antwort](../api/http.html#403) mit einem JSON-Haupt
 	"reason": "q is not configurable"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Replikatanzahl festlegen
+{: #setting-the-replica-count}
 
-Ab CouchDB Version 2 können Sie [die Replikatanzahl angeben ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für einen externen Link")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window},
+Ab CouchDB Version 2 können Sie [die Replikatanzahl angeben ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für einen externen Link")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window},
 wenn Sie eine Datenbank erstellen.
 Aber Sie können keinen anderen Wert als den Standardwert 3 für die Replikatanzahl angeben.
 Das heißt, Sie können beim Erstellen der Datenbank keinen anderen Wert für die Replikatanzahl angeben.
-Weitere Unterstützung erhalten Sie vom [{{site.data.keyword.cloudant_short_notm}}-Support ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){:new_window}.
+Weitere Unterstützung erhalten Sie vom [{{site.data.keyword.cloudant_short_notm}}-Support ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){: new_window}.
 
 ### Was sind die Argumente _R_ und _W_?
+{: #what-are-the-_r_-and-_w_-arguments-}
 
 Manche Anforderungen haben Argumente, die sich auf das Verhalten des Koordinators auswirken, wenn er die Anforderung beantwortet.
 Diese Argumente heißen _R_ und _W_, in Anlehnung ihrer Namen in der Anforderungsabfragezeichenfolge.
@@ -183,6 +194,7 @@ In der Praxis ist es selten hilfreich, die Werte _R_ und _W_ anzugeben.
 Beispielsweise ändert sich nicht die Konsistenz für den Lese- oder Schreibvorgang, _R_ oder _W_ anzugeben.
 
 #### Was ist _R_?
+{: #what-is-_r_-}
 
 Das Argument _R_ kann nur für Einzeldokumentanforderungen angegeben werden.
 _R_ wirkt sich darauf aus, wie viele Antworten vom Koordinator empfangen werden müssen, bevor er dem Client antwortet.
@@ -193,10 +205,8 @@ weil der Koordinator schneller eine Antwort geben kann.
 Grund ist, dass der Koordinator nur auf eine einzelne Antwort von einem der Replikate warten muss,
 die das Shard hosten.
 
->	**Hinweis:** Wenn der Wert _R_ verkleinert wird, steigt die Wahrscheinlichkeit,
-dass die zurückgegebene Antwort aufgrund des Modells der [sukzessiven Konsistenz](cap_theorem.html) von
-{{site.data.keyword.cloudant_short_notm}} nicht auf den aktuellen Daten basiert.
-	Die Angabe des Standardwerts _R_ mindert diesen Effekt.
+Wenn der Wert _R_ verkleinert wird, steigt die Wahrscheinlichkeit, dass die zurückgegebene Antwort nicht auf den aktuellen Daten basiert, sondern auf dem Modell für [sukzessive Konsistenz](/docs/services/Cloudant/guides/cap_theorem.html), das von {{site.data.keyword.cloudant_short_notm}} verwendet wird. Die Angabe des Standardwerts _R_ mindert diesen Effekt.
+{: note}
 
 Der Standardwert für _R_ ist _2_.
 Dieser Wert entspricht den meisten Replikaten für eine typische Datenbank mit drei Shard-Replikaten.
@@ -204,13 +214,15 @@ Wenn die Datenbank eine Anzahl von Replikaten enthält, die höher oder niedrige
 ändert sich der Standardwert für _R_ entsprechend.
 
 #### Was ist _W_?
+{: #what-is-_w_-}
 
 _W_ kann nur für Schreibanforderungen für Einzeldokumente angegeben werden.
 
 _W_ ist ähnlich wie _R_,
 weil sich der Parameter darauf auswirkt, wie viele Antworten vom Koordinator empfangen werden müssen, bevor er dem Client antwortet.
 
->	**Hinweis:** _W_ wirkt sich nicht auf das eigentliche Schreibverhalten aus.
+_W_ hat keine Auswirkung auf das tatsächliche Schreibverhalten.
+{: note}
 
 Der Wert von _W_ wirkt sich nicht darauf aus, ob das Dokument in der Datenbank geschrieben wird oder nicht.
 Indem Sie _W_ angeben, kann der Client den HTTP-Statuscode in der Antwort überprüfen, um zu bestimmen, ob _W_-Replikate dem Koordinator geantwortet haben.

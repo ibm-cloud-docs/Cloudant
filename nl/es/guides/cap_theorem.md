@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
+
+subcollection: cloudant
 
 ---
 
@@ -11,23 +15,24 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-01-24 -->
 
-<div id="cap_theorem"></div>
-
-<div id="consistency"></div>
-
 # Teorema de CAP
+{: #cap-theorem}
 
-{{site.data.keyword.cloudantfull}} utiliza un modelo ['Finalmente coherente' ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}.
-{:shortdesc}
+{{site.data.keyword.cloudantfull}} utiliza un modelo ['Finalmente coherente' ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}.
+{: shortdesc}
 
 Para comprender el funcionamiento de este modelo y por qué es una parte esencial del
 uso {{site.data.keyword.cloudant_short_notm}},
 vea a continuación lo que entendemos por Coherencia.
 
-La coherencia es una de las cuatro propiedades ['ACID' ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://en.wikipedia.org/wiki/ACID){:new_window}
+La coherencia es una de las cuatro propiedades ['ACID' ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://en.wikipedia.org/wiki/ACID){: new_window}
 necesarias para que las transacciones realizadas dentro de una base de datos se procesen y notifiquen de forma fiable.
 
 Además, la coherencia es uno de los tres atributos del teorema de
@@ -59,22 +64,24 @@ Además, incluso un error menor en el sistema puede hacer que se cierre un siste
 Para que resista, el sistema debe ser más sofisticado.
 
 ## Compensaciones en la tolerancia de partición
+{: #tradeoffs-in-partition-tolerance}
 
 Una base de datos que dé prioridad a la coherencia y a la tolerancia de partición suele empezar una configuración de tipo
 <a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">maestro-esclavo <img src="../images/launch-glyph.svg" alt="Icono de enlace externo" title="Icono de enlace externo"></a>, donde un nodo de los muchos del sistema se elige como líder.
 Solo el líder puede aprobar las escrituras de datos, mientras que todos los nodos secundarios replican los datos del líder para gestionar las lecturas.
 Si el líder pierde la conexión con la red o no se puede comunicar con muchos de los nodos del sistema, el resto elige un nuevo líder.
-Este proceso de elección difiere entre los sistemas y puede ser una fuente de [problemas importantes ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://aphyr.com/posts/284-call-me-maybe-mongodb){:new_window}.
+Este proceso de elección difiere entre los sistemas y puede ser una fuente de [problemas importantes ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}.
 
 {{site.data.keyword.cloudant_short_notm}} da prioridad a la disponibilidad y a la tolerancia de partición mediante el uso de una configuración de tipo maestro-maestro, de modo que cualquier nodo puede aceptar tanto escrituras como lecturas en su parte de los datos.
 Varios nodos contienen copias de cada parte de los datos.
 Cada nodo copia datos con otros nodos.
 Si no se puede acceder a un nodo, otros pueden dar servicio en su lugar mientras se soluciona el problema de la red.
-De este modo, el sistema devuelve los datos puntualmente a pesar de un error arbitrario en un nodo y mantiene la [coherencia final ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://en.wikipedia.org/wiki/Eventual_consistency){:new_window}.
+De este modo, el sistema devuelve los datos puntualmente a pesar de un error arbitrario en un nodo y mantiene la [coherencia final ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://en.wikipedia.org/wiki/Eventual_consistency){: new_window}.
 La compensación de retirar la prioridad a la coherencia absoluta es que se tarda un rato en conseguir que todos los nodos vean los mismos datos.
 Como resultado, algunas respuestas pueden contener datos antiguos mientras los datos nuevos se propagan por el sistema.
 
 ## Cambio del enfoque
+{: #changing-the-approach}
 
 El hecho de mantener una visión coherente de los datos es algo lógico y fácil de comprender, ya que la base de datos relacional es la encargada de conseguirlo.
 La expectativa es que los servicios basados en la web que interactúan con los sistemas de bases de datos se comporten de este modo.
@@ -86,10 +93,11 @@ En sistemas grandes y con grandes cargas de trabajo, existe una alta probabilida
 Una base de datos diseñada con base en la necesidad de dar prioridad a la disponibilidad y a la coherencia final se adapta mejor al mantenimiento de la aplicación en línea.
 La coherencia de los datos de la aplicación se gestionan teniendo en cuenta este hecho.
 Tal como Seth Gilbert y Nancy Lynch de MIT
-[concluyen ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){:new_window},
+[concluyen ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){: new_window},
 "actualmente, la mayoría de los sistemas reales se ven obligados a devolver 'la mayoría de los datos, la mayor parte del tiempo'".
 
 ## Disponibilidad de la aplicación frente a coherencia en la empresa
+{: #application-availability-versus-consistency-in-the-enterprise}
 
 Si echamos un vistazo a los servicios basados en la web más populares, observaremos que la gente ya espera una alta disponibilidad y aceptan intercambiar este nivel de disponibilidad por datos finalmente coherentes, sin siquiera darse cuenta de que lo están haciendo.
 
@@ -108,6 +116,7 @@ Los sistemas de carro de compra en línea, las memorias caché HTTP y los DNS so
 Las organizaciones deben tener en cuenta el coste del tiempo de inactividad, que da lugar a la frustración del usuario y la pérdida de productividad y de oportunidades.
 
 ## De la teoría a la implementación
+{: #from-theory-to-implementation}
 
 Conseguir una alta disponibilidad resulta vital para las aplicaciones de la nube.
 De lo contrario, la coherencia global de las bases de datos se convierte en un cuello de botella importante a medida que crece el sistema.

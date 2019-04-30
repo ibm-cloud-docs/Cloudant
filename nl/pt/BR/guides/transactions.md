@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: generate uuid, record payments, add additional documents, advantages
+
+subcollection: cloudant
 
 ---
 
@@ -12,10 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Agrupando documentos relacionados no {{site.data.keyword.cloudant_short_notm}}
+{: grouping-related-documents-together-in-ibm-cloudant}
 
 Tradicionalmente,
 os sistemas e-commerce são construídos com bancos de dados relacionais.
@@ -93,7 +101,7 @@ _Exemplo de documento descrevendo uma compra:_
     "total": 26.46
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Esse documento fornece dados suficientes para um registro de compra renderizar um resumo de uma ordem em uma página da web
 ou um e-mail,
@@ -114,6 +122,7 @@ geralmente no ponto em que entra na fase de "check-out" no website,
 um registro de ordem de compra é criado de forma semelhante ao exemplo anterior. 
 
 ## Gerando seus próprios identificadores exclusivos (UUIDs)
+{: #generating-your-own-unique-identifiers-uuids-}
 
 Em um banco de dados relacional,
 números sequenciais de "incremento automático" são frequentemente usados,
@@ -123,12 +132,13 @@ UUIDs mais longos são usados para assegurar que os documentos sejam armazenados
 
 Para criar um identificador exclusivo para uso em seu aplicativo,
 como um `order_id`,
-chame o [terminal `GET _uuids`](../api/advanced.html#-get-_uuids-) na API do {{site.data.keyword.cloudant_short_notm}}.
+chame o terminal [`GET _uuids`](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_uuids-) na API do {{site.data.keyword.cloudant_short_notm}}.
 O banco de dados gera um identificador para você.
 O mesmo terminal pode ser usado para gerar múltiplos IDs incluindo um parâmetro `count`,
 por exemplo, `/_uuids?count=10`.
 
 ## Registrando pagamentos
+{: #recording-payments}
 
 Quando o cliente paga com sucesso seus itens,
 registros adicionais são incluídos no banco de dados para registrar a ordem.
@@ -156,7 +166,7 @@ _Exemplo de um registro de pagamento:_
     "payment_reference": "Q88775662377224"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 No exemplo anterior,
 o cliente pagou fornecendo um cartão de crédito e resgatando um voucher pago antecipadamente.
@@ -184,10 +194,10 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
-O uso do [redutor `_sum`](../api/creating_views.html#built-in-reduce-functions) integrado
-permite que você produza saída como um livro razão de eventos de pagamento.
+O uso do [redutor `_sum`](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)
+integrado permite que você produza a saída como um livro-razão de eventos de pagamento.
 
 _Exemplo de uso do redutor `_sum` integrado, consultado com `?reduce=false`:_
 
@@ -212,7 +222,7 @@ _Exemplo de uso do redutor `_sum` integrado, consultado com `?reduce=false`:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Como alternativa,
 você poderia produzir os totais agrupados por `order_id`.
@@ -229,7 +239,7 @@ _Exemplo de totais agrupados por `order_id`, com `?group_level=1`:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Como a visualização no exemplo anterior retorna 0 para o valor da ordem,
 o resultado indica que a ordem foi totalmente paga.
@@ -240,6 +250,7 @@ que é um para a ordem e um para cada pagamento,
 já que evita a possibilidade de criar conflitos quando múltiplos processos modificam o mesmo documento simultaneamente.
 
 ## Incluindo documentos adicionais
+{: #adding-additional-documents}
 
 Seria possível incluir outros
 documentos separados no banco de dados para registrar as mudanças de estado a seguir conforme a ordem fosse provisionada e despachada:
@@ -254,6 +265,7 @@ Portanto,
 não é necessário modificar o documento de compra principal.
 
 ## Vantagens de armazenar ordens de compra no {{site.data.keyword.cloudant_short_notm}}
+{: #advantages-of-storing-purchase-orders-in-ibm-cloudant}
 
 Usar o {{site.data.keyword.cloudant_short_notm}} para armazenar informações da ordem de compra permite que um sistema de ordenação seja altamente disponível e escalável,
 permitindo lidar com grandes volumes de dados e altas taxas de acesso simultâneo.

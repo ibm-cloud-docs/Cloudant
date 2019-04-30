@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-18"
+
+keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
+
+subcollection: cloudant
 
 ---
 
@@ -12,17 +16,21 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Gestion des tâches
+{: #managing-tasks}
 
 La création de nouveaux index pour un nombre important de données ainsi que la réplication d'une base de données peuvent être des opérations longues.
-{:shortdesc}
+{: shortdesc}
 
 Comment pouvez-vous donc déterminer si vos tâches sont en cours
 ou si elles sont terminées ?
-Le noeud final [`_active_tasks`](../api/active_tasks.html) fournit des informations sur toutes les tâches en cours.
+Le noeud final [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) fournit des informations sur toutes les tâches en cours.
 Toutefois,
 si vous démarrez un grand nombre de tâches,
 certaines d'entre elles peuvent être planifiées pour s'exécuter ultérieurement et ne s'affichent pas sous `_active_tasks`
@@ -34,9 +42,10 @@ Le processeur JSON de ligne de commande `jq` permet de traiter la réponse JSON.
 
 Etant donné que ce document est un tutoriel concernant les tâches,
 il présente uniquement la procédure de base pour leur réalisation.
-Consultez la rubrique [Référence d'API](../api/index.html) pour accéder à un guide complet des options disponibles.
+Pour plus d'informations, voir la rubrique [Référence d'API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) pour accéder à un guide complet des options disponibles.
 
 ## curl et jq - Informations générales
+{: #curl-and-jq-basics}
 
 Pour obtenir toutes les tâches actives et formater correctement la sortie,
 appelez votre compte en utilisant `curl` puis
@@ -45,16 +54,17 @@ dirigez la sortie vers `jq`.
 `jq` vous permet de filtrer une liste de documents en fonctions des valeurs des zones.
 Ainsi, il est plus facile d'obtenir tous les documents de réplication,
 ou les détails d'une seule tâche d'indexation de vue spécifique.
-La rubrique [Référence d'API](../api/index.html) inclut des informations supplémentaires sur les options.
+La rubrique Référence d'API inclut des informations supplémentaires sur les options.
 
 _Obtention et formatage d'une liste de tâches actives - Exemple :_
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Surveillance des index de vue et des index de recherche
+{: #monitoring-view-builds-and-search-indexes}
 
 Les index de vue sont régénérés à chaque mise à jour d'un document de conception.
 Dès qu'une de ces vues est mise à jour, toutes les vues du document sont régénérées.
@@ -83,14 +93,14 @@ _Recherche de toutes les tâches d'indexation de vue en filtrant en fonction du 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Recherche de toutes les tâches d'indexation de recherche en filtrant en fonction du type `search_indexer` - Exemple :_
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Résultat suite à la recherche de tâches d'indexation de vue - Exemple :_
 
@@ -108,9 +118,10 @@ _Résultat suite à la recherche de tâches d'indexation de vue - Exemple :_
     "design_document": "_design/ngrams"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Estimation de la durée d'exécution d'une tâche
+{: #estimating-the-time-to-complete-a-task}
 
 Pour estimer la durée d'exécution de la tâche d'indexation,
 surveillez le nombre d'éléments `changes_done` et comparez cette valeur à `total_changes`.
@@ -120,9 +131,7 @@ et que `total_changes` a la valeur 1 000 000,
 il est attendu que l'exécution dure 1 000 000 / 250 = 4 000 secondes,
 soit environ 66 minutes.
 
->   **Remarque** : Les estimations de la durée de l'exécution d'une tâche d'indexation ne sont pas précises à 100 %.
-    La durée d'exécution réelle de la tâche dépend notamment des facteurs
-    suivants :
+Les estimations de la durée de l'exécution d'une tâche d'indexation ne sont pas précises à 100 %. La durée d'exécution réelle de la tâche dépend des facteurs suivants :
 
 -   Durée de traitement de chaque document.
     Par exemple,
@@ -131,16 +140,17 @@ soit environ 66 minutes.
 -   Taille des documents.
 -   Charge de travail sur le cluster.
 
->   Gardez à l'esprit que tous ces facteurs peuvent être associés et réduire de manière importante la précision de votre estimation.
+Gardez à l'esprit que tous ces facteurs peuvent être associés et réduire de manière importante la précision de votre estimation.
 
 _Extraction de la zone `changes_done` à l'aide de `jq` - Exemple :_
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 ```
-{:codeblock}
+{: codeblock}
 
 ## Surveillance de la réplication
+{: #monitoring-replication}
 
 Pour trouver toutes les tâches de réplication,
 dirigez la sortie `curl` vers `jq`,
@@ -155,21 +165,21 @@ _Recherche de toutes les tâches dédiées, en filtrant par type de `réplicatio
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Recherche d'une tâche de réplication spécifique, en filtrant par identité de document connue - Exemple :_
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Recherche d'une tâche de réplication spécifique, en filtrant par élément `replication_id` connu - Exemple :_
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
-{:codeblock}
+{: codeblock}
 
 _Résultat après la recherche d'une tâche de réplication - Exemple :_
 
@@ -196,11 +206,13 @@ _Résultat après la recherche d'une tâche de réplication - Exemple :_
     "replication_id": "asfksdlfkjsadkfjsdalkfjas+continuous+create_target"
 }
 ```
-{:codeblock}
+{: codeblock}
 
-## Traitement des incidents
+## Traitement des incidents générés par des tâches bloquées
+{: #troubleshooting-stuck-tasks}
 
 ### Une tâche est-elle bloquée ?
+{: #is-a-task-stuck-}
 
 Pour une réplication ponctuelle,
 non continue,
@@ -221,17 +233,17 @@ mise à jour de données dans la
 base de données.
 
 ### Que faire lorsqu'une tâche est bloquée ?
+{: #what-to-do-about-a-stuck-task-}
 
 Pour résoudre une réplication bloquée,
-il peut être nécessaire d'[annuler le processus de réplication](../api/replication.html#cancelling-a-replication) puis de le démarrer à nouveau.
+il peut être nécessaire d'[annuler le processus de réplication](/docs/services/Cloudant?topic=cloudant-replication-api#canceling-a-replication) puis de le démarrer à nouveau.
 
 Si le problème persiste,
 cette situation peut être due au fait que l'utilisateur accédant aux bases de données source ou cible
 ne dispose pas des droits d'écriture.
 
->   **Remarque** : La réplication utilise des [points de contrôle](replication_guide.html#checkpoints).
-    Cela signifie qu'il n'est pas nécessaire de répliquer à nouveau le contenu déjà répliqué et non
-    modifié lors du redémarrage de la réplication.
+La réplication utilise des [points de contrôle](/docs/services/Cloudant?topic=cloudant-replication-guide#checkpoints), ce qui signifie qu'il n'est pas nécessaire de répliquer à nouveau le contenu déjà répliqué et non modifié si la réplication est redémarrée.
+{: note}
 
 Si vous avez créé le processus de réplication en générant un document dans la base de données `_replicator`,
 vous pouvez également vérifier ici le statut de la réplication.

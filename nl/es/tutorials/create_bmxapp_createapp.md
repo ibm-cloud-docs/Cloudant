@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-04-02"
+
+keywords: create application, complete python program, log files, work with ibm cloudant database instance
+
+subcollection: cloudant
 
 ---
 
@@ -12,40 +16,42 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creación de una aplicación sencilla de {{site.data.keyword.cloud_notm}} para acceder a una base de datos de {{site.data.keyword.cloudant_short_notm}}: el código
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code}
 
 En esta sección de la guía de aprendizaje se describe el código correspondiente a una aplicación de {{site.data.keyword.cloud}}.
-{:shortdesc}
-
-<div id="theApp"></div>
+{: shortdesc}
 
 ## Creación de la aplicación
+{: #creating-your-application}
 
 Dispone de los siguientes componentes, listos para empezar a crear la aplicación:
 
--   [El lenguaje de programación Python](create_bmxapp_prereq.html#python).
--   [Una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}](create_bmxapp_prereq.html#csi).
--   [Un entorno de aplicación de {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#creating).
--   Una [conexión](create_bmxapp_appenv.html#connecting) entre la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} y el entorno de aplicación de {{site.data.keyword.cloud_notm}}.
--   Los [kits de herramientas](create_bmxapp_appenv.html#toolkits) para gestionar las aplicaciones {{site.data.keyword.cloud_notm}} basadas en Cloud Foundry.
--   Un [paquete de aplicación 'de inicio'](create_bmxapp_appenv.html#starter), que contiene la configuración inicial y archivos de plantilla de código.
+-   [El lenguaje de programación Python](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#python-create-bmxapp-prereq).
+-   [Una instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#an-ibm-cloudant-database-application).
+-   [Un entorno de aplicación de {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment).
+-   Una [conexión](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services) entre la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} y el entorno de aplicación de {{site.data.keyword.cloud_notm}}.
+-   Los [kits de herramientas](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits) para gestionar las aplicaciones {{site.data.keyword.cloud_notm}} basadas en Cloud Foundry.
+-   Un [paquete de aplicación 'de inicio'](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application), que contiene la configuración inicial y archivos de plantilla de código.
 
->   **Nota**: En esta guía de aprendizaje no se pretende crear código Python _eficiente_.
-    La finalidad es mostrar un código sencillo y fácil de comprender que funcione, con el que pueda aprender y que pueda aplicar a sus propias aplicaciones.
-    Tampoco se pretende realizar todas las comprobaciones posibles ni analizar todas las condiciones de error.
-    Se incluyen algunas comprobaciones de ejemplo para ilustrar algunas de las técnicas.
-    En sus aplicaciones debe comprobar y analizar todas las condiciones de aviso o de error.
+En esta guía de aprendizaje no se pretende crear código Python _eficiente_. La finalidad es mostrar un código sencillo y fácil de comprender que funcione, con el que pueda aprender y que pueda aplicar a sus propias aplicaciones. Tampoco se pretende realizar todas las comprobaciones posibles ni analizar todas las condiciones de error. Se incluyen algunas comprobaciones de ejemplo para ilustrar algunas de las técnicas. En sus aplicaciones debe comprobar y analizar todas las condiciones de aviso o de error.
+{: tip}
+
 
 ### Archivos esenciales
+{: #essential-files}
 
-La aplicación necesita tres archivos de configuración y un archivo de origen, todos disponibles en el [paquete de aplicación 'de inicio'](create_bmxapp_appenv.html#starter):
+La aplicación necesita tres archivos de configuración y un archivo de origen, todos disponibles en el [paquete de aplicación `de inicio`](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application):
  
--   ['`Procfile`'](create_bmxapp_appenv.html#procfile)
--   ['`manifest.yml`'](create_bmxapp_appenv.html#manifest)
--   ['`requirements.txt`'](create_bmxapp_appenv.html#requirements)
+-   [`Procfile`](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-procfile-file)
+-   [`manifest.yml`](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-manifest.yml-file)
+-   [`requirements.txt`](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-requirements.txt-file)
 -   El archivo de origen de la aplicación, que se describe en esta sección de la guía de aprendizaje.
 
 Modifique los archivos de configuración de la siguiente manera:
@@ -54,7 +60,7 @@ Modifique los archivos de configuración de la siguiente manera:
     ```
     web: python server.py
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  Edite el archivo '`manifest.yml`' para que contenga el texto siguiente:
     ```
@@ -69,22 +75,28 @@ Modifique los archivos de configuración de la siguiente manera:
       services:
       - <your database instance>
     ```
-    {:codeblock}
-    >   **Nota**: Asegúrese de modificar los valores de '`domain`', '`name`', '`host`' y '`services'. Son los valores especificados cuando se creó el [entorno de aplicación de {{site.data.keyword.cloud_notm}}](create_bmxapp_appenv.html#creating) y la [instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}](create_bmxapp_prereq.html#csi).
+    {: codeblock}
+
+Asegúrese de modificar los valores de '`domain`', '`name`', '`host`' y '`services`'. Estos son los valores que se han especificado al crear el
+[entorno de aplicación de {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment) y la
+[instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites).
+{: note}
 
 3.  Edite el archivo '`requirements.txt`' para que contenga el texto siguiente:
     ```
     cloudant==2.3.1
     ```
-    {:codeblock}
+    {: codeblock}
 
 ### El código de la aplicación
+{: #the-application-code}
 
 El siguiente paso consiste en trabajar en el código de la aplicación.
 Se describe cada sección y se presenta el código.
-Al final de esta sección de la guía de aprendizaje encontrará un [listado completo](#complete-listing) del código de la aplicación.
+Al final de esta sección de la guía de aprendizaje encontrará un [listado completo](#complete-python-program) del código de la aplicación.
 
 #### Iniciación
+{: #getting-started-create_bmxapp_createapp}
 
 La aplicación Python necesita algunos componentes básicos para funcionar.
 Se importan de la siguiente manera:
@@ -98,7 +110,7 @@ import json
 # para formatear valores de fecha y hora.
 from time import gmtime, strftime
 ```
-{:codeblock}
+{: codeblock}
 
 La aplicación funciona como un sencillo servidor web, mostrando una sola página: un registro que contiene los resultados de conectar con la instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}} y de crear una base de datos.
 
@@ -113,9 +125,11 @@ except ImportError:
     from http.server import SimpleHTTPRequestHandler as Handler
     from http.server import HTTPServer as Server
 ```
-{:codeblock}
+{: codeblock}
 
->   **Nota**: Este segmento de código se suministra como parte del [paquete de aplicación 'de inicio'](create_bmxapp_appenv.html#starter).
+Este segmento de código se proporciona como parte del
+[paquete de aplicación 'de inicio'](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application).
+{: note}
 
 La aplicación se conecta a la instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}}, por lo que debe importar los componentes de la biblioteca de {{site.data.keyword.cloudant_short_notm}}:
 
@@ -125,7 +139,7 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 ```
-{:codeblock}
+{: codeblock}
 
 La aplicación crea una base de datos dentro de la instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}}.
 Se necesita un nombre para la base de datos:
@@ -134,7 +148,7 @@ Se necesita un nombre para la base de datos:
 # Este es el nombre de la base de datos que queremos crear.
 databaseName = "databasedemo"
 ```
-{:codeblock}
+{: codeblock}
 
 La aplicación registra el progreso a medida que se conecta a la instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}} y crea la base de datos.
 El registro adopta la forma de un archivo de registro, que se almacena en una carpeta a la que puede acceder el servidor web Python.
@@ -151,7 +165,7 @@ except OSError:
     pass
 os.chdir('static')
 ```
-{:codeblock}
+{: codeblock}
 
 A continuación, cree un archivo HTML sencillo.
 El archivo contendrá el registro de cada actividad a medida que la aplicación crea la base de datos:
@@ -163,7 +177,7 @@ target = open(filename, 'w')
 target.truncate()
 target.write("<html><head><title>Demo de {{site.data.keyword.cloudant_short_notm}} Python</title></head><body><p>Registro de los pasos de Cloudant Python...</p><pre>")
 ```
-{:codeblock}
+{: codeblock}
 
 La primera parte del registro es un registro de la fecha y hora actuales.
 Este registro ayuda a confirmar que la base de datos creada es nueva:
@@ -174,9 +188,10 @@ target.write("====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n\n")
 ```
-{:codeblock}
+{: codeblock}
 
 #### Cómo trabajar con una instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}}
+{: #working-with-the-ibm-cloudant-database-instance}
 
 La aplicación Python se ejecuta en un entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 El entorno proporciona toda la información necesaria para que la aplicación acceda a los servicios conectados.
@@ -190,12 +205,10 @@ Para ello compruebe si existe la variable de entorno '`VCAP_SERVICES`':
 # Comprobar que se está ejecutando en un entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 if 'VCAP_SERVICES' in os.environ:
 ```
-{:codeblock}
+{: codeblock}
 
->   **Nota**: Las siguientes secciones de código solo se ejecutan si se ha encontrado la variable de entorno.
-    En Python, este código está sangrado para indicar que es el cuerpo de la prueba.
-    En esta guía de aprendizaje, se omite la sangría de los segmentos de código para ahorrar espacio.
-    Sin embargo, en el [listado completo](#complete-listing) se muestra la sangría correctamente.
+Las siguientes secciones de código solo se ejecutan si se ha encontrado la variable de entorno. En Python, este código está sangrado para indicar que es el cuerpo de la prueba. En esta guía de aprendizaje, se omite la sangría de los segmentos de código para ahorrar espacio. Sin embargo, en el [listado completo](#complete-python-program) se muestra la sangría correctamente.
+{: note}
 
 Suponiendo que la variable se ha encontrado, se procederá a utilizar la información.
 Empiece cargando los datos JSON que almacenados en la variable y registrando el suceso en el nuevo 'archivo de registro':
@@ -206,7 +219,7 @@ vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
 # Registrar que se ha encontrado correctamente cierta información de servicio.
 target.write("Got vcap_servicesData\n")
 ```
-{:codeblock}
+{: codeblock}
 
 A continuación, busque información sobre la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}} conectada.
 Nuevamente, registre el suceso en el 'archivo de registro':
@@ -217,14 +230,14 @@ cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
 # Registrar que se ha encontrado correctamente cierta información de servicio de {{site.data.keyword.cloudant_short_notm}}.
 target.write("Got cloudantNoSQLDBData\n")
 ```
-{:codeblock}
+{: codeblock}
 
 Es posible que haya varios servicios de {{site.data.keyword.cloud_notm}} conectados al entorno de aplicación.
 Las credenciales de cada servicio se muestran como elementos de una matriz.
-En esta guía de aprendizaje, solo [se ha creado una conexión de servicio](create_bmxapp_appenv.html#connecting).
+En esta guía de aprendizaje, solo [se ha creado una conexión de servicio](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services).
 Por lo tanto, la aplicación accede al primer elemento (elemento 'cero').
 Cada elemento de servicio contiene las credenciales correspondientes a dicho servicio, expresadas como una lista indexada por los nombres de campo esenciales que se necesitan para acceder al servicio.
-Encontrará más información sobre los nombres de los campos en la [guía de aprendizaje](create_database.html#pre-requisites) que describe una tarea de ejemplo de creación de una base de datos.
+Encontrará más información sobre los nombres de los campos en la [guía de aprendizaje](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites) que describe una tarea de ejemplo de creación de una base de datos.
 
 ```python
 # Obtener una lista que contenga la información de conexión de {{site.data.keyword.cloudant_short_notm}}.
@@ -234,7 +247,7 @@ credentialsData = credentials['credentials']
 # Registrar que se han encontrado correctamente los valores de {{site.data.keyword.cloudant_short_notm}}.
 target.write("Got credentialsData\n\n")
 ```
-{:codeblock}
+{: codeblock}
 
 A continuación, examine la lista y recupere los valores esenciales:
 
@@ -255,15 +268,15 @@ target.write("Got URL: ")
 target.write(serviceURL)
 target.write("\n")
 ```
-{:codeblock}
+{: codeblock}
 
 Ahora la aplicación tiene todos los detalles necesarios para crear una base de datos dentro de la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}.
-Esta tarea se describe con más detalle en la [guía de aprendizaje](create_database.html#creating-a-database-within-the-service-instance) que describe la creación de una base de datos sencilla.
+Esta tarea se describe con más detalle en la [guía de aprendizaje](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance) que describe la creación de una base de datos sencilla.
 
 La aplicación debe realizar estas tareas:
 
 1.  Establece una conexión con la instancia de base de datos.
-2.  Crea una base de datos con el nombre proporcionado [anteriormente](#getting-started).
+2.  Crea una base de datos con el nombre proporcionado [anteriormente](#getting-started-create_bmxapp_createapp).
 3.  Crea un documento JSON que contiene la fecha y hora actuales.
 4.  Almacena el documento JSON en la base de datos.
 5.  Confirma que el documento se ha almacenado de forma segura.
@@ -291,9 +304,10 @@ if myDatabaseDemo.exists():
 # Ya está todo hecho - desconectar de la instancia de servicio.
 client.disconnect()
 ```
-{:codeblock}
+{: codeblock}
 
 #### Cómo cerrar el archivo de registro
+{: #closing-the-log-file}
 
 El siguiente paso consiste en cerrar el archivo de registro, listo para servirlo utilizando un servidor web Python simple dentro de la aplicación:
 
@@ -306,9 +320,10 @@ target.write("\n====\n")
 target.write("</pre></body></html>")
 target.close()
 ```
-{:codeblock}
+{: codeblock}
 
 #### Cómo servir el archivo de registro
+{: #serving-the-log-file}
 
 La última tarea consiste iniciar el servidor web dentro de la aplicación Python.
 La única finalidad del servidor es devolver el archivo de registro bajo demanda.
@@ -321,7 +336,7 @@ Este archivo de registro confirma que la aplicación Python ha completado correc
 5.  Ha creado un documento dentro de la base de datos.
 6.  Ha respondido con el registro de sucesos cuando se ha solicitado.
 
-El código para iniciar el servidor web Python se incluye como parte del [paquete de aplicación 'de inicio'](create_bmxapp_appenv.html#starter):
+El código para iniciar el servidor web Python se incluye como parte del [paquete de aplicación 'de inicio'](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application):
 
 ```python
 # Iniciar la aplicación de servidor web Python sencilla
@@ -335,13 +350,12 @@ except KeyboardInterrupt:
   pass
 httpd.server_close()
 ```
-{:codeblock}
+{: codeblock}
 
-## El paso siguiente
+El siguiente paso de esta guía de aprendizaje es [cargar la aplicación](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application) para probarla.
 
-El siguiente paso de esta guía de aprendizaje es [cargar la aplicación](create_bmxapp_upload.html) para probarla.
-
-## Listado completo
+## Completar el programa Python
+{: #complete-python-program}
 
 El código siguiente es el programa Python completo para acceder a una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}}:
 
@@ -462,4 +476,4 @@ except KeyboardInterrupt:
   pass
 httpd.server_close()
 ```
-{:codeblock}
+{: codeblock}

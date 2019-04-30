@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
+
+subcollection: cloudant
 
 ---
 
@@ -11,11 +15,18 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
+
+<!-- Acrolinx: 2017-05-10 -->
 
 # Gerenciamento do documento de design
+{: #design-document-management}
 
 *Artigo fornecido por Glynn Bird, advogado geral no IBM Cloudant,
-[glynn@cloudant.com ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:glynn@cloudant.com){:new_window}*
+[glynn@cloudant.com ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:glynn@cloudant.com){: new_window}*
 
 O armazenamento de dados escaláveis JSON do {{site.data.keyword.cloudantfull}} tem vários mecanismos de consulta,
 todos os quais geram índices que são criados e mantidos separadamente para os dados principais.
@@ -29,7 +40,7 @@ com pares chave-valor armazenados em uma BTree para recuperação eficiente por 
 -   Os índices de procura são construídos usando o Apache Lucene para permitir a procura de texto livre,
 consultas ad hoc complexas e com facetas
 
-Os [índices de procura](../api/search.html) e [visualizações MapReduce](../api/creating_views.html) do {{site.data.keyword.cloudant_short_notm}}
+Os [índices de procura](/docs/services/Cloudant?topic=cloudant-search#search) e [visualizações MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) do {{site.data.keyword.cloudant_short_notm}}
 são configurados incluindo Documentos de design em um banco de dados.
 Os Documentos de design são documentos JSON que contêm as instruções sobre como a visualização ou o índice devem ser construídos.
 Vamos observar um exemplo simples.
@@ -47,12 +58,12 @@ _Exemplo de um documento de dados simples:_
     "ts": 1422358827
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Cada documento de dados inclui um nome,
 um corpo
 e um registro de data e hora.
-Desejamos criar uma [visualização MapReduce](../api/creating_views.html) para classificar nossos documentos pelo registro de data e hora.
+Desejamos criar uma [visualização MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) para classificar nossos documentos pelo registro de data e hora.
 
 Podemos fazer isso criando uma função de Mapa,
 semelhante ao exemplo a seguir.
@@ -66,7 +77,7 @@ function(doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
 A função emite o registro de data e hora do documento para que possamos usá-lo como a chave para o índice;
 como não estamos interessados no valor no índice,
@@ -94,7 +105,7 @@ _Exemplo de documento de design que define uma visualização usando uma funçã
     "language": "javascript"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 O resultado é que nosso código de mapa foi transformado em uma sequência compatível com JSON
 e incluído em um Documento de design.
@@ -119,17 +130,18 @@ Vale a pena lembrar neste momento que:
 -   A construção de um índice acontece de forma assíncrona.
     O {{site.data.keyword.cloudant_short_notm}} confirma que o nosso Documento de design foi salvo,
     mas para verificar o progresso na construção de nosso índice,
-    temos que pesquisar o terminal [`_active_tasks`](../api/active_tasks.html) do {{site.data.keyword.cloudant_short_notm}}.
+    temos que pesquisar o terminal [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) do {{site.data.keyword.cloudant_short_notm}}.
 -   Quanto mais dados tivermos,
 mais tempo levará para o índice ficar pronto.
 -   Enquanto a construção do índice inicial estiver em andamento,
 _as consultas feitas nesse índice serão bloqueadas_.
 -   Consultar uma visualização acionará o 'mapeamento' de quaisquer documentos que ainda não tenham sido indexados incrementalmente.
     Isso assegura que tenhamos uma visualização atualizada dos dados.
-    Veja a discussão do [parâmetro '`stale`'](#stale) a seguir
+    Veja a discussão do [parâmetro '`stale`'](#the-stale-parameter) a seguir
 para obter exceções a essa regra.
 
 ## Múltiplas visualizações no mesmo documento de design
+{: #multiple-views-in-the-same-design-document}
 
 Se definirmos várias visualizações no mesmo documento de design,
 elas serão construídas de forma eficiente ao mesmo tempo.
@@ -142,13 +154,14 @@ mesmo se algumas das visualizações permanecerem inalteradas.
 Se as visualizações MapReduce tiverem que ser alteradas de forma independente uma da outra,
 coloque suas definições em documentos de design separados. 
 
->   **Nota**: esse comportamento não se aplica a índices de procura do Lucene.
-    Eles podem ser alterados no mesmo documento de design
+Esse comportamento não se aplica aos índices de procura Lucene. Eles podem ser alterados no mesmo documento de design
 sem invalidar outros índices inalterados no mesmo documento.
+{: note}
 
 ![Ilustração da mudança de versão do Documento de design](../images/DesDocMan02.png)
 
 ## Gerenciando mudanças em um documento de design
+{: #managing-changes-to-a-design-document}
 
 Imagine que em algum momento no futuro decidamos mudar o design de nossa visualização.
 Agora,
@@ -178,7 +191,7 @@ _Exemplo de documento de design que usa uma função de redução:_
     "language": "javascript"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Quando esse documento de design é salvo,
 o {{site.data.keyword.cloudant_short_notm}} invalida completamente o índice antigo e começa a construir o novo índice do zero,
@@ -205,10 +218,12 @@ a versão 1 espera uma lista de documentos correspondentes,
 enquanto a versão 2 espera uma contagem 'reduzida' de resultados.
 
 ## Coordenando mudanças para Documentos de design
+{: #coordinating-changes-to-design-documents}
 
 Há duas maneiras de lidar com esse problema de controle de mudança.
 
-### Documentos de design com versão 
+### Documentos de design com versão
+{: #versioned-design-documents}
 
 Uma solução é usar nomes de documentos de design com versão:
 
@@ -224,11 +239,10 @@ Usar documentos de design com versão é uma maneira simples de gerenciar o cont
 contanto que você se lembre de remover as versões mais antigas em uma data posterior.
 
 ### Documentos de design 'Mover e alternar'
+{: #-move-and-switch-design-documents}
 
-Outra abordagem,
-documentada [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://wiki.apache.org/couchdb/How_to_deploy_view_changes_in_a_live_environment){:new_window},
-conta com o fato de que o {{site.data.keyword.cloudant_short_notm}} reconhece quando ele tem dois documentos de design idênticos
-e não perderá tempo e recursos reconstruindo visualizações que já tem.
+Outra abordagem depende do fato de que o {{site.data.keyword.cloudant_short_notm}} reconhece quando ele tem dois documentos de design idênticos
+e não desperdiçará tempo e recursos reconstruindo visualizações que já possui.
 Ou seja,
 se pegarmos nosso documento de design `_design/fetch` e criarmos uma duplicata exata `_design/fetch_OLD`,
 ambos os terminais funcionarão de forma intercambiável sem acionar qualquer reindexação.
@@ -248,6 +262,7 @@ para assegurar-se de que ela comece a ser construída.
 7.  Exclua o Documento de design `_design/fetch_OLD`.
 
 ## Conjunto de ferramentas Mover e alternar
+{: #move-and-switch-tooling}
 
 Há um script Node.js da linha de comandos que automatiza o procedimento 'mover e alternar',
 chamado '`couchmigrate`'.
@@ -258,7 +273,7 @@ _Comando para instalar o script `couchmigrate` de Node.js:_
 ```sh
 npm install -g couchmigrate
 ```
-{:codeblock}
+{: codeblock}
 
 Para usar o script `couchmigrate`,
 primeiro defina a URL da instância do CouchDB/{{site.data.keyword.cloudant_short_notm}} configurando uma variável de ambiente chamada `COUCH_URL`.
@@ -268,7 +283,7 @@ _Definindo a URL da instância do {{site.data.keyword.cloudant_short_notm}}:_
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
 ```
-{:codeblock}
+{: codeblock}
 
 A URL pode ser HTTP ou HTTPS
 e pode incluir credenciais de autenticação.
@@ -278,7 +293,7 @@ _Definindo a URL da instância do {{site.data.keyword.cloudant_short_notm}} com 
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 Supondo que tenhamos um documento de design no formato JSON
 armazenado em um arquivo,
@@ -293,7 +308,7 @@ _Executando o comando `couchmigrate`:_
 ```sh
 couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
-{:pre}
+{: pre}
 
 O script coordena o procedimento 'mover e alternar',
 aguardando até que a visualização seja construída antes de retornar.
@@ -301,11 +316,10 @@ Se o documento de design recebido for o mesmo que o incumbente,
 o script será retornado quase que imediatamente.
 
 O código-fonte para o script está disponível aqui:
-[https://github.com/glynnbird/couchmigrate ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/glynnbird/couchmigrate){:new_window}.
-
-<div id="stale"></div>
+[https://github.com/glynnbird/couchmigrate ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/glynnbird/couchmigrate){: new_window}.
 
 ## O parâmetro '`stale`'
+{: #the-stale-parameter}
 
 Se um índice estiver completo,
 mas novos registros forem incluídos no banco de dados,
@@ -340,17 +354,14 @@ e, em seguida, planeja uma tarefa em segundo plano para indexar os novos dados.
 A inclusão de "`stale=ok`" ou "`stale=update_after`" pode ser uma boa maneira de obter respostas mais rapidamente de uma visualização,
 mas às custas de criação recente. 
 
->   **Nota**: o comportamento padrão distribui carga uniformemente entre os nós no cluster do {{site.data.keyword.cloudant_short_notm}}.
-    Se você usar as opções alternativas `stale=ok` ou `stale=update_after`,
+O comportamento padrão distribui a carga uniformemente entre os nós no cluster do {{site.data.keyword.cloudant_short_notm}}. Se você usar as opções alternativas `stale=ok` ou `stale=update_after`,
 isso poderá favorecer um subconjunto de nós do cluster
-para retornar resultados consistentes de todo o conjunto eventualmente consistente.
-    Isso significa que o parâmetro '`stale`' não é uma solução perfeita para todos os casos de uso.
-    No entanto,
+para retornar resultados consistentes de todo o conjunto eventualmente consistente. Isso significa que o parâmetro '`stale`' não é uma solução perfeita para todos os casos de uso. No entanto,
 ele poderá ser útil para fornecer respostas adequadas em conjuntos de dados de rápida mudança
-se o seu aplicativo estiver satisfeito em aceitar os resultados antigos.
-    Se a taxa de mudança de seus dados for pequena,
+se o seu aplicativo estiver satisfeito em aceitar os resultados antigos. Se a taxa de mudança de seus dados for pequena,
 incluir "`stale=ok`" ou "`stale=update_after`" não trará um benefício de desempenho
 e poderá distribuir a carga irregularmente em clusters maiores.
+{: note}
 
 Evite usar `stale=ok` ou `stale=update_after` sempre que possível.
 O motivo é que o comportamento padrão fornece os dados mais novos
@@ -360,7 +371,5 @@ Se for possível tornar um app cliente ciente de que há uma tarefa de processam
 o app poderá alternar para `stale=ok` provisoriamente durante esses horários
 e, então, reverter para o comportamento padrão, posteriormente.
 
->   **Nota**: a opção `stale` ainda está disponível,
-    mas as opções mais úteis `estable` e `update` estão disponíveis e devem ser usadas no lugar.
-    Para obter mais detalhes,
-veja [Acessando uma visualização antiga](../api/using_views.html#accessing-a-stale-view).
+A opção `stale` ainda está disponível, mas as opções mais úteis `stable` e `update` estão disponíveis e devem ser usadas no lugar. Para obter mais informações, consulte [Acessando uma visualização antiga](/docs/services/Cloudant?topic=cloudant-using-views#view-freshness).
+{: note}

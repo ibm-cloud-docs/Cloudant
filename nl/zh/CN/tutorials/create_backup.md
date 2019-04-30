@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
+
+subcollection: cloudant
 
 ---
 
@@ -12,24 +16,30 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 创建备份
+{: #creating-a-backup}
 
-本教程演示了如何使用 [CouchBackup ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} 命令行实用程序来备份和复原 CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 实例。CouchBackup 会将数据库备份到文件。如果数据库发生故障，可以使用备份文件将信息复原到现有数据库。
-{:shortdesc}
+本教程演示了如何使用 [CouchBackup ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} 命令行实用程序来备份和复原 CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 实例。CouchBackup 会将数据库备份到文件。如果数据库发生故障，可以使用备份文件将信息复原到现有数据库。
+{: shortdesc}
 
-## 准备工作
+## 安装 CouchBackup 之前的准备工作
+{: #before-you-begin-to-install-couchbackup}
 
 通过运行 `install` 命令来安装 CouchBackup。 
 
 ```sh
 npm install -g @cloudant/couchbackup
 ```
-{:codeblock}
+{: codeblock}
 
-## 创建数据库
+## 创建样本数据库
+{: #creating-a-sample-database}
 
 创建样本 `couchbackup-demo` 数据库以在本教程中使用。
 
@@ -38,7 +48,7 @@ npm install -g @cloudant/couchbackup
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo -X PUT
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  查看结果。
     
@@ -47,9 +57,10 @@ npm install -g @cloudant/couchbackup
       "ok": true
     }
     ```
-    {:codeblock}
+    {: codeblock}
 
-## 在数据库中创建文档
+## 创建样本数据库中的文档
+{: #creating-documents-in-the-sample-database}
 
 在本练习中创建的文档包含将在后续练习中备份和复原的数据。 
 
@@ -97,14 +108,14 @@ npm install -g @cloudant/couchbackup
         ]
     }
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  运行以下命令创建文档：
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  查看结果。
     
@@ -137,9 +148,10 @@ npm install -g @cloudant/couchbackup
       }
     ]
     ```
-    {:codeblock}
+    {: codeblock}
     
 ## 设置环境变量
+{: #setting-an-environment-variable}
 
 可以使用环境变量或命令行选项来指定要使用 CouchBackup 的 CouchDB 或 {{site.data.keyword.cloudant_short_notm}} 实例的 URL 和数据库。 
 
@@ -150,9 +162,10 @@ npm install -g @cloudant/couchbackup
 ```sh
 export COUCH_URL=https://username:password@myhost.cloudant.com
 ```
-{:codeblock}
+{: codeblock}
 
 ## 备份数据库
+{: #backing-up-a-database}
 
 CouchBackup 实用程序将数据库备份到文本文件，以保留数据并使其更易复原。 
 
@@ -161,7 +174,7 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
     ```sh
     couchbackup --db couchbackup-demo > couchbackup-demo-backup.txt
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  查看结果。 
     
@@ -181,7 +194,7 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
         couchbackup:backup written 0  docs:  5 Time 0.604 +0ms
         couchbackup:backup finished { total: 5 } +4ms
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  检查目录以验证 `couchbackup-demo-backup.txt` 文件是否已创建。 
 4.  打开该文件并查看从数据库备份的文档列表。  
@@ -260,9 +273,10 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
         }
     ]
     ```
-    {:codeblock}
+    {: codeblock}
 
 ## 创建日志文件
+{: #creating-a-log-file}
 
 日志文件会记录备份的进度。通过 CouchBackup，可以使用 `--log` 参数来创建日志文件。还可以使用它在备份停止的位置重新启动备份，并指定输出文件名。 
 
@@ -278,7 +292,7 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
     ```sh
     couchbackup --db couchbackup-demo --log couchbackup-demo-backup.log > couchbackup-demo-backup-log.txt
     ```
-    {:codeblock}
+    {: codeblock}
     
 2.  查看结果。
         
@@ -318,7 +332,7 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
                 couchbackup:backup written 0  docs:  5 Time 0.621 +0ms
                 couchbackup:backup finished { total: 5 } +4ms
     ```
-    {:codeblock}
+    {: codeblock}
 
 3.  打开日志文件 `couchbackup-demo-backup.log`，并查看备份或复原期间执行的操作。  
     
@@ -343,29 +357,29 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
         CcHonxO68GjenPxeyopyrXW86mg-HFz9NZiQh1FUhUefOhzMIg
     :d batch0
     ```
-    {:codeblock}
+    {: codeblock}
     
 ##  从备份文本文件复原
+{: #restoring-from-a-backup-text-file}
 
 可以使用 `couchrestore` 命令，通过 `couchbackup-demo-backup.txt` 文件将数据复原到新的空数据库。 
 
-> **注**：复原备份仅支持复原到空数据库。如果删除数据库中的所有 
-文档，文档删除记录仍然会存在，用于保持复制一致性。这意味着仅包含已删除文档的数据库不会被视为空数据库，因此无法在复原备份时将其用作目标。
-
+复原备份仅支持复原到空数据库。如果删除数据库的所有文档，文档删除记录仍然会存在，用于保持复制一致性。这意味着仅包含已删除文档的数据库不会被视为空数据库，因此无法在复原备份时将其用作目标。
+{: tip}
 
 1.  （先决条件）创建一个新的空数据库，以便可以在其中复原数据。
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo-restore -X PUT
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  运行 `couchrestore` 命令。
     
     ```sh
     cat couchbackup-demo-backup.txt | couchrestore --db couchbackup-demo-restore
     ```
-    {:codeblock}
+    {: codeblock}
     
 3.  查看结果。 
     
@@ -381,6 +395,6 @@ CouchBackup 实用程序将数据库备份到文本文件，以保留数据并�
       couchbackup:restore restored 5 +0ms
       couchbackup:restore finished { total: 5 } +1ms
     ```
-    {:codeblock}
+    {: codeblock}
 
-现在，您已备份和复原数据库，并创建了日志文件。有关[灾难恢复和备份](../guides/disaster-recovery-and-backup.html#disaster-recovery-and-backup)、[配置 {{site.data.keyword.cloudant_short_notm}} 用于跨区域灾难恢复](../guides/active-active.html#configuring-cloudant-for-cross-region-disaster-recovery)以及 [{{site.data.keyword.cloudant_short_notm}} 备份和恢复](../guides/backup-cookbook.html#cloudant-backup-and-recovery)的更多信息，请参阅“{{site.data.keyword.cloudant_short_notm}} 文档”。  
+现在，您已备份和复原数据库，并创建了日志文件。有关[灾难恢复和备份](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)、[配置 {{site.data.keyword.cloudant_short_notm}} 用于跨区域灾难恢复](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)以及 [{{site.data.keyword.cloudant_short_notm}} 备份和恢复](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)的更多信息，请参阅“{{site.data.keyword.cloudant_short_notm}} 文档”。  

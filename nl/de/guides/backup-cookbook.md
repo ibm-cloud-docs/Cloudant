@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
+
+subcollection: cloudant
 
 ---
 
@@ -12,13 +16,16 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
-<!-- Update backup-guide.md with with any changes. -->
 
 # {{site.data.keyword.cloudant_short_notm}}-Sicherung und -Wiederherstellung
+{: #ibm-cloudant-backup-and-recovery}
 
-Dieses Cookbook ist Teil des [{{site.data.keyword.cloudantfull}}-Leitfadens zur Disaster-Recovery](disaster-recovery-and-backup.html).
+Dieses Cookbook ist Teil des [{{site.data.keyword.cloudantfull}}-Leitfadens zur Disaster-Recovery](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 Beginnen Sie hier, wenn Sie mit der Thematik noch nicht besonders vertraut sind und verstehen möchten, wie Sicherungen mit den anderen Funktionen, die {{site.data.keyword.cloudant_short_notm}} bietet,
 zusammenarbeiten, um Disaster-Recovery- (DR) und Hochverfügbarkeitsanforderungen (HA) zu unterstützen.
 
@@ -26,20 +33,22 @@ Obwohl Daten redundant in einem {{site.data.keyword.cloudant_short_notm}}-Cluste
 Redundanter Datenspeicher schützt beispielsweise nicht vor Fehlern beim Ändern von Daten.
 
 ## Einführung in CouchBackup
+{: #introducing-couchbackup}
 
 {{site.data.keyword.cloudant_short_notm}} stellt ein unterstütztes Tool für Momentaufnahmesicherungen und -wiederherstellungen bereit.
 Dieses Open-Source-Tool heißt CouchBackup.
-Es handelt sich um eine `node.js`-Bibliothek und kann [unter npm ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{:new_window} installiert werden.
+Es handelt sich um eine `node.js`-Bibliothek und kann [unter npm ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{: new_window} installiert werden.
 
 Neben der Bibliothek enthält das CouchBackup-Paket zwei Befehlszeilentools:
 
 1. `couchbackup`, das einen Speicherauszug von JSON-Daten aus einer Datenbank in einer Sicherungstextdatei erstellt.
 2. `couchrestore`, das Daten aus einer Sicherungstextdatei in einer Datenbank wiederherstellt.
 
-> **Achtung!** Die CouchBackup-Tools haben [Einschränkungen](#limitations).
-{:tip}
+Die CouchBackup-Tools haben [Einschränkungen](#limitations).
+{: important}
 
 ## {{site.data.keyword.cloudant_short_notm}}-Daten sichern
+{: #backing-up-your-ibm-cloudant-data}
 
 Sie können eine einfache Sicherung mithilfe des Tools `couchbackup` durchführen.
 Um die `animaldb`-Datenbank in einer Textdatei namens `backup.txt` zu sichern,
@@ -48,23 +57,26 @@ können Sie einen Befehl ähnlich dem folgenden absetzen:
 ```sh
 couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
 ```
-{:codeblock}
+{: codeblock}
 
-Der Befehl [npm readme ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmreadme]{:new_window} liefert Details zu weiteren Optionen,
+Der Befehl [npm readme ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmreadme]{: new_window} liefert Details zu weiteren Optionen,
 darunter die folgenden:
 
 * Umgebungsvariablen zum Festlegen der Namen von Datenbank und URL.
 * Protokolldateien zum Aufzeichnen des Fortschritts einer Sicherung.
 * Möglichkeit, eine unterbrochene Sicherung fortzusetzen.
-  **Hinweis**: Diese Option ist nur mit der Protokolldatei der nicht unterbrochenen Sicherung verfügbar.
-  {:tip}
+
+  Diese Option ist nur mit der Protokolldatei für die nicht unterbrochene Sicherung verfügbar.
+  {: note}
+
 * Senden der Sicherungstextdatei an eine angegebene Ausgabedatei,
   statt Weiterleiten der `stdout`-Ausgabe.
 
-> **Achtung!** Die CouchBackup-Tools haben [Einschränkungen](#limitations).
-{:tip}
+Die CouchBackup-Tools haben [Einschränkungen](#limitations).
+{: important}
 
 ## {{site.data.keyword.cloudant_short_notm}}-Daten wiederherstellen
+{: #restoring-your-ibm-cloudant-data}
 
 Zum Wiederherstellen Ihrer Daten verwenden Sie das Tool `couchrestore`.
 Verwenden Sie `couchrestore`, um die Sicherungsdatei in eine neue {{site.data.keyword.cloudant_short_notm}}-Datenbank zu importieren.
@@ -75,17 +87,18 @@ Gehen Sie beispielsweise wie folgt vor, um die Daten, die in dem früheren Beisp
 ```sh
 couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
 ```
-{:codeblock}
+{: codeblock}
 
-Der Befehl [npm readme ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmreadme]{:new_window} liefert Details über andere Wiederherstellungsoptionen.
+Der Befehl [npm readme ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmreadme]{: new_window} liefert Details über andere Wiederherstellungsoptionen.
 
-> **Achtung!** Die CouchBackup-Tools haben [Einschränkungen](#limitations).
-{:tip}
+Die CouchBackup-Tools haben [Einschränkungen](#limitations).
+{: important}
 
 ## Einschränkungen
+{: #limitations}
 
-> **Achtung!** Die CouchBackup-Tools haben die folgenden Einschränkungen: 
-{:tip}
+Die CouchBackup-Tools haben die folgenden Einschränkungen: 
+{: important}
 
 * `_security`-Einstellungen werden von den Tools nicht gesichert.
 * Anhänge werden von den Tools nicht gesichert.
@@ -98,8 +111,9 @@ Der Befehl [npm readme ![Symbol für externen Link](../images/launch-glyph.svg "
   Das Neuerstellen kann abhängig davon, wie viele Daten wiederhergestellt werden, ziemlich lange dauern.
 
 ## Tools verwenden
+{: #using-the-tools}
 
-Der Befehl [npm page ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{:new_window}
+Der Befehl [npm page ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{: new_window}
 gibt die Grundlagen der Verwendung der Befehlszeilentools zum Sichern und Wiederherstellen von Daten im Detail an.
 Die folgenden Beispiele zeigen, wie diese Details in die Praxis umgesetzt werden können, indem die Verwendung der Tools für bestimmte Tasks beschrieben wird.
 
@@ -113,18 +127,20 @@ Das CouchBackup-Paket bietet zwei Möglichkeiten zur Verwendung seiner Kernfunkt
 Verwenden Sie entweder das Befehlszeilen-Sicherungstool oder die Bibliothek mit Anwendungscode,
 um Sicherungen aus {{site.data.keyword.cloudant_short_notm}}-Datenbanken als Teil komplexerer Situationen zuzulassen.
 Ein nützliches Szenario ist das Planen von Sicherungen mithilfe von `cron` und das automatische Hochladen von Daten in
-[Cloud Object Storage ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www-03.ibm.com/software/products/en/object-storage-public){:new_window}
+[Cloud Object Storage ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window}
 zur langfristigen Aufbewahrung.
 
 ## Beispiele für das Befehlszeilenscripting
+{: #command-line-scripting-examples}
 
 Zwei Voraussetzungen müssen häufig erfüllt werden:
 
 * Einsparen von Plattenspeicherplatz
-  durch [Zippen der Sicherungsdatei](#zipping-a-backup-file) während ihrer Erstellung.
-* Automatisches Erstellen von Datenbanksicherungen [in regelmäßigen Abständen](#hourly-or-daily-backups-using-cron).
+  durch [Zippen der Sicherungsdatei](#compressing-a-backup-file) während ihrer Erstellung.
+* Automatisches Erstellen von Datenbanksicherungen [in regelmäßigen Abständen](#hourly-or-daily-backups-that-use-cron-).
 
 ### Sicherungsdatei komprimieren
+{: #compressing-a-backup-file}
 
 Das Tool `couchbackup` kann eine Sicherungsdatei direkt auf Platte schreiben
 oder die Sicherung in `stdout` streamen.
@@ -135,7 +151,7 @@ Diese Funktionalität wird zum Komprimieren von Daten innerhalb des Streams verw
 couchbackup --url "https://examples.cloudant.com" \
   --db "animaldb" | gzip > backup.gz
 ```
-{:codeblock}
+{: codeblock}
 
 In diesem Beispiel übernimmt das Tool `gzip` die Sicherungsdaten direkt aus `stdin`,
 komprimiert sie und gibt sie in `stdout` wieder aus.
@@ -148,13 +164,14 @@ verwenden Sie eine URL im Format `https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.
 couchbackup --url "https://$USERNAME:$PASSWORD@examples.cloudant.com" \
   --db "animaldb" | gzip > backup.gz
 ```
-{:codeblock}
+{: codeblock}
 
 Eine logische Konsequenz, wenn Sie die Daten auf andere Weise umwandeln wollen, ist es, die Pipeline zu erweitern.
 Sie möchten beispielsweise die Daten verschlüsseln, bevor sie auf Platte geschrieben werden.
 Alternativ können Sie die Daten direkt in einen Objektspeicherservice schreiben, mithilfe der zugehörigen Befehlszeilentools.
 
 ### Stündliche oder tägliche Sicherungen, die `cron` verwenden
+{: #hourly-or-daily-backups-that-use-cron-}
 
 Das Planungstool `cron` kann so konfiguriert werden, dass es in regelmäßigen Abständen Momentaufnahmen von Daten macht.
 
@@ -165,7 +182,7 @@ wobei der Dateiname das aktuelle Datum und die aktuelle Uhrzeit enthält, wie im
 couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
   --db "animaldb" > animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
 ```
-{:codeblock}
+{: codeblock}
 
 Nachdem Sie den Befehl geprüft und festgestellt haben, dass er ordnungsgemäß funktioniert,
 kann er in einen Cron-Job eingegeben werden:
@@ -182,12 +199,13 @@ Ein Cron-Eintrag für eine tägliche Sicherung sieht wie folgt aus:
 ```sh
 0 5 * * * couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" --db "animaldb" > /path/to/folder/animaldb-backup-`date -u "+%Y-%m-%dT%H:%M:%SZ"`.bak
 ```
-{:codeblock}
+{: codeblock}
 
 Dieser Cron-Eintrag erstellt eine tägliche Sicherung um 05:00 Uhr.
 Sie können das Cron-Muster bei Bedarf ändern, um stündliche, tägliche, wöchentliche oder monatliche Sicherungen durchzuführen.
 
 ## CouchBackup als Bibliothek
+{: #using-couchbackup-as-a-library}
 
 Die Befehlszeilentools `couchbackup` und `couchrestore` sind Wrapper um eine Bibliothek herum,
 die Sie in Ihren eigenen Node.js-Anwendungen verwendet können.
@@ -195,19 +213,18 @@ die Sie in Ihren eigenen Node.js-Anwendungen verwendet können.
 Die Bibliothek kann in komplexeren Szenarios wie den folgenden hilfreich sein:
 
 * Sichern verschiedener Datenbanken in einer Task.
-  Sie können diese Sicherung ausführen, indem Sie alle Datenbanken mithilfe des [`_all_dbs`](../api/database.html#get-databases)-Aufrufs ermitteln und dann jede Datenbank einzeln sichern.
+  Sie können diese Sicherung ausführen, indem Sie alle Datenbanken mithilfe des [`_all_dbs`](/docs/services/Cloudant?topic=cloudant-databases#get-a-list-of-all-databases-in-the-account)-Aufrufs ermitteln und dann jede Datenbank einzeln sichern.
 * Längere Pipelines erhöhen das Fehlerrisiko.
   Mithilfe der CouchBackup-Bibliothek kann Ihre Anwendung alle Fehler bei frühester Gelegenheit erkennen und adressieren.
 
-Weitere Informationen finden Sie auf der [npm-Seite ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{:new_window}.
+Weitere Informationen finden Sie auf der [npm-Seite ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{: new_window}.
 
 Das folgende Beispielscript zeigt, wie die Bibliothek `couchbackup` mit {{site.data.keyword.IBM}} Cloud Object Storage kombiniert werden kann.
 Dieser Code stellt dar, wie Sie die regionsübergreifende S3-API zum Sichern einer Datenbank in einem Objektspeicher verwenden können.
 
-> **Hinweis**: Eine Voraussetzung für den Code ist die Initialisierung des S3-Clientobjekts für
-  {{site.data.keyword.IBM_notm}} Cloud Object Storage anhand
-[dieser Anweisungen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][cosclient]{:new_window}.
-{:tip}
+Eine Voraussetzung für den Code ist die Initialisierung des S3-Clientobjekts für {{site.data.keyword.IBM_notm}} Cloud Object Storage anhand
+[dieser Anweisungen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][cosclient]{: new_window}.
+{: note}
 
 ```javascript
 /*
@@ -267,11 +284,12 @@ function backupToS3(sourceUrl, s3Client, s3Bucket, s3Key, shallow) {
   });
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## Andere Disaster-Recovery-Optionen
+{: #other-disaster-recovery-options}
 
-Kehren Sie zum [{{site.data.keyword.cloudant_short_notm}}-Leitfaden zur Disaster-Recovery](disaster-recovery-and-backup.html)
+Kehren Sie zum [{{site.data.keyword.cloudant_short_notm}}-Leitfaden zur Disaster-Recovery](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
 zurück und lernen Sie die anderen Features kennen, die {{site.data.keyword.cloudant_short_notm}}
 für die Konfiguration einer vollständigen Disaster-Recovery bietet.
 

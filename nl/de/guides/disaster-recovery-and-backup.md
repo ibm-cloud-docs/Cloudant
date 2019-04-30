@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
+
+subcollection: cloudant
 
 ---
 
@@ -12,16 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Disaster-Recovery und Sicherung
+{: #disaster-recovery-and-backup}
 
 Ihre Daten sind wichtig und wertvoll.
 Sie möchten Ihre Daten schützen,
 um sicherzustellen, dass sie sicher, verfügbar und integer sind.
 {{site.data.keyword.cloudantfull}} bietet verschiedene Möglichkeiten, Ihre Daten zu schützen und Ihre Anwendungen betriebsbereit zu halten.
-{:shortdesc}
+{: shortdesc}
 
 Einige dieser Schutzfunktionen sind automatisch.
 Für andere Arten des Schutzes bietet {{site.data.keyword.cloudant_short_notm}} Ihnen
@@ -30,6 +38,7 @@ unterstützte Tools, die Ihnen dabei helfen, Ihre eigenen Hochverfügbarkeits- u
 In diesem Dokument erhalten Sie eine Übersicht über die automatischen Funktionen und unterstützten Tools, die von {{site.data.keyword.cloudant_short_notm}} angeboten werden.
 
 ## Arten und Ebenen des Schutzes
+{: #types-and-levels-of-protection}
 
 Die Art des passenden Schutzes hängt von dem Problem ab, das Sie zu lösen versuchen.
 
@@ -53,9 +62,8 @@ Die Lösung Ihrer Hochverfügbarkeits- oder Disaster-Recovery-Probleme beginnt o
 Wenn Sie Ihre Anforderungen ermittelt haben, können Sie die passenden Tools und Funktionen einsetzen.
 Zusammen können die Tools und Funktionen dann Ihre Hochverfügbarkeits- und Disaster-Recovery-Probleme beheben.
 
->	**Hinweis**: Verschiedene Tools und Funktionen bieten unterschiedliche Ebenen des Schutzes.
-	Die einzelnen Funktionen können mehr oder weniger geeignet sein für Ihre spezifischen Hochverfügbarkeits- oder Disaster-Recovery-Probleme.
-{:tip}
+Verschiedene Tools und Funktionen bieten unterschiedliche Ebenen des Schutzes. Die einzelnen Funktionen können mehr oder weniger geeignet sein für Ihre spezifischen Hochverfügbarkeits- oder Disaster-Recovery-Probleme.
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}} stellt eine Auswahl an Tools und Funktionen für Ihre allgemeinen Anforderungen bereit:
 
@@ -64,6 +72,7 @@ Zusammen können die Tools und Funktionen dann Ihre Hochverfügbarkeits- und Dis
 3.	Momentaufnahmesicherung mit Zeitangabe für punktuelle Wiederherstellung mithilfe von herkömmlicher [Datenbanksicherung und -wiederherstellung](#database-backup-and-recovery).
 
 ## Regionsweite automatische Datenredundanz
+{: #in-region-automatic-data-redundancy}
 
 In einem einzelnen {{site.data.keyword.cloudant_short_notm}}-Konto werden Daten mithilfe
 von internen und automatischen Prozessen dreifach gesichert.
@@ -95,6 +104,7 @@ verwenden Sie Momentaufnahmen, die von [Datenbanksicherungs- und wiederherstellu
 Zusammenfassend lässt sich sagen, dass eine regionsweite Datenredundanz Hochverfügbarkeitsfunktionalität ermöglicht, indem eine Toleranz für Fehler, die einzelne Systeme innerhalb der Region betreffen, eingebaut wird.
 
 ## Regionsübergreifende Redundanz für Disaster-Recovery
+{: #cross-region-redundancy-for-disaster-recovery}
 
 Mit der {{site.data.keyword.cloudant_short_notm}}-Replikationsfunktion können Sie eine flexible Disaster-Recovery-Funktion in Ihre Anwendungen integrieren.
 Die Hauptmethode, Disaster-Recovery zu aktivieren, ist der Einsatz von {{site.data.keyword.cloudant_short_notm}}-Replikation, um regionsübergreifende Redundanz einzurichten.
@@ -106,7 +116,7 @@ Die grundlegenden Schritte beim Erstellen von regionsübergreifender Redundanz s
 2.  Bedarfsgerechtes Erstellen von Datenbanken in den einzelnen Regionen.
 3.  Einrichten von bidirektionalen fortlaufenden Replikationen zwischen den entsprechenden Datenbanken in den einzelnen Konten für Datenbanken, die mit regionsübergreifender Redundanz gespeichert werden müssen.
 4.  Entwerfen und Implementieren Ihrer Anwendungen, damit Datenanforderungen abhängig davon weitergeleitet werden, ob Ihre Umgebung eine Aktiv/Passiv- oder Aktiv/Aktiv-Konfiguration hat.
-  Ein detaillierter Leitfaden zu dieser Konfiguration ist [verfügbar](active-active.html).
+  Ein detaillierter Leitfaden zu dieser Konfiguration ist [verfügbar](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery).
 
 Wenn Sie Ihre Anwendungen für die Arbeit mit Daten aus verschiedenen Regionen konzipieren, beachten Sie die folgenden Punkte:
 
@@ -115,7 +125,7 @@ Wenn Sie Ihre Anwendungen für die Arbeit mit Daten aus verschiedenen Regionen k
   Diese Konfiguration wird als Aktiv/Aktiv-Methode bezeichnet.
   Sie zeichnet sich durch die gleichzeitige Verwendung mehrerer Kopien von Daten aus.
   Anwendungen, die mit einer Aktiv/Aktiv-Konfiguration arbeiten, müssen über eine
-  [Konfliktlösungsstrategie](mvcc.html#distributed-databases-and-conflicts) verfügen, um Probleme aufgrund mehrerer Kopien von Daten zu vermeiden.
+  [Konfliktlösungsstrategie](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#distributed-databases-and-conflicts) verfügen, um Probleme aufgrund mehrerer Kopien von Daten zu vermeiden.
 * Standardmäßig können Anwendungen Daten aus einer einzelnen Region abrufen.
   Falls die Region nicht verfügbar ist,
   kann die Anwendung zu einer anderen Region wechseln und Daten daraus abfragen.
@@ -137,6 +147,7 @@ Der Grund ist, dass die Anwendungen weiterarbeiten können, wenn die Daten in ei
 Ihre Anwendungen müssen jedoch einen Failover durchführen können auf Kopien Ihrer Daten, die in anderen Regionen gespeichert sind.
 
 ## Datenbanksicherung und -wiederherstellung
+{: #database-backup-and-recovery}
 
 [Regionsweite automatische Datenredundanz](#in-region-automatic-data-redundancy) bietet Anwendungen hochverfügbaren Zugriff auf Daten.
 [Regionsübergreifende Redundanz für Disaster-Recovery](#cross-region-redundancy-for-disaster-recovery) bietet Anwendungen die Möglichkeit der Disaster-Recovery.
@@ -159,8 +170,8 @@ Die von {{site.data.keyword.cloudant_short_notm}} unterstützten Tools helfen Ih
 die sich für die weitere Verarbeitung und Sicherung an einem anderen	Standort eignet.
 *	Wiederherstellen vollständiger Datenbanken aus einem früheren Zustand, der in Ihrer Sicherungsdatei enthalten ist.
 
-> **Achtung!** Die von {{site.data.keyword.cloudant_short_notm}} unterstützten Tools haben die folgenden Einschränkungen: 
-{:tip}
+Die von {{site.data.keyword.cloudant_short_notm}} unterstützten Tools haben die folgenden Einschränkungen: 
+{: tip}
 
 *	`_security`-Einstellungen werden von den Tools nicht gesichert.
 *	Anhänge werden von den Tools nicht gesichert.
@@ -172,9 +183,8 @@ die sich für die weitere Verarbeitung und Sicherung an einem anderen	Standort e
 	aber wenn Daten wiederhergestellt werden, müssen die Indizes neu erstellt werden.
 	Diese Neuerstellung kann abhängig von der Menge der wiederherzustellenden Daten lange dauern.
 
-<div id="conclusion"></div>
-
-## Nächste Schritte
+## Nächste Schritte für Ihre Datenschutzstrategien
+{: #next-steps-with-your-data-protection-strategies}
 
 Sie können Anwendungen entwickeln, die auf grundlegenden {{site.data.keyword.cloudant_short_notm}}-Funktionen und
 unterstützten Tools basieren, um komplexere Datenschutzstrategien zu ermöglichen.
@@ -186,6 +196,6 @@ Beispielszenarios:
 *	Migrieren älterer Daten in einen günstigeren Speicher, für eine kosteneffiziente Aufbewahrung.
 
 Die Sicherungstools bestehen aus einer Open-Source-Node.js-Befehlszeilenanwendung und -Bibliothek.
-Diese ist [unter NPM ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window} verfügbar.
+Diese ist [unter NPM ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} verfügbar.
 
-Ideen und Beispiele für die Integration der Tools in Ihre Datenschutzstrategie finden Sie im [Cookbook zur Sicherung](backup-cookbook.html).
+Ideen und Beispiele für die Integration der Tools in Ihre Datenschutzstrategie finden Sie im [Cookbook zur Sicherung](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

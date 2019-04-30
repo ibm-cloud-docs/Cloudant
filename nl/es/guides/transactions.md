@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: generate uuid, record payments, add additional documents, advantages
+
+subcollection: cloudant
 
 ---
 
@@ -12,13 +16,16 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Agrupación de documentos relacionados en {{site.data.keyword.cloudant_short_notm}}
+{: grouping-related-documents-together-in-ibm-cloudant}
 
-Tradicionalmente, los sistemas de
-comercio electrónico se basan en bases de datos relacionales.
+Tradicionalmente, los sistemas de comercio electrónico se basan en bases de datos relacionales.
 Estas bases de datos suelen utilizar varias tablas unidas para registrar ventas, detalles de los clientes, productos comprados e información sobre el seguimiento de las entregas.
 Las bases de datos relacionales ofrecen un alto nivel de coherencia, lo que significa que los desarrolladores de aplicaciones pueden basar sus aplicaciones en las sólidas funciones de la base de datos, que incluyen el uso de uniones entre colecciones, enumeraciones para registrar el estado de un objeto y transacciones de bases de datos para garantizar las operaciones atómicas.
 
@@ -75,7 +82,7 @@ _Ejemplo de documento que describe una compra_
     "total": 26.46
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Este documento contiene suficientes datos para que un registro de compra muestre un resumen de un pedido en una página web o un correo electrónico sin tener que capturar registros adicionales.
 Observe los detalles clave sobre el pedido, en especial:
@@ -87,24 +94,23 @@ Observe los detalles clave sobre el pedido, en especial:
 -   La base de datos genera automáticamente un `_id` de documento cuando inserta el documento en la base de datos.
 -   Se suministra un identificador exclusivo (`order_id`) con cada registro de pedido para hacer referencia al pedido posteriormente. 
  
-Cuando el cliente realiza un pedido, en el momento en que se entra en la fase
-de "extracción" en el sitio web, se crea un registro de orden de compra parecido al del ejemplo anterior. 
+Cuando el cliente realiza un pedido, en el momento en que se entra en la fase de "extracción" en el sitio web, se crea un registro de orden de compra parecido al del ejemplo anterior. 
 
 ## Generación de sus propios identificadores exclusivos (UUID)
+{: #generating-your-own-unique-identifiers-uuids-}
 
-En una base de datos relacional suelen utilizarse números secuenciales que se
-"incrementan automáticamente", pero en las bases de datos distribuidas, en las que los datos están distribuidos en un clúster de servidores, se utilizan UUID más largos para garantizar que los documentos se almacenan con su propio ID exclusivo.
+En una base de datos relacional suelen utilizarse números secuenciales que se "incrementan automáticamente", pero en las bases de datos distribuidas, en las que los datos están distribuidos en un clúster de servidores, se utilizan UUID más largos para garantizar que los documentos se almacenan con su propio ID exclusivo.
 
-Para crear un identificador exclusivo para utilizarlo en la aplicación, como por ejemplo `order_id`,
-llame al [punto final `GET _uuids` ](../api/advanced.html#-get-_uuids-) en la API de {{site.data.keyword.cloudant_short_notm}}.
+Para crear un identificador exclusivo para utilizarlo en la aplicación, como por ejemplo `order_id`, llame al [punto final `GET _uuids`](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_uuids-) en la API de {{site.data.keyword.cloudant_short_notm}}.
 La base de datos genera automáticamente un identificador.
 Se puede utilizar el mismo punto final para generar varios ID añadiendo el parámetro `count`, por ejemplo `/_uuids?count=10`.
 
 ## Registro de pagos
+{: #recording-payments}
 
 Cuando el cliente paga correctamente los artículos, se añaden registros adicionales a la base de datos para registrar el pedido.
 
-_Ejemplo de registro de pago: _
+_Ejemplo de registro de pago:_
 
 ```json
 {
@@ -127,7 +133,7 @@ _Ejemplo de registro de pago: _
     "payment_reference": "Q88775662377224"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 En el ejemplo anterior, el cliente ha pagado con una tarjeta de crédito y ha canjeado un bono de pago anticipado.
 El total de los dos pagos suma el importe del pedido.
@@ -141,7 +147,7 @@ La vista ofrecería un libro mayor que contendría la siguiente información:
 
 Se podría utilizar una función de correlación para identificar los valores necesarios.
 
-_Función de correlación de ejemplo para buscar los valores de total de compras y de pagos: _ 
+_Función de correlación de ejemplo para buscar los valores de total de compras y de pagos:_ 
 
 ```javascript
 function (doc) {
@@ -154,9 +160,9 @@ function (doc) {
     }
 }
 ```
-{:codeblock}
+{: codeblock}
 
-El uso del [reductor `_sum`](../api/creating_views.html#built-in-reduce-functions) integrado le permite generar la información de salida como un libro mayor de los sucesos relacionados con los pagos.
+El uso del [reductor `_sum`](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions) integrado le permite generar la información de salida como un libro mayor de los sucesos relacionados con los pagos.
 
 _Ejemplo de utilización de un reductor `_sum` integrado, consultado con `?reduce=false`:_
 
@@ -181,7 +187,7 @@ _Ejemplo de utilización de un reductor `_sum` integrado, consultado con `?reduc
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 También podría generar totales agrupados por `order_id`.
 
@@ -197,14 +203,14 @@ _Ejemplo de totales agrupados por `order_id`, con `?group_level=1`:_
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Puesto que la vista del ejemplo anterior devuelve 0 para el valor del pedido, el resultado indica que el pedido se ha pagado por completo.
 El motivo es que el total positivo de la orden de compra cancela los importes negativos de los pagos.
-Registrar los sucesos como documentos separados (es decir, uno para el pedido y uno para cada pago) constituye una buena práctica en
-{{site.data.keyword.cloudant_short_notm}}, ya que evita la posibilidad de que se creen conflictos cuando varios procesos modifican el mismo documento simultáneamente.
+Registrar los sucesos como documentos separados (es decir, uno para el pedido y uno para cada pago) constituye una buena práctica en {{site.data.keyword.cloudant_short_notm}}, ya que evita la posibilidad de que se creen conflictos cuando varios procesos modifican el mismo documento simultáneamente.
 
 ## Adición de documentos adicionales
+{: #adding-additional-documents}
 
 Podría añadir otros documentos separados a la base de datos para registrar los siguientes cambios de estado a medida que se suministran y distribuyen los pedidos:
 
@@ -216,6 +222,7 @@ A medida que llegan datos, {{site.data.keyword.cloudant_short_notm}} escribe en 
 Por lo tanto, no es necesario modificar el documento principal de compra.
 
 ## Ventajas de almacenar las órdenes de compra en {{site.data.keyword.cloudant_short_notm}}
+{: #advantages-of-storing-purchase-orders-in-ibm-cloudant}
 
 El uso de {{site.data.keyword.cloudant_short_notm}} para almacenar información sobre los pedidos de compra ofrece un sistema de pedidos altamente disponible y escalable que le permite gestionar grandes volúmenes de datos y altas tasas de acceso simultáneo.
 Al modelar los datos en documentos separados que solo se escriben una vez, podemos garantizar que los documentos nunca entran en conflicto, como por ejemplo durante el acceso simultáneo al mismo documento por parte de distintos procesos.

@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: connect to ibm cloud, upload application, test sample application, confirm database details
+
+subcollection: cloudant
 
 ---
 
@@ -12,32 +16,35 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.cloud_notm}} 애플리케이션 작성: 애플리케이션 업로드
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application}
 
 이 튜토리얼 섹션에서는 {{site.data.keyword.cloud}} 애플리케이션을 업로드하는 방법을 설명합니다.
-{:shortdesc}
-
-<div id="uploading"></div>
+{: shortdesc}
 
 ## {{site.data.keyword.cloud_notm}}에 연결
+{: #connecting-to-ibm-cloud}
 
 첫 번째 태스크는 {{site.data.keyword.cloud_notm}}에 연결하는 것입니다.
 
-[{{site.data.keyword.cloud_notm}} 툴킷](create_bmxapp_appenv.html#toolkits)은 연결하는 데 도움을 줍니다.
+[{{site.data.keyword.cloud_notm}} 툴킷](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits)은 연결하는 데 도움을 줍니다.
 
 Cloud Foundry는 애플리케이션을 업로드할 때와 같은 경우에서 API 호출에 사용할 URL을 알고 있어야 합니다.
 {{site.data.keyword.cloud_notm}} 툴킷은 '`cf api`' 명령을 사용하여 API 엔드포인트를 관리합니다.
-'`cf api`' 명령에 대한 자세한 정보는 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://console.ng.bluemix.net/docs/cli/reference/cfcommands/index.html#cf_api){:new_window}에 있습니다.
+'`cf api`' 명령에 대한 자세한 정보는 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}에 있습니다.
 
 다음 명령을 사용하여 Cloud Foundry에 사용할 URL을 전달하십시오.
 
 ```sh
 bluemix api https://api.ng.bluemix.net
 ```
-{:pre}
+{: pre}
 
 다음 출력과 유사한 결과가 표시됩니다.
 
@@ -51,7 +58,7 @@ API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
 Not logged in. Use 'bluemix login' to log in.
 ```
-{:codeblock}
+{: codeblock}
 
 이제 Cloud Foundry에서 애플리케이션 관리를 위한 API 호출을 전송할 위치를 파악했습니다.
 
@@ -73,7 +80,7 @@ Not logged in. Use 'bluemix login' to log in.
 ```sh
 bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
-{:pre}
+{: pre}
 
 다음 출력과 유사한 결과가 표시됩니다.
 
@@ -95,23 +102,22 @@ User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
 Space:          dev
 ```
-{:codeblock}
+{: codeblock}
 
 ## 애플리케이션 업로드
+{: #uploading-the-application}
 
 이제 {{site.data.keyword.cloudant_short_notm}} Foundry 툴킷은 {{site.data.keyword.cloud_notm}} 환경에 연결하는 방법을 알고 있습니다.
 
 다음 단계는 애플리케이션 자체를 업로드하는 것입니다.
-{{site.data.keyword.cloud_notm}} 애플리케이션의 세부사항은 [Manifest 파일](create_bmxapp_appenv.html#manifest)에서 제공됩니다.
-
-튜토리얼 애플리케이션의 Manifest 파일은 [여기](create_bmxapp_createapp.html#essential-files)에 설명되어 있는 바와 같이 업데이트되었습니다.
+{{site.data.keyword.cloud_notm}} 애플리케이션의 세부사항은 [Manifest 파일](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-manifest.yml-file)에서 제공됩니다.
 
 다음 예와 유사한 명령을 사용하여, {{site.data.keyword.cloud_notm}} 애플리케이션을 업로드하기 위해 로그인하십시오.
 
 ```sh
 cf push "Cloudant Python"
 ```
-{:pre}
+{: pre}
 
 일련의 결과 메시지가 표시됩니다.
 
@@ -121,9 +127,9 @@ Using manifest file /..../BMXDemo/manifest.yml
 Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{:codeblock}
+{: codeblock}
 
-Cloud Foundry 툴킷이 Manifest 파일을 찾고, [이전](#uploading)에 제공된 연결 및 식별 세부사항을 사용하여 애플리케이션 업로드를 준비합니다.
+Cloud Foundry 툴킷이 Manifest 파일을 찾고, [이전](#uploading-the-application)에 제공된 연결 및 식별 세부사항을 사용하여 애플리케이션 업로드를 준비합니다.
 
 ```
 Using route Cloudant-Python.mybluemix.net
@@ -135,7 +141,7 @@ OK
 Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{:codeblock}
+{: codeblock}
 
 애플리케이션이 업로드되며 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스에 연결됩니다.
 
@@ -168,14 +174,12 @@ OK
 
 App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
 ```
-{:codeblock}
+{: codeblock}
 
 애플리케이션이 자동으로 시작됩니다.
 시작의 일부로서,
-[requirements.txt 파일](create_bmxapp_appenv.html#requirements)의
+[requirements.txt 파일](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-requirements.txt-file)의
 컨텐츠를 평가하여 모든 요구사항을 만족하는지 확인하는 검사가 수행됩니다.
-애플리케이션은 작성 시에 [지정](create_bmxapp_createapp.html#essential-files)된
-{{site.data.keyword.cloudant_short_notm}} 라이브러리에 대한 액세스를 필요로 합니다.
 
 애플리케이션을 업로드한 후 시작하고 나면 {{site.data.keyword.cloud_notm}}의 관점에서
 애플리케이션이 올바르게 실행되고 있는지 확인하기 위한 몇 가지 간단한 검사가 실행됩니다.
@@ -195,30 +199,32 @@ buildpack: python 1.5.5
      state     since                    cpu    memory          disk           details
 #0   running   2016-12-22 03:59:21 PM   0.0%   49.9M of 128M   110.6M of 1G
 ```
-{:codeblock}
+{: codeblock}
 
 ## 샘플 애플리케이션 테스트
+{: #testing-the-sample-application}
 
-이제 애플리케이션을 테스트하여 올바르게 실행되는지 확인하십시오.  
+이제 애플리케이션을 테스트하여 올바르게 실행되는지 확인하십시오. 
 
-1.  {{site.data.keyword.cloud_notm}} 대시보드를 여십시오. Cloud Foundry 애플리케이션 아래에서 작성한 애플리케이션에 대한 링크를 볼 수 있습니다. `Cloudant CF app`을 클릭하여 세부사항 페이지를 여십시오. <br/>  
+1.  {{site.data.keyword.cloud_notm}} 대시보드에서 **메뉴** 아이콘 > **리소스 목록**으로 이동하고 애플리케이션을 여십시오. Cloud Foundry 앱에서 `Cloudant CF 앱`을 클릭하여 세부사항 페이지를 여십시오.<br/>  
 ![애플리케이션의 대시보드를 보여주는 스크린샷](images/img0017.png)
 
 2.  `Cloudant CF app` 세부사항 페이지에서 `Routes`를 클릭하고 `Cloudant-CF-app.mybluemix.net` 링크를 클릭하십시오. <br/>
 ![Cloudant CF app 세부사항 페이지](images/img0030.png)
 
-3. 주소가 https://cloudant-cf-app.mybluemix.net/으로 지정된 새 브라우저 창이 열립니다. 메시지가 애플리케이션이 실행 중임을 확인합니다. 이 메시지는 "Hello World! Thanks for creating a Python Starter Application."입니다. <br/>
+3. `https://cloudant-cf-app.mybluemix.net/`에서 새 브라우저 창이 열립니다. 메시지가 애플리케이션이 실행 중임을 확인합니다. 이 메시지는 "Hello World! Thanks for creating a Python Starter Application."입니다.<br/>
 ![Hello World! 메시지가 Cloudant CF app이 올바르게 실행 중임을 확인함](images/img0054.png)
 
 
 ### 데이터베이스 세부사항 확인
+{: #confirming-the-database-details}
 
-{{site.data.keyword.cloud_notm}} 대시보드에서 사용자가 작성한 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 여십시오. 서비스 인스턴스를 클릭하십시오. `Manage` 탭으로 이동하여 `Launch Cloudant Dashboard`를 클릭하십시오. <br/>
+{{site.data.keyword.cloud_notm}} 대시보드에서 **메뉴** 아이콘 > **리소스 목록**으로 이동하고 서비스 인스턴스를 여십시오. `Manage` 탭으로 이동하여 `Launch Cloudant Dashboard`를 클릭하십시오.<br/>
 ![{{site.data.keyword.cloudant_short_notm}} 서비스 페이지에서 Cloudant 대시보드 실행](images/img0036.png)
 
 {{site.data.keyword.cloudant_short_notm}} 서비스 페이지를 찾으려면
-[{{site.data.keyword.cloudant_short_notm}} 인스턴스 작성 튜토리얼](create_service.html#locating-your-service-credentials)에 있는 세부사항을 참조하십시오.
-{: tip}
+[{{site.data.keyword.cloudant_short_notm}} 인스턴스 작성 튜토리얼](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)에 있는 세부사항을 참조하십시오.
+{: note}
 
 대시보드가 열리면 '`databasedemo`' 데이터베이스를 작성한 애플리케이션을 볼 수 있습니다.<br/>
 ![새 데이터베이스를 표시하고 있는 {{site.data.keyword.cloudant_short_notm}} 대시보드](images/img0031.png)
@@ -239,7 +245,5 @@ buildpack: python 1.5.5
 이 값은 [애플리케이션 로그 파일](#testing-the-sample-application)에
 기록된 시간에 해당합니다.
 
-## 다음 단계
-
 튜토리얼의 다음 단계는 애플리케이션을 시작하거나, 중지하거나, 디버그하는 것과 같은
-[애플리케이션 운영 및 유지보수](create_bmxapp_maintain.html)입니다.
+[애플리케이션 운영 및 유지보수](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting)입니다.

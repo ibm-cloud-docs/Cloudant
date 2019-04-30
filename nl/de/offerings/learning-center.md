@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: videos
+
+subcollection: cloudant
 
 ---
 
@@ -12,11 +16,15 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-10-05 -->
 
 # Learning Center
+{: #learning-center}
 
 Das {{site.data.keyword.cloudantfull}} Learning Center umfasst Videos, die Sie bei der Einarbeitung in {{site.data.keyword.cloudant_short_notm}} unterstützen. Dazu gehören auch Videos zu Cloudant Geospatial, Cloudant Query, zur HTTP-API, Indizes, zum Laden von Daten, zur Replikation, zu Suchvorgängen und Ansichten. Des Weiteren finden Sie hier Entwicklerressourcen, einführende Informationen und Informationen zur Anforderung von Hilfe. 
 
-Weitere Informationen finden Sie im [{{site.data.keyword.cloudant_short_notm}} Learning Center](http://ibm.biz/cloudant-learning).
+Weitere Informationen finden Sie im [{{site.data.keyword.cloudant_short_notm}} Learning Center](http://ibm.biz/cloudant-learning){: new_window}.

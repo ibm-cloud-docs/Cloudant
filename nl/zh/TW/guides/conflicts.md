@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
+
+subcollection: cloudant
 
 ---
 
@@ -11,17 +15,22 @@ lastupdated: "2018-10-24"
 {:screen: .screen}
 {:codeblock: .codeblock}
 {:pre: .pre}
+{:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2018-05-07 -->
 
 # 衝突
+{: #conflicts}
 
 在分散式資料庫（其中資料副本可能儲存於多個位置）中，自然網路及系統特徵可能表示針對某個位置的儲存文件所做的變更無法立即更新或抄寫至資料庫的其他部分。
 
 換言之，如果對不同文件副本單獨進行更新，則效果可能是造成與文件的正確最終內容不一致或「衝突」。
 
 {{site.data.keyword.cloudantfull}} 嘗試警告您可能發生問題，以協助您避免衝突。
-作法是對有問題的更新要求傳回 [`409` 回應](../api/http.html#http-status-codes)。
+它會針對有問題的更新要求傳回 [`409` 回應](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)來警告您。
 不過，如果是在目前未連接至網路的系統上要求資料庫更新，則可能不會收到 `409` 回應。
 例如，資料庫可能位在暫時與網際網路斷線的行動裝置上，因此目前無法檢查是否有進行其他潛在的衝突更新。
 
@@ -76,11 +85,10 @@ lastupdated: "2018-10-24"
 </table>
 
 ## 尋找衝突
+{: #finding-conflicts}
 
 若要尋找可能影響文件的所有衝突，請在擷取文件時新增查詢參數 `conflicts=true`。
 傳回時，產生的文件包含 `_conflicts` 陣列，其中包括所有衝突修訂的清單。
-
-<div></div>
 
 > 尋找文件衝突的範例對映函數：
 
@@ -92,22 +100,21 @@ function (doc) {
 }
 ```
 
-若要尋找資料庫中多份文件的衝突，請撰寫[視圖](../api/creating_views.html)。
+若要尋找資料庫中多份文件的衝突，請撰寫[視圖](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)。
 使用對映函數（例如提供的範例），您可以尋找每份衝突文件的所有修訂。
 
 當您有這類視圖時，可以視需要用它來尋找及解決衝突。
 或者，您也可能會在每一次抄寫之後查詢視圖，以立即識別及解決衝突。
 
 ## 如何解決衝突
+{: #how-to-resolve-conflicts}
 
 在您找到衝突之後，可以遵循 4 個步驟予以解決：
 
-1.	[取得](conflicts.html#get-conflicting-revisions)衝突修訂。
-2.	將它們[合併](conflicts.html#merge-the-changes)至應用程式，或詢問使用者想要執行的作業。
-3.	[上傳](conflicts.html#upload-the-new-revision)新的修訂。
-4.	[刪除](conflicts.html#delete-old-revisions)舊的修訂。
-
-<div></div>
+1.	[取得](#get-conflicting-revisions)衝突修訂。
+2.	將它們[合併](#merge-the-changes)至應用程式，或詢問使用者想要執行的作業。
+3.	[上傳](#upload-the-new-revision)新的修訂。
+4.	[刪除](#delete-old-revisions)舊的修訂。
 
 > 範例文件 - 第一個版本。
 
@@ -123,8 +130,6 @@ function (doc) {
 
 讓我們考慮如何完成這項作業的範例。假設您有線上商店的產品資料庫。文件的第一個版本可能類似提供的範例。
 
-<div></div>
-
 > 文件的第二個版本（第一個修訂），新增了說明。
 
 ```json
@@ -138,8 +143,6 @@ function (doc) {
 ```
 
 文件還沒有說明，因此可能會有人新增說明。
-
-<div></div>
 
 > _替代_ 第二個版本，簡介文件第一個版本的價格降低資料變更。
 
@@ -161,12 +164,12 @@ function (doc) {
 這是衝突情境。
 
 ## 取得衝突修訂
+{: #get-conflicting-revisions}
 
 若要尋找文件的所有衝突修訂，請如常擷取該文件，但包括 `conflicts=true` 參數，類似於下列範例：
 
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
-<div></div>
 
 > 文件擷取的範例回應，顯示衝突的修訂
 
@@ -192,6 +195,7 @@ function (doc) {
 通常，您可能會發現陣列只有一個元素，但可能會有許多衝突的修訂，而且各自列在陣列中。
 
 ## 合併變更
+{: #merge-the-changes}
 
 您的應用程式必須識別所有潛在變更並進行核對，有效地合併正確及有效的更新來產生文件的單一非衝突版本。
 
@@ -219,6 +223,7 @@ function (doc) {
 如需如何實作這些變更的實際範例，請參閱[這個含有範例程式碼的專案](https://github.com/glynnbird/deconflict)。
 
 ## 上傳新的修訂
+{: #upload-the-new-revision}
 
 > 解決及合併先前衝突修訂中的變更之後的最終修訂。
 
@@ -236,6 +241,7 @@ function (doc) {
 這個全新文件會上傳至資料庫。
 
 ## 刪除舊的修訂
+{: #delete-old-revisions}
 
 > 刪除舊修訂的要求範例。
 
@@ -249,4 +255,4 @@ DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6
 作法是傳送 `DELETE` 要求，指定要刪除的修訂。
 
 刪除文件的較舊版本時，會將與該文件相關聯的衝突標示為已解決。
-您可以[如前](conflicts.html#finding-conflicts)將 `conflicts` 參數設為 true 來重新要求文件，以驗證不存在任何衝突。
+您可以使用前述的[尋找衝突](#finding-conflicts)，將 `conflicts` 參數設為 true 來重新要求文件，以驗證不存在任何衝突。

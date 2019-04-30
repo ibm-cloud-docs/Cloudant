@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-19"
+
+keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
+
+subcollection: cloudant
 
 ---
 
@@ -12,23 +16,29 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloud_notm}} での単純 {{site.data.keyword.cloudant_short_notm}} データベースの作成とデータ取り込み
+{: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}
 
-このチュートリアルでは、[Python プログラミング言語 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){:new_window}
+このチュートリアルでは、[Python プログラミング言語 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){: new_window}
 を使用して、{{site.data.keyword.cloud_notm}} サービス・インスタンスに {{site.data.keyword.cloudantfull}} データベースを作成し、
 データベースに単純なデータ・コレクションを取り込む方法を示しています。
-{:shortdesc}
+{: shortdesc}
 
 ## 前提条件
+{: prerequisites}
 
 チュートリアルを始める前に、以下のリソースまたは情報を準備してください。
 
 ### Python
+{: #python-create-database}
 
-[Python プログラミング言語 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){:new_window}
+[Python プログラミング言語 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){: new_window}
 の現行インストール済み環境がシステムにインストールされていなければなりません。
 
 これを確認するには、プロンプトで以下のコマンドを実行します。
@@ -36,28 +46,26 @@ lastupdated: "2018-10-24"
 ```sh
 python --version
 ```
-{:pre}
+{: pre}
 
 以下のような結果が表示されます。
 
 ```
 Python 2.7.12
 ```
-{:codeblock}
+{: codeblock}
 
 ### {{site.data.keyword.cloudant_short_notm}} の Python クライアント・ライブラリー
+{: #python-client-library-for-ibm-cloudant}
 
-Python アプリケーションが {{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloudant_short_notm}}
-と動作するための[公式サポート・ライブラリー](../libraries/supported.html#python)があります。
-
-[ここ](../libraries/supported.html#python)に示された手順を使用して、これをインストールしてください。
+Python アプリケーションが {{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloudant_short_notm}} と動作するための[公式サポート・ライブラリー](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported)があります。 インストールするには、提示された指示に従います。 
 
 クライアント・ライブラリーが正常にインストールされたことを確認するには、プロンプトで以下のコマンドを実行します。
 
 ```sh
 pip freeze
 ```
-{:pre}
+{: pre}
 
 システムにインストールされているすべての Python モジュールのリストが表示されます。
 リストを調べ、以下のような {{site.data.keyword.cloudant_short_notm}} 項目を探します。
@@ -65,11 +73,12 @@ pip freeze
 ```
 cloudant==2.3.1
 ```
-{:codeblock}
+{: codeblock}
 
-### {{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンス
+### {{site.data.keyword.cloudant_short_notm}} での {{site.data.keyword.cloud_notm}} サービス・インスタンスの作成
+{: #creating-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-適切なサービス・インスタンスを作成するためのプロセスについては、[別のチュートリアル](create_service.html)に説明があります。
+適切なサービス・インスタンスを作成するためのプロセスについては、[別のチュートリアル](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)に説明があります。
 
 サービス・インスタンスに関して以下のサービス資格情報を使用可能な状態にしてください。
 
@@ -82,22 +91,23 @@ cloudant==2.3.1
 `url`      | その他の資格情報を単一の URL に集約したストリング。アプリケーションによる使用に適しています。
 
 サービス・インスタンスのサービス資格情報の検索に関する情報は、
-[ここ](create_service.html#locating-your-service-credentials)にあります。
+[ここ](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)にあります。
 
 ## コンテキスト
+{: #context}
 
 このチュートリアルでは、以下のタスクに適した一連の Python 言語命令を構築します。
 
-1.  [{{site.data.keyword.cloud}}](#connecting-to-a-cloudant-no-sql-db-service-instance-on-ibm-cloud) 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスへの接続。
+1.  [{{site.data.keyword.cloud}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスへの接続](#connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud)。
 2.  [サービス・インスタンス内のデータベースの作成](#creating-a-database-within-the-service-instance)。
 3.  [小さなデータ・コレクションをデータベース内の文書として保管](#storing-a-small-collection-of-data-as-documents-within-the-database)。
-4.  [文書の全リストを取得](#retrieving-a-complete-list-of-the-documents)。
+4.  [データの取得](#retrieving-data)。
 5.  [データベースの削除](#deleting-the-database)。
 6.  [サービス・インスタンスへの接続のクローズ](#closing-the-connection-to-the-service-instance)。
 
 各タスクに対応した Python コードが、このチュートリアルのタスク説明の中で提供されます。
 
-すべてのタスクを実行する完全な Python プログラムは、[このチュートリアルの最後](#complete-listing)に提供されています。
+すべてのタスクを実行する完全な Python プログラムは、[全プログラムの表示](#complete-listing)を参照してください。
 
 このチュートリアルでは、_効率的な_ Python コードの作成は意図していません。
 仕組みを理解してアプリケーション作成時に参考にするための、単純で分かりやすい実際のコードを示すことを目的としています。
@@ -107,6 +117,7 @@ cloudant==2.3.1
 アプリケーションで発生する警告やエラー条件すべてをチェックして処理する通常のベスト・プラクティスを適用してください。 
 
 ## {{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスへの接続
+{: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
 {{site.data.keyword.cloudant_short_notm}} クライアント・ライブラリー・コンポーネントがサービス・インスタンスに接続可能であることが、Python アプリケーションによって要求されます。
 これらのコンポーネントは、以下のように通常の `import` ステートメントとして指定されます。
@@ -116,16 +127,16 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 ```
-{:codeblock}
+{: codeblock}
 
-アプリケーションには、以下のようなサービスの[サービス資格情報](create_service.html#locating-your-service-credentials)が必要です。
+アプリケーションには、以下のようなサービスの[サービス資格情報](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)が必要です。
 
 ```python
 serviceUsername = "353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix"
 servicePassword = "49c0c343d225623956157d94b25d574586f26d1211e8e589646b4713d5de4801"
 serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
-{:codeblock}
+{: codeblock}
 
 ここで例に示したサービス資格情報は、
     デモの {{site.data.keyword.cloudant_short_notm}} サービスが {{site.data.keyword.cloud_notm}} で作成されたときに定義されたものです。
@@ -134,7 +145,7 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
     デモの {{site.data.keyword.cloudant_short_notm}} サービスはもう削除されているため、
     これらの資格情報は有効ではありません。
     _必ず_、ご自分のサービス資格情報を提供して使用してください。
-{: tip}
+{:  tip}
 
 アプリケーション内で Python クライアント・ライブラリーを有効にして、サービス資格情報を識別したら、
 サービス・インスタンスへの接続を確立できます。
@@ -143,12 +154,13 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 client = Cloudant(serviceUsername, servicePassword, url=serviceURL)
 client.connect()
 ```
-{:codeblock}
+{: codeblock}
 
 この時点で、
 Python アプリケーションは、{{site.data.keyword.cloud_notm}} 上のサービス・インスタンスにアクセスできます。
 
 ## サービス・インスタンス内でのデータベースの作成
+{: #creating-a-database-within-the-service-instance}
 
 次のステップでは、サービス・インスタンス内でデータベース
 `databasedemo` を作成します。
@@ -158,14 +170,14 @@ Python アプリケーションは、{{site.data.keyword.cloud_notm}} 上のサ�
 ```python
 databaseName = "databasedemo"
 ```
-{:codeblock}
+{: codeblock}
 
 その後、データベースを作成します。
 
 ```python
 myDatabaseDemo = client.create_database(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 データベースが正常に作成されたことを確認することは、有益です。
 
@@ -173,9 +185,10 @@ myDatabaseDemo = client.create_database(databaseName)
 if myDatabaseDemo.exists():
     print "'{0}' successfully created.\n".format(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 ## 小さなデータ・コレクションをデータベース内の文書として保管
+{: #storing-a-small-collection-of-data-as-documents-within-the-database}
 
 ここで、小さくて単純なデータ・コレクションをデータベースに保管します。
 
@@ -190,7 +203,7 @@ sampleData = [
     [5, "five", "freezing", 0]
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 次に、通常の Python コードで 1 つずつデータを処理し、
 JSON 文書に変換します。
@@ -222,16 +235,18 @@ for document in sampleData:
     if newDocument.exists():
         print "Document '{0}' successfully created.".format(number)
 ```
-{:codeblock}
+{: codeblock}
 
 各文書が正常に作成されたかを確認している点に注意してください。
 
 ## データの取得
+{: #retrieving-data}
 
 この時点で、小規模なデータ・コレクションがデータベース内に文書として保管されています。
 ここで、一連の照会を実行して、データベースからの異なるデータ取得方法を示します。
 
 ### 文書の最小限の取得
+{: #a-minimal-retrieval-of-a-document}
 
 最小限の取得を実行するには、
 まず、データベース内のすべての文書のリストを要求します。
@@ -244,7 +259,7 @@ for document in sampleData:
 result_collection = Result(myDatabaseDemo.all_docs)
 print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
-{:codeblock}
+{: codeblock}
 
 結果は、以下の例のようになります。
 
@@ -259,13 +274,15 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
-{{site.data.keyword.cloudant_short_notm}} などの NoSQL データベースの
-    性質上、データベースに保管された最初の文書が結果リストで常に最初に戻されるという単純な概念は、必ずしも当てはまりません。
+NoSQL データベースの性質上
+    ({{site.data.keyword.cloudant_short_notm}} など)、
+    データベースに保管された最初の文書が結果リストで常に最初に戻されるという単純な概念は、必ずしも当てはまりません。
 {: tip}
 
 ### 文書の全取得
+{: #full-retrieval-of-a-document}
 
 全取得を実行するには、
 データベース内のすべての文書のリストを要求し、
@@ -280,7 +297,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
 print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
-{:codeblock}
+{: codeblock}
 
 結果は、以下の例のようになります。
 
@@ -303,16 +320,18 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
     }
 ]
 ```
-{:codeblock}
+{: codeblock}
 
 ## {{site.data.keyword.cloudant_short_notm}} API エンドポイントの直接呼び出し
+{: #calling-an-ibm-cloudant-api-endpoint-directly}
 
 Python アプリケーション内から {{site.data.keyword.cloudant_short_notm}} API エンドポイントを直接操作することも可能です。
 
 このサンプル・コードでも、
 内容も含めてすべての文書のリストを要求します。
-ただし今回は、
-{{site.data.keyword.cloudant_short_notm}} の [`/_all_docs` エンドポイント](../api/database.html#get-documents)を呼び出して、これを行います。
+ただし
+今回は、
+{{site.data.keyword.cloudant_short_notm}} の [`/_all_docs` エンドポイント](/docs/services/Cloudant?topic=cloudant-databases#get-documents)を呼び出して、これを行います。
 
 まず、コンタクトするエンドポイントと、呼び出しと一緒に提供するパラメーターを指定します。
 
@@ -320,7 +339,7 @@ Python アプリケーション内から {{site.data.keyword.cloudant_short_notm
 end_point = '{0}/{1}'.format(serviceURL, databaseName + "/_all_docs")
 params = {'include_docs': 'true'}
 ```
-{:codeblock}
+{: codeblock}
 
 次に、サービス・インスタンスに要求を送信し、結果を表示します。
 
@@ -328,7 +347,7 @@ params = {'include_docs': 'true'}
 response = client.r_session.get(end_point, params=params)
 print "{0}\n".format(response.json())
 ```
-{:codeblock}
+{: codeblock}
 
 結果は、以下の例 (_一部省略_) のようになります。
 
@@ -371,9 +390,10 @@ print "{0}\n".format(response.json())
     "offset": 0
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ## データベースの削除
+{: #deleting-the-database}
 
 データベースが不要になったら、削除できます。
 
@@ -387,20 +407,22 @@ except CloudantException:
 else:
     print "'{0}' successfully deleted.\n".format(databaseName)
 ```
-{:codeblock}
+{: codeblock}
 
 問題を検出して対処する方法を示すために、基本的なエラー処理が組み込まれています。
 
 ## サービス・インスタンスへの接続のクローズ
+{: #closing-the-connection-to-the-service-instance}
 
 最終ステップとして、以下のように、Python クライアント・アプリケーションをサービス・インスタンスから切断します。
 
 ```python
 client.disconnect()
 ```
-{:codeblock}
+{: codeblock}
 
 ## 全プログラムの表示
+{: #complete-listing}
 
 以下のコードは、{{site.data.keyword.cloud_notm}} 上の
 {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスにアクセスして、一般的な一連のタスクを実行するための完全な Python プログラムです。
@@ -546,4 +568,4 @@ print "===\n"
 # Say good-bye.
 exit()
 ```
-{:codeblock}
+{: codeblock}

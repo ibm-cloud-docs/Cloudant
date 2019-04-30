@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-03-15"
+
+keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
+
+subcollection: cloudant
 
 ---
 
@@ -12,18 +16,20 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# I miei 5 suggerimenti principali per modellare i tuoi dati in scala
+# Cinque suggerimenti per modellare i tuoi dati in scala
+{: #five-tips-for-modelling-your-data-to-scale}
 
 Questo articolo considera i punti più importanti
 per la modellazione dei tuoi dati applicativi per lavorare in modo efficace su una larga scala.
-{:shortdesc}
+{: shortdesc}
 
-_(Questa guida si basa su un articolo del blog di  Mike Rhodes:
-["I miei 5 suggerimenti principali per modellare i tuoi dati in scala" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/){:new_window},
-originariamente pubblicato il 17 dicembre 2013.)_
+*(Questa guida si basa su un articolo del blog di Mike Rhodes: ["My top 5 tips for modelling your data to scale" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/), originariamente pubblicato il 17 dicembre 2013.)*
 
 Il modo in cui modelli i tuoi dati in {{site.data.keyword.cloudantfull}} influirà in modo significativo sul modo in cui la tua applicazione è in
 grado di eseguire il ridimensionamento. Il nostro modello di dati sottostante differisce sostanzialmente da un modello relazionale
@@ -35,6 +41,7 @@ e le caratteristiche delle prestazioni che speri di raggiungere.
 Senza ulteriori indugi, andiamo avanti.
 
 ## Considera i dati immutabili
+{: #consider-immutable-data}
 
 Se modifichi la stessa parte di stato con una frequenza di una volta al secondo o di più, potresti scegliere di rendere i
 tuoi documenti immutabili. Ciò riduce in modo significativo la possibilità di creare
@@ -49,6 +56,7 @@ i documenti che compongono lo stato attuale. Poiché le viste sono precalcolate,
 ciò non dovrebbe influire negativamente sulle prestazioni dell'applicazione.
 
 ## Perché ti aiuta considerare dati immutabili 
+{: #why-this-helps-you-consider-immutable-data}
 
 Dietro la nostra interfaccia `https://$ACCOUNT.cloudant.com/` è presente un database distribuito. 
 All'interno del cluster, i documenti vengono suddivisi in una serie di frammenti che, collettivamente, formano
@@ -74,6 +82,7 @@ gli aggiornamenti eseguiti con una frequenza maggiore di una volta al secondo, m
 eseguiti più di una volta ogni dieci secondi per stare al sicuro.
 
 ## Utilizza le viste per precalcolare i risultati anziché come indici di ricerca
+{: #use-views-to-pre-calculate-results-rather-than-as-search-indexes}
 
 Piuttosto che utilizzare le viste come indici di ricerca glorificati - "dammi tutti i documenti di `person`" - fai in modo
 che il database faccia il lavoro per te. Ad esempio, invece di recuperare tutti i documenti di diecimila persone per
@@ -84,6 +93,7 @@ piccole richieste invece che sulla lettura di enormi quantità di dati dal disco
 richiesta.
 
 ## Perché ti aiuta utilizzare le viste per precalcolare i risultati
+{: #why-this-helps-you-use-views-to-pre-calculate-results}
 
 È abbastanza semplice. Per prima cosa, nota che le mappe e le riduzioni sono precalcolate. Questo significa
 che chiedere il risultato di una funzione di riduzione è un'operazione economica, in particolare se
@@ -104,6 +114,7 @@ potenza delle viste per precalcolare i dati aggregati è un modo per raggiungere
 diminuisce il tempo trascorso dall'applicazione in attesa di completare la richiesta.
 
 ## Denormalizza i tuoi dati
+{: #de-normalise-your-data}
 
 Nei database relazionali, la normalizzazione dei dati è spesso il modo più efficace per memorizzare i dati. 
 Ciò ha molto senso quando puoi utilizzare JOIN per combinare facilmente i dati da più tabelle. 
@@ -120,10 +131,11 @@ di tutti i documenti con una determinata tag.
 
 In {{site.data.keyword.cloudant_short_notm}}, memorizzi le tag in un elenco all'interno di ciascun documento. Utilizzi quindi una vista per ottenere i documenti
 con una determinata tag
-[emettendo ogni tag come chiave nella funzione di mappa della tua vista](../api/creating_views.html). 
+[emettendo ogni tag come chiave nella funzione di mappa della tua vista](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce). 
 Eseguendo una query nella vista per una determinata chiave verranno forniti tutti i documenti con quella tag.
 
 ## Perché ti aiuta denormalizzare i tuoi dati
+{: #why-this-helps-you-de-normalize-your-data}
 
 Tutto si riduce al numero di richieste HTTP effettuate dalla tua applicazione. C'è un costo
 per aprire le connessioni HTTP - in particolare HTTPS - e, mentre il riutilizzo delle connessioni può aiutare, effettuare
@@ -134,6 +146,7 @@ generare il valore richiesto dalla tua applicazione in anticipo, invece di esser
 in tempo reale durante la query.
 
 ## Evita conflitti utilizzando documenti più dettagliati
+{: #avoid-conflicts-by-using-finer-grained-documents}
 
 In tensione con il consiglio di denormalizzare i tuoi dati c'è questo altro consiglio: utilizza
 documenti dettagliati per ridurre la possibilità di modifiche simultanee che creano conflitti. 
@@ -151,7 +164,7 @@ Ad esempio, prendi un record medico che contiene un elenco di operazioni:
     ]
 }
 ```
-{:codeblock}
+{: codeblock}
 
 Se Joe è abbastanza sfortunato da avere un sacco di operazioni contemporaneamente, i molti
 aggiornamenti simultanei a un documento possono creare documenti in conflitto, come descritto in precedenza. 
@@ -166,7 +179,7 @@ nei due seguenti esempi:
     "surgery": "heart bypass"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ```json
 {
@@ -175,7 +188,7 @@ nei due seguenti esempi:
     "surgery": "lumbar puncture"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 L'emissione del campo `"patient"` come chiave nella tua vista consentirà di eseguire query per tutte le
 operazioni di un determinato paziente. Di nuovo, le viste vengono utilizzate per aiutare a costruire un'immagine completa
@@ -183,6 +196,7 @@ di una determinata entità da documenti separati, contribuendo a mantenere basso
 anche se abbiamo suddiviso i dati per una singola entità modellata.
 
 ## Perché ti aiuta evitare conflitti
+{: #why-this-helps-you-avoid-conflicts}
 
 Evitare i documenti in conflitto aiuta a velocizzare molte operazioni nei tuoi database {{site.data.keyword.cloudant_short_notm}}. 
 Ciò è dovuto al fatto che esiste un processo che esegue l'attuale revisione vincente
@@ -203,6 +217,7 @@ patologici, in particolare se i conflitti non vengono risolti, è richiesto un l
 un uso intensivo della memoria per percorrere la struttura ad albero dei documenti.
 
 ## Integra la risoluzione dei conflitti
+{: #build-in-conflict-resolution}
 
 In un sistema con consistenza eventuale come {{site.data.keyword.cloudant_short_notm}}, i conflitti alla fine accadono. Come descritto
 in precedenza, questo è il prezzo della scalabilità e della resilienza dei dati.
@@ -223,12 +238,14 @@ Questa operazione è molto specifica dell'applicazione, ma ecco alcuni suggerime
     rendendo difficile la risoluzione corretta. E se gli altri documenti sono in conflitto?
 
 ## Perché ti aiuta integrare la risoluzione dei conflitti 
+{: #why-this-helps-you-build-in-conflict-resolution}
 
 Come descritto in precedenza, i documenti fortemente in conflitto incidono pesantemente sul database. La creazione
 della funzionalità per risolvere i conflitti dall'inizio è un grande aiuto per evitare
 documenti patologicamente in conflitto.
 
 ## Riepilogo
+{: #summary}
 
 Questi suggerimenti illustrano alcuni modi in cui i dati di modellazione influenzano le prestazioni della tua
 applicazione. L'archivio dati di {{site.data.keyword.cloudant_short_notm}} presenta alcune caratteristiche specifiche,
@@ -236,6 +253,6 @@ sia da tenere d'occhio sia da sfruttare, per assicurare che le prestazioni del d
 cresce. Comprendiamo che il cambiamento può essere confuso, quindi siamo sempre a disposizione per dare consigli.
 
 Per ulteriori letture, consulta questa discussione sul
-["modello di dati per Foundbite" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){:new_window}
-o questo ["esempio dai nostri amici in Twilio" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){:new_window}.
+["modello di dati per Foundbite" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}
+o questo ["esempio dai nostri amici in Twilio" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
 

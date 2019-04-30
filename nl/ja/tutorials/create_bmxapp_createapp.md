@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-04-02"
+
+keywords: create application, complete python program, log files, work with ibm cloudant database instance
+
+subcollection: cloudant
 
 ---
 
@@ -12,42 +16,44 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # {{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.cloud_notm}} アプリケーションの作成: コード
+{: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code}
 
 チュートリアルのこのセクションでは、{{site.data.keyword.cloud}} アプリケーションのコードについて説明します。
-{:shortdesc}
-
-<div id="theApp"></div>
+{: shortdesc}
 
 ## アプリケーションの作成
+{: #creating-your-application}
 
 以下のコンポーネントが揃ったため、アプリケーションの作成を開始できます。
 
--   [Python プログラミング言語](create_bmxapp_prereq.html#python)。
--   [{{site.data.keyword.cloudant_short_notm}} データベース・インスタンス](create_bmxapp_prereq.html#csi)。
--   [{{site.data.keyword.cloud_notm}} アプリケーション環境](create_bmxapp_appenv.html#creating)。
+-   [Python プログラミング言語](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#python-create-bmxapp-prereq)。
+-   [{{site.data.keyword.cloudant_short_notm}} データベース・インスタンス](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#an-ibm-cloudant-database-application)。
+-   [{{site.data.keyword.cloud_notm}} アプリケーション環境](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment)。
 -   {{site.data.keyword.cloudant_short_notm}} データベース・インスタンスと
-    {{site.data.keyword.cloud_notm}} アプリケーション環境間の[接続](create_bmxapp_appenv.html#connecting)。
--   Cloud Foundry ベースの {{site.data.keyword.cloud_notm}} アプリケーションを管理するための [ツールキット](create_bmxapp_appenv.html#toolkits)。
--   初期構成とコード・テンプレートのファイルを含む [「スターター」アプリケーション・パック](create_bmxapp_appenv.html#starter)。
+    {{site.data.keyword.cloud_notm}} アプリケーション環境間の[接続](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services)。
+-   Cloud Foundry ベースの {{site.data.keyword.cloud_notm}} アプリケーションを管理するための [ツールキット](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits)。
+-   初期構成とコード・テンプレートのファイルを含む [「スターター」アプリケーション・パック](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application)。
 
->   **注**: このチュートリアルでは、_効率的な_ Python コードの作成は意図していません。
-    仕組みを理解してアプリケーション作成時に参考にするための、単純で分かりやすい実際のコードを示すことを目的としています。
-    また、考えられるすべてのチェックおよびエラー条件には対応していません。
-    一部の手法を示すためにサンプルのチェックがいくつか組み込まれています。
-    実際のアプリケーションでは、すべての警告およびエラー条件をチェックして処理してください。
+このチュートリアルでは、_効率的な_ Python コードの作成は意図していません。 仕組みを理解してアプリケーション作成時に参考にするための、単純で分かりやすい実際のコードを示すことを目的としています。 また、考えられるすべてのチェックおよびエラー条件には対応していません。 一部の手法を示すためにサンプルのチェックがいくつか組み込まれています。 実際のアプリケーションでは、すべての警告およびエラー条件をチェックして処理してください。
+{: tip}
+
 
 ### 重要なファイル
+{: #essential-files}
 
 アプリケーションには、3 つの構成ファイルと 1 つのソース・ファイルが必要です。
-これらはすべて、[「スターター」アプリケーション・パック](create_bmxapp_appenv.html#starter)にあります。
+これらはすべて、[「`スターター`」アプリケーション・パック](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application)にあります。
  
--   [「`Procfile`」](create_bmxapp_appenv.html#procfile)
--   [「`manifest.yml`」](create_bmxapp_appenv.html#manifest)
--   [「`requirements.txt`」](create_bmxapp_appenv.html#requirements)
+-   [`Procfile`](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-procfile-file)
+-   [`manifest.yml`](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-manifest.yml-file)
+-   [`requirements.txt`](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-requirements.txt-file)
 -   アプリケーション・ソース・ファイル。チュートリアルのこのセクションで説明します。
 
 構成ファイルを次のように変更します。
@@ -56,7 +62,7 @@ lastupdated: "2018-10-24"
     ```
     web: python server.py
     ```
-    {:codeblock}
+    {: codeblock}
 
 2.  「`manifest.yml`」ファイルを編集して、次のテキストを含めます。
     ```
@@ -71,22 +77,26 @@ lastupdated: "2018-10-24"
       services:
       - <データベース・インスタンス>
     ```
-    {:codeblock}
-    >   **注**: 必ず、`「domain」`、`「name」`、`「host」`、および`「services」の値を変更してください。 これらは、[{{site.data.keyword.cloud_notm}} アプリケーション環境](create_bmxapp_appenv.html#creating)と [{{site.data.keyword.cloudant_short_notm}} データベース・インスタンス](create_bmxapp_prereq.html#csi)の作成時に入力した値です。
+    {: codeblock}
+
+「`domain`」、「`name`」、「`host`」、「`services`」の値を必ず変更してください。 これらは、[{{site.data.keyword.cloud_notm}} アプリケーション環境](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment)と [{{site.data.keyword.cloudant_short_notm}} データベース・インスタンス](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)の作成時に入力した値です。
+{: note}
 
 3.  「`requirements.txt`」ファイルを編集して、次のテキストを含めます。
     ```
     cloudant==2.3.1
     ```
-    {:codeblock}
+    {: codeblock}
 
 ### アプリケーション・コード
+{: #the-application-code}
 
 次のステップでは、アプリケーション・コードに取り組みます。
 各セクションについて説明し、コードを示します。
-アプリケーション・コードの[全プログラムの表示](#complete-listing)が、チュートリアルのこのセクションの最後にあります。
+アプリケーション・コードの[全プログラムの表示](#complete-python-program)が、チュートリアルのこのセクションの最後にあります。
 
 #### 始めに
+{: #getting-started-create_bmxapp_createapp}
 
 Python アプリケーションには、いくつかの基本的コンポーネントが動作することが必要です。
 それらは、次のようにしてインポートされます。
@@ -100,7 +110,7 @@ import json
 # for formatting date and time values.
 from time import gmtime, strftime
 ```
-{:codeblock}
+{: codeblock}
 
 このアプリケーションは、単純な Web サーバーとして動作し、1 つのページだけを表示します。
 それは、{{site.data.keyword.cloudant_short_notm}} データベース・インスタンスへの接続とデータベース作成の結果が入ったログです。
@@ -116,9 +126,10 @@ except ImportError:
     from http.server import SimpleHTTPRequestHandler as Handler
     from http.server import HTTPServer as Server
 ```
-{:codeblock}
+{: codeblock}
 
->   **注**: このコード・セグメントは、[「スターター」アプリケーション・パック](create_bmxapp_appenv.html#starter)の一部として提供されます。
+このコード・セグメントは、[「スターター」アプリケーション・パック](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application)の一部として提供されます。
+{: note}
 
 アプリケーションは、{{site.data.keyword.cloudant_short_notm}} データベース・インスタンスに接続するため、
 {{site.data.keyword.cloudant_short_notm}} ライブラリー・コンポーネントをインポートする必要があります。
@@ -129,7 +140,7 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 ```
-{:codeblock}
+{: codeblock}
 
 このアプリケーションでは、{{site.data.keyword.cloudant_short_notm}} データベース・インスタンス内にデータベースを作成します。
 以下のようにして、データベースの名前が必要です。
@@ -138,7 +149,7 @@ from cloudant.result import Result, ResultByKey
 # This is the name of the database we intend to create.
 databaseName = "databasedemo"
 ```
-{:codeblock}
+{: codeblock}
 
 アプリケーションでは、{{site.data.keyword.cloudant_short_notm}} データベース・インスタンスに接続してデータベースを作成する際に、進行状況を記録します。
 この記録は、ログ・ファイルの形式で、Python Web サーバーからアクセス可能なフォルダー内に保管されます。
@@ -155,7 +166,7 @@ except OSError:
     pass
 os.chdir('static')
 ```
-{:codeblock}
+{: codeblock}
 
 次に、単純な HTML ファイルを作成します。
 ファイルには、アプリケーションがデータベースを作成する際の、各アクティビティーのログが入ります。
@@ -167,7 +178,7 @@ target = open(filename, 'w')
 target.truncate()
 target.write("<html><head><title>{{site.data.keyword.cloudant_short_notm}} Python Demo</title></head><body><p>Log of Cloudant Python steps...</p><pre>")
 ```
-{:codeblock}
+{: codeblock}
 
 ログの最初の部分は、現在日時の記録です。
 この記録を利用して、データベースを新しく作成中であることを確認できます。
@@ -178,9 +189,10 @@ target.write("====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n\n")
 ```
-{:codeblock}
+{: codeblock}
 
 #### {{site.data.keyword.cloudant_short_notm}} データベース・インスタンスの処理
+{: #working-with-the-ibm-cloudant-database-instance}
 
 Python アプリケーションは、{{site.data.keyword.cloud_notm}} アプリケーション環境内で実行されます。
 この環境は、接続されたサービスにアプリケーションがアクセスするために必要なすべての情報を提供します。
@@ -195,12 +207,10 @@ Python アプリケーションは、{{site.data.keyword.cloud_notm}} アプリ�
 # Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
 if 'VCAP_SERVICES' in os.environ:
 ```
-{:codeblock}
+{: codeblock}
 
->   **注**: 次のコード・セクションは、環境変数が見つかった場合にのみ実行されます。
-    Python で、以下のコードは、テストの本体であることを示すために、インデントされます。
-    このチュートリアルでは、スペースを節約するために、コード・セグメントでインデントは省略されています。
-    ただし、[全プログラムの表示](#complete-listing)では、インデントが正しく示されています。
+次のコード・セクションは、環境変数が見つかった場合にのみ実行されます。 Python で、以下のコードは、テストの本体であることを示すために、インデントされます。 このチュートリアルでは、スペースを節約するために、コード・セグメントでインデントは省略されています。 ただし、[全プログラムの表示](#complete-python-program)では、インデントが正しく示されています。
+{: note}
 
 変数が見つかったら、続行してその情報を使用します。
 まず、変数内に保管された JSON データをロードして、
@@ -212,7 +222,7 @@ vcap_servicesData = json.loads(os.environ['VCAP_SERVICES'])
 # Log the fact that we successfully found some service information.
 target.write("Got vcap_servicesData\n")
 ```
-{:codeblock}
+{: codeblock}
 
 次に、接続された {{site.data.keyword.cloudant_short_notm}} データベース・インスタンスに関する情報を探します。
 同様に、「ログ・ファイル」にイベントを記録します。
@@ -223,17 +233,17 @@ cloudantNoSQLDBData = vcap_servicesData['cloudantNoSQLDB']
 # Log the fact that we successfully found some {{site.data.keyword.cloudant_short_notm}} service information.
 target.write("Got cloudantNoSQLDBData\n")
 ```
-{:codeblock}
+{: codeblock}
 
 複数の {{site.data.keyword.cloud_notm}} サービスがアプリケーション環境に接続される場合があります。
 各サービスの資格情報は、配列エレメントとしてリストされます。
 このチュートリアルでは、
-1 つだけの[サービス接続が作成されています](create_bmxapp_appenv.html#connecting)。
+1 つだけの[サービス接続が作成されています](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services)。
 そのため、アプリケーションは最初のエレメント (エレメント「ゼロ」) にアクセスします。
 各サービス・エレメントには、そのサービスの資格情報が含まれます。
 それは、サービスのアクセスに必要な重要フィールドの名前で索引付けされたリストとして表されます。
 フィールド名に関する詳細は、単純データベースの作成タスクに関する
-[チュートリアル](create_database.html#pre-requisites)にあります。
+[チュートリアル](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites)にあります。
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -243,7 +253,7 @@ credentialsData = credentials['credentials']
 # Log the fact that we successfully found the {{site.data.keyword.cloudant_short_notm}} values.
 target.write("Got credentialsData\n\n")
 ```
-{:codeblock}
+{: codeblock}
 
 次に、リストを調べて、重要な値を取得します。
 
@@ -264,16 +274,16 @@ target.write("Got URL: ")
 target.write(serviceURL)
 target.write("\n")
 ```
-{:codeblock}
+{: codeblock}
 
 {{site.data.keyword.cloudant_short_notm}} データベース・インスタンス内にデータベースを作成するために必要な詳細が、アプリケーションにすべて用意されました。
 このタスクについては、単純データベースの作成に関する
-[チュートリアル](create_database.html#creating-a-database-within-the-service-instance)に詳しい説明があります。
+[チュートリアル](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance)に詳しい説明があります。
 
 アプリケーションでは、以下のタスクを実行する必要があります。
 
 1.  データベース・インスタンスへの接続を確立します。
-2.  [前に](#getting-started)指定された名前でデータベースを作成します。
+2.  [前に](#getting-started-create_bmxapp_createapp)指定された名前でデータベースを作成します。
 3.  現在の日時を含む JSON 文書を作成します。
 4.  データベースに JSON 文書を保管します。
 5.  文書が安全に保管されたことを確認します。
@@ -301,9 +311,10 @@ if myDatabaseDemo.exists():
 # All done - disconnect from the service instance.
 client.disconnect()
 ```
-{:codeblock}
+{: codeblock}
 
 #### ログ・ファイルのクローズ
+{: #closing-the-log-file}
 
 次のステップでは、ログ・ファイルを完成させて、
 アプリケーション内の単純 Python Web サーバーを使用してそれを提供する準備をします。
@@ -317,9 +328,10 @@ target.write("\n====\n")
 target.write("</pre></body></html>")
 target.close()
 ```
-{:codeblock}
+{: codeblock}
 
 #### ログ・ファイルの提供
+{: #serving-the-log-file}
 
 最後のタスクでは、Python アプリケーション内の Web サーバーを開始します。
 サーバーの目的は、要求に応じてログ・ファイルを戻すことだけです。
@@ -333,7 +345,7 @@ target.close()
 6.  要求時にイベントのログで応答しました。
 
 Python Web サーバーを開始するコードは、
-[「スターター」アプリケーション・パック](create_bmxapp_appenv.html#starter)の一部として含まれています。
+[「スターター」アプリケーション・パック](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application)の一部として含まれています。
 
 ```python
 # Start up the simple Python web server application,
@@ -347,13 +359,12 @@ except KeyboardInterrupt:
   pass
 httpd.server_close()
 ```
-{:codeblock}
+{: codeblock}
 
-## 次のステップ
+チュートリアルの次のステップでは、テスト目的で[アプリケーションをアップロードします](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application)。
 
-チュートリアルの次のステップでは、テスト目的で[アプリケーションをアップロードします](create_bmxapp_upload.html)。
-
-## 全プログラムの表示
+## 完全な Python プログラム
+{: #complete-python-program}
 
 以下のコードは、{{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスにアクセスする完全な Python プログラムです。
 
@@ -474,4 +485,4 @@ except KeyboardInterrupt:
   pass
 httpd.server_close()
 ```
-{:codeblock}
+{: codeblock}

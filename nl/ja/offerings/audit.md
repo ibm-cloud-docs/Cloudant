@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2015, 2018
-lastupdated: "2018-10-24"
+  years: 2015, 2019
+lastupdated: "2019-02-27"
+
+keywords: principal, action, resource, timestamp, access audit logs
+
+subcollection: cloudant
 
 ---
 
@@ -12,11 +16,14 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 監査ロギング
-
+{: #audit-logging}
 
 監査ロギングは、
 {{site.data.keyword.cloudant_short_notm}} に保管されたデータにアクセスした {{site.data.keyword.cloudantfull}} プリンシパルを記録します。 {{site.data.keyword.cloudant_short_notm}} への
@@ -29,6 +36,7 @@ lastupdated: "2018-10-24"
 `アクション` | 実行されたアクション (例えば、文書の読み取り)。
 `リソース` | アクセスまたは照会を行ったアカウント、データベース、および文書に関する詳細。
 `タイム・スタンプ` | イベントの時刻とデータのレコード。 
+{: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} 監査ログを使用して、以下を理解することができます。
 
@@ -36,9 +44,10 @@ lastupdated: "2018-10-24"
 - どの照会がいつ誰によって実行されたか。
 - どの特定のプリンシパルまたはユーザーがいつアクセス、更新、または削除したか。
 - どの複製文書がいつ作成または削除されたか。
-{:shortdesc}
+
 
 ## アカウントの監査ログへのアクセス方法
+{: #how-to-access-audit-logs-for-your-account}
 
 アカウントの監査ログへのアクセスを要求するには、
 {{site.data.keyword.cloudant_short_notm}} サポートにお問い合わせください。 サポートは、ユーザーにとって重要な監査ログのコピーを提供します。

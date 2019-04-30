@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-02-27"
+
+keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
+
+subcollection: cloudant
 
 ---
 
@@ -12,12 +16,17 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Come vengono memorizzati i dati in {{site.data.keyword.cloudant_short_notm}}?
+{: #how-is-data-stored-in-ibm-cloudant-}
 
 ## Concetti
+{: #concepts}
 
 Ogni database in {{site.data.keyword.cloudantfull}} è formato da uno o più _frammenti_ distinti,
 dove il numero di frammenti è indicato come _Q_.
@@ -56,6 +65,7 @@ per ottenere un buon equilibrio tra prestazioni e sicurezza dei dati.
 Sarebbe del tutto eccezionale e insolito che un sistema {{site.data.keyword.cloudant_short_notm}} utilizzasse un numero di repliche diverso.
 
 ## Come influisce la frammentazione sulle prestazioni?
+{: #how-does-sharding-affect-performance-}
 
 Il numero di frammenti per un database è configurabile
 perché influisce sulle prestazioni del database in diversi modi.
@@ -109,7 +119,7 @@ per stimare un numero di frammenti adeguato.
 Quando consideri la dimensione dei dati,
 una considerazione importante è il numero di documenti per frammento.
 Ogni frammento contiene i suoi documenti in un grande
-[B-tree ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/B-tree){:new_window}
+[B-tree ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/B-tree){: new_window}
 sul disco.
 Gli indici vengono memorizzati nello stesso modo.
 Più documenti vengono aggiunti a un frammento,
@@ -136,8 +146,6 @@ e utilizzare queste informazioni per guidare la selezione futura di un appropria
 Il test con dati rappresentativi e modelli di richiesta è essenziale per una migliore stima dei valori _Q_ adeguati.
 Preparati per un'esperienza di produzione per modificare tali aspettative.
 
-<div id="summary"></div>
-
 Le seguenti semplici linee guida potrebbero essere utili durante le fasi di pianificazione iniziali.
 Ricorda di convalidare la tua configurazione proposta eseguendo un test con i dati rappresentativi,
 in particolare per i database più grandi:
@@ -153,16 +161,16 @@ in particolare per i database più grandi:
 *	Per i database ancora più grandi,
 	potresti frammentare manualmente i tuoi dati in più database.
 	Per i database così grandi,
-	contatta il [supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window} per assistenza.
+	contatta il [supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){: new_window} per assistenza.
 
->	**Nota:** i numeri indicati in queste linee guida derivano dall'osservazione e dall'esperienza
-	piuttosto che da un calcolo preciso.
-
-<div id="API"></div>
+I numeri indicati in queste linee guida derivano dall'osservazione e dall'esperienza	piuttosto che da un calcolo preciso.
+{: tip}
 
 ## Utilizzo dei frammenti
+{: #working-with-shards}
 
 ### Impostazione del numero di frammenti
+{: #setting-shard-count}
 
 Il numero di frammenti,
 _Q_,
@@ -179,13 +187,13 @@ Il parametro `q` specifica che vengono creati otto frammenti per il database.
 ```sh
 curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
-{:codeblock}
+{: codeblock}
 
->	**Note:** l'impostazione _Q_ per i database non è abilitata per i database {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud}}.
-	Il valore _Q_ non è disponibile nella maggior parte dei cluster a più tenant di `cloudant.com`.
+L'impostazione _Q_ per i database non è abilitata per i database {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud}}. Il valore _Q_ non è disponibile nella maggior parte dei cluster a più tenant di `cloudant.com`.
+{: note}
 
 Se tenti di impostare il valore _Q_ dove non è disponibile,
-il risultato è una [risposta `403`](../api/http.html#403) con un corpo JSON
+il risultato è una [risposta `403`](/docs/services/Cloudant/api/http.html#http-status-codes) con un corpo JSON
 simile al seguente esempio:
 
 ```json
@@ -194,20 +202,22 @@ simile al seguente esempio:
 	"reason": "q is not configurable"
 }
 ```
-{:codeblock}
+{: codeblock}
 
 ### Impostazione del numero di repliche
+{: #setting-the-replica-count}
 
 A partire da CouchDB versione 2,
-puoi [specificare il numero di repliche ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){:new_window}
+puoi [specificare il numero di repliche ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window}
 quando crei un database.
 Tuttavia,
 non puoi modificare il valore del numero di repliche dall'impostazione predefinita di 3.
 In particolare,
 non è possibile specificare un valore del numero di repliche diverso quando crei un database.
-Per ulteriore assistenza, contatta il [supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){:new_window}.
+Per ulteriore assistenza, contatta il [supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){: new_window}.
 
 ### Cosa sono gli argomenti _R_ e _W_?
+{: #what-are-the-_r_-and-_w_-arguments-}
 
 Alcune richieste possono avere argomenti che influenzano il comportamento del coordinatore quando risponde alla richiesta.
 Questi argomenti sono noti come _R_ e _W_ dopo i loro nomi nella stringa di query della richiesta.
@@ -220,6 +230,7 @@ Ad esempio,
 la specifica di _R_ o _W_ non modifica la consistenza per la lettura o la scrittura.
 
 #### Cos'è _R_?
+{: #what-is-_r_-}
 
 L'argomento _R_ può essere specificato solo sulle richieste di singoli documenti.
 _R_ influisce sul numero di risposte che devono essere ricevute dal coordinatore prima di rispondere al client.
@@ -230,10 +241,8 @@ perché il coordinatore può restituire una risposta più rapidamente.
 Il motivo è che il coordinatore deve attendere solo un'unica risposta
 da una delle repliche che ospita il frammento appropriato.
 
->	**Nota:** la riduzione del valore _R_ aumenta la probabilità che la risposta che viene
-	restituita non sia basata sui dati più recenti
-	a causa del modello di [consistenza eventuale](cap_theorem.html) utilizzato da {{site.data.keyword.cloudant_short_notm}}.
-	L'utilizzo del valore _R_ aiuta a mitigare questo effetto.
+Se riduci il valore _R_, aumenta la probabilità che la risposta che viene	restituita non sia basata sui dati più recenti	a causa del modello di [consistenza eventuale](/docs/services/Cloudant/guides/cap_theorem.html) utilizzato da {{site.data.keyword.cloudant_short_notm}}. L'utilizzo del valore _R_ aiuta a mitigare questo effetto.
+{: note}
 
 Il valore predefinito per _R_ è _2_.
 Questo valore corrisponde alla maggior parte delle repliche per un tipico database che utilizza tre repliche di frammento.
@@ -241,13 +250,15 @@ Se il database ha un numero di repliche superiore o inferiore a 3,
 il valore predefinito per _R_ cambia di conseguenza.
 
 #### Cos'è _W_?
+{: #what-is-_w_-}
 
 _W_ può essere specificato solo sulle richieste di scrittura dei singoli documenti.
 
 _W_ è simile a _R_,
 perché influisce sul numero di risposte che devono essere ricevute dal coordinatore prima di rispondere al client.
 
->	**Nota:** _W_ non influisce in alcun modo sul comportamento effettivo della scrittura.
+_W_ non influisce in alcun modo sul comportamento effettivo della scrittura.
+{: note}
 
 Il valore di _W_ non influisce sul fatto che il documento sia scritto nel database o meno.
 Specificando un valore _W_,

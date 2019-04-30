@@ -1,8 +1,12 @@
 ---
 
 copyright:
-  years: 2017, 2018
-lastupdated: "2018-10-24"
+  years: 2017, 2019
+lastupdated: "2019-03-15"
+
+keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
+
+subcollection: cloudant
 
 ---
 
@@ -12,15 +16,19 @@ lastupdated: "2018-10-24"
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{:note: .note}
+{:important: .important}
+{:deprecated: .deprecated}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # 재해 복구 및 백업
+{: #disaster-recovery-and-backup}
 
 데이터는 중요하며 소중합니다.
 사용자는 데이터를 보호하고, 안전 및 가용성을 보장하며 무결성을 유지하는 데 도움을 주고자 합니다.
 {{site.data.keyword.cloudantfull}}는 데이터를 보호하고 애플리케이션의 가동 상태를 유지하는 데 도움을 주는 몇 가지 방법을 제공합니다.
-{:shortdesc}
+{: shortdesc}
 
 이러한 보호 기능 중 일부는 자동입니다.
 다른 형태의 보호 기능의 경우,
@@ -30,6 +38,7 @@ lastupdated: "2018-10-24"
 이 문서는 {{site.data.keyword.cloudant_short_notm}}에서 제공하는 자동 기능 및 지원 도구에 대한 개요를 제공합니다.
 
 ## 보호의 유형 및 레벨
+{: #types-and-levels-of-protection}
 
 사용자가 원하는 보호의 유형은 해결하려는 문제점에 따라 달라질 수 있습니다.
 
@@ -53,9 +62,8 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 요구사항을 식별할 때는 일반적인 요구를 해결하는 데 도움을 주는 도구 및 기능을 적용할 수 있습니다.
 이러한 도구 및 기능이 모이면 사용자의 HA 또는 DR 요구사항을 해결할 수 있게 됩니다.
 
->	**참고**: 각 도구 및 기능은 서로 다른 보호 레벨을 제공합니다.
-	각 기능은 사용자의 HA 또는 DR 요구사항을 해결하는 데 더 적합하거나 덜 적합할 수 있습니다.
-{:tip}
+각 도구 및 기능은 서로 다른 보호 레벨을 제공합니다. 각 기능은 사용자의 HA 또는 DR 요구사항을 해결하는 데 더 적합하거나 덜 적합할 수 있습니다.
+{: tip}
 
 {{site.data.keyword.cloudant_short_notm}}에서는 일반적인 요구사항을 해결하는 몇 가지 도구 및 기능을 제공합니다.
 
@@ -64,6 +72,7 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 3.	'기존' [데이터베이스 백업 및 복구](#database-backup-and-recovery)를 사용한, 특정 시점 복원을 위한 특정 시점 스냅샷 백업
 
 ## 지역 내 자동 데이터 중복성
+{: #in-region-automatic-data-redundancy}
 
 하나의 {{site.data.keyword.cloudant_short_notm}} 계정 내에서, 데이터는 내부 및 자동 프로세스를 사용하여 삼중으로 저장됩니다.
 이 내부 데이터 복제를 사용으로 설정하기 위해 추가 작업을 수행할 필요는 없습니다.
@@ -97,6 +106,7 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 간단히 말해, 지역 내 데이터 중복성은 지역 내의 한 시스템에 영향을 주는 장애에 대한 내성을 제공하여 고가용성 기능을 가능하게 합니다.
 
 ## 재해 복구를 위한 교차 지역 중복성
+{: #cross-region-redundancy-for-disaster-recovery}
 
 {{site.data.keyword.cloudant_short_notm}} 복제 기능은 애플리케이션에 유연한 재해 복구 기능을 빌드하도록 도와줍니다.
 재해 복구를 가능하게 하는 기본적인 방법은 {{site.data.keyword.cloudant_short_notm}} 복제를 사용하여 여러 지역에 중복성을 구축하는 것입니다.
@@ -108,7 +118,7 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 2.  필요에 따라 각 지역에 데이터베이스를 작성하십시오.
 3.  교차 지역 중복성을 사용하여 저장해야 하는 데이터베이스의 경우에는 각 계정의 해당 데이터베이스 간에 양방향 연속 복제를 설정하십시오.
 4.  환경이 활성-수동인지 또는 활성-활성 구성인지에 따라 데이터 요청이 라우팅되도록 애플리케이션을 디자인하고 구현하십시오.
-  이를 설정하는 데 대한 자세한 안내서는 [여기](active-active.html)에 있습니다.
+  이를 설정하는 데 대한 자세한 안내서는 [여기](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)에 있습니다.
 
 여러 지역에서 데이터에 대해 작업하도록 애플리케이션을 디자인할 때는 다음 항목을 고려하십시오.
 
@@ -117,7 +127,7 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
   이 구성을 '활성-활성' 방법이라고 합니다.
   이 방법의 특징은 여러 데이터 사본의 동시 사용입니다.
   활성-활성 구성에서 작동하는 애플리케이션에는 여러 데이터 사본으로 인한 문제점을 해결하기 위한
-  [충돌 처리 전략](mvcc.html#distributed-databases-and-conflicts)이 있어야 합니다.
+  [충돌 처리 전략](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#distributed-databases-and-conflicts)이 있어야 합니다.
 * 애플리케이션은 기본적으로 하나의 영역으로부터 데이터를 요청할 수 있습니다.
   해당 지역이
   사용 불가능한 경우 애플리케이션은 다른 지역으로부터의 데이터 요청으로 전환할 수 있습니다.
@@ -139,6 +149,7 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 데이터의 사본으로 '장애 복구'할 수 있어야 합니다.
 
 ## 데이터베이스 백업 및 복구
+{: #database-backup-and-recovery}
 
 [지역 내 자동 데이터 중복성](#in-region-automatic-data-redundancy)은 애플리케이션에 데이터에 대한 고가용성 액세스를 제공합니다.
 [재해 복구를 위한 교차 지역 중복성](#cross-region-redundancy-for-disaster-recovery)은 애플리케이션에 재해로부터 복구할 수 있는 수단을 제공합니다.
@@ -161,8 +172,8 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 *	추가 처리를 수행하거나 오프사이트 스토리지에 저장하는 데 적합하도록 전체 데이터베이스를 하나의 파일에 백업합니다.
 *	백업 파일에 포함된 이전 상태로부터 전체 데이터베이스를 복원합니다.
 
-> **주의하십시오!** {{site.data.keyword.cloudant_short_notm}}에서 지원하는 도구에는 다음 제한사항이 있습니다. 
-{:tip}
+{{site.data.keyword.cloudant_short_notm}}에서 지원하는 도구에는 다음 제한사항이 있습니다. 
+{: tip}
 
 *	`_security` 설정은 이 도구에 의해 백업되지 않습니다.
 *	첨부 파일은 이 도구에 의해 백업되지 않습니다.
@@ -173,9 +184,8 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 	데이터가 복원되면 인덱스를 다시 빌드해야 합니다.
 	복원되는 데이터의 양에 따라 이 다시 빌드 작업에는 상당한 시간이 소요될 수 있습니다.
 
-<div id="conclusion"></div>
-
-## 다음 단계
+## 데이터 보호 전략을 사용하는 다음 단계
+{: #next-steps-with-your-data-protection-strategies}
 
 더 복잡한 데이터 보호 전략을 사용할 수 있도록 하기 위해 기본 {{site.data.keyword.cloudant_short_notm}} 기능 및 지원 도구로 빌드되는 애플리케이션을 개발할 수 있습니다.
 
@@ -186,6 +196,6 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 *	비용 효율적인 보존을 위해 더 저렴한 스토리지로 이전 데이터를 마이그레이션합니다.
 
 백업 도구는 오픈 소스 node.js 명령행 애플리케이션 및 라이브러리로 구성되어 있습니다.
-이는 [NPM ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.npmjs.com/package/@cloudant/couchbackup){:new_window}에 있습니다.
+이는 [NPM ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}에 있습니다.
 
-도구를 데이터 보호 전략에 통합하는 방법에 대한 아이디어와 이를 보여주는 예는 [백업 쿡북 안내서](backup-cookbook.html)를 참조하십시오.
+도구를 데이터 보호 전략에 통합하는 방법에 대한 아이디어와 이를 보여주는 예는 [백업 쿡북 안내서](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)를 참조하십시오.
