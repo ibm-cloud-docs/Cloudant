@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-04-30"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -56,10 +56,10 @@ instances on it.
     
 4.  Fill out the following parameters at the top of the page: <br/>
     -   Enter a service name.<br/>
-    -   Specify the region/location where you want to deploy.<br/>
+    -   Specify the region/location where you want to deploy. The region/location will be one of the six major {{site.data.keyword.cloud_notm}} regions where you want the instance deployed. The actual physical location of the instance is dictated by the location parameter described below.<br/>
     -   Select a resource group.</br>
     -   Add a tag. 
-    -   Select a location for deployment.<br/>
+    -   Select a location for deployment. This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information see [{{site.data.keyword.IBM}} global data centers ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/data-centers/){:new_window}.<br/>
     -   Select `yes` or `no` to answer whether HIPAA is required.<br/> 
     
     HIPAA is only valid for U.S. locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only provisioned upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. See [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
@@ -105,7 +105,7 @@ instances on it.
     -   Select a resource group. </br>
     -   Add a tag. 
     -   Select an authentication method.</br>
-    -   Select an environment.</br>
+    -   Select an environment, which is where the Standard plan instance will be deployed. Any Dedicated Hardware environment instances deployed in the account will show up in the drop-down if they are available.</br>
     ![Configure standard instance](images/select_environment.png)
     
 5.  Click the `Create` button.<br/>
@@ -167,7 +167,7 @@ The basic command format to create credentials for a service instance
 within {{site.data.keyword.cloud_notm}} is as follows:
 
 ```sh
-ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [--enable-internal-service-endpoint true]
+ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [-p '{"service-endpoints":"internal"}]
 ```
 {: pre}
 
@@ -178,7 +178,7 @@ Field | Description
 `NAME` | Arbitrary name that you give the service credentials. 
 `ROLE_NAME` | This field currently allows the Manager role only.
 `SERVICE_INSTANCE_NAME` | The name you give to your {{site.data.keyword.cloudant_short_notm}} instance.
-`enable-internal-service-endpoint` | An optional field to populate the url field in the Service Credentials with an internal endpoint to connect to the service over the {{site.data.keyword.cloud_notm}} internal network. Omit this field to populate the url with an external endpoint that is publicly accessible. Only applies to Standard plan instances deployed on Dedicated Hardware environments that support internal endpoints. Command will result in a 400 error if the environment doesn't support internal endpoints. 
+`service-endpoints` | An optional parameter to populate the url field in the Service Credentials with an internal endpoint to connect to the service over the {{site.data.keyword.cloud_notm}} internal network. Omit this parameter to populate the url with an external endpoint that is publicly accessible. Only applies to Standard plan instances deployed on Dedicated Hardware environments that support internal endpoints. Command will result in a 400 error if the environment doesn't support internal endpoints. 
 
 If you want to create credentials for the `cs20170517a` instance of
 an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`), you create these credentials by using a command similar to the following example:
@@ -217,7 +217,7 @@ If you want to create credentials for the `cs20170517a` instance of
 an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`) and you want to populate the url with the internal endpoint, you create these credentials by using a command similar to the following example:
 
 ```sh
-ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a --enable-internal-service-endpoint true
+ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a -p '{"service-endpoints":"internal"}'
 ```
 {: codeblock}
 
