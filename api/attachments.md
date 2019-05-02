@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-02"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -65,7 +65,7 @@ The `$ATTACHMENT` value is the name by which the attachment is associated with t
 You can create more than one attachment for a document by ensuring that the `$ATTACHMENT` value for each attachment is unique within the document.
 {: tip}
 
-_Example instruction for creating or updating an attachment, by using HTTP:_
+*Example instruction for creating or updating an attachment, by using HTTP:*
 
 ```HTTP
 PUT /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
@@ -73,7 +73,7 @@ Content-Type: $$ATTACHMENT_MIME_TYPE
 ```
 {: codeblock}
 
-_Example instruction for creating or updating an attachment, by using the command line:_
+*Example instruction for creating or updating an attachment, by using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV \
@@ -85,7 +85,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV \
 
 <!--
 
-_Example instruction for creating or updating an attachment, using Javascript:_
+*Example instruction for creating or updating an attachment, using Javascript:*
 
 ```javascript
 var nano = require('nano');
@@ -113,7 +113,7 @@ The response contains the document ID and the new document revision.
 Attachments do not have their own revisions. Instead, when you update or create an attachment, it changes the revision of the document it is attached to. 
 {: tip}
 
-_Example response:_
+*Example response:*
 
 ```json
 {
@@ -131,14 +131,14 @@ To retrieve an attachment,
 make a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 The body of the response is the raw content of the attachment.
 
-_Example of reading an attachment, by using HTTP:_
+*Example of reading an attachment, by using HTTP:*
 
 ```http
 GET /$DATABASE/$DOCUMENT_ID/$ATTACHMENT HTTP/1.1
 ```
 {: codeblock}
 
-_Example of reading an attachment, by using the command line:_
+*Example of reading an attachment, by using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT \
@@ -149,7 +149,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT \
 
 <!--
 
-_Example of reading an attachment, using Javascript:_
+*Example of reading an attachment, using Javascript:*
 
 ```javascript
 var nano = require('nano');
@@ -174,14 +174,14 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 If you do not supply the most recent `_rev`,
 the response is a [409 error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
-_Example of deleting an attachment, by using HTTP:_
+*Example of deleting an attachment, by using HTTP:*
 
 ```http
 DELETE /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
 ```
 {: codeblock}
 
-_Example of deleting an attachment, by using the command line:_
+*Example of deleting an attachment, by using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV \
@@ -192,7 +192,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV \
 
 <!--
 
-_Example of deleting an attachment, using Javascript:_
+*Example of deleting an attachment, using Javascript:*
 
 ```javascript
 var nano = require('nano');
@@ -212,7 +212,7 @@ If the deletion is successful,
 the response contains `"ok": true`,
 and the ID and new revision of the document.
 
-_Example response after a successful delete of an attachment:_
+*Example response after a successful delete of an attachment:*
 
 ```json
 {
@@ -232,7 +232,7 @@ as shown in the example.
 
 A full list of media types is available in this article about [media types ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}.
 
-_Example JSON document that includes an inline attachment of a jpeg image:_
+*Example JSON document that includes an inline attachment of a jpeg image:*
 
 ```json
 {

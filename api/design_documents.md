@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-03"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -29,8 +29,8 @@ subcollection: cloudant
 Design documents are used to [build indexes](#indexes-design-docs), [validate updates](#update-validators), and [format query results](#list-functions).
 {: shortdesc}
 
-Each design document defines either _partitioned_ or _global_ indexes,
-controlled via the `options.partitioned` field. A _partitioned_ index allows only queries over a single data partition in a partitioned database. A _global_ index allows querying over all data within a database, at a cost of latency and throughput over a partitioned index.
+Each design document defines either *partitioned* or *global* indexes,
+controlled via the `options.partitioned` field. A *partitioned* index allows only queries over a single data partition in a partitioned database. A *global* index allows querying over all data within a database, at a cost of latency and throughput over a partitioned index.
 
 ## Creating or updating a design document
 {: #creating-or-updating-a-design-document}
@@ -56,7 +56,7 @@ If a design document is updated, {{site.data.keyword.cloudant_short_notm}} delet
 
 The structure of design document is as follows:
 
--	**`_id`**: Design document ID. This ID is _always_ prefixed `_design` and _never_ contains a partition key, regardless of database partitioning type.
+-	**`_id`**: Design document ID. This ID is *always* prefixed `_design` and *never* contains a partition key, regardless of database partitioning type.
 -	**`_rev`**: Design document revision
 -	**options**: Contains options for this design document.
     -   **partitioned (optional, boolean)**: Whether this design document describes partitioned or global indexes. For more inforamtion, see [The `options.partitioned` field](#the-options-partitioned-field).
@@ -127,7 +127,7 @@ Copying a design document does not automatically reconstruct the view indexes. L
 The following example requests {{site.data.keyword.cloudant_short_notm}} to copy the design document `recipes` to the new design document `recipelist`,
 and produces a response containing the ID and revision of the new document.
 
-_Example command to copy a design document, using HTTP:_
+*Example command to copy a design document, using HTTP:*
 
 ```http
 COPY /recipes/_design/recipes HTTP/1.1
@@ -136,7 +136,7 @@ Destination: _design/recipelist
 ```
 {: codeblock}
 
-_Example command to copy a design document, using the command line:_
+*Example command to copy a design document, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
@@ -146,7 +146,7 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 ```
 {: codeblock}
 
-_Example response to the copy request:_
+*Example response to the copy request:*
 
 ```json
 {
@@ -185,7 +185,7 @@ add the `rev` argument to the query string.
 
 The new design document is created using the specified revision of the source document.
 
-_Example command to copy a specific revision of the design document, using HTTP:_
+*Example command to copy a specific revision of the design document, using HTTP:*
 
 ```http
 COPY /recipes/_design/recipes?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5 HTTP/1.1
@@ -194,7 +194,7 @@ Destination: _design/recipelist
 ```
 {: codeblock}
 
-_Example command to copy a specific revision of the design document, using the command line:_
+*Example command to copy a specific revision of the design document, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5" \
@@ -211,7 +211,7 @@ To overwrite or copy to an existing document,
 specify the current revision string for the target document,
 using the `rev` parameter to the `Destination` HTTP Header string.
 
-_Example command to overwrite an existing copy of the design document, using HTTP:_
+*Example command to overwrite an existing copy of the design document, using HTTP:*
 
 ```http
 COPY /recipes/_design/recipes
@@ -220,7 +220,7 @@ Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee
 ```
 {: codeblock}
 
-_Example command to overwrite an existing copy of the design document, using the command line:_
+*Example command to overwrite an existing copy of the design document, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
@@ -232,7 +232,7 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 
 The return value is the ID and new revision of the copied document.
 
-_Example response:_
+*Example response:*
 
 ```json
 {
@@ -252,14 +252,14 @@ and recovers the corresponding space on disk for the indexes in question.
 To delete a design document successfully,
 you must specify the current revision of the design document using the `rev` query argument.
 
-_Example command to delete a design document, using HTTP:_
+*Example command to delete a design document, using HTTP:*
 
 ```http
 DELETE /recipes/_design/recipes?rev=2-ac58d589b37d01c00f45a4418c5a15a8 HTTP/1.1
 ```
 {: codeblock}
 
-_Example command to delete a design document, using using the command line:_
+*Example command to delete a design document, using using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=2-ac58d589b37d01c00f45a4418c5a15a8" \
@@ -267,7 +267,7 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=2-ac58d589b37d01
 ```
 {: codeblock}
 
-_Example response, containing the deleted document ID and revision:_
+*Example response, containing the deleted document ID and revision:*
 
 ```json
 {
@@ -318,7 +318,7 @@ Field    | Description
 `query`  | The query part of the resulting URL. This is a JSON object containing the key/value pairs of the query.
 `to`     | The path (relative to `/$DATABASE/_design/doc/` and not including the query part of the URL) that is the result of the rewriting step. Variables captured in `from` can be used in `to`. `*` can also be used and contains everything captured by the pattern in `from`.
 
-_Example JSON describing some rewrite rules:_
+*Example JSON describing some rewrite rules:*
 
 ```json
 {
@@ -433,7 +433,7 @@ because they are based on additional factors such as query parameters or the use
 
 The values within the `req` argument are similar to the following [query parameters](/docs/services/Cloudant?topic=cloudant-query#ibm-cloudant-query-parameters).
 
-_Example design document referencing a list function, expressed using JSON:_
+*Example design document referencing a list function, expressed using JSON:*
 
 ```json
 {
@@ -445,7 +445,7 @@ _Example design document referencing a list function, expressed using JSON:_
 ```
 {: codeblock}
 
-_Example of a list function, in pseudo-code:_
+*Example of a list function, in pseudo-code:*
 
 ```javascript
 function (head, req) {
@@ -473,14 +473,14 @@ function (head, req) {
 ```
 {: codeblock}
 
-_Example invocation of a list function, using HTTP:_
+*Example invocation of a list function, using HTTP:*
 
 ```http
 GET /$DATABASE/$DESIGN_ID/_list/$LIST_FUNCTION/$MAPREDUCE_INDEX HTTP/1.1
 ```
 {: codeblock}
 
-_Example invocation of a list function, using the command line:_
+*Example invocation of a list function, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DESIGN_ID/_list/$LIST_FUNCTION/$MAPREDUCE_INDEX" \
@@ -565,7 +565,7 @@ When you have defined a show function,
 you query it by sending a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_show/$SHOW_FUNCTION/$DOCUMENT_ID`,
 where `$SHOW_FUNCTION` is the name of the function that is included in the design document `$DESIGN_ID`.
 
-_Example of a design document with a show function:_
+*Example of a design document with a show function:*
 
 ```json
 {
@@ -577,7 +577,7 @@ _Example of a design document with a show function:_
 ```
 {: codeblock}
 
-_Example of a show function:_
+*Example of a show function:*
 
 ```javascript
 function (doc, req) {
@@ -590,7 +590,7 @@ function (doc, req) {
 ```
 {: codeblock}
 
-_Example of a show function query, using HTTP:_
+*Example of a show function query, using HTTP:*
 
 ```http
 GET /$DATABASE/$DESIGN_ID/_show/$SHOW_FUNCTION/$DOCUMENT_ID HTTP/1.1
@@ -598,7 +598,7 @@ Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-_Example of a show function query, using the command line:_
+*Example of a show function query, using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_show/$SHOW_FUNCTION/$DOCUMENT_ID \
@@ -667,7 +667,7 @@ Variable          | Purpose
 `$DOCUMENT_ID`    | The ID of the document that the handler must work with.
 `$UPDATE_HANDLER` | The name of the update handler.
 
-_Example of a design document with an update handler:_
+*Example of a design document with an update handler:*
 
 ```json
 {
@@ -679,7 +679,7 @@ _Example of a design document with an update handler:_
 ```
 {: codeblock}
 
-_Example of an update handler:_
+*Example of an update handler:*
 
 ```javascript
 function(doc, req){
@@ -698,7 +698,7 @@ function(doc, req){
 ```
 {: codeblock}
 
-_Example of an update handler query, using HTTP:_
+*Example of an update handler query, using HTTP:*
 
 ```http
 POST /$DATABASE/$DESIGN_ID/_update/$UPDATE_HANDLER HTTP/1.1
@@ -706,7 +706,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of an update handler query, using the command line:_
+*Example of an update handler query, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_update/$UPDATE_HANDLER" \
@@ -770,7 +770,7 @@ only the `doc` parameter is used.
 
 The `req` argument corresponds to that used in a [list function](#list-functions).
 
-_Example design document containing a filter function:_
+*Example design document containing a filter function:*
 
 ```json
 {
@@ -782,7 +782,7 @@ _Example design document containing a filter function:_
 ```
 {: codeblock}
 
-_Example of a filter function:_
+*Example of a filter function:*
 
 ```javascript
 function(doc, req){
@@ -803,14 +803,14 @@ To apply a filter function to the changes feed,
 include the `filter` parameter in the `_changes` query,
 providing the name of the filter to use.
 
-_Example of an filter function applied to a `_changes` query, using HTTP:_
+*Example of an filter function applied to a `_changes` query, using HTTP:*
 
 ```http
 GET /$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION HTTP/1.1
 ```
 {: codeblock}
 
-_Example of an filter function applied to a `_changes` query, using the command line:_
+*Example of an filter function applied to a `_changes` query, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION" \
@@ -819,21 +819,21 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER
 
 The `req` argument gives you access to aspects of the HTTP request using the `query` property.
 
-_Example of supplying a `req` argument, using HTTP:
+*Example of supplying a `req` argument, using HTTP:*
 
 ```http
 GET /$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION&status=new HTTP/1.1
 ```
 {: codeblock}
 
-_Example of supplying a `req` argument, using the command line:
+*Example of supplying a `req` argument, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION&status=new" \
 ```
 {: codeblock}
 
-_Example filter using a supplied `req` argument:_
+*Example filter using a supplied `req` argument:*
 
 ```javascript
 function(doc, req){
@@ -867,23 +867,23 @@ The `_design` filter accepts changes only for design documents within the reques
 
 The filter does not require any arguments.
 
-Changes are listed for _all_ the design documents within the database.
+Changes are listed for *all* the design documents within the database.
 
-_Example application of the `_design` filter, using HTTP:_
+*Example application of the `_design` filter, using HTTP:*
 
 ```http
 GET /$DATABASE/_changes?filter=_design HTTP/1.1
 ```
 {: codeblock}
 
-_Example application of the `_design` filter, using the command line:_
+*Example application of the `_design` filter, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_design" \
 ```
 {: codeblock}
 
-_Example response (abbreviated) after applying the `_design` filter:_
+*Example response (abbreviated) after applying the `_design` filter:*
 
 ```json
 {
@@ -921,21 +921,21 @@ The `_doc-ids` filter accepts only changes for documents with specified IDs.
 The IDs are specified in a `doc_ids` parameter,
 or within a JSON document supplied as part of the original request.
 
-_Example application of the `_doc_ids` filter, using HTTP:_
+*Example application of the `_doc_ids` filter, using HTTP:*
 
 ```http
 POST /$DATABASE/_changes?filter=_doc_ids HTTP/1.1
 ```
 {: codeblock}
 
-_Example application of the `_doc_ids` filter, using the command line:_
+*Example application of the `_doc_ids` filter, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_doc_ids" \
 ```
 {: codeblock}
 
-_Example JSON document listing document IDs to match during filtering:_
+*Example JSON document listing document IDs to match during filtering:*
 
 ```json
 {
@@ -946,7 +946,7 @@ _Example JSON document listing document IDs to match during filtering:_
 ```
 {: codeblock}
 
-_Example response (abbreviated) after filtering by `_docs_ids`:_
+*Example response (abbreviated) after filtering by `_docs_ids`:*
 
 ```json
 {
@@ -977,21 +977,21 @@ for [`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-
 For more examples showing use of this filter,
 see the information on selector syntax.
 
-_Example application of the `_selector` filter, using HTTP:_
+*Example application of the `_selector` filter, using HTTP:*
 
 ```http
 POST /$DATABASE/_changes?filter=_selector HTTP/1.1
 ```
 {: codeblock}
 
-_Example application of the `_selector` filter, using the command line:_
+*Example application of the `_selector` filter, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector" \
 ```
 {: codeblock}
 
-_Example JSON document containing the selector expression to use during filtering:_
+*Example JSON document containing the selector expression to use during filtering:*
 
 ```json
 {
@@ -1004,7 +1004,7 @@ _Example JSON document containing the selector expression to use during filterin
 ```
 {: codeblock}
 
-_Example response (abbreviated) after filtering using a selector:_
+*Example response (abbreviated) after filtering using a selector:*
 
 ```json
 {
@@ -1053,21 +1053,21 @@ The `_view` filter allows you to use an existing [map function](/docs/services/C
 If the map function emits any output as a result of processing a given document,
 then the filter considers the document to be allowed and so includes it in the list of documents that have changed.
 
-_Example application of the `_view` filter, using HTTP:_
+*Example application of the `_view` filter, using HTTP:*
 
 ```http
 GET /$DATABASE/_changes?filter=_view&view=$DESIGNDOC/$VIEWNAME HTTP/1.1
 ```
 {: codeblock}
 
-_Example application of the `_view` filter, using the command line:_
+*Example application of the `_view` filter, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_view&view=$DESIGNDOC/$VIEWNAME" \
 ```
 {: codeblock}
 
-_Example response (abbreviated) after filtering using a map function:_
+*Example response (abbreviated) after filtering using a map function:*
 
 ```json
 {
@@ -1110,7 +1110,7 @@ Argument  | Purpose
 Update validators do not apply when a design document is updated by an admin user. This is to ensure that admins can never accidentally lock themselves out.
 {: tip}
 
-_Example design document with an update validator:_
+*Example design document with an update validator:*
 
 ```json
 {
@@ -1120,7 +1120,7 @@ _Example design document with an update validator:_
 ```
 {: codeblock}
 
-_Example of an update validator:_
+*Example of an update validator:*
 
 ```javascript
 function(newDoc, oldDoc, userCtx, secObj) {
@@ -1131,7 +1131,7 @@ function(newDoc, oldDoc, userCtx, secObj) {
 ```
 {: codeblock}
 
-_Example response from an update validator:_
+*Example response from an update validator:*
 
 ```json
 {
@@ -1160,16 +1160,14 @@ and current status of the design document and associated view index information.
 -	**Response**: JSON containing the design document information.
 -	**Roles permitted**: `_reader`
 
-_Example of retrieving information about the `recipesdd` design document from within the `recipes` database,
-using HTTP:_
+*Example of retrieving information about the `recipesdd` design document from within the `recipes` database, using HTTP:*
 
 ```http
 GET /recipes/_design/recipesdd/_info HTTP/1.1
 ```
 {: codeblock}
 
-_Example of retrieving information about the `recipesdd` design document from within the `recipes` database,
-using the command line:_
+*Example of retrieving information about the `recipesdd` design document from within the `recipes` database, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipesdd/_info" \
@@ -1190,7 +1188,7 @@ The individual fields in the JSON response are as follows:
 	-	**waiting_clients**: Number of clients waiting on views from this design document.
 	-	**waiting_commit**: Indicates if there are outstanding commits to the underlying database that need to processed
 
-_Example response in JSON format:_
+*Example response in JSON format:*
 
 ```json
 {
@@ -1221,16 +1219,14 @@ that is defined within a given design document.
 -	**Response**: JSON containing information about the specified search.
 -	**Roles permitted**: `_reader`
 
-_Example of getting information about the `description` search,
-defined within the `app` design document stored in the `foundbite` database, using HTTP:_
+*Example of getting information about the `description` search, defined within the `app` design document stored in the `foundbite` database, using HTTP:*
 
 ```http
 GET /foundbite/_design/app/_search_info/description HTTP/1.1
 ```
 {: codeblock}
 
-_Example of getting information about the `description` search,
-defined within the `app` design document stored in the `foundbite` database, using the command line:_
+*Example of getting information about the `description` search, defined within the `app` design document stored in the `foundbite` database, using the command line:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/description" \
@@ -1249,7 +1245,7 @@ The individual fields in the returned JSON structure are as follows:
 	-	**committed_seq**: The sequence number of changes in the database that have been committed
 		to the Lucene index on disk.
 
-_Example response in JSON format:_
+*Example response in JSON format:*
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-02"
 
 keywords: authorization, roles, permissions, _users database
 
@@ -142,14 +142,14 @@ write,
 and manage the database,
 send a `GET` request to `https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security`.
 
-_Example of using an HTTP request to determine permissions:_
+*Example of using an HTTP request to determine permissions:*
 
 ```http
 GET /_api/v2/db/$DATABASE/_security HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using a command line request to determine permissions:_
+*Example of using a command line request to determine permissions:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security
@@ -158,7 +158,7 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security
 
 <!--
 
-_Example request to determine permissions, using Javascript:_
+*Example request to determine permissions, using Javascript:*
 
 ```javascript
 var nano = require('nano');
@@ -188,7 +188,7 @@ In the following example response,
 the `nobody` user name has `_reader` permissions.
 This combination means that the database is publicly readable to unauthenticated users.
 
-_Example response to request for permissions:_
+*Example response to request for permissions:*
 
 ```json
 {
@@ -222,7 +222,7 @@ send a `PUT` request to `https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_sec
 To see what roles you can assign,
 see [Roles](/docs/services/Cloudant?topic=cloudant-authorization#roles).
 
-_Example of using HTTP to send an authorization modification request:_
+*Example of using HTTP to send an authorization modification request:*
 
 ```http
 PUT /_api/v2/db/$DATABASE/_security HTTP/1.1
@@ -230,7 +230,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of using the command line to send an authorization modification request:_
+*Example of using the command line to send an authorization modification request:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security \
@@ -242,7 +242,7 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security \
 
 <!--
 
-_Example of using JavaScript to send an authorization modification request:_
+*Example of using JavaScript to send an authorization modification request:*
 
 ```javascript
 var nano = require('nano');
@@ -276,7 +276,7 @@ In the following example request,
 the `nobody` user name is given `_reader` permissions.
 This authorization makes the database publicly readable.
 
-_Example of an authorization modification request document:_
+*Example of an authorization modification request document:*
 
 ```json
 {
@@ -301,7 +301,7 @@ _Example of an authorization modification request document:_
 
 The response indicates whether the update was successful.
 
-_Example response after a successful authorization modification request:_
+*Example response after a successful authorization modification request:*
 
 ```json
 {
@@ -319,7 +319,7 @@ For example,
 if you want to add a `nobody` user with read-only access,
 the  following incorrect request removes _all_ the other users with access to the database.
 
-_Example of an incorrect authorization modification request document:_
+*Example of an incorrect authorization modification request document:*
 
 ```json
 {
@@ -383,14 +383,14 @@ and cannot be retrieved if lost or forgotten.
 [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){: new_window} does not support API Keys. For a similar capability, create "CouchDB" style users, as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_db_security.html){: new_window}.
 {: note}
 
-_Example of using an HTTP request to create an API key:_
+*Example of using an HTTP request to create an API key:*
 
 ```http
 POST https://$ACCOUNT.cloudant.com/_api/v2/api_keys HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to create an API key:_
+*Example of using the command line to create an API key:*
 
 ```sh
 curl -X POST https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_api/v2/api_keys
@@ -399,7 +399,7 @@ curl -X POST https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_api/v2/api_keys
 
 <!--
 
-_Example of using JavaScript to create an API key:_
+*Example of using JavaScript to create an API key:*
 
 ```javascript
 var nano = require('nano');
@@ -423,7 +423,7 @@ account.request(
 
 The response contains the generated key and password.
 
-_Example response to request for an API key:_
+*Example response to request for an API key:*
 
 ```json
 {
@@ -514,7 +514,7 @@ To disable {{site.data.keyword.cloudant_short_notm}} security,
 `PUT` a JSON document to the `_security` endpoint of the database.
 For example, `https://$ACCOUNT.cloudant.com/$DATABASE/_security`.
 
-_Example of using HTTP to submit a modification request:_
+*Example of using HTTP to submit a modification request:*
 
 ```http
 PUT /$DATABASE/_security HTTP/1.1
@@ -522,7 +522,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of using the command line to submit a modification request:_
+*Example of using the command line to submit a modification request:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_security \
@@ -532,7 +532,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_security \
 ```
 {: codeblock}
 
-_Example modification request, in JSON format:_
+*Example modification request, in JSON format:*
 
 ```json
 {
@@ -547,7 +547,7 @@ _Example modification request, in JSON format:_
 ```
 {: codeblock}
 
-_Example response:_
+*Example response:*
 
 ```json
 {

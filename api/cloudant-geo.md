@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 201954"
+  years: 2015, 2019
+lastupdated: "2019-05-02"
 
 keywords: geospatial, geojson, geo index, querying, query geometry, geometric relation
 
@@ -63,7 +64,7 @@ An example would be to specify a document that is considered to be 'contained' i
 a geospatial characteristic that fits within a given geospatial polygon, which is
 defined by a series of points.
 
-_Example of a relationship that uses a geospatial polygon:_
+*Example of a relationship that uses a geospatial polygon:*
 
 ```
 relation=contains&g=POLYGON ((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
@@ -153,7 +154,7 @@ It must contain two fields: `type` and `coordinates`, where:
 	or `MultiPolygon`.
 -	`coordinates` field specifies an array of latitude and longitude values.
 
-_An example GeoJSON document:_
+*An example GeoJSON document:*
 
 ```json
 {
@@ -234,7 +235,7 @@ For example,
 you might want to obtain information about the `geoidx` geospatial index,
 held within the `geodd` design document of the `crimes` database.
 
-_Example request, by using HTTP:_
+*Example request, by using HTTP:*
 
 ```http
 GET /crimes/_design/geodd/_geo_info/geoidx HTTP/1.1
@@ -242,7 +243,7 @@ Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-_Example request, by using the command line:_
+*Example request, by using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/crimes/_design/geodd/_geo_info/geoidx \
@@ -258,7 +259,7 @@ Field | Description
 `disk_size` | The size of the geospatial index, as stored on disk, in bytes.
 `data_size` | The size of the geospatial index, in bytes.
 
-_Example response in JSON format:_
+*Example response in JSON format:*
 
 ```json
 {
@@ -287,7 +288,7 @@ where the query parameters field `<query-parameters>` includes three different t
 -	Geometric relation
 _	Result set
 
-_Example format for an {{site.data.keyword.cloudant_short_notm}} Geo API call:_
+*Example format for an {{site.data.keyword.cloudant_short_notm}} Geo API call:*
 
 ```http
 /$DATABASE/_design/$DDOCS/_geo/$INDEX_NAME?$QUERY_PARAMS
@@ -307,35 +308,35 @@ Parameter | Description
 `radius`  | Specify a circle query with a latitude `lat`, a longitude `lon`, and a radius `radius` measured in meters.
 `<wkt>`   | Specify a Well Known Text (WKT) object. The valid values for the `<wkt>` parameter include `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`.
 
-_Example of a `bbox` query:_
+*Example of a `bbox` query:*
 
 ```http
 ?bbox=-11.05987446,12.28339928,-101.05987446,62.28339928
 ```
 {: codeblock}
 
-_Example of an `ellipse` query:_
+*Example of an `ellipse` query:*
 
 ```http
 ?lat=-11.05987446&lon=12.28339928&rangex=200&rangey=100
 ```
 {: codeblock}
 
-_Example of a `radius` query:_
+*Example of a `radius` query:*
 
 ```http
 ?lat=-11.05987446&lon=12.28339928&radius=100
 ```
 {: codeblock}
 
-_Example of a `point` query:_
+*Example of a `point` query:*
 
 ```http
 ?g=point(-71.0537124 42.3681995)
 ```
 {: codeblock}
 
-_Example of a `polygon` query:_
+*Example of a `polygon` query:*
 
 ```http
 ?g=polygon((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
@@ -371,7 +372,7 @@ Relation                | Description
 `Q contains_properly R` | True if `R` intersects the interior of `Q` but not the boundary (or exterior) of `Q`.
 `Q covered_by R`        | True if `Q` is entirely within `R`. `covered_by` returns the exact opposite result of `covers`.
 `Q covers R`            | True if `R` is entirely within `Q`. `covers` returns the exact opposite result of `covered_by`.
-`Q crosses R`           | Case 1: True if the interiors intersect, _and_ at least the interior of `Q` intersects with the exterior of `R`. Apply to the geometry pairs of `multipoint/linestring`, `multipoint/multilinestring`, `multipoint/polygon`, `multipoint/multipolygon`, `linestring/polygon`, and `linestring/multipolygon`.
+`Q crosses R`           | Case 1: True if the interiors intersect, *and* at least the interior of `Q` intersects with the exterior of `R`. Apply to the geometry pairs of `multipoint/linestring`, `multipoint/multilinestring`, `multipoint/polygon`, `multipoint/multipolygon`, `linestring/polygon`, and `linestring/multipolygon`.
                         | Case 2: True if the intersection of the interiors of `Q` and `R` is a point. Apply to the geometry pairs of `linestring/linestring`, `linestring/multilinestring`, and `multilinestring/multilinestring`.
 `Q disjoint R`          | True if the two geometries of `Q` and `R` do not intersect. `disjoint` returns the exact opposite result of `intersects`.
 `Q intersects R`        | True if the two geometries of `Q` and `R` intersect. `intersects` returns the exact opposite result of `disjoint`.
@@ -380,7 +381,7 @@ Relation                | Description
 `Q touches R`           | True if, and only if, the common points of two geometries are found only at the boundaries of two geometries. At least one geometry must be a linestring, polygon, multilinestring, or multipolygon.
 `Q within R`            | True if `Q` lies entirely within `R`. `within` returns the exact opposite result of `contains`.
 
-_An example of returning all geometries that are contained by a `polygon`:_
+*An example of returning all geometries that are contained by a `polygon`:*
 
 ```http
 ?relation=contains&g=polygon((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))
@@ -401,7 +402,7 @@ For example,
 one police officer might search five crimes that occurred near a specific location
 by typing the query in the following example.
 
-_Example query to find nearest five crimes against a specific location:_
+*Example query to find nearest five crimes against a specific location:*
 
 ```http
 https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POINT(-71.0537124 42.3681995)&nearest=true&limit=5
@@ -412,7 +413,7 @@ The `nearest=true` search can change the semantics of an {{site.data.keyword.clo
 For example,
 without `nearest=true` in the example query,
 the results include only GeoJSON documents that have coordinates equal to the query point `(-71.0537124 42.3681995)`
-_or_ an empty results set.
+*or* an empty results set.
 However,
 by using the `nearest=true` search,
 the results include all GeoJSON documents in the database whose order is measured by the distance to the query point.
@@ -438,14 +439,14 @@ Parameter      | Description
 
 These examples show the available results based on the options you specify for the format parameter.
 
-_Example query to return results with `format=legacy`:_
+*Example query to return results with `format=legacy`:*
 
 ```sh
 curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=legacy&lat=42.3397&lon=-71.07959&radius=10'
 ```
 {: codeblock}
 
-_Example response to the query:_
+*Example response to the query:*
 
 ```json
 {
@@ -460,14 +461,14 @@ _Example response to the query:_
 ```
 {: codeblock}
 
-_Example query to return results with `format=view`:_
+*Example query to return results with `format=view`:*
 
 ```sh
 curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=view&lat=42.3397&lon=-71.07959&radius=10'
 ```
 {: codeblock}
 
-_Example response to the query:_
+*Example response to the query:*
 
 ```json
 {
@@ -488,14 +489,14 @@ _Example response to the query:_
 ```
 {: codeblock}
 
-_Example query to return results with `format=geojson` or `format=application/vnd.geo+json`:_
+*Example query to return results with `format=geojson` or `format=application/vnd.geo+json`:*
 
 ```sh
 curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=geojson&lat=42.3397&lon=-71.07959&radius=10'
 ```
 {: codeblock}
 
-_Example response to the query:_
+*Example response to the query:*
 
 ```json
 {
@@ -541,14 +542,14 @@ So,
 to find all documents that fall within the circle,
 you use the `contains` relation.
 
-_Example query to find documents that have a geospatial position within a circle:_
+*Example query to find documents that have a geospatial position within a circle:*
 
 ```sh
 curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?lat=42.3397&lon=-71.07959&radius=10&relation=contains&format=geojson'
 ```
 {: codeblock}
 
-_Example response to the query:_
+*Example response to the query:*
 
 ```json
 {
@@ -583,14 +584,14 @@ For example,
 you might provide a polygon description as the geometric object,
 and then request that the query return details of documents within the database that are contained by the polygon.
 
-_Example query to find documents that have a geospatial position within a polygon:_
+*Example query to find documents that have a geospatial position within a polygon:*
 
 ```http
 https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?g=POLYGON((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0522962 42.3667409,-71.051631 42.3659324,-71.051631 42.3621431,-71.0502148 42.3618577,-71.0505152 42.3660275,-71.0511589 42.3670263,-71.0537124 42.3681995))&relation=contains&format=geojson
 ```
 {: codeblock}
 
-_Example response to the query:_
+*Example response to the query:*
 
 ```json
 {

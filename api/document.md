@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-05-03"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -67,7 +67,7 @@ each document is defined as part of the document ID as detailed in the next sect
 #### IDs in partitioned databases
 {: #ids-in-partitioned-databases}
 
-When using a partitioned database, the document ID specifies both the _partition key_ and the _document key_. These are specified by splitting the document ID
+When using a partitioned database, the document ID specifies both the *partition key* and the *document key*. These are specified by splitting the document ID
 into two parts separated by a colon:
 
 ```
@@ -102,7 +102,7 @@ For example,
 the field `example` would be accepted,
 but the field `_example` would result in a `doc_validation` error message.
 
-_Example of JSON document that attempts to create a topmost field with an underscore prefix:_
+*Example of JSON document that attempts to create a topmost field with an underscore prefix:*
 
 ```json
 {
@@ -111,7 +111,7 @@ _Example of JSON document that attempts to create a topmost field with an unders
 ```
 {: codeblock}
 
-_Error message that is returned when you attempt to create a topmost field with an underscore prefix:_
+*Error message that is returned when you attempt to create a topmost field with an underscore prefix:*
 
 ```json
 {
@@ -125,7 +125,7 @@ However,
 if the field name is for an object _nested within_ the document,
 it is possible to use an underscore prefix for the field name.
 
-_Example of JSON document that attempts to create a field with an underscore prefix, nested within an object:_
+*Example of JSON document that attempts to create a field with an underscore prefix, nested within an object:*
 
 ```json
 {
@@ -137,7 +137,7 @@ _Example of JSON document that attempts to create a field with an underscore pre
 ```
 {: codeblock}
 
-_Example success message (abbreviated) returned when a nested field with an underscore prefix is created:_
+*Example success message (abbreviated) returned when a nested field with an underscore prefix is created:*
 
 ```json
 {
@@ -154,7 +154,7 @@ _Example success message (abbreviated) returned when a nested field with an unde
 To create a document,
 send a `POST` request with the document's JSON content to `https://$ACCOUNT.cloudant.com/$DATABASE`.
 
-_Creating a document by using HTTP:_
+*Creating a document by using HTTP:*
 
 ```http
 POST /$DATABASE HTTP/1.1
@@ -162,7 +162,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Creating a document by using the command line:_
+*Creating a document by using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE \
@@ -172,7 +172,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE \
 ```
 {: codeblock}
 
-_Example JSON document in a partitioned database with a partition key of `fruit` and a document key of `apple`:_
+*Example JSON document in a partitioned database with a partition key of `fruit` and a document key of `apple`:*
 
 ```json
 {
@@ -188,7 +188,7 @@ _Example JSON document in a partitioned database with a partition key of `fruit`
 {: codeblock}
 
 
-_Example JSON document in a non-partitioned database with a document ID `apple`:_
+*Example JSON document in a non-partitioned database with a document ID `apple`:*
 
 ```json
 {
@@ -214,7 +214,7 @@ If you did not provide an `_id` field,
 A failure to create the document results in a
 response that contains a description of the error.
 
-_Example response after successfully creating a document:_
+*Example response after successfully creating a document:*
 
 ```json
 {
@@ -244,14 +244,14 @@ data that were written recently, even by the same client, might not be returned 
 a client can cache the state of data locally. Caching also helps to keep request counts down, increase application performance, and decrease load on the database cluster. This behavior also applies to other read requests such as to MapReduce and search indexes.
 {: note}
 
-_Example of retrieving a document by using HTTP:_
+*Example of retrieving a document by using HTTP:*
 
 ```http
 GET /$DATABASE/$DOCUMENT_ID HTTP/1.1
 ```
 {: codeblock}
 
-_Example of retrieving a document by using the command line:_
+*Example of retrieving a document by using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID
@@ -261,7 +261,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID
 The response contains the document that you requested,
 or a description of the error if the document cannot be retrieved.
 
-_Example response:_
+*Example response:*
 
 ```json
 {
@@ -324,14 +324,14 @@ If you fail to provide the most recent `_rev` when you attempt to update an exis
 Any document update can lead to a conflict, especially when you replicate updated documents. For more information about avoiding and resolving conflicts, see the [Document versioning and MVCC guide](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc).
 {: note}
 
-_Example of using HTTP to update a document:_
+*Example of using HTTP to update a document:*
 
 ```http
 PUT /$DATABASE/$DOCUMENT_ID HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to update a document, :_
+*Example of using the command line to update a document, :*
 
 ```sh
 # make sure $JSON contains the correct `_rev` value!
@@ -342,7 +342,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID \
 ```
 {: codeblock}
 
-_Example of JSON data that contains an updated document:_
+*Example of JSON data that contains an updated document:*
 
 ```json
 {
@@ -364,7 +364,7 @@ Recall that for a partitioned database the `$DOCUMENT_ID` will be formed of a pa
 The response contains the ID and the new revision of the document,
 or an error message if the update failed.
 
-_Example response after a successful update:_
+*Example response after a successful update:*
 
 ```json
 {
@@ -392,14 +392,14 @@ If you fail to provide the most recent `_rev`, {{site.data.keyword.cloudant_shor
 creating new documents and deleting them increases the disk space usage of a database. They might also increase the query time for the primary index, which is used to look up documents by their ID.
 {: note}
 
-_Example of using HTTP to delete a document:_
+*Example of using HTTP to delete a document:*
 
 ```http
 DELETE /$DATABASE/$DOCUMENT_ID?rev=$REV HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to delete a document:_
+*Example of using the command line to delete a document:*
 
 ```sh
 # make sure $JSON contains the correct `_rev` value!
@@ -427,7 +427,7 @@ db.destroy($JSON._id, $REV, function (err, body, headers) {
 
 -->
 
-_Example response after a successful deletion request:_
+*Example response after a successful deletion request:*
 
 ```json
 {
@@ -466,7 +466,7 @@ To remove tombstones manually,
 do the following steps:
 
 1.	Create a database to hold the required documents.
-	The new database is intended to hold all documents _except_ the tombstone documents.
+	The new database is intended to hold all documents *except* the tombstone documents.
 2.	Set up a [filtered replication](/docs/services/Cloudant?topic=cloudant-advanced-replication#filtered-replication) to
 	replicate documents from the original database to the new database.
 	Configure the filter so that documents with the '`_deleted`' attribute are not replicated.
@@ -479,7 +479,7 @@ do the following steps:
 In general, try to design and implement your applications to do the minimum necessary amount of deletion.
 {: tip}
 
-_Example filter to exclude deleted documents during a replication:_
+*Example filter to exclude deleted documents during a replication:*
 
 ```json
 {
@@ -497,7 +497,7 @@ _Example filter to exclude deleted documents during a replication:_
 The [simple removal technique](#simple-removal-of-tombstone-documents) works well,
 if documents are not being updated in the source database while the replication takes place.
 
-If updates _are_ made during replication,
+If updates *are* made during replication,
 it is possible that a complete document is replicated to the target database as normal,
 but is also deleted from the source database,
 leaving a tombstone.
@@ -545,16 +545,16 @@ a suitable `validate_doc_update` function would work as follows:
 	It is possible that the change was a `DELETE`,
 	resulting in a tombstone record in the target database.
 	The tombstone record is removed by a subsequent replication process at some point in the future.
-2.	If the target database does _not_ have a copy of the current document,
-	_and_ the update document has the `_deleted` property (indicating that it is a tombstone),
-	then the update must be a tombstone _and_ it was encountered before,
+2.	If the target database does *not* have a copy of the current document,
+	*and* the update document has the `_deleted` property (indicating that it is a tombstone),
+	then the update must be a tombstone *and* it was encountered before,
 	so the update must be rejected.
 3.	Finally,
 	if the function did not return or throw an error,
 	allow the update to replicate to the target database,
 	as some other condition applies.
 
-_Example JavaScript `validate_doc_update` function to reject deleted documents not already present in the target database:_
+*Example JavaScript `validate_doc_update` function to reject deleted documents not already present in the target database:*
 
 ```javascript
 function(newDoc, oldDoc, userCtx) {
@@ -607,7 +607,7 @@ with the result that documents might never be deleted from the device.
 
 If you re-create a database,
 for example to be a new target for a replication,
-any clients that use the target database as a server _must_ work through _all_ the changes again,
+any clients that use the target database as a server *must* work through *all* the changes again,
 because the database sequence numbers are likely to be different.
 
 If you are using a `validate_doc_update` function, avoid replicating that function to clients. This rule is to prevent the possibility of unwanted side effects as a result of having the function present on the client.
@@ -633,17 +633,17 @@ or was [deleted](#delete-a-document) previously.
 
 A purge request must identify the `leaf` version of a document.
 In other words,
-you must specify the _last_ revision of a document.
+you must specify the *last* revision of a document.
 If you request a purge of an earlier revision of a document,
 while a more recent revision still exists,
 nothing happens.
 
 When a purge is requested,
 it affects the specified ('leaf') version of a document,
-_and_ all its predecessor versions.
+*and* all its predecessor versions.
 This effect is necessary to ensure that all references to the document can be removed from the database.
 However,
-if a document version is _also_ present within another revision branch,
+if a document version is *also* present within another revision branch,
 then the purging process halts before it removes the version that would 'orphan' the revision branch.
 
 For example,
@@ -662,15 +662,15 @@ all references to each 'ancestor' version of the document are removed from the d
 However,
 the document with revision value `1-7a7e4b29f3af401e69b6f86e4c26b727` is
 an ancestor of revision `4-53b84f8bf5539a7fb7f8074d1f685e5e`
-_and_ revision `2-98e2b4ecd9a0da76fe8b83a83234ee71`.
+*and* revision `2-98e2b4ecd9a0da76fe8b83a83234ee71`.
 Therefore,
-document `1-7a7e4b29f3af401e69b6f86e4c26b727` is _not_ removed from the database.
+document `1-7a7e4b29f3af401e69b6f86e4c26b727` is *not* removed from the database.
 The resulting document structure looks like the following diagram.
 
 ![Purged document with one remaining revision branches](../images/fb86021b.png)
 
 A subsequent request to purge the document with revision `2-98e2b4ecd9a0da76fe8b83a83234ee71`
-results in the removal of _all_ the revisions
+results in the removal of *all* the revisions
 because no revision branches are left in an orphan state by the purge.
 
 ### Deciding between purge or delete
@@ -760,7 +760,7 @@ Field      | Description                           | Type    | Optional
 Recall that for a partitioned database the `_id` field will be formed of
 a partition key part and a document key part.
 
-_Example of using HTTP to create, update, or delete multiple documents:_
+*Example of using HTTP to create, update, or delete multiple documents:*
 
 ```http
 POST /$DATABASE/_bulk_docs HTTP/1.1
@@ -768,7 +768,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of using the command line to create, update, or delete multiple documents:_
+*Example of using the command line to create, update, or delete multiple documents:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs \
@@ -797,7 +797,7 @@ db.bulk($JSON, function (err, body) {
 
 -->
 
-_Example JSON describing the update, creation, and deletion of three documents in one bulk request:_
+*Example JSON describing the update, creation, and deletion of three documents in one bulk request:*
 
 ```json
 {
@@ -836,7 +836,7 @@ Code | Description
 `201` | The request did succeed, but this success does not imply all documents were updated. Inspect the response body to determine the status of each requested change, and [address any problems](#bulk-document-validation-and-conflict-errors).
 `202` | For at least one document, the write [quorum](#quorum-writing-and-reading-data) was not met.
 
-_Example response from a bulk request:_
+*Example response from a bulk request:*
 
 ```json
 [
@@ -867,7 +867,7 @@ you need to supply a JSON structure with the array of documents that you want to
 You can either include a document ID for each document,
 or allow the document ID to be automatically generated.
 
-_Example JSON for a bulk insert of three documents:_
+*Example JSON for a bulk insert of three documents:*
 
 ```json
 {
@@ -908,7 +908,7 @@ The return code from a successful bulk insertion is [`201`](/docs/services/Cloud
 The content of the returned structure indicates success
 or other information messages on a per-document basis.
 
-_Example response header after successful bulk insert of three documents:_
+*Example response header after successful bulk insert of three documents:*
 
 ```http
 201 Created
@@ -932,7 +932,7 @@ Conflicts and validation errors that occur when you update documents in bulk mus
 For more information,
 see [Bulk document validation and conflict errors](#bulk-document-validation-and-conflict-errors).
 
-_Example response content after successful bulk insert of two documents:_
+*Example response content after successful bulk insert of two documents:*
 
 ```json
 [
@@ -960,7 +960,7 @@ Optionally,
 you can delete documents during a bulk update by adding a `_deleted` field with a value of `true`
 to each affected document ID and revision combination within the request JSON structure.
 
-_Example of using HTTP to do a bulk update:_
+*Example of using HTTP to do a bulk update:*
 
 ```http
 POST /$DATABASE/_bulk_docs HTTP/1.1
@@ -968,7 +968,7 @@ Accept: application/json
 ```
 {: codeblock}
 
-_Example of using the command line to do a bulk update:_
+*Example of using the command line to do a bulk update:*
 
 ```sh
 curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs" \
@@ -976,7 +976,7 @@ curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs" \
 ```
 {: codeblock}
 
-_Example JSON structure to request bulk update of documents:_
+*Example JSON structure to request bulk update of documents:*
 
 ```json
 {
@@ -1019,7 +1019,7 @@ _Example JSON structure to request bulk update of documents:_
 The return JSON structure summarizes the updated documents,
 with the new revision and ID information.
 
-_Example JSON structure that is returned after bulk update:_
+*Example JSON structure that is returned after bulk update:*
 
 ```json                              
 [
@@ -1046,7 +1046,7 @@ _Example JSON structure that is returned after bulk update:_
 {: #bulk-documents-transaction-semantics}
 
 If your request receives a [`202` response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes),
-the only certainty is that _some_ of the document tasks were processed completely.
+the only certainty is that *some* of the document tasks were processed completely.
 The response body contains the list of documents that were successfully inserted or updated during the process.
 
 A successful document update is indicated by the presence of a new `_rev` parameter for the document,
@@ -1060,7 +1060,7 @@ You must submit the document update again,
 with the same revision tag,
 to retry the document update.
 
-_Example bulk update response with errors:_
+*Example bulk update response with errors:*
 
 ```json
 [
@@ -1126,14 +1126,14 @@ to the resolution procedures used when you resolve conflict errors during replic
 Entries with this error type indicate that the validation routine that was applied
 to the document during submission returned an error.
 
-_Example JavaScript to produce `forbidden` error as part of a validation function:_
+*Example JavaScript to produce `forbidden` error as part of a validation function:*
 
 ```javascript
 throw({forbidden: 'invalid recipe ingredient'});
 ```
 {: codeblock}
 
-_Example error message from a validation function:_
+*Example error message from a validation function:*
 
 ```json
 {
@@ -1154,7 +1154,7 @@ but returns information about the requested documents only.
 Like the `_bulk_docs` endpoint,
 a JSON document supplied in the request includes an array that identifes all the documents of interest.
 
-_Example of using HTTP to do a bulk get of document information:_
+*Example of using HTTP to do a bulk get of document information:*
 
 ```http
 POST /$DATABASE/_bulk_get HTTP/1.1
@@ -1162,7 +1162,7 @@ Accept: application/json
 ```
 {: codeblock}
 
-_Example of using the command line to do a bulk update:_
+*Example of using the command line to do a bulk update:*
 
 ```sh
 curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_get" \
@@ -1171,7 +1171,7 @@ curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_get" \
 ```
 {: codeblock}
 
-_Example of a JSON object `POST`ed to the `_bulk_get` endpoint:_
+*Example of a JSON object `POST`ed to the `_bulk_get` endpoint:*
 
 ```json
 {
@@ -1187,7 +1187,7 @@ _Example of a JSON object `POST`ed to the `_bulk_get` endpoint:_
 ```
 {: codeblock}
 
-_Example JSON structure that is returned after bulk get:_
+*Example JSON structure that is returned after bulk get:*
 
 ```json
 {                                                         
@@ -1242,7 +1242,7 @@ or at an absolute time,
 the data is deemed to be expired.
 The data itself might be deleted or moved to an alternative (archive) location.
 
-{{site.data.keyword.cloudant_short_notm}} does _not_ support Time to Live functions.
+{{site.data.keyword.cloudant_short_notm}} does *not* support Time to Live functions.
 
 The reason is that {{site.data.keyword.cloudant_short_notm}} documents are only 'soft' deleted,
 not deleted.
