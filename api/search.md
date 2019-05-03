@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-03"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -38,7 +38,7 @@ By default, a search index response returns 25 rows. The number of rows that is 
 
 You can query the API by using one of the following methods: URI, {{site.data.keyword.cloudant_short_notm}} Dashboard, curl, or a browser plug-in, such as Postman or RESTClient.
 
-_Example design document that defines a search index:_
+*Example design document that defines a search index:*
 
 ```json
 {
@@ -170,7 +170,7 @@ If you do not set the `store` parameter,
 the index data results for the document are not returned in response to a query.
 {: tip}
 
-_Example search index function:_
+*Example search index function:*
 
 ```javascript
 function(doc) {
@@ -200,9 +200,9 @@ if that data field does not exist for the document,
 an error occurs.
 The solution is to use an appropriate 'guard clause' that checks if the field exists,
 and contains the expected type of data,
-_before_ any attempt to create the corresponding index.
+*before* any attempt to create the corresponding index.
 
-_Example of failing to check whether the index data field exists:_
+*Example of failing to check whether the index data field exists:*
 
 ```javascript
 if (doc.min_length) {
@@ -212,10 +212,10 @@ if (doc.min_length) {
 {: codeblock}
 
 You might use the JavaScript '`typeof`' function to implement the guard clause test.
-If the field exists _and_ has the expected type,
+If the field exists *and* has the expected type,
 the correct type name is returned,
 so the guard clause test succeeds and it is safe to use the index function.
-If the field does _not_ exist,
+If the field does *not* exist,
 you would not get back the expected type of the field,
 therefore you would not attempt to index the field.
 
@@ -228,9 +228,9 @@ JavaScript considers a result to be false if one of the following values is test
 -	NaN (not a number)
 -	"" (the empty string)
 
-_Using a guard clause to check whether the required data field exists,
+*Using a guard clause to check whether the required data field exists,
 and holds a number,
-before an attempt to index:_
+before an attempt to index:*
 
 ```javascript
 if (typeof(doc.min_length) === 'number') {
@@ -241,7 +241,7 @@ if (typeof(doc.min_length) === 'number') {
 
 Use a generic guard clause test to ensure that the type of the candidate data field is defined.
 
-_Example of a 'generic' guard clause:_
+*Example of a 'generic' guard clause:*
 
 ```javascript
 if (typeof(doc.min_length) !== 'undefined') {
@@ -268,7 +268,7 @@ Analyzer     | Description
 `standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.unicode.org/reports/tr29/){: new_window}.
 `whitespace` | Divides text at white space boundaries.
 
-_Example analyzer document:_
+*Example analyzer document:*
 
 ```json
 {
@@ -333,7 +333,7 @@ Language-specific analyzers are optimized for the specified language. You cannot
 
 The '`perfield`' analyzer configures multiple analyzers for different fields.
 
-_Example of defining different analyzers for different fields:_
+*Example of defining different analyzers for different fields:*
 
 ```json
 {
@@ -373,7 +373,7 @@ The default stop words for the `standard` analyzer are included in the following
  "to", "was", "will", "with" 
  ```
 
-_Example of defining non-indexed ('stop') words:_
+*Example of defining non-indexed ('stop') words:*
 
 ```json
 {
@@ -400,7 +400,7 @@ _Example of defining non-indexed ('stop') words:_
 
 You can test the results of analyzer tokenization by posting sample data to the `_search_analyze` endpoint.
 
-_Example of using HTTP to test the `keyword` analyzer:_
+*Example of using HTTP to test the `keyword` analyzer:*
 
 ```http
 Host: $ACCOUNT.cloudant.com
@@ -410,7 +410,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of using the command line to test the `keyword` analyzer:_
+*Example of using the command line to test the `keyword` analyzer:*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_search_analyze' -H 'Content-Type: application/json'
@@ -418,7 +418,7 @@ curl 'https://$ACCOUNT.cloudant.com/_search_analyze' -H 'Content-Type: applicati
 ```
 {: codeblock}
 
-_Result of testing the `keyword` analyzer:_
+*Result of testing the `keyword` analyzer:*
 
 ```json
 {
@@ -429,7 +429,7 @@ _Result of testing the `keyword` analyzer:_
 ```
 {: codeblock}
 
-_Example of using HTTP to test the `standard` analyzer:_
+*Example of using HTTP to test the `standard` analyzer:*
 
 ```http
 Host: $ACCOUNT.cloudant.com
@@ -439,7 +439,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of using the command line to test the `standard` analyzer:_
+*Example of using the command line to test the `standard` analyzer:*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_search_analyze' -H 'Content-Type: application/json'
@@ -447,7 +447,7 @@ curl 'https://$ACCOUNT.cloudant.com/_search_analyze' -H 'Content-Type: applicati
 ```
 {: codeblock}
 
-_Result of testing the `standard` analyzer:_
+*Result of testing the `standard` analyzer:*
 
 ```json
 {
@@ -475,7 +475,7 @@ After you create a search index, you can query it.
 
 Specify your search by using the `query` parameter.
 
-_Example of using HTTP to query a partitioned index:_
+*Example of using HTTP to query a partitioned index:*
 
 ```http
 GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query="*:*"&limit=1 HTTP/1.1
@@ -484,7 +484,7 @@ Host: account.cloudant.com
 ```
 {:codeblock}
 
-_Example of using HTTP to query a global index:_
+*Example of using HTTP to query a global index:*
 
 ```http
 GET /$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true&query="*:*"&limit=1 HTTP/1.1
@@ -493,14 +493,14 @@ Host: account.cloudant.com
 ```
 {: codeblock}
 
-_Example of using the command line to query a partitioned index:_
+*Example of using the command line to query a partitioned index:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1 \
 ```
 {: codeblock}
 
-_Example of using the command line to query a global index:_
+*Example of using the command line to query a global index:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1 \
@@ -766,7 +766,7 @@ The main advantage of `POST` queries is that they can have a request body,
 so you can specify the request as a JSON object.
 Each parameter in the previous table corresponds to a field in the JSON object in the request body.
 
-_Example of using HTTP to `POST` a search request:_
+*Example of using HTTP to `POST` a search request:*
 
 ```http
 POST /db/_design/ddoc/_search/searchname HTTP/1.1
@@ -775,14 +775,14 @@ Host: account.cloudant.com
 ```
 {: codeblock}
 
-_Example of using the command line to `POST` a search request:_
+*Example of using the command line to `POST` a search request:*
 
 ```sh
 curl 'https://account.cloudant.com/db/_design/ddoc/_search/searchname' -X POST -H 'Content-Type: application/json' -d @search.json
 ```
 {: codeblock}
 
-_Example JSON document that contains a search request:_
+*Example JSON document that contains a search request:*
 
 ```json
 {
@@ -802,7 +802,7 @@ Search queries take the form of `name:value` unless the name is omitted,
 in which case they use the default field,
 as demonstrated in the following examples:
 
-_Example search query expressions:_
+*Example search query expressions:*
 
 ```
 // Birds
@@ -880,7 +880,7 @@ and return 25 rows by default.
 The number of rows that are returned can be changed
 by using the [`limit` parameter](#query-parameters-search).
 
-If the search query does _not_ specify the `"group_field"` argument,
+If the search query does *not* specify the `"group_field"` argument,
 the response contains a bookmark.
 If this bookmark is later provided as a URL parameter,
 the response skips the rows that were seen already,
@@ -925,7 +925,7 @@ and use the returned facets to refine your query.
 To indicate that a field must be indexed for faceted queries,
 set `{"facet": true}` in its options.
 
-_Example of search query, specifying that faceted search is enabled:_
+*Example of search query, specifying that faceted search is enabled:*
 
 ```javascript
 function(doc) {
@@ -945,7 +945,7 @@ If you do not create separate indexes for each field,
 you must include only documents that contain all the fields.
 Verify that the fields exist in each document by using a single `if` statement.
 
-_Example `if` statement to verify that the required fields exist in each document:_
+*Example `if` statement to verify that the required fields exist in each document:*
 
 ```javascript
 if (typeof doc.town == "string" && typeof doc.name == "string") {
@@ -976,14 +976,14 @@ and convert it by using the `parseInt`,
 or `.toString()` functions.
 {: note}
 
-_Example of a query using the `counts` facet syntax:_ 
+*Example of a query using the `counts` facet syntax:* 
 
 ```http
 ?q=*:*&counts=["type"]
 ```
 {: codeblock}
 
-_Example response after using of the `counts` facet syntax:_
+*Example response after using of the `counts` facet syntax:*
 
 ```json
 {
@@ -1041,14 +1041,14 @@ and convert it by using the `parseInt`,
 or `.toString()` functions.
 {: note}
 
-_Example of a request that uses faceted search for matching `ranges`:_
+*Example of a request that uses faceted search for matching `ranges`:*
 
 ```http
 ?q=*:*&ranges={"price":{"cheap":"[0 TO 100]","expensive":"{100 TO Infinity}"}}
 ```
 {: codeblock}
 
-_Example results after a `ranges` check on a faceted search:_
+*Example results after a `ranges` check on a faceted search:*
 
 ```json
 {
@@ -1092,7 +1092,7 @@ That way,
 you can search in a bounding box,
 and narrow down the search with extra criteria.
 
-_Example geographical data:_
+*Example geographical data:*
 
 ```json
 {
@@ -1104,7 +1104,7 @@ _Example geographical data:_
 ```
 {: codeblock}
 
-_Example of a design document that contains a search index for the geographic data:_
+*Example of a design document that contains a search index for the geographic data:*
 
 ```javascript
 function(doc) {
@@ -1117,7 +1117,7 @@ function(doc) {
 ```
 {: codeblock}
 
-_An example of using HTTP for a query that sorts cities in the northern hemisphere by their distance to New York:_
+*An example of using HTTP for a query that sorts cities in the northern hemisphere by their distance to New York:*
 
 ```http
 GET /examples/_design/cities-designdoc/_search/cities?q=lat:[0+TO+90]&sort="<distance,lon,lat,-74.0059,40.7127,km>" HTTP/1.1
@@ -1125,14 +1125,14 @@ Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-_An example of using the command line for a query that sorts cities in the northern hemisphere by their distance to New York:_
+*An example of using the command line for a query that sorts cities in the northern hemisphere by their distance to New York:*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/examples/_design/cities-designdoc/_search/cities?q=lat:[0+TO+90]&sort="<distance,lon,lat,-74.0059,40.7127,km>"'
 ```
 {: codeblock}
 
-_Example (abbreviated) response, containing a list of northern hemisphere cities sorted by distance to New York:_
+*Example (abbreviated) response, containing a list of northern hemisphere cities sorted by distance to New York:*
 
 ```json
 {
@@ -1212,7 +1212,7 @@ For highlighting to work,
 store the field in the index by using the `store: true` option.
 {: tip}
 
-_Example of using HTTP to search with highlighting enabled:_
+*Example of using HTTP to search with highlighting enabled:*
 
 ```http
 GET /movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=["movie_name"]&highlight_pre_tag="<b>"&highlight_post_tag="</b>"&highlights_size=30&highlights_number=2 HTTP/1.1
@@ -1221,14 +1221,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Example of using the command line to search with highlighting enabled:_
+*Example of using the command line to search with highlighting enabled:*
 
 ```sh
 curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=\[\"movie_name\"\]&highlight_pre_tag=\"<b>\"&highlight_post_tag=\"</b>\"&highlights_size=30&highlights_number=2
 ```
 {: codeblock}
 
-_Example of highlighted search results:_
+*Example of highlighted search results:*
 
 ```json
 {
@@ -1251,14 +1251,14 @@ as shown in the following example.
 `DDOC` refers to the design document that contains the index,
 and `INDEX_NAME` is the name of the index.
 
-_Example of using HTTP to request search index metadata:_
+*Example of using HTTP to request search index metadata:*
 
 ```http
 GET /$DATABASE/_design/$DDOC/_search_info/$INDEX_NAME HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to request search index metadata:_
+*Example of using the command line to request search index metadata:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search_info/$INDEX_NAME" \
@@ -1269,7 +1269,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search_info/$INDEX_
 The response contains information about your index,
 such as the number of documents in the index and the size of the index on disk.
 
-_Example response after requesting search index metadata:_
+*Example response after requesting search index metadata:*
 
 ```json
 {

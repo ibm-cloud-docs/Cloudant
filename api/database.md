@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-02"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -87,7 +87,7 @@ and contain only the following characters:
 
 ### Examples
 
-_Using HTTP to create a partitioned database:_
+*Using HTTP to create a partitioned database:*
 
 ```http
 PUT /$DATABASE?partitioned=true HTTP/1.1
@@ -95,7 +95,7 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-_Using HTTP to create a non-partitioned database:_
+*Using HTTP to create a non-partitioned database:*
 
 ```http
 PUT /$DATABASE?partitioned=false HTTP/1.1
@@ -103,14 +103,14 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-_Using the command line to create a partitioned database:_
+*Using the command line to create a partitioned database:*
 
 ```sh
 curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=true'
 ```
 {: codeblock}
 
-_Using the command line to create a non-partitioned database:_
+*Using the command line to create a non-partitioned database:*
 
 ```sh
 curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=false'
@@ -128,7 +128,7 @@ Code | Description
 400  | Invalid database name.
 412  | Database already exists.
 
-_Example response that is received after a database is created successfully:_
+*Example response that is received after a database is created successfully:*
 
 ```http
 HTTP/1.1 201 Created
@@ -163,14 +163,14 @@ Sending a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE`
 returns details about the database,
 such as how many documents it contains.
 
-_Example of using HTTP to get database details:_
+*Example of using HTTP to get database details:*
 
 ```http
 GET /$DATABASE HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to get database details:_
+*Example of using the command line to get database details:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE \
@@ -179,7 +179,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE \
 
 <!--
 
-_Example of using JavaScript to get database details:_
+*Example of using JavaScript to get database details:*
 
 ```javascript
 var nano = require('nano');
@@ -213,7 +213,7 @@ Field                 | Description
 `partitioned_indexes` | A JSON object that only appears if the database is partitioned. `count` is the number of partitioned indexes. `indexes` list the type of partitioned indexes, and `limit` shows the maximum number of allowed partitioned indexes.
 
 
-_Example (abbreviated) response that contains database details:_
+*Example (abbreviated) response that contains database details:*
 
 ```json
 {
@@ -252,14 +252,14 @@ _Example (abbreviated) response that contains database details:_
 To list all the databases in an account,
 send a `GET` request to `https://$ACCOUNT.cloudant.com/_all_dbs`.
 
-_Example of using HTTP to list all databases:_
+*Example of using HTTP to list all databases:*
 
 ```http
 GET /_all_dbs HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to list all databases:_
+*Example of using the command line to list all databases:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_all_dbs \
@@ -268,7 +268,7 @@ curl https://$ACCOUNT.cloudant.com/_all_dbs \
 
 <!--
 
-_Example of using JavaScript to list all databases:_
+*Example of using JavaScript to list all databases:*
 
 ```javascript
 var nano = require('nano');
@@ -286,7 +286,7 @@ account.db.list(function (err, body, headers) {
 
 The response is a JSON array with all the database names.
 
-_Example response:_
+*Example response:*
 
 ```json
 [
@@ -333,14 +333,14 @@ Using `include_docs=true` might have [performance implications](/docs/services/C
 When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require many strings to list the keys you want.
 {: note}
 
-_Example of using HTTP to list all documents in a database:_
+*Example of using HTTP to list all documents in a database:*
 
 ```http
 GET /_all_docs HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to list all documents in a database,_
+*Example of using the command line to list all documents in a database,*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs
@@ -349,7 +349,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs
 
 <!--
 
-_Example of using JavaScript to list all documents in a database:_
+*Example of using JavaScript to list all documents in a database:*
 
 ```javascript
 var nano = require('nano');
@@ -366,14 +366,14 @@ db.list(function (err, body, headers) {
 
 -->
 
-_Example of using HTTP to list all documents in a database that match at least one of the specified keys:_
+*Example of using HTTP to list all documents in a database that match at least one of the specified keys:*
 
 ```http
 GET /_all_docs?keys=["somekey","someotherkey"] HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to list all documents in a database that match at least one of the specified keys:_
+*Example of using the command line to list all documents in a database that match at least one of the specified keys:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs?keys=["somekey","someotherkey"]
@@ -390,7 +390,7 @@ Field        | Description                                                      
 `total_rows` | Number of documents in the database or view that match the parameters of the query. | numeric
 `update_seq` | Current update sequence for the database.                                           | string
 
-_Example response after a request for all documents in a database:_
+*Example response after a request for all documents in a database:*
 
 ```json
 {
@@ -434,14 +434,14 @@ This section describes how to send multiple queries to a database using `_all_do
 To send multiple queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries`.
 
-_Example of using HTTP to send multiple queries to a database:_
+*Example of using HTTP to send multiple queries to a database:*
 
 ```http
 POST /_all_docs/queries HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to send multiple queries to a database,_
+*Example of using the command line to send multiple queries to a database,*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries
@@ -464,7 +464,7 @@ Response JSON object    | Description | Type
 `results` | An array of result objects - one for each query. Each result object contains the same fields as the response to a regular `_all_docs` request. | array
 
 
-_Example request with multiple queries:_
+*Example request with multiple queries:*
 
 ```json
 {POST /db/_all_docs/queries HTTP/1.1
@@ -489,7 +489,7 @@ Host: localhost:5984
 ```
 {: codeblock}
 
-_Example response for multiple queries:_
+*Example response for multiple queries:*
 ```json
 HTTP/1.1 200 OK
 Cache-Control: must-revalidate
@@ -565,14 +565,14 @@ Multiple queries are also supported in `/$DATABASE/_local_docs/queries` and `/$D
 To send multiple view queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
 
-_Example of using HTTP to send multiple queries to a database:_
+*Example of using HTTP to send multiple queries to a database:*
 
 ```http
 POST /_view/$VIEW/queries HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to send multiple view queries to a database,_
+*Example of using the command line to send multiple view queries to a database,*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_view/$VIEW/queries
@@ -621,14 +621,14 @@ Argument       | Description | Supported Values | Default
 Using `include_docs=true` might have [performance implications](/docs/services/Cloudant?topic=cloudant-using-views#multi-document-fetching).
 {: important}
 
-_Example of using HTTP to get a list of changes made to documents in a database:_
+*Example of using HTTP to get a list of changes made to documents in a database:*
 
 ```http
 GET /$DATABASE/_changes HTTP/1.1
 ```
 {: codeblock}
 
-_Example of using the command line to get a list of changes made to documents in a database_
+*Example of using the command line to get a list of changes made to documents in a database*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE/_changes \
@@ -637,7 +637,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_changes \
 
 <!--
 
-_Example of using JavaScript to get a list of changes made to documents in a database:_
+*Example of using JavaScript to get a list of changes made to documents in a database:*
 
 ```javascript
 var nano = require('nano');
@@ -664,7 +664,7 @@ from the behavior you expect.
 In particular,
 if you ask for a list of changes `_since` a  sequence identifier,
 you get the requested information in response.
-_But_ you might also get changes that were made before the change indicated by the sequence identifier.
+*But* you might also get changes that were made before the change indicated by the sequence identifier.
 The reason these extra changes are included,
 along with the implications for applications,
 is explained in the
@@ -699,7 +699,7 @@ The option ensures that:
 -   The format of the report entries reflects the continuous nature of the changes.
 -   Validity of the JSON output is maintained.
 
-_Example (abbreviated) responses from a continuous changes feed:_
+*Example (abbreviated) responses from a continuous changes feed:*
 
 ```json
 {
@@ -769,7 +769,7 @@ several built-in filters available:
 ### The `since` argument
 {: #the-since-argument}
 
-Use the `since` argument to get a list of changes that occurred _after_ a specified sequence identifier.
+Use the `since` argument to get a list of changes that occurred *after* a specified sequence identifier.
 If the `since` identifier is 0 (the default),
 or omitted,
 the request returns all changes.
@@ -782,7 +782,7 @@ if you request a list of changes twice,
 by using the same `since` sequence identifier both times,
 the order of changes in the resulting list might not be the same.
 
-You might also see some results that appear to be from _before_ the `since` parameter.
+You might also see some results that appear to be from *before* the `since` parameter.
 The reason is that you might be getting results from a different replica of a shard (a shard replica).
 
 Therefore,
@@ -826,7 +826,7 @@ Field      | Description | Type
 `results`  | Array of changes that were made to the database. | Array
 `seq`      | Update sequence identifier. | String
 
-_Example (abbreviated) response to a `_changes` request:_
+*Example (abbreviated) response to a `_changes` request:*
 
 ```json
 {
@@ -878,12 +878,12 @@ _Example (abbreviated) response to a `_changes` request:_
 
 Instead of `GET`,
 you can also use `POST` to query the changes feed.
-The only difference if you are using `POST` _and_ you are using either of the `docs_ids` or `selector` filters,
+The only difference if you are using `POST` *and* you are using either of the `docs_ids` or `selector` filters,
 is that it is possible to include the `"doc_ids" : [...]` or `"selector": {...}` parts in the request body.
 All other parameters are expected to be in the query string,
 the same as using `GET`.
 
-_Example of using HTTP to `POST` to the `_changes` endpoint:_
+*Example of using HTTP to `POST` to the `_changes` endpoint:*
 
 ```http
 POST /$DATABASE/_changes?filter=_selector HTTP/1.1
@@ -892,14 +892,14 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example of using the command line to `POST` to the `_changes` endpoint:_
+*Example of using the command line to `POST` to the `_changes` endpoint:*
 
 ```sh
 curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector" -d @request.json
 ```
 {: codeblock}
 
-_Example of a JSON object `POST`ed to the `_changes` endpoint:_
+*Example of a JSON object `POST`ed to the `_changes` endpoint:*
 
 ```json
 {
@@ -917,7 +917,7 @@ send a `DELETE` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
 No additional check is made to ensure that you really intended to delete the database ("Are you sure?").
 {: note}
 
-_Example of using HTTP to delete an {{site.data.keyword.cloudant_short_notm}} database:_
+*Example of using HTTP to delete an {{site.data.keyword.cloudant_short_notm}} database:*
 
 ```http
 DELETE /$DATABASE HTTP/1.1
@@ -925,7 +925,7 @@ Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-_Example of using the command line to delete an {{site.data.keyword.cloudant_short_notm}} database:_
+*Example of using the command line to delete an {{site.data.keyword.cloudant_short_notm}} database:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/$DATABASE \
@@ -935,7 +935,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE \
 
 <!--
 
-_Example of using JavaScript to delete an {{site.data.keyword.cloudant_short_notm}} database:_
+*Example of using JavaScript to delete an {{site.data.keyword.cloudant_short_notm}} database:*
 
 ```javascript
 var nano = require('nano');
@@ -960,7 +960,7 @@ Code | Description
 202  | Database was successfully deleted on some nodes, but the number of nodes is less than the write quorum.
 404  | Database doesn't exist on all of the nodes.
 
-_Example response that is received after a database is deleted successfully:_
+*Example response that is received after a database is deleted successfully:*
 
 ```json
 {

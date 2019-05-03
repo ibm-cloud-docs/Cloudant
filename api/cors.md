@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-02"
 
 keywords: cors, security, configuration endpoints, json format, dashboard
 
@@ -112,7 +112,7 @@ Method | Path                        | Description
 `PUT`ting a JSON document with the example structure to `/_api/v2/user/config/cors` sets the CORS configuration.
 The configuration applies to all databases and all account level endpoints in your account.
 
-_Example request, using HTTP:_
+*Example request, using HTTP:*
 
 ```http
 PUT /_api/v2/user/config/cors HTTP/1.1
@@ -121,7 +121,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example request, using the command line:_ 
+*Example request, using the command line:* 
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors \
@@ -131,7 +131,7 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors \
 ```
 {: codeblock}
 
-_Example JSON file for setting the CORS configuration:_
+*Example JSON file for setting the CORS configuration:*
 
 ```json
 {
@@ -147,7 +147,7 @@ _Example JSON file for setting the CORS configuration:_
 
 The response tells you whether the configuration has been updated successfully.
 
-_Example response:_
+*Example response:*
 
 ```json
 {
@@ -161,7 +161,7 @@ _Example response:_
 
 You can find out the current CORS configuration by sending a `GET` to the `/_api/v2/user/config/cors` endpoint.
 
-_Example request to `GET` the current CORS configuration, using HTTP:_
+*Example request to `GET` the current CORS configuration, using HTTP:*
 
 ```http
 GET /_api/v2/user/config/cors HTTP/1.1
@@ -169,7 +169,7 @@ Host: username.cloudant.com
 ```
 {: codeblock}
 
-_Example request to `GET` the current CORS configuration, using the command line:_
+*Example request to `GET` the current CORS configuration, using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors
@@ -178,7 +178,7 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors
 
 The response is the current CORS configuration in a JSON document.
 
-_Example response:_
+*Example response:*
 
 ```json
 {

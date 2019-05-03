@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-19"
+lastupdated: "2019-05-02"
 
 keywords: provisioned throughput capacity, api 
 
@@ -47,14 +47,14 @@ Use a GET to the `_api/v2/user/capacity/throughput` endpoint to see what amount 
 -   **Path**: `_api/v2/user/capacity/throughput`
 -   **Response**: Both the current and target capacity setting. Each includes the number of capacity blocks and total reads/sec, writes/sec, and global queries/sec of throughput capacity.
 
-_Example request to retrieve the current and target capacity, by using HTTP:_
+*Example request to retrieve the current and target capacity, by using HTTP:*
 
 ```HTTP
 GET /_api/v2/user/capacity/throughput
 ```
 {: codeblock}
 
-_Example request to retrieve the current and target capacity, by using the command line:_
+*Example request to retrieve the current and target capacity, by using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput \
@@ -68,7 +68,7 @@ The returned structure includes the following fields:
 - **blocks**: Number of provisioned throughput capacity blocks, where a block is 100 reads/sec, 50 writes/sec, and 5 global queries/sec.
 - **throughput**: Break down of the specific number of reads/sec, writes/sec, and global queries/sec.
 
-_Example JSON response:_
+*Example JSON response:*
 
 ```json
 {
@@ -101,7 +101,7 @@ Use a PUT to the `_api/v2/user/capacity/throughput` endpoint to set the target p
 -   **Path**: `_api/v2/user/capacity/throughput`
 -   **Response**: Both the current and target capacity setting, including the number of capacity blocks and total reads/sec, writes/sec, and global queries/sec.
 
-_Example request to set the target capacity, by using HTTP:_
+*Example request to set the target capacity, by using HTTP:*
 
 ```HTTP
 PUT /_api/v2/user/capacity/throughput
@@ -109,7 +109,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Example JSON object to set target capacity:_
+*Example JSON object to set target capacity:*
 
 ```
 {
@@ -118,7 +118,7 @@ _Example JSON object to set target capacity:_
 ```
 {: codeblock}
 
-_Example request to set the target capacity, by using the command line:_
+*Example request to set the target capacity, by using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput \
@@ -137,7 +137,7 @@ The returned structure includes the following fields:
 - **blocks**: Number of provisioned throughput capacity blocks, where block is 100 reads/sec, 50 writes/sec, and 5 global queries/sec.
 - **throughput**: Break down of the specific number of reads/sec, writes/sec, and global queries/sec.
 
-_Example JSON response:_
+*Example JSON response:*
 
 ```json
 {
@@ -170,14 +170,14 @@ Use a GET to the `_api/v2/user/current/throughput` endpoint to see the current c
 -   **Path**: `_api/v2/user/current/throughput`
 -   **Response**: The current consumption of provisioned throughput capacity consumed, broken down by the number of reads, writes, and global queries.
 
-_Example request to retrieve the current consumption of capacity, by using HTTP:_
+*Example request to retrieve the current consumption of capacity, by using HTTP:*
 
 ```HTTP
 GET _api/v2/user/current/throughput
 ```
 {: codeblock}
 
-_Example request to retrieve the current consumption of capacity, by using the command line:_
+*Example request to retrieve the current consumption of capacity, by using the command line:*
 
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/user/current/throughput \
@@ -188,7 +188,7 @@ The returned structure includes the following fields:
 
 - **throughput**: Break down of the current number of reads, writes, and global queries consumed.
 
-_Example JSON response:_
+*Example JSON response:*
 
 ```json
 {

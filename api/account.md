@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-02"
 
 keywords: account, ping account, cors
 
@@ -42,7 +42,7 @@ make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspelled your account name,
 you might get a [503 'service unavailable' error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
-_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using HTTP:_
+*Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using HTTP:*
 
 ```HTTP
 GET / HTTP/1.1
@@ -50,7 +50,7 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using the command line:_
+*Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using the command line:*
 
 ```sh
 curl -u $ACCOUNT https://$ACCOUNT.cloudant.com
@@ -59,7 +59,7 @@ curl -u $ACCOUNT https://$ACCOUNT.cloudant.com
 
 <!--
 
-_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using Javascript:_
+*Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using Javascript:*
 
 ```javascript
 var nano = require('nano');
@@ -74,7 +74,7 @@ account.request(function (err, body) {
 
 -->
 
-_Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using Python:_
+*Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using Python:*
 
 ```python
 import cloudant
