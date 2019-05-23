@@ -57,6 +57,11 @@ For more information, see the following links:
 
 The new replication scheduler has several improvements and enhancements. Learn more about the replication scheduler.
 
+## Build 8070 (May 2019)
+{: #build-8070-may-2019}
+
+- Bug fixes.
+
 ## Build 8062 (May 2019)
 {: #build-8062-may-2019}
 
