@@ -28,9 +28,19 @@ IBM Cloudant
 		release_info/deprecations.md
 
 	{: .topicgroup}
+	Local/On Premise
+		local/overview.md
+		local/whats-new.md
+		local/install.md
+		local/configure.md
+		local/maintenance.md
+		local/troubleshoot.md
+		local/upgrade.md
+		local/support.md
+
+	{: .topicgroup}
 	Other offerings
 		offerings/bluemix_dedicated.md
-		offerings/cloudant_local.md
 		offerings/cloudant.com.md
 	{: .navgroup-end}
 
