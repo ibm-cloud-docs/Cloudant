@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-05-28"
 
 keywords: numbers, strings, booleans, arrays, objects
 
@@ -58,7 +58,7 @@ JSON supports the same basic types as supported by JavaScript:
 
 Numbers can be integer or floating point values.
 
-_Example of a number in JSON format:_
+*Example of a number in JSON format:*
 
 ```json
 123
@@ -70,7 +70,7 @@ _Example of a number in JSON format:_
 
 String should be enclosed by double-quotes. Strings support Unicode characters and backslash escaping.
 
-_Example of a string in JSON format:_
+*Example of a string in JSON format:*
 
 ```json
 "A String"
@@ -82,7 +82,7 @@ _Example of a string in JSON format:_
 
 A `true` or `false` value.
 
-_Example of a boolean in JSON format:_
+*Example of a boolean in JSON format:*
 
 ```json
 {
@@ -96,7 +96,7 @@ _Example of a boolean in JSON format:_
 
 A list of values enclosed in brackets. The values enclosed can be any valid JSON.
 
-_Example of an array in JSON format:_
+*Example of an array in JSON format:*
 
 ```json
 [
@@ -113,7 +113,7 @@ _Example of an array in JSON format:_
 ```
 {: codeblock}
 
-_Example of an array in JSON format (linear):_
+*Example of an array in JSON format (linear):*
 
 ```json
 [ "one", 2, "three", [], true, { "foo": "bar" } ]
@@ -129,7 +129,7 @@ or a hash.
 The key must be a string,
 but the value can be any of the supported JSON values.
 
-_Example of a JSON object:_
+*Example of a JSON object:*
 
 ```json
 {

@@ -30,11 +30,11 @@ subcollection: cloudant
 - Partitioned
 - Non-partitioned
 
-A _partitioned_ database offers significant performance and cost advantages but
+A *partitioned* database offers significant performance and cost advantages but
 requires you to specify a logical partitioning of your data. This is described
 more in the following text.
 
-Alternatively, a _non-partitioned_ database can be created. This type of
+Alternatively, a *non-partitioned* database can be created. This type of
 database can be easier to work with as no partitioning scheme needs to be defined, but only global secondary indexes can be created.
 
 {{site.data.keyword.cloudant_short_notm}} strongly recommends that you use a partitioned database for best long-term
@@ -73,7 +73,7 @@ detail later.
 
 A partitioned database is the newer type of {{site.data.keyword.cloudant_short_notm}} database. Within a
 partitioned database, documents are formed into logical partitions by use
-of a _partition key_, which is part of document IDs for documents within
+of a *partition key*, which is part of document IDs for documents within
 partitioned databases. All documents are assigned to a partition, and many
 documents are typically given the same partition key. A partition's primary
 JSON data and its indexes end up co-located, meaning that the database is
@@ -385,7 +385,7 @@ curl -XGET \
 This query needs to use the partitioned `timestamped-readings` index. We can
 issue a query to the partition to get the readings for today:
 
-_query.json, assuming today is 13th Dec 2018:_
+*query.json, assuming today is 13th Dec 2018:*
 
 ```json
 {
@@ -452,7 +452,7 @@ To get the results for a device, we issue a partition query for the device
 within the `bridge-9876` partition. A standard {{site.data.keyword.cloudant_short_notm}} Query selector is
 used, as if one were issuing a global query.
 
-_query.json:_
+*query.json:*
 
 ```json
 {
@@ -479,7 +479,7 @@ To get the results for a device, we issue a partition query for the device
 within the `bridge-9876` partition. The selector is only slightly more
 complicated, but still the same as an equivalent global query.
 
-_query.json, assuming today is 13th Dec 2018:_
+*query.json, assuming today is 13th Dec 2018:*
 
 ```json
 {

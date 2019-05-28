@@ -47,7 +47,7 @@ Let's take a simple example.
 Assume we have a simple collection of data documents,
 similar to the following example.
 
-_Example of a simple data document:_
+*Example of a simple data document:*
 
 ```json
 {
@@ -68,7 +68,7 @@ We want to create a [MapReduce view](/docs/services/Cloudant?topic=cloudant-view
 We can do this by creating a Map function,
 similar to the following example.
 
-_Example map function returning a document's timestamp field, if present:_
+*Example map function returning a document's timestamp field, if present:*
 
 ```javascript
 function(doc) {
@@ -88,7 +88,7 @@ We are going to call this view "`by_ts`"
 and put it into a design document called "`fetch`",
 like the following example.
 
-_Example design document that defines a view using a map function:_
+*Example design document that defines a view using a map function:*
 
 ```json
 {
@@ -134,7 +134,7 @@ It's worth remembering at this point that:
 -   The more data we have,
     the longer it takes before the index is ready.
 -   While the initial index build is in progress,
-    _any queries made against that index will block_.
+    *any queries made against that index will block*.
 -   Querying a view triggers the 'mapping' of any documents that haven't yet been incrementally indexed.
     This ensures we get an up-to-date view of the data.
     See the following ['`stale`' parameter](#the-stale-parameter) discussion,
@@ -148,7 +148,7 @@ then they are built efficiently at the same time.
 Each document is only read once,
 and passed through each view's Map function.
 The downside of this approach is that modifying a design document
-_invalidates all of the existing MapReduce views_ defined in that document,
+*invalidates all of the existing MapReduce views* defined in that document,
 even if some of the views remain unaltered. 
 
 If MapReduce views must be altered independently of each other,
@@ -168,10 +168,10 @@ instead of returning the actual timestamp result,
 we are only interested in the count of how many documents match the criteria.
 To achieve this,
 the map function remains the same,
-but we now use a _reduce_ of "`_count`".
+but we now use a *reduce* of "`_count`".
 The effect is that our design document looks like the following example.
 
-_Example design document that uses a reduce function:_
+*Example design document that uses a reduce function:*
 
 ```json
 {
@@ -201,7 +201,7 @@ and blocks incoming queries on that view until it is complete.
 
 But there's a problem...
 
-If we have an application that is accessing this view _in real-time_,
+If we have an application that is accessing this view *in real-time*,
 then we might well encounter a deployment dilemma:
 
 -   Version 1 of our code,
@@ -267,7 +267,7 @@ There is a command-line Node.js script that automates the 'move and switch' proc
 called '`couchmigrate`'.
 It can be installed as follows.
 
-_Command to install the Node.js `couchmigrate` script:_
+*Command to install the Node.js `couchmigrate` script:*
 
 ```sh
 npm install -g couchmigrate
@@ -277,7 +277,7 @@ npm install -g couchmigrate
 To use the `couchmigrate` script,
 first define the URL of the CouchDB/{{site.data.keyword.cloudant_short_notm}} instance by setting an environment variable called `COUCH_URL`.
 
-_Defining the URL of the an {{site.data.keyword.cloudant_short_notm}} instance:_
+*Defining the URL of the an {{site.data.keyword.cloudant_short_notm}} instance:*
 
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
@@ -287,7 +287,7 @@ export COUCH_URL=http://127.0.0.1:5984
 The URL can be HTTP or HTTPS,
 and can include authentication credentials.
 
-_Defining the URL of the {{site.data.keyword.cloudant_short_notm}} instance with authentication credentials:_
+*Defining the URL of the {{site.data.keyword.cloudant_short_notm}} instance with authentication credentials:*
 
 ```sh
 export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
@@ -302,7 +302,7 @@ In this example,
 `db` specifies the name of the database to change,
 and `dd` specifies the path to our design document file.
 
-_Running the `couchmigrate` command:_
+*Running the `couchmigrate` command:*
 
 ```sh
 couchmigrate --db mydb --dd /path/to/my/dd.json
@@ -344,7 +344,7 @@ When querying the view, we have three choices:
     without any additional reindexing.
 -   A second alternative is to add the "`stale=update_after`" parameter to the API call.
     The parameter means "return me the data that is already indexed,
-    _and_ then reindex any new documents".
+    *and* then reindex any new documents".
     In other words,
     when you query the view with "`stale=update_after`",
     {{site.data.keyword.cloudant_short_notm}} returns the answer immediately,

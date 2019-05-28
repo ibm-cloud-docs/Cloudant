@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-05-28"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -175,7 +175,7 @@ The first version of a document might look like the example provided.
 The document doesn't have a description yet,
 so someone might add one.
 
-> _Alternative_ second version, introducing a price reduction data change to the first version of the document.
+> *Alternative* second version, introducing a price reduction data change to the first version of the document.
 
 ```json
 {
@@ -225,7 +225,7 @@ If the document has any conflicts,
 you would get a response similar to the example provided,
 which is based on the changed description or changed price problem.
 
-The version with the changed price has been chosen _arbitrarily_ as the latest version of the document.
+The version with the changed price has been chosen *arbitrarily* as the latest version of the document.
 You should not assume that the most recently updated version of the document is considered to be the latest version for conflict resolution purposes.
 
 In this example,
@@ -256,7 +256,7 @@ which also requests the `_conflicts` array:
 `http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
 This retrieval gives us a current version of the document which we store,
-_and_ a list of all the other conflicting documents that must also be retrieved,
+*and* a list of all the other conflicting documents that must also be retrieved,
 for example `...rev=2-61ae00e029d4f5edd2981841243ded13` and `...rev=1-7438df87b632b312c53a08361a7c3299`.
 Each of these other conflicting versions is also retrieved and stored,
 for example:

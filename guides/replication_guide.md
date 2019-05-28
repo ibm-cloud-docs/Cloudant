@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-28"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -202,7 +202,7 @@ it is meaningless to ask for a list of changes after a specific point in time.
 The reason is that the list of changes might be supplied by a different database copy,
 which resulted in document updates at different times.
 However,
-it _is_ meaningful to ask for a list of changes after a specific change,
+it *is* meaningful to ask for a list of changes after a specific change,
 which is specified by using a sequence identifier.
 
 An extra consequence of the first characteristic is that
@@ -237,7 +237,7 @@ When you request a list of changes,
 the response you get might vary depending on which database copy supplies the list.
 
 If you use the `since` option to obtain a list of changes after a specific update sequence identifier,
-you always get the list of changes after that update _and_ you might also get some changes from before that update.
+you always get the list of changes after that update *and* you might also get some changes from before that update.
 The reason is that the database copy that responds to the list request must ensure that it
 lists the changes,
 consistent with all the replicas.

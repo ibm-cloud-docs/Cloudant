@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-28"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -174,7 +174,7 @@ your applications must be able to 'fail over' to copies of your data that are st
 [In-region automatic data redundancy](#in-region-automatic-data-redundancy) provides applications with high availability access to data.
 [Cross-region redundancy for disaster recovery](#cross-region-redundancy-for-disaster-recovery) provides applications with a means of recovering from a disaster.
 However,
-both of these capabilities focus on maintaining access only to the _current_ copy of your data.
+both of these capabilities focus on maintaining access only to the *current* copy of your data.
 
 In practice,
 people and applications can make mistakes and change data in unintended ways.

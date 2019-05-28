@@ -94,7 +94,7 @@ Use of {{site.data.keyword.cloudant_short_notm}} API keys alongside IAM is possi
 {{site.data.keyword.cloudant_short_notm}} API keys and permissions are not visible or manageable via the IAM policy interface, rendering
 holistic access management impossible.
 
-The choice between _Use only IAM_ or _Use both legacy credentials and IAM_ affects:
+The choice between *Use only IAM* or *Use both legacy credentials and IAM* affects:
 
 1. Whether legacy {{site.data.keyword.cloudant_short_notm}} account-level credentials are available to manage databases and other
     account-level actions.
@@ -110,7 +110,7 @@ When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from
 by using the `-p` parameter to enable or disable legacy credentials for an account. The option is
 passed in JSON format and is called `legacyCredentials`.
 
-To provision an instance as _Use only IAM_ (recommended), run the following command:
+To provision an instance as *Use only IAM* (recommended), run the following command:
 
 ```sh
 ic resource service-instance-create  "Instance Name" \
@@ -118,7 +118,7 @@ ic resource service-instance-create  "Instance Name" \
     -p {"legacyCredentials": false}
 ```
 
-To provision an instance as _Use both legacy credentials and IAM_, run the following command:
+To provision an instance as *Use both legacy credentials and IAM*, run the following command:
 
 ```sh
 ic resource service-instance-create  "Instance Name" \
@@ -129,7 +129,7 @@ ic resource service-instance-create  "Instance Name" \
 ### Service credential JSON examples for each option
 {: #service-credential-json-examples-for-each-option}
 
-The choice between _Use only IAM_ and _Use both legacy credentials and IAM_ access control
+The choice between *Use only IAM* and *Use both legacy credentials and IAM* access control
 affects how credentials are delivered to your application when binding and generating
 service credentials. When generating credentials within the primary {{site.data.keyword.cloud_notm}}
 IAM interface, API keys are shown in that interface when generated.
@@ -140,7 +140,7 @@ service instance. Generating service credentials this way creates a service cred
 This section shows what the service credential JSON looks like and what
 each value means.
 
-When you select _Use only IAM_, service credentials that are generated contain only IAM
+When you select *Use only IAM*, service credentials that are generated contain only IAM
 values, and look like the following example:
 
 ```json
@@ -165,7 +165,7 @@ Each value in the previous JSON example should be interpreted as follows:
 - `url`: {{site.data.keyword.cloudant_short_notm}} service URL.
 - `username`: The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
-When you select _Use both legacy credentials and IAM_, the service credentials that are generated contain both IAM and Legacy credentials, and look like the following example:
+When you select *Use both legacy credentials and IAM*, the service credentials that are generated contain both IAM and Legacy credentials, and look like the following example:
 
 ```json
 {
@@ -196,10 +196,10 @@ Each value in the previous JSON example should be interpreted as follows:
 - `url`: {{site.data.keyword.cloudant_short_notm}} service URL, including embedded {{site.data.keyword.cloudant_short_notm}} Legacy credentials.
 - `username`: The {{site.data.keyword.cloudant_short_notm}} Legacy credential user name.
 
-## Should I use _Use only IAM_ or _Use both legacy credentials and IAM_?
+## Should I use *Use only IAM* or *Use both legacy credentials and IAM*?
 {: #should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
 
-If possible, _Use only IAM_ is preferred. The major advantages for using
+If possible, *Use only IAM* is preferred. The major advantages for using
 {{site.data.keyword.cloud_notm}} IAM include:
 
 - Management of access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling rather than
