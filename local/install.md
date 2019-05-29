@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-10"
+lastupdated: "2019-05-29"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -53,7 +53,7 @@ The following hardware requirements apply to the `x86_64`
 architecture.
 
 ##### Database Nodes
-{: #database-nodes-install}
+{: #database-nodes-hardware-reqs}
 
 *  The minimum requirements include four cores and eight threads,
    such as Xeon E3-1270 V2, 8 GB of RAM and 1-GB network.
@@ -90,7 +90,7 @@ For the operating system and {{site.data.keyword.cloudantfull}} binaries, the di
    and a 1-gigabit network.
 
 #### Linux on {{site.data.keyword.IBM_notm}} System z
-{: #linux-on-ibm-system-z}
+{: #linux-on-ibm-system-z-hardware-reqs}
 
 Confirm that your environment meets the following hardware
 requirements.
@@ -125,7 +125,7 @@ A minimum of five servers are recommended to create a fully
 functional {{site.data.keyword.cloudant_short_notm}} cluster that ensures 24 x 7 availability.
 
 ##### Database Nodes
-{: #database-nodes-install}
+{: #database-nodes-software-reqs}
 
 *  {{site.data.keyword.cloudant_local_notm}} must be installed on at least three database
    nodes for replication purposes.
@@ -194,7 +194,7 @@ The following requirements apply to the x86_64 architecture.
 {: #ibm-system-z-s390x-architecture}
 
 ##### Linux on {{site.data.keyword.IBM_notm}} System z
-{: #linux-on-ibm-system-z}
+{: #linux-on-ibm-system-z-supported-arch}
 
 *  Linux on {{site.data.keyword.IBM_notm}} System z - Red Hat Enterprise Linux 7.x
 *  SUSE Linux Enterprise Server (SLES) 12

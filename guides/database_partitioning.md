@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-04-16"
+lastupdated: "2019-05-29"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -32,7 +32,7 @@ subcollection: cloudant
 
 A _partitioned_ database offers significant performance and cost advantages but
 requires you to specify a logical partitioning of your data. This is described
-more below.
+more in the following text.
 
 Alternatively, a _non-partitioned_ database can be created. This type of
 database can be easier to work with as no partitioning scheme needs to be defined, but only global secondary indexes can be created.
@@ -66,7 +66,7 @@ no real relation between a document's ID and the shard it ends up on. Documents
 with very similar document IDs are unlikely to be placed onto the same shard.
 
 A non-partitioned database offers only global querying, described in more
-detail below.
+detail later.
 
 ## Partitioned databases
 {: #partitioned-databases-database-partitioning}
@@ -263,7 +263,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 ### Creating indexes
 {: #creating-indexes}
 
-For the above queries, we'll need two indexes:
+For the queries described previously, we'll need two indexes:
 
 1. A global index mapping device ID to infrastructure ID.
 2. A partitioned index mapping device IDs to readings.
@@ -289,7 +289,7 @@ this would look something like this:
 }
 ```
 
-Assuming the above document in `./view.json`, this is uploaded to the database
+Assuming the previous document in `./view.json`, this is uploaded to the database
 using:
 
 ```
@@ -327,7 +327,7 @@ The definition of the by timestamp is as follows:
 }
 ```
 
-Assuming the above document is `./query-index1.json`, upload the index to the
+Assuming the previous document is `./query-index1.json`, upload the index to the
 database using this command:
 
 ```
@@ -350,7 +350,7 @@ The definition of the by device ID and timestamp is as follows:
 }
 ```
 
-Assuming the above document is `./query-index2.json`, upload the index to the
+Assuming the previous document is `./query-index2.json`, upload the index to the
 database using this command:
 
 ```

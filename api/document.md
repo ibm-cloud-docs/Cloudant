@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-03"
+lastupdated: "2019-05-29"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -671,7 +671,7 @@ The resulting document structure looks like the following diagram.
 
 A subsequent request to purge the document with revision `2-98e2b4ecd9a0da76fe8b83a83234ee71`
 results in the removal of *all* the revisions
-because no revision branches are left in an orphan state by the purge.
+because no revision branches remain in an orphan state by the purge.
 
 ### Deciding between purge or delete
 {: #deciding-between-purge-or-delete}

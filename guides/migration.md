@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-29"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -94,10 +94,10 @@ Migrate from the free Lite plan to the Standard plan by following these steps:
 1.  Go to the {{site.data.keyword.cloud_notm}} dashboard.
 2.  Go to the **Menu** icon > **Resource List** to see all your service instances. 
 3.  Select the {{site.data.keyword.cloudant_short_notm}} instance you want to migrate. 
-4.  Select the **Plan** tab on the left navigation. 
+4.  Select the **Plan** tab on the menu. 
 5.  From the list of pricing plans, select the **Standard** check box. 
 ![lite](../images/migrate3.png)
-6.  Click **Upgrade** at the bottom of the page.
+6.  Click **Upgrade**.
 All of your existing data is retained for you.
 
 Adjust your capacity by using the Throughput Capacity slider to increase or decrease capacity as needed.

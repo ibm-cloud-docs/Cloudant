@@ -211,7 +211,7 @@ if (doc.min_length) {
 ```
 {: codeblock}
 
-You might use the JavaScript '`typeof`' function to implement the guard clause test.
+You might use the JavaScript `typeof` function to implement the guard clause test.
 If the field exists *and* has the expected type,
 the correct type name is returned,
 so the guard clause test succeeds and it is safe to use the index function.
@@ -325,13 +325,13 @@ The name of the language is also the name of the analyzer.
 *	`thai`
 *	`turkish`
 
-Language-specific analyzers are optimized for the specified language. You cannot combine a generic analyzer with a language-specific analyzer. Instead, you might use a ['`perfield`' analyzer](#per-field-analyzers) to select different analyzers for different fields within the documents.
+Language-specific analyzers are optimized for the specified language. You cannot combine a generic analyzer with a language-specific analyzer. Instead, you might use a [`perfield` analyzer](#per-field-analyzers) to select different analyzers for different fields within the documents.
 {: note}
 
 ### Per-field analyzers
 {: #per-field-analyzers}
 
-The '`perfield`' analyzer configures multiple analyzers for different fields.
+The `perfield` analyzer configures multiple analyzers for different fields.
 
 *Example of defining different analyzers for different fields:*
 
@@ -739,9 +739,9 @@ the sorting order is determined by 'relevance'.
 Relevance is measured according to
 [Apache Lucene Scoring ![External link icon](../images/launch-glyph.svg "External link icon")](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}.
 As an example,
-if you search a simple database for the word "`example`",
+if you search a simple database for the word `example`,
 two documents might contain the word.
-If one document mentions the word "`example`" 10 times,
+If one document mentions the word `example` 10 times,
 but the second document mentions it only twice,
 then the first document is considered to be more 'relevant'.
 
@@ -970,7 +970,7 @@ For example,
 if 100 strings are indexed,
 and one number,
 then the index cannot be used for `count` operations.
-You can check the type by using the '`typeof`' operator,
+You can check the type by using the `typeof` operator,
 and convert it by using the `parseInt`,
 `parseFloat`,
 or `.toString()` functions.
@@ -1035,7 +1035,7 @@ For example,
 if 100 strings are indexed,
 and one number,
 then the index cannot be used for `range` operations.
-You can check the type by using the '`typeof`' operator,
+You can check the type by using the `typeof` operator,
 and convert it by using the `parseInt`,
 `parseFloat`,
 or `.toString()` functions.
@@ -1078,11 +1078,11 @@ representing the longitude and latitude.
 You can then query by using the special `<distance...>` sort field,
 which takes five parameters:
 
--   Longitude field name: The name of your longitude field ('`mylon`' in the example).
--   Latitude field name: The name of your latitude field ('`mylat`' in the example).
+-   Longitude field name: The name of your longitude field (`mylon` in the example).
+-   Latitude field name: The name of your latitude field (`mylat` in the example).
 -   Longitude of origin: The longitude of the place you want to sort by distance from.
 -   Latitude of origin: The latitude of the place you want to sort by distance from.
--   Units: The units to use: '`km`' for kilometers or '`mi`' for miles. The distance is returned in the order field.
+-   Units: The units to use: `km` for kilometers or `mi` for miles. The distance is returned in the order field.
 
 You can combine sorting by distance with any other search query,
 such as range searches on the latitude and longitude,

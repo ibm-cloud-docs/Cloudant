@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-09"
+lastupdated: "2019-05-29"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -137,7 +137,7 @@ the CSR.
     You are about to be asked to enter information that will be incorporated into your certificate request.
     Enter a Distinguished Name or a DN.
     There are a number of fields, but you can leave some blank.
-    Some fields have a default value, if you enter '.', the field is left blank.
+    Some fields have a default value, if you enter '.', the field remains blank.
     -----
     Country Name (2 letter code) [XX]:US
     State or Province Name (full name) []:New Jersey
@@ -340,7 +340,7 @@ an "untrusted" certificate, one of the following screens open.
     ![Example of the {{site.data.keyword.cloudant_short_notm}} Dashboard Login screen.](images/20170722-dashboardlogin.jpg)
     
 #### Connecting load balancer and database nodes by using SSL
-{: #connecting-load-balancer-and-database-nodes-by-using-ssl}
+{: #connecting-lb-and-db-nodes-by-using-ssl-config-ssl-lb}
 
 If you use SSL for communication between your {{site.data.keyword.cloudant_local_notm}}
 load balancer and database nodes, enable the secure communication
@@ -353,7 +353,7 @@ configuration changes.
     
 </li>
 <li>Update the <code>haproxy.cfg</code> file.
-<ol type="a"><li>Find the section label, and specify the appropriate host names and IP addresses below.</li>
+<ol type="a"><li>Find the section label, and specify the appropriate host names and IP addresses.</li>
 <li>Verify that all the database nodes are included in the list.</li>
 <li>For each server, change the port from <code>5984</code> to <code>6984</code>.</li>
 <li>Add the following text to the end of each 'server' line. Enter the path for your <code>ca.pem</code> file as shown in the example. 
@@ -396,7 +396,7 @@ openssl req -new -x509 -key privkey.key -out ca.pem
 The resulting `ca.pem` file is used on each database node and each
 load balancer node.
 
-To use the `ca.pe`m file on a load balancer node, follow the instructions in [Connecting load balancer and database nodes by using SSL](#connecting-load-balancer-and-database-nodes-by-using-ssl).
+To use the `ca.pe` file on a load balancer node, follow the instructions in [Connecting load balancer and database nodes by using SSL](#connecting-lb-and-db-nodes-by-using-ssl-config-ssl-db).
 {: note}
 
 #### Generating the server certificate file for a database node
@@ -477,7 +477,7 @@ Configure the database node to use the SSL security files.
 For more information about configuring {{site.data.keyword.cloudant_local_notm}} for SSL-based secure connections, see [Secure Socket Level Options ![External link icon](images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/latest/config/http.html#secure-socket-level-options).
 
 #### Connecting load balancer and database nodes by using SSL
-{: #connecting-load-balancer-and-database-nodes-by-using-ssl}
+{: #connecting-lb-and-db-nodes-by-using-ssl-config-ssl-db}
 
 If you use SSL for communication between your {{site.data.keyword.cloudant_local_notm}}
 load balancer and database nodes, enable the secure communication
@@ -490,7 +490,7 @@ configuration changes.
     
 </li>
 <li>Update the <code>haproxy.cfg</code> file.
-<ol type="a"><li>Find the section label, and specify the appropriate host names and IP addresses below.</li>
+<ol type="a"><li>Find the section label, and specify the appropriate host names and IP addresses.</li>
 <li>Verify that all the database nodes are included in the list.</li>
 <li>For each server, change the port from <code>5984</code> to <code>6984</code>.</li>
 <li>Add the following text to the end of each 'server' line.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-29"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -104,7 +104,7 @@ via their {{site.data.keyword.cloud_notm}} account details.
 {: #is-our-ibm-cloudant-database-encrypted-}
 
 All clusters have an encrypted file system (encryption at rest) using Linux Unified Key Setup (LUKS). Data in the database is 
-visible to our operations and support teams (see below).
+visible to our operations and support teams (see the following paragraph).
 
 For sensitive data, that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}, 
 you must encrypt or otherwise protect (pseudonymise) your data before sending it to us. You must avoid 
@@ -224,7 +224,7 @@ If a document needs removal via a *Right to be forgotten* request:
 verifies the request to confirm the `id` contains PI. {{site.data.keyword.cloudant_short_notm}} does not purge data that does not have PI in the `_id`. 
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
-This process is only to be used for emergency deletion requests (for example, *right to be 
+This process is only to be used for emergency deletion requests (for example, *Right to be 
 forgotten*) and must not be relied upon long-term. If your application is intentionally 
 using PI in document IDs, 
 then it must be changed to either pseudonymise that PI, or not use PI in document IDs. You cannot 

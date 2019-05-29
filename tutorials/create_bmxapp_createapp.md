@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-29"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -60,13 +60,13 @@ all available in the [`starter` application pack](/docs/services/Cloudant?topic=
 
 Modify your configuration files as follows:
 
-1.  Edit the '`Procfile`' file so that it contains the following text:
+1.  Edit the `Procfile` file so that it contains the following text:
     ```
     web: python server.py
     ```
     {: codeblock}
 
-2.  Edit the '`manifest.yml`' file so that it contains the following text:
+2.  Edit the `manifest.yml` file so that it contains the following text:
     ```
     applications:
     - path: .
@@ -81,10 +81,10 @@ Modify your configuration files as follows:
     ```
     {: codeblock}
 
-Ensure that you modify the '`domain`', '`name`', '`host`', and '`services`' values. They are the values that were entered when you created your [{{site.data.keyword.cloud_notm}} application environment](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment) and your [{{site.data.keyword.cloudant_short_notm}} database instance](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites).
+Ensure that you modify the `domain`, `name`, `host`, and `services` values. They are the values that were entered when you created your [{{site.data.keyword.cloud_notm}} application environment](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment) and your [{{site.data.keyword.cloudant_short_notm}} database instance](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites).
 {: note}
 
-3.  Edit the '`requirements.txt`' file so that it contains the following text:
+3.  Edit the `requirements.txt` file so that it contains the following text:
     ```
     cloudant==2.3.1
     ```
@@ -162,7 +162,7 @@ and creates the database.
 The record takes the form of a log file,
 which is stored in a folder accessible by the Python web server.
 
-Create a folder (called '`static`' in the application),
+Create a folder (called `static` in the application),
 and get ready to store a file in it:
 
 ```python
@@ -207,13 +207,13 @@ target.write("\n====\n\n")
 The Python application runs within an {{site.data.keyword.cloud_notm}} application environment.
 The environment provides all the necessary information for the application to access connected services.
 The information is provided within an environment variable,
-called '`VCAP_SERVICES`'.
+called `VCAP_SERVICES`.
 This variable can be accessed by the application,
 and used to determine the connection details.
 
 The first task is to ensure that the application is running within
 an {{site.data.keyword.cloud_notm}} application environment.
-Check by testing for the presence of the '`VCAP_SERVICES`' environment variable:
+Check by testing for the presence of the `VCAP_SERVICES` environment variable:
 
 ```python
 # Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.

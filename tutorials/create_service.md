@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-05-30"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -41,7 +41,7 @@ to work with the database.
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button. <br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
-2.  Click `Databases` from the left navigation and `Cloudant` from the list of database services:<br/>
+2.  Click `Databases` from the menu and `Cloudant` from the list of database services:<br/>
     ![{{site.data.keyword.cloud_notm}} Databases services](images/img0003.png)<br/>
 
 3.  In the service configuration window, enter a service name. Verify that the service name, region/location, resource group, and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `Use only IAM` or `Use both legacy credentials and IAM`. For more information, see [authentication methods](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-08"
+lastupdated: "2019-06-04"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -34,8 +34,8 @@ problem, gather diagnostic information, and download fixes.
 {: #elevated-request-latencies}
 
 Latencies on any cluster vary in response to various internal and
-external factors. In this context, "elevated" means "elevated
-beyond an acceptable tolerance." The level of latencies that is
+external factors. In this context, 'elevated' means 'elevated
+beyond an acceptable tolerance'. The level of latencies that is
 acceptable to you depends on your application. Elevated latencies
 are difficult to debug. While a predefined solution is
 impossible, the following paragraphs offer some guidance.
@@ -253,7 +253,7 @@ Set an IOQ bypass for a particular request class.
 
 These metrics are analogous. Load average is the number
 of processes in a runnable state that is waiting to run
-or display by top or uptime. Erlang run queue length is
+or display by `top` or `uptime`. Erlang run queue length is
 the number of processes in the Erlang VM in a runnable
 state (available in the Metrics application).
 
@@ -672,7 +672,7 @@ Run a garbage collection from a remsh on the node.
 
 If that does not change the situation, check whether the
 lines in the provided memory information add up to the
-memory the OS is reporting for beam.smp by using top on
+memory the OS is reporting for beam.smp by using `top` on
 the node. If a significant discrepancy exists, the node
 is probably leaking memory, and if the server is close
 to running out, restart cloudant with this command.
