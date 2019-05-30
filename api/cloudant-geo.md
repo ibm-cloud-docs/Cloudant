@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-05-30"
 
 keywords: geospatial, geojson, geo index, querying, query geometry, geometric relation
 
@@ -74,7 +74,7 @@ relation=contains&g=POLYGON ((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0
 The basic steps for working with geospatial data in {{site.data.keyword.cloudant_short_notm}} Geo are as follows:
 
 1.  Include a GeoJSON geometry object in your JSON document.
-	The geometry object can be of any type that is defined by the [GeoJSON specification ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){: new_window}.
+	The geometry object can be of any type that is defined by the [GeoJSON specification ![External link icon](../images/launch-glyph.svg "External link icon")](https://tools.ietf.org/html/rfc7946){: new_window}.
 2.  Index the geometry object that uses {{site.data.keyword.cloudant_short_notm}} Geo defined `st_index` function.
 3.  Search the indexed geometry object by using various geometries and geometric relationships.
 
