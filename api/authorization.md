@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-05-30"
 
 keywords: authorization, roles, permissions, _users database
 
@@ -380,7 +380,7 @@ remember to record the key name and password.
 These values are both randomly generated,
 and cannot be retrieved if lost or forgotten.
 
-[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local") ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html){: new_window} does not support API Keys. For a similar capability, create "CouchDB" style users, as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.install.doc/topics/clinstall_db_security.html){: new_window}.
+[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local"))](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-local-overview) does not support API Keys. For a similar capability, create "CouchDB" style users, as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center](/docs/services/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-database-level-security).
 {: note}
 
 *Example of using an HTTP request to create an API key:*

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-26"
+lastupdated: "2019-05-30"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 {: #ibm-cloudant.com}
 
 The {{site.data.keyword.cloudantfull}} Shared Plan is being retired on 31 March 2018. 
-As of  24 July 2017, no new Shared Plan accounts can be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://cloudant.com){: new_window}. 
+As of  24 July 2017, no new Shared Plan accounts can be created from the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: new_window}. 
 {: deprecated}
 
 {{site.data.keyword.cloudant_short_notm}} is a hosted and fully-managed database-as-a-service (DBaaS). 
@@ -73,7 +73,7 @@ create an account using the form, and open a support ticket to request that your
 {: #shared-plan}
 
 The {{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on March 31, 2018. 
-As of July 24th, 2017, no new Shared Plan accounts can be created on the [{{site.data.keyword.cloudant_short_notm}} website ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com){: new_window}. 
+As of July 24th, 2017, no new Shared Plan accounts can be created on the [{{site.data.keyword.cloudant_short_notm}} website ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window}. 
 {: deprecated}
 
 With the {{site.data.keyword.cloudant_short_notm}} Shared Plan, you have access to all the 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-05-30"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -451,7 +451,7 @@ all the documents of `type`:`user` that do not have a status of `archived`.
 This situation occurs because a normal index can be used to match contiguous rows,
 and the `$ne` operator cannot guarantee that.
 
-[{{site.data.keyword.cloudant_localfull}} (Cloudant Local)](https://www.ibm.com/support/knowledgecenter/SSTPQH_1.0.0/com.ibm.cloudant.local.doc/SSTPQH_1.0.0_welcome.html) does not support partial indexes.
+[{{site.data.keyword.cloudant_localfull}} (Cloudant Local)](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-local-overview) does not support partial indexes.
 {: note}
 
 To improve response time, you can create an index that excludes documents 
