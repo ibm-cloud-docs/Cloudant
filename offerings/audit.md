@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-06-11"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -58,3 +58,6 @@ When contacting support, be sure to include:
 - The {{site.data.keyword.cloudant_short_notm}} account the request relates to.
 - The timeframe for audit logs (must not be more than one month per support request).
 - Any specific databases, documents, or principals of interest.
+
+
+

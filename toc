@@ -71,6 +71,9 @@ IBM Cloudant
 		api/active_tasks.md
 		api/advanced.md
 		api/monitoring.md
+	
+	{: .topicgroup}
+	offerings/at-events.md
 
 	{: .topicgroup}
 	Sample apps
