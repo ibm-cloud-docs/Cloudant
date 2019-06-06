@@ -2038,8 +2038,7 @@ Therefore,
 a conversion between the two formats takes place.
 
 In the following example,
-the JSON query approximates to the English phrase:
-"match if the age expressed as a number is greater than five and less than or equal to infinity".
+the JSON query approximates to the English phrase: match if the age expressed as a number is greater than five and less than or equal to infinity.
 The Lucene query corresponds to that phrase,
 where the text `_3a` within the fieldname corresponds to the `age:number` field,
 and is an example of the document content expansion that was mentioned earlier.

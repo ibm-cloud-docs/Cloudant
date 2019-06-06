@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-05-29"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -260,7 +260,7 @@ The procedure to switch to the new view is this:
 6.  Delete design document `_design/fetch_NEW`.
 7.  Delete design document `_design/fetch_OLD`.
 
-## Move and switch tooling
+## 'Move and switch' tooling
 {: #move-and-switch-tooling}
 
 There is a command-line Node.js script that automates the 'move and switch' procedure,
@@ -309,7 +309,7 @@ couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
 {: pre}
 
-The script coordinates the 'move and switch' procedure,
+The script coordinates the 'Move and switch' procedure,
 waiting until the view is built before returning.
 If the incoming design document is the same as the incumbent one,
 then the script returns almost immediately.

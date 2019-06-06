@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-30"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -72,7 +72,7 @@ update and another subset to accept the second update. When the cluster discover
 discrepancy, it will combine the documents in the same way as normal replication does for 
 concurrent updates by creating a conflict.
 
-Conflicted documents harm performance; see below for more details on just why this happens. 
+Conflicted documents harm performance; see the following text for more details on just why this happens. 
 A highly concurrent update-in-place pattern also increases the likelihood that writes will 
 be rejected because the `_rev` parameter isn’t the expected one, which will force your 
 application to retry and so delay processing.
@@ -167,7 +167,7 @@ For example, take a medical record containing a list of operations:
 {: codeblock}
 
 If Joe is unfortunate enough to be having a lot of operations at the same time, the many 
-concurrent updates to a document is likely to create conflicted documents, as described above. 
+concurrent updates to a document is likely to create conflicted documents, as described previously. 
 Better to break the operations out into separate documents which refer to Joe's person document 
 and use a view to connect things together. To represent each operation, you’d upload documents 
 like the following two example:
@@ -220,7 +220,7 @@ memory-intensive to walk the document tree.
 {: #build-in-conflict-resolution}
 
 In an eventually consistent system like {{site.data.keyword.cloudant_short_notm}}, conflicts will eventually happen. As 
-described above, this is a price of our scalability and data resilience.
+described previously, this is a price of our scalability and data resilience.
 
 Structuring your data in such a way that resolving conflicts is quick and need not involve 
 operator assistance will help keep your databases humming along smoothly. The ability to 
@@ -240,7 +240,7 @@ How you do this is very application specific, but here's a few tips:
 ## Why this helps you build in conflict resolution 
 {: #why-this-helps-you-build-in-conflict-resolution}
 
-As described above, heavily conflicted documents exert a heavy toll on the database. Building 
+As described previously, heavily conflicted documents exert a heavy toll on the database. Building 
 in the capability to resolve conflicts from the beginning is a great help in avoiding 
 pathologically conflicted documents.
 
@@ -253,6 +253,6 @@ and to take advantage of, to make sure the database performance scales as your a
 grows. We understand the shift can be confusing, so we’re always on-hand to give advice.
 
 For further reading, see this discussion on the
-["data model for Foundbite" ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window},
-or this ["example from our friends at Twilio" ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
+[data model for Foundbite ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window},
+or this [example from our friends at Twilio ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
 

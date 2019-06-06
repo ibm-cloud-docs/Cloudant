@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-30"
+lastupdated: "2019-05-29"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -48,15 +48,15 @@ instances on it.
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
-2.  Click `Databases` from the left menu and `Cloudant` from the list of database services.<br/>
+2.  Click `Databases` from the menu and `Cloudant` from the list of database services.<br/>
      ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)<br/>
 
-3.  Select the `Dedicated Hardware` plan from the list of pricing plans at the bottom of the page:<br/>
+3.  Select the `Dedicated Hardware` plan from the list of pricing plans:<br/>
     ![Pricing plans](images/pricing_plan.png)
     
-4.  Fill out the following parameters at the top of the page: <br/>
+4.  Fill out the following parameters: <br/>
     -   Enter a service name.<br/>
-    -   Specify the region/location where you want to deploy. The region/location will be one of the six major {{site.data.keyword.cloud_notm}} regions where you want the instance deployed. The actual physical location of the instance is dictated by the location parameter described below.<br/>
+    -   Specify the region/location where you want to deploy. The region/location will be one of the six major {{site.data.keyword.cloud_notm}} regions where you want the instance deployed. The actual physical location of the instance is dictated by the location parameter described in the following list.<br/>
     -   Select a resource group.</br>
     -   Add a tag. 
     -   Select a location for deployment. This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information see [{{site.data.keyword.IBM}} global data centers ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/data-centers/){:new_window}.<br/>
@@ -89,7 +89,7 @@ instances on it.
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
-2.  Click `Databases` from the left menu and `Cloudant` from the list of database services.<br/>
+2.  Click `Databases` from the menu and `Cloudant` from the list of database services.<br/>
      ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} service selection](images/img0003.png)<br/>
     The page for creating a service appears.<br/>  
 

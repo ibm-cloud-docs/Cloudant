@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-09"
+lastupdated: "2019-05-29"
 
 keywords: stop and start service, add node, maintenance mode, rebalancing plan, remote access, run rebalancing plan, replace database node, replace load balancer node, tune automatic compacter, smoosh channels, metrics database
 
@@ -189,7 +189,7 @@ node.
     # Mapping between public and private host names for nodes. This plan is only needed if
     # the host names have a private and a public interface and the load balancer does
     # not have access to the private interface. If the private host name can be used,
-    # these fields can be left blank. Otherwise, the private host name extension
+    # these fields can remain blank. Otherwise, the private host name extension
     # is replaced with the public host name extension to arrive at the public host name.
     # If you are unsure, leave these empty.
     
@@ -401,7 +401,7 @@ database concurrently can lead to data loss.
 <li>Check whether it is a problem with the configuration of <code>rebal</code>
     or <code>ssh-agent</code>.</li>
 <li>Confirm that <code>ssh-agent</code> is set up correctly and that the <code>.rebal</code>
-    file contains the right credentials.
+    file contains the proper credentials.
 </li>
 <li>Check whether multiple <code>erl_call: failed to connect to node</code>
     messages in the <code>dbname.out</code> files exist. If multiple messages
@@ -427,7 +427,7 @@ database concurrently can lead to data loss.
 </ol>
 
 ### Verifying the new node
-{: #verifying-the-new-node}
+{: #verifying-the-new-node-with-weatherreport}
 
 Confirm that the new node is set up correctly.
 
@@ -462,7 +462,7 @@ Confirm that the new node is set up correctly.
    {: note}
 
 ## Replace a node
-{: #verifying-the-new-node}
+{: #replace-a-node}
 
 Use these instructions to replace an {{site.data.keyword.cloudantfull}} database or load
 balancer node.
@@ -754,7 +754,7 @@ bytes in the file as reported by `ls -al <filename>`.
 You define a channel through normal dbcore
 configuration, with some convention as to the parameter
 names. Channel configuration is defined by using
-`smoosh.channel_name` top-level configuration options.
+`smoosh.channel_name` configuration options.
 Defining a channel involves setting the options that you
 want for the channel, then bringing it into the sets of
 active channels for Smoosh by adding it to either
@@ -1137,7 +1137,7 @@ each compaction process in each channel. The
 
 Restarting Smoosh is a last-resort solution. It is a
 brute force approach where you hope that Smoosh rescans
-the databases and makes the right decision. If this step
+the databases and makes the correct decision. If this step
 is required, contact [support@cloudant.com ![External link icon](images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}, since doing
 this step can indicate a problem with Smoosh.
 

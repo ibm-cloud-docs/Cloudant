@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-05-29"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -70,7 +70,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## Build 8058 (April 2019)
 {: #build-8058-april-2019}
 
-- Fixed bug in `ibrowse` http client which left dead process IDs in the connection pool, and, in some cases, caused persistent IAM-based replication failures.
+- Fixed bug in `ibrowse` http client which leaves dead process IDs in the connection pool, and, in some cases, caused persistent IAM-based replication failures.
 
 ## Build 8052 (April 2019)
 {: #build-8052-april-2019}

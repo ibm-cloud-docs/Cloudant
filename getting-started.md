@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-26"
+lastupdated: "2019-05-29"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -102,7 +102,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 
 2.  Create an {{site.data.keyword.cloudant_short_notm}} service credential:
   <br>In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your {{site.data.keyword.cloudant_short_notm}} service instance.
-  <br>In the left navigation, click `Service credentials`.
+  <br>In the menu, click `Service credentials`.
   <br>a. Click the `New credential` button.
   <br>![Create new service credentials](tutorials/images/img0050.png)
   <br>b. Enter a name for the new credential in the Add new credential window, as shown in the following screen shot.
@@ -438,7 +438,7 @@ from cloudant.result import Result, ResultByKey
 client = Cloudant("<username>", "<password>", url="<url>")
 client.connect()
 
-# IAM Authentication (uncomment if needed, and comment out {{site.data.keyword.cloudant_short_notm}} Legacy authentication section above)
+# IAM Authentication (uncomment if needed, and comment out previous {{site.data.keyword.cloudant_short_notm}} Legacy authentication section)
 client = Cloudant.iam("<username","<apikey>")
 client.connect()
 

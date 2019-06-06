@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-05-29"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -34,7 +34,10 @@ is monitoring the affected system.
 {: shortdesc}
 
 You want to be able to answer the question:
-"In what way has the system behavior changed as a result of any configuration or application modifications?"
+```
+In what way has the system behavior changed as a result of any configuration or application modifications?
+```
+
 To answer the question,
 you need data.
 The data comes from monitoring the system.
