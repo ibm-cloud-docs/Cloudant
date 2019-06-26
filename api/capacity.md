@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-06-26"
 
 keywords: provisioned throughput capacity, api 
 
@@ -128,7 +128,7 @@ curl https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput \
 ```
 {: codeblock}
 
-Where a block consists of 100 reads/sec, 50 writes/sec, and 5 global queries/sec of provisioned throughtput capacity. The `NUMBER_OF_BLOCKS` field must be an integer in the range of 1 to 50. _Larger capacity sizes can be obtained by contacting {{site.data.keyword.cloudant_short_notm}} support._
+Where a block consists of 100 reads/sec, 50 writes/sec, and 5 global queries/sec of provisioned throughtput capacity. The `NUMBER_OF_BLOCKS` field must be an integer in the range of 1 to 100. _Larger capacity sizes can be obtained by contacting {{site.data.keyword.cloudant_short_notm}} support._
 
 The returned structure includes the following fields:
 
