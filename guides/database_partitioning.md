@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-06-26"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -93,7 +93,7 @@ querying, {{site.data.keyword.cloudant_short_notm}} recommends new applications 
 If you're thinking of using {{site.data.keyword.cloudant_short_notm}}'s new *partitioned database* feature, then
 the choice of a partition key is very important. A partition key must have:
 
-- Many values - lots of small partitions are better than a few large ones.
+- Many values - lots of small partitions are better than a few large ones. A million paritions is perfectly fine, just keep each partition under 10GB in total size. 
 - No hot spots - avoid designing a system that makes one partition handle a high
   proportion of the workload. If the work is evenly distributed around the
   partitions, the database will perform more smoothly.
