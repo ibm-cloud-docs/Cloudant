@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-06-28"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -89,11 +89,11 @@ The Dedicated Hardware plan is not available to {{site.data.keyword.cloud_notm}}
 
 Throughput provision is identified and measured as one of the following types of events:
 
-1.	_Reads_,
+1.	*Reads*,
     (formerly called lookups) which are:
     1. A read of a specific document,
     based on the `_id` of the document.
-    2. A _partitioned_ query,
+    2. A *partitioned* query,
         which is a request that is made to an {{site.data.keyword.cloudant_short_notm}} 
         query endpoint within the `_partition` namespace in the request path,
         including the following types:
@@ -104,11 +104,11 @@ Throughput provision is identified and measured as one of the following types of
     
         The number of read operations consumed by a partitioned query request
         varies depending on the results returned.
-2.	_Writes_,
+2.	*Writes*,
     which are creation,
     modification,
     or deletion of individual documents.
-3.	_Global Queries_ to global indexes (formerly called queries),
+3.	*Global Queries* to global indexes (formerly called queries),
         which are requests made to an {{site.data.keyword.cloudant_short_notm}} 
         query endpoint **not** within the `_partition` namespace,
     including the following types:
@@ -123,11 +123,11 @@ Throughput provision is identified and measured as one of the following types of
 {: #provisioned-throughput-capacity}
 
 Throughput provision is identified and measured as events of the following
-operation types: _Read_, _Write_, _Global Query_.
+operation types: *Read*, *Write*, *Global Query*.
 
 The measurement of throughput is a simple count of the number of events of each type,
 per second,
-where the second is a _sliding_ window.
+where the second is a *sliding* window.
 If your account exceeds the number of throughput events that are provisioned for the plan,
 requests are rejected until the number of events within the sliding window
 no longer exceeds the number that is provisioned.
@@ -196,7 +196,7 @@ partitioned `_all_docs`, view, and search queries.
 #### {{site.data.keyword.cloudant_short_notm}} Query
 
 For {{site.data.keyword.cloudant_short_notm}} Query requests, the number of consumed read operations for index
-rows read relates to the rows read from the underlying index _before_ filtering
+rows read relates to the rows read from the underlying index *before* filtering
 occurs based on parts of the selector that cannot be satisfied by the index.
 This means that the rows read value, and therefore consumed read units, can be
 higher than the number of eventual results you receive.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-07-01"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -122,7 +122,7 @@ but the field `_example` would result in a `doc_validation` error message.
 {: codeblock}
 
 However,
-if the field name is for an object _nested within_ the document,
+if the field name is for an object *nested within* the document,
 it is possible to use an underscore prefix for the field name.
 
 *Example of JSON document that attempts to create a field with an underscore prefix, nested within an object:*
@@ -409,7 +409,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID?rev=$REV -X DELETE
 
 <!--
 
-_Example of a delete request, using Javascript:_
+*Example of a delete request, using Javascript:*
 
 ```javascript
 var nano = require('nano');
@@ -780,7 +780,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs \
 
 <!--
 
-_Example request to create, update, or delete multiple documents, using Javascript:_
+*Example request to create, update, or delete multiple documents, using Javascript:*
 
 ```javascript
 var nano = require('nano');

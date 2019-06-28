@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-30"
+lastupdated: "2019-07-01"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -723,7 +723,7 @@ Only the equality operators such as `$eq`,
 `$gt`,
 `$gte`,
 `$lt`,
-and `$lte` - but _not_ `$ne` - can be used as the basis of a more complex query.
+and `$lte` - but *not* `$ne` - can be used as the basis of a more complex query.
 For more information about creating complex selector expressions,
 see [Creating selector expressions](#creating-selector-expressions).
 
@@ -732,7 +732,7 @@ see [Creating selector expressions](#creating-selector-expressions).
 
 In the following example,
 the selector matches any document with a `name` field that contains `Paul`,
-_and_ that also has a `location` field with the value "Boston".
+*and* that also has a `location` field with the value "Boston".
 
 *Example of a more complex selector:*
 

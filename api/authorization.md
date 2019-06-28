@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-30"
+lastupdated: "2019-07-01"
 
 keywords: authorization, roles, permissions, _users database
 
@@ -66,7 +66,7 @@ Role      | Description
 `_reader` | Read documents from the database.
 `_writer` | Create, update, and delete documents (except design documents) in the database.
 
-The `_reader` and `_writer` roles are exclusive. If a user has the `_writer` role, they cannot read documents that they create unless they _also_ have the `_reader` role.
+The `_reader` and `_writer` roles are exclusive. If a user has the `_writer` role, they cannot read documents that they create unless they *also* have the `_reader` role.
 {: tip}
 
 You might want to assign more than one role.
@@ -80,7 +80,7 @@ but not the `_admin` role.
 A number of 'focused' roles are also available.
 These provide permissions for specific API endpoints.
 The focused role permissions are similar to the core role permissions,
-but apply _only_ to the specific API endpoint.
+but apply *only* to the specific API endpoint.
 
 The focused roles are as follows:
 
@@ -121,7 +121,7 @@ if the `nobody` user name is intentionally granted `_admin`,
 and `_writer` roles,
 but an authenticated user account such as `alexone` is granted only the `_reader` role. In this case, it is possible that an unauthenticated user might have a more powerful role than the authenticated `alexone` user. 
 
-It is important to understand that the `nobody` user name is _not_ a way of providing a default set of permissions. Instead, the `nobody` user name is used to determine permissions for _unauthenticated_ users.
+It is important to understand that the `nobody` user name is *not* a way of providing a default set of permissions. Instead, the `nobody` user name is used to determine permissions for *unauthenticated* users.
 {: tip}
 
 ### Determining the role to assign
@@ -317,7 +317,7 @@ If you do not run the `GET` command and retrieve the security object before you 
 the result might disrupt your environment.
 For example,
 if you want to add a `nobody` user with read-only access,
-the  following incorrect request removes _all_ the other users with access to the database.
+the  following incorrect request removes *all* the other users with access to the database.
 
 *Example of an incorrect authorization modification request document:*
 
@@ -497,7 +497,7 @@ you remove the API key from the list of 'users' that have access to the database
 To remove the API key,
 send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys).
 Provide an updated list of the user names that have access permission.
-The updated list _must omit_ the API key.
+The updated list *must omit* the API key.
 
 ## Using the `_users` database with {{site.data.keyword.cloudant_short_notm}}
 {: #using-the-_users-database-with-cloudant-nosql-db}
