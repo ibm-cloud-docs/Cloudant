@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-07-01"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -32,7 +32,7 @@ Le esercitazioni, le istruzioni di ripristino e di backup e le guide forniscono 
 
 Esercitazione | Descrizione 
 ---------|-------------
-[Esercitazione introduttiva](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window} | Un'esercitazione che descrive come utilizzare Python per creare un database {{site.data.keyword.cloudant_short_notm}} e popolare tale database con una semplice raccolta di dati. 
+[Esercitazione introduttiva](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} | Un'esercitazione che descrive come utilizzare Python per creare un database {{site.data.keyword.cloudant_short_notm}} e popolare tale database con una semplice raccolta di dati. 
 [Creazione di un'istanza {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} | Un'esercitazione che descrive come creare un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} e dove trovare le tue credenziali del servizio utilizzando il dashboard {{site.data.keyword.cloud_notm}}.
 [Creazione di un'istanza {{site.data.keyword.cloudant_short_notm}} utilizzando la CLI {{site.data.keyword.cloud_notm}} ](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} | Un'esercitazione che descrive come creare un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}} utilizzando la CLI {{site.data.keyword.cloud_notm}}.
 [Creazione e utilizzo di un'istanza del piano hardware dedicato {{site.data.keyword.cloudant_short_notm}} ](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} | Un'esercitazione che descrive come creare un'istanza del piano hardware dedicato {{site.data.keyword.cloudant_short_notm}} e come eseguire poi il provisioning di una o più istanze del piano Standard da eseguire su di esso utilizzando il catalogo {{site.data.keyword.cloud_notm}} o la CLI {{site.data.keyword.cloud_notm}}.

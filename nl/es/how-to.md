@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-07-01"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -32,7 +32,7 @@ Las guías de aprendizaje, instrucciones de recuperación y copia de seguridad, 
 
 Guía de aprendizaje | Descripción 
 ---------|-------------
-[Guía de aprendizaje de iniciación](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window} | Una guía de aprendizaje que describe cómo utilizar Python para crear una base de datos de {{site.data.keyword.cloudant_short_notm}} y rellenar dicha base de datos con una colección de datos simple.
+[Guía de aprendizaje de iniciación](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} | Una guía de aprendizaje que describe cómo utilizar Python para crear una base de datos de {{site.data.keyword.cloudant_short_notm}} y rellenar dicha base de datos con una colección de datos simple.
 [Creación de una instancia de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} | Una guía de aprendizaje que describe cómo crear una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} y dónde encontrar las credenciales de servicio utilizando el panel de control de {{site.data.keyword.cloud_notm}}.
 [Creación de una instancia de {{site.data.keyword.cloudant_short_notm}} utilizando la CLI de {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} | Una guía de aprendizaje que describe cómo crear una instancia de servicio de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}} mediante la CLI de {{site.data.keyword.cloud_notm}}.
 [Creación y optimización de una instancia de plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} | Una guía de aprendizaje que describe cómo crear una instancia del plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}} y cómo suministrar luego una o más instancias del plan estándar para que se ejecuten ahí utilizando el catálogo de {{site.data.keyword.cloud_notm}} o la CLI de {{site.data.keyword.cloud_notm}}.

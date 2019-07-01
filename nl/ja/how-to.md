@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-07-01"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -32,7 +32,7 @@ subcollection: cloudant
 
 チュートリアル | 説明 
 ---------|-------------
-[チュートリアルの概説](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window} | Python を使用して {{site.data.keyword.cloudant_short_notm}} データベースを作成し、そのデータベースに単純なデータ・コレクションを取り込む方法を説明するチュートリアル。
+[チュートリアルの概説](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} | Python を使用して {{site.data.keyword.cloudant_short_notm}} データベースを作成し、そのデータベースに単純なデータ・コレクションを取り込む方法を説明するチュートリアル。
 [{{site.data.keyword.cloudant_short_notm}} インスタンスの作成](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} | {{site.data.keyword.cloud_notm}} ダッシュボードを使用して {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスを作成し、サービス資格情報を検出する方法を説明するチュートリアル。
 [{{site.data.keyword.cloud_notm}} CLI を使用した {{site.data.keyword.cloudant_short_notm}} インスタンスの作成](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} | {{site.data.keyword.cloud_notm}} CLI を使用して {{site.data.keyword.cloud_notm}} に {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスを作成する方法を説明するチュートリアル。
 [{{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスの作成および活用](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} | {{site.data.keyword.cloud_notm}} カタログまたは {{site.data.keyword.cloud_notm}} CLI のいずれかを使用して {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスを作成する方法、およびそのインスタンスで実行される 1 つ以上の標準プラン・インスタンスをプロビジョンする方法を説明するチュートリアル。

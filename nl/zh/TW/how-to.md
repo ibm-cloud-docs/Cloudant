@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-07-01"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -32,7 +32,7 @@ subcollection: cloudant
 
 指導教學 | 說明
 ---------|-------------
-[入門指導教學](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window} | 此指導教學說明如何使用 Python 來建立 {{site.data.keyword.cloudant_short_notm}} 資料庫，並在該資料庫中移入一個簡單的資料集合。
+[入門指導教學](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} | 此指導教學說明如何使用 Python 來建立 {{site.data.keyword.cloudant_short_notm}} 資料庫，並在該資料庫中移入一個簡單的資料集合。
 [建立 {{site.data.keyword.cloudant_short_notm}} 實例](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} | 此指導教學說明如何使用 {{site.data.keyword.cloud_notm}} 儀表板來建立 {{site.data.keyword.cloudant_short_notm}} 服務實例，以及可在何處尋找您的服務認證。
 [使用 {{site.data.keyword.cloud_notm}} CLI 來建立 {{site.data.keyword.cloudant_short_notm}} 實例](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} | 此指導教學說明如何使用 {{site.data.keyword.cloud_notm}} CLI，在 {{site.data.keyword.cloud_notm}} 上建立 {{site.data.keyword.cloudant_short_notm}} 服務實例。
 [建立及運用 {{site.data.keyword.cloudant_short_notm}} 專用硬體方案實例](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} | 此指導教學說明如何使用 {{site.data.keyword.cloud_notm}} 型錄或 {{site.data.keyword.cloud_notm}} CLI，來建立「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例，然後如何佈建一個以上要在其上執行的「標準方案」實例。
