@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-22"
+lastupdated: "2019-05-28"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -28,12 +28,12 @@ subcollection: cloudant
 ## Concepts
 {: #concepts}
 
-Every database in {{site.data.keyword.cloudantfull}} is formed of one or more distinct _shards_,
-where the number of shards is referred to as _Q_.
+Every database in {{site.data.keyword.cloudantfull}} is formed of one or more distinct *shards*,
+where the number of shards is referred to as *Q*.
 A shard is a distinct subset of documents from the database.
-All _Q_ shards together contain the data within database.
+All *Q* shards together contain the data within database.
 Each shard is stored in three separate copies.
-Each shard copy is called a shard _replica_.
+Each shard copy is called a shard *replica*.
 Each shard replica is stored on a different server.
 The servers are available within a single location data center.
 The collection of servers in a data center is called a cluster.
@@ -46,7 +46,7 @@ This assignment means that a document is always stored on a known shard and a kn
 ![document consistent hashing](../images/sharding_document.png)
 
 Occasionally,
-shards are _rebalanced_.
+shards are *rebalanced*.
 Rebalancing involves moving replicas to different servers.
 It occurs for several reasons,
 for example when server monitoring suggests that a server is more heavily or lightly used than other servers,
@@ -55,7 +55,7 @@ The number of shards and replicas stays the same,
 and documents remain assigned to the same shard,
 but the server storage location for a shard replica changes.
 
-The default value for _Q_ varies for different clusters.
+The default value for *Q* varies for different clusters.
 The value can be tuned over time.
 
 The number of replicas (copies of a shard) is also configurable.
@@ -71,7 +71,7 @@ The number of shards for a database is configurable
 because it affects database performance in a number of ways.
 
 When a request comes into the database from a client application,
-one server or 'node' in the cluster is assigned as the _coordinator_ of the request.
+one server or 'node' in the cluster is assigned as the *coordinator* of the request.
 This coordinator makes internal requests to the nodes that hold the data relevant to the request,
 determines the response to the request,
 and returns this response to the client.
@@ -103,7 +103,7 @@ Are any of the operations time-sensitive?
 For all queries,
 the coordinator issues read requests to all replicas.
 This approach is used because each replica maintains its own copy of the indexes that help answer queries.
-An important consequence of this configuration is that having more shards enables parallel index building _if_
+An important consequence of this configuration is that having more shards enables parallel index building *if*
 document writes tend to be evenly distributed across the shards in the cluster.
 
 In practice,
@@ -136,14 +136,14 @@ For example,
 smaller shards are easier to move over the network during rebalancing.
 
 Given the conflicting requirements to avoid having too many documents and keeping shard size low,
-a single _Q_ value cannot work optimally for all cases.
+a single *Q* value cannot work optimally for all cases.
 {{site.data.keyword.cloudant_short_notm}} tunes the defaults for clusters over time as usage patterns change.
 
 Nevertheless,
 for a specific database,
 it is often useful to take the time to consider observed request patterns and sizing,
 and use this information to guide the future selection of an appropriate number of shards.
-Testing with representative data and request patterns is essential for better estimation of good _Q_ values.
+Testing with representative data and request patterns is essential for better estimation of good *Q* values.
 Be prepared for production experience to alter those expectations.
 
 The following simple guidelines might be helpful during the early planning stages.
@@ -173,11 +173,11 @@ The numbers in these guidelines are derived from observation and experience rath
 {: #setting-shard-count}
 
 The number of shards,
-_Q_,
+*Q*,
 for a database is set when the database is created.
-The _Q_ value cannot be changed later.
+The *Q* value cannot be changed later.
 
-To specify the _Q_ when you create a database,
+To specify the *Q* when you create a database,
 use the `q` query string parameter.
 
 In the following example,
@@ -189,10 +189,10 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 ```
 {: codeblock}
 
-Setting _Q_ for databases is not enabled for {{site.data.keyword.cloudant_short_notm}} databases on {{site.data.keyword.cloud}}. The _Q_ value is not available on most `cloudant.com` multi-tenant clusters.
+Setting *Q* for databases is not enabled for {{site.data.keyword.cloudant_short_notm}} databases on {{site.data.keyword.cloud}}. The *Q* value is not available on most `cloudant.com` multi-tenant clusters.
 {: note}
 
-If you attempt to set the _Q_ value where it is not available,
+If you attempt to set the *Q* value where it is not available,
 the result is a [`403` response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) with a JSON body
 similar to the following example:
 
@@ -216,52 +216,52 @@ In particular,
 it is not possible to specify a different replica count value when you create a database.
 For further help, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 
-### What are the _R_ and _W_ arguments?
+### What are the *R* and *W* arguments?
 {: #what-are-the-_r_-and-_w_-arguments-}
 
 Some requests can have arguments that affect the coordinator's behavior when it answers the request.
-These arguments are known as _R_ and _W_ after their names in the request query string.
+These arguments are known as *R* and *W* after their names in the request query string.
 They can be used for single document operations only.
 They have no effect on general 'query style' requests.
 
 In practice,
-it is rarely useful to specify _R_ and _W_ values.
+it is rarely useful to specify *R* and *W* values.
 For example,
-specifying either _R_ or _W_ does not alter consistency for the read or write.
+specifying either *R* or *W* does not alter consistency for the read or write.
 
-#### What is _R_?
+#### What is *R*?
 {: #what-is-_r_-}
 
-The _R_ argument can be specified on single document requests only.
-_R_ affects how many responses must be received by the coordinator before it replies to the client.
+The *R* argument can be specified on single document requests only.
+*R* affects how many responses must be received by the coordinator before it replies to the client.
 The responses must come from the nodes that host the replicas of the shard that contains the document. 
 
-Setting _R_ to _1_ might improve the overall response time
+Setting *R* to *1* might improve the overall response time
 because the coordinator can return a response more quickly.
 The reason is that the coordinator must wait only for a single response
 from any one of the replicas that host the appropriate shard.
 
-If you reduce the _R_ value, it increases the likelihood that the response that is returned is not based on the most up-to-date data because of the [eventual consistency](/docs/services/Cloudant?topic=cloudant-cap-theorem) model used by {{site.data.keyword.cloudant_short_notm}}. Using the default _R_ value helps mitigate this effect.
+If you reduce the *R* value, it increases the likelihood that the response that is returned is not based on the most up-to-date data because of the [eventual consistency](/docs/services/Cloudant?topic=cloudant-cap-theorem) model used by {{site.data.keyword.cloudant_short_notm}}. Using the default *R* value helps mitigate this effect.
 {: note}
 
-The default value for _R_ is _2_.
+The default value for *R* is *2*.
 This value corresponds to most of the replicas for a typical database that uses three shard replicas.
 If the database has a number of replicas that is higher or lower than 3,
-the default value for _R_ changes correspondingly.
+the default value for *R* changes correspondingly.
 
-#### What is _W_?
+#### What is *W*?
 {: #what-is-_w_-}
 
-_W_ can be specified on single document write requests only.
+*W* can be specified on single document write requests only.
 
-_W_ is similar to _R_,
+*W* is similar to *R*,
 because it affects how many responses must be received by the coordinator before it replies to the client.
 
-_W_ does not affect the actual write behavior in any way.
+*W* does not affect the actual write behavior in any way.
 {: note}
 
-The value of _W_ does not affect whether the document is written within the database or not.
-By specifying a _W_ value,
-the client can inspect the HTTP status code in the response to determine whether _W_ replicas responded to the coordinator.
-The coordinator waits up to a pre-determined timeout for _W_ responses from nodes that host copies of the document,
+The value of *W* does not affect whether the document is written within the database or not.
+By specifying a *W* value,
+the client can inspect the HTTP status code in the response to determine whether *W* replicas responded to the coordinator.
+The coordinator waits up to a pre-determined timeout for *W* responses from nodes that host copies of the document,
 before it returns the response to the client.

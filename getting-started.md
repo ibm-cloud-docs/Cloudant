@@ -213,8 +213,8 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 
 A small collection of data was stored as documents within the database.
 You can do a minimal or full retrieval of that data from the database.
-A minimal retrieval obtains the basic data _about_ a document.
-A full retrieval also includes the data _within_ a document.
+A minimal retrieval obtains the basic data *about* a document.
+A full retrieval also includes the data *within* a document.
 
 * To run a minimal retrieval:
   1. First, request a list of all documents within the database.
@@ -319,14 +319,14 @@ invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/
   ```
   {: codeblock}
 
-  The result is similar to the following _abbreviated_ example:
+  The result is similar to the following *abbreviated* example:
   
   ```
   {u'rows': [{u'value': {u'rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}, u'id': u'0532feb6fd6180d79b842d871316c444', u'key': u'0532feb6fd6180d79b842d871316c444', u'doc': {u'temperatureField': 20, u'descriptionField': u'warm', u'numberField': 3, u'nameField': u'three', u'_id': u'0532feb6fd6180d79b842d871316c444', u'_rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}}, ... , {u'value': {u'rev': u'1-3f61736fa96473d358365ce1665e3d97'}, u'id': u'db396f77bbe12a567b09177b4accbdbc', u'key': u'db396f77bbe12a567b09177b4accbdbc', u'doc': {u'temperatureField': 0, u'descriptionField': u'freezing', u'numberField': 5, u'nameField': u'five', u'_id': u'db396f77bbe12a567b09177b4accbdbc', u'_rev': u'1-3f61736fa96473d358365ce1665e3d97'}}], u'total_rows': 5, u'offset': 0}
   ```
   {: screen}
   
-  We can tidy the appearance a little, and see that the _abbreviated_ details we got back are similar to this example:
+  We can tidy the appearance a little, and see that the *abbreviated* details we got back are similar to this example:
   
   ```json
   {

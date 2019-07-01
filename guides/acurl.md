@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-05-28"
 
 keywords: encode user name, encode password, create alias, activate alias, test acurl
 
@@ -25,8 +25,8 @@ subcollection: cloudant
 # Authorized curl: `acurl`
 {: #authorized-curl-acurl-}
 
-_(This guide is based on a Blog article by Samantha Scharr: [
-"Authorized curl, a.k.a. acurl", originally published November 27, 2013.)_
+*(This guide is based on a Blog article by Samantha Scharr: [
+"Authorized curl, a.k.a. acurl", originally published November 27, 2013.)*
 
 `acurl` is a handy alias that allows you to `curl` {{site.data.keyword.cloudantfull}} commands to URLs
 without having to enter your user name and password for every request.
@@ -79,7 +79,7 @@ bXl1c2VybmFtZTpteXBhc3N3b3Jk
 ```
 {: codeblock}
 
-Remember that your password is still stored in plain text on your computer; base64-encoding is _not_ encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
+Remember that your password is still stored in plain text on your computer; base64-encoding is *not* encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
 {: note}
 
 ## Create an alias

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-05-28"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -42,7 +42,7 @@ theorem.
 The attributes are **C**onsistency,
 **A**vailability, and **P**artition tolerance.
 The theorem states that it is not possible for a distributed computer system such as {{site.data.keyword.cloudant_short_notm}}
-to guarantee three attributes _simultaneously_:
+to guarantee three attributes *simultaneously*:
 
 -   Consistency,
     where all nodes see the same data at the same time.
@@ -55,7 +55,7 @@ The impossibility of guaranteeing all three attributes at the same time
 means that {{site.data.keyword.cloudant_short_notm}} does not guarantee the Consistency attribute.
 In an eventually consistent model,
 like {{site.data.keyword.cloudant_short_notm}},
-an update made to one part of the system is _eventually_ seen by other parts of the system.
+an update made to one part of the system is *eventually* seen by other parts of the system.
 As the update propagates,
 the system is said to 'converge' on complete consistency.
 

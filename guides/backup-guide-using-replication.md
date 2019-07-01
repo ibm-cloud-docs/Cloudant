@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-05-28"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -74,7 +74,7 @@ Initially,
 you create a backup of the entire database.
 After the first backup,
 you run daily 'incremental' backups,
-backing up _only_ what changed in the database since the last backup.
+backing up *only* what changed in the database since the last backup.
 This replication becomes a daily backup.
 
 You can configure a backup to trigger at regular intervals.
@@ -169,7 +169,7 @@ you require three databases:
 -   Two incremental databases,
     for Monday (`backup-monday`) and Tuesday (`backup-tuesday`).
 
-_Example showing how to check that you have three databases to use in this example, by using HTTP:_
+*Example showing how to check that you have three databases to use in this example, by using HTTP:*
 
 ```http
 PUT /original HTTP/1.1
@@ -178,8 +178,8 @@ PUT /backup-tuesday HTTP/1.1
 ```
 {: codeblock}
 
-_Example showing how to check that you have three databases to use in this example,
-by using the command line:_
+*Example showing how to check that you have three databases to use in this example,
+by using the command line:*
 
 ```sh
 $ curl -X PUT "${url}/original"
@@ -214,7 +214,7 @@ On Monday,
 you want to back up all your data for the first time.
 Create this backup by replicating everything from `original` to `backup-monday`.
 
-_Running a full backup on Monday by using HTTP:_
+*Running a full backup on Monday by using HTTP:*
 
 ```http
 PUT /_replicator/full-backup-monday HTTP/1.1
@@ -222,7 +222,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Running a full backup on Monday by using the command line:_
+*Running a full backup on Monday by using the command line:*
 
 ```sh
 $ curl -X PUT "${url}/_replicator/full-backup-monday" -H "$ct" -d @backup-monday.json
@@ -230,7 +230,7 @@ $ curl -X PUT "${url}/_replicator/full-backup-monday" -H "$ct" -d @backup-monday
 ```
 {: codeblock}
 
-_JSON document that describes the full backup:_
+*JSON document that describes the full backup:*
  
 ```json
 {
@@ -308,14 +308,14 @@ recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history
 
 Now that you have the checkpoint ID and `recorded_seq`,
 you can start Tuesday's incremental backup.
-This backup replicates all the document changes made _since_ the last replication.
+This backup replicates all the document changes made *since* the last replication.
 
 When the replication finishes,
 you have a completed incremental backup.
 The backup consists of all the documents in the original database,
-and can be restored by retrieving the content of both the `backup-monday` _and_ `backup-tuesday` databases.
+and can be restored by retrieving the content of both the `backup-monday` *and* `backup-tuesday` databases.
 
-_Running Tuesday's incremental backup by using HTTP:_
+*Running Tuesday's incremental backup by using HTTP:*
 
 ```http
 PUT /_replicator/incr-backup-tuesday HTTP/1.1
@@ -323,14 +323,14 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Running Tuesday's incremental backup by using the command line:_
+*Running Tuesday's incremental backup by using the command line:*
 
 ```sh
 curl -X PUT "${url}/_replicator/incr-backup-tuesday" -H "${ct}" -d @backup-tuesday.json
 ```
 {: pre}
 
-_JSON document that describes Tuesday's incremental backup:_
+*JSON document that describes Tuesday's incremental backup:*
  
 ```json
 {
@@ -354,7 +354,7 @@ For example,
 to restore Monday's state,
 you would replicate from the `backup-monday` database.
 
-_Restoring from the `backup-monday` database by using HTTP:_
+*Restoring from the `backup-monday` database by using HTTP:*
 
 ```sh
 PUT /_replicator/restore-monday HTTP/1.1
@@ -362,14 +362,14 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Restoring from the `backup-monday` database by using the command line:_
+*Restoring from the `backup-monday` database by using the command line:*
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
 {: pre}
 
-_JSON document that describes the restore:_
+*JSON document that describes the restore:*
  
 ```json
 {
@@ -387,7 +387,7 @@ _JSON document that describes the restore:_
 To restore Tuesday's database,
 you first replicate from `backup-tuesday` and then from `backup-monday`.
 
-The order is not a typographical error; the intention really _is_ to restore from Tuesday and _then_ Monday.
+The order is not a typographical error; the intention really *is* to restore from Tuesday and *then* Monday.
 {: tip}
 
 You might restore in chronological sequence,
@@ -395,7 +395,7 @@ but by using the reverse order,
 documents that were updated on Tuesday need to be written to the target database one time only.
 Older versions of the document that are stored in the Monday database are ignored.
 
-_Restoring Tuesday's backup, getting the most recent changes first, by using HTTP:_
+*Restoring Tuesday's backup, getting the most recent changes first, by using HTTP:*
 
 ```http
 PUT /_replicator/restore-tuesday HTTP/1.1
@@ -403,14 +403,14 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Restoring Tuesday's backup, getting the most recent changes first, by using the command line:_
+*Restoring Tuesday's backup, getting the most recent changes first, by using the command line:*
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-tuesday" -H "$ct" -d @restore-tuesday.json
 ```
 {: pre}
 
-_JSON document that requests restoration of the Tuesday backup:_
+*JSON document that requests restoration of the Tuesday backup:*
  
 ```json
 {
@@ -422,7 +422,7 @@ _JSON document that requests restoration of the Tuesday backup:_
 ```
 {: codeblock}
 
-_Complete the recovery by restoring Monday's backup last by using HTTP:_
+*Complete the recovery by restoring Monday's backup last by using HTTP:*
 
 ```http
 PUT /_replicator/restore-monday HTTP/1.1
@@ -430,14 +430,14 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_Complete the recovery by restoring Monday's backup last by using the command line:_
+*Complete the recovery by restoring Monday's backup last by using the command line:*
 
 ```http
 curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
 {: pre}
 
-_JSON document that requests restoration of the Monday backup:_
+*JSON document that requests restoration of the Monday backup:*
  
 ```json
 {
@@ -473,7 +473,7 @@ by adjusting the value of the `x-cloudant-io-priority` field within the replicat
 2.  In the headers object,
     change the `x-cloudant-io-priority` field value to `"low"`.
 
-_Example of JSON document that sets the IO priority:_
+*Example of JSON document that sets the IO priority:*
 
 ```json
 {
