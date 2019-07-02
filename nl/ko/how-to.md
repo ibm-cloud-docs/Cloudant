@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-07-01"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -32,7 +32,7 @@ subcollection: cloudant
 
 튜토리얼 |설명 
 ---------|-------------
-[시작하기 튜토리얼](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window} | Python을 사용하여 {{site.data.keyword.cloudant_short_notm}} 데이터베이스를 작성하고 단순 데이터 콜렉션으로 이 데이터베이스를 채우는 방법을 설명하는 튜토리얼입니다.
+[시작하기 튜토리얼](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} | Python을 사용하여 {{site.data.keyword.cloudant_short_notm}} 데이터베이스를 작성하고 단순 데이터 콜렉션으로 이 데이터베이스를 채우는 방법을 설명하는 튜토리얼입니다.
 [{{site.data.keyword.cloudant_short_notm}} 인스턴스 작성](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} | {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 작성하는 방법과 {{site.data.keyword.cloud_notm}} 대시보드를 사용하여 서비스 인증 정보를 찾을 위치를 설명하는 튜토리얼입니다.
 [{{site.data.keyword.cloud_notm}} CLI를 사용하여 {{site.data.keyword.cloudant_short_notm}} 인스턴스 작성](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} | {{site.data.keyword.cloud_notm}} CLI를 사용하여 {{site.data.keyword.cloud_notm}}에서 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 작성하는 방법을 설명하는 튜토리얼입니다.
 [{{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스 작성 및 활용](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} | {{site.data.keyword.cloud_notm}} 카탈로그 또는 {{site.data.keyword.cloud_notm}} CLI를 사용하여 {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스를 작성하는 방법 및 해당 인스턴스에서 실행되는 하나 이상의 표준 플랜 인스턴스를 프로비저닝하는 방법을 설명하는 튜토리얼입니다.

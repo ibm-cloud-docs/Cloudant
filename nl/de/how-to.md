@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-07-01"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -32,7 +32,7 @@ Die Lernprogramme, Anweisungen für Wiederherstellung und Sicherung und die Anle
 
 Lernprogramm | Beschreibung 
 ---------|-------------
-[Lernprogramm 'Einführung'](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window} | In diesem Lernprogramm wird mithilfe von Python eine {{site.data.keyword.cloudant_short_notm}}-Datenbank erstellt und mit einer einfachen Datensammlung gefüllt.
+[Lernprogramm 'Einführung'](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} | In diesem Lernprogramm wird mithilfe von Python eine {{site.data.keyword.cloudant_short_notm}}-Datenbank erstellt und mit einer einfachen Datensammlung gefüllt.
 [{{site.data.keyword.cloudant_short_notm}}-Instanz erstellen](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} | In diesem Lernprogramm wird eine {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz erstellt und erläutert, wo Sie Ihre Serviceberechtigungsnachweise mithilfe des {{site.data.keyword.cloud_notm}}-Dashboards finden.
 [{{site.data.keyword.cloudant_short_notm}}-Instanz mit der {{site.data.keyword.cloud_notm}}-CLI erstellen](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} | In diesem Lernprogramm wird eine {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz in {{site.data.keyword.cloud_notm}} mithilfe der {{site.data.keyword.cloud_notm}}-CLI erstellt.
 [Instanz eines {{site.data.keyword.cloudant_short_notm}}-Plans für dedizierte Hardware erstellen und nutzen](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} | In diesem Lernprogramm wird eine Instanz eines {{site.data.keyword.cloudant_short_notm}}-Plans für dedizierte Hardware erstellt und anschließend mithilfe des {{site.data.keyword.cloud_notm}}-Katalogs oder der {{site.data.keyword.cloud_notm}}-CLI mindestens eine Standard-Plan-Instanz bereitgestellt, die damit ausgeführt wird.
