@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-07-02"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -134,7 +134,7 @@ or to start and stop a running application.
 The {{site.data.keyword.cloud_notm}} toolkit provides extra capabilities,
 which are required for working with applications hosted and running within an {{site.data.keyword.cloud_notm}} environment.
 
-Ensure you install both the Cloud Foundry _and_ the {{site.data.keyword.cloud_notm}} toolkits.
+Ensure you install both the Cloud Foundry *and* the {{site.data.keyword.cloud_notm}} toolkits.
 {: tip}
 
 Downloading and installing the toolkits is a one-off task.

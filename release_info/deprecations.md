@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-07-02"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -56,7 +56,7 @@ Before you run the command, replace `$DOCUMENT_ID` with `example@source-db`. In 
 curl -u $USERNAME https://$ACCOUNT.cloudant.com/_warehouser/example@source-db
 ```
 
-_Example response when you search for information in the warehouser document:_
+*Example response when you search for information in the warehouser document:*
 
 ```http
 {
