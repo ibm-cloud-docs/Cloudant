@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-07-03"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -290,7 +290,7 @@ and can include authentication credentials.
 *Defining the URL of the {{site.data.keyword.cloudant_short_notm}} instance with authentication credentials:*
 
 ```sh
-export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
+export COUCH_URL="https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com"
 ```
 {: codeblock}
 

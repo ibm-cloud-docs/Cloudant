@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-07-02"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -106,14 +106,14 @@ HOST: $ACCOUNT.cloudant.com
 *Using the command line to create a partitioned database:*
 
 ```sh
-curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=true'
+curl -X PUT "https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=true"
 ```
 {: codeblock}
 
 *Using the command line to create a non-partitioned database:*
 
 ```sh
-curl -X PUT 'https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=false'
+curl -X PUT "https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=false"
 ```
 {: codeblock}
 

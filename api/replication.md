@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-15"
+lastupdated: "2019-07-03"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -280,7 +280,7 @@ Content-Type: application/json
 *Example instructions for using the command line to create a replication document:*
 
 ```sh
-curl -X PUT https://$ACCOUNT.cloudant.com/_replicator/replication-doc -H 'Content-Type: application/json' -d @replication-document.json
+curl -X PUT "https://$ACCOUNT.cloudant.com/_replicator/replication-doc" -H "Content-Type: application/json" -d @replication-document.json
 #assuming replication-document.json is a json file with valid replication information.
 ```
 {: codeblock}
@@ -369,7 +369,7 @@ DELETE /_replicator/replication-doc?rev=1-... HTTP/1.1
 *Example instructions for deleting a replication document, the command line:*
 
 ```sh
-curl -X DELETE https://$ACCOUNT.cloudant.com/_replicator/replication-doc?rev=1-...
+curl -X DELETE "https://$ACCOUNT.cloudant.com/_replicator/replication-doc?rev=1-..."
 ```
 {: codeblock}
 
@@ -537,7 +537,7 @@ Accept: application/json
 *Example instructions for using the command line to request a single replication:*
 
 ```sh
-curl -H 'Content-Type: application/json' -X POST 'https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1' -d @replication-doc.json
+curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1" -d @replication-doc.json
 # the file replication-doc.json must be supplied.
 ```
 {: codeblock}
@@ -614,7 +614,7 @@ Accept: application/json
 *Example instructions for using the command line to request continuous replication:*
 
 ```sh
-curl -H 'Content-Type: application/json' -X POST 'https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1' -d @replication-doc.json
+curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1" -d @replication-doc.json
 # the file replication-doc.json must be supplied.
 ```
 {: codeblock}
@@ -695,7 +695,7 @@ Content-Type: application/json
 *Example of using the command line to send a request to start a replication:*
 
 ```sh
-curl -H 'Content-Type: application/json' -X POST 'http://$ACCOUNT.cloudant.com/_replicate' -d @replication-doc.json
+curl -H "Content-Type: application/json" -X POST "http://$ACCOUNT.cloudant.com/_replicate" -d @replication-doc.json
 # the file replication-doc.json describes the intended replication.
 ```
 {: codeblock}
@@ -733,7 +733,7 @@ Content-Type: application/json
 *Example of using the command line to send a request to cancel a replication:*
 
 ```sh
-curl -H 'Content-Type: application/json' -X POST http://$ACCOUNT.cloudant.com/_replicate -d @replication-doc.json
+curl -H "Content-Type: application/json" -X POST "http://$ACCOUNT.cloudant.com/_replicate" -d @replication-doc.json
 # where the file replication-doc.json specifies the replication task to be canceled.
 ```
 {: codeblock}

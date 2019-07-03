@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-07-03"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication 
 
@@ -199,7 +199,7 @@ HOST: $ACCOUNT.cloudant.com
 *Example of using the command line to get the replication status from the replication scheduler:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_scheduler/docs
+curl "https://$ACCOUNT.cloudant.com/_scheduler/docs"
 ```
 {: codeblock}
 
@@ -234,7 +234,7 @@ The response that is received from the replication scheduler shows the history a
 *Example of using the command line to find jobs with the `limit` and `skip` parameters:*
 
 ```sh
-curl `https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1`
+curl "https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1"
 ```
 {: codeblock}
 
@@ -267,7 +267,7 @@ curl `https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1`
 *Example of using the command line to find jobs with the `states` parameter:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?states=crashing
+curl "https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?states=crashing"
 ```
 {: codeblock}
 
@@ -300,7 +300,7 @@ curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?states=crashing
 *Example of using the command line to find jobs with the `_doc_id` parameter:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep
+curl "https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep"
 ```
 {: codeblock}
 
@@ -327,7 +327,7 @@ curl https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep
 *Example of using the command line to find jobs with the `_job_id` parameter:*
 
 ```sh
-curl 'https://$ACCOUNT.cloudant.com/_scheduler/jobs/68245f5954fa122e7768a4bfbfbd0d15+2bcontinuous'
+curl "https://$ACCOUNT.cloudant.com/_scheduler/jobs/68245f5954fa122e7768a4bfbfbd0d15+2bcontinuous"
 ```
 {: codeblock}
 
@@ -755,7 +755,7 @@ Content-Type: application/json
 *Example instructions for using the command line to start a replication through the `_replicate` endpoint:*
 
 ```sh 
-curl -H 'Content-Type: application/json' -X POST "https://$ACCOUNT.cloudant.com/_replicate" -d @replication-doc.json
+curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/_replicate" -d @replication-doc.json
 # with the file replication-doc.json containing the required replication information.
 ```
 {: codeblock}
@@ -805,7 +805,7 @@ Content-Type: application/json
 *Example of using the command line to cancel a replication:*
 
 ```sh
-curl -H 'Content-Type: application/json' -X POST 'https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1' -d @replication-doc.json
+curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1" -d @replication-doc.json
 # the file replication-doc.json must be supplied.
 ```
 {: codeblock}

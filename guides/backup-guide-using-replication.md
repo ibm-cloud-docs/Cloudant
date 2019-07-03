@@ -144,8 +144,8 @@ This example shows how to:
 
 ```sh
 # save base URL and the content type in shell variables
-$ url='https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com'
-$ ct='Content-Type: application-json'
+$ url="https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com"
+$ ct="Content-Type: application-json"
 ```
 {: codeblock}
 

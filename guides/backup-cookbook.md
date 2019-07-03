@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-30"
+lastupdated: "2019-07-03"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -61,7 +61,7 @@ To back up the `animaldb` database to a text file called `backup.txt`,
 you might use a command similar to the following example:
 
 ```sh
-couchbackup --url https://examples.cloudant.com --db animaldb > backup.txt
+couchbackup --url "https://examples.cloudant.com" --db animaldb > backup.txt
 ```
 {: codeblock}
 
@@ -95,7 +95,7 @@ For example,
 to restore the data that was backed up in the earlier example:
 
 ```sh
-couchrestore --url https://myaccount.cloudant.com --db newanimaldb < backup.txt
+couchrestore --url "https://myaccount.cloudant.com" --db newanimaldb < backup.txt
 ```
 {: codeblock}
 

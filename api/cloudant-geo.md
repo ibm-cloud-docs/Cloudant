@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-07-02"
 
 keywords: geospatial, geojson, geo index, querying, query geometry, geometric relation
 
@@ -492,7 +492,7 @@ curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?for
 *Example query to return results with `format=geojson` or `format=application/vnd.geo+json`:*
 
 ```sh
-curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=geojson&lat=42.3397&lon=-71.07959&radius=10'
+curl -X GET "https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=geojson&lat=42.3397&lon=-71.07959&radius=10"
 ```
 {: codeblock}
 
@@ -545,7 +545,7 @@ you use the `contains` relation.
 *Example query to find documents that have a geospatial position within a circle:*
 
 ```sh
-curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?lat=42.3397&lon=-71.07959&radius=10&relation=contains&format=geojson'
+curl -X GET "https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?lat=42.3397&lon=-71.07959&radius=10&relation=contains&format=geojson"
 ```
 {: codeblock}
 

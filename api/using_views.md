@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-26"
+lastupdated: "2019-07-03"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -118,7 +118,7 @@ Content-Type: application/json
 *Example of using the command line to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5 \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5" \
      -H "Content-Type: application/json"
 ```
 {:codeblock}
@@ -127,7 +127,7 @@ curl https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_v
 applying the user-created `by_title` view:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5 \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5" \
      -H "Content-Type: application/json"
 ```
 {: codeblock}
@@ -356,7 +356,7 @@ Content-Type: application/json
 *Example of requesting the last five records in reversed sort order, that uses the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5&descending=true \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5&descending=true" \
      -H "Content-Type: application/json"
 ```
 {: codeblock}
@@ -438,7 +438,7 @@ Content-Type: application/json
 *Example of a global query using the command line that includes `startkey` and `endkey` query arguments:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?startkey="alpha"&endkey="beta" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?startkey="alpha"&endkey="beta"" \
      -H "Content-Type: application/json"
 ```
 {: codeblock}
@@ -460,7 +460,7 @@ Content-Type: application/json
 *Example illustrating why reversing the order of `startkey` and `endkey` might not yield any results, that uses the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="beta"&endkey="alpha" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="beta"&endkey="alpha"" \
      -H "Content-Type: application/json"
 ```
 {: codeblock}
@@ -497,7 +497,7 @@ Content-Type: application/json
 *Example that uses the command line to apply correct filtering and sorting to a global query:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="egg"&endkey="carrots" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="egg"&endkey="carrots"" \
     -H "Content-Type: application/json"
 ```
 {: codeblock}
@@ -746,7 +746,7 @@ Content-Type: application/json
 *Example request containing several queries, that uses the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME -H 'Content-Type: application/json' -d @request-body.json
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME" -H "Content-Type: application/json" -d @request-body.json
     # where request-body.json is a file containing JSON data describing the queries
 ```
 {: codeblock}

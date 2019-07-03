@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-07-03"
 
 keywords: cors, security, configuration endpoints, json format, dashboard
 
@@ -124,8 +124,8 @@ Content-Type: application/json
 *Example request, using the command line:* 
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors \
-	-H 'Content-Type: application/json' \
+curl "https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors" \
+	-H "Content-Type: application/json" \
 	-X PUT \
 	-T cors.json
 ```
@@ -172,7 +172,7 @@ Host: username.cloudant.com
 *Example request to `GET` the current CORS configuration, using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors
+curl "https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors"
 ```
 {: codeblock}
 

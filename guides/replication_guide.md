@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-28"
+lastupdated: "2019-07-03"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -153,9 +153,9 @@ Authorization: ...
 
 ```sh
 curl -X POST \
-    -H 'Content-type: application/json' \
-    'https://$ACCOUNT.cloudant.com/_replicator' \
-    -d '@replication.json'
+    -H "Content-type: application/json" \
+    "https://$ACCOUNT.cloudant.com/_replicator" \
+    -d "@replication.json"
 ```
 {: codeblock}
 
@@ -336,7 +336,7 @@ Authorization: ...
 ```sh
 curl -X POST \
     -H "Content-type: application/json" \
-    https://$ACCOUNT.cloudant.com/_replicator \
+    "https://$ACCOUNT.cloudant.com/_replicator" \
     -d @continuous-replication.json
 ```
 {: codeblock}
@@ -377,7 +377,7 @@ Authorization: ...
 *Example of using the command line to monitor a replication process:*
 
 ```sh
-curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
+curl "https://$ACCOUNT.cloudant.com/_replicator/weekly_backup"
 ```
 {: codeblock}
 
@@ -419,7 +419,7 @@ Authorization:
 *Example of using the command line to cancel a replication:*
 
 ```sh
-curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
+curl -X DELETE "https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098"
 ```
 {: codeblock}
 
@@ -546,7 +546,7 @@ Authorization: ...
 ```sh
 curl -X POST \
     -H "Content-type: application/json" \
-    https://$ACCOUNT.cloudant.com/_replicator \
+    "https://$ACCOUNT.cloudant.com/_replicator" \
     -d @filtered-replication.json
 ```
 {: codeblock}
@@ -786,8 +786,8 @@ Authorization: ...
 *Example of using the command line to remove and re-create the `_replicator` database:*
 
 ```sh
-curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'
-curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
+curl -X DELETE "https://$ACCOUNT.cloudant.com/_replicator"
+curl -X PUT "https://$ACCOUNT.cloudant.com/_replicator"
 ```
 {: codeblock}
 

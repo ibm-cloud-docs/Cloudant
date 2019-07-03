@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-28"
+lastupdated: "2019-07-03"
 
 keywords: encode user name, encode password, create alias, activate alias, test acurl
 
@@ -112,7 +112,7 @@ Now let's make sure everything is set up correctly.
 Go ahead and run:
 
 ```sh
-acurl https://$ACCOUNT.cloudant.com/_all_dbs
+acurl "https://$ACCOUNT.cloudant.com/_all_dbs"
 ```
 {: codeblock}
 

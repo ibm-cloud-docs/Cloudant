@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-07-03"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -787,8 +787,8 @@ Operators are identified by the use of a dollar sign (`$`) prefix in the name fi
 
 The selector syntax has two core types of operators:
 
--	Combination operators.
--	Condition operators.
+-	Combination operators
+-	Condition operators
 
 In general,
 combination operators are applied at the topmost level of selection.
@@ -813,8 +813,8 @@ The exact implicit operator is determined by the structure of the selector expre
 
 The two implicit operators are:
 
--	'Equality'.
--	'And'.
+-	'Equality'
+-	'And'
 
 In a selector,
 any field that contains a JSON value but that has no operators in it,
@@ -1924,15 +1924,15 @@ Content-Type: application/json
 *Example that uses the command line to show how to identify the index that was used to answer a query:*
 
 ```sh
-curl 'https://examples.cloudant.com/movies/_explain' \
+curl "https://examples.cloudant.com/movies/_explain" \
 	-X POST \
-	-H 'Content-Type: application/json' \
-	-d '{
+	-H "Content-Type: application/json" \
+	-d "{
 		"selector": {
 			"$text": "Pacino",
 			"year": 2010
 		}
-	}'
+	}"
 ```
 {: codeblock}
 
@@ -2177,15 +2177,15 @@ Content-Type: application/json
 *Example of using the command line to obtain a copy of the {{site.data.keyword.cloudant_short_notm}} Query movie database:*
 
 ```sh
-curl 'https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_replicator' \
+curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_replicator" \
 	-X POST \
-	-H 'Content-Type: application/json' \
-	-d '{
+	-H "Content-Type: application/json" \
+	-d "{
 		"source": "https://examples.cloudant.com/query-movies",
 		"target": "https://$ACCOUNT.cloudant.com/my-movies",
 		"create_target": true,
 		"use_checkpoints": false
-	}'
+	}"
 ```
 {: codeblock}
 
@@ -2218,10 +2218,10 @@ Content-Type: application/json
 *Example of using the command line to create a *text* index for your sample database:*
 
 ```sh
-curl 'https://$ACCOUNT.cloudant.com/my-movies/_index' \
+curl "https://$ACCOUNT.cloudant.com/my-movies/_index" \
 	-X POST \
-	-H 'Content-Type: application/json' \
-	-d '{"index": {}, "type": "text"}'
+	-H "Content-Type: application/json" \
+	-d "{"index": {}, "type": "text"}"
 ```
 {: codeblock}
 
@@ -2263,8 +2263,8 @@ Content-Type: application/json
 
 ```sh
 curl -X POST -H "Content-Type: application/json" \
-	https://$ACCOUNT.cloudant.com/my-movies/_find \
-	-d '{"selector": {"Person_name":"Zoe Saldana"}}'
+	"https://$ACCOUNT.cloudant.com/my-movies/_find" \
+	-d "{"selector": {"Person_name":"Zoe Saldana"}}"
 ```
 {: codeblock}
 
@@ -2311,8 +2311,8 @@ Content-Type: application/json
 
 ```sh
 curl -X POST -H "Content-Type: application/json" \
-	https://$ACCOUNT.cloudant.com/my-movies/_find \
-	-d '{"selector": {"Person_name":"Robert De Niro", "Movie_year": 1978}}'
+	"https://$ACCOUNT.cloudant.com/my-movies/_find" \
+	-d "{"selector": {"Person_name":"Robert De Niro", "Movie_year": 1978}}"
 ```
 {: codeblock}
 
@@ -2360,8 +2360,8 @@ Content-Type: application/json
 
 ```sh
 curl -X POST -H "Content-Type: application/json" \
-	https://$ACCOUNT.cloudant.com/my-movies/_find \
-	-d '{"selector": {"Person_name":"Robert De Niro", "Movie_year": { "$in": [1974, 2009]}}}'
+	"https://$ACCOUNT.cloudant.com/my-movies/_find" \
+	-d "{"selector": {"Person_name":"Robert De Niro", "Movie_year": { "$in": [1974, 2009]}}}"
 ```
 {: codeblock}
 

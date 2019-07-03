@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-07-03"
 
 keywords: account, ping account, cors
 
@@ -53,7 +53,7 @@ HOST: $ACCOUNT.cloudant.com
 *Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using the command line:*
 
 ```sh
-curl -u $ACCOUNT https://$ACCOUNT.cloudant.com
+curl -u "$ACCOUNT" "https://$ACCOUNT.cloudant.com"
 ```
 {: codeblock}
 

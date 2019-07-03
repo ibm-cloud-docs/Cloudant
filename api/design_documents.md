@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-07-03"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -141,8 +141,8 @@ Destination: _design/recipelist
 ```sh
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 	-X COPY \
-	-H 'Content-Type: application/json' \
-	-H 'Destination: _design/recipelist'
+	-H "Content-Type: application/json" \
+	-H "Destination: _design/recipelist"
 ```
 {: codeblock}
 
@@ -199,8 +199,8 @@ Destination: _design/recipelist
 ```sh
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=1-e23b9e942c19e9fb10ff1fde2e50e0f5" \
 	-X COPY \
-	-H 'Content-Type: application/json' \
-	-H 'Destination: _design/recipelist'
+	-H "Content-Type: application/json" \
+	-H "Destination: _design/recipelist"
 ```
 {: codeblock}
 
@@ -225,8 +225,8 @@ Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee
 ```sh
 curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes" \
 	-X COPY \
-	-H 'Content-Type: application/json' \
-	-H 'Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee'
+	-H "Content-Type: application/json" \
+	-H "Destination: _design/recipelist?rev=1-9c65296036141e575d32ba9c034dd3ee"
 ```
 {: codeblock}
 
@@ -601,7 +601,7 @@ Host: $ACCOUNT.cloudant.com
 *Example of a show function query, using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_show/$SHOW_FUNCTION/$DOCUMENT_ID \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_show/$SHOW_FUNCTION/$DOCUMENT_ID" \
 ```
 {: codeblock}
 
@@ -711,7 +711,7 @@ Content-Type: application/json
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_update/$UPDATE_HANDLER" \
 	-X POST \
-	-H 'Content-Type: application/json' \
+	-H "Content-Type: application/json" \
 	-d "$JSON"
 ```
 {: codeblock}

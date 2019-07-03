@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-03"
+lastupdated: "2019-07-03"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -413,8 +413,8 @@ Content-Type: application/json
 *Example of using the command line to test the `keyword` analyzer:*
 
 ```sh
-curl 'https://$ACCOUNT.cloudant.com/_search_analyze' -H 'Content-Type: application/json'
-	-d '{"analyzer":"keyword", "text":"ablanks@renovations.com"}'
+curl "https://$ACCOUNT.cloudant.com/_search_analyze" -H "Content-Type: application/json"
+	-d "{"analyzer":"keyword", "text":"ablanks@renovations.com"}"
 ```
 {: codeblock}
 
@@ -442,8 +442,8 @@ Content-Type: application/json
 *Example of using the command line to test the `standard` analyzer:*
 
 ```sh
-curl 'https://$ACCOUNT.cloudant.com/_search_analyze' -H 'Content-Type: application/json'
-	-d '{"analyzer":"standard", "text":"ablanks@renovations.com"}'
+curl "https://$ACCOUNT.cloudant.com/_search_analyze" -H "Content-Type: application/json"
+	-d "{"analyzer":"standard", "text":"ablanks@renovations.com"}"
 ```
 {: codeblock}
 
@@ -496,14 +496,14 @@ Host: account.cloudant.com
 *Example of using the command line to query a partitioned index:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1 \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1" \
 ```
 {: codeblock}
 
 *Example of using the command line to query a global index:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1 \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1" \
 ```
 {: codeblock}
 
@@ -778,7 +778,7 @@ Host: account.cloudant.com
 *Example of using the command line to `POST` a search request:*
 
 ```sh
-curl 'https://account.cloudant.com/db/_design/ddoc/_search/searchname' -X POST -H 'Content-Type: application/json' -d @search.json
+curl "https://account.cloudant.com/db/_design/ddoc/_search/searchname" -X POST -H "Content-Type: application/json" -d @search.json
 ```
 {: codeblock}
 
@@ -1128,7 +1128,7 @@ Host: $ACCOUNT.cloudant.com
 *An example of using the command line for a query that sorts cities in the northern hemisphere by their distance to New York:*
 
 ```sh
-curl 'https://$ACCOUNT.cloudant.com/examples/_design/cities-designdoc/_search/cities?q=lat:[0+TO+90]&sort="<distance,lon,lat,-74.0059,40.7127,km>"'
+curl "https://$ACCOUNT.cloudant.com/examples/_design/cities-designdoc/_search/cities?q=lat:[0+TO+90]&sort="<distance,lon,lat,-74.0059,40.7127,km>""
 ```
 {: codeblock}
 
@@ -1224,7 +1224,7 @@ Authorization: ...
 *Example of using the command line to search with highlighting enabled:*
 
 ```sh
-curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=\[\"movie_name\"\]&highlight_pre_tag=\"<b>\"&highlight_post_tag=\"</b>\"&highlights_size=30&highlights_number=2
+curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/movies/_design/searches/_search/movies?q=movie_name:Azazel&highlight_fields=\[\"movie_name\"\]&highlight_pre_tag=\"<b>\"&highlight_post_tag=\"</b>\"&highlights_size=30&highlights_number=2"
 ```
 {: codeblock}
 

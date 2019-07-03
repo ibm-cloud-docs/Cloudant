@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-07-03"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -59,7 +59,7 @@ The API reference has more information about the options.
 *Example of obtaining and formatting a list of active tasks:*
 
 ```sh
-curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
+curl "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.'
 ```
 {: codeblock}
 
@@ -91,14 +91,14 @@ one for each of the active tasks found.
 *Example of finding all view indexing tasks by filtering for the `indexer` type:*
 
 ```sh
-curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
+curl -s "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
 *Example of finding all search indexing tasks by filtering for the `search_indexer` type:*
 
 ```sh
-curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
+curl -s "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
@@ -163,7 +163,7 @@ and set its `_id` field to a known value.
 *Example of finding all replication tasks, by filtering for the `replication` type:*
 
 ```sh
-curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
+curl -s "https://$USERNAME:$PASSWORD@$USERNAME.cloudant.com/_active_tasks" | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 

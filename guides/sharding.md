@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-28"
+lastupdated: "2019-07-03"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -185,7 +185,7 @@ a database that is called `mynewdatabase` is created.
 The `q` parameter specifies that eight shards are created for the database.
 
 ```sh
-curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
+curl -X PUT -u "$USERNAME" "https://$ACCOUNT.cloudant.com/mynewdatabase?q=8"
 ```
 {: codeblock}
 
