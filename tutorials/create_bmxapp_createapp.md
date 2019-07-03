@@ -1,8 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-05-29"
+  years: 2017, 2019-07-02"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -43,7 +42,7 @@ ready to begin creating the application:
 -   The [toolkits](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits) for managing Cloud Foundry-based {{site.data.keyword.cloud_notm}} applications.
 -   A ['starter' application pack](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application), containing initial configuration and code template files.
 
-No attempt was made to create _efficient_ Python code for this tutorial. The intention is to show simple and easy-to-understand working code that you can learn from and apply for your own applications. Also, no attempt was made to address all possible checks or error conditions. Some example checks are included to illustrate some of the techniques. In your applications, check for, and deal with, all warnings or error conditions.
+No attempt was made to create *efficient* Python code for this tutorial. The intention is to show simple and easy-to-understand working code that you can learn from and apply for your own applications. Also, no attempt was made to address all possible checks or error conditions. Some example checks are included to illustrate some of the techniques. In your applications, check for, and deal with, all warnings or error conditions.
 {: tip}
 
 

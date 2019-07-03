@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-07-02"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -113,7 +113,7 @@ Python code specific to each task is provided as part of the task description in
 
 For information about the complete Python program to perform all the tasks, see the [complete listing](#complete-listing).
 
-No attempt has been made to create _efficient_ Python code for this tutorial;
+No attempt has been made to create *efficient* Python code for this tutorial;
 the intention is to show simple and easy-to-understand working code
 that you can learn from and apply for your own applications.
 
@@ -152,7 +152,7 @@ The service credentials illustrated here
     However,
     the demonstration {{site.data.keyword.cloudant_short_notm}} service has been removed now,
     so these credentials will not work;
-    you _must_ supply and use your own service credentials.
+    you *must* supply and use your own service credentials.
 {:  tip}
 
 Once you have enabled the Python client library within your application,
@@ -375,7 +375,7 @@ print "{0}\n".format(response.json())
 ```
 {: codeblock}
 
-The result is similar to the following _abbreviated_ example:
+The result is similar to the following *abbreviated* example:
 
 ```json
 {

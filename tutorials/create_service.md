@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-30"
+lastupdated: "2019-07-02"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -76,7 +76,7 @@ The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM a
 7.  The details for the service credentials appear:<br/>
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
 
-The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid; you _must_ supply and use your own service credentials.
+The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid; you *must* supply and use your own service credentials.
 {: note}
 
 ## The service credentials
@@ -129,6 +129,6 @@ At any time, you can find the credentials for a service that is associated with 
 4.  The details for the service credentials appear:<br/>
     ![The {{site.data.keyword.cloudant_short_notm}} service credentials](images/img0009.png)
 
-The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid; you _must_ supply and use your own service credentials.
+The service credentials in these examples were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloudant_short_notm}}. The credentials are reproduced here to show how they would appear in the dashboard. However, the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed, so these credentials are no longer valid; you *must* supply and use your own service credentials.
 {: note}
 

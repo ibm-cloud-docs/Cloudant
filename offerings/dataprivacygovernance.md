@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-06-28"
+lastupdated: "2019-07-02"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
