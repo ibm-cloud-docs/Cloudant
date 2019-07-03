@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-03"
+lastupdated: "2019-07-01"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -103,7 +103,7 @@ Value  | Description           | Notes
 `true` | Create the index as partitioned.   | Can only be used in a partitioned database.
 `false`    | Create the index as global.  | Can be used in any database.
 
-The default follows the <code>partitioned</code> setting for the database:
+The default follows the `partitioned` setting for the database:
 
 Database is partitioned | Default `partitioned` value | Allowed values
 ---------|----------|---------
@@ -718,7 +718,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_update/$UPDATE_HAND
 
 <!--
 
-_Example of an update handler query, using Javascript:_
+*Example of an update handler query, using Javascript:*
 
 ```javascript
 var nano = require('nano');

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-06-28"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -84,7 +84,7 @@ Enterprise cluster, we have your:
 The data that {{site.data.keyword.cloudant_short_notm}} holds can be viewed and updated via the {{site.data.keyword.cloudant_short_notm}} Dashboard.
 
 If you have an account provisioned by {{site.data.keyword.cloud_notm}} (including a dedicated instance), 
-{{site.data.keyword.cloudant_short_notm}} _does not_ collect the personal data previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
+{{site.data.keyword.cloudant_short_notm}} *does not* collect the personal data previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} processes limited customer PI in the course of running the service and optimising 
 the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email for contacting customers as appropriate. Monitoring 

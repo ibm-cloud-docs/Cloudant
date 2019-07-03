@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-04-23"
+lastupdated: "2019-06-28"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -25,7 +25,7 @@ subcollection: cloudant
 # Data privacy and governance
 {: #data-privacy-and-governance}
 
-_(This {{site.data.keyword.cloudantfull}} Data Privacy and Governance Update was originally published April 20, 2016.)_
+*(This {{site.data.keyword.cloudantfull}} Data Privacy and Governance Update was originally published April 20, 2016.)*
 
 As a pioneer in the provision of a fully managed and globally distributable Database-as-a-Service,
 {{site.data.keyword.cloudant_short_notm}} allows customers to locate data in any

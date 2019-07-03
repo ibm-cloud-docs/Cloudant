@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-30"
+lastupdated: "2019-07-01"
 
 keywords: geospatial, geojson, geo index, querying, query geometry, geometric relation
 
@@ -200,7 +200,7 @@ For example,
 you can create a design document with the `_id` value `"_design/geodd"` that contains an index that is called `"geoidx"`.
 The index is a simple JavaScript function that checks for the presence of a valid geometry object in the document. If a valid geometry object is found, it ensures that the document is included in the `st_index` {{site.data.keyword.cloudant_short_notm}} Geo index function.
 
-_An example {{site.data.keyword.cloudant_short_notm}} Geo design document, containing an index:_
+*An example {{site.data.keyword.cloudant_short_notm}} Geo design document, containing an index:*
 
 ```json
 {

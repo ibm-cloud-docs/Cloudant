@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-03"
+lastupdated: "2019-07-01"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -259,7 +259,7 @@ Replications are created in one of two ways:
   Replication jobs created this way are resumed automatically after a node restart.
 2.  A replication can be started by `POST`ing a JSON document that describes the wanted replication
   directly to the `/_replicate` endpoint.
-  Replication jobs created this way are _not_ resumed if the node they run on is restarted.
+  Replication jobs created this way are *not* resumed if the node they run on is restarted.
   The JSON document has the same format as the JSON documents you store in the
   [`/_replicator`](#the-_replicator-database) database.
 
