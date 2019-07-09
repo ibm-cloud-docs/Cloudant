@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-07-15"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -70,7 +70,7 @@ You are limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan insta
 
 The {{site.data.keyword.cloudant_short_notm}} Standard plan is available to all paid {{site.data.keyword.cloud}} accounts, either as pay-as-you-go or subscription, and scales to meet the needs of your application. The Standard plan is priced based on two factors: the provisioned throughput capacity that is allocated and the amount of data that is stored in the instance. 
 
-Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 reads/sec, 50 writes/sec, and 5 global queries/sec equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down in increments of 100 reads/sec, 50 writes/sec, and 5 global queries/sec in the {{site.data.keyword.cloudant_short_notm}} Dashboard. Costs are calculated for the provisioned throughput capacity that is allocated and is not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you are charged a defined cost per GB per hour. 
+Pricing is pro-rated hourly with a starting provisioned throughput capacity of 100 reads/sec, 50 writes/sec, and 5 global queries/sec equal to a starting cost of USD $0.105/hour. You can toggle the provisioned throughput capacity up or down in increments of 100 reads/sec, 50 writes/sec, and 5 global queries/sec using the UI or API. Costs are calculated for the provisioned throughput capacity that is allocated and is not on the metered volume of requests. The Standard plan includes 20 GB of data storage. If you store more than 20 GB, you are charged a defined cost per GB per hour. 
 
 See the {{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](/docs/services/Cloudant?topic=cloudant-pricing#pricing){: new_window} information for examples to estimate costs.
 
@@ -218,52 +218,77 @@ Using appropriate indexes is key for reducing read consumption for partitioned
 ### Viewing and changing capacity
 {: #viewing-and-changing-capacity}
 
-You can see details of the throughput capacity within the plans available for your account.
-You can select the level of provisioning that you want to use,
-through the Account tab of your {{site.data.keyword.cloudant_short_notm}} account dashboard.
+Managing the provisioned throughput capacity allocated to an instance can be done using either the UI or API. Note that changes to the provisioned throughput capacity are only allowed using the paid {{site.data.keyword.cloudant_short_notm}} Standard plan. Users of the free Lite plan have a fixed amount of provisioned throughput capacity, but can use the Capacity UI to estimate costs for a capacity setting on the Standard plan.
+
+The method for managing the provisioned throughput capacity via the UI will depend on whether the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Resource Group or a Cloud Foundry org and space. Starting in July 2018, all instances were deployed in Resource Groups, and it is recommended to migrate any instances deployed in a Cloud Foundry org and space to a Resource Group to take advantage of the latest user experience. For more information, see [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-).
+
+#### UI - Resource Group
+
+If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Resource Group**, go to the {{site.data.keyword.cloud_short_notm}} Dashboard Service Details page for the instance. Click **Manage** tab and then **Capacity** tab where you can view the current and target capacity. 
+
+![Capacity](../images/capacity-1.png)
+
+To change the target capacity, slide the capacity slider to the desired setting and click **Update Capacity**. A confirmation pop-up appears. Click **OK** to confirm. 
+
+![Capacity](../images/capacity-3.png)
+
+The check mark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous, and the time required depends on the delta in capacity requested and the data stored in the instance. When the target capacity is reached, the check mark turns green and says 'Capacity Up-to-Date'.
+
+![Capacity](../images/capacity-4.png)
+
+Capacity increases via the {{site.data.keyword.cloud_short_notm}} Dashboard can be made up to 100 blocks of capacity which is 10,000 reads/sec, 5,000 writes/sec, and 500 global queries/sec. If you require more capacity, see the Need additional capacity? tab at the bottom of the Capacity page.
+{: note}
+
+#### UI - Cloud Foundry org and space
+
+If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Cloud Foundry org and space, launch the {{site.data.keyword.cloudant_short_notm}} Dashboard. Click the **Account** tab and then **Capacity** tab. 
 
 ![Account dashboard](../images/cloudant_capacity.png)
 
-To move to a different throughput capacity, select the provisioning you 
-want, then click `Update`. You are asked to confirm the change, 
+To move to a different throughput capacity, select the desired provisioned throughput capacity, then click **Update**. You are asked to confirm the change, 
 and reminded that the provisioning change can take up to 24 hours to 
 complete.
 
 ![Account dashboard](../images/cloudant_capacity_change.png)
 
-The size of the capacity increase is limited to 10 units (1000 reads/second, 500 writes/second, and 50 global queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} Dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
+In the {{site.data.keyword.cloudant_short_notm}} Dashboard, the size of the capacity increase is limited to 10 units (1000 reads/second, 500 writes/second, and 50 global queries/second) per change. Decreases are not limited by the number of units. Any change in capacity, either an increase or a decrease, is limited to once per hour. If you require more capacity than is available on the {{site.data.keyword.cloudant_short_notm}} Dashboard, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
 {: note}
+
+#### API
+
+To use the API to view the current provisioned throughput capacity allocated or change the target provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance, see the [Capacity API documentation](/docs/services/Cloudant?topic=cloudant-capacity). 
+
+The API syntax for changing the capacity will also be shown in the **Increase capacity through API** tab at the bottom of the Capacity page for instances deployed in a Resource Group. 
+
 
 ### Monitoring usage 
 {: #monitoring-usage}
 
-Information about your usage is available in the Current Operations pane of the Monitoring tab within your {{site.data.keyword.cloudant_short_notm}} Dashboard. 
+Information about your usage of provisioned throughput capacity is available in the {{site.data.keyword.cloudant_short_notm}} Dashboard Monitoring tab. The **Current Operations** tab shows recent consumption of [provisioned throughput capacity](#provisioned-throughput-capacity) showing the number of requests broken down by reads, writes, and global queries. The dotted line represents the peak capacity allowed according to the provisioned throughput capacity set for the instance. 
 
-![Monitoring usage on the dashboard](../images/cloudant_usage.png)
+![Monitoring - Current Operations](../images/monitoring-current_operations.png)
 
-Details are provided there,
-illustrating your current [throughput](#provisioned-throughput-capacity),
-and quantity of [stored data](#disk-space-included).
+The **Denied Requests** tab shows the number of requests that were denied with a '429: too many requests' response in a given second. Requests are denied due to exceeding the provisioned throughput capacity allocated to the instance and the graphs are broken down by reads, writes, and global queries.
+
+![Monitoring - Denied Requests](../images/monitoring-denied_requests.png)
 
 Monitoring helps you recognize that a change to the provisioning in your plan might be advisable.
-For example,
-if you frequently approach the maximum number of database reads,
-then you can modify the provisioning through the [Capacity pane](#viewing-and-changing-capacity) on the Account tab of the dashboard.
+For example, if you frequently approach the maximum number of database reads, then you can modify the capacity for the instance through the [Capacity](#viewing-and-changing-capacity) UI.
 
 ## Data usage
 {: #data-usage}
 
-### Disk space included
-{: #disk-space-included}
+The data storage that is measured for billable purposes for an {{site.data.keyword.cloudant_short_notm}} instance is inclusive of both JSON data, indexes, and attachments. 
 
-This value is the storage capacity that is included in the plan.
-It is used for both data and index storage.
+### Data storage included
+{: #data-storage-included}
 
-### Disk overage
-{: #disk-overage}
+This value is the storage capacity that is included in the plan. The Lite plan has a hard limit of 1GB allowed. The paid Standard plan includes 20GB for free and any additional data stored is metered for billing. 
 
-All Standard and Lite plans include disk space, which
-is used for JSON data, attachments, and indexes. All Standard and Lite plans are monitored for disk space used. When you use more data than the
+### Data overage
+{: #data-overage}
+
+All Lite and Standard plans are monitored for disk space used. When you use more data than the
 plan allocates, you can expect the conditions described in the following table to apply:
 
 <table>
@@ -272,16 +297,18 @@ plan allocates, you can expect the conditions described in the following table t
 <th id="disk-overage-plan">Plan</th><th id="description">Description</th>
 </tr>
 <tr>
-<th headers="standard-plan">Standard</td>
-<td headers="description"><p>
-<ul><li>If the account uses more than the amount of storage that is alloted in your plan configuration, it is considered to 'overflow'. Overflow causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.</li>
-<li>The extra money you must pay, for using more disk space than is provided in the plan, is called an 'overage'. An overage is calculated on an hourly basis.</li></ul></p></td>
-</tr>
-<tr>
 <th headers="lite-plan">Lite</td>
 <td headers="description"><p>
-<ul><li>Disk usage is capped on the Lite plan. After you reach the cap, you cannot write new data. To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.</p>
-</li></ul></td>
+<ul>
+	<li>Disk usage is capped on the Lite plan at 1GB.</li><li>After you reach the cap, you will receive a warning on the top of the {{site.data.keyword.cloudant_short_notm}} Dashboard and cannot write new data. Attempting to write new data will result in a `402: payment required` response.</li> <li>To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.</p>
+</li>
+</ul></td>
+</tr>
+<tr>
+<th headers="standard-plan">Standard</td>
+<td headers="description"><p>
+<ul><li>If the account uses more than the 20GB of storage that is included in the Standard plan, it is considered 'disk overage'. Overage causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.</li>
+<li>The cost for the amount of disk overage is calculated on an hourly basis.</li></ul></p></td>
 </tr>
 </table>
 
