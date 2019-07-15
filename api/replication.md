@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-07-15"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -75,7 +75,7 @@ Content-Type: application/json
 Accept: application/json
 
 {
-  "source" : "https://$USERNAME1:$PASSWORD1@$ACCOUNT1.cloudant.com/db",
+  "source" : "https://$USERNAME1:$PASSWORD1.example.com/db",
   "target" : "https://$USERNAME2:$PASSWORD2@$ACCOUNT2.cloudant.com/db",
 }
 ```
@@ -86,7 +86,7 @@ Accept: application/json
 ```json
 {
   "error" : "db_not_found",
-  "reason" : "could not open http://$ACCOUNT.cloudant.com/ol1ka/"
+  "reason" : "could not open https://example.com/db/"
 }
 ```
 {: codeblock}
