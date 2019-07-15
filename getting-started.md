@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-07-15"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -137,7 +137,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 
 1. Define a variable in the Python application:
   ```python
-  databaseName = "<your-database-name>"
+  database_name = "<your-database-name>"
   ```
   {: codeblock}
 
@@ -148,14 +148,14 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 
 2. Create the database:
   ```python
-  myDatabase = client.create_database(databaseName)
+  myDatabase = client.create_database(database_name)
   ```
   {: codeblock}
 
 3. Confirm that the database was created successfully:
   ```python
   if myDatabase.exists():
-      print "'{0}' successfully created.\n".format(databaseName)
+      print "'{0}' successfully created.\n".format(database_name)
   ```
   {: codeblock}
 
@@ -298,80 +298,9 @@ A full retrieval also includes the data *within* a document.
   ```
   {: codeblock}
 
-## Step 5: Retrieving data through the {{site.data.keyword.cloudant_short_notm}} API endpoint
-{: #step-5-retrieving-data-through-the-cloudant-nosql-db-api-endpoint}
 
-You can also request a list of all documents and their contents by
-invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/services/Cloudant?topic=cloudant-databases#get-documents).
-
-1. Identify the endpoint to contact, and any parameters to supply along with the call:
-  ```python
-  end_point = '{0}/{1}'.format("client.server_url", databaseName + "/_all_docs")
-  params = {'include_docs': 'true'}
-  ```
-  {: codeblock}
-  ... where `client.server_url` is the URL value from the service credentials you found in Step 1.
-
-2. Send the request to the service instance, and display the results:
-  ```python
-  response = client.r_session.get(end_point, params=params)
-  print "{0}\n".format(response.json())
-  ```
-  {: codeblock}
-
-  The result is similar to the following *abbreviated* example:
-  
-  ```
-  {u'rows': [{u'value': {u'rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}, u'id': u'0532feb6fd6180d79b842d871316c444', u'key': u'0532feb6fd6180d79b842d871316c444', u'doc': {u'temperatureField': 20, u'descriptionField': u'warm', u'numberField': 3, u'nameField': u'three', u'_id': u'0532feb6fd6180d79b842d871316c444', u'_rev': u'1-6d8cb5905316bf3dbe4075f30daa9f59'}}, ... , {u'value': {u'rev': u'1-3f61736fa96473d358365ce1665e3d97'}, u'id': u'db396f77bbe12a567b09177b4accbdbc', u'key': u'db396f77bbe12a567b09177b4accbdbc', u'doc': {u'temperatureField': 0, u'descriptionField': u'freezing', u'numberField': 5, u'nameField': u'five', u'_id': u'db396f77bbe12a567b09177b4accbdbc', u'_rev': u'1-3f61736fa96473d358365ce1665e3d97'}}], u'total_rows': 5, u'offset': 0}
-  ```
-  {: screen}
-  
-  We can tidy the appearance a little, and see that the *abbreviated* details we got back are similar to this example:
-  
-  ```json
-  {
-      "rows": [
-          {
-              "value": {
-                "rev": "1-6d8cb5905316bf3dbe4075f30daa9f59"
-              },
-              "id": "0532feb6fd6180d79b842d871316c444",
-              "key": "0532feb6fd6180d79b842d871316c444",
-              "doc": {
-                  "temperatureField": 20,
-                  "descriptionField": "warm",
-                  "numberField": 3,
-                  "nameField": "three",
-                  "_id": "0532feb6fd6180d79b842d871316c444",
-                  "_rev": "1-6d8cb5905316bf3dbe4075f30daa9f59"
-              }
-          },
-          ...
-          {
-              "value":
-              {
-                "rev": "1-6d8cb5905316bf3dbe4075f30daa9f59"
-              },
-              "id": "db396f77bbe12a567b09177b4accbdbc",
-              "key": "db396f77bbe12a567b09177b4accbdbc",
-              "doc": {
-                  "temperatureField": 0,
-                  "descriptionField": "freezing",
-                  "numberField": 5,
-                  "nameField": "five",
-                  "_id": "db396f77bbe12a567b09177b4accbdbc",
-                  "_rev": "1-6d8cb5905316bf3dbe4075f30daa9f59"
-              }
-          }
-      ],
-      "total_rows": 5,
-      "offset": 0
-  }
-  ```
-  {: codeblock}
-
-## (optional) Step 6: See database information on the {{site.data.keyword.cloudant_short_notm}} Dashboard
-{: #optional-step-6-ibm-cloudant-dashboard}
+## (optional) Step 5: See database information on the {{site.data.keyword.cloudant_short_notm}} Dashboard
+{: #optional-step-5-ibm-cloudant-dashboard}
 
 Follow these steps to see your database and documents on the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
 
@@ -383,27 +312,27 @@ Follow these steps to see your database and documents on the {{site.data.keyword
     When the dashboard opens, you can see the databases associated with your service.
 
 
-## Step 7: Delete the database
-{: #step-7-delete-the-database}
+## Step 6: Delete the database
+{: #step-6-delete-the-database}
 
 When you are finished with the database,
 it can be deleted.
 
 ```python
 try:
-    client.delete_database(databaseName)
+    client.delete_database(database_name)
 except CloudantException:
-    print "There was a problem deleting '{0}'.\n".format(databaseName)
+    print "There was a problem deleting '{0}'.\n".format(database_name)
 else:
-    print "'{0}' successfully deleted.\n".format(databaseName)
+    print "'{0}' successfully deleted.\n".format(database_name)
 ```
 {: codeblock}
 
 We included some basic error handling
 to show you how to troubleshoot and address potential issues.
 
-## Step 8: Close the connection to the service instance
-{: #step-8-close-the-connection-to-the-service-instance}
+## Step 7: Close the connection to the service instance
+{: #step-7-close-the-connection-to-the-service-instance}
 
 The final step is to disconnect the Python client application from the service instance:
 
@@ -442,12 +371,12 @@ client.connect()
 client = Cloudant.iam("<username","<apikey>")
 client.connect()
 
-databaseName = "<yourDatabaseName>"
+database_name = "<yourDatabaseName>"
 
-myDatabase = client.create_database(databaseName)
+myDatabase = client.create_database(database_name)
 
 if myDatabase.exists():
-    print "'{0}' successfully created.\n".format(databaseName)
+    print "'{0}' successfully created.\n".format(database_name)
 
 sampleData = [
     [1, "one", "boiling", 100],
@@ -489,18 +418,12 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 result_collection = Result(myDatabase.all_docs, include_docs=True)
 print "Retrieved full document:\n{0}\n".format(result_collection[0])
 
-end_point = '{0}/{1}'.format("<url>", databaseName + "/_all_docs")
-params = {'include_docs': 'true'}
-response = client.r_session.get(end_point, params=params)
-print "{0}\n".format(response.json())
-
-
 try :
-    client.delete_database(databaseName)
+    client.delete_database(database_name)
 except CloudantException:
-    print "There was a problem deleting '{0}'.\n".format(databaseName)
+    print "There was a problem deleting '{0}'.\n".format(database_name)
 else:
-    print "'{0}' successfully deleted.\n".format(databaseName)
+    print "'{0}' successfully deleted.\n".format(database_name)
 
 client.disconnect()
 
