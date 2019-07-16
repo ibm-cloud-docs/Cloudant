@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-07-16"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -173,7 +173,7 @@ GET /$DATABASE HTTP/1.1
 *Example of using the command line to get database details:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE"
 ```
 {: codeblock}
 
@@ -262,7 +262,7 @@ GET /_all_dbs HTTP/1.1
 *Example of using the command line to list all databases:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_all_dbs \
+curl "https://$ACCOUNT.cloudant.com/_all_dbs" \
 ```
 {: codeblock}
 
@@ -343,7 +343,7 @@ GET /_all_docs HTTP/1.1
 *Example of using the command line to list all documents in a database,*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs"
 ```
 {: codeblock}
 
@@ -376,7 +376,7 @@ GET /_all_docs?keys=["somekey","someotherkey"] HTTP/1.1
 *Example of using the command line to list all documents in a database that match at least one of the specified keys:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs?keys=["somekey","someotherkey"]
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs?keys=["somekey","someotherkey"]"
 ```
 {: codeblock}
 
@@ -444,7 +444,7 @@ POST /_all_docs/queries HTTP/1.1
 *Example of using the command line to send multiple queries to a database,*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries"
 ```
 {: codeblock}
 
@@ -575,7 +575,7 @@ POST /_view/$VIEW/queries HTTP/1.1
 *Example of using the command line to send multiple view queries to a database,*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_view/$VIEW/queries
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_view/$VIEW/queries"
 ```
 {: codeblock}
 
@@ -631,7 +631,7 @@ GET /$DATABASE/_changes HTTP/1.1
 *Example of using the command line to get a list of changes made to documents in a database*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_changes \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes"
 ```
 {: codeblock}
 
@@ -928,7 +928,7 @@ Host: $ACCOUNT.cloudant.com
 *Example of using the command line to delete an {{site.data.keyword.cloudant_short_notm}} database:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE" \
 	-X DELETE \
 ```
 {: codeblock}
