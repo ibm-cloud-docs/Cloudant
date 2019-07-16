@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-07-03"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, 
 
@@ -51,8 +51,8 @@ GET /_active_tasks HTTP/1.1
 *Example request to retrieve list of active tasks, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_active_tasks \
-	-u $ACCOUNT
+curl "https://$ACCOUNT.cloudant.com/_active_tasks" \
+	-u "$ACCOUNT"
 ```
 {: codeblock}
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-06-26"
+lastupdated: "2019-07-03"
 
 keywords: provisioned throughput capacity, api 
 
@@ -123,8 +123,8 @@ Content-Type: application/json
 ```sh
 curl https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput \
 	-X PUT \
-  -H 'Content-Type: application/json' \
-  -d '{"blocks": NUMBER_OF_BLOCKS}'
+  -H "Content-Type: application/json" \
+  -d "{"blocks": NUMBER_OF_BLOCKS}"
 ```
 {: codeblock}
 
