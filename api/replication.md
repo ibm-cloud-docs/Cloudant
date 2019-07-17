@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-17"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -406,7 +406,7 @@ GET /_active_tasks HTTP/1.1
 *Example instructions for using the command line to monitor a replication:*
 
 ```http
-curl https://$ACCOUNT.cloudant.com/_active_tasks
+curl "https://$ACCOUNT.cloudant.com/_active_tasks"
 ```
 {: codeblock}
 

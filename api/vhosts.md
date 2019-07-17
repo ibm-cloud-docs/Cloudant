@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-18"
 
 keywords: vhost endpoints, list virtual host, create virtual host, delete virtual host
 
@@ -110,7 +110,7 @@ Content-Type: application/json
 *Example request for creating a vhost, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/_api/v2/user/virtual_hosts" -X POST -d "@vhost.json" -H "Content-Type: application/json"
+curl "https://$ACCOUNT.cloudant.com/_api/v2/user/virtual_hosts" -X POST -d @vhost.json -H "Content-Type: application/json"
 ```
 {: codeblock}
 
@@ -154,7 +154,7 @@ Content-Type: application/json
 *Example request for deleting a vhost, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/_api/v2/user/virtual_hosts" -X DELETE -d "@vhost.json" -H "Content-Type: application/json"
+curl "https://$ACCOUNT.cloudant.com/_api/v2/user/virtual_hosts" -X DELETE -d @vhost.json -H "Content-Type: application/json"
 ```
 {: codeblock}
 

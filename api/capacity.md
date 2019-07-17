@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-17"
 
 keywords: provisioned throughput capacity, api 
 
@@ -57,7 +57,7 @@ GET /_api/v2/user/capacity/throughput
 *Example request to retrieve the current and target capacity, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput \
+curl "https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput"
 ```
 {: codeblock}
 
@@ -121,10 +121,10 @@ Content-Type: application/json
 *Example request to set the target capacity, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput \
+curl "https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput" \
 	-X PUT \
   -H "Content-Type: application/json" \
-  -d "{"blocks": NUMBER_OF_BLOCKS}"
+  -d '{"blocks": NUMBER_OF_BLOCKS}'
 ```
 {: codeblock}
 
@@ -180,7 +180,7 @@ GET _api/v2/user/current/throughput
 *Example request to retrieve the current consumption of capacity, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/user/current/throughput \
+curl "https://$ACCOUNT.cloudant.com/_api/v2/user/current/throughput"
 ```
 {: codeblock}
 

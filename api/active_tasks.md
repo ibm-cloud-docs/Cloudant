@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-18"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, 
 
@@ -52,7 +52,7 @@ GET /_active_tasks HTTP/1.1
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_active_tasks" \
-	-u "$ACCOUNT"
+	-u $ACCOUNT
 ```
 {: codeblock}
 

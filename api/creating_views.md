@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-07-18"
 
 keywords: views, mapreduce, concepts, index partitioning type, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning
 
@@ -405,7 +405,7 @@ Content-Type: application/json
 *Example of `PUT`ting a view into a design document called `training` by using the command line:*
 
 ```sh
-curl -X PUT https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/$DATABASE/_design/training --data-binary @view.def
+curl -X PUT "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/$DATABASE/_design/training --data-binary" @view.def
 	# where the design document is stored in the file `view.def`
 ```
 {: codeblock}

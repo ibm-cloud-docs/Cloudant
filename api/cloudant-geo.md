@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-07-18"
 
 keywords: geospatial, geojson, geo index, querying, query geometry, geometric relation
 
@@ -246,7 +246,7 @@ Host: $ACCOUNT.cloudant.com
 *Example request, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/crimes/_design/geodd/_geo_info/geoidx \
+curl "https://$ACCOUNT.cloudant.com/crimes/_design/geodd/_geo_info/geoidx"
 ```
 {: codeblock}
 
@@ -442,7 +442,7 @@ These examples show the available results based on the options you specify for t
 *Example query to return results with `format=legacy`:*
 
 ```sh
-curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=legacy&lat=42.3397&lon=-71.07959&radius=10'
+curl -X GET "https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=legacy&lat=42.3397&lon=-71.07959&radius=10"
 ```
 {: codeblock}
 
@@ -464,7 +464,7 @@ curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?for
 *Example query to return results with `format=view`:*
 
 ```sh
-curl -X GET 'https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=view&lat=42.3397&lon=-71.07959&radius=10'
+curl -X GET "https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?format=view&lat=42.3397&lon=-71.07959&radius=10"
 ```
 {: codeblock}
 

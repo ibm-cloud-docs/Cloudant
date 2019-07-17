@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-07-18"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -76,7 +76,7 @@ Content-Type: $$ATTACHMENT_MIME_TYPE
 *Example instruction for creating or updating an attachment, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV" \
 	 -X PUT \
 	 -H "Content-Type: $ATTACHMENT_MIME_TYPE" \
 	 --data-binary @$ATTACHMENT_FILEPATH
@@ -141,7 +141,7 @@ GET /$DATABASE/$DOCUMENT_ID/$ATTACHMENT HTTP/1.1
 *Example of reading an attachment, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT" \
 	 -u $ACCOUNT blob_content.dat
 # store the response content into a file for further processing.
 ```
@@ -184,7 +184,7 @@ DELETE /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
 *Example of deleting an attachment, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV" \
 	-u $ACCOUNT \
 	-X DELETE
 ```

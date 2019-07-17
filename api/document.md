@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-07-17"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -165,7 +165,7 @@ Content-Type: application/json
 *Creating a document by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE" \
 	-X POST \
 	-H "Content-Type: application/json" \
 	-d "$JSON"
@@ -254,7 +254,7 @@ GET /$DATABASE/$DOCUMENT_ID HTTP/1.1
 *Example of retrieving a document by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID"
 ```
 {: codeblock}
 
@@ -335,7 +335,7 @@ PUT /$DATABASE/$DOCUMENT_ID HTTP/1.1
 
 ```sh
 # make sure $JSON contains the correct `_rev` value!
-curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID" \
 	-X PUT \
 	-H "Content-Type: application/json" \
 	-d "$JSON"
@@ -403,7 +403,7 @@ DELETE /$DATABASE/$DOCUMENT_ID?rev=$REV HTTP/1.1
 
 ```sh
 # make sure $JSON contains the correct `_rev` value!
-curl https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID?rev=$REV -X DELETE
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID?rev=$REV" -X DELETE
 ```
 {: codeblock}
 
@@ -771,7 +771,7 @@ Content-Type: application/json
 *Example of using the command line to create, update, or delete multiple documents:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_bulk_docs" \
 	-X POST \
 	-H "Content-Type: application/json" \
 	-d "$JSON"

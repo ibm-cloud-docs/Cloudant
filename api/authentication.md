@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-07-18"
 
 keywords: authentication, basic authentication, cookie authentication
 
@@ -70,7 +70,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 *Example including basic authentication credentials in a request, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com
+curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com"
 ```
 {: codeblock}
 
@@ -147,7 +147,7 @@ name=USERNAME&password=PASSWORD
 *Example of requesting a cookie, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_session \
+curl "https://$ACCOUNT.cloudant.com/_session" \
 	-X POST \
 	-c /path/to/cookiefile
 	-d "name=$ACCOUNT&password=$PASSWORD"
@@ -247,7 +247,7 @@ Accept: application/json
 *Example request for cookie information, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_session \
+curl "https://$ACCOUNT.cloudant.com/_session" \
 	-X GET \
 	-b /path/to/cookiefile
 ```
@@ -302,7 +302,7 @@ Accept: application/json
 *Example cookie `DELETE` request, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_session \
+curl "https://$ACCOUNT.cloudant.com/_session" \
 	-X DELETE \
 	-b /path/to/cookiefile
 ```
