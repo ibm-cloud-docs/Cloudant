@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-15"
+lastupdated: "2019-07-18"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -371,7 +371,7 @@ errors, see [Replication errors](/docs/services/Cloudant?topic=cloudant-replicat
 
 By default, all Lite and Standard plans are deployed on multi-tenant 
 environments. As part of your plan selection, you can choose from the 
-following {{site.data.keyword.cloud_notm}} Public regions:
+following {{site.data.keyword.cloud_notm}} Public locations:
 
 -   Washington DC
 -   Dallas
@@ -379,6 +379,10 @@ following {{site.data.keyword.cloud_notm}} Public regions:
 -   Sydney
 -   Frankfurt&Dagger;
 -   Tokyo
+-   Seoul (SZR)
+-   Chennai (SZR)
+
+Single-Zone Region, or SZR, means that there is only one availability zone available in that location. All other locations are Multi-Zone Regions (MZR) and leverage three separate availability zones for instances deployed in those locations. For more information, see [HA, DR, and Backup docs](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup&cloudant-disaster-recovery-and-backup){: new_window}. 
 
 Dedicated Hardware plan instances can be deployed in most 
 [{{site.data.keyword.IBM_notm}} data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/data-centers/). 
@@ -389,7 +393,7 @@ See the drop-down menu in the {{site.data.keyword.cloud_notm}} catalog for an up
 deploy in EU-managed environments. Any {{site.data.keyword.cloudant_short_notm}} 
 account or API key that is generated 
 outside of an EU-managed environment cannot be granted access to an EU-managed 
-{{site.data.keyword.cloudant_short_notm}} instance.
+{{site.data.keyword.cloudant_short_notm}} instance. For more information, see [Enabling the EU Supported setting](https://cloud.ibm.com/docs/account?topic=account-eu-hipaa-supported#bill_eusupported) for your {{site.data.keyword.cloud_notm}} account.
 
 ## Authentication methods
 {: #authentication-methods}
