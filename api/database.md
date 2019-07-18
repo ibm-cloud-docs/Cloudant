@@ -262,7 +262,7 @@ GET /_all_dbs HTTP/1.1
 *Example of using the command line to list all databases:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/_all_dbs" \
+curl "https://$ACCOUNT.cloudant.com/_all_dbs"
 ```
 {: codeblock}
 

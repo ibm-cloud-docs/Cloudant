@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-07-18"
 
 keywords: http headers, response headers, http status codes
 
@@ -165,10 +165,10 @@ Content-Encoding: gzip
 *Example of sending a gzip-encoded request body to create a document, using the command line*
 
 ```sh
-curl https://example.cloudant.com/db/doc \
+curl "https://example.cloudant.com/db/doc" \
 	-X PUT \
 	-T doc.gzip \
-	-H 'Content-Encoding: gzip'
+	-H "Content-Encoding: gzip"
 ```
 {: codeblock}
 

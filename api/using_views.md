@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-17"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -623,7 +623,7 @@ Content-Type: application/json
 curl "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_partition/british/_design/$DDOC/_view/by_ingredient?include_docs=true"
     -X POST \
     -H "Content-Type: application/json" \
-    -d "{ "keys" : [ "claret", "clear apple juice" ] }"
+    -d '{ "keys" : [ "claret", "clear apple juice" ] }'
 ```
 {: codeblock}
 

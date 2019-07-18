@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-17"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication 
 

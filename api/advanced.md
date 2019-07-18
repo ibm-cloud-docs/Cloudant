@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-02"
+lastupdated: "2019-07-18"
 
 keywords: advanced endpoints, cluster information, revision history
 
@@ -45,7 +45,7 @@ The `vendor.version` field contains the build number of {{site.data.keyword.clou
 For {{site.data.keyword.cloudant_short_notm}} versions before 2.0.0, you might see a `cloudant_build` field in the response, rather than a `vendor.version` field. In each case, the field contains the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
 {: note}
 
-*Example request to get server meta information,by using HTTP:*
+*Example request to get server meta information, by using HTTP:*
 
 ```HTTP
 GET / HTTP/1.1
@@ -56,7 +56,7 @@ HOST: $ACCOUNT.cloudant.com
 *Example request to get server meta information, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/
+curl "https://$ACCOUNT.cloudant.com/"
 ```
 {: codeblock}
 
@@ -144,7 +144,7 @@ GET /_db_updates HTTP/1.1
 *Example request to get a list of changes to the database, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_db_updates \
+curl "https://$ACCOUNT.cloudant.com/_db_updates" \
 	-u $ACCOUNT
 ```
 {: codeblock}
@@ -202,7 +202,7 @@ GET /$DATABASE/_shards HTTP/1.1
 *Example request, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_shards \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_shards" \
 	-u $ACCOUNT
 ```
 {: codeblock}
@@ -287,9 +287,9 @@ Content-Type: application/json
 *Example request, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_missing_revs \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_missing_revs" \
 	 -X POST \
-	 -u "$ACCOUNT:$PASSWORD" \
+	 -u $ACCOUNT \
 	 -H "Content-Type: application/json" \
 	 -d @request-body.json
 ```
@@ -362,7 +362,7 @@ Content-Type: application/json
 *Example request, from the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_revs_diff \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_revs_diff" \
 	-X POST \
 	-u $ACCOUNT \
 	-d "$JSON"
@@ -457,7 +457,7 @@ GET /_membership HTTP/1.1
 *Example request to list nodes in the cluster, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_membership \
+curl "https://$ACCOUNT.cloudant.com/_membership" \
 	-u $ACCOUNT
 ```
 {: codeblock}
@@ -531,7 +531,7 @@ GET /_uuids HTTP/1.1
 *Example request for a single UUID, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_uuids \
+curl "https://$ACCOUNT.cloudant.com/_uuids" \
 	-u $ACCOUNT
 ```
 {: codeblock}
@@ -576,7 +576,7 @@ GET /_uuids?count=5 HTTP/1.1
 *Example request for five UUIDs, by using the command line:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_uuids?count=5 \
+curl "https://$ACCOUNT.cloudant.com/_uuids?count=5" \
 	-u $ACCOUNT
 ```
 {: codeblock}

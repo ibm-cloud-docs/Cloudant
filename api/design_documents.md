@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-17"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -483,7 +483,7 @@ GET /$DATABASE/$DESIGN_ID/_list/$LIST_FUNCTION/$MAPREDUCE_INDEX HTTP/1.1
 *Example invocation of a list function, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DESIGN_ID/_list/$LIST_FUNCTION/$MAPREDUCE_INDEX" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DESIGN_ID/_list/$LIST_FUNCTION/$MAPREDUCE_INDEX"
 ```
 {: codeblock}
 
@@ -601,7 +601,7 @@ Host: $ACCOUNT.cloudant.com
 *Example of a show function query, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_show/$SHOW_FUNCTION/$DOCUMENT_ID" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_show/$SHOW_FUNCTION/$DOCUMENT_ID"
 ```
 {: codeblock}
 
@@ -813,7 +813,7 @@ GET /$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION HTTP/1.1
 *Example of an filter function applied to a `_changes` query, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION"
 ```
 {: codeblock}
 
@@ -829,7 +829,7 @@ GET /$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION&status=new HTTP/1.1
 *Example of supplying a `req` argument, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION&status=new" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER_FUNCTION&status=new"
 ```
 {: codeblock}
 
@@ -879,7 +879,7 @@ GET /$DATABASE/_changes?filter=_design HTTP/1.1
 *Example application of the `_design` filter, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_design" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_design"
 ```
 {: codeblock}
 
@@ -931,7 +931,7 @@ POST /$DATABASE/_changes?filter=_doc_ids HTTP/1.1
 *Example application of the `_doc_ids` filter, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_doc_ids" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_doc_ids"
 ```
 {: codeblock}
 
@@ -987,7 +987,7 @@ POST /$DATABASE/_changes?filter=_selector HTTP/1.1
 *Example application of the `_selector` filter, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector"
 ```
 {: codeblock}
 
@@ -1063,7 +1063,7 @@ GET /$DATABASE/_changes?filter=_view&view=$DESIGNDOC/$VIEWNAME HTTP/1.1
 *Example application of the `_view` filter, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_view&view=$DESIGNDOC/$VIEWNAME" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_view&view=$DESIGNDOC/$VIEWNAME"
 ```
 {: codeblock}
 
@@ -1170,7 +1170,7 @@ GET /recipes/_design/recipesdd/_info HTTP/1.1
 *Example of retrieving information about the `recipesdd` design document from within the `recipes` database, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipesdd/_info" \
+curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipesdd/_info"
 ```
 {: codeblock}
 
@@ -1229,7 +1229,7 @@ GET /foundbite/_design/app/_search_info/description HTTP/1.1
 *Example of getting information about the `description` search, defined within the `app` design document stored in the `foundbite` database, using the command line:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/description" \
+curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/description"
 ```
 {: codeblock}
 

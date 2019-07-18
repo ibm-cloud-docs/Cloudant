@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-17"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -1927,12 +1927,12 @@ Content-Type: application/json
 curl "https://examples.cloudant.com/movies/_explain" \
 	-X POST \
 	-H "Content-Type: application/json" \
-	-d "{
+	-d '{
 		"selector": {
 			"$text": "Pacino",
 			"year": 2010
 		}
-	}"
+	}'
 ```
 {: codeblock}
 
@@ -2180,12 +2180,12 @@ Content-Type: application/json
 curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_replicator" \
 	-X POST \
 	-H "Content-Type: application/json" \
-	-d "{
+	-d '{
 		"source": "https://examples.cloudant.com/query-movies",
 		"target": "https://$ACCOUNT.cloudant.com/my-movies",
 		"create_target": true,
 		"use_checkpoints": false
-	}"
+	}'
 ```
 {: codeblock}
 
@@ -2221,7 +2221,7 @@ Content-Type: application/json
 curl "https://$ACCOUNT.cloudant.com/my-movies/_index" \
 	-X POST \
 	-H "Content-Type: application/json" \
-	-d "{"index": {}, "type": "text"}"
+	-d '{"index": {}, "type": "text"}'
 ```
 {: codeblock}
 
@@ -2264,7 +2264,7 @@ Content-Type: application/json
 ```sh
 curl -X POST -H "Content-Type: application/json" \
 	"https://$ACCOUNT.cloudant.com/my-movies/_find" \
-	-d "{"selector": {"Person_name":"Zoe Saldana"}}"
+	-d '{"selector": {"Person_name":"Zoe Saldana"}}'
 ```
 {: codeblock}
 
@@ -2312,7 +2312,7 @@ Content-Type: application/json
 ```sh
 curl -X POST -H "Content-Type: application/json" \
 	"https://$ACCOUNT.cloudant.com/my-movies/_find" \
-	-d "{"selector": {"Person_name":"Robert De Niro", "Movie_year": 1978}}"
+	-d '{"selector": {"Person_name":"Robert De Niro", "Movie_year": 1978}}'
 ```
 {: codeblock}
 
@@ -2361,7 +2361,7 @@ Content-Type: application/json
 ```sh
 curl -X POST -H "Content-Type: application/json" \
 	"https://$ACCOUNT.cloudant.com/my-movies/_find" \
-	-d "{"selector": {"Person_name":"Robert De Niro", "Movie_year": { "$in": [1974, 2009]}}}"
+	-d '{"selector": {"Person_name":"Robert De Niro", "Movie_year": { "$in": [1974, 2009]}}}'
 ```
 {: codeblock}
 

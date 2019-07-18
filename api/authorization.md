@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-07-17"
 
 keywords: authorization, roles, permissions, _users database
 
@@ -152,7 +152,7 @@ GET /_api/v2/db/$DATABASE/_security HTTP/1.1
 *Example of using a command line request to determine permissions:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security
+curl "https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security"
 ```
 {: codeblock}
 
@@ -233,7 +233,7 @@ Content-Type: application/json
 *Example of using the command line to send an authorization modification request:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security \
+curl "https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security" \
 	-X PUT \
 	-H "Content-Type: application/json" \
 	-d "$JSON"
@@ -393,7 +393,7 @@ POST https://$ACCOUNT.cloudant.com/_api/v2/api_keys HTTP/1.1
 *Example of using the command line to create an API key:*
 
 ```sh
-curl -X POST https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_api/v2/api_keys
+curl -X POST "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_api/v2/api_keys"
 ```
 {: codeblock}
 
@@ -525,7 +525,7 @@ Content-Type: application/json
 *Example of using the command line to submit a modification request:*
 
 ```sh
-curl https://$ACCOUNT.cloudant.com/$DATABASE/_security \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_security" \
 	-X PUT \
 	-H "Content-Type: application/json" \
 	-d @request-body.json

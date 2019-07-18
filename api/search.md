@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-17"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -414,7 +414,7 @@ Content-Type: application/json
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_search_analyze" -H "Content-Type: application/json"
-	-d "{"analyzer":"keyword", "text":"ablanks@renovations.com"}"
+	-d '{"analyzer":"keyword", "text":"ablanks@renovations.com"}'
 ```
 {: codeblock}
 
@@ -443,7 +443,7 @@ Content-Type: application/json
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_search_analyze" -H "Content-Type: application/json"
-	-d "{"analyzer":"standard", "text":"ablanks@renovations.com"}"
+	-d '{"analyzer":"standard", "text":"ablanks@renovations.com"}'
 ```
 {: codeblock}
 
@@ -496,14 +496,14 @@ Host: account.cloudant.com
 *Example of using the command line to query a partitioned index:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1"
 ```
 {: codeblock}
 
 *Example of using the command line to query a global index:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1" \
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME?include_docs=true\&query="*:*"\&limit=1"
 ```
 {: codeblock}
 
