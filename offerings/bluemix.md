@@ -382,7 +382,7 @@ following {{site.data.keyword.cloud_notm}} Public locations:
 -   Seoul (SZR)
 -   Chennai (SZR)
 
-Single-Zone Region, or SZR, means that there is only one availability zone available in that location. All other locations are Multi-Zone Regions (MZR) and leverage three separate availability zones for instances deployed in those locations. For more information, see [HA, DR, and Backup docs](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup&cloudant-disaster-recovery-and-backup){: new_window}. 
+Single-Zone Region, or SZR, means that there is only one availability zone available in that location. All other locations are Multi-Zone Regions (MZR) and leverage three separate availability zones for instances deployed in those locations. For more information, see [HA, DR, and Backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup&cloudant-disaster-recovery-and-backup){: new_window} documentation. 
 
 Dedicated Hardware plan instances can be deployed in most 
 [{{site.data.keyword.IBM_notm}} data center locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/data-centers/). 
