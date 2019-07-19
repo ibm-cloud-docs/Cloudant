@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-19"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -155,7 +155,7 @@ Authorization: ...
 curl -X POST \
     -H "Content-type: application/json" \
     "https://$ACCOUNT.cloudant.com/_replicator" \
-    -d "@replication.json"
+    -d @replication.json
 ```
 {: codeblock}
 
