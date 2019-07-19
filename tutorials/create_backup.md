@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-07-19"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
 
@@ -51,7 +51,7 @@ for use in this tutorial.
 1.  Create a database by running this command:
     
     ```sh
-    curl https://username:password@myhost.cloudant.com/couchbackup-demo -X PUT
+    curl "https://username:password@myhost.cloudant.com/couchbackup-demo" -X PUT
     ```
     {: codeblock}
     
@@ -119,7 +119,7 @@ back up and restore in later exercises.
 2.  Run this command to create the documents:
     
     ```sh
-    curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
+    curl "https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs" -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
     ```
     {: codeblock}
     
@@ -384,7 +384,7 @@ Restoring a backup is only supported when restoring into an empty database. If y
 1.  (Prerequisite) Create a new, empty database where you can restore your data.
     
     ```sh
-    curl https://username:password@myhost.cloudant.com/couchbackup-demo-restore -X PUT
+    curl "https://username:password@myhost.cloudant.com/couchbackup-demo-restore" -X PUT
     ```
     {: codeblock}
 

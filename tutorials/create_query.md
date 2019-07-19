@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-07-19"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -51,7 +51,7 @@ Before you begin, follow these steps to prepare for the tutorial:
   If you decide not to set up `acurl`,
   use the following URL instead of the one provided in the exercises:
   ``` sh
-  curl https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo
+  curl "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com/query-demo"
   ```
   {: codeblock}
 
@@ -68,7 +68,8 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
 
 1.  Create a database by running this command:
   ``` sh
-  acurl https://$ACCOUNT.cloudant.com/query-demo -X PUT
+  acurl "https://$ACCOUNT.cloudant.com/query-demo" \
+    -X PUT
   ```
   {: codeblock}
 2.  Review the results:
@@ -146,7 +147,10 @@ that you create in this exercise contain the data that you use to query the `que
 
 2.  Run this command to create the documents:
   ```sh
-  acurl https://$ACCOUNT.cloudant.com/query-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
+  acurl "https://$ACCOUNT.cloudant.com/query-demo/_bulk_docs" \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d \@bulkcreate.dat
   ```
   {: codeblock}
 
@@ -279,30 +283,34 @@ If there is no available defined index that matches the specified query, then {{
 
 1.  Copy the following sample JSON data into a file named `query-index.dat`.
   ```json
-{
-	"index": {
-		"fields": [
-			"age",
-			"lastname"
-		],
-		"partial_filter_selector": {
-			"age": {
-				"$gte": 30
-			},
-			"lastname": {
-				"$eq": "Greene"
-			}
-		}
-	},
-  		"ddoc": "partial-index",
-		"type": "json"
-}
+  {
+	  "index": {
+		  "fields": [
+			  "age",
+			  "lastname"
+		  ],
+		  "partial_filter_selector": {
+			  "age": {
+				  "$gte": 30
+			  },
+			  "lastname": {
+				  "$eq": "Greene"
+			  }
+		  }
+	  },
+  	  	"ddoc": "partial-index",
+		  "type": "json"
+  }
   ```
   {: codeblock}
 
 2.  Run the following command to create an index:
+
   ```sh
-  acurl https://$ACCOUNT.cloudant.com/query-demo/_index -X POST -H "Content-Type: application/json" -d \@query-index.dat
+  acurl "https://$ACCOUNT.cloudant.com/query-demo/_index" \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d \@query-index.dat
   ```
   {: codeblock}
 
@@ -385,7 +393,10 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
 
 2.  Run the following command to query the database:
   ```sh
-  acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query1.dat
+  acurl "https://$ACCOUNT.cloudant.com/query-demo/_find" \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d \@query1.dat
   ```
   {: codeblock}
 
@@ -481,7 +492,10 @@ The extra details look like the following example:
 
 2.  Run the following command to query the database:
   ```sh
-  acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query2.dat
+  acurl "https://$ACCOUNT.cloudant.com/query-demo/_find" \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d \@query2.dat
   ```
   {: codeblock}
 
@@ -596,7 +610,10 @@ values specified in the `sort` parameter.
 
 2. Run this query:
   ```sh
-  acurl https://$ACCOUNT.cloudant.com/query-demo/_find -X POST -H "Content-Type: application/json" -d \@query3.dat
+  acurl "https://$ACCOUNT.cloudant.com/query-demo/_find" \
+    -X POST \
+    -H "Content-Type: application/json" \
+    -d \@query3.dat
   ```
   {: codeblock}
 
