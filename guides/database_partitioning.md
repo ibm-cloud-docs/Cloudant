@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-06-26"
+lastupdated: "2019-07-19"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -233,7 +233,7 @@ We'll use a database called `readings` and an account called
 `partitioned` argument to the database creation request:
 
 ```
-curl -XPUT 'https://acme.cloudant.com/readings?partitioned=true'
+curl -XPUT "https://acme.cloudant.com/readings?partitioned=true"
 ```
 
 ### Document structure
@@ -293,7 +293,7 @@ Assuming the previous document in `./view.json`, this is uploaded to the databas
 using:
 
 ```
-curl -XPOST https://acme.cloudant.com/readings -d @view.json
+curl -XPOST "https://acme.cloudant.com/readings" -d @view.json
 ```
 
 #### Creating a partitioned {{site.data.keyword.cloudant_short_notm}} Query index
@@ -331,7 +331,7 @@ Assuming the previous document is `./query-index1.json`, upload the index to the
 database using this command:
 
 ```
-curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index1.json
+curl -XPOST "https://acme.cloudant.com/readings/_index" -d @query-index1.json
 ```
 
 The definition of the by device ID and timestamp is as follows:
@@ -354,7 +354,7 @@ Assuming the previous document is `./query-index2.json`, upload the index to the
 database using this command:
 
 ```
-curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index2.json
+curl -XPOST "https://acme.cloudant.com/readings/_index" -d @query-index2.json
 ```
 
 ### Making queries
@@ -376,7 +376,7 @@ infrastructure piece:
 
 ```
 curl -XGET \
-    'https://acme.cloudant.com/readings/_partition/bridge-1234/_all_docs?include_docs=true'
+    "https://acme.cloudant.com/readings/_partition/bridge-1234/_all_docs?include_docs=true"
 ```
 
 #### Finding recent readings for a piece of infrastructure
@@ -399,7 +399,7 @@ The partition is embedded in the HTTP path when issuing the request to {{site.da
 
 ```
 curl -XPOST \
-    'https://acme.cloudant.com/readings/_partition/bridge-1234/_find' \
+    "https://acme.cloudant.com/readings/_partition/bridge-1234/_find" \
     -d @query.json
 ```
 
@@ -427,7 +427,7 @@ sending the device ID as the key:
 
 ```
 curl -XGET \
-  'https://acme.cloudant.com/readings/_design/infrastructure-mapping/_view/by-device?keys=["device-123456"]&limit=1'
+  "https://acme.cloudant.com/readings/_design/infrastructure-mapping/_view/by-device?keys=["device-123456"]&limit=1"
 ```
 
 This returns:
@@ -468,7 +468,7 @@ The partition is embedded in the HTTP path when issuing the request to {{site.da
 
 ```
 curl -XPOST \
-    'https://acme.cloudant.com/readings/_partition/bridge-1234/_find' \
+    "https://acme.cloudant.com/readings/_partition/bridge-1234/_find" \
     -d @query.json
 ```
 
@@ -498,6 +498,6 @@ The partition is embedded in the HTTP path when issuing the request to {{site.da
 
 ```
 curl -XPOST \
-    'https://acme.cloudant.com/readings/_partition/bridge-1234/_find' \
+    "https://acme.cloudant.com/readings/_partition/bridge-1234/_find" \
     -d @query.json
 ```

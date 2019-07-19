@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-07-19"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -45,7 +45,7 @@ Before you can sign in to the {{site.data.keyword.dashdbshort_notm}} console, yo
 To retrieve information from the warehouser document, you must run the following curl command:
 
 ```curl
-curl -u $USERNAME https://$ACCOUNT.cloudant.com/_warehouser/$DOCUMENT_ID
+curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/$DOCUMENT_ID"
 ```
 
 For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values are the same. 
@@ -53,7 +53,7 @@ For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values ar
 Before you run the command, replace `$DOCUMENT_ID` with `example@source-db`. In this case, `example` is the warehouser document's name, and `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to Db2:
 
 ```curl
-curl -u $USERNAME https://$ACCOUNT.cloudant.com/_warehouser/example@source-db
+curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/example@source-db"
 ```
 
 *Example response when you search for information in the warehouser document:*

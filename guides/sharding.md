@@ -185,7 +185,7 @@ a database that is called `mynewdatabase` is created.
 The `q` parameter specifies that eight shards are created for the database.
 
 ```sh
-curl -X PUT -u "$USERNAME" "https://$ACCOUNT.cloudant.com/mynewdatabase?q=8"
+curl -X PUT -u $USERNAME "https://$ACCOUNT.cloudant.com/mynewdatabase?q=8"
 ```
 {: codeblock}
 

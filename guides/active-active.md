@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-18"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -96,8 +96,8 @@ The names that are used for the databases in this example are not important,
 but using the same name is clearer.
 
 ```sh
-curl "https://myaccount-dc1.cloudant.com/mydb" -XPUT -u "myaccount-dc1"
-curl "https://myaccount-dc2.cloudant.com/mydb" -XPUT -u "myaccount-dc2"
+curl "https://myaccount-dc1.cloudant.com/mydb" -XPUT -u myaccount-dc1
+curl "https://myaccount-dc2.cloudant.com/mydb" -XPUT -u myaccount-dc2
 ```
 {: codeblock}
 
@@ -169,11 +169,11 @@ database `myaccount-dc2.cloudant.com/mydb`.
 curl -XPOST "https://myaccount-dc1.cloudant.com/_replicator"
 	-u myaccount-dc1
 	-H "Content-Type: application/json"
-	-d "{ "_id": "mydb-myaccount-dc1-to-myaccount-dc2",
+	-d '{ "_id": "mydb-myaccount-dc1-to-myaccount-dc2",
 	"source": "https://ble...igl:YPN...Tfi@myaccount-dc1.cloudant.com/mydb",
 	"target": "https://ble...igl:YPN...Tfi@myaccount-dc2.cloudant.com/mydb",
 	"continuous": true
-}"
+}'
 ```
 {: codeblock}
 
@@ -185,11 +185,11 @@ database `myaccount-dc1.cloudant.com/mydb`.
 curl -XPOST "https://myaccount-dc2.cloudant.com/_replicator"
 	-u myaccount-dc2
 	-H "Content-Type: application/json"
-	-d "{ "_id": "mydb-myaccount-dc2-to-myaccount-dc1",
+	-d '{ "_id": "mydb-myaccount-dc2-to-myaccount-dc1",
 	"source": "https://ble...igl:YPN...Tfi@myaccount-dc2.cloudant.com/mydb",
 	"target": "https://ble...igl:YPN...Tfi@myaccount-dc1.cloudant.com/mydb",
 	"continuous": true
-}"
+}'
 ```
 {: codeblock}
 
