@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-15"
+lastupdated: "2019-07-19"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -49,14 +49,14 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	
 	To check, run the following command at a prompt:
 	```sh
-	python --version
+	python3 --version
 	```
 	{: pre}
 	
 	You see a result similar to this one:
 
 	```
-	Python 2.7.12
+	Python 3.7.4
 	```
 	{: screen}
 
@@ -67,7 +67,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	To check the client library is already installed,
 	run the following command at a prompt:
 	```sh
-	pip freeze
+	pip3 freeze
 	```
 	{: pre}
 	
@@ -81,7 +81,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 	If the `cloudant` module is not installed, install it by using a command similar to the following one:
 	
 	```
-	pip install cloudant
+	pip3 install cloudant
 	```
 	{: pre}
   
@@ -148,14 +148,14 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 
 2. Create the database:
   ```python
-  myDatabase = client.create_database(database_name)
+  my_database = client.create_database(database_name)
   ```
   {: codeblock}
 
 3. Confirm that the database was created successfully:
   ```python
-  if myDatabase.exists():
-      print "'{0}' successfully created.\n".format(database_name)
+  if my_database.exists():
+      print(f"'{database_name}' successfully created.")
   ```
   {: codeblock}
 
@@ -164,7 +164,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
 
 1. Define a collection of data:
   ```python
-  sampleData = [
+  sample_data = [
       [1, "one", "boiling", 100],
       [2, "two", "hot", 40],
       [3, "three", "warm", 20],
@@ -180,7 +180,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
   ```python
   # Create documents by using the sample data.
   # Go through each row in the array
-  for document in sampleData:
+  for document in sample_data:
     # Retrieve the fields in each row.
     number = document[0]
     name = document[1]
@@ -189,7 +189,7 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
     #
     # Create a JSON document that represents
     # all the data in the row.
-    jsonDocument = {
+    json_document = {
         "numberField": number,
         "nameField": name,
         "descriptionField": description,
@@ -197,11 +197,11 @@ an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the fo
     }
     #
     # Create a document by using the database API.
-    newDocument = myDatabase.create_document(jsonDocument)
+    new_document = my_database.create_document(json_document)
     #
     # Check that the document exists in the database.
-    if newDocument.exists():
-        print "Document '{0}' successfully created.".format(number)
+    if new_document.exists():
+        print(f"Document '{number}' successfully created.")
   ```
   {: codeblock}
 
@@ -219,7 +219,7 @@ A full retrieval also includes the data *within* a document.
 * To run a minimal retrieval:
   1. First, request a list of all documents within the database.
     ```python
-    result_collection = Result(myDatabase.all_docs)
+    result_collection = Result(my_database.all_docs)
     ```      
     {: codeblock}
 
@@ -227,7 +227,7 @@ A full retrieval also includes the data *within* a document.
 
   2. Display the content of an element in the array.
     ```python
-    print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
+    print(f"Retrieved minimal document:\n{result_collection[0]}\n")
     ```
     {: codeblock}
 
@@ -264,8 +264,8 @@ A full retrieval also includes the data *within* a document.
   and specify that the document content must also be returned
   by providing the `include_docs` option.
   ```python
-  result_collection = Result(myDatabase.all_docs, include_docs=True)
-  print "Retrieved full document:\n{0}\n".format(result_collection[0])
+  result_collection = Result(my_database.all_docs, include_docs=True)
+  print(f"Retrieved full document:\n{result_collection[0]}\n")
   ```
   {: codeblock}
   
@@ -322,9 +322,9 @@ it can be deleted.
 try:
     client.delete_database(database_name)
 except CloudantException:
-    print "There was a problem deleting '{0}'.\n".format(database_name)
+    print(f"There was a problem deleting '{database_name}'.\n")
 else:
-    print "'{0}' successfully deleted.\n".format(database_name)
+    print(f"'{database_name}' successfully deleted.\n")
 ```
 {: codeblock}
 
@@ -361,24 +361,24 @@ replace the `<yourDatabaseName>` value with the name for your database.
 ```python
 from cloudant.client import Cloudant
 from cloudant.error import CloudantException
-from cloudant.result import Result, ResultByKey
+from cloudant.result import Result
 
 # {{site.data.keyword.cloudant_short_notm}} Legacy authentication
 client = Cloudant("<username>", "<password>", url="<url>")
 client.connect()
 
 # IAM Authentication (uncomment if needed, and comment out previous {{site.data.keyword.cloudant_short_notm}} Legacy authentication section)
-client = Cloudant.iam("<username","<apikey>")
-client.connect()
+# client = Cloudant.iam("<username>", "<apikey>")
+# client.connect()
 
-database_name = "<yourDatabaseName>"
+database_name = "<your-database-name>"
 
-myDatabase = client.create_database(database_name)
+my_database = client.create_database(database_name)
 
-if myDatabase.exists():
-    print "'{0}' successfully created.\n".format(database_name)
+if my_database.exists():
+    print(f"'{database_name}' successfully created.")
 
-sampleData = [
+sample_data = [
     [1, "one", "boiling", 100],
     [2, "two", "hot", 40],
     [3, "three", "warm", 20],
@@ -388,7 +388,7 @@ sampleData = [
 
 # Create documents using the sample data.
 # Go through each row in the array
-for document in sampleData:
+for document in sample_data:
     # Retrieve the fields in each row.
     number = document[0]
     name = document[1]
@@ -397,7 +397,7 @@ for document in sampleData:
 
     # Create a JSON document that represents
     # all the data in the row.
-    jsonDocument = {
+    json_document = {
         "numberField": number,
         "nameField": name,
         "descriptionField": description,
@@ -405,27 +405,26 @@ for document in sampleData:
     }
 
     # Create a document using the Database API.
-    newDocument = myDatabase.create_document(jsonDocument)
+    new_document = my_database.create_document(json_document)
 
     # Check that the document exists in the database.
-    if newDocument.exists():
-        print "Document '{0}' successfully created.".format(number)
+    if new_document.exists():
+        print(f"Document '{number}' successfully created.")
 
-result_collection = Result(myDatabase.all_docs)
+result_collection = Result(my_database.all_docs)
 
-print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
+print(f"Retrieved minimal document:\n{result_collection[0]}\n")
 
-result_collection = Result(myDatabase.all_docs, include_docs=True)
-print "Retrieved full document:\n{0}\n".format(result_collection[0])
+result_collection = Result(my_database.all_docs, include_docs=True)
+print(f"Retrieved full document:\n{result_collection[0]}\n")
 
-try :
+try:
     client.delete_database(database_name)
 except CloudantException:
-    print "There was a problem deleting '{0}'.\n".format(database_name)
+    print(f"There was a problem deleting '{database_name}'.\n")
 else:
-    print "'{0}' successfully deleted.\n".format(database_name)
+    print(f"'{database_name}' successfully deleted.\n")
 
 client.disconnect()
-
 ```
 {: codeblock}
