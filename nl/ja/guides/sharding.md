@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -139,7 +139,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 データベースでの _Q_ の設定は、{{site.data.keyword.cloud}} 上の {{site.data.keyword.cloudant_short_notm}} データベースでは有効になっていません。 _Q_ 値は、多くの `cloudant.com` マルチテナント・クラスターでは使用できません。
 {: note}
 
-使用可能でないところで _Q_ 値の設定を試行すると、その結果として、以下の例のような、JSON 本体を含む [`403` 応答](/docs/services/Cloudant/api/http.html#http-status-codes)が返されます。
+使用可能でないところで _Q_ 値の設定を試行すると、その結果として、以下の例のような、JSON 本体を含む [`403` 応答](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)が返されます。
 
 ```json
 {
@@ -178,7 +178,7 @@ _R_ は、クライアントに応答する前にコーディネーターによ�
 _R_ を _1_ に設定すると、コーディネーターがより素早く応答を返せるため、全体的な応答時間が向上する可能性があります。
 この理由は、コーディネーターが待たなければならないのは、適切なシャードをホストしているいずれかのレプリカからの単一の応答のみであるためです。
 
-_R_ 値を削減すると、返される応答が最新データに基づいていない可能性が高くなります。これは、{{site.data.keyword.cloudant_short_notm}} によって使用されている[結果整合性](/docs/services/Cloudant/guides/cap_theorem.html)モデルのためです。デフォルトの _R_ 値を使用すると、この効果を軽減するのに役立ちます。
+_R_ 値を削減すると、返される応答が最新データに基づいていない可能性が高くなります。これは、{{site.data.keyword.cloudant_short_notm}} によって使用されている[結果整合性](/docs/services/Cloudant?topic=cloudant-cap-theorem)モデルのためです。 デフォルトの _R_ 値を使用すると、この効果を軽減するのに役立ちます。
 {: note}
 
 _R_ のデフォルト値は _2_ です。

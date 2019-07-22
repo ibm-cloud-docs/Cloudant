@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -26,16 +26,16 @@ subcollection: cloudant
 {: #ibm-cloudant.com}
 
 {{site.data.keyword.cloudantfull}} Shared プランは、2018 年 3 月 31 日に廃止されます。 
-2017 年 7 月 24 日現在、[Cloudant 製品ページ](https://cloudant.com){: new_window}から作成できる新しい Shared プラン・アカウントはありません。 
+2017 年 7 月 24 日以降、[{{site.data.keyword.cloudant_short_notm}} 製品ページ](https://www.ibm.com/cloud/cloudant){: new_window}から新しい Shared プラン・アカウントを作成することはできません。
 {: deprecated}
 
 {{site.data.keyword.cloudant_short_notm}} は、ホスティングされる完全管理の Database as a Service (DBaaS) です。 
-これは、グローバルにスケーリングを実行し、ノンストップで稼働し、[JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview){: new_window}、[フルテキスト](/docs/services/Cloudant?topic=cloudant-query#creating-an-index){: new_window}、および[地理情報](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial){: new_window}などの多様なデータ・タイプを処理するように、基礎から構築されました。
+これは、グローバルにスケーリングを実行し、ノンストップで稼働し、[JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview)、[フルテキスト](/docs/services/Cloudant?topic=cloudant-query#creating-an-index)、および[地理情報](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial)などの多様なデータ・タイプを処理するように、基礎から構築されました。
 
 {{site.data.keyword.cloudant_short_notm}} は、読み取りおよび書き込みの並行処理のために最適化された運用データ・ストアで、
 高可用性とデータの耐久性を実現します。
 
-[JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview){: new_window} データ処理用の [HTTP API](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#http-api){: new_window}、
+[JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview) データ処理用の [HTTP API](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#http-api)、
 24 時間の運用サポートおよび保守を提供します。 
 {{site.data.keyword.cloudant_short_notm}} は、[Apache CouchDB ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://couchdb.apache.org/){: new_window}
 をベースとしており、マルチテナント、専用、インストール済みの各種サービスとして提供されます。
@@ -43,7 +43,7 @@ subcollection: cloudant
 本文書内の通貨の値はすべて米国ドル ($) です。
 {: tip}
 
-[Shared プラン](#shared-plan){: new_window}または [Enterprise (Dedicated) プラン](#enterprise-plan){: new_window}として提供されます。 {{site.data.keyword.cloudant_short_notm}} は、[{{site.data.keyword.cloud}} サービス](https://www.ibm.com/cloud/){: new_window}としても利用可能です。
+[Shared プラン](#shared-plan)または [Enterprise (Dedicated) プラン](#enterprise-plan)として提供されます。 {{site.data.keyword.cloudant_short_notm}} は、[{{site.data.keyword.cloud}} サービス ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/cloud/){: new_window} としても利用可能です。
 
 {{site.data.keyword.cloudant_short_notm}} の Shared プランと Enterprise (Dedicated) プランのオファリングは、{{site.data.keyword.cloud_notm}} サービスでは利用できません。
 {: important}
@@ -61,7 +61,7 @@ subcollection: cloudant
 {: #shared-plan}
 
 {{site.data.keyword.cloudant_short_notm}} Shared プランは、2018 年 3 月 31 日に廃止されます。 
-2017 年 7 月 24 日現在、[{{site.data.keyword.cloudant_short_notm}} Web サイト](https://cloudant.com){: new_window} で作成できる新しい Shared プラン・アカウントはありません。 
+2017 年 7 月 24 日以降、[{{site.data.keyword.cloudant_short_notm}} Web サイト ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/cloud/cloudant){: new_window} で新しい Shared プラン・アカウントを作成することはできません。
 {: deprecated}
 
 {{site.data.keyword.cloudant_short_notm}} Shared プランでは、

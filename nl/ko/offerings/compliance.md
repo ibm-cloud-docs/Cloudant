@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-12"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -46,7 +46,7 @@ Business Associates 45 CFR Part 160과, Part 164의 Subpart A 및 C에 요구되
 ## ISO(International Organization for Standardization)
 {: #international-organization-for-standardization-iso-}
 
-{{site.data.keyword.cloudant_short_notm}} 및 {{site.data.keyword.cloudant_short_notm}} 데디케이티드 클러스터는 서드파티 보안 회사에서 감사되며 ISO 27001, ISO 27017 및 ISO 27018 요구사항을 충족합니다. 자세한 정보는 인증서에 대한 링크가 있는 [{{site.data.keyword.cloudant_short_notm}} 규제 준수 페이지]( https://www.ibm.com/cloud/compliance)를 참조하십시오. {{site.data.keyword.cloudant_short_notm}} 규제 준수 페이지에 있는 다음 설명은 {{site.data.keyword.cloudant_short_notm}} 서비스 및 개별 인증을 다루고 있습니다.
+{{site.data.keyword.cloudant_short_notm}} 및 {{site.data.keyword.cloudant_short_notm}} 데디케이티드 클러스터는 서드파티 보안 회사에서 감사되며 ISO 27001, ISO 27017 및 ISO 27018 요구사항을 충족합니다. 자세한 정보는 인증서에 대한 링크가 있는 [{{site.data.keyword.cloudant_short_notm}} 규제 준수 페이지 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")]( https://www.ibm.com/cloud/compliance){: new_window}를 참조하십시오. {{site.data.keyword.cloudant_short_notm}} 규제 준수 페이지에 있는 다음 설명은 {{site.data.keyword.cloudant_short_notm}} 서비스 및 개별 인증을 다루고 있습니다.
  
 - {{site.data.keyword.cloud_notm}} 서비스(PaaS 및 SaaS) 인증 클라우드 제품 목록
 - {{site.data.keyword.cloud_notm}} 서비스(PaaS 및 SaaS) 인증서 - ISO 27001
@@ -66,4 +66,4 @@ Business Associates 45 CFR Part 160과, Part 164의 Subpart A 및 C에 요구되
 
 GDPR의 목적은 EU 전체에 적용되는 일관된 개인정보 보호 법 체계를 만들어, 시민들에게 자신의 개인정보에 대한 통제권을 돌려주는 동시에
 전 세계에서 이러한 정보를 호스팅하고 처리하는 대상에게 엄격한 규칙을 적용하는 것입니다. 이 규정은 또한
-EU 내/외부로부터의 자유로운 개인정보 이동과 관련된 규칙을 도입합니다. 자세한 정보는 [{{site.data.keyword.IBM_notm}} 개인정보처리방침](https://www.ibm.com/privacy/)을 참조하십시오.
+EU 내/외부로부터의 자유로운 개인정보 이동과 관련된 규칙을 도입합니다. 자세한 정보는 [{{site.data.keyword.IBM_notm}} Privacy Statement ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/privacy/){: new_window}를 참조하십시오. 

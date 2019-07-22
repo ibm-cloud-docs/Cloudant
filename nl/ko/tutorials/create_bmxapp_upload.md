@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -33,16 +33,12 @@ subcollection: cloudant
 
 첫 번째 태스크는 {{site.data.keyword.cloud_notm}}에 연결하는 것입니다.
 
-[{{site.data.keyword.cloud_notm}} 툴킷](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits)은 연결하는 데 도움을 줍니다.
-
-Cloud Foundry는 애플리케이션을 업로드할 때와 같은 경우에서 API 호출에 사용할 URL을 알고 있어야 합니다.
-{{site.data.keyword.cloud_notm}} 툴킷은 '`cf api`' 명령을 사용하여 API 엔드포인트를 관리합니다.
-'`cf api`' 명령에 대한 자세한 정보는 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}에 있습니다.
+{{site.data.keyword.cloud_notm}} CLI는 API 호출을 수행하는 데 어느 URL을 사용할지 알아야 합니다. 예를 들어, 애플리케이션을 업로드하는 경우 {{site.data.keyword.cloud_notm}} 툴킷은 `ibmcloud api` 명령을 사용하여 API 엔드포인트를 관리합니다. `ibmcloud api` 명령에 대한 자세한 정보는 [{{site.data.keyword.cloud_notm}} CLI 시작하기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}를 참조하십시오. 
 
 다음 명령을 사용하여 Cloud Foundry에 사용할 URL을 전달하십시오.
 
 ```sh
-bluemix api https://api.ng.bluemix.net
+ibmcloud api https://api.ng.bluemix.net
 ```
 {: pre}
 
@@ -56,7 +52,7 @@ OK
 
 API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
-Not logged in. Use 'bluemix login' to log in.
+Not logged in. Use 'ibmcloud login' to log in.
 ```
 {: codeblock}
 
@@ -78,7 +74,7 @@ Not logged in. Use 'bluemix login' to log in.
 사용자는 계정 비밀번호를 입력하라는 요구를 받습니다.
 
 ```sh
-bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
+ibmcloud login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {: pre}
 
@@ -206,42 +202,48 @@ buildpack: python 1.5.5
 
 이제 애플리케이션을 테스트하여 올바르게 실행되는지 확인하십시오. 
 
-1.  {{site.data.keyword.cloud_notm}} 대시보드에서 **메뉴** 아이콘 > **리소스 목록**으로 이동하고 애플리케이션을 여십시오. Cloud Foundry 앱에서 `Cloudant CF 앱`을 클릭하여 세부사항 페이지를 여십시오.<br/>  
+1.  {{site.data.keyword.cloud_notm}} 대시보드에서 **메뉴** 아이콘 > **리소스 목록**으로 이동하고 애플리케이션을 여십시오. Cloud Foundry 앱에서 `Cloudant CF app`을 클릭하여 세부사항 페이지를 여십시오. <br/>  
 ![애플리케이션의 대시보드를 보여주는 스크린샷](images/img0017.png)
 
 2.  `Cloudant CF app` 세부사항 페이지에서 `Routes`를 클릭하고 `Cloudant-CF-app.mybluemix.net` 링크를 클릭하십시오. <br/>
-![Cloudant CF app 세부사항 페이지](images/img0030.png)
+![Cloudant CF 앱 세부사항 페이지](images/img0030.png)
 
-3. `https://cloudant-cf-app.mybluemix.net/`에서 새 브라우저 창이 열립니다. 메시지가 애플리케이션이 실행 중임을 확인합니다. 이 메시지는 "Hello World! Thanks for creating a Python Starter Application."입니다.<br/>
-![Hello World! 메시지가 Cloudant CF app이 올바르게 실행 중임을 확인함](images/img0054.png)
+3. `https://cloudant-cf-app.mybluemix.net/`에서 새 브라우저 창이 열립니다. 이 창은 'Hello World! Thanks for creating a Python Starter Application.'이라는 메시지를 표시하여 애플리케이션이 실행 중임을 확인합니다. <br/>
+![Cloudant CF 앱이 올바르게 실행 중임을 확인하는 Hello World!](images/img0054.png)
 
 
 ### 데이터베이스 세부사항 확인
 {: #confirming-the-database-details}
 
-{{site.data.keyword.cloud_notm}} 대시보드에서 **메뉴** 아이콘 > **리소스 목록**으로 이동하고 서비스 인스턴스를 여십시오. `Manage` 탭으로 이동하여 `Launch Cloudant Dashboard`를 클릭하십시오.<br/>
-![{{site.data.keyword.cloudant_short_notm}} 서비스 페이지에서 Cloudant 대시보드 실행](images/img0036.png)
+{{site.data.keyword.cloud_notm}} 대시보드에서 **메뉴** 아이콘 > **리소스 목록**으로 이동하고 서비스 인스턴스를 여십시오. `Manage` 탭으로 이동하여 `Launch Cloudant Dashboard`를 클릭하십시오. <br/>
+![{{site.data.keyword.cloudant_short_notm}} 서비스 페이지의 Cloudant 대시보드 실행](images/img0036.png)
 
 {{site.data.keyword.cloudant_short_notm}} 서비스 페이지를 찾으려면
 [{{site.data.keyword.cloudant_short_notm}} 인스턴스 작성 튜토리얼](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)에 있는 세부사항을 참조하십시오.
 {: note}
 
-대시보드가 열리면 '`databasedemo`' 데이터베이스를 작성한 애플리케이션을 볼 수 있습니다.<br/>
-![새 데이터베이스를 표시하고 있는 {{site.data.keyword.cloudant_short_notm}} 대시보드](images/img0031.png)
+대시보드가 열리면
+애플리케이션이 '`databasedemo`'
+데이터베이스를 작성한 것을 볼 수 있습니다. <br/>
+![새 데이터베이스를 표시하는 {{site.data.keyword.cloudant_short_notm}} 대시보드](images/img0031.png)
 
 이 데이터베이스에는 애플리케이션이 작성한 하나의 문서가 포함되어 있습니다.
 문서의 유무를 확인하려면 대시보드 내의 데이터베이스 이름을 클릭하십시오.
 데이터베이스에 대한 옵션 목록이 표시됩니다.
-`All documents` 탭을
-선택하면 하나의 문서에 대한 세부사항이 표시됩니다.<br/>
+`All documents` 탭을 선택하면
+하나의 문서에 대한 세부사항이 표시됩니다. <br/>
 ![새 데이터베이스에 있는 하나의 문서](images/img0032.png)
 
-이 문서의 컨텐츠를 보려면 연필의 이미지로 표시된 `Edit` 아이콘을 클릭하십시오.<br/>
+이 문서의 컨텐츠를 보려면
+연필 이미지로 표시된 `Edit`
+아이콘을 클릭하십시오. <br/>
 ![문서의 세부사항](images/img0033.png)
 
-문서의 컨텐츠가 표시되면 튜토리얼 애플리케이션에 의해 작성된 각 필드를 볼 수 있습니다.<br/>
-![문서 내의 필드](images/img0034.png)<br/>
-특히, `rightNow` 필드에는 문서가 작성된 날짜 및 시간이 있습니다.
+문서의 컨텐츠가 표시되면
+튜토리얼 애플리케이션에 의해 작성된 각 필드를 볼 수 있습니다. <br/>
+![문서의 필드](images/img0034.png)<br/>
+특히,
+`rightNow` 필드에는 문서가 작성된 날짜 및 시간이 있습니다.
 이 값은 [애플리케이션 로그 파일](#testing-the-sample-application)에
 기록된 시간에 해당합니다.
 

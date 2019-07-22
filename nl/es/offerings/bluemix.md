@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-06-12"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -44,7 +44,7 @@ De forma predeterminada, se selecciona el [plan Lite](#lite-plan).
 El plan Lite es gratuito y está diseñado para propósitos de desarrollo y evaluación. Se incluye la funcionalidad completa de {{site.data.keyword.cloudant_short_notm}}, pero las instancias del plan Lite tienen una cantidad fija de rendimiento suministrada y de almacenamiento de datos. La capacidad de rendimiento suministrada se fija en 20 lecturas/segundo, 10 escrituras/segundo y 5 consultas globales/segundo, y el almacenamiento de datos se limita a 1 GB. 
 
 El uso de almacenamiento se comprueba a diario. Si supera el límite de almacenamiento de 1 GB, las solicitudes a la instancia de {{site.data.keyword.cloudant_short_notm}} reciben un código de estado 402 con un mensaje de error que indica "La cuenta ha superado su cuota de uso de datos. Es necesario actualizar a un plan de pago."
-También aparece un banner en el panel de control de {{site.data.keyword.cloudant_short_notm}}. Puede seguir leyendo y suprimiendo datos. Sin embargo, para escribir nuevos datos, tiene dos opciones. En primer lugar, puede actualizar a un [plan estándar](#standard-plan) pagado que elimina la limitación de grabación de forma inmediata. De forma alternativa, puede suprimir datos para que el almacenamiento total esté comprendido en el límite de 1 GB, y esperar a que se ejecute la siguiente comprobación de almacenamiento diario para que la instancia vuelva a permitir las escrituras. 
+También aparece un banner en el panel de control de {{site.data.keyword.cloudant_short_notm}}. Puede seguir leyendo y suprimiendo datos. Sin embargo, para escribir nuevos datos, tiene dos opciones. En primer lugar, puede actualizar a un [plan estándar](#standard-plan) pagado que elimina la limitación de escritura de forma inmediata. De forma alternativa, puede suprimir datos para que el almacenamiento total esté comprendido en el límite de 1 GB, y esperar a que se ejecute la siguiente comprobación de almacenamiento diario para que la instancia vuelva a permitir las escrituras. 
 
 Si desea almacenar más de 1 GB de datos o poder escalar la capacidad de rendimiento suministrada, pase a un [plan estándar](#standard-plan).
 
@@ -63,9 +63,9 @@ Consulte la calculador de tarifas de {{site.data.keyword.cloud_notm}} para el es
 ### Plan de hardware dedicado
 {: #dedicated-hardware-plan}
 
-Una instancia de plan de hardware de {{site.data.keyword.cloudant_short_notm}} dedicado es un entorno nativo de {{site.data.keyword.cloudant_short_notm}} que se suministra para el uso exclusivo de las instancias del plan estándar de {{site.data.keyword.cloudant_short_notm}}. Es posible suministrar un entorno de plan de hardware de {{site.data.keyword.cloudant_short_notm}} dedicado en cualquier centro de datos de [{{site.data.keyword.IBM}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud-computing/bluemix/data-centers). Este plan es necesario para la conformidad de HIPAA y se debe seleccionar en el tiempo de suministro. Los usuarios de un entorno del plan Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} pueden emplear las claves de cifrado gestionadas por el cliente de BYOK (Bring-Your-Own-Key) y de lista blanca de IP con {{site.data.keyword.IBM_notm}} Key Protect. Además, los entornos de hardware dedicado suministrados después del 1 de enero de 2019 incluyen puntos finales internos para todas las instancias del plan Estándar desplegadas en ellos. El uso de puntos finales internos permite que los clientes puedan conectarse a una instancia de {{site.data.keyword.cloudant_short_notm}} a través de la red interna de {{site.data.keyword.cloud}} para evitar que el tráfico de aplicación en sentido ascendente pase a través de la red pública y se incurra en cargos de ancho de banda. Para obtener más información, consulte la [documentación del punto final de servicio](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window} para obtener más detalles sobre cómo habilitar puntos finales de servicio para la cuenta de {{site.data.keyword.cloud}}.
+Una instancia de plan de hardware de {{site.data.keyword.cloudant_short_notm}} dedicado es un entorno nativo de {{site.data.keyword.cloudant_short_notm}} que se suministra para el uso exclusivo de las instancias del plan estándar de {{site.data.keyword.cloudant_short_notm}}. Es posible suministrar un entorno de plan de hardware de {{site.data.keyword.cloudant_short_notm}} dedicado en cualquier centro de datos global de [{{site.data.keyword.IBM}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/data-centers/){:new_window}. Este plan es necesario para la conformidad de HIPAA y se debe seleccionar en el tiempo de suministro. Los usuarios de un entorno del plan Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} pueden emplear las claves de cifrado gestionadas por el cliente de BYOK (Bring-Your-Own-Key) y de lista blanca de IP con {{site.data.keyword.IBM_notm}} Key Protect. Además, los entornos de hardware dedicado suministrados después del 1 de enero de 2019 fuera de los entornos gestionados por la UE, incluyen puntos finales internos para todas las instancias del plan Estándar desplegadas en ellos. El uso de puntos finales internos permite que los clientes puedan conectarse a una instancia de {{site.data.keyword.cloudant_short_notm}} a través de la red interna de {{site.data.keyword.cloud}} para evitar que el tráfico de aplicación en sentido ascendente pase a través de la red pública y se incurra en cargos de ancho de banda. Para obtener más información, consulte la [Documentación de punto final de servicio ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window} Para obtener más detalles sobre la habilitación de puntos finales de servicio para su cuenta de {{site.data.keyword.cloud}}.
 
-Puede suministrar una o varias instancias del plan estándar, y el entorno de hardware dedicado se expandirá o contraerá según sea necesario en función de la capacidad y los datos que utilizan las instancias del plan estándar. Una instancia de plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}} tiene un precio fijo al que se añade el precio del consumo de cualquier instancia del plan Estándar desplegada en él. La facturación se prorratea diariamente, y hay una duración mínima de 1 mes que se cargará en el entorno. El suministro de un plan de Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} es asíncrono y puede tardar entre 5 y 7 días hábiles. Para crear una instancia del plan de Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} y suministrarle una instancia del plan estándar, siga la guía de aprendizaje [Creación y optimización de una instancia del plan de Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window}. 
+Puede suministrar una o varias instancias del plan estándar, y el entorno de hardware dedicado se expandirá o contraerá según sea necesario en función de la capacidad y los datos que utilizan las instancias del plan estándar. Una instancia de plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}} tiene un precio fijo al que se añade el precio del consumo de cualquier instancia del plan Estándar desplegada en él. La facturación se prorratea diariamente, y hay una duración mínima de 1 mes que se cargará en el entorno. El suministro de un plan de Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} es asíncrono y puede tardar entre 5 y 7 días hábiles. Para crear una instancia del plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}} y suministrarle una instancia del plan estándar, siga la instancia del plan [Creación y aprovechamiento de un Hardware dedicado de {{site.data.keyword.cloudant_short_notm}} en la guía de aprendizaje de {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud). 
 
 El plan de Hardware dedicado no está disponible para los clientes de {{site.data.keyword.cloud_notm}} dedicado. Solo está disponible para los clientes de {{site.data.keyword.cloud_notm}} público.
 {: important}
@@ -81,7 +81,7 @@ El suministro de rendimiento se identifica y se mide como uno de los siguientes 
         -	Índice primario ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
         -	Vista MapReduce ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
         -	Índice de búsqueda ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
-        -	Consulta de {{site.data.keyword.cloudant_short_notm}} ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+        -	Consulta de {{site.data.keyword.cloudant_short_notm}} ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index))
     
         El número de operaciones de lectura consumidas por una solicitud de consulta particionada varía en función de los resultados devueltos.
 2.	_Escrituras_, que son la creación, modificación o supresión de documentos individuales.
@@ -89,8 +89,8 @@ El suministro de rendimiento se identifica y se mide como uno de los siguientes 
 	-	Índice primario ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
 	-	Vista MapReduce ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
 	-	Índice de búsqueda ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
-	-	Índice geoespacial ([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-geo-index))
-	-	Consulta de {{site.data.keyword.cloudant_short_notm}} ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+	-	Índice geoespacial ([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-nosql-db-geo-index))
+	-	Consulta de {{site.data.keyword.cloudant_short_notm}} ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index))
 
 
 ## Capacidad de rendimiento suministrado
@@ -106,8 +106,7 @@ Por ejemplo, el plan Estándar se suministra para 200 lecturas por segundo. La c
 
 Cuando se rechaza una solicitud porque se ha superado el número de sucesos, las aplicaciones reciben la respuesta [`429` Demasiadas solicitudes](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
-Las versiones recientes de las bibliotecas de cliente admitidas (para lenguajes [Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java), [Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js) y [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supportedn)) le ayudan a manejar una respuesta `429`.
-Por ejemplo, la biblioteca Java genera una respuesta [`TooManyRequestsException` ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window}.
+Las versiones recientes de las bibliotecas de cliente admitidas (para lenguajes [Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported), [Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported) y [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported)) le ayudan a manejar una respuesta `429`. Por ejemplo, la biblioteca Java genera una respuesta [`TooManyRequestsException` ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window}.
 
 De forma predeterminada, las bibliotecas de cliente admitidas no vuelven a intentar automáticamente una solicitud cuando se recibe una respuesta `429`.
 
@@ -133,7 +132,7 @@ Cada bloque de 100 filas leídas del índice consume 1 operación de lectura. Ad
 
 El número de filas leídas del índice es el mismo que el número de resultados devueltos. Solo se leen documentos de la base de datos cuando se pasa `include_docs=true` como parámetro de serie de consulta durante la solicitud de consulta.
 
-En la tabla siguiente se muestra el coste de ejemplo.
+En la tabla siguiente se muestran costes de ejemplo.
 
 | Número de resultados | Incluyen documentos | Consumo de lectura total | Consumo de filas leídas | Consumo de documentos leídos |
 |--------------|----------------|-------------|---------------------| --- |
@@ -158,8 +157,7 @@ Además, la consulta de {{site.data.keyword.cloudant_short_notm}} debe leer el d
 | 5      | 301     | **305** | 4 | 301 |
 | 301      | 301     | **305** | 4 | 301 |
 
-El uso de índices adecuados es clave para reducir el consumo de lectura en consultas particionadas de
-{{site.data.keyword.cloudant_short_notm}} Query.
+El uso de índices adecuados es clave para reducir el consumo de lectura en consultas particionadas de {{site.data.keyword.cloudant_short_notm}} Query.
 
 ### Capacidad de visualización y modificación
 {: #viewing-and-changing-capacity}
@@ -260,7 +258,7 @@ Superar cualquiera de estos límites da lugar a una [respuesta 413](/docs/servic
 
 Se recomienda almacenar archivos adjuntos binarios, o blobs JSON grandes, en el almacenamiento de objetos y guardar un enlace a la ubicación en un documento JSON de {{site.data.keyword.cloudant_short_notm}}.   
 
-Cuando se duplican, los documentos o los archivos adjuntos más grandes que estos límites no se replican en la base de datos de destino. Puede encontrar más información sobre cómo detectar errores de replicación [aquí](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors).
+Cuando se duplican, los documentos o los archivos adjuntos más grandes que estos límites no se replican en la base de datos de destino. Para obtener más información sobre cómo detectar los errores de réplica, consulte [Errores de réplica](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors).
 
 ## Ubicaciones y arrendamiento
 {: #locations-and-tenancy}
@@ -274,7 +272,7 @@ De forma predeterminada, todos los planes Lite y estándar se despliegan en ento
 -   Frankfurt&Dagger;
 -   Tokio
 
-Las instancias del plan de hardware dedicado pueden desplegarse en la mayoría de las [ubicaciones de centros de datos de {{site.data.keyword.IBM_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud-computing/bluemix/data-centers). 
+En la mayoría de las [ubicaciones de centros de datos de {{site.data.keyword.IBM_notm}} se pueden desplegar instancias del plan de hardware dedicado ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/data-centers/). 
 Consulte el menú desplegable en el catálogo de {{site.data.keyword.cloud_notm}} para obtener una lista actualizada de las ubicaciones disponibles.
 
 &Dagger;Todas las instancias de {{site.data.keyword.cloudant_short_notm}} que se despliegan desde la región Frankfurt de {{site.data.keyword.cloud_notm}} público se despliegan en entornos gestionados por la UE. No se podrá otorgar acceso a cualquier cuenta o clave de API de {{site.data.keyword.cloudant_short_notm}} generada fuera de un entorno gestionado por la UE a una instancia de {{site.data.keyword.cloudant_short_notm}} gestionada por la UE.
@@ -282,7 +280,7 @@ Consulte el menú desplegable en el catálogo de {{site.data.keyword.cloud_notm}
 ## Métodos de autenticación
 {: #authentication-methods}
 
-Se accede a {{site.data.keyword.cloudant_short_notm}} utilizando una API HTTPS. Si el punto final de la API lo requiere, se autentica al usuario para cada solicitud HTTPS que {{site.data.keyword.cloudant_short_notm}} recibe. Durante el suministro, los métodos de autenticación disponibles incluyen 'Utilizar credenciales heredadas y de IAM' o 'Utilizar solo IAM'. Para obtener más información, consulte la [guía de IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-l){: new_window} o el [documento de la API de autenticación](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} heredada.
+Se accede a {{site.data.keyword.cloudant_short_notm}} utilizando una API HTTPS. Si el punto final de la API lo requiere, se autentica al usuario para cada solicitud HTTPS que {{site.data.keyword.cloudant_short_notm}} recibe. Durante el suministro, los métodos de autenticación disponibles incluyen `Utilizar credenciales heredadas y de IAM` o `Usar solo IAM`. Para obtener más información, consulte la [guía de IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) o el [documento de la API de autenticación](/docs/services/Cloudant?topic=cloudant-authentication#authentication) heredada.
 
 Después de suministrar una instancia de {{site.data.keyword.cloudant_short_notm}}, es posible buscar el URL de conexión y los detalles de autorización de IAM al generar nuevas credenciales en el separador Credenciales de servicio del panel de control de {{site.data.keyword.cloud_notm}}. Si selecciona esta opción durante el suministro, también se incluirán el nombre de usuario y la contraseña de {{site.data.keyword.cloudant_short_notm}} heredados.
 
@@ -292,7 +290,7 @@ El equipo de {{site.data.keyword.cloudant_short_notm}} recomienda el uso de cont
 ## Alta disponibilidad, recuperación de desastres y copia de seguridad en un centro de datos
 {: #high-availability-disaster-recovery-and-backup-in-a-data-center}
 
-Para proporcionar alta disponibilidad (HA) y recuperación en caso de error (DR) en un centro de datos, todos los datos se almacenan por triplicado en tres servidores físicos distintos de un clúster. Puede suministrar cuentas en varios centros de datos y utilizar la réplica de datos continua para proporcionar HA/DR entre los centros de datos. No se realiza una copia de seguridad automática de {{site.data.keyword.cloudant_short_notm}}, pero se proporcionan las herramientas soportadas para gestionar las copias de seguridad. Revise [Guía de copia de seguridad y recuperación tras desastre ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-authorization#api-keys) para explorar las consideraciones sobre HA, DR y copias de seguridad para cumplir con los requisitos de la aplicación. 
+Para proporcionar alta disponibilidad (HA) y recuperación en caso de error (DR) en un centro de datos, todos los datos se almacenan por triplicado en tres servidores físicos distintos de un clúster. Puede suministrar cuentas en varios centros de datos y utilizar la réplica de datos continua para proporcionar HA/DR entre los centros de datos. No se realiza una copia de seguridad automática de {{site.data.keyword.cloudant_short_notm}}, pero se proporcionan las herramientas soportadas para gestionar las copias de seguridad. Consulte la [Guía de recuperación tras desastre y copia de seguridad](/docs/services/Cloudant?topic=cloudant-authorization#api-keys) para explorar todas las consideraciones de copia de seguridad que cumplan los requisitos de la aplicación. 
 
 ## Soporte de {{site.data.keyword.cloud_notm}}
 {: #ibm-cloud-support}
@@ -308,12 +306,14 @@ Los sistemas de soporte utilizados para {{site.data.keyword.cloudant_short_notm}
 ## Suministro de una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}}
 {: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
 
-Puede suministrar una instancia de los planes Lite o Estándar de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}} de dos formas:
+Puede suministrar una instancia de los planes Lite o Estándar de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}} de dos formas, mediante:
 
-- Utilización del panel de control. Encontrará una guía de aprendizaje en la que se describe el proceso [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window}.
-- Mediante la herramienta de mandatos de Cloud Foundry. Encontrará una guía de aprendizaje en la que se describe el proceso [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window}.
+- Utilización del panel de control. Para obtener más información, consulte la instancia [Creación de una instancia de {{site.data.keyword.cloudant_short_notm}} en el tutorial {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} que describe el proceso.
+- Mediante la herramienta de mandatos de Cloud Foundry. Para obtener más información, consulte [Creación de una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}} utilizando la CLI del tutorial {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} que describe el proceso.
  
-Para crear y optimizar una instancia del plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}}, siga la guía de aprendizaje en la que se describe el proceso [aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window}.
+Para crear y optimizar una instancia del plan de {{site.data.keyword.cloudant_short_notm}}, siga la instancia del plan [Creación y optimización de un hardware dedicado de {{site.data.keyword.cloudant_short_notm}} {{site.data.keyword.cloud_notm}} en el tutorial ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} que describe el proceso.
+
+
 
 
 

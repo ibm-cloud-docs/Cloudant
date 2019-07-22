@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -141,7 +141,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 El establecimiento de _Q_ para bases de datos no está habilitado para bases de datos de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud}}. El valor _Q_ no está disponible en la mayoría de los clústeres multiarrendatario de `cloudant.com`.
 {: note}
 
-Si intenta establecer el valor de _Q_ donde no está disponible, el resultado es una [respuesta `403`](/docs/services/Cloudant/api/http.html#http-status-codes) con un cuerpo JSON similar al del ejemplo siguiente:
+Si intenta establecer el valor de _Q_ donde no está disponible, el resultado es una [Respuesta `403`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) con un cuerpo JSON similar al del ejemplo siguiente:
 
 ```json
 {
@@ -182,7 +182,7 @@ Las respuestas deben proceder de los nodos que contienen las réplicas del fragm
 Establecer _R_ en _1_ puede mejorar el tiempo de respuesta general porque el coordinador puede devolver una respuesta más rápidamente.
 La razón es que el coordinador solo debe esperar una respuesta de cualquiera de las réplicas que contienen el fragmento adecuado.
 
-Si reduce el valor de _R_, aumentará la probabilidad de que la respuesta que se devuelve no se base en los datos más recientes, debido al modelo de [coherencia final](/docs/services/Cloudant/guides/cap_theorem.html) utilizado por
+Si reduce el valor de _R_, aumentará la probabilidad de que la respuesta que se devuelve no se base en los datos más recientes, debido al modelo de [coherencia final](/docs/services/Cloudant?topic=cloudant-cap-theorem) utilizado por
 {{site.data.keyword.cloudant_short_notm}}. Utilizar el valor predeterminado de _R_ ayuda a mitigar este efecto.
 {: note}
 

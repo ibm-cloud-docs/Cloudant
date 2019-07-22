@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -40,7 +40,7 @@ subcollection: cloudant
     {{site.data.keyword.cloud_notm}} ダッシュボードが表示されます。 `「リソースの作成」`ボタンをクリックします。 <br/>
     ![{{site.data.keyword.cloud_notm}} ダッシュボード](images/img0001.png)
 
-2.  左ナビゲーションから「`データベース`」をクリックし、データベース・サービスのリストから「`Cloudant`」をクリックします。<br/>
+2.  メニューから「`データベース`」をクリックし、データベース・サービスのリストから「`Cloudant`」をクリックします。<br/>
     ![{{site.data.keyword.cloud_notm}} データベース・サービス](images/img0003.png)<br/>
 
 3.  サービス構成ウィンドウで、サービス名を入力します。 サービス名、地域/場所、リソース・グループ、および認証方式が正しいことを確認します。 必要に応じてタグを追加します。 使用可能な認証方式には、「`Use only IAM`」または「`Use both legacy credentials and IAM`」が含まれます。 詳しくは、『[認証方式](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}』を参照してください。 
@@ -65,7 +65,7 @@ subcollection: cloudant
   <br>c. マネージャーの役割を受け入れます。
   <br>d. (オプション) 新規サービス ID を作成するか、自動的に生成します。 
   <br>d. (オプション) インライン構成パラメーターを追加します。 このパラメーターは現在 {{site.data.keyword.cloudant_short_notm}} サービス資格情報によって使用されていない点に注意し、無視してください。 
-  <br>e. `「追加」`ボタンをクリックします。 </br>
+  <br>e. `「追加」`ボタンをクリックします。</br>
   <br>![新規サービス資格情報の追加](images/img0051.png)
   <br>表の後に新規資格情報が表示されます。</br>
   <br>f. 「アクション」の下の「`資格情報の表示`」をクリックします。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -140,8 +140,7 @@ Anote a senha com atenção. Não será possível recuperar a senha mais tarde.
 ## Etapa 3: conceder permissão de acesso
 {: #step-3-grant-access-permission}
 
-[Forneça à chave de API permissão](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)
-para ler e gravar nos bancos de dados.
+Forneça a [permissão](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions) para leitura e gravação nos dois bancos de dados à chave de API.
 
 Se você também desejar replicar índices,
 designe permissões de administrador.
@@ -217,7 +216,7 @@ os bancos de dados são configurados para permanecer sincronizados entre si.
 A próxima decisão é se os bancos de dados serão usados de uma
 maneira [ativa/ativa](#active-active) ou [ativa/passiva](#active-passive).
 
-### Ativa/ativa
+### Ativo-ativo
 {: #active-active}
 
 Em uma configuração ativa/ativa,
@@ -243,7 +242,7 @@ Da mesma forma,
 para aplicativos que são hospedados no DC2,
 você configuraria sua URL do {{site.data.keyword.cloudant_short_notm}} para `"https://myaccount-dc2.cloudant.com/mydb"`.
 
-### Ativa/Passiva
+### Ativo-passivo
 {: #active-passive}
 
 Em uma configuração ativa/passiva,
@@ -307,7 +306,7 @@ usadas pelos aplicativos pode ser manipulada por meio de uma modificação na co
 em vez de uma modificação nas configurações do aplicativo.
   Muitos proxies têm a capacidade de balancear a carga,
 com base nas verificações de funcionamento definidas pelo usuário.
-* Use um balanceador de carga global, tal como o [{{site.data.keyword.cloud}} Internet Services ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} ou o [Dyn Traffic Director ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://dyn.com/traffic-director/){: new_window} para rotear o {{site.data.keyword.cloudant_short_notm}}.
+* Use um balanceador de carga global, tal como o [{{site.data.keyword.cloud}} Internet Services ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window} ou o [Dyn Traffic Director ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://dyn.com/traffic-director/){: new_window} para rotear o {{site.data.keyword.cloudant_short_notm}}.
   Essa opção requer uma definição `CNAME` que roteie para
 diferentes contas do {{site.data.keyword.cloudant_short_notm}},
 com base em uma verificação de funcionamento ou uma regra de latência.

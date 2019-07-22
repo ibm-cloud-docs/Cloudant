@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -36,10 +36,12 @@ a través del catálogo sindicado, incluidas las instancias del plan Lite y Est�
 {{site.data.keyword.cloud_notm}} y, en caso de que el hardware dedicado sea necesario, deberán optimizar {{site.data.keyword.cloudant_short_notm}} dedicado en
 {{site.data.keyword.cloud_notm}} dedicado.   
 
-La instantánea siguiente muestra un ejemplo de catálogo de {{site.data.keyword.cloud_notm}} que resalta la versión sindicada de {{site.data.keyword.cloud_notm}} público
-de {{site.data.keyword.cloudant_short_notm}} (izquierda) y el entorno {{site.data.keyword.cloudant_short_notm}} dedicado (derecha).  
+La captura de pantalla siguiente muestra un catálogo de ejemplo de {{site.data.keyword.cloud_notm}}
+que destaca la versión sindicada pública de {{site.data.keyword.cloud_notm}}
+de {{site.data.keyword.cloudant_short_notm}} y el entorno dedicado de
+{{site.data.keyword.cloudant_short_notm}}.  
 
-![catálogo de {{site.data.keyword.cloudant_short_notm}} ](../images/bluemix_catalog.png)
+![{{site.data.keyword.cloudant_short_notm}} - catálogo ](../images/ibmcloud_catalog.png)
 
 ## Capacidad de hardware 
 {: #hardware-capacity}
@@ -57,10 +59,10 @@ comparte los recursos de hardware subyacentes que forman el entorno {{site.data.
 ## Seguridad, cifrado y conformidad 
 {: #security-encryption-and-compliance}
 
-Todos los planes se proporcionan en servidores con el cifrado de disco [en reposo ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://en.wikipedia.org/wiki/Data_at_rest). El acceso se encuentra en la conexión de red publica y está cifrado mediante HTTPS. Para obtener más detalles, consulte [Seguridad ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-security#security){: new_window}. 
+Todos los planes se proporcionan en servidores con el cifrado de disco [en reposo ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://en.wikipedia.org/wiki/Data_at_rest). El acceso se encuentra en la conexión de red publica y está cifrado mediante HTTPS. Para obtener más detalles, consulte [Seguridad](/docs/services/Cloudant?topic=cloudant-security#security). 
 La lista blanca de IP está disponible bajo demanda para el equipo de soporte de {{site.data.keyword.cloudant_short_notm}} y se aplicará a todo el entorno {{site.data.keyword.cloudant_short_notm}} y no a nivel de instancia.  
 
-El plan también ofrece un [Compliance Certificado ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-compliance#compliance){: new_window}. 
+El plan también ofrece [Certificación de conformidad](/docs/services/Cloudant?topic=cloudant-compliance#compliance). 
 
 La conformidad de [HIPAA ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window}
 está disponible bajo petición, de modo que debe solicitarla durante el proceso de compra con un representante de ventas de {{site.data.keyword.IBM_notm}}. 
@@ -68,4 +70,6 @@ está disponible bajo petición, de modo que debe solicitarla durante el proceso
 ## Alta disponibilidad, recuperación de desastres y copia de seguridad 
 {: #high-availability-disaster-recovery-and-backup}
 
-Para proporcionar alta disponibilidad (HA) y recuperación en caso de error (DR) en un centro de datos, todos los datos se almacenan por triplicado en tres servidores físicos distintos de un clúster. Cuando estén disponibles, podrá suministrar cuentas en varias ubicaciones y utilizar la réplica de datos continua para proporcionar HA/DR entre los centros de datos. No se hace copia de seguridad automática de los datos de {{site.data.keyword.cloudant_short_notm}}, pero se proporciona un conjunto de herramientas de soporte para gestionar las copias de seguridad. Revise la guía [Recuperación en caso de error y copia de Seguridad ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup){: new_window} para explorar las consideraciones sobre HA, DR y copias de seguridad para cumplir con los requisitos de la aplicación.
+Para proporcionar alta disponibilidad (HA) y recuperación en caso de error (DR) en un centro de datos, todos los datos se almacenan por triplicado en tres servidores físicos distintos de un clúster. Cuando estén disponibles, podrá suministrar cuentas en varias ubicaciones y utilizar la réplica de datos continua para proporcionar HA/DR entre los centros de datos. No se hace copia de seguridad automática de los datos de {{site.data.keyword.cloudant_short_notm}}, pero se proporciona un conjunto de herramientas de soporte para gestionar las copias de seguridad. Consulte la guía
+[Recuperación tras desastre y copia de seguridad](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) para explorar todas las consideraciones de copia de seguridad que cumplan los
+requisitos de la aplicación.

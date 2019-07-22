@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: links to documentation, how to contribute
 
@@ -31,16 +31,16 @@ subcollection: cloudant
 [{{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://www.youtube.com/watch?v=qdMTLK2vYoI){: new_window} 是面向文档的数据库即服务 (DBaaS)。它将数据存储为 JSON 格式的文档。在其构建过程中，考虑到了可伸缩性、高可用性和耐久性。它附带了丰富多样的索引选项，包括 MapReduce、{{site.data.keyword.cloudantfull}} Query、全文索引和地理空间索引。通过其复制功能，可以轻松实现数据库集群、台式 PC 和移动设备之间的数据同步。
 
 
-有关其他 {{site.data.keyword.cloudant_short_notm}} 产品的更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} 主站点。此处提供的联机文档提供了有关 {{site.data.keyword.cloudant_short_notm}} 概念、任务和方法的详细信息。
+有关其他 {{site.data.keyword.cloudant_short_notm}} 产品的更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/cloudant){: new_window} 主站点。此处提供的联机文档提供了有关 {{site.data.keyword.cloudant_short_notm}} 概念、任务和方法的详细信息。
 
-可以通过 [{{site.data.keyword.cloud}} 仪表板 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window} 启动 {{site.data.keyword.cloudant_short_notm}} 服务。
+可以通过 [{{site.data.keyword.cloud}} 仪表板 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/catalog/services/cloudant){: new_window} 启动 {{site.data.keyword.cloudant_short_notm}} 服务。
 
-[提供了](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started)供您快速入门并熟练运用 {{site.data.keyword.cloudant_short_notm}} 的“快速入门”，以及更详细描述任务的[教程](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)。[API 参考](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)中提供了诸如对数据库实例进行认证和查询数据的更多相关详细信息。
+提供了名为[入门教程](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started)的“快速入门”，供您快速入门并熟练运用 {{site.data.keyword.cloudant_short_notm}}，另外还提供了更详细描述任务的[教程](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)。有关对数据库实例进行认证和查询数据的更多详细信息，请参阅 [API 参考](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)。
 
 ## 文档内容
 {: #documentation-contents}
 
-*	[入门教程](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started)：了解如何使用 Python 来创建 {{site.data.keyword.cloudantfull}} 数据库，并使用简单的数据集合来填充该数据库。
+*	[入门教程](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started)：了解如何使用 Python 来创建 {{site.data.keyword.cloudantfull}} 数据库，并使用简单的数据集合来填充该数据库。
 *	[{{site.data.keyword.cloudant_short_notm}} 博客 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://blog.cloudant.com/)：阅读各种主题的博客，包括
 {{site.data.keyword.cloudant_short_notm}} 基本信息、解决冲突、生成样本数据、分区数据库等。 
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public)：{{site.data.keyword.cloud_notm}} Public 产品的描述，包括功能、选项和定价。 

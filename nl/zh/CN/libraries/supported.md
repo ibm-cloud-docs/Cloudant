@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -38,11 +38,11 @@ subcollection: cloudant
 提供了 {{site.data.keyword.cloudant_short_notm}} Sync 的[概述 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/product/cloudant-features/sync/){: new_window}。此外，还提供了 {{site.data.keyword.cloudant_short_notm}} Sync [资源 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/cloudant-sync-resources/){: new_window} 的详细信息。
 
 ## Java
-{: #java}
+{: #java-supported}
 
 [java-cloudant ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/java-cloudant){: new_window} 是 Java 的官方 {{site.data.keyword.cloudantfull}} 库。
 
-有关通过将该库添加为 Maven 或 Gradle 构建依赖项来进行安装的信息在[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window} 提供，此外还提供了关于如何使用该库的详细信息和示例。
+有关通过将该库添加为 Maven 或 Gradle 构建依赖项来进行安装的更多信息，以及要查看有关如何使用该库的详细信息和示例，请参阅 [Installation and Usage ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}。
 
 ### Java 的库和框架
 {: #libraries-and-frameworks-for-java}
@@ -53,7 +53,7 @@ subcollection: cloudant
 -   [java-cloudant ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/java-cloudant){: new_window}。
 
 #### 不支持的 Java 库
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-supported}
 
 -   [ektorp ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}。
 -   [jcouchdb ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://code.google.com/p/jcouchdb/){: new_window}。
@@ -71,7 +71,7 @@ subcollection: cloudant
 
 
 ## Node.js
-{: #node-js}
+{: #node-js-supported}
 
 [nodejs-cloudant ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/nodejs-cloudant){: new_window} 是 Node.js 的官方 {{site.data.keyword.cloudant_short_notm}} 库。可以使用 npm 进行安装：
 
@@ -116,12 +116,13 @@ npm install cloudant
 ## Python
 {: #python-supported}
 
-通过 Python 使用 {{site.data.keyword.cloudant_short_notm}} 时受支持的库在[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/python-cloudant){: new_window} 提供。
+通过 Python 使用 {{site.data.keyword.cloudant_short_notm}} 时支持的库在 GitHub 存储库 [cloudant/python-cloudant ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/python-cloudant){: new_window} 中提供。
 
-访问 {{site.data.keyword.cloudant_short_notm}} 的 Python 应用程序具有组件依赖项。这些依赖项必须在 `requirements.txt` 文件中指定。有关更多信息，请参阅[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}。
+访问 {{site.data.keyword.cloudant_short_notm}} 的 Python 应用程序具有组件依赖项。这些依赖项必须在 `requirements.txt` 文件中指定。有关更多信息，请参阅有关 [requirements 文件 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window} 的指示信息。
 {: tip}
 
-在[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://pypi.python.org/pypi/cloudant/){: new_window} 下载当前库发行版。要了解有关 Python 语言的更多信息，请访问：[python.org ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/about/){: new_window}。 
+从 [pypi.python.org ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://pypi.python.org/pypi/cloudant/){: new_window} 下载当前库发行版。
+要了解有关 Python 语言的更多信息，请参阅 [python.org ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.python.org/about/){: new_window}。 
 
 ## Swift
 {: #swift}
@@ -135,7 +136,7 @@ pod 'SwiftCloudant'
 ```
 {: codeblock}
 
-有关 SwiftCloudant 的更多信息（包括安装详细信息，以及如何使用该库在 {{site.data.keyword.cloudant_short_notm}} 上存储和查询远程 JSON 数据以及对其建立索引）在[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/swift-cloudant){: new_window} 提供。
+有关 SwiftCloudant 的更多信息，包括安装详细信息，以及如何使用该库在 {{site.data.keyword.cloudant_short_notm}} 上存储和查询远程 JSON 数据以及对其建立索引，请参阅 GitHub 存储库 [cloudant/swift-cloudant ![外部链接图标](../images/launch-glyph.svg "外部链接图标 ")](https://github.com/cloudant/swift-cloudant){: new_window}。
 
 该库是较早的发行版。因此，它当前尚不具备完全的 {{site.data.keyword.cloudant_short_notm}} API 覆盖范围。 
 

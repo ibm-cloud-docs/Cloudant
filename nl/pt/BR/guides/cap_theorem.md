@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -77,7 +77,7 @@ enquanto qualquer perda de mensagem significa perda de dados significativos.
 Para suportar,
 o sistema deve se tornar mais sofisticado.
 
-## Trocas na Tolerância de partição
+## Trocas em tolerância à partição
 {: #tradeoffs-in-partition-tolerance}
 
 Um banco de dados que prioriza consistência e tolerância de partição geralmente emprega uma

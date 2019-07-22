@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -69,7 +69,7 @@ Os dados preexistentes no banco de dados de destino permanecem.
 {: #how-to-start-replication-by-using-the-dashboard}
 
 O painel do {{site.data.keyword.cloudant_short_notm}} fornece uma interface com o usuário conveniente para acionar a replicação.
-Clique na guia `Replicação` no painel do {{site.data.keyword.cloudant_short_notm}} e clique em `Iniciar replicação`.
+Clique na guia `Replication` no painel do {{site.data.keyword.cloudant_short_notm}} e clique em `Start Replication`.
 Preencha o formulário:
 
 ![replication2](../images/replication_guide_2.png)
@@ -94,7 +94,7 @@ Cada tarefa muda de estado de `Em execução` para `Concluída` à medida que el
 A origem e o destino de uma replicação são URLs de bancos de dados {{site.data.keyword.cloudant_short_notm}},
 conforme mostrado no exemplo a seguir.
 
-_Exemplo de definição de URLs de origem e de destino para replicação:_
+*Exemplo de definição de URLs de origem e de destino para replicação:*
 
 ```json
 {
@@ -137,7 +137,7 @@ Campo           | Propósito
 `target`        | A URL do banco de dados {{site.data.keyword.cloudant_short_notm}} de destino, incluindo credenciais de login.
 `create_target` | (Opcional) Determine se o banco de dados de destino deverá ser criado se ele ainda não existir.
 
-_Exemplo de como usar HTTP para iniciar uma tarefa de replicação:_
+*Exemplo de como usar HTTP para iniciar uma tarefa de replicação:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -147,7 +147,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Exemplo de como usar a linha de comandos para iniciar uma tarefa de replicação:_
+*Exemplo de como usar a linha de comandos para iniciar uma tarefa de replicação:*
 
 ```sh
 curl -X POST \
@@ -157,7 +157,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Exemplo de documento JSON que descreve a replicação desejada:_
+*Exemplo de documento JSON que descreve a replicação desejada:*
 
 ```json
 {
@@ -281,7 +281,8 @@ Em geral,
 -   Acesso `_reader` e `_replicator` no lado de origem.
 -   Acesso `_reader` e `_writer` no lado de destino.
 
-As chaves API podem ser criadas e configuradas dentro do painel do {{site.data.keyword.cloudant_short_notm}}, em uma base por banco de dados.
+As chaves API podem ser criadas e configuradas no Painel do {{site.data.keyword.cloudant_short_notm}},
+em uma base por banco de dados.
 
 ![replicação](../images/replication_guide_5.png)
 
@@ -312,12 +313,12 @@ Com a replicação contínua,
 os dados fluem continuamente.
 Todas as mudanças subsequentes no banco de dados de origem são transmitidas para o banco de dados de destino em tempo real.
 
-A replicação contínua é acionada clicando na caixa de seleção `Tornar esta replicação contínua` quando você define uma tarefa de replicação no painel do {{site.data.keyword.cloudant_short_notm}}
-ou configurando a sinalização [`contínua`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) na API do {{site.data.keyword.cloudant_short_notm}}.
+A replicação contínua é acionada ao clicar na caixa de seleção `Make this replication continuous` ao definir uma tarefa de replicação no painel do {{site.data.keyword.cloudant_short_notm}} ou
+configurando o sinalizador [`continuous`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) na API do {{site.data.keyword.cloudant_short_notm}}.
 
 A replicação em duas vias pode se tornar contínua em uma ou em ambas as direções, configurando a sinalização como `contínua`.
 
-_Exemplo de como usar HTTP para iniciar uma replicação contínua:_
+*Exemplo de como usar HTTP para iniciar uma replicação contínua:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -327,7 +328,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Exemplo de como usar a linha de comandos para iniciar uma replicação contínua:_
+*Exemplo de como usar a linha de comandos para iniciar uma replicação contínua:*
 
 ```sh
 curl -X POST \
@@ -337,7 +338,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Exemplo de um documento JSON que define uma replicação contínua:_
+*Exemplo de um documento JSON que define uma replicação contínua:*
 
 ```json
 {
@@ -360,7 +361,7 @@ o estado de erro será registrado no documento `_replicator`.
 Além disso,
 o [`/_active_tasks` da conta do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) pode ser usado para ver o trabalho de replicação à medida que ele progride.
 
-_Exemplo de como usar HTTP para monitorar um processo de replicação:_
+*Exemplo de como usar HTTP para monitorar um processo de replicação:*
 
 ```http
 GET /_replicator/weekly_backup HTTP/1.1
@@ -369,14 +370,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Exemplo de como usar a linha de comandos para monitorar um processo de replicação:_
+*Exemplo de como usar a linha de comandos para monitorar um processo de replicação:*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
 ```
 {: codeblock}
 
-_Exemplo de resposta para solicitar o status de uma replicação:_
+*Exemplo de resposta para solicitar o status de uma replicação:*
 
 ```json
 {
@@ -400,7 +401,7 @@ Quando você replicar, se algum documento ou anexos exceder o limite máximo no 
 
 Para parar uma tarefa de replicação em andamento, exclua o documento de replicação do banco de dados `_replicator`, usando o painel ou a API.
 
-_Exemplo de como usar HTTP para cancelar uma replicação:_
+*Exemplo de como usar HTTP para cancelar uma replicação:*
 
 ```http
 DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1.1
@@ -409,7 +410,7 @@ Authorization:
 ```
 {: codeblock}
 
-_Exemplo de como usar a linha de comandos para cancelar uma replicação:_
+*Exemplo de como usar a linha de comandos para cancelar uma replicação:*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
@@ -448,7 +449,7 @@ mesmo sem uma conexão com a Internet.
 O PouchDB pode sincronizar quaisquer dados mudados para/do {{site.data.keyword.cloudant_short_notm}} quando uma conexão de Internet está presente.
 Configurar a replicação do lado do cliente requer algumas linhas de JavaScript.
 
-_Exemplo de JavaScript que usa o PouchDB para ativar a replicação:_
+*Exemplo de JavaScript que usa o PouchDB para ativar a replicação:*
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
@@ -466,7 +467,7 @@ e sincronizados com o {{site.data.keyword.cloudant_short_notm}} quando a conecti
 Como com o [PouchDB](#pouchdb),
 a configuração da replicação requer algumas linhas de código.
 
-_Exemplo de JavaScript que usa o CloudantSync para ativar a replicação:_
+*Exemplo de JavaScript que usa o CloudantSync para ativar a replicação:*
 
 ```javascript
 URI uri = new URI("https://u:p@username.cloudant.com/my_database");
@@ -505,7 +506,7 @@ em [documentos de design](/docs/services/Cloudant?topic=cloudant-design-document
 
 O exemplo a seguir é uma função de filtro que permite que somente documentos não excluídos sejam replicados.
 
-_Exemplo de função de filtro para replicar documentos não excluídos:_
+*Exemplo de função de filtro para replicar documentos não excluídos:*
 
 ```javascript
 function(doc, req) {
@@ -524,7 +525,7 @@ Também é possível especificar um valor `query_params`.
 Esse valor é um objeto que contém propriedades que são passadas para a
 função de filtro no campo `query` de seu segundo argumento (`req`).
 
-_Exemplo de como usar HTTP para iniciar uma replicação filtrada:_
+*Exemplo de como usar HTTP para iniciar uma replicação filtrada:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -534,7 +535,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Exemplo de como usar a linha de comandos para iniciar uma replicação filtrada:_
+*Exemplo de como usar a linha de comandos para iniciar uma replicação filtrada:*
 
 ```sh
 curl -X POST \
@@ -544,7 +545,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Exemplo de um documento JSON que define uma replicação filtrada:_
+*Exemplo de um documento JSON que define uma replicação filtrada:*
 
 ```json
 {
@@ -572,7 +573,7 @@ conforme mostrado nos exemplos.
 O uso da opção `feed=continuous` significa que o fluxo fornecerá a você
 todas as mudanças necessárias para obter a versão mais recente de cada documento no banco de dados.
 
-_Exemplo de como usar HTTP para consultar o feed de mudanças:_
+*Exemplo de como usar HTTP para consultar o feed de mudanças:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous HTTP/1.1
@@ -581,7 +582,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Exemplo de como usar a linha de comandos para consultar o feed de mudanças:_
+*Exemplo de como usar a linha de comandos para consultar o feed de mudanças:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
@@ -600,7 +601,7 @@ anexe `&include_docs=true` ao comando curl.
 
 Cada mudança é descrita usando o formato mostrado no exemplo (abreviado) a seguir.
 
-_Exemplo do feed `_changes`:_
+*Exemplo de feed `_changes`:*
 
 ```json
 {
@@ -618,7 +619,7 @@ _Exemplo do feed `_changes`:_
 Para unir o feed de mudanças de uma posição conhecida,
 passe um [argumento `since`](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument) com o número de sequência do qual você deseja iniciar.
 
-_Exemplo (abreviado) de como usar HTTP para fornecer a opção `since` para associar um feed `_changes` em uma posição conhecida:_
+*Exemplo (abreviado) de uso de HTTP para fornecer a opção `since` para juntar um feed `_changes` em uma posição conhecida:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
@@ -627,7 +628,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Exemplo (abreviado) de usar a linha de comandos para fornecer a opção `desde`para unir um feed de mudanças do `_`em uma posição conhecida: _
+*Exemplo (abreviado) de uso da linha de comandos para fornecer a opção `since` para juntar um feed `_changes` em uma posição conhecida:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -637,7 +638,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 Para unir novamente o feed de mudanças do momento atual,
 configure `since=now`.
 
-_Exemplo de como usar HTTP para fornecer `since=now` para associar um feed `_changes` no momento atual:_
+*Exemplo de uso de HTTP para fornecer `since=now` para juntar um feed `_changes` no momento atual:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
@@ -646,14 +647,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Exemplo de como usar a linha de comandos para fornecer `since=now` para associar um feed `_changes` no momento atual:_
+*Exemplo de uso de linha de comandos para fornecer `since=now` para juntar um feed `_changes` no momento atual:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {: codeblock}
 
-_Exemplo de como usar JavaScript para fornecer `since=now` para associar um feed `_changes` no momento atual:_
+*Exemplo de uso de JavaScript para fornecer `since=now` para juntar um feed `_changes` no momento atual:*
 
 ```javascript
 var feed = db.follow({since: "now", include_docs: true})
@@ -666,7 +667,7 @@ feed.follow();
 
 O acesso aos dados `_changes` programaticamente é feito de forma direta.
 Por exemplo,
-use a [{{site.data.keyword.cloudant_short_notm}} biblioteca Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)
+use a [{{site.data.keyword.cloudant_short_notm}} biblioteca Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)
 para seguir as mudanças com algumas linhas de código.
 
 Os exemplos de casos de uso podem ser:
@@ -677,9 +678,9 @@ como enviar um e-mail do cliente.
 -   Gravação de dados em um arquivo de texto para enviar dados por push para um banco de dados SQL.
 
 O feed de mudanças pode ser filtrado com uma função de filtro
-usando uma técnica semelhante à [filtragem durante a replicação](#filtered-replication).
+usando uma técnica semelhante à [filtragem durante a replicação](#filtered-replications).
 
-_Exemplo de como usar HTTP para filtrar o feed de mudanças:_
+*Exemplo de como usar HTTP para filtrar o feed de mudanças:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter HTTP/1.1
@@ -688,7 +689,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Exemplo de como usar a linha de comandos para filtrar o feed de mudanças:_
+*Exemplo de como usar a linha de comandos para filtrar o feed de mudanças:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
@@ -699,7 +700,7 @@ A ordenação de documentos dentro do feed `_changes` não é sempre a mesma. Em
     e as regras de consistência eventual se aplicam.
 {: tip}
 
-## Armadilhas da replicação
+## Armadilhas de replicação
 {: #replication-pitfalls}
 
 Para replicar com êxito, a soma do tamanho do documento e de todos os tamanhos do anexo deve ser menor que o tamanho máximo da solicitação do cluster de destino. Por exemplo, se o tamanho máximo da solicitação de HTTP for 11 MB, os cenários a seguir se aplicarão:
@@ -763,7 +764,7 @@ Se desejar cancelar todas as replicações e iniciar com uma nova,
 limpe o banco de dados `_replicator`,
 exclua e, em seguida, recrie o banco de dados `replicator`.
 
-_Exemplo de como usar HTTP para remover e recriar o banco de dados `_replicator`:_
+*Exemplo de uso de HTTP para remover e recriar o banco de dados `_replicator`:*
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -776,7 +777,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Exemplo de como usar a linha de comandos para remover e recriar o banco de dados `_replicator`:_
+*Exemplo de uso da linha de comandos para remover e recriar o banco de dados `_replicator`:*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'
@@ -793,7 +794,8 @@ Cada tarefa de replicação é independente da outra,
 então o {{site.data.keyword.cloudant_short_notm}} não evita a criação de processos extras de replicação.
 No entanto, cada tarefa de replicação esgota os recursos do sistema.
 
-É possível verificar suas "replicações ativas" no painel do {{site.data.keyword.cloudant_short_notm}} para assegurar que não haja tarefas de replicação indesejadas em andamento.
+É possível verificar suas "replicações ativas" no Painel do {{site.data.keyword.cloudant_short_notm}}
+para assegurar que não haja tarefas de replicação indesejadas em andamento.
 Exclua os documentos `_replicator` que não são mais necessários.
 
 ## Ajustando a velocidade de replicação

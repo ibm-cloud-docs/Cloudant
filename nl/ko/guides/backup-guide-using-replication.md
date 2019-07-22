@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -44,7 +44,8 @@ subcollection: cloudant
 ## 증분 백업
 {: #incremental-backups}
 
-엔터프라이즈 고객의 경우에는 일별 증분 백업 기능을 [사용할 수 있습니다](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
+엔터프라이즈 고객의 경우에는
+일별 증분 백업 기능을 사용할 수 있습니다. 자세한 정보는 [재해 복구 및 백업](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)을 참조하십시오. 
 
 엔터프라이즈 고객이 아니거나 고유한 백업을 작성하려는 경우에는 {{site.data.keyword.cloudant_short_notm}} 복제 기능을 사용하여 데이터베이스 백업을 작성할 수 있습니다.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -39,7 +39,7 @@ _（本“{{site.data.keyword.cloudantfull}} 数据隐私和管理更新”最�
 
 以下网址提供了可保存内容或从中访问内容以交付和支持云服务的国家/地区列表：[www.ibm.com/cloud/datacenters ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://www.ibm.com/cloud/datacenters){: new_window}。
 
-[此处](/docs/services/Cloudant?topic=cloudant-compliance#compliance)提供了有关 {{site.data.keyword.cloudant_short_notm}} 总体标准一致性的更多信息。也可以找到以下 IaaS 业务合作伙伴的类似信息：
+有关 {{site.data.keyword.cloudant_short_notm}} 总体一致性标准的更多信息，请参阅[一致性](/docs/services/Cloudant?topic=cloudant-compliance#compliance)。也可以找到以下 IaaS 业务合作伙伴的类似信息：
 
 -   [Amazon ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://aws.amazon.com/compliance/){: new_window}
 -   [{{site.data.keyword.cloud}} ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/compliance){: new_window}

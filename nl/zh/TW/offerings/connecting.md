@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
-keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries
+keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP whitelisting
 
 subcollection: cloudant
 
@@ -54,6 +54,9 @@ subcollection: cloudant
 
 其中 USERNAME 是 URL 中服務實例使用者的服務名稱。使用 {{site.data.keyword.cloudant_short_notm}} 舊式鑑別時，此欄位也會充當管理使用者名稱。範例 USERNAME 為 de810d0e-763f-46a6-ae88-50823dc85581-bluemix，而產生的範例外部端點將為 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud。 
 
+如需如何透過 IP 白名單來阻止公用網路連線功能的相關資訊，請參閱[安全存取控制](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-security#secure-access-control)。
+{: note}
+
 ## 服務認證
 {: #service-credentials}
 
@@ -82,10 +85,10 @@ subcollection: cloudant
 欄位       |用途
 ------|--------
 `username` | URL 中服務實例使用者的服務名稱。此欄位也用來作為管理使用者名稱。
-`password` | 應用程式存取服務實例所需的舊式認證密碼。只有在選擇`同時使用 Legacy 認證及 IAM` 選項時，才會顯示此欄位。
-`host`     |應用程式用來尋找服務實例的主機名稱。只有在選擇`同時使用 Legacy 認證及 IAM` 選項時，才會顯示此欄位。
-`port`     | 用來存取主機上服務實例的 HTTPS 埠號。它是 443，因為 {{site.data.keyword.cloudant_short_notm}} 只容許 HTTPS 存取。只有在選擇`同時使用 Legacy 認證及 IAM` 選項時，才會顯示此欄位。
-`url`	| 存取 {{site.data.keyword.cloudant_short_notm}} 實例的 HTTPS URL。如果選擇`同時使用 Legacy 認證及 IAM` 選項，則也會包括內嵌的舊式使用者名稱和密碼。
+`password` | 應用程式存取服務實例所需的舊式認證密碼。只有在選擇`同時使用舊式認證及 IAM` 選項時，才會顯示此欄位。
+`host`     |應用程式用來尋找服務實例的主機名稱。只有在選擇`同時使用舊式認證及 IAM` 選項時，才會顯示此欄位。
+`port`     | 用來存取主機上服務實例的 HTTPS 埠號。它是 443，因為 {{site.data.keyword.cloudant_short_notm}} 只容許 HTTPS 存取。只有在選擇`同時使用舊式認證及 IAM` 選項時，才會顯示此欄位。
+`url`	| 存取 {{site.data.keyword.cloudant_short_notm}} 實例的 HTTPS URL。如果選擇`同時使用舊式認證及 IAM` 選項，則也會包括內嵌的舊式使用者名稱和密碼。
 `apikey` | IAM API 金鑰。
 `iam_apikey_description` | IAM API 金鑰的說明。
 `iam_apikey_name` | IAM API 金鑰的 ID。
@@ -95,7 +98,7 @@ subcollection: cloudant
 ## 鑑別
 {: #authentication-overview}
 
-{{site.data.keyword.cloudant_short_notm}} 在佈建時間有兩種可用的鑑別方法：`僅使用 IAM` 或`同時使用 Legacy 認證及 IAM`。只有在選擇`同時使用 Legacy 認證及 IAM` 鑑別方法時，才能在服務認證中看到有關舊式認證的詳細資料。認證會顯示在您實例的「服務認證」標籤上。如需相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)及[舊式鑑別](/docs/services/Cloudant?topic=cloudant-authentication#authentication)文件，以取得使用任一種鑑別樣式的詳細資料。
+{{site.data.keyword.cloudant_short_notm}} 在佈建時間有兩種可用的鑑別方法：`僅使用 IAM` 或`同時使用舊式認證及 IAM`。只有在選擇`同時使用舊式認證及 IAM` 鑑別方法時，才能在服務認證中看到有關舊式認證的詳細資料。認證會顯示在您實例的「服務認證」標籤上。如需相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)及[舊式鑑別](/docs/services/Cloudant?topic=cloudant-authentication#authentication)文件，以取得使用任一種鑑別樣式的詳細資料。
  
 {{site.data.keyword.cloudant_short_notm}} 團隊建議您儘可能使用 IAM 存取控制進行鑑別。如果您是使用 {{site.data.keyword.cloudant_short_notm}} 舊式鑑別，建議您使用 [API 金鑰](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}，而非帳戶層次認證，進行程式化存取及抄寫工作。
 {: important}
@@ -103,7 +106,7 @@ subcollection: cloudant
 ## {{site.data.keyword.cloudant_short_notm}} 儀表板
 {: #ibm-cloudant-dashboard}
 
-您可以為您的實例開啟「{{site.data.keyword.cloudant_short_notm}} 儀表板」，方法是移至「{{site.data.keyword.cloud_notm}} 儀表板」實例詳細資料頁面的「管理」標籤。也可以使用`啟動`或`啟動 Cloudant 儀表板`按鈕，在新的瀏覽器標籤中開啟「儀表板」。「{{site.data.keyword.cloudant_short_notm}} 儀表板」可讓您執行下列作業：
+您可以為您的實例開啟「{{site.data.keyword.cloudant_short_notm}} 儀表板」，方法是移至「{{site.data.keyword.cloud_notm}} 儀表板」實例詳細資料頁面的「管理」標籤。您可以使用`啟動`或`啟動 Cloudant 儀表板`按鈕以在新的瀏覽器標籤中開啟儀表板。「{{site.data.keyword.cloudant_short_notm}} 儀表板」可讓您執行下列作業：
 
 - 監視實例的現行耗用量
 - 對 {{site.data.keyword.cloudant_short_notm}} 資料庫、文件及索引執行 CRUD（建立、讀取、更新、刪除）
@@ -111,7 +114,7 @@ subcollection: cloudant
 - 檢視作用中的作業
 - 檢視及更新帳戶資訊，像是佈建的傳輸量、公告、CORS 及設定
 
-## 程式化存取
+## 以編程方式存取
 {: #programmatic-access}
 
 ### 指令行 (curl)
@@ -121,15 +124,14 @@ subcollection: cloudant
 
 如果您使用 {{site.data.keyword.cloudant_short_notm}} 舊式鑑別，請參閱 [API 參考資料概觀](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)，以取得有關提供使用者名稱及密碼，利用 curl 存取 {{site.data.keyword.cloudant_short_notm}} API 的詳細資料，如 API 參考資料範例中所示。
 
-如果您使用 {{site.data.keyword.cloud_notm}} IAM 鑑別，必須先使用 API 金鑰取得 {{site.data.keyword.cloud_notm}} IAM 記號。然後，將 IAM 記號傳遞至要鑑別的 {{site.data.keyword.cloudant_short_notm}} 實例。請參閱 [傳遞
-{{site.data.keyword.cloud_notm}} IAM 記號，以利用服務的 API 進行鑑別] (https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window} 
+如果您使用 {{site.data.keyword.cloud_notm}} IAM 鑑別，必須先使用 API 金鑰取得 {{site.data.keyword.cloud_notm}} IAM 記號。然後，將 IAM 記號傳遞至要鑑別的 {{site.data.keyword.cloudant_short_notm}} 實例。如需相關資訊，請參閱[使用服務 API ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示") 傳遞
+{{site.data.keyword.cloud_notm}} IAM 記號以進行鑑別](https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window} 
 指導教學。 
 
 您無法直接使用 IAM API 金鑰，針對 {{site.data.keyword.cloudant_short_notm}} 進行鑑別。
 {: note}
 
 ### 用戶端程式庫
-
 {: #client-libraries-overview}
 
 {{site.data.keyword.cloudant_short_notm}} 具有 Java、Node.js、Python、Swift 及 Mobile 的正式用戶端程式庫。如需相關資訊，請參閱[用戶端程式庫文件](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries)來存取程式庫，以及參閱從每一個程式庫連接至 {{site.data.keyword.cloudant_short_notm}} 實例的範例。 

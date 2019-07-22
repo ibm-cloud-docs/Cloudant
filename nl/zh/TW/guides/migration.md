@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -25,7 +25,7 @@ subcollection: cloudant
 # 移轉至 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}}
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
 
-[{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant) 的資料庫即服務供應項目是在多方承租戶叢集上執行的 JSON 文件儲存庫。服務可以選擇具有可預測成本、可擴充性及服務水準合約 (SLA) 的地理位置。
+[{{site.data.keyword.cloudantfull}} ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/cloudant){: new_window} 的「資料庫即服務」供應項目是在多方承租戶叢集上執行的 JSON 文件儲存庫。服務可以選擇具有可預測成本、可擴充性及服務水準合約 (SLA) 的地理位置。
 
 本文件說明如何在 {{site.data.keyword.cloud_notm}} 上從下列其中一個方案移轉至「{{site.data.keyword.cloudant_short_notm}} 精簡方案」或「標準方案」實例：
 
@@ -50,14 +50,14 @@ Apache CouchDB| 根據 {{site.data.keyword.cloudant_short_notm}} 的自行管理
 
 舉例來說，「精簡方案」免費提供每秒 20 次讀取、每秒 10 次寫入、每秒 5 次廣域查詢，以及 1 GB 儲存空間。當您「直覺試用」產品以及在產品開發期間，此方案十分適合。當您的應用程式進入 QA 或正式作業時，請切換至「標準方案」來調整實例。「標準方案」的最小容量具有每秒 100 次讀取、每秒 50 次寫入、每秒 5 次廣域查詢，以及 20 GB 儲存空間（按 GB 收取額外儲存空間的費用），每個月 76.65 美元。 
 
-在 {{site.data.keyword.cloudant_short_notm}} 儀表板中使用調節器，即可在每次需要 {{site.data.keyword.cloudant_short_notm}} 服務時為它保留較小或較大容量：
+透過使用「{{site.data.keyword.cloudant_short_notm}} 儀表板」中的調節器，可以在需要時隨時為 {{site.data.keyword.cloudant_short_notm}} 服務保留更小或更大的容量：
 
 ![調節器](../images/migrate2.gif)
 
 您可以變更傳輸量的數量限制為每次變更最多 10 個單位（請注意，調節器上的「變更限制」點），而且每小時最多只能變更一次。向下變更的幅度不受限制，但仍然受限於時間限制。
 {: tip}
 
-將會依任何給定每小時時間範圍內所選取的最高容量向您收費。您可以擴增資料庫傳輸量以對應季節性需求，然後在淡季再次縮減。您的每月帳單一律是可預測的、升級是自動的，而且您的 SLA 是 [99.95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument)。
+將會依任何給定每小時時間範圍內所選取的最高容量向您收費。您可以擴增資料庫傳輸量以對應季節性需求，然後在淡季再次縮減。您的按月帳單總是可預測的；升級會自動執行；並且您的 SLA 為 [99.95% ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}。
 
 如果您超過給定秒的讀取、寫入及廣域查詢配額，{{site.data.keyword.cloudant_short_notm}} API 即會回覆 `HTTP 429 要求太多`回應。您的應用程式稍後可能會重試要求；我們的正式程式庫會提供重試指數倒回這類要求的選項。 
 
@@ -72,11 +72,11 @@ Apache CouchDB| 根據 {{site.data.keyword.cloudant_short_notm}} 的自行管理
 
 ![標準儀表板](../images/ibmcloud_instance_standard_plan.png)
 
-您也可以開啟 {{site.data.keyword.cloudant_short_notm}} 儀表板，然後按一下**帳戶**標籤。「精簡方案」與下列範例類似：
+您還可以開啟「{{site.data.keyword.cloudant_short_notm}} 儀表板」，然後按一下**帳戶**標籤。「精簡方案」與下列範例類似：
 
 ![精簡方案](../images/migrate1.png)
 
-如果您是使用舊式 `cloudant.com` 帳戶，則可以登入 {{site.data.keyword.cloudant_short_notm}} 儀表板，並移至「帳戶」標籤。舊式「`cloudant.com` 共用方案」的「用量」標籤具有現行月份的圖形及計費預估值（如下列範例所示）：
+如果您使用的是舊 `cloudant.com` 帳戶，那麼可以登入到「{{site.data.keyword.cloudant_short_notm}} 儀表板」，然後移至「帳戶」標籤。舊式「`cloudant.com` 共用方案」的「用量」標籤具有現行月份的圖形及計費預估值（如下列範例所示）：
 
 ![共用方案](../images/cloudantcom_sharedplan_usage.png)
 
@@ -94,11 +94,10 @@ Apache CouchDB| 根據 {{site.data.keyword.cloudant_short_notm}} 的自行管理
 1.  移至 {{site.data.keyword.cloud_notm}} 儀表板。
 2.  移至**功能表**圖示 > **資源清單**，來查看您的所有服務實例。 
 3.  選取您要移轉的 {{site.data.keyword.cloudant_short_notm}} 實例。 
-4.  在左側導覽上，選取**方案**標籤。 
+4.  選取功能表上的**方案**標籤。 
 5.  從定價方案清單中，選取**標準**勾選框。
 ![精簡](../images/migrate3.png)
-6.  按一下頁面底端的**升級**。
-即會為您保留所有現有資料。
+6.  按一下**升級**。即會為您保留所有現有資料。
 
 使用「傳輸量」調節器來調整容量，視需要增加或減少容量。
 {: tip} 
@@ -116,14 +115,14 @@ Apache CouchDB| 根據 {{site.data.keyword.cloudant_short_notm}} 的自行管理
 ### 步驟 1：註冊 {{site.data.keyword.cloud_notm}}
 {: #step-1-sign-up-for-ibm-cloud}
 
-如果您尚未註冊，請[註冊 {{site.data.keyword.cloud_notm}} 帳戶](https://www.ibm.com/cloud/)。 
+如果尚未註冊，請[註冊 {{site.data.keyword.cloud_notm}} 帳戶 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/){: new_window}。 
 
 ### 步驟 2：建立 {{site.data.keyword.cloudant_short_notm}} 實例
 {: #step-2-create-an-ibm-cloudant-instance}
 
 在您登入 {{site.data.keyword.cloud_notm}} 帳戶之後，請新增 {{site.data.keyword.cloudant_short_notm}} 服務。按一下儀表板上的`建立資源`按鈕，然後按一下`資料庫`及 `Cloudant`。如需相關資訊，請參閱[如何在 {{site.data.keyword.cloud_notm}} 上建立 {{site.data.keyword.cloudant_short_notm}} 實例](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)。 
 
-![新增 {{site.data.keyword.cloudant_short_notm}} 實例](/docs/services/Cloudant/tutorials/images/img0003.png)
+![新增 {{site.data.keyword.cloudant_short_notm}} 實例](../tutorials/images/img0003.png)
 
 ### 步驟 3：找出您的應用程式是否備妥可供 {{site.data.keyword.cloudant_short_notm}} 使用
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}
@@ -137,9 +136,9 @@ Apache CouchDB| 根據 {{site.data.keyword.cloudant_short_notm}} 的自行管理
 ### 步驟 4：將資料從舊服務移轉至新服務 
 {: #step-4-migrate-data-from-the-old-service-to-the-new-service}
 
-設定從現有服務持續抄寫至 {{site.data.keyword.cloudant_short_notm}} 帳戶。如需相關資訊，請參閱[抄寫手冊](/docs/services/Cloudant?topic=cloudant-replication-api#replication-api)及 [API 文件](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics)有關如何設定及監視抄寫作業。
+設定從現有服務持續抄寫至 {{site.data.keyword.cloudant_short_notm}} 帳戶。如需相關資訊，請參閱[抄寫手冊](/docs/services/Cloudant?topic=cloudant-replication-api#replication-api)及 [API 文件](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics)如需如何設定及監視抄寫作業。
 
-或者，您也可以參閱 [`couchreplicate`](https://www.npmjs.com/package/couchreplicate) 工具，此指令行公用程式可協助您協調將資料從某個 {{site.data.keyword.cloudant_short_notm}} 帳戶傳送至另一個帳戶。它在來源與目標帳戶之間設定多個抄寫工作，以確保一次只會進行這麼多抄寫工作。如果您需要移轉數百個資料庫，則 `couchreplicate` 可以協助協調抄寫工作。
+或者，您也可以參閱 [`couchreplicate`](https://www.npmjs.com/package/couchreplicate) 工具，這個指令行公用程式可協助您協調將資料從某個 {{site.data.keyword.cloudant_short_notm}} 帳戶傳送至另一個帳戶。它在來源與目標帳戶之間設定多個抄寫工作，以確保一次只會進行這麼多抄寫工作。如果您需要移轉數百個資料庫，則 `couchreplicate` 可以協助協調抄寫工作。
 
 ![`couchreplicate`](https://raw.githubusercontent.com/glynnbird/couchreplicate/HEAD/img/couchreplicate.gif)
 
@@ -153,7 +152,7 @@ Apache CouchDB| 根據 {{site.data.keyword.cloudant_short_notm}} 的自行管理
 ### 步驟 6：準備移至新實例？
 {: #step-6-ready-to-move-to-the-new-instance-}
 
-當您準備好移至新實例時，請更新您的應用程式，針對 {{site.data.keyword.cloudant_short_notm}} 實例使用新的帳戶 URL 及認證。如需相關資訊，請參閱[佈建指導教學](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)有關如何取得 {{site.data.keyword.cloudant_short_notm}} 實例的服務認證。
+當您準備好移至新實例時，請更新您的應用程式，針對 {{site.data.keyword.cloudant_short_notm}} 實例使用新的帳戶 URL 及認證。如需相關資訊，請參閱[佈建指導教學](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)如需如何取得 {{site.data.keyword.cloudant_short_notm}} 實例的服務認證。
 
 ### 步驟 7：關閉舊服務
 {: #step-7-turn-off-the-old-service}
@@ -168,7 +167,7 @@ Apache CouchDB| 根據 {{site.data.keyword.cloudant_short_notm}} 的自行管理
 ## 我可以在執行任何動作之前先備份我的資料嗎？
 {: #can-i-back-up-my-data-before-doing-anything-}
 
-{{site.data.keyword.cloudant_short_notm}} 建議您使用 [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) 公用程式將資料匯出至磁碟。[{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage) 是一個成本不高且可調整的解決方案，用於儲存匯出的檔案。 
+{{site.data.keyword.cloudant_short_notm}} 建議您使用 [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) 公用程式將資料匯出至磁碟。[{{site.data.keyword.cloud_notm}} Object Storage ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/object-storage){: new_window} 是一種低價的可調整解決方案，用於儲存匯出的檔案。 
 
 ## 我可以保留 `username.cloudant.com` 網域，並將它重新導向至 {{site.data.keyword.cloudant_short_notm}} 上的新服務嗎？
 {: #can-i-keep-my-username-cloudant-com-domain-and-redirect-it-to-the-new-service-on-ibm-cloudant-}

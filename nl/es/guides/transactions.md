@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: generate uuid, record payments, add additional documents, advantages
 
@@ -42,7 +42,7 @@ En este tema se describen algunos de los factores que intervienen en la creació
 
 Por ejemplo, puede crear un documento `purchase` que contenga detalles como los artículos solicitados, información sobre el cliente, coste e información sobre la entrega.
 
-_Ejemplo de documento que describe una compra_
+*Ejemplo de documento que describe una compra*
 
 ```json
 {
@@ -110,7 +110,7 @@ Se puede utilizar el mismo punto final para generar varios ID añadiendo el par�
 
 Cuando el cliente paga correctamente los artículos, se añaden registros adicionales a la base de datos para registrar el pedido.
 
-_Ejemplo de registro de pago:_
+*Ejemplo de registro de pago:*
 
 ```json
 {
@@ -147,7 +147,7 @@ La vista ofrecería un libro mayor que contendría la siguiente información:
 
 Se podría utilizar una función de correlación para identificar los valores necesarios.
 
-_Función de correlación de ejemplo para buscar los valores de total de compras y de pagos:_ 
+*Función de correlación de ejemplo para buscar los valores de total de compras y de pagos:* 
 
 ```javascript
 function (doc) {
@@ -164,7 +164,7 @@ function (doc) {
 
 El uso del [reductor `_sum`](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions) integrado le permite generar la información de salida como un libro mayor de los sucesos relacionados con los pagos.
 
-_Ejemplo de utilización de un reductor `_sum` integrado, consultado con `?reduce=false`:_
+*Ejemplo de utilización del reductor `_sum` integrado, que se consulta con `?reduce=false`:*
 
 ```json
 {
@@ -191,7 +191,7 @@ _Ejemplo de utilización de un reductor `_sum` integrado, consultado con `?reduc
 
 También podría generar totales agrupados por `order_id`.
 
-_Ejemplo de totales agrupados por `order_id`, con `?group_level=1`:_
+*Ejemplo de totales agrupados por `order_id`, con `?group_level=1`:*
 
 ```json
 {

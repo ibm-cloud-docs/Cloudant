@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -44,14 +44,13 @@ subcollection: cloudant
 {{site.data.keyword.cloudant_short_notm}} Sync 리소스에 대한 세부사항은 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/cloudant-sync-resources/){: new_window}에 있습니다.
 
 ## Java
-{: #java}
+{: #java-supported}
 
 [java-cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/java-cloudant){: new_window}는
 Java용 공식 {{site.data.keyword.cloudantfull}} 라이브러리입니다.
 
-라이브러리를 Maven 또는 Gradle 빌드에 종속 항목으로 추가하여 설치하는 방법에 대한 정보는
-[여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}에 있으며,
-여기에는 해당 라이브러리를 사용하는 방법에 대한 세부사항 및 예가 함께 제공되어 있습니다.
+라이브러리를 Maven 또는 Gradle 빌드에 종속 항목으로 추가하여 설치하는 방법에 대한 자세한 정보, 그리고 이 라이브러리의 사용법에 대한 세부사항 및 예를 보려면
+[Installation and Usage ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}를 참조하십시오. 
 
 ### Java용 라이브러리 및 프레임워크
 {: #libraries-and-frameworks-for-java}
@@ -62,7 +61,7 @@ Java용 공식 {{site.data.keyword.cloudantfull}} 라이브러리입니다.
 -   [java-cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/java-cloudant){: new_window}
 
 #### 지원되지 않는 Java용 라이브러리
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-supported}
 
 -   [ektorp ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}
 -   [jcouchdb ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://code.google.com/p/jcouchdb/){: new_window}
@@ -80,7 +79,7 @@ Java용 공식 {{site.data.keyword.cloudantfull}} 라이브러리입니다.
 
 
 ## Node.js
-{: #node-js}
+{: #node-js-supported}
 
 [nodejs-cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/nodejs-cloudant){: new_window}는
 Node.js용 공식 {{site.data.keyword.cloudant_short_notm}} 라이브러리입니다.
@@ -130,13 +129,13 @@ npm install cloudant
 {: #python-supported}
 
 Python을 사용하여 {{site.data.keyword.cloudant_short_notm}} 관련 작업을 수행하는 데 지원되는 라이브러리는
-[여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/python-cloudant){: new_window}에 있습니다.
+Github 저장소 [cloudant/python-cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/python-cloudant){: new_window}에 있습니다. 
 
-{{site.data.keyword.cloudant_short_notm}}에 액세스하는 Python 애플리케이션에는 컴포넌트 종속성이 있습니다. 이러한 종속성은 `requirements.txt` 파일에 지정되어야 합니다. 자세한 정보는 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}를 참조하십시오.
+{{site.data.keyword.cloudant_short_notm}}에 액세스하는 Python 애플리케이션에는 컴포넌트 종속성이 있습니다. 이러한 종속성은 `requirements.txt` 파일에 지정되어야 합니다. 자세한 정보는 [요구사항 파일 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}에 대한 지시사항을 참조하십시오.
 {: tip}
 
-현재 라이브러리 릴리스는 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://pypi.python.org/pypi/cloudant/){: new_window}에서 다운로드하십시오.
-[python.org ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.python.org/about/){: new_window}에서 Python 언어에 대한 자세한 정보를 알아보십시오. 
+[pypi.python.org ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://pypi.python.org/pypi/cloudant/){: new_window}에서 현재 라이브러리 릴리스를 다운로드하십시오.
+Python 언어에 대한 자세한 정보는 [python.org ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.python.org/about/){: new_window}를 참조하십시오.  
 
 ## Swift
 {: #swift}
@@ -151,11 +150,11 @@ pod 'SwiftCloudant'
 ```
 {: codeblock}
 
-설치 세부사항과 {{site.data.keyword.cloudant_short_notm}}에서
-원격 JSON 데이터를 저장하고 인덱싱하고 조회하는 방법을 포함한,
-SwiftCloudant에 대한 자세한 정보는
-[여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/swift-cloudant){: new_window}에
-있습니다.
+SwiftCloudant의 설치, 그리고 이를 사용하여
+{{site.data.keyword.cloudant_short_notm}}의 원격 JSON 데이터를
+저장,
+인덱싱 및 조회하는 방법에 대한 세부사항을 비롯한
+자세한 정보는 Github 저장소 [cloudant/swift-cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/swift-cloudant){: new_window}를 참조하십시오. 
 
 라이브러리는 초기 릴리스 버전입니다.
 따라서 현재 전체 {{site.data.keyword.cloudant_short_notm}} API 범위를 포함하지는 않습니다. 

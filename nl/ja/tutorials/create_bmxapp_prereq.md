@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -29,7 +29,7 @@ subcollection: cloudant
 {: shortdesc}
 
 ## 前提条件
-{: #prerequisites}
+{: #prerequisites-create_bmxapp_prereq}
 
 チュートリアルを始める前に、以下のリソースまたは情報を準備してください。
 
@@ -57,8 +57,7 @@ Python 2.7.12
 ### {{site.data.keyword.cloud_notm}} 上の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンス
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-{{site.data.keyword.cloudantfull}} サービス・インスタンス
-「`Cloudant-o7`」の作成については、[別のチュートリアル](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)を参照してください。
+[{{site.data.keyword.cloud_notm}} での {{site.data.keyword.cloudantfull}} サービス・インスタンスの作成](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)に関する別のチュートリアルで、「`Cloudant-o7`」という名前のサービス・インスタンスが作成されます。 
 
 このチュートリアルでは、サービス・インスタンス
 「`Cloudant-o7`」を既に作成済みであることを想定しています。
@@ -66,9 +65,7 @@ Python 2.7.12
 ### {{site.data.keyword.cloudant_short_notm}} データベース・アプリケーション
 {: #an-ibm-cloudant-database-application}
 
-{{site.data.keyword.cloudant_short_notm}} サービス・インスタンスを処理するスタンドアロン Python アプリケーションの作成については、
-[別のチュートリアル](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud)を参照してください。
-{{site.data.keyword.cloudant_short_notm}} データベースを作成してデータを取り込む方法の理解に役立つ、多くの概念がそこで紹介されています。
+{{site.data.keyword.cloudant_short_notm}}サービス・インスタンスを処理するスタンドアロン Python アプリケーションの作成 (/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) についての別のチュートリアルもあります。{{site.data.keyword.cloudant_short_notm}} データベースを作成してデータを取り込む方法の理解に役立つ、多くの概念がそこで紹介されています。
 
 このチュートリアルでは、そうした概念を熟知していることを前提としています。
 

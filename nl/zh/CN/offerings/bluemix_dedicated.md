@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -30,9 +30,9 @@ subcollection: cloudant
 
 {{site.data.keyword.cloud_notm}} Dedicated 客户还可选择通过联合目录在 {{site.data.keyword.cloud_notm}} Public 中使用 {{site.data.keyword.cloudant_short_notm}}，包括轻量套餐实例和标准套餐实例。请注意，{{site.data.keyword.cloud_notm}} Dedicated 用户不能从 {{site.data.keyword.cloud_notm}} Public 目录购买专用硬件套餐，如果需要使用专用硬件，应该利用 {{site.data.keyword.cloud_notm}} Dedicated 上的 {{site.data.keyword.cloudant_short_notm}} Dedicated。   
 
-以下屏幕快照显示了 {{site.data.keyword.cloud_notm}}“目录”示例，其中突出显示了 {{site.data.keyword.cloudant_short_notm}}（左）和 {{site.data.keyword.cloudant_short_notm}} Dedicated 环境（右）的 {{site.data.keyword.cloud_notm}} Public 联合版本。  
+以下屏幕快照显示了示例 {{site.data.keyword.cloud_notm}}“目录”，其中突出显示了 {{site.data.keyword.cloudant_short_notm}} 和 {{site.data.keyword.cloudant_short_notm}} Dedicated 环境的 {{site.data.keyword.cloud_notm}} Public 联合版本。  
 
-![{{site.data.keyword.cloudant_short_notm}}“目录”](../images/bluemix_catalog.png)
+![{{site.data.keyword.cloudant_short_notm}}“目录”](../images/ibmcloud_catalog.png)
 
 ## 硬件容量 
 {: #hardware-capacity}
@@ -47,13 +47,13 @@ subcollection: cloudant
 ## 安全性、加密和合规性 
 {: #security-encryption-and-compliance}
 
-所有套餐都在使用[静态 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Data_at_rest) 磁盘加密的服务器上提供。访问通过公用网络连接进行，并且使用 HTTPS 进行了加密。有关更多详细信息，请参阅[安全性 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-security#security){: new_window}。IP 白名单在向 {{site.data.keyword.cloudant_short_notm}} 支持请求时提供，并且将应用于整个 {{site.data.keyword.cloudant_short_notm}} 环境，而不是实例级别。  
+所有套餐都在使用[静态 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Data_at_rest) 磁盘加密的服务器上提供。访问通过公用网络连接进行，并且使用 HTTPS 进行了加密。有关更多详细信息，请参阅[安全性](/docs/services/Cloudant?topic=cloudant-security#security)。IP 白名单在向 {{site.data.keyword.cloudant_short_notm}} 支持请求时提供，并且将应用于整个 {{site.data.keyword.cloudant_short_notm}} 环境，而不是实例级别。  
 
-此套餐还提供了[合规性认证 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-compliance#compliance){: new_window}。 
+此套餐还提供了[合规性认证](/docs/services/Cloudant?topic=cloudant-compliance#compliance)。 
 
 [HIPAA ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window} 合规性在请求时提供，因此请在采购过程中向 {{site.data.keyword.IBM_notm}} 销售代表请求此合规性。 
 
 ## 高可用性、灾难恢复和备份 
 {: #high-availability-disaster-recovery-and-backup}
 
-为了在数据中心内提供高可用性 (HA) 和灾难恢复 (DR)，所有数据将一式三份存储在集群中的三个单独的物理服务器上。在可用的情况下，您可以在多个位置供应帐户，然后使用持续数据复制跨数据中心提供 HA/DR。{{site.data.keyword.cloudant_short_notm}} 数据不会自动备份，但提供了支持的工具来处理备份。查看[灾难恢复和备份 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup){: new_window} 指南，以探究所有 HA、DR 和备份注意事项来满足应用程序需求。
+为了在数据中心内提供高可用性 (HA) 和灾难恢复 (DR)，所有数据将一式三份存储在集群中的三个单独的物理服务器上。在可用的情况下，您可以在多个位置供应帐户，然后使用持续数据复制跨数据中心提供 HA/DR。{{site.data.keyword.cloudant_short_notm}} 数据不会自动备份，但提供了支持的工具来处理备份。查看[灾难恢复和备份](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)指南，以探索所有 HA、DR 和备份注意事项来满足应用程序需求。

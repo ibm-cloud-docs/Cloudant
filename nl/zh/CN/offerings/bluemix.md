@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-06-12"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -61,9 +61,9 @@ subcollection: cloudant
 ### 专用硬件套餐
 {: #dedicated-hardware-plan}
 
-{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例是一种裸机 {{site.data.keyword.cloudant_short_notm}} 环境，为了使 {{site.data.keyword.cloudant_short_notm}} 标准套餐实例可供您专用而供应。{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐环境可以在任何 [{{site.data.keyword.IBM}} 数据中心 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 供应。要符合 HIPAA，需要使用此套餐，在供应时必须加以选择。{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐环境的用户可以利用 IP 白名单以及 {{site.data.keyword.IBM_notm}} Key Protect 的自带密钥 (BYOK) 客户管理的加密密钥。此外，2019 年 1 月 1 日之后供应的专用硬件环境为其上部署的所有标准套餐实例添加了内部端点。使用内部端点将允许客户通过内部 {{site.data.keyword.cloud}} 网络连接到 {{site.data.keyword.cloudant_short_notm}} 实例，以避免上游应用程序流量通过公用网络传输并产生带宽费用。有关更多信息，请参阅[服务端点文档](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window}，以获取为您的 {{site.data.keyword.cloud}} 帐户启用服务端点的更多详细信息。
+{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例是一种裸机 {{site.data.keyword.cloudant_short_notm}} 环境，为了使 {{site.data.keyword.cloudant_short_notm}} 标准套餐实例可供您专用而供应。{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐环境可以在任何 [{{site.data.keyword.IBM}} 全球数据中心 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/data-centers/){:new_window} 中供应。要符合 HIPAA，需要使用此套餐，在供应时必须加以选择。{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐环境的用户可以利用 IP 白名单以及 {{site.data.keyword.IBM_notm}} Key Protect 的自带密钥 (BYOK) 客户管理的加密密钥。此外，2019 年 1 月 1 日之后在非欧盟管理的环境中供应的专用硬件环境为其上部署的所有标准套餐实例包含了内部端点。使用内部端点将允许客户通过内部 {{site.data.keyword.cloud}} 网络连接到 {{site.data.keyword.cloudant_short_notm}} 实例，以避免上游应用程序流量通过公用网络传输并产生带宽费用。有关更多信息，请参阅[服务端点文档 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window}，以获取为您的 {{site.data.keyword.cloud}} 帐户启用服务端点的更多详细信息。
 
-您可以供应一个或多个标准套餐实例，专用硬件环境将根据标准套餐实例使用的容量和数据按需进行扩展或收缩。{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例具有固定价格，是对其上部署的任何标准套餐实例使用量定价的补充。计费依据比例按天收取，该环境的起步价为 1 个月的费用。供应 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐是异步执行的，需要 5 到 7 个工作日。要创建 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例并在其上供应标准套餐实例，请遵循[在 {{site.data.keyword.cloud_notm}} 上创建和利用 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} 教程。 
+您可以供应一个或多个标准套餐实例，专用硬件环境将根据标准套餐实例使用的容量和数据按需进行扩展或收缩。{{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例具有固定价格，是对其上部署的任何标准套餐实例使用量定价的补充。计费依据比例按天收取，该环境的起步价为 1 个月的费用。供应 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐是异步执行的，需要 5 到 7 个工作日。要创建 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例并在其上供应标准套餐实例，请遵循[在 {{site.data.keyword.cloud_notm}} 上创建和利用 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud)教程。 
 
 专用硬件套餐不适用于 {{site.data.keyword.cloud_notm}} Dedicated 客户。专用硬件套餐仅适用于 {{site.data.keyword.cloud_notm}} Public 客户。
 {: important}
@@ -80,7 +80,7 @@ subcollection: cloudant
         -	主索引 ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
         -	MapReduce 视图 ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
         -	搜索索引 ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
-        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+        -	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index))
     
         分区查询请求使用的读操作数根据返回的结果而有所不同。
 2.	_写入_，即单个文档的创建、修改或删除。
@@ -88,8 +88,8 @@ subcollection: cloudant
 	-	主索引 ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
 	-	MapReduce 视图 ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
 	-	搜索索引 ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
-	-	地理空间索引 ([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-geo-index))
-	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+	-	地理空间索引 ([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-nosql-db-geo-index))
+	-	{{site.data.keyword.cloudant_short_notm}} Query ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index))
 
 
 ## 供应的吞吐量容量
@@ -103,7 +103,7 @@ subcollection: cloudant
 
 由于超出事件数而拒绝请求时，应用程序将收到 [`429` 请求太多](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)响应。
 
-受支持客户机库（对于 [Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java)、[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js) 和 [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supportedn) 语言）的最新版本可帮助您处理 `429` 响应。例如，Java 库会生成 [`TooManyRequestsException` ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window} 响应。
+受支持客户机库（对于 [Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported)、[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported) 和 [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported) 语言）的最新版本可帮助您处理 `429` 响应。例如，Java 库会生成 [`TooManyRequestsException` ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window} 响应。
 
 缺省情况下，收到 `429` 响应时，支持的客户机库不会自动尝试重试请求。
 
@@ -129,7 +129,7 @@ subcollection: cloudant
 
 从索引读取的行数与返回的结果数相同。在查询请求期间，当 `include_docs=true` 作为查询字符串参数传递时仅从数据库读取文档。
 
-下表中显示了成本示例。
+下表中显示了示例成本。
 
 |结果数|是否包含文档|总读取使用量|读取的行使用量|读取的文档使用量|
 |--------------|----------------|-------------|---------------------| --- |
@@ -247,7 +247,7 @@ subcollection: cloudant
 
 建议在 Object Storage 中存储二进制附件或大型 JSON BLOB，并在 {{site.data.keyword.cloudant_short_notm}} JSON 文档中保存相应位置的链接。   
 
-在复制时，大于这些限制的文档或附件不会复制到目标数据库。[此处](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors)提供了有关如何检测复制错误的更多信息。
+在复制时，大于这些限制的文档或附件不会复制到目标数据库。有关如何检测复制错误的更多信息，请参阅[复制错误](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors)。
 
 ## 位置和租户
 {: #locations-and-tenancy}
@@ -261,7 +261,7 @@ subcollection: cloudant
 -   法兰克福&Dagger;
 -   东京
 
-可以在大多数 [{{site.data.keyword.IBM_notm}} 数据中心位置 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud-computing/bluemix/data-centers) 中部署专用硬件套餐实例。
+可以在大多数 [{{site.data.keyword.IBM_notm}} 数据中心位置 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/data-centers/) 中部署专用硬件套餐实例。
 请参阅 {{site.data.keyword.cloud_notm}}“目录”中的下拉菜单以获取可用位置的最新列表。
 
 &Dagger;所有从 {{site.data.keyword.cloud_notm}} Public 法兰克福区域部署的 {{site.data.keyword.cloudant_short_notm}} 实例都会部署在欧盟管理的环境中。在欧盟管理的环境外部生成的任何 {{site.data.keyword.cloudant_short_notm}} 帐户或 API 密钥，都无法获得对欧盟管理的 {{site.data.keyword.cloudant_short_notm}} 实例的访问权。
@@ -269,7 +269,7 @@ subcollection: cloudant
 ## 认证方法
 {: #authentication-methods}
 
-{{site.data.keyword.cloudant_short_notm}} 使用 HTTPS API 进行访问。如果 API 端点需要认证，那么会针对 {{site.data.keyword.cloudant_short_notm}} 收到的每个 HTTPS 请求，对用户进行认证。在供应期间，可用的认证方法包括“使用旧凭证和 IAM”或“仅使用 IAM”。有关更多信息，请参阅 [IAM 指南](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-l){: new_window}或旧[认证 API 文档](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}。
+{{site.data.keyword.cloudant_short_notm}} 使用 HTTPS API 进行访问。如果 API 端点需要认证，那么会针对 {{site.data.keyword.cloudant_short_notm}} 收到的每个 HTTPS 请求，对用户进行认证。在供应期间，可用的认证方法包括`使用旧凭证和 IAM` 或`仅使用 IAM`。有关更多信息，请参阅 [IAM 指南](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)或旧[认证 API 文档](/docs/services/Cloudant?topic=cloudant-authentication#authentication)。
 
 供应 {{site.data.keyword.cloudant_short_notm}} 实例之后，在 {{site.data.keyword.cloud_notm}}“仪表板”的“服务凭证”选项卡中生成新凭证时，可以找到连接 URL 和 IAM 授权详细信息。如果在供应期间选择了此选项，那么还将包含 {{site.data.keyword.cloudant_short_notm}} 的旧用户名和密码。
 
@@ -279,7 +279,7 @@ subcollection: cloudant
 ## 数据中心的高可用性、灾难恢复和备份
 {: #high-availability-disaster-recovery-and-backup-in-a-data-center}
 
-为了在数据中心内提供高可用性 (HA) 和灾难恢复 (DR)，所有数据将一式三份存储在集群中的三个单独的物理服务器上。您可以在多个数据中心内供应帐户，然后使用持续数据复制跨数据中心提供 HA/DR。{{site.data.keyword.cloudant_short_notm}} 数据不会自动备份，但提供了支持的工具来处理备份。查看[灾难恢复和备份指南 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-authorization#api-keys)，以探究所有 HA、DR 和备份注意事项来满足应用程序需求。 
+为了在数据中心内提供高可用性 (HA) 和灾难恢复 (DR)，所有数据将一式三份存储在集群中的三个单独的物理服务器上。您可以在多个数据中心内供应帐户，然后使用持续数据复制跨数据中心提供 HA/DR。{{site.data.keyword.cloudant_short_notm}} 数据不会自动备份，但提供了支持的工具来处理备份。查看[灾难恢复和备份指南](/docs/services/Cloudant?topic=cloudant-authorization#api-keys)，以探索所有 HA、DR 和备份注意事项来满足应用程序需求。 
 
 ## {{site.data.keyword.cloud_notm}} 支持
 {: #ibm-cloud-support}
@@ -296,10 +296,12 @@ subcollection: cloudant
 
 可以通过以下两种方式在 {{site.data.keyword.cloud_notm}} 上供应 {{site.data.keyword.cloudant_short_notm}} 轻量或标准套餐实例：
 
-- 使用仪表板。[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} 提供了描述此过程的教程。
-- 使用 Cloud Foundry 命令工具。[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} 提供了描述此过程的教程。
+- 使用仪表板。有关更多信息，请参阅描述相关过程的[在 {{site.data.keyword.cloud_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} 教程。
+- 使用 Cloud Foundry 命令工具。有关更多信息，请参阅描述相关过程的[使用 {{site.data.keyword.cloud_notm}} CLI 在 {{site.data.keyword.cloud_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window}。
  
-要创建和利用 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例，请遵循[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} 描述此过程的教程。
+要创建并利用 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例，请遵循描述相关过程的[在 {{site.data.keyword.cloud_notm}} 上创建和利用 {{site.data.keyword.cloudant_short_notm}} 专用硬件套餐实例 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} 教程。
+
+
 
 
 

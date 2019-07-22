@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Gerenciamento do documento de design
+# Gerenciamento de documento de design
 {: #design-document-management}
 
 *Artigo fornecido por Glynn Bird, advogado geral no IBM Cloudant,
@@ -40,9 +40,8 @@ com pares chave-valor armazenados em uma BTree para recuperação eficiente por 
 -   Os índices de procura são construídos usando o Apache Lucene para permitir a procura de texto livre,
 consultas ad hoc complexas e com facetas
 
-Os [índices de procura](/docs/services/Cloudant?topic=cloudant-search#search) e [visualizações MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) do {{site.data.keyword.cloudant_short_notm}}
-são configurados incluindo Documentos de design em um banco de dados.
-Os Documentos de design são documentos JSON que contêm as instruções sobre como a visualização ou o índice devem ser construídos.
+Os [índices de procura](/docs/services/Cloudant?topic=cloudant-search#search) e as [visualizações de MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) do {{site.data.keyword.cloudant_short_notm}} são configurados incluindo documentos de design em um banco de dados.
+Documentos de design são documentos JSON que contêm as instruções sobre como a visualização ou o índice deve ser construído.
 Vamos observar um exemplo simples.
 Suponha que tenhamos uma coleção simples de documentos de dados,
 semelhante ao exemplo a seguir.
@@ -84,9 +83,7 @@ como não estamos interessados no valor no índice,
 `null` é emitido.
 O efeito é fornecer um índice ordenado pelo tempo para o conjunto de documentos.
 
-Vamos chamar essa visualização de "`by_ts`"
-e colocá-la em um Documento de design chamado "`fetch`",
-como no exemplo a seguir.
+Nós vamos chamar essa visualização de "`by_ts`" e colocá-la em um documento de design chamado "`fetch`", como no exemplo a seguir.
 
 _Exemplo de documento de design que define uma visualização usando uma função de mapa:_
 
@@ -107,11 +104,9 @@ _Exemplo de documento de design que define uma visualização usando uma funçã
 ```
 {: codeblock}
 
-O resultado é que nosso código de mapa foi transformado em uma sequência compatível com JSON
-e incluído em um Documento de design.
+O resultado é que nosso código de mapa foi transformado em uma cadeia compatível com JSON e incluído em um documento de design.
 
-Depois que o Documento de design é salvo,
-o {{site.data.keyword.cloudant_short_notm}} aciona os processos do lado do servidor para construir a visualização `fetch/by_ts`.
+Depois que o documento de design é salvo, o {{site.data.keyword.cloudant_short_notm}} aciona processos do lado do servidor para construir a visualização `fetch/by_ts`.
 Ele faz isso ao iterar sobre cada documento no banco de dados
 e ao enviar cada um para a função de mapa Javascript.
 A função retorna o emitido par chave-valor emitido.
@@ -128,9 +123,9 @@ conforme mostrado no diagrama a seguir:
 Vale a pena lembrar neste momento que:
 
 -   A construção de um índice acontece de forma assíncrona.
-    O {{site.data.keyword.cloudant_short_notm}} confirma que o nosso Documento de design foi salvo,
-    mas para verificar o progresso na construção de nosso índice,
-    temos que pesquisar o terminal [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) do {{site.data.keyword.cloudant_short_notm}}.
+    O {{site.data.keyword.cloudant_short_notm}} confirma que nosso documento de design foi salvo,
+    mas, para verificar o progresso na construção de nosso índice,
+    temos de pesquisar o terminal `_active_tasks` do {{site.data.keyword.cloudant_short_notm}} [](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks).
 -   Quanto mais dados tivermos,
 mais tempo levará para o índice ficar pronto.
 -   Enquanto a construção do índice inicial estiver em andamento,
@@ -138,7 +133,7 @@ _as consultas feitas nesse índice serão bloqueadas_.
 -   Consultar uma visualização acionará o 'mapeamento' de quaisquer documentos que ainda não tenham sido indexados incrementalmente.
     Isso assegura que tenhamos uma visualização atualizada dos dados.
     Veja a discussão do [parâmetro '`stale`'](#the-stale-parameter) a seguir
-para obter exceções a essa regra.
+    para obter exceções a essa regra.
 
 ## Múltiplas visualizações no mesmo documento de design
 {: #multiple-views-in-the-same-design-document}
@@ -158,7 +153,7 @@ Esse comportamento não se aplica aos índices de procura Lucene. Eles podem ser
 sem invalidar outros índices inalterados no mesmo documento.
 {: note}
 
-![Ilustração da mudança de versão do Documento de design](../images/DesDocMan02.png)
+![Ilustração da mudança de versão do documento de design](../images/DesDocMan02.png)
 
 ## Gerenciando mudanças em um documento de design
 {: #managing-changes-to-a-design-document}
@@ -205,19 +200,13 @@ Mas há um problema...
 Se tivermos um aplicativo que esteja acessando essa visualização _em tempo real_,
 poderemos encontrar um dilema de implementação:
 
--   A versão 1 do nosso código,
-que contava com o Documento de design original,
-pode não funcionar mais porque a visualização antiga foi invalidada.
--   A versão 2 do nosso código,
-que usa o novo Documento de design
-não pode ser liberada imediatamente,
-porque a nova visualização ainda não terá terminado a construção,
-especialmente se houver muitos documentos no banco de dados.
+-   A versão 1 de nosso código, que se baseou no documento de design original, pode não funcionar mais porque a visualização antiga foi invalidada.
+-   A versão 2 do nosso código, que usa o novo documento de design, não poderá ser liberada imediatamente porque a nova visualização ainda não terá concluído a construção, especialmente se houver muitos documentos no banco de dados.
 -   Um problema mais sutil que afeta nosso código é que as versões 1 e 2 esperam diferentes dados de resultado da visualização:
 a versão 1 espera uma lista de documentos correspondentes,
 enquanto a versão 2 espera uma contagem 'reduzida' de resultados.
 
-## Coordenando mudanças para Documentos de design
+## Coordenando mudanças em documentos de design
 {: #coordinating-changes-to-design-documents}
 
 Há duas maneiras de lidar com esse problema de controle de mudança.
@@ -235,8 +224,7 @@ e consultamos a visualização para assegurar que ela comece a ser construída.
 -   Agora estamos prontos para liberar o código que depende da segunda visualização.
 -   Excluiremos `_design/fetchv1` quanto tivermos certeza de que não é mais necessário.
 
-Usar documentos de design com versão é uma maneira simples de gerenciar o controle de mudança nos Documentos de design,
-contanto que você se lembre de remover as versões mais antigas em uma data posterior.
+O uso de documentos de design com versão é uma maneira simples de gerenciar o controle de mudanças em seus documentos de design, desde que você se lembre de remover as versões mais antigas em uma data posterior.
 
 ### Documentos de design 'Mover e alternar'
 {: #-move-and-switch-design-documents}
@@ -258,10 +246,10 @@ usando um nome com o sufixo `_NEW`: `_design/fetch_NEW`.
 para assegurar-se de que ela comece a ser construída.
 4.  Pesquise o terminal `_active_tasks` e aguarde até que o índice tenha concluído a construção.
 5.  Coloque uma cópia duplicada do novo documento de design em `_design/fetch`.
-6.  Exclua o Documento de design `_design/fetch_NEW`.
-7.  Exclua o Documento de design `_design/fetch_OLD`.
+6.  Excluir o documento de design `_design/fetch_NEW`.
+7.  Excluir o documento de design `_design/fetch_OLD`.
 
-## Conjunto de ferramentas Mover e alternar
+## Ferramenta 'Mover e alternar'
 {: #move-and-switch-tooling}
 
 Há um script Node.js da linha de comandos que automatiza o procedimento 'mover e alternar',
@@ -299,9 +287,7 @@ Supondo que tenhamos um documento de design no formato JSON
 armazenado em um arquivo,
 poderemos então executar o comando de migração.
 
-Neste exemplo,
-`db` especifica o nome do banco de dados a ser mudado
-e `dd` especifica o caminho para o nosso arquivo de Documento de design.
+Neste exemplo, `db` especifica o nome do banco de dados a ser mudado e `dd` especifica o caminho para nosso arquivo de documento de design.
 
 _Executando o comando `couchmigrate`:_
 
@@ -310,8 +296,7 @@ couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
 {: pre}
 
-O script coordena o procedimento 'mover e alternar',
-aguardando até que a visualização seja construída antes de retornar.
+O script coordena o procedimento 'Mover e alternar', esperando até que a visualização seja construída antes de retornar.
 Se o documento de design recebido for o mesmo que o incumbente,
 o script será retornado quase que imediatamente.
 

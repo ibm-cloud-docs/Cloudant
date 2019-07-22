@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -23,13 +23,13 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # Cinq conseils pour la modélisation de vos données
-{: #five-tips-for-modelling-your-data-to-scale}
+{: #five-tips-for-modeling-your-data-to-scale}
 
 Cet article présente les points principaux de
 modélisation des données d'application pour un fonctionnement efficace à grande échelle.
 {: shortdesc}
 
-*(Ce guide s'inspire d'un article de blogue de Mike Rhodes : ["My Top 5 Tips for Modeling Data to Scale" ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/), publié le 17 décembre 2013.)*
+*(Ce guide s'inspire d'un article de blogue de Mike Rhodes : ["My Top 5 Tips for Modeling Data to Scale" ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/), publié le 17 décembre 2013.)*
 
 La façon dont vous modélisez vos données dans {{site.data.keyword.cloudantfull}} impacte de manière significative
 la possibilité d'évolution de votre application. Notre modèle de données sous-jacent est très différent d'un modèle relationnel et ne pas tenir compte
@@ -72,7 +72,7 @@ mise à jour et que l'autre sous-ensemble accepte la deuxième mise à jour. Lor
 différence, il associe les documents comme le ferait une réplication normale pour les mises à jour
 simultanées en créant un conflit.
 
-Les documents en conflit ont des conséquences sur les performances. Pour plus d'informations, voir ci-dessous. 
+Les documents en conflit ont des conséquences sur les performances. Pour plus d'informations sur les raisons de ce problème, consultez le texte suivant.
 Un modèle de mise à jour simultanée fréquente augmente également la probabilité que les opérations d'écriture soient
 rejetées car le paramètre `_rev` n'est pas celui attendu. Par conséquent, l'application va
 effectuer de nouvelles tentatives et le traitement va être retardé.
@@ -169,7 +169,7 @@ Utilisons par exemple un enregistrement médical contenant une liste d'opératio
 {: codeblock}
 
 Si Joe subit beaucoup d'opérations en même temps, le nombre de mises à jour
-simultanées élevé apportées à un même document peut créer des documents conflictuels, comme cela est décrit ci-dessus. 
+simultanées élevé apportées à un même document peut créer des documents conflictuels, comme cela est décrit ci-dessus.
 Il est préférable de répartir les opérations dans différents documents faisant référence au document personnel de Joe
 et d'utiliser une vue pour connecter les différentes éléments. Pour représenter chaque opération, téléchargez des documents
 similaires aux exemples suivants :
@@ -210,7 +210,7 @@ pas que ces documents de {{site.data.keyword.cloudant_short_notm}} sont en fait 
 sélectionne une des feuilles non supprimées de cette arborescence afin d'indiquer quand une demande est effectuée
 pour le document. Le traitement des arborescences de plus grande taille avec un facteur de ramification plus important peut
 durer plus longtemps que le traitement d'une arborescence de documents sans branche ou avec peu de branches. En effet, il est
-nécessaire de suivre chaque branche pour voir s'il s'agit potentiellement de la révision gagnante. Les gagnants potentiels doivent ensuite être comparés les uns aux autres afin d'effectuer
+nécessaire de suivre chaque branche pour savoir s'il s'agit potentiellement de la révision gagnante. Les gagnants potentiels doivent ensuite être comparés les uns aux autres afin d'effectuer
 le choix final.
 
 Lorsque le nombre de branches est peu élevé, {{site.data.keyword.cloudant_short_notm}} en assure correctement la gestion. Effectivement, la réplication s'appuie sur le
@@ -255,5 +255,5 @@ croissance de votre application. Nous avons conscience que cela peut être dést
 
 Pour plus d'informations, voir le site
 présentant le [modèle de données de Foundbite ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}
-ou la page [présentant un exemple de Twilio![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
+ou la page [présentant un exemple de Twilio ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
 

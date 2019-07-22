@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -60,7 +60,7 @@ use a URL a seguir, em vez daquela fornecida nos exercícios:
 Nesta seção, você criará o [banco de dados](/docs/services/Cloudant?topic=cloudant-databases#create-database) `query-demo`, que
 é o banco de dados que usaremos neste tutorial.
 
-Neste tutorial, usaremos o alias `acurl` em vez do comando `curl`. O alias `acurl` é criado usando as etapas descritas [aqui](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). Se você preferir usar o comando `curl`
+Neste tutorial, usaremos o alias `acurl` em vez do comando `curl`. O alias `acurl` é criado usando as etapas em [Curl autorizado: `acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). Se você preferir usar o comando `curl`
 ou outro método para chamar terminais de API,
 substitua seu comando no tutorial
 junto aos parâmetros requeridos por seu comando,
@@ -268,7 +268,7 @@ o conjunto de resultados. Um índice é uma maneira de estruturar dados que melh
 
 Usamos o {{site.data.keyword.cloudant_short_notm}} Query neste tutorial, que usa a sintaxe de consulta no estilo Mongo para procurar por documentos usando operadores lógicos. O {{site.data.keyword.cloudant_short_notm}} Query é uma combinação de uma visualização e um índice de procura.
 
-Quando você usa {{site.data.keyword.cloudant_short_notm}}Consulta, o planejador de consulta examino o seletor (sua consulta) para determinar o índice correto a partir do. Se ele não localizar um índice adequado, usará o índice especial `_all_docs`, que consulta documentos por ID. No pior cenário de caso, ele retorna todos os documentos por ID (varredura de tabela integral). Na memória, filtramos os documentos pelo seletor, que é o motivo pelo qual, mesmo sem um índice, ainda é possível consultar vários campos. As varreduras de tabela completas são caras e recomendamos que você crie um índice. Consulte uma descrição de diferentes tipos de índices na lista a seguir:
+Ao usar o {{site.data.keyword.cloudant_short_notm}} Query, o planejador de consulta examina o seletor (sua consulta) para determinar o índice correto a escolher. Se ele não localizar um índice adequado, usará o índice especial `_all_docs`, que consulta documentos por ID. No pior cenário de caso, ele retorna todos os documentos por ID (varredura de tabela integral). Na memória, filtramos os documentos pelo seletor, que é o motivo pelo qual, mesmo sem um índice, ainda é possível consultar vários campos. As varreduras de tabela completas são caras e recomendamos que você crie um índice. Consulte uma descrição de diferentes tipos de índices na lista a seguir:
 
 *	Índice primário - consultar um documento ou uma lista de documentos por ID.  
 *	[Visualização](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) – procurar informações no banco de dados que correspondem aos critérios de procura especificados, como contagens, somas, médias e outras funções matemáticas. Os critérios que podem ser procurados são especificados na definição da visualização. As visualizações usam o paradigma MapReduce.

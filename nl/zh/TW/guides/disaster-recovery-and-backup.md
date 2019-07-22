@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -48,9 +48,9 @@ subcollection: cloudant
 
 {{site.data.keyword.cloudant_short_notm}} 提供許多工具及特性，以處理一般需求：
 
-1.	單一地區內的資料備援，也稱為[地區內自動資料備援](#in-region-automatic-data-redundancy)。
-2.	跨地區資料備援及失效接手，也稱為[災難回復的跨地區備援](#cross-region-redundancy-for-disaster-recovery)。
-3.	使用「傳統」的[資料庫備份及回復](#database-backup-and-recovery)，用於時間點還原的時間點 Snapshot 備份。
+1.	單一地區中的資料備援，也稱為[地區內自動資料備援](#in-region-automatic-data-redundancy)。
+2.	跨地區資料備援和失效接手，也稱為[用於災難回復的跨地區備援](#cross-region-redundancy-for-disaster-recovery)。
+3.	用於復原點還原的復原點 Snapshot 備份，使用「傳統」的[資料庫備份和回復](#database-backup-and-recovery)。
 
 ## 地區內自動資料備援
 {: #in-region-automatic-data-redundancy}
@@ -69,13 +69,13 @@ subcollection: cloudant
 1.	僅提供單一地區內的保護。
 2.	維護現行資料。
 
-若要提供與您帳戶相關聯的多個單一地區的保護，請使用[災難回復的跨地區備援](#cross-region-redundancy-for-disaster-recovery)。
+若要在與您帳戶關聯的單一地區以及其他地區之間提供保護，請使用[用於災難回復的跨地區備援](#cross-region-redundancy-for-disaster-recovery)。
 
-若要提供資料「歷程」的保護（例如，針對應用程式進行的資料變更啟用審核），請使用[資料庫備份及回復](#database-backup-and-recovery)工具所建立的資料 Snapshot。
+若要提供對資料「歷程」的保護（例如要能夠審核應用程式對資料進行的變更），請使用由[資料庫備份和回復](#database-backup-and-recovery)工具建立的資料 Snapshot。
 
 總而言之，地區內資料備援透過提供影響地區內單一系統的失敗容錯，來啟用「高可用性」功能。
 
-## 災難回復的跨地區備援
+## 用於災難回復的跨地區備援
 {: #cross-region-redundancy-for-disaster-recovery}
 
 {{site.data.keyword.cloudant_short_notm}} 抄寫特性可協助您將彈性的災難回復功能建置到應用程式。啟用災難回復的主要方式是使用 {{site.data.keyword.cloudant_short_notm}} 抄寫來建立跨地區的備援。結果是您的應用程式可以容忍一個以上地區無法使用的狀況。
@@ -85,7 +85,7 @@ subcollection: cloudant
 1.  在兩個以上的地區中建立 {{site.data.keyword.cloudant_short_notm}} 帳戶。
 2.  視需要，在每一個地區中建立資料庫。
 3.  針對必須使用跨地區備援儲存的資料庫，設定每一個帳戶的對應資料庫之間的雙向持續抄寫。
-4.  設計及實作應用程式，以傳遞資料要求（視環境為「主動-被動」還是「主動-主動」配置而定）。[提供](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)設定此作業的詳細手冊。
+4.  設計及實作應用程式，以傳遞資料要求（視環境為「主動-被動」還是「主動-主動」配置而定）。如需設定此項的相關資訊，請參閱[配置 {{site.data.keyword.cloudant_short_notm}} 用於跨地區災難回復](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)。
 
 當您設計應用程式使用跨多個地區的資料時，請考量下列各點：
 
@@ -96,12 +96,12 @@ subcollection: cloudant
 
 總而言之，跨地區備援類似高可用性功能，但適用於影響整個地區的失敗。不過，配置您的應用程式正確使用跨備援配置，可提供真正的災難回復功能。原因是如果某個地區中的資料在一段時間內無法使用，應用程式仍然可以持續運作。{{site.data.keyword.cloudant_short_notm}} 抄寫有助於確保各地區之間的資料同步化。不過，您的應用程式必須能夠「失效接手」至其他地區中所儲存的資料副本。
 
-## 資料庫備份及回復
+## 資料庫備份和回復
 {: #database-backup-and-recovery}
 
-[地區內自動資料備援](#in-region-automatic-data-redundancy)透過高可用性資料存取來提供應用程式。[災難回復的跨地區備援](#cross-region-redundancy-for-disaster-recovery)透過從災難回復的方式來提供應用程式。不過，這兩個功能都著重在維護僅限_現行_ 資料副本的存取。
+[地區內自動資料備援](#in-region-automatic-data-redundancy)為應用程式提供對資料的高可用性存取。[用於災難回復的跨地區備援](#cross-region-redundancy-for-disaster-recovery)為應用程式提供災難回復方法。不過，這兩個功能都著重在維護僅限_現行_ 資料副本的存取。
 
-實際上，人員及應用程式可能會出錯，而以不想要的方式變更資料。應用程式本身可以實作某種保護，但有時會通過不想要的變更。在此情況下，可從前一個時間點還原資料十分有用。資料庫備份支援此需求。
+實際上，人員及應用程式可能會出錯，而以不想要的方式變更資料。應用程式本身可以實作某種保護，但有時還是會有不想要的變更通過。在此情況下，可從前一個時間點還原資料十分有用。資料庫備份支援此需求。
 
 除了使用高可用性及災難回復特性來保護資料之外，也請考量定期將資料庫資料傾出到不同位置。請確定您檢查及測試備份，確認它們已完成且正確。
 
@@ -131,6 +131,6 @@ subcollection: cloudant
 *	儲存多個先前文件狀態，以容許從過去的較久時間還原。
 *	將較舊的資料移轉至較便宜的儲存空間，以進行較具成本效益的保留。
 
-備份工具包含開放程式碼 node.js 指令行應用程式及程式庫。[NPM ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} 上會提供它。
+備份工具包含開放程式碼 node.js 指令行應用程式及程式庫。它在 [NPM ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} 上可用。
 
-如需構想以及顯示如何將工具整合至資料保護策略的範例，請參閱[備份錦囊妙計手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)。
+如需說明如何將工具整合到資料保護策略中的構想和範例，請參閱 [{{site.data.keyword.cloudant_short_notm}} 備份和回復手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -57,10 +57,10 @@ install-package mycouch.cloudant
 -   [CRUD ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}。
 
 ## Java
-{: #java}
+{: #java-thirdparty}
 
 ### 不支援的 Java 程式庫
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-thirdparty}
 
 -   [ektorp ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}。
 -   [jcouchdb ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://code.google.com/p/jcouchdb/){: new_window}。
@@ -73,7 +73,7 @@ install-package mycouch.cloudant
 ### JavaScript 的程式庫及架構
 {: #libraries-and-frameworks-for-javascript}
 
--   [Backbone.cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}。如需相關資訊，請參閱[部落格文章 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/backbone-and-cloudant/){: new_window}。
+-   [Backbone.cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}。
 -   [sag.js ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/sbisbee/sag-js){: new_window}。
 
 ### JavaScript 的範例及指導教學
@@ -111,9 +111,9 @@ PouchDB 也適用於 Node.js：`npm install pouchdb`。
 -   [locationtracker ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/rajrsingh/locationtracker){: new_window} - 使用 PouchDB、CouchApp 及 {{site.data.keyword.cloudant_short_notm}} 來記錄及對映位置的範例應用程式。
 
 ## Node.js
-{: #node-js}
+{: #node-js-thirdparty}
 
-### 不支援的 node.js 程式庫及架構
+### 不支援的 Node.js 程式庫及架構
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
 -   [sag-js ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/sbisbee/sag-js){: new_window}（也會在瀏覽器中運作）。如需詳細資料，請參閱 [saggingcouch ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/sbisbee/saggingcouch.com){: new_window}。
@@ -154,7 +154,7 @@ require_once('./src/Sag.php');
 ### 不支援的 Python 程式庫及架構
 {: #unsupported-libraries-and-frameworks-for-python}
 
--   [要求 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://docs.python-requests.org/en/master/){: new_window}。
+-   [Requests ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://docs.python-requests.org/en/master/){: new_window}。
 
 ## Ruby
 {: #ruby}
@@ -206,4 +206,4 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {: codeblock}
 
-如需 meteor-couchdb API 的相關資訊，請參閱 [API 參考資料](/docs/services/Cloudant/api/index.html#api-reference-overview)。 
+如需 meteor-couchdb API 的相關資訊，請參閱 [API 參考資料](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)。 

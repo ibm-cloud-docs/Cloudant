@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -36,12 +36,12 @@ Python을 사용하여 {{site.data.keyword.cloudant_short_notm}} 데이터베이
 - [Node.js 및 {{site.data.keyword.cloudant_short_notm}} ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
 - [Swift 및 {{site.data.keyword.cloudant_short_notm}} ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-언어별 튜토리얼에 대한 자세한 정보는 [첫 번째 앱을 배치하여 시작하기 ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/){: new_window}를 참조하십시오. 
+언어별 튜토리얼에 대한 자세한 정보는 [첫 번째 앱을 배치하여 시작하기 ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs){: new_window}를 참조하십시오. 
 
 ## 시작하기 전에
 {: #prereqs}
 
-[{{site.data.keyword.cloud}} 계정 ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https:///cloud.ibm.com/registration/){: new_window},
+[{{site.data.keyword.cloud}} 계정 ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/registration/){: new_window},
 {{site.data.keyword.cloudant_short_notm}} 서비스의 인스턴스와 다음 Python 요구사항이 필요합니다.
 
 *	시스템에
@@ -102,30 +102,30 @@ Python을 사용하여 {{site.data.keyword.cloudant_short_notm}} 데이터베이
 
 2.  {{site.data.keyword.cloudant_short_notm}} 서비스 인증 정보를 작성하십시오.
   <br>{{site.data.keyword.cloud_notm}} 대시보드에서 **메뉴** 아이콘 > **리소스 목록**으로 이동하고 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 여십시오.
-  <br>왼쪽 탐색에서 `Service credentials`를 클릭하십시오.
+  <br>메뉴에서 `Service credentials`를 클릭하십시오.
   <br>a. `New credential` 단추를 클릭하십시오.
-  <br>![새 서비스 인증 정보 작성](/docs/services/Cloudant/tutorials/images/img0050.png)
+  <br>![새 서비스 인증 정보 작성](tutorials/images/img0050.png)
   <br>b. 다음 스크린샷에 표시되어 있는 바와 같이 새 인증 정보 추가 창에서 새 인증 정보의 이름을 입력하십시오.
   <br>c. (선택사항) 인라인 구성 매개변수를 추가하십시오.
   <br>d. `Add` 단추를 클릭하십시오. 
-  <br>![새 서비스 인증 정보 추가](/docs/services/Cloudant/tutorials/images/img0051.png)
+  <br>![새 서비스 인증 정보 추가](tutorials/images/img0051.png)
   <br>사용자의 인증 정보가 서비스 인증 정보 테이블에 추가됩니다.
   <br>e. 조치에서 `View credentials`를 클릭하십시오. 
-  <br>![모든 서비스 인증 정보 보기](/docs/services/Cloudant/tutorials/images/img0052.png)
+  <br>![모든 서비스 인증 정보 보기](tutorials/images/img0052.png)
   <br>서비스 인증 정보의 세부사항이 표시됩니다.
-   <br>![ {{site.data.keyword.cloudant_short_notm}} 서비스 인증 정보](/docs/services/Cloudant/tutorials/images/img0009.png)
+   <br>![{{site.data.keyword.cloudant_short_notm}} 서비스 인증 정보](tutorials/images/img0009.png)
    
-3.	{{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 대한 연결을 설정하십시오. 이를 수행하는 메커니즘은 {{site.data.keyword.cloud_notm}} IAM 또는 {{site.data.keyword.cloudant_short_notm}} 레거시 인증을 사용 중인지 여부에 따라 다릅니다. 인증 유형에 대한 세부사항은 [{{site.data.keyword.cloud_notm}} Identity and Access Management(IAM) 안내서 ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)를 참조하십시오.
+3.	{{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에 대한 연결을 설정하십시오. 이를 수행하는 메커니즘은 {{site.data.keyword.cloud_notm}} IAM 또는 {{site.data.keyword.cloudant_short_notm}} 레거시 인증을 사용 중인지 여부에 따라 다릅니다. 두 인증 유형에 대한 자세한 정보는 [{{site.data.keyword.cloud_notm}} Identity and Access Management(IAM) 안내서](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)를 참조하십시오. 
 
 	{{site.data.keyword.cloudant_short_notm}} 레거시 인증 정보를 사용 중인 경우 이전 단계에서 서비스 인증 정보를 바꾸십시오.
-```python
+	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
 	client.connect()
 	```
 	{: codeblock}
 	
 	IAM 인증을 사용 중인 경우 이전 단계에서 서비스 인증 정보를 바꾸십시오.
-```python
+	```python
 	client = Cloudant.iam("<username>", "<apikey>")
 	client.connect()
 	```
@@ -141,7 +141,7 @@ Python을 사용하여 {{site.data.keyword.cloudant_short_notm}} 데이터베이
   ```
   {: codeblock}
 
-    ... 여기서 `<your-database-name>`은 데이터베이스에 지정할 이름입니다. 
+  ... 여기서 `<your-database-name>`은 데이터베이스에 지정할 이름입니다.  
 
   데이터베이스 이름은 문자로 시작해야 하며 소문자(a - z), 숫자(0 - 9), 그리고 문자 `_`, `$`, `(`, `)`, `+`, `-`, `/`만 포함해야 합니다.
   {: warning}
@@ -369,16 +369,16 @@ Python을 사용하여 {{site.data.keyword.cloudant_short_notm}} 데이터베이
   ```
   {: codeblock}
 
-## (선택사항) 6단계: {{site.data.keyword.cloudant_short_notm}} 대시보드의 데이터베이스 정보 참조
+## (선택사항) 6단계: {{site.data.keyword.cloudant_short_notm}} 대시보드에서 데이터베이스 정보 보기
 {: #optional-step-6-ibm-cloudant-dashboard}
 
-다음 단계를 수행하여 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 데이터베이스와 문서를 확인하십시오. 
+{{site.data.keyword.cloudant_short_notm}} 대시보드에서 자신의 데이터베이스 및 문서를 보려면 다음 단계를 따르십시오.  
 
 1.  IBM Cloud 계정에 로그인하십시오.
     IBM Cloud 대시보드가 https://cloud.ibm.com/에 있습니다. 사용자 이름 및 비밀번호를 사용하여 인증하면 IBM Cloud 대시보드가 표시됩니다.
 2.  리소스 요약 분할창에서 **서비스**를 클릭하여 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 확인하십시오. 
 3.  세부사항을 보려는 서비스 인스턴스를 클릭하십시오.
-4.  **Launch Cloudant Dashboard**를 클릭하십시오.
+4.  **Launch Cloudant Dashboard**를 클릭하십시오. 
     대시보드가 열리면 서비스와 연관된 데이터베이스를 볼 수 있습니다.
 
 
@@ -414,7 +414,7 @@ client.disconnect()
 {: #next-steps}
 
 모든 {{site.data.keyword.cloudant_short_notm}} 오퍼링에 대한 자세한 정보는
-기본 [{{site.data.keyword.cloudant_short_notm}} ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} 사이트를 참조하십시오.
+기본 [{{site.data.keyword.cloudant_short_notm}} ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/cloudant){: new_window} 사이트를 참조하십시오.
 
 자세한 정보는 [{{site.data.keyword.cloudant_short_notm}} 문서](/docs/services/Cloudant?topic=cloudant-overview#overview)에서 튜토리얼, {{site.data.keyword.cloudant_short_notm}} 개념, 태스크 및 기술을 참조하십시오.
 
@@ -422,11 +422,10 @@ client.disconnect()
 {: #appendix-complete-python-code-listing}
 
 전체 Python 코드 목록은 다음과 같습니다. 
-여기서 `<username>`,
-`<password>`, `<url>`
-및 `<apikey>` 값을 사용자의 서비스 인증 정보로 대체해야 한다는 점을 기억하십시오.
+잊지 말고 `<username>`, `<password>`,
+`<url>` 및 `<apikey>` 값을 자신의 서비스 인증 정보로 대체하십시오.
 마찬가지로,
-`<yourDatabaseName>` 값을 사용자의 데이터베이스 이름으로 대체하십시오.
+`<yourDatabaseName>` 값을 자신의 데이터베이스 이름으로 대체하십시오. 
 
 ```python
 from cloudant.client import Cloudant
@@ -437,7 +436,7 @@ from cloudant.result import Result, ResultByKey
 client = Cloudant("<username>", "<password>", url="<url>")
 client.connect()
 
-# IAM Authentication (uncomment if needed, and comment out {{site.data.keyword.cloudant_short_notm}} Legacy authentication section above)
+# IAM Authentication (uncomment if needed, and comment out previous {{site.data.keyword.cloudant_short_notm}} Legacy authentication section)
 client = Cloudant.iam("<username","<apikey>")
 client.connect()
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -25,7 +25,7 @@ subcollection: cloudant
 # 迁移到 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}}
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
 
-[{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant) 的“数据库即服务”产品是在多租户集群上运行的 JSON 文档库。该服务提供了具有可预测成本、可伸缩性和服务级别协议 (SLA) 的地理位置供您选择。
+[{{site.data.keyword.cloudantfull}} ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/cloudant){: new_window} 的“数据库即服务”产品是在多租户集群上运行的 JSON 文档库。该服务提供了具有可预测成本、可伸缩性和服务级别协议 (SLA) 的地理位置供您选择。
 
 本文档描述了如何从下列其中一个套餐迁移到 {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 轻量套餐或标准套餐实例：
 
@@ -57,7 +57,7 @@ Apache CouchDB|{{site.data.keyword.cloudant_short_notm}} 基于的自托管开�
 可以更改的吞吐量容量限制为每次更改最多 10 个单位（请注意滑块上的“更改限制”点），并且每小时最多更改一次。减少吞吐量容量的量级不受限制，但时间上仍限制为每小时最多更改一次。
 {: tip}
 
-系统将根据在任何给定的每小时窗口中选择的最高容量对您计费。数据库吞吐量可以扩展以处理季节性需求，然后在静默期再次缩减。您的每月帐单总是可预测的；升级会自动执行；并且您的 SLA 为 [99.95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument)。
+系统将根据在任何给定的每小时窗口中选择的最高容量对您计费。数据库吞吐量可以扩展以处理季节性需求，然后在静默期再次缩减。您的每月帐单总是可预测的；升级会自动执行；并且您的 SLA 为 [99.95% ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}。
 
 如果在给定一秒内超过读取次数、写入次数和全局查询次数的配额，那么 {{site.data.keyword.cloudant_short_notm}} API 会使用 `HTTP 429 太多请求`响应进行响应。应用程序可能会稍后重试该请求 - 我们的官方库提供了一个选项，可用于在指数退避的情况下重试此类请求。 
 
@@ -94,10 +94,10 @@ Apache CouchDB|{{site.data.keyword.cloudant_short_notm}} 基于的自托管开�
 1.  转至 {{site.data.keyword.cloud_notm}}“仪表板”。
 2.  转至**菜单**资源 > **资源列表**以查看所有服务实例。 
 3.  选择要迁移的 {{site.data.keyword.cloudant_short_notm}} 实例。 
-4.  选择左侧导航中的**套餐**选项卡。 
+4.  选择菜单上的**套餐**选项卡。 
 5.  从价格套餐列表中，选中**标准**复选框。
 ![轻量](../images/migrate3.png)
-6.  单击页面底部的**升级**。您的所有现有数据都会保留。
+6.  单击**升级**。您的所有现有数据都会保留。
 
 使用“吞吐量容量”滑块来调整容量，以根据需要增加或减少容量。
 {: tip} 
@@ -115,14 +115,14 @@ Apache CouchDB|{{site.data.keyword.cloudant_short_notm}} 基于的自托管开�
 ### 第 1 步：注册 {{site.data.keyword.cloud_notm}}
 {: #step-1-sign-up-for-ibm-cloud}
 
-如果尚未注册，请[注册 {{site.data.keyword.cloud_notm}} 帐户](https://www.ibm.com/cloud/)。 
+如果尚未注册，请[注册 {{site.data.keyword.cloud_notm}} 帐户 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/){: new_window}。 
 
 ### 第 2 步：创建 {{site.data.keyword.cloudant_short_notm}} 实例
 {: #step-2-create-an-ibm-cloudant-instance}
 
 登录到 {{site.data.keyword.cloud_notm}} 帐户后，请添加 {{site.data.keyword.cloudant_short_notm}} 服务。单击仪表板上的`创建资源`按钮，然后单击`数据库`和 `Cloudant`。有关更多信息，请参阅[如何在 {{site.data.keyword.cloud_notm}} 上创建 {{site.data.keyword.cloudant_short_notm}} 实例](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)。 
 
-![添加 {{site.data.keyword.cloudant_short_notm}} 实例](/docs/services/Cloudant/tutorials/images/img0003.png)
+![添加 {{site.data.keyword.cloudant_short_notm}} 实例](../tutorials/images/img0003.png)
 
 ### 第 3 步：了解应用程序是否已准备好用于 {{site.data.keyword.cloudant_short_notm}}
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}
@@ -167,7 +167,7 @@ Apache CouchDB|{{site.data.keyword.cloudant_short_notm}} 基于的自托管开�
 ## 可以在执行任何操作之前备份数据吗？
 {: #can-i-back-up-my-data-before-doing-anything-}
 
-{{site.data.keyword.cloudant_short_notm}} 建议使用 [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) 实用程序将数据导出到磁盘。[{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage) 是一种低价的可缩放解决方案，可用于存储导出的文件。 
+{{site.data.keyword.cloudant_short_notm}} 建议使用 [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) 实用程序将数据导出到磁盘。[{{site.data.keyword.cloud_notm}} Object Storage ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/object-storage){: new_window} 是一种低价的可缩放解决方案，用于存储导出的文件。 
 
 ## 我能保留自己的 `username.cloudant.com` 域，并将其重定向到 {{site.data.keyword.cloudant_short_notm}} 上的新服务吗？
 {: #can-i-keep-my-username-cloudant-com-domain-and-redirect-it-to-the-new-service-on-ibm-cloudant-}

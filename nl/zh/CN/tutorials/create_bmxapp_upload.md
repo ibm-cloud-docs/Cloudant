@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -33,14 +33,12 @@ subcollection: cloudant
 
 第一个任务是连接到 {{site.data.keyword.cloud_notm}}。
 
-[{{site.data.keyword.cloud_notm}} 工具箱](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits)可帮助您建立该连接。
-
-Cloud Foundry 需要知道要用于进行 API 调用（例如，上传应用程序）的 URL。{{site.data.keyword.cloud_notm}} 工具箱使用“`cf api`”命令来管理 API 端点。有关“`cf api`”命令的更多信息[位于此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}。
+{{site.data.keyword.cloud_notm}} CLI 需要知道要用于发出 API 调用的 URL。例如，上传应用程序时，{{site.data.keyword.cloud_notm}} 工具箱使用 `ibmcloud api` 命令来管理 API 端点。有关 `ibmcloud api` 命令的更多信息，请参阅 [ {{site.data.keyword.cloud_notm}} CLI 入门 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}。
 
 使用以下命令通知 Cloud Foundry 要使用的 URL：
 
 ```sh
-bluemix api https://api.ng.bluemix.net
+ibmcloud api https://api.ng.bluemix.net
 ```
 {: pre}
 
@@ -54,7 +52,7 @@ OK
 
 API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
-Not logged in. Use 'bluemix login' to log in.
+Not logged in. Use 'ibmcloud login' to log in.
 ```
 {: codeblock}
 
@@ -74,7 +72,7 @@ Not logged in. Use 'bluemix login' to log in.
 使用类似于以下示例的命令登录到 {{site.data.keyword.cloud_notm}} 应用程序环境。请注意，系统会要求您输入帐户密码。
 
 ```sh
-bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
+ibmcloud login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {: pre}
 
@@ -203,21 +201,21 @@ buildpack: python 1.5.5
 2.  在 `Cloudant CF 应用程序`详细信息页面上，单击`路径`，然后单击 `Cloudant-CF-app.mybluemix.net` 链接。<br/>
 ![Cloudant CF 应用程序详细信息页面](images/img0030.png)
 
-3. 这将打开一个新的浏览器窗口，网址为：`https://cloudant-cf-app.mybluemix.net/`。以下消息用于验证应用程序是否正在运行。消息内容为：“Hello World! Thanks for creating a Python Starter Application.”<br/>
-![Hello World! 已验证 Cloudant CF 应用程序运行正常](images/img0054.png)
+3. 这将打开一个新的浏览器窗口，网址为：`https://cloudant-cf-app.mybluemix.net/`。通过验证是否显示消息“Hello World! 感谢创建 Python 入门模板应用程序。”，可确定应用程序是否正在运行：<br/>
+![Hello World! 验证 Cloudant CF 应用程序是否运行正常](images/img0054.png)
 
 
 ### 确认数据库详细信息
 {: #confirming-the-database-details}
 
 从 {{site.data.keyword.cloud_notm}} 仪表板，转至**菜单**图标 > **资源列表**，并打开服务实例。转至`管理`选项卡，然后单击`启动 Cloudant 仪表板`。<br/>
-![{{site.data.keyword.cloudant_short_notm}} 服务页面上的“启动 Cloudant 仪表板”](images/img0036.png)
+![在 {{site.data.keyword.cloudant_short_notm}} 服务页面上启动 Cloudant“仪表板”](images/img0036.png)
 
 要找到 {{site.data.keyword.cloudant_short_notm}} 服务页面，请参阅[“创建 {{site.data.keyword.cloudant_short_notm}} 实例”教程](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)中的详细信息。
 {: note}
 
 打开仪表板后，可以看到应用程序已创建“`databasedemo`”数据库：<br/>
-![显示新数据库的 {{site.data.keyword.cloudant_short_notm}} 仪表板](images/img0031.png)
+![显示新数据库的 {{site.data.keyword.cloudant_short_notm}}“仪表板”](images/img0031.png)
 
 该数据库包含由应用程序创建的单个文档。要验证该文档是否存在，请单击仪表板中该数据库的名称。这将显示该数据库的选项列表。选择`所有文档`选项卡时，将显示单个文档的详细信息：<br/>
 ![新数据库中的单个文档](images/img0032.png)

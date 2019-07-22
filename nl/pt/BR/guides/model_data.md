@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -23,20 +23,18 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # Cinco dicas para modelar seus dados para escalar
-{: #five-tips-for-modelling-your-data-to-scale}
+{: #five-tips-for-modeling-your-data-to-scale}
 
-Este artigo considera os melhores pontos
-de modelagem de dados de seu aplicativo para trabalhar de maneira eficiente em grande escala.
+Este artigo considera os detalhes da modelagem de dados de seu aplicativo para que funcione eficientemente em uma escala grande.
 {: shortdesc}
 
-*(Este guia é baseado em um artigo de blog de Mike Rhodes: ["Minhas 5 principais dicas para modelar seus dados para escalar" ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/), originalmente publicado em 17 de dezembro de 2013.)*
+*(Este guia é baseado em um artigo do Blog de Mike Rhodes: ["Minhas 5 principais dicas para modelar seus dados para escalar" ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/), originalmente publicado em 17 de dezembro de 2013.)*
 
 A maneira como você modela os dados no {{site.data.keyword.cloudantfull}} afetará significativamente como seu aplicativo será capaz
 de escalar. Nosso modelo de dados subjacente difere substancialmente de um modelo relacional e ignorar
 esta distinção pode ser a causa de problemas de desempenho durante a jornada.
 
-Como sempre, a modelagem bem-sucedida envolve alcançar um equilíbrio entre a facilidade de uso versus as
-características de desempenho que você está esperando alcançar.
+Como sempre, a modelagem bem-sucedida envolve a obtenção de um equilíbrio entre a facilidade de uso em relação às características de desempenho que você espera alcançar.
 
 Sem mais delongas, vamos ao que interessa.
 
@@ -72,7 +70,7 @@ atualização e outro subconjunto aceite a segunda atualização. Quando o clust
 discrepância, ele combinará os documentos da mesma maneira que a replicação normal para
 atualizações simultâneas, criando um conflito.
 
-Documentos em conflito prejudicam o desempenho; veja abaixo para obter mais detalhes sobre o motivo de isso acontecer. 
+Documentos em conflito prejudicam o desempenho. Consulte o texto a seguir para obter mais detalhes sobre por que isso acontece.
 Um padrão de atualização no local altamente simultâneo também aumentará a probabilidade de que as gravações
 serão rejeitadas porque o parâmetro `_rev` não é o esperado, o que forçará seu
 aplicativo a tentar novamente e então atrasar o processamento.
@@ -166,8 +164,7 @@ Por exemplo, pegue um registro médico contendo uma lista de operações:
 ```
 {: codeblock}
 
-Se, por falta de sorte, Joe estiver lidando com muitas operações ao mesmo tempo, as várias
-atualizações simultâneas de um documento tenderão a criar documentos em conflito, conforme descrito acima. 
+Se Joe for infeliz o suficiente para ter muitas operações ao mesmo tempo, as muitas atualizações simultâneas para um documento provavelmente criarão documentos em conflito, conforme descrito anteriormente.
 Será melhor dividir as operações em documentos separados que se refiram ao documento da pessoa de Joe
 e usar uma visualização para conectar as coisas juntas. Para representar cada operação, você faria upload de documentos
 como os dois exemplos a seguir:
@@ -218,13 +215,10 @@ atingidos, especificamente quando os conflitos não são resolvidos, demora-se m
 ## Integre a resolução de conflitos
 {: #build-in-conflict-resolution}
 
-Em um sistema eventualmente consistente como o {{site.data.keyword.cloudant_short_notm}}, os conflitos ocorrerão eventualmente. Conforme
-descrito acima, esse é um preço de nossa escalabilidade e resiliência de dados.
+Em um sistema eventualmente consistente como o {{site.data.keyword.cloudant_short_notm}}, os conflitos ocorrerão eventualmente. Conforme descrito anteriormente, esse é um preço de nossa escalabilidade e resiliência de dados.
 
 Estruturar seus dados de uma forma que a resolução de conflitos seja rápida e não precise envolver
-assistência do operador ajudará a manter os bancos de dados funcionando sem problemas. A capacidade de
-resolver conflitos automaticamente sem a necessidade de envolvimento de seus usuários também
-melhorará significativamente a experiência deles e reduzirá a carga de suporte em sua organização.
+assistência do operador ajudará a manter os bancos de dados funcionando sem problemas. A capacidade de resolver conflitos automaticamente sem que os usuários precisem ser envolvidos também melhorará significativamente sua experiência e, esperamos, reduzirá a carga de suporte em sua organização.
 
 A forma de fazer isso é muito específica do aplicativo, mas aqui estão algumas dicas:
 
@@ -239,7 +233,7 @@ dificultando a resolução correta. E se os outros documentos estiverem em confl
 ## Por que isso ajuda você a integrar a resolução de conflitos 
 {: #why-this-helps-you-build-in-conflict-resolution}
 
-Conforme descrito acima, documentos altamente conflitantes exercem uma carga pesada no banco de dados. A capacidade
+Conforme descrito anteriormente, os documentos altamente conflitantes impõem um pesado fardo ao banco de dados. A capacidade
 de resolver conflitos do início é uma grande ajuda para evitar
 documentos patologicamente conflitantes.
 
@@ -251,7 +245,5 @@ seu aplicativo. O armazenamento de dados do {{site.data.keyword.cloudant_short_n
 aproveitar, para garantir que o desempenho do banco de dados seja escalado à medida que seu aplicativo
 cresça. Entendemos que a mudança pode ser confusa, portanto, estamos sempre disponíveis para dar orientações.
 
-Para leitura adicional, veja esta discussão sobre o
-["modelo de dados para Foundbite" ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}
-ou este ["exemplo de nossos amigos no Twilio" ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
+Para leitura adicional, veja esta discussão em [modelo de dados para o Foundbite ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window} ou esse [exemplo de nossos amigos do Twilio ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
 

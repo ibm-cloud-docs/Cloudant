@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -40,7 +40,7 @@ subcollection: cloudant
 이는 태스크 중심 튜토리얼이므로 이 태스크를 수행하는 데 필수적인 내용만을 다루고 있습니다.
 자세한 정보는 사용 가능한 옵션에 대한 전체 안내서의 [API 참조](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)를 참조하십시오.
 
-## curl 및 jq 기본 사항
+## `curl` 및 `jq` 기본 사항
 {: #curl-and-jq-basics}
 
 모든 활성 태스크를 가져와 출력을 보기 좋게 형식화하려면
@@ -50,7 +50,7 @@ subcollection: cloudant
 이는 모든 복제 문서를 가져오거나, 하나의 특정 보기 인덱싱 태스크의 세부사항을 가져오기 쉽게 해 줍니다.
 이 옵션에 대한 자세한 정보는 API 참조에 있습니다.
 
-_활성 태스크의 목록 획득 및 형식화의 예:_
+*활성 태스크의 목록 획득 및 형식화의 예:*
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
@@ -76,21 +76,21 @@ curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 
 각 경우에서 인덱싱 태스크의 목록 검색 결과는 JSON 오브젝트의 목록으로, 찾은 활성 태스크 하나당 하나의 오브젝트가 출력됩니다.
 
-_`indexer` 유형으로 필터링하여 모든 인덱싱 태스크를 검색하는 예:_
+*`indexer` 유형으로 필터링하여 모든 뷰 인덱싱 태스크를 검색하는 예:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-_`search_indexer` 유형으로 필터링하여 모든 검색 인덱싱 태스크를 검색하는 예:_
+*`search_indexer` 유형으로 필터링하여 모든 검색 인덱싱 태스크를 검색하는 예:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-_보기 인덱싱 태스크 검색의 결과 예:_
+*보기 인덱싱 태스크 검색의 결과 예:*
 
 ```json
 {
@@ -125,7 +125,7 @@ _보기 인덱싱 태스크 검색의 결과 예:_
 
 이러한 요소가 결합되어 예상 시간에 상당한 오차가 발생할 것임을 예상해야 합니다.
 
-_`jq`를 사용하여 `changes_done` 필드를 추출하는 예:_
+*`jq`를 사용하여 `changes_done` 필드를 추출하는 예:*
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -139,28 +139,28 @@ curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 
 활성 태스크의 목록에서 복제 프로세스에 대한 정보를 더 선택하기 쉽게 하려면 `_replicator` 데이터베이스에 문서를 작성하여 복제 프로세스를 시작한 후 해당 `_id` 필드를 알려진 값으로 설정하십시오.
 
-_`replication` 유형으로 필터링하여 모든 복제 태스크를 검색하는 예:_
+*`replication` 유형으로 필터링하여 모든 복제 태스크를 검색하는 예:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-_알려진 문서 ID로 필터링하여 특정 복제 태스크를 검색하는 예:_
+*알려진 문서 ID로 필터링하여 특정 복제 태스크를 검색하는 예:*
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-_알려진 `replication_id`로 필터링하여 특정 복제 태스크를 검색하는 예:_
+*알려진 `replication_id`로 필터링하여 특정 복제 태스크를 검색하는 예:*
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-_복제 태스크 검색의 결과 예:_
+*복제 태스크 검색의 결과 예:*
 
 ```json
 {

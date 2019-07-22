@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -42,9 +42,9 @@ Il processore JSON della riga di comando `jq` viene utilizzato per elaborare la 
 
 Poiché questa è un'esercitazione incentrata sull'attività,
 descrive solo le operazioni fondamentali per completare questa attività.
-Per ulteriori informazioni, vedi la [guida di riferimento API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) per una guida completa alle opzioni disponibili. 
+Per ulteriori informazioni, vedi la [guida di riferimento API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) per una guida completa alle opzioni disponibili.
 
-## Principi di base di curl e jq
+## Principi di base di `curl` e `jq`
 {: #curl-and-jq-basics}
 
 Per ottenere tutte le attività in corso e formattare bene l'output,
@@ -54,9 +54,9 @@ e passa l'output a `jq`.
 `jq` ti consente di filtrare un elenco di documenti in base ai loro valori di campo.
 Questo semplifica il richiamo di tutti i documenti di replica
 o dei dettagli di una particolare attività di indicizzazione delle viste.
-La guida di riferimento API contiene ulteriori informazioni sulle opzioni. 
+La guida di riferimento API contiene ulteriori informazioni sulle opzioni.
 
-_Esempio di acquisizione e formattazione di un elenco di attività in corso:_
+*Esempio di acquisizione e formattazione di un elenco di attività in corso:*
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
@@ -88,21 +88,21 @@ In ogni caso,
 il risultato della ricerca di un elenco di attività di indicizzazione è un elenco di oggetti JSON:
 uno per ciascuna delle attività in corso rilevate.
 
-_Esempio di ricerca di tutte le attività di indicizzazione delle viste, filtrandole per il tipo `indexer`:_
+*Esempio di ricerca di tutte le attività di indicizzazione delle viste, filtrandole per il tipo `indexer`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-_Esempio di ricerca di tutte le attività di indicizzazione della ricerca, filtrandole per il tipo `search_indexer`:_
+*Esempio di ricerca di tutte le attività di indicizzazione della ricerca, filtrandole per il tipo `search_indexer`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-_Risultati di esempio dopo la ricerca delle attività di indicizzazione delle viste:_
+*Risultati di esempio dopo la ricerca delle attività di indicizzazione delle viste:*
 
 ```json
 {
@@ -131,7 +131,7 @@ e `total_changes` è 1.000.000,
 si prevede che il completamento dell'attività richiederà 1.000.000 / 250 = 4.000 secondi,
 o all'incirca 66 minuti.
 
-Le stime del tempo per completare un'attività di indicizzazione non possono essere esatte al 100% . Il tempo effettivo per completare l'attività dipende dai seguenti fattori: 
+Le stime del tempo per completare un'attività di indicizzazione non possono essere esatte al 100% . Il tempo effettivo per completare l'attività dipende dai seguenti fattori:
 
 -   Il tempo impiegato per elaborare ogni documento.
     Ad esempio,
@@ -142,7 +142,7 @@ Le stime del tempo per completare un'attività di indicizzazione non possono ess
 
 Tieni presente che questi fattori potrebbero combinarsi e produrre una notevole imprecisione sulla tua stima.
 
-_Esempio di estrazione del campo `changes_done` utilizzando `jq`:_
+*Esempio di estrazione del campo `changes_done` utilizzando `jq`:*
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -160,28 +160,28 @@ Per semplificare la selezione delle informazioni relative a un processo di repli
 avvia il processo di replica creando un documento nel database `_replicator`
 e imposta i suo campo `_id` su un valore noto.
 
-_Esempio di ricerca di tutte le attività di replica, filtrandole per il tipo `replication`:_
+*Esempio di ricerca di tutte le attività di replica, filtrandole per il tipo `replication`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-_Esempio di ricerca di una specifica attività di replica, filtrando per un'identità di documento nota:_
+*Esempio di ricerca di una specifica attività di replica, filtrando per un'identità di documento nota:*
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-_Esempio di ricerca di una specifica attività di replica, filtrando per un `replication_id` noto:_
+*Esempio di ricerca di una specifica attività di replica, filtrando per un `replication_id` noto:*
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-_Risultato di esempio dopo la ricerca di un'attività di replica:_
+*Risultato di esempio dopo la ricerca di un'attività di replica:*
 
 ```json
 {

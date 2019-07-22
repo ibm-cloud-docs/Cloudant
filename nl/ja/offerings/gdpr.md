@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -81,14 +81,13 @@ Enterprise クラスターがある場合、IBM はお客様に関する以下�
 {{site.data.keyword.cloudant_short_notm}} は、前述の個人データを収集_しません_ 。 このデータは、{{site.data.keyword.cloud_notm}} で保持されます。
 
 {{site.data.keyword.cloudant_short_notm}} は、サービスを実行し、そのユーザー・エクスペリエンスを最適化する際に、
-限定されたお客様の PI を処理します。 {{site.data.keyword.cloudant_short_notm}} は、必要に応じて、お客様に連絡するために E メールを使用します。 お客様の {{site.data.keyword.cloudant_short_notm}} ダッシュボードとの対話をモニターすることも、
-{{site.data.keyword.cloudant_short_notm}} が PI を処理するもう 1 つの方法です。
+限定されたお客様の PI を処理します。 {{site.data.keyword.cloudant_short_notm}} は、必要に応じて、お客様に連絡するために E メールを使用します。 お客様の
+{{site.data.keyword.cloudant_short_notm}} ダッシュボードとの対話をモニターすることも、{{site.data.keyword.cloudant_short_notm}} が PI を処理するもう 1 つの方法です。
 
 ### 処理の制限
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} は、ダッシュボード対話データをセグメントに送信します。 [{{site.data.keyword.cloudant_short_notm}} サポート要求](mailto:support@cloudant.com)により、
-この方法でのお客様の PI の処理を制限するように {{site.data.keyword.cloudant_short_notm}} に要求することが可能です。 そのような要求を受け取ると、
+{{site.data.keyword.cloudant_short_notm}} は、ダッシュボード対話データをセグメントに送信します。 [{{site.data.keyword.cloudant_short_notm}} サポート要求 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){: new_window} により、この方法でのお客様の PI の処理を制限するように {{site.data.keyword.cloudant_short_notm}} に要求することが可能です。そのような要求を受け取ると、
 {{site.data.keyword.cloudant_short_notm}} は、セグメントに送信されるお客様に関連する情報を削除し、
 以降にデータが送信されないようにします。 {{site.data.keyword.cloudant_short_notm}} は、Dedicated のお客様に E メールで
 引き続き連絡できる必要があり、また、直接、あるいは {{site.data.keyword.cloud_notm}} アカウント詳細での
@@ -98,8 +97,7 @@ Enterprise クラスターがある場合、IBM はお客様に関する以下�
 ## {{site.data.keyword.cloudant_short_notm}} データベースの暗号化状態
 {: #is-our-ibm-cloudant-database-encrypted-}
 
-すべてのクラスターで、Linux Unified Key Setup (LUKS) を使用した暗号化ファイル・システム (保存時の暗号化) があります。 データベース内のデータは、
-IBM の運用およびサポート・チームから可視です (以下を参照)。
+すべてのクラスターで、Linux Unified Key Setup (LUKS) を使用した暗号化ファイル・システム (保存時の暗号化) があります。 データベース内のデータは、IBM の運用およびサポート・チームから可視です (以下の段落を参照)。
 
 {{site.data.keyword.cloudant_short_notm}} から可視でないようにする必要があるとお客様が判断した機密データについては、
 お客様が IBM にデータを送信する前に暗号化するか、保護 (仮名化) する必要があります。 URL は常に可視で、アクセス・ログに書き込まれるため、URL で文書 `_id` として PI を使用するのは避ける必要があります。例、`https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`。
@@ -124,7 +122,7 @@ IBM の運用およびサポート・チームから可視です (以下を参�
  * コンポーネントが監査ログと組み合わせて「最小の特権アクセス」を持てるように、 API キーを十分に使用します。 このプラクティスにより、誰がどのデータにアクセスしたのかを把握できます。
  * {{site.data.keyword.cloudant_short_notm}} から非可視のままになる必要があると判断した機密データは暗号化または保護 (仮名化) する必要があります。
 
-### 物理および環境のセキュリティー対策
+### 物理的および環境的セキュリティー対策
 {: #physical-and-environmental-security-measures}
 
 データ・センターの物理的セキュリティーは、インフラストラクチャー・プロバイダー ({{site.data.keyword.cloud}}、AWS、
@@ -137,7 +135,7 @@ IBM のスタッフが使用しているオフィス・ロケーションの物�
 お客様の要求を受けて提供可能です。
 
 ### 技術的および組織的対策
-{: #technical-and-organisational-measures}
+{: #technical-and-organizational-measures}
 
 技術的および組織的対策 (TOM) は、{{site.data.keyword.cloudant_short_notm}} で個人データのセキュリティーを
 確保するために利用されています。 {{site.data.keyword.cloudant_short_notm}} は、{{site.data.keyword.cloudant_short_notm}} が利用する管理に対して外部監査された認定を保有しています。 

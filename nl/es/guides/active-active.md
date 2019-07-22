@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -119,8 +119,7 @@ Anote la contraseña. No se puede recuperar la contraseña posteriormente.
 ## Paso 3: Otorgar permiso de acceso
 {: #step-3-grant-access-permission}
 
-[Otorgue a la clave de API permiso](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)
-para leer y escribir en ambas bases de datos.
+Proporcione la clave de API [permission](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions) para leer o escribir en ambas bases de datos.
 
 Si también desea replicar índices, asigne permisos de administración.
 
@@ -180,7 +179,7 @@ Llegados a este punto, las bases de datos están configuradas para que permanezc
 
 El siguiente paso consiste en decidir si se desea utilizar las bases de datos en una configuración de tipo [activo-activo](#active-active) o [activo-pasivo](#active-passive).
 
-### Activo-Activo
+### Activo-activo
 {: #active-active}
 
 En una configuración de tipo activo-activo, las distintas instancias de una aplicación pueden escribir en distintas bases de datos.
@@ -200,7 +199,7 @@ resulta adecuado configurar su URL de {{site.data.keyword.cloudant_short_notm}}
 como `"https://myaccount-dc1.cloudant.com/mydb"`.
 Paralelamente, para las aplicaciones alojadas en DC2, se configuraría su URL de {{site.data.keyword.cloudant_short_notm}} a `"https://myaccount-dc2.cloudant.com/mydb"`.
 
-### Activo-Pasivo
+### Activo-pasivo
 {: #active-passive}
 
 En una configuración de tipo activo-pasivo, todas las instancias de una aplicación se configuran de modo que utilicen una base de datos primaria.
@@ -242,7 +241,7 @@ Sin embargo, si decide que no necesita la capacidad de gestionar la migración t
   Esta configuración implica que la tarea de modificar las instancias de {{site.data.keyword.cloudant_short_notm}} que utilizan las aplicaciones se puede gestionar mediante una modificación en la configuración del proxy en lugar de mediante una modificación de los valores de la aplicación.
   Muchos proxies tienen capacidad para equilibrar la carga en función de comprobaciones de estado definidas por el usuario.
 * Utilice un equilibrador de carga global como
-[{{site.data.keyword.cloud}} Internet Services ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} o
+[{{site.data.keyword.cloud}} Internet Services ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window} o
 [Dyn Traffic Director ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://dyn.com/traffic-director/){: new_window} para direccionar a {{site.data.keyword.cloudant_short_notm}}.
   Esta opción requiere una definición de `CNAME` que direccione a distintas cuentas de {{site.data.keyword.cloudant_short_notm}} en función de una comprobación de estado o una regla de latencia.
 

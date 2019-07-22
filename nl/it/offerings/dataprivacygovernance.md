@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -67,8 +67,7 @@ per la consegna e il supporto di un servizio cloud,
 è disponibile all'indirizzo:
 [www.ibm.com/cloud/datacenters ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/cloud/datacenters){: new_window}.
 
-Ulteriori informazioni sulla conformità agli standard generali di {{site.data.keyword.cloudant_short_notm}} sono disponibili
-[qui](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
+Per ulteriori informazioni sugli standard generali di {{site.data.keyword.cloudant_short_notm}} per il rispetto della conformità, vedi [Conformità](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
 Informazioni simili possono venire trovate per questi partner di business IaaS:
 
 -   [Amazon ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://aws.amazon.com/compliance/){: new_window}

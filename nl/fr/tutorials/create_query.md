@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -55,7 +55,7 @@ Avant de commencer, effectuez les étapes de préparation en vue du tutoriel en 
 
 Dans cette section, vous allez créer la base de données `query-demo` [](/docs/services/Cloudant?topic=cloudant-databases#create-database) qui est la base de données employée dans ce tutoriel.
 
-Dans ce tutoriel, l'alias `acurl` est utilisé plutôt que la commande `curl`. Pour créer l'alias `acurl`, suivez les étapes décrites [ici](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). Si vous préférez utiliser la commande `curl` ou une autre méthode pour
+Dans ce tutoriel, l'alias `acurl` est utilisé plutôt que la commande `curl`. Pour créer l'alias `acurl`, suivez les étapes décrites dans [Commande curl autorisée : `acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). Si vous préférez utiliser la commande `curl` ou une autre méthode pour
 appeler les noeuds finaux d'API, indiquez votre commande dans le tutoriel, ainsi que les
 paramètres qu'elle requiert, comme le nom d'utilisateur et le mot de passe.
 {: tip}
@@ -141,7 +141,7 @@ données `query-demo` dans les exercices suivants.
   ```
   {: codeblock}
 
-2.  Exécutez cette commande pour créer les documents :
+2.  Exécutez la commande suivante pour créer les documents :
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
   ```

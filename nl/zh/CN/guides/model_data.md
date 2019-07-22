@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -23,12 +23,12 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # 对数据建模以进行缩放的五项建议
-{: #five-tips-for-modelling-your-data-to-scale}
+{: #five-tips-for-modeling-your-data-to-scale}
 
 本文更细致地讨论了如何对应用程序数据建模，以使应用程序能够大规模高效运作。
 {: shortdesc}
 
-*（本指南基于 Mike Rhodes 的博客文章：[My Top 5 Tips for Modeling Data to Scale ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/)，最初发布于 2013 年 12 月 17 日。）*
+*（本指南基于 Mike Rhodes 的博客文章：[My Top 5 Tips for Modeling Data to Scale ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/)，最初发布于 2013 年 12 月 17 日。）*
 
 {{site.data.keyword.cloudantfull}} 上的数据建模方式将显著影响应用程序能够如何缩放。我们的底层数据模型与关系模型有很大差异，忽略这种差异可能是导致日后发生性能问题的原因。
 
@@ -52,7 +52,7 @@ subcollection: cloudant
 
 缺省情况下，不仅会将数据库分割成分片，而且所有分片都有三个副本，即分片副本，每个副本位于数据库集群的不同节点上。这样一来，如果某个节点发生故障，数据库仍能继续处理请求。因此，保存文档需要写入三个节点。这意味着，如果对同一文档并行进行两个更新，那么有可能一部分节点接受了第一个更新，而另一部分节点接受了第二个更新。集群发现此差异时，将按照常规复制通过创建冲突来处理并行更新的相同方式组合这些文档。
 
-冲突文档会损害性能；请参阅下文以了解有关为何会发生这种情况的更多详细信息。高度并行的原地更新模式还会增加写操作被拒绝的可能性，因为 `_rev` 参数不是所需的参数，这将强制应用程序重试，从而延迟处理。
+冲突文档会损害性能；请参阅以下文本以了解有关为何会发生这种情况的更多详细信息。高度并行的原地更新模式还会增加写操作被拒绝的可能性，因为 `_rev` 参数不是所需的参数，这将强制应用程序重试，从而延迟处理。
 
 我们发现，对于速率高于每秒一次的更新，发生这种冲突文档场景的可能性明显更高，但为了安全起见，对于速率高于每 10 秒一次的更新，建议使用不可变文档。
 
@@ -106,7 +106,7 @@ subcollection: cloudant
 ```
 {: codeblock}
 
-如果 Joe 很倒霉，同时有大量手术要做，那么对一个文档的大量并行更新有可能会创建冲突文档，如上所述。最好的办法是将这些手术分列到不同的文档，这些文档都引用 Joe 的个人文档，并使用视图将内容连接在一起。为了表示每个手术，您将上传类似以下两个示例的文档：
+如果 Joe 很不幸，同时有大量手术要做，那么对一个文档进行大量并行更新有可能会创建冲突文档，如前所述。最好的办法是将这些手术分列到不同的文档，这些文档都引用 Joe 的个人文档，并使用视图将内容连接在一起。为了表示每个手术，您将上传类似以下两个示例的文档：
 
 ```json
 {
@@ -140,9 +140,9 @@ subcollection: cloudant
 ## 构建冲突解决方法
 {: #build-in-conflict-resolution}
 
-在像 {{site.data.keyword.cloudant_short_notm}} 这样的最终一致性系统中，冲突最终会发生。如上所述，这是实现可伸缩性和数据弹性要付出的代价。
+在像 {{site.data.keyword.cloudant_short_notm}} 这样的最终一致性系统中，冲突最终会发生。如前所述，这是实现可伸缩性和数据弹性要付出的代价。
 
-将数据的结构设计为无需操作员协助即可快速解决冲突，有助于使数据库保持顺利运行。无需用户参与而自动解决冲突的能力将大大改善用户体验，并有望减轻您的组织的支持工作负担。
+将数据的结构设计为无需操作员协助即可快速解决冲突，有助于使数据库保持顺利运行。无需用户参与而自动解决冲突的能力也将大大改善用户体验，并有望减轻您的组织的支持工作负担。
 
 执行此操作的特定方式与应用程序密切相关，但下面提供了几点建议：
 
@@ -152,12 +152,12 @@ subcollection: cloudant
 ## 构建冲突解决方法的优点 
 {: #why-this-helps-you-build-in-conflict-resolution}
 
-如上所述，严重冲突的文档对数据库会造成严重损害。从一开始就构建冲突解决能力，非常有助于避免产生严重冲突的文档。
+如前所述，严重冲突的文档对数据库会造成严重损害。从一开始就构建冲突解决能力，非常有助于避免产生严重冲突的文档。
 
 ## 摘要
 {: #summary}
 
 上述建议说明了数据建模会影响应用程序性能的一些情况。{{site.data.keyword.cloudant_short_notm}} 的数据存储有一些特定的特性，既要小心提防也要加以利用，这样才能确保数据库性能随着应用程序的增长而缩放。我们理解，转换过程可能令人困惑，所以我们随时愿意提供建议。
 
-有关进一步的阅读材料，请参阅 [Foundbite 的数据模型 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window} 或 [Twilio 上来自我们朋友的此示例 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}。
+有关进一步的阅读材料，请参阅有关 [Foundbite 的数据模型 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window} 的此讨论或 [Twilio 上来自我们朋友的此示例 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}。
 

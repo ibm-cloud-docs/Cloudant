@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -29,7 +29,7 @@ Questa sezione dell'esercitazione illustra i prerequisiti per la creazione di un
 {: shortdesc}
 
 ## Prerequisiti
-{: #prerequisites}
+{: #prerequisites-create_bmxapp_prereq}
 
 Assicurati di avere le seguenti risorse o informazioni pronte
 prima di iniziare ad utilizzare l'esercitazione.
@@ -61,8 +61,8 @@ Python 2.7.12
 ### Un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-Un'esercitazione separata per la creazione di un'istanza del servizio {{site.data.keyword.cloudantfull}} denominata
-'`Cloudant-o7`' è disponibile [qui](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud).
+Un'esercitazione separata per la [creazione di un'istanza del servizio {{site.data.keyword.cloudantfull}} su {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) crea un'istanza del servizio denominata
+'`Cloudant-o7`'. 
 
 Questa esercitazione presuppone che hai già creato un'istanza del servizio denominata
 '`Cloudant-o7`'.
@@ -70,10 +70,9 @@ Questa esercitazione presuppone che hai già creato un'istanza del servizio deno
 ### Un'applicazione database {{site.data.keyword.cloudant_short_notm}}
 {: #an-ibm-cloudant-database-application}
 
-Un'esercitazione separata per la creazione di un'applicazione Python autonoma
-da utilizzare con un'istanza del servizio {{site.data.keyword.cloudant_short_notm}}
-è disponibile [qui](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud).
-Introduce diversi concetti utili per comprendere come creare e popolare un database {{site.data.keyword.cloudant_short_notm}}.
+È inoltre disponibile un'esercitazione separata per la [creazione di un'applicazione Python autonoma
+da utilizzare con un'istanza del servizio
+{{site.data.keyword.cloudant_short_notm}}] (/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud). Introduce diversi concetti utili per comprendere come creare e popolare un database {{site.data.keyword.cloudant_short_notm}}.
 
 Questa esercitazione presuppone che tu abbia familiarità con questi concetti.
 

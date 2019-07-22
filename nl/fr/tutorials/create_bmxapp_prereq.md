@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -29,7 +29,7 @@ Cette section du tutoriel décrit les conditions prérequises pour la création 
 {: shortdesc}
 
 ## Conditions prérequises
-{: #prerequisites}
+{: #prerequisites-create_bmxapp_prereq}
 
 Vérifiez que vous disposez des ressources ou des informations suivantes avant de commencer à travailler sur ce tutoriel.
 
@@ -56,16 +56,15 @@ Python 2.7.12
 ### Instance de service {{site.data.keyword.cloudant_short_notm}} sur {{site.data.keyword.cloud_notm}}
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-Un tutoriel distinct de création d'une instance de service {{site.data.keyword.cloudantfull}} intitulée `Cloudant-o7` est disponible [ici](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud).
+Un tutoriel distinct de [création d'une instance de service {{site.data.keyword.cloudantfull}} sur {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) permet de créer une instance de service appelée
+'`Cloudant-o7`'. 
 
 Ce tutoriel suppose que vous avez déjà créé une instance de service nommée `Cloudant-o7`.
 
 ### Application de base de données {{site.data.keyword.cloudant_short_notm}}
 {: #an-ibm-cloudant-database-application}
 
-Un tutoriel distinct de création d'une application Python autonome capable de fonctionner avec une instance de service
-{{site.data.keyword.cloudant_short_notm}} est disponible [ici](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud).
-Il présente un certain nombre de concepts utiles qui permettent de comprendre comment
+Un tutoriel distinct de [création d'une application Python autonome capable de fonctionner avec une instance de service {{site.data.keyword.cloudant_short_notm}}] (/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) est également disponible. Il présente un certain nombre de concepts utiles qui permettent de comprendre comment
 créer et remplir une base de données {{site.data.keyword.cloudant_short_notm}}.
 
 Ce tutoriel suppose que vous connaissez ces concepts.

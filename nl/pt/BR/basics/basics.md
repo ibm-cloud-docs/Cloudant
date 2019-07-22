@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2018-05-07 -->
 
-# Informações básicas do {{site.data.keyword.cloudant_short_notm}}
+# Noções básicas do {{site.data.keyword.cloudant_short_notm}}
 {: #ibm-cloudant-basics}
 
 Se for a sua primeira vez aqui,
@@ -38,9 +38,7 @@ Para entender as informações sobre os tópicos a seguir, presumimos que você 
 ## Conectando-se ao {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant}
 
-Para acessar o {{site.data.keyword.cloudant_short_notm}},
-deve-se ter uma [conta do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-account#account)
-ou uma [conta do {{site.data.keyword.cloud}}](/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public).
+Para acessar o {{site.data.keyword.cloudant_short_notm}}, deve-se ter uma [conta do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-ibm-cloudant.com#enterprise-plan) ou uma [conta do {{site.data.keyword.cloud}}](https://cloud.ibm.com/login).
 
 ## API HTTP
 {: #http-api}

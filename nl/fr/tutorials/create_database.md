@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -30,7 +30,7 @@ Ce tutoriel explique comment utiliser le [langage de programmation Python ![Icô
 {: shortdesc}
 
 ## Conditions prérequises
-{: prerequisites}
+{: #prerequisites-create_database}
 
 Vérifiez que vous disposez des ressources ou des informations suivantes avant de
 commencer à travailler sur ce tutoriel.
@@ -89,7 +89,7 @@ Zone      | Objectif
 `port`     | Numéro de port HTTP pour l'accès à l'instance de service sur l'hôte. Il s'agit généralement du numéro de port 443 qui force l'accès HTTPS.
 `url`      | Chaîne regroupant les autres informations de données d'identification en une seule URL, adaptée pour une utilisation par des applications.
 
-Vous trouverez des informations sur la recherche des données d'identification de service pour votre instance de service [ici](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+Pour plus d'informations sur la recherche des données d'identification de service pour votre instance de service, voir [Localisation de vos données d'identification du service](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
 ## Contexte
 {: #context}

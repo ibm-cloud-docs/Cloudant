@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -34,14 +34,14 @@ subcollection: cloudant
 
 因為這是著重在作業的指導教學，所以只會涵蓋完成此作業的基本項目。如需相關資訊，請參閱 [API 參考資料](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)，以取得可用選項的完整手冊。
 
-## curl 及 jq 基本觀念
+## `curl` 和 `jq` 基本觀念
 {: #curl-and-jq-basics}
 
 若要取得所有作用中作業，並且良好地格式化輸出，請使用 `curl` 來呼叫帳戶，並將輸出以管線傳送至 `jq`。
 
-`jq` 可讓您依欄位值來過濾文件清單。這可以更輕鬆地取得所有抄寫文件，或只是一個特定視圖索引作業的詳細資料。API 參考資料具有選項的相關資訊。
+`jq` 可讓您依欄位值來過濾文件清單。這可以更輕鬆地取得所有抄寫文件，或只是一個特定視圖檢索作業的詳細資料。API 參考資料具有選項的相關資訊。
 
-_取得及格式化作用中作業清單的範例：_
+*取得及格式化作用中作業清單的範例：*
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
@@ -57,25 +57,25 @@ curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 
 例如，如果有 24 個 Shard（各有三個抄本），而且您更新兩個搜尋索引，則會執行 24 x 3 x 2 = 144 個作業。
 
-若要尋找所有視圖索引作業，請將 `curl` 輸出以管線傳送至 `jq`，並讓它依類型欄位來過濾陣列中的文件。對應的指令適用於搜尋索引作業。
+若要尋找所有視圖檢索作業，請將 `curl` 輸出以管線傳送至 `jq`，並讓它依類型欄位來過濾陣列中的文件。對應的指令適用於搜尋檢索作業。
 
-在每一種情況下，搜尋索引作業清單的結果都是 JSON 物件清單：每一個找到的作用中作業都有一份清單。
+在每一種情況下，搜尋檢索作業清單的結果都是 JSON 物件清單：每一個找到的作用中作業都有一份清單。
 
-_針對 `indexer` 類型進行過濾來尋找所有視圖索引作業的範例：_
+*針對 `indexer` 類型進行過濾來尋找所有視圖檢索作業的範例：*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-_針對 `search_indexer` 類型進行過濾來尋找所有搜尋索引作業的範例：_
+*針對 `search_indexer` 類型進行過濾來尋找所有搜尋檢索作業的範例：*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-_搜尋視圖索引作業之後的範例結果：_
+*搜尋視圖檢索作業之後的範例結果：*
 
 ```json
 {
@@ -96,9 +96,9 @@ _搜尋視圖索引作業之後的範例結果：_
 ## 預估作業完成時間
 {: #estimating-the-time-to-complete-a-task}
 
-若要預估索引作業完成之前所需的時間，請監視 `changes_done` 數目，並比較此值與 `total_changes`。例如，如果 `changes_done` 每秒增加 250，而且 `total_changes` 是 1,000,000，則預期作業需要 1,000,000/250=4,000 秒或大約 66 分鐘才能完成。
+若要預估檢索作業完成之前所需的時間，請監視 `changes_done` 數目，並比較此值與 `total_changes`。例如，如果 `changes_done` 每秒增加 250，而且 `total_changes` 是 1,000,000，則預期作業需要 1,000,000/250=4,000 秒或大約 66 分鐘才能完成。
 
-索引作業完成時間預估值無法 100% 精確。實際作業完成時間取決於下列因素：
+檢索作業完成時間預估值無法 100% 精確。實際作業完成時間取決於下列因素：
 
 -   處理每一份文件所需的時間。例如，視圖可能會先檢查文件類型，並且只會發出一種類型的新索引項目。
 -   文件的大小。
@@ -106,7 +106,7 @@ _搜尋視圖索引作業之後的範例結果：_
 
 您應該假設這些因素可能會結合，而導致預估值相當不精確。
 
-_使用 `jq` 擷取 `changes_done` 欄位的範例：_
+*使用 `jq` 擷取 `changes_done` 欄位的範例：*
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -118,30 +118,30 @@ curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 
 若要尋找所有抄寫作業，請將 `curl` 輸出以管線傳送至 `jq`，並依其類型欄位來過濾陣列中的文件。
 
-為了更輕鬆地從作用中作業清單中選取抄寫處理程序的相關資訊，請在 `_replicator` 資料庫中建立文件來啟動抄寫處理程序，並將其 `_id` 欄位設為已知值。
+若要更輕鬆地從作用中作業清單中選取抄寫處理程序的相關資訊，請在 `_replicator` 資料庫中建立文件來開始抄寫處理程序，並將其 `_id` 欄位設為已知值。
 
-_針對 `replication` 類型進行過濾來尋找所有抄寫作業的範例：_
+*針對 `replication` 類型進行過濾來尋找所有抄寫作業的範例：*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-_針對已知文件身分進行過濾來尋找特定抄寫作業的範例：_
+*針對已知文件身分進行過濾來尋找特定抄寫作業的範例：*
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-_針對已知 `replication_id` 進行過濾來尋找特定抄寫作業的範例：_
+*針對已知 `replication_id` 進行過濾來尋找特定抄寫作業的範例：*
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-_搜尋抄寫作業之後的範例結果：_
+*搜尋抄寫作業之後的範例結果：*
 
 ```json
 {
@@ -185,7 +185,7 @@ _搜尋抄寫作業之後的範例結果：_
 
 如果這麼做沒有幫助，則抄寫可能會停滯，因為存取來源或目標資料庫的使用者沒有寫入權。
 
-抄寫會利用[檢查點](/docs/services/Cloudant?topic=cloudant-replication-guide#checkpoints)，這表示如果重新啟動抄寫，則不需要重新抄寫已抄寫且未變更的內容。
+抄寫會利用[檢查點](/docs/services/Cloudant?topic=cloudant-replication-guide#checkpoints)，這表示如果重新開始抄寫，則不需要重新抄寫已抄寫且未變更的內容。
 {: note}
 
 如果您已在 `_replicator` 資料庫中建立文件來建立抄寫處理程序，則也可以在該處檢查抄寫狀態。

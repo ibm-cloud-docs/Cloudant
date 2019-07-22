@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-06-12"
 
 keywords: databases, indexes, request payload, request timeouts, query
 
@@ -62,7 +62,7 @@ Os bancos de dados do {{site.data.keyword.cloudant_short_notm}} estão sujeitos 
 |`_partição/ *` |5 segundos|
 
 
-## Query
+## Consulta
 {: #query-results}
 
 |Descrição|Limite|

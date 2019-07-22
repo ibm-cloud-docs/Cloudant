@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -99,7 +99,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 	_Q_ 值在大多数 `cloudant.com` 多租户集群上不可用。
 {: note}
 
-如果尝试设置不可用的 _Q_ 值，那么结果会生成 [`403` 响应](/docs/services/Cloudant/api/http.html#http-status-codes)，其 JSON 主体类似于以下示例：
+如果尝试设置不可用的 _Q_ 值，那么结果会生成 [`403` 响应](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)，其 JSON 主体类似于以下示例：
 
 ```json
 {
@@ -128,7 +128,7 @@ _R_ 自变量只能在单个文档请求上指定。_R_ 会影响协调程序在
 
 将 _R_ 设置为 _1_ 可能会缩短总体响应时间，因为协调程序可以更快返回响应。原因是协调程序只须等待来自托管相应分片的任一副本的单个响应。
 
-由于 {{site.data.keyword.cloudant_short_notm}} 使用的是[最终一致性](/docs/services/Cloudant/guides/cap_theorem.html)模型，因此如果减小 _R_ 值，那么会增加返回的响应不基于最新数据的可能性。使用缺省 _R_ 值有助于减轻此影响。
+由于 {{site.data.keyword.cloudant_short_notm}} 使用的是[最终一致性](/docs/services/Cloudant?topic=cloudant-cap-theorem)模型，因此如果减小 _R_ 值，那么会增加返回的响应不基于最新数据的可能性。使用缺省 _R_ 值有助于减轻此影响。
 {: note}
 
 _R_ 的缺省值为 _2_。对于使用三个分片副本的典型数据库，此值对应于大部分副本。如果数据库的副本数高于或低于 3，那么 _R_ 的缺省值会相应更改。

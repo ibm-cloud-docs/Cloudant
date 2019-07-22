@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -38,7 +38,7 @@ Il controllo della concorrenza multiversione (MVCC, Multi-Version Concurrency Co
 MVCC è una forma di [concorrenza ottimistica![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}.
 Rende più veloci le operazioni di lettura e scrittura nei database {{site.data.keyword.cloudant_short_notm}}
 perché non è necessario bloccare il database in operazioni di lettura o scrittura.
-MVCC abilita inoltre la sincronizzazione tra i nodi del database {{site.data.keyword.cloudant_short_notm}}.
+MVCC abilita inoltre la sincronizzazione tra i nodi di database {{site.data.keyword.cloudant_short_notm}}.
 
 ## Revisioni
 {: #revisions}

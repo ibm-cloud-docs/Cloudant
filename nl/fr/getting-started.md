@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -34,12 +34,12 @@ En plus de ce tutoriel, consultez nos tutoriels de travaux pratiques afin d'en a
 - [Node.js et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
 - [Swift et {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-Pour des tutoriels sur des langages plus spécifiques, consultez [Commencez à déployer votre première application![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/){: new_window}. 
+Pour des tutoriels sur des langages plus spécifiques, consultez [Commencez à déployer votre première application![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs){: new_window}. 
 
 ## Avant de commencer
 {: #prereqs}
 
-Vous devez posséder un [compte {{site.data.keyword.cloud}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https:///cloud.ibm.com/registration/){: new_window},
+Vous devez posséder un [compte {{site.data.keyword.cloud}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/registration/){: new_window},
 une instance du service {{site.data.keyword.cloudant_short_notm}} et respecter les exigences Python suivantes :
 
 *	Installez la version la plus récente du [langage de programmation Python ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://www.python.org/){: new_window} sur votre système.
@@ -94,20 +94,20 @@ une instance du service {{site.data.keyword.cloudant_short_notm}} et respecter l
 
 2.  Créez des données d'identification pour le service {{site.data.keyword.cloudant_short_notm}} :
   <br>Dans le tableau de bord {{site.data.keyword.cloud_notm}}, accédez à l'icône **Menu** > **Liste de ressources** et ouvrez votre instance de service {{site.data.keyword.cloudant_short_notm}}.
-  <br>Dans le volet de navigation gauche, cliquez sur `Données d'identification pour le service`.
+  <br>Dans le menu, cliquez sur `Données d'identification pour le service`.
   <br>a. Cliquez sur le bouton `Nouvelles données d'identification`.
-  <br>![Créer de nouvelles données d'identification pour le service](/docs/services/Cloudant/tutorials/images/img0050.png)
+  <br>![Créer de nouvelles données d'identification pour le service](tutorials/images/img0050.png)
   <br>b. Entrez un nom pour les nouvelles données d'identification dans la fenêtre Ajouter de nouvelles données d'identification, comme illustré dans la capture d'écran suivante.
   <br>c. Ajoutez des paramètres de configuration en ligne (facultatif).
   <br>d. Cliquez sur le bouton `Ajouter`. 
-  <br>![Ajouter de nouvelles données d'identification de service](/docs/services/Cloudant/tutorials/images/img0051.png)
+  <br>![Ajouter de nouvelles données d'identification de service](tutorials/images/img0051.png)
   <br>Vos données d'identification sont ajoutées à la table Données d'identification pour le service.
   <br>e. Cliquez sur `Afficher les données d'identification` sous Actions. 
-  <br>![Afficher toutes les données d'identification pour le service](/docs/services/Cloudant/tutorials/images/img0052.png)
+  <br>![Afficher toutes les données d'identification pour le service](tutorials/images/img0052.png)
   <br>Les détails des données d'identification du service s'affichent :
-   <br>![Données d'identification pour le service {{site.data.keyword.cloudant_short_notm}} ](/docs/services/Cloudant/tutorials/images/img0009.png)
+   <br>![Données d'identification pour le service {{site.data.keyword.cloudant_short_notm}}](tutorials/images/img0009.png)
    
-3.	Etablissez une connexion à l'instance de service {{site.data.keyword.cloudant_short_notm}}. Le mécanisme à utiliser dépend de l'authentification dont vous vous servez - authentification {{site.data.keyword.cloud_notm}} IAM ou {{site.data.keyword.cloudant_short_notm}} Legacy. Voir le [guide {{site.data.keyword.cloud_notm}} IAM (Identity and Access Management) ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) pour plus de détails sur le choix de la méthode d'authentification.
+3.	Etablissez une connexion à l'instance de service {{site.data.keyword.cloudant_short_notm}}. Le mécanisme à utiliser dépend de l'authentification dont vous vous servez - authentification {{site.data.keyword.cloud_notm}} IAM ou {{site.data.keyword.cloudant_short_notm}} Legacy. Pour plus d'informations sur l'un ou l'autre type d'authentification, consultez [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) Guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 	Si vous utilisez l'authentification {{site.data.keyword.cloudant_short_notm}} Legacy, modifiez en conséquence les données d'identification de service de l'étape précédente :
 	```python
@@ -370,7 +370,7 @@ Procédez comme suit pour voir votre base de documents et les documents associé
     Le tableau de bord IBM Cloud se trouve sur : https://cloud.ibm.com/. Une fois que vous vous êtes identifié avec votre nom d'utilisateur et votre mot de passe, le tableau de bord IBM Cloud s'affiche.
 2.  Cliquez sur **Services** dans le panneau Récapitulatif des ressources pour voir vos instances de service {{site.data.keyword.cloudant_short_notm}}. 
 3.  Cliquez sur l'instance de service dont vous voulez voir les détails.
-4.  Cliquez sur **Lancer le tableau de bord Cloudant**.
+4.  Cliquez sur **Lancer le tableau de bord Cloudant**. 
     Quand le tableau de bord s'affiche, vous pouvez voir les bases de données associées à votre service.
 
 
@@ -404,7 +404,7 @@ client.disconnect()
 ## Etapes suivantes
 {: #next-steps}
 
-Pour en savoir plus sur toutes les offres {{site.data.keyword.cloudant_short_notm}}, consultez le site officiel de [{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+Pour en savoir plus sur toutes les offres {{site.data.keyword.cloudant_short_notm}}, consultez le site officiel de [{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/cloud/cloudant){: new_window}.
 
 Pour plus d'informations, voir les tutoriels, les concepts, les tâches et les techniques {{site.data.keyword.cloudant_short_notm}} dans la documentation [{{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-overview#overview).
 
@@ -412,9 +412,8 @@ Pour plus d'informations, voir les tutoriels, les concepts, les tâches et les t
 {: #appendix-complete-python-code-listing}
 
 Vous trouverez ci-dessous la liste complète du code Python. 
-Pensez à remplacer les valeurs `<username>`,
-`<password>`, `<url>` et `<apikey>` par les données d'identification de votre service.
-De même, remplacez la valeur `<yourDatabaseName>` par le nom de votre base de données.
+N'oubliez pas de remplacer les valeurs `<username>`,
+`<password>`, `<url>` et `<apikey>` par vos données d'identification de service. De même, remplacez la valeur `<yourDatabaseName>` par le nom de votre base de données.
 
 ```python
 from cloudant.client import Cloudant
@@ -425,7 +424,7 @@ from cloudant.result import Result, ResultByKey
 client = Cloudant("<username>", "<password>", url="<url>")
 client.connect()
 
-# IAM Authentication (uncomment if needed, and comment out {{site.data.keyword.cloudant_short_notm}} Legacy authentication section above)
+# IAM Authentication (uncomment if needed, and comment out previous {{site.data.keyword.cloudant_short_notm}} Legacy authentication section)
 client = Cloudant.iam("<username","<apikey>")
 client.connect()
 

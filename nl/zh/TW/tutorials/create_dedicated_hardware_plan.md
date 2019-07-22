@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -37,50 +37,51 @@ subcollection: cloudant
     {{site.data.keyword.cloud_notm}} 儀表板位於：[`https://cloud.ibm.com/ ` ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/){: new_window}。利用使用者名稱及密碼進行鑑別之後，您會看到 {{site.data.keyword.cloud_notm}} 儀表板。按一下`建立資源`按鈕：<br/>
     ![{{site.data.keyword.cloud_notm}} 儀表板](images/img0001.png)
 
-2.  從左側功能表中按一下`資料庫`，然後從資料庫服務的清單中按一下 `Cloudant`。<br/>
+2.  從功能表中按一下`資料庫`，然後從資料庫服務的清單中按一下 `Cloudant`。<br/>
      ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} 服務選項](images/img0003.png)<br/>
 
-3.  從頁面底端的定價方案清單中，選取`專用硬體`方案。<br/>
-    ![定價方案](/docs/services/Cloudant/tutorials/images/pricing_plan.png)
+3.  從定價方案清單中，選取`專用硬體`方案：<br/>
+    ![定價方案](images/pricing_plan.png)
     
-4.  在頁面頂端，填寫下列參數：<br/>
+4.  填寫下列參數：<br/>
     -   輸入服務名稱。<br/>
-    -   指定您要在其中部署的地區/位置。<br/>
+    -   指定您要在其中部署的地區/位置。該地區/位置將是要在其中部署實例的六個主要 {{site.data.keyword.cloud_notm}} 地區之一。實例的實際實體位置取決於下列清單中說明的位置參數。<br/>
     -   選取資源群組。</br>
     -   新增標籤。 
-    -   選取進行部署的位置。<br/>
+    -   選取進行部署的位置。此位置是實例的實體位置，可以位於任何 {{site.data.keyword.cloud_notm}} 位置，包括主要地區和主要地區以外的位置。如需相關資訊，請參閱 [{{site.data.keyword.IBM}} 全球資料中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/data-centers/){:new_window}。<br/>
     -   選取`是`或`否`，以回答是否需要 HIPAA。<br/> 
     
     HIPAA 僅適用於美國位置。{{site.data.keyword.IBM}} 可以佈建「專用硬體方案」環境來實作 HIPAA 控制項。只有在確認與 {{site.data.keyword.IBM_notm}} 建立的「事業夥伴合約 (BAA)」後，才會佈建環境。如需詳細資料，請參閱[啟用 HIPAA 支援的設定](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting)及「服務說明」條款。佈建叢集來管理 HIPAA 資料所花費的時間可能會超出 5 天的預估期間。
     {: note}
 
-    ![配置專用硬體](/docs/services/Cloudant/tutorials/images/select_deployment_location.png)
+    ![配置專用硬體](images/select_deployment_location.png)
         
 5.  按一下`建立`按鈕，以啟動佈建處理程序。<br/>
 
     計費是每日按比例分配，因此請先確定您要佈建並支付環境費用，然後再按一下**建立**按鈕。
     {: note}
 
-    ![佈建專用硬體](/docs/services/Cloudant/tutorials/images/create_button_provision.png)
+    ![佈建專用硬體](images/create_button_provision.png)
 
     在佈建期間，{{site.data.keyword.cloud_notm}} 儀表板中的實例旁邊會出現一個紡車。會傳送要求，以在裸機伺服器上佈建「專用硬體方案」實例。佈建時間為非同步，而且可能需要多達 5 天。
     {: note}   
 
-    ![佈建專用硬體替代版本](/docs/services/Cloudant/tutorials/images/create_button_provision2.png)
+    ![佈建專用硬體替代版本](images/create_button_provision2.png)
     
 ## 在專用硬體環境上佈建標準方案實例
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
 
 1.  登入 {{site.data.keyword.cloud_notm}} 帳戶。<br/>
-    {{site.data.keyword.cloud_notm}} 儀表板位於：[https://cloud.ibm.com/ ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/){: new_window}。利用使用者名稱及密碼進行鑑別之後，您會看到 {{site.data.keyword.cloud_notm}} 儀表板。按一下`建立資源`按鈕：<br/>
+    {{site.data.keyword.cloud_notm}} 儀表板位於：[https://cloud.ibm.com/ ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/){: new_window}。
+    利用使用者名稱及密碼進行鑑別之後，您會看到 {{site.data.keyword.cloud_notm}} 儀表板。按一下`建立資源`按鈕：<br/>
     ![{{site.data.keyword.cloud_notm}} 儀表板](images/img0001.png)
 
-2.  從左側功能表中按一下`資料庫`，然後從資料庫服務的清單中按一下 `Cloudant`。<br/>
+2.  從功能表中按一下`資料庫`，然後從資料庫服務的清單中按一下 `Cloudant`。<br/>
      ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} 服務選項](images/img0003.png)<br/>
     即會出現建立服務的頁面。<br/>  
 
 3.  從定價方案中，按一下`標準`。<br/>
-    ![標準定價方案](/docs/services/Cloudant/tutorials/images/standard_pricing_plan.png)
+    ![標準定價方案](images/standard_pricing_plan.png)
     
     您無法在「專用硬體」環境上佈建「精簡方案」實例。
     {: tip}
@@ -91,12 +92,12 @@ subcollection: cloudant
     -   選取資源群組。</br>
     -   新增標籤。 
     -   選取鑑別方法。</br>
-    -   選取環境。</br>
-    ![配置標準實例](/docs/services/Cloudant/tutorials/images/select_environment.png)
+    -   選取將在其中部署標準方案實例的環境。如果部署在帳戶中的任何專用硬體環境實例可用，這些實例會便顯示在下拉清單中。</br>
+    ![配置標準實例](images/select_environment.png)
     
 5.  按一下`建立`按鈕。<br/>
     幾秒之後，就會在您選取的環境上佈建實例。<br/>
-    ![佈建標準實例](/docs/services/Cloudant/tutorials/images/create_button_provision_standard.png)
+    ![佈建標準實例](images/create_button_provision_standard.png)
     
 6.  比照對多方承租戶 {{site.data.keyword.cloudant_short_notm}} 實例的作法，取得「服務認證」，並存取「{{site.data.keyword.cloudant_short_notm}} 儀表板」。 
     
@@ -129,7 +130,7 @@ ibmcloud resource service-instance-create NAME SERVICE_NAME SERVICE_PLAN_NAME LO
 參數 | 說明
 ----------|------------
 `environment_crn` | 此參數必須設為「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例的 CRN。您可以在「{{site.data.keyword.cloud_notm}} 儀表板」之「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例的「管理」標籤中查看範例 CLI 指令，以確定 CRN 為何。或者，您可以使用 `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` 指令以確定 CRN 為何。
-`legacyCredentials` |選用性的參數，其預設為 true 並指出實例同時使用 Legacy 及 IAM 認證還是僅使用 IAM 認證。如需選擇鑑別方法的詳細資料，請參閱 [IAM 手冊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}。
+`legacyCredentials` |選用性的參數，其預設為 true 並指出實例同時使用舊式及 IAM 認證還是僅使用 IAM 認證。如需選擇鑑別方法的詳細資料，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)。
 
 請參閱下列範例指令： 
 
@@ -146,12 +147,12 @@ ibmcloud resource service-instance-create cloudant_on_ded_hardware_cli cloudantn
 服務認證很重要。如果有任何人或任何應用程式可以存取認證，他們/它們實際上可以對服務實例執行想要的一切作業。例如，他們/它們可能會建立偽造資料，或刪除很重要的資訊。請小心地保護這些認證。
 {: important}
 
-如需服務認證中所含欄位的相關資訊，請參閱 [IAM 手冊 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}。
+如需服務認證中所含欄位的相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)。
 
 在 {{site.data.keyword.cloud_notm}} 內建立服務實例的認證的基本指令格式如下：
 
 ```sh
-ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [--enable-internal-service-endpoint true]
+ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [-p '{"service-endpoints":"internal"}]
 ```
 {: pre}
 
@@ -162,7 +163,7 @@ ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INST
 `NAME` | 您提供服務認證的任意名稱。
 `ROLE_NAME` |此欄位目前僅容許 Manager 角色。
 `SERVICE_INSTANCE_NAME` | 您提供給 {{site.data.keyword.cloudant_short_notm}} 實例的名稱。
-`enable-internal-service-endpoint` | 此選用欄位會將內部端點移入「服務認證」中的 url 欄位，以透過 {{site.data.keyword.cloud_notm}} 內部網路連接至服務。請省略此欄位，以將可公開存取的外部端點移入 url。只適用於已在支援內部端點之「專用硬體」環境上部署的「標準方案」實例。如果此環境不支援內部端點，則指令將產生 400 錯誤。
+`service-endpoints`|選用參數，用於使用內部端點移入服務認證中的 URL 欄位，以透過 {{site.data.keyword.cloud_notm}} 內部網路連接至服務。如果省略此參數，將使用可公用存取的外部端點移入 URL。只適用於已在支援內部端點之「專用硬體」環境上部署的「標準方案」實例。如果此環境不支援內部端點，則指令將產生 400 錯誤。
 
 如果您想要為 {{site.data.keyword.cloudant_short_notm}} 服務的 `cs20170517a` 實例建立認證（認證的名稱是 `creds_for_cs20170517a`），則可以使用與下列範例類似的指令來建立這些認證：
 
@@ -199,7 +200,7 @@ Credentials:
 如果您想要為 {{site.data.keyword.cloudant_short_notm}} 服務的 `cs20170517a` 實例建立認證（認證的名稱是 `creds_for_cs20170517a`），而且想要將內部端點移入 url，則可以使用與下列範例類似的指令來建立這些認證：
 
 ```sh
-ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a --enable-internal-service-endpoint true
+ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a -p '{"service-endpoints":"internal"}'
 ```
 {: codeblock}
 

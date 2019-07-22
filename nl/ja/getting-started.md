@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -34,12 +34,12 @@ subcollection: cloudant
 - [Node.js および {{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
 - [Swift および {{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-その他の言語固有のチュートリアルについては、『[Get started by deploying your first app ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/){: new_window}』を参照してください。 
+その他の言語固有のチュートリアルについては、『[Get started by deploying your first app ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs){: new_window}』を参照してください。 
 
 ## 始める前に
 {: #prereqs}
 
-[{{site.data.keyword.cloud}} アカウント ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https:///cloud.ibm.com/registration/){: new_window} および {{site.data.keyword.cloudant_short_notm}} サービスのインスタンスが必要であり、また以下の Python 要件が満たされている必要があります。
+[{{site.data.keyword.cloud}} アカウント ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/registration/){: new_window} および {{site.data.keyword.cloudant_short_notm}} サービスのインスタンスが必要であり、また以下の Python 要件が満たされている必要があります。
 
 *	最新バージョンの
 	[Python プログラミング言語 ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/){: new_window} をシステムにインストールします。
@@ -96,20 +96,20 @@ Python アプリケーションで {{site.data.keyword.cloudant_short_notm}} 上
 
 2.  次の手順を実行して、{{site.data.keyword.cloudant_short_notm}} サービス資格情報を作成します。
   <br>{{site.data.keyword.cloud_notm}} ダッシュボードで、**「メニュー」**アイコン > **「リソース・リスト」**と移動して、{{site.data.keyword.cloudant_short_notm}} サービス・インスタンスを開きます。
-  <br>左ナビゲーションで、`「サービス資格情報」`をクリックします。
+  <br>メニューで、`「サービス資格情報」`をクリックします。
   <br>a. `「新規資格情報」`ボタンをクリックします。
-  <br>![新規サービス資格情報の作成](/docs/services/Cloudant/tutorials/images/img0050.png)
+  <br>![新規サービス資格情報の作成](tutorials/images/img0050.png)
   <br>b. 次のスクリーン・ショットに示されているように、「新規資格情報の追加」ウィンドウで新規資格情報の名前を入力します。
   <br>c. (オプション) インライン構成パラメーターを追加します。
   <br>d. `「追加」`ボタンをクリックします。 
-  <br>![新規サービス資格情報の追加](/docs/services/Cloudant/tutorials/images/img0051.png)
+  <br>![新規サービス資格情報の追加](tutorials/images/img0051.png)
   <br>資格情報が「サービス資格情報」テーブルに追加されます。
   <br>e.「アクション」で`「資格情報の表示」`をクリックします。 
-  <br>![すべてのサービス資格情報の表示](/docs/services/Cloudant/tutorials/images/img0052.png)
+  <br>![すべてのサービス資格情報の表示](tutorials/images/img0052.png)
   <br>以下のようにサービス資格情報の詳細が表示されます。
-   <br>![{{site.data.keyword.cloudant_short_notm}} サービス資格情報](/docs/services/Cloudant/tutorials/images/img0009.png)
+   <br>![{{site.data.keyword.cloudant_short_notm}} サービス資格情報](tutorials/images/img0009.png)
    
-3.	{{site.data.keyword.cloudant_short_notm}} サービス・インスタンスへの接続を確立します。これを実行する手段は、{{site.data.keyword.cloud_notm}} IAM を使用しているか、または {{site.data.keyword.cloudant_short_notm}} のレガシー認証を使用しているかによって異なります。いずれの認証タイプについても詳しくは、『[{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) ガイド ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)』を参照してください。
+3.	{{site.data.keyword.cloudant_short_notm}} サービス・インスタンスへの接続を確立します。 これを実行する手段は、{{site.data.keyword.cloud_notm}} IAM を使用しているか、または {{site.data.keyword.cloudant_short_notm}} のレガシー認証を使用しているかによって異なります。 これらの認証タイプについて詳しくは、[{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)を参照してください。
 
 	{{site.data.keyword.cloudant_short_notm}} のレガシー認証を使用している場合は、以下のようにして、前のステップからのサービス資格情報を置き換えてください。
 	```python
@@ -135,7 +135,7 @@ Python アプリケーションで {{site.data.keyword.cloudant_short_notm}} 上
   ```
   {: codeblock}
 
-  ... ここで、`<your-database-name>` は、データベースに付ける名前です。 
+  ここで `<your-database-name>` は、データベースに付ける名前です。 
 
   データベース名は、文字で始まる必要があり、小文字 (a から z)、数字 (0 から 9)、記号 `_`、`$`、`(`、 `)`、`+`、`-`、および `/` のみを含むことができます。
   {: warning}
@@ -368,7 +368,8 @@ Python アプリケーションで {{site.data.keyword.cloudant_short_notm}} 上
     IBM Cloud ダッシュボードは、https://cloud.ibm.com/ にあります。 ユーザー名とパスワードで認証すると、IBM Cloud ダッシュボードが表示されます。
 2.  「リソースの要約」ペインで**「サービス」**をクリックして、{{site.data.keyword.cloudant_short_notm}} サービス・インスタンスを表示します。 
 3.  詳細を表示するサービス・インスタンスをクリックします。
-4.  **「Cloudant ダッシュボードの起動」**をクリックします。ダッシュボードが開いたら、サービスに関連付けられたデータベースを確認できます。
+4.  **「Cloudant ダッシュボードの起動」**をクリックします。 
+    ダッシュボードが開いたら、サービスに関連付けられたデータベースを確認できます。
 
 
 ## ステップ 7: データベースを削除する
@@ -403,7 +404,7 @@ client.disconnect()
 {: #next-steps}
 
 すべての {{site.data.keyword.cloudant_short_notm}} オファリングについて詳しくは、
-メインの [{{site.data.keyword.cloudant_short_notm}}![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} サイトを参照してください。
+メインの [{{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/cloud/cloudant){: new_window} サイトを参照してください。
 
 詳しくは、[{{site.data.keyword.cloudant_short_notm}} 資料](/docs/services/Cloudant?topic=cloudant-overview#overview)内のチュートリアル、{{site.data.keyword.cloudant_short_notm}} の概念、タスク、および技法を参照してください。
 
@@ -423,7 +424,7 @@ from cloudant.result import Result, ResultByKey
 client = Cloudant("<username>", "<password>", url="<url>")
 client.connect()
 
-# IAM Authentication (uncomment if needed, and comment out {{site.data.keyword.cloudant_short_notm}} Legacy authentication section above)
+# IAM Authentication (uncomment if needed, and comment out previous {{site.data.keyword.cloudant_short_notm}} Legacy authentication section)
 client = Cloudant.iam("<username","<apikey>")
 client.connect()
 

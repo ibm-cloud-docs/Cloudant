@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -87,7 +87,7 @@ _使用 map 函数定义视图的示例设计文档：_
 
 结果是，map 代码已转换为符合 JSON 的字符串，并且包含在设计文档中。
 
-一旦保存了设计文档后，{{site.data.keyword.cloudant_short_notm}} 就会触发服务器端进程来构建 `fetch/by_ts` 视图。为此，Cloudant 对数据库中的每个文档执行迭代，然后将每个文档发送给 JavaScript map 函数。此函数会返回发出的键/值对。随着迭代继续，每个键/值对都会存储在 B 型树索引中。首次构建索引之后，后续重建索引操作将仅对新文档和更新后的文档执行。对于删除的文档，会除去其索引。这种省时的过程称为*增量 MapReduce*，如下图中所示：
+保存了设计文档后，{{site.data.keyword.cloudant_short_notm}} 就会触发服务器端进程来构建 `fetch/by_ts` 视图。为此，Cloudant 对数据库中的每个文档执行迭代，然后将每个文档发送给 JavaScript map 函数。此函数会返回发出的键/值对。随着迭代继续，每个键/值对都会存储在 B 型树索引中。首次构建索引之后，后续重建索引操作将仅对新文档和更新后的文档执行。对于删除的文档，会除去其索引。这种省时的过程称为*增量 MapReduce*，如下图中所示：
 
 ![增量 MapReduce 图](../images/DesDocMan00.png)
 
@@ -180,7 +180,7 @@ _使用 reduce 函数的示例设计文档：_
 6.  删除设计文档 `_design/fetch_NEW`。
 7.  删除设计文档 `_design/fetch_OLD`。
 
-## 移动并切换工具
+## “移动并切换”工具
 {: #move-and-switch-tooling}
 
 有一个用于自动执行“移动并切换”过程的命令行 Node.js 脚本，名为“`couchmigrate`”。此脚本可以按如下所示进行安装。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -30,7 +30,7 @@ subcollection: cloudant
 ## 如何将现有实例迁移到资源组？
 {: #how-do-i-migrate-an-existing-instance-to-a-resource-group-}
 
-要将 {{site.data.keyword.cloudant_short_notm}} 实例从 Cloud Foundry 空间迁移到资源组，请参阅[将 Cloud Foundry 服务实例和应用程序迁移到资源组](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}。
+要将 {{site.data.keyword.cloudant_short_notm}} 实例从 Cloud Foundry 空间迁移到资源组，请参阅[将 Cloud Foundry 服务实例和应用程序迁移到资源组 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}。
 
 您可以迁移以下套餐上的 {{site.data.keyword.cloudant_short_notm}} 实例：
 
@@ -44,7 +44,7 @@ subcollection: cloudant
 迁移过程中没有停机时间。
 
 ## 为什么一些实例有组织和空间，而另一些实例没有组织和空间？
-{: #why-do-some-instances-have-an-organisation-and-space-and-others-do-not-}
+{: #why-do-some-instances-have-an-organization-and-space-and-others-do-not-}
 
 自 2018 年 7 月 16 日起，新实例已供应到资源组，而不是供应到 Cloud Foundry 空间中。在此日期之前供应的资源实例具有关联的 Cloud Foundry 组织和空间。在此日期之后供应的实例将改为与资源组相关联。
 
@@ -53,7 +53,7 @@ subcollection: cloudant
 
 新的标准套餐实例会供应到资源组中。为了将这些实例供应到专用硬件实例上，必须先将专用硬件实例迁移到资源组中。
 
-有关如何执行此操作的更多信息，请参阅[将 Cloud Foundry 服务实例和应用程序迁移到资源组](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}。
+有关如何执行此操作的更多信息，请参阅[将 Cloud Foundry 服务实例和应用程序迁移到资源组 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}。
 
 专用硬件实例迁移到资源组后，当供应标准套餐时，该实例会显示在“位置”下拉菜单中。
 

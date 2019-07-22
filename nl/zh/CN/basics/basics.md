@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -37,7 +37,7 @@ subcollection: cloudant
 ## 连接到 {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant}
 
-要访问 {{site.data.keyword.cloudant_short_notm}}，您必须具有 [{{site.data.keyword.cloudant_short_notm}} 帐户](/docs/services/Cloudant?topic=cloudant-account#account)或 [{{site.data.keyword.cloud}} 帐户](/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public)。
+要访问 {{site.data.keyword.cloudant_short_notm}}，您必须具有 [{{site.data.keyword.cloudant_short_notm}} 帐户](/docs/services/Cloudant?topic=cloudant-ibm-cloudant.com#enterprise-plan)或 [{{site.data.keyword.cloud}} 帐户](https://cloud.ibm.com/login)。
 
 ## HTTP API
 {: #http-api}

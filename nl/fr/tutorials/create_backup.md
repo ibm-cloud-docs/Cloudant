@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
 
@@ -114,7 +114,7 @@ Les documents que vous créez dans cet exercice contiennent les données que vou
     ```
     {: codeblock}
     
-2.  Exécutez cette commande pour créer les documents :
+2.  Exécutez la commande suivante pour créer les documents :
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat

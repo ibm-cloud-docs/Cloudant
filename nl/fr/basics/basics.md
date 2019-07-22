@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2018-05-07 -->
 
-# Principes de base de {{site.data.keyword.cloudant_short_notm}}
+# Concepts de base de {{site.data.keyword.cloudant_short_notm}}
 {: #ibm-cloudant-basics}
 
 Si vous consultez cette documentation pour la première fois, lisez la présente section avant de poursuivre.
@@ -37,8 +37,7 @@ Pour comprendre les informations des rubriques suivantes, vous devez connaître 
 ## Connexion à {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant}
 
-Pour accéder à {{site.data.keyword.cloudant_short_notm}}, vous devez disposer d'un  [compte{{site.data.keyword.cloudant_short_notm}} ou d'un ](/docs/services/Cloudant?topic=cloudant-account#account),
-or an [compte {{site.data.keyword.cloud}}](/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public).
+Pour accéder à {{site.data.keyword.cloudant_short_notm}}, vous devez disposer d'un [compte {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-ibm-cloudant.com#enterprise-plan) ou d'un [compte {{site.data.keyword.cloud}}](https://cloud.ibm.com/login).
 
 ## API HTTP
 {: #http-api}
@@ -128,7 +127,7 @@ et peuvent être stockés en tant que pièces jointes associées aux documents.
 
 Pour plus d'informations sur JSON, consultez le [guide JSON](/docs/services/Cloudant?topic=cloudant-json#json).
 
-## Systèmes distribués
+## Systèmes répartis
 {: #distributed-systems}
 
 L'API de {{site.data.keyword.cloudant_short_notm}} vous permet d'interagir avec de nombreuses machines, appelées cluster.

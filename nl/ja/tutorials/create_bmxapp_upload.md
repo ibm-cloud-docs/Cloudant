@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -33,17 +33,12 @@ subcollection: cloudant
 
 最初のタスクは、{{site.data.keyword.cloud_notm}} への接続です。
 
-接続には、[{{site.data.keyword.cloud_notm}} ツールキット](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits)を利用できます。
-
-Cloud Foundry は、アプリケーションのアップロード時など、API 呼び出しに使用する URL を認識している必要があります。
-{{site.data.keyword.cloud_notm}} ツールキットは、「`cf api`」コマンドを使用して API エンドポイントを管理します。
-「`cf api`」コマンドの詳細については、
-[こちら ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window} を参照してください。
+{{site.data.keyword.cloud_notm}} CLI は、API 呼び出しに使用する URL を知っている必要があります。例えば、アプリケーションをアップロードすると、{{site.data.keyword.cloud_notm}} ツールキットでは API エンドポイントを管理するために `ibmcloud api` コマンドが使用されます。`ibmcloud api` コマンドについて詳しくは、[{{site.data.keyword.cloud_notm}} CLI の概説 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window} を参照してください。
 
 次のコマンドで、使用する URL を Cloud Foundry に指示します。
 
 ```sh
-bluemix api https://api.ng.bluemix.net
+ibmcloud api https://api.ng.bluemix.net
 ```
 {: pre}
 
@@ -57,7 +52,7 @@ OK
 
 API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
-Not logged in. Use 'bluemix login' to log in.
+Not logged in. Use 'ibmcloud login' to log in.
 ```
 {: codeblock}
 
@@ -80,7 +75,7 @@ Not logged in. Use 'bluemix login' to log in.
 アカウント・パスワードの入力を求められることに注意してください。
 
 ```sh
-bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
+ibmcloud login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {: pre}
 
@@ -212,20 +207,20 @@ buildpack: python 1.5.5
 
 次に、アプリケーションをテストして、正しく実行されていることを確認します。 
 
-1.  {{site.data.keyword.cloud_notm}} ダッシュボードから、**「メニュー」**アイコン > **「リソース・リスト」**に進み、ユーザーのアプリケーションを開きます。Cloud Foundry アプリの下で、「`Cloudant CF アプリ`」をクリックして詳細ページを開きます。<br/>  
+1.  {{site.data.keyword.cloud_notm}} ダッシュボードから、**「メニュー」**アイコン > **「リソース・リスト」**に進み、ユーザーのアプリケーションを開きます。 Cloud Foundry アプリの下で、「`Cloudant CF アプリ`」をクリックして詳細ページを開きます。<br/>  
 ![アプリケーションのダッシュボードのスクリーン・ショット](images/img0017.png)
 
 2.  「`Cloudant CF アプリ`」の詳細ページで、「`経路`」をクリックし、`Cloudant-CF-app.mybluemix.net` リンクをクリックします。 <br/>
 ![Cloudant CF アプリの詳細ページ](images/img0030.png)
 
-3. `https://cloudant-cf-app.mybluemix.net/` で新しいブラウザー・ウィンドウが開きます。 メッセージが、アプリケーションが実行中であることを確認します。 メッセージの内容は、「Hello World! Thanks for creating a Python Starter Application」になります。<br/>
+3. `https://cloudant-cf-app.mybluemix.net/` で新しいブラウザー・ウィンドウが開きます。 「Hello World! Thanks for creating a Python Starter Application.」というメッセージの表示によって、アプリケーションが実行中であることを検証できます。<br/>
 ![Hello World! が Cloudant CF アプリが正しく実行されていることを確認](images/img0054.png)
 
 
 ### データベース詳細の確認
 {: #confirming-the-database-details}
 
-{{site.data.keyword.cloud_notm}} ダッシュボードから、**「メニュー」**アイコン > **「リソース・リスト」**に進み、サービス・インスタンスを開きます。「`管理`」タブに移動し、「`Cloudant ダッシュボードの起動」`をクリックします。<br/>
+{{site.data.keyword.cloud_notm}} ダッシュボードから、**「メニュー」**アイコン > **「リソース・リスト」**に進み、サービス・インスタンスを開きます。 「`管理`」タブに移動し、「`Cloudant ダッシュボードの起動」`をクリックします。<br/>
 ![{{site.data.keyword.cloudant_short_notm}} サービス・ページでの Cloudant ダッシュボードの起動](images/img0036.png)
 
 {{site.data.keyword.cloudant_short_notm}} サービス・ページを探すには、

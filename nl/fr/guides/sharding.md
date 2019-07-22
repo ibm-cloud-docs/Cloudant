@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -193,7 +193,7 @@ La définition de _Q_ pour les bases de données n'est pas activée pour les bas
 {: note}
 
 Si vous tentez de définir la valeur _Q_ alors qu'elle est indisponible,
-une réponse [`403` est générée](/docs/services/Cloudant/api/http.html#http-status-codes) avec un corps JSON
+une réponse [`403` est générée](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) avec un corps JSON
 similaire à l'exemple suivant :
 
 ```json
@@ -241,7 +241,7 @@ le coordinateur peut renvoyer une réponse plus rapidement.
 Cela est dû au fait que le coordinateur doit attendre une réponse d'une des
 répliques qui hébergent le fragment approprié.
 
-Le fait de réduire la valeur _R_ augmente la probabilité que la réponse renvoyée ne s'appuie pas sur les dernières données en raison du modèle de [cohérence finale](/docs/services/Cloudant/guides/cap_theorem.html)  utilisé par {{site.data.keyword.cloudant_short_notm}}. L'utilisation de la valeur _R_ par défaut permet d'atténuer cet effet.
+Le fait de réduire la valeur _R_ augmente la probabilité que la réponse renvoyée ne s'appuie pas sur les dernières données en raison du modèle de [cohérence finale](/docs/services/Cloudant?topic=cloudant-cap-theorem)  utilisé par {{site.data.keyword.cloudant_short_notm}}. L'utilisation de la valeur _R_ par défaut permet d'atténuer cet effet.
 {: note}
 
 La valeur par défaut de _R_ est _2_.

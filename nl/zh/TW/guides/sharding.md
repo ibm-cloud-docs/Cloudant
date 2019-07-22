@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -59,7 +59,7 @@ Shard 是資料庫中文件的不同子集。所有 _Q_ 個 Shard 都會包含�
 
 針對所有查詢，協調程式會對所有抄本發出讀取要求。會使用此方式，因為每一個抄本都會針對可協助回答查詢的索引維護其自己的副本。此配置的重要結果是_如果_ 文件寫入傾向平均分散到叢集中的 Shard，則具有多個 Shard 會啟用平行索引建置。
 
-實際上，很難預測跨叢集中節點的可能索引作業負載。甚至，預測索引作業負載可能還比處理要求模式更不實用。原因是可能需要索引作業的時間是在文件寫入之後，而不是在文件要求之後。因此，單獨考量索引作業無法提供足夠的資訊來預估適當的 Shard 計數。
+實際上，很難預測跨叢集中節點的可能檢索作業負載。甚至，預測檢索作業負載可能還比處理要求模式更不實用。原因是可能需要檢索作業的時間是在文件寫入之後，而不是在文件要求之後。因此，單獨考量檢索作業無法提供足夠的資訊來預估適當的 Shard 計數。
 
 當您考慮資料大小時，重要考量是每個 Shard 的文件數目。每一個 Shard 都會將其文件保留在磁碟的大型 [B-Tree ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/B-tree){: new_window} 中。索引會以相同的方式儲存。將更多文件新增至 Shard 時，在一般文件查閱或查詢期間用來遍訪 B-Tree 的步驟數目會增加。此「深度增加」很容易會拖慢要求，因為必須從快取或磁碟讀取更多資料。
 
@@ -99,7 +99,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 對於 {{site.data.keyword.cloud}} 上的 {{site.data.keyword.cloudant_short_notm}} 資料庫，未啟用為資料庫設定 _Q_ 的功能。在大部分的 `cloudant.com` 多方承租戶叢集上，無法使用 _Q_ 值。
 {: note}
 
-如果您嘗試在無法使用的位置設定 _Q_ 值，則結果是 JSON 主體與下列範例類似的 [`403` 回應](/docs/services/Cloudant/api/http.html#http-status-codes)：
+如果您嘗試在無法使用的位置設定 _Q_ 值，則結果是 JSON 內文與下列範例類似的 [`403` 回應](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)：
 
 ```json
 {
@@ -128,7 +128,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 
 將 _R_ 設定為 _1_ 可能會改善整體回應時間，因為協調程式可以更快速地傳回回應。原因是協調程式只需等待來自任何一個管理適當 Shard 的抄本的單一回應。
 
-如果您減少 _R_ 值，它會增加下列情況的可能性：所傳回的回應由於 {{site.data.keyword.cloudant_short_notm}} 所使用的[最終一致性](/docs/services/Cloudant/guides/cap_theorem.html)模型而未根據最新資料。使用預設 _R_ 值有助於減少此影響。
+如果您減少 _R_ 值，它會增加下列情況的可能性：所傳回的回應由於 {{site.data.keyword.cloudant_short_notm}} 所使用的[最終一致性](/docs/services/Cloudant?topic=cloudant-cap-theorem)模型而未根據最新資料。使用預設 _R_ 值有助於減少此影響。
 {: note}
 
 _R_ 的預設值是 _2_。此值對應於使用三個 Shard 抄本的一般資料庫的大部分抄本。如果資料庫的抄本數目高於或低於 3，則 _R_ 的預設值會相應地變更。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -32,7 +32,7 @@ e popolarlo con una raccolta di dati semplice.
 {: shortdesc}
 
 ## Prerequisiti
-{: prerequisites}
+{: #prerequisites-create_database}
 
 Assicurati di avere le seguenti risorse o informazioni pronte
 prima di iniziare ad utilizzare l'esercitazione.
@@ -63,7 +63,7 @@ Python 2.7.12
 {: #python-client-library-for-ibm-cloudant}
 
 Esiste una [libreria supportata ufficialmente](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported) per abilitare le tue applicazioni Python ad utilizzare
-{{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}}. Utilizza le istruzioni fornite per installarla.  
+{{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}}. Utilizza le istruzioni fornite per installarla. 
 
 Per verificare di disporre di una libreria client installata correttamente,
 esegui il seguente comando quando richiesto:
@@ -96,8 +96,7 @@ Campo      | Scopo
 `port`     | Il numero di porta HTTP per l'accesso all'istanza del servizio sull'host. Normalmente 443 per forzare l'accesso HTTPS.
 `url`      | Una stringa di aggregazione delle altre informazioni sulle credenziali in un solo URL, appropriata per l'utilizzo da parte delle applicazioni.
 
-Le informazioni su come trovare le credenziali del servizio per la tua istanza del servizio sono disponibili
-[qui](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+Per ulteriori informazioni su come trovare le credenziali del servizio per la tua istanza del servizio, vedi [Individuazione delle tue credenziali del servizio](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
 ## Contesto
 {: #context}
@@ -129,7 +128,7 @@ le avvertenze e le condizioni di errore riscontrate dalle tue proprie applicazio
 ## Connessione a un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}
 {: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-Un'applicazione Python richiede che i componenti della libreria client {{site.data.keyword.cloudant_short_notm}}  siano in grado di connettersi all'istanza del servizio.
+Un'applicazione Python richiede che i componenti della libreria client {{site.data.keyword.cloudant_short_notm}} siano in grado di connettersi all'istanza del servizio.
 Questi componenti sono identificati come istruzioni `import` normali:
 
 ```python
@@ -225,7 +224,7 @@ Ogni documento viene archiviato nel database:
 ```python
 # Crea i documenti utilizzando i dati di esempio.
 # Passa attraverso ogni riga nell'array
-for document in sampleData:
+  per document in sampleData:
     # Richiama i campi in ogni riga.
     number = document[0]
     name = document[1]
@@ -233,7 +232,7 @@ for document in sampleData:
     temperature = document[3]
 
     # Crea un documento JSON che rappresenta
-    # tutti i dati in una riga.
+    # tutti i dati nella riga.
     jsonDocument = {
         "numberField": number,
         "nameField": name,
@@ -241,7 +240,7 @@ for document in sampleData:
         "temperatureField": temperature
     }
 
-    # Creare un documento utilizzando l'API del database.
+    # Crea un documento utilizzando l'API del database.
     newDocument = myDatabaseDemo.create_document(jsonDocument)
 
     # Controlla che il documento esista nel database.
@@ -379,7 +378,7 @@ print "{0}\n".format(response.json())
 ```
 {: codeblock}
 
-Il risultato è simile al seguente esempio _abbreviated_:
+Il risultato è simile al seguente esempio _abbreviato_:
 
 ```json
 {
@@ -442,7 +441,7 @@ else:
 ```
 {: codeblock}
 
-Abbiamo incluso la gestione di alcuni errori di base per illustrare come
+Abbiamo incluso la gestione di alcuni errori di base per illustrare
 come potrebbero venire riscontrati e risolti dei problemi.
 
 ## Chiusura della connessione all'istanza del servizio
@@ -486,7 +485,7 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 # Questo è il nome del database che stiamo utilizzando.
 databaseName = "databasedemo"
 
-# Questa è una raccolta di dati semplice
+# Questa è una raccolta di dati semplice,
 # per l'archiviazione all'interno del database.
 sampleData = [
     [1, "one", "boiling", 100],
@@ -521,7 +520,7 @@ print "----\n"
 
 # Crea i documenti utilizzando i dati di esempio.
 # Passa attraverso ogni riga nell'array
-for document in sampleData:
+  per document in sampleData:
     # Richiama i campi in ogni riga.
     number = document[0]
     name = document[1]
@@ -529,7 +528,7 @@ for document in sampleData:
     temperature = document[3]
 
     # Crea un documento JSON che rappresenta
-    # tutti i dati in una riga.
+    # tutti i dati nella riga.
     jsonDocument = {
         "numberField": number,
         "nameField": name,
@@ -537,7 +536,7 @@ for document in sampleData:
         "temperatureField": temperature
     }
 
-    # Creare un documento utilizzando l'API del database.
+    # Crea un documento utilizzando l'API del database.
     newDocument = myDatabaseDemo.create_document(jsonDocument)
 
     # Controlla che il documento esista nel database.

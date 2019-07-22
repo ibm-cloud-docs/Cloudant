@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -25,7 +25,7 @@ subcollection: cloudant
 # {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}}로 마이그레이션
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
 
-[{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant)의 DAAS(Database-as-a-Service) 오퍼링은 멀티 테넌트 클러스터에서 실행되는 JSON 문서 저장소입니다. 이 서비스는 여러 지리적 위치에서 예측 가능한 비용, 확장성 및 서비스 레벨 계약(SLA)을 선택하여 사용할 수 있습니다.
+[{{site.data.keyword.cloudantfull}} ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/cloudant){: new_window}의 DBaaS(Database-as-a-Service) 오퍼링은 멀티 테넌트 클러스터에서 실행되는 JSON 문서 저장소입니다. 이 서비스는 여러 지리적 위치에서 예측 가능한 비용, 확장성 및 서비스 레벨 계약(SLA)을 선택하여 사용할 수 있습니다.
 
 이 문서에서는 다음 플랜 중 하나에서 {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}} Lite 또는 표준 플랜 인스턴스로 마이그레이션하는 방법을 설명합니다.
 
@@ -43,21 +43,21 @@ Apache CouchDB | {{site.data.keyword.cloudant_short_notm}}의 기반이 되는, 
 
 메트릭 |설명
 -------|------------
-초당 읽기 수 | 단순 문서 페치가 수행된 비율로, 예를 들면 `_id`로 검색한 경우 또는 파티션 키를 사용하여 파티션된 데이터베이스에 대해 조회하는 경우가 있습니다. 
+초당 읽기 수 | 단순 문서 페치가 수행된 비율로, 예를 들면 `_id`로 검색한 경우 또는 파티션 키를 사용하여 파티션된 데이터베이스에 대해 조회하는 경우가 있습니다.
 초당 쓰기 | 데이터가 데이터베이스에 기록된 비율입니다. 문서 작성, 업데이트 또는 삭제를 처리하는 API 호출은 '쓰기'로 간주됩니다.
 초당 글로벌 조회 수 | 글로벌 인덱스를 사용하여 데이터베이스가 조회된 비율로, 일반적으로 `_find` 엔드포인트에 액세스하거나 2차 MapReduce, 검색 또는 지리공간 인덱스를 사용하여 조회할 수 있습니다.
 스토리지 | JSON 데이터, 첨부 파일 및 2차 인덱스에서 사용하는 디스크 공간의 양입니다 .
 
 예를 들면, Lite 플랜은 20회의 초당 읽기, 10회의 초당 쓰기, 5회의 초당 글로벌 조회 및 1GB의 스토리지를 무료로 제공합니다. 이 플랜은 제품의 실행 가능성을 빠르게 확인하는 경우나 제품 개발 기간에 적합합니다. 애플리케이션이 QA나 프로덕션으로 바뀌면 표준 플랜으로 전환하여 인스턴스를 스케일링하십시오. 표준 플랜의 가장 작은 용량에는 100회의 초당 읽기, 50회의 초당 쓰기, 5회의 초당 글로벌 조회, 20GB의 스토리지(추가 스토리지는 GB당 비용 청구됨)가 포함되며 비용은 매월 약 $76.65(USD)입니다. 
 
-{{site.data.keyword.cloudant_short_notm}} 대시보드의 슬라이더를 사용하면 필요할 때마다 {{site.data.keyword.cloudant_short_notm}} 서비스를 위한 용량을 적게, 또는 많이 예약할 수 있습니다.
+{{site.data.keyword.cloudant_short_notm}} 대시보드의 슬라이더를 사용하면 필요할 때마다 {{site.data.keyword.cloudant_short_notm}} 서비스를 위한 용량을 적게, 또는 많이 예약할 수 있습니다. 
 
 ![슬라이더](../images/migrate2.gif)
 
 변경할 수 있는 처리량 용량의 양은 1회 변경당 최대 10개 단위(슬라이더의 '변경 한계' 지점 참조), 1시간당 최대 1회 변경으로 제한됩니다. 감소시키는 변경에는 양에 제한이 없지만, 시간 제한은 여전히 적용됩니다.
 {: tip}
 
-사용자에게는 특정 시간대에서 선택된 가장 높은 용량에 따라 비용이 청구됩니다. 데이터베이스 처리량은 특정 시기의 수요를 처리하기 위해 확장시키고, 한가한 시기에는 다시 축소시킬 수 있습니다. 사용자의 월별 청구 비용은 항상 예측 가능하고, 업그레이드는 자동이며, SLA는 [99.95% ](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument)입니다.
+사용자에게는 특정 시간대에서 선택된 가장 높은 용량에 따라 비용이 청구됩니다. 데이터베이스 처리량은 특정 시기의 수요를 처리하기 위해 확장시키고, 한가한 시기에는 다시 축소시킬 수 있습니다. 사용자의 월별 청구 비용은 항상 예측 가능하고, 업그레이드는 자동이며, SLA는 [99.95% ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}입니다. 
 
 지정된 시간(초)의 읽기, 쓰기 및 글로벌 조회 할당량을 초과하면 {{site.data.keyword.cloudant_short_notm}} API가 `HTTP 429 너무 많은 요청` 응답으로 응답합니다. 사용자의 애플리케이션은 나중에 해당 요청을 재시도할 수 있으며, 공식 라이브러리는 이러한 요청을 기하급수적 백오프와 함께 재시도하는 선택사항을 제공합니다. 
 
@@ -94,10 +94,10 @@ Apache CouchDB | {{site.data.keyword.cloudant_short_notm}}의 기반이 되는, 
 1.  {{site.data.keyword.cloud_notm}} 대시보드로 이동하십시오.
 2.  **메뉴** 아이콘 > **리소스 목록**으로 이동하여 모든 서비스 인스턴스를 보십시오. 
 3.  마이그레이션할 {{site.data.keyword.cloudant_short_notm}} 인스턴스를 선택하십시오. 
-4.  왼쪽 탐색에서 **플랜** 탭을 선택하십시오. 
+4.  메뉴에서 **플랜** 탭을 선택하십시오.  
 5.  가격 플랜 목록에서 **표준** 선택란을 선택하십시오.
 ![Lite](../images/migrate3.png)
-6.  페이지 맨 아래에 있는 **업그레이드**를 클릭하십시오.
+6.  **업그레이드**를 클릭하십시오.
 모든 기존 데이터가 보존됩니다.
 
 필요에 따라 용량을 늘리거나 줄이려면 처리량 용량 슬라이더를 사용하여 용량을 조정하십시오.
@@ -116,14 +116,14 @@ Apache CouchDB | {{site.data.keyword.cloudant_short_notm}}의 기반이 되는, 
 ### 1단계: {{site.data.keyword.cloud_notm}} 등록
 {: #step-1-sign-up-for-ibm-cloud}
 
-아직 등록하지 않은 경우에는 [{{site.data.keyword.cloud_notm}} 계정을 등록하십시오](https://www.ibm.com/cloud/). 
+아직 등록하지 않은 경우에는 [{{site.data.keyword.cloud_notm}} 계정을 등록하십시오 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/){: new_window}.  
 
 ### 2단계: {{site.data.keyword.cloudant_short_notm}} 인스턴스 작성
 {: #step-2-create-an-ibm-cloudant-instance}
 
 {{site.data.keyword.cloud_notm}} 계정에 로그인한 후 {{site.data.keyword.cloudant_short_notm}} 서비스를 추가하십시오. 대시보드에 있는 `Create resource` 단추를 클릭한 후 `Databases` 및 `Cloudant`를 클릭하십시오. 자세한 정보는 [{{site.data.keyword.cloud_notm}}에서 {{site.data.keyword.cloudant_short_notm}} 인스턴스를 작성하는 방법](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)을 참조하십시오. 
 
-![ {{site.data.keyword.cloudant_short_notm}} 인스턴스 추가](/docs/services/Cloudant/tutorials/images/img0003.png)
+![{{site.data.keyword.cloudant_short_notm}} 인스턴스 추가](../tutorials/images/img0003.png)
 
 ### 3단계: 애플리케이션이 {{site.data.keyword.cloudant_short_notm}}에 대해 준비되었는지 확인
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}
@@ -168,7 +168,7 @@ Apache CouchDB | {{site.data.keyword.cloudant_short_notm}}의 기반이 되는, 
 ## 다른 작업을 수행하기 전에 내 데이터를 백업할 수 있습니까?
 {: #can-i-back-up-my-data-before-doing-anything-}
 
-{{site.data.keyword.cloudant_short_notm}}에서는 [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) 유틸리티를 사용하여 데이터를 디스크로 내보내는 것을 권장합니다. [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage)는 내보낸 파일을 저장하는 데 사용할 수 있는, 저렴하며 스케일링 가능한 솔루션입니다. 
+{{site.data.keyword.cloudant_short_notm}}에서는 [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) 유틸리티를 사용하여 데이터를 디스크로 내보내는 것을 권장합니다. [{{site.data.keyword.cloud_notm}} Object Storage ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/object-storage){: new_window}는 내보낸 파일을 저장하는 데 사용할 수 있는, 저렴하며 스케일링 가능한 솔루션입니다.  
 
 ## `username.cloudant.com` 도메인을 유지하면서 이를 {{site.data.keyword.cloudant_short_notm}}의 새 서비스로 경로 재지정할 수 있습니까?
 {: #can-i-keep-my-username-cloudant-com-domain-and-redirect-it-to-the-new-service-on-ibm-cloudant-}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -22,17 +22,17 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# 對您要擴充之資料建立模型的五個提示
-{: #five-tips-for-modelling-your-data-to-scale}
+# 對資料建模以調整大小的五項提示
+{: #five-tips-for-modeling-your-data-to-scale}
 
-本文考量建立應用程式資料模型以便大規模有效率運作的較細微重點。
+本篇文章更細微討論了如何對應用程式資料建模，以便能大規模有效率地運作。
 {: shortdesc}
 
-*（本手冊是根據 Mike Rhodes 原先在 2013 年 12 月 17 日發行的部落格文章：[對您要擴充之資料建立模型的前 5 個提示 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/)。）*
+*（本手冊基於 Mike Rhodes 的部落格文章：[My Top 5 Tips for Modeling Data to Scale ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/)，最初發佈於 2013 年 12 月 17 日。）*
 
 在 {{site.data.keyword.cloudantfull}} 上建立資料模型的方式會大幅影響如何擴充應用程式。我們的基礎資料模型與關聯式模型相當不同，而忽略這項區別可能是未來發生效能問題的原因。
 
-一如往常，成功建模包含在容易使用與您想要達到的效能特徵之間取得平衡。
+一如既往地，成功建模需要在易用性與您希望實現的效能性質之間達到平衡。
 
 不再囉嗦，讓我們開始吧。
 
@@ -48,11 +48,11 @@ subcollection: cloudant
 ## 這對您考量不可變資料有幫助的原因 
 {: #why-this-helps-you-consider-immutable-data}
 
-`https://$ACCOUNT.cloudant.com/` 介面的後方是分散式資料庫。在叢集內，會將文件分區為數個共同形成資料庫的 Shard。接著將這些 Shard 分散到叢集中的節點。這可讓我們支援大小有許多 TB 的資料庫。
+`https://$ACCOUNT.cloudant.com/` 介面的後方是分散式資料庫。在叢集內，會將文件分割為數個共同形成資料庫的 Shard。接著將這些 Shard 分散到叢集中的節點。這可讓我們支援大小有許多 TB 的資料庫。
 
 依預設，除了將資料庫分割為 Shard 之外，所有 Shard 都有三個副本或 Shard 抄本，且每個都位在資料庫叢集的不同節點上。這容許資料庫在節點失敗時繼續負責處理要求。因此，儲存文件包含寫入至三個節點。這表示如果同時對相同的文件進行兩項更新，則某個節點子集可能會接受第一項更新，而另一個子集可能會接受第二項更新。叢集發現這項不相符時，會使用與一般抄寫針對產生衝突之並行更新的相同處理方式，來結合文件。
 
-衝突文件會損及效能；如需此狀況發生原因的詳細資料，請參閱下方說明。高度並行就地更新模式也會增加拒絕寫入的可能性，因為 `_rev` 不是預期參數，而此參數會強制重試應用程式，因此延遲處理。
+衝突文件會損害效能；請參閱下列文字以瞭解有關為何會發生這種情況的更多詳細資料。高度並行就地更新模式也會增加拒絕寫入的可能性，因為 `_rev` 不是預期參數，而此參數會強制重試應用程式，因此延遲處理。
 
 我們發現此衝突文件情境的更新頻率極可能高於一秒一次，但建議每十秒更新多次的不可變文件位在安全端。
 
@@ -106,7 +106,7 @@ subcollection: cloudant
 ```
 {: codeblock}
 
-如果 Joe 不幸同時具有許多作業，則文件的許多並行更新可能會產生衝突文件，如上所述。最好將作業分成個別文件，而這些個別文件參照 Joe 的人員文件並使用視圖將事物連接在一起。為了呈現每一個作業，您將上傳文件，例如下列兩個範例：
+如果 Joe 很不幸，同時有大量作業要做，那麼對一個文件進行大量並行更新有可能會建立衝突文件，如前所述。最好將作業分成個別文件，而這些個別文件參照 Joe 的人員文件並使用視圖將事物連接在一起。若要呈現每一個作業，您應上傳文件，例如下列兩個範例：
 
 ```json
 {
@@ -141,7 +141,7 @@ subcollection: cloudant
 ## 內建衝突解決
 {: #build-in-conflict-resolution}
 
-在 {{site.data.keyword.cloudant_short_notm}} 這類最終一致的系統中，最後一定會發生衝突。如上所述，這是可擴充性及資料備援的代價。
+在 {{site.data.keyword.cloudant_short_notm}} 這類最終一致的系統中，最後一定會發生衝突。如前所述，這是實現可調整性和資料備援要付出的代價。
 
 透過快速解決衝突且不需要操作員協助的方式來建構資料，可協助讓資料庫流暢地進行。在不需要使用者參與的情況下自動解決衝突的能力，也會大幅改善其體驗，而且可能會減少組織的支援負擔。
 
@@ -153,12 +153,12 @@ subcollection: cloudant
 ## 這對您內建衝突解決有幫助的原因 
 {: #why-this-helps-you-build-in-conflict-resolution}
 
-如上所述，高度衝突文件會對資料庫造成重大損失。內建從頭解決衝突的功能十分有助於避免病態衝突的文件。
+如前所述，嚴重衝突的文件對資料庫會造成嚴重損害。內建從頭解決衝突的功能十分有助於避免病態衝突的文件。
 
 ## 摘要
 {: #summary}
 
 這些提示示範資料建模將影響應用程式效能的一些方式。{{site.data.keyword.cloudant_short_notm}} 的資料儲存庫有一些可查看且可善加利用的特定特徵，確保資料庫效能會隨著應用程式成長而調整。我們瞭解這項變動可能會混淆，因此，現在一律會提供建議。
 
-如需進一步閱讀，請參閱 [Foundbite 的資料模型 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window} 上的這項討論，或 [Twilio 上我們朋友的範例 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}這篇。
+如需進一步的閱讀資料，請參閱有關 [Foundbite 的資料模型 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window} 的討論或 [Twilio 上來自我們朋友的範例 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}。
 

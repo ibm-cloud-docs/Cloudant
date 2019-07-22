@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -34,12 +34,12 @@ subcollection: cloudant
 - [Node.js 和 {{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
 - [Swift 和 {{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-要获取更多特定于语言的教程，请参阅[开始部署第一个应用程序 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/){: new_window}。 
+要获取更多特定于语言的教程，请参阅[开始部署第一个应用程序 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs){: new_window}。 
 
 ## 准备工作
 {: #prereqs}
 
-您需要 [{{site.data.keyword.cloud}} 帐户 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https:///cloud.ibm.com/registration/){: new_window} 以及 {{site.data.keyword.cloudant_short_notm}} 服务的实例，并满足以下 Python 需求：
+您需要 [{{site.data.keyword.cloud}} 帐户 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/registration/){: new_window} 以及 {{site.data.keyword.cloudant_short_notm}} 服务的实例，并满足以下 Python 需求：
 
 *	在系统上安装最新版本的 [Python 编程语言 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://www.python.org/){: new_window}。
 	
@@ -93,19 +93,20 @@ subcollection: cloudant
 
 2.  创建 {{site.data.keyword.cloudant_short_notm}} 服务凭证：
   <br>在 {{site.data.keyword.cloud_notm}} 仪表板中，转至**菜单**图标 > **资源列表**，并打开 {{site.data.keyword.cloudant_short_notm}} 服务实例。
-  <br>在左侧导航中，单击`服务凭证`。<br>a. 单击`新建凭证`按钮。
-  <br>![创建新的服务凭证](/docs/services/Cloudant/tutorials/images/img0050.png)
+  <br>在菜单中，单击`服务凭证`。
+  <br>a. 单击`新建凭证`按钮。
+  <br>![创建新的服务凭证](tutorials/images/img0050.png)
   <br>b. 在“添加新凭证”窗口中，输入新凭证的名称，如以下屏幕快照所示。
   <br>c.（可选）添加内联配置参数。
   <br>d. 单击`添加`按钮。
-  <br>![添加新的服务凭证](/docs/services/Cloudant/tutorials/images/img0051.png)
+  <br>![添加新的服务凭证](tutorials/images/img0051.png)
   <br>您的凭证会添加到服务凭证表中。
   <br>e. 单击“操作”下的`查看凭证`。
-  <br>![查看所有服务凭证](/docs/services/Cloudant/tutorials/images/img0052.png)
+  <br>![查看所有服务凭证](tutorials/images/img0052.png)
   <br>这将显示服务凭证的详细信息：
-  <br>![ {{site.data.keyword.cloudant_short_notm}} 服务凭证](/docs/services/Cloudant/tutorials/images/img0009.png)
+  <br>![{{site.data.keyword.cloudant_short_notm}} 服务凭证](tutorials/images/img0009.png)
    
-3.	建立与 {{site.data.keyword.cloudant_short_notm}} 服务实例的连接。执行此操作的机制取决于您使用的是 {{site.data.keyword.cloud_notm}} IAM 还是 {{site.data.keyword.cloudant_short_notm}} 旧认证。请参阅 [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) 指南 ![外部链接图标](images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)，获取有关认证类型的更多详细信息。
+3.	建立与 {{site.data.keyword.cloudant_short_notm}} 服务实例的连接。执行此操作的机制取决于您使用的是 {{site.data.keyword.cloud_notm}} IAM 还是 {{site.data.keyword.cloudant_short_notm}} 旧认证。有关任一认证类型的更多信息，请参阅 [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) 指南](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)。
 
 	如果您使用的是 {{site.data.keyword.cloudant_short_notm}} 旧认证，请替换为先前步骤中获得的服务凭证：
 	```python
@@ -131,8 +132,7 @@ subcollection: cloudant
   ```
   {: codeblock}
 
-    ... 其中，`<your-database-name>` 是您希望为数据库提供的名称。
- 
+  ...其中，`<your-database-name>` 是您希望为数据库提供的名称。 
 
   数据库名称必须以字母开头，并且只能包含小写字符 (a-z)、数字 (0-9) 以及以下任意字符：`_`、`$`、`(`、`)`、`+`、`-` 和 `/`。
   {: warning}
@@ -355,10 +355,10 @@ subcollection: cloudant
   ```
   {: codeblock}
 
-## （可选）第 6 步：查看 {{site.data.keyword.cloudant_short_notm}} 仪表板上的数据库信息
+## （可选）第 6 步：在 {{site.data.keyword.cloudant_short_notm}}“仪表板”上查看数据库信息
 {: #optional-step-6-ibm-cloudant-dashboard}
 
-遵循这些步骤以查看 {{site.data.keyword.cloudant_short_notm}} 仪表板上的数据库和文档。 
+执行以下步骤在 {{site.data.keyword.cloudant_short_notm}}“仪表板”上查看数据库和文档。 
 
 1.  登录到 IBM Cloud 帐户。
 可以在以下位置找到 IBM Cloud 仪表板：https://cloud.ibm.com/。使用用户名和密码进行认证后，将显示 IBM Cloud 仪表板。
@@ -397,15 +397,14 @@ client.disconnect()
 ## 后续步骤
 {: #next-steps}
 
-有关所有 {{site.data.keyword.cloudant_short_notm}} 产品的更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} 主站点。
+有关所有 {{site.data.keyword.cloudant_short_notm}} 产品的更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}} ![外部链接图标](images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/cloudant){: new_window} 主站点。
 
 有关更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}} 文档](/docs/services/Cloudant?topic=cloudant-overview#overview)中的教程、{{site.data.keyword.cloudant_short_notm}} 概念、任务以及方法。
 
 ## 附录：完整的 Python 代码列表
 {: #appendix-complete-python-code-listing}
 
-完整的 Python 代码列表如下所示。请务必将 `<username>`,
-`<password>`, `<url>` 和 `<apikey>` 值替换为您的服务凭证。同样，将 `<yourDatabaseName>` 值替换为您的数据库的名称。
+完整的 Python 代码列表如下所示。务必将 `<username>`、`<password>`、`<url>` 和 `<apikey>` 值替换为您的服务凭证。与此类似，还应将 `<yourDatabaseName>` 值替换为您的数据库的名称。
 
 ```python
 from cloudant.client import Cloudant
@@ -416,7 +415,7 @@ from cloudant.result import Result, ResultByKey
 client = Cloudant("<username>", "<password>", url="<url>")
 client.connect()
 
-# IAM Authentication (uncomment if needed, and comment out {{site.data.keyword.cloudant_short_notm}} Legacy authentication section above)
+# IAM Authentication (uncomment if needed, and comment out previous {{site.data.keyword.cloudant_short_notm}} Legacy authentication section)
 client = Cloudant.iam("<username","<apikey>")
 client.connect()
 

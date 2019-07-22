@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -35,7 +35,7 @@ subcollection: cloudant
 
 本手冊介紹 {{site.data.keyword.cloudant_short_notm}} 的抄寫功能、討論一般使用案例，以及顯示如何順利抄寫應用程式。
 
-## 何謂抄寫？
+## 什麼是抄寫？
 {: #what-is-replication}
 
 {{site.data.keyword.cloudant_short_notm}} 是具有 HTTP API 的分散式 JSON 資料儲存庫。
@@ -52,9 +52,7 @@ subcollection: cloudant
 ## 如何使用儀表板開始抄寫
 {: #how-to-start-replication-by-using-the-dashboard}
 
-{{site.data.keyword.cloudant_short_notm}} 儀表板提供一種便利的使用者介面來觸發抄寫。
-按一下 {{site.data.keyword.cloudant_short_notm}} 儀表板上的`抄寫`標籤，然後按一下`開始抄寫`。
-請完成下列表單：
+「{{site.data.keyword.cloudant_short_notm}} 儀表板」提供一個使用者介面，可方便地觸發抄寫。按一下「{{site.data.keyword.cloudant_short_notm}} 儀表板」上的`抄寫`標籤，然後按一下`開始抄寫`。請完成下列表單：
 
 ![抄寫 2](../images/replication_guide_2.png)
 
@@ -75,7 +73,7 @@ subcollection: cloudant
 
 抄寫的來源及目標是 {{site.data.keyword.cloudant_short_notm}} 資料庫的 URL，如下列範例所示。
 
-_定義抄寫來源及目標 URL 的範例：_
+*定義抄寫來源及目標 URL 的範例：*
 
 ```json
 {
@@ -105,7 +103,7 @@ _定義抄寫來源及目標 URL 的範例：_
 `target`        |目的地 {{site.data.keyword.cloudant_short_notm}} 資料庫的 URL（包括登入認證）。
 `create_target` |（選用）判斷是否要建立不存在的目的地資料庫。
 
-_使用 HTTP 開始抄寫工作的範例：_
+*使用 HTTP 開始抄寫工作的範例：*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -115,7 +113,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用指令行開始抄寫工作的範例：_
+*使用指令行開始抄寫工作的範例：*
 
 ```sh
 curl -X POST \
@@ -125,7 +123,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_說明想要的抄寫的範例 JSON 文件：_
+*說明想要的抄寫的範例 JSON 文件：*
 
 ```json
 {
@@ -183,7 +181,7 @@ _說明想要的抄寫的範例 JSON 文件：_
 -   來源端的 `_reader` 及 `_replicator` 存取權。
 -   目的地端的 `_reader` 及 `_writer` 存取權。
 
-根據每個資料庫，可以在 {{site.data.keyword.cloudant_short_notm}} 儀表板內建立及配置 API 金鑰。
+可以在「{{site.data.keyword.cloudant_short_notm}} 儀表板」中為每個資料庫逐一建立和配置 API 金鑰。
 
 ![抄寫](../images/replication_guide_5.png)
 
@@ -199,16 +197,16 @@ _說明想要的抄寫的範例 JSON 文件：_
 
 ![抄寫 6](../images/replication_guide_6.png)
 
-## 有關持續抄寫的討論
+## 關於持續抄寫的討論
 {: #discussion-about-continuous-replication}
 
 到目前為止，討論只涉及一次性抄寫，而這會在將所有來源資料寫入目標資料庫時完成。使用持續抄寫，資料會持續流動。來源資料庫的所有後續變更都會即時傳輸至目標資料庫。
 
-當您在 {{site.data.keyword.cloudant_short_notm}} 儀表板中定義抄寫作業時按一下`將此抄寫設為持續`勾選框，或在 {{site.data.keyword.cloudant_short_notm}} API 中設定 [`continuous`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) 旗標，即會觸發持續抄寫。
+透過在「{{site.data.keyword.cloudant_short_notm}} 儀表板」中定義抄寫作業時按一下`使此抄寫成為持續的`勾選框，或透過在 {{site.data.keyword.cloudant_short_notm}} API 中設定 [`continuous`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) 旗標，可觸發持續抄寫。
 
 設定 `continuous` 旗標，即可以單向或雙向持續進行雙向抄寫。
 
-_使用 HTTP 開始持續抄寫的範例：_
+*使用 HTTP 開始持續抄寫的範例：*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -218,7 +216,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用指令行開始持續抄寫的範例：_
+*使用指令行開始持續抄寫的範例：*
 
 ```sh
 curl -X POST \
@@ -228,7 +226,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_定義持續抄寫的 JSON 文件的範例：_
+*定義持續抄寫的 JSON 文件的範例：*
 
 ```json
 {
@@ -247,7 +245,7 @@ _定義持續抄寫的 JSON 文件的範例：_
 
 如果抄寫失敗（例如，如果鑑別認證無效），則錯誤狀態會記錄在 `_replicator` 文件中。此外，也可以使用 {{site.data.keyword.cloudant_short_notm}} 帳戶的 [`/_active_tasks` 端點](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks)來查看進行中的抄寫工作。
 
-_使用 HTTP 監視抄寫處理程序的範例：_
+*使用 HTTP 監視抄寫處理程序的範例：*
 
 ```http
 GET /_replicator/weekly_backup HTTP/1.1
@@ -256,14 +254,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用指令行監視抄寫處理程序的範例：_
+*使用指令行監視抄寫處理程序的範例：*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
 ```
 {: codeblock}
 
-_要求抄寫狀態的範例回應：_
+*要求抄寫狀態的範例回應：*
 
 ```json
 {
@@ -287,7 +285,7 @@ _要求抄寫狀態的範例回應：_
 
 若要停止進行中的抄寫工作，請使用儀表板或 API 刪除 `_replicator` 資料庫中的抄寫文件。
 
-_使用 HTTP 取消抄寫的範例：_
+*使用 HTTP 取消抄寫的範例：*
 
 ```http
 DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1.1
@@ -296,7 +294,7 @@ Authorization:
 ```
 {: codeblock}
 
-_使用指令行取消抄寫的範例：_
+*使用指令行取消抄寫的範例：*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
@@ -321,7 +319,7 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 
 [PouchDB ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://pouchdb.com/){: new_window} 是一種開放程式碼瀏覽器內資料庫，容許在瀏覽器與 {{site.data.keyword.cloudant_short_notm}} 之間雙向抄寫資料。將資料儲存在用戶端的 Web 瀏覽器中，甚至可容許 Web 應用程式在沒有網際網路連線的情況下運作。PouchDB 可以在具有網際網路連線時，與 {{site.data.keyword.cloudant_short_notm}} 之間同步化任何變更的資料。設定從用戶端抄寫需要幾行 JavaScript。
 
-_使用 PouchDB 啟用抄寫的範例 JavaScript：_
+*使用 PouchDB 啟用抄寫的範例 JavaScript：*
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
@@ -335,7 +333,7 @@ db.sync(URL, { live: true });
 
 [CloudantSync ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/cloudant-sync-resources/){: new_window} 是一組適用於 iOS 及 Android 的程式庫，容許將資料儲存在行動裝置本端中，並在允許行動連線功能時與 {{site.data.keyword.cloudant_short_notm}} 同步。與 [PouchDB](#pouchdb) 相同，設定抄寫需要幾行程式碼。
 
-_使用 CloudantSync 啟用抄寫的範例 JavaScript：_
+*使用 CloudantSync 啟用抄寫的範例 JavaScript：*
 
 ```javascript
 URI uri = new URI("https://u:p@username.cloudant.com/my_database");
@@ -364,7 +362,7 @@ CloudantSync 廣泛用於行動應用程式（例如 iPhone 及 Android 遊戲�
 
 下列範例是只容許抄寫非刪除文件的過濾函數。
 
-_抄寫非刪除文件的範例過濾函數：_
+*抄寫非刪除文件的範例過濾函數：*
 
 ```javascript
 function(doc, req) {
@@ -378,7 +376,7 @@ function(doc, req) {
 
 抄寫工作啟動時，會將過濾函數的名稱指定為儲存它的設計文件與過濾函數名稱的組合。您也可以指定 `query_params` 值。此值是一個物件，內含傳遞至其第二個 (`req`) 引數的 `query` 欄位中的過濾函數的內容。
 
-_使用 HTTP 開始過濾抄寫的範例：_
+*使用 HTTP 開始過濾抄寫的範例：*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -388,7 +386,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用指令行開始過濾抄寫的範例：_
+*使用指令行開始過濾抄寫的範例：*
 
 ```sh
 curl -X POST \
@@ -398,7 +396,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_定義過濾抄寫的 JSON 文件的範例：_
+*定義過濾抄寫的 JSON 文件的範例：*
 
 ```json
 {
@@ -420,7 +418,7 @@ _定義過濾抄寫的 JSON 文件的範例：_
 {{site.data.keyword.cloudant_short_notm}} 會透過來自 [`_changes` 端點](/docs/services/Cloudant?topic=cloudant-databases#get-changes)的單一 HTTP 資訊來源，來發佈影響資料庫的新增、編輯及刪除。應用程式可以使用此資訊來源來觸發事件。使用
 HTTP 或 `curl`，即可存取資訊來源，如範例所示。使用 `feed=continuous` 選項表示串流提供取得資料庫中每份文件的最新版本所需的每個變更。
 
-_使用 HTTP 查詢 changes 資訊來源的範例：_
+*使用 HTTP 查詢 changes 資訊來源的範例：*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous HTTP/1.1
@@ -429,7 +427,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用指令行查詢 changes 資訊來源的範例：_
+*使用指令行查詢 changes 資訊來源的範例：*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
@@ -442,11 +440,11 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
 2.  包含已變更文件 ID 的字串。
 3.  變更陣列。
 
-若要查看文件主體本身，請將 `&include_docs=true` 附加至 curl 指令。
+若要查看文件內文本身，請將 `&include_docs=true` 附加至 curl 指令。
 
 每一個變更都是使用下列（縮短的）範例中所顯示的格式來說明。
 
-_範例 `_changes` 資訊來源：
+*範例 `_changes` 資訊來源：*
 
 ```json
 {
@@ -463,7 +461,7 @@ _範例 `_changes` 資訊來源：
 
 若要結合已知位置中的 changes 資訊來源，請傳遞含有您要從其開始的序號的 [`since` 引數](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument)。
 
-_使用 HTTP 提供 `since` 選項以結合已知位置的 `_changes` 資訊來源的簡略範例：
+*使用 HTTP 提供 `since` 選項在已知位置連接 `_changes` 資訊來源的範例（縮短的）：*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
@@ -472,7 +470,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用指令行提供 `since` 選項以結合已知位置的 `_changes` 資訊來源的簡略範例：
+*使用指令行提供 `since` 選項在已知位置連接 `_changes` 資訊來源的範例（縮短的）：*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -481,7 +479,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 
 若要從現行時間點重新結合 changes 資訊來源，請設定 `since=now`。
 
-_使用 HTTP 提供 `since=now` 以結合現行時間點的 `_changes` 資訊來源的範例：
+*使用 HTTP 提供 `since=now` 以在此刻連接 `_changes` 資訊來源的範例：*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
@@ -490,14 +488,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用指令行提供 `since=now` 以結合現行時間點的 `_changes` 資訊來源的範例：
+*使用指令行提供 `since=now` 以在此刻連接 `_changes` 資訊來源的範例：*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {: codeblock}
 
-_使用 JavaScript 提供 `since=now` 以結合現行時間點的 `_changes` 資訊來源的範例：
+*使用 JavaScript 提供 `since=now` 以在此刻連接 `_changes` 資訊來源的範例：*
 
 ```javascript
 var feed = db.follow({since: "now", include_docs: true})
@@ -508,7 +506,7 @@ feed.follow();
 ```
 {: codeblock}
 
-以程式設計方式存取 `_changes` 資料十分簡單。例如，使用 [{{site.data.keyword.cloudant_short_notm}} Node.js 程式庫](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)，透過幾行程式碼來追蹤變更。
+以程式設計方式存取 `_changes` 資料十分簡單。例如，使用 [{{site.data.keyword.cloudant_short_notm}} Node.js 程式庫](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)，透過幾行程式碼來追蹤變更。
 
 範例使用案例可能是：
 
@@ -516,9 +514,9 @@ feed.follow();
 -   更新記憶體內資料庫，以記錄活動的即時計數。
 -   將資料寫入文字檔，以將資料推送至 SQL 資料庫。
 
-使用與[抄寫期間過濾](#filtered-replication)類似的技術，即可使用過濾函數來過濾 changes 資訊來源。
+使用與[抄寫期間過濾](#filtered-replications)類似的技術，即可使用過濾函數來過濾 changes 資訊來源。
 
-_使用 HTTP 過濾 changes 資訊來源的範例：_
+*使用 HTTP 過濾 changes 資訊來源的範例：*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter HTTP/1.1
@@ -527,7 +525,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用指令行過濾 changes 資訊來源的範例：_
+*使用指令行過濾 changes 資訊來源的範例：*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
@@ -537,7 +535,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 `_changes` 資訊來源內的文件排序不一定都相同。換句話說，可能不會以嚴格的時間順序來顯示變更。原因在於資料是從多個 {{site.data.keyword.cloudant_short_notm}} 節點傳回，並套用最終一致性規則。
 {: tip}
 
-## 抄寫陷阱
+## 抄寫易犯錯誤
 {: #replication-pitfalls}
 
 若要順利抄寫，文件大小與所有附件大小的總和必須小於目標叢集的要求大小上限。比方說，如果 HTTP 要求大小上限為 11 MB，則適用下列情境：
@@ -558,7 +556,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 *   資料庫 "a" 的 `_reader` 及 `_replicator` 許可權。
 *   資料庫 "b" 的 `_writer` 許可權。
 
-API 金鑰是在 {{site.data.keyword.cloudant_short_notm}} 儀表板中或透過 [API](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) 所產生。
+API 金鑰在「{{site.data.keyword.cloudant_short_notm}} 儀表板」中或者透過 [API](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) 產生。
 每一個金鑰都可以獲指派與特定 {{site.data.keyword.cloudant_short_notm}} 資料庫相關的個別權限。
 {{site.data.keyword.cloudant_short_notm}} 必須可以寫入其在抄寫「讀取」端的檢查點文件，否則，不會儲存任何狀態，而且無法從其停止位置繼續抄寫。
 如果未儲存狀態，可能會在繼續抄寫大型資料集時導致發生效能問題。原因在於沒有檢查點，抄寫處理程序在每次繼續時，都會從頭重新開始。
@@ -586,7 +584,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 
 如果您要取消所有抄寫，並以全新的 `_replicator` 資料庫開始，請在刪除後重建 `_replicator` 資料庫。
 
-_使用 HTTP 移除並重建 `_replicator` 資料庫的範例：_
+*使用 HTTP 移除並重新建立`_replicator` 資料庫的範例：*
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -599,7 +597,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用指令行移除並重建 `_replicator` 資料庫的範例：_
+*使用指令行移除並重新建立`_replicator` 資料庫的範例：*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'

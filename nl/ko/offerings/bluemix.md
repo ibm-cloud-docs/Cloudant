@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-06-12"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -27,7 +27,7 @@ subcollection: cloudant
 
 {{site.data.keyword.cloudantfull}} 퍼블릭은 {{site.data.keyword.cloudant_short_notm}}의 최다 기능 오퍼링으로 업데이트와 신규 기능을 제일 먼저 수신합니다. 가격은
 프로비저닝된 할당 처리량 용량과 사용되는 데이터 스토리지를 기준으로 책정되며
-필수 로드에 맞게 이루어집니다.
+필수 로드에 맞게 이루어집니다. 
 {: shortdesc}
 
 무료 [Lite 플랜](#lite-plan)에는 개발 및 평가 용도로 고정 처리량 용량 및 데이터가 포함됩니다. 유료 [표준 플랜](#standard-plan)은
@@ -70,9 +70,9 @@ HTTP 요청이 402 상태 코드와 함께 오류 메시지 "Account has exceede
 ### 데디케이티드 하드웨어 플랜
 {: #dedicated-hardware-plan}
 
-{{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스는 {{site.data.keyword.cloudant_short_notm}} 표준 플랜 인스턴스만을 사용하기 위해 프로비저닝되는 베어메탈 {{site.data.keyword.cloudant_short_notm}} 환경입니다. {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 환경은 모든 [{{site.data.keyword.IBM}} 데이터 센터 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud-computing/bluemix/data-centers)에서 프로비저닝될 수 있습니다. 이 플랜은 HIPAA 규제 준수에 필요하며 프로비저닝할 때 선택해야 합니다. {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 환경의 사용자는 {{site.data.keyword.IBM_notm}} Key Protect를 사용하여 IP 화이트리스트와 BYOK(Bring-Your-Own-Key) 고객 관리 암호화 키를 사용할 수 있습니다. 또한 2019년 1월 1일 이후에 프로비저닝된 데디케이티드 하드웨어 환경에는 이 환경에 배치된 모든 표준 플랜 인스턴스에 대한 내부 엔드포인트가 포함됩니다. 내부 엔드포인트를 사용하면 고객이 내부 {{site.data.keyword.cloud}} 네트워크를 통해 {{site.data.keyword.cloudant_short_notm}} 인스턴스에 연결하여 업스트림 애플리케이션 트래픽이 공용 네트워크를 통하지 않으며 대역폭 비용을 발생시키지 않도록 할 수 있습니다. {{site.data.keyword.cloud}} 계정의 서비스 엔드포인트 사용에 대한 세부사항은 [서비스 엔드포인트 문서](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window}를 참조하십시오.
+{{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스는 {{site.data.keyword.cloudant_short_notm}} 표준 플랜 인스턴스만을 사용하기 위해 프로비저닝되는 베어메탈 {{site.data.keyword.cloudant_short_notm}} 환경입니다. {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 환경은 모든 [{{site.data.keyword.IBM}} 글로벌 데이터 센터 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/data-centers/){:new_window}에서 프로비저닝될 수 있습니다. 이 플랜은 HIPAA 규제 준수에 필요하며 프로비저닝할 때 선택해야 합니다. {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 환경의 사용자는 {{site.data.keyword.IBM_notm}} Key Protect를 사용하여 IP 화이트리스트와 BYOK(Bring-Your-Own-Key) 고객 관리 암호화 키를 사용할 수 있습니다. 또한 2019년 1월 1일 이후 EU 관리 환경 외부에 프로비저닝된 데디케이티드 하드웨어 환경에는 이 환경에 배치된 모든 표준 플랜 인스턴스에 대한 내부 엔드포인트가 포함됩니다. 내부 엔드포인트를 사용하면 고객이 내부 {{site.data.keyword.cloud}} 네트워크를 통해 {{site.data.keyword.cloudant_short_notm}} 인스턴스에 연결하여 업스트림 애플리케이션 트래픽이 공용 네트워크를 통하지 않으며 대역폭 비용을 발생시키지 않도록 할 수 있습니다. {{site.data.keyword.cloud}} 계정에 대해 서비스 엔드포인트를 사용으로 설정하는 데 대한 자세한 정보는 [서비스 엔드포인트 문서 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window}를 참조하십시오. 
 
-사용자는 하나 이상의 표준 플랜 인스턴스를 프로비저닝할 수 있으며, 데디케이티드 하드웨어 환경은 표준 플랜 인스턴스가 사용하는 용량 및 데이터를 기반으로 필요에 따라 확장되거나 축소됩니다. {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스의 가격은 배치된 표준 플랜 인스턴스의 이용 가격에 더해진 고정 가격입니다. 비용 청구는 일별로 비례 계산되며, 환경에 대해서는 최소 1개월의 기간이 비용 청구됩니다. {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜의 프로비저닝은 비동기로 이뤄지며 5 - 7영업일이 소요될 수 있습니다. {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스를 작성하고 여기에 표준 플랜 인스턴스를 프로비저닝하려면 [{{site.data.keyword.cloud_notm}}에서 {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스 작성 및 활용 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} 튜토리얼을 따르십시오. 
+사용자는 하나 이상의 표준 플랜 인스턴스를 프로비저닝할 수 있으며, 데디케이티드 하드웨어 환경은 표준 플랜 인스턴스가 사용하는 용량 및 데이터를 기반으로 필요에 따라 확장되거나 축소됩니다. {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스의 가격은 배치된 표준 플랜 인스턴스의 이용 가격에 더해진 고정 가격입니다. 비용 청구는 일별로 비례 계산되며, 환경에 대해서는 최소 1개월의 기간이 비용 청구됩니다. {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜의 프로비저닝은 비동기로 이뤄지며 5 - 7영업일이 소요될 수 있습니다. {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스를 작성하고 여기에 표준 플랜 인스턴스를 프로비저닝하려는 경우에는 [{{site.data.keyword.cloud_notm}}에서 {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스 작성 및 활동](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud) 튜토리얼을 따르십시오.  
 
 {{site.data.keyword.cloud_notm}} 데디케이티드 고객은 데디케이티드 하드웨어 플랜을 사용할 수 없습니다. 데디케이티드 하드웨어 플랜은 {{site.data.keyword.cloud_notm}} 퍼블릭 고객만 사용할 수 있습니다.
 {: important}
@@ -93,7 +93,7 @@ HTTP 요청이 402 상태 코드와 함께 오류 메시지 "Account has exceede
         -	1차 인덱스([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
         -	MapReduce 보기([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
         -	검색 인덱스([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
-        -	{{site.data.keyword.cloudant_short_notm}} 조회([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+        -	{{site.data.keyword.cloudant_short_notm}} 조회([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index))
     
         파티션된 조회 요청에서 이용되는 읽기 조작의 수는
         리턴된 결과에 따라 다릅니다.
@@ -108,8 +108,8 @@ HTTP 요청이 402 상태 코드와 함께 오류 메시지 "Account has exceede
 	-	1차 인덱스([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
 	-	MapReduce 보기([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
 	-	검색 인덱스([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
-	-	지리공간 인덱스([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-geo-index))
-	-	{{site.data.keyword.cloudant_short_notm}} 조회([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+	-	지리공간 인덱스([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-nosql-db-geo-index))
+	-	{{site.data.keyword.cloudant_short_notm}} 조회([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index))
 
 
 ## 프로비저닝되는 처리량 용량
@@ -129,9 +129,8 @@ HTTP 요청이 402 상태 코드와 함께 오류 메시지 "Account has exceede
 
 이벤트 수를 초과하여 요청이 거부되면 애플리케이션이 [`429` 너무 많은 요청](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) 응답을 수신합니다.
 
-지원되는 클라이언트 라이브러리([Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java), [Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js) 및
-[Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supportedn) 언어용)의 최신 버전은 `429` 응답을 처리하는 데 도움을 줍니다.
-예를 들면,
+지원되는 클라이언트 라이브러리([Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported), [Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported) 및
+[Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported) 언어용)의 최신 버전은 `429` 응답을 처리하는 데 도움을 줍니다. 예를 들면,
 Java 라이브러리는 [`TooManyRequestsException` ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window} 응답을
 생성합니다.
 
@@ -166,7 +165,7 @@ Java 라이브러리는 [`TooManyRequestsException` ![외부 링크 아이콘](.
 동일합니다. `include_docs=true`가 조회 요청 중에 조회 문자열 매개변수로
 사용되는 경우 문서는 데이터베이스에서만 읽을 수 있습니다.
 
-비용 예는 다음 표에 표시됩니다.
+비용 예는 다음 표에 표시되어 있습니다. 
 
 | 결과 수 | 문서 포함 | 총 읽기 이용 | 읽은 행 이용 | 읽은 문서 이용 |
 |--------------|----------------|-------------|---------------------| --- |
@@ -219,7 +218,7 @@ Java 라이브러리는 [`TooManyRequestsException` ![외부 링크 아이콘](.
 ### 사용량 모니터링 
 {: #monitoring-usage}
 
-사용량에 대한 정보는 {{site.data.keyword.cloudant_short_notm}} 대시보드 내 모니터링 탭의 현재 오퍼레이션 분할창에 있습니다. 
+사용량에 대한 정보는 {{site.data.keyword.cloudant_short_notm}} 대시보드 내 모니터링 탭의 현재 오퍼레이션 분할창에 있습니다.  
 
 ![대시보드에서 사용량 모니터링](../images/cloudant_usage.png)
 
@@ -306,8 +305,8 @@ Java 라이브러리는 [`TooManyRequestsException` ![외부 링크 아이콘](.
 2진 첨부 파일 또는 대형 JSON BLOB를 Object Storage에 저장하고 {{site.data.keyword.cloudant_short_notm}} JSON 문서에
 위치에 대한 링크를 저장하는 것이 좋습니다.   
 
-복제할 때 해당 한계보다 큰 문서 또는 첨부 파일은 대상 데이터베이스로 복제되지 않습니다. 복제 오류를
-발견하는 방법에 대한 자세한 정보는 [여기](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors)에서 사용 가능합니다.
+복제할 때 해당 한계보다 큰 문서 또는 첨부 파일은 대상 데이터베이스로 복제되지 않습니다. 복제 오류를 발견하는 방법에 대한 자세한 정보는
+[복제 오류](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors)를 참조하십시오. 
 
 ## 위치 및 테넌시
 {: #locations-and-tenancy}
@@ -321,7 +320,7 @@ Java 라이브러리는 [`TooManyRequestsException` ![외부 링크 아이콘](.
 -   프랑크푸르트&Dagger;
 -   도쿄
 
-데디케이티드 하드웨어 플랜 인스턴스는 대부분 [{{site.data.keyword.IBM_notm}} 데이터 센터 위치 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud-computing/bluemix/data-centers)에 배치될 수 있습니다. 
+데디케이티드 하드웨어 플랜 인스턴스는 대부분 [{{site.data.keyword.IBM_notm}} 데이터 센터 위치 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/data-centers/)에 배치될 수 있습니다. 
 사용 가능한 위치의 최신 목록은 {{site.data.keyword.cloud_notm}} 카탈로그의 드롭 다운 메뉴를 참조하십시오.
 
 &Dagger;{{site.data.keyword.cloud_notm}} 퍼블릭 프랑크푸르트
@@ -333,17 +332,19 @@ EU 관리 환경에 배치됩니다. EU 관리 환경 외부에서
 ## 인증 방법
 {: #authentication-methods}
 
- {{site.data.keyword.cloudant_short_notm}}는 HTTPS API를 사용하여 액세스됩니다. API 엔드포인트가 요구하는 경우, 사용자는 {{site.data.keyword.cloudant_short_notm}}가 수신하는 모든 HTTPS 요청에 대해 인증됩니다. 프로비저닝 동안 사용 가능한 인증 방법에는 '레거시 인증 정보와 IAM을 둘 다 사용' 또는 'IAM만 사용'이 있습니다. 자세한 정보는 [IAM 안내서](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-l){: new_window} 또는 레거시 [인증 API 문서](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}를 참조하십시오 .
+ {{site.data.keyword.cloudant_short_notm}}는 HTTPS API를 사용하여 액세스됩니다. API 엔드포인트가 요구하는 경우, 사용자는 {{site.data.keyword.cloudant_short_notm}}가 수신하는 모든 HTTPS 요청에 대해 인증됩니다. 프로비저닝 중에 사용 가능한 인증 방법에는 `Use both legacy credentials and IAM` 또는 `Use only IAM`이 있습니다. 자세한 정보는 [IAM 안내서](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) 또는 레거시 [인증 API 문서](/docs/services/Cloudant?topic=cloudant-authentication#authentication)를 참조하십시오 .
 
 {{site.data.keyword.cloudant_short_notm}} 인스턴스를 프로비저닝하고 나면 {{site.data.keyword.cloud_notm}} 대시보드의 서비스 인증 정보 탭에서 새 인증 정보를 생성할 때 연결 URL 및 IAM 권한 부여 세부사항을 볼 수 있습니다. 프로비저닝 중에 이 옵션을 선택한 경우에는 {{site.data.keyword.cloudant_short_notm}} 레거시 사용자 이름 및 비밀번호 또한 포함됩니다.
 
-{{site.data.keyword.cloudant_short_notm}} 팀에서는 가능한 한 인증에 대한 IAM 액세스 제어를 사용할 것을 권장합니다. {{site.data.keyword.cloudant_short_notm}} 레거시 인증을 사용하는 경우 프로그래밍 방식의 액세스 및 복제 작업에 대한 계정 레벨 인증 정보가 아닌 [API 키](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}를 사용하는 것이 좋습니다.
+{{site.data.keyword.cloudant_short_notm}} 팀에서는 가능한 한 인증에 대한 IAM 액세스 제어를 사용할 것을 권장합니다. {{site.data.keyword.cloudant_short_notm}} 레거시 인증을 사용하는 경우 프로그래밍 방식의 액세스 및 복제 작업에 대한 계정 레벨 인증 정보가 아닌 [API 키](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}를 사용하는 것이 좋습니다. 
 {: important}
 
 ## 데이터 센터의 고가용성, 재해 복구 및 백업
 {: #high-availability-disaster-recovery-and-backup-in-a-data-center}
 
-데이터 센터 내에서 고가용성(HA) 및 재해 복구(DR) 기능을 제공하기 위해, 모든 데이터는 클러스터 내 세 개의 개별 실제 서버에 삼중으로 저장됩니다. 사용자는 여러 데이터 센터에 계정을 프로비저닝한 후 지속적 데이터 복제를 사용하여 데이터 센터 간에 HA/DR 기능을 제공할 수 있습니다. {{site.data.keyword.cloudant_short_notm}} 데이터는 자동으로 백업되지 않지만, 백업을 처리할 수 있도록 지원되는 도구가 제공됩니다. [재배 복구 및 백업 안내서 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-authorization#api-keys)를 검토하여 사용자의 애플리케이션 요구사항에 부합하기 위한 모든 HA, DA 및 백업 고려사항을 확인하십시오. 
+데이터 센터 내에서 고가용성(HA) 및 재해 복구(DR) 기능을 제공하기 위해, 모든 데이터는 클러스터 내 세 개의 개별 실제 서버에 삼중으로 저장됩니다. 사용자는 여러 데이터 센터에 계정을 프로비저닝한 후 지속적 데이터 복제를 사용하여 데이터 센터 간에 HA/DR 기능을 제공할 수 있습니다. {{site.data.keyword.cloudant_short_notm}} 데이터는 자동으로 백업되지 않지만, 백업을 처리할 수 있도록 지원되는 도구가 제공됩니다. [재해 복구 및 백업 안내서](/docs/services/Cloudant?topic=cloudant-authorization#api-keys)를
+검토하여 사용자 애플리케이션의 요구사항을 만족시키기 위한 모든 HA, DR 및 백업
+고려사항을 확인하십시오.  
 
 ## {{site.data.keyword.cloud_notm}} 지원
 {: #ibm-cloud-support}
@@ -359,12 +360,14 @@ EU 관리 환경에 배치됩니다. EU 관리 환경 외부에서
 ## {{site.data.keyword.cloud_notm}}에서의 {{site.data.keyword.cloudant_short_notm}} 인스턴스 프로비저닝
 {: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
 
-{{site.data.keyword.cloud_notm}}에서는 {{site.data.keyword.cloudant_short_notm}} Lite 또는 표준 플랜 인스턴스를 두 가지 방법으로 프로비저닝할 수 있습니다.
+{{site.data.keyword.cloud_notm}}에서는 {{site.data.keyword.cloudant_short_notm}} Lite 또는 표준 플랜 인스턴스를 두 가지 방법으로 프로비저닝할 수 있습니다. 
 
-- 대시보드를 사용합니다. 이 프로세스를 설명하는 튜토리얼은 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window}에 있습니다.
-- Cloud Foundry 명령 도구를 사용합니다. 이 프로세스를 설명하는 튜토리얼은 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window}에 있습니다.
+- 대시보드를 사용합니다. 자세한 정보는 해당 프로세스를 설명하는 [{{site.data.keyword.cloud_notm}}에 {{site.data.keyword.cloudant_short_notm}} 인스턴스 작성 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} 튜토리얼을 참조하십시오. 
+- Cloud Foundry 명령 도구를 사용합니다. 자세한 정보는 해당 프로세스를 설명하는 [{{site.data.keyword.cloud_notm}} CLI를 사용하여 {{site.data.keyword.cloud_notm}}에 {{site.data.keyword.cloudant_short_notm}} 인스턴스 작성 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} 튜토리얼을 참조하십시오. 
  
-{{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스를 작성하고 활용하려면 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window}에서 프로세스를 설명하는 튜토리얼을 따르십시오.
+{{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스를 작성하고 활용하려면 해당 프로세스를 설명하는 [{{site.data.keyword.cloud_notm}}에서 {{site.data.keyword.cloudant_short_notm}} 데디케이티드 하드웨어 플랜 인스턴스 작성 및 활용 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} 튜토리얼을 참조하십시오. 
+
+
 
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -36,14 +36,14 @@ subcollection: cloudant
 -   [{{site.data.keyword.cloudant_short_notm}} Sync - Android/JavaSE ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/sync-android){: new_window}。
 -   [{{site.data.keyword.cloudant_short_notm}} Sync - iOS (CDTDatastore) ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/CDTDatastore){: new_window}。
 
-提供了 {{site.data.keyword.cloudant_short_notm}} Sync 的[概觀 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/product/cloudant-features/sync/){: new_window}。同時也提供 {{site.data.keyword.cloudant_short_notm}} Sync [資源 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/cloudant-sync-resources/){: new_window} 的詳細資料。
+提供 {{site.data.keyword.cloudant_short_notm}} Sync 的[概觀 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/product/cloudant-features/sync/){: new_window}。同時也提供 {{site.data.keyword.cloudant_short_notm}} Sync [資源 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloudant.com/cloudant-sync-resources/){: new_window} 的詳細資料。
 
 ## Java
-{: #java}
+{: #java-supported}
 
 [java-cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/java-cloudant){: new_window} 是 Java 的正式 {{site.data.keyword.cloudantfull}} 程式庫。
 
-[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window} 提供將程式庫當作相依關係新增至 Maven 或 Gradle 建置來安裝程式庫的相關資訊，以及如何使用程式庫的詳細資料及範例。
+如需透過將該程式庫新增為 Maven 或 Gradle 建置相依關係來進行安裝的相關資訊，以及要查看有關如何使用該程式庫的詳細資料和範例，請參閱 [Installation and Usage ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}。
 
 ### Java 的程式庫及架構
 {: #libraries-and-frameworks-for-java}
@@ -54,7 +54,7 @@ subcollection: cloudant
 -   [java-cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/java-cloudant){: new_window}。
 
 #### 不支援的 Java 程式庫
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-supported}
 
 -   [ektorp ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}。
 -   [jcouchdb ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://code.google.com/p/jcouchdb/){: new_window}。
@@ -72,7 +72,7 @@ subcollection: cloudant
 
 
 ## Node.js
-{: #node-js}
+{: #node-js-supported}
 
 [nodejs-cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/nodejs-cloudant){: new_window} 是 Node.js 的正式 {{site.data.keyword.cloudant_short_notm}} 程式庫。您可以使用 npm 進行安裝：
 
@@ -117,12 +117,13 @@ npm install cloudant
 ## Python
 {: #python-supported}
 
-[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/python-cloudant){: new_window} 提供使用 Python 來使用 {{site.data.keyword.cloudant_short_notm}} 的受支援程式庫。
+透過 Python 使用 {{site.data.keyword.cloudant_short_notm}} 時支援的程式庫在 GitHub 儲存庫 [cloudant/python-cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/python-cloudant){: new_window} 中提供。
 
-存取 {{site.data.keyword.cloudant_short_notm}} 的 Python 應用程式具有元件相依關係。必須在 `requirements.txt` 檔案中指定這些相依關係。如需相關資訊，請參閱[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}。
+存取 {{site.data.keyword.cloudant_short_notm}} 的 Python 應用程式具有元件相依關係。必須在 `requirements.txt` 檔案中指定這些相依關係。如需相關資訊，請參閱有關 [requirements 檔案 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window} 的指示。
 {: tip}
 
-在[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://pypi.python.org/pypi/cloudant/){: new_window} 下載現行程式庫版次。在 [python.org ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/about/){: new_window} 進一步瞭解 Python 語言的相關資訊。 
+從 [pypi.python.org ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://pypi.python.org/pypi/cloudant/){: new_window} 下載現行程式庫版本。
+要瞭解如需 Python 語言的相關資訊，請參閱 [python.org ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/about/){: new_window}。 
 
 ## Swift
 {: #swift}
@@ -136,7 +137,7 @@ pod 'SwiftCloudant'
 ```
 {: codeblock}
 
-[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/swift-cloudant){: new_window} 提供 ObjectiveCloudant 的相關資訊（包括安裝詳細資料，以及如何使用程式庫來儲存、檢索及查詢 {{site.data.keyword.cloudant_short_notm}} 上的遠端 JSON 資料）。
+如需 SwiftCloudant 的相關資訊，包括安裝詳細資料，以及如何使用該程式庫在 {{site.data.keyword.cloudant_short_notm}} 上儲存、檢索和查詢遠端 JSON 資料，請參閱 GitHub 儲存庫 [cloudant/swift-cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示 ")](https://github.com/cloudant/swift-cloudant){: new_window}。
 
 程式庫是早期發行的版本。因此，它目前未完整涵蓋 {{site.data.keyword.cloudant_short_notm}} API。 
 

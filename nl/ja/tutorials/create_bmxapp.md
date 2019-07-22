@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create applications, deploy applications, create simple application
 
@@ -54,8 +54,7 @@ Python アプリケーションをセットアップして作成します。
 1 つの単純な文書を作成します。
 
 各タスクに対応した Python コードが、このチュートリアルの中で提供されます。
-コンセプトをデモンストレーションするための完全な Python プログラムは、
-[別のチュートリアル](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program)で提供されています。
+コンセプトをデモンストレーションするのに十分な、完全な Python プログラムは、[{{site.data.keyword.cloudant_short_notm}} データベースにアクセスする単純な {{site.data.keyword.cloud_notm}} アプリケーションの作成](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program)チュートリアルで提供されています。
 
 このチュートリアルでは、_効率的な_ Python コードの作成は意図していません。
 仕組みを理解してアプリケーション作成時に参考にするための、単純で分かりやすい実際のコードを示すことを目的としています。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: generate uuid, record payments, add additional documents, advantages
 
@@ -61,7 +61,7 @@ informações do cliente,
 custo
 e informações de entrega.
 
-_Exemplo de documento descrevendo uma compra:_
+*Exemplo de documento descrevendo uma compra:*
 
 ```json
 {
@@ -143,7 +143,7 @@ por exemplo, `/_uuids?count=10`.
 Quando o cliente paga com sucesso seus itens,
 registros adicionais são incluídos no banco de dados para registrar a ordem.
 
-_Exemplo de um registro de pagamento:_
+*Exemplo de um registro de pagamento:*
 
 ```json
 {
@@ -181,7 +181,7 @@ A visualização permitiria um livro razão contendo as informações a seguir:
 
 Uma função de mapa poderia ser usada para identificar os valores necessários.
 
-_Função de mapa de exemplo para localizar valores totais e de pagamento da compra:_ 
+*Função de mapa de exemplo para localizar valores totais e de pagamento da compra:* 
 
 ```javascript
 function (doc) {
@@ -199,7 +199,7 @@ function (doc) {
 O uso do [redutor `_sum`](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)
 integrado permite que você produza a saída como um livro-razão de eventos de pagamento.
 
-_Exemplo de uso do redutor `_sum` integrado, consultado com `?reduce=false`:_
+*Exemplo de uso do redutor integrado `_sum`, que é consultado com `?reduce=false`:*
 
 ```json
 {
@@ -227,7 +227,7 @@ _Exemplo de uso do redutor `_sum` integrado, consultado com `?reduce=false`:_
 Como alternativa,
 você poderia produzir os totais agrupados por `order_id`.
 
-_Exemplo de totais agrupados por `order_id`, com `?group_level=1`:_
+*Exemplo de totais agrupados por `order_id`, com `?group_level=1`:*
 
 ```json
 {

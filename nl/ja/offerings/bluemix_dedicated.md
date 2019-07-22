@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -37,10 +37,9 @@ subcollection: cloudant
 専用ハードウェアが必要な場合は {{site.data.keyword.cloud_notm}} Dedicated で {{site.data.keyword.cloudant_short_notm}} Dedicated を
 活用する必要があることに注意してください。   
 
-以下のスクリーン・ショットは、{{site.data.keyword.cloud_notm}} Public のシンジケートされたバージョンの {{site.data.keyword.cloudant_short_notm}} (左) と {{site.data.keyword.cloudant_short_notm}} Dedicated 環境 (右) が
-強調表示された {{site.data.keyword.cloud_notm}} カタログの例を示しています。  
+以下のスクリーン・ショットは、{{site.data.keyword.cloud_notm}} Public のシンジケートされたバージョンの {{site.data.keyword.cloudant_short_notm}} と {{site.data.keyword.cloudant_short_notm}} Dedicated 環境が強調表示された {{site.data.keyword.cloud_notm}} カタログの例を示しています。  
 
-![{{site.data.keyword.cloudant_short_notm}} カタログ](../images/bluemix_catalog.png)
+![{{site.data.keyword.cloudant_short_notm}} カタログ](../images/ibmcloud_catalog.png)
 
 ## ハードウェア容量 
 {: #hardware-capacity}
@@ -50,7 +49,7 @@ subcollection: cloudant
 これには、3 つのデータベース・ノードと 2 つのロード・バランサーからなるクラスター化された {{site.data.keyword.cloudant_short_notm}} 環境が含まれています。 各データベース・ノードは SSD の 1.6 TB を含んでいます。すべてのデータが三重に保管されるため、これはクラスター全体の固有ディスク・スペースの 1.6 TB に相当します。 環境を拡張するには、追加の「{{site.data.keyword.cloud_notm}} Dedicated
 {{site.data.keyword.cloudant_short_notm}} 1.6TB 容量」部分を購入します。これは、3 つのデータベース・ノードの倍数で {{site.data.keyword.cloudant_short_notm}} クラスターを拡張するために使用できます。 お客様は、単一の環境を拡張するのではなく、複数の別個の {{site.data.keyword.cloudant_short_notm}} 環境を使用するように選択することもできます。
 
-## 専用環境のロケーションとテナンシー
+## Dedicated 環境のロケーションとテナンシー
 {: #locations-and-tenancy-in-a-dedicated-environment}
 
 {{site.data.keyword.cloud_notm}} Dedicated 環境内の {{site.data.keyword.cloudant_short_notm}} Dedicated 環境は、
@@ -59,14 +58,14 @@ subcollection: cloudant
 ## セキュリティー、暗号化、およびコンプライアンス 
 {: #security-encryption-and-compliance}
 
-すべてのプランは、[保存されたデータ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://en.wikipedia.org/wiki/Data_at_rest) のディスク暗号化を使用してサーバー上に提供されます。 アクセスはパブリックネットワーク接続経由で行われ、HTTPS を使用して暗号化されます。 詳しくは、[Security ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-security#security){: new_window} を参照してください。 
+すべてのプランは、[保存されたデータ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://en.wikipedia.org/wiki/Data_at_rest) のディスク暗号化を使用してサーバー上に提供されます。 アクセスはパブリックネットワーク接続経由で行われ、HTTPS を使用して暗号化されます。 詳しくは、[セキュリティー](/docs/services/Cloudant?topic=cloudant-security#security)を参照してください。
 IP ホワイトリスト登録は、{{site.data.keyword.cloudant_short_notm}} サポートへの要求で使用可能になり、インスタンス・レベルではなく {{site.data.keyword.cloudant_short_notm}} 環境全体に適用されます。  
 
-これらのプランは、[コンプライアンス認証 ![ 外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-compliance#compliance){: new_window} も提供しています。 
+このプランは、[コンプライアンス認証](/docs/services/Cloudant?topic=cloudant-compliance#compliance)も提供します。 
 
 [HIPAA ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window} コンプライアンスは要求に応じて使用可能であるため、{{site.data.keyword.IBM_notm}} 営業担当員との購入プロセス中にこれを要求してください。 
 
 ## 高可用性、災害復旧、およびバックアップ 
 {: #high-availability-disaster-recovery-and-backup}
 
-データ・センター内で高可用性 (HA) および災害復旧 (DR) を提供するため、すべてのデータは、クラスター内の 3 つの別々の物理サーバーに三重に保管されます。 使用可能な場合、複数のロケーション内でアカウントをプロビジョンし、次に継続的データ複製を使用して、複数のデータ・センターにわたって HA/DR を備えることができます。 {{site.data.keyword.cloudant_short_notm}} データは自動的にバックアップされませんが、バックアップを処理するためにサポートされるツールが用意されています。 アプリケーション要件を満たすための、HA、DR、およびバックアップのすべての考慮事項を調べるには、[「災害復旧およびバックアップ」![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup){: new_window} のガイドを参照してください。
+データ・センター内で高可用性 (HA) および災害復旧 (DR) を提供するため、すべてのデータは、クラスター内の 3 つの別々の物理サーバーに三重に保管されます。 使用可能な場合、複数のロケーション内でアカウントをプロビジョンし、次に継続的データ複製を使用して、複数のデータ・センターにわたって HA/DR を備えることができます。 {{site.data.keyword.cloudant_short_notm}} データは自動的にバックアップされませんが、バックアップを処理するためにサポートされるツールが用意されています。 アプリケーション要件を満たすための、HA、DR、およびバックアップのすべての考慮事項を調べるには、「[災害復旧およびバックアップ](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)」ガイドを参照してください。

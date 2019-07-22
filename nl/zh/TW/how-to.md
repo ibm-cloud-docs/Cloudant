@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-06-12"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -68,10 +68,11 @@ subcollection: cloudant
 [CouchApps](/docs/services/Cloudant?topic=cloudant-couchapps#couchapps){: new_window} | 此手冊說明構成 CouchApp 的要項為何。
 [資料庫分割](/docs/services/Cloudant?topic=cloudant-database-partitioning#database-partitioning) | 此手冊說明分割資料庫及如何使用它們。
 [設計文件管理](/docs/services/Cloudant?topic=cloudant-design-document-management#design-document-management){: new_window} | 此手冊說明何謂設計文件，以及如何在 {{site.data.keyword.cloudant_short_notm}} 中使用設計文件。
-[文件版本化及 MVCC](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc){: new_window} | 此手冊說明多版本並行控制 (MVCC)，以及它如何使用 {{site.data.keyword.cloudant_short_notm}} 資料庫，來確定資料庫叢集中的所有節點只包含最新版本的文件。
-[對您要擴充之資料建立模型的五個提示](/docs/services/Cloudant?topic=cloudant-five-tips-for-modelling-your-data-to-scale#five-tips-for-modelling-your-data-to-scale){: new_window} | 此手冊考量建立應用程式資料模型以便大規模有效率運作的較細微重點。
+[文件版本化和 MVCC](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc){: new_window} | 此手冊說明多版本並行控制 (MVCC)，以及它如何使用 {{site.data.keyword.cloudant_short_notm}} 資料庫，來確定資料庫叢集中的所有節點只包含最新版本的文件。
+[對資料建模以調整大小的五項建議](/docs/services/Cloudant?topic=cloudant-five-tips-for-modeling-your-data-to-scale#five-tips-for-modeling-your-data-to-scale){: new_window} |本手冊更細緻地討論了如何對應用程式資料建模，以使應用程式能夠大規模高效運作。
+
 [在 {{site.data.keyword.cloudant_short_notm}} 中將相關文件分組在一起](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant){: new_window} | 此手冊概述在使用許多其他網域適用的概念，來建置電子商務系統時所涉及的一些因素，而此系統會善用 {{site.data.keyword.cloudant_short_notm}} 的力量。
-[{{site.data.keyword.cloudant_short_notm}}如何使用「{{site.data.keyword.cloud_notm}} 資源群組」？](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} | 此手冊涵蓋 {{site.data.keyword.cloudant_short_notm}} 支援中心所接收有關此轉移的常見問題。
+[{{site.data.keyword.cloudant_short_notm}}如何使用「{{site.data.keyword.cloud_notm}} 資源群組」？](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} | 此手冊涵蓋 {{site.data.keyword.cloudant_short_notm}} 支援中心收到有關此轉移的常見問題。
 [如何在 {{site.data.keyword.cloudant_short_notm}} 中儲存資料？](/docs/services/Cloudant?topic=cloudant-how-is-data-stored-in-ibm-cloudant-#how-is-data-stored-in-ibm-cloudant-){: new_window} | 此手冊說明 Shard，以及其如何在 {{site.data.keyword.cloudant_short_notm}} 中運作。
 [IBM Cloud Identity and Access Management (IAM)](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} | 此手冊說明 {{site.data.keyword.cloudant_short_notm}} 與 {{site.data.keyword.cloud_notm}} Identity and Access Management 的整合。
 [JSON](/docs/services/Cloudant?topic=cloudant-json#json){: new_window} | 此手冊說明 {{site.data.keyword.cloudant_short_notm}} 如何使用「JavaScript 物件表示法 (JSON)」，來格式化資料及回應的內容和結構。

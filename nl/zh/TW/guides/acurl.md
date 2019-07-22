@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-12"
 
 keywords: encode user name, encode password, create alias, activate alias, test acurl
 

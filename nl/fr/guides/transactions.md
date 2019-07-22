@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: generate uuid, record payments, add additional documents, advantages
 
@@ -60,7 +60,7 @@ les données client,
 le coût et les
 informations de livraison.
 
-_Document décrivant un achat - Exemple :_
+*Document décrivant un achat - Exemple :*
 
 ```json
 {
@@ -140,7 +140,7 @@ par exemple, `/_uuids?count=10`.
 Lorsque le client paie ses articles,
 des enregistrements supplémentaires sont ajoutés à la base de données afin d'enregistrer la commande.
 
-_Enregistrement de règlement - Exemple :_
+*Enregistrement de règlement - Exemple :*
 
 ```json
 {
@@ -178,7 +178,7 @@ La vue active un registre contenant les informations suivantes :
 
 Il est possible d'utiliser une fonction de mappe pour identifier les valeurs requises.
 
-_Fonction de mappe permettant de trouver les valeurs de règlement et de total d'achat - Exemple :_ 
+*Fonction de mappe permettant de trouver les valeurs de règlement et de total d'achat - Exemple :* 
 
 ```javascript
 function (doc) {
@@ -195,7 +195,7 @@ function (doc) {
 
 L'utilisation du réducteur [`_sum`](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions) vous permet de générer un registre des événements de règlement.
 
-_Utilisation du réducteur `_sum` intégré, interrogé avec `?reduce=false` - Exemple :_
+*Utilisation du réducteur `_sum` intégré, interrogé avec `?reduce=false` - Exemple : *
 
 ```json
 {
@@ -223,7 +223,7 @@ _Utilisation du réducteur `_sum` intégré, interrogé avec `?reduce=false` - E
 Vous pouvez également
 générer des totaux regroupés par `order_id`.
 
-_Totaux regroupés par `order_id` avec `?group_level=1` - Exemple :_
+*Totaux regroupés par `order_id` avec `?group_level=1` - Exemple :*
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -46,14 +46,12 @@ Uma [visão geral ![Ícone de link externo](../images/launch-glyph.svg "Ícone d
 Detalhes dos [recursos ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/cloudant-sync-resources/){: new_window} do {{site.data.keyword.cloudant_short_notm}} Sync também estão disponíveis.
 
 ## Componente
-{: #java}
+{: #java-supported}
 
 [java-cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/java-cloudant){: new_window} é a biblioteca
 oficial {{site.data.keyword.cloudantfull}} para Java.
 
-Informações sobre a instalação da biblioteca ao incluí-la como uma dependência nas construções Maven ou Gradle estão disponíveis
-[aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window},
-junto a detalhes e exemplos de como usar a biblioteca.
+Para obter mais informações sobre a instalação da biblioteca, incluindo-a como uma dependência de suas construções do Maven ou do Gradle e para ver detalhes e exemplos de como usar a biblioteca, consulte [Instalação e uso ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}.
 
 ### Bibliotecas e estruturas para Java
 {: #libraries-and-frameworks-for-java}
@@ -64,7 +62,7 @@ junto a detalhes e exemplos de como usar a biblioteca.
 -   [java-cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/java-cloudant){: new_window}.
 
 #### Bibliotecas não suportadas para Java
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-supported}
 
 -   [ektorp ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
 -   [jcouchdb ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://code.google.com/p/jcouchdb/){: new_window}.
@@ -82,7 +80,7 @@ junto a detalhes e exemplos de como usar a biblioteca.
 
 
 ## Node.js
-{: #node-js}
+{: #node-js-supported}
 
 [nodejs-cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/nodejs-cloudant){: new_window}
 é a biblioteca oficial {{site.data.keyword.cloudant_short_notm}} para Node.js.
@@ -131,14 +129,13 @@ se você precisar absolutamente de facilidade de uso com o custo de desempenho r
 ## Python
 {: #python-supported}
 
-Uma biblioteca suportada para trabalhar com o {{site.data.keyword.cloudant_short_notm}} usando Python está
-disponível [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/python-cloudant){: new_window}.
+Uma biblioteca suportada para trabalhar com o {{site.data.keyword.cloudant_short_notm}} usando a Python está disponível no repositório GitHub [cloudant/python-cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/python-cloudant){: new_window}.
 
-Aplicativos Python que acessam o {{site.data.keyword.cloudant_short_notm}} têm dependências do componente. Essas dependências devem ser especificadas em um arquivo `requirements.txt`. Para obter mais informações, veja [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}.
+Aplicativos Python que acessam o {{site.data.keyword.cloudant_short_notm}} têm dependências do componente. Essas dependências devem ser especificadas em um arquivo `requirements.txt`. Para obter mais informações, consulte as instruções para os [arquivos de requisitos ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}.
 {: tip}
 
-Faça download da liberação da biblioteca atual [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://pypi.python.org/pypi/cloudant/){: new_window}.
-Obtenha mais informações sobre a linguagem Python em [python.org ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.python.org/about/){: new_window}. 
+Faça download da liberação da biblioteca atual por meio de [pypi.python.org ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://pypi.python.org/pypi/cloudant/){: new_window}.
+Para obter mais informações sobre a linguagem Python, consulte [python.org ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.python.org/about/){: new_window}. 
 
 ## Swift
 {: #swift}
@@ -154,9 +151,9 @@ pod 'SwiftCloudant'
 ```
 {: codeblock}
 
-Mais informações sobre o SwiftCloudant,
-incluindo detalhes sobre a instalação e como usar a biblioteca para armazenar,
-indexar e consultar dados JSON remotos no {{site.data.keyword.cloudant_short_notm}}, estão disponíveis [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/swift-cloudant){: new_window}.
+Para obter mais informações sobre o SwiftCloudant, incluindo detalhes sobre a instalação e como utilizar a biblioteca para armazenar,
+indexar e consultar dados JSON remotos no {{site.data.keyword.cloudant_short_notm}},
+consulte o repositório GitHub [cloudant/swift-cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/swift-cloudant){: new_window}.
 
 A biblioteca está em uma versão de liberação antiga.
 Como tal,

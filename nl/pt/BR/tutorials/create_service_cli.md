@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -117,15 +117,15 @@ O exemplo a seguir descreve o processo de login. Se você está usando um ID de 
 ## Escolhendo o plano do {{site.data.keyword.cloudant_short_notm}} para seu serviço
 {: #choosing-the-ibm-cloudant-plan-for-your-service}
 
-Consulte a seção [Planos ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window} da documentação para obter detalhes sobre o uso do plano {{site.data.keyword.cloudant_short_notm}} Lite ou Standard.
+Consulte a seção [Planos](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans) da documentação para obter detalhes sobre o uso do plano Lite ou Standard do {{site.data.keyword.cloudant_short_notm}}.
 {: pre}
 
 ## Criando o serviço {{site.data.keyword.cloudant_short_notm}}
 {: #creating-the-ibm-cloudant-service}
 
-O {{site.data.keyword.cloudant_short_notm}} usa Grupos de recursos para fornecimento de novas instâncias em vez de organizações e espaços do Cloud Foundry. As instâncias do {{site.data.keyword.cloudant_short_notm}} que são provisionadas no passado ainda podem ser implementadas nas organizações e espaços do Cloud Foundry. Para obter mais informações, consulte [Como o IBM Cloudant trabalha com o IBM Cloud Resource Groups?![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} guia.
+O {{site.data.keyword.cloudant_short_notm}} usa grupos de recursos para provisionar novas instâncias em vez de organizações e espaços do Cloud Foundry. As instâncias do {{site.data.keyword.cloudant_short_notm}} que são provisionadas no passado ainda podem ser implementadas nas organizações e espaços do Cloud Foundry. Para obter mais informações, consulte o [Como funciona o {{site.data.keyword.cloudant_short_notm}} com os grupos de recursos do {{site.data.keyword.cloud_notm}}? ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} guia.
 
-Primeiro, configure seu Grupo de recursos de destino e a região conforme mostrado em [Comandos gerais da CLI (ibmcloud) ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window} em `ibmcloud target` usando o formato a seguir:
+Primeiro, configure o grupo de recursos e a região de destino conforme mostrado em [Comandos gerais da CLI (ibmcloud) ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window} em `ibmcloud target` usando o formato a seguir:
 
 ```sh
 Destino ibmcloud [-r REGION_NAME ] [-g RESOURCE_GROUP ]

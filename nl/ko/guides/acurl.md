@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-12"
 
 keywords: encode user name, encode password, create alias, activate alias, test acurl
 
@@ -59,7 +59,7 @@ python -c 'import base64; print base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD")'
 ```
 {: codeblock}
 
-여기서는 출력의 이름이 `<OUTPUT-OF-BASE64>`.
+여기서는 출력의 이름을 `<OUTPUT-OF-BASE64>`로 가정합니다. 
 
 예를 들어, 다음 명령을 사용하는 경우에는,
 

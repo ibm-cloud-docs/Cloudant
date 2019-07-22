@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: generate uuid, record payments, add additional documents, advantages
 
@@ -61,7 +61,7 @@ le informazioni sul cliente,
 i costi
 e le informazioni sulla consegna.
 
-_Documento di esempio che descrive un acquisto:_
+*Documento di esempio che descrive un acquisto:*
 
 ```json
 {
@@ -143,7 +143,7 @@ ad esempio, `/_uuids?count=10`.
 Quando il cliente paga correttamente i propri articoli
 al database vengono aggiunti ulteriori record per registrare l'ordine.
 
-_Esempio di record di pagamento:_
+*Esempio di record di pagamento:*
 
 ```json
 {
@@ -181,7 +181,7 @@ La vista abiliterà un registro contenente le seguenti informazioni:
 
 È possibile utilizzare una funzione di mappa per identificare i valori richiesti.
 
-_Funzione di mappa di esempio per trovare i valori del totale di acquisto e di pagamento:_ 
+*Funzione di mappa di esempio per trovare i valori del totale di acquisto e di pagamento:* 
 
 ```javascript
 function (doc) {
@@ -199,7 +199,7 @@ function (doc) {
 L'utilizzo del [riduttore `_sum`](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions) integrato
 ti consente di produrre l'output in forma di registro degli eventi di pagamento.
 
-_Esempio di utilizzo del riduttore `_sum` integrato, con la query `?reduce=false`:_
+*Esempio di utilizzo del riduttore `_sum` integrato, su cui viene eseguita una query con `?reduce=false`:*
 
 ```json
 {
@@ -227,7 +227,7 @@ _Esempio di utilizzo del riduttore `_sum` integrato, con la query `?reduce=false
 In alternativa,
 puoi produrre i totali raggruppati per `order_id`.
 
-_Esempio di totali raggruppati per `order_id`, con `?group_level=1`:_
+*Esempio di totali raggruppati per `order_id`, con `?group_level=1`:*
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -38,10 +38,9 @@ Hardware do
 catálogo do {{site.data.keyword.cloud_notm}} Public e devem alavancar o {{site.data.keyword.cloudant_short_notm}} Dedicated no
 {{site.data.keyword.cloud_notm}} Dedicated se o hardware dedicado é necessário.   
 
-A captura de tela a seguir mostra um exemplo de catálogo do {{site.data.keyword.cloud_notm}} destacando a versão organizada do
-{{site.data.keyword.cloud_notm}} Public do {{site.data.keyword.cloudant_short_notm}} (à esquerda) e do ambiente {{site.data.keyword.cloudant_short_notm}} Dedicated (à direita).  
+A captura de tela a seguir mostra um exemplo do catálogo do {{site.data.keyword.cloud_notm}} destacando a versão organizada do {{site.data.keyword.cloud_notm}} Public do {{site.data.keyword.cloudant_short_notm}} e o ambiente dedicado do {{site.data.keyword.cloudant_short_notm}}.  
 
-![{{site.data.keyword.cloudant_short_notm}} catálogo](../images/bluemix_catalog.png)
+![{{site.data.keyword.cloudant_short_notm}} catálogo](../images/ibmcloud_catalog.png)
 
 ## Capacidade de hardware 
 {: #hardware-capacity}
@@ -70,11 +69,11 @@ compartilha os recursos de hardware subjacentes que compõem o ambiente {{site.d
 
 Todos os planos são fornecidos em servidores com criptografia de disco [em repouso
 ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/Data_at_rest). O acesso é pela conexão de rede pública e criptografado
-usando HTTPS. Para obter mais detalhes, consulte [Segurança ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](/docs/services/Cloudant?topic=cloudant-security#security){: new_window}. 
+usando HTTPS. Para obter mais detalhes, consulte [Segurança](/docs/services/Cloudant?topic=cloudant-security#security).
 A lista de bloqueio de IP está disponível sob solicitação para o Suporte do {{site.data.keyword.cloudant_short_notm}} e se aplicará a
 todo o ambiente {{site.data.keyword.cloudant_short_notm}}, e não no nível da instância.  
 
-O plano também oferece [Certificação de conformidade ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](/docs/services/Cloudant?topic=cloudant-compliance#compliance){: new_window}. 
+O plano também oferece [Certificação de conformidade](/docs/services/Cloudant?topic=cloudant-compliance#compliance). 
 
 A conformidade do [HIPAA ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window}
 está disponível mediante solicitação, portanto, solicite isso durante o processo de compra com um representante de vendas da {{site.data.keyword.IBM_notm}}. 
@@ -83,6 +82,4 @@ está disponível mediante solicitação, portanto, solicite isso durante o proc
 {: #high-availability-disaster-recovery-and-backup}
 
 Para fornecer alta disponibilidade (HA) e recuperação de desastre (DR) em um data center, todos os dados são armazenados em triplicidade em três servidores físicos separados em um cluster. Quando disponível, é possível provisionar contas em múltiplos locais,
-em seguida, usar a replicação de dados contínuos para fornecer HA/DR nos data centers. Os dados do {{site.data.keyword.cloudant_short_notm}} não são submetidos a backup automaticamente, mas o conjunto de ferramentas suportado é fornecido para manipular backups. Revise o
-guia de [Recuperação de desastre e backup ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup){: new_window}
-para explorar todas as considerações sobre HA, DR e backup para atender aos seus requisitos de aplicativo.
+em seguida, usar a replicação de dados contínuos para fornecer HA/DR nos data centers. Os dados do {{site.data.keyword.cloudant_short_notm}} não são submetidos a backup automaticamente, mas o conjunto de ferramentas suportado é fornecido para manipular backups. Revise o guia [Recuperação de desastre e backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) para explorar todas as considerações de HA, de DR e de backup para atender aos requisitos do seu aplicativo.

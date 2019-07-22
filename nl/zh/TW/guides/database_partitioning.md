@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-06-12"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -25,15 +25,12 @@ subcollection: cloudant
 # 資料庫分割
 {: #database-partitioning}
 
-{{site.data.keyword.cloudant_short_notm}} 分割資料庫特性目前處於測試版模式中。分割區資料庫不應該用於正式作業應用程式用法。此特性正在所有 {{site.data.keyword.cloudant_short_notm}} 環境之中推出，而且將在接下來的數星期內正式發行。
-{: important}
-
 {{site.data.keyword.cloudantfull}} 支援兩種類型的資料庫：
 
 - 分割
 - 未分割
 
-_分割_ 資料庫提供顯著的效能及成本優勢，但需要您指定資料的邏輯分割。將在下面詳細說明。
+_分割_ 資料庫提供顯著的效能及成本優勢，但需要您指定資料的邏輯分割。下列文字中將對此進行更詳細的說明。
 
 或者，可以建立_未分割_ 資料庫。此類型的資料庫可以更輕鬆地使用，因為不需要定義分割方法，但只能建立廣域次要索引。
 
@@ -53,12 +50,12 @@ _分割_ 資料庫提供顯著的效能及成本優勢，但需要您指定資�
 
 未分割資料庫是較舊類型的 {{site.data.keyword.cloudant_short_notm}} 資料庫，若您先前使用 CouchDB 或 {{site.data.keyword.cloudant_short_notm}}，這也就是您熟悉的資料庫。
 
-在未分割資料庫內，文件會根據其文件 ID 的轉換，以任意方式分佈到 Shard。因此，文件 ID 與其最終所在的 Shard 之間沒有真正關係。文件 ID 非常類似的文件不可能放置在相同的 Shard 上。
+在未分割資料庫內，文件會根據其文件 ID 的轉換，以任意方式分散到 Shard。因此，文件 ID 與其最終所在的 Shard 之間沒有真正關係。文件 ID 非常類似的文件不可能放置在相同的 Shard 上。
 
-未分割資料庫只會提供廣域查詢，將在下面詳細說明。
+未分割資料庫僅提供廣域查詢，之後將對此進行更詳細的說明。
 
 ## 分割資料庫
-{: #partitioned-databases}
+{: #partitioned-databases-database-partitioning}
 
 分割資料庫是較新類型的 {{site.data.keyword.cloudant_short_notm}} 資料庫。在分割資料庫內，文件會透過使用_分割區索引鍵_ 而形成邏輯分割區，分割區索引鍵是分割資料庫內文件的部分文件 ID。所有文件都會指派給一個分割區，而且系統通常會提供多份文件相同的分割區索引鍵。分割區的主要 JSON 資料及其索引最終會並存，表示資料庫能夠更有效率地查詢分割區內的資料。
 
@@ -194,7 +191,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 ### 建立索引
 {: #creating-indexes}
 
-對於上述查詢，將需要兩個索引：
+對於先前說明的查詢，我們將需要兩個索引：
 
 1. 將裝置 ID 對映至基礎設施 ID 的廣域索引。
 2. 將裝置 ID 對映至讀數的分割索引。
@@ -216,7 +213,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 }
 ```
 
-假設上述文件為 `./view.json`，這會使用下列指令上傳至資料庫：
+假設先前的文件是 `./view.json`，這將使用以下指令上傳到資料庫：
 
 ```
 curl -XPOST https://acme.cloudant.com/readings -d @view.json
@@ -250,7 +247,7 @@ curl -XPOST https://acme.cloudant.com/readings -d @view.json
 }
 ```
 
-假設上述文件為 `./query-index1.json`，請使用下列指令將索引上傳至資料庫：
+假設先前的文件是 `./query-index1.json`，請使用以下指令將索引上傳到資料庫：
 
 ```
 curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index1.json
@@ -272,7 +269,7 @@ curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index1.json
 }
 ```
 
-假設上述文件為 `./query-index2.json`，請使用下列指令將索引上傳至資料庫：
+假設先前的文件是 `./query-index2.json`，請使用以下指令將索引上傳到資料庫：
 
 ```
 curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index2.json

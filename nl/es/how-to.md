@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-06-12"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -67,9 +67,9 @@ Guía | Descripción
 [Conflictos](/docs/services/Cloudant?topic=cloudant-conflicts#conflicts){: new_window} | Una guía que describe cómo encontrar y resolver conflictos. 
 [CouchApps](/docs/services/Cloudant?topic=cloudant-couchapps#couchapps){: new_window} | Una guía que describe qué constituye una CouchApp.
 [Particionamiento de bases de datos](/docs/services/Cloudant?topic=cloudant-database-partitioning#database-partitioning) | Una guía que describe las bases de datos particionadas y cómo utilizarlas. 
-[Gestión de los documentos de diseño](/docs/services/Cloudant?topic=cloudant-design-document-management#design-document-management){: new_window} | Una guía que describe qué es un documento de diseño y cómo trabajar con él en {{site.data.keyword.cloudant_short_notm}}.
+[Gestión de documentos de diseño](/docs/services/Cloudant?topic=cloudant-design-document-management#design-document-management){: new_window} | Una guía que describe qué es un documento de diseño y cómo trabajar con él en {{site.data.keyword.cloudant_short_notm}}.
 [Creación de versiones de documentos y MVCC](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc){: new_window} | Una guía que describe el control de simultaneidad de varias versiones (MVCC) y cómo funciona con bases de datos de {{site.data.keyword.cloudant_short_notm}} para garantizar que todos los nodos de un clúster de base de datos contienen únicamente la versión más reciente de un documento.
-[Cinco consejos para modelar los datos que desea escalar](/docs/services/Cloudant?topic=cloudant-five-tips-for-modelling-your-data-to-scale#five-tips-for-modelling-your-data-to-scale){: new_window} | Una guía que describe los puntos clave del modelado de los datos de la aplicación para que funcionen de forma eficiente a gran escala.
+[Cinco consejos para modelar los datos que desea escalar](/docs/services/Cloudant?topic=cloudant-five-tips-for-modeling-your-data-to-scale#five-tips-for-modeling-your-data-to-scale){: new_window} | Una guía que describe los puntos clave del modelado de los datos de la aplicación para que funcionen de forma eficiente a gran escala.
 [Agrupación de documentos relacionados en {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant){: new_window} | Una guía que describe algunos de los factores implicados en la creación de un sistema de comercio electrónico que aprovecha las ventajas de {{site.data.keyword.cloudant_short_notm}}, utilizando conceptos aplicables a muchos otros dominios.
 [¿Cómo funciona {{site.data.keyword.cloudant_short_notm}} con los grupos de recursos de {{site.data.keyword.cloud_notm}}?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} | Una guía que cubre las preguntas comunes que recibe el soporte de {{site.data.keyword.cloudant_short_notm}} acerca de esta transición.
 [¿Cómo se almacenan los datos en {{site.data.keyword.cloudant_short_notm}}?](/docs/services/Cloudant?topic=cloudant-how-is-data-stored-in-ibm-cloudant-#how-is-data-stored-in-ibm-cloudant-){: new_window} | Una guía que describe la fragmentación y cómo funciona en {{site.data.keyword.cloudant_short_notm}}.

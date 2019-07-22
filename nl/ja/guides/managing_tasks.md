@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -39,7 +39,7 @@ JSON 応答を処理するには、`jq` コマンド・ライン JSON プロセ�
 これはタスクに焦点を当てたチュートリアルのため、ここではこのタスクの達成に不可欠なことだけを取り上げています。
 詳しくは、使用可能オプションの完全ガイドについて『[API リファレンス](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)』を参照してください。
 
-## curl および jq の基本
+## `curl` および `jq` の基本
 {: #curl-and-jq-basics}
 
 すべてのアクティブ・タスクを取得し、出力を適切にフォーマット設定するには、`curl` を使用してアカウントを呼び出し、出力を `jq` にパイピングします。
@@ -48,7 +48,7 @@ JSON 応答を処理するには、`jq` コマンド・ライン JSON プロセ�
 それにより、すべての複製文書を取得したり、1 つの特定のビュー索引付けタスクのみの詳細を取得したりすることが容易になります。
 API リファレンスに、これらのオプションに関する詳細情報が記載されています。
 
-_アクティブ・タスク・リストの取得およびフォーマット設定の例:_
+*アクティブ・タスク・リストの取得およびフォーマット設定の例:*
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
@@ -71,21 +71,21 @@ curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 
 それぞれのケースで、索引付けタスクのリストを検索した結果として JSON オブジェクトのリストが作成されます (検出されたアクティブ・タスクごとに 1 つ)。
 
-_`indexer` タイプを対象としてフィルター処理を行ってすべてのビュー索引付けタスクを検出する例:_
+*`indexer` タイプを対象としてフィルター処理を行ってすべてのビュー索引付けタスクを検出する例:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-_`search_indexer` タイプを対象としてフィルター処理を行ってすべての検索索引付けタスクを検出する例:_
+*`search_indexer` タイプを対象としてフィルター処理を行ってすべての検索索引付けタスクを検出する例:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-_ビュー索引付けタスクの検索後の結果の例:_
+*ビュー索引付けタスクの検索後の結果の例:*
 
 ```json
 {
@@ -118,7 +118,7 @@ _ビュー索引付けタスクの検索後の結果の例:_
 
 これらの要因が組み合わさって見積もりがかなり不正確になる可能性があることを想定しておく必要があります。
 
-_`jq` を使用した `changes_done` フィールドの抽出の例:_
+*`jq` を使用した `changes_done` フィールドの抽出の例:*
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -132,28 +132,28 @@ curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 
 複製プロセスに関する情報をアクティブ・タスク・リストから容易に選択できるようにするには、`_replicator` データベース内に文書を作成して複製プロセスを開始し、その `_id` フィールドを既知の値に設定します。
 
-_`replication` タイプを対象としてフィルター処理を行ってすべての複製タスクを検出する例:_
+*`replication` タイプを対象としてフィルター処理を行ってすべての複製タスクを検出する例:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-_既知の文書 ID を対象としてフィルター処理を行って特定の複製タスクを検出する例:_
+*既知の文書 ID を対象としてフィルター処理を行って特定の複製タスクを検出する例:*
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-_既知の `replication_id` を対象としてフィルター処理を行って特定の複製タスクを検出する例:_
+*既知の `replication_id` を対象としてフィルター処理を行って特定の複製タスクを検出する例:*
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-_複製タスクの検索後の結果の例:_
+*複製タスクの検索後の結果の例:*
 
 ```json
 {

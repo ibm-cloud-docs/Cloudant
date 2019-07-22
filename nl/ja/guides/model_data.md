@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -23,16 +23,18 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # 拡大するようにデータをモデル化する際の 5 つのヒント
-{: #five-tips-for-modelling-your-data-to-scale}
+{: #five-tips-for-modeling-your-data-to-scale}
 
-この記事では、大きな規模で効率よく機能するようにアプリケーションのデータをモデル化することの細かい点について検討します。
+この記事では、大きな規模で効率よく機能するように
+アプリケーションのデータをモデル化することの細かい点について検討します。
 {: shortdesc}
 
-*(このガイドは、2013 年 12 月 17 日に公開された Mike Rhodes の[「My top 5 tips for modelling your data to scale」![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/) というブログ記事に基づいています。)*
+*(このガイドは、2013 年 12 月 17 日に公開された Mike Rhodes の[「My top 5 tips for modeling your data to scale」 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/) というブログ記事に基づいています。)*
 
 {{site.data.keyword.cloudantfull}} でのデータのモデリング方法は、どのようにアプリケーションを拡大できるかということに大きな影響を与えます。 基礎となるデータ・モデルは、リレーショナル・モデルと大きく異なっています。そして、この特徴を無視すると、いずれパフォーマンスの問題が発生する可能性があります。
 
-常に、成功したモデリングには、使いやすさと達成したいパフォーマンス特性との間のバランスの実現が伴います。
+常に、成功したモデリングには、使いやすさと達成したい
+パフォーマンス特性との間のバランスの実現が伴います。
 
 では、早速本題に入りましょう。
 
@@ -151,9 +153,11 @@ Joe さんが不運にも多くの手術を同時に受ける場合、前述の�
 ## 競合解決の組み込み
 {: #build-in-conflict-resolution}
 
-{{site.data.keyword.cloudant_short_notm}} のような結果整合システムでは、最終的に競合は発生します。 既に述べたように、これはスケーラビリティーおよびデータ回復力の対価です。
+{{site.data.keyword.cloudant_short_notm}} のような結果整合システムでは、最終的に競合は発生します。 前述したように、これはスケーラビリティーおよびデータ回復力の代価です。
 
-素早く競合を解決し、オペレーター支援を必要としないような方法でデータを構造化することは、データベースを円滑に作動させるうえで役立ちます。 ユーザーを巻き込む必要なしに競合を自動的に解決できれば、ユーザーのエクスペリエンスも大幅に向上し、さらにうまくいけば組織のサポート負担の削減にもなります。
+素早く競合を解決し、オペレーター支援を必要としないような方法でデータを構造化することは、データベースを円滑に作動させるうえで役立ちます。 ユーザーを
+巻き込む必要なしに競合を自動的に解決できれば、ユーザーのエクスペリエンスも大幅に向上し、
+さらにうまくいけば組織のサポート負担の削減にもなります。
 
 これを実現する方法は、非常にアプリケーション固有なものになりますが、以下にいくつかのヒントを示します。
 
@@ -170,5 +174,7 @@ Joe さんが不運にも多くの手術を同時に受ける場合、前述の�
 
 これらのヒントは、モデリング・データがアプリケーションのパフォーマンスに影響を与える方法のいくつかを示しています。 {{site.data.keyword.cloudant_short_notm}} のデータ・ストアには、アプリケーションの成長につれてデータベースのパフォーマンスも拡大するようにするためのいくつかの固有の特性 (注意すべき特性と利用すべき特性の両方) があります。 変化に混乱はつきものです。アドバイスが必要な場合は、いつでもご相談ください。
 
-さらなる情報は、[「data model for Foundbite」![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}の議論、または[「example from our friends at Twilio」![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}を参照してください。
+さらに情報が必要な場合は、
+[Foundbite のデータ・モデル ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window} に関する議論、
+または [Twilio での友人の例 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window} を参照してください。
 

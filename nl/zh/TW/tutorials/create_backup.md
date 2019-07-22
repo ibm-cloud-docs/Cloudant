@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
 
@@ -43,7 +43,7 @@ npm install -g @cloudant/couchbackup
 
 建立範例 `couchbackup-demo` 資料庫以在本指導教學中使用。
 
-1.  執行此指令，以建立資料庫：
+1.  執行這個指令，以建立資料庫：
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo -X PUT
@@ -110,7 +110,7 @@ npm install -g @cloudant/couchbackup
     ```
     {: codeblock}
     
-2.  執行此指令，以建立文件：
+2.  執行這個指令，以建立文件：
     
     ```sh
     curl https://username:password@myhost.cloudant.com/couchbackup-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat

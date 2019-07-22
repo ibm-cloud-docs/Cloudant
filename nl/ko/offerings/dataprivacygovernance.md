@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -50,7 +50,7 @@ EU Directive 95/46/EC는 고객의 개인정보 처리에 대한 규칙을 정�
 클라우드 서비스를 제공하고 지원하기 위해 컨텐츠를 보관할 수 있거나, 컨텐츠에 액세스할 수 있는
 국가의 목록은 [www.ibm.com/cloud/datacenters ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://www.ibm.com/cloud/datacenters){: new_window}에 있습니다.
 
-{{site.data.keyword.cloudant_short_notm}}의 전체 표준 준수에 대한 자세한 정보는 [여기](/docs/services/Cloudant?topic=cloudant-compliance#compliance)에 있습니다.
+{{site.data.keyword.cloudant_short_notm}}의 규제 준수에 대한 전반적인 표준은 [규제 준수](/docs/services/Cloudant?topic=cloudant-compliance#compliance)를 참조하십시오.
 다음 IaaS 비즈니스 파트너에 대해서도 이와 유사한 정보를 찾아볼 수 있습니다.
 
 -   [Amazon ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://aws.amazon.com/compliance/){: new_window}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -36,10 +36,10 @@ subcollection: cloudant
     利用使用者名稱及密碼進行鑑別之後，您會看到 {{site.data.keyword.cloud_notm}} 儀表板。按一下`建立資源`按鈕。<br/>
     ![{{site.data.keyword.cloud_notm}} 儀表板](images/img0001.png)
 
-2.  從左側導覽中按一下`資料庫`，然後從資料庫服務的清單中按一下 `Cloudant`：<br/>
+2.  從功能表中按一下`資料庫`，然後從資料庫服務的清單中按一下 `Cloudant`：<br/>
     ![{{site.data.keyword.cloud_notm}} 資料庫服務](images/img0003.png)<br/>
 
-3.  在服務配置視窗中，輸入服務名稱。請驗證服務名稱、地區/位置、資源群組及鑑別方法都正確無誤。如果喜歡的話，請新增標籤。可用的鑑別方法包括`僅使用 IAM` 或`同時使用 Legacy 認證及 IAM`。如需相關資訊，請參閱[鑑別方法](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}。
+3.  在服務配置視窗中，輸入服務名稱。請驗證服務名稱、地區/位置、資源群組及鑑別方法都正確無誤。如果喜歡的話，請新增標籤。可用的鑑別方法包括`僅使用 IAM` 或`同時使用舊式認證及 IAM`。如需相關資訊，請參閱[鑑別方法](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}。
     在此範例中，服務名稱是 `Cloudant-o7`：<br/>
     ![{{site.data.keyword.cloudant_short_notm}} 服務名稱及認證](images/img0005.png)
     
@@ -61,7 +61,7 @@ subcollection: cloudant
   <br>d.（選用）新增線型配置參數。請注意，{{site.data.keyword.cloudant_short_notm}} 服務認證目前未使用此參數，因此請予以忽略。
   <br>e. 按一下`新增`按鈕。</br>
   <br>![新增服務認證](images/img0051.png)
-  <br>您的新認證會出現在表格後面。</br>
+  <br>新認證將顯示在表格之後。</br>
   <br>f. 按一下「動作」下的`檢視認證`。
   <br>![檢視所有服務認證](images/img0052.png)
 
@@ -78,17 +78,17 @@ subcollection: cloudant
 
 
     
-{{site.data.keyword.cloudant_short_notm}} 在佈建時間有兩種可用的鑑別方法：`僅使用 IAM` 或`同時使用 Legacy 認證及 IAM`。只有在選擇`同時使用 Legacy 認證及 IAM` 鑑別方法時，才能看到有關舊式認證的詳細資料。認證會顯示在您實例的「服務認證」標籤上。如需相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)及[舊式鑑別](/docs/services/Cloudant?topic=cloudant-authentication#authentication)文件，以取得使用任一種鑑別樣式的詳細資料。
+{{site.data.keyword.cloudant_short_notm}} 在佈建時間有兩種可用的鑑別方法：`僅使用 IAM` 或`同時使用舊式認證及 IAM`。只有在選擇`同時使用舊式認證及 IAM` 鑑別方法時，才能看到有關舊式認證的詳細資料。認證會顯示在您實例的「服務認證」標籤上。如需相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)及[舊式鑑別](/docs/services/Cloudant?topic=cloudant-authentication#authentication)文件，以取得使用任一種鑑別樣式的詳細資料。
 
 服務認證包括下列欄位：
 
 欄位       |用途
 ------|--------
 `username` | URL 中服務實例使用者的服務名稱。此欄位也用來作為管理使用者名稱。
-`password` | 應用程式存取服務實例所需的舊式認證密碼。只有在選擇`同時使用 Legacy 認證及 IAM` 選項時，才會顯示此欄位。
-`host`     |應用程式用來尋找服務實例的主機名稱。只有在選擇`同時使用 Legacy 認證及 IAM` 選項時，才會顯示此欄位。
-`port`     | 用來存取主機上服務實例的 HTTPS 埠號。它是 443，因為 {{site.data.keyword.cloudant_short_notm}} 只容許 HTTPS 存取。只有在選擇`同時使用 Legacy 認證及 IAM` 選項時，才會顯示此欄位。
-`url`	| 存取 {{site.data.keyword.cloudant_short_notm}} 實例的 HTTPS URL。如果選擇`同時使用 Legacy 認證及 IAM` 選項，則也會包括內嵌的舊式使用者名稱和密碼。
+`password` | 應用程式存取服務實例所需的舊式認證密碼。只有在選擇`同時使用舊式認證及 IAM` 選項時，才會顯示此欄位。
+`host`     |應用程式用來尋找服務實例的主機名稱。只有在選擇`同時使用舊式認證及 IAM` 選項時，才會顯示此欄位。
+`port`     | 用來存取主機上服務實例的 HTTPS 埠號。它是 443，因為 {{site.data.keyword.cloudant_short_notm}} 只容許 HTTPS 存取。只有在選擇`同時使用舊式認證及 IAM` 選項時，才會顯示此欄位。
+`url`	| 存取 {{site.data.keyword.cloudant_short_notm}} 實例的 HTTPS URL。如果選擇`同時使用舊式認證及 IAM` 選項，則也會包括內嵌的舊式使用者名稱和密碼。
 `apikey` | IAM API 金鑰。
 `iam_apikey_description` | IAM API 金鑰的說明。
 `iam_apikey_name` | IAM API 金鑰的 ID。

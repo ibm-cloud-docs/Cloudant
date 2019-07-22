@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -33,76 +33,75 @@ La creación de una instancia del plan de hardware dedicado de {{site.data.keywo
 ## Creación de una instancia del plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}}
 {: #creating-an-ibm-cloudant-dedicated-hardware-plan-instance}
 
-1.  Inicie una sesión en su cuenta de {{site.data.keyword.cloud_notm}}.<br/>
+1.  Inicie sesión en su cuenta de {{site.data.keyword.cloud_notm}}.<br/>
     El panel de control de {{site.data.keyword.cloud_notm}} se puede encontrar en:
 [`https://cloud.ibm.com/` ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/){: new_window}.
     Después de autenticarse con su nombre de usuario y contraseña, aparecerá el panel de control de {{site.data.keyword.cloud_notm}}. Pulse el botón `Crear recurso`:<br/>
-    ![Panel de control de {{site.data.keyword.cloud_notm}}](images/img0001.png)
+    ![{{site.data.keyword.cloud_notm}} panel de control](images/img0001.png)
 
-2.  Pulse `Bases de datos` en el menú de la izquierda y `Cloudant` en la lista de servicios de base de datos.<br/>
-     ![ selección de servicio {{site.data.keyword.cloudant_short_notm}} de {{site.data.keyword.cloud_notm}}](images/img0003.png)<br/>
+2.  Pulse `Bases de datos` en el menú y `Cloudant` en la lista de servicio de base de datos. <br/>
+     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} selección del servicio](images/img0003.png)<br/>
 
-3.  Seleccione el plan `Hardware dedicado` de la lista de planes de precios en la parte inferior de la página:<br/>
-    ![Planes de precios](/docs/services/Cloudant/tutorials/images/pricing_plan.png)
+3.  Seleccione plan de `hardware dedicado` en la lista de planes de precios:
+<br/>
+    ![Planes de precios](images/pricing_plan.png)
     
-4.  Rellene los parámetros siguientes en la parte superior de la página: <br/>
-    -   Escriba un nombre de servicio.<br/>
-    -   Especifique la región/ubicación en la que desea realizar el despliegue.<br/>
+4.  Rellene los parámetros siguientes: <br/>
+    -   Especifique un nombre de servicio.<br/>
+    -   Especifique la región/ubicación en la que desea realizar el despliegue. La región/ubicación será una de las seis principales regiones de {{site.data.keyword.cloud_notm}} en las que se desea desplegar la instancia. La ubicación física real de la instancia la determina el parámetro de ubicación descrito en la lista siguiente.<br/>
     -   Seleccione un grupo de recursos.</br>
     -   Añada una etiqueta. 
-    -   Seleccione una ubicación para el despliegue.<br/>
+    -   Seleccione una ubicación para el despliegue. Esta ubicación es la ubicación física de la instancia, que puede estar en cualquier ubicación de {{site.data.keyword.cloud_notm}}, incluidas las principales regiones y ubicaciones fuera de las regiones principales. Para obtener más información, consulte [Centros de datos globales de {{site.data.keyword.IBM}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/data-centers/){:new_window}.<br/>
     -   Seleccione `sí` o `no` para responder si la HIPAA es necesaria.<br/> 
     
-    La HIPAA solo es válida en EE.UU. {{site.data.keyword.IBM}} puede suministrar un entorno de plan de hardware dedicado para
-implementar controles de HIPAA. Solo se suministrará un entorno tras la confirmación de un acuerdo de socio empresarial (BAA) establecido con {{site.data.keyword.IBM_notm}}. Consulte
-[Habilitación del valor Soporte en HIPAA](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) y los términos de descripción de servicio para obtener más detalles. El suministro de un clúster para gestionar datos HIPAA puede llevar más tiempo que el período estimado de 5 días.
+    La HIPAA solo es válida en EE.UU. {{site.data.keyword.IBM}} puede suministrar un entorno de plan de hardware dedicado para implementar controles de HIPAA. Solo se suministrará un entorno tras la confirmación de un acuerdo de socio empresarial (BAA) establecido con {{site.data.keyword.IBM_notm}}. Consulte [Habilitación del valor Soporte de HIPAA](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) y los términos de descripción de servicio para obtener más detalles. El suministro de un clúster para gestionar datos HIPAA puede llevar más tiempo que el período estimado de 5 días.
     {: note}
 
-    ![Configurar el hardware dedicado](/docs/services/Cloudant/tutorials/images/select_deployment_location.png)
+    ![Configurar el hardware dedicado](images/select_deployment_location.png)
         
 5.  Pulse el botón `Crear` para iniciar el proceso de suministro. <br/>
 
     La facturación se prorratea diariamente para garantizar que desea realizar el suministro y pagar un entorno antes de pulsar el botón **Crear**.
     {: note}
 
-    ![Suministro de hardware dedicado](/docs/services/Cloudant/tutorials/images/create_button_provision.png)
+    ![Suministro de hardware dedicado](images/create_button_provision.png)
 
     Durante el suministro, aparece una rueda giratoria junto a la instancia en el panel de control de {{site.data.keyword.cloud_notm}}. Se envía una solicitud para suministrar una instancia del plan de hardware dedicado en servidores nativos. El tiempo de suministro es asíncrono y puede tardar hasta 5 días. 
     {: note}   
 
-    ![Suministro de una versión alternativa del hardware dedicado](/docs/services/Cloudant/tutorials/images/create_button_provision2.png)
+    ![Suministro de una versión alternativa del hardware dedicado](images/create_button_provision2.png)
     
 ## Suministro de una instancia del plan estándar en un entorno de hardware dedicado
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
 
-1.  Inicie una sesión en su cuenta de {{site.data.keyword.cloud_notm}}.<br/>
+1.  Inicie sesión en su cuenta de {{site.data.keyword.cloud_notm}}.<br/>
     El panel de control de {{site.data.keyword.cloud_notm}} se puede encontrar en:
 [https://cloud.ibm.com/ ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/){: new_window}.
     Después de autenticarse con su nombre de usuario y contraseña, aparecerá el panel de control de {{site.data.keyword.cloud_notm}}. Pulse el botón `Crear recurso`:<br/>
-    ![Panel de control de {{site.data.keyword.cloud_notm}}](images/img0001.png)
+    ![{{site.data.keyword.cloud_notm}} panel de control](images/img0001.png)
 
-2.  Pulse `Bases de datos` en el menú de la izquierda y `Cloudant` en la lista de servicios de base de datos.<br/>
-     ![ selección de servicio {{site.data.keyword.cloudant_short_notm}} de {{site.data.keyword.cloud_notm}}](images/img0003.png)<br/>
+2.  Pulse `Bases de datos` en el menú y `Cloudant` en la lista de servicio de base de datos. <br/>
+     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} selección del servicio](images/img0003.png)<br/>
     Aparecerá la página para la creación de un servicio.<br/>  
 
 3.  Pulse `Estándar` en los planes de precios. <br/>
-    ![Plan de precios estándar](/docs/services/Cloudant/tutorials/images/standard_pricing_plan.png)
+    ![plan de precios estándar](images/standard_pricing_plan.png)
     
     No puede suministrar una instancia del plan Lite en un entorno de hardware dedicado.
     {: tip}
     
 4.  Rellene los parámetros siguientes: <br/>
-    -   Escriba un nombre de servicio.<br/>
+    -   Especifique un nombre de servicio.<br/>
     -   Especifique la región/ubicación en la que desea realizar el despliegue. <br/>
-    -   Seleccione un grupo de recursos. </br>
+    -   Seleccione un grupo de recursos.</br>
     -   Añada una etiqueta. 
     -   Seleccione un método de autenticación.</br>
-    -   Seleccione un entorno.</br>
-    ![Configurar la instancia estándar](/docs/services/Cloudant/tutorials/images/select_environment.png)
+    -   Seleccione un entorno, que es el lugar en el que se desplegará la instancia de plan estándar. Las instancias de entorno de hardware dedicado desplegadas en la cuenta se mostrarán en el desplegable si están disponibles.</br>
+    ![Configurar instancia estándar](images/select_environment.png)
     
 5.  Pulse el botón `Crear`.<br/>
     Unos segundos después, la instancia se suministrará en el entorno que ha seleccionado.<br/>
-    ![Suministro de la instancia estándar](/docs/services/Cloudant/tutorials/images/create_button_provision_standard.png)
+    ![Suministro de una instancia estándar](images/create_button_provision_standard.png)
     
 6.  Obtenga las credenciales de servicio y el acceso al panel de control de {{site.data.keyword.cloudant_short_notm}} de la misma forma que lo hace en la instancia de {{site.data.keyword.cloudant_short_notm}} multiarrendatario. 
     
@@ -111,8 +110,7 @@ implementar controles de HIPAA. Solo se suministrará un entorno tras la confirm
 ## Suministro de una instancia del plan estándar en un entorno de hardware dedicado con la CLI de {{site.data.keyword.cloud_notm}}
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment-with-the-ibm-cloud-cli}
 
-Para utilizar la CLI de {{site.data.keyword.cloud_notm}}, debe haber iniciado la sesión. Para obtener más información sobre cómo iniciar sesión y establecer un grupo de recursos de destino, consulte
-[Inicio de sesión en su cuenta de {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window}. 
+Para utilizar la CLI de {{site.data.keyword.cloud_notm}}, debe haber iniciado la sesión. Para obtener más información sobre cómo iniciar sesión y establecer un grupo de recursos de destino, consulte [Inicio de sesión en su cuenta de {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window}. 
 
 Para crear una instancia del plan estándar de {{site.data.keyword.cloudant_short_notm}} en el entorno del plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}}, el formato básico del mandato es el siguiente:
 
@@ -136,7 +134,7 @@ Las instancias de {{site.data.keyword.cloudant_short_notm}} que se despliegan en
 Parámetro | Descripción
 ----------|------------
 `environment_crn` | Este parámetro debe fijarse en el CRN de la instancia del plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}}. Puede determinar qué es el CRN observando el ejemplo del mandato de CLI en el separador Gestionar de la instancia del plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}} en el panel de control de {{site.data.keyword.cloud_notm}}. O bien, puede determinar qué es el CRN utilizando el mandato `ibmcloud resource service-instance SERVICE_INSTANCE_NAME`. 
-`legacyCredentials` | Un parámetro opcional cuyo valor predeterminado es true y que determina si la instancia utiliza credenciales de IAM y heredadas o si únicamente utiliza credenciales de IAM. Consulte la [guía de IAM ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} para obtener más detalles sobre cómo seleccionar un método de autenticación.
+`legacyCredentials` | Un parámetro opcional cuyo valor predeterminado es true y que determina si la instancia utiliza credenciales de IAM y heredadas o si únicamente utiliza credenciales de IAM. Para obtener más detalles sobre la elección de un método de autenticación, consulte la [Guía de IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 Consulte el siguiente mandato de ejemplo: 
 
@@ -153,13 +151,12 @@ Las aplicaciones que requieren acceso al servicio de {{site.data.keyword.cloudan
 Las credenciales de servicio son muy valiosas. Si alguna persona o alguna aplicación tiene acceso a las credenciales, puede hacer lo que quiera con la instancia de servicio. Por ejemplo, podría crear datos falsos o suprimir información importante. Proteja bien estas credenciales.
 {: important}
 
-Para obtener más información sobre los campos incluidos en las credenciales de servicio, consulte la
-[Guía de IAM ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}.
+Para obtener más información sobre los campos incluidos en las credenciales de servicio, consulte la [guía de IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 El formato básico del mandato para crear credenciales para una instancia de servicio dentro de {{site.data.keyword.cloud_notm}} es el siguiente:
 
 ```sh
-ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [--enable-internal-service-endpoint true]
+ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [-p '{"service-endpoints":"internal"}]
 ```
 {: pre}
 
@@ -170,8 +167,7 @@ Campo | Descripción
 `NAME` | Nombre arbitrario que le proporciona a las credenciales de servicio. 
 `ROLE_NAME` | Actualmente, este campo permite únicamente el rol de gestor.
 `SERVICE_INSTANCE_NAME` | El nombre que le proporciona a la instancia de {{site.data.keyword.cloudant_short_notm}}.
-`enable-internal-service-endpoint` | Un campo opcional para rellenar el campo de URL en las credenciales de servicio con un punto final
-interno para conectarse al servicio a través de la red interna de {{site.data.keyword.cloud_notm}}. Omita este campo para rellenar el URL con un punto final externo que sea accesible públicamente. Solo se aplica a instancias del plan Estándar desplegadas en entornos de hardware dedicado que tengan soporte para puntos finales internos. El mandato tendrá como resultado un error 400 si el entorno no admite puntos finales internos. 
+`service-endpoints` | Un parámetro opcional para rellenar el campo de URL en las credenciales de servicio con un punto final interno para conectarse al servicio a través de la red interna de {{site.data.keyword.cloud_notm}}. Omita este parámetro para rellenar el URL con un punto final externo que sea accesible públicamente. Solo se aplica a instancias del plan Estándar desplegadas en entornos de hardware dedicado que tengan soporte para puntos finales internos. El mandato tendrá como resultado un error 400 si el entorno no admite puntos finales internos. 
 
 Si desea crear credenciales para la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}} (en el que el nombre para las credenciales es `creds_for_cs20170517a`), cree las credenciales utilizando un mandato similar al del ejemplo siguiente:
 
@@ -208,7 +204,7 @@ Credentials:
 Si desea crear credenciales para la instancia `cs20170517a` de un servicio de {{site.data.keyword.cloudant_short_notm}} (en el que el nombre para las credenciales es `creds_for_cs20170517a`) y desea rellenar el URL con el punto final interno, cree las credenciales utilizando un mandato similar al del ejemplo siguiente:
 
 ```sh
-ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a --enable-internal-service-endpoint true
+ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a -p '{"service-endpoints":"internal"}'
 ```
 {: codeblock}
 
@@ -231,7 +227,7 @@ Credentials:
                apikey:                   XXXXX-XXXXXX_XXXXXXXXXXXXX-XXXXXXXXXXX
                host:                     2624fed5-e53e-41de-a85b-3c7d7636886f-bluemix.private.cloudantnosqldb.appdomain.cloud
                iam_apikey_description:   Auto generated apikey during resource-key operation for Instance - crn:v1:bluemix:public:cloudantnosqldb:us-south:a/b42116849bb7e2abb0841ca25d28ee4c:ee78351d-82bf-4e80-bc22-825c937fafa3::     
-               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e 
+               iam_serviceid_crn:        crn:v1:bluemix:public:iam-identity::a/b42116849bb7e2abb0841ca25d28ee4c::serviceid:ServiceId-53f9e2a2-cdfb-4f90-b072-bfffafb68b3e       
 ```
 {: pre}
 

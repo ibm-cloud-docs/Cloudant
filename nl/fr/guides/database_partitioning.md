@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-06-12"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -25,21 +25,18 @@ subcollection: cloudant
 # Partitionnement de base de données
 {: #database-partitioning}
 
-La fonction de base de données {{site.data.keyword.cloudant_short_notm}} partitionnée est actuellement en mode bêta. Les partitions de base de données ne doivent pas servir pour une utilisation sur une application en production. Cette fonction, qui est en cours de déploiement sur tous les environnements {{site.data.keyword.cloudant_short_notm}}, sera disponible de façon générale dans les semaines à venir.
-{: important}
-
 {{site.data.keyword.cloudantfull}} prend en charge deux types de base de données :
 
 - Base de données partitionnée
 - Base de données non partitionnée
 
-Une base de données _partitionnée_ offre des avantages significatifs au niveau des performances et des coûts mais nécessite la spécification d'un partitionnement logique de vos données, processus décrit plus en détail ultérieurement.
+Une base de données _partitionnée_ offre des avantages significatifs au niveau des performances et des coûts mais nécessite la spécification d'un partitionnement logique de vos données. Cette opération est décrite plus en détails dans le texte suivant.
 
 Vous pouvez aussi créer une base de données _non partitionnée_. Ce type de base de données peut être plus facile à utiliser puisqu'aucun schéma de partitionnement ne doit être défini, mais seuls des index secondaires globaux peuvent être créés.
 
 {{site.data.keyword.cloudant_short_notm}} recommande fortement l'utilisation d'une base de données partitionnée pour de meilleures performances de cette dernière sur le long terme, quand le modèle de données permet le partitionnement logique des documents.
 
-Le type de partitionnement d'une base de données est défini au moment de sa création. Lors de la création d'une base de données, utilisez le paramètre de chaîne de requête `partitioned` pour définir si la base de données est partitionnée ou non. La valeur par défaut pour `partitioned` est `false`, pour maintenir une compatibilité avec les versions antérieures.
+Le type de partitionnement d'une base de données est défini au moment de sa création.  Lors de la création d'une base de données, utilisez le paramètre de chaîne de requête `partitioned` pour définir si la base de données est partitionnée ou non. La valeur par défaut pour `partitioned` est `false`, pour maintenir une compatibilité avec les versions antérieures.
 
 Le type de partitionnement ne peut pas être modifié pour une base de données existante.
 
@@ -58,7 +55,7 @@ Dans une base de données non partitionnée, les documents sont répartis dans d
 Une base de données non partitionnée ne propose qu'une interrogation globale, décrite plus en détail ultérieurement.
 
 ## Bases de données partitionnées
-{: #partitioned-databases}
+{: #partitioned-databases-database-partitioning}
 
 Le type partitionné pour une base de données est le type le plus récent des bases de données {{site.data.keyword.cloudant_short_notm}}. Dans une base de données partitionnée, les documents sont regroupés en partitions logiques, en utilisant une _clé de partitionnement_, qui est intégrée aux ID des documents inclus dans la base de données partitionnée. Tous les documents sont affectés dans une partition et la même clé de partitionnement est généralement donnée à beaucoup de documents différents. Dans une partition, des données JSON principales sont placées au même endroit que les index associés, ce qui permet à la base de données de procéder à une interrogation par requête plus efficace de ces données dans la partition.
 
@@ -81,10 +78,10 @@ Prenez connaissance des cas d'utilisation ci-après, associés à un commentaire
 |----------------------------|-----------------------------|---------------|------------------------------------------------------------------------------------------------------------------|
 | Systèmes de commerce électronique - commandes | Un document par commande     | order_id      | Neutre - le fait d'avoir un document par partition est une solution acceptable mais elle ne permet pas de bénéficier de l'exécution de requêtes dans une partition.          |
 | Systèmes de commerce électronique - commandes | Un document par commande     | user_id       | Bonne - toutes les commandes d'un utilisateur sont conservées ensemble.                                                             |
-| Systèmes de commerce électronique - commandes | Un document par commande     | status        | Mauvaise - le fait de regrouper des commandes en utilisant une petite poignée de valeurs de statut (provisional, paid, refunded, cancelled) crée trop peu de grandes partitions.|
-| Plateforme de blogue          | Un document par article de blogue | author_id     | Bonne - à condition qu'il y ait de nombreux auteurs. Facilité d'interrogation des différents articles de chaque auteur.|
-| IOT - relevés de capteur      | Un document par lecture     | device_id     | Bonne - s'il y a de nombreux périphériques. Assurez-vous qu'un périphérique ne produise pas beaucoup plus de capteurs que les autres. |
-| IOT - relevés de capteur      | Un document par lecture     | date          | Mauvaise - les relevés en cours génèrent une "zone sensible" (ou "hot spot") sur la partition de la date actuelle.|
+| Systèmes de commerce électronique - commandes | Un document par commande      | status        | Mauvaise - le fait de regrouper des commandes en utilisant une petite poignée de valeurs de statut (provisional, paid, refunded, cancelled) crée trop peu de grandes partitions.  |
+| Plateforme de blogue          | Un document par article de blogue | author_id     | Bonne - à condition qu'il y ait de nombreux auteurs. Facilité d'interrogation des différents articles de chaque auteur.                                     |
+| IOT - relevés de capteur      | Un document par lecture    | device_id     | Bonne - s'il y a de nombreux périphériques. Assurez-vous qu'un périphérique ne produise pas beaucoup plus de capteurs que les autres. |
+| IOT - relevés de capteur      | Un document par lecture    | date          | Mauvaise - les relevés en cours génèrent une "zone sensible" (ou "hot spot") sur la partition de la date actuelle.                                  |
 
 Pour certains cas d'utilisation, une clé de partition n'est pas un choix viable.
 Dans ces situations, une base de données non partitionnée est la meilleure option (base de données stockant les adresses e-mail, les hachages de mot de passe et les dates de dernière connexion des utilisateurs, par exemple). Aucune de ces zones ne pouvant être considérée comme une clé de partitionnement adaptée, une base de données non partitionnée normale doit être utilisée.
@@ -185,7 +182,7 @@ Définissez d'abord un format de document simple à utiliser :
 }
 ```
 
-Pour ce document, en utilisant le schéma de partitionnement reposant sur un élément d'infrastructure, l'ID de document peut inclure l'ID d'infrastructure en tant que clé de partitionnement, et inclure le périphérique et l'horodatage comme clé de document : 
+Pour ce document, en utilisant le schéma de partitionnement reposant sur un élément d'infrastructure, l'ID de document peut inclure l'ID d'infrastructure en tant que clé de partitionnement, et inclure le périphérique et l'horodatage comme clé de document :
 
 ```
 bridge-9876:device-123456-20181211T11:13:24.123456Z
@@ -194,7 +191,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 ### Création des index
 {: #creating-indexes}
 
-Pour les requêtes ci-dessus, vous avez besoin de deux index :
+Pour les requêtes décrites ci-dessus, vous avez besoin de deux index :
 
 1. Un index global mappant l'ID de périphérique à l'ID d'infrastructure.
 2. Un index partitionné mappant les ID de périphérique aux relevés.
@@ -216,7 +213,7 @@ L'utilisation d'un index de vue est la façon la plus efficace d'effectuer le ma
 }
 ```
 
-En supposant l'existence du document ci-dessus dans `./view.json`, son téléchargement s'effectue dans la base de données en utilisant :
+En supposant l'existence du document précédent dans `./view.json`, son téléchargement s'effectue dans la base de données en utilisant :
 
 ```
 curl -XPOST https://acme.cloudant.com/readings -d @view.json
@@ -250,7 +247,7 @@ La définition par horodatage est la suivante :
 }
 ```
 
-En supposant l'existence du document ci-dessus dans `./query-index1.json`, téléchargez l'index dans la base de données en utilisant cette commande :
+En supposant l'existence du document précédent dans `./query-index1.json`, téléchargez l'index dans la base de données à l'aide de la commande suivante :
 
 ```
 curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index1.json
@@ -272,7 +269,7 @@ La définition par ID de périphérique est la suivante :
 }
 ```
 
-En supposant que le document ci-dessus est `./query-index2.json`, téléchargez l'index dans la base de données en utilisant cette commande :
+En supposant l'existence du document précédent dans `./query-index2.json`, téléchargez l'index dans la base de données à l'aide de la commande suivante :
 
 ```
 curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index2.json

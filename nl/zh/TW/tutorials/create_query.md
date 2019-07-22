@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -52,12 +52,12 @@ subcollection: cloudant
 
 在本節中，您會建立 `query-demo` [資料庫](/docs/services/Cloudant?topic=cloudant-databases#create-database)，這是本指導教學中所使用的資料庫。
 
-在本指導教學中，我們使用 `acurl` 別名，而不是 `curl` 指令。`acurl` 別名是使用[這裡](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)說明的步驟所建立。如果您偏好使用 `curl` 指令或另一種方法來呼叫 API 端點，請替換指導教學中的指令，以及指令所需的參數（例如使用者名稱及密碼）。
+在本指導教學中，我們使用 `acurl` 別名，而不是 `curl` 指令。`acurl` 別名是使用[授權 curl：`acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) 中的步驟建立的。如果您偏好使用 `curl` 指令或另一種方法來呼叫 API 端點，請替換指導教學中的指令，以及指令所需的參數（例如使用者名稱及密碼）。
 {: tip}
 
 ![「指令行」圖示](../images/CommandLineIcon.png) _指令行_
 
-1.  執行此指令，以建立資料庫：
+1.  執行這個指令，以建立資料庫：
   ``` sh
   acurl https://$ACCOUNT.cloudant.com/query-demo -X PUT
   ```
@@ -133,7 +133,7 @@ subcollection: cloudant
   ```
   {: codeblock}
 
-2.  執行此指令，以建立文件：
+2.  執行這個指令，以建立文件：
   ```sh
   acurl https://$ACCOUNT.cloudant.com/query-demo/_bulk_docs -X POST -H "Content-Type: application/json" -d \@bulkcreate.dat
   ```
@@ -252,7 +252,7 @@ subcollection: cloudant
 
 我們會在本指導教學中使用「{{site.data.keyword.cloudant_short_notm}} 查詢」，這會使用 Mongo 樣式的查詢語法，透過使用邏輯運算子來搜尋文件。「{{site.data.keyword.cloudant_short_notm}} 查詢」是視圖及搜尋索引的組合。
 
-當您使用「{{site.data.keyword.cloudant_short_notm}} 查詢」時，查詢規劃器會查看選取器（您的查詢），以判定要從中選擇的正確索引。如果找不到適當的索引，它會使用 `_all_docs` 特殊索引，依 ID 查閱文件。在最糟的案例情境中，它會依 ID 傳回所有文件（完整表格掃描）。在記憶體中，我們會依選取器濾出文件，這就是為何即使沒有索引，您仍然可以搭配各種欄位進行查詢。完整表格掃描昂貴，因此建議您建立索引。請參閱下列清單中不同類型之索引的說明：
+使用 {{site.data.keyword.cloudant_short_notm}} Query 時，查詢策劃器會查看選擇器（您的查詢）以確定要從中進行選擇的正確索引。如果找不到適當的索引，它會使用 `_all_docs` 特殊索引，依 ID 查閱文件。在最糟的案例情境中，它會依 ID 傳回所有文件（完整表格掃描）。在記憶體中，我們會依選取器過濾掉文件，這就是為何即使沒有索引，您仍然可以搭配各種欄位進行查詢。完整表格掃描很昂貴，因此建議您建立索引。請參閱下列清單中不同類型之索引的說明：
 
 *	主要索引 – 依 ID 查閱文件或文件清單。  
 *	[視圖](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) – 在資料庫中搜尋符合所指定搜尋準則（例如計數、總和、平均值及其他數學函數）的資訊。您可以搜尋的準則指定於視圖的定義中。視圖使用 MapReduce 參照範例。

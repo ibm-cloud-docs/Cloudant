@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -30,7 +30,7 @@ subcollection: cloudant
 {: shortdesc}
 
 ## 선행 조건
-{: prerequisites}
+{: #prerequisites-create_database}
 
 이 튜토리얼을 시작하기 전에 다음 리소스 또는 정보가 준비되어 있는지 확인하십시오.
 
@@ -88,7 +88,7 @@ cloudant==2.3.1
 `port`     |호스트의 서비스 인스턴스에 액세스하는 데 필요한 HTTP 포트 번호입니다. 보통 HTTPS 액세스를 강제하려는 경우에는 443이 사용됩니다.
 `url`      |애플리케이션에서 사용하기에 적합하도록 기타 인증 정보를 하나의 URL로 통합하는 문자열입니다.
 
-서비스 인스턴스의 서비스 인증 정보를 찾는 데 대한 정보는 [여기](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)에 있습니다.
+서비스 인스턴스의 서비스 인증 정보를 찾는 데 대한 자세한 정보는 [사용자의 서비스 인증 정보 찾기](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)를 참조하십시오. 
 
 ## 내용
 {: #context}
@@ -266,7 +266,7 @@ print "Retrieved minimal document:\n{0}\n".format(result_collection[0])
 ```
 {: codeblock}
 
-NoSQL 데이터베이스의 네이처, 
+NoSQL 데이터베이스의 네이처,
     예를 들어, {{site.data.keyword.cloudant_short_notm}}는
     데이터베이스에 저장된 첫 번째 문서가 항상 결과 목록에서
     처음으로 리턴된다는 단순한 생각이 언제나 옳은 것은 아님을

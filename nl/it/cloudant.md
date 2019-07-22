@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: links to documentation, how to contribute
 
@@ -41,24 +41,23 @@ Le funzionalità di replica aiutano a mantenere sincronizzati i dati
 tra i cluster di database, i PC desktop e i dispositivi mobili.
 
 Per ulteriori informazioni su altre offerte {{site.data.keyword.cloudant_short_notm}},
-consulta il sito principale di [{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+consulta il sito principale di [{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud/cloudant){: new_window}.
 La documentazione in linea qui fornita ti offre
 dettagli sui concetti, sulle attività e sulle tecniche di
 {{site.data.keyword.cloudant_short_notm}}.
 
-Puoi avviare il servizio {{site.data.keyword.cloudant_short_notm}} dal [dashboard {{site.data.keyword.cloud}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window}.
+Puoi avviare il servizio {{site.data.keyword.cloudant_short_notm}} dal [dashboard {{site.data.keyword.cloud}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}.
 
-È [disponibile](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started)
-una 'guida rapida' per cominciare a lavorare con {{site.data.keyword.cloudant_short_notm}}
-oltre a delle [esercitazioni](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) più dettagliate che descrivono le attività in modo più completo.
-Ulteriori informazioni sui dettagli come l'autenticazione con le istanze del database
-e l'esecuzione di query dei dati
-sono disponibili nella [Guida di riferimento API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview).
+Per iniziare a utilizzare {{site.data.keyword.cloudant_short_notm}} è disponibile una 'guida rapida'
+chiamata [Esercitazione introduttiva](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started),
+insieme a delle [esercitazioni](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) che descrivono le attività in modo più dettagliato.
+Per ulteriori informazioni su dettagli come l'autenticazione con le istanze del database e
+l'esecuzione di query sui dati, vedi la [Guida di riferimento API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview).
 
-## Contenuto della documentazione
+## Contenuti della documentazione
 {: #documentation-contents}
 
-*	[Esercitazione introduttiva](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started): impara a creare un database {{site.data.keyword.cloudantfull}} e a popolarlo con una semplice raccolta di dati utilizzando Python.
+*	[Esercitazione introduttiva](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started): impara a creare un database {{site.data.keyword.cloudantfull}} e a popolarlo con una semplice raccolta di dati utilizzando Python.
 *	[Blog di {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://blog.cloudant.com/): leggi i blog relativi a diversi argomenti, inclusi i fondamenti di {{site.data.keyword.cloudant_short_notm}}, la rimozione dei conflitti, la generazione dei dati di esempio, i database partizionati e altro. 
 *	[{{site.data.keyword.cloud_notm}} pubblico](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): descrizione dell'offerta {{site.data.keyword.cloud_notm}} pubblico, compresi funzioni, opzioni e prezzi. 
 *	[Prezzi](/docs/services/Cloudant?topic=cloudant-pricing#pricing): un articolo che descrive le opzioni e la flessibilità disponibili con il modello di prezzi {{site.data.keyword.cloudant_short_notm}}. 

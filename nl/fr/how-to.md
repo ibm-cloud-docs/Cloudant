@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-06-12"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -53,7 +53,7 @@ Tutoriel | Description
 Guide | Description
 ------|------------
 [Reprise après incident et sauvegarde](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup){: new_window} | Aperçu des fonctions automatiques et des outils compatibles qui sont mis à votre disposition par {{site.data.keyword.cloudant_short_notm}}. 
-[Configuration de {{site.data.keyword.cloudant_short_notm}} pour la reprise après incident dans plusieurs régions](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery){: new_window} | Guide qui explique que l'une des façons d'activer la reprise après incident consiste à utiliser la réplication {{site.data.keyword.cloudant_short_notm}} pour {{site.data.keyword.cloud_notm}} afin de créer une redondance au niveau de plusieurs régions.
+[Configuration de {{site.data.keyword.cloudant_short_notm}} pour la reprise après incident interrégionale](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery){: new_window} | Guide qui explique que l'une des façons d'activer la reprise après incident consiste à utiliser la réplication {{site.data.keyword.cloudant_short_notm}} pour {{site.data.keyword.cloud_notm}} afin de créer une redondance au niveau de plusieurs régions.
 Sauvegarde et reprise [{{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: new_window} | Guide qui décrit comment utiliser l'outil de sauvegarde et de reprise, CouchBackup. 
 
 
@@ -62,14 +62,14 @@ Sauvegarde et reprise [{{site.data.keyword.cloudant_short_notm}}](/docs/services
 
 Guide | Description
 ------|------------
-[Commande curl autorisée : acurl](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-){: new_window} | Guide pour configurer `acurl` de façon à ne plus avoir besoin d'entrer votre nom d'utilisateur et votre mot de passe.
+[Commande curl autorisée : acurl](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-){: new_window} | Guide pour configurer `acurl` de façon à ne plus avoir besoin d'entrer votre nom d'utilisateur et votre mot de passe. 
 [Théorème CAP](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem){: new_window} | Guide qui décrit le modèle de cohérence finale, Eventually Consistent.
 [Conflits](/docs/services/Cloudant?topic=cloudant-conflicts#conflicts){: new_window} | Guide qui décrit comment trouver et résoudre les conflits. 
 [Applications Couch](/docs/services/Cloudant?topic=cloudant-couchapps#couchapps){: new_window} | Guide qui décrit de quoi est constituée une application Couch.
 [Partitionnement de base de données](/docs/services/Cloudant?topic=cloudant-database-partitioning#database-partitioning) | Guide qui décrit les bases de données partitionnées et la façon de les utiliser. 
 [Gestion des documents de conception](/docs/services/Cloudant?topic=cloudant-design-document-management#design-document-management){: new_window} | Guide qui décrit ce qu'est un document de conception et comment en utiliser un dans {{site.data.keyword.cloudant_short_notm}}.
 [Gestion des versions de document et MVCC](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc){: new_window} | Guide qui décrit la fonctionnalité MVCC (Multi-Version Concurrency Control) et explique comment elle opère avec des bases de données {{site.data.keyword.cloudant_short_notm}} pour s'assurer que tous les noeuds d'un cluster d'une base de données ne contiennent que la version la plus récente d'un document.
-[Cinq conseils pour la modélisation de vos données](/docs/services/Cloudant?topic=cloudant-five-tips-for-modelling-your-data-to-scale#five-tips-for-modelling-your-data-to-scale){: new_window} | Guide qui présente les points principaux de modélisation des données d'application pour un fonctionnement efficace à grande échelle.
+[Cinq conseils pour la modélisation de vos données](/docs/services/Cloudant?topic=cloudant-five-tips-for-modeling-your-data-to-scale#five-tips-for-modeling-your-data-to-scale){: new_window} | Guide qui présente les points principaux de modélisation des données d'application pour un fonctionnement efficace à grande échelle.
 [Regroupement des documents liés dans {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant){: new_window} | Guide qui met en avant certains facteurs qui entrent en jeu lors de la génération d'un système de commerce électronique tirant profit des points forts de {{site.data.keyword.cloudant_short_notm}}, en utilisant des concepts applicables à bien d'autres domaines.
 [Comment {{site.data.keyword.cloudant_short_notm}} fonctionne-t-il avec les groupes de ressources {{site.data.keyword.cloud_notm}} ?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} | Guide qui répond aux questions courantes que le support de {{site.data.keyword.cloudant_short_notm}} reçoit au sujet de cette transition.
 [Comment les données sont-elles stockées dans {{site.data.keyword.cloudant_short_notm}}?](/docs/services/Cloudant?topic=cloudant-how-is-data-stored-in-ibm-cloudant-#how-is-data-stored-in-ibm-cloudant-){: new_window} | Guide qui décrit la fragmentation et son mode de fonctionnement dans {{site.data.keyword.cloudant_short_notm}}.

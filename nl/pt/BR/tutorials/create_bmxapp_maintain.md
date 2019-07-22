@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -88,9 +88,7 @@ diagnosticar
 e resolver alguns problemas que possam ser encontrados ao desenvolver e implementar
 seus primeiros aplicativos {{site.data.keyword.cloud_notm}}.
 
-Uma boa fonte de conselhos sobre as melhores práticas para criar aplicativos {{site.data.keyword.cloud_notm}} ou
-Cloud Foundry está
-[aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
+Uma boa fonte de orientação sobre as boas práticas para criar aplicativos {{site.data.keyword.cloud_notm}} ou Cloud Foundry é [Considerações para projetar e executar um aplicativo no Cloud ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
 
 Especificamente,
 o conselho sobre como

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -39,35 +39,34 @@ ad utilizzare il database.
     [https://cloud.ibm.com/ ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/){: new_window}.
     Dopo l'autenticazione con i tuoi nome utente e password,
     ti viene presentato il dashboard {{site.data.keyword.cloud_notm}}. Fai clic sul pulsante `Crea risorsa`. <br/>
-    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
+    ![{{site.data.keyword.cloud_notm}} - Dashboard](images/img0001.png)
 
-2.  Fai clic su `Database` nella navigazione a sinistra e su `Cloudant` dall'elenco dei servizi del database. <br/>
-    ![{{site.data.keyword.cloud_notm}} - servizi Database](images/img0003.png)<br/>
+2.  Fai clic su `Database` dal menu e su `Cloudant` dall'elenco dei servizi di database:<br/>
+    ![{{site.data.keyword.cloud_notm}} - Servizi di database](images/img0003.png)<br/>
 
 3.  Nella finestra di configurazione del servizio,
     immetti un nome del servizio. Verifica che il nome servizio, la regione/ubicazione, il gruppo di risorse e i metodi di autenticazione siano corretti. Aggiungi una tag se lo desideri. I metodi di autenticazione disponibili includono `Use only IAM` o `Use both legacy credentials and IAM`. Per ulteriori informazioni, vedi [metodi di autenticazione](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. 
-    In questo esempio, il nome servizio è `Cloudant-o7`:<br/>
-    ![{{site.data.keyword.cloudant_short_notm}} credenziali e nome servizio](images/img0005.png)
+    In questo esempio, il nome del servizio è `Cloudant-o7`:<br/>
+    ![{{site.data.keyword.cloudant_short_notm}} - Nome e credenziali del servizio](images/img0005.png)
     
 Il team {{site.data.keyword.cloudant_short_notm}} ti consiglia di utilizzare i controlli di accesso IAM nell'autenticazione legacy {{site.data.keyword.cloudant_short_notm}} quando possibile.
 {: important}
 
-4.  Per impostazione predefinita, il servizio viene creato utilizzando il piano dei prezzi 'Lite', che è gratuito ma che viene fornito con il provisioning di una quantità fissa di archiviazione di dati e di capacità produttiva. Se hai un account {{site.data.keyword.cloud_notm}} a pagamento, puoi anche scegliere il piano 'Standard' a pagamento in modo da poter commutare la capacità produttiva fornita e ridimensionare l'utilizzo dei dati come necessario. Per ulteriori informazioni sui piani dei prezzi, vedi [Piani](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window}. Per creare il servizio,
-    fai clic sul pulsante `Create`: <br/>
-    ![Crea le credenziali e il nome del servizio {{site.data.keyword.cloudant_short_notm}} ](images/img0006.png)
+4.  Per impostazione predefinita, il servizio viene creato utilizzando il piano dei prezzi 'Lite', che è gratuito ma che viene fornito con il provisioning di una quantità fissa di archiviazione di dati e di capacità produttiva. Se hai un account {{site.data.keyword.cloud_notm}} a pagamento, puoi anche scegliere il piano 'Standard' a pagamento in modo da poter commutare la capacità produttiva fornita e ridimensionare l'utilizzo dei dati come necessario. Per ulteriori informazioni sui piani dei prezzi, vedi [Piani](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window}. Per creare il servizio, fai clic sul pulsante `Crea`: <br/>
+    ![Crea il nome e le credenziali del servizio {{site.data.keyword.cloudant_short_notm}}](images/img0006.png)
 
 5.  Viene visualizzata una pagina del servizio,
     che conferma che il tuo nuovo servizio {{site.data.keyword.cloudant_short_notm}} è disponibile.
-    Per creare le informazioni di connessione di cui ha bisogno la tua applicazione per stabilire una connessione al servizio,
-    fai clic sulla scheda `Credenziali del servizio`.<br/>
-    ![Creazione delle credenziali del servizio {{site.data.keyword.cloudant_short_notm}}](images/img0007.png)
+    Per creare le informazioni di connessione di cui ha bisogno la tua applicazione per connettersi al servizio,
+    fai clic sulla scheda `Credenziali del servizio`:<br/>
+    ![Creazione delle credenziali del servizio {{site.data.keyword.cloudant_short_notm}} ](images/img0007.png)
 
 6.  Crea una nuova credenziale del servizio {{site.data.keyword.cloudant_short_notm}}:
   <br>a. Fai clic sul pulsante `Nuova credenziale`.
   <br>![Crea nuove credenziali del servizio](images/img0050.png)
   <br>b. Immetti un nome per la nuova credenziale nella finestra Aggiungi nuova credenziale. Vedi l'immagine.
   <br>c. Accetta il ruolo Gestore.
-  <br>d. (Facoltativo) Crea un nuovo ID servizio o disponi che ne venga generato uno automaticamente per tuo conto.
+  <br>d. (Facoltativo) Crea un nuovo ID servizio o disponi che ne venga generato uno automaticamente per tuo conto. 
   <br>d. (Facoltativo) Aggiungi i parametri di configurazione incorporati. Nota: questo parametro attualmente non è utilizzato dalle credenziali del servizio {{site.data.keyword.cloudant_short_notm}} e ti invitiamo pertanto a ignorarlo. 
   <br>e. Fai clic sul pulsante `Aggiungi`. </br>
   <br>![Aggiungi una nuova credenziale del servizio](images/img0051.png)
@@ -116,11 +115,11 @@ In qualsiasi momento,
 puoi trovare le credenziali per un servizio associato al tuo account.
 
 1.  Inizia accedendo a {{site.data.keyword.cloud_notm}}.
-        Puoi trovare il dashboard {{site.data.keyword.cloud_notm}} all'indirizzo:
+    Puoi trovare il dashboard {{site.data.keyword.cloud_notm}} all'indirizzo:
     [https://cloud.ibm.com/ ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/){: new_window}.
     Dopo l'autenticazione con i tuoi nome utente e password,
     ti viene presentato il dashboard {{site.data.keyword.cloud_notm}}:<br/>
-    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
+    ![{{site.data.keyword.cloud_notm}} - Dashboard](images/img0001.png)
 
 2.  In questo esempio,
     vogliamo trovare le credenziali del servizio per l'istanza del servizio {{site.data.keyword.cloudant_short_notm}}
@@ -130,7 +129,7 @@ puoi trovare le credenziali per un servizio associato al tuo account.
 
 3.  Per visualizzare le credenziali necessarie per accedere al servizio,
     fai clic su `Visualizza credenziali`:<br/>
-    ![Visualizzazione delle credenziali del servizio {{site.data.keyword.cloudant_short_notm}}](images/img0052.png)
+    ![Visualizzazione delle credenziali del servizio {{site.data.keyword.cloudant_short_notm}} ](images/img0052.png)
 
 4.  Vengono visualizzati i dettagli per le credenziali del servizio:<br/>
     ![Le credenziali del servizio {{site.data.keyword.cloudant_short_notm}} ](images/img0009.png)

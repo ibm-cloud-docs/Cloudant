@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -85,7 +85,7 @@ l'expérience utilisateur de ce dernier. {{site.data.keyword.cloudant_short_notm
 ### Restriction de traitement
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} envoie les données d'interaction avec le tableau de bord à Segment. Il est possible de demander à {{site.data.keyword.cloudant_short_notm}} de limiter le traitement des informations personnelles client de cette façon en créant une [demande de support {{site.data.keyword.cloudant_short_notm}}](mailto:support@cloudant.com). Quand cette demande est reçue, {{site.data.keyword.cloudant_short_notm}} supprime les informations associées au client telles qu'elles ont été envoyées à Segment, et empêche l'envoi d'autres données. {{site.data.keyword.cloudant_short_notm}} doit garder la possibilité de contacter les clients dédiés par courrier électronique et fournit une interface leur permettant de maintenir ces informations à jour soit directement, soit via la configuration des détails de leurs contacts {{site.data.keyword.cloud_notm}}.
+{{site.data.keyword.cloudant_short_notm}} envoie les données d'interaction avec le tableau de bord à Segment. Il est possible de demander à {{site.data.keyword.cloudant_short_notm}} de limiter le traitement des informations personnelles client de cette façon en créant une [demande de support {{site.data.keyword.cloudant_short_notm}}![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){: new_window}. Quand cette demande est reçue, {{site.data.keyword.cloudant_short_notm}} supprime les informations associées au client telles qu'elles ont été envoyées à Segment, et empêche l'envoi d'autres données. {{site.data.keyword.cloudant_short_notm}} doit garder la possibilité de contacter les clients dédiés par courrier électronique et fournit une interface leur permettant de maintenir ces informations à jour soit directement, soit via la configuration des détails de leurs contacts {{site.data.keyword.cloud_notm}}.
 
 ## Notre base de données {{site.data.keyword.cloudant_short_notm}} est-elle chiffrée ?
 {: #is-our-ibm-cloudant-database-encrypted-}
@@ -116,7 +116,7 @@ En tant qu'utilisateur de {{site.data.keyword.cloudant_short_notm}}, vous devez 
  * Utiliser des clés d'API généreusement, de sorte que les composants aient des "accès avec le moindre privilège", conjointement avec le journal d'audit. Cette pratique vous permet de comprendre qui a accédé à quelles données.
  * Chiffrer ou protéger (pseudonymiser) les données sensibles qui selon vous ne doivent pas être visibles par {{site.data.keyword.cloudant_short_notm}}.
 
-### Mesures de sécurité physique et environnementale
+### Mesures de sécurité physique et environnementale 
 {: #physical-and-environmental-security-measures}
 
 La sécurité physique des centres de données est gérée par les fournisseurs d'infrastructure : {{site.data.keyword.cloud}}, AWS et 21Vianet. Ils conservent tous des certifications auditées en externe pour leur sécurité physique. {{site.data.keyword.cloudant_short_notm}}
@@ -126,7 +126,7 @@ La sécurité physique des bureaux utilisés par notre personnel est gérée par
 Les détails de certification et les rapports d'attestation (par exemple, ISO et SOC2) sont disponibles sur demande du client.
 
 ### Mesures techniques et organisationnelles
-{: #technical-and-organisational-measures}
+{: #technical-and-organizational-measures}
 
 Des mesures techniques et organisationnelles (TOM) sont employées par {{site.data.keyword.cloudant_short_notm}} pour garantir la sécurité des données personnelles. {{site.data.keyword.cloudant_short_notm}} conserve des certifications auditées en externe pour les contrôles utilisés par {{site.data.keyword.cloudant_short_notm}}. 
 Les détails de certification et les rapports d'attestation (par exemple, ISO et SOC2) sont disponibles sur demande du client.
@@ -165,7 +165,7 @@ La compression est effectuée en arrière-plan
 sur l'ensemble du niveau de stockage et les bases de données sont toujours compressées ; simplement, il est impossible de garantir que les
 données que vous venez de supprimer/modifier sont en train d'être compressées.
 
-{{site.data.keyword.cloudant_short_notm}} accepte les demandes de *droit à l'oubli* créées par le [ {{site.data.keyword.IBM_notm}} bureau délégué à la protection des données ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}.
+{{site.data.keyword.cloudant_short_notm}} accepte les demandes de *droit à l'oubli* créées par le [ {{site.data.keyword.IBM_notm}} bureau délégué à la protection des données ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}. 
 Lorsqu'une demande de *droit à l'oubli* est émise par le bureau délégué à la protection des données {{site.data.keyword.IBM_notm}}, {{site.data.keyword.cloudant_short_notm}} vérifie cette demande,
 déclenche explicitement la compression de base de données et s'assure que cette opération a bien eu lieu.
 A la fin de ce processus, la seule version du document qui subsiste est son tombstone (`_id`, `_rev`, `_deleted`, et les autres zones éventuellement incluses par votre application).

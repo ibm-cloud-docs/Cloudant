@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -36,13 +36,13 @@ Oltre a questa esercitazione, vedi le nostre esercitazioni pratiche che ti aiuta
 - [Node.js e {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
 - [Swift e {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-Per ulteriori esercitazioni specifiche per i linguaggi, consulta le informazioni contenute in [Inizia a distribuire la tua prima applicazione![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/docs/){: new_window}. 
+Per ulteriori esercitazioni specifiche per i linguaggi, consulta le informazioni contenute in [Inizia a distribuire la tua prima applicazione![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/docs){: new_window}. 
 
 ## Prima di iniziare
 {: #prereqs}
 
-Hai bisogno di un [account {{site.data.keyword.cloud}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https:///cloud.ibm.com/registration/){: new_window},
-un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} e dei seguenti requisiti Python:
+Hai bisogno di un [account {{site.data.keyword.cloud}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/registration/){: new_window},
+di un'istanza del servizio {{site.data.keyword.cloudant_short_notm}} e dei seguenti requisiti Python:
 
 *	Installa la versione più recente del [linguaggio di programmazione Python ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://www.python.org/){: new_window} sul tuo sistema.
 	
@@ -102,20 +102,20 @@ esegui il seguente comando quando richiesto:
 
 2.  Crea una credenziale del servizio {{site.data.keyword.cloudant_short_notm}}:
   <br>Nel dashboard {{site.data.keyword.cloud_notm}}, vai all'icona **Menu** > **Elenco risorse** e apri la tua istanza del servizio {{site.data.keyword.cloudant_short_notm}}.
-  <br>Dal menu di navigazione di sinistra, fai clic su `Credenziali del servizio`.
+  <br>Nel menu, fai clic su `Credenziali del servizio`.
   <br>a. Fai clic sul pulsante `Nuova credenziale`.
-  <br>![Crea nuove credenziali del servizio](/docs/services/Cloudant/tutorials/images/img0050.png)
+  <br>![Crea nuove credenziali del servizio](tutorials/images/img0050.png)
   <br>b. Immetti un nome per la nuova credenziale nella finestra Aggiungi nuova credenziale, come mostrato nella seguente acquisizione di schermo.
   <br>c. (Facoltativo) Aggiungi i parametri di configurazione incorporati.
   <br>d. Fai clic sul pulsante `Aggiungi`. 
-  <br>![Aggiungi una nuova credenziale del servizio](/docs/services/Cloudant/tutorials/images/img0051.png)
+  <br>![Aggiungi una nuova credenziale del servizio](tutorials/images/img0051.png)
   <br>Le tue credenziali vengono aggiunte alla tabella Credenziali del servizio.
   <br>e. Fai clic su `Visualizza credenziali` in Azioni. 
-  <br>![Visualizza tutte le credenziali del servizio](/docs/services/Cloudant/tutorials/images/img0052.png)
+  <br>![Visualizza tutte le credenziali del servizio](tutorials/images/img0052.png)
   <br>Vengono visualizzati i dettagli per le credenziali del servizio:
-   <br>![Le credenziali del servizio {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/tutorials/images/img0009.png)
+   <br>![Le credenziali del servizio {{site.data.keyword.cloudant_short_notm}}](tutorials/images/img0009.png)
    
-3.	Stabilisci una connessione all'istanza del servizio {{site.data.keyword.cloudant_short_notm}}. Il meccanismo per eseguire tale operazione dipende dal fatto che stai utilizzando l'autenticazione {{site.data.keyword.cloud_notm}} IAM o {{site.data.keyword.cloudant_short_notm}} Legacy. Consulta la [guida di {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) per ulteriori dettagli sul tipo di autenticazione. 
+3.	Stabilisci una connessione all'istanza del servizio {{site.data.keyword.cloudant_short_notm}}. Il meccanismo per eseguire tale operazione dipende dal fatto che stai utilizzando l'autenticazione {{site.data.keyword.cloud_notm}} IAM o {{site.data.keyword.cloudant_short_notm}} Legacy. Per ulteriori informazioni su ciascun tipo di autenticazione, consulta la [guida di {{site.data.keyword.cloud_notm}} IAM (Identity and Access Management)](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 	Se stai utilizzando l'autenticazione {{site.data.keyword.cloudant_short_notm}} Legacy, sostituisci le tue credenziali del servizio dal passo precedente:
 	```python
@@ -175,20 +175,20 @@ esegui il seguente comando quando richiesto:
   {: codeblock}
 
 2. Utilizza il codice Python per 'passare' attraverso i dati e convertirli in documenti JSON.
-  Ogni documento viene memorizzato nel database:
+  Ogni documento viene archiviato nel database:
 
   ```python
-  # Create documents by using the sample data.
-  # Go through each row in the array
-  for document in sampleData:
-    # Retrieve the fields in each row.
+  # Crea i documenti utilizzando i dati di esempio.
+  # Passa attraverso ogni riga nell'array
+  per document in sampleData:
+    # Richiama i campi in ogni riga.
     number = document[0]
     name = document[1]
     description = document[2]
     temperature = document[3]
     #
-    # Create a JSON document that represents
-    # all the data in the row.
+    # Crea un documento JSON che rappresenta
+    # tutti i dati nella riga.
     jsonDocument = {
         "numberField": number,
         "nameField": name,
@@ -196,10 +196,10 @@ esegui il seguente comando quando richiesto:
         "temperatureField": temperature
     }
     #
-    # Create a document by using the database API.
+    # Crea un documento utilizzando l'API del database.
     newDocument = myDatabase.create_document(jsonDocument)
     #
-    # Check that the document exists in the database.
+    # Controlla che il documento esista nel database.
     if newDocument.exists():
         print "Document '{0}' successfully created.".format(number)
   ```
@@ -280,7 +280,8 @@ Un recupero completo include anche i dati _all'interno_ di un documento.
   ```json
   [
     {
-      "value": {
+      "value":
+              {
         "rev": "1-7130413a8c7c5f1de5528fe4d373045c
       },
       "id": "0cfc7d902f613d5fdb7b7818e262353b",
@@ -310,7 +311,7 @@ richiamando l'[endpoint `/_all_docs`](/docs/services/Cloudant?topic=cloudant-dat
   params = {'include_docs': 'true'}
   ```
   {: codeblock}
-  ... dove `client.server_url` è il valore URL indicato nelle credenziali del servizio che hai trovato nel passo 1. 
+  ... dove `client.server_url` è il valore URL indicato nelle credenziali del servizio che hai trovato nel passo 1.
 
 2. Invia la richiesta all'istanza di servizio e visualizza i risultati:
   ```python
@@ -370,17 +371,17 @@ richiamando l'[endpoint `/_all_docs`](/docs/services/Cloudant?topic=cloudant-dat
   ```
   {: codeblock}
 
-## (facoltativo) Passo 6: Consulta le informazioni nel dashboard {{site.data.keyword.cloudant_short_notm}}
+## (Facoltativo) Passo 6: consulta le informazioni del database nel dashboard {{site.data.keyword.cloudant_short_notm}}
 {: #optional-step-6-ibm-cloudant-dashboard}
 
-Segui questi passi per esaminare il tuo database e i documenti nel dashboard {{site.data.keyword.cloudant_short_notm}}. 
+Segui questi passi per vedere il tuo database e i tuoi documenti nel dashboard {{site.data.keyword.cloudant_short_notm}}. 
 
 1.  Accedi al tuo account IBM Cloud.
     Puoi trovare il dashboard IBM Cloud al seguente indirizzo: https://cloud.ibm.com/. Dopo l'autenticazione con i tuoi nome utente e password, ti viene presentato il dashboard IBM Cloud.
 2.  Fai clic su **Services** nel pannello di riepilogo Resource per vedere le tue istanze del servizio {{site.data.keyword.cloudant_short_notm}}. 
-3.  Fai clic sull'istanza del servizio di cui vuoi vedere i dettagli. 
-4.  Fai clic su **Launch Cloudant Dashboard**.
-    Quando si apre il dashboard, puoi vedere i database associati al tuo servizio. 
+3.  Fai clic sull'istanza del servizio di cui vuoi vedere i dettagli.
+4.  Fai clic su **Launch Cloudant Dashboard**. 
+    Quando si apre il dashboard, puoi vedere i database associati al tuo servizio.
 
 
 ## Passo 7: elimina il database
@@ -415,7 +416,7 @@ client.disconnect()
 {: #next-steps}
 
 Per ulteriori informazioni su tutte le offerte {{site.data.keyword.cloudant_short_notm}},
-consulta il sito principale di [{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+consulta il sito principale di [{{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud/cloudant){: new_window}.
 
 Per ulteriori informazioni, vedi le esercitazioni, i concetti {{site.data.keyword.cloudant_short_notm}}, le attività e le tecniche nella [documentazione di {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-overview#overview).
 
@@ -424,8 +425,7 @@ Per ulteriori informazioni, vedi le esercitazioni, i concetti {{site.data.keywor
 
 L'elenco completo di codice Python è il seguente. 
 Ricordati di sostituire i valori `<username>`,
-`<password>`, `<url>`,
-e `<apikey>` con le tue credenziali del servizio.
+`<password>`, `<url>` e `<apikey>` con le tue credenziali del servizio.
 Allo stesso modo,
 sostituisci il valore `<yourDatabaseName>` con il nome del tuo database.
 
@@ -438,7 +438,7 @@ from cloudant.result import Result, ResultByKey
 client = Cloudant("<username>", "<password>", url="<url>")
 client.connect()
 
-# IAM Authentication (uncomment if needed, and comment out {{site.data.keyword.cloudant_short_notm}} Legacy authentication section above)
+# IAM Authentication (uncomment if needed, and comment out previous {{site.data.keyword.cloudant_short_notm}} Legacy authentication section)
 client = Cloudant.iam("<username","<apikey>")
 client.connect()
 
@@ -457,17 +457,17 @@ sampleData = [
     [5, "five", "freezing", 0]
 ]
 
-# Create documents using the sample data.
-# Go through each row in the array
-  for document in sampleData:
-    # Retrieve the fields in each row.
+# Crea i documenti utilizzando i dati di esempio.
+# Passa attraverso ogni riga nell'array
+  per document in sampleData:
+    # Richiama i campi in ogni riga.
     number = document[0]
     name = document[1]
     description = document[2]
     temperature = document[3]
 
-    # Create a JSON document that represents
-    # all the data in the row.
+    # Crea un documento JSON che rappresenta
+    # tutti i dati nella riga.
     jsonDocument = {
         "numberField": number,
         "nameField": name,
@@ -475,10 +475,10 @@ sampleData = [
         "temperatureField": temperature
     }
 
-    # Create a document using the Database API.
+    # Crea un documento utilizzando l'API del database.
     newDocument = myDatabase.create_document(jsonDocument)
 
-    # Check that the document exists in the database.
+    # Controlla che il documento esista nel database.
     if newDocument.exists():
         print "Document '{0}' successfully created.".format(number)
 

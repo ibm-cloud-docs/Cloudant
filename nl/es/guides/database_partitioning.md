@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-06-12"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -25,16 +25,12 @@ subcollection: cloudant
 # Particionamiento de bases de datos
 {: #database-partitioning}
 
-La característica de base de datos particionada de {{site.data.keyword.cloudant_short_notm}} está actualmente en modalidad beta. El particionamiento de bases de datos no se debe utilizar para aplicaciones de producción. Esta característica se va a implantar en todos los entornos de
-{{site.data.keyword.cloudant_short_notm}} y estará disponible de forma general en las próximas semanas.
-{: important}
-
 {{site.data.keyword.cloudantfull}} admite dos tipos de bases de datos:
 
 - Particionadas
 - No particionadas
 
-Una base de datos _particionada_ ofrece ventajas significativas en rendimiento y coste, pero requiere que especifique un particionamiento lógico de los datos. Esto se describe más abajo.
+Una base de datos _particionada_ ofrece ventajas significativas en rendimiento y coste, pero requiere que especifique un particionamiento lógico de los datos. Esto se describe más en el texto siguiente.
 
 Como alternativa, se puede crear una base de datos _no particionada_. Puede resultar más fácil trabajar con este tipo de base de datos, ya que no es necesario definir ningún esquema de particionamiento, pero solo se pueden crear índices secundarios globales.
 
@@ -57,10 +53,10 @@ Una base de datos no particionada es el tipo más antiguo de base de datos de {{
 
 Dentro de una base de datos no particionada, los documentos se distribuyen en fragmentos de forma arbitraria basándose en una transformación de su ID de documento. Por lo tanto, no existe una relación real entre el ID de un documento y el fragmento en el que acaba. No es probable que documentos con ID de documento muy parecidos se ubiquen en el mismo fragmento.
 
-Una base de datos no particionada ofrece únicamente consultas globales, lo cual se describe con mayor detalle a continuación.
+Una base de datos no particionada ofrece únicamente consultas globales, lo cual se describe con mayor detalle más adelante.
 
 ## Bases de datos particionadas
-{: #partitioned-databases}
+{: #partitioned-databases-database-partitioning}
 
 Una base de datos particionada es el tipo más nuevo de base de datos de {{site.data.keyword.cloudant_short_notm}}. Dentro de una base de datos particionada, se da forma a los documentos en particiones lógicas mediante el uso de una _clave de partición_, que forma parte del ID de documento de los documentos que hay en las bases de datos particionadas. Todos los documentos se asignan a una partición, y normalmente hay muchos documentos que reciben la misma clave de partición. Los datos JSON primarios de una partición y sus índices acaban siendo ubicados en el mismo lugar, lo que implica que la base de datos puede consultar los datos de una partición con mayor eficiencia.
 
@@ -201,7 +197,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 ### Creación de índices
 {: #creating-indexes}
 
-Para las consultas anteriores, necesitaremos dos índices:
+Para las consultas descritas anteriormente, necesitamos dos índices:
 
 1. Un índice global que correlaciona ID de dispositivo con ID de infraestructura.
 2. Un índice particionado que correlaciona ID de dispositivo con lecturas.

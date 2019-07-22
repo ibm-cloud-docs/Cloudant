@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -62,7 +62,7 @@ subcollection: cloudant
 
 ![複製 2](../images/replication_guide_2.png)
 
-セキュリティー上の目的で、{{site.data.keyword.cloudant_short_notm}} チームは、複製ジョブのためにアカウント・レベルの資格情報ではなく、IAM API キーまたは {{site.data.keyword.cloudant_short_notm}} レガシー認証 [API キー](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} を使用することをお勧めしています。詳しくは、『[IAM ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}』またはレガシー『[認証 API 文書](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}』およびレガシー『[認可 API 文書](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}』を参照してください。
+セキュリティー上の目的で、{{site.data.keyword.cloudant_short_notm}} チームは、複製ジョブのためにアカウント・レベルの資格情報ではなく、IAM API キーまたは {{site.data.keyword.cloudant_short_notm}} レガシー認証 [API キー](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} を使用することをお勧めしています。 詳しくは、『[IAM ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}』またはレガシー『[認証 API 文書](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}』およびレガシー『[認可 API 文書](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}』を参照してください。
 {: important}
 
 このフォームを使用して、
@@ -81,7 +81,7 @@ subcollection: cloudant
 
 以下の例に示すように、複製のソースとターゲットは {{site.data.keyword.cloudant_short_notm}} データベースの URL です。
 
-_複製のためのソース URL とターゲット URL の定義例:_
+*複製のためのソース URL とターゲット URL の定義例:*
 
 ```json
 {
@@ -118,7 +118,7 @@ _複製のためのソース URL とターゲット URL の定義例:_
 `target`        | ログイン資格情報を含めた宛先 {{site.data.keyword.cloudant_short_notm}} データベースの URL。
 `create_target` | (オプション) 宛先データベースがまだ存在しない場合、作成するかどうかを決定します。
 
-_HTTP を使用した複製ジョブの開始例:_
+*HTTP を使用した複製ジョブの開始例:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -128,7 +128,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_コマンド・ラインを使用した複製ジョブの開始例:_
+*コマンド・ラインを使用した複製ジョブの開始例:*
 
 ```sh
 curl -X POST \
@@ -138,7 +138,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_必要な複製を記述する JSON 文書の例:_
+*必要な複製を記述する JSON 文書の例:*
 
 ```json
 {
@@ -225,7 +225,7 @@ API キーは、データベースごとを基本として {{site.data.keyword.c
 
 それらは、{{site.data.keyword.cloudant_short_notm}} API を使用して[プログラマチックに](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys)作成することもできます。
 
-セキュリティー上の目的で、{{site.data.keyword.cloudant_short_notm}} チームは、複製ジョブのためにアカウント・レベルの資格情報ではなく、IAM API キーまたは {{site.data.keyword.cloudant_short_notm}} レガシー認証 [API キー](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys){: new_window} を使用することをお勧めしています。詳しくは、『[IAM ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}』またはレガシー『[認証 API 文書](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}』およびレガシー『[認可 API 文書](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}』を参照してください。
+セキュリティー上の目的で、{{site.data.keyword.cloudant_short_notm}} チームは、複製ジョブのためにアカウント・レベルの資格情報ではなく、IAM API キーまたは {{site.data.keyword.cloudant_short_notm}} レガシー認証 [API キー](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys){: new_window} を使用することをお勧めしています。 詳しくは、『[IAM ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}』またはレガシー『[認証 API 文書](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}』およびレガシー『[認可 API 文書](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}』を参照してください。
 {: important}
 
 ## 両方向の複製
@@ -249,7 +249,7 @@ API キーは、データベースごとを基本として {{site.data.keyword.c
 
 両方向複製は、`continuous` フラグを設定することにより、1 方向または両方向で継続させることができます。
 
-_HTTP を使用した継続的複製の開始例:_
+*HTTP を使用した継続的複製の開始例:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -259,7 +259,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_コマンド・ラインを使用した継続的複製の開始例:_
+*コマンド・ラインを使用した継続的複製の開始例:*
 
 ```sh
 curl -X POST \
@@ -269,7 +269,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_継続複製を定義する JSON 文書の例:_
+*継続複製を定義する JSON 文書の例:*
 
 ```json
 {
@@ -290,7 +290,7 @@ _継続複製を定義する JSON 文書の例:_
 さらに、
 {{site.data.keyword.cloudant_short_notm}} アカウントの [`/_active_tasks` エンドポイント](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks)を使用して、複製作業を進行中に見ることができます。
 
-_HTTP を使用した複製プロセスのモニター例:_
+*HTTP を使用した複製プロセスのモニター例:*
 
 ```http
 GET /_replicator/weekly_backup HTTP/1.1
@@ -299,14 +299,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_コマンド・ラインを使用した複製プロセスのモニター例:_
+*コマンド・ラインを使用した複製プロセスのモニター例:*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
 ```
 {: codeblock}
 
-_複製の状況の要求に対する応答例:_
+*複製の状況の要求に対する応答例:*
 
 ```json
 {
@@ -323,14 +323,14 @@ _複製の状況の要求に対する応答例:_
 ```
 {: codeblock}
 
-複製する際、文書または添付ファイルがターゲットの最大限度を超えると複製は失敗します。文書の書き込み障害が発生するたびに、`doc_write_failures` の複製統計カウントが増加します。この理由により、そのフィールドをモニターすることを要求されます。
+複製する際、文書または添付ファイルがターゲットの最大限度を超えると複製は失敗します。 文書の書き込み障害が発生するたびに、`doc_write_failures` の複製統計カウントが増加します。 この理由により、そのフィールドをモニターすることを要求されます。
 
 ## 複製のキャンセル
 {: #canceling-replication}
 
 実行中の複製ジョブを停止するには、ダッシュボードまたは API のいずれかを使用して `_replicator` データベースから複製文書を削除します。
 
-_HTTP を使用した複製のキャンセル例:_
+*HTTP を使用した複製のキャンセル例:*
 
 ```http
 DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1.1
@@ -339,7 +339,7 @@ Authorization:
 ```
 {: codeblock}
 
-_コマンド・ラインを使用した複製のキャンセル例:_
+*コマンド・ラインを使用した複製のキャンセル例:*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
@@ -369,7 +369,7 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 PouchDB は、インターネット接続がある場合、変更されたすべてのデータを {{site.data.keyword.cloudant_short_notm}} との間で同期化することができます。
 クライアント・サイドからの複製のセットアップには、数行の JavaScript が必要です。
 
-_PouchDB を使用して複製を有効にする JavaScript 例:_
+*PouchDB を使用して複製を有効にする JavaScript 例:*
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
@@ -385,7 +385,7 @@ db.sync(URL, { live: true });
 　
 [PouchDB](#pouchdb) と同様に、複製をセットアップするには数行のコードが必要です。
 
-_CloudantSync を使用して複製を有効にする JavaScript 例:_
+*CloudantSync を使用して複製を有効にする JavaScript 例:*
 
 ```javascript
 URI uri = new URI("https://u:p@username.cloudant.com/my_database");
@@ -416,7 +416,7 @@ CloudantSync は、iPhone および Android のゲームなどのモバイル・
 
 以下の例は、削除されていない文書のみの複製を許可するフィルター関数です。
 
-_削除されていない文書を複製するためのフィルター関数例:_
+*削除されていない文書を複製するためのフィルター関数例:*
 
 ```javascript
 function(doc, req) {
@@ -432,7 +432,7 @@ function(doc, req) {
 また、`query_params` 値も指定できます。
 この値は、2 番目の (`req`) 引数の `query` フィールドでフィルター関数に渡されるプロパティーを含むオブジェクトです。
 
-_HTTP を使用した、フィルターされた複製の開始例:_
+*HTTP を使用した、フィルターされた複製の開始例:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -442,7 +442,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_コマンド・ラインを使用した、フィルターされた複製の開始例:_
+*コマンド・ラインを使用した、フィルターされた複製の開始例:*
 
 ```sh
 curl -X POST \
@@ -452,7 +452,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_フィルターされた複製を定義する JSON 文書の例:_
+*フィルターされた複製を定義する JSON 文書の例:*
 
 ```json
 {
@@ -476,7 +476,7 @@ _フィルターされた複製を定義する JSON 文書の例:_
 このフィードには、例に示すように、HTTP または `curl` を使用してアクセスできます。
 `feed=continuous` オプションの使用は、ストリームが、データベース内のすべての文書の最新バージョンを取得するために必要なすべての変更を提供することを意味します。
 
-_HTTP を使用した変更フィードの照会例:_
+*HTTP を使用した変更フィードの照会例:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous HTTP/1.1
@@ -485,7 +485,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_コマンド・ラインを使用した変更フィードの照会例:_
+*コマンド・ラインを使用した変更フィードの照会例:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
@@ -503,7 +503,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
 
 各変更は、以下の (簡略) 例に示されたフォーマットを使用して記述されます。
 
-_`_changes` フィードの例:_
+*`_changes` フィードの例:*
 
 ```json
 {
@@ -520,7 +520,7 @@ _`_changes` フィードの例:_
 
 既知の位置からの変更フィードを結合するには、[`since` 引数](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument) を、開始したいシーケンス番号と共に渡します。
 
-_HTTP を使用し、`since` オプションを指定して、既知の位置の `_changes` フィードを結合する例 (簡略):_
+*HTTP を使用し、`since` オプションを指定して、既知の位置の `_changes` フィードを結合する例 (簡略):*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
@@ -529,7 +529,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_コマンド・ラインを使用し、`since` オプションを指定して、既知の位置の `_changes` フィードを結合する例 (簡略):_
+*コマンド・ラインを使用し、`since` オプションを指定して、既知の位置の `_changes` フィードを結合する例 (簡略):*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -538,7 +538,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 
 現時点の変更フィードを再結合するには、`since=now` を設定します。
 
-_HTTP を使用し、`since=now` を指定して、現時点の `_changes` フィードを結合する例:_
+*HTTP を使用し、`since=now` を指定して、現時点の `_changes` フィードを結合する例:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
@@ -547,14 +547,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_コマンド・ラインを使用し、`since=now` を指定して、現時点の `_changes` フィードを結合する例:_
+*コマンド・ラインを使用し、`since=now` を指定して、現時点の `_changes` フィードを結合する例:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {: codeblock}
 
-_JavaScript を使用し、`since=now` を指定して、現時点の `_changes` フィードを結合する例:_
+*JavaScript を使用し、`since=now` を指定して、現時点の `_changes` フィードを結合する例:*
 
 ```javascript
 var feed = db.follow({since: "now", include_docs: true})
@@ -566,7 +566,7 @@ feed.follow();
 {: codeblock}
 
 プログラマチックに `_changes` データにアクセスすることは簡単です。
-例えば、[{{site.data.keyword.cloudant_short_notm}} Node.js ライブラリー](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)を使用して、数行のコードで変更をフォローします。
+例えば、[{{site.data.keyword.cloudant_short_notm}} Node.js ライブラリー](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)を使用して、数行のコードで変更をフォローします。
 
 ユースケース例としては以下のようなものがあります。
 
@@ -574,9 +574,9 @@ feed.follow();
 -   アクティビティーのリアルタイムのカウントを記録するためにメモリー内データベースを更新する。
 -   SQL データベースにデータをプッシュするためにテキスト・ファイルにデータを書きこむ。
 
-変更フィードは、[複製中のフィルター処理](#filtered-replication)に似た手法を使用して、フィルター関数によりフィルター処理することができます。
+変更フィードは、[複製中のフィルター処理](#filtered-replications)に似た手法を使用して、フィルター関数によりフィルター処理することができます。
 
-_HTTP を使用した変更フィードのフィルター処理の例:_
+*HTTP を使用した変更フィードのフィルター処理の例:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter HTTP/1.1
@@ -585,7 +585,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_コマンド・ラインを使用した変更フィードのフィルター処理の例:_
+*コマンド・ラインを使用した変更フィードのフィルター処理の例:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
@@ -598,7 +598,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 ## 複製の落とし穴
 {: #replication-pitfalls}
 
-正常に複製するには、文書のサイズとすべての添付ファイルのサイズの合計がターゲット・クラスターの最大要求サイズ未満でなければなりません。例えば、最大 HTTP 要求サイズが 11 MB の場合、以下のシナリオが適用されます。
+正常に複製するには、文書のサイズとすべての添付ファイルのサイズの合計がターゲット・クラスターの最大要求サイズ未満でなければなりません。 例えば、最大 HTTP 要求サイズが 11 MB の場合、以下のシナリオが適用されます。
 
 文書サイズ | 添付ファイルのサイズ | 合計サイズ | 複製するかどうか
 --------------|----------------------|------------|------------
@@ -649,7 +649,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 
 すべての複製をキャンセルして、新しくてクリーンな `_replicator` データベースから開始したい場合は、`replicator` データベースを削除してから再作成してください。
 
-_HTTP を使用した `_replicator` データベースの削除と再作成:_
+*HTTP を使用した `_replicator` データベースの削除と再作成:*
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -662,7 +662,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_コマンド・ラインを使用した `_replicator` データベースの削除と再作成:_
+*コマンド・ラインを使用した `_replicator` データベースの削除と再作成:*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'
@@ -678,7 +678,8 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 それぞれの複製ジョブは他のジョブからは独立しているため、{{site.data.keyword.cloudant_short_notm}} は、ユーザーが追加の複製プロセスの作成を行うのを止めません。
 しかし、各複製タスクはシステム・リソースを使用します。
 
-{{site.data.keyword.cloudant_short_notm}} ダッシュボードで「アクティブ複製」をチェックして、不要な複製タスクが進行中でないことを確認することができます。
+{{site.data.keyword.cloudant_short_notm}} ダッシュボードで「アクティブ複製」をチェックして、
+不要な複製タスクが進行中でないことを確認することができます。
 もう必要ない `_replicator` 文書は削除してください。
 
 ## 複製速度の調整
@@ -689,7 +690,7 @@ curl -X PUT 'https://$ACCOUNT.cloudant.com/_replicator'
 ユースケースによっては、他の {{site.data.keyword.cloudant_short_notm}} サービスを犠牲にして複製速度を上げる必要がある場合があります。
 あるいは、複製をバックグラウンド・プロセスとして処理し、クラスター・パフォーマンスを優先させる必要がある場合もあります。
 
-[高度な Replication API オプション](/docs/services/Cloudant?topic=cloudant-advanced-replication#advanced-replication)が使用可能です。それらを使用して、複製中に使用されるコンピューティング能力の量を増加したり削減したりすることができます。例えば次のようにします。
+[高度な Replication API オプション](/docs/services/Cloudant?topic=cloudant-advanced-replication#advanced-replication)が使用可能です。それらを使用して、複製中に使用されるコンピューティング能力の量を増加したり削減したりすることができます。 例えば次のようにします。
 
 *   文書に添付ファイルが含まれている場合は、小さいバッチに大きい文書を入れるために、batch_size の削減と、worker_processes の増加を検討することをお勧めします。
 *   多くの小さい文書がある場合は、[`worker_process`](/docs/services/Cloudant?topic=cloudant-advanced-replication#performance-related-options) および [`http_connections`](/docs/services/Cloudant?topic=cloudant-advanced-replication#performance-related-options) の値を増加することを検討できます。

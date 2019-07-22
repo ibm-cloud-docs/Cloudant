@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-01"
+lastupdated: "2019-06-12"
 
 keywords: tutorials, recovery and backup, guides, links to documentation
 
@@ -43,8 +43,7 @@ subcollection: cloudant
 {{site.data.keyword.cloudant_short_notm}} 实例。
 [创建简单 {{site.data.keyword.cloud_notm}} 应用程序](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database){: new_window} | 本教程描述如何创建 {{site.data.keyword.cloud_notm}} 应用程序，以使用 Python 编程语言访问 {{site.data.keyword.cloud_notm}} 服务实例中托管的
 {{site.data.keyword.cloudantfull}} 数据库。
-[创建简单 {{site.data.keyword.cloud_notm}} 应用程序，以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：先决条件](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites){: new_window} |本教程描述了创建
-{{site.data.keyword.cloud_notm}} 应用程序的先决条件。
+[创建简单 {{site.data.keyword.cloud_notm}} 应用程序，以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：先决条件](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites){: new_window} |本教程描述了创建 {{site.data.keyword.cloud_notm}} 应用程序的先决条件。
 [创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：应用程序环境](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment){: new_window} |本教程描述如何设置在创建
 {{site.data.keyword.cloud_notm}} 应用程序时必须拥有的应用程序环境。
 [创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库：代码](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code){: new_window} |本教程描述了 {{site.data.keyword.cloud_notm}} 应用程序的代码。
@@ -76,7 +75,7 @@ subcollection: cloudant
 [数据库分区](/docs/services/Cloudant?topic=cloudant-database-partitioning#database-partitioning) | 本指南描述分区数据库及其使用方法。
 [设计文档管理](/docs/services/Cloudant?topic=cloudant-design-document-management#design-document-management){: new_window} |本指南描述什么是设计文档以及如何在 {{site.data.keyword.cloudant_short_notm}} 中使用设计文档。
 [文档版本控制和 MVCC](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc){: new_window} |本指南描述多版本并行控制 (MVCC) 及其如何用于 {{site.data.keyword.cloudant_short_notm}} 数据库，以确保数据库集群中的所有节点仅包含最新版本的文档。
-[对数据建模以进行缩放的五项建议](/docs/services/Cloudant?topic=cloudant-five-tips-for-modelling-your-data-to-scale#five-tips-for-modelling-your-data-to-scale){: new_window} |本指南更细致地讨论了如何对应用程序数据建模，以使应用程序能够大规模高效运作。
+[对数据建模以进行缩放的五项建议](/docs/services/Cloudant?topic=cloudant-five-tips-for-modeling-your-data-to-scale#five-tips-for-modeling-your-data-to-scale){: new_window} |本指南更细致地讨论了如何对应用程序数据建模，以使应用程序能够大规模高效运作。
 
 [在 {{site.data.keyword.cloudant_short_notm}} 中将相关文档分组在一起](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant){: new_window} |本指南概述了构建电子商务系统所涉及的一些因素，该系统通过使用适用于其他许多领域的概念来利用 {{site.data.keyword.cloudant_short_notm}} 的优势。
 [{{site.data.keyword.cloudant_short_notm}} 如何使用 {{site.data.keyword.cloud_notm}} 资源组？](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} |本指南涵盖 {{site.data.keyword.cloudant_short_notm}} 支持收到的有关此转换的常见问题。

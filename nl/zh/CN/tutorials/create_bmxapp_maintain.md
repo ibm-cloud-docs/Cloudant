@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -71,7 +71,7 @@ subcollection: cloudant
 
 本部分教程提供了一些基本的故障诊断技巧，可帮助您识别、诊断和解决在开发和部署第一个 {{site.data.keyword.cloud_notm}} 应用程序时可能会遇到的一些问题。
 
-[此处 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window} 提供了关于创建 {{site.data.keyword.cloud_notm}} 或 Cloud Foundry 应用程序的最佳做法的一些好建议。
+有关创建 {{site.data.keyword.cloud_notm}} 或 Cloud Foundry 应用程序的最佳实践的良好建议，请参阅[在云中设计和运行应用程序的注意事项 ![外部链接图标](../images/launch-glyph.svg " 外部链接图标")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}。
 
 尤其是有关[避免写入本地文件系统 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window} 的建议非常谨慎。
 
@@ -85,7 +85,7 @@ subcollection: cloudant
 对 {{site.data.keyword.cloud_notm}} 应用程序问题进行诊断和解决时，最有用的资源是日志文件。
 
 通过单击`日志`选项卡来打开日志记录信息页面，可以找到 {{site.data.keyword.cloud_notm}} 应用程序的日志文件：<br/>
-![显示用于访问“日志”信息页面的链接的截屏](images/img0042.png)
+![显示访问“日志”信息页面的链接的截屏](images/img0042.png)：
 
 与大多数日志文件一样，{{site.data.keyword.cloud_notm}} 应用程序日志也包含有关所发生事件和发生时间的详细信息。
 
@@ -98,7 +98,7 @@ subcollection: cloudant
 `CELL`          |在 {{site.data.keyword.cloud_notm}} 中保存应用程序的容器。
 `RTR`           |用于将消息传递到应用程序或从应用程序接收消息的联网组件。
 
-例如，以下截屏包含许多典型事件：<br/>
+例如，以下截屏包含若干典型事件：<br/>
 ![显示指示性日志信息的截屏](images/img0043.png)
 
 请注意以下时间的事件：
@@ -111,7 +111,7 @@ subcollection: cloudant
 
 本教程中描述的应用程序有意用的是最小型的。作为特定示例，我们并未尝试确定目标数据库是否存在；如果目标数据库存在，请避免重试创建该目标数据库。事实上，如果未事先除去数据库，就多次尝试运行教程应用程序，那么应用程序会重复失败并重新启动。
 
-在以下截屏中可以看到这一事实：<br/>
+在以下截屏中可以看到此效果：<br/>
 ![显示日志中错误信息的截屏](images/img0044.png)
 
 在下午 2:31:23，应用程序检测到问题：<br/>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: develop applications, supported library, third-party library
 
@@ -20,22 +20,22 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-01-15 -->
 
 # Bibliotecas de cliente
 {: #client-libraries}
 
-Las Bibliotecas de cliente son las herramientas que permiten desarrollar aplicaciones propias para trabajar con bases de datos {{site.data.keyword.cloudantfull}}.
+Las Bibliotecas de cliente son las herramientas que puede utilizar para desarrollar aplicaciones propias para trabajar con bases de datos {{site.data.keyword.cloudantfull}}.
 {: shortdesc}
 
 Las siguientes bibliotecas de cliente reciben [soporte](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#supported-client-libraries) formal de {{site.data.keyword.cloudant_short_notm}}.
 
 -	[Móvil](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#mobile)
--	[Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java)
--	[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)
+-	[Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported)
+-	[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)
 -	[Swift](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#swift)
 
-Una biblioteca admitida es una biblioteca en la que se puede establecer contacto con {{site.data.keyword.cloudant_short_notm}} si se detecta un problema específico y reproducible en la última versión de la biblioteca.
+Una biblioteca admitida es una biblioteca en la que se puede establecer contacto con {{site.data.keyword.cloudant_short_notm}} si se detecta un problema específico y reproducible en la versión actual de la biblioteca.
 
 Las otras bibliotecas cliente han sido creadas por [otros proveedores](/docs/services/Cloudant?topic=cloudant-third-party-client-libraries#third-party-client-libraries) o no reciben soporte oficialmente.
 

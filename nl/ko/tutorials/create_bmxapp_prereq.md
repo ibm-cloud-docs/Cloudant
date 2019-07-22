@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -29,7 +29,7 @@ subcollection: cloudant
 {: shortdesc}
 
 ## 선행 조건
-{: #prerequisites}
+{: #prerequisites-create_bmxapp_prereq}
 
 이 튜토리얼을 시작하기 전에 다음 리소스 또는 정보가 준비되어 있는지 확인하십시오.
 
@@ -56,8 +56,8 @@ Python 2.7.12
 ### {{site.data.keyword.cloud_notm}}의 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-'`Cloudant-o7`'이라는 {{site.data.keyword.cloudantfull}} 서비스 인스턴스를 작성하는
-별도의 튜토리얼은 [여기](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)에 있습니다.
+[{{site.data.keyword.cloud_notm}}에서 {{site.data.keyword.cloudantfull}} 서비스 인스턴스 작성](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)에 대한 별도의 튜토리얼은
+'`Cloudant-o7`'이라는 서비스 인스턴스를 작성합니다.  
 
 이 튜토리얼에서는 사용자가 이미 '`Cloudant-o7`'이라는
 서비스 인스턴스를 작성했다고 가정합니다.
@@ -65,9 +65,9 @@ Python 2.7.12
 ### {{site.data.keyword.cloudant_short_notm}} 데이터베이스 애플리케이션
 {: #an-ibm-cloudant-database-application}
 
-{{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스 관련 작업을 수행하기 위한 독립형 Python 애플리케이션을 작성하는
-별도의 튜토리얼은 [여기](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud)에 있습니다.
-이 튜토리얼에서는 {{site.data.keyword.cloudant_short_notm}} 데이터베이스를
+[{{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스
+관련 작업을 수행하기 위한 독립형 Python 애플리케이션 작성](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud)에
+대한 별도의 튜토리얼도 있습니다. 이 튜토리얼에서는 {{site.data.keyword.cloudant_short_notm}} 데이터베이스를
 작성하고 채우는 방법을 이해하는 데 도움이 되는 몇 가지 개념을 소개합니다.
 
 이 튜토리얼에서는 사용자가 이러한 개념을 잘 알고 있다고 가정합니다.

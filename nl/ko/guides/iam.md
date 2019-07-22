@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-12"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -211,13 +211,14 @@ _레거시 인증 정보와 IAM을 둘 다 사용_을 선택하는 경우에는 
 사용할 수 없는 경우 등에는 이 접근 방식에 단점이 있습니다.
 
 <table>
-
+<caption style="caption-side:top">표 1. 두 액세스 제어 메커니즘의 장점 및 단점</caption>
+<thead>
 <tr>
 <th id="mode">모드</th>
 <th id="advantages">장점</th>
 <th id="disadvantages">단점</th>
 </tr>
-
+</thead>
 <tr>
 <td headers="mode">IAM</td>
 <td headers="advantages" valign="top"><ul><li>하나의 인터페이스를 사용하여 다양한 서비스에 대한 액세스를 관리합니다. 사용자의 액세스 권한을 글로벌 범위에서 취소합니다.</li>
@@ -228,7 +229,6 @@ _레거시 인증 정보와 IAM을 둘 다 사용_을 선택하는 경우에는 
 </td>
 <td headers="disadvantages"><ul><li>{{site.data.keyword.cloudant_short_notm}} 지원 라이브러리를 사용하고 있지 않은 경우에는 IAM의 API 키 및 액세스 토큰을 사용하기 위해 애플리케이션을 변경해야 할 가능성이 높습니다.</li>
 <li>아직 데이터베이스 레벨 권한이 없습니다.</li>
-<li>아직 세분화된 권한(예: 독자)이 없습니다.</li>
 <li>일부 엔드포인트를 사용할 수 없습니다. [사용 불가능한 엔드포인트](#unavailable-endpoints)를 참조하십시오.</li>
 <li>액세스하는 데 권한 부여된 사용자를 필요로 하지 않는 "공용"으로 데이터베이스를 지정하는 방법이 없습니다.</li></ul>
 </td>
@@ -239,7 +239,6 @@ _레거시 인증 정보와 IAM을 둘 다 사용_을 선택하는 경우에는 
 <td headers="advantages">
 <ul><li>기존 애플리케이션 또는 클라이언트 라이브러리 종속 항목을 변경할 필요가 없습니다.</li>
 <li>데이터베이스 레벨 권한이 있습니다.</li>
-<li>세분화된 역할(독자, 작성자)이 있습니다.</li>
 </ul>
 </td>
 <td headers="disadvantages">
@@ -268,21 +267,51 @@ _레거시 인증 정보와 IAM을 둘 다 사용_을 선택하는 경우에는 
 IAM 사용 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스에는
 최소한 다음 클라이언트 라이브러리 버전을 사용하십시오.
 
-| 라이브러리 | 권장 |
-| --- | --- |
-| [java-cloudant](https://github.com/cloudant/java-cloudant) | 2.13.0+ |
-| [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant) | 2.3.0+ |
-| [python-cloudant](https://github.com/cloudant/python-cloudant) | 2.9.0+ |
-| [couchbackup](https://github.com/cloudant/couchbackup/) | 2.3.1+ |
-| [CDTDatastore](https://github.com/cloudant/cdtdatastore/) | 2.0.3+ |
-| [sync-android](https://github.com/cloudant/sync-android/) | 2.2.0+ |
+<table>
+<caption style="caption-side:top">표 2. 권장 클라이언트 라이브러리 버전</caption>
+<thead>
+<tr>
+<th id="library"> 라이브러리</th>
+<th id="recommended"> 권장</th>
+</tr>
+</thead>
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/java-cloudant" target="_blank">java-cloudant <img src="../images/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘"></a></td>
+<td headers="recommended"> 2.13.0+</td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/nodejs-cloudant" target="_blank">nodejs-cloudant <img src="../images/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘"></a></td>
+<td headers="recommended"> 2.3.0+</td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/python-cloudant" target="_blank">python-cloudant <img src="../images/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘"></a></td>
+<td headers="recommended"> 2.9.0+</td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/couchbackup/" target="_blank">couchbackup <img src="../images/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘"></a></td>
+<td headers="recommended"> 2.3.1+</td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/cdtdatastore/" target="_blank">CDTDatastore <img src="../images/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘"></a></td>
+<td headers="recommended"> 2.0.3+</td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/sync-android/" target="_blank">sync-android <img src="../images/launch-glyph.svg" alt="외부 링크 아이콘" title="외부 링크 아이콘"></a></td>
+<td headers="recommended"> 2.2.0+</td>
+</tr>
+</table>
 
 다음 코드 스니펫은 이러한 버전을 필요로 합니다.
 
 ### Java
-{: #java}
+{: #java-iam}
 
-[java-cloudant](https://github.com/cloudant/java-cloudant) 2.13.0+를 필요로 합니다.
+[java-cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/java-cloudant){: new_window} 2.13.0 이상을 필요로 합니다. 
 
 IAM API 키를 사용하여 데이터베이스 클라이언트를 작성하려면 `iamApiKey()` 메소드를 사용하십시오.
 
@@ -312,7 +341,7 @@ public class App
 ### Node.js
 {: #node.js}
 
-[nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant) 2.3.0+를 필요로 합니다.
+[nodejs-cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/nodejs-cloudant){: new_window} 2.3.0 이상을 필요로 합니다. 
 
 IAM API 키를 사용하여 데이터베이스 클라이언트를 작성하려면 `iamauth()` 플러그인을 사용하십시오.
 
@@ -337,7 +366,7 @@ cloudant.db.list(function(err, body) {
 ### Python
 {: #python}
 
-[python-cloudant](https://github.com/cloudant/python-cloudant) 2.9.0+를 필요로 합니다.
+[python-cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/python-cloudant){: new_window} 2.9.0 이상을 필요로 합니다. 
 
 IAM API 키를 사용하여 데이터베이스 클라이언트를 작성하려면 `Cloudant.iam(account_name, api_key, **kwargs)` 메소드를 사용하십시오.
 
@@ -427,13 +456,572 @@ if __name__ == "__main__":
 ### {{site.data.keyword.cloudant_short_notm}} 조치
 {: #ibm-cloudant-actions}
 
-조치 |설명
--------|------------
-`cloudant.db.any` | 모든 데이터베이스 엔드포인트(경로가 `/_api`로 시작하지 않는 것)에 액세스합니다.
-`cloudantnosqldb.sapi.dbsecurity` | `/_api/v2/db/<path:db>/_security`에 액세스합니다.
-`cloudantnosqldb.sapi.usercors` | `/_api/v2/user/config/cors/`에 액세스합니다.
-`cloudantnosqldb.sapi.apikeys` | `/_api/v2/api_keys`에 액세스합니다.
-`cloudantnosqldb.sapi.userinfo` | `/_api/v2/user`에 액세스합니다.
+다음 표에는 사용 가능한 IAM 조치 및 역할이 설명되어 있습니다.  
+
+<table>
+<caption style="caption-side:top">표 3. 사용 가능한 조치에 대한 설명</caption>
+<thead>
+<tr>
+<th id="action">조치</th>
+<th id="description">설명</th>
+</tr>
+</thead>
+
+<tr>
+<td headers="action"><code>cloudant.db.any</code></td>
+<td headers="description"> 모든 데이터베이스 엔드포인트(경로가 `/_api`로 시작하지 않는 것)에 액세스합니다.</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.dbsecurity</code></td>
+<td headers="description">`/_api/v2/db/<path:db>/_security`에 액세스합니다. </td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.usercors</code></td>
+<td headers="description"> `/_api/v2/user/config/cors/`에 액세스합니다.</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.apikeys</code></td>
+<td headers="description"> `/_api/v2/api_keys`에 액세스합니다.</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.userinfo</code></td>
+<td headers="description"> `/_api/v2/user`에 액세스합니다.</td>
+</tr>
+</table>
+</br>
+세분화된 권한 부여를 위해 관리자, 독자 및 작성자 역할이 제공됩니다.
+</br>
+
+<table>
+<caption style="caption-side:top">표 4. 관리자 전용 조치</caption>
+<thead>
+<tr>
+<th id="method">메소드</th>
+<th id="endpoint">엔드포인트</th>
+<th id="action-name">조치 이름</th>
+<th id="role">역할</th>
+</tr>
+</thead>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/</code></td>
+<td headers="action-name">cloudantnosqldb.db.meta-info</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_active_tasks</code></td>
+<td headers="action-name">cloudantnosqldb.account.active-tasks</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_replicator</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_replicator/$DOC</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_scheduler/jobs</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_scheduler/docs</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_replicate</code></td>
+<td headers="action-name">cloudantnosqldb.replication.write</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT/DELETE</code></td>
+<td headers="endpoint"><code>/_replicator</code></td>
+<td headers="action-name">cloudantnosqldb.replication.write</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT/DELETE</code></td>
+<td headers="endpoint"><code>/_replicator/$DOC</code></td>
+<td headers="action-name">cloudantnosqldb.replication.write</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_up</code></td>
+<td headers="action-name">cloudantnosqldb.account.up</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.database.create</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.database.delete</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_design_docs/queries</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_geo_info</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_info/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_search_disk_size/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_search_info/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_index/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design_docs</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>COPY</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST/DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_index/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_missing_revs</code></td>
+<td headers="action-name">cloudantnosqldb.database.missing-revs</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_missing_revs</code></td>
+<td headers="action-name">cloudantnosqldb.database.missing-revs</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_revs_diff</code></td>
+<td headers="action-name">cloudantnosqldb.database.revs-diff</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_security</code></td>
+<td headers="action-name">cloudantnosqldb.database-security.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/_security</code></td>
+<td headers="action-name">cloudantnosqldb.database-security.write</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_shards</code></td>
+<td headers="action-name">cloudantnosqldb.database.shards</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>COPY</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.copy</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/_membership</code></td>
+<td headers="action-name">cloudantnosqldb.cluster-membership.read</td>
+<td headers="role">관리자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_ensure_full_commit</code></td>
+<td headers="action-name">cloudantnosqldb.database.ensure-full-commit</td>
+<td headers="role">관리자</td>
+</tr>
+</table>
+
+</br>
+
+<table>
+<caption style="caption-side:top">표 5. 관리자 및 작성자 조치</caption>
+<thead>
+<tr>
+<th id="method">메소드</th>
+<th id="endpoint">엔드포인트</th>
+<th id="action-name">조치 이름</th>
+<th id="role">역할</th>
+</tr>
+</thead>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_uuids</code></td>
+<td headers="action-name">cloudantnosqldb.account.uuids</td>
+<td headers="role">관리자, 작성자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">관리자, 작성자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_bulk_docs</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">관리자, 작성자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">관리자, 작성자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">관리자, 작성자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">관리자, 작성자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">관리자, 작성자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT/DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_local/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.write</td>
+<td headers="role">관리자, 작성자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>COPY</code></td>
+<td headers="endpoint"><code>/$DB/_local/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.copy</td>
+<td headers="role">관리자, 작성자</td>
+</tr>
+</table>
+
+</br>
+
+<table>
+<caption style="caption-side:top">표 6. 관리자, 작성자 및 독자 조치</caption>
+<thead>
+<tr>
+<th id="method">메소드</th>
+<th id="endpoint">엔드포인트</th>
+<th id="action-name">조치 이름</th>
+<th id="role">역할</th>
+</tr>
+</thead>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_iam_session</code></td>
+<td headers="action-name">cloudantnosqldb.iam-session.read</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_iam_session</code></td>
+<td headers="action-name">cloudantnosqldb.iam-session.write</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/_iam_session</code></td>
+<td headers="action-name">cloudantnosqldb.iam-session.delete</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_session</code></td>
+<td headers="action-name">cloudantnosqldb.session.read</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_session</code></td>
+<td headers="action-name">cloudantnosqldb.session.write</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/_session</code></td>
+<td headers="action-name">cloudantnosqldb.session.delete</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_all_dbs</code></td>
+<td headers="action-name">cloudantnosqldb.account.all-dbs</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/_db_updates</code></td>
+<td headers="action-name">cloudantnosqldb.account.db-updates</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_dbs_info</code></td>
+<td headers="action-name">cloudantnosqldb.account.dbs-info</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.database.info</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_all_docs</code></td>
+<td headers="action-name">cloudantnosqldb.database.all-docs</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_changes</code></td>
+<td headers="action-name">cloudantnosqldb.database.changes</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.read</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.document.read</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_bulk_get</code></td>
+<td headers="action-name">cloudantnosqldb.document.read</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/_search_analyze</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_all_docs/queries</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_geo/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_list/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_search/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_show/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_view/$VIEW/queries</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_view/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_explain/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_find/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_local_docs</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.read</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_local_docs/queries</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.read</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_local/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.read</td>
+<td headers="role">관리자, 작성자, 독자</td>
+</tr>
+</table>
+
+</br>
 
 #### 사용 불가능한 엔드포인트
 {: #unavailable-endpoints}
@@ -450,11 +1038,30 @@ if __name__ == "__main__":
 
 관리자 역할 사용자 및 서비스만 {{site.data.keyword.cloudant_short_notm}} 데이터에 액세스할 수 있습니다.
 
-역할 | 허용된 조치
------|----------------
-관리자 | 기록된 모든 조치.
-독자 |없음.
-작성자 |없음.
+<table>
+<caption style="caption-side:top">표 7. 허용되는 조치에 맵핑된 역할</caption>
+<thead>
+<tr>
+<th id="role">역할</th>
+<th id="allowed-action">허용되는 조치</th>
+</tr>
+</thead>
+
+<tr>
+<td headers="role">관리자</td>
+<td headers="allowed-action">모든 기록된 조치</td>
+</tr>
+
+<tr>
+<td headers="role">독자</td>
+<td headers="allowed-action">없음</td>
+</tr>
+
+<tr>
+<td headers="role">작성자</td>
+<td headers="allowed-action">없음</td>
+</tr>
+</table>
 
 ## 문제점 해결
 {: #troubleshooting}
@@ -463,4 +1070,4 @@ if __name__ == "__main__":
 ### 계정에서 IAM이 사용으로 설정되어 있는지 확인
 {: #ensure-your-account-is-iam-enabled}
 
-서비스 인스턴스에서 IAM이 사용으로 설정되어 있는지 확인하려면 지원 티켓을 열어야 합니다.
+IBM Cloudant 대시보드의 개요 부분에 있는 배치 세부사항에는 "인증 메소드"가 나열됩니다. 사용자의 사용 가능한 인증 메소드는 여기에 나열되어 있습니다.  

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -108,12 +108,12 @@ La ridondanza automatica dei dati in una regione è limitata a:
 1.	Fornire protezione solo in una singola regione.
 2.	Mantenere i dati correnti.
 
-Per fornire protezione in più di una singola regione associata al tuo account,
+Per fornire protezione su più di una singola regione associata al tuo account,
 utilizza [Ridondanza in più regioni per il ripristino di emergenza](#cross-region-redundancy-for-disaster-recovery).
 
 Per fornire protezione per la 'cronologia' dei tuoi dati,
 ad esempio per abilitare il controllo delle modifiche apportate ai dati dalle applicazioni,
-utilizza le istantanee dei dati che vengono create dagli strumenti di [Backup e ripristino del database](#database-backup-and-recovery).
+utilizza le istantanee dei dati che vengono create dagli strumenti di [backup e ripristino del database](#database-backup-and-recovery).
 
 In sintesi,
 la ridondanza dei dati in una regione abilita la funzionalità di alta disponibilità
@@ -132,7 +132,7 @@ I passi di base per creare la ridondanza in più regioni sono:
 2.  Crea i database in ogni regione, come necessario.
 3.  Per i database che devono essere memorizzati con la ridondanza in più regioni, imposta le repliche continue bidirezionali tra i database corrispondenti in ogni account.
 4.  Progetta e implementa le tue applicazioni in modo che le richieste di dati vengano instradate a seconda che il tuo ambiente sia una configurazione Attivo-Passivo o Attivo-Attivo.
-  È [disponibile](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery) una guida dettagliata per questa impostazione.
+  Per ulteriori informazioni sulla configurazione, vedi [Configurazione di {{site.data.keyword.cloudant_short_notm}} per il ripristino di emergenza in più regioni](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery).
 
 Quando progetti le tue applicazioni per lavorare con i dati in più regioni,
 tieni conto dei seguenti punti:
@@ -171,8 +171,8 @@ le tue applicazioni devono essere in grado di eseguire il 'failover' sulle copie
 ## Backup e ripristino del database
 {: #database-backup-and-recovery}
 
-[La ridondanza automatica dei dati in una regione](#in-region-automatic-data-redundancy) fornisce alle applicazioni l'accesso ad alta disponibilità ai dati.
-[La ridondanza in più regioni per il ripristino di emergenza](#cross-region-redundancy-for-disaster-recovery) fornisce alle applicazioni dei mezzi di ripristino di emergenza.
+La [ridondanza automatica dei dati in una regione](#in-region-automatic-data-redundancy) fornisce alle applicazioni l'accesso ad alta disponibilità ai dati.
+La [ridondanza in più regioni per il ripristino di emergenza](#cross-region-redundancy-for-disaster-recovery) fornisce alle applicazioni dei mezzi di ripristino di emergenza.
 Tuttavia,
 entrambe queste funzionalità si concentrano sul mantenimento dell'accesso solo alla copia _corrente_ dei tuoi dati.
 
@@ -227,7 +227,7 @@ Gli scenari di esempio includono:
 *	Migrazione di dati obsoleti nell'archiviazione più economica per una conservazione più conveniente.
 
 Gli strumenti di backup sono costituiti da una libreria e un'applicazione della riga di comando node.js open source.
-Sono disponibili [su NPM ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
+Sono disponibili su [NPM ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
 
 Per idee ed esempi che illustrano come integrare gli strumenti nella tua strategia di protezione dei dati,
-vedi la [guida al backup Cookbook](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).
+consulta la [guida di backup e ripristino {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

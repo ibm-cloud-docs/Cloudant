@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -52,7 +52,7 @@ un backup può conservare lo stato del tuo database in un momento selezionato.
 {: #incremental-backups}
 
 Se sei un cliente aziendale,
-è [disponibile](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) una funzionalità di backup incrementale.
+è disponibile una funzionalità di backup incrementale giornaliera. Per ulteriori informazioni, vedi [Ripristino di emergenza e backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 
 Se non sei un cliente aziendale,
 o se preferisci creare i tuoi propri backup,
@@ -280,7 +280,7 @@ replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replica
 ```
 {: pre}
 
-### Passo 5:  preparazione del backup incrementale parte 2 - Ottieni il valore `recorded_seq`
+### Passo 5: preparazione del backup incrementale parte 2 - Ottieni il valore `recorded_seq`
 {: #step-5-prepare-incremental-backup-part-2-get-recorded_seq-value}
 
 Dopo aver ottenuto l'ID checkpoint,
@@ -316,7 +316,7 @@ Questo backup replica tutte le modifiche apportate al documento _dall'ultima_ re
 Al termine della replica,
 avrai un backup incrementale completo.
 Il backup è costituito da tutti i documenti contenuti nel database originale
- e può essere ripristinato recuperando il contenuto dei database `backup-monday` _e _ `backup-tuesday`.
+e può essere ripristinato recuperando il contenuto dei database `backup-monday` _e _ `backup-tuesday`.
 
 _Esecuzione del backup incrementale di martedì utilizzando HTTP:_
 

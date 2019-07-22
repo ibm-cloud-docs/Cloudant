@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -37,8 +37,8 @@ Cloudant를 처음 사용해 보는 경우에는 더 진행하기 전에 이 절
 ## {{site.data.keyword.cloudant_short_notm}}에 연결
 {: #connecting-to-ibm-cloudant}
 
-{{site.data.keyword.cloudant_short_notm}}에 액세스하려면 [{{site.data.keyword.cloudant_short_notm}} 계정](/docs/services/Cloudant?topic=cloudant-account#account)
-또는 [{{site.data.keyword.cloud}} 계정](/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public)이 있어야 합니다.
+{{site.data.keyword.cloudant_short_notm}}에 액세스하려면 [{{site.data.keyword.cloudant_short_notm}} 계정](/docs/services/Cloudant?topic=cloudant-ibm-cloudant.com#enterprise-plan)
+또는 [{{site.data.keyword.cloud}} 계정](https://cloud.ibm.com/login)이 있어야 합니다.
 
 ## HTTP API
 {: #http-api}

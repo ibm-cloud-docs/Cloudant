@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -64,21 +64,21 @@ GDPR 力求在整个欧盟范围内建立一个统一的数据保护法律框架
 
  * 姓名
  * 电子邮件
-  您可以通过 {{site.data.keyword.cloudant_short_notm}}“仪表板”查看和更新 {{site.data.keyword.cloudant_short_notm}} 持有的这些数据。
+  可以通过 {{site.data.keyword.cloudant_short_notm}}“仪表板”查看和更新 {{site.data.keyword.cloudant_short_notm}} 保存的数据。
 
 如果您拥有 {{site.data.keyword.cloud_notm}}（包括专用实例）供应的帐户，那么 {{site.data.keyword.cloudant_short_notm}} _不会_收集上述个人数据。这些数据由 {{site.data.keyword.cloud_notm}} 持有。
 
-{{site.data.keyword.cloudant_short_notm}} 会在运行服务和优化用户体验的过程中处理有限的客户 PI。{{site.data.keyword.cloudant_short_notm}} 会根据需要通过电子邮件与客户联系。{{site.data.keyword.cloudant_short_notm}} 处理 PI 的另一种方式是监视客户与 {{site.data.keyword.cloudant_short_notm}} 仪表板的交互。
+{{site.data.keyword.cloudant_short_notm}} 会在运行服务和优化用户体验的过程中处理有限的客户 PI。{{site.data.keyword.cloudant_short_notm}} 会根据需要通过电子邮件与客户联系。{{site.data.keyword.cloudant_short_notm}} 处理 PI 的另一种方式是监视客户与 {{site.data.keyword.cloudant_short_notm}}“仪表板”的交互。
 
 ### 处理限制
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} 会将仪表板交互数据发送给 Segment。您可以通过 [{{site.data.keyword.cloudant_short_notm}} 支持请求](mailto:support@cloudant.com)，要求 {{site.data.keyword.cloudant_short_notm}} 以此方式限制对客户 PI 的处理。{{site.data.keyword.cloudant_short_notm}} 在收到此类请求后会删除已发送给 Segment 的客户相关信息，并会阻止发送进一步的数据。{{site.data.keyword.cloudant_short_notm}} 需要能够通过电子邮件与专用客户保持联系。客户可以直接在我们提供的相应界面中实时更新此信息，也可以通过其 {{site.data.keyword.cloud_notm}} 帐户详细信息中客户联系人详细信息的客户配置来更新此信息。
+{{site.data.keyword.cloudant_short_notm}} 会将仪表板交互数据发送给 Segment。您可以通过 [{{site.data.keyword.cloudant_short_notm}} 支持请求 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](mailto:support@cloudant.com){: new_window}，要求 {{site.data.keyword.cloudant_short_notm}} 以此方式限制对客户 PI 的处理。{{site.data.keyword.cloudant_short_notm}} 在收到此类请求后会删除已发送给 Segment 的客户相关信息，并会阻止发送进一步的数据。{{site.data.keyword.cloudant_short_notm}} 需要能够通过电子邮件与专用客户保持联系。客户可以直接在我们提供的相应界面中实时更新此信息，也可以通过其 {{site.data.keyword.cloud_notm}} 帐户详细信息中客户联系人详细信息的客户配置来更新此信息。
 
 ## 我们的 {{site.data.keyword.cloudant_short_notm}} 数据库是否已经过加密？
 {: #is-our-ibm-cloudant-database-encrypted-}
 
-所有集群都具有使用 Linux Unified Key Setup (LUKS) 加密的文件系统（静态加密）。我们的运营和支持团队可以查看数据库中的数据（请参阅下文）。
+所有集群都具有使用 Linux Unified Key Setup (LUKS) 加密的文件系统（静态加密）。我们的运营和支持团队可以查看数据库中的数据（请参阅以下段落）。
 
 对于您认为不能对 {{site.data.keyword.cloudant_short_notm}} 可见的敏感数据，必须在将其发送给我们之前，对这些数据进行加密或以其他方式进行保护（使用假名）。不得将 PI 用作 URL 中的文档 `_id`，例如 `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`，因为文档 _id 始终可见并且会写入访问日志中。
 
@@ -109,7 +109,7 @@ GDPR 力求在整个欧盟范围内建立一个统一的数据保护法律框架
 我们工作人员使用的办公地点的物理安全由 {{site.data.keyword.IBM_notm}} 公司来负责。如果客户需要，我们可以提供证书详细信息和认证报告（例如，ISO 和 SOC2）。
 
 ### 技术和组织措施
-{: #technical-and-organisational-measures}
+{: #technical-and-organizational-measures}
 
 为了确保个人数据的安全，{{site.data.keyword.cloudant_short_notm}} 采用了技术和组织措施 (TOM)。对于 {{site.data.keyword.cloudant_short_notm}} 所采用的控制措施，{{site.data.keyword.cloudant_short_notm}} 持有相应的外部审计证书。如果客户需要，我们可以提供证书详细信息和认证报告（例如，ISO 和 SOC2）。
 

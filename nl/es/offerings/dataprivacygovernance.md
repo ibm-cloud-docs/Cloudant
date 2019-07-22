@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -48,7 +48,9 @@ A su vez, los clientes son los responsables de obtener los consentimientos neces
 
 Encontrará una lista de países en los que se puede mantener contenido, o desde los que se puede acceder a contenido, para suministrar y dar soporte al servicio en la nube en el siguiente enlace: [www.ibm.com/cloud/datacenters ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/cloud/datacenters){: new_window}.
 
-[Aquí](/docs/services/Cloudant?topic=cloudant-compliance#compliance) encontrará más información sobre la conformidad de {{site.data.keyword.cloudant_short_notm}} con los estándares generales.
+Para obtener más información sobre los estándares generales de
+{{site.data.keyword.cloudant_short_notm}} para la conformidad, consulte
+[Conformidad](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
 Encontrará información similar para estos IaaS business partners:
 
 -   [Amazon ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://aws.amazon.com/compliance/){: new_window}

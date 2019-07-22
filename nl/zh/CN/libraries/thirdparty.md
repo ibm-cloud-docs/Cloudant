@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -57,10 +57,10 @@ install-package mycouch.cloudant
 -   [CRUD ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}。
 
 ## Java
-{: #java}
+{: #java-thirdparty}
 
 ### 不支持的 Java 库
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-thirdparty}
 
 -   [ektorp ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}。
 -   [jcouchdb ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://code.google.com/p/jcouchdb/){: new_window}。
@@ -73,7 +73,7 @@ install-package mycouch.cloudant
 ### JavaScript 的库和框架
 {: #libraries-and-frameworks-for-javascript}
 
--   [Backbone.cloudant ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}。有关更多信息，请参阅[博客帖子 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/blog/backbone-and-cloudant/){: new_window}。
+-   [Backbone.cloudant ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}。
 -   [sag.js ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/sbisbee/sag-js){: new_window}。
 
 ### JavaScript 的示例和教程
@@ -109,7 +109,7 @@ PouchDB 也可与 Bower 一起安装：`bower install pouchdb`。
 -   [locationtracker ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://github.com/rajrsingh/locationtracker){: new_window} - 使用 PouchDB、CouchApp 和 {{site.data.keyword.cloudant_short_notm}} 记录并映射位置的示例应用程序。
 
 ## Node.js
-{: #node-js}
+{: #node-js-thirdparty}
 
 ### 不支持的 Node.js 库和框架
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
@@ -202,4 +202,4 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {: codeblock}
 
-有关 meteor-couchdb API 的更多信息，请参阅 [API 参考](/docs/services/Cloudant/api/index.html#api-reference-overview)。 
+有关 meteor-couchdb API 的更多信息，请参阅 [API 参考](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)。 

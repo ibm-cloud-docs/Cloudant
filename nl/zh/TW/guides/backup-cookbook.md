@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -32,7 +32,7 @@ subcollection: cloudant
 ## 簡介 CouchBackup
 {: #introducing-couchbackup}
 
-{{site.data.keyword.cloudant_short_notm}} 提供支援的工具，進行 Snapshot 備份及還原。此工具稱為 CouchBackup 且為開放程式碼。它是 `node.js` 程式庫，而且[可以安裝在 npm ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")][npmpackage]{: new_window} 上。
+{{site.data.keyword.cloudant_short_notm}} 提供支援的工具，進行 Snapshot 備份及還原。此工具稱為 CouchBackup 且為開放程式碼。這是一個 `node.js` 程式庫，可以將其安裝在 [npm ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")][npmpackage]{: new_window} 上。
 
 除了程式庫之外，CouchBackup 套件還包含兩個指令行工具：
 
@@ -104,7 +104,7 @@ CouchBackup package 提供兩種使用其核心功能的方式。
 * 指令行工具可以內嵌於標準 UNIX 指令管線中。對於許多實務範例而言，`cron` 與 `couchbackup` 應用程式的簡單 Shell Script 的組合已足夠。
 * 可從 node.js 使用的程式庫。此程式庫容許建立及部署更複雜的備份處理程序，例如，動態決定必須備份哪些資料庫。
 
-使用指令行備份工具或將程式庫與應用程式碼搭配，以在更複雜的狀況中啟用 {{site.data.keyword.cloudant_short_notm}} 資料庫中的備份。有一個實用的情境就是使用 `cron` 排定備份，並自動上傳資料至 [Cloud Object Storage ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window}，以長期保留。
+使用指令行備份工具或將程式庫與應用程式碼搭配，以在更複雜的狀況中啟用 {{site.data.keyword.cloudant_short_notm}} 資料庫中的備份。有一個實用的情境就是使用 `cron` 排定備份，並自動上傳資料至 [Cloud Object Storage ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window}，以長期保留。
 
 ## 指令行 Script 範例
 {: #command-line-scripting-examples}
@@ -181,7 +181,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 
 下列 Script 範例顯示如何使用 {{site.data.keyword.IBM}} Cloud Object Storage 來結合 `couchbackup` 程式庫。此程式碼說明您如何使用「跨地區 S3 API」，將資料庫備份至物件儲存庫。
 
-程式碼的必要條件為起始設定 {{site.data.keyword.IBM_notm}} Cloud Object Storage 的 S3 用戶端物件，方法為遵循[這些指示 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")][cosclient]{: new_window}。
+此程式碼的先決條件是透過遵循 [{{site.data.keyword.cloud_notm}} Object Storage - S3 API 簡介 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")][cosclient]{: new_window} 中的指示資訊，起始設定 {{site.data.keyword.IBM_notm}} Cloud Object Storage 的 S3 用戶端物件。
 {: note}
 
 ```javascript

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -192,9 +192,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 A configuração de _Q_ para bancos de dados não está ativada para bancos de dados do {{site.data.keyword.cloudant_short_notm}} no {{site.data.keyword.cloud}}. O valor _Q_ não está disponível na maioria dos clusters `cloudant.com` de diversos locatários.
 {: note}
 
-Se você tentar configurar o valor _Q_ onde ele não está disponível,
-o resultado será uma [resposta `403`](/docs/services/Cloudant/api/http.html#http-status-codes) com um corpo JSON
-semelhante ao exemplo a seguir:
+Se você tentar configurar o valor _Q_ onde ele não está disponível, o resultado será uma [resposta`403`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) com um corpo JSON semelhante ao exemplo a seguir:
 
 ```json
 {
@@ -241,7 +239,7 @@ porque o coordenador pode retornar uma resposta mais rapidamente.
 O motivo é que o coordenador deve aguardar apenas uma única resposta
 de qualquer uma das réplicas que hospedam o shard apropriado.
 
-Se você reduzir o valor _R_, ele aumentará a probabilidade de que a resposta que é retornada não seja baseada nos dados mais atualizados por causa do modelo de [consistência eventual](/docs/services/Cloudant/guides/cap_theorem.html)usado pelo {{site.data.keyword.cloudant_short_notm}}. Usar o valor _R_ padrão ajuda a minimizar esse efeito.
+Se você reduzir o valor _R_, ele aumentará a probabilidade de que a resposta que é retornada não seja baseada nos dados mais atualizados por causa do modelo de [consistência eventual](/docs/services/Cloudant?topic=cloudant-cap-theorem)usado pelo {{site.data.keyword.cloudant_short_notm}}. Usar o valor _R_ padrão ajuda a minimizar esse efeito.
 {: note}
 
 O valor padrão para _R_ é _2_.

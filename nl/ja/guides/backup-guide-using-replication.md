@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -43,7 +43,8 @@ subcollection: cloudant
 ## 増分バックアップ
 {: #incremental-backups}
 
-企業のお客様の場合、毎日の増分バックアップ機能を[使用できます](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)。
+企業のお客様の場合、
+毎日の増分バックアップ機能を使用できます。 詳しくは、[災害復旧とバックアップ](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)を参照してください。
 
 企業のお客様でない場合、または独自のバックアップを作成することを希望するお客様の場合は、{{site.data.keyword.cloudant_short_notm}} の複製機能を使用してデータベース・バックアップを作成することができます。
 

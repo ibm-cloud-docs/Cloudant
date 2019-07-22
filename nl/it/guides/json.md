@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: numbers, strings, booleans, arrays, objects
 
@@ -36,7 +36,7 @@ inclusi tutti i documenti contenuti in un database.
 
 L'analisi del JSON in un oggetto JavaScript è supportata attraverso la funzione `JSON.parse()` in JavaScript
 o attraverso varie [librerie](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries)
-che eseguono per te l'analisi del contenuto in un oggetto JavaScript. Le librerie per l'analisi e la generazione di JSON sono disponibili per molti linguaggi di programmazione principali. 
+che eseguono per te l'analisi del contenuto in un oggetto JavaScript. Le librerie per l'analisi e la generazione di JSON sono disponibili per molti linguaggi di programmazione principali.
 
 JSON viene utilizzato perché è la soluzione più semplice e più facile per lavorare con i dati utilizzando un browser Web.
 Ciò è dovuto al fatto che le strutture JSON possono essere valutate e utilizzate come oggetti JavaScript all'interno dell'ambiente del browser web.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -30,8 +30,8 @@ con documenti, creare un indice e utilizzare l'indice per eseguire la query del 
 {: shortdesc}
 
 Vengono forniti esercizi sia per la ![Icona Riga di comando](../images/CommandLineIcon.png) _Riga di comando_
-che per il ![Icona Dashboard](../images/DashboardIcon.png) _{{site.data.keyword.cloud}} Dashboard_. Gli
- esercizi per il dashboard {{site.data.keyword.cloud_notm}} ti forniscono un esempio visivo di ogni attività. Puoi seguire i link
+che per il ![Icona Dashboard](../images/DashboardIcon.png) _Dashboard {{site.data.keyword.cloud}}_. Gli
+esercizi per il dashboard {{site.data.keyword.cloud_notm}} ti forniscono un esempio visivo di ogni attività. Puoi seguire i link
 nell'esercitazione per ulteriori informazioni.
 
 Per iniziare, crea il database `query-demo` e alcuni documenti che contengono
@@ -61,7 +61,7 @@ Prima di cominciare, segui queste istruzioni per preparare l'esercitazione:
 In questa sezione, crea `query-demo` [database](/docs/services/Cloudant?topic=cloudant-databases#create-database) che è il
 database che utilizziamo in questa esercitazione.
 
-In questa esercitazione, utilizziamo l'alias `acurl` invece del comando `curl`. L'alias `acurl` viene creato utilizzando i passi descritti [qui](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). Se preferisci utilizzare il comando `curl`
+In questa esercitazione, utilizziamo l'alias `acurl` invece del comando `curl`. L'alias `acurl` viene creato utilizzando la procedura illustrata in [Curl autorizzato: `acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). Se preferisci utilizzare il comando `curl`
   o un altro metodo per richiamare gli endpoint API,
   sostituisci il tuo comando nell'esercitazione,
   insieme ai parametri richiesti dal tuo comando,
@@ -269,7 +269,7 @@ la serie di risultati. Un indice è un modo di strutturare i dati che migliorano
 
 In questa esercitazione, utilizziamo {{site.data.keyword.cloudant_short_notm}} Query che utilizza la sintassi di query di stile Mongo per ricercare i documenti utilizzando gli operatori logici. La query {{site.data.keyword.cloudant_short_notm}} è una combinazione di una vista e un indice di ricerca.
 
-Quando utilizzi {{site.data.keyword.cloudant_short_notm}} Query, il programma di pianificazione query esamina il selettore (la tua query) per determinare l'indice corretto da cui scegliere. Se non trova un indice adatto, utilizza l'indice speciale `_all_docs` che ricerca i documenti in base all'ID. Nello scenario peggiore, restituisce tutti i documenti per ID (scansione completa della tabella). Nella memoria, filtriamo i documenti in base al selettore, che è il motivo per cui, anche senza un indice, puoi ancora eseguire la query con vari campi. Le scansioni complete della tabella sono costose e ti consigliamo di creare un indice. Vedi una descrizione dei diversi tipi di indici nel seguente elenco: 
+Quando utilizzi {{site.data.keyword.cloudant_short_notm}} Query, il programma di pianificazione di query esamina il selettore (la tua query) per determinare l'indice corretto tra cui scegliere. Se non trova un indice adatto, utilizza l'indice speciale `_all_docs` che ricerca i documenti in base all'ID. Nello scenario peggiore, restituisce tutti i documenti per ID (scansione completa della tabella). Nella memoria, filtriamo i documenti in base al selettore, che è il motivo per cui, anche senza un indice, puoi ancora eseguire la query con vari campi. Le scansioni complete della tabella sono costose e ti consigliamo di creare un indice. Vedi una descrizione dei diversi tipi di indici nel seguente elenco:
 
 *	Indice primario - ricerca un documento o un elenco di documenti per ID.  
 *	[Vista](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) – ricerca le informazioni nel database che corrispondono ai criteri di ricerca che hai specificato, come conteggi, somme, medie e altre funzioni matematiche. I criteri che puoi ricercare sono specificati nella definizione della vista. Le viste utilizzano il paradigma MapReduce.

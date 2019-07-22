@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Privacidade de dados e controle
+# Privacidade de dados e governança
 {: #data-privacy-and-governance}
 
 _(Esta Atualização de privacidade de dados e controle do {{site.data.keyword.cloudantfull}} foi publicada originalmente em 20 de abril de 2016.)_
@@ -65,8 +65,7 @@ para entregar e suportar um Serviço de nuvem,
 está disponível em:
 [www.ibm.com/cloud/datacenters ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/cloud/datacenters){: new_window}.
 
-Mais informações sobre as conformidades padrão gerais do {{site.data.keyword.cloudant_short_notm}} podem ser localizadas
-[aqui](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
+Para obter mais informações sobre os padrões gerais do {{site.data.keyword.cloudant_short_notm}} para conformidade, consulte [Conformidade](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
 Informações semelhantes podem ser localizadas para estes parceiros de negócios IaaS:
 
 -   [Amazon ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://aws.amazon.com/compliance/){: new_window}

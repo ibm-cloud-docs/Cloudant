@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 {: #security}
 
 
-## {{site.data.keyword.cloudant_short_notm}} DBaaS 資料保護及安全
+## {{site.data.keyword.cloudant_short_notm}} DBaaS 資料保護和安全
 {: #ibm-cloudant-dbaas-data-protection-and-security}
 
 保護大規模 Web 及行動應用程式的應用程式資料可能十分複雜，特別是分散式及 NoSQL 資料庫。
@@ -34,7 +34,7 @@ subcollection: cloudant
 {{site.data.keyword.cloudantfull}} 不僅能減少維護資料庫的工作，讓資料庫持續不間斷地執行及成長，它也確保您的資料始終安全且受保護。
 {: shortdesc}
 
-## 最上層實體平台
+## 頂層實體平台
 {: #top-tier-physical-platforms}
 
 {{site.data.keyword.cloudant_short_notm}} DBaaS 實體在第 1 層雲端基礎架構提供者（例如 {{site.data.keyword.cloud}} 及 Amazon）進行管理。因此，您的資料是受到這些提供者所使用的網路及實體安全措施所保護，包括（但不限於）：
@@ -55,8 +55,8 @@ subcollection: cloudant
 
 特性 | 說明
 --------|------------
-鑑別| {{site.data.keyword.cloudant_short_notm}} 是使用 HTTPS API 進行存取。當 API 端點需要時，會針對 {{site.data.keyword.cloudant_short_notm}} 收到的每個 HTTPS 要求鑑別使用者。 {{site.data.keyword.cloudant_short_notm}} 同時支援 Legacy 及 IAM 存取控制。如需相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}或舊式[鑑別 API 文件](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}。
-授權| {{site.data.keyword.cloudant_short_notm}} 同時支援 Legacy 及 IAM 存取控制。{{site.data.keyword.cloudant_short_notm}} 團隊建議您儘可能使用 IAM 存取控制進行鑑別。如果您是使用 {{site.data.keyword.cloudant_short_notm}} 舊式鑑別，建議您使用 [API 金鑰](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}，而非帳戶層次認證，進行程式化存取及抄寫工作。如需相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}或舊式[授權 API 文件](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}及舊式[授權 API 文件](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}。
+鑑別| {{site.data.keyword.cloudant_short_notm}} 是使用 HTTPS API 進行存取。當 API 端點需要時，會針對 {{site.data.keyword.cloudant_short_notm}} 收到的每個 HTTPS 要求鑑別使用者。 {{site.data.keyword.cloudant_short_notm}} 同時支援舊式及 IAM 存取控制。如需相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}或舊式[鑑別 API 文件](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}。
+授權| {{site.data.keyword.cloudant_short_notm}} 同時支援舊式及 IAM 存取控制。{{site.data.keyword.cloudant_short_notm}} 團隊建議您儘可能使用 IAM 存取控制進行鑑別。如果您是使用 {{site.data.keyword.cloudant_short_notm}} 舊式鑑別，建議您使用 [API 金鑰](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}，而非帳戶層次認證，進行程式化存取及抄寫工作。如需相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}或舊式[授權 API 文件](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}及舊式[授權 API 文件](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}。
 靜態加密 | 靜態加密 {{site.data.keyword.cloudant_short_notm}} 實例中所儲存的所有資料。如果您需要「自帶金鑰 (BYOK)」來進行靜態加密，則會使用 {{site.data.keyword.cloud_notm}} Key Protect 予以啟用。針對所有地區中部署的新「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例，{{site.data.keyword.cloudant_short_notm}} 會支援此特性。首先，使用 {{site.data.keyword.cloud_notm}} 型錄來建立「專用硬體方案」的實例。然後，提交支援問題單。我們的支援團隊會協調取得新「專用硬體」實例的「靜態加密」加密金鑰，而這些加密金鑰由 Key Protect 實例所管理。
 「進行中」加密 | 使用 HTTPS 加密對 {{site.data.keyword.cloudant_short_notm}} 的所有存取。
 TLS | 我們建議您對 {{site.data.keyword.cloudant_short_notm}} 的所有存取使用 TLS 1.2 或 1.3。（***在 2019 年 6 月，{{site.data.keyword.cloudant_short_notm}} 支援即會棄用較舊版本（TLS 1.0 與 1.1），到時候只會支援 TLS 1.2+。***）{{site.data.keyword.cloudant_short_notm}} 用於 HTTPS 連線的憑證是由具公信力的「憑證管理中心」所簽署，而此「憑證管理中心」已預先得到所有瀏覽器、作業系統及其他軟體系統（像是「Java 開發套件 (JDK)」）的信任。我們承諾一律發佈由具公信力的「憑證管理中心」所簽署的有效（未過期）TLS 憑證。不過，我們無法與客戶協調變更，而且我們不承諾繼續使用 DigiCert。若要確保能繼續存取 {{site.data.keyword.cloudant_short_notm}} 服務，非常不鼓勵客戶固定使用現行憑證，因為在遭盜用的情況下，它可能過期並提示您替換。我們反而建議客戶對其作業系統及瀏覽器使用預設憑證組合，確保可以透過任何憑證變更來繼續提供安全服務。
@@ -86,7 +86,7 @@ CORS | 使用「{{site.data.keyword.cloudant_short_notm}} 儀表板」或 API，
 > appropriate for {{site.data.keyword.cloudant_short_notm}} to store your data.
 -->
 
-## 防止資料流失或毀損
+## 防止資料流失或損壞
 {: #protection-against-data-loss-or-corruption}
 
 {{site.data.keyword.cloudant_short_notm}} 具有數個特性，可協助您維護資料品質及可用性：

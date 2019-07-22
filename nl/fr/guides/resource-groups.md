@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -30,7 +30,7 @@ Depuis le 16 juillet 2018, les nouvelles instances de ressources {{site.data.key
 ## Comment puis-je faire migrer une instance existante vers un groupe de ressources ?
 {: #how-do-i-migrate-an-existing-instance-to-a-resource-group-}
 
-Pour faire migrer une instance {{site.data.keyword.cloudant_short_notm}} d'un espace Cloud Foundry à un groupe de ressources, reportez-vous à la section [Migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
+Pour faire migrer une instance {{site.data.keyword.cloudant_short_notm}} d'un espace Cloud Foundry à un groupe de ressources, reportez-vous à la section [Migration d'applications et d'instances de service Cloud Foundry dans un groupe de ressources![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}. 
 
 Vous pouvez faire migrer des instances {{site.data.keyword.cloudant_short_notm}} sur les plans suivants :
 
@@ -44,7 +44,7 @@ Vous pouvez faire migrer des instances {{site.data.keyword.cloudant_short_notm}}
 Le processus de migration n'entraîne aucun temps d'arrêt.
 
 ## Pourquoi certaines instances ont-elles une organisation et un espace et d'autres pas ?
-{: #why-do-some-instances-have-an-organisation-and-space-and-others-do-not-}
+{: #why-do-some-instances-have-an-organization-and-space-and-others-do-not-}
 
 Depuis le 16 juillet 2018, les nouvelles instances sont mises à disposition par groupes de ressources, et non par espaces Cloud Foundry. Les instances de ressources mises à disposition avant cette date ont une organisation et un espace Cloud Foundry associés. Les instances mises à disposition après cette date sont associées à un groupe de ressources à la place.
 
@@ -53,7 +53,7 @@ Depuis le 16 juillet 2018, les nouvelles instances sont mises à disposition par
 
 Les nouvelles instances du plan Standard sont mises à disposition en groupes de ressources. Afin de mettre à disposition ces instances sur une instance Dedicated Hardware, l'instance Dedicated Hardware doit d'abord être migrée vers un groupe de ressources.
 
-Pour en savoir plus sur la façon de procéder, voir [Migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
+Pour en savoir plus sur la façon de procéder, voir [Migration d'applications et d'instances de service Cloud Foundry dans un groupe de ressources ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}. 
 
 Une fois que l'instance Dedicated Hardware été migrée vers un groupe de ressources, elle apparaît dans le menu déroulant Emplacement lors de la mise à disposition des plans Standard.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -41,7 +41,7 @@ non bloccante più veloce.
     sfaccettatura e query ad hoc complesse
 
 Gli [indici di ricerca](/docs/services/Cloudant?topic=cloudant-search#search) e le [viste MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) di {{site.data.keyword.cloudant_short_notm}}
-vengono configurati aggiungendo documenti di progettazione a un database.
+vengono configurati aggiungendo i documenti di progettazione a un database.
 I documenti di progettazione sono documenti JSON che contengono istruzioni su come costruire la vista o l'indice.
 Facciamo un semplice esempio.
 Supponiamo di avere una semplice raccolta di documenti di dati,
@@ -107,7 +107,7 @@ _Documento di progettazione di esempio che definisce una vista utilizzando una f
 ```
 {: codeblock}
 
-Il risultato è che il nostro codice della mappa è stato restituito in una stringa compatibile con JSON
+Il risultato è che il nostro codice della mappa è stato convertito in una stringa compatibile con JSON
 e incluso in un documento di progettazione.
 
 Una volta salvato il documento di progettazione,
@@ -158,7 +158,7 @@ Questo comportamento non si applica a indici di ricerca Lucene. Questi possono e
     senza invalidare altri indici non modificati nello stesso documento.
 {: note}
 
-![Illustrazione della modifica alla versione del documento di progettazione](../images/DesDocMan02.png)
+![Illustrazione della modifica della versione del documento di progettazione](../images/DesDocMan02.png)
 
 ## Gestione delle modifiche a un documento di progettazione
 {: #managing-changes-to-a-design-document}
@@ -261,7 +261,7 @@ La procedura per passare alla nuova vista è la seguente:
 6.  Elimina il documento di progettazione `_design/fetch_NEW`.
 7.  Elimina il documento di progettazione `_design/fetch_OLD`.
 
-## Strumenti per lo spostamento e il passaggio
+## Strumenti per lo 'spostamento e passaggio'
 {: #move-and-switch-tooling}
 
 Esiste uno script Node.js della riga di comando che automatizza la procedura di 'sposta e passa'

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -98,10 +98,12 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 1.	하나의 지역 내에서만 보호를 제공합니다.
 2.	현재 데이터를 유지보수합니다.
 
-계정과 연관된 하나의 지역보다 많은 지역을 이용하여 보호를 제공하려면 [재해 복구를 위한 교차 지역 중복성](#cross-region-redundancy-for-disaster-recovery)을 사용하십시오.
+계정과 연관된 하나의 지역보다 많은 지역을 이용하여 보호를 제공하려면
+[재해 복구를 위한 교차 지역 중복성](#cross-region-redundancy-for-disaster-recovery)을 사용하십시오. 
 
-애플리케이션에 의해 데이터에 가해진 변경사항을 감사할 수 있도록 하는 등과 같이 데이터의 '히스토리'에 대한 보호를 제공하려면
-[데이터베이스 백업 및 복구](#database-backup-and-recovery) 도구에 의해 작성된 데이터 스냅샷을 사용하십시오.
+애플리케이션에 의해 데이터에 수행된 변경을
+감사할 수 있도록 하는 등과 같이 데이터의 '히스토리'에 대한 보호를 제공하려면
+[데이터베이스 백업 및 복구](#database-backup-and-recovery) 도구에 의해 작성된 데이터 스냅샷을 사용하십시오. 
 
 간단히 말해, 지역 내 데이터 중복성은 지역 내의 한 시스템에 영향을 주는 장애에 대한 내성을 제공하여 고가용성 기능을 가능하게 합니다.
 
@@ -118,7 +120,7 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 2.  필요에 따라 각 지역에 데이터베이스를 작성하십시오.
 3.  교차 지역 중복성을 사용하여 저장해야 하는 데이터베이스의 경우에는 각 계정의 해당 데이터베이스 간에 양방향 연속 복제를 설정하십시오.
 4.  환경이 활성-수동인지 또는 활성-활성 구성인지에 따라 데이터 요청이 라우팅되도록 애플리케이션을 디자인하고 구현하십시오.
-  이를 설정하는 데 대한 자세한 안내서는 [여기](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)에 있습니다.
+  이를 설정하는 데 대한 자세한 정보는 [교차 지역 재해 복구를 위한 {{site.data.keyword.cloudant_short_notm}} 구성](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)을 참조하십시오. 
 
 여러 지역에서 데이터에 대해 작업하도록 애플리케이션을 디자인할 때는 다음 항목을 고려하십시오.
 
@@ -196,6 +198,7 @@ HA 또는 DR 요구사항의 해결은 보통 문제점을 좀 더 일반적인 
 *	비용 효율적인 보존을 위해 더 저렴한 스토리지로 이전 데이터를 마이그레이션합니다.
 
 백업 도구는 오픈 소스 node.js 명령행 애플리케이션 및 라이브러리로 구성되어 있습니다.
-이는 [NPM ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}에 있습니다.
+이는 [NPM ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}에 있습니다. 
 
-도구를 데이터 보호 전략에 통합하는 방법에 대한 아이디어와 이를 보여주는 예는 [백업 쿡북 안내서](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)를 참조하십시오.
+도구를 데이터 보호 전략에 통합하는 방법에 대한 아이디어와 이를 보여주는 예는
+[{{site.data.keyword.cloudant_short_notm}} 백업 및 복구 안내서](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)를 참조하십시오. 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Backup e ripristino di {{site.data.keyword.cloudant_short_notm}}
+# Backup e ripristino {{site.data.keyword.cloudant_short_notm}}
 {: #ibm-cloudant-backup-and-recovery}
 
 Questo cookbook fa parte della [guida al ripristino di emergenza di {{site.data.keyword.cloudantfull}}](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
@@ -41,8 +41,8 @@ l'archiviazione ridondante dei dati non protegge dagli errori che insorgono quan
 {{site.data.keyword.cloudant_short_notm}} fornisce uno strumento supportato per il backup e il ripristino di istantanee.
 Lo strumento si chiama CouchBackup
 ed è open source.
-È costituito da una libreria `node.js`
-ed è [disponibile per l'installazione su npm ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")][npmpackage]{: new_window}.
+Si tratta di una libreria `node.js`
+che puoi installare su [npm ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")][npmpackage]{: new_window}.
 
 Oltre alla libreria,
 il pacchetto CouchBackup contiene due strumenti della riga di comando:
@@ -146,7 +146,7 @@ o la libreria con il codice applicativo
 per abilitare il backup dai database {{site.data.keyword.cloudant_short_notm}} come parte di situazioni più complicate,
 Uno scenario utile è la pianificazione dei backup utilizzando `cron`
 e il caricamento automatico dei dati in
-[Cloud Object Storage ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window}
+[Cloud Object Storage ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window}
 per la conservazione a lungo termine.
 
 ## Esempi di script di riga comandi
@@ -156,7 +156,7 @@ Vengono rilevati spesso due requisiti:
 
 * Salvataggio dello spazio su disco,
   ['comprimendo' il file di backup](#compressing-a-backup-file) non appena viene creato.
-* Creazione automatica di un backup di un database, [a intervalli regolari](#hourly-or-daily-backups-that-use-cron-).
+* Creazione automatica di un backup di un database, a [intervalli regolari](#hourly-or-daily-backups-that-use-cron-).
 
 ### Compressione di un file di backup
 {: #compressing-a-backup-file}
@@ -253,8 +253,7 @@ Il seguente esempio di script mostra come combinare la libreria `couchbackup`
 con l'utilizzo di {{site.data.keyword.IBM}} Cloud Object Storage.
 Questo codice illustra come utilizzare l'API S3 in più regioni per eseguire il backup di un database in un archivio oggetti:
 
-Un prerequisito per il codice è quello di inizializzare l'oggetto client S3 per {{site.data.keyword.IBM_notm}} Cloud Object Storage seguendo
-[queste istruzioni ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")][cosclient]{: new_window}.
+Un prerequisito per il codice è quello di inizializzare l'oggetto client S3 per {{site.data.keyword.IBM_notm}} Cloud Object Storage seguendo le istruzioni in [{{site.data.keyword.cloud_notm}} Object Storage - S3 API Intro ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")][cosclient]{: new_window}.
 {: note}
 
 ```javascript

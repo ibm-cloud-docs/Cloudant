@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-06-12"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -71,7 +71,7 @@ Como você estima o custo total para a capacidade de rendimento fornecida por m�
 - Como alternativa, a régua de controle mostra que a capacidade de rendimento fornecida de 1000 leituras/s, 500 gravações/s e 50 consultas globais/s custa US$ 1,050/hora \* 730 horas
 - Total = $ 766,50
 
-## Precificação de uso de dados
+## Precificação do uso de dados
 {: #data-usage-pricing}
 
 E a precificação para excedente de dados, como funciona?

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -23,13 +23,13 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # Cinque suggerimenti per modellare i tuoi dati in scala
-{: #five-tips-for-modelling-your-data-to-scale}
+{: #five-tips-for-modeling-your-data-to-scale}
 
 Questo articolo considera i punti più importanti
-per la modellazione dei tuoi dati applicativi per lavorare in modo efficace su una larga scala.
+per la modellazione dei dati della tua applicazione per lavorare in modo efficiente su larga scala.
 {: shortdesc}
 
-*(Questa guida si basa su un articolo del blog di Mike Rhodes: ["My top 5 tips for modelling your data to scale" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/), originariamente pubblicato il 17 dicembre 2013.)*
+*(Questa guida si basa su un articolo del blog di Mike Rhodes: ["My top 5 tips for modeling your data to scale" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/), originariamente pubblicato il 17 dicembre 2013.)*
 
 Il modo in cui modelli i tuoi dati in {{site.data.keyword.cloudantfull}} influirà in modo significativo sul modo in cui la tua applicazione è in
 grado di eseguire il ridimensionamento. Il nostro modello di dati sottostante differisce sostanzialmente da un modello relazionale
@@ -72,7 +72,7 @@ aggiornamento e che un altro sottoinsieme accetti il secondo aggiornamento. Quan
 discrepanza, combinerà i documenti nello stesso modo in cui lo fa la replica normale per gli
 aggiornamenti simultanei creando un conflitto.
 
-I documenti in conflitto riducono le prestazioni; vedi di seguito per maggiori dettagli sul motivo per cui questo accade. 
+I documenti in conflitto riducono le prestazioni; vedi il seguente testo per maggiori dettagli sul motivo per cui questo accade.
 Un modello di aggiornamento sul posto estremamente simultaneo aumenta anche la probabilità che le scritture
 vengano rifiutate perché il parametro `_rev` non è quello previsto, il che forzerà la tua
 applicazione a ritentare e quindi a ritardare l'elaborazione.
@@ -167,7 +167,7 @@ Ad esempio, prendi un record medico che contiene un elenco di operazioni:
 {: codeblock}
 
 Se Joe è abbastanza sfortunato da avere un sacco di operazioni contemporaneamente, i molti
-aggiornamenti simultanei a un documento possono creare documenti in conflitto, come descritto in precedenza. 
+aggiornamenti simultanei a un documento possono creare documenti in conflitto, come descritto in precedenza.
 È meglio suddividere le operazioni in documenti separati che fanno riferimento al documento personale di Joe
 e utilizzare una vista per connettere insieme le cose. Per rappresentare ogni operazione, devi caricare i documenti come
 nei due seguenti esempi:
@@ -219,13 +219,13 @@ un uso intensivo della memoria per percorrere la struttura ad albero dei documen
 ## Integra la risoluzione dei conflitti
 {: #build-in-conflict-resolution}
 
-In un sistema con consistenza eventuale come {{site.data.keyword.cloudant_short_notm}}, i conflitti alla fine accadono. Come descritto
-in precedenza, questo è il prezzo della scalabilità e della resilienza dei dati.
+In un sistema con consistenza eventuale come {{site.data.keyword.cloudant_short_notm}}, i conflitti alla fine accadono. Come
+descritto in precedenza, questo è il prezzo della scalabilità e della resilienza dei dati.
 
 Strutturare i dati in modo tale che la risoluzione dei conflitti sia rapida e non richieda
 l'assistenza di un operare aiuterà a mantenere funzionanti i database. La capacità di
 risolvere automaticamente i conflitti senza la necessità di coinvolgere i tuoi utenti migliorerà
-significativamente la loro esperienza e, si spera, ridurrà l'onere di supporto dell'organizzazione.
+significativamente la loro esperienza e, si spera, ridurrà l'onere di supporto per la tua organizzazione.
 
 Questa operazione è molto specifica dell'applicazione, ma ecco alcuni suggerimenti:
 
@@ -253,6 +253,6 @@ sia da tenere d'occhio sia da sfruttare, per assicurare che le prestazioni del d
 cresce. Comprendiamo che il cambiamento può essere confuso, quindi siamo sempre a disposizione per dare consigli.
 
 Per ulteriori letture, consulta questa discussione sul
-["modello di dati per Foundbite" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}
-o questo ["esempio dai nostri amici in Twilio" ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
+[modello di dati per Foundbite ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}
+o questo [esempio dai nostri amici di Twilio ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
 

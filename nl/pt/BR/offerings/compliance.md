@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-12"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -29,7 +29,7 @@ O {{site.data.keyword.cloudantfull}} fornece um sistema de banco de dados em nuv
 O serviço baseia-se nos melhores padrões de mercado,
 incluindo a ISO 27001:2013.
 
-## Sistemas físicos da camada superior
+## Sistemas físicos de camada superior
 {: #top-tier-physical-systems}
 
 O {{site.data.keyword.cloudant_short_notm}} DBaaS é
@@ -52,7 +52,7 @@ e ao plano {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware no {{sit
 ## Organização internacional para normatização (ISO)
 {: #international-organization-for-standardization-iso-}
 
-O {{site.data.keyword.cloudant_short_notm}} e o {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster são auditados por uma empresa de segurança de terceiro e atendem os requisitos do ISO 27001, ISO 27017 e ISO 27018. Para obter mais informações, consulte a [{{site.data.keyword.cloudant_short_notm}} Página de conformidade]( https://www.ibm.com/cloud/compliance) para obter links para os certificados. As descrições a seguir na página de Conformidade do {{site.data.keyword.cloudant_short_notm}} abrangem o serviço do {{site.data.keyword.cloudant_short_notm}} e as respectivas certificações:
+O {{site.data.keyword.cloudant_short_notm}} e o {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster são auditados por uma empresa de segurança de terceiro e atendem os requisitos do ISO 27001, ISO 27017 e ISO 27018. Para obter mais informações, consulte a [página de conformidade do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")]( https://www.ibm.com/cloud/compliance){: new_window} para obter links para os certificados. As descrições a seguir na página de Conformidade do {{site.data.keyword.cloudant_short_notm}} abrangem o serviço do {{site.data.keyword.cloudant_short_notm}} e as respectivas certificações:
  
 - Listagem de produtos de nuvem certificados de Serviços {{site.data.keyword.cloud_notm}} (PaaS e SaaS)
 - Certificado de Serviços {{site.data.keyword.cloud_notm}} (PaaS e SaaS) - ISO 27001
@@ -80,4 +80,4 @@ ou pelo e-mail
 
 O GDPR busca criar uma estrutura de lei de proteção de dados harmonizados
 em toda a União Europeia e pretende devolver aos cidadãos o controle de seus dados pessoais, enquanto
-impõe regras rígidas sobre aqueles que hospedam e ‘processam’ esses dados, em qualquer lugar no mundo. A regulamentação também introduz regras relativas à livre circulação de dados pessoais dentro e fora da UE. Para obter mais informações, consulte a Declaração de privacidade da [{{site.data.keyword.IBM_notm}}](https://www.ibm.com/privacy/).
+impõe regras rígidas sobre aqueles que hospedam e ‘processam’ esses dados, em qualquer lugar no mundo. A regulamentação também introduz regras relativas à livre circulação de dados pessoais dentro e fora da UE. Para obter mais informações, consulte a [declaração de privacidade do {{site.data.keyword.IBM_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/privacy/){: new_window}.

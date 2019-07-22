@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -29,7 +29,7 @@ subcollection: cloudant
 {: shortdesc}
 
 ## 先决条件
-{: prerequisites}
+{: #prerequisites-create_database}
 
 在开始学习本教程之前，请确保以下资源或信息已准备就绪。
 
@@ -86,7 +86,7 @@ cloudant==2.3.1
 `port`     |用于访问主机上服务实例的 HTTP 端口号。通常为 443，可强制执行 HTTPS 访问。
 `url`      |将其他凭证信息聚集到单个 URL 中（使其适合应用程序使用）的字符串。
 
-[此处](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)提供了有关查找服务实例的服务凭证的信息。
+有关查找服务实例的服务凭证的更多信息，请参阅[查找服务凭证](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)。
 
 ## 上下文
 {: #context}

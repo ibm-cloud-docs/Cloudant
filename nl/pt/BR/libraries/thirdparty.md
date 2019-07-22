@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -58,10 +58,10 @@ install-package mycouch.cloudant
 -   [CRUD ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}.
 
 ## Componente
-{: #java}
+{: #java-thirdparty}
 
 ### Bibliotecas não suportadas para Java
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-thirdparty}
 
 -   [ektorp ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
 -   [jcouchdb ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://code.google.com/p/jcouchdb/){: new_window}.
@@ -75,7 +75,6 @@ install-package mycouch.cloudant
 {: #libraries-and-frameworks-for-javascript}
 
 -   [Backbone.cloudant ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}.
-    Veja a [postagem do blog ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloudant.com/blog/backbone-and-cloudant/){: new_window} para obter mais informações.
 -   [sag.js ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/sbisbee/sag-js){: new_window}.
 
 ### Exemplos e tutoriais para JavaScript
@@ -124,9 +123,9 @@ com sincronização off-line.
     e {{site.data.keyword.cloudant_short_notm}}.
 
 ## Node.js
-{: #node-js}
+{: #node-js-thirdparty}
 
-### Bibliotecas e estruturas não suportadas para node.js
+### Bibliotecas e estruturas não suportadas para o Node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
 -   [sag-js ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://github.com/sbisbee/sag-js){: new_window}, que também funciona no navegador.
@@ -171,7 +170,7 @@ require_once('./src/Sag.php');
 ### Bibliotecas e estruturas não suportadas para Python
 {: #unsupported-libraries-and-frameworks-for-python}
 
--   [solicita ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://docs.python-requests.org/en/master/){: new_window}.
+-   [Solicitações ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://docs.python-requests.org/en/master/){: new_window}.
 
 ## Ruby
 {: #ruby}
@@ -230,4 +229,4 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {: codeblock}
 
-Para obter mais informações sobre as APIs de meteor-couchdb, consulte a [Referência de API](/docs/services/Cloudant/api/index.html#api-reference-overview). 
+Para obter mais informações sobre as APIs de meteor-couchdb, consulte a [Referência de API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview). 

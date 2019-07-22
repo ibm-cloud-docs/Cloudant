@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -41,8 +41,8 @@ funcionem com o banco de dados.
 você será apresentado ao painel do {{site.data.keyword.cloud_notm}}. Clique no botão `Criar Recurso`. <br/>
    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
-2.  Clique em `Bancos de dados`a partir da navegação esquerda e `Cloudant`na lista de serviços de banco de dados:<br/>
-   ![{{site.data.keyword.cloud_notm}} Databases services](images/img0003.png)<br/>
+2.  Clique em `Bancos de dados` no menu e em `Cloudant` na lista de serviços de banco de dados:<br/>
+    ![Serviço de banco de dados do {{site.data.keyword.cloud_notm}}](images/img0003.png)<br/>
 
 3.  Na janela de configuração de serviço,
 insira um nome de serviço. Verifique se o nome do serviço, a região/localização, o grupo de recursos e os métodos de autenticação estão corretos. Inclua uma tag se desejar. Os métodos de autenticação que estão disponíveis incluem `Usar apenas o IAM` ou `Usar as credenciais anteriores e o IAM`. Para obter mais informações, consulte  [ métodos de autenticação ](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. 
@@ -66,7 +66,7 @@ confirmando que seu novo serviço {{site.data.keyword.cloudant_short_notm}} est�
   <br>![Criar novas credenciais de serviço](images/img0050.png)
   <br>b. Insira um nome para a nova credencial na janela Incluir nova credencial. Consulte imagem.
   <br>c. Aceite a função de Gerenciador.
-  <br>d. (Opcional) Crie um novo ID de serviço ou tenha um gerado automaticamente para você.
+  <br>d. (Opcional) Crie um novo ID de serviço ou tenha um gerado automaticamente para você. 
   <br>d. (Opcional) Inclua parâmetros de configuração sequenciais. Observe que esse parâmetro não é usado atualmente pelas credenciais de serviço do {{site.data.keyword.cloudant_short_notm}}, portanto, ignore-o. 
   <br>e. Clique no botão `Incluir`.</br>
   <br>![Incluir uma nova credencial de serviço](images/img0051.png)

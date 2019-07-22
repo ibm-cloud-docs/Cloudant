@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -42,11 +42,12 @@ subcollection: cloudant
 {{site.data.keyword.cloudant_short_notm}} Sync の [リソース ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/cloudant-sync-resources/){: new_window} の詳細も使用可能です。
 
 ## Java
-{: #java}
+{: #java-supported}
 
 [java-cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/java-cloudant){: new_window} は、Java 用の正式な {{site.data.keyword.cloudantfull}} ライブラリーです。
 
-Maven または Gradle のビルドに依存関係として追加してライブラリーをインストールする方法についての情報は、ライブラリーの使用方法の詳細および例と共に、[ここ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window} から入手できます。
+Maven または Gradle のビルドに依存関係としてライブラリーを追加することでそのライブラリーをインストールする方法について詳しくは、およびライブラリーの使用方法の詳細と例については、
+[Installation and Usage ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}を参照してください。
 
 ### Java のライブラリーおよびフレームワーク
 {: #libraries-and-frameworks-for-java}
@@ -57,7 +58,7 @@ Maven または Gradle のビルドに依存関係として追加してライブ
 -   [java-cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/java-cloudant){: new_window}。
 
 #### Java のサポートされないライブラリー
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-supported}
 
 -   [ektorp ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}。
 -   [jcouchdb ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://code.google.com/p/jcouchdb/){: new_window}。
@@ -75,7 +76,7 @@ Maven または Gradle のビルドに依存関係として追加してライブ
 
 
 ## Node.js
-{: #node-js}
+{: #node-js-supported}
 
 [nodejs-cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/nodejs-cloudant){: new_window} は、Node.js 用の公式の {{site.data.keyword.cloudant_short_notm}} ライブラリーです。
 npm を使用してインストールできます。
@@ -122,13 +123,14 @@ npm install cloudant
 ## Python
 {: #python-supported}
 
-Python を使用して {{site.data.keyword.cloudant_short_notm}} の作業を行うためのサポート対象ライブラリーは[ここ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/python-cloudant){: new_window} から入手できます。
+Python を使用して {{site.data.keyword.cloudant_short_notm}} を処理するためのサポート対象ライブラリーは、
+Github リポジトリー [cloudant/python-cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/python-cloudant){: new_window} で入手できます。
 
-{{site.data.keyword.cloudant_short_notm}} にアクセスする Python アプリケーションは、コンポーネント依存関係を持っています。 これらの依存関係は、`requirements.txt` ファイルに指定する必要があります。 詳しくは、[ここ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window} を参照してください。
+{{site.data.keyword.cloudant_short_notm}} にアクセスする Python アプリケーションは、コンポーネント依存関係を持っています。 これらの依存関係は、`requirements.txt` ファイルに指定する必要があります。 詳しくは、[requirements ファイル ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window} に関する説明を参照してください。
 {: tip}
 
-現行ライブラリー・リリースは、[ここ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://pypi.python.org/pypi/cloudant/){: new_window} からダウンロードします。
-Python 言語に関する詳細情報は、[python.org![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/about/){: new_window} を参照してください。 
+現行ライブラリー・リリースは [pypi.python.org ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://pypi.python.org/pypi/cloudant/){: new_window} からダウンロードします。
+Python 言語について詳しくは、[python.org ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.python.org/about/){: new_window}を参照してください。 
 
 ## Swift
 {: #swift}
@@ -143,7 +145,9 @@ pod 'SwiftCloudant'
 ```
 {: codeblock}
 
-SwiftCloudant の詳細情報 (ライブラリーのインストール方法の詳細、およびこのライブラリーを使用して {{site.data.keyword.cloudant_short_notm}} でリモート JSON データの保管、索引付け、および照会を行う方法など) は、[ここ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/swift-cloudant){: new_window} から入手できます。
+SwiftCloudant の詳細情報 (ライブラリーのインストールの詳細、
+およびこのライブラリーを使用して {{site.data.keyword.cloudant_short_notm}} でリモート JSON データを保管、索引付け、および照会する方法など) については、
+Github リポジトリー [cloudant/swift-cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/swift-cloudant){: new_window}を参照してください。
 
 このライブラリーは、早期リリース・バージョンです。
 そのため、現在のところ {{site.data.keyword.cloudant_short_notm}} API の全範囲の機能は実装されていません。 

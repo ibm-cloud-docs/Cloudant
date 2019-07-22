@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Regolamento generale sulla protezione dei dati  (GDPR, General Data Protection Regulation)
+# Regolamento generale sulla protezione dei dati (GDPR, General Data Protection Regulation)
 {: #general-data-protection-regulation-gdpr-}
 
 Il GDPR cerca di creare un quadro normativo armonizzato in materia di protezione dei dati
@@ -82,25 +82,26 @@ Se hai un account di cui viene eseguito il provisioning da {{site.data.keyword.c
 
 {{site.data.keyword.cloudant_short_notm}} elabora delle informazioni personali del cliente limitate nel corso dell'esecuzione del servizio e dell'ottimizzazione dell'esperienza
 utente a esso relativa. {{site.data.keyword.cloudant_short_notm}} utilizza l'email per contattare i clienti come appropriato. Il monitoraggio
-delle interazioni dei clienti con il dashboard {{site.data.keyword.cloudant_short_notm}} è l'altro modo in cui {{site.data.keyword.cloudant_short_notm}} elabora le informazioni personali. 
+delle interazioni dei clienti con il dashboard {{site.data.keyword.cloudant_short_notm}} è l'altro modo in cui {{site.data.keyword.cloudant_short_notm}} elabora le informazioni personali.
 
 ### Limitazioni dell'elaborazione
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} invia i dati di interazione con il dashboard a Segment. È possibile chiedere a {{site.data.keyword.cloudant_short_notm}} di limitare l'elaborazione delle informazioni personali del cliente in questo modo mediante una [richiesta di supporto {{site.data.keyword.cloudant_short_notm}}](mailto:support@cloudant.com). Alla
+{{site.data.keyword.cloudant_short_notm}} invia i dati di interazione con il dashboard a Segment. È possibile chiedere a {{site.data.keyword.cloudant_short_notm}} di limitare l'elaborazione delle informazioni personali del cliente in questo modo mediante una [richiesta di supporto {{site.data.keyword.cloudant_short_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){: new_window}. Alla
 ricezione di una richiesta di questo tipo, {{site.data.keyword.cloudant_short_notm}} elimina le informazioni associate al cliente così
 come sono inviate a Segment ed impedisce l'invio di ulteriori dati. {{site.data.keyword.cloudant_short_notm}} ha bisogno di continuare
 a poter contattare i clienti dedicati tramite email e fornisce un'interfaccia ai clienti per tenere aggiornate queste informazioni
 direttamente o tramite la configurazione dei clienti dei loro dettagli di contatto tramite i loro dettagli dell'account
-{{site.data.keyword.cloud_notm}}. 
+{{site.data.keyword.cloud_notm}}.
 
 ## Il nostro database {{site.data.keyword.cloudant_short_notm}} è crittografato?
 {: #is-our-ibm-cloudant-database-encrypted-}
 
-Tutti i cluster hanno un file system crittografato (crittografia dei dati inattivi) utilizzando LUKS (Linux Unified Key Setup), I dati nel database sono visibili ai nostri team operativi e di supporto (vedi di seguito).
+Tutti i cluster hanno un file system crittografato (crittografia dei dati inattivi) utilizzando LUKS (Linux Unified Key Setup). I dati nel database sono
+visibili ai nostri team operativi e di supporto (vedi il seguente paragrafo).
 
 Per i dati sensibili, che tu indichi che devono rimanere invisibili a {{site.data.keyword.cloudant_short_notm}},
-devi crittografare o proteggere in altro modo (pseudonomizzare) i tuoi dati prima di inviarceli. Devi evitare di utilizzare le informazioni personali
+devi crittografare o proteggere in altro modo (pseudonimizzare) i tuoi dati prima di inviarceli. Devi evitare di utilizzare le informazioni personali
 come un `_id` documento nei tuoi URL, ad esempio `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`,
 poiché sono sempre visibili e scritti nei log di accesso.
 
@@ -121,9 +122,9 @@ In quanto utente di {{site.data.keyword.cloudant_short_notm}}, devi:
 
  * Utilizzare la configurazione CORS predefinita per evitare accessi imprevisti.
  * Utilizzare le chiavi API in ampia misura, in modo che i componenti possano avere un 'accesso meno privilegiato' associato al log di controllo. Questa prassi ti consente di comprendere chi ha eseguito l'accesso e a quali dati.
- * Crittografare o proteggere in altro modo (pseudonomizzare) i dati sensibili che a tuo avviso devono rimanere invisibili a {{site.data.keyword.cloudant_short_notm}}.
+ * Crittografare o proteggere in altro modo (pseudonimizzare) i dati sensibili che a tuo avviso devono rimanere invisibili a {{site.data.keyword.cloudant_short_notm}}.
 
-### Misure di sicurezza fisiche ed ambientali
+### Misure di sicurezza fisica e ambientale
 {: #physical-and-environmental-security-measures}
 
 La sicurezza fisica dei nostri data center è gestita dai nostri provider dell'infrastruttura: {{site.data.keyword.cloud}},
@@ -134,7 +135,7 @@ La sicurezza fisica delle ubicazioni degli uffici utilizzata dal nostro personal
 I dettagli della certificazione e i rapporti delle attestazioni (ossia ISO e SOC2) possono essere forniti al cliente su richiesta.
 
 ### Misure tecniche e organizzative
-{: #technical-and-organisational-measures}
+{: #technical-and-organizational-measures}
 
 Le misure tecniche e organizzative (TOM, Technical and Organisational Measures) sono adottate da {{site.data.keyword.cloudant_short_notm}}
 per garantire la sicurezza dei dati personali. {{site.data.keyword.cloudant_short_notm}} è in possesso di certificazioni controllate esternamente per i controlli adottati da {{site.data.keyword.cloudant_short_notm}}. 
@@ -172,7 +173,7 @@ La compattazione viene eseguita automaticamente e rimuove periodicamente le vecc
 La compattazione viene eseguita come un processo di background nell'intero livello di archiviazione e per i database è sempre in corso la compattazione; semplicemente non c'è alcuna garanzia che si tratti dei dati da te appena eliminati/modificati.
 
 {{site.data.keyword.cloudant_short_notm}} accetta le richieste di *Diritto all'oblio* tramite
-il DPO (Data Privacy Office) [{{site.data.keyword.IBM_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}.
+il DPO (Data Privacy Office) [{{site.data.keyword.IBM_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}. 
 Quando viene effettuata una richiesta di *Diritto all'oblio* dal DPO {{site.data.keyword.IBM_notm}}, {{site.data.keyword.cloudant_short_notm}} verifica la richiesta,
 attiva esplicitamente la compattazione del database e verifica che la compattazione sia stata eseguita.
 Alla fine di questo processo, la sola versione del documento è il relativo tombstone
@@ -187,7 +188,7 @@ un processo gestito dall'operatore denominato cancellazione (purge). Prima di ri
 L'API di cancellazione (purge) CouchDB non è supportata da {{site.data.keyword.cloudant_short_notm}}.
 {: tip}
 
-Nel contesto di GDPR, la cancellazione (purge) è richiesta solo se i dati personali sono utilizzati in un ID documento. Un `_id` che memorizza informazioni personali è una cattiva idea per molti motivi ma ci sono alcuni casi d'uso parzialmente validi (ad esempio, un'email univoca). È possibile crittografare o pseudonomizzare i dati in modo che siano opachi per {{site.data.keyword.cloudant_short_notm}}.
+Nel contesto di GDPR, la cancellazione (purge) è richiesta solo se i dati personali sono utilizzati in un ID documento. Un `_id` che memorizza informazioni personali è una cattiva idea per molti motivi ma ci sono alcuni casi d'uso parzialmente validi (ad esempio, un'email univoca). È possibile crittografare o pseudonimizzare i dati in modo che siano opachi per {{site.data.keyword.cloudant_short_notm}}.
 
 Se è necessaria la rimozione di un documento tramite una richiesta di *Diritto all'oblio*:
 
@@ -196,7 +197,8 @@ Se è necessaria la rimozione di un documento tramite una richiesta di *Diritto 
 verifica la richiesta per confermare che l'`id` contenga informazioni personali. {{site.data.keyword.cloudant_short_notm}} non cancella (purge) i dati che non presentano informazioni personali nell'`_id`. 
 1. {{site.data.keyword.cloudant_short_notm}} attiva l'azione di cancellazione (purge) per rimuovere permanentemente i dati richiesti.
 
-Questo processo deve essere utilizzato solo per richieste di eliminazione di emergenza (ad esempio *diritto all'oblio*) e non si deve fare affidamento su di esso a lungo termine. Se la tua applicazione sta intenzionalmente utilizzando informazioni personali negli ID documento, deve essere modificata per pseudonomizzare tali informazioni personali oppure non deve utilizzare le informazioni personali negli ID documento. Non puoi contare sulla regolare esecuzione di cancellazioni (purge) da parte del team operativo di {{site.data.keyword.cloudant_short_notm}} per evitarlo. 
+Questo processo deve essere utilizzato solo per richieste di eliminazione di emergenza (ad esempio, *Diritto
+all'oblio*) e non deve essere utilizzato a lungo termine. Se la tua applicazione sta intenzionalmente utilizzando informazioni personali negli ID documento, deve essere modificata per pseudonimizzare tali informazioni personali oppure non deve utilizzare le informazioni personali negli ID documento. Non puoi contare sulla regolare esecuzione di cancellazioni (purge) da parte del team operativo di {{site.data.keyword.cloudant_short_notm}} per evitarlo. 
 {{site.data.keyword.cloudant_short_notm}} rifiuta pertanto le seguenti richieste di cancellazione (purge):
 
 1. La richiesta è per una cancellazione (purge) regolare, ad esempio *ogni 30 giorni*.

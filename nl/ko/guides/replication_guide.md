@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -86,7 +86,7 @@ subcollection: cloudant
 
 복제의 소스 및 대상은 다음 예에 표시되어 있는 바와 같이 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다.
 
-_복제의 소스 및 대상 URL 정의 예:_
+*복제의 소스 및 대상 URL 정의 예:*
 
 ```json
 {
@@ -123,7 +123,7 @@ _복제의 소스 및 대상 URL 정의 예:_
 `target`        |로그인 인증 정보를 포함한 대상 {{site.data.keyword.cloudant_short_notm}} 데이터베이스의 URL입니다.
 `create_target` |(선택사항) 대상 데이터베이스가 아직 없는 경우 이 데이터베이스의 작성 여부를 결정합니다.
 
-_HTTP를 사용한 복제 작업 시작 예:_
+*HTTP를 사용한 복제 작업 시작 예:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -133,7 +133,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_명령행을 사용한 복제 작업 시작 예:_
+*명령행을 사용한 복제 작업 시작 예:*
 
 ```sh
 curl -X POST \
@@ -143,7 +143,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_원하는 복제를 나타내는 JSON 문서 예:_
+*원하는 복제를 나타내는 JSON 문서 예:*
 
 ```json
 {
@@ -229,7 +229,7 @@ _원하는 복제를 나타내는 JSON 문서 예:_
 -   대상 측의 `_reader` 및 `_writer` 액세스 권한
 
 API 키는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 데이터베이스별로
-작성하고 구성할 수 있습니다.
+작성하고 구성할 수 있습니다. 
 
 ![복제](../images/replication_guide_5.png)
 
@@ -256,12 +256,12 @@ API 키는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 데이�
 소스 데이터베이스에 대한 모든 후속 변경사항이 대상 데이터베이스에 실시간으로 전송됩니다.
 
 연속 복제는 {{site.data.keyword.cloudant_short_notm}} 대시보드에서 복제 태스크를 정의할 때 `Make this replication continuous` 선택란을 클릭하거나,
-{{site.data.keyword.cloudant_short_notm}} API에 [`continuous`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) 플래그를 설정하여 트리거됩니다.
+{{site.data.keyword.cloudant_short_notm}} API에 [`continuous`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) 플래그를 설정하여 트리거됩니다. 
 
 양방향 복제는 `continuous` 플래그를 설정하여
 단방향 또는 양방향으로 지속되도록 설정할 수 있습니다.
 
-_HTTP를 사용한 연속 복제 시작 예:_
+*HTTP를 사용한 연속 복제 시작 예:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -271,7 +271,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_명령행을 사용한 연속 복제 시작 예:_
+*명령행을 사용한 연속 복제 시작 예:*
 
 ```sh
 curl -X POST \
@@ -281,7 +281,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_연속 복제를 정의하는 JSON 문서의 예:_
+*연속 복제를 정의하는 JSON 문서의 예:*
 
 ```json
 {
@@ -303,8 +303,7 @@ _연속 복제를 정의하는 JSON 문서의 예:_
 또한, {{site.data.keyword.cloudant_short_notm}} 계정의 [`/_active_tasks` 엔드포인트](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks)를 사용하여
 진행 중인 복제 작업을 확인할 수도 있습니다.
 
-
-_HTTP를 사용한 복제 프로세스 모니터링 예:_
+*HTTP를 사용한 복제 프로세스 모니터링 예:*
 
 ```http
 GET /_replicator/weekly_backup HTTP/1.1
@@ -313,14 +312,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_명령행을 사용한 복제 프로세스 모니터링 예:_
+*명령행을 사용한 복제 프로세스 모니터링 예:*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
 ```
 {: codeblock}
 
-_복제 상태 요청에 대한 응답 예:_
+*복제 상태 요청에 대한 응답 예:*
 
 ```json
 {
@@ -346,7 +345,7 @@ _복제 상태 요청에 대한 응답 예:_
 대시보드 또는 API를 사용하여 `_replicator` 데이터베이스에서
 복제 문서를 삭제하십시오.
 
-_HTTP를 사용한 복제 취소 예:_
+*HTTP를 사용한 복제 취소 예:*
 
 ```http
 DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1.1
@@ -355,7 +354,7 @@ Authorization:
 ```
 {: codeblock}
 
-_명령행을 사용한 복제 취소 예:_
+*명령행을 사용한 복제 취소 예:*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
@@ -389,7 +388,7 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 PouchDB는 인터넷 연결이 있는 경우 {{site.data.keyword.cloudant_short_notm}} 대상으로 변경된 데이터를 동기화할 수 있습니다.
 클라이언트 측에서 복제를 설정하려면 JavaScript 코드 행이 필요합니다.
 
-_복제를 사용으로 설정하기 위해 PouchDB를 사용하는 JavaScript 예:_
+*복제를 사용으로 설정하기 위해 PouchDB를 사용하는 JavaScript 예:*
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
@@ -406,7 +405,7 @@ db.sync(URL, { live: true });
 [PouchDB](#pouchdb)와 마찬가지로,
 복제를 설정하려면 코드 행이 필요합니다.
 
-_복제를 사용으로 설정하기 위해 CloudantSync를 사용하는 JavaScript 예:_
+*복제를 사용으로 설정하기 위해 CloudantSync를 사용하는 JavaScript 예:*
 
 ```javascript
 URI uri = new URI("https://u:p@username.cloudant.com/my_database");
@@ -437,7 +436,7 @@ CloudantSync는 애플리케이션의 상태가 복제를 통해 {{site.data.key
 
 다음 예는 삭제되지 않은 문서만 복제되도록 하는 필터 함수입니다.
 
-_삭제되지 않은 문서를 복제하는 필터 함수 예:_
+*삭제되지 않은 문서를 복제하는 필터 함수 예:*
 
 ```javascript
 function(doc, req) {
@@ -454,7 +453,7 @@ function(doc, req) {
 이 값은 필터 함수에 전달되는 특성을 포함하는 오브젝트이며,
 이는 함수의 두 번째(`req`) 인수의 `query` 필드에서 전달됩니다.
 
-_HTTP를 사용한 필터링된 복제 시작 예:_
+*HTTP를 사용한 필터링된 복제 시작 예:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -464,7 +463,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_명령행을 사용한 필터링된 복제 시작 예:_
+*명령행을 사용한 필터링된 복제 시작 예:*
 
 ```sh
 curl -X POST \
@@ -474,7 +473,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_필터링된 복제를 정의하는 JSON 문서의 예:_
+*필터링된 복제를 정의하는 JSON 문서의 예:*
 
 ```json
 {
@@ -498,7 +497,7 @@ _필터링된 복제를 정의하는 JSON 문서의 예:_
 사용자는 예에 표시된 바와 같이 HTTP 또는 `curl`을 사용하여 이 피드에 액세스할 수 있습니다.
 `feed=continuous` 옵션 사용은 스트림이 데이터베이스에 있는 모든 문서의 최신 버전을 가져오기 위해 필요한 모든 변경사항을 제공함을 의미합니다.
 
-_HTTP를 사용한 변경사항 피드 조회 예:_
+*HTTP를 사용한 변경사항 피드 조회 예:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous HTTP/1.1
@@ -507,7 +506,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_명령행을 사용한 변경사항 피드 조회 예:_
+*명령행을 사용한 변경사항 피드 조회 예:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
@@ -525,7 +524,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
 
 각 변경사항은 다음 예(축약됨)에 표시된 형식을 사용하여 표시됩니다.
 
-_`_changes` 피드 예:_
+*`_changes` 피드 예:*
 
 ```json
 {
@@ -542,7 +541,7 @@ _`_changes` 피드 예:_
 
 알려진 위치부터 변경사항 피드를 결합하려면 시작할 순서 번호와 함께 [`since` 인수](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument)를 전달하십시오.
 
-_알려진 위치의 `_changes` 피드와 결합하기 위해 HTTP를 사용하여 `since` 옵션을 제공하는 예(축약됨):_
+*알려진 위치의 `_changes` 피드와 결합하기 위해 HTTP를 사용하여 `since` 옵션을 제공하는 예(축약됨):*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
@@ -551,7 +550,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_알려진 위치의 `_changes` 피드와 결합하기 위해 명령행을 사용하여 `since` 옵션을 제공하는 예(축약됨):_
+*알려진 위치의 `_changes` 피드와 결합하기 위해 명령행을 사용하여 `since` 옵션을 제공하는 예(축약됨):*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -560,7 +559,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 
 현재 시간의 변경사항 피드와 다시 결합하려면 `since=now`를 설정하십시오.
 
-_현재 시간의 `_changes` 피드와 결합하기 위해 HTTP를 사용하여 `since=now`를 제공하는 예:_
+*현재 시간의 `_changes` 피드와 결합하기 위해 HTTP를 사용하여 `since=now`를 제공하는 예:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
@@ -569,14 +568,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_현재 시간의 `_changes` 피드와 결합하기 위해 명령행을 사용하여 `since=now`를 제공하는 예:_
+*현재 시간의 `_changes` 피드와 결합하기 위해 명령행을 사용하여 `since=now`를 제공하는 예:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {: codeblock}
 
-_현재 시간의 `_changes` 피드와 결합하기 위해 JavaScript를 사용하여 `since=now`를 제공하는 예:_
+*현재 시간의 `_changes` 피드와 결합하기 위해 JavaScript를 사용하여 `since=now`를 제공하는 예:*
 
 ```javascript
 var feed = db.follow({since: "now", include_docs: true})
@@ -588,7 +587,7 @@ feed.follow();
 {: codeblock}
 
 `_changes` 데이터에 대한 프로그래밍 방식의 액세스는 직관적입니다.
-예를 들면, [{{site.data.keyword.cloudant_short_notm}} Node.js 라이브러리](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)를 사용하여 코드 행을 통해 변경사항을 추적합니다.
+예를 들면, [{{site.data.keyword.cloudant_short_notm}} Node.js 라이브러리](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)를 사용하여 코드 행을 통해 변경사항을 추적합니다.
 
 예제 유스 케이스는 다음과 같습니다.
 
@@ -596,9 +595,9 @@ feed.follow();
 -   실시간 활동 수를 기록하기 위해 인메모리 데이터베이스를 업데이트합니다.
 -   SQL 데이터베이스에 데이터를 전송하기 위해 텍스트 파일에 데이터를 기록합니다.
 
-변경사항 피드는 [복제 중 필터링](#filtered-replication)과 유사한 기법을 사용하여, 필터 함수를 사용해 필터링할 수 있습니다.
+변경사항 피드는 [복제 중 필터링](#filtered-replications)과 유사한 기법을 사용하여, 필터 함수를 사용해 필터링할 수 있습니다.
 
-_HTTP를 사용한 변경사항 피드 필터링 예:_
+*HTTP를 사용한 변경사항 피드 필터링 예:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter HTTP/1.1
@@ -607,7 +606,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_명령행을 사용한 변경사항 피드 필터링 예:_
+*명령행을 사용한 변경사항 피드 필터링 예:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
@@ -674,7 +673,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 
 모든 복제를 취소하고 새로운 `_replicator` 데이터베이스를 시작하려는 경우에는 `replicator` 데이터베이스를 삭제한 후 다시 작성하십시오.
 
-_HTTP를 사용한 `_replicator` 데이터베이스 제거 및 다시 작성 예:_
+*HTTP를 사용한 `_replicator` 데이터베이스 제거 및 다시 작성 예:*
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -687,7 +686,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_명령행을 사용한 `_replicator` 데이터베이스 제거 및 다시 작성 예:_
+*명령행을 사용한 `_replicator` 데이터베이스 제거 및 다시 작성 예:*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'

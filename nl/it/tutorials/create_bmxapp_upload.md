@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -34,19 +34,12 @@ un'applicazione {{site.data.keyword.cloud}}.
 
 La prima attività consiste nel connettersi a {{site.data.keyword.cloud_notm}}.
 
-Il [toolkit {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits) ti aiuta a stabilire la connessione. 
-
-Cloud Foundry deve conoscere l'URL da utilizzare per effettuare le chiamate API,
-ad esempio quando carichi un'applicazione.
-Il toolkit {{site.data.keyword.cloud_notm}} utilizza il comando '`cf api`' per gestire l'endpoint API.
-Ulteriori informazioni sul comando '`cf api`' sono
-[disponibili
-![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}.
+La CLI {{site.data.keyword.cloud_notm}} deve sapere quale URL utilizzare per effettuare chiamate API. Ad esempio, quando carichi un'applicazione, il toolkit {{site.data.keyword.cloud_notm}} utilizza il comando `ibmcloud api` per gestire l'endpoint API. Per ulteriori informazioni sul comando `ibmcloud api`, vedi [Introduzione alla CLI {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
 Utilizza il seguente comando per fornire a Cloud Foundry l'URL da utilizzare:
 
 ```sh
-bluemix api https://api.ng.bluemix.net
+ibmcloud api https://api.ng.bluemix.net
 ```
 {: pre}
 
@@ -60,7 +53,7 @@ OK
 
 API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
-Not logged in. Use 'bluemix login' to log in.
+Not logged in. Use 'ibmcloud login' to log in.
 ```
 {: codeblock}
 
@@ -83,7 +76,7 @@ Utilizza un comando simile al seguente esempio per accedere al tuo ambiente dell
 Tieni presente che ti viene richiesto di immettere la tua password dell'account.
 
 ```sh
-bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
+ibmcloud login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {: pre}
 
@@ -217,29 +210,29 @@ buildpack: python 1.5.5
 
 Esegui ora un test della tua applicazione e verifica che sia in esecuzione correttamente. 
 
-1.  Dal dashboard {{site.data.keyword.cloud_notm}}, vai all'icona **Menu** > **Resource List** e apri la tua applicazione. In Cloud Foundry Apps, fai clic su `Cloudant CF app` per aprire la pagina dei dettagli. <br/>  
+1.  Dal dashboard {{site.data.keyword.cloud_notm}}, vai all'icona **Menu** > **Resource List** e apri la tua applicazione. In Cloud Foundry Apps, fai clic su `Cloudant CF app` per aprire la pagina dei dettagli.<br/>  
 ![Screenshot che mostra il dashboard dell'applicazione](images/img0017.png)
 
-2.  Nella pagina dei dettagli `Cloudant CF app`, fai clic su `Routes` e fai clic sul link `Cloudant-CF-app.mybluemix.net`. <br/>
+2.  Nella pagina dei dettagli `Cloudant CF app`, fai clic su `Routes` e quindi sul link `Cloudant-CF-app.mybluemix.net`. <br/>
 ![Pagina dei dettagli Cloudant CF app](images/img0030.png)
 
-3. Viene aperta una nuova finestra del browser all'indirizzo `https://cloudant-cf-app.mybluemix.net/`. Il messaggio verifica che l'applicazione sia in esecuzione. Dice: "Hello World! Thanks for creating a Python Starter Application."<br/>
-![Hello World! ha verificato che l'applicazione Cloudant CF fosse in esecuzione correttamente](images/img0054.png)
+3. Viene aperta una nuova finestra del browser all'indirizzo `https://cloudant-cf-app.mybluemix.net/`. Il messaggio verifica che l'applicazione sia in esecuzione visualizzando il messaggio 'Hello World! Thanks for creating a Python Starter Application.'<br/>
+![Hello World! verified that the Cloudant CF app runs correctly](images/img0054.png)
 
 
 ### Conferma dei dettagli del database
 {: #confirming-the-database-details}
 
 Dal dashboard {{site.data.keyword.cloud_notm}}, vai all'icona **Menu** > **Resource List** e apri la tua istanza del servizio. Vai alla scheda `Manage` e fai clic su `Launch Cloudant Dashboard`.<br/>
-![Avvio del dashboard Cloudant nella pagina del servizio {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
+![Avvio del dashboard Cloudant nella pagina del servizio {{site.data.keyword.cloudant_short_notm}} ](images/img0036.png)
 
 Per trovare la tua pagina del servizio {{site.data.keyword.cloudant_short_notm}}, fai riferimento ai dettagli nell'esercitazione
 [Creazione di un'istanza {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 {: note}
 
-Quando si apre la pagina del dashboard,
-puoi visualizzare che l'applicazione ha creato il database
-'`databasedemo`':<br/>
+Quando si apre il dashboard,
+puoi vedere che l'applicazione
+ha creato il database '`databasedemo`':<br/>
 ![Il dashboard {{site.data.keyword.cloudant_short_notm}} che mostra il nuovo database](images/img0031.png)
 
 Il database contiene un solo documento,
@@ -248,19 +241,19 @@ Per verificare la presenza del documento
 fai clic sul nome del database nel dashboard.
 Viene visualizzato un elenco di opzioni del database.
 Quando selezioni la scheda `All documents`,
-vengono visualizzati i dettagli di un solo documento:<br/>
-![Un solo documento nel nuovo database](images/img0032.png)
+vengono visualizzati i dettagli di un singolo documento:<br/>
+![Un singolo documento nel nuovo database](images/img0032.png)
 
-Per visualizzare i dettagli del documento,
-fai clic sull'icona `Edit`,
-che viene visualizzata con un'immagine di una matita:<br/>
+Per visualizzare il contenuto del documento,
+fai clic sull'icona `Edit`
+che viene visualizzata come immagine di una matita:<br/>
 ![Dettagli del documento](images/img0033.png)
 
-Quando vengono visualizzati i dettagli del documento,
-puoi visualizzare ogni campo creato dall'applicazione dell'esercitazione.<br/>
+Quando viene visualizzato il contenuto del documento,
+puoi vedere ciascuno dei campi creati dall'applicazione dell'esercitazione.<br/>
 ![I campi nel documento](images/img0034.png)<br/>
 In particolare,
-il campo `rightNow` dispone della data e ora di creazione del documento.
+il campo `rightNow` contiene la data e ora di creazione del documento.
 Questo valore corrisponde all'ora registrata nel
 [file di log dell'applicazione](#testing-the-sample-application).
 

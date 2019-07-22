@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -30,7 +30,7 @@ A partir del 16 de julio de 2018, se han suministrado nuevas instancias de recur
 ## ¿Cómo puedo migrar una instancia existente a un grupo de recursos?
 {: #how-do-i-migrate-an-existing-instance-to-a-resource-group-}
 
-Para migrar una instancia de {{site.data.keyword.cloudant_short_notm}} de un espacio de Cloud Foundry a un grupo de recursos, consulte [Migración de instancias de servicio y apps de Cloud Foundry a un grupo de recursos](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
+Para migrar una instancia de {{site.data.keyword.cloudant_short_notm}} de un espacio de Cloud Foundry a un grupo de recursos, consulte [Migración de instancias de servicio y apps de Cloud Foundry a un grupo de recursos ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
 
 Puede migrar instancias de {{site.data.keyword.cloudant_short_notm}} en los planes siguientes:
 
@@ -44,7 +44,7 @@ Puede migrar instancias de {{site.data.keyword.cloudant_short_notm}} en los plan
 No existe el tiempo de inactividad durante el proceso de migración.
 
 ## ¿Por qué algunas instancias disponen de una organización y un espacio y otras no?
-{: #why-do-some-instances-have-an-organisation-and-space-and-others-do-not-}
+{: #why-do-some-instances-have-an-organization-and-space-and-others-do-not-}
 
 A partir del 16 de julio de 2018, se han suministrado nuevas instancias en grupos de recursos en lugar de en espacios de Cloud Foundry. Las instancias de recursos suministradas antes de esta fecha tienen asociada una organización y espacio de Cloud Foundry. En su lugar, las instancias suministradas después de esta fecha se asociarán con un grupo de recursos.
 
@@ -53,7 +53,7 @@ A partir del 16 de julio de 2018, se han suministrado nuevas instancias en grupo
 
 Las nuevas instancias del plan Estándar se suministran en grupos de recursos. Para poder suministrar dichas instancias en una instancia de hardware dedicado, la instancia de hardware dedicado debe migrarse primero a un grupo de recursos.
 
-Para obtener más información sobre cómo hacerlo, consulte [Migración de instancias de servicio y apps de Cloud Foundry a un grupo de recursos](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
+Para obtener más información sobre cómo hacerlo, consulte [Migración de instancias de servicio de Cloud Foundry y apps a un grupo de recursos ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
 
 Cuando la instancia de hardware dedicado se haya migrado a un grupo de recursos, aparecerá en el menú desplegable Ubicación al suministrar planes Estándar.
 

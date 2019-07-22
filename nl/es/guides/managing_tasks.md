@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -39,7 +39,7 @@ Se utiliza el procesador JSON de línea de mandatos `jq` para procesar la respue
 Puesto que esta guía de aprendizaje se centra en las tareas, solo cubren los pasos básicos para ejecutar esta tarea.
 Para obtener más información, consulte la [Referencia de API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) para ver una guía completa de las opciones disponibles.
 
-## Conceptos básicos sobre curl y jq
+## Conceptos básicos de `curl` y `jq`
 {: #curl-and-jq-basics}
 
 Para obtener todas las tareas activas y formatear correctamente la salida, realice una llamada a su cuenta mediante `curl` y dirija la salida a `jq`.
@@ -48,7 +48,7 @@ Para obtener todas las tareas activas y formatear correctamente la salida, reali
 Esto facilita la obtención de todos los documentos de réplica o los detalles de una determinada tarea de indexación de vista.
 La referencia de API tiene más información acerca de las opciones.
 
-_Ejemplo de obtención y formateo de una lista de tareas activas:_
+*Ejemplo de obtención y formateo de una lista de tareas activas:*
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
@@ -75,21 +75,21 @@ Existe un mandato correspondiente para las tareas de indexación de búsqueda.
 En cada caso, el resultado de buscar una lista de tareas de indexación es una lista
 de objetos JSON: uno para cada tarea activa encontrada.
 
-_Ejemplo de búsqueda de todas las tareas de indexación de vistas filtrando por el tipo `indexer`:_
+*Ejemplo de búsqueda de todas las tareas de indexación de vistas filtrando por el tipo `indexer`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-_Ejemplo de búsqueda de todas las tareas de indexación de búsqueda filtrando por el tipo `search_indexer`:_
+*Ejemplo de búsqueda de todas las tareas de indexación de búsqueda filtrando por el tipo `search_indexer`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-_Ejemplo de resultados después de buscar las tareas de indexación de vistas:_
+*Ejemplo de resultados después de buscar las tareas de indexación de vistas:*
 
 ```json
 {
@@ -123,7 +123,7 @@ Las estimaciones del tiempo necesario para completar una tarea de indexación no
 
 Tenga en cuenta que la combinación de estos factores puede hacer que la estimación sea bastante imprecisa.
 
-_Ejemplo de extracción del campo `changes_done` mediante `jq`:_
+*Ejemplo de extracción del campo `changes_done` mediante `jq`:*
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -137,28 +137,28 @@ Para buscar todas las tareas de réplica, dirija la salida de `curl` a `jq` y fi
 
 Para facilitar la selección de la información sobre un proceso de réplica de la lista de tareas activas, inicie el proceso de réplica creando un documento en la base de datos `_replicator` y defina para su campo `_id` un valor conocido.
 
-_Ejemplo de búsqueda de todas las tareas de réplica filtrando por el tipo `replication`:_
+*Ejemplo de búsqueda de todas las tareas de réplica filtrando por el tipo `replication`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-_Ejemplo de búsqueda de una determinada tarea de réplica filtrando por una identidad de documento conocida:_
+*Ejemplo de búsqueda de una determinada tarea de réplica filtrando por una identidad de documento conocida:*
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-_Ejemplo de búsqueda de una determinada tarea de réplica filtrando por un `replication_id` conocido:_
+*Ejemplo de búsqueda de una determinada tarea de réplica filtrando por un `replication_id` conocido:*
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-_Ejemplo de resultado después de buscar una tarea de réplica:_
+*Ejemplo de resultado después de buscar una tarea de réplica:*
 
 ```json
 {

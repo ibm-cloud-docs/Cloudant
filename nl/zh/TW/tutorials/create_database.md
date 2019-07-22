@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -29,7 +29,7 @@ subcollection: cloudant
 {: shortdesc}
 
 ## 必要條件
-{: prerequisites}
+{: #prerequisites-create_database}
 
 請確定您已備妥下列資源或資訊，然後才開始進行本指導教學。
 
@@ -86,7 +86,7 @@ cloudant==2.3.1
 `port`     |用來存取主機上服務實例的 HTTP 埠號。一般是 443，可強制執行 HTTPS 存取。
 `url`      |將其他認證資訊聚集成單一 URL 的字串，適合供應用程式使用。
 
-[這裡](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)提供尋找服務實例可用服務認證的相關資訊。
+如需尋找服務實例的服務認證的相關資訊，請參閱[尋找服務認證](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)。
 
 ## 環境定義
 {: #context}
@@ -228,7 +228,7 @@ for document in sampleData:
 ### 文件的最小擷取
 {: #a-minimal-retrieval-of-a-document}
 
-為了執行最小擷取，我們先要求資料庫內所有文件的清單。此清單會以陣列方式傳回。接著可以顯示陣列中元素的內容。
+若要執行最小擷取，我們先要求資料庫內所有文件的清單。此清單會以陣列方式傳回。接著可以顯示陣列中元素的內容。
 
 在範例程式碼中，我們要求從資料庫擷取的第一份文件：
 
@@ -260,7 +260,7 @@ NoSQL 資料庫（例如 {{site.data.keyword.cloudant_short_notm}}）的本質
 ### 文件的完整擷取
 {: #full-retrieval-of-a-document}
 
-為了執行完整擷取，我們要求資料庫內所有文件的清單，並額外指定也必須傳回文件內容。作法是使用 `include_docs` 選項。結果依然會以陣列傳回。接著可以顯示陣列中元素的詳細資料，而這次會包含文件的完整內容。 
+若要執行完整擷取，我們要求資料庫內所有文件的清單，並額外指定也必須傳回文件內容。作法是使用 `include_docs` 選項。結果依然會以陣列傳回。接著可以顯示陣列中元素的詳細資料，而這次會包含文件的完整內容。 
 
 我們依然要求從資料庫擷取的第一份文件：
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -81,7 +81,7 @@ Cada job modifica el estado de `En ejecución` a `Completado` a medida que se pr
 
 El origen y el destino de una réplica son los URL de las bases de datos de {{site.data.keyword.cloudant_short_notm}}, tal como se muestra en el siguiente ejemplo.
 
-_Ejemplo de definición de los URL de origen y de destino para la réplica:_
+*Ejemplo de definición de los URL de origen y de destino para la réplica:*
 
 ```json
 {
@@ -119,7 +119,7 @@ Campo           | Finalidad
 `target`        | El URL de la base de datos de {{site.data.keyword.cloudant_short_notm}} de destino, incluidas las credenciales de inicio de sesión.
 `create_target` | (Opcional) Determine si desea crear la base de datos de destino si aún no existe.
 
-_Ejemplo de utilización de HTTP para iniciar un trabajo de réplica:_
+*Ejemplo de utilización de HTTP para iniciar un trabajo de réplica:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -129,7 +129,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Ejemplo de utilización de la línea de mandatos para iniciar un trabajo de réplica:_
+*Ejemplo de utilización de la línea de mandatos para iniciar un trabajo de réplica:*
 
 ```sh
 curl -X POST \
@@ -139,7 +139,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Ejemplo de documento JSON que describe la réplica deseada:_
+*Ejemplo de documento JSON que describe la réplica deseada:*
 
 ```json
 {
@@ -254,7 +254,7 @@ La réplica continua se activa pulsando el recuadro de selección `Convertir est
 
 La réplica bidireccional se puede convertir en continua en una o en ambas direcciones mediante el distintivo `continuous`.
 
-_Ejemplo de utilización de HTTP para iniciar una réplica continua:_
+*Ejemplo de utilización de HTTP para iniciar una réplica continua:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -264,7 +264,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Ejemplo de utilización de la línea de mandatos para iniciar una réplica continua:_
+*Ejemplo de utilización de la línea de mandatos para iniciar una réplica continua:*
 
 ```sh
 curl -X POST \
@@ -274,7 +274,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Ejemplo de un documento JSON que define una réplica continua:_
+*Ejemplo de un documento JSON que define una réplica continua:*
 
 ```json
 {
@@ -295,7 +295,7 @@ Si la réplica ha fallado, por ejemplo si las credenciales de autenticación son
 También se puede utilizar el
 [punto final `/_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) de la cuenta de {{site.data.keyword.cloudant_short_notm}} para ver el progreso de la réplica.
 
-_Ejemplo de utilización de HTTP para supervisar un proceso de réplica:_
+*Ejemplo de utilización de HTTP para supervisar un proceso de réplica:*
 
 ```http
 GET /_replicator/weekly_backup HTTP/1.1
@@ -304,14 +304,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Ejemplo de utilización de la línea de mandatos para supervisar un proceso de réplica:_
+*Ejemplo de utilización de la línea de mandatos para supervisar un proceso de réplica:*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
 ```
 {: codeblock}
 
-_Ejemplo de respuesta a una solicitud del estado de una réplica:_
+*Ejemplo de respuesta a una solicitud del estado de una réplica:*
 
 ```json
 {
@@ -335,7 +335,7 @@ Al realizar la réplica, si hay documentos o archivos adjuntos que superan el l�
 
 Para detener un trabajo de réplica en curso, suprima el documento de réplica de la base de datos `_replicator` mediante el panel de control o la API.
 
-_Ejemplo de utilización de HTTP para cancelar una réplica:_
+*Ejemplo de utilización de HTTP para cancelar una réplica:*
 
 ```http
 DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1.1
@@ -344,7 +344,7 @@ Authorization:
 ```
 {: codeblock}
 
-_Ejemplo de utilización de la línea de mandatos para cancelar una réplica:_
+*Ejemplo de utilización de la línea de mandatos para cancelar una réplica:*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
@@ -374,7 +374,7 @@ El hecho de almacenar los datos en un navegador web en la parte del cliente perm
 PouchDB puede sincronizar los datos modificados con {{site.data.keyword.cloudant_short_notm}} cuando hay una conexión a Internet.
 Para configurar la réplica desde la parte cliente se requieren unas pocas líneas de JavaScript.
 
-_Ejemplo de JavaScript que utiliza PouchDB para habilitar la réplica:_
+*Ejemplo de JavaScript que utiliza PouchDB para habilitar la réplica:*
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
@@ -390,7 +390,7 @@ db.sync(URL, { live: true });
 Al igual que sucede con [PouchDB](#pouchdb),
 para configurar la réplica se requieren unas pocas líneas de código.
 
-_Ejemplo de JavaScript que utiliza CloudantSync para habilitar la réplica:_
+*Ejemplo de JavaScript que utiliza CloudantSync para habilitar la réplica:*
 
 ```javascript
 URI uri = new URI("https://u:p@username.cloudant.com/my_database");
@@ -421,7 +421,7 @@ Las [funciones de filtro](/docs/services/Cloudant?topic=cloudant-design-document
 
 En el siguiente ejemplo se muestra una función de filtro que permite realizar una réplica únicamente de los documentos no suprimidos.
 
-_Ejemplo de función de filtro para realizar una réplica de los documentos no suprimidos:_
+*Ejemplo de función de filtro para realizar una réplica de los documentos no suprimidos:*
 
 ```javascript
 function(doc, req) {
@@ -437,7 +437,7 @@ Cuando se inicia un trabajo de réplica, se especifica el nombre de una función
 También puede especificar un valor `query_params`.
 Este valor es un objeto que contiene propiedades que se pasan a la función de filtro en el campo `consulta` de su segundo argumento (`req`).
 
-_Ejemplo de utilización de HTTP para iniciar una réplica filtrada:_
+*Ejemplo de utilización de HTTP para iniciar una réplica filtrada:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -447,7 +447,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Ejemplo de utilización de la línea de mandatos para iniciar una réplica filtrada:_
+*Ejemplo de utilización de la línea de mandatos para iniciar una réplica filtrada:*
 
 ```sh
 curl -X POST \
@@ -457,7 +457,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Ejemplo de un documento JSON que define una réplica filtrada:_
+*Ejemplo de un documento JSON que define una réplica filtrada:*
 
 ```json
 {
@@ -482,7 +482,7 @@ Puede acceder al canal de información mediante HTTP o `curl`,
 tal como se muestra en los ejemplos.
 El uso de la opción `feed=continuous` significa que la corriente de datos le ofrece cada cambio necesario para obtener la versión más reciente de cada documento de la base de datos.
 
-_Ejemplo de utilización de HTTP para consultar el canal de información de cambios:_
+*Ejemplo de utilización de HTTP para consultar el canal de información de cambios:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous HTTP/1.1
@@ -491,7 +491,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Ejemplo de utilización de la línea de mandatos para consultar el canal de información de cambios:_
+*Ejemplo de utilización de la línea de mandatos para consultar el canal de información de cambios:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
@@ -509,7 +509,7 @@ Para ver propio cuerpo del documento, añada `&include_docs=true` al mandato cur
 
 Cada cambio se describe utilizando el formato que se muestra en el siguiente ejemplo (abreviado).
 
-_Ejemplo de canal de información `_changes`:_
+*Ejemplo de canal `_changes`:*
 
 ```json
 {
@@ -526,7 +526,7 @@ _Ejemplo de canal de información `_changes`:_
 
 Para unir el canal de información de cambios a partir de una posición conocida, pase un [argumento `since`](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument) con el número de secuencia por el que desea comenzar.
 
-_Ejemplo (abreviado) de utilización de HTTP para especificar la opción `since` para unir un canal de información `_changes` en una posición conocida:_
+*Ejemplo (abreviado) de utilización de HTTP para especificar la opción `since` para unir un canal de información `_changes` en una posición conocida:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
@@ -535,7 +535,8 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Ejemplo (abreviado) de utilización de la línea de mandatos para especificar la opción `since` para unir un canal de información `_changes` en una posición conocida:_
+*Ejemplo (abreviado) de utilización de la línea de mandatos para especificar la opción `since` para unir un canal de información `_changes` en una
+posición conocida:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -544,7 +545,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 
 Para volver a unir el canal de información de cambios desde el momento actual, defina `since=now`.
 
-_Ejemplo de utilización de HTTP para especificar `since=now` para unir un canal de información `_changes` en el momento actual:_
+*Ejemplo de utilización de HTTP para especificar `since=now` para unir un canal de información `_changes` en el momento actual:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
@@ -553,14 +554,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Ejemplo de utilización de la línea de mandatos para especificar `since=now` para unir un canal de información `_changes` en el momento actual:_
+*Ejemplo de utilización de la línea de mandatos para especificar `since=now` para unir un canal de información `_changes` en el momento actual:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {: codeblock}
 
-_Ejemplo de utilización de JavaScript para especificar `since=now` para unir un canal de información `_changes` en el momento actual:_
+*Ejemplo de utilización de JavaScript para especificar `since=now` para unir un canal de información `_changes` en el momento actual:*
 
 ```javascript
 var feed = db.follow({since: "now", include_docs: true})
@@ -572,7 +573,7 @@ feed.follow();
 {: codeblock}
 
 El acceso a los datos `_changes` mediante programación es muy sencillo.
-Por ejemplo, puede utilizar la [biblioteca de {{site.data.keyword.cloudant_short_notm}} Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js) para seguir los cambios con unas pocas líneas de código.
+Por ejemplo, puede utilizar la [Biblioteca Node.js de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported) para seguir los cambios con unas pocas líneas de código.
 
 Estos son algunos casos de uso de ejemplo:
 
@@ -580,9 +581,9 @@ Estos son algunos casos de uso de ejemplo:
 -   Actualización de una base de datos en memoria para registrar recuentos dinámicos de actividad.
 -   Escritura de datos en un archivo de texto para enviar datos por push a una base de datos SQL.
 
-El canal de información de cambios se puede filtrar con una función de filtro, utilizando una técnica parecida a la de [filtrado durante la réplica](#filtered-replication).
+El canal de información de cambios se puede filtrar con una función de filtro, utilizando una técnica parecida a la de [filtrado durante la réplica](#filtered-replications).
 
-_Ejemplo de utilización de HTTP para filtrar el canal de información de cambios:_
+*Ejemplo de utilización de HTTP para filtrar el canal de información de cambios:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter HTTP/1.1
@@ -591,7 +592,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Ejemplo de utilización de la línea de mandatos para filtrar el canal de información de cambios:_
+*Ejemplo de utilización de la línea de mandatos para filtrar el canal de información de cambios:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
@@ -658,7 +659,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 
 Si desea cancelar todas las réplicas y empezar con una base de datos `_replicator` nueva, suprima y vuelva a crear la base de datos `replicator`.
 
-_Ejemplo de utilización de HTTP para eliminar y volver a crear la base de datos `_replicator`:_
+*Ejemplo de utilización de HTTP para eliminar y volver a crear la base de datos `_replicator`:*
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -671,7 +672,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Ejemplo de utilización de la línea de mandatos para eliminar y volver a crear la base de datos `_replicator`:_
+*Ejemplo de utilización de la línea de mandatos para eliminar y volver a crear la base de datos `_replicator`:*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'

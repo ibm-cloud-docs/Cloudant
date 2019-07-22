@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-06-12"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -62,7 +62,7 @@ Comment estimer le coût total de la capacité de débit mise à disposition par
 - Le curseur vous montre aussi que la capacité de débit mise à disposition de 1000 lectures/sec, 500 écritures/sec et 50 requêtes/sec coûte 1,050 $/heure * 730 heures
 - Total = 766,50 $
 
-## Tarification de l'utilisation des données
+## Tarification de l'utilisation des données 
 {: #data-usage-pricing}
 
 Qu'en est-il de la tarification des excédents de données ? Comment cela fonctionne-t-il ?
@@ -77,7 +77,7 @@ Standard | 20 Go | Le stockage supplémentaire coûte 0,0014 $ par Go par heure,
 
 Comment les données s'affichent-elles dans le tableau de bord de l'utilisation de {{site.data.keyword.cloud_notm}} ?
 
-Les factures d'utilisation actuelle et historiques sont visibles dans le tableau de bord {{site.data.keyword.cloud_notm}}, sous Gérer -> Facturation et utilisation -> Utilisation. Cette vue affiche les montants totaux d'utilisation provisionnés durant un mois particulier, au niveau du service, du plan ou de l'instance. Le montant total estimé reflète la facturation jusqu'à maintenant pour le mois actuel ou pour des mois complets déjà passés. Elle n'affiche que les coûts horaires cumulés jusqu'à ce point pour le mois actuel. A la fin du mois, vous voyez votre capacité de débit mise à disposition moyenne pour le mois qui s'affiche dans les zones `LOOKUPS_PER_MONTH`, `WRITES_PER_MONTH` et `QUERIES_PER_MONTH`. (Notez que les consultations s'appellent désormais lectures et les requêtes, requêtes globales.) La zone `STORAGE_MANAGED_PER_MONTH` ne montre que le stockage facturé et n'inclut pas les 20 Go qui sont compris dans le plan Standard. Dans l'exemple suivant, une quantité de 20+ Go reflète qu'il y a eu une moyenne de 40 Go de données dans l'instance pour le mois. Lorsque vous utilisez moins de 20 Go du stockage, l'écran affiche 0 Go puisque vous n'avez pas dépassé la limite.   
+Les factures d'utilisation actuelle et historiques sont visibles dans le tableau de bord {{site.data.keyword.cloud_notm}}, sous Gérer -> Facturation et utilisation -> Utilisation. Cette vue affiche les montants totaux d'utilisation provisionnés durant un mois particulier, au niveau du service, du plan ou de l'instance.  Le montant total estimé reflète la facturation jusqu'à maintenant pour le mois actuel ou pour des mois complets déjà passés. Elle n'affiche que les coûts horaires cumulés jusqu'à ce point pour le mois actuel. A la fin du mois, vous voyez votre capacité de débit mise à disposition moyenne pour le mois qui s'affiche dans les zones `LOOKUPS_PER_MONTH`, `WRITES_PER_MONTH` et `QUERIES_PER_MONTH`. (Notez que les consultations s'appellent désormais lectures et les requêtes, requêtes globales.) La zone `STORAGE_MANAGED_PER_MONTH` ne montre que le stockage facturé et n'inclut pas les 20 Go qui sont compris dans le plan Standard. Dans l'exemple suivant, une quantité de 20+ Go reflète qu'il y a eu une moyenne de 40 Go de données dans l'instance pour le mois. Lorsque vous utilisez moins de 20 Go du stockage, l'écran affiche 0 Go puisque vous n'avez pas dépassé la limite.   
 
 ![Vue des métriques d'utilisation du tableau de bord de {{site.data.keyword.cloudant_short_notm}} avec une valeur supérieure dans la zone STORAGE_MANAGED_PER_MONTH](../images/usage-dashboard1.png)
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -44,16 +44,18 @@ subcollection: cloudant
     ![{{site.data.keyword.cloud_notm}} Python 應用程式](images/img0013.png)<br/>
     即會出現`建立 Cloud Foundry 應用程式`表單。
 
-4.  使用`建立 Cloud Foundry 應用程式`表單，以指定及建立 Python Cloud Foundry 應用程式的環境。請輸入應用程式的名稱（例如 `Cloudant CF app`）。系統會自動為您產生主機名稱，但您可以進行自訂：</br>
+4.  使用`建立 Cloud Foundry 應用程式`表單，以指定及建立 Python Cloud Foundry 應用程式的環境。請輸入應用程式的名稱（例如 `Cloudant CF app`）。系統會自動產生主機名稱，但您也可以對其進行自訂：</br>
     ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry 應用程式名稱](images/img0014.png)
     
     在 {{site.data.keyword.cloud_notm}} 網域內，主機名稱必須是唯一的。在此範例中，網域為 `mybluemix.net`，完整主機名稱則會是 `Cloudant-CF-app.mybluemix.net`。
     {: tip}
 
-5.  按一下`建立`來建立應用程式環境：</br>
+5.  按一下`建立`以建立應用程式環境：</br>
     ![建立 {{site.data.keyword.cloud_notm}} Python Cloud Foundry 應用程式](images/img0015.png)
 
-6.  在短暫暫停之後，會出現新應用程式環境的`開始使用`視窗。會在環境內自動建立測試應用程式。將自動啟動應用程式，如綠色圖示及`執行中`狀態所示。應用程式是一種「活動訊號」程式，足以顯示新應用程式環境可供您使用。按一下 `Cloud Foundry 應用程式`鏈結，以回到 {{site.data.keyword.cloud_notm}} 儀表板。<br/>
+6.  在短暫暫停之後，會出現新應用程式環境的`開始使用`視窗。
+    會在環境內自動建立測試應用程式。將自動啟動應用程式，如綠色圖示及`執行中`狀態所示。
+    應用程式是一種「活動訊號」程式，足以顯示新應用程式環境可供您使用。按一下 `Cloud Foundry 應用程式`鏈結，以回到 {{site.data.keyword.cloud_notm}} 儀表板。<br/>
     ![首次執行的新 {{site.data.keyword.cloud_notm}} Python Cloud Foundry 應用程式](images/img0016.png)
 
 7.  您的資源清單現在包含新建立的應用程式環境：<br/>
@@ -74,13 +76,14 @@ subcollection: cloudant
 
 2.  若要將應用程式環境連接至另一個服務，請按一下`連線`標籤：<br/>
     ![選取 {{site.data.keyword.cloud_notm}} 應用程式的連線配置](images/img0019.png)<br/>
-    即會出現一個區域，可用於配置應用程式與帳戶內可用的任何其他服務之間的連線。
+    即會出現一個區域，可用於在應用程式與帳戶內可用的任何其他服務之間配置連線。
 
-3.  本指導教學的[必要條件](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites)是要具備現有的 {{site.data.keyword.cloudant_short_notm}} 資料庫實例。按一下`建立連線`，以建立該服務實例與應用程式之間的連線：<br/>
+3.  本指導教學的[必要條件](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites-create_bmxapp_prereq)是要具備現有的 {{site.data.keyword.cloudant_short_notm}} 資料庫實例。按一下`建立連線`，以建立該服務實例與應用程式之間的連線：<br/>
     ![連接至現有資料庫實例](images/img0020.png)<br/>
     即會出現您帳戶中的現有服務實例清單。
 
-4.  按一下您要使用的 {{site.data.keyword.cloudant_short_notm}} 服務實例。本指導教學使用 `Cloudant-service` 實例：<br/>
+4.  按一下您要使用的 {{site.data.keyword.cloudant_short_notm}} 服務實例。
+    本指導教學使用 `Cloudant-service` 實例：<br/>
     ![選擇指導教學範例資料庫實例](images/img0021.png)
 
 5.  系統會要求您確認是否真的要將資料庫實例連接至應用程式。按一下`連接`來確認連線：<br>
@@ -111,7 +114,7 @@ subcollection: cloudant
 
 下載及安裝工具箱是單次作業。如果工具箱已安裝並在您的系統中運作，則除非有更新，否則不需要重新予以下載。
 
-[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window} 提供工具箱的一般資訊。
+如需工具箱的相關資訊，請參閱[開始使用 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} 指導教學。
 
 ### 安裝 Cloud Foundry 工具箱
 {: #installing-the-cloud-foundry-toolkit}
@@ -161,14 +164,14 @@ subcollection: cloudant
 4.  若要確認您有運作中的 {{site.data.keyword.cloud_notm}} 工具箱，請在提示執行下列指令：
     
     ```sh
-    bluemix --version
+    ibmcloud --version
     ```
     {: pre}
     
     預期結果類似下列輸出：
     
     ```
-    bluemix version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
+    ibmcloud version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
     ```
     {: codeblock}
     
@@ -197,7 +200,7 @@ subcollection: cloudant
 
 `Procfile` 包含 {{site.data.keyword.cloud_notm}} 執行應用程式所需的詳細資料。
 
-更明確地說，`Procfile` 是一種 Cloud Foundry 構件，它會定義應用程式處理程序類型和執行應用程式用的指令。[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window} 提供 `Procfile` 的相關資訊。
+更明確地說，`Procfile` 是一種 Cloud Foundry 構件，它會定義應用程式處理程序類型和執行應用程式用的指令。如需 `Procfile` 的相關資訊，請參閱 Cloud Foundry 文件中的 [About Procfiles ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window}。
 
 {{site.data.keyword.cloud_notm}} Python 入門範本應用程式的 `Procfile` 與下列範例類似：
 
@@ -240,7 +243,7 @@ applications:
 
 -   `domain`、`name` 及 `host` 值對應於[建立](#creating-an-ibm-cloud-application-environment) {{site.data.keyword.cloud_notm}} 應用程式時所輸入的值。
 -   Cloud Foundry 工具箱使用 `name` 值來識別您所管理的應用程式。
--   `services` 值確認 `Cloudant Service 2017` {{site.data.keyword.cloudant_short_notm}} 資料庫實例已連接至應用程式環境。
+-   `services` 值確認 {{site.data.keyword.cloudant_short_notm}} 資料庫實例 `Cloudant-o7` 是否已連線到應用程式環境。
 
 您通常不需要修改 `manifest.yml` 檔案，不過，最好瞭解應用程式為什麼必須要有它才能運作。
 
@@ -259,4 +262,4 @@ cloudant==2.3.1
 ```
 {: codeblock}
 
-指導教學中的下一步是[建立應用程式](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment)。
+指導教學中的下一步是[建立應用程式](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code)。

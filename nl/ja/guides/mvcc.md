@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -51,7 +51,7 @@ MVCC はまた、{{site.data.keyword.cloudant_short_notm}} データベース・
 
 [文書を更新](/docs/services/Cloudant?topic=cloudant-documents#update)する際は、前の `_rev` を指定する必要があります。さもないと要求は失敗し、[409 エラー](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)が返されます。
 
-バージョン管理システムを構築するために `_rev` を使用してはいけません。その理由は、この番号がサーバーによって使用される内部値だからです。 それに加え、文書の古いリビジョンは一時的なものなので、定期的に削除されるからです。
+バージョン管理システムを構築するために `_rev` を使用してはいけません。 その理由は、この番号がサーバーによって使用される内部値だからです。 それに加え、文書の古いリビジョンは一時的なものなので、定期的に削除されるからです。
 {: note}
 
 `_rev` を使用して特定のリビジョンを照会することができます。ただし、古いリビジョンは、[圧縮![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://en.wikipedia.org/wiki/Data_compaction){: new_window} と呼ばれるプロセスによって定期的に削除されます。

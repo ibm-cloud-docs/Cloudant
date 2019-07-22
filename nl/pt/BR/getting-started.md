@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -36,13 +36,12 @@ Além deste tutorial, veja os nossos tutoriais práticos que ajudam você a apre
 - [Node.js e {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
 - [Swift e {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-Para obter tutoriais específicos da linguagem, consulte [Introdução à implementação de seu primeiro aplicativo ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/){: new_window}. 
+Para obter tutoriais específicos da linguagem, consulte [Introdução à implementação de seu primeiro aplicativo ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs){: new_window}. 
 
 ## Antes de iniciar
 {: #prereqs}
 
-Você precisa de uma [conta do {{site.data.keyword.cloud}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https:///cloud.ibm.com/registration/){: new_window},
-de uma instância do serviço {{site.data.keyword.cloudant_short_notm}} e dos requisitos do Python a seguir:
+É necessária uma [conta do {{site.data.keyword.cloud}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/registration/){: new_window}, uma instância de serviço do {{site.data.keyword.cloudant_short_notm}} e os seguintes requisitos de Python:
 
 *	Instale a versão mais recente da
 [linguagem de programação Python ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://www.python.org/){: new_window} em seu sistema.
@@ -101,20 +100,20 @@ execute o comando a seguir em um prompt:
 
 2.  Crie uma credencial de serviço do {{site.data.keyword.cloudant_short_notm}}:
   <br>No painel do {{site.data.keyword.cloud_notm}}, acesse o ícone de **Menu** > **Lista de recursos** e abra a sua instância de serviço do {{site.data.keyword.cloudant_short_notm}}.
-  <br>Na navegação à esquerda, clique em `Service credentials`.
+  <br>No menu, clique em `Credenciais de serviço`.
   <br>a. Clique no botão  ` Nova credencial ` .
-  <br>![Criar novas credenciais de serviço](/docs/services/Cloudant/tutorials/images/img0050.png)
+  <br>![Criar novas credenciais de serviço](tutorials/images/img0050.png)
   <br>b. Insira um nome para a nova credencial na janela Incluir nova credencial, conforme mostrado na captura de tela a seguir.
   <br>c. (Opcional) Inclua parâmetros de configuração sequenciais.
   <br>d. Clique no botão  ` Incluir ` . 
-  <br>![Incluir uma nova credencial de serviço](/docs/services/Cloudant/tutorials/images/img0051.png)
+  <br>![Incluir uma nova credencial de serviço](tutorials/images/img0051.png)
   <br>Suas credenciais são incluídas na tabela Credenciais de serviço.
   <br>e. Clique em `Visualizar credenciais` em Ações. 
-  <br>![Visualizar todas as credenciais de serviço](/docs/services/Cloudant/tutorials/images/img0052.png)
+  <br>![Visualizar todas as credenciais de serviço](tutorials/images/img0052.png)
   <br>Os detalhes das credenciais de serviço aparecem:
-   <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](/docs/services/Cloudant/tutorials/images/img0009.png)
+   <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
    
-3.	Estabeleça uma conexão com a instância de serviço do {{site.data.keyword.cloudant_short_notm}}. Para fazer isso, o mecanismo depende do fato de você estar usando a autenticação do {{site.data.keyword.cloud_notm}} IAM ou do {{site.data.keyword.cloudant_short_notm}} Legacy. Consulte o [{{site.data.keyword.cloud_notm}}Identity and Access Management (IAM) guide ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)para obter mais detalhes sobre o tipo de autenticação.
+3.	Estabeleça uma conexão com a instância de serviço do {{site.data.keyword.cloudant_short_notm}}. Para fazer isso, o mecanismo depende do fato de você estar usando a autenticação do {{site.data.keyword.cloud_notm}} IAM ou do {{site.data.keyword.cloudant_short_notm}} Legacy. Para obter mais informações sobre o tipo de autenticação, consulte o [Guia do {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 	Se você estiver usando a autenticação do {{site.data.keyword.cloudant_short_notm}} Legacy, substitua suas credenciais de serviço da etapa anterior:
 	```python
@@ -367,16 +366,16 @@ chamando o [terminal `/_all_docs`](/docs/services/Cloudant?topic=cloudant-databa
   ```
   {: codeblock}
 
-## (opcional) Etapa 6: Consultar as informações do banco de dados no painel do {{site.data.keyword.cloudant_short_notm}}
+## (Opcional) Etapa 6: Consultar as informações do banco de dados no painel do {{site.data.keyword.cloudant_short_notm}}
 {: #optional-step-6-ibm-cloudant-dashboard}
 
-Siga estas etapas para ver o banco de dados e os documentos no painel do {{site.data.keyword.cloudant_short_notm}}. 
+Siga estas etapas para ver o seu banco de dados e os documentos no painel do {{site.data.keyword.cloudant_short_notm}}. 
 
 1.  Efetue login em sua conta do IBM Cloud.
     O painel do IBM Cloud pode ser localizado em: https://cloud.ibm.com/. Depois de autenticar-se com seu nome de usuário e sua senha, o painel do IBM Cloud é apresentado.
 2.  Clique em **Serviços** na área de janela Resumo de recursos para ver as suas instâncias de serviço do {{site.data.keyword.cloudant_short_notm}}. 
 3.  Clique na instância de serviço cujos detalhes você deseja ver.
-4.  Clique em **Ativar o painel do Cloudant**.
+4.  Clique em **Ativar o painel do Cloudant**. 
     Quando o painel for aberto, será possível ver os bancos de dados associados a seu serviço.
 
 
@@ -411,7 +410,8 @@ client.disconnect()
 ## Etapas Seguintes
 {: #next-steps}
 
-Para obter mais informações sobre todas as ofertas do {{site.data.keyword.cloudant_short_notm}}, consulte o site principal [{{site.data.keyword.cloudant_short_notm}}![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+Para obter mais informações sobre todas as ofertas do {{site.data.keyword.cloudant_short_notm}},
+consulte o [site principal do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/cloud/cloudant){: new_window}.
 
 Para obter mais informações, consulte os tutoriais, os conceitos, as tarefas e as técnicas do {{site.data.keyword.cloudant_short_notm}} na [documentação do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-overview#overview).
 
@@ -433,7 +433,7 @@ from cloudant.result import Result, ResultByKey
 client = Cloudant("<username>", "<password>", url="<url>")
 client.connect()
 
-# IAM Authentication (uncomment if needed, and comment out {{site.data.keyword.cloudant_short_notm}} Legacy authentication section above)
+# IAM Authentication (uncomment if needed, and comment out previous {{site.data.keyword.cloudant_short_notm}} Legacy authentication section)
 client = Cloudant.iam("<username","<apikey>")
 client.connect()
 

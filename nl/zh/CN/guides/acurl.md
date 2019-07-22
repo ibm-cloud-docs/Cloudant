@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-12"
 
 keywords: encode user name, encode password, create alias, activate alias, test acurl
 
@@ -52,7 +52,7 @@ python -c 'import base64; print base64.urlsafe_b64encode("$ACCOUNT:$PASSWORD")'
 ```
 {: codeblock}
 
-我们假定输出名为 `<OUTPUT-OF-BASE64>`.
+假定输出名为 `<OUTPUT-OF-BASE64>`。
 
 例如，如果使用以下命令：
 

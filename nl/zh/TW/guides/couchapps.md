@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: couchapp, 3-tier application
 
@@ -52,4 +52,4 @@ CouchApps 因其簡易性而出眾，但 Web 應用程式經常需要 3 層架�
 -   您需要「基本」鑑別或 Cookie 鑑別以外的鑑別方法，例如 Oauth 或協力廠商登入系統。
 -   您需要排定要在用戶端外定期執行的作業。
 
-您可以使用最適合您的任何技術來撰寫伺服器層。在 [{{site.data.keyword.cloudant_short_notm}} 基本觀念](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries)頁面上，提供了可搭配 {{site.data.keyword.cloudant_short_notm}} 使用的程式庫清單。
+您可以使用最適合您的任何技術來撰寫伺服器層。在 [{{site.data.keyword.cloudant_short_notm}} 基本觀念](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries)頁面上，提供可搭配 {{site.data.keyword.cloudant_short_notm}} 使用的程式庫清單。
