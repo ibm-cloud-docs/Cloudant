@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-07-22"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -45,8 +45,8 @@ syndicated version of {{site.data.keyword.cloudant_short_notm}} and the {{site.d
 ## Hardware capacity 
 {: #hardware-capacity}
 
-{{site.data.keyword.cloudant_short_notm}} within {{site.data.keyword.cloud_notm}} Dedicated is purchased via an '{{site.data.keyword.cloud_notm}} Dedicated 
-{{site.data.keyword.cloudant_short_notm}} 1.6 TB Capacity' part, which includes a clustered {{site.data.keyword.cloudant_short_notm}} environment 
+{{site.data.keyword.cloudant_short_notm}} within {{site.data.keyword.cloud_notm}} Dedicated is purchased via an "{{site.data.keyword.cloud_notm}} Dedicated 
+{{site.data.keyword.cloudant_short_notm}} 1.6 TB Capacity" part, which includes a clustered {{site.data.keyword.cloudant_short_notm}} environment 
 consisting of three database nodes and two load balancers. Each database node 
 contains 1.6 TB on SSDs, and since all data is stored in triplicate this 
 equates to 1.6 TB of unique disk space across the cluster. Expansion of an 

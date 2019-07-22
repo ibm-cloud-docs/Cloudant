@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-07-23"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -41,17 +41,17 @@ to work with the database.
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button. <br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
-2.  Click `Databases` from the menu and `Cloudant` from the list of database services:<br/>
+2.  Click `Databases` from the menu and `Cloudant` from the list of database       services:<br/>
     ![{{site.data.keyword.cloud_notm}} Databases services](images/img0003.png)<br/>
 
-3.  In the service configuration window, enter a service name. Verify that the service name, region/location, resource group, and authentication methods are correct. Add a tag if you like. The authentication methods that are available include `Use only IAM` or `Use both legacy credentials and IAM`. For more information, see [authentication methods](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. 
+3.  In the service configuration window, enter a service name. Verify that the     service name, region/location, resource group, and authentication methods      are correct. Add a tag if you like. The authentication methods that are        available include `Use only IAM` or `Use both legacy credentials and IAM`.     For more information, see [authentication methods](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. 
     In this example, the service name is `Cloudant-o7`:<br/>
     ![{{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0005.png)
     
-The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
-{: important}
+    The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
+    {: important}
 
-4.  By default, the service is created by using the 'Lite' pricing plan, which is free but comes with a fixed amount of provisioned throughput capacity and data storage. If you have a paid {{site.data.keyword.cloud_notm}} account, you can also choose the paid 'Standard' plan so you can toggle the provisioned throughput capacity and scale data usage as needed. For more information about pricing plans, see [Plans](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window}. To create the service, click the `Create` button: <br/>
+4.  By default, the service is created by using the 'Lite' pricing plan, which     is free but comes with a fixed amount of provisioned throughput capacity       and data storage. If you have a paid {{site.data.keyword.cloud_notm}}          account, you can also choose the paid 'Standard' plan so you can toggle        the provisioned throughput capacity and scale data usage as needed. For        more information about pricing plans, see [Plans](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window}. To create the service, click the `Create` button: <br/>
     ![Create the {{site.data.keyword.cloudant_short_notm}} service name and credentials](images/img0006.png)
 
 5.  A service page appears,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-18"
+lastupdated: "2019-07-22"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -224,7 +224,7 @@ The method for managing the provisioned throughput capacity via the UI will depe
 
 #### UI - Resource Group
 
-If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Resource Group**, go to the {{site.data.keyword.cloud_short_notm}} Dashboard Service Details page for the instance. Click **Manage** tab and then **Capacity** tab where you can view the current and target capacity. 
+If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Resource Group**, go to the {{site.data.keyword.cloud_notm}} Dashboard Service Details page for the instance. Click **Manage** tab and then **Capacity** tab where you can view the current and target capacity. 
 
 ![Capacity](../images/capacity-1.png)
 
@@ -236,7 +236,7 @@ The check mark turns yellow and says `Updating Capacity` until the target capaci
 
 ![Capacity](../images/capacity-4.png)
 
-Capacity increases via the {{site.data.keyword.cloud_short_notm}} Dashboard can be made up to 100 blocks of capacity which is 10,000 reads/sec, 5,000 writes/sec, and 500 global queries/sec. If you require more capacity, see the Need additional capacity? tab at the bottom of the Capacity page.
+Capacity increases via the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity which is 10,000 reads/sec, 5,000 writes/sec, and 500 global queries/sec. If you require more capacity, see the Need additional capacity? tab at the bottom of the Capacity page.
 {: note}
 
 #### UI - Cloud Foundry org and space

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-18"
+lastupdated: "2019-07-22"
 
 keywords: http headers, response headers, http status codes
 
@@ -69,7 +69,7 @@ If the `Accept` header is not supplied,
 then the server assumes the`*/*` MIME type,
 which means that the client accepts all formats.
 
-*Example of sending a request without an explicit `Accept` header, or when specifying `*/*`:
+##### Example of sending a request without an explicit `Accept` header, or when specifying `*/*`:
 
 ```http
 GET /recipes HTTP/1.1
@@ -78,7 +78,7 @@ Accept: */*
 ```
 {: codeblock}
 
-*Example of a returned header when the client is assumed to accept all formats*
+##### Example of a returned header when the client is assumed to accept all formats
 
 The returned content type is `text/plain` even though the information returned by the request is in JSON format.
 {: note}
@@ -101,7 +101,7 @@ For example,
 if you explicitly request `application/json` in the `Accept` of a request,
 the returned HTTP headers use this value in the returned `Content-type` field.
 
-*Example request that explicitly specifies the `Accept` header*
+##### Example request that explicitly specifies the `Accept` header
 
 ```http
 GET /recipes HTTP/1.1
@@ -110,7 +110,7 @@ Accept: application/json
 ```
 {: codeblock}
 
-*Example of the headers returned in response, including the `application/json` content type*
+##### Example of the headers returned in response, including the `application/json` content type
 
 ```
 Server: CouchDB/1.0.2 (Erlang OTP/R14B)
@@ -145,7 +145,7 @@ Supported values are `gzip` and `deflate`.
 If the header is used,
 the request body must be encoded using the corresponding format.
 
-*Example of creating a gzipped request body*
+##### Example of creating a gzipped request body
 
 ```sh
 # create gzipped document
@@ -153,7 +153,7 @@ echo '{"foo":"bar"}' | gzip >doc.gzip
 ```
 {: codeblock}
 
-*Example of sending a gzip-encoded request body to create a document, using HTTP*
+##### Example of sending a gzip-encoded request body to create a document, using HTTP
 
 ```http
 PUT /db/doc HTTP/1.1
@@ -162,7 +162,7 @@ Content-Encoding: gzip
 ```
 {: codeblock}
 
-*Example of sending a gzip-encoded request body to create a document, using the command line*
+##### Example of sending a gzip-encoded request body to create a document, using the command line
 
 ```sh
 curl "https://example.cloudant.com/db/doc" \

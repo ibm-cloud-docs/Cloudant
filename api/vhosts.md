@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-18"
+lastupdated: "2019-07-23"
 
 keywords: vhost endpoints, list virtual host, create virtual host, delete virtual host
 
@@ -52,7 +52,7 @@ send a `GET` request to `/_api/v2/user/virtual_hosts`.
 The JSON response details all of the virtual hosts,
 and any virtual path associated with each host.
 
-*Example request to list all vhosts, using HTTP:*
+### Example request to list all vhosts, using HTTP:
 
 ```http
 GET /_api/v2/user/virtual_hosts HTTP/1.1
@@ -60,14 +60,14 @@ Host: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-*Example request to list all vhosts, using the command line:*
+#### Example request to list all vhosts, using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/user/virtual_hosts"
 ```
 {: codeblock}
 
-*Example response, list all vhosts:*
+#### Example response, list all vhosts:
 
 ```json
 {
@@ -98,7 +98,7 @@ Field  | Purpose
 `host` | The domain name you want to use for the vhost.
 `path` | An (optional) endpoint in your {{site.data.keyword.cloudant_short_notm}} account the vhost should point to.
 
-*Example request for creating a vhost, using HTTP:*
+### Example request for creating a vhost, using HTTP:
 
 ```http
 POST /_api/v2/user/virtual_hosts HTTP/1.1
@@ -107,14 +107,14 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-*Example request for creating a vhost, using the command line:*
+### Example request for creating a vhost, using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/user/virtual_hosts" -X POST -d @vhost.json -H "Content-Type: application/json"
 ```
 {: codeblock}
 
-*Example JSON describing the required vhost:*
+### Example JSON describing the required vhost:
 
 ```json
 {
@@ -124,7 +124,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/user/virtual_hosts" -X POST -d @vhos
 ```
 {: codeblock}
 
-*Example response to request for a vhost:*
+#### Example response to request for a vhost:
 
 ```json
 {
@@ -142,7 +142,7 @@ send a `DELETE` request to `/_api/v2/user/virtual_hosts`.
 Specify the host to delete within the request body,
 as shown in the following example.
 
-*Example request for deleting a vhost, using HTTP:*
+### Example request for deleting a vhost, using HTTP:
 
 ```http
 DELETE /_api/v2/user/virtual_hosts HTTP/1.1
@@ -151,14 +151,14 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-*Example request for deleting a vhost, using the command line:*
+### Example request for deleting a vhost, using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/user/virtual_hosts" -X DELETE -d @vhost.json -H "Content-Type: application/json"
 ```
 {: codeblock}
 
-*Example JSON describing the vhost to delete:*
+### Example JSON describing the vhost to delete:
 
 ```json
 {
@@ -167,7 +167,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/user/virtual_hosts" -X DELETE -d @vh
 ```
 {: codeblock}
 
-*Example response to vhost delete request:*
+#### Example response to vhost delete request:
 
 ```json
 {

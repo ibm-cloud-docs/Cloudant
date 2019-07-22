@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-07-22"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -112,7 +112,8 @@ instances on it.
     After a few seconds, the instance is provisioned on the environment you selected.<br/>
     ![Provision standard instance](images/create_button_provision_standard.png)
     
-6.  Obtain your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
+6.  Obtain your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard 
+    as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
     
     For more information, see [how to locate your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials){: new_window}. 
     

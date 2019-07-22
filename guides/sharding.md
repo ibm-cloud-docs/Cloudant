@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-22"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -246,8 +246,7 @@ If you reduce the *R* value, it increases the likelihood that the response that 
 
 The default value for *R* is *2*.
 This value corresponds to most of the replicas for a typical database that uses three shard replicas.
-If the database has a number of replicas that is higher or lower than 3,
-the default value for *R* changes correspondingly.
+If the database has multiple replicas that are greater than or less than 3, the default value for *R* changes correspondingly.
 
 #### What is *W*?
 {: #what-is-_w_-}
