@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-07-23"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -55,7 +55,7 @@ API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
 Not logged in. Use 'ibmcloud login' to log in.
 ```
-{: codeblock}
+{: screen}
 
 Cloud Foundry now knows where to send API calls for managing applications.
 
@@ -66,10 +66,10 @@ You must supply the following account details:
 -   Your organization name, which is specified as the '`-o`' parameter.
 -   Your space, which is specified as the '`-s`' parameter.
 
-  The account details are available on your {{site.data.keyword.cloud_notm}} dashboard, when you log in through a web browser, as shown in the following example:
-  {: tip}
+    The account details are available on your {{site.data.keyword.cloud_notm}} dashboard, when you log in through a web browser, as shown in the following example:
+    {: tip}
 
-  ![Finding your {{site.data.keyword.cloud_notm}} account details](images/img0035.png)
+    ![Finding your {{site.data.keyword.cloud_notm}} account details](images/img0035.png)
 
 Use a command similar to the following example to log in to your
 {{site.data.keyword.cloud_notm}} application environment.
@@ -100,7 +100,7 @@ User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
 Space:          dev
 ```
-{: codeblock}
+{: screen}
 
 ## Uploading the application
 {: #uploading-the-application}
@@ -127,7 +127,7 @@ Using manifest file /..../BMXDemo/manifest.yml
 Updating app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{: codeblock}
+{: screen}
 
 The Cloud Foundry toolkit located the manifest file,
 and is preparing to upload the application by using the connection
@@ -143,7 +143,7 @@ OK
 Binding service {{site.data.keyword.cloudant_short_notm}} Service 2017 to app {{site.data.keyword.cloudant_short_notm}} Python in org Adrian.Warman@uk.ibm.com / space dev as Adrian.Warman@uk.ibm.com...
 OK
 ```
-{: codeblock}
+{: screen}
 
 The application was uploaded successfully,
 and a connection made with the {{site.data.keyword.cloudant_short_notm}} database instance.
@@ -177,7 +177,7 @@ OK
 
 App {{site.data.keyword.cloudant_short_notm}} Python was started using this command `python server.py`
 ```
-{: codeblock}
+{: screen}
 
 The application starts automatically.
 As part of the startup,
@@ -203,21 +203,25 @@ buildpack: python 1.5.5
      state     since                    cpu    memory          disk           details
 #0   running   2016-12-22 03:59:21 PM   0.0%   49.9M of 128M   110.6M of 1G
 ```
-{: codeblock}
+{: screen}
 
 ## Testing the sample application
 {: #testing-the-sample-application}
 
 Now, test your application and verify that it is running properly. 
 
-1.  From the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your application. Under Cloud Foundry Apps, click `Cloudant CF app` to open the details page.<br/>  
-![Screenshot showing dashboard for the application](images/img0017.png)
+1. From the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu**        icon > **Resource List**, and open your application. Under Cloud Foundry       Apps, click `Cloudant CF app` to open the details page.<br/>  
+   ![Screenshot showing dashboard for the application](images/img0017.png)
 
-2.  On the `Cloudant CF app` details page, click `Routes` and click the `Cloudant-CF-app.mybluemix.net` link. <br/>
-![Cloudant CF app details page](images/img0030.png)
+2. On the `Cloudant CF app` details page, click `Routes` and click the            `Cloudant-CF-app.mybluemix.net` link. <br/>
+   ![Cloudant CF app details page](images/img0030.png)
 
-3. A new brower window opens at `https://cloudant-cf-app.mybluemix.net/`. The message verifies that the application is running by displaying the message, 'Hello World! Thanks for creating a Python Starter Application.'<br/>
-![Hello World! verified that the Cloudant CF app runs correctly](images/img0054.png)
+3. A new brower window opens at `https://cloudant-cf-app.mybluemix.net/`. The     message verifies that the application is running by displaying the             following message:
+
+   Hello World! Thanks for creating a Python Starter Application.
+   {: screen}
+
+   ![Hello World! verified that the Cloudant CF app runs correctly](images/img0054.png)
 
 
 ### Confirming the database details

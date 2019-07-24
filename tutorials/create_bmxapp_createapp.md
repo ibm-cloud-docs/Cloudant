@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2017, 2019-07-02"
+  years: 2017, 2019-07-22"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -193,7 +193,7 @@ The first part of the log is a record of the current date and time.
 This record helps confirm that the database really is being freshly created:
 
 ```python
-# Put a clear indication of the current date and time at the top of the page.
+# Put a clear indication of the current date and time at the beginning of the page.
 target.write("====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n\n")
@@ -340,7 +340,7 @@ The next step is to finish the log file,
 ready to serve it using a simple Python web server within the application:
 
 ```python
-# Put another clear indication of the current date and time at the bottom of the page.
+# Put another clear indication of the current date and time at the end of the page.
 target.write("\n====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n")
@@ -428,7 +428,7 @@ target = open(filename, 'w')
 target.truncate()
 target.write("<html><head><title>Cloudant Python Demo</title></head><body><p>Log of {{site.data.keyword.cloudant_short_notm}} Python steps...</p><pre>")
 
-# Put a clear indication of the current date and time at the top of the page.
+# Put a clear indication of the current date and time at the beginning of the page.
 target.write("====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n\n")
@@ -486,7 +486,7 @@ if 'VCAP_SERVICES' in os.environ:
     # All done - disconnect from the service instance.
     client.disconnect()
 
-# Put another clear indication of the current date and time at the bottom of the page.
+# Put another clear indication of the current date and time at the end of the page.
 target.write("\n====\n")
 target.write(strftime("%Y-%m-%d %H:%M:%S", gmtime()))
 target.write("\n====\n")
