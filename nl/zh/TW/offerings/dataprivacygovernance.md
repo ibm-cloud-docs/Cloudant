@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -22,14 +22,14 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# 資料隱私及控管
+# 資料隱私權和管理
 {: #data-privacy-and-governance}
 
 _（此「{{site.data.keyword.cloudantfull}} 資料隱私及控管更新」一開始發行於 2016 年 4 月 20 日。）_
 
 身為佈建完全受管理且可散佈全球之「資料庫即服務」的先驅，{{site.data.keyword.cloudant_short_notm}} 容許客戶將資料放在任何全球 {{site.data.keyword.cloud}} 或 AWS 地區中。藉由提供客戶這類高階資料行動性來滿足客戶的本端需求，{{site.data.keyword.IBM}} 及 {{site.data.keyword.cloudant_short_notm}} 很認真看待資料隱私及控管。
 
-為了控管從歐盟到美國的資料移動，{{site.data.keyword.cloudant_short_notm}} 同時遵守美國與歐盟和美國與瑞士的[安全港架構 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.export.gov/safeharbor_eu){: new_window}。在歐洲法院 2015 年裁決安全港協議[無效 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){: new_window} 之後，{{site.data.keyword.IBM_notm}} 很快就力促政策制定者採取應變措施，確保[歐盟與美國之間的資料流動不中斷 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/ibm/ibmgra/safe_harbor_10062015.html){: new_window}。
+若要控管從歐盟到美國的資料移動，{{site.data.keyword.cloudant_short_notm}} 同時遵守美國與歐盟和美國與瑞士的[安全港架構 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.export.gov/safeharbor_eu){: new_window}。在歐洲法院 2015 年裁決安全港協議[無效 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://curia.europa.eu/juris/document/document.jsf?text=&docid=169195&pageIndex=0&doclang=en&mode=req&dir=&occ=first&part=1&cid=113326){: new_window} 之後，{{site.data.keyword.IBM_notm}} 很快就力促政策制定者採取應變措施，確保[歐盟與美國之間的資料流動不中斷 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/ibm/ibmgra/safe_harbor_10062015.html){: new_window}。
 
 {{site.data.keyword.IBM_notm}} 針對 {{site.data.keyword.cloudant_short_notm}} 客戶準備了「歐盟示範條款」合約，方便在符合歐盟資料隱私法的情況下在歐盟以外地區傳送個人資料。「歐盟示範條款」與將歐盟居民的個人資訊傳送至 {{site.data.keyword.cloudant_short_notm}} 的所有客戶息息相關。
 
@@ -39,7 +39,7 @@ EU Directive 95/46/EC 闡述了客戶個人資料的處理規則。身為資料�
 
 [www.ibm.com/cloud/datacenters ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/cloud/datacenters){: new_window} 提供可能保留內容或可能從中存取內容且用於交付及支援「雲端服務」的國家/地區清單。
 
-[這裡](/docs/services/Cloudant?topic=cloudant-compliance#compliance)提供 {{site.data.keyword.cloudant_short_notm}} 整體標準遵循的相關資訊。您可以找到這些 IaaS 事業夥伴的類似資訊：
+如需 {{site.data.keyword.cloudant_short_notm}} 整體一致性標準的相關資訊，請參閱[一致性](/docs/services/Cloudant?topic=cloudant-compliance#compliance)。您可以找到這些 IaaS 事業夥伴的類似資訊：
 
 -   [Amazon ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://aws.amazon.com/compliance/){: new_window}
 -   [{{site.data.keyword.cloud}} ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/compliance){: new_window}

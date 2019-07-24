@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -27,7 +27,7 @@ subcollection: cloudant
 
 La [guida al ripristino di emergenza di {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
 spiega che un modo per abilitare il ripristino di emergenza è quello di utilizzare la replica
-[{{site.data.keyword.cloudantfull}} per creare ridondanza in più regioni. 
+[{{site.data.keyword.cloudantfull}} per creare ridondanza in più regioni.
 
 Puoi configurare la replica in {{site.data.keyword.cloudant_short_notm}} utilizzando una topologia 'attivo-attivo'
 o 'attivo-passivo' tra i data center.
@@ -140,7 +140,7 @@ Prendi attentamente nota della password. Non è possibile recuperare la password
 ## Passo 3: concedi l'autorizzazione di accesso
 {: #step-3-grant-access-permission}
 
-[Concedi l'autorizzazione per la chiave API](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)
+Concedi alla chiave API l'[autorizzazione](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)
 per leggere e scrivere su entrambi i database.
 
 Se vuoi replicare anche gli indici,
@@ -307,7 +307,7 @@ alcune opzioni possibili includono:
   anziché una modifica alle impostazioni dell'applicazione.
   Molti proxy hanno la capacità di bilanciare il carico,
   in base ai controlli di integrità definiti dall'utente.
-* Utilizza un programma di bilanciamento del carico globale come [{{site.data.keyword.cloud}} Internet Services ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} o [Dyn Traffic Director ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://dyn.com/traffic-director/){: new_window} per l'indirizzamento a {{site.data.keyword.cloudant_short_notm}}.
+* Utilizza un programma di bilanciamento del carico globale come [{{site.data.keyword.cloud}} Internet Services ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window} o [Dyn Traffic Director ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://dyn.com/traffic-director/){: new_window} per l'indirizzamento a {{site.data.keyword.cloudant_short_notm}}.
   Questa opzione richiede una definizione `CNAME` che indirizzi a
   diversi account {{site.data.keyword.cloudant_short_notm}}
    sulla base di un controllo di integrità o una regola di latenza.

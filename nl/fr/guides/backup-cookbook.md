@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -36,7 +36,7 @@ Par exemple, le stockage redondant de données ne protège pas contre les risque
 
 {{site.data.keyword.cloudant_short_notm}} fournit un outil pris en charge de sauvegarde et de restauration par image instantanée,
 à savoir CouchBackup, un outil open source.
-Celui-ci contient une bibliothèque `node.js` qui est [disponible pour être installée sur npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{: new_window}.
+Il s'agit d'une bibliothèque `node.js` que vous pouvez installer sur [npm ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][npmpackage]{: new_window}.
 
 Outre la bibliothèque, le package CouchBackup contient deux outils de ligne de commande :
 
@@ -90,7 +90,7 @@ Le [fichier readme npm ![Icône de lien externe](../images/launch-glyph.svg "Ic�
 Les outils CouchBackup présentent certaines [limites](#limitations).
 {: important}
 
-## Limites
+## Limitations
 {: #limitations}
 
 Les limites des outils CouchBackup sont les suivantes : 
@@ -119,7 +119,7 @@ Le package CouchBackup fournit deux façons d'utiliser ses fonctions principales
   La bibliothèque permet de créer et de déployer des processus de sauvegarde beaucoup plus complexes, tels que l'identification dynamique des bases de données à sauvegarder.
 
 Utilisez soit l'outil de sauvegarde de ligne de commande, soit la bibliothèque avec le code de l'application, pour activer la sauvegarde depuis les bases de données {{site.data.keyword.cloudant_short_notm}} dans les situations plus complexes.
-Un scénario utile permet de planifier les sauvegardes à l'aide de la tâche `cron`, et de télécharger automatiquement les données vers [Cloud Object Storage ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window} à des fins de conservation à long terme.
+Un scénario utile permet de planifier les sauvegardes à l'aide de la tâche `cron`, et de télécharger automatiquement les données vers [Cloud Object Storage ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window} à des fins de conservation à long terme.
 
 ## Exemples de scripts en ligne de commande
 {: #command-line-scripting-examples}
@@ -206,7 +206,7 @@ Pour plus d'informations, consultez la [page npm ![Icône de lien externe](../im
 L'exemple de script ci-dessous décrit comment combiner la bibliothèque `couchbackup` à une utilisation d'{{site.data.keyword.IBM}} Cloud Object Storage.
 Ce code explique l'utilisation de l'interface de programmation Cross Region S3 à des fins de sauvegarde d'une base de données dans un conteneur d'objets.
 
-L'une des conditions préalables à l'utilisation de ce code est l'initialisation de l'objet client S3 pour {{site.data.keyword.IBM_notm}} Cloud Object Storage en suivant [ces instructions ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][cosclient]{: new_window}.
+L'une des conditions préalables à l'utilisation de ce code est l'initialisation de l'objet client S3 pour {{site.data.keyword.IBM_notm}} Cloud Object Storage en suivant les instructions de [{{site.data.keyword.cloud_notm}} Object Storage - S3 API Intro ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")][cosclient]{: new_window}.
 {: note}
 
 ```javascript

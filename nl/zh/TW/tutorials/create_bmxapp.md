@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create applications, deploy applications, create simple application
 
@@ -40,7 +40,7 @@ subcollection: cloudant
 [個別指導教學](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud)顯示如何建立獨立式 Python 應用程式，用於在 {{site.data.keyword.cloud_notm}} 內使用 {{site.data.keyword.cloudant_short_notm}} 資料庫實例。
 在本指導教學中，您可以設定及建立在 {{site.data.keyword.cloud_notm}} 內管理的小型 Python 應用程式。應用程式會連接至 {{site.data.keyword.cloudant_short_notm}} 資料庫實例，並建立單一簡單文件。
 
-在本指導教學中，會提供每一個作業特有的 Python 程式碼。本指導教學（[這裡](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program)）提供足以示範概念的完整 Python 程式。
+在本指導教學中，會提供每一個作業特有的 Python 程式碼。[建立簡單 {{site.data.keyword.cloud_notm}} 應用程式以存取 {{site.data.keyword.cloudant_short_notm}} 資料庫](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program)指導教學中提供完整的 Python 程式，足以示範這些概念。
 
 本指導教學不會嘗試建立_有效率_ 的 Python 程式碼；本指導教學是為了示範簡單易懂且可運作的程式碼，方便您從中學習並應用於自己的應用程式。
 
@@ -68,7 +68,7 @@ subcollection: cloudant
 1.  [必要條件](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)
 2.  [應用程式環境](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment)
 3.  [建立應用程式](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code)
-4.  [上傳並執行應用程式](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application)
-5.  [維護及疑難排解應用程式](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting)
+4.  [上傳和執行應用程式](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application)
+5.  [應用程式維護和疑難排解](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting)
 
 若要開始指導教學，請先[檢查必要條件](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)。

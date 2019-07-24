@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -56,7 +56,7 @@ subcollection: cloudant
 このセクションでは、このチュートリアルで使用する
 [データベース](/docs/services/Cloudant?topic=cloudant-databases#create-database) `query-demo` を作成します。
 
-このチュートリアルでは、`curl` コマンドではなく、`acurl` 別名を使用します。 `acurl` 別名は、[該当の説明手順](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)を使用して作成されます。 `curl` コマンドを使用する場合、または別の方法で API エンドポイントを呼び出す場合は、
+このチュートリアルでは、`curl` コマンドではなく、`acurl` 別名を使用します。 `acurl` 別名は、[許可済み curl: `acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) の手順を使用して作成されます。`curl` コマンドを使用する場合、または別の方法で API エンドポイントを呼び出す場合は、
   使用するコマンドと、コマンドで必要なパラメーター (ユーザー名やパスワードなど) をこのチュートリアルで使用してください。
 {: tip}
 
@@ -256,9 +256,9 @@ subcollection: cloudant
 
 {{site.data.keyword.cloudant_short_notm}} には、データベースを照会するためのビューと索引があります。 ビューは、データベースに保存された照会を実行し、その結果が結果セットと呼ばれます。 ビューに対して照会をサブミットすると、照会はその結果セットを検索します。 索引は、データを構造化して検索時間を向上させるための方法です。
 
-このチュートリアルでは {{site.data.keyword.cloudant_short_notm}} 照会を使用します。これは、Mongo 形式の照会構文を使用して論理演算子を利用して文書を検索します。{{site.data.keyword.cloudant_short_notm}} 照会は、ビューと検索索引の組み合わせです。
+このチュートリアルでは {{site.data.keyword.cloudant_short_notm}} 照会を使用します。これは、Mongo 形式の照会構文を使用して論理演算子を利用して文書を検索します。 {{site.data.keyword.cloudant_short_notm}} 照会は、ビューと検索索引の組み合わせです。
 
-{{site.data.keyword.cloudant_short_notm}} 照会を使用する場合、照会プランナーが selector (照会) を参照して選択の基準となる適切な索引を判別します。適切な索引が見つからなかった場合、ID で文書を検索する `_all_docs` 特殊索引を使用します。最悪のシナリオでは、ID 別にすべての文書が戻ります (完全な表スキャン)。メモリー内では selector により文書がフィルターに掛けられるため、索引がなくても各種フィールドによって照会を実行できます。完全な表スキャンはコストがかかるため、索引を作成することをお勧めします。以下のリストで各種索引タイプの説明を参照してください。
+{{site.data.keyword.cloudant_short_notm}} 照会を使用すると、照会プランナーがセレクター (照会) を参照して、選択の基準となる適切な索引を判別します。適切な索引が見つからなかった場合、ID で文書を検索する `_all_docs` 特殊索引を使用します。 最悪のシナリオでは、ID 別にすべての文書が戻ります (完全な表スキャン)。 メモリー内では selector により文書がフィルターに掛けられるため、索引がなくても各種フィールドによって照会を実行できます。 完全な表スキャンはコストがかかるため、索引を作成することをお勧めします。 以下のリストで各種索引タイプの説明を参照してください。
 
 *	1 次索引 – ID で文書または一連の文書をルックアップします。  
 *	[ビュー](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) – count、sum、average、その他の数学関数など、指定した検索基準に一致する情報をデータベースで検索します。 検索の基準は、ビューの定義で指定されます。 ビューは MapReduce パラダイムを使用します。

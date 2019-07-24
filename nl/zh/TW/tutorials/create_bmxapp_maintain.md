@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -70,7 +70,7 @@ subcollection: cloudant
 
 指導教學的這一節提供一些基本疑難排解提示，來協助您識別、診斷及解決一些在開發及部署第一個 {{site.data.keyword.cloud_notm}} 應用程式時可能遇到的問題。
 
-[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window} 提供了建立 {{site.data.keyword.cloud_notm}} 或 Cloud Foundry 應用程式之最佳作法的良好建議。
+有關建立 {{site.data.keyword.cloud_notm}} 或 Cloud Foundry 應用程式的最佳作法的良好建議，請參閱[在雲端中設計和執行應用程式的考量 ![外部鏈結圖示](../images/launch-glyph.svg " 外部鏈結圖示")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}。
 
 特別值得一提的是，關於[避免寫入至本端檔案系統 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window} 的建議很謹慎。
 

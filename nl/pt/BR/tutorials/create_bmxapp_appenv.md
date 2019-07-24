@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -88,7 +88,7 @@ a área de configuração e gerenciamento de seu aplicativo.
    ![Selecting the connection configuration for your {{site.data.keyword.cloud_notm}} application](images/img0019.png)<br/>
     Aparece uma área para configurar uma conexão entre seu aplicativo e quaisquer outros serviços disponíveis em sua conta.
 
-3.  Um [pré-requisito](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites) para esse tutorial é uma
+3.  Um [pré-requisito](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites-create_bmxapp_prereq) para esse tutorial é uma
 instância de banco de dados existente do {{site.data.keyword.cloudant_short_notm}}.
     Clique em `Criar conexão`para estabelecer uma conexão entre essa instância de serviço e seu aplicativo:<br/>
    ![Connect to an existing database instance](images/img0020.png)<br/>
@@ -142,8 +142,7 @@ Se os kits de ferramentas já estiverem instalados e funcionando em seu sistema,
 não será necessário fazer download deles novamente,
 a menos que sejam atualizados.
 
-Informações gerais sobre os kits de ferramentas estão disponíveis
-[aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window}.
+Para obter mais informações sobre os kits de ferramentas, consulte o tutorial [Introdução ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window}.
 
 ### Instalando o kit de ferramentas do Cloud Foundry
 {: #installing-the-cloud-foundry-toolkit}
@@ -201,14 +200,14 @@ o kit de ferramentas do {{site.data.keyword.cloud_notm}} será instalado em seu 
     execute o comando a seguir em um prompt:
     
     ```sh
-    bluemix --version
+    ibmcloud --version
     ```
     {: pre}
     
     Espere um resultado semelhante à saída a seguir:
     
     ```
-    bluemix version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
+    ibmcloud version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
     ```
     {: codeblock}
     
@@ -248,7 +247,7 @@ Três arquivos especificamente são essenciais:
 O `Procfile` contém os detalhes que o {{site.data.keyword.cloud_notm}} precisa para executar seu aplicativo.
 
 Mais especificamente, um `Procfile` é um artefato do Cloud Foundry que define um tipo de processo de aplicativo e o comando para executar o aplicativo.
-Mais informações sobre `Procfile` estão disponíveis [aqui ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window}.
+Para obter mais informações sobre o `Procfile`, consulte [Sobre Procfiles ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window} na documentação do Cloud Foundry.
 
 O `Procfile` para um aplicativo iniciador {{site.data.keyword.cloud_notm}} Python é semelhante ao exemplo a seguir:
 
@@ -299,7 +298,7 @@ Três pontos são dignos de nota:
     e `host` correspondem aos valores inseridos quando
     o aplicativo {{site.data.keyword.cloud_notm}} foi [criado](#creating-an-ibm-cloud-application-environment).
 -   O valor `name` é usado pelo kit de ferramentas Cloud Foundry para identificar o aplicativo que você está administrando.
--   O valor `services` confirma que a instância de banco de dados do `Cloudant Service 2017`{{site.data.keyword.cloudant_short_notm}} está conectada ao ambiente de aplicativos.
+-   O valor `services` confirma que a instância do banco de dados `Cloudant-o7` do {{site.data.keyword.cloudant_short_notm}} está conectada ao ambiente de aplicativos.
 
 Normalmente, não é necessário modificar o arquivo `manifest.yml`, no entanto, é útil entender por que ele deve estar presente para que seu aplicativo funcione.
 
@@ -323,4 +322,4 @@ cloudant==2.3.1
 ```
 {: codeblock}
 
-A próxima etapa no tutorial é [criar o aplicativo](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment).
+A próxima etapa no tutorial é [criar o aplicativo](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code).

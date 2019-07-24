@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -157,7 +157,7 @@ curl -X PUT -u myusername https://myaccount.cloudant.com/mynewdatabase?q=8
 {{site.data.keyword.cloud}}의 {{site.data.keyword.cloudant_short_notm}} 데이터베이스에서는 데이터베이스의 _Q_ 설정이 사용으로 설정되어 있지 않습니다. 대부분의 `cloudant.com` 멀티 테넌트 클러스터에서는 _Q_ 값을 사용할 수 없습니다.
 {: note}
 
-_Q_ 값이 사용 불가능한 경우에 이 값을 설정하려 시도하면 JSON 본문이 다음 예와 같은 [`403` 응답](/docs/services/Cloudant/api/http.html#http-status-codes)을 수신하게 됩니다.
+_Q_ 값이 사용 불가능한 경우에 이 값을 설정하려 시도하면 JSON 본문이 다음 예와 같은 [`403` 응답](/docs/services/Cloudant?topic=cloudant-http#http-status-codes)을 수신하게 됩니다.
 
 ```json
 {
@@ -197,7 +197,7 @@ _R_은 조정자가 클라이언트에 응답하기 전에 수신해야 하는 �
 _R_을 _1_로 설정하면 조정자가 응답을 더 빨리 리턴할 수 있으므로 전체 응답 시간이 향상될 수 있습니다.
 이는 해당 샤드를 호스팅하는 복제본으로부터 하나의 응답만 기다리면 되기 때문입니다.
 
-{{site.data.keyword.cloudant_short_notm}}에서 사용하는 [결과적 일관성](/docs/services/Cloudant/guides/cap_theorem.html) 모델로 인해, _R_ 값을 줄이면 리턴되는 응답이 최신 데이터를 기반으로 하지 않을 가능성이 높아집니다.	기본 _R_ 값을 사용하면 이 효과를 완화시키는 데 도움이 됩니다.
+{{site.data.keyword.cloudant_short_notm}}에서 사용하는 [결과적 일관성](/docs/services/Cloudant?topic=cloudant-cap-theorem) 모델로 인해, _R_ 값을 줄이면 리턴되는 응답이 최신 데이터를 기반으로 하지 않을 가능성이 높아집니다. 기본 _R_ 값을 사용하면 이 효과를 완화시키는 데 도움이 됩니다.
 {: note}
 
 _R_의 기본값은 _2_입니다.

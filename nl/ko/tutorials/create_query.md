@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -54,7 +54,7 @@ subcollection: cloudant
 
 이 섹션에서는 이 튜토리얼에서 사용하는 `query-demo` [데이터베이스](/docs/services/Cloudant?topic=cloudant-databases#create-database)를 작성합니다.
 
-이 튜토리얼에서는 `curl` 명령이 아니라 `acurl` 별명을 사용합니다. `acurl` 별명은 [여기](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)에 설명된 단계를 사용하여 작성됩니다. `curl` 명령 또는 다른 API 엔드포인트 호출 방법을 사용하려는 경우에는 이 튜토리얼의 명령과 명령에 필요한 매개변수(사용자 이름 및 비밀번호 등)를 대체하십시오.
+이 튜토리얼에서는 `curl` 명령이 아니라 `acurl` 별명을 사용합니다. `acurl` 별명은 [권한 부여된 curl: `acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)의 단계를 사용하여 작성됩니다. `curl` 명령 또는 다른 API 엔드포인트 호출 방법을 사용하려는 경우에는 이 튜토리얼의 명령과 명령에 필요한 매개변수(사용자 이름 및 비밀번호 등)를 대체하십시오.
 {: tip}
 
 ![명령행 아이콘](../images/CommandLineIcon.png) _명령행_

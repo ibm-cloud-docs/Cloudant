@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-06-12"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -25,7 +25,7 @@ subcollection: cloudant
 # プランおよびプロビジョニング
 {: #ibm-cloud-public}
 
-{{site.data.keyword.cloudantfull}} Public は、最も豊富な機能を備えた {{site.data.keyword.cloudant_short_notm}} のオファリングであり、最初に更新と新しいフィーチャーを受け取ります。 料金は割り振られたプロビジョン済みスループット能力と使用されたデータ・ストレージに基づいており、必要などのような負荷にも適しています。
+{{site.data.keyword.cloudantfull}} Public は、最も豊富な機能を備えた {{site.data.keyword.cloudant_short_notm}} のオファリングであり、最初に更新と新しいフィーチャーを受け取ります。 料金は割り振られたプロビジョン済みスループット能力と使用されたデータ・ストレージに基づいており、どのような負荷が必要になっても適用可能です。 
 {: shortdesc}
 
 無料の[ライト・プラン](#lite-plan)には、開発と評価のために、
@@ -61,17 +61,17 @@ subcollection: cloudant
 
 {{site.data.keyword.cloudant_short_notm}} 標準プランは、すべての有料 {{site.data.keyword.cloud}} アカウント (従量課金 (PAYG) またはサブスクリプションのいずれでも) で利用可能であり、ご使用のアプリケーションのニーズに合わせて拡大されます。 標準プランの料金は、割り当てられているプロビジョン済みスループット能力と、インスタンスに保管されているデータ量という 2 つの要因に基づいて決定されます。 
 
-料金は時間割計算となり、開始プロビジョン済みスループット能力は 100 読み取り/秒、50 書き込み/秒、および 5 グローバル照会/秒で、開始コストは USD $0.105/時です。プロビジョン済みスループット能力の増減は、{{site.data.keyword.cloudant_short_notm}} ダッシュボードで、100 読み取り/秒、50 書き込み/秒、5 グローバル照会/秒の単位で切り替えることができます。コストは、計量された要求ボリュームではなく、割り振られているプロビジョン済みスループット能力を対象にして計算されます。 標準プランには、20 GB のデータ・ストレージが含まれています。 20 GB を超えるデータを保管する場合は、GB/時間当たりで定義されているコストを請求されます。 
+料金は時間割計算となり、開始プロビジョン済みスループット能力は 100 読み取り/秒、50 書き込み/秒、および 5 グローバル照会/秒で、開始コストは USD $0.105/時です。 プロビジョン済みスループット能力の増減は、{{site.data.keyword.cloudant_short_notm}} ダッシュボードで、100 読み取り/秒、50 書き込み/秒、5 グローバル照会/秒の単位で切り替えることができます。 コストは、計量された要求ボリュームではなく、割り振られているプロビジョン済みスループット能力を対象にして計算されます。 標準プランには、20 GB のデータ・ストレージが含まれています。 20 GB を超えるデータを保管する場合は、GB/時間当たりで定義されているコストを請求されます。 
 
 コストを見積もるための例については、『{{site.data.keyword.cloud_notm}} Pricing Calculator for pricing at different capacities and currencies, and the [pricing](/docs/services/Cloudant?topic=cloudant-pricing#pricing){: new_window}』情報を参照してください。
 
 ### 専用ハードウェア・プラン
 {: #dedicated-hardware-plan}
 
-{{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスとは、{{site.data.keyword.cloudant_short_notm}} 標準プラン・インスタンス専用でプロビジョンされているベアメタル {{site.data.keyword.cloudant_short_notm}} 環境です。 {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン環境は、どの [{{site.data.keyword.IBM}} データ・センター ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/cloud-computing/bluemix/data-centers) にもプロビジョンできます。 このプランは
-HIPAA のコンプライアンスのために必要であり、プロビジョン時に選択する必要があります。 {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン環境のユーザーは、IP ホワイトリスティング、および {{site.data.keyword.IBM_notm}} Key Protect を使用する bring-your-own-key (BYOK) カスタマー管理暗号鍵を使用できます。 さらに、2019 年 1 月 1 日以降にプロビジョンされる専用ハードウェア環境は、その環境にデプロイしたすべての標準プラン・インスタンスに内部エンドポイントが組み込まれます。内部エンドポイントを使用すると内部 {{site.data.keyword.cloud}} ネットワークを経由して {{site.data.keyword.cloudant_short_notm}} インスタンスに接続できるため、アップストリーム・アプリケーション・トラフィックがパブリック・ネットワークを通過することで発生する帯域幅のコストを低減できます。{{site.data.keyword.cloud}} アカウントのサービス・エンドポイントを有効にする方法について詳しくは、[サービス・エンドポイントの資料](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window}を参照してください。
+{{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスとは、{{site.data.keyword.cloudant_short_notm}} 標準プラン・インスタンス専用でプロビジョンされているベアメタル {{site.data.keyword.cloudant_short_notm}} 環境です。 {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン環境は、どの [{{site.data.keyword.IBM}} グローバル・データ・センター ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/cloud/data-centers/){:new_window} にもプロビジョンできます。このプランは
+HIPAA のコンプライアンスのために必要であり、プロビジョン時に選択する必要があります。 {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン環境のユーザーは、IP ホワイトリスティング、および {{site.data.keyword.IBM_notm}} Key Protect を使用する bring-your-own-key (BYOK) カスタマー管理暗号鍵を使用できます。 さらに、2019 年 1 月 1 日以降に EU 管理環境の外部でプロビジョンされる専用ハードウェア環境は、その環境にデプロイされるすべての標準プラン・インスタンス用の内部エンドポイントを含みます。内部エンドポイントを使用すると内部 {{site.data.keyword.cloud}} ネットワークを経由して {{site.data.keyword.cloudant_short_notm}} インスタンスに接続できるため、アップストリーム・アプリケーション・トラフィックがパブリック・ネットワークを通過することで発生する帯域幅のコストを低減できます。 {{site.data.keyword.cloud}} アカウントのサービス・エンドポイントを有効にする方法について詳しくは、[サービス・エンドポイントの資料 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window} を参照してください。
 
-1 つ以上の標準プラン・インスタンスをプロビジョンでき、標準プラン・インスタンスで使用される容量およびデータに基づいて、必要に応じて専用ハードウェア環境を拡大したり縮小したりできます。 {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスには、デプロイされている標準プラン・インスタンスの使用量に伴う料金に加えて固定料金も存在します。請求処理は日割り計算で行われ、環境に対する最小課金期間は 1 カ月になります。 {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プランのプロビジョニングは非同期であり、5 から 7 営業日かかる可能性があります。 {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスを作成し、そこに標準プラン・インスタンスをプロビジョンするには、[{{site.data.keyword.cloud_notm}} での専用ハードウェア・プラン・インスタンスの作成および活用 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} のチュートリアルに従ってください。 
+1 つ以上の標準プラン・インスタンスをプロビジョンでき、標準プラン・インスタンスで使用される容量およびデータに基づいて、必要に応じて専用ハードウェア環境を拡大したり縮小したりできます。 {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスには、デプロイされている標準プラン・インスタンスの使用量に伴う料金に加えて固定料金も存在します。 請求処理は日割り計算で行われ、環境に対する最小課金期間は 1 カ月になります。 {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プランのプロビジョニングは非同期であり、5 から 7 営業日かかる可能性があります。 {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスを作成し、そこに標準プラン・インスタンスをプロビジョンするには、『[{{site.data.keyword.cloud_notm}} での {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスの作成および活用](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud)』チュートリアルに従ってください。 
 
 {{site.data.keyword.cloud_notm}} Dedicated のお客様は専用ハードウェア・プランを利用できません。 専用ハードウェア・プランを利用できるのは、{{site.data.keyword.cloud_notm}} Public のお客様のみになります。
 {: important}
@@ -89,19 +89,19 @@ HIPAA のコンプライアンスのために必要であり、プロビジョ�
         -	1 次索引 ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
         -	MapReduce ビュー ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
         -	ルックアップ索引 ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
-        -	{{site.data.keyword.cloudant_short_notm}} 照会 ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+        -	{{site.data.keyword.cloudant_short_notm}} 照会 ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index))
     
         パーティション化された照会要求により使用される読み取り操作の数は、
         返される結果に応じて異なります。
 2.	_書き込み_、
     つまり、個別文書の作成、変更、または削除。
 3.	グローバル索引に対する _グローバル照会_ (旧称「照会」)、
-        つまり、`_partition` 名前空間内に**にはない** {{site.data.keyword.cloudant_short_notm}} 照会エンドポイントに対して行われる要求。以下のタイプがあります:
+        つまり、`_partition` 名前空間内**にはない** {{site.data.keyword.cloudant_short_notm}} 照会エンドポイントに対して行われる要求。以下のタイプがあります:
 	-	1 次索引 ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
 	-	MapReduce ビュー ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
 	-	ルックアップ索引 ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
-	-	地理情報索引 ([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-geo-index))
-	-	{{site.data.keyword.cloudant_short_notm}} 照会 ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+	-	地理情報索引 ([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-nosql-db-geo-index))
+	-	{{site.data.keyword.cloudant_short_notm}} 照会 ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index))
 
 
 ## プロビジョンされているスループット能力
@@ -118,8 +118,7 @@ _読み取り_、_書き込み_、_グローバル照会_。
 
 イベント数を超えているために要求が拒否されると、アプリケーションは [`429` Too Many Requests](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) 応答を受け取ります。
 
-サポートされているクライアント・ライブラリー ([Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java)、[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)、および [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supportedn) の各言語用) の最新バージョンは、`429` 応答の処理に役立ちます。
-例えば、
+サポートされているクライアント・ライブラリー ([Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported)、[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)、および [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported) の各言語用) の最新バージョンは、`429` 応答の処理に役立ちます。 例えば、
 Java ライブラリーは、
 [`TooManyRequestsException` ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window} 応答を生成します。
 
@@ -136,23 +135,21 @@ Java ライブラリーは、
 ### パーティション化された照会による読み取り操作の使用量
 {: #consumption-of-lookup-operations-by-partitioned-queries}
 
-パーティション化された照会要求が使用する読み取り操作の数は、返される結果の数に応じて異なります。
-使用量は以下の 2 つの軸を基準にしています。
+パーティション化された照会要求が使用する読み取り操作の数は、返される結果の数に応じて異なります。 使用量は以下の 2 つの軸を基準にしています。
 
 1. 照会に関与する索引から読み取られる行の数。
 1. 照会の実行中にデータベース (存在する場合) から読み取られる文書の数。
     
 #### `_all_docs`、ビュー、および検索の照会
 
-索引からの 100 行ブロックの読み取りごとに、1 読み取り操作を使用します。
-さらに、照会の実行中のデータベースからの文書読み取りごとに 1 読み取り単位を使用します。
+索引からの 100 行ブロックの読み取りごとに、1 読み取り操作を使用します。 さらに、照会の実行中のデータベースからの文書読み取りごとに 1 読み取り単位を使用します。
 
-索引からの読み取り行数は返される結果の数と同じです。文書がデータベースから読み取られるのは、照会要求中に照会ストリング・パラメーターとして `include_docs=true`
+索引からの読み取り行数は返される結果の数と同じです。 文書がデータベースから読み取られるのは、照会要求中に照会ストリング・パラメーターとして `include_docs=true`
 が渡された場合のみです。
 
-以下の表にコスト例が示されています。 
+以下の表にコスト例を示します。
 
-| 結果の数 | 文書の組み込み | 合計読み取り使用量 | 読み取り行の使用量 | 読み取り文書の使用量|
+| 結果の数 | 文書の組み込み | 合計読み取り使用量 | 読み取り行の使用量 | 読み取り文書の使用量 |
 |--------------|----------------|-------------|---------------------| --- |
 | 199      | いいえ     | **2** | 2 | 0 |
 | 199      | はい     | **201** | 2 | 199 |
@@ -170,7 +167,7 @@ Java ライブラリーは、
 
 また、{{site.data.keyword.cloudant_short_notm}} 照会は、照会に渡される selector によって必要なきめ細かなフィルター操作を実行できるように、基礎となる索引により返されたすべての行の文書を読み取る必要があります。
 
-| 結果の数 | 索引により返された行数 | 合計読み取り使用量 | 読み取り行の使用量 | 読み取り文書の使用量|
+| 結果の数 | 索引により返された行数 | 合計読み取り使用量 | 読み取り行の使用量 | 読み取り文書の使用量 |
 |--------------|----------------|-------------|---------------------| --- |
 | 5      | 199     | **201** | 2 | 199 |
 | 199      | 199     | **201** | 2 | 199 |
@@ -193,7 +190,7 @@ Java ライブラリーは、
 
 ![アカウント・ダッシュボード](../images/cloudant_capacity_change.png)
 
-能力増加のサイズは、1 回の変更につき 10 ユニット (1000 読み取り/秒、500 書き込み/秒、および 50 グローバル照会/秒) に制限されています。削減は、ユニット数によって制限されません。 増加または削減のいずれの場合も、容量の変更は、1 時間につき 1 回に制限されています。 {{site.data.keyword.cloudant_short_notm}} ダッシュボードで使用可能な容量より多くの容量が必要な場合は、[{{site.data.keyword.cloudant_short_notm}} サポート ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){: new_window} までご連絡ください。
+能力増加のサイズは、1 回の変更につき 10 ユニット (1000 読み取り/秒、500 書き込み/秒、および 50 グローバル照会/秒) に制限されています。 削減は、ユニット数によって制限されません。 増加または削減のいずれの場合も、容量の変更は、1 時間につき 1 回に制限されています。 {{site.data.keyword.cloudant_short_notm}} ダッシュボードで使用可能な容量より多くの容量が必要な場合は、[{{site.data.keyword.cloudant_short_notm}} サポート ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](mailto:support@cloudant.com){: new_window} までご連絡ください。
 {: note}
 
 ### 使用状況のモニタリング 
@@ -285,8 +282,7 @@ Java ライブラリーは、
 バイナリー添付ファイルまたは大きな JSON Blob はオブジェクト・ストレージに保管し、そのロケーションへのリンクを {{site.data.keyword.cloudant_short_notm}} JSON 文書に保存することをお勧めします。   
 
 複製する場合、これらの制限を超える文書または添付ファイルは、
-ターゲット・データベースに複製されません。 複製エラーの検出方法について詳しくは、
-[ここ](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors)を参照してください。
+ターゲット・データベースに複製されません。 複製エラーを検出する方法について詳しくは、『[複製エラー](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors)』を参照してください。
 
 ## ロケーションとテナンシー
 {: #locations-and-tenancy}
@@ -301,7 +297,7 @@ Java ライブラリーは、
 -   東京
 
 専用ハードウェア・プラン・インスタンスは、ほとんどの
-[{{site.data.keyword.IBM_notm}} データ・センター・ロケーション ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/cloud-computing/bluemix/data-centers) にデプロイできます。 
+[{{site.data.keyword.IBM_notm}} データ・センター・ロケーション ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/cloud/data-centers/) にデプロイできます。 
 使用可能なロケーションの最新のリストについては、{{site.data.keyword.cloud_notm}} カタログでドロップダウン・メニューを確認してください。
 
 &Dagger; {{site.data.keyword.cloud_notm}} Public フランクフルト地域からデプロイされたすべての {{site.data.keyword.cloudant_short_notm}} インスタンスは、
@@ -315,17 +311,17 @@ EU 管理環境でデプロイされます。 EU 管理環境外で生成され�
 
 {{site.data.keyword.cloudant_short_notm}} には、HTTPS API を使用してアクセスします。 API エンドポイントによって要求されれば、
   {{site.data.keyword.cloudant_short_notm}} が受け取るすべての HTTPS 要求
-  についてユーザーが認証されます。 プロビジョニング中、使用可能な認証方式には、「レガシー資格情報と IAM の両方を使用」または「IAM のみを使用」があります。 詳しくは、『[IAM ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-l){: new_window}』またはレガシー『[認証 API 文書](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}』を参照してください。
+  についてユーザーが認証されます。 プロビジョン中に使用可能な認証方式には、`Use both legacy credentials and IAM` (レガシー資格情報と IAM の両方を使用) または `Use only IAM` (IAM のみを使用) があります。詳しくは、『[IAM ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)』またはレガシー『[認証 API 文書](/docs/services/Cloudant?topic=cloudant-authentication#authentication)』を参照してください。
 
 {{site.data.keyword.cloudant_short_notm}} インスタンスをプロビジョニングした後は、{{site.data.keyword.cloud_notm}} ダッシュボードの「サービス資格情報」タブで新規資格情報を生成するときに、接続 URL と IAM 許可の詳細が表示されます。 プロビジョニング中にこのオプションを選択した場合は、{{site.data.keyword.cloudant_short_notm}} のレガシー・ユーザー名とパスワードも含まれます。
 
-{{site.data.keyword.cloudant_short_notm}} チームでは、可能な場合は認証に IAM アクセス制御を使用することをお勧めしています。{{site.data.keyword.cloudant_short_notm}} のレガシー認証を使用している場合、プログラマチック・アクセスと複製ジョブを行う際にはアカウント・レベルの資格情報ではなく [API キー](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}を使用することをお勧めします。
+{{site.data.keyword.cloudant_short_notm}} チームでは、可能な場合は認証に IAM アクセス制御を使用することをお勧めしています。 {{site.data.keyword.cloudant_short_notm}} のレガシー認証を使用している場合、プログラマチック・アクセスと複製ジョブを行う際にはアカウント・レベルの資格情報ではなく [API キー](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}を使用することをお勧めします。 
 {: important}
 
 ## データ・センターでの高可用性、災害復旧、およびバックアップ
 {: #high-availability-disaster-recovery-and-backup-in-a-data-center}
 
-データ・センター内で高可用性 (HA) および災害復旧 (DR) を提供するため、すべてのデータは、クラスター内の 3 つの別々の物理サーバーに三重に保管されます。 複数のデータ・センター内にアカウントをプロビジョンし、次に継続的データ複製を使用して、複数のデータ・センターにわたって HA/DR を提供することができます。 {{site.data.keyword.cloudant_short_notm}} データは自動的にバックアップされませんが、バックアップを処理するためにサポートされるツールが用意されています。 アプリケーション要件を満たすための、HA、DR、およびバックアップのすべての考慮事項を調べるには、[「災害復旧およびバックアップ」のガイド ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-authorization#api-keys) を参照してください。 
+データ・センター内で高可用性 (HA) および災害復旧 (DR) を提供するため、すべてのデータは、クラスター内の 3 つの別々の物理サーバーに三重に保管されます。 複数のデータ・センター内にアカウントをプロビジョンし、次に継続的データ複製を使用して、複数のデータ・センターにわたって HA/DR を提供することができます。 {{site.data.keyword.cloudant_short_notm}} データは自動的にバックアップされませんが、バックアップを処理するためにサポートされるツールが用意されています。 アプリケーション要件を満たすための、HA、DR、およびバックアップのすべての考慮事項を調べるには、[災害復旧およびバックアップのガイド](/docs/services/Cloudant?topic=cloudant-authorization#api-keys)を参照してください。 
 
 ## {{site.data.keyword.cloud_notm}} サポート
 {: #ibm-cloud-support}
@@ -343,10 +339,12 @@ EU 管理環境でデプロイされます。 EU 管理環境外で生成され�
 
 {{site.data.keyword.cloud_notm}} 上で {{site.data.keyword.cloudant_short_notm}} ライト・プラン・インスタンスまたは標準プラン・インスタンスをプロビジョンするには、次の 2 つの方法があります。
 
-- ダッシュボードを使用する。 このプロセスを説明するチュートリアルは[ここ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window}にあります。
-- Cloud Foundry コマンド・ツールを使用する。 このプロセスを説明するチュートリアルは[ここ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window}にあります。
+- ダッシュボードを使用する。 詳しくは、そのプロセスが記載されている『[{{site.data.keyword.cloud_notm}} での {{site.data.keyword.cloudant_short_notm}} インスタンスの作成 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window}』チュートリアルを参照してください。
+- Cloud Foundry コマンド・ツールを使用する。 詳しくは、そのプロセスが記載されている『[{{site.data.keyword.cloud_notm}} CLI を使用した{{site.data.keyword.cloud_notm}} での {{site.data.keyword.cloudant_short_notm}} インスタンスの作成 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window}』チュートリアルを参照してください。
  
-{{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスを作成して活用するには、[ここ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} でプロセスを説明するチュートリアルに従ってください。
+{{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスを作成して活用するには、そのプロセスが記載されている『[{{site.data.keyword.cloud_notm}} での {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスの作成と活用 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window}』チュートリアルを参照してください。
+
+
 
 
 

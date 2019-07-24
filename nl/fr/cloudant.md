@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: links to documentation, how to contribute
 
@@ -36,20 +36,17 @@ Elle est fournie avec un large éventail d'options d'indexation telles que MapRe
 Ses fonctions de réplication facilitent la synchronisation des données entre les clusters de base de données, les ordinateurs de bureau et les périphériques
 mobiles.
 
-Pour plus d'informations sur les autres offres de {{site.data.keyword.cloudant_short_notm}}, consultez le site officiel de [{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+Pour plus d'informations sur les autres offres de {{site.data.keyword.cloudant_short_notm}}, consultez le site officiel de [{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/cloud/cloudant){: new_window}.
 La présente documentation en ligne fournit des détails sur les concepts, les tâches et les techniques de {{site.data.keyword.cloudant_short_notm}}.
 
-Vous pouvez démarrer le service {{site.data.keyword.cloudant_short_notm}} à partir du tableau de bord [{{site.data.keyword.cloud}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window}.
+Vous pouvez démarrer le service {{site.data.keyword.cloudant_short_notm}} à partir du tableau de bord [{{site.data.keyword.cloud}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}.
 
-Un guide de démarrage rapide destiné à vous guider tout au long du processus de mise en route de {{site.data.keyword.cloudant_short_notm}}
-est [disponible](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started),
-ainsi que des [tutoriels](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) décrivant chaque tâche plus en détail.
-Vous trouverez davantage d'informations sur des détails, tels que l'authentification à l'aide d'instances de base de données ou l'interrogation de données, dans la rubrique [Référence d'API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview).
+Un tutoriel rapide pour commencer à utiliser {{site.data.keyword.cloudant_short_notm}}, appelé [Tutoriel de mise en route](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started), est disponible, ainsi que des [tutoriels](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) décrivant les tâches plus en détail. Vous trouverez davantage d'informations sur des détails, tels que l'authentification auprès d'instances de base de données ou l'interrogation de données, dans [Référence d'API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview).
 
 ## Contenu de la documentation
 {: #documentation-contents}
 
-*	[Tutoriel de mise en route](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started) : montre comment créer une base de données {{site.data.keyword.cloudantfull}} et remplir cette base de données avec une simple collection de données à l'aide de Python.
+*	[Tutoriel de mise en route](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started) : montre comment créer une base de données {{site.data.keyword.cloudantfull}} et remplir cette base de données avec une simple collection de données à l'aide de Python.
 *	[Blogue{{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](images/launch-glyph.svg "Icône de lien externe")](https://blog.cloudant.com/) : des blogues sont disponibles sur de nombreux sujets, incluant les fondamentaux {{site.data.keyword.cloudant_short_notm}}, le retrait des conflits, la génération de données exemple, les bases de données partitionnées, et plus encore. 
 *	[{{site.data.keyword.cloud_notm}} public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public) : description de l'offre {{site.data.keyword.cloud_notm}} publique, y compris les fonctions, l'option et la tarification. 
 *	[Tarification](/docs/services/Cloudant?topic=cloudant-pricing#pricing) : article qui décrit les options et la flexibilité disponibles avec le modèle de tarification {{site.data.keyword.cloudant_short_notm}}. 

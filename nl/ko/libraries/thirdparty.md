@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -57,10 +57,10 @@ install-package mycouch.cloudant
 -   [CRUD ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}
 
 ## Java
-{: #java}
+{: #java-thirdparty}
 
 ### 지원되지 않는 Java용 라이브러리
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-thirdparty}
 
 -   [ektorp ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}
 -   [jcouchdb ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://code.google.com/p/jcouchdb/){: new_window}
@@ -74,7 +74,6 @@ install-package mycouch.cloudant
 {: #libraries-and-frameworks-for-javascript}
 
 -   [Backbone.cloudant ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}.
-    자세한 정보는 [블로그 포스트 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/backbone-and-cloudant/){: new_window}를 참조하십시오.
 -   [sag.js ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/sbisbee/sag-js){: new_window}
 
 ### JavaScript용 예제 및 튜토리얼
@@ -118,9 +117,9 @@ PouchDB는 Bower를 사용하여 설치할 수도 있습니다. `bower install p
     PouchDB, CouchApp 및 {{site.data.keyword.cloudant_short_notm}}를 사용하여 위치를 기록하고 맵핑하는 예제 앱
 
 ## Node.js
-{: #node-js}
+{: #node-js-thirdparty}
 
-### 지원되지 않는 node.js용 라이브러리 및 프레임워크
+### 지원되지 않는 Node.js용 라이브러리 및 프레임워크
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
 -   브라우저에서도 작동하는 [sag-js ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/sbisbee/sag-js){: new_window}.
@@ -164,7 +163,7 @@ require_once('./src/Sag.php');
 ### 지원되지 않는 Python용 라이브러리 및 프레임워크
 {: #unsupported-libraries-and-frameworks-for-python}
 
--   [요청 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://docs.python-requests.org/en/master/){: new_window}.
+-   [Requests ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://docs.python-requests.org/en/master/){: new_window}
 
 ## Ruby
 {: #ruby}
@@ -222,4 +221,4 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {: codeblock}
 
-meteor-couchdb API에 대한 자세한 정보는 [API 참조](/docs/services/Cloudant/api/index.html#api-reference-overview)를 참조하십시오. 
+meteor-couchdb API에 대한 자세한 정보는 [API 참조](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)를 참조하십시오. 

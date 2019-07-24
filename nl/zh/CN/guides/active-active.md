@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -113,7 +113,7 @@ $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-d
 ## 第 3 步：授予访问许可权
 {: #step-3-grant-access-permission}
 
-[授予 API 密钥许可权](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)以对两个数据库执行读写操作。
+授予 API 密钥[许可权](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)以对两个数据库执行读写操作。
 
 如果还要复制索引，请分配管理许可权。
 
@@ -215,7 +215,7 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 但是，如果确定不需要故障转移管理能力，那么可以选择的一些选项包括：
 
 * 将自己的 [HTTP 代理放在 {{site.data.keyword.cloudant_short_notm}} ![外部链接图标](../images/launch-glyph.svg "外部链接图标") 前端](https://github.com/greenmangaming/cloudant-nginx){: new_window}。将应用程序配置为与代理（而不是 {{site.data.keyword.cloudant_short_notm}} 实例）通信。此配置意味着更改应用程序所使用 {{site.data.keyword.cloudant_short_notm}} 实例的任务可以通过修改代理配置（而不是修改应用程序设置）来处理。许多代理都能够根据用户定义的运行状况检查来均衡负载。
-* 使用全局负载均衡器（例如，[{{site.data.keyword.cloud}} Internet Services ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} 或 [Dyn Traffic Director ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://dyn.com/traffic-director/){: new_window}）路由到 {{site.data.keyword.cloudant_short_notm}}。此选项需要 `CNAME` 定义，以根据运行状况检查或等待时间规则来路由到不同的 {{site.data.keyword.cloudant_short_notm}} 帐户。
+* 使用全局负载均衡器（例如，[{{site.data.keyword.cloud}} Internet Services ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window} 或 [Dyn Traffic Director ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://dyn.com/traffic-director/){: new_window}）路由到 {{site.data.keyword.cloudant_short_notm}}。此选项需要 `CNAME` 定义，以根据运行状况检查或等待时间规则来路由到不同的 {{site.data.keyword.cloudant_short_notm}} 帐户。
 
 
 ## 从故障转移恢复

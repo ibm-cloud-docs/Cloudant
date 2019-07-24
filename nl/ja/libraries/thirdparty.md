@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -57,10 +57,10 @@ install-package mycouch.cloudant
 -   [CRUD ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}。
 
 ## Java
-{: #java}
+{: #java-thirdparty}
 
 ### Java のサポートされないライブラリー
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-thirdparty}
 
 -   [ektorp ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}。
 -   [jcouchdb ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://code.google.com/p/jcouchdb/){: new_window}。
@@ -74,7 +74,6 @@ install-package mycouch.cloudant
 {: #libraries-and-frameworks-for-javascript}
 
 -   [Backbone.cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}。
-    詳しくは、[ブログ投稿![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloudant.com/blog/backbone-and-cloudant/){: new_window} を参照してください。
 -   [sag.js ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/sbisbee/sag-js){: new_window}。
 
 ### JavaScript の例およびチュートリアル
@@ -112,9 +111,9 @@ PouchDB は、Bower でもインストールできます。`bower install pouchd
 -   [locationtracker![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/rajrsingh/locationtracker){: new_window} - PouchDB、CouchApp、および {{site.data.keyword.cloudant_short_notm}} を使用してロケーションを記録およびマップするサンプル・アプリ。
 
 ## Node.js
-{: #node-js}
+{: #node-js-thirdparty}
 
-### node.js のサポートされないライブラリーおよびフレームワーク
+### Node.js のサポートされないライブラリーおよびフレームワーク
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
 -   [sag-js ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/sbisbee/sag-js){: new_window}。これは、ブラウザーでも機能します。
@@ -156,7 +155,7 @@ require_once('./src/Sag.php');
 ### Python のサポートされないライブラリーおよびフレームワーク
 {: #unsupported-libraries-and-frameworks-for-python}
 
--   [requests ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://docs.python-requests.org/en/master/){: new_window}。
+-   [Requests ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://docs.python-requests.org/en/master/){: new_window}.
 
 ## Ruby
 {: #ruby}
@@ -208,4 +207,4 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {: codeblock}
 
-meteor-couchdb API について詳しくは、『[API リファレンス](/docs/services/Cloudant/api/index.html#api-reference-overview)』を参照してください。 
+meteor-couchdb API について詳しくは、『[API リファレンス](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)』を参照してください。 

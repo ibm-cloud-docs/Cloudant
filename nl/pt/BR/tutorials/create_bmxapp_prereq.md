@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -30,7 +30,7 @@ para criar um aplicativo {{site.data.keyword.cloud}}.
 {: shortdesc}
 
 ## Pré-requisitos
-{: #prerequisites}
+{: #prerequisites-create_bmxapp_prereq}
 
 Assegure-se de que tenha os recursos ou as informações a seguir prontas
 antes de começar a trabalhar no tutorial.
@@ -61,19 +61,16 @@ Python 2.7.12
 ### Uma instância de serviço do {{site.data.keyword.cloud_notm}} no {{site.data.keyword.cloudant_short_notm}}
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-Um tutorial separado para criar uma instância de serviço do {{site.data.keyword.cloudantfull}} chamada
-'`Cloudant-o7`' está disponível [aqui](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud).
+Um tutorial separado para [criar uma instância de serviço do {{site.data.keyword.cloudantfull}} no {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) cria uma instância de serviço chamada '`Cloudant-o7`'. 
 
-Este tutorial supõe que você já tenha criado uma instância de serviço chamada
-'`Cloudant-o7`'.
+Este tutorial supõe que você já tenha criado uma instância de serviço chamada '`Cloudant-o7`'.
 
 ### Um aplicativo de banco de dados do {{site.data.keyword.cloudant_short_notm}}
 {: #an-ibm-cloudant-database-application}
 
-Um tutorial separado para criar um aplicativo Python independente
-para trabalhar com uma instância de serviço do {{site.data.keyword.cloudant_short_notm}}
-está disponível [aqui](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud).
-Ele apresenta uma série de conceitos que são úteis para entender como criar e preencher um banco de dados do {{site.data.keyword.cloudant_short_notm}}.
+Um tutorial separado para [criar um aplicativo Python
+independente para trabalhar com uma instância de serviço do {{site.data.keyword.cloudant_short_notm}}
+service instance] (/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) também está disponível. Ele apresenta uma série de conceitos que são úteis para entender como criar e preencher um banco de dados do {{site.data.keyword.cloudant_short_notm}}.
 
 Este tutorial supõe que você esteja familiarizado com esses conceitos.
 

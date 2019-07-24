@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -56,13 +56,13 @@ subcollection: cloudant
 
 請如下所示修改配置檔：
 
-1.  編輯 '`Procfile`' 檔案，使其包含下列文字：
+1.  編輯 `Procfile` 檔案，使其包含下列文字：
     ```
     web: python server.py
     ```
     {: codeblock}
 
-2.  編輯 '`manifest.yml`' 檔案，使其包含下列文字：
+2.  編輯 `manifest.yml` 檔案，使其包含下列文字：
     ```
     applications:
     - path: .
@@ -77,10 +77,10 @@ subcollection: cloudant
     ```
     {: codeblock}
 
-請確定修改 '`domain`'、'`name`'、'`host`' 及 '`services`' 值。它們是您在建立 [{{site.data.keyword.cloud_notm}} 應用程式環境](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment)及 [{{site.data.keyword.cloudant_short_notm}} 資料庫實例](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)時所輸入的值。
+確保修改 `domain`、`name`、`host` 和 `services` 值。它們是您在建立 [{{site.data.keyword.cloud_notm}} 應用程式環境](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment)及 [{{site.data.keyword.cloudant_short_notm}} 資料庫實例](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)時所輸入的值。
 {: note}
 
-3.  編輯 '`requirements.txt`' 檔案，使其包含下列文字：
+3.  編輯 `requirements.txt` 檔案，使其包含下列文字：
     ```
     cloudant==2.3.1
     ```
@@ -145,7 +145,7 @@ databaseName = "databasedemo"
 
 應用程式會在連接至 {{site.data.keyword.cloudant_short_notm}} 資料庫實例並建立資料庫時記錄進度。記錄採用日誌檔的形式，它儲存在 Python Web 伺服器可存取的資料夾中。
 
-建立資料夾（在應用程式中稱為 '`static`'），並準備好在其中儲存檔案：
+建立資料夾（在應用程式中名為 `static`），並準備好在其中儲存檔案：
 
 ```python
 # Change current directory to avoid exposure of control files
@@ -183,9 +183,9 @@ target.write("\n====\n\n")
 #### 使用 {{site.data.keyword.cloudant_short_notm}} 資料庫實例
 {: #working-with-the-ibm-cloudant-database-instance}
 
-Python 應用程式是在 {{site.data.keyword.cloud_notm}} 應用程式環境內執行。此環境提供應用程式存取已連接服務的所有必要資訊。資訊提供在稱為 '`VCAP_SERVICES`' 的環境變數內。此變數可以供應用程式進行存取，並用來判斷連線詳細資料。
+Python 應用程式是在 {{site.data.keyword.cloud_notm}} 應用程式環境內執行。此環境提供應用程式存取已連接服務的所有必要資訊。這些資訊在名為 `VCAP_SERVICES` 的環境變數中提供。此變數可以供應用程式進行存取，並用來判斷連線詳細資料。
 
-第一項作業是確定應用程式正在 {{site.data.keyword.cloud_notm}} 應用程式環境內執行。藉由測試是否有 '`VCAP_SERVICES`' 環境變數來進行確認：
+第一項作業是確定應用程式正在 {{site.data.keyword.cloud_notm}} 應用程式環境內執行。透過測試來檢查是否存在 `VCAP_SERVICES` 環境變數：
 
 ```python
 # Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
@@ -196,7 +196,7 @@ if 'VCAP_SERVICES' in os.environ:
 有在找到此環境變數時，才會執行接下來的程式碼區段。在 Python 中，會將此程式碼縮排，以指出它是測試內文。在本指導教學中，程式碼區段會省略縮排以節省空間。不過，[完整清單](#complete-python-program)會正確地顯示縮排。
 {: note}
 
-假設找到該變數，請繼續使用這項資訊。首先請載入該變數中所儲存的 JSON 資料並將事件記錄在新的「日誌檔」中：
+假設找到該變數，請繼續使用這項資訊。請先載入該變數中所儲存的 JSON 資料並將事件記錄在新的「日誌檔」中：
 
 ```python
 # Yes we are, so get the service information.
@@ -216,7 +216,7 @@ target.write("Got cloudantNoSQLDBData\n")
 ```
 {: codeblock}
 
-數個 {{site.data.keyword.cloud_notm}} 服務可能已連接至應用程式環境。每一個服務的認證都會列為陣列元素。在本指導教學中，只有[建立一個服務連線](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services)。因此，應用程式會存取第一個元素（元素 '0'）。每一個服務元素都會包含該服務的認證，其表示方式是以透過存取服務所需的基本欄位名稱進行編製索引的清單。在說明簡單資料庫建立作業的[指導教學](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites)中，會提供欄位名稱的相關資訊。
+數個 {{site.data.keyword.cloud_notm}} 服務可能已連接至應用程式環境。每一個服務的認證都會列為陣列元素。在本指導教學中，只有[建立一個服務連線](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services)。因此，應用程式會存取第一個元素（元素 '0'）。每一個服務元素都會包含該服務的認證，其以透過存取服務所需的基本欄位名稱檢索的清單表示。如需欄位名稱的相關資訊，請參閱[在 {{site.data.keyword.cloud_notm}} 上建立和移入簡單 {{site.data.keyword.cloudant_short_notm}} 資料庫](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites-create_database)指導教學，其中說明了簡單資料庫建立作業。
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -249,7 +249,9 @@ target.write("\n")
 ```
 {: codeblock}
 
-應用程式現在具有在 {{site.data.keyword.cloudant_short_notm}} 資料庫實例內建立資料庫所需的所有詳細資料。在說明簡單資料庫建立的[指導教學](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance)中，會詳述此作業。
+應用程式現在具有在 {{site.data.keyword.cloudant_short_notm}} 資料庫實例內建立資料庫所需的所有詳細資料。在說明簡單資料庫建立的[在服務實例中建立資料庫](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance)區段中，更詳細地說明此作業。
+
+如需建立簡單資料庫的相關資訊，請參閱[在服務實例中建立資料庫](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance)。
 
 應用程式必須執行這些作業：
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: links to documentation, how to contribute
 
@@ -40,20 +40,23 @@ JSON フォーマットの文書としてデータを保管します。
 複製機能により、データベース・クラスター、デスクトップ PC、モバイル・デバイス間で簡単にデータを同期できます。
 
 その他の {{site.data.keyword.cloudant_short_notm}} オファリングについて詳しくは、
-メインの [{{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} サイトを参照してください。
+メインの [{{site.data.keyword.cloudant_short_notm}} ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/cloud/cloudant){: new_window} サイトを参照してください。
 ここで示したオンライン資料は、
 {{site.data.keyword.cloudant_short_notm}} の概念、タスク、
 および技法について詳しく説明しています。
 
-{{site.data.keyword.cloudant_short_notm}} サービスは、[{{site.data.keyword.cloud}} ダッシュボード ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window} から開始できます。
+{{site.data.keyword.cloudant_short_notm}} サービスは、[{{site.data.keyword.cloud}} ダッシュボード ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/catalog/services/cloudant){: new_window} から開始できます。
 
-タスクについて詳細に説明した[チュートリアル](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)とともに、{{site.data.keyword.cloudant_short_notm}} を稼働するための「クイック・スタート」が[利用可能です](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started)。
-データベース・インスタンスでの認証やデータの照会などの詳細に関する追加情報については、[API リファレンス](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)を参照してください。
+タスクについて詳細に説明した[チュートリアル](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)とともに、
+[入門チュートリアル](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started)という名前の、
+{{site.data.keyword.cloudant_short_notm}} を稼働させるための「クイック・スタート」を利用できます。
+データベース・インスタンスでの認証やデータの照会など詳細については、
+[API リファレンス](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)を参照してください。
 
 ## 資料の内容
 {: #documentation-contents}
 
-*	[入門チュートリアル](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started): {{site.data.keyword.cloudantfull}} データベースを作成し、Python を使用して単純なデータ・コレクションをそのデータベースに取り込む方法について説明します。
+*	[入門チュートリアル](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started): {{site.data.keyword.cloudantfull}} データベースを作成し、Python を使用して単純なデータ・コレクションをそのデータベースに取り込む方法について説明します。
 *	[{{site.data.keyword.cloudant_short_notm}} ブログ ![外部リンク・アイコン](images/launch-glyph.svg "外部リンク・アイコン")](https://blog.cloudant.com/): {{site.data.keyword.cloudant_short_notm}} の基本、競合の削除、サンプル・データの生成、パーティション・データベースなど、さまざまなトピックに関するブログをお読みください。 
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): 機能、オプション、料金など、{{site.data.keyword.cloud_notm}} Public オファリングの説明。 
 *	[料金](/docs/services/Cloudant?topic=cloudant-pricing#pricing): {{site.data.keyword.cloudant_short_notm}} 料金モデルで使用可能なオプションおよび柔軟性について説明した記事。 

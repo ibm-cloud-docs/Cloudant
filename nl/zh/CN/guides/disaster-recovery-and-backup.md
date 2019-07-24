@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -74,7 +74,7 @@ subcollection: cloudant
 
 总之，区域内数据冗余通过对影响该区域内单个系统的故障提供容错功能，支持“高可用性”功能。
 
-## 针对灾难恢复的跨区域冗余
+## 用于灾难恢复的跨区域冗余
 {: #cross-region-redundancy-for-disaster-recovery}
 
 {{site.data.keyword.cloudant_short_notm}} 复制功能可帮助您在应用程序中构建灵活的灾难恢复能力。支持灾难恢复的主要方法是使用 {{site.data.keyword.cloudant_short_notm}} 复制来跨区域创建冗余。结果是，应用程序能够容许一个或多个区域不可用的情况。
@@ -84,7 +84,7 @@ subcollection: cloudant
 1.  在两个或两个以上的区域中创建 {{site.data.keyword.cloudant_short_notm}} 帐户。
 2.  根据需要在每个区域中创建数据库。
 3.  对于必须使用跨区域冗余存储的数据库，在每个帐户中的对应数据库之间设置双向持续复制。
-4.  设计并实现应用程序，以便根据环境是“主动/被动”还是“主动/主动”配置，对数据请求进行路由。[提供了](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)设置此项的详细指南。
+4.  设计并实现应用程序，以便根据环境是“主动/被动”还是“主动/主动”配置，对数据请求进行路由。有关设置此项的更多信息，请参阅[配置 {{site.data.keyword.cloudant_short_notm}} 用于跨区域灾难恢复](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)。
 
 将应用程序设计为使用跨多个区域的数据时，请考虑以下几点：
 
@@ -130,6 +130,6 @@ subcollection: cloudant
 *	存储多个先前文档状态，以允许从过去很久以前的时间进行复原。
 *	将较旧的数据迁移到更便宜的存储器，从而实现更经济的保留。
 
-备份工具由开放式源代码 node.js 命令行应用程序和库组成。它[在 NPM ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} 上可用。
+备份工具由开放式源代码 node.js 命令行应用程序和库组成。它在 [NPM ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} 上可用。
 
-有关说明如何将工具集成到数据保护策略中的构想和示例，请参阅[备份手册指南](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)。
+有关说明如何将工具集成到数据保护策略中的构想和示例，请参阅 [{{site.data.keyword.cloudant_short_notm}} 备份和恢复指南](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)。

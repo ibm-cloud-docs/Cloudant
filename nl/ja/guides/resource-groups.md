@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -30,7 +30,7 @@ subcollection: cloudant
 ## 既存のインスタンスをリソース・グループにマイグレーションするにはどのようにしますか?
 {: #how-do-i-migrate-an-existing-instance-to-a-resource-group-}
 
-{{site.data.keyword.cloudant_short_notm}} インスタンスを Cloud Foundry スペースからリソース・グループにマイグレーションする方法については、[リソース・グループへの Cloud Foundry サービス・インスタンスおよびアプリのマイグレーション](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}を参照してください。
+{{site.data.keyword.cloudant_short_notm}} インスタンスを Cloud Foundry スペースからリソース・グループにマイグレーションする方法については、[リソース・グループへの Cloud Foundry サービス・インスタンスおよびアプリのマイグレーション ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}を参照してください。
 
 次のプランで {{site.data.keyword.cloudant_short_notm}} インスタンスをマイグレーションできます。
 
@@ -44,7 +44,7 @@ subcollection: cloudant
 マイグレーション・プロセス中にダウン時間は発生しません。
 
 ## なぜ組織とスペースがあるインスタンスと組織とスペースがないインスタンスがあるのですか?
-{: #why-do-some-instances-have-an-organisation-and-space-and-others-do-not-}
+{: #why-do-some-instances-have-an-organization-and-space-and-others-do-not-}
 
 2018 年 7 月 16 日以降、新しいインスタンスは Cloud Foundry スペースではなく
 リソース・グループにプロビジョンされるようになりました。 この日付の前にプロビジョンされた
@@ -58,7 +58,7 @@ subcollection: cloudant
 専用ハードウェア・インスタンスにプロビジョンするには、最初に専用ハードウェア・インスタンスを
 リソース・グループにマイグレーションする必要があります。
 
-この方法について詳しくは、[リソース・グループへの Cloud Foundry サービス・インスタンスおよびアプリのマイグレーション](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}を参照してください。
+この方法について詳しくは、[リソース・グループへの Cloud Foundry サービス・インスタンスおよびアプリのマイグレーション ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}を参照してください。
 
 専用ハードウェア・インスタンスがリソース・グループにマイグレーションされた後、
 このインスタンスは、標準プランのプロビジョン時に「ロケーション」ドロップダウン・メニューに表示されます。

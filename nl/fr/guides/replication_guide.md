@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -91,7 +91,7 @@ Chaque travail progresse et passe de l'état `Running` à l'état `Completed`.
 La source et la cible d'une réplication sont les URL des bases de données {{site.data.keyword.cloudant_short_notm}},
 comme cela est présenté dans l'exemple suivant.
 
-_Définition d'URL source et cible pour la réplication - Exemple :_
+*Définition d'URL source et cible pour la réplication - Exemple :*
 
 ```json
 {
@@ -134,7 +134,7 @@ Zone           | Objectif
 `target`        | URL de la base de données {{site.data.keyword.cloudant_short_notm}} cible, incluant les données d'identification de connexion.
 `create_target` | (Facultatif) Déterminez s'il est nécessaire de créer la base de données cible si elle n'existe pas encore.
 
-_Utilisation de HTTP pour démarrer un travail de réplication - Exemple :_
+*Exemple d'utilisation de HTTP pour démarrer un travail de réplication :*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -144,7 +144,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Utilisation de la ligne de commande pour démarrer un travail de réplication - Exemple :_
+*Exemple d'utilisation de la ligne de commande pour démarrer un travail de réplication :*
 
 ```sh
 curl -X POST \
@@ -154,7 +154,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Document JSON exemple décrivant la réplication souhaitée :_
+*Document JSON exemple décrivant la réplication souhaitée :*
 
 ```json
 {
@@ -315,7 +315,7 @@ ou en définissant l'indicateur [`continuous`](/docs/services/Cloudant?topic=clo
 La réplication bidirectionnelle peut être rendue continue dans un sens ou les deux,
 en définissant l'indicateur `continuous`.
 
-_Utilisation de HTTP pour démarrer une réplication continue - Exemple :_
+*Exemple d'utilisation de HTTP pour démarrer une réplication continue :*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -325,7 +325,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Utilisation de la ligne de commande pour démarrer une réplication continue - Exemple :_
+*Exemple d'utilisation de la ligne de commande pour démarrer une réplication continue :*
 
 ```sh
 curl -X POST \
@@ -335,7 +335,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Exemple de document JSON définissant une réplication continue :_
+*Exemple de document JSON définissant une réplication continue :*
 
 ```json
 {
@@ -358,7 +358,7 @@ par exemple lorsque les données d'authentification ne sont pas valides,
 l'état d'erreur est enregistré dans le document `_replicator`.
 De plus, le noeud final [`/_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) du compte {{site.data.keyword.cloudant_short_notm}} peut être utilisé pour voir la progression de la réplication.
 
-_Utilisation de HTTP pour surveiller un processus de réplication - Exemple :_
+*Exemple d'utilisation de HTTP pour surveiller un processus de réplication :*
 
 ```http
 GET /_replicator/weekly_backup HTTP/1.1
@@ -367,14 +367,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Utilisation de la ligne de commande pour surveiller un processus de réplication - Exemple :_
+*Exemple d'utilisation de la ligne de commande pour surveiller un processus de réplication :*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
 ```
 {: codeblock}
 
-_Réponse suite à la demande du statut d'une réplication - Exemple :_
+*Réponse suite à la demande du statut d'une réplication - Exemple :*
 
 ```json
 {
@@ -400,7 +400,7 @@ Pour arrêter un travail de réplication en cours,
 supprimez le document de réplication dans la base de données `_replicator`,
 à l'aide du tableau de bord ou de l'API.
 
-_Utilisation de HTTP pour annuler une réplication - Exemple :_
+*Exemple d'utilisation de HTTP pour annuler une réplication :*
 
 ```http
 DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1.1
@@ -409,7 +409,7 @@ Authorization:
 ```
 {: codeblock}
 
-_Utilisation de la ligne de commande pour annuler une réplication - Exemple :_
+*Exemple d'utilisation de la ligne de commande pour annuler une réplication :*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
@@ -447,7 +447,7 @@ même sans connexion Internet.
 PouchDB peut synchroniser les données modifiées depuis ou vers {{site.data.keyword.cloudant_short_notm}} lorsqu'une connexion Internet est disponible.
 La configuration de la réplication côté client nécessite quelques lignes de JavaScript.
 
-_Code JavaScript utilisant PouchDB pour activer la réplication - Exemple :_
+*Code JavaScript utilisant PouchDB pour activer la réplication - Exemple :*
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
@@ -465,7 +465,7 @@ et synchronisées avec {{site.data.keyword.cloudant_short_notm}} lorsque la conn
 Comme pour [PouchDB](#pouchdb),
 la configuration de la réplication nécessite quelques lignes de code.
 
-_Code JavaScript utilisant CloudantSync pour activer la réplication - Exemple :_
+*Exemple de Code JavaScript utilisant CloudantSync pour activer la réplication :*
 
 ```javascript
 URI uri = new URI("https://u:p@username.cloudant.com/my_database");
@@ -504,7 +504,7 @@ dans les [documents de conception](/docs/services/Cloudant?topic=cloudant-design
 
 L'exemple suivant est une fonction de filtrage qui permet uniquement la réplication des documents non filtrés.
 
-_Fonction de filtrage pour la réplication des documents non supprimés - Exemple :_
+*Fonction de filtrage pour la réplication des documents non supprimés - Exemple :*
 
 ```javascript
 function(doc, req) {
@@ -523,7 +523,7 @@ Vous pouvez également indiquer une valeur `query_params`.
 Cette valeur est un objet qui contient les propriétés transmises à la
 fonction de filtrage dans la zone `query` de son deuxième argument (`req`).
 
-_Utilisation de HTTP pour démarrer une réplication filtrée - Exemple :_
+*Exemple d'utilisation de HTTP pour démarrer une réplication filtrée :*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -533,7 +533,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Utilisation de la ligne de commande pour démarrer une réplication filtrée - Exemple :_
+*Exemple d'utilisation de la ligne de commande pour démarrer une réplication filtrée :*
 
 ```sh
 curl -X POST \
@@ -543,7 +543,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Exemple de document JSON définissant une réplication filtrée :_
+*Exemple de document JSON définissant une réplication filtrée :*
 
 ```json
 {
@@ -571,7 +571,7 @@ comme cela est présenté dans les exemples.
 Si vous utilisez l'option `feed=continuous`, le flux inclut toutes
 les modifications requises pour obtenir la version la plus récente de chaque document de la base de données.
 
-_Utilisation de HTTP pour interroger le flux de modifications - Exemple :_
+*Exemple d'utilisation de HTTP pour interroger le flux de modifications :*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous HTTP/1.1
@@ -580,7 +580,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Utilisation de la ligne de commande pour interroger le flux de modifications - Exemple :_
+*Exemple d'utilisation de la ligne de commande pour interroger le flux de modifications :*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
@@ -599,7 +599,7 @@ ajoutez `&include_docs=true` à la commande curl.
 
 Chaque modification est décrite en utilisant le format présenté dans l'exemple suivant (abrégé).
 
-_Flux de `_modifications` - Exemple :_
+*Exemple de flux `_changes` :*
 
 ```json
 {
@@ -616,7 +616,7 @@ _Flux de `_modifications` - Exemple :_
 
 Pour rejoindre le flux de modifications à partir d'un emplacement connu, passez un argument [`since`](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument) avec le numéro de séquence correspondant à l'endroit où vous souhaitez commencer.
 
-_Utilisation de HTTP afin d'indiquer l'option `since` pour rejoindre un flux de `_modifications` à un emplacement connu - Exemple (abrégé) :_
+*Exemple (abrégé) d'utilisation de HTTP afin d'indiquer l'option `since` pour rejoindre un flux `_changes` à un emplacement connu :*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
@@ -625,7 +625,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Exemple (abrégé) de l'utilisation de la ligne de commande pour fournir l'option `since` afin de rejoindre un flux de `_modifications` à un emplacement connu :_
+*Exemple (abrégé) de l'utilisation de la ligne de commande pour fournir l'option `since` afin de rejoindre un flux `_changes` à un emplacement connu : *
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -635,7 +635,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 Pour rejoindre le flux de modifications à partir du moment actuel,
 indiquez `since=now`.
 
-_Utilisation de HTTP afin d'indiquer `since=now` afin de rejoindre un flux de `_modifications` à partir du moment actuel - Exemple :_
+*Exemple d'utilisation de HTTP afin d'indiquer `since=now` pour rejoindre un flux `_changes` à partir du moment actuel :*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
@@ -644,14 +644,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Utilisation de la ligne de commande afin d'indiquer `since=now` pour rejoindre un flux de `_modifications` à partir du moment actuel :_
+*Exemple d'utilisation de la ligne de commande afin d'indiquer `since=now` pour rejoindre un flux `_changes` à partir du moment actuel :*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {: codeblock}
 
-_Utilisation de JavaScript afin d'indiquer `since=now` pour rejoindre un flux de `_modifications` à partir du moment actuel :_
+*Exemple d'utilisation de JavaScript afin d'indiquer `since=now` pour rejoindre un flux `_changes` à partir du moment actuel :*
 
 ```javascript
 var feed = db.follow({since: "now", include_docs: true})
@@ -663,7 +663,7 @@ feed.follow();
 {: codeblock}
 
 L'accès aux données `_changes` à l'aide d'un programme est direct.
-Ainsi, utilisez la [{{site.data.keyword.cloudant_short_notm}} bibliothèque Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js) pour suivre les modifications avec quelques lignes de code.
+Ainsi, utilisez la [{{site.data.keyword.cloudant_short_notm}} bibliothèque Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported) pour suivre les modifications avec quelques lignes de code.
 
 Voici quelques exemples de cas d'utilisation :
 
@@ -673,9 +673,9 @@ Voici quelques exemples de cas d'utilisation :
 -   Placement de données dans un fichier de texte afin de transmettre les données dans une base de données SQL.
 
 Le flux de modifications peut être filtré,
-en utilisant une technique similaire au [filtrage lors de la réplication](#filtered-replication).
+en utilisant une technique similaire au [filtrage lors de la réplication](#filtered-replications).
 
-_Utilisation de HTTP pour filtrer le flux de modifications - Exemple :_
+*Exemple d'utilisation de HTTP pour filtrer le flux de modifications :*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter HTTP/1.1
@@ -684,7 +684,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Utilisation de la ligne de commande pour filtrer le flux de modifications - Exemple :_
+*Exemple d'utilisation de la ligne de commande pour filtrer le flux de modifications :*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
@@ -702,7 +702,7 @@ Pour qu'une réplication aboutisse, la somme de la taille des documents et de to
 
 Taille de document | Taille de pièce jointe | Taille total | Réplication ?
 --------------|----------------------|------------|------------
-1 Mo | 5 pièces jointe de 2 Mo  | 11 Mo | oui
+1 Mo | 5 pièces jointe de 2 Mo | 11 Mo | oui
 1 Mo | 1 pièce jointe de 10 Mo | 11 Mo | oui
 0 Mo | 100 pièces jointes de 1 Mo | 100 Mo | non
 
@@ -744,7 +744,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 
 Dans l'élément JSON,
 recherchez la valeur `disk_size`.
-Si la valeur indique une taille supérieure à 1 Go, contactez l'[{{site.data.keyword.cloudant_short_notm}}équipe de support ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){: new_window} pour obtenir des conseils supplémentaires.
+Si la valeur indique une taille supérieure à 1 Go, contactez l'[équipe de support {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){: new_window} pour obtenir des conseils supplémentaires.
 
 Vous pouvez rechercher des conflits dans un document `_replicator`,
 comme cela est présenté dans l'exemple suivant :
@@ -758,7 +758,7 @@ Si vous souhaitez annuler toutes les réplications et en commencer une nouvelle,
 nettoyez la base de données `_replicator`,
 supprimez puis recréez la base de données `replicator`.
 
-_Utilisation de HTTP afin de supprimer et recréer la base de données `_replicator` - Exemple :_
+*Exemple d'utilisation de HTTP afin de supprimer et recréer la base de données `_replicator` :* 
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -771,7 +771,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Utilisation de la ligne de commande pour supprimer et recréer la base de données `_replicator` - Exemple :_
+*Exemple d'utilisation de la ligne de commande pour supprimer et recréer la base de données `_replicator` :* 
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'
@@ -815,4 +815,4 @@ La réplication est alors traitée en processus d'arrière-plan.
 *   Si vous souhaitez exécuter la réplication avec un faible impact,
     attribuer la valeur 1 à `worker_processes` et `http_connections` peut être approprié.
 
-Pour obtenir de l'aide supplémentaire sur la meilleure configuration à utiliser pour votre cas d'utilisation, contactez l'[{{site.data.keyword.cloudant_short_notm}}équipe de support ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){: new_window}.
+Pour obtenir de l'aide supplémentaire sur la meilleure configuration à utiliser pour votre cas d'utilisation, contactez l'[équipe de support {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](mailto:support@cloudant.com){: new_window}.

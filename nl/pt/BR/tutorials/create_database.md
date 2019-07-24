@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -31,7 +31,7 @@ e preencher o banco de dados com uma coleção simples de dados.
 {: shortdesc}
 
 ## Pré-requisitos
-{: prerequisites}
+{: #prerequisites-create_database}
 
 Assegure-se de que tenha os recursos ou as informações a seguir prontos,
 antes de começar a trabalhar ao longo do tutorial.
@@ -95,8 +95,7 @@ Campo      | Propósito
 `port`     | O número da porta HTTP para acessar a instância de serviço no host. Normalmente 443 para forçar o acesso HTTPS.
 `url`      | Uma sequência que agrega outras informações de credenciais em uma única URL, adequada para ser usada pelos aplicativos.
 
-Informações sobre como localizar as credenciais de serviço para sua instância de serviço estão
-disponíveis [aqui](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+Para obter mais informações sobre como localizar as credenciais de serviço para a sua instância de serviço, consulte [Localizando suas credenciais de serviço](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
 ## Contexto
 {: #context}

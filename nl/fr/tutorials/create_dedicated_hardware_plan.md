@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -34,72 +34,73 @@ La création d'une instance de plan {{site.data.keyword.cloudant_short_notm}} De
 {: #creating-an-ibm-cloudant-dedicated-hardware-plan-instance}
 
 1.  Connectez-vous à votre compte {{site.data.keyword.cloud_notm}}.<br/>
-    Le tableau de bord {{site.data.keyword.cloud_notm}} se trouve à l'adresse : [`https://cloud.ibm.com/` ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/){: new_window}.
-    Une fois que vous vous êtes identifié avec votre nom d'utilisateur et votre mot de passe, le tableau de bord {{site.data.keyword.cloud_notm}} apparaît. Cliquez sur le bouton `Créer une ressource` :<br/>
-    ![Tableau de bord {{site.data.keyword.cloud_notm}}](images/img0001.png)
+       Le tableau de bord {{site.data.keyword.cloud_notm}} se trouve à l'adresse : [`https://cloud.ibm.com/` ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/){: new_window}.
+    Une fois que vous vous êtes identifié avec votre nom d'utilisateur et votre mot de passe, le tableau de bord {{site.data.keyword.cloud_notm}} apparaît. Cliquez sur le bouton `Créer une ressource` <br/>
+    ![Tableau de bord {{site.data.keyword.cloud_notm}}](images/img0001.png) 
 
-2.  Cliquez sur `Bases de données` dans le menu de gauche et sur `Cloudant` dans la liste des services de base de données.<br/>
-     ![{{site.data.keyword.cloud_notm}} Sélection du service {{site.data.keyword.cloudant_short_notm}}](images/img0003.png)<br/>
+2.  Cliquez sur `Bases de données` dans le menu et sur `Cloudant` dans la liste des services de base de données.<br/>
+     ![Sélection de services {{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}}](images/img0003.png)<br/>  
 
-3.  Sélectionnez le plan `Dedicated Hardware` dans la liste des plans de tarification au bas de la page :<br/>
-    ![Plans de tarification](/docs/services/Cloudant/tutorials/images/pricing_plan.png)
+3.  Sélectionnez le plan `Dedicated Hardware` dans la liste des plans de tarification :<br/>
+    ![Plans de tarification](images/pricing_plan.png) :
     
-4.  Remplissez les paramètres suivants en haut de la page : <br/>
-    -   Entrez un nom de service.<br/>
-    -   Spécifiez la région/l'emplacement où vous souhaitez déployer.<br/>
-    -   Sélectionnez un groupe de ressources.</br>
+4.  Renseignez les paramètres suivants :<br/> 
+    -   Entrez un nom de service.<br/>   
+    -   Spécifiez la région/l'emplacement où vous souhaitez déployer. La région/l'emplacement est l'une des six principales régions {{site.data.keyword.cloud_notm}} dans lesquelles vous souhaitez déployer l'instance. L'emplacement physique réel de l'instance est dicté par le paramètre d'emplacement décrit dans la liste suivante.<br/> 
+    -   Sélectionnez un groupe de ressources.</br> 
     -   Ajoutez une balise. 
-    -   Sélectionnez un emplacement pour le déploiement.<br/>
-    -   Sélectionnez `yes` ou `no` à la question de savoir si HIPAA est nécessaire.<br/> 
+    -   Sélectionnez un emplacement pour le déploiement. Cet emplacement est l'emplacement physique de l'instance, qui peut se trouver dans n'importe quel emplacement {{site.data.keyword.cloud_notm}}, y compris les régions et les emplacements principaux en dehors des régions principales. Pour plus d'informations, voir [Centres de données globaux {{site.data.keyword.IBM}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/cloud/data-centers/){:new_window}.<br/>
+    -   Sélectionnez `yes` ou `no` pour indiquer si HIPAA est requis.<br/> 
     
-    HIPAA est uniquement valide pour les sites américains. {{site.data.keyword.IBM}} peut mettre à disposition un environnement de plan Dedicated Hardware pour implémenter des contrôles HIPAA. Un environment est uniquement mis à disposition sur confirmation d'un accord BAA (Business Associate Agreement) établi avec {{site.data.keyword.IBM_notm}}. Voir [Activation des paramètres pris en charge dans l'Union Européenne et pour la loi HIPAA](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) ainsi que les conditions de description de service pour plus de détails. La mise à disposition d'un cluster pour gérer des données HIPAA peut prendre plus longtemps que la durée estimée de 5 jours.
+    HIPAA est uniquement valide pour les sites américains. {{site.data.keyword.IBM}} peut mettre à disposition un environnement de plan Dedicated Hardware pour implémenter des contrôles HIPAA. Un environnement est uniquement mis à disposition sur confirmation d'un accord BAA (Business Associate Agreement) établi avec {{site.data.keyword.IBM_notm}}. Voir [Activation des paramètres pris en charge dans l'Union Européenne et pour la loi HIPAA](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) ainsi que les conditions de description de service pour plus de détails. La mise à disposition d'un cluster pour gérer des données HIPAA peut prendre plus longtemps que la durée estimée de 5 jours.
     {: note}
 
-    ![Configurer le matériel dédié](/docs/services/Cloudant/tutorials/images/select_deployment_location.png)
+    ![Configuration du matériel dédié](images/select_deployment_location.png)
         
-5.  Cliquez sur le bouton `Créer` pour démarrer le processus de mise à disposition. <br/>
+5.  Cliquez sur le bouton `Créer` pour démarrer le processus de mise à disposition.<br/> 
 
     La facturation est calculée au prorata quotidiennement, donc veillez à mettre à disposition et à payer un environnement avant de cliquer sur le bouton **Créer**.
     {: note}
 
-    ![Mettre à disposition le matériel dédié](/docs/services/Cloudant/tutorials/images/create_button_provision.png)
+    ![Mise à disposition du matériel dédié](images/create_button_provision.png)
 
     Lors de la mise à disposition, une roue tournante apparaît en regard de l'instance dans votre tableau de bord {{site.data.keyword.cloud_notm}}. Une requête est envoyée pour mettre à disposition une instance de plan Dedicated Hardware sur des serveurs Bare Metal. La durée de mise à disposition est asynchrone et peut prendre jusqu'à 5 jours. 
     {: note}   
 
-    ![Mise à disposition de la version alternative du matériel dédié](/docs/services/Cloudant/tutorials/images/create_button_provision2.png)
+    ![Mise à disposition de la version alternative du matériel dédié](images/create_button_provision2.png)
     
 ## Mise à disposition d'une instance de plan Standard dans un environnement Dedicated Hardware
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
 
 1.  Connectez-vous à votre compte {{site.data.keyword.cloud_notm}}.<br/>
-    Le tableau de bord {{site.data.keyword.cloud_notm}} se trouve à l'adresse :
+       Le tableau de bord {{site.data.keyword.cloud_notm}} se trouve à l'adresse :
     [https://cloud.ibm.com/ ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/){: new_window}.
-    Une fois que vous vous êtes identifié avec votre nom d'utilisateur et votre mot de passe, le tableau de bord {{site.data.keyword.cloud_notm}} apparaît. Cliquez sur le bouton `Créer une ressource` :<br/>
-    ![Tableau de bord {{site.data.keyword.cloud_notm}}](images/img0001.png)
+    Une fois que vous vous êtes identifié avec votre nom d'utilisateur et votre mot de passe, le tableau de bord {{site.data.keyword.cloud_notm}} apparaît. Cliquez sur le bouton `Créer une ressource` <br/>
+    ![Tableau de bord {{site.data.keyword.cloud_notm}}](images/img0001.png) 
 
-2.  Cliquez sur `Databases` dans le menu de gauche et sur `Cloudant` dans la liste des services de base de données.<br/>
-     ![{{site.data.keyword.cloud_notm}} Sélection du service {{site.data.keyword.cloudant_short_notm}}](images/img0003.png)<br/>
-    La page de création d'un service s'affiche.<br/>  
+2.  Cliquez sur `Bases de données` dans le menu et sur `Cloudant` dans la liste des services de base de données. <br/>
+     ![Sélection de services {{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}}](images/img0003.png)<br/>
+     La page de création d'un service s'affiche.<br/>     
 
-3.  Cliquez sur `Standard` dans la liste des plans de tarification <br/>
-    ![Plan de tarification standard](/docs/services/Cloudant/tutorials/images/standard_pricing_plan.png)
+3.  Cliquez sur `Standard` dans la liste des plans de tarification. <br/>
+    ![Plan de tarification Standard](images/standard_pricing_plan.png) 
     
     Vous ne pouvez pas mettre à disposition une instance de plan Lite sur un environnement Dedicated Hardware.
     {: tip}
     
-4.  Renseignez les paramètres suivants : <br/>
-    -   Entrez un nom de service.<br/>
-    -   Spécifiez la région/l'emplacement où vous souhaitez déployer. <br/>
-    -   Sélectionnez un groupe de ressources. </br>
+4.  Renseignez les paramètres suivants :<br/> 
+    -   Entrez un nom de service.<br/>   
+    -   Spécifiez la région/l'emplacement où vous souhaitez déployer.<br/> 
+    -   Sélectionnez un groupe de ressources.</br> 
     -   Ajoutez une balise. 
-    -   Sélectionnez une méthode d'authentification.</br>
-    -   Sélectionnez un environnement.</br>
-    ![Configurer l'instance standard](/docs/services/Cloudant/tutorials/images/select_environment.png)
+    -   Sélectionnez une méthode d'authentification.</br>  
+    -   Sélectionnez un environnement dans lequel l'instance de plan standard sera déployée. Toutes les instances d'environnement Dedicated Hardware déployées dans le compte apparaissent dans la liste déroulante si elles sont disponibles.</br>
+    ![Configuration de l'instance Standard](images/select_environment.png)
     
 5.  Cliquez sur le bouton `Créer`.<br/>
+
     Après quelques secondes, l'instance est mise à disposition sur l'environnement que vous avez sélectionné.<br/>
-    ![Mettre à disposition l'instance standard](/docs/services/Cloudant/tutorials/images/create_button_provision_standard.png)
+    ![Mise à disposition de l'instance Standard](images/create_button_provision_standard.png)  
     
 6.  Obtenez vos Données d'identification pour le service et accédez au tableau de bord de {{site.data.keyword.cloudant_short_notm}} comme vous le faites pour une instance {{site.data.keyword.cloudant_short_notm}} à service partagé. 
     
@@ -132,7 +133,7 @@ Les instances {{site.data.keyword.cloudant_short_notm}} qui sont déployées sur
 Paramètre | Description
 ----------|------------
 `environment_crn` | Ce paramètre doit être défini sur le CRN de l'instance du plan {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware. Vous pouvez déterminer quel est le CRN en consultant l'exemple de commande d'interface de ligne de commande dans l'onglet Gérer de l'instance du plan {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware dans le tableau de bord de {{site.data.keyword.cloud_notm}}. Vous pouvez également déterminer quel est le CRN à l'aide de la commande `ibmcloud resource service-instance SERVICE_INSTANCE_NAME`. 
-`legacyCredentials` | Paramètre facultatif défini sur true par défaut qui dicte si l'instance utilise les données d'identification existante et les données d'identification IAM ou seulement IAM. Voir le [guide IAM![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} pour plus de détails sur le choix d'une méthode d'authentification.
+`legacyCredentials` | Paramètre facultatif défini sur true par défaut qui dicte si l'instance utilise les données d'identification existante et les données d'identification IAM ou seulement IAM. Consultez le [guide IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) pour plus de détails sur le choix d'une méthode d'authentification.
 
 Voir l'exemple de commande suivant : 
 
@@ -150,13 +151,13 @@ Les applications qui requièrent un accès à votre service
 Les données d'identification du service sont précieuses. Si un utilisateur ou une application dispose d'un accès aux données d'identification, il peut effectuer n'importe quelle opération sur l'instance de service. Par exemple, créer des données erronées ou supprimer des informations utiles. Il convient de bien protéger ces données d'identification.
 {: important}
 
-Pour plus d'informations sur les zones incluses dans les données d'identification du service, voir le [guide IAM ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}.
+Pour en savoir plus sur les zones incluses dans les données d'identification du service, consultez le [guide IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 Le format de la commande de base qui permet de créer les données d'identification d'une instance de service dans
 {{site.data.keyword.cloud_notm}} est le suivant :
 
 ```sh
-ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [--enable-internal-service-endpoint true]
+ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [-p '{"service-endpoints":"internal"}]
 ```
 {: pre}
 
@@ -167,7 +168,7 @@ Zone | Description
 `NAME` | Nom arbitraire que vous donnez aux données d'identification du service. 
 `ROLE_NAME` | Cette zone n'admet actuellement que le rôle de responsable.
 `SERVICE_INSTANCE_NAME` | Nom que vous donnez à votre instance {{site.data.keyword.cloudant_short_notm}}.
-`enable-internal-service-endpoint` | Zone facultative permettant de renseigner la zone d'URL dans les données d'identification de service avec un noeud final interne pour connecter le service au réseau interne {{site.data.keyword.cloud_notm}}. Ignorez cette zone pour renseigner l'URL avec un noeud final externe accessible publiquement. Ne s'applique qu'aux instances de plan Standard déployées sur des environnements Dedicated Hardware qui prennent en charge les noeuds finaux internes. La commande génère une erreur 400 si l'environnement ne prend pas en charge les noeuds finaux interne. 
+`service-endpoints` | Paramètre facultatif permettant de renseigner la zone d'URL dans les données d'identification de service avec un noeud final interne pour connecter le service au réseau interne {{site.data.keyword.cloud_notm}}. Ignorez ce paramètre pour renseigner l'URL avec un noeud final externe accessible publiquement. Ne s'applique qu'aux instances de plan Standard déployées sur des environnements Dedicated Hardware qui prennent en charge les noeuds finaux internes. La commande génère une erreur 400 si l'environnement ne prend pas en charge les noeuds finaux interne. 
 
 Si vous voulez créer des données d'identification pour l'instance `cs20170517a` d'un service {{site.data.keyword.cloudant_short_notm}} (où le nom des données d'identification est `creds_for_cs20170517a`), vous devez utiliser une commande similaire à l'exemple suivant :
 
@@ -206,7 +207,7 @@ Credentials:
 Si vous voulez créer des données d'identification pour l'instance `cs20170517a` d'un service {{site.data.keyword.cloudant_short_notm}} (où le nom des données d'identification est `creds_for_cs20170517a`) et que vous voulez renseigner l'URL avec un noeud final interne, vous devez utiliser une commande similaire à l'exemple suivant :
 
 ```sh
-ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a --enable-internal-service-endpoint true
+ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a -p '{"service-endpoints":"internal"}'
 ```
 {: codeblock}
 

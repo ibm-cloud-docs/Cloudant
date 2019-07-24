@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -65,13 +65,13 @@ La tua applicazione necessita di tre file di configurazione e di un file di orig
 
 Modifica i tuoi file di configurazione nel seguente modo:
 
-1.  Modifica il file '`Procfile`' in modo che contenga il seguente testo:
+1.  Modifica il file `Procfile` in modo che contenga il seguente testo:
     ```
     web: python server.py
     ```
     {: codeblock}
 
-2.  Modifica il file '`manifest.yml`' in modo che contenga il seguente testo:
+2.  Modifica il file `manifest.yml` in modo che contenga il seguente testo:
     ```
     applications:
     - path: .
@@ -86,10 +86,10 @@ Modifica i tuoi file di configurazione nel seguente modo:
     ```
     {: codeblock}
 
-Assicurati di modificare i valori '`domain`', '`name`', '`host`' e '`services`'. Sono i valori immessi quando hai creato il tuo [ambiente dell'applicazione {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment) e la tua [istanza del database {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites).
+Assicurati di modificare i valori `domain`, `name`, `host` e `services`. Sono i valori immessi quando hai creato il tuo [ambiente dell'applicazione {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment) e la tua [istanza del database {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites).
 {: note}
 
-3.  Modifica il file '`requirements.txt`' in modo che contenga il seguente testo:
+3.  Modifica il file `requirements.txt` in modo che contenga il seguente testo:
     ```
     cloudant==2.3.1
     ```
@@ -167,8 +167,8 @@ e crea il database.
 Il record prende la forma di un file di log,
 che viene archiviato in una cartella dal server web Python.
 
-Crea una cartella (denominata '`static`' nell'applicazione)
-e stai pronto ad archiviare il file in essa:
+Crea una cartella (denominata `static` nell'applicazione)
+e preparati ad archiviare un file al suo interno:
 
 ```python
 # Modifica la directory corrente per evitare l'esposizione dei file del controllo
@@ -212,13 +212,13 @@ target.write("\n====\n\n")
 L'applicazione Python viene eseguita in un ambiente dell'applicazione {{site.data.keyword.cloud_notm}}.
 L'ambiente fornisce tutte le informazioni necessarie sull'applicazione per accedere ai servizi connessi.
 Le informazioni vengono fornite in una variabile di ambiente,
-denominata '`VCAP_SERVICES`'.
+chiamata `VCAP_SERVICES`.
 È possibile accedere a questa variabile dall'applicazione
 e utilizzarla per determinare i dettagli della connessione.
 
 La prima attività consiste nell'assicurarti che l'applicazione sia in esecuzione in un
 ambiente dell'applicazione {{site.data.keyword.cloud_notm}}.
-Verifica che sia presente la variabile di ambiente '`VCAP_SERVICES`' nel test:
+Controlla verificando che sia presente la variabile di ambiente `VCAP_SERVICES`:
 
 ```python
 # Verifica che siamo in esecuzione in un ambiente dell'applicazione {{site.data.keyword.cloud_notm}}.
@@ -266,8 +266,8 @@ Pertanto,
 l'applicazione accede al primo elemento (elemento 'zero').
 Ogni elemento del servizio contiene le credenziali per tale servizio,
 espresse come un elenco indicizzato dai nome di campo essenziali necessari per accedere al servizio.
-Ulteriori informazioni sui nomi dei campi vengono fornite
-nell'[esercitazione](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites) che descrive un'attività di creazione del database semplice.
+Per ulteriori informazioni sui nomi dei campi, vedi
+l'esercitazione [Creazione e popolamento di un semplice database {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites-create_database) che descrive l'attività di creazione di un database semplice.
 
 ```python
 # Ottieni un elenco contenente le informazioni sulla connessione {{site.data.keyword.cloudant_short_notm}}.
@@ -303,8 +303,11 @@ target.write("\n")
 
 L'applicazione dispone ora di tutti i dettagli necessari per creare un database nell'istanza del database
 {{site.data.keyword.cloudant_short_notm}}.
-Questa attività viene descritta più dettagliatamente
-nell'[esercitazione](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance) che descrive la creazione del database semplice.
+Questa attività viene descritta più dettagliatamente nell'esercitazione
+[Creazione di un database nell'istanza del servizio](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance) che descrive la creazione del database semplice.
+
+Per ulteriori informazioni sulla creazione del database semplice, vedi l'esercitazione
+[Creazione di un database nell'istanza del servizio](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance).
 
 L'applicazione deve eseguire queste attività:
 

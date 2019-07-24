@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -34,14 +34,14 @@ subcollection: cloudant
 
 由于这是以任务为中心的教程，因此仅涵盖完成此任务所必需的内容。有关更多信息，请参阅 [API 参考](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)以获取可用选项的完整指南。
 
-## curl 和 jq 基础知识
+## `curl` 和 `jq` 基础知识
 {: #curl-and-jq-basics}
 
 要获取所有活动任务并将输出设置为令人满意的格式，请使用 `curl` 调用您的帐户，并将输出传送到 `jq`。
 
 `jq` 支持按文档的字段值过滤文档列表。这让您能更轻松地获取所有复制文档，或者仅获取一个特定视图索引任务的详细信息。API 参考包含有关这些选项的更多信息。
 
-_获取活动任务列表并设置其格式的示例：_
+*获取活动任务列表并设置其格式的示例：*
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
@@ -61,21 +61,21 @@ curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
 
 在每种情况下，搜索索引任务列表的结果都是 JSON 对象列表：每个找到的活动任务对应一个 JSON 对象。
 
-_通过过滤 `indexer` 类型来查找所有视图索引任务的示例：_
+*通过过滤 `indexer` 类型来查找所有视图索引任务的示例：*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-_通过过滤 `search_indexer` 类型来查找所有搜索索引任务的示例：_
+*通过过滤 `search_indexer` 类型来查找所有搜索索引任务的示例：*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-_搜索视图索引任务后的示例结果：_
+*搜索视图索引任务后的示例结果：*
 
 ```json
 {
@@ -107,7 +107,7 @@ _搜索视图索引任务后的示例结果：_
 
 您应该承认这些因素综合在一起可能会让您的估算出现较大的偏差。
 
-_使用 `jq` 抽取 `changes_done` 字段的示例：_
+*使用 `jq` 抽取 `changes_done` 字段的示例：*
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -121,28 +121,28 @@ curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
 
 要更轻松地从活动任务列表中选择有关复制过程的信息，请通过在 `_replicator` 数据库中创建文档来启动复制过程，并将其 `_id` 字段设置为已知值。
 
-_通过过滤 `replication` 类型来查找所有复制任务的示例：_
+*通过过滤 `replication` 类型来查找所有复制任务的示例：*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-_通过过滤已知文档标识来查找特定复制任务的示例：_
+*通过过滤已知文档标识来查找特定复制任务的示例：*
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-_通过过滤已知 `replication_id` 来查找特定复制任务的示例：_
+*通过过滤已知 `replication_id` 来查找特定复制任务的示例：*
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-_搜索复制任务后的示例结果：_
+*搜索复制任务后的示例结果：*
 
 ```json
 {

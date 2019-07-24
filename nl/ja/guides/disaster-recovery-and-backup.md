@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -85,7 +85,8 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 1.	単一リージョン内のみで保護を提供する。
 2.	現行データを維持する。
 
-アカウントに関連付けられている単一リージョンを超えて保護を提供するには、[災害復旧のためのクロスリージョン冗長性](#cross-region-redundancy-for-disaster-recovery)を使用します。
+アカウントに関連付けられている単一リージョンを超えて保護を提供するには、
+[災害復旧のためのクロスリージョン冗長性](#cross-region-redundancy-for-disaster-recovery)を使用します。
 
 データの「履歴」に対して保護を提供する (例えば、アプリケーションがデータに対して行う変更の監査を使用可能にする) には、[データベースのバックアップおよびリカバリー](#database-backup-and-recovery)・ツールによって作成されるデータ・スナップショットを使用します。
 
@@ -104,7 +105,7 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 2.  必要に応じて各リージョンにデータベースを作成する。
 3.  クロスリージョン冗長性を使用して保管する必要があるデータベースについては、各アカウント内の対応するデータベース間の継続的双方向複製をセットアップする。
 4.  ユーザーの環境が「アクティブ - パッシブ」構成か、または「アクティブ - アクティブ」構成かに応じてデータが経路指定されるように、アプリケーションを設計および実装する。
-  これをセットアップするための詳細なガイドが[使用可能](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)です。
+  このセットアップについて詳しくは、[クロスリージョン災害復旧のための {{site.data.keyword.cloudant_short_notm}} の構成](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery)を参照してください。
 
 複数のリージョンにわたるデータを処理するようアプリケーションを設計する場合は、以下の点を考慮してください。
 
@@ -175,4 +176,5 @@ HA 要件または DR 要件の対処は、多くの場合、もっと一般的�
 バックアップ・ツールは、オープン・ソースの node.js コマンド・ライン・アプリケーションとライブラリーで構成されています。
 [NPM ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} から入手可能です。
 
-データ保護戦略へのツールの組み込み方法を示すアイデアと例については、[バックアップのクックブック・ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)を参照してください。
+データ保護戦略へのツールの組み込み方法を示すアイデアと例については、
+[{{site.data.keyword.cloudant_short_notm}}バックアップおよびリカバリー・ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery)を参照してください。

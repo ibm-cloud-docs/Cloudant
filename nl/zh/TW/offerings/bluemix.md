@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-26"
+lastupdated: "2019-06-12"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# 方案與佈建
+# 方案和佈建
 {: #ibm-cloud-public}
 
 {{site.data.keyword.cloudantfull}} Public 是 {{site.data.keyword.cloudant_short_notm}} 特性最豐富的供應項目，且會先收到更新及新特性。定價是根據所配置的已佈建傳輸量及所使用的資料儲存空間，適用於任何負載需求。
@@ -61,9 +61,9 @@ subcollection: cloudant
 ### 專用硬體方案
 {: #dedicated-hardware-plan}
 
-「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例是一種裸機 {{site.data.keyword.cloudant_short_notm}} 環境，佈建以專用於您的「{{site.data.keyword.cloudant_short_notm}} 標準方案」實例。「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」環境可以佈建至任何 [{{site.data.keyword.IBM}} 資料中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud-computing/bluemix/data-centers)。此方案對於 HIPAA 法規遵循而言是必要的，且必須在佈建時間進行選取。「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」環境的使用者還可以使用 {{site.data.keyword.IBM_notm}} Key Protect 來採用 IP 白名單及「自帶金鑰 (BYOK)」（客戶管理的加密金鑰）。此外，2019 年 1 月 1 日之後佈建的「專用硬體」環境還包括已在其上部署之所有「標準方案」實例的內部端點。使用內部端點可讓客戶透過內部 {{site.data.keyword.cloud}} 網路連接至 {{site.data.keyword.cloudant_short_notm}} 實例，以避免上游應用程式資料流量經過公用網路，而引起頻寬計費。如需相關資訊，請參閱[服務端點文件](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window}，以取得如何為您的 {{site.data.keyword.cloud}} 帳戶啟用「服務端點」的詳細資料。
+「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例是一種裸機 {{site.data.keyword.cloudant_short_notm}} 環境，佈建以專用於您的「{{site.data.keyword.cloudant_short_notm}} 標準方案」實例。{{site.data.keyword.cloudant_short_notm}} 專用硬體方案環境可以在任何 [{{site.data.keyword.IBM}} 全球資料中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/data-centers/){:new_window} 中佈建。此方案對於 HIPAA 法規遵循而言是必要的，且必須在佈建時間進行選取。「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」環境的使用者還可以使用 {{site.data.keyword.IBM_notm}} Key Protect 來採用 IP 白名單及「自帶金鑰 (BYOK)」（客戶管理的加密金鑰）。此外，2019 年 1 月 1 日之後在非歐盟管理的環境中佈建的專用硬體環境為其上部署的所有標準方案實例包含了內部端點。使用內部端點可讓客戶透過內部 {{site.data.keyword.cloud}} 網路連接至 {{site.data.keyword.cloudant_short_notm}} 實例，以避免上游應用程式資料流量經過公用網路，而引起頻寬計費。如需相關資訊，請參閱[服務端點文件 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/services/service-endpoint/getting-started.html#about){:new_window}，以獲取為您的 {{site.data.keyword.cloud}} 帳戶啟用服務端點的更多詳細資料。
 
-您可以佈建一個以上的「標準方案」實例，而「專用硬體」環境會根據「標準方案」實例所使用的容量及資料，視需要擴充或縮減。「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例具有固定價，這會加至已在其上部署之任何「標準方案」的耗用定價。計費是每日按比例分配，並且針對環境收取一個月的最短持續期間費用。佈建「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」是不同步的作業，可能需要 5-7 個營業日。若要建立「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例並在其上佈建「標準方案」實例，請遵循[在 {{site.data.keyword.cloud_notm}} 上建立及運用 {{site.data.keyword.cloudant_short_notm}} 專用硬體方案實例 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} 指導教學。 
+您可以佈建一個以上的「標準方案」實例，而「專用硬體」環境會根據「標準方案」實例所使用的容量及資料，視需要擴充或縮減。「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例具有固定價，這會加至已在其上部署之任何「標準方案」的耗用定價。計費是每日按比例分配，並且針對環境收取一個月的最短持續期間費用。佈建「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」是不同步的作業，可能需要 5-7 個營業日。若要建立 {{site.data.keyword.cloudant_short_notm}} 專用硬體方案實例並在其上佈建標準方案實例，請遵循[在 {{site.data.keyword.cloud_notm}} 上建立和利用 {{site.data.keyword.cloudant_short_notm}} 專用硬體方案實例](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud)指導教學。 
 
 「專用硬體方案」不適用於 {{site.data.keyword.cloud_notm}} Dedicated 客戶。「專用硬體方案」只適用於 {{site.data.keyword.cloud_notm}} Public 客戶。
 {: important}
@@ -79,7 +79,7 @@ subcollection: cloudant
         -	主要索引 ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
         -	MapReduce 視圖 ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
         -	搜尋索引 ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
-        -	{{site.data.keyword.cloudant_short_notm}} 查詢 ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+        -	{{site.data.keyword.cloudant_short_notm}} 查詢 ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index))
     
         分割查詢要求所耗用的讀取作業數會有所不同，視傳回的結果而定。
 2.	_寫入_，這是個別文件的建立、修改或刪除。
@@ -87,8 +87,8 @@ subcollection: cloudant
 	-	主要索引 ([`_all_docs`](/docs/services/Cloudant?topic=cloudant-databases#get-documents))
 	-	MapReduce 視圖 ([`_view`](/docs/services/Cloudant?topic=cloudant-using-views#using-views))
 	-	搜尋索引 ([`_search`](/docs/services/Cloudant?topic=cloudant-search#queries))
-	-	地理空間索引 ([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-geo-index))
-	-	{{site.data.keyword.cloudant_short_notm}} 查詢 ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-using-an-index))
+	-	地理空間索引 ([`_geo`](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#querying-a-cloudant-nosql-db-geo-index))
+	-	{{site.data.keyword.cloudant_short_notm}} 查詢 ([`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index))
 
 
 ## 已佈建的傳輸量
@@ -102,7 +102,7 @@ subcollection: cloudant
 
 因為已超出事件數目而拒絕要求時，應用程式會收到 [`429` Too Many Requests](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) 回應。
 
-所支援用戶端程式庫的最新版本（適用於 [Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java)、[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js) 及 [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supportedn) 語言）可協助您處理 `429` 回應。例如，Java 程式庫產生 [`TooManyRequestsException` ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window} 回應。
+所支援用戶端程式庫的最新版本（適用於 [Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported)、[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported) 及 [Python](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported) 語言）可協助您處理 `429` 回應。例如，Java 程式庫產生 [`TooManyRequestsException` ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window} 回應。
 
 依預設，在收到 `429` 回應時，受支援的用戶端程式庫不會自動嘗試重試要求。
 
@@ -113,7 +113,7 @@ subcollection: cloudant
 
 總而言之，您必須確定您的應用程式可以正確地處理 [`429`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) 回應。
 
-### 分割查詢耗用的讀取作業數
+### 分割區查詢的讀取作業使用量
 {: #consumption-of-lookup-operations-by-partitioned-queries}
 
 分割查詢要求會耗用不同數目的讀取作業，視傳回的結果而定。耗用量根據兩個軸：
@@ -127,7 +127,7 @@ subcollection: cloudant
 
 從索引讀取的列數與傳回的結果數相同。在要求查詢期間，傳遞 `include_docs=true` 作為查詢字串參數時，只會從資料庫讀取文件。
 
-下表顯示範例成本。
+下表格中顯示了範例成本。
 
 | 結果數 | 包括文件 | 耗用的讀取總數 | 耗用的讀取列數 | 耗用的讀取文件數 |
 |--------------|----------------|-------------|---------------------| --- |
@@ -165,7 +165,7 @@ subcollection: cloudant
 
 ![帳戶儀表板](../images/cloudant_capacity_change.png)
 
-容量增加大小限制為每次變更 10 個單位（1000 次讀取/秒、500 次寫入/秒及 50 次廣域查詢/秒）。減少則不受單位數目限制。任何容量變更（無論是增加還是減少）都限制為每小時一次。如果您需要的容量超過 {{site.data.keyword.cloudant_short_notm}} 儀表板上可用的容量，請與 [{{site.data.keyword.cloudant_short_notm}} 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){: new_window} 聯絡。
+容量增加大小限制為每次變更 10 個單位（1000 次讀取/秒、500 次寫入/秒及 50 次廣域查詢/秒）。減少則不受單位數目限制。任何容量變更（無論是增加還是減少）都限制為每小時一次。如果需要的容量大於「{{site.data.keyword.cloudant_short_notm}} 儀表板」上提供的容量，請聯絡 [{{site.data.keyword.cloudant_short_notm}} 支援中心 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](mailto:support@cloudant.com){: new_window}。
 {: note}
 
 ### 監視用量 
@@ -245,7 +245,7 @@ subcollection: cloudant
 
 建議您將二進位附件或大型 JSON Blob 儲存在物件儲存空間，並將位置的鏈結儲存在 {{site.data.keyword.cloudant_short_notm}} JSON 文件中。   
 
-當您抄寫時，大於這些限制的文件或附件不會抄寫到目標資料庫。[這裡](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors)提供如何偵測抄寫錯誤的相關資訊。
+當您抄寫時，大於這些限制的文件或附件不會抄寫到目標資料庫。如需如何偵測抄寫錯誤的相關資訊，請參閱[抄寫錯誤](/docs/services/Cloudant?topic=cloudant-replication-api#replication-errors)。
 
 ## 位置及租賃
 {: #locations-and-tenancy}
@@ -259,7 +259,7 @@ subcollection: cloudant
 -   法蘭克福&Dagger;
 -   東京
 
-「專用硬體方案」實例可以部署至大部分的 [{{site.data.keyword.IBM_notm}} 資料中心位置 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud-computing/bluemix/data-centers)。
+「專用硬體方案」實例可以部署至大部分的 [{{site.data.keyword.IBM_notm}} 資料中心位置 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/data-centers/)。
 請參閱 {{site.data.keyword.cloud_notm}} 型錄中的下拉功能表，以取得最新的可用位置清單。
 
 &Dagger;從 {{site.data.keyword.cloud_notm}} Public 法蘭克福地區部署的所有 {{site.data.keyword.cloudant_short_notm}} 實例都會部署在歐盟管理的環境中。在歐盟管理的環境之外產生的任何 {{site.data.keyword.cloudant_short_notm}} 帳戶或 API 金鑰，都無法獲授與對歐盟管理之 {{site.data.keyword.cloudant_short_notm}} 實例的存取權。
@@ -267,9 +267,9 @@ subcollection: cloudant
 ## 鑑別方法
 {: #authentication-methods}
 
-{{site.data.keyword.cloudant_short_notm}} 是使用 HTTPS API 進行存取。當 API 端點需要時，會針對 {{site.data.keyword.cloudant_short_notm}} 收到的每個 HTTPS 要求鑑別使用者。在佈建期間，可用的鑑別方法包括「同時使用 Legacy 認證及 IAM」及「僅使用 IAM」。如需相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-l){: new_window}或舊式[鑑別 API 文件](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window}。
+{{site.data.keyword.cloudant_short_notm}} 是使用 HTTPS API 進行存取。當 API 端點需要時，會針對 {{site.data.keyword.cloudant_short_notm}} 收到的每個 HTTPS 要求鑑別使用者。在佈建期間，可用的鑑別方法包括`使用舊認證和 IAM` 或`僅使用 IAM`。如需相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)或舊式[鑑別 API 文件](/docs/services/Cloudant?topic=cloudant-authentication#authentication)。
 
-佈建 {{site.data.keyword.cloudant_short_notm}} 實例之後，在 {{site.data.keyword.cloud_notm}} 儀表板的「服務認證」標籤中產生新認證時，可以找到連線 URL 及 IAM 授權詳細資料。如果您在佈建期間選擇此選項，則也會包含 {{site.data.keyword.cloudant_short_notm}} Legacy 使用者名稱和密碼。
+佈建 {{site.data.keyword.cloudant_short_notm}} 實例之後，在 {{site.data.keyword.cloud_notm}} 儀表板的「服務認證」標籤中產生新認證時，可以找到連線 URL 及 IAM 授權詳細資料。如果您在佈建期間選擇此選項，則也會包含 {{site.data.keyword.cloudant_short_notm}}舊式使用者名稱和密碼。
 
 {{site.data.keyword.cloudant_short_notm}} 團隊建議您儘可能使用 IAM 存取控制進行鑑別。如果您是使用 {{site.data.keyword.cloudant_short_notm}} 舊式鑑別，建議您使用 [API 金鑰](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}，而非帳戶層次認證，進行程式化存取及抄寫工作。
 {: important}
@@ -277,9 +277,9 @@ subcollection: cloudant
 ## 資料中心的高可用性、災難回復及備份
 {: #high-availability-disaster-recovery-and-backup-in-a-data-center}
 
-為了在資料中心內提供高可用性 (HA) 及災難回復 (DR)，所有資料都會跨叢集裡的三台不同實體伺服器，儲存成一式三份。您可以在多個資料中心內佈建帳戶，然後使用持續資料抄寫以提供跨資料中心的 HA/DR。{{site.data.keyword.cloudant_short_notm}} 資料不會自動進行備份，但提供支援的工具來處理備份。請檢閱[災難回復及備份 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-authorization#api-keys) 手冊來探索所有 HA、DR 及備份考量，以符合應用程式需求。 
+若要在資料中心內提供高可用性 (HA) 及災難回復 (DR)，所有資料都會跨叢集裡的三台不同實體伺服器，儲存成一式三份。您可以在多個資料中心內佈建帳戶，然後使用持續資料抄寫以提供跨資料中心的 HA/DR。{{site.data.keyword.cloudant_short_notm}} 資料不會自動進行備份，但提供支援的工具來處理備份。請檢閱[災難回復及備份](/docs/services/Cloudant?topic=cloudant-authorization#api-keys)手冊來探索所有 HA、DR 及備份考量，以符合應用程式需求。 
 
-## {{site.data.keyword.cloud_notm}} 支援
+## {{site.data.keyword.cloud_notm}} 支援中心
 {: #ibm-cloud-support}
 
 「標準方案」及「專用方案」服務實例的支援都是選用項目。其提供方式是購買 *{{site.data.keyword.cloud_notm}} 標準支援*。未提供「精簡方案」的支援。
@@ -292,12 +292,14 @@ subcollection: cloudant
 ## 在 {{site.data.keyword.cloud_notm}} 上佈建 {{site.data.keyword.cloudant_short_notm}} 實例
 {: #provisioning-a-cloudant-nosql-db-instance-on-ibm-cloud}
 
-您可以使用兩種方式在 {{site.data.keyword.cloud_notm}} 上佈建「{{site.data.keyword.cloudant_short_notm}} 精簡方案」或「標準方案」實例：
+可以透過以下兩種方式在 {{site.data.keyword.cloud_notm}} 上佈建 {{site.data.keyword.cloudant_short_notm}} 精簡或標準方案實例：
 
-- 使用儀表板。[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} 提供說明此處理程序的指導教學。
-- 使用 Cloud Foundry 指令工具。[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window} 提供說明此處理程序的指導教學。
+- 使用儀表板。如需相關資訊，請參閱說明相關程序的[在 {{site.data.keyword.cloud_notm}} 上建立 {{site.data.keyword.cloudant_short_notm}} 實例 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud){: new_window} 指導教學。
+- 使用 Cloud Foundry 指令工具。如需相關資訊，請參閱說明相關程序的[使用 {{site.data.keyword.cloud_notm}} CLI 在 {{site.data.keyword.cloud_notm}} 上建立 {{site.data.keyword.cloudant_short_notm}} 實例 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli){: new_window}。
  
-若要建立及運用「{{site.data.keyword.cloudant_short_notm}} 專用硬體方案」實例，請遵循[這裡 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} 說明此處理程序的指導教學。
+若要建立並利用 {{site.data.keyword.cloudant_short_notm}} 專用硬體方案實例，請遵循說明相關程序的[在 {{site.data.keyword.cloud_notm}} 上建立和利用 {{site.data.keyword.cloudant_short_notm}} 專用硬體方案實例 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud#creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud){: new_window} 指導教學。
+
+
 
 
 

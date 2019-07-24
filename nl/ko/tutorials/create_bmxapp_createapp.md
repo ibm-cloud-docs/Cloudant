@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -57,13 +57,13 @@ subcollection: cloudant
 
 구성 파일을 다음과 같이 수정하십시오.
 
-1.  다음 텍스트를 포함하도록 '`Procfile`' 파일을 편집하십시오.
+1.  다음 텍스트를 포함하도록 `Procfile` 파일을 편집하십시오.
     ```
     web: python server.py
     ```
     {: codeblock}
 
-2.  다음 텍스트를 포함하도록 '`manifest.yml`' 파일을 편집하십시오.
+2.  다음 텍스트를 포함하도록 `manifest.yml` 파일을 편집하십시오.
     ```
     applications:
     - path: .
@@ -78,10 +78,10 @@ subcollection: cloudant
     ```
     {: codeblock}
 
-'`domain`', '`name`', '`host`' 및 '`services`' 값을 수정했는지 확인하십시오. 이들은 [{{site.data.keyword.cloud_notm}} 애플리케이션 환경](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment) 및 [{{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)를 작성할 때 입력한 값입니다.
+`domain`, `name`, `host` 및 `services` 값을 수정하십시오. 이들은 [{{site.data.keyword.cloud_notm}} 애플리케이션 환경](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment) 및 [{{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)를 작성할 때 입력한 값입니다.
 {: note}
 
-3.  다음 텍스트를 포함하도록 '`requirements.txt`' 파일을 편집하십시오.
+3.  다음 텍스트를 포함하도록 `requirements.txt` 파일을 편집하십시오.
     ```
     cloudant==2.3.1
     ```
@@ -151,7 +151,8 @@ databaseName = "databasedemo"
 애플리케이션은 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스에 연결하고 데이터베이스를 작성하면서 진행상태를 기록합니다.
 이 레코드의 형태는 로그 파일이며, 이는 Python 웹 서버에서 액세스할 수 있는 폴더에 저장됩니다.
 
-폴더(이 애플리케이션에서는 '`static`'이라고 함)를 작성하고 여기에 파일을 저장할 준비를 하십시오.
+폴더(이 애플리케이션에서는 `static`이라고 함)를 작성하고
+여기에 파일을 저장할 준비를 하십시오. 
 
 ```python
 # Change current directory to avoid exposure of control files
@@ -193,11 +194,12 @@ target.write("\n====\n\n")
 
 Python 애플리케이션은 {{site.data.keyword.cloud_notm}} 환경 내에서 실행됩니다.
 이 환경은 애플리케이션이 연결된 서비스에 액세스하는 데 필요한 모든 정보를 제공합니다.
-이 정보는 '`VCAP_SERVICES`'라고 하는 환경 변수 내에 제공됩니다.
+이 정보는 `VCAP_SERVICES`라고 하는
+환경 변수 내에 제공됩니다.
 이 변수는 애플리케이션에 의해 액세스될 수 있으며, 연결 세부사항을 판별하는 데 사용됩니다.
 
 첫 번째 태스크는 애플리케이션이 {{site.data.keyword.cloud_notm}} 애플리케이션 환경 내에서 실행 중인지 확인하는 것입니다.
-'`VCAP_SERVICES`' 환경 변수의 유무를 테스트하여 이를 확인하십시오.
+`VCAP_SERVICES` 환경 변수의 유무를 테스트하여 이를 확인하십시오. 
 
 ```python
 # Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
@@ -237,7 +239,7 @@ target.write("Got cloudantNoSQLDBData\n")
 각 서비스 요소는 서비스에 액세스하는 데 필요한 필수 필드 이름으로 인덱스화된 목록으로 표현된,
 해당 서비스의 인증 정보를 포함합니다.
 필드 이름에 대한 자세한 정보는 간단한 데이터베이스 작성 태스크를 설명하는
-[튜토리얼](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites)에 제공되어 있습니다.
+[{{site.data.keyword.cloud_notm}}에서 간단한 {{site.data.keyword.cloudant_short_notm}} 작성 및 채우기](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites-create_database) 튜토리얼을 참조하십시오. 
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -271,7 +273,11 @@ target.write("\n")
 {: codeblock}
 
 이제 애플리케이션이 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스 내에 데이터베이스를 작성하는 데 필요한 모든 세부사항을 확보했습니다.
-이 태스크는 간단한 데이터베이스 작성 작업을 설명하는 [튜토리얼](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance)에 자세히 설명되어 있습니다.
+이 태스크는 간단한 데이터베이스 작성 작업을 설명하는
+[서비스 인스턴스 내에 데이터베이스 작성](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance) 절에 자세히 설명되어 있습니다. 
+
+간단한 데이터베이스 작성에 대한 자세한 정보는
+[서비스 인스턴스 내에 데이터베이스 작성](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance)을 참조하십시오. 
 
 애플리케이션은 다음 태스크를 수행해야 합니다.
 

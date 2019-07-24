@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -34,7 +34,8 @@ subcollection: cloudant
 -   MapReduce ビューは、キーまたはキー範囲による効率的な検索のために B ツリー内に保管されるキー/値ペアを持つデータ・セットの索引です。
 -   フリー・テキスト検索、ファセッティング照会、および複雑なアドホック照会を可能にするために、検索索引は Apache Lucene を使用して作成されます。
 
-{{site.data.keyword.cloudant_short_notm}} の[検索索引](/docs/services/Cloudant?topic=cloudant-search#search)と [MapReduce ビュー](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)は、設計文書をデータベースに追加して構成されます。
+{{site.data.keyword.cloudant_short_notm}} の[検索索引](/docs/services/Cloudant?topic=cloudant-search#search)と [MapReduce ビュー](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)は、
+設計文書をデータベースに追加して構成されます。
 設計文書は、ビューまたは索引の作成方法に関する指示を含む JSON 文書です。
 単純な例を見てみましょう。
 以下の例のような、単純なデータ文書コレクションがあると仮定します。
@@ -71,7 +72,9 @@ function(doc) {
 この関数は文書のタイム・スタンプを排出するため、それを索引のキーとして使用できます。索引の値には興味がないため、`null` が排出されます。
 この結果として、時刻で順序付けされた索引が文書セットに提供されます。
 
-このビューを "`by_ts`" と呼び、以下の例のように、"`fetch`" という名前の設計文書に入れます。
+このビューを "`by_ts`"
+と呼び、以下の例のように、"`fetch`"
+という名前の設計文書に入れます。
 
 _マップ関数を使用してビューを定義する設計文書の例:_
 
@@ -92,9 +95,11 @@ _マップ関数を使用してビューを定義する設計文書の例:_
 ```
 {: codeblock}
 
-この結果として、マップ・コードは JSON 準拠のストリングに変換され、設計文書に組み込まれます。
+この結果として、マップ・コードは JSON 準拠のストリングに変換され、
+設計文書に組み込まれます。
 
-設計文書が保存されると、{{site.data.keyword.cloudant_short_notm}} はサーバー・サイド・プロセスをトリガーして `fetch/by_ts` ビューを作成します。
+設計文書が保存されると、
+{{site.data.keyword.cloudant_short_notm}} はサーバー・サイド・プロセスをトリガーして `fetch/by_ts` ビューを作成します。
 {{site.data.keyword.cloudant_short_notm}} はデータベース内のすべての文書で反復処理を行い、それぞれを Javascript のマップ関数に送信することによってこれを実行します。
 この関数は、排出されたキー/値ペアを返します。
 反復が継続されるにつれて、各キー/値ペアが B ツリー索引に保管されます。
@@ -107,7 +112,9 @@ _マップ関数を使用してビューを定義する設計文書の例:_
 この時点では以下のことを覚えておいてください。
 
 -   索引の作成は非同期で行われる。
-    {{site.data.keyword.cloudant_short_notm}} は設計文書が保存されていることを確認しますが、索引作成の進行状況を確認するには、{{site.data.keyword.cloudant_short_notm}} の [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) エンドポイントをポーリングする必要があります。
+    {{site.data.keyword.cloudant_short_notm}} は設計文書が保存されていることを確認しますが、
+    索引作成の進行状況を確認するには、
+    {{site.data.keyword.cloudant_short_notm}} の [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) エンドポイントをポーリングする必要があります。
 -   データ量が多いほど、索引の準備ができるまでの時間は長くなる。
 -   初期索引作成の進行中、_その索引に対して行われた照会はすべてブロックされる_。
 -   ビューを照会すると、まだ増分で索引付けされていない文書の「マッピング」がトリガーされる。
@@ -164,8 +171,14 @@ _reduce 関数を使用する設計文書の例:_
 
 このビューに_リアルタイムで_アクセスしているアプリケーションがある場合、次のようなデプロイメント・ジレンマに遭遇する可能性があります。
 
--   古いビューが無効化されているため、元の設計文書に依存しているコードのバージョン 1 は機能しない可能性がある。
--   新しいビューの作成がまだ終了しないため (特にデータベース内に多くの文書が含まれている場合)、新しい設計文書を使用しているコードのバージョン 2 をすぐにリリースできない。
+-   古いビューが無効化されているため、
+    元の設計文書に依存しているコードのバージョン 1
+    は機能しない可能性がある。
+-   新しいビューの作成が
+    まだ終了しないため (特にデータベース内に
+    多くの文書が含まれている場合)、
+    新しい設計文書を使用しているコードの
+    バージョン 2 をすぐにリリースできない。
 -   コードに影響を与える、よる微妙な問題は、バージョン 1 とバージョン 2 がビューから異なる結果データを予期していることです。バージョン 1 は、一致する文書のリストを予期しており、一方でバージョン 2 は、結果の「削減された」カウントを予期しています。
 
 ## 設計文書に対する変更の調整
@@ -184,7 +197,8 @@ _reduce 関数を使用する設計文書の例:_
 -   これで、2 番目のビューに依存するコードをリリースする準備ができました。
 -   もう必要ないと確信したら、`_design/fetchv1` を削除します。
 
-後で古いバージョンを削除することを覚えている限り、バージョン管理された設計文書の使用は、設計文書で変更制御を管理するための単純な方法です。
+後で古いバージョンを削除することを覚えている限り、バージョン管理された
+設計文書の使用は、設計文書で変更制御を管理するための単純な方法です。
 
 ### 設計文書の「移動および切り替え」
 {: #-move-and-switch-design-documents}
@@ -202,7 +216,7 @@ _reduce 関数を使用する設計文書の例:_
 6.  設計文書 `_design/fetch_NEW` を削除します。
 7.  設計文書 `_design/fetch_OLD` を削除します。
 
-## 移動および切り替えのツール
+## 「移動および切り替え」のツール
 {: #move-and-switch-tooling}
 
 「移動および切り替え」手順を自動化する、「`couchmigrate`」という名前のコマンド・ライン Node.js スクリプトがあります。
@@ -235,7 +249,9 @@ export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
 
 ファイルに保管されている、JSON フォーマットの設計文書があると仮定して、次にマイグレーション・コマンドを実行できます。
 
-この例で、`db` は、変更するデータベースの名前を指定し、`dd` は、設計文書ファイルのパスを指定しています。
+この例で、
+`db` は、変更するデータベースの名前を指定し、
+`dd` は、設計文書ファイルのパスを指定しています。
 
 _`couchmigrate` コマンドの実行:_
 
@@ -244,7 +260,8 @@ couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
 {: pre}
 
-このスクリプトは、戻る前にビューが作成されるまで待って、「移動および切り替え」手順を調整します。
+このスクリプトは、戻る前にビューが作成されるまで待って、
+「移動および切り替え」手順を調整します。
 後任の設計文書が、現在の文書と同じ場合、スクリプトはほぼすぐに戻ります。
 
 このスクリプトのソース・コードは、[https://github.com/glynnbird/couchmigrate ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/glynnbird/couchmigrate){: new_window}から入手できます。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -23,17 +23,18 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # 스케일링을 위한 데이터 모델링에 대한 다섯 가지 팁
-{: #five-tips-for-modelling-your-data-to-scale}
+{: #five-tips-for-modeling-your-data-to-scale}
 
 이 문서에서는 대형 스케일에서 효율적으로 작동하도록
 애플리케이션의 데이터를 모델링하는 데 있어서 중요한 점을 다룹니다.
 {: shortdesc}
 
-*(이 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글: ["My top 5 tips for modelling your data to scale" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/)을 기반으로 하고 있습니다.*
+*(이 안내서는 2013년 12월 17일에 공개된 Mike Rhodes의 블로그 글인 ["My top 5 tips for modeling your data to scale" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/)을 기반으로 하고 있습니다. *
 
 {{site.data.keyword.cloudantfull}}에서 데이터를 모델링하는 방식은 애플리케이션의 스케일링 능력에 크게 영향을 줍니다. 기본 데이터 모델은 관계형 모델과 상당히 다르며, 이 차이를 무시하면 나중에 성능 문제가 발생할 수 있습니다.
 
-늘 그렇듯, 성공적인 모델링은 달성하고자 하는 성능 특성과 사용 용이성 간에 균형을 맞추는 것입니다.
+늘 그렇듯, 성공적인 모델링은 달성하고자 하는 성능 특성과
+사용 용이성 간에 균형을 맞추는 것입니다. 
 
 본론으로 들어갑시다.
 
@@ -55,7 +56,7 @@ subcollection: cloudant
 기본적으로, 데이터베이스는 샤드로 분할될 뿐만 아니라, 모든 샤드에는 각각 데이터베이스 클러스터의 서로 다른 노드에 위치하는 세 개의 사본(샤드 복제본)이 있습니다. 
 이를 통해 하나의 노드에 장애가 발생해도 데이터베이스가 요청을 계속 서비스할 수 있습니다. 따라서 하나의 문서 저장 작업에는 세 개 노드에 대한 쓰기 작업이 포함됩니다. 이는 동일한 문서에 두 가지 업데이트가 동시에 수행되는 경우, 노드의 한 서브세트는 첫 번째 업데이트를 승인하고 다른 서브세트는 두 번째 업데이트를 승인할 수 있다는 것을 의미합니다. 클러스터는 이러한 차이를 발견하면 일반 복제가 동시 업데이트에 대해 수행하는 것과 같은 방식으로 충돌을 작성하여 문서를 결합합니다.
 
-충돌하는 문서는 성능에 악영향을 줍니다. 이것이 발생하는 이유에 대한 세부사항은 아래 내용을 참조하십시오. 
+충돌하는 문서는 성능에 악영향을 줍니다. 이것이 발생하는 이유에 대한 세부사항은 다음 텍스트를 참조하십시오.
 높은 동시 즉시 업데이트 패턴은 또한 쓰기의 `_rev` 매개변수가 기대하던 값이 아니어서 거부될 확률을
 증가시키며, 이는 애플리케이션의 재시도를 강제하여 처리를 지연시킵니다.
 
@@ -128,7 +129,8 @@ subcollection: cloudant
 ```
 {: codeblock}
 
-Joe가 불행하게도 여러 수술을 동시에 받아야 하는 경우, 하나의 문서에 대한 많은 동시 업데이트는 위에 설명되어 있는 바와 같이 충돌하는 문서를 발생시킬 수 있습니다. 
+Joe가 불행하게도 여러 수술을 동시에 받아야 하는 경우, 하나의 문서에 대한 많은 동시 업데이트는
+위에 설명되어 있는 바와 같이 충돌하는 문서를 발생시킬 수 있습니다.
 Joe의 개인 문서를 참조하는 여러 문서로 이러한 수술을 나눈 후 보기를 사용하여 이들 항목을 연결하는 것이 좋습니다. 각 수술을 나타내기 위해, 사용자는 다음 두 가지 예와 같은 문서를 업로드합니다.
 
 ```json
@@ -167,9 +169,12 @@ Joe의 개인 문서를 참조하는 여러 문서로 이러한 수술을 나눈
 ## 충돌 해결 빌드
 {: #build-in-conflict-resolution}
 
-{{site.data.keyword.cloudant_short_notm}}와 같은 결과적으로 일관된 시스템에서는 충돌이 발생할 수밖에 없습니다. 위에서 설명한 바와 같이, 이는 확장성과 데이터 복원성을 우선한 대가입니다.
+{{site.data.keyword.cloudant_short_notm}}와 같은 결과적으로 일관된 시스템에서는 충돌이 발생할 수밖에 없습니다. 위에서
+설명한 바와 같이, 이는 확장성과 데이터 복원성을 우선한 대가입니다. 
 
-충돌 해결이 빠르며 운영자의 도움을 필요로 하지 않는 방식으로 데이터를 구조화하면 데이터베이스가 지속적으로 원활하게 작동하도록 하는 데 도움이 됩니다. 사용자가 개입할 필요 없이 충돌을 자동으로 해결하는 기능은 사용자의 사용 경험을 극적으로 향상시키며 조직의 지원 부담을 줄일 수 있습니다.
+충돌 해결이 빠르며 운영자의 도움을 필요로 하지 않는 방식으로 데이터를 구조화하면 데이터베이스가 지속적으로 원활하게 작동하도록 하는 데 도움이 됩니다. 사용자가
+개입할 필요 없이 충돌을 자동으로 해결하는 기능은 사용자의 사용 경험을
+현저히 향상시키며 조직의 지원 부담을 줄일 수 있습니다. 
 
 이를 수행하는 방법은 애플리케이션별로 매우 다르지만, 몇 가지 팁은 다음과 같습니다.
 
@@ -191,7 +196,7 @@ Joe의 개인 문서를 참조하는 여러 문서로 이러한 수술을 나눈
 이러한 팁은 데이터 모델링이 애플리케이션의 성능에 영향을 미치는 몇 가지 방식을 보여줍니다. {{site.data.keyword.cloudant_short_notm}}의 데이터 저장소에는 애플리케이션의 확장에 따라 데이터베이스 성능이 스케일링되도록 하기 위해
 주의하며 이용해야 하는 몇 가지 구체적인 특성이 있습니다. 이러한 전환은 혼란스러울 수 있으며, IBM에서는 이에 대해 항상 도움을 줄 준비가 되어 있습니다.
 
-추가적인 내용은 ["Foundbite의 데이터 모델" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window},
-또는 ["Twilio에서 작성한 예" ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}의
-해설을 참조하십시오.
+추가적인 내용은 [Foundbite의 데이터 모델 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window},
+또는 [Twilio에서 작성한 예 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}의
+해설을 참조하십시오. 
 

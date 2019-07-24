@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -23,14 +23,14 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # Cinco consejos para modelar los datos que desea escalar
-{: #five-tips-for-modelling-your-data-to-scale}
+{: #five-tips-for-modeling-your-data-to-scale}
 
 En este artículo se habla sobre cómo modelar los datos de la aplicación para que funcionen de forma eficiente a gran escala.
 {: shortdesc}
 
-*(Esta guía se basa en un artículo del Blog de Mike Rhodes: ["My top 5 tips for modelling your data to scale" (Mis 5 mejores consejos para modelar los datos que desea escalar) ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/), publicado originalmente el 17 de diciembre de 2013).*
+*(Esta guía se basa en un artículo del Blog de Mike Rhodes: ["My top 5 tips for modeling your data to scale" (Mis 5 mejores consejos para modelar los datos que desea escalar) ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/), publicado originalmente el 17 de diciembre de 2013).*
 
-La forma de modelas los datos de {{site.data.keyword.cloudantfull}} afecta significativamente a la forma en que se puede escalar la aplicación. El modelo de datos subyacente difiere significativamente de un modelo relacional; si se pasa por alto esta distinción, pueden producirse problemas de rendimiento.
+La forma de modelar los datos de {{site.data.keyword.cloudantfull}} afecta significativamente a la forma en que se puede escalar la aplicación. El modelo de datos subyacente difiere significativamente de un modelo relacional; si se pasa por alto esta distinción, pueden producirse problemas de rendimiento.
 
 Como siempre, un modelado correcto implica conseguir el equilibrio entre facilidad de uso y las características de rendimiento que se desean conseguir.
 
@@ -54,7 +54,7 @@ Dentro del clúster, los documentos se empaquetan en varios fragmentos que colec
 De forma predeterminada, además de la división de una base de datos en fragmentos, todos los fragmentos tienen tres copias, o réplicas de fragmentos, cada una de los cuales reside en un nodo diferente del clúster de la base de datos. 
 Esto permite a la base de datos continuar sirviendo solicitudes en el caso de que un nodo falle. Por lo tanto, guardar un documento implica escribir en tres nodos. Esto se traduce en que si se realizan dos actualizaciones simultáneamente en el mismo documento, es posible que un subconjunto de nodos acepte la primera actualización y otro subconjunto acepte la segunda actualización. Cuando el clúster descubre esta discrepancia, combina los documentos al igual que lo haría una réplica normal para actualizaciones simultáneas mediante la creación de un conflicto.
 
-Los documentos en conflicto afectan negativamente al rendimiento; consulte más abajo para ver más detalles sobre por qué sucede esto. 
+Los documentos en conflicto afectan negativamente al rendimiento; consulte el texto siguiente para ver más detalles sobre por qué sucede esto. 
 Un patrón de actualizaciones inmediatas simultáneas también aumenta la probabilidad de que las escrituras se rechacen porque el parámetro `_rev` no es el esperado, lo que obliga a la aplicación a volver a intentar, y por lo tanto a retrasar, el proceso.
 
 Hemos descubierto que es más probable que se produzca este escenario de documentos en conflicto en actualizaciones con una frecuencia superior a un segundo, pero recomendamos documentos inalterables para proteger las actualizaciones de más de una vez cada diez segundos.
@@ -116,7 +116,7 @@ Por ejemplo, supongamos que tenemos un registro médico que contiene una lista d
 ```
 {: codeblock}
 
-Si Joe tiene la mala suerte de tener varias operaciones al mismo tiempo, es probable que las muchas actualizaciones simultáneas en un documento creen documentos en conflicto, tal como se describe a continuación. 
+Si Joe tiene la mala suerte de tener varias operaciones al mismo tiempo, es probable que las muchas actualizaciones simultáneas en un documento creen documentos en conflicto, tal como se describe anteriormente. 
 Es mejor desglosar las operaciones en distintos documentos que hacen referencia al documento personal de Joe y utilizar una vista para conectarlo todo. Para representar cada operación, debería cargar documentos como los de los dos ejemplos siguientes:
 
 ```json
@@ -171,6 +171,6 @@ Tal como se ha descrito anteriormente, los documentos muy conflictivos causan es
 
 Estas sugerencias muestran algunas de las formas en que el modelado de los datos afecta al rendimiento de la aplicación. El almacén de datos de {{site.data.keyword.cloudant_short_notm}} tiene algunas características específicas, tanto para controlar como para aprovechar, para garantizar el escalado del rendimiento de la base de datos a medida que crece la aplicación. Comprendemos que este asunto puede resultar confuso, por lo que siempre puede contar con nosotros para obtener ayuda.
 
-Para continuar leyendo, consulte el apartado sobre ["modelo de datos para Foundbite" ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window},
-o sobre ["ejemplo de nuestros amigos de Twilio" ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
+Para continuar leyendo, consulte el apartado sobre [Modelo de datos para Foundbite ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window},
+o sobre [Ejemplo de nuestros amigos de Twilio ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
 

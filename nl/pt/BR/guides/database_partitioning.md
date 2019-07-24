@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-06-12"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -25,17 +25,13 @@ subcollection: cloudant
 # Particionamento de banco de dados
 {: #database-partitioning}
 
-O recurso de banco de dados particionado do {{site.data.keyword.cloudant_short_notm}} está atualmente no modo beta. Os bancos de dados de partição não devem ser empregados no uso do aplicativo de produção. Esse recurso está sendo lançado em todos os ambientes do {{site.data.keyword.cloudant_short_notm}} e estará geralmente disponível nas próximas semanas.
-{: important}
-
 O{{site.data.keyword.cloudantfull}}suporta dois tipos de bancos de dados:
 
 - Particionado
 - Não particionado
 
 Um banco de dados _particionado_ oferece um desempenho significativo e vantagens de custo, mas
-requer que você especifique um particionamento lógico de seus dados. Isso é descrito
-mais abaixo.
+requer que você especifique um particionamento lógico de seus dados. Isso é descrito mais detalhadamente no texto a seguir.
 
 Como alternativa, um banco de dados _não particionado_ pode ser criado. Esse tipo de
 banco de dados pode ser mais fácil de trabalhar, já que nenhum esquema de particionamento precisa ser definido, mas apenas índices secundários globais podem ser criados.
@@ -68,11 +64,11 @@ com base em uma transformação de seu ID do documento. Portanto, não há
 relação real entre o ID de um documento e o shard em que ele termina. É improvável que documentos
 com IDs de documentos muito semelhantes sejam colocados no mesmo shard.
 
-Um banco de dados não particionado oferece somente consultas globais, descritas em mais
-detalhes a seguir.
+Um banco de dados não particionado oferece apenas consulta global, descrita em mais
+detalhes posteriormente.
 
 ## Bancos de dados particionados
-{: #partitioned-databases}
+{: #partitioned-databases-database-partitioning}
 
 Um banco de dados particionado é o tipo mais novo do banco de dados do {{site.data.keyword.cloudant_short_notm}}. Em um
 banco de dados particionado, os documentos são formados em partições lógicas pelo uso
@@ -266,7 +262,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 ### Criando índices
 {: #creating-indexes}
 
-Para as consultas acima, precisaremos de dois índices:
+Para as consultas descritas anteriormente, precisaremos de dois índices:
 
 1. Um ID do dispositivo de mapeamento de índice global para o ID da infraestrutura.
 2. IDs de dispositivo de mapeamento de índice particionado para leituras.
@@ -292,8 +288,7 @@ isso se pareceria com o seguinte:
 }
 ```
 
-Presumindo que o documento acima seja `./view.json`, isso é transferido por upload
-para o banco de dados usando:
+Supondo que o documento anterior esteja em `./view.json`, ele será transferido por upload para o banco de dados usando:
 
 ```
 curl -XPOST https://acme.cloudant.com/readings -d @view.json
@@ -330,8 +325,7 @@ A definição do registro de data e hora é a seguinte:
 }
 ```
 
-Presumindo que o documento acima seja `./query-index1.json`, faça upload do índice para
-o banco de dados usando este comando:
+Supondo que o documento anterior seja `./query-index1.json`, faça upload do índice para o banco de dados usando este comando:
 
 ```
 curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index1.json
@@ -353,8 +347,7 @@ A definição de por ID do dispositivo e registro de data e hora é a seguinte:
 }
 ```
 
-Presumindo que o documento acima seja `./query-index2.json`, faça upload do índice para
-o banco de dados usando este comando:
+Supondo que o documento anterior seja `./query-index2.json`, faça upload do índice para o banco de dados usando este comando:
 
 ```
 curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index2.json

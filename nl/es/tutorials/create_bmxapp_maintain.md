@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -48,8 +48,8 @@ En el ejemplo siguiente, la aplicación `Cloudant CF app` no se está ejecutando
 Si intenta iniciar la aplicación de guía de aprendizaje sin suprimir primero la base de datos de demostración de la guía de aprendizaje, la aplicación no funcionará correctamente. La aplicación entra en un ciclo en el que intenta iniciarse, pero no puede porque la base de datos existe, se detiene y luego intenta iniciarse de nuevo. Para resolver el problema, [detenga la aplicación](#stopping-your-application) y, a continuación, suprima la base de datos de demostración de la guía de aprendizaje. Luego podrá iniciar correctamente la aplicación.
 {: note}
     
-Para iniciar una aplicación detenida, pulse la opción `Iniciar` en el menú:<br/>
-![Captura de pantalla que muestra la opción 'Iniciar'](images/img0039.png)
+Para iniciar una aplicación detenida, pulse la opción `Iniciar` en el menú: <br/>
+![Captura de pantalla que muestra la opción 'Start'](images/img0039.png)
 
 ### Detención de la aplicación
 {: #stopping-your-application}
@@ -71,8 +71,10 @@ Si ya se está ejecutando la versión anterior de la aplicación cuando inicia l
 
 Esta sección de la guía de aprendizaje se proporcionan algunas sugerencias de resolución de problemas básicos para ayudarle a identificar, diagnosticar y resolver algunos problemas que puede encontrar cuando desarrollo y despliegue sus primeras aplicaciones de {{site.data.keyword.cloud_notm}}.
 
-Encontrará una buena fuente de asesoramiento sobre prácticas recomendadas para crear aplicaciones de Cloud Foundry o de {{site.data.keyword.cloud_notm}}
-[aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
+Encontrará una buena fuente de asesoramiento sobre prácticas recomendadas para crear aplicaciones de
+{{site.data.keyword.cloud_notm}} o de Cloud Foundry en
+[Consideraciones para el
+diseño y ejecución de una app en la nube ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
 
 En concreto, se recomienda [evitar escribir en el sistema de archivos local ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window}.
 
@@ -85,7 +87,8 @@ Para simplificar, esta guía de aprendizaje escribe contenido al sistema de arch
 El recurso más útil para diagnosticar y resolver problemas con la aplicación de {{site.data.keyword.cloud_notm}} es el archivo de registro.
 
 Encontrará el archivo de registro de una aplicación de {{site.data.keyword.cloud_notm}} pulsando el separador `Registro` para abrir la página de información de registro:<br/>
-![Captura de pantalla que muestra el enlace para acceder a la página de información de 'Registros'](images/img0042.png)
+![Captura de pantalla que muestra el enlace para acceder a lapágina de información 'Registros'](images/img0042.png)
+
 
 Al igual que la mayoría de los archivos de registro, un registro de aplicación de {{site.data.keyword.cloud_notm}} contiene detalles sobre los sucesos que se han producido y cuándo se han producido.
 
@@ -99,8 +102,8 @@ Etiqueta de componente | Componente
 `CELL`          | El contenedor que alberga la aplicación dentro de {{site.data.keyword.cloud_notm}}.
 `RTR`           | Los componentes de red que transfieren mensajes a la aplicación o desde la misma.
 
-Por ejemplo, la siguiente captura de pantalla incluye una serie de sucesos típicos:<br/>
-![Captura de pantalla que muestra información indicativa de registro](images/img0043.png)
+Por ejemplo, la siguiente captura de pantalla incluye una serie de sucesos típicos: <br/>
+![Captura de pantalla que muestra la información indicativa del registro](images/img0043.png)
 
 Observe los sucesos a las horas siguientes:
 
@@ -114,8 +117,8 @@ La aplicación que se describe en esta guía de aprendizaje es deliberadamente m
 Por ejemplo, no se intenta determinar si la base de datos de destino existe y, si existe, no se intenta impedir que se vuelva a crear.
 Como consecuencia, si intenta ejecutar la aplicación de la guía de aprendizaje más de una vez sin eliminar antes la base de datos, la aplicación falla y se reinicia repetidamente.
 
-Puede ver este efecto en la siguiente captura de pantalla:<br/>
-![Captura de pantalla que muestra información de error del registro](images/img0044.png)
+Puede ver este efecto en la siguiente captura de pantalla: <br/>
+![Captura de pantalla que muestra la información de error en el registro](images/img0044.png)
 
 A las 2:31:23 PM,
 la aplicación ha detectado un problema:<br/>

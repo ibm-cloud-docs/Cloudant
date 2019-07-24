@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-06-12"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 

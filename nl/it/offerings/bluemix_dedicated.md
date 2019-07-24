@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -38,9 +38,9 @@ catalogo {{site.data.keyword.cloud_notm}} Pubblico e devono avvalersi di {{site.
 {{site.data.keyword.cloud_notm}} Dedicato nel caso in cui sia richiesto l'hardware dedicato.   
 
 La seguente schermata mostra un esempio di catalogo {{site.data.keyword.cloud_notm}} che evidenzia la versione diffusa da {{site.data.keyword.cloud_notm}} pubblico
-di {{site.data.keyword.cloudant_short_notm}} (a sinistra) e l'ambiente di {{site.data.keyword.cloudant_short_notm}} dedicato (a destra).  
+di {{site.data.keyword.cloudant_short_notm}} e l'ambiente {{site.data.keyword.cloudant_short_notm}} dedicato.  
 
-![{{site.data.keyword.cloudant_short_notm}} - Catalogo](../images/bluemix_catalog.png)
+![{{site.data.keyword.cloudant_short_notm}} - Catalogo](../images/ibmcloud_catalog.png)
 
 ## Capacità hardware 
 {: #hardware-capacity}
@@ -65,11 +65,11 @@ condivide le risorse hardware sottostanti che costituiscono l'ambiente {{site.da
 
 Tutti i piani vengono forniti sui server con la crittografia del disco [inattiva
 ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Data_at_rest). L'accesso avviene tramite la connessione alla rete pubblica e crittografato
-mediante HTTPS. Per ulteriori dettagli, vedi [Sicurezza ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-security#security){: new_window}. 
+mediante HTTPS. Per ulteriori dettagli, vedi [Sicurezza](/docs/services/Cloudant?topic=cloudant-security#security).
 La whitelist IP è disponibile su richiesta al supporto {{site.data.keyword.cloudant_short_notm}} e si applicherà
 all'intero ambiente {{site.data.keyword.cloudant_short_notm}} e non al livello di istanza.  
 
-Il piano offre anche la [Certificazione di conformità![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-compliance#compliance){: new_window}. 
+Il piano offre anche la [Certificazione di conformità](/docs/services/Cloudant?topic=cloudant-compliance#compliance). 
 
 La conformità [HIPAA ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window}
 è disponibile su richiesta, quindi richiedila durante il processo di acquisto con un rappresentante delle vendite {{site.data.keyword.IBM_notm}}. 
@@ -81,5 +81,5 @@ Per fornire alta disponibilità (HA) e ripristino di emergenza (DR) all'interno 
 in tre server fisici separati in un cluster. Quando disponibili, puoi eseguire il provisioning degli account in più ubicazioni,
 quindi utilizzare la replica continua dei dati per fornire HA/DR ai vari data center. Il backup dei dati {{site.data.keyword.cloudant_short_notm}} non viene eseguito
 automaticamente, ma vengono forniti strumenti supportati per gestire i backup. Consulta la guida
-[Ripristino di emergenza e backup ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup){: new_window}
+[Ripristino di emergenza e backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
 per esplorare tutte le considerazioni su HA, DR e backup per soddisfare i requisiti dell'applicazione.

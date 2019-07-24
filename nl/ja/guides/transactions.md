@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: generate uuid, record payments, add additional documents, advantages
 
@@ -42,7 +42,7 @@ subcollection: cloudant
 
 例えば、注文されたアイテム、カスタマー情報、コスト、および配達情報などの詳細を含む `purchase` 文書を作成する場合があります。
 
-_購入を記述する文書の例:_
+*購入を記述する文書の例:*
 
 ```json
 {
@@ -110,7 +110,7 @@ _購入を記述する文書の例:_
 
 お客様がアイテムの支払いを正常に行うと、オーダーを記録するための追加レコードがデータベースに追加されます。
 
-_支払いレコードの例:_
+*支払いレコードの例:*
 
 ```json
 {
@@ -147,7 +147,7 @@ _支払いレコードの例:_
 
 マップ関数を使用して必要な値を識別することができます。
 
-_購入代金の合計と支払いの値を見つけるための マップ関数の例:_ 
+*購入代金の合計と支払いの値を見つけるための マップ関数の例:* 
 
 ```javascript
 function(doc) {
@@ -164,7 +164,7 @@ function(doc) {
 
 組み込まれている [`_sum` reducer](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions) を使用すると、支払いイベントの台帳として出力を生成することができます。
 
-_組み込まれている `_sum` reducer を使用して `?reduce=false` で照会する例:_
+*組み込まれている `_sum` reducer を使用して `?reduce=false` で照会する例:*
 
 ```json
 {
@@ -191,7 +191,7 @@ _組み込まれている `_sum` reducer を使用して `?reduce=false` で照�
 
 あるいは、`order_id` でグループ化された合計額を作成することもできます。
 
-_`?group_level=1` を使用して、`order_id` でグループ化された合計額の例:_
+*`?group_level=1` を使用して、`order_id` でグループ化された合計額の例:*
 
 ```json
 {

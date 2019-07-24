@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -49,14 +49,14 @@ subcollection: cloudant
 튜토리얼 데모 데이터베이스를 먼저 삭제하지 않고 튜토리얼 애플리케이션을 시작하려 하면 애플리케이션이 올바르게 작동하지 않습니다. 이 애플리케이션은 시작하려 시도하고, 데이터베이스가 있어 실패하고, 중지된 후 다시 시작하려 시도하는 순환 상태에 빠지게 됩니다. 이 문제점을 해결하려면 [애플리케이션을 중지](#stopping-your-application)한 후 튜토리얼 데모 데이터베이스를 삭제하십시오. 이렇게 하면 애플리케이션이 시작됩니다.
 {: note}
     
-중지된 애플리케이션을 시작하려면 메뉴에서 `Start` 옵션을 클릭하십시오.<br/>
-!['Start' 옵션을 표시하는 화면 캡처](images/img0039.png)
+중지된 애플리케이션을 시작하려면 메뉴에서 `Start` 옵션을 클릭하십시오. <br/>
+!['Start' 옵션을 보여주는 화면 캡처](images/img0039.png)
 
 ### 애플리케이션 중지
 {: #stopping-your-application}
 
-실행 중인 애플리케이션을 중지하려면 메뉴에서 `Stop` 옵션을 클릭하십시오.<br/>
-!['Stop' 옵션을 표시하는 화면 캡처](images/img0041.png)
+실행 중인 애플리케이션을 중지하려면 메뉴에서 `Stop` 옵션을 클릭하십시오. <br/>
+!['Stop' 옵션을 보여주는 화면 캡처](images/img0041.png)
 
 ### 애플리케이션의 새 버전 업로드
 {: #uploading-a-fresh-version-of-your-application}
@@ -72,8 +72,9 @@ subcollection: cloudant
 
 이 튜토리얼 섹션에서는 첫 {{site.data.keyword.cloud_notm}} 애플리케이션을 개발하고 배치할 때 발생할 수 있는 여러 문제점을 식별하고, 진단하고, 해결하는 데 도움을 주는 몇 가지 기본적인 문제점 해결 팁을 제공합니다.
 
-{{site.data.keyword.cloud_notm}} 또는 Cloud Foundry 애플리케이션 작성의 우수 사례에 대한 유용한 조언은
-[여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}에서 얻을 수 있습니다.
+{{site.data.keyword.cloud_notm}} 또는 Cloud Foundry 애플리케이션 작성의
+우수 사례에 대한 유용한 조언은
+[Considerations for Designing and Running an App in the Cloud ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}에 있습니다. 
 
 특히 [로컬 파일 시스템에 대한 쓰기 발생 방지 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window}에
 대한 조언이 유용합니다.
@@ -86,8 +87,8 @@ subcollection: cloudant
 
 {{site.data.keyword.cloud_notm}} 애플리케이션의 문제점을 진단하고 해결하는 데 있어서 가장 유용한 리소스는 로그 파일입니다.
 
-{{site.data.keyword.cloud_notm}} 애플리케이션에 대한 로그 파일은 `Logs` 탭을 클릭해 로깅 정보 페이지를 열어 찾을 수 있습니다.<br/>
-!['Logs' 정보 페이지에 액세스하는 링크를 보여주는 화면 캡처](images/img0042.png)
+{{site.data.keyword.cloud_notm}} 애플리케이션에 대한 로그 파일은 `Logs` 탭을 클릭해 로깅 정보 페이지를 열어 찾을 수 있습니다. <br/>
+!['Logs' 정보 페이지에 액세스하기 위한 링크를 보여주는 화면 캡처](images/img0042.png)
 
 대부분의 로그 파일과 마찬가지로, {{site.data.keyword.cloud_notm}} 애플리케이션 로그에는 발생한 이벤트와 발생 시점에 대한 세부사항이 포함되어 있습니다.
 
@@ -101,8 +102,9 @@ subcollection: cloudant
 `CELL`          |{{site.data.keyword.cloud_notm}} 내에서 사용자의 애플리케이션을 저장하고 있는 컨테이너입니다 .
 `RTR`           |애플리케이션과 외부 간에 메시지를 전달하는 네트워킹 컴포넌트입니다.
 
-예를 들어, 다음 화면 캡처에는 몇 가지 일반적인 이벤트가 포함되어 있습니다.<br/>
-![표시 로그 정보를 보여주는 화면 캡처](images/img0043.png)
+예를 들어,
+다음 화면 캡처에는 몇 가지 일반적인 이벤트가 포함되어 있습니다. <br/>
+![표시된 로그 정보를 보여주는 화면 캡처](images/img0043.png)
 
 다음 시간에 발생한 이벤트를 살펴보십시오.
 
@@ -118,10 +120,11 @@ subcollection: cloudant
 이로 인해, 데이터베이스를 먼저 제거하지 않고 이 튜토리얼 애플리케이션을
 두 번 이상 실행하려 시도하면 애플리케이션이 반복적으로 실패하고 다시 시작됩니다.
 
-이는 다음 화면 캡처에서 확인할 수 있습니다.<br/>
-![로그 내의 오류 정보를 보여주는 화면 캡처](images/img0044.png)
+이는 다음 화면 캡처에서 확인할 수 있습니다. <br/>
+![로그의 오류 메시지를 보여주는 화면 캡처](images/img0044.png)
 
-오후 2:31:23에, 애플리케이션에서 다음 문제점을 발견합니다.<br/>
+오후 2:31:23에
+애플리케이션에서 다음 문제점을 발견합니다. <br/>
 `"Database {0} already exists".format(dbname)`
 
 나머지 메시지는 문제점이 발생한 Python 애플리케이션의 일반적인 메시지입니다.

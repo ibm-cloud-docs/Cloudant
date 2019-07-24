@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -61,11 +61,11 @@ Las distintas herramientas y características proporcionan distintos niveles de 
 
 {{site.data.keyword.cloudant_short_notm}} proporciona una serie de herramientas y características que abordan requisitos generales:
 
-1.	Redundancia de datos dentro de una sola región, también denominada [redundancia automática de datos en región](#in-region-automatic-data-redundancy).
+1.	Redundancia de datos dentro de una sola región, también denominada [Redundancia automática de datos en región](#in-region-automatic-data-redundancy).
 2.	Redundancia y migración de datos en caso de error entre regiones, también denominada [redundancia entre regiones para la recuperación en caso de error](#cross-region-redundancy-for-disaster-recovery).
 3.	Copia de seguridad de instantánea en un punto en el tiempo para restauración en un punto en el tiempo, mediante una [copia de seguridad y recuperación de bases de datos](#database-backup-and-recovery) 'tradicional'.
 
-## Redundancia automática de datos en región
+## Redundancia automática de datos en la región
 {: #in-region-automatic-data-redundancy}
 
 Dentro de una sola cuenta de {{site.data.keyword.cloudant_short_notm}},
@@ -92,7 +92,7 @@ Para ofrecer protección del 'historial' de datos, por ejemplo para permitir la 
 
 En resumen, la redundancia de datos en región ofrece la función de alta disponibilidad al proporcionar tolerancia de errores que afectan a sistemas individuales dentro de la región.
 
-## Redundancia entre regiones para la recuperación en caso de error
+## Redundancia entre regiones para la recuperación tras desastre
 {: #cross-region-redundancy-for-disaster-recovery}
 
 La característica de réplica de {{site.data.keyword.cloudant_short_notm}} le ayuda a incorporar en las aplicaciones un sistema flexible de recuperación en caso de error.
@@ -105,7 +105,8 @@ Los principales pasos a seguir para crear una redundancia entre regiones son los
 2.  Cree las bases de datos que necesite en cada región.
 3.  Para las bases de datos que se deban almacenar con redundancia entre regiones, configure réplicas continuas bidireccionales entre las bases de datos correspondientes en cada cuenta.
 4.  Diseñe e implemente sus aplicaciones para que las solicitudes de datos se direccionen en función de si el entorno tiene una configuración de tipo activo-pasivo o activo-activo.
-  Está [disponible](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery) una guía detallada para configurar este diseño.
+  Para obtener más información sobre cómo configurarlo, consulte
+[Configuring {{site.data.keyword.cloudant_short_notm}} para recuperación tras desastre entre regiones](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery).
 
 Cuando diseñe sus aplicaciones para que funcionen con datos entre varias regiones, tenga en cuenta lo siguiente:
 
@@ -129,10 +130,10 @@ El motivo es que las aplicaciones pueden seguir funcionando si una región no es
 La réplica de {{site.data.keyword.cloudant_short_notm}} garantiza la sincronización de datos entre regiones.
 Sin embargo, las aplicaciones deben poder 'migrar en caso de error' a copias de los datos almacenadas en otras regiones.
 
-## Copia de seguridad y recuperación de bases de datos
+## Copia de seguridad y recuperación de la base de datos
 {: #database-backup-and-recovery}
 
-La [redundancia automática de datos en región](#in-region-automatic-data-redundancy) ofrece a las aplicaciones acceso de alta disponibilidad a los datos.
+La [Redundancia automática de datos en región](#in-region-automatic-data-redundancy) ofrece a las aplicaciones acceso de alta disponibilidad a los datos.
 La [redundancia entre regiones para la recuperación en caso de error](#cross-region-redundancy-for-disaster-recovery) ofrece a las aplicaciones un método para recuperarse después de un error.
 Sin embargo, ambas funciones se centran solo en mantener el acceso a la copia _actual_ de los datos.
 
@@ -174,6 +175,6 @@ Ejemplos de escenarios:
 *	Migración de datos antiguos a un tipo de almacenamiento más barato, para conservar los datos de manera asequible.
 
 Las herramientas de copia seguridad constan de una aplicación de línea de mandatos node.js de código abierto y de una biblioteca.
-Están disponibles [en NPM ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
+Está disponible en [NPM ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
 
-Para ver ideas y ejemplos que muestran cómo integrar las herramientas en su estrategia de protección de datos, consulte la [guía de copia de seguridad](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).
+Para ver ideas y ejemplos que muestran cómo integrar las herramientas en su estrategia de protección de datos, consulte la [Guía de copia de seguridad y recuperación de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

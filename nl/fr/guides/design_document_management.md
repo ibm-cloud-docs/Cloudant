@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Gestion des documents de conception
+# Gestion des documents de conception 
 {: #design-document-management}
 
 *Article signé par Glynn Bird, responsable des produits développeurs chez IBM Cloudant,
@@ -35,7 +35,7 @@ Elle est prévue pour plus tard afin d'offrir un débit d'écriture non-bloquant
 -   Les vues MapReduce sont des index dans l'ensemble de données avec des paires clé-valeur stockées dans un arbre B afin d'être plus rapidement extraites par la clé ou la plage de clés
 -   Les index de recherche sont construits à l'aide d'Apache Lucene pour permettre la recherche de texte libre, la création de facettes et les requêtes ad hoc complexes
 
-Les [index de recherche](/docs/services/Cloudant?topic=cloudant-search#search) et les [vues MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) de {{site.data.keyword.cloudant_short_notm}} sont configurés en ajoutant des documents de conception à une base de données.
+Les [index de recherche](/docs/services/Cloudant?topic=cloudant-search#search) et les [vues MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)de {{site.data.keyword.cloudant_short_notm}} sont configurés en ajoutant des documents de conception à une base de données.
 Les documents de conception sont des documents JSON qui contiennent des instructions sur la façon dont la vue ou l'index doivent être créés.
 Prenons un exemple simple.
 Supposons que nous disposons d'une simple collection de documents de données, similaire à l'exemple suivant.
@@ -236,7 +236,7 @@ La procédure de basculement vers la nouvelle vue est la suivante :
 6.  Supprimez le document de conception `_design/fetch_NEW`.
 7.  Supprimez le document de conception `_design/fetch_OLD`.
 
-## Outils conçus pour la procédure "Move and Switch" (Progresser et basculer)
+## Documents de conception "Move and Switch" (Progresser et basculer)
 {: #move-and-switch-tooling}
 
 Un script de ligne commande Node.js appelé '`couchmigrate`' permet d'automatiser la procédure "Move and Switch".
@@ -284,7 +284,7 @@ couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
 {: pre}
 
-Le script coordonne la procédure "move and switch" (déplacer et basculer) en attendant que la vue soit générée avant le retour.
+Le script coordonne la procédure "Move and switch" (déplacer et basculer) en attendant que la vue soit générée avant le retour.
 Si le document de conception entrant est identique à celui d'origine,
 le script est retourné presque immédiatement.
 

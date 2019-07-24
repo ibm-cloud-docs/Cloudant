@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -56,13 +56,13 @@ La aplicación necesita tres archivos de configuración y un archivo de origen, 
 
 Modifique los archivos de configuración de la siguiente manera:
 
-1.  Edite el archivo '`Procfile`' para que contenga el texto siguiente:
+1.  Edite el archivo `Procfile` para que contenga el texto siguiente:
     ```
     web: python server.py
     ```
     {: codeblock}
 
-2.  Edite el archivo '`manifest.yml`' para que contenga el texto siguiente:
+2.  Edite el archivo `manifest.yml` para que contenga el texto siguiente:
     ```
     applications:
     - path: .
@@ -77,12 +77,13 @@ Modifique los archivos de configuración de la siguiente manera:
     ```
     {: codeblock}
 
-Asegúrese de modificar los valores de '`domain`', '`name`', '`host`' y '`services`'. Estos son los valores que se han especificado al crear el
+Asegúrese de que modifica los valores de
+`domain`, `name`, `host` y `services`. Estos son los valores que se han especificado al crear el
 [entorno de aplicación de {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment) y la
 [instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites).
 {: note}
 
-3.  Edite el archivo '`requirements.txt`' para que contenga el texto siguiente:
+3.  Edite el archivo `requirements.txt` para que contenga el texto siguiente:
     ```
     cloudant==2.3.1
     ```
@@ -153,7 +154,7 @@ databaseName = "databasedemo"
 La aplicación registra el progreso a medida que se conecta a la instancia de la base de datos de {{site.data.keyword.cloudant_short_notm}} y crea la base de datos.
 El registro adopta la forma de un archivo de registro, que se almacena en una carpeta a la que puede acceder el servidor web Python.
 
-Cree una carpeta (denominada '`static`' en la aplicación) y prepárela para que almacene un archivo:
+Cree una carpeta (denominada `static` en la aplicación) y prepárela para que almacene un archivo:
 
 ```python
 # Cambiar el directorio actual para no exponer los archivos de control
@@ -195,11 +196,11 @@ target.write("\n====\n\n")
 
 La aplicación Python se ejecuta en un entorno de aplicación de {{site.data.keyword.cloud_notm}}.
 El entorno proporciona toda la información necesaria para que la aplicación acceda a los servicios conectados.
-La información se proporciona en una variable de entorno denominada '`VCAP_SERVICES`'.
+La información se proporciona en una variable de entorno denominada `VCAP_SERVICES`.
 La aplicación puede acceder a esta variable y utilizarla para determinar los detalles de la conexión.
 
 La primera tarea consiste en asegurarse de que la aplicación se está ejecutando dentro del entorno de aplicación de {{site.data.keyword.cloud_notm}}.
-Para ello compruebe si existe la variable de entorno '`VCAP_SERVICES`':
+Para ello compruebe si existe la variable de entorno `VCAP_SERVICES`:
 
 ```python
 # Comprobar que se está ejecutando en un entorno de aplicación de {{site.data.keyword.cloud_notm}}.
@@ -237,7 +238,7 @@ Las credenciales de cada servicio se muestran como elementos de una matriz.
 En esta guía de aprendizaje, solo [se ha creado una conexión de servicio](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services).
 Por lo tanto, la aplicación accede al primer elemento (elemento 'cero').
 Cada elemento de servicio contiene las credenciales correspondientes a dicho servicio, expresadas como una lista indexada por los nombres de campo esenciales que se necesitan para acceder al servicio.
-Encontrará más información sobre los nombres de los campos en la [guía de aprendizaje](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites) que describe una tarea de ejemplo de creación de una base de datos.
+Para obtener más información sobre los nombres de campo, consulte [Creación y relleno de una base de datos sencilla de {{site.data.keyword.cloudant_short_notm}} en el tutorial de {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites-create_database) que describe una tarea de creación de base de datos sencilla.
 
 ```python
 # Obtener una lista que contenga la información de conexión de {{site.data.keyword.cloudant_short_notm}}.
@@ -271,7 +272,10 @@ target.write("\n")
 {: codeblock}
 
 Ahora la aplicación tiene todos los detalles necesarios para crear una base de datos dentro de la instancia de base de datos de {{site.data.keyword.cloudant_short_notm}}.
-Esta tarea se describe con más detalle en la [guía de aprendizaje](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance) que describe la creación de una base de datos sencilla.
+Esta tarea se describe con más detalle en la sección [Creación de una base de datos en una instancia de servicio](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance) que describe la creación de una base de datos sencilla.
+
+Para obtener más información sobre la creación de base de datos simple, consulte
+[Creación de una base de datos en una instancia de servicio](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance).
 
 La aplicación debe realizar estas tareas:
 

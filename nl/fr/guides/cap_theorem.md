@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -66,7 +66,7 @@ Une base de données qui met l'accent sur la cohérence et la tolérance au part
 <a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">maître-esclave <img src="../images/launch-glyph.svg" alt="Icône de lien externe" title="Icône de lien externe"></a> dans laquelle un noeud du système joue le rôle de maître.
 Seul le maître peut approuver les écritures de données, alors que les autres noeuds répliquent les données à partir du maître pour gérer les lectures.
 Si le maître perd sa connexion au réseau, ou s'il ne parvient pas à communiquer avec un grand nombre de noeuds du système, un nouveau maître est choisi.
-Ce processus de sélection est différent d'un système à l'autre, et peut être source de [problèmes majeurs![External link icon](../images/launch-glyph.svg "External link icon")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}.
+Ce processus de sélection est différent d'un système à l'autre, et peut être source de [problèmes majeurs![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window}.
 
 {{site.data.keyword.cloudant_short_notm}} met l'accent sur la disponibilité et la tolérance au partitionnement en s'appuyant sur une topologie maître-maître, de sorte que chaque noeud puisse accepter les écritures et les lectures sur sa partie de vos données.
 Les noeuds multiples comportent une copie de chaque partie de vos données.

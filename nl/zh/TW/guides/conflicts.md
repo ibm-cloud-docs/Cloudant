@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -199,7 +199,7 @@ function (doc) {
 
 您的應用程式必須識別所有潛在變更並進行核對，有效地合併正確及有效的更新來產生文件的單一非衝突版本。
 
-若要比較修訂並識別變更內容，您的應用程式必須從資料庫中擷取所有版本。如前所述，首先我們會擷取文件及任何衝突版本的詳細資料。作法是使用類似於下列內容的指令，這也會要求 `_conflicts` 陣列：
+若要比較修訂並識別變更內容，您的應用程式必須從資料庫中擷取所有版本。如前所述，我們會先擷取文件及任何衝突版本的詳細資料。作法是使用類似於下列內容的指令，這也會要求 `_conflicts` 陣列：
 
 `http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
 `

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: links to documentation, how to contribute
 
@@ -42,24 +42,20 @@ Os recursos de replicação facilitam a manutenção de dados em sincronia entre
 clusters de banco de dados, PCs desktop e dispositivos móveis.
 
 Para obter mais informações sobre outras ofertas do {{site.data.keyword.cloudant_short_notm}},
-consulte o site principal do [{{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+consulte o site principal do [{{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/cloud/cloudant){: new_window}.
 A documentação on-line que é fornecida aqui dá
 detalhes sobre conceitos, tarefas e técnicas
 do {{site.data.keyword.cloudant_short_notm}}.
 
-É possível iniciar o serviço {{site.data.keyword.cloudant_short_notm}}a partir do [painel do{{site.data.keyword.cloud}}![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window}.
+É possível iniciar o serviço do {{site.data.keyword.cloudant_short_notm}} por meio do [Painel do {{site.data.keyword.cloud}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}.
 
-Uma 'iniciação rápida' para colocar o {{site.data.keyword.cloudant_short_notm}} em funcionamento
-está [disponível](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started),
-junto com [tutoriais](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) que descrevem tarefas com mais detalhes.
-Mais informações sobre detalhes, como autenticar-se com instâncias de banco de dados
-e consultar dados,
-estão disponíveis na [Referência de API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview).
+Uma 'iniciação rápida' para fazer com que o {{site.data.keyword.cloudant_short_notm}} comece a funcionar rapidamente chamada [Tutorial de introdução](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started) está disponível juntamente com os [tutoriais](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) que descrevem as tarefas com mais detalhes.
+Para obter mais informações sobre detalhes como a autenticação com instâncias de banco de dados e a consulta de dados, consulte a [Referência de API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview).
 
-## Conteúdo da documentação
+## Conteúdos da documentação
 {: #documentation-contents}
 
-*	[Tutorial de introdução](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started): aprenda como criar um banco de dados do {{site.data.keyword.cloudantfull}} e preencher esse banco de dados com uma coleção simples de dados usando o Python.
+*	[Tutorial de introdução](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started): aprenda como criar um banco de dados do {{site.data.keyword.cloudantfull}} e preencher esse banco de dados com uma coleção simples de dados usando o Python.
 *	[Blog do {{site.data.keyword.cloudant_short_notm}} ![Ícone de link externo](images/launch-glyph.svg "Ícone de link externo")](https://blog.cloudant.com/): leia blogs sobre uma variedade de tópicos, incluindo fundamentos básicos, remoção de conflitos, geração de dados de amostra, bancos de dados particionados do {{site.data.keyword.cloudant_short_notm}} e muito mais. 
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): descrição da oferta do {{site.data.keyword.cloud_notm}} Public, incluindo recursos, opção e precificação. 
 *	[Precificação](/docs/services/Cloudant?topic=cloudant-pricing#pricing): um artigo que descreve as opções e a flexibilidade disponíveis com o modelo de precificação do {{site.data.keyword.cloudant_short_notm}}. 

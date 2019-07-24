@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -85,13 +85,12 @@ Se você tiver uma conta provisionada pelo {{site.data.keyword.cloud_notm}} (inc
 o {{site.data.keyword.cloudant_short_notm}} _não_ coletará os dados pessoais mencionados anteriormente. Esses dados são mantidos pelo {{site.data.keyword.cloud_notm}}.
 
 O {{site.data.keyword.cloudant_short_notm}} processa o PI do cliente limitado no curso da execução do serviço e otimiza
-a experiência do usuário dele. O {{site.data.keyword.cloudant_short_notm}} usa e-mail para entrar em contato com os clientes conforme apropriado. Monitorar
-interações do cliente com o painel do {{site.data.keyword.cloudant_short_notm}} é a outra maneira de o {{site.data.keyword.cloudant_short_notm}} processar o PI.
+a experiência do usuário dele. O {{site.data.keyword.cloudant_short_notm}} usa e-mail para entrar em contato com os clientes conforme apropriado. Monitorar interações do cliente com o painel do {{site.data.keyword.cloudant_short_notm}} é outra maneira como o {{site.data.keyword.cloudant_short_notm}} processa o PI.
 
 ### Processamento de Restrição
 {: #restriction-of-processing}
 
-O {{site.data.keyword.cloudant_short_notm}}  envia dados de interação do painel para o Segmento. É possível pedir {{site.data.keyword.cloudant_short_notm}} para restringir o processamento do PI do cliente dessa maneira por meio de uma [solicitação de suporte do {{site.data.keyword.cloudant_short_notm}}](mailto:support@cloudant.com). Após
+O {{site.data.keyword.cloudant_short_notm}}  envia dados de interação do painel para o Segmento. É possível pedir que o {{site.data.keyword.cloudant_short_notm}} restrinja o processamento do PI do cliente dessa maneira por meio de uma [Solicitação de suporte do {{site.data.keyword.cloudant_short_notm}}![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](mailto:support@cloudant.com){: new_window}. Após
 o recebimento de tal solicitação, o {{site.data.keyword.cloudant_short_notm}} exclui informações associadas
 ao cliente conforme enviadas para o segmento e evita que dados adicionais sejam enviados. O {{site.data.keyword.cloudant_short_notm}} precisa reter a
 capacidade de entrar em contato com clientes dedicados por e-mail e fornece uma interface para os clientes para manter essas
@@ -101,8 +100,7 @@ por meio de seus detalhes da conta do {{site.data.keyword.cloud_notm}}.
 ## Nosso {{site.data.keyword.cloudant_short_notm}} banco de dados criptografado?
 {: #is-our-ibm-cloudant-database-encrypted-}
 
-Todos os clusters têm um sistema de arquivos com criptografia (criptografia em repouso) usando Linux Unified Key Setup (LUKS). Os dados no banco de dados
-ficam visíveis para nossas operações e equipes de suporte (consulte abaixo).
+Todos os clusters têm um sistema de arquivos com criptografia (criptografia em repouso) usando Linux Unified Key Setup (LUKS). Os dados no banco de dados são visíveis para nossas operações e equipes de suporte (consulte o parágrafo a seguir).
 
 Para dados sensíveis, que você determinar que devem permanecer invisíveis para o {{site.data.keyword.cloudant_short_notm}},
 deve-se criptografar ou de outra forma proteger (pseudonimizar) seus dados antes de enviá-los para nós. Deve-se evitar a utilização do PI como um documento `_id` em suas URLs, por exemplo, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, já que estes são sempre visíveis e gravados nos logs de acesso.
@@ -126,7 +124,7 @@ Como um usuário do {{site.data.keyword.cloudant_short_notm}}, você deve:
  * Use as chaves API de modo liberal, de forma que os componentes possam ter 'menos acesso privilegiado', juntamente com o log de auditoria. Essa prática permite que você entenda quem acessou quais dados.
  * Os dados sensíveis de criptografia ou de outra forma protegidos (pseudônimos) que você determina devem permanecer invisíveis para o {{site.data.keyword.cloudant_short_notm}}.
 
-### Medidas de Segurança Física e Ambiental
+### Medidas de segurança física e ambiental
 {: #physical-and-environmental-security-measures}
 
 A segurança física de nossos centros de dados é manipulada por nossos provedores de infraestrutura: {{site.data.keyword.cloud}}, 
@@ -136,8 +134,8 @@ A segurança física dos locais comerciais usados pelo nosso pessoal é controla
 Detalhes de certificação e relatórios de atestado (ou seja, ISO e SOC2) podem ser fornecidos ao
 cliente mediante solicitação.
 
-### As medidas técnicas e organizacionais
-{: #technical-and-organisational-measures}
+### Medidas técnicas e organizacionais
+{: #technical-and-organizational-measures}
 
 As medidas técnicas e organizacionais (TOMs) são empregadas pelo {{site.data.keyword.cloudant_short_notm}}
 para garantir a segurança
@@ -182,7 +180,7 @@ A compactação é feita como um processo de segundo plano na camada de armazena
 que você acabou de excluir/mudar.
 
 O {{site.data.keyword.cloudant_short_notm}} está aceitando as solicitações *Direito a ser esquecido* por meio do
-[{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO) ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}.
+[{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO) ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}. 
 Quando uma solicitação *Direito a ser esquecido* é feita no DPO do {{site.data.keyword.IBM_notm}}, o {{site.data.keyword.cloudant_short_notm}} verifica a solicitação, aciona explicitamente a compactação do banco de dados e verifica se a compactação ocorreu.
 No final desse processo, a única versão do documento é seu tombstone
 (`_id`, `_rev`, `_deleted` e quaisquer campos que seu aplicativo incluir lá).
@@ -212,8 +210,7 @@ Se um documento precisar de remoção por meio de uma solicitação de *direito 
 verificam a solicitação para confirmar se o `id` contém PI. O {{site.data.keyword.cloudant_short_notm}} não limpa dados que não possuem PI no `_id`. 
 1. O {{site.data.keyword.cloudant_short_notm}} aciona a ação de limpeza para remover permanentemente os dados solicitados.
 
-Esse processo deve ser utilizado apenas para solicitações de exclusão de emergência (por exemplo, *direito de ser
-esquecido*) e não se deve depender dele a longo prazo. Se seu aplicativo estiver intencionalmente
+Esse processo deve ser utilizado apenas para solicitações de exclusão de emergência (por exemplo, *Direito de ser esquecido*) e não se deve depender dele a longo prazo. Se seu aplicativo estiver intencionalmente
 usando PI em IDs de documento,
 isso deverá ser mudado para pseudonimizar a PI ou para não usar PI em IDs de documento. Você não pode
 depender da limpeza regular pela equipe de operações do {{site.data.keyword.cloudant_short_notm}} para evitar isso. 

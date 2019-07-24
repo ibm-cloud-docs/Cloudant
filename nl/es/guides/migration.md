@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -25,7 +25,8 @@ subcollection: cloudant
 # Migración a {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}}
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
 
-La oferta de base de datos como servicio de [{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant) es un almacén de documentos JSON que se ejecuta en clústeres de varios arrendatarios. El servicio está disponible con ubicaciones geográficas con costes predecibles, escalabilidad y un acuerdo a nivel de servicio (SLA).
+La oferta de base de datos como servicio de [{{site.data.keyword.cloudantfull}} ![Icono de enlaceexterno](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/cloudant){: new_window} es un almacén de documentos JSON que se ejecuta en clústeres de varios arrendatarios. El servicio está disponible con ubicaciones geográficas con costes predecibles, escalabilidad y un acuerdo a nivel de servicio (SLA).
+
 
 Este documento describe cómo migrar a una instancia del plan Lite o Estándar de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}} desde uno de los planes siguientes:
 
@@ -57,7 +58,9 @@ Al utilizar el graduador en el panel de control de {{site.data.keyword.cloudant_
 La cantidad a la que puede cambiar la capacidad de rendimiento se limita a un máximo de 10 unidades por cambio (observe el punto 'límite de cambios' en el graduador) con un máximo de un cambio por hora. Los cambios descendentes no tienen límite de magnitud, pero están sujetos al límite de tiempo.
 {: tip}
 
-Se le facturará sobre la capacidad más alta seleccionada en cualquier ventana por hora determinada. El rendimiento de la base de datos puede aumentar para tratar con demandas estacionales y disminuir durante los momentos de tranquilidad. En todo momento, la factura mensual es predecible, las actualizaciones son automáticas y el acuerdo de nivel de servicio es [99.95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument).
+Se le facturará sobre la capacidad más alta seleccionada en cualquier ventana por hora determinada. El rendimiento de la base de datos puede aumentar para tratar con demandas estacionales y disminuir durante los momentos de tranquilidad. En todo momento, la factura mensual es predecible, las actualizaciones son automáticas y el acuerdo de nivel
+de servicio es
+[99,95% ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}.
 
 Si supera la cuota de lecturas, escrituras y consultas globales en un segundo determinado, la API de {{site.data.keyword.cloudant_short_notm}} responderá con una respuesta `HTTP 429 Demasiadas solicitudes`. La aplicación puede intentar realizar la solicitud de nuevo más tarde; nuestras bibliotecas oficiales ofrecen la opción de reintentar realizar tales solicitudes con una interrupción exponencial. 
 
@@ -95,10 +98,10 @@ Realice la migración del plan Lite gratuito al plan Estándar siguiendo estos p
 1.  Vaya al panel de control de {{site.data.keyword.cloud_notm}}.
 2.  Vaya al icono **Menú** > **Lista de recursos** para ver todas las instancias de servicio. 
 3.  Seleccione la instancia de {{site.data.keyword.cloudant_short_notm}} que desea migrar. 
-4.  Seleccione el separador **Plan** en la navegación de la izquierda. 
+4.  Seleccione el separador **Plan** en el menú. 
 5.  De la lista de planes de precios, seleccione el recuadro de selección **Estándar**.
 ![lite](../images/migrate3.png)
-6.  Pulse **Actualizar** en la parte inferior de la página.
+6.  Pulse **Actualizar**.
 Se conservan todos los datos existentes.
 
 Ajuste la capacidad utilizando el graduador Capacidad de rendimiento para aumentar o disminuir la capacidad según sea necesario.
@@ -117,14 +120,14 @@ No puede cambiar directamente una instancia del plan Compartido a una instancia 
 ### Paso 1: Regístrese en {{site.data.keyword.cloud_notm}}
 {: #step-1-sign-up-for-ibm-cloud}
 
-Si todavía no se ha registrado, [registre una cuenta de {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/). 
+Si todavía no se ha registrado, [registre una cuenta de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/){: new_window}. 
 
 ### Paso 2: Cree una instancia de {{site.data.keyword.cloudant_short_notm}}
 {: #step-2-create-an-ibm-cloudant-instance}
 
 Después de iniciar sesión en su cuenta de {{site.data.keyword.cloud_notm}}, añada un servicio de {{site.data.keyword.cloudant_short_notm}}. Pulse el botón `Crear recurso` en el panel de control y, a continuación, pulse `Bases de datos` y `Cloudant`. Para obtener más información, consulte [cómo crear una instancia de {{site.data.keyword.cloudant_short_notm}} en {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud). 
 
-![Añadir una instancia de {{site.data.keyword.cloudant_short_notm}} ](/docs/services/Cloudant/tutorials/images/img0003.png)
+![añadir {{site.data.keyword.cloudant_short_notm}} instancia](../tutorials/images/img0003.png)
 
 ### Paso 3: Descubra si la aplicación está lista para {{site.data.keyword.cloudant_short_notm}}
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}
@@ -169,7 +172,7 @@ Las preguntas más frecuentes las publica la organización {{site.data.keyword.c
 ## ¿Puedo hacer una copia de seguridad de mis datos antes de realizar alguna acción?
 {: #can-i-back-up-my-data-before-doing-anything-}
 
-{{site.data.keyword.cloudant_short_notm}} recomienda utilizar el programa de utilidad [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) para exportar datos al disco. [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage) es una solución escalable y barata para almacenar los archivos exportados. 
+{{site.data.keyword.cloudant_short_notm}} recomienda utilizar el programa de utilidad [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) para exportar datos al disco. [{{site.data.keyword.cloud_notm}} Object Storage ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/object-storage){: new_window} es una solución escalable y barata para almacenar los archivos exportados. 
 
 ## ¿Puedo conservar mi dominio `nombreusuario.cloudant.com` y redirigirlo al nuevo servicio en {{site.data.keyword.cloudant_short_notm}}?
 {: #can-i-keep-my-username-cloudant-com-domain-and-redirect-it-to-the-new-service-on-ibm-cloudant-}

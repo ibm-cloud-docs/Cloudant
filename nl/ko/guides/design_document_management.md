@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -34,8 +34,9 @@ subcollection: cloudant
 -   MapReduce 보기는 데이터 세트에 대한 인덱스이며, 키 또는 키 범위를 사용한 효율적인 검색을 위해 키 값 쌍이 B-트리에 저장됨
 -   검색 인덱스는 자유 텍스트 검색, 다면화 및 복잡한 임시 조회를 수행할 수 있도록 하기 위해 Apache Lucene을 사용하여 생성됨
 
-{{site.data.keyword.cloudant_short_notm}}의 [검색 인덱스](/docs/services/Cloudant?topic=cloudant-search#search) 및 [MapReduce 보기](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)는 데이터베이스에 디자인 문서를 추가하여 구성됩니다.
-디자인 문서는 보기 또는 인덱스가 빌드되는 방식에 대한 지시사항을 포함하는 JSON 문서입니다.
+{{site.data.keyword.cloudant_short_notm}}의 [검색 인덱스](/docs/services/Cloudant?topic=cloudant-search#search) 및 [MapReduce 뷰](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)는
+데이터베이스에 디자인 문서를 추가하여 구성됩니다.
+디자인 문서는 뷰 또는 인덱스를 빌드하는 방식에 대한 지시사항을 포함하는 JSON 문서입니다.
 간단한 예를 들어 보겠습니다.
 다음 예와 같은 간단한 데이터 문서 콜렉션이 있다고 가정해 보십시오.
 
@@ -71,7 +72,9 @@ function(doc) {
 이 함수는 인덱스에 대한 키로 사용할 수 있는 문서의 시간소인을 생성합니다. 여기서는 인덱스의 값이 무엇이든 상관없으므로 `null`이 리턴됩니다.
 이 함수의 효과는 문서 세트에 대한 시간 순서 인덱스를 제공하는 것입니다.
 
-이제 다음 예와 같이 이 보기의 이름을 "`by_ts`"라고 지정하여 "`fetch`"라는 디자인 문서에 삽입합니다.
+이제 다음 예와 같이 이 뷰의 이름을 "`by_ts`"라고
+지정하고 이를 "`fetch`"라는 디자인 문서에
+삽입합니다. 
 
 _map 함수를 사용하여 보기를 정의하는 디자인 문서 예:_
 
@@ -92,9 +95,11 @@ _map 함수를 사용하여 보기를 정의하는 디자인 문서 예:_
 ```
 {: codeblock}
 
-결과적으로 맵핑 코드가 JSON 호환 문자열로 변환되어 디자인 문서에 포함되었습니다.
+결과적으로 맵핑 코드가 JSON 호환 문자열로 변환되어
+디자인 문서에 포함되었습니다. 
 
-디자인 문서가 저장되면 {{site.data.keyword.cloudant_short_notm}}에서는 `fetch/by_ts` 보기를 빌드하는 서버 측 프로세스를 트리거합니다.
+디자인 문서가 저장되면
+{{site.data.keyword.cloudant_short_notm}}가 `fetch/by_ts` 뷰를 빌드하는 서버 측 프로세스를 트리거합니다.
 이는 데이터베이스에 있는 모든 문서에 대해 반복한 후 각 항목을 Javascript map 함수에 전송하여 수행됩니다.
 이 함수는 생성된 키/값 쌍을 리턴합니다.
 반복이 계속되면서 각 키/값 쌍은 B-트리 인덱스에 저장됩니다.
@@ -108,8 +113,9 @@ _map 함수를 사용하여 보기를 정의하는 디자인 문서 예:_
 다음 항목을 기억해 두는 편이 좋습니다.
 
 -   인덱스 구축은 비동기로 수행됩니다.
-    {{site.data.keyword.cloudant_short_notm}}에서는 디자인 문서가 저장된 것을 확인하지만, 인덱스 구축 진행상태를 확인하기 위해서는
-    {{site.data.keyword.cloudant_short_notm}}의 [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) 엔드포인트를 폴링해야 합니다.
+    {{site.data.keyword.cloudant_short_notm}}에서는 디자인 문서가 저장된 것을 확인하지만,
+    인덱스 구축 진행상태를 확인하기 위해서는 {{site.data.keyword.cloudant_short_notm}}의
+    [`_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) 엔드포인트를 폴링해야 합니다. 
 -   데이터가 많아질수록 인덱스가 준비되는 데 오랜 시간이 소요됩니다.
 -   첫 인덱스 빌드가 진행 중인 동안에는 _해당 인덱스에 대한 모든 조회가 차단됩니다_.
 -   보기를 조회하면 아직 증분 인덱싱되지 않은 모든 문서의 '맵핑'이 트리거됩니다.
@@ -173,11 +179,14 @@ _reduce 함수를 사용하는 디자인 문서 예_
 
 이 보기에 _실시간으로_ 액세스 중인 애플리케이션이 있는 경우에는 배치 딜레마가 발생할 수 있습니다.
 
--   이전 보기가 무효화되었으므로, 원래 디자인 문서에 의존했던
-    코드 버전 1이 더 이상 작동하지 않을 수 있습니다.
--   새 디자인 보기를 사용하는 코드 버전 2는
-    새 보기의 빌드가 아직 완료되지 않아(데이터베이스에 문서가 많은
-    경우에는 더욱 느림) 즉시 릴리스할 수 없습니다.
+-   이전 뷰가 무효화되었으므로
+    원래 디자인 문서에 의존하던 코드 버전 1이
+    더 이상 작동하지 않을 수 있습니다. 
+-   새 디자인 보기를 사용하는
+    코드 버전 2는 새 뷰의 빌드가
+    아직 완료되지 않아(데이터베이스에
+    문서가 많은 경우에는 더욱 느림) 즉시
+    릴리스할 수 없습니다. 
 -   코드에 영향을 주는 더 잠재적인 문제는 코드 버전 1과 2가 보기로부터 서로 다른 결과 데이터를 기대한다는 점입니다.
     버전 1은 일치하는 문서의 목록을 기대하는 반면 버전 2는 '감소된' 결과 개수를 기대합니다.
 
@@ -197,7 +206,8 @@ _reduce 함수를 사용하는 디자인 문서 예_
 -   이제 두 번째 보기에 의존하는 코드를 릴리스할 준비가 되었습니다.
 -   `_design/fetchv1`이 더 이상 필요없다고 확인되면 이를 삭제합니다.
 
-버전화된 디자인 문서 사용은 디자인 문서의 변경 제어를 관리하는 간단한 방법이지만, 나중에 이전 버전을 제거하는 것은 잊지 말아야 합니다.
+버전화된 디자인 문서 사용은 디자인 문서의 변경 제어를 관리하는 간단한 방법이지만,
+나중에 이전 버전을 제거하는 것은 잊지 말아야 합니다. 
 
 ### 디자인 문서 '이동 및 전환'
 {: #-move-and-switch-design-documents}
@@ -214,10 +224,10 @@ _reduce 함수를 사용하는 디자인 문서 예_
 3.  `fetch_NEW` 보기를 조회하여 이 보기의 빌드가 시작되도록 합니다.
 4.  `_active_tasks` 엔드포인트를 폴링하고 인덱스 빌드가 완료될 때까지 기다립니다.
 5.  새 디자인 문서의 복제본을 `_design/fetch`에 저장합니다.
-6.  디자인 문서 `_design/fetch_NEW`를 삭제합니다.
-7.  디자인 문서 `_design/fetch_OLD`를 삭제합니다.
+6.  디자인 문서 `_design/fetch_NEW`를 삭제합니다. 
+7.  디자인 문서 `_design/fetch_OLD`를 삭제합니다. 
 
-## 이동 및 전환 도구
+## 도구 '이동 및 전환'
 {: #move-and-switch-tooling}
 
 '이동 및 전환' 프로시저를 자동화하는, '`couchmigrate`'라는 명령행 Node.js 스크립트가 있습니다.
@@ -250,7 +260,9 @@ export COUCH_URL=https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com
 
 파일에 저장된 JSON 형식의 디자인 문서가 있다고 가정해 보십시오. 이 경우에는 마이그레이션 명령을 실행할 수 있습니다.
 
-이 예에서, `db`는 변경할 데이터베이스의 이름을 지정하고 `dd`는 디자인 문서 파일의 경로를 지정합니다.
+이 예에서
+`db`는 변경할 데이터베이스의 이름을 지정하고
+`dd`는 디자인 문서 파일의 경로를 지정합니다. 
 
 _`couchmigrate` 명령 실행:_
 
@@ -259,7 +271,8 @@ couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
 {: pre}
 
-이 스크립트는 '이동 및 전환' 프로시저를 조율하며 리턴하기 전에 보기가 빌드되기를 기다립니다.
+이 스크립트는 '이동 및 전환' 프로시저를 조율하며
+리턴하기 전에 뷰가 빌드되기를 기다립니다.
 수신 디자인 문서가 현재 디자인 문서와 동일한 경우에는 스크립트가 거의 즉시 리턴됩니다.
 
 이 스크립트의 소스 코드는 여기([https://github.com/glynnbird/couchmigrate ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://github.com/glynnbird/couchmigrate){: new_window})에 있습니다.

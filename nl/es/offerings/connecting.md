@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
-keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries
+keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP whitelisting
 
 subcollection: cloudant
 
@@ -30,7 +30,7 @@ Se accede a {{site.data.keyword.cloudantfull}} a través de una API HTTP. En est
 - Credenciales de servicio
 - Autenticación
 - Acceso al panel de control de {{site.data.keyword.cloudant_short_notm}}
-- Acceso mediante programación a {{site.data.keyword.cloudant_short_notm}} a través de [curl ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://curl.haxx.se/){: new_window} o de bibliotecas de cliente
+- Acceso mediante programación a {{site.data.keyword.cloudant_short_notm}} a través de [curl ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://curl.haxx.se/){: new_window} o de bibliotecas de cliente 
 {: shortdesc}
 
 ## Puntos finales
@@ -55,6 +55,9 @@ Se añaden puntos finales internos a todas las instancias desplegadas en entorno
 Donde USERNAME es el nombre de servicio del usuario de la instancia de servicio en el URL. Este campo sirve también como nombre de usuario administrador al utilizar la autenticación heredada de {{site.data.keyword.cloudant_short_notm}}. Un USERNAME de ejemplo es
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix, y el punto final externo de ejemplo resultante sería
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud. 
+
+Para obtener más información sobre cómo bloquear la conectividad de red pública a través de la lista blanca de IP, consulte [Control de accesos seguros](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-security#secure-access-control).
+{: note}
 
 ## Credenciales de servicio
 {: #service-credentials}
@@ -99,7 +102,7 @@ Campo | Finalidad
 
 {{site.data.keyword.cloudant_short_notm}} tiene dos métodos de autenticación disponibles en el tiempo de suministro: `Utilizar solo IAM` o `Utilizar credenciales heredadas y de IAM`. Puede ver los detalles sobre las credenciales heredadas en las credenciales de servicio únicamente si se ha elegido el método de autenticación `Utilizar credenciales heredadas y de IAM`. Las credenciales se muestran en el separador Credenciales de servicio de la instancia. Para obtener más información, consulte la [guía de IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) y el documento de [autenticación heredada](/docs/services/Cloudant?topic=cloudant-authentication#authentication) para obtener detalles sobre el uso de cualquier estilo de autenticación.
  
-El equipo de {{site.data.keyword.cloudant_short_notm}} recomienda el uso de controles de acceso de IAM para la autenticación siempre que sea posible. Si utiliza la autenticación heredada de {{site.data.keyword.cloudant_short_notm}}, se recomienda que utilice [claves de API](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} en lugar de credenciales a nivel de cuenta para el acceso mediante programación y los trabajos de réplica.
+El equipo de {{site.data.keyword.cloudant_short_notm}} recomienda el uso de controles de acceso de IAM para la autenticación siempre que sea posible. Si utiliza la autenticación heredada de {{site.data.keyword.cloudant_short_notm}}, se recomienda que utilice [claves de API](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} en lugar de credenciales a nivel de cuenta para el acceso mediante programación y los trabajos de réplica. 
 {: important}
 
 ## Panel de control de {{site.data.keyword.cloudant_short_notm}}
@@ -113,7 +116,7 @@ Puede abrir el panel de control de {{site.data.keyword.cloudant_short_notm}} de 
 - Ver las tareas activas
 - Ver y actualizar información de cuenta como la capacidad de rendimiento suministrada, anuncios, CORS y valores
 
-## Acceso programático
+## Acceso mediante programa
 {: #programmatic-access}
 
 ### Línea de mandatos (curl)
@@ -123,7 +126,7 @@ Puede hacer uso del programa de utilidad de línea de mandatos curl para acceder
 
 Si utiliza la autenticación heredada de {{site.data.keyword.cloudant_short_notm}}, consulte la [Visión general de la referencia de la API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) para obtener detalles sobre cómo proporcionar un nombre de usuario y una contraseña para acceder a la API de {{site.data.keyword.cloudant_short_notm}} con curl tal como se muestra en los ejemplos de la referencia de la API.
 
-Si utiliza la autenticación de IAM de {{site.data.keyword.cloud_notm}}, en primer lugar debe obtener una señal de IAM de {{site.data.keyword.cloud_notm}} mediante el uso de una clave de API. A continuación, puede pasar la señal de IAM a la instancia de {{site.data.keyword.cloudant_short_notm}} para autenticarse. Consulte la guía de aprendizaje [Cómo pasar una señal de IAM de {{site.data.keyword.cloud_notm}} con una API de servicio](https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window}. 
+Si utiliza la autenticación de {{site.data.keyword.cloud_notm}} IAM, en primer lugar debe obtener una señal de {{site.data.keyword.cloud_notm}} IAM mediante el uso de una clave de API. A continuación, puede pasar la señal de IAM a la instancia de {{site.data.keyword.cloudant_short_notm}} para autenticarse. Para obtener más información, consulte [Cómo pasar una señal de {{site.data.keyword.cloud_notm}} IAM para la autenticación con un tutorial de la API del servicio ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window}. 
 
 No puede utilizar una clave de API de IAM directamente para autenticarse en {{site.data.keyword.cloudant_short_notm}}.
 {: note}

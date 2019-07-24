@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -86,10 +86,9 @@ a identificare, diagnosticare
 e risolvere alcuni problemi che potresti riscontrare quando sviluppi e distribuisci
 le tue prime applicazioni {{site.data.keyword.cloud_notm}}.
 
-Una buona fonte di consigli sulle procedure consigliate per la creazione delle applicazioni {{site.data.keyword.cloud_notm}} o
+Una buona fonte di consigli sulle procedure consigliate per la creazione di applicazioni {{site.data.keyword.cloud_notm}} o
 Cloud Foundry è
-[qui
-![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
+[Considerations for Designing and Running an App in the Cloud ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
 
 In particolare,
 il consiglio per
@@ -108,8 +107,8 @@ Per motivi di semplicità, questa esercitazione non scrive contenuto nel file sy
 La risorsa più utile per la diagnostica e la risoluzione dei problemi con l'applicazione
 {{site.data.keyword.cloud_notm}} è il file di log.
 
-Il file di log per un'applicazione {{site.data.keyword.cloud_notm}} può essere trovato facendo clic sulla scheda `Logs` per aprire la pagina delle informazioni sulla registrazione nei log:<br/>
-![Acquisizione schermo che mostra il link per accedere alla pagina delle informazioni 'Logs' ](images/img0042.png)
+Il file di log per un'applicazione {{site.data.keyword.cloud_notm}} può essere trovato facendo clic sulla scheda `Logs` per aprire la pagina delle informazioni di registrazione:<br/>
+![Acquisizione schermo che mostra il link per accedere alla pagina delle informazioni 'Logs'](images/img0042.png)
 
 Come la maggior parte dei file di log,
 un log dell'applicazione {{site.data.keyword.cloud_notm}} contiene i dettagli su quali eventi si sono verificati e quando.
@@ -125,8 +124,8 @@ Etichetta componente | Componente
 `RTR`           | I componenti di rete che trasportano i tuoi messaggi dalla/alla applicazione.
 
 Ad esempio,
-la seguente acquisizione schermo include un numero di eventi tipici:<br/>
-![Acquisizione schermo che mostra le informazioni sul log indicative](images/img0043.png)
+la seguente acquisizione schermo include una serie di eventi tipici:<br/>
+![Acquisizione schermo che mostra le informazioni di log indicative](images/img0043.png)
 
 Prendi nota degli eventi ai seguenti orari:
 
@@ -147,7 +146,7 @@ senza rimuovere in anticipo il database,
 l'applicazione ha ripetutamente esito negativo e si riavvia.
 
 Puoi visualizzare questo effetto nella seguente acquisizione schermo:<br/>
-![Acquisizione schermo che mostra le informazioni sull'errore nel log](images/img0044.png)
+![Acquisizione schermo che mostra le informazioni di errore nel log](images/img0044.png)
 
 Alle 14:31:23,
 l'applicazione ha rilevato un problema:<br/>

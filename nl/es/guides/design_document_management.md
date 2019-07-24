@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Gestión de los documentos de diseño
+# Gestión de documentos de diseño
 {: #design-document-management}
 
 *Artículo de Glynn Bird, especialista en desarrollo de IBM Cloudant,
@@ -36,7 +36,10 @@ Se planifica para que se genere más tarde, lo que ofrece un mejor rendimiento d
 en un BTree para que se puedan recuperar de forma eficiente mediante una clave o rango de claves
 -   Los índices de búsqueda se crean con Apache Lucene para permitir la búsqueda de texto libre, la creación de facetas y consultas ad-hoc complejas
 
-Los [índices de búsqueda](/docs/services/Cloudant?topic=cloudant-search#search) y las [vistas MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) de {{site.data.keyword.cloudant_short_notm}} se configuran mediante la adición de documentos de diseño a una base de datos.
+Los [índices de búsqueda](/docs/services/Cloudant?topic=cloudant-search#search) y
+[vistas MapReduce](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)
+de {{site.data.keyword.cloudant_short_notm}} se configuran añadiendo los documentos de diseño a una
+base de datos.
 Los documentos de diseño son documentos JSON que contienen las instrucciones sobre cómo se debe crear la vista o el índice.
 Vamos a examinar un ejemplo sencillo.
 Supongamos que tiene una colección simple de documentos de datos, parecida a la del siguiente ejemplo.
@@ -129,7 +132,7 @@ Si las vistas MapReduce se tienen que modificar independientemente unas de otras
 Este comportamiento no se aplica a los índices de búsqueda de Lucene. Se pueden modificar dentro del mismo documento de diseño sin invalidar otros índices no modificados del mismo documento.
 {: note}
 
-![Ilustración del cambio de versión de un documento de diseño](../images/DesDocMan02.png)
+![Ilustración del cambio de versión del documento de diseño](../images/DesDocMan02.png)
 
 ## Gestión de cambios en un documento de diseño
 {: #managing-changes-to-a-design-document}
@@ -206,7 +209,7 @@ El procedimiento para conmutar a la nueva vista es el siguiente:
 6.  Suprima el documento de diseño `_design/fetch_NEW`.
 7.  Suprima el documento de diseño `_design/fetch_OLD`.
 
-## Herramientas para mover y conmutar
+## Herramientas 'Mover y conmutar'
 {: #move-and-switch-tooling}
 
 Existe un script Node.js de línea de mandatos denominado '`couchmigrate`' que automatiza el procedimiento de 'mover y conmutar'.
@@ -252,7 +255,7 @@ couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
 {: pre}
 
-El script coordina el procedimiento de 'mover y conmutar' y espera hasta que la vista se haya creado antes de devolver información.
+El script coordina el procedimiento de 'Mover y conmutar' y espera hasta que la vista se haya creado antes de devolver información.
 Si el documento de diseño entrante es el mismo que el que le corresponde, el script devuelve información de inmediato.
 
 Aquí encontrará el código fuente del script:

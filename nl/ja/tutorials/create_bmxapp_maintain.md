@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -81,9 +81,7 @@ subcollection: cloudant
 アプリケーションを開発してデプロイする際に発生する問題の、
 識別、診断、解決に役立つトラブルシューティングの基本的なヒントを示します。
 
-{{site.data.keyword.cloud_notm}} または
-Cloud Foundry アプリケーション作成時のベスト・プラクティスに関するアドバイスを入手するには、
-[該当サイト![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window} を参照してください。
+{{site.data.keyword.cloud_notm}} アプリケーションまたは Cloud Foundry アプリケーション作成時のベスト・プラクティスに関するアドバイスを [Considerations for Designing and Running an App in the Cloud ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window} で入手できます。
 
 特に、
 [ローカル・ファイル・システムに書き込まないようにする ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window}

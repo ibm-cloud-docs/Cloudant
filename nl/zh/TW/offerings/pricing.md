@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-06-12"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -61,7 +61,7 @@ subcollection: cloudant
 - 或者，調節器會顯示 1000 次讀取/秒、500 寫入/秒及 50 次廣域查詢/秒已佈建傳輸量的成本為 $1.050/小時 \* 730 小時
 - 總計 = $766.50
 
-## 資料用量定價
+## 資料使用率定價
 {: #data-usage-pricing}
 
 資料超額定價為何，其運作方式為何？

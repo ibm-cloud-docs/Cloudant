@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -40,30 +40,30 @@ Standard.
 {: #creating-an-ibm-cloudant-dedicated-hardware-plan-instance}
 
 1.  Accedi al tuo account {{site.data.keyword.cloud_notm}}.<br/>
-Puoi trovare il dashboard {{site.data.keyword.cloud_notm}} all'indirizzo:
+    Puoi trovare il dashboard {{site.data.keyword.cloud_notm}} all'indirizzo:
     [`https://cloud.ibm.com/ ` ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/){: new_window}.
     Dopo l'autenticazione con i tuoi nome utente e password,
     ti viene presentato il dashboard {{site.data.keyword.cloud_notm}}. Fai clic sul pulsante `Crea risorsa`:<br/>
-    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
+    ![{{site.data.keyword.cloud_notm}} - Dashboard](images/img0001.png)
 
-2.  Fai clic su `Database` dal menu a sinistra e su `Cloudant` dall'elenco di servizi del database.<br/>
-     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} - selezione del servizio](images/img0003.png)<br/>
+2.  Fai clic su `Database` dal menu e su `Cloudant` dall'elenco dei servizi di database.<br/>
+     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} - Selezione del servizio](images/img0003.png)<br/>
 
-3.  Seleziona il piano `Hardware dedicato` dall'elenco di piani dei prezzi nella parte inferiore della pagina:<br/>
-    ![Piani dei prezzi](/docs/services/Cloudant/tutorials/images/pricing_plan.png)
+3.  Seleziona il piano `Hardware dedicato` dall'elenco di piani dei prezzi:<br/>
+    ![Piani dei prezzi](images/pricing_plan.png)
     
-4.  Compila i seguenti parametri nella parte superiore della pagina: <br/>
+4.  Compila i seguenti parametri: <br/>
     -   Immetti un nome servizio.<br/>
-    -   Specifica la regione/ubicazione dove vuoi eseguire la distribuzione.<br/>
+    -   Specifica la regione/ubicazione dove vuoi eseguire la distribuzione. La regione/ubicazione sarà una delle sei principali regioni {{site.data.keyword.cloud_notm}} in cui vuoi distribuire l'istanza. L'ubicazione fisica effettiva dell'istanza è dettata dal parametro di ubicazione descritto nel seguente elenco.<br/>
     -   Seleziona un gruppo di risorse.</br>
     -   Aggiungi una tag. 
-    -   Seleziona un'ubicazione per la distribuzione.<br/>
-    -   Seleziona `sì` o `no` alla domanda se è necessario HIPAA.<br/> 
+    -   Seleziona un'ubicazione per la distribuzione. Questa ubicazione è l'ubicazione fisica dell'istanza, che può essere qualsiasi ubicazione {{site.data.keyword.cloud_notm}}, incluse le principali regioni e le ubicazioni al di fuori delle principali regioni. Per ulteriori informazioni, vedi [Data center globali {{site.data.keyword.IBM}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud/data-centers/){:new_window}.<br/>
+    -   Seleziona `yes` o `no` per rispondere se è richiesto HIPAA.<br/> 
     
     HIPAA è valido solo per le ubicazioni degli Stati Uniti. {{site.data.keyword.IBM}} può eseguire il provisioning di un ambiente del piano Hardware dedicato per implementare i controlli HIPAA. Il provisioning di un ambiente può essere eseguito solo alla conferma di un BAA (Business Associate Agreement) stabilito con {{site.data.keyword.IBM_notm}}. Per ulteriori dettagli, vedi [Abilitazione dell'impostazione supportata HIPAA](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) e i termini della descrizione del servizio. Il provisioning di un cluster per gestire i dati HIPAA può richiedere più tempo rispetto al periodo stimato di 5 giorni.
     {: note}
 
-    ![Configura l'hardware dedicato](/docs/services/Cloudant/tutorials/images/select_deployment_location.png)
+    ![Configura l'hardware dedicato](images/select_deployment_location.png)
         
 5.  Fai clic sul pulsante `Crea` per avviare il processo di provisioning. <br/>
 
@@ -71,14 +71,14 @@ Puoi trovare il dashboard {{site.data.keyword.cloud_notm}} all'indirizzo:
     il pagamento di un ambiente prima di fare clic sul pulsante **Crea**.
     {: note}
 
-    ![Esegui il provisioning dell'hardware dedicato](/docs/services/Cloudant/tutorials/images/create_button_provision.png)
+    ![Esegui il provisioning dell'hardware dedicato](images/create_button_provision.png)
 
     Durante il provisioning, nel tuo dashboard {{site.data.keyword.cloud_notm}}
     viene visualizzata una rotella che gira accanto all'istanza. Viene inviata una richiesta per eseguire il provisioning di un'istanza del piano Hardware dedicato su server
     bare metal. Il tempo di provisioning è asincrono e può richiedere fino a 5 giorni. 
     {: note}   
 
-    ![Provisioning della versione alternativa dell'hardware dedicato](/docs/services/Cloudant/tutorials/images/create_button_provision2.png)
+    ![Provisioning della versione alternativa dell'hardware dedicato](images/create_button_provision2.png)
     
 ## Provisioning di un'istanza del piano Standard su un ambiente Hardware dedicato
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
@@ -88,14 +88,14 @@ Puoi trovare il dashboard {{site.data.keyword.cloud_notm}} all'indirizzo:
     [https://cloud.ibm.com/ ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloud.ibm.com/){: new_window}.
     Dopo l'autenticazione con i tuoi nome utente e password,
     ti viene presentato il dashboard {{site.data.keyword.cloud_notm}}. Fai clic sul pulsante `Crea risorsa`:<br/>
-    ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
+    ![{{site.data.keyword.cloud_notm}} - Dashboard](images/img0001.png)
 
-2.  Fai clic su `Database` dal menu a sinistra e su `Cloudant` dall'elenco di servizi del database.<br/>
-     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} - selezione del servizio](images/img0003.png)<br/>
+2.  Fai clic su `Database` dal menu e su `Cloudant` dall'elenco dei servizi di database.<br/>
+     ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} - Selezione del servizio](images/img0003.png)<br/>
     Viene visualizzata la pagina per la creazione di un servizio.<br/>  
 
 3.  Fai clic su `Standard` dai piani dei prezzi. <br/>
-    ![Piano dei prezzi Standard](/docs/services/Cloudant/tutorials/images/standard_pricing_plan.png)
+    ![Piano dei prezzi Standard](images/standard_pricing_plan.png)
     
     Non puoi eseguire il provisioning di un'istanza del piano Lite in un ambiente Hardware dedicato.
     {: tip}
@@ -103,15 +103,15 @@ Puoi trovare il dashboard {{site.data.keyword.cloud_notm}} all'indirizzo:
 4.  Compila i seguenti parametri: <br/>
     -   Immetti un nome servizio.<br/>
     -   Specifica la regione/ubicazione dove vuoi eseguire la distribuzione. <br/>
-    -   Seleziona un gruppo di risorse. </br>
+    -   Seleziona un gruppo di risorse.</br>
     -   Aggiungi una tag. 
     -   Seleziona un metodo di autenticazione.</br>
-    -   Seleziona un ambiente.</br>
-    ![Configura l'istanza standard](/docs/services/Cloudant/tutorials/images/select_environment.png)
+    -   Seleziona un ambiente, che è dove verrà distribuita l'istanza del piano Standard. Eventuali istanze dell'ambiente Hardware dedicato distribuite nell'account verranno visualizzate nell'elenco a discesa, se disponibili.</br>
+    ![Configura l'istanza standard](images/select_environment.png)
     
 5.  Fai clic sul pulsante `Crea`.<br/>
     Dopo alcuni secondi, viene eseguito il provisioning dell'istanza sull'ambiente che hai selezionato.<br/>
-    ![Esegui provisioning dell'istanza standard](/docs/services/Cloudant/tutorials/images/create_button_provision_standard.png)
+    ![Esegui provisioning dell'istanza standard](images/create_button_provision_standard.png)
     
 6.  Ottieni le tue credenziali del servizio e accedi al dashboard {{site.data.keyword.cloudant_short_notm}} come faresti per un'istanza {{site.data.keyword.cloudant_short_notm}} a più tenant. 
     
@@ -144,7 +144,7 @@ Le istanze {{site.data.keyword.cloudant_short_notm}} distribuite in ambienti Har
 Parametro | Descrizione
 ----------|------------
 `environment_crn` | Questo parametro deve essere impostato sul CRN dell'istanza del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato. Puoi determinare qual è il CRN consultando il comando CLI di esempio nella scheda Gestisci dell'istanza del piano {{site.data.keyword.cloudant_short_notm}} Hardware dedicato nel dashboard {{site.data.keyword.cloud_notm}}. In alternativa, puoi determinare qual è il CRN utilizzando il comando `ibmcloud resource service-instance SERVICE_INSTANCE_NAME`. 
-`legacyCredentials` | Un parametro facoltativo che assume come valore predefinito true e indica se l'istanza utilizza sia le credenziali legacy che quelle IAM oppure solo le credenziali IAM. Consulta la [guida IAM ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} per ulteriori dettagli sulla scelta di un metodo di autenticazione.
+`legacyCredentials` | Un parametro facoltativo che assume come valore predefinito true e indica se l'istanza utilizza sia le credenziali legacy che quelle IAM oppure solo le credenziali IAM. Consulta la [guida IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) per ulteriori dettagli sulla scelta di un metodo di autenticazione.
 
 Vedi il seguente comando di esempio: 
 
@@ -162,13 +162,13 @@ devono disporre delle credenziali necessarie.
 Le credenziali del servizio sono importanti. Se un utente o un'applicazione ha accesso alle credenziali, può effettivamente fare qualsiasi cosa voglia con l'istanza del servizio. Ad esempio potrebbe creare dati fasulli o eliminare informazioni importanti. Proteggi queste credenziali attentamente.
 {: important}
 
-Per ulteriori informazioni sui campi inclusi nelle credenziali del servizio, consulta la [guida IAM ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}.
+Per ulteriori informazioni sui campi inclusi nelle credenziali del servizio, consulta la [guida IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 Il formato del comando di base per creare le credenziali per un'istanza del servizio in
 {{site.data.keyword.cloud_notm}} è il seguente:
 
 ```sh
-ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [--enable-internal-service-endpoint true]
+ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [-p '{"service-endpoints":"internal"}]
 ```
 {: pre}
 
@@ -179,7 +179,7 @@ Campo | Descrizione
 `NAME` | Nome arbitrario da te assegnato alle credenziali del servizio. 
 `ROLE_NAME` | Questo campo attualmente consente solo il ruolo Gestore.
 `SERVICE_INSTANCE_NAME` | Il nome da te assegnato alla tua istanza {{site.data.keyword.cloudant_short_notm}}.
-`enable-internal-service-endpoint` | Un campo facoltativo per popolare il campo url nelle credenziali del servizio con un endpoint interno per collegarsi al servizio mediante la rete interna {{site.data.keyword.cloud_notm}}. Ometti questo campo per popolare l'url con un endpoint esterno pubblicamente accessibile. Si applica solo alle istanze del piano Standard distribuite in ambienti Hardware dedicato che supportano gli endpoint interni. Il comando genererà un errore 400 se l'ambiente non supporta gli endpoint interni. 
+`service-endpoints` | Un parametro facoltativo per popolare il campo url nelle credenziali del servizio con un endpoint interno per connettersi al servizio mediante la rete interna {{site.data.keyword.cloud_notm}}. Ometti questo parametro per popolare l'url con un endpoint esterno pubblicamente accessibile. Si applica solo alle istanze del piano Standard distribuite in ambienti Hardware dedicato che supportano gli endpoint interni. Il comando genererà un errore 400 se l'ambiente non supporta gli endpoint interni. 
 
 Se vuoi creare delle credenziali per l'istanza `cs20170517a` di un servizio
 {{site.data.keyword.cloudant_short_notm}} (dove il nome per le credenziali è `creds_for_cs20170517a`),
@@ -218,10 +218,10 @@ Credentials:
 
 Se desideri creare delle credenziali per l'istanza `cs20170517a` di un servizio
 {{site.data.keyword.cloudant_short_notm}} (dove il nome per le credenziali è `creds_for_cs20170517a`)
-e vuoi popolare l'url con l'endpoint interno, crea queste credenziali utilizzando un comando simile al seguente esempio: 
+e vuoi popolare l'url con l'endpoint interno, crea queste credenziali utilizzando un comando simile al seguente esempio:
 
 ```sh
-ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a --enable-internal-service-endpoint true
+ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a -p '{"service-endpoints":"internal"}'
 ```
 {: codeblock}
 

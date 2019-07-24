@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -32,7 +32,7 @@ subcollection: cloudant
 ## 기존 인스턴스를 리소스 그룹으로 마이그레이션하는 방법은 무엇입니까?
 {: #how-do-i-migrate-an-existing-instance-to-a-resource-group-}
 
-Cloud Foundry 영역에서 {{site.data.keyword.cloudant_short_notm}} 인스턴스로 마이그레이션하려는 경우에는 [Migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}을 참조하십시오.
+{{site.data.keyword.cloudant_short_notm}} 인스턴스를 Cloud Foundry 영역에서 리소스 그룹으로 마이그레이션하려는 경우에는 [Cloud Foundry 서비스 인스턴스 및 앱을 리소스 그룹으로 마이그레이션 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}을 참조하십시오. 
 
 다음 플랜의 {{site.data.keyword.cloudant_short_notm}} 인스턴스를 마이그레이션할 수 있습니다.
 
@@ -46,7 +46,7 @@ Cloud Foundry 영역에서 {{site.data.keyword.cloudant_short_notm}} 인스턴�
 마이그레이션 프로세스 중에는 작동 중단 시간이 발생하지 않습니다.
 
 ## 어떤 인스턴스에는 조직 및 영역이 있고 다른 인스턴스에는 없는 이유는 무엇입니까?
-{: #why-do-some-instances-have-an-organisation-and-space-and-others-do-not-}
+{: #why-do-some-instances-have-an-organization-and-space-and-others-do-not-}
 
 2018년 7월 16일부터 새 인스턴스는 Cloud Foundry 영역이 아니라 리소스 그룹에
 프로비저닝되었습니다. 이 날짜 이전에 프로비저닝된 리소스 인스턴스에는 연관된
@@ -60,7 +60,7 @@ Cloud Foundry 조직 및 영역이 있습니다. 이 날짜 이유 프로비저�
 데디케이티드 하드웨어 인스턴스에 프로비저닝하려는 경우에는 해당 데디케이티드 하드웨어
 인스턴스를 먼저 리소스 그룹으로 마이그레이션해야 합니다.
 
-이를 수행하는 방법에 대한 자세한 정보는 [Migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}을 참조하십시오.
+이를 수행하는 방법에 대한 자세한 정보는 [Cloud Foundry 서비스 인스턴스 및 앱을 리소스 그룹으로 마이그레이션 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}을 참조하십시오. 
 
 데디케이티드 하드웨어 인스턴스가 리소스 그룹으로 마이그레이션된 후에는
 표준 플랜을 프로비저닝할 때 이 인스턴스가 위치 드롭 다운 메뉴에 표시됩니다.

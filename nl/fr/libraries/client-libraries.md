@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: develop applications, supported library, third-party library
 
@@ -20,7 +20,7 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-01-15 -->
 
 # Bibliothèques client
 {: #client-libraries}
@@ -31,11 +31,11 @@ Les bibliothèques client sont des outils qui vous permettent de développer vos
 Les bibliothèques client suivantes sont officiellement [prises en charge](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#supported-client-libraries) par {{site.data.keyword.cloudant_short_notm}}.
 
 -	[Mobile](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#mobile)
--	[Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java)
--	[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)
+-	[Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported)
+-	[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)
 -	[Swift](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#swift)
 
-Une bibliothèque prise en charge est une bibliothèque dans laquelle vous pouvez contacter {{site.data.keyword.cloudant_short_notm}} si vous rencontrez un problème reproductible spécifique dans la dernière version de la bibliothèque.
+Une bibliothèque prise en charge est une bibliothèque dans laquelle vous pouvez contacter {{site.data.keyword.cloudant_short_notm}} si vous rencontrez un problème reproductible spécifique dans la version en cours de la bibliothèque.
 
 D'autres bibliothèques client ont été créées par des [tiers](/docs/services/Cloudant?topic=cloudant-third-party-client-libraries#third-party-client-libraries) ou ne sont plus officiellement prises en charge.
 

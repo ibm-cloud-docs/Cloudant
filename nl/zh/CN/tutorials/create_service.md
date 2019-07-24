@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -32,10 +32,10 @@ subcollection: cloudant
 {: #creating-a-service-instance}
 
 1.  登录到 {{site.data.keyword.cloud_notm}} 帐户。<br/>
-    在以下地址可以找到 {{site.data.keyword.cloud_notm}} 仪表板：[https://cloud.ibm.com/ ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/){: new_window}。使用用户名和密码进行认证后，将显示 {{site.data.keyword.cloud_notm}} 仪表板。单击`创建资源`按钮。<br/>
+        在以下地址可以找到 {{site.data.keyword.cloud_notm}} 仪表板：[https://cloud.ibm.com/ ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/){: new_window}。使用用户名和密码进行认证后，将显示 {{site.data.keyword.cloud_notm}} 仪表板。单击`创建资源`按钮。<br/>
     ![{{site.data.keyword.cloud_notm}}“仪表板”](images/img0001.png)
 
-2.  单击左侧导航中的`数据库`，以及数据库服务列表中的 `Cloudant`：<br/>
+2.  单击菜单中的`数据库`，然后单击数据库服务列表中的 `Cloudant`：<br/>
     ![{{site.data.keyword.cloud_notm}} 数据库服务](images/img0003.png)<br/>
 
 3.  在“服务配置”窗口中，输入服务名称。验证服务名称、区域/位置、资源组和认证方法是否正确。可根据需要添加标记。可用的认证方法包括`仅使用 IAM` 或`使用旧凭证和 IAM`。有关更多信息，请参阅[认证方法](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}。在此示例中，服务名称为 `Cloudant-o7`：<br/>

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create applications, deploy applications, create simple application
 
@@ -39,7 +39,7 @@ subcollection: cloudant
 
 [另一个教程](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud)描述了如何创建独立的 Python 应用程序以在 {{site.data.keyword.cloud_notm}} 中使用 {{site.data.keyword.cloudant_short_notm}} 数据库实例。在本教程中，您将设置并创建在 {{site.data.keyword.cloud_notm}} 中托管的小型 Python 应用程序。应用程序将连接到 {{site.data.keyword.cloudant_short_notm}} 数据库实例，并创建单个简单文档。
 
-本教程中提供了特定于每个任务的 Python 代码。[此处](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program)教程中提供了完整的 Python 程序，充分演示了这些概念。
+本教程中提供了特定于每个任务的 Python 代码。[创建简单 {{site.data.keyword.cloud_notm}} 应用程序以访问 {{site.data.keyword.cloudant_short_notm}} 数据库](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program)教程中提供了完整的 Python 程序，足以演示这些概念。
 
 我们没有尝试为本教程创建_高效_ Python 代码；本教程的目的是为了说明简单易懂的有效代码，方便您从中学习并应用于自己的应用程序。
 

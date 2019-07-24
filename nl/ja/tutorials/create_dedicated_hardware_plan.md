@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -40,37 +40,37 @@ subcollection: cloudant
     {{site.data.keyword.cloud_notm}} ダッシュボードが表示されます。 以下の「`リソースの作成`」ボタンをクリックします。<br/>
     ![{{site.data.keyword.cloud_notm}} ダッシュボード](images/img0001.png)
 
-2.  左メニューから「`データベース`」をクリックし、データベース・サービスのリストから「`Cloudant`」をクリックします。<br/>
+2.  メニューから「`データベース`」をクリックし、データベース・サービスのリストから「`Cloudant`」をクリックします。<br/>
      ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} サービスの選択](images/img0003.png)<br/>
 
-3.  ページの下部で、価格設定プランのリストから`「専用ハードウェア (Dedicated Hardware)」`プランを選択します。<br/>
-    ![価格プラン](/docs/services/Cloudant/tutorials/images/pricing_plan.png)
+3.  価格プランのリストから「`専用ハードウェア`」プランを選択します。<br/>
+    ![価格プラン](images/pricing_plan.png)
     
-4.  ページの上部で以下のパラメーターを入力します。 <br/>
+4.  以下のパラメーターを入力します。 <br/>
     -   サービス名を入力してください。<br/>
-    -   デプロイする地域/場所を指定します。<br/>
+    -   デプロイする地域/場所を指定します。 インスタンスをデプロイする地域/場所は、6 つの主要な {{site.data.keyword.cloud_notm}} 地域のいずれかです。インスタンスの実際の物理的な場所は、下のリストに記述されている location パラメーターによって決まります。<br/>
     -   リソース・グループを選択します。</br>
     -   タグを追加します。 
-    -   デプロイメントのロケーションを選択します。<br/>
+    -   デプロイメントのロケーションを選択します。 このロケーションは、インスタンスの物理的な場所であり、主要な地域およびそれ以外の場所を含めて、任意の {{site.data.keyword.cloud_notm}} ロケーションにすることができます。詳しくは、[{{site.data.keyword.IBM}} グローバル・データ・センター ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/cloud/data-centers/){:new_window} を参照してください。<br/>
     -   HIPAA が必要かどうかの質問に答えるために、「`はい`」または「`いいえ`」を選択します。<br/> 
     
-    HIPAA は米国のロケーションでのみ有効です。 {{site.data.keyword.IBM}} は、HIPAA コントロールを実装するために、専用ハードウェア・プランの環境をプロビジョンできます。環境のプロビジョンは、{{site.data.keyword.IBM_notm}} との間で確立される提携事業者契約 (Business Associate Agreement (BAA)) が確認されたときにのみに行われます。 詳細については、[「HIPAA サポートあり」設定の有効化
-](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting)とサービス記述のご利用条件を参照してください。HIPAA データを管理するためのクラスターのプロビジョニングには、推定されている 5 日間の期間より長い時間がかかる可能性があります。
+    HIPAA は米国のロケーションでのみ有効です。 {{site.data.keyword.IBM}} は、HIPAA コントロールを実装するために、専用ハードウェア・プランの環境をプロビジョンできます。 環境のプロビジョンは、{{site.data.keyword.IBM_notm}} との間で確立される提携事業者契約 (Business Associate Agreement (BAA)) が確認されたときにのみに行われます。 詳細については、[「HIPAA サポートあり」設定の有効化
+](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting)とサービス記述のご利用条件を参照してください。 HIPAA データを管理するためのクラスターのプロビジョニングには、推定されている 5 日間の期間より長い時間がかかる可能性があります。
     {: note}
 
-    ![専用ハードウェアの構成](/docs/services/Cloudant/tutorials/images/select_deployment_location.png)
+    ![専用ハードウェアの構成](images/select_deployment_location.png)
         
 5.  「`作成`」ボタンをクリックして、プロビジョニング・プロセスを開始します。 <br/>
 
     請求処理は日割り計算されるため、**「作成」**ボタンをクリックする前に、環境をプロビジョンして支払うことを確認してください。
     {: note}
 
-    ![専用ハードウェアのプロビジョン](/docs/services/Cloudant/tutorials/images/create_button_provision.png)
+    ![専用ハードウェアのプロビジョン](images/create_button_provision.png)
 
     プロビジョン中に、{{site.data.keyword.cloud_notm}} ダッシュボードのインスタンスの横に糸車が表示されます。 ベア・メタル・サーバー上で専用ハードウェア・プラン・インスタンスをプロビジョンする要求が送信されます。 プロビジョニング時間は非同期であり、最大 5 日かかることがあります。 
     {: note}   
 
-    ![専用ハードウェアの代替バージョンのプロビジョン](/docs/services/Cloudant/tutorials/images/create_button_provision2.png)
+    ![専用ハードウェアの代替バージョンのプロビジョン](images/create_button_provision2.png)
     
 ## 専用ハードウェア環境での標準プラン・インスタンスのプロビジョニング
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
@@ -82,12 +82,12 @@ subcollection: cloudant
     {{site.data.keyword.cloud_notm}} ダッシュボードが表示されます。 以下の「`リソースの作成`」ボタンをクリックします。<br/>
     ![{{site.data.keyword.cloud_notm}} ダッシュボード](images/img0001.png)
 
-2.  左メニューから「`データベース`」をクリックし、データベース・サービスのリストから「`Cloudant`」をクリックします。<br/>
+2.  メニューから「`データベース`」をクリックし、データベース・サービスのリストから「`Cloudant`」をクリックします。<br/>
      ![{{site.data.keyword.cloud_notm}} {{site.data.keyword.cloudant_short_notm}} サービスの選択](images/img0003.png)<br/>
     サービスを作成するためのページが表示されます。<br/>  
 
 3.  価格プランから「`標準`」をクリックします。 <br/>
-    ![標準価格プラン](/docs/services/Cloudant/tutorials/images/standard_pricing_plan.png)
+    ![標準価格プラン](images/standard_pricing_plan.png)
     
     専用ハードウェア環境でライト・プラン・インスタンスをプロビジョンすることはできません。
     {: tip}
@@ -95,15 +95,15 @@ subcollection: cloudant
 4.  以下のパラメーターを入力します。 <br/>
     -   サービス名を入力してください。<br/>
     -   デプロイする地域/場所を指定します。 <br/>
-    -   リソース・グループを選択します。 </br>
+    -   リソース・グループを選択します。</br>
     -   タグを追加します。 
     -   認証方法を選択します。</br>
-    -   環境を選択します。</br>
-    ![標準インスタンスの構成](/docs/services/Cloudant/tutorials/images/select_environment.png)
+    -   標準プラン・インスタンスがデプロイされる環境を選択します。アカウントにデプロイされた専用ハードウェア環境インスタンスが使用可能な場合、それらがドロップダウンに表示されます。</br>
+    ![標準インスタンスの構成](images/select_environment.png)
     
 5.  `「作成」`ボタンをクリックします。<br/>
     数秒後に、選択した環境でインスタンスがプロビジョンされます。<br/>
-    ![標準インスタンスのプロビジョン](/docs/services/Cloudant/tutorials/images/create_button_provision_standard.png)
+    ![標準インスタンスのプロビジョン](images/create_button_provision_standard.png)
     
 6.  マルチテナント {{site.data.keyword.cloudant_short_notm}} インスタンスの場合と同様に、サービス資格情報を取得して、{{site.data.keyword.cloudant_short_notm}} ダッシュボードにアクセスします。 
     
@@ -136,7 +136,7 @@ ibmcloud resource service-instance-create NAME SERVICE_NAME SERVICE_PLAN_NAME LO
 パラメーター | 説明
 ----------|------------
 `environment_crn` | このパラメーターは、{{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスの CRN に設定する必要があります。 CRN を判別するには、{{site.data.keyword.cloud_notm}} ダッシュボードで {{site.data.keyword.cloudant_short_notm}} 専用ハードウェア・プラン・インスタンスの「管理」タブ内のサンプル CLI コマンドを参照してください。 あるいは、`ibmcloud resource service-instance SERVICE_INSTANCE_NAME` コマンドを使用して CRN を判別することもできます。 
-`legacyCredentials` | デフォルトで true に設定され、インスタンスがレガシー資格情報と IAM 資格情報の両方を使用するか、または IAM 資格情報のみを使用するかを示すオプション・パラメーター。 認証方式の選択について詳しくは、『[IAM ガイド ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}』を参照してください。
+`legacyCredentials` | デフォルトで true に設定され、インスタンスがレガシー資格情報と IAM 資格情報の両方を使用するか、または IAM 資格情報のみを使用するかを示すオプション・パラメーター。 認証方式の選択について詳しくは、[IAM ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)を参照してください。
 
 次のサンプル・コマンドを参照してください。 
 
@@ -153,12 +153,12 @@ ibmcloud resource service-instance-create cloudant_on_ded_hardware_cli cloudantn
 サービス資格情報は大切です。 資格情報にアクセスできるユーザーまたはアプリケーションは、サービス・インスタンスに対して事実上何でも実行できます。 例えば、偽造データを作成したり、重要な情報を削除したりする可能性があります。 これらの資格情報は、大切に保護してください。
 {: important}
 
-サービス資格情報に含まれるフィールドの詳細については、「[IAM ガイド ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}」を参照してください。
+サービス資格情報に含まれるフィールドの詳細については、「[IAM ガイド](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)」を参照してください。
 
 {{site.data.keyword.cloud_notm}} 内のサービス・インスタンスの資格情報を作成する基本コマンド・フォーマットは、以下のとおりです。
 
 ```sh
-ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [--enable-internal-service-endpoint true]
+ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [-p '{"service-endpoints":"internal"}]
 ```
 {: pre}
 
@@ -169,7 +169,7 @@ ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INST
 `NAME` | サービス資格情報に指定する任意の名前。 
 `ROLE_NAME` | このフィールドで現在許可されるのはマネージャー役割のみです。
 `SERVICE_INSTANCE_NAME` | {{site.data.keyword.cloudant_short_notm}} インスタンスに指定する名前。
-`enable-internal-service-endpoint` |「サービス資格情報」の URL フィールドに内部エンドポイントを取り込んで、サービスに {{site.data.keyword.cloud_notm}} 内部ネットワーク経由で接続するためのオプション・フィールド。パブリック・ネットワークからアクセス可能な外部エンドポイントを URL に取り込む場合は、このフィールドを省略してください。このオプションは、内部エンドポイントをサポートする専用ハードウェア環境にデプロイされた標準プラン・インスタンスのみに適用されます。環境が内部エンドポイントをサポートしていない場合は、このコマンドを発行すると 400 エラーが返されます。
+`service-endpoints` | 「サービス資格情報」の URL フィールドに内部エンドポイントを取り込んで、サービスに {{site.data.keyword.cloud_notm}} 内部ネットワーク経由で接続するためのオプション・パラメーター。 パブリック・ネットワークからアクセス可能な外部エンドポイントを URL に取り込む場合は、このパラメーターを省略してください。 このオプションが適用されるのは、内部エンドポイントをサポートする専用ハードウェア環境にデプロイされた標準プラン・インスタンスのみです。 環境が内部エンドポイントをサポートしていない場合は、このコマンドを発行すると 400 エラーが返されます。 
 
 {{site.data.keyword.cloudant_short_notm}} サービスの `cs20170517a` インスタンスの資格情報 (ここで、資格情報の名前は `creds_for_cs20170517a`) を作成する場合、以下の例のようなコマンドを使用してそれらの資格情報を作成します。
 
@@ -207,7 +207,7 @@ Credentials:
 {{site.data.keyword.cloudant_short_notm}} サービスの `cs20170517a` インスタンスの資格情報 (ここで、資格情報の名前は `creds_for_cs20170517a`) を作成し、その URL に内部エンドポイントを取り込む場合、以下の例のようなコマンドを使用してそれらの資格情報を作成します。
 
 ```sh
-ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a --enable-internal-service-endpoint true
+ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a -p '{"service-endpoints":"internal"}'
 ```
 {: codeblock}
 

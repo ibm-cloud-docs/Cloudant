@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -32,27 +32,27 @@ Cette section du tutoriel décrit comment configurer l'environnement d'applicati
 {: #creating-an-ibm-cloud-application-environment}
 
 1.  Connectez-vous à votre compte {{site.data.keyword.cloud_notm}}.<br/>
-    Le tableau de bord {{site.data.keyword.cloud_notm}} se trouve à l'adresse :
+       Le tableau de bord {{site.data.keyword.cloud_notm}} se trouve à l'adresse :
     [https://cloud.ibm.com/ ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/){: new_window}.
     Une fois que vous vous êtes identifié avec votre nom d'utilisateur et votre mot de passe, le tableau de bord {{site.data.keyword.cloud_notm}} s'affiche. Cliquez sur `Catalogue` dans le menu : <br/>
-    ![Tableau de bord {{site.data.keyword.cloud_notm}}](images/img0001.png)
+    ![Tableau de bord {{site.data.keyword.cloud_notm}}](images/img0001.png) 
 
 2.  Cliquez sur la catégorie `Calcul` :<br/>
-    ![Applications {{site.data.keyword.cloud_notm}} Cloud Foundry](images/img0012.png)<br/>
+    ![{{site.data.keyword.cloud_notm}} Cloud Foundry Apps](images/img0012.png)<br/>
     Une liste des divers services et applications disponibles sur {{site.data.keyword.cloud_notm}} s'affiche.
 
-3.  Faîtes défiler l'écran jusqu'à la section `Cloud Foundry` et cliquez sur l'entrée `Python` :<br/>
-    ![Application Python {{site.data.keyword.cloud_notm}}](images/img0013.png)<br/>
-    Le formulaire `Créez une application Cloud Foundry` s'affiche.
+3.  Faîtes défiler l'écran jusqu'à la section `Cloud Foundry` et cliquez sur l'entrée `Python` : <br/>
+    ![{{site.data.keyword.cloud_notm}} Python App](images/img0013.png)<br/>
+Le formulaire `Créez une application Cloud Foundry` s'affiche.
 
 4.  Utilisez le formulaire `Créez une application Cloud Foundry` pour spécifier et créer l'environnement de votre application Python Cloud Foundry. Entrez un nom pour votre application, par exemple `Application Cloudant CF`. Le nom d'hôte est automatiquement généré pour vous, même si vous avez la possibilité de le personnaliser.</br>
-    ![Noms d'application {{site.data.keyword.cloud_notm}} Python Cloud Foundry](images/img0014.png)
+    ![Noms d'applications {{site.data.keyword.cloud_notm}} Python Cloud Foundry App](images/img0014.png)  
     
     Le nom d'hôte doit être unique au sein du domaine {{site.data.keyword.cloud_notm}}. Dans cet exemple, le domaine est `mybluemix.net`, ce qui donne le nom d'hôte complet `Cloudant-CF-app.mybluemix.net`.
     {: tip}
 
-5.  Cliquez sur `Créer` pour créer l'environnement d'application :</br>
-    ![Créer l'application {{site.data.keyword.cloud_notm}} Python Cloud Foundry](images/img0015.png)
+5.  Cliquez sur `Créer` pour créer l'environnement d'application : </br>
+    ![Création de l'application {{site.data.keyword.cloud_notm}} Python Cloud Foundry App](images/img0015.png)   
 
 6.  Après une courte pause,
     la fenêtre `Initiation` du nouvel environnement d'application s'affiche.
@@ -60,11 +60,11 @@ Cette section du tutoriel décrit comment configurer l'environnement d'applicati
     L'application est démarrée automatiquement,
     comme le montre l'icône verte et le statut `En cours d'exécution`.
     L'application est un programme à 'pulsations' suffisant pour montrer que le nouvel environnement d'application est prêt à être utilisé.
-    Cliquez sur le lien `Applications Cloud Foundry` pour retourner à votre tableau de bord {{site.data.keyword.cloud_notm}}.<br/>
-    ![La nouvelle application {{site.data.keyword.cloud_notm}} Python Cloud Foundry exécutée pour la première fois](images/img0016.png)
+    Cliquez sur le lien `Applications Cloud Foundry` pour revenir à votre tableau de bord {{site.data.keyword.cloud_notm}}. <br/>
+    ![La nouvelle application {{site.data.keyword.cloud_notm}} Python Cloud Foundry App s'exécute pour la première fois](images/img0016.png)  
 
-7.  Votre liste de ressources inclut désormais l'environnement d'application nouvellement créé :<br/>
-    ![Application {{site.data.keyword.cloud_notm}} Python Cloud Foundry de base apparaissant dans le tableau de bord](images/img0017.png)
+7.  Votre liste de ressources inclut désormais le nouvel environnement d'application : <br/>
+    ![L'application {{site.data.keyword.cloud_notm}} Python Cloud Foundry App de base apparaît dans le tableau de bord](images/img0017.png)  
 
 Vous disposez maintenant d'un environnement d'application {{site.data.keyword.cloud_notm}} Python prêt à être utilisé.
 
@@ -76,22 +76,22 @@ Pour utiliser une instance de base de données {{site.data.keyword.cloudant_shor
 Cette section du tutoriel explique comment connecter des services et des environnements d'application {{site.data.keyword.cloud_notm}} en utilisant la zone de configuration et de gestion de votre application.
 
 1.  Dans le tableau de bord {{site.data.keyword.cloud_notm}}, accédez à l'icône **Menu** > **Liste de ressources** et ouvrez votre instance de service. <br/>
-    ![Sélection de votre application sur le tableau de bord {{site.data.keyword.cloud_notm}} ](images/img0017.png)</br>
-    La zone d'aperçu de la configuration et de la gestion de votre application s'affiche.
+    ![Sélection de votre application sur le tableau de bord {{site.data.keyword.cloud_notm}}](images/img0017.png)</br>
+     La zone d'aperçu de la configuration et de la gestion de votre application s'affiche.
 
-2.  Pour connecter l'environnement d'application à un autre service, cliquez sur l'onglet `Connexions` :<br/>
-    ![Sélection de la configuration de connexion de votre application {{site.data.keyword.cloud_notm}}](images/img0019.png)<br/>
-    Une zone permettant de configurer une connexion entre votre application et tout autre service disponible dans votre compte apparaît.
+2.  Pour connecter l'environnement d'application à un autre service, cliquez sur l'onglet `Connexions` : <br/>
+    ![Sélection de la configuration de connexion pour votre application {{site.data.keyword.cloud_notm}}](images/img0019.png)<br/>
+       Une zone permettant de configurer une connexion entre votre application et tout autre service disponible dans votre compte apparaît.
 
-3.  Ce tutoriel [requiert](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites) une instance de base
+3.  Ce tutoriel [requiert](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites-create_bmxapp_prereq) une instance de base
 de données {{site.data.keyword.cloudant_short_notm}} existante.
-    Cliquez sur `Créer une connexion` pour établir une connexion entre cette instance de service et votre application :<br/>
+    Cliquez sur `Créer une connexion` pour établir une connexion entre cette instance de service et votre application : <br/>
     ![Connexion à une instance de base de données existante](images/img0020.png)<br/>
-    La liste des instances de service existantes de votre compte s'affiche.
+       La liste des instances de service existantes de votre compte s'affiche.
 
 4.  Cliquez sur l'instance de service {{site.data.keyword.cloudant_short_notm}} que vous souhaitez utiliser.
-    Ce tutoriel utilise l'instance `Cloudant-service` :<br/>
-    ![Sélection de l'instance de base de données exemple du tutoriel](images/img0021.png)
+    Ce tutoriel utilise l'instance `Cloudant-service` : <br/>
+    ![Choix de l'instance de base de données exemple de tutoriel](images/img0021.png)  
 
 5.  Vous êtes invité à confirmer que vous souhaitez réellement connecter l'instance de base de données à votre application.
     Cliquez sur `Connecter` pour confirmer la connexion :<br>
@@ -103,12 +103,12 @@ de données {{site.data.keyword.cloudant_short_notm}} existante.
 6.  La modification des connexions de service d'une application affecte sa configuration globale. Une modification requiert une 'reconstitution' de l'application, ce qui entraîne
 l'arrêt forcé de l'application en cours d'exécution. Une fenêtre s'affiche et vous invite à confirmer que vous êtes prêt à effectuer le
 processus de 'reconstitution'.
-    Cliquez sur `Reconstituer` pour continuer :<br/>
-    ![Confirmation de la reconstitution de l'application](images/img0023.png)
+    Cliquez sur `Reconstituer` pour continuer : <br/>
+    ![Confirmation de la reconstitution de l'application](images/img0023.png)  
 
 7.  La page des connexions de service apparaît à nouveau.
-    Elle inclut désormais l'instance de base de données nouvellement connectée :<br/>
-    ![Instance de base de données nouvellement connectée](images/img0024.png)
+    Elle inclut désormais la nouvelle instance de base de données connectée : <br/>
+    ![Nouvelle instance de base de données connectéee](images/img0024.png)  
 
 L'environnement d'application et l'instance de base de données sont maintenant connectés.
 L'étape suivante consiste à vérifier que les outils requis sont installés et prêts à fonctionner avec les applications {{site.data.keyword.cloud_notm}}.
@@ -133,7 +133,7 @@ Le téléchargement et l'installation des kits d'outils est une tâche ponctuell
 S'ils sont déjà installés et en fonctionnement sur votre système, il n'est pas nécessaire
 de les télécharger à nouveau, sauf s'ils ont fait l'objet d'une mise à jour.
 
-Des informations générales sur les kits d'outils sont disponibles [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window}.
+Pour plus d'informations sur les kits d'outils, consultez le [Tutoriel de mise en route![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window}.
 
 ### Installation du kit d'outils Cloud Foundry
 {: #installing-the-cloud-foundry-toolkit}
@@ -142,7 +142,7 @@ Certaines distributions de système d'exploitation disposent déjà d'une versio
 S'il s'agit de la version 6.11 ou ultérieure, la version prise en charge est compatible avec {{site.data.keyword.cloud_notm}} et peut être utilisée.
 Vous pouvez vérifier le niveau de la version installée en exécutant la commande suivante.
 
-Vous pouvez également suivre les étapes ci-après pour télécharger et installer le kit d'outils Cloud Foundry sur votre système : 
+Vous pouvez également effectuez les étapes suivantes pour télécharger et installer le kit d'outils Cloud Foundry sur votre système : 
 
 1.  Cliquez sur `Initiation` pour afficher les informations sur le téléchargement du kit d'outils Cloud Foundry.
 
@@ -186,14 +186,14 @@ Procédez comme suit pour télécharger et installer l' kit d'outils {{site.data
 4.  Pour vérifier que vous disposez d'un kit d'outils {{site.data.keyword.cloud_notm}} approprié, exécutez la commande suivante à l'invite :
     
     ```sh
-    bluemix --version
+    ibmcloud --version
     ```
     {: pre}
     
     Vous devez obtenir un résultat similaire à la sortie suivante :
     
     ```
-    bluemix version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
+    ibmcloud version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
     ```
     {: codeblock}
     
@@ -230,7 +230,7 @@ dont {{site.data.keyword.cloud_notm}} a besoin pour exécuter votre application.
 Plus spécifiquement,
 un fichier `Procfile` est un artefact Cloud Foundry qui
 définit un type de processus applicatif et la commande permettant d'exécuter l'application.
-Vous trouverez plus d'informations sur `Procfile` [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window}.
+Pour plus d'informations sur `Procfile`, voir [About Procfiles ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window} dans la documentation Cloud Foundry.
 
 Le fichier `Procfile` d'une application de démarrage {{site.data.keyword.cloud_notm}} Python est similaire à l'exemple suivant :
 
@@ -276,7 +276,8 @@ Il est important de noter les trois points suivants :
 
 -   Les valeurs de `domain`, `name` et `host` correspondent aux valeurs saisies lors de la [création](#creating-an-ibm-cloud-application-environment) de votre application {{site.data.keyword.cloud_notm}}.
 -   La valeur de `name` est utilisée par le kit d'outils Cloud Foundry pour identifier l'application que vous administrez.
--   La valeur de `services` confirme que l'instance de base de données {{site.data.keyword.cloudant_short_notm}} `Cloudant Service 2017` est connectée à l'environnement d'application.
+-   La valeur de `services` confirme que l'instance de base de données `Cloudant-o7`
+    {{site.data.keyword.cloudant_short_notm}} est connectée à l'environnement d'application.
 
 Il n'est normalement pas nécessaire de modifier le fichier `manifest.yml`. Il est cependant utile de comprendre la raison de sa présence et son utilité au fonctionnement de votre application.
 
@@ -296,4 +297,4 @@ cloudant==2.3.1
 ```
 {: codeblock}
 
-L'étape suivante du tutoriel consiste à [créer l'application](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment).
+L'étape suivante du tutoriel consiste à [créer l'application](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code).

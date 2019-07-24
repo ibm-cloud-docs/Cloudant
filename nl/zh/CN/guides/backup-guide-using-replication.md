@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -38,7 +38,7 @@ subcollection: cloudant
 ## 增量备份
 {: #incremental-backups}
 
-如果您是企业客户，那么每日增量备份功能[可用](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)。
+如果您是企业客户，那么每日增量备份功能可用。有关更多信息，请参阅[灾难恢复和备份](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)。
 
 如果您不是企业客户，或者希望创建自己的备份，那么可以使用 {{site.data.keyword.cloudant_short_notm}} 复制工具来创建数据库备份。
 

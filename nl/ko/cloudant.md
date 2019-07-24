@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: links to documentation, how to contribute
 
@@ -42,18 +42,21 @@ MapReduce, {{site.data.keyword.cloudantfull}} 조회, 전체 텍스트
 데스크탑 PC 및 모바일 디바이스 간에 데이터 동기화를 쉽게 유지할 수 있습니다.
 
 기타 {{site.data.keyword.cloudant_short_notm}} 오퍼링에 대한 자세한 정보는
-기본 [{{site.data.keyword.cloudant_short_notm}} ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} 사이트를 참조하십시오.
+기본 [{{site.data.keyword.cloudant_short_notm}} ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/cloudant){: new_window} 사이트를 참조하십시오.
 여기에 제공되는 온라인 문서는 {{site.data.keyword.cloudant_short_notm}} 개념, 태스크 및 기술에 대한 세부사항을 제공합니다.
 
-{{site.data.keyword.cloudant_short_notm}} 서비스는 [{{site.data.keyword.cloud}} 대시보드 ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window}에서 시작할 수 있습니다.
+{{site.data.keyword.cloudant_short_notm}} 서비스는 [{{site.data.keyword.cloud}} 대시보드 ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}에서 시작할 수 있습니다.
 
-{{site.data.keyword.cloudant_short_notm}}를 시작하고 실행하는 데 대한 '빠른 시작 안내'가 [사용 가능](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started)하며, 태스크를 더 자세히 설명하는 [튜토리얼](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)도 제공됩니다.
-데이터베이스 인스턴스에 인증 또는 데이터 조회와 같은 세부사항에 대한 자세한 정보는 [API 참조](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)에 있습니다.
+[시작하기 튜토리얼](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started)이라고 하는,
+{{site.data.keyword.cloudant_short_notm}}를 시작하고 실행하는 데 대한 '빠른 시작 안내'와,
+태스크를 더 자세히 설명하는 [튜토리얼](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)이 제공됩니다.
+데이터베이스 인스턴스에 인증 또는 데이터 조회와 같은 세부사항에 대한
+자세한 정보는 [API 참조](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)를 참조하십시오. 
 
 ## 문서 컨텐츠
 {: #documentation-contents}
 
-*	[시작하기 튜토리얼](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started): {{site.data.keyword.cloudantfull}} 데이터베이스를 작성하고 Python을 사용하여 데이터의 단순 콜렉션으로 데이터베이스를 채우는 방법을 학습합니다.
+*	[시작하기 튜토리얼](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started): {{site.data.keyword.cloudantfull}} 데이터베이스를 작성하고 Python을 사용하여 데이터의 단순 콜렉션으로 데이터베이스를 채우는 방법을 학습합니다.
 *	[{{site.data.keyword.cloudant_short_notm}} 블로그 ![외부 링크 아이콘](images/launch-glyph.svg "외부 링크 아이콘")](https://blog.cloudant.com/): {{site.data.keyword.cloudant_short_notm}} 기본 원칙, 충돌 제거, 샘플 데이터 생성, 파티션된 데이터베이스 등을 포함한 다양한 주제에 대한 블로그를 읽습니다. 
 *	[{{site.data.keyword.cloud_notm}} 퍼블릭](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): 기능, 옵션 및 가격을 포함하여 {{site.data.keyword.cloud_notm}} 퍼블릭 오퍼링에 대해 설명합니다. 
 *	[가격](/docs/services/Cloudant?topic=cloudant-pricing#pricing): {{site.data.keyword.cloudant_short_notm}} 가격 모델과 함께 사용할 수 있는 옵션 및 융통성에 대해 설명하는 기사입니다. 

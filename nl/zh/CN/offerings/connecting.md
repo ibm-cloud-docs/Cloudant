@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
-keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries
+keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP whitelisting
 
 subcollection: cloudant
 
@@ -53,6 +53,9 @@ subcollection: cloudant
 `https://USERNAME.private.cloudantnosqldb.appdomain.cloud`
 
 其中，USERNAME 是 URL 中服务实例用户的服务名称。使用 {{site.data.keyword.cloudant_short_notm}} 旧认证时，此字段还用作管理用户名。USERNAME 示例为 de810d0e-763f-46a6-ae88-50823dc85581-bluemix，生成的外部端点示例将为 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud。 
+
+有关如何通过 IP 白名单来阻止公用网络连接的更多信息，请参阅[安全访问控制](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-security#secure-access-control)。
+{: note}
 
 ## 服务凭证
 {: #service-credentials}
@@ -113,7 +116,7 @@ subcollection: cloudant
 - 查看活动任务
 - 查看和更新供应的吞吐量容量、声明、CORS 以及设置之类的帐户信息
 
-## 编程方式的访问
+## 以编程方式访问
 {: #programmatic-access}
 
 ### 命令行 (curl)
@@ -123,7 +126,7 @@ subcollection: cloudant
 
 如果使用 {{site.data.keyword.cloudant_short_notm}} 旧认证，请参阅 [API 参考概述](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)以获取有关使用 curl 提供访问 {{site.data.keyword.cloudant_short_notm}} API 的用户名和密码的详细信息，如 API 参考示例中所示。
 
-如果使用 {{site.data.keyword.cloud_notm}} IAM 认证，您必须先使用 API 密钥获取 {{site.data.keyword.cloud_notm}} IAM 令牌。然后，将 IAM 令牌传递到 {{site.data.keyword.cloudant_short_notm}} 实例以进行认证。请参阅[使用服务 API 传递
+如果使用 {{site.data.keyword.cloud_notm}} IAM 认证，您必须先使用 API 密钥获取 {{site.data.keyword.cloud_notm}} IAM 令牌。然后，将 IAM 令牌传递到 {{site.data.keyword.cloudant_short_notm}} 实例以进行认证。有关更多信息，请参阅[使用服务 API ![外部链接图标](../images/launch-glyph.svg "外部链接图标") 传递
 {{site.data.keyword.cloud_notm}} IAM 令牌以进行认证](https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window} 
 教程。 
 

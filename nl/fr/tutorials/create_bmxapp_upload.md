@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -33,16 +33,12 @@ Cette section du tutoriel décrit comment télécharger une application {{site.d
 
 La première tâche consiste à se connecter à {{site.data.keyword.cloud_notm}}.
 
-Le [kit d'outils {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits) vous aide à établir la connexion.
-
-Cloud Foundry doit connaître l'URL à employer pour effectuer les appels d'API, par exemple lorsque vous téléchargez une application.
-Le kit d'outils {{site.data.keyword.cloud_notm}} utilise la commande '`cf api`' pour gérer le noeud final d'API.
-Vous trouverez davantage d'informations sur la commande '`cf api`' [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}.
+L'interface CLI {{site.data.keyword.cloud_notm}} doit savoir quelle URL utiliser pour effectuer des appels d'API. Par exemple, lorsque vous téléchargez une application, le kit d'outils {{site.data.keyword.cloud_notm}} utilise la commande `ibmcloud api` pour gérer le noeud final de l'API. Pour plus d'informations sur la commande `ibmcloud api`, voir [Getting started with the {{site.data.keyword.cloud_notm}} CLI ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
 Utilisez la commande suivante pour indiquer à Cloud Foundry l'URL à utiliser :
 
 ```sh
-bluemix api https://api.ng.bluemix.net
+ibmcloud api https://api.ng.bluemix.net
 ```
 {: pre}
 
@@ -56,7 +52,7 @@ OK
 
 API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
-Not logged in. Use 'bluemix login' to log in.
+Not logged in. Use 'ibmcloud login' to log in.
 ```
 {: codeblock}
 
@@ -78,7 +74,7 @@ Utilisez une commande similaire à l'exemple suivant pour vous connecter à votr
 Vous êtes invité à entrer le mot de passe de votre compte.
 
 ```sh
-bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
+ibmcloud login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {: pre}
 
@@ -207,44 +203,43 @@ buildpack: python 1.5.5
 
 Testez maintenant votre application et vérifiez qu'elle fonctionne correctement. 
 
-1.  Depuis le tableau de bord {{site.data.keyword.cloud_notm}}, accédez à l'icône **Menu** > **Liste de ressources** et ouvrez votre application. Sous Applications Cloud Foundry, cliquez sur l'application `Cloudant CF` pour ouvrir la page des détails.<br/>  
+1.  Depuis le tableau de bord {{site.data.keyword.cloud_notm}}, accédez à l'icône **Menu** > **Liste de ressources** et ouvrez votre application. Sous Applications Cloud Foundry, cliquez sur l'application `Cloudant CF` pour ouvrir la page des détails.<br/>   
 ![Capture d'écran représentant le tableau de bord de l'application](images/img0017.png)
 
-2.  Sur la page d'information détaillée `Cloudant CF app`, cliquez sur `Routes` puis cliquez sur le lien `Cloudant-CF-app.mybluemix.net`. <br/>
-![Page d'information détaillée d'application Cloudant CF](images/img0030.png)
+2.  Sur la page d'information détaillée `Cloudant CF app`, cliquez sur `Routes` puis cliquez sur le lien `Cloudant-CF-app.mybluemix.net`.<br/>
+![Page de détails de l'application Cloudant CF](images/img0030.png) 
 
-3. Une nouvelle fenêtre de navigateur s'ouvre sur `https://cloudant-cf-app.mybluemix.net/`. Le message vérifie que l'application est en cours. Il dit "Hello World! Thanks for creating a Python Starter Application."<br/>
+3. Une nouvelle fenêtre de navigateur s'ouvre sur `https://cloudant-cf-app.mybluemix.net/`. Le message vérifie que l'application est en cours d'exécution en affichant 'Hello World! Thanks for creating a Python Starter Application.'<br/>
 ![Hello World! a vérifié que l'application Cloudant CF fonctionne correctement](images/img0054.png)
 
 
 ### Confirmation des détails de la base de données
 {: #confirming-the-database-details}
 
-Depuis le tableau de bord {{site.data.keyword.cloud_notm}}, accédez à l'icône **Menu** > **Liste de ressources** et ouvrez votre instance de service. Accédez à l'onglet `Gérer` et cliquez sur `Lancer le tableau de bord Cloudant`.<br/>
-![Lancer le tableau de bord Cloudant sur la page de service {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
+Depuis le tableau de bord {{site.data.keyword.cloud_notm}}, accédez à l'icône **Menu** > **Liste de ressources** et ouvrez votre instance de service. Accédez à l'onglet `Gérer` et cliquez sur `Lancer le tableau de bord Cloudant`. <br/>
+![Lancement du tableau de bord Cloudant dans la page des services {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)  
 
 Pour trouver votre page de service {{site.data.keyword.cloudant_short_notm}},
 reportez-vous aux informations détaillées contenues dans le tutoriel [Création d'une instance {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 {: note}
 
 Lorsque le tableau de bord s'affiche, vous pouvez voir que l'application a créé la
-base de données '`databasedemo`' :<br/>
-![Tableau de bord {{site.data.keyword.cloudant_short_notm}} affichant la nouvelle base de données](images/img0031.png)
+base de données '`databasedemo`' : <br/>
+![Tableau de bord {{site.data.keyword.cloudant_short_notm}} affichant la nouvelle base de données](images/img0031.png)   
 
 La base de données contient un seul document, créé par l'application.
 Pour vérifier la présence du document, cliquez sur le nom de la base de données dans le
 tableau de bord.
 La liste des options pour la base de données s'affiche.
-Lorsque vous sélectionnez l'onglet `Tous les documents`, les détails d'un seul document s'affichent :<br/>
-![Un document dans la nouvelle base de données](images/img0032.png)
+Lorsque vous sélectionnez l'onglet `Tous les documents`, les détails d'un seul document s'affichent : <br/>
+![Un seul document dans la nouvelle base de données](images/img0032.png)  
 
-Pour afficher le contenu du document, cliquez sur l'icône `Editer` représentée par un crayon :<br/>
-![Détails du document](images/img0033.png)
+Pour afficher le contenu du document, cliquez sur l'icône `Editer` représentée par un crayon : <br/>
+![Détails du document](images/img0033.png)  
 
 Lorsque le contenu du document apparaît, vous pouvez voir chaque zone créée par
-l'application du tutoriel.<br/>
-![Zones du document](images/img0034.png)<br/>
-En particulier, la zone `rightNow` contient la date et l'heure
+l'application du tutoriel. <br/>
+![Zones du document](images/img0034.png)<br/> En particulier, la zone `rightNow` contient la date et l'heure
 de création du document.
 Cette valeur correspond à l'heure enregistrée dans le
 [fichier journal de l'application](#testing-the-sample-application).

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-06-12"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -25,15 +25,12 @@ subcollection: cloudant
 # 数据库分区
 {: #database-partitioning}
 
-{{site.data.keyword.cloudant_short_notm}} 分区数据库功能当前仍处于测试阶段。分区数据库不应用于生产应用程序用途。此功能目前正在向所有 {{site.data.keyword.cloudant_short_notm}} 环境推广，将在未来几周内一般可用。
-{: important}
-
 {{site.data.keyword.cloudantfull}} 支持两种类型的数据库：
 
 - 分区
 - 未分区
 
-_分区_数据库提供重要的性能和成本优势，但是需要您指定数据的逻辑分区。下面进行更详细的描述。
+_分区_数据库提供重要的性能和成本优势，但是需要您指定数据的逻辑分区。以下文本中将对此进行更详细的描述。
 
 或者，也可以创建_未分区_数据库。此类数据库更容易使用，不需要定义分区方案，但是仅可以创建全局辅助索引。
 
@@ -55,10 +52,10 @@ _分区_数据库提供重要的性能和成本优势，但是需要您指定数
 
 在未分区数据库中，文档根据其文档标识的变换，以任意方式分发到分片中。这样文档标识和最终所处的分片之间没有真正的关系。文档标识非常相似的文档不大可能放在相同的分片上。
 
-未分区数据库仅提供全局查询，下面将对此进行更详细的描述。
+未分区数据库仅提供全局查询，后文将对此进行更详细的描述。
 
 ## 分区数据库
-{: #partitioned-databases}
+{: #partitioned-databases-database-partitioning}
 
 分区数据库是更新的 {{site.data.keyword.cloudant_short_notm}} 数据库类型。在分区数据库中，文档通过使用_分区键_形成了逻辑分区，分区键是分区数据库中文档的文档标识的一部分。所有文档分配给一个分区，通常会为许多文档指定相同的分区键。分区的主 JSON 数据与其索引最终并存，意味着数据库能够更高效地查询分区中的数据。
 
@@ -194,7 +191,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 ### 创建索引
 {: #creating-indexes}
 
-对于上述查询，我们将需要两个索引：
+对于先前描述的查询，我们将需要两个索引：
 
 1. 将设备标识映射到基础设施标识的全局索引。
 2. 将设备标识映射到读数的分区索引。
@@ -216,7 +213,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 }
 ```
 
-假定上述文档是 `./view.json`，这将使用以下命令上传到数据库：
+假定先前的文档是 `./view.json`，这将使用以下命令上传到数据库：
 
 ```
 curl -XPOST https://acme.cloudant.com/readings -d @view.json
@@ -250,7 +247,7 @@ curl -XPOST https://acme.cloudant.com/readings -d @view.json
 }
 ```
 
-假定上述文档是 `./query-index1.json`，使用以下命令将索引上传到数据库：
+假定先前的文档是 `./query-index1.json`，请使用以下命令将索引上传到数据库：
 
 ```
 curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index1.json
@@ -272,7 +269,7 @@ curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index1.json
 }
 ```
 
-假定上述文档是 `./query-index2.json`，使用以下命令将索引上传到数据库：
+假定先前的文档是 `./query-index2.json`，请使用以下命令将索引上传到数据库：
 
 ```
 curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index2.json

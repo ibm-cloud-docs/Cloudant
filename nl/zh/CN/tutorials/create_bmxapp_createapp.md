@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -57,13 +57,13 @@ subcollection: cloudant
 
 按如下所示，修改配置文件：
 
-1.  编辑“`Procfile`”文件，使其包含以下文本：
+1.  编辑 `Procfile` 文件，使其包含以下文本：
     ```
     web: python server.py
     ```
     {: codeblock}
 
-2.  编辑“`manifest.yml`”文件，使其包含以下文本：
+2.  编辑 `manifest.yml` 文件，使其包含以下文本：
     ```
     applications:
     - path: .
@@ -78,10 +78,10 @@ subcollection: cloudant
     ```
     {: codeblock}
 
-确保修改“`domain`”、“`name`”、“`host`”和“`services`”值。这些是您在创建 [{{site.data.keyword.cloud_notm}} 应用程序环境](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment)和 [{{site.data.keyword.cloudant_short_notm}} 数据库实例](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)时输入的值。
+确保修改 `domain`、`name`、`host` 和 `services` 值。这些是您在创建 [{{site.data.keyword.cloud_notm}} 应用程序环境](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment)和 [{{site.data.keyword.cloudant_short_notm}} 数据库实例](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)时输入的值。
 {: note}
 
-3.  编辑“`requirements.txt`”文件，使其包含以下文本：
+3.  编辑 `requirements.txt` 文件，使其包含以下文本：
     ```
     cloudant==2.3.1
     ```
@@ -146,7 +146,7 @@ databaseName = "databasedemo"
 
 应用程序在连接到 {{site.data.keyword.cloudant_short_notm}} 数据库实例并创建数据库时记录进度。记录采用日志文件的形式，该文件会存储在可由 Python Web 服务器访问的文件夹中。
 
-创建文件夹（在应用程序中名为“`static`”），并准备好在其中存储文件：
+创建文件夹（在应用程序中名为 `static`），并准备好在其中存储文件：
 
 ```python
 # Change current directory to avoid exposure of control files
@@ -184,9 +184,9 @@ target.write("\n====\n\n")
 #### 使用 {{site.data.keyword.cloudant_short_notm}} 数据库实例
 {: #working-with-the-ibm-cloudant-database-instance}
 
-Python 应用程序在 {{site.data.keyword.cloud_notm}} 应用程序环境中运行。该环境提供了应用程序用于访问已连接服务的所有必要信息。这些信息在名为“`VCAP_SERVICES`”的环境变量中提供。此变量可由应用程序访问，并用于确定连接详细信息。
+Python 应用程序在 {{site.data.keyword.cloud_notm}} 应用程序环境中运行。该环境提供了应用程序用于访问已连接服务的所有必要信息。这些信息在名为 `VCAP_SERVICES` 的环境变量中提供。此变量可由应用程序访问，并用于确定连接详细信息。
 
-第一个任务是确保应用程序在 {{site.data.keyword.cloud_notm}} 应用程序环境中运行。通过测试来检查是否存在“`VCAP_SERVICES`”环境变量：
+第一个任务是确保应用程序在 {{site.data.keyword.cloud_notm}} 应用程序环境中运行。通过测试来检查是否存在 `VCAP_SERVICES` 环境变量：
 
 ```python
 # Check that we are running in an {{site.data.keyword.cloud_notm}} application environment.
@@ -217,7 +217,7 @@ target.write("Got cloudantNoSQLDBData\n")
 ```
 {: codeblock}
 
-多个 {{site.data.keyword.cloud_notm}} 服务可能连接到应用程序环境。每个服务的凭证都将作为数组元素列出。在本教程中，仅创建了一个[服务连接](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services)。因此，应用程序会访问第一个元素（元素“零”）。每个服务元素都包含该服务的凭证，并表示为按访问该服务所需的必需字段名称建立索引的列表。在介绍简单数据库创建任务的[教程](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites)中，提供了有关字段名称的更多信息。
+多个 {{site.data.keyword.cloud_notm}} 服务可能连接到应用程序环境。每个服务的凭证都将作为数组元素列出。在本教程中，仅创建了一个[服务连接](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services)。因此，应用程序会访问第一个元素（元素“零”）。每个服务元素都包含该服务的凭证，并表示为按访问该服务所需的必需字段名称建立索引的列表。有关字段名称的更多信息，请参阅[在 {{site.data.keyword.cloud_notm}} 上创建和填充简单 {{site.data.keyword.cloudant_short_notm}} 数据库](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites-create_database)教程，其中描述了简单数据库创建任务。
 
 ```python
 # Get a list containing the {{site.data.keyword.cloudant_short_notm}} connection information.
@@ -250,7 +250,9 @@ target.write("\n")
 ```
 {: codeblock}
 
-现在，该应用程序拥有了在 {{site.data.keyword.cloudant_short_notm}} 数据库实例中创建数据库所需的全部详细信息。在介绍简单数据库创建的[教程](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance)中，更详细地说明了此任务。
+现在，该应用程序拥有了在 {{site.data.keyword.cloudant_short_notm}} 数据库实例中创建数据库所需的全部详细信息。在描述简单数据库创建的[在服务实例中创建数据库](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance)部分中，更详细地说明了此任务。
+
+有关创建简单数据库的更多信息，请参阅[在服务实例中创建数据库](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance)。
 
 应用程序还必须执行以下任务：
 

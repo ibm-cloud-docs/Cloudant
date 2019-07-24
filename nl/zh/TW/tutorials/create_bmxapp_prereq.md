@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -29,7 +29,7 @@ subcollection: cloudant
 {: shortdesc}
 
 ## 必要條件
-{: #prerequisites}
+{: #prerequisites-create_bmxapp_prereq}
 
 請確定您已準備好下列資源或資訊，然後才開始進行本指導教學。
 
@@ -55,14 +55,14 @@ Python 2.7.12
 ### {{site.data.keyword.cloud_notm}} 上的 {{site.data.keyword.cloudant_short_notm}} 服務實例
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-[這裡](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)提供用於建立 {{site.data.keyword.cloudantfull}} 服務實例（稱為 '`Cloudant-o7`'）的個別指導教學。
+有關[在 {{site.data.keyword.cloud_notm}} 上建立 {{site.data.keyword.cloudantfull}} 服務實例](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)的個別指導教學將建立名為 "`Cloudant-o7`" 的服務實例。 
 
 本指導教學假設您已建立稱為 '`Cloudant-o7`' 的服務實例。
 
 ### {{site.data.keyword.cloudant_short_notm}} 資料庫應用程式
 {: #an-ibm-cloudant-database-application}
 
-[這裡](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud)提供用於建立獨立式 Python 應用程式，以使用 {{site.data.keyword.cloudant_short_notm}} 服務實例的個別指導教學。它介紹有助於瞭解如何建立 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中的一些概念。
+另外還提供有關[建立獨立式 Python 應用程式以使用 {{site.data.keyword.cloudant_short_notm}} 服務實例](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud)的個別指導教學。它介紹有助於瞭解如何建立 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中的一些概念。
 
 本指導教學假設您熟悉這些概念。
 

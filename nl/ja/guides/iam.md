@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-12"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -100,10 +100,10 @@ _IAM のみ使用_ を選択した場合と_従来の資格情報と IAM の両�
 特に、データベース・アクセスを管理するために、{{site.data.keyword.cloudant_short_notm}} API キーを使用できます。 HTTP API を使用して、これらの資格情報を生成し、
 構成する必要があります。
 
-### コマンド行を使用したプロビジョン
+### コマンド・ラインを使用したプロビジョン
 {: #provisioning-by-using-the-command-line}
 
-コマンド行から新しい {{site.data.keyword.cloudant_short_notm}} インスタンスをプロビジョンする場合、アカウントの従来の資格情報を有効または無効にする `-p` パラメーターを使用することで、
+コマンド・ラインから新しい {{site.data.keyword.cloudant_short_notm}} インスタンスをプロビジョンする場合、アカウントの従来の資格情報を有効または無効にする `-p` パラメーターを使用することで、
 `ic` ツールに対してオプションを指定します。 このオプションは、
 JSON 形式で渡され、`legacyCredentials` という名前です。
 
@@ -212,13 +212,14 @@ _従来の資格情報と IAM の両方を使用_ を選択した場合、生成
 クライアント・ライブラリーを使用できない場合、この方法には不利な点があります。
 
 <table>
-
+<caption style="caption-side:top">表 1. 2 つのアクセス制御メカニズムの長所と短所</caption>
+<thead>
 <tr>
 <th id="mode">モード</th>
 <th id="advantages">長所</th>
 <th id="disadvantages">短所</th>
 </tr>
-
+</thead>
 <tr>
 <td headers="mode">IAM</td>
 <td headers="advantages" valign="top"><ul><li>1 つのインターフェースを使用して多くのサービスへのアクセスを管理できます。 ユーザーのアクセス権をグローバルに取り消すことができます。</li>
@@ -229,7 +230,6 @@ _従来の資格情報と IAM の両方を使用_ を選択した場合、生成
 </td>
 <td headers="disadvantages"><ul><li>{{site.data.keyword.cloudant_short_notm}} のサポートされているライブラリーを使用しない場合、IAM の API キーおよびアクセス・トークンを使用するために、アプリケーションの変更が必要になる場合があります。</li>
 <li>データベース・レベルのアクセス権がありません (現時点)。</li>
-<li>詳細なアクセス権 (例えば、リーダー) がありません (現時点)。</li>
 <li>一部のエンドポイントが使用できません。[使用不可のエンドポイント](#unavailable-endpoints)を参照してください。</li>
 <li>「公開」として (つまり、アクセスするユーザーへの許可が不要) データベースを指定する方法がありません。</li></ul>
 </td>
@@ -240,7 +240,6 @@ _従来の資格情報と IAM の両方を使用_ を選択した場合、生成
 <td headers="advantages">
 <ul><li>既存のアプリケーションまたはクライアント・ライブラリーの依存関係を変更する必要がありません。</li>
 <li>データベース・レベルのアクセス権。</li>
-<li>詳細な役割 (リーダー、ライター)。</li>
 </ul>
 </td>
 <td headers="disadvantages">
@@ -259,7 +258,7 @@ _従来の資格情報と IAM の両方を使用_ を選択した場合、生成
 {{site.data.keyword.cloudant_short_notm}} を使用する方法について説明します。 前述の
 サービス資格情報の JSON の例から詳細を使用します。
 
-{{site.data.keyword.cloud_notm}} IAM では、リソースまたはサービスに対して要求を実行する前に、IAM API キーを時間制限アクセス・トークンに交換する必要があります。 その後、アクセス・トークンは、サービスに対する `Authorization` HTTP ヘッダーに組み込まれます。 アクセス・トークンが期限切れになった場合、取り込んでいるアプリケーションは、IAM トークン・サービスからの新しいアクセス・トークンの取得を処理する必要があります。詳しくは、[API キーを使用した {{site.data.keyword.cloud_notm}} IAM トークンの取得![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey)に関する資料を参照してください。
+{{site.data.keyword.cloud_notm}} IAM では、リソースまたはサービスに対して要求を実行する前に、IAM API キーを時間制限アクセス・トークンに交換する必要があります。 その後、アクセス・トークンは、サービスに対する `Authorization` HTTP ヘッダーに組み込まれます。 アクセス・トークンが期限切れになった場合、取り込んでいるアプリケーションは、IAM トークン・サービスからの新しいアクセス・トークンの取得を処理する必要があります。 詳しくは、[API キーを使用した {{site.data.keyword.cloud_notm}} IAM トークンの取得![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey)に関する資料を参照してください。
 
 {{site.data.keyword.cloudant_short_notm}} の公式クライアント・ライブラリーは、API キーからのトークンの取得を処理します。 {{site.data.keyword.cloudant_short_notm}} クライアント・ライブラリーではなく HTTP クライアントを使用して {{site.data.keyword.cloudant_short_notm}} に直接アクセスする場合、IAM API キーと IAM トークン・サービスを使用して、時間制限アクセス・トークンの交換とリフレッシュを処理する必要があります。 トークンが期限切れになると、{{site.data.keyword.cloudant_short_notm}} は HTTP `401` 状況コードを返します。
 
@@ -269,21 +268,51 @@ _従来の資格情報と IAM の両方を使用_ を選択した場合、生成
 IAM 対応の {{site.data.keyword.cloudant_short_notm}} サービス・インスタンスでは、
 最低でも次のクライアント・ライブラリー・バージョンを使用してください。
 
-| ライブラリー | 推奨 |
-| --- | --- |
-| [java-cloudant](https://github.com/cloudant/java-cloudant) | 2.13.0+ |
-| [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant) | 2.3.0+ |
-| [python-cloudant](https://github.com/cloudant/python-cloudant) | 2.9.0+ |
-| [couchbackup](https://github.com/cloudant/couchbackup/) | 2.3.1+ |
-| [CDTDatastore](https://github.com/cloudant/cdtdatastore/) | 2.0.3+ |
-| [sync-android](https://github.com/cloudant/sync-android/) | 2.2.0+ |
+<table>
+<caption style="caption-side:top">表 2. 推奨されるクライアント・ライブラリー・バージョン</caption>
+<thead>
+<tr>
+<th id="library">ライブラリー</th>
+<th id="recommended">推奨</th>
+</tr>
+</thead>
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/java-cloudant" target="_blank">java-cloudant <img src="../images/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン"></a></td>
+<td headers="recommended">2.13.0+</td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/nodejs-cloudant" target="_blank">nodejs-cloudant <img src="../images/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン"></a></td>
+<td headers="recommended">2.3.0+</td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/python-cloudant" target="_blank">python-cloudant <img src="../images/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン"></a></td>
+<td headers="recommended">2.9.0+</td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/couchbackup/" target="_blank">couchbackup <img src="../images/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン"></a></td>
+<td headers="recommended">2.3.1+</td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/cdtdatastore/" target="_blank">CDTDatastore <img src="../images/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン"></a></td>
+<td headers="recommended">2.0.3+</td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/sync-android/" target="_blank">sync-android <img src="../images/launch-glyph.svg" alt="外部リンク・アイコン" title="外部リンク・アイコン"></a></td>
+<td headers="recommended">2.2.0+</td>
+</tr>
+</table>
 
 以下のコード・スニペットでは、これらのバージョンが必要です。
 
 ### Java
-{: #java}
+{: #java-iam}
 
-[java-cloudant](https://github.com/cloudant/java-cloudant), 2.13.0+ が必要です。
+[java-cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/java-cloudant){: new_window}、2.13.0+ が必要です。
 
 `iamApiKey()` メソッドを使用して、IAM API キーを持つデータベース・クライアントを作成します。
 
@@ -313,7 +342,7 @@ public class App
 ### Node.js
 {: #node.js}
 
-[nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant), 2.3.0+ が必要です。
+[nodejs-cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/nodejs-cloudant){: new_window}、2.3.0+ が必要です。
 
 `iamauth` プラグインを使用して、IAM API キーを持つデータベース・クライアントを作成します。
 
@@ -338,7 +367,7 @@ cloudant.db.list(function(err, body) {
 ### Python
 {: #python}
 
-[python-cloudant](https://github.com/cloudant/python-cloudant), 2.9.0+ が必要です。
+[python-cloudant ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://github.com/cloudant/python-cloudant){: new_window}、2.9.0+ が必要です。
 
 `Cloudant.iam(account_name, api_key, **kwargs)` メソッドを使用して、
 IAM API キーを持つデータベース・クライアントを作成します。
@@ -424,13 +453,572 @@ if __name__ == "__main__":
 ### {{site.data.keyword.cloudant_short_notm}} のアクション
 {: #ibm-cloudant-actions}
 
-アクション | 説明
--------|------------
-`cloudant.db.any` | データベース・エンドポイント (パスが `/_api` で始まらないエンドポイント) にアクセスします。
-`cloudantnosqldb.sapi.dbsecurity` | `/_api/v2/db/<path:db>/_security` にアクセスします。
-`cloudantnosqldb.sapi.usercors` | `/_api/v2/user/config/cors/` にアクセスします。
-`cloudantnosqldb.sapi.apikeys` | `/_api/v2/api_keys` にアクセスします。
-`cloudantnosqldb.sapi.userinfo` | `/_api/v2/user` にアクセスします。
+次の表で、使用可能な IAM アクションおよび役割について説明します。 
+
+<table>
+<caption style="caption-side:top">表 3. 使用可能なアクションの説明</caption>
+<thead>
+<tr>
+<th id="action">アクション</th>
+<th id="description">説明</th>
+</tr>
+</thead>
+
+<tr>
+<td headers="action"><code>cloudant.db.any</code></td>
+<td headers="description">データベース・エンドポイント (パスが `/_api` で始まらないエンドポイント) にアクセスします。</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.dbsecurity</code></td>
+<td headers="description">`/_api/v2/db/<path:db>/_security` にアクセスします。</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.usercors</code></td>
+<td headers="description">`/_api/v2/user/config/cors/` にアクセスします。</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.apikeys</code></td>
+<td headers="description">`/_api/v2/api_keys` にアクセスします。</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.userinfo</code></td>
+<td headers="description">`/_api/v2/user` にアクセスします。</td>
+</tr>
+</table>
+</br>
+きめ細かい許可のために、管理者、リーダー、およびライターの役割が用意されています。
+</br>
+
+<table>
+<caption style="caption-side:top">表 4. 管理者専用のアクション</caption>
+<thead>
+<tr>
+<th id="method">方法</th>
+<th id="endpoint">エンドポイント</th>
+<th id="action-name">アクション名</th>
+<th id="role">役割</th>
+</tr>
+</thead>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/</code></td>
+<td headers="action-name">cloudantnosqldb.db.meta-info</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_active_tasks</code></td>
+<td headers="action-name">cloudantnosqldb.account.active-tasks</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_replicator</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_replicator/$DOC</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_scheduler/jobs</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_scheduler/docs</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_replicate</code></td>
+<td headers="action-name">cloudantnosqldb.replication.write</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT/DELETE</code></td>
+<td headers="endpoint"><code>/_replicator</code></td>
+<td headers="action-name">cloudantnosqldb.replication.write</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT/DELETE</code></td>
+<td headers="endpoint"><code>/_replicator/$DOC</code></td>
+<td headers="action-name">cloudantnosqldb.replication.write</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_up</code></td>
+<td headers="action-name">cloudantnosqldb.account.up</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.database.create</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.database.delete</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_design_docs/queries</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_geo_info</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_info/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_search_disk_size/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_search_info/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_index/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design_docs</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>COPY</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST/DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_index/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_missing_revs</code></td>
+<td headers="action-name">cloudantnosqldb.database.missing-revs</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_missing_revs</code></td>
+<td headers="action-name">cloudantnosqldb.database.missing-revs</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_revs_diff</code></td>
+<td headers="action-name">cloudantnosqldb.database.revs-diff</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_security</code></td>
+<td headers="action-name">cloudantnosqldb.database-security.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/_security</code></td>
+<td headers="action-name">cloudantnosqldb.database-security.write</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_shards</code></td>
+<td headers="action-name">cloudantnosqldb.database.shards</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>COPY</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.copy</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/_membership</code></td>
+<td headers="action-name">cloudantnosqldb.cluster-membership.read</td>
+<td headers="role">管理者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_ensure_full_commit</code></td>
+<td headers="action-name">cloudantnosqldb.database.ensure-full-commit</td>
+<td headers="role">管理者</td>
+</tr>
+</table>
+
+</br>
+
+<table>
+<caption style="caption-side:top">表 5. 管理者とライターのアクション</caption>
+<thead>
+<tr>
+<th id="method">方法</th>
+<th id="endpoint">エンドポイント</th>
+<th id="action-name">アクション名</th>
+<th id="role">役割</th>
+</tr>
+</thead>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_uuids</code></td>
+<td headers="action-name">cloudantnosqldb.account.uuids</td>
+<td headers="role">管理者、ライター</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理者、ライター</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_bulk_docs</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理者、ライター</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理者、ライター</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理者、ライター</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理者、ライター</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理者、ライター</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT/DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_local/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.write</td>
+<td headers="role">管理者、ライター</td>
+</tr>
+
+<tr>
+<td headers="method"><code>COPY</code></td>
+<td headers="endpoint"><code>/$DB/_local/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.copy</td>
+<td headers="role">管理者、ライター</td>
+</tr>
+</table>
+
+</br>
+
+<table>
+<caption style="caption-side:top">表 6. 管理者、ライター、およびリーダーのアクション</caption>
+<thead>
+<tr>
+<th id="method">方法</th>
+<th id="endpoint">エンドポイント</th>
+<th id="action-name">アクション名</th>
+<th id="role">役割</th>
+</tr>
+</thead>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_iam_session</code></td>
+<td headers="action-name">cloudantnosqldb.iam-session.read</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_iam_session</code></td>
+<td headers="action-name">cloudantnosqldb.iam-session.write</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/_iam_session</code></td>
+<td headers="action-name">cloudantnosqldb.iam-session.delete</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_session</code></td>
+<td headers="action-name">cloudantnosqldb.session.read</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_session</code></td>
+<td headers="action-name">cloudantnosqldb.session.write</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/_session</code></td>
+<td headers="action-name">cloudantnosqldb.session.delete</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_all_dbs</code></td>
+<td headers="action-name">cloudantnosqldb.account.all-dbs</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/_db_updates</code></td>
+<td headers="action-name">cloudantnosqldb.account.db-updates</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_dbs_info</code></td>
+<td headers="action-name">cloudantnosqldb.account.dbs-info</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.database.info</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_all_docs</code></td>
+<td headers="action-name">cloudantnosqldb.database.all-docs</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_changes</code></td>
+<td headers="action-name">cloudantnosqldb.database.changes</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.read</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.document.read</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_bulk_get</code></td>
+<td headers="action-name">cloudantnosqldb.document.read</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/_search_analyze</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_all_docs/queries</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_geo/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_list/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_search/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_show/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_view/$VIEW/queries</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_view/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_explain/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_find/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_local_docs</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.read</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_local_docs/queries</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.read</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_local/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.read</td>
+<td headers="role">管理者、ライター、リーダー</td>
+</tr>
+</table>
+
+</br>
 
 #### 使用不可のエンドポイント
 {: #unavailable-endpoints}
@@ -447,11 +1035,30 @@ if __name__ == "__main__":
 
 管理者役割のユーザーとサービスのみ {{site.data.keyword.cloudant_short_notm}} データにアクセスできます。
 
-役割 | 許可されるアクション
------|----------------
-管理者 | 記載されているすべてのアクション。
-リーダー | なし。
-ライター | なし。
+<table>
+<caption style="caption-side:top">表 7. 役割と許可されるアクションのマッピング</caption>
+<thead>
+<tr>
+<th id="role">役割</th>
+<th id="allowed-action">許可されるアクション</th>
+</tr>
+</thead>
+
+<tr>
+<td headers="role">管理者</td>
+<td headers="allowed-action">記載されているすべてのアクション</td>
+</tr>
+
+<tr>
+<td headers="role">リーダー</td>
+<td headers="allowed-action">なし</td>
+</tr>
+
+<tr>
+<td headers="role">ライター</td>
+<td headers="allowed-action">なし</td>
+</tr>
+</table>
 
 ## トラブルシューティング
 {: #troubleshooting}
@@ -460,4 +1067,4 @@ if __name__ == "__main__":
 ### アカウントが IAM 対応であるか確認する
 {: #ensure-your-account-is-iam-enabled}
 
-サービス・インスタンスが IAM 対応であるか確認するためには、サポート・チケットをオープンする必要があります。
+IBM Cloudant ダッシュボードの「概要」部分で、デプロイメント詳細の下に「認証方式」がリストされます。ここに、使用可能な認証方式がリストされます。 

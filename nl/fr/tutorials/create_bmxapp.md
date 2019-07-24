@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create applications, deploy applications, create simple application
 
@@ -47,7 +47,7 @@ Cette application se connecte à votre instance de la base de données {{site.da
 
 Le code Python propre à chaque tâche est fourni dans le cadre de ce tutoriel.
 Un programme Python complet, suffisant pour illustrer les différents concepts, est fourni
-dans le tutoriel [à cet endroit](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program).
+dans le tutoriel [Création d'une application {{site.data.keyword.cloud_notm}} simple permettant d'accéder à une base de données {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program).
 
 Aucune tentative de création d'un code Python _efficace_ n'a été
 effectuée pour ce tutoriel.

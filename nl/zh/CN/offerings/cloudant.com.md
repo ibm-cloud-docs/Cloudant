@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -25,19 +25,19 @@ subcollection: cloudant
 # {{site.data.keyword.cloudant_short_notm}}.com
 {: #ibm-cloudant.com}
 
-{{site.data.keyword.cloudantfull}} 共享套餐将在 2018 年 3 月 31 日引退。从 2017 年 7 月 24 日开始，无法在 [Cloudant 产品页面](https://cloudant.com){: new_window}上创建任何新的共享套餐帐户。
+{{site.data.keyword.cloudantfull}} 共享套餐将在 2018 年 3 月 31 日引退。从 2017 年 7 月 24 日开始，无法在 [{{site.data.keyword.cloudant_short_notm}} 产品页面](https://www.ibm.com/cloud/cloudant){: new_window}上创建任何新的共享套餐帐户。
 {: deprecated}
 
-{{site.data.keyword.cloudant_short_notm}} 是一种托管且完全受管的数据库即服务 (DBaaS)。它从头开始构建，用于在全球范围内进行缩放，实现不间断运行，以及处理各种数据类型，例如 [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview){: new_window}、[全文本](/docs/services/Cloudant?topic=cloudant-query#creating-an-index){: new_window}和[地理空间](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial){: new_window}。
+{{site.data.keyword.cloudant_short_notm}} 是一种托管且完全受管的数据库即服务 (DBaaS)。它从头开始构建，用于在全球范围内进行缩放，实现不间断运行，以及处理各种数据类型，例如 [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview)、[全文本](/docs/services/Cloudant?topic=cloudant-query#creating-an-index)和[地理空间](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial)。
 
 {{site.data.keyword.cloudant_short_notm}} 是经过优化的运作数据存储器，可处理并行读写操作，并支持高可用性和数据耐久性。
 
-它提供了一个 [HTTP API](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#http-api){: new_window}，用于处理 [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview){: new_window} 数据，并提供 24 小时运行支持和维护。{{site.data.keyword.cloudant_short_notm}} 基于 [Apache CouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://couchdb.apache.org/){: new_window}，并以各种多租户、专用和已安装服务的形式交付。
+它提供了一个 [HTTP API](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#http-api)，用于处理 [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview) 数据，并提供 24 小时运行支持和维护。{{site.data.keyword.cloudant_short_notm}} 基于 [Apache CouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://couchdb.apache.org/){: new_window}，并以各种多租户、专用和已安装服务的形式交付。
 
 本文档中的所有货币值都以美元 ($) 为单位。
 {: tip}
 
-提供方式可为[共享套餐](#shared-plan){: new_window}或[企业（专用）套餐](#enterprise-plan){: new_window}。{{site.data.keyword.cloudant_short_notm}} 还可作为 [{{site.data.keyword.cloud}} 服务](https://www.ibm.com/cloud/){: new_window}提供。
+提供方式可为[共享套餐](#shared-plan)或[企业（专用）套餐](#enterprise-plan)。{{site.data.keyword.cloudant_short_notm}} 还作为 [{{site.data.keyword.cloud}} 服务 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/){: new_window} 提供。
 
 {{site.data.keyword.cloud_notm}} 服务上未提供 {{site.data.keyword.cloudant_short_notm}} 共享套餐和企业（专用）套餐产品。
 {: important}
@@ -54,7 +54,7 @@ subcollection: cloudant
 ## 共享套餐
 {: #shared-plan}
 
-{{site.data.keyword.cloudant_short_notm}} 共享套餐将在 2018 年 3 月 31 日引退。从 2017 年 7 月 24 日开始，无法在 [{{site.data.keyword.cloudant_short_notm}} Web 站点](https://cloudant.com){: new_window}上创建任何新的共享套餐帐户。
+{{site.data.keyword.cloudant_short_notm}} 共享套餐将在 2018 年 3 月 31 日引退。从 2017 年 7 月 24 日开始，无法在 [{{site.data.keyword.cloudant_short_notm}} Web 站点 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/cloudant){: new_window} 上创建任何新的共享套餐帐户。
 {: deprecated}
 
 使用 {{site.data.keyword.cloudant_short_notm}} 共享套餐时，您有权访问通过共享集群或“多租户”集群提供的所有 {{site.data.keyword.cloudant_short_notm}} DBaaS 功能。

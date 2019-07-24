@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-12"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -43,7 +43,7 @@ Tier-1 クラウド・インフラストラクチャー・プロバイダーで�
 ## 国際標準化機構 (ISO)
 {: #international-organization-for-standardization-iso-}
 
-{{site.data.keyword.cloudant_short_notm}} および {{site.data.keyword.cloudant_short_notm}} Dedicated クラスターは、サード・パーティーのセキュリティー会社によって監査されており ISO 27001、ISO 27017、および ISO 27018 の要件を満たしています。詳しくは、[「{{site.data.keyword.cloudant_short_notm}} のコンプライアンス対応」ページ]( https://www.ibm.com/cloud/compliance)を参照して、証明書のリンクを確認してください。「{{site.data.keyword.cloudant_short_notm}} のコンプライアンス対応」ページの以下の説明には {{site.data.keyword.cloudant_short_notm}} サービスとそれぞれの認証について記載されています。
+{{site.data.keyword.cloudant_short_notm}} および {{site.data.keyword.cloudant_short_notm}} Dedicated クラスターは、サード・パーティーのセキュリティー会社によって監査されており ISO 27001、ISO 27017、および ISO 27018 の要件を満たしています。 詳しくは、[「{{site.data.keyword.cloudant_short_notm}} のコンプライアンス対応」ページ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")]( https://www.ibm.com/cloud/compliance){: new_window} を参照して、証明書へのリンクを確認してください。「{{site.data.keyword.cloudant_short_notm}} のコンプライアンス対応」ページの以下の説明には {{site.data.keyword.cloudant_short_notm}} サービスとそれぞれの認証について記載されています。
  
 - {{site.data.keyword.cloud_notm}} サービス (PaaS および SaaS) 認証クラウド製品リスト
 - {{site.data.keyword.cloud_notm}} サービス (PaaS および SaaS) 証明書 - ISO 27001
@@ -61,4 +61,4 @@ SOC 2 タイプ 2 レポートは、カスタマー・ポータルから要求�
 ## 一般データ保護規則 (GDPR)
 {: #general-data-protection-regulation-gdpr-overview}
 
-GDPR は、EU 全体で統一されたデータ保護法の枠組みを作ろうと努めており、世界中で個人データをホストして「処理する」ユーザーに厳密な規則を課しながら、市民が各自の個人データを制御できるようにすることを目的としています。 この規則により、EU 内外での個人データの自由な移動に関連する規則も導入されます。 詳細については、[{{site.data.keyword.IBM_notm}} プライバシー・ステートメント (IBM privacy statement)](https://www.ibm.com/privacy/)を参照してください。
+GDPR は、EU 全体で統一されたデータ保護法の枠組みを作ろうと努めており、世界中で個人データをホストして「処理する」ユーザーに厳密な規則を課しながら、市民が各自の個人データを制御できるようにすることを目的としています。 この規則により、EU 内外での個人データの自由な移動に関連する規則も導入されます。 詳しくは、[{{site.data.keyword.IBM_notm}} Privacy Statement ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/privacy/){: new_window} を参照してください。

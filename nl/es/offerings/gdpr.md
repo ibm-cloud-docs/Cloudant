@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -67,41 +67,29 @@ Para obtener más información sobre las clasificaciones soportadas de datos per
 {{site.data.keyword.cloudant_short_notm}} registra algunos datos sobre sus usuarios y es un Controlador de datos para dichos datos de
 Información personal (PI). Los datos que {{site.data.keyword.cloudant_short_notm}} registra dependen del tipo de cuenta que tenga.
 
-Si tiene un clúster de {{site.data.keyword.cloudant_short_notm}} dedicado/clúster de {{site.data.keyword.cloudant_short_notm}}
-Enterprise, grabamos datos
-sobre usted y se considera un Controlador de datos para los datos dentro del contexto de GDPR. 
-Si tiene un clúster de {{site.data.keyword.cloudant_short_notm}} dedicado/clúster de {{site.data.keyword.cloudant_short_notm}}
-Enterprise, disponemos de:
+Si tiene un clúster de {{site.data.keyword.cloudant_short_notm}} dedicado/clúster de {{site.data.keyword.cloudant_short_notm}} Enterprise, registramos datos sobre usted y se considera un Controlador de datos para los datos dentro del contexto de GDPR. 
+Si tiene un clúster de {{site.data.keyword.cloudant_short_notm}} dedicado/clúster de {{site.data.keyword.cloudant_short_notm}} Enterprise, disponemos de:
 
  * Nombre
  * Correo electrónico
 
 Los datos que {{site.data.keyword.cloudant_short_notm}} contiene pueden visualizarse y actualizarse mediante el panel de control de {{site.data.keyword.cloudant_short_notm}}.
 
-Si tiene una cuenta suministrada por {{site.data.keyword.cloud_notm}} (incluida una instancia dedicada),
-{{site.data.keyword.cloudant_short_notm}} _no_ recopila los datos personales mencionados anteriormente. Estos datos los guarda {{site.data.keyword.cloud_notm}}.
+Si tiene una cuenta suministrada por {{site.data.keyword.cloud_notm}} (incluida una instancia dedicada), {{site.data.keyword.cloudant_short_notm}} _no_ recopila los datos personales mencionados anteriormente. Estos datos los guarda {{site.data.keyword.cloud_notm}}.
 
-{{site.data.keyword.cloudant_short_notm}} procesa PI de clientes limitados en el curso de la ejecución del servicio y la optimización
-de la experiencia del usuario. {{site.data.keyword.cloudant_short_notm}} utiliza el correo electrónico para contactar clientes según corresponda. La supervisión de las interacciones del cliente con el panel de control de {{site.data.keyword.cloudant_short_notm}} es la otra forma en la que {{site.data.keyword.cloudant_short_notm}} procesa PI.
+{{site.data.keyword.cloudant_short_notm}} procesa PI de clientes limitados en el curso de la ejecución del servicio y la optimización de la experiencia del usuario. {{site.data.keyword.cloudant_short_notm}} utiliza el correo electrónico para contactar clientes según corresponda. La supervisión de las interacciones del cliente con el panel de control de {{site.data.keyword.cloudant_short_notm}} es la otra forma en la que {{site.data.keyword.cloudant_short_notm}} procesa PI.
 
 ### Restricción del proceso
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} envía datos de interacción del panel de control a Segment. Es posible pedir a {{site.data.keyword.cloudant_short_notm}} que restrinja
-el proceso de la PI del cliente de esta forma mediante una [solicitud de soporte de {{site.data.keyword.cloudant_short_notm}}](mailto:support@cloudant.com). Al
-recibir dicha solicitud, {{site.data.keyword.cloudant_short_notm}} suprime la información asociada
-con el cliente tal como se envía a Segment, e impide que se envíen más datos. {{site.data.keyword.cloudant_short_notm}} debe conservar la
-posibilidad de ponernos en contacto con los clientes dedicados a través del correo electrónico y proporcionar una interfaz para que los clientes mantengan esta información actualizada ya sea directamente, o a través de la configuración del cliente de sus detalles de contacto
-a través de sus detalles de cuenta de {{site.data.keyword.cloud_notm}}.
+{{site.data.keyword.cloudant_short_notm}} envía datos de interacción del panel de control a Segment. Es posible pedir a {{site.data.keyword.cloudant_short_notm}} que restrinja el proceso de la PI del cliente de esta forma mediante una [solicitud de soporte de {{site.data.keyword.cloudant_short_notm}}![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](mailto:support@cloudant.com){: new_window}. Al recibir dicha solicitud, {{site.data.keyword.cloudant_short_notm}} suprime la información asociada con el cliente tal como se envía a Segment, e impide que se envíen más datos. {{site.data.keyword.cloudant_short_notm}} debe conservar la posibilidad de ponernos en contacto con los clientes dedicados a través del correo electrónico y proporcionar una interfaz para que los clientes mantengan esta información actualizada ya sea directamente, o a través de la configuración del cliente de sus detalles de contacto a través de sus detalles de cuenta de {{site.data.keyword.cloud_notm}}.
 
 ## ¿Está cifrada nuestra base de datos de {{site.data.keyword.cloudant_short_notm}}?
 {: #is-our-ibm-cloudant-database-encrypted-}
 
-Todos los clústeres tienen un sistema de archivos cifrado (cifrado en reposo) utilizando LUKS (Linux Unified Key Setup). Los datos de la base de datos están
-visibles para nuestras operaciones y equipos de soporte (consultar a continuación).
+Todos los clústeres tienen un sistema de archivos cifrado (cifrado en reposo) utilizando LUKS (Linux Unified Key Setup). Los datos de la base de datos están visibles para nuestras operaciones y equipos de soporte (consultar el párrafo siguiente).
 
-Para los datos confidenciales, lo que determine debe permanecer invisible para {{site.data.keyword.cloudant_short_notm}},
-debe cifrar o proteger (pseudonomizar) los datos antes de enviárnoslos. Debe evitar utilizar PI como `_id` de documento en sus URL, por ejemplo, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, puesto que son siempre visibles y se escriben en los registros de acceso.
+Para los datos confidenciales, lo que determine debe permanecer invisible para {{site.data.keyword.cloudant_short_notm}}, debe cifrar o proteger (pseudonomizar) los datos antes de enviárnoslos. Debe evitar utilizar PI como `_id` de documento en sus URL, por ejemplo, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, puesto que son siempre visibles y se escriben en los registros de acceso.
 
 ## Ubicaciones de datos
 {: #data-locations}
@@ -132,7 +120,7 @@ Los detalles de certificación y los informes de testificación (p.ej., ISO y SO
 cliente cuando lo solicite.
 
 ### Medidas técnicas y organizativas
-{: #technical-and-organisational-measures}
+{: #technical-and-organizational-measures}
 
 Las Medidas técnicas y organizativas (TOM) están empleadas por {{site.data.keyword.cloudant_short_notm}}
 para garantizar la seguridad de los
@@ -204,7 +192,7 @@ verifican la solicitud para confirmar que el `id` contenga PI. {{site.data.keywo
 1. {{site.data.keyword.cloudant_short_notm}} desencadena la acción de depuración para eliminar de forma permanente los datos solicitados.
 
 Este proceso solo se utiliza para solicitudes de supresión de emergencia (por ejemplo, *derecho a
-olvidarse*) y no se debe confiar en ellas a largo plazo. Si la aplicación utiliza intencionadamente
+olvido*) y no se debe confiar en ellas a largo plazo. Si la aplicación utiliza intencionadamente
 PI en ID de documentos,
 se debe modificar para pseudonomizar tal PI, o no utilizar PI en los ID de documentos. No puede basarse
 en la depuración normal por parte del equipo de operaciones de {{site.data.keyword.cloudant_short_notm}} para evitar esto. 

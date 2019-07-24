@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -32,7 +32,8 @@ subcollection: cloudant
 
 一致性是四個 ['ACID' ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/ACID){: new_window} 內容的其中一個，需有這些內容，才能可靠地處理及報告資料庫內的交易。
 
-此外，一致性是 <a href="http://en.wikipedia.org/wiki/CAP_Theorem" target="_blank">'CAP' <img src="../images/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示"></a> 定理中三個屬性的其中一個。屬性為 **C**（一致性）、**A**（可用性），以及 **P**（分割區容錯）。此定理指出分散式電腦系統（例如 {{site.data.keyword.cloudant_short_notm}}）無法_同時_ 保證三個屬性：
+此外，一致性還是
+<a href="http://en.wikipedia.org/wiki/CAP_Theorem" target="_blank"> "CAP" <img src="../images/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示"></a> 定理中的三個屬性之一。屬性為 **C**（一致性）、**A**（可用性），以及 **P**（分割區容錯）。此定理指出分散式電腦系統（例如 {{site.data.keyword.cloudant_short_notm}}）無法_同時_ 保證三個屬性：
 
 -   一致性，其中所有節點可以同時看到相同的資料。
 -   可用性，保證每個要求都會收到其是成功還是失敗的回應。
@@ -44,13 +45,13 @@ subcollection: cloudant
 
 最終一致性有利於效能。使用強大的一致性模型時，系統必須等待任何更新項目順利傳播完畢，然後寫入或更新要求才能完成。使用最終一致的模型時，寫入或更新要求幾乎可以立即返回，而整個系統中的傳播會「在幕後」繼續。
 
-資料庫可以基於理論原因與實際原因兩者，僅展示這三個屬性的兩個。設定一致性及可用性優先順序的資料庫很簡單：單一節點會儲存單一資料副本。但是，此模型難以調整，因為您必須升級節點，才能取得更多效能，而不是使用額外節點。因此，即使次要系統失效可關閉單一節點系統，然而任何流失訊息都表示流失相當資料。若要確保，系統必須變得更準確。
+資料庫可能同時因為理論與實際的原因，而僅展示這三個屬性當中的兩項。設定一致性及可用性優先順序的資料庫很簡單：單一節點會儲存單一資料副本。但是，此模型難以調整，因為您必須升級節點，才能取得更多效能，而不是使用額外節點。因此，即使次要系統失效可關閉單一節點系統，然而任何流失訊息都表示流失相當資料。若要確保，系統必須變得更準確。
 
-## 分割區容錯中的取捨
+## 分割區容錯性的權衡
 {: #tradeoffs-in-partition-tolerance}
 
 設定一致性及分割區容錯優先順序的資料庫一般會套用
-<a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">主從 <img src="../images/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示"></a> 設定，其中在系統的眾多節點中只有一個節點可選為主要節點。只有主要節點才能核准資料寫入，而所有次要節點都會從主要節點抄寫資料來處理讀取作業。如果主要節點失去與網路的連線，或無法與許多系統節點通訊，則剩餘的節點會選取新的主要節點。此選取處理程序在各個系統之間各有不同，而且可能是[重大問題 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window} 的來源。
+<a href="http://en.wikipedia.org/wiki/Master/slave_(technology)" target="_blank">主從 <img src="../images/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示"></a> 設定，在這種設定中，系統有許多節點，其中只有一個節點可選為主要節點。只有主要節點才能核准資料寫入，而所有次要節點都會從主要節點抄寫資料來處理讀取作業。如果主要節點失去與網路的連線，或無法與許多系統節點通訊，則剩餘的節點會選取新的主要節點。此選取處理程序在各個系統之間各有不同，而且可能是[重大問題 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://aphyr.com/posts/284-call-me-maybe-mongodb){: new_window} 的來源。
 
 
 {{site.data.keyword.cloudant_short_notm}} 會設定可用性及分割區容錯的優先順序，方法為採用主從設定，因此每個節點都可以同時接受對其部分資料的寫入及讀取。
@@ -77,7 +78,7 @@ subcollection: cloudant
 ## 從理論到實作
 {: #from-theory-to-implementation}
 
-處理高可用性對雲端應用程式至關重要。否則，當您擴充時，全球資料庫一致性仍會是主要瓶頸。高度可用的應用程式需要與其資料維持連續不斷的聯繫，即使該資料並不是最新的。這就是最終一致性的概念，並沒有什麼可怕的。總體來說，有時候提供並非完全正確的答案好過完全不提供。
+處理高可用性對雲端應用程式至關重要。否則，當您擴充時，全球資料庫一致性仍會是主要瓶頸。高可用性的應用程式需要與其資料維持連續不斷的聯絡，即使該資料並不是最新的。這就是最終一致性的概念，並沒有什麼可怕的。總體來說，有時候提供並非完全正確的答案好過完全不提供。
 
 資料庫系統會以不同方式隱藏可用性與一致性的複雜性，但是它們始終在那裡。透過 {{site.data.keyword.cloudant_short_notm}} 資料庫即服務以及 CouchDB 和其他 NoSQL 資料庫所得到的觀點，就是開發人員最好能在設計處理程序的早期處理這些複雜性。
 事先做好艱辛的工作，可以減少出人意料的事件，因為應用程式從第一天起就要做好擴充的準備。

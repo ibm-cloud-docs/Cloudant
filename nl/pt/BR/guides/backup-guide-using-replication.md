@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -51,8 +51,7 @@ um backup pode preservar o estado de seu banco de dados em um horário seleciona
 ## Backups incrementais
 {: #incremental-backups}
 
-Se você for um cliente corporativo,
-um recurso de backup incremental diário estará [disponível](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
+Se você for um cliente corporativo, um recurso de backup incremental diário estará disponível. Para obter mais informações, consulte [Recuperação de desastre e backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 
 Se você não for um cliente corporativo
 ou preferir criar seus próprios backups,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-06-12"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -34,7 +34,7 @@ subcollection: cloudant
 
 ![슬라이더](../images/migrate2.gif)
 
-## 가격 예제 
+## 가격 예 
 {: #pricing-examples}
 
 {{site.data.keyword.cloudant_short_notm}}를 사용하여 모바일 앱을
@@ -85,7 +85,7 @@ Lite |1GB |  1GB 한계 미만이 되도록 충분한 데이터를 삭제할 때
 
 데이터가 어떤 방법으로 {{site.data.keyword.cloud_notm}} 사용량 대시보드에 표시됩니까?
 
-현재 및 과거 사용량에 대한 청구서는 {{site.data.keyword.cloud_notm}} 대시보드의 관리 - > 청구 및 사용량 > 사용량에서 볼 수 있습니다. 이 보기에는 서비스, 플랜 또는 인스턴스 레벨에서 특정 월에 누적된 총 사용량이 표시됩니다. 예상 총계는 지금까지 현재 월에 대해 지금까지 또는 지난 전체 월 동안의 청구서를 반영합니다. 이는 현재 월의 해당 시점까지 누적된 시간당 비용만 표시합니다. 월말에 `LOOKUPS_PER_MONTH`, `WRITES_PER_MONTH` 및 `QUERIES_PER_MONTH` 필드에 반영된 해당 월의 평균 프로비저닝된 처리량 용량을 볼 수 있습니다. (검색은 이제 읽기라고 하고 조회는 글로벌 조회라고 합니다.) `STORAGE_MANAGED_PER_MONTH` 필드에는 비용이 청구된 스토리지만 표시되고 표준 플랜에 포함된 20GB는 포함되지 않습니다. 다음 예제에서 20GB가 넘는 수량은 해당 월에 평균 40GB의 데이터가 인스턴스에 있다는 사실을 반영합니다. 20GB 미만의 스토리지를 사용하는 경우, 한계를 초과하지 않았으므로 디스플레이에 0GB가 표시됩니다.   
+현재 및 과거 사용량에 대한 청구서는 {{site.data.keyword.cloud_notm}} 대시보드의 관리 - > 청구 및 사용량 > 사용량에서 볼 수 있습니다. 이 보기에는 서비스, 플랜 또는 인스턴스 레벨에서 특정 월에 누적된 총 사용량이 표시됩니다.  예상 총계는 지금까지 현재 월에 대해 지금까지 또는 지난 전체 월 동안의 청구서를 반영합니다. 이는 현재 월의 해당 시점까지 누적된 시간당 비용만 표시합니다. 월말에 `LOOKUPS_PER_MONTH`, `WRITES_PER_MONTH` 및 `QUERIES_PER_MONTH` 필드에 반영된 해당 월의 평균 프로비저닝된 처리량 용량을 볼 수 있습니다. (검색은 이제 읽기라고 하고 조회는 글로벌 조회라고 합니다.) `STORAGE_MANAGED_PER_MONTH` 필드에는 비용이 청구된 스토리지만 표시되고 표준 플랜에 포함된 20GB는 포함되지 않습니다. 다음 예제에서 20GB가 넘는 수량은 해당 월에 평균 40GB의 데이터가 인스턴스에 있다는 사실을 반영합니다. 20GB 미만의 스토리지를 사용하는 경우, 한계를 초과하지 않았으므로 디스플레이에 0GB가 표시됩니다.   
 
 ![{{site.data.keyword.cloudant_short_notm}} STORAGE MANAGED PER MONTH 이상의 대시보드 사용량 메트릭 보기](../images/usage-dashboard1.png)
 

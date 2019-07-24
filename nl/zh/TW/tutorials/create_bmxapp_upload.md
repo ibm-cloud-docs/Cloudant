@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -33,14 +33,12 @@ subcollection: cloudant
 
 第一項作業是連接至 {{site.data.keyword.cloud_notm}}。
 
-[{{site.data.keyword.cloud_notm}} 工具箱](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits)可協助您進行連線。
-
-Cloud Foundry 需要知道用於進行 API 呼叫（例如，當您上傳應用程式時）的 URL。{{site.data.keyword.cloud_notm}} 工具箱使用 '`cf api`' 指令來管理 API 端點。[這裡提供了 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window} '`cf api`' 指令的相關資訊。
+{{site.data.keyword.cloud_notm}} CLI 需要知道要用於發出 API 呼叫的 URL。例如，上傳應用程式時，{{site.data.keyword.cloud_notm}} 工具箱使用 `ibmcloud api` 指令來管理 API 端點。如需 `ibmcloud api` 指令的相關資訊，請參閱 [ {{site.data.keyword.cloud_notm}} 開始使用 CLI ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}。
 
 使用下列指令，以告知 Cloud Foundry 要使用的 URL：
 
 ```sh
-bluemix api https://api.ng.bluemix.net
+ibmcloud api https://api.ng.bluemix.net
 ```
 {: pre}
 
@@ -54,7 +52,7 @@ OK
 
 API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
-Not logged in. Use 'bluemix login' to log in.
+Not logged in. Use 'ibmcloud login' to log in.
 ```
 {: codeblock}
 
@@ -74,7 +72,7 @@ Cloud Foundry 現在知道將 API 呼叫傳送到哪裏，以便管理應用程�
 使用與下列範例類似的指令來登入 {{site.data.keyword.cloud_notm}} 應用程式環境。請注意，系統會要求您輸入您的帳戶密碼。
 
 ```sh
-bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
+ibmcloud login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {: pre}
 
@@ -203,7 +201,7 @@ buildpack: python 1.5.5
 2.  在 `Cloudant CF 應用程式`詳細資料頁面上，按一下`路徑`，然後按一下 `Cloudant-CF-app.mybluemix.net` 鏈結。<br/>
 ![Cloudant CF 應用程式詳細資料頁面](images/img0030.png)
 
-3. 即會在 `https://cloudant-cf-app.mybluemix.net/` 開啟新的瀏覽器視窗。訊息會驗證應用程式正在執行。其指出 "Hello World! Thanks for creating a Python Starter Application."<br/>
+3. 即會在 `https://cloudant-cf-app.mybluemix.net/` 開啟新的瀏覽器視窗。訊息會藉由顯示 'Hello World! Thanks for creating a Python Starter Application' 的訊息，驗證應用程式正在執行中。<br/>
 ![Hello World! 已驗證 Cloudant CF 應用程式正確地執行](images/img0054.png)
 
 

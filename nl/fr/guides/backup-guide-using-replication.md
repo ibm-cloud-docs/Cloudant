@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -49,7 +49,7 @@ De cette manière, une sauvegarde peut préserver l'état de votre base de donn�
 {: #incremental-backups}
 
 Si vous êtes un client d'entreprise,
-une fonction de sauvegarde incrémentielle quotidienne est [mise à votre disposition](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
+une fonction de sauvegarde incrémentielle quotidienne est mise à votre disposition. Pour plus d'informations, voir [Reprise après incident et sauvegarde](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 
 Si vous n'êtes pas un client d'entreprise,
 ou si préférez créer vos propres sauvegardes,

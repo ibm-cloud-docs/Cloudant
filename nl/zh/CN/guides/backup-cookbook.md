@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.cloudant_short_notm}} 备份与恢复
+# {{site.data.keyword.cloudant_short_notm}} 备份和恢复
 {: #ibm-cloudant-backup-and-recovery}
 
 本手册构成了 [{{site.data.keyword.cloudantfull}} 灾难恢复指南](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)的一部分。如果您是第一次接触本主题，并且希望了解备份在哪些方面可与 {{site.data.keyword.cloudant_short_notm}} 提供的其他功能配合使用，以支持灾难恢复 (DR) 和高可用性 (HA) 需求，那么应该首先阅读此处的内容。
@@ -32,7 +32,7 @@ subcollection: cloudant
 ## CouchBackup 简介
 {: #introducing-couchbackup}
 
-{{site.data.keyword.cloudant_short_notm}} 提供了一个用于快照备份和复原的支持工具。该工具名为 CouchBackup，是开放式源代码性质的。它是一个 `node.js` 库，[可供安装在 npm ![外部链接图标](../images/launch-glyph.svg "外部链接图标") 上][npmpackage]{: new_window}。
+{{site.data.keyword.cloudant_short_notm}} 提供了一个用于快照备份和复原的支持工具。该工具名为 CouchBackup，是开放式源代码性质的。这是一个 `node.js` 库，可以将其安装在 [npm ![外部链接图标](../images/launch-glyph.svg "外部链接图标")][npmpackage]{: new_window} 上。
 
 除了该库外，CouchBackup 软件包还包含两个命令行工具：
 
@@ -104,7 +104,7 @@ CouchBackup 软件包提供了两种方法来使用其核心功能。
 * 命令行工具可以嵌入到标准 UNIX 命令管道中。对于许多方案，`cron` 与 `couchbackup` 应用程序的简单 shell 脚本编制的组合已足以满足需求。
 * 可通过 node.js 使用的库。该库支持创建和部署更复杂的备份过程，例如动态确定必须备份的数据库。
 
-使用命令行备份工具或具有应用程序代码的库，以支持在更复杂的情境中从 {{site.data.keyword.cloudant_short_notm}} 数据库进行备份。一个有用的方案是使用 `cron` 安排备份，并自动将数据上传到 [Cloud Object Storage ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window} 以长期保留。
+使用命令行备份工具或具有应用程序代码的库，以支持在更复杂的情境中从 {{site.data.keyword.cloudant_short_notm}} 数据库进行备份。一个有用的方案是使用 `cron` 安排备份，并自动将数据上传到 [Cloud Object Storage ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window} 以长期保留。
 
 ## 命令行脚本编制示例
 {: #command-line-scripting-examples}
@@ -181,7 +181,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 
 以下脚本样本说明了如何将 `couchbackup` 库与 {{site.data.keyword.IBM}} Cloud Object Storage 组合使用。此代码说明了可以如何使用跨区域 S3 API 将数据库备份到对象存储。
 
-此代码的先决条件是通过遵循[这些指示信息 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")][cosclient]{: new_window} 初始化 {{site.data.keyword.IBM_notm}} Cloud Object Storage 的 S3 客户机对象。
+此代码的先决条件是通过遵循 [{{site.data.keyword.cloud_notm}} Object Storage - S3 API 简介 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")][cosclient]{: new_window} 中的指示信息，初始化 {{site.data.keyword.IBM_notm}} Cloud Object Storage 的 S3 客户机对象。
 {: note}
 
 ```javascript

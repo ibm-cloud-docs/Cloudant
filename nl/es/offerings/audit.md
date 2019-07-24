@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -46,7 +46,7 @@ Los registros de auditoría de {{site.data.keyword.cloudant_short_notm}} se pued
 - Qué y cuándo se han creado o suprimido documentos de réplica.
 
 
-## Cómo acceder a registros de auditoría para su cuenta
+## Cómo acceder a los registros de auditoría de su cuenta
 {: #how-to-access-audit-logs-for-your-account}
 
 Para solicitar el acceso a los registros de auditoría para la cuenta, póngase en contacto

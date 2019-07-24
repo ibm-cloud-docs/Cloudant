@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -44,7 +44,7 @@ Etant donné que ce document est un tutoriel concernant les tâches,
 il présente uniquement la procédure de base pour leur réalisation.
 Pour plus d'informations, voir la rubrique [Référence d'API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) pour accéder à un guide complet des options disponibles.
 
-## curl et jq - Informations générales
+## Bases de `curl` et `jq`
 {: #curl-and-jq-basics}
 
 Pour obtenir toutes les tâches actives et formater correctement la sortie,
@@ -56,7 +56,7 @@ Ainsi, il est plus facile d'obtenir tous les documents de réplication,
 ou les détails d'une seule tâche d'indexation de vue spécifique.
 La rubrique Référence d'API inclut des informations supplémentaires sur les options.
 
-_Obtention et formatage d'une liste de tâches actives - Exemple :_
+*Obtention et formatage d'une liste de tâches actives - Exemple :*
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
@@ -88,21 +88,21 @@ Dans tous les cas,
 la recherche d'une liste de tâches d'indexation génère une liste d'objets JSON :
 une pour chacune des tâches actives trouvées.
 
-_Recherche de toutes les tâches d'indexation de vue en filtrant en fonction du type `indexer` - Exemple :_
+*Recherche de toutes les tâches d'indexation de vue en filtrant en fonction du type `indexer` - Exemple :*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-_Recherche de toutes les tâches d'indexation de recherche en filtrant en fonction du type `search_indexer` - Exemple :_
+*Recherche de toutes les tâches d'indexation de recherche en filtrant en fonction du type `search_indexer` - Exemple :*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-_Résultat suite à la recherche de tâches d'indexation de vue - Exemple :_
+*Résultat suite à la recherche de tâches d'indexation de vue - Exemple :*
 
 ```json
 {
@@ -142,7 +142,7 @@ Les estimations de la durée de l'exécution d'une tâche d'indexation ne sont p
 
 Gardez à l'esprit que tous ces facteurs peuvent être associés et réduire de manière importante la précision de votre estimation.
 
-_Extraction de la zone `changes_done` à l'aide de `jq` - Exemple :_
+*Extraction de la zone `changes_done` à l'aide de `jq` - Exemple :*
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -160,28 +160,28 @@ Pour faciliter la sélection des informations concernant un processus de réplic
 démarrez le processus de réplication en créant un document dans la base de données `_replicator` et
 attribuez une valeur connue à sa zone `_id`.
 
-_Recherche de toutes les tâches dédiées, en filtrant par type de `réplication` - Exemple :_
+*Recherche de toutes les tâches dédiées, en filtrant par type de `réplication` - Exemple :*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-_Recherche d'une tâche de réplication spécifique, en filtrant par identité de document connue - Exemple :_
+*Recherche d'une tâche de réplication spécifique, en filtrant par identité de document connue - Exemple :*
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-_Recherche d'une tâche de réplication spécifique, en filtrant par élément `replication_id` connu - Exemple :_
+*Recherche d'une tâche de réplication spécifique, en filtrant par élément `replication_id` connu - Exemple :*
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-_Résultat après la recherche d'une tâche de réplication - Exemple :_
+*Résultat après la recherche d'une tâche de réplication - Exemple :*
 
 ```json
 {

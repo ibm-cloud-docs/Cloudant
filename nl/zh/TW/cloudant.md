@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: links to documentation, how to contribute
 
@@ -32,18 +32,17 @@ subcollection: cloudant
 它會將資料儲存為 JSON 格式的文件。我們在建置它時，謹記著可擴充性、高可用性和延續性。它具備各種檢索選項，包括 MapReduce、{{site.data.keyword.cloudantfull}} 查詢、全文檢索及地理空間檢索。抄寫功能讓您能輕鬆保持資料庫叢集、桌上型電腦和行動裝置之間的資料同步。
 
 
-如需其他 {{site.data.keyword.cloudant_short_notm}} 供應項目的相關資訊，請參閱主要 [{{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} 網站。
+如需其他 {{site.data.keyword.cloudant_short_notm}} 供應項目的相關資訊，請參閱主要 [{{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/cloudant){: new_window} 網站。
 此處所提供的線上文件，提供有關 {{site.data.keyword.cloudant_short_notm}} 概念、作業及技術的詳細資料。
 
-您可以從 [{{site.data.keyword.cloud}} 儀表板 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window} 啟動 {{site.data.keyword.cloudant_short_notm}} 服務。
+您可以從 [{{site.data.keyword.cloud}} 儀表板 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/catalog/services/cloudant){: new_window} 啟動 {{site.data.keyword.cloudant_short_notm}} 服務。
 
-[提供](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started)利用 {{site.data.keyword.cloudant_short_notm}} 開始進行的「快速入門」，以及更詳細說明作業的[指導教學](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)。
-在 [API 參考資料](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)中提供利用資料庫實例進行鑑別及查詢資料這類詳細資料的相關資訊。
+提供名為[入門指導教學](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started)的「快速入門」，供您開始執行 {{site.data.keyword.cloudant_short_notm}}，另外還提供更詳細說明作業的[指導教學](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)。如需對資料庫實例進行鑑別和查詢資料的更多詳細資料，請參閱 [API 參考資料](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)。
 
 ## 文件內容
 {: #documentation-contents}
 
-*	[入門指導教學](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started)：瞭解如何建立 {{site.data.keyword.cloudantfull}} 資料庫，並使用 Python 在該資料庫中移入一個簡單的資料集合。
+*	[入門指導教學](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started)：瞭解如何建立 {{site.data.keyword.cloudantfull}} 資料庫，並使用 Python 在該資料庫中移入一個簡單的資料集合。
 *	[{{site.data.keyword.cloudant_short_notm}} 部落格 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://blog.cloudant.com/)：閱讀有關各種主題的部落格，包括 {{site.data.keyword.cloudant_short_notm}} 基本概念、移除衝突、產生範例資料、分割的資料庫等等。 
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public)：{{site.data.keyword.cloud_notm}} Public 供應項目的說明，包括特性、選項及定價。 
 *	[定價](/docs/services/Cloudant?topic=cloudant-pricing#pricing)：此文章說明 {{site.data.keyword.cloudant_short_notm}} 定價模型提供的選項及彈性。 

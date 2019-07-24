@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -36,7 +36,7 @@ subcollection: cloudant
     {{site.data.keyword.cloud_notm}} ダッシュボードは、
     [https://cloud.ibm.com/ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/){: new_window} にあります。
     ユーザー名とパスワードで認証すると、
-    {{site.data.keyword.cloud_notm}} ダッシュボードが表示されます。 メニューから`「カタログ」`をクリックします。<br/>
+    {{site.data.keyword.cloud_notm}} ダッシュボードが表示されます。 メニューから`「カタログ」`をクリックします。 <br/>
     ![{{site.data.keyword.cloud_notm}} ダッシュボード](images/img0001.png)
 
 2.  以下のように「`コンピュート`」カテゴリーをクリックします。<br/>
@@ -47,13 +47,13 @@ subcollection: cloudant
     ![{{site.data.keyword.cloud_notm}} Python アプリ](images/img0013.png)<br/>
     `Cloud Foundry アプリの作成` フォームが表示されます。
 
-4.  `Cloud Foundry アプリの作成` フォームを使用して、 Python Cloud Foundry アプリケーションの環境を指定して作成します。 アプリケーションの名前を入力します。例えば、`Cloudant CF app` など。 ホスト名は自動で生成されますが、カスタマイズすることも可能です。</br>
+4.  `Cloud Foundry アプリの作成` フォームを使用して、 Python Cloud Foundry アプリケーションの環境を指定して作成します。 アプリケーションの名前を入力します。例えば、`Cloudant CF app` など。 ホスト名は自動的に生成されますが、カスタマイズすることも可能です。</br>
     ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry アプリ名](images/img0014.png)
     
     ホスト名は、{{site.data.keyword.cloud_notm}} ドメイン内で固有でなければなりません。 この例では、ドメイン名が `mybluemix.net` で、完全なホスト名は `Cloudant-CF-app.mybluemix.net` になります。
     {: tip}
 
-5.  `作成` をクリックして、アプリケーション環境を作成します。</br>
+5.  「`作成`」をクリックして、アプリケーション環境を作成します。</br>
     ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry アプリの作成](images/img0015.png)
 
 6.  しばらく間をおいて、
@@ -78,7 +78,7 @@ subcollection: cloudant
 チュートリアルのこのセクションでは、アプリケーションの構成および管理エリアを使用して、
 {{site.data.keyword.cloud_notm}} アプリケーション環境とサービスを接続する方法を説明します。
 
-1.  {{site.data.keyword.cloud_notm}} ダッシュボードでは、**「メニュー」**アイコン > **「リソース・リスト」**に進み、サービス・インスタンスを開きます。<br/>
+1.  {{site.data.keyword.cloud_notm}} ダッシュボードでは、**「メニュー」**アイコン > **「リソース・リスト」**に進み、サービス・インスタンスを開きます。 <br/>
     ![{{site.data.keyword.cloud_notm}} ダッシュボードでのアプリケーションの選択](images/img0017.png)</br>
     アプリケーションの構成および管理の概要エリアが表示されます。
 
@@ -88,7 +88,7 @@ subcollection: cloudant
     アプリケーションと、アカウント内で使用可能な他のサービスとの接続を構成するエリアが表示されます。
 
 3.  このチュートリアルでは、既存の {{site.data.keyword.cloudant_short_notm}}
-    データベース・インスタンスが[前提条件](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites)です。
+    データベース・インスタンスが[前提条件](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites-create_bmxapp_prereq)です。
     `接続の作成`をクリックして、そのサービス・インスタンスとアプリケーション間の接続を確立します。<br/>
     ![既存データベース・インスタンスへの接続](images/img0020.png)<br/>
     アカウントの既存サービス・インスタンスのリストが表示されます。
@@ -136,7 +136,7 @@ Cloud Foundry _および_{{site.data.keyword.cloud_notm}} の両方のツール�
 ツールキットがシステムに既にインストールされて動作していれば、
 それらが更新されない限り、再度ダウンロードする必要はありません。
 
-ツールキットに関する一般情報については、[こちら ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window} を参照してください。
+ツールキットについて詳しくは、[入門 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} チュートリアルを参照してください。
 
 ### Cloud Foundry ツールキットのインストール
 {: #installing-the-cloud-foundry-toolkit}
@@ -192,14 +192,14 @@ Cloud Foundry _および_{{site.data.keyword.cloud_notm}} の両方のツール�
     プロンプトで以下のコマンドを実行します。
     
     ```sh
-    bluemix --version
+    ibmcloud --version
     ```
     {: pre}
     
     以下の出力のような結果が期待されます。
     
     ```
-    bluemix version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
+    ibmcloud version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
     ```
     {: codeblock}
     
@@ -238,8 +238,7 @@ Cloud Foundry _および_{{site.data.keyword.cloud_notm}} の両方のツール�
 
 もっと具体的に言うと、
 `Procfile` は、アプリケーション・プロセス・タイプとアプリケーション実行コマンドを定義する Cloud Foundry 成果物です。
-`Procfile` に関する詳細については、
-[こちら ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window}を参照してください。
+`Procfile` について詳しくは、Cloud Foundry 資料で [About Procfiles ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window} を参照してください。
 
 {{site.data.keyword.cloud_notm}} Python スターター・アプリケーションの `Procfile` は、以下のサンプルのようなものです。
 
@@ -290,7 +289,7 @@ applications:
     `host` の値は、
     {{site.data.keyword.cloud_notm}} アプリケーションの[作成](#creating-an-ibm-cloud-application-environment)時に入力された値に対応します。
 -   `name` の値は、管理されているアプリケーションを識別するために Cloud Foundry ツールキットが使用します。
--   `services` の値は、`Cloudant Service 2017` の
+-   `services` の値は、`Cloudant-o7` の
     {{site.data.keyword.cloudant_short_notm}} データベース・インスタンスがアプリケーション環境に接続されることを確定します。
 
 通常、`manifest.yml` ファイルの変更は不要ですが、
@@ -316,4 +315,4 @@ cloudant==2.3.1
 ```
 {: codeblock}
 
-チュートリアルの次のステップでは、[アプリケーションを作成します](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment)。
+チュートリアルの次のステップでは、[アプリケーションを作成します](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code)。

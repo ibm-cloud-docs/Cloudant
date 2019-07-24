@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption
 

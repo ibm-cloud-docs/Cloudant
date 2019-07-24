@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -26,19 +26,19 @@ subcollection: cloudant
 {: #ibm-cloudant.com}
 
 O plano Compartilhado do {{site.data.keyword.cloudantfull}} tornou-se obsoleto em 31 de março de 2018. 
-A partir de 24 de julho de 2017, nenhuma nova conta do plano Compartilhado pode ser criada na [página de produto do Cloudant](https://cloudant.com){: new_window}. 
+A partir de 24 de julho de 2017, nenhuma nova conta do plano Compartilhado poderá ser criada por meio da [página de produtos do {{site.data.keyword.cloudant_short_notm}}](https://www.ibm.com/cloud/cloudant){: new_window}.
 {: deprecated}
 
 {{site.data.keyword.cloudant_short_notm}} é um banco de dados como um serviço (DBaaS) hospedado e totalmente gerenciado. 
 Ele foi construído do zero para escalar globalmente, executar sem interrupção e manipular uma grande variedade de tipos de dados
-como [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview){: new_window},
-[texto completo](/docs/services/Cloudant?topic=cloudant-query#creating-an-index){: new_window}
-e [geoespacial](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial){: new_window}.
+como [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview),
+[texto completo](/docs/services/Cloudant?topic=cloudant-query#creating-an-index)
+e [geoespacial](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial).
 
 O {{site.data.keyword.cloudant_short_notm}} é um armazenamento de dados operacionais otimizado para manipular leituras
 e gravações simultâneas, além de permitir alta disponibilidade e durabilidade de dados.
 
-Ele fornece uma [API HTTP](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#http-api){: new_window} para trabalhar com os dados [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview){: new_window}
+Ele fornece uma [API HTTP](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#http-api) para trabalhar com os dados [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview)
 e 24 horas de suporte e manutenção operacionais. 
 O {{site.data.keyword.cloudant_short_notm}} é baseado no
 [Apache CouchDB ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://couchdb.apache.org/){: new_window}
@@ -47,14 +47,13 @@ e é entregue como vários serviços dedicados, instalados e de diversos locatá
 Todos os valores de moeda neste documento estão em dólares dos EUA (USD).
 {: tip}
 
-Ele é oferecido como um [Plano compartilhado](#shared-plan){: new_window} ou um
-[Plano corporativo (dedicado)](#enterprise-plan){: new_window}. O {{site.data.keyword.cloudant_short_notm}}
-também está disponível como um serviço [{{site.data.keyword.cloud}}](https://www.ibm.com/cloud/){: new_window}.
+Ele é oferecido como um [Plano compartilhado](#shared-plan) ou um
+[Plano corporativo (dedicado)](#enterprise-plan). O {{site.data.keyword.cloudant_short_notm}} também está disponível como um [serviço do {{site.data.keyword.cloud}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/cloud/){: new_window}.
 
 As ofertas do Plano Compartilhado e Corporativo (Dedicado) do {{site.data.keyword.cloudant_short_notm}} não estão disponíveis no serviço {{site.data.keyword.cloud_notm}}.
 {: important}
 
-## Plano corporativo
+## Plano Enterprise
 {: #enterprise-plan}
 
 Com o Plano corporativo do {{site.data.keyword.cloudant_short_notm}} DBaaS, você tem acesso a todos os
@@ -69,11 +68,11 @@ em um de seus clusters dedicados, inscreva-se na página de inscrição da conta
 crie uma conta usando o formulário e abra um chamado de suporte para solicitar que sua conta seja movida para um de seus
 clusters dedicados do {{site.data.keyword.cloudant_short_notm}} Enterprise. 
 
-## Plano compartilhado
+## Plano Compartilhado
 {: #shared-plan}
 
 O {{site.data.keyword.cloudant_short_notm}} plano Compartilhado tornou-se obsoleto em 31 de março de 2018. 
-A partir de 24 de julho de 2017, nenhuma nova conta do plano Shared poderá ser criada no [website do {{site.data.keyword.cloudant_short_notm}}](https://cloudant.com){: new_window}.
+A partir de 24 de julho de 2017, nenhuma nova conta do plano Compartilhado poderá ser criada no [website do {{site.data.keyword.cloudant_short_notm}}![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/cloud/cloudant){: new_window}.
 {: deprecated}
 
 Com o Plano compartilhado do {{site.data.keyword.cloudant_short_notm}}, você tem acesso a todos os

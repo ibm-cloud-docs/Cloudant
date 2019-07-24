@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -113,7 +113,7 @@ $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-d
 ## 步驟 3：授與存取權
 {: #step-3-grant-access-permission}
 
-[提供 API 金鑰](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)讀取及寫入至這兩個資料庫的許可權。
+提供 API 金鑰讀取及寫入至這兩個資料庫的[許可權](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)。
 
 如果也想要抄寫索引，請指派管理許可權。
 
@@ -171,7 +171,7 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 
 接下來要決定以[主動-主動](#active-active)還是[主動-被動](#active-passive)方式使用資料庫。
 
-### 主動-主動
+### 主動 - 主動
 {: #active-active}
 
 在主動-主動配置中，不同的應用程式實例可以寫入至不同的資料庫中。
@@ -186,12 +186,12 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 應用程式可以設定為與「最接近」的 {{site.data.keyword.cloudant_short_notm}} 帳戶通訊。
 若為 DC1 中管理的應用程式，適合將其 {{site.data.keyword.cloudant_short_notm}}  URL 設為 `"https://myaccount-dc1.cloudant.com/mydb"`。同樣地，若為 DC2 中管理的應用程式，請將其 {{site.data.keyword.cloudant_short_notm}} URL 設為 `"https://myaccount-dc2.cloudant.com/mydb"`。
 
-### 主動-被動
+### 主動 - 被動
 {: #active-passive}
 
 在主動-被動配置中，應用程式的所有實例都會配置為使用主要資料庫。不過，應用程式可以失效接手到另一個備份資料庫（如果情況必須如此的話）。失效接手可在應用程式邏輯本身內實作、使用負載平衡器實作，或使用某些其他方法來實作。
 
-是否需要失效接手的一項簡單測試，是使用主要資料庫端點作為「活動訊號」。例如，傳送至主要資料庫端點的簡單 `GET` 要求一般會傳回[有關資料庫的詳細資料](/docs/services/Cloudant?topic=cloudant-databases#getting-database-details)。如果未收到任何回應，則可能指出需要失效接手。
+是否需要失效接手的一項簡單測試，是使用主要資料庫端點作為「活動訊號」。例如，傳送至主要資料庫端點的簡單 `GET` 要求一般會傳回[關於資料庫的詳細資料](/docs/services/Cloudant?topic=cloudant-databases#getting-database-details)。如果未收到任何回應，則可能指出需要失效接手。
 
 ### 其他配置
 {: #other-configurations}
@@ -209,14 +209,14 @@ curl -XPOST 'https://myaccount-dc2.cloudant.com/_replicator'
 ## 在 {{site.data.keyword.cloudant_short_notm}} 地區之間失效接手
 {: #failing-over-between-ibm-cloudant-regions}
 
-一般而言，在地區或資料中心之間管理失效接手的過程，會在應用程式堆疊內的較高位置進行處理，例如，透過配置應用程式伺服器失效接手變更，或平衡負載。
+一般而言，在地區或資料中心之間管理失效接手的處理程序，會在應用程式堆疊內的較高位置進行處理，例如，透過配置應用程式伺服器失效接手變更，或平衡負載。
 
 {{site.data.keyword.cloudant_short_notm}} 並未提供一種機能，讓您明確地管理任何失效接手，或在各地區之間重新遞送要求。此限制部分基於技術原因，部分因為可能發生的情況往往是應用程式特定的。例如，您可能想要強制執行失效接手以回應自訂效能度量。
 
 不過，如果您決定確實需要管理失效接手的能力，則部分可能選項包括：
 
 * 將您自己的 [HTTP Proxy 放在 {{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/greenmangaming/cloudant-nginx){: new_window} 前面。將您的應用程式配置為與 Proxy 而非 {{site.data.keyword.cloudant_short_notm}} 實例交談。此配置表示您可以處理變更應用程式所使用之 {{site.data.keyword.cloudant_short_notm}} 實例的作業，方法為修改 Proxy 配置，而非修改應用程式設定。根據使用者定義的性能檢查，許多 Proxy 具備平衡負載的功能。
-* 使用廣域負載平衡器（例如 [{{site.data.keyword.cloud}} Internet Services ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} 或 [Dyn Traffic Director ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://dyn.com/traffic-director/){: new_window}），來遞送至 {{site.data.keyword.cloudant_short_notm}}。此選項需要 `CNAME` 定義，根據性能檢查或延遲規則來遞送至不同的 {{site.data.keyword.cloudant_short_notm}} 帳戶。
+* 使用廣域負載平衡器（例如 [{{site.data.keyword.cloud}} Internet Services ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window} 或 [Dyn Traffic Director ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://dyn.com/traffic-director/){: new_window}），來遞送至 {{site.data.keyword.cloudant_short_notm}}。此選項需要 `CNAME` 定義，根據性能檢查或延遲規則來遞送至不同的 {{site.data.keyword.cloudant_short_notm}} 帳戶。
 
 
 ## 從失效接手中回復

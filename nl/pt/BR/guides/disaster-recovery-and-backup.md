@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -77,11 +77,11 @@ Diferentes ferramentas e recursos fornecem diferentes níveis de proteção. Os 
 
 O {{site.data.keyword.cloudant_short_notm}} fornece várias ferramentas e recursos que tratam de requisitos gerais:
 
-1.	Redundância de dados dentro de uma única região, também conhecida como [Redundância automática de dados na região](#in-region-automatic-data-redundancy).
-2.	Redundância de dados e failover entre as regiões, também conhecida como [Redundância entre regiões para recuperação de desastre](#cross-region-redundancy-for-disaster-recovery).
-3.	Backup de captura instantânea do momento para restauração do momento usando o [Backup e recuperação de banco de dados](#database-backup-and-recovery) 'tradicional'.
+1.	Redundância de dados em uma única região, também conhecida como [Redundância de dados automática na região](#in-region-automatic-data-redundancy).
+2.	Redundância de dados de região cruzada e failover, também conhecidos como [Redundância entre regiões para recuperação de desastre](#cross-region-redundancy-for-disaster-recovery).
+3.	Backup de captura instantânea de momento para restauração de momento, usando o [Backup e recuperação de banco de dados](#database-backup-and-recovery) 'tradicional'.
 
-## Redundância automática de dados na região
+## Redundância de dados automática na região
 {: #in-region-automatic-data-redundancy}
 
 Em uma única conta do {{site.data.keyword.cloudant_short_notm}},
@@ -108,12 +108,9 @@ A redundância automática de dados na região está limitada a:
 1.	Fornecer proteção dentro de uma única região apenas.
 2.	Manter os dados atuais.
 
-Para fornecer proteção em mais do que na única região associada à sua conta,
-use [Redundância entre regiões para recuperação de desastre](#cross-region-redundancy-for-disaster-recovery).
+Para fornecer proteção além da única região associada à sua conta, use [Redundância entre regiões para recuperação de desastre](#cross-region-redundancy-for-disaster-recovery).
 
-Para fornecer proteção para o 'histórico' de seus dados,
-por exemplo, para permitir a auditoria de mudanças feitas nos dados pelos aplicativos,
-use as capturas instantâneas de dados que são criadas pelas ferramentas de [Backup e recuperação de banco de dados](#database-backup-and-recovery).
+Para fornecer proteção para o 'histórico' de seus dados, por exemplo, para ativar a auditoria de mudanças que são feitas nos dados por aplicativos, use capturas instantâneas de dados criadas pelas ferramentas de [Backup e recuperação do banco de dados](#database-backup-and-recovery).
 
 Resumindo,
 a redundância de dados na região permite um recurso de Alta disponibilidade,
@@ -132,7 +129,7 @@ As etapas básicas para criar redundância entre regiões são:
 2.  Criar bancos de dados em cada região, conforme necessário.
 3.  Para bancos de dados que devem ser armazenados com redundância entre regiões, configurar replicações contínuas bidirecionais entre os bancos de dados correspondentes em cada conta.
 4.  Projetar e implementar seus aplicativos para que as solicitações de dados sejam roteadas dependendo se seu ambiente for uma configuração Ativa/Passiva ou Ativa/Ativa.
-  Um guia detalhado para configurar isso está [disponível](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery).
+  Para obter mais informações sobre como configurar isso, consulte [Configurando o {{site.data.keyword.cloudant_short_notm}} para recuperação de desastre entre regiões](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery).
 
 Ao projetar seus aplicativos para funcionar com dados em múltiplas regiões,
 considere os pontos a seguir:
@@ -168,11 +165,11 @@ A replicação do {{site.data.keyword.cloudant_short_notm}} ajuda a assegurar a 
 No entanto,
 seus aplicativos deverão ser capazes de 'executar failover' para cópias de seus dados armazenadas em outras regiões.
 
-## Backup e recuperação de banco de dados
+## Backup e recuperação do banco de dados
 {: #database-backup-and-recovery}
 
-A [redundância automática de dados na região](#in-region-automatic-data-redundancy) fornece aos aplicativos acesso de alta disponibilidade aos dados.
-A [redundância entre regiões para recuperação de desastre](#cross-region-redundancy-for-disaster-recovery) fornece aos aplicativos um meio de recuperação de um desastre.
+[Redundância de dados automática na região](#in-region-automatic-data-redundancy) fornece aplicativos com acesso de alta disponibilidade aos dados.
+[Redundância entre regiões para recuperação de desastre](#cross-region-redundancy-for-disaster-recovery) fornece aplicativos com um meio de se recuperar de um desastre.
 No entanto,
 esses dois recursos se concentram em manter o acesso apenas à cópia _atual_ de seus dados.
 
@@ -226,7 +223,6 @@ Os cenários de exemplo incluem:
 *	Migração de dados mais antigos para armazenamento mais barato, para retenção com custo mais reduzido.
 
 As ferramentas de backup consistem em um aplicativo e uma biblioteca de linha de comandos node.js de software livre.
-Elas estão disponíveis [no NPM ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
+Ele está disponível no [NPM ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
 
-Para ter ideias e exemplos que mostram como integrar as ferramentas em sua estratégia de proteção de dados,
-veja o [Guia de cookbook de backup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).
+Para obter ideias e exemplos que mostram como integrar as ferramentas em sua estratégia de proteção de dados, consulte o [Guia de backup e recuperação do {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

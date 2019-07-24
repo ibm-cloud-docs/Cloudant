@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 {: #security}
 
 
-## Protección y seguridad de los datos de {{site.data.keyword.cloudant_short_notm}} DBaaS
+## Seguridad y protección de datos de {{site.data.keyword.cloudant_short_notm}} DBaaS
 {: #ibm-cloudant-dbaas-data-protection-and-security}
 
 La protección de datos de las aplicaciones de la web a gran escala y de apps para móviles puede resultar muy complejo, especialmente en el caso de bases de datos distribuidas
@@ -35,7 +35,7 @@ y NoSQL.
 Además de reducir el esfuerzo necesario para mantener las bases de datos para que estén en activo y en crecimiento continuo, {{site.data.keyword.cloudantfull}} también garantiza la protección de los datos.
 {: shortdesc}
 
-## Plataformas físicas de nivel superior
+## Plataformas físicas de primer nivel
 {: #top-tier-physical-platforms}
 
 {{site.data.keyword.cloudant_short_notm}} DBaaS se aloja físicamente en proveedores de infraestructura de nube de nivel 1 como {{site.data.keyword.cloud}} y Amazon.
@@ -50,15 +50,15 @@ Por lo tanto, los datos están protegidos por la red y por las medidas de seguri
 Encontrará más información sobre las certificaciones disponibles en el apartado sobre [Información de conformidad](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
 {: tip}
 
-## Control de acceso seguro
+## Control de accesos seguro
 {: #secure-access-control}
 
 {{site.data.keyword.cloudant_short_notm}} incluye varias funcionalidades de seguridad incorporadas para que controle el acceso a los datos:
 
 Característica | Descripción
 --------|------------
-Autenticación | Se accede a {{site.data.keyword.cloudant_short_notm}} utilizando una API HTTPS. Si el punto final de la API lo requiere, se autentica al usuario para cada solicitud HTTPS que {{site.data.keyword.cloudant_short_notm}} recibe. {{site.data.keyword.cloudant_short_notm}} admite los controles de acceso IAM y los heredados. Para obtener más información, consulte la [guía de IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} o el [documento de la API de autenticación](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} heredada.
-Autorización | {{site.data.keyword.cloudant_short_notm}} admite los controles de acceso IAM y los heredados. El equipo de {{site.data.keyword.cloudant_short_notm}} recomienda el uso de controles de acceso de IAM para la autenticación siempre que sea posible. Si utiliza la autenticación heredada de {{site.data.keyword.cloudant_short_notm}}, se recomienda que utilice
+Autenticación | Se accede a {{site.data.keyword.cloudant_short_notm}} utilizando una API HTTPS. Si el punto final de la API lo requiere, se autentica al usuario para cada solicitud HTTPS que {{site.data.keyword.cloudant_short_notm}} recibe. {{site.data.keyword.cloudant_short_notm}} admite los controles de acceso de IAM y los heredados. Para obtener más información, consulte la [guía de IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} o el [documento de la API de autenticación](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} heredada.
+Autorización | {{site.data.keyword.cloudant_short_notm}} admite los controles de acceso de IAM y los heredados. El equipo de {{site.data.keyword.cloudant_short_notm}} recomienda el uso de controles de acceso de IAM para la autenticación siempre que sea posible. Si utiliza la autenticación heredada de {{site.data.keyword.cloudant_short_notm}}, se recomienda que utilice
 [claves de API](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} en lugar de credenciales a nivel de cuenta para el acceso mediante programación y los trabajos de réplica. Para obtener más información, consulte la [guía de IAM](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} o el [documento de la API de autenticación](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} heredada y el [documento de la API de autorización](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window} heredada.
 Cifrado en reposo | Todos los datos que se almacenan en una instancia de {{site.data.keyword.cloudant_short_notm}} se han cifrado en reposo. Si necesita BYOK (Bring-Your-Own-Key) para el cifrado en reposo, este se habilita utilizando {{site.data.keyword.cloud_notm}} Key
 Protect. {{site.data.keyword.cloudant_short_notm}} da soporte a esta característica para nuevas instancias del plan de hardware dedicado de {{site.data.keyword.cloudant_short_notm}} desplegadas en todas las regiones. En primer lugar, cree una instancia del plan de hardware dedicado utilizando el catálogo de {{site.data.keyword.cloud_notm}}. A continuación, envíe una incidencia de soporte. Nuestro equipo de soporte coordina la obtención de las claves de cifrado cifradas en reposo de la instancia de hardware dedicado que están gestionadas por la instancia de Key Protect.
@@ -93,7 +93,7 @@ CORS | Habilitar el soporte CORS para determinados dominios mediante la API o el
 > appropriate for {{site.data.keyword.cloudant_short_notm}} to store your data.
 -->
 
-## Protección contra la pérdida o daño de los datos
+## Protección contra la pérdida de datos o la corrupción
 {: #protection-against-data-loss-or-corruption}
 
 {{site.data.keyword.cloudant_short_notm}} dispone de diversas características que le ayudan a mantener la calidad y disponibilidad de los datos:

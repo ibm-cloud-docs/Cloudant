@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# 文件版本化及 MVCC
+# 文件版本化和 MVCC
 {: #document-versioning-and-mvcc}
 
 [多版本並行控制 (MVCC) ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window} 是 {{site.data.keyword.cloudantfull}} 資料庫確定資料庫叢集中的所有節點都只包含文件[最新版本](/docs/services/Cloudant?topic=cloudant-documents#documents)的方式。
@@ -53,7 +53,7 @@ MVCC 也會在 {{site.data.keyword.cloudant_short_notm}} 資料庫節點之間�
 
 您可以使用 `_rev` 來查詢特定修訂，不過，稱為[壓縮 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](http://en.wikipedia.org/wiki/Data_compaction){: new_window} 的處理程序會定期刪除較舊的修訂。壓縮的結果是使用 `_rev` 查詢特定文件修訂以取得您文件的修訂歷程時，您無法依賴成功回應。如果您需要文件的版本歷程，則解決方案是針對每一個修訂[建立新的文件](/docs/services/Cloudant?topic=cloudant-documents#create-document)。
 
-## 分散式資料庫及衝突
+## 分散式資料庫和衝突
 {: #distributed-databases-and-conflicts}
 
 分散式資料庫是在未持續連線至 {{site.data.keyword.cloudant_short_notm}} 上本身為分散式的主要資料庫的情況下運作，因此根據相同舊版本的更新仍然可能會發生衝突。

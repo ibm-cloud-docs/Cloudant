@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -47,7 +47,7 @@ quando e por quem.
 - Quais documentos de replicação foram criados ou excluídos e quando.
 
 
-## Como acessar Logs de Auditoria para sua conta
+## Como acessar logs de auditoria para a sua conta
 {: #how-to-access-audit-logs-for-your-account}
 
 Para solicitar acesso aos logs de auditoria para a sua conta, entre em contato

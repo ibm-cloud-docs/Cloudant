@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -41,8 +41,7 @@ o armazenamento de dados redundante não protege contra erros quando os dados s�
 O {{site.data.keyword.cloudant_short_notm}} fornece uma ferramenta suportada para backup e restauração de captura instantânea.
 A ferramenta chama-se CouchBackup
 e é um software livre.
-Ela é uma biblioteca `node.js`
-e está [disponível para instalação no npm ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")][npmpackage]{: new_window}.
+Ela é uma biblioteca `node.js` e é possível instalá-la no [npm ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")][npmpackage]{: new_window}.
 
 Além da biblioteca,
 o pacote CouchBackup contém duas ferramentas de linha de comandos:
@@ -146,7 +145,7 @@ ou a biblioteca com código do aplicativo
 para ativar o backup de bancos de dados {{site.data.keyword.cloudant_short_notm}} como parte de situações mais complicadas.
 Um cenário útil é planejar backups usando `cron`
 e fazer upload de dados automaticamente para o
-[Cloud Object Storage ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window}
+[Cloud Object Storage ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window}
 para retenção de longo prazo.
 
 ## Exemplos de script da linha de comandos
@@ -156,7 +155,7 @@ Dois requisitos são frequentemente encontrados:
 
 * Economia de espaço em disco
 ao ['compactar com zip' o arquivo de backup](#compressing-a-backup-file) conforme ele é criado.
-* Criação de um backup do banco de dados automaticamente [em intervalos regulares](#hourly-or-daily-backups-that-use-cron-).
+* A criação de um backup de um banco de dados automaticamente em [intervalos regulares](#hourly-or-daily-backups-that-use-cron-).
 
 ### Compactando um arquivo de backup
 {: #compressing-a-backup-file}
@@ -253,7 +252,7 @@ A amostra de script a seguir mostra como combinar a biblioteca `couchbackup`
 com uso do {{site.data.keyword.IBM}} Cloud Object Storage.
 Esse código ilustra como você poderia usar a API da Região cruzada S3 para fazer backup de um banco de dados em um armazenamento de objeto.
 
-Um pré-requisito para o código é que você inicialize o objeto do cliente S3 para o {{site.data.keyword.IBM_notm}} Cloud Object Storage, seguindo [estas instruções ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")][cosclient]{: new_window}.
+Um pré-requisito para o código é inicializar o objeto do cliente S3 para o {{site.data.keyword.IBM_notm}} Cloud Object Storage seguindo as instruções em [{{site.data.keyword.cloud_notm}} Object Storage - Introdução à API do S3 ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")][cosclient]{: new_window}.
 {: note}
 
 ```javascript

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -53,7 +53,7 @@ subcollection: cloudant
 
 在本部分中，您将创建 `query-demo` [数据库](/docs/services/Cloudant?topic=cloudant-databases#create-database)，这是我们在本教程中使用的数据库。
 
-在本教程中，我们将使用 `acurl` 别名，而不是 `curl` 命令。`acurl` 别名是使用[此处](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)描述的步骤创建的。如果您希望使用 `curl` 命令或其他 API 端点调用方法，请替换本教程中的命令以及命令所需的参数（例如，用户名和密码）。
+在本教程中，我们将使用 `acurl` 别名，而不是 `curl` 命令。`acurl` 别名是使用[授权 curl：`acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) 中的步骤创建的。如果您希望使用 `curl` 命令或其他 API 端点调用方法，请替换本教程中的命令以及命令所需的参数（例如，用户名和密码）。
 {: tip}
 
 ![“命令行”图标](../images/CommandLineIcon.png) _命令行_
@@ -253,7 +253,7 @@ subcollection: cloudant
 
 在本教程中我们使用 {{site.data.keyword.cloudant_short_notm}} Query，它使用 Mongo 样式的查询语法通过逻辑运算符来搜索文档。{{site.data.keyword.cloudant_short_notm}} Query 是视图和搜索索引的组合。
 
-使用 {{site.data.keyword.cloudant_short_notm}} Query 时，查询策划器查看选择器（您的查询）以确定要从中进行选择的正确索引。如果没有找到合适的索引，将使用 `_all_docs` 特殊索引，以按标识查找文档。最糟糕的情况下，将按标识返回所有文档（全表扫描）。在内存中，我们按选择器过滤掉文档，因此，即使没有索引，您仍可以使用各个字段进行查询。全表扫描非常昂贵，我们建议您创建索引。请参阅以下列表中不同类型的索引的描述：
+使用 {{site.data.keyword.cloudant_short_notm}} Query 时，查询策划器会查看选择器（您的查询）以确定要从中进行选择的正确索引。如果没有找到合适的索引，将使用 `_all_docs` 特殊索引，以按标识查找文档。最糟糕的情况下，将按标识返回所有文档（全表扫描）。在内存中，我们按选择器过滤掉文档，因此，即使没有索引，您仍可以使用各个字段进行查询。全表扫描非常昂贵，我们建议您创建索引。请参阅以下列表中不同类型的索引的描述：
 
 *	主索引 - 按标识查找文档或文档列表。  
 *	[视图](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) - 在数据库中搜索与指定的搜索条件（例如，计数、求和、平均值和其他数学函数）相匹配的信息。可以搜索的条件在视图的定义中指定。视图使用 MapReduce 范式。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -37,7 +37,8 @@ Por ejemplo, el almacenamiento de datos redundantes no protege frente a errores 
 
 {{site.data.keyword.cloudant_short_notm}} ofrece una herramienta para la copia de seguridad y restauración de instantáneas.
 La herramienta se llama CouchBackup y es de código abierto.
-Es una biblioteca `node.js` y [se puede instalar en npm ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")][npmpackage]{: new_window}.
+Es una biblioteca `node.js`,
+y puede instalarla en [npm ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")][npmpackage]{: new_window}.
 
 Además de la biblioteca, el paquete
 CouchBackup contiene dos herramientas de línea de mandatos:
@@ -123,7 +124,7 @@ El paquete CouchBackup ofrece dos modos de utilizar sus funciones principales.
 
 Utilice la herramienta de copia de seguridad de línea de mandatos o la biblioteca con el código de aplicación para habilitar una copia de seguridad desde bases de datos de {{site.data.keyword.cloudant_short_notm}} como parte de situaciones más complicadas.
 Una práctica útil consiste en planificar las copias de seguridad mediante `cron`
-y cargar automáticamente los datos en [Cloud Object Storage ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window} para su almacenamiento a largo plazo.
+y cargar automáticamente los datos en [Cloud Object Storage ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window} para su almacenamiento a largo plazo.
 
 ## Ejemplos de scripts de línea de mandatos
 {: #command-line-scripting-examples}
@@ -212,8 +213,8 @@ El siguiente script de ejemplo muestra cómo combinar la biblioteca `couchbackup
 En este código se muestra cómo puede utilizar la API Cross Region S3 para hacer una copia de seguridad de una base de datos en un almacén de objetos.
 
 Un requisito previo para el código es que inicialice el objeto de cliente S3 para
-{{site.data.keyword.IBM_notm}} Cloud Object Storage siguiendo [estas instrucciones
-![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")][cosclient]{: new_window}.
+{{site.data.keyword.IBM_notm}} Cloud Object Storage siguiendo las instrucciones en
+[{{site.data.keyword.cloud_notm}} Object Storage - S3 API Intro ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")][cosclient]{: new_window}.
 {: note}
 
 ```javascript

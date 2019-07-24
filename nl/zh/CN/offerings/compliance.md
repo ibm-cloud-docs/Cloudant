@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-12"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -42,7 +42,7 @@ subcollection: cloudant
 ## 国际标准化组织 (ISO)
 {: #international-organization-for-standardization-iso-}
 
-{{site.data.keyword.cloudant_short_notm}} 和 {{site.data.keyword.cloudant_short_notm}} 专用集群由第三方安全公司进行审计，并满足 ISO 27001、ISO 27017 以及 ISO 27018 的要求。有关更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}} 合规性页面]( https://www.ibm.com/cloud/compliance)以获取证书的链接。
+{{site.data.keyword.cloudant_short_notm}} 和 {{site.data.keyword.cloudant_short_notm}} 专用集群由第三方安全公司进行审计，并满足 ISO 27001、ISO 27017 以及 ISO 27018 的要求。有关更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}} 合规性页面 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")]( https://www.ibm.com/cloud/compliance){: new_window} 以获取证书的链接。
 {{site.data.keyword.cloudant_short_notm}} 合规性页面上的以下描述涵盖 {{site.data.keyword.cloudant_short_notm}} 服务和相应的证书：
  
 - {{site.data.keyword.cloud_notm}} Services (PaaS and SaaS) 认证的云产品列表
@@ -61,4 +61,4 @@ subcollection: cloudant
 ## 一般数据保护条例 (GDPR)
 {: #general-data-protection-regulation-gdpr-overview}
 
-GDPR 力求在整个欧盟范围内建立一个统一的数据保护法律框架，目的是让公民重新拥有对其个人数据的控制权，同时对全球任意位置托管和“处理”此类数据的相关方施加严格的规则。该条例还引入了与欧盟境内和境外个人数据自由流通相关的规则。有关更多信息，请参阅 [{{site.data.keyword.IBM_notm}} 隐私声明](https://www.ibm.com/privacy/)。
+GDPR 力求在整个欧盟范围内建立一个统一的数据保护法律框架，目的是让公民重新拥有对其个人数据的控制权，同时对全球任意位置托管和“处理”此类数据的相关方施加严格的规则。该条例还引入了与欧盟境内和境外个人数据自由流通相关的规则。有关更多信息，请参阅 [{{site.data.keyword.IBM_notm}} 隐私声明 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://www.ibm.com/privacy/){: new_window}。

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-06-12"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -70,14 +70,14 @@ Las lecturas, las escrituras y las consultas globales no se pueden escalar de fo
 - Como alternativa, el graduador muestra que la capacidad de rendimiento suministrada de 1000 lecturas/segundo, 500 escrituras/segundo y 50 consultas globales/segundo cuesta 1,050 dólares/hora * 730 horas
 - Total = 766,50 dólares
 
-## Precio de uso de datos
+## Precios de uso de datos
 {: #data-usage-pricing}
 
 ¿Qué hay de la fijación de precios para el exceso de datos? ¿Cómo funciona?
 
 Plan | Almacenamiento incluido | Límite de excedente
 -----|------------------|--------------
-Lite | 1 GB |  La cuenta se bloquea de grabar datos nuevos hasta que suprima los datos suficientes para estar por debajo del límite de 1 GB, o bien actualizar a un plan superior.
+Lite | 1 GB |  La cuenta se bloquea y no se pueden escribir datos nuevos hasta que suprima los datos suficientes para estar por debajo del límite de 1 GB, o bien hasta que actualice a un plan superior.
 Estándar | 20 GB | El almacenamiento adicional cuesta 0,0014 dólares por GB por hora, que es aproximadamente 1 dólares/GB por mes.
 
 ## Panel de control de uso de {{site.data.keyword.cloud_notm}} 

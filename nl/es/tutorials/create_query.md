@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -55,7 +55,7 @@ Antes de empezar, siga estos pasos para prepararse para la guía de aprendizaje:
 En esta sección, creará la [base de datos](/docs/services/Cloudant?topic=cloudant-databases#create-database)
 `query-demo`, que es la base de datos que utilizaremos en esta guía de aprendizaje.
 
-En esta guía de aprendizaje, utilizamos el alias `acurl` en lugar del mandato `curl`. El alias `acurl` se crea siguiendo los pasos que se describen [aquí](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). Si prefiere utilizar el mandato `curl` u otro método para invocar los puntos finales de la API, sustituya su mandato en la guía de aprendizaje, junto con los parámetros que necesite el mandato, como nombre de usuario y contraseña.
+En esta guía de aprendizaje, utilizamos el alias `acurl` en lugar del mandato `curl`. El alias `acurl` se crea siguiendo los pasos en [Authorized curl: `acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). Si prefiere utilizar el mandato `curl` u otro método para invocar los puntos finales de la API, sustituya su mandato en la guía de aprendizaje, junto con los parámetros que necesite el mandato, como nombre de usuario y contraseña.
 {: tip}
 
 ![Icono de línea de mandatos](../images/CommandLineIcon.png) _Línea de mandatos_

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -34,18 +34,12 @@ aplicativo {{site.data.keyword.cloud}}.
 
 A primeira tarefa é se conectar ao {{site.data.keyword.cloud_notm}}.
 
-O [kit de ferramentas do {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits) ajuda a fazer a conexão.
-
-O Cloud Foundry precisa saber a URL a ser usada para fazer chamadas API,
-por exemplo, ao fazer upload de um aplicativo.
-O kit de ferramentas do {{site.data.keyword.cloud_notm}} usa o comando '`cf api`' para gerenciar o terminal de API.
-Mais informações sobre o comando '`cf api`' estão
-[disponíveis![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}.
+A CLI do {{site.data.keyword.cloud_notm}} precisa saber qual URL usar para fazer chamadas de API. Por exemplo, ao fazer upload de um aplicativo, o kit de ferramentas do {{site.data.keyword.cloud_notm}} usa o comando `ibmcloud api` para gerenciar o terminal de API. Para obter mais informações sobre o comando `ibmcloud api`, consulte [Introdução à CLI do {{site.data.keyword.cloud_notm}} ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
 Use o comando a seguir para informar ao Cloud Foundry a URL a ser usada:
 
 ```sh
-bluemix api https://api.ng.bluemix.net
+Ibmcloud api https://api.ng.bluemix.net
 ```
 {: pre}
 
@@ -59,7 +53,7 @@ OK
 
 API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
-Not logged in. Use 'bluemix login' to log in.
+Not logged in. Use 'login ibmcloud' para efetuar login.
 ```
 {: codeblock}
 
@@ -82,7 +76,7 @@ ambiente de aplicativos do {{site.data.keyword.cloud_notm}}.
 Observe que você é solicitado a inserir a senha de sua conta.
 
 ```sh
-bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
+ibmcloud login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {: pre}
 
@@ -222,7 +216,7 @@ Agora, teste seu aplicativo e verifique se ele está sendo executado corretament
 2.  Na página de detalhes do `aplicativo de CF Cloudant`, clique em `Rotas`e clique no link `Cloudant-CF-app.mybluemix.net`. <br/>
 ![Cloudant CF app details page](images/img0030.png)
 
-3. Uma nova janela do navegador é aberta em `https://cloudant-cf-app.mybluemix.net/`. A mensagem verifica se o aplicativo está em execução. Ele diz, "Hello World! Obrigado por criar um Aplicativo Python Starter."<br/>
+3. Uma nova janela do navegador é aberta em `https://cloudant-cf-app.mybluemix.net/`. A mensagem verifica se o aplicativo está sendo executado, exibindo a mensagem, ' Hello World! Obrigado pela criação de um Aplicativo Starter da Python.'<br/>
 ![Hello World! verificou se o aplicativo Cloudant CF executa corretamente](images/img0054.png)
 
 

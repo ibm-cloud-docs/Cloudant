@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -25,7 +25,7 @@ subcollection: cloudant
 # Migrazione a {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
 
-L'offerta DaaS (database-as-a-service) di [{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant) è un archivio documenti JSON che viene eseguito su cluster a più tenant. Il servizio è disponibile con una scelta di ubicazioni geografiche con costi prevedibili, scalabilità e uno SLA (Service Level Agreement).
+L'offerta DBaaS (Database-as-a-Service) di [{{site.data.keyword.cloudantfull}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud/cloudant){: new_window} è un archivio documenti JSON che viene eseguito su cluster a più tenant. Il servizio è disponibile con una scelta di ubicazioni geografiche con costi prevedibili, scalabilità e uno SLA (Service Level Agreement).
 
 Questo documento descrive come eseguire la migrazione a un'istanza del piano {{site.data.keyword.cloudant_short_notm}} Lite o Standard su {{site.data.keyword.cloud_notm}} da uno dei seguenti piani:
 
@@ -43,7 +43,7 @@ Il piano Standard ti consente di *riservare la capacità produttiva* per il tuo 
 
 Metrica | Descrizione
 -------|------------
-Letture al secondo | La frequenza con la quale vengono eseguiti i recuperi di documento semplici, ad esempio il richiamo di un documento mediante il suo `_id` o le query a un database partizionato utilizzando una chiave della partizione. 
+Letture al secondo | La frequenza con la quale vengono eseguiti i recuperi di documento semplici, ad esempio il richiamo di un documento mediante il suo `_id` o le query a un database partizionato utilizzando una chiave della partizione.
 Scritture al secondo | La frequenza con cui i dati vengono scritti nel database. Le chiamate API che si occupano della creazione, dell'aggiornamento o dell'eliminazione di documenti contano come 'scritture'.
 Query globali al secondo | La frequenza con cui vengono eseguite query del database utilizzando gli indici globali, di norma accedendo all'endpoint `_find` oppure utilizzando gli indici MapReduce, di ricerca o geospaziali.
 Archiviazione | La quantità di spazio su disco occupata dai tuoi dati JSON, allegati e indici secondari.
@@ -57,14 +57,14 @@ Utilizzando il dispositivo di scorrimento nel dashboard {{site.data.keyword.clou
 La quantità di capacità produttiva che puoi modificare è limitata a un massimo di 10 unità per modifica (nota il punto 'change limit' (limite di modifica) sul dispositivo di scorrimento) con un massimo di una modifica all'ora. L'entità delle variazioni in diminuzione è illimitata ma è comunque soggetta al limite di tempo.
 {: tip}
 
-Ti viene addebitata la capacità più elevata selezionata in qualsiasi specifica finestra oraria. La velocità effettiva del tuo database può essere incrementata per gestire esigenze stagionali e ridotta nuovamente per i periodi di calma. La fatturazione mensile a tuo carico è sempre prevedibile; gli upgrade sono automatici e il tuo SLA è [99,95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument).
+Ti viene addebitata la capacità più elevata selezionata in qualsiasi specifica finestra oraria. La velocità effettiva del tuo database può essere incrementata per gestire esigenze stagionali e ridotta nuovamente per i periodi di calma. La tua fattura mensile è sempre prevedibile, gli upgrade sono automatici e il tuo SLA è del [99,95% ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}.
 
 Se superi la tua quota di letture, scritture e query globali in un dato secondo, l'API {{site.data.keyword.cloudant_short_notm}} risponde con una risposta `HTTP 429 too many requests`. La tua applicazione potrebbe ritentare la richiesta in un secondo momento; le nostre librerie ufficiali offrono l'opzione di ritentare tali richieste con un backoff esponenziale. 
 
 ## Quale tipo di piano {{site.data.keyword.cloudant_short_notm}} ho?
 {: #which-type-of-ibm-cloudant-plan-do-i-have-}
 
-Se stai utilizzando {{site.data.keyword.cloudant_short_notm}}, vai al dashboard {{site.data.keyword.cloud_notm}} e fai clic sull'icona **Menu** > **Elenco risorse** per vedere tutte le tue istanze del servizio.  
+Se stai utilizzando {{site.data.keyword.cloudant_short_notm}}, vai al dashboard {{site.data.keyword.cloud_notm}} e fai clic sull'icona **Menu** > **Elenco risorse** per vedere tutte le tue istanze del servizio. 
 
 ![dashboard cloud](../images/ibmclouddashboard.png)
 
@@ -72,11 +72,11 @@ Per ulteriori informazioni, puoi anche eseguire il drill-down in un'istanza spec
 
 ![dashboard standard](../images/ibmcloud_instance_standard_plan.png)
 
-Puoi anche aprire il dashboard {{site.data.keyword.cloudant_short_notm}} e fare clic sulla scheda **Account** Un piano Lite ha un aspetto simile al seguente esempio:
+Puoi anche aprire il dashboard {{site.data.keyword.cloudant_short_notm}} e fare clic sulla scheda **Account**. Un piano Lite ha un aspetto simile al seguente esempio:
 
 ![piano lite](../images/migrate1.png)
 
-Se stai utilizzando un account `cloudant.com` legacy, puoi eseguire l'accesso al tuo dashboard {{site.data.keyword.cloudant_short_notm}} e andare alla scheda Account. Un piano `cloudant.com` Condiviso legacy ha una scheda Usage con grafici e stime della fatturazione per il mese attuale, come nel seguente esempio:
+Se stai utilizzando un account `cloudant.com` legacy, puoi accedere al tuo dashboard {{site.data.keyword.cloudant_short_notm}} e andare alla scheda Account. Un piano `cloudant.com` Condiviso legacy ha una scheda Usage con grafici e stime della fatturazione per il mese attuale, come nel seguente esempio:
 
 ![piano condiviso](../images/cloudantcom_sharedplan_usage.png)
 
@@ -94,10 +94,10 @@ Esegui la migrazione dal piano Lite gratuito al piano Standard attenendoti alla 
 1.  Vai al dashboard {{site.data.keyword.cloud_notm}}.
 2.  Vai all'icona **Menu** > **Elenco risorse** per vedere tutte le tue istanze del servizio. 
 3.  Seleziona l'istanza {{site.data.keyword.cloudant_short_notm}} di cui vuoi eseguire la migrazione. 
-4.  Seleziona la scheda **Piano** nella navigazione a sinistra. 
+4.  Seleziona la scheda **Piano** sul menu. 
 5.  Dall'elenco di piani dei prezzi, seleziona la casella di spunta **Standard**.
 ![lite](../images/migrate3.png)
-6.  Fai clic su **Esegui upgrade** nella parte inferiore della pagina.
+6.  Fai clic su **Esegui upgrade**.
 Tutti i tuoi dati esistenti sono conservati per tuo conto.
 
 Regola la tua capacità utilizzando il dispositivo di scorrimento della capacità produttiva (Throughput Capacity) per aumentare o diminuire la capacità come necessario.
@@ -116,14 +116,14 @@ Non puoi modificare direttamente un'istanza del piano Condiviso in un'istanza de
 ### Passo 1: registrati per {{site.data.keyword.cloud_notm}}
 {: #step-1-sign-up-for-ibm-cloud}
 
-Se non lo hai già fatto, [registrati per un account {{site.data.keyword.cloud_notm}}](https://www.ibm.com/cloud/). 
+Se non lo hai già fatto, [registrati per un account {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud/){: new_window}. 
 
 ### Passo 2: creare un'istanza {{site.data.keyword.cloudant_short_notm}}
 {: #step-2-create-an-ibm-cloudant-instance}
 
 Dopo che hai eseguito l'accesso al tuo account {{site.data.keyword.cloud_notm}}, aggiungi un servizio {{site.data.keyword.cloudant_short_notm}}. Fai clic sul pulsante `Crea risorsa` nel dashboard e fai quindi clic su `Database` e `Cloudant`. Per ulteriori informazioni, vedi la sezione su [come creare un'istanza {{site.data.keyword.cloudant_short_notm}} su {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud). 
 
-![aggiungi un'istanza {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant/tutorials/images/img0003.png)
+![aggiungi un'istanza {{site.data.keyword.cloudant_short_notm}}](../tutorials/images/img0003.png)
 
 ### Passo 3: determina se la tua applicazione è pronta per {{site.data.keyword.cloudant_short_notm}}
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}
@@ -168,7 +168,7 @@ Le domande frequenti sono pubblicate dall'organizzazione {{site.data.keyword.clo
 ## Posso eseguire il backup dei miei dati prima di eseguire qualsiasi operazione?
 {: #can-i-back-up-my-data-before-doing-anything-}
 
-{{site.data.keyword.cloudant_short_notm}} ti consiglia di utilizzare il programma di utilità [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) per esportare i dati su disco. [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage) è una soluzione scalabile e poco onerosa per archiviare i file esportati. 
+{{site.data.keyword.cloudant_short_notm}} ti consiglia di utilizzare il programma di utilità [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) per esportare i dati su disco. [{{site.data.keyword.cloud_notm}} Object Storage ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/cloud/object-storage){: new_window} è una soluzione economica e scalabile per l'archiviazione dei file esportati. 
 
 ## Posso conservare il mio dominio `username.cloudant.com` e reindirizzarlo al nuovo servizio su {{site.data.keyword.cloudant_short_notm}}?
 {: #can-i-keep-my-username-cloudant-com-domain-and-redirect-it-to-the-new-service-on-ibm-cloudant-}
@@ -178,4 +178,4 @@ No, non puoi conservare il tuo dominio. Devi pianificare l'aggiornamento delle t
 ## Chi devo contattare se ho delle domande?
 {: #who-do-i-contact-if-i-have-questions-}
 
-Contatta il [supporto {{site.data.keyword.cloudant_short_notm}}](mailto:support@cloudant.com) oppure apri un ticket dall'interno del dashboard {{site.data.keyword.cloudant_short_notm}} se hai domande relative alla migrazione. Il supporto {{site.data.keyword.cloudant_short_notm}} sarà lieto di fornire ulteriori dettagli.
+Se hai domande relative alla migrazione, contatta il [supporto {{site.data.keyword.cloudant_short_notm}}](mailto:support@cloudant.com) o apri un ticket dall'interno del dashboard {{site.data.keyword.cloudant_short_notm}}. Il supporto {{site.data.keyword.cloudant_short_notm}} sarà lieto di fornire ulteriori dettagli.

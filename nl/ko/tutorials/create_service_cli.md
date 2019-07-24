@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -120,15 +120,15 @@ Not logged in. Use 'ibmcloud login' to log in.
 ## 서비스에 대한 {{site.data.keyword.cloudant_short_notm}} 플랜 선택
 {: #choosing-the-ibm-cloudant-plan-for-your-service}
 
-{{site.data.keyword.cloudant_short_notm}} Lite 또는 표준 플랜의 사용에 대한 세부사항은 문서의 [Plans ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window} 섹션을 참조하십시오.
+{{site.data.keyword.cloudant_short_notm}} Lite 또는 표준 플랜의 사용에 대한 세부사항은 문서의 [플랜](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans) 절을 참조하십시오.
 {: pre}
 
 ## {{site.data.keyword.cloudant_short_notm}} 서비스 작성
 {: #creating-the-ibm-cloudant-service}
 
-{{site.data.keyword.cloudant_short_notm}}는 새 인스턴스를 프로비저닝하는 데 Cloud Foundry 조직 및 영역을 사용하지 않고 리소스 그룹을 사용합니다. 이전에 프로비저닝된 {{site.data.keyword.cloudant_short_notm}} 인스턴스는 여전히 Cloud Foundry 조직 및 영역에 배치될 수 있습니다. 자세한 정보는 [How does IBM Cloudant work with IBM Cloud Resource Groups? ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} 안내서를 참조하십시오.
+{{site.data.keyword.cloudant_short_notm}}는 새 인스턴스를 프로비저닝하는 데 Cloud Foundry 조직 및 영역을 사용하지 않고 리소스 그룹을 사용합니다. 이전에 프로비저닝된 {{site.data.keyword.cloudant_short_notm}} 인스턴스는 여전히 Cloud Foundry 조직 및 영역에 배치될 수 있습니다. 자세한 정보는 [{{site.data.keyword.cloudant_short_notm}}는 {{site.data.keyword.cloud_notm}} 리소스 그룹과 어떤 방식으로 작동합니까? ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} 안내서를 참조하십시오.
 
-먼저 [General CLI (ibmcloud) commands ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window}의 `ibmcloud target`에 표시되어 있는 바와 같이 다음 명령을 사용하여 대상 리소스 그룹 및 지역을 설정하십시오.
+먼저 [일반 CLI(ibmcloud) 명령 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window}의 `ibmcloud target`에 표시되어 있는 바와 같이 다음 형식을 사용하여 대상 리소스 그룹 및 지역을 설정하십시오. 
 
 ```sh
 ibmcloud target [-r REGION_NAME] [-g RESOURCE_GROUP]

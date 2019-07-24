@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -117,13 +117,13 @@ El siguiente ejemplo describe el proceso de inicio de sesión. Si utiliza un ID 
 ## Elección del plan de {{site.data.keyword.cloudant_short_notm}} para su servicio
 {: #choosing-the-ibm-cloudant-plan-for-your-service}
 
-Consulte la sección [Planes ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window} de la documentación para obtener detalles sobre cómo utilizar los planes Estándar o Lite de {{site.data.keyword.cloudant_short_notm}}.
+Consulte la sección [Plans](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans) de la documentación para obtener detalles sobre el uso del plan {{site.data.keyword.cloudant_short_notm}} Lite o Standard (reducido o estándar).
 {: pre}
 
 ## Creación del servicio {{site.data.keyword.cloudant_short_notm}}
 {: #creating-the-ibm-cloudant-service}
 
-{{site.data.keyword.cloudant_short_notm}} utiliza Grupos de recursos para el suministro de nuevas instancias en lugar de organizaciones y espacios de Cloud Foundry. Todavía es posible desplegar las instancias de {{site.data.keyword.cloudant_short_notm}} que se han suministrado anteriormente en organizaciones y espacios de Cloud Foundry. Para obtener más información, consulte la guía [¿Cómo funciona IBM Cloudant con grupos de recursos de IBM Cloud?![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} .
+{{site.data.keyword.cloudant_short_notm}} utiliza Grupos de recursos para el suministro de nuevas instancias en lugar de organizaciones y espacios de Cloud Foundry. Todavía es posible desplegar las instancias de {{site.data.keyword.cloudant_short_notm}} que se han suministrado anteriormente en organizaciones y espacios de Cloud Foundry. Para obtener más información, consulte la guía [¿Cómo funciona {{site.data.keyword.cloudant_short_notm}} con los grupos de recursos de {{site.data.keyword.cloud_notm}}? ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} .
 
 En primer lugar, establezca el grupo de recursos de destino y la región como se muestra en [Mandatos de CLI (ibmcloud) generales ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window} en `ibmcloud target` utilizando el formato siguiente:
 

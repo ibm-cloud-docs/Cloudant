@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -30,7 +30,7 @@ Desde 16 de julho de 2018, novas instâncias de recurso {{site.data.keyword.clou
 ## Como migrar uma instância existente para um grupo de recursos?
 {: #how-do-i-migrate-an-existing-instance-to-a-resource-group-}
 
-Para migrar uma instância do {{site.data.keyword.cloudant_short_notm}} de um espaço do Cloud Foundry para um grupo de recursos, consulte [Migrando instâncias de serviço do Cloud Foundry e apps para um grupo de recursos](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
+Para migrar uma instância do {{site.data.keyword.cloudant_short_notm}} de um espaço do Cloud Foundry para um grupo de recursos, consulte [Migrando instâncias de serviço e aplicativos do Cloud Foundry para um grupo de recursos ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
 
 É possível migrar instâncias do {{site.data.keyword.cloudant_short_notm}} nos planos a seguir:
 
@@ -44,7 +44,7 @@ Para migrar uma instância do {{site.data.keyword.cloudant_short_notm}} de um es
 Não há tempo de inatividade durante o processo de migração.
 
 ## Por que algumas instâncias têm uma organização e um espaço e outras não?
-{: #why-do-some-instances-have-an-organisation-and-space-and-others-do-not-}
+{: #why-do-some-instances-have-an-organization-and-space-and-others-do-not-}
 
 Desde 16 de julho de 2018, novas instâncias foram provisionadas em grupos de recursos em vez de espaços de Foundry Cloud. As instâncias de recursos provisionadas antes dessa data têm uma organização e um espaço do Cloud Foundry associados. Instâncias aprovisionadas após essa data serão associadas a um grupo de recursos.
 
@@ -53,7 +53,7 @@ Desde 16 de julho de 2018, novas instâncias foram provisionadas em grupos de re
 
 Novas instâncias de plano Padrão são provisionadas em grupos de recursos. Para fornecer essas instâncias para uma instância de Hardware dedicado, a instância de Hardware dedicado deve primeiro ser migrada para um grupo de recursos.
 
-Para obter mais informações sobre como fazer isso, consulte [Migrando instâncias de serviço e apps do Cloud Foundry para um grupo de recursos](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
+Para obter mais informações sobre como fazer isso, consulte [Migrando instâncias de serviço e aplicativos do Cloud Foundry para um grupo de recursos ![Ícone de link externo](../images/launch-glyph.svg "Ícone de link externo")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
 
 Depois que a instância de Hardware dedicado tiver sido migrada para um grupo de recursos, ela aparecerá no menu suspenso Local ao fornecer planos Padrão.
 

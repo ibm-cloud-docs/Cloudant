@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 {: #security}
 
 
-## Proteção de dados e segurança do {{site.data.keyword.cloudant_short_notm}} DBaaS
+## Segurança e proteção de dados do {{site.data.keyword.cloudant_short_notm}} DBaaS
 {: #ibm-cloudant-dbaas-data-protection-and-security}
 
 A proteção de dados do aplicativo para apps da web e móveis de larga escala pode ser complexa,
@@ -35,7 +35,7 @@ especialmente com bancos de dados distribuídos e NoSQL.
 Assim como reduz o esforço de manter seus bancos de dados para mantê-los em execução e crescendo sem parar, o {{site.data.keyword.cloudantfull}} também assegura que seus dados permaneçam seguros e protegidos.
 {: shortdesc}
 
-## Plataformas físicas da camada superior
+## Plataformas físicas de camada superior
 {: #top-tier-physical-platforms}
 
 O {{site.data.keyword.cloudant_short_notm}} DBaaS é

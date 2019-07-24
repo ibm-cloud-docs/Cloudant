@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -34,12 +34,12 @@ subcollection: cloudant
 - [Node.js 及 {{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
 - [Swift 及 {{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-如需其他語言特定指導教學，請參閱[從部署第一個應用程式開始 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/){: new_window}。 
+如需其他語言特定指導教學，請參閱[從部署第一個應用程式開始 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs){: new_window}。 
 
 ## 開始之前
 {: #prereqs}
 
-您需要 [{{site.data.keyword.cloud}} 帳戶 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https:///cloud.ibm.com/registration/){: new_window}、{{site.data.keyword.cloudant_short_notm}} 服務的實例，以及下列 Python 需求：
+您需要 [{{site.data.keyword.cloud}} 帳戶 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/registration/){: new_window}、{{site.data.keyword.cloudant_short_notm}} 服務的實例，以及下列 Python 需求：
 
 *	在您的系統上安裝最新版的	[Python 程式設計語言 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://www.python.org/){: new_window}。
 	
@@ -93,21 +93,22 @@ subcollection: cloudant
 
 2.  建立 {{site.data.keyword.cloudant_short_notm}} 服務認證：
   <br>在 {{site.data.keyword.cloud_notm}} 儀表板中，移至**功能表**圖示 > **資源清單**，然後開啟 {{site.data.keyword.cloudant_short_notm}} 服務實例。
-  <br>在左導覽中，按一下`服務認證`。<br>a. 按一下`新建認證`按鈕。
-  <br>![建立新的服務認證](/docs/services/Cloudant/tutorials/images/img0050.png)
+  <br>在功能表中，按一下`服務認證`。
+  <br>a. 按一下`新建認證`按鈕。
+  <br>![建立新的服務認證](tutorials/images/img0050.png)
   <br>b. 在「新增認證」視窗中，輸入新認證的名稱（如下列擷取畫面所示）。
   <br>c.（選用）新增線型配置參數。
   <br>d. 按一下`新增`按鈕。
-  <br>![新增服務認證](/docs/services/Cloudant/tutorials/images/img0051.png)
+  <br>![新增服務認證](tutorials/images/img0051.png)
   <br>您的認證會新增至「服務認證」表格。
   <br>e. 按一下「動作」下的`檢視認證`。
-  <br>![檢視所有服務認證](/docs/services/Cloudant/tutorials/images/img0052.png)
+  <br>![檢視所有服務認證](tutorials/images/img0052.png)
   <br>即會出現服務認證的詳細資料：
-   <br>![{{site.data.keyword.cloudant_short_notm}} 服務認證](/docs/services/Cloudant/tutorials/images/img0009.png)
+   <br>![{{site.data.keyword.cloudant_short_notm}} 服務認證](tutorials/images/img0009.png)
    
-3.	建立與 {{site.data.keyword.cloudant_short_notm}} 服務實例的連線。作法機制視您是使用 {{site.data.keyword.cloud_notm}} IAM 還是 {{site.data.keyword.cloudant_short_notm}} Legacy 鑑別而定。如需任一鑑別類型的詳細資料，請參閱 [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) 手冊 ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)。
+3.	建立與 {{site.data.keyword.cloudant_short_notm}} 服務實例的連線。作法機制視您是使用 {{site.data.keyword.cloud_notm}} IAM 還是 {{site.data.keyword.cloudant_short_notm}}舊式鑑別而定。如需任一鑑別類型的相關資訊，請參閱 [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-)。
 
-	如果您是使用 {{site.data.keyword.cloudant_short_notm}} Legacy 鑑別，請取代來自前一個步驟的服務認證：
+	如果您是使用 {{site.data.keyword.cloudant_short_notm}}舊式鑑別，請取代來自前一個步驟的服務認證：
 	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
 	client.connect()
@@ -131,7 +132,7 @@ subcollection: cloudant
   ```
   {: codeblock}
 
-    ... 其中 `<your-database-name>` 是您想要提供給資料庫的名稱。 
+  ...其中，`<your-database-name>` 是您希望為資料庫提供的名稱。 
 
   資料庫名稱必須以字母開始，而且只能包括小寫字元 (a-z)、數字 (0-9)，以及下列任何字元：`_`、`$`、`(`、`)`、`+`、`-` 及 `/`。
   {: warning}
@@ -355,10 +356,10 @@ subcollection: cloudant
   ```
   {: codeblock}
 
-## （選用）步驟 6：在 {{site.data.keyword.cloudant_short_notm}} 儀表板上查看資料庫資訊
+## （選用）第 6 步：在「{{site.data.keyword.cloudant_short_notm}} 儀表板」上查看資料庫資訊
 {: #optional-step-6-ibm-cloudant-dashboard}
 
-請遵循下列步驟，在 {{site.data.keyword.cloudant_short_notm}} 儀表板上查看您的資料庫及文件。 
+遵循下列步驟在「{{site.data.keyword.cloudant_short_notm}} 儀表板」上查看資料庫和文件。 
 
 1.  登入 IBM Cloud 帳戶。
     IBM Cloud 儀表板位於 `https://cloud.ibm.com/`。利用使用者名稱及密碼進行鑑別之後，您會看到 IBM Cloud 儀表板。
@@ -398,7 +399,7 @@ client.disconnect()
 ## 後續步驟
 {: #next-steps}
 
-如需所有 {{site.data.keyword.cloudant_short_notm}} 供應項目的相關資訊，請參閱主要 [{{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window} 網站。
+如需所有 {{site.data.keyword.cloudant_short_notm}} 供應項目的相關資訊，請參閱主要 [{{site.data.keyword.cloudant_short_notm}} ![外部鏈結圖示](images/launch-glyph.svg "外部鏈結圖示")](https://www.ibm.com/cloud/cloudant){: new_window} 網站。
 
 如需相關資訊，請參閱 [{{site.data.keyword.cloudant_short_notm}} 文件](/docs/services/Cloudant?topic=cloudant-overview#overview)中的指導教學、{{site.data.keyword.cloudant_short_notm}} 概念、作業及技術。
 
@@ -413,11 +414,11 @@ from cloudant.client import Cloudant
 from cloudant.error import CloudantException
 from cloudant.result import Result, ResultByKey
 
-# {{site.data.keyword.cloudant_short_notm}} Legacy authentication
+# {{site.data.keyword.cloudant_short_notm}}舊式authentication
 client = Cloudant("<username>", "<password>", url="<url>")
 client.connect()
 
-# IAM Authentication (uncomment if needed, and comment out {{site.data.keyword.cloudant_short_notm}} Legacy authentication section above)
+# IAM Authentication (uncomment if needed, and comment out previous {{site.data.keyword.cloudant_short_notm}}舊式authentication section)
 client = Cloudant.iam("<username","<apikey>")
 client.connect()
 

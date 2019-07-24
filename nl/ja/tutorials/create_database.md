@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -31,7 +31,7 @@ subcollection: cloudant
 {: shortdesc}
 
 ## 前提条件
-{: prerequisites}
+{: #prerequisites-create_database}
 
 チュートリアルを始める前に、以下のリソースまたは情報を準備してください。
 
@@ -90,8 +90,7 @@ cloudant==2.3.1
 `port`     | ホスト上のサービス・インスタンスにアクセスするための HTTP ポート番号。 通常、443 で HTTPS アクセスを強制します。
 `url`      | その他の資格情報を単一の URL に集約したストリング。アプリケーションによる使用に適しています。
 
-サービス・インスタンスのサービス資格情報の検索に関する情報は、
-[ここ](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)にあります。
+サービス・インスタンスのサービス資格情報の検索について詳しくは、[サービス資格情報の検索](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials)を参照してください。
 
 ## コンテキスト
 {: #context}
@@ -107,7 +106,7 @@ cloudant==2.3.1
 
 各タスクに対応した Python コードが、このチュートリアルのタスク説明の中で提供されます。
 
-すべてのタスクを実行する完全な Python プログラムは、[全プログラムの表示](#complete-listing)を参照してください。
+すべてのタスクを実行する完全な Python プログラムについて詳しくは、[全プログラムの表示](#complete-listing)を参照してください。
 
 このチュートリアルでは、_効率的な_ Python コードの作成は意図していません。
 仕組みを理解してアプリケーション作成時に参考にするための、単純で分かりやすい実際のコードを示すことを目的としています。

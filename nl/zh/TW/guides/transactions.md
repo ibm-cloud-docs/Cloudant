@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: generate uuid, record payments, add additional documents, advantages
 
@@ -38,7 +38,7 @@ subcollection: cloudant
 
 例如，您可以建立包含詳細資料（例如訂購的項目、客戶資訊、成本及交付資訊）的 `purchase` 文件。
 
-_說明購買的範例文件：_
+*說明購買的範例文件：*
 
 ```json
 {
@@ -103,7 +103,7 @@ _說明購買的範例文件：_
 
 客戶順利支付其項目時，會在資料庫中新增其他記錄來記錄訂單。
 
-_付款記錄範例：_
+*付款記錄範例：*
 
 ```json
 {
@@ -137,7 +137,7 @@ _付款記錄範例：_
 
 對映函數可以用來識別必要值。
 
-_尋找購買總計及付款值的範例對映函數：_ 
+*尋找購買總計及付款值的範例對映函數：* 
 
 ```javascript
 function (doc) {
@@ -154,7 +154,7 @@ function (doc) {
 
 使用內建 [`_sum` 減少器](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)可讓您產生輸出作為付款事件的分類帳。
 
-_使用內建 `_sum` 減少器並使用 `?reduce=false` 查詢的範例：
+*使用內建 `_sum` reducer 的範例（使用 `?reduce=false` 進行查詢）：*
 
 ```json
 {
@@ -181,7 +181,7 @@ _使用內建 `_sum` 減少器並使用 `?reduce=false` 查詢的範例：
 
 或者，您可以產生依 `order_id` 分組的總計。
 
-_依 `order_id` 分組且 `?group_level=1` 的總計範例：_
+*依 `order_id` 分組且 `?group_level=1` 的總計範例：*
 
 ```json
 {

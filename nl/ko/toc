@@ -14,22 +14,21 @@ IBM Cloudant
 	offerings/learning-center.md
 
 	{: .topicgroup}
-	보안 및 규제 준수
-		offerings/security.md
-		offerings/compliance.md
-		offerings/dataprivacygovernance.md
+    보안 및 규제 준수
+    	offerings/security.md
+    	offerings/compliance.md
+    	offerings/dataprivacygovernance.md
 		offerings/audit.md
 		offerings/gdpr.md
 
 	{: .topicgroup}
 	기타 오퍼링
 		offerings/bluemix_dedicated.md
-		offerings/cloudant_local.md
 		offerings/cloudant.com.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
-	basics/basics.md
+    basics/basics.md
 
 	{: .topicgroup}
 	샘플 앱
@@ -89,3 +88,5 @@ IBM Cloudant
 		guides/replication_guide.md
 		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
+
+

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -47,16 +47,13 @@ Sono disponibili due versioni:
 Sono inoltre disponibili i dettagli delle risorse {{site.data.keyword.cloudant_short_notm}} Sync [![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://cloudant.com/cloudant-sync-resources/){: new_window}.
 
 ## Java
-{: #java}
+{: #java-supported}
 
 [java-cloudant ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant/java-cloudant){: new_window} è la libreria ufficiale
 {{site.data.keyword.cloudantfull}} per Java.
 
-Le informazioni sull'installazione della libreria aggiungendola come dipendenza
-delle tue build Maven o Gradle sono disponibili
-[qui
-![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window},
-insieme ai dettagli a agli esempi su come utilizzare la libreria.
+Per ulteriori informazioni sull'installazione della libreria aggiungendola come dipendenza alle tue build Maven o Gradle e per visualizzare dettagli ed esempi su come utilizzare la libreria, vedi
+[Installazione e utilizzo ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}.
 
 ### Librerie e framework per Java
 {: #libraries-and-frameworks-for-java}
@@ -67,7 +64,7 @@ insieme ai dettagli a agli esempi su come utilizzare la libreria.
 -   [java-cloudant ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant/java-cloudant){: new_window}.
 
 #### Librerie non supportate per Java
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-supported}
 
 -   [ektorp ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
 -   [jcouchdb ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://code.google.com/p/jcouchdb/){: new_window}.
@@ -85,7 +82,7 @@ insieme ai dettagli a agli esempi su come utilizzare la libreria.
 
 
 ## Node.js
-{: #node-js}
+{: #node-js-supported}
 
 [nodejs-cloudant ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant/nodejs-cloudant){: new_window} è la {{site.data.keyword.cloudant_short_notm}} libreria ufficiale per Node.js.
 Puoi installarla
@@ -126,23 +123,22 @@ npm install cloudant
 -   [couchimport ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/glynnbird/couchimport){: new_window} - programma di utilità per importare i file `.csv` o `.tsv` in CouchDB o {{site.data.keyword.cloudant_short_notm}}.
 -   [Getting started with {{site.data.keyword.cloud_notm}} and Node.js ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://thoughtsoncloud.com/2014/07/getting-started-ibm-bluemix-node-js/){: new_window}.
 -   [A Cloud medley with {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Node.js ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://gigadom.wordpress.com/2014/08/15/a-cloud-medley-with-ibm-bluemix-cloudant-db-and-node-js/){: new_window}.
--   [Build a simple word game app by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/developerworks/cloud/library/cl-guesstheword-app/index.html?ca=drs-){: new_window} - uses Node.js.
--   [Building a Real-time SMS Voting App ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html){: new_window} - six-part series that uses Node.js, Twilio, and {{site.data.keyword.cloudant_short_notm}}.
+-   [Build a simple word game app by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/developerworks/cloud/library/cl-guesstheword-app/index.html?ca=drs-){: new_window} - utilizza Node.js.
+-   [Building a Real-time SMS Voting App ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html){: new_window} - serie in sei parti che utilizza Node.js, Twilio e {{site.data.keyword.cloudant_short_notm}}.
 -   [Building a multitier Windows Azure Web application ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ampower.me/article/CouchDB/Tutorial-Building-a-Multi-Tier-Windows-Azure-Web-application-use-Cloudants-Couchdb-as-a-Service-node-94-409665?eqs=Z2NWNlltTmlUWStWcHdEWENWc3UxdmowREpiMjlGUVpKajJOZGJpSlVkemlPS2oxa0YxZE5BPT0=){: new_window} - utilizza {{site.data.keyword.cloudant_short_notm}}, Node.js, CORS e Grunt.
 -   [Do it yourself: Build a remote surveillance application by using {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Raspberry Pi. ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](http://www.ibm.com/developerworks/library/ba-remoteservpi-app/index.html){: new_window}.
 
 ## Python
 {: #python-supported}
 
-È disponibile una libreria supportata per lavorare con {{site.data.keyword.cloudant_short_notm}} utilizzando Python
-[qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant/python-cloudant){: new_window}.
+Una libreria supportata per lavorare con {{site.data.keyword.cloudant_short_notm}} utilizzando Python è
+disponibile nel repository Github [cloudant/python-cloudant ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant/python-cloudant){: new_window}.
 
-Le applicazioni Python che accedono a {{site.data.keyword.cloudant_short_notm}} hanno dipendenze componente. Queste dipendenze devono essere specificate in un file `requirements.txt`. Per ulteriori informazioni, vedi [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}.
+Le applicazioni Python che accedono a {{site.data.keyword.cloudant_short_notm}} hanno dipendenze componente. Queste dipendenze devono essere specificate in un file `requirements.txt`. Per ulteriori informazioni, vedi le istruzioni per i [file dei requisiti ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}.
 {: tip}
 
-Scarica la release della libreria corrente [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://pypi.python.org/pypi/cloudant/){: new_window}.
-Ulteriori informazioni
-sul linguaggio Python all'indirizzo [python.org ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.python.org/about/){: new_window}. 
+Scarica la release della libreria corrente da [pypi.python.org ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://pypi.python.org/pypi/cloudant/){: new_window}.
+Per ulteriori informazioni sul linguaggio Python, vedi [python.org ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.python.org/about/){: new_window}. 
 
 ## Swift
 {: #swift}
@@ -158,10 +154,11 @@ pod 'SwiftCloudant'
 ```
 {: codeblock}
 
-Ulteriori informazioni su SwiftCloudant,
+Per ulteriori informazioni su SwiftCloudant,
 inclusi i dettagli sull'installazione e su come utilizzare la libreria per archiviare,
-indicizzare ed eseguire la query dei dati JSON remoti su {{site.data.keyword.cloudant_short_notm}},
-sono disponibili [qui ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant/swift-cloudant){: new_window}.
+indicizzare
+ed eseguire query dei dati JSON remoti su {{site.data.keyword.cloudant_short_notm}},
+vedi il repository Github [cloudant/swift-cloudant ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://github.com/cloudant/swift-cloudant){: new_window}.
 
 La libreria è una versione della release precedente.
 In quanto tale non dispone al momento

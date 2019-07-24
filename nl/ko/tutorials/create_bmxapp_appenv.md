@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -31,28 +31,28 @@ subcollection: cloudant
 ## {{site.data.keyword.cloud_notm}} 애플리케이션 환경 작성
 {: #creating-an-ibm-cloud-application-environment}
 
-1.  {{site.data.keyword.cloud_notm}} 계정에 로그인하십시오.<br/>
-    {{site.data.keyword.cloud_notm}} 대시보드는
+1.  {{site.data.keyword.cloud_notm}} 계정에 로그인하십시오. <br/>
+        {{site.data.keyword.cloud_notm}} 대시보드는
     [https://cloud.ibm.com/ ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/){: new_window}에 있습니다.
     사용자 이름 및 비밀번호를 사용하여 인증하면 {{site.data.keyword.cloud_notm}}
-    대시보드가 표시됩니다.메뉴에서 `카탈로그`를 클릭하십시오.<br/>
+    대시보드가 표시됩니다. 메뉴에서 `Catalog`를 클릭하십시오. <br/>
     ![{{site.data.keyword.cloud_notm}} 대시보드](images/img0001.png)
 
-2.  `Compute` 카테고리를 클릭하십시오.<br/>
-    ![{{site.data.keyword.cloud_notm}} Cloud Foundry Apps](images/img0012.png)<br/>
-    {{site.data.keyword.cloud_notm}}에서 사용 가능한 다양한 서비스 및 앱의 목록이 표시됩니다.
+2.  `Compute` 카테고리를 클릭하십시오. <br/>
+    ![{{site.data.keyword.cloud_notm}} Cloud Foundry 앱](images/img0012.png)<br/>
+        {{site.data.keyword.cloud_notm}}에서 사용 가능한 다양한 서비스 및 앱의 목록이 표시됩니다.
 
-3.  `Cloud Foundry` 섹션으로 스크롤하여 `Python` 항목을 클릭하십시오.<br/>
+3.  `Cloud Foundry` 섹션으로 스크롤하여 `Python` 항목을 클릭하십시오. <br/>
     ![{{site.data.keyword.cloud_notm}} Python 앱](images/img0013.png)<br/>
-    `Create a Cloud Foundry App` 양식이 표시됩니다.
+        `Create a Cloud Foundry App` 양식이 표시됩니다.
 
-4.  `Create a Cloud Foundry App` 양식을 사용하여 Python Cloud Foundry 애플리케이션을 위한 환경을 지정하고 작성하십시오. 애플리케이션의 이름을 입력하십시오(예: `Cloudant CF app`). 호스트 이름은 자동으로 생성되지만, 이를 사용자 정의할 수도 있습니다.</br>
+4.  `Create a Cloud Foundry App` 양식을 사용하여 Python Cloud Foundry 애플리케이션을 위한 환경을 지정하고 작성하십시오. 애플리케이션의 이름을 입력하십시오(예: `Cloudant CF app`). 호스트 이름은 자동으로 생성되지만 이를 사용자 정의할 수도 있습니다. </br>
     ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry 앱 이름](images/img0014.png)
     
     호스트 이름은 {{site.data.keyword.cloud_notm}} 도메인 내에서 고유해야 합니다. 이 예에서 도메인은 `mybluemix.net`이므로 전체 호스트 이름은 `Cloudant-CF-app.mybluemix.net`입니다.
     {: tip}
 
-5.  `Create`를 클릭하여 애플리케이션 환경을 작성하십시오.</br>
+5.  `Create`를 클릭하여 애플리케이션 환경을 작성하십시오. </br>
     ![{{site.data.keyword.cloud_notm}} Python Cloud Foundry 앱 작성](images/img0015.png)
 
 6.  잠시 후 새 애플리케이션 환경에 대한
@@ -62,10 +62,10 @@ subcollection: cloudant
     초록색 아이콘과 `Running` 상태로 표시됩니다.
     이 애플리케이션은 일종의 '하트비트' 프로그램으로서, 새 애플리케이션 환경이
     사용할 준비가 되었음을 보여주기에 충분합니다.
-    {{site.data.keyword.cloud_notm}} 대시보드로 돌아가려면 `Cloud Foundry apps` 링크를 클릭하십시오.<br/>
-    ![처음으로 실행 중인 새 {{site.data.keyword.cloud_notm}} Python Cloud Foundry 앱](images/img0016.png)
+    {{site.data.keyword.cloud_notm}} 대시보드로 돌아가려면 `Cloud Foundry apps` 링크를 클릭하십시오. <br/>
+    ![처음으로 실행되는 새 {{site.data.keyword.cloud_notm}} Python Cloud Foundry 앱](images/img0016.png)
 
-7.  이제 리소스 목록에 새로 작성된 애플리케이션 환경이 포함됩니다.<br/>
+7.  이제 리소스 목록이 새로 작성된 애플리케이션 환경을 포함합니다. <br/>
     ![대시보드에 표시된 기본 {{site.data.keyword.cloud_notm}} Python Cloud Foundry 앱](images/img0017.png)
 
 이제 사용할 준비가 된 {{site.data.keyword.cloud_notm}} Python 애플리케이션 환경을 확보했습니다.
@@ -78,23 +78,23 @@ subcollection: cloudant
 
 이 튜토리얼 섹션에서는 애플리케이션의 구성 및 관리 영역을 사용하여 {{site.data.keyword.cloud_notm}} 애플리케이션 환경 및 서비스를 연결하는 방법을 설명합니다.
 
-1.  {{site.data.keyword.cloud_notm}} 대시보드에서 **메뉴** 아이콘 > **리소스 목록**으로 이동하고 서비스 인스턴스를 여십시오. <br/>
-    ![ {{site.data.keyword.cloud_notm}} 대시보드에서 애플리케이션 선택](images/img0017.png)</br>
-애플리케이션의 구성 및 관리 개요 영역이 표시됩니다.
+1.  {{site.data.keyword.cloud_notm}} 대시보드에서 **메뉴** 아이콘 > **리소스 목록**으로 이동하여 자신의 서비스 인스턴스를 여십시오. <br/>
+    ![{{site.data.keyword.cloud_notm}} 대시보드에서 자신의 애플리케이션 선택](images/img0017.png)</br>
+    애플리케이션의 구성 및 관리 개요 영역이 표시됩니다.
 
 2.  애플리케이션 환경을 다른 서비스에 연결하려면
-    `Connections` 탭을 클릭하십시오.<br/>
-    ![{{site.data.keyword.cloud_notm}} 애플리케이션에 대한 연결 구성 선택](images/img0019.png)<br/>
-    애플리케이션과 계정 내에서 사용 가능한 기타 서비스 간의 연결을 구성하는 영역이 표시됩니다.
+    `Connections` 탭을 클릭하십시오. <br/>
+    ![{{site.data.keyword.cloud_notm}} 애플리케이션의 연결 구성 선택](images/img0019.png)<br/>
+        애플리케이션과 계정 내에서 사용 가능한 기타 서비스 간의 연결을 구성하는 영역이 표시됩니다.
 
-3.  이 튜토리얼의 [전제조건](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites)은 기존 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스가 있어야 한다는 것입니다.
-    `Create connection`을 클릭하여 해당 서비스 인스턴스와 애플리케이션 간에 연결을 설정하십시오.<br/>
+3.  이 튜토리얼의 [전제조건](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites-create_bmxapp_prereq)은 기존 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스가 있어야 한다는 것입니다.
+    `Create connection`을 클릭하여 서비스 인스턴스와 애플리케이션 간에 연결을 설정하십시오. <br/>
     ![기존 데이터베이스 인스턴스에 연결](images/img0020.png)<br/>
-    계정에 있는 기존 서비스 인스턴스의 목록이 표시됩니다.
+        계정에 있는 기존 서비스 인스턴스의 목록이 표시됩니다.
 
 4.  사용할 {{site.data.keyword.cloudant_short_notm}} 서비스 인스턴스를 클릭하십시오.
-    이 튜토리얼은 `Cloudant-service` 인스턴스를 사용합니다.<br/>
-    ![튜토리얼 예제 데이터베이스 인스턴스 선택](images/img0021.png)
+    이 튜토리얼은 `Cloudant-service` 인스턴스를 사용합니다. <br/>
+    ![튜토리얼의 데이터베이스 인스턴스 예 선택](images/img0021.png)
 
 5.  해당 데이터베이스 인스턴스를 애플리케이션에 연결할지 확인하라는 요청을 받습니다.
     `Connect`를 클릭하여 연결을 확인하십시오.<br>
@@ -104,11 +104,11 @@ subcollection: cloudant
     ![애플리케이션의 재스테이징 확인](images/img0022b.png)
 
 6.  애플리케이션의 서비스 연결 수정은 전체 구성에 영향을 줍니다. 이 수정은 애플리케이션의 '재스테이징'을 필요로 하며, 이 또한 실행 중인 애플리케이션이 중지되도록 합니다. '재스테이징'을 진행할 준비가 되었는지 확인하는 창이 표시됩니다.
-    계속하려면 `Restage`를 클릭하십시오.<br/>
-    ![애플리케이션의 재스테이징 확인](images/img0023.png)
+    계속하려면 `Restage`를 클릭하십시오. <br/>
+    ![애플리케이션의 다시 스테이징 확인](images/img0023.png)
 
 7.  서비스 연결 페이지가 다시 표시됩니다.
-    여기에는 이제 새로 연결된 데이터베이스 인스턴스가 포함되어 있습니다.<br/>
+    여기에는 이제 새로 연결된 데이터베이스 인스턴스가 포함되어 있습니다. <br/>
     ![새로 연결된 데이터베이스 인스턴스](images/img0024.png)
 
 이제 애플리케이션 환경과 데이터베이스 인스턴스가 연결되었습니다.
@@ -132,7 +132,7 @@ Cloud Foundry 및 {{site.data.keyword.cloud_notm}} 툴킷을 _둘 다_ 설치했
 툴킷의 다운로드 및 설치는 일회성 태스크입니다.
 툴킷이 이미 설치되어 시스템에서 작동하고 있는 경우에는 이들이 업데이트된 경우를 제외하면 다시 다운로드할 필요가 없습니다.
 
-툴킷에 대한 일반 정보는 [여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window}에 있습니다.
+툴킷에 대한 자세한 정보는 [시작하기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} 튜토리얼을 참조하십시오. 
 
 ### Cloud Foundry 툴킷 설치
 {: #installing-the-cloud-foundry-toolkit}
@@ -185,14 +185,14 @@ Cloud Foundry 및 {{site.data.keyword.cloud_notm}} 툴킷을 _둘 다_ 설치했
 4.  작동하는 {{site.data.keyword.cloud_notm}} 툴킷이 있는지 확인하려면 프롬프트에서 다음 명령을 실행하십시오.
     
     ```sh
-    bluemix --version
+    ibmcloud --version
     ```
     {: pre}
     
     다음 출력과 유사한 결과가 표시됩니다.
     
     ```
-    bluemix version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
+    ibmcloud version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
     ```
     {: codeblock}
     
@@ -229,8 +229,7 @@ Cloud Foundry 및 {{site.data.keyword.cloud_notm}} 툴킷을 _둘 다_ 설치했
 `Procfile`은 애플리케이션 프로세스 유형과
 애플리케이션 실행 명령을 정의하는
 Cloud Foundry 아티팩트입니다.
-`Procfile`에 대한 자세한 정보는
-[여기 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window}에 있습니다.
+`Procfile`에 대한 자세한 정보는 Cloud Foundry Documentation에 있는 [About Procfiles ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window}를 참조하십시오. 
 
 {{site.data.keyword.cloud_notm}} Python 스타터 애플리케이션의 `Procfile`은
 다음 예와 유사합니다.
@@ -282,8 +281,8 @@ applications:
     `host` 값은 {{site.data.keyword.cloud_notm}} 애플리케이션
     [작성](#creating-an-ibm-cloud-application-environment) 시에 입력된 값에 해당합니다.
 -   `name` 값은 사용자가 관리 중인 애플리케이션을 식별하기 위해 Cloud Foundry 툴킷이 사용합니다.
--   `services` 값은 `Cloudant Service 2017`
-    {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스가 애플리케이션 환경에 연결되었음을 확인합니다.
+-   `services` 값은 `Cloudant-o7` 데이터베이스 인스턴스가
+    {{site.data.keyword.cloudant_short_notm}} 애플리케이션 환경에 연결되었음을 확인합니다. 
 
 `manifest.yml` 파일은 보통 수정할 필요가 없으나,
 애플리케이션이 작동하는 데 이 파일이 있어야 하는 이유는 이해하는 것이 좋습니다.
@@ -301,10 +300,10 @@ applications:
 {{site.data.keyword.cloudant_short_notm}} 클라이언트 라이브러리](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported)를 사용할 수 있어야 합니다.
 
 Python 클라이언트 라이브러리를 사용하려면
-​​​ 텍스트를 포함하도록 `requirements.txt` 파일을 수정하십시오. 
+​​​ 텍스트를 포함하도록 `requirements.txt` 파일을 수정하십시오.
 ```
 cloudant==2.3.1
 ```
 {: codeblock}
 
-튜토리얼의 다음 단계는 [애플리케이션 작성](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment)입니다.
+튜토리얼의 다음 단계는 [애플리케이션 작성](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code)입니다.

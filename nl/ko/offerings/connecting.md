@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
-keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries
+keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP whitelisting
 
 subcollection: cloudant
 
@@ -30,7 +30,7 @@ subcollection: cloudant
 - 서비스 인증 정보
 - 인증
 - {{site.data.keyword.cloudant_short_notm}} 대시보드에 액세스
-- [curl ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://curl.haxx.se/){: new_window} 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 {{site.data.keyword.cloudant_short_notm}}에 액세스
+- [curl ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://curl.haxx.se/){: new_window} 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 {{site.data.keyword.cloudant_short_notm}}에 액세스 
 {: shortdesc}
 
 ## 엔드포인트
@@ -60,6 +60,9 @@ subcollection: cloudant
 {{site.data.keyword.cloudant_short_notm}} 레거시 인증을 사용할 때 관리자 이름으로 사용됩니다. USERNAME 예는
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix이며, 결과 예의 외부 엔드포인트는
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud가 됩니다. 
+
+IP 화이트리스트 지정을 통해 공용 네트워크 연결을 차단하는 방법에 대한 자세한 정보는 [액세스 제어 보안](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-security#secure-access-control)을 참조하십시오.
+{: note}
 
 ## 서비스 인증 정보
 {: #service-credentials}
@@ -108,7 +111,7 @@ de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud가 
 {{site.data.keyword.cloudant_short_notm}}에는 프로비저닝 시에 사용할 수 있는 두 가지 인증 방법(`Use only IAM` 또는 `Use both legacy credentials and IAM`)이 있습니다. `Use both legacy credentials and IAM`
 인증 방법을 선택한 경우에만 서비스 인증 정보에서 레거시 인증 정보에 대한 세부사항을 볼 수 있습니다. 인증 정보는 인스턴스의 서비스 인증 정보 탭에 표시됩니다. 두 인증 스타일을 사용하는 데 대한 자세한 정보는 [IAM 안내서](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) 및 [레거시 인증](/docs/services/Cloudant?topic=cloudant-authentication#authentication) 문서를 참조하십시오.
  
-{{site.data.keyword.cloudant_short_notm}} 팀에서는 가능한 한 인증에 대한 IAM 액세스 제어를 사용할 것을 권장합니다. {{site.data.keyword.cloudant_short_notm}} 레거시 인증을 사용하는 경우 프로그래밍 방식의 액세스 및 복제 작업에 대한 계정 레벨 인증 정보가 아닌 [API 키](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}를 사용하는 것이 좋습니다.
+{{site.data.keyword.cloudant_short_notm}} 팀에서는 가능한 한 인증에 대한 IAM 액세스 제어를 사용할 것을 권장합니다. {{site.data.keyword.cloudant_short_notm}} 레거시 인증을 사용하는 경우 프로그래밍 방식의 액세스 및 복제 작업에 대한 계정 레벨 인증 정보가 아닌 [API 키](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window}를 사용하는 것이 좋습니다. 
 {: important}
 
 ## {{site.data.keyword.cloudant_short_notm}} 대시보드
@@ -136,9 +139,9 @@ curl 명령행 유틸리티를 활용하여 {{site.data.keyword.cloudant_short_n
 사용자 이름과 비밀번호를 제공하여 curl로 {{site.data.keyword.cloudant_short_notm}} API에 액세스하는 데 대한 세부사항은
 [API 참조 개요](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)를 참조하십시오.
 
-{{site.data.keyword.cloud_notm}} IAM 인증을 사용하는 경우, API 키를 사용하여 먼저 {{site.data.keyword.cloud_notm}} IAM 토큰을 가져와야 합니다. 그런 다음 인증을 위해 IAM 토큰을 {{site.data.keyword.cloudant_short_notm}} 인스턴스에 전달합니다. [{{site.data.keyword.cloud_notm}} IAM 토큰을
-전달하여 서비스 API로 인증](https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window}
-튜토리얼을 참조하십시오. 
+{{site.data.keyword.cloud_notm}} IAM 인증을 사용하는 경우, API 키를 사용하여 먼저 {{site.data.keyword.cloud_notm}} IAM 토큰을 가져와야 합니다. 그런 다음 인증을 위해 IAM 토큰을 {{site.data.keyword.cloudant_short_notm}} 인스턴스에 전달합니다. 자세한 정보는
+[{{site.data.keyword.cloud_notm}} IAM 토큰을 전달하여 서비스 API에서 인증 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window} 
+튜토리얼을 참조하십시오.  
 
 IAM API 키를 직접 사용하여 {{site.data.keyword.cloudant_short_notm}}에 대해 인증할 수 없습니다.
 {: note}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.cloudant_short_notm}} のバックアップとリカバリー
+# {{site.data.keyword.cloudant_short_notm}} バックアップおよびリカバリー
 {: #ibm-cloudant-backup-and-recovery}
 
 このクックブックは、[{{site.data.keyword.cloudantfull}} 災害復旧ガイド](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)の一部です。
@@ -36,7 +36,8 @@ subcollection: cloudant
 
 {{site.data.keyword.cloudant_short_notm}} には、スナップショット・バックアップおよびリストア用にサポートされるツールが用意されています。
 このツールは、CouchBackup と呼ばれ、オープン・ソースです。
-これは `node.js` ライブラリーであり、[npm ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][npmpackage]{: new_window} でインストールできます。
+これは `node.js` ライブラリーであり、
+[npm ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][npmpackage]{: new_window} でインストールできます。
 
 CouchBackup パッケージには、このライブラリーに加え、以下の 2 つのコマンド・ライン・ツールが含まれています。
 
@@ -119,7 +120,7 @@ CouchBackup パッケージでは、そのコア機能を使用するために�
   このライブラリーにより、バックアップする必要があるデータベースを動的に判別するなど、複雑なバックアップ・プロセスを作成してデプロイできます。
 
 コマンド・ライン・バックアップ・ツール、またはライブラリーとアプリケーション・コードを使用して、複雑な状況の一部としての {{site.data.keyword.cloudant_short_notm}} データベースからのバックアップを実現します。
-役に立つシナリオとして、`cron` を使用してバックアップをスケジュールし、自動的にデータを [クラウド・オブジェクト・ストレージ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window} にアップロードして長期保存することが考えられます。
+役に立つシナリオとして、`cron` を使用してバックアップをスケジュールし、自動的にデータを [クラウド・オブジェクト・ストレージ ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window} にアップロードして長期保存することが考えられます。
 
 ## コマンド・ライン・スクリプトの例
 {: #command-line-scripting-examples}
@@ -127,7 +128,7 @@ CouchBackup パッケージでは、そのコア機能を使用するために�
 以下の 2 つの要件が必要になることがよくあります。
 
 * 作成された[バックアップ・ファイルを zip する](#compressing-a-backup-file)ことによる、ディスク・スペースの節約。
-* [定期的間隔での](#hourly-or-daily-backups-that-use-cron-)データベースのバックアップの自動作成
+* [定期的間隔](#hourly-or-daily-backups-that-use-cron-)でのデータベースのバックアップの自動作成
 
 ### バックアップ・ファイルの圧縮
 {: #compressing-a-backup-file}
@@ -206,8 +207,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 以下のスクリプト例では、`couchbackup` ライブラリーと {{site.data.keyword.IBM}} クラウド・オブジェクト・ストアの使用を組み合わせる方法を示します。
 このコードでは、クロス地域 S3 API を使用してデータベースをオブジェクト・ストアにバックアップする方法を示します。
 
-このコードの前提条件として、[この説明 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][cosclient]{: new_window} に従って、
-{{site.data.keyword.IBM_notm}} クラウド・オブジェクト・ストレージ用に S3 クライアント・オブジェクトを初期化します。
+このコードの前提条件として、[{{site.data.keyword.cloud_notm}} オブジェクト・ストレージ - S3 API の概要 ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")][cosclient]{: new_window} の説明に従い {{site.data.keyword.IBM_notm}} クラウド・オブジェクト・ストレージ用に S3 クライアント・オブジェクトを初期化します。
 {: note}
 
 ```javascript

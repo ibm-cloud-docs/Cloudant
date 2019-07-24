@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -55,10 +55,10 @@ La liste des pays dans lesquels le contenu peut être hébergé ou à partir des
 en charge d'un service cloud est disponible à l'adresse :
 [www.ibm.com/cloud/datacenters ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www.ibm.com/cloud/datacenters){: new_window}.
 
-Vous trouverez davantage d'informations sur la conformité aux normes générales de {{site.data.keyword.cloudant_short_notm}} [ici](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
+Pour plus d'informations sur les normes globales de conformité de {{site.data.keyword.cloudant_short_notm}}, consultez [Conformité](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
 Des informations similaires sont également disponibles pour les partenaires commerciaux IaaS suivants :
 
--   [Amazon ![External link icon](../images/launch-glyph.svg "External link icon")](https://aws.amazon.com/compliance/){: new_window}
+-   [Amazon ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://aws.amazon.com/compliance/){: new_window}
 -   [{{site.data.keyword.cloud}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/cloud/compliance){: new_window}
 
 A la suite du vote récent en faveur du nouveau [Règlement

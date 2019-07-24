@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -117,15 +117,15 @@ Not logged in. Use 'ibmcloud login' to log in.
 ## 選擇服務的 {{site.data.keyword.cloudant_short_notm}} 方案
 {: #choosing-the-ibm-cloudant-plan-for-your-service}
 
-如需使用 {{site.data.keyword.cloudant_short_notm}}「精簡方案」或「標準方案」的詳細資料，請參閱文件的[方案 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window} 小節。
+如需使用 {{site.data.keyword.cloudant_short_notm}} 精簡方案或標準方案的詳細資料，請參閱本文件的[方案](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans)區段。
 {: pre}
 
 ## 建立 {{site.data.keyword.cloudant_short_notm}} 服務
 {: #creating-the-ibm-cloudant-service}
 
-{{site.data.keyword.cloudant_short_notm}} 使用「資源群組」來佈建新的實例，而不是 Cloud Foundry 組織及空間。過去佈建的 {{site.data.keyword.cloudant_short_notm}} 實例仍然可以部署在 Cloud Foundry 組織及空間。如需相關資訊，請參閱 [IBM Cloudant 如何使用 IBM Cloud 資源群組？![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} 手冊。
+{{site.data.keyword.cloudant_short_notm}} 使用資源群組（而不是 Cloud Foundry 組織和空間）來佈建新實例。過去佈建的 {{site.data.keyword.cloudant_short_notm}} 實例仍然可以部署在 Cloud Foundry 組織及空間。如需相關資訊，請參閱 [{{site.data.keyword.cloudant_short_notm}} 如何使用 {{site.data.keyword.cloud_notm}} 資源群組？![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} 手冊。
 
-首先，使用下列格式，設定目標「資源群組」及地區（如[一般 CLI (ibmcloud) 指令 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window} 下的 `ibmcloud target` 所示）：
+首先，如[一般 CLI (ibmcloud) 指令 ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window} 中 `ibmcloud target` 下的內容所示，使用下列格式設定目標資源群組和地區：
 
 ```sh
 ibmcloud target [-r REGION_NAME] [-g RESOURCE_GROUP]
@@ -159,7 +159,7 @@ ibmcloud resource service-instance-create NAME SERVICE_NAME|SERVICE_ID SERVICE_P
 `SERVICE_NAME` | `cloudantnosqldb`
 `PLAN_NAME` |「精簡方案」或「標準方案」。
 `LOCATION` |您要在其中部署的位置：「亞太地區北部」、「德國」、「全球」、「雪梨」、「英國」、「美國東部」或「美國南部」。
-`legacyCredentials` | 預設為 true。此欄位指出實例同時使用 Legacy 及 IAM 認證還是僅使用 IAM 認證。
+`legacyCredentials` | 預設為 true。此欄位指出實例同時使用舊式及 IAM 認證還是僅使用 IAM 認證。
 
 如需選擇鑑別方法的相關資訊，請參閱 [IAM 手冊](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}。{{site.data.keyword.cloudant_short_notm}} 團隊建議您儘可能對 {{site.data.keyword.cloudant_short_notm}} 舊式鑑別使用 IAM 存取控制。
 {: important}
@@ -291,7 +291,7 @@ Credentials:
 2.  已建立 {{site.data.keyword.cloudant_short_notm}} 服務實例的認證。
 3.  已擷取服務實例認證，因此應用程式可以使用它們。
 
-如需相關資訊，請參閱[在 {{site.data.keyword.cloud_notm}} 上建立簡單的 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#context){: new_window}指導教學，而此指導教學顯示如何使用 Legacy 認證從 Python 應用程式使用 {{site.data.keyword.cloudant_short_notm}} 服務實例。請記得替換您已在本指導教學中建立的認證。
+如需相關資訊，請參閱[在 {{site.data.keyword.cloud_notm}} 上建立簡單的 {{site.data.keyword.cloudant_short_notm}} 資料庫並將資料移入其中](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#context){: new_window}指導教學，而此指導教學顯示如何使用舊式認證從 Python 應用程式使用 {{site.data.keyword.cloudant_short_notm}} 服務實例。請記得替換您已在本指導教學中建立的認證。
 
 ## （選用）後續整理
 {: #-optional-tidying-up-afterward}

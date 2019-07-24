@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -79,7 +79,7 @@ GDPR의 목적은 EU 전체에 적용되는 일관된 개인정보 보호 법 �
  * 이름
  * 이메일
 
-{{site.data.keyword.cloudant_short_notm}}에 저장된 데이터는 {{site.data.keyword.cloudant_short_notm}} 대시보드를 통해 보거나 업데이트할 수 있습니다.
+{{site.data.keyword.cloudant_short_notm}}에 저장된 데이터는 {{site.data.keyword.cloudant_short_notm}} 대시보드를 통해 보거나 업데이트할 수 있습니다. 
 
 {{site.data.keyword.cloud_notm}}(데디케이티드 인스턴스 포함)에 의해 프로비저닝된 계정이
 있는 경우, {{site.data.keyword.cloudant_short_notm}}가 앞에서 언급한 개인정보를
@@ -87,12 +87,12 @@ GDPR의 목적은 EU 전체에 적용되는 일관된 개인정보 보호 법 �
 
 {{site.data.keyword.cloudant_short_notm}}는 서비스를 실행하고 사용자 경험을 최적화하는 과정에서
 제한된 고객 PI를 처리합니다. {{site.data.keyword.cloudant_short_notm}}는 필요한 경우 고객에게 연락하는 데 이메일을 사용합니다. 고객과
-{{site.data.keyword.cloudant_short_notm}} 대시보드의 상호작용을 모니터링하는 것은 {{site.data.keyword.cloudant_short_notm}}가 PI를 처리하는 또 다른 방법입니다.
+{{site.data.keyword.cloudant_short_notm}} 대시보드의 상호작용을 모니터하는 것은 {{site.data.keyword.cloudant_short_notm}}가 PI를 처리하는 또 다른 방법입니다. 
 
 ### 처리 제한
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}}는 대시보드 상호작용 데이터를 세그먼트에 전송합니다. {{site.data.keyword.cloudant_short_notm}}에게 [{{site.data.keyword.cloudant_short_notm}} 지원 요청](mailto:support@cloudant.com)을 통해 해당 방법으로 고객 PI 처리를 제한하도록 요청할 수 있습니다. 해당
+{{site.data.keyword.cloudant_short_notm}}는 대시보드 상호작용 데이터를 세그먼트에 전송합니다. [{{site.data.keyword.cloudant_short_notm}} 지원 요청 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](mailto:support@cloudant.com){: new_window}을 통해 {{site.data.keyword.cloudant_short_notm}}에게 해당 방법을 사용한 고객 PI 처리를 제한하도록 요청할 수 있습니다. 해당
 요청을 수신하면 {{site.data.keyword.cloudant_short_notm}}가 세그먼트에 전송된 대로 고객과 연관된 정보를
 삭제하고 추가 데이터가 전송되는 것을 방지합니다. {{site.data.keyword.cloudant_short_notm}}는
 이메일을 통해 데디케이티드 고객과 연락할 수 있는 기능을 유지해야 하며
@@ -103,7 +103,7 @@ GDPR의 목적은 EU 전체에 적용되는 일관된 개인정보 보호 법 �
 {: #is-our-ibm-cloudant-database-encrypted-}
 
 모든 클러스터에는 LUKS(Linux Unified Key Setup)를 사용하는 암호화된 파일 시스템(저장 시 암호화)이 있습니다. 데이터베이스 내의 데이터는
-당사의 운영 및 지원 팀에게 표시됩니다(아래 참조).
+당사의 운영 및 지원 팀에게 표시됩니다(다음 단락 참조). 
 
 귀하의 민감한 데이터라고 판단하는 경우, 이러한 민감한 데이터는 {{site.data.keyword.cloudant_short_notm}}에
 표시되지 않아야 하므로, 이러한 정보를 암호화하거나, 전송 전에 이러한 정보를 보호하거나 익명을 사용하십시오. `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`와
@@ -131,7 +131,7 @@ DSA에 의해 사용 가능하게 되며 최신 상태로 유지됩니다.
  * API 키를 사용하십시오. 예를 들어, 컴포넌트에 감사 로그와 연관된 '최소 권한의 액세스'가 있을 수 있습니다. 이를 사용하면 누가 어떤 데이터에 액세스했는지 파악할 수 있습니다.
  * {{site.data.keyword.cloudant_short_notm}}에 표시되지 않아야 한다고 판단되는 민감한 데이터를 암호화하거나 다른 방법으로 보호(익명화)하십시오.
 
-### 물리적 및 환경적 보안 방안(Physical And Environmental Security Measures)
+### 물리적 및 환경적 보안 조치
 {: #physical-and-environmental-security-measures}
 
 데이터 센터의 물리적 보안은 인프라 제공업체({{site.data.keyword.cloud}},
@@ -144,8 +144,8 @@ AWS, 21Vianet)가 담당합니다. 물리적 보안을 위해
 {{site.data.keyword.IBM_notm}} Corporate가 담당합니다. 
 요청 시 고객에게 인증 세부사항 및 인증 보고서(ISO 및 SOC2)가 제공될 수 있습니다.
 
-### 기술 및 구성 방안(Technical and Organisational Measures)
-{: #technical-and-organisational-measures}
+### 기술적 및 조직적 조치
+{: #technical-and-organizational-measures}
 
 {{site.data.keyword.cloudant_short_notm}}에서는 개인정보의 보안을 보장하기 위해 기술 및 구성 방안을 채택하고
 있습니다. {{site.data.keyword.cloudant_short_notm}}는 {{site.data.keyword.cloudant_short_notm}}에서 사용하는 제어에 대해 외부 감사된 인증서를 보유하고 있습니다. 
@@ -222,8 +222,8 @@ GDPR의 맥락에서는 PI가 문서 ID 내에서 사용되는 경우에만 영�
 포함되어 있는지 확인합니다. {{site.data.keyword.cloudant_short_notm}}는 `_id`에 PI가 없는 데이터를 영구 제거하지 않습니다. 
 1. {{site.data.keyword.cloudant_short_notm}}가 영구 제거 조치를 트리거하여 요청된 데이터를 영구적으로 제거합니다.
 
-이 프로세스는 긴급 삭제 요청(예: *잊혀질 권리*)에 대해서만 사용되므로
-지속적으로 사용하지 마십시오. 애플리케이션이 의도적으로 문서 ID에 PI를 사용하는 경우,
+이 프로세스는 긴급 삭제 요청(예: *잊혀질 권리*)에 대해서만 사용해야 하며
+지속적으로 사용해서는 안 됩니다. 애플리케이션이 의도적으로 문서 ID에 PI를 사용하는 경우,
 해당 PI를 익명으로 사용하도록 변경하거나 문서 ID에 PI를 사용하지 않도록 변경해야 합니다. 이러한
 조치를 피하기 위해 {{site.data.keyword.cloudant_short_notm}} 운영 팀에 정기적인 영구 제거를 요청해서는 안됩니다. 
 따라서 {{site.data.keyword.cloudant_short_notm}}는 다음과 같은 영구 제거 요청을 거부합니다.

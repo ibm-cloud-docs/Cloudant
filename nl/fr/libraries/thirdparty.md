@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -44,28 +44,28 @@ install-package mycouch.cloudant
 {: #libraries-and-frameworks-for-c-net}
 
 -   [MyCouch ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/danielwertheim/mycouch){: new_window}.
--   [LoveSeat ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/soitgoes/LoveSeat){: new_window}.
--   [Divan ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/foretagsplatsen/Divan){: new_window}.
--   [Relax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/arobson/Relax){: new_window}.
--   [Hammock ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/relax-net/){: new_window}.
--   [EasyCouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/hhariri/EasyCouchDB){: new_window}.
--   `WDK.API.CouchDB` from [Kanapes IDE ![External link icon](../images/launch-glyph.svg "External link icon")](http://kanapeside.com/){: new_window}.
+-   [LoveSeat ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/soitgoes/LoveSeat){: new_window}.
+-   [Divan ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/foretagsplatsen/Divan){: new_window}.
+-   [Relax ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/arobson/Relax){: new_window}.
+-   [Hammock ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://code.google.com/p/relax-net/){: new_window}.
+-   [EasyCouchDB ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/hhariri/EasyCouchDB){: new_window}.
+-   `WDK.API.CouchDB` from [Kanapes IDE ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://kanapeside.com/){: new_window}.
 
 ### Exemples et tutoriels pour C# / .NET
 {: #examples-and-tutorials-for-c-net}
 
--   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}.
+-   [CRUD ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}.
 
 ## Java
-{: #java}
+{: #java-thirdparty}
 
 ### Bibliothèques non prises en charge pour Java
-{: #unsupported-for-libraries-for-java}
+{: #unsupported-for-libraries-for-java-thirdparty}
 
--   [ektorp ![External link icon](../images/launch-glyph.svg "External link icon")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
--   [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){: new_window}.
--   [jrelax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/isterin/jrelax){: new_window}.
--   [LightCouch ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.lightcouch.org/){: new_window}.
+-   [ektorp ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
+-   [jcouchdb ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://code.google.com/p/jcouchdb/){: new_window}.
+-   [jrelax ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/isterin/jrelax){: new_window}.
+-   [LightCouch ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://www.lightcouch.org/){: new_window}.
 
 ## JavaScript
 {: #javascript}
@@ -73,18 +73,17 @@ install-package mycouch.cloudant
 ### Bibliothèques et infrastructures pour JavaScript
 {: #libraries-and-frameworks-for-javascript}
 
--   [Backbone.cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}.
-    Pour plus d'informations voir l'[blog post ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://cloudant.com/blog/backbone-and-cloudant/){: new_window}.
--   [sag.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}.
+-   [Backbone.cloudant ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}.
+-   [sag.js ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/sbisbee/sag-js){: new_window}.
 
 ### Exemples et tutoriels pour JavaScript
 {: #examples-and-tutorials-for-javascript}
 
--   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){: new_window} utilisant jQuery.
+-   [CRUD ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){: new_window} utilisant jQuery.
 -   [CSVtoCloudant ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/michellephung/CSVtoCloudant){: new_window} - Interface utilisateur permettant d'importer des fichiers `.csv` dans {{site.data.keyword.cloudant_short_notm}}.
     Vous pouvez également accéder à l'application en cliquant [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://michellephung.github.io/CSVtoCloudant/){: new_window}.
 -   [csv2couchdb ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/Mango-information-systems/csv2couchdb){: new_window} - Interface utilisateur en provenance de Mango Systems pour importer des fichiers `.csv` dans CouchDB/{{site.data.keyword.cloudant_short_notm}}.
--   [songblog ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/millayr/songblog){: new_window} - Exemple d'application utilisant JQuery.
+-   [songblog ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/millayr/songblog){: new_window} - Exemple d'application utilisant JQuery.
     
 ## PouchDB (JavaScript)
 {: #pouchdb}
@@ -103,7 +102,7 @@ PouchDB peut aussi être installé avec Bower : `bower install pouchdb`.
 ### Bibliothèques et infrastructures pour PouchDB
 {: #libraries-and-frameworks-for-pouchdb}
 
--   [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window} - Base de données JavaScript pour navigateur, avec synchronisation hors ligne.
+-   [PouchDB ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://pouchdb.com/){: new_window} - Base de données JavaScript pour navigateur, avec synchronisation hors ligne.
 
 ### Exemples et tutoriels pour PouchDB
 {: #examples-and-tutorials-for-pouchdb}
@@ -112,24 +111,24 @@ PouchDB peut aussi être installé avec Bower : `bower install pouchdb`.
 -   [locationtracker ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/rajrsingh/locationtracker){: new_window} - Exemple d'application pour enregistrer et mapper un emplacement à l'aide de PouchDB, CouchApp et {{site.data.keyword.cloudant_short_notm}}.
 
 ## Node.js
-{: #node-js}
+{: #node-js-thirdparty}
 
-### Bibliothèques et infrastructures non prises en charge pour node.js
+### Bibliothèques et infrastructures non prises en charge pour Node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
--   [sag-js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}, compatible avec le navigateur.
+-   [sag-js ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/sbisbee/sag-js){: new_window}, compatible avec le navigateur.
     Pour plus d'informations, voir [saggingcouch ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/sbisbee/saggingcouch.com){: new_window}.
--   [nano ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dscape/nano){: new_window} désigne une implémentation minimaliste.
--   [restler ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danwrong/restler){: new_window} offre les meilleures performances mais est réduite à l'essentiel.
--   [cradle ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/flatiron/cradle){: new_window} est un client de haut niveau, adapté à vos besoins si vous recherchez surtout la facilité d'utilisation au prix de performances réduites.
+-   [nano ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/dscape/nano){: new_window} désigne une implémentation minimaliste.
+-   [restler ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/danwrong/restler){: new_window} offre les meilleures performances mais est réduite à l'essentiel.
+-   [cradle ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/flatiron/cradle){: new_window} est un client de haut niveau, adapté à vos besoins si vous recherchez surtout la facilité d'utilisation au prix de performances réduites.
 -   [cane_passport ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/ddemichele/cane_passport){: new_window} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express avec Bootstrap.
--   [express-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/express-cloudant){: new_window} - Modèle pour l'infrastructure Node.js Express qui utilise également PouchDB et Grunt.
+-   [express-cloudant ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant-labs/express-cloudant){: new_window} - Modèle pour l'infrastructure Node.js Express qui utilise également PouchDB et Grunt.
 
 ## PHP
 {: #php}
 
 [Sag ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/sbisbee/sag){: new_window} est un client CouchDB et {{site.data.keyword.cloudant_short_notm}} de PHP.
-[Sag.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window} est l'équivalent JavaScript de Sag.
+[Sag.js ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/sbisbee/sag-js){: new_window} est l'équivalent JavaScript de Sag.
 
 Pour l'installer, téléchargez `sag` depuis la page [https://github.com/sbisbee/sag ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/sbisbee/sag){: new_window}, puis incluez la bibliothèque dans votre application :
 
@@ -141,14 +140,14 @@ require_once('./src/Sag.php');
 ### Bibliothèques et infrastructures pour PHP
 {: #libraries-and-frameworks-for-php}
 
--   [sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){: new_window}.
--   [Doctrine CouchDB Client ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/doctrine/couchdb-client){: new_window}.
--   [PHP-on-Couch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dready92/PHP-on-Couch){: new_window}.
+-   [sag ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/sbisbee/sag){: new_window}.
+-   [Doctrine CouchDB Client ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/doctrine/couchdb-client){: new_window}.
+-   [PHP-on-Couch ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/dready92/PHP-on-Couch){: new_window}.
 
 ### Exemples et tutoriels pour PHP
 {: #examples-and-tutorials-for-php}
 
--   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/php){: new_window}.
+-   [CRUD ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/php){: new_window}.
 
 ## Python
 {: #python}
@@ -156,7 +155,7 @@ require_once('./src/Sag.php');
 ### Bibliothèques et infrastructures non prises en charge pour Python
 {: #unsupported-libraries-and-frameworks-for-python}
 
--   [Requests: HTTP for Humans™ ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://docs.python-requests.org/en/master/){: new_window}.
+-   [Requests ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://docs.python-requests.org/en/master/){: new_window}.
 
 ## Ruby
 {: #ruby}
@@ -178,7 +177,7 @@ De nombreux clients CouchDB sont répertoriés sur [Ruby Toolbox ![Icône de lie
 ### Exemples et tutoriels pour Ruby
 {: #examples-and-tutorials-for-ruby}
 
--   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/ruby){: new_window}.
+-   [CRUD ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://github.com/cloudant/haengematte/tree/master/ruby){: new_window}.
 
 ## Meteor
 {: #meteor}
@@ -208,4 +207,4 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {: codeblock}
 
-Pour plus d'informations sur les API meteor-couchdb, voir [Référence d'API](/docs/services/Cloudant/api/index.html#api-reference-overview). 
+Pour plus d'informations sur les API meteor-couchdb, voir [Référence d'API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview). 

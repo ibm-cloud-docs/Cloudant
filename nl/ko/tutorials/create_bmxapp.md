@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create applications, deploy applications, create simple application
 
@@ -51,7 +51,9 @@ Cloud Foundry는 클라우드 환경 내에서 배치되어 실행될 수 있는
 이 애플리케이션은 {{site.data.keyword.cloudant_short_notm}} 데이터베이스 인스턴스에 연결하여 간단한 문서를 하나 작성합니다.
 
 각 태스크에 해당하는 Python 코드가 이 튜토리얼의 일부로서 제공되었습니다.
-개념을 보여줄 수 있는 전체 Python 프로그램은 튜토리얼의 [이 부분](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program)에 제공되어 있습니다.
+개념을 보여줄 수 있는
+완전한 Python 프로그램은
+[{{site.data.keyword.cloudant_short_notm}} 데이터베이스에 액세스하기 위한 간단한 {{site.data.keyword.cloud_notm}} 애플리케이션 작성](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program) 튜토리얼에 제공되어 있습니다. 
 
 이 튜토리얼의 Python 코드를 작성하는 데 있어서 _효율성_은 고려되지 않았습니다. 이 코드의 의도는 참조하여 자신의 애플리케이션에 적용할 수 있는, 간단하고 이해하기 쉬운 작동 코드를 보여주는 것입니다.
 

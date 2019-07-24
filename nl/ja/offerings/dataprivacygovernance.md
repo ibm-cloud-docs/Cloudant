@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -54,7 +54,7 @@ EU Directive 95/46/EC では、お客様の個人データの処理に関する�
 クラウド・サービスを提供およびサポートするために、コンテンツが保持される国、またはコンテンツへのアクセス元の国のリストが以下にあります。
 [www.ibm.com/cloud/datacenters ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://www.ibm.com/cloud/datacenters){: new_window}
 
-{{site.data.keyword.cloudant_short_notm}} の規格準拠全体の詳細については、[こちら](/docs/services/Cloudant?topic=cloudant-compliance#compliance)を参照してください。
+{{site.data.keyword.cloudant_short_notm}} の規格準拠全体の詳細については、[コンプライアンス](/docs/services/Cloudant?topic=cloudant-compliance#compliance)を参照してください。
 以下の IaaS ビジネス・パートナーについて、同様の情報があります。
 
 -   [Amazon ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://aws.amazon.com/compliance/){: new_window}

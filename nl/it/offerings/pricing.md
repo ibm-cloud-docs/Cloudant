@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-06-12"
 
 keywords: pricing examples, data usage, ibm cloud usage dashboard
 
@@ -24,7 +24,7 @@ subcollection: cloudant
 # Prezzi
 {: #pricing}
 
-Il prezzo di {{site.data.keyword.cloudantfull}} si basa sulla capacità produttiva fornita che assegni per la tua istanza e sulla quantità di archiviazione dati consumata. {{site.data.keyword.cloudant_short_notm}} ti consente di ampliare o ridurre la tua capacità produttiva fornita e di pagare su base oraria proporzionale. La capacità produttiva fornita è un numero riservato di letture al secondo, scritture al secondo e query globali al secondo assegnate a un'istanza. L'impostazione della capacità produttiva è il livello massimo di utilizzo per un dato secondo. Se tenti di superare la capacità riservata per letture, scritture o query globali, ottieni un codice di stato HTTP 429 che indica che l'applicazione sta tentando di superare la sua franchigia di capacità produttiva fornita. 
+Il prezzo di {{site.data.keyword.cloudantfull}} si basa sulla capacità produttiva fornita che assegni per la tua istanza e sulla quantità di archiviazione dati consumata. {{site.data.keyword.cloudant_short_notm}} ti consente di ampliare o ridurre la tua capacità produttiva fornita e di pagare su base oraria proporzionale. La capacità produttiva fornita è un numero riservato di letture al secondo, scritture al secondo e query globali al secondo assegnate a un'istanza. L'impostazione della capacità produttiva è il livello massimo di utilizzo per un dato secondo. Se tenti di superare la capacità riservata per letture, scritture o query globali, ottieni un codice di stato HTTP 429 che indica che l'applicazione sta tentando di superare la sua franchigia di capacità produttiva fornita.
 
 La seguente tabella mostra il prezzo orario di esempio per diverse impostazioni della capacità produttiva fornita. Puoi commutare la capacità in blocchi granulari di 100 letture/secondo, 50 scritture/secondo e 5 query globali/secondo su una base oraria. Viene mostrato anche un costo mensile approssimativo per ciascuna impostazione presupponendo una media di 730 ore al mese. I prezzi vengono mostrati in USD. Puoi utilizzare il calcolatore dei prezzi {{site.data.keyword.cloud_notm}} per vedere i costi stimati in altre valute facendo clic sul pulsante `Add to estimate` dal tile del catalogo {{site.data.keyword.cloudant_short_notm}}.
 
@@ -54,7 +54,7 @@ Equazione di esempio:
 - Totale = $76,65
 
 
-Letture, scritture e query globali non possono essere ridimensionate indipendentemente. Utilizza il dispositivo di scorrimento per selezionare il numero di blocchi di capacità produttiva fornita in base al limite massimo di letture/secondo, scritture/secondo o query globali/secondo per la tua applicazione. Ad esempio, se la tua applicazione richiede 1.000 letture al secondo, utilizza il dispositivo di scorrimento per selezionare la capacità che offre 1.000 letture/secondo, 500 scritture/secondo e 50 query globali/secondo, anche se non hai bisogno del numero corrispondente di scritture o query globali. 
+Letture, scritture e query globali non possono essere ridimensionate indipendentemente. Utilizza il dispositivo di scorrimento per selezionare il numero di blocchi di capacità produttiva fornita in base al limite massimo di letture/secondo, scritture/secondo o query globali/secondo per la tua applicazione. Ad esempio, se la tua applicazione richiede 1.000 letture al secondo, utilizza il dispositivo di scorrimento per selezionare la capacità che offre 1.000 letture/secondo, 500 scritture/secondo e 50 query globali/secondo, anche se non hai bisogno del numero corrispondente di scritture o query globali.
 
 ![{{site.data.keyword.cloudant_short_notm}} - scheda Capacità del dashboard con più capacità selezionata](../images/cloudant-gran-tuning.png)
 
@@ -71,7 +71,7 @@ Come funzionano i prezzi per l'eccedenza dati?
 
 Piano | Archiviazione inclusa | Limite eccedenza
 -----|------------------|--------------
-Lite | 1 GB |  Al tuo account non è consentito scrivere nuovi dati finché non elimini abbastanza dati da essere sotto al limite di 1 GB o esegui l'upgrade a un piano superiore. 
+Lite | 1 GB |  Al tuo account non è consentito scrivere nuovi dati finché non elimini abbastanza dati da essere sotto al limite di 1 GB o esegui l'upgrade a un piano superiore.
 Standard | 20 GB | Dell'archiviazione aggiuntiva costa $0,0014 per GB all'ora, che è circa $1/GB al mese.
 
 ## Dashboard di utilizzo {{site.data.keyword.cloud_notm}} 
@@ -79,7 +79,7 @@ Standard | 20 GB | Dell'archiviazione aggiuntiva costa $0,0014 per GB all'ora, c
 
 Come vengono visualizzati i dati nel dashboard di utilizzo di {{site.data.keyword.cloud_notm}}?
 
-Le fatturazioni di utilizzo correnti e cronologiche possono essere esaminate nel dashboard {{site.data.keyword.cloud_notm}}, in Gestisci -> Fatturazione e utilizzo -> Utilizzo. Questa vista mostra i totali per l'utilizzo che sono maturati durante un particolare mese a livello di servizio, piano o istanza. Il totale stimato riflette la fatturazione fino a questo momento per il mese o per i mesi completi passati. Mostrerà solo i costi orari maturati fino a quel punto per il mese corrente. Entro la fine del mese, vedrai la tua capacità effettiva fornita media per il mese nei campi `LOOKUPS_PER_MONTH`, `WRITES_PER_MONTH` e `QUERIES_PER_MONTH`. (Tieni presente che ora le ricerche vengono chiamate letture e le query vengono chiamate query globali.) Il campo `STORAGE_MANAGED_PER_MONTH` mostra solo l'archiviazione addebitata e non include i 20 GB che sono inclusi nel piano Standard. Nel seguente esempio, una quantità superiore a 20 GB indica che c'è stata una media di 40 GB di dati nell'istanza per il mese. Quando utilizzi meno di 20 GB di archiviazione, la visualizzazione mostra 0 GB poiché non hai superato il limite.   
+Le fatturazioni di utilizzo correnti e cronologiche possono essere esaminate nel dashboard {{site.data.keyword.cloud_notm}}, in Gestisci -> Fatturazione e utilizzo -> Utilizzo. Questa vista mostra i totali per l'utilizzo che sono maturati durante un particolare mese a livello di servizio, piano o istanza.  Il totale stimato riflette la fatturazione fino a questo momento per il mese o per i mesi completi passati. Mostrerà solo i costi orari maturati fino a quel punto per il mese corrente. Entro la fine del mese, vedrai la tua capacità effettiva fornita media per il mese nei campi `LOOKUPS_PER_MONTH`, `WRITES_PER_MONTH` e `QUERIES_PER_MONTH`. (Tieni presente che ora le ricerche vengono chiamate letture e le query vengono chiamate query globali.) Il campo `STORAGE_MANAGED_PER_MONTH` mostra solo l'archiviazione addebitata e non include i 20 GB che sono inclusi nel piano Standard. Nel seguente esempio, una quantità superiore a 20 GB indica che c'è stata una media di 40 GB di dati nell'istanza per il mese. Quando utilizzi meno di 20 GB di archiviazione, la visualizzazione mostra 0 GB poiché non hai superato il limite.   
 
 ![{{site.data.keyword.cloudant_short_notm}} Vista delle metriche di utilizzo del dashboard con STORAGE_MANAGED_PER_MONTH più elevato](../images/usage-dashboard1.png)
 

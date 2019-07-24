@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -70,7 +70,7 @@ subcollection: cloudant
 
 复制的源和目标是 {{site.data.keyword.cloudant_short_notm}} 数据库的 URL，如以下示例所示。
 
-_定义复制的源 URL 和目标 URL 的示例：_
+*定义复制的源 URL 和目标 URL 的示例：*
 
 ```json
 {
@@ -99,7 +99,7 @@ _定义复制的源 URL 和目标 URL 的示例：_
 `target`        |目标 {{site.data.keyword.cloudant_short_notm}} 数据库的 URL，包含登录凭证。
 `create_target` |（可选）确定在目标数据库尚不存在时是否加以创建。
 
-_使用 HTTP 启动复制作业的示例：_
+*使用 HTTP 启动复制作业的示例：*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -109,7 +109,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用命令行启动复制作业的示例：_
+*使用命令行启动复制作业的示例：*
 
 ```sh
 curl -X POST \
@@ -119,7 +119,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_用于描述所需复制的示例 JSON 文档：_
+*用于描述所需复制的示例 JSON 文档：*
 
 ```json
 {
@@ -203,7 +203,7 @@ _用于描述所需复制的示例 JSON 文档：_
 
 通过设置 `continuous` 标志，可使双向复制在一个方向或两个方向持续进行。
 
-_使用 HTTP 启动持续复制的示例：_
+*使用 HTTP 启动持续复制的示例：*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -213,7 +213,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用命令行启动持续复制的示例：_
+*使用命令行启动持续复制的示例：*
 
 ```sh
 curl -X POST \
@@ -223,7 +223,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_用于定义持续复制的 JSON 文档的示例：_
+*用于定义持续复制的 JSON 文档的示例：*
 
 ```json
 {
@@ -242,7 +242,7 @@ _用于定义持续复制的 JSON 文档的示例：_
 
 如果复制失败（例如，如果认证凭证无效），那么错误状态将记录在 `_replicator` 文档中。此外，可以使用 {{site.data.keyword.cloudant_short_notm}} 帐户的 [`/_active_tasks` 端点](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks)来查看进行中的复制工作。
 
-_使用 HTTP 监视复制过程的示例：_
+*使用 HTTP 监视复制过程的示例：*
 
 ```http
 GET /_replicator/weekly_backup HTTP/1.1
@@ -251,14 +251,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用命令行监视复制过程的示例：_
+*使用命令行监视复制过程的示例：*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
 ```
 {: codeblock}
 
-_请求复制状态的示例响应：_
+*请求复制状态的示例响应：*
 
 ```json
 {
@@ -282,7 +282,7 @@ _请求复制状态的示例响应：_
 
 要停止正在进行的复制作业，请使用仪表板或 API 从 `_replicator` 数据库中删除复制文档。
 
-_使用 HTTP 取消复制的示例：_
+*使用 HTTP 取消复制的示例：*
 
 ```http
 DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1.1
@@ -291,7 +291,7 @@ Authorization:
 ```
 {: codeblock}
 
-_使用命令行取消复制的示例：_
+*使用命令行取消复制的示例：*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
@@ -316,7 +316,7 @@ curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 
 [PouchDB ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](http://pouchdb.com/){: new_window} 是一种开放式源代码的浏览器内数据库，支持在浏览器和 {{site.data.keyword.cloudant_short_notm}} 之间双向复制数据。通过在客户端的 Web 浏览器中存储数据，Web 应用程序可以在没有因特网连接的情况下运行。当因特网连接可用时，PouchDB 可以与 {{site.data.keyword.cloudant_short_notm}} 相互同步任何发生更改的数据。从客户端设置复制需要几行 JavaScript 代码。
 
-_使用 PouchDB 启用复制的示例 JavaScript：_
+*使用 PouchDB 启用复制的示例 JavaScript：*
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
@@ -330,7 +330,7 @@ db.sync(URL, { live: true });
 
 [CloudantSync ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloudant.com/cloudant-sync-resources/){: new_window} 是一组用于 iOS 和 Android 的库，支持在移动设备本地存储数据，并在移动连接允许时将数据与 {{site.data.keyword.cloudant_short_notm}} 同步。与 [PouchDB](#pouchdb) 一样，设置复制需要几行代码。
 
-_使用 CloudantSync 启用复制的示例 JavaScript：_
+*使用 CloudantSync 启用复制的示例 JavaScript：*
 
 ```javascript
 URI uri = new URI("https://u:p@username.cloudant.com/my_database");
@@ -359,7 +359,7 @@ CloudantSync 在移动应用程序（如 iPhone 和 Android 游戏）中广泛�
 
 以下示例中的过滤函数仅允许复制未删除的文档。
 
-_用于复制未删除的文档的示例过滤函数：_
+*用于复制未删除的文档的示例过滤函数：*
 
 ```javascript
 function(doc, req) {
@@ -373,7 +373,7 @@ function(doc, req) {
 
 复制作业启动时，会将过滤函数的名称指定为其存储所在的设计文档与该过滤函数名称的组合。还可以指定 `query_params` 值。此值是一个对象，其中包含在其第二个 (`req`) 自变量的 `query` 字段中传递给过滤函数的属性。
 
-_使用 HTTP 启动过滤复制的示例：_
+*使用 HTTP 启动过滤复制的示例：*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -383,7 +383,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用命令行启动过滤复制的示例：_
+*使用命令行启动过滤复制的示例：*
 
 ```sh
 curl -X POST \
@@ -393,7 +393,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_用于定义过滤复制的 JSON 文档的示例：_
+*用于定义过滤复制的 JSON 文档的示例：*
 
 ```json
 {
@@ -414,7 +414,7 @@ _用于定义过滤复制的 JSON 文档的示例：_
 
 {{site.data.keyword.cloudant_short_notm}} 通过单个 HTTP 订阅源从 [`_changes` 端点](/docs/services/Cloudant?topic=cloudant-databases#get-changes)发布影响数据库的添加、编辑和删除操作。应用程序可以使用此订阅源来触发事件。您可以使用 HTTP 或 `curl`（如示例中所示）来访问订阅源。使用 `feed=continuous` 选项意味着流会提供获取数据库中每个文档最新版本所需的每个更改。
 
-_使用 HTTP 查询 changes 订阅源的示例：_
+*使用 HTTP 查询 changes 订阅源的示例：*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous HTTP/1.1
@@ -423,7 +423,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用命令行查询 changes 订阅源的示例：_
+*使用命令行查询 changes 订阅源的示例：*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
@@ -440,7 +440,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
 
 使用以下示例（缩略版）中显示的格式来描述每个更改。
 
-_`_changes` 订阅源示例：_
+*示例 `_changes` 订阅源：*
 
 ```json
 {
@@ -457,7 +457,7 @@ _`_changes` 订阅源示例：_
 
 要从已知位置连接 changes 订阅源，请传递 [`since` 自变量](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument)以及要从其开始的序号。
 
-_使用 HTTP 提供 `since` 选项在已知位置连接 `_changes` 订阅源的示例（缩略版）：_
+*使用 HTTP 提供 `since` 选项在已知位置连接 `_changes` 订阅源的示例（缩略版）：*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
@@ -466,7 +466,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用命令行提供 `since` 选项在已知位置连接 `_changes` 订阅源的示例（缩略版）：
+*使用命令行提供 `since` 选项在已知位置连接 `_changes` 订阅源的示例（缩略版）：*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -475,7 +475,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 
 要在此刻重新连接 changes 订阅源，请设置 `since=now`。
 
-_使用 HTTP 提供 `since=now` 以在此刻连接 `_changes` 订阅源的示例：_
+*使用 HTTP 提供 `since=now` 以在此刻连接 `_changes` 订阅源的示例：*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
@@ -484,14 +484,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用命令行提供 `since=now` 以在此刻连接 `_changes` 订阅源的示例：_
+*使用命令行提供 `since=now` 以在此刻连接 `_changes` 订阅源的示例：*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {: codeblock}
 
-_使用 JavaScript 提供 `since=now` 以在此刻连接 `_changes` 订阅源的示例：_
+*使用 JavaScript 提供 `since=now` 以在此刻连接 `_changes` 订阅源的示例：*
 
 ```javascript
 var feed = db.follow({since: "now", include_docs: true})
@@ -502,7 +502,7 @@ feed.follow();
 ```
 {: codeblock}
 
-通过编程方式访问 `_changes` 数据十分简单。例如，使用 [{{site.data.keyword.cloudant_short_notm}} Node.js 库](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)通过几行代码来跟踪更改。
+通过编程方式访问 `_changes` 数据十分简单。例如，使用 [{{site.data.keyword.cloudant_short_notm}} Node.js 库](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)通过几行代码来跟踪更改。
 
 示例用例可能为：
 
@@ -510,9 +510,9 @@ feed.follow();
 -   更新内存中的数据库以记录活动的实时计数。
 -   将数据写入文本文件以将数据推送到 SQL 数据库。
 
-changes 订阅源可以通过类似于[在复制期间过滤](#filtered-replication)的方法，使用过滤函数进行过滤。
+changes 订阅源可以通过类似于[在复制期间过滤](#filtered-replications)的方法，使用过滤函数进行过滤。
 
-_使用 HTTP 过滤 changes 订阅源的示例：_
+*使用 HTTP 过滤 changes 订阅源的示例：*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter HTTP/1.1
@@ -521,7 +521,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用命令行过滤 changes 订阅源的示例：_
+*使用命令行过滤 changes 订阅源的示例：*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
@@ -552,7 +552,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 *   对数据库“a”的 `_reader` 和 `_replicator` 许可权。
 *   对数据库“b”的 `_writer` 许可权。
 
-API 密钥在 {{site.data.keyword.cloudant_short_notm}} 仪表板中或者通过 [API](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) 生成。
+API 密钥在 {{site.data.keyword.cloudant_short_notm}}“仪表板”中或者通过 [API](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) 生成。
 可以为每个密钥提供与特定 {{site.data.keyword.cloudant_short_notm}} 数据库相关的各个权限。{{site.data.keyword.cloudant_short_notm}} 必须能够在复制的“读取”端写入其检查点文档，否则不会保存任何状态，并且无法从其停止的位置恢复复制。如果未保存状态，那么在恢复大型数据集的复制时，可能会导致性能问题。原因是，在没有检查点的情况下，复制过程每次恢复时都会从头重新开始。
 
 ### 复制文档发生冲突
@@ -578,7 +578,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 
 如果要取消所有复制并从全新的干净 `_replicator` 数据库开始，请删除并重新创建 `replicator` 数据库。
 
-_使用 HTTP 除去并重新创建 `_replicator` 数据库的示例：_
+*使用 HTTP 除去并重新创建 `_replicator` 数据库的示例：*
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -591,7 +591,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_使用命令行除去并重新创建 `_replicator` 数据库的示例：_
+*使用命令行除去并重新创建 `_replicator` 数据库的示例：*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Configuration de {{site.data.keyword.cloudant_short_notm}} pour la reprise après incident dans plusieurs régions
+# Configuration de {{site.data.keyword.cloudant_short_notm}} pour la reprise après incident interrégionale
 {: #configuring-ibm-cloudant-for-cross-region-disaster-recovery}
 
 Le [guide de reprise après incident de {{site.data.keyword.cloudant_short_notm}} ](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) explique que l'une des façons d'activer la reprise après incident consiste à utiliser la réplication {{site.data.keyword.cloudantfull}} afin de créer une redondance au niveau de plusieurs régions.
@@ -67,7 +67,7 @@ La configuration présuppose que vous possédez deux comptes dans des régions d
 * `myaccount-dc1.cloudant.com`
 * `myaccount-dc2.cloudant.com`
 
-Une fois ces deux comptes mis en place, les principales étapes à suivre sont les suivantes :
+Une fois ces deux comptes mis en place, les principales étapes à effectuer sont les suivantes :
 
 1. [Création](#step-1-create-your-databases) d'une paire de bases de données d'homologues dans les comptes
 2. [Définition](#step-2-create-an-api-key-for-your-replications) des clés d'API à utiliser pour la réplication entre ces bases de données
@@ -124,7 +124,7 @@ Notez soigneusement le mot de passe. Il est en effet impossible de le récupére
 ## Etape 3 : Octroi des droits d'accès
 {: #step-3-grant-access-permission}
 
-[Accordez à la clé d'API](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions) un droit d'accès en lecture et en écriture sur les deux bases de données.
+Accordez à la clé d'API un [droit d'accès](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions) en lecture et en écriture sur les deux bases de données.
 
 Si vous voulez également répliquer les index, attribuez des droits d'administration.
 
@@ -184,7 +184,7 @@ A ce stade, les bases de données sont configurées pour rester synchronisées.
 
 Il s'agit ensuite de décider si vous voulez utiliser les bases de données de manière [active-active](#active-active) ou [active-passive](#active-passive).
 
-### Active-active
+### Active-active 
 {: #active-active}
 
 Dans une configuration active-active, différentes instances d'application peuvent écrire dans différentes bases de données.
@@ -241,7 +241,7 @@ Toutefois, si vous avez besoin de gérer les basculements, les options possibles
   Configurez votre application de sorte qu'elle communique avec le proxy plutôt qu'avec l'instance {{site.data.keyword.cloudant_short_notm}}.
   Cette configuration indique que la tâche de modification des instances {{site.data.keyword.cloudant_short_notm}} utilisées par les applications peut être gérée via une modification apportée à la configuration du proxy plutôt qu'aux paramètres de l'application.
   Un grand nombre de proxys sont capables d'équilibrer la charge en fonction des diagnostics d'intégrité définis par l'utilisateur.
-* Utilisez un équilibreur de charge tel que [{{site.data.keyword.cloud}} Internet Services ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} ou [Dyn Traffic Director ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://dyn.com/traffic-director/){: new_window} pour procéder au routage vers {{site.data.keyword.cloudant_short_notm}}.
+* Utilisez un équilibreur de charge tel que [{{site.data.keyword.cloud}} Internet Services ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window} ou [Dyn Traffic Director ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](http://dyn.com/traffic-director/){: new_window} pour procéder au routage vers {{site.data.keyword.cloudant_short_notm}}.
   Cette option requiert une définition `CNAME` qui achemine vers différents comptes {{site.data.keyword.cloudant_short_notm}}, en fonction d'un diagnostic d'intégrité ou d'une règle de temps d'attente.
 
 
@@ -268,9 +268,9 @@ Si vous implémentez le réacheminement ou le basculement suite à un test d'int
 * Certaines réplications nécessitent-elles un redémarrage ?
 * Combien de changements en attente sont encore en attente de réplication dans la base de données ?
 
-Vous pouvez obtenir plus de renseignements sur la [surveillance de l'état de réplication](/docs/services/Cloudant?topic=cloudant-advanced-replication#replication-status).
+Vous pouvez obtenir plus de renseignements sur la [surveillance de le statut de réplication](/docs/services/Cloudant?topic=cloudant-advanced-replication#replication-status).
 
-Si une base de données reçoit sans cesse des modifications, il est peu probable que l'état de réplication soit à 0. Vous devez décider du seuil de statut acceptable ou représentant un état d'erreur.
+Si une base de données reçoit sans cesse des modifications, il est peu probable que le statut de réplication soit à 0. Vous devez décider du seuil de statut acceptable ou représentant un état d'erreur.
 {: note}
 
 ### Index

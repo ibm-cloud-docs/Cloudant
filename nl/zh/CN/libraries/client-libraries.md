@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: develop applications, supported library, third-party library
 
@@ -20,7 +20,7 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-01-15 -->
 
 # 客户机库
 {: #client-libraries}
@@ -31,11 +31,11 @@ subcollection: cloudant
 {{site.data.keyword.cloudant_short_notm}} 正式[支持](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#supported-client-libraries)以下客户机库。
 
 -	[移动设备](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#mobile)
--	[Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java)
--	[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)
+-	[Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported)
+-	[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)
 -	[Swift](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#swift)
 
-在受支持的库中，如果您在库的最新版本中遇到特定的、会重复出现的问题，可以与 {{site.data.keyword.cloudant_short_notm}} 联系。
+在支持的库中，如果您在库的当前版本中遇到可重现的特定问题，可以与 {{site.data.keyword.cloudant_short_notm}} 联系。
 
 其他客户机库已由[第三方](/docs/services/Cloudant?topic=cloudant-third-party-client-libraries#third-party-client-libraries)创建，或者不再受到正式支持。
 

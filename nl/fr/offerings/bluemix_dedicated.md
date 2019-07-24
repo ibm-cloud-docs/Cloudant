@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -31,9 +31,9 @@ subcollection: cloudant
 
 Les clients {{site.data.keyword.cloud_notm}} Dedicated peuvent également choisir d'utiliser {{site.data.keyword.cloudant_short_notm}} dans {{site.data.keyword.cloud_notm}} public via le catalogue syndiqué, y compris les instances des plans Lite et Standard. Notez que les utilisateurs {{site.data.keyword.cloud_notm}} Dedicated ne sont pas éligibles pour acheter le plan Dedicated Hardware dans le catalogue {{site.data.keyword.cloud_notm}} public et doivent utiliser {{site.data.keyword.cloudant_short_notm}} Dedicated sur {{site.data.keyword.cloud_notm}} Dedicated si un matériel dédié est requis.   
 
-La capture d'écran ci-dessous montre un exemple de catalogue {{site.data.keyword.cloud_notm}} mettant en évidence la version syndiquée {{site.data.keyword.cloud_notm}} Public de {{site.data.keyword.cloudant_short_notm}} (à gauche) et l'environnement {{site.data.keyword.cloudant_short_notm}} Dedicated (à droite).  
+La capture d'écran ci-dessous montre un exemple de catalogue {{site.data.keyword.cloud_notm}} mettant en évidence la version syndiquée {{site.data.keyword.cloud_notm}} Public de {{site.data.keyword.cloudant_short_notm}} et l'environnement {{site.data.keyword.cloudant_short_notm}} Dedicated.  
 
-![Catalogue {{site.data.keyword.cloudant_short_notm}}](../images/bluemix_catalog.png)
+![Catalogue {{site.data.keyword.cloudant_short_notm}}](../images/ibmcloud_catalog.png)
 
 ## Capacité matérielle 
 {: #hardware-capacity}
@@ -48,14 +48,14 @@ L'environnement {{site.data.keyword.cloudant_short_notm}} Dedicated dans un envi
 ## Sécurité, chiffrement et conformité 
 {: #security-encryption-and-compliance}
 
-Tous les plans sont fournis sur des serveurs dotés d'un chiffrement de disque [ au repos ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/Data_at_rest). L'accès est établi sur la connexion au réseau public et chiffré à l'aide du protocole HTTPS. Pour plus de détails, voir [Sécurité ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](/docs/services/Cloudant?topic=cloudant-security#security){: new_window}. 
+Tous les plans sont fournis sur des serveurs dotés d'un chiffrement de disque [ au repos ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/Data_at_rest). L'accès est établi sur la connexion au réseau public et chiffré à l'aide du protocole HTTPS. Pour plus de détails, voir [Sécurité](/docs/services/Cloudant?topic=cloudant-security#security).
 Une liste blanche des adresses IP est disponible sur demande auprès du support {{site.data.keyword.cloudant_short_notm}} et s'applique à la totalité de l'environnement {{site.data.keyword.cloudant_short_notm}} et non au niveau de l'instance.  
 
-Le plan offre également une [Certification de conformité à la sécurité ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](/docs/services/Cloudant?topic=cloudant-compliance#compliance){: new_window}. 
+Le plan offre également une [Certification de conformité à la sécurité](/docs/services/Cloudant?topic=cloudant-compliance#compliance). 
 
 La conformité [HIPAA ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window} est disponible sur demande, demandez-la lors du processus d'achat avec votre ingénieur commercial {{site.data.keyword.IBM_notm}}. 
 
 ## Haute disponibilité, reprise après incident et sauvegarde 
 {: #high-availability-disaster-recovery-and-backup}
 
-Dans le but de fournir la haute disponibilité et la reprise après incident au sein d'un centre de données, toutes les données sont stockées en trois exemplaires sur trois serveurs physiques distincts d'un cluster. Lorsqu'ils sont disponibles, vous pouvez mettre à disposition des comptes dans plusieurs emplacements, puis faire appel à la réplication de données en continu pour fournir les fonctions de haute disponibilité et de reprise après incident sur ces différents centres de données. Les données {{site.data.keyword.cloudant_short_notm}} ne sont pas automatiquement sauvegardées, mais des outils pris en charge sont fournis pour gérer les sauvegardes. Consultez le guide [Reprise après incident et sauvegarde ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup){: new_window} pour explorer toutes les considérations relatives à la haute disponibilité, à la reprise après sinistre et à la sauvegarde afin de répondre aux exigences de votre application.
+Dans le but de fournir la haute disponibilité et la reprise après incident au sein d'un centre de données, toutes les données sont stockées en trois exemplaires sur trois serveurs physiques distincts d'un cluster. Lorsqu'ils sont disponibles, vous pouvez mettre à disposition des comptes dans plusieurs emplacements, puis faire appel à la réplication de données en continu pour fournir les fonctions de haute disponibilité et de reprise après incident sur ces différents centres de données. Les données {{site.data.keyword.cloudant_short_notm}} ne sont pas automatiquement sauvegardées, mais des outils pris en charge sont fournis pour gérer les sauvegardes. Consultez le guide [Reprise après incident et sauvegarde](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) pour explorer toutes les considérations relatives à la haute disponibilité, à la reprise après sinistre et à la sauvegarde afin de répondre aux exigences de votre application.

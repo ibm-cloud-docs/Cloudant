@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -117,13 +117,13 @@ Not logged in. Use 'ibmcloud login' to log in.
 ## サービスの {{site.data.keyword.cloudant_short_notm}} プランの選択
 {: #choosing-the-ibm-cloudant-plan-for-your-service}
 
-{{site.data.keyword.cloudant_short_notm}} ライト・プランまたは標準プランの使用の詳細については、文書の『[プラン ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window}』セクションを参照してください。
+{{site.data.keyword.cloudant_short_notm}} ライト・プランまたは標準プランの使用について詳しくは、資料の『[プラン](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans)』セクションを参照してください。
 {: pre}
 
 ## {{site.data.keyword.cloudant_short_notm}} サービスの作成
 {: #creating-the-ibm-cloudant-service}
 
-{{site.data.keyword.cloudant_short_notm}} は、新規インスタンスをプロビジョニングするために、Cloud Foundry の組織およびスペースではなく、リソース・グループを使用します。 過去にプロビジョンされている {{site.data.keyword.cloudant_short_notm}} インスタンスは、引き続き Cloud Foundry の組織およびスペースにデプロイできます。 詳しくは、『[How does IBM Cloudant work with IBM Cloud Resource Groups? ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window}』ガイドを参照してください。
+{{site.data.keyword.cloudant_short_notm}} は、新規インスタンスをプロビジョニングするために、Cloud Foundry の組織およびスペースではなく、リソース・グループを使用します。 過去にプロビジョンされている {{site.data.keyword.cloudant_short_notm}} インスタンスは、引き続き Cloud Foundry の組織およびスペースにデプロイできます。 詳しくは、『[How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups? ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window}』ガイドを参照してください。
 
 最初に、『[汎用 CLI (ibmcloud) コマンド ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window}』の『`ibmcloud target`』に示されているように、以下のフォーマットを使用してターゲットのリソース・グループと地域を設定します。
 

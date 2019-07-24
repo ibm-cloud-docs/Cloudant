@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-12"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -43,7 +43,7 @@ Vos données sont ainsi protégées par le réseau et les mesures de sécurité 
 ## ISO (International Organization for Standardization)
 {: #international-organization-for-standardization-iso-}
 
-{{site.data.keyword.cloudant_short_notm}} et {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster font l'objet d'audits effectués par une entreprise de sécurité tiers et répondent aux exigences des normes ISO 27001, ISO 27017 et ISO 27018. Pour plus d'informations, voir la page [Conformité sur l'IBM Cloud]( https://www.ibm.com/fr-fr/cloud/compliance) pour des liens vers les certificats. Les descriptions suivantes, disponibles sur la page relative à la conformité {{site.data.keyword.cloudant_short_notm}}, couvrent le service {{site.data.keyword.cloudant_short_notm}} et les certifications respectives :
+{{site.data.keyword.cloudant_short_notm}} et {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster font l'objet d'audits effectués par une entreprise de sécurité tiers et répondent aux exigences des normes ISO 27001, ISO 27017 et ISO 27018. Pour plus d'informations, voir la [page relative à la conformité de {{site.data.keyword.cloudant_short_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")]( https://www.ibm.com/cloud/compliance){: new_window} pour consulter des liens vers les certificats. Les descriptions suivantes, disponibles sur la page relative à la conformité {{site.data.keyword.cloudant_short_notm}}, couvrent le service {{site.data.keyword.cloudant_short_notm}} et les certifications respectives :
  
 - Liste des produits de cloud certifiés {{site.data.keyword.cloud_notm}} Services (PaaS et SaaS)
 - Certificat {{site.data.keyword.cloud_notm}} Services (PaaS et SaaS) - ISO 27001
@@ -61,4 +61,4 @@ Vous pouvez demander un rapport SOC 2 Type 2 à partir du portail client ou cont
 ## Règlement général sur la protection des données (RGPD)
 {: #general-data-protection-regulation-gdpr-overview}
 
-Le Règlement général sur la protection des données cherche à créer un cadre juridique harmonisé pour la protection des données dans l'UE et vise à redonner aux citoyens le contrôle de leurs données personnelles, tout en imposant des règles strictes à ceux qui hébergent et 'traitent' ces données partout dans le monde. Ce règlement introduit également des règles relatives à la libre circulation des données à caractère personnel à l'intérieur et à l'extérieur de l'UE. Pour plus d'informations, voir [Déclaration {{site.data.keyword.IBM_notm}} de Confidentialité](https://www.ibm.com/privacy/fr/fr/).
+Le Règlement général sur la protection des données cherche à créer un cadre juridique harmonisé pour la protection des données dans l'UE et vise à redonner aux citoyens le contrôle de leurs données personnelles, tout en imposant des règles strictes à ceux qui hébergent et 'traitent' ces données partout dans le monde. Ce règlement introduit également des règles relatives à la libre circulation des données à caractère personnel à l'intérieur et à l'extérieur de l'UE. Pour plus d'informations, voir [la politique de confidentialité d'{{site.data.keyword.IBM_notm}} ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://www.ibm.com/privacy/){: new_window}.

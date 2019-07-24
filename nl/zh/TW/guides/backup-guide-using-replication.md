@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -38,7 +38,7 @@ subcollection: cloudant
 ## 增量備份
 {: #incremental-backups}
 
-如果您是「企業」客戶，則[可以使用](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)每日增量備份功能。
+如果您是「企業」客戶，則可以使用每日增量備份功能。如需相關資訊，請參閱[災難回復和備份](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)。
 
 如果您不是「企業」客戶，或偏好建立自己的備份，則可以使用 {{site.data.keyword.cloudant_short_notm}} 抄寫機能來建立資料庫備份。
 
@@ -56,7 +56,7 @@ subcollection: cloudant
 
 增量備份僅儲存備份之間的差異。來源資料庫每隔 24 小時就會抄寫至目標資料庫。
 
-抄寫會使用順序值，以識別在 24 小時期間經過變更的文件。備份作業的運作方式為使用抄寫來取得並儲存檢查點。檢查點是另一個具有內部名稱的文件。備份作業會結合日期及備份作業名稱來建立名稱。此名稱可讓您在回復或累積更新過程中更輕鬆地識別檢查點。
+抄寫會使用順序值，以識別在 24 小時期間經過變更的文件。備份作業的運作方式為使用抄寫來取得並儲存檢查點。檢查點是另一個具有內部名稱的文件。備份作業會結合日期及備份作業名稱來建立名稱。此名稱可讓您在回復或累積更新處理程序中更輕鬆地識別檢查點。
 
 若要建立增量備份，請執行下列步驟：
 
@@ -189,7 +189,7 @@ _說明完整備份的 JSON 文件：_
 
 這些值會識別前次備份結束的位置，並決定啟動下一個增量備份的位置。在取得這些值之後，您可以執行增量備份。
 
-您首先會尋找檢查點 ID 值。此值儲存在 `_replicator` 資料庫內抄寫文件的 `_replication_id` 欄位中。
+您會先尋找檢查點 ID 值。此值儲存在 `_replicator` 資料庫內抄寫文件的 `_replication_id` 欄位中。
 
 *使用 HTTP 取得檢查點 ID 來協助尋找 `recorded_seq` 值：*
 
@@ -306,7 +306,7 @@ _說明還原的 JSON 文件：_
 
 您可能依時間順序還原，但使用相反的順序，星期二更新的文件只需寫入至目標資料庫一次。會忽略星期一資料庫中儲存的舊版文件。
 
-_使用 HTTP 還原星期二的備份，首先取得最新的變更：_
+_使用 HTTP 還原星期二的備份，先取得最新的變更：_
 
 ```http
 PUT /_replicator/restore-tuesday HTTP/1.1
@@ -314,7 +314,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-_使用指令行還原星期二的備份，首先取得最新的變更：_
+_使用指令行還原星期二的備份，先取得最新的變更：_
 
 ```sh
 curl -X PUT "${url}/_replicator/restore-tuesday" -H "$ct" -d @restore-tuesday.json
@@ -400,7 +400,7 @@ _設定 IO 優先順序的 JSON 文件範例：_
 ### 備份設計文件
 {: #backing-up-design-documents}
 
-如果在備份中包括您的設計文件，則會在備份目的地上建立索引。此作法會減慢備份處理程序的速度，並使用不必要的磁碟空間量。如果您不需要備份系統上的索引，請使用過濾器功能與抄寫搭配，以過濾出設計文件。您也可以使用此過濾器功能來排除不想要的其他文件。
+如果在備份中包括您的設計文件，則會在備份目的地上建立索引。此作法會減慢備份處理程序的速度，並使用不必要的磁碟空間量。如果您不需要備份系統上的索引，請使用過濾器功能與抄寫搭配，以過濾掉設計文件。您也可以使用此過濾器功能來排除不想要的其他文件。
 
 ### 備份多個資料庫
 {: #backing-up-multiple-databases}

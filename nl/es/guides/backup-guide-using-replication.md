@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -44,7 +44,7 @@ De este modo, una copia de seguridad puede conservar el estado de la base de dat
 ## Copias de seguridad incrementales
 {: #incremental-backups}
 
-Si es un cliente de empresa, [dispone](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) de la función de copia de seguridad incremental diaria.
+Si es un cliente de empresa, dispone de la función de copia de seguridad incremental diaria. Para obtener más información, consulte [Recuperación tras desastre y copia de seguridad](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 
 Si no es un cliente de empresa, o si prefiere crear sus propias copias de seguridad, puede utilizar el recurso de réplica de {{site.data.keyword.cloudant_short_notm}} para crear una copia de seguridad de la base de datos.
 

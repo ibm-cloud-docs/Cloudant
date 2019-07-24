@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: generate uuid, record payments, add additional documents, advantages
 
@@ -45,7 +45,7 @@ subcollection: cloudant
 
 예를 들면, 주문된 품목, 고객 정보, 비용, 배송 정보 등의 세부사항을 포함하는 `purchase` 문서를 작성할 수 있습니다.
 
-_특정 구매를 나타내는 문서 예:_
+*특정 구매를 나타내는 문서 예:*
 
 ```json
 {
@@ -115,7 +115,7 @@ _특정 구매를 나타내는 문서 예:_
 
 고객이 품목에 대해 지불을 완료하면 주문을 기록하기 위해 추가 레코드가 데이터베이스에 추가됩니다.
 
-_지불 레코드의 예:_
+*지불 레코드의 예:*
 
 ```json
 {
@@ -152,7 +152,7 @@ _지불 레코드의 예:_
 
 필요한 값을 식별하기 위해 map 함수를 사용할 수 있습니다.
 
-_구매 총액 및 지불 값을 찾기 위한 map 함수 예:_ 
+*구매 총액 및 지불 값을 찾기 위한 map 함수 예:* 
 
 ```javascript
 function (doc) {
@@ -169,7 +169,7 @@ function (doc) {
 
 기본 제공 [`_sum` reducer](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)를 사용하면 지불 이벤트의 원장으로 출력을 생성할 수 있습니다.
 
-_`?reduce=false`로 조회된 기본 제공 `_sum` reduce 함수의 사용에 대한 예:_
+*`?reduce=false`로 조회되는, 기본 제공 `_sum` reducer의 사용에 대한 예:*
 
 ```json
 {
@@ -196,7 +196,7 @@ _`?reduce=false`로 조회된 기본 제공 `_sum` reduce 함수의 사용에 �
 
 또는, `order_id`로 그룹화된 총액을 생성할 수 있습니다.
 
-_`?group_level=1`을 사용하여 `order_id`로 그룹화된 총액의 예:_
+*`?group_level=1`을 사용하여 `order_id`로 그룹화된 총액의 예:*
 
 ```json
 {

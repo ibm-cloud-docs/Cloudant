@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: dbaas data protection, top-tier physical platforms, secure access control, data loss, corruption
 
@@ -91,7 +91,7 @@ CORS | Activez la prise en charge de CORS pour des domaines spécifiques en util
 > appropriate for {{site.data.keyword.cloudant_short_notm}} to store your data.
 -->
 
-## Protection contre la perte ou l'altération des données
+## Protection contre la perte ou la corruption de données 
 {: #protection-against-data-loss-or-corruption}
 
 {{site.data.keyword.cloudant_short_notm}} comporte plusieurs fonctions vous

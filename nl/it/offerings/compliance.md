@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-12"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -29,7 +29,7 @@ subcollection: cloudant
 Il servizio è integrato con i migliori standard,
 incluso ISO 27001:2013.
 
-## Sistemi fisici di livello superiore
+## Sistemi fisici di alto livello
 {: #top-tier-physical-systems}
 
 DBaaS {{site.data.keyword.cloudant_short_notm}} è fisicamente ospitato
@@ -52,7 +52,7 @@ il tuo responsabile delle vendite per firmare un accordo BAA (Business Associate
 ## ISO (International Organization for Standardization)
 {: #international-organization-for-standardization-iso-}
 
-{{site.data.keyword.cloudant_short_notm}} e il cluster {{site.data.keyword.cloudant_short_notm}} dedicato vengono controllati da una società di sicurezza di terze parti e soddisfano i requisiti ISO 27001, ISO 27017 e ISO 27018. Per ulteriori informazioni, consulta la  [pagina {{site.data.keyword.cloudant_short_notm}} Compliance]( https://www.ibm.com/cloud/compliance) per i link ai certificati. Le seguenti descrizioni presenti sulla pagina {{site.data.keyword.cloudant_short_notm}} Compliance copre il servizio {{site.data.keyword.cloudant_short_notm}} e le rispettive certificazioni:
+{{site.data.keyword.cloudant_short_notm}} e il cluster {{site.data.keyword.cloudant_short_notm}} dedicato vengono controllati da una società di sicurezza di terze parti e soddisfano i requisiti ISO 27001, ISO 27017 e ISO 27018. Per ulteriori informazioni, consulta la [pagina {{site.data.keyword.cloudant_short_notm}} Compliance ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")]( https://www.ibm.com/cloud/compliance){: new_window} per i link ai certificati. Le seguenti descrizioni presenti sulla pagina {{site.data.keyword.cloudant_short_notm}} Compliance copre il servizio {{site.data.keyword.cloudant_short_notm}} e le rispettive certificazioni:
  
 - Elenco di prodotti cloud certificati Servizi {{site.data.keyword.cloud_notm}} (PaaS e SaaS)
 - Certificato Servizi {{site.data.keyword.cloud_notm}} (PaaS e SaaS) - ISO 27001
@@ -75,11 +75,11 @@ un ticket di supporto con
 o inviare un'e-mail a
 [support@cloudant.com ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](mailto:support@cloudant.com){: new_window}.
 
-## Regolamento generale sulla protezione dei dati  (GDPR, General Data Protection Regulation)
+## Regolamento generale sulla protezione dei dati (GDPR, General Data Protection Regulation)
 {: #general-data-protection-regulation-gdpr-overview}
 
 Il GDPR cerca di creare un quadro normativo armonizzato in materia di protezione dei dati
 in tutta l'Unione Europea e mira a restituire ai cittadini il controllo dei propri dati personali,
 imponendo nel contempo regole rigide a coloro che ospitano ed "elaborano" questi dati, in qualsiasi parte del mondo. Il
 regolamento introduce anche regole relative alla libera circolazione dei dati personali all'interno e all'esterno
-dell'Unione Europea. Per ulteriori informazioni, vedi la sezione [{{site.data.keyword.IBM_notm}} privacy statement](https://www.ibm.com/privacy/).
+dell'Unione Europea. Per ulteriori informazioni consulta l'[informativa sulla privacy {{site.data.keyword.IBM_notm}} ![Icona link esterno](../images/launch-glyph.svg "Icona link esterno")](https://www.ibm.com/privacy/){: new_window}.

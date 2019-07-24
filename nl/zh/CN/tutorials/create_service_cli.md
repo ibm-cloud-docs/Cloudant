@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -118,13 +118,13 @@ Not logged in. Use 'ibmcloud login' to log in.
 ## 为服务选择 {{site.data.keyword.cloudant_short_notm}} 套餐
 {: #choosing-the-ibm-cloudant-plan-for-your-service}
 
-有关使用 {{site.data.keyword.cloudant_short_notm}} 轻量套餐或标准套餐的详细信息，请参阅本文档的[套餐 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans){: new_window} 部分。
+有关使用 {{site.data.keyword.cloudant_short_notm}} 轻量套餐或标准套餐的详细信息，请参阅本文档的[套餐](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans)部分。
 {: pre}
 
 ## 创建 {{site.data.keyword.cloudant_short_notm}} 服务
 {: #creating-the-ibm-cloudant-service}
 
-{{site.data.keyword.cloudant_short_notm}} 使用资源组（而不是 Cloud Foundry 组织和空间）来供应新实例。过去供应的 {{site.data.keyword.cloudant_short_notm}} 实例仍可部署在 Cloud Foundry 组织和空间中。有关更多信息，请参阅 [IBM Cloudant 如何使用 IBM Cloud 资源组？![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} 指南。
+{{site.data.keyword.cloudant_short_notm}} 使用资源组（而不是 Cloud Foundry 组织和空间）来供应新实例。过去供应的 {{site.data.keyword.cloudant_short_notm}} 实例仍可部署在 Cloud Foundry 组织和空间中。有关更多信息，请参阅 [{{site.data.keyword.cloudant_short_notm}} 如何使用 {{site.data.keyword.cloud_notm}} 资源组？![外部链接图标](../images/launch-glyph.svg "外部链接图标")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} 指南。
 
 首先，如[常规 CLI (ibmcloud) 命令 ![外部链接图标](../images/launch-glyph.svg "外部链接图标")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window} 中 `ibmcloud target` 下的内容所示，使用以下格式设置目标资源组和区域：
 

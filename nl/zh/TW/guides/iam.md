@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-06"
+lastupdated: "2019-06-12"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -31,7 +31,7 @@ subcollection: cloudant
 ## 簡介
 {: #introduction}
 
-本文件說明 {{site.data.keyword.cloudantfull}} 與 {{site.data.keyword.cloud_notm}} Identity and Access Management 的整合。它會討論 {{site.data.keyword.cloudant_short_notm}} Legacy 存取控制與 {{site.data.keyword.cloud_notm}} IAM 存取控制之間的差異。接著，它會查看各個的優缺點，協助您決定使用哪一個。然後，我們會討論如何在 {{site.data.keyword.cloudant_short_notm}} 的用戶端程式庫內以及透過 HTTP 呼叫來使用 IAM。最後，我們以參照小節作為結尾，其中說明 {{site.data.keyword.cloudant_short_notm}} 內所有可用的 IAM 動作及角色。
+本文件說明 {{site.data.keyword.cloudantfull}} 與 {{site.data.keyword.cloud_notm}} Identity and Access Management 的整合。它會討論 {{site.data.keyword.cloudant_short_notm}}舊式存取控制與 {{site.data.keyword.cloud_notm}} IAM 存取控制之間的差異。接著，它會查看各個的優缺點，協助您決定使用哪一個。然後，我們會討論如何在 {{site.data.keyword.cloudant_short_notm}} 的用戶端程式庫內以及透過 HTTP 呼叫來使用 IAM。最後，我們以參照小節作為結尾，其中說明 {{site.data.keyword.cloudant_short_notm}} 內所有可用的 IAM 動作及角色。
 
 請參閱 [IAM ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window} 概觀，包括如何：
 
@@ -39,10 +39,10 @@ subcollection: cloudant
 - 管理可用的認證。
 - 使用容許及撤銷對 {{site.data.keyword.cloudant_short_notm}} 服務實例之存取權的 IAM 存取原則。
 
-## {{site.data.keyword.cloudant_short_notm}} Legacy 與 IAM 存取控制之間的差異
+## {{site.data.keyword.cloudant_short_notm}}舊式與 IAM 存取控制之間的差異
 {: #differences-between-ibm-cloudant-legacy-and-iam-access-controls}
 
-下節提供 {{site.data.keyword.cloudant_short_notm}} Legacy 與 {{site.data.keyword.cloud_notm}} IAM 存取控制機制之間差異的簡要概觀。
+下節提供 {{site.data.keyword.cloudant_short_notm}}舊式與 {{site.data.keyword.cloud_notm}} IAM 存取控制機制之間差異的簡要概觀。
 
 ### {{site.data.keyword.cloud_notm}} Identity and Access Management
 {: #ibm-cloud-identity-and-access-management}
@@ -63,7 +63,7 @@ subcollection: cloudant
 {: #api-key-notes}
 
 在本文件中，只要提及 API 金鑰，指的就是 IAM API 金鑰。
-{{site.data.keyword.cloudant_short_notm}} Legacy 也有 API 金鑰的概念，而且任何關於 {{site.data.keyword.cloudant_short_notm}} Legacy 認證或使用者名稱/密碼組合的討論也包含 {{site.data.keyword.cloudant_short_notm}} API 金鑰在內。 
+{{site.data.keyword.cloudant_short_notm}}舊式也有 API 金鑰的概念，而且任何關於 {{site.data.keyword.cloudant_short_notm}}舊式認證或使用者名稱/密碼組合的討論也包含 {{site.data.keyword.cloudant_short_notm}} API 金鑰在內。 
 
 ## 使用 {{site.data.keyword.cloudant_short_notm}} 啟用 IAM
 {: #enabling-iam-with-ibm-cloudant}
@@ -72,7 +72,7 @@ subcollection: cloudant
 
 所有新的 {{site.data.keyword.cloudant_short_notm}} 服務實例都已啟用，在佈建時可使用 IAM。您也可以選擇啟用舊式鑑別機制。當您從 {{site.data.keyword.cloud_notm}} 型錄佈建新的 {{site.data.keyword.cloudant_short_notm}} 實例時，請從可用的鑑別方法進行選擇：
 
-1. **同時使用 Legacy 認證及 IAM**：此模式表示 IAM 及 Legacy 認證都可以用來存取帳戶。具體而言，IAM 及 Legacy 認證組都會提供給連結至帳戶及所產生服務認證的所有應用程式。
+1. **同時使用舊式認證及 IAM**：此模式表示 IAM 及舊式認證都可以用來存取帳戶。具體而言，IAM 及舊式認證組都會提供給連結至帳戶及所產生服務認證的所有應用程式。
 2. **僅使用 IAM**：此模式表示僅透過服務連結及認證產生來提供 IAM 認證。
 
 ### {{site.data.keyword.cloudant_short_notm}} API 金鑰及_僅使用 IAM_
@@ -80,7 +80,7 @@ subcollection: cloudant
 
 您可以使用 {{site.data.keyword.cloudant_short_notm}} API 金鑰與 IAM，但**不建議如此使用**。提出此建議的原因是 {{site.data.keyword.cloudant_short_notm}} API 金鑰及許可權無法透過 IAM 原則介面顯示或管理，因此使得無法進行全面的存取管理。
 
-選擇_僅使用 IAM_ 或_同時使用 Legacy 認證及 IAM_ 會影響：
+選擇_僅使用 IAM_ 或_同時使用舊式認證及 IAM_ 會影響：
 
 1. 舊式 {{site.data.keyword.cloudant_short_notm}} 帳戶層次認證是否可用來管理資料庫及其他帳戶層次動作。
 2. 在產生服務認證期間提供的認證樣式。
@@ -100,7 +100,7 @@ ic resource service-instance-create  "Instance Name" \
     -p {"legacyCredentials": false}
 ```
 
-若要將實例佈建為_同時使用 Legacy 認證及 IAM_，請執行下列指令：
+若要將實例佈建為_同時使用舊式認證及 IAM_，請執行下列指令：
 
 ```sh
 ic resource service-instance-create  "Instance Name" \
@@ -111,7 +111,7 @@ ic resource service-instance-create  "Instance Name" \
 ### 每個選項的服務認證 JSON 範例
 {: #service-credential-json-examples-for-each-option}
 
-選擇_僅使用 IAM_ 或_同時使用 Legacy 認證及 IAM_ 存取控制會影響在連結及產生服務認證時，如何將認證提供給應用程式。在主要 {{site.data.keyword.cloud_notm}} IAM 介面內產生認證時，該介面中會顯示產生的 API 金鑰。
+選擇_僅使用 IAM_ 或_同時使用舊式認證及 IAM_ 存取控制會影響在連結及產生服務認證時，如何將認證提供給應用程式。在主要 {{site.data.keyword.cloud_notm}} IAM 介面內產生認證時，該介面中會顯示產生的 API 金鑰。
 
 您也可以從服務實例的「服務認證」區段產生認證。透過此方式產生服務認證，會使用存取服務實例所需的所有詳細資料，來建立可貼入應用程式的服務認證 JSON Blob。
 
@@ -141,7 +141,7 @@ ic resource service-instance-create  "Instance Name" \
 - `url`：{{site.data.keyword.cloudant_short_notm}} 服務 URL。
 - `username`：內部 {{site.data.keyword.cloudant_short_notm}} 帳戶名稱。
 
-當您選取_同時使用 Legacy 認證及 IAM_ 時，產生的服務認證會同時包含 IAM 及 Legacy 認證，並且與下列範例類似：
+當您選取_同時使用舊式認證及 IAM_ 時，產生的服務認證會同時包含 IAM 及舊式認證，並且與下列範例類似：
 
 ```json
 {
@@ -167,12 +167,12 @@ ic resource service-instance-create  "Instance Name" \
 - `iam_apikey_name`：IAM API 金鑰的 ID。
 - `iam_role_crn`：IAM API 金鑰具有的 IAM 角色。
 - `iam_serviceid_crn`：服務 ID 的 CRN。
-- `password`：{{site.data.keyword.cloudant_short_notm}} Legacy 認證密碼。
+- `password`：{{site.data.keyword.cloudant_short_notm}}舊式認證密碼。
 - `port`：{{site.data.keyword.cloudant_short_notm}} 服務埠。
-- `url`：{{site.data.keyword.cloudant_short_notm}} 服務 URL（包含內嵌的 {{site.data.keyword.cloudant_short_notm}} Legacy 認證）。
-- `username`：{{site.data.keyword.cloudant_short_notm}} Legacy 認證使用者名稱。
+- `url`：{{site.data.keyword.cloudant_short_notm}} 服務 URL（包含內嵌的 {{site.data.keyword.cloudant_short_notm}}舊式認證）。
+- `username`：{{site.data.keyword.cloudant_short_notm}}舊式認證使用者名稱。
 
-## 我應該使用_僅使用 IAM_ 還是_同時使用 Legacy 認證及 IAM_？
+## 我應該使用_僅使用 IAM_ 還是_同時使用舊式認證及 IAM_？
 {: #should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
 
 如果可能的話，建議選擇_僅使用 IAM_。使用 {{site.data.keyword.cloud_notm}} IAM 的主要優點包括：
@@ -188,13 +188,14 @@ ic resource service-instance-create  "Instance Name" \
 整體而言，{{site.data.keyword.cloud_notm}} IAM 是建議的鑑別模型。不過，此方法有其缺點，主要是，如果您具有現有的應用程式，或無法使用 {{site.data.keyword.cloudant_short_notm}} 支援之用戶端程式庫的情況。
 
 <table>
-
+<caption style="caption-side:top">表 1. 兩種存取控制機制的優缺點</caption>
+<thead>
 <tr>
 <th id="mode">模式</th>
 <th id="advantages">優點</th>
 <th id="disadvantages">缺點</th>
 </tr>
-
+</thead>
 <tr>
 <td headers="mode">IAM</td>
 <td headers="advantages" valign="top"><ul><li>使用一個介面，來管理許多服務的存取權。整體地撤銷使用者存取權。</li>
@@ -207,7 +208,6 @@ ic resource service-instance-create  "Instance Name" \
 <td headers="disadvantages"><ul><li>如果您未使用 {{site.data.keyword.cloudant_short_notm}} 支援的程式庫，則可能需要變更應用程式，才能使用 IAM 的 API 金鑰及存取記號。
 </li>
 <li>（目前）沒有資料庫層次許可權。</li>
-<li>（目前）沒有精細許可權（例如，讀者）。</li>
 <li>部分端點無法使用，請參閱[無法使用的端點](#unavailable-endpoints)。</li>
 <li>沒有辦法可將資料庫指定為「公用」，亦即，不需要授權使用者即可存取。</li></ul>
 </td>
@@ -218,7 +218,6 @@ ic resource service-instance-create  "Instance Name" \
 <td headers="advantages">
 <ul><li>不需要變更現有應用程式或用戶端程式庫相依關係。</li>
 <li>資料庫層次許可權。</li>
-<li>精細的角色（讀者、撰寫者）。</li>
 </ul>
 </td>
 <td headers="disadvantages">
@@ -244,21 +243,51 @@ ic resource service-instance-create  "Instance Name" \
 
 針對已啟用 IAM 的 {{site.data.keyword.cloudant_short_notm}} 服務實例，請最少搭配使用下列用戶端程式庫版本：
 
-| 程式庫 | 建議 |
-| --- | --- |
-| [java-cloudant](https://github.com/cloudant/java-cloudant) | 2.13.0+ |
-| [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant) | 2.3.0+ |
-| [python-cloudant](https://github.com/cloudant/python-cloudant) | 2.9.0+ |
-| [couchbackup](https://github.com/cloudant/couchbackup/) | 2.3.1+ |
-| [CDTDatastore](https://github.com/cloudant/cdtdatastore/) | 2.0.3+ |
-| [sync-android](https://github.com/cloudant/sync-android/) | 2.2.0+ |
+<table>
+<caption style="caption-side:top">表 2. 建議的用戶端程式庫版本</caption>
+<thead>
+<tr>
+<th id="library"> 程式庫 </th>
+<th id="recommended"> 建議 </th>
+</tr>
+</thead>
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/java-cloudant" target="_blank">java-cloudant <img src="../images/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示"></a></td>
+<td headers="recommended"> 2.13.0+ </td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/nodejs-cloudant" target="_blank">nodejs-cloudant <img src="../images/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示"></a></td>
+<td headers="recommended"> 2.3.0+ </td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/python-cloudant" target="_blank">python-cloudant <img src="../images/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示"></a></td>
+<td headers="recommended"> 2.9.0+ </td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/couchbackup/" target="_blank">couchbackup <img src="../images/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示"></a></td>
+<td headers="recommended"> 2.3.1+ </td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/cdtdatastore/" target="_blank">CDTDatastore <img src="../images/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示"></a></td>
+<td headers="recommended"> 2.0.3+ </td>
+</tr>
+
+<tr>
+<td headers="library"><a href="https://github.com/cloudant/sync-android/" target="_blank">sync-android <img src="../images/launch-glyph.svg" alt="外部鏈結圖示" title="外部鏈結圖示"></a></td>
+<td headers="recommended"> 2.2.0+ </td>
+</tr>
+</table>
 
 下列程式碼 Snippet 需要這些版本。
 
 ### Java
-{: #java}
+{: #java-iam}
 
-需要 [java-cloudant](https://github.com/cloudant/java-cloudant) 2.13.0+。
+需要 [java-cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/java-cloudant){: new_window} 2.13.0+。
 
 使用 `iamApiKey()` 方法，以使用 IAM API 金鑰建立資料庫用戶端：
 
@@ -288,7 +317,7 @@ public class App
 ### Node.js
 {: #node.js}
 
-需要 [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant) 2.3.0+。
+需要 [nodejs-cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/nodejs-cloudant){: new_window} 2.3.0+。
 
 使用 `iamauth` 外掛程式，以使用 IAM API 金鑰建立資料庫用戶端：
 
@@ -312,7 +341,7 @@ cloudant.db.list(function(err, body) {
 ### Python
 {: #python}
 
-需要 [python-cloudant](https://github.com/cloudant/python-cloudant) 2.9.0+。
+需要 [python-cloudant ![外部鏈結圖示](../images/launch-glyph.svg "外部鏈結圖示")](https://github.com/cloudant/python-cloudant){: new_window} 2.9.0+。
 
 使用 `Cloudant.iam(account_name, api_key, **kwargs)` 方法，以使用 IAM API 金鑰建立資料庫用戶端：
 
@@ -397,21 +426,575 @@ if __name__ == "__main__":
 ### {{site.data.keyword.cloudant_short_notm}} 動作
 {: #ibm-cloudant-actions}
 
-動作 | 說明
--------|------------
-`cloudant.db.any` | 存取任何資料庫端點（其路徑開頭不是 `/_api` 的資料庫端點）。
-`cloudantnosqldb.sapi.dbsecurity` | 存取 `/_api/v2/db/<path:db>/_security`。
-`cloudantnosqldb.sapi.usercors` | 存取 `/_api/v2/user/config/cors/`。
-`cloudantnosqldb.sapi.apikeys` | 存取 `/_api/v2/api_keys`。
-`cloudantnosqldb.sapi.userinfo` | 存取 `/_api/v2/user`。
+下表格說明了可用的 IAM 動作和角色。 
 
-#### 無法使用的端點
+<table>
+<caption style="caption-side:top">表 3. 可用動作的說明</caption>
+<thead>
+<tr>
+<th id="action">動作 </th>
+<th id="description"> 說明</th>
+</tr>
+</thead>
+
+<tr>
+<td headers="action"><code>cloudant.db.any</code></td> <td headers="description"> 存取任何資料庫端點（其路徑開頭不是 `/_api` 的資料庫端點）。</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.dbsecurity</code></td> <td headers="description">存取 `/_api/v2/db/<path:db>/_security`。</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.usercors</code></td> <td headers="description"> 存取 `/_api/v2/user/config/cors/`。</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.apikeys</code></td> <td headers="description"> 存取 `/_api/v2/api_keys`。</td>
+</tr>
+
+<tr>
+<td headers="action"><code>cloudantnosqldb.sapi.userinfo</code></td> <td headers="description"> 存取 `/_api/v2/user`。</td>
+</tr>
+</table>
+</br>
+對於精細授權，我們提供「管理員」、「讀者」和「撰寫者」角色。
+</br>
+
+<table>
+<caption style="caption-side:top">表 4. 僅限管理者執行的動作</caption>
+<thead>
+<tr>
+<th id="method">方法</th>
+<th id="endpoint">端點</th>
+<th id="action-name">動作名稱</th>
+<th id="role">角色 </th>
+</tr>
+</thead>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/</code></td>
+<td headers="action-name">cloudantnosqldb.db.meta-info</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_active_tasks</code></td>
+<td headers="action-name">cloudantnosqldb.account.active-tasks</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_replicator</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_replicator/$DOC</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_scheduler/jobs</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_scheduler/docs</code></td>
+<td headers="action-name">cloudantnosqldb.replication.status</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_replicate</code></td>
+<td headers="action-name">cloudantnosqldb.replication.write</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT/DELETE</code></td>
+<td headers="endpoint"><code>/_replicator</code></td>
+<td headers="action-name">cloudantnosqldb.replication.write</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT/DELETE</code></td>
+<td headers="endpoint"><code>/_replicator/$DOC</code></td>
+<td headers="action-name">cloudantnosqldb.replication.write</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_up</code></td>
+<td headers="action-name">cloudantnosqldb.account.up</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.database.create</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.database.delete</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_design_docs/queries</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_geo_info</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_info/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_search_disk_size/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_search_info/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_index/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design_docs</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.index.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>COPY</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST/DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_index/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.index.write</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_missing_revs</code></td>
+<td headers="action-name">cloudantnosqldb.database.missing-revs</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_missing_revs</code></td>
+<td headers="action-name">cloudantnosqldb.database.missing-revs</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_revs_diff</code></td>
+<td headers="action-name">cloudantnosqldb.database.revs-diff</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_security</code></td>
+<td headers="action-name">cloudantnosqldb.database-security.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/_security</code></td>
+<td headers="action-name">cloudantnosqldb.database-security.write</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_shards</code></td>
+<td headers="action-name">cloudantnosqldb.database.shards</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>COPY</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.copy</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/_membership</code></td>
+<td headers="action-name">cloudantnosqldb.cluster-membership.read</td>
+<td headers="role">管理員 </td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_ensure_full_commit</code></td>
+<td headers="action-name">cloudantnosqldb.database.ensure-full-commit</td>
+<td headers="role">管理員 </td>
+</tr>
+</table>
+
+</br>
+
+<table>
+<caption style="caption-side:top">表 5. 管理員和撰寫者動作</caption>
+<thead>
+<tr>
+<th id="method">方法</th>
+<th id="endpoint">端點</th>
+<th id="action-name">動作名稱</th>
+<th id="role">角色 </th>
+</tr>
+</thead>
+
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_uuids</code></td>
+<td headers="action-name">cloudantnosqldb.account.uuids</td>
+<td headers="role">管理員、撰寫者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理員、撰寫者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_bulk_docs</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理員、撰寫者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理員、撰寫者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理員、撰寫者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理員、撰寫者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.document.write</td>
+<td headers="role">管理員、撰寫者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>PUT/DELETE</code></td>
+<td headers="endpoint"><code>/$DB/_local/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.write</td>
+<td headers="role">管理員、撰寫者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>COPY</code></td>
+<td headers="endpoint"><code>/$DB/_local/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.copy</td>
+<td headers="role">管理員、撰寫者</td>
+</tr>
+</table>
+
+</br>
+
+<table>
+<caption style="caption-side:top">表 6. 管理員、撰寫者和讀者動作</caption>
+<thead>
+<tr>
+<th id="method">方法</th>
+<th id="endpoint">端點</th>
+<th id="action-name">動作名稱</th>
+<th id="role">角色 </th>
+</tr>
+</thead>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_iam_session</code></td>
+<td headers="action-name">cloudantnosqldb.iam-session.read</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_iam_session</code></td>
+<td headers="action-name">cloudantnosqldb.iam-session.write</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/_iam_session</code></td>
+<td headers="action-name">cloudantnosqldb.iam-session.delete</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_session</code></td>
+<td headers="action-name">cloudantnosqldb.session.read</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_session</code></td>
+<td headers="action-name">cloudantnosqldb.session.write</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>DELETE</code></td>
+<td headers="endpoint"><code>/_session</code></td>
+<td headers="action-name">cloudantnosqldb.session.delete</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/_all_dbs</code></td>
+<td headers="action-name">cloudantnosqldb.account.all-dbs</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/_db_updates</code></td>
+<td headers="action-name">cloudantnosqldb.account.db-updates</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/_dbs_info</code></td>
+<td headers="action-name">cloudantnosqldb.account.dbs-info</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/</code></td>
+<td headers="action-name">cloudantnosqldb.database.info</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_all_docs</code></td>
+<td headers="action-name">cloudantnosqldb.database.all-docs</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_changes</code></td>
+<td headers="action-name">cloudantnosqldb.database.changes</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document.read</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/$DOC_ID/$ATTACHMENT</code></td>
+<td headers="action-name">cloudantnosqldb.document.read</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_bulk_get</code></td>
+<td headers="action-name">cloudantnosqldb.document.read</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/_search_analyze</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_all_docs/queries</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/HEAD</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_geo/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_list/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_search/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_show/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_view/$VIEW/queries</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET/POST</code></td>
+<td headers="endpoint"><code>/$DB/_design/$DOC_ID/_view/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_explain/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_find/$FURTHER_PATH_PARTS</code></td>
+<td headers="action-name">cloudantnosqldb.query.execute</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_local_docs</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.read</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>POST</code></td>
+<td headers="endpoint"><code>/$DB/_local_docs/queries</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.read</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+<tr>
+<td headers="method"><code>GET</code></td>
+<td headers="endpoint"><code>/$DB/_local/$DOC_ID</code></td>
+<td headers="action-name">cloudantnosqldb.document-local.read</td>
+<td headers="role">管理員、撰寫者、讀者</td>
+</tr>
+</table>
+
+</br>
+
+#### 無法使用端點
 {: #unavailable-endpoints}
 
 下列端點無法用於使用 IAM 授權的要求：
 
-- HTTP 重新編寫處理程式：`/db/_design/design-doc/_rewrite/path`。<br>
-雖然設計文件可以包含重新編寫處理程式，但是使用者無法呼叫它們。
+- HTTP 重寫處理程式：`/db/_design/design-doc/_rewrite/path`。<br>
+雖然設計文件可以包含重寫處理程式，但是使用者無法呼叫它們。
 - 更新處理程式：`POST /{db}/_design/{ddoc}/_update/{func}`。<br>
 雖然設計文件可以包含更新功能，但是使用者無法呼叫它們。
 
@@ -420,11 +1003,30 @@ if __name__ == "__main__":
 
 只有「管理員」角色使用者及服務才能存取 {{site.data.keyword.cloudant_short_notm}} 資料。
 
-角色 | 容許的動作
------|----------------
-管理員 | 所有記載的動作。
-讀者 | 無。
-撰寫者 | 無。
+<table>
+<caption style="caption-side:top">表 7. 對映到容許動作的角色</caption>
+<thead>
+<tr>
+<th id="role">角色 </th>
+<th id="allowed-action">容許的動作</th>
+</tr>
+</thead>
+
+<tr>
+<td headers="role">管理員 </td>
+<td headers="allowed-action">所有記錄的動作。</td>
+</tr>
+
+<tr>
+<td headers="role">讀者 </td>
+<td headers="allowed-action">無</td>
+</tr>
+
+<tr>
+<td headers="role">撰寫者 </td>
+<td headers="allowed-action">無</td>
+</tr>
+</table>
 
 ## 疑難排解
 {: #troubleshooting}
@@ -433,4 +1035,4 @@ if __name__ == "__main__":
 ### 確定帳戶已啟用 IAM
 {: #ensure-your-account-is-iam-enabled}
 
-您必須開立支援問題單，確認服務實例已啟用 IAM。
+在 IBM Cloudant 儀表板的「概觀」部分中，「鑑別方法」在部署詳細資料下列出。此處列出了可用的鑑別方法。 

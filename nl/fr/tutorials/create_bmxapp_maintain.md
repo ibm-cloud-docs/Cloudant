@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -52,14 +52,14 @@ problème, [arrêtez l'application](#stopping-your-application) puis
 supprimez la base de données de démonstration du tutoriel. L'application peut ensuite démarrer avec succès.
 {: note}
     
-Pour démarrer une application arrêtée, cliquez sur l'option `Démarrer` du menu :<br/>
-![Capture d'écran montrant l'option Démarrer](images/img0039.png)
+Pour démarrer une application arrêtée, cliquez sur l'option `Démarrer` du menu : <br/>
+![Capture d'écran affichant l'option 'Démarrer'](images/img0039.png)   
 
 ### Arrêt de votre application
 {: #stopping-your-application}
 
-Pour arrêter une application en cours d'exécution, cliquez sur l'option `Arrêter` du menu :<br/>
-![Capture d'écran montrant l'option Arrêter](images/img0041.png)
+Pour arrêter une application en cours d'exécution, cliquez sur l'option `Arrêter` du menu : <br/>
+![Capture d'écran affichant l'option 'Arrêter'](images/img0041.png)  
 
 ### Téléchargement d'une version actualisée de votre application
 {: #uploading-a-fresh-version-of-your-application}
@@ -78,7 +78,7 @@ incidents pour vous aider à identifier, diagnostiquer et résoudre certains pro
 vous êtes susceptible de rencontrer au cours du développement et du déploiement de vos
 premières applications {{site.data.keyword.cloud_notm}}.
 
-Des conseils et les meilleures pratiques en matière de création d'applications {{site.data.keyword.cloud_notm}} ou Cloud Foundry sont disponibles [ici ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
+Des conseils et les bonnes pratiques en matière de création d'applications {{site.data.keyword.cloud_notm}} ou Cloud Foundry sont disponibles dans [Considerations for Designing and Running an App in the Cloud ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
 
 En particulier, il est prudent de suivre le conseil qui permet d'[éviter les écritures sur le système de fichiers local ![Icône de lien externe](../images/launch-glyph.svg "Icône de lien externe")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window}.
 
@@ -92,8 +92,8 @@ ainsi écrit est toutefois faible. Il n'est pas censé persister et n'est pas co
 La ressource la plus utile pour le diagnostic et la résolution des problèmes liés
 à une application {{site.data.keyword.cloud_notm}} est le fichier journal.
 
-Pour afficher le fichier journal d'une application {{site.data.keyword.cloud_notm}}, cliquez sur l'onglet `Journaux` pour ouvrir la page d'information des journaux :<br/>
-![Capture d'écran montrant le lien permettant d'accéder à la page d'informations Journaux](images/img0042.png)
+Pour afficher le fichier journal d'une application {{site.data.keyword.cloud_notm}}, cliquez sur l'onglet `Journaux` pour ouvrir la page d'information des journaux : <br/>
+![Capture d'écran montrant le lien vers la page d'informations des journaux](images/img0042.png)  
 
 Comme la plupart des fichiers journaux, le journal d'une application
 {{site.data.keyword.cloud_notm}} contient des détails sur les événements
@@ -109,8 +109,8 @@ Libellé du composant | Composant
 `CELL`          | Conteneur détenant votre application dans {{site.data.keyword.cloud_notm}}
 `RTR`           | Les composants réseau transmettent des messages vers ou depuis votre application.
 
-Par exemple, la capture d'écran suivante inclut un certain nombre d'événements type :<br/>
-![Capture d'écran montrant des informations du journal à titre d'indication](images/img0043.png)
+Par exemple, la capture d'écran suivante inclut un certain nombre d'événements type : <br/>
+![Capture d'écran affichant des informations de journal indicatives](images/img0043.png)   
 
 Vous remarquerez les événements suivants :
 
@@ -126,10 +126,10 @@ existait et, si elle n'avait pas existé, pour éviter de la créer à nouveau.
 Par conséquent, si vous essayez d'exécuter l'application du tutoriel plusieurs fois sans
 supprimer au préalable la base de données, l'application échoue et redémarre de manière répétée.
 
-La capture d'écran suivante illustre ce comportement :<br/>
-![Capture d'écran montrant les informations d'erreur du journal](images/img0044.png)
+La capture d'écran suivante illustre ce comportement : <br/>
+![Capture d'écran affichant des informations d'erreur dans le journal](images/img0044.png)
 
-A 2:31:23 PM, l'application a détecté un problème :<br/>
+A 2:31:23 PM, l'application a détecté un problème : <br/>
 `"Database {0} already exists".format(dbname)`
 
 Les autres messages sont typiques d'une application Python qui rencontre un problème.

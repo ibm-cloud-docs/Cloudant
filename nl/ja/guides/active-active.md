@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -119,7 +119,7 @@ $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-d
 ## ステップ 3: アクセス許可を付与する
 {: #step-3-grant-access-permission}
 
-両方のデータベースで読み取りおよび書き込みを行うための [API キー許可を付与](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)します。
+両方のデータベースで読み取りおよび書き込みを行うための API キー[許可](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)を付与します。
 
 索引も複製する場合は、管理許可を割り当てます。
 
@@ -235,7 +235,7 @@ DC1 でホストされているアプリケーションの場合、{{site.data.k
   {{site.data.keyword.cloudant_short_notm}} インスタンスではなく、プロキシーと通信するようにアプリケーションを構成します。
   この構成は、アプリケーション設定を変更するのではなく、プロキシー構成を変更することで、アプリケーションによって使用される {{site.data.keyword.cloudant_short_notm}} インスタンスを変更するタスクを処理できることを意味します。
   多くのプロキシーは、ユーザー定義のヘルス・チェックに基づいて負荷のバランスを取る機能を備えています。
-* [{{site.data.keyword.cloud}} Internet Services ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} や [Dyn Traffic Director ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://dyn.com/traffic-director/){: new_window} などのグローバル・ロード・バランサーを使用して {{site.data.keyword.cloudant_short_notm}} に経路指定します。
+* [{{site.data.keyword.cloud}} Internet Services ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window} や [Dyn Traffic Director ![外部リンク・アイコン](../images/launch-glyph.svg "外部リンク・アイコン")](http://dyn.com/traffic-director/){: new_window} などのグローバル・ロード・バランサーを使用して {{site.data.keyword.cloudant_short_notm}} に経路指定します。
   このオプションでは、ヘルス・チェックまたは待ち時間のルールに基づいて、異なる {{site.data.keyword.cloudant_short_notm}} アカウントに経路指定する `CNAME` の定義が必要です。
 
 

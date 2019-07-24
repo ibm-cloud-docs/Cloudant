@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: couchapp, 3-tier application
 
@@ -67,4 +67,4 @@ Pour vous familiariser avec les applications Couch, consultez la rubrique [Gesti
 -   Vous avez besoin de planifier des tâches en dehors du client dont l'exécution est régulière.
 
 Vous pouvez écrire votre couche serveur à l'aide des technologies qui vous conviennent le mieux.
-La liste des bibliothèques compatibles avec {{site.data.keyword.cloudant_short_notm}} est disponible sur la page [{{site.data.keyword.cloudant_short_notm}} Basics](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries).
+La liste des bibliothèques compatibles avec {{site.data.keyword.cloudant_short_notm}} est disponible sur la page [Concepts de base {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries).

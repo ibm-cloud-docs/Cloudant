@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -40,7 +40,7 @@ subcollection: cloudant
 이 도구의 이름은 CouchBackup이며
 이는 오픈 소스입니다.
 이 도구는 `node.js` 라이브러리이며
-[npm에 설치 가능 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")][npmpackage]{: new_window}합니다.
+[npm ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")][npmpackage]{: new_window}에 설치할 수 있습니다. 
 
 라이브러리 외에, CouchBackup 패키지에는 두 가지의 명령행 도구가 포함되어 있습니다.
 
@@ -137,7 +137,7 @@ CouchBackup 패키지에서는 주요 기능을 사용하는 두 가지 방법�
 명령행 백업 도구를 사용하거나, 라이브러리와 애플리케이션 코드를 함께 사용하십시오.
 유용한 시나리오는 `cron`을 사용하여 백업을 스케줄하고,
 장기 보유를 위해 데이터를 자동으로
-[Cloud Object Storage ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window}에
+[Cloud Object Storage ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window}에
 업로드하는 것입니다.
 
 ## 명령행 스크립트 예
@@ -146,7 +146,7 @@ CouchBackup 패키지에서는 주요 기능을 사용하는 두 가지 방법�
 일반적으로 필요한 요구사항은 다음 두 가지입니다.
 
 * 백업 파일을 작성하며 [백업 파일 '압축'](#compressing-a-backup-file)을 수행하여 디스크 공간을 절약합니다.
-* 데이터베이스의 백업을 [정기적인 간격으로](#hourly-or-daily-backups-that-use-cron-) 자동 작성합니다.
+* 데이터베이스의 백업을 [정기적인 간격으로](#hourly-or-daily-backups-that-use-cron-) 자동 작성합니다. 
 
 ### 백업 파일 압축
 {: #compressing-a-backup-file}
@@ -232,8 +232,7 @@ couchbackup --url "https://$USERNAME:$PASSWORD@$ACCOUNT.cloudant.com" \
 다음 스크립트 샘플은 `couchbackup` 라이브러리를 {{site.data.keyword.IBM}} Cloud Object Storage와 함께 사용하는 방법을 보여줍니다.
 이 코드는 Cross Region S3 API를 사용하여 데이터베이스를 오브젝트 저장소에 백업하는 방법을 보여줍니다.
 
-코드의 전제조건은 [이러한 지시사항 ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")][cosclient]{: new_window}에 따라
-{{site.data.keyword.IBM_notm}} Cloud Object Storage의 S3 클라이언트 오브젝트를 초기화하는 것입니다.
+코드의 전제조건은 [{{site.data.keyword.cloud_notm}} Object Storage - S3 API Intro ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")][cosclient]{: new_window}의 지시사항에 따라 {{site.data.keyword.IBM_notm}} Cloud Object Storage의 S3 클라이언트 오브젝트를 초기화하는 것입니다.
 {: note}
 
 ```javascript

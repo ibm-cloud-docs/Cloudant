@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: links to documentation, how to contribute
 
@@ -38,20 +38,20 @@ indexación de texto completo e indexación geoespacial.
 Las capacidades de réplica permiten mantener fácilmente los datos sincronizados entre los clústeres de bases de datos, los equipos de sobremesa y los dispositivos móviles.
 
 Para obtener más información sobre otras ofertas de {{site.data.keyword.cloudant_short_notm}},
-consulte el sitio principal de [{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+consulte el sitio principal de [{{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://www.ibm.com/cloud/cloudant){: new_window}.
 La documentación en línea que se proporciona aquí ofrece
 detalles sobre los conceptos, tareas y técnicas de {{site.data.keyword.cloudant_short_notm}}.
 
-Puede iniciar el servicio {{site.data.keyword.cloudant_short_notm}} desde el panel de control de [{{site.data.keyword.cloud}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window}.
+Puede iniciar el servicio {{site.data.keyword.cloudant_short_notm}} desde el panel de control de [{{site.data.keyword.cloud}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}.
 
-[Dispone](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started) de una 'guía rápida de iniciación' para comenzar a utilizar {{site.data.keyword.cloudant_short_notm}},
-junto con [guías de aprendizaje](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) más detalladas que describen las tareas.
+Hay disponible un 'Inicio rápido' para empezar a trabajar con {{site.data.keyword.cloudant_short_notm}}
+denominado [Guía de aprendizaje de iniciación](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started), junto con [guía de aprendizaje](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) que describen tareas más en detalle.
 Encontrará más información sobre detalles como, por ejemplo, autenticarse con instancias de bases de datos y consultar datos en la [Consulta de API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview).
 
 ## Contenido de la documentación
 {: #documentation-contents}
 
-*	[Guía de aprendizaje de iniciación](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started): Aprenda cómo crear una base de datos de {{site.data.keyword.cloudantfull}} y rellenarla con una sencilla colección de datos utilizando Python.
+*	[Guía de aprendizaje de iniciación](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started): Aprenda cómo crear una base de datos de {{site.data.keyword.cloudantfull}} y rellenarla con una sencilla colección de datos utilizando Python.
 *	[Blog de {{site.data.keyword.cloudant_short_notm}} ![Icono de enlace externo](images/launch-glyph.svg "Icono de enlace externo")](https://blog.cloudant.com/): lea blogs sobre diversos temas, incluyendo los aspectos básicos de {{site.data.keyword.cloudant_short_notm}}, eliminación de conflictos, generación de datos de ejemplo, bases de datos particionadas, etc. 
 *	[{{site.data.keyword.cloud_notm}} público](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): Descripción de la oferta de {{site.data.keyword.cloud_notm}} público, incluidas las características, las opciones y la fijación de precios. 
 *	[Fijación de precios](/docs/services/Cloudant?topic=cloudant-pricing#pricing): Un artículo que describe las opciones y la flexibilidad disponibles con el modelo de fijación de precios de {{site.data.keyword.cloudant_short_notm}}. 

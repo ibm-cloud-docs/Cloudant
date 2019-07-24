@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -121,7 +121,8 @@ $ curl -XPOST https://myaccount-dc1.cloudant.com/_api/v2/api_keys -u myaccount-d
 ## 3단계: 액세스 권한 부여
 {: #step-3-grant-access-permission}
 
-두 데이터베이스에서 모두 읽고 쓸 수 있도록 [API 키에 권한을 부여하십시오](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions).
+두 데이터베이스 모두에서 읽고 쓸 수 있도록 API 키에 [권한](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)을
+부여하십시오. 
 
 인덱스를 복제하려는 경우에는 관리자 권한을 지정하십시오.
 
@@ -241,7 +242,7 @@ DC1에서 호스팅되는 애플리케이션의 경우에는 이들의 {{site.da
   이 구성은 애플리케이션이 사용하는 {{site.data.keyword.cloudant_short_notm}} 인스턴스의 변경 태스크를
   애플리케이션 설정 수정 대신 프록시 구성 수정을 통해 처리할 수 있음을 의미합니다.
   많은 프록시에는 사용자 정의 상태 검사에 따라 로드 밸런싱을 수행하는 기능이 있습니다.
-* [{{site.data.keyword.cloud}} Internet Services ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} 또는 [Dyn Traffic Director ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://dyn.com/traffic-director/){: new_window}와 같은 글로벌 로드 밸런서를 사용하여 {{site.data.keyword.cloudant_short_notm}}로 라우팅하십시오.
+* [{{site.data.keyword.cloud}} Internet Services ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window} 또는 [Dyn Traffic Director ![외부 링크 아이콘](../images/launch-glyph.svg "외부 링크 아이콘")](http://dyn.com/traffic-director/){: new_window}와 같은 글로벌 로드 밸런서를 사용하여 {{site.data.keyword.cloudant_short_notm}}로 라우팅하십시오.
   이 옵션은 상태 검사 또는 대기 시간 규칙에 따라 다른 {{site.data.keyword.cloudant_short_notm}} 계정으로 라우팅하는 `CNAME` 정의를 필요로 합니다.
 
 

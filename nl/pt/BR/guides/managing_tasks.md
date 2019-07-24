@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -44,7 +44,7 @@ Como este é um tutorial focado em tarefas,
 ele cobre apenas o que é essencial para realizar essa tarefa.
 Para obter mais informações, consulte a [Referência de API](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) para obter um guia completo para as opções disponíveis.
 
-## Informações básicas de curl e jq
+## Noções básicas do `curl` e do `jq`
 {: #curl-and-jq-basics}
 
 Para obter todas as tarefas ativas e formatar a saída adequadamente,
@@ -56,7 +56,7 @@ Isso facilita obter todos os documentos de replicação
 ou os detalhes apenas de uma tarefa de indexação de visualização específica.
 A referência de API possui mais informações sobre as opções.
 
-_Exemplo de como obter e formatar uma lista de tarefas ativas:_
+*Exemplo de como obter e formatar uma lista de tarefas ativas:*
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
@@ -88,21 +88,21 @@ Em cada caso,
 os resultados de se procurar uma lista de tarefas de indexação será uma lista de objetos JSON:
 um para cada uma das tarefas ativas localizadas.
 
-_Exemplo de como localizar todas as tarefas de indexação de visualização, filtrando pelo tipo `indexer`:_
+*Exemplo de como localizar todas as tarefas de indexação de visualização, filtrando pelo tipo `indexer`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-_Exemplo de como localizar todas as tarefas de indexação de procura, filtrando pelo tipo `search_indexer`:_
+*Exemplo de como localizar todas as tarefas de indexação de procura, filtrando pelo tipo `search_indexer`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-_Exemplo de resultados depois de procurar tarefas de indexação de visualização:_
+*Exemplo de resultados depois de procurar tarefas de indexação de visualização:*
 
 ```json
 {
@@ -142,7 +142,7 @@ e só emitir novas entradas de índice para um tipo.
 
 Você deve supor que esses fatores podem ser combinados para produzir imprecisão considerável em sua estimativa.
 
-_Exemplo de como extrair o campo `changes_done` usando `jq`:_
+*Exemplo de como extrair o campo `changes_done` usando `jq`:*
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -160,28 +160,28 @@ Para facilitar a seleção das informações sobre um processo de replicação p
 inicie o processo de replicação criando um documento no banco de dados `_replicator`
 e configure seu campo `_id` para um valor conhecido.
 
-_Exemplo de como localizar todas as tarefas de replicação, filtrando pelo tipo `replicação`:_
+*Exemplo de como localizar todas as tarefas de replicação, filtrando pelo tipo `replicação`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-_Exemplo de como localizar uma tarefa de replicação específica, filtrando por uma identidade de documento conhecida:_
+*Exemplo de como localizar uma tarefa de replicação específica, filtrando por uma identidade de documento conhecida:*
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-_Exemplo de como localizar uma tarefa de replicação específica, filtrando por um `replication_id` conhecido:_
+*Exemplo de como localizar uma tarefa de replicação específica, filtrando por um `replication_id` conhecido:*
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-_Exemplo de resultado depois de procurar uma tarefa de replicação:_
+*Exemplo de resultado depois de procurar uma tarefa de replicação:*
 
 ```json
 {

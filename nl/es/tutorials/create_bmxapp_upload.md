@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -33,17 +33,12 @@ En esta sección de la guía de aprendizaje se describe cómo cargar una aplicac
 
 La primera tarea es conectarse a {{site.data.keyword.cloud_notm}}.
 
-El [kit de herramientas de {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits) le ayuda a realizar la conexión.
-
-Cloud Foundry necesita saber el URL que debe utilizar para realizar llamadas de API, por ejemplo cuando carga una aplicación.
-El kit de herramientas de {{site.data.keyword.cloud_notm}} utiliza el mandato '`cf api`' para gestionar el punto final de la API.
-Para ver más información sobre el mandato'`cf api`', consulte
-[aquí ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}.
+La CLI de {{site.data.keyword.cloud_notm}} necesita saber qué URL se utilizará para realizar llamadas de API. Por ejemplo, cuando sube una aplicación, el kit de herramientas de {{site.data.keyword.cloud_notm}} utiliza el mandato `ibmcloud api` para gestionar el punto final de la API. Para obtener más información sobre el mandato `ibmcloud api`, consulte [Guía de inicio de la CLI de {{site.data.keyword.cloud_notm}} ![Icono de enlace externo](../images/launch-glyph.svg "Icono de enlace externo")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
 Utilice el siguiente mandato para indicar a Cloud Foundry el URL que debe utilizar:
 
 ```sh
-bluemix api https://api.ng.bluemix.net
+ibmcloud api https://api.ng.bluemix.net
 ```
 {: pre}
 
@@ -57,7 +52,7 @@ OK
 
 API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
-Not logged in. Use 'bluemix login' to log in.
+Not logged in. Utilice 'ibmcloud login' para iniciar sesión.
 ```
 {: codeblock}
 
@@ -79,7 +74,7 @@ Utilice un mandato parecido al del siguiente ejemplo para iniciar una sesión en
 Tenga en cuenta que se le solicitará que especifique la contraseña de su cuenta.
 
 ```sh
-bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
+ibmcloud login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {: pre}
 
@@ -207,39 +202,36 @@ Ahora, pruebe la aplicación y verifique que se está ejecutando correctamente.
 1.  En el panel de control de {{site.data.keyword.cloud_notm}}, vaya al icono **Menú** > **Lista de recursos** y abra su aplicación. En Apps de Cloud Foundry, pulse `Cloudant CF app` para abrir la página de detalles.<br/>  
 ![Captura de pantalla que muestra el panel de control correspondiente a la aplicación](images/img0017.png)
 
-2.  En la página de detalles de `Cloudant CF app`, pulse `Rutas` y seleccione el enlace `Cloudant-CF-app.mybluemix.net`. <br/>
-![página de detalles de Cloudant CF app](images/img0030.png)
+2.  En la página de detalles de la `Cloudant CF app`, pulse `Rutas` y seleccione el enlace `Cloudant-CF-app.mybluemix.net`. <br/>
+![página de detalles de la app Cloudant CF](images/img0030.png)
 
-3. Se abrirá una nueva ventana de navegador en `https://cloudant-cf-app.mybluemix.net/`. El mensaje verifica que la aplicación se está ejecutando. Dice, "Hello world! Gracias por crear una aplicación de inicio de Python."<br/>
-![Hello World! ha verificado que la app Cloudant CF se ejecuta correctamente](images/img0054.png)
+3. Se abrirá una nueva ventana de navegador en `https://cloudant-cf-app.mybluemix.net/`. El mensaje verifica que la aplicación se está ejecutando mostrando el mensaje 'Hello World! Thanks for creating a Python Starter Application.'<br/>
+![Hello World! ha comprobado que la app Cloudant CF se ejecuta correctamente](images/img0054.png)
 
 
 ### Confirmación de los detalles de la base de datos
 {: #confirming-the-database-details}
 
-En el panel de control de {{site.data.keyword.cloud_notm}}, vaya al icono **Menú** > **Lista de recursos** y abra su instancia de servicio. Vaya al separador `Gestionar` y pulse `Iniciar el panel de control de Cloudant`.<br/>
-![Iniciar el panel de control de Cloudant en la página de servicio de {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
+En el panel de control de {{site.data.keyword.cloud_notm}}, vaya al icono **Menú** > **Lista de recursos** y abra su instancia de servicio. Acceda al separador `Gestionar` y pulsar `Lanzar panel de control de Cloudant`.<br/>
+![Lanzar panel de control de Cloudant en la página de servicio de {{site.data.keyword.cloudant_short_notm}}](images/img0036.png)
 
-Para encontrar la página de servicio de {{site.data.keyword.cloudant_short_notm}},
-consulte los detalles de la guía de aprendizaje
-[Creación de una instancia de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+Para encontrar la página de servicio de {{site.data.keyword.cloudant_short_notm}}, consulte los detalles de la guía de aprendizaje [Creación de una instancia de {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 {: note}
 
 Cuando se abra el panel de control, verá que la aplicación ha creado la base de datos '`databasedemo`':<br/>
-![El panel de control de {{site.data.keyword.cloudant_short_notm}} que muestra la nueva base de datos](images/img0031.png)
+![Panel de control {{site.data.keyword.cloudant_short_notm}} que muestra la nueva base de datos](images/img0031.png)
 
 La base de datos contiene un único documento, creado por la aplicación.
 Para verificar la presencia del documento, pulse el nombre de la base de datos en el panel de control.
 Aparece una lista de opciones para la base de datos.
 Cuando se selecciona el separador `Todos los documentos`, aparecen los detalles de un solo documento:<br/>
-![Un solo documento dentro de la nueva base de datos](images/img0032.png)
+![Documento único en la base de datos nueva](images/img0032.png)
 
 Para ver el contenido del documento, pulse el icono `Editar`, que aparece como la imagen de un lápiz:<br/>
 ![Detalles del documento](images/img0033.png)
 
 Cuando aparezca el contenido del documento, podrá ver cada uno de los campos que ha creado la aplicación de la guía de aprendizaje.<br/>
-![Los campos del documento](images/img0034.png)<br/>
-En concreto, el campo `rightNow` contiene la fecha y hora en que se ha creado el documento.
+![Los campos dentro del documento](images/img0034.png)<br/> En concreto, el campo `rightNow` contiene la fecha y hora en que se ha creado el documento.
 Este valor corresponde a la hora que se ha registrado en el [archivo de registro de la aplicación](#testing-the-sample-application).
 
 El siguiente paso de esta guía de aprendizaje es [utilizar y mantener la aplicación](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting), por ejemplo cuando se inicia, se detiene o se depura la aplicación.

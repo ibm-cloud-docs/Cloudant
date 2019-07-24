@@ -14,22 +14,21 @@ IBM Cloudant
 	offerings/learning-center.md
 
 	{: .topicgroup}
-	Sicurezza e conformità
-		offerings/security.md
-		offerings/compliance.md
-		offerings/dataprivacygovernance.md
+    Sicurezza e conformità
+    	offerings/security.md
+    	offerings/compliance.md
+    	offerings/dataprivacygovernance.md
 		offerings/audit.md
 		offerings/gdpr.md
 
 	{: .topicgroup}
 	Altre offerte
 		offerings/bluemix_dedicated.md
-		offerings/cloudant_local.md
 		offerings/cloudant.com.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
-	basics/basics.md
+    basics/basics.md
 
 	{: .topicgroup}
 	Applicazioni di esempio
@@ -89,3 +88,5 @@ IBM Cloudant
 		guides/replication_guide.md
 		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
+
+
