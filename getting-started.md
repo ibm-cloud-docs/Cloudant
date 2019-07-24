@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-19"
+lastupdated: "2019-07-23"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -41,51 +41,47 @@ For more language-specific tutorials, see [Get started by deploying your first a
 ## Before you begin
 {: #prereqs}
 
-You need an [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/registration/){: new_window},
-an instance of the {{site.data.keyword.cloudant_short_notm}} service, and the following Python requirements:
+Verify that you have what you need to start the tutorial from the following list:
 
-*	Install the most recent version of the
-	[Python programming language ![External link icon](images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} on your system.
+- An [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/registration/){: new_window}
+- [An instance of the {{site.data.keyword.cloudant_short_notm}} service](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud)
+- The most recent version of the [Python programming language ![External link icon](images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} on your system:
+
+  1.  To check the Python version that you have installed, run the following command:
+      ```sh
+	    python3 --version
+	    ```
+	    {: pre}
 	
-	To check, run the following command at a prompt:
-	```sh
-	python3 --version
-	```
-	{: pre}
-	
-	You see a result similar to this one:
+  2. Verify your version matches the most recent version. The result will look something like this:
+	    ```
+	    Python 3.7.4
+	    ```
+	    {: screen}
 
-	```
-	Python 3.7.4
-	```
-	{: screen}
-
-*	Install the Python library
-	to enable your Python applications to work with
+- The Cloudant Python library enables your Python applications to work with
 	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 	
-	To check the client library is already installed,
-	run the following command at a prompt:
-	```sh
-	pip3 freeze
-	```
-	{: pre}
+	1.	To check the client library is already installed, run the following command at a prompt:	
+      ```sh
+	    pip3 freeze
+	    ```
+	    {: pre}
 	
-	You will see a list of all the Python modules that are installed on your system. Inspect the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
+	    You will see a list of all the Python modules that are installed on your system. Review the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
 
-	```
-	cloudant==<version>
-	```
-	{: screen}
+	    ```
+	    cloudant==<version>
+	    ```
+	    {: screen}
 	
-	If the `cloudant` module is not installed, install it by using a command similar to the following one:
-	
-	```
-	pip3 install cloudant
-	```
-	{: pre}
+	2.  If the `cloudant` module is not installed, install it by using a command similar to the following one:
+	    ```
+	    pip3 install cloudant
+	    ```
+	    {: pre}
   
-  For more information about the Python library, see the [supported platforms](/docs/services/Cloudant/libraries/supported.html#python) documentation. 
+      For more information about the Python library, see the [supported platforms](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported) documentation. 
 
 ## Step 1: Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
