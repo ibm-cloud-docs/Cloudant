@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-07-31"
 
-keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
+keywords: tier-1 physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
 subcollection: cloudant
 
@@ -29,8 +29,8 @@ subcollection: cloudant
 The service is built on best-in-industry standards,
 including ISO 27001:2013.
 
-## Top-tier physical systems
-{: #top-tier-physical-systems}
+## Tier-1 physical systems
+{: #tier-1-physical-systems}
 
 The {{site.data.keyword.cloudant_short_notm}} DBaaS is physically hosted
 on Tier-1 cloud infrastructure providers such as {{site.data.keyword.cloud}} and Amazon.

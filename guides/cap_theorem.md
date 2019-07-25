@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-28"
+lastupdated: "2019-07-31"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -44,12 +44,9 @@ The attributes are **C**onsistency,
 The theorem states that it is not possible for a distributed computer system such as {{site.data.keyword.cloudant_short_notm}}
 to guarantee three attributes *simultaneously*:
 
--   Consistency,
-    where all nodes see the same data at the same time.
--   Availability,
-    which guarantees that every request receives a response about whether it succeeded or failed.
--   Partition tolerance,
-    where the system continues to operate even if any one part of the system is lost or fails.
+- Consistency, where all nodes see the same data at the same time.
+- Availability, which guarantees that every request receives a response about whether it succeeded or failed.
+- Partition tolerance, where the system continues to operate even if any one part of the system is lost or fails.
 
 The impossibility of guaranteeing all three attributes at the same time
 means that {{site.data.keyword.cloudant_short_notm}} does not guarantee the Consistency attribute.
@@ -125,7 +122,7 @@ is better suited to keeping your application online.
 The consistency of application data can be addressed after the fact.
 As Seth Gilbert and Nancy Lynch of MIT
 [conclude ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){: new_window},
-"most real-world systems today are forced to settle with returning 'most of the data, most of the time.'"
+<q>most real-world systems today are forced to settle with returning 'most of the data, most of the time.'</q>
 
 ## Application availability versus consistency in the enterprise
 {: #application-availability-versus-consistency-in-the-enterprise}

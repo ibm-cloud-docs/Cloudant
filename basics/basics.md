@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-28"
+lastupdated: "2019-07-31"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -109,7 +109,7 @@ If you use an unsupported HTTP request type with a URL that does not support the
 a [405](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) error is returned,
 listing the supported HTTP methods, as shown in the following example.
 
-*Example error message in response to an unsupported request:*
+#### Example error message in response to an unsupported request
 
 ```json
 {

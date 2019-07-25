@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-06-04"
+lastupdated: "2019-07-31"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -46,18 +46,18 @@ install-package mycouch.cloudant
 ### Libraries and frameworks for C# / .NET
 {: #libraries-and-frameworks-for-c-net}
 
--   [MyCouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danielwertheim/mycouch){: new_window}.
--   [LoveSeat ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/soitgoes/LoveSeat){: new_window}.
--   [Divan ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/foretagsplatsen/Divan){: new_window}.
--   [Relax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/arobson/Relax){: new_window}.
--   [Hammock ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/relax-net/){: new_window}.
--   [EasyCouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/hhariri/EasyCouchDB){: new_window}.
--   `WDK.API.CouchDB` from [Kanapes IDE ![External link icon](../images/launch-glyph.svg "External link icon")](http://kanapeside.com/){: new_window}.
+- [MyCouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danielwertheim/mycouch){: new_window}.
+- [LoveSeat ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/soitgoes/LoveSeat){: new_window}.
+- [Divan ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/foretagsplatsen/Divan){: new_window}.
+- [Relax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/arobson/Relax){: new_window}.
+- [Hammock ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/relax-net/){: new_window}.
+- [EasyCouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/hhariri/EasyCouchDB){: new_window}.
+- `WDK.API.CouchDB` from [Kanapes IDE ![External link icon](../images/launch-glyph.svg "External link icon")](http://kanapeside.com/){: new_window}.
 
 ### Examples and tutorials for C# / .NET
 {: #examples-and-tutorials-for-c-net}
 
--   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}.
+- [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}.
 
 ## Java
 {: #java-thirdparty}
@@ -65,10 +65,10 @@ install-package mycouch.cloudant
 ### Unsupported libraries for Java
 {: #unsupported-for-libraries-for-java-thirdparty}
 
--   [ektorp ![External link icon](../images/launch-glyph.svg "External link icon")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
--   [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){: new_window}.
--   [jrelax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/isterin/jrelax){: new_window}.
--   [LightCouch ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.lightcouch.org/){: new_window}.
+- [ektorp ![External link icon](../images/launch-glyph.svg "External link icon")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
+- [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){: new_window}.
+- [jrelax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/isterin/jrelax){: new_window}.
+- [LightCouch ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.lightcouch.org/){: new_window}.
 
 ## JavaScript
 {: #javascript}
@@ -76,19 +76,16 @@ install-package mycouch.cloudant
 ### Libraries and frameworks for JavaScript
 {: #libraries-and-frameworks-for-javascript}
 
--   [Backbone.cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}.
--   [sag.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}.
+- [Backbone.cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}.
+- [sag.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}.
 
 ### Examples and tutorials for JavaScript
 {: #examples-and-tutorials-for-javascript}
 
--   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){: new_window} using jQuery.
--   [CSVtoCloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/michellephung/CSVtoCloudant){: new_window} -
-    UI for importing `.csv` files into {{site.data.keyword.cloudant_short_notm}}.
-    The app can also be accessed [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://michellephung.github.io/CSVtoCloudant/){: new_window}.
--   [csv2couchdb ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/Mango-information-systems/csv2couchdb){: new_window} -
-    UI from Mango Systems to import `.csv` files to CouchDB/{{site.data.keyword.cloudant_short_notm}}.
--   [songblog ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/millayr/songblog){: new_window} - example app using JQuery.
+- [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){: new_window} using jQuery.
+- [CSVtoCloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/michellephung/CSVtoCloudant){: new_window} - UI for importing `.csv` files into {{site.data.keyword.cloudant_short_notm}}. The app can also be accessed [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://michellephung.github.io/CSVtoCloudant/){: new_window}.
+- [csv2couchdb ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/Mango-information-systems/csv2couchdb){: new_window} - UI from Mango Systems to import `.csv` files to CouchDB/{{site.data.keyword.cloudant_short_notm}}.
+- [songblog ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/millayr/songblog){: new_window} - example app using JQuery.
     
 ## PouchDB (JavaScript)
 {: #pouchdb}
@@ -111,18 +108,13 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 ### Libraries and frameworks for PouchDB
 {: #libraries-and-frameworks-for-pouchdb}
 
--   [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window} - JavaScript database for browser,
-    with offline synchronization.
+- [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window} - JavaScript database for browser, with offline synchronization.
 
 ### Examples and tutorials for PouchDB
 {: #examples-and-tutorials-for-pouchdb}
 
--   [PouchDB Getting Started Guide ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/getting-started.html){: new_window} -
-    example Todo application that syncs from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
--   [locationtracker ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/rajrsingh/locationtracker){: new_window} -
-    example app to record and map location using PouchDB,
-    CouchApp,
-    and {{site.data.keyword.cloudant_short_notm}}.
+- [PouchDB Getting Started Guide ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/getting-started.html){: new_window} - example Todo application that syncs from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
+- [locationtracker ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/rajrsingh/locationtracker){: new_window} - example app to record and map location using PouchDB, CouchApp, and {{site.data.keyword.cloudant_short_notm}}.
 
 ## Node.js
 {: #node-js-thirdparty}
@@ -130,14 +122,12 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 ### Unsupported libraries and frameworks for Node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
--   [sag-js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}, which also works in the browser.
-    See [saggingcouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/saggingcouch.com){: new_window} for more detail.
--   [nano ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dscape/nano){: new_window} is a minimalist implementation.
--   [restler ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danwrong/restler){: new_window} delivers the best performance but is really barebones.
--   [cradle ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/flatiron/cradle){: new_window} is a high-level client that is also available
-    if you absolutely need ease of use at the cost of reduced performance.
--   [cane_passport ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/ddemichele/cane_passport){: new_window} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
--   [express-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/express-cloudant){: new_window} - a template for Node.js Express framework that also uses PouchDB and Grunt.
+- [sag-js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}, which also works in the browser. For more information, see [saggingcouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/saggingcouch.com){: new_window} for more detail.
+- [nano ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dscape/nano){: new_window} is a minimalist implementation.
+- [restler ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danwrong/restler){: new_window} delivers the best performance but is really barebones.
+- [cradle ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/flatiron/cradle){: new_window} is a high-level client that is also available if you absolutely need ease of use at the cost of reduced performance.
+- [cane_passport ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/ddemichele/cane_passport){: new_window} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
+- [express-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/express-cloudant){: new_window} - a template for Node.js Express framework that also uses PouchDB and Grunt.
 
 ## PHP
 {: #php}
@@ -157,14 +147,14 @@ require_once('./src/Sag.php');
 ### Libraries and frameworks for PHP
 {: #libraries-and-frameworks-for-php}
 
--   [sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){: new_window}.
--   [Doctrine CouchDB Client ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/doctrine/couchdb-client){: new_window}.
--   [PHP-on-Couch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dready92/PHP-on-Couch){: new_window}.
+- [sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){: new_window}.
+- [Doctrine CouchDB Client ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/doctrine/couchdb-client){: new_window}.
+- [PHP-on-Couch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dready92/PHP-on-Couch){: new_window}.
 
 ### Examples and tutorials for PHP
 {: #examples-and-tutorials-for-php}
 
--   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/php){: new_window}.
+- [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/php){: new_window}.
 
 ## Python
 {: #python}
@@ -172,7 +162,7 @@ require_once('./src/Sag.php');
 ### Unsupported libraries and frameworks for Python
 {: #unsupported-libraries-and-frameworks-for-python}
 
--   [Requests ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.python-requests.org/en/master/){: new_window}.
+- [Requests ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.python-requests.org/en/master/){: new_window}.
 
 ## Ruby
 {: #ruby}
@@ -197,7 +187,7 @@ There are many CouchDB clients listed on
 ### Examples and tutorials for Ruby
 {: #examples-and-tutorials-for-ruby}
 
--   [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/ruby){: new_window}.
+- [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/ruby){: new_window}.
 
 ## Meteor
 {: #meteor}
@@ -216,9 +206,9 @@ meteor add cloudant:couchdb
 
 The couchdb-meteor package provides:
 
--   Livequery implementation and real-time updates from the database by consuming the CouchDB `_changes` feed.
--   Distributed Data Protocol (DDP) RPC endpoints that update data from clients connected locally.
--   Serialization and deserialization of updates to the DDP format.
+- Livequery implementation and real-time updates from the database by consuming the CouchDB `_changes` feed.
+- Distributed Data Protocol (DDP) RPC endpoints that update data from clients connected locally.
+- Serialization and deserialization of updates to the DDP format.
 
 The JSON query syntax used by {{site.data.keyword.cloudant_short_notm}} Query, and initially developed by {{site.data.keyword.cloudant_short_notm}}, was contributed back to Apache CouchDB for version 2.0. Pre-built binaries for Apache CouchDB version 2.0 are not yet available. You can use this module with {{site.data.keyword.cloudant_short_notm}} DBaaS or Cloudant Local until the pre-built binaries are available.
 {: note}

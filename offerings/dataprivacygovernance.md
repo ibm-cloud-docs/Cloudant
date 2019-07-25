@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-07-25"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -69,8 +69,8 @@ is available at:
 For more information about {{site.data.keyword.cloudant_short_notm}}'s overall standards for compliance, see [Compliance](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
 Similar information can be found for these IaaS business partners:
 
--   [Amazon ![External link icon](../images/launch-glyph.svg "External link icon")](https://aws.amazon.com/compliance/){: new_window}
--   [{{site.data.keyword.cloud}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/compliance){: new_window}
+- [Amazon ![External link icon](../images/launch-glyph.svg "External link icon")](https://aws.amazon.com/compliance/){: new_window}
+- [{{site.data.keyword.cloud}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/compliance){: new_window}
 
 Following the recent vote in favor of new
 [General Data Protection Regulations ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.engadget.com/2016/04/14/eu-data-protection-rules/){: new_window},

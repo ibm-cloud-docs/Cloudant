@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-07-31"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -57,12 +57,11 @@ the [Lite plan](#lite-plan) is selected.
 The Lite plan is free, and is designed for development and evaluation purposes. {{site.data.keyword.cloudant_short_notm}}'s full functionality is included, but Lite plan instances have a fixed amount of provisioned throughput capacity and data storage. The provisioned throughput capacity is fixed at 20 reads/sec, 10 writes/sec, and 5 global queries/sec, and data storage is capped at 1 GB. 
 
 Storage usage is checked daily. If you exceed your 1-GB storage limit, requests to the {{site.data.keyword.cloudant_short_notm}} instance receive a 
-402 status code with the error message, "Account has exceeded its data usage quota. An upgrade to a paid plan is required."
-A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard. You can still read and delete data. However, to write new data, you have two options. First, you can upgrade to a paid [Standard plan](#standard-plan) that removes the write limitation immediately. Alternatively, you can delete data so that your total storage falls under the 1-GB limit and wait until the next daily storage check runs for your instance to allow writes again. 
+402 status code with the following error message, <q>Account has exceeded its data usage quota. An upgrade to a paid plan is required.</q> A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard. You can still read and delete data. However, to write new data, you have two options. First, you can upgrade to a paid [Standard plan](#standard-plan), which removes the write limitation immediately. Alternatively, you can delete data so that your total storage falls under the 1-GB limit and wait until the next daily storage check runs for your instance to allow writes again. 
 
 If you want to store more than 1 GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
-You are limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, any attempt to create a new Lite plan instance, or change a Standard plan instance to a Lite plan, returns the message, "You can only have one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan." 
+You are limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, any attempt to create a new Lite plan instance, or change a Standard plan instance to a Lite plan, returns the following message, <q>You can only have one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan.</q>
 {: note}
 
 ### Standard plan
@@ -168,8 +167,7 @@ Partitioned query requests consume a variable number of read operations
 depending on the results returned. Consumption is based on two axes:
 
 1. The number of rows read from the index involved in the query.
-1. The number of documents read from the database, if any, during the execution
-    of the query.
+2. The number of documents read from the database, if any, during the execution of the query.
     
 #### `_all_docs`, view and search queries
 
@@ -236,7 +234,7 @@ The check mark turns yellow and says `Updating Capacity` until the target capaci
 
 ![Capacity](../images/capacity-4.png)
 
-Capacity increases via the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity which is 10,000 reads/sec, 5,000 writes/sec, and 500 global queries/sec. If you require more capacity, see the Need additional capacity? tab at the bottom of the Capacity page.
+Capacity increases via the {{site.data.keyword.cloud_notm}} Dashboard can be made up to 100 blocks of capacity which is 10,000 reads/sec, 5,000 writes/sec, and 500 global queries/sec. If you require more capacity, see the **Need additional capacity?** tab on the Capacity page.
 {: note}
 
 #### UI - Cloud Foundry org and space
@@ -258,7 +256,7 @@ In the {{site.data.keyword.cloudant_short_notm}} Dashboard, the size of the capa
 
 To use the API to view the current provisioned throughput capacity allocated or change the target provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance, see the [Capacity API documentation](/docs/services/Cloudant?topic=cloudant-capacity). 
 
-The API syntax for changing the capacity will also be shown in the **Increase capacity through API** tab at the bottom of the Capacity page for instances deployed in a Resource Group. 
+The API syntax for changing the capacity will also be shown in the **Increase capacity through API** tab on the Capacity page for instances deployed in a Resource Group. 
 
 
 ### Monitoring usage 
@@ -268,7 +266,7 @@ Information about your usage of provisioned throughput capacity is available in 
 
 ![Monitoring - Current Operations](../images/monitoring-current_operations.png)
 
-The **Denied Requests** tab shows the number of requests that were denied with a '429: too many requests' response in a given second. Requests are denied due to exceeding the provisioned throughput capacity allocated to the instance and the graphs are broken down by reads, writes, and global queries.
+The **Denied Requests** tab shows the number of requests that were denied with a <q>429: too many requests</q> response in a given second. Requests are denied due to exceeding the provisioned throughput capacity allocated to the instance and the graphs are broken down by reads, writes, and global queries.
 
 ![Monitoring - Denied Requests](../images/monitoring-denied_requests.png)
 

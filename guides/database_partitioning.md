@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-07-19"
+lastupdated: "2019-07-25"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -385,7 +385,7 @@ curl -XGET \
 This query needs to use the partitioned `timestamped-readings` index. We can
 issue a query to the partition to get the readings for today:
 
-*query.json, assuming today is 13th Dec 2018:*
+##### query.json, assuming today is 13th Dec 2018
 
 ```json
 {
@@ -452,7 +452,7 @@ To get the results for a device, we issue a partition query for the device
 within the `bridge-9876` partition. A standard {{site.data.keyword.cloudant_short_notm}} Query selector is
 used, as if one were issuing a global query.
 
-*query.json:*
+##### query.json
 
 ```json
 {
@@ -479,7 +479,7 @@ To get the results for a device, we issue a partition query for the device
 within the `bridge-9876` partition. The selector is only slightly more
 complicated, but still the same as an equivalent global query.
 
-*query.json, assuming today is 13th Dec 2018:*
+##### query.json, assuming today is 13th Dec 2018
 
 ```json
 {

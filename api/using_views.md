@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-07-31"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -69,7 +69,7 @@ subset indicated in the table.
 Argument         | Description | Optional | Type | Default | Supported values | Partition query
 -----------------|-------------|----------|------|---------|------------------|-----------------
 `conflicts`      | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | yes | Boolean | false || no
-`descending`     | Return the documents in "descending by key" order. | yes | Boolean | false | | yes
+`descending`     | Return the documents in <q>descending by key</q> order. | yes | Boolean | false | | yes
 `endkey`         | Stop returning records when the specified key is reached. | yes | String or JSON array | | | yes
 `endkey_docid`   | Stop returning records when the specified document ID is reached. | yes | String | | | yes
 `group`          | Using the `reduce` function, group the results to a group or single row. | yes | Boolean | false | | yes
@@ -97,7 +97,7 @@ Argument | Supported values
 Using `include_docs=true` might have [performance implications](#multi-document-fetching).
 {: important}
 
-#### Example of using HTTP to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view:
+#### Example of using HTTP to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view
 
 ```http
 GET /$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
@@ -106,7 +106,7 @@ Content-Type: application/json
 ```
 {:codeblock}
 
-#### Example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view:
+#### Example of using HTTP to retrieve a list of the first five documents from a database, applying the user-created `by_title` view
 
 ```http
 GET /$DATABASE/_design/$DDOC/_view/by_title?limit=5 HTTP/1.1
@@ -115,7 +115,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-#### Example of using the command line to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view:
+#### Example of using the command line to retrieve a list of the first five documents from the `recipes` partition of a database, applying the user-created `by_title` view
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_view/by_title?limit=5" \
@@ -123,7 +123,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_partition/recipes/_design/$DDOC/_
 ```
 {:codeblock}
 
-#### Example of using the command line to retrieve a list of the first five documents from a database, applying the user-created `by_title` view:
+#### Example of using the command line to retrieve a list of the first five documents from a database, applying the user-created `by_title` view
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5" \
@@ -131,7 +131,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit
 ```
 {: codeblock}
 
-#### Example response to request:
+#### Example response to request
 
 ```json
 {
@@ -352,7 +352,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example of requesting the last five records in reversed sort order, that uses the command line:
+### Example of requesting the last five records in reversed sort order, that uses the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit=5&descending=true" \
@@ -360,7 +360,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_title?limit
 ```
 {: codeblock}
 
-### Example response of requesting the last five records in reversed sort order:
+### Example response of requesting the last five records in reversed sort order
 
 ```json
 {
@@ -425,7 +425,7 @@ filtering is applied by using the `startkey` and `endkey` query arguments.
 The combination of sorting and filtering means that it is possible to have empty view results because
 the sorting and filtering do not make sense when combined.
 
-### Example of using HTTP to make a global query that includes `startkey` and `endkey` query arguments:
+### Example of using HTTP to make a global query that includes `startkey` and `endkey` query arguments
 
 ```http
 GET /recipes/_design/recipes/_view/by_ingredient?startkey="alpha"&endkey="beta" HTTP/1.1
@@ -434,7 +434,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example of a global query using the command line that includes `startkey` and `endkey` query arguments:
+### Example of a global query using the command line that includes `startkey` and `endkey` query arguments
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?startkey="alpha"&endkey="beta"" \
@@ -447,7 +447,7 @@ if you have a database that returns 10 results when you use a `startkey` of `alp
 you would get no results with a reversed order.
 The reason is that the entries in the view are reversed before the key filter is applied.
 
-### Example that uses HTTP to illustrate why reversing the order of `startkey` and `endkey` might not yield any results:
+### Example that uses HTTP to illustrate why reversing the order of `startkey` and `endkey` might not yield any results
 
 ```http
 GET /recipes/_design/recipes/_view/by_ingredient?descending=true&startkey="beta"&endkey="alpha" HTTP/1.1
@@ -456,7 +456,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example illustrating why reversing the order of `startkey` and `endkey` might not yield any results, that uses the command line:
+### Example illustrating why reversing the order of `startkey` and `endkey` might not yield any results, that uses the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="beta"&endkey="alpha"" \
@@ -466,7 +466,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?
 
 The `endkey` of `beta` is seen before the `startkey` of `alpha`, resulting in an empty list.
 
-### Example showing that the global view query returns no entries, because `alpha` is alphabetically before `beta`, therefore the returned result is empty:
+### Example showing that the global view query returns no entries, because `alpha` is alphabetically before `beta`, therefore the returned result is empty
 
 ```json
 {
@@ -484,7 +484,7 @@ The following example shows correct filtering and reversing the order of output,
 by using the `descending` query argument,
 and reversing the `startkey` and `endkey` query arguments.
 
-### Example that uses HTTP to apply correct filtering and sorting to a global query:
+### Example that uses HTTP to apply correct filtering and sorting to a global query
 
 ```http
 GET /recipes/_design/recipes/_view/by_ingredient?descending=true&startkey="egg"&endkey="carrots" HTTP/1.1
@@ -493,7 +493,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example that uses the command line to apply correct filtering and sorting to a global query:
+### Example that uses the command line to apply correct filtering and sorting to a global query
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/by_ingredient?descending=true&startkey="egg"&endkey="carrots"" \
@@ -515,7 +515,7 @@ the `POST` method is identical to the [`GET`](#querying-a-view) API request.
 In particular,
 you can use any of its query parameters.
 
-### Example HTTP request that returns all recipes, where the key for the view matches either `claret` or `clear apple juice`:
+### Example HTTP request that returns all recipes, where the key for the view matches either `claret` or `clear apple juice`
 
 ```http
 POST /$DATABASE/_design/$DDOC/_view/$VIEWNAME HTTP/1.1
@@ -523,14 +523,14 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example of a global query that returns all recipes, where the key for the view matches either `claret` or `clear apple juice`, that uses the command line:
+### Example of a global query that returns all recipes, where the key for the view matches either `claret` or `clear apple juice`, that uses the command line
 
 ```sh
 curl -X POST "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME" -d @request.json
 ```
 {: codeblock}
 
-### Example JSON document that provides a list of keys to use in the query:
+### Example JSON document that provides a list of keys to use in the query
 
 ```json
 {
@@ -545,7 +545,7 @@ curl -X POST "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_v
 The response contains the standard view information,
 but only documents where the keys match.
 
-### Example response after running a query that uses a list of keys:
+### Example response after running a query that uses a list of keys
 
 ```json
 {
@@ -596,7 +596,7 @@ function(employee_doc) {
 }
 ```
 
-### Example request using HTTP to obtain the full content of documents that match the listed keys within the `british` partition:
+### Example request using HTTP to obtain the full content of documents that match the listed keys within the `british` partition
 
 ```http
 POST /recipes/_partition/british/_design/recipes/_view/by_ingredient?include_docs=true HTTP/1.1
@@ -604,7 +604,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example JSON document that lists the keys to match:
+### Example JSON document that lists the keys to match
 
 ```json
 {
@@ -616,7 +616,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example request using the command line to obtain the full content of documents that match the listed keys within the `british` partition:
+### Example request using the command line to obtain the full content of documents that match the listed keys within the `british` partition
 
 ```sh
 curl "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_partition/british/_design/$DDOC/_view/by_ingredient?include_docs=true"
@@ -626,7 +626,7 @@ curl "https://INDEX_NAME$ACCOUNT.cloudant.com/$DATABASE/_partition/british/_desi
 ```
 {: codeblock}
 
-### Example (abbreviated) response, returning the full document for each recipe that matches a provided key:
+### Example (abbreviated) response, returning the full document for each recipe that matches a provided key
 
 ```json
 {
@@ -734,7 +734,7 @@ which holds an array of result objects: one result for each query.
 
 Each result object contains the same fields as the response to a regular view request.
 
-### Example request using HTTP that contains several queries:
+### Example request using HTTP that contains several queries
 
 ```http
 POST /$DATABASE/_design/$DDOC/_view/$VIEWNAME HTTP/1.1
@@ -742,7 +742,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example request containing several queries, that uses the command line:
+### Example request containing several queries, that uses the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME" -H "Content-Type: application/json" -d @request-body.json
@@ -750,7 +750,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME" -H 
 ```
 {: codeblock}
 
-### Example JSON document that contains several queries:
+### Example JSON document that contains several queries
 
 ```json
 {
@@ -767,7 +767,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME" -H 
 ```
 {: codeblock}
 
-### Example response:
+### Example response from several queries 
 
 ```json
 {

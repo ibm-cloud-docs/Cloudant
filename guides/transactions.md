@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-07-25"
 
 keywords: generate uuid, record payments, add additional documents, advantages
 
@@ -61,7 +61,7 @@ customer information,
 cost,
 and delivery information.
 
-*Example document describing a purchase:*
+## Example document describing a purchase
 
 ```json
 {
@@ -143,7 +143,7 @@ for example, `/_uuids?count=10`.
 When the customer successfully pays for their items,
 additional records are added to the database to record the order.
 
-*Example of a payment record:*
+### Example of a payment record
 
 ```json
 {
@@ -181,7 +181,7 @@ The view would enable a ledger containing the following information:
 
 A map function could be used to identify the required values.
 
-*Example map function to find purchase total and payment values:* 
+### Example map function to find purchase total and payment values
 
 ```javascript
 function (doc) {
@@ -199,7 +199,7 @@ function (doc) {
 Using the built-in [`_sum` reducer](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)
 enables you to produce output as a ledger of payment events.
 
-*Example of using the built-in `_sum` reducer, which is queried with `?reduce=false`:*
+### Example of using the built-in `_sum` reducer, which is queried with `?reduce=false`
 
 ```json
 {
@@ -227,7 +227,7 @@ enables you to produce output as a ledger of payment events.
 Alternatively,
 you could produce totals grouped by `order_id`.
 
-*Example of totals grouped by `order_id`, with `?group_level=1`:*
+### Example of totals grouped by `order_id`, with `?group_level=1`
 
 ```json
 {

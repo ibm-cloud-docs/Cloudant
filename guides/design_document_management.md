@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-07-31"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -47,7 +47,7 @@ Let's take a simple example.
 Assume we have a simple collection of data documents,
 similar to the following example.
 
-*Example of a simple data document:*
+## Example of a simple data document
 
 ```json
 {
@@ -68,7 +68,7 @@ We want to create a [MapReduce view](/docs/services/Cloudant?topic=cloudant-view
 We can do this by creating a Map function,
 similar to the following example.
 
-*Example map function returning a document's timestamp field, if present:*
+## Example map function returning a document's timestamp field, if present
 
 ```javascript
 function(doc) {
@@ -84,11 +84,10 @@ as we are not interested in the value in the index,
 `null` is emitted.
 The effect is to provide a time-ordered index into the document set.
 
-We are going to call this view "`by_ts`"
-and put it into a design document called "`fetch`",
-like the following example.
+We are going to call this view `by_ts` and put it into a design document called `fetch`,
+like the following example:
 
-*Example design document that defines a view using a map function:*
+## Example design document that defines a view using a map function
 
 ```json
 {
@@ -137,7 +136,7 @@ It's worth remembering at this point that:
     *any queries made against that index will block*.
 -   Querying a view triggers the 'mapping' of any documents that haven't yet been incrementally indexed.
     This ensures we get an up-to-date view of the data.
-    See the following ['`stale`' parameter](#the-stale-parameter) discussion,
+    See the following [`stale` parameter](#the-stale-parameter) discussion,
     for exceptions to this rule.
 
 ## Multiple views in the same design document
@@ -168,10 +167,10 @@ instead of returning the actual timestamp result,
 we are only interested in the count of how many documents match the criteria.
 To achieve this,
 the map function remains the same,
-but we now use a *reduce* of "`_count`".
+but we now use a *reduce* of `_count`.
 The effect is that our design document looks like the following example.
 
-*Example design document that uses a reduce function:*
+## Example design document that uses a reduce function
 
 ```json
 {
@@ -237,8 +236,8 @@ One solution is to use versioned design document names:
 Using versioned design documents is a simple way to manage change control in your design documents,
 as long as you remember to remove the older versions at a later date!
 
-### 'Move and switch' design documents
-{: #-move-and-switch-design-documents}
+### <q>Move and switch</q> design documents
+{: #move-and-switch-design-documents}
 
 Another approach relies on the fact that {{site.data.keyword.cloudant_short_notm}} recognises when it has two identical design documents,
 and does not waste time and resources rebuilding views it already has.
@@ -251,7 +250,7 @@ The procedure to switch to the new view is this:
 1.  Create a duplicate copy of the design document that we want to change,
     for example by adding `_OLD` to its name:
     `_design/fetch_OLD`.
-2.  Put the new or 'incoming' design document into the database,
+2.  Put the new or <q>incoming</q> design document into the database,
     using a name with the suffix `_NEW`: `_design/fetch_NEW`.
 3.  Query the `fetch_NEW` view,
     to ensure that it starts to build.
@@ -260,14 +259,14 @@ The procedure to switch to the new view is this:
 6.  Delete design document `_design/fetch_NEW`.
 7.  Delete design document `_design/fetch_OLD`.
 
-## 'Move and switch' tooling
+## <q>Move and switch</q> tooling
 {: #move-and-switch-tooling}
 
-There is a command-line Node.js script that automates the 'move and switch' procedure,
-called '`couchmigrate`'.
+There is a command-line Node.js script that automates the <q>Move and switch</q> procedure,
+called `couchmigrate`.
 It can be installed as follows.
 
-*Command to install the Node.js `couchmigrate` script:*
+### Command to install the Node.js `couchmigrate` script
 
 ```sh
 npm install -g couchmigrate
@@ -277,7 +276,7 @@ npm install -g couchmigrate
 To use the `couchmigrate` script,
 first define the URL of the CouchDB/{{site.data.keyword.cloudant_short_notm}} instance by setting an environment variable called `COUCH_URL`.
 
-*Defining the URL of the an {{site.data.keyword.cloudant_short_notm}} instance:*
+### Defining the URL of the an {{site.data.keyword.cloudant_short_notm}} instance
 
 ```sh
 export COUCH_URL=http://127.0.0.1:5984
@@ -287,7 +286,7 @@ export COUCH_URL=http://127.0.0.1:5984
 The URL can be HTTP or HTTPS,
 and can include authentication credentials.
 
-*Defining the URL of the {{site.data.keyword.cloudant_short_notm}} instance with authentication credentials:*
+### Defining the URL of the {{site.data.keyword.cloudant_short_notm}} instance with authentication credentials
 
 ```sh
 export COUCH_URL="https://$ACCOUNT:$PASSWORD@$HOST.cloudant.com"
@@ -302,14 +301,14 @@ In this example,
 `db` specifies the name of the database to change,
 and `dd` specifies the path to our design document file.
 
-*Running the `couchmigrate` command:*
+#### Running the `couchmigrate` command
 
 ```sh
 couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
 {: pre}
 
-The script coordinates the 'Move and switch' procedure,
+The script coordinates the <q>Move and switch</q> procedure,
 waiting until the view is built before returning.
 If the incoming design document is the same as the incumbent one,
 then the script returns almost immediately.
@@ -335,25 +334,25 @@ When querying the view, we have three choices:
     When we query the view,
     {{site.data.keyword.cloudant_short_notm}} first indexes the 250 new documents,
     and then returns the answer.
--   An alternative is adding the "`stale=ok`" parameter to the API call.
-    The parameter means "return me the data that is already indexed,
-    I don't care about the latest updates".
+-   An alternative is adding the `stale=ok` parameter to the API call.
+    The parameter means <q>return me the data that is already indexed.
+    I don't care about the latest updates.</q>
     In other words,
-    when you query the view with "`stale=ok`",
+    when you query the view with `stale=ok`,
     {{site.data.keyword.cloudant_short_notm}} returns the answer immediately,
     without any additional reindexing.
--   A second alternative is to add the "`stale=update_after`" parameter to the API call.
-    The parameter means "return me the data that is already indexed,
-    *and* then reindex any new documents".
+-   A second alternative is to add the `stale=update_after` parameter to the API call.
+    The parameter means <q>return me the data that is already indexed, 
+    *and* then reindex any new documents.</q>
     In other words,
-    when you query the view with "`stale=update_after`",
+    when you query the view with `stale=update_after`,
     {{site.data.keyword.cloudant_short_notm}} returns the answer immediately,
     and then schedules a background task to index the new data.
 
-Adding "`stale=ok`" or "`stale=update_after`" can be a good way getting answers more quickly from a view,
+Adding `stale=ok` or `stale=update_after` can be a good way getting answers more quickly from a view,
 but at the expense of freshness. 
 
-The default behaviour distributes load evenly across nodes in the {{site.data.keyword.cloudant_short_notm}} cluster. If you use the alternative `stale=ok` or `stale=update_after` options, this might favor a subset of cluster nodes, in order to return consistent results from across the eventually consistent set. This means that the '`stale`' parameter isn't a perfect solution for all use-cases. However, it can be useful for providing timely responses on fast-changing data sets if your application is happy to accept stale results. If the rate of change of your data is small, adding "`stale=ok`" or "`stale=update_after`" will not bring a performance benefit, and might unevenly distribute the load on larger clusters.
+The default behaviour distributes load evenly across nodes in the {{site.data.keyword.cloudant_short_notm}} cluster. If you use the alternative `stale=ok` or `stale=update_after` options, this might favor a subset of cluster nodes, in order to return consistent results from across the eventually consistent set. This means that the `stale` parameter isn't a perfect solution for all use-cases. However, it can be useful for providing timely responses on fast-changing data sets if your application is happy to accept stale results. If the rate of change of your data is small, adding `stale=ok` or `stale=update_after` will not bring a performance benefit, and might unevenly distribute the load on larger clusters.
 {: note}
 
 Avoid using `stale=ok` or `stale=update_after` whenever possible.

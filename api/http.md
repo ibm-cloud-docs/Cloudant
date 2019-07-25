@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-07-31"
 
 keywords: http headers, response headers, http status codes
 
@@ -69,7 +69,7 @@ If the `Accept` header is not supplied,
 then the server assumes the`*/*` MIME type,
 which means that the client accepts all formats.
 
-##### Example of sending a request without an explicit `Accept` header, or when specifying `*/*`:
+##### Example of sending a request without an explicit `Accept` header, or when specifying `*/*`
 
 ```http
 GET /recipes HTTP/1.1

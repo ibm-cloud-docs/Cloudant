@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-30"
+lastupdated: "2019-07-31"
 
 keywords: encode user name, encode password, create alias, activate alias, test acurl
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 {: #authorized-curl-acurl-}
 
 *(This guide is based on a Blog article by Samantha Scharr: [
-"Authorized curl, a.k.a. acurl", originally published November 27, 2013.)*
+<q>Authorized curl, a.k.a. acurl</q>, originally published November 27, 2013.)*
 
 `acurl` is a handy alias that allows you to `curl` {{site.data.keyword.cloudantfull}} commands to URLs
 without having to enter your user name and password for every request.

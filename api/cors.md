@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-23"
+lastupdated: "2019-07-31"
 
 keywords: cors, security, configuration endpoints, json format, dashboard
 
@@ -112,7 +112,7 @@ Method | Path                        | Description
 `PUT`ting a JSON document with the example structure to `/_api/v2/user/config/cors` sets the CORS configuration.
 The configuration applies to all databases and all account level endpoints in your account.
 
-### Example request, using HTTP:
+### Example request, using HTTP
 
 ```http
 PUT /_api/v2/user/config/cors HTTP/1.1
@@ -121,7 +121,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example request, using the command line: 
+### Example request, using the command line 
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors" \
@@ -131,7 +131,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors" \
 ```
 {: codeblock}
 
-### Example JSON file for setting the CORS configuration:
+### Example JSON file for setting the CORS configuration
 
 ```json
 {
@@ -147,7 +147,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors" \
 
 The response tells you whether the configuration has been updated successfully.
 
-### Example response:
+### Example response for setting the CORS configuration
 
 ```json
 {
@@ -161,7 +161,7 @@ The response tells you whether the configuration has been updated successfully.
 
 You can find out the current CORS configuration by sending a `GET` to the `/_api/v2/user/config/cors` endpoint.
 
-### Example request to `GET` the current CORS configuration, using HTTP:
+### Example request to `GET` the current CORS configuration, using HTTP
 
 ```http
 GET /_api/v2/user/config/cors HTTP/1.1
@@ -169,7 +169,7 @@ Host: username.cloudant.com
 ```
 {: codeblock}
 
-### Example request to `GET` the current CORS configuration, using the command line:
+### Example request to `GET` the current CORS configuration, using the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors"
@@ -178,7 +178,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/user/config/cors"
 
 The response is the current CORS configuration in a JSON document.
 
-### Example response:
+### Example response to `GET` the current CORS configuration
 
 ```json
 {
