@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: generate uuid, record payments, add additional documents, advantages
 
@@ -47,7 +47,7 @@ mit Konzepten, die für viele andere Fachgebiete gelten:
 
 Sie können beispielsweise ein Dokument `purchase` erstellen, das Details wie die sortierten Artikel, Kundeninformationen, Kosten und Zustellinformationen enthält.
 
-_Beispieldokument für einen Einkauf:_
+*Beispieldokument für einen Einkauf:*
 
 ```json
 {
@@ -124,7 +124,7 @@ Derselbe Endpunkt kann zum Generieren mehrerer IDs verwendet werden, indem ein P
 Wenn der Kunde erfolgreich seine Artikel kauft,
 werden zusätzliche Datensätze zur Datenbank hinzugefügt, um die Bestellung aufzuzeichnen.
 
-_Beispiel eines Zahlungsdatensatzes:_
+*Beispiel eines Zahlungsdatensatzes:*
 
 ```json
 {
@@ -161,7 +161,7 @@ Die Ansicht würde ein Hauptbuch mit den folgenden Informationen aktivieren:
 
 Eine 'map'-Funktion könnte verwendet werden, um die erforderlichen Werte zu ermitteln.
 
-_Beispiel einer 'map'-Funktion zum Suchen nach Gesamteinkaufs- und Zahlungswerten:_ 
+*Beispiel einer 'map'-Funktion zum Suchen nach Gesamteinkaufs- und Zahlungswerten:* 
 
 ```javascript
 function (doc) {
@@ -179,7 +179,7 @@ function (doc) {
 Mithilfe der integrierten ['reduce'-Funktion `_sum`](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)
 können Sie eine Ausgabe in Form eines Hauptbuchs für Zahlungsereignisse erstellen.
 
-_Beispiel für die Verwendung der integrierten 'reduce'-Funktion `_sum`, abgefragt mit `?reduce=false`:_
+*Beispiel für die Verwendung der integrierten 'reduce'-Funktion `_sum`, abgefragt mit `?reduce=false`:*
 
 ```json
 {
@@ -206,7 +206,7 @@ _Beispiel für die Verwendung der integrierten 'reduce'-Funktion `_sum`, abgefra
 
 Alternativ könnten Sie Gesamtwerte nach `order_id` erzeugen.
 
-_Beispiel von nach `order_id` gruppierten Gesamtsummen, mit `?group_level=1`:_
+*Beispiel von nach `order_id` gruppierten Gesamtsummen, mit `?group_level=1`:*
 
 ```json
 {

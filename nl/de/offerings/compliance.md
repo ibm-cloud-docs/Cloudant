@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-05"
+lastupdated: "2019-06-12"
 
 keywords: top-tier physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -50,7 +50,8 @@ für den {{site.data.keyword.cloudant_short_notm}}-Plan für dedizierte Hardware
 ## International Organization for Standardization (ISO)
 {: #international-organization-for-standardization-iso-}
 
-{{site.data.keyword.cloudant_short_notm}} und {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster werden von einer externen Sicherheitsfirma geprüft und erfüllen die folgenden ISO-Anforderungen: ISO 27001, ISO 27017 und ISO 27018. Weitere Informationen finden Sie über die Links zu Zertifikaten auf der Seite für [{{site.data.keyword.cloudant_short_notm}}-Konformität]( https://www.ibm.com/cloud/compliance). Die folgenden Beschreibungen auf der Seite für {{site.data.keyword.cloudant_short_notm}}-Konformität beinhalten den {{site.data.keyword.cloudant_short_notm}}-Service und zugehörige Zertifizierungen:
+{{site.data.keyword.cloudant_short_notm}} und {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster werden von einer externen Sicherheitsfirma geprüft und erfüllen die folgenden ISO-Anforderungen: ISO 27001, ISO 27017 und ISO 27018. 
+Weitere Informationen finden Sie über die Links zu Zertifikaten auf der Seite für [{{site.data.keyword.cloudant_short_notm}}-Konformität![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")]( https://www.ibm.com/cloud/compliance){: new_window}. Die folgenden Beschreibungen auf der Seite für {{site.data.keyword.cloudant_short_notm}}-Konformität beinhalten den {{site.data.keyword.cloudant_short_notm}}-Service und zugehörige Zertifizierungen:
  
 - {{site.data.keyword.cloud_notm}} Services (PaaS und SaaS) - Liste der zertifizierten Cloudprodukte
 - {{site.data.keyword.cloud_notm}} Services (PaaS and SaaS) - Zertifikat für ISO 27001
@@ -75,4 +76,4 @@ Vertriebsbeauftragten anfordern. Alternativ können Sie ein Support-Ticket beim 
 
 Mit der DSGVO (Datenschutz-Grundverordnung) soll in der gesamten EU ein harmonisierter Rechtsrahmen
 für den Datenschutz geschaffen werden, in dem Bürger wieder die Kontrolle über ihre personenbezogenen Daten übernehmen,
-während gleichzeitig denen, die diese Daten an einem beliebigen Standort weltweit hosten und 'verarbeiten' strikte Regeln auferlegt werden. Die Verordnung führt zudem Regeln in Bezug auf den freien Datenverkehr innerhalb und außerhalb der EU ein. Weitere Informationen finden Sie in der [{{site.data.keyword.IBM_notm}} Datenschutzerklärung](https://www.ibm.com/privacy/).
+während gleichzeitig denen, die diese Daten an einem beliebigen Standort weltweit hosten und 'verarbeiten' strikte Regeln auferlegt werden. Die Verordnung führt zudem Regeln in Bezug auf den freien Datenverkehr innerhalb und außerhalb der EU ein. Weitere Informationen finden Sie in der [{{site.data.keyword.IBM_notm}} Datenschutzerklärung![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/privacy/){: new_window}.

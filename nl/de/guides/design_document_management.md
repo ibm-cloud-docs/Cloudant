@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -40,7 +40,7 @@ nicht blockierenden Schreibdurchsatz zu erzielen.
 
 Die {{site.data.keyword.cloudant_short_notm}}-[Suchindizes](/docs/services/Cloudant?topic=cloudant-search#search) und [MapReduce-Ansichten](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce)
 werden durch Hinzufügen von Entwurfsdokumenten zu einer Datenbank konfiguriert.
-Entwurfsdokumente sind JSON-Dokumente, die die Anweisungen dazu enthalten, wie die Ansicht oder der Index erstellt werden sollen.
+Entwurfsdokumente sind JSON-Dokumente, die die Anweisungen dazu enthalten, wie die Ansicht oder der Index erstellt werden soll.
 Einfaches Beispiel:
 Angenommen, wir haben eine einfache Sammlung von Datendokumenten,
 ähnlich dem folgenden Beispiel.
@@ -143,7 +143,7 @@ Dieses Verhalten gilt nicht für Lucene-Suchindizes. Sie können innerhalb desse
     ohne dass andere, nicht geänderte Indizes in demselben Dokument ungültig werden.
 {: note}
 
-![Abbildung der Versionsänderung eines Entwurfsdokuments](../images/DesDocMan02.png)
+![Abbildung einer Änderung der Entwurfsdokumentversion](../images/DesDocMan02.png)
 
 ## Änderungen an einem Entwurfsdokument verwalten
 {: #managing-changes-to-a-design-document}
@@ -240,7 +240,7 @@ So wechseln Sie zur neuen Ansicht:
 6.  Löschen Sie das Entwurfsdokument `_design/fetch_NEW`.
 7.  Löschen Sie das Entwurfsdokument `_design/fetch_OLD`.
 
-## Tools für das Verschieben und Wechseln
+## Tools verschieben und wechseln
 {: #move-and-switch-tooling}
 
 Es gibt ein Node.js-Befehlszeilenscript namens `couchmigrate`, das die Prozedur des Verschiebens und Wechselns automatisiert.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -251,7 +251,7 @@ In diesem Lernprogramm wurde nur eine [Serviceverbindung erstellt](/docs/service
 Deshalb greift die Anwendung auf das erste Element (Element null) zu.
 Jedes Serviceelement enthält die Berechtigungsnachweise für diesen Service,
 in Form einer Liste, indexiert anhand der unerlässlichen Feldnamen, die für den Zugriff auf den Service erforderlich sind.
-Weitere Informationen zu den Feldnamen werden in dem [Lernprogramm](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites) bereitgestellt, das eine einfache Datenbankerstellung behandelt.
+Weitere Informationen zu den Feldnamen werden in dem Lernprogramm [Einfache {{site.data.keyword.cloudant_short_notm}}-Datenbank unter {{site.data.keyword.cloud_notm}} erstellen und füllen](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#prerequisites-create_database) bereitgestellt, das eine einfache Datenbankerstellung beschreibt.
 
 ```python
 # Rufen Sie eine Liste der {{site.data.keyword.cloudant_short_notm}}-Verbindungsinformationen ab.
@@ -286,8 +286,9 @@ target.write("\n")
 
 Die Anwendung verfügt jetzt über alle erforderlichen Informationen zum Erstellen einer Datenbank in der
 {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz.
-Diese Task wird detaillierter in dem
-[Lernprogramm](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance) beschrieben, das eine einfache Datenbankerstellung behandelt.
+Diese Task wird genauer im Abschnitt [Datenbank in der Serviceinstanz erstellen](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance) beschrieben, der eine das eine einfache Datenbankerstellung beschreibt.
+
+Weitere Informationen zur einfachen Datenbankerstellung finden Sie unter [Datenbank in der Serviceinstanz erstellen](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-a-database-within-the-service-instance).
 
 Die Anwendung muss die folgenden Tasks ausführen:
 

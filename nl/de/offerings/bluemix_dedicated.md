@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -30,11 +30,10 @@ subcollection: cloudant
 
 {{site.data.keyword.cloud_notm}} Dedicated-Kunden haben außerdem die Möglichkeit, {{site.data.keyword.cloudant_short_notm}} in {{site.data.keyword.cloud_notm}} Public einschließlich der Lite-Plan- und Standard-Plan-Instanzen über den syndizierten Katalog zu verwenden. Dabei ist zu beachten, dass {{site.data.keyword.cloud_notm}} Dedicated-Benutzer den Plan für dedizierte Hardware aus dem {{site.data.keyword.cloud_notm}} Public-Katalog nicht bestellen können. Diese Benutzer sollten {{site.data.keyword.cloudant_short_notm}} Dedicated unter {{site.data.keyword.cloud_notm}} Dedicated nutzen, sofern dedizierte Hardware erforderlich ist.   
 
-Der nachfolgende Screenshot zeigt ein Beispiel für einen {{site.data.keyword.cloud_notm}}-Katalog, in dem
-die syndizierte {{site.data.keyword.cloud_notm}} Public-Version von {{site.data.keyword.cloudant_short_notm}} (links)
-und die {{site.data.keyword.cloudant_short_notm}} Dedicated-Umgebung (rechts) hervorgehoben ist.  
+Der folgende Screenshot zeigt ein Beispiel für einen {{site.data.keyword.cloud_notm}}-Katalog, in dem die syndizierte {{site.data.keyword.cloud_notm}} Public-Version von {{site.data.keyword.cloudant_short_notm}}
+und die {{site.data.keyword.cloudant_short_notm}} Dedicated-Umgebung hervorgehoben ist.  
 
-![{{site.data.keyword.cloudant_short_notm}}-Katalog](../images/bluemix_catalog.png)
+![{{site.data.keyword.cloudant_short_notm}}-Katalog](../images/ibmcloud_catalog.png)
 
 ## Hardwarekapazität 
 {: #hardware-capacity}
@@ -50,7 +49,7 @@ einem eindeutigen Plattenspeicherplatz von 1,6 TB für den gesamten Cluster. Zum
 erweitern. Die Kunden können sich anstelle einer einzelnen Umgebung auch für mehrere
 separate {{site.data.keyword.cloudant_short_notm}}-Umgebungen entscheiden.
 
-## Positionen und Tenants in einer dedizierten Umgebung
+## Positionen und Tenants in einer Dedicated-Umgebung
 {: #locations-and-tenancy-in-a-dedicated-environment}
 
 Die {{site.data.keyword.cloudant_short_notm}} Dedicated-Umgebung innerhalb einer {{site.data.keyword.cloud_notm}} Dedicated-Umgebung nutzt dedizierte Hardware, die ausschließlich dem betreffenden {{site.data.keyword.cloud_notm}} Dedicated-Kunden zur Verfügung steht. Der Kunde kann in der jeweiligen Umgebung eine oder mehrere Instanzen von
@@ -61,11 +60,11 @@ die zugrunde liegenden Hardwareressourcen, aus denen die {{site.data.keyword.clo
 {: #security-encryption-and-compliance}
 
 Alle Pläne werden auf Servern mit einer Verschlüsselung gespeicherter Daten vom Typ [at-rest ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://en.wikipedia.org/wiki/Data_at_rest)
-bereitgestellt. Der Zugriff erfolgt über die öffentliche Netzverbindung mit Verschlüsselung über HTTPS. Weitere Details finden Sie unter [Sicherheit ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](/docs/services/Cloudant?topic=cloudant-security#security){: new_window}. 
+bereitgestellt. Der Zugriff erfolgt über die öffentliche Netzverbindung mit Verschlüsselung über HTTPS. Weitere Details finden Sie unter [Sicherheit](/docs/services/Cloudant?topic=cloudant-security#security).
 IP-Whitelisting ist auf Anfrage beim {{site.data.keyword.cloudant_short_notm}}-Support erhältlich und gilt für
 die gesamte {{site.data.keyword.cloudant_short_notm}}-Umgebung (d. h., nicht auf Instanzebene).  
 
-Der Plan bietet auch die [Zertifizierung der Einhaltung von Sicherheitsbestimmungen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](/docs/services/Cloudant?topic=cloudant-compliance#compliance){: new_window}. 
+Der Plan bietet auch die [Zertifizierung der Einhaltung von Sicherheitsbestimmungen](/docs/services/Cloudant?topic=cloudant-compliance#compliance). 
 
 Compliance mit [HIPAA ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window}
 wird auf Anforderung zur Verfügung gestellt; fordern Sie diese Compliance daher als Teil des Kaufprozesses bei einem {{site.data.keyword.IBM_notm}} Vertriebsbeauftragten an. 
@@ -76,5 +75,5 @@ wird auf Anforderung zur Verfügung gestellt; fordern Sie diese Compliance daher
 Um in einem Rechenzentrum Hochverfügbarkeit und Disaster-Recovery bereitzustellen, werden alle Daten in dreifacher
 Ausführung auf drei verschiedenen physischen Servern in einem Cluster gespeichert. Falls verfügbar, können Sie Konten an mehreren Standorten
 einrichten und dann eine fortlaufende Datenreplikation nutzen, um Hochverfügbarkeit und Disaster-Recovery rechnungszentrumsübergreifend bereitzustellen. {{site.data.keyword.cloudant_short_notm}}-Daten werden nicht automatisch gesichert; es werden jedoch unterstützte Tools zum Erstellen von Sicherungen bereitgestellt. Im
-Leitfaden für [Disaster-Recovery und Sicherung![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup){: new_window}
+Leitfaden für [Disaster-Recovery und Sicherung](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
 finden Sie Informationen zu allen Aspekten von Hochverfügbarkeit, Disaster-Recovery und Sicherung, um die Anforderungen für Ihre Anwendung zu erfüllen.

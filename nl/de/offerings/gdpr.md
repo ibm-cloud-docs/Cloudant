@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -92,7 +92,7 @@ der Kundeninteraktionen mit dem {{site.data.keyword.cloudant_short_notm}}-Dashbo
 ### Einschränkung der Verarbeitung
 {: #restriction-of-processing}
 
-Daten zu Dashboardinteraktionen werden von {{site.data.keyword.cloudant_short_notm}} an Segment gesendet. Es ist möglich, bei {{site.data.keyword.cloudant_short_notm}} eine Einschränkung dieser Verarbeitung personenbezogener Kundendaten über eine [{{site.data.keyword.cloudant_short_notm}} Support-Anfrage](mailto:support@cloudant.com) anzufordern. Nach Erhalt
+Daten zu Dashboardinteraktionen werden von {{site.data.keyword.cloudant_short_notm}} an Segment gesendet. Es ist möglich, bei {{site.data.keyword.cloudant_short_notm}} eine Einschränkung dieser Verarbeitung personenbezogener Kundendaten über eine [{{site.data.keyword.cloudant_short_notm}} Support-Anfrage![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](mailto:support@cloudant.com){: new_window} anzufordern. Nach Erhalt
 einer solchen Anfrage löscht {{site.data.keyword.cloudant_short_notm}} die Daten des Kunden, die an Segment
 gesendet wurden, und verhindert das Senden weiterer Daten. {{site.data.keyword.cloudant_short_notm}} muss jedoch
 dedizierte Kunden weiterhin per E-Mail kontaktieren können und bietet eine Schnittstelle für Kunden an, um diese Daten
@@ -102,8 +102,7 @@ entweder direkt oder über die Kundenkonfiguration ihrer Kontaktdetails über di
 ## Verschlüsselung der {{site.data.keyword.cloudant_short_notm}}-Datenbank
 {: #is-our-ibm-cloudant-database-encrypted-}
 
-Alle Cluster verfügen über ein verschlüsseltes Dateisystem (Verschlüsselung ruhender Daten), das Linux Unified Key Setup (LUKS) verwendet. Die Daten in der Datenbank
-sind für unsere Operations- und Support-Teams (siehe unten) sichtbar.
+Alle Cluster verfügen über ein verschlüsseltes Dateisystem (Verschlüsselung ruhender Daten), das Linux Unified Key Setup (LUKS) verwendet. Die Daten in der Datenbank sind für unsere Operations- und Support-Teams (siehe folgenden Abschnitt) sichtbar.
 
 Sie müssen sensible Daten, die für {{site.data.keyword.cloudant_short_notm}} nicht einsehbar sein sollen,
 verschlüsseln oder anderweitig schützen (pseudonymisieren), bevor Sie sie an uns senden. Verwenden Sie keine personenbezogenen Daten als Dokument-ID
@@ -142,7 +141,7 @@ Die physische Sicherheit der von unseren Mitarbeitern genutzten Bürostandorte w
 Zertifizierungsdetails und Beglaubigungsberichte (d. h. ISO und SOC2) können dem Kunden auf Anfrage zur Verfügung gestellt werden.
 
 ### Technische und organisatorische Maßnahmen
-{: #technical-and-organisational-measures}
+{: #technical-and-organizational-measures}
 
 Technische und organisatorische Maßnahmen werden von {{site.data.keyword.cloudant_short_notm}} eingesetzt,
 um die Sicherheit personenbezogener Daten zu gewährleisten. {{site.data.keyword.cloudant_short_notm}} verfügt über extern geprüfte Zertifizierungen für die von {{site.data.keyword.cloudant_short_notm}} eingesetzten Kontrollmechanismen. 
@@ -216,7 +215,7 @@ Wenn ein Dokument aufgrund einer Anforderung hinsichtlich des *Rechts auf Verges
 {{site.data.keyword.cloudant_short_notm}}-Operations-Teams die Anforderung, um zu bestätigen, dass die `id` personenbezogene Daten enthält. Es werden von {{site.data.keyword.cloudant_short_notm}} keine Daten bereinigt, deren `_id` keine personenbezogenen Daten enthält. 
 1. {{site.data.keyword.cloudant_short_notm}} löst den Bereinigungsvorgang aus, um die angeforderten Daten dauerhaft zu entfernen.
 
-Dieser Prozess ist nur für Löschanforderungen in Notfällen (z. B. für das *Recht auf Vergessen*) vorgesehen
+Dieser Prozess ist nur für Löschanforderungen in Notfällen (z. B. für das Recht auf Vergessenwerden) vorgesehen
 und darf nicht als langfristige Lösung eingesetzt werden. Wenn in Ihrer Anwendung bewusst personenbezogene Daten in Dokument-IDs verwendet werden,
 muss sie so geändert werden, dass diese personenbezogenen Daten pseudonymisiert oder aus den Dokument-IDs entfernt werden. Für eine regelmäßige Bereinigung steht das {{site.data.keyword.cloudant_short_notm}}-Operations-Team nicht zur Verfügung. 
 Deshalb lehnt {{site.data.keyword.cloudant_short_notm}} die folgenden Bereinigungsanforderungen ab:

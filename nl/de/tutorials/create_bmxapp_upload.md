@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -33,17 +33,12 @@ In diesem Abschnitt des Lernprogramms wird beschrieben, wie Sie eine {{site.data
 
 Die erste Task ist das Herstellen einer Verbindung mit {{site.data.keyword.cloud_notm}}.
 
-Das [{{site.data.keyword.cloud_notm}}-Toolkit](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits) unterstützt Sie dabei.
-
-Cloud Foundry muss die URL kennen, die für API-Aufrufe verwendet werden soll, z. B. wenn Sie eine Anwendung hochladen.
-Das {{site.data.keyword.cloud_notm}}-Toolkit verwendet den Befehl `cf api`, um den API-Endpunkt zu verwalten.
-Weitere Informationen zum Befehl `cf api` sind
-[verfügbar ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-cf#cf_api){: new_window}.
+Die {{site.data.keyword.cloud_notm}}-CLI muss die URL kennen, die für API-Aufrufe verwendet werden soll. Wenn Sie z. B. eine Anwendung hochladen, verwendet das {{site.data.keyword.cloud_notm}}-Toolkit den Befehl `ibmcloud api`, um den API-Endpunkt zu verwalten. Weitere Informationen zum Befehl `ibmcloud api` finden Sie in der [Einführung in die {{site.data.keyword.cloud_notm}}-CLI ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli){: new_window}.
 
 Setzen Sie den folgenden Befehl ab, um Cloud Foundry die zu verwendende URL bereitzustellen:
 
 ```sh
-bluemix api https://api.ng.bluemix.net
+ibmcloud api https://api.ng.bluemix.net
 ```
 {: pre}
 
@@ -57,7 +52,7 @@ OK
 
 API endpoint:   https://api.ng.bluemix.net
 API version:    2.54.0
-Not logged in. Use 'bluemix login' to log in.
+Not logged in. Use 'ibmcloud login' to log in.
 ```
 {: codeblock}
 
@@ -79,7 +74,7 @@ Verwenden Sie einen Befehl ähnlich dem folgenden, um sich bei Ihrer {{site.data
 Beachten Sie, dass Sie aufgefordert werden, Ihr Kontokennwort einzugeben.
 
 ```sh
-bluemix login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
+ibmcloud login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev
 ```
 {: pre}
 
@@ -210,11 +205,10 @@ Testen Sie Ihre Anwendung jetzt und stellen Sie sicher, dass sie ordnungsgemäß
 1.  Navigieren Sie im {{site.data.keyword.cloud_notm}}-Dashboard zu **Menüsymbol** > **Ressourcenliste** und öffnen Sie Ihre Anwendung. Klicken Sie unter 'Cloud Foundry-Apps' auf `Cloudant-CF-App`, um die Detailseite zu öffnen.<br/>  
 ![Screenshot des Dashboards für die Anwendung](images/img0017.png)
 
-2.  Klicken Sie auf der Detailseite für `Cloudant Cloud Foundry-App` auf `Routen` und dann auf den Link `Cloudant-CF-app.mybluemix.net`. <br/>
+2.  Klicken Sie auf der Detailseite für `Cloudant Cloud Foundry-App` auf `Routen` und dann auf den Link `Cloudant-CF-app.mybluemix.net`.<br/>
 ![Detailseite für 'Cloudant Cloud Foundry-App'](images/img0030.png)
 
-3. Die Internetadresse `https://cloudant-cf-app.mybluemix.net/` wird in einem neuen Browserfenster geöffnet. In der Nachricht wird bestätigt, dass die Anwendung aktiv
-ist. Sie enthält den folgenden Text. "Hello World! Thanks for creating a Python Starter Application."<br/>
+3. Die Internetadresse `https://cloudant-cf-app.mybluemix.net/` wird in einem neuen Browserfenster geöffnet. In der Nachricht wird bestätigt, dass die Anwendung aktiv. Sie enthält den folgenden Text: 'Hello World! Thanks for creating a Python Starter Application.'<br/>
 ![Hello World! hat überprüft, dass 'Cloudant Cloud Foundry-App' korrekt ausgeführt wird](images/img0054.png)
 
 
@@ -236,17 +230,14 @@ Die Datenbank enthält ein einzelnes Dokument, das von der Anwendung erstellt wu
 Klicken Sie auf den Datenbanknamen
 im Dashboard, um das Vorhandensein des Dokuments zu prüfen.
 Eine Liste von Optionen für die Datenbank wird angezeigt.
-Wenn Sie die Registerkarte `Alle Dokumente` auswählen,
-werden die Details zu einem einzelnen Dokument angezeigt:<br/>
+Wenn Sie die Registerkarte `Alle Dokumente` auswählen, werden die Details zu einem einzelnen Dokument angezeigt:<br/>
 ![Einzelnes Dokument in der neuen Datenbank](images/img0032.png)
 
-Wenn Sie den Inhalt des Dokuments sehen möchten,
-klicken Sie auf das Symbol `Bearbeiten`, das
+Wenn Sie den Inhalt des Dokuments sehen möchten, klicken Sie auf das Symbol `Bearbeiten`, das
 die Form eines Bleistifts hat:<br/>
 ![Details des Dokuments](images/img0033.png)
 
-Wenn der Inhalt des Dokuments angezeigt wird,
-können Sie die einzelnen Felder sehen, die von der Lernprogrammanwendung erstellt wurden.<br/>
+Wenn der Inhalt des Dokuments angezeigt wird, können Sie die einzelnen Felder sehen, die von der Lernprogrammanwendung erstellt wurden.<br/>
 ![Felder im Dokument](images/img0034.png)<br/>
 Insbesondere enthält das Feld `rightNow` das Datum und die Uhrzeit der Erstellung des Dokuments.
 Dieser Wert entspricht der Uhrzeit, die in der

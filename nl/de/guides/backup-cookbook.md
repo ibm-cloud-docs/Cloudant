@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# {{site.data.keyword.cloudant_short_notm}}-Sicherung und -Wiederherstellung
+# Sicherung und Wiederherstellung in {{site.data.keyword.cloudant_short_notm}}
 {: #ibm-cloudant-backup-and-recovery}
 
 Dieses Cookbook ist Teil des [{{site.data.keyword.cloudantfull}}-Leitfadens zur Disaster-Recovery](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
@@ -30,16 +30,20 @@ Beginnen Sie hier, wenn Sie mit der Thematik noch nicht besonders vertraut sind 
 zusammenarbeiten, um Disaster-Recovery- (DR) und Hochverfügbarkeitsanforderungen (HA) zu unterstützen.
 
 Obwohl Daten redundant in einem {{site.data.keyword.cloudant_short_notm}}-Cluster gespeichert werden, ist es wichtig, zusätzliche Sicherungsmaßnahmen in Betracht zu ziehen.
-Redundanter Datenspeicher schützt beispielsweise nicht vor Fehlern beim Ändern von Daten.
+Redundanter Datenspeicher
+schützt beispielsweise nicht vor Fehlern beim Ändern von Daten.
 
 ## Einführung in CouchBackup
 {: #introducing-couchbackup}
 
 {{site.data.keyword.cloudant_short_notm}} stellt ein unterstütztes Tool für Momentaufnahmesicherungen und -wiederherstellungen bereit.
-Dieses Open-Source-Tool heißt CouchBackup.
-Es handelt sich um eine `node.js`-Bibliothek und kann [unter npm ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{: new_window} installiert werden.
+Dieses Open-Source-Tool
+heißt CouchBackup.
+Es handelt sich um eine `node.js`-Bibliothek und kann
+unter [NPM ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][npmpackage]{: new_window} installiert werden. 
 
-Neben der Bibliothek enthält das CouchBackup-Paket zwei Befehlszeilentools:
+Neben der Bibliothek
+enthält das CouchBackup-Paket zwei Befehlszeilentools:
 
 1. `couchbackup`, das einen Speicherauszug von JSON-Daten aus einer Datenbank in einer Sicherungstextdatei erstellt.
 2. `couchrestore`, das Daten aus einer Sicherungstextdatei in einer Datenbank wiederherstellt.
@@ -127,7 +131,7 @@ Das CouchBackup-Paket bietet zwei Möglichkeiten zur Verwendung seiner Kernfunkt
 Verwenden Sie entweder das Befehlszeilen-Sicherungstool oder die Bibliothek mit Anwendungscode,
 um Sicherungen aus {{site.data.keyword.cloudant_short_notm}}-Datenbanken als Teil komplexerer Situationen zuzulassen.
 Ein nützliches Szenario ist das Planen von Sicherungen mithilfe von `cron` und das automatische Hochladen von Daten in
-[Cloud Object Storage ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www-03.ibm.com/software/products/en/object-storage-public){: new_window}
+[Cloud Object Storage ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window}
 zur langfristigen Aufbewahrung.
 
 ## Beispiele für das Befehlszeilenscripting
@@ -137,7 +141,7 @@ Zwei Voraussetzungen müssen häufig erfüllt werden:
 
 * Einsparen von Plattenspeicherplatz
   durch [Zippen der Sicherungsdatei](#compressing-a-backup-file) während ihrer Erstellung.
-* Automatisches Erstellen von Datenbanksicherungen [in regelmäßigen Abständen](#hourly-or-daily-backups-that-use-cron-).
+* Automatisches Erstellen von Datenbanksicherungen in [regelmäßigen Abständen](#hourly-or-daily-backups-that-use-cron-).
 
 ### Sicherungsdatei komprimieren
 {: #compressing-a-backup-file}
@@ -222,8 +226,7 @@ Weitere Informationen finden Sie auf der [npm-Seite ![Symbol für externen Link]
 Das folgende Beispielscript zeigt, wie die Bibliothek `couchbackup` mit {{site.data.keyword.IBM}} Cloud Object Storage kombiniert werden kann.
 Dieser Code stellt dar, wie Sie die regionsübergreifende S3-API zum Sichern einer Datenbank in einem Objektspeicher verwenden können.
 
-Eine Voraussetzung für den Code ist die Initialisierung des S3-Clientobjekts für {{site.data.keyword.IBM_notm}} Cloud Object Storage anhand
-[dieser Anweisungen ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][cosclient]{: new_window}.
+Eine Voraussetzung für den Code ist die Initialisierung des S3-Clientobjekts für {{site.data.keyword.IBM_notm}} Cloud Object Storage anhand der Anweisungen in [{{site.data.keyword.cloud_notm}} Object Storage - S3 API Intro ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")][cosclient]{: new_window}.
 {: note}
 
 ```javascript

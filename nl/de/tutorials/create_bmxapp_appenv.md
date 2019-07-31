@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -79,7 +79,7 @@ In diesem Abschnitt des Lernprogramms wird erläutert, wie Sie
 {{site.data.keyword.cloud_notm}}-Anwendungsumgebungen und -Services mithilfe des
 Konfigurations- und Verwaltungsbereichs Ihrer Anwendung verbinden.
 
-1.  Navigieren Sie im {{site.data.keyword.cloud_notm}}-Dashboard zu **Menüsymbol** > **Ressourcenliste** und öffnen Sie Ihre Serviceinstanz. <br/>
+1.  Navigieren Sie im {{site.data.keyword.cloud_notm}}-Dashboard zu **Menüsymbol** > **Ressourcenliste** und öffnen Sie Ihre Serviceinstanz.<br/>
     ![Auswählen Ihrer Anwendung im {{site.data.keyword.cloud_notm}}-Dashboard](images/img0017.png)</br>
     Der Übersichtsbereich für Konfiguration und Verwaltung für Ihre Anwendung wird geöffnet.
 
@@ -88,7 +88,7 @@ Konfigurations- und Verwaltungsbereichs Ihrer Anwendung verbinden.
     ![Auswahl der Verbindungskonfiguration für Ihre {{site.data.keyword.cloud_notm}}-Anwendung](images/img0019.png)<br/>
     Es wird ein Bereich für die Konfiguration einer Verbindung zwischen Ihrer Anwendung und allen anderen verfügbaren Services in Ihrem Konto angezeigt.
 
-3.  Eine [Voraussetzung](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites) für dieses Lernprogramm ist eine
+3.  Eine [Voraussetzung](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites-create_bmxapp_prereq) für dieses Lernprogramm ist eine
     vorhandene {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz.
     Klicken Sie auf `Verbindung erstellen`, um eine Verbindung zwischen dieser Serviceinstanz und Ihrer Anwendung herzustellen:<br/>
     ![Verbindung mit einer vorhandenen Datenbankinstanz herstellen](images/img0020.png)<br/>
@@ -134,8 +134,7 @@ Das Herunterladen und Installieren der Toolkits ist eine einmalige Task.
 Falls die Toolkits bereits installiert sind und in Ihrem System arbeiten,
 müssen Sie sie nicht erneut herunterladen, es sei denn, sie werden aktualisiert.
 
-Allgemeine Informationen zu den Toolkits sind
-[hier ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started){: new_window} verfügbar.
+Weitere Informationen zu Toolkits finden Sie im Lernprogramm [Einführung ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window}.
 
 ### Installation des Cloud Foundry-Toolkits
 {: #installing-the-cloud-foundry-toolkit}
@@ -193,14 +192,14 @@ Führen Sie die folgenden Schritte aus, um das {{site.data.keyword.cloud_notm}}-
     indem Sie den folgenden Befehl in einer Eingabeaufforderung ausführen:
     
     ```sh
-    bluemix --version
+    ibmcloud --version
     ```
     {: pre}
     
     Erwarten Sie ein Ergebnis ähnlich der folgenden Ausgabe:
     
     ```
-    bluemix version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
+    ibmcloud version 0.4.5+03c29de-2016-12-08T07:01:01+00:00
     ```
     {: codeblock}
     
@@ -235,8 +234,7 @@ Die Datei `Procfile` enthält die Details, die
 
 Genauer gesagt ist eine Datei `Procfile` ein Cloud Foundry-Artefakt, das
 einen Anwendungsprozesstyp und den Befehl zum Ausführen der Anwendung definiert.
-Weitere Informationen zur Datei `Procfile` finden Sie
-[hier ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window}.
+Weitere Informationen zu `Procfile` finden Sie unter [About Procfiles ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window} in der Cloud Foundry-Dokumentation.
 
 Die Datei `Procfile` für eine {{site.data.keyword.cloud_notm}} Python-Starteranwendung sieht wie folgt aus:
 
@@ -286,7 +284,7 @@ Drei Punkte sind erwähnenswert:
     als Ihre {{site.data.keyword.cloud_notm}}-Anwendung [erstellt](#creating-an-ibm-cloud-application-environment) wurde.
 -   Der Wert für `name` wird vom Cloud Foundry-Toolkit verwendet, um die verwaltete Anwendung anzugeben.
 -   Der Wert für `services` bestätigt, dass die
-    {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz `Cloudant Service 2017` mit der Anwendungsumgebung verbunden ist.
+    {{site.data.keyword.cloudant_short_notm}}-Datenbankinstanz `Cloudant-o7` mit der Anwendungsumgebung verbunden ist.
 
 Sie müssen die Datei `manifest.yml` üblicherweise nicht ändern,
 es ist aber hilfreich, zu wissen, warum sie vorhanden sein muss, damit Ihre Anwendung funktioniert.
@@ -309,4 +307,4 @@ cloudant==2.3.1
 ```
 {: codeblock}
 
-Der nächste Schritt im Lernprogramm besteht darin, [die Anwendung zu erstellen](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment).
+Der nächste Schritt im Lernprogramm besteht darin, [die Anwendung zu erstellen](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code).

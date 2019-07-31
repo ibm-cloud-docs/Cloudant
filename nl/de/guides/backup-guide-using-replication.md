@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -46,7 +46,8 @@ Auf diese Weise kann eine Sicherung den Zustand Ihrer Datenbank zu einem bestimm
 ## Inkrementelle Sicherungen
 {: #incremental-backups}
 
-Wenn Sie ein Unternehmenskunde sind, ist eine tägliche inkrementelle Sicherungsfunktionalität [verfügbar](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
+Wenn Sie ein Unternehmenskunde sind, ist eine
+tägliche inkrementelle Sicherungsfunktionalität verfügbar. Weitere Informationen finden Sie unter [Disaster-Recovery und Sicherung](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup). 
 
 Wenn Sie kein Unternehmenskunde sind oder lieber Ihre eigenen Sicherungen erstellen möchten,
 können Sie die {{site.data.keyword.cloudant_short_notm}}-Replikationsfunktion verwenden, um eine Datenbanksicherung zu erstellen.

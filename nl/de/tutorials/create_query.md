@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -61,7 +61,7 @@ Führen Sie zunächst die folgenden Schritte aus, um sich auf das Lernprogramm v
 In diesem Abschnitt erstellen Sie die [Datenbank](/docs/services/Cloudant?topic=cloudant-databases#create-database) `query-demo`.
 Dies ist die Datenbank, die im vorliegenden Lernprogramm verwendet wird.
 
-Im vorliegenden Lernprogramm wird der Alias `acurl` anstelle des Befehls `curl` verwendet. Der Alias `acurl` wird mithilfe der [hier](docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) beschriebenen Schritte erstellt. Wenn Sie lieber den Befehl `curl`
+Im vorliegenden Lernprogramm wird der Alias `acurl` anstelle des Befehls `curl` verwendet. Der Alias `acurl` wird mithilfe der unter [Authorized curl: `acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) beschriebenen Schritte erstellt. Wenn Sie lieber den Befehl `curl`
   oder eine andere Methode zum Aufrufen von API-Endpunkten verwenden möchten,
   geben Sie Ihren Befehl im Lernprogramm an,
   ebenso wie die für Ihren Befehl erforderlichen Parameter

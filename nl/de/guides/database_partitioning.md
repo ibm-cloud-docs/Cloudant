@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-27"
+lastupdated: "2019-06-12"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
 
@@ -25,17 +25,13 @@ subcollection: cloudant
 # Datenbankpartitionierung
 {: #database-partitioning}
 
-Das {{site.data.keyword.cloudant_short_notm}}-Feature für partitionierte Datenbanken befindet sich momentan im Betamodus. Partitionierte Datenbanken sollten nicht für Produktionsanwendungen verwendet werden. Dieses Feature wird in allen {{site.data.keyword.cloudant_short_notm}}-Umgebungen implementiert und wird in den kommenden Wochen allgemein verfügbar sein.
-{: important}
-
-{{site.data.keyword.cloudantfull}} unterstützt zwei Datenbanktypen: 
+{{site.data.keyword.cloudantfull}} unterstützt zwei Datenbanktypen:
 
 - Partitionierte
 - Nicht partitionierte
 
 Eine _partitionierte_ Datenbank bietet erhebliche Leistungs- und Kostenvorteile; sie erfordert jedoch
-das Festlegen einer logischen Partitionierung für Ihre Daten. Dieser Vorgang wird im Folgenden näher
-erläutert.
+das Festlegen einer logischen Partitionierung für Ihre Daten. Dies wird im folgenden Text näher erläutert. 
 
 Alternativ kann eine _nicht partitionierte_ Datenbank erstellt werden. Dieser Datenbanktyp
 ist möglicherweise leichter zu handhaben, da kein Partitionierungsschema definiert werden muss; es können jedoch
@@ -43,9 +39,9 @@ nur globale sekundäre Indizes erstellt werden.
 
 {{site.data.keyword.cloudant_short_notm}} empfiehlt dringend die Verwendung einer partitionierten
 Datenbank, um langfristig eine optimale Datenbankleistung zu erzielen, sofern das Datenmodell die logische
-Partitionierung von Dokumenten zulässt. 
+Partitionierung von Dokumenten zulässt.
 
-Der Partitionierungstyp einer Datenbank wird beim Erstellen der Datenbank festgelegt. Geben Sie
+Der Partitionierungstyp einer Datenbank wird beim Erstellen der Datenbank festgelegt.  Geben Sie
 beim Erstellen der Datenbank durch den Abfragezeichenfolgeparameter `partitioned` an,
 ob es sich um eine partitionierte Datenbank handelt. Der Parameter `partitioned` wird
 standardmäßig auf `false` gesetzt, um die Abwärtskompatibilität zu gewährleisten.
@@ -67,21 +63,20 @@ Sie gegebenenfalls vom Arbeiten mit CouchDB oder {{site.data.keyword.cloudant_sh
 In einer nicht partitionierten Datenbank werden Dokumente basierend auf einer Umsetzung ihrer
 Dokument-IDs beliebig auf Shards verteilt. Das bedeutet, es besteht keine klar erkennbare
 Beziehung zwischen einer Dokument-ID und der Shard, der das Dokument zugeordnet wird. Dokumente
-mit ähnlichen Dokument-IDs werden nicht unbedingt im selben Shard platziert. 
+mit ähnlichen Dokument-IDs werden nicht unbedingt im selben Shard platziert.
 
 Eine nicht partitionierte Datenbank lässt nur globale Abfragen zu, die weiter
 unten näher erläutert werden. 
 
 ## Partitionierte Datenbanken
-{: #partitioned-databases}
+{: #partitioned-databases-database-partitioning}
 
 Die partitionierte Datenbank ist ein neuer {{site.data.keyword.cloudant_short_notm}}-Datenbanktyp. In einer
 partitionierten Datenbank werden Dokumente durch einen _Partitionsschlüssel_ zu logischen Partitionen
-zusammengefasst, der Bestandteil der Dokument-ID für Dokumente in partitionierten Datenbanken ist.
-Alle Dokumente werden einer Partition zugeordnet und vielen Dokumenten wird in der Regel
+zusammengefasst, der Bestandteil der Dokument-ID für Dokumente in partitionierten Datenbanken ist. Alle Dokumente werden einer Partition zugeordnet und vielen Dokumenten wird in der Regel
 derselbe Partitionsschlüssel zugewiesen. Die primären JSON-Daten und Indizes einer Partition
 werden an benachbarten Speicherorten platziert, um ein effizienteres Abfragen der Daten innerhalb
-einer Partition zu ermöglichen. 
+einer Partition zu ermöglichen.
 
 In einer partitionierten Datenbank sind sowohl partitionierte als auch globale Abfragen möglich. Partitionierte
 Abfragen nutzen das Datenlayout im Datenbankcluster, um eine höhere und besser skalierbare
@@ -112,9 +107,9 @@ Die folgenden Anwendungsfälle zeigen einige vorteilhafte und nachteilige Auswah
 |----------------------------|-----------------------------|---------------|------------------------------------------------------------------------------------------------------------------|
 | E-Commerce-System - Bestellungen | Ein Dokument pro Bestellung     | Bestell-ID      | Neutral. Ein Dokument pro Partition ist akzeptabel, jedoch ohne die Vorteile von Partitionsabfragen.          |
 | E-Commerce-System - Bestellungen | Ein Dokument pro Bestellung     | Benutzer-ID       | Gut. Alle Bestellungen eines Benutzers werden zusammen abgelegt.                                                             |
-| E-Commerce-System - Bestellungen | Ein Dokument pro Bestellung     | Status        | Schlecht. Durch das Gruppieren von Bestellungen nach wenigen Statuswerten (vorläufig, bezahlt, erstattet, storniert) entsteht eine kleine Anzahl besonders umfangreicher Partitionen. |
-| Blogging-Plattform         | Ein Dokument pro Blogbeitrag | Ersteller-ID     | Gut. Solange es viele Ersteller gibt. Die Beiträge eines bestimmten Erstellers können problemlos abgefragt werden. |
-| IoT - Sensormesswerte      | Ein Dokument pro Messwert    | Geräte-ID     | Gut. Sofern viele Geräte vorhanden sind. Stellen Sie sicher, dass kein Gerät deutlich mehr Messwerte liefert als die übrigen Geräte.|
+| E-Commerce-System - Bestellungen | Ein Dokument pro Bestellung      | Status        | Schlecht. Durch das Gruppieren von Bestellungen nach wenigen Statuswerten (vorläufig, bezahlt, erstattet, storniert) entsteht eine kleine Anzahl besonders umfangreicher Partitionen.  |
+| Blogging-Plattform          | Ein Dokument pro Blogbeitrag | Ersteller-ID     | Gut. Solange es viele Ersteller gibt. Die Beiträge eines bestimmten Erstellers können problemlos abgefragt werden.                                     |
+| IoT - Sensormesswerte      | Ein Dokument pro Messwert    | Geräte-ID     | Gut. Sofern viele Geräte vorhanden sind. Stellen Sie sicher, dass kein Gerät deutlich mehr Messwerte liefert als die übrigen Geräte. |
 | IoT - Sensormesswerte      | Ein Dokument pro Messwert    | Datum          | Schlecht. Aktuelle Messwerte führen zu einer hohen Arbeitslast (Engpass) in der Partition für das aktuelle Datum.                                  |
 
 Manche Anwendungsfälle bieten keinen effizienten Ansatz zum Festlegen eines Partitionsschlüssels.
@@ -122,7 +117,7 @@ In solchen Situationen ist wahrscheinlich eine nicht partitionierte Datenbank di
 Datenbank der Benutzer, in der E-Mail-Adressen, in Hashwerte umgewandelte Kennwörter und die
 Datumsangaben der letzten Anmeldungen gespeichert werden). Da keines dieser Felder einen
 guten Ansatzpunkt für einen effizienten Partitionsschlüssel bietet, muss stattdessen eine
-herkömmliche, nicht partitionierte Datenbank verwendet werden. 
+herkömmliche, nicht partitionierte Datenbank verwendet werden.
 
 ## Abfragen
 {: #querying}
@@ -130,12 +125,12 @@ herkömmliche, nicht partitionierte Datenbank verwendet werden.
 In diesem Abschnitt wird beschrieben, welche {{site.data.keyword.cloudant_short_notm}}-Abfragetypen
 für globale Abfragen und für Partitionsabfragen verfügbar sind. Außerdem wird ein Überblick über die grundsätzliche
 Vorgehensweise zum Auswählen des am besten geeigneten Abfrageverfahrens für jede erforderliche Abfrage in Ihrer Anwendung
-gegeben. 
+gegeben.
 
 ### Globale Abfrage
 {: #global-querying}
 
-Sie können globale Abfragen für die folgenden Indextypen ausführen: 
+Sie können globale Abfragen für die folgenden Indextypen ausführen:
 
 - {{site.data.keyword.cloudant_short_notm}}-Abfrage
 - Ansichten
@@ -152,7 +147,7 @@ Daten sortiert werden müssen.
 ### Partitionsabfrage
 {: #partition-querying}
 
-Sie können Partitionsabfragen für die folgenden Indextypen ausführen: 
+Sie können Partitionsabfragen für die folgenden Indextypen ausführen:
 
 - {{site.data.keyword.cloudant_short_notm}}-Abfrage
 - Ansichten
@@ -164,7 +159,7 @@ in genau einer Shard (mit drei Replikaten) befinden, kann der API-Koordinationsk
 gezielt diejenigen Server abfragen, auf denen die Daten gehostet werden, anstatt
 Antworten von zahlreichen Servern zusammenzufassen. Außerdem ist kein Zwischenspeichern
 von Antworten erforderlich, da das Zusammenfassen einzelner Antworten entfällt. Dies führt dazu, dass
-die Daten schneller zum Client gelangen. 
+die Daten schneller zum Client gelangen.
 
 Darüber hinaus muss mit zunehmender Größe der Datenbank auch die Anzahl der
 Shards erhöht werden. Dadurch erhöht sich auch die Anzahl der Abfragen an
@@ -173,7 +168,7 @@ API-Koordinationsknoten verarbeiten muss. Bei Partitionsabfragen hat die Anzahl
 der Shards jedoch keine Auswirkung auf die Anzahl der Server, die vom
 API-Koordinationsknoten abgefragt werden müssen. Da die Anzahl der Abfragen
 begrenzt wird, hat die Datenmenge (anders als bei globalen Abfragen) keine Auswirkung
-auf die Abfragelatenz. 
+auf die Abfragelatenz.
 
 ## Beispiel: Partitionierung von IoT-Messwertdaten
 {: #example-partitioning-iot-reading-data}
@@ -195,7 +190,7 @@ Dabei wird von den folgenden Rahmenbedingungen ausgegangen:
 In einer nicht partitionierten Datenbank können Sie beispielsweise zulassen, dass {{site.data.keyword.cloudant_short_notm}}
 Dokument-IDs generiert. Eine andere Möglichkeit besteht darin, Dokumente nach Geräte-ID und Zeitmarke zu benennen.
 
-Mit dem zweiten Verfahren erhalten wir Dokument-IDs wie die folgende: 
+Mit dem zweiten Verfahren erhalten wir Dokument-IDs wie die folgende:
 
 ```
 gerät-123456:20181211T11:13:24.123456Z
@@ -206,16 +201,16 @@ Die Zeitmarke kann auch auf einer Epoche basieren.
 Bei Verwendung dieses Verfahrens können die Daten für jedes Gerät anhand der
 partitionierten Indizes zwar effizient abgefragt werden, aber zum Erstellen von Ansichten
 für mehrere Geräte (z. B. alle Geräte in einem bestimmten Element der Infrastruktur)
-müssen globale Indizes verwendet werden. 
+müssen globale Indizes verwendet werden.
 
 Verwenden wir zur Veranschaulichung ein etwas komplexeres Szenario, in dem die Anwendung
 Sensordaten für ein bestimmtes Element der Infrastruktur auslesen soll und nicht für einzelne
-Geräte. 
+Geräte.
 
 Da diese Anwendung eine effiziente Abfrage nach Infrastrukturelement
 ermöglichen soll, ist es viel sinnvoller, die Daten nach Infrastrukturelementen
 zu partitionieren und nicht nach ID. Auf diese Weise können alle Geräte
-für ein bestimmtes Infrastrukturelement als eine Gruppe abgefragt werden. 
+für ein bestimmtes Infrastrukturelement als eine Gruppe abgefragt werden.
 
 Für die selten vorkommenden Abfragen nach Gerät bieten sich zwei Verfahren an:
 
@@ -225,7 +220,7 @@ Für die selten vorkommenden Abfragen nach Gerät bieten sich zwei Verfahren an:
     und Partitionsabfragen in der Infrastrukturpartition ausführen. Dies ist bei
     wiederholten Abfragen für bestimmte Geräte  sinnvoll, da die Zuordnung im Cache
     gespeichert werden kann (wir gehen davon aus, dass dies für unsere Anwendung
-    zutrifft). 
+    zutrifft).
 
 Werfen wir einen Blick auf die Funktionsweise. Dabei geht es um vier Dinge:
 
@@ -239,7 +234,7 @@ Werfen wir einen Blick auf die Funktionsweise. Dabei geht es um vier Dinge:
 
 Wir verwenden eine Datenbank mit dem Namen `readings` und ein Konto mit dem Namen
 `acme`. Um diese Datenbank als partitionierte Datenbank zu erstellen, übergeben Sie
-`true` im Argument `partitioned` an die Datenbankerstellungsanforderung: 
+`true` im Argument `partitioned` an die Datenbankerstellungsanforderung:
 
 ```
 curl -XPUT 'https://acme.cloudant.com/readings?partitioned=true'
@@ -263,7 +258,7 @@ Definieren Sie zuerst ein einfaches Dokumentformat, das verwendet werden soll:
 
 Die Dokument-ID für dieses Dokument, das das auf einem Infrastrukturelement
 basierende Partitionierungsschema verwendet, kann die Infrastruktur-ID als Partitionierungsschlüssel
-enthalten sowie die Geräte-ID und die Zeitmarke als Dokumentschlüssel, wie nachfolgend gezeigt: 
+enthalten sowie die Geräte-ID und die Zeitmarke als Dokumentschlüssel, wie nachfolgend gezeigt:
 
 ```
 bridge-9876:device-123456-20181211T11:13:24.123456Z
@@ -272,7 +267,7 @@ bridge-9876:device-123456-20181211T11:13:24.123456Z
 ### Indizes erstellen
 {: #creating-indexes}
 
-Für die oben angegebenen Abfragen sind zwei Indizes erforderlich: 
+Für die oben erläuterten Abfragen sind zwei Indizes erforderlich: 
 
 1. Ein globaler Index mit der Zuordnung von Geräte-ID zu Infrastruktur-ID
 2. Ein partitionierter Index mit der Zuordnung von Geräte-IDs zu Messwerten
@@ -285,7 +280,7 @@ Infrastruktur-ID zuzuordnen. Laden Sie zum Definieren der Zuordnung ein Entwurfs
 mit der Einstellung `false`  für `options.partitioned`
 hoch, da es sich um einen globalen Index handelt. In einer reinen Zuordnungsfunktion
 (`map`) ist dagegen größere Zurückhaltung in Bezug auf das Vorhandensein
-von Feldern angebracht. Sie kann wie folgt lauten: 
+von Feldern angebracht. Sie kann wie folgt lauten:
 
 ```json
 {
@@ -299,8 +294,8 @@ von Feldern angebracht. Sie kann wie folgt lauten:
 }
 ```
 
-Wenn das oben angegebene Dokument in `./view.json` vorhanden ist, kann es
-mit dem folgenden Befehl in die Datenbank hochgeladen werden: 
+Wenn das oben angegebene Dokument in `./view.json` vorhanden ist, wird es
+mit dem folgenden Befehl in die Datenbank hochgeladen: 
 
 ```
 curl -XPOST https://acme.cloudant.com/readings -d @view.json
@@ -322,7 +317,7 @@ Für unsere Abfragen benötigen wir zwei nach den folgenden Elementen partitioni
 1. Nach Zeitmarke
 2. Nach Geräte-ID und Zeitmarke
 
-Die Definition der Partitionierung nach Zeitmarke lautet wie folgt: 
+Die Definition der Partitionierung nach Zeitmarke lautet wie folgt:
 
 ```json
 {
@@ -344,7 +339,7 @@ Index mit dem folgenden Befehl in die Datenbank hoch:
 curl -XPOST https://acme.cloudant.com/readings/_index -d @query-index1.json
 ```
 
-Die Definition der Partitionierung nach Geräte-ID und Zeitmarke lautet wie folgt: 
+Die Definition der Partitionierung nach Geräte-ID und Zeitmarke lautet wie folgt:
 
 ```json
 {
@@ -394,7 +389,7 @@ curl -XGET \
 
 In dieser Abfrage muss der partitionierte Index `timestamped-readings` verwendet
 werden. Mit der folgenden Abfrage an die Partition können die Messwerte
-für heute abgerufen werden: 
+für heute abgerufen werden:
 
 _query.json, wenn heute der 13. Dezember 2018 ist:_
 
@@ -420,7 +415,7 @@ curl -XPOST \
 Die beiden folgenden Abfragen müssen noch ausgeführt werden:
 
 1. Langfristige Messwerte für ein bestimmtes Gerät
-2. Heutige Messwerte für ein bestimmtest Gerät
+2. Heutige Messwerte für ein bestimmtes Gerät
 
 Für diese beiden Abfragen müssen wir die Partition für die Geräte mithilfe des
 globalen Index `by-device` finden. Anschließend können wir die Messwerte
@@ -428,21 +423,21 @@ aus der Partition abfragen. Zum Abfragen der Messwerte für einzelne Geräte wur
 globaler Index verwendet. Da die Zuordnung von Geräte-ID zu Infrastruktur-ID besonders
 gut zum Zwischenspeichern geeignet ist (sie bleibt stets unverändert), erlaubt dieser
 Ansatz die Verwendung der kostengünstigeren und effizienteren
-Partitionsabfrage für die meisten Abfragen. 
+Partitionsabfrage für die meisten Abfragen.
 
 Die Verwendung eines globalen Index zum direkten Abfragen von Gerätemesswerten ist zwar besonders
 effizient, wenn die Gerät/Infrastruktur-Zuordnung zwischengespeichert wird, sie eignet sich jedoch
 nicht unbedingt für eine bestimmte Anwendung.
 
 Um die relevante Partition für ein Gerät zu finden, fragen wird die Ansicht `by-device`
-ab und übergeben dabei die Geräte-ID als Schlüssel: 
+ab und übergeben dabei die Geräte-ID als Schlüssel:
 
 ```
 curl -XGET \
   'https://acme.cloudant.com/readings/_design/infrastructure-mapping/_view/by-device?keys=["device-123456"]&limit=1'
 ```
 
-Diese Abfrage gibt Folgendes zurück: 
+Diese Abfrage gibt Folgendes zurück:
 
 ```json
 {"total_rows":5,"offset":0,"rows":[
@@ -462,7 +457,7 @@ Der Partitionsschlüssel befindet sich im Feld `value` der enthaltenen Zeile:
 
 Um die Ergebnisse für ein Gerät abzurufen, setzen wir eine Partitionsabfrage für das Gerät
 in der Partition `bridge-9876` ab. Dabei wird ein {{site.data.keyword.cloudant_short_notm}}-Standardabfrageselektor
-verwendet wie beim Absetzen einer globalen Abfrage. 
+verwendet wie beim Absetzen einer globalen Abfrage.
 
 _query.json:_
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -127,8 +127,8 @@ Notieren Sie sich das Kennwort. Es ist nicht möglich, das Kennwort zu einem sp�
 ## Schritt 3: Erteilen Sie Zugriffsberechtigungen.
 {: #step-3-grant-access-permission}
 
-[Weisen Sie dem API-Schlüssel](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)
-Lese- und Schreibberechtigungen für beide Datenbanken zu.
+Weisen Sie dem API-Schlüssel
+[Lese- und Schreibberechtigungen](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions) für beide Datenbanken zu.
 
 Wenn Sie auch Indizes replizieren möchten, weisen Sie Administratorberechtigungen zu.
 
@@ -259,7 +259,7 @@ haben Sie unter anderem folgende Optionen:
   die von Anwendungen verwendet werden, über eine Änderung der Proxykonfiguration statt über eine Änderung der Anwendungseinstellungen
   erfolgen kann.
   Viele Proxys bieten einen Lastausgleich auf der Grundlage von benutzerdefinierten Statusprüfungen.
-* Verwenden Sie eine globale Lastausgleichsfunktion wie [{{site.data.keyword.cloud}} Internet Services ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](/docs/infrastructure/cis/glb.html#global-load-balancer-glb-concepts){: new_window} oder [Dyn Traffic Director ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://dyn.com/traffic-director/){: new_window}, um zu {{site.data.keyword.cloudant_short_notm}} weiterzuleiten.
+* Verwenden Sie eine globale Lastausgleichsfunktion wie [{{site.data.keyword.cloud}} Internet Services ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window} oder [Dyn Traffic Director ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://dyn.com/traffic-director/){: new_window}, um zu {{site.data.keyword.cloudant_short_notm}} weiterzuleiten.
   Diese Option erfordert eine `CNAME`-Definition, die auf Basis einer Statusprüfung oder einer Latenzregel an verschiedene {{site.data.keyword.cloudant_short_notm}}-Konten weiterleitet.
 
 

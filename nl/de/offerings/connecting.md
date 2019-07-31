@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
-keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries
+keywords: endpoints, service credentials, authentication, ibm cloudant dashboard, curl, client libraries, IP whitelisting
 
 subcollection: cloudant
 
@@ -30,7 +30,7 @@ subcollection: cloudant
 - Serviceberechtigungsnachweise
 - Authentifizierung
 - {{site.data.keyword.cloudant_short_notm}}-Dashboard aufrufen
-- Programmgesteuerter Zugriff auf {{site.data.keyword.cloudant_short_notm}} über den Befehl [curl ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://curl.haxx.se/){: new_window} oder über Clientbibliotheken
+- Programmgesteuerter Zugriff auf {{site.data.keyword.cloudant_short_notm}} über den Befehl [curl ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://curl.haxx.se/){: new_window} oder über Clientbibliotheken 
 {: shortdesc}
 
 ## Endpunkte
@@ -43,12 +43,12 @@ Registerkarte **Konto** > **Einstellungen** im
 
 Auf alle {{site.data.keyword.cloudant_short_notm}}-HTTP-Endpunkte muss über TLS zugegriffen werden, d. h. das Präfix `https://` muss vorangestellt werden.
 
-Der allgemein zugängliche Endpunkt ist: 
+Der allgemein zugängliche Endpunkt ist:
 
 `https://BENUTZERNAME.cloudant.com`
 
 Alle nach dem 1. Januar 2019 bereitgestellten Instanzen enthalten einen Domänenendpunkt 'appdomain.cloud'. Der allgemein
-zugängliche Endpunkt ist: 
+zugängliche Endpunkt ist:
 
 `https://BENUTZERNAME.cloudantnosqldb.appdomain.cloud`
 
@@ -62,6 +62,9 @@ Administratorbenutzername, wenn die traditionelle {{site.data.keyword.cloudant_s
 verwendet wird. Ein Beispiel für BENUTZERNAME ist
 de810d0e-763f-46a6-ae88-50823dc85581-bluemix und der resultierende externe Beispielendpunkt
 ist de810d0e-763f-46a6-ae88-50823dc85581-bluemix.cloudantnosqldb.appdomain.cloud. 
+
+Weitere Informationen zum Blockieren der Konnektivität zu öffentlichen Netzen per IP-Whitelisting finden Sie unter [Sichere Zugriffssteuerung](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-security#secure-access-control).
+{: note}
 
 ## Serviceberechtigungsnachweise
 {: #service-credentials}
@@ -111,7 +114,7 @@ Feld | Zweck
 in den Serviceberechtigungsnachweisen nur angezeigt werden, wenn die Authentifizierungsmethode `Traditionelle Berechtigungsnachweise und IAM-Berechtigungsnachweise verwenden` ausgewählt wird. Die Berechtigungsnachweise werden auf der Registerkarte 'Serviceberechtigungsnachweise' Ihrer Instanz angezeigt. Weiterführende detaillierte Informationen zur Verwendung der beiden Authentifizierungsoptionen finden Sie im
 [IAM-Leitfaden](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) und im Dokument zur [traditionellen Authentifizierung](/docs/services/Cloudant?topic=cloudant-authentication#authentication).
  
-Das {{site.data.keyword.cloudant_short_notm}}-Team empfiehlt die Verwendung der IAM-Zugriffssteuerung für die Authentifizierung, falls möglich. Wenn Sie die traditionelle {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden, wird die Verwendung von [API-Schlüsseln](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} anstelle von Berechtigungsnachweisen für den programmgesteuerten Zugriff und für Replikationsjobs empfohlen.
+Das {{site.data.keyword.cloudant_short_notm}}-Team empfiehlt die Verwendung der IAM-Zugriffssteuerung für die Authentifizierung, falls möglich. Wenn Sie die traditionelle {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden, wird die Verwendung von [API-Schlüsseln](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} anstelle von Berechtigungsnachweisen für den programmgesteuerten Zugriff und für Replikationsjobs empfohlen. 
 {: important}
 
 ## {{site.data.keyword.cloudant_short_notm}}-Dashboard
@@ -120,7 +123,7 @@ Das {{site.data.keyword.cloudant_short_notm}}-Team empfiehlt die Verwendung der 
 Sie können das {{site.data.keyword.cloudant_short_notm}}-Dashboard öffnen, indem Sie die Seite mit Instanzdetails
 auf der Registerkarte 'Verwalten' im {{site.data.keyword.cloud_notm}}-Dashboard öffnen. Verwenden Sie entweder die
 Schaltfläche `Starten` oder die Schaltfläche `Cloudant-Dashboard starten`,
-um das Dashboard in einer neuen Browserregisterkarte zu öffnen. Mit dem {{site.data.keyword.cloudant_short_notm}}-Dashboard können Sie die folgenden Tasks ausführen:
+um das dashboard in einer neuen Browserregisterkarte zu öffnen. Mit dem {{site.data.keyword.cloudant_short_notm}}-Dashboard können Sie die folgenden Tasks ausführen:
 
 - Ihre aktuelle Nutzung der Instanz überwachen
 - CRUD-Aktionen (CRUD = Create, Read, Update, Delete; Erstellen, Lesen, Aktualisieren, Löschen) für {{site.data.keyword.cloudant_short_notm}}-Datenbanken, -Dokumente und -Indizes ausführen
@@ -136,13 +139,10 @@ um das Dashboard in einer neuen Browserregisterkarte zu öffnen. Mit dem {{site.
 
 Sie können das Befehlszeilendienstprogramm 'curl' verwenden, um auf die {{site.data.keyword.cloudant_short_notm}}-HTTPS-API zuzugreifen. 
 
-Wenn Sie die traditionelle {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden, finden Sie in
-[API-Referenz - Übersicht](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) Details zum
-Angeben eines Benutzernamens mit Kennwort für den Zugriff auf die {{site.data.keyword.cloudant_short_notm}}-API über 'curl', wie in den Beispielen der API-Referenz gezeigt.
+Wenn Sie die traditionelle {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden, finden Sie in [API-Referenz - Übersicht](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) Details zum Angeben eines Benutzernamens mit Kennwort für den Zugriff auf die {{site.data.keyword.cloudant_short_notm}}-API über 'curl', wie in den Beispielen der API-Referenz gezeigt.
 
-Wenn Sie die {{site.data.keyword.cloud_notm}}-IAM-Authentifizierung verwenden, müssen Sie zuerst mithilfe eines API-Schlüssels ein {{site.data.keyword.cloud_notm}}-IAM-Token abrufen. Übergeben Sie anschließend zum Authentifizieren das IAM-Token an die {{site.data.keyword.cloudant_short_notm}}-Instanz. Weitere Informationen enthält das Lernprogramm [{{site.data.keyword.cloud_notm}}-IAM-Token
-zum Authentifizieren bei der API eines Service übergeben](https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window} 
-. 
+Wenn Sie die {{site.data.keyword.cloud_notm}}-IAM-Authentifizierung verwenden, müssen Sie zuerst mithilfe eines API-Schlüssels ein {{site.data.keyword.cloud_notm}}-IAM-Token abrufen. Übergeben Sie anschließend zum Authentifizieren das IAM-Token an die {{site.data.keyword.cloudant_short_notm}}-Instanz. Weitere Informationen finden Sie im Lernprogramm [Übergeben
+eines {{site.data.keyword.cloud_notm}}-IAM-Tokens zum Authentifizieren bei der API eines Service ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/services/iam?topic=iam-iamapikeysforservices#token_auth){: new_window}. 
 
 Sie können sich mit einem IAM-API-Schlüssel direkt bei {{site.data.keyword.cloudant_short_notm}} authentifizieren.
 {: note}

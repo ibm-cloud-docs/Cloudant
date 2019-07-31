@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -32,7 +32,7 @@ der {{site.data.keyword.cloudant_short_notm}}-Support zu dieser Umstellung erhal
 ## Wie kann ich eine vorhandene Instanz auf eine Ressourcengruppe migrieren?
 {: #how-do-i-migrate-an-existing-instance-to-a-resource-group-}
 
-Zur Migration einer {{site.data.keyword.cloudant_short_notm}}-Instanz von einem Cloud Foundry-Bereich auf eine Ressourcengruppe sollten Sie die Informationen im Abschnitt zur [Migration von Cloud Foundry-Serviceinstanzen und -Apps auf eine Ressourcengruppe](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window} lesen.
+Zur Migration einer {{site.data.keyword.cloudant_short_notm}}-Instanz aus einem Cloud Foundry-Bereich in eine Ressourcengruppe sollten Sie die Informationen unter [Cloud Foundry-Serviceinstanzen und -Apps in eine Ressourcengruppe migrieren ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window} lesen. 
 
 Sie können {{site.data.keyword.cloudant_short_notm}}-Instanzen für die folgenden Pläne migrieren:
 
@@ -46,7 +46,7 @@ Sie können {{site.data.keyword.cloudant_short_notm}}-Instanzen für die folgend
 Während des Migrationsprozesses treten keine Ausfallzeiten auf.
 
 ## Warum verfügen bestimmte Instanzen über eine Organisation und einen Bereich, andere hingegen nicht?
-{: #why-do-some-instances-have-an-organisation-and-space-and-others-do-not-}
+{: #why-do-some-instances-have-an-organization-and-space-and-others-do-not-}
 
 Seit dem 16. Juli 2018 werden neue Instanzen in Ressourcengruppen und nicht mehr in Cloud Foundry-Bereichen
 bereitgestellt. Ressourceninstanzen, die vor diesem Datum bereitgestellt wurden, verfügen über
@@ -57,7 +57,7 @@ eine zugehörige Cloud Foundry-Organisation und einen entsprechenden Bereich. In
 
 Neue Standard-Plan-Instanzen werden in Ressourcengruppen bereitgestellt. Zur Bereitstellung dieser Instanzen auf einer Instanz für dedizierte Hardware muss die Instanz für dedizierte Hardware zuerst in eine Ressourcengruppe migriert werden.
 
-Weitere Informationen zu diesem Arbeitsschritt finden Sie im Abschnitt zur [Migration von Cloud Foundry-Serviceinstanzen und -Apps auf eine Ressourcengruppe](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}.
+Weitere Informationen zu diesem Arbeitsschritt finden Sie unter [Cloud Foundry-Serviceinstanzen und -Apps in eine Ressourcengruppe migrieren ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}. 
 
 Nachdem die Instanz für dedizierte Hardware auf eine Ressourcengruppe migriert wurde, wird sie im Dropdown-Menü des Standorts angezeigt, wenn Standard-Pläne bereitgestellt
 werden.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -30,7 +30,7 @@ für die Erstellung einer {{site.data.keyword.cloud}}-Anwendung beschrieben.
 {: shortdesc}
 
 ## Voraussetzungen
-{: #prerequisites}
+{: #prerequisites-create_bmxapp_prereq}
 
 Stellen Sie sicher, dass Sie die folgenden Ressourcen oder Informationen zur Hand haben, bevor Sie das Lernprogramm durcharbeiten.
 
@@ -58,8 +58,8 @@ Python 2.7.12
 ### {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz unter {{site.data.keyword.cloud_notm}}
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-Ein separates Lernprogramm für die Erstellung einer {{site.data.keyword.cloudantfull}}-Serviceinstanz mit dem Namen
-`Cloudant-o7` ist [hier](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) verfügbar.
+Ein separates Lernprogramm für [die Erstellung einer {{site.data.keyword.cloudantfull}}-Serviceinstanz unter {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) erstellt eine Serviceinstanz mit dem Namen
+'`Cloudant-o7`'. 
 
 In diesem Lernprogramm wird davon ausgegangen, dass Sie bereits eine Serviceinstanz mit dem
 Namen `Cloudant-o7` erstellt haben.
@@ -67,8 +67,7 @@ Namen `Cloudant-o7` erstellt haben.
 ### {{site.data.keyword.cloudant_short_notm}}-Datenbankanwendung
 {: #an-ibm-cloudant-database-application}
 
-Ein separates Lernprogramm für die Erstellung einer eigenständigen Python-Anwendung für die Arbeit mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz ist [hier](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) verfügbar.
-Es stellt eine Reihe von Konzepten vor, die dabei helfen, das Erstellen und Befüllen einer {{site.data.keyword.cloudant_short_notm}}-Datenbank zu verstehen.
+Ein separates Lernprogramm für die [Erstellung einer eigenständigen Python-Anwendung für die Arbeit mit einer {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz] (/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) ist ebenfalls verfügbar. Es stellt eine Reihe von Konzepten vor, die dabei helfen, das Erstellen und Befüllen einer {{site.data.keyword.cloudant_short_notm}}-Datenbank zu verstehen.
 
 In diesem Lernprogramm wird davon ausgegangen, dass Sie diese Konzepte bereits kennen.
 

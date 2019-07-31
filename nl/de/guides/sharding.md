@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-02-27"
+lastupdated: "2019-06-12"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -163,7 +163,7 @@ Das Festlegen von _Q_ für Datenbanken ist für {{site.data.keyword.cloudant_sho
 {: note}
 
 Wenn Sie versuchen, den Wert _Q_ festzulegen, falls er noch nicht verfügbar ist,
-ist das Ergebnis eine [`403`-Antwort](/docs/services/Cloudant/api/http.html#http-status-codes) mit einem JSON-Hauptteil ähnlich dem folgenden:
+ist das Ergebnis eine [`403`-Antwort](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) mit einem JSON-Hauptteil ähnlich dem folgenden:
 
 ```json
 {
@@ -205,7 +205,7 @@ weil der Koordinator schneller eine Antwort geben kann.
 Grund ist, dass der Koordinator nur auf eine einzelne Antwort von einem der Replikate warten muss,
 die das Shard hosten.
 
-Wenn der Wert _R_ verkleinert wird, steigt die Wahrscheinlichkeit, dass die zurückgegebene Antwort nicht auf den aktuellen Daten basiert, sondern auf dem Modell für [sukzessive Konsistenz](/docs/services/Cloudant/guides/cap_theorem.html), das von {{site.data.keyword.cloudant_short_notm}} verwendet wird. Die Angabe des Standardwerts _R_ mindert diesen Effekt.
+Wenn der Wert _R_ verkleinert wird, steigt die Wahrscheinlichkeit, dass die zurückgegebene Antwort nicht auf den aktuellen Daten basiert, sondern auf dem Modell für [sukzessive Konsistenz](/docs/services/Cloudant?topic=cloudant-cap-theorem), das von {{site.data.keyword.cloudant_short_notm}} verwendet wird. Die Angabe des Standardwerts _R_ mindert diesen Effekt.
 {: note}
 
 Der Standardwert für _R_ ist _2_.

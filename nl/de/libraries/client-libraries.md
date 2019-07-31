@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: develop applications, supported library, third-party library
 
@@ -20,20 +20,20 @@ subcollection: cloudant
 {:important: .important}
 {:deprecated: .deprecated}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-01-15 -->
 
 # Clientbibliotheken
 {: #client-libraries}
 
-Bei Clientbibliotheken handelt es sich um Tools, mit deren Hilfe Sie Ihre eigenen Anwendungen
+Bei Clientbibliotheken handelt es sich um Tools, mit denen Sie Ihre eigenen Anwendungen
 für die Arbeit mit {{site.data.keyword.cloudantfull}}-Datenbanken entwickeln können.
 {: shortdesc}
 
 Die folgenden Clientbibliotheken werden von {{site.data.keyword.cloudant_short_notm}} formal [unterstützt](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#supported-client-libraries).
 
 -	[Mobil](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#mobile)
--	[Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java)
--	[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js)
+-	[Java](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#java-supported)
+-	[Node.js](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)
 -	[Swift](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#swift)
 
 Bei einer unterstützten Bibliothek handelt es sich um eine Bibliothek, über die Sie {{site.data.keyword.cloudant_short_notm}}
