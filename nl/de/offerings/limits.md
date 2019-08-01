@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-02-25"
+lastupdated: "2019-06-12"
 
 keywords: databases, indexes, request payload, request timeouts, query
 
@@ -41,7 +41,7 @@ Für die Nutzung von {{site.data.keyword.cloudant_short_notm}}-Datenbanken gelte
 
 |Beschreibung|Grenzwert|
 |--|--|
-|Anzahl globaler Inidzes|unbegrenzt|
+|Anzahl globaler Indizes|unbegrenzt|
 |Anzahl Partitionsindizes|10|
 
 ## Anforderungsnutzdaten

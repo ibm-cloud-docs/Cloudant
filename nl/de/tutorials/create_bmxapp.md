@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: create applications, deploy applications, create simple application
 
@@ -49,8 +49,8 @@ Die Anwendung stellt eine Verbindung mit Ihrer {{site.data.keyword.cloudant_shor
 erstellt ein einzelnes, einfaches Dokument.
 
 Der für jede Task spezifische Python-Code wird als Teil dieses Lernprogramms bereitgestellt.
-Ein umfassendes Python-Programm, das ausreicht, um die einzelnen Konzepte zu veranschaulichen, wird
-in dem Lernprogramm [hier](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program) bereitgestellt.
+Ein umfassendes Python-Programm, das ausreicht, um die einzelnen Konzepte zu veranschaulichen, wird im Lernprogramm
+[Einfache {{site.data.keyword.cloud_notm}}-Anwendung für den Zugriff auf eine {{site.data.keyword.cloudant_short_notm}}-Datenbank erstellen](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#complete-python-program) bereitgestellt.
 
 Es wurde nicht versucht, einen _effizienten_ Python-Code für dieses Lernprogramm zu schreiben.
 Unsere Absicht ist, Ihnen einfachen und leicht verständlichen Code zu zeigen,

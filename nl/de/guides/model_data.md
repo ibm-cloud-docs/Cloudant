@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -23,12 +23,12 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # Fünf Tipps zum Modellieren Ihrer zu skalierenden Daten
-{: #five-tips-for-modelling-your-data-to-scale}
+{: #five-tips-for-modeling-your-data-to-scale}
 
 In diesem Artikel werden die feineren Aspekte der Modellierung Ihrer Anwendungsdaten besprochen, damit diese auch stark skaliert genutzt werden können.
 {: shortdesc}
 
-*(Dieser Leitfaden basiert auf dem Blog-Artikel von Mike Rhodes: ["My top 5 tips for modelling your data to scale" ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/my-top-5-tips-for-modelling-your-data-to-scale/), der ursprünglich am 17. Dezember 2013 veröffentlicht wurde.)*
+*(Dieser Leitfaden basiert auf dem Blog-Artikel von Mike Rhodes: ["My top 5 tips for modeling your data to scale" ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/), der ursprünglich am 17. Dezember 2013 veröffentlicht wurde.)*
 
 Die Art, wie Sie Daten unter {{site.data.keyword.cloudantfull}} modellieren, wirkt sich beträchtlich darauf aus, wie Ihre Anwendung skaliert werden kann. Unser zugrunde liegendes Datenmodell unterscheidet sich grundlegend von einem relationalen Modell. Wenn dieser Unterschied
 nicht berücksichtigt wird, können Leistungsprobleme die Folge sein.
@@ -67,7 +67,7 @@ und eine andere Untergruppe die zweite. Wenn das Cluster diese Abweichung erkenn
 auf dieselbe Weise wie es die Replikation für gleichzeitig ablaufende Aktualisierungen tut, nämlich indem
 ein Konflikt erstellt wird.
 
-Konfliktdokumente wirken sich negativ auf die Leistung aus. Weiter unten finden Sie Informationen zu den Gründen. 
+Konfliktdokumente wirken sich negativ auf die Leistung aus. Im folgenden Text finden Sie Informationen zu den Gründen.
 Ein Muster für viele gleichzeitig ablaufende lokale Aktualisierungen erhöht auch die Wahrscheinlichkeit, dass Schreibvorgänge
 abgelehnt werden, weil es sich bei dem angegebenen Parameter `_rev` nicht um den erwarteten handelt. Dies wiederum
 zwingt Ihre Anwendung, einen neuen Versuch zu starten, und verzögert so die Verarbeitung.
@@ -156,7 +156,7 @@ Beispiel: Eine Krankenakte mit einer Liste von Operationen:
 {: codeblock}
 
 Wenn Joe das Pech hat, mehrere Operationen gleichzeitig über sich ergehen lassen zu müssen, führen die
-vielen gleichzeitig vorgenommenen Aktualisierungen an einem Dokument wahrscheinlich zu Konfliktdokumenten, wie oben beschrieben. 
+vielen gleichzeitig vorgenommenen Aktualisierungen an einem Dokument wahrscheinlich zu Konfliktdokumenten, wie zuvor beschrieben.
 Es ist besser, die Operationen in einzelne Dokumente runterzubrechen, die auf das Personendokument von Joe verweisen,
 und mithilfe einer Ansicht zusammengehörige Aspekte miteinander zu verknüpfen. Für jede Operation würden Sie Dokumente wie die folgenden beiden Beispiele
 hochladen:
@@ -205,7 +205,7 @@ der einzelnen Äste einer Dokumentbaumstruktur zeitaufwändig und speicherintens
 {: #build-in-conflict-resolution}
 
 In einem sukzessive konsistenten System wie {{site.data.keyword.cloudant_short_notm}} lassen sich Konflikte nicht vermeiden. Dies ist
-der Preis für Skalierbarkeit und Datenausfallsicherheit.
+der Preis für Skalierbarkeit und Datenausfallsicherheit. 
 
 Ihre Daten so zu strukturieren, dass die Konfliktlösung schnell ist und keine Hilfe durch den
 Bediener erfordert, unterstützt den reibungslosen Betrieb Ihrer Datenbanken. Die Fähigkeit, Konflikte
@@ -223,7 +223,7 @@ Wie Sie dies realisieren, ist sehr anwendungsspezifisch, aber wir können Ihnen 
 ## Gründe, warum dies die Integration einer Konfliktlösung unterstützt 
 {: #why-this-helps-you-build-in-conflict-resolution}
 
-Wie oben beschrieben, lasten Dokumente mit vielen Konflikten die Datenbank sehr aus. Die Integration
+Wie zuvor beschrieben, lasten Dokumente mit vielen Konflikten die Datenbank sehr aus. Die Integration
 einer Funktion zur frühen Konfliktlösung ist eine große Unterstützung beim Vermeiden einer pathologisch hohen Anzahl von Konfliktdokumenten.
 
 ## Zusammenfassung
@@ -235,5 +235,5 @@ Datenbankleistung mit dem Wachstum Ihrer Anwendung skaliert wird. Wir verstehen,
 
 Lesen Sie auch diese Diskussion über das
 [Datenmodell für Foundbite ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}
-oder sehen Sie sich dieses [Beispiel von unseren Freunden bei Twilio ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window} an.
+oder sehen Sie sich dieses [Beispiel von unseren Freunden bei Twilio ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window} an. 
 

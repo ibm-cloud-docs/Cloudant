@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -72,7 +72,8 @@ Füllen Sie das Formular aus:
 
 ![Replikation2](../images/replication_guide_2.png)
 
-Aus Sicherheitsgründen empfiehlt das {{site.data.keyword.cloudant_short_notm}}-Team, dass Sie für Replikationsjobs IAM-API-Schlüssel oder [API-Schlüssel](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} der traditionellen {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden und keine Berechtigungsnachweise auf Kontoebene. Weitere Informationen hierzu finden Sie im [IAM-Leitfaden](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} oder in der traditionellen Version des [Dokuments für die Authentifizierungs-API](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} und in der traditionellen Version des [Dokuments für die Berechtigungs-API](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}.{: important}
+Aus Sicherheitsgründen empfiehlt das {{site.data.keyword.cloudant_short_notm}}-Team, dass Sie für Replikationsjobs IAM-API-Schlüssel oder [API-Schlüssel](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} der traditionellen {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden und keine Berechtigungsnachweise auf Kontoebene. Weitere Informationen hierzu finden Sie im [IAM-Leitfaden](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} oder in der traditionellen Version des [Dokuments für die Authentifizierungs-API](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} und in der traditionellen Version des [Dokuments für die Berechtigungs-API](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}.
+{: important}
 
 Definieren Sie mithilfe des Formulars die Quellen- und Zieldatenbanken und klicken Sie dann auf`Replikation starten`.
 
@@ -89,7 +90,7 @@ Die Statusangaben der einzelnen Jobs ändern sich im Zeitverlauf von `Aktiv` in 
 Die Quelle und das Ziel einer Replikation sind URLs von {{site.data.keyword.cloudant_short_notm}}-Datenbanken,
 wie im folgenden Beispiel gezeigt.
 
-_Beispiel für das Definieren der Quellen- und Ziel-URLs für die Replikation:_
+*Beispiel für das Definieren der Quellen- und Ziel-URLs für die Replikation:*
 
 ```json
 {
@@ -128,7 +129,7 @@ Feld           | Zweck
 `target`        | URL der {{site.data.keyword.cloudant_short_notm}}-Zieldatenbank, einschließlich Anmeldeberechtigungsnachweisen.
 `create_target` | (Optional) Bestimmen Sie, ob die Zieldatenbank erstellt werden soll, falls sie nicht vorhanden ist.
 
-_Beispiel für die Verwendung von HTTP zum Starten eines Replikationsjobs:_
+*Beispiel für die Verwendung von HTTP zum Starten eines Replikationsjobs:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -138,7 +139,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Beispiel für die Verwendung einer Befehlszeile zum Starten eines Replikationsjobs:_
+*Beispiel für die Verwendung einer Befehlszeile zum Starten eines Replikationsjobs:*
 
 ```sh
 curl -X POST \
@@ -148,7 +149,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Beispiel für ein JSON-Dokument, das die gewünschte Replikation beschreibt:_
+*Beispiel für ein JSON-Dokument, das die gewünschte Replikation beschreibt:*
 
 ```json
 {
@@ -174,7 +175,7 @@ Die Besprechung des [CAP-Theorems](/docs/services/Cloudant?topic=cloudant-cap-th
 Das heißt in der Praxis: Wenn Sie zwei verschiedene Replikate einer Datenbank zum selben Zeitpunkt nach einem Dokument fragen,
 erhalten Sie unter Umständen verschiedene Ergebnisse, falls die Replikation einer der Datenbankkopien noch aussteht oder noch nicht abgeschlossen ist.
 Die Replikation der Datenbanken wird sukzessive abgeschlossen, damit alle
-Änderungen an einem Dokument in allen Kopien widergespiegelt werden. 
+Änderungen an einem Dokument in allen Kopien widergespiegelt werden.
 
 Dieses Modell der sukzessiven Konsistenz hat zwei Merkmale, die sich auf eine Liste von Änderungen auswirken:
 
@@ -259,7 +260,8 @@ konfiguriert werden.
 
 Sie können auch [programmgesteuert](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) mithilfe der {{site.data.keyword.cloudant_short_notm}}-API erstellt werden.
 
-Aus Sicherheitsgründen empfiehlt das {{site.data.keyword.cloudant_short_notm}}-Team, dass Sie für Replikationsjobs IAM-API-Schlüssel oder [API-Schlüssel](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys){: new_window} der traditionellen {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden und keine Berechtigungsnachweise auf Kontoebene. Weitere Informationen hierzu finden Sie im [IAM-Leitfaden](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} oder in der früheren Version des [Dokuments für die Berechtigungs-API](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} und in einer früheren Version des [Dokuments für die Berechtigungs-API](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}.{: important}
+Aus Sicherheitsgründen empfiehlt das {{site.data.keyword.cloudant_short_notm}}-Team, dass Sie für Replikationsjobs IAM-API-Schlüssel oder [API-Schlüssel](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys){: new_window} der traditionellen {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden und keine Berechtigungsnachweise auf Kontoebene. Weitere Informationen hierzu finden Sie im [IAM-Leitfaden](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} oder in der früheren Version des [Dokuments für die Berechtigungs-API](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} und in einer früheren Version des [Dokuments für die Berechtigungs-API](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}.
+{: important}
 
 ## Bidirektionale Replikation
 {: #two-way-replication}
@@ -289,7 +291,7 @@ oder indem Sie das Flag [`continuous`](/docs/services/Cloudant?topic=cloudant-re
 Eine bidirektionale Replikation kann in eine der beiden Richtungen oder in beiden Richtungen als fortlaufend definiert werden,
 indem Sie das Flag `continuous` festlegen.
 
-_Beispiel für die Verwendung von HTTP zum Starten einer kontinuierlichen Replikation:_
+*Beispiel für die Verwendung von HTTP zum Starten einer kontinuierlichen Replikation:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -299,7 +301,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Beispiel für die Verwendung der Befehlszeile zum Starten einer fortlaufenden Replikation:_
+*Beispiel für die Verwendung der Befehlszeile zum Starten einer fortlaufenden Replikation:*
 
 ```sh
 curl -X POST \
@@ -309,7 +311,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Beispiel für ein JSON-Dokument, das eine fortlaufende Replikation definiert:_
+*Beispiel für ein JSON-Dokument, das eine fortlaufende Replikation definiert:*
 
 ```json
 {
@@ -331,7 +333,7 @@ Wenn die Replikation fehlschlägt, z. B. falls die Authentifizierungsnachweise u
 Darüber hinaus kann der Endpunkt [`/_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks)
 des {{site.data.keyword.cloudant_short_notm}}-Kontos verwendet werden, um den Fortschritt der Replikation zu verfolgen.
 
-_Beispiel für die Verwendung von HTTP zum Überwachen eines Replikationsprozesses:_
+*Beispiel für die Verwendung von HTTP zum Überwachen eines Replikationsprozesses:*
 
 ```http
 GET /_replicator/weekly_backup HTTP/1.1
@@ -340,14 +342,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Beispiel für die Verwendung der Befehlszeile zum Überwachen eines Replikationsprozesses:_
+*Beispiel für die Verwendung der Befehlszeile zum Überwachen eines Replikationsprozesses:*
 
 ```sh
 curl 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup'
 ```
 {: codeblock}
 
-_Beispielantwort auf die Anforderung des Status einer Replikation:_
+*Beispielantwort auf die Anforderung des Status einer Replikation:*
 
 ```json
 {
@@ -364,7 +366,7 @@ _Beispielantwort auf die Anforderung des Status einer Replikation:_
 ```
 {: codeblock}
 
-Wenn beim Replizieren Dokumente oder Anhänge den maximalen Grenzwert für das Ziel überschreiten, schlägt die Replikation fehl. Jeder Schreibfehler für ein Dokument erhöht den Zähler für die Replikationsstatistik in `doc_write_failures`. Aus diesem Grund wird dringend empfohlen, dieses Feld zu überwachen. 
+Wenn beim Replizieren Dokumente oder Anhänge den maximalen Grenzwert für das Ziel überschreiten, schlägt die Replikation fehl. Jeder Schreibfehler für ein Dokument erhöht den Zähler für die Replikationsstatistik in `doc_write_failures`. Aus diesem Grund wird dringend empfohlen, dieses Feld zu überwachen.
 
 ## Replikation abbrechen
 {: #canceling-replication}
@@ -372,7 +374,7 @@ Wenn beim Replizieren Dokumente oder Anhänge den maximalen Grenzwert für das Z
 Um einen laufenden Replikationsjob zu stoppen, löschen Sie das
 Replikationsdokument entweder über das Dashboard oder über die API aus der Datenbank `_replicator`.
 
-_Beispiel für die Verwendung von HTTP zum Abbrechen einer Replikation:_
+*Beispiel für die Verwendung von HTTP zum Abbrechen einer Replikation:*
 
 ```http
 DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1.1
@@ -381,7 +383,7 @@ Authorization:
 ```
 {: codeblock}
 
-_Beispiel für die Verwendung der Befehlszeile zum Abbrechen einer Replikation:_
+*Beispiel für die Verwendung der Befehlszeile zum Abbrechen einer Replikation:*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098'
@@ -416,7 +418,7 @@ Dank des Speicherns von Daten in einem Web-Browser auf Clientseite können Weban
 PouchDB kann alle geänderten Daten mit {{site.data.keyword.cloudant_short_notm}} synchronisieren, wenn eine Internetverbindung besteht.
 Zum Einrichten einer Replikation auf Clientseite müssen ein paar Zeilen JavaScript geschrieben werden.
 
-_Beispiel-JavaScript, das PouchDB verwendet, um Replikation zu aktivieren:_
+*Beispiel-JavaScript, das PouchDB verwendet, um Replikation zu aktivieren:*
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
@@ -433,7 +435,7 @@ Bibliothekengruppe für iOS und Android, mit der Daten lokal auf mobilen Geräte
 mit {{site.data.keyword.cloudant_short_notm}} synchronisiert werden können, wenn das mobile Gerät verbunden ist.
 Wie bei [PouchDB](#pouchdb) auch, müssen für die Konfiguration der Replikation einige Zeilen Code geschrieben werden.
 
-_Beispiel-JavaScript, das CloudantSync verwendet, um Replikation zu aktivieren:_
+*Beispiel-JavaScript, das CloudantSync verwendet, um Replikation zu aktivieren:*
 
 ```javascript
 URI uri = new URI("https://u:p@username.cloudant.com/my_database");
@@ -469,7 +471,7 @@ Rückgabewert verwendet, um zu bestimmen, ob die einzelnen Dokumente in einer Da
 
 Das folgende Beispiel ist eine Filterfunktion, die nur die Replikation von nicht gelöschten Dokumenten zulässt.
 
-_Beispielfilterfunktion für die Replikation von nicht gelöschten Dokumenten:_
+*Beispielfilterfunktion für die Replikation von nicht gelöschten Dokumenten:*
 
 ```javascript
 function(doc, req) {
@@ -488,7 +490,7 @@ Sie können auch einen Wert `query_params` angeben.
 Dieser Wert ist ein Objekt, das Eigenschaften enthält, die an die Filterfunktion im
 Feld `query` des zweiten Arguments (`req`) weitergegeben werden.
 
-_Beispiel für die Verwendung von HTTP zum Starten einer gefilterten Replikation:_
+*Beispiel für die Verwendung von HTTP zum Starten einer gefilterten Replikation:*
 
 ```http
 POST /_replicator HTTP/1.1
@@ -498,7 +500,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Beispiel für die Verwendung der Befehlszeile zum Starten einer gefilterten Replikation:_
+*Beispiel für die Verwendung der Befehlszeile zum Starten einer gefilterten Replikation:*
 
 ```sh
 curl -X POST \
@@ -508,7 +510,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-_Beispiel für ein JSON-Dokument, das eine gefilterte Replikation definiert wird:_
+*Beispiel für ein JSON-Dokument, das eine gefilterte Replikation definiert wird:*
 
 ```json
 {
@@ -536,7 +538,7 @@ wie in den Beispielen gezeigt.
 Wenn Sie die Option `feed=continuous` verwenden, informiert Sie der Stream über jede Änderung,
 die erforderlich ist, damit Sie die aktuelle Version jedes Dokuments in der Datenbank abrufen.
 
-_Beispiel für die Verwendung von HTTP zum Abfragen des Feeds mit den Änderungen:_
+*Beispiel für die Verwendung von HTTP zum Abfragen des Feeds mit den Änderungen:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous HTTP/1.1
@@ -545,7 +547,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Beispiel für die Verwendung der Befehlszeile zum Abfragen des Feeds mit den Änderungen:_
+*Beispiel für die Verwendung der Befehlszeile zum Abfragen des Feeds mit den Änderungen:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
@@ -563,7 +565,7 @@ Zum Anzeigen des Dokumenthauptteils hängen Sie `&include_docs=true` an den 'cur
 
 Jede Änderung wird mithilfe des im folgenden (abgekürzten) Beispiel angezeigten Formats beschrieben.
 
-_Beispielfeed mit Änderungen (`_changes`):_
+*`_changes`-Beispielfeed:*
 
 ```json
 {
@@ -581,7 +583,7 @@ _Beispielfeed mit Änderungen (`_changes`):_
 Um den Feed mit Änderungen an einer bekannten Position zu öffnen,
 übergeben Sie ein [`since`-Argument](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument) mit der Sequenznummer, ab der Sie starten möchten.
 
-_(Abgekürztes) Beispiel für die Verwendung von HTTP zum Angeben der `since`-Option, um einen `_changes`-Feed an einer bestimmten Position zu öffnen:_
+*(Abgekürztes) Beispiel für die Verwendung von HTTP zum Angeben der `since`-Option, um einen `_changes`-Feed an einer bestimmten Position zu öffnen:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
@@ -590,7 +592,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_(Abgekürztes) Beispiel für die Verwendung der Befehlszeile zum Angeben der Option `since`, um einen Feed `_changes` an einer bestimmten Position zu öffnen:_
+*(Abgekürztes) Beispiel für die Verwendung der Befehlszeile zum Angeben der Option `since`, um einen Feed `_changes` an einer bestimmten Position zu öffnen:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -599,7 +601,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 
 Um den Feed mit Änderungen an der aktuellen Position wieder zu öffnen, legen Sie `since=now` fest.
 
-_Beispiel für die Verwendung von HTTP zum Angeben von `since=now`, um einen `_changes`-Feed an der aktuellen Position zu öffnen:_
+*Beispiel für die Verwendung von HTTP zum Angeben von `since=now`, um einen `_changes`-Feed an der aktuellen Position zu öffnen:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
@@ -608,14 +610,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Beispiel für die Verwendung der Befehlszeile zum Angeben von `since=now`, um einen `_changes`-Feed an der aktuellen Position zu öffnen:_
+*Beispiel für die Verwendung der Befehlszeile zum Angeben von `since=now`, um einen `_changes`-Feed an der aktuellen Position zu öffnen:*
 
 ```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
+curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now" 
 ```
 {: codeblock}
 
-_Beispiel für die Verwendung von JavaScript zum Angeben von `since=now`, um einen `_changes`-Feed an der aktuellen Position zu öffnen:_
+*Beispiel für die Verwendung von JavaScript zum Angeben von `since=now`, um einen `_changes`-Feed an der aktuellen Position zu öffnen:*
 
 ```javascript
 var feed = db.follow({since: "now", include_docs: true})
@@ -627,7 +629,7 @@ feed.follow();
 {: codeblock}
 
 Der programmgesteuerte Zugriff auf die `_changes`-Daten ist einfach.
-Verwenden Sie z. B. die [{{site.data.keyword.cloudant_short_notm}}-Bibliothek 'Node.js'](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js),
+Verwenden Sie z. B. die [{{site.data.keyword.cloudant_short_notm}}-Bibliothek 'Node.js'](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported),
 um Änderungen mit wenigen Zeilen Code zu verfolgen.
 
 Mögliche Beispielanwendungsfälle:
@@ -637,9 +639,9 @@ Mögliche Beispielanwendungsfälle:
 -   Schreiben von Daten in eine Textdatei, um Daten per Push-Operation in eine SQL-Datenbank zu übertragen.
 
 Der Feed mit Änderungen kann mit einer Filterfunktion gefiltert werden,
-unter Einsatz einer ähnlichen Technik wie beim [Filtern während der Replikation](#filtered-replication).
+unter Einsatz einer ähnlichen Technik wie beim [Filtern während der Replikation](#filtered-replications).
 
-_Beispiel für die Verwendung von HTTP zum Filtern des Feeds mit Änderungen:_
+*Beispiel für die Verwendung von HTTP zum Filtern des Feeds mit Änderungen:*
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter HTTP/1.1
@@ -648,7 +650,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Beispiel für die Verwendung der Befehlszeile zum Filtern des Feeds mit Änderungen:_
+*Beispiel für die Verwendung der Befehlszeile zum Filtern des Feeds mit Änderungen:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
@@ -719,7 +721,7 @@ Wenn Sie alle Replikationen abbrechen und mit einer neuen
 sauberen Datenbank `_replicator` starten möchten,
 müssen Sie die Datenbank `replicator` zunächst löschen und dann neu erstellen.
 
-_Beispiel für die Verwendung von HTTP zum Entfernen und erneuten Erstellen der Datenbank `_replicator`:_
+*Beispiel für die Verwendung von HTTP zum Entfernen und erneuten Erstellen der Datenbank `_replicator`:*
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -732,7 +734,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-_Beispiel für die Verwendung der Befehlszeile zum Entfernen und erneuten Erstellen der Datenbank `_replicator`:_
+*Beispiel für die Verwendung der Befehlszeile zum Entfernen und erneuten Erstellen der Datenbank `_replicator`:*
 
 ```sh
 curl -X DELETE 'https://$ACCOUNT.cloudant.com/_replicator'

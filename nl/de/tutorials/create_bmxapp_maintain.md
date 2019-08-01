@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-19"
+lastupdated: "2019-06-12"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -81,8 +81,7 @@ In diesem Abschnitt des Lernprogramms finden Sie grundlegende Tipps zur Fehlerbe
 es Ihnen erleichtern, Probleme zu erkennen, zu diagnostizieren und zu beheben, die beim
 Entwickeln und Implementieren Ihrer ersten {{site.data.keyword.cloud_notm}}-Anwendungen auftreten können.
 
-Eine gute Quelle für Ratschläge bezüglich Best Practices für die Erstellung von {{site.data.keyword.cloud_notm}}- oder
-Cloud Foundry-Anwendungen finden Sie [hier ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
+Eine gute Quelle für Ratschläge bezüglich Best Practices für die Erstellung von {{site.data.keyword.cloud_notm}}- oder Cloud Foundry-Anwendungen finden Sie unter [Considerations for Designing and Running an App in the Cloud ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
 
 Insbesondere der Vorschlag,
 [Schreibvorgänge in das lokale Dateisystem zu vermeiden ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window},

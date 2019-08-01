@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -61,9 +61,7 @@ Eine Liste der Länder, in denen Inhalte zum Zweck der Bereitstellung und Unters
 unter Umständen auf Inhalte zugegriffen wird, finden Sie hier:
 [www.ibm.com/cloud/datacenters ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/cloud/datacenters){: new_window}.
 
-Weitere Informationen zur allgemeinen Einhaltung von Standards in {{site.data.keyword.cloudant_short_notm}} finden
-Sie [hier](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
-Ähnliche Informationen können für die folgenden IaaS-Geschäftspartner abgerufen werden:
+Weitere Informationen zur allgemeinen Einhaltung von Standards in {{site.data.keyword.cloudant_short_notm}} finden Sie unter [Compliance](/docs/services/Cloudant?topic=cloudant-compliance#compliance). Ähnliche Informationen können für die folgenden IaaS-Geschäftspartner abgerufen werden:
 
 -   [Amazon ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://aws.amazon.com/compliance/){: new_window}
 -   [{{site.data.keyword.cloud}} ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/cloud/compliance){: new_window}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -25,7 +25,7 @@ subcollection: cloudant
 # Migration auf {{site.data.keyword.cloudant_short_notm}} unter {{site.data.keyword.cloud_notm}} durchführen
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
 
-Das DBaaS-Angebot (Database as a Service) von [{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant) bietet einen JSON-Dokumentspeicher, der in Multi-Tenant-Clustern ausgeführt wird. Der Service steht für eine Vielzahl von Standorten zur Verfügung und zeichnet sich durch kalkulierbare Kosten, gute Skalierbarkeit und ein Service-Level-Agreement (SLA) aus.
+Das DBaaS-Angebot (Database as a Service) von [{{site.data.keyword.cloudantfull}} ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/cloud/cloudant){: new_window} bietet einen JSON-Dokumentspeicher, der in Multi-Tenant-Clustern ausgeführt wird. Der Service steht für eine Vielzahl von Standorten zur Verfügung und zeichnet sich durch kalkulierbare Kosten, gute Skalierbarkeit und ein Service-Level-Agreement (SLA) aus.
 
 Im vorliegenden Dokument wird beschrieben, wie die Migration von einem der folgenden Pläne auf eine Instanz eines {{site.data.keyword.cloudant_short_notm}}-Lite-Plans oder -Standard-Plans unter {{site.data.keyword.cloud_notm}} durchgeführt wird:
 
@@ -57,7 +57,8 @@ Mithilfe des Schiebereglers im {{site.data.keyword.cloudant_short_notm}}-Dashboa
 Der Betrag, um den Sie die Durchsatzkapazität ändern können, ist auf maximal 10 Einheiten pro Änderung beschränkt (siehe hierzu den Punkt für das Änderungslimit auf dem Schieberegler), wobei pro Stunde maximal eine Änderung durchgeführt werden kann. Reduzierungen unterliegen keiner Größenbeschränkung, allerdings muss ein bestimmtes Zeitlimit beachtet werden.
 {: tip}
 
-Ihnen wird die höchste Kapazität berechnet, die innerhalb eines Zeitfensters von einer Stunde ausgewählt wird. Ihr Datenbankdurchsatz kann nach oben skaliert werden, um saisonale Bedarfsspitzen abzufangen. Ebenso kann der Datenbankdurchsatz in Zeiten geringerer Auslastung nach unten skaliert werden. Ihre monatliche Rechnung bleibt jedoch jederzeit kalkulierbar. Upgrades werden automatisch durchgeführt und Ihr SLA definiert einen Wert von [99,95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument).
+Ihnen wird die höchste Kapazität berechnet, die innerhalb eines Zeitfensters von einer Stunde ausgewählt wird. Ihr Datenbankdurchsatz kann nach oben skaliert werden, um saisonale Bedarfsspitzen abzufangen. Ebenso kann der Datenbankdurchsatz in Zeiten geringerer Auslastung nach unten skaliert werden. Ihre monatliche Rechnung bleibt jedoch jederzeit kalkulierbar. Upgrades werden automatisch durchgeführt und Ihr SLA definiert einen Wert von [99,95% ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}.
+
 
 Wenn Sie Ihr Kontingent an Suchvorgängen, Schreibvorgängen und globalen Abfragen pro Sekunde überschreiten, reagiert die {{site.data.keyword.cloudant_short_notm}}-API mit einer Antwort des Typs `HTTP 429 too many requests` (zu viele Anforderungen). Möglicherweise wiederholt Ihre Anwendung die Anforderung zu einem späteren Zeitpunkt. In den offiziellen Bibliotheken steht eine Option zur Wiederholung solcher Anforderungen mit einer exponentiellen Aussetzung zur Verfügung. 
 
@@ -94,10 +95,10 @@ Führen Sie die folgenden Schritte aus, um eine Migration vom kostenlosen Lite-P
 1.  Rufen Sie das {{site.data.keyword.cloud_notm}}-Dashboard auf.
 2.  Navigieren Sie zu **Menüsymbol** > **Ressourcenliste**, um alle Serviceinstanzen anzuzeigen. 
 3.  Wählen Sie die {{site.data.keyword.cloudant_short_notm}}-Instanz aus, die migriert werden soll. 
-4.  Wählen Sie die Registerkarte **Plan** in der linken Navigation aus. 
+4.  Wählen Sie die Registerkarte **Plan** im Menü aus.  
 5.  Wählen Sie in der Liste der Preisstrukturpläne das Kontrollkästchen **Standard** aus.
 ![Lite](../images/migrate3.png)
-6.  Klicken Sie unten auf der Seite auf **Upgrade**.
+6.  Klicken Sie auf **Upgrade**.
 Alle vorhandenen Daten werden für Sie aufbewahrt.
 
 Passen Sie Ihre Kapazität mithilfe des Schiebereglers für die Durchsatzkapazität an, um die Kapazität abhängig von Ihrem individuellen Bedarf zu erhöhen oder zu reduzieren.
@@ -116,14 +117,14 @@ Eine Instanz für einen gemeinsam genutzten Plan kann nicht direkt in eine Lite-
 ### Schritt 1: Anmeldung bei {{site.data.keyword.cloud_notm}} durchführen
 {: #step-1-sign-up-for-ibm-cloud}
 
-Wenn Sie sich noch nicht angemeldet haben, dann führen Sie nun die [Anmeldung für ein {{site.data.keyword.cloud_notm}}-Konto](https://www.ibm.com/cloud/) durch. 
+Wenn Sie sich noch nicht angemeldet haben, dann führen Sie nun die [Anmeldung für ein {{site.data.keyword.cloud_notm}}-Konto ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/cloud/){: new_window} durch.  
 
 ### Schritt 2: {{site.data.keyword.cloudant_short_notm}}-Instanz erstellen
 {: #step-2-create-an-ibm-cloudant-instance}
 
 Nach der Anmeldung bei Ihrem {{site.data.keyword.cloud_notm}}-Konto müssen Sie einen {{site.data.keyword.cloudant_short_notm}}-Service hinzufügen. Klicken Sie auf die Schaltfläche `Ressource erstellen` im Dashboard und dann auf `Datenbanken` und `Cloudant`. Weitere Informationen hierzu finden Sie im Abschnitt mit der [Vorgehensweise zum Erstellen einer {{site.data.keyword.cloudant_short_notm}}-Instanz unter {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud). 
 
-![Hinzufügen einer {{site.data.keyword.cloudant_short_notm}}-Instanz](/docs/services/Cloudant/tutorials/images/img0003.png)
+![Hinzufügen einer {{site.data.keyword.cloudant_short_notm}}-Instanz](../tutorials/images/img0003.png)
 
 ### Schritt 3: Bereitschaft Ihrer Anwendung für {{site.data.keyword.cloudant_short_notm}} ermitteln
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}
@@ -172,7 +173,7 @@ Die häufig gestellte Fragen (FAQs = Frequently Asked Questions) werden von der 
 {: #can-i-back-up-my-data-before-doing-anything-}
 
 {{site.data.keyword.cloudant_short_notm}} empfiehlt die Verwendung des Dienstprogramms [couchbackup](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery), um Daten auf die Platte zu
-exportieren. [{{site.data.keyword.cloud_notm}} Object Storage](https://www.ibm.com/cloud/object-storage) ist eine kostengünstige und skalierbare Lösung zum Speichern exportierter Dateien. 
+exportieren. [{{site.data.keyword.cloud_notm}}-Objektspeicher ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/cloud/object-storage){: new_window} ist eine kosteneffiziente, skalierbare Lösung zum Speichern der exportierten Dateien.  
 
 ## Kann ich meine `username.cloudant.com`-Domäne beibehalten und auf den neuen Service unter {{site.data.keyword.cloudant_short_notm}} umleiten?
 {: #can-i-keep-my-username-cloudant-com-domain-and-redirect-it-to-the-new-service-on-ibm-cloudant-}

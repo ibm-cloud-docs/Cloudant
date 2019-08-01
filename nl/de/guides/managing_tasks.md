@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -37,9 +37,9 @@ Der Befehl `curl` wird verwendet, um auf den Endpunkt zuzugreifen.
 Der JSON-Befehlszeilenprozessor `jq` wird verwendet, um die JSON-Antwort zu verarbeiten.
 
 Da dies ein taskorientiertes Lernprogramm ist, werden nur die Bereiche abgedeckt, die zum Ausführen der Task relevant sind.
-Umfassende Informationen zu den verfügbaren Optionen finden Sie in der [API-Referenz](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview). 
+Umfassende Informationen zu den verfügbaren Optionen finden Sie in der [API-Referenz](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview).
 
-## Grundlegende Informationen zu 'curl' und 'jq'
+## Grundlegende Informationen zu `curl` und `jq`
 {: #curl-and-jq-basics}
 
 Um alle aktiven Tasks abzurufen und die Ausgabe ansprechend zu formatieren,
@@ -47,9 +47,9 @@ rufen Sie Ihr Konto mithilfe von `curl` auf und leiten Sie die Ausgabe per Pipe 
 
 Mit `jq` können Sie eine Liste von Dokumenten nach ihren Feldwerten filtern.
 Dies vereinfacht das Abrufen aller Replikationsdokumente oder der Details einer bestimmten Ansichtsindexierungstask.
-Die API-Referenz enthält weitere Informationen zu diesen Optionen. 
+Die API-Referenz enthält weitere Informationen zu diesen Optionen.
 
-_Beispiel für das Abrufen und Formatieren einer Liste von aktiven Tasks_
+*Beispiel für das Abrufen und Formatieren einer Liste von aktiven Tasks*
 
 ```sh
 curl 'https://username:password@username.cloudant.com/_active_tasks' | jq '.'
@@ -79,21 +79,21 @@ Ein entsprechender Befehl kann für die Suchindexierungstasks ausgeführt werden
 In beiden Fällen ist das Ergebnis der Suche nach einer Liste von Indexierungstasks eine Liste von JSON-Objekten:
 eines für jede gefundene aktive Task.
 
-_Beispiel für das Suchen aller Indexierungstasks durch Filtern nach dem Typ `indexer`:_
+*Beispiel für das Suchen aller Indexierungstasks durch Filtern nach dem Typ `indexer`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="indexer")'
 ```
 {: codeblock}
 
-_Beispiel für das Suchen aller Indexierungstasks durch Filtern nach dem Typ `search_indexer`:_
+*Beispiel für das Suchen aller Indexierungstasks durch Filtern nach dem Typ `search_indexer`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="search_indexer")'
 ```
 {: codeblock}
 
-_Beispielergebnisse der Suche nach Ansichtsindexierungstasks:_
+*Beispielergebnisse der Suche nach Ansichtsindexierungstasks:*
 
 ```json
 {
@@ -130,7 +130,7 @@ Schätzungen der Zeit bis zur Fertigstellung einer Task sind nie absolut genau. 
 
 Gehen Sie davon aus, dass diese Faktoren zusammengenommen eine beträchtliche Abweichung von Ihrer Schätzung bedeuten können.
 
-_Beispiel für das Extrahieren des Felds `changes_done` mithilfe von `jq`:_
+*Beispiel für das Extrahieren des Felds `changes_done` mithilfe von `jq`:*
 
 ```sh
 curl ... | jq '.[] | select(.type=="search_indexer") | .changes_done'
@@ -148,28 +148,28 @@ Um die Auswahl der Informationen zu einem Replikationsprozess aus der Liste akti
 starten Sie den Replikationsprozess, indem Sie ein Dokument in der Datenbank `_replicator` erstellen und das
 zugehörige Feld `_id` auf einen bekannten Wert setzen.
 
-_Beispiel für das Suchen aller Replikationstasks durch Filtern nach dem Typ `replication`:_
+*Beispiel für das Suchen aller Replikationstasks durch Filtern nach dem Typ `replication`:*
 
 ```sh
 curl -s 'https://username:password@username.cloudant.com/_active_tasks' | jq '.[] | select(.type=="replication")'
 ```
 {: codeblock}
 
-_Beispiel für die Suche nach einer bestimmten Replikationstask durch Filtern nach einer bekannten Dokument-ID:_
+*Beispiel für die Suche nach einer bestimmten Replikationstask durch Filtern nach einer bekannten Dokument-ID:*
 
 ```sh
 curl ... | jq '.[] | select(.doc_id=="ID")'
 ```
 {: codeblock}
 
-_Beispiel für die Suche nach einer bestimmten Replikationstask durch Filtern nach einer bekannten Replikations-ID (`replication_id`):_
+*Beispiel für die Suche nach einer bestimmten Replikationstask durch Filtern nach einer bekannten Replikations-ID (`replication_id`):*
 
 ```sh
 curl ... | jq '.[] | select(.replication_id=="ID")'
 ```
 {: codeblock}
 
-_Beispielergebnis der Suche nach einer Replikationstask:_
+*Beispielergebnis der Suche nach einer Replikationstask:*
 
 ```json
 {

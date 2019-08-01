@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-15"
+lastupdated: "2019-06-12"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -99,7 +99,7 @@ Wenn Sie über die einzelne Region, die Ihrem Konto zugeordnet ist, hinaus Schut
 verwenden Sie die [regionsübergreifende Redundanz für Disaster-Recovery](#cross-region-redundancy-for-disaster-recovery).
 
 Wenn Sie die Historie Ihrer Daten schützen möchten, z. B. für eine Prüfung der Änderungen, die durch Anwendungen an Daten vorgenommen werden,
-verwenden Sie Momentaufnahmen, die von [Datenbanksicherungs- und wiederherstellungstools](#database-backup-and-recovery) erstellt werden.
+verwenden Sie Momentaufnahmen, die von [Datenbanksicherungs- und -wiederherstellungstools](#database-backup-and-recovery) erstellt werden.
 
 Zusammenfassend lässt sich sagen, dass eine regionsweite Datenredundanz Hochverfügbarkeitsfunktionalität ermöglicht, indem eine Toleranz für Fehler, die einzelne Systeme innerhalb der Region betreffen, eingebaut wird.
 
@@ -116,7 +116,7 @@ Die grundlegenden Schritte beim Erstellen von regionsübergreifender Redundanz s
 2.  Bedarfsgerechtes Erstellen von Datenbanken in den einzelnen Regionen.
 3.  Einrichten von bidirektionalen fortlaufenden Replikationen zwischen den entsprechenden Datenbanken in den einzelnen Konten für Datenbanken, die mit regionsübergreifender Redundanz gespeichert werden müssen.
 4.  Entwerfen und Implementieren Ihrer Anwendungen, damit Datenanforderungen abhängig davon weitergeleitet werden, ob Ihre Umgebung eine Aktiv/Passiv- oder Aktiv/Aktiv-Konfiguration hat.
-  Ein detaillierter Leitfaden zu dieser Konfiguration ist [verfügbar](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery).
+  Weitere Informationen zur Konfiguration finden Sie unter [{{site.data.keyword.cloudant_short_notm}} für regionsübergreifende Disaster-Recovery konfigurieren](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery). 
 
 Wenn Sie Ihre Anwendungen für die Arbeit mit Daten aus verschiedenen Regionen konzipieren, beachten Sie die folgenden Punkte:
 
@@ -196,6 +196,7 @@ Beispielszenarios:
 *	Migrieren älterer Daten in einen günstigeren Speicher, für eine kosteneffiziente Aufbewahrung.
 
 Die Sicherungstools bestehen aus einer Open-Source-Node.js-Befehlszeilenanwendung und -Bibliothek.
-Diese ist [unter NPM ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} verfügbar.
+Diese ist unter [NPM ![Symbol für externen Link](../images/launch-glyph.svg "Symbol für externen Link")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window} verfügbar. 
 
-Ideen und Beispiele für die Integration der Tools in Ihre Datenschutzstrategie finden Sie im [Cookbook zur Sicherung](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).
+Ideen und Beispiele für die Integration der Tools in Ihre Datenschutzstrategie
+finden Sie im [{{site.data.keyword.cloudant_short_notm}}-Handbuch zur Sicherung und Wiederherstellung](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

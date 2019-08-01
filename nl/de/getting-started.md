@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -34,12 +34,12 @@ Neben diesem Lernprogramm erfahren Sie mehr über {{site.data.keyword.cloudant_s
 - [Node.js und {{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
 - [Swift und {{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
 
-Weitere sprachspezifische Lernprogramme finden Sie unter [Stellen Sie nun Ihre erste App bereit ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs/){: new_window}. 
+Weitere sprachspezifische Lernprogramme finden Sie unter [Stellen Sie nun Ihre erste App bereit ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/docs){: new_window}. 
 
 ## Vorbereitende Schritte
 {: #prereqs}
 
-Sie benötigen ein [{{site.data.keyword.cloud}}-Konto ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https:///cloud.ibm.com/registration/){: new_window} und
+Sie benötigen ein [{{site.data.keyword.cloud}}-Konto ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/registration/){: new_window} und
 eine Instanz des {{site.data.keyword.cloudant_short_notm}}-Service. Außerdem müssen die folgenden Python-Anforderungen erfüllt werden:
 
 *	Installieren Sie die aktuellste Version der
@@ -99,20 +99,20 @@ führen Sie den folgenden Befehl in einer Eingabeaufforderung aus:
 
 2.  Erstellen Sie einen {{site.data.keyword.cloudant_short_notm}}-Serviceberechtigungsnachweis:
   <br>Navigieren Sie im {{site.data.keyword.cloud_notm}}-Dashboard zu **Menüsymbol** > **Ressourcenliste ** und öffnen Sie Ihre {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz.
-  <br>Klicken Sie in der linken Navigation auf `Serviceberechtigungsnachweise`.
+  <br>Klicken Sie im Menü auf `Serviceberechtigungsnachweise`.
   <br>a. Klicken Sie auf die Schaltfläche `Neuer Berechtigungsnachweis`.
-  <br>![Neue Serviceberechtigungsnachweise erstellen](/docs/services/Cloudant/tutorials/images/img0050.png)
+  <br>![Neue Serviceberechtigungsnachweise erstellen](tutorials/images/img0050.png)
   <br>b. Geben Sie wie im folgenden Screenshot dargestellt im Fenster 'Neuen Berechtigungsnachweis hinzufügen' einen Namen für den neuen Berechtigungsnachweis ein.
   <br>c. (Optional) Fügen Sie Inline-Konfigurationsparameter hinzu.
   <br>d. Klicken Sie auf die Schaltfläche `Hinzufügen`. 
-  <br>![Neuen Serviceberechtigungsnachweis hinzufügen](/docs/services/Cloudant/tutorials/images/img0051.png)
+  <br>![Neuen Serviceberechtigungsnachweis hinzufügen](tutorials/images/img0051.png)
   <br>Ihre Berechtigungsnachweise werden zur Tabelle 'Serviceberechtigungsnachweise' hinzugefügt.
   <br>e. Klicken Sie unter 'Aktionen' auf `Berechtigungsnachweise anzeigen`. 
-  <br>![Alle Serviceberechtigungsnachweise anzeigen](/docs/services/Cloudant/tutorials/images/img0052.png)
+  <br>![Alle Serviceberechtigungsnachweise anzeigen](tutorials/images/img0052.png)
   <br>Daraufhin werden die Details zu den Serviceberechtigungsnachweisen angezeigt:
-   <br>![Die {{site.data.keyword.cloudant_short_notm}}-Serviceberechtigungsnachweise](/docs/services/Cloudant/tutorials/images/img0009.png)
+   <br>![Die {{site.data.keyword.cloudant_short_notm}}-Serviceberechtigungsnachweise](tutorials/images/img0009.png)
    
-3.	Stellen Sie eine Verbindung zur {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz her. Die geeignete Vorgehensweise hängt davon ab, ob Sie {{site.data.keyword.cloud_notm}}-IAM oder die traditionelle {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden. Weitere Details zu den Authentifizierungstypen finden Sie im [Leitfaden für {{site.data.keyword.cloud_notm}}-Identity and Access Management (IAM) ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
+3.	Stellen Sie eine Verbindung zur {{site.data.keyword.cloudant_short_notm}}-Serviceinstanz her. Die geeignete Vorgehensweise hängt davon ab, ob Sie {{site.data.keyword.cloud_notm}}-IAM oder die traditionelle {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden. Weitere Informationen zum Authentifizierungstyp finden Sie unter [Leitfaden für {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-). 
 
 	Wenn Sie die traditionelle {{site.data.keyword.cloudant_short_notm}}-Authentifizierung verwenden, ersetzen Sie Ihre Serviceberechtigungsnachweise aus dem vorherigen Schritt:
 	```python
@@ -138,7 +138,7 @@ führen Sie den folgenden Befehl in einer Eingabeaufforderung aus:
   ```
   {: codeblock}
 
-  Dabei ist `<your-database-name>` der Name, den Sie Ihrer Datenbank geben möchten. 
+  Dabei ist `<ihr_datenbankname>` der Name, den Sie Ihrer Datenbank geben möchten.  
 
   Der Datenbankname muss mit einem Buchstaben beginnen und kann nur Kleinbuchstaben (a-z), Zahlen (0-9) und alle folgenden Zeichen enthalten: `_`, `$`, `(`, `)`, `+`, `-` und `/`.
   {: warning}
@@ -367,7 +367,7 @@ Sie können auch eine Liste aller Dokumente und deren Inhalt anfordern, indem Si
   ```
   {: codeblock}
 
-## (Optional) Schritt 6: Sehen Sie sich die Datenbankinformationen im {{site.data.keyword.cloudant_short_notm}}-Dashboard an
+## (Optional) Schritt 6: Sehen Sie sich die Datenbankinformationen im {{site.data.keyword.cloudant_short_notm}}-Dashboard an. 
 {: #optional-step-6-ibm-cloudant-dashboard}
 
 Führen Sie die folgenden Schritte aus, um Ihre Datenbank und Ihre Dokumente im {{site.data.keyword.cloudant_short_notm}}-Dashboard anzuzeigen. 
@@ -376,7 +376,7 @@ Führen Sie die folgenden Schritte aus, um Ihre Datenbank und Ihre Dokumente im 
     Sie finden das IBM Cloud-Dashboard unter https://cloud.ibm.com/. Nach der Authentifizierung mit Ihrem Benutzernamen und Ihrem Kennwort wird das IBM Cloud-Dashboard angezeigt.
 2.  Klicken Sie im Teilfenster für die Ressourcenzusammenfassung auf **Services**, um Ihre {{site.data.keyword.cloudant_short_notm}}-Serviceinstanzen anzuzeigen. 
 3.  Klicken Sie auf die Serviceinstanz, deren Details angezeigt werden sollen.
-4.  Klicken Sie auf **Cloudant-Dashboard starten**.
+4.  Klicken Sie auf **Cloudant-Dashboard starten**. 
     Wenn das Dashboard geöffnet wird, werden die Datenbanken angezeigt, die Ihrem Service zugeordnet sind.
 
 
@@ -412,7 +412,7 @@ client.disconnect()
 {: #next-steps}
 
 Weitere Informationen zu allen {{site.data.keyword.cloudant_short_notm}}-Angeboten finden Sie
-auf der Hauptwebsite von [{{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+auf der Hauptwebsite von [{{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/cloud/cloudant){: new_window}.
 
 Weitere Informationen finden Sie in den Lernprogrammen, {{site.data.keyword.cloudant_short_notm}}-Konzepten, -Tasks und -Techniken in der [{{site.data.keyword.cloudant_short_notm}}-Dokumentation](/docs/services/Cloudant?topic=cloudant-overview#overview).
 
@@ -420,10 +420,9 @@ Weitere Informationen finden Sie in den Lernprogrammen, {{site.data.keyword.clou
 {: #appendix-complete-python-code-listing}
 
 Die vollständige Liste von Python-Code lautet wie folgt. 
-Denken Sie daran, die Werte `<username>`,
-`<password>`, `<url>`
-und `<apikey>` durch Ihre Serviceberechtigungsnachweise zu ersetzen.
-Ersetzen Sie auch den Wert `<yourDatabaseName>` durch den Namen Ihrer Datenbank.
+Denken Sie daran, die Werte `<benutzername>`,
+`<kennwort>`, `<url>` und `<api-schlüssel>` durch Ihre Serviceberechtigungsnachweise zu ersetzen.
+Ersetzen Sie außerdem den Wert `<ihr_datenbankname>` durch den Namen für Ihre Datenbank. 
 
 ```python
 from cloudant.client import Cloudant
@@ -434,7 +433,7 @@ from cloudant.result import Result, ResultByKey
 client = Cloudant("<benutzername>", "<kennwort>", url="<url>")
 client.connect()
 
-# IAM-Authentifizierung (bei Bedarf die Kommentarzeichen entfernen und den obigen Abschnitt zur traditionellen {{site.data.keyword.cloudant_short_notm}}-Authentifizierung auskommentieren)
+# IAM-Authentifizierung (bei Bedarf die Kommentarzeichen entfernen und den vorherigen Abschnitt zur traditionellen {{site.data.keyword.cloudant_short_notm}}-Authentifizierung auskommentieren)
 client = Cloudant.iam("<benutzername","<api-schlüssel>")
 client.connect()
 

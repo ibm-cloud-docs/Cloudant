@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-06-12"
 
 keywords: couchapp, 3-tier application
 
@@ -41,7 +41,7 @@ den Client,
 den Server
 und die Datenbank.
 Das Platzieren des Servers zwischen den Client und die Datenbank unterstützt Authentifizierung,
-Autorisierung,
+Berechtigung,
 Asset-Management,
 Verwendung von Drittanbieter-Web-Apps,
 Bereitstellung besonders ausgereifter Endpunkte

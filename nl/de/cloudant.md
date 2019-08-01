@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-02"
+lastupdated: "2019-06-12"
 
 keywords: links to documentation, how to contribute
 
@@ -38,20 +38,21 @@ Datensynchronisierung zwischen Datenbankclustern, Desktop-PCs
 und mobilen Geräten möglich.
 
 Weitere Informationen zu anderen {{site.data.keyword.cloudant_short_notm}}-Angeboten finden Sie
-auf der Hauptwebsite von [{{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](http://www.ibm.com/analytics/us/en/technology/cloud-data-services/cloudant/){: new_window}.
+auf der Hauptwebsite von [{{site.data.keyword.cloudant_short_notm}} ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://www.ibm.com/cloud/cloudant){: new_window}.
 Die hier bereitgestellte Onlinedokumentation liefert Ihnen Details zu {{site.data.keyword.cloudant_short_notm}}-Konzepten, -Tasks und -Techniken.
 
-Sie können den {{site.data.keyword.cloudant_short_notm}}-Service über das [{{site.data.keyword.cloud}}-Dashboard ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/catalog/services/cloudant-nosql-db/){: new_window} starten.
+Sie können den {{site.data.keyword.cloudant_short_notm}}-Service über das [{{site.data.keyword.cloud}}-Dashboard ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://cloud.ibm.com/catalog/services/cloudant){: new_window} starten.
 
 Ein Schnelleinstieg in {{site.data.keyword.cloudant_short_notm}}
-ist neben [Lernprogrammen](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)
-mit ausführlicheren Beschreibungen von Tasks [verfügbar](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started).
-Weitere Informationen zu Details wie der Authentifizierung bei Datenbankinstanzen und der Abfrage von Daten sind in der [API-Referenz](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) verfügbar.
+namens [Lernprogramm 'Einführung'](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started) ist neben [Lernprogrammen](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud)
+mit ausführlichen Beschreibungen von Tasks verfügbar.
+Weitere Informationen zu Details wie der Authentifizierung bei Datenbankinstanzen
+und der Abfrage von Daten finden Sie in der [API-Referenz](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview). 
 
 ## Inhalt der Dokumentation
 {: #documentation-contents}
 
-*	[Lernprogramm 'Einführung'](/docs/services/Cloudant?topic=cloudant-getting-started-with-cloudant#getting-started): Lernen Sie, wie Sie mithilfe von Python eine {{site.data.keyword.cloudantfull}}-Datenbank erstellen und wie Sie diese Datenbank mit einer einfachen Datensammlung befüllen.
+*	[Lernprogramm 'Einführung'](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started): Lernen Sie, wie Sie mithilfe von Python eine {{site.data.keyword.cloudantfull}}-Datenbank erstellen und wie Sie diese Datenbank mit einer einfachen Datensammlung befüllen.
 *	[{{site.data.keyword.cloudant_short_notm}}-Blog ![Symbol für externen Link](images/launch-glyph.svg "Symbol für externen Link")](https://blog.cloudant.com/): Lesen von Blogs zu verschiedenen Themen, einschließlich Grundlagen zu {{site.data.keyword.cloudant_short_notm}}, Beheben von Konflikten, Generieren von Beispieldaten, partitionierten Datenbanken und vieles mehr. 
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): Beschreibung des {{site.data.keyword.cloud_notm}} Public-Angebots, einschließlich Funktionen, Optionen und Preisstruktur. 
 *	[Preisstruktur](/docs/services/Cloudant?topic=cloudant-pricing#pricing): Ein Artikel, in dem die Optionen und die verfügbare Flexibilität des {{site.data.keyword.cloudant_short_notm}}-Preismodells beschrieben werden. 
