@@ -1,0 +1,15 @@
+https://loadbalancer.example.com/db1,
+http://loadbalancer.example.com/db1,
+https://loadbalancer.example.com/db2,
+http://loadbalancer.example.com/db2,
+http://loadbalancer.example.com/_users,
+http://loadbalancer.example.com/_users/org.couchdb.user:member,
+http://loadbalancer.example.com/_users/org.couchdb.user:outsider,
+http://loadbalancer.example.com/db1/_security,
+http://loadbalancer.example.com/db1/foo,
+http://loadbalancer.example.com/db1/foo2,
+http://loadbalancer.example.com/db1/_design/all,
+http://<load_balancer>/_haproxy,
+http://<upgrade_node_load_balancer>/_haproxy
+
+
