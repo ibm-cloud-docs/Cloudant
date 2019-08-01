@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-07-31"
 
 keywords: stop and start service, add node, maintenance mode, rebalancing plan, remote access, run rebalancing plan, replace database node, replace load balancer node, tune automatic compacter, smoosh channels, metrics database
 
@@ -927,7 +927,7 @@ A channel has several important settings that control runtime behavior.
     
 *   `max_priority`
     
-    The value must have a priority lower than this setting to be enqueued.
+    The value must have a priority less than this setting to be enqueued.
     Default value is infinity.
     
 *   `max_size`

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-18"
+lastupdated: "2019-07-31"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -128,14 +128,14 @@ Unless you specify otherwise,
 the metric data returned is in JSON format.
 Each value returned consists of `[datapoint, timestamp]` values.
 
-*Example monitoring request for disk use data returned in `JSON` format:*
+#### Example monitoring request for disk use data returned in `JSON` format:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=myclustername&format=json"
 ```
 {: codeblock}
 
-*Example result after requesting disk use data in `JSON` format:*
+#### Example result after requesting disk use data in `JSON` format:*
 
 ```json
 [
@@ -179,14 +179,14 @@ For example,
 requesting metric data from the disk use end point returns the output from a `df` command,
 with the disk use expressed as bytes stored.
 
-*Example monitoring request for disk use data returned in `raw` format:*
+#### Example monitoring request for disk use data returned in `raw` format:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=myclustername&format=raw"
 ```
 {: codeblock}
 
-*Example result after requesting disk use data in `raw` format:*
+#### Example result after requesting disk use data in `raw` format:*
 
 ```
 sumSeries(net.cloudant.mycustomer001.db*.df.srv.used),1391019780,1391020080,60|344708448256.0,345318227968.0,346120126464.0,346716471296.0,175483256832.0
@@ -214,14 +214,14 @@ Endpoint                                | Description
 [`rps`](#rps)                           | The number of reads per second.
 [`wps`](#wps)                           | The number of writes per second.
 
-*Example showing how to obtain a list of the currently supported monitoring end points:*
+### Example showing how to obtain a list of the currently supported monitoring end points:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring"
 ```
 {: codeblock}
 
-*Example response, listing the available monitoring end points:*
+### Example response that lists the available monitoring end points:*
 
 ```json
 {
@@ -260,7 +260,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring"
 ### `connections`
 {: #connections}
 
-*Example of a `connections` monitoring request:*
+#### Example of a `connections` monitoring request:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/connections?cluster=myclustername&node=myloadbalancername&format=json"
@@ -381,14 +381,14 @@ You must explicitly specify the load balancer in the request.
 ### `disk_use`
 {: #disk_use}
 
-*Example of a `disk_use` monitoring request:*
+#### Example of a `disk_use` monitoring request:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=myclustername&format=json"
 ```
 {: codeblock}
 
-*Example results (abbreviated) from a `disk_use` monitoring request:*
+#### Example results (abbreviated) from a `disk_use` monitoring request:*
 
 ```json
 {
@@ -447,14 +447,14 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/disk_use?cluster=mycluste
 ### `kv_emits`
 {: #kv_emits}
 
-*Example of a `kv_emits` monitoring request:*
+#### Example of a `kv_emits` monitoring request:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/kv_emits?cluster=myclustername&format=json"
 ```
 {: codeblock}
 
-*Example results (abbreviated) from a `kv_emits` monitoring request:*
+#### Example results (abbreviated) from a `kv_emits` monitoring request:*
 
 ```json
 {
@@ -491,14 +491,14 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/kv_emits?cluster=mycluste
 ### `map_doc`
 {: #map_doc}
 
-*Example of a `map_doc` monitoring request:*
+#### Example of a `map_doc` monitoring request:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/map_doc?cluster=myclustername&format=json"
 ```
 {: codeblock}
 
-*Example results (abbreviated) from a `map_doc` monitoring request:*
+#### Example results (abbreviated) from a `map_doc` monitoring request:*
 
 ```json
 {
@@ -571,14 +571,14 @@ You must explicitly specify the load balancer in the request.
 ### `rate/status_code`
 {: #rate-status_code}
 
-*Example of a `rate/status_code` monitoring request:*
+#### Example of a `rate/status_code` monitoring request:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rate/status_code?cluster=myclustername&format=json"
 ```
 {: codeblock}
 
-*Example results (abbreviated) from a `rate/status_code` monitoring request:*
+#### Example results (abbreviated) from a `rate/status_code` monitoring request:*
 
 ```json
 {
@@ -665,14 +665,14 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rate/status_code?cluster=
 ### `rate/verb`
 {: #rate-verb}
 
-*Example of a `rate/verb` monitoring request:*
+#### Example of a `rate/verb` monitoring request:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rate/verb?cluster=myclustername&format=json"
 ```
 {: codeblock}
 
-*Example results (abbreviated) from a `rate/verb` monitoring request:*
+#### Example results (abbreviated) from a `rate/verb` monitoring request:*
 
 ```json
 {
@@ -795,14 +795,14 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rate/verb?cluster=myclust
 ### `response_time`
 {: #response_time}
 
-*Example of a `response_time` monitoring request:*
+#### Example of a `response_time` monitoring request:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/response_time?cluster=myclustername&format=json"
 ```
 {: codeblock}
 
-*Example results (abbreviated) from a `response_time` monitoring request:*
+#### Example results (abbreviated) from a `response_time` monitoring request:*
 
 ```json
 {
@@ -942,14 +942,14 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/response_time?cluster=myc
 ### `rps`
 {: #rps}
 
-*Example of an `rps` monitoring request:*
+#### Example of an `rps` monitoring request:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rps?cluster=myclustername&format=json"
 ```
 {: codeblock}
 
-*Example results (abbreviated) from an `rps` monitoring request:*
+#### Example results (abbreviated) from an `rps` monitoring request:*
 
 ```json
 {
@@ -982,14 +982,14 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/rps?cluster=myclustername
 ### `wps`
 {: #wps}
 
-*Example of a `wps` monitoring request:*
+#### Example of a `wps` monitoring request:*
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/monitoring/wps?cluster=myclustername&format=json"
 ```
 {: codeblock}
 
-*Example results (abbreviated) from a `wps` monitoring request:*
+#### Example results (abbreviated) from a `wps` monitoring request:*
 
 ```json
 {

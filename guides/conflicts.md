@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-28"
+lastupdated: "2019-07-31"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -32,8 +32,7 @@ document stored in one location cannot instantly update or replicate to other pa
 
 In other words,
 if independent updates are made to different copies of documents,
-the effect might be to introduce disagreement or 'conflicts' as to what is the correct,
-definitive content for the document.
+the effect might be to introduce disagreement or 'conflicts' as to what is the correct, definitive content for the document.
 
 {{site.data.keyword.cloudantfull}} tries to help you avoid conflicts by warning you of potential problems.
 It warns you by returning a [`409` response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) to a problematic update request.
@@ -60,7 +59,7 @@ your {{site.data.keyword.cloudant_short_notm}} database begins to exhibit severa
 
 * Increasing inconsistencies in document content, because there are more and more conflicting documents.
 * Increasing database size, because all conflicting documents must be retained until the conflict is resolved.
-* Decreasing performance, because {{site.data.keyword.cloudant_short_notm}} must work harder in response to each and every request as it tries to identify the 'best possible' version of a conflicted document.
+* Decreasing performance, because {{site.data.keyword.cloudant_short_notm}} must work harder in response to each and every request as it tries to identify the <q>best possible</q> version of a conflicted document.
 
 The following suggested practices might help you decide when to check for,
 and resolve,
@@ -114,7 +113,7 @@ When returned,
 the resulting document contains a `_conflicts` array,
 which includes a list of all the conflicting revisions.
 
-> Example map function to find document conflicts:
+### Example map function to find document conflicts
 
 ```
 function (doc) {
@@ -144,7 +143,7 @@ Once you've found a conflict, you can resolve it by following 4 steps:
 3.	[Upload](#upload-the-new-revision) the new revision.
 4.	[Delete](#delete-old-revisions) the old revisions.
 
-> Example document - the first version.
+### Example document - the first version
 
 ```json
 {
@@ -160,7 +159,7 @@ Let's consider an example of how this can be done.
 Suppose you have a database of products for an online shop.
 The first version of a document might look like the example provided.
 
-> Second version (first revision) of the document, adding a description.
+### Second version (first revision) of the document, adding a description
 
 ```json
 {
@@ -175,7 +174,7 @@ The first version of a document might look like the example provided.
 The document doesn't have a description yet,
 so someone might add one.
 
-> *Alternative* second version, introducing a price reduction data change to the first version of the document.
+### *Alternative* second version, introducing a price reduction data change to the first version of the document
 
 ```json
 {
@@ -208,7 +207,7 @@ similar to the following example:
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
 
-> Example response to document retrieval, showing conflicting revisions
+### Example response to document retrieval, showing conflicting revisions
 
 ```json
 {
@@ -285,7 +284,7 @@ For a practical example of how to implement these changes, see [this project wit
 ## Upload the new revision
 {: #upload-the-new-revision}
 
-> Final revision, after resolving and merging changes from the previous conflicting revisions.
+### Final revision, after resolving and merging changes from the previous conflicting revisions
 
 ```json
 {
@@ -304,7 +303,7 @@ This fresh document is uploaded into the database.
 ## Delete old revisions
 {: #delete-old-revisions}
 
-> Example requests to delete the old revisions.
+### Example requests to delete the old revisions
 
 ```http
 DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13

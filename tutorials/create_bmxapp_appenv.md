@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-07-31"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -332,4 +332,4 @@ cloudant==2.3.1
 ```
 {: codeblock}
 
-The next step in the tutorial is to [create the application](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-code).
+The next step in the tutorial is to [create the application](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-app-to-access-an-ibm-cloudant-db-the-code#creating-a-simple-ibm-cloud-app-to-access-an-ibm-cloudant-db-the-code).

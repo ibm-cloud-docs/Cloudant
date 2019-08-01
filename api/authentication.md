@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-18"
+lastupdated: "2019-07-31"
 
 keywords: authentication, basic authentication, cookie authentication
 
@@ -59,7 +59,7 @@ followed by the [BASE64 ![External link icon](../images/launch-glyph.svg "Extern
 In practice,
 many application libraries that are used for creating HTTP requests can do this encoding for you.
 
-*Example including basic authentication credentials in a request, by using HTTP:*
+### Example including basic authentication credentials in a request, by using HTTP
 
 ```http
 GET /db/document HTTP/1.1
@@ -67,7 +67,7 @@ Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ=
 ```
 {: codeblock}
 
-*Example including basic authentication credentials in a request, by using the command line:*
+### Example including basic authentication credentials in a request, by using the command line
 
 ```sh
 curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com"
@@ -76,7 +76,7 @@ curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com"
 
 <!--
 
-*Example including basic authentication credentials in a request, using Javascript:*
+### Example including basic authentication credentials in a request, using Javascript
 
 ```javascript
 var nano = require('nano');
@@ -91,7 +91,7 @@ account.request(function (err, body) {
 
 -->
 
-*Example including basic authentication credentials in a request, by using Python:*
+### Example including basic authentication credentials in a request, by using Python
 
 ```python
 import cloudant
@@ -133,7 +133,7 @@ With cookie authentication,
 you use your credentials to acquire a cookie.
 Acquire a cookie by sending a `POST` request to `/_session`.
 
-*Example of requesting a cookie, by using HTTP:*
+#### Example of requesting a cookie, by using HTTP
 
 ```http
 POST /_session HTTP/1.1
@@ -144,7 +144,7 @@ name=USERNAME&password=PASSWORD
 ```
 {: codeblock}
 
-*Example of requesting a cookie, by using the command line:*
+#### Example of requesting a cookie, by using the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_session" \
@@ -156,7 +156,7 @@ curl "https://$ACCOUNT.cloudant.com/_session" \
 
 <!--
 
-*Example of requesting a cookie, using Javascript:*
+#### Example of requesting a cookie, using Javascript
 
 ```javascript
 var nano = require('nano');
@@ -184,7 +184,7 @@ cloudant.auth($ACCOUNT, $PASSWORD, function (err, body, headers) {
 
 -->
 
-*Example of requesting a cookie, by using Python:*
+#### Example of requesting a cookie, by using Python
 
 ```python
 import cloudant
@@ -204,7 +204,7 @@ print all_dbs.status_code
 If the credentials you supply in your cookie request are valid,
 the response contains a cookie that remains active for 24 hours.
 
-*Reply to request for a cookie:*
+#### Reply to request for a cookie
 
 ```http
 200 OK
@@ -218,7 +218,7 @@ x-couch-request-id: a638431d
 ```
 {: codeblock}
 
-*JSON part of response:*
+#### JSON part of response
 
 ```json
 {
@@ -235,7 +235,7 @@ x-couch-request-id: a638431d
 When a cookie is set,
 information about the authenticated user can be retrieved with a `GET` request.
 
-*Example request for cookie information, by using HTTP:*
+#### Example request for cookie information, by using HTTP
 
 ```http
 GET /_session HTTP/1.1
@@ -244,7 +244,7 @@ Accept: application/json
 ```
 {: codeblock}
 
-*Example request for cookie information, by using the command line:*
+#### Example request for cookie information, by using the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_session" \
@@ -257,7 +257,7 @@ The response contains the user name,
 the user's roles,
 and which authentication mechanism was used.
 
-*Example response to request for cookie information:*
+#### Example response to request for cookie information
 
 ```json
 {
@@ -290,7 +290,7 @@ and which authentication mechanism was used.
 You can end the cookie authentication session by sending a `DELETE` request to the same URL used to create the cookie.
 The `DELETE` request must include the cookie that you want to delete.
 
-*Example cookie `DELETE` request, by using HTTP:*
+#### Example cookie `DELETE` request, by using HTTP
 
 ```http
 DELETE /_session HTTP/1.1
@@ -299,7 +299,7 @@ Accept: application/json
 ```
 {: codeblock}
 
-*Example cookie `DELETE` request, by using the command line:*
+#### Example cookie `DELETE` request, by using the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_session" \
@@ -311,7 +311,7 @@ curl "https://$ACCOUNT.cloudant.com/_session" \
 The response confirms deletion of the session,
 and sets the `AuthSession` Cookie to `""`.
 
-*Example response to cookie `DELETE` request:*
+#### Example response to cookie `DELETE` request
 
 ```http
 200 OK
@@ -325,7 +325,7 @@ x-couch-request-id: e02e0333
 ```
 {: codeblock}
 
-*JSON part of response:*
+#### JSON part of response
 
 ```json
 {

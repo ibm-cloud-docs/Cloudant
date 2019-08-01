@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-18"
+lastupdated: "2019-07-31"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -33,9 +33,9 @@ files that are contained within documents.
 The BLOB is stored in the `_attachments` component of the document.
 The BLOB holds data that includes:
 
--	The attachment name.
--	The type of the attachment.
--	The actual content.
+- The attachment name
+- The type of the attachment
+- The actual content
 
 Examples of BLOBs would be images and multimedia.
 
@@ -65,7 +65,7 @@ The `$ATTACHMENT` value is the name by which the attachment is associated with t
 You can create more than one attachment for a document by ensuring that the `$ATTACHMENT` value for each attachment is unique within the document.
 {: tip}
 
-*Example instruction for creating or updating an attachment, by using HTTP:*
+### Example instruction for creating or updating an attachment, by using HTTP
 
 ```HTTP
 PUT /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
@@ -73,7 +73,7 @@ Content-Type: $$ATTACHMENT_MIME_TYPE
 ```
 {: codeblock}
 
-*Example instruction for creating or updating an attachment, by using the command line:*
+### Example instruction for creating or updating an attachment, by using the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV" \
@@ -85,7 +85,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV"
 
 <!--
 
-*Example instruction for creating or updating an attachment, using Javascript:*
+### Example instruction for creating or updating an attachment, using Javascript
 
 ```javascript
 var nano = require('nano');
@@ -113,7 +113,7 @@ The response contains the document ID and the new document revision.
 Attachments do not have their own revisions. Instead, when you update or create an attachment, it changes the revision of the document it is attached to. 
 {: tip}
 
-*Example response:*
+### Example response with the document ID and new revision
 
 ```json
 {
@@ -131,14 +131,14 @@ To retrieve an attachment,
 make a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 The body of the response is the raw content of the attachment.
 
-*Example of reading an attachment, by using HTTP:*
+### Example of reading an attachment, by using HTTP
 
 ```http
 GET /$DATABASE/$DOCUMENT_ID/$ATTACHMENT HTTP/1.1
 ```
 {: codeblock}
 
-*Example of reading an attachment, by using the command line:*
+### Example of reading an attachment, by using the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT" \
@@ -149,7 +149,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT" \
 
 <!--
 
-*Example of reading an attachment, using Javascript:*
+### Example of reading an attachment, using Javascript
 
 ```javascript
 var nano = require('nano');
@@ -174,14 +174,14 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 If you do not supply the most recent `_rev`,
 the response is a [409 error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
-*Example of deleting an attachment, by using HTTP:*
+### Example of deleting an attachment, by using HTTP
 
 ```http
 DELETE /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
 ```
 {: codeblock}
 
-*Example of deleting an attachment, by using the command line:*
+### Example of deleting an attachment, by using the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV" \
@@ -192,7 +192,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV"
 
 <!--
 
-*Example of deleting an attachment, using Javascript:*
+### Example of deleting an attachment, using Javascript
 
 ```javascript
 var nano = require('nano');
@@ -212,7 +212,7 @@ If the deletion is successful,
 the response contains `"ok": true`,
 and the ID and new revision of the document.
 
-*Example response after a successful delete of an attachment:*
+### Example response after a successful delete of an attachment
 
 ```json
 {
@@ -232,7 +232,7 @@ as shown in the example.
 
 A full list of media types is available in this article about [media types ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}.
 
-*Example JSON document that includes an inline attachment of a jpeg image:*
+### Example JSON document that includes an inline attachment of a jpeg image
 
 ```json
 {
