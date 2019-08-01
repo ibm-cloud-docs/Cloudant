@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-25"
+lastupdated: "2019-08-01"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -235,7 +235,7 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 <td headers="disadvantages"><ul><li>If you are not using {{site.data.keyword.cloudant_short_notm}}'s supported libraries, application changes are likely to be required to use IAM's API keys and access tokens.</li>
 <li>No database-level permissions (yet).</li>
 <li>No fine-grained permissions (for example, reader) (yet).</li>
-<li>Some endpoints are unavailable, see [Unavailable Endpoints](#unavailable-endpoints).</li>
+<li>Some endpoints are unavailable. For more information, see [Unavailable endpoints](#unavailable-endpoints).</li>
 <li>No way to specify a database as "public", that is, not requiring an authorised user to access.</li></ul>
 </td>
 </tr>
@@ -515,7 +515,6 @@ The following tables describe the available IAM actions and roles.
 <td headers="description">Access `/_api/v2/user`.</td>
 </tr>
 </table>
-</br>
 
 
 #### Unavailable endpoints
