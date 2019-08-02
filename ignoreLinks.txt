@@ -8,6 +8,7 @@ https://loadbalancer.example.com/db1/foo,
 https://loadbalancer.example.com/db1/foo2,
 https://loadbalancer.example.com/db1/_design/all,
 https://<load_balancer>/_haproxy,
-https://<upgrade_node_load_balancer>/_haproxy
+https://<upgrade_node_load_balancer>/_haproxy,
+https://cloudantlocal.cloudant.com/metrics_app/statistics/index.html
 
 
