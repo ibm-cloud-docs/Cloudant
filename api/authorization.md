@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-01"
 
 keywords: authorization, roles, permissions, _users database
 
@@ -503,11 +503,11 @@ The updated list *must omit* the API key.
 {: #using-the-_users-database-with-cloudant-nosql-db}
 
 You can use the
-[`_users` database ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#authentication-database){: new_window}
+[`_users` database ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/stable/intro/security.html#authentication-database){: new_window}
 to manage roles in {{site.data.keyword.cloudant_short_notm}}.
 
 User documents that are stored in the `_users` database must be structured and populated to comply with
-[Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){: new_window}.
+[Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.3.0/intro/security.html#users-documents){: new_window}.
 
 In addition, you can disable the {{site.data.keyword.cloudant_short_notm}} authorization checks by setting the `couchdb_auth_only:true` parameter. 
 To disable {{site.data.keyword.cloudant_short_notm}} security,

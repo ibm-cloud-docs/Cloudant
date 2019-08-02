@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-06-27"
+lastupdated: "2019-08-01"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -49,7 +49,7 @@ A new Dedicated Hardware plan is available.
 
 For more information, see the following links:
 
-- See our [post on the {{site.data.keyword.cloud}} Blog ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/bluemix/2017/06/cloudant-available-dedicated-environments-improved-sla-bluemix-public/){: new_window} introducing the new plan.
+- See our [post on the {{site.data.keyword.cloud}} Blog ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/cloud-archive/2017/06/cloudant-available-dedicated-environments-improved-sla-bluemix-public/){: new_window} introducing the new plan.
 - Read about the [Dedicated Hardware plan](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#dedicated-hardware-plan){: new_window}.
 
 ### Replication scheduler
@@ -371,7 +371,7 @@ Now, the error is a 409 error with the following information: `{`error`:`not_fou
 
 - {{site.data.keyword.cloudant_short_notm}} is more tolerant of malformed user documents that are stored within the `_users` database.
   User documents must be structured and populated to comply with
-  [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/intro/security.html#users-documents){: new_window}.
+  [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.3.0/intro/security.html#users-documents){: new_window}.
 
 ## Build 5638 (October 11, 2016)
 {: #build-5638-october-11-2016}

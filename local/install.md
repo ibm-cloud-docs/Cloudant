@@ -824,7 +824,7 @@ offline system.
 <ol>
 <li>Log in to your SUSE online system to install the SUSE dependencies.
 <ol type="a">
-<li>Download <code>pip-9.0.1.tar.gz</code> file from <a href="https://pypi.python.org/pypi/pip" target="_blank">PiPI <img src="images/launch-glyph.svg" alt="External link icon"></a>.</li>
+<li>Download <code>pip-9.0.1.tar.gz</code> file from <a href="https://pypi.org/project/pip/" target="_blank">PiPI <img src="images/launch-glyph.svg" alt="External link icon"></a>.</li>
 <li>Install <code>python-pip</code>.
 <p><pre><code>tar -xvf pip-9.0.1.tar.gz
 cd pip-9.0.1.tar.gz

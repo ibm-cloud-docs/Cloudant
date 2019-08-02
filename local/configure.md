@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-08-01"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -1036,7 +1036,7 @@ the following checks.
 <p>For more information about <code>logrotate</code>, see
     <a href="http://linux.die.net/man/8/logrotate" target="_blank">logrotate<img src="images/launch-glyph.svg" alt="External link icon"></a>. Use output channel
     scripts instead of <code>logrotate</code>. For more information, see
-    <a href="http://www.rsyslog.com/doc/log_rotation_fix_size.html" target="_blank">Log rotation fix size<img src="images/launch-glyph.svg" alt="External link icon"></a>.</p>
+    <a href="https://www.rsyslog.com/doc/v8-stable/tutorials/log_rotation_fix_size.html" target="_blank">Log rotation fix size<img src="images/launch-glyph.svg" alt="External link icon"></a>.</p>
     </li></ol>
 
 ## Configuring local system logs
