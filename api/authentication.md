@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: authentication, basic authentication, cookie authentication
 
@@ -219,6 +219,7 @@ x-couch-request-id: a638431d
 {: codeblock}
 
 #### JSON part of response
+{: #json-part-of-response}
 
 ```json
 {
@@ -326,6 +327,7 @@ x-couch-request-id: e02e0333
 {: codeblock}
 
 #### JSON part of response
+{: #json-part-of-response2}
 
 ```json
 {

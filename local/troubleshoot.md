@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -572,6 +572,7 @@ $ /opt/cloudant/bin/weatherreport --help
 {: #-memory_use-}
 
 #### What it checks
+{: #what-it-checks}
 
 You can check the amount of free RAM on a dbcore node
 with `memory_use`.
@@ -582,6 +583,7 @@ A node is running out of RAM. The `oom` might stop dbcore
 soon, which can cause externally visible errors.
 
 #### How to fix it
+{: #how-to-fix-it}
 
 It is worth attending to this problem quickly. You can
 check the memory graphs in the metrics application to
@@ -704,6 +706,7 @@ processes as you can see in the following list.
 {: #-couch_db_updater-}
 
 ##### What it checks
+{: #what-it-checks2}
 
 This check monitors the message queues of the various
 `couch_db_updater` processes. These processes manage
@@ -793,6 +796,7 @@ empty.
 {: #-couch_file-}
 
 ##### What it checks
+{: #what-it-checks3}
 
 This check monitors the message queues of the various
 couch_file processes. These processes manage access to
@@ -878,6 +882,7 @@ the issue is recurring, escalate the page.
 {: #-couch_server-}
 
 ##### What it checks
+{: #what-it-checks4}
 
 This function checks whether the `couch_server` message
 queues are growing larger, which indicates that they are
@@ -891,6 +896,7 @@ dramatically increased latency on a subset of requests.
 For example, requests that are on a critical path.
 
 ##### How to fix it
+{: #how-to-fix-it2}
 
 First, use the metrics application and check whether the
 incident is ongoing or a spike. If it is a spike that is
@@ -906,6 +912,7 @@ exit(whereis(couch_server), kill). src
 {: #-ddoc_cache_opener-}
 
 ##### What it checks
+{: #what-it-checks5}
 
 The `ddoc_cache_opener` message queue is backing up. Use
 this command from a remsh to monitor the queue directly.
@@ -921,6 +928,7 @@ If it continues to back up, the server might not be able
 to process HTTP requests.
 
 ##### How to fix it
+{: #how-to-fix-it3}
 
 If the message_queue size is not recovering on its own,
 restart the ddoc_cache_opener process.
@@ -937,11 +945,13 @@ support.
 {: #-global_changes_server-}
 
 ##### What it checks
+{: #what-it-checks6}
 
 This command check monitors the number of messages in
 the `global_changes_server` message queue.
 
 ##### How to fix it
+{: #how-to-fix-it4}
 
 Check the logs for entries that mention
 `erlang.message_queues.global_changes_server`. If the
@@ -974,6 +984,7 @@ message queue size is not decreasing, contact support.
 {: #-mem3_shards-}
 
 #### What it checks
+{: #what-it-checks7}
 
 The length of the `mem3_shards` message queue. The
 `mem3_shards` process acts as a cache of the `/dbs`
@@ -986,6 +997,7 @@ correctly, although more slowly, as it reads from the
 disk more often.
 
 #### How to fix it
+{: #how-to-fix-it5}
 
 You can watch the increase on the node by using the
 following process.
@@ -1030,6 +1042,7 @@ If it is still increasing, call support.
 {: #-rexi_server-}
 
 #### What it checks
+{: #what-it-checks8}
 
 This check monitors the number of messages in the
 various `rexi_server` message queues. Depending on cluster
@@ -1082,6 +1095,7 @@ of the message queue length values exceeds the alert
 threshold.
 
 #### How to fix it
+{: #how-to-fix-it6}
 
 As indicated previously, you can configure rexi
 communication patterns in two ways. You probably need to
@@ -1125,6 +1139,7 @@ contact support.
 {: #-custodian-}
 
 ##### What it checks
+{: #what-it-checks9}
 
 This function checks the number of shard replicas that
 are currently reachable for all shard ranges for any
@@ -1174,6 +1189,7 @@ following issues.
     default N.
 
 ##### How to fix it
+{: #how-to-fix-it7}
 
 Make sure that the problem is not caused by a server
 that is disabled, unreachable, or not connected to the
@@ -1183,6 +1199,7 @@ other nodes. If that is not the case, contact support.
 {: #-disk-}
 
 ##### What it checks
+{: #what-it-checks10}
 
 This function checks whether the `/` and `/srv` file systems
 are writable.
@@ -1210,6 +1227,7 @@ If the disk is mounted read/write and enough space is
 available, the file system uses the pool of free inodes.
 
 ##### How to fix it
+{: #how-to-fix-it8}
 
 To check the mount status, use `mount`. In the following
 example, `rw` indicates mounted read/write, `ro` read-only.
@@ -1265,6 +1283,7 @@ solution.
 {: #-ioq-}
 
 ##### What it checks
+{: #what-it-checks11}
 
 This check monitors the number of requests that are
 waiting to be processed by IOQ.
@@ -1276,6 +1295,7 @@ necessarily stuck. To check, look at the volume of IOQ
 requests being processed in the metrics application.
 
 ##### How to fix it
+{: #how-to-fix-it9}
 
 Verify that the situation is not caused by a sudden
 "spike" in activity. Look for a relatively slow growth
@@ -1319,6 +1339,7 @@ why IOQ failed.
 {: #-search-}
 
 ##### What it checks
+{: #what-it-checks12}
 
 This check monitors whether clouseau is running on the
 node. Clouseau acts as a wrapper around the Lucene
@@ -1327,6 +1348,7 @@ of search indexes at the shard level. If clouseau is not
 running, the node cannot serve search requests.
 
 ##### How to fix it
+{: #how-to-fix-it10}
 
 Try disconnecting clouseau; it automatically reconnects.
 

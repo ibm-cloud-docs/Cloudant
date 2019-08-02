@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -1189,6 +1189,7 @@ The individual fields in the JSON response are as follows:
 	-	**waiting_commit**: Indicates if there are outstanding commits to the underlying database that need to processed
 
 #### Example response in JSON format
+{: #example-response-in-json-format-design-docs}
 
 ```json
 {
@@ -1246,6 +1247,7 @@ The individual fields in the returned JSON structure are as follows:
 		to the Lucene index on disk.
 
 #### Example response in JSON format
+{: #example-response-in-json-format-design-docs2}
 
 ```json
 {

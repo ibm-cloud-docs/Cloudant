@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -88,7 +88,7 @@ install-package mycouch.cloudant
 - [songblog ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/millayr/songblog){: new_window} - example app using JQuery.
     
 ## PouchDB (JavaScript)
-{: #pouchdb}
+{: #pouchdb-javascript}
 
 [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window} is a JavaScript database that can sync with {{site.data.keyword.cloudant_short_notm}},
 meaning you can make your apps offline-ready just by using PouchDB.

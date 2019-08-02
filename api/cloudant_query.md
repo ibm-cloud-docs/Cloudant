@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-25"
+lastupdated: "2019-08-02"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -882,7 +882,7 @@ a subfield `rating`,
 You can make the equality operator explicit.
 
 ### Example of an explicit equality operator
-
+{: #example-of-an-explicit-equality-operator2}
 ```json
 {
 	"selector": {
@@ -2269,6 +2269,7 @@ curl -X POST -H "Content-Type: application/json" \
 {: codeblock}
 
 ### Example result from the search
+{: #example-result-from-the-search}
 
 ```json
 {
@@ -2317,6 +2318,7 @@ curl -X POST -H "Content-Type: application/json" \
 {: codeblock}
 
 ### Example result from the search
+{: #example-result-from-the-search2}
 
 ```json
 {
@@ -2366,6 +2368,7 @@ curl -X POST -H "Content-Type: application/json" \
 {: codeblock}
 
 ### Example result from the search
+{: #example-result-from-the-search3}
 
 ```json
 {
