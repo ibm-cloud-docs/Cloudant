@@ -445,10 +445,10 @@ In addition, checkpoints for replication are [enabled by default](/docs/services
 which means that replicating the source database requires write access.
 
 To enable authentication during replication,
-include a user name and password in the database URL.
+include a username and password in the database URL.
 The replication process uses the supplied values for HTTP Basic Authentication.
 
-### Example of specifying user name and password values for accessing source and target databases during replication
+### Example of specifying username and password values for accessing source and target databases during replication
 
 ```json
 {
@@ -605,8 +605,8 @@ a `user_ctx` property that contains the user's name and a subset of their roles
 must be defined in the replication document.
 This requirement is addressed by a validation function present in the default design document of the replicator database.
 The function validates each document update.
-This validation function also ensures that a non-admin user cannot set a user name property in the `user_ctx` property
-that does not correspond to the correct user name.
+This validation function also ensures that a non-admin user cannot set a username property in the `user_ctx` property
+that does not correspond to the correct username.
 The same principle also applies for roles.
 
 ### Example delegated replication document
@@ -747,8 +747,8 @@ Field           | Purpose                                                     | 
 `create_target` | Creates the target database.                                | Yes
 `doc_ids`       | Array of document IDs to be synchronized.                   | Yes
 `proxy`         | Address of a proxy server through which replication occurs. | Yes
-`source`        | Source database URL, including user name and password.      | No
-`target`        | Target database URL, including user name and password.      | No
+`source`        | Source database URL, including username and password.      | No
+`target`        | Target database URL, including username and password.      | No
 
 ### Example instructions for using HTTP to start a replication through the `_replicate` endpoint
 

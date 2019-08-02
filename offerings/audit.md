@@ -34,7 +34,7 @@ records the following information about each HTTP request:
 Information | Description
 ------------|------------
 `Principal` | Account credentials, API key, or IBM Cloud IAM credentials.
-`Action` | The action carried out (for example, document read).
+`Action` | The action carried out, for example, document read.
 `Resource` | Details about the account, database, and document accessed or query made.
 `Timestamp` | A record of the time and data of the event. 
 {: shortdesc}
@@ -54,7 +54,7 @@ and by whom.
 To request access to the audit logs for your account, contact 
 {{site.data.keyword.cloudant_short_notm}} support. Support provides a copy of the audit logs that are of interest to you.
 
-When contacting support, be sure to include:
+When you contact support, be sure to include:
 
 - The {{site.data.keyword.cloudant_short_notm}} account the request relates to.
 - The timeframe for audit logs (must not be more than one month per support request).

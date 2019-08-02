@@ -40,7 +40,7 @@ to help you decide which to use. Then, we discuss how to use IAM within
 {{site.data.keyword.cloudant_short_notm}}'s client libraries and via HTTP calls. Finally, we end with a reference
 section that describes all of the IAM actions and roles available within {{site.data.keyword.cloudant_short_notm}}.
 
-See an overview of [IAM](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window}{: external}, including how to:
+For more information, see an overview of [IAM](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window}{: external}, including how to:
 
 - Manage user and service IDs.
 - Manage available credentials.
@@ -184,7 +184,7 @@ When you select *Use both legacy credentials and IAM*, the service credentials t
 ```
 {: codeblock}
 
-Each value in the previous JSON example should be interpreted as follows:
+Each value in the previous JSON example must be interpreted as follows:
 
 - `apikey`: IAM API key.
 - `host`: {{site.data.keyword.cloudant_short_notm}} service host name.
@@ -195,7 +195,7 @@ Each value in the previous JSON example should be interpreted as follows:
 - `password`: The {{site.data.keyword.cloudant_short_notm}} Legacy credential password.
 - `port`: {{site.data.keyword.cloudant_short_notm}} service port.
 - `url`: {{site.data.keyword.cloudant_short_notm}} service URL, including embedded {{site.data.keyword.cloudant_short_notm}} Legacy credentials.
-- `username`: The {{site.data.keyword.cloudant_short_notm}} Legacy credential user name.
+- `username`: The {{site.data.keyword.cloudant_short_notm}} Legacy credential username.
 
 ## Should I use *Use only IAM* or *Use both legacy credentials and IAM*?
 {: #should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
@@ -237,7 +237,7 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 <li>No database-level permissions (yet).</li>
 <li>No fine-grained permissions (for example, reader) (yet).</li>
 <li>Some endpoints are unavailable. For more information, see [Unavailable endpoints](#unavailable-endpoints).</li>
-<li>No way to specify a database as "public", that is, not requiring an authorised user to access.</li></ul>
+<li>No way to specify a database as "public", that is, not requiring an authorized user to access.</li></ul>
 </td>
 </tr>
 
@@ -251,7 +251,7 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 </td>
 <td headers="disadvantages">
 <ul><li>No account-level API keys; must use `root` credentials to manage databases.</li>
-<li>Separate management of {{site.data.keyword.cloudant_short_notm}} credentials, so unable to get full overview of all access within centralised interface.</li>
+<li>Separate management of {{site.data.keyword.cloudant_short_notm}} credentials, so unable to get full overview of all access within centralized interface.</li>
 <li>Hard to implement credential rotation.</li>
 </ul>
 </td>
@@ -269,9 +269,9 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 
 3. Generate [new service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-service-instance) as needed.
 
-4. Open a new {{site.data.keyword.cloud_notm}} support case requesting to remove {{site.data.keyword.cloudant_short_notm}} legacy credentials for your instance. Include the user name of the instance as shown in the service credentials. For more information, see [Locating your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials). 
+4. Open a new {{site.data.keyword.cloud_notm}} support case requesting to remove {{site.data.keyword.cloudant_short_notm}} legacy credentials for your instance. Include the username of the instance as shown in the service credentials. For more information, see [Locating your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials). 
 
-5. Once support has replied that the legacy credentials have been removed, note that any service credentials created prior to removal will contain legacy user name and password details that will no longer work. It is recommended to remove any of these service credential entries. 
+5. Once support has replied that the legacy credentials have been removed, note that any service credentials created prior to removal will contain legacy username and password details that will no longer work. It is recommended to remove any of these service credential entries. 
 
 ## Making requests to instances by using IAM credentials
 {: #making-requests-to-instances-by-using-iam-credentials}

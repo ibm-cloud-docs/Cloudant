@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-08-29"
 
 keywords: views, mapreduce, concepts, index partitioning type, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning
 
@@ -231,7 +231,7 @@ Reduce functions must handle two cases:
 		and `id` identifies the document from which the key was generated.
 	-	`values` is an array of the values that are emitted for the respective elements in `keys`,
 		for example:
-		`reduce([ [key1,id1], [key2,id2], [key3,id3] ], [value1,value2,value3], false)`
+		`reduce([ [key1,id1], [key2,id2], [key3,id3] ], [value1,value2,value3], false)`.
 
 2.	When `rereduce` is true:
 	-	`keys` is `null`.
@@ -252,7 +252,7 @@ the `rereduce` argument can be ignored.
 {: #built-in-reduce-functions}
 
 For performance reasons,
-a few simple reduce functions are built in.
+a few simple reduce functions are built-in.
 Whenever possible,
 you must use one of these functions instead of writing your own.
 

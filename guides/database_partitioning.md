@@ -263,7 +263,7 @@ First, let's define a simple document format to work with:
 ```
 {: codeblock}
 
-For this document, using the partitioning scheme based on piece of
+For this document, using the partitioning scheme based on a piece of
 infrastructure, the document ID might include the infrastructure ID as
 the partition key, and include both device and timestamp as the document key:
 
@@ -287,7 +287,7 @@ A view index is the most efficient way to do the simple device ID to
 infrastructure ID mapping. To define it, upload a design document with
 `options.partitioned` set to `false` as this index is global. While in a
 real `map` function you'd want to be more defensive around field existence,
-this would look something like this:
+this document would look something like this:
 
 ```json
 {
@@ -302,7 +302,7 @@ this would look something like this:
 ```
 {: codeblock}
 
-Assuming the previous document in `./view.json`, this is uploaded to the database
+Assuming the previous document in `./view.json`, this document is uploaded to the database
 using:
 
 ```
@@ -314,7 +314,7 @@ curl -XPOST "https://acme.cloudant.com/readings" -d @view.json
 {: #creating-a-paritioned-ibm-cloudant-query-index}
 
 To return the readings for a given device from a partition, we can use an
-{{site.data.keyword.cloudant_short_notm}} Query index. For this, we `POST` to `_index` with an index definition
+{{site.data.keyword.cloudant_short_notm}} Query index. For this document, we `POST` to `_index` with an index definition
 that includes the `partitioned` field set to `true`. 
 
 For Query index definitions, the `partitioned` field is not nested inside an `options`
@@ -326,7 +326,7 @@ For our queries, we need two partitioned indexes:
 1. By timestamp
 2. By device ID and timestamp
 
-The definition of the by timestamp is as follows:
+The definition of by timestamp is as follows:
 
 ```json
 {
@@ -343,14 +343,14 @@ The definition of the by timestamp is as follows:
 {: codeblock}
 
 Assuming the previous document is `./query-index1.json`, upload the index to the
-database using this command:
+database by using this command:
 
 ```
 curl -XPOST "https://acme.cloudant.com/readings/_index" -d @query-index1.json
 ```
 {: codeblock}
 
-The definition of the by device ID and timestamp is as follows:
+The definition of by device ID and timestamp is as follows:
 
 ```json
 {
@@ -504,7 +504,8 @@ To get the results for a device, we issue a partition query for the device
 within the `bridge-9876` partition. The selector is only slightly more
 complicated, but still the same as an equivalent global query.
 
-##### Query for recent results with query.json, assuming today is 13th Dec 2018
+##### Query for recent results with query.json, assuming today is December, 13, 2018
+{: query-for recent-results-with-query.json-assume-date-is-dec-13}
 
 ```json
 {
