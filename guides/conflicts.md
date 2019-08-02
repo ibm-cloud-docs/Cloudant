@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -238,7 +238,7 @@ but it is possible for there to be many conflicting revisions,
 each of which is listed in the array.
 
 ## Merge the changes
-{: #merge-the-changes}
+{: #merge-the-changes-conflicts}
 
 Your application must identify all the potential changes,
 and reconcile them,
@@ -301,7 +301,7 @@ you create a document containing the current and definitive data.
 This fresh document is uploaded into the database.
 
 ## Delete old revisions
-{: #delete-old-revisions}
+{: #delete-old-revisions-conflicts}
 
 ### Example requests to delete the old revisions
 

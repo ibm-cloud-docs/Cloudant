@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-25"
+lastupdated: "2019-08-02"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -109,7 +109,7 @@ you can resolve it in 4 steps.
 1.  [Get](#get-conflicting-revisions) the conflicting revisions.
 2.  [Merge](#merge-the-changes) them in your application or ask the user what he wants to do.
 3.  [Upload](#upload-the-new-revision) the new revision.
-4.  [Delete](#delete-old-revisions) old revisions.
+4.  [Delete](#) old revisions.
 
 Let's consider an example of how this can be done.
 Suppose you have a database of products for an online shop.
@@ -161,7 +161,7 @@ The two databases are then replicated.
 The difference in document versions results in a conflict.
 
 ### Get conflicting revisions
-{: #get-conflicting-revisions}
+{: #get-conflicting-revisions-mvcc}
 
 You identify documents with with conflicts by using the `conflicts=true` option.
 
@@ -192,7 +192,7 @@ In most cases this array has only one element,
 but there might be many conflicting revisions.
 
 ### Merge the changes
-{: #merge-the-changes}
+{: #merge-the-changes-mvcc}
 
 To compare the revisions to see what has been changed,
 your application gets all of the versions from the database.
@@ -220,7 +220,7 @@ For a practical example of how to implement a merge of changes,
 see this project with [sample code ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/deconflict){: new_window}.
 
 ### Upload the new revision
-{: #upload-the-new-revision}
+{: #upload-the-new-revision-mvcc}
 
 The next step is to create a document that resolves the conflicts,
 and update the database with it.
@@ -239,7 +239,7 @@ and update the database with it.
 {: codeblock}
 
 ### Delete old revisions
-{: #delete-old-revisions}
+{: #delete-old-revisions-mvcc}
 
 Finally,
 you delete the old revisions by sending a `DELETE` request to the URLs with the revision we want to delete.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: advanced endpoints, cluster information, revision history
 
@@ -193,6 +193,8 @@ The `shards` field in the response contains an object with keys that are the has
 Each value is the array of nodes that contain that a copy of that shard.
 
 ### Example request, by using HTTP
+{: #example-request-by-using-http}
+
 
 ```HTTP
 GET /$DATABASE/_shards HTTP/1.1
@@ -200,6 +202,7 @@ GET /$DATABASE/_shards HTTP/1.1
 {: codeblock}
 
 ### Example request, by using the command line
+{: #example-request-by-using-the-command-line}
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_shards" \
@@ -277,6 +280,7 @@ similar to the following example:
 {: codeblock}
 
 ### Example request, by using HTTP
+{: #example-request-by-using-http2}
 
 ```HTTP
 GET /$DATABASE/_missing_revs HTTP/1.1
@@ -285,6 +289,7 @@ Content-Type: application/json
 {: codeblock}
 
 ### Example request, by using the command line
+{: #example-request-by-using-the-command-line2}
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_missing_revs" \

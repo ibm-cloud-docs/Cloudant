@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: provisioned throughput capacity, api 
 
@@ -68,7 +68,7 @@ The returned structure includes the following fields:
 - **blocks**: Number of provisioned throughput capacity blocks, where a block is 100 reads/sec, 50 writes/sec, and 5 global queries/sec.
 - **throughput**: Break down of the specific number of reads/sec, writes/sec, and global queries/sec.
 
-### Example JSON response
+### Example JSON response with the current and target capacity
 
 ```json
 {
@@ -137,7 +137,7 @@ The returned structure includes the following fields:
 - **blocks**: Number of provisioned throughput capacity blocks, where block is 100 reads/sec, 50 writes/sec, and 5 global queries/sec.
 - **throughput**: Break down of the specific number of reads/sec, writes/sec, and global queries/sec.
 
-### Example JSON response
+### Example JSON response with the target capacity set
 
 ```json
 {
@@ -188,7 +188,7 @@ The returned structure includes the following fields:
 
 - **throughput**: Break down of the current number of reads, writes, and global queries consumed.
 
-### Example JSON response
+### Example JSON response of the current consumption of capacity
 
 ```json
 {

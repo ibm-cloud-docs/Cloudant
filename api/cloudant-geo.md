@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: geospatial, geojson, geo index, querying, query geometry, geometric relation
 
@@ -224,6 +224,7 @@ you might want to obtain information about the `geoidx` geospatial index,
 held within the `geodd` design document of the `crimes` database.
 
 ### Example request, by using HTTP
+{: #example-request-by-using-http-cloudant-geo}
 
 ```http
 GET /crimes/_design/geodd/_geo_info/geoidx HTTP/1.1
@@ -232,6 +233,7 @@ Host: $ACCOUNT.cloudant.com
 {: codeblock}
 
 ### Example request, by using the command line
+{: #example-request-by-using-the-command-line-cloudant-geo} 
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/crimes/_design/geodd/_geo_info/geoidx"
@@ -248,6 +250,7 @@ Field | Description
 `data_size` | The size of the geospatial index, in bytes.
 
 ### Example response in JSON format
+{: #example-response-in-json-format}
 
 ```json
 {

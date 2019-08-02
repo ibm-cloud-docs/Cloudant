@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -434,6 +434,7 @@ To send multiple queries to a specific database, send a `POST` request to
 `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries`.
 
 #### Example of using HTTP to send multiple queries to a database
+{: #example-of-using-http-to-send-multiple-queries-to-a-database}
 
 ```http
 POST /_all_docs/queries HTTP/1.1
@@ -565,6 +566,7 @@ To send multiple view queries to a specific database, send a `POST` request to
 `https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEW/queries`.
 
 #### Example of using HTTP to send multiple queries to a database
+{: #example-of-using-http-to-send-multiple-queries-to-a-database2}
 
 ```http
 POST /_view/$VIEW/queries HTTP/1.1

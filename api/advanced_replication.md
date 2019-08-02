@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-02"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication 
 
@@ -398,6 +398,7 @@ The possible values for the `_replication_state` are:
 {: codeblock}
 
 #### Example of automatic update to replication document, which is updated after replication starts
+{: #example-of-automatic-update-to-replication-document-which-is-updated-after-replication-starts}
 
 ```json
 {
@@ -417,6 +418,7 @@ it updates the `_replication_state` field with the value `completed`,
 and the `_replication_state_time` field with the time that the completion status was recorded.
 
 #### Example of automatic update to replication document, which is updated after replication starts
+{: #example-of-automatic-update-to-replication-document-which-is-updated-after-replication-starts2}
 
 ```json
 {
@@ -795,6 +797,7 @@ Alternatively,
 the replication ID can be obtained from [`/_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks).
 
 #### Example of using HTTP to cancel a replication
+{: #example of using http to cancel a replication-adv-replication}
 
 ```http
 POST /_replicate HTTP/1.1
@@ -803,6 +806,7 @@ Content-Type: application/json
 {: codeblock}
 
 #### Example of using the command line to cancel a replication
+{: #example-of-using-the-command-line-to-cancel-a-replication}
 
 ```sh
 curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1" -d @replication-doc.json
