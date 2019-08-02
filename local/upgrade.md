@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-01"
+lastupdated: "2019-08-01"
 
 keywords: upgrade, database node, load balancer node, cluster
 
@@ -135,7 +135,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
 <p><code>{"status":"maintenance_mode"}</code></p></li>
 <li>Verify that this node is not available for traffic from
         your load balancer URL.
-        <p><code>http://&lt;load_balancer&gt;/_haproxy</code></p>
+        <p><code>https://&lt;load_balancer&gt;/_haproxy</code></p>
 <p>The node status must be stopped for maintenance.</p></li>
 </ol>
 </li>
@@ -218,7 +218,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
         </li>
 <li>Verify that the database node is up and available for
         traffic from your load balancer.
-<p><code>http://&lt;load_balancer&gt;/_haproxy</code></p>
+<p><code>https://&lt;load_balancer&gt;/_haproxy</code></p>
 <p>If the upgrade was successful, the response shows that
         the node is up and available.</p></li>
 </ol>
@@ -258,5 +258,5 @@ these steps.
 <li>Verify that the load balancer is reachable through its URL and
     that all cluster nodes are listed and available to receive
     traffic by using this URL:  
-<p><code>http://&lt;upgrade_node_load_balancer&gt;/_haproxy</code></p></li>
+<p><code>https://&lt;upgrade_node_load_balancer&gt;/_haproxy</code></p></li>
 </ol>

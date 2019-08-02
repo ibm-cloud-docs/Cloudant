@@ -1254,7 +1254,7 @@ $ curl -X PUT -u admin:password https://loadbalancer.example.com/db2</pre></p>
 <li>Create a test document in the <code>db2</code> database by running these
     commands as an unauthenticated user.
 
- <p><pre><code>$ curl -X POST http://loadbalancer.example.com/db2 \
+ <p><pre><code>$ curl -X POST https://loadbalancer.example.com/db2 \
 > -H "Content-Type: application/json" \
 > -d "{\"likes\": \"turtles\"}"</code></pre>
 </p>
@@ -1271,12 +1271,12 @@ $ curl -X PUT -u admin:password https://loadbalancer.example.com/db2</pre></p>
 <li>Replace all variables in these examples. 
 <ol type=a>
 <li>Create the _users database.
-<p><code>$ curl -X PUT http://loadbalancer.example.com/_users -u admin:password</code></p>
+<p><code>$ curl -X PUT https://loadbalancer.example.com/_users -u admin:password</code></p>
 
 <p>After the database is created, you receive an <code>{"ok":true}</code>
         message.</p></li>
 <li>Create the <code>member</code> user.
-<p><pre><code>$ curl -X PUT http://loadbalancer.example.com/_users/org.couchdb.user:member \
+<p><pre><code>$ curl -X PUT https://loadbalancer.example.com/_users/org.couchdb.user:member \
 > -H "Accept: application/json" \
 > -H "Content-Type: application/json" \
 > -d '{"name": "member", "password": "f1wu8tvp5gGe", "type": "user"}' \
@@ -1290,7 +1290,7 @@ $ curl -X PUT -u admin:password https://loadbalancer.example.com/db2</pre></p>
 <p><code>{"ok":true,"id":"org.couchdb.user:member","rev":"1-d9bdb39bac9288b154cdf5cc4d643ce9"}</code></p></li>
 <li>Create the <code>outsider</code> user.
 
-<p><pre><code>$ curl -X PUT http://loadbalancer.example.com/_users/org.couchdb.user:outsider \
+<p><pre><code>$ curl -X PUT https://loadbalancer.example.com/_users/org.couchdb.user:outsider \
 > -H "Accept: application/json" \
 > -H "Content-Type: application/json" \
 > -d '{"name": "outsider", "password": "ncGfv9bcDBn0", "type": "user"}' \
@@ -1316,7 +1316,7 @@ $ curl -X PUT -u admin:password https://loadbalancer.example.com/db2</pre></p>
 <li>Add database-level security by adding the <code>_security</code> object on
     one of your test databases.</li>
 <li>Replace all variables in this example. 
-<p><pre><code>$ curl -X PUT http://loadbalancer.example.com/db1/_security \
+<p><pre><code>$ curl -X PUT https://loadbalancer.example.com/db1/_security \
 > -u admin:password \
 > -H "Content-Type: application/json" \
 > -d "{"admins": {"names": ["admin"], "roles": []}, "members": {"names": ["member"], "roles": []}}"</code></pre>
@@ -1331,18 +1331,18 @@ $ curl -X PUT -u admin:password https://loadbalancer.example.com/db2</pre></p>
 <ol type=a>
 <li>Run this command to access the db1 database as an
         unauthorized user.
-<p><code>$ curl http://loadbalancer.example.com/db1</code></p>
+<p><code>$ curl https://loadbalancer.example.com/db1</code></p>
 <p>An unauthorized user is a user who is not in the _users
         database. When the user is not authorized to access the db1
         database, you receive the following error message.</p>
 <p><code>{"error":"unauthorized","reason":"You are not authorized to access this db."}</code></p>
 </li>
 <li>Run this command to access the db1 database as the outsider user.
-<p><code>$ curl http://loadbalancer.example.com/db1 -u outsider:ncGfv9bcDBn0</code></p>
+<p><code>$ curl https://loadbalancer.example.com/db1 -u outsider:ncGfv9bcDBn0</code></p>
 <p>When the outsider user is not authorized to access the db1 database, you receive the following error message.</p>
 <p><code>{"error":"unauthorized","reason":"You are not authorized to access this db."}</code></p></li>
 <li>Run this command to access the db1 database as the member user.
-<p><code>$ curl http://loadbalancer.example.com/db1 -u member:f1wu8tvp5gGe</code></p>
+<p><code>$ curl https://loadbalancer.example.com/db1 -u member:f1wu8tvp5gGe</code></p>
 <p>When the member user is authorized to access the database, you receive a message like the one in this example.
 <pre><code>{"db_name":"db1","update_seq":"10-g1AAAAIDeJzLYWBg4MhgTmFQT87JL01JzCtxSEky1INxc 
 vKTE3PgPL281JIcoAamRIYk-f___2clMpKsNUkBSCbZk6vbAaQ7nlzdCSDd9WTqzmMBkgwNQApowPysR GYyTVgAMWE_
@@ -1352,7 +1352,7 @@ vKTE3PgPL281JIcoAamRIYk-f___2clMpKsNUkBSCbZk6vbAaQ7nlzdCSDd9WTqzmMBkgwNQApowPysR
  </code></pre>
 </p></li>
 <li>Run this command to access the db1 database as the admin user.
-<p><code>$ curl http://loadbalancer.example.com/db1 -u admin:password</code></p>
+<p><code>$ curl https://loadbalancer.example.com/db1 -u admin:password</code></p>
 <p>When the admin user is authorized to access any database, including db1, you receive a message like the one in this example.
 <pre><code>{"db_name":"db1","update_seq":"11-g1AAAAIDeJzLYWBg4MhgTmFQT87JL01JzCtxSEky1INxc 
 vKTE3PgPL281JIcoAamRIYk-f___2clMpKsNUkBSCbZk6vbAaQ7nlzdCSDd9WTqzmMBkgwNQApowPysR BYyTVgAMWE_
@@ -1364,7 +1364,7 @@ vKTE3PgPL281JIcoAamRIYk-f___2clMpKsNUkBSCbZk6vbAaQ7nlzdCSDd9WTqzmMBkgwNQApowPysR
 <li>Confirm that only authorized users can add JSON documents to the db1
 database. 
 <ol type=a><li>Add a document to the db1 database as the outsider
-user.<pre><code>$ curl -X PUT http://loadbalancer.example.com/db1/foo \
+user.<pre><code>$ curl -X PUT https://loadbalancer.example.com/db1/foo \
 > -H "Accept: application/json" \
 > -H "Content-Type: application/json" \
 > -d '{"bar": "baz"}' \
@@ -1376,7 +1376,7 @@ example.<pre><code>{"error":"unauthorized","reason":"You are not authorized to a
 </p>
 </li>
 <li>Add a document to the db1 database as the member</span>
-user. <pre><code>$ curl -X PUT http://loadbalancer.example.com/db1/foo \
+user. <pre><code>$ curl -X PUT https://loadbalancer.example.com/db1/foo \
 > -H "Accept: application/json" \
 > -H "Content-Type: application/json" \
 > -d '{"bar": "baz"}' \
@@ -1391,7 +1391,7 @@ example.<pre><code>{"ok":true,"id":"foo","rev":"1-c86e975fffb4a635eed6d1dfc92afd
 foo, and revision number.</p>
 </li>
 <li>Add a document to the db1 database as the admin
-user. <pre><code>$ curl -X PUT http://loadbalancer.example.com/db1/foo2 \
+user. <pre><code>$ curl -X PUT https://loadbalancer.example.com/db1/foo2 \
 > -H "Accept: application/json" \
 > -H "Content-Type: application/json" \
 > -d '{"bar": "baz"}' \
@@ -1413,7 +1413,7 @@ management system (RDBMS). In Couch DB and {{site.data.keyword.cloudant_local_no
 admin-level users can create design functions like views, shows,
 and others, as illustrated in this step. </p>
 <ol type=a><li>Create a design document in the db1 database as the
-outsider user. <p><pre><code>$ curl -X PUT http://loadbalancer.example.com/db1/_design/all \
+outsider user. <p><pre><code>$ curl -X PUT https://loadbalancer.example.com/db1/_design/all \
 > -H "Accept: application/json" \
 > -H "Content-Type: application/json" \
 > -d '{"language":"javascript", \
@@ -1426,7 +1426,7 @@ example.<pre><code>{"error":"unauthorized","reason":"You are not authorized to a
 </p>
 </li>
 <li>Create a design document in the db1 database as the
-member user. <p><pre><code>$ curl -X PUT http://loadbalancer.example.com/db1/_design/all \
+member user. <p><pre><code>$ curl -X PUT https://loadbalancer.example.com/db1/_design/all \
 > -H "Accept: application/json" \
 > -H "Content-Type: application/json" \
 > -d '{"language":"javascript", \
@@ -1442,7 +1442,7 @@ example.<pre><code>{"error":"unauthorized","reason":"You are not a db or server 
 <p>As the message indicates, you must be an administrator user to create a design document.</p>
 </li>
 <li>Create a design document in the db1 database as the admin
-user.<p><pre><code>$ curl -X PUT http://loadbalancer.example.com/db1/_design/all \
+user.<p><pre><code>$ curl -X PUT https://loadbalancer.example.com/db1/_design/all \
 > -H "Accept: application/json" -H "Content-Type: application/json" \
 > -d '{"language":"javascript", \
   "views":{"all":{"map":"function(doc){emit(doc._id,1)};","reduce":"_count"}}}'\

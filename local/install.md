@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-29"
+lastupdated: "2019-08-01"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -1014,7 +1014,7 @@ you can continue installing the database and load balancer node.
 
 3.  Verify that the installation was successful by starting the
     {{site.data.keyword.cloudant_short_notm}} Dashboard that uses the load balancer node URL,
-    `http://loadbalancer_url/dashboard.html`.
+    `https://loadbalancer_url/dashboard.html`.
 
 ## Starting the {{site.data.keyword.cloudant_local_notm}} Dashboard
 {: #starting-the-ibm-cloudant-local-dashboard}
