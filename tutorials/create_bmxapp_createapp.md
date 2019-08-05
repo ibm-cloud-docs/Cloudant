@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-05"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
@@ -23,7 +23,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: the code
-{: #creating-a-simple-ibm-cloud-app-to-access-an-ibm-cloudant-db-the-code}
+{: #creating-a-simple-ibm-cloud-app-db-the-code}
 
 This section of the tutorial describes the code
 for an {{site.data.keyword.cloud}} application.
