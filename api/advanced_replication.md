@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-07"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication 
 
@@ -152,7 +152,7 @@ the endpoint does not include results for replications that are in the `complete
 #### Query parameters for the `/_scheduler/jobs` endpoint
 {: #query-parameters-for-the-_scheduler-jobs-endpoint}
 
-You can add query parameters to the URL and narrow your search results, for example, `'_scheduler/jobs/_replicator?limit=1&skip=1'`. 
+You can add query parameters to the URL and narrow your search results, for example, `'_scheduler/jobs?limit=1&skip=1'`. 
 
 All parameters are optional. 
 
@@ -163,10 +163,10 @@ Name     | Type    | Description                                                
 `limit`  | integer | Number of jobs that are included in the search results. Maximum limit is 200. | 25
 `skip`   | integer | Number of results to skip before search results are returned.           | 0
 
-#### The `/_scheduler/jobs/_replicator/$job_id` endpoint
+#### The `/_scheduler/jobs/$job_id` endpoint
 {: #the-_scheduler-jobs-_replicator-job_id-endpoint}
 
-The `/_scheduler/jobs/_replicator/$job_id` endpoint shows the state of a single replication task based on its replication ID. 
+The `/_scheduler/jobs/$job_id` endpoint shows the state of a single replication task based on its replication ID. 
 
 The ID must be URL encoded.
 {: tip}
