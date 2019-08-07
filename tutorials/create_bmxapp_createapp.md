@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019-07-31"
+  years: 2017, 2019
+lastupdated: "2019-07-31"
 
 keywords: create application, complete python program, log files, work with ibm cloudant database instance
 
