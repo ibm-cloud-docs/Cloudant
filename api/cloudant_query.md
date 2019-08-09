@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-05"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -1447,7 +1447,7 @@ The `$gte` operator matches if the specified field content is greater than or eq
 
 The `$gt` operator matches if the specified field content is greater than the argument.
 
-##### Example of using the `$gte` operator with full text indexing
+##### Example of using the `$gt` operator with full text indexing
 
 ```json
 {
