@@ -74,6 +74,7 @@ IBM Cloudant
 	
 	{: .topicgroup}
 	offerings/at-events.md
+	offerings/log-analysis.md
 
 	{: .topicgroup}
 	Sample apps
