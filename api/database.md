@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-09"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -85,7 +85,7 @@ and contain only the following characters:
 -	Digits (0-9)
 -	Any of the characters _, $, (, ), +, -, and /
 
-### Examples
+### Examples that create a partitioned database
 
 #### Using HTTP to create a partitioned database
 
