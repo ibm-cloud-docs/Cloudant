@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-07"
+lastupdated: "2019-08-12"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication 
 
@@ -477,6 +477,9 @@ A filter function takes two arguments:
 A filter function returns a `true` or `false` value.
 If the result is true,
 the document is replicated.
+
+To set up filtering, use the `selector` field whenever possible. When you use the `selector` field, you can specify a filter without having to replicate the entire database. This method makes filtering faster and causes less load on {{site.data.keyword.cloudant_short_notm}}. For more information, see the [`selector` field](/docs/services/Cloudant?topic=cloudant-replication-api&origin_team=T4NN71GAU#the-selector-field) documentation. 
+{: note}
 
 ### A simple example of a filter function:
 
