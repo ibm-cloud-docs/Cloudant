@@ -60,9 +60,9 @@ node and a load balancer node](#overview-for-upgrading-a-database-node-and-a-loa
 {: #upgrading-to-a-new-cluster}
 
 When you upgrade to a new cluster, you provision new servers and
-install the new release to the {{site.data.keyword.cloudant_local_notm}} cluster. Now, you
+install the new release on the {{site.data.keyword.cloudant_local_notm}} cluster. Now, you
 can replicate the data from the existing live cluster and start
-by using the new cluster by following these steps.
+using the new cluster by following these steps.
 
 1.  Build a new cluster.
 2.  Install the most recent {{site.data.keyword.cloudant_local_notm}} software on that
@@ -88,7 +88,7 @@ After the upgrade is complete, you cannot roll back to an older version.
 {: important}
 
 You can upgrade only one node at a time, which can eliminate
-downtime. Upgrading a node is similar to replacing a node to a
+downtime. Upgrading a node is similar to replacing a node in a
 cluster.
 
 Follow the basic upgrade steps for a database node.
@@ -158,7 +158,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
 <ol type=a>
 <li>Find the current values of database node cluster
         credentials and IDs from the <code>local.ini</code>, <code>vm.args</code>, and
-        <code>default.ini</code> files on other nodes or from the backed-up
+        <code>default.ini</code> files on other nodes or from the backup
         directories, such as <code>/opt/cloudant/etc.bak</code>.</li>
 <li>Configure these values as-is in the <code>dbnode.yaml</code> file.
 <p>Use encrypted or hashed values for fields <code>admin</code>,
@@ -233,7 +233,7 @@ these steps.
 
 <ol>
 <li>Verify that the load balancer failover works correctly when
-    one of two or more load balancers are taken offline during an
+    one load balancer (in a cluster of two or more load balancers) is taken offline during an
     upgrade.</li>
 <li>Uninstall the current version by running the command.
 <p><code>cast system uninstall</code></p>

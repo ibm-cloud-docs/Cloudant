@@ -612,7 +612,7 @@ join them together to form the cluster.
    ```
    {:codeblock}
 
-   For example, this command adds `db2.vm` and `db3.vm`.
+   For example, this command removes `db2.vm` and `db3.vm`.
 
    ``` sh
    cluster remove db2.vm db3.vm

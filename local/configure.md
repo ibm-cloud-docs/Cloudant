@@ -636,7 +636,7 @@ group_base_dn = dc=example,dc=com
 
     Defines one or more base DNs into which the
     authenticating user's user name can be inserted as
-    the `user_uid_attribute` and used to bind to it
+    the `user_uid_attribute` and used to bind to the base DN
     directly.
 
     *The default values for this parameter are only useful for testing. Change the parameter's value to match your environment.
@@ -682,7 +682,7 @@ modes return a list of roles that are associated with a user upon
 successful authentication.
 
 By default, `ldap_auth` opens a connection to an LDAP server and
-binds the connection handle with the `searcher` DN and password. It
+binds the connection handle with the `searcher_dn` and `searcher_password`. It
 then uses that connection to search for a user record with the
 authenticating user name. If a matching user DN is found, it
 opens a second connection to the server and attempts to bind that
@@ -738,7 +738,7 @@ Use these instructions to configure logging for your {{site.data.keyword.cloudan
 Several components within an {{site.data.keyword.cloudant_local_notm}} installation generate
 log files. These log files are valuable for monitoring
 performance, troubleshooting, and other administrative tasks. In
-particular, the database node and load balancer components of
+particular, the database node and load balancer node components of
 your {{site.data.keyword.cloudant_local_notm}} cluster generate log information.
 
 By default, an {{site.data.keyword.cloudant_local_notm}} installation configures local
@@ -780,7 +780,7 @@ Information about the logs for database nodes and load balancer nodes is shown i
 <th>Log type</th>
 <th>Purpose</th>
 <th>Configuration file</th>
-<th>Local logging default log file location</th>
+<th>Local logging default log files location</th>
 <th>Remote logging default <code>rsyslog</code>
 <code>facility</code></th>
 </tr>
@@ -789,7 +789,7 @@ Information about the logs for database nodes and load balancer nodes is shown i
 <tr>
 <td>{{site.data.keyword.cloudant_short_notm}} database core logs</td>
 <td>Contains data about events such as runtime errors, warnings, or crashes that were encountered
-by the {{site.data.keyword.cloudant_short_notm}} database core.</td>
+by the {{site.data.keyword.cloudant_short_notm}} database.</td>
 <td><code>/opt/cloudant/etc/local.ini</code></td>
 <td><code>/var/log/cloudant/cloudant.log</code><p><code>/var/log/cloudant/cloudant-crash.log</code></p></td>
 <td><code>local2.*</code><p><code>/var/log/cloudant/cloudant.log</code></p></td>
@@ -1072,7 +1072,7 @@ A load balancer node assists with distributing {{site.data.keyword.cloudant_loca
 requests to enable rapid response. It is possible for a load
 balancer node to become unavailable, for example, as part of a
 system administration activity. This task describes how to
-configure extra or replacement node balancers for an {{site.data.keyword.cloudant_local_notm}} system. Assume that each load balancer has its own unique and public IP
+configure extra or replacement load balancer nodes for an {{site.data.keyword.cloudant_local_notm}} system. Assume that each load balancer has its own unique and public IP
 address. A single, separate IP address is used as the actual
 front-end address where all requests are directed from outside
 the {{site.data.keyword.cloudant_local_notm}} system.

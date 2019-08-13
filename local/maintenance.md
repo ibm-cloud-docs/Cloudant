@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-13"
 
 keywords: stop and start service, add node, maintenance mode, rebalancing plan, remote access, run rebalancing plan, replace database node, replace load balancer node, tune automatic compacter, smoosh channels, metrics database
 
@@ -79,7 +79,7 @@ Follow the steps in this section to add a node to the cluster.
 Add a node to a cluster, rebalance shards, and configure a node
 by using the modified configuration process. The node must be in
 maintenance mode to prevent errors when it is brought into the
-cluster. The load balancers must know to direct traffic to the
+cluster. The load balancers must be configured to direct traffic to the
 new node.
 
 #### Step 1: Provision the new node
@@ -260,7 +260,7 @@ operator must do to set up a cluster rebalance.
 <li>Add the public and private keys to every database node in your cluster.
 <p>**Note**: The controlling node is defined as the node where you run `rebal` (in this case your load balancer). The new node is the database node that you just added to the cluster.</p></li>
 <li>Set up the public and private keys.
-<p>**Note**: The `rebal` uses SSH to communicate between the controlling node and the database nodes (existing and new). It also communicates between nodes when rsync shards from existing database nodes to the new node.</p>
+<p><b>Note</b>: The `rebal` command uses SSH to communicate between the controlling node and database nodes (existing and new), and also between nodes running `rsync` to copy shards between nodes.</p>
 <ol type=a><li>Create an authorized_keys file in <code>/opt/cloudantrebal/.ssh</code>.</li>
 <li>Add the public key to the <code>/opt/cloudantrebal/.ssh/authorized_keys</code> file on all the database nodes, including the one you are adding.</li>
 <li>Copy the public and private keys to `/opt/cloudantrebal/.ssh`.</li>
@@ -378,7 +378,7 @@ database concurrently can lead to data loss.
 <ol>
 <li>Run your rebalancing plan, and replace <code>rebalance_plan_filename</code>
     with the filename for your rebalance plan.
-<p><strong>Note</strong>: The filename was specified earlier when you edited the <code>rebal.ini</code> file when you created a rebalancing plan. The command runs the shard moves identified in the plan. Shards moves are batched by database name with each batch that is run in a series. Multiple batches are run concurrently, with batches of 20 as the default. Progress and errors are logged to the <code>rebalance_plan.log</code>.
+<p><strong>Note</strong>: The filename was specified earlier when you edited the <code>rebal.ini</code> file when you created a rebalancing plan. The command runs the shard moves identified in the plan. Shards moves are batched by database name with each batch that is run in a series. Multiple batches are run concurrently; the default is 20 batches running at once. Progress and errors are logged to the <code>rebalance_plan.log</code>.
 </br>
 <code>rebal run <em>rebalance_plan_filename</em></code></p>  </li>
 <li>Monitor progress by using the <code>tail</code> command.
@@ -659,9 +659,7 @@ checks each channel in turn to see whether the
 compaction passes its configured priority threshold
 (`min_priority`). After a channel is found that can accept
 the compaction, the compaction is added to the queue for
-that channel and the enqueue process stops. Therefore,
-the ordering of channels has a bearing in what channel a
-compaction ends up in.
+that channel and the enqueue process stops. Therefore, the ordering of channels, based on the priority calculation, impacts which channel the compaction ends up in. 
 
 #### Background Detail
 {: #background-detail}
@@ -738,7 +736,7 @@ for `ratio` or `slack` channels.
 
 The `user_bytes` are called `data_size` in `db_info` blocks.
 It is the total of all bytes that are used to store docs
-and their attachments. Since `.couch` files only append,
+and their attachments. Since files with `.couch` suffix only append,
 every update adds data to the file. When you update a
 btree, a new leaf node is written and all the nodes back
 up the root. In this update, old data is never
@@ -760,8 +758,8 @@ want for the channel, then bringing it into the sets of
 active channels for Smoosh by adding it to either
 `db_channels` or `view_channels`. This process means that
 Smoosh channels can be defined for a single node or
-globally across a cluster, by setting the configuration
-to globally or locally.
+globally across a cluster by setting the configuration
+to global or local.
 
 -   `ratio_dbs`
 
@@ -789,8 +787,7 @@ often.
 -   `big_dbs`
 
     A ratio channel for enqueuing only large
-    database shards. The term large is
-    workload-specific. In the following example, a new global channel is set up. It is important to choose good channel names. The following conventional channel names are defined by default if no other channel names are set. Channels have certain defaults for their configuration, which are defined in the Smoosh configuration section. It is only necessary to set up how this channel differs from those defaults. In the following example, the `min_size` and concurrency settings are set, and keep the priority as the default to ratio, along with the other defaults.
+    database shards. The term large is applied based on the database shards' workload. In the following example, a new global channel is set up. It is important to choose good channel names. The following conventional channel names are defined by default if no other channel names are set. Channels have certain defaults for their configuration, which are defined in the Smoosh configuration section. It is only necessary to set up how this channel differs from those defaults. In the following example, the `min_size` and concurrency settings are set, and keep the priority as the default to ratio, along with the other defaults.
 
 ``` sh
 # Define the new channel
@@ -906,7 +903,7 @@ Sometimes it is necessary to run the following processes.
     
     The time a channel waits before compaction begins.
     This time allows Smoosh to observe and analyze what to compact first.
-    Rarely change this setting from the default value,
+    You rarely need to change this setting from the default value,
     which is 30 seconds.
 
 ### Channel settings
@@ -1042,7 +1039,7 @@ channels. Increasing it allows each active compaction to
 proceed faster as the compaction work is of a higher
 priority relative to other jobs. Decreasing it has the
 inverse effect. By this point, you know whether Smoosh
-is backing up. If it is falling behind (large queues),
+is having trouble keeping up. If it is falling behind (large queues),
 try increasing compaction priority. The IOQ priority for
 Smoosh is controlled through the IOQ compaction queue.
 
@@ -1052,7 +1049,7 @@ Smoosh is controlled through the IOQ compaction queue.
 ```
 {: codeblock}
 
-Priority by convention runs 0 - 1, though the priority
+The priority, conventionally, runs 0 - 1, though the priority
 can be any positive number. The default for compaction
 is 0.01. If it looks like Smoosh has too much work that
 is not getting through, you can increase the priority.
@@ -1144,7 +1141,7 @@ this step can indicate a problem with Smoosh.
 ### Compaction Scheduling Algorithm
 {: #compaction-scheduling-algorithm}
 
-`Smoosh` determines whether to compact a database or view it by evaluating the
+`Smoosh` determines whether to compact a database or a view it by evaluating the
 item against the selection criteria of each channel in the order they are configured.
 By default,
 two channels for databases (`ratio_dbs` and `slack_dbs`) and two
@@ -1199,9 +1196,9 @@ including the lowest and highest priority of those enqueued items.
 The idea is to provide,
 at a glance,
 sufficient insight into `Smoosh` that an operator can assess whether
-`Smoosh` is adequately targeting the reclaimable space in the cluster.
+`Smoosh` is adequately using the reclaimable space in the cluster.
 In general,
-a working correctly status output has items in the `ratio_dbs` and `ratio_views` channels.
+Smoosh is working correctly if the status output includes items in the `ratio_dbs` and `ratio_views` channels.
 Due to the default settings,
 `slack_dbs` and `slack_views` contain items.
 
