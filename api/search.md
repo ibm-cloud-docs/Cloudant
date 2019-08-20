@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-19"
+lastupdated: "2019-08-20"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -1029,7 +1029,6 @@ to return counts of results that fit into each specified category.
 Inclusive range queries are denoted by brackets (`[`, `]`).
 Exclusive range queries are denoted by curly brackets (`{`, `}`).
 
-The `range` operation works only if the indexed values are numbers.
 The indexed values cannot be mixed types.
 For example,
 if 100 strings are indexed,
