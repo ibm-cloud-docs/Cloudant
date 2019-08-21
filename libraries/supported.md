@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-21"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -67,16 +67,13 @@ For more information about installing the library by adding it as a dependency t
 - [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){: new_window}.
 - [jrelax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/isterin/jrelax){: new_window}.
 - [LightCouch ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.lightcouch.org/){: new_window}.
-- [Java Cloudant Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=CloudantJavaBPTemplate&fromCatalog=true){: new_window} boilerplate for {{site.data.keyword.cloud}}.
 
 ### Examples and tutorials for Java
 {: #examples-and-tutorials-for-java}
 
 - [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/java){: new_window} with HTTP and JSON libraries.
 - [Create, read, update, and delete ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/java/CrudWithEktorp){: new_window} with ektorp library.
-- [Building apps by using Java with {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud}}![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/building-apps-using-java-with-cloudant-on-ibm-bluemix/){: new_window}.
 - [Building a Java EE app on {{site.data.keyword.cloud_notm}} by using Watson and {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://developer.ibm.com/bluemix/2014/10/17/building-java-ee-app-ibm-bluemix-using-watson-cloudant/){: new_window} {{site.data.keyword.cloud_notm}} example along with [YouTube video ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?feature=youtu.be&v=9AFMY6m0LIU&app=desktop){: new_window}.
-
 
 ## Node.js
 {: #node-js-supported}
@@ -108,8 +105,6 @@ npm install cloudant
 - [cradle ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/flatiron/cradle){: new_window} is a high-level client that is also available if you absolutely need ease of use at the cost of reduced performance.
 - [cane_passport ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/ddemichele/cane_passport){: new_window} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
 - [express-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/express-cloudant){: new_window} - a template for Node.js Express framework that also uses PouchDB and Grunt.
-- [Node.js {{site.data.keyword.cloudant_short_notm}} DB Web Starter ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=nodejscloudantbp&fromCatalog=true){: new_window} - boilerplate for {{site.data.keyword.cloud_notm}}.
-- [Mobile Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://ace.ng.bluemix.net/#/store/cloudOEPaneId=store&appTemplateGuid=mobileBackendStarter&fromCatalog=true){: new_window} - boiler plate for {{site.data.keyword.cloud_notm}} (Node.js, Security, Push, and Mobile Data/{{site.data.keyword.cloudant_short_notm}}).
 
 ### Examples and tutorials for node.js
 {: #examples-and-tutorials-for-node-js}
