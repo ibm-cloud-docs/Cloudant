@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-12"
+lastupdated: "2019-08-21"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication 
 
@@ -800,7 +800,7 @@ Alternatively,
 the replication ID can be obtained from [`/_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks).
 
 #### Example of using HTTP to cancel a replication
-{: #example of using http to cancel a replication-adv-replication}
+{: #example-of-using-http-to-cancel-a-replication-adv-replication}
 
 ```http
 POST /_replicate HTTP/1.1

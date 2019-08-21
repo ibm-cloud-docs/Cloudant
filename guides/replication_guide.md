@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-21"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -407,7 +407,7 @@ delete the replication document from the `_replicator` database,
 by using either the dashboard or the API.
 
 ### Example of using HTTP to cancel a replication
-{: #example of using http to cancel a replication-repl-guide}
+{: #example-of-using-http-to-cancel-a-replication-repl-guide}
 
 ```http
 DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1.1
