@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-22"
 
-keywords: provisioned throughput capacity, api 
+keywords: provisioned throughput capacity, view current and target capacity, set target capacity, view current consumption
 
 subcollection: cloudant
 

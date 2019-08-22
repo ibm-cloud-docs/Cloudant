@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-01"
+lastupdated: "2019-08-22"
 
-keywords: authorization, roles, permissions, _users database
+keywords: authorization, roles, permissions (view and modify), _users database, API keys (create, use, delete)
 
 subcollection: cloudant
 
