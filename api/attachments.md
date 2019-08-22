@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-22"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -48,6 +48,9 @@ if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.
 
 It is a good idea to keep attachments small in size and number because attachments can impact performance.
+{: important}
+
+Attachments are not permitted on documents in [`_replicator`](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) or [`_users`](/docs/services/Cloudant/api?topic=cloudant-authorization#using-the-_users-database-with-cloudant-nosql-db) databases.
 {: important}
 
 ## Create / update
