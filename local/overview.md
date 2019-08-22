@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-01"
+lastupdated: "2019-08-21"
 
 keywords: features, information
 
@@ -62,7 +62,7 @@ and access other support information.
 
 You can download a PDF version of earlier {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition documentation here. 
 
-<ul><li><a href="../images/Cloudant_Local_v1.0.0.3.pdf" download="Cloudant_Local_v1.0.0.3.pdf">{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition version 1.0.0.3 <alt="Download PDF."></a></li>
-<li><a href="../images/Cloudant_Local_v1.0.0.4.pdf" download="Cloudant_Local_v1.0.0.4.pdf">{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition version 1.0.0.4 <alt="Download PDF."></a></li>
-<li><a href="../images/Cloudant_Local_v1.0.0.5.pdf" download="Cloudant_Local_v1.0.0.5.pdf">{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition version 1.0.0.5 <alt="Download PDF."></a></li>
+<ul><li><a href="Cloudant_Local_v1.0.0.3.pdf" download="Cloudant_Local_v1.0.0.3.pdf">{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition version 1.0.0.3 <alt="Download PDF."></a></li>
+<li><a href="Cloudant_Local_v1.0.0.4.pdf" download="Cloudant_Local_v1.0.0.4.pdf">{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition version 1.0.0.4 <alt="Download PDF."></a></li>
+<li><a href="Cloudant_Local_v1.0.0.5.pdf" download="Cloudant_Local_v1.0.0.5.pdf">{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition version 1.0.0.5 <alt="Download PDF."></a></li>
 </ul>
