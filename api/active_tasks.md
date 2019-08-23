@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-22"
 
-keywords: active tasks, compaction tasks, replication tasks, indexing tasks, 
+keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve list of active tasks 
 
 subcollection: cloudant
 

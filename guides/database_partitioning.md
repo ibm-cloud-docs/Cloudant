@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-05"
+lastupdated: "2019-08-22"
 
-keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index
+keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials
 
 subcollection: cloudant
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-08-17 -->
 
@@ -31,7 +32,7 @@ subcollection: cloudant
 - Non-partitioned
 
 A *partitioned* database offers significant performance and cost advantages but
-requires you to specify a logical partitioning of your data. This is described
+requires you to specify a logical partitioning of your data. This process is described
 more in the following text.
 
 Alternatively, a *non-partitioned* database can be created. This type of
@@ -71,9 +72,9 @@ detail later.
 ## Partitioned databases
 {: #partitioned-databases-database-partitioning}
 
-A partitioned database is the newer type of {{site.data.keyword.cloudant_short_notm}} database. Within a
+A partitioned database is the newest type of {{site.data.keyword.cloudant_short_notm}} database. Within a
 partitioned database, documents are formed into logical partitions by use
-of a *partition key*, which is part of document IDs for documents within
+of a *partition key*, which is part of the document IDs for documents within
 partitioned databases. All documents are assigned to a partition, and many
 documents are typically given the same partition key. A partition's primary
 JSON data and its indexes end up co-located, meaning that the database is
@@ -109,7 +110,7 @@ Let's look at some use cases and some good and bad choices for a partition key.
 | E-commerce system - orders | One document per order     | user_id       | Good - all of a user's orders will be kept together.                                                             |
 | E-commerce system - orders | One document per order      | status        | Bad - grouping orders by a handful of status values (provisional, paid, refunded, cancelled) will create too few over-large partitions.  |
 | Blogging platform          | One document per blog post | author_id     | Good - as long as there are many authors. Easy to query each author's posts.                                     |
-| IOT - sensor readings      | One document per reading    | device_id     | Good - if there are many devices. Make sure that one device is not producing many more readings than the others. |
+| IOT - sensor readings      | One document per reading    | device_id     | Good - if there are many devices, make sure that one device is not producing many more readings than the others. |
 | IOT - sensor readings      | One document per reading    | date          | Bad - current readings will cause a "hot spot" on the current date's partition.                                  |
 
 There are some use cases where there isn't a viable choice for a partition key.

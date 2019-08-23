@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-08-23"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -26,7 +27,7 @@ subcollection: cloudant
 {: #attachments}
 
 Another way to store data is to use attachments.
-Attachments are Binary Large Object ([BLOB ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Binary_large_object){: new_window})
+Attachments are Binary Large Object ([BLOB](http://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external})
 files that are contained within documents.
 {: shortdesc}
 
@@ -42,7 +43,7 @@ Examples of BLOBs would be images and multimedia.
 If you include the attachment as an [inline](/docs/services/Cloudant?topic=cloudant-attachments#inline) component of the overall JSON, the attachment content is represented by using BASE64 form.
 {: note}
 
-The content type corresponds to a [MIME type ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}.
+The content type corresponds to a [MIME type](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external}.
 For example,
 if you want to attach a `.jpg` image file to a document,
 you specify the attachment MIME type as `image/jpeg`.
@@ -61,7 +62,7 @@ To create a new attachment at the same time as creating a new document, include 
 To create a new attachment on an existing document,
 or to update an attachment on a document,
 make a PUT request with the document's most recent `_rev` to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
-The attachment's [content type ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}
+The attachment's [content type](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external}
 must be specified by using the `Content-Type` header.
 The `$ATTACHMENT` value is the name by which the attachment is associated with the document.
 
@@ -230,10 +231,10 @@ and the ID and new revision of the document.
 {: #inline}
 
 Inline attachments are attachments that are included as part of the JSON content.
-The content must be provided by using [BASE64 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Base64){: new_window} representation,
+The content must be provided by using [BASE64](https://en.wikipedia.org/wiki/Base64){: new_window}{: external} representation,
 as shown in the example.
 
-A full list of media types is available in this article about [media types ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}.
+A full list of media types is available in this article about [media types](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external}.
 
 ### Example JSON document that includes an inline attachment of a jpeg image
 
@@ -262,7 +263,7 @@ having too many attachments can have an adverse performance impact during replic
 For example,
 if your application requires lots of images to be stored as attachments,
 or has large images,
-a better approach would be to use an alternative [BLOB ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Binary_large_object){: new_window}
+a better approach would be to use an alternative [BLOB](https://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external}
 storage mechanism for the images.
 You might then use {{site.data.keyword.cloudant_short_notm}} to keep
 the image metadata,

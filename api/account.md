@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-18"
+lastupdated: "2019-08-22"
 
-keywords: account, ping account, cors
+keywords: account, ping account, cors, connect to your cloudant account
 
 subcollection: cloudant
 

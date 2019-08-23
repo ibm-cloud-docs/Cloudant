@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-08-22"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -43,7 +43,7 @@ For more language-specific tutorials, see [Get started by deploying your first a
 
 Verify that you have what you need to start the tutorial from the following list:
 
-- An [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](cloud.ibm.com/registration){: new_window}
+- An [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com){: new_window}
 - [An instance of the {{site.data.keyword.cloudant_short_notm}} service](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud)
 - The most recent version of the [Python programming language ![External link icon](images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} on your system:
 

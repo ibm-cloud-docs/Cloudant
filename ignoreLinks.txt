@@ -14,6 +14,3 @@ https://api.ng.bluemix.net
 https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com
 https://f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix:5811381f6daff7255b288695c3544be63f550e975bcde46799473e69c7d48d61@f6cf0c55-48ea-4908-b441-a962b27d3bb6-bluemix.cloudant.com
 https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login
-../images/Cloudant_Local_v1.0.0.3.pdf
-../images/Cloudant_Local_v1.0.0.4.pdf
-../images/Cloudant_Local_v1.0.0.5.pdf
