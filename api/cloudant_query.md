@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-05"
+lastupdated: "2019-08-26"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-08-17 -->
 
@@ -429,8 +430,7 @@ Methods  | Path                | Description
 ## Creating a partial index
 {: #creating-a-partial-index}
 
-Cloudant Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){: new_window}
-and the original example. 
+Cloudant Query supports partial indexes by using the `partial_filter_selector` field. For more information, see the [CouchDB documentation](http://docs.couchdb.org/en/2.1.1/api/database/find.html#partial-indexes){: new_window}{: external} and the original example. 
 
 The `partial_filter_selector` field replaces the `selector` field, previously only valid in text indexes. The `selector` field is still compatible with an earlier version for text indexes only.
 {: tip}
@@ -1617,9 +1617,9 @@ A query where the Divisor or Remainder is a non-integer returns a [404 status](/
 
 When you use negative integer values for the Divisor or Remainder,
 the {{site.data.keyword.cloudant_short_notm}} `$mod` operator behaves in a similar way to the
-[Erlang `rem` modulo operator ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/reference_manual/expressions.html){: new_window},
-or the [`%` operator in C ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: new_window},
-and uses [truncated division ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Modulo_operation){: new_window}.
+[Erlang `rem` modulo operator](http://erlang.org/doc/reference_manual/expressions.html){: new_window}{: external},
+or the [`%` operator in C](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B){: new_window}{: external},
+and uses [truncated division](https://en.wikipedia.org/wiki/Modulo_operation){: new_window}{: external}.
 {: tip}
 
 ##### Example of using the `$mod` operator
@@ -1682,13 +1682,13 @@ resulting in poor performance. Only equality operators, such as `$eq`,
 
 Most selector expressions work exactly as you would expect for the operator.
 The matching algorithms that are used by the `$regex` operator are currently *based* on
-the [Perl Compatible Regular Expression (PCRE) library ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions){: new_window}.
+the [Perl Compatible Regular Expression (PCRE) library](https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions){: new_window}{: external}.
 However,
 not all of the PCRE library is implemented.
 Additionally,
 some parts of the `$regex` operator go beyond what PCRE offers.
 For more information about what is implemented,
-see the [Erlang Regular Expression ![External link icon](../images/launch-glyph.svg "External link icon")](http://erlang.org/doc/man/re.html){: new_window} information.
+see the [Erlang Regular Expression](http://erlang.org/doc/man/re.html){: new_window}{: external} information.
 
 ## Sort syntax
 {: #sort-syntax}

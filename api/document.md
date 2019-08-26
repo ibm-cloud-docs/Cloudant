@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-26"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-11-29 -->
 
@@ -26,7 +27,7 @@ subcollection: cloudant
 {: #documents}
 
 Documents are
-[JSON objects ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example){: new_window}.
+[JSON objects](http://en.wikipedia.org/wiki/JSON#Data_types.2C_syntax_and_example){: new_window}{: external}.
 Documents are containers for your data,
 and are the basis of the {{site.data.keyword.cloudantfull}} database.
 {: shortdesc}
@@ -208,7 +209,7 @@ and `"ok": true`.
 
 If you did not provide an `_id` field,
 {{site.data.keyword.cloudant_short_notm}} generates one automatically as a
-[UUID ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Universally_unique_identifier){: new_window}.
+[UUID](http://en.wikipedia.org/wiki/Universally_unique_identifier){: new_window}{: external}.
 
 A failure to create the document results in a
 response that contains a description of the error.
@@ -507,7 +508,7 @@ the document that was deleted from the source database is not deleted from the t
 causing an inconsistency.
 
 A solution is to do more advanced removal of tombstones by using
-a [`validate_doc_update` function ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/1.6.1/couchapp/ddocs.html#validate-document-update-functions){: new_window}.
+a [`validate_doc_update` function](http://docs.couchdb.org/en/1.6.1/couchapp/ddocs.html#validate-document-update-functions){: new_window}{: external}.
 
 A `validate_doc_update` function is stored in a design document.
 The function is run every time that a document is updated in the database.
@@ -1235,7 +1236,7 @@ contact {{site.data.keyword.cloudant_short_notm}} support.
 ## TTL - time to live
 {: #ttl-time-to-live}
 
-[Time to Live ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Time_to_live){: new_window} (TTL) is a property of data,
+[Time to Live](https://en.wikipedia.org/wiki/Time_to_live){: new_window}{: external} (TTL) is a property of data,
 where after a relative amount of time,
 or at an absolute time,
 the data is deemed to be expired.

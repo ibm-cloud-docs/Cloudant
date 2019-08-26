@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2019 -->
 

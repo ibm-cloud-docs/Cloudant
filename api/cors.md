@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-26"
 
 keywords: cors, security, configuration endpoints, json format, dashboard
 
@@ -19,19 +19,20 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2019 -->
 
 # CORS
 {: #cors}
 
-[Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/){: new_window} is a mechanism that allows resources
+[Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/){: new_window}{: external} is a mechanism that allows resources
 such as JSON documents in an {{site.data.keyword.cloudantfull}} database to be requested
 from Javascript running on a website loaded from another domain.
 {: shortdesc}
 
 These "cross-domain" requests would normally be forbidden by web browsers,
-due to the [same origin security policy ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Same-origin_policy){: new_window}.
+due to the [same origin security policy](http://en.wikipedia.org/wiki/Same-origin_policy){: new_window}{: external}.
 
 CORS defines a way in which the browser and the server interact to determine whether or not to allow the request.
 For {{site.data.keyword.cloudant_short_notm}},

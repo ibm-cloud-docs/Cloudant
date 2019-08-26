@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-08-26"
 
 keywords: authorization, roles, permissions (view and modify), _users database, API keys (create, use, delete)
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-06-01 -->
 
@@ -460,7 +461,7 @@ do the following steps:
 
 For an example of this process,
 see the blog article:
-[Using an {{site.data.keyword.cloudant_short_notm}} API Key with Multiple {{site.data.keyword.cloudant_short_notm}} Databases and Accounts ![External link icon](../images/launch-glyph.svg "External link icon")](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){: new_window}.
+[Using an {{site.data.keyword.cloudant_short_notm}} API Key with Multiple {{site.data.keyword.cloudant_short_notm}} Databases and Accounts](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){: new_window}{: external}.
 
 ## Deleting API keys
 {: #deleting-api-keys}
@@ -503,11 +504,11 @@ The updated list *must omit* the API key.
 {: #using-the-_users-database-with-cloudant-nosql-db}
 
 You can use the
-[`_users` database ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/stable/intro/security.html#authentication-database){: new_window}
+[`_users` database](http://docs.couchdb.org/en/stable/intro/security.html#authentication-database){: new_window}{: external}
 to manage roles in {{site.data.keyword.cloudant_short_notm}}.
 
 User documents that are stored in the `_users` database must be structured and populated to comply with
-[Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.3.0/intro/security.html#users-documents){: new_window}.
+[Apache Software Foundation CouchDB requirements](http://docs.couchdb.org/en/2.3.0/intro/security.html#users-documents){: new_window}{: external}.
 
 In addition, you can disable the {{site.data.keyword.cloudant_short_notm}} authorization checks by setting the `couchdb_auth_only:true` parameter. 
 To disable {{site.data.keyword.cloudant_short_notm}} security,

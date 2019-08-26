@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-08-26"
 
 keywords: account, ping account, cors, connect to your cloudant account
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -32,7 +33,7 @@ Your {{site.data.keyword.cloudant_short_notm}} Dashboard is always
 `https://$ACCOUNT.cloudant.com/dashboard.html`.
 {: shortdesc}
 
-If you don't yet have an account, [sign up ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/sign-up/){: new_window}.
+If you don't yet have an account, [sign up](https://cloudant.com/sign-up/){: new_window}{: external}.
 
 ## Ping
 {:  #ping}
@@ -88,7 +89,7 @@ print ping.status_code
 ## CORS
 {: #cors-overview}
 
-[Cross-origin resource sharing (CORS) ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.w3.org/TR/cors/) is a
+[Cross-origin resource sharing (CORS)](http://www.w3.org/TR/cors/){: new_window}{: external} is a
 mechanism that allows JavaScript from another domain to interact with data in
 your {{site.data.keyword.cloudant_short_notm}} account.
 

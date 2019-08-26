@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-26"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2019 -->
 
@@ -389,7 +390,7 @@ refer to the [search](/docs/services/Cloudant?topic=cloudant-search#search) sect
 Functions in design documents are run on multiple nodes for each document,
 and might be run several times.
 To avoid inconsistencies,
-they need to be [idempotent ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning){: new_window},
+they need to be [idempotent](https://en.wikipedia.org/wiki/Idempotence#Computer_science_meaning){: new_window}{: external},
 meaning they need to behave identically when run multiple times or on different nodes.
 In particular,
 you should avoid using functions that generate random numbers or return the current time.
