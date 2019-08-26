@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-01"
+lastupdated: "2019-08-27"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-11-20 -->
 
@@ -49,8 +50,8 @@ A new Dedicated Hardware plan is available.
 
 For more information, see the following links:
 
-- See our [post on the {{site.data.keyword.cloud}} Blog ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/blogs/cloud-archive/2017/06/cloudant-available-dedicated-environments-improved-sla-bluemix-public/){: new_window} introducing the new plan.
-- Read about the [Dedicated Hardware plan](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#dedicated-hardware-plan){: new_window}.
+- See our [post on the {{site.data.keyword.cloud}} Blog](https://www.ibm.com/blogs/cloud-archive/2017/06/cloudant-available-dedicated-environments-improved-sla-bluemix-public/){: new_window}{: external} introducing the new plan.
+- Read about the [Dedicated Hardware plan](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#dedicated-hardware-plan){: new_window}{: external}.
 
 ### Replication scheduler
 {: #replication-scheduler}
@@ -121,17 +122,17 @@ The new replication scheduler has several improvements and enhancements. Learn m
 - Fixed a problem where the replicator would sometimes reset statistics during
     replications. This would affect values in the [replication status
     information](/docs/services/Cloudant?topic=cloudant-advanced-replication#advanced-replication).
-     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/couchdb/pull/1722){: new_window}.
+     See [PR](https://github.com/apache/couchdb/pull/1722){: new_window}{: external}.
 - Fixed an issue with Cloudant Query where, after deleting a document, issuing
     a `_find` request to a text index with `update=false` could return a
     `500` response.
-    See [PR ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/couchdb/pull/1709){: new_window}.
+    See [PR](https://github.com/apache/couchdb/pull/1709){: new_window}{: external}.
 - You can now use `multipart/mixed` and `multipart/related` when using 
-    `_bulk_get`. See [PR ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/couchdb/pull/1195){: new_window}.
+    `_bulk_get`. See [PR](https://github.com/apache/couchdb/pull/1195){: new_window}{: external}.
 - Fix a bug with total row count in the `_design_docs` handler.
-     See [PR ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/couchdb/pull/1744){: new_window}.
+     See [PR](https://github.com/apache/couchdb/pull/1744){: new_window}{: external}.
 - Optimisations to the `_doc_id` and `_design_docs` replication filters.
-     See [issue ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/apache/couchdb/issues/1737){: new_window}.
+     See [issue](https://github.com/apache/couchdb/issues/1737){: new_window}{: external}.
 - Fix a regression where long-running index jobs can fail.
 
 ## Build 7426 (November 15, 2018)
@@ -139,10 +140,10 @@ The new replication scheduler has several improvements and enhancements. Learn m
 
 - Include [CRN](/docs/overview?topic=overview-crn) in audit logs.
 - Replicator stability improvements.
-- Improve validation of `q` parameter on database creation. See [COUCHDB-1582 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1582){: new_window}.
-- Fix error in `_bulk_get` endpoint for the `_users` database. See [COUCHDB-1650 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1650){: new_window}.
-- Fix JavaScript URL rewrites hanging on `POST` or `PUT` requests. See [COUCHDB-1612 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1612){: new_window}.
-- Fix invalid `reduce` functions in {{site.data.keyword.cloudant_short_notm}} Query indexes that prevent indexing. See [COUCHDB-1666 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-1666){: new_window}.
+- Improve validation of `q` parameter on database creation. See [COUCHDB-1582](https://issues.apache.org/jira/browse/COUCHDB-1582){: new_window}{: external}.
+- Fix error in `_bulk_get` endpoint for the `_users` database. See [COUCHDB-1650](https://issues.apache.org/jira/browse/COUCHDB-1650){: new_window}{: external}.
+- Fix JavaScript URL rewrites hanging on `POST` or `PUT` requests. See [COUCHDB-1612](https://issues.apache.org/jira/browse/COUCHDB-1612){: new_window}{: external}.
+- Fix invalid `reduce` functions in {{site.data.keyword.cloudant_short_notm}} Query indexes that prevent indexing. See [COUCHDB-1666](https://issues.apache.org/jira/browse/COUCHDB-1666){: new_window}{: external}.
 - Internal bug fixes to data compression, search, and core database components.
 
 ## Build 7410 (November 04, 2018)
@@ -276,7 +277,7 @@ Find more information on our [Security page](/docs/services/Cloudant?topic=cloud
 ## Build 6761 (March 13, 2018)
 {: #build-6761-march-13-2018}
 
-- Ensure deterministic revisions for attachments. See [COUCHDB-3255 ![External link icon](../images/launch-glyph.svg "External link icon")](https://issues.apache.org/jira/browse/COUCHDB-3255){: new_window}.
+- Ensure deterministic revisions for attachments. See [COUCHDB-3255](https://issues.apache.org/jira/browse/COUCHDB-3255){: new_window}{: external}.
 - Add a pluggable storage engine.
 - Prevent `chttpd` multipart zombie processes.
 - Avoid unconditional retries in replicator's HTTP client.
@@ -320,7 +321,7 @@ JavaScript.
 ### Query (<code>_find</code> endpoint):
 {: #query-code-_find-code-endpoint}
 
-- {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}.
+- {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}{: external}.
 - The logic for determining whether a specific index is valid for a query changed, addressing a bug that might lead to incorrect results.
 - Queries that use text indexes no longer fail when `$exists`: `false` is used.
 - Partial indexes are now supported for both JSON and text indexes. For more information, see  [Creating a partial index](/docs/services/Cloudant?topic=cloudant-query#creating-a-partial-index) for more information.
@@ -371,7 +372,7 @@ Now, the error is a 409 error with the following information: `{`error`:`not_fou
 
 - {{site.data.keyword.cloudant_short_notm}} is more tolerant of malformed user documents that are stored within the `_users` database.
   User documents must be structured and populated to comply with
-  [Apache Software Foundation CouchDB requirements ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.3.0/intro/security.html#users-documents){: new_window}.
+  [Apache Software Foundation CouchDB requirements](http://docs.couchdb.org/en/2.3.0/intro/security.html#users-documents){: new_window}{: external}.
 
 ## Build 5638 (October 11, 2016)
 {: #build-5638-october-11-2016}

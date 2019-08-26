@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-09"
+lastupdated: "2019-08-27"
 
 keywords: log analysis, integration 
 
@@ -19,13 +19,14 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-05-31 -->
 
 # Log Analysis integration
 {: #logging}
 
-{{site.data.keyword.cloudantfull}} is integrated with [{{site.data.keyword.la_full}} ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-about), so you can view database logs.
+{{site.data.keyword.cloudantfull}} is integrated with [{{site.data.keyword.la_full}}](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-about){: new_window}{: external}, so you can view database logs.
 
 This integration is currently in Beta. Your LogDNA instance might not receive all logs from your {{site.data.keyword.cloudantfull}} instance, and the schema of the log lines might change.
 {: important}
@@ -40,12 +41,12 @@ Deployment Region | LogDNA Region
 ## Provisioning {{site.data.keyword.la_full_notm}}
 {: #provisioning-logdna}
 
-Log information from your databases is automatically forwarded to {{site.data.keyword.la_full_notm}}, but in order to access it you have to [provision a Log Analysis service ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-provision) in your {{site.data.keyword.cloud_notm}} account and [configure the service to receive {{site.data.keyword.cloud_notm}} service logs ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-config_svc_logs).
+Log information from your databases is automatically forwarded to {{site.data.keyword.la_full_notm}}, but in order to access it you have to [provision a Log Analysis service](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-provision){: new_window}{: external} in your {{site.data.keyword.cloud_notm}} account and [configure the service to receive {{site.data.keyword.cloud_notm}} service logs](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-config_svc_logs){: new_window}{: external}.
 
-This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account that have {{site.data.keyword.la_full_notm}} integration to send logs to your {{site.data.keyword.la_full_notm}} service. [A list of the integrated services is available ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-cloud_services#cloud_services).
+This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services on your account that have {{site.data.keyword.la_full_notm}} integration to send logs to your {{site.data.keyword.la_full_notm}} service. [A list of the integrated services is available](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-cloud_services#cloud_services){: new_window}{: external}.
 {: .tip}
 
-{{site.data.keyword.la_full_notm}} has a lite plan that is free to use, but it only offers streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-about#overview_pricing_plans).
+{{site.data.keyword.la_full_notm}} has a lite plan that is free to use, but it only offers streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-about#overview_pricing_plans){: new_window}{: external}.
 
 ### HIPAA 
 {: #hipaa}
@@ -77,12 +78,12 @@ Log lines | Description
 `clientIp` | The IP address of the originating request. 
 `clientPort` | The port address for the originating request. 
 `statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information see, [HTTP status codes](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
-`terminationState` | Session termination indicator for TCP and HTTP logs. For more information, see [Session state at disconnection ![External link icon](../images/launch-glyph.svg "External link icon")](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#8.5).
+`terminationState` | Session termination indicator for TCP and HTTP logs. For more information, see [Session state at disconnection](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#8.5){: new_window}{: external}.
 `dbName`| The {{site.data.keyword.cloudant_short_notm}} database name targeted by the HTTP Request.  
 `dbRequest` | The database request endpoint.
 `userAgent` |  Software that is acting on behalf of the user, such as a browser or client library.
 `sslVersion` | The version of Transport Layer Security that the request is using. 
-`requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Event types](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#event-types).
+`requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Event types](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#event-types){: new_window}{: external}.
 `parsedQueryString` | A parsed version showing the breakdown of the parameters passed in the query string. If we are unable to parse the `rawQueryString`, this value will be null.
 `rawQueryString` | Full text of the query string as passed to the service.
 `logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs.
@@ -93,4 +94,4 @@ Log lines | Description
 The `request` and `transfer` timings are included in `response`.  
 {: note}
 
-{{site.data.keyword.la_full_notm}} offers [searching ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-view_logs#view_logs_step6) and [filtering ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-view_logs#view_logs_step5) to help you navigate your logs. [Export ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-export#export) and [archive ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-archiving#archiving) are available so you can customize retention (and cost) for your use case.
+{{site.data.keyword.la_full_notm}} offers [searching](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-view_logs#view_logs_step6){: new_window}{: external} and [filtering](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-view_logs#view_logs_step5){: new_window}{: external} to help you navigate your logs. [Export](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-export#export){: new_window}{: external} and [archive](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-archiving#archiving){: new_window}{: external} are available so you can customize retention (and cost) for your use case.

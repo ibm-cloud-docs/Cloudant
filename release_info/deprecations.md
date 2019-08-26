@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-19"
+lastupdated: "2019-08-27"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -32,7 +33,7 @@ Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releas
 {: #cloudant-nosql-db-feature-is-deprecated-february-7-2018}
 
 To find alternatives to {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdblong}} feature, see the 
-[data-flow-examples repository ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/data-flow-examples){: new_window} 
+[data-flow-examples repository](https://github.com/cloudant-labs/data-flow-examples){: new_window}{: external} 
 for tutorials on 
 extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
 {{site.data.keyword.dashdbshort_notm}} table.
@@ -114,9 +115,9 @@ To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value 
 - If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message
 similar to this is returned, "Call to `eval()` was blocked by CSP." You can fix the problem 
 by replacing `eval()` calls with the calls from the 
-[expr-eval library ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/silentmatt/expr-eval){: new_window}.
+[expr-eval library](https://github.com/silentmatt/expr-eval){: new_window}{: external}.
 For more information, you can also read this 
-[post ![External link icon](../images/launch-glyph.svg "External link icon")](https://silentmatt.com/javascript-expression-evaluator/){: new_window}.
+[post](https://silentmatt.com/javascript-expression-evaluator/){: new_window}{: external}.
 
 ## Removed support for virtual hosts (vhosts) (December 4, 2017)
 {: #disabled-vhosts-december-4-2017}
