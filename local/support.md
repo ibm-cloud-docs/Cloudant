@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-18"
+lastupdated: "2019-08-26"
 
 keywords: coverage, support ticket, assistance
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -28,7 +29,7 @@ subcollection: cloudant
 {{site.data.keyword.IBM}} Cloudant&reg; Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}) support is able to provide assistance with the installation, set up, and proper usage of {{site.data.keyword.cloudant_local_notm}}. In the event of a performance issue or inconsistency, support is able to help troubleshoot. In the event of an outage, support can help diagnose the issue, but the responsibility for resolving the issue rests with the customer team since we do not have access to customer systems.
 {: shortdesc}
 
-Adequate logs are necessary to provide proper assistance with any issue. To help troubleshooting begin as quickly as possible, you must include the output of the Weatherreport utility, as well as, any relevant logs, requests, and status codes when informing support of an issue. For more information, see the [Weatherreport utility ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-diagnose-and-troubleshoot#monitor-cluster-health-with-weatherreport){: new_window}.
+Adequate logs are necessary to provide proper assistance with any issue. To help troubleshooting begin as quickly as possible, you must include the output of the Weatherreport utility, as well as, any relevant logs, requests, and status codes when informing support of an issue. For more information, see the [Weatherreport utility](/docs/services/Cloudant?topic=cloudant-diagnose-and-troubleshoot#monitor-cluster-health-with-weatherreport){: new_window}{: external}.
 
 Assistance with common issues and outages can only be offered if the underlying problem is within the scope of support. The following text describes the support that is available: 
 
@@ -53,12 +54,12 @@ Contact your Customer Success or Account Manager for further assistance with the
 - Design optimization
 - Capacity planning
 
-If you have any questions regarding our support policy, contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
+If you have any questions regarding our support policy, contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com){: new_window}{: external}.
 
 ### Troubleshooting {{site.data.keyword.cloudant_local_notm}}
 {: #troubleshooting-ibm-cloudant-local}
 
-For more information about {{site.data.keyword.cloudant_local_notm}} documentation updates, search the technotes database on [{{site.data.keyword.IBM}} support ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/search.wss?q=technotes%20cloudant%20local&ibm-search=site).
+For more information about {{site.data.keyword.cloudant_local_notm}} documentation updates, search the technotes database on [{{site.data.keyword.IBM}} support](http://www-01.ibm.com/support/search.wss?q=technotes%20cloudant%20local&ibm-search=site){: new_window}{: external}.
 
 ### How to open a support ticket
 {: #how-to-open-a-support-ticket}

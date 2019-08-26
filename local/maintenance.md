@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-13"
+lastupdated: "2019-08-26"
 
 keywords: stop and start service, add node, maintenance mode, rebalancing plan, remote access, run rebalancing plan, replace database node, replace load balancer node, tune automatic compacter, smoosh channels, metrics database
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -1135,7 +1136,7 @@ each compaction process in each channel. The
 Restarting Smoosh is a last-resort solution. It is a
 brute force approach where you hope that Smoosh rescans
 the databases and makes the correct decision. If this step
-is required, contact [support@cloudant.com ![External link icon](images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}, since doing
+is required, contact [support@cloudant.com](mailto:support@cloudant.com){: new_window}{: external}, since doing
 this step can indicate a problem with Smoosh.
 
 ### Compaction Scheduling Algorithm
