@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-23"
+lastupdated: "2019-08-26"
 
 keywords: create service instance, service credentials, locate service credentials
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-09-19 -->
 
@@ -36,7 +37,7 @@ to work with the database.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){: new_window}.
+    [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button. <br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
@@ -111,7 +112,7 @@ At any time, you can find the credentials for a service that is associated with 
 
 1.  Begin by logging in to {{site.data.keyword.cloud_notm}}.
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){: new_window}.
+    [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)

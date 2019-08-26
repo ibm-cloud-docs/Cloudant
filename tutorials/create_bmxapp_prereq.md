@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-08-26"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -40,7 +41,7 @@ before you start working through the tutorial.
 
 For all but the simplest possible development work,
 it is much easier if you have a current installation of the
-[Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window}
+[Python programming language](https://www.python.org/){: new_window}{: external}
 on your system.
 
 To check,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-25"
+lastupdated: "2019-08-26"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-08-20 -->
 
@@ -32,7 +33,7 @@ by using the {{site.data.keyword.cloud_notm}} CLI.
 ## Before you start this tutorial 
 {: #before-you-start-this-tutorial}
 
-To follow this tutorial, you must first install the {{site.data.keyword.cloud_notm}} CLI developer tools. For more information about installing the tools, see the [Getting started with the {{site.data.keyword.cloud_notm}} CLI ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli#overview){: new_window} tutorial.
+To follow this tutorial, you must first install the {{site.data.keyword.cloud_notm}} CLI developer tools. For more information about installing the tools, see the [Getting started with the {{site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli#overview){: new_window}{: external} tutorial.
 
 ## Identifying the {{site.data.keyword.cloud_notm}} API endpoint
 {: #identifying-the-ibm-cloud-api-endpoint}
@@ -58,7 +59,7 @@ Not logged in. Use 'ibmcloud login' to log in.
 ## Logging in to your {{site.data.keyword.cloud_notm}} account
 {: #logging-in-to-your-ibm-cloud-account}
 
-The following example describes the login process. If you are using a federated user ID, it is important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in using the CLI, see [General CLI (ibmcloud) commands ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_login){: new_window} under `ibmcloud login`. 
+The following example describes the login process. If you are using a federated user ID, it is important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in using the CLI, see [General CLI (ibmcloud) commands](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_login){: new_window}{: external} under `ibmcloud login`. 
 
 1.  Start the login process for
   your {{site.data.keyword.cloud_notm}} account by using the following command:
@@ -126,9 +127,9 @@ See the [Plans](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans) s
 ## Creating the {{site.data.keyword.cloudant_short_notm}} service
 {: #creating-the-ibm-cloudant-service}
 
-{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that are provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups? ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window} guide.
+{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that are provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window}{: external} guide.
 
-First, set your target resource group and region as shown in [General CLI (ibmcloud) commands ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window} under `ibmcloud target` by using the following format:
+First, set your target resource group and region as shown in [General CLI (ibmcloud) commands](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window}{: external} under `ibmcloud target` by using the following format:
 
 ```sh
 ibmcloud target [-r REGION_NAME] [-g RESOURCE_GROUP]
