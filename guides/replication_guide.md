@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-08-26"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -30,8 +31,8 @@ across accounts and across data centers.
 {: shortdesc}
 
 Data can even be replicated to and from an {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
-using [{{site.data.keyword.cloudant_short_notm}} Sync ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/sync/){: new_window}
-or [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window}.
+using [{{site.data.keyword.cloudant_short_notm}} Sync](https://cloudant.com/product/cloudant-features/sync/){: new_window}{: external}
+or [PouchDB](http://pouchdb.com/){: new_window}{: external}.
 Replication can run in one direction or in both directions,
 as a 'single shot' or continuous operation,
 and can be finely tuned by using parameters.
@@ -247,7 +248,7 @@ This point is identified by using checkpoints.
 
 Therefore,
 an application that uses the `_changes` feed must
-be ['idempotent' ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.eaipatterns.com/IdempotentReceiver.html){: new_window}.
+be ['idempotent'](http://www.eaipatterns.com/IdempotentReceiver.html){: new_window}{: external}.
 Idempotency means that the application must be able safely to receive the same data multiple times,
 and potentially if a different order for repeated requests.
 
@@ -432,7 +433,7 @@ curl -X DELETE "https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 ### Apache CouchDB
 {: #apache-couchdb}
 
-[Apache CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){: new_window} is an open source database
+[Apache CouchDB](http://couchdb.apache.org/){: new_window}{: external} is an open source database
 that can communicate with {{site.data.keyword.cloudant_short_notm}},
 and that requires minimal setup.
 Applications include:
@@ -440,7 +441,7 @@ Applications include:
 -   Backup: Replicate your data from {{site.data.keyword.cloudant_short_notm}} to your own CouchDB databases
     and take nightly snapshots of your data for archiving purposes.
     Send the data to a backup service such as
-    [Amazon Glacier ![External link icon](../images/launch-glyph.svg "External link icon")](https://aws.amazon.com/glacier/){: new_window} for safe keeping.
+    [Amazon Glacier](https://aws.amazon.com/glacier/){: new_window}{: external} for safe keeping.
 -   Local-first data collection: Write your data to local Apache CouchDB first,
     then replicate it to {{site.data.keyword.cloudant_short_notm}} for long-term storage,
     aggregation,
@@ -449,7 +450,7 @@ Applications include:
 ### PouchDB
 {: #pouchdb}
 
-[PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window} is an open source,
+[PouchDB](http://pouchdb.com/){: new_window}{: external} is an open source,
 in-browser database that allows data to be replicated in both directions between the browser and {{site.data.keyword.cloudant_short_notm}}.
 Storing the data in a web browser on the client side allows web applications to function
 even without an internet connection.
@@ -468,7 +469,7 @@ db.sync(URL, { live: true });
 ### CloudantSync
 {: #cloudantsync}
 
-[CloudantSync ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/cloudant-sync-resources/){: new_window} is a set of libraries
+[CloudantSync](https://cloudant.com/cloudant-sync-resources/){: new_window}{: external} is a set of libraries
 for iOS and Android that allows data to be stored locally in a mobile device
 and synced with {{site.data.keyword.cloudant_short_notm}} when mobile connectivity permits.
 As with [PouchDB](#pouchdb),
@@ -754,7 +755,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 In the returned JSON,
 look for the `disk_size` value.
 If the value indicates a size of over 1 GB,
-contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window} for further advice.
+contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com){: new_window}{: external} for further advice.
 
 You can check an individual `_replicator` document for conflicts,
 as shown in the following example:
@@ -821,4 +822,4 @@ with replication treated as a background process.
 * If you want to run replication with minimal impact, setting `worker_processes` and `http_connections` to 1 might be appropriate.
 
 For further assistance about the best configuration for your use case,
-contact the [{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
+contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com){: new_window}{: external}.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-08-26"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -119,7 +120,7 @@ to estimate an appropriate shard count.
 When you consider data size,
 an important consideration is the number of documents per shard.
 Each shard holds its documents in a large
-[B-tree ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/B-tree){: new_window}
+[B-tree](https://en.wikipedia.org/wiki/B-tree){: new_window}{: external}
 on disk.
 Indexes are stored in the same way.
 As more documents are added to a shard,
@@ -161,7 +162,7 @@ particularly for larger databases:
 *	For even larger databases,
 	consider manually sharding your data into several databases.
 	For such large databases,
-	contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window} for advice.
+	contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com){: new_window}{: external} for advice.
 
 The numbers in these guidelines are derived from observation and experience rather than precise calculation.
 {: tip}
@@ -208,13 +209,13 @@ similar to the following example:
 {: #setting-the-replica-count}
 
 In CouchDB version 2 onwards,
-you are allowed to [specify the replica count ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window}
+you are allowed to [specify the replica count](http://docs.couchdb.org/en/2.0.0/cluster/databases.html?highlight=replicas#creating-a-database){: new_window}{: external}
 when you create a database.
 However,
 you are not allowed to change the replica count value from the default of 3.
 In particular,
 it is not possible to specify a different replica count value when you create a database.
-For further help, contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
+For further help, contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com){: new_window}{: external}.
 
 ### What are the *R* and *W* arguments?
 {: #what-are-the-_r_-and-_w_-arguments-}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-14"
+lastupdated: "2019-08-26"
 
 keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -56,7 +57,7 @@ It is helpful to remember:
 For an active-active deployment, a strategy for managing conflicts must be in place. Therefore, be sure to understand how [replication](/docs/services/Cloudant?topic=cloudant-replication-api#replication-api) and [conflicts](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc) work before you consider this architecture.
 {: note}
 
-Contact [{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}
+Contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com){: new_window}{: external}
 if you need help with how to model data to handle conflicts effectively.
 
 ## Overview
@@ -298,14 +299,14 @@ However,
 if you decide that you do need an ability to manage fail over,
 some possible options include:
 
-* Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/greenmangaming/cloudant-nginx){: new_window}.
+* Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}}](https://github.com/greenmangaming/cloudant-nginx){: new_window}{: external}.
   Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance.
   This configuration means that the task of changing the {{site.data.keyword.cloudant_short_notm}}
   instances that are used by applications can be handled through a modification to the proxy configuration
   rather than a modification to the application settings.
   Many proxies have the capability to balance the load,
   based on user-defined health checks.
-* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window} or [Dyn Traffic Director ![External link icon](../images/launch-glyph.svg "External link icon")](http://dyn.com/traffic-director/){: new_window} to route to {{site.data.keyword.cloudant_short_notm}}.
+* Use a global load balancer such as [{{site.data.keyword.cloud}} Internet Services](/docs/infrastructure/cis?topic=cis-global-load-balancer-glb-concepts#global-load-balancer-glb-concepts){: new_window}{: external} or [Dyn Traffic Director](http://dyn.com/traffic-director/){: new_window}{: external} to route to {{site.data.keyword.cloudant_short_notm}}.
   This option requires a `CNAME` definition that routes to
   different {{site.data.keyword.cloudant_short_notm}} accounts,
   based on a health check or latency rule.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-26"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -153,7 +154,7 @@ Assume that you need to back up one database.
 You want to create a full backup on Monday,
 and an incremental backup on Tuesday.
 
-You can use the `curl` and [`jq` ![External link icon](../images/launch-glyph.svg "External link icon")](http://stedolan.github.io/jq/){: new_window}
+You can use the `curl` and [`jq`](http://stedolan.github.io/jq/){: new_window}{: external}
 commands to run these operations.
 In practice,
 you might use any HTTP client.
@@ -518,4 +519,4 @@ Replication and backups can be tricky.
 If you get stuck,
 check out the [replication guide](/docs/services/Cloudant?topic=cloudant-replication-guide#replication-guide),
 or contact the
-[{{site.data.keyword.cloudant_short_notm}} support team ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}.
+[{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com){: new_window}{: external}.

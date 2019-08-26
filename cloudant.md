@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-08-26"
 
 keywords: links to documentation, how to contribute
 
@@ -19,16 +19,17 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-06-01 -->
 
 # Overview
 {: #overview}
 
-The online documentation for {{site.data.keyword.cloudantfull}} intends to help you get going quickly. For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} product page ![External link icon](images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window}.
+The online documentation for {{site.data.keyword.cloudantfull}} intends to help you get going quickly. For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} product page](https://www.ibm.com/cloud/cloudant){: new_window}{: external}.
 {: shortdesc}
 
-[{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.youtube.com/watch?v=qdMTLK2vYoI){: new_window}
+[{{site.data.keyword.cloudant_short_notm}}](https://www.youtube.com/watch?v=qdMTLK2vYoI){: new_window}{: external}
 is a document-oriented database as a service (DBaaS).
 It stores data as documents in JSON format.
 It is built with scalability,
@@ -43,12 +44,12 @@ desktop PCs,
 and mobile devices.
 
 For more information about other {{site.data.keyword.cloudant_short_notm}} offerings,
-see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window} site.
+see the main [{{site.data.keyword.cloudant_short_notm}}](https://www.ibm.com/cloud/cloudant){: new_window}{: external} site.
 The online documentation that is provided here gives you
 details about {{site.data.keyword.cloudant_short_notm}} concepts,
 tasks, and techniques.
 
-You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}.
+You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard](https://cloud.ibm.com/catalog/services/cloudant){: new_window}{: external}.
 
 A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
 called the [Getting started tutorial](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started) is available,
@@ -60,7 +61,7 @@ and querying data, see the [API reference](/docs/services/Cloudant?topic=cloudan
 {: #documentation-contents}
 
 *	[Getting started tutorial](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started): Learn how to create an {{site.data.keyword.cloudantfull}} database and populate that database with a simple collection of data by using Python.
-*	[{{site.data.keyword.cloudant_short_notm}} blog ![External link icon](images/launch-glyph.svg "External link icon")](https://blog.cloudant.com/): Read blogs on a variety of topics, including {{site.data.keyword.cloudant_short_notm}} fundamentals, removing conflicts, generating sample data, partitioned databases, and more. 
+*	[{{site.data.keyword.cloudant_short_notm}} blog](https://blog.cloudant.com/){: new_window}{: external}: Read blogs on a variety of topics, including {{site.data.keyword.cloudant_short_notm}} fundamentals, removing conflicts, generating sample data, partitioned databases, and more. 
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
 *	[Pricing](/docs/services/Cloudant?topic=cloudant-pricing#pricing): An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 
 *	[Security and Compliance](/docs/services/Cloudant?topic=cloudant-security#security): A collection of articles that describe the {{site.data.keyword.cloudant_short_notm}} position on security, compliance, data privacy and governance, audit logging, and General Data Protection Regulation (GDPR).
@@ -95,4 +96,4 @@ We're also open about our documentation.
 If it's not working for you,
 it's not working for us.
 You can make contributions or share suggestions through
-{{site.data.keyword.cloudant_short_notm}} Labs on [GitHub ![External link icon](images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){: new_window}.
+{{site.data.keyword.cloudant_short_notm}} Labs on [GitHub](https://github.com/cloudant-labs/slate){: new_window}{: external}.

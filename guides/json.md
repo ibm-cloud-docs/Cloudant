@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-26"
 
 keywords: numbers, strings, booleans, arrays, objects
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -26,7 +27,7 @@ subcollection: cloudant
 {: #json}
 
 The majority of requests and responses to and from {{site.data.keyword.cloudantfull}}
-use the [JavaScript Object Notation (JSON) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/JSON){: new_window}
+use the [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON){: new_window}{: external}
 for formatting the content and structure of the data and responses.
 {: shortdesc}
 

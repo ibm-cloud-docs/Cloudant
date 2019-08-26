@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-03-18"
+lastupdated: "2019-08-26"
 
 keywords: couchapp, 3-tier application
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-05-07 -->
 
@@ -68,7 +69,7 @@ When is each appropriate?
 -   You don't need to schedule cronjobs or other regular tasks.
 
 To get started with CouchApps,
-read [Managing applications on {{site.data.keyword.cloudant_short_notm}} ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/app-management/){: new_window}.
+read [Managing applications on {{site.data.keyword.cloudant_short_notm}}](https://cloudant.com/blog/app-management/){: new_window}{: external}.
 
 ## A 3-tier application is appropriate if...
 {: #a-3-tier-application-is-appropriate-if-}

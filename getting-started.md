@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-08-26"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb as a service, couchdb hosted, couchdb, databases for couchdb
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -32,20 +33,20 @@ and populate that database with a simple collection of data.
 
 In addition to this tutorial, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
 
-- [Liberty for Java and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){: new_window}
-- [Node.js and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}
-- [Swift and {{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}
+- [Liberty for Java and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){: new_window}{: external}
+- [Node.js and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}{: external}
+- [Swift and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}{: external}
 
-For more language-specific tutorials, see [Get started by deploying your first app ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs){: new_window}. 
+For more language-specific tutorials, see [Get started by deploying your first app](https://cloud.ibm.com/docs){: new_window}{: external}. 
 
 ## Before you begin
 {: #prereqs}
 
 Verify that you have what you need to start the tutorial from the following list:
 
-- An [{{site.data.keyword.cloud}} account ![External link icon](images/launch-glyph.svg "External link icon")](https://cloud.ibm.com){: new_window}
+- An [{{site.data.keyword.cloud}} account](https://cloud.ibm.com){: new_window}{: external}
 - [An instance of the {{site.data.keyword.cloudant_short_notm}} service](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud)
-- The most recent version of the [Python programming language ![External link icon](images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} on your system:
+- The most recent version of the [Python programming language](https://www.python.org/){: new_window}{: external} on your system:
 
   1.  To check the Python version that you have installed, run the following command:
       ```sh
@@ -341,7 +342,7 @@ client.disconnect()
 {: #next-steps}
 
 For more information about all {{site.data.keyword.cloudant_short_notm}} offerings,
-see the main [{{site.data.keyword.cloudant_short_notm}} ![External link icon](images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window} site.
+see the main [{{site.data.keyword.cloudant_short_notm}}](https://www.ibm.com/cloud/cloudant){: new_window}{: external} site.
 
 For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/services/Cloudant?topic=cloudant-overview#overview).
 
