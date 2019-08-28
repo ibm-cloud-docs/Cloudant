@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-26"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-11-06 -->
 
@@ -322,7 +323,7 @@ allow controlling the two orthogonal behaviours caused by `stale` separately.
 
 The data returned by a view query are in the form of an array.
 Each element within the array is sorted by using standard
-[UTF-8 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/UTF-8){: new_window} sorting.
+[UTF-8](https://en.wikipedia.org/wiki/UTF-8){: new_window}{: external} sorting.
 The sort is applied to the key defined in the view function. 
 
 The basic order of output is as follows:

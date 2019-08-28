@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-08-26"
 
 keywords: basic authentication, cookie authentication
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -50,7 +51,7 @@ pass your credentials as part of every request.
 You pass your credentials by adding an `Authorization` header to the request.
 
 The header contains the authentication scheme (`Basic`),
-followed by the [BASE64 ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Base64){: new_window} encoding of a string created by concatenating:
+followed by the [BASE64](https://en.wikipedia.org/wiki/Base64){: new_window}{: external} encoding of a string created by concatenating:
 
 -	Your user name
 -	The `:` character

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-09"
+lastupdated: "2019-08-26"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2019 -->
 
@@ -868,7 +869,7 @@ Field      | Description | Type
 -	`_changes` reported by a shard are always presented in order.
 	But the ordering between all the contributing shards might appear to be different.
 	For more information,
-	see [A Changes Feed Example ![External link icon](../images/launch-glyph.svg "External link icon")](https://gist.github.com/smithsz/30fb97662c549061e581){: new_window}.
+	see [A Changes Feed Example](https://gist.github.com/smithsz/30fb97662c549061e581){: new_window}{: external}.
 -	Sequence values are unique for a shard,
 	but might vary between shards.
 	This variation means that if you have sequence values from different shards,

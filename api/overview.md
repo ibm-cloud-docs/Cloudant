@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-24"
+lastupdated: "2019-08-26"
 
 keywords: curl samples, reference
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2019 -->
 
@@ -26,7 +27,7 @@ subcollection: cloudant
 {: #api-reference-overview}
 
 The {{site.data.keyword.cloudantfull}} API reference is intended to be a comprehensive and living catalog of {{site.data.keyword.cloudant_short_notm}}'s capabilities.
-Contributions are welcome through [{{site.data.keyword.cloudant_short_notm}} Labs on GitHub ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/slate){: new_window}.
+Contributions are welcome through [{{site.data.keyword.cloudant_short_notm}} Labs on GitHub](https://github.com/cloudant-labs/slate){: new_window}{: external}.
 {: shortdesc}
 
 ## For the curl samples

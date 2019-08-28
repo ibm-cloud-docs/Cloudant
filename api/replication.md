@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-26"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -20,6 +20,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-04-25 -->
 
@@ -208,7 +209,7 @@ The reason might be one of:
 - The selector object does not describe a valid {{site.data.keyword.cloudant_short_notm}} Query.
 
 More information about using a `selector` object is available in the
-[Apache CouchDB documentation ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/2.0.0/api/database/changes.html#selector){: new_window}.
+[Apache CouchDB documentation](http://docs.couchdb.org/en/2.0.0/api/database/changes.html#selector){: new_window}{: external}.
 
 #### Example error response if the selector is not valid
 

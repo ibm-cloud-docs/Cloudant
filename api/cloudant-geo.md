@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-26"
 
 keywords: geospatial, geojson, geo index, querying, query geometry, geometric relation
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-06-04 -->
 
@@ -64,7 +65,7 @@ relation=contains&g=POLYGON ((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0
 
 The basic steps for working with geospatial data in {{site.data.keyword.cloudant_short_notm}} Geo are as follows:
 
-1. Include a GeoJSON geometry object in your JSON document. The geometry object can be of any type that is defined by the [GeoJSON specification ![External link icon](../images/launch-glyph.svg "External link icon")](https://tools.ietf.org/html/rfc7946){: new_window}.
+1. Include a GeoJSON geometry object in your JSON document. The geometry object can be of any type that is defined by the [GeoJSON specification](https://tools.ietf.org/html/rfc7946){: new_window}{: external}.
 2. Index the geometry object that uses {{site.data.keyword.cloudant_short_notm}} Geo defined `st_index` function.
 3. Search the indexed geometry object by using various geometries and geometric relationships.
 
@@ -106,12 +107,12 @@ up to a maximum of 200 at a time.
 To see the other results from your geospatial query,
 page through them by using the arrows.
 
-For more information about using {{site.data.keyword.cloudant_short_notm}} Geospatial, go to the [Learning Center ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.cloudant.com/learning-center#geo){: new_window}.
+For more information about using {{site.data.keyword.cloudant_short_notm}} Geospatial, go to the [Learning Center](http://www.cloudant.com/learning-center#geo){: new_window}{: external}.
 
 ## GeoJSON
 {: #geojson}
 
-[GeoJSON format ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/geojson-spec.html){: new_window}
+[GeoJSON format](http://geojson.org/geojson-spec.html){: new_window}{: external}
 is used to express the following various geographic data structures:
 
 - `Point`
@@ -168,7 +169,7 @@ It must contain two fields: `type` and `coordinates`, where:
 
 For more information about GeoJSON,
 including the full specification,
-go to [http://geojson.org/ ![External link icon](../images/launch-glyph.svg "External link icon")](http://geojson.org/){: new_window}.
+go to [http://geojson.org/](http://geojson.org/){: new_window}{: external}.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #creating-a-cloudant-nosql-db-geo-index}
@@ -210,7 +211,7 @@ Some algorithms are simple to understand and implement,
 but do not produce fast results.
 
 The basic algorithm that is used by {{site.data.keyword.cloudant_short_notm}} Geo
-is [R\*\_tree ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/R*_tree){: new_window}.
+is [R\*\_tree](http://en.wikipedia.org/wiki/R*_tree){: new_window}{: external}.
 Although it has a slightly higher resource requirement for building the index,
 the resulting index offers much better performance in responding to geospatial queries.
 
@@ -341,7 +342,7 @@ Parameter | Description
 {: #geometric-relation}
 
 {{site.data.keyword.cloudant_short_notm}} Geo works with geospatial relationships and follows
-the [DE-9IM specification ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/DE-9IM){: new_window} for geometric relations.
+the [DE-9IM specification](https://en.wikipedia.org/wiki/DE-9IM){: new_window}{: external} for geometric relations.
 This specification defines the different ways in which two geospatial objects are related to each other,
 if indeed they are related at all.
 

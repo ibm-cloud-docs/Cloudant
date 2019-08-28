@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-20"
+lastupdated: "2019-08-26"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -19,13 +19,14 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-10-30 -->
 
 # Search
 {: #search}
 
-Search indexes enable you to query a database by using [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}. A search index uses one, or multiple, fields from your documents. You can use a search index to run queries, find documents based on the content they contain, or work with groups, facets, or geographical searches.
+Search indexes enable you to query a database by using [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}. A search index uses one, or multiple, fields from your documents. You can use a search index to run queries, find documents based on the content they contain, or work with groups, facets, or geographical searches.
 {: shortdesc}
 
 To create a search index, you add a JavaScript function to a design document in the database. An index builds after processing one search request or after the server detects a document update. The `index` function takes the following parameters: 
@@ -265,7 +266,7 @@ Analyzer     | Description
 `email`      | Like the `standard` analyzer, but tries harder to match an email address as a complete token.
 `keyword`    | Input is not tokenized at all.
 `simple`     | Divides text at non-letters.
-`standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.unicode.org/reports/tr29/){: new_window}.
+`standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm](http://www.unicode.org/reports/tr29/){: new_window}{: external}.
 `whitespace` | Divides text at white space boundaries.
 
 ### Example analyzer document:
@@ -287,7 +288,7 @@ Analyzer     | Description
 {: #language-specific-analyzers}
 
 These analyzers omit common words in the specific language,
-and many also [remove prefixes and suffixes ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Stemming){: new_window}.
+and many also [remove prefixes and suffixes](http://en.wikipedia.org/wiki/Stemming){: new_window}{: external}.
 The name of the language is also the name of the analyzer.
 
 * `arabic`
@@ -297,7 +298,7 @@ The name of the language is also the name of the analyzer.
 * `brazilian`
 * `catalan`
 * `cjk` (Chinese, Japanese, Korean)
-* `chinese` ( [smartcn ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: new_window} )
+* `chinese` ( [smartcn](http://lucene.apache.org/core/4_2_1/analyzers-smartcn/org/apache/lucene/analysis/cn/smart/SmartChineseAnalyzer.html){: new_window}{: external} )
 * `czech`
 * `danish`
 * `dutch`
@@ -312,11 +313,11 @@ The name of the language is also the name of the analyzer.
 * `indonesian`
 * `irish`
 * `italian`
-* `japanese` ( [kuromoji ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: new_window} )
+* `japanese` ( [kuromoji](http://lucene.apache.org/core/4_2_1/analyzers-kuromoji/overview-summary.html){: new_window}{: external} )
 * `latvian`
 * `norwegian`
 * `persian`
-* `polish` ( [stempel ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: new_window} )
+* `polish` ( [stempel](http://lucene.apache.org/core/4_2_1/analyzers-stempel/overview-summary.html){: new_window}{: external} )
 * `portuguese`
 * `romanian`
 * `russian`
@@ -737,7 +738,7 @@ By default,
 the sorting order is determined by 'relevance'.
 
 Relevance is measured according to
-[Apache Lucene Scoring ![External link icon](../images/launch-glyph.svg "External link icon")](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}.
+[Apache Lucene Scoring](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}{: external}.
 As an example,
 if you search a simple database for the word `example`,
 two documents might contain the word.
@@ -797,7 +798,7 @@ curl "https://account.cloudant.com/db/_design/ddoc/_search/searchname" -X POST -
 {: #query-syntax}
 
 The {{site.data.keyword.cloudant_short_notm}} search query syntax is based on the
-[Lucene syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}.
+[Lucene syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}.
 Search queries take the form of `name:value` unless the name is omitted,
 in which case they use the default field,
 as demonstrated in the following examples:
@@ -906,7 +907,7 @@ The response to a search query contains an `order` field for each of the results
 The `order` field is an array where the first element is the field or fields that are specified
 in the [`sort` parameter](#query-parameters-search).
 If no [`sort` parameter](#query-parameters-search) is included in the query,
-then the `order` field contains the [Lucene relevance score ![External link icon](../images/launch-glyph.svg "External link icon")](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}.
+then the `order` field contains the [Lucene relevance score](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}{: external}.
 If you use the <q>sort by distance</q> feature as described in [Geographical searches](#geographical-searches),
 then the first element is the distance from a point.
 The distance is measured by using either kilometers or miles.
