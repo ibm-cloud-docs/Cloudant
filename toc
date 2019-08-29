@@ -28,7 +28,10 @@ IBM Cloudant
 		release_info/deprecations.md
 
 	{: .topicgroup}
-	Local/On Premise
+	offerings/couchdb.md
+
+	{: .topicgroup}
+	Cloudant Local
 		local/overview.md
 		local/whats-new.md
 		local/install.md
