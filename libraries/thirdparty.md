@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-26"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated} 
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -31,7 +32,7 @@ Third-party client libraries are not maintained or supported by {{site.data.keyw
 ## C# / .NET
 {: #c-net}
 
-[MyCouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danielwertheim/mycouch){: new_window}
+[MyCouch](https://github.com/danielwertheim/mycouch){: new_window}{: external}
 is an asynchronous CouchDB and {{site.data.keyword.cloudant_short_notm}} client for .Net.
 
 To install the library,
@@ -46,18 +47,18 @@ install-package mycouch.cloudant
 ### Libraries and frameworks for C# / .NET
 {: #libraries-and-frameworks-for-c-net}
 
-- [MyCouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danielwertheim/mycouch){: new_window}.
-- [LoveSeat ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/soitgoes/LoveSeat){: new_window}.
-- [Divan ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/foretagsplatsen/Divan){: new_window}.
-- [Relax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/arobson/Relax){: new_window}.
-- [Hammock ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/relax-net/){: new_window}.
-- [EasyCouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/hhariri/EasyCouchDB){: new_window}.
-- `WDK.API.CouchDB` from [Kanapes IDE ![External link icon](../images/launch-glyph.svg "External link icon")](http://kanapeside.com/){: new_window}.
+- [MyCouch](https://github.com/danielwertheim/mycouch){: new_window}{: external}.
+- [LoveSeat](https://github.com/soitgoes/LoveSeat){: new_window}{: external}.
+- [Divan](https://github.com/foretagsplatsen/Divan){: new_window}{: external}.
+- [Relax](https://github.com/arobson/Relax){: new_window}{: external}.
+- [Hammock](http://code.google.com/p/relax-net/){: new_window}{: external}.
+- [EasyCouchDB](https://github.com/hhariri/EasyCouchDB){: new_window}{: external}.
+- `WDK.API.CouchDB` from [Kanapes IDE](http://kanapeside.com/){: new_window}{: external}.
 
 ### Examples and tutorials for C# / .NET
 {: #examples-and-tutorials-for-c-net}
 
-- [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}.
+- [CRUD](https://github.com/cloudant/haengematte/tree/master/c%23){: new_window}{: external}.
 
 ## Java
 {: #java-thirdparty}
@@ -65,10 +66,10 @@ install-package mycouch.cloudant
 ### Unsupported libraries for Java
 {: #unsupported-for-libraries-for-java-thirdparty}
 
-- [ektorp ![External link icon](../images/launch-glyph.svg "External link icon")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
-- [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){: new_window}.
-- [jrelax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/isterin/jrelax){: new_window}.
-- [LightCouch ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.lightcouch.org/){: new_window}.
+- [ektorp](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}{: external}.
+- [jcouchdb](http://code.google.com/p/jcouchdb/){: new_window}{: external}.
+- [jrelax](https://github.com/isterin/jrelax){: new_window}{: external}.
+- [LightCouch](http://www.lightcouch.org/){: new_window}{: external}.
 
 ## JavaScript
 {: #javascript}
@@ -76,28 +77,28 @@ install-package mycouch.cloudant
 ### Libraries and frameworks for JavaScript
 {: #libraries-and-frameworks-for-javascript}
 
-- [Backbone.cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/backbone.cloudant){: new_window}.
-- [sag.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}.
+- [Backbone.cloudant](https://github.com/cloudant-labs/backbone.cloudant){: new_window}{: external}.
+- [sag.js](https://github.com/sbisbee/sag-js){: new_window}{: external}.
 
 ### Examples and tutorials for JavaScript
 {: #examples-and-tutorials-for-javascript}
 
-- [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){: new_window} using jQuery.
-- [CSVtoCloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/michellephung/CSVtoCloudant){: new_window} - UI for importing `.csv` files into {{site.data.keyword.cloudant_short_notm}}. The app can also be accessed [here ![External link icon](../images/launch-glyph.svg "External link icon")](https://michellephung.github.io/CSVtoCloudant/){: new_window}.
-- [csv2couchdb ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/Mango-information-systems/csv2couchdb){: new_window} - UI from Mango Systems to import `.csv` files to CouchDB/{{site.data.keyword.cloudant_short_notm}}.
-- [songblog ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/millayr/songblog){: new_window} - example app using JQuery.
+- [CRUD](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){: new_window}{: external} using jQuery.
+- [CSVtoCloudant](https://github.com/michellephung/CSVtoCloudant){: new_window}{: external} - UI for importing `.csv` files into {{site.data.keyword.cloudant_short_notm}}. The app can also be accessed [here](https://michellephung.github.io/CSVtoCloudant/){: new_window}.
+- [csv2couchdb](https://github.com/Mango-information-systems/csv2couchdb){: new_window}{: external} - UI from Mango Systems to import `.csv` files to CouchDB/{{site.data.keyword.cloudant_short_notm}}.
+- [songblog](https://github.com/millayr/songblog){: new_window}{: external} - example app using JQuery.
     
 ## PouchDB (JavaScript)
 {: #pouchdb-javascript}
 
-[PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window} is a JavaScript database that can sync with {{site.data.keyword.cloudant_short_notm}},
+[PouchDB](http://pouchdb.com/){: new_window}{: external} is a JavaScript database that can sync with {{site.data.keyword.cloudant_short_notm}},
 meaning you can make your apps offline-ready just by using PouchDB.
 For more information,
-see [our blog post ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/pouchdb){: new_window} on PouchDB.
+see [our blog post](https://cloudant.com/blog/pouchdb){: new_window}{: external} on PouchDB.
 
 To obtain PouchDB,
 and for setup details,
-refer to [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window}.
+refer to [PouchDB](http://pouchdb.com/){: new_window}{: external}.
 
 PouchDB is also available for Node.js: `npm install pouchdb`.
 {: note}
@@ -108,13 +109,13 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 ### Libraries and frameworks for PouchDB
 {: #libraries-and-frameworks-for-pouchdb}
 
-- [PouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/){: new_window} - JavaScript database for browser, with offline synchronization.
+- [PouchDB](http://pouchdb.com/){: new_window}{: external} - JavaScript database for browser, with offline synchronization.
 
 ### Examples and tutorials for PouchDB
 {: #examples-and-tutorials-for-pouchdb}
 
-- [PouchDB Getting Started Guide ![External link icon](../images/launch-glyph.svg "External link icon")](http://pouchdb.com/getting-started.html){: new_window} - example Todo application that syncs from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
-- [locationtracker ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/rajrsingh/locationtracker){: new_window} - example app to record and map location using PouchDB, CouchApp, and {{site.data.keyword.cloudant_short_notm}}.
+- [PouchDB Getting Started Guide](http://pouchdb.com/getting-started.html){: new_window}{: external} - example Todo application that syncs from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
+- [locationtracker](https://github.com/rajrsingh/locationtracker){: new_window}{: external} - example app to record and map location using PouchDB, CouchApp, and {{site.data.keyword.cloudant_short_notm}}.
 
 ## Node.js
 {: #node-js-thirdparty}
@@ -122,21 +123,21 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 ### Unsupported libraries and frameworks for Node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
-- [sag-js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window}, which also works in the browser. For more information, see [saggingcouch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/saggingcouch.com){: new_window} for more detail.
-- [nano ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dscape/nano){: new_window} is a minimalist implementation.
-- [restler ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/danwrong/restler){: new_window} delivers the best performance but is really barebones.
-- [cradle ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/flatiron/cradle){: new_window} is a high-level client that is also available if you absolutely need ease of use at the cost of reduced performance.
-- [cane_passport ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/ddemichele/cane_passport){: new_window} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
-- [express-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant-labs/express-cloudant){: new_window} - a template for Node.js Express framework that also uses PouchDB and Grunt.
+- [sag-js](https://github.com/sbisbee/sag-js){: new_window}{: external}, which also works in the browser. For more information, see [saggingcouch](https://github.com/sbisbee/saggingcouch.com){: new_window}{: external} for more detail.
+- [nano](https://github.com/dscape/nano){: new_window}{: external} is a minimalist implementation.
+- [restler](https://github.com/danwrong/restler){: new_window}{: external} delivers the best performance but is really barebones.
+- [cradle](https://github.com/flatiron/cradle){: new_window}{: external} is a high-level client that is also available if you absolutely need ease of use at the cost of reduced performance.
+- [cane_passport](https://github.com/ddemichele/cane_passport){: new_window}{: external} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
+- [express-cloudant](https://github.com/cloudant-labs/express-cloudant){: new_window}{: external} - a template for Node.js Express framework that also uses PouchDB and Grunt.
 
 ## PHP
 {: #php}
 
-[Sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){: new_window} is PHP's CouchDB and {{site.data.keyword.cloudant_short_notm}} client.
-[Sag.js ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag-js){: new_window} is Sag's JavaScript counterpart.
+[Sag](https://github.com/sbisbee/sag){: new_window}{: external} is PHP's CouchDB and {{site.data.keyword.cloudant_short_notm}} client.
+[Sag.js](https://github.com/sbisbee/sag-js){: new_window}{: external} is Sag's JavaScript counterpart.
 
 To install,
-download `sag` from [https://github.com/sbisbee/sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){: new_window},
+download `sag` from [https://github.com/sbisbee/sag](https://github.com/sbisbee/sag){: new_window}{: external},
 then include the library in your application:
 
 ```
@@ -147,14 +148,14 @@ require_once('./src/Sag.php');
 ### Libraries and frameworks for PHP
 {: #libraries-and-frameworks-for-php}
 
-- [sag ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/sbisbee/sag){: new_window}.
-- [Doctrine CouchDB Client ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/doctrine/couchdb-client){: new_window}.
-- [PHP-on-Couch ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/dready92/PHP-on-Couch){: new_window}.
+- [sag](https://github.com/sbisbee/sag){: new_window}{: external}.
+- [Doctrine CouchDB Client](https://github.com/doctrine/couchdb-client){: new_window}{: external}.
+- [PHP-on-Couch](https://github.com/dready92/PHP-on-Couch){: new_window}{: external}.
 
 ### Examples and tutorials for PHP
 {: #examples-and-tutorials-for-php}
 
-- [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/php){: new_window}.
+- [CRUD](https://github.com/cloudant/haengematte/tree/master/php){: new_window}{: external}.
 
 ## Python
 {: #python}
@@ -162,13 +163,13 @@ require_once('./src/Sag.php');
 ### Unsupported libraries and frameworks for Python
 {: #unsupported-libraries-and-frameworks-for-python}
 
-- [Requests ![External link icon](../images/launch-glyph.svg "External link icon")](http://docs.python-requests.org/en/master/){: new_window}.
+- [Requests](http://docs.python-requests.org/en/master/){: new_window}{: external}.
 
 ## Ruby
 {: #ruby}
 
-[CouchRest ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/couchrest/couchrest){: new_window} is a CouchDB and {{site.data.keyword.cloudant_short_notm}} client
-with extensions for working with Rails using the [CouchRest Model ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/couchrest/couchrest_model){: new_window}.
+[CouchRest](https://github.com/couchrest/couchrest){: new_window}{: external} is a CouchDB and {{site.data.keyword.cloudant_short_notm}} client
+with extensions for working with Rails using the [CouchRest Model](https://github.com/couchrest/couchrest_model){: new_window}{: external}.
 
 To install CouchRest,
 run the command:
@@ -182,17 +183,17 @@ gem install couchrest
 {: #libraries-and-frameworks-for-ruby}
 
 There are many CouchDB clients listed on
-[Ruby Toolbox ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ruby-toolbox.com/categories/couchdb_clients){: new_window}.
+[Ruby Toolbox](https://www.ruby-toolbox.com/categories/couchdb_clients){: new_window}{: external}.
 
 ### Examples and tutorials for Ruby
 {: #examples-and-tutorials-for-ruby}
 
-- [CRUD ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/haengematte/tree/master/ruby){: new_window}.
+- [CRUD](https://github.com/cloudant/haengematte/tree/master/ruby){: new_window}{: external}.
 
 ## Meteor
 {: #meteor}
 
-[cloudant:couchdb ![External link icon](../images/launch-glyph.svg "External link icon")](https://atmospherejs.com/cloudant/couchdb){: new_window} is the
+[cloudant:couchdb](https://atmospherejs.com/cloudant/couchdb){: new_window}{: external} is the
 {{site.data.keyword.cloudant_short_notm}} library for the `couchdb-meteor` package.
 Since Apache CouchDB is not included with Meteor or the CouchDB package,
 you must provide a URL for Meteor to connect

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-01"
+lastupdated: "2019-08-26"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-05-31 -->
 
@@ -474,7 +475,7 @@ Configure the database node to use the SSL security files.
 <li>Restart {{site.data.keyword.cloudant_local_notm}} on the database node.
 </li></ol>
 
-For more information about configuring {{site.data.keyword.cloudant_local_notm}} for SSL-based secure connections, see [Secure Socket Level Options ![External link icon](images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/latest/config/http.html#secure-socket-level-options).
+For more information about configuring {{site.data.keyword.cloudant_local_notm}} for SSL-based secure connections, see [Secure Socket Level Options](http://docs.couchdb.org/en/latest/config/http.html#secure-socket-level-options){: new_window}{: external}.
 
 #### Connecting load balancer and database nodes by using SSL
 {: #connecting-lb-and-db-nodes-by-using-ssl-config-ssl-db}
@@ -1188,9 +1189,9 @@ database-level security for {{site.data.keyword.cloudant_local_notm}}.
 For more information about the security model, see the following
 documents on the Apache CouchDB website.
 
-*  [Security ![External link icon](images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/latest/intro/security.html){: new_window}
-*  [`/db/_security` ![External link icon](images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/latest/api/database/security.html){: new_window}
-*  [Security in CouchDB, The Definitive Guide ![External link icon](images/launch-glyph.svg "External link icon")](http://guide.couchdb.org/draft/security.html){: new_window}
+*  [Security](http://docs.couchdb.org/en/latest/intro/security.html){: new_window}{: external}
+*  [`/db/_security`](http://docs.couchdb.org/en/latest/api/database/security.html){: new_window}{: external}
+*  [Security in CouchDB, The Definitive Guide](http://guide.couchdb.org/draft/security.html){: new_window}{: external}
 
 ### Configuring database-level security
 {: #configuring-database-level-security}
@@ -1212,7 +1213,7 @@ the following steps.
 
     For more information about the syntax that is used in that
     document and the API call, see
-    [`PUT /<db>/_security` ![External link icon](images/launch-glyph.svg "External link icon")](http://docs.couchdb.org/en/stable/api/database/security.html#put--db-_security){: new_window}.
+    [`PUT /<db>/_security`](http://docs.couchdb.org/en/stable/api/database/security.html#put--db-_security){: new_window}{: external}.
 
 4.  Validate the security settings on each database.
 

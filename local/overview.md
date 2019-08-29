@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-21"
+lastupdated: "2019-08-26"
 
 keywords: features, information
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -54,7 +55,7 @@ You can complete the following tasks after you install {{site.data.keyword.cloud
 ## Find more information
 {: #find-more-information}
 
-Go to the [{{site.data.keyword.IBM_notm}} Support Portal ![External link icon](images/launch-glyph.svg "External link icon")](https://www.ibm.com/support/home/product/M988263L18030X20/Cloudant_Data_Layer_Local_Edition){:new_window} and search for {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition. From here, you can find technotes, download fixes,
+Go to the [{{site.data.keyword.IBM_notm}} Support Portal](https://www.ibm.com/support/home/product/M988263L18030X20/Cloudant_Data_Layer_Local_Edition){:new_window}{: external} and search for {{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition. From here, you can find technotes, download fixes,
 and access other support information.
 
 ## Documentation for previous versions
