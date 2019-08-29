@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-26"
 
 keywords: immutable data, pre-calculate results, de-normalise data, avoid conflicts, conflict resolution
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -29,7 +30,7 @@ This article considers the finer
 points of modeling your application's data to work efficiently on a large scale.
 {: shortdesc}
 
-*(This guide is based on a Blog article by Mike Rhodes: [<q>My top 5 tips for modeling your data to scale</q> ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/), originally published December 17, 2013.)*
+*(This guide is based on a Blog article by Mike Rhodes: [<q>My top 5 tips for modeling your data to scale</q>](https://cloudant.com/blog/my-top-5-tips-for-modeling-your-data-to-scale/){: new_window}{: external}, originally published December 17, 2013.)*
 
 The way you model data on {{site.data.keyword.cloudantfull}} will significantly impact how your application is able to 
 scale. Our underlying data model differs substantially from a relational model, and ignoring 
@@ -253,6 +254,6 @@ and to take advantage of, to make sure the database performance scales as your a
 grows. We understand the shift can be confusing, so we’re always on-hand to give advice.
 
 For further reading, see this discussion on the
-[data model for Foundbite ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window},
-or this [example from our friends at Twilio ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}.
+[data model for Foundbite](https://cloudant.com/blog/foundbites-data-model-relational-db-vs-nosql-on-cloudant/){: new_window}{: external},
+or this [example from our friends at Twilio](https://www.twilio.com/blog/2013/01/building-a-real-time-sms-voting-app-part-3-scaling-node-js-and-couchdb.html){: new_window}{: external}.
 

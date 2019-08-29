@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-26"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -26,7 +27,7 @@ subcollection: cloudant
 {: #design-document-management}
 
 *Article contributed by Glynn Bird, Developer Advocate at IBM Cloudant,
-[glynn@cloudant.com ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:glynn@cloudant.com){: new_window}*
+[glynn@cloudant.com](mailto:glynn@cloudant.com){: new_window}{: external}*
 
 {{site.data.keyword.cloudantfull}}'s scalable JSON data store has several querying mechanisms,
 all of which generate indices that are created and maintained separately to the core data.
@@ -314,7 +315,7 @@ If the incoming design document is the same as the incumbent one,
 then the script returns almost immediately.
 
 The source code for the script is available here:
-[https://github.com/glynnbird/couchmigrate ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/couchmigrate){: new_window}.
+[https://github.com/glynnbird/couchmigrate](https://github.com/glynnbird/couchmigrate){: new_window}{: external}.
 
 ## The '`stale`' parameter
 {: #the-stale-parameter}

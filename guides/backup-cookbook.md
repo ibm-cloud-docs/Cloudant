@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-03"
+lastupdated: "2019-08-26"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -42,7 +43,7 @@ redundant data storage does not protect against mistakes when data is changed.
 The tool is called CouchBackup,
 and is open source.
 It is a `node.js` library,
-and you can install it on [npm ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{: new_window}.
+and you can install it on [npm][npmpackage]{: new_window}{: external}.
 
 In addition to the library,
 the CouchBackup package contains two command line tools:
@@ -65,7 +66,7 @@ couchbackup --url "https://examples.cloudant.com" --db animaldb > backup.txt
 ```
 {: codeblock}
 
-The [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{: new_window} details other options,
+The [npm readme][npmreadme]{: new_window}{: external} details other options,
 including:
 
 * Environment variables to set the names of the database and URL.
@@ -99,7 +100,7 @@ couchrestore --url "https://myaccount.cloudant.com" --db newanimaldb < backup.tx
 ```
 {: codeblock}
 
-The [npm readme ![External link icon](../images/launch-glyph.svg "External link icon")][npmreadme]{: new_window} provides details of other restore options.
+The [npm readme][npmreadme]{: new_window}{: external} provides details of other restore options.
 
 The CouchBackup tools have [limitations](#limitations).
 {: important}
@@ -127,7 +128,7 @@ The CouchBackup tools have the following limitations:
 ## Using the tools
 {: #using-the-tools}
 
-The [npm page ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{: new_window}
+The [npm page][npmpackage]{: new_window}{: external}
 details the basics of using the command line tools for backup and restore of data.
 The following examples show how to put those details into practice
 by describing the use of the tools for specific tasks.
@@ -146,7 +147,7 @@ or the library with application code,
 to enable backup from {{site.data.keyword.cloudant_short_notm}} databases as part of more complicated situations.
 A useful scenario is scheduling backups by using `cron`,
 and automatically uploading data to
-[Cloud Object Storage ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window}
+[Cloud Object Storage](https://www.ibm.com/cloud/object-storage/solutions?mhq=object%20storage%20public&mhsrc=ibmsearch_a){: new_window}{: external}
 for long-term retention.
 
 ## Command line scripting examples
@@ -247,13 +248,13 @@ for example:
   your application can detect and address any error at the earliest opportunity.
 
 For more information,
-see the [npm page ![External link icon](../images/launch-glyph.svg "External link icon")][npmpackage]{: new_window}.
+see the [npm page][npmpackage]{: new_window}{: external}.
 
 The following script sample shows how to combine the `couchbackup` library
 with use of {{site.data.keyword.IBM}} Cloud Object Storage.
 This code illustrates how you might use Cross Region S3 API to back up a database to an object store.
 
-A prerequisite for the code is that you initialize the S3 client object for {{site.data.keyword.IBM_notm}} Cloud Object Storage by following the instructiosn in [{{site.data.keyword.cloud_notm}} Object Storage - S3 API Intro ![External link icon](../images/launch-glyph.svg "External link icon")][cosclient]{: new_window}.
+A prerequisite for the code is that you initialize the S3 client object for {{site.data.keyword.IBM_notm}} Cloud Object Storage by following the instructiosn in [{{site.data.keyword.cloud_notm}} Object Storage - S3 API Intro][cosclient]{: new_window}{: external}.
 {: note}
 
 ```javascript

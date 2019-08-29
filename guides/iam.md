@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-01"
+lastupdated: "2019-08-26"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2018-07-02 -->
 
@@ -39,7 +40,7 @@ to help you decide which to use. Then, we discuss how to use IAM within
 {{site.data.keyword.cloudant_short_notm}}'s client libraries and via HTTP calls. Finally, we end with a reference
 section that describes all of the IAM actions and roles available within {{site.data.keyword.cloudant_short_notm}}.
 
-See an overview of [IAM ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window}, including how to:
+See an overview of [IAM](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window}{: external}, including how to:
 
 - Manage user and service IDs.
 - Manage available credentials.
@@ -279,7 +280,7 @@ This section discusses how to use {{site.data.keyword.cloudant_short_notm}} with
 service instances by using IAM authentication and access control. It uses the
 details from the Service Credentials JSON example previously mentioned.
 
-{{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the consuming application must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey) documentation for more details.
+{{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the consuming application must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey){: new_window}{: external} documentation for more details.
 
 {{site.data.keyword.cloudant_short_notm}}'s official client libraries handle obtaining a token from an API key for you. If you access {{site.data.keyword.cloudant_short_notm}} directly by using an HTTP client rather than an {{site.data.keyword.cloudant_short_notm}} client library, you must handle exchanging and refreshing a time-limited access token by using an IAM API key with the IAM token service. After a token expires, {{site.data.keyword.cloudant_short_notm}} returns an HTTP `401` status code.
 
@@ -333,7 +334,7 @@ The following code snippets require these versions.
 ### Java
 {: #java-iam}
 
-Requires [java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){: new_window}, 2.13.0+.
+Requires [java-cloudant](https://github.com/cloudant/java-cloudant){: new_window}{: external}, 2.13.0+.
 
 Use the `iamApiKey()` method to create a database client with an IAM API key:
 
@@ -363,7 +364,7 @@ public class App
 ### Node.js
 {: #node.js}
 
-Requires [nodejs-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/nodejs-cloudant){: new_window}, 2.3.0+.
+Requires [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external}, 2.3.0+.
 
 Use the `iamauth` plug-in to create a database client with an IAM API key:
 
@@ -388,7 +389,7 @@ cloudant.db.list(function(err, body) {
 ### Python
 {: #python}
 
-Requires [python-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/python-cloudant){: new_window}, 2.9.0+.
+Requires [python-cloudant](https://github.com/cloudant/python-cloudant){: new_window}{: external}, 2.9.0+.
 
 Use the `Cloudant.iam(account_name, api_key, **kwargs)` method to create a
 database client with an IAM API key:

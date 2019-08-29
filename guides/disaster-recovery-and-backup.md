@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-05-28"
+lastupdated: "2019-08-26"
 
 keywords: types and levels of protection, data redundancy, cross-region redundancy, database backup and recovery
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -227,7 +228,7 @@ Example scenarios include:
 *	Migrating older data to cheaper storage, for more cost-effective retention.
 
 The backup tools consist of an open source node.js command line application and library.
-It is available on [NPM ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}.
+It is available on [NPM](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.
 
 For ideas and examples that show how to integrate the tools into your data protection strategy,
 see the [{{site.data.keyword.cloudant_short_notm}} backup and recovery guide](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).

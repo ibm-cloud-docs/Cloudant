@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-08-26"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -19,13 +19,14 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Document versioning and MVCC
 {: #document-versioning-and-mvcc}
 
-[Multi-version concurrency control (MVCC) ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window}
+[Multi-version concurrency control (MVCC)](https://en.wikipedia.org/wiki/Multiversion_concurrency_control){: new_window}{: external}
 is how {{site.data.keyword.cloudantfull}} databases ensure that all of the nodes in a database's cluster contain
 only the [newest version](/docs/services/Cloudant?topic=cloudant-documents#documents) of a document.
 {: shortdesc}
@@ -35,7 +36,7 @@ this is necessary to prevent inconsistencies arising between nodes
 as a result of synchronizing between outdated documents.
 
 Multi-Version Concurrency Control (MVCC) enables concurrent read and write access to an {{site.data.keyword.cloudant_short_notm}} database.
-MVCC is a form of [optimistic concurrency ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}.
+MVCC is a form of [optimistic concurrency](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}{: external}.
 It makes both read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because
 there is no need for database locking on either read or write operations.
 MVCC also enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
@@ -63,7 +64,7 @@ or else your request fails and returns a [409 error](/docs/services/Cloudant?top
 You can query a particular revision using its `_rev`,
 however,
 older revisions are regularly deleted by a process called
-[compaction ![External link icon](../images/launch-glyph.svg "External link icon")](http://en.wikipedia.org/wiki/Data_compaction){: new_window}.
+[compaction](http://en.wikipedia.org/wiki/Data_compaction){: new_window}{: external}.
 A consequence of compaction is that
 you cannot rely on a successful response when querying a particular document revision
 using its `_rev` in order to obtain a history of revisions to your document.
@@ -217,7 +218,7 @@ other resolution strategies might be required:
 *   Sophisticated algorithms: for example, 3-way merges of text fields.
 
 For a practical example of how to implement a merge of changes,
-see this project with [sample code ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/glynnbird/deconflict){: new_window}.
+see this project with [sample code](https://github.com/glynnbird/deconflict){: new_window}{: external}.
 
 ### Upload the new revision
 {: #upload-the-new-revision-mvcc}
