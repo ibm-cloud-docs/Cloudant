@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-03-07"
+lastupdated: "2019-08-27"
 
 keywords: query, response content-type, attachments, disabled javascript constructors, active tasks, views, design documents, authentication, user documents, replication, result set
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2019 -->
 
@@ -36,7 +37,7 @@ versions are released.
 ### Query and index selection
 {: #query-and-index-selection}
 
-- {{site.data.keyword.cloudant_short_notm}} Query uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection ![External link icon](../images/launch-glyph.svg "External link icon")](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}.
+- {{site.data.keyword.cloudant_short_notm}} Query uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}{: external}.
  
 ### Response Content-Type
 {: #response-content-type-changes}

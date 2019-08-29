@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-27"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -67,15 +68,15 @@ shares the underlying hardware resources that make up the {{site.data.keyword.cl
 ## Security, encryption, and compliance 
 {: #security-encryption-and-compliance}
 
-All plans are provided on servers with [at rest ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Data_at_rest) 
+All plans are provided on servers with [at rest](https://en.wikipedia.org/wiki/Data_at_rest){: new_window}{: external}
 disk encryption. Access is over the public network connection and encrypted by 
-using HTTPS. For more detail, see [Security](/docs/services/Cloudant?topic=cloudant-security#security). 
+using HTTPS. For more detail, see [Security](/docs/services/Cloudant?topic=cloudant-security#security){: new_window}{: external}. 
 IP whitelisting is available on request to {{site.data.keyword.cloudant_short_notm}} Support and will apply to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level.  
 
 The plan also offers [Compliance Certification](/docs/services/Cloudant?topic=cloudant-compliance#compliance). 
 
-[HIPAA ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window} 
+[HIPAA](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window}{: external} 
 compliance is available upon request, so request this during the purchase process with an {{site.data.keyword.IBM_notm}} sales representative. 
 
 ## High availability, disaster recovery, and backup 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-05-30"
+lastupdated: "2019-08-27"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -41,14 +42,14 @@ reads and writes, and enable high availability and data durability.
 It provides an [HTTP API](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#http-api) for working with your 
 [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview) data, and 24-hour operational support and maintenance. 
 {{site.data.keyword.cloudant_short_notm}} is based on 
-[Apache CouchDB ![External link icon](../images/launch-glyph.svg "External link icon")](http://couchdb.apache.org/){: new_window}, and is delivered as various multi-tenant, dedicated, and installed services.
+[Apache CouchDB](http://couchdb.apache.org/){: new_window}{: external}, and is delivered as various multi-tenant, dedicated, and installed services.
 
 All currency values in this document are in US dollars ($).
 {: tip}
 
 It is offered as either a [Shared Plan](#shared-plan) or an 
 [Enterprise (Dedicated) Plan](#enterprise-plan). {{site.data.keyword.cloudant_short_notm}} 
-is also available as an [{{site.data.keyword.cloud}} service ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/){: new_window}.
+is also available as an [{{site.data.keyword.cloud}} service](https://www.ibm.com/cloud/){: new_window}{: external}.
 
 The {{site.data.keyword.cloudant_short_notm}} Shared Plan and Enterprise (Dedicated) Plan 
 offerings are not available on the {{site.data.keyword.cloud_notm}} service.
@@ -65,7 +66,7 @@ This plan gives you assured database performance and up-time, by using dedicated
 hardware available at various hosting locations.
 
 For users of the Enterprise plan who require a new or additional {{site.data.keyword.cloudant_short_notm}} 
-account on one of their dedicated clusters, sign up on the [{{site.data.keyword.cloudant_short_notm}} Enterprise account sign up page ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/enterprise-sign-up){: new_window}, 
+account on one of their dedicated clusters, sign up on the [{{site.data.keyword.cloudant_short_notm}} Enterprise account sign up page](https://cloudant.com/enterprise-sign-up){: new_window}{: external}, 
 create an account using the form, and open a support ticket to request that your account be moved to one of your 
 {{site.data.keyword.cloudant_short_notm}} Enterprise dedicated clusters. 
 
@@ -73,14 +74,14 @@ create an account using the form, and open a support ticket to request that your
 {: #shared-plan}
 
 The {{site.data.keyword.cloudant_short_notm}} Shared Plan is being retired on March 31, 2018. 
-As of July 24th, 2017, no new Shared Plan accounts can be created on the [{{site.data.keyword.cloudant_short_notm}} website ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/cloudant){: new_window}. 
+As of July 24th, 2017, no new Shared Plan accounts can be created on the [{{site.data.keyword.cloudant_short_notm}} website](https://www.ibm.com/cloud/cloudant){: new_window}{: external}. 
 {: deprecated}
 
 With the {{site.data.keyword.cloudant_short_notm}} Shared Plan, you have access to all the 
 {{site.data.keyword.cloudant_short_notm}} DBaaS capabilities, provided through a shared or 'multi-tenant' cluster.
 
 Pricing is metered, based on your monthly usage. No charge applies if your monthly usage is 
-under $50.00 (as of August 2016). For more information, see the [{{site.data.keyword.cloudant_short_notm}} Shared Plan Terms of Service ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/assets/terms.pdf){: new_window}. 
+under $50.00 (as of August 2016). For more information, see the [{{site.data.keyword.cloudant_short_notm}} Shared Plan Terms of Service](https://cloudant.com/assets/terms.pdf){: new_window}{: external}. 
    
       
          

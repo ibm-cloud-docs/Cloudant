@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-08-27"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -30,7 +31,7 @@ to give citizens back the control of their personal data, while imposing strict 
 those hosting and ‘processing’ this data, anywhere in the world. The Regulation also introduces 
 rules that relate to the free movement of personal data within and outside the EU. 
 
-With the [General Data Protection Regulation ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.eugdpr.org/){: new_window},
+With the [General Data Protection Regulation](https://www.eugdpr.org/){: new_window}{: external},
 {{site.data.keyword.cloudantfull}} customers can rely on 
 the {{site.data.keyword.cloudant_short_notm}} team's understanding and
 compliance with emerging data privacy standards and legislation and 
@@ -57,14 +58,14 @@ for GDPR:
  * Connectivity/device data
 
 **Sensitive Personal Data**, which is restricted to:
-  * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window} and [{{site.data.keyword.cloud}} Additional Service Description ![External link icon](../images/launch-glyph.svg "External link icon")](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6627-04/$file/i126-6627-04_04-2018_en_US.pdf){: new_window}
+  * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6627-04/$file/i126-6627-04_04-2018_en_US.pdf){: new_window}{: external}
 
 If you are storing healthcare data, you *must* complete the following tasks:
  - Notify {{site.data.keyword.cloudant_short_notm}} before writing any data.
  - Request a HIPAA-compliant dedicated cluster.
 
 For more information about supported classifications of Personal Data, see the 
-[Data Sheet Addendum (DSA) under 2. Personal Data ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}.
+[Data Sheet Addendum (DSA) under 2. Personal Data](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}{: external}.
 
 ## Data about me
 {: #data-about-me}
@@ -93,7 +94,7 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboa
 ### Restriction of processing
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com){: new_window}. Upon 
+{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com){: new_window}{: external}. Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information associated 
 with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
 ability to contact dedicated customers via email and provides an interface for customers to keep this 
@@ -118,7 +119,7 @@ Locations where {{site.data.keyword.cloudant_short_notm}} processes personal dat
 made available, and kept up to date, via the DSA.
 
 For more information about data locations, see the 
-[DSA under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}.
+[DSA under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}{: external}.
 
 ## Service security
 {: #service-security}
@@ -193,7 +194,7 @@ the storage tier, and databases are always being compacted; there is just no gua
 data you have just deleted/changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting *Right to be forgotten* requests via 
-the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO) ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}. 
+the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}{: external}. 
 When a *Right to be forgotten* request is made from the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} verifies the request, 
 explicitly triggers database compaction, and verifies that compaction has occurred.
 At the end of this process, the only version of the document is its tombstone 
@@ -219,7 +220,7 @@ to {{site.data.keyword.cloudant_short_notm}}.
 
 If a document needs removal via a *Right to be forgotten* request:
 
-1. File a request with the [{{site.data.keyword.IBM_notm}} DPO ![External link icon](../images/launch-glyph.svg "External link icon")](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window} to request purging of specific document `_id` values along with the reason.
+1. File a request with the [{{site.data.keyword.IBM_notm}} DPO](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}{: external} to request purging of specific document `_id` values along with the reason.
 1. On receipt of a formal request by the {{site.data.keyword.IBM_notm}} DPO, {{site.data.keyword.cloudant_short_notm}} operations
 verifies the request to confirm the `id` contains PI. {{site.data.keyword.cloudant_short_notm}} does not purge data that does not have PI in the `_id`. 
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
@@ -249,5 +250,5 @@ database are removed from your system. For more information, see
 [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: new_window}. 
 
 If you need additional help, contact 
-[{{site.data.keyword.cloudant_short_notm}} support ![External link icon](../images/launch-glyph.svg "External link icon")](mailto:support@cloudant.com).
+[{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com){: new_window}{: external}.
 
