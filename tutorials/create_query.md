@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-19"
+lastupdated: "2019-08-26"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -42,9 +43,9 @@ contain the data for these exercises.
 
 Before you begin, follow these steps to prepare for the tutorial:
 
-1.  [Create an {{site.data.keyword.cloud_notm}} account ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/registration){: new_window}.
+1.  [Create an {{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: new_window}{: external}.
 2.  Log in to the
-  [{{site.data.keyword.cloud_notm}} Dashboard ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/catalog/services/cloudant){: new_window}.
+  [{{site.data.keyword.cloud_notm}} Dashboard](https://cloud.ibm.com/catalog/services/cloudant){: new_window}{: external}.
 3.  [Create an {{site.data.keyword.cloudant_short_notm}} instance on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-service-instance).
 4.  (Optional) [Create an acurl alias](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) to make it easier and faster to run commands from the command line.
 5.  Replace the `$ACCOUNT` variable in the commands that are included in the exercises with the user name you use to log in to {{site.data.keyword.cloudant_short_notm}} Dashboard.
@@ -273,7 +274,7 @@ When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner 
 
 *	Primary index – look up a document or list of documents by ID.  
 *	[View](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) – search for information in the database that matches the search criteria that you specify, such as counts, sums, averages, and other mathematical functions. The criteria you can search is specified in the view's definition. Views use the MapReduce paradigm.
-*	[Search index](/docs/services/Cloudant?topic=cloudant-search#search) – search one or more fields, large amounts of text, or use wildcards, fuzzy search, or facets with [Lucene Query Parser Syntax ![External link icon](../images/launch-glyph.svg "External link icon")](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}.
+*	[Search index](/docs/services/Cloudant?topic=cloudant-search#search) – search one or more fields, large amounts of text, or use wildcards, fuzzy search, or facets with [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}.
 
 If there is no available defined index that matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index.
 {: tip}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-04-22"
+lastupdated: "2019-08-26"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-01-11 -->
 
@@ -85,10 +86,10 @@ your first {{site.data.keyword.cloud_notm}} applications.
 
 A good source of advice on best practices for creating {{site.data.keyword.cloud_notm}} or
 Cloud Foundry applications is
-[Considerations for Designing and Running an App in the Cloud ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}.
+[Considerations for Designing and Running an App in the Cloud](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html){: new_window}{: external}.
 
 In particular,
-the advice on [avoiding writes to the local file system ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window} is prudent.
+the advice on [avoiding writes to the local file system](https://docs.cloudfoundry.org/devguide/deploy-apps/prepare-to-deploy.html#filesystem){: new_window}{: external} is prudent.
 
 For reasons of simplicity, this tutorial does write content to the local file system. However, the quantity of material is small. It is not expected to persist, and it is not 'mission critical'.
 {: tip}

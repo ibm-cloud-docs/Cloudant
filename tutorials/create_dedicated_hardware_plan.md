@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-22"
+lastupdated: "2019-08-26"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -43,7 +44,7 @@ instances on it.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [`https://cloud.ibm.com/` ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){: new_window}.
+    [`https://cloud.ibm.com/`](https://cloud.ibm.com/){: new_window}{: external}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
@@ -59,7 +60,7 @@ instances on it.
     -   Specify the region/location where you want to deploy. The region/location will be one of the six major {{site.data.keyword.cloud_notm}} regions where you want the instance deployed. The actual physical location of the instance is dictated by the location parameter described in the following list.<br/>
     -   Select a resource group.</br>
     -   Add a tag. 
-    -   Select a location for deployment. This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information see [{{site.data.keyword.IBM}} global data centers ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/data-centers/){:new_window}.<br/>
+    -   Select a location for deployment. This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){:new_window}{: external}.<br/>
     -   Select `yes` or `no` to answer whether HIPAA is required.<br/> 
     
     HIPAA is only valid for U.S. locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only provisioned upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. See [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
@@ -84,7 +85,7 @@ instances on it.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){: new_window}.
+    [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
     After authenticating with your user name and password,
     you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)

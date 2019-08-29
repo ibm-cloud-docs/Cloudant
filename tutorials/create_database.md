@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-07-02"
+lastupdated: "2019-08-26"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -19,13 +19,14 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
 # Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}
 {: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}
 
-This tutorial shows you how to use the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} to
+This tutorial shows you how to use the [Python programming language](https://www.python.org/){: new_window}{: external} to
 create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.cloud_notm}} service instance,
 and populate the database with a simple collection of data.
 {: shortdesc}
@@ -39,7 +40,7 @@ before you start working through the tutorial.
 ### Python
 {: #python-create-database}
 
-You must have a current installation of the [Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window}
+You must have a current installation of the [Python programming language](https://www.python.org/){: new_window}{: external}
 installed on your system.
 
 To check this,

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-05"
+lastupdated: "2019-08-26"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -34,7 +35,7 @@ for creating an {{site.data.keyword.cloud}} application.
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
-    [https://cloud.ibm.com/ ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/){: new_window}.
+    [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
     After you authenticate with your user name and password,
     the {{site.data.keyword.cloud_notm}} dashboard appears. Click `Catalog` from the menu: <br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
@@ -125,7 +126,7 @@ your {{site.data.keyword.cloud_notm}} environment,
 applications,
 and services.
 
-The [Cloud Foundry ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Cloud_Foundry){: new_window}
+The [Cloud Foundry](https://en.wikipedia.org/wiki/Cloud_Foundry){: new_window}{: external}
 toolkit is a collection of tools for working with applications that are
 deployed in a Cloud Foundry-compatible environment.
 Use these tools for tasks such as updating a deployed application,
@@ -142,7 +143,7 @@ If the toolkits are already installed and working on your system,
 you do not need to download them again,
 unless they are updated.
 
-For more information about the toolkits, see the [Getting started ![External link icon](../images/launch-glyph.svg "External link icon")](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window} tutorial.
+For more information about the toolkits, see the [Getting started](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window}{: external} tutorial.
 
 ### Installing the Cloud Foundry toolkit
 {: #installing-the-cloud-foundry-toolkit}
@@ -188,7 +189,7 @@ Use the following steps to download and install the {{site.data.keyword.cloud_no
 
 1.  Click `Getting started` to see information on downloading the {{site.data.keyword.cloud_notm}} admin CLI toolkit.
 
-2.  Click `CLI` to open the [Getting started with {{site.data.keyword.cloud_notm}} developer tools ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli#getting-started){: new_window} document.
+2.  Click `CLI` to open the [Getting started with {{site.data.keyword.cloud_notm}} developer tools](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli#getting-started){: new_window}{: external} document.
 
 3.  Follow the instructions on the page to download and run the appropriate installer for your system.
 
@@ -230,7 +231,7 @@ An {{site.data.keyword.cloud_notm}} starter application is the minimum possible 
 of source and configuration files
 necessary to create a working {{site.data.keyword.cloud_notm}} application.
 In some regards,
-it is similar to a ['Hello World' application ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){: new_window};
+it is similar to a ['Hello World' application](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program){: new_window}{: external};
 sufficient only to show that the basic system and configuration is working correctly.
 
 An {{site.data.keyword.cloud_notm}} starter application is an archive of example files that
@@ -251,7 +252,7 @@ that {{site.data.keyword.cloud_notm}} needs to run your application.
 More specifically,
 a `Procfile` is a Cloud Foundry artifact that defines an application process type,
 and the command to run the application.
-For more information about the `Procfile`, see [About Procfiles ![External link icon](../images/launch-glyph.svg "External link icon")](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window} in the Cloud Foundry Documentation.
+For more information about the `Procfile`, see [About Procfiles](https://docs.cloudfoundry.org/buildpacks/prod-server.html#procfile){: new_window}{: external} in the Cloud Foundry Documentation.
 
 The `Procfile` for an {{site.data.keyword.cloud_notm}} Python starter application
 looks similar to the following example:

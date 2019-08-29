@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-05"
+lastupdated: "2019-08-26"
 
 keywords: create applications, deploy applications, create simple application
 
@@ -19,6 +19,7 @@ subcollection: cloudant
 {:note: .note}
 {:important: .important}
 {:deprecated: .deprecated}
+{:external: target="_blank" .external}
 
 <!-- Acrolinx: 2017-05-10 -->
 
@@ -26,7 +27,7 @@ subcollection: cloudant
 {: #creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database}
 
 This tutorial shows you how to create an {{site.data.keyword.cloud}} application that uses the
-[Python programming language ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.python.org/){: new_window} to
+[Python programming language](https://www.python.org/){: new_window}{: external} to
 access an {{site.data.keyword.cloudantfull}} database,
 hosted in your {{site.data.keyword.cloud_notm}} service instance.
 {: shortdesc}
@@ -44,7 +45,7 @@ it makes sense to have your applications there,
 too.
 
 {{site.data.keyword.cloud_notm}} applications are typically created by using
-[Cloud Foundry ![External link icon](../images/launch-glyph.svg "External link icon")](https://en.wikipedia.org/wiki/Cloud_Foundry){: new_window} technology.
+[Cloud Foundry](https://en.wikipedia.org/wiki/Cloud_Foundry){: new_window}{: external} technology.
 Cloud Foundry offers a Platform-as-a-Service (PaaS) capability
 that simplifies the process of creating applications that can be deployed and run
 within a Cloud environment.
