@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-29"
+lastupdated: "2019-08-30"
 
 keywords: apache couchdb support extension
 
@@ -23,7 +23,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # Apache CouchDB
-{: #apache-coucdhdb}
+{: #apache-couchdb}
 
 ## Overview
 {: #overview}
