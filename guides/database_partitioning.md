@@ -168,6 +168,13 @@ effect on the number of servers the API coordination node needs to contact. As
 this number remains small, increasing data size has no effect on query latency,
 unlike global queries.
 
+## Partitioned databases tutorials
+
+We have two worked examples of using Partitioned Databases:
+
+1. Read about [Partitioned Databases and Node.js](https://blog.cloudant.com/2019/05/24/Partitioned-Databases-with-Cloudant-Libraries.html){: new_window}{: external} in this blog article that includes how to create a partitioned database, search, views, and a global index. 
+2. Read the example below about using views and the `_all_docs` endpoint.
+
 ## Example: partitioning IoT reading data
 {: #example-partitioning-iot-reading-data}
 
@@ -193,6 +200,7 @@ Using the second approach, we'd end up with document IDs like the following:
 ```
 device-123456:20181211T11:13:24.123456Z
 ```
+{: codeblock}
 
 The timestamp could also be an epoch timestamp.
 
@@ -236,6 +244,7 @@ We'll use a database called `readings` and an account called
 ```
 curl -XPUT "https://acme.cloudant.com/readings?partitioned=true"
 ```
+{: codeblock}
 
 ### Document structure
 {: #document-struture}
@@ -252,6 +261,7 @@ First, let's define a simple document format to work with:
     }
 }
 ```
+{: codeblock}
 
 For this document, using the partitioning scheme based on piece of
 infrastructure, the document ID might include the infrastructure ID as
@@ -260,6 +270,7 @@ the partition key, and include both device and timestamp as the document key:
 ```
 bridge-9876:device-123456-20181211T11:13:24.123456Z
 ```
+{: codeblock}
 
 ### Creating indexes
 {: #creating-indexes}
@@ -289,6 +300,7 @@ this would look something like this:
     }
 }
 ```
+{: codeblock}
 
 Assuming the previous document in `./view.json`, this is uploaded to the database
 using:
@@ -296,6 +308,7 @@ using:
 ```
 curl -XPOST "https://acme.cloudant.com/readings" -d @view.json
 ```
+{: codeblock}
 
 #### Creating a partitioned {{site.data.keyword.cloudant_short_notm}} Query index
 {: #creating-a-paritioned-ibm-cloudant-query-index}
@@ -327,6 +340,7 @@ The definition of the by timestamp is as follows:
    "partitioned:" true
 }
 ```
+{: codeblock}
 
 Assuming the previous document is `./query-index1.json`, upload the index to the
 database using this command:
@@ -334,6 +348,7 @@ database using this command:
 ```
 curl -XPOST "https://acme.cloudant.com/readings/_index" -d @query-index1.json
 ```
+{: codeblock}
 
 The definition of the by device ID and timestamp is as follows:
 
@@ -350,6 +365,7 @@ The definition of the by device ID and timestamp is as follows:
    "partitioned:" true
 }
 ```
+{: codeblock}
 
 Assuming the previous document is `./query-index2.json`, upload the index to the
 database using this command:
@@ -357,6 +373,7 @@ database using this command:
 ```
 curl -XPOST "https://acme.cloudant.com/readings/_index" -d @query-index2.json
 ```
+{: codeblock}
 
 ### Making queries
 {: #making-queries}
@@ -379,6 +396,7 @@ infrastructure piece:
 curl -XGET \
     "https://acme.cloudant.com/readings/_partition/bridge-1234/_all_docs?include_docs=true"
 ```
+{: codeblock}
 
 #### Finding recent readings for a piece of infrastructure
 {: #finding-recent-readings-for-a piece-of-infrastructure}
@@ -395,6 +413,7 @@ issue a query to the partition to get the readings for today:
     }
 }
 ```
+{: codeblock}
 
 The partition is embedded in the HTTP path when issuing the request to {{site.data.keyword.cloudant_short_notm}}:
 
@@ -403,6 +422,7 @@ curl -XPOST \
     "https://acme.cloudant.com/readings/_partition/bridge-1234/_find" \
     -d @query.json
 ```
+{: codeblock}
 
 #### Finding the infrastructure ID for a device
 {: #finding-the-infrastructure-id-for-a-device}
@@ -430,6 +450,7 @@ sending the device ID as the key:
 curl -XGET \
   "https://acme.cloudant.com/readings/_design/infrastructure-mapping/_view/by-device?keys=["device-123456"]&limit=1"
 ```
+{: codeblock}
 
 This returns:
 
@@ -442,6 +463,7 @@ This returns:
 }
 ]}
 ```
+{: codeblock}
 
 We have our partition key in the `value` field of the included row:
 `bridge-9876`.
@@ -464,6 +486,7 @@ used, as if one were issuing a global query.
    }
 }
 ```
+{: codeblock}
 
 The partition is embedded in the HTTP path when issuing the request to {{site.data.keyword.cloudant_short_notm}}:
 
@@ -472,6 +495,7 @@ curl -XPOST \
     "https://acme.cloudant.com/readings/_partition/bridge-1234/_find" \
     -d @query.json
 ```
+{: codeblock}
 
 #### Querying for recent results for a device
 {: #querying-for-recent-results-for-a-device}
@@ -494,11 +518,13 @@ complicated, but still the same as an equivalent global query.
    }
 }
 ```
+{: codeblock}
 
 The partition is embedded in the HTTP path when issuing the request to {{site.data.keyword.cloudant_short_notm}}:
 
-```
+```sh
 curl -XPOST \
     "https://acme.cloudant.com/readings/_partition/bridge-1234/_find" \
     -d @query.json
 ```
+{: codeblock}
