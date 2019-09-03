@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-30"
+lastupdated: "2019-09-03"
 
 keywords: apache couchdb support extension
 
@@ -81,9 +81,10 @@ The [Download CouchDB](http://couchdb.apache.org/#download) site contains links 
 - macOS
 - Linux: Debian/Ubuntu/RHEL/CentOS
 
-**Docker**
+**Containers**
 
-The Apache CouchDB docker image is available on [dockerhub](https://hub.docker.com/_/couchdb), along with [documentation](https://docs.couchdb.org/en/stable/install/docker.html). 
+- Dockerhub: The Apache CouchDB docker image is available on [dockerhub](https://hub.docker.com/_/couchdb), along with [documentation](https://docs.couchdb.org/en/stable/install/docker.html). 
+- Red Hat Container Catalog: See the [Apache CouchDB Product overview](https://access.redhat.com/containers/#/product/a03d4d299abe60e9) on the Red Hat Container Catalog for a Red Hat-certified image. 
 
 **Kubernetes**
 
