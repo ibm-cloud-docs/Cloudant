@@ -106,10 +106,10 @@ including users that you share databases with,
 and API keys you create,
 must be given a role explicitly to do corresponding tasks.
 
-The special `nobody` user name applies for anyone or any application that tries to do tasks,
+The special `nobody` username applies for anyone or any application that tries to do tasks,
 but that did not authenticate with the system.
 In other words,
-the `nobody` user name applies to all unauthenticated connection attempts.
+the `nobody` username applies to all unauthenticated connection attempts.
 For example,
 if an application attempts to read data from a database,
 but did not identify itself,
@@ -117,12 +117,12 @@ the task can proceed only if the `nobody` user has the role `_reader`.
 
 It is possible to grant more powerful roles to an <i>un</i>authenticated user than to an authenticated user.
 For example,
-if the `nobody` user name is intentionally granted `_admin`,
+if the `nobody` username is intentionally granted `_admin`,
 `_reader`,
 and `_writer` roles,
 but an authenticated user account such as `alexone` is granted only the `_reader` role. In this case, it is possible that an unauthenticated user might have a more powerful role than the authenticated `alexone` user. 
 
-It is important to understand that the `nobody` user name is *not* a way of providing a default set of permissions. Instead, the `nobody` user name is used to determine permissions for *unauthenticated* users.
+It is important to understand that the `nobody` username is *not* a way of providing a default set of permissions. Instead, the `nobody` username is used to determine permissions for *unauthenticated* users.
 {: tip}
 
 ### Determining the role to assign
@@ -179,14 +179,14 @@ account.request({
 
 -->
 
-The `cloudant` field in the response object contains an object with keys that are the user names
+The `cloudant` field in the response object contains an object with keys that are the usernames
 that have permission to interact with the database.
-The `nobody` user name indicates what permissions are available to unauthenticated users,
+The `nobody` username indicates what permissions are available to unauthenticated users,
 that is,
 any request made without authentication credentials.
 
 In the following example response,
-the `nobody` user name has `_reader` permissions.
+the `nobody` username has `_reader` permissions.
 This combination means that the database is publicly readable to unauthenticated users.
 
 ### Example response to request for permissions
@@ -268,13 +268,13 @@ account.request(
 
 The request must provide a document in JSON format,
 describing a `cloudant` field.
-The field contains an object with keys that are the user names that have permission to interact with the database.
-The `nobody` user name indicates what permissions are available to unauthenticated users,
+The field contains an object with keys that are the usernames that have permission to interact with the database.
+The `nobody` username indicates what permissions are available to unauthenticated users,
 that is,
 anybody.
 
 In the following example request,
-the `nobody` user name is given `_reader` permissions.
+the `nobody` username is given `_reader` permissions.
 This authorization makes the database publicly readable.
 
 ### Example of an authorization modification request document
@@ -338,7 +338,7 @@ the  following incorrect request removes *all* the other users with access to th
 
 Use API keys to enable database access for a person or application,
 but without creating a new {{site.data.keyword.cloudant_short_notm}} account for that person or application.
-An API key is a randomly generated user name and password.
+An API key is a randomly generated username and password.
 The key is given the wanted access permissions for a database.
 
 When a key is generated,
@@ -497,7 +497,7 @@ you remove the API key from the list of 'users' that have access to the database
 
 To remove the API key,
 send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys).
-Provide an updated list of the user names that have access permission.
+Provide an updated list of the usernames that have access permission.
 The updated list *must omit* the API key.
 
 ## Using the `_users` database with {{site.data.keyword.cloudant_short_notm}}

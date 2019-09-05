@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-08-27"
 
 keywords: geospatial, geojson, geo index, querying, query geometry, geometric relation
 
@@ -27,16 +27,16 @@ subcollection: cloudant
 {: #cloudant-nosql-db-geospatial}
 
 {{site.data.keyword.cloudantfull}} Geospatial,
-or '{{site.data.keyword.cloudant_short_notm}} Geo',
+or "{{site.data.keyword.cloudant_short_notm}} Geo",
 combines the advanced geospatial queries of a Geographic Information System (GIS)
 with the flexibility and scalability of {{site.data.keyword.cloudant_short_notm}}'s database-as-a-service (DBaaS) capabilities.
 {: shortdesc}
 
 You can use {{site.data.keyword.cloudant_short_notm}} Geo to do the following tasks:
 
-- Enables web and mobile developers to enhance their applications by using geospatial operations that go beyond simple bounding boxes.
-- Integrates with existing GIS applications, so that they can scale to accommodate different data sizes, concurrent users, and multiple locations.
-- Provides a NoSQL capability for GIS applications, so that large streams of data can be acquired from devices, sensors, and satellites. This data can then be stored, processed, and syndicated across other web applications.
+- Enable web and mobile developers to enhance their applications by using geospatial operations that go beyond simple bounding boxes.
+- Integrate with existing GIS applications, so that they can scale to accommodate different data sizes, concurrent users, and multiple locations.
+- Provide a NoSQL capability for GIS applications, so that large streams of data can be acquired from devices, sensors, and satellites. This data can then be stored, processed, and syndicated across other web applications.
 
 ## {{site.data.keyword.cloudant_short_notm}} Geo overview
 {: #cloudant-nosql-db-geo-overview}
@@ -52,7 +52,7 @@ The key advantage to using {{site.data.keyword.cloudant_short_notm}} Geo is that
 specify,
 or search for documents based on a spatial relationship. In effect, {{site.data.keyword.cloudant_short_notm}} uses geometry to provide an extra way of expressing the relationship between and within documents.
 
-An example would be to specify a document that is considered to be 'contained' if it has
+An example would be to specify a document that is considered to be "contained" if it has
 a geospatial characteristic that fits within a given geospatial polygon, which is
 defined by a series of points.
 

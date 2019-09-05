@@ -26,22 +26,20 @@ subcollection: cloudant
 # Authorized curl: `acurl`
 {: #authorized-curl-acurl-}
 
-*(This guide is based on a Blog article by Samantha Scharr: [
+*(This guide is based on a blog article by Samantha Scharr: [
 <q>Authorized curl, a.k.a. acurl</q>, originally published November 27, 2013.)*
 
 `acurl` is a handy alias that allows you to `curl` {{site.data.keyword.cloudantfull}} commands to URLs
 without having to enter your user name and password for every request.
-That means a simple `GET` to a database no longer needs to be written as
-`https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`
-but instead you can just use `https://$ACCOUNT.cloudant.com/foo`.
+That means a simple `GET` request to a database no longer needs to be written as
+`https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`. Instead, you can use, `https://$ACCOUNT.cloudant.com/foo`.
 
 Not only does this cut down on annoyingly long URLs,
 but the `acurl` alias is also more secure.
 It prevents someone from reading your password over your shoulder as you type,
-and importantly,
-it makes sure your password isn’t sent in plain text over the network by enforcing HTTPS.
+and it also makes sure your password isn’t sent in plain text over the network by enforcing HTTPS.
 
-All it takes is three simple steps:
+All it takes is three steps:
 
 1.	[Encode user name and password](#encode-user-name-and-password).
 2.	[Create an alias](#create-an-alias).
@@ -89,8 +87,7 @@ Remember that your password is still stored in plain text on your computer; base
 ## Create an alias
 {: #create-an-alias}
 
-Now we create an alias for `curl` that includes these credentials so we don’t have to enter them
-every time we write a `curl` command.
+Now, we create an alias for `curl` that includes these credentials, so we don’t have to enter them every time we write a `curl` command.
 
 Add the following line to your `~/.bashrc` or `~/.bash_profile`:
 
@@ -99,20 +96,19 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 ```
 {: codeblock}
 
-This alias adds an Authorization header instead of including the
+This alias adds an authorization header instead of including the
 authorization credentials in the URL you enter on the command line.
-It also forces the use of HTTPS which we strongly recommend over plain HTTP
-as it encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
+It also forces the use of HTTPS, which we strongly recommend over plain HTTP, as it encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
 
 ## Activate the alias
 {: #activate-the-alias}
 
-Now start a new shell or run `source ~/.bash_profile` (or `~/.bashrc` if you used that) to make the alias functional.
+Now, start a new shell, or run `source ~/.bash_profile` (or `~/.bashrc` if you used that), to make the alias functional.
 
 ## Testing `acurl`
 {: #testing-acurl-}
 
-Now let's make sure everything is set up correctly.
+Now, let's make sure everything is set up correctly.
 Go ahead and run:
 
 ```sh

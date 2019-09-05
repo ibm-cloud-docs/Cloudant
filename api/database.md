@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-08-30"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -609,14 +609,14 @@ Argument       | Description | Supported Values | Default
 ---------------|-------------|------------------|---------
 `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | boolean | false 
 `descending`   | Return the changes in sequential order. | boolean | false | 
-`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. See [API: GET / documentation](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-) for more information. | A JSON array of document IDs | |
-`feed`         | Type of feed required. For details, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
+`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [API: GET / documentation](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-). | A JSON array of document IDs | |
+`feed`         | Type of feed required. For more information, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
 `filter`       | Name of [filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents). | string | no filter
 `heartbeat`    | If there were no changes during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | any positive number | no heartbeat | 
 `include_docs` | Include the document as part of the result. | boolean | false |
 `limit`        | Maximum number of rows to return. | any non-negative number | none |  
 `seq_interval` | Specifies how frequently the `seq` value is included in the response. Set a higher value to increase the throughput of `_changes` and decrease the response size. **Note**: In non-continuous `_changes` mode, the `last_seq` value is always populated. | any positive number | 1 | 
-`since`        | Start the results from changes *after* the specified sequence identifier. For details, see the [`since` information](#the-since-argument). | sequence identifier or `now` | 0 | 
+`since`        | Start the results from changes *after* the specified sequence identifier. For more information, see the [`since` information](#the-since-argument). | sequence identifier or `now` | 0 | 
 `style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` | 
 `timeout`      | Stop the response after waiting this number of milliseconds for data. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | any positive number | |
 
@@ -671,8 +671,6 @@ The reason these extra changes are included,
 along with the implications for applications,
 is explained in the
 [replication guide](/docs/services/Cloudant?topic=cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
-
-<!-- Reset markdown parser -->
 
 Any application that uses the `_changes` request *must* be able to process correctly a list of changes that might: 1. Have a different order for the changes that are listed in the response, when compared with an earlier request for the same information. 2. Include changes that are considered to be before the change specified by the sequence identifier.
 {: tip}
@@ -751,7 +749,7 @@ The option ensures that:
 The `filter` argument designates a pre-defined
 [filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) to apply to the changes feed.
 Additionally,
-several built-in filters available:
+several built-in filters are available:
 
 *   `_design`: The `_design` filter accepts only changes to design documents.
 *   `_doc_ids`: This filter accepts only changes for documents whose ID is specified in the `doc_ids` parameter.
@@ -801,15 +799,14 @@ But if the node that holds the shard replica is not available,
 the system substitutes a corresponding shard replica that is held on another node.
 To help ensure that you see all the applicable changes,
 the most recent checkpoint between the replicas is used.
-Using the checkpoint is effectively 'rolling back' the list of changes
+Using the checkpoint is effectively "rolling back" the list of changes
 to the most recent point in time when the shard replicas were confirmed to agree with each other.
-This 'rolling back' means you might see changes listed that took place 'before' the `since` sequence identifier you supplied.
+This "rolling back" means you might see changes listed that took place "before" the `since` sequence identifier you supplied.
 
 Your application must be able to deal with a change that is reported
 more than one time if you make a `_changes` request several times.
 
-More information about the behavior of the `_changes` response is
-provided in the
+For more information about the behavior of the `_changes` response, see the
 [replication guide](/docs/services/Cloudant?topic=cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
 
 ### Responses from the `_changes` request
@@ -872,7 +869,7 @@ Field      | Description | Type
 	see [A Changes Feed Example](https://gist.github.com/smithsz/30fb97662c549061e581){: new_window}{: external}.
 -	Sequence values are unique for a shard,
 	but might vary between shards.
-	This variation means that if you have sequence values from different shards,
+	This variation means that, if you have sequence values from different shards,
 	you cannot assume that the same sequence value refers to the same document within the different shards.
 
 ### Using `POST` to get changes
@@ -880,7 +877,7 @@ Field      | Description | Type
 
 Instead of `GET`,
 you can also use `POST` to query the changes feed.
-The only difference if you are using `POST` *and* you are using either of the `docs_ids` or `selector` filters,
+The only difference, if you are using `POST` *and* you are using either of the `docs_ids` or `selector` filters,
 is that it is possible to include the `"doc_ids" : [...]` or `"selector": {...}` parts in the request body.
 All other parameters are expected to be in the query string,
 the same as using `GET`.

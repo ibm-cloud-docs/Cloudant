@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-04-17"
+lastupdated: "2019-08-27"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 # Comparison of {{site.data.keyword.cloudant_short_notm}} and CouchDB API endpoints
 {: #comparison-of-ibm-cloudant-and-couchdb-api-endpoints}
 
-This section provides a simple list of the {{site.data.keyword.cloudantfull}} (![{{site.data.keyword.cloudant_short_notm}} Logo](../images/verySmallCloudant.png)),
+This section provides a list of the {{site.data.keyword.cloudantfull}} (![{{site.data.keyword.cloudant_short_notm}} Logo](../images/verySmallCloudant.png)),
 CouchDB 2.0 (![CouchDB 2.0 Logo](../images/verySmallCouchDB2.png)),
 and CouchDB 1.6 (![CouchDB 1.6 Logo](../images/verySmallCouchDB1.png)) API endpoints and the methods for accessing them,
 showing you which endpoints are present in each service.
@@ -139,7 +139,7 @@ Removed for 96973.
 <tr>
 <td headers="endpoint&links"><code>PUT&nbsp;/\_config/{section}/{key}</code><p>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/configuration.html#put--\_config-section-key' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Update a configuration value. The new value should be supplied in the request body in the corresponding JSON format.</td>
+</p></td><td headers="description">Update a configuration value. The new value must be supplied in the request body in the corresponding JSON format.</td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>DELETE&nbsp;/\_config/{section}/{key}</code><p>
@@ -151,7 +151,7 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_db_updates-' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/common.html#get--\_db\_updates' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/common.html#get--\_db\_updates' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">List all database events in the instance.<p>In {{site.data.keyword.cloudant_short_notm}} the endpoint is only available to dedicated customers. Its documentation references additional query params (limit, since, descending) and an additional feed type value (normal) For CouchDB, its documentation references an additional feed type value (eventsource)</p></td>
+</p></td><td headers="description">List all database events in the instance.<p>In {{site.data.keyword.cloudant_short_notm}}, the endpoint is only available to dedicated customers. Its documentation references additional query parameters (limit, since, descending) and an additional feed type value (normal). For CouchDB, its documentation references an additional feed type value (eventsource).</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>GET&nbsp;/\_log</code><p>
@@ -169,7 +169,7 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-advanced-replication#the-_replicate-endpoint' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/common.html#post--\_replicate' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/common.html#post--\_replicate' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Request, configure, or stop, a replication operation.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (selector, since\_seq).</p></td>
+</p></td><td headers="description">Request, configure, or stop a replication operation.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (selector, since\_seq).</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>POST&nbsp;/\_replicator</code><p>
@@ -207,21 +207,21 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-authentication#cookie-authentication' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/authn.html#get--\_session' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/authn.html#get--\_session' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Returns information about the authenticated user.<p>CouchDB documentation references an additional query param (basic).</p></td>
+</p></td><td headers="description">Returns information about the authenticated user.<p>CouchDB documentation references an additional query parameter (basic).</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>POST&nbsp;/\_session</code><p>
 <a href='/docs/services/Cloudant?topic=cloudant-authentication#cookie-authentication' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/authn.html#post--\_session' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/authn.html#post--\_session' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Initiate a new session for the specified user credentials. Cookie based user login.<p>CouchDB documentation references an additional query param (next).</p></td>
+</p></td><td headers="description">Initiate a new session for the specified user credentials. Cookie-based user login.<p>CouchDB documentation references an additional query parameter (next).</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>DELETE&nbsp;/\_session</code><p>
 <a href='/docs/services/Cloudant?topic=cloudant-authentication#cookie-authentication' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/server/authn.html#delete--\_session' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/server/authn.html#delete--\_session' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Closes user's session. Logout cookie based user.</td>
+</p></td><td headers="description">Closes user's session. Logout cookie-based user.</td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>GET&nbsp;/\_stats</code><p>
@@ -252,7 +252,7 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-overview#overview' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/common.html#head--db' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/common.html#head--db' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Return the HTTP Headers containing a minimal amount of information about the specified database.</td>
+</p></td><td headers="description">Return the HTTP headers containing a minimal amount of information about the specified database.</td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>GET&nbsp;/{db}</code><p>
@@ -273,7 +273,7 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-databases#create-database' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/common.html#put--db' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/common.html#put--db' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Create a new database.<p>Database names must start with a lowercase letter and contain only the following characters: Lowercase characters (a-z), Digits (0-9), Any of the characters \_, $, (, ), +, -, and /</p></td>
+</p></td><td headers="description">Create a new database.<p>Database names must start with a lowercase letter and contain only the following characters: Lowercase characters (a-z), digits (0-9), any of the characters \_, $, (, ), +, -, and /.</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>DELETE&nbsp;/{db}</code><p>
@@ -287,14 +287,14 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-databases#get-documents' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/bulk-api.html#get--db-\_all\_docs' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/bulk-api.html#get--db-\_all\_docs' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">List all the documents in a database.<p>CouchDB documentation references additional query params (end\_key, endkey\_docid, end\_key\_doc\_id, stale, start\_key, startkey\_docid, start\_key\_doc\_id, update\_seq).</p></td>
+</p></td><td headers="description">List all the documents in a database.<p>CouchDB documentation references additional query parameters (end\_key, endkey\_docid, end\_key\_doc\_id, stale, start\_key, startkey\_docid, start\_key\_doc\_id, update\_seq).</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>POST&nbsp;/{db}/\_all\_docs</code><p>
 <a href='/docs/services/Cloudant?topic=cloudant-databases#get-documents' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/bulk-api.html#post--db-\_all\_docs' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/bulk-api.html#post--db-\_all\_docs' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">List all the documents in a database.<p>CouchDB documentation references additional query params (end\_key, endkey\_docid, end\_key\_doc\_id, stale, start\_key, startkey\_docid, start\_key\_doc\_id, update\_seq).</p></td>
+</p></td><td headers="description">List all the documents in a database.<p>CouchDB documentation references additional query parameters (end\_key, endkey\_docid, end\_key\_doc\_id, stale, start\_key, startkey\_docid, start\_key\_doc\_id, update\_seq).</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>POST&nbsp;/{db}/\_bulk\_docs</code><p>
@@ -314,7 +314,7 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-databases#get-changes' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/changes.html#get--db-\_changes' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/changes.html#get--db-\_changes' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">List of changes made to documents in the database, including insertions, updates, and deletions.<p>CouchDB includes query params (attachments, att\_encoding\_info, last-event-id, view). Also filtering using a selector is new in CouchDB 2.0.</p></td>
+</p></td><td headers="description">List of changes made to documents in the database, including insertions, updates, and deletions.<p>CouchDB includes query parameters (attachments, att\_encoding\_info, last-event-id, view). Also filtering using a selector is new in CouchDB 2.0.</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>POST&nbsp;/{db}/\_changes</code><p>
@@ -340,7 +340,7 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-overview#overview' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/common.html#head--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/common.html#head--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Return the HTTP Headers containing a minimal amount of information about the specified design document.</td>
+</p></td><td headers="description">Return the HTTP headers containing a minimal amount of information about the specified design document.</td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>GET&nbsp;/{db}/\_design/{ddoc}</code><p>
@@ -354,7 +354,7 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-design-documents#creating-or-updating-a-design-document' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/common.html#put--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/common.html#put--db-\_design-ddoc' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Create a new named design document or create a new revision of the existing design document.<p>{{site.data.keyword.cloudant_short_notm}} documentation references an additional request body field (indexes) CouchDB documentation references additional request body fields (language, options).</p></td>
+</p></td><td headers="description">Create a new named design document or create a new revision of the existing design document.<p>{{site.data.keyword.cloudant_short_notm}} documentation references an additional request body field (indexes). CouchDB documentation references additional request body fields (language, options).</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>DELETE&nbsp;/{db}/\_design/{ddoc}</code><p>
@@ -406,7 +406,7 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-design-documents#list-functions' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/render.html#get--db-\_design-ddoc-\_list-func-view' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#get--db-\_design-ddoc-\_list-func-view' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Apply the list function for the view function from the same design document.<p>The result of a list function is not stored. This means that the function is executed every time a request is made.</p></td>
+</p></td><td headers="description">Apply the list function for the view function from the same design document.<p>The result of a list function is not stored. Therefore, the function is executed every time a request is made.</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>POST&nbsp;/{db}/\_design/{ddoc}/\_list/{func}/{view}</code><p>
@@ -456,7 +456,7 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-design-documents#show-functions' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/render.html#get--db-\_design-ddoc-\_show-func-docid' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/render.html#get--db-\_design-ddoc-\_show-func-docid' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Apply the show function for the specified document.<p>The result of a show function is not stored. This means that the function is executed every time a request is made.</p></td>
+</p></td><td headers="description">Apply the show function for the specified document.<p>The result of a show function is not stored. Therefore, the function is executed every time a request is made.</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>POST&nbsp;/{db}/\_design/{ddoc}/\_show/{func}/{docid}</code><p>
@@ -484,14 +484,14 @@ Removed for 96973.
 <a href='/docs/services/Cloudant?topic=cloudant-using-views#using-views' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/views.html#get--db-\_design-ddoc-\_view-view' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/views.html#get--db-\_design-ddoc-\_view-view' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Execute the view function from the specified design document.<p>CouchDB documentation references additional query params (conflicts, end\_key, end\_key\_doc\_id, attachments, att\_encoding\_info, sorted, start\_key, start\_key\_doc\_id, update\_seq). CouchDB 2.0 added sorted parameter not available in CouchDB 1.6.</p></td>
+</p></td><td headers="description">Execute the view function from the specified design document.<p>CouchDB documentation references additional query parameters (conflicts, end\_key, end\_key\_doc\_id, attachments, att\_encoding\_info, sorted, start\_key, start\_key\_doc\_id, update\_seq). CouchDB 2.0 added sorted parameter not available in CouchDB 1.6.</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>POST&nbsp;/{db}/\_design/{ddoc}/\_view/{view}</code><p>
 <a href='/docs/services/Cloudant?topic=cloudant-using-views#querying-a-view-by-using-a-list-of-keys' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/ddoc/views.html#post--db-\_design-ddoc-\_view-view' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/ddoc/views.html#post--db-\_design-ddoc-\_view-view' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Execute the view function from the specified design document.<p>CouchDB documentation references additional query params (conflicts, end\_key, end\_key\_doc\_id, attachments, att\_encoding\_info, sorted, start\_key, start\_key\_doc\_id, update\_seq).</p></td>
+</p></td><td headers="description">Execute the view function from the specified design document.<p>CouchDB documentation references additional query parameters (conflicts, end\_key, end\_key\_doc\_id, attachments, att\_encoding\_info, sorted, start\_key, start\_key\_doc\_id, update\_seq).</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>HEAD&nbsp;/{db}/\_design/{ddoc}/{attname}</code><p>
@@ -539,7 +539,7 @@ Removed for 96973.
 <td headers="endpoint&links"><code>POST&nbsp;/{db}/\_find</code><p>
 <a href='/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/database/find.html#post--db-\_find' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
-</p></td><td headers="description">Find documents using a declarative JSON querying syntax.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (r, bookmark)</p></td>
+</p></td><td headers="description">Find documents using a declarative JSON querying syntax.<p>{{site.data.keyword.cloudant_short_notm}} documentation references additional request body fields (r, bookmark).</p></td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>GET&nbsp;/{db}/\_index</code><p>
@@ -629,14 +629,14 @@ Removed for 96973.
 <tr>
 <td headers="endpoint&links"><code>POST&nbsp;/{db}/\_view\_cleanup</code><p>
 <a href='http://docs.couchdb.org/en/1.6.0/api/database/compact.html#post--db-\_view\_cleanup' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Remove view index files that are no longer required by as a result of changed views within design documents.</td>
+</p></td><td headers="description">Remove view index files that are no longer required as a result of changed views within design documents.</td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>HEAD&nbsp;/{db}/{docid}</code><p>
 <a href='/docs/services/Cloudant?topic=cloudant-overview#overview' target='_blank'><img src='../images/verySmallCloudant.png' alt='Cloudant'/></a>
 <a href='http://docs.couchdb.org/en/2.0.0/api/document/common.html#head--db-docid' target='_blank'><img src='../images/verySmallCouchDB2.png' alt='CouchDB 2.0'/></a>
 <a href='http://docs.couchdb.org/en/1.6.0/api/document/common.html#head--db-docid' target='_blank'><img src='../images/verySmallCouchDB1.png' alt='CouchDB 1.6'/></a>
-</p></td><td headers="description">Return the HTTP Headers containing a minimal amount of information about the specified document.</td>
+</p></td><td headers="description">Return the HTTP headers containing a minimal amount of information about the specified document.</td>
 </tr>
 <tr>
 <td headers="endpoint&links"><code>GET&nbsp;/{db}/{docid}</code><p>
