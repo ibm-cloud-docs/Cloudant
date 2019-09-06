@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-23"
+lastupdated: "2019-09-06"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2019-09-06 -->
 
 # Attachments
 {: #attachments}
@@ -32,7 +32,7 @@ files that are contained within documents.
 {: shortdesc}
 
 The BLOB is stored in the `_attachments` component of the document.
-The BLOB holds data that includes:
+The BLOB holds data that includes the following information:
 
 - The attachment name
 - The type of the attachment
@@ -234,7 +234,7 @@ Inline attachments are attachments that are included as part of the JSON content
 The content must be provided by using [BASE64](https://en.wikipedia.org/wiki/Base64){: new_window}{: external} representation,
 as shown in the example.
 
-A full list of media types is available in this article about [media types](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external}.
+A full list of media types is available in the [media types](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external} article.
 
 ### Example JSON document that includes an inline attachment of a jpeg image
 
@@ -261,10 +261,9 @@ In particular,
 having too many attachments can have an adverse performance impact during replication.
 
 For example,
-if your application requires lots of images to be stored as attachments,
-or has large images,
-a better approach would be to use an alternative [BLOB](https://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external}
-storage mechanism for the images.
+if your application requires storage for multiple images as attachments or includes large images,
+it is best to use an alternative [BLOB](https://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external}
+storage mechanism to store the images.
 You might then use {{site.data.keyword.cloudant_short_notm}} to keep
 the image metadata,
 such as URLs to the BLOB store.

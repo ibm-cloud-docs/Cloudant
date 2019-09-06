@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-06"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-12-10 -->
+<!-- Acrolinx: 2019-09-06 -->
 
 # Advanced replication
 {: #advanced-replication}
@@ -100,7 +100,7 @@ The scheduler introduces two new endpoints:
 
 You can manage and determine replication status more quickly and easily by using these endpoints.
 
-The typical process for using the replication scheduler to manage and monitor replications is as follows:
+See the typical process for using the replication scheduler to manage and monitor replications as follows:
 
 1.  Create a [replication document](/docs/services/Cloudant?topic=cloudant-replication-api#replication-document-format) that describes the needed replication,
     and store the document in the [replicator database](/docs/services/Cloudant?topic=cloudant-replication-api#the-_replicator-database).
@@ -111,7 +111,7 @@ The typical process for using the replication scheduler to manage and monitor re
 
 The `/_scheduler/docs` endpoint provides a monitoring capability.
 Use it to determine the status of a replication that is described by a replication document.
-The status of a replication can be one of seven possible states,
+The status of a replication can be 1 of 7 possible states,
 as described in [the replication scheduler](#the-replication-scheduler) section.
 
 #### Query parameters for the `/_scheduler/docs` endpoint
@@ -376,11 +376,11 @@ The fields all have the prefix: `_replication_`
 
 Field | Detail
 ------|-------
-`_replication_id` | This is the internal ID assigned to the replication. It is the same ID that appears in the output from `_active_tasks`.
+`_replication_id` | This field includes the internal ID assigned to the replication. It is the same ID that appears in the output from `_active_tasks`.
 `_replication_state` | The current state of the replication.
 `_replication_state_time` | An [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt){: new_window}{: external} compliant time stamp that reports when the current replication state defined in `_replication_state` was set.
 
-The possible values for the `_replication_state` are:
+The `_replication_state`'s possible states include:
 
 -	`completed`: The replication completed successfully.
 -	`error`: An error occurred during replication.
@@ -482,7 +482,7 @@ the document is replicated.
 To set up filtering, use the `selector` field whenever possible. When you use the `selector` field, you can specify a filter without having to replicate the entire database. This method makes filtering faster and causes less load on {{site.data.keyword.cloudant_short_notm}}. For more information, see the [`selector` field](/docs/services/Cloudant?topic=cloudant-replication-api&origin_team=T4NN71GAU#the-selector-field) documentation. 
 {: note}
 
-### A simple example of a filter function:
+### Example of a filter function
 
 ```javascript
 function(doc, req) {
@@ -493,7 +493,7 @@ function(doc, req) {
 
 Filters are stored under the topmost `filters` key of the design document.
 
-### A simple example of storing a filter function in a design document:
+### Example of storing a filter function in a design document
 
 ```json
 {
@@ -723,10 +723,12 @@ a replication operation.
 You do these actions by sending a `POST` request directly to the `/_replicate` endpoint.
 The `POST` contains a JSON document that describes the wanted replication.
 
--	**Method**: `POST`
--	**Path**: `/_replicate`
--	**Request**: Replication specification
--	**Roles**: `_admin`
+Name | Description
+-----|------------
+Method | `POST`
+Path | `/_replicate`
+Request | Replication specification
+Roles | `_admin`
 
 The specification of the replication request is controlled through the JSON content of the request.
 The JSON document must contain fields that define the source,
@@ -836,4 +838,4 @@ Use the [`_replicator` scheduler](#the-replication-scheduler) instead of the `/_
 {: important}
 
 If a problem occurs during replication, such as a stall, timeout, or application crash,
-a replication that is defined within the `_replicator` database is automatically restarted by the system. Whereas, if you define a replication by sending a request to the `/_replicate` endpoint, it cannot be restarted by the system if a problem occurs because the replication request does not persist. In addition, replications that are defined in the `_replicator` database are easier to [monitor](#replication-status).
+a replication that is defined within the `_replicator` database is automatically restarted by the system. Whereas if you define a replication by sending a request to the `/_replicate` endpoint, it cannot be restarted by the system if a problem occurs because the replication request does not persist. In addition, replications that are defined in the `_replicator` database are easier to [monitor](#replication-status).

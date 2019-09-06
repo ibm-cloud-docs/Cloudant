@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-06"
 
-keywords: encode user name, encode password, create alias, activate alias, test acurl
+keywords: encode username, encode password, create alias, activate alias, test acurl
 
 subcollection: cloudant
 
@@ -21,38 +21,38 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-09-06 -->
 
 # Authorized curl: `acurl`
 {: #authorized-curl-acurl-}
 
-*(This guide is based on a blog article by Samantha Scharr: [
-<q>Authorized curl, a.k.a. acurl</q>, originally published November 27, 2013.)*
+*(The following guide is based on a blog article by Samantha Scharr: [
+<q>Authorized curl, a.k.a. acurl</q>, originally published 27 November 2013.)*
 
-`acurl` is a handy alias that allows you to `curl` {{site.data.keyword.cloudantfull}} commands to URLs
-without having to enter your user name and password for every request.
+`acurl` is a handy alias you can use to run `curl` {{site.data.keyword.cloudantfull}} commands to URLs
+without having to enter your username and password for every request.
 That means a simple `GET` request to a database no longer needs to be written as
 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`. Instead, you can use, `https://$ACCOUNT.cloudant.com/foo`.
 
 Not only does this cut down on annoyingly long URLs,
 but the `acurl` alias is also more secure.
-It prevents someone from reading your password over your shoulder as you type,
-and it also makes sure your password isn’t sent in plain text over the network by enforcing HTTPS.
+It prevents someone from reading your password over your shoulder as you type.
+It also makes sure that your password isn’t sent in plain text over the network by enforcing HTTPS.
 
-All it takes is three steps:
+All that it takes is three steps:
 
-1.	[Encode user name and password](#encode-user-name-and-password).
+1.	[Encode username and password](#encode-user-name-and-password).
 2.	[Create an alias](#create-an-alias).
 3.	[Activate the alias](#activate-the-alias).
 
-If you are using a Windows computer, you can specify your user name and password from the command line.
+If you are using a Windows computer, you can specify your username and password from the command line.
 {: tip}
 
-## Encode user name and password
+## Encode username and password
 {: #encode-user-name-and-password}
 
-First we base64-encode your {{site.data.keyword.cloudant_short_notm}} user name and password.
-This gives us a base64 character sequence as output.
+First, we base64-encode your {{site.data.keyword.cloudant_short_notm}} username and password.
+This encoding gives us a base64 character sequence as output.
 
 `$ACCOUNT` is the `username` field in your service credentials. For more information, see [Locating your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 {: note}
@@ -81,7 +81,7 @@ bXl1c2VybmFtZTpteXBhc3N3b3Jk
 ```
 {: codeblock}
 
-Remember that your password is still stored in plain text on your computer; base64-encoding is *not* encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
+Remember your password is still stored in plain text on your computer; base64-encoding is *not* encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
 {: note}
 
 ## Create an alias
@@ -98,7 +98,7 @@ alias acurl="curl -s --proto '=https' -g -H 'Authorization: Basic <OUTPUT-OF-BAS
 
 This alias adds an authorization header instead of including the
 authorization credentials in the URL you enter on the command line.
-It also forces the use of HTTPS, which we strongly recommend over plain HTTP, as it encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
+It also forces the use of HTTPS, which we strongly recommend over plain HTTP. HTTPS encrypts your data and credentials in transit and helps you be sure you’re connecting to {{site.data.keyword.cloudant_short_notm}} systems.
 
 ## Activate the alias
 {: #activate-the-alias}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-22"
+lastupdated: "2019-09-06"
 
 keywords: advanced endpoints, cluster information, revision history, GET /, _db_updates, $DATABASE/_shards, $DATABASE/_missing_revs, $DATABASE/_revs_diff, _membership, _uuids
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2019-09-06 -->
 
 # Advanced
 {: #advanced-api}
@@ -34,12 +34,14 @@ and other miscellaneous tasks.
 ## `GET /`
 {: #-get-}
 
--	**Method**: `GET`
--	**Path**: `/`
--	**Response**: Welcome message and version
+Name | Description
+-----|-------------
+Method | `GET`
+Path | `/`
+Response | Welcome message and version
 
 Accessing the root endpoint `/` returns meta information about the cluster.
-The response is a JSON object that contains a welcome message and the version of the server.
+The response is a JSON object that includes a welcome message and the version of the server.
 The `version` field contains the CouchDB version the server is compatible with.
 The `vendor.version` field contains the build number of {{site.data.keyword.cloudantfull}}'s CouchDB implementation.
 
@@ -121,8 +123,8 @@ Changes can be either updates to an existing database,
 creation of a new database,
 or deletion of a database.
 Like the changes feed,
-the `/_db_updates` endpoint is not guaranteed to return changes in the correct order,
-and might contain changes more than once.
+the `/_db_updates` endpoint isn't guaranteed to return changes in the correct order,
+and might include changes more than once.
 Polling modes for this endpoint work like the polling modes for the changes feed.
 
 
@@ -191,7 +193,7 @@ The `/$DATABASE/_shards` endpoint returns information about the shards in the cl
 specifically what nodes contain what hash ranges.
 
 The `shards` field in the response contains an object with keys that are the hash value range for each shard.
-Each value is the array of nodes that contain that a copy of that shard.
+Each value is the array of nodes that contain a copy of that shard.
 
 ### Example request, by using HTTP
 {: #example-request-by-using-http}
@@ -265,7 +267,7 @@ account.request({
 {: #-get-database_missing_revs-}
 
 When supplied with a list of document revisions, 
-the `/$DATABASE/_missing_revs` endpoint returns a list of the document revisions that do not exist in the database.
+the `/$DATABASE/_missing_revs` endpoint returns a list of the document revisions that don't exist in the database.
 
 The list of document revisions is supplied in a JSON document,
 similar to the following example:
@@ -280,7 +282,7 @@ similar to the following example:
 ```
 {: codeblock}
 
-### Example request, by using HTTP
+### Example request by using HTTP
 {: #example-request-by-using-http2}
 
 ```HTTP
@@ -289,7 +291,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example request, by using the command line
+### Example request by using the command line
 {: #example-request-by-using-the-command-line2}
 
 ```sh
@@ -303,7 +305,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_missing_revs" \
 
 <!--
 
-### Example request, using Javascript
+### Example request using Javascript
 
 ```javascript
 var nano = require('nano');
@@ -341,7 +343,7 @@ function (err, body) {
 {: #-post-database-_revs_diff-}
 
 When supplied with a set of document revision IDs, 
-the `/$DATABASE/_revs_diff` endpoint returns a subset of those document revision IDs that do not correspond to revisions stored in the database.
+the `/$DATABASE/_revs_diff` endpoint returns a subset of those document revision IDs that don't correspond to revisions stored in the database.
 
 The list of document revision IDs is supplied in a JSON document,
 similar to the following example:
@@ -357,7 +359,7 @@ similar to the following example:
 ```
 {: codeblock}
 
-### Example request for document revision IDs, by using HTTP
+### Example request for document revision IDs by using HTTP
 
 ```HTTP
 POST /$DATABASE/_revs_diff HTTP/1.1
@@ -365,7 +367,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example request for document revision IDs, from the command line
+### Example request for document revision IDs from the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_revs_diff" \
@@ -377,7 +379,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_revs_diff" \
 
 <!--
 
-### Example request, using Javascript
+### Example request by using Javascript
 
 ```javascript
 var nano = require('nano');
@@ -446,21 +448,21 @@ Field name      | Description
 This endpoint returns the names of nodes in the cluster.
 Currently, active clusters are indicated in the `cluster_nodes` field.
 The `all_nodes` field lists all the nodes,
-regardless of whether they are active or not.
+regardless of whether they're active or not.
 
 -   **Method**: `GET`
 -   **Path**: `/_membership`
 -   **Response**: JSON document that lists cluster nodes and all nodes
 -   **Roles permitted**: _admin
 
-### Example request to list nodes in the cluster, by using HTTP
+### Example request to list nodes in the cluster by using HTTP
 
 ```http
 GET /_membership HTTP/1.1
 ```
 {: codeblock}
 
-### Example request to list nodes in the cluster, by using the command line
+### Example request to list nodes in the cluster by using the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_membership" \
@@ -470,7 +472,7 @@ curl "https://$ACCOUNT.cloudant.com/_membership" \
 
 <!--
 
-### Example request to list nodes in the cluster, using Javascript
+### Example request to list nodes in the cluster using Javascript
 
 ```javascript
 var nano = require('nano');
@@ -527,14 +529,14 @@ Argument | Description               | Optional | Type
 ---------|---------------------------|----------|------------------------------------------------------------------
 `count`  | Number of UUIDs to return | yes      | Positive integer, greater than 0 and less than or equal to 1,000.
 
-### Example request for a single UUID, by using HTTP
+### Example request for a single UUID by using HTTP
 
 ```HTTP
 GET /_uuids HTTP/1.1
 ```
 {: codeblock}
 
-### Example request for a single UUID, by using the command line
+### Example request for a single UUID by using the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_uuids" \
@@ -544,7 +546,7 @@ curl "https://$ACCOUNT.cloudant.com/_uuids" \
 
 <!--
 
-### Example request for a single UUID, using Javascript
+### Example request for a single UUID by using Javascript
 
 ```javascript
 var nano = require('nano');
@@ -572,14 +574,14 @@ account.request({
 ```
 {: codeblock}
 
-### Example request for five UUIDs, by using HTTP
+### Example request for five UUIDs by using HTTP
 
 ```HTTP
 GET /_uuids?count=5 HTTP/1.1
 ```
 {: codeblock}
 
-### Example request for five UUIDs, by using the command line
+### Example request for five UUIDs by using the command line
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_uuids?count=5" \
@@ -589,7 +591,7 @@ curl "https://$ACCOUNT.cloudant.com/_uuids?count=5" \
 
 <!--
 
-### Example request for five UUIDs, using Javascript
+### Example request for five UUIDs by using Javascript
 
 ```javascript
 var nano = require('nano');
