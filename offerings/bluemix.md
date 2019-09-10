@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-29"
+lastupdated: "2019-09-10"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -231,7 +231,7 @@ To change the target capacity, slide the capacity slider to the desired setting 
 
 ![Capacity](../images/capacity-3.png)
 
-The check mark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous, and the time required depends on the delta in capacity requested and the data stored in the instance. When the target capacity is reached, the check mark turns green and says <q>Capacity Up-to-Date</q>.
+The check mark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to sync those changes depends on the size of the changes in capacity that were requested and the data stored in the instance. When the target capacity is reached, the check mark turns green and says <q>Capacity Up-to-Date</q>.
 
 ![Capacity](../images/capacity-4.png)
 
