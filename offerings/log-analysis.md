@@ -35,7 +35,8 @@ Currently, {{site.data.keyword.la_full_notm}} integration is available for {{sit
 
 Deployment Region | LogDNA Region
 ----------|-----------
-`us-south` | `us-south`
+`Dallas` | `Dallas`
+`London` | `London`
 {: caption="Table 1. Log Analysis regions" caption-side="top"}
 
 ## Provisioning {{site.data.keyword.la_full_notm}}
