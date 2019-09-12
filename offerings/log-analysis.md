@@ -37,6 +37,7 @@ Deployment Region | LogDNA Region
 ----------|-----------
 `Dallas` | `Dallas`
 `London` | `London`
+`Frankfurt` | `Frankfurt`
 {: caption="Table 1. Log Analysis regions" caption-side="top"}
 
 ## Provisioning {{site.data.keyword.la_full_notm}}
