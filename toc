@@ -28,7 +28,11 @@ IBM Cloudant
 		release_info/deprecations.md
 
 	{: .topicgroup}
-	offerings/couchdb.md
+	Apache CouchDB
+		couchdb/overview.md
+		couchdb/install.md
+		couchdb/operator.md
+		couchdb/support.md
 
 	{: .topicgroup}
 	Cloudant Local
