@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-09-03"
 
 keywords: log analysis, integration 
 
@@ -51,7 +51,7 @@ This setting enables logs from **all** {{site.data.keyword.cloud_notm}} services
 {{site.data.keyword.la_full_notm}} has a lite plan that is free to use, but it only offers streaming events. To take advantage of the tagging, export, retention, and other features, you need to use one of the [paid plans](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-about#overview_pricing_plans){: new_window}{: external}.
 
 ### HIPAA 
-{: #hipaa}
+{: #hipaa_logdna}
 
 {{site.data.keyword.la_full_notm}} does not currently offer a HIPAA-compliant plan for the service. 
 
@@ -90,7 +90,7 @@ Log lines | Description
 `rawQueryString` | Full text of the query string as passed to the service.
 `logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs.
 `meta`| A line reserved for additional information from {{site.data.keyword.cloudant_short_notm}}.
-`timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This might only happen once during the connection's lifetime. </br> `request` - The total time to get the client request. It's the time elapsed between the first bytes received and the moment the service receives the last byte of the request body. </br> `transfer`- The data transmission time to transfer the full response from the service to the client. </br> `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body.
+`timings` |  `connect` - The total time to accept TCP connection and execute handshakes for SSL protocol. This only happens once during the connection's lifetime, so subsequent requests sent over the same connection will show `0` for this value. </br> `request` - The total time to get the client request. It's the time elapsed between the first bytes received and the moment the service receives the last byte of the request body. </br> `transfer`- The data transmission time to transfer the full response from the service to the client. </br> `response`- The total active time for the HTTP request, between the moment the service received the first byte of the request header and the emission of the last byte of the response body.
 {: caption="Table 3. Log lines" caption-side="top"}
 
 The `request` and `transfer` timings are included in `response`.  
