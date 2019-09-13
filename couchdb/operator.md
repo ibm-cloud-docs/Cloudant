@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-12"
+lastupdated: "2019-09-13"
 
 keywords: apache couchdb support extension
 
@@ -63,7 +63,7 @@ The Operator for Apache CouchDB uses the following defaults when deploying a new
 This guide walks through installing the Operator for Apache CouchDB on Red Hat OpenShift 3.11 or above. Note that the Operator for Apache CouchDB can also be installed on vanilla Kubernetes environments, but the steps outlined below might not match the exact procedure. 
 
 ### Prerequisites
-{: #prerequisites}
+{: #prerequisites-install-operator}
 
 - A working knowledge of Kubernetes
 - A Kubernetes user with cluster-admin privileges (`admin` in this guide)
@@ -212,7 +212,7 @@ couchdbclusters.couchdb.databases.cloud.ibm.com   2019-09-09T16:14:31Z
 In this guide, we'll walk through deploying an Apache CouchDB Cluster using the Operator for Apache CouchDB. The guide will use the Kubernetes CLI to install a CouchDB cluster, but use of the Kubernetes dashboard such as the Red Hat Open Shift cluster console can also be used. 
 
 ### Prerequisites
-{: #prerequisites}
+{: #prerequisites-deploy-couchdb-cluster}
 
 - A working knowledge of Kubernetes
 - A Kubernetes user with privileges to create a `CouchDBCluster` resource
@@ -398,7 +398,7 @@ The Apache CouchDB `CouchDBCluster` resource is configured with a cluster admin 
 Further non-admin users can be added using the [`_users` database](https://docs.couchdb.org/en/2.3.1/intro/security.html#authentication-database){: new_window}{: external}.
 
 ## Logging
-{: #logging}
+{: #logging-operator}
 
 ### Viewing Operator for Apache CouchDB logs
 {: #viewing-logs}
