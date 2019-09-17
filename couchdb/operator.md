@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-13"
+lastupdated: "2019-09-17"
 
 keywords: apache couchdb support extension
 
@@ -47,7 +47,7 @@ The Operator for Apache CouchDB uses the following defaults when deploying a new
 <dd>The Operator leverages the Red Hat OpenShift cert-manager to create certificates and enable HTTPS/SSL on the cluster. On other Kubernetes distributions, TLS is supported by using user-provided certificates. It's recommended that you review Apache CouchDB HTTPS (SSL/TLS) Options, or install Jetstack cert-manager to manage this elsewhere.</dd>
 
 <dt><strong>Encryption</strong></dt>
-<dd>The Operator leverages the Red Hat OpenShift cert-manager to create certificates and enable HTTPS/SSL on the cluster. On other Kubernetes distributions, TLS is supported by using user-provided certificates. It's recommended that you review Apache CouchDB HTTPS (SSL/TLS) Options, or install Jetstack cert-manager to manage this elsewhere.</dd>
+<dd>Encrypted intra-cluster communication, meaning the communication between database nodes is encrypted in addition to TLS on the HTTPS API.</dd>
 
 <dt><strong>Authentication</strong></dt>
 <dd>The parameter `require_valid_user` is set to `true`, which means that no requests are allowed from anonymous users. Every request must be authenticated.</dd>
