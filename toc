@@ -100,6 +100,15 @@ IBM Cloudant
 	{: .navgroup id="howto"}
 	how-to.md
 
+{: .topicgroup}
+	Operator for Apache CouchDB
+		operator/overview-operator.md
+		operator/install_operator.md
+		operator/configure_cluster.md
+		operator/deploy_cluster.md
+		operator/access_couchdb.md
+		operator/troubleshoot.md
+
 	{: .topicgroup}
 	Tutorials
 		tutorials/create_service.md
