@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-17"
+lastupdated: "2019-09-18"
 
-keywords: apache couchdb support extension
+keywords: log, deploy, install, features
 
 subcollection: cloudant
 
@@ -73,7 +73,7 @@ The Operator for Apache CouchDB uses the following defaults when deploying a new
 
 The currently supported version is [Apache CouchDB 2.3.1](https://docs.couchdb.org/en/2.3.1/){: new_window}{: external}.
  
-## Installation of the Operator
+## Installing the Operator
 {: #installation-operator}
 
 This guide provides instructions about installing the Operator for Apache CouchDB on Red Hat OpenShift 3.11 or previous version. Note that the Operator for Apache CouchDB can also be installed on vanilla Kubernetes environments, but the following steps outlined might not match the exact procedure. 
@@ -102,7 +102,7 @@ chmod +x install.sh
 {: codeblock}
 
 ### Installing the Operator for Apache CouchDB
-{: #install-operator}
+{: #install-operator-apache-couchdb}
 
 After the Operator Lifecycle Manager is installed on the Kubernetes cluster, you can install the Operator for Apache CouchDB. Follow these steps to complete the installation:
 
@@ -228,7 +228,7 @@ couchdbclusters.couchdb.databases.cloud.ibm.com   2019-09-09T16:14:31Z
 {: codeblock}
 
 ## Deploying an Apache CouchDB Cluster
-{: #deploy-couchdb-cluster}
+{: #deploy-apache-couchdb-cluster}
 
 In this guide, we walk through deploying an Apache CouchDB Cluster by using the Operator for Apache CouchDB. This guide uses the Kubernetes CLI to install a CouchDB cluster, but you can also use the Kubernetes dashboard, such as the Red Hat Open Shift cluster console. 
 

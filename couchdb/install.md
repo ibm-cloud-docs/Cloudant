@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-13"
+lastupdated: "2019-09-17"
 
-keywords: apache couchdb support extension
+keywords: apache couchdb, support, extension, containers
 
 subcollection: cloudant
 
