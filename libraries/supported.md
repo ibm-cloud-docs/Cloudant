@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-20"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -42,8 +42,7 @@ Two versions are available:
 - [{{site.data.keyword.cloudant_short_notm}} Sync - Android / JavaSE ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/sync-android){: new_window}.
 - [{{site.data.keyword.cloudant_short_notm}} Sync - iOS (CDTDatastore) ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/CDTDatastore){: new_window}.
 
-An [overview ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/product/cloudant-features/sync/){: new_window} of {{site.data.keyword.cloudant_short_notm}} Sync is available.
-Details of {{site.data.keyword.cloudant_short_notm}} Sync [resources ![External link icon](../images/launch-glyph.svg "External link icon")](https://cloudant.com/cloudant-sync-resources/){: new_window} are also available.
+An [overview ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/learn/offline-first){: new_window} of {{site.data.keyword.cloudant_short_notm}} Sync is available, as well as details about {{site.data.keyword.cloudant_short_notm}} Sync resources.
 
 ## Java
 {: #java-supported}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-09-20"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -52,7 +52,7 @@ that send personal information about EU citizens to {{site.data.keyword.cloudant
 
 To request an EU Model Clauses agreement,
 or for any other information or assistance around the transfer of personal data,
-customers can contact the dedicated EU Model Clauses team at [eu-mc@ie.ibm.com](mailto:eu-mc@ie.ibm.com){: new_window}{: external}.
+customers can contact the dedicated EU Model Clauses team at [eu-mc@ie.ibm.com](mailto:eu-mc@ie.ibm.com).
 
 The EU Directive 95/46/EC sets out rules about the processing of customer's personal data.
 As the data controller,
@@ -84,4 +84,4 @@ If you have further questions about the impending changes to data protection law
 and how they are likely to impact your business,
 or would like to discuss how {{site.data.keyword.IBM_notm}} can support your information governance
 and compliance efforts,
-contact the Client Success team at [cdscsm@us.ibm.com](mailto:cdscsm@us.ibm.com){: new_window}{: external}. 
+contact the Client Success team at [cdscsm@us.ibm.com](mailto:cdscsm@us.ibm.com). 

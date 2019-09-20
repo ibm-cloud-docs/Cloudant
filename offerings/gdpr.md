@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-09-20"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -94,7 +94,7 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboa
 ### Restriction of processing
 {: #restriction-of-processing}
 
-{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com){: new_window}{: external}. Upon 
+{{site.data.keyword.cloudant_short_notm}} sends dashboard interaction data to Segment. It is possible to ask {{site.data.keyword.cloudant_short_notm}} to restrict processing of customer PI in this way via a [{{site.data.keyword.cloudant_short_notm}} support request](mailto:support@cloudant.com). Upon 
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information associated 
 with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
 ability to contact dedicated customers via email and provides an interface for customers to keep this 
@@ -250,5 +250,5 @@ database are removed from your system. For more information, see
 [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: new_window}. 
 
 If you need additional help, contact 
-[{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com){: new_window}{: external}.
+[{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com).
 
