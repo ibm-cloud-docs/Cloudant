@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-09"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -21,12 +21,12 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-09-09 -->
 
 # Replication incrementals
 {: #replication-incrementals}
 
-This guide contains older or 'deprecated' guidance on {{site.data.keyword.cloudantfull}} backup. For current backup guidance, see the [Disaster Recovery and Backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) guide.
+The content in the Replication incrementals guide contains older or "deprecated" guidance on {{site.data.keyword.cloudantfull}} backup. For current backup guidance, see the [Disaster Recovery and Backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) guide.
 {: deprecated}
 
 Database backups protect your data against potential loss or corruption.
@@ -41,20 +41,20 @@ from these backups to your production cluster.
 
 Using {{site.data.keyword.cloudant_short_notm}} replication,
 a database backup stores your database content to a checkpoint.
-It is possible to 'roll back' to a specific checkpoint.
-The checkpoint is not specific to a precise time.
+It's possible to 'roll back' to a specific checkpoint.
+The checkpoint isn't specific to a precise time.
 Instead,
-it is a record of the database as it was after specific changes occurred during the backup period.
+it's a record of the database as it was after specific changes occurred during the backup period.
 In this way,
 a backup can preserve the state of your database at a selected time.
 
 ## Incremental backups
 {: #incremental-backups}
 
-If you are an Enterprise customer,
+If you're an Enterprise customer,
 a daily incremental backup capability is available. For more information, see [Disaster recovery and backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 
-If you are not an Enterprise customer,
+If you're not an Enterprise customer,
 or you prefer to create your own backups,
 you can use the {{site.data.keyword.cloudant_short_notm}} replication facility to create a database backup.
 
@@ -99,7 +99,7 @@ To create an incremental backup,
 do the following steps:
 
 1.  Find the ID of the checkpoint document for the last replication.
-    It is stored in the `_replication_id` field of the replication document,
+    It's stored in the `_replication_id` field of the replication document,
     found in the `_replicator` database.
 2.  Open the checkpoint document at `/$DATABASE/_local/$REPLICATION_ID`,
     where `$REPLICATION_ID` is the ID you found in the previous step,
@@ -112,7 +112,7 @@ do the following steps:
     setting the [`since_seq` field](/docs/services/Cloudant?topic=cloudant-replication-api#the-since_seq-field)
     in the replication document to the value of the `recorded_seq` field found in the previous step.
 
-By definition, using the `since_seq` option bypasses the normal checkpointing facility. Only use `since_seq` with caution. 
+By definition, if you use the `since_seq` option, it bypasses the normal checkpointing facility. Use `since_seq` with caution. 
 {: note}
 
 ## Restoring a database
@@ -133,7 +133,7 @@ Any documents older than a copy already present in the new database are skipped.
 ## An example
 {: #an-example}
 
-This example shows how to:
+This example shows how to run and restore a backup:
 
 1.  Set up databases to use incremental backup.
 2.  Run a full backup.
@@ -159,7 +159,7 @@ commands to run these operations.
 In practice,
 you might use any HTTP client.
 
-### Step 1: Check that you have three databases
+### Step 1. Check that you have three databases
 {: #step-1-check-that-you-have-three-databases}
 
 For this example,
@@ -189,10 +189,10 @@ $ curl -X PUT "${url}/backup-tuesday"
 ```
 {: codeblock}
 
-### Step 2: Create the `_replicator` database
+### Step 2. Create the `_replicator` database
 {: #step-2-create-the-_replicator-database}
 
-If it does not exist, create the `_replicator` database.
+If it doesn't exist, create the `_replicator` database.
 
 #### Creating the `_replicator` database by using HTTP
 
@@ -208,7 +208,7 @@ curl -X PUT "${url}/_replicator"
 ```
 {: pre}
 
-### Step 3: Back up the entire (original) database
+### Step 3. Back up the entire (original) database
 {: #step-3-back-up-the-entire-original-database}
 
 On Monday,
@@ -242,7 +242,7 @@ $ curl -X PUT "${url}/_replicator/full-backup-monday" -H "$ct" -d @backup-monday
 ```
 {: codeblock}
 
-### Step 4: Prepare incremental backup part 1 - Get checkpoint ID
+### Step 4. Prepare incremental backup part 1 - Get checkpoint ID
 {: #step-4-prepare-incremental-backup-part-1-get-checkpoint-id}
 
 On Tuesday,
@@ -278,7 +278,7 @@ replication_id=$(curl "${url}/_replicator/full-backup-monday" | jq -r '._replica
 ```
 {: pre}
 
-### Step 5: Prepare incremental backup part 2 - Get `recorded_seq` value
+### Step 5. Prepare incremental backup part 2 - Get `recorded_seq` value
 {: #step-5-prepare-incremental-backup-part-2-get-recorded_seq-value}
 
 After you get the checkpoint ID,
@@ -304,7 +304,7 @@ recorded_seq=$(curl "${url}/original/_local/${replication_id}" | jq -r '.history
 ```
 {: pre}
 
-### Step 6: Run an incremental backup
+### Step 6. Run an incremental backup
 {: #step-6-run-an-incremental-backup}
 
 Now that you have the checkpoint ID and `recorded_seq`,
@@ -343,7 +343,7 @@ curl -X PUT "${url}/_replicator/incr-backup-tuesday" -H "${ct}" -d @backup-tuesd
 ```
 {: codeblock}
 
-### Step 7: Restore the Monday backup
+### Step 7. Restore the Monday backup
 {: #step-7-restore-the-monday-backup}
 
 To restore from a backup,
@@ -382,13 +382,13 @@ curl -X PUT "${url}/_replicator/restore-monday" -H "$ct" -d @restore-monday.json
 ```
 {: codeblock}
 
-### Step 8: Restore the Tuesday backup
+### Step 8. Restore the Tuesday backup
 {: #step-8-restore-the-tuesday-backup}
 
 To restore Tuesday's database,
 you first replicate from `backup-tuesday` and then from `backup-monday`.
 
-The order is not a typographical error; the intention really *is* to restore from Tuesday and *then* Monday.
+The order isn't a typographical error; the intention really *is* to restore from Tuesday and *then* Monday.
 {: tip}
 
 You might restore in chronological sequence,
@@ -460,8 +460,8 @@ The following suggestions might be helpful.
 {: #scheduling-backups}
 
 Replication jobs can significantly increase the load on a cluster.
-If you are backing up several databases,
-it is best to stagger the replication jobs for different times,
+If you're backing up several databases,
+it's best to stagger the replication jobs for different times,
 or to a time when the cluster is less busy.
 
 #### Changing the IO priority of a backup
@@ -502,7 +502,7 @@ indexes are created on the backup destination.
 This practice slows down the backup process and uses unnecessary amounts of disk space.
 If you don't require indexes on your backup system,
 use a filter function with your replications to filter out design documents.
-You might also use this filter function to exclude other documents that are not wanted.
+You might also use this filter function to exclude other documents that aren't wanted.
 
 ### Backing up multiple databases
 {: #backing-up-multiple-databases}

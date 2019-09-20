@@ -2,9 +2,9 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-06"
 
-keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, fail over, recovering from fail over
+keywords: create database, create api key for replication, grant access permission, set up replications, test replication, configure application, active-active configuration, active-passive configuration, failover, recovering from failover
 
 subcollection: cloudant
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-09-06 -->
 
 # Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery
 {: #configuring-ibm-cloudant-for-cross-region-disaster-recovery}
@@ -30,7 +30,7 @@ The [{{site.data.keyword.cloudant_short_notm}} disaster recovery guide](/docs/se
 explains that one way to enable disaster recovery is to use
 {{site.data.keyword.cloudantfull}} replication to create redundancy across regions.
 
-You can configure replication in {{site.data.keyword.cloudant_short_notm}} using an 'active-active'
+You can configure replication in {{site.data.keyword.cloudant_short_notm}} by using an 'active-active'
 or 'active-passive' topology across data centers.
 
 The following diagram shows a typical configuration that
@@ -39,22 +39,22 @@ one in each region:
 
 ![Example active-active architecture](../images/active-active.png)
 
-It is helpful to remember:
+Remember these important facts:
 
 * Within each datacenter,
   {{site.data.keyword.cloudant_short_notm}} already offers high availability
   by storing data in triplicate across three servers.
 * Replication occurs at the database rather than account level
   and must be explicitly configured.
-* {{site.data.keyword.cloudant_short_notm}} does not provide any Service Level Agreements (SLAs)
+* {{site.data.keyword.cloudant_short_notm}} doesn't provide any Service Level Agreements (SLAs)
   or certainties about replication latency.
-* {{site.data.keyword.cloudant_short_notm}} does not monitor individual replications.
+* {{site.data.keyword.cloudant_short_notm}} doesn't monitor individual replications.
   Your own strategy for detecting failed replications and restarting them is advisable.
 
 ## Before you begin an active-active deployment
 {: #before-you-begin-an-active-active-deployment}
 
-For an active-active deployment, a strategy for managing conflicts must be in place. Therefore, be sure to understand how [replication](/docs/services/Cloudant?topic=cloudant-replication-api#replication-api) and [conflicts](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc) work before you consider this architecture.
+For an active-active deployment, a strategy for managing conflicts must be in place, so be sure to understand how [replication](/docs/services/Cloudant?topic=cloudant-replication-api#replication-api) and [conflicts](/docs/services/Cloudant?topic=cloudant-document-versioning-and-mvcc#document-versioning-and-mvcc) work before you consider this architecture.
 {: note}
 
 Contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com){: new_window}{: external}
@@ -72,8 +72,7 @@ The configuration assumes that you have two accounts in different regions:
 * `myaccount-dc1.cloudant.com`
 * `myaccount-dc2.cloudant.com`
 
-When these accounts are in place,
-the basic steps are as follows:
+After these accounts are created, follow these steps: 
 
 1. [Create](#step-1-create-your-databases) a pair of peer databases within the accounts.
 2. [Set up](#step-2-create-an-api-key-for-your-replications) API keys
@@ -84,7 +83,7 @@ the basic steps are as follows:
 6. Configure application and infrastructure for either active-active
   or active-passive use of the databases.
 
-## Step 1: Create your databases
+## Step 1. Create your databases
 {: #step-1-create-your-databases}
 
 [Create the databases](/docs/services/Cloudant?topic=cloudant-databases#create-database) that you want to replicate between
@@ -93,7 +92,7 @@ within each account.
 In this example,
 a database that is called `mydb` is created.
 
-The names that are used for the databases in this example are not important,
+The names that are used for the databases in this example aren't important,
 but using the same name is clearer.
 
 ```sh
@@ -102,7 +101,7 @@ curl "https://myaccount-dc2.cloudant.com/mydb" -XPUT -u myaccount-dc2
 ```
 {: codeblock}
 
-## Step 2: Create an API key for your replications
+## Step 2. Create an API key for your replications
 {: #step-2-create-an-api-key-for-your-replications}
 
 It is a good idea to use an [API key](/docs/services/Cloudant?topic=cloudant-authorization#api-keys) for continuous replications.
@@ -110,7 +109,7 @@ The advantage is that if your primary account details change,
 for example after a password reset,
 your replications can continue unchanged.
 
-API keys are not tied to a single account.
+API keys aren't tied to a single account.
 This characteristic means that a single API key can be created,
 then granted suitable database permissions for both accounts.
 
@@ -133,10 +132,10 @@ A successful response is similar to the following abbreviated example:
 ```
 {: codeblock}
 
-Take careful note of the password. It is not possible to retrieve the password later.
+Take careful note of the password. It isn't possible to retrieve the password later.
 {: important}
 
-## Step 3: Grant access permission
+## Step 3. Grant access permission
 {: #step-3-grant-access-permission}
 
 Give the API Key [permission](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions)
@@ -146,10 +145,10 @@ If you also want to replicate indexes,
 assign admin permissions.
 
 Use the {{site.data.keyword.cloudant_short_notm}} Dashboard,
-or alternatively see the [authorization](/docs/services/Cloudant?topic=cloudant-authorization#authorization) information
+or see the [authorization](/docs/services/Cloudant?topic=cloudant-authorization#authorization) information
 for details of how to grant permissions programmatically.
 
-## Step 4: Set up replications
+## Step 4. Set up replications
 {: #step-4-set-up-replications}
 
 Replications in {{site.data.keyword.cloudant_short_notm}} are always uni-directional:
@@ -159,8 +158,7 @@ to replicate both ways between two databases,
 two replications are required,
 one for each direction.
 
-A replication is created in each account,
-that uses the API Key created [earlier](#step-2-create-an-api-key-for-your-replications).
+A replication is created in each account that uses the API Key that is created [earlier](#step-2-create-an-api-key-for-your-replications).
 
 First,
 create a replication from database `myaccount-dc1.cloudant.com/mydb` to
@@ -197,7 +195,7 @@ curl -XPOST "https://myaccount-dc2.cloudant.com/_replicator"
 If this step fails because the `_replicator` database doesn't exist, create it.
 {: note}
 
-## Step 5: Test your replication
+## Step 5. Test your replication
 {: #step-5-test-your-replication}
 
 Test the replication processes by creating,
@@ -205,13 +203,12 @@ modifying,
 and deleting documents in either database.
 
 After each change in one database,
-check that you can also see the change reflected in the other database.
+check that you can also see that the change is reflected in the other database.
 
-## Step 6: Configure your application
+## Step 6. Configure your application
 {: #step-6-configure-your-application}
 
-At this point,
-the databases are set up to remain synchronized with each other.
+The databases are set up to remain synchronized with each other.
 
 The next decision is whether to use the databases in an
 [active-active](#active-active) or [active-passive](#active-passive) manner.
@@ -248,19 +245,19 @@ you would set their {{site.data.keyword.cloudant_short_notm}} URL to `"https://m
 In an active-passive configuration,
 all instances of an application are configured to use a primary database.
 However,
-the application can fail over to the other backup database,
+the application can failover to the other backup database,
 if circumstances make it necessary.
-The fail over might be implemented within the application logic itself,
+The failover might be implemented within the application logic itself,
 or by using a load balancer,
 or by using some other means.
 
-A simple test of whether a fail over is required would be to
+A simple test of whether a failover is required would be to
 use the main database endpoint as a 'heartbeat.
 For example,
 a simple `GET` request that is sent to the main database endpoint normally returns
 [details about the database](/docs/services/Cloudant?topic=cloudant-databases#getting-database-details).
 If no response is received,
-it might indicate that a fail over is necessary.
+it might indicate that a failover is necessary.
 
 ### Other configurations
 {: #other-configurations}
@@ -272,7 +269,7 @@ in a 'Write-Primary, Read-Replica' configuration,
 all writes go to one database,
 but the read load is spread among the replicas.
 
-## Step 7: Next steps
+## Step 7. Next steps
 {: #step-7-next-steps}
 
 * Consider monitoring the [replications](/docs/services/Cloudant?topic=cloudant-advanced-replication#advanced-replication) between the databases.
@@ -284,20 +281,20 @@ but the read load is spread among the replicas.
 {: #failing-over-between-ibm-cloudant-regions}
 
 Typically,
-the process of managing a fail over between regions or datacenters is handled higher up within your application stack,
-for example by configuring application server fail over changes,
+the process of managing a failover between regions or datacenters is handled higher up within your application stack,
+for example by configuring application server failover changes,
 or by balancing the load.
 
-{{site.data.keyword.cloudant_short_notm}} does not provide a facility for you
-to manage explicitly any fail over or reroute requests between regions.
+{{site.data.keyword.cloudant_short_notm}} doesn't provide a facility for you
+to manage explicitly any failover or reroute requests between regions.
 This constraint is partly for technical reasons,
 and partly because the conditions under when it might happen tend to be application-specific.
 For example,
-you might want to force a fail over in response to a custom performance metric.
+you might want to force a failover in response to a custom performance metric.
 
 However,
-if you decide that you do need an ability to manage fail over,
-some possible options include:
+if you decide that you need the ability to manage failover,
+consider the following possible options:
 
 * Put your own [HTTP proxy in front of {{site.data.keyword.cloudant_short_notm}}](https://github.com/greenmangaming/cloudant-nginx){: new_window}{: external}.
   Configure your application to talk to the proxy rather than the {{site.data.keyword.cloudant_short_notm}} instance.
@@ -312,14 +309,14 @@ some possible options include:
   based on a health check or latency rule.
 
 
-## Recovering from fail over
-{: #recovering-from-fail-over}
+## Recovering from failover
+{: #recovering-from-failover}
 
 If a single {{site.data.keyword.cloudant_short_notm}} instance is unreachable,
 avoid redirecting traffic back to it as soon as it becomes reachable again.
 The reason is that some time is required for intensive tasks
 such as synchronizing the database state from any peers,
-and ensuring that indexes are up to date.
+and ensuring that indexes are up-to-date.
 
 It is helpful to have a mechanism for monitoring these tasks
 to help decide when a database is in a suitable state to service your production traffic.
@@ -330,7 +327,7 @@ a typical list of checks to apply include:
 * [Replications](#replications)
 * [Indexes](#indexes)
 
-If you implement request rerouting or fail over based on a health test, you might want to incorporate corresponding checks to avoid premature rerouting back to a service instance that is still recovering.
+If you implement request rerouting or failover based on a health test, you might want to incorporate corresponding checks to avoid premature rerouting back to a service instance that is still recovering.
 {: note}
 
 ### Replications
@@ -350,6 +347,6 @@ If a database is being changed continuously, the replication status is unlikely 
 {: #indexes}
 
 * Are the indexes sufficiently up-to-date?
-  Verify this by using the [active tasks](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) endpoint.
+  Verify that indexes are updated by using the [active tasks](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) endpoint.
 * Test the level of 'index readiness' by sending a query to the index,
   and deciding whether it returns within an acceptable time.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-06"
 
 keywords: account, ping account, cors, connect to your cloudant account
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2019-09-06 -->
 
 # Account
 {: #account}
@@ -43,7 +43,7 @@ make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspelled your account name,
 you might get a [503 'service unavailable' error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
-*Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using HTTP:*
+*See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using HTTP:*
 
 ```HTTP
 GET / HTTP/1.1
@@ -51,7 +51,7 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-*Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using the command line:*
+*See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using the command line:*
 
 ```sh
 curl -u $ACCOUNT "https://$ACCOUNT.cloudant.com"
@@ -60,7 +60,7 @@ curl -u $ACCOUNT "https://$ACCOUNT.cloudant.com"
 
 <!--
 
-*Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using Javascript:*
+*See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using Javascript:*
 
 ```javascript
 var nano = require('nano');
@@ -75,7 +75,7 @@ account.request(function (err, body) {
 
 -->
 
-*Example of connecting to your {{site.data.keyword.cloudant_short_notm}} account, by using Python:*
+*See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using Python:*
 
 ```python
 import cloudant

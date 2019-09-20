@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-06"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve list of active tasks 
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2019-09-06 -->
 
 # Active tasks
 {: #active-tasks}
@@ -33,10 +33,12 @@ see the [Managing tasks](/docs/services/Cloudant?topic=cloudant-managing-tasks#m
 ## Retrieving a list of active tasks
 {: #retrieving-a-list-of-active-tasks}
 
--   **Method**: `GET`
--   **Path**: `/_active_tasks`
--   **Response**: List of running tasks, including the task type, name, status, and process ID
--   **Roles permitted**: `_admin`
+Name | Description
+-----|------------
+Method | `GET`
+Path | `/_active_tasks`
+Response | List of running tasks, including the task type, name, status, and process ID
+Roles permitted | `_admin`
 
 You can obtain a list of active tasks by using the `/_active_tasks` URL.
 The result is a JSON array of the currently running tasks,
@@ -78,16 +80,14 @@ account.request({
 
 The returned structure includes the following fields for each task:
 
--   **database**: The database and shard on which the operation occurs.
--   **pid**: Erlang Process ID
--   **started_on**: Time when the task was started.
-	The value is an integer that contains the UNIX time UTC.
--   **total_changes**: Total number of documents to be processed by the task.
-	The exact meaning depends on the type of the task.
--   **type**: Operation Type
--   **updated_on**: Time when the last update was made to this task record.
-	Updates are made by the job as progress occurs.
-	The value is an integer that contains the UNIX time that uses UTC.
+Name | Description
+-----|------------
+database | The database and shard on which the operation occurs.
+pid | Erlang Process ID
+started_on | Time when the task was started. The value is an integer that contains the UNIX time UTC.
+total_changes | Total number of documents to be processed by the task. The exact meaning depends on the type of the task.
+type | Operation Type
+updated_on | Time when the last update was made to this task record. Updates are made by the job as progress occurs. The value is an integer that contains the UNIX time that uses UTC.
 
 In the `type` field,
 the possible values include:
@@ -181,9 +181,14 @@ The meaning of other fields in the JSON response depends on the type of the task
 ### Specific response fields for compaction tasks
 {: #specific-response-fields-for-compaction-tasks}
 
--   **changes_done**: Number of documents compacted.
--   **phase**: Reports the stage of compaction.
--   **total_changes**: Number of documents in the database.
+Name | Description
+-----|------------
+changes_done | Number of documents compacted.
+phase | Reports the stage of compaction.
+total_changes | Number of documents in the database.
+changes_done | Number of documents compacted.
+phase | Reports the stage of compaction.
+total_changes | Number of documents in the database.
 
 In the `phase` field, the value indicates the stage that compaction reached:
 
@@ -193,23 +198,22 @@ In the `phase` field, the value indicates the stage that compaction reached:
 ### Specific response fields for replication tasks
 {: #specific-response-fields-for-replication-tasks}
 
--   **changes_pending**: Number of documents that need to be changed in the target database,
-	expressed as an integer.
--   **continuous**: Boolean value that indicates whether the replication is continuous.
--   **docs_read**: Number of documents that are read from the source database,
-	expressed as an integer.
--   **replication_id**: Unique identifier string of the replication that can be used to cancel the task.
--   **revisions_checked**: Number of document revisions for which it was checked
-	whether they are already in the target database.
--   **source**: An obfuscated URL string that indicates the database from which the task is replicating.
--   **target**: An obfuscated URL string that indicates the database to which the task is replicating.
--   **user**: User who started the replication, expressed as a string,
-	or `null` if the replication was not initiated by a user.
+Name | Description
+-----|------------
+changes_pending | Number of documents that need to be changed in the target database, expressed as an integer.
+continuous | Boolean value that indicates whether the replication is continuous.
+docs_read | Number of documents that are read from the source database, expressed as an integer.
+replication_id | Unique identifier string of the replication that can be used to cancel the task.
+revisions_checked | Number of document revisions for which it was checked whether they are already in the target database.
+source | An obfuscated URL string that indicates the database from which the task is replicating.
+target | An obfuscated URL string that indicates the database to which the task is replicating.
+user | User who started the replication, expressed as a string, or `null` if the replication was not initiated by a user.
 
 ### Specific response fields for indexing tasks
 {: #specific-response-fields-for-indexing-tasks}
 
--   **changes_done**: Number of document revisions that are processed by this task.
-	A document can have one or more revisions.
--   **design_document**: The design document that contains the view or index function or functions.
--   **total_changes**: The number of unindexed changes to process. This count includes deleted documents, although these documents are automatically skipped by the indexer.
+Name | Description
+-----|------------
+changes_done | Number of document revisions that are processed by this task. A document can have one or more revisions.
+design_document | The design document that contains the view or index function or functions.
+total_changes| The number of unindexed changes to process. This count includes deleted documents, although these documents are automatically skipped by the indexer.

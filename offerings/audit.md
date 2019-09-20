@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-09-06"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -21,14 +21,13 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-09-06 -->
 
 # Audit logging
 {: #audit-logging}
 
-Audit logging records the {{site.data.keyword.cloudantfull}} principals who have 
-accessed data stored in {{site.data.keyword.cloudant_short_notm}}. For all HTTP API 
-access to {{site.data.keyword.cloudant_short_notm}}, the audit logging function 
+Audit logging records the {{site.data.keyword.cloudantfull}} principals who accessed data that is stored in {{site.data.keyword.cloudant_short_notm}}. For all HTTP API 
+access to {{site.data.keyword.cloudant_short_notm}}, the audit log function 
 records the following information about each HTTP request:
 
 Information | Description
@@ -41,10 +40,10 @@ Information | Description
 
 {{site.data.keyword.cloudant_short_notm}} audit logs can be used to understand:
 
-- What and when databases and documents have been accessed within an account, 
+- What and when databases and documents were accessed within an account, 
 and by whom.
-- What and when queries have been run, and by whom.
-- What a specific principal or user has accessed, updated, or deleted, and when.
+- What and when queries were run, and by whom.
+- What a specific principal or user accessed, updated, or deleted, and when.
 - What and when replication documents were created or deleted.
 
 
@@ -54,7 +53,7 @@ and by whom.
 To request access to the audit logs for your account, contact 
 {{site.data.keyword.cloudant_short_notm}} support. Support provides a copy of the audit logs that are of interest to you.
 
-When you contact support, be sure to include:
+When you contact support, be sure to include the following information:
 
 - The {{site.data.keyword.cloudant_short_notm}} account the request relates to.
 - The timeframe for audit logs (must not be more than one month per support request).
