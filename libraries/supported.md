@@ -27,7 +27,7 @@ subcollection: cloudant
 {: #supported-client-libraries}
 
 ## Mobile
-{: #mobile}
+{: #mobile-supported}
 
 The {{site.data.keyword.cloudantfull}} Sync library is used to store,
 index,

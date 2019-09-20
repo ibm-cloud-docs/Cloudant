@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-19"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -752,7 +752,7 @@ If the function returns a `true` result when applied to a change,
 the change remains in the feed.
 This means that filter functions let you 'remove' or 'ignore' changes that you do not want to monitor.
 
-Filter functions can also be used to modify a [replication task](/docs/services/Cloudant?topic=cloudant-advanced-replication#filtered-replication).
+Filter functions can also be used to modify a [replication task](/docs/services/Cloudant?topic=cloudant-advanced-replication#filtered-replication-adv-repl).
 {: tip}
 
 Filter functions require two arguments: `doc` and [`req`](#req).
@@ -784,6 +784,7 @@ The `req` argument corresponds to that used in a [list function](#list-functions
 {: codeblock}
 
 ### Example of a filter function
+{: #example-of-a-filter-function}
 
 ```javascript
 function(doc, req){
