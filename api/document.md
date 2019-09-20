@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-19"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -467,7 +467,7 @@ do the following steps:
 
 1.	Create a database to hold the required documents.
 	The new database is intended to hold all documents *except* the tombstone documents.
-2.	Set up a [filtered replication](/docs/services/Cloudant?topic=cloudant-advanced-replication#filtered-replication) to
+2.	Set up a [filtered replication](/docs/services/Cloudant?topic=cloudant-advanced-replication#filtered-replication-adv-repl) to
 	replicate documents from the original database to the new database.
 	Configure the filter so that documents with the '`_deleted`' attribute are not replicated.
 3.	When replication is complete,
@@ -613,7 +613,7 @@ because the database sequence numbers are likely to be different.
 If you are using a `validate_doc_update` function, avoid replicating that function to clients. This rule is to prevent the possibility of unwanted side effects as a result of having the function present on the client.
 {: tip}
 
-[{{site.data.keyword.cloudant_short_notm}} Sync](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#mobile) libraries do not replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
+[{{site.data.keyword.cloudant_short_notm}} Sync](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#mobile-supported) libraries do not replicate design documents, so replication of `validate_doc_update` functions is not normally a problem for {{site.data.keyword.cloudant_short_notm}}.
 However, other clients might replicate the design documents or `validate_doc_update` functions, potentially resulting in unwanted side effects.
 {: note}
 

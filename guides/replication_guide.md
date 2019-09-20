@@ -493,7 +493,7 @@ where the application's state is persisted to {{site.data.keyword.cloudant_short
 but the data is also available on the device for offline use.
 
 ## Filtered replications
-{: #filtered-replications}
+{: #filtered-replications-repl-guide}
 
 It is useful to be able to remove some data during the replication process,
 when you replicate one database to another.

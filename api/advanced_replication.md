@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-09-19"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -459,7 +459,7 @@ The replication process uses the supplied values for HTTP Basic Authentication.
 {: codeblock}
 
 ## Filtered replication
-{: #filtered-replication}
+{: #filtered-replication-adv-repl}
 
 Sometimes you do not want to transfer all documents from source to target.
 To choose which documents to transfer,
@@ -483,6 +483,7 @@ To set up filtering, use the `selector` field whenever possible. When you use th
 {: note}
 
 ### Example of a filter function
+{: #example-of-a-filter-function-adv-repl}
 
 ```javascript
 function(doc, req) {
@@ -494,6 +495,7 @@ function(doc, req) {
 Filters are stored under the topmost `filters` key of the design document.
 
 ### Example of storing a filter function in a design document
+{: #example-of-storing-a-filter-function-dd}
 
 ```json
 {
