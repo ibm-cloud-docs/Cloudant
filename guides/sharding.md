@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-20"
 
 keywords: how data is stored, sharding and performance, work with shards, shard count, replica count
 
@@ -162,7 +162,7 @@ particularly for larger databases:
 *	For even larger databases,
 	consider manually sharding your data into several databases.
 	For such large databases,
-	contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com){: new_window}{: external} for advice.
+	contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com) for advice.
 
 The numbers in these guidelines are derived from observation and experience rather than precise calculation.
 {: tip}
@@ -215,7 +215,7 @@ However,
 you are not allowed to change the replica count value from the default of 3.
 In particular,
 it is not possible to specify a different replica count value when you create a database.
-For further help, contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com){: new_window}{: external}.
+For further help, contact [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com).
 
 ### What are the *R* and *W* arguments?
 {: #what-are-the-_r_-and-_w_-arguments-}

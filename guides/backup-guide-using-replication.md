@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-09"
+lastupdated: "2019-09-20"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -519,4 +519,4 @@ Replication and backups can be tricky.
 If you get stuck,
 check out the [replication guide](/docs/services/Cloudant?topic=cloudant-replication-guide#replication-guide),
 or contact the
-[{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com){: new_window}{: external}.
+[{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com).

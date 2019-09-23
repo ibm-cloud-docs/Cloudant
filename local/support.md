@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-20"
 
 keywords: coverage, support ticket, assistance
 
@@ -54,7 +54,7 @@ Contact your Customer Success or Account Manager for further assistance with the
 - Design optimization
 - Capacity planning
 
-If you have any questions regarding our support policy, contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com){: new_window}{: external}.
+If you have any questions regarding our support policy, contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com).
 
 ### Troubleshooting {{site.data.keyword.cloudant_local_notm}}
 {: #troubleshooting-ibm-cloudant-local}

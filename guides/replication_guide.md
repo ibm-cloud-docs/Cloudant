@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-09-20"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -31,7 +31,7 @@ across accounts and across data centers.
 {: shortdesc}
 
 Data can even be replicated to and from an {{site.data.keyword.cloudant_short_notm}} account and a mobile device by
-using [{{site.data.keyword.cloudant_short_notm}} Sync](https://cloudant.com/product/cloudant-features/sync/){: new_window}{: external}
+using [{{site.data.keyword.cloudant_short_notm}} Sync](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external}
 or [PouchDB](http://pouchdb.com/){: new_window}{: external}.
 Replication can run in one direction or in both directions,
 as a 'single shot' or continuous operation,
@@ -469,7 +469,7 @@ db.sync(URL, { live: true });
 ### CloudantSync
 {: #cloudantsync}
 
-[CloudantSync](https://cloudant.com/cloudant-sync-resources/){: new_window}{: external} is a set of libraries
+[CloudantSync](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external} is a set of libraries
 for iOS and Android that allows data to be stored locally in a mobile device
 and synced with {{site.data.keyword.cloudant_short_notm}} when mobile connectivity permits.
 As with [PouchDB](#pouchdb),
@@ -755,7 +755,7 @@ GET https://$ACCOUNT.cloudant.com/_replicator
 In the returned JSON,
 look for the `disk_size` value.
 If the value indicates a size of over 1 GB,
-contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com){: new_window}{: external} for further advice.
+contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com) for further advice.
 
 You can check an individual `_replicator` document for conflicts,
 as shown in the following example:
@@ -822,4 +822,4 @@ with replication treated as a background process.
 * If you want to run replication with minimal impact, setting `worker_processes` and `http_connections` to 1 might be appropriate.
 
 For further assistance about the best configuration for your use case,
-contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com){: new_window}{: external}.
+contact the [{{site.data.keyword.cloudant_short_notm}} support team](mailto:support@cloudant.com).

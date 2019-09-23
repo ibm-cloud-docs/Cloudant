@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-09-20"
 
 keywords: tier-1 physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -73,7 +73,7 @@ or contact your sales representative. Alternatively, you can open
 a support ticket with 
 [IBM Cloud support](https://www.ibm.com/cloud/support){: new_window}{: external} 
 or email 
-[support@cloudant.com](mailto:support@cloudant.com){: new_window}{: external}.
+[support@cloudant.com](mailto:support@cloudant.com).
 
 ## General Data Protection Regulation (GDPR)
 {: #general-data-protection-regulation-gdpr-overview}
