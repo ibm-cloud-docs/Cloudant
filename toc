@@ -30,8 +30,8 @@ IBM Cloudant
 	{: .topicgroup}
 	Apache CouchDB
 		couchdb/overview.md
+		couchdb/comparison.md
 		couchdb/install.md
-		couchdb/operator.md
 		couchdb/support.md
 
 	{: .topicgroup}
