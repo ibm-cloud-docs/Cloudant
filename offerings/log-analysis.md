@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-13"
+lastupdated: "2019-09-24"
 
 keywords: log analysis, integration 
 
@@ -38,6 +38,8 @@ Deployment Region | LogDNA Region
 `Dallas` | `Dallas`
 `London` | `London`
 `Frankfurt` | `Frankfurt`
+`Tokyo` | `Tokyo`
+`Sydney` | `Sydney`
 {: caption="Table 1. Log Analysis regions" caption-side="top"}
 
 ## Provisioning {{site.data.keyword.la_full_notm}}
