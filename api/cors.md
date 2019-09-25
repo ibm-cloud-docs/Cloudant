@@ -215,4 +215,4 @@ To specify that CORS is enabled only for exact origin domains,
 list each of the domains or subdomains by using the `Restrict to specific domains` option.
 For each domain,
 provide a full URL,
-preferably by using the `https` prefix for more security.
+preferably by using the `https` prefix for better security.
