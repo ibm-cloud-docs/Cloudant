@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-23"
+lastupdated: "2019-09-25"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -33,11 +33,11 @@ and populate that database with a simple collection of data.
 
 In addition to this tutorial, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
 
-- [Liberty for Java and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/runtimes/liberty/getting-started.html#getting-started-tutorial){: new_window}{: external}
-- [Node.js and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/runtimes/nodejs/getting-started.html#getting-started-tutorial){: new_window}{: external}
-- [Swift and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/runtimes/swift/getting-started.html#getting-started-tutorial){: new_window}{: external}
+- [Node.js and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/node?topic=nodejs-cloudant){: new_window}{: external}
+- [Swift and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/swift?topic=swift-getting-started){: new_window}{: external}
+- [Python and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/cloud-foundry-public?topic=cloud-foundry-getting-started-python#add_database-python){: new_window}{: external}
 
-For more language-specific tutorials, see [Get started by deploying your first app](https://cloud.ibm.com/docs){: new_window}{: external}. 
+For more language-specific tutorials, see [Get started by deploying your first app](https://cloud.ibm.com/docs/home/build){: new_window}{: external}. 
 
 ## Before you begin
 {: #prereqs}
