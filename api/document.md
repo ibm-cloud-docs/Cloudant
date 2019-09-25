@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-11-29 -->
+<!-- Acrolinx: 2019-09-09 -->
 
 # Documents
 {: #documents}
@@ -448,7 +448,7 @@ When the replication completes,
 the tombstones are no longer required.
 Automatic compaction helps ensure that only the minimal amount of data is retained and transferred during replication.
 Nevertheless,
-tombstone documents are not automatically removed, or 'd'.
+tombstone documents are not automatically removed ('d').
 
 Over time,
 as documents are created and deleted,
