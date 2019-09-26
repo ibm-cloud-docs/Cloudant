@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-09-26"
 
 keywords: compare
 
@@ -24,7 +24,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2017-05-10 -->
 
 # Overview
-{: #overview-apache-couchdb-operator}
+{: #apache-couchdb-operator}
 
 An [Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/){: new_window}{: external} is a method of packaging, deploying, and managing a Kubernetes-native application. 
 
