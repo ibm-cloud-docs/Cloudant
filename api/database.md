@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-30"
+lastupdated: "2019-09-26"
 
 keywords: create database, database topology, send multiple queries to a database, working with databases
 
@@ -50,13 +50,6 @@ Alternatively, a *non-partitioned* database might be created. This type of datab
 The partitioning type of a database is set at database creation time. When creating a database, use the `partitioned` query string parameter to set whether the database is partitioned. The default for `partitioned` is `false`, maintaining backwards compatibility.
 
 The partitioning type cannot be changed for an existing database.
-
-To create a database, submit a PUT request with the following format:
-
-Method: PUT /$DATABASE?partitioned=$BOOLEAN
-Request body: None
-Response: Success or failure of operation.
-Roles permitted: _admin
 
 
 ## Create
