@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-09-27"
 
 keywords: subscription, OperatorGroup, namespace, Kubernetes, OpenShift
 
@@ -26,96 +26,50 @@ subcollection: cloudant
 # Installing the Operator
 {: #installing-the-operator}
 
-This guide demonstrates how to install the Operator on Kubernetes and Red Hat OpenShift.
+This guide demonstrates how to install the Operator on Kubernetes and Red Hat OpenShift. There are three separate sections about installing the Operator depending on the Kubernetes flavor and version. The sections discuss the following topics:
+
+- Installing the Operator on Kubernetes
+- Installing the Operator on Red Hat OpenShift 3.x
+- Installing the Operator on Red Hat OpenShift 4.x
 
 ## Installing the Operator on Kubernetes
-{: #install-operator-kubernetes}
+{: #installing-operator-kubernetes}
 
-This section walks through installing the Operator for Apache CouchDB on Kubernetes 1.11 or later.
+This section walks through installing the Operator for Apache CouchDB on Kubernetes 1.11 or later. You can also follow the install instructions found on [operatorhub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} by clicking the **Install** button in the top right. 
 
-Assumptions:
+### Prerequisites
+{: #prerequisites-operator-kubernetes}
 
  * You have a working knowledge of Kubernetes.
  * You have access to a user with cluster-admin privileges (`admin` in this guide).
  * Target cluster has access to the internet and the ability to pull from public container registries.
 
-### Prerequisite
-{: #install-operator-lifecycle-manager-kubernetes}
-
-If it is not installed already, you'll need to install [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager){: new_window}{: external} (OLM), a tool from Red Hat to help manage the Operators running on your cluster, by running the following command: 
-
-```curl
-curl -L https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.11.0/install.sh -o install.sh
-chmod +x install.sh
-./install.sh 0.11.0
-```
-{: codeblock}
+### Installing the Operator
+{: #install-steps-operator-kubernetes}
 
 To install the Operator, follow these steps:
 
-1. Log in as a cluster admin and run the following command: 
+If it is not installed already, you must install [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager){: new_window}{: external} (OLM), a tool from Red Hat to help manage the Operators running on your cluster.  If the OLM is already installed, you can skip step 1 below. 
+
+1. Install Operator Lifecycle Manager (OLM), a tool to help manage the Operators running on your cluster, by running the following command: 
 
   ```
-  kubectl login -u admin
+  curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.11.0/install.sh | bash -s 0.11.0
   ```
   {: codeblock}
 
-2. Create an namespace to deploy the Operator into called, `my-couchdb`:
+2. Install the operator by running the following command. 
+  This Operator is installed in the "operators" namespace and is usable from all namespaces in the cluster.
    
    ```
-   kubectl create namespace my-couchdb
+   kubectl create -f https://operatorhub.io/install/couchdb-operator.yaml
    ```
    {: codeblock}
 
-3. Install the following `OperatorGroup` to manage deployments in the `my-couchdb` namespace only.
-
-  An [`OperatorGroup`](https://docs.openshift.com/container-platform/4.1/applications/operators/olm-understanding-olm.html#olm-operatorgroups_olm-understanding-olm){: new_window}{: external} defines where the Operator manages CouchDB deployments. A single Operator for an Apache CouchDB deployment can manage CouchDB clusters in single, multiple, or all namespaces.
+3. After the install is complete, validate that the operator is running by using the following command:
 
   ```
-  kubectl apply -f - <<END
-  apiVersion: operators.coreos.com/v1alpha2
-  kind: OperatorGroup
-  metadata:
-    name: operatorgroup
-    namespace: my-couchdb
-  spec:
-    targetNamespaces:
-    - my-couchdb
-  END
-  ```
-  {: codeblock}
-
-4. Run the following command to create a subscription to the Operator for Apache CouchDB in the `my-couchdb` project.
-
-  A `Subscription` watches the Operator Catalog for new releases and automatically keeps operators up-to-date.
-
-  ```
-  kubectl apply -f - <<END
-  apiVersion: operators.coreos.com/v1alpha1
-  kind: Subscription
-  metadata:
-    name: my-couchdb
-    namespace: my-couchdb
-  spec:
-    channel: beta
-    name: couchdb-operator
-    source: operatorhubio-catalog
-    sourceNamespace: olm
-  END
-  ```
-  {: codeblock}
-
-5. Verify that your operator has been deployed by running the following command: 
-
-  ```
-  kubectl get csv -n my-couchdb
-  ```
-  {: codeblock}
-
-6. Verify that you have a `CouchDBCluster` CRD, which you can use to create CouchDB clusters, by running the following command:
-
-  ```
-  kubectl get crd couchdbcluster.couchdb.databases.cloud.ibm.com
+  kubectl get csv -n operators
   ```
   {: codeblock}
 
@@ -125,18 +79,20 @@ To install the Operator, follow these steps:
 This section walks through installing the Operator for Apache CouchDB on Red Hat OpenShift 3.11 or later.
 
 ### Prerequisites
+{: #prerequisites-operator-openshift}
 
  * You have a working knowledge of Kubernetes.
  * You have access to a user with cluster-admin privileges (`admin` in this guide).
  * Target cluster has access to the internet / ability to pull from public container registries.
- * You have [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager){: new_window}{: external} (OLM) installed, a tool from Red Hat to help manage the Operators running on your cluster. Run the following command to install Operator Lifecycle Manager:
+ * You have [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager){: new_window}{: external} (OLM) installed, a tool from Red Hat to help manage the Operators running on your cluster. If the OLM is not installed, run the following command to install it:
 
   ```
-  curl -L https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.11.0/install.sh -o install.sh
-  chmod +x install.sh
-  ./install.sh 0.11.0
+  curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.11.0/install.sh | bash -s 0.11.0
   ```
   {: codeblock}
+
+### Installing the Operator
+{: #install-steps-operator-openshift}
 
 To install the Operator, follow these steps:
 
@@ -161,7 +117,7 @@ To install the Operator, follow these steps:
   An [`OperatorGroup`](https://docs.openshift.com/container-platform/4.1/applications/operators/olm-understanding-olm.html#olm-operatorgroups_olm-understanding-olm){: new_window}{: external} defines where the Operator manages CouchDB deployments. A single Operator for an Apache CouchDB deployment can manage CouchDB clusters in single, multiple, or all namespaces.
 
   ```
-  kubectl apply -f - &lt;&lt;END
+  kubectl apply -f - <<END
   apiVersion: operators.coreos.com/v1alpha2
   kind: OperatorGroup
   metadata:
@@ -169,7 +125,7 @@ To install the Operator, follow these steps:
     namespace: my-couchdb
   spec:
     targetNamespaces:
-  - my-couchdb
+    - my-couchdb
   END
   ```
   {: codeblock}
@@ -179,7 +135,7 @@ To install the Operator, follow these steps:
   A `Subscription` watches the Operator Catalog for new releases and automatically keeps operators up-to-date.
 
   ```
-  kubectl apply -f - &lt;&lt;END
+  kubectl apply -f - <<END
   apiVersion: operators.coreos.com/v1alpha1
   kind: Subscription
   metadata:
@@ -214,7 +170,7 @@ To install the Operator, follow these steps:
 6. Verify that you have a `CouchDBCluster` CRD, which you can use to create CouchDB clusters, by running the following command.
 
   ```
-  oc get crd couchdbcluster.couchdb.databases.cloud.ibm.com
+  oc get crd couchdbclusters.couchdb.databases.cloud.ibm.com
   ```
   {: codeblock}
 
@@ -247,7 +203,7 @@ By default, the Operator for Apache CouchDB pulls images from DockerHub. You can
   ```
   oc set env deployment couchdb-operator --namespace my-couchdb REGISTRY_SECRET=rh-catalog
 
-  oc patch deployment couchdb-operator --namespace my-couchdb -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"rh-catalog"}]}}}}'</code></pre>
+  oc patch deployment couchdb-operator --namespace my-couchdb -p '{"spec":{"template":{"spec":{"imagePullSecrets":[{"name":"rh-catalog"}]}}}}'
   ```
   {: codeblock}
 
