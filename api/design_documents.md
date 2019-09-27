@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-25"
+lastupdated: "2019-09-26"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -972,7 +972,7 @@ defined by using the same [selector syntax](/docs/services/Cloudant?topic=clouda
 for [`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
 
 For more examples that show use of this filter,
-see the information on selector syntax.
+see the information on [selector syntax](/docs/services/Cloudant/api/cloudant_query.html#selector-syntax).
 
 ##### Example application of the `_selector` filter by using HTTP
 
