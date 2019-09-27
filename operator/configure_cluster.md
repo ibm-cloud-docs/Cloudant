@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-09-26"
 
 keywords: operator, field reference
 
@@ -26,6 +26,8 @@ subcollection: cloudant
 # Configuring a CouchDB cluster
 {: #configure-couchdb-cluster}
 
+The Operator for Apache CouchDB allows for user-defined configuration parameters that define how an Apache CouchDB cluster is deployed in Kubernetes.  
+
 ## CouchDB configuration
 {: #couchdb-configuration}
 
@@ -33,12 +35,13 @@ The `CouchDBCluster` resource adheres to the following schema:
 
 ```
    version: "2.3.1"
-   size: 3
+   size: 3 # Must be less than or equal to the number of nodes in the Kubernetes cluster.
    storageClass:
    disk: 10Gi
    memory: 10Gi
    cpu: 1
    environment:
+      adminPassword: changeme
       logLevel: notice
       couchjsStackSize: 67108864
       maxDocumentSize: 67108864
@@ -86,22 +89,32 @@ The `CouchDBCluster` resource adheres to the following schema:
 ### CouchDBCluster field reference
 {: #couchdb-cluster-field-reference}
 
+The CouchDBCluster field reference section defines the major parameters on how Apache CouchDB deploys in the Kubernetes environment. 
+
+The `size` parameter refers to the number of database nodes that will be deployed in the Apache CouchDB cluster, and must be less than or equal to the number of nodes in the Kubernetes cluster. The Operator for Apache CouchDB employs an affinity rule that prohibits more than one CouchDB database node per Kubernetes cluster node for high availability/disaster recovery purposes.
+{: note} 
+
 | Name           | Description                                          | Default    |
 |----------------|------------------------------------------------------|------------|
-| `version`      | CouchDB version                                      | `2.3.1`    |
-| `size`         | CouchDB cluster size                                 | `3`        |
-| `storageClass` | Storage class for database provisioned volume claims | `emptyDir` |
+| `version`      | CouchDB version.                                      | `2.3.1`    |
+| `size`         | CouchDB cluster size (Must be less than or equal to the number of nodes in the Kubernetes cluster.)                                 | `3`        |
+| `storageClass` | Storage class for database provisioned volume claims. | `emptyDir` |
 | `disk`         |                                                      | `10Gi`     |
-| `memory`       | Memory size to request for each database node        | `1`        |
-| `cpu`          | CPU allocation to request for each database node     | `1`        |
-| `environment`  | CouchDB configuration                                |            |
+| `memory`       | Memory size to request for each database node.       | `1`        |
+| `cpu`          | CPU allocation to request for each database node.    | `1`        |
+| `environment`  | CouchDB configuration.                                |            |
 
 
 ### CouchDB configuration field reference
 {: #couchdb-configuration-field-reference}
 
+The CouchDB configuration field reference section refers to everything in the environment section of the YAML file, and defines the parameters on how Apache CouchDB itself operates. 
+
+Update the `adminPassword` to a password of your choosing. It is recommended that you keep the default values for the other parameters unless your specific workload warrants a specific configuration.
+
 | Name           | Description                                          | Default    |           |
 |----------------|------------------------------------------------------|------------|-----------|
+| `adminPassword`                           | User-defined password for the default admin user that is created.                                                                                                                                                                                                                                                  | `changeme`      |                                     |
 | `logLevel`                           | CouchDB Log Level.                                                                                                                                                                                                                                                  | `notice`      | [docs](https://docs.couchdb.org/en/stable/config/logging.html#log/level){: new_window}{: external}                                       |
 | `couchjsStackSize`                   | Stack size used by the CouchJS processes (bytes).                                                                                                                                                                                                                   | `67108864`    |                                                                                                        |
 | `maxDocumentSize`                    | Maximum size of documents (bytes).                                                                                                                                                                                                                                  | `67108864` *  | [docs](https://docs.couchdb.org/en/stable/config/couchdb.html#couchdb/max_document_size){: new_window}{: external}                        |
