@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-10-03"
 
 keywords: create, read, read many, update, delete, tombstone documents, purge, database compaction, bulk operations, quorum, ttl
 
@@ -751,11 +751,11 @@ Field  | Description             | Type             | Optional
 
 Each `docs` array object has the following structure:
 
-Field      | Description                           | Type    | Optional
+Field      | Description                           | Type    | Optional 
 -----------|---------------------------------------|---------|---------
-`_id`      | Document ID                           | String  | Optional only for new documents.
+`_id`      | Document ID                           | String  | Optional only for new documents. Otherwise, it is mandatory.
 `_rev`     | Document revision                     | String  | Mandatory for updates and deletes, not used for new documents.
-`_deleted` | Whether the document must be deleted. | Boolean | Yes
+`_deleted` | Whether the document must be deleted. | Boolean | Yes, the default value is `false`.
 
 Recall that for a partitioned database the `_id` field will be formed of
 a partition key part and a document key part.
@@ -956,10 +956,6 @@ see [Bulk document validation and conflict errors](#bulk-document-validation-and
 The bulk document update procedure is similar to the insertion procedure,
 except that you must specify the document ID and current revision for every document in the bulk update JSON string.
 
-Optionally,
-you can delete documents during a bulk update by adding a `_deleted` field with a value of `true`
-to each affected document ID and revision combination within the request JSON structure.
-
 #### Example of using HTTP to do a bulk update
 
 ```http
@@ -1037,6 +1033,54 @@ with the new revision and ID information.
         "ok":true,
         "id":"d1f61e66-7708-4da6-aa05-7cbc33b44b7e",
         "rev":"2-cbdef49ef3ddc127eff86350844a6108"
+    }
+]
+```
+{: codeblock}
+
+### Deleting documents in bulk
+{: #deleting-documents-in-bulk}
+
+To delete a document from the database, you must provide the ID and the revision of a specific document with the `"_deleted": true` field. 
+
+#### Example JSON structure to request bulk delete of two documents
+{: #example-json-structure-request-bulk-update-docs}
+
+The return JSON structure summarizes the deleted documents,
+with the new revision and ID information.
+
+```json
+{
+	"docs": [
+		{
+			"_id": "person34567",
+			"_deleted": true,
+			"_rev": "2-54dd23d6a630d0d75c2c5d4ef894454e"
+		},
+		{
+			"_id": "person568",
+			"_deleted": true,
+			"_rev": "3-8a245604ee5e829d7fbd1b456aed01ac"
+		}
+    ]
+}
+```
+{: codeblock}
+
+#### Example JSON structure that is returned after bulk delete
+{: #example-json-structure-returned-after-bulk-delete}
+
+```json
+[
+    {
+        "ok": true,
+        "id": "person34567",
+        "rev": "3-674ccbb6ec6fe6d7ba0fb30a5eecf664"
+    },
+    {
+        "ok": true,
+        "id": "person568",
+        "rev": "4-c6067e21e97557f54d29282461843037"
     }
 ]
 ```
