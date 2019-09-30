@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-24"
+lastupdated: "2019-09-30"
 
 keywords: log analysis, integration 
 
@@ -27,9 +27,6 @@ subcollection: cloudant
 {: #log-analysis-integration}
 
 {{site.data.keyword.cloudantfull}} is integrated with [{{site.data.keyword.la_full}}](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-about){: new_window}{: external}, so you can view database logs.
-
-This integration is currently in Beta. Your LogDNA instance might not receive all logs from your {{site.data.keyword.cloudantfull}} instance, and the schema of the log lines might change.
-{: important}
 
 Currently, {{site.data.keyword.la_full_notm}} integration is available for {{site.data.keyword.cloudant_short_notm}} deployments according to the following table:
 
