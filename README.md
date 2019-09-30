@@ -1,7 +1,7 @@
 # Cloudant
 
-Please use https://github.ibm.com/Bluemix-Docs/Cloudant/ for contributions.
-Pushes to https://github.com/IBM-Bluemix-Docs/Cloudant are only allowed
+Please use https://github.ibm.com/cloud-docs/Cloudant for contributions.
+Pushes to https://github.com/ibm-cloud-docs/Cloudant are only allowed
 by members of documentation team.
 
 # Build & CI
@@ -10,7 +10,7 @@ by members of documentation team.
 
 
 Jenkins is used to publish docs to staging and to production.
-The setup is managed by Bluemix Documentation team.
+The setup is managed by IBM Cloud Documentation team.
 
 https://wcp-ace-docs-jenkins.swg-devops.com/job/Docs-build/job/Docs-build-Cloudant/
 
@@ -24,7 +24,7 @@ https://travis.ibm.com/Bluemix-Docs
 
 ## Documentation
 
-Please use https://github.ibm.com/Bluemix-Docs/Cloudant/ for contributions to the documentation. Pushes to https://github.com/IBM-Bluemix-Docs/Cloudant are only allowed by members of the documentation team. See [Documentation Update Process](https://github.ibm.com/Bluemix-Docs/Cloudant/wiki/Documentation-Update-Process) for instructions. 
+Please use https://github.ibm.com/cloud-docs/Cloudant for contributions to the documentation. Pushes to https://github.com/ibm-cloud-docs/Cloudant are only allowed by members of the documentation team. See [Documentation Update Process](https://github.ibm.com/cloud-docs/Cloudant/wiki/Documentation-Update-Process) for instructions. 
 
 If you are not an IBM employee and want to make a documentation contribution, go to the [IBM Cloudant documentation](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-getting-started#getting-started) and click `Feedback` on the page where you want to comment. 
 
