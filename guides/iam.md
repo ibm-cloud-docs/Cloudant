@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-10-03"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -257,6 +257,143 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 </td>
 </tr>
 </table>
+
+## Create a replication job by using IAM credentials only
+{: #create-replication-job-using-iam-cred-only}
+
+Follow these instructions to generate IAM API keys, generate the bearer token,create the `_replicator` database, and create the replication job. 
+
+### Generating IAM API keys for Source and Target and one for {{site.data.keyword.cloudant_short_notm}} API access
+{: #generate-iam-api-keys-cloudant-api-access}
+
+We will create the first two API keys so that the two instances can talk to each other during the replication process. The third API key is for the user to access the {{site.data.keyword.cloudant_short_notm}} API, create the `_replicator` database, and then add the replication document to it.  
+
+Follow these steps to generate IAM API keys and API access for {{site.data.keyword.cloudant_short_notm}}. You must write down 
+the credentials that are requested in the following steps in order to continue with the example. 
+
+Ensure that you select the specified instance, either the Source or Target.
+{: note}
+
+<ol><li>Log in to <code>cloud.ibm.com</code>.</li>
+<li>From the Resource list, select <strong>Services</strong> and your Source instance.
+<ol type=a><li>Click <strong>Service credentials</strong> and click <strong>New credential</strong>.</li>
+	<li>Name the new credential <code>replicator-source</code>, and select the Manager role.</li>
+	<li>Click <strong>Add</strong>, and make note of its <code>apikey</code>, which is under View Credentials in the Actions column.</li>
+</li>
+<li>Repeat steps 2 through 2.c. for the Target instance.
+<ol type=a><li>Create a new credential called <code>replicator-target</code> with the Manager role.</li>
+<li>Make note of its IAM API key, which is under View Credentials in the Actions column.</li></ol></li>
+<li>Select the Source instance, and click <strong>Service credentials</strong> and <strong>New credential</strong>.
+ 	<ol type=a><li>Name the new credential <code>apiaccess</code>, and select the Manager role. </li>
+    	<li>Make note of the actual IAM API key under View Credentials in the Actions column.</li></ol>
+</li>
+<li>Make note of Source and Target instance URLs.</li></ol>
+
+Depending on your workflow, instead of creating a service-level credential (step 4 above), you can use a personal IAM API key, as detailed in [Creating an API key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key){: new_window}{: external}.
+
+You can also complete these steps on the command-line by using the [{{site.data.keyword.cloud_notm}} CLI tool chain](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started){: new_window}{: external}.
+
+### Generating a bearer token to authenticate against the {{site.data.keyword.cloudant_short_notm}} API
+{: #generate-bearer-token-authenticate-cloudant-api}
+
+Use the `apiaccess` key from step 4.b.:
+
+```curl
+curl -k -X POST \
+  --header "Content-Type: application/x-www-form-urlencoded" \
+  --header "Accept: application/json" \
+  --data-urlencode "grant_type=urn:ibm:params:oauth:grant-type:apikey" \
+  --data-urlencode "apikey=aSCsx4...2lN97h_2Ts" \
+  "https://iam.cloud.ibm.com/identity/token"
+```
+{: codeblock}
+
+which returns the following information (abbreviated):
+
+```curl 
+{
+   "access_token": "eyJraWQiOiIyMDE5MD...tIwkCO9A",
+   "refresh_token": "ReVbNrHo3UA38...mq67g",
+   "token_type": "Bearer",
+   "expires_in": 3600,
+   "expiration": 1566313064,
+   "scope": "ibm openid"
+}
+```
+{: codeblock}
+
+Create an environment variable to save some typing by using the value under the `access_token` key in the response data:
+
+```curl
+export TOK="Bearer eyJraWQiOiIyMDE5MD...tIwkCO9A"
+```
+{: codeblock}
+
+### Creating the `_replicator` database on the Source side
+{: #create-_replicator-database-source-side}
+
+URL is the Source instance URL that you previously wrote down in step 4.b.
+
+```curl
+curl -k -X PUT \
+     -H"Content-type: application/json" \
+     -H'Authorization: '"$TOK"'' \
+     'https://d43caf1b-e2c8-4d3e-9b85-1d04839fa68f-bluemix.cloudant.com/_replicator'
+```
+{: codeblock}
+
+See the results in the following example:
+
+```
+{"ok": "true"}
+```
+{: codeblock}
+
+### Creating the replication job
+{: #create-the-replication-job}
+
+Create a file called `data.json`, containing the following information, where the two keys are the Source and Target API keys created in the beginning, and the Source and Target instance URLs, with database names added.
+
+```curl
+{
+  "source": {
+    "url": "https://d43caf1b-e2c8-4d3e-9b85-1d04839fa68f-bluemix.cloudant.com/source",
+    "auth": {
+      "iam": {
+        "api_key": "xju1...TxuS"
+      }
+    }
+  },
+  "target": {
+    "url": "https://dbc68dd8-f69f-4083-97dd-bf0a3e1a467a-bluemix.cloudant.com/target",
+    "auth": {
+      "iam": {
+        "api_key": "UElc7...QIaL01Bjn"
+      }
+    }
+  },
+  "create_target": true,
+  "continuous": true
+}
+```
+{: codeblock}
+
+Now, write a replication document called `source_dest` to the `_replicator` database on the Source instance.
+
+```curl
+curl -k -X PUT \
+     -H"Content-type: application/json" \
+     -H'Authorization: '"$TOK"'' \
+     'https://d43caf1b-e2c8-4d3e-9b85-1d04839fa68f-bluemix.cloudant.com/_replicator/source_dest' -d@data.json
+```
+{: codeblock}
+
+See the results in the following example:
+
+```     
+{"ok":true,"id":"source_dest","rev":"1-89b01e42968acd5944ed657b87c49f0c"}
+```
+{: codeblock}
 
 ## Removing {{site.data.keyword.cloudant_short_notm}} legacy credentials from an instance
 {: #removing-legacy-credentials}
