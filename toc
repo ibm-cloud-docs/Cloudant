@@ -86,10 +86,8 @@ IBM Cloudant
 	{: .topicgroup}
 	Sample apps
 		[Offline First shopping list](https://developer.ibm.com/code/patterns/create-an-offline-first-shopping-list-progressive-web-app/)
-		[Open Fridge](https://github.com/krook/openfridge)
 		[iOS game with Core ML and Watson Visual Recognition](https://developer.ibm.com/code/patterns/build-an-ios-game-powered-by-core-ml-and-watson-visual-recognition/)
-		[Mobile health app with Watson Studio](https://developer.ibm.com/code/patterns/develop-web-based-mobile-health-app-uses-machine-learning/)
-
+	
 	{: .topicgroup}
 	Libraries
 		libraries/client-libraries.md
