@@ -132,6 +132,7 @@ IBM Cloudant
 	Guides
 		guides/acurl.md
 		guides/cap_theorem.md
+		guides/bookmarks_faqs.md
 		guides/conflicts.md
 		guides/couchapps.md
 		guides/database_partitioning.md
