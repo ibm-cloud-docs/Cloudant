@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-10-14"
 
 keywords: links to documentation, how to contribute
 
@@ -36,7 +36,7 @@ It is built with scalability,
 high availability,
 and durability in mind.
 It comes with a wide variety of indexing options that include MapReduce,
-{{site.data.keyword.cloudantfull}} Query,
+{{site.data.keyword.cloudant_short_notm}} Query,
 full-text indexing,
 and geospatial indexing.
 The replication capabilities make it easy to keep data in sync between database clusters,
@@ -60,7 +60,7 @@ and querying data, see the [API reference](/docs/services/Cloudant?topic=cloudan
 ## Documentation contents
 {: #documentation-contents}
 
-*	[Getting started tutorial](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started): Learn how to create an {{site.data.keyword.cloudantfull}} database and populate that database with a simple collection of data by using Python.
+*	[Getting started tutorial](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started): Learn how to create an {{site.data.keyword.cloudant_short_notm}} database and populate that database with a simple collection of data by using Python.
 *	[{{site.data.keyword.cloudant_short_notm}} blog](https://blog.cloudant.com/){: new_window}{: external}: Read blogs on a variety of topics, including {{site.data.keyword.cloudant_short_notm}} fundamentals, removing conflicts, generating sample data, partitioned databases, and more. 
 *	[{{site.data.keyword.cloud_notm}} Public](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
 *	[Pricing](/docs/services/Cloudant?topic=cloudant-pricing#pricing): An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 
