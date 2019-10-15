@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-10-14"
 
 keywords: account, ping account, cors, connect to your cloudant account
 
@@ -93,4 +93,4 @@ print ping.status_code
 mechanism that allows JavaScript from another domain to interact with data in
 your {{site.data.keyword.cloudant_short_notm}} account.
 
-For more information about CORS and {{site.data.keyword.cloudant_short_notm}}, see [CORS](/docs/services/Cloudant?topic=cloudant-cors#cors).
+For more information about CORS and {{site.data.keyword.cloudant_short_notm}}, see the [CORS](/docs/services/Cloudant?topic=cloudant-cors#cors) documentation.

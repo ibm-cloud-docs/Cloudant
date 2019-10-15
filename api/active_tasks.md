@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-10-14"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve list of active tasks 
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 # Active tasks
 {: #active-tasks}
 
-The `/_active_tasks` endpoint provides a list of the tasks that are running on the server. This list is often helpful when you are [monitoring](/docs/services/Cloudant?topic=cloudant-monitoring-an-ibm-cloudant-cluster#monitoring-an-ibm-cloudant-cluster) the performance of your system. For more examples on using the `/_active_tasks` endpoint,
+The `/_active_tasks` endpoint provides a list of the tasks that are running on the server. This list is often helpful when you're [monitoring](/docs/services/Cloudant?topic=cloudant-monitoring-an-ibm-cloudant-cluster#monitoring-an-ibm-cloudant-cluster) the performance of your system. For more examples on using the `/_active_tasks` endpoint,
 see the [Managing tasks](/docs/services/Cloudant?topic=cloudant-managing-tasks#managing-tasks) guide.
 {: shortdesc}
 
@@ -40,18 +40,20 @@ Path | `/_active_tasks`
 Response | List of running tasks, including the task type, name, status, and process ID
 Roles permitted | `_admin`
 
-You can obtain a list of active tasks by using the `/_active_tasks` URL.
+You can get a list of active tasks by using the `/_active_tasks` URL.
 The result is a JSON array of the currently running tasks,
 with each task described with a single object.
 
-### Example request to retrieve list of active tasks, by using HTTP
+### Example request to retrieve list of active tasks by using HTTP
+{: #example-request-retrieve-list-active-tasks-using-http}
 
 ```HTTP
 GET /_active_tasks HTTP/1.1
 ```
 {: codeblock}
 
-### Example request to retrieve list of active tasks, by using the command line
+### Example request to retrieve list of active tasks by using the command line
+{: #example-request-retrieve-list-active-tasks-with-command-line}
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_active_tasks" \
@@ -84,10 +86,10 @@ Name | Description
 -----|------------
 database | The database and shard on which the operation occurs.
 pid | Erlang Process ID
-started_on | Time when the task was started. The value is an integer that contains the UNIX time UTC.
+started_on | Time when the task was started. The value is an integer that includes the UNIX&trade; time UTC.
 total_changes | Total number of documents to be processed by the task. The exact meaning depends on the type of the task.
 type | Operation Type
-updated_on | Time when the last update was made to this task record. Updates are made by the job as progress occurs. The value is an integer that contains the UNIX time that uses UTC.
+updated_on | Time when the last update was made to this task record. Updates are made by the job as progress occurs. The value is an integer that includes the UNIX&trade; time that uses UTC.
 
 In the `type` field,
 the possible values include:
@@ -100,7 +102,8 @@ the possible values include:
 
 The meaning of other fields in the JSON response depends on the type of the task.
 
-### Example JSON response array, containing details of currently running tasks
+### Example JSON response array that includes details of currently running tasks
+{: #example-json-response-arracy-includes-details-current-running-tasks}
 
 ```json
 [
@@ -190,7 +193,7 @@ changes_done | Number of documents compacted.
 phase | Reports the stage of compaction.
 total_changes | Number of documents in the database.
 
-In the `phase` field, the value indicates the stage that compaction reached:
+In the `phase` field, the value indicates the stage that was reached by compaction:
 
 -   `ids`: Document compaction is in progress.
 -   `views`: View compaction is in progress.
@@ -204,7 +207,7 @@ changes_pending | Number of documents that need to be changed in the target data
 continuous | Boolean value that indicates whether the replication is continuous.
 docs_read | Number of documents that are read from the source database, expressed as an integer.
 replication_id | Unique identifier string of the replication that can be used to cancel the task.
-revisions_checked | Number of document revisions for which it was checked whether they are already in the target database.
+revisions_checked | Number of document revisions that were checked to verify whether they're already in the target database.
 source | An obfuscated URL string that indicates the database from which the task is replicating.
 target | An obfuscated URL string that indicates the database to which the task is replicating.
 user | User who started the replication, expressed as a string, or `null` if the replication was not initiated by a user.
@@ -215,5 +218,5 @@ user | User who started the replication, expressed as a string, or `null` if the
 Name | Description
 -----|------------
 changes_done | Number of document revisions that are processed by this task. A document can have one or more revisions.
-design_document | The design document that contains the view or index function or functions.
+design_document | The design document that includes the view or index function or functions.
 total_changes| The number of unindexed changes to process. This count includes deleted documents, although these documents are automatically skipped by the indexer.

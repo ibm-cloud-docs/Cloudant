@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-10-15"
 
 keywords: databases, indexes, request payload, request timeouts, query
 
@@ -33,8 +33,8 @@ subcollection: cloudant
 
 |Description|Limit|
 |--|--|
-|database size|unlimited|
-|partition size|10 GB|
+|Database size|Unlimited|
+|Partition size|10 GB|
 
 
 ## Indexes
@@ -42,24 +42,24 @@ subcollection: cloudant
 
 |Description|Limit|
 |--|--|
-|# global indexes|unlimited|
-|# partition indexes|10|
+|Number of global indexes|Unlimited|
+|Number of partition indexes|10|
 
 ## Request payload
 {: #request-payload-overview}
 
 |Description|Limit|
 |--|--|
-|total request size|10 MB|
-|document size|1 MB|
-|attachment size|10 MB|
+|Total request size|10 MB|
+|Document size|1 MB|
+|Attachment size|10 MB|
 
 ## Request timeouts
 {: #request-timeouts}
 
 |Description|Limit|
 |--|--|
-|default|60 seconds|
+|Default|60 seconds|
 |`_partition/*` |5 seconds|
 
 
@@ -68,7 +68,7 @@ subcollection: cloudant
 
 |Description|Limit|
 |--|--|
-|default|unlimited|
+|Default|Unlimited|
 |`_partition/*` default|2000|
 |`_search`|200|
-|`_find` using `text` index|200|
+|`_find` by using `text` index|200|
