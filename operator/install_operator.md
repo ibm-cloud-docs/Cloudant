@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-27"
+lastupdated: "2019-10-15"
 
 keywords: subscription, OperatorGroup, namespace, Kubernetes, OpenShift
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 # Installing the Operator
 {: #installing-the-operator}
 
-This guide demonstrates how to install the Operator on Kubernetes and Red Hat OpenShift. There are three separate sections about installing the Operator depending on the Kubernetes flavor and version. The sections discuss the following topics:
+This guide demonstrates how to install the Operator on Kubernetes and Red Hat OpenShift. Three separate sections describe how to install the Operator depending on the Kubernetes flavor and version. The sections discuss the following topics:
 
 - Installing the Operator on Kubernetes
 - Installing the Operator on Red Hat OpenShift 3.x
@@ -35,21 +35,21 @@ This guide demonstrates how to install the Operator on Kubernetes and Red Hat Op
 ## Installing the Operator on Kubernetes
 {: #installing-operator-kubernetes}
 
-This section walks through installing the Operator for Apache CouchDB on Kubernetes 1.11 or later. You can also follow the install instructions found on [operatorhub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} by clicking the **Install** button in the top right. 
+This section walks through installing the Operator for Apache CouchDB on Kubernetes 1.11 or later. You can also follow the installation instructions that are found on [operatorhub.io](https://operatorhub.io/operator/couchdb-operator){: new_window}{: external} by clicking the **Install** button. 
 
 ### Prerequisites
 {: #prerequisites-operator-kubernetes}
 
- * You have a working knowledge of Kubernetes.
- * You have access to a user with cluster-admin privileges (`admin` in this guide).
- * Target cluster has access to the internet and the ability to pull from public container registries.
+ * A working knowledge of Kubernetes.
+ * Access to a user with cluster-admin privileges (called `admin` here).
+ * A target cluster with access to the internet and the ability to pull from public container registries.
 
 ### Installing the Operator
 {: #install-steps-operator-kubernetes}
 
 To install the Operator, follow these steps:
 
-If it is not installed already, you must install [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager){: new_window}{: external} (OLM), a tool from Red Hat to help manage the Operators running on your cluster.  If the OLM is already installed, you can skip step 1 below. 
+If it isn't installed already, you must install [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager){: new_window}{: external} (OLM), a tool from Red Hat to help manage the Operators running on your cluster.  If the OLM is already installed, you can skip step 1 in the following steps: 
 
 1. Install Operator Lifecycle Manager (OLM), a tool to help manage the Operators running on your cluster, by running the following command: 
 
@@ -66,7 +66,7 @@ If it is not installed already, you must install [Operator Lifecycle Manager](ht
    ```
    {: codeblock}
 
-3. After the install is complete, validate that the operator is running by using the following command:
+3. After the installation is complete, validate that the operator is running by using the following command:
 
   ```
   kubectl get csv -n operators
@@ -76,15 +76,15 @@ If it is not installed already, you must install [Operator Lifecycle Manager](ht
 ## Installing the Operator on Red Hat OpenShift 3.x
 {: #installing-operator-openshift}
 
-This section walks through installing the Operator for Apache CouchDB on Red Hat OpenShift 3.11 or later.
+You can walk through installing the Operator for Apache CouchDB on Red Hat OpenShift 3.11 or later here.
 
 ### Prerequisites
 {: #prerequisites-operator-openshift}
 
- * You have a working knowledge of Kubernetes.
- * You have access to a user with cluster-admin privileges (`admin` in this guide).
- * Target cluster has access to the internet / ability to pull from public container registries.
- * You have [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager){: new_window}{: external} (OLM) installed, a tool from Red Hat to help manage the Operators running on your cluster. If the OLM is not installed, run the following command to install it:
+ - A working knowledge of Kubernetes.
+ - Access to a user with cluster-admin privileges (called `admin` here).
+ - A target cluster with access to the internet and the ability to pull from public container registries.
+ - [Operator Lifecycle Manager](https://github.com/operator-framework/operator-lifecycle-manager){: new_window}{: external} (OLM) installed, a tool from Red Hat to help manage the Operators running on your cluster. If the OLM isn't installed, run the following command to install it:
 
   ```
   curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.11.0/install.sh | bash -s 0.11.0
@@ -132,7 +132,7 @@ To install the Operator, follow these steps:
   
 4. Run the following command to create a subscription to the Operator for Apache CouchDB in the `my-couchdb` project.
 
-  A `Subscription` watches the Operator Catalog for new releases and automatically keeps operators up-to-date.
+  A `Subscription` watches the Operator catalog for new releases and automatically keeps operators up-to-date.
 
   ```
   kubectl apply -f - <<END
@@ -150,7 +150,7 @@ To install the Operator, follow these steps:
   ```
   {: codeblock}
 
-5. Verify that your operator has been deployed by running the following command. 
+5. Verify that your operator deployed by running the following command. 
 
    ```
    oc get csv -n my-couchdb
@@ -186,11 +186,11 @@ To install the Operator, follow these steps:
 ### Using Red Hat Certified Containers
 {: #install-the-operator-openshift}
 
-By default, the Operator for Apache CouchDB pulls images from DockerHub. You can optionally elect to pull images from a private registry, for example, the Red Hat Container Catalog. Note that the CouchDB containers hosted in the Red Hat Catalog are identical to those hosted in Docker Hub. Follow these steps to create and configure `imagePullSecrets`. 
+By default, the Operator for Apache CouchDB pulls images from DockerHub. You can optionally elect to pull images from a private registry, for example, the Red Hat Container catalog. The CouchDB containers hosted in the Red Hat catalog are identical to those containers hosted in Docker Hub. Follow these steps to create and configure `imagePullSecrets`. 
 
 1. Create a Registry Secret, such as an `imagePullSecrets` that the OpenShift container runtime can use to pull the images. 
 
-  It's recommended that you use a registry token that is created through the [Red Hat Portal](https://access.redhat.com/terms-based-registry/){: new_window}{: external} for the credentials. The following example command shows how to create an `imagePullSecrets` called `rh-catalog`.
+   We recommended that you use a registry token that is created through the [Red Hat Portal](https://access.redhat.com/terms-based-registry/){: new_window}{: external} for the credentials. The following example command shows how to create an `imagePullSecrets` called `rh-catalog`.
 
   ```
   oc create secret docker-registry rh-catalog --docker-server=registry.connect.redhat.com \
@@ -207,9 +207,9 @@ By default, the Operator for Apache CouchDB pulls images from DockerHub. You can
   ```
   {: codeblock}
 
-  The operator deployment requires the `imagePullSecrets` that was created previously to be associated with it. Note that you might need to wait a few minutes for OpenShift to create the operator deployment in response to the `Subscription`.
+  The operator deployment requires the `imagePullSecrets` that was created previously to be associated with it. You might need to wait a few minutes for OpenShift to create the operator deployment in response to the `Subscription`.
   
-  This changes the image used by the operator itself and triggers a redeploy.
+  This process changes the image that is used by the operator itself and triggers a redeploy.
 
 3. Update the image references in the `couchdb-release` ConfigMap, which gets auto-created on first-run, by running the following command:
 
@@ -220,7 +220,7 @@ By default, the Operator for Apache CouchDB pulls images from DockerHub. You can
 
 4. Replace `ibmcom` with `registry.connect.redhat.com/ibm` in the `images` section, and save. 
 
-  Note that existing `CouchDBCluster` deployments are not updated.
+  Existing `CouchDBCluster` deployments aren't updated.
 
 ## Installing the Operator on Red Hat OpenShift version 4
 {: #install-the-operator-openshift-4}
