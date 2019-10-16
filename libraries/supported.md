@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-10-15"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -32,7 +32,7 @@ subcollection: cloudant
 The {{site.data.keyword.cloudantfull}} Sync library is used to store,
 index,
 and query local JSON data on a mobile device.
-It is also used to synchronize data between many devices.
+It's also used to synchronize data between many devices.
 Synchronization is controlled by your application.
 The library also provides helper methods for finding and resolving conflicts,
 both in the local device and the remote database.
@@ -43,11 +43,11 @@ Two versions are available:
 - [{{site.data.keyword.cloudant_short_notm}} Sync - iOS (CDTDatastore) ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/CDTDatastore){: new_window}.
 
 An [overview ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/learn/offline-first){: new_window} of {{site.data.keyword.cloudant_short_notm}} Sync is available, as well as details about {{site.data.keyword.cloudant_short_notm}} Sync resources.
-
+s
 ## Java
 {: #java-supported}
 
-[java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){: new_window} is the official {{site.data.keyword.cloudantfull}} library for Java.
+[java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){: new_window} is the official {{site.data.keyword.cloudantfull}} library for Java&trade;.
 
 For more information about installing the library by adding it as a dependency to your Maven or Gradle builds, and to see details and examples of how to use the library, see 
 [Installation and Usage ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}.
@@ -116,20 +116,20 @@ npm install cloudant
 - [A Cloud medley with {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Node.js](https://gigadom.wordpress.com/2014/08/15/a-cloud-medley-with-ibm-bluemix-cloudant-db-and-node-js/){: new_window}{: external}.
 - [Build a simple word game app by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}](http://www.ibm.com/developerworks/cloud/library/cl-guesstheword-app/index.html?ca=drs-){: new_window}{: external} - uses Node.js.
 - [Building a Real-time SMS Voting App](https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html){: new_window}{: external} - six-part series that uses Node.js, Twilio, and {{site.data.keyword.cloudant_short_notm}}.
-- [Building a multitier Windows Azure Web application](https://www.ampower.me/article/CouchDB/Tutorial-Building-a-Multi-Tier-Windows-Azure-Web-application-use-Cloudants-Couchdb-as-a-Service-node-94-409665?eqs=Z2NWNlltTmlUWStWcHdEWENWc3UxdmowREpiMjlGUVpKajJOZGJpSlVkemlPS2oxa0YxZE5BPT0=){: new_window}{: external} - uses {{site.data.keyword.cloudant_short_notm}}, Node.js, CORS, and Grunt.
-- [Do it yourself: Build a remote surveillance application by using {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Raspberry Pi.](http://www.ibm.com/developerworks/library/ba-remoteservpi-app/index.html){: new_window}{: external}.
+- [Building a multitier Windows&trade; Azure Web application](https://www.ampower.me/article/CouchDB/Tutorial-Building-a-Multi-Tier-Windows-Azure-Web-application-use-Cloudants-Couchdb-as-a-Service-node-94-409665?eqs=Z2NWNlltTmlUWStWcHdEWENWc3UxdmowREpiMjlGUVpKajJOZGJpSlVkemlPS2oxa0YxZE5BPT0=){: new_window}{: external} - uses {{site.data.keyword.cloudant_short_notm}}, Node.js, CORS, and Grunt.
+- [Do it yourself: Build a remote surveillance application by using {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Raspberry Pi](http://www.ibm.com/developerworks/library/ba-remoteservpi-app/index.html){: new_window}{: external}.
 
 ## Python
 {: #python-supported}
 
 A supported library for working with {{site.data.keyword.cloudant_short_notm}} by using Python is
-available in the Github repository [cloudant/python-cloudant](https://github.com/cloudant/python-cloudant){: new_window}{: external}.
+available in the GitHub repository [`cloudant/python-cloudant`](https://github.com/cloudant/python-cloudant){: new_window}{: external}.
 
 Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see instructions for the [requirements files](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}{: external}.
 {: tip}
 
 Download the current library release from [pypi.python.org](https://pypi.python.org/pypi/cloudant/){: new_window}.
-For more information about the Python language, see [python.org](https://www.python.org/about/){: new_window}{: external}. 
+For more information about the Python language, see the [python.org](https://www.python.org/about/){: new_window}{: external} website. 
 
 ## Swift
 {: #swift}
@@ -138,7 +138,7 @@ A supported library is available for working with {{site.data.keyword.cloudant_s
 The library is called SwiftCloudant,
 and is installed by using `cocoapods`.
 
-The podfile entry is:
+See the podfile entry in the following example:
 
 ```sh
 pod 'SwiftCloudant'
@@ -149,9 +149,9 @@ For more information about SwiftCloudant,
 including details about installation and how to use the library to store,
 index,
 and query remote JSON data on {{site.data.keyword.cloudant_short_notm}},
-see the Github repository [cloudant/swift-cloudant](https://github.com/cloudant/swift-cloudant){: new_window}{: external}.
+see the GitHub repository [`cloudant/swift-cloudant`](https://github.com/cloudant/swift-cloudant){: new_window}{: external}.
 
-The library is an early release version. As such, it does not currently have complete {{site.data.keyword.cloudant_short_notm}} API coverage. 
+The library is an early release version. As such, it doesn't currently have complete {{site.data.keyword.cloudant_short_notm}} API coverage. 
 
-SwiftCloudant is not supported on iOS, and you cannot call it from Objective-C.
+SwiftCloudant isn't supported on iOS, and you can't call it from Objective-C.
 {: tip}

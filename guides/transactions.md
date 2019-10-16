@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-25"
+lastupdated: "2019-10-17"
 
-keywords: generate uuid, record payments, add additional documents, advantages
+keywords: generate uuid, record payments, add more documents, advantages
 
 subcollection: cloudant
 
@@ -32,23 +32,20 @@ These databases typically use a number of tables joined together to record sales
 customer details,
 purchased products,
 and delivery tracking information.
-Relational databases offer high consistency
-meaning that application developers can build their applications to a database's strengths,
-including using joins between collections,
+Relational databases offer high consistency, which means that application developers can build their applications to a database's strengths. This practice includes using joins between collections,
 enumerations to record the state of an object,
 and database transactions to guarantee atomic operations.
 
 {{site.data.keyword.cloudantfull}} favors availability over consistency.
-It is a high-availability,
+It's a high-availability,
 fault-tolerant,
-distributed database that is eventually consistent.
-This gives the advantage that the customer's shopping service is always available and scalable enough
-to cope with multiple users making purchases at the same time.
-This means that your application can utilize {{site.data.keyword.cloudant_short_notm}}'s strengths and not treat it like a relational database.
+distributed database that is eventually consistent, which means the customer's shopping service is always available and scalable enough
+to cope with many users who make purchases at the same time.
+With that in mind, your application can leverage {{site.data.keyword.cloudant_short_notm}}'s strengths and not treat it like a relational database.
 
-The discussion in this topic outlines some of the factors
+This discussion outlines some of the factors that are 
 involved in building an e-commerce system that takes advantage of {{site.data.keyword.cloudant_short_notm}}'s strengths,
-using concepts that are applicable to many other domains,
+by using concepts that are applicable to many other domains,
 such as:
 
 -   Using multiple documents to represent the state of a purchase,
@@ -57,12 +54,12 @@ such as:
 -   Creating views to collate documents by `order_id` to reflect the current state of a purchase.
 
 For example,
-you might create a `purchase` document that contains details such as the items ordered,
+you might create a `purchase` document that includes details such as the items ordered,
 customer information,
 cost,
 and delivery information.
 
-## Example document describing a purchase
+See the following example document that describes a purchase:
 
 ```json
 {
@@ -106,43 +103,41 @@ and delivery information.
 
 This document provides enough data for a purchase record to render a summary of an order on a web page,
 or an email,
-without fetching additional records.
+without fetching more records.
 Notice key details about the order,
 in particular:
 
--   The basket contains reference ids (`product_id`) to a database of products stored elsewhere.
+-   The basket contains reference IDs (`product_id`) to a database of products stored elsewhere.
 -   The basket duplicates some of the product data in this record,
     enough to record the state of the items purchased at the point of sale.
--   The document does not contain fields that mark the status of the order.
-    Additional documents would be added later to record payments and delivery.
+-   The document doesn't contain fields that mark the status of the order.
+    More documents would be added later to record payments and delivery.
 -   The database automatically generates a document `_id` when it inserts the document into the database.
 -   A unique identifier (`order_id`) is supplied with each purchase record to reference the order later. 
  
 When the customer places an order,
-typically at the point when they enter the "checkout" phase on the website,
+typically at the point when they enter the *checkout* phase on the website,
 a purchase order record is created similar to the previous example. 
 
 ## Generating your own unique identifiers (UUIDs)
 {: #generating-your-own-unique-identifiers-uuids-}
 
 In a relational database,
-sequential "auto incrementing" numbers are often used,
-but in distributed databases,
-where data is spread around of cluster of servers,
-longer UUIDs are used to ensure that documents are stored with their own unique id.
+sequential "auto incrementing" numbers are often used.
+While in distributed databases, data is spread around a cluster of servers, and longer UUIDs are used to ensure that documents are stored with their unique ID.
 
 To create a unique identifier for use in your application,
 such as an `order_id`,
 call the [`GET _uuids` endpoint](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-_uuids-) on the {{site.data.keyword.cloudant_short_notm}} API.
 The database generates an identifier for you.
-The same endpoint can be used to generate multiple ids by adding a `count` parameter,
+The same endpoint can be used to generate multiple IDs by adding a `count` parameter,
 for example, `/_uuids?count=10`.
 
 ## Recording payments
 {: #recording-payments}
 
 When the customer successfully pays for their items,
-additional records are added to the database to record the order.
+more records are added to the database to record the order.
 
 ### Example of a payment record
 
@@ -175,7 +170,7 @@ The total of the two payments added up to the amount of the order.
 Each payment was written to {{site.data.keyword.cloudant_short_notm}} as a separate document.
 
 You could see the status of an order by creating a view of everything you know about an `order_id`.
-The view would enable a ledger containing the following information: 
+The view would enable a ledger that contains the following information: 
 
 -   Purchase totals as positive numbers.
 -   Payments against the account as negative numbers.
@@ -197,8 +192,8 @@ function (doc) {
 ```
 {: codeblock}
 
-Using the built-in [`_sum` reducer](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)
-enables you to produce output as a ledger of payment events.
+Use the built-in [`_sum` reducer](/docs/services/Cloudant?topic=cloudant-views-mapreduce#built-in-reduce-functions)
+to produce output as a ledger of payment events.
 
 ### Example of using the built-in `_sum` reducer, which is queried with `?reduce=false`
 
@@ -226,7 +221,7 @@ enables you to produce output as a ledger of payment events.
 {: codeblock}
 
 Alternatively,
-you could produce totals grouped by `order_id`.
+you could produce totals that are grouped by `order_id`.
 
 ### Example of totals grouped by `order_id`, with `?group_level=1`
 
@@ -244,14 +239,13 @@ you could produce totals grouped by `order_id`.
 
 Since the view in previous example returns 0 for the order value,
 the result indicates that the order is fully paid.
-The reason is that the positive purchase order total cancels out the negative payment amounts.
+The reason is that the positive purchase order total cancels the negative payment amounts.
 Recording events as separate documents,
 that is one for the order and one for each payment,
-is good practice in {{site.data.keyword.cloudant_short_notm}},
-since it avoids the possibility of creating conflicts when multiple processes modify the same document simultaneously.
+is good practice in {{site.data.keyword.cloudant_short_notm}}. This practice avoids the possibility of creating conflicts when multiple processes modify the same document simultaneously.
 
-## Adding additional documents
-{: #adding-additional-documents}
+## Adding more documents
+{: #adding-more-documents}
 
 You could add other,
 separate documents to the database to record the following state changes as the order is provisioned and dispatched:
@@ -263,21 +257,19 @@ separate documents to the database to record the following state changes as the 
 As the data arrives,
 {{site.data.keyword.cloudant_short_notm}} writes to each document separately.
 Therefore,
-it is not necessary to modify the core purchase document.
+it's not necessary to modify the core purchase document.
 
 ## Advantages of storing purchase orders in {{site.data.keyword.cloudant_short_notm}}
 {: #advantages-of-storing-purchase-orders-in-ibm-cloudant}
 
-Using {{site.data.keyword.cloudant_short_notm}} to store purchase order information allows an ordering system to be highly available and scalable,
-enabling you to deal with large volumes of data and high rates of concurrent access.
+Using {{site.data.keyword.cloudant_short_notm}} to store purchase order information allows an ordering system to be highly available and scalable. With an ordering system like this one, you can deal with large volumes of data and high rates of concurrent access.
 By modeling the data in separate documents that are only written once,
-we can ensure that documents never become conflicted,
+we can ensure documents never become conflicted,
 such as during concurrent access to the same document by separate processes.
 
 Furthermore,
 documents can contain copies of data that exists in other collections
 to represent - rather than rely on - joining data with a foreign key.
 For example,
-when recording the state of a basket at the time of purchase.
-This allows an order's state to be fetched by a single call
+when {{site.data.keyword.cloudant_short_notm}} records the state of a basket at the time of purchase, this record allows an order's state to be fetched by a single call
 to an {{site.data.keyword.cloudant_short_notm}}'s view that groups documents related by `order_id`.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-10-16"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -59,7 +59,7 @@ Not logged in. Use 'ibmcloud login' to log in.
 ## Logging in to your {{site.data.keyword.cloud_notm}} account
 {: #logging-in-to-your-ibm-cloud-account}
 
-The following example describes the login process. If you are using a federated user ID, it is important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in using the CLI, see [General CLI (ibmcloud) commands](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_login){: new_window}{: external} under `ibmcloud login`. 
+The following example describes how to log in. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_login){: new_window}{: external} under `ibmcloud login`. 
 
 1.  Start the login process for
   your {{site.data.keyword.cloud_notm}} account by using the following command:
@@ -116,7 +116,7 @@ The following example describes the login process. If you are using a federated 
   ```
   {: pre}
 
-3.  You are now logged in to your {{site.data.keyword.cloud_notm}} account.
+3.  You're now logged in to your {{site.data.keyword.cloud_notm}} account.
 
 ## Choosing the {{site.data.keyword.cloudant_short_notm}} plan for your service
 {: #choosing-the-ibm-cloudant-plan-for-your-service}
@@ -127,7 +127,7 @@ See the [Plans](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#plans) s
 ## Creating the {{site.data.keyword.cloudant_short_notm}} service
 {: #creating-the-ibm-cloudant-service}
 
-{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that are provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window}{: external} guide.
+{{site.data.keyword.cloudant_short_notm}} uses resource groups for provisioning new instances rather than Cloud Foundry orgs and spaces. {{site.data.keyword.cloudant_short_notm}} instances that were provisioned in the past can still be deployed in Cloud Foundry orgs and spaces. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-#how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-){: new_window}{: external} guide.
 
 First, set your target resource group and region as shown in [General CLI (ibmcloud) commands](https://cloud.ibm.com/docs/cli/reference/ibmcloud?topic=cloud-cli-ibmcloud_cli#ibmcloud_target){: new_window}{: external} under `ibmcloud target` by using the following format:
 
@@ -147,7 +147,7 @@ For a list of resource groups, run this command:
 ibmcloud resource groups
 ```
 
-Second, to create a service instance, the basic command format within {{site.data.keyword.cloud_notm}} is as follows:
+Second, the basic command format within {{site.data.keyword.cloud_notm}} that creates a service instance is shown in the following example:
 
 ```sh
 ibmcloud resource service-instance-create NAME SERVICE_NAME|SERVICE_ID SERVICE_PLAN_NAME|SERVICE_PLAN_ID LOCATION [-p, --parameters @JSON_FILE | JSON_STRING ]
@@ -162,21 +162,21 @@ Field | Description
 `NAME` | Arbitrary name that you give to the instance. 
 `SERVICE_NAME` | `cloudantnosqldb`
 `PLAN_NAME` | Lite plan or Standard plan.
-`LOCATION` | The location where you want to deploy: AP North, Germany, Global, Sydney, United Kingdom, US East, or US South. 
+`LOCATION` | The location where you want to deploy includes: AP North, Germany, Global, Sydney, United Kingdom, US East, or US South. 
 `legacyCredentials` | Defaults to true. This field dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. 
 
 For more information about choosing an authentication method, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}. The {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM access controls over {{site.data.keyword.cloudant_short_notm}} legacy authentication whenever possible.
 {: important}
 
-In this example, we want to create an instance of an {{site.data.keyword.cloudant_short_notm}} service by using the `Lite` plan (where the instance name is `cs20170517a` in the US-South location and uses IAM credentials only), you create this instance by using a command similar to the following example:
+In this example, we want to create an instance of an {{site.data.keyword.cloudant_short_notm}} service by using the `Lite` plan. The instance name is `cs20170517a` in the US-South location and uses IAM credentials only. You create this instance by using a command similar to the following example:
 
 ```sh
 ibmcloud resource service-instance-create cs20170517a cloudantnosqldb lite us-south -p '{"legacyCredentials": false}'
 ```
 {: codeblock}
 
-After creating the service instance, {{site.data.keyword.cloud_notm}}
-responds with a message similar to the following example:
+After you create the service instance, {{site.data.keyword.cloud_notm}}
+responds with a message similar to the one in the following example:
 
 ```sh
 Creating service instance cs20170517a in resource group default of account John Does's Account as j.doe@email.com...
@@ -199,7 +199,7 @@ Service credentials are valuable. If anyone or any application has access to the
 For more information about the fields included in the service credentials, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window}.
 
 The basic command format to create credentials for a service instance
-within {{site.data.keyword.cloud_notm}} is as follows:
+within {{site.data.keyword.cloud_notm}} is shown in the following example:
 
 ```sh
 ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME
@@ -212,17 +212,17 @@ Field | Description
 ------|------------
 `NAME` | Arbitrary name that you give the service credentials. 
 `ROLE_NAME` | This field currently allows the Manager role only.
-`SERVICE_INSTANCE_NAME` | The name you give to your {{site.data.keyword.cloudant_short_notm}} instance. 
+`SERVICE_INSTANCE_NAME` | The name that you give to your {{site.data.keyword.cloudant_short_notm}} instance. 
 
-Ifyou want to create credentials for the `cs20170517a` instance of
-an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`), you create these credentials by using a command similar to the following example:
+If you want to create credentials for the `cs20170517a` instance of
+an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`), you create these credentials by using a command similar to the one in the following example:
 
 ```sh
 ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a
 ```
 {: codeblock}
 
-After receiving the request to create credentials for the service instance, {{site.data.keyword.cloud_notm}} responds with a message similar to the following example:
+After you receive the request to create credentials for the service instance, {{site.data.keyword.cloud_notm}} responds with a message similar to the one in the following example:
 
 ```sh
 Creating service key in resource group default of account John Does's Account as john.doe@email.com...
@@ -259,16 +259,15 @@ ibmcloud resource service-key KEY_NAME
 {: pre}
 
 In this example, we want to retrieve credentials for the `cs20170517a` instance of
-an {{site.data.keyword.cloudant_short_notm}} service
-(where the name for the credentials is `creds_for_cs20170517a`), you retrieve the credentials by using a command similar to the following example:
+an {{site.data.keyword.cloudant_short_notm}} service. The name for the credentials is `creds_for_cs20170517a`. You retrieve the credentials by using a command similar to the one in the following example:
 
 ```sh
 ibmcloud resource service-key creds_for_cs20170517b
 ```
 {: codeblock}
 
-After receiving the request to retrieve the credentials for the service instance,
-{{site.data.keyword.cloud_notm}} responds with a message similar to the following (abbreviated) example:
+After you receive the request to retrieve the credentials for the service instance,
+{{site.data.keyword.cloud_notm}} responds with a message similar to the one in the following (abbreviated) example:
 
 ```sh
 Retrieving service key in resource group default of account John Does's Account as john.doe@email.com...
@@ -296,14 +295,14 @@ Credentials:
 ## Using your {{site.data.keyword.cloudant_short_notm}} service instance
 {: #using-your-ibm-cloudant-service-instance}
 
-Now, you are finished with the following tasks:
+Now, you're finished with the following tasks:
 
 1.  Created an {{site.data.keyword.cloudant_short_notm}} service
   instance within {{site.data.keyword.cloud_notm}}.
 2.  Created credentials for the {{site.data.keyword.cloudant_short_notm}} service instance.
-3.  Retrieved the service instance credentials, so that they can be used by your application.
+3.  Retrieved the service instance credentials so that they can be used by your application.
 
-For more information, see the [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#context){: new_window} tutorial that shows you how to use an {{site.data.keyword.cloudant_short_notm}} service instance from a Python application by using legacy credentials. Remember to substitute the credentials you created in this tutorial.
+For more information, see the [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#context){: new_window} tutorial. This tutorial shows you how to use an {{site.data.keyword.cloudant_short_notm}} service instance from a Python application by using legacy credentials. Remember to substitute the credentials you created in this tutorial.
 
 ## (Optional) Tidying up afterward
 {: #-optional-tidying-up-afterward}
