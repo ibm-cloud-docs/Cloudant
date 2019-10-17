@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-10-17"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -36,8 +36,8 @@ Third-party client libraries are not maintained or supported by {{site.data.keyw
 is an asynchronous CouchDB and {{site.data.keyword.cloudant_short_notm}} client for .Net.
 
 To install the library,
-open up the Package manager console,
-and invoke:
+open the Package manager console,
+and invoke the following command:
 
 ```
 install-package mycouch.cloudant
@@ -83,22 +83,19 @@ install-package mycouch.cloudant
 ### Examples and tutorials for JavaScript
 {: #examples-and-tutorials-for-javascript}
 
-- [CRUD](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){: new_window}{: external} using jQuery.
+- [CRUD](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){: new_window}{: external} operations that use jQuery.
 - [CSVtoCloudant](https://github.com/michellephung/CSVtoCloudant){: new_window}{: external} - UI for importing `.csv` files into {{site.data.keyword.cloudant_short_notm}}. The app can also be accessed [here](https://michellephung.github.io/CSVtoCloudant/){: new_window}.
 - [csv2couchdb](https://github.com/Mango-information-systems/csv2couchdb){: new_window}{: external} - UI from Mango Systems to import `.csv` files to CouchDB/{{site.data.keyword.cloudant_short_notm}}.
-- [songblog](https://github.com/millayr/songblog){: new_window}{: external} - example app using JQuery.
+- [songblog](https://github.com/millayr/songblog){: new_window}{: external} - example app that uses JQuery.
     
 ## PouchDB (JavaScript)
 {: #pouchdb-javascript}
 
 [PouchDB](http://pouchdb.com/){: new_window}{: external} is a JavaScript database that can sync with {{site.data.keyword.cloudant_short_notm}},
-meaning you can make your apps offline-ready just by using PouchDB.
-For more information,
+meaning you can make your apps offline-ready by using PouchDB. For more information,
 see [our blog post](https://cloudant.com/blog/pouchdb){: new_window}{: external} on PouchDB.
 
-To obtain PouchDB,
-and for setup details,
-refer to [PouchDB](http://pouchdb.com/){: new_window}{: external}.
+For more information on downloading and setting up PouchDB, see the [PouchDB](http://pouchdb.com/){: new_window}{: external} website.
 
 PouchDB is also available for Node.js: `npm install pouchdb`.
 {: note}
@@ -115,7 +112,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 {: #examples-and-tutorials-for-pouchdb}
 
 - [PouchDB Getting Started Guide](http://pouchdb.com/getting-started.html){: new_window}{: external} - example Todo application that syncs from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
-- [locationtracker](https://github.com/rajrsingh/locationtracker){: new_window}{: external} - example app to record and map location using PouchDB, CouchApp, and {{site.data.keyword.cloudant_short_notm}}.
+- [locationtracker](https://github.com/rajrsingh/locationtracker){: new_window}{: external} - example app to record and map locations by using PouchDB, CouchApp, and {{site.data.keyword.cloudant_short_notm}}.
 
 ## Node.js
 {: #node-js-thirdparty}
@@ -169,7 +166,7 @@ require_once('./src/Sag.php');
 {: #ruby}
 
 [CouchRest](https://github.com/couchrest/couchrest){: new_window}{: external} is a CouchDB and {{site.data.keyword.cloudant_short_notm}} client
-with extensions for working with Rails using the [CouchRest Model](https://github.com/couchrest/couchrest_model){: new_window}{: external}.
+with extensions for working with Rails by using the [CouchRest Model](https://github.com/couchrest/couchrest_model){: new_window}{: external}.
 
 To install CouchRest,
 run the command:
@@ -182,8 +179,7 @@ gem install couchrest
 ### Libraries and frameworks for Ruby
 {: #libraries-and-frameworks-for-ruby}
 
-There are many CouchDB clients listed on
-[Ruby Toolbox](https://www.ruby-toolbox.com/categories/couchdb_clients){: new_window}{: external}.
+[Ruby Toolbox](https://www.ruby-toolbox.com/categories/couchdb_clients){: new_window}{: external} lists many CouchDB clients.
 
 ### Examples and tutorials for Ruby
 {: #examples-and-tutorials-for-ruby}
@@ -193,10 +189,9 @@ There are many CouchDB clients listed on
 ## Meteor
 {: #meteor}
 
-[cloudant:couchdb](https://atmospherejs.com/cloudant/couchdb){: new_window}{: external} is the
+[`cloudant:couchdb`](https://atmospherejs.com/cloudant/couchdb){: new_window}{: external} is the
 {{site.data.keyword.cloudant_short_notm}} library for the `couchdb-meteor` package.
-Since Apache CouchDB is not included with Meteor or the CouchDB package,
-you must provide a URL for Meteor to connect
+Apache CouchDB isn't included with Meteor or the CouchDB package. You must provide a URL for Meteor to connect
 to a running CouchDB or {{site.data.keyword.cloudant_short_notm}} server instance before you install Meteor.
 Add this package to your Meteor application:
 
@@ -205,13 +200,13 @@ meteor add cloudant:couchdb
 ```
 {: codeblock}
 
-The couchdb-meteor package provides:
+The `couchdb-meteor` package includes the following features:
 
 - Livequery implementation and real-time updates from the database by consuming the CouchDB `_changes` feed.
-- Distributed Data Protocol (DDP) RPC endpoints that update data from clients connected locally.
+- Distributed Data Protocol (DDP) RPC endpoints that update data from clients that are connected locally.
 - Serialization and deserialization of updates to the DDP format.
 
-The JSON query syntax used by {{site.data.keyword.cloudant_short_notm}} Query, and initially developed by {{site.data.keyword.cloudant_short_notm}}, was contributed back to Apache CouchDB for version 2.0. Pre-built binaries for Apache CouchDB version 2.0 are not yet available. You can use this module with {{site.data.keyword.cloudant_short_notm}} DBaaS or Cloudant Local until the pre-built binaries are available.
+The JSON query syntax used by {{site.data.keyword.cloudant_short_notm}} Query, and initially developed by {{site.data.keyword.cloudant_short_notm}}, was contributed back to Apache CouchDB for version 2.0. Pre-built binary files for Apache CouchDB version 2.0 aren't yet available. You can use this module with {{site.data.keyword.cloudant_short_notm}} DBaaS or Cloudant Local until the pre-built binary files are available.
 {: note}
 
 To configure the Apache CouchDB or {{site.data.keyword.cloudant_short_notm}} server connection information,
