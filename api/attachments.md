@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-10-17"
 
 keywords: create, update, read, delete, inline, performance considerations
 
@@ -69,7 +69,7 @@ The `$ATTACHMENT` value is the name by which the attachment is associated with t
 You can create more than one attachment for a document by ensuring that the `$ATTACHMENT` value for each attachment is unique within the document.
 {: tip}
 
-### Example instruction for creating or updating an attachment, by using HTTP
+See the following example for creating or updating an attachment by using HTTP:
 
 ```HTTP
 PUT /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
@@ -77,7 +77,7 @@ Content-Type: $$ATTACHMENT_MIME_TYPE
 ```
 {: codeblock}
 
-### Example instruction for creating or updating an attachment, by using the command line
+See the following example for creating or updating an attachment by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV" \
@@ -89,7 +89,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV"
 
 <!--
 
-### Example instruction for creating or updating an attachment, using Javascript
+See the following example for creating or updating an attachment by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -117,7 +117,7 @@ The response contains the document ID and the new document revision.
 Attachments do not have their own revisions. Instead, when you update or create an attachment, it changes the revision of the document it is attached to. 
 {: tip}
 
-### Example response with the document ID and new revision
+See the following example response with the document ID and new revision:
 
 ```json
 {
@@ -135,14 +135,14 @@ To retrieve an attachment,
 make a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 The body of the response is the raw content of the attachment.
 
-### Example of reading an attachment, by using HTTP
+See the following example of reading an attachment by using HTTP:
 
 ```http
 GET /$DATABASE/$DOCUMENT_ID/$ATTACHMENT HTTP/1.1
 ```
 {: codeblock}
 
-### Example of reading an attachment, by using the command line
+See the following example of reading an attachment by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT" \
@@ -153,7 +153,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT" \
 
 <!--
 
-### Example of reading an attachment, using Javascript
+See the following example of reading an attachment by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -178,14 +178,14 @@ to `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT`.
 If you do not supply the most recent `_rev`,
 the response is a [409 error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
-### Example of deleting an attachment, by using HTTP
+See the following example of deleting an attachment by using HTTP:
 
 ```http
 DELETE /$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV HTTP/1.1
 ```
 {: codeblock}
 
-### Example of deleting an attachment, by using the command line
+See the following example of deleting an attachment by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV" \
@@ -196,7 +196,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID/$ATTACHMENT?rev=$REV"
 
 <!--
 
-### Example of deleting an attachment, using Javascript
+See the following example of deleting an attachment by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -216,7 +216,7 @@ If the deletion is successful,
 the response contains `"ok": true`,
 and the ID and new revision of the document.
 
-### Example response after a successful delete of an attachment
+See the following example response after a successful delete of an attachment:
 
 ```json
 {
@@ -236,7 +236,7 @@ as shown in the example.
 
 A full list of media types is available in the [media types](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types){: new_window}{: external} article.
 
-### Example JSON document that includes an inline attachment of a jpeg image
+See the following example JSON document that includes an inline attachment of a jpeg image:
 
 ```json
 {

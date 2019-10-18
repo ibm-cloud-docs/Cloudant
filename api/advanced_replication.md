@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-10-17"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -189,7 +189,7 @@ You can use the replication scheduler to determine the status of replication.
 To determine the status of replication by using the replication scheduler,
 send a `GET` request to the `/_scheduler/docs` endpoint.  
 
-#### Example of using HTTP to get the replication status from the replication scheduler
+See the example of using an HTTP command to get the replication status from the replication scheduler:
 
 ```http
 GET /_scheduler/docs HTTP/1.1
@@ -197,14 +197,14 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-#### Example of using the command line to get the replication status from the replication scheduler
+See the example that uses the command line to get the replication status from the replication scheduler:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_scheduler/docs"
 ```
 {: codeblock}
 
-#### Example response (abbreviated) from the replication scheduler
+See the example response (abbreviated) from the replication scheduler:
 
 ```json
 {
@@ -232,14 +232,14 @@ curl "https://$ACCOUNT.cloudant.com/_scheduler/docs"
 
 The response that is received from the replication scheduler shows the history and status of all replications.
 
-#### Example of using the command line to find jobs with the `limit` and `skip` parameters
+See the example that uses the command line to find jobs with the `limit` and `skip` parameters:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1"
 ```
 {: codeblock}
 
-#### Example response from using the `limit` and `skip` parameters
+See the example response that uses the `limit` and `skip` parameters:
 
 ```json
 {
@@ -265,14 +265,14 @@ curl "https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?limit=1&skip=1"
 ```
 {: codeblock}
 
-#### Example of using the command line to find jobs with the `states` parameter
+See the example that uses the command line to find jobs with the `states` parameter:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?states=crashing"
 ```
 {: codeblock}
 
-#### Example response from using the `states` parameter
+See the example response that uses the `states` parameter:
 
 ```json
 {
@@ -298,14 +298,14 @@ curl "https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator?states=crashing"
 ```
 {: codeblock}
 
-#### Example of using the command line to find jobs with the `_doc_id` parameter
+See the example of using the command line to find jobs with the `_doc_id` parameter:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep"
 ```
 {: codeblock}
 
-#### Example response from using `doc_id` parameter
+See the example response that uses the `doc_id` parameter:
 
 ```json
 {
@@ -325,14 +325,14 @@ curl "https://$ACCOUNT.cloudant.com/_scheduler/docs/_replicator/myrep"
 ```
 {: codeblock}
 
-#### Example of using the command line to find jobs with the `_job_id` parameter
+See the example that uses the command line to find jobs with the `_job_id` parameter:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_scheduler/jobs/68245f5954fa122e7768a4bfbfbd0d15+2bcontinuous"
 ```
 {: codeblock}
 
-#### Example response from using the `_job_id` parameter
+See the example response that uses the `_job_id` parameter:
 
 ```json
 {
@@ -386,7 +386,7 @@ The `_replication_state`'s possible states include:
 -	`error`: An error occurred during replication.
 -	`triggered`: The replication started. It is now in progress.
 
-#### Example replication document before it is `PUT` into `_replicator`
+See the following example replication document before it is `PUT` into `_replicator`:
 
 ```json
 {
@@ -398,8 +398,7 @@ The `_replication_state`'s possible states include:
 ```
 {: codeblock}
 
-#### Example of automatic update to replication document, which is updated after replication starts
-{: #example-of-automatic-update-to-replication-document-which-is-updated-after-replication-starts}
+See the following example of an automatic update to a replication document, which is updated after replication starts:
 
 ```json
 {
@@ -418,8 +417,7 @@ When the replication finishes,
 it updates the `_replication_state` field with the value `completed`,
 and the `_replication_state_time` field with the time that the completion status was recorded.
 
-#### Example of automatic update to replication document, which is updated after replication starts
-{: #example-of-automatic-update-to-replication-document-which-is-updated-after-replication-starts2}
+See the example of an automatic update to a replication document, which is updated after replication starts:
 
 ```json
 {
@@ -448,7 +446,7 @@ To enable authentication during replication,
 include a username and password in the database URL.
 The replication process uses the supplied values for HTTP Basic Authentication.
 
-### Example of specifying username and password values for accessing source and target databases during replication
+See the following example of specifying username and password values for accessing source and target databases during replication:
 
 ```json
 {
@@ -482,8 +480,7 @@ the document is replicated.
 To set up filtering, use the `selector` field whenever possible. When you use the `selector` field, you can specify a filter without having to replicate the entire database. This method makes filtering faster and causes less load on {{site.data.keyword.cloudant_short_notm}}. For more information, see the [`selector` field](/docs/services/Cloudant?topic=cloudant-replication-api&origin_team=T4NN71GAU#the-selector-field) documentation. 
 {: note}
 
-### Example of a filter function
-{: #example-of-a-filter-function-adv-repl}
+See the following example of a filter function:
 
 ```javascript
 function(doc, req) {
@@ -494,8 +491,7 @@ function(doc, req) {
 
 Filters are stored under the topmost `filters` key of the design document.
 
-### Example of storing a filter function in a design document
-{: #example-of-storing-a-filter-function-dd}
+See the following example of storing a filter function in a design document:
 
 ```json
 {
@@ -513,7 +509,7 @@ A filtered replication is started by using a JSON statement that identifies:
 -	The target database.
 -	The name of the filter that is stored under the `filters` key of the design document.
 
-#### Example JSON for starting a filtered replication
+See example JSON for starting a filtered replication:
 
 ```json
 {
@@ -527,7 +523,7 @@ A filtered replication is started by using a JSON statement that identifies:
 Arguments can be supplied to the filter function by
 including key:value pairs in the `query_params` field of the invocation.
 
-#### Example JSON for starting a filtered replication with supplied parameters
+See example JSON for starting a filtered replication with supplied parameters:
 
 ```json
 {
@@ -554,7 +550,7 @@ Instead,
 to replicate specific documents,
 add the list of keys as an array in the `doc_ids` field.
 
-### Example replication of specific documents
+See the following example replication of specific documents:
 
 ```json
 {
@@ -571,7 +567,7 @@ add the list of keys as an array in the `doc_ids` field.
 If you want replication to pass through an HTTP proxy,
 provide the proxy details in the `proxy` field of the replication data.
 
-### Example showing replication through a proxy
+See the following example showing replication through a proxy:
 
 ```json
 {
@@ -611,7 +607,7 @@ This validation function also ensures that a non-admin user cannot set a usernam
 that does not correspond to the correct username.
 The same principle also applies for roles.
 
-### Example delegated replication document
+See the following example delegated replication document:
 
 ```json
 {
@@ -689,7 +685,7 @@ by including them in the replication document.
 	but this improvement comes at the cost of requiring more memory and potentially CPU time.
 	Default value is 4.
 
-### Example of including performance options in a replication document
+See the following example that includes performance options in a replication document:
 
 ```json
 {
@@ -754,7 +750,7 @@ Field           | Purpose                                                     | 
 `source`        | Source database URL, including username and password.      | No
 `target`        | Target database URL, including username and password.      | No
 
-### Example instructions for using HTTP to start a replication through the `_replicate` endpoint
+See xample instructions for using HTTP to start a replication through the `_replicate` endpoint:
 
 ```http
 POST /_replicate HTTP/1.1
@@ -762,7 +758,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example instructions for using the command line to start a replication through the `_replicate` endpoint
+See example instructions that use the command line to start a replication through the `_replicate` endpoint:
 
 ```sh 
 curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/_replicate" -d @replication-doc.json
@@ -770,7 +766,7 @@ curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/
 ```
 {: codeblock}
 
-### Example JSON document that describes the required replication
+See the following example JSON document that describes the required replication:
 
 ```json
 {
@@ -804,8 +800,7 @@ The replication ID can be obtained from the original replication request if it i
 Alternatively,
 the replication ID can be obtained from [`/_active_tasks`](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks).
 
-#### Example of using HTTP to cancel a replication
-{: #example-of-using-http-to-cancel-a-replication-adv-replication}
+See the following example that uses HTTP to cancel a replication:
 
 ```http
 POST /_replicate HTTP/1.1
@@ -813,8 +808,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-#### Example of using the command line to cancel a replication
-{: #example-of-using-the-command-line-to-cancel-a-replication}
+See the following example that uses the command line to cancel a replication:
 
 ```sh
 curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/_replicate HTTP/1.1" -d @replication-doc.json
@@ -822,7 +816,7 @@ curl -H "Content-Type: application/json" -X POST "https://$ACCOUNT.cloudant.com/
 ```
 {: codeblock}
 
-#### Example JSON document that describes the replication to be canceled
+See the following example JSON document that describes the replication to be canceled:
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-10-17"
 
 keywords: authorization, roles, permissions (view and modify), _users database, API keys (create, use, delete)
 
@@ -143,14 +143,14 @@ write,
 and manage the database,
 send a `GET` request to `https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security`.
 
-### Example of using an HTTP request to determine permissions
+See the following example that uses an HTTP request to determine permissions:
 
 ```http
 GET /_api/v2/db/$DATABASE/_security HTTP/1.1
 ```
 {: codeblock}
 
-### Example of using a command-line request to determine permissions
+See the following example that uses a command-line request to determine permissions:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security"
@@ -159,7 +159,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security"
 
 <!--
 
-### Example request to determine permissions, using Javascript
+See the following example request to determine permissions by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -189,7 +189,7 @@ In the following example response,
 the `nobody` username has `_reader` permissions.
 This combination means that the database is publicly readable to unauthenticated users.
 
-### Example response to request for permissions
+See the following example response to a request for permissions:
 
 ```json
 {
@@ -223,7 +223,7 @@ send a `PUT` request to `https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_sec
 To see what roles you can assign,
 see [Roles](/docs/services/Cloudant?topic=cloudant-authorization#roles).
 
-### Example of using HTTP to send an authorization modification request
+See the following example that uses HTTP to send an authorization modification request:
 
 ```http
 PUT /_api/v2/db/$DATABASE/_security HTTP/1.1
@@ -231,7 +231,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example of using the command line to send an authorization modification request
+See the following example that uses the command line to send an authorization modification request:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security" \
@@ -243,7 +243,7 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security" \
 
 <!--
 
-### Example of using JavaScript to send an authorization modification request
+See the following example that uses JavaScript to send an authorization modification request:
 
 ```javascript
 var nano = require('nano');
@@ -277,7 +277,7 @@ In the following example request,
 the `nobody` username is given `_reader` permissions.
 This authorization makes the database publicly readable.
 
-### Example of an authorization modification request document
+See the following example of an authorization modification request document:
 
 ```json
 {
@@ -302,7 +302,7 @@ This authorization makes the database publicly readable.
 
 The response indicates whether the update was successful.
 
-### Example response after a successful authorization modification request
+See the following example response after a successful authorization modification request:
 
 ```json
 {
@@ -320,7 +320,7 @@ For example,
 if you want to add a `nobody` user with read-only access,
 the  following incorrect request removes *all* the other users with access to the database.
 
-### Example of an incorrect authorization modification request document
+See the following example of an incorrect authorization modification request document:
 
 ```json
 {
@@ -382,14 +382,14 @@ and can't be retrieved if lost or forgotten.
 [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local"))](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-local-overview) does not support API Keys. For a similar capability, create "CouchDB" style users, as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center](/docs/services/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-database-level-security).
 {: note}
 
-### Example of using an HTTP request to create an API key
+See the following example that uses an HTTP request to create an API key:
 
 ```http
 POST https://$ACCOUNT.cloudant.com/_api/v2/api_keys HTTP/1.1
 ```
 {: codeblock}
 
-### Example of using the command line to create an API key
+See the following example that uses the command line to create an API key:
 
 ```sh
 curl -X POST "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_api/v2/api_keys"
@@ -398,7 +398,7 @@ curl -X POST "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_api/v2/api_keys"
 
 <!--
 
-### Example of using JavaScript to create an API key
+See the following example that uses JavaScript to create an API key:
 
 ```javascript
 var nano = require('nano');
@@ -422,7 +422,7 @@ account.request(
 
 The response contains the generated key and password.
 
-### Example response to request for an API key
+See the following example response to request an API key:
 
 ```json
 {
@@ -513,7 +513,7 @@ To disable {{site.data.keyword.cloudant_short_notm}} security,
 `PUT` a JSON document to the `_security` endpoint of the database.
 For example, `https://$ACCOUNT.cloudant.com/$DATABASE/_security`.
 
-### Example of using HTTP to submit a modification request
+See the following example that uses HTTP to submit a modification request:
 
 ```http
 PUT /$DATABASE/_security HTTP/1.1
@@ -521,7 +521,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example of using the command line to submit a modification request
+See the following example that uses the command line to submit a modification request:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_security" \
@@ -531,7 +531,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_security" \
 ```
 {: codeblock}
 
-### Example modification request, in JSON format
+See the following example modification request in JSON format:
 
 ```json
 {
@@ -546,7 +546,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_security" \
 ```
 {: codeblock}
 
-### Example response from a modification request
+See the following example response from a modification request:
 
 ```json
 {

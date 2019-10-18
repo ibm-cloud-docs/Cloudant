@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-15"
+lastupdated: "2019-10-17"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -39,18 +39,18 @@ both in the local device and the remote database.
 
 Two versions are available:
 
-- [{{site.data.keyword.cloudant_short_notm}} Sync - Android / JavaSE ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/sync-android){: new_window}.
-- [{{site.data.keyword.cloudant_short_notm}} Sync - iOS (CDTDatastore) ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/CDTDatastore){: new_window}.
+- [{{site.data.keyword.cloudant_short_notm}} Sync - Android / JavaSE](https://github.com/cloudant/sync-android){: new_window}{: external}.
+- [{{site.data.keyword.cloudant_short_notm}} Sync - iOS (CDTDatastore)](https://github.com/cloudant/CDTDatastore){: new_window}{: external}.
 
-An [overview ![External link icon](../images/launch-glyph.svg "External link icon")](https://www.ibm.com/cloud/learn/offline-first){: new_window} of {{site.data.keyword.cloudant_short_notm}} Sync is available, as well as details about {{site.data.keyword.cloudant_short_notm}} Sync resources.
+An [overview](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external} of {{site.data.keyword.cloudant_short_notm}} Sync is available, as well as details about {{site.data.keyword.cloudant_short_notm}} Sync resources.
 s
 ## Java
 {: #java-supported}
 
-[java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){: new_window} is the official {{site.data.keyword.cloudantfull}} library for Java&trade;.
+The [`java-cloudant`](https://github.com/cloudant/java-cloudant){: new_window}{: external} library is the official {{site.data.keyword.cloudantfull}} library for Java&trade;.
 
-For more information about installing the library by adding it as a dependency to your Maven or Gradle builds, and to see details and examples of how to use the library, see 
-[Installation and Usage ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}.
+For more information about installing the library by adding it as a dependency to your Maven or Gradle builds, see 
+[Installation and Usage](https://github.com/cloudant/java-cloudant#installation-and-usage){: new_window}{: external}. You can also see details and examples of how to use the library in the guide.  
 
 ### Libraries and frameworks for Java
 {: #libraries-and-frameworks-for-java}
@@ -58,15 +58,15 @@ For more information about installing the library by adding it as a dependency t
 #### Supported library for Java
 {: #supported-library-for-java}
 
-- [java-cloudant ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/cloudant/java-cloudant){: new_window}.
+- [`java-cloudant`](https://github.com/cloudant/java-cloudant){: new_window}{: external}.
 
 #### Unsupported libraries for Java
 {: #unsupported-for-libraries-for-java-supported}
 
-- [ektorp ![External link icon](../images/launch-glyph.svg "External link icon")](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}.
-- [jcouchdb ![External link icon](../images/launch-glyph.svg "External link icon")](http://code.google.com/p/jcouchdb/){: new_window}.
-- [jrelax ![External link icon](../images/launch-glyph.svg "External link icon")](https://github.com/isterin/jrelax){: new_window}.
-- [LightCouch ![External link icon](../images/launch-glyph.svg "External link icon")](http://www.lightcouch.org/){: new_window}.
+- [ektorp](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}{: external}.
+- [jcouchdb](http://code.google.com/p/jcouchdb/){: new_window}{: external}.
+- [jrelax](https://github.com/isterin/jrelax){: new_window}{: external}.
+- [LightCouch](http://www.lightcouch.org/){: new_window}{: external}.
 
 ### Examples and tutorials for Java
 {: #examples-and-tutorials-for-java}
@@ -78,7 +78,7 @@ For more information about installing the library by adding it as a dependency t
 ## Node.js
 {: #node-js-supported}
 
-[nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}
+[nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external}
 is the official {{site.data.keyword.cloudant_short_notm}} library for Node.js.
 You can install it with npm:
 
@@ -93,7 +93,7 @@ npm install cloudant
 #### Supported library for node.js
 {: #supported-library-for-node-js}
 
-- [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window} ([npm](https://www.npmjs.com/package/@cloudant/cloudant){: new_window}{: external}).
+- [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external} ([npm](https://www.npmjs.com/package/@cloudant/cloudant){: new_window}{: external}).
 
 #### Unsupported libraries and frameworks for node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-supported}
@@ -103,8 +103,8 @@ npm install cloudant
 - [nano](https://github.com/dscape/nano){: new_window}{: external} is a minimalist implementation.
 - [restler](https://github.com/danwrong/restler){: new_window}{: external} delivers the best performance but is really barebones.
 - [cradle](https://github.com/flatiron/cradle){: new_window}{: external} is a high-level client that is also available if you absolutely need ease of use at the cost of reduced performance.
-- [cane_passport](https://github.com/ddemichele/cane_passport){: new_window} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
-- [express-cloudant](https://github.com/cloudant-labs/express-cloudant){: new_window} - a template for Node.js Express framework that also uses PouchDB and Grunt.
+- [cane_passport](https://github.com/ddemichele/cane_passport){: new_window}{: external} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
+- [express-cloudant](https://github.com/cloudant-labs/express-cloudant){: new_window}{: external} - a template for Node.js Express framework that also uses PouchDB and Grunt.
 
 ### Examples and tutorials for node.js
 {: #examples-and-tutorials-for-node-js}
@@ -128,7 +128,7 @@ available in the GitHub repository [`cloudant/python-cloudant`](https://github.c
 Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see instructions for the [requirements files](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}{: external}.
 {: tip}
 
-Download the current library release from [pypi.python.org](https://pypi.python.org/pypi/cloudant/){: new_window}.
+Download the current library release from [pypi.python.org](https://pypi.python.org/pypi/cloudant/){: new_window}{: external}.
 For more information about the Python language, see the [python.org](https://www.python.org/about/){: new_window}{: external} website. 
 
 ## Swift

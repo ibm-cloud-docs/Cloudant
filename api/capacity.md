@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-16"
+lastupdated: "2019-10-18"
 
 keywords: provisioned throughput capacity, view current and target capacity, set target capacity, view current consumption
 
@@ -44,18 +44,18 @@ The Capacity API requires either {{site.data.keyword.cloudant_short_notm}} legac
 
 Use a GET to the `_api/v2/user/capacity/throughput` endpoint to see what amount of provisioned throughput capacity is allocated to the {{site.data.keyword.cloudant_short_notm}} instance and what is the target provisioned throughput capacity. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The amount of time it takes for the current capacity to match the target capacity depends on the size of the capacity change and the amount of data stored in the {{site.data.keyword.cloudant_short_notm}} instance. The capacity change is complete when the current and target capacity is the same. 
 
--   **Method**: `GET`
--   **Path**: `_api/v2/user/capacity/throughput`
--   **Response**: Both the current and target capacity setting. Each includes the number of capacity blocks and total reads/sec, writes/sec, and global queries/sec of throughput capacity.
+-   **Method** - `GET`
+-   **Path** - `_api/v2/user/capacity/throughput`
+-   **Response** - Both the current and target capacity setting. Each includes the number of capacity blocks and total reads/sec, writes/sec, and global queries/sec of throughput capacity.
 
-### Example request to retrieve the current and target capacity, by using HTTP
+See the following example request to retrieve the current and target capacity by using HTTP:
 
 ```HTTP
 GET /_api/v2/user/capacity/throughput
 ```
 {: codeblock}
 
-### Example request to retrieve the current and target capacity, by using the command line
+See the following example request to retrieve the current and target capacity by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput"
@@ -64,12 +64,12 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput"
 
 The returned structure includes the following fields:
 
-- **current**: Details the current capacity that is allocated and shows both the number of capacity blocks and breakdown of throughput request classes.
-- **target**: Details the target capacity that is allocated and shows both the number of capacity blocks and breakdown of throughput request classes.
-- **blocks**: Number of provisioned throughput capacity blocks, where a block is 100 reads/sec, 50 writes/sec, and 5 global queries/sec.
-- **throughput**: Breakdown of the specific number of reads/sec, writes/sec, and global queries/sec.
+- `current` - Details the current capacity that is allocated and shows both the number of capacity blocks and breakdown of throughput request classes.
+- `target` - Details the target capacity that is allocated and shows both the number of capacity blocks and breakdown of throughput request classes.
+- `blocks` - Number of provisioned throughput capacity blocks, where a block is 100 reads/sec, 50 writes/sec, and 5 global queries/sec.
+- `throughput` - Breakdown of the specific number of reads/sec, writes/sec, and global queries/sec.
 
-### Example JSON response with the current and target capacity
+See the following example JSON response with the current and target capacity:
 
 ```json
 {
@@ -98,11 +98,11 @@ The returned structure includes the following fields:
 
 Use a PUT to the `_api/v2/user/capacity/throughput` endpoint to set the target provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. When you change the target capacity, the current capacity asynchronously changes to meet the target capacity. The amount of time it takes for the current capacity to match the target capacity depends on the size of the capacity change and the amount of data that is stored in the {{site.data.keyword.cloudant_short_notm}} instance. 
 
--   **Method**: `PUT`
--   **Path**: `_api/v2/user/capacity/throughput`
--   **Response**: Both the current and target capacity setting, including the number of capacity blocks and total reads/sec, writes/sec, and global queries/sec.
+-   **Method** - `PUT`
+-   **Path** - `_api/v2/user/capacity/throughput`
+-   **Response** - Both the current and target capacity setting, including the number of capacity blocks and total reads/sec, writes/sec, and global queries/sec.
 
-### Example request to set the target capacity, by using HTTP
+See the following example request to set the target capacity by using HTTP:
 
 ```HTTP
 PUT /_api/v2/user/capacity/throughput
@@ -110,7 +110,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example JSON object to set target capacity
+See the following example JSON object to set target capacity:
 
 ```
 {
@@ -119,7 +119,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example request to set the target capacity, by using the command line
+See the following example request to set the target capacity by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/user/capacity/throughput" \
@@ -133,12 +133,12 @@ Where a block consists of 100 reads/sec, 50 writes/sec, and 5 global queries/sec
 
 The returned structure includes the following fields:
 
-- **current**: Details the current capacity that is allocated and shows both the number of capacity blocks and breakdown of throughput requests classes.
-- **target**: Details the target capacity set and shows both the number of capacity blocks and breakdown of throughput requests classes.
-- **blocks**: Number of provisioned throughput capacity blocks, where block is 100 reads/sec, 50 writes/sec, and 5 global queries/sec.
-- **throughput**: Breakdown of the specific number of reads/sec, writes/sec, and global queries/sec.
+- `current` - Details the current capacity that is allocated and shows both the number of capacity blocks and breakdown of throughput requests classes.
+- `target` - Details the target capacity set and shows both the number of capacity blocks and breakdown of throughput requests classes.
+- `blocks` - Number of provisioned throughput capacity blocks, where block is 100 reads/sec, 50 writes/sec, and 5 global queries/sec.
+- `throughput` - Breakdown of the specific number of reads/sec, writes/sec, and global queries/sec.
 
-### Example JSON response with the target capacity set
+See the following example JSON response with the target capacity set:
 
 ```json
 {
@@ -167,18 +167,18 @@ The returned structure includes the following fields:
 
 Use a GET to the `_api/v2/user/current/throughput` endpoint to see the current consumption of provisioned throughput capacity for an {{site.data.keyword.cloudant_short_notm}} instance. The current consumption shows the quantities of reads, writes, and global queries conducted against the instance for a given second. When you use this endpoint, it is a best practice to aggregate this data continuously over time to get a more comprehensive view of a Cloudant instance's throughput consumption patterns. 
 
--   **Method**: `GET`
--   **Path**: `_api/v2/user/current/throughput`
--   **Response**: The current consumption of provisioned throughput capacity consumed, broken down by the number of reads, writes, and global queries.
+-   **Method** - `GET`
+-   **Path** - `_api/v2/user/current/throughput`
+-   **Response** - The current consumption of provisioned throughput capacity consumed, broken down by the number of reads, writes, and global queries.
 
-### Example request to retrieve the current consumption of capacity, by using HTTP
+See the following example request to retrieve the current consumption of capacity by using HTTP:
 
 ```HTTP
 GET _api/v2/user/current/throughput
 ```
 {: codeblock}
 
-### Example request to retrieve the current consumption of capacity, by using the command line
+See the following example request to retrieve the current consumption of capacity by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_api/v2/user/current/throughput"
@@ -187,9 +187,9 @@ curl "https://$ACCOUNT.cloudant.com/_api/v2/user/current/throughput"
 
 The returned structure includes the following fields:
 
-- **throughput**: Breakdown of the current number of reads, writes, and global queries consumed.
+- `throughput` - Breakdown of the current number of reads, writes, and global queries consumed.
 
-### Example JSON response of the current consumption of capacity
+See the following example JSON response of the current consumption of capacity:
 
 ```json
 {

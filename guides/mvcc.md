@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-10-18"
 
 keywords: revisions, distributed databases, conflicts, resolve conflicts, find conflicting revisions, merge changes, upload new revisions, delete old revisions
 
@@ -32,42 +32,41 @@ only the [newest version](/docs/services/Cloudant?topic=cloudant-documents#docum
 {: shortdesc}
 
 Since {{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem),
-this is necessary to prevent inconsistencies arising between nodes
+it is necessary to prevent inconsistencies from arising between nodes
 as a result of synchronizing between outdated documents.
 
 Multi-Version Concurrency Control (MVCC) enables concurrent read and write access to an {{site.data.keyword.cloudant_short_notm}} database.
 MVCC is a form of [optimistic concurrency](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}{: external}.
 It makes both read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because
-there is no need for database locking on either read or write operations.
+database locking on either read or write operations isn't necessary.
 MVCC also enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
 
 ## Revisions
 {: #revisions}
 
-Every document in an {{site.data.keyword.cloudant_short_notm}} database has a `_rev` field indicating its revision number.
+Every document in an {{site.data.keyword.cloudant_short_notm}} database has a `_rev` field that indicates its revision number.
 
 A revision number is added to your documents by the server when you insert or modify them.
 The number is included in the server response when you make changes or read a document.
-The `_rev` value is constructed using a combination of a simple counter and a hash of the document.
+The `_rev` value is constructed by using a combination of a simple counter and a hash of the document.
 
 The two main uses of the revision number are to help:
 
 1.  Determine what documents must be replicated between servers.
 2.  Confirm that a client is trying to modify the latest version of a document.
 
-You must specify the previous `_rev` when [updating a document](/docs/services/Cloudant?topic=cloudant-documents#update)
+You must specify the previous `_rev` when you [update a document](/docs/services/Cloudant?topic=cloudant-documents#update)
 or else your request fails and returns a [409 error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
-`_rev` should not be used to build a version control system. The reason is that it is an internal value used by the server. In addition, older revisions of a document are transient, and therefore removed regularly.
+`_rev` must not be used to build a version control system because it is an internal value used by the server. Therefore, older revisions of a document are transient, and removed regularly.
 {: note}
 
-You can query a particular revision using its `_rev`,
-however,
+However, you can query a particular revision by using its `_rev`, but
 older revisions are regularly deleted by a process called
 [compaction](http://en.wikipedia.org/wiki/Data_compaction){: new_window}{: external}.
 A consequence of compaction is that
-you cannot rely on a successful response when querying a particular document revision
-using its `_rev` in order to obtain a history of revisions to your document.
+you cannot rely on a successful response when you query a particular document revision
+by using its `_rev` in order to obtain a history of revisions to your document.
 If you need a version history of your documents,
 a solution is to [create a new document](/docs/services/Cloudant?topic=cloudant-documents#create-document) for each revision.
 
@@ -79,7 +78,7 @@ which is itself distributed,
 so updates based on the same previous version can still be in conflict.
 
 To find conflicts,
-add the query parameter [`conflicts=true`](/docs/services/Cloudant?topic=cloudant-databases#get-changes) when retrieving a document.
+add the query parameter [`conflicts=true`](/docs/services/Cloudant?topic=cloudant-databases#get-changes) when you retrieve a document.
 The response contains a `_conflicts` array with all conflicting revisions.
 
 To find conflicts for multiple documents in a database,
@@ -87,7 +86,7 @@ write a view.
 
 The following map function is is an example that emits all conflicting revisions for every document that has a conflict.
 
-### Example of a map function to find documents with a conflict
+See the following example of a map function to find documents with a conflict:
 
 ```javascript
 function (doc) {
@@ -104,16 +103,16 @@ or query the view after each replication.
 ## Steps to resolve conflicts
 {: #steps-to-resolve-conflicts}
 
-Once you've found a conflict,
-you can resolve it in 4 steps.
+Once you find a conflict,
+you can resolve it in four steps.
 
 1.  [Get](#get-conflicting-revisions) the conflicting revisions.
-2.  [Merge](#merge-the-changes) them in your application or ask the user what he wants to do.
+2.  [Merge](#merge-the-changes) them into your application or ask the user what to do.
 3.  [Upload](#upload-the-new-revision) the new revision.
 4.  [Delete](#) old revisions.
 
-Let's consider an example of how this can be done.
-Suppose you have a database of products for an online shop.
+Let's consider an example of how to resolve a conflict.
+Suppose that you have a database of products for an online shop.
 The first version of a document might look like the following example:
 
 ```json
@@ -128,9 +127,9 @@ The first version of a document might look like the following example:
 {: codeblock}
 
 As the document doesn't have a description yet,
-someone might add one:
+someone might add one:.
 
-### Second version of the document, created by adding a description
+See the second version of the document, which is created by adding a description:
 
 ```json
 {
@@ -145,7 +144,7 @@ someone might add one:
 
 At the same time, someone else - working with a replicated database - reduces the price:
 
-### A different revision, conflicting with the previous one, because of different `price` value
+See a different revision, conflicting with the previous one because of different `price` value:
 
 ```json
 {
@@ -166,14 +165,14 @@ The difference in document versions results in a conflict.
 
 You identify documents with with conflicts by using the `conflicts=true` option.
 
-#### Example of finding documents with conflicts
+See the following example of finding documents with conflicts:
 
 ```http
 http://$ACCOUNT.cloudant.com/products/$_ID?conflicts=true
 ```
 {: codeblock}
 
-#### Example response showing conflicting revisions affecting documents
+See the following example response that shows conflicting revisions affecting documents:
 
 ```json
 {
@@ -198,7 +197,7 @@ but there might be many conflicting revisions.
 To compare the revisions to see what has been changed,
 your application gets all of the versions from the database.
 
-#### Example commands to retrieve all versions of a document from the database
+See the following example commands to retrieve all versions of a document from the database:
 
 ```http
 http://$ACCOUNT.cloudant.com/products/$_ID
@@ -226,7 +225,7 @@ see this project with [sample code](https://github.com/glynnbird/deconflict){: n
 The next step is to create a document that resolves the conflicts,
 and update the database with it.
 
-#### An example document that merges changes from the two conflicting revisions
+See the following example document that merges changes from the two conflicting revisions:
 
 ```json
 {
@@ -245,14 +244,14 @@ and update the database with it.
 Finally,
 you delete the old revisions by sending a `DELETE` request to the URLs with the revision we want to delete.
 
-#### Example request to delete an old document revision, using HTTP
+See the following example request to delete an old document revision by using HTTP:
 
 ```http
 DELETE https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
 ```
 {: codeblock}
 
-#### Example request to delete an old document revision, using the command line
+See the following example request to delete an old document revision by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/products/$_ID?rev=2-f796915a291b37254f6df8f6f3389121" -X DELETE

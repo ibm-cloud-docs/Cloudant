@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-10-17"
 
 keywords: advanced endpoints, cluster information, revision history, GET /, _db_updates, $DATABASE/_shards, $DATABASE/_missing_revs, $DATABASE/_revs_diff, _membership, _uuids
 
@@ -48,7 +48,7 @@ The `vendor.version` field contains the build number of {{site.data.keyword.clou
 For {{site.data.keyword.cloudant_short_notm}} versions before 2.0.0, you might see a `cloudant_build` field in the response, rather than a `vendor.version` field. In each case, the field contains the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
 {: note}
 
-### Example request to get server meta information, by using HTTP
+See the following example request to get server meta information by using HTTP:
 
 ```HTTP
 GET / HTTP/1.1
@@ -56,7 +56,7 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-### Example request to get server meta information, by using the command line
+See the following example request to get server meta information by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/"
@@ -65,7 +65,7 @@ curl "https://$ACCOUNT.cloudant.com/"
 
 <!--
 
-### Example request to get server meta information, by using Javascript
+See the following example request to get server meta information by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -82,7 +82,7 @@ account.request({
 
 -->
 
-### Example JSON response for {{site.data.keyword.cloudant_short_notm}} version 2.0.0
+See the following example JSON response for {{site.data.keyword.cloudant_short_notm}} version 2.0.0:
 
 ```json
 {
@@ -100,7 +100,7 @@ account.request({
 ```
 {: codeblock}
 
-### Example JSON response for an older {{site.data.keyword.cloudant_short_notm}} version 1.0.2
+See the following example JSON response for an older {{site.data.keyword.cloudant_short_notm}} version 1.0.2:
 
 ```json
 {
@@ -137,14 +137,14 @@ limit | Maximum number of results to return | yes | numeric | none |
 since | Start the results from changes immediately after the specified sequence number. If since is 0 (the default), the request returns all changes since the feature was activated. | yes | string | 0 | 
 timeout | Number of milliseconds to wait for data in a `longpoll` or `continuous` feed before the response is terminated. If both `heartbeat` and `timeout` are suppled, `heartbeat` supersedes `timeout`. | yes | numeric |  | 
 
-### Example request to get a list of changes to the database, by using HTTP
+See the following example request to get a list of changes to the database by using HTTP:
 
 ```HTTP
 GET /_db_updates HTTP/1.1
 ```
 {: codeblock}
 
-### Example request to get a list of changes to the database, by using the command line
+See the following example request to get a list of changes to the database by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_db_updates" \
@@ -154,7 +154,7 @@ curl "https://$ACCOUNT.cloudant.com/_db_updates" \
 
 <!--
 
-### Example request to get a list of changes to the database, using Javascript
+See the following example request to get a list of changes to the database by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -171,7 +171,7 @@ account.request({
 
 -->
 
-### Example response with database information
+See the following example response with database information:
 
 ```json
 {
@@ -195,17 +195,14 @@ specifically what nodes contain what hash ranges.
 The `shards` field in the response contains an object with keys that are the hash value range for each shard.
 Each value is the array of nodes that contain a copy of that shard.
 
-### Example request, by using HTTP
-{: #example-request-by-using-http}
-
+See the following example request by using HTTP:
 
 ```HTTP
 GET /$DATABASE/_shards HTTP/1.1
 ```
 {: codeblock}
 
-### Example request, by using the command line
-{: #example-request-by-using-the-command-line}
+See the following example request by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_shards" \
@@ -215,7 +212,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_shards" \
 
 <!--
 
-### Example request, using Javascript
+See the following example request by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -233,7 +230,7 @@ account.request({
 
 -->
 
-### Example response about the shards
+See the following example response about the shards:
 
 ```json
 {
@@ -282,8 +279,7 @@ similar to the following example:
 ```
 {: codeblock}
 
-### Example request by using HTTP
-{: #example-request-by-using-http2}
+See the following example request by using HTTP:
 
 ```HTTP
 GET /$DATABASE/_missing_revs HTTP/1.1
@@ -291,8 +287,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example request by using the command line
-{: #example-request-by-using-the-command-line2}
+See the following example request by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_missing_revs" \
@@ -305,7 +300,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_missing_revs" \
 
 <!--
 
-### Example request using Javascript
+See the following example request by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -326,7 +321,7 @@ function (err, body) {
 
 -->
 
-### Example response with document revisions
+See the following example response with document revisions:
 
 ```json
 {
@@ -359,7 +354,7 @@ similar to the following example:
 ```
 {: codeblock}
 
-### Example request for document revision IDs by using HTTP
+See the following example request for document revision IDs by using HTTP:
 
 ```HTTP
 POST /$DATABASE/_revs_diff HTTP/1.1
@@ -367,7 +362,7 @@ Content-Type: application/json
 ```
 {: codeblock}
 
-### Example request for document revision IDs from the command line
+See the following example request for document revision IDs from the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_revs_diff" \
@@ -379,7 +374,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_revs_diff" \
 
 <!--
 
-### Example request by using Javascript
+See the following example request by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -399,7 +394,7 @@ account.request({
 
 -->
 
-### Example response with document revision IDs
+See the following example response with document revision IDs:
 
 ```json
 {
@@ -424,7 +419,7 @@ Field name      | Description
 `cluster_nodes` | Array of node names (strings) of the active nodes in the cluster.
 `all_nodes`     | Array of nodes names (strings) of all nodes in the cluster.
 
-#### Example response with node names in the cluster
+See the following example response with node names in the cluster:
 
 ```json
 {
@@ -455,14 +450,14 @@ regardless of whether they're active or not.
 -   **Response**: JSON document that lists cluster nodes and all nodes
 -   **Roles permitted**: _admin
 
-### Example request to list nodes in the cluster by using HTTP
+See the following example request to list nodes in the cluster by using HTTP:
 
 ```http
 GET /_membership HTTP/1.1
 ```
 {: codeblock}
 
-### Example request to list nodes in the cluster by using the command line
+See the following example request to list nodes in the cluster by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_membership" \
@@ -472,7 +467,7 @@ curl "https://$ACCOUNT.cloudant.com/_membership" \
 
 <!--
 
-### Example request to list nodes in the cluster using Javascript
+See the following example request to list nodes in the cluster using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -497,7 +492,7 @@ Field name      | Description
 `cluster_nodes` | Array of node names (strings) of the active nodes in the cluster.
 `all_nodes`     | Array of nodes names (strings) of all nodes in the cluster.
 
-#### Example response to list node names in the cluster
+See the following example response to list node names in the cluster:
 
 ```json
 {
@@ -529,14 +524,14 @@ Argument | Description               | Optional | Type
 ---------|---------------------------|----------|------------------------------------------------------------------
 `count`  | Number of UUIDs to return | yes      | Positive integer, greater than 0 and less than or equal to 1,000.
 
-### Example request for a single UUID by using HTTP
+See the following example request for a single UUID by using HTTP:
 
 ```HTTP
 GET /_uuids HTTP/1.1
 ```
 {: codeblock}
 
-### Example request for a single UUID by using the command line
+See the following example request for a single UUID by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_uuids" \
@@ -546,7 +541,7 @@ curl "https://$ACCOUNT.cloudant.com/_uuids" \
 
 <!--
 
-### Example request for a single UUID by using Javascript
+See the following example request for a single UUID by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -563,7 +558,7 @@ account.request({
 
 -->
 
-### Example response to a request for a single UUID
+See the following example response to a request for a single UUID:
 
 ```json
 {
@@ -574,14 +569,14 @@ account.request({
 ```
 {: codeblock}
 
-### Example request for five UUIDs by using HTTP
+See the following example request for five UUIDs by using HTTP:
 
 ```HTTP
 GET /_uuids?count=5 HTTP/1.1
 ```
 {: codeblock}
 
-### Example request for five UUIDs by using the command line
+See the following example request for five UUIDs by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_uuids?count=5" \
@@ -591,7 +586,7 @@ curl "https://$ACCOUNT.cloudant.com/_uuids?count=5" \
 
 <!--
 
-### Example request for five UUIDs by using Javascript
+See the following example request for five UUIDs by using Javascript:
 
 ```javascript
 var nano = require('nano');
@@ -608,7 +603,7 @@ account.request({
 
 -->
 
-### Example response to a request for five UUIDs
+See the following example response to a request for five UUIDs:
 
 ```json
 {
