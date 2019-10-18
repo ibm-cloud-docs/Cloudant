@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-10-18"
 
 keywords: numbers, strings, booleans, arrays, objects
 
@@ -23,30 +23,30 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# JSON
+# JavaScript Object Notation (JSON)
 {: #json}
 
-The majority of requests and responses to and from {{site.data.keyword.cloudantfull}}
-use the [JavaScript Object Notation (JSON)](https://en.wikipedia.org/wiki/JSON){: new_window}{: external}
+Most requests and responses to and from {{site.data.keyword.cloudantfull}}
+use [JSON](https://en.wikipedia.org/wiki/JSON){: new_window}{: external}
 for formatting the content and structure of the data and responses.
 {: shortdesc}
 
 In {{site.data.keyword.cloudant_short_notm}} databases,
-the JSON object is used to represent a variety of structures,
+the JSON object is used to represent various structures,
 including all documents in a database.
 
 Parsing JSON into a JavaScript object is supported through the `JSON.parse()` function in JavaScript, or through various [libraries](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries) that perform the parsing of the content into a JavaScript object for you. Libraries for parsing and generating JSON are available for many major programming languages.
 
-JSON is used because it is the simplest and easiest solution for working with data using a web browser.
-This is because JSON structures can be evaluated and used as JavaScript objects within the web browser environment.
+JSON is used because it's the simplest and easiest solution for working with data that uses a web browser because JSON structures can be evaluated and used as JavaScript objects within the web browser environment.
 JSON also integrates with the server-side JavaScript used within {{site.data.keyword.cloudant_short_notm}}.
 JSON documents are always UTF-8 encoded.
 
-Be careful to ensure that:
--   Your JSON structures are valid.
--   You normalize strings in JSON documents retrieved from {{site.data.keyword.cloudant_short_notm}},
+Be careful to follow these guidelines:
 
-JSON supports the same basic types as supported by JavaScript:
+-   Your JSON structures are valid.
+-   You normalize strings in JSON documents retrieved from {{site.data.keyword.cloudant_short_notm}}.
+
+JSON supports the same basic types that are supported by JavaScript:
 
 -   [Numbers](#numbers)
 -   [Strings](#strings)
@@ -69,7 +69,7 @@ Numbers can be integer or floating point values.
 ## Strings
 {: #strings}
 
-String should be enclosed by double-quotes. Strings support Unicode characters and backslash escaping.
+Strings must be enclosed by double-quotes. Strings support Unicode characters and backslash escaping.
 
 ### Example of a string in JSON format
 
@@ -95,7 +95,7 @@ A `true` or `false` value.
 ## Arrays
 {: #arrays}
 
-A list of values enclosed in brackets. The values enclosed can be any valid JSON.
+A list of values enclosed in brackets. The values that are enclosed can be any valid JSON.
 
 ### Example of an array in JSON format
 

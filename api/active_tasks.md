@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-14"
+lastupdated: "2019-10-17"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve list of active tasks 
 
@@ -44,16 +44,14 @@ You can get a list of active tasks by using the `/_active_tasks` URL.
 The result is a JSON array of the currently running tasks,
 with each task described with a single object.
 
-### Example request to retrieve list of active tasks by using HTTP
-{: #example-request-retrieve-list-active-tasks-using-http}
+See the example request to retrieve a list of active tasks by using HTTP commands:
 
 ```HTTP
 GET /_active_tasks HTTP/1.1
 ```
 {: codeblock}
 
-### Example request to retrieve list of active tasks by using the command line
-{: #example-request-retrieve-list-active-tasks-with-command-line}
+See the example request to retrieve a list of active tasks by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_active_tasks" \
@@ -102,8 +100,7 @@ the possible values include:
 
 The meaning of other fields in the JSON response depends on the type of the task.
 
-### Example JSON response array that includes details of currently running tasks
-{: #example-json-response-arracy-includes-details-current-running-tasks}
+See the example JSON response array that includes details of currently running tasks:
 
 ```json
 [
