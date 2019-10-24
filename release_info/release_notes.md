@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-15"
+lastupdated: "2019-10-24"
 
-keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
+keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8104, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
 subcollection: cloudant
 
@@ -57,6 +57,11 @@ For more information, see the following links:
 {: #replication-scheduler}
 
 The new replication scheduler has several improvements and enhancements. Learn more about the replication scheduler.
+
+## Build 8104 (October 2019)
+{: #build-8104-october-2019}
+
+- Bug fixes. 
 
 ## Build 8103 (October 2019)
 {: #build-8103-october-2019}
