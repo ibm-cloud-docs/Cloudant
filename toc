@@ -131,8 +131,8 @@ IBM Cloudant
 	{: .topicgroup}
 	Guides
 		guides/acurl.md
-		guides/cap_theorem.md
 		guides/bookmarks_faqs.md
+		guides/cap_theorem.md
 		guides/conflicts.md
 		guides/couchapps.md
 		guides/database_partitioning.md
@@ -146,6 +146,7 @@ IBM Cloudant
 		guides/json.md
 		guides/managing_tasks.md
 		guides/migration.md
+		guides/pagination.md
 		guides/replication_guide.md
 		guides/backup-guide-using-replication.md
 	{: .navgroup-end}

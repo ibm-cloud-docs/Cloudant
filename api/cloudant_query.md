@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-10-29"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -1838,7 +1838,7 @@ See the following example of selective retrieval of fields from matching documen
 {: codeblock}
 
 ## Pagination
-{: #pagination}
+{: #pagination_query}
 
 {{site.data.keyword.cloudant_short_notm}} Query supports pagination by the bookmark field. Every `_find` response contains a bookmark - a token
 that {{site.data.keyword.cloudant_short_notm}} uses to determine where to resume from when subsequent queries are made. To get the next
