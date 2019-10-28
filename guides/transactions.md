@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-10-23"
 
 keywords: generate uuid, record payments, add more documents, advantages
 
@@ -271,5 +271,5 @@ Furthermore,
 documents can contain copies of data that exists in other collections
 to represent - rather than rely on - joining data with a foreign key.
 For example,
-when {{site.data.keyword.cloudant_short_notm}} records the state of a basket at the time of purchase, this record allows an order's state to be fetched by a single call
-to an {{site.data.keyword.cloudant_short_notm}}'s view that groups documents related by `order_id`.
+{{site.data.keyword.cloudant_short_notm}} records the state of a basket at the time of purchase. This record allows an order's state to be fetched by a single call
+to an {{site.data.keyword.cloudant_short_notm}} view that groups documents related by `order_id`.
