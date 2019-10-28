@@ -108,7 +108,7 @@ All clusters have an encrypted file system (encryption at rest) that uses Linux&
 visible to our operations and support teams (see the following paragraph).
 
 For sensitive data, that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}, 
-you must encrypt or otherwise protect (pseudonymise) your data before you send it to us. You must avoid 
+you must encrypt or otherwise protect (pseudonymize) your data before sending it to us. You must avoid 
 using PI as a document `_id` in your URLs, for example, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, 
 as these PI are always visible and written to the access logs.
 
@@ -130,8 +130,8 @@ For more information about data locations, see the
 As a user of {{site.data.keyword.cloudant_short_notm}}, you must follow these guidelines:
 
  * Use the default CORS configuration to prevent unexpected access.
- * Use API keys liberally, such that components can have <q>least privileged access</q>, which is coupled with the audit log. This practice helps you understand who accessed which data.
- * Encrypt or otherwise protect (pseudonymise) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
+ * Use API keys liberally, such that components can have <q>least privileged access</q>, coupled with the audit log. This practice allows you to understand who accessed which data.
+ * Encrypt or otherwise protect (pseudonymize) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
 
 ### Physical and environmental security measures
 {: #physical-and-environmental-security-measures}
@@ -213,9 +213,9 @@ process is complete.
 The CouchDB purge API is not supported by {{site.data.keyword.cloudant_short_notm}}.
 {: tip}
 
-In the context of GDPR, purging is only required if PI is used in a document ID. It's a bad 
-idea for an `_id` to store PI for lots of reasons, but a handful of semi-valid use 
-cases exist (for example, a unique email). If possible, encrypt or pseudonymise data so it's opaque 
+In the context of GDPR, purging is only required if PI is used in a document ID. It is a bad 
+idea for an `_id` to store PI for lots of reasons, but there are a handful of semi-valid use 
+cases (for example, a unique email). If possible, encrypt or pseudonymize data so it is opaque 
 to {{site.data.keyword.cloudant_short_notm}}.
 
 If a document needs removal via a *Right to be forgotten* request, follow these steps:
@@ -228,9 +228,9 @@ verifies the request to confirm the `id` contains PI. {{site.data.keyword.clouda
 This process is only to be used for emergency deletion requests (for example, *Right to be 
 forgotten*) and must not be relied upon long-term. If your application is intentionally 
 using PI in document IDs, 
-then it must be changed to either pseudonymise that PI, or not use PI in document IDs. You cannot 
-rely on regular purging by the {{site.data.keyword.cloudant_short_notm}} operations team to avoid this situation. 
-Therefore, {{site.data.keyword.cloudant_short_notm}} rejects the following purge requests:
+then it must be changed to either pseudonymize that PI, or not use PI in document IDs. You cannot 
+rely on regular purging by the {{site.data.keyword.cloudant_short_notm}} operations team to avoid this. 
+{{site.data.keyword.cloudant_short_notm}} therefore rejects the following purge requests:
 
 1. The request is for regular purging, for example, *every 30 days*.
 1. The request is for over 100 documents.

@@ -117,7 +117,7 @@ No   | `false` | `false`
 
 You can copy the latest version of a design document to a new document
 by specifying the base document and target document.
-The copy is requested by using the `COPY` HTTP request method.
+The copy is requested by using the `COPY` request method.
 
 `COPY` is a non-standard HTTP command.
 {: tip}
