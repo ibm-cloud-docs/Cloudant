@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-30"
+lastupdated: "2019-10-30"
 
 keywords: log analysis, integration 
 
@@ -73,7 +73,7 @@ Line identifiers | Description
 Log lines | Description
 ----------|------------
 `accountName` | The {{site.data.keyword.cloudant_short_notm}} account identifier that you can use when you contact support about your environment. 
-`httpMethod` | Request method for example, `GET`, `PUT`, to indicate the desired action to be performed for a given resource.
+`httpMethod` | Request method, for example, `GET`, `PUT`, to indicate the action to be performed for a given resource.
 `httpRequest` | The URL path for the HTTP request. 
 `bytesRead`| The size of the response body. 
 `clientIp` | The IP address of the originating request. 

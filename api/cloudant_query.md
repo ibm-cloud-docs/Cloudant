@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-29"
+lastupdated: "2019-10-30"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -1704,7 +1704,7 @@ if provided,
 is the next level of sort.
 
 The sort field can be any field.
-Use dotted notation if desired for subfields.
+Use dotted notation if needed for subfields.
 
 The direction value is `asc` for ascending, and `desc` for descending.
 
@@ -1736,7 +1736,7 @@ See the following example of simple sort, assuming default direction of 'ascendi
 
 A typical requirement is to search for some content by using a selector,
 then to sort the results according to the specified field,
-in the desired direction.
+in the direction preferred.
 
 To use sorting, ensure that the following are true:
 

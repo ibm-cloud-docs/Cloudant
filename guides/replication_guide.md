@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-10-30"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -454,7 +454,7 @@ Applications include:
 in-browser database that allows data to be replicated in both directions between the browser and {{site.data.keyword.cloudant_short_notm}}.
 Storing the data in a web browser on the client side allows web applications to function
 even without an internet connection.
-PouchDB can sync any changed data to and from {{site.data.keyword.cloudant_short_notm}} when an internet connection is present.
+PouchDB can synchronize any changed data to and from {{site.data.keyword.cloudant_short_notm}} when an internet connection is present.
 Setting up replication from the client side requires a few lines of JavaScript.
 
 #### Example JavaScript that uses PouchDB to enable replication
@@ -471,7 +471,7 @@ db.sync(URL, { live: true });
 
 [CloudantSync](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external} is a set of libraries
 for iOS and Android that allows data to be stored locally in a mobile device
-and synced with {{site.data.keyword.cloudant_short_notm}} when mobile connectivity permits.
+and synchronized with {{site.data.keyword.cloudant_short_notm}} when mobile connectivity permits.
 As with [PouchDB](#pouchdb),
 setting up replication requires a few lines of code.
 

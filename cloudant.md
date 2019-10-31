@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-14"
+lastupdated: "2019-10-30"
 
 keywords: links to documentation, how to contribute
 
@@ -39,7 +39,7 @@ It comes with a wide variety of indexing options that include MapReduce,
 {{site.data.keyword.cloudant_short_notm}} Query,
 full-text indexing,
 and geospatial indexing.
-The replication capabilities make it easy to keep data in sync between database clusters,
+The replication capabilities make it easy to keep data synchronized between database clusters,
 desktop PCs,
 and mobile devices.
 

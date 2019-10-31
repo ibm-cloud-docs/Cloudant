@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-07-31"
+lastupdated: "2019-10-30"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -88,7 +88,7 @@ Field        | Meaning
 -------------|--------
 `ADMIN_USER` | The account name. The account must have administrative privileges.
 `CLUSTER`    | The cluster you are interested in.
-`DURATION`   | Specifies the duration of the desired time series query. Select from one of the following time intervals: `["5min", "30min", "1h", "12h", "24h", "1d", "3d", "7d", "1w", "1m", "3m", "6m", "12m", "1y"]`. `DURATION` must be paired with either the `START` or `END` request.
+`DURATION`   | Specifies the duration of the preferred time series query. Select from one of the following time intervals: `["5min", "30min", "1h", "12h", "24h", "1d", "3d", "7d", "1w", "1m", "3m", "6m", "12m", "1y"]`. `DURATION` must be paired with either the `START` or `END` request.
 `END`        | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the end point of a time series query that is mutually exclusive with `START`.
 `END_POINT`  | The [aspect](#monitoring-endpoints) of the cluster you want to monitor.
 `START`      | UTC timestamp in ISO-8601 or integer seconds where epoch format specifies the starting point of a time series query that is mutually exclusive with `END`.
