@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-10-30"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -91,7 +91,7 @@ install-package mycouch.cloudant
 ## PouchDB (JavaScript)
 {: #pouchdb-javascript}
 
-[PouchDB](http://pouchdb.com/){: new_window}{: external} is a JavaScript database that can sync with {{site.data.keyword.cloudant_short_notm}},
+[PouchDB](http://pouchdb.com/){: new_window}{: external} is a JavaScript database that can synchronize with {{site.data.keyword.cloudant_short_notm}},
 meaning you can make your apps offline-ready by using PouchDB. For more information,
 see [our blog post](https://cloudant.com/blog/pouchdb){: new_window}{: external} on PouchDB.
 
@@ -111,7 +111,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 ### Examples and tutorials for PouchDB
 {: #examples-and-tutorials-for-pouchdb}
 
-- [PouchDB Getting Started Guide](http://pouchdb.com/getting-started.html){: new_window}{: external} - example Todo application that syncs from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
+- [PouchDB Getting Started Guide](http://pouchdb.com/getting-started.html){: new_window}{: external} - example Todo application that synchronizes from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
 - [locationtracker](https://github.com/rajrsingh/locationtracker){: new_window}{: external} - example app to record and map locations by using PouchDB, CouchApp, and {{site.data.keyword.cloudant_short_notm}}.
 
 ## Node.js

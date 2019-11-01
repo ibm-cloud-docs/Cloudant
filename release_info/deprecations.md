@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-10-30"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -51,7 +51,7 @@ curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/$DOCUMENT_ID"
 
 For most {{site.data.keyword.cloud}} users, the $USERNAME and $ACCOUNT values are the same. 
 
-Before you run the command, replace `$DOCUMENT_ID` with `example@source-db`. In this case, `example` is the warehouser document's name, and `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to Db2:
+Before you run the command, replace `$DOCUMENT_ID` with `example@source-db`. In this case, `example` is the warehouser document's name, and `source-db` is the source database's name that is used for replicating {{site.data.keyword.cloudant_short_notm}} to DB2:
 
 ```curl
 curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/example@source-db"
@@ -87,15 +87,15 @@ The information returned in the previous example is described in the following l
 </tr>
 <tr>
 <td headers="field"><p><code>dynamite_token</code></p></td>
-<td headers="description"><p>Db2 password</p></td>
+<td headers="description"><p>DB2 password</p></td>
 </tr>
 <tr>
 <td headers="field"><p><code>target</code></p></td>
-<td headers="description"><p>Db2 JDBC connection URL, only used if the value for <code>dashboard_url</code> is null</p></td>
+<td headers="description"><p>DB2 JDBC connection URL, only used if the value for <code>dashboard_url</code> is null</p></td>
 </tr>
 <tr>
 <td headers="field"><p><code>dynamite_user</code></p></td>
-<td headers="description"><p>Db2 user name</p></td>
+<td headers="description"><p>DB2 user name</p></td>
 </tr>
 </tr>
 </table>

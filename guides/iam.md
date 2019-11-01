@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-03"
+lastupdated: "2019-10-30"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -660,9 +660,9 @@ The following tables describe the available IAM actions and roles.
 
 The following endpoints are unavailable to requests authorized with IAM:
 
-- HTTP rewrite handers: `/db/_design/design-doc/_rewrite/path`. <br>
+- HTTP rewrite handlers: `/db/_design/design-doc/_rewrite/path`. <br>
 While design documents can contain rewrite handlers, users cannot call them.
-- Update handers: `POST /{db}/_design/{ddoc}/_update/{func}`. <br>
+- Update handlers: `POST /{db}/_design/{ddoc}/_update/{func}`. <br>
 While design documents can contain update functions, users cannot call them.
 
 ### Mapping of {{site.data.keyword.cloudant_short_notm}} actions to IAM roles

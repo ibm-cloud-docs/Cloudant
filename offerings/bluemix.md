@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-10-30"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -227,11 +227,11 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a **Res
 
 ![Capacity](../images/capacity-1.png)
 
-To change the target capacity, slide the capacity slider to the desired setting and click **Update Capacity**. A confirmation pop-up appears. Click **OK** to confirm. 
+To change the target capacity, slide the capacity slider to the setting you need, and click **Update Capacity**. A confirmation pop-up appears. Click **OK** to confirm. 
 
 ![Capacity](../images/capacity-3.png)
 
-The check mark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to sync those changes depends on the size of the changes in capacity that were requested and the data stored in the instance. When the target capacity is reached, the check mark turns green and says <q>Capacity Up-to-Date</q>.
+The check mark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data stored in the instance. When the target capacity is reached, the check mark turns green and says <q>Capacity Up-to-Date</q>.
 
 ![Capacity](../images/capacity-4.png)
 
@@ -244,7 +244,7 @@ If the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Cloud
 
 ![Account dashboard](../images/cloudant_capacity.png)
 
-To move to a different throughput capacity, select the desired provisioned throughput capacity, then click **Update**. You are asked to confirm the change, 
+To move to a different throughput capacity, select the provisioned throughput capacity you need, then click **Update**. You are asked to confirm the change, 
 and reminded that the provisioning change can take up to 24 hours to 
 complete.
 

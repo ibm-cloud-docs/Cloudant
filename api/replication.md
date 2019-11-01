@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-10-30"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -27,7 +27,7 @@ subcollection: cloudant
 # Replication
 {: #replication-api}
 
-{{site.data.keyword.cloudantfull}} replication is the process that synchronizes ('syncs') the state of two databases.
+{{site.data.keyword.cloudantfull}} replication is the process that synchronizes the state of two databases.
 {: shortdesc}
 
 Any change that occurred in the source database is reproduced in the target database.
@@ -151,7 +151,7 @@ Field Name | Required | Description
 -----------|----------|-------------
 `source` | yes | Identifies the database to copy revisions from. Can be a database URL, or an object whose url property contains the full URL of the database.
 `target` | yes | Identifies the database to copy revisions to. Same format and interpretation as source. Does not have to be the same value as the `source` field.
-`continuous` | no | Continuously syncs state from the `source` to the `target`, stopping only when deleted.
+`continuous` | no | Continuously synchronizes state from the `source` to the `target`, stopping only when deleted.
 `create_target` | no | A value of `true` tells the replicator to create the `target` database if it does not exist.
 `create_target_params` | no | Provides a way to customize the target database that is created on a new replication. You can also customize the cluster's default values for the number of shards and replicas to create. 
 `doc_ids` | no | Array of document IDs; if given, only these documents are replicated.
