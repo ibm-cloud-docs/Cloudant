@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-11-01"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -80,8 +80,7 @@ Complete the form:
 For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} or the legacy [Authentication API document](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} and the legacy [Authorization API document](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}.
 {: important}
 
-Using the form,
-define the source and target databases,
+Using the form, define the source and target databases,
 then click `Start Replication`.
 
 ![replication3](../images/replication_guide_3.png)
@@ -97,7 +96,7 @@ Each job changes state from `Running` to `Completed` as it progresses.
 The source and target of a replication are URLs of {{site.data.keyword.cloudant_short_notm}} databases,
 as shown in the following example.
 
-### Example of defining source and target URLs for replication
+See the following example that defines source and target URLs for replication:
 
 ```json
 {
@@ -124,13 +123,13 @@ for example when one account is behind a firewall.
 Replication happens over HTTP or HTTPS and so no non-standard ports need be opened.
 The decision as to which device starts replication is yours.
 
-## How to start replication by using the {{site.data.keyword.cloudant_short_notm}} API
+## How do I start replication by using the {{site.data.keyword.cloudant_short_notm}} API
 {: #how-to-start-replication-by-using-the-ibm-cloudant-api}
 
 Every {{site.data.keyword.cloudant_short_notm}} account has a special database that is called `_replicator`,
 into which replication jobs can be inserted.
 Add a document into the `_replicator` database to start replication.
-The document describes the wanted replication,
+The document describes the replication you want,
 and contains the following fields:
 
 Field           | Purpose
@@ -140,7 +139,7 @@ Field           | Purpose
 `target`        | The URL of the destination {{site.data.keyword.cloudant_short_notm}} database, including login credentials.
 `create_target` | (Optional) Determine whether to create the destination database if it doesn't exist yet.
 
-### Example of using HTTP to start a replication job
+See the following example that uses HTTP to start a replication job:
 
 ```http
 POST /_replicator HTTP/1.1
@@ -150,7 +149,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-### Example of using the command line to start a replication job
+See the following example that uses the command line to start a replication job:
 
 ```sh
 curl -X POST \
@@ -160,7 +159,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-### Example JSON document that describes the wanted replication
+See the following example JSON document that describes the replication you want:
 
 ```json
 {
@@ -230,7 +229,7 @@ but in a different order.
 This difference is because the sequence of changes that are received during replication
 might vary between two different copies of the database.
 
-### What 'eventual consistency' means for the list of changes
+### What does 'eventual consistency' mean for the list of changes?
 {: #what-eventual-consistency-means-for-the-list-of-changes}
 
 When you request a list of changes,
@@ -321,7 +320,7 @@ or by setting the [`continuous`](/docs/services/Cloudant?topic=cloudant-replicat
 Two-way replication can be made continuous in one or both of the directions,
 by setting the `continuous` flag.
 
-### Example of using HTTP to start a continuous replication
+See the following example that uses HTTP to start a continuous replication:
 
 ```http
 POST /_replicator HTTP/1.1
@@ -331,7 +330,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-### Example of using the command line to start a continuous replication
+See the following example that uses the command line to start a continuous replication:
 
 ```sh
 curl -X POST \
@@ -341,7 +340,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-### Example of a JSON document that defines a continuous replication
+See the following example of a JSON document that defines a continuous replication:
 
 ```json
 {
@@ -365,7 +364,7 @@ then the error state is recorded in the `_replicator` document.
 In addition,
 the {{site.data.keyword.cloudant_short_notm}} account's [`/_active_tasks` endpoint](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) can be used to see replication work as it progresses.
 
-### Example of using HTTP to monitor a replication process
+See the following example that uses HTTP to monitor a replication process:
 
 ```http
 GET /_replicator/weekly_backup HTTP/1.1
@@ -374,14 +373,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-### Example of using the command line to monitor a replication process
+See the following example that uses the command line to monitor a replication process:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/_replicator/weekly_backup"
 ```
 {: codeblock}
 
-#### Example response to requesting the status of a replication
+See the following example response that requests the status of a replication:
 
 ```json
 {
@@ -407,8 +406,7 @@ To stop an ongoing replication job,
 delete the replication document from the `_replicator` database,
 by using either the dashboard or the API.
 
-### Example of using HTTP to cancel a replication
-{: #example-of-using-http-to-cancel-a-replication-repl-guide}
+See the following example that uses HTTP to cancel a replication:
 
 ```http
 DELETE /_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098 HTTP/1.1
@@ -417,8 +415,7 @@ Authorization:
 ```
 {: codeblock}
 
-### Example of using the command line to cancel a replication
-{: #example-of-using-the-command-line-to-cancel-a-replication-repl-guide}
+See the following example that uses the command line to cancel a replication:
 
 ```sh
 curl -X DELETE "https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c57c18f7e761f1a76fa977caa03cd098"
@@ -436,7 +433,7 @@ curl -X DELETE "https://$ACCOUNT.cloudant.com/_replicator/weekly_backup?rev=22-c
 [Apache CouchDB](http://couchdb.apache.org/){: new_window}{: external} is an open source database
 that can communicate with {{site.data.keyword.cloudant_short_notm}},
 and that requires minimal setup.
-Applications include:
+The following applications are included:
 
 -   Backup: Replicate your data from {{site.data.keyword.cloudant_short_notm}} to your own CouchDB databases
     and take nightly snapshots of your data for archiving purposes.
@@ -457,7 +454,7 @@ even without an internet connection.
 PouchDB can sync any changed data to and from {{site.data.keyword.cloudant_short_notm}} when an internet connection is present.
 Setting up replication from the client side requires a few lines of JavaScript.
 
-#### Example JavaScript that uses PouchDB to enable replication
+See the following example JavaScript that uses PouchDB to enable replication:
 
 ```javascript
 var db = new PouchDB("myfirstdatabase");
@@ -475,7 +472,7 @@ and synced with {{site.data.keyword.cloudant_short_notm}} when mobile connectivi
 As with [PouchDB](#pouchdb),
 setting up replication requires a few lines of code.
 
-#### Example JavaScript that uses CloudantSync to enable replication
+See the following example JavaScript that uses CloudantSync to enable replication:
 
 ```javascript
 URI uri = new URI("https://u:p@username.cloudant.com/my_database");
@@ -510,9 +507,7 @@ to determine whether each document in a database is to be filtered or not.
 [Filter functions](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) are stored
 in [design documents](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents).
 
-The following example is a filter function that allows only non-deleted documents to be replicated.
-
-#### Example filter function for replicating non-deleted documents
+See the following example filter function for replicating non-deleted documents:
 
 ```javascript
 function(doc, req) {
@@ -531,7 +526,7 @@ You can also specify a `query_params` value.
 This value is an object that contains properties that are passed to the
 filter function in the `query` field of its second (`req`) argument.
 
-#### Example of using HTTP to start a filtered replication
+See the following example that uses HTTP to start a filtered replication:
 
 ```http
 POST /_replicator HTTP/1.1
@@ -541,7 +536,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-#### Example of using the command line to start a filtered replication
+See the following example that uses the command line to start a filtered replication:
 
 ```sh
 curl -X POST \
@@ -551,7 +546,7 @@ curl -X POST \
 ```
 {: codeblock}
 
-#### Example of a JSON document that defines a filtered replication
+See the following example of a JSON document that defines a filtered replication:
 
 ```json
 {
@@ -580,7 +575,7 @@ as shown in the examples.
 Using the `feed=continuous` option means that the stream provides you with
 every change that is necessary to get the most recent version of every document in the database.
 
-### Example of using HTTP to query the changes feed
+See the following example that uses HTTP to query the changes feed:
 
 ```http
 GET /$DATABASE/_changes?feed=continuous HTTP/1.1
@@ -589,7 +584,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-### Example of using the command line to query the changes feed
+See the following example that uses the command line to query the changes feed:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous"
@@ -608,7 +603,7 @@ append `&include_docs=true` to the curl command.
 
 Each change is described by using the format that is shown in the following (abbreviated) example.
 
-### Example `_changes` feed
+See the following example `_changes` feed:
 
 ```json
 {
@@ -626,7 +621,7 @@ Each change is described by using the format that is shown in the following (abb
 To join the changes feed from a known position,
 pass a [`since` argument](/docs/services/Cloudant?topic=cloudant-databases#the-since-argument) with the sequence number you want to start from.
 
-### Example (abbreviated) of using HTTP to supply the `since` option to join a `_changes` feed at a known position
+See the following example (abbreviated) that uses HTTP to supply the `since` option to join a `_changes` feed at a known position:
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q HTTP/1.1
@@ -635,7 +630,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-### Example (abbreviated) of using the command line to supply the `since` option to join a `_changes` feed at a known position
+See the following example (abbreviated) that uses the command line to supply the `since` option to join a `_changes` feed at a known position:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=11-g1A...c1Q"
@@ -645,7 +640,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_d
 To rejoin the changes feed from the current moment in time,
 set `since=now`.
 
-### Example of using HTTP to supply `since=now` to join a `_changes` feed at the current moment in time
+See the following example that uses HTTP to supply `since=now` to join a `_changes` feed at the current moment in time:
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now HTTP/1.1
@@ -654,14 +649,14 @@ Authorization: ...
 ```
 {: codeblock}
 
-### Example of using the command line to supply `since=now` to join a `_changes` feed at the current moment in time
+See the following example that uses the command line to supply `since=now` to join a `_changes` feed at the current moment in time:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now"
 ```
 {: codeblock}
 
-### Example of using JavaScript to supply `since=now` to join a `_changes` feed at the current moment in time
+See the following example that uses JavaScript to supply `since=now` to join a `_changes` feed at the current moment in time:
 
 ```javascript
 var feed = db.follow({since: "now", include_docs: true})
@@ -677,7 +672,7 @@ For example,
 use the [{{site.data.keyword.cloudant_short_notm}} Node.js library](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported)
 to follow changes with a few lines of code.
 
-Example use cases might be:
+The following list includes some example use cases:
 
 - Adding items to a message queue to trigger actions within your application, such as sending a customer email.
 - Update an in-memory database to record live counts of activity.
@@ -686,7 +681,7 @@ Example use cases might be:
 The changes feed can be filtered with a filter function,
 by using a similar technique to [filtering during replication](#filtered-replications).
 
-### Example of using HTTP to filter the changes feed
+See the following example that uses HTTP to filter the changes feed:
 
 ```http
 GET /$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter HTTP/1.1
@@ -695,7 +690,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-### Example of using the command line to filter the changes feed
+See the following example that uses the command line to filter the changes feed:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?feed=continuous&include_docs=true&since=now&filter=mydesigndoc/myfilter"
@@ -767,9 +762,9 @@ GET https://$ACCOUNT.cloudant.com/_replicator/<<docid>>?conflicts=true
 
 If you want to cancel all replications and start with a new,
 clean `_replicator` database,
-delete then re-create the `replicator` database.
+delete then recreate the `replicator` database.
 
-#### Example of using HTTP to remove and re-create the `_replicator` database
+See the following example that uses HTTP to remove and recreate the `_replicator` database:
 
 ```http
 DELETE /_replicator HTTP/1.1
@@ -782,7 +777,7 @@ Authorization: ...
 ```
 {: codeblock}
 
-#### Example of using the command line to remove and re-create the `_replicator` database
+See the following example that uses the command line to remove and recreate the `_replicator` database:
 
 ```sh
 curl -X DELETE "https://$ACCOUNT.cloudant.com/_replicator"
