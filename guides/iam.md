@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-31"
+lastupdated: "2019-11-04"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -86,6 +86,8 @@ All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July
 2. **Use only IAM**: This mode means that only IAM credentials are provided via Service binding and
     credential generation.
 
+When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. {: important}
+
 {{site.data.keyword.cloudant_short_notm}} service instances provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After migrating to a Resource Group, the instance will be enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate.
 
 ### {{site.data.keyword.cloudant_short_notm}} API keys and _Use only IAM_
@@ -118,6 +120,8 @@ ibmcloud resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": false}
 ```
+
+When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. {: important}
 
 To provision an instance as *Use both legacy credentials and IAM*, run the following command:
 
@@ -197,6 +201,10 @@ Each value in the previous JSON example must be interpreted as follows:
 - `url`: {{site.data.keyword.cloudant_short_notm}} service URL, including embedded {{site.data.keyword.cloudant_short_notm}} Legacy credentials.
 - `username`: The {{site.data.keyword.cloudant_short_notm}} Legacy credential username.
 
+Note the included `username` and `password` are always equivalent to IAM's
+Manager credentials and so use of *Use both legacy credentials and IAM* is
+insecure when used with Reader and Writer IAM permissions.
+
 ## Should I use *Use only IAM* or *Use both legacy credentials and IAM*?
 {: #should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
 
@@ -208,6 +216,8 @@ If possible, *Use only IAM* is preferred. The major advantages for using
 - Credentials can be easily revoked and rotated when you use {{site.data.keyword.cloud_notm}} IAM.
 
 Further description of the advantages and disadvantages of each approach follows.
+
+When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. {: important}
 
 ### Advantages and disadvantages of the two access control mechanisms
 {: #advantages-and-disadvantages-of-the-two-access-control-mechanisms}
@@ -256,7 +266,7 @@ Follow these instructions to generate IAM API keys, generate the bearer token, c
 ### Generating IAM API keys for Source and Target and one for {{site.data.keyword.cloudant_short_notm}} API access
 {: #generate-iam-api-keys-cloudant-api-access}
 
-We will create the first two API keys so that the two instances can talk to each other during the replication process. The third API key is for the user to access the {{site.data.keyword.cloudant_short_notm}} API, create the `_replicator` database, and then add the replication document to it.  
+We will create the first two API keys so that the two instances can talk to each other during the replication process. The third API key is for the user to access the {{site.data.keyword.cloudant_short_notm}} API, create the `_replicator` database, and then add the replication document to it.
 
 Follow these steps to generate IAM API keys and API access for {{site.data.keyword.cloudant_short_notm}}. You must write down
 the credentials that are requested in the following steps in order to continue with the example.
@@ -380,7 +390,7 @@ curl -k -X PUT \
 
 See the results in the following example:
 
-```     
+```
 {"ok":true,"id":"source_dest","rev":"1-89b01e42968acd5944ed657b87c49f0c"}
 ```
 {: codeblock}
@@ -579,6 +589,8 @@ are allowed for each IAM system role.
 {: #ibm-cloudant-actions}
 
 The following tables describe the available IAM actions and roles. For fine-grained authorization, we offer Manager, Reader, and Writer roles.
+
+When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. {: important}
 
 | Method | Endpoint | Action name | Role |
 |--------|----------|-------------|------|
