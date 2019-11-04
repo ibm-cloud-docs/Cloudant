@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-10-31"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -74,8 +74,8 @@ Legacy and {{site.data.keyword.cloud_notm}} IAM's access control mechanisms.
 {: #api-key-notes}
 
 In this document, wherever API keys are mentioned it refers to IAM API keys.
-{{site.data.keyword.cloudant_short_notm}} Legacy also has a concept of API keys, and any discussion about {{site.data.keyword.cloudant_short_notm}} Legacy 
-credentials or username/password combinations also includes {{site.data.keyword.cloudant_short_notm}} API keys. 
+{{site.data.keyword.cloudant_short_notm}} Legacy also has a concept of API keys, and any discussion about {{site.data.keyword.cloudant_short_notm}} Legacy
+credentials or username/password combinations also includes {{site.data.keyword.cloudant_short_notm}} API keys.
 
 ## Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
 {: #enabling-iam-with-ibm-cloudant}
@@ -86,7 +86,7 @@ All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July
 2. **Use only IAM**: This mode means that only IAM credentials are provided via Service binding and
     credential generation.
 
-{{site.data.keyword.cloudant_short_notm}} service instances provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After migrating to a Resource Group, the instance will be enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate. 
+{{site.data.keyword.cloudant_short_notm}} service instances provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After migrating to a Resource Group, the instance will be enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate.
 
 ### {{site.data.keyword.cloudant_short_notm}} API keys and _Use only IAM_
 {: #ibm-cloudant-api-keys-and-_use-only-iam_}
@@ -107,14 +107,14 @@ generated and configured by using the HTTP API.
 ### Provisioning by using the command line
 {: #provisioning-by-using-the-command-line}
 
-When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the command line, provide an option to the `ic` tool
+When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the command line, provide an option to the `ibmcloud` tool
 by using the `-p` parameter to enable or disable legacy credentials for an account. The option is
 passed in JSON format and is called `legacyCredentials`.
 
 To provision an instance as *Use only IAM* (recommended), run the following command:
 
 ```sh
-ic resource service-instance-create  "Instance Name" \
+ibmcloud resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": false}
 ```
@@ -122,7 +122,7 @@ ic resource service-instance-create  "Instance Name" \
 To provision an instance as *Use both legacy credentials and IAM*, run the following command:
 
 ```sh
-ic resource service-instance-create  "Instance Name" \
+ibmcloud resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": true}
 ```
@@ -216,60 +216,50 @@ Overall, {{site.data.keyword.cloud_notm}} IAM is the recommended authentication 
 are disadvantages to the approach, primarily, if you have an existing application
 or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported client library.
 
-<table>
-<caption style="caption-side:top">Table 1. Advantages and disadvantages of the two access control mechanisms</caption>
-<thead>
-<tr>
-<th id="mode">Mode</th>
-<th id="advantages">Advantages</th>
-<th id="disadvantages">Disadvantages</th>
-</tr>
-</thead>
-<tr>
-<td headers="mode">IAM</td>
-<td headers="advantages" valign="top"><ul><li>Manage access for many services by using one interface. Revoke access to a user globally.</li>
-<li>Account-level API keys via service IDs.</li>
-<li>Easy-to-rotate credentials.</li>
-<li>Activity Tracker logs capture individual humans and services.</li>
-<li>IAM federates with other identity systems, like enterprise LDAP repositories.</li></ul>
-</td>
-<td headers="disadvantages"><ul><li>If you are not using {{site.data.keyword.cloudant_short_notm}}'s supported libraries, application changes are likely to be required to use IAM's API keys and access tokens.</li>
-<li>No database-level permissions (yet).</li>
-<li>No fine-grained permissions (for example, reader) (yet).</li>
-<li>Some endpoints are unavailable. For more information, see [Unavailable endpoints](#unavailable-endpoints).</li>
-<li>No way to specify a database as "public", that is, not requiring an authorized user to access.</li></ul>
-</td>
-</tr>
+#### Advantages of IAM mode
+{: #advantages-iam-mode}
 
-<tr>
-<td headers="mode">Legacy</td>
-<td headers="advantages">
-<ul><li>No need to change existing applications or client library dependencies.</li>
-<li>Database-level permissions.</li>
-<li>Fine-grained roles (reader, writer).</li>
-</ul>
-</td>
-<td headers="disadvantages">
-<ul><li>No account-level API keys; must use `root` credentials to manage databases.</li>
-<li>Separate management of {{site.data.keyword.cloudant_short_notm}} credentials, so unable to get full overview of all access within centralized interface.</li>
-<li>Hard to implement credential rotation.</li>
-</ul>
-</td>
-</tr>
-</table>
+- Manage access for many services by using one interface.
+- Revoke access to a user globally.
+- Account-level API keys via service IDs.
+- Easy-to-rotate credentials.
+- Activity Tracker logs capture individual humans and services.
+- IAM federates with other identity systems, like enterprise LDAP repositories.
+- Fine-grained permissions (for example, Reader or Writer).
+
+#### Disadvantages of IAM mode
+{: #disadvantages-iam-mode}
+
+- If you are not using {{site.data.keyword.cloudant_short_notm}}'s supported libraries, application changes are likely to be required to use IAM's API keys and access tokens.
+- No database-level permissions (yet).
+- Some endpoints are unavailable. For more information, see [Unavailable endpoints](#unavailable-endpoints).
+- No way to specify a database as "public", that is, not requiring an authorized user to access.
+
+#### Advantages of Legacy mode
+{: #advantages-legacy-mode}
+
+- No need to change existing applications or client library dependencies.
+- Database-level permissions.
+
+#### Disadvantages of Legacy mode
+{: #disadvantages-legacy-mode}
+
+- No account-level API keys; must use `root` credentials to manage databases.
+- Separate management of {{site.data.keyword.cloudant_short_notm}} credentials, so unable to get full overview of all access within centralized interface.
+- Hard to implement credential rotation.
 
 ## Create a replication job by using IAM credentials only
 {: #create-replication-job-using-iam-cred-only}
 
-Follow these instructions to generate IAM API keys, generate the bearer token,create the `_replicator` database, and create the replication job. 
+Follow these instructions to generate IAM API keys, generate the bearer token, create the `_replicator` database, and create the replication job.
 
 ### Generating IAM API keys for Source and Target and one for {{site.data.keyword.cloudant_short_notm}} API access
 {: #generate-iam-api-keys-cloudant-api-access}
 
 We will create the first two API keys so that the two instances can talk to each other during the replication process. The third API key is for the user to access the {{site.data.keyword.cloudant_short_notm}} API, create the `_replicator` database, and then add the replication document to it.  
 
-Follow these steps to generate IAM API keys and API access for {{site.data.keyword.cloudant_short_notm}}. You must write down 
-the credentials that are requested in the following steps in order to continue with the example. 
+Follow these steps to generate IAM API keys and API access for {{site.data.keyword.cloudant_short_notm}}. You must write down
+the credentials that are requested in the following steps in order to continue with the example.
 
 Ensure that you select the specified instance, either the Source or Target.
 {: note}
@@ -310,7 +300,7 @@ curl -k -X POST \
 
 which returns the following information (abbreviated):
 
-```curl 
+```curl
 {
    "access_token": "eyJraWQiOiIyMDE5MD...tIwkCO9A",
    "refresh_token": "ReVbNrHo3UA38...mq67g",
@@ -402,19 +392,19 @@ See the results in the following example:
 
 1. Ensure that the {{site.data.keyword.cloudant_short_notm}} instance has IAM authentication enabled. If the instance is deployed in a Cloud Foundry org and space, migrate it to a Resource Group by using this [guide](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-).
 
-2. Update your application to use IAM authentication instead of {{site.data.keyword.cloudant_short_notm}} legacy authentication. 
+2. Update your application to use IAM authentication instead of {{site.data.keyword.cloudant_short_notm}} legacy authentication.
 
 3. Generate [new service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-service-instance) as needed.
 
-4. Open a new {{site.data.keyword.cloud_notm}} support case requesting to remove {{site.data.keyword.cloudant_short_notm}} legacy credentials for your instance. Include the username of the instance as shown in the service credentials. For more information, see [Locating your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials). 
+4. Open a new {{site.data.keyword.cloud_notm}} support case requesting to remove {{site.data.keyword.cloudant_short_notm}} legacy credentials for your instance. Include the username of the instance as shown in the service credentials. For more information, see [Locating your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
-5. Once support has replied that the legacy credentials have been removed, note that any service credentials created prior to removal will contain legacy username and password details that will no longer work. It is recommended to remove any of these service credential entries. 
+5. Once support has replied that the legacy credentials have been removed, note that any service credentials created prior to removal will contain legacy username and password details that will no longer work. It is recommended to remove any of these service credential entries.
 
 ## Making requests to instances by using IAM credentials
 {: #making-requests-to-instances-by-using-iam-credentials}
 
 This section discusses how to use {{site.data.keyword.cloudant_short_notm}} with
-service instances by using IAM authentication and access control. It uses the
+service instances through IAM authentication. It uses the
 details from the Service Credentials JSON example previously mentioned.
 
 {{site.data.keyword.cloud_notm}} IAM requires that an IAM API key is exchanged for a time-limited access token before you make a request to a resource or service. The access token is then included in the `Authorization` HTTP header to the service. When the access token expires, the consuming application must handle getting a new one from the IAM token service. For more information, see [Getting an {{site.data.keyword.cloud_notm}} IAM token by using an API key](https://cloud.ibm.com/docs/iam/apikey_iamtoken.html#iamtoken_from_apikey){: new_window}{: external} documentation for more details.
@@ -427,46 +417,17 @@ details from the Service Credentials JSON example previously mentioned.
 Use at minimum the following client library versions with IAM-enabled {{site.data.keyword.cloudant_short_notm}}
 service instances:
 
-<table>
-<caption style="caption-side:top">Table 2. Recommended client library version</caption>
-<thead>
-<tr>
-<th id="library">Library</th>
-<th id="recommended">Recommended</th>
-</tr>
-</thead>
-<tr>
-<td headers="library"><a href="https://github.com/cloudant/java-cloudant" target="_blank">java-cloudant <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a></td>
-<td headers="recommended">2.13.0+</td>
-</tr>
+| Library | Recommended |
+|---------|-------------|
+| [java-cloudant](https://github.com/cloudant/java-cloudant){: new_window}{: external} | 2.13.0+ |
+| [nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external} | 2.3.0+ |
+| [python-cloudant](https://github.com/cloudant/python-cloudant){: new_window}{: external} | 2.9.0+ |
+| [couchbackup](https://github.com/cloudant/couchbackup/){: new_window}{: external} | 2.3.1+ |
+| [CDTDatastore](https://github.com/cloudant/cdtdatastore/){: new_window}{: external} | 2.0.3+ |
+| [sync-android](https://github.com/cloudant/sync-android/){: new_window}{: external} | 2.2.0+ |
+{: caption="Table 1. Recommended client library version" caption-side="top"}
 
-<tr>
-<td headers="library"><a href="https://github.com/cloudant/nodejs-cloudant" target="_blank">nodejs-cloudant <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a></td>
-<td headers="recommended">2.3.0+</td>
-</tr>
-
-<tr>
-<td headers="library"><a href="https://github.com/cloudant/python-cloudant" target="_blank">python-cloudant <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a></td>
-<td headers="recommended">2.9.0+</td>
-</tr>
-
-<tr>
-<td headers="library"><a href="https://github.com/cloudant/couchbackup/" target="_blank">couchbackup <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a></td>
-<td headers="recommended">2.3.1+</td>
-</tr>
-
-<tr>
-<td headers="library"><a href="https://github.com/cloudant/cdtdatastore/" target="_blank">CDTDatastore <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a></td>
-<td headers="recommended">2.0.3+</td>
-</tr>
-
-<tr>
-<td headers="library"><a href="https://github.com/cloudant/sync-android/" target="_blank">sync-android <img src="../images/launch-glyph.svg" alt="External link icon" title="External link icon"></a></td>
-<td headers="recommended">2.2.0+</td>
-</tr>
-</table>
-
-The following code snippets require these versions.
+The code snippets in the next three sections require these versions.
 
 ### Java
 {: #java-iam}
@@ -617,43 +578,107 @@ are allowed for each IAM system role.
 ### {{site.data.keyword.cloudant_short_notm}} actions
 {: #ibm-cloudant-actions}
 
-The following tables describe the available IAM actions and roles. 
+The following tables describe the available IAM actions and roles. For fine-grained authorization, we offer Manager, Reader, and Writer roles.
 
-<table>
-<caption style="caption-side:top">Table 3. Descriptions of the available action</caption>
-<thead>
-<tr>
-<th id="action">Action</th>
-<th id="description">Description</th>
-</tr>
-</thead>
+| Method | Endpoint | Action name | Role |
+|--------|----------|-------------|------|
+| `GET/PUT` | `/_api/v2/db/<path:db>/_security` | `cloudantnosqldb.sapi.db-security` | Manager |
+| `GET` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.read` | Manager |
+| `PUT` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.write` | Manager |
+| `GET` | `/_api/v2/user/current/throughput` | `cloudantnosqldb.current-throughput.read` | Manager |
+| `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` | Manager |
+| `GET/HEAD` | `/_active_tasks` | `cloudantnosqldb.account-active-tasks.read` | Manager |
+| `GET/HEAD` | `/_replicator` | `cloudantnosqldb.replicator-database-info.read ` | Manager |
+| `GET/HEAD` | `/_replicator/$DOC` | `cloudantnosqldb.replication.read` | Manager |
+| `GET/HEAD` | `/_scheduler/jobs` | `cloudantnosqldb.replication.read` | Manager |
+| `GET/HEAD` | `/_scheduler/docs` | `cloudantnosqldb.replication.read` | Manager |
+| `POST` | `/_replicate` | `cloudantnosqldb.replication.write` | Manager |
+| `PUT/DELETE` | `/_replicator` | `cloudantnosqldb.replicator-database.create` | Manager |
+| `PUT/DELETE` | `/_replicator/$DOC` | `cloudantnosqldb.replication.write` | Manager |
+| `GET/HEAD` | `/_up` | `cloudantnosqldb.account-up.read` | Manager |
+| `PUT` | `/$DB/` | `cloudantnosqldb.database.create` | Manager |
+| `DELETE` | `/$DB` | `cloudantnosqldb.database.delete` | Manager |
+| `POST` | `/$DB/_design_docs/queries` | `cloudantnosqldb.any-document.read` | Manager |
+| `GET/HEAD` | `/$DB/_design/$DOC_ID/_geo_info` | `cloudantnosqldb.any-document.read` | Manager |
+| `GET/HEAD` | `/$DB/_design/$DOC_ID/_info/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager |
+| `GET` | `/$DB/_design/$DOC_ID/_search_disk_size/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager |
+| `GET` | `/$DB/_design/$DOC_ID/_search_info/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |  Manager |
+| `GET/HEAD` | `/$DB/_index/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |  Manager |
+| `GET` | `/$DB/_design_docs`  | `cloudantnosqldb.any-document.read` | Manager |
+| `GET` | `/$DB/_design/$DOC_ID` | `cloudantnosqldb.any-document.read` | Manager |
+| `GET/HEAD` | `/$DB/_design/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.any-document.read` | Manager |
+| `PUT` | `/$DB/_design/$DOC_ID` | `cloudantnosqldb.design-document.write` | Manager |
+| `COPY` | `/$DB/_design/$DOC_ID` | `cloudantnosqldb.design-document.write` | Manager |
+| `DELETE` | `/$DB/_design/$DOC_ID` | `cloudantnosqldb.design-document.write` | Manager |
+| `PUT` | `/$DB/_design/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.design-document.write` | Manager |
+| `DELETE` | `/$DB/_design/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.design-document.write` | Manager |
+| `POST/DELETE` | `/$DB/_index/$FURTHER_PATH_PARTS` | `cloudantnosqldb.design-document.write` | Manager |
+| `GET/HEAD` | `/$DB/_security` | `cloudantnosqldb.database-security.read` | Manager |
+| `PUT` | `/$DB/_security` | `cloudantnosqldb.database-security.write` | Manager |
+| `GET/HEAD` | `/$DB/_shards` | `cloudantnosqldb.database-shards.read` | Manager |
+| `COPY` | `/$DB/$DOC_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` and/or `cloudantnosqldb.data-document.write` | Depends on write document type |
+| `GET` | `/_membership` | `cloudantnosqldb.cluster-membership.read` | Manager |
+| `POST` | `/$DB/_ensure_full_commit` | `cloudantnosqldb.database-ensure-full-commit.execute` | Manager |
+| `PUT` | `/_users` | `cloudantnosqldb.users-database.create`  | Manager |
+| `GET/HEAD` | `/_users` | `cloudantnosqldb.users-database-info.read`  | Manager |
+| `DELETE` | `/_users` | `cloudantnosqldb.users-database.delete`  | Manager |
+| `GET/HEAD` | `/_users/$DOC` | `cloudantnosqldb.users.read` | Manager |
+| `GET/POST` | `/_users/_all_docs` | `cloudantnosqldb.users.read` | Manager |
+| `GET/POST` | `/_users/_changes` | `cloudantnosqldb.users.read` | Manager |
+| `POST` | `/_users/_missing_revs` | `cloudantnosqldb.users.read` | Manager |
+| `POST` | `/_users/_revs_diff` | `cloudantnosqldb.users.read` | Manager |
+| `POST` | `/_users/_bulk_get` | `cloudantnosqldb.users.read` | Manager |
+| `PUT/DELETE` | `/_users/$DOC` | `cloudantnosqldb.users.write` | Manager |
+| `POST` | `/_users/_bulk_docs` | `cloudantnosqldb.users.write` | Manager |
+| `POST` | `/_users/` | `cloudantnosqldb.users.write` | Manager |
+{: caption="Table 2. Actions for the Manager role" caption-side="top"}
 
-<tr>
-<td headers="action"><code>cloudant.db.any</code></td>
-<td headers="description">Access any database endpoint (those whose path does not start `/_api`).</td>
-</tr>
+| Method | Endpoint | Action Name | Role |
+|--------|----------|-------------|------|
+| `GET/HEAD` | `/_uuids` | `cloudantnosqldb.cluster-uuids.execute` | Manager, Writer |
+| `POST` | `/$DB/` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` | Manager, Writer |
+| `POST` | `/$DB/_bulk_docs` | `cloudantnosqldb.data-document.write` and/or `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` | Manager, Writer |
+| `PUT` | `/$DB/$DOC_ID` | `cloudantnosqldb.data-document.write` | Manager, Writer |
+| `DELETE` | `/$DB/$DOC_ID` | `cloudantnosqldb.data-document.write` | Manager, Writer |
+| `PUT` | `/$DB/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` | Manager, Writer |
+| `DELETE` | `/$DB/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` | Manager, Writer |
+| `PUT/DELETE` | `/$DB/_local/$DOC_ID` | `cloudantnosqldb.data-document.write` | Manager, Writer |
+| `COPY` | `/$DB/_local/$DOC_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` and/or `cloudantnosqldb.data-document.write` | Depends on write document type |
+{: caption="Table 3. Actions for the Manager and Writer roles" caption-side="top"}
 
-<tr>
-<td headers="action"><code>cloudantnosqldb.sapi.dbsecurity</code></td>
-<td headers="description">Access `/_api/v2/db/<path:db>/_security`.</td>
-</tr>
-
-<tr>
-<td headers="action"><code>cloudantnosqldb.sapi.usercors</code></td>
-<td headers="description">Access `/_api/v2/user/config/cors/`.</td>
-</tr>
-
-<tr>
-<td headers="action"><code>cloudantnosqldb.sapi.apikeys</code></td>
-<td headers="description">Access `/_api/v2/api_keys`.</td>
-</tr>
-
-<tr>
-<td headers="action"><code>cloudantnosqldb.sapi.userinfo</code></td>
-<td headers="description">Access `/_api/v2/user`.</td>
-</tr>
-</table>
-
+| Method | Endpoint | Action Name | Role |
+|--------|----------|-------------|------|
+| `GET/HEAD` | `/_iam_session` | `cloudantnosqldb.iam-session.read` | Manager, Writer, Reader |
+| `POST` | `/_iam_session` | `cloudantnosqldb.iam-session.write` | Manager, Writer, Reader |
+| `DELETE` | `/_iam_session` | `cloudantnosqldb.iam-session.delete` | Manager, Writer, Reader |
+| `GET/HEAD` | `/_session` | `cloudantnosqldb.session.read` | Manager, Writer, Reader |
+| `POST` | `/_session` | `cloudantnosqldb.session.write` | Manager, Writer, Reader |
+| `DELETE` | `/_session` | `cloudantnosqldb.session.delete` | Manager, Writer, Reader |
+| `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` | Manager, Writer, Reader |
+| `GET` | `/_db_updates` | `cloudantnosqldb.account-db-updates.read` | Manager, Writer, Reader |
+| `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` | Manager, Writer, Reader |
+| `GET` | `/$DB/` | `cloudantnosqldb.database-info.read` | Manager, Writer, Reader |
+| `GET/POST` | `/$DB/_all_docs` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `GET/POST` | `/$DB/_changes` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `GET/HEAD` | `/$DB/$DOC_ID` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `GET/HEAD` | `/$DB/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `POST` | `/$DB/_bulk_get` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `GET/POST` | `/_search_analyze` | `cloudantnosqldb.account-search-analyze.execute` | Manager, Writer, Reader |
+| `POST` | `/$DB/_all_docs/queries` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `GET/HEAD` | `/$DB/_design/$DOC_ID/_geo/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `GET/POST` | `/$DB/_design/$DOC_ID/_list/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `GET/POST` | `/$DB/_design/$DOC_ID/_search/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `GET/POST` | `/$DB/_design/$DOC_ID/_show/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `POST` | `/$DB/_design/$DOC_ID/_view/$VIEW/queries` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `GET/POST` | `/$DB/_design/$DOC_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `POST` | `/$DB/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `POST` | `/$DB/_find/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `GET` | `/$DB/_local_docs` | `cloudantnosqldb.any-document.read ` | Manager, Writer, Reader |
+| `POST` | `/$DB/_local_docs/queries` | `cloudantnosqldb.any-document.read ` | Manager, Writer, Reader |
+| `GET` | `/$DB/_local/$DOC_ID` | `cloudantnosqldb.any-document.read ` | Manager, Writer, Reader |
+| `POST` | `/$DB/_missing_revs` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+| `POST` | `/$DB/_revs_diff` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
+{: caption="Table 4. Actions for the Manager, Writer, and Reader roles" caption-side="top"}
 
 #### Unavailable endpoints
 {: #unavailable-endpoints}
@@ -662,38 +687,8 @@ The following endpoints are unavailable to requests authorized with IAM:
 
 - HTTP rewrite handlers: `/db/_design/design-doc/_rewrite/path`. <br>
 While design documents can contain rewrite handlers, users cannot call them.
-- Update handlers: `POST /{db}/_design/{ddoc}/_update/{func}`. <br>
+- Update handlers: `POST /db/_design/ddoc/_update/func`. <br>
 While design documents can contain update functions, users cannot call them.
-
-### Mapping of {{site.data.keyword.cloudant_short_notm}} actions to IAM roles
-{: #mapping-of-ibm-cloudant-actions-to-iam-roles}
-
-Only Manager role users and services can access {{site.data.keyword.cloudant_short_notm}} data.
-
-<table>
-<caption style="caption-side:top">Table 7. Roles mapped to allowed actions</caption>
-<thead>
-<tr>
-<th id="role">Role</th>
-<th id="allowed-action">Allowed action</th>
-</tr>
-</thead>
-
-<tr>
-<td headers="role">Manager</td>
-<td headers="allowed-action">All documented actions</td>
-</tr>
-
-<tr>
-<td headers="role">Reader</td>
-<td headers="allowed-action">None</td>
-</tr>
-
-<tr>
-<td headers="role">Writer</td>
-<td headers="allowed-action">None</td>
-</tr>
-</table>
 
 ## Troubleshooting
 {: #troubleshooting}
@@ -702,4 +697,4 @@ If you are having trouble using IAM to authenticate when making requests to your
 ### Ensure your account is IAM enabled
 {: #ensure-your-account-is-iam-enabled}
 
-On the Overview portion of the IBM Cloudant dashboard, "authentication method" is listed under deployment details. Your available authentication methods are listed there. 
+On the Overview portion of the {{site.data.keyword.cloudant_short_notm}} dashboard, "authentication method" is listed under deployment details. Your available authentication methods are listed there.
