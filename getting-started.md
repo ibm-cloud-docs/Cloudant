@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-25"
+lastupdated: "2019-11-04"
 
 keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -141,7 +141,7 @@ Verify that you have what you need to start the tutorial from the following list
   ... where `<your-database-name>` is the name you would like to give your database. 
 
   The database name must begin with a letter and can include only lowercase characters (a-z), numerals (0-9), and any of the following characters `_`, `$`, `(`, `)`, `+`, `-`, and `/`.
-  {: warning}
+  {: important}
 
 2. Create the database:
   ```python
