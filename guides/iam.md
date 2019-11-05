@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-04"
+lastupdated: "2019-11-05"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -86,7 +86,8 @@ All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July
 2. **Use only IAM**: This mode means that only IAM credentials are provided via Service binding and
     credential generation.
 
-When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. {: important}
+When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
+{: important}
 
 {{site.data.keyword.cloudant_short_notm}} service instances provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After migrating to a Resource Group, the instance will be enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate.
 
@@ -121,7 +122,8 @@ ibmcloud resource service-instance-create  "Instance Name" \
     -p {"legacyCredentials": false}
 ```
 
-When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. {: important}
+When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
+{: important}
 
 To provision an instance as *Use both legacy credentials and IAM*, run the following command:
 
@@ -217,7 +219,8 @@ If possible, *Use only IAM* is preferred. The major advantages for using
 
 Further description of the advantages and disadvantages of each approach follows.
 
-When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. {: important}
+When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
+{: important}
 
 ### Advantages and disadvantages of the two access control mechanisms
 {: #advantages-and-disadvantages-of-the-two-access-control-mechanisms}
@@ -590,7 +593,8 @@ are allowed for each IAM system role.
 
 The following tables describe the available IAM actions and roles. For fine-grained authorization, we offer Manager, Reader, and Writer roles.
 
-When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. {: important}
+When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
+{: important}
 
 | Method | Endpoint | Action name | Role |
 |--------|----------|-------------|------|
