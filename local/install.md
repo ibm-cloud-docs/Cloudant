@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-01"
+lastupdated: "2019-11-12"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -495,25 +495,12 @@ Install and configure the first database node in the cluster.
 </pre></p>
     <p>See the options for the first database node in the following table: 
 
-<table>
-<caption style="caption-side:top">Table 1. Options for the first database node</caption>
-<thead>
-<tr>
-<th>Flag</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-db</code> or <code>--dbnode</code>
-</td>
-<td>Flag to install a database node.</td>
-</tr>
-<tr>
-<td><code>-p</code> or <code>--password</code></td>
-<td>An optional flag to specify the database admin password. If you do not provide a password, the password defaults to <code>pass</code>.</td>
-</tr>
-</tbody></table>
+| Flag | Purpose |
+|------|---------|
+| `-db` or `--dbnode` | Flag to install a database node. |
+| `-p` or `--password` | An optional flag to specify the database admin password. If you do not provide a password, the password defaults to `pass`. |
+{: caption="Table 1. Options for the first database node" caption-side="top"}
+
 </p></li>
 <li>Run the <code>export</code> command to export configuration values to a file.
 <pre>cast cluster export cluster_dbnode.yaml</pre>
@@ -535,31 +522,11 @@ cast system install -c cluster_dbnode.yaml -db
 
 See the options for additional database nodes in the following table: 
 
-<table>
-<caption style="caption-side:top">Table 2. Options for additional database nodes</caption>
-<thead>
-<tr>
-<th>Flag</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-db</code> or <code>--dbnode</code>
-</td>
-<td>Flag to install a database node.</td>
-</tr>
-<tr>
-<td><code>-c</code> or <code>--config</code>
-</td>
-<td>The cluster configuration file exported from the first node.</td>
-</tr>
-<tr>
-<td><code>--maintenance</code>
-</td>
-<td>Start the system in maintenance mode. </td>
-</tr>
-</tbody></table>
+| Flag | Purpose |
+|------|---------|
+| `-db` or `--dbnode` | Flag to install a database node. |
+| `-c` or `--config` | The cluster configuration file exported from the first node. | `--maintenance` | Start the system in maintenance mode. |
+{: caption="Table 2. Options for additional database nodes" caption-side="top"}
 
 You added a database node. Next, you must join the cluster.
 
@@ -645,36 +612,32 @@ joined to the cluster, you must initialize the cluster.
 
 Install and configure each load balancer node in the cluster by
 following these steps.
- 
-<ol><li>Install a load balancer node by running the following command.
-<p><code>cast system install -lb</code></p>
-<p>See the options for the load balancer node in the following table: </p>
-<table>
-<caption style="caption-side:top">Table 3. Options for the load balancer node</caption>
-<thead>
-<tr>
-<th>Flag</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-lb</code> or <code>--lbnode</code>
-</td>
-<td>Flag to install a load balancer node.</td>
-</tr>
-</table>
-</li>
-<li>Copy the load balancer node configuration file, <code>/opt/cloudant/cast/samples/lbnode.yaml</code>.</li>
-<li>Update the host name and IP address values for each database node in the cluster under the Nodes section of the configuration file.</li>
-<li>Replace the host name with the FQDN.
-<pre><code>
-hostname: xxx.xx
-ipaddress: xxx
-</code></pre></li>
-<li>Change the default admin password from `pass` as shown in the sample.
-<pre><code>
-# Sample CAST input file for configuring a load balancer in a three-node database cluster.
+
+1. Install a load balancer node by running the following command:
+    ```sh
+    cast system install -lb
+    ```
+    {: codeblock}
+
+    See the options for the load balancer node in the following table: 
+
+    | Flag | Purpose | 
+    |------|---------|
+    | `-lb` or `--lbnode` | Flag to install a load balancer node. | 
+    {: caption="Table 3. Options for the load balancer node" caption-side="top"} 
+
+2. Copy the load balancer node configuration file, `/opt/cloudant/cast/samples/lbnode.yaml`.
+3. Update the host name and IP address values for each database node in the cluster under the Nodes section of the configuration file.
+4. Replace the host name with the FQDN.
+    ```sh
+    hostname: xxx.xx
+    ipaddress: xxx
+    ```
+    {: codeblock}
+
+5. Change the default admin password from `pass` as shown in the sample.
+   ```sh
+   # Sample CAST input file for configuring a load balancer in a three-node database cluster.
     
     lbnode:
     
@@ -690,14 +653,18 @@ ipaddress: xxx
     
     - hostname: db3.vm 
     ipaddress: 192.168.211.103
-</code></pre></li>
-<li>Save the configuration file and update the node with the new values by running the following command.
-<code>cast node config lbnode.yaml</code>
-<p>After you run the `cast node config` command, the load balancer
+    ```
+    {: codeblock}
+
+6. Save the configuration file and update the node with the new values by running the following command.
+   ```sh
+      cast node config lbnode.yaml 
+   ```
+
+    After you run the `cast node config` command, the load balancer
     node is configured. After you complete the installation of the
     database nodes and initialize the cluster, verify the
-    installation by [Starting the {{site.data.keyword.cloudant_local_notm}} Dashboard](#starting-the-ibm-cloudant-local-dashboard).</p></li>
-</ol>
+    installation by [Starting the {{site.data.keyword.cloudant_local_notm}} Dashboard](#starting-the-ibm-cloudant-local-dashboard).
 
 
 ## Installing a single node
@@ -713,35 +680,23 @@ settings.
 This implementation is not recommended for a production environment.
 {: important}
 
-<ol><li>Install a single node by running the following command.
-<pre><code>cast system install -p dbadmin_password -lb -db</code></pre>
-<table>
-<caption style="caption-side:top">Table 4. Options for a single node</caption>
-<thead>
-<tr>
-<th>Flag</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-db</code> or <code>--dbnode</code>
-</td>
-<td>Flag to install a database node.</td>
-</tr>
-<tr>
-<td><code>-lb</code> or <code>--lbnode</code>
-</td>
-<td>Flag to install a load balancer node.</td>
-</tr>
-<tr>
-<td><code>-p</code> or <code>--password</code>
-</td>
-<td>(Optional) flag to set the database admin password. If you do not provide a password, the password defaults to `pass`. </td></tr>
-</table>
-</li>
-<li>Run the following command to initialize the single node cluster.
-<pre><code>cast cluster init</code></pre></li></ol>
+1. Install a single node by running the following command:
+   ```sh
+   cast system install -p dbadmin_password -lb -db
+   ```
+   {: codeblock}
+
+   * `-db` or `--dbnode`
+     Flag to install a database node.
+   * `-lb` or `--lbnode`
+     Flag to install a load balancer node.<br>
+   * `p` or `--password`
+     (Optional) Flag to set the database admin password. If you do not provide a password, the password defaults to `pass`.
+2. Run the following command to initialize the single node cluster:
+   ```sh
+   cast cluster init
+   ```
+   {: codeblock}
     
 ## Installing {{site.data.keyword.cloudant_local_notm}} offline
 {: #installing-ibm-cloudant-local-offline}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-05"
+lastupdated: "2019-11-11"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -122,50 +122,13 @@ The second parameter is the data to be indexed. Keep the following information i
 
 The third, optional, parameter is a JavaScript object with the following fields:
 
-<table border='1'>
-
-<tr>
-    <th>Option</th><th>Description</th><th>Values</th><th>Default</th>
-</tr>
-<tr>
-    <td><code>boost</code></td>
-    <td>A number that specifies the relevance in search results.
-    Content that is indexed with a boost value greater than 1
-    is more relevant than content that is indexed without a boost value.
-    Content with a boost value less than one is not so relevant.</td>
-    <td>A positive floating point number</td>
-    <td>1 (no boosting)</td>
-</tr>
-<tr>
-    <td><code>facet</code></td>
-    <td>Creates a faceted index.
-    For more information,
-    see <a href="#faceting">Faceting</a>.</td>
-    <td><code>true</code>,
-    <code>false</code></td>
-    <td><code>false</code></td>
-</tr>
-<tr>
-    <td><code>index</code></td>
-    <td>Whether the data is indexed,
-    and if so,
-    how. If set to <code>false</code>, the data cannot be used for searches, but can still be retrieved from the index if <code>store</code> is set to <code>true</code>. For more information, see <a href="#analyzers">Analyzers</a>.</td>
-    <td><code>true</code>,
-    <code>false</code>
-    </td>
-    <td><code>true</code></td>
-</tr>
-<tr>
-    <td><code>store</code></td>
-    <td>If <code>true</code>,
-    the value is returned in the search result;
-    otherwise,
-    the value is not returned.</td>
-    <td><code>true</code>,
-    <code>false</code></td>
-    <td><code>false</code></td>
-</tr>
-</table>
+| Option | Description | Values | Default | 
+|--------|-------------|--------|---------|
+| `boost` | A number that specifies the relevance in search results. Content that is indexed with a boost value greater than 1 is more relevant than content that is indexed without a boost value. Content with a boost value less than one is not so relevant. | A positive floating point number | 1 (no boosting) |
+| `facet` | Creates a faceted index. For more information, see [Faceting](/docs/services/Cloudant?topic=cloudant-search#faceting). | `true` | `false` | `false` |
+| `index` | Whether the data is indexed, and if so, how. If set to `false`, the data cannot be used for searches, but can still be retrieved from the index if `store` is set to `true`. For more information, see [Analyzers](/docs/services/Cloudant?topic=cloudant-search#analyzers). | `true`, `false` | `true` |
+| `store` | If `true`, the value is returned in the search result; otherwise, the value is not returned. | `true`, `false` | `false` |
+{: caption="Table 1. Fields for the JavaScript object (optional parameter)" caption-side="top"}
 
 If you do not set the `store` parameter,
 the index data results for the document are not returned in response to a query.
@@ -267,6 +230,7 @@ Analyzer     | Description
 `simple`     | Divides text at non-letters.
 `standard`   | The default analyzer. It implements the Word Break rules from the [Unicode Text Segmentation algorithm](http://www.unicode.org/reports/tr29/){: new_window}{: external}.
 `whitespace` | Divides text at white space boundaries.
+{: caption="Table 2. Generic analyzers" caption-side="top"}
 
 See the following example analyzer document:
 
@@ -510,217 +474,32 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_search/$INDEX_NAME?
 ### Query Parameters
 {: #query-parameters-search}
 
-You must enable [faceting](#faceting) before you can use the following parameters:
--	`counts`
--	`drilldown`
-    
-<table border='1'>
+You must enable [faceting](#faceting) before you can use the following parameters: `counts` and `drilldown`.
+{: important}
 
-<tr>
-<th>Argument</th><th>Description</th><th>Optional</th><th>Type</th><th>Supported Values</th><th>Partition query</th>
-</tr>
-<tr>
-<td><code>bookmark</code></td>
-<td>A bookmark that was received from a previous search.
-This parameter enables paging through the results.
-If there are no more results after the bookmark,
-you get a response with an empty rows array and the same bookmark,
-confirming the end of the result list.</td>
-<td>yes</td>
-<td>string</td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>counts</code></td>
-<td>This field defines an array of names of string fields,
-for which counts are requested.
-The response contains counts for each unique value of this field name among the documents that match the search query.
-<a href="#faceting">Faceting</a> must be enabled for this parameter to function.</td>
-<td>yes</td>
-<td>JSON</td>
-<td>A JSON array of field names.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><code>drilldown</code></td>
-<td>This field can be used several times.
-Each use defines a pair of a field name and a value.
-The search matches only documents containing the value that was provided in the named field.
-It differs from using <code>"fieldname:value"</code> in
-the <code>q</code> parameter only in that the values are not analyzed.
-<a href="#faceting">Faceting</a> must be enabled for this parameter to function.</td>
-<td>no</td>
-<td>JSON</td>
-<td>A JSON array with two elements:
-the field name and the value.</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>group_field</code></td>
-<td>Field by which to group search matches.</td>
-<td>yes</td>
-<td>String</td>
-<td>A string that contains the name of a string field.
-Fields containing other data such as numbers, objects, or arrays cannot be used.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><code>group_limit</code></td>
-<td>Maximum group count.
-This field can be used only if <code>group_field</code> is specified.</td>
-<td>yes</td>
-<td>Numeric</td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><code>group_sort</code></td>
-<td>This field defines the order of the groups in a search that uses <code>group_field</code>.
-The default sort order is relevance.</td>
-<td>yes</td>
-<td>JSON</td>
-<td>This field can have the same values as the sort field,
-so single fields and arrays of fields are supported.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><code>highlight_fields</code></td>
-<td>Specifies which fields to highlight.
-If specified,
-the result object contains a <code>highlights</code> field with an entry for each specified field.</td>
-<td>yes</td>
-<td>Array of strings</td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>highlight_pre_tag</code></td>
-<td>A string that is inserted before the highlighted word in the highlights output.</td>
-<td>yes, defaults to <code>&lt;em&gt;</code></td>
-<td>String</td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>highlight_post_tag</code></td>
-<td>A string that is inserted after the highlighted word in the highlights output.</td>
-<td>yes, defaults to <code>&lt;/em&gt;</code></td>
-<td>String</td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>highlight_number</code></td>
-<td>Number of fragments that are returned in highlights.
-If the search term occurs less often than the number of fragments that are specified,
-longer fragments are returned.</td>
-<td>yes, defaults to 1</td>
-<td>Numeric</td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>highlight_size</code></td>
-<td>Number of characters in each fragment for highlights.</td>
-<td>yes, defaults to 100 characters</td>
-<td>Numeric</td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>include_docs</code></td>
-<td>Include the full content of the documents in the response.</td>
-<td>yes</td>
-<td>Boolean</td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>include_fields</code></td>
-<td>A JSON array of field names to include in search results.
-Any fields that are included must be indexed with the <code>store:true</code> option.</td>
-<td>yes, the default is all fields</td>
-<td>Array of strings</td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>limit</code></td>
-<td>Limit the number of the returned documents to the specified number.
-For a grouped search,
-this parameter limits the number of documents per group.</td>
-<td>yes</td>
-<td>Numeric</td>
-<td>The limit value can be any positive integer number up to and including 200.</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>q</code></td>
-<td>Abbreviation for <code>query</code>.
-Runs a Lucene query.</td>
-<td>no</td>
-<td>string or number</td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>query</code></td>
-<td>Runs a Lucene query.</td>
-<td>no</td>
-<td>string or number</td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>ranges</code></td>
-<td>This field defines ranges for faceted,
-numeric search fields.
-The value is a JSON object where the fields names are faceted numeric search fields,
-and the values of the fields are JSON objects.
-The field names of the JSON objects are names for ranges.
-The values are strings that describe the range,
-for example <code>"[0 TO 10]"</code></td>
-<td>yes</td>
-<td>JSON</td>
-<td>The value must be an object with fields that have objects as their values.
-These objects must have strings with ranges as their field values.</td>
-<td>no</td>
-</tr>
-<tr>
-<td><code>sort</code></td>
-<td>Specifies the sort order of the results.
-In a grouped search (when <code>group_field</code> is used),
-this parameter specifies the sort order within a group.
-The default sort order is relevance.</td>
-<td>yes</td>
-<td>JSON</td>
-<td>A JSON string of the form <code>"fieldname&lt;type&gt;"</code>
-or <code>-fieldname&lt;type&gt;</code> for descending order,
-where <code>fieldname</code> is the name of a string or number field,
-and <code>type</code> is either a number,
-a string,
-or a JSON array of strings.
-The <code>type</code> part is optional,
-and defaults to <code>number</code>.
-Some examples are <code>"foo"</code>,
-<code>"-foo"</code>,
-<code>"bar&lt;string&gt;"</code>,
-<code>"-foo&lt;number&gt;"</code> and <code>["-foo&lt;number&gt;",
-"bar&lt;string&gt;"]</code>.
-String fields that are used for sorting must not be analyzed fields.
-Fields that are used for sorting must be indexed by the same indexer that is used for the search query.</td>
-<td>yes</td>
-</tr>
-<tr>
-<td><code>stale</code></td>
-<td>Do not wait for the index to finish building to return results.</td>
-<td>yes</td>
-<td>string</td>
-<td>ok</td>
-<td>yes</td>
-</tr>
-</table>
+
+| Argument | Description | Optional | Type | Supported Values | Partition Query |
+|---------|---------|--------|--------|--------|----------|
+| `bookmark` | A bookmark that was received from a previous search. This parameter enables paging through the results. If there are no more results after the bookmark, you get a response with an empty rows array and the same bookmark, confirming the end of the result list. | `yes` | string | | yes |
+| `counts` | This field defines an array of names of string fields, for which counts are requested. The response contains counts for each unique value of this field name among the documents that match the search query. [Faceting](/docs/services/Cloudant?topic=cloudant-search#faceting) must be enabled for this parameter to function. | yes | JSON | A JSON array of field names. | no |
+| `drilldown` | This field can be used several times. Each use defines a pair of a field name and a value. The search matches only documents containing the value that was provided in the named field. It differs from using `"fieldname:value"` in the `q` parameter only in that the values are not analyzed. [Faceting](/docs/services/Cloudant?topic=cloudant-search#faceting) must be enabled for this parameter to function. | no | JSON | A JSON array with two elements: the field name and the value. | yes |
+| `group_field` | Field by which to group search matches. | yes | String | A string that contains the name of a string field. Fields containing other data such as numbers, objects, or arrays cannot be used. | no |
+| `group_limit` | Maximum group count. This field can be used only if `group_field` is specified. | yes | Numeric |  | no |
+| `group_sort` | This field defines the order of the groups in a search that uses `group_field`. The default sort order is relevance. | yes | JSON | This field can have the same values as the sort field, so single fields and arrays of fields are supported. | no |
+| `highlight_fields` | Specifies which fields to highlight. If specified, the result object contains a `highlights` field with an entry for each specified field. | yes | Array of strings |  | yes|
+| `highlight_pre_tag` | A string that is inserted before the highlighted word in the highlights output. | yes, defaults to `<em>` | String |  | yes |
+| `highlight_post_tag` | A string that is inserted after the highlighted word in the highlights output. | yes, defaults to `/em` | String |  | yes |
+| `highlight_number` | Number of fragments that are returned in highlights. If the search term occurs less often than the number of fragments that are specified, longer fragments are returned. | yes, defaults to 1 | Numeric |  | yes |
+| `highlight_size` | Number of characters in each fragment for highlights. | yes, defaults to 100 characters | Numeric |  | yes | 
+| `include_docs` | Include the full content of the documents in the response. | yes | Boolean |  | yes |
+| `include_fields` | A JSON array of field names to include in search results. Any fields that are included must be indexed with the `store:true` option. | yes, the default is all fields | Array of strings | | yes |
+| `limit` | Limit the number of the returned documents to the specified number. For a grouped search, this parameter limits the number of documents per group. | yes | Numeric | The limit value can be any positive integer number up to and including 200. | yes | 
+| `q` | Abbreviation for `query`. Runs a Lucene query. | no | string or number |  | yes |
+| `query` | Runs a Lucene query. | no | string or number |  | yes |
+| `ranges` | This field defines ranges for faceted, numeric search fields. The value is a JSON object where the fields names are faceted numeric search fields, and the values of the fields are JSON objects. The field names of the JSON objects are names for ranges. The values are strings that describe the range, for example `"[0 TO 10]"` | yes | JSON | The value must be an object with fields that have objects as their values. These objects must have strings with ranges as their field values. | no |
+| `sort` | Specifies the sort order of the results. In a grouped search (when `group_field` is used),this parameter specifies the sort order within a group. The default sort order is relevance. | yes | JSON | A JSON string of the form `"fieldname<type>"` or `-fieldname<type>` for descending order, where `fieldname` is the name of a string or number field, and `type` is either a number, a string, or a JSON array of strings. The `type` part is optional, and defaults to `number`. Some examples are `"foo"`, `"-foo"`, `"bar<string>"`, `"-foo<number>"` and `["-foo<number>","bar<string>"]`. String fields that are used for sorting must not be analyzed fields. Fields that are used for sorting must be indexed by the same indexer that is used for the search query. | yes | 
+| `stale` | Do not wait for the index to finish building to return results. | yes | string | ok | yes | 
+{: caption="Table 3. Query parameters" caption-side="top"}
 
 Do not combine the `bookmark` and `stale` options. These options constrain the choice of shard replicas to use for the response. When used together, the options might cause problems when contact is attempted with replicas that are slow or not available.
 {: note}

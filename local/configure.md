@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-11-11"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -774,119 +774,24 @@ available on the load balancer server.
 
 Information about the logs for database nodes and load balancer nodes is shown in the following tables. 
 
-<table>
-<caption style="caption-side:top">Table 1. Database nodes</caption>
-<thead>
-<tr>
-<th>Log type</th>
-<th>Purpose</th>
-<th>Configuration file</th>
-<th>Local logging default log files location</th>
-<th>Remote logging default <code>rsyslog</code>
-<code>facility</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>{{site.data.keyword.cloudant_short_notm}} database core logs</td>
-<td>Contains data about events such as runtime errors, warnings, or crashes that were encountered
-by the {{site.data.keyword.cloudant_short_notm}} database.</td>
-<td><code>/opt/cloudant/etc/local.ini</code></td>
-<td><code>/var/log/cloudant/cloudant.log</code><p><code>/var/log/cloudant/cloudant-crash.log</code></p></td>
-<td><code>local2.*</code><p><code>/var/log/cloudant/cloudant.log</code></p></td>
-</tr>
-<tr>
-<td>Clouseau Search Service log</td>
-<td>Contains information after the search indexes are built and committed. Also includes service
-start or stop status, and any errors encountered.</td>
-<td><code>/opt/cloudant/etc/log4j.properties</code></td>
-<td><code>/var/log/cloudant/clouseau.log</code><p>**Note**: Uses <code>rsyslog</code>
-<code>facility</code>
-<code>local5</code> for local logging.</p></td>
-<td><code>local5.*</code><p><code>/var/log/cloudant/clouseau.log</code></p></td>
-</tr>
-<tr>
-<td>Metrics Service log</td>
-<td>Contains information about service start and stop status, and any errors in the {{site.data.keyword.cloudant_short_notm}} Metrics data gathering service.</td>
-<td><code>/opt/cloudant/etc/metrics.ini</code></td>
-<td><code>/var/log/cloudant/metrics.log</code><p>**Note**: Uses <code>rsyslog</code>
-<code>facility</code>
-<code>local3</code> for local logging.</p></td>
-<td><code>local3.*</code><p><code>/var/log/cloudant/metrics.log</code></p></td>
-</tr>
-<tr>
-<td>Apache CouchDB Service log</td>
-<td>Contains information about service start or stop status, and any errors in the {{site.data.keyword.cloudant_short_notm}} Apache CouchDB.</td>
-<td><code>/opt/cloudant/etc/local.ini</code></td>
-<td><code>/var/log/cloudant/cloudant-svlogd/current</code></td>
-<td>None.</td>
-</tr>
-</tbody>
-</table>
+| Log type | Purpose | Configuration file | Local logging default log files location | Remote logging default `rsyslog` `facility` |
+|----------|-----------|-----------|-----------|----------|
+| {{site.data.keyword.cloudant_short_notm}} database core logs | Contains data about events such as runtime errors, warnings, or crashes that were encountered by the {{site.data.keyword.cloudant_short_notm}} database. | `/opt/cloudant/etc/local.ini` | `/var/log/cloudant/cloudant.log` <br> `/var/log/cloudant/cloudant-crash.log` | `local2.*` <br> `/var/log/cloudant/cloudant.log` |
+| Clouseau Search Service log | Contains information after the search indexes are built and committed. Also includes service start or stop status, and any errors encountered. | `/opt/cloudant/etc/log4j.properties` | `/var/log/cloudant/clouseau.log`<br> **Note**: Uses `rsyslog` `facility` `local5`  for local logging. | `local5.*` <br> `/var/log/cloudant/clouseau.log` |
+| Metrics Service log | Contains information about service start and stop status, and any errors in the {{site.data.keyword.cloudant_short_notm}} Metrics data gathering service. | `/opt/cloudant/etc/metrics.ini` | `/var/log/cloudant/metrics.log` <br> **Note**: Uses `rsyslog` `facility` `local3` for local logging. | `local3.*` <br> `/var/log/cloudant/metrics.log` |
+| Apache CouchDB Service log | Contains information about service start or stop status, and any errors in the {{site.data.keyword.cloudant_short_notm}} Apache CouchDB. | `/opt/cloudant/etc/local.ini` | `/var/log/cloudant/cloudant-svlogd/current` | None. |
+{: caption="Table 1. Database nodes" caption-side="top"}
 
+| Log type | Purpose | Configuration file | Local logging default log file location | Remote logging default `rsyslog` `facility` |
+|--------|---------|---------|---------|
+| HAProxy logs | Contains information about service start or stop status, and runtime errors. Can be extended to record access and other request information. | `/etc/haproxy/haproxy.cfg` | `/var/log/haproxy.log` <br> **Note**: Uses `rsyslog` `facility` `local4` for local logging. | `local4.*` <br> `/var/log/haproxy.log`|
+| NGINX logs | Contains information about service start or stop status, any errors, and access details. | `/etc/nginx/nginx.conf` | `/var/log/nginx/access.log` <br> `/var/log/nginx/error.log` | None. |
+{: caption="Table 2. Load balancer nodes" caption-side="top"}
 
-<table>
-<caption style="caption-side:top">Table 2. Load balancer node</caption>
-<thead>
-<tr>
-<th>Log type</th>
-<th>Purpose</th>
-<th>Configuration file</th>
-<th>Local logging default log file location</th>
-<th>Remote logging default <code>rsyslog</code>
-<code>facility</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>HAProxy logs</td>
-<td>Contains information about service start or stop status, and runtime errors. Can be extended
-to record access and other request information.</td>
-<td><code>/etc/haproxy/haproxy.cfg</code></td>
-<td>
-<p><code>/var/log/haproxy.log</code></p>
-<note>**Note**: Uses <code>rsyslog</code>
-<code>facility</code>
-<code>local4</code> for local logging.</note>
-</td>
-<td><code>local4.*</code><p><code>/var/log/haproxy.log</code></p></td>
-</tr>
-<tr>
-<td>NGINX logs</td>
-<td>Contains information about service start or stop status, any errors, and access
-details.</td>
-<td><code>/etc/nginx/nginx.conf</code></td>
-<td><code>/var/log/nginx/access.log</code><p><code>/var/log/nginx/error.log</code></p></td>
-<td>None.</td>
-</tr>
-</tbody>
-</table>
-
-<table>
-<caption style="caption-side:top">Table 3. All nodes</caption>
-<thead>
-<tr>
-<th>Log type </th>
-<th>Purpose</th>
-<th>Local logging default log file location</th>
-<th>Remote logging default <code>rsyslog</code>
-<code>facility</code></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>System logs</td>
-<td>General system and security logs on the server.</td>
-<td>On Debian and Ubuntu<p><code>/var/log/auth.log</code></p>
-<p><code>/var/log/syslog</code></p> On Red Hat-derived <tm trademark="Linux" tmtype="tm"
->Linux</tm> distributions only
-<p><code>/var/log/secure</code></p><p><code>/var/log/messages</code></p></td>
-<td>None.</td>
-</tr>
-</tbody>
-</table>
-
-
+| Log type | Purpose | Local logging default log file location | Remote logging default `rsyslog` `facility` |
+|----------|----------|---------|---------|
+| System logs | General system and security logs on the server. | On Debian and Ubuntu <br>`/var/log/auth.log` <br> `/var/log/syslog` <br>On Red Hat-derived Linux&trade; distributions only <br>`/var/log/secure` <br>`/var/log/messages` | None. |
+{: caption="Table 3. All nodes" caption-side="top"}
 
 ### Configuring the remote logging server to use `rsyslog`
 {: #configuring-the-remote-logging-server-to-use-rsyslog-}
@@ -955,34 +860,14 @@ the following checks.
     
 <p>You can use different facility values from <code>local2</code> through to <code>local7</code> inclusive. For more information about facility values, see <a href="http://tools.ietf.org/html/rfc3164#section-4.1.1" target="_blank">RFC 3164 <img src="images/launch-glyph.svg" alt="External link icon"></a>. The following table lists the values that are used by {{site.data.keyword.cloudant_local_notm}}.
 </p>
-<table>
-<caption style="caption-side:top">Table 4. Facility values</caption>
-        <thead>
-        <tr>
-        <th>Facility</th>
-        <th>Purpose</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-        <td><code>local2</code></td>
-        <td>{{site.data.keyword.cloudant_short_notm}} database logs</td>
-        </tr>
-        <tr>
-        <td><code>local3</code></td>
-        <td>Metrics logs</td>
-        </tr>
-        <tr>
-        <td><code>local4</code></td>
-        <td>HAProxy logs</td>
-        </tr>
-        <tr>
-        <td><code>local5</code></td>
-        <td>Clouseau logs</td>
-        </tr>
-        </tbody>
-        </table>
- 
+|Facility | Purpose |
+|---------|---------|
+| local2 | {{site.data.keyword.cloudant_short_notm}} database logs |
+| local3 | Metrics logs |
+| local4 | HAProxy logs |
+| local5 | Clouseau logs |
+{: caption="Table 4. Facility values" caption-side="top"}
+
 </li></ol></li>
 <li>Change the logging level, on the source nodes, to <code>info</code> temporarily to generate more logging activity.</li> 
 <li>After you complete your verification checks, remember to change the logging level back to the default or your preferred level.</li>
@@ -1078,29 +963,12 @@ address. A single, separate IP address is used as the actual
 front-end address where all requests are directed from outside
 the {{site.data.keyword.cloudant_local_notm}} system.
 
-<table>
-<caption style="caption-side:top">Table 5. Example load balancer configuration</caption>
-<thead>
-<tr>
-<th>IP address</th>
-<th>System</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>10.10.50.5</td>
-<td>Front-end system</td>
-</tr>
-<tr>
-<td>10.10.50.6</td>
-<td>Load balancer 0</td>
-</tr>
-<tr>
-<td>10.10.50.7</td>
-<td>Load balancer 1</td>
-</tr>
-</tbody></table>
-
+| IP address | System |
+|----------|---------|
+| 10.10.50.5 | Front-end system |
+| 10.10.50.6 | Load balancer 0 |
+| 10.10.50.7 | Load balancer 1 |
+{: caption="Table 5. Example load balancer configuration" caption-side="top"}
 
 <ol><li>Perform the load balancer installation task for each of the
     load balancer systems (Load Balancer 0 and Load Balancer 1).
@@ -1490,62 +1358,17 @@ the corresponding priorities.
 Mapping of IOQ classes to class priorities is not 1:1.
 {: note}
 
-<table>
-<caption style="caption-side:top">Table 6. Mapping of IOQ classes and IOQ priorities </caption>
-<thead>
-<tr>
-<th>IOQ class</th>
-<th>IOQ priority</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>interactive</td>
-<td>reads, writes</td>
-<td>IO requests related to requests made by users through the HTTP layer.</td>
-</tr>
-<tr>
-<td><code>db_update</code></td>
-<td>writes</td>
-<td>Interactive IO requests that are database write operations.</td>
-</tr>
-<tr>
-<td><code>view_update</code></td>
-<td>views</td>
-<td>IO requests related to view index builds.</td>
-</tr>
-<tr>
-<td><code>db_compact</code></td>
-<td>compaction</td>
-<td>IO requests related to database compactions.</td>
-</tr>
-<tr>
-<td><code>view_compact</code></td>
-<td>compaction</td>
-<td>IO requests related to view compactions.</td>
-</tr>
-<tr>
-<td><code>internal_repl</code></td>
-<td>replication</td>
-<td>IO requests related to internal replication, that is, replication between nodes in a
-cluster.</td>
-</tr>
-<tr>
-<td>low</td>
-<td>low</td>
-<td>IO requests related to requests made by users through the HTTP layer where the
-<code>x-cloudant-priority</code> header is set to <code>low</code>.</td>
-</tr>
-<tr>
-<td>other</td>
-<td>undefined</td>
-<td>IO requests that do not fit any of the previous classes, including search IO
-requests.</td>
-</tr>
-</tbody>
-</table>
-
+| IOQ class | IOQ priority | Description |
+|-----------|--------------|-------------|
+| interactive | reads, writes | IO requests related to requests made by users through the HTTP layer. |
+| db_update | writes | Interactive IO requests that are database write operations. |
+| view_update | views | IO requests related to view index builds. |
+| db_compact | compaction | IO requests related to database compactions. |
+| view_compact | compaction  | IO requests related to view compactions. |
+| internal_repl | replication | IO requests related to internal replication, that is, replication between nodes in a cluster. |
+| low | low | IO requests related to requests made by users through the HTTP layer where the `x-cloudant-priority` header is set to `low`. |
+| other | undefined | IO requests that do not fit any of the previous classes, including search IO requests. |
+{: caption="Table 6. Mapping of IOQ classes and IOQ priorities" caption-side="top"}
 
 ### Internals
 {: #internals}

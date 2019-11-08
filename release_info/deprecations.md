@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-11-08"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -72,42 +72,23 @@ curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/example@source-db"
 
 The information returned in the previous example is described in the following list:
 
-<table border='1'>
-
-<tr>
-<th id="field">Field</th><th id="description" colspan='4'>Description</th>
-</tr>
-<tr>
-<td headers="field"><p><code>_id</code></p></td>
-<td headers="description">ID of the _warehouser document</td>
-</tr>
-<tr>
-<td headers="field"><p><code>dashboard_url</code></p></td>
-<td headers="description"><p>URL of the {{site.data.keyword.dashdbshort_notm}} console</p></td>
-</tr>
-<tr>
-<td headers="field"><p><code>dynamite_token</code></p></td>
-<td headers="description"><p>DB2 password</p></td>
-</tr>
-<tr>
-<td headers="field"><p><code>target</code></p></td>
-<td headers="description"><p>DB2 JDBC connection URL, only used if the value for <code>dashboard_url</code> is null</p></td>
-</tr>
-<tr>
-<td headers="field"><p><code>dynamite_user</code></p></td>
-<td headers="description"><p>DB2 user name</p></td>
-</tr>
-</tr>
-</table>
+| Field | Description |
+|-------|-------------|
+| `_id` | ID of the _warehouser document |
+| `dashboard_url` | URL of the {{site.data.keyword.dashdbshort_notm}} console |
+| `dynamite_token` | DB2 password |
+| `target` | DB2 JDBC connection URL, only used if the value for `dashboard_url` is null |
+| `dynamite_user` | DB2 user name |
+{: caption="Table 1. Response from a search for information in the warehouser document" caption-side="top"}
 
 To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to remember the values for each of the following fields that are taken from the previous response example: `dynamite_user`, `dynamite_token`, and `dashboard_url`.
        
-1 - From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console by using the value in the `dashboard_url` field.  
+1. From a browser, go to the {{site.data.keyword.dashdbshort_notm}} console by using the value in the `dashboard_url` field.  
 
-To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the postfix `login`, you can sign in with the following URL: `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
-{: note}
+  To sign in to the {{site.data.keyword.dashdbshort_notm}} console, use the value from the `dashboard_url` field. If the value for the `dashboard_url` field is `null`, you can use the host value from the `target` field to create the URL for signing in to the console. For example, the host value for the `target` field from the previous example output is `dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net`. If you add the protocol `https` and the postfix `login`, you can sign in with the following URL: `https://dashdb-entry-yp-lon02-01.services.eu-gb.bluemix.net/login`.
+  {: note}
 
-2 - To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password.
+2. To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password.
 
 ## Disabled JavaScript constructors (December 7, 2017)
 {: #disabled-javascript-constructors-december-7-2017}

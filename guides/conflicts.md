@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-02"
+lastupdated: "2019-11-11"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -62,48 +62,16 @@ your {{site.data.keyword.cloudant_short_notm}} database begins to exhibit severa
 * Increasing database size, because all conflicting documents must be retained until the conflict is resolved.
 * Decreasing performance, because {{site.data.keyword.cloudant_short_notm}} must work harder in response to each and every request as it tries to identify the <q>best possible</q> version of a conflicted document.
 
-The following suggested practices might help you decide when to check for,
-and resolve,
-conflicts:
+The following suggested practices might help you decide when to check for, and resolve, conflicts:
 
-<table>
-<tr>
-<th>Application characteristic</th>
-<th>Frequency of document update</th>
-<th>Check for conflicts at retrieval?</th>
-<th>Check for conflicts at update?</th>
-</tr>
-<tr>
-<td>Always connected to the network, for example a server.</td>
-<td>Often</td>
-<td>Y</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Always connected to the network.</td>
-<td>Occasionally</td>
-<td>-</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Often but not always connected to the network, for example a laptop.</td>
-<td>Often</td>
-<td>-</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Often but not always connected to the network.</td>
-<td>Occasionally</td>
-<td>-</td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Occasionally connected to the network, for example a tablet.</td>
-<td>Often</td>
-<td>-</td>
-<td>Y</td>
-</tr>
-</table>
+| Application characteristic | Frequency of document update | Check for conflicts at retrieval? | Check for conflicts at update? |
+|---------|---------|---------|----------|
+| Always connected to the network, for example, a server. | Often | Y | - |
+| Always connected to the network. | Occasionally | - | Y |
+| Often but not always connected to the network, for example, a laptop. | Often | - | Y |
+| Often but not always connected to the network. | Occasionally | - | Y | 
+| Occasionally connected to the network, for example, a tablet. | Often | - | Y |
+{: caption="Table 1. Practices to help you check for and resolve conflicts" caption-side="top"}
 
 ## Finding conflicts
 {: #finding-conflicts}
@@ -114,7 +82,7 @@ When returned,
 the resulting document contains a `_conflicts` array,
 which includes a list of all the conflicting revisions.
 
-### Example map function to find document conflicts
+See the following example map function to find document conflicts:
 
 ```
 function (doc) {
@@ -144,7 +112,7 @@ Once you've found a conflict, you can resolve it by following 4 steps:
 3.	[Upload](#upload-the-new-revision) the new revision.
 4.	[Delete](#delete-old-revisions) the old revisions.
 
-### Example document - the first version
+See the following example document of the first version:
 
 ```json
 {
@@ -160,7 +128,7 @@ Let's consider an example of how this can be done.
 Suppose you have a database of products for an online shop.
 The first version of a document might look like the example provided.
 
-### Second version (first revision) of the document, adding a description
+See the following second version (first revision) of the document that adds a description
 
 ```json
 {
@@ -175,7 +143,7 @@ The first version of a document might look like the example provided.
 The document doesn't have a description yet,
 so someone might add one.
 
-### *Alternative* second version, introducing a price reduction data change to the first version of the document
+See the following *alternative* second version that introduces a price reduction data change to the first version of the document:
 
 ```json
 {
@@ -208,7 +176,7 @@ similar to the following example:
 `http://ACCOUNT.cloudant.com/products/$_ID?conflicts=true`
 
 
-### Example response to document retrieval, showing conflicting revisions
+See the following example response to document retrieval that shows conflicting revisions:
 
 ```json
 {
@@ -285,7 +253,7 @@ For a practical example of how to implement these changes, see [this project wit
 ## Upload the new revision
 {: #upload-the-new-revision}
 
-### Final revision, after resolving and merging changes from the previous conflicting revisions
+See the following final revisions after resolving and merging changes from the previous conflicting revisions:
 
 ```json
 {
@@ -304,7 +272,7 @@ This fresh document is uploaded into the database.
 ## Delete old revisions
 {: #delete-old-revisions-conflicts}
 
-### Example requests to delete the old revisions
+See the following example requests to delete the old revisions:
 
 ```http
 DELETE http://$ACCOUNT.cloudant.com/products/$_ID?rev=2-61ae00e029d4f5edd2981841243ded13
