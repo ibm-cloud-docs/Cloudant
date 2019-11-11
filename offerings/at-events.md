@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-24"
+lastupdated: "2019-11-11"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -39,7 +39,11 @@ Action | Description
 -------|------------
 cloudantnosqldb.database.create | Create a database
 cloudantnosqldb.database.delete | Delete a database
-cloudantnosqldb.database-security.write | Create, update, or delete of a security document 
+cloudantnosqldb.database-security.read | Read a security document
+cloudantnosqldb.database-security.write | A create, update, or delete of a security document
+cloudantnosqldb.replication.read | Read a replication document
+cloudantnosqldb.replication.write | A create, update, or delete of a replication document
+cloudantnosqldb.design-document.write | A create, update, or delete of a `_design` document 
 {: caption="Table 1. Actions that generate events" caption-side="top"}
 
 ## Viewing events
