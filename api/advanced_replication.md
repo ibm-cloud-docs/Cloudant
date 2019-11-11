@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-11-11"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -214,7 +214,17 @@ See the example response (abbreviated) from the replication scheduler:
       "doc_id": "myrep",
       "error_count": 0,
       "id": "88b..get",
-      "info": null,
+      "info": {
+          "changes_pending": null,
+          "checkpointed_source_seq": 0,
+          "doc_write_failures": 0,
+          "docs_read": 12,
+          "docs_written": 12,
+          "missing_revisions_found": 12,
+          "revisions_checked": 12,
+          "source_seq": "12-g1A...",
+          "through_seq": "12-g1A...",
+      },
       "last_updated": "2016-11-10T06-51-19Z",
       "node": "node1@127.0.0.1",
       "proxy": null,
@@ -254,7 +264,17 @@ See the example response that uses the `limit` and `skip` parameters:
       "source": "$source_db/",
       "target": "$target_db/",
       "state": "running",
-      "info": null,
+      "info": {
+          "changes_pending": null,
+          "checkpointed_source_seq": 0,
+          "doc_write_failures": 0,
+          "docs_read": 12,
+          "docs_written": 12,
+          "missing_revisions_found": 12,
+          "revisions_checked": 12,
+          "source_seq": "12-g1A...",
+          "through_seq": "12-g1A...",
+      },
       "error_count": 0,
       "last_updated": "2017-10-05T14:46:28Z",
       "start_time": "2017-10-05T14:46:28Z",
