@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-02-06"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -29,12 +29,44 @@ subcollection: cloudant
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {: shortdesc}
 
-## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (7 February 2018)
+## Replaced deprecated database information fields (March 6, 2020 or later)
+{: #replaced-dbinfo-size-fields}
+
+The following changes will be coming March 6, 2020 or later and might cause compatibility issues.
+{: important}
+
+Calls to `GET /{db}` were replaced by the following fields:
+
+| Old Field | New Field |
+|-----------|-----------|
+| `data_size` | `sizes.active` |
+| `disk_size` | `sizes.file` |
+| `other.data_size` | `sizes.external` |
+
+Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
+
+| Old Field | New Field|
+|-----------|----------|
+| `data_size` | `sizes.external` |
+| `disk_size` | `sizes.file` | 
+
+## Replaced `?queries` parameter (March 6, 2020 or later)
+{: #replaced-?queries-parameter}
+
+The following changes will be coming March 6, 2020 or later and might cause compatibility issues.
+{: important}
+
+The `?queries` parameter was replaced with `POST /{db}/_design/{ddoc}/_view/{view}/queries`. You can also make multiple queries with the following endpoints: 
+
+- `POST /{db}/_all_docs/queries`
+- `POST /{db}/_design_docs/queries`
+- `POST /{db}/_local_docs/queries`
+
+## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (February 7, 2018)
 {: #cloudant-nosql-db-feature-is-deprecated-february-7-2018}
 
 To find alternatives to {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdblong}} feature, see the 
-[data-flow-examples repository](https://github.com/cloudant-labs/data-flow-examples){: new_window}{: external} 
-for tutorials on 
+[data-flow-examples repository](https://github.com/cloudant-labs/data-flow-examples){: new_window}{: external} for tutorials on 
 extracting {{site.data.keyword.cloudant_short_notm}} documents and writing the data to a 
 {{site.data.keyword.dashdbshort_notm}} table.
 
