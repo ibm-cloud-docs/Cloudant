@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-11-11"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -180,7 +180,7 @@ The number of rows read from the index is the same as the number of results
 returned. Documents are only read from the database when `include_docs=true` is
 passed as a query string parameter during the query request.
 
-Example costs are shown in the following table.
+You can see example costs in the following table:
 
 | Number of results | Include documents | Total Read consumption | Consumption for rows read | Consumption for documents read |
 |--------------|----------------|-------------|---------------------| --- |
@@ -188,6 +188,7 @@ Example costs are shown in the following table.
 | 199      | Yes     | **201** | 2 | 199 |
 | 301      | No     | **4** | 4 | 0 |
 | 301      | Yes     | **305** | 4 | 301 |
+{: caption="Table 1. Example costs" caption-side="top"}
 
 Reducing use of `include_docs=true` is key for reducing read consumption for
 partitioned `_all_docs`, view, and search queries.
@@ -205,11 +206,12 @@ underlying index so it can execute further filtering that is required by the
 selector and passed to the query.
 
 | Number of results | Number of rows returned by index | Total Read consumption | Consumption for rows read | Consumption for documents read |
-|--------------|----------------|-------------|---------------------| --- |
+|--------------|----------------|-------------|---------------------|---|
 | 5      | 199     | **201** | 2 | 199 |
 | 199      | 199     | **201** | 2 | 199 |
 | 5      | 301     | **305** | 4 | 301 |
 | 301      | 301     | **305** | 4 | 301 |
+{: caption="Table 2. Read consumption" caption-side="top"}
 
 Using appropriate indexes is key for reducing read consumption for partitioned
 {{site.data.keyword.cloudant_short_notm}} Query queries.
@@ -290,26 +292,11 @@ This value is the storage capacity that is included in the plan. The Lite plan h
 All Lite and Standard plans are monitored for disk space used. When you use more data than the
 plan allocates, you can expect the conditions described in the following table to apply:
 
-<table>
-
-<tr>
-<th id="disk-overage-plan">Plan</th><th id="description">Description</th>
-</tr>
-<tr>
-<th headers="lite-plan">Lite</td>
-<td headers="description"><p>
-<ul>
-	<li>Disk usage is capped on the Lite plan at 1GB.</li><li>After you reach the cap, you will receive a warning on the top of the {{site.data.keyword.cloudant_short_notm}} Dashboard and cannot write new data. Attempting to write new data will result in a `402: payment required` response.</li> <li>To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.</p>
-</li>
-</ul></td>
-</tr>
-<tr>
-<th headers="standard-plan">Standard</td>
-<td headers="description"><p>
-<ul><li>If the account uses more than the 20 GB of storage that is included in the Standard plan, it is considered 'disk overage'. Overage causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.</li>
-<li>The cost for the amount of disk overage is calculated on an hourly basis.</li></ul></p></td>
-</tr>
-</table>
+| Plan | Description|
+|------|------------|
+| Lite | <ul><li>Disk usage is capped on the Lite plan at 1GB.</li><li>After you reach the cap, you will receive a warning on the top of the {{site.data.keyword.cloudant_short_notm}} Dashboard and cannot write new data. Attempting to write new data will result in a `402: payment required` response.</li> <li>To write new data, you must either upgrade to the Standard plan or delete data and wait until the next check runs for your account to be reactivated.</li></ul> | 
+| Standard | <ul><li>If the account uses more than the 20 GB of storage that is included in the Standard plan, it is considered 'disk overage'. Overage causes the account to be billed at the indicated price for each extra GB used beyond the plan allocation.</li><li>The cost for the amount of disk overage is calculated on an hourly basis.</li></ul> |
+{: caption="Table 3. {{site.data.keyword.cloudant_short_notm}} plans" caption-side="top"}
 
 For example, assume that your Standard plan increases disk usage to 107 GB for half a day (12 hours). This change means that your instance caused overflow of 87 GB more than the 20 GB plan allocation, for 12 hours.
 Therefore, you would be billed an overage charge based on 87 GB x 12 hours = 1044 GB hours for that extra space.

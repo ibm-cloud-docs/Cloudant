@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-11-11"
 
 keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
 
@@ -102,68 +102,44 @@ See the following example of returned JSON, confirming that the index was create
 ```
 {: codeblock}
 
-#### Request Body format
-{: #request-body-format}
-
-<table border='1'>
-
-<tr>
-<th id="field">Field</th><th id="description" colspan='4'>Description</th>
-</tr>
-<tr>
-<td headers="field" align="center" valign="top"><p>index</p></td>
-<td headers="description"><p>fields:<p style="margin-left: 20px">A JSON array of field names that uses the <a href="#sort-syntax">sort syntax</a>. Nested fields are also allowed, for example, <code>"person.name"</code>.</p></p></td>
-</tr>
-<tr>
-<td headers="field"><p>ddoc (optional)</p></td>
-<td headers="description"><p>Name of the design document in which the index is created. By default, each index is created in its own design document. Indexes can be grouped into design documents for efficiency. However, a change to one index in a design document invalidates all other indexes in the same document.</p></td>
-</tr>
-<tr>
-<td headers="field"><p>type (optional)</p></td>
-<td headers="description"><p>Can be <code>json</code> or <code>text</code>. Defaults to <code>json</code>. Geospatial indexes will be supported in the future.</p></td>
-</tr>
-<tr>
-<td headers="field"><p>name (optional)</p></td>
-<td headers="description"><p>Name of the index. If no name is provided, a name is generated automatically.</p></td>
-</tr>
-<tr>
-<td headers="field"><p>partitioned (optional, boolean)</p></td>
-<td headers="description"><p>Whether this index is partitioned. For more information, see [the `partitioned` field](#section1-the-partitioned-field).</p></td>
-</tr>
-</tr>
-</table>
+| Field | Description | 
+|-------|-------------|
+| index | fields: A JSON array of field names that uses the [sort-syntax](docs/services/Cloudant?topic=cloudant-query#sort-syntax). Nested fields are also allowed, for example, `"person.name"`. |
+| ddoc (optional) | Name of the design document in which the index is created. By default, each index is created in its own design document. Indexes can be grouped into design documents for efficiency. However, a change to one index in a design document invalidates all other indexes in the same document. |
+| type (optional) | Can be `json` or `text`. Defaults to `json`. Geospatial indexes will be supported in the future. | 
+| name (optional) | Name of the index. If no name is provided, a name is generated automatically. |
+| partitioned (optional, boolean) | Whether this index is partitioned. For more information, see [the `partitioned` field](#section1-the-partitioned-field).|
+{: caption="Table 1. Request body format" caption-side="top"}
 
 #### The `partitioned` field
 {: #section1-the-partitioned-field}
 
 This field sets whether the created index will be a partitioned or global index.
 
-The values of this field are as follows:
-
 Value  | Description           | Notes
 ---------|---------------------|------------
 `true` | Create the index as partitioned.   | Can only be used in a partitioned database.
 `false`    | Create the index as global.  | Can be used in any database.
+{: caption="Table 2. The partitioned field values" caption-side="top"}
 
-The default follows the <code>partitioned</code> setting for the database:
+The default follows the `partitioned` setting for the database:
 
 Database is partitioned | Default `partitioned` value | Allowed values
 ---------|----------|---------
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
+{: caption="Table 3. Settings based on whether the database is partitioned" caption-side="top"}
 
 It's important to reiterate that the default `partitioned` value is `true`
 for indexes created in a partitioned database. This means the index *cannot*
 be used to satisfy global queries.
 {: important}
 
-#### Return codes
-{: #return-codes-cloudant-query}
-
 Code | Description
 -----|------------
 200  | Index was created successfully or already existed
 400  | Bad request: the request body does not have the specified format
+{: caption="Table 4. Return codes" caption-side="top"}
 
 ### Creating a "type=text" index
 {: #creating-a-type-text-index}
@@ -293,6 +269,7 @@ Key        | Description
 -----------|------------
 `analyzer` | Specifies the Lucene analyzer to use. The default value is `"standard"`.
 `enabled`  | Enable or disable the `default_field index`. The default value is `true`.
+{: caption="Table 5. The default_field field keys" caption-side="top"}
 
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
 Later,
@@ -356,12 +333,11 @@ See the following example JSON document with suggested settings to optimize perf
 
 This sets whether the created index will be a partitioned or global index.
 
-The values of this field are as follows:
-
 Value  | Description           | Notes
 ---------|---------------------|------------
 `true` | Create the index as partitioned.   | Can only be used in a partitioned database.
 `false`    | Create the index as global.  | Can be used in any database.
+{: caption="Table 6. The partitioned field values" caption-side="top"}
 
 The default follows the <code>partitioned</code> setting for the database:
 
@@ -369,6 +345,7 @@ Database is partitioned | Default `partitioned` value | Allowed values
 ---------|----------|---------
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
+{: caption="Table 7. Settings based on whether the database is partitioned" caption-side="top"}
 
 ## {{site.data.keyword.cloudant_short_notm}} Query Parameters
 {: #ibm-cloudant-query-parameters}
@@ -417,8 +394,6 @@ update,
 and delete indexes in a database,
 and to query data by using these indexes.
 
-The list of available methods and endpoints is as follows:
-
 Methods  | Path                | Description
 ---------|---------------------|------------
 `DELETE` | `/$DATABASE/_index` | Delete an index.
@@ -426,6 +401,7 @@ Methods  | Path                | Description
 `POST`   | `/$DATABASE/_find`  | Find documents by using a global index.
 `POST`   | `/$DATABASE/_partition/$PARTITION_KEY/_find`  | Find documents by using a partitioned index.
 `POST`   | `/$DATABASE/_index` | Create an index.
+{: caption="Table 8. Available methods and endpoints" caption-side="top"}
 
 ## Creating a partial index
 {: #creating-a-partial-index}
@@ -989,8 +965,6 @@ three combination operators (`$all`, `$allMatch`, and `$elemMatch`) help you wor
 A combination operator takes a single argument.
 The argument is either another selector, or an array of selectors.
 
-The list of combination operators:
-
 Operator                                | Argument | Purpose
 ----------------------------------------|----------|--------
 [`$all`](#the-all-operator)             | Array    | Matches an array value if it contains all the elements of the argument array.
@@ -1000,6 +974,7 @@ Operator                                | Argument | Purpose
 [`$nor`](#the-nor-operator)             | Array    | Matches if none of the selectors in the array match.
 [`$not`](#the-not-operator)             | Selector | Matches if the selector does not match.
 [`$or`](#the-or-operator)               | Array    | Matches if any of the selectors in the array match. All selectors must use the same index.
+{: caption="Table 9. Combination operators" caption-side="top"}
 
 ### Examples of combination operators
 {: #examples-of-combination-operators}
@@ -1214,6 +1189,7 @@ Array         | `$in`     | Array of JSON values | The document field must exist
               | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields cannot match this condition.
 Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/services/Cloudant?topic=cloudant-http#http-status-codes). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
               | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression.
+{: caption="Table 10. Condition operator argument requirements" caption-side="top"}
 
 Regular expressions do not work with indexes,
 so they must not be used to filter large data sets. However, they can be used to restrict a `partial index <find/partial_indexes>`.
@@ -1771,13 +1747,12 @@ an attempt is made to discover the field type based on the selector.
 In ambiguous cases,
 the field type must be provided explicitly.
 
-The following table clarifies when the field type must be specified:
-
 Index that is used by query               | Field type requirement
 ------------------------------------------|-----------------------
 JSON index                                | It is not necessary to specify the type of sort fields in the query.
 Text index of all fields in all documents | Specify the type of any sort field in the query if the database contains any documents in which the sort field has one type *and also* contains some documents in which the sort field has a different type.
 Any other text index                      | Specify the type of all sort fields in the query.
+{: caption="Table 11. When to specify the field type" caption-side="top"}
 
 A text index of all fields
 in all documents is created when you use the syntax:
