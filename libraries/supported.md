@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-11-14"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -73,7 +73,6 @@ For more information about installing the library by adding it as a dependency t
 
 - [Create, read, update, and delete](https://github.com/cloudant/haengematte/tree/master/java){: new_window}{: external} with HTTP and JSON libraries.
 - [Create, read, update, and delete](https://github.com/cloudant/haengematte/tree/master/java/CrudWithEktorp){: new_window}{: external} with ektorp library.
-- [Building a Java EE app on {{site.data.keyword.cloud_notm}} by using Watson and {{site.data.keyword.cloudant_short_notm}}](https://developer.ibm.com/bluemix/2014/10/17/building-java-ee-app-ibm-bluemix-using-watson-cloudant/){: new_window}{: external} {{site.data.keyword.cloud_notm}} example along with [YouTube video](https://www.youtube.com/watch?feature=youtu.be&v=9AFMY6m0LIU&app=desktop){: new_window}{: external}.
 
 ## Node.js
 {: #node-js-supported}
@@ -112,8 +111,6 @@ npm install cloudant
 - [Create, read, update, and delete](https://github.com/cloudant/haengematte/tree/master/nodejs){: new_window}{: external}.
 - [Cloudant-Uploader](https://github.com/garbados/Cloudant-Uploader){: new_window}{: external} - utility to upload `.csv` files to {{site.data.keyword.cloudant_short_notm}}.
 - [couchimport](https://github.com/glynnbird/couchimport){: new_window}{: external} - utility to import `.csv` or `.tsv` files into CouchDB or {{site.data.keyword.cloudant_short_notm}}.
-- [Getting started with {{site.data.keyword.cloud_notm}} and Node.js](http://thoughtsoncloud.com/2014/07/getting-started-ibm-bluemix-node-js/){: new_window}{: external}.
-- [A Cloud medley with {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Node.js](https://gigadom.wordpress.com/2014/08/15/a-cloud-medley-with-ibm-bluemix-cloudant-db-and-node-js/){: new_window}{: external}.
 - [Build a simple word game app by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}](http://www.ibm.com/developerworks/cloud/library/cl-guesstheword-app/index.html?ca=drs-){: new_window}{: external} - uses Node.js.
 - [Building a Real-time SMS Voting App](https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html){: new_window}{: external} - six-part series that uses Node.js, Twilio, and {{site.data.keyword.cloudant_short_notm}}.
 - [Building a multitier Windows&trade; Azure Web application](https://www.ampower.me/article/CouchDB/Tutorial-Building-a-Multi-Tier-Windows-Azure-Web-application-use-Cloudants-Couchdb-as-a-Service-node-94-409665?eqs=Z2NWNlltTmlUWStWcHdEWENWc3UxdmowREpiMjlGUVpKajJOZGJpSlVkemlPS2oxa0YxZE5BPT0=){: new_window}{: external} - uses {{site.data.keyword.cloudant_short_notm}}, Node.js, CORS, and Grunt.
