@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-15"
+lastupdated: "2019-11-14"
 
 keywords: subscription, OperatorGroup, namespace, Kubernetes, OpenShift
 
@@ -31,6 +31,7 @@ This guide demonstrates how to install the Operator on Kubernetes and Red Hat Op
 - Installing the Operator on Kubernetes
 - Installing the Operator on Red Hat OpenShift 3.x
 - Installing the Operator on Red Hat OpenShift 4.x
+{: shortdesc}
 
 ## Installing the Operator on Kubernetes
 {: #installing-operator-kubernetes}

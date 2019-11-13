@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-11-14"
 
 keywords: compare couchdb and cloudant
 
@@ -27,6 +27,7 @@ subcollection: cloudant
 {: #couchdb-and-cloudant}
 
 The foundation of the {{site.data.keyword.cloudant_short_notm}} managed database service is the Apache CouchDB database. {{site.data.keyword.IBM_notm}} is active in the Apache CouchDB committee, employs members of the PMC, and commits a vast majority of its feature, functions, and enhancements back to the open source project.  Over the last few years, {{site.data.keyword.IBM_notm}} has made a significant effort to align the core feature set of {{site.data.keyword.cloudant_short_notm}} and CouchDB, contributing key features like {{site.data.keyword.cloudant_short_notm}} Query/Mango query language, full-text search, and partition queries to CouchDB. 
+{: shortdesc}
 
 Apache CouchDB and {{site.data.keyword.cloudant_short_notm}} are nearly fully API compatible, which means they can serve as drop-in replacements for each other in your application. They speak the same replication protocol so that you can seamlessly synchronize data between {{site.data.keyword.cloudant_short_notm}} and CouchDB instances. However, there are some differences between the fully-managed cloud service {{site.data.keyword.cloudant_short_notm}} and self-managed open source Apache CouchDB, which this guide helps illuminate. 
 

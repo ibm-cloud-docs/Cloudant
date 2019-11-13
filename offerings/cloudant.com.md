@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-11-14"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -35,6 +35,7 @@ It was built from the ground up to scale globally, run non-stop, and handle a wi
 like [JSON](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-basics#json-overview),
 [full-text](/docs/services/Cloudant?topic=cloudant-query#creating-an-index),
 and [geospatial](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial).
+{: shortdesc}
 
 {{site.data.keyword.cloudant_short_notm}} is an operational data store optimized to handle concurrent 
 reads and writes, and enable high availability and data durability.

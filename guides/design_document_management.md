@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-23"
+lastupdated: "2019-11-14"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -35,6 +35,7 @@ Indexing isn't performed immediately when a document is saved.
 Instead,
 it's scheduled to happen later giving a faster,
 non-blocking write throughput.
+{: shortdesc}
 
 -   MapReduce views are indexes into the data set
     with key value pairs that are stored in a BTree for efficient retrieval by key or range of keys.

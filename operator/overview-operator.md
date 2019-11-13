@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-26"
+lastupdated: "2019-11-14"
 
 keywords: compare
 
@@ -27,6 +27,7 @@ subcollection: cloudant
 {: #apache-couchdb-operator}
 
 An [Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/){: new_window}{: external} is a method of packaging, deploying, and managing a Kubernetes-native application. 
+{: shortdesc}
 
 The Operator for Apache CouchDB facilitates deploying and managing an Apache CouchDB cluster on Kubernetes. 
 

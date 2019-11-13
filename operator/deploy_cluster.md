@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-11-14"
 
 keywords: access, status, resource
 
@@ -25,6 +25,9 @@ subcollection: cloudant
 
 # Deploying a CouchDB cluster
 {: #deploy-couchdb-cluster}
+
+Learn how to deploy a CouchDB Cluster on Kubernetes and OpenShift. 
+{: shortdesc}
 
 ## Deploying a CouchDB cluster on Kubernetes
 {: #deploy-couchdb-cluster-kubernetes}

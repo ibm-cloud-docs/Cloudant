@@ -2,7 +2,7 @@
 
 copyright:
   years: 2016, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-11-14"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -34,6 +34,7 @@ global {{site.data.keyword.cloud}} or AWS region.
 By providing customers with such high levels of data mobility to serve the local needs of customers,
 {{site.data.keyword.IBM}},
 and {{site.data.keyword.cloudant_short_notm}} take data privacy and governance seriously.
+{: shortdesc}
 
 To govern the movement of data from the EU to the US,
 {{site.data.keyword.cloudant_short_notm}} complied with both US-EU and US-Swiss

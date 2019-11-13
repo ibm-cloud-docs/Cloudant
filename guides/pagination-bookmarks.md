@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-05"
+lastupdated: "2019-11-18"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -26,21 +26,22 @@ subcollection: cloudant
 # Pagination and bookmarks
 {: #pagination-and-bookmarks}
 
-You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/services/Cloudant?topic=cloudant-bookmarks-faq), but it gets progressively slower the larger the value of `skip`. 
+You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/services/Cloudant?topic=cloudant-bookmarks-faq), but it gets progressively slower the larger the value of `skip`.
+{: shortdesc} 
 
-[Cloudant Query](/docs/services/Cloudant?topic=cloudant-query) and [Cloudant Search](/docs/services/Cloudant?topic=cloudant-search) both use _bookmarks_ as the key to unlock the next page of results from a result set. This practice is described in full in a later section called [Bookmarks](#bookmarks) and is easier to manage as there is no key manipulation to formulate the request for the next result set. You simply pass the _bookmark_ received in the first response to the second request.
+[Cloudant Query](/docs/services/Cloudant?topic=cloudant-query) and [Cloudant Search](/docs/services/Cloudant?topic=cloudant-search) both use _bookmarks_ as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It is easier to manage as there is no key manipulation to formulate the request for the next result set. You simply pass the _bookmark_ received in the first response to the second request.
 
 Let's see a better way to page through a large document set. 
 
 ## Paging with `_all_docs` and views
 {: #paging-with_all_docs_views}
 
-If you use the `GET //_all_docs` endpoint to fetch documents in bulk, then you might have come across the `limit` and `skip` parameters. These parameters allow you to define how many documents you would like, and the offset into the range you want to start from. Using this `skip`/`limit` pattern to iterate through a result set works, but it gets progressively slower the larger the value of `skip`. 
+If you use the `GET //_all_docs` endpoint to fetch documents in bulk, then you might have come across the `limit` and `skip` parameters. By using these parameters, you can define how many documents you would like, and the offset into the range you want to start from. Using this `skip`/`limit` pattern to iterate through a result set works, but it gets progressively slower the larger the value of `skip`. 
 
 ## What is the `_all_docs` endpoint?
 {: #what-is-the_all_docs_endpoint}
 
-The `GET /<db>/_all_docs` is used to fetch data from an {{site.data.keyword.cloudantfull}} database's _primary index_, that is, the index that keeps each document's `_id` in order. The `_all_docs` endpoint takes a number of optional parameters that configure the range of data requested and whether to return each document's body or not. With no parameters provided, `_all_docs` streams all of a database's documents, returning only the document `_id` and its current `_rev` token.
+The `GET /<db>/_all_docs` is used to fetch data from an {{site.data.keyword.cloudantfull}} database's _primary index_, that is, the index that keeps each document's `_id` in order. The `_all_docs` endpoint takes a number of optional parameters that configure the range of data that is requested and whether to return each document's body or not. With no parameters provided, `_all_docs` streams all of a database's documents, returning only the document `_id` and its current `_rev` token.
 
 ```javascript
 curl "$URL/mydb/_all_docs"
@@ -66,9 +67,9 @@ curl "$URL/mydb/_all_docs"
 {: codeblock}
 
 
-If you supply `include_docs=true`, then an additional `doc` attribute is added to each "row" in the result set that contains the document body.
+If you supply `include_docs=true`, then another `doc` attribute is added to each "row" in the result set that contains the document body.
 
-## Limit, startkey, and endkey parameters
+## The `limit`, `startkey`, and `endkey` parameters
 {: #the-limit-startkey-endkey-parameters}
 
 To access data from `_all_docs` in reasonably sized pages, we need to supply the `limit` parameter to tell {{site.data.keyword.cloudant_short_notm}} how many documents to return:
@@ -93,9 +94,9 @@ GET /mydb/_all_docs?limit=100&endkey="moose"
 ```
 {: codeblock}
 
-This practice gives us the ability to define the size of the data set to return and the range of the `_id` field to return, but that isn't quite the same as pagination.
+This practice gives us the ability to define the size of the data set and the range of the `_id` field to return, but that isn't quite the same as pagination.
 
-The `startkey`/`endkey` values are in double quotes because they're expected to be JSON-encoded and `JSON.stringify('moose') === "moose"`.
+The `startkey`/`endkey` values are in double quotation marks because they're expected to be JSON-encoded and `JSON.stringify('moose') === "moose"`.
 {: note}
 
 ## Pagination options
@@ -103,12 +104,12 @@ The `startkey`/`endkey` values are in double quotes because they're expected to 
 
 In order to iterate through a range of documents in an orderly and performant manner, we must devise an algorithm to page through the range. Let's say we need to page through `_all_docs` in blocks of 10. 
 
-We can use the options described in the following sections.
+We can use the options that are described in the following sections.
 
 ### Option 1 - Fetch one document too many
 {: #option-1-fetch-one-doc-too-many}
 
-Instead of fetching ten documents (`limit=10`), fetch eleven (`limit=11`), but hide the eleventh document from your users. The `_id` of the eleventh document becomes the `startkey` of your request for the next page of results.
+Instead of fetching 10 documents (`limit=10`), fetch 11 (`limit=11`), but hide the 11th document from your users. The `_id` of the 11th document becomes the `startkey` of your request for the next page of results.
 
 ```http
 # first request
@@ -151,7 +152,7 @@ This option works, but we end up fetching n+1 documents when only n are required
 ### Option 2 - The \u0000 trick
 {: #option-2-the-u0000-trick}
 
-If we are determined to only fetch `n` documents each time, then we need to calculate a value of `startkey`, which means "the next id after the last _id in the result set". For example, if the last document in our first page of results is "frog", what should the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise we'd get the same document id again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character which becomes `%00` when encoded into a URL). 
+If we are determined to fetch only `n` documents each time, then we need to calculate a value of `startkey`, which means "the next ID after the last _id in the result set". For example, if the last document in our first page of results is "frog", what must the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise we'd get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
 
 ```http
 # first request
@@ -191,13 +192,13 @@ GET /mydb/_all_docs?limit=10&startkey="frog%00"
 ## Pagination of views
 {: #pagination-of-views}
 
-MapReduce views, secondary indexes which are defined by key/value pairs emitted from user-supplied JavaScript functions, can be queried in a similar way to the `_all_docs` endpoint but with the `GET /<db>/_design/<ddoc>/_view/<view>` endpoint instead. You can define your query in the following ways:
+MapReduce views, secondary indexes, which are defined by key/value pairs produced from user-supplied JavaScript functions, can be queried in a similar way to the `_all_docs` endpoint but with the `GET /<db>/_design/<ddoc>/_view/<view>` endpoint instead. You can define your query in the following ways:
 
 - Spool all the data from a view with no parameters.
 - Include document bodies by supplying `include_docs=true`.
-- Choose the range of keys required by using `startkey`/`endkey`, but in this case, the data type of the keys may not be a string.
+- Choose the range of keys that are required by using `startkey`/`endkey`, but in this case, the data type of the keys might not be a string.
 
-Another complication is that unlike the primary index, where every `_id` is unique, there may be many entries in a secondary index with the same key, for example, lots of entries where the key is `"mammal"`. This situation makes pagination by using only `startkey`/`endkey` tricky, so there are other parameters to help: `startkey_docid`/`endkey_docid`. 
+Another complication is that unlike the primary index, where every `_id` is unique, the secondary index might have entries with the same key. For example, lots of entries that include the key `"mammal"`. This situation makes pagination by using only `startkey`/`endkey` tricky, so there are other parameters to help: `startkey_docid`/`endkey_docid`. 
 
 ```http
 # get first page of cities by country
@@ -208,22 +209,22 @@ GET /cities/_design/mydesigndoc/_view/bytype?limit=10&reduce=false&startkey="mam
 ```
 {: codeblock}
 
-In other words, the second request has a value of `startkey_docid` that is the last document id from the previous page of results (horse) plus the magic `\u0000` character (which becomes `horse%00` in the URL).
+In other words, the second request has a value of `startkey_docid` that is the last document ID from the previous page of results (horse) plus the magic `\u0000` character (which becomes `horse%00` in the URL).
 
-The `startkey_docid` parameter only works if a `startkey` is supplied and where all index entries share the same key. If they don't share the same key, then pagination can be achieved with manipulation of `startkey`/`endkey` parameters only. Also note that the `startkey_docid` parameter is NOT JSON encoded.
+The `startkey_docid` parameter works only if a `startkey` is supplied and where all index entries share the same key. If they don't share the same key, then pagination can be achieved with manipulation of `startkey`/`endkey` parameters only. Also, note that the `startkey_docid` parameter is NOT JSON encoded.
 {: note}
 
 ## Bookmarks
 {: #bookmarks}
 
- Imagine you are creating a web application showing a set of search results, whether they be books, actors, or products in your store. As the user scrolls to the bottom of the search results, another page of matches is appended to the bottom. This behavior is known as an "infinite scroll" design pattern and allows the user to endlessly scroll through a large data set with ease, while only fetching smaller batches of data from the database each time.
+ Imagine you are creating a web application that shows a set of search results, whether they be books, actors, or products in your store. As the user scrolls through the search results, another page of matches is appended at the end. This behavior is known as an "infinite scroll" design pattern. It allows the user to endlessly scroll through a large data set with ease, while fetching only smaller batches of data from the database each time.
 
 ### How do {{site.data.keyword.cloudant_short_notm}} bookmarks work? 
 {: #how-do-cloudant-bookmarks-work}
 
 It is this sort of access pattern that {{site.data.keyword.cloudantfull}} *bookmarks* are built for. Here's how it works:
 
-- Your application performs a search on an {{site.data.keyword.cloudant_short_notm}} database, for example, "find me the first ten cities where the country is 'US'".
+- Your application performs a search on an {{site.data.keyword.cloudant_short_notm}} database, for example, "find me the first 10 cities where the country is 'US'".
 - {{site.data.keyword.cloudant_short_notm}} provides an array of ten {{site.data.keyword.cloudant_short_notm}} documents and a *bookmark*, an opaque key that represents a pointer to the next documents in the result set.
 - When the next set of results is required, the search is repeated, but in addition to the query, the bookmark from the first response is also sent to {{site.data.keyword.cloudant_short_notm}} in the request.
 - {{site.data.keyword.cloudant_short_notm}} replies with the second set of documents and another bookmark, which can be used to get a third page of results.
@@ -234,7 +235,7 @@ Let's see how we can do that with code.
 ### How can I use {{site.data.keyword.cloudant_short_notm}} Query to search?
 {: #use-cloudant-query-search}
 
-First let's perform a search for all the cities in the USA. We're using [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-query), so the operation is specified as a block of JSON:
+First, let's perform a search for all the cities in the US. We're using [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-query), so the operation is specified as a block of JSON:
 
 ```js
 {
@@ -245,7 +246,7 @@ First let's perform a search for all the cities in the USA. We're using [{{site.
 }
 ```
 
-and passed to {{site.data.keyword.cloudant_short_notm}} by using the [/db/_find](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-query#selector-syntax) API endpoint: 
+It's passed to {{site.data.keyword.cloudant_short_notm}} by using the [/db/_find](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-query#selector-syntax) API endpoint: 
 
 ```sh
 curl -X POST \
@@ -264,7 +265,7 @@ curl -X POST \
 }
 ```
 
-Notice as well an array of `docs`, {{site.data.keyword.cloudant_short_notm}} also returns a `bookmark`, which we save for the next request. When we need page two of the results, we repeat the query, passing {{site.data.keyword.cloudant_short_notm}} the bookmark from the first response:
+Notice as well an array of `docs`, {{site.data.keyword.cloudant_short_notm}} also returns a `bookmark`, which we save for the next request. When we need page two of the results, we repeat the query by passing {{site.data.keyword.cloudant_short_notm}} the bookmark from the first response:
 
 ```sh
 curl -X POST \
@@ -287,7 +288,7 @@ curl -X POST \
 
 This time, we get the next five cities and a new bookmark ready for the next request.
 
-It's the same story when using one of the {{site.data.keyword.cloudant_short_notm}} libraries to do this task. First, make the initial request:
+It's the same story when you use one of the {{site.data.keyword.cloudant_short_notm}} libraries to do this task. First, make the initial request:
 
 ```js
   const q = {
@@ -333,7 +334,7 @@ No. MapReduce views do not accept a `bookmark`. Use the [skip and limit](https:/
 ### Can I jump straight to page X of the results?
 {: #jump-page-x-results}
 
-No. Bookmarks only make sense to {{site.data.keyword.cloudant_short_notm}} if they come from the previous page of results. If you need page 3 of the results, you need to fetch pages 1 and 2 first.
+No. Bookmarks make sense only to {{site.data.keyword.cloudant_short_notm}} if they come from the previous page of results. If you need page 3 of the results, you need to fetch pages 1 and 2 first.
 
 ### What happens if I supply an incorrect bookmark?
 {: #what-happens-if-i-supply-incorrect-bookmark}
@@ -343,4 +344,4 @@ No. Bookmarks only make sense to {{site.data.keyword.cloudant_short_notm}} if th
 ### What happens if I change the query?
 {: #what-happens-if-change-query}
 
-You must keep the same query (the same selector in {{site.data.keyword.cloudant_short_notm}} Query or the same "q" in {{site.data.keyword.cloudant_short_notm}} Search) to get the next page of results. If you change the query, you may get an empty result set in reply.
+You must keep the same query (the same selector in {{site.data.keyword.cloudant_short_notm}} Query or the same "q" in {{site.data.keyword.cloudant_short_notm}} Search) to get the next page of results. If you change the query, you might get an empty result set in reply.

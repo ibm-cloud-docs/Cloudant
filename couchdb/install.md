@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-26"
+lastupdated: "2019-11-14"
 
 keywords: apache couchdb, support, extension, containers
 
@@ -25,6 +25,9 @@ subcollection: cloudant
 
 # Install
 {: #apache-couchdb-install}
+
+Install Apache CouchDB and download the latest version. 
+{: shortdesc}
 
 The current GA release is Apache CouchDB version 2.3.1. For more information, see the [Apache CouchDB documentation](http://docs.couchdb.org/en/stable/){: new_window}{: external}.  
 

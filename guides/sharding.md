@@ -26,12 +26,12 @@ subcollection: cloudant
 # How is data stored in {{site.data.keyword.cloudant_short_notm}}?
 {: #how-is-data-stored-in-ibm-cloudant-}
 
+Every database in {{site.data.keyword.cloudantfull}} is formed of one or more distinct *shards*, where the number of shards is referred to as *Q*. A shard is a distinct subset of documents from the database.
+{: shortdesc}
+
 ## Concepts
 {: #concepts}
 
-Every database in {{site.data.keyword.cloudantfull}} is formed of one or more distinct *shards*,
-where the number of shards is referred to as *Q*.
-A shard is a distinct subset of documents from the database.
 All *Q* shards together contain the data within database.
 Each shard is stored in three separate copies.
 Each shard copy is called a shard *replica*.

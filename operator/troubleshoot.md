@@ -2,9 +2,9 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-11-14"
 
-keywords: logs
+keywords: troubleshoot, view logs, adjust log level
 
 subcollection: cloudant
 
@@ -25,6 +25,9 @@ subcollection: cloudant
 
 # Troubleshooting the CouchDB Operator
 {: #troubleshoot-couchdb-operator}
+
+Learn how to troubleshoot the Operator for Apache CouchDB by using logs and adjusting the log level. 
+{: shortdesc}
 
 ## Viewing the Operator for Apache CouchDB logs
 {: #view-operator-couchdb-logs}

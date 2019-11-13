@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-11-14"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -30,6 +30,7 @@ This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Rec
 It's worth starting there if your'e new to the subject and want to understand where back up fits in
 with the other capabilities that {{site.data.keyword.cloudant_short_notm}} offers
 to support Disaster Recovery (DR) and High Availability (HA) requirements.
+{: shortdesc}
 
 Although data is stored redundantly within an {{site.data.keyword.cloudant_short_notm}} cluster,
 it's important to consider extra backup measures.

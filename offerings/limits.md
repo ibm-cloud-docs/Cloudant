@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-11-14"
 
 keywords: databases, indexes, request payload, request timeouts, query
 
@@ -27,6 +27,7 @@ subcollection: cloudant
 {: #limits}
 
 Limits that pertain to the usage of {{site.data.keyword.cloudant_short_notm}} databases are shown in the following tables:
+{: shortdesc}
 
 ## Databases
 {: #databases-overview}

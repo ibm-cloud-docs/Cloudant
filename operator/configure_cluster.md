@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-10-15"
+lastupdated: "2019-11-14"
 
 keywords: operator, field reference
 
@@ -27,6 +27,7 @@ subcollection: cloudant
 {: #configure-couchdb-cluster}
 
 The Operator for Apache CouchDB allows for user-defined configuration parameters that define how an Apache CouchDB cluster is deployed in Kubernetes.  
+{: shortdesc}
 
 ## CouchDB configuration
 {: #couchdb-configuration}
