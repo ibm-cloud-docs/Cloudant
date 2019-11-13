@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-15"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -31,20 +31,165 @@ As a security officer, auditor, or manager, you can use the Activity Tracker ser
 
 {{site.data.keyword.at_full}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [Getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started){: new_window}{: external}.
 
+## Types of events
+{: #at_event_types}
+
+There are two types of events that {{site.data.keyword.cloudant_short_notm}} forwards to {{site.data.keyword.at_full_notm}}:
+
+- **Management Events** are administrative events that impact the state of an  {{site.data.keyword.cloudant_short_notm}} instance, such as creating or deleting a database, updating security settings, creating a replication job, or creating an index. 
+- **Data Events** are all the other events involved with interacting with {{site.data.keyword.cloudant_short_notm}}, such as reading or writing JSON documents, reading a list of databases, viewing monitoring endpoints, or authenticating against the service.  
+
+A full list of the events, along with their description and type are in the following tables. 
+
+By default, only management events are sent to {{site.data.keyword.at_full_notm}}. Use the API for the {{site.data.keyword.cloudant_short_notm}} instance to view if management-only events are being sent, or both management and data events are being sent, and to change between these options. 
+
+### API to view and change event types
+{: #at_event_types_api}
+
+The API to view and change the event types requires {{site.data.keyword.IBM_notm}} IAM authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication is not supported for this API endpoint. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
+{: note}
+
+#### `GET /_api/v2/user/activity_tracker/events`
+{: #at_event_types_api_get}
+
+The `/_api/v2/user/activity_tracker/events` endpoint returns an `events` field in the response containing an array of event types that are being sent to {{site.data.keyword.at_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance. 
+
+See the following example request by using HTTP:
+
+```http
+GET /_api/v2/user/activity_tracker/events
+```
+{: codeblock}
+
+See the following example response showing both management and data event types are being sent:
+
+```json
+{
+  "types": ["management", "data"]
+}
+```
+{: codeblock}
+
+#### `POST /_api/v2/user/activity_tracker/events`
+{: #at_event_types_api_post}
+
+Sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint by passing a JSON object with an `events` field that contains an array of event types updates the event types being sent. There are two possible options for the JSON object that is passed to the endpoint:
+
+```json
+{
+  "types": ["management"]
+}
+```
+{: codeblock}
+
+or
+
+```json
+{
+  "types": ["management", "data"]
+}
+```
+{: codeblock}
+
+See the following example request by using HTTP:
+
+```http
+POST /_api/v2/user/activity_tracker/events
+```
+{: codeblock}
+
+The following example response shows the update was accepted:
+
+```json
+{
+  "ok":true
+}
+```
+{: codeblock}
+
+If the `events` field contains invalid event types, then the response is similar to the following example: 
+
+```json
+{
+  "code":400,
+  "error":"Unknown event types: <unrecognised events>"
+}
+```
+{: codeblock}
+
+If the `events` field is missing, then the response is similar to the following example: 
+
+```json
+{
+  "code":400,
+  "error":"Missing required events: \"management\""
+}
+```
+{: codeblock}
+
+
 ## List of events
 {: #at_actions}
 
+### Management events
+{: #at_actions_management}
 
 Action | Description
 -------|------------
-cloudantnosqldb.database.create | Create a database
-cloudantnosqldb.database.delete | Delete a database
-cloudantnosqldb.database-security.read | Read a security document
-cloudantnosqldb.database-security.write | A create, update, or delete of a security document
-cloudantnosqldb.replication.read | Read a replication document
-cloudantnosqldb.replication.write | A create, update, or delete of a replication document
-cloudantnosqldb.design-document.write | A create, update, or delete of a `_design` document 
-{: caption="Table 1. Actions that generate events" caption-side="top"}
+`cloudantnosqldb.database.create` | Create a database.
+`cloudantnosqldb.database.delete` | Delete a database.
+`cloudantnosqldb.database-security.read` | Read a security document.
+`cloudantnosqldb.database-security.write` | A create, update, or delete of a security document.
+`cloudantnosqldb.replication.read` | Read a replication document.
+`cloudantnosqldb.replication.write` | A create, update, or delete of a replication document.
+`cloudantnosqldb.design-document.write` | A create, update, or delete of a `_design` document .
+{: caption="Table 1. Management actions that generate events" caption-side="top"}
+
+### Data events
+{: #at_actions_data}
+
+Action | Description
+-------|------------
+`cloudantnosqldb.sapi.lastactivity` | View last activity timestamp for the instance.
+`cloudantnosqldb.sapi.usercors` | View or update CORS settings.
+`cloudantnosqldb.sapi.userccmdiagnostics` | View provisioned throughput capacity usage.
+`cloudantnosqldb.sapi.userinfo` | View metadata about the instance.
+`cloudantnosqldb.sapi.userplan` | View the plan of the instance.
+`cloudantnosqldb.sapi.usage-data-volume` | View the data volume.
+`cloudantnosqldb.sapi.usage-requests` | View the number of requests.
+`cloudantnosqldb.sapi.supportattachments` | Attach files to support tickets in the Cloudant Dashboard.
+`cloudantnosqldb.sapi.supporttickets` | View or update support tickets in the Cloudant Dashboard.
+`cloudantnosqldb.capacity-throughput.read` | View the provisioned throughput capacity allocated.
+`cloudantnosqldb.current-throughput.read` | View the current consumption of provisioned throughput capacity used.
+`cloudantnosqldb.limits-throughput.read` | View the limits to provisioned throughput capacity.
+`cloudantnosqldb.account-meta-info.read` | View metadata about the instance.
+`cloudantnosqldb.account-up.read` | Read the `_up` endpoint.
+`cloudantnosqldb.account-all-dbs.read` | Read a list of all databases.
+`cloudantnosqldb.account-dbs-info.read` | Read metadata about a database.
+`cloudantnosqldb.account-active-tasks.read` | Read `_active_tasks`.
+`cloudantnosqldb.users-database-info.read` | Read `_users` database information.
+`cloudantnosqldb.users.read` | Read `_users` database documents.
+`cloudantnosqldb.iam-session.read` | Read IAM session.
+`cloudantnosqldb.iam-session.write` | Write IAM session.
+`cloudantnosqldb.iam-session.delete` | Delete IAM session.
+`cloudantnosqldb.session.read` | Read {{site.data.keyword.cloudant_short_notm}} legacy auth session.
+`cloudantnosqldb.session.write` | Write {{site.data.keyword.cloudant_short_notm}} legacy auth session.
+`cloudantnosqldb.session.delete` | Delete {{site.data.keyword.cloudant_short_notm}} legacy auth session.
+`cloudantnosqldb.replicator-database-info.read` | Read `_replicator` database information.
+`cloudantnosqldb.database-info.read` | Read database metadata.
+`cloudantnosqldb.account-search-analyze.execute` | Read search index statistics and size.
+`cloudantnosqldb.account-db-updates.read` | Read `_db_updates` endpoint.
+`cloudantnosqldb.cluster-uuids.execute` | Read `_uuids` endpoint.
+`cloudantnosqldb.database-ensure-full-commit.execute` | Post to `_ensure_full_commit` endpoint.
+`cloudantnosqldb.any-document.read` | Read a JSON document.
+`cloudantnosqldb.data-document.write` | Write a JSON document.
+`cloudantnosqldb.local-document.write` | Write a `_local` document.
+`cloudantnosqldb.users-design-document.write` | Write a `_design` document.
+`cloudantnosqldb.users-local-document.write` | Write a `_local` document to the `_users` database.
+`cloudantnosqldb,replicator-design-document.write` | Write a `_design` document to the `_replicator` database.
+`cloudantnosqldb.replicator-local-document.write` | Write a `_local` document to the `_replicator` database.
+`cloudantnosqldb.account-uuids.read` | Read `_uuids` endpoint.
+{: caption="Table 2. Data actions that generate events" caption-side="top"}
 
 ## Viewing events
 {: #at_ui}
