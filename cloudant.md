@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-11-15"
 
-keywords: links to documentation, how to contribute
+keywords: documentation, how to contribute, overview
 
 subcollection: cloudant
 
@@ -51,7 +51,7 @@ tasks, and techniques.
 
 You can start the {{site.data.keyword.cloudant_short_notm}} service from the [{{site.data.keyword.cloud}} dashboard](https://cloud.ibm.com/catalog/services/cloudant){: new_window}{: external}.
 
-A 'quick start' to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
+A "quick start" to getting up-and-running with {{site.data.keyword.cloudant_short_notm}}
 called the [Getting started tutorial](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started) is available,
 along with [tutorials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) that describe tasks in more detail.
 For more information about details such as authenticating with database instances,

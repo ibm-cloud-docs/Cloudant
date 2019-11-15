@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-11-15"
 
-keywords: basic authentication, cookie authentication
+keywords: basic authentication, cookie authentication, request cookie, delete cookie, get cookie
 
 subcollection: cloudant
 

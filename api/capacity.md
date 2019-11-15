@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-18"
+lastupdated: "2019-11-15"
 
-keywords: provisioned throughput capacity, view current and target capacity, set target capacity, view current consumption
+keywords: capacity, provisioned throughput capacity, view capacity, set capacity, view consumption
 
 subcollection: cloudant
 
@@ -28,11 +28,11 @@ subcollection: cloudant
 
 The Capacity API documentation details how to use the {{site.data.keyword.cloudant_short_notm}} API 
 to do the following tasks:
-{: shortdesc}
 
 - View the current and target provisioned throughput capacity setting.
 - Set the target provisioned throughput capacity setting.
 - View the current consumption of provisioned throughput capacity used.
+{: shortdesc}
 
 For more information, see the [provisioned throughput capacity](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#provisioned-throughput-capacity) documentation about how {{site.data.keyword.cloudant_short_notm}} allocates and consumes capacity, as well as how to view and change the capacity in the UI.
 

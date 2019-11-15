@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-11-15"
 
-keywords: tutorials, recovery and backup, guides, links to documentation
+keywords: tutorials, recovery and backup, guides, links to documentation, about 
 
 subcollection: cloudant
 

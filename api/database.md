@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-26"
+lastupdated: "2019-11-15"
 
-keywords: create database, database topology, send multiple queries to a database, working with databases
+keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
 subcollection: cloudant
 
@@ -28,8 +28,9 @@ subcollection: cloudant
 
 {{site.data.keyword.cloudantfull}} databases contain JSON objects.
 These JSON objects are called [documents](/docs/services/Cloudant?topic=cloudant-documents#documents).
-All documents must be contained in a database.
 {: shortdesc}
+
+All documents must be contained in a database. Also, learn more about [partitioned databases](/docs/services/Cloudant?topic=cloudant-databases#partitioned-databases-database).
 
 The [Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant) guide provides an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
