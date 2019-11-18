@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-29"
+lastupdated: "2019-11-15"
 
-keywords: views, mapreduce, concepts, index partitioning type, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning
+keywords: views, mapreduce, concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
 subcollection: cloudant
 
@@ -27,7 +27,7 @@ subcollection: cloudant
 {: #views-mapreduce}
 
 Views are used to obtain data stored within a database.
-Views are written using Javascript functions.
+Views are written using Javascript functions. Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. 
 {: shortdesc}
 
 ## View concepts

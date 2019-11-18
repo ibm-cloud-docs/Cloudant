@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-11-15"
 
-keywords: create, update, read, delete, inline, performance considerations
+keywords: create, update, read, delete, inline, performance considerations, BLOB, attachments, 
 
 subcollection: cloudant
 
@@ -27,7 +27,7 @@ subcollection: cloudant
 {: #attachments}
 
 Another way to store data is to use attachments.
-Attachments are Binary Large Object ([BLOB](http://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external})
+Attachments are Binary Large OBject ([BLOB](http://en.wikipedia.org/wiki/Binary_large_object){: new_window}{: external})
 files that are contained within documents.
 {: shortdesc}
 

@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-11-15"
 
-keywords: cors, security, configuration endpoints, json format, dashboard
+keywords: cors, security, configuration endpoints, json format, dashboard, set CORS configuration, read CORS configuration, IBM Cloudant Dashboard
 
 subcollection: cloudant
 

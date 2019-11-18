@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-27"
+lastupdated: "2019-11-15"
 
-keywords: geospatial, geojson, geo index, querying, query geometry, geometric relation
+keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
 subcollection: cloudant
 
@@ -29,7 +29,7 @@ subcollection: cloudant
 {{site.data.keyword.cloudantfull}} Geospatial,
 or "{{site.data.keyword.cloudant_short_notm}} Geo",
 combines the advanced geospatial queries of a Geographic Information System (GIS)
-with the flexibility and scalability of {{site.data.keyword.cloudant_short_notm}}'s database-as-a-service (DBaaS) capabilities.
+with the flexibility and scalability of {{site.data.keyword.cloudant_short_notm}}'s database-as-a-service (DBaaS) capabilities, which includes GeoJSON, {{site.data.keyword.cloudant_short_notm}} Geo index, and more. 
 {: shortdesc}
 
 You can use {{site.data.keyword.cloudant_short_notm}} Geo to do the following tasks:

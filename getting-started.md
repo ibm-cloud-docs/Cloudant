@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-04"
+lastupdated: "2019-11-15"
 
-keywords: connect to service instance, create a database, populate database with data, retrieve data through queries, retrieve data with api endpoint, delete database, close connection, complete python code listing, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
+keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
 subcollection: cloudant
 

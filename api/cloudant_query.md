@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-15"
 
-keywords: create index, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination
+keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
 subcollection: cloudant
 

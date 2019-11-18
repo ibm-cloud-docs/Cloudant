@@ -2,9 +2,9 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-14"
+lastupdated: "2019-11-15"
 
-keywords: account, ping account, cors, connect to your cloudant account
+keywords: account, ping, ping account, cors, connect to your cloudant account
 
 subcollection: cloudant
 
@@ -43,7 +43,7 @@ make a `GET` against `https://$ACCOUNT.cloudant.com`.
 If you misspelled your account name,
 you might get a [503 'service unavailable' error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
 
-*See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using HTTP:*
+See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using HTTP:
 
 ```HTTP
 GET / HTTP/1.1
@@ -51,7 +51,7 @@ HOST: $ACCOUNT.cloudant.com
 ```
 {: codeblock}
 
-*See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using the command line:*
+See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using the command line:
 
 ```sh
 curl -u $ACCOUNT "https://$ACCOUNT.cloudant.com"
@@ -75,7 +75,7 @@ account.request(function (err, body) {
 
 -->
 
-*See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using Python:*
+See the following example about connecting to your {{site.data.keyword.cloudant_short_notm}} account by using Python:
 
 ```python
 import cloudant
