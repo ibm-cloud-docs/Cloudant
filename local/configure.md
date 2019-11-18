@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-18"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -858,16 +858,8 @@ the following checks.
 <ol type="a"><li>Check the configuration on the remote logging server by inspecting the <code>/etc/rsyslog.conf</code> or <code>/etc/rsyslog.d/*.conf</code> files to see where facility writes the log.</li>
 <li>Ensure that the facility values are not in conflict with the different types of logs.
     
-<p>You can use different facility values from <code>local2</code> through to <code>local7</code> inclusive. For more information about facility values, see <a href="http://tools.ietf.org/html/rfc3164#section-4.1.1" target="_blank">RFC 3164 <img src="images/launch-glyph.svg" alt="External link icon"></a>. The following table lists the values that are used by {{site.data.keyword.cloudant_local_notm}}.
+<p>You can use different facility values from <code>local2</code> through to <code>local7</code> inclusive. For more information about facility values, see <a href="http://tools.ietf.org/html/rfc3164#section-4.1.1" target="_blank">RFC 3164 <img src="images/launch-glyph.svg" alt="External link icon"></a>. See the Facility values table below that lists the values that are used by {{site.data.keyword.cloudant_local_notm}}.
 </p>
-|Facility | Purpose |
-|---------|---------|
-| local2 | {{site.data.keyword.cloudant_short_notm}} database logs |
-| local3 | Metrics logs |
-| local4 | HAProxy logs |
-| local5 | Clouseau logs |
-{: caption="Table 4. Facility values" caption-side="top"}
-
 </li></ol></li>
 <li>Change the logging level, on the source nodes, to <code>info</code> temporarily to generate more logging activity.</li> 
 <li>After you complete your verification checks, remember to change the logging level back to the default or your preferred level.</li>
@@ -924,6 +916,16 @@ the following checks.
     scripts instead of <code>logrotate</code>. For more information, see
     <a href="https://www.rsyslog.com/doc/v8-stable/tutorials/log_rotation_fix_size.html" target="_blank">Log rotation fix size<img src="images/launch-glyph.svg" alt="External link icon"></a>.</p>
     </li></ol>
+
+The Facility values table lists the values that are used by {{site.data.keyword.cloudant_local_notm}}.
+
+|Facility | Purpose |
+|---------|---------|
+| local2 | {{site.data.keyword.cloudant_short_notm}} database logs |
+| local3 | Metrics logs |
+| local4 | HAProxy logs |
+| local5 | Clouseau logs |
+{: caption="Table 4. Facility values" caption-side="top"}
 
 ## Configuring local system logs
 {: #configuring-local-system-logs}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-12"
+lastupdated: "2019-11-18"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -493,14 +493,9 @@ Install and configure the first database node in the cluster.
 <p><pre>
    cast system install -p dbadmin_password -db
 </pre></p>
-    <p>See the options for the first database node in the following table: 
-
-| Flag | Purpose |
-|------|---------|
-| `-db` or `--dbnode` | Flag to install a database node. |
-| `-p` or `--password` | An optional flag to specify the database admin password. If you do not provide a password, the password defaults to `pass`. |
-{: caption="Table 1. Options for the first database node" caption-side="top"}
-
+    <p>Here are the options for the first database node:
+    <ol><li>`-db` or `--dbnode` is the flag to install a database node.</li>
+    <li>`-p` or `--password` is an optional flag to specify the database admin password. If you don't provide a password, the password defaults to `pass`.</li></ol>
 </p></li>
 <li>Run the <code>export</code> command to export configuration values to a file.
 <pre>cast cluster export cluster_dbnode.yaml</pre>
@@ -525,7 +520,8 @@ See the options for additional database nodes in the following table:
 | Flag | Purpose |
 |------|---------|
 | `-db` or `--dbnode` | Flag to install a database node. |
-| `-c` or `--config` | The cluster configuration file exported from the first node. | `--maintenance` | Start the system in maintenance mode. |
+| `-c` or `--config` | The cluster configuration file exported from the first node. 
+| `--maintenance` | Start the system in maintenance mode. |
 {: caption="Table 2. Options for additional database nodes" caption-side="top"}
 
 You added a database node. Next, you must join the cluster.
@@ -619,12 +615,9 @@ following these steps.
     ```
     {: codeblock}
 
-    See the options for the load balancer node in the following table: 
+    See the options for the load balancer node in the following table. 
 
-    | Flag | Purpose | 
-    |------|---------|
-    | `-lb` or `--lbnode` | Flag to install a load balancer node. | 
-    {: caption="Table 3. Options for the load balancer node" caption-side="top"} 
+    The options for the load balancer node are `-lb` or `--lbnode`, which is the flag to install a load   balancer node. 
 
 2. Copy the load balancer node configuration file, `/opt/cloudant/cast/samples/lbnode.yaml`.
 3. Update the host name and IP address values for each database node in the cluster under the Nodes section of the configuration file.
@@ -666,7 +659,6 @@ following these steps.
     database nodes and initialize the cluster, verify the
     installation by [Starting the {{site.data.keyword.cloudant_local_notm}} Dashboard](#starting-the-ibm-cloudant-local-dashboard).
 
-
 ## Installing a single node
 {: #installing-a-single-node}
 
@@ -690,7 +682,7 @@ This implementation is not recommended for a production environment.
      Flag to install a database node.
    * `-lb` or `--lbnode`
      Flag to install a load balancer node.<br>
-   * `p` or `--password`
+   * `-p` or `--password`
      (Optional) Flag to set the database admin password. If you do not provide a password, the password defaults to `pass`.
 2. Run the following command to initialize the single node cluster:
    ```sh
