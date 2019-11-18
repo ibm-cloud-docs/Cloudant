@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-18"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -23,15 +23,15 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2018-05-31 -->
 
-# Getting started tutorial
+# Getting started with {{site.data.keyword.cloudant_short_notm}}
 {: #getting-started}
 
 In this {{site.data.keyword.cloudantfull}} getting started tutorial,
 we use Python to create an {{site.data.keyword.cloudant_short_notm}} database
-and populate that database with a simple collection of data.
+and populate that database with a simple collection of data. You can retrieve data by using queries or API endpoints. 
 {: shortdesc}
 
-In addition to this tutorial, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
+For more inforamtion, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
 
 - [Node.js and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/node?topic=nodejs-cloudant){: new_window}{: external}
 - [Swift and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/swift?topic=swift-getting-started){: new_window}{: external}
@@ -46,15 +46,15 @@ Verify that you have what you need to start the tutorial from the following list
 
 - An [{{site.data.keyword.cloud}} account](https://cloud.ibm.com){: new_window}{: external}
 - [An instance of the {{site.data.keyword.cloudant_short_notm}} service](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud)
-- The most recent version of the [Python programming language](https://www.python.org/){: new_window}{: external} on your system:
+- Verify that you have the  most current version of the [Python programming language](https://www.python.org/){: new_window}{: external}:
 
-  1.  To check the Python version that you have installed, run the following command:
+  1.  To check the Python version installed on your machine, run the following command:
       ```sh
 	    python3 --version
 	    ```
 	    {: pre}
 	
-  2. Verify your version matches the most recent version. The result will look something like this:
+  2. Verify that your version matches the most recent version. The result looks something like this:
 	    ```
 	    Python 3.7.4
 	    ```
@@ -63,20 +63,20 @@ Verify that you have what you need to start the tutorial from the following list
 - The Cloudant Python library enables your Python applications to work with
 	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 	
-	1.	To check the client library is already installed, run the following command at a prompt:	
+	1.	To check that the client library is already installed, run the following command at a prompt:	
       ```sh
 	    pip3 freeze
 	    ```
 	    {: pre}
 	
-	    You will see a list of all the Python modules that are installed on your system. Review the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
+	    You see a list of all the Python modules that are installed on your system. Review the list, looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following one:
 
 	    ```
 	    cloudant==<version>
 	    ```
 	    {: screen}
 	
-	2.  If the `cloudant` module is not installed, install it by using a command similar to the following one:
+	2.  If the `cloudant` module isn't installed, install it by using a command similar to the following one:
 	    ```
 	    pip3 install cloudant
 	    ```
@@ -84,7 +84,7 @@ Verify that you have what you need to start the tutorial from the following list
   
       For more information about the Python library, see the [supported platforms](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported) documentation. 
 
-## Step 1: Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
+## Step 1. Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
 1.	Run the `import` statements of the {{site.data.keyword.cloudant_short_notm}}
@@ -102,26 +102,26 @@ Verify that you have what you need to start the tutorial from the following list
   <br>In the menu, click `Service credentials`.
   <br>a. Click the `New credential` button.
   <br>![Create new service credentials](tutorials/images/img0050.png)
-  <br>b. Enter a name for the new credential in the Add new credential window, as shown in the following screen shot.
+  <br>b. Enter a name for the new credential in the Add new credential window, as shown in the following screen capture.
   <br>c. (Optional) Add inline configuration parameters.
   <br>d. Click the `Add` button. 
-  <br>![Add a new service credential](tutorials/images/img0051.png)
+  <br>![Add a service credential](tutorials/images/img0051.png)
   <br>Your credentials are added to the Service credentials table.
   <br>e. Click `View credentials` under Actions. 
   <br>![View all service credentials](tutorials/images/img0052.png)
   <br>The details for the service credentials appear:
    <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
    
-3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The mechanism to do so depends on whether you are using {{site.data.keyword.cloud_notm}} IAM or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. For more information about either authentication type, see the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
+3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The way {{site.data.keyword.cloudant_short_notm}} establishes this connection depends on whether you're using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. For more information about either authentication type, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
-	If you are using {{site.data.keyword.cloudant_short_notm}} Legacy authentication, replace your service credentials from the previous step:
+	If you're using {{site.data.keyword.cloudant_short_notm}} Legacy authentication, replace your service credentials from the previous step:
 	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
 	client.connect()
 	```
 	{: codeblock}
 	
-	If you are using IAM authentication, replace your service credentials from the previous step:
+	If you're using IAM authentication, replace your service credentials from the previous step:
 	```python
 	client = Cloudant.iam("<username>", "<apikey>")
 	client.connect()
@@ -129,7 +129,7 @@ Verify that you have what you need to start the tutorial from the following list
 	{: codeblock}
 
 
-## Step 2: Create a database
+## Step 2. Create a database
 {: #step-2-create-a-database}
 
 1. Define a variable in the Python application:
@@ -156,7 +156,7 @@ Verify that you have what you need to start the tutorial from the following list
   ```
   {: codeblock}
 
-## Step 3: Store a small collection of data as documents within the database
+## Step 3. Store a small collection of data as documents within the database
 {: #step-3-store-a-small-collection-of-data-as-documents-within-the-database}
 
 1. Define a collection of data:
@@ -205,15 +205,15 @@ Verify that you have what you need to start the tutorial from the following list
   Notice that we check to ensure that each document is successfully created.
   {: tip}
 
-## Step 4: Retrieving data through queries
-{: #step-4-retrieving-data-through-queries}
+## Step 4. Retrieve data through queries
+{: #step-4-retrieve-data-through-queries}
 
 A small collection of data was stored as documents within the database.
 You can do a minimal or full retrieval of that data from the database.
-A minimal retrieval obtains the basic data *about* a document.
+A minimal retrieval includes the basic data *about* a document.
 A full retrieval also includes the data *within* a document.
 
-* To run a minimal retrieval:
+* To run a minimal retrieval, follow these steps:
   1. First, request a list of all documents within the database.
     ```python
     result_collection = Result(my_database.all_docs)
@@ -238,7 +238,7 @@ A full retrieval also includes the data *within* a document.
     The `u` prefix is an indication that Python is displaying a Unicode string. 
     {: tip}
 
-    If we tidy the appearance a little, we can see that the minimal document details we got back are equivalent to this example:
+    If we tidy the appearance a little, we can see that the minimal document details returned are similar to this example:
     
     ```json
     [
@@ -253,13 +253,12 @@ A full retrieval also includes the data *within* a document.
     ```
     {: codeblock}
 
-    The idea that the first document that is stored in a database is always the first document returned in a list of results does not always apply to NoSQL databases like {{site.data.keyword.cloudant_short_notm}}.
+    NoSQL databases like {{site.data.keyword.cloudant_short_notm}} don't always adhere to the first in first out method, which means that a document that is stored in the database isn't always the first document returned in a list of results.
     {: note}
 
 * To run a full retrieval,
   request a list of all documents within the database,
-  and specify that the document content must also be returned
-  by providing the `include_docs` option.
+  and provide the `include_docs` option to specify that the document content must also be returned.
   ```python
   result_collection = Result(my_database.all_docs, include_docs=True)
   print(f"Retrieved full document:\n{result_collection[0]}\n")
@@ -272,7 +271,7 @@ A full retrieval also includes the data *within* a document.
   ```
   {: screen}
   
-  If we tidy the appearance a little, we can see that the full document details we got back are equivalent to this example:
+  If we tidy the appearance a little, we can see that the full document details we got back are similar to this example:
   
   ```json
   [
@@ -296,23 +295,23 @@ A full retrieval also includes the data *within* a document.
   {: codeblock}
 
 
-## (optional) Step 5: See database information on the {{site.data.keyword.cloudant_short_notm}} Dashboard
+## (Optional) Step 5. See database information on the {{site.data.keyword.cloudant_short_notm}} Dashboard
 {: #optional-step-5-ibm-cloudant-dashboard}
 
 Follow these steps to see your database and documents on the {{site.data.keyword.cloudant_short_notm}} Dashboard. 
 
-1.  Log in to your IBM Cloud account.
-    The IBM Cloud dashboard can be found at: cloud.ibm.com. After authenticating with your user name and password, you are presented with the IBM Cloud dashboard.
+1.  Log in to your {{site.data.keyword.cloud_notm}} account.
+    The {{site.data.keyword.cloud_notm}} dashboard can be found at: cloud.ibm.com. After you authenticate with your user name and password, you're presented with the IBM Cloud dashboard.
 2.  Click **Services** in the Resource summary pane to see your {{site.data.keyword.cloudant_short_notm}} service instances. 
 3.  Click the service instance whose details you want to see.
 4.  Click **Launch Cloudant Dashboard**. 
-    When the dashboard opens, you can see the databases associated with your service.
+    When the dashboard opens, you can see the databases that are associated with your service.
 
 
-## Step 6: Delete the database
+## Step 6. Delete the database
 {: #step-6-delete-the-database}
 
-When you are finished with the database,
+When you're finished with the database,
 it can be deleted.
 
 ```python
@@ -328,7 +327,7 @@ else:
 We included some basic error handling
 to show you how to troubleshoot and address potential issues.
 
-## Step 7: Close the connection to the service instance
+## Step 7. Close the connection to the service instance
 {: #step-7-close-the-connection-to-the-service-instance}
 
 The final step is to disconnect the Python client application from the service instance:
@@ -346,7 +345,7 @@ see the main [{{site.data.keyword.cloudant_short_notm}}](https://www.ibm.com/clo
 
 For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/services/Cloudant?topic=cloudant-overview#overview).
 
-## Appendix: Complete Python code listing
+## Appendix. Complete Python code listing
 {: #appendix-complete-python-code-listing}
 
 The complete Python code listing is as follows. 

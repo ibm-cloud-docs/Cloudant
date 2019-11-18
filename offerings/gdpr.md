@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-10-23"
+lastupdated: "2019-11-14"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -30,6 +30,7 @@ The GDPR seeks to create a harmonized data protection law framework across the E
 to give citizens back the control of their personal data, while imposing strict rules on 
 those hosting and ‘processing’ this data, anywhere in the world. The Regulation also introduces 
 rules that relate to the free movement of personal data within and outside the EU. 
+{: shortdesc}
 
 With the [General Data Protection Regulation](https://www.eugdpr.org/){: new_window}{: external},
 {{site.data.keyword.cloudantfull}} customers can rely on 

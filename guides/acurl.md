@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-09-06"
+lastupdated: "2019-11-14"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl
 
@@ -33,6 +33,7 @@ subcollection: cloudant
 without having to enter your username and password for every request.
 That means a simple `GET` request to a database no longer needs to be written as
 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`. Instead, you can use, `https://$ACCOUNT.cloudant.com/foo`.
+{: shortdesc}
 
 Not only does this cut down on annoyingly long URLs,
 but the `acurl` alias is also more secure.

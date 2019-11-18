@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-14"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -30,6 +30,7 @@ In distributed databases,
 where copies of data might be stored in more than one location,
 natural network and system characteristics might mean that changes made to a
 document stored in one location cannot instantly update or replicate to other parts of the database.
+{: shortdesc}
 
 In other words,
 if independent updates are made to different copies of documents,

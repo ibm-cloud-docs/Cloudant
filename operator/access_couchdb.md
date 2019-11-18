@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-09-19"
+lastupdated: "2019-11-14"
 
 keywords: port forward, openshift route
 
@@ -27,6 +27,7 @@ subcollection: cloudant
 {: #access-couchdb-cluster}
 
 The CouchDB cluster is exposed via a `ClusterIP` service only. To access the deployment externally, you can either port-forward using `oc`/`kubectl` or configure an external OpenShift route. 
+{: shortdesc}
 
 ### Port-forward
 {: #port-forward-access-couchdb}

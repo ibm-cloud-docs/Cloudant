@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-16"
+lastupdated: "2019-11-14"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -27,6 +27,7 @@ subcollection: cloudant
 {: #migrating-to-ibm-cloudant-on-ibm-cloud}
 
 [{{site.data.keyword.cloudantfull}}](https://www.ibm.com/cloud/cloudant){: new_window}{: external}'s database-as-a-service offering is a JSON document store that runs on multi-tenant clusters. The service is available with a choice of geographical locations with predictable costs, scalability, and a service level agreement (SLA).
+{: shortdesc}
 
 This document describes how to migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}} from one of the following plans:
 

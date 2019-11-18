@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-09-20"
+lastupdated: "2019-11-14"
 
 keywords: tier-1 physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -29,6 +29,7 @@ subcollection: cloudant
 {{site.data.keyword.cloudantfull}} provides a trustworthy and secure cloud database system.
 The service is built on best-in-industry standards,
 including ISO 27001:2013.
+{: shortdesc}
 
 ## Tier-1 physical systems
 {: #tier-1-physical-systems}

@@ -26,6 +26,9 @@ subcollection: cloudant
 # Supported client libraries
 {: #supported-client-libraries}
 
+You can find information on supported client libraries, such as mobile, Node.js, Python, and Swift here. 
+{: shortdesc}
+
 ## Mobile
 {: #mobile-supported}
 

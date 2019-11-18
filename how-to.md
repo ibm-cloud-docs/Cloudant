@@ -26,7 +26,8 @@ subcollection: cloudant
 # About
 {: #about}
 
-The tutorials, recovery and backup instructions, and guides provide information about basic and advanced tasks that you use in {{site.data.keyword.cloudantfull}}.  
+The tutorials, recovery and backup instructions, and guides provide information about basic and advanced tasks that you use in {{site.data.keyword.cloudantfull}}. 
+{: shortdesc} 
 
 ## Tutorials
 {: #tutorials}
