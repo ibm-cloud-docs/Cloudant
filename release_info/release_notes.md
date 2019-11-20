@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-13"
+lastupdated: "2019-11-26"
 
 keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
@@ -135,7 +135,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
     replications. This would affect values in the [replication status
     information](/docs/services/Cloudant?topic=cloudant-advanced-replication#advanced-replication).
      See [PR](https://github.com/apache/couchdb/pull/1722){: new_window}{: external}.
-- Fixed an issue with Cloudant Query where, after deleting a document, issuing
+- Fixed an issue with {{site.data.keyword.cloudant_short_notm}} Query where, after deleting a document, issuing
     a `_find` request to a text index with `update=false` could return a
     `500` response.
     See [PR](https://github.com/apache/couchdb/pull/1709){: new_window}{: external}.
