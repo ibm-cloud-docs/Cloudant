@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-18"
+lastupdated: "2019-11-21"
 
 keywords: install, requirements, supported architecture, supported platforms, database node, cluster, load balancer
 
@@ -614,8 +614,6 @@ following these steps.
     cast system install -lb
     ```
     {: codeblock}
-
-    See the options for the load balancer node in the following table. 
 
     The options for the load balancer node are `-lb` or `--lbnode`, which is the flag to install a load   balancer node. 
 
