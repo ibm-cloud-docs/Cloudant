@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-22"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -41,7 +41,16 @@ There are two types of events that {{site.data.keyword.cloudant_short_notm}} for
 
 A full list of the events, along with their description and type are in the following tables. 
 
-By default, only management events are sent to {{site.data.keyword.at_full_notm}}. Use the API for the {{site.data.keyword.cloudant_short_notm}} instance to view if management-only events are being sent, or both management and data events are being sent, and to change between these options. 
+By default, only management events are sent to {{site.data.keyword.at_full_notm}}. You can change what types of events are sent to {{site.data.keyword.at_full_notm}} in the {{site.data.keyword.cloud_notm}} Dashboard by following these steps: 
+
+1. Go to the Resource list, and select an {{site.data.keyword.cloudant_short_notm}} instance. <br>
+   The Manage page opens.  
+2. Click **Overview**.  
+3. On the Deployment Details page, find Activity Tracker event types.
+4. Select the appropriate type, either **Management** or **Management & Data**, from the drop-down menu.
+5. Click **Save**. 
+
+Alternatively, you can use an {{site.data.keyword.cloudant_short_notm}} API to change event types that are sent. See details in the following section. 
 
 ### API to view and change event types
 {: #at_event_types_api}
