@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2019-11-22"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -41,7 +41,7 @@ Apache CouchDB | The self-hosted, open source database on which {{site.data.keyw
 ## What are the benefits of the {{site.data.keyword.cloudant_short_notm}} Lite and Standard plans?
 {: #what-are-the-benefits-of-the-ibm-cloudant-lite-and-standard-plans-}
 
-The Standard plan allows you to *reserve throughput capacity* for your database service, that is, to specify how much throughput your application's database is going to need to handle demand. The Standard plan also charges for the amount of storage you use. Capacity is measured by using the following metrics:
+With the Standard plan, you can *reserve throughput capacity* for your database service, that is, to specify how much throughput your application's database is going to need to handle demand. The Standard plan also charges for the amount of storage you use. Capacity is measured by using the following metrics:
 
 Metric | Description
 -------|------------
@@ -50,27 +50,27 @@ Writes per second | The rate at which data is written to the database. API calls
 Global Queries per second | The rate at which the database is queried by using global indexes, typically by accessing the `_find` endpoint or by using secondary MapReduce, search, or geospatial indices.
 Storage | The amount of disk space occupied by your JSON data, attachments, and secondary indices.
 
-As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5 global queries per second, and 1 GB of storage for free. This plan is ideal when you are <q>kicking the tires</q> of the product and during product development. When your application goes into QA or production, switch to the Standard plan to scale the instance. The Standard plan's smallest capacity has 100 reads per second, 50 writes per second, 5 global queries per second, and 20 GB of storage (extra storage is charged by GB) for ~USD$76.65 per month. 
+As an example, the Lite plan offers 20 reads per second, 10 writes per second, 5 global queries per second, and 1 GB of storage for free. This plan is ideal when you're <q>kicking the tires</q> of the product and during product development. When your application goes into QA or production, switch to the Standard plan to scale the instance. The Standard plan's smallest capacity has 100 reads per second, 50 writes per second, 5 global queries per second, and 20 GB of storage for ~USD$76.65 per month. You can buy extra storage, which is charged by the GB.
 
 By using the slider in the {{site.data.keyword.cloudant_short_notm}} Dashboard, you can reserve a smaller or larger capacity for your {{site.data.keyword.cloudant_short_notm}} service whenever you need it:
 
-![slider](../images/migrate2.gif)
+![Slider](../images/migrate2.gif)
 
-The amount that you can change the throughput capacity is limited to a maximum of 10 units per change (notice the 'change limit' point on the slider) with a maximum of one change per hour. Changes downward are unlimited in magnitude, but still subject to the time limit.
+The amount that you can change the throughput capacity is limited to a maximum of 10 units per change with a maximum of one change per hour. Notice the "change limit" point on the slider. Changes downward are unlimited in size, but still subject to the time limit.
 {: tip}
 
-You are billed on the highest capacity that is selected in any given hourly window. Your database throughput can scale up to deal with seasonal demands and scale down again for the quiet times. Your monthly bill is always predictable; upgrades are automatic; and your SLA is [99.95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}{: external}.
+You're billed on the highest capacity that is selected in any given hourly window. Your database throughput can scale up to deal with seasonal demands and scale down again for the quiet times. Your monthly bill is always predictable; upgrades are automatic; and your SLA is [99.95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}{: external}.
 
 If you exceed your quota of reads, writes, and global queries in a given second, the {{site.data.keyword.cloudant_short_notm}} API responds with an `HTTP 429 too many requests` response. Your application might retry the request later - our official libraries offer the option of retrying such requests with an exponential back off. 
 
 ## Which type of {{site.data.keyword.cloudant_short_notm}} plan do I have?
 {: #which-type-of-ibm-cloudant-plan-do-i-have-}
 
-If you are using {{site.data.keyword.cloudant_short_notm}}, go to the {{site.data.keyword.cloud_notm}} dashboard, and click the **Menu** icon > **Resource List** to see all your service instances. 
+If you're using {{site.data.keyword.cloudant_short_notm}}, go to the {{site.data.keyword.cloud_notm}} dashboard, and click the menu icon then **Resource List** to see all your service instances. 
 
 ![Cloud dash](../images/ibmclouddashboard.png)
 
-You can also drill down into a specific instance and look at the Plan tab for more information. {{site.data.keyword.cloudant_short_notm}} instances on the deprecated Shared plan do not have a plan that is highlighted. An instance on the {{site.data.keyword.cloudant_short_notm}} Standard plan looks like this example: 
+You can also drill down into a specific instance and look at the Plan tab for more information. {{site.data.keyword.cloudant_short_notm}} instances on the deprecated Shared plan don't have a highlighted plan. An instance on the {{site.data.keyword.cloudant_short_notm}} Standard plan looks like this example: 
 
 ![Standard dash](../images/ibmcloud_instance_standard_plan.png)
 
@@ -78,15 +78,15 @@ You can also open the {{site.data.keyword.cloudant_short_notm}} Dashboard, and c
 
 ![Lite plan](../images/migrate1.png)
 
-If you are using a legacy `cloudant.com` account, you can log in to your {{site.data.keyword.cloudant_short_notm}} Dashboard, and go to the Account tab. A legacy `cloudant.com` Shared plan has a Usage tab with graphs and billing estimates for the current month, like the following example:
+If you're using a legacy `cloudant.com` account, you can log in to your {{site.data.keyword.cloudant_short_notm}} Dashboard, and go to the Account tab. A legacy `cloudant.com` Shared plan has a Usage tab with graphs and billing estimates for the current month, like the following example:
 
 ![Shared plan](../images/cloudantcom_sharedplan_usage.png)
 
-A `cloudant.com` Enterprise user on a dedicated cluster does not have the Usage tab in their Account tab. It looks like the following example:
+A `cloudant.com` Enterprise user on a dedicated cluster doesn't have the Usage tab in their Account tab. It looks like the following example:
 
 ![Enterprise plan](../images/cloudantcom_enterpriseplan_account.png)
 
-If your Account tab already indicates that you are on the Standard plan, you do not need to read any further. You are already on a paid SLA-backed {{site.data.keyword.cloudant_short_notm}} service. No further action is required.
+If your Account tab already indicates that you're on the Standard plan, you don't need to read any further. You're already on a paid SLA-backed {{site.data.keyword.cloudant_short_notm}} service. No further action is required.
 
 ## Migrating from {{site.data.keyword.cloudant_short_notm}} Lite to {{site.data.keyword.cloudant_short_notm}} Standard
 {: #migrating-from-ibm-cloudant-lite-to-ibm-cloudant-standard}
@@ -94,31 +94,31 @@ If your Account tab already indicates that you are on the Standard plan, you do 
 Migrate from the free Lite plan to the Standard plan by following these steps: 
 
 1.  Go to the {{site.data.keyword.cloud_notm}} dashboard.
-2.  Go to the **Menu** icon > **Resource List** to see all your service instances. 
-3.  Select the {{site.data.keyword.cloudant_short_notm}} instance you want to migrate. 
+2.  Go to the menu icon then **Resource List** to see all your service instances. 
+3.  Select the {{site.data.keyword.cloudant_short_notm}} instance that you want to migrate. 
 4.  Select the **Plan** tab on the menu. 
 5.  From the list of pricing plans, select the **Standard** check box. 
 ![Lite](../images/migrate3.png)
 6.  Click **Upgrade**.
-All of your existing data is retained for you.
+    All of your existing data is kept for you.
 
 Adjust your capacity by using the Throughput Capacity slider to increase or decrease capacity as needed.
 {: tip} 
  
-Now, you are ready to go!
+Now, you're ready to go!
 
 ## Migrating everything else to {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan
 {: #migrating-everything-else-to-ibm-cloudant-lite-or-standard-plan}
 
 Migration from the Shared or Enterprise plans to {{site.data.keyword.cloudant_short_notm}} Lite or Standard plans includes these tasks, which are described in the following steps. 
 
-You cannot directly change a Shared plan instance to a Lite or Standard plan instance. Migration requires that you create a new Lite or Standard plan instance and replicate the data over from the Shared plan instance. 
+You can't directly change a Shared plan instance to a Lite or Standard plan instance. Migration requires that you create a new Lite or Standard plan instance and replicate the data over from the Shared plan instance. 
 {: tip}
 
 ### Step 1. Sign up for {{site.data.keyword.cloud_notm}}
 {: #step-1-sign-up-for-ibm-cloud}
 
-If you have not signed up already, [sign up for an {{site.data.keyword.cloud_notm}} account](https://www.ibm.com/cloud/){: new_window}{: external}. 
+If you haven't signed up already, [sign up for an {{site.data.keyword.cloud_notm}} account](https://www.ibm.com/cloud/){: new_window}{: external}. 
 
 ### Step 2. Create an {{site.data.keyword.cloudant_short_notm}} instance
 {: #step-2-create-an-ibm-cloudant-instance}
@@ -130,11 +130,11 @@ After you log in to your {{site.data.keyword.cloud_notm}} account, add an {{site
 ### Step 3. Find out whether your application is ready for {{site.data.keyword.cloudant_short_notm}}
 {: #step-3-find-out-whether-your-application-is-ready-for-ibm-cloudant}
 
-If you are moving from an {{site.data.keyword.cloudant_short_notm}} Enterprise service or an {{site.data.keyword.cloudant_short_notm}} Shared plan, you must revisit your application’s usage of {{site.data.keyword.cloudant_short_notm}} to make sure it is ready to handle the capacity limits of the Standard plan. For more information, see [how the {{site.data.keyword.cloudant_short_notm}} API works](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#provisioned-throughput-capacity). Most importantly, you must make sure that your application can handle a `429: too many requests` HTTP response if you exceed your provisioned throughput capacity. 
+If you're moving from an {{site.data.keyword.cloudant_short_notm}} Enterprise service or an {{site.data.keyword.cloudant_short_notm}} Shared plan, you must revisit your application’s usage of {{site.data.keyword.cloudant_short_notm}} to make sure it is ready to handle the capacity limits of the Standard plan. For more information, see [how the {{site.data.keyword.cloudant_short_notm}} API works](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#provisioned-throughput-capacity). Most importantly, you must make sure that your application can handle a `429: too many requests` HTTP response if you exceed your provisioned throughput capacity. 
 
-Retrying requests that get a `429` response is acceptable for occasional traffic spikes that exceed your plan's capacity. If your application traffic is routinely generating `429` responses, there is a good chance that you need to upgrade to a bigger plan.
+Retrying requests that get a `429` response is acceptable for occasional traffic spikes that exceed your plan's capacity. If your application traffic is routinely generating `429` responses, you probably need to upgrade to a bigger plan.
 
-Additionally, it is worth noting that the maximum individual document size is 1 MB on {{site.data.keyword.cloudant_short_notm}}, and you will receive a `413: request entity too large` message if the limit is exceeded. For more information, see [request and document size limits](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#request-and-document-size-limits). 
+Additionally, it is worth noting that the maximum individual document size is 1 MB on {{site.data.keyword.cloudant_short_notm}}, and you receive a `413: request entity too large` message if the limit is exceeded. For more information, see [request and document size limits](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#request-and-document-size-limits). 
 
 ### Step 4. Migrate data from the old service to the new service 
 {: #step-4-migrate-data-from-the-old-service-to-the-new-service}
@@ -150,22 +150,22 @@ Verify that all your data replicates to the new service and that indexes are bui
 ### Step 5. Testing
 {: #step-5-testing}
 
-Conduct load and functional testing on your application to ensure that there are no issues before you migrate to production.
+Conduct load and functional testing on your application to ensure that no issues exist before you migrate to production.
 
 ### Step 6. Ready to move to the new instance?
 {: #step-6-ready-to-move-to-the-new-instance-}
 
-When you are ready to move to the new instance, update your application to use  the new account URL and credentials for the {{site.data.keyword.cloudant_short_notm}} instance. For more information, see the [provisioning tutorial](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) about how to obtain the service credentials for an {{site.data.keyword.cloudant_short_notm}} instance.
+When you're ready to move to the new instance, update your application to use  the new account URL and credentials for the {{site.data.keyword.cloudant_short_notm}} instance. For more information, see the [provisioning tutorial](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) about how to obtain the service credentials for an {{site.data.keyword.cloudant_short_notm}} instance.
 
 ### Step 7. Turn off the old service
 {: #step-7-turn-off-the-old-service}
 
- When your application is fully migrated to the {{site.data.keyword.cloudant_short_notm}} Lite or Standard instance, you can delete the old {{site.data.keyword.cloudant_short_notm}} Shared plan instance from your {{site.data.keyword.cloud_notm}} console to ensure that you are no longer charged for the service.
+ When your application is fully migrated to the {{site.data.keyword.cloudant_short_notm}} Lite or Standard instance, you can delete the old {{site.data.keyword.cloudant_short_notm}} Shared plan instance from your {{site.data.keyword.cloud_notm}} console. Deleting the instance ensures that you're no longer charged for the service.
 
-## FAQ - Frequently asked questions
-{: #faq-frequently-asked-questions}
+## FAQ
+{: #faq-migration}
 
-Frequently asked questions (FAQs) are published by the {{site.data.keyword.cloudant_short_notm}} organization to help {{site.data.keyword.IBM_notm}} customers migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}}.
+FAQs are published by the {{site.data.keyword.cloudant_short_notm}} organization to help {{site.data.keyword.IBM_notm}} customers migrate to an {{site.data.keyword.cloudant_short_notm}} Lite or Standard plan instance on {{site.data.keyword.cloud_notm}}.
 
 ## Can I back up my data before I do anything?
 {: #can-i-back-up-my-data-before-doing-anything-}
@@ -175,7 +175,7 @@ Frequently asked questions (FAQs) are published by the {{site.data.keyword.cloud
 ## Can I keep my `username.cloudant.com` domain and redirect it to the new service on {{site.data.keyword.cloudant_short_notm}}?
 {: #can-i-keep-my-username-cloudant-com-domain-and-redirect-it-to-the-new-service-on-ibm-cloudant-}
 
-No, it is not possible to keep your domain. You must plan to update your applications to use the new account URL and credentials that are generated for the {{site.data.keyword.cloudant_short_notm}} instances.
+No, it's not possible to keep your domain. You must plan to update your applications to use the new account URL and credentials that are generated for the {{site.data.keyword.cloudant_short_notm}} instances.
 
 ## Who do I contact if I have questions?
 {: #who-do-i-contact-if-i-have-questions-}
