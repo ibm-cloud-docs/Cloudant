@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-26"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -907,7 +907,7 @@ curl -X POST "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=_selector"
 To delete a database and its contents,
 send a `DELETE` request to `https://$ACCOUNT.cloudant.com/$DATABASE`.
 
-No additional check is made to ensure that you really intended to delete the database, such as <q>Are you sure?</q>.
+No additional check is made to ensure that you really intended to delete the database, such as "Are you sure?".
 {: note}
 
 ### Example of using HTTP to delete an {{site.data.keyword.cloudant_short_notm}} database

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-11-26"
 
 keywords: tradeoffs in partition tolerance, change approach to data, availability, consistency, theory
 
@@ -123,7 +123,7 @@ is better suited to keeping your application online.
 The consistency of application data can be addressed after the fact.
 As Seth Gilbert and Nancy Lynch of MIT
 [conclude](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf){: new_window}{: external},
-<q>most real-world systems today are forced to settle with returning 'most of the data, most of the time.'</q>
+"most real-world systems today are forced to settle with returning 'most of the data, most of the time.' "
 
 ## Application availability versus consistency in the enterprise
 {: #application-availability-versus-consistency-in-the-enterprise}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-26"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -58,11 +58,11 @@ the [Lite plan](#lite-plan) is selected.
 The Lite plan is free, and is designed for development and evaluation purposes. {{site.data.keyword.cloudant_short_notm}}'s full functionality is included, but Lite plan instances have a fixed amount of provisioned throughput capacity and data storage. The provisioned throughput capacity is fixed at 20 reads/sec, 10 writes/sec, and 5 global queries/sec, and data storage is capped at 1 GB. 
 
 Storage usage is checked daily. If you exceed your 1-GB storage limit, requests to the {{site.data.keyword.cloudant_short_notm}} instance receive a 
-402 status code with the following error message, <q>Account has exceeded its data usage quota. An upgrade to a paid plan is required.</q> A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard. You can still read and delete data. However, to write new data, you have two options. First, you can upgrade to a paid [Standard plan](#standard-plan), which removes the write limitation immediately. Alternatively, you can delete data so that your total storage falls under the 1-GB limit and wait until the next daily storage check runs for your instance to allow writes again. 
+402 status code with the following error message, "Account has exceeded its data usage quota. An upgrade to a paid plan is required." A banner also appears on the {{site.data.keyword.cloudant_short_notm}} Dashboard. You can still read and delete data. However, to write new data, you have two options. First, you can upgrade to a paid [Standard plan](#standard-plan), which removes the write limitation immediately. Alternatively, you can delete data so that your total storage falls under the 1-GB limit and wait until the next daily storage check runs for your instance to allow writes again. 
 
 If you want to store more than 1 GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
-You are limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, any attempt to create a new Lite plan instance, or change a Standard plan instance to a Lite plan, returns the following message, <q>You can only have one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan.</q>
+You are limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, any attempt to create a new Lite plan instance, or change a Standard plan instance to a Lite plan, returns the following message, "You can only have one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan."
 {: note}
 
 ### Standard plan
@@ -233,7 +233,7 @@ To change the target capacity, slide the capacity slider to the setting you need
 
 ![Capacity](../images/capacity-3.png)
 
-The check mark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data stored in the instance. When the target capacity is reached, the check mark turns green and says <q>Capacity Up-to-Date</q>.
+The check mark turns yellow and says `Updating Capacity` until the target capacity is reached. Capacity changes are asynchronous. The time that is required to synchronize those changes depends on the size of the changes in capacity that were requested and the data stored in the instance. When the target capacity is reached, the check mark turns green and says "Capacity Up-to-Date".
 
 ![Capacity](../images/capacity-4.png)
 

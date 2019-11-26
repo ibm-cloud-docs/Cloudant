@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2019-11-26"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
@@ -61,7 +61,7 @@ your {{site.data.keyword.cloudant_short_notm}} database begins to exhibit severa
 
 * Increasing inconsistencies in document content, because there are more and more conflicting documents.
 * Increasing database size, because all conflicting documents must be retained until the conflict is resolved.
-* Decreasing performance, because {{site.data.keyword.cloudant_short_notm}} must work harder in response to each and every request as it tries to identify the <q>best possible</q> version of a conflicted document.
+* Decreasing performance, because {{site.data.keyword.cloudant_short_notm}} must work harder in response to each and every request as it tries to identify the "best possible" version of a conflicted document.
 
 The following suggested practices might help you decide when to check for, and resolve, conflicts:
 

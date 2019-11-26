@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-30"
+lastupdated: "2019-11-26"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -225,7 +225,7 @@ More information about using a `selector` object is available in the
 {: #the-since_seq-field}
 
 If you do not want to replicate the entire contents of a database,
-you can specify a <q>replication sequence value</q> in the `since_seq` field.
+you can specify a "replication sequence value" in the `since_seq` field.
 
 The replication sequence value indicates how far to step 'through' a database,
 for example as part of a replication.
@@ -357,7 +357,7 @@ A consequence is that the replication document is updated with each attempt.
 This also changes the document revision value.
 Therefore,
 get the revision value immediately before you delete the document,
-otherwise you might get an [HTTP 409 <q>document update conflict</q>](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) response.
+otherwise you might get an [HTTP 409 "document update conflict"](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) response.
 
 ### Example instructions for using HTTP to delete a replication document
 

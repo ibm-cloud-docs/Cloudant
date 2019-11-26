@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-11-26"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -217,7 +217,7 @@ Now, test your application and verify that it is running properly.
 2. On the `Cloudant CF app` details page, click `Routes` and click the            `Cloudant-CF-app.mybluemix.net` link. <br/>
    ![Cloudant CF app details page](images/img0030.png)
 
-3. A new brower window opens at `https://cloudant-cf-app.mybluemix.net/`. The     message verifies that the application is running by displaying the following message, <q>Hello World! Thanks for creating a Python Starter Application.</q>
+3. A new brower window opens at `https://cloudant-cf-app.mybluemix.net/`. The     message verifies that the application is running by displaying the following message, "Hello World! Thanks for creating a Python Starter Application."
 
    ![Hello World! verified that the Cloudant CF app runs correctly](images/img0054.png)
 

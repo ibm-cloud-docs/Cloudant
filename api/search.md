@@ -69,8 +69,8 @@ Your indexing functions operate in a memory-constrained environment where the do
 
 Within a search index, do not index the same field name with more than one data type. If the 
     same field name is indexed with different data types in the same search index function, 
-    you might get an error when querying the search index that says the field <q>was indexed without 
-    position data</q>. For example, do not include both of these lines in the same search index function, 
+    you might get an error when querying the search index that says the field "was indexed without 
+    position data". For example, do not include both of these lines in the same search index function, 
     as they index the `myfield` field as two different data types: a string `"this is a string"` and a number `123`.
 {: note}
 
@@ -686,7 +686,7 @@ The `order` field is an array where the first element is the field or fields tha
 in the [`sort` parameter](#query-parameters-search).
 If no [`sort` parameter](#query-parameters-search) is included in the query,
 then the `order` field contains the [Lucene relevance score](https://lucene.apache.org/core/3_6_0/scoring.html){: new_window}{: external}.
-If you use the <q>sort by distance</q> feature as described in [Geographical searches](#geographical-searches),
+If you use the "sort by distance" feature as described in [Geographical searches](#geographical-searches),
 then the first element is the distance from a point.
 The distance is measured by using either kilometers or miles.
 

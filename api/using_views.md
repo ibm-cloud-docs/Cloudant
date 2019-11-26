@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-10-17"
+lastupdated: "2019-11-26"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -65,7 +65,7 @@ subset that is indicated in the table.
 Argument         | Description | Optional | Type | Default | Supported values | Partition query
 -----------------|-------------|----------|------|---------|------------------|-----------------
 `conflicts`      | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Yes | Boolean | False || No
-`descending`     | Return the documents in <q>descending by key</q> order. | Yes | Boolean | False | | Yes
+`descending`     | Return the documents in "descending by key" order. | Yes | Boolean | False | | Yes
 `endkey`         | Stop returning records when the specified key is reached. | Yes | String or JSON array | | | Yes
 `endkey_docid`   | Stop returning records when the specified document ID is reached. | Yes | String | | | Yes
 `group`          | Using the `reduce` function, group the results to a group or single row. | Yes | Boolean | False | | Yes
