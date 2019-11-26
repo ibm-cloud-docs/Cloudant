@@ -57,6 +57,11 @@ For more information, see the following links:
 
 The new replication scheduler has several improvements and enhancements. Learn more about the replication scheduler.
 
+## Build 8111 (November 2019)
+{: #build-8111-november-2019}
+
+- Bug fixes. 
+
 ## Build 8106 (October 2019)
 {: #build-8106-october-2019}
 
