@@ -148,6 +148,7 @@ IBM Cloudant
 		guides/migration.md
 		guides/pagination-bookmarks.md
 		guides/replication_guide.md
+		guides/search-analyzers.md
 		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
 

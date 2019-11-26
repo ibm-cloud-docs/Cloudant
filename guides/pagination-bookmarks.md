@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-18"
+lastupdated: "2019-11-26"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -29,7 +29,7 @@ subcollection: cloudant
 You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/services/Cloudant?topic=cloudant-bookmarks-faq), but it gets progressively slower the larger the value of `skip`.
 {: shortdesc} 
 
-[Cloudant Query](/docs/services/Cloudant?topic=cloudant-query) and [Cloudant Search](/docs/services/Cloudant?topic=cloudant-search) both use _bookmarks_ as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It is easier to manage as there is no key manipulation to formulate the request for the next result set. You simply pass the _bookmark_ received in the first response to the second request.
+[{{site.data.keyword.cloudant_short_notm}} Query](/docs/services/Cloudant?topic=cloudant-query) and [{{site.data.keyword.cloudant_short_notm}} Search](/docs/services/Cloudant?topic=cloudant-search) both use _bookmarks_ as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It is easier to manage as there is no key manipulation to formulate the request for the next result set. You simply pass the _bookmark_ received in the first response to the second request.
 
 Let's see a better way to page through a large document set. 
 
