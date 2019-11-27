@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-11-27"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -488,7 +488,7 @@ You must enable [faceting](#faceting) before you can use the following parameter
 | `group_sort` | This field defines the order of the groups in a search that uses `group_field`. The default sort order is relevance. | yes | JSON | This field can have the same values as the sort field, so single fields and arrays of fields are supported. | no |
 | `highlight_fields` | Specifies which fields to highlight. If specified, the result object contains a `highlights` field with an entry for each specified field. | yes | Array of strings |  | yes|
 | `highlight_pre_tag` | A string that is inserted before the highlighted word in the highlights output. | yes, defaults to `<em>` | String |  | yes |
-| `highlight_post_tag` | A string that is inserted after the highlighted word in the highlights output. | yes, defaults to `/em` | String |  | yes |
+| `highlight_post_tag` | A string that is inserted after the highlighted word in the highlights output. | yes, defaults to `</em>` | String |  | yes |
 | `highlight_number` | Number of fragments that are returned in highlights. If the search term occurs less often than the number of fragments that are specified, longer fragments are returned. | yes, defaults to 1 | Numeric |  | yes |
 | `highlight_size` | Number of characters in each fragment for highlights. | yes, defaults to 100 characters | Numeric |  | yes | 
 | `include_docs` | Include the full content of the documents in the response. | yes | Boolean |  | yes |
