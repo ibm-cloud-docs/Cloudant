@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2019-11-26"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -131,7 +131,7 @@ For more information about data locations, see the
 As a user of {{site.data.keyword.cloudant_short_notm}}, you must follow these guidelines:
 
  * Use the default CORS configuration to prevent unexpected access.
- * Use API keys liberally, such that components can have <q>least privileged access</q>, which is coupled with the audit log. This practice helps you understand who accessed which data.
+ * Use API keys liberally, such that components can have "least privileged access", which is coupled with the audit log. This practice helps you understand who accessed which data.
  * Encrypt or otherwise protect (pseudonymize) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
 
 ### Physical and environmental security measures

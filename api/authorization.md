@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-15"
+lastupdated: "2019-11-26"
 
 keywords: authorization, roles, permissions, view permissions, modify permissions, _users database, API keys, create API key, use API key, delete API key, _admin, _reader, _writer, _design, _replicator, _security, assign role
 
@@ -41,7 +41,7 @@ Although simple,
 this approach would require many lengthy lists.
 Keeping those lists accurate and complete is impractical.
 
-A better approach uses the idea of <q>roles</q>.
+A better approach uses the idea of "roles".
 The various tasks can be grouped into collections that are typical of some generic roles.
 For example,
 the task of creating or deleting a database is characteristic of someone with an administrative role.

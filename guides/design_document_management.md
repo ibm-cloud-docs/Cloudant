@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-14"
+lastupdated: "2019-11-26"
 
 keywords: multiple views, changes, versioned design documents, move and switch, the stale parameter
 
@@ -231,7 +231,7 @@ One solution is to use versioned design document names:
 
 Using versioned design documents is a simple way to manage change control in your design documents, but you must remember to remove the older versions later.
 
-### <q>Move and switch</q> design documents
+### "Move and switch" design documents
 {: #move-and-switch-design-documents}
 
 Another approach relies on the fact that {{site.data.keyword.cloudant_short_notm}} recognizes when it has two identical design documents,
@@ -245,7 +245,7 @@ To switch to the new view, follow these steps:
 1.  Create a duplicate copy of the design document that we want to change,
     for example by adding `_OLD` to its name:
     `_design/fetch_OLD`.
-2.  Put the new or <q>incoming</q> design document into the database
+2.  Put the new or "incoming" design document into the database
     by using a name with the suffix `_NEW`: `_design/fetch_NEW`.
 3.  Query the `fetch_NEW` view
     to ensure that it starts to build.
@@ -254,10 +254,10 @@ To switch to the new view, follow these steps:
 6.  Delete design document `_design/fetch_NEW`.
 7.  Delete design document `_design/fetch_OLD`.
 
-## <q>Move and switch</q> tooling
+## "Move and switch" tooling
 {: #move-and-switch-tooling}
 
-The command line Node.js `couchmigrate` script automates the <q>Move and switch</q> procedure. It can be installed using the following command:
+The command line Node.js `couchmigrate` script automates the "Move and switch" procedure. It can be installed using the following command:
 ```sh
 npm install -g couchmigrate
 ```
@@ -290,7 +290,7 @@ couchmigrate --db mydb --dd /path/to/my/dd.json
 ```
 {: pre}
 
-The script coordinates the <q>Move and switch</q> procedure,
+The script coordinates the "Move and switch" procedure,
 waiting until the view is built before it returns.
 If the incoming design document is the same as the incumbent one,
 then the script returns almost immediately.
@@ -317,15 +317,15 @@ When querying the view, we have the following three choices:
     {{site.data.keyword.cloudant_short_notm}} first indexes the 250 new documents,
     and then returns the answer.
 -   An alternative is adding the `stale=ok` parameter to the API call.
-    This parameter means <q>return me the data that is already indexed.
-    I don't care about the latest updates.</q>
+    This parameter means, "return me the data that is already indexed.
+    I don't care about the latest updates."
     In other words,
     when you query the view with `stale=ok`,
     {{site.data.keyword.cloudant_short_notm}} returns the answer immediately,
     without any additional reindexing.
 -   A second alternative is to add the `stale=update_after` parameter to the API call.
-    This parameter means <q>return me the data that is already indexed, 
-    *and* then reindex any new documents.</q>
+    This parameter means "return me the data that is already indexed, 
+    *and* then reindex any new documents."
     In other words,
     when you query the view with `stale=update_after`,
     {{site.data.keyword.cloudant_short_notm}} returns the answer immediately,
