@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-26"
+lastupdated: "2019-12-05"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -59,7 +59,7 @@ By using the slider in the {{site.data.keyword.cloudant_short_notm}} Dashboard, 
 The amount that you can change the throughput capacity is limited to a maximum of 10 units per change with a maximum of one change per hour. Notice the "change limit" point on the slider. Changes downward are unlimited in size, but still subject to the time limit.
 {: tip}
 
-You're billed on the highest capacity that is selected in any given hourly window. Your database throughput can scale up to deal with seasonal demands and scale down again for the quiet times. Your monthly bill is always predictable; upgrades are automatic; and your SLA is [99.95%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}{: external}.
+You're billed on the highest capacity that is selected in any given hourly window. Your database throughput can scale up to deal with seasonal demands and scale down again for the quiet times. Your monthly bill is always predictable; upgrades are automatic; and your SLA is [99.99%](http://www-03.ibm.com/software/sla/sladb.nsf/sla/bm?OpenDocument){: new_window}{: external}.
 
 If you exceed your quota of reads, writes, and global queries in a given second, the {{site.data.keyword.cloudant_short_notm}} API responds with an `HTTP 429 too many requests` response. Your application might retry the request later - our official libraries offer the option of retrying such requests with an exponential back off. 
 
