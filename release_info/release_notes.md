@@ -57,6 +57,11 @@ For more information, see the following links:
 
 The new replication scheduler has several improvements and enhancements. Learn more about the replication scheduler.
 
+## Build ___ (____ ____)
+{: #build-_____-____-_____}
+
+- `_all_docs`, `_design_docs` and `_local_docs` now accept all query string parameters to be specified in the JSON body for POST requests.
+
 ## Build 8111 (November 2019)
 {: #build-8111-november-2019}
 
