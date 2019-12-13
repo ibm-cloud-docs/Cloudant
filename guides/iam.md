@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-05"
+lastupdated: "2019-12-19"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-07-02 -->
+<!-- Acrolinx: 2018-07-05 -->
 
 # {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)
 {: #ibm-cloud-identity-and-access-management-iam-}
@@ -31,7 +31,7 @@ approach to managing user identities, services, and access control.
 {: shortdesc}
 
 ## Introduction
-{: #introduction}
+{: #introduction-iam}
 
 This document describes {{site.data.keyword.cloudantfull}}'s integration with {{site.data.keyword.cloud_notm}} Identity and
 Access Management. It discusses the differences between {{site.data.keyword.cloudant_short_notm}}'s Legacy
@@ -86,7 +86,7 @@ All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July
 2. **Use only IAM**: This mode means that only IAM credentials are provided via Service binding and
     credential generation.
 
-When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
+When using IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
 {: important}
 
 {{site.data.keyword.cloudant_short_notm}} service instances provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After migrating to a Resource Group, the instance will be enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate.
@@ -122,7 +122,7 @@ ibmcloud resource service-instance-create  "Instance Name" \
     -p {"legacyCredentials": false}
 ```
 
-When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
+When using IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
 {: important}
 
 To provision an instance as *Use both legacy credentials and IAM*, run the following command:
@@ -205,7 +205,7 @@ Each value in the previous JSON example must be interpreted as follows:
 
 Note the included `username` and `password` are always equivalent to IAM's
 Manager credentials and so use of *Use both legacy credentials and IAM* is
-insecure when used with Reader and Writer IAM permissions.
+insecure when used with Reader, Writer, Monitor or Checkpointer IAM roles.
 
 ## Should I use *Use only IAM* or *Use both legacy credentials and IAM*?
 {: #should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
@@ -219,7 +219,7 @@ If possible, *Use only IAM* is preferred. The major advantages for using
 
 Further description of the advantages and disadvantages of each approach follows.
 
-When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
+When using IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions.  
 {: important}
 
 ### Advantages and disadvantages of the two access control mechanisms
@@ -238,7 +238,7 @@ or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported clie
 - Easy-to-rotate credentials.
 - Activity Tracker logs capture individual humans and services.
 - IAM federates with other identity systems, like enterprise LDAP repositories.
-- Fine-grained permissions (for example, Reader or Writer).
+- Fine-grained permissions (for example, Reader, Writer, Monitor, Checkpointer).
 
 #### Disadvantages of IAM mode
 {: #disadvantages-iam-mode}
@@ -585,116 +585,239 @@ if __name__ == "__main__":
 ## Reference
 {: #reference}
 
-This section contains a complete list of {{site.data.keyword.cloudant_short_notm}}'s IAM actions and what actions
-are allowed for each IAM system role.
+This section contains a complete list of {{site.data.keyword.cloudant_short_notm}}'s IAM roles and actions, and and mapping of what  actions are allowed for each IAM system role.
+
+### {{site.data.keyword.cloudant_short_notm}} roles
+{: #ibm-cloudant-roles}
+
+The following table lists the available IAM service roles for {{site.data.keyword.cloudant_short_notm}} and a brief description of each. 
+
+| Role | Description |
+|--------|----------|
+| Manager | Includes the ability to access all endpoints and perform all administrative functions on an instance, such as creating databases, changing capacity, reading and writing data and indexes, and accessing the Dashboard. | 
+| Writer | Includes the ability to read and write to all databases and documents, but not able to create indexes. | 
+| Reader | Includes the ability to read all databases and documents, but not able to write new documents or create indexes. | 
+| Monitor | Includes the ability to read monitoring endpoints, such as  `_active_tasks`  and replication  `_scheduler ` endpoints. | 
+| Checkpointer | Includes the ability to write replication checkpointer `_local` documents. Required on source databases during replication. |
+{: caption="Table 2. IAM service roles for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
+
+Note that Manager is inclusive of all actions of Reader and Writer, and Writer is inclusive of all actions of Reader. 
 
 ### {{site.data.keyword.cloudant_short_notm}} actions
 {: #ibm-cloudant-actions}
 
-The following tables describe the available IAM actions and roles. For fine-grained authorization, we offer Manager, Reader, and Writer roles.
+The following table describe the available IAM actions and roles. For fine-grained authorization, there are the roles of Manager, Reader, Writer, Monitor, and Checkpointer.
 
-When using Reader and Writer IAM roles, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
+When using IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions.  
 {: important}
 
-| Method | Endpoint | Action name | Role |
-|--------|----------|-------------|------|
-| `GET/PUT` | `/_api/v2/db/<path:db>/_security` | `cloudantnosqldb.sapi.db-security` | Manager |
-| `GET` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.read` | Manager |
-| `PUT` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.write` | Manager |
-| `GET` | `/_api/v2/user/current/throughput` | `cloudantnosqldb.current-throughput.read` | Manager |
-| `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` | Manager |
-| `GET/HEAD` | `/_active_tasks` | `cloudantnosqldb.account-active-tasks.read` | Manager |
-| `GET/HEAD` | `/_replicator` | `cloudantnosqldb.replicator-database-info.read ` | Manager |
-| `GET/HEAD` | `/_replicator/$DOC` | `cloudantnosqldb.replication.read` | Manager |
-| `GET/HEAD` | `/_scheduler/jobs` | `cloudantnosqldb.replication.read` | Manager |
-| `GET/HEAD` | `/_scheduler/docs` | `cloudantnosqldb.replication.read` | Manager |
-| `POST` | `/_replicate` | `cloudantnosqldb.replication.write` | Manager |
-| `PUT/DELETE` | `/_replicator` | `cloudantnosqldb.replicator-database.create` | Manager |
-| `PUT/DELETE` | `/_replicator/$DOC` | `cloudantnosqldb.replication.write` | Manager |
-| `GET/HEAD` | `/_up` | `cloudantnosqldb.account-up.read` | Manager |
-| `PUT` | `/$DB/` | `cloudantnosqldb.database.create` | Manager |
-| `DELETE` | `/$DB` | `cloudantnosqldb.database.delete` | Manager |
-| `POST` | `/$DB/_design_docs/queries` | `cloudantnosqldb.any-document.read` | Manager |
-| `GET/HEAD` | `/$DB/_design/$DOC_ID/_geo_info` | `cloudantnosqldb.any-document.read` | Manager |
-| `GET/HEAD` | `/$DB/_design/$DOC_ID/_info/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager |
-| `GET` | `/$DB/_design/$DOC_ID/_search_disk_size/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager |
-| `GET` | `/$DB/_design/$DOC_ID/_search_info/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |  Manager |
-| `GET/HEAD` | `/$DB/_index/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |  Manager |
-| `GET` | `/$DB/_design_docs`  | `cloudantnosqldb.any-document.read` | Manager |
-| `GET` | `/$DB/_design/$DOC_ID` | `cloudantnosqldb.any-document.read` | Manager |
-| `GET/HEAD` | `/$DB/_design/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.any-document.read` | Manager |
-| `PUT` | `/$DB/_design/$DOC_ID` | `cloudantnosqldb.design-document.write` | Manager |
-| `COPY` | `/$DB/_design/$DOC_ID` | `cloudantnosqldb.design-document.write` | Manager |
-| `DELETE` | `/$DB/_design/$DOC_ID` | `cloudantnosqldb.design-document.write` | Manager |
-| `PUT` | `/$DB/_design/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.design-document.write` | Manager |
-| `DELETE` | `/$DB/_design/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.design-document.write` | Manager |
-| `POST/DELETE` | `/$DB/_index/$FURTHER_PATH_PARTS` | `cloudantnosqldb.design-document.write` | Manager |
-| `GET/HEAD` | `/$DB/_security` | `cloudantnosqldb.database-security.read` | Manager |
-| `PUT` | `/$DB/_security` | `cloudantnosqldb.database-security.write` | Manager |
-| `GET/HEAD` | `/$DB/_shards` | `cloudantnosqldb.database-shards.read` | Manager |
-| `COPY` | `/$DB/$DOC_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` and/or `cloudantnosqldb.data-document.write` | Depends on write document type |
-| `GET` | `/_membership` | `cloudantnosqldb.cluster-membership.read` | Manager |
-| `POST` | `/$DB/_ensure_full_commit` | `cloudantnosqldb.database-ensure-full-commit.execute` | Manager |
-| `PUT` | `/_users` | `cloudantnosqldb.users-database.create`  | Manager |
-| `GET/HEAD` | `/_users` | `cloudantnosqldb.users-database-info.read`  | Manager |
-| `DELETE` | `/_users` | `cloudantnosqldb.users-database.delete`  | Manager |
-| `GET/HEAD` | `/_users/$DOC` | `cloudantnosqldb.users.read` | Manager |
-| `GET/POST` | `/_users/_all_docs` | `cloudantnosqldb.users.read` | Manager |
-| `GET/POST` | `/_users/_changes` | `cloudantnosqldb.users.read` | Manager |
-| `POST` | `/_users/_missing_revs` | `cloudantnosqldb.users.read` | Manager |
-| `POST` | `/_users/_revs_diff` | `cloudantnosqldb.users.read` | Manager |
-| `POST` | `/_users/_bulk_get` | `cloudantnosqldb.users.read` | Manager |
-| `PUT/DELETE` | `/_users/$DOC` | `cloudantnosqldb.users.write` | Manager |
-| `POST` | `/_users/_bulk_docs` | `cloudantnosqldb.users.write` | Manager |
-| `POST` | `/_users/` | `cloudantnosqldb.users.write` | Manager |
-{: caption="Table 2. Actions for the Manager role" caption-side="top"}
+| Method | Endpoint | Action name |
+|--------|----------|-------------|
+| `GET/PUT` | `/_api/v2/db/<path:db>/_security` | `cloudantnosqldb.sapi.db-security` |
+| `GET` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.read` |
+| `PUT` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.write` |
+| `GET` | `/_api/v2/user/current/throughput` | `cloudantnosqldb.current-throughput.read` |
+| `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
+| `GET/HEAD` | `/_active_tasks` | `cloudantnosqldb.account-active-tasks.read` |
+| `GET/HEAD` | `/_replicator` | `cloudantnosqldb.replicator-database-info.read ` |
+| `GET/HEAD` | `/_replicator/$DOCUMENT` | `cloudantnosqldb.replication.read` | 
+| `GET/HEAD` | `/_scheduler/jobs` | `cloudantnosqldb.replication-scheduler.read` | 
+| `GET/HEAD` | `/_scheduler/docs` | `cloudantnosqldb.replication-scheduler.read` | 
+| `POST` | `/_replicate` | `cloudantnosqldb.replication.write` |
+| `PUT/DELETE` | `/_replicator` | `cloudantnosqldb.replicator-database.create` |
+| `PUT/DELETE` | `/_replicator/$DOCUMENT` | `cloudantnosqldb.replication.write` |
+| `GET/HEAD` | `/_up` | `cloudantnosqldb.account-up.read` | 
+| `PUT` | `/$DATABASE/` | `cloudantnosqldb.database.create` |
+| `DELETE` | `/$DATABASE` | `cloudantnosqldb.database.delete` |
+| `POST` | `/$DATABASE/_design_docs/queries` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/_design/$DOCUMENT_ID/_geo_info` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/_design/$DOCUMENT_ID/_info/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET` | `/$DATABASE/_design/$DOCUMENT_ID/_search_disk_size/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET` | `/$DATABASE/_design/$DOCUMENT_ID/_search_info/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/_index/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET` | `/$DATABASE/_design_docs`  | `cloudantnosqldb.any-document.read` | 
+| `GET` | `/$DATABASE/_design/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/_design/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.any-document.read` |
+| `PUT` | `/$DATABASE/_design/$DOCUMENT_ID` | `cloudantnosqldb.design-document.write` |
+| `COPY` | `/$DATABASE/_design/$DOCUMENT_ID` | `cloudantnosqldb.design-document.write` |
+| `DELETE` | `/$DATABASE/_design/$DOCUMENT_ID` | `cloudantnosqldb.design-document.write` |
+| `PUT` | `/$DATABASE/_design/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.design-document.write` |
+| `DELETE` | `/$DATABASE/_design/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.design-document.write` |
+| `POST/DELETE` | `/$DATABASE/_index/$FURTHER_PATH_PARTS` | `cloudantnosqldb.design-document.write` |
+| `GET/HEAD` | `/$DATABASE/_security` | `cloudantnosqldb.database-security.read` |
+| `PUT` | `/$DATABASE/_security` | `cloudantnosqldb.database-security.write` |
+| `GET/HEAD` | `/$DATABASE/_shards` | `cloudantnosqldb.database-shards.read` |
+| `COPY` (Depends on write document type.) | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` and/or `cloudantnosqldb.data-document.write` | 
+| `GET` | `/_membership` | `cloudantnosqldb.cluster-membership.read` |
+| `POST` | `/$DATABASE/_ensure_full_commit` | `cloudantnosqldb.database-ensure-full-commit.execute` |
+| `PUT` | `/_users` | `cloudantnosqldb.users-database.create`  |
+| `GET/HEAD` | `/_users` | `cloudantnosqldb.users-database-info.read`  |
+| `DELETE` | `/_users` | `cloudantnosqldb.users-database.delete`  |
+| `GET/HEAD` | `/_users/$DOCUMENT` | `cloudantnosqldb.users.read` |
+| `GET/POST` | `/_users/_all_docs` | `cloudantnosqldb.users.read` |
+| `GET/POST` | `/_users/_changes` | `cloudantnosqldb.users.read` |
+| `POST` | `/_users/_missing_revs` | `cloudantnosqldb.users.read` |
+| `POST` | `/_users/_revs_diff` | `cloudantnosqldb.users.read` |
+| `POST` | `/_users/_bulk_get` | `cloudantnosqldb.users.read` |
+| `PUT/DELETE` | `/_users/$DOCUMENT` | `cloudantnosqldb.users.write` |
+| `POST` | `/_users/_bulk_docs` | `cloudantnosqldb.users.write` |
+| `POST` | `/_users/` | `cloudantnosqldb.users.write` |
+| `GET/HEAD` | `/_uuids` | `cloudantnosqldb.cluster-uuids.execute` |
+| `POST` | `/$DATABASE/` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` |
+| `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` and/or `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` |
+| `PUT` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
+| `DELETE` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
+| `PUT` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
+| `DELETE` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
+| `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
+| `COPY` (Depends on write document type.) | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` and/or `cloudantnosqldb.data-document.write` |
+| `GET/HEAD` | `/_iam_session` | `cloudantnosqldb.iam-session.read` |
+| `POST` | `/_iam_session` | `cloudantnosqldb.iam-session.write` |
+| `DELETE` | `/_iam_session` | `cloudantnosqldb.iam-session.delete` |
+| `GET/HEAD` | `/_session` | `cloudantnosqldb.session.read` |
+| `POST` | `/_session` | `cloudantnosqldb.session.write` |
+| `DELETE` | `/_session` | `cloudantnosqldb.session.delete` |
+| `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` |
+| `GET` | `/_db_updates` | `cloudantnosqldb.account-db-updates.read` |
+| `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
+| `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
+| `GET/POST` | `/$DATABASE/_all_docs` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_changes` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_bulk_get` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/_search_analyze` | `cloudantnosqldb.account-search-analyze.execute` |
+| `POST` | `/$DATABASE/_all_docs/queries` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/_design/$DOCUMENT_ID/_geo/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_list/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_search/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_show/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$VIEW/queries` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_find/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET` | `/$DATABASE/_local_docs` | `cloudantnosqldb.any-document.read ` |
+| `POST` | `/$DATABASE/_local_docs/queries` | `cloudantnosqldb.any-document.read ` |
+| `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read ` |
+| `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
+{: class="simple-tab-table"}
+{: caption="Table 3. Manager role actions and mapping" caption-side="top"}
+{: #manager-role}
+{: tab-title="Manager"}
+{: tab-group="Roles-simple"}
 
-| Method | Endpoint | Action Name | Role |
-|--------|----------|-------------|------|
-| `GET/HEAD` | `/_uuids` | `cloudantnosqldb.cluster-uuids.execute` | Manager, Writer |
-| `POST` | `/$DB/` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` | Manager, Writer |
-| `POST` | `/$DB/_bulk_docs` | `cloudantnosqldb.data-document.write` and/or `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` | Manager, Writer |
-| `PUT` | `/$DB/$DOC_ID` | `cloudantnosqldb.data-document.write` | Manager, Writer |
-| `DELETE` | `/$DB/$DOC_ID` | `cloudantnosqldb.data-document.write` | Manager, Writer |
-| `PUT` | `/$DB/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` | Manager, Writer |
-| `DELETE` | `/$DB/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` | Manager, Writer |
-| `PUT/DELETE` | `/$DB/_local/$DOC_ID` | `cloudantnosqldb.data-document.write` | Manager, Writer |
-| `COPY` | `/$DB/_local/$DOC_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` and/or `cloudantnosqldb.data-document.write` | Depends on write document type |
-{: caption="Table 3. Actions for the Manager and Writer roles" caption-side="top"}
+| Method | Endpoint | Action name |
+|--------|----------|-------------|
+| `GET/HEAD` | `/_uuids` | `cloudantnosqldb.cluster-uuids.execute` |
+| `POST` | `/$DATABASE/` | `cloudantnosqldb.data-document.write` or `cloudantnosqldb.design-document.write` or `cloudantnosqldb.local-document.write` |
+| `POST` | `/$DATABASE/_bulk_docs` | `cloudantnosqldb.data-document.write` and/or `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` |
+| `PUT` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
+| `DELETE` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.data-document.write` |
+| `PUT` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
+| `DELETE` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.data-document.write` |
+| `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
+| `GET/HEAD` | `/_iam_session` | `cloudantnosqldb.iam-session.read` |
+| `POST` | `/_iam_session` | `cloudantnosqldb.iam-session.write` |
+| `DELETE` | `/_iam_session` | `cloudantnosqldb.iam-session.delete` |
+| `GET/HEAD` | `/_session` | `cloudantnosqldb.session.read` |
+| `POST` | `/_session` | `cloudantnosqldb.session.write` |
+| `DELETE` | `/_session` | `cloudantnosqldb.session.delete` |
+| `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` |
+| `GET` | `/_db_updates` | `cloudantnosqldb.account-db-updates.read` |
+| `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
+| `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
+| `GET/POST` | `/$DATABASE/_all_docs` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_changes` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_bulk_get` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/_search_analyze` | `cloudantnosqldb.account-search-analyze.execute` |
+| `POST` | `/$DATABASE/_all_docs/queries` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/_design/$DOCUMENT_ID/_geo/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_list/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_search/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_show/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$VIEW/queries` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_find/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET` | `/$DATABASE/_local_docs` | `cloudantnosqldb.any-document.read ` |
+| `POST` | `/$DATABASE/_local_docs/queries` | `cloudantnosqldb.any-document.read ` |
+| `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read ` |
+| `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
+{: caption="Table 4. Writer role actions and mapping" caption-side="top"}
+{: #writer-role}
+{: tab-title="Writer"}
+{: tab-group="Roles-simple"}
+{: class="simple-tab-table"}
 
-| Method | Endpoint | Action Name | Role |
-|--------|----------|-------------|------|
-| `GET/HEAD` | `/_iam_session` | `cloudantnosqldb.iam-session.read` | Manager, Writer, Reader |
-| `POST` | `/_iam_session` | `cloudantnosqldb.iam-session.write` | Manager, Writer, Reader |
-| `DELETE` | `/_iam_session` | `cloudantnosqldb.iam-session.delete` | Manager, Writer, Reader |
-| `GET/HEAD` | `/_session` | `cloudantnosqldb.session.read` | Manager, Writer, Reader |
-| `POST` | `/_session` | `cloudantnosqldb.session.write` | Manager, Writer, Reader |
-| `DELETE` | `/_session` | `cloudantnosqldb.session.delete` | Manager, Writer, Reader |
-| `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` | Manager, Writer, Reader |
-| `GET` | `/_db_updates` | `cloudantnosqldb.account-db-updates.read` | Manager, Writer, Reader |
-| `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` | Manager, Writer, Reader |
-| `GET` | `/$DB/` | `cloudantnosqldb.database-info.read` | Manager, Writer, Reader |
-| `GET/POST` | `/$DB/_all_docs` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `GET/POST` | `/$DB/_changes` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `GET/HEAD` | `/$DB/$DOC_ID` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `GET/HEAD` | `/$DB/$DOC_ID/$ATTACHMENT` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `POST` | `/$DB/_bulk_get` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `GET/POST` | `/_search_analyze` | `cloudantnosqldb.account-search-analyze.execute` | Manager, Writer, Reader |
-| `POST` | `/$DB/_all_docs/queries` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `GET/HEAD` | `/$DB/_design/$DOC_ID/_geo/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `GET/POST` | `/$DB/_design/$DOC_ID/_list/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `GET/POST` | `/$DB/_design/$DOC_ID/_search/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `GET/POST` | `/$DB/_design/$DOC_ID/_show/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `POST` | `/$DB/_design/$DOC_ID/_view/$VIEW/queries` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `GET/POST` | `/$DB/_design/$DOC_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `POST` | `/$DB/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `POST` | `/$DB/_find/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `GET` | `/$DB/_local_docs` | `cloudantnosqldb.any-document.read ` | Manager, Writer, Reader |
-| `POST` | `/$DB/_local_docs/queries` | `cloudantnosqldb.any-document.read ` | Manager, Writer, Reader |
-| `GET` | `/$DB/_local/$DOC_ID` | `cloudantnosqldb.any-document.read ` | Manager, Writer, Reader |
-| `POST` | `/$DB/_missing_revs` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-| `POST` | `/$DB/_revs_diff` | `cloudantnosqldb.any-document.read` | Manager, Writer, Reader |
-{: caption="Table 4. Actions for the Manager, Writer, and Reader roles" caption-side="top"}
+| Method | Endpoint | Action name |
+|--------|----------|-------------|
+| `GET/HEAD` | `/_iam_session` | `cloudantnosqldb.iam-session.read` |
+| `POST` | `/_iam_session` | `cloudantnosqldb.iam-session.write` |
+| `DELETE` | `/_iam_session` | `cloudantnosqldb.iam-session.delete` |
+| `GET/HEAD` | `/_session` | `cloudantnosqldb.session.read` |
+| `POST` | `/_session` | `cloudantnosqldb.session.write` |
+| `DELETE` | `/_session` | `cloudantnosqldb.session.delete` |
+| `GET/HEAD` | `/_all_dbs` | `cloudantnosqldb.account-all-dbs.read` |
+| `GET` | `/_db_updates` | `cloudantnosqldb.account-db-updates.read` |
+| `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
+| `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
+| `GET/POST` | `/$DATABASE/_all_docs` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_changes` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_bulk_get` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/_search_analyze` | `cloudantnosqldb.account-search-analyze.execute` |
+| `POST` | `/$DATABASE/_all_docs/queries` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | `/$DATABASE/_design/$DOCUMENT_ID/_geo/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_list/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_search/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_show/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$VIEW/queries` | `cloudantnosqldb.any-document.read` |
+| `GET/POST` | `/$DATABASE/_design/$DOCUMENT_ID/_view/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_explain/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_find/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
+| `GET` | `/$DATABASE/_local_docs` | `cloudantnosqldb.any-document.read ` |
+| `POST` | `/$DATABASE/_local_docs/queries` | `cloudantnosqldb.any-document.read ` |
+| `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read ` |
+| `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
+| `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
+{: caption="Table 5. Reader role actions and mapping" caption-side="top"}
+{: #reader-role}
+{: tab-title="Reader"}
+{: tab-group="Roles-simple"}
+{: class="simple-tab-table"}
+
+| Method | Endpoint | Action name | Manager |
+|--------|----------|-------------|---------|
+| `GET` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.read` |
+| `GET` | `/_api/v2/user/current/throughput` | `cloudantnosqldb.current-throughput.read` |
+| `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
+| `GET/HEAD` | `/_active_tasks` | `cloudantnosqldb.account-active-tasks.read` |
+| `GET/HEAD` | `/_scheduler/jobs` | `cloudantnosqldb.replication-scheduler.read` |
+| `GET/HEAD` | `/_scheduler/docs` | `cloudantnosqldb.replication-scheduler.read` |
+| `GET/HEAD` | `/_up` | `cloudantnosqldb.account-up.read` |
+| `GET/HEAD` | `/$DATABASE/_shards` | `cloudantnosqldb.database-shards.read` |
+| `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
+| `POST` | `/_dbs_info` | `cloudantnosqldb.account-dbs-info.read` |
+| `GET` | `/$DATABASE/` | `cloudantnosqldb.database-info.read` |
+{: caption="Table 6. Monitor role actions and mapping" caption-side="top"}
+{: #monitor-role}
+{: tab-title="Monitor"}
+{: tab-group="Roles-simple"}
+{: class="simple-tab-table"}
+
+| Method | Endpoint | Action name |
+|--------|----------|-------------|
+| `PUT/DELETE` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.local-document.write` |
+{: caption="Table 7. Checkpointer role actions and mapping" caption-side="top"}
+{: #checkpointer-role}
+{: tab-title="Checkpointer"}
+{: tab-group="Roles-simple"}
+{: class="simple-tab-table"}
 
 #### Unavailable endpoints
 {: #unavailable-endpoints}
@@ -708,6 +831,7 @@ While design documents can contain update functions, users cannot call them.
 
 ## Troubleshooting
 {: #troubleshooting}
+
 If you are having trouble using IAM to authenticate when making requests to your {{site.data.keyword.cloudant_short_notm}} service instance, verify your account as shown in the next section.
 
 ### Ensure your account is IAM enabled
