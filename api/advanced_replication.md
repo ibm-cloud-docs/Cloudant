@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-11-11"
+lastupdated: "2019-12-18"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -770,7 +770,7 @@ Field           | Purpose                                                     | 
 `source`        | Source database URL, including username and password.      | No
 `target`        | Target database URL, including username and password.      | No
 
-See xample instructions for using HTTP to start a replication through the `_replicate` endpoint:
+See example instructions for using HTTP to start a replication through the `_replicate` endpoint:
 
 ```http
 POST /_replicate HTTP/1.1
