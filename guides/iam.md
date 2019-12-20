@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-19"
+lastupdated: "2019-12-20"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -40,7 +40,7 @@ to help you decide which to use. Then, we discuss how to use IAM within
 {{site.data.keyword.cloudant_short_notm}}'s client libraries and via HTTP calls. Finally, we end with a reference
 section that describes all of the IAM actions and roles available within {{site.data.keyword.cloudant_short_notm}}.
 
-For more information, see an overview of [IAM](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window}{: external}, including how to:
+For more information, see an overview of [IAM](https://cloud.ibm.com/docs/iam/index.html#iamoverview){: new_window}{: external} that includes the following topics:
 
 - Manage user and service IDs.
 - Manage available credentials.
@@ -57,7 +57,7 @@ Legacy and {{site.data.keyword.cloud_notm}} IAM's access control mechanisms.
 
 - Centrally managed access management across {{site.data.keyword.cloud_notm}}.
 - Allow a user or service to access many different resources by using the same set
-  of credentials (for example, same username/password or IAM API key).
+  of credentials (for example, same username and password or IAM API key).
 - IAM API keys can be granted access to account management functions, like
   creating new databases.
 
@@ -68,14 +68,14 @@ Legacy and {{site.data.keyword.cloud_notm}} IAM's access control mechanisms.
 - Access to each service instance requires its own set of credentials.
 - Uses HTTP basic authentication with credentials that are not bound to an individual
   user or service.
-- {{site.data.keyword.cloudant_short_notm}} API keys can only be granted permissions at a database level.
+- {{site.data.keyword.cloudant_short_notm}} API keys can be granted permissions only at a database level.
 
 ### API key notes
 {: #api-key-notes}
 
 In this document, wherever API keys are mentioned it refers to IAM API keys.
 {{site.data.keyword.cloudant_short_notm}} Legacy also has a concept of API keys, and any discussion about {{site.data.keyword.cloudant_short_notm}} Legacy
-credentials or username/password combinations also includes {{site.data.keyword.cloudant_short_notm}} API keys.
+credentials or username and password combinations also includes {{site.data.keyword.cloudant_short_notm}} API keys.
 
 ## Enabling IAM with {{site.data.keyword.cloudant_short_notm}}
 {: #enabling-iam-with-ibm-cloudant}
@@ -86,10 +86,10 @@ All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July
 2. **Use only IAM**: This mode means that only IAM credentials are provided via Service binding and
     credential generation.
 
-When using IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
+When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions. 
 {: important}
 
-{{site.data.keyword.cloudant_short_notm}} service instances provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After migrating to a Resource Group, the instance will be enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate.
+{{site.data.keyword.cloudant_short_notm}} service instances that are provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After you migrate to a Resource Group, the instance is enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate.
 
 ### {{site.data.keyword.cloudant_short_notm}} API keys and _Use only IAM_
 {: #ibm-cloudant-api-keys-and-_use-only-iam_}
@@ -98,7 +98,7 @@ Use of {{site.data.keyword.cloudant_short_notm}} API keys alongside IAM is possi
 {{site.data.keyword.cloudant_short_notm}} API keys and permissions are not visible or manageable via the IAM policy interface, rendering
 holistic access management impossible.
 
-The choice between *Use only IAM* or *Use both legacy credentials and IAM* affects:
+The choice between *Use only IAM* or *Use both legacy credentials and IAM* affects the following factors:
 
 1. Whether legacy {{site.data.keyword.cloudant_short_notm}} account-level credentials are available to manage databases and other
     account-level actions.
@@ -122,7 +122,7 @@ ibmcloud resource service-instance-create  "Instance Name" \
     -p {"legacyCredentials": false}
 ```
 
-When using IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions. 
+When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions. 
 {: important}
 
 To provision an instance as *Use both legacy credentials and IAM*, run the following command:
@@ -137,14 +137,14 @@ ibmcloud resource service-instance-create  "Instance Name" \
 {: #service-credential-json-examples-for-each-option}
 
 The choice between *Use only IAM* and *Use both legacy credentials and IAM* access control
-affects how credentials are delivered to your application when binding and generating
-service credentials. When generating credentials within the primary {{site.data.keyword.cloud_notm}}
+affects how credentials are delivered to your application when you bind and generate
+service credentials. When you generate credentials within the primary {{site.data.keyword.cloud_notm}}
 IAM interface, API keys are shown in that interface when generated.
 
 You can also generate credentials from the Service Credentials section of a
 service instance. Generating service credentials this way creates a service credentials JSON blob that can be pasted into applications with all the details that are needed to access the service instance.
 
-This section shows what the service credential JSON looks like and what
+Next, you can see what the service credential JSON looks like and what
 each value means.
 
 When you select *Use only IAM*, service credentials that are generated contain only IAM
@@ -162,7 +162,7 @@ values, and look like the following example:
 }
 ```
 
-Each value in the previous JSON example should be interpreted as follows:
+Each value in the previous JSON example must be interpreted as follows:
 
 - `apikey`: IAM API key.
 - `iam_apikey_description`: Description of IAM API key.
@@ -207,11 +207,11 @@ Note the included `username` and `password` are always equivalent to IAM's
 Manager credentials and so use of *Use both legacy credentials and IAM* is
 insecure when used with Reader, Writer, Monitor or Checkpointer IAM roles.
 
-## Should I use *Use only IAM* or *Use both legacy credentials and IAM*?
-{: #should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
+## Must I use *Use only IAM* or *Use both legacy credentials and IAM*?
+{: #must-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-}
 
 If possible, *Use only IAM* is preferred. The major advantages for using
-{{site.data.keyword.cloud_notm}} IAM include:
+{{site.data.keyword.cloud_notm}} IAM are shown in the following list:
 
 - Management of access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling rather than
   a combination of {{site.data.keyword.cloud_notm}} and {{site.data.keyword.cloudant_short_notm}}-specific credential management.
@@ -219,14 +219,13 @@ If possible, *Use only IAM* is preferred. The major advantages for using
 
 Further description of the advantages and disadvantages of each approach follows.
 
-When using IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions.  
+When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.   
 {: important}
 
 ### Advantages and disadvantages of the two access control mechanisms
 {: #advantages-and-disadvantages-of-the-two-access-control-mechanisms}
 
-Overall, {{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. However, there
-are disadvantages to the approach, primarily, if you have an existing application
+Overall, {{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. However, the primary disadvantages to the approach are if you have an existing application
 or are unable to use an {{site.data.keyword.cloudant_short_notm}}-supported client library.
 
 #### Advantages of IAM mode
@@ -269,7 +268,7 @@ Follow these instructions to generate IAM API keys, generate the bearer token, c
 ### Generating IAM API keys for Source and Target and one for {{site.data.keyword.cloudant_short_notm}} API access
 {: #generate-iam-api-keys-cloudant-api-access}
 
-We will create the first two API keys so that the two instances can talk to each other during the replication process. The third API key is for the user to access the {{site.data.keyword.cloudant_short_notm}} API, create the `_replicator` database, and then add the replication document to it.
+We create the first two API keys so that the two instances can talk to each other during the replication process. The third API key is for the user to access the {{site.data.keyword.cloudant_short_notm}} API, create the `_replicator` database, and then add the replication document to it.
 
 Follow these steps to generate IAM API keys and API access for {{site.data.keyword.cloudant_short_notm}}. You must write down
 the credentials that are requested in the following steps in order to continue with the example.
@@ -284,7 +283,7 @@ Ensure that you select the specified instance, either the Source or Target.
 	<li>Click <strong>Add</strong>, and make note of its <code>apikey</code>, which is under View Credentials in the Actions column.</li>
 </li>
 <li>Repeat steps 2 through 2.c. for the Target instance.
-<ol type=a><li>Create a new credential called <code>replicator-target</code> with the Manager role.</li>
+<ol type=a><li>Create a credential called <code>replicator-target</code> with the Manager role.</li>
 <li>Make note of its IAM API key, which is under View Credentials in the Actions column.</li></ol></li>
 <li>Select the Source instance, and click <strong>Service credentials</strong> and <strong>New credential</strong>.
  	<ol type=a><li>Name the new credential <code>apiaccess</code>, and select the Manager role. </li>
@@ -292,7 +291,7 @@ Ensure that you select the specified instance, either the Source or Target.
 </li>
 <li>Make note of Source and Target instance URLs.</li></ol>
 
-Depending on your workflow, instead of creating a service-level credential (step 4 above), you can use a personal IAM API key, as detailed in [Creating an API key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key){: new_window}{: external}.
+Depending on your workflow, instead of creating a service-level credential (step 4), you can use a personal IAM API key, as detailed in [Creating an API key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key){: new_window}{: external}.
 
 You can also complete these steps on the command-line by using the [{{site.data.keyword.cloud_notm}} CLI tool chain](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started){: new_window}{: external}.
 
@@ -355,7 +354,7 @@ See the results in the following example:
 ### Creating the replication job
 {: #create-the-replication-job}
 
-Create a file called `data.json`, containing the following information, where the two keys are the Source and Target API keys created in the beginning, and the Source and Target instance URLs, with database names added.
+Create a file called `data.json` that contains the following information. The two keys are the Source and Target API keys that are created in the beginning, and the Source and Target instance URLs, with database names added.
 
 ```curl
 {
@@ -403,20 +402,20 @@ See the results in the following example:
 
 {{site.data.keyword.cloud_notm}} IAM is the recommended authentication model. For security purposes, you can request to remove the {{site.data.keyword.cloudant_short_notm}} legacy credentials so that only IAM authentication can be used for the instance. The correct process to remove legacy credentials is as follows:
 
-1. Ensure that the {{site.data.keyword.cloudant_short_notm}} instance has IAM authentication enabled. If the instance is deployed in a Cloud Foundry org and space, migrate it to a Resource Group by using this [guide](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-).
+1. Ensure that the {{site.data.keyword.cloudant_short_notm}} instance has IAM authentication enabled. If the instance is deployed in a Cloud Foundry org and space, migrate it to a Resource Group by using the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide.
 
 2. Update your application to use IAM authentication instead of {{site.data.keyword.cloudant_short_notm}} legacy authentication.
 
 3. Generate [new service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-a-service-instance) as needed.
 
-4. Open a new {{site.data.keyword.cloud_notm}} support case requesting to remove {{site.data.keyword.cloudant_short_notm}} legacy credentials for your instance. Include the username of the instance as shown in the service credentials. For more information, see [Locating your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+4. Open a new {{site.data.keyword.cloud_notm}} support case that requests the removal of {{site.data.keyword.cloudant_short_notm}} legacy credentials for your instance. Include the username of the instance as shown in the service credentials. For more information, see [Locating your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
-5. Once support has replied that the legacy credentials have been removed, note that any service credentials created prior to removal will contain legacy username and password details that will no longer work. It is recommended to remove any of these service credential entries.
+5. After support replies that the legacy credentials were removed, any service credentials that were created prior to removal contain legacy username and password details that no longer work. It is recommended to remove any of these service credential entries.
 
 ## Making requests to instances by using IAM credentials
 {: #making-requests-to-instances-by-using-iam-credentials}
 
-This section discusses how to use {{site.data.keyword.cloudant_short_notm}} with
+Now, we discuss how to use {{site.data.keyword.cloudant_short_notm}} with
 service instances through IAM authentication. It uses the
 details from the Service Credentials JSON example previously mentioned.
 
@@ -427,7 +426,7 @@ details from the Service Credentials JSON example previously mentioned.
 ### Required client library versions
 {: #required-client-library-versions}
 
-Use at minimum the following client library versions with IAM-enabled {{site.data.keyword.cloudant_short_notm}}
+At minimum, use the following client library versions with IAM-enabled {{site.data.keyword.cloudant_short_notm}}
 service instances:
 
 | Library | Recommended |
@@ -525,7 +524,7 @@ is then included in the `Authorization` HTTP header to the service. When the
 access token expires, the client must handle getting a new one from the IAM
 token service.
 
-As stated previously, using {{site.data.keyword.cloud_notm}} IAM requires that you first exchange an {{site.data.keyword.IBM_notm}} API key for a time-limited access token, and then use the token to authenticate against the {{site.data.keyword.cloudant_short_notm}} API.
+As stated previously, if you use {{site.data.keyword.cloud_notm}} IAM, it requires that you first exchange an {{site.data.keyword.IBM_notm}} API key for a time-limited access token, and then use the token to authenticate against the {{site.data.keyword.cloudant_short_notm}} API.
 
 In Python, an example might look like:
 
@@ -585,7 +584,7 @@ if __name__ == "__main__":
 ## Reference
 {: #reference}
 
-This section contains a complete list of {{site.data.keyword.cloudant_short_notm}}'s IAM roles and actions, and and mapping of what  actions are allowed for each IAM system role.
+The following tables include a complete list of {{site.data.keyword.cloudant_short_notm}}'s IAM roles and actions, and a mapping of what actions are allowed for each IAM system role.
 
 ### {{site.data.keyword.cloudant_short_notm}} roles
 {: #ibm-cloudant-roles}
@@ -608,7 +607,7 @@ Note that Manager is inclusive of all actions of Reader and Writer, and Writer i
 
 The following table describe the available IAM actions and roles. For fine-grained authorization, there are the roles of Manager, Reader, Writer, Monitor, and Checkpointer.
 
-When using IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** be using *Use only IAM* to avoid users being supplied Legacy credentials with greater access permissions.  
+When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.  
 {: important}
 
 | Method | Endpoint | Action name |
@@ -824,15 +823,15 @@ When using IAM roles other than Manager, such as Reader, Writer, Monitor, or Che
 
 The following endpoints are unavailable to requests authorized with IAM:
 
-- HTTP rewrite handlers: `/db/_design/design-doc/_rewrite/path`. <br>
+- HTTP rewrite handlers - `/db/_design/design-doc/_rewrite/path`. <br>
 While design documents can contain rewrite handlers, users cannot call them.
-- Update handlers: `POST /db/_design/ddoc/_update/func`. <br>
+- Update handlers - `POST /db/_design/ddoc/_update/func`. <br>
 While design documents can contain update functions, users cannot call them.
 
 ## Troubleshooting
 {: #troubleshooting}
 
-If you are having trouble using IAM to authenticate when making requests to your {{site.data.keyword.cloudant_short_notm}} service instance, verify your account as shown in the next section.
+If you have trouble using IAM to authenticate when you make requests to your {{site.data.keyword.cloudant_short_notm}} service instance, verify your account as shown in the next section.
 
 ### Ensure your account is IAM enabled
 {: #ensure-your-account-is-iam-enabled}
