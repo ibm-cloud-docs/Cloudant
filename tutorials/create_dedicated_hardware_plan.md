@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-12-23"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -21,32 +21,28 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-12-23 -->
 
 # Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}
 {: #creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud}
 
-This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance 
-that uses the {{site.data.keyword.cloud}} dashboard, and shows you how to subsequently provision one or 
-more Standard plan instances to run on it by using either the {{site.data.keyword.cloud_notm}} Catalog or the {{site.data.keyword.cloud_notm}} CLI. 
+This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance that uses the {{site.data.keyword.cloud}} dashboard. After that exercise, we also show you how to provision one or more Standard plan instances to run on it by using feither the {{site.data.keyword.cloud_notm}} Catalog or the {{site.data.keyword.cloud_notm}} CLI. 
 {: shortdesc}
 
-Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance results in the provisioning 
-of an {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware for your sole use. A service 
-instance is created in the {{site.data.keyword.cloud_notm}} dashboard, but you cannot 
-access the Dedicated Hardware plan instance directly and will not have 
-any Service Credentials for it. You can use an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware 
-plan instance after it is created by provisioning one or more Standard plan 
-instances on it.
+When you create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, an {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware is created for your sole use. A service 
+instance is also created in the {{site.data.keyword.cloud_notm}} dashboard. You can't 
+access the Dedicated Hardware plan instance directly, nor will you have 
+any Service Credentials for it. Instead, you use your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware 
+plan instance by creating one or more Standard plan instances on it.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance
 {: #creating-an-ibm-cloudant-dedicated-hardware-plan-instance}
 
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
-    The {{site.data.keyword.cloud_notm}} dashboard can be found at:
+    The {{site.data.keyword.cloud_notm}} dashboard can be found by using the following website:
     [`https://cloud.ibm.com/`](https://cloud.ibm.com/){: new_window}{: external}.
-    After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
+    After you authenticate with your username name and password,
+    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
 2.  Click `Databases` from the menu and `Cloudant` from the list of database services.<br/>
@@ -55,22 +51,22 @@ instances on it.
 3.  Select the `Dedicated Hardware` plan from the list of pricing plans:<br/>
     ![Pricing plans](images/pricing_plan.png)
     
-4.  Fill out the following parameters: <br/>
+4.  Complete the following parameters: <br/>
     -   Enter a service name.<br/>
-    -   Specify the region/location where you want to deploy. The region/location will be one of the six major {{site.data.keyword.cloud_notm}} regions where you want the instance deployed. The actual physical location of the instance is dictated by the location parameter described in the following list.<br/>
+    -   Specify the region/location where you want to deploy. The region/location is one of the six major {{site.data.keyword.cloud_notm}} regions where you want the instance that is deployed. The actual physical location of the instance is dictated by the location parameter that is described in the following list.<br/>
     -   Select a resource group.</br>
     -   Add a tag. 
-    -   Select a location for deployment. This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){:new_window}{: external}.<br/>
+    -   Select a location for deployment. This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){:new_window}{: external}.<br/>
     -   Select `yes` or `no` to answer whether HIPAA is required.<br/> 
     
-    HIPAA is only valid for U.S. locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only provisioned upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. See [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
+    HIPAA is only valid for US locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only created upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. See [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
     {: note}
 
     ![Configure dedicated hardware](images/select_deployment_location.png)
         
 5.  Click the `Create` button to start the provisioning process. <br/>
 
-    Billing is prorated daily so make sure that you want to provision and pay for an environment before clicking the **Create** button.
+    Billing is calculated and prorated every day. Make sure that you want to provision and pay for an environment before you click the **Create** button.
     {: note}
 
     ![Provision dedicated hardware](images/create_button_provision.png)
@@ -86,8 +82,8 @@ instances on it.
 1.  Log in to your {{site.data.keyword.cloud_notm}} account.<br/>
     The {{site.data.keyword.cloud_notm}} dashboard can be found at:
     [https://cloud.ibm.com/](https://cloud.ibm.com/){: new_window}{: external}.
-    After authenticating with your user name and password,
-    you are presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
+    After you authenticate with your username and password,
+    you're presented with the {{site.data.keyword.cloud_notm}} dashboard. Click the `Create resource` button:<br/>
     ![{{site.data.keyword.cloud_notm}} dashboard](images/img0001.png)
 
 2.  Click `Databases` from the menu and `Cloudant` from the list of database services.<br/>
@@ -97,23 +93,23 @@ instances on it.
 3.  Click `Standard` from the pricing plans. <br/>
     ![Standard pricing plan](images/standard_pricing_plan.png)
     
-    You cannot provision a Lite plan instance on a Dedicated Hardware environment.
+    You can't provision a Lite plan instance on a Dedicated Hardware environment.
     {: tip}
     
-4.  Fill out the following parameters: <br/>
+4.  Complete the following parameters: <br/>
     -   Enter a service name.<br/>
     -   Specify the region/location where you want to deploy. <br/>
     -   Select a resource group. </br>
     -   Add a tag. 
     -   Select an authentication method.</br>
-    -   Select an environment, which is where the Standard plan instance will be deployed. Any Dedicated Hardware environment instances deployed in the account will show up in the drop-down if they are available.</br>
+    -   Select an environment, which is where the Standard plan instance will be deployed. Any Dedicated Hardware environment instances that are deployed in the account show up in the drop-down if they're available.</br>
     ![Configure standard instance](images/select_environment.png)
     
 5.  Click the `Create` button.<br/>
     After a few seconds, the instance is provisioned on the environment you selected.<br/>
     ![Provision standard instance](images/create_button_provision_standard.png)
     
-6.  Obtain your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} Dashboard 
+6.  Take note of your Service Credentials and access the {{site.data.keyword.cloudant_short_notm}} dashboard 
     as you do for a multi-tenant {{site.data.keyword.cloudant_short_notm}} instance. 
     
     For more information, see [how to locate your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials){: new_window}. 
@@ -121,14 +117,14 @@ instances on it.
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment with the {{site.data.keyword.cloud_notm}} CLI
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment-with-the-ibm-cloud-cli}
 
-To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information about how to log in and set a target resource group, see [Logging in to your {{site.data.keyword.cloud_notm}} account](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window}. 
+To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information about how to log in and set a target resource group, see [Log in to your {{site.data.keyword.cloud_notm}} account](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window}. 
 
-To create an {{site.data.keyword.cloudant_short_notm}} Standard plan instance on your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment, the basic command format is as follows:
+To create an {{site.data.keyword.cloudant_short_notm}} Standard plan instance on your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan environment, use the following basic command format:
 
 
 Field | Description
 ------|------------
-`NAME`| An arbitrary name you assign the instance.
+`NAME`| An arbitrary name that you assign the instance.
 `SERVICE_NAME` | `cloudantnosqldb`
 `PLAN_NAME` | Standard plan
 `LOCATION` |  The location where you want to deploy, for example, us-south, us-east, or eu-gb. 
@@ -144,7 +140,7 @@ ibmcloud resource service-instance-create NAME SERVICE_NAME SERVICE_PLAN_NAME LO
 
 Parameter | Description
 ----------|------------
-`environment_crn` | This parameter must be set to the CRN of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. You can determine what the CRN is by looking at the example CLI command in the Manage tab of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance in the {{site.data.keyword.cloud_notm}} Dashboard. Or you can determine what the CRN is by using the `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` command. 
+`environment_crn` | This parameter must be set to the CRN of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. You can determine what the CRN is by looking at the example CLI command in the Manage tab of the {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance in the {{site.data.keyword.cloud_notm}} dashboard. Or you can determine what the CRN is by using the `ibmcloud resource service-instance SERVICE_INSTANCE_NAME` command. 
 `legacyCredentials` | An optional parameter that defaults to true and dictates whether the instance uses both legacy and IAM credentials or IAM credentials only. See the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-) for more details on choosing an authentication method.
 
 See the following example command: 
@@ -165,8 +161,7 @@ Service credentials are valuable. If anyone or any application has access to the
 
 For more information about the fields included in the service credentials, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
-The basic command format to create credentials for a service instance
-within {{site.data.keyword.cloud_notm}} is as follows:
+You can use the basic command format to create credentials for a service instance within {{site.data.keyword.cloud_notm}}:
 
 ```sh
 ibmcloud resource service-key-create NAME ROLE_NAME --instance-name SERVICE_INSTANCE_NAME [-p '{"service-endpoints":"internal"}]
@@ -179,18 +174,18 @@ Field | Description
 ------|------------
 `NAME` | Arbitrary name that you give the service credentials. 
 `ROLE_NAME` | This field currently allows the Manager role only.
-`SERVICE_INSTANCE_NAME` | The name you give to your {{site.data.keyword.cloudant_short_notm}} instance.
-`service-endpoints` | An optional parameter to populate the url field in the Service Credentials with an internal endpoint to connect to the service over the {{site.data.keyword.cloud_notm}} internal network. Omit this parameter to populate the url with an external endpoint that is publicly accessible. Only applies to Standard plan instances deployed on Dedicated Hardware environments that support internal endpoints. Command will result in a 400 error if the environment doesn't support internal endpoints. 
+`SERVICE_INSTANCE_NAME` | The name that you give to your {{site.data.keyword.cloudant_short_notm}} instance.
+`service-endpoints` | An optional parameter to populate the URL field in the Service Credentials with an internal endpoint to connect to the service over the {{site.data.keyword.cloud_notm}} internal network. Omit this parameter to populate the URL with an external endpoint that is publicly accessible. Applies only to Standard plan instances deployed on Dedicated Hardware environments that support internal endpoints. If the environment doesn't support internal endpoints, the result is a 400 error. 
 
 If you want to create credentials for the `cs20170517a` instance of
-an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`), you create these credentials by using a command similar to the following example:
+an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`), you can create these credentials by using a command similar to the following example:
 
 ```sh
 ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a
 ```
 {: codeblock}
 
-After receiving the request to create credentials for the service instance, {{site.data.keyword.cloud_notm}} responds with a message similar to the following example:
+After you receive the request to create credentials for the service instance, {{site.data.keyword.cloud_notm}} responds with a message similar to the following example:
 
 ```sh
 Creating service key in resource group default of account John Does's Account as john.doe@email.com...
@@ -216,14 +211,14 @@ Credentials:
 {: pre}
 
 If you want to create credentials for the `cs20170517a` instance of
-an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`) and you want to populate the url with the internal endpoint, you create these credentials by using a command similar to the following example:
+an {{site.data.keyword.cloudant_short_notm}} service (where the name for the credentials is `creds_for_cs20170517a`) and you want to populate the URL with the internal endpoint, you create these credentials by using a command similar to the following example:
 
 ```sh
 ibmcloud resource service-key-create creds_for_cs20170517a Manager --instance-name cs20170517a -p '{"service-endpoints":"internal"}'
 ```
 {: codeblock}
 
-After receiving the request to create credentials for the service instance, {{site.data.keyword.cloud_notm}} responds with a message similar to the following example:
+After you receive the request to create credentials for the service instance, {{site.data.keyword.cloud_notm}} responds with a message similar to the following example:
 
 ```sh
 Creating service key in resource group default of account John Does's Account as john.doe@email.com...
@@ -259,14 +254,14 @@ ibmcloud resource service-key KEY_NAME
 
 In this example, we want to retrieve credentials for the `cs20170517a` instance of
 an {{site.data.keyword.cloudant_short_notm}} service
-(where the name for the credentials is `creds_for_cs20170517a`), you retrieve the credentials by using a command similar to the following example:
+(where the name for the credentials is `creds_for_cs20170517a`). You can retrieve the credentials by using a command similar to the following example:
 
 ```sh
 ibmcloud resource service-key creds_for_cs20170517b
 ```
 {: codeblock}
 
-After receiving the request to retrieve the credentials for the service instance,
+After you receive the request to retrieve the credentials for the service instance,
 {{site.data.keyword.cloud_notm}} responds with a message similar to the following (abbreviated) example:
 
 ```sh

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-12-23"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-12-23 -->
 
 # Creating an {{site.data.keyword.cloudant_short_notm}} Query
 {: #creating-an-ibm-cloudant-query}
@@ -30,7 +30,7 @@ This tutorial demonstrates how to create a database, populate it
 with documents, create an index, and use the index to query the database.
 {: shortdesc}
 
-Exercises for both the ![Command line icon](../images/CommandLineIcon.png) *Command line*
+Exercises for both the ![command line icon](../images/CommandLineIcon.png) *command line*
 and ![Dashboard icon](../images/DashboardIcon.png) *{{site.data.keyword.cloud}} Dashboard* are provided. The
 {{site.data.keyword.cloud_notm}} Dashboard exercises give you a visual example of each task. You can follow the links
 throughout the tutorial for more information.
@@ -59,13 +59,13 @@ Before you begin, follow these steps to prepare for the tutorial:
 ## Creating the `query-demo` database
 {: #creating-the-query-demo-database}
 
-In this section, you create the `query-demo` [database](/docs/services/Cloudant?topic=cloudant-databases#create-database) that
+In this exercise, you create the `query-demo` [database](/docs/services/Cloudant?topic=cloudant-databases#create-database) that
 is the database that we use in this tutorial.
 
-In this tutorial, we use the `acurl` alias rather than the `curl` command. The `acurl` alias is created using the steps in [Authorized curl: `acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). If you prefer to use the `curl` command, or another method for invoking API endpoints, substitute your command in the tutorial, along with the parameters required by your command, such as username and password.
+In this tutorial, we use the `acurl` alias rather than the `curl` command. The `acurl` alias is created by using the steps in [Authorized curl: `acurl`](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). If you prefer to use the `curl` command, or another method for invoking API endpoints, replace the command in the tutorial with the command you want to use, along with the parameters required by your command, such as username and password.
 {: tip}
 
-![Command Line icon](../images/CommandLineIcon.png) *Command line*
+![command Line icon](../images/CommandLineIcon.png) *command line*
 
 1.  Create a database by running this command:
   ``` sh
@@ -85,10 +85,10 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
 
 1.  Open the {{site.data.keyword.cloudant_short_notm}} service instance that you created.
 2.  On {{site.data.keyword.cloudant_short_notm}} service page, click **Launch**.
-    The Databases tab opens.
+    The `Databases tab` opens.
     
-  ![Databases tab](../images/tabs.png)
-4.  Click **Create Database**.
+  ![databases tab](../images/tabs.png)
+4.  Click **`Create Database`**.
 5.  Enter `query-demo` and click **Create**.
 
   The `query-demo` database automatically opens.
@@ -99,7 +99,7 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
 The [documents](/docs/services/Cloudant?topic=cloudant-documents#documents)
 that you create in this exercise contain the data that you use to query the `query-demo` database in later exercises.
 
-![Command Line icon](../images/CommandLineIcon.png) *Command line*
+![command Line icon](../images/CommandLineIcon.png) *command line*
 
 1.  Copy the sample text to a data file named `bulkcreate.dat` to create five documents:
   ```json
@@ -195,7 +195,7 @@ Notice that the '`@`' symbol, used to indicate that the data is included in a fi
 1.  Click **`+`** and select **New Doc**. The 'New Document' window opens.
 2.  To create a document, copy the following sample text and replace the existing text in the new document.
 
-  *First sample document*:
+  *This example is the first sample document*:
   ```json
   {
     "firstname": "Sally",
@@ -209,7 +209,7 @@ Notice that the '`@`' symbol, used to indicate that the data is included in a fi
 
 3.  Repeat step 2 to add the remaining documents to the database.
 
-  *Second sample document*:
+  *This example is the second sample document*:
   ```json
   {
     "firstname": "John",
@@ -221,7 +221,7 @@ Notice that the '`@`' symbol, used to indicate that the data is included in a fi
   ```
   {: codeblock}
 
-  *Third sample document*:
+  *This example is the third sample document*:
   ```json
   {
     "firstname": "Greg",
@@ -233,7 +233,7 @@ Notice that the '`@`' symbol, used to indicate that the data is included in a fi
   ```
   {: codeblock}
 
-  *Fourth sample document*:
+  *This example is the fourth sample document*:
   ```json
   {
     "firstname": "Anna",
@@ -245,7 +245,7 @@ Notice that the '`@`' symbol, used to indicate that the data is included in a fi
   ```
   {: codeblock}
 
-  *Fifth sample document*:
+  *This example is the fifth sample document*:
   ```json
   {
     "firstname": "Lois",
@@ -273,14 +273,14 @@ We use {{site.data.keyword.cloudant_short_notm}} Query in this tutorial, which u
 When you use {{site.data.keyword.cloudant_short_notm}} Query, the query planner looks at the selector (your query) to determine the correct index to choose from. If it does not find a suitable index, it uses the `_all_docs` special index, which looks up documents by ID. In the worst case scenario, it returns all the documents by ID (full table scan). In memory, we filter out the documents by the selector, which is why, even without an index, you can still query with various fields. Full table scans are expensive, and we recommend that you create an index. See a description of different types of indexes in the following list:
 
 *	Primary index – look up a document or list of documents by ID.  
-*	[View](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) – search for information in the database that matches the search criteria that you specify, such as counts, sums, averages, and other mathematical functions. The criteria you can search is specified in the view's definition. Views use the MapReduce paradigm.
+*	[View](/docs/services/Cloudant?topic=cloudant-views-mapreduce#views-mapreduce) – search for information in the database that matches the search criteria that you specify, such as counts, sums, averages, and other mathematical functions. The criteria that you can search is specified in the view's definition. Views use the MapReduce paradigm.
 *	[Search index](/docs/services/Cloudant?topic=cloudant-search#search) – search one or more fields, large amounts of text, or use wildcards, fuzzy search, or facets with [Lucene Query Parser Syntax](http://lucene.apache.org/core/4_3_0/queryparser/org/apache/lucene/queryparser/classic/package-summary.html#Overview){: new_window}{: external}.
 
-If there is no available defined index that matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index.
+If no available defined index matches the specified query, then {{site.data.keyword.cloudant_short_notm}} uses the `_all_docs` index.
 {: tip}
 
 
-![Command Line icon](../images/CommandLineIcon.png) *Command line*
+![command Line icon](../images/CommandLineIcon.png) *command line*
 
 1.  Copy the following sample JSON data into a file named `query-index.dat`.
   ```json
@@ -362,7 +362,7 @@ If there is no available defined index that matches the specified query, then {{
 ## Creating a query
 {: #creating-a-query}
 
-Queries allow you to extract your data from {{site.data.keyword.cloudant_short_notm}}. A well-written
+By using a query, you can extract your data from {{site.data.keyword.cloudant_short_notm}}. A well-written
 [query](/docs/services/Cloudant?topic=cloudant-query#query) can narrow your search and
 its results to include only the data you want.
 
@@ -379,7 +379,7 @@ For anything but the most simple query, add the JSON to a data file and run it f
 This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query uses the `query-index` to find the
 `lastname` and filters the results in memory to find the `firstname`.   
 
-![Command Line icon](../images/CommandLineIcon.png) *Command line*
+![command Line icon](../images/CommandLineIcon.png) *command line*
 
 1.  Copy the following sample JSON into a data file named `query1.dat`.
   ```json
@@ -432,7 +432,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
   ```
   {: codeblock}
 
-3.  Click **Run Query**.
+3.  Click **`Run Query`**.
 
   The query results display. You can see them from the Table view in the following screen capture:
 
@@ -473,7 +473,7 @@ The extra details look like the following example:
 ```  
 {: codeblock}
 
-![Command Line icon](../images/CommandLineIcon.png) *Command line*
+![command Line icon](../images/CommandLineIcon.png) *command line*
 
 1.  Copy the sample JSON into a data file named `query2.dat`.
   ```json
@@ -543,7 +543,7 @@ The extra details look like the following example:
   ```
   {: codeblock}
 
-3.  Click **Run Query**.
+3.  Click **`Run Query`**.
 
   The query results display. You can see them from the Table view in the following screen capture:
 
@@ -571,7 +571,7 @@ We use a selector expression like the following example:
 {: codeblock}
 
 The results are sorted by age in ascending order based on the 
-values specified in the `sort` parameter.
+values that are specified in the `sort` parameter.
 
 ```json
     "sort": [
@@ -582,7 +582,7 @@ values specified in the `sort` parameter.
 ```  
 {: codeblock}
 
-![Command Line icon](../images/CommandLineIcon.png) *Command line*
+![command Line icon](../images/CommandLineIcon.png) *command line*
 
 1.  Copy the following sample JSON to a file named `query3.dat`.
   ```json
@@ -657,7 +657,7 @@ values specified in the `sort` parameter.
   ```
   {: codeblock}
 
-3.  Click **Run Query**.
+3.  Click **`Run Query`**.
 
   The query results display. You can see them from the Table view in the following screen capture:
 
