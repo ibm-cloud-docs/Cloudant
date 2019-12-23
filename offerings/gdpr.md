@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-11-26"
+lastupdated: "2019-12-20"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-12-20 -->
 
 # General Data Protection Regulation (GDPR)
 {: #general-data-protection-regulation-gdpr-}
@@ -52,11 +52,11 @@ The following categories of Personal Data are supported by {{site.data.keyword.c
 for GDPR:
 
 **Personal Data**, for example:
- * Identity/civil status
+ * Identity and civil status
  * Personal life
  * Professional life
  * Location data
- * Connectivity/device data
+ * Connectivity and device data
 
 **Sensitive Personal Data**, which is restricted to:
   * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6627-04/$file/i126-6627-04_04-2018_en_US.pdf){: new_window}{: external}
@@ -74,10 +74,10 @@ For more information about supported classifications of Personal Data, see the
 {{site.data.keyword.cloudant_short_notm}} records some data about its users, and is a Data Controller for said 
 Personal Information (PI) data. The data that {{site.data.keyword.cloudant_short_notm}} records depends on the type of account you have.
 
-If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
+If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster or {{site.data.keyword.cloudant_short_notm}} 
 Enterprise Cluster, we record data 
 about you and are considered a Data Controller for your data within the context of GDPR. 
-If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
+If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster or {{site.data.keyword.cloudant_short_notm}} 
 Enterprise Cluster, we store the following information about you:
 
  * Name
@@ -89,7 +89,7 @@ If you have an account that is provisioned by {{site.data.keyword.cloud_notm}} (
 {{site.data.keyword.cloudant_short_notm}} *does not* collect the personal data previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} processes limited customer PI in the course of running the service and optimizing 
-the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email for contacting customers as appropriate. Monitoring 
+the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email for contacting customers. Monitoring 
 customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboard is the other way {{site.data.keyword.cloudant_short_notm}} processes PI.
 
 ### Restriction of processing
@@ -109,8 +109,7 @@ All clusters have an encrypted file system (encryption at rest) that uses Linux&
 visible to our operations and support teams (see the following paragraph).
 
 For sensitive data, that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}, 
-you must encrypt or otherwise protect (pseudonymize) your data before you send it to us. You must avoid 
-using PI as a document `_id` in your URLs, for example, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, 
+you must encrypt or otherwise protect (pseudonymize) your data before you send it to us. Do not use PI as a document `_id` in your URLs, for example, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, 
 as these PI are always visible and written to the access logs.
 
 ## Data locations
@@ -131,7 +130,7 @@ For more information about data locations, see the
 As a user of {{site.data.keyword.cloudant_short_notm}}, you must follow these guidelines:
 
  * Use the default CORS configuration to prevent unexpected access.
- * Use API keys liberally, such that components can have "least privileged access", which is coupled with the audit log. This practice helps you understand who accessed which data.
+ * Use API keys liberally, since components can have "least privileged access", which is coupled with the audit log. This practice helps you understand who accessed which data.
  * Encrypt or otherwise protect (pseudonymize) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
 
 ### Physical and environmental security measures
@@ -139,7 +138,7 @@ As a user of {{site.data.keyword.cloudant_short_notm}}, you must follow these gu
 
 Physical security of our data centers is handled by our infrastructure providers: {{site.data.keyword.cloud}}, 
 AWS, and 21Vianet. All hold externally audited certifications for their physical security. {{site.data.keyword.cloudant_short_notm}} 
-won't provide further details of the physical security controls in place at our data 
+doesn't provide further details of the physical security controls in place at our data 
 centers.
 
 Physical security of the office locations that are used by our personnel is handled by {{site.data.keyword.IBM_notm}} Corporate. 
@@ -177,7 +176,7 @@ on how you delete it:
 the tombstone includes what you set in the document body. This practice can be useful in some 
 circumstances, for example, when recording why a document was deleted in its tombstone.
 
-For more information on deleting tombstones, see [Simple removal of 'tombstone' documents](/docs/services/Cloudant?topic=cloudant-documents#tombstone-documents){: new_window}.
+For more information, see [Simple removal of 'tombstone' documents](/docs/services/Cloudant?topic=cloudant-documents#tombstone-documents){: new_window}.
 
 ### When is a deleted document removed?
 {: #when-is-a-deleted-document-removed-}
@@ -191,8 +190,8 @@ from the database, by writing out only 'leaf' revisions to a new file. {{site.da
 
 {{site.data.keyword.cloudant_short_notm}} doesn't guarantee that a database is compacted in a specific time. 
 Compaction is done as a background process across 
-the storage tier. Databases are always being compacted. There is no guarantee that the data compacted is the 
-data you deleted or changed.
+the storage tier. Databases are always being compacted. It isn't guaranteed that the data compacted is the 
+data that you deleted or changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting *Right to be forgotten* requests via 
 the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}{: external}. 
@@ -206,7 +205,7 @@ At the end of this process, the only version of the document is its tombstone
 
 {{site.data.keyword.cloudant_short_notm}} can completely remove all references and data for a 
 document when required. This task is 
-an operator-managed process called purging. Before you request documents be purged, it's 
+an operator-managed process called purging. Before you request that documents be purged, it's 
 important to understand that purged documents *cannot be recovered* by 
 {{site.data.keyword.cloudant_short_notm}} once the 
 process is complete.
@@ -244,7 +243,7 @@ doesn't remove log lines that include document `_id` values.
 ### What about deleting a database?
 {: #what-about-deleting-a-database-}
 
-Deleting a database puts it into a trash can for up to 48 hours after which it's removed from the 
+Deleting a database adds it to a trash can for up to 48 hours after which it's removed from the 
 file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases; this task is the 
 *responsibility of the customer*. You must ensure that all copies of your 
 database are removed from your system. For more information, see 
