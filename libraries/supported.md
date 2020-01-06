@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-14"
+  years: 2015, 2020
+lastupdated: "2020-01-06"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -112,12 +112,10 @@ npm install cloudant
 {: #examples-and-tutorials-for-node-js}
 
 - [Create, read, update, and delete](https://github.com/cloudant/haengematte/tree/master/nodejs){: new_window}{: external}.
-- [Cloudant-Uploader](https://github.com/garbados/Cloudant-Uploader){: new_window}{: external} - utility to upload `.csv` files to {{site.data.keyword.cloudant_short_notm}}.
 - [couchimport](https://github.com/glynnbird/couchimport){: new_window}{: external} - utility to import `.csv` or `.tsv` files into CouchDB or {{site.data.keyword.cloudant_short_notm}}.
 - [Build a simple word game app by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}](http://www.ibm.com/developerworks/cloud/library/cl-guesstheword-app/index.html?ca=drs-){: new_window}{: external} - uses Node.js.
 - [Building a Real-time SMS Voting App](https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html){: new_window}{: external} - six-part series that uses Node.js, Twilio, and {{site.data.keyword.cloudant_short_notm}}.
-- [Building a multitier Windows&trade; Azure Web application](https://www.ampower.me/article/CouchDB/Tutorial-Building-a-Multi-Tier-Windows-Azure-Web-application-use-Cloudants-Couchdb-as-a-Service-node-94-409665?eqs=Z2NWNlltTmlUWStWcHdEWENWc3UxdmowREpiMjlGUVpKajJOZGJpSlVkemlPS2oxa0YxZE5BPT0=){: new_window}{: external} - uses {{site.data.keyword.cloudant_short_notm}}, Node.js, CORS, and Grunt.
-- [Do it yourself: Build a remote surveillance application by using {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Raspberry Pi](http://www.ibm.com/developerworks/library/ba-remoteservpi-app/index.html){: new_window}{: external}.
+
 
 ## Python
 {: #python-supported}
