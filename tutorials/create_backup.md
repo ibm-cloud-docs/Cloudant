@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-08-26"
+lastupdated: "2019-12-24"
 
 keywords: create database, create documents, set environment variable, back up database, create log file, restore backup
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-12-24 -->
 
 # Creating a backup
 {: #creating-a-backup}
@@ -33,8 +33,8 @@ the database to a file. If the database fails, you can use the backup file to
 restore the information to an existing database. 
 {: shortdesc}
 
-## Before you begin to install CouchBackup
-{: #before-you-begin-to-install-couchbackup}
+## Before you install CouchBackup
+{: #before-you-install-couchbackup}
 
 Install CouchBackup by running the `install` command. 
 
@@ -164,7 +164,7 @@ You can use environment variables or command-line options to specify the
 URL and database for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance that you want to work 
 with CouchBackup. 
 
-In this tutorial, we set the `COUCH_URL` and specify the database using the `--db` parameter. 
+In this tutorial, we set the `COUCH_URL` and specify the database by using the `--db` parameter. 
 
 Set the `COUCH_URL` environment variable to specify the URL for the CouchDB or {{site.data.keyword.cloudant_short_notm}} instance.
 
@@ -207,7 +207,7 @@ your data and make it easier to restore.
     {: codeblock}
     
 3.  Check the directory to verify that the `couchbackup-demo-backup.txt` file was created. 
-4.  Open the file and review the list of documents backed up from the database.  
+4.  Open the file and review the list of documents that are backed up from the database.  
     
     ```json
     [
@@ -347,7 +347,7 @@ log file, and resume option.
     ```
     {: codeblock}
 
-3.  Open the log file, `couchbackup-demo-backup.log`, and review the actions taken
+3.  Open the log file, `couchbackup-demo-backup.log`, and review the actions that are taken
     during the backup or restore.  
     
     ```sh
@@ -376,10 +376,10 @@ log file, and resume option.
 ##  Restoring from a backup text file
 {: #restoring-from-a-backup-text-file}
 
-From the `couchbackup-demo-backup.txt` file, you can restore your data to a new, empty database using 
+From the `couchbackup-demo-backup.txt` file, you can restore your data to a new, empty database by using 
 the `couchrestore` command. 
 
-Restoring a backup is only supported when restoring into an empty database. If you delete all documents from a database, document deletion records are still present for replication consistency purposes. This means that a database containing only deleted documents is not considered empty, and so cannot be used as the target when restoring a backup. 
+Restoring a backup is only supported when you restore into an empty database. If you delete all documents from a database, document deletion records are still present for replication consistency purposes. A database that contains only deleted documents is not considered empty, and so cannot be used as the target when you restore a backup. 
 {: tip}
 
 1.  (Prerequisite) Create a new, empty database where you can restore your data.
@@ -412,7 +412,6 @@ Restoring a backup is only supported when restoring into an empty database. If y
     ```
     {: codeblock}
 
-Now, you have backed up and restored a database and created a log file. See the {{site.data.keyword.cloudant_short_notm}} Documentation 
-for more information about [disaster recovery and backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup),
-[configuring {{site.data.keyword.cloudant_short_notm}} for cross region disaster recovery](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery),
+Now, you have backed up and restored a database and created a log file. For more information, see [Disaster recovery and backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup),
+[Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery#configuring-ibm-cloudant-for-cross-region-disaster-recovery),
 and [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).  

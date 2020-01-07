@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019
-lastupdated: "2019-11-26"
+lastupdated: "2019-12-23"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, whitespace analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
 
@@ -21,18 +21,18 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2019-12-23 -->
 
 # Search analyzers
 {: #search-analyzers}
 
-{{site.data.keyword.cloudant_short_notm}} Search is the free-text search technology built in to the {{site.data.keyword.cloudantfull}} database that is powered by [Apache Lucene](http://lucene.apache.org/){: new_window}{: external}. 
+{{site.data.keyword.cloudant_short_notm}} Search is the free-text search technology built into the {{site.data.keyword.cloudantfull}} database that is powered by [Apache Lucene](http://lucene.apache.org/){: new_window}{: external}. 
 
 When you create an {{site.data.keyword.cloudant_short_notm}} Search index, you must consider which fields from your documents need to be indexed, and how they are to be indexed.
 
 One aspect of the indexing process is the choice of analyzer. An analyzer is code that can have the following effect:
 
-- Lowercase the string by making the search case-insensitive.
+- Make the search case-insensitive by ensuring the string is lowercase.
 - Tokenize the string by breaking a sentence into individual words.
 - Stem the words by removing language-specific word endings, for example, farmer becomes farm.
 - Remove stop words by ignoring words like *a*, *is*, or *if*, which can make the index smaller and more efficient.
@@ -59,8 +59,8 @@ The Standard analyzer changes the string in the following ways:
 - Removes punctation.
 - Splits words based on spaces and punctuation.
 - Removes stop words, including "is" and "at".
-- Changes words to lowercase.
-- Note how "aol.com" remains intact.
+- Words changed to lowercase.
+- Note how "aol.com" stays intact.
 
 ```json
 {"tokens":["my", "name", "chris", "wright", "smith", "i", "live", "21a", "front", "street", "durham", "uk", "my", "email", "chris7767", "aol.com"]}
@@ -70,7 +70,7 @@ The Standard analyzer changes the string in the following ways:
 ### Keyword analyzer
 {: #keyword-analyzer}
 
-With the Keyword analyzer, the string remains intact. See the following example:
+With the Keyword analyzer, the string stays intact. See the following example:
 
 ```json
 {"tokens":["My name is Chris Wright-Smith. I live at 21a Front Street, Durham, UK - my email is chris7767@aol.com."]}
@@ -85,7 +85,7 @@ The Simple analyzer changes the string in the following ways:
 - Removes punctation.
 - Splits words based on spaces and punctuation.
 - No stop words removed (notice "is" and "at").
-- Changes words to lowercase.
+- Words changed to lowercase.
 - Note how "chris7767" became "chris" and "21a" becomes "a".
 
 ```json
@@ -101,8 +101,8 @@ The Whitespace analyzer changes the string in the following ways:
 - Removes some punctuation.
 - Splits words on spaces.
 - No stop words removed (notice "is" and "at").
-- Words remain case sensitive.
-- Note how email remains intact.
+- Words stay case sensitive.
+- Note how email stays intact.
 
 ```json
 {"tokens":["My", "name", "is", "Chris", "Wright-Smith.", "I", "live", "at", "21a", "Front", "Street,", "Durham,", "UK", "-" , "my" ,"email", "is", "chris7767@aol.com."]}
@@ -117,8 +117,8 @@ The Classic analyzer changes the string in the following ways:
 - Removes punctuation.
 - Splits words based on spaces and punctuation.
 - Removes stop words (no "is" or "at").
-- Changes words to lowercase.
-- Note how email remains intact.
+- Words changed to lowercase.
+- Note how email stays intact.
 
 ```json
 {"tokens":["my", "name", "chris", "wright", "smith", "i", "live", "21a", "front", "street", "durham", "uk", "my", "email", "chris7767@aol.com"]}
@@ -134,8 +134,8 @@ The English analyzer changes the string in the following ways:
 - Splits words based on spaces and punctuation.
 - Stems words (notice "chris" becomes "chri").
 - Removes stop words (no "is" or "at").
-- Changes words to lowercase.
-- Note how email remains intact.
+- Words changed to lowercase.
+- Note how email stays intact.
 
 ```json
 {"tokens":["my", "name","chri", "wright", "smith", "i", "live", "21a", "front", "street", "durham", "uk", "my", "email", "chris7767","aol.com"]}
@@ -154,10 +154,10 @@ Four score and seven years ago our fathers brought forth, on this continent, a n
 ```
 {: screen}
 
-## Which analyzer should I pick?
-{: #which-analyzer-should-i-pick}
+## Which analyzer must I pick?
+{: #which-analyzer-must-i-pick}
 
-It depends on your data. If you have structured data (email addresses, zip codes, names, and so on in separate fields), then it's worth picking an analyzer that retains the data you need to keep *intact* for your search needs. 
+It depends on your data. If your data is structured (email addresses, zip codes, names, and so on, in separate fields), then it's worth picking an analyzer that retains the data you need to keep *intact* for your search needs.
 
 Only index the fields that you need. Keeping the index small helps to improve performance.
 
@@ -166,43 +166,42 @@ Let's deal with common data sources and look at the best analyzer choices.
 ### Names
 {: #names-sa}
 
-It's likely that name fields must use an analyzer that doesn't stem words. The Whitespace analyzer retains the words' case (meaning the search terms would have to be full, case-sensitive matches) and leaves double-barreled names intact. If you want to split up double-barreled names, then the Standard analyzer can do the job.
+It's likely that name fields must use an analyzer that doesn't stem words. The Whitespace analyzer keeps the words' case (meaning the search terms would have to be full, case-sensitive matches) and leaves double-barreled names intact. If you want to split up double-barreled names, then the Standard analyzer can do the job.
 
 ### Email addresses
 {: #email-addresses-sa}
 
-There is a built-in Email analyzer for just this purpose, which changes everything to lowercase and then behaves like the Keyword analyzer. 
+The built-in Email analyzer serves this purpose, which changes everything to lowercase and then behaves like the Keyword analyzer. 
 
 ### Unique ID
 {: #unique-id}
 
-Order numbers, payment references, and UUIDs such as "A1324S", "PayPal0000445", and "ABC-1412-BBG" must be retained without any pre-processing, so the Keyword analyzer is preferred.
+Order numbers, payment references, and UUIDs such as "A1324S", "PayPal0000445", and "ABC-1412-BBG" must be kept without any pre-processing, so the Keyword analyzer is preferred.
 
 ### Country codes
 {: #country-codes}
 
-Country codes such as "UK" must also use the Keyword analyzer to prevent the removal of "stopwords" that match the country codes, for example, "IN" for India. Note that the Keyword analyzer is case-sensitive.
+Country codes such as "UK" must also use the Keyword analyzer to prevent the removal of "stopwords" that match the country codes, for example, "IN" for India. The Keyword analyzer is case-sensitive.
 
 ### Text
 {: #text-sa}
 
-A block of free-form text is best processed with a language-specific analyzer, such as the English analyzer, or in a more general case, the Standard analyzer.
-
+It is best to process a block of free-form text with a language-specific analyzer, such as the English analyzer, or in a more general case, the Standard analyzer.
 
 ## Which option is best? 
 {: #store-true-include_docs=true}
 
 When {{site.data.keyword.cloudant_short_notm}} returns data from a search, you can choose between the following options: `store: true` or `include_docs=true`. See the following descriptions: 
 
-1. At index-time, choose the `{store: true}` option. This option indicates that the field you're dealing with needs to be stored inside the index. A field can be "stored" even if it isn't used for indexing itself. For example, you might want to "store" a telephone number, even if your search algorithm doesn't allow you to search by phone number. 
+1. At index-time, choose the `{store: true}` option. This option indicates that the field you're dealing with needs to be stored inside the index. A field can be "stored" even if it isn't used for indexing itself. For example, you might want to "store" a telephone number, even if your search algorithm doesn't include searching by phone number. 
 2. At query-time, pass `?include_docs=true` to indicate to {{site.data.keyword.cloud_notm}} that you want the entire body of each matching document to be returned.
 
 The first option means you have a larger index, but it's the fastest way of retrieving data. The second option keeps the index small, but adds extra query-time work for {{site.data.keyword.cloud_notm}} as it has to fetch document bodies after the search result set is calculated. This process can be slower to execute and adds a further burden to the {{site.data.keyword.cloud_notm}} cluster.
 
 If possible, choose the first option use the following guidelines: 
 
-- Only index the fields that you want to be searchable.
-- Only store the fields that you need to retrieve at query-time.
+- Index only the fields that you want to be searchable.
+- Store only the fields that you need to retrieve at query-time.
 
 ## Entity extraction
 {: #entity-extraction}
@@ -238,4 +237,4 @@ As well as entities, the API can also place the article in a hierarchy of catego
 - / sports / soccer
 - / sports / football
 
-Pre-processing your raw data, by calling the Watson API for each document and storing a list of entities/concepts/categories in your {{site.data.keyword.cloud_notm}} document, provides automatic metadata about your free-text information and can provide an easier means to search and navigate your app.
+Pre-processing your raw data, by calling the Watson API for each document and storing a list of entities, concepts, and categories in your {{site.data.keyword.cloud_notm}} document, provides automatic metadata about your free-text information and can provide an easier means to search and navigate your app.

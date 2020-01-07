@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-11-08"
+lastupdated: "2019-12-20"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-12-20 -->
 
 # Deprecations
 {: #deprecations}
@@ -29,7 +29,7 @@ subcollection: cloudant
 Summary of the changes in behavior for {{site.data.keyword.cloudantfull}} releases. 
 {: shortdesc}
 
-## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (February 7, 2018)
+## {{site.data.keyword.dashdbshort_notm}} feature is deprecated (7 February 2018)
 {: #cloudant-nosql-db-feature-is-deprecated-february-7-2018}
 
 To find alternatives to {{site.data.keyword.cloudant_short_notm}}'s {{site.data.keyword.dashdblong}} feature, see the 
@@ -70,7 +70,7 @@ curl -u $USERNAME "https://$ACCOUNT.cloudant.com/_warehouser/example@source-db"
 }
 ```
 
-The information returned in the previous example is described in the following list:
+The information that is returned in the previous example is described in the following list:
 
 | Field | Description |
 |-------|-------------|
@@ -90,20 +90,20 @@ To sign in to the {{site.data.keyword.dashdbshort_notm}} console, you need to re
 
 2. To sign in, use the value of the `dynamite_user` field as your user name and the `dynamite_token` field as your password.
 
-## Disabled JavaScript constructors (December 7, 2017)
+## Disabled JavaScript constructors (7 December 2017)
 {: #disabled-javascript-constructors-december-7-2017}
 
 - If a user calls the disabled JavaScript constructors, `eval()` or `Function()`, an error message
-similar to this is returned, "Call to `eval()` was blocked by CSP." You can fix the problem 
+similar to this one is returned, "Call to `eval()` was blocked by CSP." You can fix the problem 
 by replacing `eval()` calls with the calls from the 
 [expr-eval library](https://github.com/silentmatt/expr-eval){: new_window}{: external}.
 For more information, you can also read this 
 [post](https://silentmatt.com/javascript-expression-evaluator/){: new_window}{: external}.
 
-## Removed support for virtual hosts (vhosts) (December 4, 2017)
+## Removed support for virtual hosts (vhosts) (4 December 2017)
 {: #disabled-vhosts-december-4-2017}
 
-- On December 4th, 2017, {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality. Support for insecure HTTP connections was removed in favor of HTTPS only. As a result of turning off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
+- On 4 December 2017, {{site.data.keyword.cloudant_short_notm}} disabled the virtual host functionality. Support for insecure HTTP connections was removed in favor of HTTPS only. As a result of turning off HTTP support, the virtual hosts feature is no longer available since use of virtual hosts precludes secure HTTPS connections. Previous users of the virtual host feature need to make alternative arrangements to present a chosen host name to your clients from your application and use HTTPS connections only.
 
 ## Error handling
 {: #error-handling}
@@ -111,8 +111,8 @@ For more information, you can also read this
 - If you rely on 500 replies for your application, you might have issues. To fix the problem, 
 update your application to rely on 400 responses. 
 
-- If you do not handle reduce overflow errors as part of a row in the response body, 
-you will have issues. To fix this problem, change the application to handle the errors 
+- If you don't handle reduce overflow errors as part of a row in the response body, 
+issues occur. To fix this problem, change the application to handle the errors 
 from view requests.  
 
 ## Incompatibility between CouchDB version 1.6 and {{site.data.keyword.cloudant_short_notm}} version 2.0.0
@@ -120,18 +120,18 @@ from view requests.
 
 - An incompatibility exists between the most recent version of {{site.data.keyword.cloudant_short_notm}} and CouchDB 1.6-based codebase. In the older version of {{site.data.keyword.cloudant_short_notm}}, if you add a query parameter ("reduce=false") to the request body, the parameter 
 in the request body is ignored while the parameter in the request URL is respected. In recent versions of 
-{{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body is not ignored.
+{{site.data.keyword.cloudant_short_notm}}, the query parameter ("reduce=false") in the request body isn't ignored.
 
 ## Revised error message
 {: #revised-error-message}
 
-- The error message that occurs when you attempt to put a document attachment with a non-existent revision has changed to a 409 error with the following information:
+- The error message that occurs when you try to put a document attachment with a non-existent revision changed to a 409 error with the following information:
 
 	```
 	{"error":"not_found","reason":"missing_rev"}
 	```
 
-## X-Frame-Options setting (August 17, 2017)
+## X-Frame-Options setting (17 August 2017)
 {: #x-frame-options-setting}
 
 The `X-Frame-Options` setting is a response header that controls whether an HTTP response can be embedded in a `<frame>`, `<iframe>`, or `<object>`. This security feature helps prevent clickjacking.
@@ -142,9 +142,9 @@ This change might impact customers who are accessing the database directly from 
 and it is breaking your service, you must enable CORS, [Setting the CORS configuration](/docs/services/Cloudant?topic=cloudant-cors#setting-the-cors-configuration). After you enable CORS, add the value of the HOST header that you send in the request 
 to the list of allowed `origins`.
 
-## `dbcopy` (February 4, 2016)
+## `dbcopy` (4 February 2016)
 {: #-dbcopy-february-4-2016-}
 
 - The `dbcopy` feature can cause problems under some circumstances.
-  Information about the feature has been removed from the documentation.
+  Information about the feature was removed from the documentation.
   Use of `dbcopy` is strongly discouraged.
