@@ -1,7 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019-12-20"
+  years: 2015, 2020
+lastupdated: "2020-01-07"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -23,10 +24,10 @@ subcollection: cloudant
 <!-- Acrolinx: 2019-12-20 -->
 
 # Diagnose and troubleshoot
-{: #diagnose-and-troubleshoot}
+{: #diagnose-troubleshoot}
 
 Troubleshoot and resolve problems on your own by using the tools
-that are provided with {{site.data.keyword.IBM}} Cloudant&reg; Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}). Identify the source of a
+that are provided with  {{site.data.keyword.cloudant_local_notm}} Data Layer Local Edition ({{site.data.keyword.cloudant_local_notm}}). Identify the source of a
 problem, gather diagnostic information, and download fixes.
 {: shortdesc}
 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-18"
+  years: 2015, 2020
+lastupdated: "2020-01-07"
 
 keywords: ssl, rsa private key, csr, self-signed certificate, generate, combine rsa certificate and key, security, haproxy for ssl connections, validate ssl connection, connect load balancer, connect database nodes, generate certificates, ldap authenticate, logging, remote logging, failover load balancers, ioq, firewall ports
 
@@ -534,7 +534,7 @@ authentication credentials include user name admin and password
 pass. You must create a user in your LDAP database that has both
 `_admin` and `server_admin` roles and whose credentials match the
 credentials set in the `metrics.ini` file. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Metrics
-application](/docs/services/Cloudant?topic=cloudant-diagnose-and-troubleshoot#ibm-cloudant-metrics-application).
+application](/docs/services/Cloudant?topic=cloudant-diagnose-troubleshoot#ibm-cloudant-metrics-application).
 
 ### Configuring LDAP authentication
 {: #configuring-ldap-authentication}
