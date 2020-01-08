@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-12-23"
+  years: 2019, 2020
+lastupdated: "2020-01-09"
 
 ---
 
@@ -58,7 +58,7 @@ Review the following sections to understand the specific responsibilities betwee
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|At-rest encryption| By default, {{site.data.keyword.IBM_notm}} encrypts all disks by using {{site.data.keyword.cloudant_short_notm}} managed encryption keys.   | If the customer would like BYOK, then the customer is required to use Key Protect and inform {{site.data.keyword.cloudant_short_notm}} to use a customer-managed encryption key.|
+|At-rest encryption| By default, {{site.data.keyword.IBM_notm}} encrypts all disks by using {{site.data.keyword.cloudant_short_notm}}-managed encryption keys.   | If the customer would like bring-your-own-key (BYOK) encryption, then the customer is required to use Key Protect to store the customer-managed encryption key, select an appropriate key management service instance, and select a disk encryption key option during provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. |
 {: caption="Table 3. Responsibilities for security and regulation compliance" caption-side="top"}
 
 ## Disaster recovery
