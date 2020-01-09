@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-12-23"
+  years: 2015, 2020
+lastupdated: "2020-01-09"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -26,14 +26,13 @@ subcollection: cloudant
 # Creating and leveraging an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance on {{site.data.keyword.cloud_notm}}
 {: #creating-and-leveraging-an-ibm-cloudant-dedicated-hardware-plan-instance-on-ibm-cloud}
 
-This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance that uses the {{site.data.keyword.cloud}} dashboard. After that exercise, we also show you how to provision one or more Standard plan instances to run on it by using feither the {{site.data.keyword.cloud_notm}} Catalog or the {{site.data.keyword.cloud_notm}} CLI. 
+This tutorial shows you how to create an {{site.data.keyword.cloudantfull}} Dedicated Hardware plan instance that uses the {{site.data.keyword.cloud}} dashboard. After that exercise, we also show you how to provision one or more Standard plan instances to run on it by using either the {{site.data.keyword.cloud_notm}} Catalog or the {{site.data.keyword.cloud_notm}} CLI. 
 {: shortdesc}
 
 When you create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, an {{site.data.keyword.cloudant_short_notm}} environment on dedicated hardware is created for your sole use. A service 
-instance is also created in the {{site.data.keyword.cloud_notm}} dashboard. You can't 
-access the Dedicated Hardware plan instance directly, nor will you have 
+instance for the Dedicated Hardware plan environment is also created in the {{site.data.keyword.cloud_notm}} dashboard. You can't access the Dedicated Hardware plan instance directly, nor will you have 
 any Service Credentials for it. Instead, you use your {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware 
-plan instance by creating one or more Standard plan instances on it.
+plan instance by creating one or more Standard plan instances on it, and managing the Standard plan instances directly.
 
 ## Creating an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance
 {: #creating-an-ibm-cloudant-dedicated-hardware-plan-instance}
@@ -52,14 +51,16 @@ plan instance by creating one or more Standard plan instances on it.
     ![Pricing plans](images/pricing_plan.png)
     
 4.  Complete the following parameters: <br/>
+    -   Select the region where you want to deploy from the drop-down menu. For Dedicated hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.<br/>
     -   Enter a service name.<br/>
-    -   Specify the region/location where you want to deploy. The region/location is one of the six major {{site.data.keyword.cloud_notm}} regions where you want the instance that is deployed. The actual physical location of the instance is dictated by the location parameter that is described in the following list.<br/>
     -   Select a resource group.</br>
-    -   Add a tag. 
+    -   (Optional) Add a tag.</br>
+    -   Select a key management service instance. All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to use bring-your-own-key (BYOK) encryption with Key Protect, select the Key Protect instance that holds the encryption key from the drop-down menu. Otherwise, choose the Automatic disk encryption key (default) option, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. Note that in order to BYOK with Key Protect you must ensure that {{site.data.keyword.cloudant_short_notm}} is authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Security** > **Identity and Access** and choosing **Authorizations**.</br>
+    -   Select a disk encryption key. Choose the disk encryption key from the drop-down menu that resides in the Key Protect instance chosen in the key management service instance parameter. If you use the default {{site.data.keyword.cloudant_short_notm}}-managed key option, then this parameter is set to Automatic disk encryption key (default).  
     -   Select a location for deployment. This location is the physical location of the instance, which can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){:new_window}{: external}.<br/>
     -   Select `yes` or `no` to answer whether HIPAA is required.<br/> 
-    
-    HIPAA is only valid for US locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only created upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. See [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
+
+    HIPAA is only valid for US locations. {{site.data.keyword.IBM}} can provision a Dedicated Hardware plan environment to implement HIPAA controls. An environment is only created upon confirmation of a Business Associate Agreement (BAA) that is established with {{site.data.keyword.IBM_notm}}. For more information, see [Enabling the HIPAA Supported setting](https://cloud.ibm.com/docs/account/eu_hipaa_supported.html#enabling-the-hipaa-supported-setting) and the Service Description terms for more details. Provisioning a cluster to manage HIPAA data can take longer than the estimated 5-day period.
     {: note}
 
     ![Configure dedicated hardware](images/select_deployment_location.png)
@@ -97,12 +98,12 @@ plan instance by creating one or more Standard plan instances on it.
     {: tip}
     
 4.  Complete the following parameters: <br/>
+    -   Specify the region where you want to deploy. <br/>
     -   Enter a service name.<br/>
-    -   Specify the region/location where you want to deploy. <br/>
     -   Select a resource group. </br>
     -   Add a tag. 
     -   Select an authentication method.</br>
-    -   Select an environment, which is where the Standard plan instance will be deployed. Any Dedicated Hardware environment instances that are deployed in the account show up in the drop-down if they're available.</br>
+    -   Select an environment, which is where the Standard plan instance deploys. By default, the Standard plan instance deploys on a multi-tenant environment in the location defined by the region parameter. Any Dedicated Hardware environment instances that are deployed in the {{site.data.keyword.cloud_notm}} account that the provisioning user has permissions to view display in the drop-down. Choosing a Dedicated Hardware plan instance in the drop-down menu results in the Standard plan instance being deployed on that Dedicated Hardware plan instance in whatever location it resides.</br>
     ![Configure standard instance](images/select_environment.png)
     
 5.  Click the `Create` button.<br/>
@@ -114,6 +115,43 @@ plan instance by creating one or more Standard plan instances on it.
     
     For more information, see [how to locate your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials){: new_window}. 
     
+## Provisioning a Dedicated Hardware plan instance with the {{site.data.keyword.cloud_notm}} CLI
+{: #provisioning-a-dedicated-hardware-plan-instance-with-the-ibm-cloud-cli}
+
+To use the {{site.data.keyword.cloud_notm}} CLI, you must be logged in. For more information, see [Log in to your {{site.data.keyword.cloud_notm}} account](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud-by-using-the-ibm-cloud-cli#logging-in-to-your-ibm-cloud-account){: new_window} to learn about how to log in and set a target resource group. 
+
+To create an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance, use the following basic command format:
+
+Field | Description
+------|------------
+`NAME`| An arbitrary name that you assign the instance.
+`SERVICE_NAME` | `cloudantnosqldb`
+`PLAN_NAME` | `dedicated-hardware`
+`REGION` |  The major region where you want to deploy, for example, us-south, us-east, or eu-gb. 
+
+See the following example command: 
+
+```sh
+ibmcloud resource service-instance-create $NAME $SERVICE_NAME $PLAN_NAME $REGION [-p, --parameters @JSON_FILE | JSON_STRING ]
+```
+{: codeblock}
+
+{{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instances take four additional parameters:
+
+Parameter | Description
+----------|------------
+`location` | The actual physical location of the Dedicated Hardware plan instance, which might differ from the REGION. The location can be in any {{site.data.keyword.cloud_notm}} location, including major regions and locations outside the major regions. For more information, see [{{site.data.keyword.IBM}} global data centers](https://www.ibm.com/cloud/data-centers/){:new_window}{: external}. 
+`hipaa` | Either `true` or `false`. 
+`kms-instance-crn` | An optional parameter that must be set to the CRN of the Key Protect instance housing the encryption key for BYOK. All {{site.data.keyword.cloudant_short_notm}} environments are encrypted. If you would like to BYOK with Key Protect, supply the CRN of the Key Protect instance that holds the encryption key. Otherwise, do not supply this parameter in the CLI, which means the environment is encrypted with an {{site.data.keyword.cloudant_short_notm}}-managed key. Note that in order to BYOK with Key Protect, ensure {{site.data.keyword.cloudant_short_notm}} has been authorized to access the selected key management service instance. You can manage service-to-service authorizations at any time by visiting **Manage** > **Security** > **Identity and Access** and choosing **Authorizations**.
+`kms_key_crn` | This parameter is required if you use the `kms-instance-crn` parameter. Otherwise, it must not be supplied in the CLI command. The `kms_key_crn` parameter is set to the CRN of the encryption key stored in the Key Protect instance defined by the `kms-instance-crn` parameter. 
+
+See the following example command: 
+
+```sh
+ibmcloud resource service-instance-create cloudant-dedicated-with-byok cloudantnosqldb dedicated-hardware us-south -p '{"location":"dallas", "hipaa":"false", "kms_instance_crn": "crn:v1:bluemix:public:kms:us-south:a/abcdefg7df5907a4ae72ad28d9f493d6:888a5a41-543c-4ca7-af83-74da3bb8f711::", "kms_key_crn": "crn:v1:bluemix:public:kms:us-south:a/abcdefg7df5907a4ae72ad28d9f493d6:888a5a41-543c-4ca7-af83-74da3bb8f711:key:0123c653-f904-4fe7-9fdb-5097e1ed85db"}'
+```
+{: codeblock}
+
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment with the {{site.data.keyword.cloud_notm}} CLI
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment-with-the-ibm-cloud-cli}
 
@@ -126,13 +164,13 @@ Field | Description
 ------|------------
 `NAME`| An arbitrary name that you assign the instance.
 `SERVICE_NAME` | `cloudantnosqldb`
-`PLAN_NAME` | Standard plan
-`LOCATION` |  The location where you want to deploy, for example, us-south, us-east, or eu-gb. 
+`PLAN_NAME` | `standard`
+`REGION` |  The region where you want to deploy, for example, us-south, us-east, or eu-gb. 
 
 See the following example command: 
 
 ```sh
-ibmcloud resource service-instance-create NAME SERVICE_NAME SERVICE_PLAN_NAME LOCATION [-p, --parameters @JSON_FILE | JSON_STRING ]
+ibmcloud resource service-instance-create $NAME $SERVICE_NAME $PLAN_NAME $REGION [-p, --parameters @JSON_FILE | JSON_STRING ]
 ```
 {: codeblock}
 
