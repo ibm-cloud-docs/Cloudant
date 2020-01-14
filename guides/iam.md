@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-20"
+  years: 2017, 2020
+lastupdated: "2020-01-09"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -86,7 +86,7 @@ All {{site.data.keyword.cloudant_short_notm}} service instances provisioned July
 2. **Use only IAM**: This mode means that only IAM credentials are provided via Service binding and
     credential generation.
 
-When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions. 
+When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.
 {: important}
 
 {{site.data.keyword.cloudant_short_notm}} service instances that are provisioned previously in a Cloud Foundry org and space can be migrated to a Resource Group. After you migrate to a Resource Group, the instance is enabled with {{site.data.keyword.cloud_notm}} IAM. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/services/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide about how to migrate.
@@ -122,7 +122,7 @@ ibmcloud resource service-instance-create  "Instance Name" \
     -p {"legacyCredentials": false}
 ```
 
-When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions. 
+When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.
 {: important}
 
 To provision an instance as *Use both legacy credentials and IAM*, run the following command:
@@ -589,18 +589,18 @@ The following tables include a complete list of {{site.data.keyword.cloudant_sho
 ### {{site.data.keyword.cloudant_short_notm}} roles
 {: #ibm-cloudant-roles}
 
-The following table lists the available IAM service roles for {{site.data.keyword.cloudant_short_notm}} and a brief description of each. 
+The following table lists the available IAM service roles for {{site.data.keyword.cloudant_short_notm}} and a brief description of each.
 
 | Role | Description |
 |--------|----------|
-| Manager | Includes the ability to access all endpoints and perform all administrative functions on an instance, such as creating databases, changing capacity, reading and writing data and indexes, and accessing the Dashboard. | 
-| Writer | Includes the ability to read and write to all databases and documents, but not able to create indexes. | 
-| Reader | Includes the ability to read all databases and documents, but not able to write new documents or create indexes. | 
-| Monitor | Includes the ability to read monitoring endpoints, such as  `_active_tasks`  and replication  `_scheduler ` endpoints. | 
+| Manager | Includes the ability to access all endpoints and perform all administrative functions on an instance, such as creating databases, changing capacity, reading and writing data and indexes, and accessing the Dashboard. |
+| Writer | Includes the ability to read and write to all databases and documents, but not able to create indexes. |
+| Reader | Includes the ability to read all databases and documents, but not able to write new documents or create indexes. |
+| Monitor | Includes the ability to read monitoring endpoints, such as  `_active_tasks`  and replication  `_scheduler ` endpoints. |
 | Checkpointer | Includes the ability to write replication checkpointer `_local` documents. Required on source databases during replication. |
 {: caption="Table 2. IAM service roles for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
 
-Note that Manager is inclusive of all actions of Reader and Writer, and Writer is inclusive of all actions of Reader. 
+Note that Manager is inclusive of all actions of Reader and Writer, and Writer is inclusive of all actions of Reader.
 
 ### {{site.data.keyword.cloudant_short_notm}} actions
 {: #ibm-cloudant-actions}
@@ -619,13 +619,13 @@ When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Ch
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
 | `GET/HEAD` | `/_active_tasks` | `cloudantnosqldb.account-active-tasks.read` |
 | `GET/HEAD` | `/_replicator` | `cloudantnosqldb.replicator-database-info.read ` |
-| `GET/HEAD` | `/_replicator/$DOCUMENT` | `cloudantnosqldb.replication.read` | 
-| `GET/HEAD` | `/_scheduler/jobs` | `cloudantnosqldb.replication-scheduler.read` | 
-| `GET/HEAD` | `/_scheduler/docs` | `cloudantnosqldb.replication-scheduler.read` | 
+| `GET/HEAD` | `/_replicator/$DOCUMENT` | `cloudantnosqldb.replication.read` |
+| `GET/HEAD` | `/_scheduler/jobs` | `cloudantnosqldb.replication-scheduler.read` |
+| `GET/HEAD` | `/_scheduler/docs` | `cloudantnosqldb.replication-scheduler.read` |
 | `POST` | `/_replicate` | `cloudantnosqldb.replication.write` |
 | `PUT/DELETE` | `/_replicator` | `cloudantnosqldb.replicator-database.create` |
 | `PUT/DELETE` | `/_replicator/$DOCUMENT` | `cloudantnosqldb.replication.write` |
-| `GET/HEAD` | `/_up` | `cloudantnosqldb.account-up.read` | 
+| `GET/HEAD` | `/_up` | `cloudantnosqldb.account-up.read` |
 | `PUT` | `/$DATABASE/` | `cloudantnosqldb.database.create` |
 | `DELETE` | `/$DATABASE` | `cloudantnosqldb.database.delete` |
 | `POST` | `/$DATABASE/_design_docs/queries` | `cloudantnosqldb.any-document.read` |
@@ -634,7 +634,7 @@ When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Ch
 | `GET` | `/$DATABASE/_design/$DOCUMENT_ID/_search_disk_size/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `GET` | `/$DATABASE/_design/$DOCUMENT_ID/_search_info/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | `/$DATABASE/_index/$FURTHER_PATH_PARTS` | `cloudantnosqldb.any-document.read` |
-| `GET` | `/$DATABASE/_design_docs`  | `cloudantnosqldb.any-document.read` | 
+| `GET` | `/$DATABASE/_design_docs`  | `cloudantnosqldb.any-document.read` |
 | `GET` | `/$DATABASE/_design/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` |
 | `GET/HEAD` | `/$DATABASE/_design/$DOCUMENT_ID/$ATTACHMENT` | `cloudantnosqldb.any-document.read` |
 | `PUT` | `/$DATABASE/_design/$DOCUMENT_ID` | `cloudantnosqldb.design-document.write` |
@@ -646,7 +646,7 @@ When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Ch
 | `GET/HEAD` | `/$DATABASE/_security` | `cloudantnosqldb.database-security.read` |
 | `PUT` | `/$DATABASE/_security` | `cloudantnosqldb.database-security.write` |
 | `GET/HEAD` | `/$DATABASE/_shards` | `cloudantnosqldb.database-shards.read` |
-| `COPY` (Depends on write document type.) | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` and/or `cloudantnosqldb.data-document.write` | 
+| `COPY` (Depends on write document type.) | `/$DATABASE/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read` + `cloudantnosqldb.design-document.write` and/or `cloudantnosqldb.local-document.write` and/or `cloudantnosqldb.data-document.write` |
 | `GET` | `/_membership` | `cloudantnosqldb.cluster-membership.read` |
 | `POST` | `/$DATABASE/_ensure_full_commit` | `cloudantnosqldb.database-ensure-full-commit.execute` |
 | `PUT` | `/_users` | `cloudantnosqldb.users-database.create`  |
@@ -746,6 +746,7 @@ When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Ch
 | `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read ` |
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
 {: caption="Table 4. Writer role actions and mapping" caption-side="top"}
 {: #writer-role}
 {: tab-title="Writer"}
@@ -784,14 +785,15 @@ When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Ch
 | `GET` | `/$DATABASE/_local/$DOCUMENT_ID` | `cloudantnosqldb.any-document.read ` |
 | `POST` | `/$DATABASE/_missing_revs` | `cloudantnosqldb.any-document.read` |
 | `POST` | `/$DATABASE/_revs_diff` | `cloudantnosqldb.any-document.read` |
+| `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
 {: caption="Table 5. Reader role actions and mapping" caption-side="top"}
 {: #reader-role}
 {: tab-title="Reader"}
 {: tab-group="Roles-simple"}
 {: class="simple-tab-table"}
 
-| Method | Endpoint | Action name | Manager |
-|--------|----------|-------------|---------|
+| Method | Endpoint | Action name |
+|--------|----------|-------------|
 | `GET` | `/_api/v2/user/capacity/throughput` | `cloudantnosqldb.capacity-throughput.read` |
 | `GET` | `/_api/v2/user/current/throughput` | `cloudantnosqldb.current-throughput.read` |
 | `GET/HEAD` | / | `cloudantnosqldb.account-meta-info.read` |
