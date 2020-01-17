@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2019
-lastupdated: "2019-12-20"
+lastupdated: "2020-01-16"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -429,7 +429,7 @@ To send multiple queries to a specific database, send a `POST` request to
 See the following example that uses HTTP to send multiple queries to a database:
 
 ```http
-POST /_all_docs/queries HTTP/1.1
+POST /$DATABASE/_all_docs/queries HTTP/1.1
 ```
 {: codeblock}
 
