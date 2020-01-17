@@ -116,12 +116,6 @@ IBM Cloudant
 		tutorials/create_database.md
 		tutorials/create_query.md
 		tutorials/create_backup.md
-		tutorials/create_bmxapp.md
-		tutorials/create_bmxapp_prereq.md
-		tutorials/create_bmxapp_appenv.md
-		tutorials/create_bmxapp_createapp.md
-		tutorials/create_bmxapp_upload.md
-		tutorials/create_bmxapp_maintain.md
 
 	{: .topicgroup}
 	Recovery and backup
