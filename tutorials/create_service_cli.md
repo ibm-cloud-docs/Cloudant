@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2019
-lastupdated: "2019-12-23"
+lastupdated: "2020-01-17"
 
 keywords: identify, api endpoints, log in, select ibm cloudant plan, create ibm cloudant service, create credentials, list service credentials, use ibm cloudant service instance, delete service credentials, delete service instance
 
@@ -35,27 +35,6 @@ by using the {{site.data.keyword.cloud_notm}} CLI.
 
 To follow this tutorial, you must first install the {{site.data.keyword.cloud_notm}} CLI developer tools. For more information about installing the tools, see the [Getting started with the {{site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-ibmcloud-cli#overview){: new_window}{: external} tutorial.
 
-## Identifying the {{site.data.keyword.cloud_notm}} API endpoint
-{: #identifying-the-ibm-cloud-api-endpoint}
-
-Specify the target API endpoint for your {{site.data.keyword.cloud_notm}} commands:
-
-```sh
-ibmcloud api https://api.ng.bluemix.net
-```
-{: codeblock}
-
-The result confirms that you correctly identified the endpoint:
-
-```sh
-Setting api endpoint to https://api.ng.bluemix.net...
-OK
-
-API endpoint: https://api.ng.bluemix.net (API version: 2.54.0)
-Not logged in. Use 'ibmcloud login' to log in.
-```
-{: pre}
-
 ## Log in to your {{site.data.keyword.cloud_notm}} account
 {: #logging-in-to-your-ibm-cloud-account}
 
@@ -73,16 +52,19 @@ The following example describes how to log in. If you use a federated user ID, i
   API endpoint, and asks for the email address of your account:
   
   ```sh
-  API endpoint: https://api.ng.bluemix.net
+  API endpoint: https://cloud.ibm.com
+  Region: au-syd
   
   Email>
+
+  Password>
   ```
   {: pre}
 
 2.  Enter the email address of your account, and then enter your password:
 
   ```sh
-  API endpoint: https://api.ng.bluemix.net
+  API endpoint: https://cloud.ibm.com
   
   Email> J.Doe@email.com
   
@@ -93,7 +75,7 @@ The following example describes how to log in. If you use a federated user ID, i
   {{site.data.keyword.cloud_notm}} validates your details and summarizes the information about your login session:
 
   ```sh
-  API endpoint: https://api.ng.bluemix.net
+  API endpoint: https://cloud.ibm.com
   
   Email> J.Doe@email.com
   
@@ -107,8 +89,8 @@ The following example describes how to log in. If you use a federated user ID, i
   
   Targeted space dev
   
-  API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
-  Region:         us-south
+  API endpoint:   https://cloud.ibm.com (API version: 2.54.0)
+  Region:         au-syd
   User:           j.doe@email.com
   Account:        J DOE's Account (707...a32)
   Org:            J.Doe@email.com
@@ -183,7 +165,7 @@ Creating service instance cs20170517a in resource group default of account John 
 OK
 Service instance cs20170517a was created.
 Name          Location   State    Type               Tags   
-cs20170517a   us-south   active   service_instance  
+cs20170517a   au-syd   active   service_instance  
 ```
 {: pre}
 
