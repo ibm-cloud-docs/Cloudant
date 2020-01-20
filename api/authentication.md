@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-15"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: basic authentication, cookie authentication, request cookie, delete cookie, get cookie
 
@@ -32,8 +32,8 @@ It's typically done by providing your user credentials for verification.
 
 You can provide your credentials (authenticate) in two ways for {{site.data.keyword.cloudantfull}}:
 
--	[Basic authentication](/docs/services/Cloudant?topic=cloudant-authentication#basic-authentication)
--	[Cookie authentication](/docs/services/Cloudant?topic=cloudant-authentication#cookie-authentication)
+-	[Basic authentication](/docs/Cloudant?topic=cloudant-authentication#basic-authentication)
+-	[Cookie authentication](/docs/Cloudant?topic=cloudant-authentication#cookie-authentication)
 
 Basic authentication is similar to showing an ID at a door to be checked every time that you want to enter.
 Cookie authentication is similar to having a key to the door so that you can let yourself in whenever you want.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-12-24"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -31,7 +31,7 @@ Creating new indexes over lots of data or replicating a large database can take 
 
 So how can you determine whether your tasks are progressing,
 or if they've completed?
-The [`_active_tasks` endpoint](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks) provides information about all ongoing tasks.
+The [`_active_tasks` endpoint](/docs/Cloudant?topic=cloudant-active-tasks#active-tasks) provides information about all ongoing tasks.
 However,
 if you start numerous tasks,
 some of them might be scheduled to run later and don't show up under `_active_tasks`
@@ -42,7 +42,7 @@ The `curl` command is used to access the endpoint.
 The `jq` command-line JSON processor is used to process the JSON response.
 
 This task-focused tutorial covers only what is essential to accomplish this task.
-For more information, see the [API reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) for a complete guide to the available options.
+For more information, see the [API reference](/docs/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) for a complete guide to the available options.
 
 ## `curl` and `jq` basics
 {: #curl-and-jq-basics}
@@ -236,13 +236,13 @@ the database.
 {: #what-to-do-about-a-stuck-task-}
 
 To resolve a stalled replication,
-you might have to [cancel the replication process](/docs/services/Cloudant?topic=cloudant-replication-api#canceling-a-replication) and start it again.
+you might have to [cancel the replication process](/docs/Cloudant?topic=cloudant-replication-api#canceling-a-replication) and start it again.
 
 If that doesn't help,
 the replication might be stalled because the user who is accessing the source or target databases
 doesn't have write permissions.
 
-Replication uses [checkpoints](/docs/services/Cloudant?topic=cloudant-replication-guide#checkpoints), which means that content that is already replicated and unchanged doesn't have to be replicated again if the replication is restarted.
+Replication uses [checkpoints](/docs/Cloudant?topic=cloudant-replication-guide#checkpoints), which means that content that is already replicated and unchanged doesn't have to be replicated again if the replication is restarted.
 {: note}
 
 If you created the replication process by creating a document in the `_replicator` database,

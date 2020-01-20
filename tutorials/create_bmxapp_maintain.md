@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-08-26"
+  years: 2017, 2020
+lastupdated: "2020-01-20"
 
 keywords: maintenance tasks, find application status, start application, stop application, upload application, diagnose problems, resolve problems, application log
 
@@ -69,7 +69,7 @@ To stop a running application, click the `Stop` option in the menu:<br/>
 {: #uploading-a-fresh-version-of-your-application}
 
 To upload a fresh version of your application,
-simply follow the [upload process](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application).
+simply follow the [upload process](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application).
 The new version overwrites the older version of the application.
 
 If the older version of the application is already running when you start the upload, {{site.data.keyword.cloud_notm}} automatically stops the application first.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-12-20"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -91,7 +91,7 @@ See the following example error response if one of the requested databases for a
 ## Important notes
 {: #important-notes}
 
-* A new and more powerful [replication scheduler](/docs/services/Cloudant?topic=cloudant-advanced-replication#the-replication-scheduler)
+* A new and more powerful [replication scheduler](/docs/Cloudant?topic=cloudant-advanced-replication#the-replication-scheduler)
   changes the previous behavior of the {{site.data.keyword.cloudant_short_notm}} replication mechanisms.
   Ensure that your applications are updated.
 * Replications can severely impact the performance of an {{site.data.keyword.cloudant_short_notm}} instance.
@@ -109,9 +109,9 @@ See the following example error response if one of the requested databases for a
 * Replicator databases must be maintained and looked after,
   just like any other valuable data store.
   For more information,
-  see [replication database maintenance](/docs/services/Cloudant?topic=cloudant-advanced-replication#replication-database-maintenance).
+  see [replication database maintenance](/docs/Cloudant?topic=cloudant-advanced-replication#replication-database-maintenance).
   
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/services/Cloudant?topic=cloudant-authorization#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} or the legacy [Authentication API document](/docs/services/Cloudant?topic=cloudant-authentication#authentication){: new_window} and the legacy [Authorization API document](/docs/services/Cloudant?topic=cloudant-authorization#authorization){: new_window}.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=cloudant-authorization#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} or the legacy [Authentication API document](/docs/Cloudant?topic=cloudant-authentication#authentication){: new_window} and the legacy [Authorization API document](/docs/Cloudant?topic=cloudant-authorization#authorization){: new_window}.
 {: important}
 
 ## The `_replicator` database
@@ -126,7 +126,7 @@ To create a database, send a `PUT` request to:
 ```http
 https://$ACCOUNT.cloudant.com/_replicator
 ```
-For more information, see [Databases](/docs/services/Cloudant?topic=cloudant-databases#databases).
+For more information, see [Databases](/docs/Cloudant?topic=cloudant-databases#databases).
 
 To cancel a replication,
 you `DELETE` the replication document.
@@ -152,9 +152,9 @@ Field Name | Required | Description
 `create_target` | no | A value of `true` tells the replicator to create the `target` database if it does not exist.
 `create_target_params` | no | Provides a way to customize the target database that is created on a new replication. You can also customize the cluster's default values for the number of shards and replicas to create. 
 `doc_ids` | no | Array of document IDs; if given, only these documents are replicated.
-`filter` | no | Name of a [filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions), which is defined in a design document. The filter function determines which documents get replicated. Using the `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option when possible.
+`filter` | no | Name of a [filter function](/docs/Cloudant?topic=cloudant-design-documents#filter-functions), which is defined in a design document. The filter function determines which documents get replicated. Using the `selector` option provides performance benefits when compared with using the `filter` option. Use the `selector` option when possible.
 `proxy` | no | Proxy server URL.
-`query_params` | no | A field that contains key:value pairs, for use in [filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions).
+`query_params` | no | A field that contains key:value pairs, for use in [filter function](/docs/Cloudant?topic=cloudant-design-documents#filter-functions).
 `selector` | no | Provide a simple filter to select the documents that are included in the replication. Using the `selector` option provides performance benefits when compared with using the `filter` option. For more information, see the [`selector`](#the-selector-field) documentation.
 `since_seq` | no | Override the incremental nature of replication. For more information, see the [`since_seq`](#the-since_seq-field) documentation.
 `use_checkpoints` | no | Indicate whether to create checkpoints. Checkpoints greatly reduce the time and resources that are needed for repeated replications. Setting this field to `false` removes the requirement for write access to the `source` database. Defaults to `true`.
@@ -168,10 +168,10 @@ Optionally, replication documents can have a user-defined `_id`.
 
 If you do not want to replicate the entire contents of a database,
 you can specify a simple filter in the `selector` field.
-The filter takes the form of an [{{site.data.keyword.cloudant_short_notm}} Query](/docs/services/Cloudant?topic=cloudant-query#query) selector object.
+The filter takes the form of an [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=cloudant-query#query) selector object.
 
 Using a selector object provides performance benefits when compared with using a
-[filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions).
+[filter function](/docs/Cloudant?topic=cloudant-design-documents#filter-functions).
 Use the `selector` option where possible.
 
 The selector object identifies a field (such as `_id` in the following example),The selector object identifies a field, such as `_id` in the following example, and an expression, such as `"$gte": "d2"`, that must be true for that field for the selector to allow the document to replicate. In the following example,
@@ -193,7 +193,7 @@ See the following example `selector` object in a replication document:
 ```
 {: codeblock}
 
-An HTTP [`400`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) error is returned if a problem occurs with the replication request.
+An HTTP [`400`](/docs/Cloudant?topic=cloudant-http#http-status-codes) error is returned if a problem occurs with the replication request.
 The error includes more details about the problem in the `"reason"` field of the response.
 The reason might be one of:
 
@@ -335,22 +335,22 @@ Do not copy the `URL` field from the `VCAP_SERVICES` environment variable.
 {: #canceling-a-replication}
 
 To cancel a replication,
-[delete its replication document](/docs/services/Cloudant?topic=cloudant-documents#delete-a-document) from the `_replicator` database.
+[delete its replication document](/docs/Cloudant?topic=cloudant-documents#delete-a-document) from the `_replicator` database.
 
 If you created the replication by sending a JSON document to the `/_replicate` endpoint,
 you can cancel the replication by sending a revised JSON document to the `/_replicate` endpoint.
 The revised document must be identical to the original replication request,
 but have an additional `"cancel":true` field.
 For more information,
-see [The `/_replicate` endpoint](/docs/services/Cloudant?topic=cloudant-advanced-replication#the-_replicate-endpoint).
+see [The `/_replicate` endpoint](/docs/Cloudant?topic=cloudant-advanced-replication#the-_replicate-endpoint).
 
-If the replication is in an [`error` state](/docs/services/Cloudant?topic=cloudant-advanced-replication#replication-status),
+If the replication is in an [`error` state](/docs/Cloudant?topic=cloudant-advanced-replication#replication-status),
 the replicator makes repeated attempts to achieve a successful replication.
 A consequence is that the replication document is updated with each attempt.
 This update also changes the document revision value.
 Therefore,
 get the revision value immediately before you delete the document,
-otherwise you might get an [HTTP 409 "document update conflict"](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) response.
+otherwise you might get an [HTTP 409 "document update conflict"](/docs/Cloudant?topic=cloudant-http#http-status-codes) response.
 
 See the following example instructions for using HTTP to delete a replication document:
 
@@ -378,7 +378,7 @@ look for documents with `"type": "replication"`.
 
 A more powerful and comprehensive approach to monitoring replication is available
 by using the replication scheduler.
-More details about using the scheduler are available in the [advanced replication information](/docs/services/Cloudant?topic=cloudant-advanced-replication#replication-status) 
+More details about using the scheduler are available in the [advanced replication information](/docs/Cloudant?topic=cloudant-advanced-replication#replication-status) 
 
 If you monitor the `_active_tasks` and find that the state of a replication is not changing,
 you might have a 'stalled' replication.
@@ -386,8 +386,8 @@ If you are sure that the replication stalled,
 contact {{site.data.keyword.cloudant_short_notm}} support for assistance.
 
 For more information,
-see [Active tasks](/docs/services/Cloudant?topic=cloudant-active-tasks#active-tasks)
-and [Replication status](/docs/services/Cloudant?topic=cloudant-advanced-replication#replication-status).
+see [Active tasks](/docs/Cloudant?topic=cloudant-active-tasks#active-tasks)
+and [Replication status](/docs/Cloudant?topic=cloudant-advanced-replication#replication-status).
 
 See the following example instructions for using HTTP to monitor a replication:
 
@@ -632,7 +632,7 @@ and setting the value to `true`.
 For the cancellation request to succeed, the structure of the request must be identical to the original request. In particular, if you requested continuous replication, the cancellation request must also contain the `continuous` field.
 {: note}
 
-Requesting cancellation of a replication that does not exist results in a [404 error](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
+Requesting cancellation of a replication that does not exist results in a [404 error](/docs/Cloudant?topic=cloudant-http#http-status-codes).
 
 See the following example replication request to create the target database if it does not exist, and to replicate continuously:
 
@@ -663,7 +663,7 @@ See the following example request to cancel the replication, providing matching 
 ## Replication errors
 {: #replication-errors}
 
-When you replicate to a target cluster with these size [limits](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#request-and-document-size-limits), 
+When you replicate to a target cluster with these size [limits](/docs/Cloudant?topic=cloudant-ibm-cloud-public#request-and-document-size-limits), 
 documents that exceed any of the limits are not replicated. For continuous replications, monitor the `_active_tasks` endpoint and check 
 the replication task's `doc_write_failures` counter. If the `doc_write_failures` counter is not `0`, 
 it means that some documents did 

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-12-17"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -45,7 +45,7 @@ For more language-specific tutorials, see [Get started by deploying your first a
 Verify that you have what you need to start the tutorial from the following list:
 
 - An [{{site.data.keyword.cloud}} account](https://cloud.ibm.com){: new_window}{: external}
-- [An instance of the {{site.data.keyword.cloudant_short_notm}} service](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud)
+- [An instance of the {{site.data.keyword.cloudant_short_notm}} service](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud)
 - Verify that you have the  most current version of the [Python programming language](https://www.python.org/){: new_window}{: external}:
 
   1.  To check the Python version installed on your machine, run the following command:
@@ -82,7 +82,7 @@ Verify that you have what you need to start the tutorial from the following list
 	    ```
 	    {: pre}
   
-      For more information about the Python library, see the [supported platforms](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported) documentation. 
+      For more information about the Python library, see the [supported platforms](/docs/Cloudant?topic=cloudant-supported-client-libraries#python-supported) documentation. 
 
 ## Step 1. Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
@@ -112,7 +112,7 @@ Verify that you have what you need to start the tutorial from the following list
   <br>The details for the service credentials appear:
    <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
    
-3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The way {{site.data.keyword.cloudant_short_notm}} establishes this connection depends on whether you're using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. For more information about either authentication type, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
+3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The way {{site.data.keyword.cloudant_short_notm}} establishes this connection depends on whether you're using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. For more information about either authentication type, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
 	If you're using {{site.data.keyword.cloudant_short_notm}} Legacy authentication, replace your service credentials from the previous step:
 	```python
@@ -343,7 +343,7 @@ client.disconnect()
 For more information about all {{site.data.keyword.cloudant_short_notm}} offerings,
 see the main [{{site.data.keyword.cloudant_short_notm}}](https://www.ibm.com/cloud/cloudant){: new_window}{: external} site.
 
-For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/services/Cloudant?topic=cloudant-overview#overview).
+For  more information, see tutorials, {{site.data.keyword.cloudant_short_notm}} concepts, tasks, and techniques in the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=cloudant-overview#overview).
 
 ## Appendix. Complete Python code listing
 {: #appendix-complete-python-code-listing}

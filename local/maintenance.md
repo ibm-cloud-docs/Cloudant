@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-07"
+lastupdated: "2020-01-20"
 
 keywords: stop and start service, add node, maintenance mode, rebalancing plan, remote access, run rebalancing plan, replace database node, replace load balancer node, tune automatic compacter, smoosh channels, metrics database
 
@@ -87,7 +87,7 @@ new node.
 {: #provision-the-new-node-}
 
 1.  Install {{site.data.keyword.cloudant_local_notm}} on the database node that you are
-adding, as described in [Installing additional database nodes](/docs/services/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-additional-database-nodes).
+adding, as described in [Installing additional database nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-additional-database-nodes).
 
 2.  Run the `cast system install` command by passing the
 cluster configuration from your current `dbnode.yaml` file.
@@ -440,7 +440,7 @@ Confirm that the new node is set up correctly.
     {: codeblock}
 
 2.  If errors are reported during the run, see the
-    [information](/docs/services/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport) for
+    [information](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport) for
     `Weatherreport` checks, or call support.
 
 3.  After the run finishes, check the rebalancing logs that are
@@ -459,7 +459,7 @@ Confirm that the new node is set up correctly.
     determine whether the shards are spread evenly across the
     cluster nodes.
 
-   Weatherreport is a command-line application that provides information about the status of a dbcore node or cluster. Weatherreport is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weatherreport, see [Monitor cluster health with Weatherreport](/docs/services/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
+   Weatherreport is a command-line application that provides information about the status of a dbcore node or cluster. Weatherreport is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weatherreport, see [Monitor cluster health with Weatherreport](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
    {: note}
 
 ## Replace a node
@@ -490,7 +490,7 @@ instructions.
 <li>If any messages are returned, make sure that the shards
     have enough copies in live nodes before you replace the
     node.
-<p><strong>Note</strong>: Weatherreport is a command-line application that provides information about the status of an {{site.data.keyword.cloudant_short_notm}} node or cluster. It is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weatherreport, see [Monitor cluster health with Weatherreport](/docs/services/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).</p>
+<p><strong>Note</strong>: Weatherreport is a command-line application that provides information about the status of an {{site.data.keyword.cloudant_short_notm}} node or cluster. It is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weatherreport, see [Monitor cluster health with Weatherreport](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).</p>
 </li>
 </ol>
 </li>
@@ -498,7 +498,7 @@ instructions.
     the node and shut it down.</li>
 <li>Repair or replace the node.</li>
 <li>Install {{site.data.keyword.cloudant_local_notm}} on the database node, as described in
-    [Installing additional database nodes](/docs/services/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-additional-database-nodes).</li>
+    [Installing additional database nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-additional-database-nodes).</li>
 <li>Run <code>cast system install</code>.
 
 <ol type=a>
@@ -558,7 +558,7 @@ following instructions.
     the node and shut it down.</li>
 <li>Repair or replace the node.</li>
 <li>Install {{site.data.keyword.cloudant_local_notm}} on the load balancer node, as
-    described in [Installing load balancer nodes](/docs/services/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).</li>
+    described in [Installing load balancer nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).</li>
 <li>Configure the <code>lbnode.yaml</code> file with your current cluster
     configuration when you run the <code>cast system install</code> commands.
 </li>
@@ -1355,4 +1355,4 @@ data as described here.
 In addition to the metrics database, the stats database will grow in size over time although at a slower rate. The IOQ application periodically dumps its internal stats to disk via the stats database. Currently, {{site.data.keyword.cloudant_local_notm}} does not use that data. You can delete the database and not incur any loss of functionality. However, you might notice an error in the log that says the database does not exist. To prevent the error, you can recreate a new empty stats database.
 {: note}
 
-To manage the {{site.data.keyword.cloudant_short_notm}} Metrics application, see [{{site.data.keyword.cloudant_short_notm}} Metrics application](/docs/services/Cloudant?topic=cloudant-diagnose-troubleshoot#ibm-cloudant-metrics-application).
+To manage the {{site.data.keyword.cloudant_short_notm}} Metrics application, see [{{site.data.keyword.cloudant_short_notm}} Metrics application](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#ibm-cloudant-metrics-application).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-13"
+  years: 2017, 2020
+lastupdated: "2020-01-20"
 
 keywords: python, create service instance, create stand-alone python application
 
@@ -61,7 +61,7 @@ Python 2.7.12
 ### An {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-A separate tutorial for [creating an {{site.data.keyword.cloudantfull}} service instance on {{site.data.keyword.cloud_notm}}](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) creates a service instance called
+A separate tutorial for [creating an {{site.data.keyword.cloudantfull}} service instance on {{site.data.keyword.cloud_notm}}](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) creates a service instance called
 '`Cloudant-o7`'. 
 
 This tutorial assumes that you already created a service instance called '`Cloudant-o7`'.
@@ -71,8 +71,8 @@ This tutorial assumes that you already created a service instance called '`Cloud
 
 A separate tutorial for [creating a stand-alone Python application
 to work with an {{site.data.keyword.cloudant_short_notm}}
-service instance] (/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) is also available. It introduces a number of concepts that are helpful for understanding how to create and populate an {{site.data.keyword.cloudant_short_notm}} database.
+service instance] (/docs/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) is also available. It introduces a number of concepts that are helpful for understanding how to create and populate an {{site.data.keyword.cloudant_short_notm}} database.
 
 The tutorial assumes that you're familiar with these concepts.
 
-The next step is to [create the application environment](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment).
+The next step is to [create the application environment](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment).

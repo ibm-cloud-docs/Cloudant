@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-09"
+lastupdated: "2020-01-20"
 
 ---
 
@@ -36,7 +36,7 @@ Review the following sections to understand the specific responsibilities betwee
 |----------|-----------------------|--------|
 |HA/DR (multi-zone region) | {{site.data.keyword.cloudant_short_notm}} stores all documents in triplicate on separate servers that are spread across three separate availability zones by default.  | |
 |HA/DR (single-zone region)| {{site.data.keyword.cloudant_short_notm}} stores all documents in triplicate on three separate physical servers within the availability zone by default.  | |
-|Back up and restore|   | Customer is responsible for backup and restore of data to roll back to a previous state in the database. See [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery) documentation for recommended tooling. |
+|Back up and restore|   | Customer is responsible for backup and restore of data to roll back to a previous state in the database. See [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery) documentation for recommended tooling. |
 {: caption="Table 1. Responsibilities for incident and operations" caption-side="top"}
 
 
@@ -68,6 +68,6 @@ Review the following sections to understand the specific responsibilities betwee
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|HA/DR (cross-region)|  | Customer is responsible for creating more {{site.data.keyword.cloudant_short_notm}} instances in separate regions and configuring replications to achieve the desired cross-region HA/DR architecture. See [Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery) for more details.  |
+|HA/DR (cross-region)|  | Customer is responsible for creating more {{site.data.keyword.cloudant_short_notm}} instances in separate regions and configuring replications to achieve the desired cross-region HA/DR architecture. See [Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery](/docs/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery) for more details.  |
 {: caption="Table 4. Responsibilities for disaster recovery" caption-side="top"}
 
