@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2020-01-16"
+  years: 2015, 2020
+lastupdated: "2020-01-21"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -738,7 +738,8 @@ See the following example (abbreviated) responses from a continuous changes feed
 {: #the-filter-argument}
 
 The `filter` argument designates a pre-defined
-[filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) to apply to the changes feed.
+[filter function](/docs/services/Cloudant?topic=cloudant-design-documents#predefined-filter-functions) to apply to the
+ changes feed.
 Additionally,
 several built-in filters are available:
 
@@ -749,7 +750,7 @@ several built-in filters are available:
    {: note}
 
 *   `_selector` - Accepts only changes for documents that match a specified selector,
-    which is defined by using the same [selector syntax](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) that is used
+    which is defined by using the same [selector syntax](/docs/services/Cloudant/api?topic=cloudant-query#selector-syntax) that is used
     for [`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
 
    The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
