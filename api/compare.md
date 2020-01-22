@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-27"
 
 keywords: links, couchdb endpoints, ibm cloudant endpoints
 
@@ -84,6 +84,10 @@ Removed for 96973.
 | `PUT /_replicator` <br>[Cloudant](/docs/Cloudant?topic=cloudant-replication-api#the-_replicator-database), [CouchDB 2.x](http://docs.couchdb.org/en/2.0.0/replication/replicator.html), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/replication/replicator.html) | Trigger a replication.<br>{{site.data.keyword.cloudant_short_notm}} documentation references more request body fields (`selector`, `since\_seq`). |
 | `DELETE /_replicator` <br>[Cloudant](/docs/Cloudant?topic=cloudant-replication-api#the-_replicator-database), [CouchDB 2.x](http://docs.couchdb.org/en/2.0.0/replication/replicator.html), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/replication/replicator.html) | Cancel an ongoing replication.<br>{{site.data.keyword.cloudant_short_notm}} documentation references more request body fields (`selector`, `since\_seq`). |
 | `POST /_restart` <br>[CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/server/common.html#post--_restart) | Restart the instance. You must be authenticated as a user with administration privileges. |
+| `GET/HEAD /_scheduler/docs` <br>[Cloudant](/docs/Cloudant?topic=cloudant-advanced-replication#the-_scheduler-docs-endpoint), [CouchDB 2.x](https://docs.couchdb.org/en/stable/api/server/common.html#get--_scheduler-docs) | Monitor the status of a replication that is described by a replication document. |
+| `GET/HEAD /_scheduler/docs/_replicator/$doc_id` <br>[Cloudant](/docs/Cloudant?topic=cloudant-advanced-replication#the-_scheduler-docs-_replicator-doc_id-endpoint), [CouchDB 2.x](https://docs.couchdb.org/en/stable/api/server/common.html#get--_scheduler-docs-replicator_db-docid) | Directly query a particular document by using its document ID. |
+| `GET/HEAD /_scheduler/jobs` <br>[Cloudant](/docs/Cloudant?topic=cloudant-advanced-replication#the-_scheduler-jobs-endpoint), [CouchDB 2.x](https://docs.couchdb.org/en/stable/api/server/common.html#get--_scheduler-jobs) | Fetch more details about active replication tasks that are run during replication.  |
+| `GET/HEAD /_scheduler/jobs/$job_id` <br>[Cloudant](/docs/Cloudant?topic=cloudant-advanced-replication#the-_scheduler-jobs-_replicator-job_id-endpoint) | Find the state of a single replication task based on its replication ID. |
 | `POST /_search_analyze` <br>[Cloudant](/docs/Cloudant?topic=cloudant-search#testing-analyzer-tokenization) | Test the results of analyzer tokenization by posting sample data. |
 | `GET /_session` <br>[Cloudant](/docs/Cloudant?topic=cloudant-authentication#cookie-authentication), [CouchDB 2.x](http://docs.couchdb.org/en/stable/api/server/authn.html#get--_session), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/server/authn.html#get--_session) | Returns information about the authenticated user.<br>CouchDB documentation references a query parameter (basic). |
 | `POST /_session` <br>[Cloudant](/docs/Cloudant?topic=cloudant-authentication#cookie-authentication), [CouchDB 2.x](http://docs.couchdb.org/en/stable/api/server/authn.html#post--_session), [CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/server/authn.html#post--_session) | Start a new session for the specified user credentials. Cookie-based user login.<br>CouchDB documentation references an additional query parameter (next). |
