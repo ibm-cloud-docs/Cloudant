@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20""
+lastupdated: "2020-01-23"
 
 keywords: find conflicts, resolve conflicts, merge changes, upload new revision, delete revision
 
