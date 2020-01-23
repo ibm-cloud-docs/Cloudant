@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-23"
 
 
 keywords: replication operation, _replicator database, replication document format, create, cancel, monitor, single replication, continuous replication, replication errors
@@ -248,7 +248,7 @@ Replications are created in 1 of 2 ways:
 1.  A replication can be created by using a [replication document](#replication-document-format)
   in the `_replicator` database.
   Creating and modifying replications in this way enables control of a replication
-  in the same as working with other documents.
+  in the same way as working with other documents.
   Replication jobs created this way are resumed automatically after a node restart.
 2.  A replication can be started by `POST`ing a JSON document that describes the wanted replication
   directly to the `/_replicate` endpoint.
