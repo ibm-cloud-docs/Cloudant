@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-21"
+lastupdated: "2020-01-22"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -27,12 +27,12 @@ subcollection: cloudant
 {: #databases}
 
 {{site.data.keyword.cloudantfull}} databases contain JSON objects.
-These JSON objects are called [documents](/docs/services/Cloudant?topic=cloudant-documents#documents).
+These JSON objects are called [documents](/docs/Cloudant?topic=cloudant-documents#documents).
 {: shortdesc}
 
-All documents must be contained in a database. Also, learn more about [partitioned databases](/docs/services/Cloudant?topic=cloudant-databases#partitioned-databases-database).
+All documents must be contained in a database. Also, learn more about [partitioned databases](/docs/Cloudant?topic=cloudant-databases#partitioned-databases-database).
 
-The [Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}](/docs/services/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant) guide provides an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
+The [Grouping related documents together in {{site.data.keyword.cloudant_short_notm}}](/docs/Cloudant?topic=cloudant-grouping-related-documents-together-in-ibm-cloudant#grouping-related-documents-together-in-ibm-cloudant) guide provides an example of how documents for an e-commerce application might be used within an {{site.data.keyword.cloudant_short_notm}} database.
 
 ## Partitioned databases
 {: #partitioned-databases-database}
@@ -110,7 +110,7 @@ curl -X PUT "https://$ACCOUNT.cloudant.com/$DATABASE?partitioned=false"
 ```
 {: codeblock}
 
-If creation succeeds, you get a [201 or 202 response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
+If creation succeeds, you get a [201 or 202 response](/docs/Cloudant?topic=cloudant-http#http-status-codes).
 An error response uses
 the HTTP status code to indicate what went wrong.
 
@@ -312,14 +312,14 @@ The `_all_docs` endpoint accepts the following query arguments:
 `keys`              | Return only documents with IDs that match one of the specified keys.                            | Yes      | List of strings |
 `limit`             | Limit the number of returned documents to the specified number.                                 | Yes      | Numeric         |
 `meta`              | Short-hand combination of all three arguments: `conflicts`, `deleted_conflicts`, and `revs_info`. Using `meta=true` is the same as using `conflicts=true&deleted_conflicts=true&revs_info=true`. | Yes | Boolean | False
-`r`                 | Specify the [read quorum](/docs/services/Cloudant?topic=cloudant-documents#quorum-writing-and-reading-data) value.               | Yes      | Numeric         | 2
+`r`                 | Specify the [read quorum](/docs/Cloudant?topic=cloudant-documents#quorum-writing-and-reading-data) value.               | Yes      | Numeric         | 2
 `revs_info`         | Includes detailed information for all known document revisions.                                 | Yes      | Boolean         | False
 `skip`              | Skip this number of records before returning the results.                                       | Yes      | Numeric         | 0
 `startkey`          | Return records, starting with the specified key.                                                | Yes      | String          |
 `startkey_docid` | Return records, starting with the specified document ID. If `startkey` isn't set, this argument is ignored.  | Yes | String |
 
 
-Using `include_docs=true` might have [performance implications](/docs/services/Cloudant?topic=cloudant-using-views#multi-document-fetching).
+Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=cloudant-using-views#multi-document-fetching).
 {: important}
 
 When you use the `keys` argument, it might be easier to send a `POST` request rather than a `GET` request if you require many strings to list the keys you want.
@@ -600,9 +600,9 @@ These responses are combined and returned to the original requesting client.
 ----------------|-------------|------------------|---------
 `conflicts`    | Can be set only if `include_docs` is `true`. Adds information about conflicts to each document. | Boolean | False 
 `descending`   | Return the changes in sequential order. | Boolean | False 
-`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [API: GET / documentation](/docs/services/Cloudant?topic=cloudant-advanced-api#-get-). | A JSON array of document IDs | 
+`doc_ids`      | To be used only when `filter` is set to `_doc_ids`. Filters the feed so that only changes to the specified documents are sent. **Note**: The `doc_ids` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0. For more information, see [API: GET / documentation](/docs/Cloudant?topic=cloudant-advanced-api#-get-). | A JSON array of document IDs | 
 `feed`         | Type of feed required. For more information, see the [`feed` information](#the-feed-argument). | `"continuous"`, `"longpoll"`, `"normal"` | `"normal"`
-`filter`       | Name of [filter function](/docs/services/Cloudant?topic=cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents). | string | no filter
+`filter`       | Name of [filter function](/docs/Cloudant?topic=cloudant-design-documents#filter-functions) to use to get updates. The filter is defined in a [design document](/docs/Cloudant?topic=cloudant-design-documents#design-documents). | string | no filter
 `heartbeat`    | If no changes occurred during `feed=longpoll` or `feed=continuous`, an empty line is sent after this time in milliseconds. | Any positive number | No heartbeat 
 `include_docs` | Include the document as part of the result. | Boolean | False 
 `limit`        | Maximum number of rows to return. | Any non-negative number | None   
@@ -611,7 +611,7 @@ These responses are combined and returned to the original requesting client.
 `style`        | Specifies how many revisions are returned in the changes array. The `main_only` style returns only the current "winning" revision. The `all_docs` style returns all leaf revisions, including conflicts and deleted former conflicts. | `main_only`, `all_docs` | `main_only` 
 `timeout`      | Stop the response after waiting this number of milliseconds for data. If the `heartbeat` setting is also supplied, it takes precedence over the `timeout` setting. | Any positive number | 
 
-Using `include_docs=true` might have [performance implications](/docs/services/Cloudant?topic=cloudant-using-views#multi-document-fetching).
+Using `include_docs=true` might have [performance implications](/docs/Cloudant?topic=cloudant-using-views#multi-document-fetching).
 {: important}
 
 See the following example that uses HTTP to get a list of changes made to documents in a database:
@@ -661,7 +661,7 @@ you get the requested information in response.
 The reason these extra changes are included,
 along with the implications for applications,
 is explained in the
-[replication guide](/docs/services/Cloudant?topic=cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
+[replication guide](/docs/Cloudant?topic=cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
 
 Any application that uses the `_changes` request *must* be able to process correctly a list of changes that might: 1. Have a different order for the changes that are listed in the response, when compared with an earlier request for the same information. 2. Include changes that are considered to be before the change specified by the sequence identifier.
 {: tip}
@@ -738,8 +738,7 @@ See the following example (abbreviated) responses from a continuous changes feed
 {: #the-filter-argument}
 
 The `filter` argument designates a pre-defined
-[filter function](/docs/services/Cloudant?topic=cloudant-design-documents#predefined-filter-functions) to apply to the
- changes feed.
+[filter function](/docs/Cloudant?topic=cloudant-design-documents#predefined-filter-functions) to apply to the changes feed.
 Additionally,
 several built-in filters are available:
 
@@ -750,13 +749,13 @@ several built-in filters are available:
    {: note}
 
 *   `_selector` - Accepts only changes for documents that match a specified selector,
-    which is defined by using the same [selector syntax](/docs/services/Cloudant/api?topic=cloudant-query#selector-syntax) that is used
-    for [`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
+    which is defined by using the same [selector syntax](/docs/Cloudant/api?topic=cloudant-query#selector-syntax) that is used
+    for [`_find`](/docs/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
 
    The `_selector` parameter works only with versions of {{site.data.keyword.cloudant_short_notm}} that are compatible with CouchDB 2.0.
    {: note}
 	
-*   `_view` - Enables use of an existing [map function](/docs/services/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) as the filter.
+*   `_view` - Enables use of an existing [map function](/docs/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) as the filter.
 
 ### The `since` argument
 {: #the-since-argument}
@@ -798,7 +797,7 @@ Your application must be able to handle a change that is reported
 more than one time if you make a `_changes` request several times.
 
 For more information about the behavior of the `_changes` response, see the
-[replication guide](/docs/services/Cloudant?topic=cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
+[replication guide](/docs/Cloudant?topic=cloudant-replication-guide#how-does-replication-affect-the-list-of-changes-).
 
 ### Responses from the `_changes` request
 {: #responses-from-the-_changes-request}
@@ -941,7 +940,7 @@ account.db.destroy($DATABASE, function (err, body, headers) {
 
 -->
 
-If deletion succeeds, you get a [200 or 202 response](/docs/services/Cloudant?topic=cloudant-http#http-status-codes){: new_window}.
+If deletion succeeds, you get a [200 or 202 response](/docs/Cloudant?topic=cloudant-http#http-status-codes){: new_window}.
 An error response uses the HTTP status code to indicate what went wrong.
 
  Code | Description 
@@ -963,7 +962,7 @@ See the following example response that is received after a database is deleted 
 {: #backing-up-your-data}
 
 You must protect your data by taking good quality backups.
-For more information, see an [overview](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) of backing up your data, and see even more details in the [Backup guide](/docs/services/Cloudant?topic=cloudant-replication-incrementals#replication-incrementals).
+For more information, see an [overview](/docs/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) of backing up your data, and see even more details in the [Backup guide](/docs/Cloudant?topic=cloudant-replication-incrementals#replication-incrementals).
 
 <!--
 Removed for 96973.
@@ -983,8 +982,8 @@ you might also have client-side application code in documents within the databas
 The application code is typically written by using JavaScript.
 Two-tier combinations of data and client code,
 which is stored within a database,
-are called [CouchApps](/docs/services/Cloudant?topic=cloudant-couchapps#couchapps).
+are called [CouchApps](/docs/Cloudant?topic=cloudant-couchapps#couchapps).
 
 For more information about CouchApps,
 and to help you decide whether they're a good match for your application,
-see [CouchApps](/docs/services/Cloudant?topic=cloudant-couchapps#couchapps).
+see [CouchApps](/docs/Cloudant?topic=cloudant-couchapps#couchapps).

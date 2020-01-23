@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-18"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: http headers, response headers, http status codes
 
@@ -252,7 +252,7 @@ Code                                    | Meaning
 ----------------------------------------|--------
 `200 - OK`                              | Request completed successfully.
 `201 - Created`                         | Resource that is created or updated successfully. The resource could be a database or a document, for example.
-`202 - Accepted`                        | Request was accepted, but the [quorum](/docs/services/Cloudant?topic=cloudant-documents#quorum-writing-and-reading-data) for the operation was not met.
+`202 - Accepted`                        | Request was accepted, but the [quorum](/docs/Cloudant?topic=cloudant-documents#quorum-writing-and-reading-data) for the operation was not met.
 `304 - Not Modified`                    | The content that is requested was not modified. This error is used with the [ETag](#etag) system to identify the version of information returned.
 `400 - Bad Request`                     | Bad request structure. The error can indicate an error with the request URL, path, or headers. Differences in the supplied MD5 hash and content also trigger this error, as this error might indicate message corruption.
 `401 - Unauthorized`                    | The item requested was not available with the supplied authorization, or authorization was not supplied.

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-07"
+lastupdated: "2020-01-20"
 
 keywords: elevated request latencies, cluster configuration, hardware failure, ioq latency, load average, erlang run queue, ibm cloudant metrics application, ibm cloudant mustgather tool, monitoring, weatherreport, high throughput, concurrent replication, background replication
 
@@ -300,7 +300,7 @@ and display the Metrics application.
 <li>If {{site.data.keyword.cloudant_local_notm}} is configured to use Secure Sockets
     Layer (SSL), replace protocol with <code>http</code> or <code>https</code>.
 
-<p>For more information about SSL, see [Configuring SSL](/docs/services/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-ssl-ibm-cloudant-local).</p></li>
+<p>For more information about SSL, see [Configuring SSL](/docs/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-ssl-ibm-cloudant-local).</p></li>
 <li>Replace <code>loadbalancer.company.com</code> with your load balancer
     host name, such as <code>cloudantlocal.cloudant.com</code>.</li>
 <li>If needed, replace <code>metrics_app</code> with the <code>METRICS_DBNAME</code>

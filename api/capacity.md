@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-15"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: capacity, provisioned throughput capacity, view capacity, set capacity, view consumption
 
@@ -34,9 +34,9 @@ to do the following tasks:
 - View the current consumption of provisioned throughput capacity used.
 {: shortdesc}
 
-For more information, see the [provisioned throughput capacity](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#provisioned-throughput-capacity) documentation about how {{site.data.keyword.cloudant_short_notm}} allocates and consumes capacity, as well as how to view and change the capacity in the UI.
+For more information, see the [provisioned throughput capacity](/docs/Cloudant?topic=cloudant-ibm-cloud-public#provisioned-throughput-capacity) documentation about how {{site.data.keyword.cloudant_short_notm}} allocates and consumes capacity, as well as how to view and change the capacity in the UI.
 
-The Capacity API requires either {{site.data.keyword.cloudant_short_notm}} legacy auth admin role or IAM Manager role to access the API endpoints. The following curl examples omit the authentication aspect for simplicity. See the [authentication overview](/docs/services/Cloudant?topic=cloudant-connecting#authentication-overview) section for more details on using both types of authentication.  
+The Capacity API requires either {{site.data.keyword.cloudant_short_notm}} legacy auth admin role or IAM Manager role to access the API endpoints. The following curl examples omit the authentication aspect for simplicity. See the [authentication overview](/docs/Cloudant?topic=cloudant-connecting#authentication-overview) section for more details on using both types of authentication.  
 {: note}
 
 ## View the current and target provisioned throughput capacity setting

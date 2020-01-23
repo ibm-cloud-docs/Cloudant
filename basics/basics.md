@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-08-26"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: connect to ibm cloudant, http api, json, distributed systems, replication
 
@@ -32,15 +32,15 @@ scan this section before you scroll further.
 
 To understand the information on the following topics, we assume that you know some basic things about {{site.data.keyword.cloudantfull}}: 
 
-- [Client Libraries](/docs/services/Cloudant?topic=cloudant-client-libraries#client-libraries)
-- [API Reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)
-- [Guides](/docs/services/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)
+- [Client Libraries](/docs/Cloudant?topic=cloudant-client-libraries#client-libraries)
+- [API Reference](/docs/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview)
+- [Guides](/docs/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-)
 
 ## Connecting to {{site.data.keyword.cloudant_short_notm}}
 {: #connecting-to-ibm-cloudant}
 
 To access {{site.data.keyword.cloudant_short_notm}},
-you must have either an [{{site.data.keyword.cloudant_short_notm}} account](/docs/services/Cloudant?topic=cloudant-ibm-cloudant.com#enterprise-plan),
+you must have either an [{{site.data.keyword.cloudant_short_notm}} account](/docs/Cloudant?topic=cloudant-ibm-cloudant.com#enterprise-plan),
 or an [{{site.data.keyword.cloud}} account](https://cloud.ibm.com/login).
 
 ## HTTP API
@@ -52,7 +52,7 @@ All language-specific libraries for {{site.data.keyword.cloudant_short_notm}} ar
 some convenience and linguistic niceties to help you work with a simple API.
 Many users choose to use raw HTTP libraries for working with {{site.data.keyword.cloudant_short_notm}}.
 
-For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP ](/docs/services/Cloudant?topic=cloudant-http#http) in the API reference.
+For more information about how {{site.data.keyword.cloudant_short_notm}} uses HTTP, see [HTTP ](/docs/Cloudant?topic=cloudant-http#http) in the API reference.
 
 {{site.data.keyword.cloudant_short_notm}} supports the following HTTP request methods:
 
@@ -107,7 +107,7 @@ If the client (such as some web browsers) does not support using these HTTP meth
 {: #method-not-allowed-error}
 
 If you use an unsupported HTTP request type with a URL that does not support the specified type,
-a [405](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) error is returned,
+a [405](/docs/Cloudant?topic=cloudant-http#http-status-codes) error is returned,
 listing the supported HTTP methods, as shown in the following example.
 
 #### Example error message in response to an unsupported request
@@ -132,7 +132,7 @@ and audio,
 are called BLOBs (Binary Large OBjects),
 and can be stored as attachments associated with documents.
 
-More information about JSON can be found in the [JSON Guide](/docs/services/Cloudant?topic=cloudant-json#json).
+More information about JSON can be found in the [JSON Guide](/docs/Cloudant?topic=cloudant-json#json).
 
 ## Distributed systems
 {: #distributed-systems}
@@ -148,12 +148,12 @@ you just add more machines.
 This is often more cost-effective and fault-tolerant than scaling up or enhancing an existing single machine.
 
 For more information about {{site.data.keyword.cloudant_short_notm}} and distributed system concepts,
-see the [CAP Theorem](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem) guide.
+see the [CAP Theorem](/docs/Cloudant?topic=cloudant-cap-theorem#cap-theorem) guide.
 
 ## Replication
 {: #replication-basics}
 
-[Replication](/docs/services/Cloudant?topic=cloudant-replication-api#replication-api) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
+[Replication](/docs/Cloudant?topic=cloudant-replication-api#replication-api) is a procedure followed by {{site.data.keyword.cloudant_short_notm}},
 [CouchDB](http://couchdb.apache.org/){: new_window}{: external},
 [PouchDB](http://pouchdb.com/){: new_window}{: external},
 and other distributed databases.

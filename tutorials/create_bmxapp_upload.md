@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-26"
+  years: 2017, 2020
+lastupdated: "2020-01-22"
 
 keywords: connect to ibm cloud, upload application, test sample application, confirm database details
 
@@ -40,19 +40,19 @@ The {{site.data.keyword.cloud_notm}} CLI needs to know which URL to use for maki
 Use the following command to tell Cloud Foundry the URL to use:
 
 ```sh
-ibmcloud api https://api.ng.bluemix.net
+ibmcloud api https://cloud.ibm.com
 ```
 {: pre}
 
 Expect a result similar to the following output:
 
 ```
-Invoking 'cf api https://api.ng.bluemix.net'...
+Invoking 'cf api https://cloud.ibm.com'...
 
-Setting api endpoint to https://api.ng.bluemix.net...
+Setting api endpoint to https://cloud.ibm.com...
 OK
 
-API endpoint:   https://api.ng.bluemix.net
+API endpoint:   https://cloud.ibm.com
 API version:    2.54.0
 Not logged in. Use 'ibmcloud login' to log in.
 ```
@@ -86,7 +86,7 @@ Expect a result similar to the following output:
 ```
 Invoking 'cf login -u Adrian.Warman@uk.ibm.com -o Adrian.Warman@uk.ibm.com -s dev'...
 
-API endpoint: https://api.ng.bluemix.net
+API endpoint: https://cloud.ibm.com
 
 Password> 
 Authenticating...
@@ -96,7 +96,7 @@ Targeted org Adrian.Warman@uk.ibm.com
 
 Targeted space dev
                 
-API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
+API endpoint:   https://cloud.ibm.com (API version: 2.54.0)
 User:           adrian.warman@uk.ibm.com
 Org:            Adrian.Warman@uk.ibm.com
 Space:          dev
@@ -110,7 +110,7 @@ The {{site.data.keyword.cloudant_short_notm}} Foundry toolkit now knows how to c
 
 The next step is to upload the application itself.
 Details of an {{site.data.keyword.cloud_notm}} application
-are provided in the [manifest file](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-manifest.yml-file).
+are provided in the [manifest file](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-manifest.yml-file).
 
 Use a command similar to the following example to log in to upload your
 {{site.data.keyword.cloud_notm}} application.
@@ -183,7 +183,7 @@ App {{site.data.keyword.cloudant_short_notm}} Python was started using this comm
 The application starts automatically.
 As part of the startup,
 a check is made to ensure that all requirements are met,
-by evaluating the contents of the [requirements.txt file](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-requirements.txt-file).
+by evaluating the contents of the [requirements.txt file](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-requirements.txt-file).
 
 After you upload and start the application,
 some simple system checks are run to confirm that the application is running correctly
@@ -229,7 +229,7 @@ From the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > *
 ![Launch Cloudant dashboard on the {{site.data.keyword.cloudant_short_notm}} service page](images/img0036.png)
 
 To find your {{site.data.keyword.cloudant_short_notm}} service page,
-refer to the details in the [Creating an {{site.data.keyword.cloudant_short_notm}} instance tutorial](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+refer to the details in the [Creating an {{site.data.keyword.cloudant_short_notm}} instance tutorial](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 {: note}
 
 When the dashboard opens,
@@ -259,7 +259,7 @@ the `rightNow` field has the date and time the document was created.
 This value corresponds to the time that was recorded within the
 [application log file](#testing-the-sample-application).
 
-The next step in the tutorial is to [operate and maintain the application](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting),
+The next step in the tutorial is to [operate and maintain the application](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting),
 for example when you start,
 stop,
 and debug the application.

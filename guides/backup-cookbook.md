@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-11-14"
+  years: 2017, 2020
+lastupdated: "2020-01-20"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 # {{site.data.keyword.cloudant_short_notm}} backup and recovery
 {: #ibm-cloudant-backup-and-recovery}
 
-This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
+This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
 It's worth starting there if your'e new to the subject and want to understand where back up fits in
 with the other capabilities that {{site.data.keyword.cloudant_short_notm}} offers
 to support Disaster Recovery (DR) and High Availability (HA) requirements.
@@ -242,7 +242,7 @@ The library is useful for more complicated scenarios,
 for example:
 
 * Backing up several databases in one task.
-  You might do this backup by identifying all the databases by using the [`_all_dbs`](/docs/services/Cloudant?topic=cloudant-databases#get-a-list-of-all-databases-in-the-account) call,
+  You might do this backup by identifying all the databases by using the [`_all_dbs`](/docs/Cloudant?topic=cloudant-databases#get-a-list-of-all-databases-in-the-account) call,
   then doing a backup of each database individually.
 * Longer pipelines increase the risk of errors.
   By using the CouchBackup library,
@@ -321,6 +321,6 @@ function backupToS3(sourceUrl, s3Client, s3Bucket, s3Key, shallow) {
 ## Other disaster recovery options
 {: #other-disaster-recovery-options}
 
-Return to the [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
+Return to the [{{site.data.keyword.cloudant_short_notm}} Disaster Recovery guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup)
 to find out about the other features {{site.data.keyword.cloudant_short_notm}}
 offers for a full disaster recovery setup.

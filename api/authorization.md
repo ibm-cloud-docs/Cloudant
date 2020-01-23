@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-26"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: authorization, roles, permissions, view permissions, modify permissions, _users database, API keys, create API key, use API key, delete API key, _admin, _reader, _writer, _design, _replicator, _security, assign role
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 # Authorization
 {: #authorization}
 
-After [authenticating](/docs/services/Cloudant?topic=cloudant-authentication#authentication),
+After [authenticating](/docs/Cloudant?topic=cloudant-authentication#authentication),
 the next test is to decide whether you're allowed to do certain tasks.
 This decision is called authorization.
 {: shortdesc}
@@ -57,7 +57,7 @@ then you can do all the tasks that are associated with that role.
 {: #roles}
 
 {{site.data.keyword.cloudant_short_notm}} has a number of roles available.
-The roles can be assigned to user accounts or [API keys](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys).
+The roles can be assigned to user accounts or [API keys](/docs/Cloudant?topic=cloudant-authorization#creating-api-keys).
 
 The three core roles are defined in the following table:
 
@@ -87,13 +87,13 @@ The focused roles are defined in the following table:
 
 Role          | Description                                                                                   | API Endpoints
 --------------|-----------------------------------------------------------------------------------------------|--------------
-`_design`     | Allows create, read, modify, or delete access to design documents.                            | [`_design`](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents), [`_find`](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index), [`_index`](/docs/services/Cloudant?topic=cloudant-query#working-with-indexes)
-`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/docs/services/Cloudant?topic=cloudant-replication-api#the-since_seq-field), [`_replicate`](/docs/services/Cloudant?topic=cloudant-advanced-replication#the-_replicate-endpoint), [`_replicator`](/docs/services/Cloudant?topic=cloudant-replication-api#the-_replicator-database)
-`_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint.                          | [`_security`](/docs/services/Cloudant?topic=cloudant-authorization#viewing-permissions)
+`_design`     | Allows create, read, modify, or delete access to design documents.                            | [`_design`](/docs/Cloudant?topic=cloudant-design-documents#design-documents), [`_find`](/docs/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index), [`_index`](/docs/Cloudant?topic=cloudant-query#working-with-indexes)
+`_replicator` | Allows read access to replicate data from a database, and write access to create checkpoints. | [`_local`](/docs/Cloudant?topic=cloudant-replication-api#the-since_seq-field), [`_replicate`](/docs/Cloudant?topic=cloudant-advanced-replication#the-_replicate-endpoint), [`_replicator`](/docs/Cloudant?topic=cloudant-replication-api#the-_replicator-database)
+`_security`   | Allows read and write access to the `/$DATABASE/_security` endpoint.                          | [`_security`](/docs/Cloudant?topic=cloudant-authorization#viewing-permissions)
 
 The nature of the access that is granted depends on the specific API endpoint.
 For example,
-the `_design` role provides access that allows a user or [API key](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys) to create,
+the `_design` role provides access that allows a user or [API key](/docs/Cloudant?topic=cloudant-authorization#creating-api-keys) to create,
 read,
 modify,
 or delete design documents. If you grant access this way, the advantage is that you're not required to assign the more widely applicable `_reader` or `_writer` roles.
@@ -221,7 +221,7 @@ write,
 or manage a database,
 send a `PUT` request to `https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security`.
 To see what roles you can assign,
-see [Roles](/docs/services/Cloudant?topic=cloudant-authorization#roles).
+see [Roles](/docs/Cloudant?topic=cloudant-authorization#roles).
 
 See the following example that uses HTTP to send an authorization modification request:
 
@@ -359,7 +359,7 @@ API key that is generated outside of an EU-managed environment can't be granted
 access to an EU-managed {{site.data.keyword.cloudant_short_notm}} instance. 
 For more information about {{site.data.keyword.cloudant_short_notm}} 
 in an EU-managed environment, see 
-[Locations and tenancy](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#locations-and-tenancy).
+[Locations and tenancy](/docs/Cloudant?topic=cloudant-ibm-cloud-public#locations-and-tenancy).
 {: tip}
 
 
@@ -379,7 +379,7 @@ remember to record the key name and password.
 These values are both randomly generated,
 and can't be retrieved if lost or forgotten.
 
-[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local"))](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-local-overview) does not support API Keys. For a similar capability, create "CouchDB" style users, as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center](/docs/services/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-database-level-security).
+[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local"))](/docs/Cloudant?topic=cloudant-ibm-cloudant-local-overview) does not support API Keys. For a similar capability, create "CouchDB" style users, as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center](/docs/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-database-level-security).
 {: note}
 
 See the following example that uses an HTTP request to create an API key:
@@ -447,15 +447,15 @@ It must be given permissions explicitly.
 After you generate the API key,
 grant the key access-specific permissions for a specific database by sending a `PUT` request to 
 `https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security`,
-as described in [modifying permissions](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions).
+as described in [modifying permissions](/docs/Cloudant?topic=cloudant-authorization#modifying-permissions).
 
 The database does not have to be in the same account as the account used for generating the API key initially.
 
 To give an existing API key permissions to access a database in another account,
 do the following steps:
 
-1.  Retrieve the existing [security permissions](/docs/services/Cloudant?topic=cloudant-authorization#viewing-permissions) for the database.
-2.  [Add](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions) the details of the API key to the database security permissions, along with the [roles](/docs/services/Cloudant?topic=cloudant-authorization#roles) required.
+1.  Retrieve the existing [security permissions](/docs/Cloudant?topic=cloudant-authorization#viewing-permissions) for the database.
+2.  [Add](/docs/Cloudant?topic=cloudant-authorization#modifying-permissions) the details of the API key to the database security permissions, along with the [roles](/docs/Cloudant?topic=cloudant-authorization#roles) required.
 
 For an example of this process,
 see the blog article:
@@ -486,7 +486,7 @@ All the permissions that were previously assigned to the API key for it to work 
 ### To remove an API key by using the {{site.data.keyword.cloudant_short_notm}} API
 {: #to-remove-an-api-key-by-using-the-cloudant-nosql-db-api}
 
-Use the [modifying permissions](/docs/services/Cloudant?topic=cloudant-authorization#modifying-permissions) technique to remove the API key from the list of users with access permission.
+Use the [modifying permissions](/docs/Cloudant?topic=cloudant-authorization#modifying-permissions) technique to remove the API key from the list of users with access permission.
 
 This technique works because an API key is similar to a user,
 and is granted access permissions.
@@ -494,7 +494,7 @@ By removing the API key from the list of users that have access permissions,
 you remove the API key from the list of users that have access to the database.
 
 To remove the API key,
-send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/docs/services/Cloudant?topic=cloudant-authorization#creating-api-keys).
+send an HTTP `PUT` request to the same `_security` API endpoint you used to [create the API key](/docs/Cloudant?topic=cloudant-authorization#creating-api-keys).
 Provide an updated list of the usernames that have access permission.
 The updated list must not include the API key.
 

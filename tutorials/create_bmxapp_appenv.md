@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-08-26"
+  years: 2017, 2020
+lastupdated: "2020-01-21"
 
 keywords: ibm cloud application environment, ibm cloud applications and services, connect, the cloud foundry command toolkits, ibm cloud command toolkits, install the cloud foundry toolkit, install ibm cloud toolkit, the starter application
 
@@ -90,7 +90,7 @@ This section of the tutorial explains how you connect
     ![Selecting the connection configuration for your {{site.data.keyword.cloud_notm}} application](images/img0019.png)<br/>
     An area appears for configuring a connection between your application and any other services available within your account.
 
-3.  A [prerequisite](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites-create_bmxapp_prereq) for this tutorial is an existing {{site.data.keyword.cloudant_short_notm}} database instance.
+3.  A [prerequisite](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#prerequisites-create_bmxapp_prereq) for this tutorial is an existing {{site.data.keyword.cloudant_short_notm}} database instance.
     Click `Create connection` to establish a connection between that service instance and your application:<br/>
     ![Connect to an existing database instance](images/img0020.png)<br/>
     A list of the existing service instances in your account appears.
@@ -143,7 +143,7 @@ If the toolkits are already installed and working on your system,
 you do not need to download them again,
 unless they are updated.
 
-For more information about the toolkits, see the [Getting started](/docs/services/Cloudant?topic=cloudant-getting-started#getting-started){: new_window}{: external} tutorial.
+For more information about the toolkits, see the [Getting started](/docs/Cloudant?topic=cloudant-getting-started-with-cloudant){: new_window}{: external} tutorial.
 
 ### Installing the Cloud Foundry toolkit
 {: #installing-the-cloud-foundry-toolkit}
@@ -324,7 +324,7 @@ However,
 in this tutorial the Python application accesses an {{site.data.keyword.cloudant_short_notm}} database instance.
 Therefore,
 the application must be able to use the
-[{{site.data.keyword.cloudant_short_notm}} client library for Python applications](/docs/services/Cloudant?topic=cloudant-supported-client-libraries#python-supported).
+[{{site.data.keyword.cloudant_short_notm}} client library for Python applications](/docs/Cloudant?topic=cloudant-supported-client-libraries#python-supported).
 
 To enable the Python client library,
 modify the `requirements.txt` file to contain the following text: ​​​
@@ -333,4 +333,4 @@ cloudant==2.3.1
 ```
 {: codeblock}
 
-The next step in the tutorial is to [create the application](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-app-db-the-code#creating-a-simple-ibm-cloud-app-db-the-code).
+The next step in the tutorial is to [create the application](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-app-db-the-code#creating-a-simple-ibm-cloud-app-db-the-code).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-08-26"
+  years: 2017, 2020
+lastupdated: "2020-01-20"
 
 keywords: create applications, deploy applications, create simple application
 
@@ -50,7 +50,7 @@ Cloud Foundry offers a Platform-as-a-Service (PaaS) capability
 that simplifies the process of creating applications that can be deployed and run
 within a Cloud environment.
 
-[A separate tutorial](/docs/services/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) showed you how to create a stand-alone Python application
+[A separate tutorial](/docs/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud) showed you how to create a stand-alone Python application
 that uses an {{site.data.keyword.cloudant_short_notm}}
 database instance within {{site.data.keyword.cloud_notm}}.
 In this tutorial,
@@ -62,7 +62,7 @@ simple document.
 Python code specific to each task is provided as part of this tutorial.
 A complete Python program,
 sufficient to demonstrate the concepts,
-is provided in the [Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-app-db-the-code#complete-python-program) tutorial.
+is provided in the [Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-app-db-the-code#complete-python-program) tutorial.
 
 No attempt was made to create *efficient* Python code for this tutorial;
 the intention is to show simple and easy-to-understand working code
@@ -81,25 +81,25 @@ To create a working Python application on {{site.data.keyword.cloud_notm}}
 that can access an {{site.data.keyword.cloudant_short_notm}} database instance,
 you need to perform the following tasks:
 
--   [Create a Python application environment on {{site.data.keyword.cloud_notm}}.](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment)
--   [Ensure that the Python application environment has a 'connection' to an {{site.data.keyword.cloudant_short_notm}} database instance.](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services)
--   [(One-off task) Download and install the Cloud Foundry and {{site.data.keyword.cloud_notm}} command line toolkits.](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits)
--   [Download the 'starter' application.](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application)
--   [Customize the starter application to create your own application for accessing the {{site.data.keyword.cloudant_short_notm}} database instance.](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-app-db-the-code#the-application-code)
--   [Upload your application and test that it works.](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#uploading-the-application)
--   [Perform basic application maintenance tasks.](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting)
--   [Diagnose and resolve problems (troubleshooting).](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#diagnosing-and-resolving-problems)
+-   [Create a Python application environment on {{site.data.keyword.cloud_notm}}.](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-an-ibm-cloud-application-environment)
+-   [Ensure that the Python application environment has a 'connection' to an {{site.data.keyword.cloudant_short_notm}} database instance.](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#connecting-ibm-cloud-applications-and-services)
+-   [(One-off task) Download and install the Cloud Foundry and {{site.data.keyword.cloud_notm}} command line toolkits.](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-cloud-foundry-and-ibm-cloud-command-toolkits)
+-   [Download the 'starter' application.](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#the-starter-application)
+-   [Customize the starter application to create your own application for accessing the {{site.data.keyword.cloudant_short_notm}} database instance.](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-app-db-the-code#the-application-code)
+-   [Upload your application and test that it works.](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#uploading-the-application)
+-   [Perform basic application maintenance tasks.](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting)
+-   [Diagnose and resolve problems (troubleshooting).](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#diagnosing-and-resolving-problems)
 
 ## Tutorial structure
 {: #tutorial-structure}
 
 The tutorial consists of five sections:
 
-1.  [Prerequisites](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)
-2.  [The application environment](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment)
-3.  [Creating your application](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-app-db-the-code#creating-a-simple-ibm-cloud-app-db-the-code)
-4.  [Uploading and running your application](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application)
-5.  [Maintaining and troubleshooting your application](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting)
+1.  [Prerequisites](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites)
+2.  [The application environment](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment)
+3.  [Creating your application](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-app-db-the-code#creating-a-simple-ibm-cloud-app-db-the-code)
+4.  [Uploading and running your application](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application)
+5.  [Maintaining and troubleshooting your application](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting)
 
 To begin the tutorial,
-start by [checking the prerequisites](/docs/services/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites).
+start by [checking the prerequisites](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites).
