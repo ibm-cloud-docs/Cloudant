@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-27"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -403,7 +403,7 @@ To provide high availability (HA) and disaster recovery (DR) within a data cente
 stored in triplicate across three separate physical servers in a cluster. You can provision 
 accounts in multiple data centers, then use continuous data replication to provide HA/DR across 
 data centers. {{site.data.keyword.cloudant_short_notm}} data is not automatically backed up, but supported tools are provided to handle backups. Review the 
-[Disaster Recovery and Backup guide](/docs/Cloudant?topic=cloudant-authorization#api-keys) 
+[Disaster Recovery and Backup guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup) 
 to explore all HA, DR, and backup considerations to meet your application requirements. 
 
 ## {{site.data.keyword.cloud_notm}} Support

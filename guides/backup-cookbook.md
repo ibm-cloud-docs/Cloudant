@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-24"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -23,7 +23,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2019-09-06 -->
 
-# {{site.data.keyword.cloudant_short_notm}} backup and recovery
+# {{site.data.keyword.cloudant_short_notm}} Backup and Recovery
 {: #ibm-cloudant-backup-and-recovery}
 
 This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).

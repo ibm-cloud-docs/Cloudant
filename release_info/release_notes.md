@@ -41,7 +41,7 @@ applications.
 
 For more information, see the following link:
 
-- Read the [guide to partition query](/docs/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public).
+- Read the [guide to partition query](/docs/Cloudant?topic=cloudant-database-partitioning).
 
 ### Dedicated Hardware (June 2017)
 {: #dedicated-hardware}
@@ -352,7 +352,7 @@ JavaScript.
 - Queries that use text indexes no longer fail when `$exists`: `false` is used.
 - Partial indexes are now supported for both JSON and text indexes. For more information, see  [Creating a partial index](/docs/Cloudant?topic=cloudant-query#creating-a-partial-index) for more information.
 - Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [finding documents by using an index](/docs/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index) for more information.
-- [Pagination](/docs/Cloudant?topic=cloudant-query#pagination) is supported by using the bookmark field. Bookmarks are enabled for all index types.
+- [Pagination](/docs/Cloudant?topic=cloudant-query#pagination_query) is supported by using the bookmark field. Bookmarks are enabled for all index types.
 - `_find` now falls back to any valid index if the value specified in the `use_index`
 field is invalid for the current query. When `find` falls back, the `warning` field is populated in the query response.
 

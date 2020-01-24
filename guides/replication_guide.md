@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-24"
 
 keywords: start replicating with dashboard, run replication across different accounts, run replication on source or destination, start replication with api, checkpoints, permissions, two-way replication, continuous replication, monitoring replication, canceling replication, filtered replication, changes feed, pitfalls, tuning replication speed
 
@@ -23,7 +23,7 @@ subcollection: cloudant
 
 <!-- Acrolinx: 2017-05-10 -->
 
-# Replication guide
+# Replication
 {: #replication-guide}
 
 Data can be copied from one database to another in the same {{site.data.keyword.cloudantfull}} account,
@@ -77,7 +77,7 @@ Complete the form:
 
 ![replication2](../images/replication_guide_2.png)
 
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=cloudant-authorization#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} or the legacy [Authentication API document](/docs/Cloudant?topic=cloudant-authentication#authentication){: new_window} and the legacy [Authorization API document](/docs/Cloudant?topic=cloudant-authorization#authorization){: new_window}.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or  {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=cloudant-authorization#api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} or legacy [authentication](/docs/Cloudant?topic=cloudant-authentication#authentication){: new_window} and [authorization](/docs/Cloudant?topic=cloudant-authorization#authorization){: new_window} documentation.
 {: important}
 
 Using the form, define the source and target databases,
@@ -289,7 +289,7 @@ on a per-database basis.
 
 They can also be created [programmatically](/docs/Cloudant?topic=cloudant-authorization#creating-api-keys) by using the {{site.data.keyword.cloudant_short_notm}} API.
 
-For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=cloudant-authorization#creating-api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} or the legacy [Authentication API document](/docs/Cloudant?topic=cloudant-authentication#authentication){: new_window} and the legacy [Authorization API document](/docs/Cloudant?topic=cloudant-authorization#authorization){: new_window}.
+For security purposes, the {{site.data.keyword.cloudant_short_notm}} team recommends that you use IAM API keys or {{site.data.keyword.cloudant_short_notm}} legacy authentication [API keys](/docs/Cloudant?topic=cloudant-authorization#creating-api-keys){: new_window} rather than account-level credentials for replication jobs. For more information, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-){: new_window} or legacy [authentication](/docs/Cloudant?topic=cloudant-authentication#authentication){: new_window} and [authorization](/docs/Cloudant?topic=cloudant-authorization#authorization){: new_window} documentation.
 {: important}
 
 ## Two-way replication

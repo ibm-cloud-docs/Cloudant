@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-21"
+lastupdated: "2020-01-27"
 
 keywords: tutorials, recovery and backup, guides, links to documentation, about 
 
@@ -41,13 +41,6 @@ Tutorial | Description
 [Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database](/docs/Cloudant?topic=cloudant-creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud#creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud){: new_window} | A tutorial that describes how to use the Python programming language to create an {{site.data.keyword.cloudant_short_notm}} database in your {{site.data.keyword.cloud_notm}} service instance, and populate the database with a simple collection of data.
 [Creating an {{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-query#creating-an-ibm-cloudant-query){: new_window}| A tutorial that describes how to create a database, populate it with documents, create an index, and use the index to query the database.
 [Creating a backup](/docs/Cloudant?topic=cloudant-creating-a-backup#creating-a-backup){: new_window} | A tutorial that describes how to use the CouchBackup command-line utility to back up and restore a CouchDB or {{site.data.keyword.cloudant_short_notm}} instance. 
-[Creating a simple {{site.data.keyword.cloud_notm}} application](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database){: new_window} | A tutorial that describes how to create an {{site.data.keyword.cloud_notm}} application that uses the Python programming language to access an {{site.data.keyword.cloudantfull}} database, hosted in your {{site.data.keyword.cloud_notm}} service instance.
-[Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: Prerequisites](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-prerequisites){: new_window} | A tutorial that describes the prerequisites for creating an {{site.data.keyword.cloud_notm}} application.
-[Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: the application environment](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-the-application-environment){: new_window} | A tutorial that describes how to set up the application environment you must have for creating an {{site.data.keyword.cloud_notm}} application.
-[Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: the code](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-app-db-the-code#creating-a-simple-ibm-cloud-app-db-the-code){: new_window} | A tutorial that describes the code for an {{site.data.keyword.cloud_notm}} application.
-[Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: uploading the application](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-uploading-the-application){: new_window} | A tutorial that describes how to upload an {{site.data.keyword.cloud_notm}} application.
-[Creating a simple {{site.data.keyword.cloud_notm}} application to access an {{site.data.keyword.cloudant_short_notm}} database: maintaining and troubleshooting](/docs/Cloudant?topic=cloudant-creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting#creating-a-simple-ibm-cloud-application-to-access-an-ibm-cloudant-database-maintaining-and-troubleshooting){: new_window} | A tutorial that describes how to maintain an {{site.data.keyword.cloud_notm}} application, hosted in your {{site.data.keyword.cloud_notm}} service instance.
-
 
 ## Recovery and backup
 {: #recovery-and-backup}
