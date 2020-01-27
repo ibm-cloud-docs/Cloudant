@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-21"
+lastupdated: "2020-01-27"
 
 keywords: documentation, how to contribute, overview
 
@@ -66,10 +66,10 @@ and querying data, see the [API reference](/docs/Cloudant?topic=cloudant-api-ref
 *	[Pricing](/docs/Cloudant?topic=cloudant-pricing#pricing): An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 
 *	[Security and Compliance](/docs/Cloudant?topic=cloudant-security#security): A collection of articles that describe the {{site.data.keyword.cloudant_short_notm}} position on security, compliance, data privacy and governance, audit logging, and General Data Protection Regulation (GDPR).
 *	[Release information](/docs/Cloudant?topic=cloudant-release-notes#release-notes): Release-related information that includes release notes, what changed between major releases, and deprecations. 
-*	[Other offerings](/docs/Cloudant?topic=cloudant-ibm-cloud-dedicated#ibm-cloud-dedicated): In addition to {{site.data.keyword.cloud_notm}} Public, {{site.data.keyword.cloudant_short_notm}} is available
-	in various offerings,
-	all described in here.
-* [Tutorials](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud): A detailed collection of articles,
+*   [Apache CouchDB](/docs/Cloudant?topic=cloudant-apache-couchdb-overview): Recommendations about pairing Apache CouchDB and {{site.data.keyword.cloudant_short_notm}}, as well as installation and support information. 
+*	[Other offerings](/docs/Cloudant?topic=cloudant-ibm-cloud-dedicated#ibm-cloud-dedicated): In addition to {{site.data.keyword.cloud_notm}} Public, {{site.data.keyword.cloudant_short_notm}} is available in various offerings, all described in here.
+*	[Operator for Apache CouchDB](/docs/Cloudant?topic=cloudant-apache-couchdb-operator): A detailed description about the Operator for Apache CouchDB, including configuring, deploying, accessing, and troubleshooting. 
+*   [Tutorials](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud): A detailed collection of articles,
   showing you how to perform key tasks by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 *	[Guides](/docs/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-): The guides go into detail about
 	use cases and more complex activities and problems.
@@ -85,7 +85,6 @@ and querying data, see the [API reference](/docs/Cloudant?topic=cloudant-api-ref
 *	[Client Libraries](/docs/Cloudant?topic=cloudant-client-libraries#client-libraries): Client libraries are toolkits that
 	help you develop your own applications,
 	ready to work with {{site.data.keyword.cloudant_short_notm}} databases.
-
 
 ## Contribute
 {: #contribute}
