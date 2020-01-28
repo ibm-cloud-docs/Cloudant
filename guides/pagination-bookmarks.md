@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-27"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -26,7 +26,7 @@ subcollection: cloudant
 # Pagination and bookmarks
 {: #pagination-and-bookmarks}
 
-You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=cloudant-bookmarks-faq), but it gets progressively slower the larger the value of `skip`.
+You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=cloudant-using-views), but it gets progressively slower the larger the value of `skip`.
 {: shortdesc} 
 
 [{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=cloudant-query) and [{{site.data.keyword.cloudant_short_notm}} Search](/docs/Cloudant?topic=cloudant-search) both use _bookmarks_ as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It is easier to manage as there is no key manipulation to formulate the request for the next result set. You simply pass the _bookmark_ received in the first response to the second request.
@@ -324,7 +324,7 @@ Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} 
 curl "$URL/cities/_search/search/_search/freetext?q=country:US&bookmark=g1AAAAA-eJzLYW"
 ```
 
-See [the documentation](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-search#query-parameters-search) for further details.
+See the documentation about [query parameters](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-search#query-parameters-search) for further details.
 
 ### Do MapReduce views accept bookmarks?
 {: #mapreduce-views-accept-bookmarks}

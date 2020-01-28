@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-22"
+lastupdated: "2020-01-24"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -962,7 +962,7 @@ See the following example response that is received after a database is deleted 
 {: #backing-up-your-data}
 
 You must protect your data by taking good quality backups.
-For more information, see an [overview](/docs/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery) of backing up your data, and see even more details in the [Backup guide](/docs/Cloudant?topic=cloudant-replication-incrementals#replication-incrementals).
+For more information, see an overview of [backing up your data](/docs/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery).
 
 <!--
 Removed for 96973.

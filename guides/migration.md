@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-24"
 
 keywords: curl and jq basics, monitor view builds and search indexes, estimate time to complete task, monitor replication, troubleshooting
 
@@ -139,7 +139,7 @@ Additionally, it is worth noting that the maximum individual document size is 1 
 ### Step 4. Migrate data from the old service to the new service 
 {: #step-4-migrate-data-from-the-old-service-to-the-new-service}
 
-Set up continuous replications from your existing service to your {{site.data.keyword.cloudant_short_notm}} account. For more information, see the [Replication guide](/docs/Cloudant?topic=cloudant-replication-api#replication-api) and [API documentation](/docs/Cloudant?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics) about how to set up and monitor replication tasks.
+Set up continuous replications from your existing service to your {{site.data.keyword.cloudant_short_notm}} account. For more information, see the [Replication guide](/docs/Cloudant?topic=cloudant-replication-api#replication-api) and [API documentation](/docs/Cloudant?topic=cloudant-api-reference-overview) about how to set up and monitor replication tasks.
 
 Alternatively, check out the [`couchreplicate`](https://www.npmjs.com/package/couchreplicate) tool, which is a command-line utility that helps you coordinate the transfer of data from one {{site.data.keyword.cloudant_short_notm}} account to another. It sets up multiple replication jobs between the source and target accounts, ensuring that only so many replication jobs proceed at one time. If you need to migrate hundreds of databases, then `couchreplicate` can help coordinate the replication jobs.
 

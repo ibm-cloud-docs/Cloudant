@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-24"
 
 keywords: syntax of monitoring request, monitoring endpoints
 
@@ -49,7 +49,7 @@ which is described in more detail in [Active tasks](/docs/Cloudant?topic=cloudan
 For more detailed system information,
 you make use of the cluster monitoring API.
 
-The cluster monitoring API is not available for [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](/docs/Cloudant?topic=cloudant-ibm-cloudant-local#ibm-cloudant-local).
+The cluster monitoring API is not available for [{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition (Cloudant Local)](/docs/Cloudant?topic=cloudant-ibm-cloudant-local-overview).
 {: note}
 
 ## Monitoring metrics overview

@@ -68,7 +68,7 @@ Removed for 96973.
 |  `POST /_api/v2/api_keys` <br>[Cloudant](/docs/Cloudant?topic=cloudant-authorization#creating-api-keys) | Generate an API key. |
 | `GET /_api/v2/db/{db}/_security` <br>[Cloudant](/docs/Cloudant?topic=cloudant-authorization#viewing-permissions) | Who has permission to read, write, and manage the database. |
 | `PUT /_api/v2/db/{db}/_security` <br>[Cloudant](/docs/Cloudant?topic=cloudant-authorization#modifying-permissions) | Modify who has permission to read, write, and manage a database. Assign an API key. |
-| `GET /_api/v2/monitoring/{endpoint}` <br>[Cloudant](/docs/Cloudant?topic=cloudant-monitoring-an-ibm-cloudant-cluster#monitoring-metrics-overview) | Monitor a specific cluster aspect. |
+| `GET /_api/v2/monitoring` <br>[Cloudant](/docs/Cloudant?topic=cloudant-monitoring-an-ibm-cloudant-cluster#monitoring-metrics-overview) | Monitor a specific cluster aspect. |
 | `GET /_api/v2/user/config/cors` <br>[Cloudant](/docs/Cloudant?topic=cloudant-cors#reading-the-cors-configuration) | Current CORS configuration. |
 | `PUT /_api/v2/user/config/cors` <br>[Cloudant](/docs/Cloudant?topic=cloudant-cors#setting-the-cors-configuration) | Changes the CORS configuration. |
 | `GET /_config` <br>[CouchDB 1.x](http://docs.couchdb.org/en/1.6.0/api/server/configuration.html#get--_config) | Get the server configuration. |

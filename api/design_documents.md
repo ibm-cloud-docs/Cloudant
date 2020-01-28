@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-01-27"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -509,8 +509,8 @@ db.view_with_list($DESIGN_ID, $MAPREDUCE_INDEX, $LIST_FUNCTION, function (err, b
 
 Field        | Description
 -------------|-------------
-`offset`     | Offset where the document list started
-`total_rows` | Number of documents in the view
+`offset`     | Offset where the document list started.
+`total_rows` | Number of documents in the view.
 
 ### `req`
 {: #req}
@@ -522,14 +522,14 @@ Field            | Description
 `form`           | Form data object. Contains the decoded body as key-value pairs if the Content-Type header was `application/x-www-form-urlencoded`.
 `headers`        | Request headers object.
 `id`             | Requested document ID string if it was specified or null otherwise.
-`info`           | Database information
+`info`           | Database information.
 `method`         | Request method as string or array. String value is one of the methods: `HEAD`, `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`, or `TRACE`. Alternatively, the method is represented as an array of character codes.
 `path`           | List of requested path sections.
 `peer`           | Request source IP address.
 `query`          | URL query parameters object. Therefore, multiple keys are not supported, the last duplicate key overrides the others.
 `requested_path` | List of actual requested path section.
 `raw_path`       | Raw requested path string.
-`secObj`         | The database's [security object](/docs/Cloudant?topic=cloudant-authorization#viewing-permissions)
+`secObj`         | The database's [security object](/docs/Cloudant?topic=cloudant-authorization#viewing-permissions).
 `userCtx`        | Context about the currently authenticated user, specifically, their `name` and `roles` within the current database.
 `uuid`           | A generated UUID.
 
