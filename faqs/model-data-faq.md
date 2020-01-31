@@ -24,7 +24,7 @@ subcollection: cloudant
 <!-- Acrolinx: 2019 -->
 
 # Modeling data to scale FAQ
-{: #five-tips-for-modeling-your-data-to-scale}
+{: #five-tips-for-modeling-your-data-to-scale-faq}
 
 The way you model data on {{site.data.keyword.cloudantfull}} significantly impacts how your application can scale. Our underlying data model differs substantially from a relational model, and ignoring this distinction can be the cause of performance issues down the road.
 

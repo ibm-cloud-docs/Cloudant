@@ -126,7 +126,6 @@ IBM Cloudant
 		guides/database_partitioning.md
 		guides/design_document_management.md
 		guides/mvcc.md
-		guides/model_data.md
 		guides/transactions.md
 		guides/resource-groups.md
 		guides/sharding.md
