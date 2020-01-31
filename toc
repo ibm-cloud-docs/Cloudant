@@ -22,12 +22,6 @@ IBM Cloudant
 		offerings/gdpr.md
 
 	{: .topicgroup}
-	Release information
-		release_info/release_notes.md
-		release_info/differences_major_releases.md
-		release_info/deprecations.md
-
-	{: .topicgroup}
 	Apache CouchDB
 		couchdb/overview.md
 		couchdb/comparison.md
@@ -146,4 +140,20 @@ IBM Cloudant
 		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
 
-
+{: .navgroup id="help"}	
+	{: .topicgroup}
+	FAQs
+    	faqs/authenticating-faq.md
+		faqs/availability-zones-faq.md
+		faqs/document-version-conflicts-faq.md
+		faqs/model-data-faq.md
+		faqs/pricing-faq.md
+		faqs/provisioned-throughput-capacity-faq.md
+		faqs/resource-groups-faq.md
+	
+	{: .topicgroup}
+	Release information
+		release_info/release_notes.md
+		release_info/differences_major_releases.md
+		release_info/deprecations.md
+	{: .navgroup-end}
