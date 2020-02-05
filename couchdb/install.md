@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-02-05"
 
 keywords: apache couchdb, support, extension, containers
 
@@ -57,4 +57,4 @@ The [Operator for Apache CouchDB](/docs/Cloudant?topic=cloudant-apache-couchdb-o
 
 ### Helm Chart
 
-An Apache CouchDB helm chart along with documentation is available on [Helm Hub](https://hub.helm.sh/charts/stable/couchdb){: new_window}{: external}. 
+An Apache CouchDB helm chart along with documentation is available on [Helm Hub](https://hub.helm.sh/charts/couchdb/couchdb){: new_window}{: external}. 
