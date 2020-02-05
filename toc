@@ -132,6 +132,7 @@ IBM Cloudant
 		guides/iam.md
 		guides/json.md
 		guides/managing_tasks.md
+        guides/model-data.md
 		guides/migration.md
 		guides/pagination-bookmarks.md
 		guides/replication_guide.md
