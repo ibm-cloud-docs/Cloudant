@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-30"
+lastupdated: "2020-02-10"
 
 keywords: migrate to a resource group, downtime, migrate existing instance, organization and space, standard plan, dedicated hardware instance, how to migrate
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2020-02-10 -->
 
 # Resource Groups FAQ
 {: #faq-ibm-cloud-resource-groups}
@@ -52,24 +52,24 @@ The migration process doesn't cause any downtime.
 {: faq}
 
 Since 16 July 2018, new instances are provisioned into resource groups
-rather than Cloud Foundry spaces. Resource instances provisioned before this date
+rather than Cloud Foundry spaces. Resource instances created before this date
 have an associated Cloud Foundry organization and space. Instances
-provisioned after this date are associated with a resource group instead.
+created after this date are associated with a resource group instead.
 
 ## Why can't I create new Standard plan instances on my Dedicated Hardware instances?
 {: #faq-create-new-standard-plan-instances-dedicated-hardware-instances}
 {: faq}
 
 New Standard plan instances are provisioned into resource groups. In order to
-provision these instances onto a Dedicated Hardware instance, the Dedicated
+create these instances onto a Dedicated Hardware instance, the Dedicated
 Hardware instance must first be migrated into a resource group.
 
 For more information about how to do this migration, see [Migrating Cloud Foundry service instances and apps to a resource group](https://cloud.ibm.com/docs/resources/instance_migration.html#migrate){: new_window}{: external}.
 
 Once the Dedicated Hardware instance is migrated to a resource group, it
-displays in the Location drop-down menu when you provision Standard plans.
+displays in the Location drop-down menu when you create Standard plans.
 
-## How can I migrate my Dedicated Hardware instances and the Standard plan instances hosted on them?
+## How can I migrate my Dedicated Hardware instances and the Standard plan instances that are hosted on them?
 {: #faq-migrate-dedicated-hardware-instances-and-the-standard-plan-instances-hosted}
 {: faq}
 
@@ -79,6 +79,6 @@ the Standard plan instances that are hosted on them:
 1. Migrate Dedicated Hardware instances to a resource group. This migration allows new Standard plan instances to be created on the Dedicated Hardware.
 2. Migrate Standard instances.
 
-Lite plan instances and Standard plan instances not hosted on Dedicated Hardware
+Lite plan instances and Standard plan instances that are not hosted on Dedicated Hardware
 can be migrated at any time.
 {: tip}

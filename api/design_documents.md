@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-02-10"
 
 keywords: create design document, update design document, copy design document, rewrite rules, list functions, show functions, update handlers, filter functions, update validators 
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-20 -->
+<!-- Acrolinx: 2020-02-10 -->
 
 # Design documents
 {: #design-documents}
@@ -50,9 +50,9 @@ standard documents have an `_id` indicated by `$DOCUMENT_ID`,
 while design documents have an `_id` indicated by `$DESIGN_ID`.
 
 A design document's ID never contains a partition key regardless of the
-database's partitioning type. The partition key is not included because the indexes that are contained within a design document apply to all partitions in a partitioned database.
+database's partitioning type. The partition key isn't included because the indexes that are contained within a design document apply to all partitions in a partitioned database.
 
-If a design document is updated, {{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version, and recreates the index from scratch. If you need to change a design document for a larger database, have a look at the [Design document management guide](/docs/Cloudant?topic=cloudant-design-document-management#managing-changes-to-a-design-document).
+If a design document is updated, {{site.data.keyword.cloudant_short_notm}} deletes the indexes from the previous version, and re-creates the index from scratch. If you need to change a design document for a larger database, have a look at the [Design document management guide](/docs/Cloudant?topic=cloudant-design-document-management#managing-changes-to-a-design-document).
 {: note}
 
 A design document's structure includes the following parts:
@@ -106,7 +106,7 @@ Value  | Description           | Notes
 
 The default follows the `partitioned` setting for the database:
 
-Database is partitioned | Default `partitioned` value | Allowed values
+Database is partitioned? | Default `partitioned` value | Allowed values
 ---------|----------|---------
 Yes  | `true`  | `true`, `false`
 No   | `false` | `false`
@@ -122,7 +122,7 @@ The copy is requested by using the `COPY` request method.
 `COPY` is a non-standard HTTP command.
 {: tip}
 
-Copying a design document does not automatically reconstruct the view indexes. Like other views, these views are recreated the first time you access the new view.
+Copying a design document doesn't automatically reconstruct the view indexes. Like other views, these views are re-created the first time that you access the new view.
 {: note}
 
 The following example requests that {{site.data.keyword.cloudant_short_notm}} copy the design document `recipes` to the new design document `recipelist`,
@@ -267,7 +267,7 @@ curl "https://$ACCOUNT.cloudant.com/recipes/_design/recipes?rev=2-ac58d589b37d01
 ```
 {: codeblock}
 
-See the following example response, containing the deleted document ID and revision:
+See the following example response that contains the deleted document ID and revision:
 
 ```json
 {
@@ -306,14 +306,14 @@ An important use of design documents is for creating views. For more information
 A design document can contain rules for URL rewriting, by using an array in the `rewrites` field.
 Requests that match the rewrite rules must have a URL path that starts with `/$DATABASE/_design/doc/_rewrite`.
 
-Design documents with `options.partitioned` set to `true` cannot contain a `rewrites` field.
+Design documents with `options.partitioned` set to `true` can't contain a `rewrites` field.
 {: tip}
 
 Each rule is a JSON object with four fields:
 
 Field    | Description
 ---------|------------
-`from`   | A path relative to `/$DATABASE/_design/doc/_rewrite`, used to match URLs to rewrite rules. Path elements that start with a `:` are treated as variables, and match any string that does not contain a `/`. An `*` can appear only at the end of the string, and matches any string - including slashes.
+`from`   | A path relative to `/$DATABASE/_design/doc/_rewrite`, used to match URLs to rewrite rules. Path elements that start with a `:` are treated as variables, and match any string that doesn't contain a `/`. An `*` can appear only at the end of the string, and matches any string - including slashes.
 `method` | The HTTP method that must be matched.
 `query`  | The query part of the resulting URL. This part is a JSON object that contains the key/value pairs of the query.
 `to`     | The path (relative to `/$DATABASE/_design/doc/` and not including the query part of the URL) that is the result of the rewriting step. Variables that are captured in `from` can be used in `to`. An `*` can also be used and contains everything that is captured by the pattern in `from`.
@@ -340,7 +340,7 @@ See the following example JSON describing some rewrite rules:
 ```
 {: codeblock}
 
-While Cloudant is API-compliant with CouchDB, Cloudant does not support URL rewrites via the JavaScript function.
+While Cloudant is API-compliant with CouchDB, Cloudant doesn't support URL rewrites via the JavaScript function.
 {: note}
 
 See the following example rewrite rules:
@@ -395,7 +395,7 @@ you must not use functions that generate random numbers or return the current ti
 ## List functions
 {: #list-functions}
 
-Design documents with `options.partitioned` set to `true` cannot contain a `lists` field.
+Design documents with `options.partitioned` set to `true` can't contain a `lists` field.
 {: tip}
 
 Use list functions to customize the format of
@@ -408,8 +408,8 @@ You can add any query parameters to the request that would normally be used for 
 
 Instead of using a MapReduce index, you can also use `_all_docs`.
 
-The result of a list function is not stored. This fact means that the function is executed every time a request is made. As a consequence,
-it might be more efficient to use MapReduce functions. For web and mobile applications, consider whether any computations that are done in a list function would be better placed in the application tier.
+The result of a list function isn't stored. This fact means the function is executed every time that a request is made. As a consequence,
+it's more efficient to use MapReduce functions. For web and mobile applications, consider whether any computations that are done in a list function would be better placed in the application tier.
 {: note}
 
 When you define a list function,
@@ -426,8 +426,8 @@ List functions require two arguments:
 
 The `head` argument identifies the documents to be processed by the list function.
 
-The `req` argument contains additional information about the request. It enanbles you to create list functions that are more dynamic
-because they are based on additional factors such as query parameters or the user context.
+The `req` argument contains additional information about the request. It enables you to create list functions that are more dynamic
+because they're based on additional factors such as query parameters or the user context.
 
 The values within the `req` argument are similar to the following [query parameters](/docs/Cloudant?topic=cloudant-query#ibm-cloudant-query-parameters).
 
@@ -443,7 +443,7 @@ See the following example design document that references a list function, expre
 ```
 {: codeblock}
 
-See the following example of a list function in pseudo-code:
+See the following example of a list function in pseudocode:
 
 ```javascript
 function (head, req) {
@@ -526,7 +526,7 @@ Field            | Description
 `method`         | Request method as string or array. String value is one of the methods: `HEAD`, `GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`, or `TRACE`. Alternatively, the method is represented as an array of character codes.
 `path`           | List of requested path sections.
 `peer`           | Request source IP address.
-`query`          | URL query parameters object. Therefore, multiple keys are not supported, the last duplicate key overrides the others.
+`query`          | URL query parameters object. Therefore, multiple keys aren't supported, the last duplicate key overrides the others.
 `requested_path` | List of actual requested path section.
 `raw_path`       | Raw requested path string.
 `secObj`         | The database's [security object](/docs/Cloudant?topic=cloudant-authorization#viewing-permissions).
@@ -536,16 +536,16 @@ Field            | Description
 ## Show functions
 {: #show-functions}
 
-Design documents with `options.partitioned` set to `true` cannot contain a `shows` field.
+Design documents with `options.partitioned` set to `true` can't contain a `shows` field.
 {: tip}
 
 Show functions are similar to [list functions](#list-functions),
 but are used to format individual documents.
-They are used when you want to access {{site.data.keyword.cloudant_short_notm}} directly from a browser,
+They're used when you want to access {{site.data.keyword.cloudant_short_notm}} directly from a browser,
 and need data to be returned in a different format,
 such as HTML.
 
-The result of a show function is not stored. This fact means that the function is executed every time that a request is made. As a consequence,
+The result of a show function isn't stored. This fact means that the function is executed every time that a request is made. As a consequence,
 [map functions](/docs/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) might be more efficient. For web and mobile applications, consider whether any computations that are done in a show function would be better placed in the application tier.
 {: note}
 
@@ -554,7 +554,7 @@ Show functions require two arguments: `doc`, and [`req`](#req).
 `doc` is the document that is requested by the show function.
 
 The `req` argument contains additional information about the request. With this argument, you can create show functions that are more dynamic
-because they are based on additional factors such as query parameters or the user context.
+because they're based on additional factors such as query parameters or the user context.
 
 The `req` argument corresponds to the argument used in a list function.
 
@@ -624,11 +624,11 @@ db.show($DESIGN_ID, $SHOW_FUNCTION, $DOCUMENT_ID, function (err, body) {
 ## Update handlers
 {: #update-handlers}
 
-Design documents with `options.partitioned` set to `true` cannot contain a `updates` field.
+Design documents with `options.partitioned` set to `true` can't contain a `updates` field.
 {: tip}
 
 Update handlers are custom functions that create or update a document.
-They are used for tasks such as providing server-side modification timestamps,
+They're used for tasks such as providing server-side modification timestamps,
 and performing document updates to individual fields without the latest revision.
 
 Update handlers require two arguments: `doc` and [`req`](#req).
@@ -639,7 +639,7 @@ If no ID is provided,
 `doc` is `null`.
 
 The `req` argument contains additional information about the request. With this argument, you can create update handlers that are more dynamic
-because they are based on additional factors such as query parameters or the user context.
+because they're based on additional factors such as query parameters or the user context.
 
 The `req` argument corresponds to that used in a [list function](#list-functions).
 
@@ -734,7 +734,7 @@ db.atomic($DESIGN_ID, $UPDATE_HANDLER, $DOCUMENT_ID, $JSON, function (err, body)
 ## Filter functions
 {: #filter-functions}
 
-Design documents with `options.partitioned` set to `true` cannot contain a `filters` field.
+Design documents with `options.partitioned` set to `true` can't contain a `filters` field.
 {: tip}
 
 Filter functions are design documents that filter
@@ -756,7 +756,7 @@ The `doc` argument represents the document that is tested for filtering.
 
 The `req` argument contains more information about the request.
 With this argument, you can create filter functions that are more dynamic
-because they are based on additional factors such as query parameters or the user context.
+because they're based on additional factors such as query parameters or the user context.
 
 For example,
 you could control aspects of the filter function tests by using dynamic values that are provided as part of the HTTP request.
@@ -812,7 +812,7 @@ curl "https://$ACCOUNT.cloudant.com/$DATABASE/_changes?filter=$DESIGN_ID/$FILTER
 ```
 {: codeblock}
 
-The `req` argument gives you access to aspects of the HTTP request using the `query` property.
+The `req` argument gives you access to aspects of the HTTP request by using the `query` property.
 
 See the following example of supplying a `req` argument by using HTTP:
 
@@ -852,7 +852,7 @@ A number of predefined filter functions are available:
 
 *	[`_design`](#the-_design-filter): accepts only changes to design documents.
 *	[`_doc_ids`](#the-_doc_ids-filter): accepts only changes for documents whose ID is specified in the `doc_ids` parameter or supplied JSON document.
-*	[`_selector`](#the-_selector-filter): accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/docs/Cloudant?topic=cloudant-query#selector-syntax) used for [`_find`](/docs/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
+*	[`_selector`](#the-_selector-filter): accepts only changes for documents that match a specified selector that is defined by using the same [selector syntax](/docs/Cloudant?topic=cloudant-query#selector-syntax) that is used for [`_find`](/docs/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index).
 *	[`_view`](#the-_view-filter): with this function, you can use an existing [map function](/docs/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) as the filter.
 
 #### The `_design` filter
@@ -860,7 +860,7 @@ A number of predefined filter functions are available:
 
 The `_design` filter accepts changes only for design documents within the requested database.
 
-The filter does not require any arguments.
+The filter doesn't require any arguments.
 
 Changes are listed for *all* the design documents within the database.
 
@@ -1045,8 +1045,8 @@ See the following example response (abbreviated) after you filter by using a sel
 
 Using the `_view` filter, you can use an existing [map function](/docs/Cloudant?topic=cloudant-views-mapreduce#a-simple-view) as the filter.
 
-If the map function emits any output as a result of processing a specific document,
-then the filter considers the document allowed and includes it in the list of documents that you changed.
+If the map function emits any output because of processing a specific document,
+then the filter considers the document that is allowed and includes it in the list of documents that you changed.
 
 See the following example application of the `_view` filter by using HTTP:
 
@@ -1085,7 +1085,7 @@ See the following example response (abbreviated) after you filter by using a map
 ## Update validators
 {: #update-validators}
 
-Design documents with `options.partitioned` set to `true` cannot contain a `validate_doc_update` field.
+Design documents with `options.partitioned` set to `true` can't contain a `validate_doc_update` field.
 {: tip}
 
 Update validators determine whether a document must be written to disk when insertions and updates are attempted.
@@ -1152,7 +1152,7 @@ and status of the design document and associated view index information.
 
 -	**Method**: `GET /db/_design/design-doc/_info`
 -	**Request**: None
--	**Response**: JSON containing the design document information.
+-	**Response**: JSON that contains the design document information.
 -	**Roles permitted**: `_reader`
 
 See the following example of retrieving information about the `recipesdd` design document from within the `recipes` database by using HTTP:
@@ -1211,17 +1211,17 @@ that is defined within a specific design document.
 
 -	**Method**: `GET /db/_design/design-doc/_search_info/yourSearch`
 -	**Request**: None
--	**Response**: JSON containing information about the specified search.
+-	**Response**: JSON that contains information about the specified search.
 -	**Roles permitted**: `_reader`
 
-See the following example of getting information about the `description` search, which is defined within the `app` design document stored in the `foundbite` database, by using HTTP:
+See the following example of getting information about the `description` search, which is defined within the `app` design document that is stored in the `foundbite` database, by using HTTP:
 
 ```http
 GET /foundbite/_design/app/_search_info/description HTTP/1.1
 ```
 {: codeblock}
 
-See the following example of getting information about the `description` search, which is defined within the `app` design document stored in the `foundbite` database, by using the command line:
+See the following example of getting information about the `description` search, which is defined within the `app` design document that is stored in the `foundbite` database, by using the command line:
 
 ```sh
 curl "https://$ACCOUNT.cloudant.com/foundbite/_design/app/_search_info/description"

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-02-06"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-07-05 -->
+<!-- Acrolinx: 2020-02-06 -->
 
 # {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM)
 {: #ibm-cloud-identity-and-access-management-iam-}
@@ -121,6 +121,7 @@ ibmcloud resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": false}
 ```
+{: codeblock}
 
 When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.
 {: important}
@@ -132,6 +133,7 @@ ibmcloud resource service-instance-create  "Instance Name" \
     cloudantnosqldb Standard us-south \
     -p {"legacyCredentials": true}
 ```
+{: codeblock}
 
 ### Service credential JSON examples for each option
 {: #service-credential-json-examples-for-each-option}
@@ -161,6 +163,7 @@ values, and look like the following example:
   "username": "76838001-b883-444d-90d0-46f89e942a15-bluemix"
 }
 ```
+{: codeblock}
 
 Each value in the previous JSON example must be interpreted as follows:
 
@@ -293,7 +296,7 @@ Ensure that you select the specified instance, either the Source or Target.
 
 Depending on your workflow, instead of creating a service-level credential (step 4), you can use a personal IAM API key, as detailed in [Creating an API key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key){: new_window}{: external}.
 
-You can also complete these steps on the command-line by using the [{{site.data.keyword.cloud_notm}} CLI tool chain](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started){: new_window}{: external}.
+You can also complete these steps on the command line by using the [{{site.data.keyword.cloud_notm}} CLI tool chain](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started){: new_window}{: external}.
 
 ### Generating a bearer token to authenticate against the {{site.data.keyword.cloudant_short_notm}} API
 {: #generate-bearer-token-authenticate-cloudant-api}
@@ -410,7 +413,7 @@ See the results in the following example:
 
 4. Open a new {{site.data.keyword.cloud_notm}} support case that requests the removal of {{site.data.keyword.cloudant_short_notm}} legacy credentials for your instance. Include the username of the instance as shown in the service credentials. For more information, see [Locating your service credentials](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 
-5. After support replies that the legacy credentials were removed, any service credentials that were created prior to removal contain legacy username and password details that no longer work. It is recommended to remove any of these service credential entries.
+5. After support replies that the legacy credentials were removed, any service credentials that were created before removal contain legacy username and password details that no longer work. It is recommended to remove any of these service credential entries.
 
 ## Making requests to instances by using IAM credentials
 {: #making-requests-to-instances-by-using-iam-credentials}
@@ -470,6 +473,7 @@ public class App
     }
 }
 ```
+{: codeblock}
 
 ### Node.js
 {: #node.js}
@@ -495,6 +499,7 @@ cloudant.db.list(function(err, body) {
   });
 });
 ```
+{: codeblock}
 
 ### Python
 {: #python}
@@ -514,6 +519,7 @@ client = Cloudant.iam(
 )
 print client.all_dbs()
 ```
+{: codeblock}
 
 ### Access by using HTTP client
 {: #access-by-using-http-client}
@@ -580,6 +586,7 @@ def main(api_key, account):
 if __name__ == "__main__":
     main(API_KEY, ACCOUNT)
 ```
+{: codeblock}
 
 ## Reference
 {: #reference}
@@ -600,14 +607,14 @@ The following table lists the available IAM service roles for {{site.data.keywor
 | Checkpointer | Includes the ability to write replication checkpointer `_local` documents. Required on source databases during replication. |
 {: caption="Table 2. IAM service roles for {{site.data.keyword.cloudant_short_notm}}" caption-side="top"}
 
-Note that Manager is inclusive of all actions of Reader and Writer, and Writer is inclusive of all actions of Reader.
+Manager is inclusive of all actions of Reader and Writer, and Writer is inclusive of all actions of Reader.
 
 ### {{site.data.keyword.cloudant_short_notm}} actions
 {: #ibm-cloudant-actions}
 
-The following table describe the available IAM actions and roles. For fine-grained authorization, there are the roles of Manager, Reader, Writer, Monitor, and Checkpointer.
+The following table describes the available IAM actions and roles. For fine-grained authorization, there are the roles of Manager, Reader, Writer, Monitor, and Checkpointer.
 
-When you use IAM roles other than Manager such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.  
+When you use IAM roles other than Manager, such as Reader, Writer, Monitor, or Checkpointer, you **must** use *Use only IAM* to avoid supplying users with Legacy credentials that include greater access permissions.  
 {: important}
 
 | Method | Endpoint | Action name |
@@ -835,7 +842,7 @@ While design documents can contain update functions, users cannot call them.
 
 If you have trouble using IAM to authenticate when you make requests to your {{site.data.keyword.cloudant_short_notm}} service instance, verify your account as shown in the next section.
 
-### Ensure your account is IAM enabled
+### Ensure that your account is IAM enabled
 {: #ensure-your-account-is-iam-enabled}
 
 On the Overview portion of the {{site.data.keyword.cloudant_short_notm}} dashboard, "authentication method" is listed under deployment details. Your available authentication methods are listed there.

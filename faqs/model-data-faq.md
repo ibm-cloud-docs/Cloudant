@@ -39,7 +39,7 @@ performance characteristics you're hoping to achieve.
 {: faq}
 
 If you're changing the same piece of state at a rate of once per second or more, consider 
-making your documents immutable. This practice significantly decreases the chance that you create 
+making your documents immutable. This practice significantly lowers the chance that you create 
 conflicted documents.
 
 Conversely, if you're updating a specific document less than once every ten seconds, an 
@@ -47,7 +47,7 @@ update-in-place data model - that is, updating existing documents - simplifies y
 application code considerably.
 
 Typically, data models based on immutable data require the use of views to summarize 
-the documents that comprise the current state. As views are precomputed, this process most likely won't 
+the documents that include the current state. As views are precomputed, this process most likely doesn't
 adversely affect application performance.
 
 ## Why does this help me consider immutable data?
@@ -56,11 +56,10 @@ adversely affect application performance.
 
 Behind our `https://$ACCOUNT.cloudant.com/` interface is a distributed database. 
 Within the cluster, documents are bucketed into a number of shards that collectively form the 
-database. These shards are then distributed across nodes in the cluster. This is what 
-allows us to support databases many terabytes in size.
+database. These shards are then distributed across nodes in the cluster. This practice allows us to support databases many terabytes in size.
 
-By default, in addition to the splitting of a database into shards, all shards have three 
-copies, or shard replicas, each of which resides on a different node of the database cluster. Sharding allows the database to continue serving requests if a node fails. Therefore, saving a document involves writing to three nodes. If two updates are made concurrently to the same document, a subset of nodes might accept the first update, and another subset might accept the second update. When the cluster discovers this 
+By default, the database is split into shards. Each shard has three 
+copies, or shard replicas, which reside on a different node of the database cluster. Sharding allows the database to continue serving requests if a node fails, so saving a document involves writing to three nodes. If two updates are made concurrently to the same document, a subset of nodes might accept the first update, and another subset might accept the second update. When the cluster detects this 
 discrepancy, it combines the documents in the same way as normal replication does for 
 concurrent updates by creating a conflict.
 
@@ -87,32 +86,29 @@ person documents to calculate the combined hours worked, use a view with a compo
 {: #why-this-helps-me-use-views-to-pre-calculate-results}
 {: faq}
 
-It's straightforward. First, both maps and reduces are precomputed. Therefore, the result of a reduce function is a cheap operation. The operation cost is low even when 
+It's straightforward. First, both maps and reduces are precomputed, so the result of a reduce function is a cheap operation. The operation cost is low even when 
 compared to the significant amounts of IO required to stream hundreds or even thousands of 
 documents from the on-disk storage.
 
-At a lower level, when a node receives a view request, it asks the nodes that hold the shard 
-replicas of the view's database for the results of the view request from the documents in 
-each shard. As it receives the answers, taking the first answer for each shard replica, the node 
+At a lower level, when a node receives a view request, it asks the nodes that hold the shard replicas of the view's database for the results of the view request from the documents in each shard. As it receives the answers, taking the first answer for each shard replica, the node 
 that services the view request combines the results and streams the final result to the client. 
 As more documents are involved, it takes longer for each replica to stream the results from 
-disk and across the network. In addition, the node that services the request has much more work to 
+disk and across the network. The node that services the request also has much more work to 
 do in combining the results from each database shard.
 
-Overall, the goal is for a view request to require the minimum amount of data from each shard, 
-minimizing the time that the data is in transit and being combined to form the final result. Using 
-the power of views to precompute aggregate data is one way to achieve this aim. This practice decreases the time that your application spends waiting for the request to complete.
+Overall, the goal is for a view request to require the minimum amount of data from each shard. This practice 
+minimizes the time that the data is in transit and being combined to form the final result. Using 
+the power of views to precompute aggregate data is one way to achieve this aim. This practice lowers the time that your application spends waiting for the request to complete.
 
 ## How can I de-normalize my data?
 {: #how-de-normalize-my-data}
 {: faq}
 
 In relational databases, normalizing data is often the most efficient way to store data. 
-This practice makes sense when you can use JOINs to easily combine data from multiple tables. 
-You're more likely to need an HTTP GET request for each piece of data with {{site.data.keyword.cloudant_short_notm}}. If you reduce the number of requests you need to build a complete picture of a modeled entity, it allows 
-you to present information to your users more quickly.
+This practice makes sense when you can use `JOIN` to easily combine data from multiple tables. 
+You're more likely to need an HTTP GET request for each piece of data with {{site.data.keyword.cloudant_short_notm}}. If you reduce the number of requests you need to build a complete picture of a modeled entity, you can present information to your users more quickly.
 
-Using views allows you to get many of the benefits of normalized data while you maintain the 
+By using views, you get many of the benefits of normalized data while you maintain the 
 de-normalized version for efficiency.
 
 As an example, in a relational schema, you'd normally represent tags in a separate table and use 
@@ -130,19 +126,19 @@ Querying the view for a specific key then provides all the documents with that t
 
 It all comes down to the number of HTTP requests that your application makes. There's a cost to opening HTTP connections, particularly HTTPS. While reusing connections helps, making fewer requests overall speeds up the rate that your application can process data.
 
-As a side benefit, de-normalized documents and pre-computed views often allow you to have the 
-value your application requires generated ahead of time, rather than being constructed while in progress at query time.
+As a side benefit, when you use de-normalized documents and pre-computed views, you often have the 
+value that your application requires generated ahead of time, rather than being constructed while in progress at query time.
 
 ## How can I avoid conflicts by using finer-grained documents?
 {: #how-avoid-conflicts-finer-grained-documents}
 {: faq}
 
 In conflict with the advice to de-normalize your data is this advice, use 
-fine-grained documents to reduce the chance of concurrent modifications creating conflicts. 
+fine-grained documents to reduce the chance of concurrent modifications that create conflicts. 
 This practice is somewhat like normalizing your data. There's a balance to strike between reducing the 
 number of HTTP requests and avoiding conflicts.
 
-For example, see the medical record that contains a list of operations:
+For example, see the medical record that includes a list of operations:
 
 ```json
 {
@@ -180,14 +176,14 @@ like the following two examples:
 
 Emitting the `"patient"` field as the key in your view would then allow querying for all 
 operations for a specific patient. Again, views are used to help knit together a full picture of 
-a specific entity from separate documents. Views help keep the number of HTTP requests low even though we split up the data for a single modeled entity.
+a specific entity from separate documents. Views help keep the number of HTTP requests low, even though we split up the data for a single-modeled entity.
 
 ## How does this help me avoid conflicts?
 {: #how-this-helps-you-avoid-conflicts}
 {: faq}
 
-Avoiding conflicted documents helps speed up many operations on your {{site.data.keyword.cloudant_short_notm}} databases because there’s a process that works out the current winning revision used each time 
-that the document is read, for example, single document retrievals, call with `include_docs=true`, view building, and so on.
+Avoiding conflicted documents helps speed up many operations on your {{site.data.keyword.cloudant_short_notm}} databases. There’s a process that works out the current winning revision used each time 
+that the document is read, for example, single document retrievals, calls with `include_docs=true`, view building, and so on.
 
 The winning revision is a particular revision from the document’s overall tree. Recall that 
 documents on {{site.data.keyword.cloudant_short_notm}} are in fact trees of revisions. An arbitrary but deterministic algorithm 
@@ -197,7 +193,7 @@ tree with no or few branches: each branch needs to be followed to see whether it
 be the winning revision. Potential victors then need to be compared against each other to make 
 the final choice.
 
-{{site.data.keyword.cloudant_short_notm}} handles small numbers of branches well. After all, replication relies on the fact that documents can branch to avoid discarding data. However, when pathological levels are reached, particularly if the conflicts aren't resolved, it becomes very time-consuming and memory-intensive to walk the document tree.
+{{site.data.keyword.cloudant_short_notm}} handles small numbers of branches well. After all, replication relies on the fact that documents can branch to avoid discarding data. When you reach pathological levels, however, particularly if you can't resolve the conflicts, it becomes time-consuming and memory-intensive to walk the document tree.
 
 ## How can I build in conflict resolution?
 {: #how-build-in-conflict-resolution}
@@ -205,17 +201,16 @@ the final choice.
 
 In an eventually consistent system like {{site.data.keyword.cloudant_short_notm}}, conflicts eventually happen. This fact is a price of our scalability and data resilience.
 
-Structuring your data in such a way that resolving conflicts is quick and need not involve 
-operator assistance helps your databases to hum along smoothly. The ability to 
+It is best to structure your data so that resolving conflicts is quick and does not involve operator assistance. This practice helps your databases to hum along smoothly. The ability to 
 automatically resolve conflicts without user involvement significantly 
 improves their experience and reduces the support burden on your organization.
 
-How you resolve conflicts is very application-specific, but here are a few tips:
+How you resolve conflicts is application-specific. See the following tips for more ways to improve the process:
 
 -   Avoid invariants across document fields if possible. Avoiding invariants makes it more likely that a simple
     merge operation, if you take the changed field from each conflicted document revision, is
     suitable. This practice makes simpler and more robust application code.
--   Allow documents to stand alone. If you have to retrieve other documents to work out the correct
+-   Allow documents to stand-alone. If you have to retrieve other documents to work out the correct
     resolution, it increases latency in conflict resolution. There's also a chance you get a
     version of the other documents that aren't consistent with the document you're resolving,
     making correct resolution difficult. 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-01-30"
+lastupdated: "2020-02-06"
 
 keywords: legacy, iam access controls, use only iam mode, service credentials
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 {:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2020-02-06 -->
 
 # Authenticating with {{site.data.keyword.cloudant_short_notm}} FAQ
 {: #faq-authenticating-cloudant}
@@ -36,32 +36,32 @@ subcollection: cloudant
 
 {{site.data.keyword.cloud_notm}} IAM
 
-- Centrally-managed access management across {{site.data.keyword.cloud_notm}}.
-- Allows a user or service to access many different resources by using the same set of credentials (for example, same username/password or IAM API key).
+- Centrally managed access management across {{site.data.keyword.cloud_notm}}.
+- Allows a user or service to access many different resources by using the same set of credentials (for example, same username and password or IAM API key).
 - IAM API keys can be granted access to account management functions, like creating new databases.
 
 {{site.data.keyword.cloudant_short_notm}} Legacy
 
 - Unique to {{site.data.keyword.cloudant_short_notm}}.
 - Access to each service instance requires its own set of credentials.
-- Uses HTTP basic authentication with credentials that are not bound to an individual user or service.
-- {{site.data.keyword.cloudant_short_notm}} API keys can only be granted permissions at the database level.
+- Uses HTTP basic authentication with credentials that aren't bound to an individual user or service.
+- {{site.data.keyword.cloudant_short_notm}} API keys can be granted permissions only at the database level.
 
 ## Why must I use the *Use only IAM* mode?
 {: #use-legacy-or-iam}
 {: faq}
 
-We recommend that you use the *Use only IAM* mode. This mode means that only IAM credentials are provided via service binding and credential generation. The advantages for using {{site.data.keyword.cloud_notm}} IAM include the management of access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling, and credentials that can be easily revoked and rotated when you use {{site.data.keyword.cloud_notm}} IAM.
+We recommend you use the *Use only IAM* mode. This mode means only IAM credentials are provided via service binding and credential generation. The advantages for using {{site.data.keyword.cloud_notm}} IAM include the management of access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling, and credentials that can be easily revoked and rotated when you use {{site.data.keyword.cloud_notm}} IAM.
 
 For more information about the advantages and disadvantages between these modes, see [Advantages and disadvantages of the two access control mechanisms](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#advantages-and-disadvantages-of-the-two-access-control-mechanisms).
 
-## How can I provision an instance by using the command line?
-{: #provision-iam-command-line}
+## How can I create an instance by using the command line?
+{: #create-iam-command-line}
 {: faq}
 
-When you provision a new {{site.data.keyword.cloudant_short_notm}} instance from the command line, you must include the `ibmcloud` tool by using the `-p` parameter. This parameter enables or disables legacy credentials for an account by passing the option in JSON format. The option is called `legacyCredentials`.
+When you create a new {{site.data.keyword.cloudant_short_notm}} instance from the command line, you must include the `ibmcloud` tool by using the `-p` parameter. This parameter enables or disables legacy credentials for an account by passing the option in JSON format. The option is called `legacyCredentials`.
 
-To provision an instance as *Use only IAM*, run the following command:
+To create an instance as *Use only IAM*, run the following command:
 
 ```sh
 ibmcloud resource service-instance-create  "Instance Name" \
@@ -70,14 +70,14 @@ ibmcloud resource service-instance-create  "Instance Name" \
 ```
 {: codeblock}
 
-If you don't use *Use only IAM* mode when you use the Reader and Writer IAM roles, you might allow users to be granted Legacy credentials with more access permissions than you intended.
+If you don't use *Use only IAM* mode when you use the Reader and Writer IAM roles, you might grant users Legacy credentials with more access permissions than you intended.
 {: note}
 
 ## How can I generate service credentials? 
 {: #find-service-credentials-iam}
 {: faq}
 
-You can generate service credentials in the primary {{site.data.keyword.cloud_notm}} IAM interface. When you select *Use only IAM*, service credentials contain only IAM values. The service credential JSON looks like the following example:
+You can generate service credentials in the primary {{site.data.keyword.cloud_notm}} IAM interface. When you select *Use only IAM*, service credentials include only IAM values. The service credential JSON looks like the following example:
 
 ```json
 {

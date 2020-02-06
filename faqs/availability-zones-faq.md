@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-01-30"
+lastupdated: "2020-02-10"
 
 keywords: availability zones, single-zone region, multi-zone region, lite plan, standard plan
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 {:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2020-02-10 -->
 
 # Availability zones FAQ
 {: #faq-availability-zones}
@@ -48,7 +48,7 @@ When you create an instance, after you select the {{site.data.keyword.cloudant_s
 {: #multi-zone-region}
 {: faq}
 
-A multi-zone region includes three availability zones that can be used by an instance deployed to that region. The multi-zone regions available with {{site.data.keyword.cloudant_short_notm}} include the following regions:
+A multi-zone region includes three availability zones that can be used by an instance that is deployed to that region. The multi-zone regions available with {{site.data.keyword.cloudant_short_notm}} include the following regions:
 
 - Washington DC
 - Dallas
@@ -62,4 +62,4 @@ A single-zone region offers only one availability zone for that region. The sing
 - Seoul
 - Chennai
 
-For more information, see [Plans & provisioning](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#locations-and-tenancy).
+For more information, see [Plans and provisioning](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#locations-and-tenancy).

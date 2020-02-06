@@ -2,9 +2,9 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-01-30"
+lastupdated: "2020-02-07"
 
-keywords: resolve confict, ignore conflict, identify conflict, eventual consistency
+keywords: resolve conflict, ignore conflict, identify conflict, eventual consistency
 
 subcollection: cloudant
 
@@ -38,15 +38,15 @@ As a result, the copies of a document might have different updates. "Conflicts" 
 {: #what-eventual-consistency}
 {: faq}
 
-{{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem), which means {{site.data.keyword.cloudant_short_notm}} must make sure that there aren't any differences between nodes. These inconsistencies can happen when out-of-date documents are synchronized.
+{{site.data.keyword.cloudant_short_notm}} databases are [eventually consistent](/docs/services/Cloudant?topic=cloudant-cap-theorem#cap-theorem), which means {{site.data.keyword.cloudant_short_notm}} must make sure no differences between nodes exist. These inconsistencies can happen when out-of-date documents are synchronized.
 
 It's important for {{site.data.keyword.cloudant_short_notm}} databases to have concurrent read and write access. MVCC enables that capability. MVCC is a form of [optimistic concurrency control](http://en.wikipedia.org/wiki/Optimistic_concurrency_control){: new_window}{: external} that makes read and write operations on {{site.data.keyword.cloudant_short_notm}} databases faster because database locking isn't necessary for read and write operations.  At the same time, MVCC enables synchronization between {{site.data.keyword.cloudant_short_notm}} database nodes.
 
-## How do I know if there's a conflict?
+## How do I know whether there's a conflict?
 {: #how-know-conflict}
 {: faq}
 
-You don't know. There will be times when you request a document that has a conflict. At those times, {{site.data.keyword.cloudant_short_notm}} returns the document normally, as though there is no conflict. However, the version that is returned isn't necessarily the most current version. Instead, it's selected based on an internal algorithm which considers multiple factors. You must not assume that when documents are returned they are always the most current.
+You don't know. There will be times when you request a document that has a conflict. At those times, {{site.data.keyword.cloudant_short_notm}} returns the document normally, as though no conflict exists. However, the version that is returned isn't necessarily the most current version. Instead, it's selected based on an internal algorithm, which considers multiple factors. You must not assume that when documents are returned they're always the most current.
 
 ## How do I identify a document with a conflict?
 {: #how-identify-document-conflict}
@@ -71,10 +71,10 @@ If you want to find conflicts within multiple documents in a database, write a [
 {: #what-if-ignore-conflicts}
 {: faq}
 
-If you don't check for conflicts, or don't fix them, your {{site.data.keyword.cloudant_short_notm}} database begins to have the following problems:
+If you don't check for conflicts, or don't fix them, your {{site.data.keyword.cloudant_short_notm}} database has the following problems:
 
 - Document inconsistency increases because conflicting documents continue to multiply. 
-- Database size increases because documents with conflicts must be retained until the conflict is resolved. 
+- Database size increases because documents with conflicts must be kept until the conflict is resolved. 
 - Performance degrades because it takes more work for {{site.data.keyword.cloudant_short_notm}} to respond to each request since it has to go through all the conflicted documents to find the "best possible" version. 
 
 ## How do I resolve conflicts?
