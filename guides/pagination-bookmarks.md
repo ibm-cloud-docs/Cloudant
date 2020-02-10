@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-02-10"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -265,7 +265,7 @@ curl -X POST \
 }
 ```
 
-Notice as well an array of `docs`, {{site.data.keyword.cloudant_short_notm}} also returns a `bookmark`, which we save for the next request. When we need page two of the results, we repeat the query by passing {{site.data.keyword.cloudant_short_notm}} the bookmark from the first response:
+The response includes an array of `docs`, as well as a `bookmark`, which we will use to paginate through the results in the next request. When we need page two of the results, we repeat the query by passing {{site.data.keyword.cloudant_short_notm}} the bookmark from the first response:
 
 ```sh
 curl -X POST \
