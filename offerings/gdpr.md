@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-02-06"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -21,13 +21,13 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-20 -->
+<!-- Acrolinx: 2020-02-06 -->
 
 # General Data Protection Regulation (GDPR)
 {: #general-data-protection-regulation-gdpr-}
 
 The GDPR seeks to create a harmonized data protection law framework across the EU. It aims 
-to give citizens back the control of their personal data, while imposing strict rules on 
+to give citizens back the control of their personal data, while it imposes strict rules on 
 those hosting and ‘processing’ this data, anywhere in the world. The Regulation also introduces 
 rules that relate to the free movement of personal data within and outside the EU. 
 {: shortdesc}
@@ -99,7 +99,7 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboa
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information that is associated 
 with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
 ability to contact dedicated customers via email. We provide an interface for customers to keep this 
-information up-to-date either directly, or via customer configuration of their contact details 
+information up to date either directly, or via customer configuration of their contact details 
 via their {{site.data.keyword.cloud_notm}} account details.
 
 ## Is our {{site.data.keyword.cloudant_short_notm}} database encrypted?
@@ -110,13 +110,12 @@ visible to our operations and support teams (see the following paragraph).
 
 For sensitive data, that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}, 
 you must encrypt or otherwise protect (pseudonymize) your data before you send it to us. Do not use PI as a document `_id` in your URLs, for example, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, 
-as these PI are always visible and written to the access logs.
+since PI are always visible and written to the access logs.
 
 ## Data locations
 {: #data-locations}
 
-Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data is  
-made available, and kept up-to-date, via the DSA.
+Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data are made available, and kept up to date, via the DSA.
 
 For more information about data locations, see the 
 [DSA under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}{: external}.
@@ -157,7 +156,7 @@ customer upon request.
 ### Service access to data
 {: #service-access-to-data}
 
-{{site.data.keyword.cloudant_short_notm}} operations and support staff have access to customer data 
+{{site.data.keyword.cloudant_short_notm}} operations and support staff has access to customer data 
 and can access it during 
 routine operations. This access is only done as required in order to operate and support the service. 
 Access is also limited to a *need to know* basis and is logged, monitored, and audited.
@@ -226,7 +225,7 @@ verifies the request to confirm the `id` contains PI. {{site.data.keyword.clouda
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
 This process is only to be used for emergency deletion requests (for example, *Right to be 
-forgotten*) and must not be relied upon long-term. If your application is intentionally 
+forgotten*) and must not be relied upon long term. If your application is intentionally 
 using PI in document IDs, 
 then it must be changed to either pseudonymize that PI, or not use PI in document IDs. You cannot 
 rely on regular purging by the {{site.data.keyword.cloudant_short_notm}} operations team to avoid this situation. 

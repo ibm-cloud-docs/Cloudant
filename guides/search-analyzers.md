@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-02-06"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, whitespace analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-23 -->
+<!-- Acrolinx: 2020-02-06 -->
 
 # Search analyzers
 {: #search-analyzers}
@@ -37,7 +37,7 @@ One aspect of the indexing process is the choice of analyzer. An analyzer is cod
 - Stem the words by removing language-specific word endings, for example, farmer becomes farm.
 - Remove stop words by ignoring words like *a*, *is*, or *if*, which can make the index smaller and more efficient.
 
-At indexing-time, source data is processed by using the analyzer logic prior to sorting and storage in the index. At query-time, the search terms are processed by using the same analyzer code before interrogating the index.
+At indexing-time, source data is processed by using the analyzer logic before sorting and storage in the index. At query-time, the search terms are processed by using the same analyzer code before interrogating the index.
 
 ## Testing the analyzer
 {: #testing-the-analyzer}
@@ -56,10 +56,10 @@ To look at each analyzer in turn, we can pass the following string to each analy
 
 The Standard analyzer changes the string in the following ways: 
 
-- Removes punctation.
+- Removes punctuation.
 - Splits words based on spaces and punctuation.
 - Removes stop words, including "is" and "at".
-- Words changed to lowercase.
+- Words that are changed to lowercase.
 - Note how "aol.com" stays intact.
 
 ```json
@@ -82,10 +82,10 @@ With the Keyword analyzer, the string stays intact. See the following example:
 
 The Simple analyzer changes the string in the following ways:
 
-- Removes punctation.
+- Removes punctuation.
 - Splits words based on spaces and punctuation.
 - No stop words removed (notice "is" and "at").
-- Words changed to lowercase.
+- Words that are changed to lowercase.
 - Note how "chris7767" became "chris" and "21a" becomes "a".
 
 ```json
@@ -101,7 +101,7 @@ The Whitespace analyzer changes the string in the following ways:
 - Removes some punctuation.
 - Splits words on spaces.
 - No stop words removed (notice "is" and "at").
-- Words stay case sensitive.
+- Words that stay case-sensitive.
 - Note how email stays intact.
 
 ```json
@@ -117,7 +117,7 @@ The Classic analyzer changes the string in the following ways:
 - Removes punctuation.
 - Splits words based on spaces and punctuation.
 - Removes stop words (no "is" or "at").
-- Words changed to lowercase.
+- Words that are changed to lowercase.
 - Note how email stays intact.
 
 ```json
@@ -134,7 +134,7 @@ The English analyzer changes the string in the following ways:
 - Splits words based on spaces and punctuation.
 - Stems words (notice "chris" becomes "chri").
 - Removes stop words (no "is" or "at").
-- Words changed to lowercase.
+- Words that are changed to lowercase.
 - Note how email stays intact.
 
 ```json
@@ -157,7 +157,7 @@ Four score and seven years ago our fathers brought forth, on this continent, a n
 ## Which analyzer must I pick?
 {: #which-analyzer-must-i-pick}
 
-It depends on your data. If your data is structured (email addresses, zip codes, names, and so on, in separate fields), then it's worth picking an analyzer that retains the data you need to keep *intact* for your search needs.
+It depends on your data. If your data is structured (email addresses, postal codes, names, and so on, in separate fields), then it's worth picking an analyzer that retains the data you need to keep *intact* for your search needs.
 
 Only index the fields that you need. Keeping the index small helps to improve performance.
 
@@ -227,7 +227,7 @@ From this snippet, I would manually extract the following "entities":
 - Argentina - a country
 - Les Bleus - a nickname of the French national football team
 
-Entity extraction is the process of locating known entities (given a database of such entities) and storing the entities in the search engine instead of, or as well as, the source text. The [Watson Natural Language and Understanding API](https://www.ibm.com/watson/services/natural-language-understanding/) can be fed raw text and returns entities it knows about (you can provide your own enitity model for your domain-specific application):
+Entity extraction is the process of locating known entities (given a database of such entities) and storing the entities in the search engine instead of, or as well as, the source text. The [Watson Natural Language and Understanding API](https://www.ibm.com/watson/services/natural-language-understanding/) can be fed raw text and returns entities it knows about (you can provide your own entity model for your domain-specific application):
 
 ![Analyzers](../images/analyzers.png)
 
@@ -237,4 +237,4 @@ As well as entities, the API can also place the article in a hierarchy of catego
 - / sports / soccer
 - / sports / football
 
-Pre-processing your raw data, by calling the Watson API for each document and storing a list of entities, concepts, and categories in your {{site.data.keyword.cloud_notm}} document, provides automatic metadata about your free-text information and can provide an easier means to search and navigate your app.
+When you pre-process your raw data, by calling the Watson API for each document and storing a list of entities, concepts, and categories in your {{site.data.keyword.cloud_notm}} document, it provides automatic metadata about your free-text information and can provide an easier means to search and navigate your app.
