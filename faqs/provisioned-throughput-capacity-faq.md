@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-07"
+lastupdated: "2020-02-14"
 
 keywords: read, write, global query, throughput, operation type, event, reject request, retry, provision, capacity
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 {:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2020-02-14 -->
 
 # Provisioned throughput capacity model FAQ
 {: #faq-provisioned-throughput-capacity-model}
@@ -33,9 +33,9 @@ subcollection: cloudant
 {: #provisioned-throughput-capacity-calculated}
 {: faq}
 
-{{site.data.keyword.cloudant_short_notm}} calculates provisioned throughput capacity by totaling the number of events for each operation type per second, where 1 second is a sliding window. When an account exceeds the total number of events that are allotted by its plan, {{site.data.keyword.cloudant_short_notm}} rejects all subsequent requests until the number of events inside the sliding window falls under the allowed limit. The sliding 1-second window is any consecutive period of 1,000 milliseconds.
+{{site.data.keyword.cloudant_short_notm}} calculates provisioned throughput capacity by totaling the number of events for each operation type per second, where 1 second is a sliding window. When an account exceeds the total number of events that are allotted by its plan, {{site.data.keyword.cloudant_short_notm}} rejects all subsequent requests. No new requests are accepted until the number of events inside the sliding window falls under the allowed limit. The sliding 1-second window is any consecutive period of 1,000 milliseconds.
 
-For example, if you have a Standard plan instance, which limits you to 200 reads per second, when you reach 200 read events per second, {{site.data.keyword.cloudant_short_notm}} rejects any future read requests made during the sliding 1,000-millisecond window. Read events resume when the number of read events for that time period is less than 200. 
+For example, if you have a Standard plan instance that limits you to 200 reads per second, when you exceed 200 read events, {{site.data.keyword.cloudant_short_notm}} rejects future read requests made during the sliding 1,000-millisecond window. Read events resume when the number of read events for that time period is less than 200. 
 
 ## What happens when I exceed the provisioned throughput capacity limit? 
 {: #provisioned-throughput-capacity-exceed-limit}

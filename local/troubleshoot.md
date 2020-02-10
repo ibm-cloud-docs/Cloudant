@@ -39,7 +39,7 @@ external factors. In this context, 'elevated' means 'elevated
 beyond an acceptable tolerance'. The level of latencies that is
 acceptable to you depends on your application. Elevated latencies
 are difficult to debug. While a predefined solution is
-impossible, the following paragraphs offer some guidance.
+impossible, the following sections offer some guidance.
 
 
 ### Is there a wider context?
