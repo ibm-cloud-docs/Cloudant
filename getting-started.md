@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-02-11"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -31,7 +31,7 @@ we use Python to create an {{site.data.keyword.cloudant_short_notm}} database
 and populate that database with a simple collection of data. You can retrieve data by using queries or API endpoints. 
 {: shortdesc}
 
-For more inforamtion, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
+For more information, see our hands-on tutorials that help you learn more about {{site.data.keyword.cloudant_short_notm}}. Or try one of the tutorials that focuses on a specific language:
 
 - [Node.js and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/node?topic=nodejs-cloudant){: new_window}{: external}
 - [Swift and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/swift?topic=swift-getting-started){: new_window}{: external}
@@ -87,7 +87,15 @@ Verify that you have what you need to start the tutorial from the following list
 ## Step 1. Connect to your {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #step-1-connect-to-your-cloudant-nosql-db-service-instance-on-ibm-cloud}
 
-1.	Run the `import` statements of the {{site.data.keyword.cloudant_short_notm}}
+1.	Run the `python3` command to start the Python interactive shell.
+    ```python
+    python3
+    ```
+    {: codeblock}
+  
+  ![Python 3 interactive shell](tutorials/images/python3.png)
+
+2.  Run the `import` statements of the {{site.data.keyword.cloudant_short_notm}}
 	Client Library components to enable your Python application to connect to
 	the {{site.data.keyword.cloudant_short_notm}} service instance.
 	```python
