@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-02-13"
 
 keywords: legacy, iam access controls, use only iam mode, service credentials
 
@@ -22,7 +22,7 @@ subcollection: cloudant
 {:external: target="_blank" .external}
 {:faq: data-hd-content-type='faq'}
 
-<!-- Acrolinx: 2020-02-06 -->
+<!-- Acrolinx: 2020-02-13 -->
 
 # Authenticating with {{site.data.keyword.cloudant_short_notm}} FAQ
 {: #faq-authenticating-cloudant}
@@ -51,7 +51,7 @@ subcollection: cloudant
 {: #use-legacy-or-iam}
 {: faq}
 
-We recommend you use the *Use only IAM* mode. This mode means only IAM credentials are provided via service binding and credential generation. The advantages for using {{site.data.keyword.cloud_notm}} IAM include the management of access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling, and credentials that can be easily revoked and rotated when you use {{site.data.keyword.cloud_notm}} IAM.
+We recommend you use the *Use only IAM* mode. This mode means that only IAM credentials are provided via service binding and credential generation. The advantages for using {{site.data.keyword.cloud_notm}} IAM include the management of access to {{site.data.keyword.cloudant_short_notm}} with {{site.data.keyword.cloud_notm}}'s standard tooling, and credentials that can be easily revoked and rotated when you use {{site.data.keyword.cloud_notm}} IAM.
 
 For more information about the advantages and disadvantages between these modes, see [Advantages and disadvantages of the two access control mechanisms](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#advantages-and-disadvantages-of-the-two-access-control-mechanisms).
 
@@ -95,13 +95,13 @@ You can generate service credentials in the primary {{site.data.keyword.cloud_no
 
 The values for the previous example are described in the following list:
 
-- `apikey`: IAM API key.
-- `host`: The DNS that resolves domain names with their corresponding IP addresses.
-- `iam_apikey_description`: Description of IAM API key.
-- `iam_apikey_name`: ID of IAM API key.
-- `iam_role_crn`: The IAM role that the IAM API key has.
-- `iam_serviceid_crn`: The CRN of service ID.
-- `url`: {{site.data.keyword.cloudant_short_notm}} service URL.
-- `username`: The internal {{site.data.keyword.cloudant_short_notm}} account name.
+- `apikey` - IAM API key.
+- `host` - The DNS that resolves domain names with their corresponding IP addresses.
+- `iam_apikey_description` - Description of IAM API key.
+- `iam_apikey_name` - ID of IAM API key.
+- `iam_role_crn` - The IAM role that the IAM API key has.
+- `iam_serviceid_crn` - The CRN of service ID.
+- `url` - {{site.data.keyword.cloudant_short_notm}} service URL.
+- `username` - The internal {{site.data.keyword.cloudant_short_notm}} account name.
 
 For more information, see the [IAM guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#should-i-use-_use-only-iam_-or-_use-both-legacy-credentials-and-iam_-).

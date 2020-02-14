@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-02-12"
 
 keywords: search analyzers, keyword analyzer, simple analyzer, whitespace analyzer, classic analyzer, english analyzer, entity extraction, store option, include_docs option
 
@@ -21,12 +21,12 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-06 -->
+<!-- Acrolinx: 2020-02-12 -->
 
 # Search analyzers
 {: #search-analyzers}
 
-{{site.data.keyword.cloudant_short_notm}} Search is the free-text search technology built into the {{site.data.keyword.cloudantfull}} database that is powered by [Apache Lucene](http://lucene.apache.org/){: new_window}{: external}. 
+{{site.data.keyword.cloudant_short_notm}} Search is the free-text search technology that is built into the {{site.data.keyword.cloudantfull}} database that is powered by [Apache Lucene](http://lucene.apache.org/){: new_window}{: external}. 
 
 When you create an {{site.data.keyword.cloudant_short_notm}} Search index, you must consider which fields from your documents need to be indexed, and how they are to be indexed.
 
@@ -86,7 +86,7 @@ The Simple analyzer changes the string in the following ways:
 - Splits words based on spaces and punctuation.
 - No stop words removed (notice "is" and "at").
 - Words that are changed to lowercase.
-- Note how "chris7767" became "chris" and "21a" becomes "a".
+- Note how "`chris7767`" became "`chris`" and "21a" becomes "a".
 
 ```json
 {"tokens":["my", "name", "is", "chris", "wright", "smith", "i", "live", "at", "a", "front", "street", "durham", "uk", "my", "email", "is", "chris", "aol","com"]}
@@ -132,7 +132,7 @@ The English analyzer changes the string in the following ways:
 
 - Removes punctuation.
 - Splits words based on spaces and punctuation.
-- Stems words (notice "chris" becomes "chri").
+- Stems words (notice "`chris`" becomes "`chri`").
 - Removes stop words (no "is" or "at").
 - Words that are changed to lowercase.
 - Note how email stays intact.
@@ -157,7 +157,7 @@ Four score and seven years ago our fathers brought forth, on this continent, a n
 ## Which analyzer must I pick?
 {: #which-analyzer-must-i-pick}
 
-It depends on your data. If your data is structured (email addresses, postal codes, names, and so on, in separate fields), then it's worth picking an analyzer that retains the data you need to keep *intact* for your search needs.
+It depends on your data. If your data is structured (email addresses, postal codes, names, and so on) in separate fields, then it's worth picking an analyzer that retains the data you need to keep *intact* for your search needs.
 
 Only index the fields that you need. Keeping the index small helps to improve performance.
 
@@ -181,7 +181,7 @@ Order numbers, payment references, and UUIDs such as "A1324S", "PayPal0000445", 
 ### Country codes
 {: #country-codes}
 
-Country codes such as "UK" must also use the Keyword analyzer to prevent the removal of "stopwords" that match the country codes, for example, "IN" for India. The Keyword analyzer is case-sensitive.
+Country codes like "UK" must also use the Keyword analyzer to prevent the removal of "stopwords" that match the country codes, for example, "IN" for India. The Keyword analyzer is case-sensitive.
 
 ### Text
 {: #text-sa}

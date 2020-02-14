@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-05-31 -->
+<!-- Acrolinx: 2020-01-20 -->
 
 # Getting started with {{site.data.keyword.cloudant_short_notm}}
 {: #getting-started-with-cloudant}
@@ -76,7 +76,7 @@ Verify that you have what you need to start the tutorial from the following list
 	    ```
 	    {: screen}
 	
-	2.  If the `cloudant` module isn't installed, install it by using a command similar to the following one:
+	2.  If the `cloudant` module isn't installed, install it by using a command similar to the following one.
 	    ```
 	    pip3 install cloudant
 	    ```
@@ -101,27 +101,27 @@ Verify that you have what you need to start the tutorial from the following list
   <br>In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your {{site.data.keyword.cloudant_short_notm}} service instance.
   <br>In the menu, click `Service credentials`.
   <br>a. Click the `New credential` button.
-  <br>![Create new service credentials](tutorials/images/img0050.png)
+  <br>![Create new service credentials.](tutorials/images/img0050.png)
   <br>b. Enter a name for the new credential in the Add new credential window, as shown in the following screen capture.
   <br>c. (Optional) Add inline configuration parameters.
   <br>d. Click the `Add` button. 
-  <br>![Add a service credential](tutorials/images/img0051.png)
+  <br>![Add a service credential.](tutorials/images/img0051.png)
   <br>Your credentials are added to the Service credentials table.
   <br>e. Click `View credentials` under Actions. 
-  <br>![View all service credentials](tutorials/images/img0052.png)
+  <br>![View all service credentials.](tutorials/images/img0052.png)
   <br>The details for the service credentials appear:
    <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)
    
 3.	Establish a connection to the {{site.data.keyword.cloudant_short_notm}} service instance. The way {{site.data.keyword.cloudant_short_notm}} establishes this connection depends on whether you're using {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) or {{site.data.keyword.cloudant_short_notm}} Legacy authentication. For more information about either authentication type, see the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-#ibm-cloud-identity-and-access-management-iam-).
 
-	If you're using {{site.data.keyword.cloudant_short_notm}} Legacy authentication, replace your service credentials from the previous step:
+	If you're using {{site.data.keyword.cloudant_short_notm}} Legacy authentication, replace your service credentials from the previous step.
 	```python
 	client = Cloudant("<username>", "<password>", url="<url>")
 	client.connect()
 	```
 	{: codeblock}
 	
-	If you're using IAM authentication, replace your service credentials from the previous step:
+	If you're using IAM authentication, replace your service credentials from the previous step.
 	```python
 	client = Cloudant.iam("<username>", "<apikey>")
 	client.connect()
@@ -238,7 +238,7 @@ A full retrieval also includes the data *within* a document.
     The `u` prefix is an indication that Python is displaying a Unicode string. 
     {: tip}
 
-    If we tidy the appearance a little, we can see that the minimal document details returned are similar to this example:
+    If we tidy the appearance a little, we can see that the minimal document details returned are similar to this example.
     
     ```json
     [
@@ -253,7 +253,7 @@ A full retrieval also includes the data *within* a document.
     ```
     {: codeblock}
 
-    NoSQL databases like {{site.data.keyword.cloudant_short_notm}} don't always adhere to the first in first out method, which means that a document that is stored in the database isn't always the first document returned in a list of results.
+    NoSQL databases like {{site.data.keyword.cloudant_short_notm}} don't always adhere to the first in first out method, which means that a document that is stored in the database isn't always the first document that is returned in a list of results.
     {: note}
 
 * To run a full retrieval,
@@ -271,7 +271,7 @@ A full retrieval also includes the data *within* a document.
   ```
   {: screen}
   
-  If we tidy the appearance a little, we can see that the full document details we got back are similar to this example:
+  If we tidy the appearance a little, we can see that the full document details we got back are similar to this example.
   
   ```json
   [
