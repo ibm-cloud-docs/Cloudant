@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-27"
+lastupdated: "2020-02-14"
 
 keywords: documentation, how to contribute, overview
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-06-01 -->
+<!-- 2020-02-14 -->
 
 # Overview
 {: #overview}
@@ -60,29 +60,33 @@ and querying data, see the [API reference](/docs/Cloudant?topic=cloudant-api-ref
 ## Documentation contents
 {: #documentation-contents}
 
-*	[Getting started tutorial](/docs/Cloudant?topic=cloudant-getting-started-with-cloudant): Learn how to create an {{site.data.keyword.cloudant_short_notm}} database and populate that database with a simple collection of data by using Python.
-*	[{{site.data.keyword.cloudant_short_notm}} blog](https://blog.cloudant.com/){: new_window}{: external}: Read blogs on a variety of topics, including {{site.data.keyword.cloudant_short_notm}} fundamentals, removing conflicts, generating sample data, partitioned databases, and more. 
-*	[{{site.data.keyword.cloud_notm}} Public](/docs/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public): Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
-*	[Pricing](/docs/Cloudant?topic=cloudant-pricing#pricing): An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 
-*	[Security and Compliance](/docs/Cloudant?topic=cloudant-security#security): A collection of articles that describe the {{site.data.keyword.cloudant_short_notm}} position on security, compliance, data privacy and governance, audit logging, and General Data Protection Regulation (GDPR).
-*	[Release information](/docs/Cloudant?topic=cloudant-release-notes#release-notes): Release-related information that includes release notes, what changed between major releases, and deprecations. 
-*   [Apache CouchDB](/docs/Cloudant?topic=cloudant-apache-couchdb-overview): Recommendations about pairing Apache CouchDB and {{site.data.keyword.cloudant_short_notm}}, as well as installation and support information. 
-*	[Other offerings](/docs/Cloudant?topic=cloudant-ibm-cloud-dedicated#ibm-cloud-dedicated): In addition to {{site.data.keyword.cloud_notm}} Public, {{site.data.keyword.cloudant_short_notm}} is available in various offerings, all described in here.
-*	[Operator for Apache CouchDB](/docs/Cloudant?topic=cloudant-apache-couchdb-operator): A detailed description about the Operator for Apache CouchDB, including configuring, deploying, accessing, and troubleshooting. 
-*   [Tutorials](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud): A detailed collection of articles,
+*	[**Getting started tutorial**](/docs/Cloudant?topic=cloudant-getting-started-with-cloudant) 
+	<br>Learn how to create an {{site.data.keyword.cloudant_short_notm}} database and populate that database with a simple collection of data by using Python.
+*	[**{{site.data.keyword.cloudant_short_notm}} blog**](https://blog.cloudant.com/){: new_window}{: external}
+	<br>Read blogs on a variety of topics, including {{site.data.keyword.cloudant_short_notm}} fundamentals, removing conflicts, generating sample data, partitioned databases, and more. 
+*	[**{{site.data.keyword.cloud_notm}} Public**](/docs/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public)
+	<br>Description of the {{site.data.keyword.cloud_notm}} Public offering, including features, option, and pricing. 
+*	[**Pricing**](/docs/Cloudant?topic=cloudant-pricing#pricing)
+	<br>An article that describes the options and flexibility available with the {{site.data.keyword.cloudant_short_notm}} pricing model. 
+*	[**Security and Compliance**](/docs/Cloudant?topic=cloudant-security#security)	  <br>A collection of articles that describe the {{site.data.keyword.cloudant_short_notm}} position on security, compliance, data privacy and governance, audit logging, and General Data Protection Regulation (GDPR).
+*	[**Release information**](/docs/Cloudant?topic=cloudant-release-notes#release-notes) <br>Release-related information that includes release notes, what changed between major releases, and deprecations. 
+*   [**Apache CouchDB**](/docs/Cloudant?topic=cloudant-apache-couchdb-overview): <br>Recommendations about pairing Apache CouchDB and {{site.data.keyword.cloudant_short_notm}}, as well as installation and support information. 
+*	[**Other offerings**](/docs/Cloudant?topic=cloudant-ibm-cloud-dedicated#ibm-cloud-dedicated) <br>In addition to {{site.data.keyword.cloud_notm}} Public, {{site.data.keyword.cloudant_short_notm}} is available in various offerings, all described in here.
+*	[**Operator for Apache CouchDB**](/docs/Cloudant?topic=cloudant-apache-couchdb-operator) <br>A detailed description about the Operator for Apache CouchDB, including configuring, deploying, accessing, and troubleshooting. 
+*   [**Tutorials**](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#creating-an-ibm-cloudant-instance-on-ibm-cloud) <br>A detailed collection of articles,
   showing you how to perform key tasks by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
-*	[Guides](/docs/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-): The guides go into detail about
+*	[**Guides**](/docs/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-) <br>The guides go into detail about
 	use cases and more complex activities and problems.
 	The guides also explore some of the important concepts behind the mechanics of an {{site.data.keyword.cloudant_short_notm}} database.
-*	[{{site.data.keyword.cloudant_short_notm}} Basics](/docs/Cloudant?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics): If you have never 		used {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in general,
+*	[**{{site.data.keyword.cloudant_short_notm}} Basics**](/docs/Cloudant?topic=cloudant-ibm-cloudant-basics#ibm-cloudant-basics) <br>If you have never 		used {{site.data.keyword.cloudant_short_notm}} or NoSQL databases in general,
 	scan this quick introduction to the basics before you read further.
 	It describes the most important things you need to know about {{site.data.keyword.cloudant_short_notm}}.
 	The rest of the documentation assumes that you know these basics.
-*	[{{site.data.keyword.cloudant_short_notm}} API Reference](/docs/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview): The API reference is a
+*	[**{{site.data.keyword.cloudant_short_notm}} API Reference**](/docs/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) <br>The API reference is a
 	comprehensive and living catalog of the {{site.data.keyword.cloudant_short_notm}} capabilities.
 	You can find detailed information about the things you can do with {{site.data.keyword.cloudant_short_notm}}.
-*	Sample apps: The sample applications include: Offline First shopping list, Open Fridge, iOS game with Core ML and Watson Visual Recognition, and Mobile health app with Watson Studio. 
-*	[Client Libraries](/docs/Cloudant?topic=cloudant-client-libraries#client-libraries): Client libraries are toolkits that
+*	**Sample apps** <br>The sample applications include: Offline First shopping list, Open Fridge, iOS game with Core ML and Watson Visual Recognition, and Mobile health app with Watson Studio. 
+*	[**Client Libraries**](/docs/Cloudant?topic=cloudant-client-libraries#client-libraries) <br>Client libraries are toolkits that
 	help you develop your own applications,
 	ready to work with {{site.data.keyword.cloudant_short_notm}} databases.
 
