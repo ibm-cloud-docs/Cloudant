@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-02-20"
 
 keywords: db2 warehouse on cloud, disabled javascript constructors, virtual hosts, 500 responses, error handling, couchdb versions, error message changed, x-frame-options setting 
 
@@ -50,13 +50,15 @@ Calls to `GET /{db}/_design/{ddoc}/_info` were replaced by the following fields:
 | `data_size` | `sizes.external` |
 | `disk_size` | `sizes.file` | 
 
-## Replaced `?queries` parameter (March 6, 2020 or later)
-{: #replaced-?queries-parameter}
+## Replaced `queries` parameter (March 6, 2020 or later)
+{: #replaced-queries-parameter}
 
 The following changes will be coming March 6, 2020 or later and might cause compatibility issues.
 {: important}
 
-The `?queries` parameter was replaced with `POST /{db}/_design/{ddoc}/_view/{view}/queries`. You can also make multiple queries with the following endpoints: 
+The `queries` parameter for performing multiple view queries in a single request will no longer be accepted as a URL parameter for `GET /{db}/_design/{ddoc}/_view/{view}` or a request body parameter for `POST /{db}/_design/{ddoc}/_view/{view}`. It is replaced with the endpoint `POST /{db}/_design/{ddoc}/_view/{view}/queries` where it is supplied as a `queries` request body parameter.
+
+You can also make multiple queries with the following new endpoints: 
 
 - `POST /{db}/_all_docs/queries`
 - `POST /{db}/_design_docs/queries`
