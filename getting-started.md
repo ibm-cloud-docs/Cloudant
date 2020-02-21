@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-11"
+lastupdated: "2020-03-02"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -37,7 +37,7 @@ For more information, see our hands-on tutorials that help you learn more about 
 - [Swift and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/swift?topic=swift-getting-started){: new_window}{: external}
 - [Python and {{site.data.keyword.cloudant_short_notm}}](https://cloud.ibm.com/docs/cloud-foundry-public?topic=cloud-foundry-getting-started-python#add_database-python){: new_window}{: external}
 
-For more language-specific tutorials, see [Get started by deploying your first app](https://cloud.ibm.com/docs/home/build){: new_window}{: external}. 
+For more language-specific tutorials, see [Get started by deploying your first app](https://cloud.ibm.com/docs/home/build){: new_window}{: external}.
 
 ## Before you begin
 {: #prereqs}
@@ -60,10 +60,10 @@ Verify that you have what you need to start the tutorial from the following list
 	    ```
 	    {: screen}
 
-- The Cloudant Python library enables your Python applications to work with
+     - The Cloudant Python library enables your Python applications to work with
 	{{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}.
 	
-	1.	To check that the client library is already installed, run the following command at a prompt:	
+	3.	To check that the client library is already installed, run the following command at a prompt:	
       ```sh
 	    pip3 freeze
 	    ```
@@ -76,7 +76,7 @@ Verify that you have what you need to start the tutorial from the following list
 	    ```
 	    {: screen}
 	
-	2.  If the `cloudant` module isn't installed, install it by using a command similar to the following one.
+	4.  If the `cloudant` module isn't installed, install it by using a command similar to the following one.
 	    ```
 	    pip3 install cloudant
 	    ```
@@ -106,16 +106,16 @@ Verify that you have what you need to start the tutorial from the following list
 	{: codeblock}
 
 2.  Create an {{site.data.keyword.cloudant_short_notm}} service credential:
-  <br>In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your {{site.data.keyword.cloudant_short_notm}} service instance.
-  <br>In the menu, click `Service credentials`.
-  <br>a. Click the `New credential` button.
+  <br>a. In the {{site.data.keyword.cloud_notm}} dashboard, go to the **Menu** icon > **Resource List**, and open your {{site.data.keyword.cloudant_short_notm}} service instance.
+  <br>b. In the menu, click `Service credentials`.
+  <br>c. Click the `New credential` button.
   <br>![Create new service credentials.](tutorials/images/img0050.png)
-  <br>b. Enter a name for the new credential in the Add new credential window, as shown in the following screen capture.
-  <br>c. (Optional) Add inline configuration parameters.
-  <br>d. Click the `Add` button. 
+  <br>d. Enter a name for the new credential in the Add new credential window, as shown in the following screen capture.
+  <br>e. (Optional) Add inline configuration parameters.
+  <br>f. Click the `Add` button. 
   <br>![Add a service credential.](tutorials/images/img0051.png)
   <br>Your credentials are added to the Service credentials table.
-  <br>e. Click `View credentials` under Actions. 
+  <br>g. Click `View credentials` under Actions. 
   <br>![View all service credentials.](tutorials/images/img0052.png)
   <br>The details for the service credentials appear:
    <br>![The {{site.data.keyword.cloudant_short_notm}} service credentials](tutorials/images/img0009.png)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-03"
 
 keywords: create dedicated hardware plan instance, provision standard plan instance, cli, create credentials, list service credentials
 
@@ -51,7 +51,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
     ![Pricing plans](images/pricing_plan.png)
     
 4.  Complete the following parameters: <br/>
-    -   Select the region where you want to deploy from the drop-down menu. For Dedicated hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.<br/>
+    -   Select the region where you want to deploy from the drop-down menu (at the beginning of the page). For Dedicated hardware provisioned instances, you can select from the major {{site.data.keyword.cloud_notm}} regions in the {{site.data.keyword.cloud_notm}} dashboard. However, the actual physical location of the Dedicated Hardware instance is dictated by the location parameter in a later step.<br/>
     -   Enter a service name.<br/>
     -   Select a resource group.</br>
     -   (Optional) Add a tag.</br>
@@ -74,8 +74,6 @@ plan instance by creating one or more Standard plan instances on it, and managin
 
     During provisioning, a spinning wheel appears next to the instance in your {{site.data.keyword.cloud_notm}} dashboard. A request is sent to provision a Dedicated Hardware plan instance on bare metal servers. Provisioning time is asynchronous and can take up to 5 days. 
     {: note}   
-
-    ![Provision dedicated hardware alternate version](images/create_button_provision2.png)
     
 ## Provisioning a Standard plan instance on a Dedicated Hardware environment
 {: #provisioning-a-standard-plan-instance-on-a-dedicated-hardware-environment}
@@ -98,7 +96,7 @@ plan instance by creating one or more Standard plan instances on it, and managin
     {: tip}
     
 4.  Complete the following parameters: <br/>
-    -   Specify the region where you want to deploy. <br/>
+    -   Specify the region where you want to deploy (at the beginning of the page). <br/>
     -   Enter a service name.<br/>
     -   Select a resource group. </br>
     -   Add a tag. 
