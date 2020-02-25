@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-02-24"
 
 keywords: legacy access controls, api keys, enable iam, provisioning, how to choose between iam and legacy credentials, making requests, required client libraries, actions, endpoints, map actions to iam roles
 
@@ -283,7 +283,7 @@ Ensure that you select the specified instance, either the Source or Target.
 <li>From the Resource list, select <strong>Services</strong> and your Source instance.
 <ol type=a><li>Click <strong>Service credentials</strong> and click <strong>New credential</strong>.</li>
 	<li>Name the new credential <code>replicator-source</code>, and select the Manager role.</li>
-	<li>Click <strong>Add</strong>, and make note of its <code>apikey</code>, which is under View Credentials in the Actions column.</li>
+	<li>Click <strong>Add</strong>, and make note of its <code>apikey</code>, which is under View Credentials in the Actions column.</li></ol>
 </li>
 <li>Repeat steps 2 through 2.c. for the Target instance.
 <ol type=a><li>Create a credential called <code>replicator-target</code> with the Manager role.</li>
