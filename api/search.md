@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-02-26"
 
 keywords: index functions, guard clauses, language-specific analyzers, per-field analyzers, stop words, queries, query syntax, faceting, geographical searches, search terms, search index metadata
 
@@ -488,8 +488,8 @@ You must enable [faceting](#faceting) before you can use the following parameter
 | `highlight_fields` | Specifies which fields to highlight. If specified, the result object includes a `highlights` field with an entry for each specified field. | Yes | Array of strings |  | Yes|
 | `highlight_pre_tag` | A string that is inserted before the highlighted word in the highlights output. | Yes, defaults to `<em>` | String |  | Yes |
 | `highlight_post_tag` | A string that is inserted after the highlighted word in the highlights output. | Yes, defaults to `</em>` | String |  | Yes |
-| `highlight_number` | Number of fragments that are returned in highlights. If the search term occurs less often than the number of fragments that are specified, longer fragments are returned. | Yes, defaults to 1 | Numeric |  | Yes |
-| `highlight_size` | Number of characters in each fragment for highlights. | Yes, defaults to 100 characters | Numeric |  | Yes | 
+| `highlight_number` | Number of fragments that are returned in highlights. If the search term exceeds the fragment size, then the entire search term is returned. | Yes, defaults to 1 | Numeric |  | Yes |
+| `highlight_size` | Slice up field content into number of characters, so-called fragments, and highlights matches only inside the specified fragments. | Yes, defaults to 100 characters | Numeric |  | Yes |
 | `include_docs` | Include the full content of the documents in the response. | Yes | Boolean |  | Yes |
 | `include_fields` | A JSON array of field names to include in search results. Any fields that are included must be indexed with the `store:true` option. | Yes, the default is all fields | Array of strings | | Yes |
 | `limit` | Limit the number of the returned documents to the specified number. For a grouped search, this parameter limits the number of documents per group. | Yes | Numeric | The limit value can be any positive integer number up to and including 200. | Yes | 
