@@ -2,7 +2,7 @@
 {:topicgroup: .topicgroup}
 
 {: .toc subcollection="cloudant" category="databases" audience="service" href="/docs/Cloudant?topic=cloudant-getting-started-with-cloudant" path="Cloudant"}
-IBM Cloudant
+Cloudant
 
 	{: .navgroup id="learn"}
 	getting-started.md
@@ -127,13 +127,13 @@ IBM Cloudant
 		guides/design_document_management.md
 		guides/mvcc.md
 		guides/transactions.md
-		guides/resource-groups.md
 		guides/sharding.md
 		guides/iam.md
 		guides/json.md
 		guides/managing_tasks.md
         guides/model-data.md
 		guides/migration.md
+		guides/multiregion.md
 		guides/pagination-bookmarks.md
 		guides/replication_guide.md
 		guides/search-analyzers.md
