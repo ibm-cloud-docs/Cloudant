@@ -1,8 +1,8 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="cloudant" category="databases" audience="service" arm="366" href="/docs/services/Cloudant/getting-started.html" path="services/Cloudant"}
-IBM Cloudant
+{: .toc subcollection="cloudant" category="databases" audience="service" href="/docs/Cloudant?topic=cloudant-getting-started-with-cloudant" path="Cloudant"}
+Cloudant
 
 	{: .navgroup id="learn"}
 	getting-started.md
@@ -20,12 +20,6 @@ IBM Cloudant
     	offerings/dataprivacygovernance.md
 		offerings/audit.md
 		offerings/gdpr.md
-
-	{: .topicgroup}
-	Release information
-		release_info/release_notes.md
-		release_info/differences_major_releases.md
-		release_info/deprecations.md
 
 	{: .topicgroup}
 	Apache CouchDB
@@ -116,12 +110,6 @@ IBM Cloudant
 		tutorials/create_database.md
 		tutorials/create_query.md
 		tutorials/create_backup.md
-		tutorials/create_bmxapp.md
-		tutorials/create_bmxapp_prereq.md
-		tutorials/create_bmxapp_appenv.md
-		tutorials/create_bmxapp_createapp.md
-		tutorials/create_bmxapp_upload.md
-		tutorials/create_bmxapp_maintain.md
 
 	{: .topicgroup}
 	Recovery and backup
@@ -138,18 +126,34 @@ IBM Cloudant
 		guides/database_partitioning.md
 		guides/design_document_management.md
 		guides/mvcc.md
-		guides/model_data.md
 		guides/transactions.md
-		guides/resource-groups.md
 		guides/sharding.md
 		guides/iam.md
 		guides/json.md
 		guides/managing_tasks.md
+        guides/model-data.md
 		guides/migration.md
+		guides/multiregion.md
 		guides/pagination-bookmarks.md
 		guides/replication_guide.md
 		guides/search-analyzers.md
 		guides/backup-guide-using-replication.md
 	{: .navgroup-end}
 
-
+{: .navgroup id="help"}	
+	{: .topicgroup}
+	FAQs
+    	faqs/authenticating-faq.md
+		faqs/availability-zones-faq.md
+		faqs/document-version-conflicts-faq.md
+		faqs/model-data-faq.md
+		faqs/pricing-faq.md
+		faqs/provisioned-throughput-capacity-faq.md
+		faqs/resource-groups-faq.md
+	
+	{: .topicgroup}
+	Release information
+		release_info/release_notes.md
+		release_info/differences_major_releases.md
+		release_info/deprecations.md
+	{: .navgroup-end}

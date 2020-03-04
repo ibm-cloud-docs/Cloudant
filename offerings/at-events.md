@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-22"
+  years: 2019, 2020
+lastupdated: "2020-02-13"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-06 -->
+<!-- Acrolinx: 2020-02-13 -->
 
 # Activity Tracker events
 {: #at_events}
@@ -29,15 +29,15 @@ subcollection: cloudant
 As a security officer, auditor, or manager, you can use the Activity Tracker service to track how users and applications interact with the {{site.data.keyword.cloudantfull}} service in {{site.data.keyword.cloud}}.
 {: shortdesc}
 
-{{site.data.keyword.at_full}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [Getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started){: new_window}{: external}.
+{{site.data.keyword.at_full}} records user-initiated activities that change the state of a service in {{site.data.keyword.cloud_notm}}. You can use this service to investigate abnormal activity and critical actions and to comply with regulatory audit requirements. You can also be alerted about actions as they happen. The events that are collected comply with the Cloud Auditing Data Federation (CADF) standard. For more information, see the [Getting started tutorial for {{site.data.keyword.at_full_notm}}](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-getting-started#getting-started){: new_window}{: external}.
 
 ## Types of events
 {: #at_event_types}
 
-There are two types of events that {{site.data.keyword.cloudant_short_notm}} forwards to {{site.data.keyword.at_full_notm}}:
+{{site.data.keyword.cloudant_short_notm}} forwards two types of events to {{site.data.keyword.at_full_notm}}:
 
 - **Management Events** are administrative events that impact the state of an  {{site.data.keyword.cloudant_short_notm}} instance, such as creating or deleting a database, updating security settings, creating a replication job, or creating an index. 
-- **Data Events** are all the other events involved with interacting with {{site.data.keyword.cloudant_short_notm}}, such as reading or writing JSON documents, reading a list of databases, viewing monitoring endpoints, or authenticating against the service.  
+- **Data Events** are all the other events that are involved with interacting with {{site.data.keyword.cloudant_short_notm}}, such as reading or writing JSON documents, reading a list of databases, viewing monitoring endpoints, or authenticating against the service.  
 
 A full list of the events, along with their description and type are in the following tables. 
 
@@ -55,13 +55,13 @@ Alternatively, you can use an {{site.data.keyword.cloudant_short_notm}} API to c
 ### API to view and change event types
 {: #at_event_types_api}
 
-The API to view and change the event types requires {{site.data.keyword.IBM_notm}} IAM authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication is not supported for this API endpoint. See the [{{site.data.keyword.cloud_notm}} Identity and Access Management (IAM) guide](/docs/services/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
+The API to view and change the event types requires {{site.data.keyword.IBM_notm}} Identity and Access Management (IAM) authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication is not supported for this API endpoint. See the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
 {: note}
 
 #### `GET /_api/v2/user/activity_tracker/events`
 {: #at_event_types_api_get}
 
-The `/_api/v2/user/activity_tracker/events` endpoint returns an `events` field in the response containing an array of event types that are being sent to {{site.data.keyword.at_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance. 
+The `/_api/v2/user/activity_tracker/events` endpoint returns an `events` field in the response that includes an array of event types that are being sent to {{site.data.keyword.at_full_notm}} for the {{site.data.keyword.cloudant_short_notm}} instance. 
 
 See the following example request by using HTTP:
 
@@ -70,7 +70,7 @@ GET /_api/v2/user/activity_tracker/events
 ```
 {: codeblock}
 
-See the following example response showing both management and data event types are being sent:
+See the following example response that shows both management and data event types are being sent:
 
 ```json
 {
@@ -82,7 +82,7 @@ See the following example response showing both management and data event types 
 #### `POST /_api/v2/user/activity_tracker/events`
 {: #at_event_types_api_post}
 
-Sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint by passing a JSON object with an `events` field that contains an array of event types updates the event types being sent. There are two possible options for the JSON object that is passed to the endpoint:
+Sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint by passing a JSON object with an `events` field. This field includes an array of event types that update the event types being sent. See the two possible options for the JSON object that is passed to the endpoint:
 
 ```json
 {
@@ -91,7 +91,7 @@ Sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint by pass
 ```
 {: codeblock}
 
-or
+Here is the second option:
 
 ```json
 {
@@ -107,7 +107,7 @@ POST /_api/v2/user/activity_tracker/events
 ```
 {: codeblock}
 
-The following example response shows the update was accepted:
+The following example response shows that the update was accepted:
 
 ```json
 {
@@ -116,7 +116,7 @@ The following example response shows the update was accepted:
 ```
 {: codeblock}
 
-If the `events` field contains invalid event types, then the response is similar to the following example: 
+If the `events` field includes invalid event types, then the response is similar to the following example: 
 
 ```json
 {
@@ -151,7 +151,7 @@ Action | Description
 `cloudantnosqldb.database-security.write` | A create, update, or delete of a security document.
 `cloudantnosqldb.replication.read` | Read a replication document.
 `cloudantnosqldb.replication.write` | A create, update, or delete of a replication document.
-`cloudantnosqldb.design-document.write` | A create, update, or delete of a `_design` document .
+`cloudantnosqldb.design-document.write` | A create, update, or delete of a `_design` document.
 {: caption="Table 1. Management actions that generate events" caption-side="top"}
 
 ### Data events
@@ -207,4 +207,4 @@ Events are available in the Dallas, Frankfurt, Tokyo, Sydney, and London locatio
 
 Events that are generated by an instance of the {{site.data.keyword.cloudant_short_notm}} service are automatically forwarded to the {{site.data.keyword.at_full_notm}} service instance that is available in the same location. 
 
-{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web user interface of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the {{site.data.keyword.cloud_notm}} UI](/docs/services/Activity-Tracker-with-LogDNA?topic=logdnaat-launch#launch_step2){: new_window}{: external}.
+{{site.data.keyword.at_full_notm}} can have only one instance per location. To view events, you must access the web user interface of the {{site.data.keyword.at_full_notm}} service in the same location where your service instance is available. For more information, see [Launching the web UI through the {{site.data.keyword.cloud_notm}} UI](/docs/Activity-Tracker-with-LogDNA?topic=logdnaat-launch#launch_step2){: new_window}{: external}.

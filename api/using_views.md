@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-26"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -208,7 +208,7 @@ a 'fingerprint' of the view definition is created whenever the design document i
 If the fingerprint changes,
 then the view indexes are rebuilt.
 
-View index rebuilds occur when you change any one view from all the views that are defined in the design document. For example, if you have a design document with three views, and you update the design document, all three view indexes within the design document are rebuilt. If you want to change a design document for a larger database, have a look at the [Design document management guide](/docs/services/Cloudant?topic=cloudant-design-document-management#managing-changes-to-a-design-document).
+View index rebuilds occur when you change any one view from all the views that are defined in the design document. For example, if you have a design document with three views, and you update the design document, all three view indexes within the design document are rebuilt. If you want to change a design document for a larger database, have a look at the [Design document management guide](/docs/Cloudant?topic=cloudant-design-document-management#managing-changes-to-a-design-document).
 {: tip}
 
 If the database was updated recently,

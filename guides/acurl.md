@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-26"
+  years: 2015, 2020
+lastupdated: "2020-02-13"
 
 keywords: encode username, encode password, create alias, activate alias, test acurl
 
@@ -21,15 +21,15 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-06 -->
+<!-- Acrolinx: 2020-02-13 -->
 
-# Authorized curl: `acurl`
+# Authorized curl - `acurl`
 {: #authorized-curl-acurl-}
 
 *(The following guide is based on a blog article by Samantha Scharr: [
-"Authorized curl, a.k.a. acurl," originally published 27 November 2013.)*
+"Authorized curl, also known as acurl," originally published 27 November 2013.)*
 
-`acurl` is a handy alias you can use to run `curl` {{site.data.keyword.cloudantfull}} commands to URLs
+`acurl` is a handy alias that you can use to run `curl` {{site.data.keyword.cloudantfull}} commands to URLs
 without having to enter your username and password for every request.
 That means a simple `GET` request to a database no longer needs to be written as
 `https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/foo`. Instead, you can use, `https://$ACCOUNT.cloudant.com/foo`.
@@ -40,13 +40,13 @@ but the `acurl` alias is also more secure.
 It prevents someone from reading your password over your shoulder as you type.
 It also makes sure that your password isn’t sent in plain text over the network by enforcing HTTPS.
 
-All that it takes is three steps:
+It takes the following three steps:
 
 1.	[Encode username and password](#encode-user-name-and-password).
 2.	[Create an alias](#create-an-alias).
 3.	[Activate the alias](#activate-the-alias).
 
-If you are using a Windows computer, you can specify your username and password from the command line.
+If you're using a Windows&trade; computer, you can specify your username and password from the command line.
 {: tip}
 
 ## Encode username and password
@@ -55,7 +55,7 @@ If you are using a Windows computer, you can specify your username and password 
 First, we base64-encode your {{site.data.keyword.cloudant_short_notm}} username and password.
 This encoding gives us a base64 character sequence as output.
 
-`$ACCOUNT` is the `username` field in your service credentials. For more information, see [Locating your service credentials](/docs/services/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
+`$ACCOUNT` is the `username` field in your service credentials. For more information, see [Locating your service credentials](/docs/Cloudant?topic=cloudant-creating-an-ibm-cloudant-instance-on-ibm-cloud#locating-your-service-credentials).
 {: note}
 
 The command to base64-encode some data is similar to the following example:
@@ -82,7 +82,7 @@ bXl1c2VybmFtZTpteXBhc3N3b3Jk
 ```
 {: codeblock}
 
-Remember your password is still stored in plain text on your computer; base64-encoding is *not* encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
+Remember that your password is still stored in plain text on your computer; base64-encoding is *not* encryption. If you use base64-encode on the same character sequence, you always get the same corresponding character output sequence.
 {: note}
 
 ## Create an alias

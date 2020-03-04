@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-20"
+  years: 2019, 2020
+lastupdated: "2020-01-20"
 
 ---
 
@@ -17,7 +17,9 @@ lastupdated: "2019-11-20"
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-# Understanding your responsibilities when using {{site.data.keyword.cloudant_short_notm}}
+<!-- Acrolinx: 2019-12-20 -->
+
+# Understanding your responsibilities when you use {{site.data.keyword.cloudant_short_notm}}
 {: #cloudant-responsibilities}
 
 Learn about the management responsibilities, and terms and conditions, that you own when you use {{site.data.keyword.cloudant_short_notm}}. For a high-level view of the service types in {{site.data.keyword.cloud}}, and the breakdown of responsibilities between the customer and {{site.data.keyword.IBM_notm}} for each type, see [Shared responsibilities for {{site.data.keyword.cloud_notm}} offerings](/docs/overview?topic=overview-shared-responsibilities).
@@ -32,9 +34,9 @@ Review the following sections to understand the specific responsibilities betwee
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|HA/DR (multi-zone region) | {{site.data.keyword.cloudant_short_notm}} stores all documents in triplicate on separate servers spread across three separate availability zones by default.  | |
+|HA/DR (multi-zone region) | {{site.data.keyword.cloudant_short_notm}} stores all documents in triplicate on separate servers that are spread across three separate availability zones by default.  | |
 |HA/DR (single-zone region)| {{site.data.keyword.cloudant_short_notm}} stores all documents in triplicate on three separate physical servers within the availability zone by default.  | |
-|Backup and restore|   | Customer is responsible for backup and restore of data to roll back to a previous state in the database. See [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery) documentation for recommended tooling. |
+|Back up and restore|   | Customer is responsible for backup and restore of data to roll back to a previous state in the database. See [{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery) documentation for recommended tooling. |
 {: caption="Table 1. Responsibilities for incident and operations" caption-side="top"}
 
 
@@ -56,7 +58,7 @@ Review the following sections to understand the specific responsibilities betwee
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|At-rest encryption| {{site.data.keyword.IBM_notm}} encrypts all disks by default using {{site.data.keyword.cloudant_short_notm}} managed encryption keys.   | If the customer would like BYOK, then the customer is required to use Key Protect and inform {{site.data.keyword.cloudant_short_notm}} to use a customer-managed encryption key.|
+|At-rest encryption| By default, {{site.data.keyword.IBM_notm}} encrypts all disks by using {{site.data.keyword.cloudant_short_notm}}-managed encryption keys.   | If the customer would like bring-your-own-key (BYOK) encryption, then the customer is required to use Key Protect to store the customer-managed encryption key, select an appropriate key management service instance, and select a disk encryption key option during provisioning of an {{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan instance. |
 {: caption="Table 3. Responsibilities for security and regulation compliance" caption-side="top"}
 
 ## Disaster recovery
@@ -66,6 +68,6 @@ Review the following sections to understand the specific responsibilities betwee
 
 | Task | {{site.data.keyword.IBM_notm}} Responsibilities | Your Responsibilities |
 |----------|-----------------------|--------|
-|HA/DR (cross-region)|  | Customer is responsible for creating additional {{site.data.keyword.cloudant_short_notm}} instances in separate regions and configuring replications to achieve desired cross-region HA/DR architecture. See [Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery](/docs/services/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery) for more details.  |
+|HA/DR (cross-region)|  | Customer is responsible for creating more {{site.data.keyword.cloudant_short_notm}} instances in separate regions and configuring replications to achieve the desired cross-region HA/DR architecture. See [Configuring {{site.data.keyword.cloudant_short_notm}} for cross-region disaster recovery](/docs/Cloudant?topic=cloudant-configuring-ibm-cloudant-for-cross-region-disaster-recovery) for more details.  |
 {: caption="Table 4. Responsibilities for disaster recovery" caption-side="top"}
 

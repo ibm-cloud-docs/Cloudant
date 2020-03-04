@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-15"
+  years: 2015, 2020
+lastupdated: "2020-01-23"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -267,7 +267,7 @@ Field | Description
 
 If the design document that is intended to specify a geospatial index is invalid,
 an attempt to retrieve information about the index by using the `_geo_info` endpoint
-results in an [HTTP `404`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) response.
+results in an [HTTP `404`](/docs/Cloudant?topic=cloudant-http#http-status-codes) response.
 {: tip}
 
 ## Querying an {{site.data.keyword.cloudant_short_notm}} Geo index

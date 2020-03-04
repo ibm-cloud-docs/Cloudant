@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-26"
+  years: 2019, 2020
+lastupdated: "2020-02-13"
 
 keywords: _all_docs endpoint, skip, limit, endkey, bookmarks, query, search, paging, mapreduce views
 
@@ -21,22 +21,22 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2020-02-13 -->
 
 # Pagination and bookmarks
 {: #pagination-and-bookmarks}
 
-You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/services/Cloudant?topic=cloudant-bookmarks-faq), but it gets progressively slower the larger the value of `skip`.
+You can use the `skip`/`limit` pattern to [iterate through a result set](/docs/Cloudant?topic=cloudant-using-views), but it gets progressively slower the larger the value of `skip`.
 {: shortdesc} 
 
-[{{site.data.keyword.cloudant_short_notm}} Query](/docs/services/Cloudant?topic=cloudant-query) and [{{site.data.keyword.cloudant_short_notm}} Search](/docs/services/Cloudant?topic=cloudant-search) both use _bookmarks_ as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It is easier to manage as there is no key manipulation to formulate the request for the next result set. You simply pass the _bookmark_ received in the first response to the second request.
+[{{site.data.keyword.cloudant_short_notm}} Query](/docs/Cloudant?topic=cloudant-query) and [{{site.data.keyword.cloudant_short_notm}} Search](/docs/Cloudant?topic=cloudant-search) both use _bookmarks_ as the key to unlock the next page of results from a result set. This practice is described in full in a later section that is called [Bookmarks](#bookmarks). It's easier to manage since no key manipulation is required to formulate the request for the next result set. You pass the _bookmark_ received in the first response to the second request.
 
-Let's see a better way to page through a large document set. 
+Now, we can see a better way to page through a large document set. 
 
 ## Paging with `_all_docs` and views
 {: #paging-with_all_docs_views}
 
-If you use the `GET //_all_docs` endpoint to fetch documents in bulk, then you might have come across the `limit` and `skip` parameters. By using these parameters, you can define how many documents you would like, and the offset into the range you want to start from. Using this `skip`/`limit` pattern to iterate through a result set works, but it gets progressively slower the larger the value of `skip`. 
+If you use the `GET //_all_docs` endpoint to fetch documents in bulk, then you might have seen the `limit` and `skip` parameters. By using these parameters, you can define how many documents you would like, and the offset into the range you want to start from. Using this `skip`/`limit` pattern to iterate through a result set works, but it gets progressively slower the larger the value of `skip`. 
 
 ## What is the `_all_docs` endpoint?
 {: #what-is-the_all_docs_endpoint}
@@ -67,7 +67,7 @@ curl "$URL/mydb/_all_docs"
 {: codeblock}
 
 
-If you supply `include_docs=true`, then another `doc` attribute is added to each "row" in the result set that contains the document body.
+If you supply `include_docs=true`, then another `doc` attribute is added to each "row" in the result set that includes the document body.
 
 ## The `limit`, `startkey`, and `endkey` parameters
 {: #the-limit-startkey-endkey-parameters}
@@ -102,7 +102,7 @@ The `startkey`/`endkey` values are in double quotation marks because they're exp
 ## Pagination options
 {: #pagination-options}
 
-In order to iterate through a range of documents in an orderly and performant manner, we must devise an algorithm to page through the range. Let's say we need to page through `_all_docs` in blocks of 10. 
+To iterate through a range of documents in an orderly and performant manner, we must devise an algorithm to page through the range. For example, we need to page through `_all_docs` in blocks of 10. 
 
 We can use the options that are described in the following sections.
 
@@ -127,7 +127,7 @@ GET /mydb/_all_docs?limit=11
     { "id": "donkey" ....},
     { "id": "elephant" ....},
     { "id": "frog" ....},
-    { "id": "gazelle" ...}   // <-- this is the 11th result we use as the startkey of the next request
+    { "id": "gazelle" ...}   // <-- This is the 11th result we use as the startkey of the next request
    ]
 }    
 ```
@@ -152,7 +152,7 @@ This option works, but we end up fetching n+1 documents when only n are required
 ### Option 2 - The \u0000 trick
 {: #option-2-the-u0000-trick}
 
-If we are determined to fetch only `n` documents each time, then we need to calculate a value of `startkey`, which means "the next ID after the last _id in the result set". For example, if the last document in our first page of results is "frog", what must the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise we'd get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
+If we're determined to fetch only `n` documents each time, then we need to calculate a value of `startkey`, which means "the next ID after the last _id in the result set". For example, if the last document in our first page of results is "frog", what must the `startkey` of the next call to `_all_docs` be? It can't be "frog", otherwise we'd get the same document ID again. It turns out that you can append `\u0000` to the end of a key string to indicate the "next key" (`\u0000` is a Unicode null character, which becomes `%00` when encoded into a URL). 
 
 ```http
 # first request
@@ -192,7 +192,7 @@ GET /mydb/_all_docs?limit=10&startkey="frog%00"
 ## Pagination of views
 {: #pagination-of-views}
 
-MapReduce views, secondary indexes, which are defined by key/value pairs produced from user-supplied JavaScript functions, can be queried in a similar way to the `_all_docs` endpoint but with the `GET /<db>/_design/<ddoc>/_view/<view>` endpoint instead. You can define your query in the following ways:
+MapReduce views, secondary indexes, which are defined by key/value pairs that are produced from user-supplied JavaScript functions, can be queried in a similar way to the `_all_docs` endpoint, but with the `GET /<db>/_design/<ddoc>/_view/<view>` endpoint instead. You can define your query in the following ways:
 
 - Spool all the data from a view with no parameters.
 - Include document bodies by supplying `include_docs=true`.
@@ -211,31 +211,31 @@ GET /cities/_design/mydesigndoc/_view/bytype?limit=10&reduce=false&startkey="mam
 
 In other words, the second request has a value of `startkey_docid` that is the last document ID from the previous page of results (horse) plus the magic `\u0000` character (which becomes `horse%00` in the URL).
 
-The `startkey_docid` parameter works only if a `startkey` is supplied and where all index entries share the same key. If they don't share the same key, then pagination can be achieved with manipulation of `startkey`/`endkey` parameters only. Also, note that the `startkey_docid` parameter is NOT JSON encoded.
+The `startkey_docid` parameter works only if a `startkey` is supplied and where all index entries share the same key. If they don't share the same key, then pagination can be achieved with manipulation of `startkey`/`endkey` parameters only. Also, the `startkey_docid` parameter is not JSON encoded.
 {: note}
 
 ## Bookmarks
 {: #bookmarks}
 
- Imagine you are creating a web application that shows a set of search results, whether they be books, actors, or products in your store. As the user scrolls through the search results, another page of matches is appended at the end. This behavior is known as an "infinite scroll" design pattern. It allows the user to endlessly scroll through a large data set with ease, while fetching only smaller batches of data from the database each time.
+ Imagine you're creating a web application that shows a set of search results, whether they be books, actors, or products in your store. As the user scrolls through the search results, another page of matches is appended at the end. This behavior is known as an "infinite scroll" design pattern. It allows the user to endlessly scroll through a large data set with ease, while fetching only smaller batches of data from the database each time.
 
 ### How do {{site.data.keyword.cloudant_short_notm}} bookmarks work? 
 {: #how-do-cloudant-bookmarks-work}
 
-It is this sort of access pattern that {{site.data.keyword.cloudantfull}} *bookmarks* are built for. Here's how it works:
+It's this sort of access pattern that {{site.data.keyword.cloudantfull}} *bookmarks* are built for. Here's how it works:
 
 - Your application performs a search on an {{site.data.keyword.cloudant_short_notm}} database, for example, "find me the first 10 cities where the country is 'US'".
 - {{site.data.keyword.cloudant_short_notm}} provides an array of ten {{site.data.keyword.cloudant_short_notm}} documents and a *bookmark*, an opaque key that represents a pointer to the next documents in the result set.
-- When the next set of results is required, the search is repeated, but in addition to the query, the bookmark from the first response is also sent to {{site.data.keyword.cloudant_short_notm}} in the request.
+- When the next set of results is required, the search is repeated, but not only is the query sent, the bookmark from the first response is also sent to {{site.data.keyword.cloudant_short_notm}} in the request.
 - {{site.data.keyword.cloudant_short_notm}} replies with the second set of documents and another bookmark, which can be used to get a third page of results.
 - Repeat! 
 
-Let's see how we can do that with code.
+We can now see how to do that with code.
 
 ### How can I use {{site.data.keyword.cloudant_short_notm}} Query to search?
 {: #use-cloudant-query-search}
 
-First, let's perform a search for all the cities in the US. We're using [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-query), so the operation is specified as a block of JSON:
+First, we search for all the cities in the US. We're using [{{site.data.keyword.cloudant_short_notm}} Query](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-query), so the operation is specified as a block of JSON:
 
 ```js
 {
@@ -246,7 +246,7 @@ First, let's perform a search for all the cities in the US. We're using [{{site.
 }
 ```
 
-It's passed to {{site.data.keyword.cloudant_short_notm}} by using the [/db/_find](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-query#selector-syntax) API endpoint: 
+It's passed to {{site.data.keyword.cloudant_short_notm}} by using the [/db/_find](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-query#selector-syntax) API endpoint: 
 
 ```sh
 curl -X POST \
@@ -265,7 +265,7 @@ curl -X POST \
 }
 ```
 
-Notice as well an array of `docs`, {{site.data.keyword.cloudant_short_notm}} also returns a `bookmark`, which we save for the next request. When we need page two of the results, we repeat the query by passing {{site.data.keyword.cloudant_short_notm}} the bookmark from the first response:
+The response includes an array of `docs`, and a `bookmark`, which we use to paginate through the results in the next request. When we need page two of the results, we repeat the query by passing {{site.data.keyword.cloudant_short_notm}} the bookmark from the first response:
 
 ```sh
 curl -X POST \
@@ -318,18 +318,18 @@ We feed the bookmark from the first response into the second request for the nex
 ### How does {{site.data.keyword.cloudant_short_notm}} Search work?
 {: #how-cloudant-search-works}
 
-Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} Search](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-search) queries. Pass the `bookmark` parameter in the URL for GET requests or in the JSON body for POSTed requests. See the following example: 
+Pagination works in the same way for [{{site.data.keyword.cloudant_short_notm}} Search](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-search) queries. Pass the `bookmark` parameter in the URL for GET requests or in the JSON body for POSTed requests. See the following example: 
 
 ```sh
 curl "$URL/cities/_search/search/_search/freetext?q=country:US&bookmark=g1AAAAA-eJzLYW"
 ```
 
-See [the documentation](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-search#query-parameters-search) for further details.
+See the documentation about [query parameters](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-search#query-parameters-search) for further details.
 
 ### Do MapReduce views accept bookmarks?
 {: #mapreduce-views-accept-bookmarks}
 
-No. MapReduce views do not accept a `bookmark`. Use the [skip and limit](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-using-views) to page through results.
+No. MapReduce views don't accept a `bookmark`. Use the [skip and limit](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-using-views) to page through results.
 
 ### Can I jump straight to page X of the results?
 {: #jump-page-x-results}

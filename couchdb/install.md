@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-14"
+  years: 2019, 2020
+lastupdated: "2020-02-05"
 
 keywords: apache couchdb, support, extension, containers
 
@@ -53,8 +53,8 @@ See the [Apache CouchDB Product overview](https://access.redhat.com/containers/#
 
 ### Operator
 
-The [Operator for Apache CouchDB](/docs/services/Cloudant?topic=cloudant-apache-couchdb-operator) deploys and manages Apache CouchDB clusters on Kubernetes. 
+The [Operator for Apache CouchDB](/docs/Cloudant?topic=cloudant-apache-couchdb-operator) deploys and manages Apache CouchDB clusters on Kubernetes. 
 
 ### Helm Chart
 
-An Apache CouchDB helm chart along with documentation is available on [Helm Hub](https://hub.helm.sh/charts/stable/couchdb){: new_window}{: external}. 
+An Apache CouchDB helm chart along with documentation is available on [Helm Hub](https://hub.helm.sh/charts/couchdb/couchdb){: new_window}{: external}. 

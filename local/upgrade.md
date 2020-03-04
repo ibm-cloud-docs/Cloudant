@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-08-26"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: upgrade, database node, load balancer node, cluster
 
@@ -153,7 +153,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
 <p><code>kill -9 (pid)</code></p></li>
 </ol>
 </li>
-<li>Install the database node by using the steps in [Installing the first database node](/docs/services/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-the-first-database-node).
+<li>Install the database node by using the steps in [Installing the first database node](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-the-first-database-node).
 
 <p><strong>Note</strong>: Ensure that when you run the <code>cast system install</code> command you start the node with a maintenance mode flag and pass the current cluster configuration to your <code>dbnode.yaml</code> file.</p>
 <ol type=a>
@@ -205,7 +205,7 @@ Follow these steps to upgrade each {{site.data.keyword.cloudant_local_notm}} dat
 <p>The response lists all the cluster nodes.</p></li>
 <li>Check the health of the database node by using the
         Weatherreport application, [Monitor cluster health with
-        Weatherreport](/docs/services/Cloudant?topic=cloudant-diagnose-and-troubleshoot#monitor-cluster-health-with-weatherreport).</li>
+        Weatherreport](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).</li>
 </ol>
 </li>
 <li>Bring the database node out of maintenance mode and check its
@@ -242,7 +242,7 @@ these steps.
 <li>Run the InstallShield <code>uninstall</code> command.
 <p><code>/root/cloudant/uninstall/uninstall.bin</code></p></li>
 <li>Install the new {{site.data.keyword.cloudant_local_notm}} packages and start the upgraded
-    node, [Installing load balancer nodes](/docs/services/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).
+    node, [Installing load balancer nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).
 <ol type=a>
 <li>Find the load balancer node's current credentials,
         cluster nodes, host name, and IP addresses in the current

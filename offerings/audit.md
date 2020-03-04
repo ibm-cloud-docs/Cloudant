@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-09-06"
+  years: 2015, 2020
+lastupdated: "2019-01-07"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -32,7 +32,7 @@ records the following information about each HTTP request:
 
 Information | Description
 ------------|------------
-`Principal` | Account credentials, API key, or IBM Cloud IAM credentials.
+`Principal` | Account credentials, API keys, or {{site.data.keyword.cloud}} IAM credentials, as identified by an HTTP request header. 
 `Action` | The action carried out, for example, document read.
 `Resource` | Details about the account, database, and document accessed or query made.
 `Timestamp` | A record of the time and data of the event. 

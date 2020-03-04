@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2016, 2019
-lastupdated: "2019-11-14"
+  years: 2016, 2020
+lastupdated: "2020-01-20"
 
 keywords: data privacy, move data from eu to us, transfer personal data outside eu
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2019-12-20 -->
 
 # Data privacy and governance
 {: #data-privacy-and-governance}
@@ -65,10 +65,9 @@ to include the content (including any personal data) in the {{site.data.keyword.
 A list of countries where content might be held,
 or from where content might be accessed,
 for delivering and supporting a Cloud Service,
-is available at:
-[www.ibm.com/cloud/datacenters](http://www.ibm.com/cloud/datacenters){: new_window}{: external}.
+is available at [www.ibm.com/cloud/datacenters](http://www.ibm.com/cloud/datacenters){: new_window}{: external}.
 
-For more information about {{site.data.keyword.cloudant_short_notm}}'s overall standards for compliance, see [Compliance](/docs/services/Cloudant?topic=cloudant-compliance#compliance).
+For more information about {{site.data.keyword.cloudant_short_notm}}'s overall standards for compliance, see [Compliance](/docs/Cloudant?topic=cloudant-compliance#compliance).
 Similar information can be found for these IaaS business partners:
 
 - [Amazon](https://aws.amazon.com/compliance/){: new_window}{: external}

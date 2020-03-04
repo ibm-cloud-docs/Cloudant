@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-14"
+  years: 2015, 2020
+lastupdated: "2020-02-13"
 
 keywords: mobile, java, libraries, framework, examples, tutorials, node.js, python, swift
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-02-13 -->
 
 # Supported client libraries
 {: #supported-client-libraries}
@@ -42,7 +42,7 @@ both in the local device and the remote database.
 
 Two versions are available:
 
-- [{{site.data.keyword.cloudant_short_notm}} Sync - Android / JavaSE](https://github.com/cloudant/sync-android){: new_window}{: external}.
+- [{{site.data.keyword.cloudant_short_notm}} Sync - Android / Java&trade;SE](https://github.com/cloudant/sync-android){: new_window}{: external}.
 - [{{site.data.keyword.cloudant_short_notm}} Sync - iOS (CDTDatastore)](https://github.com/cloudant/CDTDatastore){: new_window}{: external}.
 
 An [overview](https://www.ibm.com/cloud/learn/offline-first){: new_window}{: external} of {{site.data.keyword.cloudant_short_notm}} Sync is available, as well as details about {{site.data.keyword.cloudant_short_notm}} Sync resources.
@@ -66,9 +66,9 @@ For more information about installing the library by adding it as a dependency t
 #### Unsupported libraries for Java
 {: #unsupported-for-libraries-for-java-supported}
 
-- [ektorp](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}{: external}.
-- [jcouchdb](http://code.google.com/p/jcouchdb/){: new_window}{: external}.
-- [jrelax](https://github.com/isterin/jrelax){: new_window}{: external}.
+- [Ektorp](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}{: external}.
+- [JCouchDB](http://code.google.com/p/jcouchdb/){: new_window}{: external}.
+- [JRelax](https://github.com/isterin/jrelax){: new_window}{: external}.
 - [LightCouch](http://www.lightcouch.org/){: new_window}{: external}.
 
 ### Examples and tutorials for Java
@@ -80,7 +80,7 @@ For more information about installing the library by adding it as a dependency t
 ## Node.js
 {: #node-js-supported}
 
-[nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external}
+[Nodejs-cloudant](https://github.com/cloudant/nodejs-cloudant){: new_window}{: external}
 is the official {{site.data.keyword.cloudant_short_notm}} library for Node.js.
 You can install it with npm:
 
@@ -100,24 +100,22 @@ npm install cloudant
 #### Unsupported libraries and frameworks for node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-supported}
 
-- [sag-js](https://github.com/sbisbee/sag-js){: new_window}{: external}, which also works in the browser.
-  See [saggingcouch](https://github.com/sbisbee/saggingcouch.com){: new_window}{: external} for more detail.
-- [nano](https://github.com/dscape/nano){: new_window}{: external} is a minimalist implementation.
-- [restler](https://github.com/danwrong/restler){: new_window}{: external} delivers the best performance but is really barebones.
-- [cradle](https://github.com/flatiron/cradle){: new_window}{: external} is a high-level client that is also available if you absolutely need ease of use at the cost of reduced performance.
-- [cane_passport](https://github.com/ddemichele/cane_passport){: new_window}{: external} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
-- [express-cloudant](https://github.com/cloudant-labs/express-cloudant){: new_window}{: external} - a template for Node.js Express framework that also uses PouchDB and Grunt.
+- [Sag-JS](https://github.com/sbisbee/sag-js){: new_window}{: external}, which also works in the browser.
+  See [Saggingcouch](https://github.com/sbisbee/saggingcouch.com){: new_window}{: external} for more detail.
+- [Nano](https://github.com/dscape/nano){: new_window}{: external} is a minimalist implementation.
+- [Restler](https://github.com/danwrong/restler){: new_window}{: external} delivers the best performance but is really barebones.
+- [Cradle](https://github.com/flatiron/cradle){: new_window}{: external} is a high-level client that is also available if you absolutely need ease of use at the cost of reduced performance.
+- [Cane_passport](https://github.com/ddemichele/cane_passport){: new_window}{: external} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
+- [Express-Cloudant](https://github.com/cloudant-labs/express-cloudant){: new_window}{: external} - a template for Node.js Express framework that also uses PouchDB and Grunt.
 
 ### Examples and tutorials for node.js
 {: #examples-and-tutorials-for-node-js}
 
 - [Create, read, update, and delete](https://github.com/cloudant/haengematte/tree/master/nodejs){: new_window}{: external}.
-- [Cloudant-Uploader](https://github.com/garbados/Cloudant-Uploader){: new_window}{: external} - utility to upload `.csv` files to {{site.data.keyword.cloudant_short_notm}}.
-- [couchimport](https://github.com/glynnbird/couchimport){: new_window}{: external} - utility to import `.csv` or `.tsv` files into CouchDB or {{site.data.keyword.cloudant_short_notm}}.
+- [CouchImport](https://github.com/glynnbird/couchimport){: new_window}{: external} - utility to import `.csv` or `.tsv` files into CouchDB or {{site.data.keyword.cloudant_short_notm}}.
 - [Build a simple word game app by using {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}](http://www.ibm.com/developerworks/cloud/library/cl-guesstheword-app/index.html?ca=drs-){: new_window}{: external} - uses Node.js.
 - [Building a Real-time SMS Voting App](https://www.twilio.com/blog/2012/09/building-a-real-time-sms-voting-app-part-1-node-js-couchdb.html){: new_window}{: external} - six-part series that uses Node.js, Twilio, and {{site.data.keyword.cloudant_short_notm}}.
-- [Building a multitier Windows&trade; Azure Web application](https://www.ampower.me/article/CouchDB/Tutorial-Building-a-Multi-Tier-Windows-Azure-Web-application-use-Cloudants-Couchdb-as-a-Service-node-94-409665?eqs=Z2NWNlltTmlUWStWcHdEWENWc3UxdmowREpiMjlGUVpKajJOZGJpSlVkemlPS2oxa0YxZE5BPT0=){: new_window}{: external} - uses {{site.data.keyword.cloudant_short_notm}}, Node.js, CORS, and Grunt.
-- [Do it yourself: Build a remote surveillance application by using {{site.data.keyword.cloud_notm}}, {{site.data.keyword.cloudant_short_notm}}, and Raspberry Pi](http://www.ibm.com/developerworks/library/ba-remoteservpi-app/index.html){: new_window}{: external}.
+
 
 ## Python
 {: #python-supported}
@@ -128,8 +126,8 @@ available in the GitHub repository [`cloudant/python-cloudant`](https://github.c
 Python applications that access {{site.data.keyword.cloudant_short_notm}} have component dependencies. These dependencies must be specified in a `requirements.txt` file. For more information, see instructions for the [requirements files](https://pip.readthedocs.io/en/1.1/requirements.html){: new_window}{: external}.
 {: tip}
 
-Download the current library release from [pypi.python.org](https://pypi.python.org/pypi/cloudant/){: new_window}{: external}.
-For more information about the Python language, see the [python.org](https://www.python.org/about/){: new_window}{: external} website. 
+Download the current library from [pypi.python.org](https://pypi.python.org/pypi/cloudant/){: new_window}{: external}.
+For more information, see the [python.org](https://www.python.org/about/){: new_window}{: external} website. 
 
 ## Swift
 {: #swift}
@@ -151,7 +149,7 @@ index,
 and query remote JSON data on {{site.data.keyword.cloudant_short_notm}},
 see the GitHub repository [`cloudant/swift-cloudant`](https://github.com/cloudant/swift-cloudant){: new_window}{: external}.
 
-The library is an early release version. As such, it doesn't currently have complete {{site.data.keyword.cloudant_short_notm}} API coverage. 
+The library is an early version. As such, it doesn't currently have complete {{site.data.keyword.cloudant_short_notm}} API coverage. 
 
 SwiftCloudant isn't supported on iOS, and you can't call it from Objective-C.
 {: tip}

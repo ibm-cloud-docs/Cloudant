@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-26"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -69,11 +69,11 @@ shares the underlying hardware resources that make up the {{site.data.keyword.cl
 
 All plans are provided on servers with [at rest](https://en.wikipedia.org/wiki/Data_at_rest){: new_window}{: external}
 disk encryption. Access is over the public network connection and encrypted by 
-using HTTPS. For more detail, see [Security](/docs/services/Cloudant?topic=cloudant-security#security){: new_window}{: external}. 
+using HTTPS. For more detail, see [Security](/docs/Cloudant?topic=cloudant-security#security){: new_window}{: external}. 
 IP whitelisting is available upon request to {{site.data.keyword.cloudant_short_notm}} Support and applies to 
 the whole {{site.data.keyword.cloudant_short_notm}} environment, and not at the instance level.  
 
-The plan also offers [Compliance Certification](/docs/services/Cloudant?topic=cloudant-compliance#compliance). 
+The plan also offers [Compliance Certification](/docs/Cloudant?topic=cloudant-compliance#compliance). 
 
 [HIPAA](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act){: new_window}{: external} 
 compliance is available upon request, so request HIPAA compliance during the purchase process with an {{site.data.keyword.IBM_notm}} sales representative. 
@@ -85,5 +85,5 @@ To provide high availability (HA) and disaster recovery (DR) within a data cente
 across three separate physical servers in a cluster. When available, you can provision accounts in multiple locations, 
 then use continuous data replication to provide HA/DR across data centers. {{site.data.keyword.cloudant_short_notm}} data isn't automatically 
 backed up, but supported tooling is provided to handle backups. Review the 
-[Disaster recovery and backup](/docs/services/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) guide
+[Disaster recovery and backup](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) guide
 to explore all HA, DR, and backup considerations to meet your application requirements.

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-09-20"
+  years: 2015, 2020
+lastupdated: "2020-02-12"
 
 keywords: stop and start service, add node, maintenance mode, rebalancing plan, remote access, run rebalancing plan, replace database node, replace load balancer node, tune automatic compacter, smoosh channels, metrics database
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-02-12 -->
 
 # Maintenance
 {: #maintenance}
@@ -71,7 +71,7 @@ display the status of various processes and test the {{site.data.keyword.cloudan
 ## Add a node to a cluster
 {: #add-a-node-to-a-cluster}
 
-Follow the steps in this section to add a node to the cluster.
+Follow these steps to add a node to the cluster.
 
 
 ### Using the modified configuration process
@@ -79,15 +79,15 @@ Follow the steps in this section to add a node to the cluster.
 
 Add a node to a cluster, rebalance shards, and configure a node
 by using the modified configuration process. The node must be in
-maintenance mode to prevent errors when it is brought into the
+maintenance mode to prevent errors when it's brought into the
 cluster. The load balancers must be configured to direct traffic to the
 new node.
 
-#### Step 1: Provision the new node
+#### Provision the new node
 {: #provision-the-new-node-}
 
-1.  Install {{site.data.keyword.cloudant_local_notm}} on the database node that you are
-adding, as described in [Installing additional database nodes](/docs/services/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-additional-database-nodes).
+1.  Install {{site.data.keyword.cloudant_local_notm}} on the database node that you're
+adding, as described in [Installing additional database nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-additional-database-nodes).
 
 2.  Run the `cast system install` command by passing the
 cluster configuration from your current `dbnode.yaml` file.
@@ -99,7 +99,7 @@ cluster configuration from your current `dbnode.yaml` file.
     ```
     {: codeblock}
 
-#### Step 2: Confirm that the node is in maintenance mode
+#### Confirm that the node is in maintenance mode
 {: #confirm-that-the-node-is-in-maintenance-mode-}
 
 1.  Run the following command to confirm that the node is in
@@ -117,7 +117,7 @@ maintenance mode.
     ```
     {: codeblock}
 
-#### Step 3: Add the new node to the nodes database on one of the existing nodes
+#### Add the new node to the nodes database on one of the existing nodes
 {: #add-the-new-node-to-the-nodes-database-on-one-of-the-existing-nodes}
 
 1.  SSH into one of the existing database nodes.
@@ -136,7 +136,7 @@ maintenance mode.
     ```
     {: codeblock}
 
-####  Step 4: Update the load balancer configuration
+####  Update the load balancer configuration
 {: #update-the-load-balancer-configuration-}
 
 The load balancers must know to direct traffic to the new
@@ -149,7 +149,7 @@ node.
 
 3.  Verify that your load balancer can correctly access the new node.
 
-    Configuration changes and restarts to the load balancer can affect traffic. How these changes are made depends on your setup. If you are running a failover load balancer, confirm that it is running correctly and you can access the cluster through it. Then, make the required changes, such as DNS settings, to reroute all traffic through the failover load balancer.
+    Configuration changes and restarts to the load balancer can affect traffic. How these changes are made depends on your setup. If you're running a failover load balancer, confirm that it's running correctly and you can access the cluster through it. Then, make the required changes, such as DNS settings, to reroute all traffic through the failover load balancer.
     {: note}
 
 4.  Edit the `lbnode.yaml` file that was created during initial
@@ -162,13 +162,13 @@ node.
     ```
     {: codeblock}
 
-#### Step 5: Create a rebalancing plan
+#### Create a rebalancing plan
 {: #create-a-rebalancing-plan}
 
-1.  If you are using more than one load balancer, run the
+1.  If you're using more than one load balancer, run the
     rebalancing process from any of your load balancers.
 
-2.  If you do not have a configuration file for the
+2.  If you don't have a configuration file for the
     rebalancer, save the newly created `rebal.ini` to the home directory
     for the user on the load balancer.
 
@@ -185,14 +185,14 @@ node.
     # Server-wide database admin credentials. These have to be identical for every node of the cluster.
     rebal_user =
     rebal_password =
-    # Default filename for rebalance plans.
+    # Default file name for rebalance plans.
     rebal_plan = rebalance_plan
     # Mapping between public and private host names for nodes. This plan is only needed if
     # the host names have a private and a public interface and the load balancer does
     # not have access to the private interface. If the private host name can be used,
     # these fields can remain blank. Otherwise, the private host name extension
     # is replaced with the public host name extension to arrive at the public host name.
-    # If you are unsure, leave these empty.
+    # If you're unsure, leave these empty.
     
     private_host_ext =
     public_host_ext =
@@ -203,7 +203,7 @@ node.
     {: codeblock}
 
 4.  Verify that the admin credentials in the configuration
-    file, `rebal_user` and `rebal_password`, are correct by
+    file, `rebal_user` and `rebal_password`, are correct by 
     logging in to one of the database nodes with SSH by
     running the following command.
 
@@ -212,16 +212,16 @@ node.
     ```
     {: codeblock}
 
-5.  Replace `admin:password` in the preceeding command with the credentials for the database administrator.
+5.  Replace `admin:password` in the preceding command with the credentials for the database administrator.
     If you specify the wrong credentials, you receive an error message.
 
-#### Step 6: Set up remote access for the rebalancer
+#### Set up remote access for the rebalancer
 {: #set-up-remote-access-for-the-rebalancer}
 
 The rebalancer runs on the load balancer and needs SSH access to the database nodes to run the operations that are required to move shards between database nodes. The Cloudant Local installer creates a `cloudantrebal` user account on every database node in your cluster for the rebalancer. During installation, this account is configured with the permissions and path that are required to do the operations that the rebalancer needs to do with SSH. The `cloudantrebal` account eliminates some of the work an operator must do to set up a cluster rebalance.
 {: note}
 
-#### Step 7: Generate a pair of public and private keys for SSH access
+#### Generate a pair of public and private keys for SSH access
 {: #generate-a-pair-of-public-and-private-keys-for-ssh-access}
 
 On the load balancer, as the root user, generate a pair of public and private keys for SSH access to the rebalancer.
@@ -259,11 +259,11 @@ operator must do to set up a cluster rebalance.
 <li>A public key file with the default name <code>id_rsa.pub</code>.</li></ul>
 </li></ol></li>
 <li>Add the public and private keys to every database node in your cluster.
-<p>**Note**: The controlling node is defined as the node where you run `rebal` (in this case your load balancer). The new node is the database node that you just added to the cluster.</p></li>
+<p><b>Note</b>: The controlling node is defined as the node where you run `rebal` (in this case your load balancer). The new node is the database node that you just added to the cluster.</p></li>
 <li>Set up the public and private keys.
-<p><b>Note</b>: The `rebal` command uses SSH to communicate between the controlling node and database nodes (existing and new), and also between nodes running `rsync` to copy shards between nodes.</p>
+<p><b>Note</b>: The `rebal` command uses SSH to communicate between the controlling node and database nodes (existing and new), and also between nodes that run `rsync` to copy shards between nodes.</p>
 <ol type=a><li>Create an authorized_keys file in <code>/opt/cloudantrebal/.ssh</code>.</li>
-<li>Add the public key to the <code>/opt/cloudantrebal/.ssh/authorized_keys</code> file on all the database nodes, including the one you are adding.</li>
+<li>Add the public key to the <code>/opt/cloudantrebal/.ssh/authorized_keys</code> file on all the database nodes, including the one you're adding.</li>
 <li>Copy the public and private keys to `/opt/cloudantrebal/.ssh`.</li>
 <li>Ensure that the `owner:group` is `cloudantrebal:Cloudant`.
 <p>The private key has permission, `0600`, and the public key has permission, `0644`. See the following example.</p>
@@ -278,7 +278,7 @@ operator must do to set up a cluster rebalance.
 <li>Test that you can SSH from your existing database nodes to the new node by using the following command.
 <p><code>cloudantrebal@db1:~/.ssh$ ssh new-db-node.example.com</code></p></li>
 </ol></li>
-<li>On the load balancer, create the following entry in the <code>~/.ssh/config</code> file for the account that you are using to run the rebalancer.
+<li>On the load balancer, create the following entry in the <code>~/.ssh/config</code> file for the account that you're using to run the rebalancer.
 <pre><code>Host *.yourcluster.yourdomain.com
 User cloudantrebal
 </code></pre></li>
@@ -289,7 +289,7 @@ User cloudantrebal
 > ssh-add ~/.ssh/id_rsa
 </code></pre></li>
 <li>Enter the passphrase of the key when prompted.
-<p><strong>Note</strong>: When you enter the passphrase for the key, the passphrase is saved for the current ssh session. You run the commands again if you open a new ssh session on the load balancer, for example, when you run the rebalance shards scripts in subsequent steps.</p></li>
+<p><strong>Note</strong>: When you enter the passphrase for the key, the passphrase is saved for the current ssh session. You run the commands again if you open a new ssh session on the load balancer, for example, when you run the rebalance shards scripts in later steps.</p></li>
 <li>Confirm that the database nodes are accessible with SSH from the load balancer, such as by configuring <code>ssh-agent</code>.</li>
 <li>Verify the access by trying to SSH into all database nodes from the load balancer.</li>
 </ol>
@@ -333,7 +333,7 @@ plan.
     configurations and confirm that you can SSH to all database
     nodes, without specifying a password.
 
-    Your current directory now contains a `rebalance_plan` file that
+    Your current directory now includes a `rebalance_plan` file that
     includes a list of shard moves.
     
 ### Putting a new node into production mode
@@ -372,16 +372,16 @@ progress.
 {: #run-a-rebalancing-plan}
 
 Before you continue, confirm that no other shard moves are
-running on the same cluster. Moving multiple shards of the same
+running on the same cluster. Moving many shards of the same
 database concurrently can lead to data loss.
 
 
 <ol>
-<li>Run your rebalancing plan, and replace <code>rebalance_plan_filename</code>
-    with the filename for your rebalance plan.
-<p><strong>Note</strong>: The filename was specified earlier when you edited the <code>rebal.ini</code> file when you created a rebalancing plan. The command runs the shard moves identified in the plan. Shards moves are batched by database name with each batch that is run in a series. Multiple batches are run concurrently; the default is 20 batches running at once. Progress and errors are logged to the <code>rebalance_plan.log</code>.
+<li>Run your rebalancing plan, and replace <code>rebalance_plan_file_name</code>
+    with the file name for your rebalance plan.
+<p><strong>Note</strong>: The file name was specified earlier when you edited the <code>rebal.ini</code> file when you created a rebalancing plan. The command runs the shard moves identified in the plan. Shards moves are batched by database name with each batch that is run in a series. Many batches are run concurrently; the default is 20 batches that run at once. Progress and errors are logged to the <code>rebalance_plan.log</code>.
 </br>
-<code>rebal run <em>rebalance_plan_filename</em></code></p>  </li>
+<code>rebal run <em>rebalance_plan_file_name</em></code></p>  </li>
 <li>Monitor progress by using the <code>tail</code> command.
 </br><code>tail -f rebalance_plan.log</code>
 </li>
@@ -389,7 +389,7 @@ database concurrently can lead to data loss.
     of <code>sudo</code> or <code>tty</code> errors. If you find errors, do the following
     tasks for the <code>/etc/sudoers</code> file on all the database nodes.
 <ol type=a>
-<li>Search for a line that contains.
+<li>Search for a line that includes.
 <p><code>Defaults requiretty</code></p></li>
 <li>Modify the line to read.
 <p><code>Defaults !requiretty</code></p></li>
@@ -399,29 +399,29 @@ database concurrently can lead to data loss.
 </li>
 </ol>
  </li>
-<li>Check whether it is a problem with the configuration of <code>rebal</code>
+<li>Check whether it's a problem with the configuration of <code>rebal</code>
     or <code>ssh-agent</code>.</li>
 <li>Confirm that <code>ssh-agent</code> is set up correctly and that the <code>.rebal</code>
-    file contains the proper credentials.
+    file includes the proper credentials.
 </li>
-<li>Check whether multiple <code>erl_call: failed to connect to node</code>
-    messages in the <code>dbname.out</code> files exist. If multiple messages
+<li>Check whether more than one <code>erl_call: failed to connect to node</code>
+    messages in the <code>dbname.out</code> files exist. If several messages
     exist, you might need to reduce the concurrency of the
     rebalancing process.
-</br><code>rebal run --concurrency <em>rebalance_plan_filename</em></code>
+</br><code>rebal run --concurrency <em>rebalance_plan_file_name</em></code>
 <p>This command reduces the number of concurrent shard moves to 5
     from the default of 20.</p></li>
 <li>Run the rebalancing process again with the <code>rebal run</code> command
-    and the appropriate <code>rebalance_plan_</code> filename. 
+    and the appropriate <code>rebalance_plan_</code> file name. 
     <p>The problem
     might be a temporary issue, such as an unreachable or
     overloaded node, leading to a timeout. Rebalancing in this way
-    does not cause a shard to have too few copies, but it might
+    doesn't cause a shard to have too few copies, but it might
     result in shards with more than the expected number of copies.</p></li>
 <li>If you see <code>rsync</code> errors in the log file, verify that <code>rsync</code> is
     installed and operational on all database nodes. 
     <p>Otherwise,
-    install <code>rsync</code> package on all the nodes. For example, on RedHat
+    install <code>rsync</code> package on all the nodes. For example, on Red Hat
     platforms, use the <code>yum install rsync</code> command to install <code>rsync</code>.
     If you checked the configuration and tried to rerun the shard
     moves, but the problem persists, contact support.</p></li>
@@ -440,7 +440,7 @@ Confirm that the new node is set up correctly.
     {: codeblock}
 
 2.  If errors are reported during the run, see the
-    [information](/docs/services/Cloudant?topic=cloudant-diagnose-and-troubleshoot#monitor-cluster-health-with-weatherreport) for
+    [information](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport) for
     `Weatherreport` checks, or call support.
 
 3.  After the run finishes, check the rebalancing logs that are
@@ -459,7 +459,7 @@ Confirm that the new node is set up correctly.
     determine whether the shards are spread evenly across the
     cluster nodes.
 
-   Weatherreport is a command-line application that provides information about the status of a dbcore node or cluster. Weatherreport is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weatherreport, see [Monitor cluster health with Weatherreport](/docs/services/Cloudant?topic=cloudant-diagnose-and-troubleshoot#monitor-cluster-health-with-weatherreport).
+   Weatherreport is a command line application that provides information about the status of a dbcore node or cluster. Weatherreport is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weatherreport, see [Monitor cluster health with Weatherreport](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).
    {: note}
 
 ## Replace a node
@@ -484,13 +484,13 @@ instructions.
 <ol type=a>
 <li>If you can rebuild or replace the node, no diagnostic messages are displayed in response to this command.
 </li>
-<li>If it is not safe, one or more shard ranges are reduced to one or zero live copies. 
+<li>If it's not safe, one or more shard ranges are reduced to one or zero live copies. 
 <p>In that case, an error message (for one live copy) or a critical message (for zero live copies) is displayed with the shard ranges affected.</p>
 </li>
 <li>If any messages are returned, make sure that the shards
     have enough copies in live nodes before you replace the
     node.
-<p><strong>Note</strong>: Weatherreport is a command-line application that provides information about the status of an {{site.data.keyword.cloudant_short_notm}} node or cluster. It is useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weatherreport, see [Monitor cluster health with Weatherreport](/docs/services/Cloudant?topic=cloudant-diagnose-and-troubleshoot#monitor-cluster-health-with-weatherreport).</p>
+<p><strong>Note</strong>: Weatherreport is a command line application that provides information about the status of an {{site.data.keyword.cloudant_short_notm}} node or cluster. It's useful in troubleshooting cluster issues, such as increased latencies, low disk space, or node failures. For more information about Weatherreport, see [Monitor cluster health with Weatherreport](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#monitor-cluster-health-with-weatherreport).</p>
 </li>
 </ol>
 </li>
@@ -498,14 +498,14 @@ instructions.
     the node and shut it down.</li>
 <li>Repair or replace the node.</li>
 <li>Install {{site.data.keyword.cloudant_local_notm}} on the database node, as described in
-    [Installing additional database nodes](/docs/services/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-additional-database-nodes).</li>
+    [Installing additional database nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-additional-database-nodes).</li>
 <li>Run <code>cast system install</code>.
 
 <ol type=a>
 <li>Pass the <code>--maintenance</code> flag and the original <code>cluster_dbnode.yaml</code> file that was used to set up the node initially.
 <p><code>cast system install --maintenance -db -c cluster_dbnode.yaml</code></p>
 </li>
-<li>(Optional) If you do not have the original <code>cluster_dbnode.yaml</code> file, you can generate a new one by running the <code>cast cluster export</code> command from an existing node.
+<li>(Optional) If you don't have the original <code>cluster_dbnode.yaml</code> file, you can generate a new one by running the <code>cast cluster export</code> command from an existing node.
 <p><code>cast cluster export cluster_dbnode.yaml</code></p></li>
 </ol>
 </li>
@@ -546,7 +546,7 @@ following instructions.
 <ol>
 <li>Stop traffic to the load balancer node before you remove it. You stop your load balancer based on your setup.
 <ol type=a>
-<li>If you run a failover load balancer, confirm that it is
+<li>If you run a failover load balancer, confirm that it's
     operating correctly and can access the cluster with that
     load balancer.</li>
 <li>Make any required changes, such as changes to DNS
@@ -558,7 +558,7 @@ following instructions.
     the node and shut it down.</li>
 <li>Repair or replace the node.</li>
 <li>Install {{site.data.keyword.cloudant_local_notm}} on the load balancer node, as
-    described in [Installing load balancer nodes](/docs/services/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).</li>
+    described in [Installing load balancer nodes](/docs/Cloudant?topic=cloudant-install-ibm-cloudant-local#installing-load-balancer-nodes).</li>
 <li>Configure the <code>lbnode.yaml</code> file with your current cluster
     configuration when you run the <code>cast system install</code> commands.
 </li>
@@ -567,8 +567,8 @@ following instructions.
     confirming that you get a valid response.</p></li>
 <li>Send traffic to the load balancer again.
 <ol type=a>
-<li>If you are running a failover load balancer, confirm that
-    it is running correctly.</li>
+<li>If you're running a failover load balancer, confirm that
+    it's running correctly.</li>
 <li>To reroute all traffic through the failover or
     replacement load balancer, make the required changes,
     such as DNS settings.</li>
@@ -633,8 +633,8 @@ types.
 -   `user_bytes`
 
     The amount of data the user has in the file. It
-    does not include storage, such as old revisions
-    or on-disk btree structure.
+    doesn't include storage, such as old revisions
+    or on-disk b-tree structure.
 
 -   `total_bytes`
 
@@ -660,7 +660,7 @@ checks each channel in turn to see whether the
 compaction passes its configured priority threshold
 (`min_priority`). After a channel is found that can accept
 the compaction, the compaction is added to the queue for
-that channel and the enqueue process stops. Therefore, the ordering of channels, based on the priority calculation, impacts which channel the compaction ends up in. 
+that channel and the enqueue process stops. The ordering of channels, based on the priority calculation, impacts where the compaction ends up. 
 
 #### Background Detail
 {: #background-detail}
@@ -736,16 +736,16 @@ for `ratio` or `slack` channels.
 {: codeblock}
 
 The `user_bytes` are called `data_size` in `db_info` blocks.
-It is the total of all bytes that are used to store docs
+it's the total of all bytes that are used to store docs
 and their attachments. Since files with `.couch` suffix only append,
 every update adds data to the file. When you update a
-btree, a new leaf node is written and all the nodes back
+b-tree, a new leaf node is written and all the nodes back
 up the root. In this update, old data is never
 overwritten and these parts of the file are no longer
-live, including old btree nodes and document bodies.
+live, including old b-tree nodes and document bodies.
 Compaction takes this file and writes a new file that
-contains only live data. The `disk_size` is the number of
-bytes in the file as reported by `ls -al <filename>`.
+includes only live data. The `disk_size` is the number of
+bytes in the file as reported by `ls -al <file_name>`.
 
 #### Defining a channel
 {: #defining-a-channel}
@@ -788,7 +788,7 @@ often.
 -   `big_dbs`
 
     A ratio channel for enqueuing only large
-    database shards. The term large is applied based on the database shards' workload. In the following example, a new global channel is set up. It is important to choose good channel names. The following conventional channel names are defined by default if no other channel names are set. Channels have certain defaults for their configuration, which are defined in the Smoosh configuration section. It is only necessary to set up how this channel differs from those defaults. In the following example, the `min_size` and concurrency settings are set, and keep the priority as the default to ratio, along with the other defaults.
+    database shards. The term large is applied based on the database shards' workload. In the following example, a new global channel is set up. It's important to choose good channel names. The following conventional channel names are defined by default if no other channel names are set. Channels have certain defaults for their configuration, which are defined in the Smoosh configuration section. It's only necessary to set up how this channel differs from those defaults. In the following example, the `min_size` and concurrency settings are set, and keep the priority as the default to ratio, along with the other defaults.
 
 ``` sh
 # Define the new channel
@@ -884,14 +884,14 @@ These settings are the main settings that you use with Smoosh.
 *   `staleness`
     
     The number of minutes that the (expensive) priority calculation
-    can be stale before it is recalculated.
+    can be stale before it's recalculated.
     The default value is 5 minutes.
     
 *   `view_channels`
     
     A comma-separated list of channel names for views.
     
-Sometimes it is necessary to run the following processes.
+Sometimes it's necessary to run the following processes.
 
 *   `cleanup_index_files`
     
@@ -957,10 +957,10 @@ A channel has several important settings that control runtime behavior.
 {: #standard-operating-procedures}
 
 Operators must do a few standard things to respond to
-issues. In addition to the following items, it is useful
+issues. It's also useful
 in some circumstances to define new channels with
 certain properties (`big_dbs` is a common one) if Smoosh
-is not selecting and prioritizing compactions that well.
+isn't selecting and prioritizing compactions that well.
 
 #### Checking the status of Smoosh
 {: #checking-the-status-of-smoosh}
@@ -1019,17 +1019,16 @@ the queued jobs. The values for these items depend on
 whether the queue is ratio or slack.
 
 For ratio queues, the default minimum for Smoosh to
-enqueue a compaction is 5. In the previous example, you
-can guess that 981,756 is high. However, this database
-might be small, so it does not necessarily mean useful
-compactions from the point of view of reclaiming disk
-space.
+enqueue a compaction is 5. You
+can guess from the previous example that 981,756 is high. This database
+might be small, however, so it doesn't necessarily mean useful
+compactions for reclaiming disk space.
 
 For this example, many queued compactions are waiting,
-but it is unknown which compaction would be most
-effective to run to reclaim disk space. It is worth
+but it's unknown which compaction would be most
+effective to run to reclaim disk space. It's worth
 noting that the waiting queue sizes are only meaningful
-relative to other factors on the cluster, such as
+when compared to other factors on the cluster, such as
 database number and size.
 
 #### Smoosh IOQ priority
@@ -1037,10 +1036,10 @@ database number and size.
 
 This setting is a global setting that affects all
 channels. Increasing it allows each active compaction to
-proceed faster as the compaction work is of a higher
+run faster as the compaction work is of a higher
 priority relative to other jobs. Decreasing it has the
 inverse effect. By this point, you know whether Smoosh
-is having trouble keeping up. If it is falling behind (large queues),
+is having trouble processing each compaction. If it's falling behind (large queues),
 try increasing compaction priority. The IOQ priority for
 Smoosh is controlled through the IOQ compaction queue.
 
@@ -1053,8 +1052,8 @@ Smoosh is controlled through the IOQ compaction queue.
 The priority, conventionally, runs 0 - 1, though the priority
 can be any positive number. The default for compaction
 is 0.01. If it looks like Smoosh has too much work that
-is not getting through, you can increase the priority.
-However, be careful that this order does not adversely
+isn't getting through, you can increase the priority.
+However, be careful that this order doesn't adversely
 impact request performance.
 
 ``` sh
@@ -1068,15 +1067,15 @@ In general, adjusting the Smoosh IOQ priority is a temporary measure. For some c
 #### Granting specific channels more workers
 {: #granting-specific-channels-more-workers}
 
-Giving Smoosh a higher concurrency for each channel can
-allow a backlog in that channel to be processed. Again,
-some clusters run best when specific channels have more
-workers. When you assess disk space, you must know
+Giving Smoosh a higher concurrency for each channel
+allows a backlog in that channel to be processed. Some clusters run best when specific channels have more
+workers. You must know
 whether the biggest offenders are database or view
-files. From your assessment, you can infer whether it is
+files when you assess disk space. Infer from your 
+assessment whether it's
 worth giving a specific Smoosh channel a higher
-concurrency. The current setting can be seen for a
-channel like so.
+concurrency. See the current setting for a
+channel in the following example.
 
 ``` sh
 > 
@@ -1112,8 +1111,8 @@ compactions for a node are causing disk space issues,
 you can suspend Smoosh while you determine which channel
 is causing the problem. For example, a `big_dbs` channel
 might be creating huge compaction-in-progress files if
-there is not much in the shard to compact. Therefore, it
-is useful to use when you are testing to see whether
+there isn't much in the shard to compact, so it
+is useful to use when you're testing to see whether
 Smoosh is causing a problem.
 
 ``` sh
@@ -1133,7 +1132,7 @@ each compaction process in each channel. The
 #### Restarting Smoosh
 {: #restarting-smoosh}
 
-Restarting Smoosh is a last-resort solution. It is a
+Restarting Smoosh is a last-resort solution. It's a
 brute force approach where you hope that Smoosh rescans
 the databases and makes the correct decision. If this step
 is required, contact [support@cloudant.com](mailto:support@cloudant.com), since doing
@@ -1149,7 +1148,7 @@ two channels for databases (`ratio_dbs` and `slack_dbs`) and two
 channels for views (`ratio_views` and `slack_views`) exist.
 `Smoosh` enqueues the new item to the first channel that accepts it.
 If no channel accepts,
-the item is not enqueued for compaction.
+the item isn't enqueued for compaction.
 
 ### Example config commands
 {: #example-config-commands}
@@ -1199,16 +1198,15 @@ at a glance,
 sufficient insight into `Smoosh` that an operator can assess whether
 `Smoosh` is adequately using the reclaimable space in the cluster.
 In general,
-Smoosh is working correctly if the status output includes items in the `ratio_dbs` and `ratio_views` channels.
-Due to the default settings,
-`slack_dbs` and `slack_views` contain items.
+Smoosh is working correctly if the status output includes items in the `ratio_dbs` and `ratio_views` channels. Due to the default settings,
+`slack_dbs` and `slack_views` include items.
 
 ``` sh
 smoosh:enqueue_all_dbs(), smoosh:enqueue_all_views()
 ```
 {: codeblock}
 
-You usually do not need to use these functions,
+You usually don't need to use these functions,
 since `Smoosh` finds the best compaction candidates on its own.
 However,
 if you experience disk space issues,
@@ -1321,7 +1319,7 @@ data as described here.
 
 <ol>
 <li>Discard metrics data.
-<p><strong>Note</strong>: If you discard metrics data, you lose the performance data that has been collected to date. You will no longer be able to view the performance data from the Metrics dashboard. After this operation, disk space in the database will be available again, and new data will be collected as usual.</p>
+<p><strong>Note</strong>: If you discard metrics data, you lose the performance data collected to date. You can no longer view the performance data from the Metrics dashboard. After this operation, disk space in the database will be available again, and new data will be collected as usual.</p>
 <ol type=a>
 <li>Stop the Metrics service on all database nodes.
 <p><code>sv stop cloudant-local-metrics</code></p></li>
@@ -1336,7 +1334,7 @@ data as described here.
 </ol>
 </li>
 <li>Keep old metrics data.
-<p><strong>Note</strong>: With this option, the performance data collected to date are preserved and can be viewed from the Metrics dashboard. You can delete the data later if you need more disk space.</p>
+<p><strong>Note</strong>: With this option, the performance data that is collected to date is preserved and can be viewed from the Metrics dashboard. You can delete the data later if you need more disk space.</p>
 <ol type=a>
 <li>Create an empty second Metrics database on the cluster and name it <code>metrics2</code>.
 <p>You can create an empty database from the {{site.data.keyword.cloudant_short_notm}} dashboard.</p></li>
@@ -1348,11 +1346,11 @@ data as described here.
 <p><code>sv start cloudant-local-metrics</code></p>
 <p>You can view new metrics data from the Metrics dashboard via the URL.</p></li>
 <li>In the {{site.data.keyword.cloudant_short_notm}} dashboard, enter <code>metrics2</code> as the database name or <code>metrics</code> to view older data.
-<p>Depending on your retention requirements, you can keep the Metrics database and delete it later when it is not needed.</p>
+<p>Depending on your retention requirements, you can keep the Metrics database and delete it later when it's not needed.</p>
 
 </li></ol></li></ol>
 
-In addition to the metrics database, the stats database will grow in size over time although at a slower rate. The IOQ application periodically dumps its internal stats to disk via the stats database. Currently, {{site.data.keyword.cloudant_local_notm}} does not use that data. You can delete the database and not incur any loss of functionality. However, you might notice an error in the log that says the database does not exist. To prevent the error, you can recreate a new empty stats database.
+Besides the metrics database, the stats database grows in size over time although at a slower rate. The IOQ application periodically dumps its internal stats to disk via the stats database. Currently, {{site.data.keyword.cloudant_local_notm}} doesn't use that data. You can delete the database and not incur any loss of functionality. However, you might notice an error in the log that says the database doesn't exist. To prevent the error, you can re-create a new empty stats database.
 {: note}
 
-To manage the {{site.data.keyword.cloudant_short_notm}} Metrics application, see [{{site.data.keyword.cloudant_short_notm}} Metrics application](/docs/services/Cloudant?topic=cloudant-diagnose-and-troubleshoot#ibm-cloudant-metrics-application).
+To manage the {{site.data.keyword.cloudant_short_notm}} Metrics application, see [{{site.data.keyword.cloudant_short_notm}} Metrics application](/docs/Cloudant?topic=cloudant-diagnose-troubleshoot#ibm-cloudant-metrics-application).

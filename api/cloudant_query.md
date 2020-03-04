@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-15"
+  years: 2015, 2020
+lastupdated: "2020-01-24"
 
 keywords: create index, query, json index type, text index type, query parameters, partial index, implicit operators, explicit operators, combination operators, condition operators, selector expressions, sort, filter,  pagination, partitioned field, index field, default_field field, fields array, index_array_lengths field, list indexes, delete index, selector syntax
 
@@ -104,7 +104,7 @@ See the following example of returned JSON, confirming that the index was create
 
 | Field | Description | 
 |-------|-------------|
-| index | fields: A JSON array of field names that uses the [sort-syntax](docs/services/Cloudant?topic=cloudant-query#sort-syntax). Nested fields are also allowed, for example, `"person.name"`. |
+| index | fields: A JSON array of field names that uses the [sort syntax](/docs/Cloudant?topic=cloudant-query#sort-syntax). Nested fields are also allowed, for example, `"person.name"`. |
 | ddoc (optional) | Name of the design document in which the index is created. By default, each index is created in its own design document. Indexes can be grouped into design documents for efficiency. However, a change to one index in a design document invalidates all other indexes in the same document. |
 | type (optional) | Can be `json` or `text`. Defaults to `json`. Geospatial indexes will be supported in the future. | 
 | name (optional) | Name of the index. If no name is provided, a name is generated automatically. |
@@ -273,7 +273,7 @@ Key        | Description
 
 The `analyzer` key in the `default_field` specifies how the index analyzes text.
 Later,
-the index can be queried by using the `$text` operator. For more information, see the [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant?topic=cloudant-search#analyzers) for alternative analyzers.
+the index can be queried by using the `$text` operator. For more information, see the [Search documentation](/docs/Cloudant?topic=cloudant-search#analyzers) for alternative analyzers.
 You might choose to use an alternative analyzer when documents are indexed in languages other than English,
 or when you have other special requirements for the analyzer such as matching email addresses.
 
@@ -361,7 +361,7 @@ such as wildcards,
 fuzzy matches,
 or proximity detection.
 For more information,
-see [{{site.data.keyword.cloudant_short_notm}} Search documentation](/docs/services/Cloudant?topic=cloudant-search#search).
+see the [Search documentation](/docs/Cloudant?topic=cloudant-search#search).
 The `$text` operator applies to all strings found in the document.
 If you place this operator in the context of a field name, it is invalid.
 
@@ -429,7 +429,7 @@ all the documents of `type`:`user` that do not have a status of `archived`.
 This situation occurs because a normal index can be used to match contiguous rows,
 and the `$ne` operator cannot guarantee that.
 
-[{{site.data.keyword.cloudant_localfull}} (Cloudant Local)](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-local-overview) does not support partial indexes.
+[{{site.data.keyword.cloudant_local_notm}}](/docs/Cloudant?topic=cloudant-ibm-cloudant-local-overview) does not support partial indexes.
 {: note}
 
 To improve response time, you can create an index that excludes documents 
@@ -488,7 +488,7 @@ Design documents are regular documents that have an ID starting with `_design/`.
 They can be retrieved and modified in the same way as any other document,
 although these actions are not usually necessary when you use {{site.data.keyword.cloudant_short_notm}} Query.
 
-For more information, see [Design documents](/docs/services/Cloudant?topic=cloudant-design-documents#design-documents).
+For more information, see [Design documents](/docs/Cloudant?topic=cloudant-design-documents#design-documents).
 
 ### Response body format for listing all {{site.data.keyword.cloudant_short_notm}} Query indexes
 {: #response-body-format-for-listing-all-IBM-cloudant-query-indexes}
@@ -583,7 +583,7 @@ Design documents are not returned by `_find`.
 -	**r (optional, default: 1)**: The read quorum used when reading documents required when processing a query. The value defaults to 1, in which case, the document is read from the primary data co-located with the index. If set to a higher value, the document must also be retrieved from at least _r-1_ other primary data replicas before results can be processed. This option increases query latency as the replicas reside on separate machines. In practice, this option should hardly ever be changed from the default.
     - `r` is **disallowed** when making a partition query.
 -	**bookmark (optional, default: null)**: A string that is used to specify which page of results you require.
-	For more information, see [Pagination](#pagination).
+	For more information, see [Pagination](#pagination_query).
 -	**use_index (optional)**: Use this option to identify a specific index for query to run against,
 	rather than by using the {{site.data.keyword.cloudant_short_notm}} Query algorithm to find the best index. For more information, see [Explain plans](#explain-plans).
 -	**conflicts (optional, default: false)**: A Boolean value that indicates whether or not to include information about existing conflicts in the document.
@@ -1187,7 +1187,7 @@ Object        | `$exists` | Boolean              | Check whether the field exist
 Array         | `$in`     | Array of JSON values | The document field must exist in the list provided.
               | `$nin`    | Array of JSON values | The document field must not exist in the list provided.
               | `$size`   | Integer              | Special condition to match the length of an array field in a document. Non-array fields cannot match this condition.
-Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/services/Cloudant?topic=cloudant-http#http-status-codes). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
+Miscellaneous | `$mod`    | [Divisor, Remainder] | Divisor and Remainder are both positive or negative integers. Non-integer values result in a [404 status](/docs/Cloudant?topic=cloudant-http#http-status-codes). Matches documents where the expression (`field % Divisor == Remainder`) is true, and only when the document field is an integer.
               | `$regex`  | String               | A regular expression pattern to match against the document field. Matches only when the field is a string value and matches the supplied regular expression.
 {: caption="Table 10. Condition operator argument requirements" caption-side="top"}
 
@@ -1592,7 +1592,7 @@ The `$mod` operator matches documents where the expression (`field % Divisor == 
 and only when the document field is an integer.
 The Divisor and Remainder must be integers.
 They can be positive or negative integers.
-A query where the Divisor or Remainder is a non-integer returns a [404 status](/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
+A query where the Divisor or Remainder is a non-integer returns a [404 status](/docs/Cloudant?topic=cloudant-http#http-status-codes).
 
 When you use negative integer values for the Divisor or Remainder,
 the {{site.data.keyword.cloudant_short_notm}} `$mod` operator behaves in a similar way to the
@@ -2104,7 +2104,10 @@ the `type_3astring` expression was converted to `type:string`.
 The second `type_2e_5b_5d_3astring` phrase converts to `type.[]:string`,
 which is an example of the expanded array indexing.
 
-#### Corresponding Lucene query: The '#' comments are not valid Lucene syntax, but help explain the query construction
+#### Corresponding Lucene query explained
+{: #corresponding-lucene-query-explained}
+
+The '#' comments are not valid Lucene syntax, but help explain the query construction.
 
 ```javascript
 (
@@ -2167,7 +2170,7 @@ curl "https://$ACCOUNT:$PASSWORD@$ACCOUNT.cloudant.com/_replicator" \
 ```
 {: codeblock}
 
-### Results after successful replication of the {{site.data.keyword.cloudant_short_notm}} Query movie database
+See the results after a successful replication of the {{site.data.keyword.cloudant_short_notm}} Query movie database:
 
 ```json
 {

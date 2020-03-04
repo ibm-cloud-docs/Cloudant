@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-11-15"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: views, mapreduce, concepts, index partitioning type, simple view, complex keys, reduce functions, built-in reduce functions, referential transparency, commutative and associative properties, document partitioning, reduced value size, execution environment, example, map function, view definition
 
@@ -21,24 +21,23 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2019-12-23 -->
 
 # Views (MapReduce)
 {: #views-mapreduce}
 
 Views are used to obtain data stored within a database.
-Views are written using Javascript functions. Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. 
+Views are written by using JavaScript functions. Learn more about the simplest view, reduce functions, map and reduce function restrictions, and storing a view definition. Plus, see the examples that are provided. 
 {: shortdesc}
 
 ## View concepts
 {: #view-concepts}
 
 Views are mechanisms for working with document content in databases.
-A view can selectively filter documents.
-It can speed up searching for content.
-It can be used to 'pre-process' the results before they are returned to the client.
+A view can selectively filter documents and speed up searching for content.
+It can be used to 'pre-process' the results before they're returned to the client.
 
-Views are simply Javascript functions, defined within the `views` field of a design document.
+Views are simply JavaScript functions, which are defined within the `views` field of a design document.
 When you use a view,
 or more accurately when you run a query by using your view,
 the system applies the JavaScript function to every document in the database.
@@ -48,7 +47,7 @@ You might choose to define a collection of JavaScript functions to create the ov
 ## View index partitioning type
 {: #view-index-partitioning-type}
 
-A view index will inherit the partitioning type from the `options.partitioned`
+A view index inherits the partitioning type from the `options.partitioned`
 field of the design document that contains it.
 
 ## A simple view
@@ -60,12 +59,12 @@ The map function produces output data that represents an analysis (a mapping) of
 For example,
 you might want to find out which employees had some safety training,
 and the date when that training was completed.
-You might do this by inspecting each document, and
+You might find this information by inspecting each document, and
 looking for a field in the document called "training".
 If the field is present,
-the employee completed the training on the date recorded as the value.
-If the field is not present,
-the employee did not complete the training.
+the employee completed the training on the date that is recorded as the value.
+If the field isn't present,
+the employee didn't complete the training.
 
 Using the `emit` function in a view function makes it easy to produce a list
 in response to running a query by using the view.
@@ -178,7 +177,7 @@ function(doc) {
 ### Complex keys
 {: #complex-keys}
 
-Keys are not limited to simple values.
+Keys aren't limited to simple values.
 You can use arbitrary JSON values to influence sorting.
 
 When the key is an array,
@@ -189,16 +188,16 @@ then results can be reduced to a single value or by year,
 month,
 or day.
 
-For more information, see [Using views](/docs/services/Cloudant?topic=cloudant-using-views#using-views).
+For more information, see [Using views](/docs/Cloudant?topic=cloudant-using-views#using-views).
 
 ## Reduce functions
 {: #reduce-functions}
 
-Design documents with `options.partitioned` set to `true` cannot contain custom JavaScript reduce functions, only built-in reduces are allowed. 
+Design documents with `options.partitioned` set to `true` can't contain custom JavaScript reduce functions. Only built-in reduces are allowed. 
 {: tip}
 
 If a view has a reduce function,
-it is used to produce aggregate results for that view.
+it's used to produce aggregate results for that view.
 A reduce function is passed a set of intermediate values and combines them to a single value.
 A reduce function must accept,
 as input,
@@ -208,9 +207,9 @@ The latter case is referred to as a 'rereduce'.
 
 Reduce functions are passed three arguments in the following order:
 
--	keys
--	values
--	rereduce
+-	`keys`
+-	`values`
+-	`rereduce`
 
 A description of the reduce functions is shown in the following example.
 
@@ -252,7 +251,7 @@ the `rereduce` argument can be ignored.
 {: #built-in-reduce-functions}
 
 For performance reasons,
-a few simple reduce functions are built-in.
+a few simple reduce functions are built in.
 Whenever possible,
 you must use one of these functions instead of writing your own.
 
@@ -264,10 +263,10 @@ Function | Description
 `_count` | Produces the row count for a specific key. The values can be any valid JSON.
 `_stats` | Produces a JSON structure that contains the sum, the count, the min, the max, and the sum-squared values. All values must be numeric.
 `_sum`   | Produces the sum of all values for a key. The values must be numeric.
-`_approx_count_distinct` | Approximates the number of distinct keys in a view index using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: new_window}{: external} algorithm.
+`_approx_count_distinct` | Approximates the number of distinct keys in a view index by using a variant of the [HyperLogLog](https://en.wikipedia.org/wiki/HyperLogLog){: new_window}{: external} algorithm.
 
 By feeding the results of `reduce` functions back into the `reduce` function,
-MapReduce is able to split up the analysis of huge data sets into discrete,
+MapReduce can split up the analysis of huge data sets into discrete,
 parallel tasks,
 which can be completed much faster.
 
@@ -284,7 +283,7 @@ original data that caused the error is returned in the `caused_by` field.
             "key": null,
             "value": {
                 "error": "builtin_reduce_error",
-                "reason": "The _sum function requires that map values be numbers, arrays of numbers, or objects. Objects cannot be mixed with other data structures. Objects can be arbitrarily nested, if the values for all fields are themselves numbers, arrays of numbers, or objects.",
+                "reason": "The _sum function requires that map values be numbers, arrays of numbers, or objects. Objects can't be mixed with other data structures. Objects can be arbitrarily nested, if the values for all fields are themselves numbers, arrays of numbers, or objects.",
                 "caused_by": [
                     {
                         "a": 1
@@ -309,22 +308,22 @@ original data that caused the error is returned in the `caused_by` field.
 ## Map and reduce function restrictions
 {: #map-and-reduce-function-restrictions}
 
-This section describes map and reduce function restrictions.
+Map and reduce function restrictions are described here.
 
 ### Referential transparency
 {: #referential-transparency}
 
 The map function must be referentially transparent. Referential transparency means that
 an expression can be replaced with the same value without changing the result, in this
-case, a document and a key/value pair. Because of this,
+case, a document, and a key/value pair. Because of referential transparency,
 {{site.data.keyword.cloudant_short_notm}} views can be updated
-incrementally and only reindex the delta since the last update.
+incrementally and reindex only the delta since the last update.
 
 ### Commutative and associative properties
 {: #commutative-and-associative-properties}
 
 In addition to referential transparency, the reduce function must also have commutative
-and associative properties for the input. This makes it possible for the MapReduce
+and associative properties for the input. These properties makes it possible for the MapReduce
 function to reduce its own output and produce the same response, for example:
 
 <code>f(Key, Values) == f(Key, [ f(Key, Values) ] )</code>
@@ -332,19 +331,18 @@ function to reduce its own output and produce the same response, for example:
 As a result, {{site.data.keyword.cloudant_short_notm}} can store intermediate
 results to the inner nodes of the
 B-tree indexes. These
-restrictions also makes it possible for indexes to spread across machines and reduce
+restrictions also make it possible for indexes to spread across machines and reduce
 at query time.
 
 ### Document partitioning
 {: #document-partitioning}
 
-Due to sharding, there are
-no guarantees that the output of any two specific map functions will be passed to
-the same instance of a reduce call, so you should not rely on any ordering. Your
-reduce function must consider all the values passed to it and return the correct
+Due to sharding, there are no guarantees that the output of any two specific map functions will pass to
+the same instance of a reduce call. You must not rely on any ordering. Your
+reduce function must consider all the values that are passed to it and return the correct
 answer irrespective of ordering. {{site.data.keyword.cloudant_short_notm}} is also guaranteed to call your reduce
-function with `rereduce=true` at query time even if it did not need to do so when
-building the index, so it is essential that your function works correctly in that
+function with `rereduce=true` at query time even if it didn't need to do so when
+it built the index. It's essential that your function works correctly in that
 case (`rereduce=true` means that the keys parameter is `null` and the values array is
 filled with results from previous reduce function calls).
 
@@ -355,10 +353,10 @@ filled with results from previous reduce function calls).
 corresponding reduce values then caches
 these values inside each of the B-tree node pointers. Now,
 {{site.data.keyword.cloudant_short_notm}} can reuse
-reduced values when updating the B-tree. You must pay attention to the amount
+reduced values when it updates the B-tree. You must pay attention to the amount
 of data that is returned from reduce functions.
 
-It is best that the size of your returned data set stays small and grows no
+It's best that the size of your returned data set stays small and grows no
 faster than `log(num_rows_processed)`. If you ignore this restriction,
 {{site.data.keyword.cloudant_short_notm}} does not automatically throw an error,
 but B-tree performance degrades
@@ -374,7 +372,7 @@ Your indexing functions operate in a memory-constrained environment where the do
 ### No JavaScript reducers when `options.partitioned` is `true`
 {: #no-javascript-reducers-when-options.partitioned-is-true-}
 
-Design documents with `options.partitioned` set to `true` cannot contain JavaScript
+Design documents with `options.partitioned` set to `true` can't contain JavaScript
 reduce functions, only built-ins Erlang reducers such as `_stats`.
 
 ## Storing the view definition
@@ -385,7 +383,7 @@ Views are stored in design documents.
 So,
 to store a view,
 we simply store the function definition within a design document.
-A design document can be [created or updated](/docs/services/Cloudant?topic=cloudant-design-documents#creating-or-updating-a-design-document)
+A design document can be [created or updated](/docs/Cloudant?topic=cloudant-design-documents#creating-or-updating-a-design-document)
 just like any other document.
 
 To store a view definition,

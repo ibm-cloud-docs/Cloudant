@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-12-04"
+  years: 2015, 2020
+lastupdated: "2020-02-06"
 
-keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
+keywords: new features, partition query, dedicated hardware plan, replication scheduler, 8126, 8111, 8106, 8103, 8076, 8070, 8062, 8058, 8052, 8048, 8038, 7681, 7544, 7426, 7410, 7304, 7302, 7276, tls 1.3 supported, 8048, 8038, 7205, 7138, 7137, 7084, 7051, 7014, 6979, 6919, 6909, 6900, 6895, 6875, 6870, 6761, 6656, 6620, 6600, 6588, query, 6365, 6276, 6233, 6069, 5834, 5728, 5638, 5421
 
 subcollection: cloudant
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019 -->
+<!-- Acrolinx: 2020-12-24 -->
 
 # Release notes
 {: #release-notes}
@@ -41,7 +41,7 @@ applications.
 
 For more information, see the following link:
 
-- Read the [guide to partition query](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#ibm-cloud-public).
+- Read the [guide to partition query](/docs/Cloudant?topic=cloudant-database-partitioning).
 
 ### Dedicated Hardware (June 2017)
 {: #dedicated-hardware}
@@ -50,35 +50,48 @@ A new Dedicated Hardware plan is available.
 
 For more information, see the following links:
 
-- Read about the [Dedicated Hardware plan](/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#dedicated-hardware-plan){: new_window}{: external}.
+- Read about the [Dedicated Hardware plan](/docs/Cloudant?topic=cloudant-ibm-cloud-public#dedicated-hardware-plan){: new_window}{: external}.
 
 ### Replication scheduler
 {: #replication-scheduler}
 
 The new replication scheduler has several improvements and enhancements. Learn more about the replication scheduler.
 
-## Build ___ (____ ____)
-{: #build-_____-____-_____}
+## Future build (March 6, 2020 or later)
+{: #future-build-march-6-2020}
 
-- `_all_docs`, `_design_docs` and `_local_docs` now accept all query string parameters to be specified in the JSON body for POST requests.
+The following changes will be coming March 6, 2020 or later and might cause compatibility issues.
+{: important}
+
+Review the changes on the Deprecations page:
+
+- The fields used by `GET /{db}` and `GET /{db}/_design/{ddoc}/_info` were replaced with new fields. For more information, see the [Deprecations](/docs/services/Cloudant?topic=cloudant-deprecations#replaced-dbinfo-size-fields) page.
+- The `?queries` parameter was replaced by `POST /{db}/_design/{ddoc}/_view/{view}/queries`. For more information, see the [Deprecations](/docs/services/Cloudant?topic=cloudant-deprecations#replaced-?queries-parameter) page.
+
+## Build 8126 (January 2020)
+{: #build-8126-January-2020}
+- Bug fixes.
+- Improvements to replication error reporting - instead of a function_clause, human-readable markers are returned, for example, `bulk_docs_failed`. Stack traces are no longer included.
+- Replication job statistics, such as `docs_read`, `docs_written`, and `doc_write_failures` are preserved when replication jobs restart.
+- Replication jobs to a target endpoint using IAM Writer permissions no longer crash and continuously restart when they write design documents. Instead, the `doc_write_failures` statistic is incremented for each failed design document write. This behavior is consistent with replicating by using the legacy API-key based authentication.
 
 ## Build 8111 (November 2019)
 {: #build-8111-november-2019}
 
-- Bug fixes. 
-- The `_scheduler/docs` endpoint now includes more detailed replication statistics to match `_active_tasks` output. It also includes details on replications started with `_replicate`.
+- Bug fixes.
+- The `_scheduler/docs` endpoint now includes more detailed replication statistics to match `_active_tasks` output. It also includes details on replications that started with `_replicate`.
 - Fix an instance where the replicator failed a replication but the error was recoverable.
 - Fix a bug introduced in recent builds where sending an empty payload to `_bulk_docs` would result in a 400 response status code rather than accepting the no-op operation.
 
 ## Build 8106 (October 2019)
 {: #build-8106-october-2019}
 
-- Bug fixes. 
+- Bug fixes.
 
 ## Build 8103 (October 2019)
 {: #build-8103-october-2019}
 
-- New `X-Cloudant-Action` HTTP response header which returns the {{site.data.keyword.cloud}}    IAM actions associated with a request.
+- New `X-Cloudant-Action` HTTP response header that returns the {{site.data.keyword.cloud}}    IAM actions that are associated with a request.
 - Previously, search requests would return a `400` status code both on a bad
     request and on internal server errors. Now, internal server errors correctly
     return a `500` response status code.
@@ -102,18 +115,17 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## Build 8058 (April 2019)
 {: #build-8058-april-2019}
 
-- Fixed bug in `ibrowse` http client which leaves dead process IDs in the connection pool, and, in some cases, caused persistent IAM-based replication failures.
+- Fixed bug in `ibrowse` HTTP client that leaves dead process IDs in the connection pool, and in some cases, caused persistent IAM-based replication failures.
 
 ## Build 8052 (April 2019)
 {: #build-8052-april-2019}
 
-- Accessing the database info endpoint (`/db/`) for a partitioned database
-    now includes information about the contained partitioned indexes. This
-    is within a new field, `partitioned_indexes`, and contains the following
+- Accessing the database information endpoint (`/db/`) for a partitioned database
+    now includes information about the contained partitioned indexes. The new field, `partitioned_indexes`, contains the following
     information:
 
     - The current number of partitioned indexes in the database (`count`).
-    - A break down of those indexes by type (`indexes`).
+    - A breakdown of those indexes by type (`indexes`).
     - The maximum partitioned indexes allowed for this database (`limit`).
 
 ## Build 8048 (March 2019)
@@ -122,7 +134,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 
 ## Build 8038 (March 2019)
 {: #build-8038-march-2019}
-- Allow using `POST` when making search [partition queries](/docs/services/Cloudant?topic=cloudant-database-partitioning#database-partitioning).
+- Allow `POST` when you search [partition queries](/docs/Cloudant?topic=cloudant-database-partitioning#database-partitioning).
 
 ## Build 7681 (February 2019)
 {: #build-7681-february-2019}
@@ -132,9 +144,9 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## Build 7668 (January 2019)
 {: #build-7668-january-2019}
 
-- This build introduces a new feature, [Partition Query](/docs/services/Cloudant?topic=cloudant-database-partitioning#database-partitioning).
-- Allow `limit` when using `POST` for search.
-- Previously, view requests using a `limit` parameter greater than 268435456 would have the limit silently reduced to 268435456. Now, requests with the `limit` parameter greater than 268435456 will be rejected with a `400 Bad Request` error.
+- This build introduces a new feature, [Partition Query](/docs/Cloudant?topic=cloudant-database-partitioning#database-partitioning).
+- Allow `limit` when you use `POST` for search.
+- Previously, view requests by using a `limit` parameter greater than 268435456 would have the limit silently reduced to 268435456. Now, requests with the `limit` parameter greater than 268435456 are rejected with a `400 Bad Request` error.
 
 ## Build 7631 (January 2019)
 {: #build-7631-january 2019}
@@ -145,18 +157,18 @@ The new replication scheduler has several improvements and enhancements. Learn m
 {: #build-7544-december-2018}
 
 - Fixed a problem where the replicator would sometimes reset statistics during
-    replications. This would affect values in the [replication status
-    information](/docs/services/Cloudant?topic=cloudant-advanced-replication#advanced-replication).
+    replications. The reset would affect values in the [replication status
+    information](/docs/Cloudant?topic=cloudant-advanced-replication#advanced-replication).
      See [PR](https://github.com/apache/couchdb/pull/1722){: new_window}{: external}.
-- Fixed an issue with {{site.data.keyword.cloudant_short_notm}} Query where, after deleting a document, issuing
-    a `_find` request to a text index with `update=false` could return a
+- Fixed an issue with {{site.data.keyword.cloudant_short_notm}} Query. After deleting a document, if you issue
+    a `_find` request to a text index with `update=false`, it might return a
     `500` response.
     See [PR](https://github.com/apache/couchdb/pull/1709){: new_window}{: external}.
-- You can now use `multipart/mixed` and `multipart/related` when using
+- You can now use `multipart/mixed` and `multipart/related` when you use
     `_bulk_get`. See [PR](https://github.com/apache/couchdb/pull/1195){: new_window}{: external}.
 - Fix a bug with total row count in the `_design_docs` handler.
      See [PR](https://github.com/apache/couchdb/pull/1744){: new_window}{: external}.
-- Optimisations to the `_doc_id` and `_design_docs` replication filters.
+- Optimizations to the `_doc_id` and `_design_docs` replication filters.
      See [issue](https://github.com/apache/couchdb/issues/1737){: new_window}{: external}.
 - Fix a regression where long-running index jobs can fail.
 
@@ -179,7 +191,7 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## Build 7304 (October 11, 2018)
 {: #build-7304-october-11-2018}
 
-- This build is identical to build 7302 except that it is built on Erlang 17.5 instead of Erlang 20.
+- This build is identical to build 7302 except that it's built on Erlang 17.5 instead of Erlang 20.
 
 ## Build 7302 (September 25, 2018)
 {: #build-7302-september-25-2018}
@@ -198,13 +210,13 @@ The new replication scheduler has several improvements and enhancements. Learn m
 ## TLS 1.3 Supported (September 13, 2018)
 {: #tls-1-3-supported-september-13-2018}
 
-From today we support TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
+From today, we support TLS 1.3 connections to {{site.data.keyword.cloudant_short_notm}}.
 
-We recommend that you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}.
+We recommend you use TLS 1.2 or 1.3 for all access to {{site.data.keyword.cloudant_short_notm}}.
 (***In June 2019, {{site.data.keyword.cloudant_short_notm}} is retiring the use of older
 versions (TLS 1.0 and 1.1) at which point only TLS 1.2+ will be supported.***)
 
-Find more information on our [Security page](/docs/services/Cloudant?topic=cloudant-security#security).
+Find more information on our [Security page](/docs/Cloudant?topic=cloudant-security#security).
 
 ## Build 7205 (September 07, 2018)
 {: #build-7205-september-07-2018}
@@ -236,9 +248,9 @@ Find more information on our [Security page](/docs/services/Cloudant?topic=cloud
 - Refactor code for `_stats` reducer.
 - Fix active size calculations for views.
 - Rewrite the `couch_key_tree` algorithm to reduce its computational complexity and avoid calling stemming when unnecessary.
-- Change allocation strategy for message queue for each important process so it is not stored on the heap of that process.
+- Change allocation strategy for message queue for each important process, so it's not stored on the heap of that process.
 - Improvements to internal audit facility.
-- Any constant fields that are in the selector, and are part of the index, for example, {A: {$eq: 10}}, are inserted into the sort list if they are not already included. This method increases the chance that the best index is selected for the query, for example, index = [A, B], sort = [B], and selector = {A: 1}. The sort then becomes [A, B].
+- Any constant fields that are in the selector, and are part of the index, for example, {A: {$eq: 10}}, are inserted into the sort list if they aren't already included. This method increases the chance that the best index is selected for the query, for example, index = [A, B], sort = [B], and selector = {A: 1}. The sort then becomes [A, B].
 
 <p class="tip">Only the fields that are in front of the current sort fields in the list are added.</p>
 
@@ -249,7 +261,7 @@ Find more information on our [Security page](/docs/services/Cloudant?topic=cloud
 - Add forward compatibility clause for `_stats` disk format change.
 - Add compatibility clause for attachment receiver to facilitate Erlang upgrade.
 - Improvements to internal audit facility.
-- Reduce the possibility that a race condition will occur between the time when closing a geo index is triggered by deleting a database and when a geo index is destroyed during compaction.
+- Reduce the possibility that a race condition occurs between the time when deleting a database triggers a geo index to close and when compaction destroys a geo index.
 
 ## Build 7014 (June 12, 2018)
 {: #build-7014-june-12-2018}
@@ -308,13 +320,13 @@ Find more information on our [Security page](/docs/services/Cloudant?topic=cloud
 - Avoid unconditional retries in replicator's HTTP client.
 - Update MochiWeb to version 2.17.
 - Introduce new `_dbs_info` endpoint to get information from a list of databases. See
-[Get a list of all databases in the account](/docs/services/Cloudant?topic=cloudant-databases#get-a-list-of-all-databases-in-the-account).
+[Get a list of all databases in the account](/docs/Cloudant?topic=cloudant-databases#get-a-list-of-all-databases-in-the-account).
 - Prepare for session support in replicator.
 
 ## Build 6656 (February 15, 2018)
 {: #build-6656-february-15-2018}
 
-- Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](/docs/services/Cloudant?topic=cloudant-databases#get-documents).
+- Update `_design_docs` to respect the query parameters that are used by `_all_docs`. See [Get design documents](/docs/Cloudant?topic=cloudant-databases#get-documents).
 - When you send a `COPY` request to `/$DATABASE/docid` endpoint, {{site.data.keyword.cloudant_short_notm}} now decodes the Destination header and creates a new ID without escaped values.
 - Remove headers from replication document on read.
 - If the `keys` parameter is specified and the `update_seq` parameter is set to true, the `update_seq` and `offset` parameters return `null` in the response.
@@ -323,12 +335,12 @@ Find more information on our [Security page](/docs/services/Cloudant?topic=cloud
 ## Build 6620 (January 10, 2018)
 {: #build-6620-january-10-2018}
 
-- Query: fallback to `selector` on an empty `partial_filter_selector` field.
+- Query falls back to `selector` on an empty `partial_filter_selector` field.
 
 ## Build 6600 (December 28, 2017)
 {: #build-6600-december-28-2017}
 
-- Query: fields that are referenced within `$or` operations are considered when {{site.data.keyword.cloudant_short_notm}} query determines the usable
+- Query fields that are referenced within `$or` operations are considered when {{site.data.keyword.cloudant_short_notm}} query determines the usable
 indexes for a particular selector.
 
 ## Build 6588 (December 7, 2017)
@@ -338,7 +350,7 @@ indexes for a particular selector.
 that is created on a new replication. You can now customize the cluster's default values for the number of shards and
 replicas to create.
 - A request to `/_scheduler` without specifying subsections `docs` or `jobs` now returns a `Not found` error.
-- A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request.`
+- A new error is returned when a `new_edits` value is invalid in the `/db/_bulk_docs` URL. The error is `400: Bad request`.
 - For security reasons, by default, the use of `eval()` and `Function()` constructors is disabled in
 JavaScript.
 - Added the header `Prefer: return=minimal` to return only essential headers. This header reduces the size of the request, which gives a performance improvement to non-browser clients.
@@ -347,25 +359,25 @@ JavaScript.
 {: #query-code-_find-code-endpoint}
 
 - {{site.data.keyword.cloudant_short_notm}} Query now uses a new method to select an index. Learn more about [{{site.data.keyword.cloudant_short_notm}} Query index selection](http://www-01.ibm.com/support/docview.wss?uid=swg22011923){: new_window}{: external}.
-- The logic for determining whether a specific index is valid for a query changed, addressing a bug that might lead to incorrect results.
+- The logic for determining whether a specific index is valid for a query that changed, addressing a bug that might lead to incorrect results.
 - Queries that use text indexes no longer fail when `$exists`: `false` is used.
-- Partial indexes are now supported for both JSON and text indexes. For more information, see  [Creating a partial index](/docs/services/Cloudant?topic=cloudant-query#creating-a-partial-index) for more information.
-- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [finding documents by using an index](/docs/services/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index) for more information.
-- [Pagination](/docs/services/Cloudant?topic=cloudant-query#pagination) is supported by using the bookmark field. Bookmarks are enabled for all index types.
+- Partial indexes are now supported for both JSON and text indexes. For more information, see  [Creating a partial index](/docs/Cloudant?topic=cloudant-query#creating-a-partial-index) for more information.
+- Execution statistics about a query can now be generated. These statistics are enabled by using the `execution_stats=true` parameter. For more information, see [finding documents by using an index](/docs/Cloudant?topic=cloudant-query#finding-documents-by-using-an-index) for more information.
+- [Pagination](/docs/Cloudant?topic=cloudant-query#pagination_query) is supported by using the bookmark field. Bookmarks are enabled for all index types.
 - `_find` now falls back to any valid index if the value specified in the `use_index`
-field is invalid for the current query. When this occurs, the `warning` field is populated in the query response.
+field is invalid for the current query. When `find` falls back, the `warning` field is populated in the query response.
 
 ## Build 6365 (August 17, 2017)
 {: #build-6365-august-17-2017}
 
 - `POST` requests to the `_revs_diff` endpoint require either the `_reader` or `_replicator` role.
-- Add the `X-Frame-Options` header settings to prevent click jacking. Learn more about [X-Frame-Options setting](/docs/services/Cloudant?topic=cloudant-deprecations#x-frame-options-setting).
-- Add the replication scheduler. Learn more about [replication scheduler](/docs/services/Cloudant?topic=cloudant-advanced-replication#the-replication-scheduler).
+- Add the `X-Frame-Options` header settings to prevent click jacking. Learn more about [X-Frame-Options setting](/docs/Cloudant?topic=cloudant-deprecations#x-frame-options-setting).
+- Add the replication scheduler. Learn more about [replication scheduler](/docs/Cloudant?topic=cloudant-advanced-replication#the-replication-scheduler).
 
 ## Build 6276 (July 4, 2017)
 {: #build-6276-july-4-2017}
 
-- An error message changed that occurs when you attempt to put a document attachment with a non-existent revision.
+- An error message changed that occurs when you try to put a document attachment with a non-existent revision.
 Now, the error is a 409 error with the following information: `{`error`:`not_found`,`reason`:`missing_rev`}`.
 
 ## Build 6233 (June 26, 2017)
@@ -383,8 +395,8 @@ Now, the error is a 409 error with the following information: `{`error`:`not_fou
   A fix was introduced so that the replication document is not updated unless the reason for the error changes.
 - If the design document that is intended to specify a geospatial index is invalid,
   an attempt to retrieve information about the index by using
-  the [`_geo_info` endpoint](/docs/services/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial)
-  results in an [HTTP `404`](/docs/services/Cloudant?topic=cloudant-http#http-status-codes) response.
+  the [`_geo_info` endpoint](/docs/Cloudant?topic=cloudant-cloudant-nosql-db-geospatial#cloudant-nosql-db-geospatial)
+  results in an [HTTP `404`](/docs/Cloudant?topic=cloudant-http#http-status-codes) response.
 - Added support for the `$allmatch` operator.
 
 ## Build 5834 (February 13, 2017)

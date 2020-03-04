@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-12-10"
+  years: 2015, 2020
+lastupdated: "2020-01-20"
 
 keywords: log analysis, integration 
 
@@ -81,13 +81,13 @@ Log lines | Description
 `bytesRead`| The size of the response body. 
 `clientIp` | The IP address of the originating request. 
 `clientPort` | The port address for the originating request. 
-`statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information see, [HTTP status codes](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-http#http-status-codes).
+`statusCode` | The HTTP status code returned from {{site.data.keyword.cloudant_short_notm}}. For more information see, [HTTP status codes](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-http#http-status-codes).
 `terminationState` | Session termination indicator for TCP and HTTP logs. For more information, see [Session state at disconnection](https://cbonte.github.io/haproxy-dconv/1.7/configuration.html#8.5){: new_window}{: external}.
 `dbName`| The {{site.data.keyword.cloudant_short_notm}} database name targeted by the HTTP Request.  
 `dbRequest` | The database request endpoint.
 `userAgent` |  Software that is acting on behalf of the user, such as a browser or client library.
 `sslVersion` | The version of Transport Layer Security that the request is using. 
-`requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Event types](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-ibm-cloud-public#event-types){: new_window}{: external}.
+`requestClass`| The class of metrics that the request is billed against. `Unlimited` is an unmetered event. For more information, see [Event types](https://cloud.ibm.com/docs/Cloudant?topic=cloudant-ibm-cloud-public#event-types){: new_window}{: external}.
 `parsedQueryString` | A parsed version showing the breakdown of the parameters passed in the query string. If we are unable to parse the `rawQueryString`, this value will be null.
 `rawQueryString` | Full text of the query string as passed to the service.
 `logSourceCRN` | The CRN of the {{site.data.keyword.cloudant_short_notm}} instance emitting logs.

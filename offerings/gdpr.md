@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2019
-lastupdated: "2019-11-26"
+  years: 2018, 2020
+lastupdated: "2020-02-06"
 
 keywords: audit access ibm cloudant, supported classifications of personal data, personal data, sensitive personal data, restrictions on processing, encrypt data, data locations, service security, delete data
 
@@ -21,13 +21,13 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-02-06 -->
 
 # General Data Protection Regulation (GDPR)
 {: #general-data-protection-regulation-gdpr-}
 
 The GDPR seeks to create a harmonized data protection law framework across the EU. It aims 
-to give citizens back the control of their personal data, while imposing strict rules on 
+to give citizens back the control of their personal data, while it imposes strict rules on 
 those hosting and ‘processing’ this data, anywhere in the world. The Regulation also introduces 
 rules that relate to the free movement of personal data within and outside the EU. 
 {: shortdesc}
@@ -43,7 +43,7 @@ to assist businesses of all sizes with their own internal data governance requir
 ## How do I audit access to {{site.data.keyword.cloudant_short_notm}}?
 {: #how-do-i-audit-access-to-ibm-cloudant-}
 
-You can find information about auditing in [Audit logging](/docs/services/Cloudant?topic=cloudant-audit-logging#audit-logging){: new_window}. 
+You can find information about auditing in [Audit logging](/docs/Cloudant?topic=cloudant-audit-logging#audit-logging){: new_window}. 
 
 ## Supported classifications of Personal Data
 {: #supported-classifications-of-personal-data}
@@ -52,11 +52,11 @@ The following categories of Personal Data are supported by {{site.data.keyword.c
 for GDPR:
 
 **Personal Data**, for example:
- * Identity/civil status
+ * Identity and civil status
  * Personal life
  * Professional life
  * Location data
- * Connectivity/device data
+ * Connectivity and device data
 
 **Sensitive Personal Data**, which is restricted to:
   * Health data, extra conditions apply to be covered in the [{{site.data.keyword.cloudant_short_notm}} Dedicated Cluster Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6756-04/$file/i126-6756-04_05-2018_en_US.pdf){: new_window}{: external} and [{{site.data.keyword.cloud}} Additional Service Description](https://www-03.ibm.com/software/sla/sladb.nsf/pdf/6627-04/$file/i126-6627-04_04-2018_en_US.pdf){: new_window}{: external}
@@ -74,10 +74,10 @@ For more information about supported classifications of Personal Data, see the
 {{site.data.keyword.cloudant_short_notm}} records some data about its users, and is a Data Controller for said 
 Personal Information (PI) data. The data that {{site.data.keyword.cloudant_short_notm}} records depends on the type of account you have.
 
-If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
+If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster or {{site.data.keyword.cloudant_short_notm}} 
 Enterprise Cluster, we record data 
 about you and are considered a Data Controller for your data within the context of GDPR. 
-If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster/{{site.data.keyword.cloudant_short_notm}} 
+If you have an {{site.data.keyword.cloudant_short_notm}} Dedicated Cluster or {{site.data.keyword.cloudant_short_notm}} 
 Enterprise Cluster, we store the following information about you:
 
  * Name
@@ -89,7 +89,7 @@ If you have an account that is provisioned by {{site.data.keyword.cloud_notm}} (
 {{site.data.keyword.cloudant_short_notm}} *does not* collect the personal data previously mentioned. This data is held by {{site.data.keyword.cloud_notm}}.
 
 {{site.data.keyword.cloudant_short_notm}} processes limited customer PI in the course of running the service and optimizing 
-the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email for contacting customers as appropriate. Monitoring 
+the user experience of it. {{site.data.keyword.cloudant_short_notm}} uses email for contacting customers. Monitoring 
 customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboard is the other way {{site.data.keyword.cloudant_short_notm}} processes PI.
 
 ### Restriction of processing
@@ -99,7 +99,7 @@ customer interactions with the {{site.data.keyword.cloudant_short_notm}} Dashboa
 receipt of such a request, {{site.data.keyword.cloudant_short_notm}} deletes information that is associated 
 with the customer as sent to Segment, and prevents further data from being sent. {{site.data.keyword.cloudant_short_notm}} needs to retain the 
 ability to contact dedicated customers via email. We provide an interface for customers to keep this 
-information up-to-date either directly, or via customer configuration of their contact details 
+information up to date either directly, or via customer configuration of their contact details 
 via their {{site.data.keyword.cloud_notm}} account details.
 
 ## Is our {{site.data.keyword.cloudant_short_notm}} database encrypted?
@@ -109,15 +109,13 @@ All clusters have an encrypted file system (encryption at rest) that uses Linux&
 visible to our operations and support teams (see the following paragraph).
 
 For sensitive data, that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}, 
-you must encrypt or otherwise protect (pseudonymize) your data before you send it to us. You must avoid 
-using PI as a document `_id` in your URLs, for example, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, 
-as these PI are always visible and written to the access logs.
+you must encrypt or otherwise protect (pseudonymize) your data before you send it to us. Do not use PI as a document `_id` in your URLs, for example, `https://$ACCOUNT.cloudant.com/$DATABASE/$DOCUMENT_ID`, 
+since PI are always visible and written to the access logs.
 
 ## Data locations
 {: #data-locations}
 
-Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data is  
-made available, and kept up-to-date, via the DSA.
+Locations where {{site.data.keyword.cloudant_short_notm}} processes personal data are made available, and kept up to date, via the DSA.
 
 For more information about data locations, see the 
 [DSA under 7. {{site.data.keyword.IBM_notm}} Hosting and Processing Locations](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=2EBB5860B34311E7A9EB066095601ABB){: new_window}{: external}.
@@ -131,7 +129,7 @@ For more information about data locations, see the
 As a user of {{site.data.keyword.cloudant_short_notm}}, you must follow these guidelines:
 
  * Use the default CORS configuration to prevent unexpected access.
- * Use API keys liberally, such that components can have "least privileged access", which is coupled with the audit log. This practice helps you understand who accessed which data.
+ * Use API keys liberally, since components can have "least privileged access", which is coupled with the audit log. This practice helps you understand who accessed which data.
  * Encrypt or otherwise protect (pseudonymize) sensitive data that you determine must remain invisible to {{site.data.keyword.cloudant_short_notm}}.
 
 ### Physical and environmental security measures
@@ -139,7 +137,7 @@ As a user of {{site.data.keyword.cloudant_short_notm}}, you must follow these gu
 
 Physical security of our data centers is handled by our infrastructure providers: {{site.data.keyword.cloud}}, 
 AWS, and 21Vianet. All hold externally audited certifications for their physical security. {{site.data.keyword.cloudant_short_notm}} 
-won't provide further details of the physical security controls in place at our data 
+doesn't provide further details of the physical security controls in place at our data 
 centers.
 
 Physical security of the office locations that are used by our personnel is handled by {{site.data.keyword.IBM_notm}} Corporate. 
@@ -158,7 +156,7 @@ customer upon request.
 ### Service access to data
 {: #service-access-to-data}
 
-{{site.data.keyword.cloudant_short_notm}} operations and support staff have access to customer data 
+{{site.data.keyword.cloudant_short_notm}} operations and support staff has access to customer data 
 and can access it during 
 routine operations. This access is only done as required in order to operate and support the service. 
 Access is also limited to a *need to know* basis and is logged, monitored, and audited.
@@ -177,7 +175,7 @@ on how you delete it:
 the tombstone includes what you set in the document body. This practice can be useful in some 
 circumstances, for example, when recording why a document was deleted in its tombstone.
 
-For more information on deleting tombstones, see [Simple removal of 'tombstone' documents](/docs/services/Cloudant?topic=cloudant-documents#tombstone-documents){: new_window}.
+For more information, see [Simple removal of 'tombstone' documents](/docs/Cloudant?topic=cloudant-documents#tombstone-documents){: new_window}.
 
 ### When is a deleted document removed?
 {: #when-is-a-deleted-document-removed-}
@@ -191,8 +189,8 @@ from the database, by writing out only 'leaf' revisions to a new file. {{site.da
 
 {{site.data.keyword.cloudant_short_notm}} doesn't guarantee that a database is compacted in a specific time. 
 Compaction is done as a background process across 
-the storage tier. Databases are always being compacted. There is no guarantee that the data compacted is the 
-data you deleted or changed.
+the storage tier. Databases are always being compacted. It isn't guaranteed that the data compacted is the 
+data that you deleted or changed.
 
 {{site.data.keyword.cloudant_short_notm}} is accepting *Right to be forgotten* requests via 
 the [{{site.data.keyword.IBM_notm}} Data Privacy Office (DPO)](http://w3-03.ibm.com/ibm/privacy/index.html){: new_window}{: external}. 
@@ -206,7 +204,7 @@ At the end of this process, the only version of the document is its tombstone
 
 {{site.data.keyword.cloudant_short_notm}} can completely remove all references and data for a 
 document when required. This task is 
-an operator-managed process called purging. Before you request documents be purged, it's 
+an operator-managed process called purging. Before you request that documents be purged, it's 
 important to understand that purged documents *cannot be recovered* by 
 {{site.data.keyword.cloudant_short_notm}} once the 
 process is complete.
@@ -227,7 +225,7 @@ verifies the request to confirm the `id` contains PI. {{site.data.keyword.clouda
 1. {{site.data.keyword.cloudant_short_notm}} triggers the purging action to permanently remove the requested data.
 
 This process is only to be used for emergency deletion requests (for example, *Right to be 
-forgotten*) and must not be relied upon long-term. If your application is intentionally 
+forgotten*) and must not be relied upon long term. If your application is intentionally 
 using PI in document IDs, 
 then it must be changed to either pseudonymize that PI, or not use PI in document IDs. You cannot 
 rely on regular purging by the {{site.data.keyword.cloudant_short_notm}} operations team to avoid this situation. 
@@ -244,11 +242,11 @@ doesn't remove log lines that include document `_id` values.
 ### What about deleting a database?
 {: #what-about-deleting-a-database-}
 
-Deleting a database puts it into a trash can for up to 48 hours after which it's removed from the 
+Deleting a database adds it to a trash can for up to 48 hours after which it's removed from the 
 file system. The {{site.data.keyword.cloudant_short_notm}} team *does not* make back ups of your databases; this task is the 
 *responsibility of the customer*. You must ensure that all copies of your 
 database are removed from your system. For more information, see 
-[{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/services/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: new_window}. 
+[{{site.data.keyword.cloudant_short_notm}} backup and recovery](/docs/Cloudant?topic=cloudant-ibm-cloudant-backup-and-recovery#ibm-cloudant-backup-and-recovery){: new_window}. 
 
 If you need more help, contact 
 [{{site.data.keyword.cloudant_short_notm}} support](mailto:support@cloudant.com).

@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-14"
+  years: 2019, 2020
+lastupdated: "2020-01-20"
 
 keywords: database shards, non-partitioned databases, partition key, global query, partition query, create partition database, create partition query index, partition search, tutorials
 
@@ -54,7 +54,7 @@ The partitioning type can't be changed for an existing database.
 {: #database-shards}
 
 Before you read this document, you must understand the
-[sharding concept](/docs/services/Cloudant?topic=cloudant-how-is-data-stored-in-ibm-cloudant-#how-is-data-stored-in-ibm-cloudant-) within {{site.data.keyword.cloudant_short_notm}}.
+[sharding concept](/docs/Cloudant?topic=cloudant-how-is-data-stored-in-ibm-cloudant-#how-is-data-stored-in-ibm-cloudant-) within {{site.data.keyword.cloudant_short_notm}}.
 
 ## Non-partitioned databases
 {: #non-partitioned-databases}

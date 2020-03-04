@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-10-30"
+  years: 2015, 2020
+lastupdated: "2020-02-13"
 
 keywords: client, mobile, c#, .net, libraries, frameworks, examples, tutorials, php, javascript, ruby, meteor, apache spark, 
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated} 
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-02-13 -->
 
 # Third-party client libraries
 {: #third-party-client-libraries}
@@ -66,9 +66,9 @@ install-package mycouch.cloudant
 ### Unsupported libraries for Java
 {: #unsupported-for-libraries-for-java-thirdparty}
 
-- [ektorp](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}{: external}.
-- [jcouchdb](http://code.google.com/p/jcouchdb/){: new_window}{: external}.
-- [jrelax](https://github.com/isterin/jrelax){: new_window}{: external}.
+- [Ektorp](https://helun.github.io/Ektorp/reference_documentation.html){: new_window}{: external}.
+- [JCouchDB](http://code.google.com/p/jcouchdb/){: new_window}{: external}.
+- [JRelax](https://github.com/isterin/jrelax){: new_window}{: external}.
 - [LightCouch](http://www.lightcouch.org/){: new_window}{: external}.
 
 ## JavaScript
@@ -78,20 +78,20 @@ install-package mycouch.cloudant
 {: #libraries-and-frameworks-for-javascript}
 
 - [Backbone.cloudant](https://github.com/cloudant-labs/backbone.cloudant){: new_window}{: external}.
-- [sag.js](https://github.com/sbisbee/sag-js){: new_window}{: external}.
+- [Sag.js](https://github.com/sbisbee/sag-js){: new_window}{: external}.
 
 ### Examples and tutorials for JavaScript
 {: #examples-and-tutorials-for-javascript}
 
 - [CRUD](https://github.com/cloudant/haengematte/tree/master/javascript-jquery){: new_window}{: external} operations that use jQuery.
 - [CSVtoCloudant](https://github.com/michellephung/CSVtoCloudant){: new_window}{: external} - UI for importing `.csv` files into {{site.data.keyword.cloudant_short_notm}}. The app can also be accessed [here](https://michellephung.github.io/CSVtoCloudant/){: new_window}.
-- [csv2couchdb](https://github.com/Mango-information-systems/csv2couchdb){: new_window}{: external} - UI from Mango Systems to import `.csv` files to CouchDB/{{site.data.keyword.cloudant_short_notm}}.
-- [songblog](https://github.com/millayr/songblog){: new_window}{: external} - example app that uses JQuery.
+- [Csv2couchdb](https://github.com/Mango-information-systems/csv2couchdb){: new_window}{: external} - UI from Mango Systems to import `.csv` files to CouchDB/{{site.data.keyword.cloudant_short_notm}}.
+- [Songblog](https://github.com/millayr/songblog){: new_window}{: external} - example app that uses JQuery.
     
 ## PouchDB (JavaScript)
 {: #pouchdb-javascript}
 
-[PouchDB](http://pouchdb.com/){: new_window}{: external} is a JavaScript database that can synchronize with {{site.data.keyword.cloudant_short_notm}},
+[PouchDB](http://pouchdb.com/){: new_window}{: external} is a JavaScript&trade; database that can synchronize with {{site.data.keyword.cloudant_short_notm}},
 meaning you can make your apps offline-ready by using PouchDB. For more information,
 see [our blog post](https://cloudant.com/blog/pouchdb){: new_window}{: external} on PouchDB.
 
@@ -112,7 +112,7 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 {: #examples-and-tutorials-for-pouchdb}
 
 - [PouchDB Getting Started Guide](http://pouchdb.com/getting-started.html){: new_window}{: external} - example Todo application that synchronizes from browser to {{site.data.keyword.cloudant_short_notm}} or CouchDB.
-- [locationtracker](https://github.com/rajrsingh/locationtracker){: new_window}{: external} - example app to record and map locations by using PouchDB, CouchApp, and {{site.data.keyword.cloudant_short_notm}}.
+- [Locationtracker](https://github.com/rajrsingh/locationtracker){: new_window}{: external} - example app to record and map locations by using PouchDB, CouchApp, and {{site.data.keyword.cloudant_short_notm}}.
 
 ## Node.js
 {: #node-js-thirdparty}
@@ -120,12 +120,12 @@ PouchDB can also be installed with Bower: `bower install pouchdb`.
 ### Unsupported libraries and frameworks for Node.js
 {: #unsupported-libraries-and-frameworks-for-node-js-thirdparty}
 
-- [sag-js](https://github.com/sbisbee/sag-js){: new_window}{: external}, which also works in the browser. For more information, see [saggingcouch](https://github.com/sbisbee/saggingcouch.com){: new_window}{: external} for more detail.
-- [nano](https://github.com/dscape/nano){: new_window}{: external} is a minimalist implementation.
-- [restler](https://github.com/danwrong/restler){: new_window}{: external} delivers the best performance but is really barebones.
-- [cradle](https://github.com/flatiron/cradle){: new_window}{: external} is a high-level client that is also available if you absolutely need ease of use at the cost of reduced performance.
-- [cane_passport](https://github.com/ddemichele/cane_passport){: new_window}{: external} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
-- [express-cloudant](https://github.com/cloudant-labs/express-cloudant){: new_window}{: external} - a template for Node.js Express framework that also uses PouchDB and Grunt.
+- [Sag-JS](https://github.com/sbisbee/sag-js){: new_window}{: external}, which also works in the browser. For more information, see [saggingcouch](https://github.com/sbisbee/saggingcouch.com){: new_window}{: external} for more detail.
+- [Nano](https://github.com/dscape/nano){: new_window}{: external} is a minimalist implementation.
+- [Restler](https://github.com/danwrong/restler){: new_window}{: external} delivers the best performance but is really barebones.
+- [Cradle](https://github.com/flatiron/cradle){: new_window}{: external} is a high-level client that is also available if you absolutely need ease of use at the cost of reduced performance.
+- [Cane_passport](https://github.com/ddemichele/cane_passport){: new_window}{: external} - {{site.data.keyword.cloudant_short_notm}} Angular Node Express with Bootstrap.
+- [Express-Cloudant](https://github.com/cloudant-labs/express-cloudant){: new_window}{: external} - a template for Node.js Express framework that also uses PouchDB and Grunt.
 
 ## PHP
 {: #php}
@@ -145,7 +145,7 @@ require_once('./src/Sag.php');
 ### Libraries and frameworks for PHP
 {: #libraries-and-frameworks-for-php}
 
-- [sag](https://github.com/sbisbee/sag){: new_window}{: external}.
+- [Sag](https://github.com/sbisbee/sag){: new_window}{: external}.
 - [Doctrine CouchDB Client](https://github.com/doctrine/couchdb-client){: new_window}{: external}.
 - [PHP-on-Couch](https://github.com/dready92/PHP-on-Couch){: new_window}{: external}.
 
@@ -202,12 +202,9 @@ meteor add cloudant:couchdb
 
 The `couchdb-meteor` package includes the following features:
 
-- Livequery implementation and real-time updates from the database by consuming the CouchDB `_changes` feed.
+- Live Query implementation and real-time updates from the database by consuming the CouchDB `_changes` feed.
 - Distributed Data Protocol (DDP) RPC endpoints that update data from clients that are connected locally.
 - Serialization and deserialization of updates to the DDP format.
-
-The JSON query syntax used by {{site.data.keyword.cloudant_short_notm}} Query, and initially developed by {{site.data.keyword.cloudant_short_notm}}, was contributed back to Apache CouchDB for version 2.0. Pre-built binary files for Apache CouchDB version 2.0 aren't yet available. You can use this module with {{site.data.keyword.cloudant_short_notm}} DBaaS or Cloudant Local until the pre-built binary files are available.
-{: note}
 
 To configure the Apache CouchDB or {{site.data.keyword.cloudant_short_notm}} server connection information,
 pass its URL as the `COUCHDB_URL` environment variable to the Meteor server process:
@@ -217,4 +214,4 @@ $ export COUCHDB_URL=https://username:password@username.cloudant.com
 ```
 {: codeblock}
 
-For more information about meteor-couchdb APIs, see the [API Reference](/docs/services/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview). 
+For more information, see the [API Reference](/docs/Cloudant?topic=cloudant-api-reference-overview#api-reference-overview) about meteor-couchdb APIs. 

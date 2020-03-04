@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2015, 2019
-lastupdated: "2019-10-17"
+  years: 2015, 2020
+lastupdated: "2020-02-06"
 
 keywords: advanced endpoints, cluster information, revision history, GET /, _db_updates, $DATABASE/_shards, $DATABASE/_missing_revs, $DATABASE/_revs_diff, _membership, _uuids
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-06 -->
+<!-- Acrolinx: 2020-02-07 -->
 
 # Advanced
 {: #advanced-api}
@@ -42,10 +42,10 @@ Response | Welcome message and version
 
 Accessing the root endpoint `/` returns meta information about the cluster.
 The response is a JSON object that includes a welcome message and the version of the server.
-The `version` field contains the CouchDB version the server is compatible with.
-The `vendor.version` field contains the build number of {{site.data.keyword.cloudantfull}}'s CouchDB implementation.
+The `version` field includes the CouchDB version the server is compatible with.
+The `vendor.version` field includes the build number of {{site.data.keyword.cloudantfull}}'s CouchDB implementation.
 
-For {{site.data.keyword.cloudant_short_notm}} versions before 2.0.0, you might see a `cloudant_build` field in the response, rather than a `vendor.version` field. In each case, the field contains the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
+For {{site.data.keyword.cloudant_short_notm}} versions before 2.0.0, you might see a `cloudant_build` field in the response, rather than a `vendor.version` field. In each case, the field includes the build number of {{site.data.keyword.cloudant_short_notm}}'s CouchDB implementation.
 {: note}
 
 See the following example request to get server meta information by using HTTP:
@@ -118,7 +118,7 @@ This endpoint is only available to customers with dedicated system accounts.
 {: note}
 
 The `/_db_updates` endpoint returns a list of changes to databases,
-similar to a global [changes feed](/docs/services/Cloudant?topic=cloudant-databases#get-changes).
+similar to a global [changes feed](/docs/Cloudant?topic=cloudant-databases#get-changes).
 Changes can be either updates to an existing database,
 creation of a new database,
 or deletion of a database.
@@ -128,14 +128,14 @@ and might include changes more than once.
 Polling modes for this endpoint work like the polling modes for the changes feed.
 
 
-Argument | Description | Optional | Type | Default | Supported Values
----------|-------------|----------|------|---------|-----------------
-descending | Determines that results are returned in descending order, in other words the most recent event appears first. By default, the oldest event is returned first. | yes | boolean | false | 
-feed | Type of feed | yes | string | normal | `continuous`: Continuous (non-polling) mode, `longpoll`: Long polling mode, `normal`: default polling mode
-heartbeat | Time in milliseconds after which an empty line is sent during longpoll or continuous if no changes occurred | yes | numeric | 60000 | 
-limit | Maximum number of results to return | yes | numeric | none |  
-since | Start the results from changes immediately after the specified sequence number. If since is 0 (the default), the request returns all changes since the feature was activated. | yes | string | 0 | 
-timeout | Number of milliseconds to wait for data in a `longpoll` or `continuous` feed before the response is terminated. If both `heartbeat` and `timeout` are suppled, `heartbeat` supersedes `timeout`. | yes | numeric |  | 
+| Argument | Description | Optional | Type | Default | Supported Values |
+|---------|-------------|----------|------|---------|----------------|
+| descending | Determines that results are returned in descending order. In other words, the most recent event appears first. By default, the oldest event is returned first. | Yes | Boolean | False | |
+| feed | Type of feed | yes | string | normal | `continuous`: Continuous (non-polling) mode, `longpoll`: Long polling mode, `normal`: default polling mode |
+| heartbeat | Time in milliseconds after which an empty line is sent during longpoll or continuous if no changes occurred | Yes | Numeric | 60000 | |
+| limit | Maximum number of results to return | Yes | Numeric | None |  |
+| since | Start the results from changes immediately after the specified sequence number. If since is 0 (the default), the request returns all changes since the feature was activated. | Yes | String | 0 |  |
+| timeout | Number of milliseconds to wait for data in a `longpoll` or `continuous` feed before the response is terminated. If both `heartbeat` and `timeout` are suppled, `heartbeat` supersedes `timeout`. | Yes | Numeric |  |  | |
 
 See the following example request to get a list of changes to the database by using HTTP:
 
@@ -192,7 +192,7 @@ See the following example response with database information:
 The `/$DATABASE/_shards` endpoint returns information about the shards in the cluster,
 specifically what nodes contain what hash ranges.
 
-The `shards` field in the response contains an object with keys that are the hash value range for each shard.
+The `shards` field in the response includes an object with keys that are the hash value range for each shard.
 Each value is the array of nodes that contain a copy of that shard.
 
 See the following example request by using HTTP:
@@ -367,7 +367,7 @@ See the following example request for document revision IDs from the command lin
 ```sh
 curl "https://$ACCOUNT.cloudant.com/$DATABASE/_revs_diff" \
 	-X POST \
-	-u $ACCOUNT \
+	-u "$ACCOUNT" \
 	-d "$JSON"
 ```
 {: codeblock}
@@ -445,10 +445,10 @@ Currently, active clusters are indicated in the `cluster_nodes` field.
 The `all_nodes` field lists all the nodes,
 regardless of whether they're active or not.
 
--   **Method**: `GET`
--   **Path**: `/_membership`
--   **Response**: JSON document that lists cluster nodes and all nodes
--   **Roles permitted**: _admin
+-   **Method** - `GET`
+-   **Path** - `/_membership`
+-   **Response** - JSON document that lists cluster nodes and all nodes.
+-   **Roles permitted** - _admin
 
 See the following example request to list nodes in the cluster by using HTTP:
 
@@ -513,16 +513,16 @@ See the following example response to list node names in the cluster:
 ## `GET /_uuids`
 {: #-get-_uuids-}
 
-This endpoint is a general utility requests one or more Universally Unique Identifiers (UUIDs).
+This endpoint is a general utility that requests one or more Universally Unique Identifiers (UUIDs).
 The response is a JSON object that provides a list of UUIDs.
 
--   **Method**: `GET`
--   **Path**: `/_uuids`
--   **Response**: JSON document that contains a list of UUIDs
+-   **Method** - `GET`
+-   **Path** - `/_uuids`
+-   **Response** - JSON document that includes a list of UUIDs.
 
 Argument | Description               | Optional | Type
 ---------|---------------------------|----------|------------------------------------------------------------------
-`count`  | Number of UUIDs to return | yes      | Positive integer, greater than 0 and less than or equal to 1,000.
+`count`  | Number of UUIDs to return | Yes      | Positive integer, greater than 0 and less than or equal to 1,000.
 
 See the following example request for a single UUID by using HTTP:
 
