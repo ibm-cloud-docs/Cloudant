@@ -297,7 +297,7 @@ See the following example response that is a JSON array with all the database na
 To list all the documents in a database,
 send a `GET` request to `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs`.
 
-The `_all_docs` endpoint accepts the following query arguments:
+The `_all_docs` endpoint accepts the following query string and JSON body arguments:
 
  Argument | Description  | Optional | Type | Default 
 ----------|--------------|----------|------|---------
