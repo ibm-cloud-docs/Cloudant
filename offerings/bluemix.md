@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-02-14"
 
 keywords: standard plan, lite plan, dedicated hardware plan, event type, provisioned throughput capacity, consumption, capacity, monitor usage, data usage, size limits, locations, tenancy, authentication methods, high availability, disaster recovery, backup, support
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-06 -->
+<!-- Acrolinx: 2020-02-14 -->
 
 # Plans and provisioning
 {: #ibm-cloud-public}
@@ -62,7 +62,7 @@ Storage usage is checked daily. If you exceed your 1-GB storage limit, requests 
 
 If you want to store more than 1 GB of data, or be able to scale provisioned throughput capacity, move to the [Standard plan](#standard-plan).
 
-You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, any attempt to create a Lite plan instance, or change a Standard plan instance to a Lite plan, returns the following message, "You can only have one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan."
+You're limited to one {{site.data.keyword.cloudant_short_notm}} Lite plan instance per {{site.data.keyword.cloud_notm}} account. If you already have one Lite plan instance, any attempt to create a Lite plan instance, or change a Standard plan instance to a Lite plan, returns the following message, "You can have only one instance of a Lite plan per service. To create a new instance, either delete your existing Lite plan instance or select a paid plan."
 {: note}
 
 ### Standard plan
@@ -95,7 +95,7 @@ The Dedicated Hardware plan isn't available to {{site.data.keyword.cloud_notm}} 
 Throughput provision is identified and measured as one of the following types of events:
 
 1.	*Reads*
-    (formerly called lookups) which are:
+    (formerly called lookups) which are described in this list. 
     1. A read of a specific document,
     based on the `_id` of the document.
     2. A *partitioned* query,
@@ -148,7 +148,7 @@ response.
 Recent versions of the supported client libraries (for [Java&trade;](/docs/Cloudant?topic=cloudant-supported-client-libraries#java-supported),
 [Node.js](/docs/Cloudant?topic=cloudant-supported-client-libraries#node-js-supported),
 and [Python](/docs/Cloudant?topic=cloudant-supported-client-libraries#python-supported) languages) help you handle a `429` response. For example,
-the Java library generates a
+the Java&trade; library generates a
 [`TooManyRequestsException`](http://static.javadoc.io/com.cloudant/cloudant-client/2.5.1/com/cloudant/client/org/lightcouch/TooManyRequestsException.html){: new_window}{: external} response.
 
 By default,
@@ -172,16 +172,16 @@ you must ensure that your application can handle a [`429`](/docs/Cloudant?topic=
 Partitioned query requests consume a variable number of read operations
 that depend on the results returned. Consumption is based on two axes:
 
-1. The number of rows read from the index involved in the query.
+1. The number of rows that are read from the index involved in the query.
 2. The number of documents read from the database, if any, during the execution of the query.
     
 #### `_all_docs`, view, and search queries
 
-Each block of 100 rows read from the index consumes 1 read operation. In
+Each block of 100 rows that are read from the index consumes 1 read operation. In
 addition, each document that is read from the database during execution of a query
 consumes 1 read unit.
 
-The number of rows read from the index is the same as the number of results
+The number of rows that are read from the index is the same as the number of results
 returned. Documents are only read from the database when `include_docs=true` is
 passed as a query string parameter during the query request.
 
@@ -226,7 +226,7 @@ Using appropriate indexes is key for reducing read consumption for partitioned
 
 Managing the provisioned throughput capacity allocated to an instance can be done by using either the UI or API. Changes to the provisioned throughput capacity are only allowed by using the paid {{site.data.keyword.cloudant_short_notm}} Standard plan. Users of the free Lite plan have a fixed amount of provisioned throughput capacity but can use the Capacity UI to estimate costs for a capacity setting on the Standard plan.
 
-The method for managing the provisioned throughput capacity via the UI depends on whether the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Resource Group or a Cloud Foundry org and space. Starting in July 2018, all instances are deployed in Resource Groups. It's recommended that you migrate any instances that are deployed in a Cloud Foundry org and space to a Resource Group to take advantage of the latest user experience. For more information, see [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-)
+The method for managing the provisioned throughput capacity via the UI depends on whether the {{site.data.keyword.cloudant_short_notm}} instance is deployed in a Resource Group or a Cloud Foundry org and space. Starting in July 2018, all instances are deployed in Resource Groups. It's recommended that you migrate any instances that are deployed in a Cloud Foundry org and space to a Resource Group to take advantage of the latest user experience. For more information, see the [How does {{site.data.keyword.cloudant_short_notm}} work with {{site.data.keyword.cloud_notm}} Resource Groups?](/docs/Cloudant?topic=cloudant-how-does-ibm-cloudant-work-with-ibm-cloud-resource-groups-) guide.
 
 #### UI - Resource Group
 
@@ -403,7 +403,7 @@ To provide high availability (HA) and disaster recovery (DR) within a data cente
 stored in triplicate across three separate physical servers in a cluster. You can provision 
 accounts in multiple data centers, then use continuous data replication to provide HA/DR across 
 data centers. {{site.data.keyword.cloudant_short_notm}} data isn't automatically backed up, but supported tools are provided to handle backups. Review the 
-[Disaster Recovery and Backup guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup) 
+[Disaster recovery and backup guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup) 
 to explore all HA, DR, and backup considerations to meet your application requirements. 
 
 ## {{site.data.keyword.cloud_notm}} Support
