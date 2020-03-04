@@ -56,10 +56,10 @@ The examples in this document vary between partition and global queries for
 illustrative purposes. Unless otherwise noted, modifying the path to
 embed or remove the partition name works for any view query type.
 
-### Query Arguments
+### Query and JSON Body Arguments
 {: #query-arguments-using_views}
 
-Global queries can use all query arguments. Partition queries can use only the
+Global queries can use all query and JSON body arguments. Partition queries can use only the
 subset that is indicated in the table.
 
 Argument         | Description | Optional | Type | Default | Supported values | Partition query
@@ -509,7 +509,7 @@ you can use the `POST` method to specify the keys to use to retrieve the view re
 In all other aspects,
 the `POST` method is the same as the [`GET`](#querying-a-view) API request.
 In particular,
-you can use any of its query parameters.
+you can use any of its query parameters in either the query string or the JSON body.
 
 See the example HTTP request that returns all recipes, where the key for the view matches either `claret` or `clear apple juice`:
 
