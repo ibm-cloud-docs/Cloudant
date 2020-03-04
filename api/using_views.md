@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-02-27"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -724,6 +724,8 @@ use a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME`.
 The request body is a JSON object that contains only the `queries` field.
 It holds an array of query objects with fields for the parameters of the query.
 The field names and their meaning are the same as the query parameters of a regular view request.
+
+For more information, see the deprecation note about [replacing the  `queries` parameter](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-deprecations#replaced-queries-parameter). 
 
 The JSON object that is returned in the response contains only the `results` field,
 which holds an array of result objects: one result for each query.

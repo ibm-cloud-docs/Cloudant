@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-24"
+lastupdated: "2020-02-27"
 
 keywords: create database, database topology, multiple queries, work with databases, partition database, delete database, back up data, create database applications
 
@@ -425,6 +425,8 @@ Now, we describe how to send multiple queries to a database using `_all_docs` an
 
 To send multiple queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries`.
+
+For more information, see the deprecation note about [replacing the  `queries` parameter](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-deprecations#replaced-queries-parameter). 
 
 See the following example that uses HTTP to send multiple queries to a database:
 
