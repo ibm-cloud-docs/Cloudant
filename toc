@@ -22,6 +22,12 @@ Cloudant
 		offerings/gdpr.md
 
 	{: .topicgroup}
+	What is the new Transaction Engine?
+		transaction-engine/overview-te.md
+		transaction-engine/feature-compare.md
+		transaction-engine/pricing-te.md
+
+	{: .topicgroup}
 	Apache CouchDB
 		couchdb/overview-couchdb.md
 		couchdb/comparison.md
@@ -122,6 +128,7 @@ Cloudant
 	{: .topicgroup}
 	Guides
 		guides/acurl.md
+		guides/best-practices.md
 		guides/cap_theorem.md
 		guides/conflicts.md
 		guides/couchapps.md
