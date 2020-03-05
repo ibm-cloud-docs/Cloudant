@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-27"
+lastupdated: "2020-03-09"
 
 keywords: query a view, indexes, view freshness, combine parameters, sort returned rows, specify start and end keys, use keys to query view, multi-document fetching, send several queries to a view
 
@@ -715,124 +715,7 @@ See the example (abbreviated) response, returning the full document for each rec
 ## Sending several queries to a view
 {: #sending-several-queries-to-a-view}
 
-Multiple queries are only available when you make global queries.
-{: tip}
+Sending multiple queries to a view using a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME` has been deprecated with [Send multiple view queries to a database by using _view](/docs/services/Cloudant?topic=cloudant-databases#send-multiple-view-queries-to-a-database-by-using-_view).
 
-To send several view queries in one request,
-use a `POST` request to `/$DATABASE/_design/$DDOC/_view/$VIEWNAME`.
-
-The request body is a JSON object that contains only the `queries` field.
-It holds an array of query objects with fields for the parameters of the query.
-The field names and their meaning are the same as the query parameters of a regular view request.
-
-For more information, see the deprecation note about [replacing the  `queries` parameter](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-deprecations#replaced-queries-parameter). 
-
-The JSON object that is returned in the response contains only the `results` field,
-which holds an array of result objects: one result for each query.
-
-Each result object contains the same fields as the response to a regular view request.
-
-See the example request that uses HTTP that contains several queries:
-
-```http
-POST /$DATABASE/_design/$DDOC/_view/$VIEWNAME HTTP/1.1
-Content-Type: application/json
-```
-{: codeblock}
-
-See the example request that contains several queries that use the command line:
-
-```sh
-curl "https://$ACCOUNT.cloudant.com/$DATABASE/_design/$DDOC/_view/$VIEWNAME" -H "Content-Type: application/json" -d @request-body.json
-    # where request-body.json is a file containing JSON data describing the queries
-```
-{: codeblock}
-
-See the example JSON document that contains several queries:
-
-```json
-{
-    "queries": [
-        {
-            ...
-        },
-        {
-            "startkey": 1,
-            "limit": 2
-        }
-    ]
-}
-```
-{: codeblock}
-
-See the example response from several queries: 
-
-```json
-{
-    "results": [
-        {
-            "total_rows": 3,
-            "offset": 0,
-            "rows": [
-                {
-                    "id": "8fbb1250-6908-42e0-8862-aef60dc430a2",
-                    "key": 0,
-                    "value": {
-                        "_id": "8fbb1250-6908-42e0-8862-aef60dc430a2",
-                        "_rev": "1-ad1680946839206b088da5d9ac01e4ef",
-                        "foo": 0,
-                        "bar": "foo"
-                    }
-                },
-                {
-                    "id": "d69fb42c-b3b1-4fae-b2ac-55a7453b4e41",
-                    "key": 1,
-                    "value": {
-                        "_id": "d69fb42c-b3b1-4fae-b2ac-55a7453b4e41",
-                        "_rev": "1-abb9a4fc9f0f339efbf667ace66ee6a0",
-                        "foo": 1,
-                        "bar": "bar"
-                    }
-                },
-                {
-                    "id": "d1fa85cd-cd18-4790-8230-decf99e1f60f",
-                    "key": 2,
-                    "value": {
-                        "_id": "d1fa85cd-cd18-4790-8230-decf99e1f60f",
-                        "_rev": "1-d075a71f2d47af7d4f64e4a367160e2a",
-                        "foo": 2,
-                        "bar": "baz"
-                    }
-                }
-            ]
-        },
-        {
-            "total_rows": 3,
-            "offset": 1,
-            "rows": [
-                {
-                    "id": "d69fb42c-b3b1-4fae-b2ac-55a7453b4e41",
-                    "key": 1,
-                    "value": {
-                        "_id": "d69fb42c-b3b1-4fae-b2ac-55a7453b4e41",
-                        "_rev": "1-abb9a4fc9f0f339efbf667ace66ee6a0",
-                        "foo": 1,
-                        "bar": "bar"
-                    }
-                },
-                {
-                    "id": "d1fa85cd-cd18-4790-8230-decf99e1f60f",
-                    "key": 2,
-                    "value": {
-                        "_id": "d1fa85cd-cd18-4790-8230-decf99e1f60f",
-                        "_rev": "1-d075a71f2d47af7d4f64e4a367160e2a",
-                        "foo": 2,
-                        "bar": "baz"
-                    }
-                }
-            ]
-        }
-    ]
-}
-```
-{: codeblock}
+For more information, see the deprecation note about [replacing the  `queries` parameter](/docs/services/Cloudant?topic=cloudant-deprecations#replaced-queries-parameter).
+{: deprecated}
