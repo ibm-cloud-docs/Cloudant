@@ -166,7 +166,7 @@ a view query with `include_docs` set to `true` contains the document with the sp
 ```javascript
 function(doc) {
 	if (doc.friends) {
-		for (friend in friends) {
+		for (friend in doc.friends) {
 			emit(doc._id, { "_id": friend });
 		}
 	}

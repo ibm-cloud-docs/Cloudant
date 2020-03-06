@@ -39,7 +39,7 @@ submit a `GET` request with the following format:
 
 |Parameter | Description |
 |----------|-------------|
-| Method | - Issue a partition query by using the following command:<br> `GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$INDEX_NAME`.<br> - Issue a global query by using the following command:<br> `GET /$DATABASE/_design/$DDOC/_view/$VIEW-NAME` |
+| Method | - Issue a partition query by using the following command:<br> `GET /$DATABASE/_partition/$PARTITION_KEY/_design/$DDOC/_view/$INDEX_NAME`.<br> - Issue a global query by using the following command:<br> `GET /$DATABASE/_design/$DDOC/_view/$VIEW_NAME` |
 | Request | None |
 | Response | JSON of the documents that are returned by the view. |
 | Roles permitted | `_reader` |
