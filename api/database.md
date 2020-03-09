@@ -426,8 +426,6 @@ Now, we describe how to send multiple queries to a database using `_all_docs` an
 To send multiple queries to a specific database, send a `POST` request to 
 `https://$ACCOUNT.cloudant.com/$DATABASE/_all_docs/queries`.
 
-For more information, see the deprecation note about [replacing the  `queries` parameter](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-deprecations#replaced-queries-parameter). 
-
 See the following example that uses HTTP to send multiple queries to a database:
 
 ```http
