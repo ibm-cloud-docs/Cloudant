@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-02"
 
 keywords: hardware capacity, location, tenancy, security, encryption, compliance, high availability, disaster recovery, backup
 
@@ -37,10 +37,9 @@ via the syndicated catalog, including the Lite and Standard plan instances. {{si
 {{site.data.keyword.cloud_notm}} Public catalog. {{site.data.keyword.cloud_notm}} Dedicated users must leverage {{site.data.keyword.cloudant_short_notm}} Dedicated on 
 {{site.data.keyword.cloud_notm}} Dedicated if dedicated hardware is required.   
 
-The following screen capture shows an example {{site.data.keyword.cloud_notm}} catalog that highlights the {{site.data.keyword.cloud_notm}} Public 
-syndicated version of {{site.data.keyword.cloudant_short_notm}} and the {{site.data.keyword.cloudant_short_notm}} Dedicated environment.  
+The following screen capture shows where you select the Dedicated Hardware plan on the {{site.data.keyword.cloud_notm}} Dashboard while creating a resource.  
 
-![{{site.data.keyword.cloudant_short_notm}} catalog](../images/ibmcloud_catalog.png)
+![{{site.data.keyword.cloudant_short_notm}} Dedicated Hardware plan](../images/ibmcloud_catalog.png)
 
 ## Hardware capacity 
 {: #hardware-capacity}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-02-27"
 
 keywords: create database, create documents, create index, create query, run query, fields, operators
 
@@ -65,7 +65,7 @@ is the database that we use in this tutorial.
 In this tutorial, we use the `acurl` alias rather than the `curl` command. The `acurl` alias is created by using the steps in [Authorized curl: `acurl`](/docs/Cloudant?topic=cloudant-authorized-curl-acurl-#authorized-curl-acurl-). If you prefer to use the `curl` command, or another method for invoking API endpoints, replace the command in the tutorial with the command you want to use, along with the parameters required by your command, such as username and password.
 {: tip}
 
-![command Line icon](../images/CommandLineIcon.png) *command line*
+![command Line icon](../images/CommandLineIcon.png)
 
 1.  Create a database by running this command:
   ``` sh
@@ -81,7 +81,7 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
   ```
   {: codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) *{{site.data.keyword.cloud_notm}} Dashboard*
+![Dashboard icon](../images/DashboardIcon.png)
 
 1.  Open the {{site.data.keyword.cloudant_short_notm}} service instance that you created.
 2.  On {{site.data.keyword.cloudant_short_notm}} service page, click **Launch**.
@@ -99,7 +99,7 @@ In this tutorial, we use the `acurl` alias rather than the `curl` command. The `
 The [documents](/docs/Cloudant?topic=cloudant-documents#documents)
 that you create in this exercise contain the data that you use to query the `query-demo` database in later exercises.
 
-![command Line icon](../images/CommandLineIcon.png) *command line*
+![command Line icon](../images/CommandLineIcon.png)
 
 1.  Copy the sample text to a data file named `bulkcreate.dat` to create five documents:
   ```json
@@ -190,7 +190,7 @@ Notice that the '`@`' symbol, used to indicate that the data is included in a fi
   ```
   {: codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png)
 
 1.  Click **`+`** and select **New Doc**. The 'New Document' window opens.
 2.  To create a document, copy the following sample text and replace the existing text in the new document.
@@ -280,7 +280,7 @@ If no available defined index matches the specified query, then {{site.data.keyw
 {: tip}
 
 
-![command Line icon](../images/CommandLineIcon.png) *command line*
+![command Line icon](../images/CommandLineIcon.png)
 
 1.  Copy the following sample JSON data into a file named `query-index.dat`.
   ```json
@@ -327,7 +327,7 @@ If no available defined index matches the specified query, then {{site.data.keyw
 
 
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png)
 
 1.  Click **`+` > Query Indexes** on either the **All Documents** or **Design Documents** tab.
 2.  Paste the following sample JSON data into the **Index** field:
@@ -353,6 +353,7 @@ If no available defined index matches the specified query, then {{site.data.keyw
   ```
   {: codeblock}
 
+3. Click **Create Index**. 
   The index was created. You can see the index in the following screen capture:
 
   ![Query index](../images/query-index1.png)
@@ -379,7 +380,7 @@ For anything but the most simple query, add the JSON to a data file and run it f
 This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query uses the `query-index` to find the
 `lastname` and filters the results in memory to find the `firstname`.   
 
-![command Line icon](../images/CommandLineIcon.png) *command line*
+![command Line icon](../images/CommandLineIcon.png)
 
 1.  Copy the following sample JSON into a data file named `query1.dat`.
   ```json
@@ -418,7 +419,7 @@ This example demonstrates how {{site.data.keyword.cloudant_short_notm}} Query us
   ```
   {: codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png)
 
 1.  Click the **Query** tab.
 2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
@@ -473,7 +474,7 @@ The extra details look like the following example:
 ```  
 {: codeblock}
 
-![command Line icon](../images/CommandLineIcon.png) *command line*
+![command Line icon](../images/CommandLineIcon.png)
 
 1.  Copy the sample JSON into a data file named `query2.dat`.
   ```json
@@ -524,7 +525,7 @@ The extra details look like the following example:
   ```
   {: codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) *{{site.data.keyword.cloud_notm}} Dashboard*
+![Dashboard icon](../images/DashboardIcon.png)
 
 1.  Click the **Query** tab.
 2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
@@ -582,7 +583,7 @@ values that are specified in the `sort` parameter.
 ```  
 {: codeblock}
 
-![command Line icon](../images/CommandLineIcon.png) *command line*
+![command Line icon](../images/CommandLineIcon.png)
 
 1.  Copy the following sample JSON to a file named `query3.dat`.
   ```json
@@ -629,7 +630,7 @@ values that are specified in the `sort` parameter.
   ```
   {: codeblock}
 
-![Dashboard icon](../images/DashboardIcon.png) _{{site.data.keyword.cloud_notm}} Dashboard_
+![Dashboard icon](../images/DashboardIcon.png)
 
 1.  Click the **Query** tab.
 2.  Copy and paste the following sample JSON into the {{site.data.keyword.cloudant_short_notm}} Query window:
@@ -663,4 +664,4 @@ values that are specified in the `sort` parameter.
 
   ![Query 3 results](../images/dashboard_query3_results.png)
 
-For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} Documentation](/docs/Cloudant?topic=cloudant-overview#overview).
+For more information about {{site.data.keyword.cloudant_short_notm}}, see the [{{site.data.keyword.cloudant_short_notm}} documentation](/docs/Cloudant?topic=cloudant-overview#overview).
