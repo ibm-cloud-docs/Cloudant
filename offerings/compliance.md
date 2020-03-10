@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2017, 2019
-lastupdated: "2019-12-24"
+  years: 2017, 2020
+lastupdated: "2020-03-11"
 
 keywords: tier-1 physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-12-24 -->
+<!-- Acrolinx: 2020-03-11 -->
 
 # Compliance
 {: #compliance}

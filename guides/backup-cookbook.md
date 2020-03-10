@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-02-14"
+lastupdated: "2020-03-11"
 
 keywords: couchbackup, back up your data, restore data, limitations, use the tools, use couchbackup as a library
 
@@ -21,13 +21,13 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-14 -->
+<!-- Acrolinx: 2020-03-11 -->
 
 # {{site.data.keyword.cloudant_short_notm}} backup and recovery
 {: #ibm-cloudant-backup-and-recovery}
 
 This cookbook forms part of the [{{site.data.keyword.cloudantfull}} Disaster Recovery guide](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup).
-It's worth starting there if you're new to the subject and want to understand where backup fits in
+It's worth starting there if you're new to the subject and want to understand where back up fits in
 with the other capabilities that {{site.data.keyword.cloudant_short_notm}} offers
 to support Disaster Recovery (DR) and High Availability (HA) requirements.
 {: shortdesc}
@@ -46,7 +46,7 @@ and is open source.
 It's a `node.js` library,
 and you can install it on [Npm](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}.
 
-The CouchBackup package includes the library and two command line tools:
+The CouchBackup package includes the library and two command-line tools:
 
 1. `couchbackup`, which dumps the JSON data from a database to a backup text file.
 2. `couchrestore`, which restores data from a backup text file to a database.
@@ -129,20 +129,20 @@ The CouchBackup tools have the following limitations:
 {: #using-the-tools}
 
 The [Npm page](https://www.npmjs.com/package/@cloudant/couchbackup){: new_window}{: external}
-details the basics of using the command line tools for backup and restore of data.
+details the basics of using the command-line tools for backup and restore of data.
 The following examples show how to put those details into practice
 by describing the use of the tools for specific tasks.
 
 The CouchBackup package provides two ways of using its core functions.
 
-* The command line tools can be embedded into standard UNIX&trade; command pipelines.
+* The command-line tools can be embedded into standard UNIX&trade; command pipelines.
   For many scenarios,
   a combination of `cron` and simple shell scripting of the `couchbackup` application is sufficient.
 * A library usable from node.js.
   The library allows more complicated backup processes to be created and deployed,
   such as determining dynamically which databases must be backed up.
 
-Use either the command line backup tool,
+Use either the command-line backup tool,
 or the library with application code,
 to enable backup from {{site.data.keyword.cloudant_short_notm}} databases as part of more complicated situations.
 A useful scenario is scheduling backups by using `cron`,
@@ -194,7 +194,7 @@ For example,
 you might want to encrypt the data before it's written to disk.
 Alternatively,
 you might want to write the data directly to an object store service,
-by using their command line tools.
+by using their command-line tools.
 
 ### Hourly or daily backups that use `cron`
 {: #hourly-or-daily-backups-that-use-cron-}
@@ -234,7 +234,7 @@ You can modify the cron pattern to do hourly, daily, weekly, or monthly backups 
 ## Using CouchBackup as a library
 {: #using-couchbackup-as-a-library}
 
-The `couchbackup` and `couchrestore` command line tools are wrappers around a library
+The `couchbackup` and `couchrestore` command-line tools are wrappers around a library
 that can be used in your own node.js applications.
 
 The library is useful for more complicated scenarios,
