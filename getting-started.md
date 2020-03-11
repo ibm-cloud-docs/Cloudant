@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-03-02"
+lastupdated: "2020-03-11"
 
 keywords: getting started, example, connect to service instance, create a database, populate database, retrieve data, queries, retrieve data, api endpoint, delete database, close connection, python code, couchdb-as-a-service, couchdb hosted, couchdb, databases for couchdb
 
@@ -218,8 +218,8 @@ Verify that you have what you need to start the tutorial from the following list
 
 A small collection of data was stored as documents within the database.
 You can do a minimal or full retrieval of that data from the database.
-A minimal retrieval includes the basic data *about* a document.
-A full retrieval also includes the data *within* a document.
+A minimal retrieval includes the basic data about a document.
+A full retrieval also includes the data within a document.
 
 * To run a minimal retrieval, follow these steps:
   1. First, request a list of all documents within the database.
