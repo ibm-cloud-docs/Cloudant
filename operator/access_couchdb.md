@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019
-lastupdated: "2019-11-14"
+  years: 2019, 2020
+lastupdated: "2020-03-16"
 
 keywords: port forward, openshift route
 
@@ -21,18 +21,18 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-03-16 -->
 
 # Accessing CouchDB
 {: #access-couchdb-cluster}
 
-The CouchDB cluster is exposed via a `ClusterIP` service only. To access the deployment externally, you can either port-forward using `oc`/`kubectl` or configure an external OpenShift route. 
+The CouchDB cluster is exposed via a `ClusterIP` service only. To access the deployment externally, you can either port-forward by using `oc`/`kubectl` or configure an external OpenShift route. 
 {: shortdesc}
 
 ### Port-forward
 {: #port-forward-access-couchdb}
 
-To port-forward the service using `kubectl`, run the following command:
+To port-forward the service by using `kubectl`, run the following command:
 
 ```
 kubectl port-forward svc/<couchdb name> 5984:5984 -n <namespace>
@@ -47,7 +47,7 @@ You can then access your cluster locally by pointing a client to https://localho
 
 On OpenShift, the CouchDB service is configured to use an [OpenShift service certificate](https://docs.openshift.com/container-platform/4.1/authentication/certificates/service-serving-certificate.html){: new_window}{: external}.
 
-This configuration allows the `CouchDBCluster` to be exposed using a reencrypting route, ensuring traffic is encrypted internally within the OpenShift cluster. To create a route from the CLI, run the following command:
+This configuration allows the `CouchDBCluster` to be exposed by using a reencrypting route, ensuring traffic is encrypted internally within the OpenShift cluster. To create a route from the CLI, run the following command:
 
 ```
 oc apply -f - <<END
@@ -69,7 +69,7 @@ END
 ```
 {: codeblock}
 
-This command creates an externally visible endpoint with an auto-generated hostname. You can discover the hostname by running the following command:
+This command creates an externally visible endpoint with an auto-generated hostname. You can find the hostname by running the following command:
 
 ```
 oc get route example-route -n <namespace>`
@@ -84,7 +84,7 @@ example-route   example-route-my-couchdb.rhoscluster-12345-0001.us-east.containe
 ```
 {: codeblock}
 
-In the previous example, you can access the Apache CouchDB API at https://example-route-my-couchdb.rhoscluster-12345-0001.us-east.containers.appdomain.cloud/ or the Apache CouchDB dashboard at https://example-route-my-couchdb.rhoscluster-12345-0001.us-east.containers.appdomain.cloud/_utils.
+In the previous example, you can access the Apache CouchDB API at https://<example-route-my-couchdb>.rhoscluster-12345-0001.us-east.containers.appdomain.cloud/ or the Apache CouchDB dashboard at https://<example-route-my-couchdb>.rhoscluster-12345-0001.us-east.containers.appdomain.cloud/_utils.
 
 ### Credentials
 {: #credentials-cluster-couchdb}

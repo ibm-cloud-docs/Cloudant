@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-16"
 
 keywords: active tasks, compaction tasks, replication tasks, indexing tasks, specific response fields, retrieve active tasks 
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-06 -->
+<!-- Acrolinx: 2020-03-16 -->
 
 # Active tasks
 {: #active-tasks}
@@ -81,14 +81,14 @@ account.request({
 
 The returned structure includes the following fields for each task:
 
-Name | Description
------|------------
-database | The database and shard on which the operation occurs.
-pid | Erlang Process ID
-started_on | Time when the task was started. The value is an integer that includes the UNIX&trade; time UTC.
-total_changes | Total number of documents to be processed by the task. The exact meaning depends on the type of the task.
-type | Operation Type
-updated_on | Time when the last update was made to this task record. Updates are made by the job as progress occurs. The value is an integer that includes the UNIX&trade; time that uses UTC.
+| Name | Description |
+|-----|------------| 
+| `database` | The database and shard on which the operation occurs. |
+| `pid` | Erlang Process ID |
+| `started_on` | Time when the task was started. The value is an integer that includes the UNIX&trade; time UTC. |
+| `total_changes` | Total number of documents to be processed by the task. The exact meaning depends on the type of the task. |
+| `type` | Operation Type |
+| `updated_on` | Time when the last update was made to this task record. Updates are made by the job as progress occurs. The value is an integer that includes the UNIX&trade; time that uses UTC. |
 
 In the `type` field,
 the possible values include:
@@ -184,37 +184,34 @@ See the example JSON response array that includes details of currently running t
 
 Name | Description
 -----|------------
-changes_done | Number of documents compacted.
-phase | Reports the stage of compaction.
-total_changes | Number of documents in the database.
-changes_done | Number of documents compacted.
-phase | Reports the stage of compaction.
-total_changes | Number of documents in the database.
+`changes_done` | Number of documents compacted.
+`phase` | Reports the stage of compaction.
+`total_changes` | Number of documents in the database.
 
 In the `phase` field, the value indicates the stage that was reached by compaction:
 
--   `ids`: Document compaction is in progress.
--   `views`: View compaction is in progress.
+-   `ids` - Document compaction is in progress.
+-   `views` - View compaction is in progress.
 
 ### Specific response fields for replication tasks
 {: #specific-response-fields-for-replication-tasks}
 
 Name | Description
 -----|------------
-changes_pending | Number of documents that need to be changed in the target database, expressed as an integer.
-continuous | Boolean value that indicates whether the replication is continuous.
-docs_read | Number of documents that are read from the source database, expressed as an integer.
-replication_id | Unique identifier string of the replication that can be used to cancel the task.
-revisions_checked | Number of document revisions that were checked to verify whether they're already in the target database.
-source | An obfuscated URL string that indicates the database from which the task is replicating.
-target | An obfuscated URL string that indicates the database to which the task is replicating.
-user | User who started the replication, expressed as a string, or `null` if the replication was not initiated by a user.
+`changes_pending` | Number of documents that need to be changed in the target database, expressed as an integer.
+`continuous` | Boolean value that indicates whether the replication is continuous.
+`docs_read` | Number of documents that are read from the source database, expressed as an integer.
+`replication_id` | Unique identifier string of the replication that can be used to cancel the task.
+`revisions_checked` | Number of document revisions that were checked to verify whether they're already in the target database.
+`source` | An obfuscated URL string that indicates the database from which the task is replicating.
+`target` | An obfuscated URL string that indicates the database to which the task is replicating.
+`user` | User who started the replication, expressed as a string, or `null` if the replication was not initiated by a user.
 
 ### Specific response fields for indexing tasks
 {: #specific-response-fields-for-indexing-tasks}
 
 Name | Description
 -----|------------
-changes_done | Number of document revisions that are processed by this task. A document can have one or more revisions.
-design_document | The design document that includes the view or index function or functions.
-total_changes| The number of unindexed changes to process. This count includes deleted documents, although these documents are automatically skipped by the indexer.
+`changes_done` | Number of document revisions that are processed by this task. A document can have one or more revisions.
+`design_document` | The design document that includes the view or index function or functions.
+`total_changes`| The number of unindexed changes to process. This count includes deleted documents, although these documents are automatically skipped by the indexer.
