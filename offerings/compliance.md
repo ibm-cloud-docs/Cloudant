@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-03-11"
+lastupdated: "2020-03-19"
 
 keywords: tier-1 physical system, hipaa, iso, soc 2 type 2 certification, gdpr
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-03-11 -->
+<!-- Acrolinx: 2020-03-19 -->
 
 # Compliance
 {: #compliance}
@@ -80,6 +80,6 @@ or email
 {: #general-data-protection-regulation-gdpr-overview}
 
 The GDPR seeks to create a harmonized data protection law 
-framework across the EU and aims to give citizens back the control of their personal data, while
-imposing strict rules on those hosting and ‘processing’ this data, anywhere in the world. The 
+framework across the EU. It also aims to give citizens back the control of their personal data, while
+it imposes strict rules on those who host and "process" this data, anywhere in the world. The 
 Regulation also introduces rules that relate to the free movement of personal data within and outside the EU. For more information, see the [{{site.data.keyword.IBM_notm}} privacy statement](https://www.ibm.com/privacy/){: new_window}{: external}.

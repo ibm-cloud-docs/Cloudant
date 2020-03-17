@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-23"
+lastupdated: "2020-03-17"
 
 keywords: incremental backups, create an incremental backup, restore a database, how to back up example, how to restore example
 
@@ -21,12 +21,12 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-09 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # Replication incrementals
 {: #replication-incrementals}
 
-The content in the Replication incrementals guide contains older or "deprecated" guidance on {{site.data.keyword.cloudantfull}} backup. For current backup guidance, see the [Disaster Recovery and Backup](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) guide.
+The content in the Replication incrementals guide includes older or "deprecated" guidance on {{site.data.keyword.cloudantfull}} backup. For current backup guidance, see the [Disaster recovery and backup](/docs/Cloudant?topic=cloudant-disaster-recovery-and-backup#disaster-recovery-and-backup) guide.
 {: deprecated}
 
 Database backups protect your data against potential loss or corruption.
@@ -43,8 +43,7 @@ Using {{site.data.keyword.cloudant_short_notm}} replication,
 a database backup stores your database content to a checkpoint.
 It's possible to 'roll back' to a specific checkpoint.
 The checkpoint isn't specific to a precise time.
-Instead,
-it's a record of the database as it was after specific changes occurred during the backup period.
+The checkpoint is a record of the database as it was after specific changes occurred during the backup period.
 In this way,
 a backup can preserve the state of your database at a selected time.
 
@@ -60,7 +59,7 @@ you can use the {{site.data.keyword.cloudant_short_notm}} replication facility t
 
 A simple approach is to replicate the entire database to a dated backup database.
 This method works and is easy to do.
-But if you need backups for multiple points in time,
+But if you need backups for more than one point in time,
 such as seven daily backups and four weekly ones,
 you must store a complete copy of the database in each new backup database.
 A complete copy might require significant disk usage,
@@ -78,8 +77,7 @@ you run daily 'incremental' backups,
 backing up *only* what changed in the database since the last backup.
 This replication becomes a daily backup.
 
-You can configure a backup to trigger at regular intervals.
-However, each interval must be 24 hours or more. In other words, you can run daily backups but not hourly backups.
+You can configure a backup to trigger at regular intervals, but each interval must be 24 hours or more. In other words, you can run daily backups but not hourly backups.
 {: note}
 
 ## Creating an incremental backup
@@ -99,7 +97,7 @@ To create an incremental backup,
 do the following steps:
 
 1.  Find the ID of the checkpoint document for the last replication.
-    It's stored in the `_replication_id` field of the replication document,
+    The ID is stored in the `_replication_id` field of the replication document,
     found in the `_replicator` database.
 2.  Open the checkpoint document at `/$DATABASE/_local/$REPLICATION_ID`,
     where `$REPLICATION_ID` is the ID you found in the previous step,
@@ -123,7 +121,7 @@ you replicate each incremental backup to a new database,
 starting with the most recent increment.
 
 You might start with the oldest backup,
-then apply the subsequent  backups in order.
+then apply the subsequent backups in order.
 However,
 replicating from the most recent incremental backup first is faster
 because updated documents are written only to the target database one time.
@@ -179,8 +177,7 @@ PUT /backup-tuesday HTTP/1.1
 ```
 {: codeblock}
 
-#### Example showing how to check that you have three databases to use in this example,
-by using the command line
+#### Example showing how to check that you have three databases to use in this example by using the command line
 
 ```sh
 $ curl -X PUT "${url}/original"
@@ -500,17 +497,16 @@ by adjusting the value of the `x-cloudant-io-priority` field within the replicat
 If you include design documents in your backup,
 indexes are created on the backup destination.
 This practice slows down the backup process and uses unnecessary amounts of disk space.
-If you don't require indexes on your backup system,
-use a filter function with your replications to filter out design documents.
+Use a filter function with your replications to filter out design documents if you don't require indexes on your backup system.
 You might also use this filter function to exclude other documents that aren't wanted.
 
-### Backing up multiple databases
+### Backing up more than one databases
 {: #backing-up-multiple-databases}
 
 If your application uses one database per user,
 or allows each user to create several databases,
 you need to create a backup job for each new database.
-Make sure that your replication jobs do not begin at the same time.
+Make sure that your replication jobs don't begin at the same time.
 
 ## Need help?
 {: #need-help-}

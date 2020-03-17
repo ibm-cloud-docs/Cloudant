@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-03-18"
 
 keywords: enterprise plan, database-as-a-service
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-06 -->
+<!-- Acrolinx: 2020-03-18 -->
 
 # {{site.data.keyword.cloudant_short_notm}}.com
 {: #ibm-cloudant.com}
@@ -48,9 +48,8 @@ It provides an [HTTP API](/docs/Cloudant?topic=cloudant-ibm-cloudant-basics#http
 All currency values in this document are in US dollars ($).
 {: tip}
 
-It's offered as either a [Shared Plan](#shared-plan) or an 
-[Enterprise (Dedicated) Plan](#enterprise-plan). {{site.data.keyword.cloudant_short_notm}} 
-is also available as an [{{site.data.keyword.cloud}} service](https://www.ibm.com/cloud/){: new_window}{: external}.
+{{site.data.keyword.cloudant_short_notm}} is offered as either a [Shared Plan](#shared-plan) or an 
+[Enterprise (Dedicated) Plan](#enterprise-plan), and as an [{{site.data.keyword.cloud}} service](https://www.ibm.com/cloud/){: new_window}{: external}.
 
 The {{site.data.keyword.cloudant_short_notm}} Shared Plan and Enterprise (Dedicated) Plan 
 offerings aren't available on the {{site.data.keyword.cloud_notm}} service.
@@ -66,7 +65,7 @@ single-tenant cluster.
 This plan gives you assured database performance and up-time, by using dedicated DBaaS clusters or 
 hardware available at various hosting locations.
 
-For users of the Enterprise plan who require a new or additional {{site.data.keyword.cloudant_short_notm}} 
+For users of the Enterprise plan who require a new or extra {{site.data.keyword.cloudant_short_notm}} 
 account on one of their dedicated clusters, sign up on the [{{site.data.keyword.cloudant_short_notm}} Enterprise account sign-up page](https://cloudant.com/enterprise-sign-up){: new_window}{: external}.  
 Create an account by using the form, and open a support ticket to request that support move your account to one of your 
 {{site.data.keyword.cloudant_short_notm}} Enterprise dedicated clusters. 

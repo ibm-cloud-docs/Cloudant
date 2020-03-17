@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-23"
+lastupdated: "2020-03-18"
 
 keywords: geospatial, geojson, geo index, query geo index, query geometry, geometric relation, geospatial index, simple circle, polygon query, nearest neighbor search, polygon query, example
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2018-06-04 -->
+<!-- Acrolinx: 2020-03-18 -->
 
 # {{site.data.keyword.cloudant_short_notm}} Geospatial
 {: #cloudant-nosql-db-geospatial}
@@ -29,7 +29,7 @@ subcollection: cloudant
 {{site.data.keyword.cloudantfull}} Geospatial,
 or "{{site.data.keyword.cloudant_short_notm}} Geo",
 combines the advanced geospatial queries of a Geographic Information System (GIS)
-with the flexibility and scalability of {{site.data.keyword.cloudant_short_notm}}'s database-as-a-service (DBaaS) capabilities, which includes GeoJSON, {{site.data.keyword.cloudant_short_notm}} Geo index, and more. 
+with the flexibility and adaptability of {{site.data.keyword.cloudant_short_notm}}'s database-as-a-service (DBaaS) capabilities. These capabilities include GeoJSON, {{site.data.keyword.cloudant_short_notm}} Geo index, and more. 
 {: shortdesc}
 
 You can use {{site.data.keyword.cloudant_short_notm}} Geo to do the following tasks:
@@ -48,13 +48,12 @@ an initial scan works through all the documents in the database,
 giving you the first index.
 Subsequent updates to the documents result in incremental updates to the index.
 
-The key advantage to using {{site.data.keyword.cloudant_short_notm}} Geo is that you can  identify,
+The key advantage to using {{site.data.keyword.cloudant_short_notm}} Geo is that you can identify,
 specify,
 or search for documents based on a spatial relationship. In effect, {{site.data.keyword.cloudant_short_notm}} uses geometry to provide an extra way of expressing the relationship between and within documents.
 
-An example would be to specify a document that is considered to be "contained" if it has
-a geospatial characteristic that fits within a given geospatial polygon, which is
-defined by a series of points.
+For example, you specify a document that is considered "contained" if it has
+a geospatial characteristic that fits within a given geospatial polygon, which is defined by a series of points.
 
 ### Example of a relationship that uses a geospatial polygon
 
@@ -63,9 +62,9 @@ relation=contains&g=POLYGON ((-71.0537124 42.3681995,-71.054399 42.3675178,-71.0
 ```
 {: codeblock}
 
-The basic steps for working with geospatial data in {{site.data.keyword.cloudant_short_notm}} Geo are as follows:
+The basic steps for working with geospatial data in {{site.data.keyword.cloudant_short_notm}} Geo are shown in the following list:
 
-1. Include a GeoJSON geometry object in your JSON document. The geometry object can be of any type that is defined by the [GeoJSON specification](https://tools.ietf.org/html/rfc7946){: new_window}{: external}.
+1. Contain a GeoJSON geometry object in your JSON document. The geometry object can be of any type that is defined by the [GeoJSON specification](https://tools.ietf.org/html/rfc7946){: new_window}{: external}.
 2. Index the geometry object that uses {{site.data.keyword.cloudant_short_notm}} Geo defined `st_index` function.
 3. Search the indexed geometry object by using various geometries and geometric relationships.
 
@@ -123,17 +122,17 @@ is used to express the following various geographic data structures:
 - `MultiPolygon`
 - `GeometryCollection`
 
-A GeoJSON document is a JSON document that contains the following distinct `key:value` sections:
+A GeoJSON document is a JSON document that includes the following distinct `key:value` sections:
 
 ### `type`
 {: #type}
 
-It must be present and contain the value `Feature`.
+It must be present and include the value `Feature`.
 
 ### `geometry`
 {: #geometry}
 
-It must contain two fields: `type` and `coordinates`, where:
+It must include two fields: `type` and `coordinates`. These fields specify the definition shown in the following list:
 
 - `type` field specifies a GeoJSON geometry type that must be one of `Point`,
   `LineString`,
@@ -143,7 +142,7 @@ It must contain two fields: `type` and `coordinates`, where:
   or `MultiPolygon`.
 - `coordinates` field specifies an array of latitude and longitude values.
 
-#### An example GeoJSON document:
+See the example GeoJSON document in the following example:
 
 ```json
 {
@@ -175,7 +174,7 @@ go to [http://geojson.org/](http://geojson.org/){: new_window}{: external}.
 {: #creating-a-cloudant-nosql-db-geo-index}
 
 To make it easier to work with {{site.data.keyword.cloudant_short_notm}} Geo documents,
-it is a best practice to create a separate design document,
+it's a best practice to create a separate design document,
 specifically for {{site.data.keyword.cloudant_short_notm}} Geo.
 
 When you create a geospatial index,
@@ -186,10 +185,10 @@ Each index must be defined by the {{site.data.keyword.cloudant_short_notm}} Geo 
 {: #-geoidx-an-example-cloudant-nosql-db-geo-index}
 
 For example,
-you can create a design document with the `_id` value `"_design/geodd"` that contains an index that is called `"geoidx"`.
+you can create a design document with the `_id` value `"_design/geodd"` that includes an index that is called `"geoidx"`.
 The index is a simple JavaScript function that checks for the presence of a valid geometry object in the document. If a valid geometry object is found, it ensures that the document is included in the `st_index` {{site.data.keyword.cloudant_short_notm}} Geo index function.
 
-#### An example {{site.data.keyword.cloudant_short_notm}} Geo design document, containing an index:
+See the {{site.data.keyword.cloudant_short_notm}} Geo design document that includes an index in the following example:
 
 ```json
 {
@@ -208,20 +207,20 @@ The index is a simple JavaScript function that checks for the presence of a vali
 
 Geospatial indexing includes a number of different algorithms for indexing geospatial data.
 Some algorithms are simple to understand and implement,
-but do not produce fast results.
+but don't produce fast results.
 
 The basic algorithm that is used by {{site.data.keyword.cloudant_short_notm}} Geo
 is [R\*\_tree](http://en.wikipedia.org/wiki/R*_tree){: new_window}{: external}.
 Although it has a slightly higher resource requirement for building the index,
 the resulting index offers much better performance in responding to geospatial queries.
 
-## Obtaining information about an {{site.data.keyword.cloudant_short_notm}} Geo index
+## Finding information about an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #obtaining-information-about-a-cloudant-nosql-db-geo-index}
 
-You can obtain information about a geospatial index within a database. Use the `_geo_info` endpoint to get the information.
+You can find information about a geospatial index within a database. Use the `_geo_info` endpoint to get the information.
 
 For example,
-you might want to obtain information about the `geoidx` geospatial index,
+you might want to find information about the `geoidx` geospatial index,
 held within the `geodd` design document of the `crimes` database.
 
 ### Example request, by using HTTP
@@ -291,14 +290,14 @@ where the query parameters field `<query-parameters>` includes three different t
 {: #query-geometry}
 
 A query geometry parameter must be provided for an {{site.data.keyword.cloudant_short_notm}} Geo search.
-The four types of query geometries are defined as follows:
+The four types of query geometries are defined in the following table:
 
 Parameter | Description
 ----------|------------
 `bbox`    | Specify a bounding box with two coordinates for the lower-left and upper-right corners.
 `ellipse` | Specify an ellipse query with a latitude `lat`, a longitude `lon`, and two radii: `rangex` and `rangey`, both measured in meters.
 `radius`  | Specify a circle query with a latitude `lat`, a longitude `lon`, and a radius `radius` measured in meters.
-`<wkt>`   | Specify a Well Known Text (WKT) object. The valid values for the `<wkt>` parameter include `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`.
+`<wkt>`   | Specify a Well Known Text (WKT) object. The valid values for the `<wkt>` parameter includes `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`, `MultiPolygon`, `GeometryCollection`.
 
 #### Example of a `bbox` query
 
@@ -344,7 +343,7 @@ Parameter | Description
 {{site.data.keyword.cloudant_short_notm}} Geo works with geospatial relationships and follows
 the [DE-9IM specification](https://en.wikipedia.org/wiki/DE-9IM){: new_window}{: external} for geometric relations.
 This specification defines the different ways in which two geospatial objects are related to each other,
-if indeed they are related at all.
+if indeed they're related at all.
 
 For example,
 you might specify a polygon object that describes a housing district.
@@ -364,12 +363,12 @@ Relation                | Description
 `Q contains_properly R` | True if `R` intersects the interior of `Q` but not the boundary (or exterior) of `Q`.
 `Q covered_by R`        | True if `Q` is entirely within `R`. `covered_by` returns the exact opposite result of `covers`.
 `Q covers R`            | True if `R` is entirely within `Q`. `covers` returns the exact opposite result of `covered_by`.
-`Q crosses R`           | Case 1: True if the interiors intersect, *and* at least the interior of `Q` intersects with the exterior of `R`. Apply to the geometry pairs of `multipoint/linestring`, `multipoint/multilinestring`, `multipoint/polygon`, `multipoint/multipolygon`, `linestring/polygon`, and `linestring/multipolygon`.
-                        | Case 2: True if the intersection of the interiors of `Q` and `R` is a point. Apply to the geometry pairs of `linestring/linestring`, `linestring/multilinestring`, and `multilinestring/multilinestring`.
-`Q disjoint R`          | True if the two geometries of `Q` and `R` do not intersect. `disjoint` returns the exact opposite result of `intersects`.
+`Q crosses R`           | Case 1 - True if the interiors intersect, *and* at least the interior of `Q` intersects with the exterior of `R`. Apply to the geometry pairs of `multipoint/linestring`, `multipoint/multilinestring`, `multipoint/polygon`, `multipoint/multipolygon`, `linestring/polygon`, and `linestring/multipolygon`.
+                        | Case 2 - True if the intersection of the interiors of `Q` and `R` is a point. Apply to the geometry pairs of `linestring/linestring`, `linestring/multilinestring`, and `multilinestring/multilinestring`.
+`Q disjoint R`          | True if the two geometries of `Q` and `R` don't intersect. `disjoint` returns the exact opposite result of `intersects`.
 `Q intersects R`        | True if the two geometries of `Q` and `R` intersect. `intersects` returns the exact opposite result of `disjoint`.
-`Q overlaps R`          | Case 1: True if the interior of both geometries intersects the interior and exterior of the other. Apply to the geometry pairs of `polygon/polygon`, `multipoint/multipoint`, and `multipolygon/multipolygon`.
-                        | Case 2: True if the intersection of the geometries is a linestring. Apply to the geometry pairs of linestring/linestring and multilinestring/multilinestring.
+`Q overlaps R`          | Case 1 - True if the interior of both geometries intersects the interior and exterior of the other. Apply to the geometry pairs of `polygon/polygon`, `multipoint/multipoint`, and `multipolygon/multipolygon`.
+                        | Case 2 - True if the intersection of the geometries is a linestring. Apply to the geometry pairs of linestring and linestring, and multilinestring and multilinestring.
 `Q touches R`           | True if, and only if, the common points of two geometries are found only at the boundaries of two geometries. At least one geometry must be a linestring, polygon, multilinestring, or multipolygon.
 `Q within R`            | True if `Q` lies entirely within `R`. `within` returns the exact opposite result of `contains`.
 
@@ -419,9 +418,9 @@ such as returning results in GeoJSON format or limiting the number of returned r
 
 Parameter      | Description
 ---------------|------------
-`bookmark`     | Allows you to page through the results. The default is 25 results.
+`bookmark`     | Use to page through the results. The default is 25 results.
 `format`       | Causes the query output to be in a specified format. Possible values are `legacy`, `geojson`, `view`, or `application/vnd.geo+json`. The default format is `view`.
-`include_docs` | Adds the entire document as a document object, and includes it in the output results.
+`include_docs` | Adds the entire document as a document object, and contains it in the output results.
 `limit`        |  An integer to limit the number of results returned. The default value is 100. The maximum value is 200. A value larger than 200 returns an error.
 `skip`         | Skip this number of records before {{site.data.keyword.cloudant_short_notm}} Geo search starts to return the results. The default value is 0.
 `stale=ok`     | Speeds up responses by not waiting to complete index rebuilds or updates between database cluster nodes.
@@ -512,7 +511,7 @@ curl -X GET "https://education.cloudant.com/crimes/_design/geodd/_geo/geoidx?for
 ```
 {: codeblock}
 
-## Example: Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
+## Example - Querying an {{site.data.keyword.cloudant_short_notm}} Geo index
 {: #example-querying-a-cloudant-nosql-db-geo-index}
 
 ### Simple circle
@@ -522,7 +521,7 @@ This simple example demonstrates how {{site.data.keyword.cloudant_short_notm}} G
 position within a given geographic circle.
 The function might be useful to determine insurance customers who live close to a known flood plain.
 
-To specify the circle, you provide:
+To specify the circle, you provide the following values:
 
 - Latitude
 - Longitude

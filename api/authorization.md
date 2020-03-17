@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-17"
 
 keywords: authorization, roles, permissions, view permissions, modify permissions, _users database, API keys, create API key, use API key, delete API key, _admin, _reader, _writer, _design, _replicator, _security, assign role
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-06 -->
+<!-- Acrolinx: 2020-03-17 -->
 
 # Authorization
 {: #authorization}
@@ -122,7 +122,7 @@ if the `nobody` username is intentionally granted `_admin`,
 and `_writer` roles,
 but an authenticated user account such as `alexone` is granted only the `_reader` role. In this case, it's possible that an unauthenticated user might have a more powerful role than the authenticated `alexone` user. 
 
-it's important to understand that the `nobody` username is *not* a way of providing a default set of permissions. Instead, the `nobody` username is used to determine permissions for *unauthenticated* users.
+It's important to understand that the `nobody` username is *not* a way of supplying a default set of permissions. Instead, the `nobody` username is used to determine permissions for *unauthenticated* users.
 {: tip}
 
 ### Determining the role to assign
@@ -179,7 +179,7 @@ account.request({
 
 -->
 
-The `cloudant` field in the response object contains an object with keys that are the usernames
+The `cloudant` field in the response object includes an object with keys that are the usernames
 that have permission to interact with the database.
 The `nobody` username indicates what permissions are available to unauthenticated users,
 that is,
@@ -268,7 +268,7 @@ account.request(
 
 The request must provide a document in JSON format,
 describing a `cloudant` field.
-The field contains an object with keys that are the usernames that have permission to interact with the database.
+The field includes an object with keys that are the usernames that have permission to interact with the database.
 The `nobody` username indicates what permissions are available to unauthenticated users,
 that is,
 anybody.
@@ -314,7 +314,7 @@ See the following example response after a successful authorization modification
 You must run the `GET` command first to retrieve the security object.
 Then,
 you can modify that security object with new permissions.
-If you do not run the `GET` command and retrieve the security object before you run an API call,
+If you don't run the `GET` command and retrieve the security object before you run an API call,
 the result might disrupt your environment.
 For example,
 if you want to add a `nobody` user with read-only access,
@@ -345,8 +345,8 @@ When a key is generated,
 and granted the required access permissions,
 the API key can be used in the same way as a normal user account.
 
-API keys, however, aren't the same as normal user accounts.
-An API key does not have access to the dashboard.
+However, API keys aren't the same as normal user accounts.
+An API key doesn't have access to the dashboard.
 
 An API key is primarily used to enable applications to access a database,
 with a determined level of access control.
@@ -355,7 +355,7 @@ All {{site.data.keyword.cloudant_short_notm}} instances that are deployed
 from the {{site.data.keyword.cloud}} Public Germany 
 region are deployed in EU-managed environments. Any 
 {{site.data.keyword.cloudant_short_notm}} account or 
-API key that is generated outside of an EU-managed environment can't be granted 
+API key that is generated outside an EU-managed environment can't be granted 
 access to an EU-managed {{site.data.keyword.cloudant_short_notm}} instance. 
 For more information about {{site.data.keyword.cloudant_short_notm}} 
 in an EU-managed environment, see 
@@ -374,12 +374,12 @@ You can create an API key in two ways:
 1.  Using the dashboard.
 2.  Using the {{site.data.keyword.cloudant_short_notm}} API.
 
-Regardless of the method you choose,
+No matter what method you choose,
 remember to record the key name and password.
 These values are both randomly generated,
 and can't be retrieved if lost or forgotten.
 
-[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local"))](/docs/Cloudant?topic=cloudant-ibm-cloudant-local-overview) does not support API Keys. For a similar capability, create "CouchDB" style users, as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center](/docs/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-database-level-security).
+[{{site.data.keyword.cloudant_short_notm}} Data Layer Local Edition ("Cloudant Local"))](/docs/Cloudant?topic=cloudant-ibm-cloudant-local-overview) doesn't support API Keys. For a similar capability, create "CouchDB" style users, as described in the [{{site.data.keyword.IBM_notm}} Knowledge Center](/docs/Cloudant?topic=cloudant-configure-ibm-cloudant-data-layer-local-edition#configuring-database-level-security).
 {: note}
 
 See the following example that uses an HTTP request to create an API key:
@@ -420,7 +420,7 @@ account.request(
 
 -->
 
-The response contains the generated key and password.
+The response includes the generated key and password.
 
 See the following example response to request an API key:
 
@@ -449,7 +449,7 @@ grant the key access-specific permissions for a specific database by sending a `
 `https://$ACCOUNT.cloudant.com/_api/v2/db/$DATABASE/_security`,
 as described in [modifying permissions](/docs/Cloudant?topic=cloudant-authorization#modifying-permissions).
 
-The database does not have to be in the same account as the account used for generating the API key initially.
+The database doesn't have to be in the same account as the account used for generating the API key initially.
 
 To give an existing API key permissions to access a database in another account,
 do the following steps:
@@ -459,7 +459,7 @@ do the following steps:
 
 For an example of this process,
 see the blog article:
-[Using an {{site.data.keyword.cloudant_short_notm}} API Key with Multiple {{site.data.keyword.cloudant_short_notm}} Databases and Accounts](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){: new_window}{: external}.
+[Using an {{site.data.keyword.cloudant_short_notm}} API key with multiple {{site.data.keyword.cloudant_short_notm}} databases and accounts](https://dx13.co.uk/articles/2016/4/11/using-a-cloudant-api-key-with-multiple-cloudant-databases-and-accounts.html){: new_window}{: external}.
 
 ## Deleting API keys
 {: #deleting-api-keys}
@@ -469,8 +469,8 @@ An API key is always available for use if you know the key and its password.
 However,
 the API key is only useful when:
 
--   It's assigned to a database.
--   It's assigned permissions for working with the database.
+-   Assigned to a database.
+-   Assigned permissions for working with the database.
 
 To 'delete' an API key,
 remove it from the database.
