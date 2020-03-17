@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-02-13"
+lastupdated: "2020-03-13"
 
 keywords: principal, action, resource, timestamp, access audit logs
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-13 -->
+<!-- Acrolinx: 2020-03-13 -->
 
 # Activity Tracker events
 {: #at_events}
@@ -36,8 +36,16 @@ As a security officer, auditor, or manager, you can use the Activity Tracker ser
 
 {{site.data.keyword.cloudant_short_notm}} forwards two types of events to {{site.data.keyword.at_full_notm}}:
 
-- **Management Events** are administrative events that impact the state of an  {{site.data.keyword.cloudant_short_notm}} instance, such as creating or deleting a database, updating security settings, creating a replication job, or creating an index. 
-- **Data Events** are all the other events that are involved with interacting with {{site.data.keyword.cloudant_short_notm}}, such as reading or writing JSON documents, reading a list of databases, viewing monitoring endpoints, or authenticating against the service.  
+- **Management Events** are administrative events that impact the state of an  {{site.data.keyword.cloudant_short_notm}} instance, such as the following management events:
+  - Creating or deleting a database. 
+  - Updating security settings.
+  - Creating a replication job.
+  - Creating an index. 
+- **Data Events** are all the other events that are involved with interacting with {{site.data.keyword.cloudant_short_notm}}, such as the following events:
+  - Reading or writing JSON documents.
+  - Reading a list of databases. 
+  - Viewing monitoring endpoints.
+  - Authenticating against the service.  
 
 A full list of the events, along with their description and type are in the following tables. 
 
@@ -50,12 +58,12 @@ By default, only management events are sent to {{site.data.keyword.at_full_notm}
 4. Select the appropriate type, either **Management** or **Management & Data**, from the drop-down menu.
 5. Click **Save**. 
 
-Alternatively, you can use an {{site.data.keyword.cloudant_short_notm}} API to change event types that are sent. See details in the following section. 
+You can also use an {{site.data.keyword.cloudant_short_notm}} API to change event types that are sent. See details in the following section. 
 
 ### API to view and change event types
 {: #at_event_types_api}
 
-The API to view and change the event types requires {{site.data.keyword.IBM_notm}} Identity and Access Management (IAM) authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication is not supported for this API endpoint. See the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
+The API to view and change the event types requires {{site.data.keyword.IBM_notm}} Identity and Access Management (IAM) authentication. The use of {{site.data.keyword.cloudant_short_notm}} legacy authentication isn't supported for this API endpoint. See the [IAM guide](/docs/Cloudant?topic=cloudant-ibm-cloud-identity-and-access-management-iam-) for details on using IAM authentication for {{site.data.keyword.cloudant_short_notm}}.
 {: note}
 
 #### `GET /_api/v2/user/activity_tracker/events`
@@ -82,7 +90,7 @@ See the following example response that shows both management and data event typ
 #### `POST /_api/v2/user/activity_tracker/events`
 {: #at_event_types_api_post}
 
-Sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint by passing a JSON object with an `events` field. This field includes an array of event types that update the event types being sent. See the two possible options for the JSON object that is passed to the endpoint:
+Sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint by passing a JSON object with an `events` field. This field includes an array of event types that update the event types being sent. See the first option for the JSON object that is passed to the endpoint:
 
 ```json
 {
@@ -91,7 +99,7 @@ Sending a `POST` to the `/_api/v2/user/activity_tracker/events` endpoint by pass
 ```
 {: codeblock}
 
-Here is the second option:
+See the second option for the JSON object that is passed to the endpoint:
 
 ```json
 {
@@ -116,7 +124,7 @@ The following example response shows that the update was accepted:
 ```
 {: codeblock}
 
-If the `events` field includes invalid event types, then the response is similar to the following example: 
+If the `events` field includes invalid event types, then a response similar to the following is returned: 
 
 ```json
 {
@@ -126,7 +134,7 @@ If the `events` field includes invalid event types, then the response is similar
 ```
 {: codeblock}
 
-If the `events` field is missing, then the response is similar to the following example: 
+If the `events` field is missing, then a response similar to the following is returned: 
 
 ```json
 {

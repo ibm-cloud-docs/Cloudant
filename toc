@@ -23,14 +23,14 @@ Cloudant
 
 	{: .topicgroup}
 	Apache CouchDB
-		couchdb/overview.md
+		couchdb/overview-couchdb.md
 		couchdb/comparison.md
 		couchdb/install.md
 		couchdb/support.md
 
 	{: .topicgroup}
 	Cloudant Local
-		local/overview.md
+		local/overview-local.md
 		local/whats-new.md
 		local/install.md
 		local/configure.md
@@ -50,7 +50,7 @@ Cloudant
 
 	{: .topicgroup}
 	API Reference
-		api/overview.md
+		api/overview-api.md
 		api/http.md
 		api/compare.md
 		api/account.md

@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-01-20 -->
+<!-- Acrolinx: 2020-03-11 -->
 
 # Getting started with {{site.data.keyword.cloudant_short_notm}}
 {: #getting-started-with-cloudant}

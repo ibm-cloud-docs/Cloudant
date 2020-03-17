@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-02-06"
+lastupdated: "2020-03-13"
 
 keywords: advanced endpoints, cluster information, revision history, GET /, _db_updates, $DATABASE/_shards, $DATABASE/_missing_revs, $DATABASE/_revs_diff, _membership, _uuids
 
@@ -21,7 +21,7 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2020-02-07 -->
+<!-- Acrolinx: 2020-03-13 -->
 
 # Advanced
 {: #advanced-api}
@@ -130,12 +130,12 @@ Polling modes for this endpoint work like the polling modes for the changes feed
 
 | Argument | Description | Optional | Type | Default | Supported Values |
 |---------|-------------|----------|------|---------|----------------|
-| descending | Determines that results are returned in descending order. In other words, the most recent event appears first. By default, the oldest event is returned first. | Yes | Boolean | False | |
-| feed | Type of feed | yes | string | normal | `continuous`: Continuous (non-polling) mode, `longpoll`: Long polling mode, `normal`: default polling mode |
-| heartbeat | Time in milliseconds after which an empty line is sent during longpoll or continuous if no changes occurred | Yes | Numeric | 60000 | |
-| limit | Maximum number of results to return | Yes | Numeric | None |  |
-| since | Start the results from changes immediately after the specified sequence number. If since is 0 (the default), the request returns all changes since the feature was activated. | Yes | String | 0 |  |
-| timeout | Number of milliseconds to wait for data in a `longpoll` or `continuous` feed before the response is terminated. If both `heartbeat` and `timeout` are suppled, `heartbeat` supersedes `timeout`. | Yes | Numeric |  |  | |
+| `descending` | Determines that results are returned in descending order. In other words, the most recent event appears first. By default, the oldest event is returned first. | Yes | Boolean | False | |
+| `feed` | Type of feed | Yes | String | Normal | `continuous`: Continuous (non-polling) mode, `longpoll`: Long polling mode, `normal`: default polling mode |
+| `heartbeat` | Time in milliseconds after which an empty line is sent during `longpoll` or `continuous` if no changes occurred. | Yes | Numeric | 60000 | |
+| `limit` | Maximum number of results to return. | Yes | Numeric | None |  |
+| `since` | Start the results from changes immediately after the specified sequence number. If since is 0 (the default), the request returns all changes since the feature was activated. | Yes | String | 0 |  |
+| `timeout` | Number of milliseconds to wait for data in a `longpoll` or `continuous` feed before the response is terminated. If both `heartbeat` and `timeout` are suppled, `heartbeat` supersedes `timeout`. | Yes | Numeric |  |  | |
 
 See the following example request to get a list of changes to the database by using HTTP:
 
@@ -190,10 +190,10 @@ See the following example response with database information:
 {: #-get-database-_shards-}
 
 The `/$DATABASE/_shards` endpoint returns information about the shards in the cluster,
-specifically what nodes contain what hash ranges.
+specifically what nodes include what hash ranges.
 
 The `shards` field in the response includes an object with keys that are the hash value range for each shard.
-Each value is the array of nodes that contain a copy of that shard.
+Each value is the array of nodes that include a copy of that shard.
 
 See the following example request by using HTTP:
 
@@ -443,7 +443,7 @@ See the following example response with node names in the cluster:
 This endpoint returns the names of nodes in the cluster.
 Currently, active clusters are indicated in the `cluster_nodes` field.
 The `all_nodes` field lists all the nodes,
-regardless of whether they're active or not.
+whether they're active or not.
 
 -   **Method** - `GET`
 -   **Path** - `/_membership`

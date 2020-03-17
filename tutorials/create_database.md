@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-01-20"
+lastupdated: "2020-03-11"
 
 keywords: close connection, delete database, request ibm cloudant api endpoint, data retrieval, store data, create database, connect to ibm cloudant
 
@@ -21,29 +21,28 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2017-05-10 -->
+<!-- Acrolinx: 2020-03-11 -->
 
 # Creating and populating a simple {{site.data.keyword.cloudant_short_notm}} database on {{site.data.keyword.cloud_notm}}
 {: #creating-and-populating-a-simple-ibm-cloudant-database-on-ibm-cloud}
 
 This tutorial shows you how to use the [Python programming language](https://www.python.org/){: new_window}{: external} to
-create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.cloud_notm}} service instance,
-and populate the database with a simple collection of data.
+create an {{site.data.keyword.cloudantfull}} database in your {{site.data.keyword.cloud_notm}} service instance. You also learn how to populate the database with a simple collection of data.
 {: shortdesc}
 
 ## Prerequisites
 {: #prerequisites-create_database}
 
-Ensure that you have the following resources or information ready,
+Ensure that you have the following resources or information ready
 before you start working through the tutorial.
 
 ### Python
 {: #python-create-database}
 
 You must have a current installation of the [Python programming language](https://www.python.org/){: new_window}{: external}
-installed on your system.
+that is installed on your system.
 
-To check this,
+To check that Python is installed,
 run the following command at a prompt:
 
 ```sh
@@ -51,7 +50,7 @@ python --version
 ```
 {: pre}
 
-You should get a result similar to:
+You must get a result similar to the following example:
 
 ```
 Python 2.7.12
@@ -61,9 +60,9 @@ Python 2.7.12
 ### Python Client Library for {{site.data.keyword.cloudant_short_notm}}
 {: #python-client-library-for-ibm-cloudant}
 
-There is an [officially supported library](/docs/Cloudant?topic=cloudant-supported-client-libraries#python-supported) to enable your Python applications to work with {{site.data.keyword.cloudant_short_notm}} on {{site.data.keyword.cloud_notm}}. Use the instructions provided to install it. 
+An [officially supported library](/docs/Cloudant?topic=cloudant-supported-client-libraries#python-supported) is included to enable your Python applications to work with {{site.data.keyword.cloudant_short_notm}}. Use the instructions provided to install it. 
 
-To check that you have the client library installed successfully,
+To check that the client library installed successfully,
 run the following command at a prompt:
 
 ```sh
@@ -71,9 +70,9 @@ pip freeze
 ```
 {: pre}
 
-You should get a list of all the Python modules installed on your system.
+You must get a list of all the Python modules installed on your system.
 Inspect the list,
-looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following:
+looking for an {{site.data.keyword.cloudant_short_notm}} entry similar to the following example:
 
 ```
 cloudant==2.3.1
@@ -112,23 +111,21 @@ suitable for the following tasks:
 
 Python code specific to each task is provided as part of the task description in this tutorial.
 
-For information about the complete Python program to perform all the tasks, see the [complete listing](#complete-listing).
+For more information about the complete Python program to perform all the tasks, see the [complete listing](#complete-listing).
 
-No attempt has been made to create *efficient* Python code for this tutorial;
-the intention is to show simple and easy-to-understand working code
-that you can learn from and apply for your own applications.
+This tutorial doesn't use the most efficient Python code. Our intent is to show simple and easy-to-understand working code
+that you can learn from and apply to your own applications.
 
 Also,
-no attempt has been made to address all possible checks or error conditions.
-Some example checks are shown here,
-to illustrate the techniques,
-but you should apply normal best practices for checking and handling all
-warning or error conditions encountered by your own applications. 
+we didn't address all possible checks or error conditions.
+See the example checks shown here to illustrate the techniques.
+You must apply normal best practices for checking and handling all
+warning or error conditions that are encountered by your own applications. 
 
 ## Connecting to an {{site.data.keyword.cloudant_short_notm}} service instance on {{site.data.keyword.cloud_notm}}
 {: #connecting-to-an-ibm-cloudant-service-instance-on-ibm-cloud}
 
-A Python application requires the {{site.data.keyword.cloudant_short_notm}} Client Library components to be able to connect to the service instance.
+A Python application requires the {{site.data.keyword.cloudant_short_notm}} Client Library components to connect to the service instance.
 These components are identified as normal `import` statements:
 
 ```python
@@ -147,16 +144,16 @@ serviceURL = "https://353466e8-47eb-45ce-b125-4a4e1b5a4f7e-bluemix.cloudant.com"
 ```
 {: codeblock}
 
-The service credentials illustrated here
+The service credentials that are illustrated
     were defined when a demonstration {{site.data.keyword.cloudant_short_notm}} service was created on {{site.data.keyword.cloud_notm}}.
     The credentials are reproduced here to show how they would be used in a Python application.
     However,
-    the demonstration {{site.data.keyword.cloudant_short_notm}} service has been removed now,
-    so these credentials will not work;
+    the demonstration {{site.data.keyword.cloudant_short_notm}} service was removed,
+    so these credentials no longer work;
     you *must* supply and use your own service credentials.
 {:  tip}
 
-Once you have enabled the Python client library within your application,
+Once you enable the Python client library within your application,
 and identified the service credentials,
 you can establish a connection to the service instance:
 
@@ -166,8 +163,7 @@ client.connect()
 ```
 {: codeblock}
 
-At this point,
-your Python application has access to the service instance on {{site.data.keyword.cloud_notm}}.
+Now, your Python application can access the service instance on {{site.data.keyword.cloud_notm}}.
 
 ## Creating a database within the service instance
 {: #creating-a-database-within-the-service-instance}
@@ -175,7 +171,7 @@ your Python application has access to the service instance on {{site.data.keywor
 The next step is to create a database within the service instance,
 called `databasedemo`.
 
-We do this by defining a variable in the Python application:
+We create this instance by defining a variable in the Python application:
 
 ```python
 databaseName = "databasedemo"
@@ -189,7 +185,7 @@ myDatabaseDemo = client.create_database(databaseName)
 ```
 {: codeblock}
 
-It is helpful to check that the database was created successfully:
+It's helpful to check that the database was created successfully:
 
 ```python
 if myDatabaseDemo.exists():
@@ -254,9 +250,8 @@ Notice that we check that each document was successfully created.
 ## Retrieving data
 {: #retrieving-data}
 
-At this point,
-a small collection of data
-has been stored as documents within the database.
+A small collection of data
+is stored as documents within the database.
 We can now perform a series of queries,
 illustrating different ways of retrieving data from the database.
 
@@ -269,7 +264,7 @@ This list is returned as an array.
 We can then show the content of an element in the array.
 
 In the sample code,
-we request the first document retrieved from the database:
+we request the first document that is retrieved from the database:
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs)
@@ -294,25 +289,25 @@ The result is similar to the following example:
 
 The nature of NoSQL databases,
     such as {{site.data.keyword.cloudant_short_notm}},
-    means that simple notions of the first document stored in a database
+    means that simple notions of the first document that is stored in a database
     always being the first document returned in a list of results,
-    do not necessarily apply.
+    don't necessarily apply.
 {: tip}
 
 ### Full retrieval of a document
 {: #full-retrieval-of-a-document}
 
-To perform a full retrieval,
+Additionally, to perform a full retrieval,
 we request a list of all documents within the database,
-and additionally specify that the document content must also be returned.
-We do this by using the `include_docs` option.
+and specify that the document content must also be returned.
+We run a full retrieval by using the `include_docs` option.
 As before,
 the results are returned as an array.
-We can then show the details of an element in the array,
-this time including the full content of the document. 
+We can then show the details of an element in the array
+by including the full content of the document this time. 
 
 As before,
-we request the first document retrieved from the database:
+we request the first document that is retrieved from the database:
 
 ```python
 result_collection = Result(myDatabaseDemo.all_docs, include_docs=True)
@@ -352,9 +347,7 @@ from within a Python application.
 In this example code,
 we again request a list of all the documents,
 including their content.
-This time,
-however,
-we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/Cloudant?topic=cloudant-databases#get-documents).
+However, this time we do so by invoking the {{site.data.keyword.cloudant_short_notm}} [`/_all_docs` endpoint](/docs/Cloudant?topic=cloudant-databases#get-documents).
 
 First,
 we identify the endpoint to contact,
@@ -368,7 +361,7 @@ params = {'include_docs': 'true'}
 
 Next,
 we send the request to the service instance,
-then display the results:
+and then display the results:
 
 ```python
 response = client.r_session.get(end_point, params=params)
@@ -423,11 +416,10 @@ The result is similar to the following *abbreviated* example:
 ## Deleting the database
 {: #deleting-the-database}
 
-When we have finished with the database,
+When we finish with the database,
 it can be deleted.
 
-This is a simple step,
-as shown in the following sample Python code:
+This step is shown in the following sample Python code:
 
 ```python
 try :
@@ -439,7 +431,7 @@ else:
 ```
 {: codeblock}
 
-We have included some basic error handling to illustrate how problems
+We include some basic error handling to illustrate how problems
 might be caught and addressed.
 
 ## Closing the connection to the service instance

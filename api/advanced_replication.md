@@ -2,7 +2,7 @@
 
 copyright:
   years: 2015, 2020
-lastupdated: "2020-01-22"
+lastupdated: "2020-03-13"
 
 keywords: performance options, attachments, filtered replication, replication scheduler, cancel replication, replication database maintenance, /_scheduler/docs endpoint, /_scheduler/docs/_replicator/$doc_id endpoint, /_scheduler/jobs endpoint, /_scheduler/jobs/$job_id endpoint
 
@@ -21,12 +21,16 @@ subcollection: cloudant
 {:deprecated: .deprecated}
 {:external: target="_blank" .external}
 
-<!-- Acrolinx: 2019-09-06 -->
+<!-- Acrolinx: 2020-03-13 -->
 
 # Advanced replication
 {: #advanced-replication}
 
-You can learn about advanced replication concepts and tasks, including maintaining your replication database, scheduling and monitoring replications, authenticating during replication, and more.
+You can learn about advanced replication concepts and tasks, such as the ones in the following list and more:
+
+- Maintaining your replication database
+- Scheduling and monitoring replications
+- Authenticating during replication
 {: shortdesc}
 
 You might also find it helpful to review details of the underlying
@@ -36,15 +40,15 @@ and review the [Advanced methods](/docs/Cloudant?topic=cloudant-advanced-api#adv
 ## Replication database maintenance
 {: #replication-database-maintenance}
 
-A replication database must be looked after like any other database.
+A replication database must be monitored like any other database.
 Without regular database maintenance,
 you might accumulate invalid documents that were caused by interruptions to the replication process.
 Having many invalid documents can result in an excess load on your cluster
 when the replicator process is restarted by {{site.data.keyword.cloudantfull}} operations.
 
-The main action that you can do to maintain a replication database is to remove old documents.
-This action can be done by determining the age of documents,
-and [deleting them](/docs/Cloudant?topic=cloudant-documents#delete-a-document) if they are no longer needed.
+To maintain a replication database, remove old documents. 
+You can remove old documents by determining their age
+and [deleting them](/docs/Cloudant?topic=cloudant-documents#delete-a-document) if they're no longer needed.
 
 ## The replication scheduler
 {: #the-replication-scheduler}
@@ -60,34 +64,27 @@ Finally,
 the state of a replication is now more detailed,
 and consists of seven distinct states:
 
-1.  `initializing`:
-  The replication was added to the scheduler,
-  but is not yet initialized or scheduled to run.
+1.  `initializing` - The replication was added to the scheduler,
+  but isn't yet initialized or scheduled to run.
   The status occurs when a new or updated replication document is stored within
   the [`_replicator` database](/docs/Cloudant?topic=cloudant-replication-api#the-_replicator-database). 
-2.  `error`:
-  The replication cannot be turned into a job.
+2.  `error` - The replication can't be turned into a job.
   This error might be caused in several different ways.
   For example,
   the replication must be [filtered](/docs/Cloudant?topic=cloudant-design-documents#filter-functions),
-  but it was not possible to fetch the filter code from the source database.
-3.  `pending`:
-  The replication job is scheduled to run,
-  but is not yet running.
-4.  `running`:
-  The replication job is running.
-5.  `crashing`:
-  A temporary error occurred that affects the replication job.
+  but it wasn't possible to fetch the filter code from the source database.
+3.  `pending` - The replication job is scheduled to run,
+  but isn't yet running.
+4.  `running` - The replication job is running.
+5.  `crashing` - A temporary error occurred that affects the replication job.
   The job is automatically retried later.
-6.  `completed`:
-  The replication job completed.
-  This state does not apply to [continuous replications](/docs/Cloudant?topic=cloudant-replication-api#continuous-replication).
-7.  `failed`:
-  The replication job failed.
+6.  `completed` - The replication job completed.
+  This state doesn't apply to [continuous replications](/docs/Cloudant?topic=cloudant-replication-api#continuous-replication).
+7.  `failed`- The replication job failed.
   The failure is permanent.
   This state means that no further attempt is made to replicate by using this replication task.
   The failure might be caused in several different ways,
-  for example if the source or target URLs are not valid.
+  for example, if the source or target URLs aren't valid.
   
 The transition between these states is illustrated in the following diagram:
 
@@ -100,7 +97,7 @@ The scheduler introduces two new endpoints:
 
 You can manage and determine replication status more quickly and easily by using these endpoints.
 
-See the typical process for using the replication scheduler to manage and monitor replications as follows:
+See the typical process for using the replication scheduler to manage and monitor replications:
 
 1.  Create a [replication document](/docs/Cloudant?topic=cloudant-replication-api#replication-document-format) that describes the needed replication,
     and store the document in the [replicator database](/docs/Cloudant?topic=cloudant-replication-api#the-_replicator-database).
@@ -109,9 +106,9 @@ See the typical process for using the replication scheduler to manage and monito
 ### The `/_scheduler/docs` endpoint
 {: #the-_scheduler-docs-endpoint}
 
-The `/_scheduler/docs` endpoint provides a monitoring capability.
+The `/_scheduler/docs` endpoint provides a monitoring feature.
 Use it to determine the status of a replication that is described by a replication document.
-The status of a replication can be 1 of 7 possible states,
+The status of a replication can be one of seven possible states,
 as described in the [replication scheduler](#the-replication-scheduler) section.
 
 #### Query parameters for the `/_scheduler/docs` endpoint
@@ -125,9 +122,9 @@ You can use the following parameters to narrow your search results:
 
 Name      | Type                    | Description                                                               | Default
 ----------|-------------------------|---------------------------------------------------------------------------|-------------------
-`states`  | comma-delimited strings | Includes only replication documents in the specified states.               | Return all states
-`limit`   | integer                 | Number of documents that are included in the search results. Maximum limit is 200. | Return all
-`skip`    | integer                 | Number of results to skip before the search results are returned.                | 0
+`states`  | Comma-delimited strings | Includes only replication documents in the specified states.               | Return all states.
+`limit`   | Integer                 | Number of documents that are included in the search results. Maximum limit is 200. | Return all.
+`skip`    | Integer                 | Number of results to skip before the search results are returned.                | 0
 
 #### The `/_scheduler/docs/_replicator/$doc_id` endpoint
 {: #the-_scheduler-docs-_replicator-doc_id-endpoint}
@@ -148,7 +145,7 @@ For example,
 the `/_scheduler/jobs` endpoint describes when the replication last started, stopped, or crashed.
 
 However,
-the endpoint does not include results for replications that are in the `completed` or `failed` state. Replications in these states are not included because such replications are considered complete, and therefore are no longer active jobs.
+the endpoint doesn't include results for replications that are in the `completed` or `failed` state. Replications in these states aren't included because such replications are considered complete and no longer active.
 
 #### Query parameters for the `/_scheduler/jobs` endpoint
 {: #query-parameters-for-the-_scheduler-jobs-endpoint}
@@ -161,8 +158,8 @@ You can use the following parameters to narrow your search results:
 
 Name     | Type    | Description                                                          | Default
 ---------|---------|----------------------------------------------------------------------|-------------
-`limit`  | integer | Number of jobs that are included in the search results. Maximum limit is 200. | 25
-`skip`   | integer | Number of results to skip before search results are returned.           | 0
+`limit`  | Integer | Number of jobs that are included in the search results. Maximum limit is 200. | 25
+`skip`   | Integer | Number of results to skip before search results are returned.           | 0
 
 #### The `/_scheduler/jobs/$job_id` endpoint
 {: #the-_scheduler-jobs-_replicator-job_id-endpoint}
@@ -396,17 +393,17 @@ The fields all have the prefix: `_replication_`
 
 Field | Detail
 ------|-------
-`_replication_id` | This field includes the internal ID assigned to the replication. It is the same ID that appears in the output from `_active_tasks`.
+`_replication_id` | This field includes the internal ID assigned to the replication. It's the same ID that appears in the output from `_active_tasks`.
 `_replication_state` | The current state of the replication.
 `_replication_state_time` | An [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt){: new_window}{: external} compliant time stamp that reports when the current replication state defined in `_replication_state` was set.
 
-The `_replication_state`'s possible states include:
+The possible states for a `_replication_state` are shown in the following list:
 
--	`completed`: The replication completed successfully.
--	`error`: An error occurred during replication.
--	`triggered`: The replication started. It is now in progress.
+-	`completed` - The replication completed successfully.
+-	`error` - An error occurred during replication.
+-	`triggered` - The replication started. It's now in progress.
 
-See the following example replication document before it is `PUT` into `_replicator`:
+See the following example replication document before it's `PUT` into the `_replicator` database:
 
 ```json
 {
@@ -458,8 +455,8 @@ A continuous replication can never have a `completed` state.
 {: #authentication-during-replication}
 
 In any production application, security of the source and target databases is essential.
-In order for replication to proceed, authentication is necessary to access the databases.
-In addition, checkpoints for replication are [enabled by default](/docs/Cloudant?topic=cloudant-replication-api#replication-document-format),
+In order for replication to continue, authentication is necessary to access the databases.
+Checkpoints for replication are [enabled by default](/docs/Cloudant?topic=cloudant-replication-api#replication-document-format),
 which means that replicating the source database requires write access.
 
 To enable authentication during replication,
@@ -479,7 +476,7 @@ See the following example of specifying username and password values for accessi
 ## Filtered replication
 {: #filtered-replication-adv-repl}
 
-Sometimes you do not want to transfer all documents from source to target.
+Sometimes you don't want to transfer all documents from source to target.
 To choose which documents to transfer,
 include one or more filter functions in a design document on the source.
 You can then tell the replicator to use these filter functions.
@@ -523,7 +520,7 @@ See the following example of storing a filter function in a design document:
 ```
 {: codeblock}
 
-A filtered replication is started by using a JSON statement that identifies:
+A filtered replication is started by using a JSON statement that identifies the following items:
 
 -	The source database.
 -	The target database.
@@ -541,7 +538,7 @@ See example JSON for starting a filtered replication:
 {: codeblock}
 
 Arguments can be supplied to the filter function by
-including key:value pairs in the `query_params` field of the invocation.
+including key: value pairs in the `query_params` field of the invocation.
 
 See example JSON for starting a filtered replication with supplied parameters:
 
@@ -563,9 +560,9 @@ The `selector` option provides performance benefits when compared with using t
 ## Named document replication
 {: #named-document-replication}
 
-Sometimes you do not want to replicate documents.
+Sometimes you don't want to replicate documents.
 For simple replications,
-you do not need to write a filter function.
+you don't need to write a filter function.
 Instead,
 to replicate specific documents,
 add the list of keys as an array in the `doc_ids` field.
@@ -587,7 +584,7 @@ See the following example replication of specific documents:
 If you want replication to pass through an HTTP proxy,
 provide the proxy details in the `proxy` field of the replication data.
 
-See the following example showing replication through a proxy:
+See the following example that shows replication through a proxy:
 
 ```json
 {
@@ -606,25 +603,25 @@ This property defines the user context under which a replication runs.
 
 An older way of triggering replications,
 by making a `POST` to the `/_replicate/` endpoint,
-did not need the `user_ctx` property.
+didn't need the `user_ctx` property.
 The reason is that at the moment of triggering the replication,
 all the necessary information about the authenticated user is available.
 
 By contrast,
 the replicator database is a regular database.
-Therefore, the information about the authenticated user is only present
+The information about the authenticated user is only present
 at the moment the replication document is written to the database.
 In other words,
 the replicator database implementation is similar to a `_changes` feed consumption application, 
 with `?include_docs=true` set.
 
 For replication, this implementation difference means that for non-admin users,
-a `user_ctx` property that contains the user's name and a subset of their roles
+a `user_ctx` property that includes the user's name and a subset of their roles
 must be defined in the replication document.
 This requirement is addressed by a validation function present in the default design document of the replicator database.
 The function validates each document update.
-This validation function also ensures that a non-admin user cannot set a username property in the `user_ctx` property
-that does not correspond to the correct username.
+This validation function also ensures that a non-admin user can't set a username property in the `user_ctx` property
+that doesn't correspond to the correct username.
 The same principle also applies for roles.
 
 See the following example delegated replication document:
@@ -648,13 +645,13 @@ the `user_ctx` property is optional.
 If the property is missing,
 the value defaults to a user context with the name `null` and an empty list of roles.
 
-The empty list of roles means that design documents are not written to local targets during replication.
+The empty list of roles means that design documents aren't written to local targets during replication.
 If you want to write design documents to local targets,
 then a user context with the `_admin` role must be set explicitly.
 
 Also,
 for admins,
-the `user_ctx` property can be used to trigger a replication on behalf of another user.
+the `user_ctx` property can be used to trigger a replication for another user.
 This user context is passed to local target database document validation functions.
 
 The `user_ctx` property applies to local endpoints only.
@@ -662,7 +659,7 @@ The `user_ctx` property applies to local endpoints only.
 
 In summary,
 for admins the `user_ctx` property is optional,
-while for regular (non-admin) users it is mandatory.
+while for regular (non-admin) users it's mandatory.
 When the roles property of `user_ctx` is missing,
 it defaults to the empty list `[ ]`.
 
@@ -685,13 +682,13 @@ by including them in the replication document.
 -   `retries_per_request` - The maximum number of retries per request.
 	Before a retry,
 	the replicator waits for a short period before it repeats the request.
-	This period doubles between each consecutive retry attempt,
+	This period doubles between each consecutive retry,
 	and never goes beyond 5 minutes.
-	The minimum value before the first retry attempt is 0.25 seconds.
-	The default value is 10 attempts.
+	The minimum value before the first retry is 0.25 seconds.
+	The default value is 10 retries.
 -   `socket_options` - A list of options to pass to the connection sockets.
 	The available options can be found in the
-	[documentation for the Erlang function setopts/2 of the `inet` module](http://www.erlang.org/doc/man/inet.html#setopts-2){: new_window}{: external}. 
+	[documentation for the Erlang function `setopts` of the `inet` module](http://www.erlang.org/doc/man/inet.html#setopts-2){: new_window}{: external}. 
 	Default value is `[{keepalive, true},{nodelay, false}]`.
 -   `worker_batch_size` - Worker processes run batches of replication tasks,
 	where the batch size is defined by this parameter.
@@ -729,7 +726,7 @@ see [Performance considerations](/docs/Cloudant?topic=cloudant-attachments#perfo
 ## The `/_replicate` endpoint
 {: #the-_replicate-endpoint}
 
-It is preferable to use the [replicator scheduler](#the-replication-scheduler) to manage replication.
+It's preferable to use the [replicator scheduler](#the-replication-scheduler) to manage replication.
 For more information about using the replicator scheduler to manage replication, see  [Avoiding the `/_replicate` endpoint](#avoiding-the-_replicate-endpoint).
 {: note}
 
@@ -739,7 +736,7 @@ or stop,
 a replication operation.
 
 You do these actions by sending a `POST` request directly to the `/_replicate` endpoint.
-The `POST` contains a JSON document that describes the wanted replication.
+The `POST` includes a JSON document that describes the wanted replication.
 
 Name | Description
 -----|------------
@@ -749,16 +746,16 @@ Request | Replication specification
 Roles | `_admin`
 
 The specification of the replication request is controlled through the JSON content of the request.
-The JSON document must contain fields that define the source,
+The JSON document must include fields that define the source,
 target,
 and other options.
 
 Except for the `cancel` field,
-the fields in the JSON document that is supplied to the `_replicate` endpoint are identical to those fields in
+the fields in the JSON document that is supplied to the `_replicate` endpoint are the same as those fields in
 a replication document that is stored in the [`_replicator` database](/docs/Cloudant?topic=cloudant-replication-api#the-_replicator-database).
 The JSON document uses the [replication document format](/docs/Cloudant?topic=cloudant-replication-api#replication-document-format).
 
-The fields of the JSON request are as follows:
+The fields of the JSON request are shown in the following table:
 
 Field           | Purpose                                                     | Optional
 ----------------|-------------------------------------------------------------|---------
@@ -803,7 +800,7 @@ Code  | Description
 ------|------------
 `200` | Replication request successfully completed.
 `202` | Continuous replication request has been accepted.
-`404` | Either the source or target database was not found.
+`404` | Either the source or target database wasn't found.
 `500` | JSON specification was invalid.
 
 ### Canceling replication by using the `/_replicate` endpoint
@@ -813,12 +810,11 @@ A replication that is triggered by `POST`ing to `/_replicate` can be canceled
 by `POST`ing the exact same JSON object but with the additional `cancel` property set to `true`.
 
 If a replication is canceled,
-the request that initiated the replication fails with [error 500 (shutdown)](/docs/Cloudant?topic=cloudant-http#http-status-codes).
+the request that started the replication fails with [error 500 (shutdown)](/docs/Cloudant?topic=cloudant-http#http-status-codes).
 {: note}
 
-The replication ID can be obtained from the original replication request if it is a continuous replication.
-Alternatively,
-the replication ID can be obtained from [`/_active_tasks`](/docs/Cloudant?topic=cloudant-active-tasks#active-tasks).
+The replication ID can be obtained from the original replication request if it's a continuous replication.
+Or the replication ID can be obtained from [`/_active_tasks`](/docs/Cloudant?topic=cloudant-active-tasks#active-tasks).
 
 See the following example that uses HTTP to cancel a replication:
 
@@ -854,4 +850,4 @@ Use the [`_replicator` scheduler](#the-replication-scheduler) instead of the `/_
 {: important}
 
 If a problem occurs during replication, such as a stall, timeout, or application crash,
-a replication that is defined within the `_replicator` database is automatically restarted by the system. Whereas if you define a replication by sending a request to the `/_replicate` endpoint, it cannot be restarted by the system if a problem occurs because the replication request does not persist. In addition, replications that are defined in the `_replicator` database are easier to [monitor](#replication-status).
+a replication that is defined within the `_replicator` database is automatically restarted by the system. However, if you define a replication by sending a request to the `/_replicate` endpoint, it can't be restarted by the system if a problem occurs because the replication request doesn't persist. Replications that are defined in the `_replicator` database are easier to [monitor](#replication-status).
